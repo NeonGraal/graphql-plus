@@ -44,7 +44,7 @@ public class VerifyAllTypesTests
   [Fact]
   public void Verify_Schema_WithAliasedDeclarations_ReturnsNoErrors()
   {
-    IGqlpType type = A.Enum("Enum", ["Alias"], "", "");
+    IGqlpType type = A.Enum("Enum", ["Alias"]);
 
     _verifier.Verify([type], Errors);
 
@@ -54,9 +54,9 @@ public class VerifyAllTypesTests
   [Fact]
   public void Verify_Schema_WithAliasDuplicates_ReturnsError()
   {
-    IGqlpType type1 = A.Enum("Enum", ["Alias"], "", "");
+    IGqlpType type1 = A.Enum("Enum", ["Alias"]);
 
-    IGqlpType type2 = A.Union("Union", ["Alias"], "", "");
+    IGqlpType type2 = A.Union("Union", ["Alias"]);
 
     _verifier.Verify([type1, type2], Errors);
 

@@ -724,8 +724,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     obj ??= TheObject;
 
-    IGqlpObjBase objBase = A.ObjBase(enumType);
-    TField field = A.ObjField<TField>(fieldName, objBase);
+    TField field = A.ObjField<TField>(fieldName, enumType);
     IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
     field.EnumValue.Returns(enumValue);
 

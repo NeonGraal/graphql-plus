@@ -33,9 +33,7 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
     result.ShouldBeFalse();
   }
 
-
-
-  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithName_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
   {
     // Arrange
@@ -46,11 +44,10 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
     TypeGenerator.GenerateType(type, context);
 
     // Assert
-    string result = context.ToString();
-    CheckGeneratedCodeName(generatorType, name)(result);
+    context.CheckForRequired(GeneratedCodeName(generatorType, name));
   }
 
-  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithParent_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent)
   {
     // Arrange
@@ -61,16 +58,24 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
     TypeGenerator.GenerateType(type, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedCodeParent(generatorType, parent));
+    context.CheckForRequired(
+      GeneratedCodeName(generatorType, name),
+      GeneratedCodeParent(generatorType, parent));
   }
 }
 
 public abstract class TypeGeneratorClassTestBase
   : GeneratorClassTestBase
 {
+  protected virtual string GeneratedCodeName(GqlpGeneratorType generatorType, string name)
+    => generatorType switch {
+      GqlpGeneratorType.Interface
+        => "public interface Itest" + name,
+      GqlpGeneratorType.Implementation
+        => "public class test" + name,
+      _ => ""
+    };
+
   protected virtual Action<string> CheckGeneratedCodeName(GqlpGeneratorType generatorType, string name)
     => result => {
       switch (generatorType) {
@@ -78,6 +83,13 @@ public abstract class TypeGeneratorClassTestBase
         case GqlpGeneratorType.Implementation: result.ShouldContain("public class test" + name); break;
         default: result.ShouldBeEmpty(); break;
       }
+    };
+
+  protected virtual string GeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
+    => generatorType switch {
+      GqlpGeneratorType.Interface => ": I" + "test" + parent,
+      GqlpGeneratorType.Implementation => ": test" + parent,
+      _ => "",
     };
 
   protected virtual Action<string> CheckGeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
@@ -88,14 +100,18 @@ public abstract class TypeGeneratorClassTestBase
         default: result.ShouldBeEmpty(); break;
       }
     };
+}
 
-  public static IEnumerable<object[]> BaseGeneratorData
-    => [
-        [GqlpBaseType.Interface, GqlpGeneratorType.Interface],
-        [GqlpBaseType.Class, GqlpGeneratorType.Implementation],
-        [GqlpBaseType.Other, GqlpGeneratorType.Enum],
-        [GqlpBaseType.Other, GqlpGeneratorType.Static],
-        [GqlpBaseType.Other, GqlpGeneratorType.Enum],
-        [GqlpBaseType.Class, GqlpGeneratorType.Test],
-      ];
+public class BaseGeneratorData
+  : TheoryData<GqlpBaseType, GqlpGeneratorType>
+{
+  public BaseGeneratorData()
+  {
+    Add(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
+    Add(GqlpBaseType.Class, GqlpGeneratorType.Implementation);
+    Add(GqlpBaseType.Other, GqlpGeneratorType.Enum);
+    Add(GqlpBaseType.Other, GqlpGeneratorType.Static);
+    Add(GqlpBaseType.Other, GqlpGeneratorType.Enum);
+    Add(GqlpBaseType.Class, GqlpGeneratorType.Test);
+  }
 }

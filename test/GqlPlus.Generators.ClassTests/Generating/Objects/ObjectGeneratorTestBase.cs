@@ -1,19 +1,20 @@
 ﻿namespace GqlPlus.Generating.Objects;
 
-public abstract class ObjectGeneratorTestBase<TObject, TField>
-  : TypeGeneratorClassTestBase<TObject, IGqlpObjBase>
+public abstract class ObjectGeneratorTestBase<TObject, TField>(
+  TypeKind kind
+) : TypeGeneratorClassTestBase<TObject, IGqlpObjBase>
   where TObject : class, IGqlpObject<TField>
   where TField : class, IGqlpObjField
 {
-  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  protected TypeKind Kind { get; } = kind;
+
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithField_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string fieldName, string fieldType)
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
-    IGqlpObjBase type = A.Named<IGqlpObjBase>(fieldType);
-    TField field = A.Named<TField>(fieldName);
-    field.Type.Returns(type);
+    TObject obj = A.Obj<TObject>(Kind, name);
+    TField field = A.ObjField<TField>(fieldName, fieldType);
     obj.Fields.Returns([field]);
 
     // Act
@@ -26,12 +27,12 @@ public abstract class ObjectGeneratorTestBase<TObject, TField>
       CheckGeneratedCodeField(generatorType, fieldName, fieldType));
   }
 
-  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithAlternate_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string alternateType)
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
+    TObject obj = A.Obj<TObject>(Kind, name);
     IGqlpObjAlt alternate = A.Named<IGqlpObjAlt>(alternateType);
     obj.Alternates.Returns([alternate]);
 
@@ -45,12 +46,12 @@ public abstract class ObjectGeneratorTestBase<TObject, TField>
       CheckGeneratedCodeAlternate(generatorType, alternateType));
   }
 
-  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithAlternateArgs_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string alternateType, string argName)
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
+    TObject obj = A.Obj<TObject>(Kind, name);
     IGqlpObjAlt alternate = A.Named<IGqlpObjAlt>(alternateType);
     IGqlpObjTypeArg arg = A.Named<IGqlpObjTypeArg>(argName);
     alternate.Args.Returns([arg]);
@@ -66,12 +67,12 @@ public abstract class ObjectGeneratorTestBase<TObject, TField>
       CheckGeneratedCodeAlternateArg(generatorType, alternateType, argName));
   }
 
-  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithFieldAndAlternate_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string fieldName, string fieldType, string alternateType)
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
+    TObject obj = A.Obj<TObject>(Kind, name);
     IGqlpObjBase type = A.Named<IGqlpObjBase>(fieldType);
     TField field = A.Named<TField>(fieldName);
     field.Type.Returns(type);
@@ -91,17 +92,17 @@ public abstract class ObjectGeneratorTestBase<TObject, TField>
       CheckGeneratedCodeAlternate(generatorType, alternateType));
   }
 
-  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithParams_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string[] parameters)
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TObject type = A.Parented<TObject, IGqlpObjBase>(name);
+    TObject obj = A.Obj<TObject>(Kind, name);
     IGqlpTypeParam[] typeParams = [.. parameters.Select(A.Named<IGqlpTypeParam>)];
-    type.TypeParams.Returns(typeParams);
+    obj.TypeParams.Returns(typeParams);
 
     // Act
-    TypeGenerator.GenerateType(type, context);
+    TypeGenerator.GenerateType(obj, context);
 
     // Assert
     string result = context.ToString();

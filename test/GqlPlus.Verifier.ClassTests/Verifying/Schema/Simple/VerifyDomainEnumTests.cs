@@ -20,7 +20,7 @@ public class VerifyDomainEnumTests
   [Fact]
   public void Verify_Enum_WithDefinedLabels_ReturnsNoErrrors()
   {
-    IGqlpEnum enumType = A.Enum("domain", null, A.EnumLabel("item1", ["i1"]), A.EnumLabel("item2", ["i2"]));
+    IGqlpEnum enumType = A.Enum("domain", A.EnumLabel("item1", ["i1"]), A.EnumLabel("item2", ["i2"]));
     AddTypes(enumType);
     EnumValues["item1"] = "domain";
 

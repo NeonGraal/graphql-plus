@@ -16,7 +16,6 @@ public class OptionGeneratorTests
     _generator.Generate(option, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldContain(name);
+    context.CheckForRequired(name);
   }
 }

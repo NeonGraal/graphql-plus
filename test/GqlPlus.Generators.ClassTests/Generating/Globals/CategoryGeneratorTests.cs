@@ -16,7 +16,6 @@ public class CategoryGeneratorTests
     _generator.Generate(category, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldContain(name);
+    context.CheckForRequired(name);
   }
 }

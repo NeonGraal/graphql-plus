@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Simple;
+﻿using System.Reflection.Emit;
+
+namespace GqlPlus.Generating.Simple;
 
 public class EnumGeneratorTests
   : TypeGeneratorClassTestBase<IGqlpEnum, IGqlpTypeRef>
@@ -15,18 +17,15 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    IGqlpEnum enumType = A.Named<IGqlpEnum>(enumName);
-    IGqlpEnumLabel label = A.Named<IGqlpEnumLabel>(labelName);
-    enumType.Items.Returns([label]);
-    enumType.Parent.Returns((IGqlpTypeRef?)null);
+    IGqlpEnum enumType = A.Enum(enumName, [labelName]);
+
+    MapPair<string> expected = new(labelName, "");
 
     // Act
     MapPair<string>[] result = [.. _generator.TypeMembers(enumType, context)];
 
     // Assert
-    result.Length.ShouldBe(1);
-    result[0].Key.ShouldBe(labelName);
-    result[0].Value.ShouldBe("");
+    result.ShouldBe([expected]);
   }
 
   [Theory, RepeatData]
@@ -34,103 +33,85 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    IGqlpEnum enumType = A.Named<IGqlpEnum>(enumName);
-    IGqlpTypeRef parentTypeRef = A.Named<IGqlpTypeRef>(parentName);
-    enumType.Parent.Returns(parentTypeRef);
+    IGqlpEnum enumType = A.Enum(enumName);
+    A.SetParent(enumType, parentName);
 
-    IGqlpEnum parentType = A.Named<IGqlpEnum>(parentName);
-    IGqlpEnumLabel label = A.Named<IGqlpEnumLabel>(labelName);
-    parentType.Items.Returns([label]);
-
+    IGqlpEnum parentType = A.Enum(parentName, [labelName]);
     context.AddTypes([parentType]);
+
+    MapPair<string> expected = new(labelName, $" = {parentName}.{labelName}");
 
     // Act
     MapPair<string>[] result = [.. _generator.TypeMembers(enumType, context)];
 
     // Assert
-    result.Length.ShouldBe(1);
-    result[0].Key.ShouldBe(labelName);
-    result[0].Value.ShouldBe($" = {parentName}.{labelName}");
+    result.ShouldBe([expected]);
   }
 
-  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithEnumItems_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string labelName)
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    IGqlpEnum enumType = A.Parented<IGqlpEnum, IGqlpTypeRef>(enumName);
-    IGqlpEnumLabel label = A.Named<IGqlpEnumLabel>(labelName);
-    enumType.Items.Returns([label]);
-    enumType.Parent.Returns((IGqlpTypeRef?)null);
+    IGqlpEnum enumType = A.Enum(enumName, [labelName]);
 
     // Act
     TypeGenerator.GenerateType(enumType, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(generatorType, enumName),
-      CheckGeneratedCodeLabel(generatorType, labelName));
+    context.CheckForRequired(
+      GeneratedCodeName(generatorType, enumName),
+      GeneratedCodeLabel(generatorType, labelName));
   }
 
-  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithEnumAlias_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string labelName, string alias)
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    IGqlpEnum enumType = A.Parented<IGqlpEnum, IGqlpTypeRef>(enumName);
-    IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, [alias]);
-    enumType.Items.Returns([label]);
-    enumType.Parent.Returns((IGqlpTypeRef?)null);
+    IGqlpEnumLabel label = A.EnumLabel(labelName, alias);
+    IGqlpEnum enumType = A.Enum(enumName, label);
 
     // Act
     TypeGenerator.GenerateType(enumType, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(generatorType, enumName),
-      CheckGeneratedCodeLabel(generatorType, labelName),
-      CheckGeneratedCodeLabel(generatorType, $"{alias} = {labelName}"));
+    context.CheckForRequired(
+      GeneratedCodeName(generatorType, enumName),
+      GeneratedCodeLabel(generatorType, labelName),
+      GeneratedCodeLabel(generatorType, $"{alias} = {labelName}"));
   }
 
-  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithParentItems_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string parentName, string labelName)
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    IGqlpEnum enumType = A.Parented<IGqlpEnum, IGqlpTypeRef>(enumName);
-    IGqlpTypeRef parentTypeRef = A.Named<IGqlpTypeRef>(parentName);
-    enumType.Parent.Returns(parentTypeRef);
+    IGqlpEnum enumType = A.Enum(enumName);
+    A.SetParent(enumType, parentName);
 
-    IGqlpEnum parentType = A.Named<IGqlpEnum>(parentName);
-    IGqlpEnumLabel label = A.Named<IGqlpEnumLabel>(labelName);
-    parentType.Items.Returns([label]);
-
+    IGqlpEnum parentType = A.Enum(parentName, [labelName]);
     context.AddTypes([parentType]);
 
     // Act
     TypeGenerator.GenerateType(enumType, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(generatorType, enumName),
-      CheckGeneratedCodeParentLabel(generatorType, parentName, labelName));
+    context.CheckForRequired(
+      GeneratedCodeName(generatorType, enumName),
+      GeneratedCodeParentLabel(generatorType, parentName, labelName));
   }
 
-  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithParentAlias_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string parentName, string labelName, string alias)
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    IGqlpEnum enumType = A.Parented<IGqlpEnum, IGqlpTypeRef>(enumName);
-    IGqlpTypeRef parentTypeRef = A.Named<IGqlpTypeRef>(parentName);
-    enumType.Parent.Returns(parentTypeRef);
+    IGqlpEnum enumType = A.Enum(enumName);
+    A.SetParent(enumType, parentName);
 
-    IGqlpEnum parentType = A.Named<IGqlpEnum>(parentName);
-    IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, [alias]);
-    parentType.Items.Returns([label]);
+    IGqlpEnumLabel label = A.EnumLabel(labelName, alias);
+    IGqlpEnum parentType = A.Enum(parentName, label);
 
     context.AddTypes([parentType]);
 
@@ -145,11 +126,23 @@ public class EnumGeneratorTests
       CheckGeneratedCodeLabel(generatorType, $"{alias} = {parentName}.{labelName}"));
   }
 
+  private static string GeneratedCodeLabel(GqlpGeneratorType generatorType, string label)
+    => generatorType == GqlpGeneratorType.Enum ? label + "," : "";
+
   private static Action<string> CheckGeneratedCodeLabel(GqlpGeneratorType generatorType, string label)
     => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain(label + ","));
 
+  private static string GeneratedCodeParentLabel(GqlpGeneratorType generatorType, string parent, string name)
+    => generatorType == GqlpGeneratorType.Enum ? $"{name} = {parent}.{name}," : "";
+
   private static Action<string> CheckGeneratedCodeParentLabel(GqlpGeneratorType generatorType, string parent, string name)
     => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain($"{name} = {parent}.{name},"));
+
+  protected override string GeneratedCodeName(GqlpGeneratorType generatorType, string name)
+    => generatorType == GqlpGeneratorType.Enum ? "public enum test" + name : "";
+
+  protected override string GeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
+    => "";
 
   protected override Action<string> CheckGeneratedCodeName(GqlpGeneratorType generatorType, string name)
     => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain("public enum test" + name));

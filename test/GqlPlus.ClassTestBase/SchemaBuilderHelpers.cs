@@ -115,7 +115,7 @@ public static class SchemaBuilderHelpers
     return typeParam;
   }
 
-  public static TType Parented<TType, TParent>(this IMockBuilder builder, string name, string? parent = null)
+  public static TType Parented<TType, TParent>(this IMockBuilder builder, string name, string parent = "")
     where TType : class, IGqlpType<TParent>
     where TParent : class, IGqlpNamed
   {

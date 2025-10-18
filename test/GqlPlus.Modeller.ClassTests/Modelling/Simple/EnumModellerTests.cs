@@ -18,7 +18,7 @@ public class EnumModellerTests
   {
     // Arrange
     IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, aliases, contents);
-    IGqlpEnum ast = A.Enum(name, [], null, "", label);
+    IGqlpEnum ast = A.Enum(name, label);
 
     // Act
     TypeEnumModel result = Modeller.ToModel(ast, TypeKinds);

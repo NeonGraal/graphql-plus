@@ -16,7 +16,7 @@ public class VerifyEnumTypesTests
   {
     _verifier = new(Aliased.Intf, _mergeLabels.Intf);
 
-    _enum = A.Enum("Enum", "");
+    _enum = A.Enum("Enum");
   }
 
   [Fact]
@@ -63,8 +63,8 @@ public class VerifyEnumTypesTests
 
     Define<IGqlpEnum>(parentName);
 
-    IGqlpEnum anEnum = A.Enum(name, parentName);
-    Usages.Add(anEnum);
+    IGqlpEnum anEnum = A.Enum(name);
+    Usages.Add(A.SetParent(anEnum, parentName));
 
     _verifier.Verify(UsageAliased, Errors);
 

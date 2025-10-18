@@ -114,4 +114,17 @@ public static class SchemaBuilderHelpers
     typeParam.Constraint.Returns(constraint);
     return typeParam;
   }
+
+  public static TType Parented<TType, TParent>(this IMockBuilder builder, string name, string parent = "")
+    where TType : class, IGqlpType<TParent>
+    where TParent : class, IGqlpNamed
+  {
+    TParent? parentType = string.IsNullOrWhiteSpace(parent)
+      ? null : builder.Named<TParent>(parent!);
+
+    TType result = builder.Error<TType>();
+    result.Name.Returns(name);
+    result.Parent.Returns(parentType);
+    return result;
+  }
 }

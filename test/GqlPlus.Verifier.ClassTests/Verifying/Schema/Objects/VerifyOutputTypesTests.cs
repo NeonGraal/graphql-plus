@@ -48,7 +48,7 @@ public class VerifyOutputTypesTests
     IGqlpInputParam param = A.InputParam("c");
     param.Modifiers.Returns([modifier]);
 
-    IGqlpOutputField field = A.OutputField("a", "b");
+    IGqlpOutputField field = A.ObjField<IGqlpOutputField>("a", "b");
     field.Params.Returns([param]);
 
     _output.Fields.Returns([field]);

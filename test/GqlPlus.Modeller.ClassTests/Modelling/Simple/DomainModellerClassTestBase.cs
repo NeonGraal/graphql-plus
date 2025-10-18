@@ -19,7 +19,8 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
   {
     // Arrange
     TItemAst item = A.Error<TItemAst>();
-    IGqlpDomain<TItemAst> ast = A.Domain(name, aliases, parent, contents, Kind, item);
+    IGqlpDomain<TItemAst> ast = A.Domain(name, aliases, contents, Kind, item);
+    A.SetParent(ast, parent);
 
     // Act
     BaseDomainModel<TItemModel> result = Modeller.ToModel(ast, TypeKinds);
@@ -41,7 +42,7 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
   public void ToModel_WithNullParent_ReturnsBaseDomainModelWithNullParent(string name)
   {
     // Arrange
-    IGqlpDomain<TItemAst> ast = A.Domain<TItemAst>(name, [], null, "", Kind);
+    IGqlpDomain<TItemAst> ast = A.Domain<TItemAst>(name, Kind);
 
     // Act
     BaseDomainModel<TItemModel> result = DomainModeller.ToModel(ast, TypeKinds);

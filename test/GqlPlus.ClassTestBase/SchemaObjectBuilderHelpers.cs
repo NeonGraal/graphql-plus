@@ -6,22 +6,6 @@ namespace GqlPlus;
 
 public static class SchemaObjectBuilderHelpers
 {
-  public static IGqlpDualField DualField(this IMockBuilder builder, string name, string type, string typeDescr = "")
-    => builder.ObjField<IGqlpDualField>(name, builder.ObjBase(type).SetDescr(typeDescr));
-
-  public static IGqlpInputField InputField(this IMockBuilder builder, string name, string type, string typeDescr = "")
-    => builder.ObjField<IGqlpInputField>(name, builder.ObjBase(type).SetDescr(typeDescr));
-
-  public static IGqlpObjTypeArg ObjEnumArg(this IMockBuilder builder, string enumType, string enumLabel)
-  {
-    IGqlpEnumValue enumValue = builder.EnumValue(enumType, enumLabel);
-    IGqlpObjTypeArg theArg = builder.ObjTypeArg(enumType);
-    theArg.EnumValue.Returns(enumValue);
-    return theArg;
-  }
-  public static IGqlpOutputField OutputField(this IMockBuilder builder, string name, string type, string typeDescr = "")
-    => builder.ObjField<IGqlpOutputField>(name, builder.ObjBase(type).SetDescr(typeDescr));
-
   public static T SetDescr<T>(this T described, string description)
     where T : IGqlpDescribed
   {
@@ -96,6 +80,14 @@ public static class SchemaObjectBuilderHelpers
     return theArg;
   }
 
+  public static IGqlpObjTypeArg ObjEnumArg(this IMockBuilder builder, string enumType, string enumLabel)
+  {
+    IGqlpEnumValue enumValue = builder.EnumValue(enumType, enumLabel);
+    IGqlpObjTypeArg theArg = builder.ObjTypeArg(enumType);
+    theArg.EnumValue.Returns(enumValue);
+    return theArg;
+  }
+
   public static TField ObjField<TField>(this IMockBuilder builder, string fieldName, IGqlpObjBase type, params IGqlpModifier[] modifiers)
     where TField : class, IGqlpObjField
   {
@@ -106,6 +98,9 @@ public static class SchemaObjectBuilderHelpers
 
     return theField;
   }
+  public static TField ObjField<TField>(this IMockBuilder builder, string fieldName, string typeName, params IGqlpModifier[] modifiers)
+    where TField : class, IGqlpObjField
+    => builder.ObjField<TField>(fieldName, builder.ObjBase(typeName), modifiers);
   public static TField SetModifiers<TField>([NotNull] this TField field, params IGqlpModifier[] modifiers)
     where TField : class, IGqlpModifiers
   {

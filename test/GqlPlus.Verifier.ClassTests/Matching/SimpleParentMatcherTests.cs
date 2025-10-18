@@ -23,7 +23,8 @@ public abstract class SimpleParentMatcherTests<TSimple>
   {
     this.SkipEqual(name, constraint);
 
-    TSimple type = A.Simple<TSimple>(name, constraint);
+    TSimple type = A.Simple<TSimple>(name);
+    A.SetParent(type, constraint);
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -35,9 +36,11 @@ public abstract class SimpleParentMatcherTests<TSimple>
   {
     this.SkipEqual(name, constraint);
 
-    TSimple type = A.Simple<TSimple>(name, parent);
+    TSimple type = A.Simple<TSimple>(name);
+    A.SetParent(type, parent);
 
-    TSimple parentType = A.Simple<TSimple>(parent, constraint);
+    TSimple parentType = A.Simple<TSimple>(parent);
+    A.SetParent(parentType, constraint);
     Types[parent] = parentType;
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);

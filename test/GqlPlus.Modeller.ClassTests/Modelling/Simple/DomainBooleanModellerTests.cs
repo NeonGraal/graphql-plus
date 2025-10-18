@@ -23,7 +23,8 @@ public class DomainBooleanModellerTests
 
     IGqlpDomainTrueFalse[] items = [.. boolValues.Zip(excludeValues, A.DomainTrueFalse)];
 
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain(name, [], parent, "", Kind, items);
+    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain(name, Kind, items);
+    A.SetParent(ast, parent);
 
     // Act
     BaseDomainModel<DomainTrueFalseModel> result = DomainModeller.ToModel(ast, TypeKinds);
@@ -56,7 +57,8 @@ public class DomainBooleanModellerTests
     string parent)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>(name, [], parent, "", Kind);
+    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>(name, Kind);
+    A.SetParent(ast, parent);
 
     // Act
     BaseDomainModel<DomainTrueFalseModel> result = DomainModeller.ToModel(ast, TypeKinds);
@@ -79,8 +81,8 @@ public class DomainBooleanModellerTests
     IGqlpDomainTrueFalse falseItem = A.DomainTrueFalse(false, true);
     IGqlpDomainTrueFalse excludedTrueItem = A.DomainTrueFalse(true, true);
 
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>("TestDomain", [], "parent", "",
-      Kind, trueItem, falseItem, excludedTrueItem);
+    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>("TestDomain", Kind, trueItem, falseItem, excludedTrueItem);
+    A.SetParent(ast, "parent");
 
     // Act
     BaseDomainModel<DomainTrueFalseModel> result = DomainModeller.ToModel(ast, TypeKinds);

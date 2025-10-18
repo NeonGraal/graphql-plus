@@ -42,8 +42,7 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithUndefinedMembers_ReturnsErrors()
   {
-    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member2");
-    _union.Items.Returns(members);
+    A.SetUnionMembers(_union, "Member1", "Member2");
 
     Usages.Add(_union);
 
@@ -57,8 +56,7 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2");
 
-    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member2");
-    _union.Items.Returns(members);
+    A.SetUnionMembers(_union, "Member1", "Member2");
 
     Usages.Add(_union);
 
@@ -70,8 +68,7 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithSelfMember_ReturnsError()
   {
-    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Union");
-    _union.Items.Returns(members);
+    A.SetUnionMembers(_union, "Union");
 
     Usages.Add(_union);
 

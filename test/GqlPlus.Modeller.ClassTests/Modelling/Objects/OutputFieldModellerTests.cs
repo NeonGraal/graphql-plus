@@ -17,7 +17,7 @@ public class OutputFieldModellerTests
   public void FieldModel_WithValidField_ReturnsExpectedOutputFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpOutputField ast = A.OutputField(name, typeName).SetDescr(contents);
+    IGqlpOutputField ast = A.ObjField<IGqlpOutputField>(name, typeName).SetDescr(contents);
 
     ObjBaseModel outputType = new(typeName, "");
     ToModelReturns(ObjBase, outputType);

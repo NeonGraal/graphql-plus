@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Building.Schema;
+using GqlPlus.Building.Schema.Simple;
 
 namespace GqlPlus;
 
@@ -39,25 +41,20 @@ public static class SchemaSimpleBuilderHelpers
     return domainTrueFalse;
   }
 
-  public static IGqlpEnum Enum(this IMockBuilder builder, string name, string[] labels)
-    => builder.Enum(name, builder.ArrayOf((b, i) => b.EnumLabel(i, []), labels));
-  public static IGqlpEnum Enum(this IMockBuilder builder, string name, params IGqlpEnumLabel[] enumLabels)
-    => builder.Enum(name, [], "", enumLabels);
-  public static IGqlpEnum Enum(this IMockBuilder builder, string name, string[] aliases, string description, params IGqlpEnumLabel[] enumLabels)
-  {
-    IGqlpEnum gqlpEnum = builder.Simple<IGqlpEnum>(name, aliases, description);
-    gqlpEnum.Items.Returns(enumLabels);
-    HashSet<string> labels = [.. enumLabels.Select(l => l.Name)];
-    gqlpEnum.HasValue(Arg.Is<string>(v => labels.Contains(v))).Returns(true);
-    return gqlpEnum;
-  }
+  public static EnumBuilder Enum(this IMockBuilder _, string name) => new(name);
+  public static IGqlpEnum Enum(this IMockBuilder _, string name, string[] labels)
+    => _.Enum(name).WithLabels(labels).AsEnum;
+  public static IGqlpEnum Enum(this IMockBuilder _, string name, params IGqlpEnumLabel[] enumLabels)
+    => _.Enum(name).WithLabels(enumLabels).AsEnum;
+  public static IGqlpEnum Enum(this IMockBuilder _, string name, string[] aliases, string description, params IGqlpEnumLabel[] enumLabels)
+    => _.Enum(name)
+    .WithAliases(aliases)
+    .WithDescr(description)
+    .WithLabels(enumLabels)
+    .AsEnum;
 
-  public static IGqlpEnumLabel EnumLabel(this IMockBuilder builder, string label, params string[] aliases)
-  {
-    IGqlpEnumLabel enumLabel = builder.Aliased<IGqlpEnumLabel>(label, aliases);
-    enumLabel.IsNameOrAlias("").ReturnsForAnyArgs(c => label == c.Arg<string>() || aliases.Contains(c.Arg<string>()));
-    return enumLabel;
-  }
+  public static IGqlpEnumLabel EnumLabel(this IMockBuilder _, string label, params string[] aliases)
+    => _.Aliased<IGqlpEnumLabel>(label, aliases);
 
   public static TSimple Simple<TSimple>(this IMockBuilder builder, string name)
     where TSimple : class, IGqlpSimple
@@ -83,18 +80,13 @@ public static class SchemaSimpleBuilderHelpers
     return simple;
   }
 
-  public static IGqlpUnion Union(this IMockBuilder builder, string name, params string[] members)
-    => builder.SetUnionMembers(builder.Simple<IGqlpUnion>(name), members);
-  public static IGqlpUnion Union(this IMockBuilder builder, string name, string[] aliases, string description, params IGqlpUnionMember[] unionMembers)
-  {
-    IGqlpUnion union = builder.Simple<IGqlpUnion>(name, aliases, description);
-    union.Items.Returns(unionMembers);
-    return union;
-  }
-  public static IGqlpUnion SetUnionMembers(this IMockBuilder builder, [NotNull] IGqlpUnion union, params string[] memberNames)
-  {
-    IGqlpUnionMember[] members = builder.NamedArray<IGqlpUnionMember>(memberNames);
-    union.Items.Returns(members);
-    return union;
-  }
+  public static UnionBuilder Union(this IMockBuilder _, string name) => new(name);
+  public static IGqlpUnion Union(this IMockBuilder _, string name, string[] members)
+    => _.Union(name).WithMembers(members).AsUnion;
+  public static IGqlpUnion Union(this IMockBuilder _, string name, string[] aliases, string description, params IGqlpUnionMember[] unionMembers)
+    => _.Union(name)
+      .WithAliases(aliases)
+      .WithDescr(description)
+      .WithMembers(unionMembers)
+      .AsUnion;
 }

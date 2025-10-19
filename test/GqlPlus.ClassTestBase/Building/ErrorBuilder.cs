@@ -20,10 +20,6 @@ public class ErrorBuilder
 
     return result;
   }
-
-  public IGqlpError AsError
-    => Build<IGqlpError>();
-
 }
 
 public static class ErrorBuilderHelper

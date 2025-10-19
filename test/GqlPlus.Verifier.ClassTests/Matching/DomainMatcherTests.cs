@@ -61,7 +61,7 @@ public class DomainMatcherTests
     IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain);
     A.SetParent(type, enumName);
 
-    IGqlpEnum enumType = A.Enum(enumName);
+    IGqlpEnum enumType = A.Enum(enumName).AsEnum;
     Types[enumName] = enumType;
 
     _enumMatcher.Matches(enumType, constraint, Context).Returns(true);

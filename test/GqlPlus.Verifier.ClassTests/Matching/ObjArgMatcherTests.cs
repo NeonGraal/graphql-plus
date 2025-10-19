@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Matching;
 
 public class ObjArgMatcherTests
   : MatchTestsBase
@@ -66,8 +68,9 @@ public class ObjArgMatcherTests
     IGqlpEnum enumType = A.Enum(enumName, [enumLabel]);
     Types[enumName] = enumType;
 
-    IGqlpEnum enumConstraint = A.Enum(constraint);
-    A.SetParent(enumConstraint, enumName);
+    IGqlpEnum enumConstraint = A.Enum(constraint)
+      .WithParent(enumName)
+      .AsEnum;
     Types[constraint] = enumConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -84,11 +87,15 @@ public class ObjArgMatcherTests
     IGqlpEnum parentType = A.Enum(enumParent, [enumLabel]);
     Types[enumParent] = parentType;
 
-    IGqlpEnum enumType = A.Enum(enumName);
-    Types[enumName] = A.SetParent(enumType, enumParent);
+    IGqlpEnum enumType = A.Enum(enumName)
+      .WithParent(enumParent)
+      .AsEnum;
+    Types[enumName] = enumType;
 
-    IGqlpEnum enumConstraint = A.Enum(constraint);
-    Types[constraint] = A.SetParent(enumConstraint, enumName);
+    IGqlpEnum enumConstraint = A.Enum(constraint)
+      .WithParent(enumName)
+      .AsEnum;
+    Types[constraint] = enumConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
 
@@ -101,7 +108,7 @@ public class ObjArgMatcherTests
     this.SkipEqual3(enumLabel, name, constraint);
 
     IGqlpObjTypeArg arg = A.ObjEnumArg("", enumLabel);
-    IGqlpEnum enumConstraint = A.Enum(constraint);
+    IGqlpEnum enumConstraint = A.Enum(constraint).AsEnum;
     Types[constraint] = enumConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -185,7 +192,7 @@ public class ObjArgMatcherTests
     IGqlpEnum enumParent = A.Enum(enumName, [enumLabel], constraint);
     Types[enumName] = enumParent;
 
-    IGqlpEnum enumConstraint = A.Enum(constraint);
+    IGqlpEnum enumConstraint = A.Enum(constraint).AsEnum;
     Types[constraint] = enumConstraint;
 
     AnyTypeReturns(enumParent, constraint, expected);

@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Ast;
+using GqlPlus.Building;
 using GqlPlus.Token;
 
 namespace GqlPlus;
@@ -50,80 +51,34 @@ public static class CommonBuilderHelpers
   public static IMessages MakeMessages(this string message)
     => new Messages { new TokenMessage(AstNulls.At, message) };
 
-  public static IGqlpFieldKey FieldKey(this IMockBuilder builder, string text)
-  {
-    IGqlpFieldKey fieldKey = builder.Of<IGqlpFieldKey>();
-    fieldKey.Text.Returns(text);
-    return fieldKey;
-  }
+  public static FieldKeyBuilder FieldKey(this IMockBuilder _) => new();
 
-  public static IGqlpFieldKey EnumFieldKey(this IMockBuilder builder, string enumType, string enumLabel)
-  {
-    IGqlpEnumValue mockEnumValue = builder.EnumValue(enumType, enumLabel);
-    IGqlpFieldKey enumValue = builder.Of<IGqlpFieldKey>();
-    enumValue.EnumValue.Returns(mockEnumValue);
+  public static IGqlpFieldKey FieldKey(this IMockBuilder _, string text)
+    => _.FieldKey().WithText(text).AsFieldKey;
 
-    return enumValue;
-  }
+  public static IGqlpFieldKey EnumFieldKey(this IMockBuilder _, string enumType, string enumLabel)
+    => _.FieldKey().WithEnumValue(enumType, enumLabel).AsFieldKey;
 
-  public static IGqlpEnumValue EnumValue(this IMockBuilder builder, string enumType, string enumLabel)
-  {
-    IGqlpEnumValue enumValue = builder.Of<IGqlpEnumValue>();
-    enumValue.EnumType.Returns(enumType);
-    enumValue.EnumLabel.Returns(enumLabel);
-    enumValue.EnumValue.Returns(enumType + "." + enumLabel);
+  public static IGqlpEnumValue EnumValue(this IMockBuilder _, string enumType, string enumLabel)
+    => new EnumValueBuilder(enumType, enumLabel).AsEnumValue;
 
-    return enumValue;
-  }
+  public static IGqlpFields<T> Fields<T>(this IMockBuilder _, string key, T value)
+    => new FieldsBuilder<T>().WithField(key, value).AsFields;
 
-  public static IGqlpFields<T> Fields<T>(this IMockBuilder builder, string key, T value)
-  {
-    IGqlpFieldKey fieldKey = builder.FieldKey(key);
-    Dictionary<IGqlpFieldKey, T> dict = fieldKey.DictWith(value);
-    IGqlpFields<T> fields = builder.Of<IGqlpFields<T>>();
-    fields.Count.Returns(1);
-    fields.GetEnumerator().Returns(dict.GetEnumerator());
+  public static ConstantBuilder Constant(this IMockBuilder _) => new();
 
-    return fields;
-  }
+  public static IGqlpConstant Constant(this IMockBuilder _, string text)
+    => _.Constant().WithText(text).AsConstant;
 
-  public static IGqlpConstant Constant(this IMockBuilder builder, string text)
-  {
-    IGqlpFieldKey fieldKey = builder.FieldKey(text);
-    IGqlpConstant constant = builder.Of<IGqlpConstant>();
-    constant.Value.Returns(fieldKey);
-    return constant;
-  }
+  public static IGqlpConstant Constant(this IMockBuilder _, IGqlpFieldKey value)
+    => _.Constant().WithValue(value).AsConstant;
 
-  public static IGqlpConstant Constant(this IMockBuilder builder, IGqlpFieldKey value)
-  {
-    IGqlpConstant constant = builder.Of<IGqlpConstant>();
-    constant.Value.Returns(value);
-    return constant;
-  }
+  public static IGqlpConstant Constant(this IMockBuilder _, string[] values)
+    => _.Constant().WithValues(values).AsConstant;
 
-  public static IGqlpConstant Constant(this IMockBuilder builder, string[] values)
-  {
-    IGqlpConstant constant = builder.Of<IGqlpConstant>();
-    IGqlpConstant[] constantValues = builder.ArrayOf((b, v) => b.Constant(v), values);
-    constant.Values.Returns(constantValues);
-    return constant;
-  }
+  public static IGqlpConstant Constant(this IMockBuilder _, string key, IGqlpConstant value)
+    => _.Constant().WithField(key, value).AsConstant;
 
-  public static IGqlpConstant Constant(this IMockBuilder builder, string key, IGqlpConstant value)
-  {
-    IGqlpConstant constant = builder.Of<IGqlpConstant>();
-    IGqlpFields<IGqlpConstant> fields = builder.Fields(key, value);
-    constant.Fields.Returns(fields);
-
-    return constant;
-  }
-
-  public static IGqlpModifier Modifier(this IMockBuilder builder, ModifierKind kind, string key = "")
-  {
-    IGqlpModifier modifier = builder.Error<IGqlpModifier>();
-    modifier.ModifierKind.Returns(kind);
-    modifier.Key.Returns(key);
-    return modifier;
-  }
+  public static IGqlpModifier Modifier(this IMockBuilder _, ModifierKind kind, string key = "")
+    => new ModifierBuilder(kind, key).AsModifier;
 }

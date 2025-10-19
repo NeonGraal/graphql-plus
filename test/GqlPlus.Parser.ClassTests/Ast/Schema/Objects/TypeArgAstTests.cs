@@ -2,66 +2,66 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class ObjTypeArgAstTests
+public class TypeArgAstTests
   : AstAbbreviatedTests<string>
 {
   [Theory, RepeatData]
   public void HashCode_WithIsTypeParam(string input)
-      => ObjTypeArgChecks.HashCode_WithIsTypeParam(input);
+      => TypeArgChecks.HashCode_WithIsTypeParam(input);
 
   [Theory, RepeatData]
   public void String_WithIsTypeParam(string input)
-    => ObjTypeArgChecks.String_WithIsTypeParam(input);
+    => TypeArgChecks.String_WithIsTypeParam(input);
 
   [Theory, RepeatData]
   public void Equality_WithIsTypeParam(string input)
-    => ObjTypeArgChecks.Equality_WithIsTypeParam(input);
+    => TypeArgChecks.Equality_WithIsTypeParam(input);
 
   [Theory, RepeatData]
   public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
-    => ObjTypeArgChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
+    => TypeArgChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
 
   [Theory, RepeatData]
   public void HashCode_WithEnumValue(string input, string enumLabel)
-    => ObjTypeArgChecks.HashCode_WithEnumValue(input, enumLabel);
+    => TypeArgChecks.HashCode_WithEnumValue(input, enumLabel);
 
   [Theory, RepeatData]
   public void String_WithEnumValue(string input, string enumLabel)
-    => ObjTypeArgChecks.String_WithEnumValue(input, enumLabel);
+    => TypeArgChecks.String_WithEnumValue(input, enumLabel);
 
   [Theory, RepeatData]
   public void Equality_WithEnumValue(string input, string enumLabel)
-    => ObjTypeArgChecks.Equality_WithEnumValue(input, enumLabel);
+    => TypeArgChecks.Equality_WithEnumValue(input, enumLabel);
 
   [Theory, RepeatData]
   public void Inequality_BetweenEnumValues(string input, string enumLabel1, string enumLabel2)
-    => ObjTypeArgChecks.Inequality_BetweenEnumValues(input, enumLabel1, enumLabel2);
+    => TypeArgChecks.Inequality_BetweenEnumValues(input, enumLabel1, enumLabel2);
 
   [Theory, RepeatData]
   public void FullType_WithDefault(string input)
-    => ObjTypeArgChecks.FullType_WithDefault(input);
+    => TypeArgChecks.FullType_WithDefault(input);
 
   [Theory, RepeatData]
   public void FullType_WithIsTypeParam(string input)
-    => ObjTypeArgChecks.FullType_WithIsTypeParam(input);
+    => TypeArgChecks.FullType_WithIsTypeParam(input);
 
-  internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ObjTypeArgChecks;
+  internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => TypeArgChecks;
 
   protected override string AbbreviatedString(string input)
     => $"( {input} )";
 
-  internal ObjTypeArgAstChecks ObjTypeArgChecks { get; } = new();
+  internal TypeArgAstChecks TypeArgChecks { get; } = new();
 }
 
-internal sealed class ObjTypeArgAstChecks
-  : AstAbbreviatedChecks<string, IGqlpObjTypeArg>
-  , IObjTypeArgAstChecks
+internal sealed class TypeArgAstChecks
+  : AstAbbreviatedChecks<string, IGqlpTypeArg>
+  , ITypeArgAstChecks
 {
-  public ObjTypeArgAstChecks()
+  public TypeArgAstChecks()
     : base(ArgBy)
   { }
 
-  internal static ObjTypeArgAst ArgBy(string input)
+  internal static TypeArgAst ArgBy(string input)
     => new(AstNulls.At, input, "");
 
   public void HashCode_WithIsTypeParam(string input)
@@ -100,20 +100,20 @@ internal sealed class ObjTypeArgAstChecks
 
   public void FullType_WithDefault(string input)
   {
-    ObjTypeArgAst objArg = ArgBy(input);
+    TypeArgAst objArg = ArgBy(input);
 
     objArg.FullType.ShouldBe(input);
   }
 
   public void FullType_WithIsTypeParam(string input)
   {
-    IGqlpObjTypeArg objArg = ArgBy(input) with { IsTypeParam = true };
+    IGqlpTypeArg objArg = ArgBy(input) with { IsTypeParam = true };
 
     objArg.FullType.ShouldBe("$" + input);
   }
 }
 
-internal interface IObjTypeArgAstChecks
+internal interface ITypeArgAstChecks
   : IAstAbbreviatedChecks<string>
 {
   void HashCode_WithIsTypeParam(string input);

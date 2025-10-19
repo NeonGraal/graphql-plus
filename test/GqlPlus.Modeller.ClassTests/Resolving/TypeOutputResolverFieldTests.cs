@@ -7,7 +7,7 @@ public class TypeOutputResolverFieldTests
 
   public TypeOutputResolverFieldTests() => Resolver = new TypeOutputResolver();
 
-  protected override ObjBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)
+  protected override ObjBaseModel MakeBase(string name, string description = "", params TypeArgModel[] args)
     => new(name, description) { Args = args };
   protected override OutputFieldModel MakeField(FieldInput field)
     => new(field.Name, new(field.Type, ""), "");
@@ -19,6 +19,6 @@ public class TypeOutputResolverFieldTests
     => new(name, description);
   protected override ObjBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
-  protected override ObjTypeArgModel NewArg(string argument, bool isParam = false)
+  protected override TypeArgModel NewArg(string argument, bool isParam = false)
     => new(TypeKindModel.Output, argument, "") { IsTypeParam = isParam };
 }

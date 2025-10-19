@@ -3,8 +3,8 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parser.Schema.Objects;
 
-public class ParseObjTypeArgTests(
-  IParseObjTypeArgChecks objectArgChecks
+public class ParseTypeArgTests(
+  IParseTypeArgChecks objectArgChecks
 )
 {
   [Theory, RepeatData]
@@ -35,29 +35,29 @@ public class ParseObjTypeArgTests(
   //  => checks.FalseExpected("<" + enumType + ".");
 }
 
-internal sealed class ParseObjTypeArgChecks(
-  Parser<IGqlpObjTypeArg>.DA parser
-) : ManyChecksParser<IGqlpObjTypeArg>(parser)
-  , IParseObjTypeArgChecks
+internal sealed class ParseTypeArgChecks(
+  Parser<IGqlpTypeArg>.DA parser
+) : ManyChecksParser<IGqlpTypeArg>(parser)
+  , IParseTypeArgChecks
 {
   public void WithMinimum(string name)
-    => TrueExpected("<" + name + ">", ObjTypeArg(name));
+    => TrueExpected("<" + name + ">", TypeArg(name));
 
   public void WithMany(string[] names)
-    => TrueExpected("<" + names.Joined() + ">", [.. names.Select(ObjTypeArg)]);
+    => TrueExpected("<" + names.Joined() + ">", [.. names.Select(TypeArg)]);
 
   public void WithTypeParam(string name)
-    => TrueExpected("<$" + name + ">", ObjTypeArg(name) with { IsTypeParam = true });
+    => TrueExpected("<$" + name + ">", TypeArg(name) with { IsTypeParam = true });
 
   public void WithTypeParamBad()
     => FalseExpected("<$");
 
-  public ObjTypeArgAst ObjTypeArg(string type)
+  public TypeArgAst TypeArg(string type)
     => new(AstNulls.At, type, "");
 }
 
-public interface IParseObjTypeArgChecks
-  : IManyChecksParser<IGqlpObjTypeArg>
+public interface IParseTypeArgChecks
+  : IManyChecksParser<IGqlpTypeArg>
 {
   void WithMinimum(string name);
   void WithMany(string[] names);

@@ -97,7 +97,7 @@ internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFie
     => [$"  - !_{TypeKind}Field", "    name: " + field.Name, "    type: !_ObjBase", $"      {TypeParamOrKind(field)}: {field.Type}"];
 
   internal IEnumerable<string> ExpectedAlternate(AlternateInput alternate)
-    => ["  - !_ObjAlternate", "    collections:", "      - !_Modifier", "        modifierKind: !_ModifierKind List", "    type: !_ObjBase", $"      {TypeParamOrKind(alternate)}: {alternate.Type}"];
+    => ["  - !_Alternate", "    collections:", "      - !_Modifier", "        modifierKind: !_ModifierKind List", "    type: !_ObjBase", $"      {TypeParamOrKind(alternate)}: {alternate.Type}"];
 
   internal IEnumerable<string> ExpectedTypeParam(string typeParam)
     => ["  - !_TypeParam",
@@ -128,7 +128,7 @@ internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFie
   string[] ICheckObjectModel<TObject, TObjField, TModel>.DualAlternate(AlternateInput alternate)
     => alternate.TypeParam
     ? [$"  - !_TypeParam " + alternate.Type]
-    : ["  - !_ObjAlternate", "    collections:", "      - !_Modifier", "        modifierKind: !_ModifierKind List", "    type: !_ObjBase", "      name: " + alternate.Type];
+    : ["  - !_Alternate", "    collections:", "      - !_Modifier", "        modifierKind: !_ModifierKind List", "    type: !_ObjBase", "      name: " + alternate.Type];
   string[] ICheckObjectModel<TObject, TObjField, TModel>.DualParent(string? parent)
     => parent is null ? []
     : ["parent: !_ObjBase", "  name: " + parent];

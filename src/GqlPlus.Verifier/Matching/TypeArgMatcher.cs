@@ -4,15 +4,15 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-internal class ObjTypeArgMatcher(
+internal class TypeArgMatcher(
   ILoggerFactory logger,
   Matcher<IGqlpType>.D anyTypeMatcher
 ) : MatchLogger(logger)
-  , Matcher<IGqlpObjTypeArg>.I
+  , Matcher<IGqlpTypeArg>.I
 {
   private readonly Matcher<IGqlpType>.L _anyTypeMatcher = anyTypeMatcher;
 
-  public bool Matches(IGqlpObjTypeArg arg, string constraint, EnumContext context)
+  public bool Matches(IGqlpTypeArg arg, string constraint, EnumContext context)
   {
     TryingMatch(arg, constraint);
 
@@ -29,7 +29,7 @@ internal class ObjTypeArgMatcher(
     }
   }
 
-  private bool MatchArgLabel(IGqlpObjTypeArg arg, string constraint, EnumContext context)
+  private bool MatchArgLabel(IGqlpTypeArg arg, string constraint, EnumContext context)
   {
     if (context.GetType(constraint, out IGqlpDescribed? constraintType) && arg.EnumValue is not null) {
       if (constraintType is IGqlpEnum enumType) {

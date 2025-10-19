@@ -64,7 +64,7 @@
         "name": "RefCnstPrntDualGrndInp",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "AltCnstPrntDualGrndInp"
           }
         ]
@@ -78,7 +78,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "GrndCnstPrntDualGrndInp",
           "type": {
             "$tag": "_ObjBase",
@@ -88,7 +88,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "String"
@@ -105,7 +105,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "GrndCnstPrntDualGrndInp",
           "type": {
             "$tag": "_ObjBase",

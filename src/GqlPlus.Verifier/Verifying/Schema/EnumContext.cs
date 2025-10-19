@@ -25,7 +25,7 @@ public class EnumContext(
     return true;
   }
 
-  internal void CheckEnumValue(string label, IGqlpObjectEnum output)
+  internal void CheckEnumValue(string label, IGqlpObjEnum output)
   {
     if (output.EnumValue is null) {
       return;

@@ -6,18 +6,18 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal class ParseObjTypeArgs
-  : Parser<IGqlpObjTypeArg>.IA
+internal class ParseTypeArgs
+  : Parser<IGqlpTypeArg>.IA
 {
-  public IResultArray<IGqlpObjTypeArg> Parse(ITokenizer tokens, string label)
+  public IResultArray<IGqlpTypeArg> Parse(ITokenizer tokens, string label)
   {
-    List<IGqlpObjTypeArg> list = [];
+    List<IGqlpTypeArg> list = [];
 
     if (!tokens.Take('<')) {
       return list.EmptyArray();
     }
 
-    IResult<ObjTypeArgAst> argument = ParseObjectArg(tokens, label);
+    IResult<TypeArgAst> argument = ParseObjectArg(tokens, label);
     while (argument.Required(list.Add)) {
       argument = ParseObjectArg(tokens, label);
     }
@@ -33,15 +33,15 @@ internal class ParseObjTypeArgs
     return list.OkArray();
   }
 
-  private static IResult<ObjTypeArgAst> ParseObjectArg(ITokenizer tokens, string label)
+  private static IResult<TypeArgAst> ParseObjectArg(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     if (!tokens.Prefix('$', out string? param, out TokenAt at)) {
-      return tokens.Error<ObjTypeArgAst>(label, "identifier after '$'");
+      return tokens.Error<TypeArgAst>(label, "identifier after '$'");
     }
 
     if (!string.IsNullOrWhiteSpace(param)) {
-      ObjTypeArgAst objType = new(at, param!, description) {
+      TypeArgAst objType = new(at, param!, description) {
         IsTypeParam = true,
       };
       return objType.Ok();
@@ -59,14 +59,14 @@ internal class ParseObjTypeArgs
     }
 
     if (!hasName) {
-      return default(ObjTypeArgAst).Empty();
+      return default(TypeArgAst).Empty();
     }
 
-    ObjTypeArgAst argument = new(at, name!, description);
+    TypeArgAst argument = new(at, name!, description);
 
     if (tokens.Take('.')) {
       if (argument.IsTypeParam) {
-        return tokens.Error<ObjTypeArgAst>("Output Arg", "Enum value not allowed after Type parameter");
+        return tokens.Error<TypeArgAst>("Output Arg", "Enum value not allowed after Type parameter");
       }
 
       at = tokens.At;

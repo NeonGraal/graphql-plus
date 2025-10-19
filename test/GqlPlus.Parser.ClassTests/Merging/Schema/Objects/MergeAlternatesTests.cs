@@ -4,9 +4,9 @@ using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
-public class MergeObjAltsTests(
+public class MergeAlternatesTests(
   ITestOutputHelper outputHelper
-) : TestDescriptionsMerger<IGqlpObjAlt>
+) : TestDescriptionsMerger<IGqlpAlternate>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
@@ -61,28 +61,28 @@ public class MergeObjAltsTests(
       CheckAlternates.MakeAltEnum(type, label1), CheckAlternates.MakeAltEnum(type, label2));
 
   internal CheckAlternatesMerger CheckAlternates { get; } = new();
-  internal MergeObjAlts MergerAlternate { get; } = new(outputHelper.ToLoggerFactory());
-  internal override GroupsMerger<IGqlpObjAlt> MergerGroups => MergerAlternate;
+  internal MergeAlternates MergerAlternate { get; } = new(outputHelper.ToLoggerFactory());
+  internal override GroupsMerger<IGqlpAlternate> MergerGroups => MergerAlternate;
 
-  protected override IGqlpObjAlt MakeDescribed(string name, string description = "")
+  protected override IGqlpAlternate MakeDescribed(string name, string description = "")
     => CheckAlternates.MakeAlternate(name, false, description);
 }
 
 internal sealed class CheckAlternatesMerger
   : ICheckAlternatesMerger
 {
-  public IGqlpObjAlt MakeAltEnum(string type, string label)
-    => new ObjAltAst(AstNulls.At, type, "") {
+  public IGqlpAlternate MakeAltEnum(string type, string label)
+    => new AlternateAst(AstNulls.At, type, "") {
       EnumValue = new EnumValueAst(AstNulls.At, type, label)
     };
-  public IGqlpObjAlt MakeAlternate(string input, bool withModifiers = false, string description = "")
-    => new ObjAltAst(AstNulls.At, input, description) {
+  public IGqlpAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")
+    => new AlternateAst(AstNulls.At, input, description) {
       Modifiers = withModifiers ? TestMods() : []
     };
 }
 
 internal interface ICheckAlternatesMerger
 {
-  IGqlpObjAlt MakeAlternate(string input, bool withModifiers = false, string description = "");
-  IGqlpObjAlt MakeAltEnum(string type, string label);
+  IGqlpAlternate MakeAlternate(string input, bool withModifiers = false, string description = "");
+  IGqlpAlternate MakeAltEnum(string type, string label);
 }

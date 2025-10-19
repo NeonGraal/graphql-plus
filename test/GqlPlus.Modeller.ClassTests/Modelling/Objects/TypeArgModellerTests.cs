@@ -1,27 +1,27 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-public class ObjTypeArgModellerTests
-  : ModellerClassTestBase<IGqlpObjTypeArg, ObjTypeArgModel>
+public class TypeArgModellerTests
+  : ModellerClassTestBase<IGqlpTypeArg, TypeArgModel>
 {
   private readonly IModeller<IGqlpEnumValue, EnumValueModel> _enumValue;
 
-  public ObjTypeArgModellerTests()
+  public TypeArgModellerTests()
   {
     _enumValue = MFor<IGqlpEnumValue, EnumValueModel>();
 
-    Modeller = new ObjTypeArgModeller(_enumValue);
+    Modeller = new TypeArgModeller(_enumValue);
   }
 
-  protected override IModeller<IGqlpObjTypeArg, ObjTypeArgModel> Modeller { get; }
+  protected override IModeller<IGqlpTypeArg, TypeArgModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidArg_ReturnsExpectedOutputArgModel(string name)
   {
     // Arrange
-    IGqlpObjTypeArg ast = A.ObjTypeArg(name, true);
+    IGqlpTypeArg ast = A.TypeArg(name, true);
 
     // Act
-    ObjTypeArgModel result = Modeller.ToModel(ast, TypeKinds);
+    TypeArgModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()
@@ -35,7 +35,7 @@ public class ObjTypeArgModellerTests
   public void ToModel_WithValidEnumArg_ReturnsExpectedOutputArgModel(string enumType, string enumLabel)
   {
     // Arrange
-    IGqlpObjTypeArg ast = A.ObjTypeArg(enumType);
+    IGqlpTypeArg ast = A.TypeArg(enumType);
     IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
     ast.EnumValue.Returns(enumValue);
 
@@ -43,7 +43,7 @@ public class ObjTypeArgModellerTests
     ToModelReturns(_enumValue, enumModel);
 
     // Act
-    ObjTypeArgModel result = Modeller.ToModel(ast, TypeKinds);
+    TypeArgModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()

@@ -2,12 +2,12 @@
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public class ParseObjTypeArgsTest
+public class ParseTypeArgsTest
   : ParserClassTestBase
 {
-  protected Parser<IGqlpObjTypeArg>.IA Parser { get; } = new ParseObjTypeArgs();
+  protected Parser<IGqlpTypeArg>.IA Parser { get; } = new ParseTypeArgs();
 
-  public ParseObjTypeArgsTest()
+  public ParseTypeArgsTest()
     => PrefixReturns('$', OutPass);
 
   [Theory, RepeatData]
@@ -19,10 +19,10 @@ public class ParseObjTypeArgsTest
     TakeReturns('>', true);
 
     // Act
-    IResultArray<IGqlpObjTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpObjTypeArg>>();
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeArg>>();
   }
 
   [Theory, RepeatData]
@@ -34,10 +34,10 @@ public class ParseObjTypeArgsTest
     TakeReturns('>', true);
 
     // Act
-    IResultArray<IGqlpObjTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpObjTypeArg>>();
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeArg>>();
   }
 
   [Fact]
@@ -49,10 +49,10 @@ public class ParseObjTypeArgsTest
     TakeReturns('>', true);
 
     // Act
-    IResultArray<IGqlpObjTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpObjTypeArg>>();
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeArg>>();
   }
 
   [Theory, InlineData('^'), InlineData('_'), InlineData('*')]
@@ -64,10 +64,10 @@ public class ParseObjTypeArgsTest
     TakeReturns('>', true);
 
     // Act
-    IResultArray<IGqlpObjTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpObjTypeArg>>();
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeArg>>();
   }
 
   [Theory, RepeatData]
@@ -82,10 +82,10 @@ public class ParseObjTypeArgsTest
     TakeReturns('>', true);
 
     // Act
-    IResultArray<IGqlpObjTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpObjTypeArg>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeArg>>()
       .Required().Count().ShouldBe(2);
   }
 
@@ -101,10 +101,10 @@ public class ParseObjTypeArgsTest
     TakeReturns('>', true);
 
     // Act
-    IResultArray<IGqlpObjTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpObjTypeArg>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeArg>>()
       .Required().Count().ShouldBe(4);
   }
 
@@ -115,7 +115,7 @@ public class ParseObjTypeArgsTest
     TakeReturns('<', false);
 
     // Act
-    IResultArray<IGqlpObjTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();
@@ -127,10 +127,10 @@ public class ParseObjTypeArgsTest
     // Arrange
     TakeReturns('<', true);
     IdentifierReturns(OutFail);
-    SetupError<IGqlpObjTypeArg>();
+    SetupError<IGqlpTypeArg>();
 
     // Act
-    IResultArray<IGqlpObjTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -146,10 +146,10 @@ public class ParseObjTypeArgsTest
     TakeReturns('>', true);
 
     // Act
-    IResultArray<IGqlpObjTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpObjTypeArg>>();
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeArg>>();
   }
 
   [Theory, RepeatData]
@@ -160,10 +160,10 @@ public class ParseObjTypeArgsTest
     IdentifierReturns(OutFail);
     PrefixReturns('$', OutStringAt(argType));
     TakeReturns('.', true);
-    SetupError<IGqlpObjTypeArg>();
+    SetupError<IGqlpTypeArg>();
 
     // Act
-    IResultArray<IGqlpObjTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -176,10 +176,10 @@ public class ParseObjTypeArgsTest
     TakeReturns('<', true);
     IdentifierReturns(OutString(argType));
     TakeReturns('.', true);
-    SetupError<IGqlpObjTypeArg>();
+    SetupError<IGqlpTypeArg>();
 
     // Act
-    IResultArray<IGqlpObjTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

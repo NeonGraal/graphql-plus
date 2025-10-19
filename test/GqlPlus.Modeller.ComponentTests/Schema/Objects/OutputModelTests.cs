@@ -19,7 +19,7 @@ internal sealed class OutputModelChecks(
       Parent = parent ?? NewParentAst(input.Parent),
       TypeParams = input.TypeParams.TypeParams(),
       ObjFields = input.Fields.OutputFields(),
-      Alternates = input.Alternates.ObjAlts(),
+      Alternates = input.Alternates.Alternates(),
     };
 
   internal override IGqlpObjBase? NewParentAst(string? input)

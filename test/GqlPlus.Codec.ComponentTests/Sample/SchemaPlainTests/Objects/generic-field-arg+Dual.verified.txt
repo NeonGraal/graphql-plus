@@ -8,7 +8,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldArgDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     fields:
       - !_DualField
@@ -16,7 +16,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldArgDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     name: GnrcFieldArgDual
     typeKind: !_TypeKind Dual
@@ -28,12 +28,12 @@ types: !_Map_Type
         name: type
   !_Identifier RefGnrcFieldArgDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcFieldArgDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldArgDual

@@ -60,7 +60,7 @@ internal sealed class ParseObjBaseChecks(
     => TrueExpected(
       name + "<" + objBases.Joined() + ">",
       ObjBase(name) with {
-        Args = [.. objBases.Select(ObjTypeArg)]
+        Args = [.. objBases.Select(TypeArg)]
       });
 
   public void WithTypeArgsBad(string name, string[] objBases)
@@ -72,7 +72,7 @@ internal sealed class ParseObjBaseChecks(
   public static ObjBaseAst ObjBase(string type)
     => new(AstNulls.At, type, "");
 
-  public static ObjTypeArgAst ObjTypeArg(string type)
+  public static TypeArgAst TypeArg(string type)
     => new(AstNulls.At, type, "");
 }
 

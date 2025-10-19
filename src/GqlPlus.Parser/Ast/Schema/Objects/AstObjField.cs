@@ -14,8 +14,8 @@ internal abstract record class AstObjField(
   public IGqlpModifier[] Modifiers { get; set; } = [];
   public IGqlpEnumValue? EnumValue { get; set; }
 
-  string IGqlpObjectEnum.EnumTypeName => "";
-  void IGqlpObjectEnum.SetEnumType(string enumType)
+  string IGqlpObjEnum.EnumTypeName => "";
+  void IGqlpObjEnum.SetEnumType(string enumType)
   {
     Type.SetName(enumType);
     if (EnumValue == null) {

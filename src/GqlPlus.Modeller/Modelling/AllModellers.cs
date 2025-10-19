@@ -31,9 +31,9 @@ public static class AllModellers
       .AddTypeModeller<IGqlpUnion, TypeUnionModel, UnionModeller>()
       // Object
       .AddModeller<IGqlpTypeParam, TypeParamModel, TypeParamModeller>()
-      .AddModeller<IGqlpObjTypeArg, ObjTypeArgModel, ObjTypeArgModeller>()
+      .AddModeller<IGqlpTypeArg, TypeArgModel, TypeArgModeller>()
       .AddModeller<IGqlpObjBase, ObjBaseModel, ObjBaseModeller>()
-      .AddModeller<IGqlpObjAlt, ObjAlternateModel, ObjAlternateModeller>()
+      .AddModeller<IGqlpAlternate, AlternateModel, AlternateModeller>()
 
       .AddObjectModellers<IGqlpDualField, DualFieldModel, DualFieldModeller>()
       .AddTypeModeller<IGqlpDualObject, TypeDualModel, DualModeller>()

@@ -2,12 +2,12 @@
 types: !_Map_Type
   !_Identifier ObjAltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltDual
         type: !_ObjBase
           name: ObjAltDualType
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: ObjAltDualType
     name: ObjAltDual

@@ -1,20 +1,20 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-public class ObjAlternateModellerTests
-  : ModellerObjectBaseTestBase<IGqlpObjAlt, ObjAlternateModel, ObjBaseModel>
+public class AlternateModellerTests
+  : ModellerObjectBaseTestBase<IGqlpAlternate, AlternateModel, ObjBaseModel>
 {
   private readonly IModeller<IGqlpModifier, CollectionModel> _collection = MFor<IGqlpModifier, CollectionModel>();
 
-  public ObjAlternateModellerTests()
-    => Modeller = new ObjAlternateModeller(_collection, ObjBase);
+  public AlternateModellerTests()
+    => Modeller = new AlternateModeller(_collection, ObjBase);
 
-  protected override IModeller<IGqlpObjAlt, ObjAlternateModel> Modeller { get; }
+  protected override IModeller<IGqlpAlternate, AlternateModel> Modeller { get; }
 
   [Theory, RepeatData]
-  public void AlternateModel_WithValidAlternate_ReturnsExpectedObjAlternateModel(string name, string contents)
+  public void AlternateModel_WithValidAlternate_ReturnsExpectedAlternateModel(string name, string contents)
   {
     // Arrange
-    IGqlpObjAlt ast = A.Named<IGqlpObjAlt>(name, contents);
+    IGqlpAlternate ast = A.Named<IGqlpAlternate>(name, contents);
     IGqlpModifier modifier = A.Modifier(ModifierKind.List);
     ast.Modifiers.Returns([modifier]);
 
@@ -24,7 +24,7 @@ public class ObjAlternateModellerTests
     ToModelsReturns(_collection, collections);
 
     // Act
-    ObjAlternateModel result = Modeller.ToModel(ast, TypeKinds);
+    AlternateModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()

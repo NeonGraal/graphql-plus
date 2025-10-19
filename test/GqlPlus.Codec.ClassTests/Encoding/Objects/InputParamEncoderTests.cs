@@ -3,13 +3,13 @@
 public class InputParamEncoderTests
   : EncoderClassTestBase<InputParamModel>
 {
-  private readonly IEncoder<ObjTypeArgModel> _objArg;
+  private readonly IEncoder<TypeArgModel> _objArg;
   private readonly IEncoder<ModifierModel> _modifier;
   private readonly IEncoder<ConstantModel> _constant;
 
   public InputParamEncoderTests()
   {
-    _objArg = RFor<ObjTypeArgModel>();
+    _objArg = RFor<TypeArgModel>();
     _modifier = RFor<ModifierModel>();
     _constant = RFor<ConstantModel>();
 

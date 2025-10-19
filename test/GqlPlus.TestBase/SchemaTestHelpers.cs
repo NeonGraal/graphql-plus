@@ -14,14 +14,14 @@ internal static class SchemaTestHelpers
   public static OutputFieldAst[] OutputFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new OutputFieldAst(AstNulls.At, f.Name, ObjBase(f.Type, f.TypeParam)))];
 
-  public static ObjAltAst[] ObjAlts(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new ObjAltAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
+  public static AlternateAst[] Alternates(this IEnumerable<AlternateInput> alternates)
+    => [.. alternates.Select(a => new AlternateAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
 
   private static ObjBaseAst ObjBase(string type, bool isTypeParam)
     => new(AstNulls.At, type, "") { IsTypeParam = isTypeParam };
 
-  public static ObjTypeArgAst[] ObjTypeArgs(this string[] arguments)
-    => [.. arguments.Select(a => new ObjTypeArgAst(AstNulls.At, a, ""))];
+  public static TypeArgAst[] TypeArgs(this string[] arguments)
+    => [.. arguments.Select(a => new TypeArgAst(AstNulls.At, a, ""))];
 
   public static InputParamAst[] Params(this IEnumerable<string> parameters)
     => [.. parameters.Select(parameter => new InputParamAst(AstNulls.At, parameter))];

@@ -4,13 +4,13 @@ using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging.Objects;
 
-internal class MergeObjAlts(
+internal class MergeAlternates(
   ILoggerFactory logger
-) : AstDescribedMerger<IGqlpObjAlt>(logger)
+) : AstDescribedMerger<IGqlpAlternate>(logger)
 {
-  protected override IGqlpObjAlt MergeGroup(IEnumerable<IGqlpObjAlt> group)
+  protected override IGqlpAlternate MergeGroup(IEnumerable<IGqlpAlternate> group)
   {
-    IGqlpObjAlt first = group.First();
+    IGqlpAlternate first = group.First();
     if (first is IAstSetDescription descrType) {
       descrType.MakeDescription(group);
     }
@@ -18,10 +18,10 @@ internal class MergeObjAlts(
     return first;
   }
 
-  protected override string ItemGroupKey(IGqlpObjAlt item)
+  protected override string ItemGroupKey(IGqlpAlternate item)
     => item.FullType + item.EnumValue?.EnumLabel.Prefixed(".");
 
   protected override string ItemMatchName => "Modifiers";
-  protected override string ItemMatchKey(IGqlpObjAlt item)
+  protected override string ItemMatchKey(IGqlpAlternate item)
     => item.Modifiers.AsString().Joined();
 }

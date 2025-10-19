@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
+using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus;
 
@@ -52,7 +53,7 @@ public static class SchemaObjectBuilderHelpers
   }
   public static TBase SetArgs<TBase, TTypeArg>([NotNull] this TBase objBase, params TTypeArg[] args)
     where TBase : class, IGqlpObjBase
-    where TTypeArg : class, IGqlpObjTypeArg
+    where TTypeArg : class, IGqlpTypeArg
   {
     string typeName = args.Bracket("<", ">")
       .Prepend(objBase.TypeName).Joined();
@@ -63,30 +64,11 @@ public static class SchemaObjectBuilderHelpers
     return objBase;
   }
 
-  public static IGqlpObjTypeArg ObjTypeArg(this IMockBuilder builder, string typeName, bool isTypeParam = false)
-  {
-    IGqlpObjTypeArg theArg = builder.Named<IGqlpObjTypeArg>(typeName);
-    theArg.EnumValue.Returns((IGqlpEnumValue?)null);
-    if (isTypeParam) {
-      theArg.IsTypeParam.Returns(true);
-      theArg.TypeName.Returns("$" + typeName);
-      theArg.FullType.Returns("$" + typeName);
-    } else {
-      theArg.TypeName.Returns(typeName);
-      theArg.EnumTypeName.Returns(typeName);
-      theArg.FullType.Returns(typeName);
-    }
+  public static IGqlpTypeArg TypeArg(this IMockBuilder _, string typeName, bool isTypeParam = false)
+    => new TypeArgBuilder(typeName).IsTypeParam(isTypeParam).AsTypeArg;
 
-    return theArg;
-  }
-
-  public static IGqlpObjTypeArg ObjEnumArg(this IMockBuilder builder, string enumType, string enumLabel)
-  {
-    IGqlpEnumValue enumValue = builder.EnumValue(enumType, enumLabel);
-    IGqlpObjTypeArg theArg = builder.ObjTypeArg(enumType);
-    theArg.EnumValue.Returns(enumValue);
-    return theArg;
-  }
+  public static IGqlpTypeArg EnumArg(this IMockBuilder _, string enumType, string enumLabel)
+    => new TypeArgBuilder(enumType).WithEnumValue(enumLabel).AsTypeArg;
 
   public static TField ObjField<TField>(this IMockBuilder builder, string fieldName, IGqlpObjBase type, params IGqlpModifier[] modifiers)
     where TField : class, IGqlpObjField

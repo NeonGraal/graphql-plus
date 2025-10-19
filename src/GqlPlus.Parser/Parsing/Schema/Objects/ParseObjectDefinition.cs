@@ -5,13 +5,13 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseObjectDefinition<TObjField>(
-  Parser<IGqlpObjAlt>.DA alternates,
+  Parser<IGqlpAlternate>.DA alternates,
   Parser<TObjField>.D parseField,
   Parser<IGqlpObjBase>.D parseBase
 ) : Parser<ObjectDefinition<TObjField>>.I
   where TObjField : IGqlpObjField
 {
-  private readonly Parser<IGqlpObjAlt>.LA _alternates = alternates;
+  private readonly Parser<IGqlpAlternate>.LA _alternates = alternates;
   private readonly Parser<TObjField>.L _parseField = parseField;
   private readonly Parser<IGqlpObjBase>.L _parseBase = parseBase;
 
@@ -44,7 +44,7 @@ public class ParseObjectDefinition<TObjField>(
     }
 
     result.Fields = [.. fields];
-    IResultArray<IGqlpObjAlt> objectAlternates = _alternates.Parse(tokens, label);
+    IResultArray<IGqlpAlternate> objectAlternates = _alternates.Parse(tokens, label);
     return !objectAlternates.Optional(alternates => result.Alternates = [.. alternates])
       ? objectAlternates.AsPartial(result)
       : tokens.End(label, () => result);

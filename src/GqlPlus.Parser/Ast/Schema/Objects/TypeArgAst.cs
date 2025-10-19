@@ -2,19 +2,19 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class ObjTypeArgAst(
+public sealed record class TypeArgAst(
   ITokenAt At,
   string Name,
   string Description
 ) : AstObjType(At, Name, Description)
-  , IGqlpObjTypeArg
+  , IGqlpTypeArg
 {
   internal override string Abbr => "OR";
 
   public IGqlpEnumValue? EnumValue { get; set; }
 
-  string IGqlpObjectEnum.EnumTypeName => IsTypeParam ? "" : Name;
-  void IGqlpObjectEnum.SetEnumType(string enumType)
+  string IGqlpObjEnum.EnumTypeName => IsTypeParam ? "" : Name;
+  void IGqlpObjEnum.SetEnumType(string enumType)
   {
     if (EnumValue == null) {
       EnumValue = new EnumValueAst(At, enumType, Name);
@@ -30,9 +30,9 @@ public sealed record class ObjTypeArgAst(
     ? base.GetFields()
     : DescriptionAt.Append(EnumValue.EnumValue);
 
-  bool IEquatable<IGqlpObjTypeArg>.Equals(IGqlpObjTypeArg? other)
+  bool IEquatable<IGqlpTypeArg>.Equals(IGqlpTypeArg? other)
     => Equals(other as AstObjType);
-  public bool Equals(ObjTypeArgAst? other)
+  public bool Equals(TypeArgAst? other)
     => base.Equals(other)
     && EnumValue.NullEqual(other.EnumValue);
   public override int GetHashCode()

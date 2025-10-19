@@ -15,7 +15,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _ObjField
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _ObjFieldType
     typeKind: !_TypeKind Output
   !_Identifier _OutputFieldType: !_TypeOutput
@@ -45,6 +45,6 @@ types: !_Map_Type
           label: Output
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _OutputField
     typeKind: !_TypeKind Output

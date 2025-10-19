@@ -2,12 +2,12 @@
 types: !_Map_Type
   !_Identifier ObjAltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltOutp
         type: !_ObjBase
           name: ObjAltOutpType
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: ObjAltOutpType
     name: ObjAltOutp

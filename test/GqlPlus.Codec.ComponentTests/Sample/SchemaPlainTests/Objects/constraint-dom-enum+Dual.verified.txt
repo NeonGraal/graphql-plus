@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier CnstDomEnumDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstDomEnumDual
         type: !_ObjBase
           name: RefCnstDomEnumDual
@@ -12,7 +12,7 @@ types: !_Map_Type
               name: EnumCnstDomEnumDual
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstDomEnumDual
           typeArgs:

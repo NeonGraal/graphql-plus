@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-internal class ObjTypeArgModeller(
+internal class TypeArgModeller(
   IModeller<IGqlpEnumValue, EnumValueModel> enumValue
-) : ModellerBase<IGqlpObjTypeArg, ObjTypeArgModel>
+) : ModellerBase<IGqlpTypeArg, TypeArgModel>
 {
-  protected override ObjTypeArgModel ToModel(IGqlpObjTypeArg ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeArgModel ToModel(IGqlpTypeArg ast, IMap<TypeKindModel> typeKinds)
   {
     if (ast.EnumValue is null) {
       typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind);

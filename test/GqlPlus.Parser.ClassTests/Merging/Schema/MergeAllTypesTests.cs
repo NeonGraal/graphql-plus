@@ -58,7 +58,7 @@ public class MergeAllTypesTests
     this.SkipEqual3(outputType, fieldType, enumType);
 
     // Arrange
-    ObjTypeArgAst arg = new(AstNulls.At, "", "") {
+    TypeArgAst arg = new(AstNulls.At, "", "") {
       EnumValue = new EnumValueAst(AstNulls.At, enumLabel)
     };
 
@@ -86,7 +86,7 @@ public class MergeAllTypesTests
     this.SkipEqual(outputType, enumType);
 
     // Arrange
-    ObjAltAst alt = new(AstNulls.At, "", "") {
+    AlternateAst alt = new(AstNulls.At, "", "") {
       EnumValue = new EnumValueAst(AstNulls.At, enumLabel)
     };
 
@@ -110,10 +110,10 @@ public class MergeAllTypesTests
     this.SkipEqual3(outputType, enumType, altType);
 
     // Arrange
-    ObjTypeArgAst arg = new(AstNulls.At, "", "") {
+    TypeArgAst arg = new(AstNulls.At, "", "") {
       EnumValue = new EnumValueAst(AstNulls.At, enumLabel)
     };
-    ObjAltAst alt = new(AstNulls.At, altType, "") {
+    AlternateAst alt = new(AstNulls.At, altType, "") {
       Args = [arg]
     };
 

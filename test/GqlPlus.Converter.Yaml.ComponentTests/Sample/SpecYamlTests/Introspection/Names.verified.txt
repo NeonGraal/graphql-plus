@@ -35,7 +35,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _AndType: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _AndType
       type: !_ObjBase
         name: _Type
@@ -46,7 +46,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Type
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _Type
     fields:

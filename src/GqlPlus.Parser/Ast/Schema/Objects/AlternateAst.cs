@@ -2,12 +2,12 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal record class ObjAltAst(
+internal record class AlternateAst(
   ITokenAt At,
   string Name,
   string Description
 ) : ObjBaseAst(At, Name, Description)
-  , IGqlpObjAlt
+  , IGqlpAlternate
 {
   internal override string Abbr => "OA";
   public IGqlpModifier[] Modifiers { get; set; } = [];
@@ -18,8 +18,8 @@ internal record class ObjAltAst(
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
-  string IGqlpObjectEnum.EnumTypeName => IsTypeParam ? "" : Name;
-  void IGqlpObjectEnum.SetEnumType(string enumType)
+  string IGqlpObjEnum.EnumTypeName => IsTypeParam ? "" : Name;
+  void IGqlpObjEnum.SetEnumType(string enumType)
   {
     if (EnumValue == null) {
       EnumValue = new EnumValueAst(At, enumType, Name);
@@ -30,9 +30,9 @@ internal record class ObjAltAst(
     Name = enumType;
   }
 
-  public virtual bool Equals(ObjAltAst? other)
-    => other is IGqlpObjAlt alternate && Equals(alternate);
-  public bool Equals(IGqlpObjAlt? other)
+  public virtual bool Equals(AlternateAst? other)
+    => other is IGqlpAlternate alternate && Equals(alternate);
+  public bool Equals(IGqlpAlternate? other)
     => base.Equals(other)
     && Modifiers.SequenceEqual(other.Modifiers)
     && EnumValue.NullEqual(other.EnumValue);

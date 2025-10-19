@@ -6,23 +6,23 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal class ParseObjAlts(
+internal class ParseAlternates(
   ParserArray<IParserCollections, IGqlpModifier>.DA collections,
   Parser<IGqlpObjBase>.D parseBase,
   Parser<IGqlpEnumValue>.D parseEnum
-) : Parser<IGqlpObjAlt>.IA
+) : Parser<IGqlpAlternate>.IA
 {
   private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = collections;
   private readonly Parser<IGqlpObjBase>.L _parseBase = parseBase;
   private readonly Parser<IGqlpEnumValue>.L _parseEnum = parseEnum;
 
-  public IResultArray<IGqlpObjAlt> Parse(ITokenizer tokens, string label)
+  public IResultArray<IGqlpAlternate> Parse(ITokenizer tokens, string label)
   {
     tokens.ThrowIfNull();
 
-    List<IGqlpObjAlt> result = [];
+    List<IGqlpAlternate> result = [];
     while (tokens.TakeAny(out char selector, '|', '!')) {
-      IResultArray<IGqlpObjAlt>? error = selector switch {
+      IResultArray<IGqlpAlternate>? error = selector switch {
         '|' => ParseBase(tokens, label, result),
         '!' => ParseEnum(tokens, label, result),
         _ => result.PartialArray(tokens.Error(label, $"unexpected '{selector}' in Alts")),
@@ -35,7 +35,7 @@ internal class ParseObjAlts(
     return result.OkArray();
   }
 
-  private IResultArray<IGqlpObjAlt>? ParseBase(ITokenizer tokens, string label, List<IGqlpObjAlt> result)
+  private IResultArray<IGqlpAlternate>? ParseBase(ITokenizer tokens, string label, List<IGqlpAlternate> result)
   {
     TokenAt at = tokens.At;
     IResult<IGqlpObjBase> objBase = _parseBase.Parse(tokens, label);
@@ -46,9 +46,9 @@ internal class ParseObjAlts(
     }
 
     IGqlpObjBase baseObject = objBase.Required();
-    ObjAltAst alternate = new(at, baseObject.Name, baseObject.Description) {
+    AlternateAst alternate = new(at, baseObject.Name, baseObject.Description) {
       IsTypeParam = baseObject.IsTypeParam,
-      Args = baseObject.Args.ArrayOf<IGqlpObjTypeArg>(),
+      Args = baseObject.Args.ArrayOf<IGqlpTypeArg>(),
     };
     result.Add(alternate);
     IResultArray<IGqlpModifier> collections = _collections.Value.Parse(tokens, label);
@@ -59,7 +59,7 @@ internal class ParseObjAlts(
     return null;
   }
 
-  private IResultArray<IGqlpObjAlt>? ParseEnum(ITokenizer tokens, string label, List<IGqlpObjAlt> result)
+  private IResultArray<IGqlpAlternate>? ParseEnum(ITokenizer tokens, string label, List<IGqlpAlternate> result)
   {
     TokenAt at = tokens.At;
     IResult<IGqlpEnumValue> enumResult = _parseEnum.Parse(tokens, label);
@@ -70,7 +70,7 @@ internal class ParseObjAlts(
     }
 
     IGqlpEnumValue enumValue = enumResult.Required();
-    ObjAltAst alternate = new(at, enumValue.EnumType, "") {
+    AlternateAst alternate = new(at, enumValue.EnumType, "") {
       EnumValue = enumValue,
     };
 

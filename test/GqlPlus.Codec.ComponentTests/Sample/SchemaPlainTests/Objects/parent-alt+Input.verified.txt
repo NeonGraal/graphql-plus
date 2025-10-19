@@ -2,11 +2,11 @@
 types: !_Map_Type
   !_Identifier PrntAltInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntAltInp
         type: !_ObjBase
           name: String
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntAltInp
         type: !_ObjBase
           name: Number
@@ -17,7 +17,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Number
     name: PrntAltInp
@@ -26,7 +26,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier RefPrntAltInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntAltInp
         type: !_ObjBase
           name: String
@@ -37,7 +37,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:

@@ -4,8 +4,8 @@ public abstract class ObjectArgEncoderBase<TModel>
   : EncoderClassTestBase<TModel>
   where TModel : IModelBase
 {
-  protected IEncoder<ObjTypeArgModel> ObjTypeArg { get; }
+  protected IEncoder<TypeArgModel> TypeArg { get; }
 
   protected ObjectArgEncoderBase()
-    => ObjTypeArg = RFor<ObjTypeArgModel>();
+    => TypeArg = RFor<TypeArgModel>();
 }

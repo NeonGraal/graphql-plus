@@ -13,7 +13,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
   where TObject : IGqlpObject<TObjField>
   where TObjField : IGqlpObjField
 {
-  private readonly Matcher<IGqlpObjTypeArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
+  private readonly Matcher<IGqlpTypeArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
 
   protected override void UsageValue(TObject usage, ObjectContext context)
   {
@@ -28,7 +28,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
       UsageField(field, usage, context);
     }
 
-    foreach (IGqlpObjAlt alternate in usage.Alternates) {
+    foreach (IGqlpAlternate alternate in usage.Alternates) {
       UsageAlternate(alternate, usage, context);
     }
 
@@ -56,7 +56,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     CheckForSelf(new([field.Type.FullType], usage, "a field"), usage.Name, context);
   }
 
-  private void UsageAlternate(IGqlpObjAlt alternate, TObject usage, ObjectContext context)
+  private void UsageAlternate(IGqlpAlternate alternate, TObject usage, ObjectContext context)
   {
     if (alternate.EnumValue is not null) {
       CheckObjEnum(usage.Label + " Alternate", alternate, context);
@@ -68,7 +68,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     CheckForSelf(new([alternate.FullType], usage, "an alternate"), usage.Name, context);
   }
 
-  private static void CheckObjEnum(string label, IGqlpObjectEnum objEnum, ObjectContext context)
+  private static void CheckObjEnum(string label, IGqlpObjEnum objEnum, ObjectContext context)
   {
     if (objEnum.EnumValue is null) {
       return;
@@ -135,13 +135,13 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 
   private void CheckArgsTypes(CheckError error, ObjectContext context, IGqlpObjBase reference)
   {
-    foreach (IGqlpObjTypeArg arg in reference.Args) {
+    foreach (IGqlpTypeArg arg in reference.Args) {
       CheckArgEnum(context, arg);
       CheckTypeRef(error, context, arg);
     }
   }
 
-  private void CheckArgEnum(ObjectContext context, IGqlpObjTypeArg arg)
+  private void CheckArgEnum(ObjectContext context, IGqlpTypeArg arg)
   {
     if (arg.EnumValue is null) {
       return;
@@ -158,9 +158,9 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 
   private void CheckParamsArgs(CheckError error, ObjectContext context, IGqlpObject definition, IGqlpObjBase reference)
   {
-    IEnumerable<(IGqlpObjTypeArg, IGqlpTypeParam)> argAndParams = reference.Args
+    IEnumerable<(IGqlpTypeArg, IGqlpTypeParam)> argAndParams = reference.Args
       .Zip(definition.TypeParams, static (a, p) => (a, p));
-    foreach ((IGqlpObjTypeArg arg, IGqlpTypeParam param) in argAndParams) {
+    foreach ((IGqlpTypeArg arg, IGqlpTypeParam param) in argAndParams) {
       CheckArgEnum(context, arg);
       CheckTypeRef(error, context, arg);
 
@@ -250,7 +250,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     }
 
     input = input with { Label = "an alternate" };
-    foreach (IGqlpObjAlt alternate in parentType.Alternates) {
+    foreach (IGqlpAlternate alternate in parentType.Alternates) {
       CheckForSelf(input.AddNext(alternate.Name), parentType.Name, context);
     }
   }
@@ -265,7 +265,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
         CheckForSelf(input.AddNext(field.Type.Name), parentType.Name, context);
       }
 
-      foreach (IGqlpObjAlt alternate in parentType.Alternates) {
+      foreach (IGqlpAlternate alternate in parentType.Alternates) {
         CheckForSelf(input.AddNext(alternate.Name), parentType.Name, context);
       }
     }
@@ -275,7 +275,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
   {
     base.CheckMergeParent(input, context);
 
-    IGqlpObjAlt[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.Alternates)];
+    IGqlpAlternate[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.Alternates)];
     if (alternates.Length > 0) {
       IMessages failures = verifiers.MergeAlternates.CanMerge(alternates);
       if (failures.Any()) {
@@ -299,8 +299,8 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 internal record class ObjectVerifierParams<TObject, TObjField>(
   IVerifyAliased<TObject> Aliased,
   IMerge<TObjField> MergeFields,
-  IMerge<IGqlpObjAlt> MergeAlternates,
-  Matcher<IGqlpObjTypeArg>.D ConstraintMatcher,
+  IMerge<IGqlpAlternate> MergeAlternates,
+  Matcher<IGqlpTypeArg>.D ConstraintMatcher,
   ILoggerFactory Logger
 )
   where TObject : IGqlpObject

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Modelling.Simple;
 
 public class UnionModellerTests
   : TypeModellerTests<IGqlpUnion, TypeUnionModel>
@@ -17,7 +19,7 @@ public class UnionModellerTests
   {
     // Arrange
     IGqlpUnionMember member = A.Named<IGqlpUnionMember>(memberName, contents);
-    IGqlpUnion ast = A.Union(name, [], "", member);
+    IGqlpUnion ast = A.Union(name).WithMembers([member]).AsUnion;
 
     // Act
     TypeUnionModel result = Modeller.ToModel(ast, TypeKinds);

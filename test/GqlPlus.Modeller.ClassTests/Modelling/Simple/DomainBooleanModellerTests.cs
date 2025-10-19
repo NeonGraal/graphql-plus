@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Modelling.Simple;
 
 public class DomainBooleanModellerTests
   : DomainModellerClassTestBase<IGqlpDomainTrueFalse, DomainTrueFalseModel>
@@ -23,8 +25,8 @@ public class DomainBooleanModellerTests
 
     IGqlpDomainTrueFalse[] items = [.. boolValues.Zip(excludeValues, A.DomainTrueFalse)];
 
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain(name, Kind, items);
-    A.SetParent(ast, parent);
+    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>(name, Kind)
+      .WithItems(items).WithParent(parent).AsDomain;
 
     // Act
     BaseDomainModel<DomainTrueFalseModel> result = DomainModeller.ToModel(ast, TypeKinds);
@@ -57,8 +59,8 @@ public class DomainBooleanModellerTests
     string parent)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>(name, Kind);
-    A.SetParent(ast, parent);
+    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>(name, Kind)
+      .WithParent(parent).AsDomain;
 
     // Act
     BaseDomainModel<DomainTrueFalseModel> result = DomainModeller.ToModel(ast, TypeKinds);
@@ -81,8 +83,10 @@ public class DomainBooleanModellerTests
     IGqlpDomainTrueFalse falseItem = A.DomainTrueFalse(false, true);
     IGqlpDomainTrueFalse excludedTrueItem = A.DomainTrueFalse(true, true);
 
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>("TestDomain", Kind, trueItem, falseItem, excludedTrueItem);
-    A.SetParent(ast, "parent");
+    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>("TestDomain", Kind)
+      .WithItems([trueItem, falseItem, excludedTrueItem])
+      .WithParent("parent")
+      .AsDomain;
 
     // Act
     BaseDomainModel<DomainTrueFalseModel> result = DomainModeller.ToModel(ast, TypeKinds);

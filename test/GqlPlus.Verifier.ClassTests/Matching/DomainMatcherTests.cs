@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Matching;
 
 public class DomainMatcherTests
   : MatchTestsBase
@@ -17,7 +19,7 @@ public class DomainMatcherTests
   public void Matches_ReturnsFalse_WhenMatchingUnknownKind()
   {
     // Arrange
-    IGqlpDomain type = A.Domain<IGqlpDomainItem>("Unknown", (DomainKind)99);
+    IGqlpDomain type = A.Domain<IGqlpDomainItem>("Unknown", (DomainKind)99).AsDomain;
 
     // Act
     bool result = _sut.Matches(type, "Unknown", Context);
@@ -32,7 +34,7 @@ public class DomainMatcherTests
     this.SkipEqual(kind, DomainKind.Enum, "Enum kind requires specific label matching logic.");
 
     // Arrange
-    IGqlpDomain type = A.Domain<IGqlpDomainLabel>(name, kind);
+    IGqlpDomain type = A.Domain<IGqlpDomainLabel>(name, kind).AsDomain;
 
     // Act
     bool result = _sut.Matches(type, $"{kind}", Context);
@@ -58,8 +60,7 @@ public class DomainMatcherTests
   public void Matches_ReturnsTrue_WhenMatchingEnumParent(string domain, string constraint, string enumName)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain);
-    A.SetParent(type, enumName);
+    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain).WithParent(enumName).AsDomain;
 
     IGqlpEnum enumType = A.Enum(enumName).AsEnum;
     Types[enumName] = enumType;

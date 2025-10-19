@@ -145,8 +145,8 @@ public class ObjArgMatcherTests
     IGqlpDomain<IGqlpDomainLabel> domType = A.DomainEnum(domName, enumName, enumLabel);
     Types[domName] = domType;
 
-    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint);
-    Types[constraint] = A.SetParent(domConstraint, domName);
+    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint).WithParent(domName).AsDomain;
+    Types[constraint] = domConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
 
@@ -159,7 +159,7 @@ public class ObjArgMatcherTests
     this.SkipEqual3(enumLabel, name, constraint);
 
     IGqlpObjTypeArg arg = A.ObjEnumArg("", enumLabel);
-    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint);
+    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint).AsDomain;
     Types[constraint] = domConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -189,7 +189,7 @@ public class ObjArgMatcherTests
     this.SkipEqual(enumName, constraint);
 
     IGqlpObjTypeArg arg = A.ObjEnumArg(enumName, enumLabel);
-    IGqlpEnum enumParent = A.Enum(enumName, [enumLabel], constraint);
+    IGqlpEnum enumParent = A.Enum(enumName).WithLabels([enumLabel]).WithParent(constraint).AsEnum;
     Types[enumName] = enumParent;
 
     IGqlpEnum enumConstraint = A.Enum(constraint).AsEnum;

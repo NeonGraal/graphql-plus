@@ -82,8 +82,10 @@ public class VerifyEnumTypesTests
     IGqlpEnum parent = A.Enum(parentName, parentLabels);
     Definitions.Add(parent);
 
-    IGqlpEnum anEnum = A.Enum(name, labels);
-    A.SetParent(anEnum, parentName);
+    IGqlpEnum anEnum = A.Enum(name)
+      .WithParent(parentName)
+      .WithLabels(labels)
+      .AsEnum;
     Usages.Add(anEnum);
 
     _verifier.Verify(UsageAliased, Errors);
@@ -99,8 +101,10 @@ public class VerifyEnumTypesTests
     IGqlpEnum parent = A.Enum(parentName, parentLabels);
     Definitions.Add(parent);
 
-    IGqlpEnum anEnum = A.Enum(name, labels);
-    A.SetParent(anEnum, parentName);
+    IGqlpEnum anEnum = A.Enum(name)
+      .WithParent(parentName)
+      .WithLabels(labels)
+      .AsEnum;
     Usages.Add(anEnum);
 
     _mergeLabels.Intf.CanMerge(Arg.Any<IEnumerable<IGqlpEnumLabel>>()).Returns("Error".MakeMessages());

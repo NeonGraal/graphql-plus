@@ -21,9 +21,18 @@ public class SimpleBuilder
     result.Parent.Returns(_parent);
     return result;
   }
+}
 
-  public IGqlpSimple AsSimple
-    => Build<IGqlpSimple>();
+public class SimpleBuilder<T>
+  : SimpleBuilder
+    where T : class, IGqlpSimple
+{
+  public SimpleBuilder(string name)
+    : base(name)
+    => Add<T>();
+
+  public T AsSimple
+    => Build<T>();
 }
 
 public static class SimpleBuilderHelper

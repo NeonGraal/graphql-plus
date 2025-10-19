@@ -98,7 +98,7 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion parent = A.Union("Parent", ["Member3", "Member4"]);
+    IGqlpUnion parent = A.Union("Parent").WithMembers(["Member3", "Member4"]).AsUnion;
     Definitions.Add(parent);
 
     _union.WithMembers(["Member1", "Member2"]);
@@ -118,7 +118,7 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion member = A.Union("Member", ["Member3", "Member4"]);
+    IGqlpUnion member = A.Union("Member").WithMembers(["Member3", "Member4"]).AsUnion;
     Definitions.Add(member);
 
     _union.WithMembers(["Member1", "Member2", "Member"]);
@@ -135,7 +135,7 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion member = A.Union("Member", ["Member3", "Member4", "Union"]);
+    IGqlpUnion member = A.Union("Member").WithMembers(["Member3", "Member4", "Union"]).AsUnion;
     Definitions.Add(member);
 
     _union.WithMembers(["Member1", "Member2", "Member"]);
@@ -152,7 +152,7 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2");
 
-    IGqlpUnion parent = A.Union("Parent", ["Member2", "Union"]);
+    IGqlpUnion parent = A.Union("Parent").WithMembers(["Member2", "Union"]).AsUnion;
     Definitions.Add(parent);
 
     IGqlpUnion member = A.Union("Member").WithParent("Parent").AsUnion;

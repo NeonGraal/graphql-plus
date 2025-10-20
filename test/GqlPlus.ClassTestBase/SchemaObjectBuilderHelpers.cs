@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus;
@@ -21,7 +20,7 @@ public static class SchemaObjectBuilderHelpers
     theObj.Kind.Returns(kind);
     theObj.Label.Returns(kind.ToString());
     if (!string.IsNullOrWhiteSpace(parent)) {
-      IGqlpObjBase parentRef = builder.ObjBase(parent, isTypeParam);
+      IGqlpObjBase parentRef = builder.ObjBase(parent).IsTypeParam(isTypeParam).AsObjBase;
       theObj.SetParent(parentRef);
     } else {
       theObj.SetParent(null);
@@ -37,20 +36,6 @@ public static class SchemaObjectBuilderHelpers
     return obj;
   }
 
-  public static IGqlpObjBase ObjBase(this IMockBuilder builder, string typeName, bool isTypeParam = false)
-  {
-    IGqlpObjBase theType = builder.Named<IGqlpObjBase>(typeName);
-    if (isTypeParam) {
-      theType.IsTypeParam.Returns(true);
-      theType.FullType.Returns("$" + typeName);
-      theType.TypeName.Returns("$" + typeName);
-    } else {
-      theType.FullType.Returns(typeName);
-      theType.TypeName.Returns(typeName);
-    }
-
-    return theType;
-  }
   public static TBase SetArgs<TBase, TTypeArg>([NotNull] this TBase objBase, params TTypeArg[] args)
     where TBase : class, IGqlpObjBase
     where TTypeArg : class, IGqlpTypeArg
@@ -68,7 +53,7 @@ public static class SchemaObjectBuilderHelpers
     => new TypeArgBuilder(typeName).IsTypeParam(isTypeParam).AsTypeArg;
 
   public static IGqlpTypeArg EnumArg(this IMockBuilder _, string enumType, string enumLabel)
-    => new TypeArgBuilder(enumType).WithEnumValue(enumLabel).AsTypeArg;
+    => new TypeArgBuilder(enumType).WithObjEnum(enumLabel).AsTypeArg;
 
   public static TField ObjField<TField>(this IMockBuilder builder, string fieldName, IGqlpObjBase type, params IGqlpModifier[] modifiers)
     where TField : class, IGqlpObjField
@@ -82,7 +67,7 @@ public static class SchemaObjectBuilderHelpers
   }
   public static TField ObjField<TField>(this IMockBuilder builder, string fieldName, string typeName, params IGqlpModifier[] modifiers)
     where TField : class, IGqlpObjField
-    => builder.ObjField<TField>(fieldName, builder.ObjBase(typeName), modifiers);
+    => builder.ObjField<TField>(fieldName, builder.ObjBase(typeName).AsObjBase, modifiers);
   public static TField SetModifiers<TField>([NotNull] this TField field, params IGqlpModifier[] modifiers)
     where TField : class, IGqlpModifiers
   {
@@ -90,4 +75,9 @@ public static class SchemaObjectBuilderHelpers
 
     return field;
   }
+
+  public static AlternateBuilder Alternate(this IMockBuilder _, string name)
+    => new(name);
+  public static ObjBaseBuilder ObjBase(this IMockBuilder _, string typeName)
+    => new(typeName);
 }

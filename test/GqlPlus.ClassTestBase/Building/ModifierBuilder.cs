@@ -25,3 +25,18 @@ public class ModifierBuilder
   public IGqlpModifier AsModifier
     => Build<IGqlpModifier>();
 }
+
+public interface IModifiersBuilder
+{
+  void SetModifiers(IEnumerable<IGqlpModifier> modifiers);
+}
+
+public static class ModifierBuilderHelper
+{
+  public static T WithModifiers<T>(this T builder, IEnumerable<IGqlpModifier> modifiers)
+    where T : IModifiersBuilder
+  {
+    builder.SetModifiers(modifiers);
+    return builder;
+  }
+}

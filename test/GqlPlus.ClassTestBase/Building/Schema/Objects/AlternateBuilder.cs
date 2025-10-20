@@ -3,24 +3,30 @@ using NSubstitute.Core;
 
 namespace GqlPlus.Building.Schema.Objects;
 
-public class TypeArgBuilder
-  : ObjTypeBuilder, IObjEnumBuilder
+public class AlternateBuilder
+  : ObjBaseBuilder
+  , IModifiersBuilder
+  , IObjEnumBuilder
 {
-  internal IGqlpEnumValue? _enumValue;
+  private IGqlpModifier[] _modifiers = [];
+  private IGqlpEnumValue? _enumValue;
 
-  public TypeArgBuilder(string name)
+  public AlternateBuilder(string name)
     : base(name)
   {
-    Add<IGqlpTypeArg>();
+    Add<IGqlpAlternate>();
+    Add<IGqlpModifiers>();
     Add<IGqlpObjEnum>();
   }
 
   protected new T Build<T>()
-    where T : class, IGqlpTypeArg
+    where T : class, IGqlpAlternate
   {
     T result = base.Build<T>();
+
     result.EnumValue.Returns(_enumValue);
     if (!_isTypeParam) {
+      result.Modifiers.Returns(_modifiers);
       result.EnumTypeName.Returns(_name);
       result.WhenForAnyArgs(a => a.SetEnumType("")).Do(SetEnumType);
     }
@@ -31,12 +37,13 @@ public class TypeArgBuilder
       => result.EnumTypeName.Returns(c.Arg<string>());
   }
 
+  public void SetModifiers(IEnumerable<IGqlpModifier> modifiers)
+    => _modifiers = [.. modifiers];
   public void SetEnumValue(IGqlpEnumValue enumValue)
     => _enumValue = enumValue;
 
-  public IGqlpTypeArg AsTypeArg
-    => Build<IGqlpTypeArg>();
+  public IGqlpAlternate AsAlternate
+    => Build<IGqlpAlternate>();
 
-  public string Name
-    => _name;
+  public string Name => _name;
 }

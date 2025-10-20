@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Building.Schema;
+using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus;
 
@@ -56,7 +57,7 @@ public static class SchemaBuilderHelpers
 
   public static IGqlpInputParam InputParam(this IMockBuilder builder, string type, bool isTypeParam = false)
   {
-    IGqlpObjBase typeBase = builder.ObjBase(type, isTypeParam);
+    IGqlpObjBase typeBase = builder.ObjBase(type).IsTypeParam(isTypeParam).AsObjBase;
     IGqlpInputParam input = builder.Error<IGqlpInputParam>();
     input.Type.Returns(typeBase);
     return input;

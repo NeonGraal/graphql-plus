@@ -8,12 +8,6 @@ namespace GqlPlus;
 
 public static class GeneralHelpers
 {
-  public static T[] ArrayOf<T>(this IEnumerable<object>? items)
-    => [.. items?.OfType<T>() ?? []];
-
-  public static T[] ArrayJust<T>(this IEnumerable<T?>? items)
-    => [.. items?.OfType<T>() ?? []];
-
   public static Dictionary<TKey, TValue> DictWith<TKey, TValue>(this TKey key, TValue value)
     where TKey : notnull
     => new() { [key] = value };
@@ -39,28 +33,14 @@ public static class GeneralHelpers
     return [.. result];
   }
 
-  public static string IfWhiteSpace(this string? text, string replacement = "")
-    => string.IsNullOrWhiteSpace(text) ? replacement : text!;
+  public static bool NullEqual(this decimal? left, decimal? right)
+    => left is null && right is null
+    || left is not null && left == right;
 
-  public static string Joined(this IEnumerable<string?>? items, string by = " ")
-    => string.Join(by,
-      items?.Where(i => !string.IsNullOrWhiteSpace(i))
-      ?? []);
-
-  public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping, string by = " ")
-    => (items?.Select(mapping).Joined(by)).IfWhiteSpace();
-
-  public static Map<TValue> MapWith<TValue>(this string key, TValue value)
-    => new() { [key] = value };
-
-  public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
-    => left.OrderBy(l => l, comparer).SequenceEqual(right.OrderBy(r => r, comparer));
-
-  public static string Prefixed(this string? text, string prefix)
-    => text?.Length > 0 ? prefix + text : "";
-
-  public static string Suffixed(this string? text, string suffix)
-    => text?.Length > 0 ? text + suffix : "";
+  public static bool NullEqual<T>(this T? left, T? right)
+    where T : IEquatable<T>
+    => left is null && right is null
+    || left is not null && right is not null && left.Equals(right);
 
   [return: NotNull]
   public static T ThrowIfNull<T>([NotNull] this T? value, [CallerArgumentExpression(nameof(value))] string? expression = default)
@@ -77,19 +57,6 @@ public static class GeneralHelpers
 
   public static string TrueFalse(this bool? value)
     => value is null ? "" : value == true ? "true" : "false";
-
-  public static string Quoted(this string? text, char quote)
-    => text.Quoted(quote.ToString());
-
-  public static string Quoted(this string? text, string quote)
-    => text?.Length > 0
-    ? string.Concat(
-      quote,
-      text
-        .Replace("\\", "\\\\")
-        .Replace(quote, "\\" + quote),
-      quote)
-    : "";
 
   public static string Show(this IGqlpAbbreviated? abbr)
   {
@@ -128,19 +95,4 @@ public static class GeneralHelpers
       sw.WriteLine(text);
     }
   }
-
-  public static string Surround(
-    this IEnumerable<string>? items,
-    string before,
-    string after,
-    string by = " ")
-   => items.Joined(by).Prefixed(before).Suffixed(after);
-
-  public static string Surround<T>(
-    this IEnumerable<T>? items,
-    string before,
-    string after,
-    Func<T?, string> formatter,
-    string by = " ")
-   => items.Joined(formatter, by).Prefixed(before).Suffixed(after);
 }

@@ -60,8 +60,7 @@ public interface IGqlpObjField
 }
 
 public interface IGqlpAlternate
-  : IGqlpError
-  , IGqlpObjBase
+  : IGqlpObjBase
   , IGqlpModifiers
   , IGqlpObjEnum
 { }

@@ -1,4 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Xml.Linq;
+using GqlPlus.Building;
+using GqlPlus.Building.Schema.Objects;
 using GqlPlus.Matching;
 using NSubstitute.Core;
 
@@ -218,8 +221,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     Define<IGqlpTypeSpecial>("String");
 
-    IGqlpAlternate alt = ObjectAlternate("String");
-    SetModifier(alt, kind, "String");
+    IGqlpAlternate alt = A.Alternate("String").WithModifiers([A.Modifier(kind, "String")]).AsAlternate;
 
     Verify_NoErrors();
   }
@@ -672,7 +674,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     obj ??= TheObject;
 
-    IGqlpObjBase parentBase = A.ObjBase(parentName, isTypeParam);
+    IGqlpObjBase parentBase = A.ObjBase(parentName).IsTypeParam(isTypeParam).AsObjBase;
     obj.SetParent(parentBase);
 
     return parentBase;
@@ -682,11 +684,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     obj ??= TheObject;
 
-    IGqlpAlternate alt = A.Named<IGqlpAlternate, IGqlpAlternate>(type);
-    string fullType = isTypeParam ? "$" + type : type;
-    alt.FullType.Returns(fullType);
-    alt.IsTypeParam.Returns(isTypeParam);
-    alt.EnumValue.Returns((IGqlpEnumValue?)null);
+    IGqlpAlternate alt = A.Alternate(type).IsTypeParam(isTypeParam).AsAlternate;
 
     obj.Alternates.Returns([alt]);
 
@@ -697,7 +695,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     obj ??= TheObject;
 
-    IGqlpAlternate alt = A.Named<IGqlpAlternate, IGqlpAlternate>(enumType);
+    IGqlpAlternate alt = A.Alternate(enumType).AsAlternate;
     alt.FullType.Returns(enumType);
     IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
     alt.EnumValue.Returns(enumValue);
@@ -711,7 +709,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     obj ??= TheObject;
 
-    IGqlpObjBase objBase = A.ObjBase(fieldType, isTypeParam);
+    IGqlpObjBase objBase = A.ObjBase(fieldType).IsTypeParam(isTypeParam).AsObjBase;
     TField field = A.ObjField<TField>(fieldName, objBase);
 
     obj.Fields.Returns([field]);

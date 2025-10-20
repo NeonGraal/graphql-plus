@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Building;
+using GqlPlus.Building.Schema;
+
+namespace GqlPlus.Modelling.Objects;
 
 public class AlternateModellerTests
   : ModellerObjectBaseTestBase<IGqlpAlternate, AlternateModel, ObjBaseModel>
@@ -14,9 +17,11 @@ public class AlternateModellerTests
   public void AlternateModel_WithValidAlternate_ReturnsExpectedAlternateModel(string name, string contents)
   {
     // Arrange
-    IGqlpAlternate ast = A.Named<IGqlpAlternate>(name, contents);
     IGqlpModifier modifier = A.Modifier(ModifierKind.List);
-    ast.Modifiers.Returns([modifier]);
+    IGqlpAlternate ast = A.Alternate(name)
+      .WithDescr(contents)
+      .WithModifiers([modifier])
+      .AsAlternate;
 
     ObjBaseModel dualType = new(name, contents);
     ToModelReturns(ObjBase, dualType);

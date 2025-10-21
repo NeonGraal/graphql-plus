@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Verifying.Schema.Objects;
+﻿using GqlPlus.Building;
+using GqlPlus.Building.Schema.Objects;
+
+namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyOutputTypesTests
@@ -45,11 +48,9 @@ public class VerifyOutputTypesTests
     Define<IGqlpEnum, IGqlpSimple>("d");
 
     IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, "d");
-    IGqlpInputParam param = A.InputParam("c").AsInputParam;
-    param.Modifiers.Returns([modifier]);
+    IGqlpInputParam param = A.InputParam("c").WithModifiers([modifier]).AsInputParam;
 
-    IGqlpOutputField field = A.ObjField<IGqlpOutputField>("a", "b");
-    field.Params.Returns([param]);
+    IGqlpOutputField field = A.OutputField("a", "b").WithParams([param]).AsOutputField;
 
     _output.Fields.Returns([field]);
     _output.ObjFields.Returns([field]);

@@ -28,11 +28,13 @@ public static class SchemaSimpleBuilderHelpers
   public static SimpleBuilder<TSimple> Simple<TSimple>(this IMockBuilder _, string name)
     where TSimple : class, IGqlpSimple
     => new(name);
+
   public static DomainBuilder<TItem> Domain<TItem>(this IMockBuilder _, string name, DomainKind kind)
     where TItem : IGqlpDomainItem
     => new(name, kind);
   public static DomainBuilder<IGqlpDomainLabel> DomainEnum(this IMockBuilder _, string name)
     => new(name, DomainKind.Enum);
+
   public static EnumBuilder Enum(this IMockBuilder _, string name)
     => new(name);
 

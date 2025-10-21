@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Xml.Linq;
 using GqlPlus.Building;
+using GqlPlus.Building.Schema;
 using GqlPlus.Building.Schema.Objects;
 using GqlPlus.Matching;
 using NSubstitute.Core;
@@ -709,8 +709,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     obj ??= TheObject;
 
-    IGqlpObjBase objBase = A.ObjBase(fieldType).IsTypeParam(isTypeParam).AsObjBase;
-    TField field = A.ObjField<TField>(fieldName, objBase);
+    TField field = A.ObjField<TField>(fieldName, fieldType).WithType(t => t.IsTypeParam(isTypeParam)).AsObjField;
 
     obj.Fields.Returns([field]);
     obj.ObjFields.Returns([field]);
@@ -722,9 +721,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     obj ??= TheObject;
 
-    TField field = A.ObjField<TField>(fieldName, enumType);
-    IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
-    field.EnumValue.Returns(enumValue);
+    TField field = A.ObjField<TField>(fieldName, enumType).WithObjEnum(enumLabel).AsObjField;
 
     obj.Fields.Returns([field]);
     obj.ObjFields.Returns([field]);
@@ -744,19 +741,13 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 
   protected static IGqlpTypeArg BaseArg(IGqlpObjBase type, string argName, bool isTypeParam = false)
   {
-    IGqlpTypeArg arg = A.TypeArg(argName, isTypeParam);
+    IGqlpTypeArg arg = A.TypeArg(argName).IsTypeParam(isTypeParam).AsTypeArg;
     type.SetArgs(arg);
     return arg;
   }
   protected static IGqlpTypeArg BaseEnumArg(IGqlpObjBase type, string enumType, string enumLabel)
   {
-    IGqlpObjType enumObjType = A.Named<IGqlpObjType>(enumType);
-
-    IGqlpTypeArg arg = A.TypeArg(enumType);
-    arg.FullType.Returns(enumType);
-    IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
-    arg.EnumValue.Returns(enumValue);
-
+    IGqlpTypeArg arg = A.TypeArg(enumType).WithObjEnum(enumLabel).AsTypeArg;
     type.SetArgs(arg);
     return arg;
   }

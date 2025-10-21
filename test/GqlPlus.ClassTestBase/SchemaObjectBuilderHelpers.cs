@@ -1,18 +1,12 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Building.Schema;
 using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus;
 
 public static class SchemaObjectBuilderHelpers
 {
-  public static T SetDescr<T>(this T described, string description)
-    where T : IGqlpDescribed
-  {
-    described.Description.Returns(description);
-    return described;
-  }
-
   public static TObject Obj<TObject>(this IMockBuilder builder, TypeKind kind, string typeName, string parent = "", bool isTypeParam = false)
     where TObject : class, IGqlpObject
   {
@@ -49,35 +43,22 @@ public static class SchemaObjectBuilderHelpers
     return objBase;
   }
 
-  public static IGqlpTypeArg TypeArg(this IMockBuilder _, string typeName, bool isTypeParam = false)
-    => new TypeArgBuilder(typeName).IsTypeParam(isTypeParam).AsTypeArg;
-
-  public static IGqlpTypeArg EnumArg(this IMockBuilder _, string enumType, string enumLabel)
-    => new TypeArgBuilder(enumType).WithObjEnum(enumLabel).AsTypeArg;
-
-  public static TField ObjField<TField>(this IMockBuilder builder, string fieldName, IGqlpObjBase type, params IGqlpModifier[] modifiers)
-    where TField : class, IGqlpObjField
-  {
-    TField theField = builder.Named<TField>(fieldName, "");
-    theField.Type.Returns(type);
-    theField.Modifiers.Returns(modifiers);
-    theField.EnumValue.Returns((IGqlpEnumValue?)null);
-
-    return theField;
-  }
-  public static TField ObjField<TField>(this IMockBuilder builder, string fieldName, string typeName, params IGqlpModifier[] modifiers)
-    where TField : class, IGqlpObjField
-    => builder.ObjField<TField>(fieldName, builder.ObjBase(typeName).AsObjBase, modifiers);
-  public static TField SetModifiers<TField>([NotNull] this TField field, params IGqlpModifier[] modifiers)
-    where TField : class, IGqlpModifiers
-  {
-    field.Modifiers.Returns(modifiers);
-
-    return field;
-  }
-
   public static AlternateBuilder Alternate(this IMockBuilder _, string name)
     => new(name);
+
   public static ObjBaseBuilder ObjBase(this IMockBuilder _, string typeName)
     => new(typeName);
+
+  public static TypeArgBuilder TypeArg(this IMockBuilder _, string typeName)
+    => new(typeName);
+
+  public static ObjFieldBuilder<TField> ObjField<TField>(this IMockBuilder _, string fieldName, string typeName)
+    where TField : class, IGqlpObjField
+    => new(fieldName, typeName);
+  public static DualFieldBuilder DualField(this IMockBuilder _, string fieldName, string typeName)
+    => new(fieldName, typeName);
+  public static InputFieldBuilder InputField(this IMockBuilder _, string fieldName, string typeName)
+    => new(fieldName, typeName);
+  public static OutputFieldBuilder OutputField(this IMockBuilder _, string fieldName, string typeName)
+    => new(fieldName, typeName);
 }

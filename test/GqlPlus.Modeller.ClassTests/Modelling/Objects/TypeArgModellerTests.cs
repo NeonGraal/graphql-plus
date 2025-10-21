@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Building.Schema.Objects;
+
+namespace GqlPlus.Modelling.Objects;
 
 public class TypeArgModellerTests
   : ModellerClassTestBase<IGqlpTypeArg, TypeArgModel>
@@ -18,7 +20,7 @@ public class TypeArgModellerTests
   public void ToModel_WithValidArg_ReturnsExpectedOutputArgModel(string name)
   {
     // Arrange
-    IGqlpTypeArg ast = A.TypeArg(name, true);
+    IGqlpTypeArg ast = A.TypeArg(name).IsTypeParam().AsTypeArg;
 
     // Act
     TypeArgModel result = Modeller.ToModel(ast, TypeKinds);
@@ -35,7 +37,7 @@ public class TypeArgModellerTests
   public void ToModel_WithValidEnumArg_ReturnsExpectedOutputArgModel(string enumType, string enumLabel)
   {
     // Arrange
-    IGqlpTypeArg ast = A.TypeArg(enumType);
+    IGqlpTypeArg ast = A.TypeArg(enumType).AsTypeArg;
     IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
     ast.EnumValue.Returns(enumValue);
 

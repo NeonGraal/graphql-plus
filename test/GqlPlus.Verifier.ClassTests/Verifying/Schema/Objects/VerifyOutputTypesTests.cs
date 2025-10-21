@@ -24,7 +24,7 @@ public class VerifyOutputTypesTests
     IGqlpInputObject paramType = A.Obj<IGqlpInputObject>(TypeKind.Input, "c");
     Define(paramType);
 
-    IGqlpInputParam param = A.InputParam("c");
+    IGqlpInputParam param = A.InputParam("c").AsInputParam;
     IGqlpOutputField field = ObjectField("a", "b", _output);
     field.Params.Returns([param]);
 
@@ -45,7 +45,7 @@ public class VerifyOutputTypesTests
     Define<IGqlpEnum, IGqlpSimple>("d");
 
     IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, "d");
-    IGqlpInputParam param = A.InputParam("c");
+    IGqlpInputParam param = A.InputParam("c").AsInputParam;
     param.Modifiers.Returns([modifier]);
 
     IGqlpOutputField field = A.ObjField<IGqlpOutputField>("a", "b");

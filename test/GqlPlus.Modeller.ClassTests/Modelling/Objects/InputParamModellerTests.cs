@@ -1,4 +1,8 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Building;
+using GqlPlus.Building.Schema;
+using GqlPlus.Building.Schema.Objects;
+
+namespace GqlPlus.Modelling.Objects;
 
 public class InputParamModellerTests
   : ModellerClassTestBase<IGqlpInputParam, InputParamModel>
@@ -21,7 +25,11 @@ public class InputParamModellerTests
   {
     // Arrange
     IGqlpModifier modifier = A.Modifier(ModifierKind.Opt);
-    IGqlpInputParam ast = A.InputParam(paramType, true).SetDescr(content).SetModifiers([modifier]);
+    IGqlpInputParam ast = A.InputParam(paramType)
+      .WithDescr(content)
+      .WithType(t => t.IsTypeParam())
+      .WithModifiers([modifier])
+      .AsInputParam;
     IGqlpConstant constant = A.Constant(text);
     ast.DefaultValue.Returns(constant);
 
@@ -48,7 +56,7 @@ public class InputParamModellerTests
   public void ToModel_WithNoModifiersOrDefaultValue_ReturnsInputParamModelWithoutModifiersOrDefaultValue(string paramType, string content)
   {
     // Arrange
-    IGqlpInputParam ast = A.InputParam(paramType).SetDescr(content);
+    IGqlpInputParam ast = A.InputParam(paramType).WithDescr(content).AsInputParam;
     ast.Modifiers.Returns([]);
 
     // Act

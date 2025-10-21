@@ -50,14 +50,18 @@ public interface IGqlpObjBase
   void SetName(string name);
 }
 
-public interface IGqlpObjField
-  : IGqlpAliased
-  , IGqlpObjEnum
-  , IGqlpModifiers
+public interface IGqlpObjFieldType
+  : IGqlpModifiers
 {
   IGqlpObjBase Type { get; }
   string ModifiedType { get; }
 }
+
+public interface IGqlpObjField
+  : IGqlpAliased
+  , IGqlpObjFieldType
+  , IGqlpObjEnum
+{ }
 
 public interface IGqlpAlternate
   : IGqlpObjBase
@@ -83,12 +87,17 @@ public interface IGqlpInputObject
   : IGqlpObject<IGqlpInputField>
 { }
 
-public interface IGqlpInputField
-  : IGqlpObjField
-  , IEquatable<IGqlpInputField>
+public interface IGqlpInputFieldType
+  : IGqlpObjFieldType
 {
   IGqlpConstant? DefaultValue { get; }
 }
+
+public interface IGqlpInputField
+  : IGqlpObjField
+  , IGqlpInputFieldType
+  , IEquatable<IGqlpInputField>
+{ }
 
 public interface IGqlpOutputObject
   : IGqlpObject<IGqlpOutputField>
@@ -103,9 +112,6 @@ public interface IGqlpOutputField
 
 public interface IGqlpInputParam
   : IGqlpDescribed
-  , IGqlpModifiers
+  , IGqlpInputFieldType
   , IEquatable<IGqlpInputParam>
-{
-  IGqlpObjBase Type { get; }
-  IGqlpConstant? DefaultValue { get; }
-}
+{ }

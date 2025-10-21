@@ -55,13 +55,8 @@ public static class SchemaBuilderHelpers
     return result;
   }
 
-  public static IGqlpInputParam InputParam(this IMockBuilder builder, string type, bool isTypeParam = false)
-  {
-    IGqlpObjBase typeBase = builder.ObjBase(type).IsTypeParam(isTypeParam).AsObjBase;
-    IGqlpInputParam input = builder.Error<IGqlpInputParam>();
-    input.Type.Returns(typeBase);
-    return input;
-  }
+  public static InputParamBuilder InputParam(this IMockBuilder _, string typeName)
+    => new(typeName);
 
   public static T Named<T>(this IMockBuilder builder, string name)
     where T : class, IGqlpNamed

@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Building.Schema;
-using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus;
 

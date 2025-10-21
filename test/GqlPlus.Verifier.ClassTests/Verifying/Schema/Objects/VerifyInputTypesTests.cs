@@ -14,7 +14,7 @@ public class VerifyInputTypesTests
   {
     Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _input = A.Obj<IGqlpInputObject>(TypeKind.Input, "Input");
+    _input = A.Obj<IGqlpInputObject>(TypeKind.Input, "Input").AsObject;
   }
 
   [Theory, RepeatData]

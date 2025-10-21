@@ -1,6 +1,4 @@
-﻿using GqlPlus;
-
-namespace GqlPlus.Merging.Schema;
+﻿namespace GqlPlus.Merging.Schema;
 
 public class MergeConstantsTests
   : TestAbbreviatedMerger<IGqlpConstant>

@@ -11,7 +11,7 @@ public class ObjFieldBuilder
   private IGqlpModifier[] _modifiers = [];
   private IGqlpEnumValue? _enumValue;
 
-  public ObjBaseBuilder TypeBuilder { get; }
+  public ObjBaseBuilder BaseBuilder { get; }
 
   public ObjFieldBuilder(string name, string type)
     : base(name)
@@ -21,7 +21,7 @@ public class ObjFieldBuilder
     Add<IGqlpModifiers>();
     Add<IGqlpObjEnum>();
 
-    TypeBuilder = new ObjBaseBuilder(type);
+    BaseBuilder = new ObjBaseBuilder(type);
   }
 
   protected new T Build<T>()
@@ -29,7 +29,7 @@ public class ObjFieldBuilder
   {
     T result = base.Build<T>();
 
-    IGqlpObjBase type = TypeBuilder.AsObjBase;
+    IGqlpObjBase type = BaseBuilder.AsObjBase;
     result.Type.Returns(type);
     string modifiedType = _modifiers.AsString().Prepend(type.FullType).Joined();
     result.ModifiedType.Returns(modifiedType);
@@ -63,7 +63,7 @@ public class ObjFieldBuilder
   public void SetEnumValue(IGqlpEnumValue enumValue)
     => _enumValue = enumValue;
 
-  public string Name => TypeBuilder._name;
+  public string Name => BaseBuilder._name;
 }
 
 public class ObjFieldBuilder<T>

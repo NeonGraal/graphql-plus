@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Building.Schema;
 using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus;
@@ -10,15 +9,7 @@ public static class SchemaObjectBuilderHelpers
   public static TObject Obj<TObject>(this IMockBuilder builder, TypeKind kind, string typeName, string parent = "", bool isTypeParam = false)
     where TObject : class, IGqlpObject
   {
-    TObject theObj = builder.Named<TObject, IGqlpType>(typeName);
-    theObj.Kind.Returns(kind);
-    theObj.Label.Returns(kind.ToString());
-    if (!string.IsNullOrWhiteSpace(parent)) {
-      IGqlpObjBase parentRef = builder.ObjBase(parent).IsTypeParam(isTypeParam).AsObjBase;
-      theObj.SetParent(parentRef);
-    } else {
-      theObj.SetParent(null);
-    }
+    TObject theObj = builder.Obj<TObject>(kind, typeName).WithParent(parent, t => t.IsTypeParam(isTypeParam)).AsObject;
 
     return theObj;
   }
@@ -61,4 +52,8 @@ public static class SchemaObjectBuilderHelpers
     => new(fieldName, typeName);
   public static OutputFieldBuilder OutputField(this IMockBuilder _, string fieldName, string typeName)
     => new(fieldName, typeName);
+
+  public static ObjectBuilder<TObject> Obj<TObject>(this IMockBuilder _, TypeKind kind, string name)
+    where TObject : class, IGqlpObject
+    => new(name, kind);
 }

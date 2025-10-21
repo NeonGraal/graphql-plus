@@ -28,7 +28,7 @@ public class AlternateConstraintMatcherTests
   {
     this.SkipEqual3(name, constraint, parent);
 
-    IGqlpObject constraintType = A.Obj<IGqlpObject>(TypeKind.Dual, constraint);
+    IGqlpObject constraintType = A.Obj<IGqlpObject>(TypeKind.Dual, constraint).AsObject;
     IGqlpAlternate alternate = A.Alternate(name).AsAlternate;
     constraintType.Alternates.Returns([alternate]);
     Types[constraint] = constraintType;

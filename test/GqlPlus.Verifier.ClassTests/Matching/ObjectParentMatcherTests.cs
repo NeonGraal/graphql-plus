@@ -11,7 +11,7 @@ public abstract class ObjectParentMatcherTests<TObject>(
   [Theory, RepeatData]
   public void Object_Matches_SameName_ReturnsTrue(string constraint)
   {
-    TObject type = A.Obj<TObject>(Kind, constraint);
+    TObject type = A.Obj<TObject>(Kind, constraint).AsObject;
 
     bool result = Sut.Matches(type, constraint, Context);
 

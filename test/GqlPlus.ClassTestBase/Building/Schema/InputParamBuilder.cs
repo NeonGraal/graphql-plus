@@ -1,9 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
-
-using GqlPlus.Building;
-using GqlPlus.Building.Schema;
 using GqlPlus.Building.Schema.Objects;
-using NSubstitute.Core;
 namespace GqlPlus.Building.Schema;
 
 public class InputParamBuilder
@@ -14,7 +10,7 @@ public class InputParamBuilder
   private IGqlpModifier[] _modifiers = [];
   private IGqlpConstant? _defaultValue;
 
-  public ObjBaseBuilder TypeBuilder { get; }
+  public ObjBaseBuilder BaseBuilder { get; }
 
   public InputParamBuilder(string type)
     : base()
@@ -24,7 +20,7 @@ public class InputParamBuilder
     Add<IGqlpObjFieldType>();
     Add<IGqlpModifiers>();
 
-    TypeBuilder = new ObjBaseBuilder(type);
+    BaseBuilder = new ObjBaseBuilder(type);
   }
 
   protected new T Build<T>()
@@ -32,7 +28,7 @@ public class InputParamBuilder
   {
     T result = base.Build<T>();
 
-    IGqlpObjBase type = TypeBuilder.AsObjBase;
+    IGqlpObjBase type = BaseBuilder.AsObjBase;
     result.Type.Returns(type);
     string modifiedType = _modifiers.AsString().Prepend(type.FullType).Joined();
     result.Modifiers.Returns(_modifiers);
@@ -53,14 +49,14 @@ public class InputParamBuilder
 public interface ITypeBuilder
   : IModifiersBuilder
 {
-  ObjBaseBuilder TypeBuilder { get; }
+  ObjBaseBuilder BaseBuilder { get; }
 }
 
 public static class TypeBuilderHelper
 {
   public static T WithType<T>(this T builder, Action<ObjBaseBuilder> config)
     where T : ITypeBuilder
-    => builder.FluentAction(b => config(b.TypeBuilder));
+    => builder.FluentAction(b => config(b.BaseBuilder));
 }
 
 public interface IInputTypeBuilder
@@ -68,7 +64,6 @@ public interface IInputTypeBuilder
 {
   void SetDefaultValue(IGqlpConstant? defaultValue);
 }
-
 
 public static class InputTypeBuilderHelper
 {

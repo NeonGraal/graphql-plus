@@ -14,6 +14,6 @@ public class VerifyDualTypesTests
   {
     Verifier = new VerifyDualTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _dual = A.Obj<IGqlpDualObject>(TypeKind.Dual, "Dual");
+    _dual = A.Obj<IGqlpDualObject>(TypeKind.Dual, "Dual").AsObject;
   }
 }

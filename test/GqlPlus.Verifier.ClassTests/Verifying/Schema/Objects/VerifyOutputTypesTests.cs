@@ -17,14 +17,14 @@ public class VerifyOutputTypesTests
   {
     Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _output = A.Obj<IGqlpOutputObject>(TypeKind.Output, "Output");
+    _output = A.Obj<IGqlpOutputObject>(TypeKind.Output, "Output").AsObject;
   }
 
   [Fact]
   public void Verify_Output_WithFieldParams_ReturnsNoErrors()
   {
     DefineObject("b");
-    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>(TypeKind.Input, "c");
+    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>(TypeKind.Input, "c").AsObject;
     Define(paramType);
 
     IGqlpInputParam param = A.InputParam("c").AsInputParam;
@@ -43,7 +43,7 @@ public class VerifyOutputTypesTests
   {
     DefineObject("b");
 
-    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>(TypeKind.Input, "c");
+    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>(TypeKind.Input, "c").AsObject;
     Define(paramType);
     Define<IGqlpEnum, IGqlpSimple>("d");
 

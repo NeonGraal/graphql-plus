@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Building.Schema.Objects;
+
+namespace GqlPlus.Matching;
 
 public class AlternateConstraintMatcherTests
   : MatchAnyTypesTestsBase
@@ -28,12 +30,12 @@ public class AlternateConstraintMatcherTests
   {
     this.SkipEqual3(name, constraint, parent);
 
-    IGqlpObject constraintType = A.Obj<IGqlpObject>(TypeKind.Dual, constraint).AsObject;
+    IGqlpObject constraintType = A.DualObj(constraint).AsObject;
     IGqlpAlternate alternate = A.Alternate(name).AsAlternate;
     constraintType.Alternates.Returns([alternate]);
     Types[constraint] = constraintType;
 
-    IGqlpObject namedType = A.Obj<IGqlpObject>(TypeKind.Dual, name, parent);
+    IGqlpObject namedType = A.DualObj(name).WithParent(parent).AsObject;
     Types[name] = namedType;
 
     IGqlpType type = A.Named<IGqlpType>(parent);

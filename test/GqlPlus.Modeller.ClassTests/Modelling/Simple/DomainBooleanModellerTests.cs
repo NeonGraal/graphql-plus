@@ -84,7 +84,7 @@ public class DomainBooleanModellerTests
     IGqlpDomainTrueFalse excludedTrueItem = A.DomainTrueFalse(true, true);
 
     IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>("TestDomain", Kind)
-      .WithItems([trueItem, falseItem, excludedTrueItem])
+      .WithItems(trueItem, falseItem, excludedTrueItem)
       .WithParent("parent")
       .AsDomain;
 

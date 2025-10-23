@@ -27,16 +27,17 @@ public class ModifierBuilder
 }
 
 public interface IModifiersBuilder
+  : IMockBuilder
 {
-  void SetModifiers(IEnumerable<IGqlpModifier> modifiers);
+  void SetModifiers(params IGqlpModifier[] modifiers);
 }
 
 public static class ModifierBuilderHelper
 {
-  public static T WithModifiers<T>(this T builder, IEnumerable<IGqlpModifier> modifiers)
+  public static T WithModifier<T>(this T builder, ModifierKind kind, string key = "")
     where T : IModifiersBuilder
-  {
-    builder.SetModifiers(modifiers);
-    return builder;
-  }
+    => builder.WithModifiers(builder.Modifier(kind, key));
+  public static T WithModifiers<T>(this T builder, params IGqlpModifier[] modifiers)
+    where T : IModifiersBuilder
+    => builder.FluentAction(b => b.SetModifiers(modifiers));
 }

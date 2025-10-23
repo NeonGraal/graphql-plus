@@ -34,8 +34,8 @@ public class DomainBuilder<TItem>
 
 public static class DomainBuilderHelper
 {
-  public static TBuild WithItems<TBuild, TItem>(this TBuild builder, IEnumerable<TItem> items)
+  public static TBuild WithItems<TBuild, TItem>(this TBuild builder, params TItem[] items)
     where TBuild : DomainBuilder<TItem>
     where TItem : IGqlpDomainItem
-    => builder.FluentAction(b => b._items = [.. items]);
+    => builder.FluentAction(b => b._items = items);
 }

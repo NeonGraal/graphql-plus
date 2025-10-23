@@ -32,10 +32,10 @@ public class EnumBuilder
 
 public static class EnumBuilderHelper
 {
-  public static T WithLabels<T>(this T builder, IEnumerable<IGqlpEnumLabel> labels)
+  public static T WithLabels<T>(this T builder, params IGqlpEnumLabel[] labels)
     where T : EnumBuilder
-    => builder.FluentAction(b => b._labels = [.. labels]);
-  public static T WithLabels<T>(this T builder, IEnumerable<string> labels)
+    => builder.FluentAction(b => b._labels = labels);
+  public static T WithLabels<T>(this T builder, string[] labels)
     where T : EnumBuilder
-    => builder.WithLabels(labels.Select(l => builder.Aliased<IGqlpEnumLabel>(l, [])));
+    => builder.WithLabels(labels.AsArray(l => builder.Aliased<IGqlpEnumLabel>(l, [])));
 }

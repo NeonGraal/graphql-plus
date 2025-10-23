@@ -28,10 +28,10 @@ public class UnionBuilder
 
 public static class UnionBuilderHelper
 {
-  public static T WithMembers<T>(this T builder, IEnumerable<IGqlpUnionMember> members)
+  public static T WithMembers<T>(this T builder, params IGqlpUnionMember[] members)
     where T : UnionBuilder
-    => builder.FluentAction(b => b._members = [.. members]);
-  public static T WithMembers<T>(this T builder, IEnumerable<string> members)
+    => builder.FluentAction(b => b._members = members);
+  public static T WithMembers<T>(this T builder, string[] members)
     where T : UnionBuilder
-    => builder.WithMembers(members.Select(builder.Named<IGqlpUnionMember>));
+    => builder.WithMembers(members.AsArray(builder.Named<IGqlpUnionMember>));
 }

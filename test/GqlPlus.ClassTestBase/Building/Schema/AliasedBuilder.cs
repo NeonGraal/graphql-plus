@@ -43,7 +43,7 @@ public class AliasedBuilder<T>
 
 public static class AliasedBuilderHelper
 {
-  public static T WithAliases<T>(this T builder, string[] aliases)
+  public static T WithAliases<T>(this T builder, params string[] aliases)
     where T : AliasedBuilder
     => builder.FluentAction(b => b._aliases = aliases);
 }

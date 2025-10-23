@@ -26,7 +26,7 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
       .WithParent(parent)
       .WithAliases(aliases)
       .WithDescr(contents)
-      .WithItems([item])
+      .WithItems(item)
       .AsDomain;
 
     // Act

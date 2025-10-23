@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Building.Schema.Objects;
+
 namespace GqlPlus.Building.Schema;
 
 public class InputParamBuilder
@@ -40,8 +41,8 @@ public class InputParamBuilder
   public IGqlpInputParam AsInputParam
     => Build<IGqlpInputParam>();
 
-  public void SetModifiers(IEnumerable<IGqlpModifier> modifiers)
-    => _modifiers = [.. modifiers];
+  public void SetModifiers(IGqlpModifier[] modifiers)
+    => _modifiers = modifiers;
   public void SetDefaultValue(IGqlpConstant? defaultValue)
     => _defaultValue = defaultValue;
 }

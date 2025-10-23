@@ -25,10 +25,3 @@ public class TypeParamBuilder
   public IGqlpTypeParam AsTypeParam
     => Build<IGqlpTypeParam>();
 }
-
-public static class TypeParamBuilderHelper
-{
-  public static T WithConstraint<T>(this T builder, string constraint)
-    where T : TypeParamBuilder
-    => builder.FluentAction(b => b._constraint = constraint);
-}

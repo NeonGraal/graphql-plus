@@ -24,9 +24,10 @@ public class ErrorBuilder
 
 public static class ErrorBuilderHelper
 {
-  internal static T FluentAction<T>(this T? target, Action<T> action)
+  public static T FluentAction<T>(this T? target, Action<T>? action)
   {
-    action(target.ThrowIfNull());
+    target.ThrowIfNull();
+    action?.Invoke(target);
     return target;
   }
 }

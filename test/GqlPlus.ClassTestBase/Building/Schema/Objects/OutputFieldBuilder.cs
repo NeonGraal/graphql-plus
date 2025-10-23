@@ -27,7 +27,7 @@ public class OutputFieldBuilder
 
 public static class OutputFieldBuilderHelper
 {
-  public static T WithParams<T>(this T builder, IEnumerable<IGqlpInputParam> inputParams)
+  public static T WithParams<T>(this T builder, params IGqlpInputParam[] inputParams)
     where T : OutputFieldBuilder
-    => builder.FluentAction(b => b._inputParams = [.. inputParams]);
+    => builder.FluentAction(b => b._inputParams = inputParams);
 }

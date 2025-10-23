@@ -28,17 +28,14 @@ public class AlternateBuilder
     if (!_isTypeParam) {
       result.Modifiers.Returns(_modifiers);
       result.EnumTypeName.Returns(_name);
-      result.WhenForAnyArgs(a => a.SetEnumType("")).Do(SetEnumType);
+      result.WhenForAnyArgs(a => a.SetEnumType("")).Do(this.MakeSetEnumValue(result, result));
     }
 
     return result;
-
-    void SetEnumType(CallInfo c)
-      => result.EnumTypeName.Returns(c.Arg<string>());
   }
 
-  public void SetModifiers(IEnumerable<IGqlpModifier> modifiers)
-    => _modifiers = [.. modifiers];
+  public void SetModifiers(IGqlpModifier[] modifiers)
+    => _modifiers = modifiers;
   public void SetEnumValue(IGqlpEnumValue enumValue)
     => _enumValue = enumValue;
 

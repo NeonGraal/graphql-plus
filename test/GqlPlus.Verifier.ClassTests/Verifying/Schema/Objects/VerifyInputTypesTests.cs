@@ -1,21 +1,18 @@
-﻿namespace GqlPlus.Verifying.Schema.Objects;
+﻿using GqlPlus.Building;
+using GqlPlus.Building.Schema;
+using GqlPlus.Building.Schema.Objects;
+
+namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyInputTypesTests
   : ObjectDualVerifierTestsBase<IGqlpInputObject, IGqlpInputField>
 {
-  private readonly IGqlpInputObject _input;
-
-  protected override IGqlpInputObject TheObject => _input;
   protected override IVerifyUsage<IGqlpInputObject> Verifier { get; }
 
   public VerifyInputTypesTests()
     : base(TypeKind.Input)
-  {
-    Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
-
-    _input = A.Obj<IGqlpInputObject>(TypeKind.Input, "Input").AsObject;
-  }
+    => Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
   [Theory, RepeatData]
   public void Verify_Input_WithFieldNullDefault_ReturnsError(string fieldName, string fieldType)
@@ -25,8 +22,8 @@ public class VerifyInputTypesTests
     IGqlpFieldKey nullLabel = A.EnumFieldKey("Null", "null");
     IGqlpConstant nullValue = A.Constant(nullLabel);
 
-    IGqlpInputField field = ObjectField(fieldName, fieldType);
-    field.DefaultValue.Returns(nullValue);
+    IGqlpInputField field = A.InputField(fieldName, fieldType).WithDefault(nullValue).AsInputField;
+    TheBuilder.WithObjFields(field);
 
     Verify_Errors("'null' default requires Optional type");
   }
@@ -39,8 +36,12 @@ public class VerifyInputTypesTests
     IGqlpFieldKey nullLabel = A.EnumFieldKey("Null", "null");
     IGqlpConstant nullValue = A.Constant(nullLabel);
 
-    IGqlpInputField field = SetModifier(ObjectField(fieldName, fieldType), ModifierKind.Optional);
-    field.DefaultValue.Returns(nullValue);
+    IGqlpInputField field = A.InputField(fieldName, fieldType)
+      .WithModifier(ModifierKind.Opt)
+      .WithDefault(nullValue)
+      .AsInputField;
+
+    TheBuilder.WithObjFields(field);
 
     Verify_NoErrors();
   }

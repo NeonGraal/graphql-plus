@@ -4,7 +4,8 @@ using NSubstitute.Core;
 namespace GqlPlus.Building.Schema.Objects;
 
 public class TypeArgBuilder
-  : ObjTypeBuilder, IObjEnumBuilder
+  : ObjTypeBuilder
+  , IObjEnumBuilder
 {
   internal IGqlpEnumValue? _enumValue;
 
@@ -22,13 +23,10 @@ public class TypeArgBuilder
     result.EnumValue.Returns(_enumValue);
     if (!_isTypeParam) {
       result.EnumTypeName.Returns(_name);
-      result.WhenForAnyArgs(a => a.SetEnumType("")).Do(SetEnumType);
+      result.WhenForAnyArgs(a => a.SetEnumType("")).Do(this.MakeSetEnumValue(result, result));
     }
 
     return result;
-
-    void SetEnumType(CallInfo c)
-      => result.EnumTypeName.Returns(c.Arg<string>());
   }
 
   public void SetEnumValue(IGqlpEnumValue enumValue)

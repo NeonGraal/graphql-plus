@@ -17,10 +17,9 @@ public class AlternateModellerTests
   public void AlternateModel_WithValidAlternate_ReturnsExpectedAlternateModel(string name, string contents)
   {
     // Arrange
-    IGqlpModifier modifier = A.Modifier(ModifierKind.List);
     IGqlpAlternate ast = A.Alternate(name)
       .WithDescr(contents)
-      .WithModifiers([modifier])
+      .WithModifier(ModifierKind.List)
       .AsAlternate;
 
     ObjBaseModel dualType = new(name, contents);

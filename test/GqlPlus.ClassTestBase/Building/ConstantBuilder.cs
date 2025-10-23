@@ -37,12 +37,12 @@ public static class ConstantBuilderHelper
     where T : ConstantBuilder
     => builder.FluentAction(b => b._value = value);
 
-  public static T WithValues<T>(this T builder, IEnumerable<IGqlpConstant> values)
+  public static T WithValues<T>(this T builder, IGqlpConstant[] values)
     where T : ConstantBuilder
-    => builder.FluentAction(b => b._values = [.. values]);
-  public static T WithValues<T>(this T builder, IEnumerable<string> values)
+    => builder.FluentAction(b => b._values = values);
+  public static T WithValues<T>(this T builder, string[] values)
     where T : ConstantBuilder
-    => builder.WithValues(values.Select(builder.Constant));
+    => builder.WithValues([.. values.Select(builder.Constant)]);
 
   public static T WithFields<T>(this T builder, IGqlpFields<IGqlpConstant> fields)
     where T : ConstantBuilder

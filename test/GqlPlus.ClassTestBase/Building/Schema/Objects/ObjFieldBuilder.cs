@@ -43,23 +43,13 @@ public class ObjFieldBuilder
       result.EnumTypeName.Returns(typeName);
     }
 
-    result.WhenForAnyArgs(a => a.SetEnumType("")).Do(SetEnumType);
+    result.WhenForAnyArgs(a => a.SetEnumType("")).Do(this.MakeSetEnumValue(result, type));
 
     return result;
-
-    void SetEnumType(CallInfo c)
-    {
-      string typeName = c.Arg<string>();
-      type.Name.Returns(typeName);
-      type.FullType.Returns(typeName);
-      result.EnumTypeName.Returns(typeName);
-      string modifiedType = _modifiers.AsString().Prepend(typeName).Joined();
-      result.ModifiedType.Returns(modifiedType);
-    }
   }
 
-  public void SetModifiers(IEnumerable<IGqlpModifier> modifiers)
-    => _modifiers = [.. modifiers];
+  public void SetModifiers(IGqlpModifier[] modifiers)
+    => _modifiers = modifiers;
   public void SetEnumValue(IGqlpEnumValue enumValue)
     => _enumValue = enumValue;
 

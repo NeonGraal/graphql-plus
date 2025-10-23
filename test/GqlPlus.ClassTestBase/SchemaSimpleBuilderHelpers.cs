@@ -10,7 +10,7 @@ public static class SchemaSimpleBuilderHelpers
     => _.Domain<TItem>(name, kind).WithItems(items).AsDomain;
 
   public static IGqlpDomain<IGqlpDomainLabel> DomainEnum(this IMockBuilder _, string name, string enumType, string enumLabel)
-    => _.DomainEnum(name).WithItems([_.DomainLabel(enumType, enumLabel)]).AsDomain;
+    => _.DomainEnum(name).WithItems(_.DomainLabel(enumType, enumLabel)).AsDomain;
 
   public static IGqlpDomainLabel DomainLabel(this IMockBuilder _, string enumType, string enumLabel)
     => new DomainLabelBuilder(enumType, enumLabel).AsLabel;

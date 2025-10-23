@@ -14,13 +14,18 @@ public class EnumValueBuilder
     _enumLabel = enumLabel;
   }
 
+  internal static void SetEnumValue(IGqlpEnumValue enumValue, string enumType, string enumLabel)
+  {
+    enumValue.EnumType.Returns(enumType);
+    enumValue.EnumLabel.Returns(enumLabel);
+    enumValue.EnumValue.Returns(enumType + "." + enumLabel);
+  }
+
   protected new T Build<T>()
     where T : class, IGqlpEnumValue
   {
     T result = base.Build<T>();
-    result.EnumType.Returns(_enumType);
-    result.EnumLabel.Returns(_enumLabel);
-    result.EnumValue.Returns(_enumType + "." + _enumLabel);
+    SetEnumValue(result, _enumType, _enumLabel);
     return result;
   }
 

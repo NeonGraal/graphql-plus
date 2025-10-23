@@ -19,6 +19,7 @@ public class ObjTypeBuilder
     if (!_isTypeParam) {
       result.TypeName.Returns(_name);
       result.FullType.Returns(_name);
+      result.GetFields().Returns(["", "", _name]);
       return result;
     }
 

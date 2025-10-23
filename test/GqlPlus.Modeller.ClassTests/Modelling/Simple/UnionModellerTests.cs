@@ -19,7 +19,7 @@ public class UnionModellerTests
   {
     // Arrange
     IGqlpUnionMember member = A.Named<IGqlpUnionMember>(memberName, contents);
-    IGqlpUnion ast = A.Union(name).WithMembers([member]).AsUnion;
+    IGqlpUnion ast = A.Union(name).WithMembers(member).AsUnion;
 
     // Act
     TypeUnionModel result = Modeller.ToModel(ast, TypeKinds);

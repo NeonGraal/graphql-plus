@@ -10,6 +10,9 @@ public static class IEnumerableHelpers
   public static T[] ArrayJust<T>(this IEnumerable<T?>? items)
     => [.. items?.OfType<T>() ?? []];
 
+  public static TResult[] AsArray<TSource, TResult>(this IEnumerable<TSource>? items, Func<TSource, TResult> mapper)
+    => [.. items?.Select(mapper) ?? []];
+
   private static IEnumerable<string?>? AsFields<T>(IEnumerable<T>? items)
     => items?.Any(i => i is IGqlpAbbreviated) == true
     ? items.OfType<IGqlpAbbreviated>().SelectMany(i => i.GetFields())

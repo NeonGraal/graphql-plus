@@ -24,11 +24,10 @@ public class InputParamModellerTests
   public void ToModel_WithValidInputParam_ReturnsExpectedInputParamModel(string paramType, string content, string text)
   {
     // Arrange
-    IGqlpModifier modifier = A.Modifier(ModifierKind.Opt);
     IGqlpInputParam ast = A.InputParam(paramType)
       .WithDescr(content)
       .WithType(t => t.IsTypeParam())
-      .WithModifiers([modifier])
+      .WithModifier(ModifierKind.Opt)
       .AsInputParam;
     IGqlpConstant constant = A.Constant(text);
     ast.DefaultValue.Returns(constant);

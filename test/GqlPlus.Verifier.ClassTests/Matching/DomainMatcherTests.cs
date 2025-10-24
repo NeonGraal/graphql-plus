@@ -44,7 +44,7 @@ public class DomainMatcherTests
   }
 
   [Theory, RepeatData]
-  public void Matches_ReturnsTrue_WhenMatchingEnumDomain(string domain, string constraint)
+  public void Matches_ReturnsTrue_WhenMatchingEnumByName(string domain, string constraint)
   {
     // Arrange
     IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, constraint, "");
@@ -57,10 +57,10 @@ public class DomainMatcherTests
   }
 
   [Theory, RepeatData]
-  public void Matches_ReturnsTrue_WhenMatchingEnumParent(string domain, string constraint, string enumName)
+  public void Matches_ReturnsTrue_WhenMatchingEnumByMatcher(string domain, string constraint, string enumName)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain).WithParent(enumName).AsDomain;
+    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, enumName, "");
 
     IGqlpEnum enumType = A.Enum(enumName).AsEnum;
     Types[enumName] = enumType;

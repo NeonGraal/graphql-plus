@@ -297,10 +297,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     Define<IGqlpTypeSpecial>("String");
 
-    TheBuilder.WithAlternates(A
-      .Alternate("String")
-      .WithArgs(A.TypeArg(argType).AsTypeArg)
-      .AsAlternate);
+    TheBuilder.WithAlternate("String", a => a.WithArg(argType));
 
     Verify_Errors("Expected none, given 1");
   }

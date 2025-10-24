@@ -15,19 +15,6 @@ public static class SchemaObjectBuilderHelpers
     return theObj;
   }
 
-  public static TBase SetArgs<TBase, TTypeArg>([NotNull] this TBase objBase, params TTypeArg[] args)
-    where TBase : class, IGqlpObjBase
-    where TTypeArg : class, IGqlpTypeArg
-  {
-    string typeName = args.Bracket("<", ">")
-      .Prepend(objBase.TypeName).Joined();
-
-    objBase.FullType.Returns(typeName);
-    objBase.Args.Returns(args);
-
-    return objBase;
-  }
-
   public static AlternateBuilder Alternate(this IMockBuilder _, string name)
     => new(name);
 

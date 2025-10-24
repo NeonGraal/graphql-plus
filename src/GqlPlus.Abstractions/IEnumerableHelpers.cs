@@ -7,9 +7,6 @@ public static class IEnumerableHelpers
   public static T[] ArrayOf<T>(this IEnumerable<object>? items)
     => [.. items?.OfType<T>() ?? []];
 
-  public static T[] ArrayJust<T>(this IEnumerable<T?>? items)
-    => [.. items?.OfType<T>() ?? []];
-
   public static TResult[] AsArray<TSource, TResult>(this IEnumerable<TSource>? items, Func<TSource, TResult> mapper)
     => [.. items?.Select(mapper) ?? []];
 

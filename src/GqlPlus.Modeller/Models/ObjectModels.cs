@@ -10,7 +10,7 @@ public abstract record class TypeObjectModel<TObjField>(
 {
   public TypeParamModel[] TypeParams { get; set; } = [];
   public TObjField[] Fields { get; set; } = [];
-  public ObjAlternateModel[] Alternates { get; set; } = [];
+  public AlternateModel[] Alternates { get; set; } = [];
 
   public ObjectForModel[] AllFields { get; set; } = [];
   public ObjectForModel[] AllAlternates { get; set; } = [];
@@ -23,18 +23,18 @@ public interface ITypeObjectModel
   ObjectForModel[] AllAlternates { get; }
 }
 
-public record class ObjTypeArgModel(
+public record class TypeArgModel(
   TypeKindModel Kind,
   string Name,
   string Description
 ) : TypeRefModel<TypeKindModel>(Kind, Name, Description)
-  , IObjTypeArgModel
+  , ITypeArgModel
 {
   public bool IsTypeParam { get; set; }
   public EnumValueModel? EnumValue { get; set; }
 }
 
-public interface IObjTypeArgModel
+public interface ITypeArgModel
   : INamedModel
 {
   bool IsTypeParam { get; }
@@ -62,15 +62,15 @@ public record class ObjBaseModel(
   , IObjBaseModel
 {
   public bool IsTypeParam { get; set; }
-  public ObjTypeArgModel[] Args { get; set; } = [];
-  IObjTypeArgModel[] IObjBaseModel.Args => [.. Args.Cast<IObjTypeArgModel>()];
+  public TypeArgModel[] Args { get; set; } = [];
+  ITypeArgModel[] IObjBaseModel.Args => [.. Args.Cast<ITypeArgModel>()];
 }
 
 public interface IObjBaseModel
   : INamedModel
 {
   bool IsTypeParam { get; set; }
-  IObjTypeArgModel[] Args { get; }
+  ITypeArgModel[] Args { get; }
 }
 
 public record class ObjectForModel(
@@ -104,16 +104,16 @@ public interface IObjFieldModel
   ModifierModel[] Modifiers { get; }
 }
 
-public record class ObjAlternateModel(
+public record class AlternateModel(
   ObjBaseModel Type
   ) : ModelBase
-  , IObjAlternateModel
+  , IAlternateModel
 {
   public CollectionModel[] Collections { get; set; } = [];
   public IObjBaseModel BaseType => Type;
 }
 
-public interface IObjAlternateModel
+public interface IAlternateModel
   : IModelBase
 {
   IObjBaseModel BaseType { get; }

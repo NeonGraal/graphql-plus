@@ -18,7 +18,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier OutpPrntGnrc: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: OutpPrntGnrc
       type: !_ObjBase
         name: RefOutpPrntGnrc
@@ -28,7 +28,7 @@ types: !_Map_Type
           name: EnumOutpPrntGnrc
           typeKind: !_SimpleKind Enum
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: RefOutpPrntGnrc
         typeArgs:

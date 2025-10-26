@@ -110,22 +110,22 @@ public class GeneralHelpersTests
   }
 
   [Fact]
-  public void Surround_NullInput_ReturnsEmptyStringWithSurrounding()
+  public void Surround_NullInput_ReturnsEmptyString()
   {
     IEnumerable<string>? input = null;
 
     string result = input.Surround("[", "]");
 
-    result.ShouldBe("[]");
+    result.ShouldBe("");
   }
 
   [Fact]
-  public void Surround_WithMapping_NullInput_ReturnsEmptyStringWithSurrounding()
+  public void Surround_WithMapping_NullInput_ReturnsEmptyString()
   {
     IEnumerable<int>? input = null;
 
     string result = input.Surround("[", "]", i => $"{i}");
 
-    result.ShouldBe("[]");
+    result.ShouldBe("");
   }
 }

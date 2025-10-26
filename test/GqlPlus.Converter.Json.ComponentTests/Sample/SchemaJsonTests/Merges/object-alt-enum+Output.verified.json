@@ -6,7 +6,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "ObjAltEnumOutp",
           "type": {
             "$tag": "_ObjBase",
@@ -14,7 +14,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "ObjAltEnumOutp",
           "type": {
             "$tag": "_ObjBase",
@@ -24,14 +24,14 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "Boolean"

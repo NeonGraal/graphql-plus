@@ -47,7 +47,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _Directives: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Directives
         type: !_ObjBase
           name: _Directive
@@ -58,7 +58,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _Directive
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _Directive
     fields:

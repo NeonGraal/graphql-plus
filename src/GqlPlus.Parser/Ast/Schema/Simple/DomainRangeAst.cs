@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Token;
 

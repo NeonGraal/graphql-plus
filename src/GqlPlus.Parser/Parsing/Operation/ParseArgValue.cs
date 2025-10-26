@@ -36,7 +36,7 @@ internal class ParseArgValue(
     return baseValue.IsEmpty()
       ? _constant.Parse(tokens, "Constant").MapOk(
         constant => new ArgAst(constant).Ok<IGqlpArg>(),
-        () => 0.Empty<IGqlpArg>())
+        () => default(IGqlpArg).Empty())
       : baseValue;
   }
 

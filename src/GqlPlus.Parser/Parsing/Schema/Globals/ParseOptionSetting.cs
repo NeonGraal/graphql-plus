@@ -16,7 +16,7 @@ internal class ParseOptionSetting(
     Token.TokenAt at = tokens.At;
     string description = tokens.Description();
     if (!tokens.Identifier(out string? name)) {
-      return 0.Empty<IGqlpSchemaSetting>();
+      return default(IGqlpSchemaSetting).Empty();
     }
 
     IResult<IGqlpConstant> constant = _default.I.Parse(tokens, label);

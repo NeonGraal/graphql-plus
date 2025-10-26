@@ -11,7 +11,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldDmnOutp
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: DomCnstFieldDmnOutp
     typeKind: !_TypeKind Output
   !_Identifier DomCnstFieldDmnOutp: !_DomainString

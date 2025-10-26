@@ -56,8 +56,8 @@ types: !_Map_Type
           label: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _Aliased
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _EnumLabel
     typeKind: !_TypeKind Output

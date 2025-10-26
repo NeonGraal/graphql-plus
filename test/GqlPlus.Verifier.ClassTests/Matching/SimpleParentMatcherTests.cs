@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Matching;
 
 public abstract class SimpleParentMatcherTests<TSimple>
   : MatchTestsBase
@@ -23,7 +25,7 @@ public abstract class SimpleParentMatcherTests<TSimple>
   {
     this.SkipEqual(name, constraint);
 
-    TSimple type = A.Simple<TSimple>(name, constraint);
+    TSimple type = A.Simple<TSimple>(name).WithParent(constraint).AsSimple;
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -35,9 +37,9 @@ public abstract class SimpleParentMatcherTests<TSimple>
   {
     this.SkipEqual(name, constraint);
 
-    TSimple type = A.Simple<TSimple>(name, parent);
+    TSimple type = A.Simple<TSimple>(name).WithParent(parent).AsSimple;
 
-    TSimple parentType = A.Simple<TSimple>(parent, constraint);
+    TSimple parentType = A.Simple<TSimple>(parent).WithParent(constraint).AsSimple;
     Types[parent] = parentType;
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);

@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier AltAltModBoolDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: AltAltModBoolDual
       type: !_ObjBase
         name: String
@@ -13,7 +13,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: Number
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: String
     fields:
@@ -25,7 +25,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltModBoolDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierDictionary
         by: ^
@@ -35,7 +35,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: AltAltModBoolDual
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierDictionary
         by: ^

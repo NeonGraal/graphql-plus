@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier RefGnrcAltModParamInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierTypeParam
         by: mod
@@ -11,7 +11,7 @@ types: !_Map_Type
       type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierTypeParam
         by: mod

@@ -34,13 +34,13 @@ public abstract class TestObjectMerger<TObject, TObjField>
         MakeObject(name, fields: fields));
 
   protected IMerge<IGqlpTypeParam> TypeParams { get; }
-  protected IMerge<IGqlpObjAlt> Alternates { get; }
+  protected IMerge<IGqlpAlternate> Alternates { get; }
   protected IMerge<TObjField> Fields { get; }
 
   protected TestObjectMerger()
   {
     TypeParams = Merger<IGqlpTypeParam>();
-    Alternates = Merger<IGqlpObjAlt>();
+    Alternates = Merger<IGqlpAlternate>();
     Fields = Merger<TObjField>();
   }
 
@@ -60,5 +60,5 @@ public abstract class TestObjectMerger<TObject, TObjField>
   protected override TObject MakeTyped(string name, string[]? aliases = null, string description = "", IGqlpObjBase? parent = default)
     => MakeObject(name, aliases, description, parent);
   protected override IGqlpObjBase? MakeParent(string? parent)
-    => string.IsNullOrWhiteSpace(parent) ? null : MakeBase(parent);
+    => string.IsNullOrWhiteSpace(parent) ? null : MakeBase(parent!);
 }

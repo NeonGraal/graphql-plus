@@ -50,7 +50,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _BaseType
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: kind
     typeKind: !_TypeKind Output
     typeParams:
@@ -66,7 +66,7 @@ types: !_Map_Type
         name: parent
   !_Identifier _Collections: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Collections
         type: !_ObjBase
           name: _Modifier
@@ -75,7 +75,7 @@ types: !_Map_Type
               label: List
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Collections
         type: !_ObjBase
           name: _ModifierKeyed
@@ -84,7 +84,7 @@ types: !_Map_Type
               label: Dictionary
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Collections
         type: !_ObjBase
           name: _ModifierKeyed
@@ -94,7 +94,7 @@ types: !_Map_Type
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _Modifier
           typeArgs:
@@ -102,7 +102,7 @@ types: !_Map_Type
               label: List
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
@@ -110,7 +110,7 @@ types: !_Map_Type
               label: Dictionary
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
@@ -170,7 +170,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Modifier
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: kind
     typeKind: !_TypeKind Dual
     typeParams:
@@ -212,7 +212,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier _Modifiers: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Modifiers
         type: !_ObjBase
           name: _Modifier
@@ -221,12 +221,12 @@ types: !_Map_Type
               label: Optional
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Modifiers
         type: !_ObjBase
           name: _Collections
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _Modifier
           typeArgs:
@@ -234,7 +234,7 @@ types: !_Map_Type
               label: Optional
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _Collections
     name: _Modifiers
@@ -278,9 +278,9 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _ChildType
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: kind
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _Named
     typeKind: !_TypeKind Output
     typeParams:
@@ -331,7 +331,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier _Type: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
           name: _BaseType
@@ -340,7 +340,7 @@ types: !_Map_Type
               label: Basic
               name: _TypeKind
               typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
           name: _BaseType
@@ -349,32 +349,32 @@ types: !_Map_Type
               label: Internal
               name: _TypeKind
               typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
           name: _TypeDual
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
           name: _TypeEnum
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
           name: _TypeInput
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
           name: _TypeOutput
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
           name: _TypeDomain
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
           name: _TypeUnion
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _BaseType
           typeArgs:
@@ -382,7 +382,7 @@ types: !_Map_Type
               label: Basic
               name: _TypeKind
               typeKind: !_SimpleKind Enum
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _BaseType
           typeArgs:
@@ -390,22 +390,22 @@ types: !_Map_Type
               label: Internal
               name: _TypeKind
               typeKind: !_SimpleKind Enum
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _TypeDual
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _TypeEnum
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _TypeInput
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _TypeOutput
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _TypeDomain
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _TypeUnion
     name: _Type
@@ -472,7 +472,7 @@ types: !_Map_Type
         name: kind
   !_Identifier _TypeSimple: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _TypeSimple
         type: !_ObjBase
           name: _TypeRef
@@ -481,7 +481,7 @@ types: !_Map_Type
               label: Basic
               name: _TypeKind
               typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _TypeSimple
         type: !_ObjBase
           name: _TypeRef
@@ -490,7 +490,7 @@ types: !_Map_Type
               label: Enum
               name: _TypeKind
               typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _TypeSimple
         type: !_ObjBase
           name: _TypeRef
@@ -499,7 +499,7 @@ types: !_Map_Type
               label: Domain
               name: _TypeKind
               typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _TypeSimple
         type: !_ObjBase
           name: _TypeRef
@@ -509,7 +509,7 @@ types: !_Map_Type
               name: _TypeKind
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _TypeRef
           typeArgs:
@@ -517,7 +517,7 @@ types: !_Map_Type
               label: Basic
               name: _TypeKind
               typeKind: !_SimpleKind Enum
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _TypeRef
           typeArgs:
@@ -525,7 +525,7 @@ types: !_Map_Type
               label: Enum
               name: _TypeKind
               typeKind: !_SimpleKind Enum
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _TypeRef
           typeArgs:
@@ -533,7 +533,7 @@ types: !_Map_Type
               label: Domain
               name: _TypeKind
               typeKind: !_SimpleKind Enum
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: _TypeRef
           typeArgs:

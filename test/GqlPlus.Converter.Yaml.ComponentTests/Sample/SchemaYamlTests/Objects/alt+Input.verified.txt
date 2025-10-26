@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier AltAltInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: AltAltInp
       type: !_ObjBase
         name: String
@@ -13,7 +13,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: Number
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: String
     fields:
@@ -25,12 +25,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: AltInp
       type: !_ObjBase
         name: AltAltInp
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: AltAltInp
     name: AltInp

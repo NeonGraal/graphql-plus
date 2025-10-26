@@ -13,7 +13,7 @@ internal class ParseDefault(
 
     => tokens.Take('=') ? _constant.Parse(tokens, "Default").MapEmpty(
           () => tokens.Error<IGqlpConstant>("Default", "value after '='")
-        ) : 0.Empty<IGqlpConstant>();
+        ) : default(IGqlpConstant).Empty();
 }
 
 public interface IParserDefault

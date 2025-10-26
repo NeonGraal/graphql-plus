@@ -13,7 +13,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
 {
   protected override void UsageValue(TAst usage, TContext context)
   {
-    SelfUsage<TAst> input = new([], usage, "a child");
+    SelfUsage<TAst> input = new("", usage, "a child");
     CheckParent(input, usage, context, true);
 
     string parent = GetParent(usage);

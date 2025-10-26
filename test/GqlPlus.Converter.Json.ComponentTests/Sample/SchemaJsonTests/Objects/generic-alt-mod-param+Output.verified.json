@@ -6,7 +6,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "collections": [
             {
               "$tag": "_ModifierTypeParam",
@@ -26,7 +26,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "collections": [
             {
               "$tag": "_ModifierTypeParam",

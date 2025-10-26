@@ -73,22 +73,22 @@ public static class BuiltIn
     ["false"] = "Boolean",
   };
 
-  private static DualDeclAst DualObj(string label, params IGqlpObjAlt[] alternates)
+  private static DualDeclAst DualObj(string label, params IGqlpAlternate[] alternates)
     => new(AstNulls.At, label) { Alternates = alternates };
 
   private static DualDeclAst DualObj(string label, ObjBaseAst parent, params string[] aliases)
     => new(AstNulls.At, label) { Aliases = aliases, Parent = parent };
 
-  private static DualDeclAst DualObj(string label, ObjBaseAst? parent, TypeParamAst[] typeParams, params IGqlpObjAlt[] alternates)
+  private static DualDeclAst DualObj(string label, ObjBaseAst? parent, TypeParamAst[] typeParams, params IGqlpAlternate[] alternates)
     => new(AstNulls.At, "_" + label) { Parent = parent, TypeParams = typeParams, Alternates = alternates };
 
   //private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, ObjBaseAst parent)
   //  => new(AstNulls.At, "_" + label) { TypeParams = typeParams, Parent = parent };
 
-  private static ObjAltAst DualType(string type, params IGqlpObjTypeArg[] args)
-    => new ObjAltAst(AstNulls.At, type, "") with { Args = args };
+  private static AlternateAst DualType(string type, params IGqlpTypeArg[] args)
+    => new AlternateAst(AstNulls.At, type, "") with { Args = args };
 
-  private static ObjAltAst DualAlt(string? type, bool typeParam = true)
+  private static AlternateAst DualAlt(string? type, bool typeParam = true)
     => typeParam || type is null
       ? new(AstNulls.At, "T", "") {
         IsTypeParam = true,
@@ -101,13 +101,13 @@ public static class BuiltIn
       }
       : new(AstNulls.At, type, "");
 
-  private static ObjAltAst DualAltParam(string param)
+  private static AlternateAst DualAltParam(string param)
     => new(AstNulls.At, "T", "") {
       IsTypeParam = true,
       Modifiers = [ModifierAst.Param(AstNulls.At, param, false)]
     };
 
-  private static ObjAltAst DualMost(string key, bool optional = false)
+  private static AlternateAst DualMost(string key, bool optional = false)
     => new(AstNulls.At, "_Most", "") {
       Args = [DualArgParam("T")],
       Modifiers = key switch {
@@ -116,13 +116,13 @@ public static class BuiltIn
       }
     };
 
-  private static ObjBaseAst DualRef(string name, params IGqlpObjTypeArg[] args)
+  private static ObjBaseAst DualRef(string name, params IGqlpTypeArg[] args)
     => new ObjBaseAst(AstNulls.At, name, "") with { Args = args };
 
-  private static ObjTypeArgAst DualArg(string name)
+  private static TypeArgAst DualArg(string name)
     => new(AstNulls.At, name, "");
 
-  private static ObjTypeArgAst DualArgParam(string name)
+  private static TypeArgAst DualArgParam(string name)
     => DualArg(name) with { IsTypeParam = true };
 
   private static ObjBaseAst DualDict(string type, bool paramSecond = false)

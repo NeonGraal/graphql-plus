@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier PrntParamDiffDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffDual
         type: !_ObjBase
           typeParam: b
@@ -21,7 +21,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntParamDiffDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: a
     typeKind: !_TypeKind Dual
     typeParams:
@@ -32,12 +32,12 @@ types: !_Map_Type
         name: a
   !_Identifier RefPrntParamDiffDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffDual
         type: !_ObjBase
           typeParam: b
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: b
     name: RefPrntParamDiffDual

@@ -32,12 +32,8 @@ public static class ResultExtensions
 
   public static IResult<TValue> Empty<TValue>(this TValue? _)
     => new ResultEmpty<TValue>();
-  public static IResult<TValue> Empty<TValue>(this int _)
-    => new ResultEmpty<TValue>();
 
   public static IResult<TValue> Error<TValue>(this TValue? _, TokenMessage error)
-    => new ResultError<TValue>(error);
-  public static IResult<TValue> Error<TValue>(this TokenMessage error)
     => new ResultError<TValue>(error);
 
   public static bool HasValue<TValue>(this IResult<TValue> result)

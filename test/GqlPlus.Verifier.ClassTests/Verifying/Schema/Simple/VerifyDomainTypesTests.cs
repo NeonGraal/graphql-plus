@@ -77,7 +77,7 @@ public class VerifyDomainTypesTests
   [Fact]
   public void Verify_Domain_WithDiffKindParent_ReturnsError()
   {
-    IGqlpDomain parent = A.Domain<IGqlpDomainRange>("Parent", DomainKind.Number);
+    IGqlpDomain parent = A.Domain<IGqlpDomainRange>("Parent", DomainKind.Number).AsDomain;
     Definitions.Add(parent);
 
     _domain.DomainKind.Returns(DomainKind.String);

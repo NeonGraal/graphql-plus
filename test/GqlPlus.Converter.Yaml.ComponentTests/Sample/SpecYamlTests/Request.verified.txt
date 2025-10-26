@@ -82,7 +82,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier _OpArgList: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -90,7 +90,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _OpArgValue
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -100,7 +100,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgMap: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierDictionary
         by: Scalar
@@ -121,7 +121,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Identifier
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierDictionary
         by: Scalar
@@ -142,7 +142,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgValue: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpArgValue
       type: !_ObjBase
         name: Value
@@ -153,7 +153,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Identifier
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: Value
     fields:
@@ -165,26 +165,26 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgument: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpArgument
       type: !_ObjBase
         name: _OpArgValue
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpArgument
       type: !_ObjBase
         name: _OpArgList
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpArgument
       type: !_ObjBase
         name: _OpArgMap
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpArgValue
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpArgList
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpArgMap
     name: _OpArgument
@@ -380,26 +380,26 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier _OpObject: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpObject
       type: !_ObjBase
         name: _OpField
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpObject
       type: !_ObjBase
         name: _OpSpread
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpObject
       type: !_ObjBase
         name: _OpInline
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpField
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpSpread
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpInline
     name: _OpObject
@@ -531,7 +531,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier _Operation: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Operation
       type: !_ObjBase
         description: >-
@@ -563,7 +563,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _OpResult
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         description: >-
           Parsed into above fields, plus Request category and
@@ -593,7 +593,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier _Request: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Request
       type: !_ObjBase
         description: 'Parsed into definition'
@@ -626,7 +626,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: Any
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         description: 'Parsed into definition'
         name: String

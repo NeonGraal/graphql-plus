@@ -18,7 +18,7 @@ internal class ParseArg(
 
   {
     if (!tokens.Take('(')) {
-      return 0.Empty<IGqlpArg>();
+      return default(IGqlpArg).Empty();
     }
 
     bool oldSeparators = tokens.IgnoreSeparators;

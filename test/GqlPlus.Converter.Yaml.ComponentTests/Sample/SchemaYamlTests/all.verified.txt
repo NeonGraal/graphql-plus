@@ -24,7 +24,7 @@ settings: !_Map_Setting
 types: !_Map_Type
   !_Identifier All: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: All
       type: !_ObjBase
         description: 'Alternates'
@@ -41,7 +41,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: Field
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         description: 'Alternates'
         name: String
@@ -137,7 +137,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier Param: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: Param
       type: !_ObjBase
         description: 'Alternate parameter'
@@ -159,7 +159,7 @@ types: !_Map_Type
         description: 'Guid or Int'
         name: Many
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         description: 'Alternate parameter'
         name: String

@@ -44,6 +44,6 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntStrDomDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomGnrcPrntStrDomDual
     typeKind: !_TypeKind Dual

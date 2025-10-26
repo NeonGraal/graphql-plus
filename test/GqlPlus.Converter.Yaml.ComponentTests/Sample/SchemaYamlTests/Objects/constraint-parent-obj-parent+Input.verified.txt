@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier AltCnstPrntObjPrntInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: PrntCnstPrntObjPrntInp
       type: !_ObjBase
         name: String
@@ -23,7 +23,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier CnstPrntObjPrntInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: PrntCnstPrntObjPrntInp
       type: !_ObjBase
         name: String
@@ -37,17 +37,17 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntObjPrntInp
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: AltCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
   !_Identifier PrntCnstPrntObjPrntInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: PrntCnstPrntObjPrntInp
       type: !_ObjBase
         name: String
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: String
     name: PrntCnstPrntObjPrntInp

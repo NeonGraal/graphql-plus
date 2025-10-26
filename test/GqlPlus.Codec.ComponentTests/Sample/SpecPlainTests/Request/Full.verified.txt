@@ -15,7 +15,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier _Request: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: _Request
         type: !_ObjBase
           description: 'Parsed into definition'
@@ -48,7 +48,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Any
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           description: 'Parsed into definition'
           name: String

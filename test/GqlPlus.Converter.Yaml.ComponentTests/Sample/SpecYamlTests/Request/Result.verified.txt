@@ -113,26 +113,26 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier _OpObject: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpObject
       type: !_ObjBase
         name: _OpField
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpObject
       type: !_ObjBase
         name: _OpSpread
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpObject
       type: !_ObjBase
         name: _OpInline
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpField
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpSpread
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpInline
     name: _OpObject

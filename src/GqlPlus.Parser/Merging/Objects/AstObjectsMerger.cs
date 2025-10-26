@@ -6,7 +6,7 @@ internal abstract class AstObjectsMerger<TObject, TObjField>(
   ILoggerFactory logger,
   IMerge<TObjField> fields,
   IMerge<IGqlpTypeParam> typeParams,
-  IMerge<IGqlpObjAlt> alternates
+  IMerge<IGqlpAlternate> alternates
 ) : AstTypeMerger<IGqlpType, TObject, IGqlpObjBase, TObjField>(logger, fields)
   where TObject : IGqlpObject<TObjField>
   where TObjField : IGqlpObjField
@@ -27,7 +27,7 @@ internal abstract class AstObjectsMerger<TObject, TObjField>(
   protected override TObject MergeGroup(IEnumerable<TObject> group)
   {
     IEnumerable<IGqlpTypeParam> typeParamsAsts = group.ManyMerge(item => item.TypeParams, typeParams);
-    IEnumerable<IGqlpObjAlt> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
+    IEnumerable<IGqlpAlternate> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
 
     return SetAlternates(base.MergeGroup(group), typeParamsAsts, alternateAsts);
   }
@@ -35,5 +35,5 @@ internal abstract class AstObjectsMerger<TObject, TObjField>(
   internal override IEnumerable<TObjField> GetItems(TObject type)
     => type.ObjFields;
 
-  protected abstract TObject SetAlternates(TObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpObjAlt> alternates);
+  protected abstract TObject SetAlternates(TObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpAlternate> alternates);
 }

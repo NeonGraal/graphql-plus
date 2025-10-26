@@ -19,13 +19,7 @@ public class ParseObjBaseTests(
   public void WithTypeParamBad_ReturnsFalse()
   => objectBaseChecks.WithTypeParamBad();
 
-  [Theory]
-  [RepeatInlineData(Repeats, "Boolean")]
-  [RepeatInlineData(Repeats, "Number")]
-  [RepeatInlineData(Repeats, "String")]
-  [RepeatInlineData(Repeats, "^")]
-  [RepeatInlineData(Repeats, "0")]
-  [RepeatInlineData(Repeats, "*")]
+  [Theory, RepeatClassData<ObjTypeTestData>]
   public void WithSimpleArgs_ReturnsCorrectAst(string argument, string name)
   => objectBaseChecks.WithTypeArgs(name, [argument]);
 
@@ -60,7 +54,7 @@ internal sealed class ParseObjBaseChecks(
     => TrueExpected(
       name + "<" + objBases.Joined() + ">",
       ObjBase(name) with {
-        Args = [.. objBases.Select(ObjTypeArg)]
+        Args = [.. objBases.Select(TypeArg)]
       });
 
   public void WithTypeArgsBad(string name, string[] objBases)
@@ -72,7 +66,7 @@ internal sealed class ParseObjBaseChecks(
   public static ObjBaseAst ObjBase(string type)
     => new(AstNulls.At, type, "");
 
-  public static ObjTypeArgAst ObjTypeArg(string type)
+  public static TypeArgAst TypeArg(string type)
     => new(AstNulls.At, type, "");
 }
 

@@ -39,7 +39,7 @@ public abstract class ValueParser<TValue>(
       tokens.IgnoreSeparators = oldSeparators;
     }
 
-    return 0.Empty<TValue>();
+    return default(TValue).Empty();
   }
 
   protected abstract Func<IEnumerable<TValue>, TValue> NewList(ITokenAt at);

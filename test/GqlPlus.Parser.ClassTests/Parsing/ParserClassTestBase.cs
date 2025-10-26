@@ -102,7 +102,7 @@ public class ParserClassTestBase
 
   protected void ParseEmpty<T>([NotNull] Parser<T>.I parser)
     where T : class
-    => Parse(parser, 0.Empty<T>());
+    => Parse(parser, default(T).Empty());
 
   protected void ParseError<T>([NotNull] Parser<T>.I parser, string? message = null)
     => Parse(parser, Error<T>(message.IfWhiteSpace("error for " + typeof(T).ExpandTypeName())));
@@ -208,7 +208,7 @@ public class ParserClassTestBase
   {
     parser = A.Of<Parser<T>.I>();
     parser.Parse(default!, default!)
-      .ReturnsForAnyArgs(0.Empty<T>());
+      .ReturnsForAnyArgs(default(T).Empty());
 
     Parser<T>.D result = A.Of<Parser<T>.D>();
     result().Returns(parser);
@@ -236,7 +236,7 @@ public class ParserClassTestBase
   {
     parser = Substitute.For<TInterface, Parser<T>.I>();
     parser.Parse(default!, default!)
-      .ReturnsForAnyArgs(0.Empty<T>());
+      .ReturnsForAnyArgs(default(T).Empty());
 
     Parser<TInterface, T>.D result = A.Of<Parser<TInterface, T>.D>();
     result().Returns(parser);
@@ -266,7 +266,7 @@ public class ParserClassTestBase
   {
     parser = A.Of<IOptionParser<T>>();
     parser.Parse(default!, default!)
-      .ReturnsForAnyArgs(0.Empty<T>());
+      .ReturnsForAnyArgs(default(T).Empty());
 
     Parser<IOptionParser<T>, T>.D result = A.Of<Parser<IOptionParser<T>, T>.D>();
     result().Returns(parser);
@@ -283,7 +283,7 @@ public class ParserClassTestBase
   {
     parser = A.Of<IEnumParser<T>>();
     parser.Parse(default!, default!)
-      .ReturnsForAnyArgs(0.Empty<T>());
+      .ReturnsForAnyArgs(default(T).Empty());
 
     Parser<IEnumParser<T>, T>.D result = A.Of<Parser<IEnumParser<T>, T>.D>();
     result().Returns(parser);

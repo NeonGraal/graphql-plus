@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Encoding;
 
-internal class ObjTypeArgEncoder(
+internal class TypeArgEncoder(
   IEncoder<EnumValueModel> enumValue
-) : DescribedEncoder<ObjTypeArgModel>
+) : DescribedEncoder<TypeArgModel>
 {
-  internal override Structured Encode(ObjTypeArgModel model)
+  internal override Structured Encode(TypeArgModel model)
     => model.EnumValue is null
     ? base.Encode(model)
       .AddIf(model.IsTypeParam,
@@ -14,7 +14,7 @@ internal class ObjTypeArgEncoder(
 }
 
 internal class ObjectBaseEncoder<TBase>(
-  IEncoder<ObjTypeArgModel> objArg
+  IEncoder<TypeArgModel> objArg
 ) : DescribedEncoder<TBase>
   where TBase : ObjBaseModel
 {
@@ -59,9 +59,9 @@ internal record class AlternateEncoders<TObjBase>(
 
 internal class ObjectAlternateEncoder(
   AlternateEncoders<ObjBaseModel> encoders
-) : BaseEncoder<ObjAlternateModel>()
+) : BaseEncoder<AlternateModel>()
 {
-  internal override Structured Encode(ObjAlternateModel model)
+  internal override Structured Encode(AlternateModel model)
     => base.Encode(model)
       .AddEncoded("type", model.Type, encoders.ObjBase)
       .AddList("collections", model.Collections, encoders.Collection);
@@ -81,11 +81,11 @@ internal class ObjectForEncoder<TFor>(
 internal record class TypeObjectEncoders<TField>(
   IEncoder<ObjBaseModel> Parent,
   IEncoder<TField> Field,
-  IEncoder<ObjectForModel<TField>> ObjField,
+  IEncoder<ObjectForModel<TField>> ForField,
   IEncoder<ObjectForModel<DualFieldModel>> DualField,
-  IEncoder<ObjAlternateModel> Alternate,
-  IEncoder<ObjectForModel<ObjAlternateModel>> ObjAlternate,
-  IEncoder<ObjectForModel<ObjAlternateModel>> DualAlternate,
+  IEncoder<AlternateModel> Alternate,
+  IEncoder<ObjectForModel<AlternateModel>> ForAlternate,
+  IEncoder<ObjectForModel<AlternateModel>> DualAlternate,
   IEncoder<TypeParamModel> TypeParam
 )
   where TField : IObjFieldModel;
@@ -111,9 +111,9 @@ internal abstract class TypeObjectEncoder<TObject, TField>(
     return base.Encode(model)
         .AddList("typeParams", model.TypeParams, encoders.TypeParam)
         .AddList("fields", model.Fields, encoders.Field)
-        .Add("allFields", ObjEncode(model.AllFields, encoders.ObjField, encoders.DualField))
+        .Add("allFields", ObjEncode(model.AllFields, encoders.ForField, encoders.DualField))
         .AddList("alternates", model.Alternates, encoders.Alternate)
-        .Add("allAlternates", ObjEncode(model.AllAlternates, encoders.ObjAlternate, encoders.DualAlternate));
+        .Add("allAlternates", ObjEncode(model.AllAlternates, encoders.ForAlternate, encoders.DualAlternate));
   }
 }
 
@@ -138,7 +138,7 @@ internal class InputFieldEncoder(
 }
 
 internal class InputParamEncoder(
-  IEncoder<ObjTypeArgModel> objArg,
+  IEncoder<TypeArgModel> objArg,
   IEncoder<ModifierModel> modifier,
   IEncoder<ConstantModel> constant
 ) : ObjectBaseEncoder<InputParamModel>(objArg)

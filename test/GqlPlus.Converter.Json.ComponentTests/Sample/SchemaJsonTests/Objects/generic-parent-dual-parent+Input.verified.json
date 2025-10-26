@@ -16,7 +16,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "AltGnrcPrntDualPrntInp",
           "type": {
             "$tag": "_ObjBase",
@@ -37,7 +37,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "String"
@@ -68,7 +68,7 @@
         "name": "RefGnrcPrntDualPrntInp",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "AltGnrcPrntDualPrntInp"
           }
         ]

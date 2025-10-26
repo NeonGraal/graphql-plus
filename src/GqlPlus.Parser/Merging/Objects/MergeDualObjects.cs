@@ -7,10 +7,10 @@ internal class MergeDualObjects(
   ILoggerFactory logger,
   IMerge<IGqlpDualField> fields,
   IMerge<IGqlpTypeParam> typeParams,
-  IMerge<IGqlpObjAlt> alternates
+  IMerge<IGqlpAlternate> alternates
 ) : AstObjectsMerger<IGqlpDualObject, IGqlpDualField>(logger, fields, typeParams, alternates)
 {
-  protected override IGqlpDualObject SetAlternates(IGqlpDualObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpObjAlt> alternates)
+  protected override IGqlpDualObject SetAlternates(IGqlpDualObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpAlternate> alternates)
     => (DualDeclAst)obj with {
       TypeParams = typeParams.ArrayOf<TypeParamAst>(),
       Alternates = [.. alternates],

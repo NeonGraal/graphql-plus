@@ -41,6 +41,6 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntSmplEnumDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: EnumGnrcPrntSmplEnumDual
     typeKind: !_TypeKind Dual

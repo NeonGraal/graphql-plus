@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Generating;
 
-public class GeneratorClassTestBase
+public class GenerateClassTestsBase
   : SubstituteBase
 {
   internal static GqlpGeneratorContext Context(

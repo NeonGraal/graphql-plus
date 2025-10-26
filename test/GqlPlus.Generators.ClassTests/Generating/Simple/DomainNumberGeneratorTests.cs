@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainNumberGeneratorTests
-  : DomainGeneratorTestBase<IGqlpDomainRange>
+  : GenerateDomainTestsBase<IGqlpDomainRange>
 {
   internal override GenerateBaseDomain<IGqlpDomainRange> Generator { get; }
     = new DomainNumberGenerator();

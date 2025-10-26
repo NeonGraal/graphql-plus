@@ -1,9 +1,10 @@
 ﻿using System.Reflection.Emit;
+using GqlPlus.Building.Schema.Simple;
 
 namespace GqlPlus.Generating.Simple;
 
 public class EnumGeneratorTests
-  : TypeGeneratorClassTestBase<IGqlpEnum, IGqlpTypeRef>
+  : GenerateSimpleTestsBase<IGqlpEnum>
 {
   private readonly EnumGenerator _generator;
 
@@ -33,8 +34,9 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    IGqlpEnum enumType = A.Enum(enumName);
-    A.SetParent(enumType, parentName);
+    IGqlpEnum enumType = A.Enum(enumName)
+      .WithParent(parentName)
+      .AsEnum;
 
     IGqlpEnum parentType = A.Enum(parentName, [labelName]);
     context.AddTypes([parentType]);
@@ -69,8 +71,10 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    IGqlpEnumLabel label = A.EnumLabel(labelName, alias);
-    IGqlpEnum enumType = A.Enum(enumName, label);
+    IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, [alias]);
+    IGqlpEnum enumType = A.Enum(enumName)
+      .WithLabels(label)
+      .AsEnum;
 
     // Act
     TypeGenerator.GenerateType(enumType, context);
@@ -87,8 +91,9 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    IGqlpEnum enumType = A.Enum(enumName);
-    A.SetParent(enumType, parentName);
+    IGqlpEnum enumType = A.Enum(enumName)
+      .WithParent(parentName)
+      .AsEnum;
 
     IGqlpEnum parentType = A.Enum(parentName, [labelName]);
     context.AddTypes([parentType]);
@@ -107,11 +112,14 @@ public class EnumGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    IGqlpEnum enumType = A.Enum(enumName);
-    A.SetParent(enumType, parentName);
+    IGqlpEnum enumType = A.Enum(enumName)
+      .WithParent(parentName)
+      .AsEnum;
 
-    IGqlpEnumLabel label = A.EnumLabel(labelName, alias);
-    IGqlpEnum parentType = A.Enum(parentName, label);
+    IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, [alias]);
+    IGqlpEnum parentType = A.Enum(parentName)
+      .WithLabels(label)
+      .AsEnum;
 
     context.AddTypes([parentType]);
 

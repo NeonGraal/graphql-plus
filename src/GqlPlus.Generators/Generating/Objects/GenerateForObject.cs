@@ -11,7 +11,7 @@ internal abstract class GenerateForObject<TObj, TField>
   private Func<IGqlpObjField, MapPair<string>> FieldMember(GqlpGeneratorContext context)
     => field => new(field.Name, TypeString(field.Type, context));
 
-  private Func<IGqlpObjAlt, MapPair<string>> AlternateMember(GqlpGeneratorContext context)
+  private Func<IGqlpAlternate, MapPair<string>> AlternateMember(GqlpGeneratorContext context)
     => alternate => new("As" + alternate.Name, TypeString(alternate, context));
 
   protected virtual string TypeString(IGqlpObjType type, GqlpGeneratorContext context)

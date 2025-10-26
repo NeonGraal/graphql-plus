@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Globals;
 
 public class DirectiveGeneratorTests
-  : GeneratorClassTestBase
+  : GenerateClassTestsBase
 {
   private readonly DirectiveGenerator _generator = new();
 

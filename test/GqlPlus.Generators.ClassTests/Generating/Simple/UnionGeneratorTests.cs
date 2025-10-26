@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
 public class UnionGeneratorTests
-  : TypeGeneratorClassTestBase<IGqlpUnion, IGqlpTypeRef>
+  : GenerateSimpleTestsBase<IGqlpUnion>
 {
   private readonly UnionGenerator _generator;
 

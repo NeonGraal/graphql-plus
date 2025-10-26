@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Globals;
 
 public class OptionGeneratorTests
-  : GeneratorClassTestBase
+  : GenerateClassTestsBase
 {
   private readonly OptionGenerator _generator = new();
 

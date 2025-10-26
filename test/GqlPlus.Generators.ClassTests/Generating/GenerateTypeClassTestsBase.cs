@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating;
 
-public abstract class TypeGeneratorClassTestBase<TType, TParent>
-  : TypeGeneratorClassTestBase
+public abstract class GenerateTypeClassTestsBase<TType, TParent>
+  : GenerateTypeClassTestsBase
   where TType : class, IGqlpType<TParent>
   where TParent : class, IGqlpNamed
 {
@@ -38,7 +38,7 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TType type = A.Parented<TType, TParent>(name);
+    TType type = A.Named<TType>(name);
 
     // Act
     TypeGenerator.GenerateType(type, context);
@@ -46,26 +46,10 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
     // Assert
     context.CheckForRequired(GeneratedCodeName(generatorType, name));
   }
-
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithParent_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent)
-  {
-    // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
-    TType type = A.Parented<TType, TParent>(name, parent);
-
-    // Act
-    TypeGenerator.GenerateType(type, context);
-
-    // Assert
-    context.CheckForRequired(
-      GeneratedCodeName(generatorType, name),
-      GeneratedCodeParent(generatorType, parent));
-  }
 }
 
-public abstract class TypeGeneratorClassTestBase
-  : GeneratorClassTestBase
+public abstract class GenerateTypeClassTestsBase
+  : GenerateClassTestsBase
 {
   protected virtual string GeneratedCodeName(GqlpGeneratorType generatorType, string name)
     => generatorType switch {

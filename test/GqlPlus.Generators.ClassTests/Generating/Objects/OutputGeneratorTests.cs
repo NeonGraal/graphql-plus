@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Objects;
 
 public class OutputGeneratorTests
-  : ObjectGeneratorTestBase<IGqlpOutputObject, IGqlpOutputField>
+  : GenerateObjectTestsBase<IGqlpOutputObject, IGqlpOutputField>
 {
   public OutputGeneratorTests()
     : base(TypeKind.Output)

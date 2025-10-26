@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating;
 
 public class SchemaGeneratorTests
-  : GeneratorClassTestBase
+  : GenerateClassTestsBase
 {
   private readonly IGenerator<IGqlpSchemaCategory> _categoryGenerator = GFor<IGqlpSchemaCategory>();
   private readonly IGenerator<IGqlpSchemaDirective> _directiveGenerator = GFor<IGqlpSchemaDirective>();

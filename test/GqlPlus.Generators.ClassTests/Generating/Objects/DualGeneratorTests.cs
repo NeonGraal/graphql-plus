@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Objects;
 
 public class DualGeneratorTests
-  : ObjectGeneratorTestBase<IGqlpDualObject, IGqlpDualField>
+  : GenerateObjectTestsBase<IGqlpDualObject, IGqlpDualField>
 {
   public DualGeneratorTests()
     : base(TypeKind.Dual)

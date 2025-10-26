@@ -1,8 +1,8 @@
 ﻿
 namespace GqlPlus.Generating.Simple;
 
-public abstract class DomainGeneratorTestBase<TItem>
-  : TypeGeneratorClassTestBase<IGqlpDomain<TItem>, IGqlpTypeRef>
+public abstract class GenerateDomainTestsBase<TItem>
+  : GenerateSimpleTestsBase<IGqlpDomain<TItem>>
   where TItem : class, IGqlpDomainItem
 {
   internal abstract GenerateBaseDomain<TItem> Generator { get; }

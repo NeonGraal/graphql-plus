@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Globals;
 
 public class CategoryGeneratorTests
-  : GeneratorClassTestBase
+  : GenerateClassTestsBase
 {
   private readonly CategoryGenerator _generator = new();
 

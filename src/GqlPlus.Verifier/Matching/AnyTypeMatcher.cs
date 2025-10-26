@@ -6,7 +6,7 @@ namespace GqlPlus.Matching;
 internal class AnyTypeMatcher(
   ILoggerFactory logger,
   IEnumerable<ITypeMatcher> matchers
-) : MatcherBase<IGqlpType>(logger)
+) : MatchBase<IGqlpType>(logger)
 {
   public override bool Matches(IGqlpType type, string constraint, EnumContext context)
   {

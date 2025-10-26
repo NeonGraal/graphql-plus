@@ -6,7 +6,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "GrndCnstPrntDualGrndDual",
           "type": {
             "$tag": "_ObjBase",
@@ -49,7 +49,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "GrndCnstPrntDualGrndDual",
           "type": {
             "$tag": "_ObjBase",
@@ -74,7 +74,7 @@
         "name": "RefCnstPrntDualGrndDual",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "AltCnstPrntDualGrndDual"
           }
         ]
@@ -88,7 +88,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "GrndCnstPrntDualGrndDual",
           "type": {
             "$tag": "_ObjBase",
@@ -98,7 +98,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "String"
@@ -115,7 +115,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "GrndCnstPrntDualGrndDual",
           "type": {
             "$tag": "_ObjBase",

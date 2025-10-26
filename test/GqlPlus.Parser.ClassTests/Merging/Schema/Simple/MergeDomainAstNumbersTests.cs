@@ -25,5 +25,5 @@ public class MergeDomainAstNumbersTests
     };
 
   protected override IGqlpDomainRange[] MakeItems(DomainRangeInput input)
-    => input.DomainRange();
+    => [new DomainRangeAst(AstNulls.At, "", false, input.Lower, input.Upper)];
 }

@@ -122,11 +122,11 @@
             }
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_Aliased"
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_EnumLabel"
           }
         ]

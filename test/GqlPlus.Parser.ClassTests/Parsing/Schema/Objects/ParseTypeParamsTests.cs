@@ -35,7 +35,10 @@ public class ParseTypeParamsTests
         r => r.Constraint.ShouldBe(constraint));
   }
 
-  [Theory, RepeatInlineData('^'), RepeatInlineData('_'), RepeatInlineData('*')]
+  [Theory]
+  [RepeatInlineData('^')]
+  [RepeatInlineData('_')]
+  [RepeatInlineData('*')]
   public void Parse_WithConstraintChar_ShouldReturnCorrect(char typeChar, string paramName)
   {
     // Arrange
@@ -130,4 +133,3 @@ public class ParseTypeParamsTests
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpTypeParam>>();
   }
 }
-

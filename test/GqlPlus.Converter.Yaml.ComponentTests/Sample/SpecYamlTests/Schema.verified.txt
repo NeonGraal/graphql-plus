@@ -6,7 +6,7 @@ types: !_Map_Type
   !_Identifier _Array: !_TypeDual
     aliases: [Array]
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierDictionary
         by: 0
@@ -15,7 +15,7 @@ types: !_Map_Type
       type: !_ObjBase
         typeParam: T
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierDictionary
         by: 0
@@ -33,7 +33,7 @@ types: !_Map_Type
   !_Identifier _Dict: !_TypeDual
     aliases: [Dict]
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierTypeParam
         by: K
@@ -42,7 +42,7 @@ types: !_Map_Type
       type: !_ObjBase
         typeParam: T
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierTypeParam
         by: K
@@ -65,7 +65,7 @@ types: !_Map_Type
   !_Identifier _IfElse: !_TypeDual
     aliases: [IfElse]
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierDictionary
         by: ^
@@ -74,7 +74,7 @@ types: !_Map_Type
       type: !_ObjBase
         typeParam: T
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierDictionary
         by: ^
@@ -95,7 +95,7 @@ types: !_Map_Type
   !_Identifier _List: !_TypeDual
     aliases: [List]
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -103,7 +103,7 @@ types: !_Map_Type
       type: !_ObjBase
         typeParam: T
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -120,7 +120,7 @@ types: !_Map_Type
   !_Identifier _Map: !_TypeDual
     aliases: [Map]
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierDictionary
         by: '*'
@@ -129,7 +129,7 @@ types: !_Map_Type
       type: !_ObjBase
         typeParam: T
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierDictionary
         by: '*'
@@ -147,7 +147,7 @@ types: !_Map_Type
   !_Identifier _Mask: !_TypeDual
     aliases: [Mask]
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierTypeParam
         by: K
@@ -156,7 +156,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: ^
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierTypeParam
         by: K
@@ -174,19 +174,19 @@ types: !_Map_Type
   !_Identifier _Opt: !_TypeDual
     aliases: [Opt]
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Opt
       type: !_ObjBase
         typeParam: T
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Opt
       type: !_ObjBase
         name: Null
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         typeParam: T
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: Null
     description: '$T?'
@@ -201,7 +201,7 @@ types: !_Map_Type
   !_Identifier _Set: !_TypeDual
     aliases: [Set]
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierTypeParam
         by: K
@@ -210,7 +210,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: Unit
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierTypeParam
         by: K

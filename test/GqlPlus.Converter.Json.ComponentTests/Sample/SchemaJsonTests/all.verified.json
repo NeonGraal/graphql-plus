@@ -55,7 +55,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "All",
           "type": {
             "$tag": "_ObjBase",
@@ -93,7 +93,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "description": "Alternates",
@@ -290,7 +290,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "Param",
           "type": {
             "$tag": "_ObjBase",
@@ -334,7 +334,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "description": "Alternate parameter",

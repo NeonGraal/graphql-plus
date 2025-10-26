@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier PrntDescrOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDescrOutp
         type: !_ObjBase
           name: String
@@ -19,7 +19,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier RefPrntDescrOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDescrOutp
         type: !_ObjBase
           name: String
@@ -30,7 +30,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:

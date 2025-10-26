@@ -14,7 +14,7 @@ internal class ParseDual(
   protected override IGqlpDualObject MakeResult(AstPartial<IGqlpTypeParam, NullOption> partial, ObjectDefinition<IGqlpDualField> value)
     => new DualDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
-      TypeParams = partial.Params.ArrayOf<TypeParamAst>(),
+      TypeParams = partial.Params,
       Parent = value.Parent,
       ObjFields = value.Fields,
       Alternates = value.Alternates,
@@ -23,6 +23,6 @@ internal class ParseDual(
   protected override IGqlpDualObject ToResult(AstPartial<IGqlpTypeParam, NullOption> partial)
     => new DualDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
-      TypeParams = partial.Params.ArrayOf<TypeParamAst>(),
+      TypeParams = partial.Params,
     };
 }

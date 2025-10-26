@@ -6,7 +6,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "AltGnrcPrntParamPrntOutp",
           "type": {
             "$tag": "_ObjBase",
@@ -27,7 +27,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "String"
@@ -54,7 +54,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "AltGnrcPrntParamPrntOutp",
           "type": {
             "$tag": "_ObjBase",
@@ -79,7 +79,7 @@
         "name": "RefGnrcPrntParamPrntOutp",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "AltGnrcPrntParamPrntOutp"
           }
         ]

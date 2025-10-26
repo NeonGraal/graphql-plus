@@ -85,7 +85,7 @@
         "name": "FieldGnrcPrntSmplEnumDual",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "EnumGnrcPrntSmplEnumDual"
           }
         ]

@@ -21,7 +21,7 @@ internal class InputFieldModeller(
 ) : ModellerObjField<IGqlpInputField, InputFieldModel>(modifier, objBase)
 {
   protected override InputFieldModel FieldModel(IGqlpInputField ast, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, type with { Description = ast.Type.Description }, ast.Description) {
+    => new(ast.Name, type with { Description = ast.Type.Description.IfWhiteSpace() }, ast.Description) {
       Default = constant.TryModel(ast.DefaultValue, typeKinds),
     };
 }

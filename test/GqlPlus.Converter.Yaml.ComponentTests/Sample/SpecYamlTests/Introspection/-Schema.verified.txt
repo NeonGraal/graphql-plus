@@ -35,7 +35,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _CategoryFilter: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -110,7 +110,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _Filter: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -152,7 +152,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: Boolean
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -323,7 +323,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _TypeFilter: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List

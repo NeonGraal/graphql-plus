@@ -6,7 +6,7 @@ errors:
 types: !_Map_Type
   !_Identifier AltGnrcPrntDualPrntOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntDualPrntOutp
         type: !_ObjBase
           name: String
@@ -17,7 +17,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -32,7 +32,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntDualPrntOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntDualPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier RefGnrcPrntDualPrntOutp: !_TypeOutput

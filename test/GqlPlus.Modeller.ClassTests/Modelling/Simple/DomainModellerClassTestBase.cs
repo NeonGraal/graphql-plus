@@ -1,4 +1,7 @@
 ﻿
+using GqlPlus.Building.Schema;
+using GqlPlus.Building.Schema.Simple;
+
 namespace GqlPlus.Modelling.Simple;
 
 public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
@@ -19,7 +22,12 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
   {
     // Arrange
     TItemAst item = A.Error<TItemAst>();
-    IGqlpDomain<TItemAst> ast = A.Domain(name, aliases, parent, contents, Kind, item);
+    IGqlpDomain<TItemAst> ast = A.Domain<TItemAst>(name, Kind)
+      .WithParent(parent)
+      .WithAliases(aliases)
+      .WithDescr(contents)
+      .WithItems(item)
+      .AsDomain;
 
     // Act
     BaseDomainModel<TItemModel> result = Modeller.ToModel(ast, TypeKinds);
@@ -41,7 +49,7 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
   public void ToModel_WithNullParent_ReturnsBaseDomainModelWithNullParent(string name)
   {
     // Arrange
-    IGqlpDomain<TItemAst> ast = A.Domain<TItemAst>(name, [], null, "", Kind);
+    IGqlpDomain<TItemAst> ast = A.Domain<TItemAst>(name, Kind).AsDomain;
 
     // Act
     BaseDomainModel<TItemModel> result = DomainModeller.ToModel(ast, TypeKinds);

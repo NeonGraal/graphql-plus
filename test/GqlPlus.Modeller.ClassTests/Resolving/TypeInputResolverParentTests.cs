@@ -7,12 +7,12 @@ public class TypeInputResolverParentTests
 
   public TypeInputResolverParentTests() => Resolver = new TypeInputResolver();
 
-  protected override ObjBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)
+  protected override ObjBaseModel MakeBase(string name, string description = "", params TypeArgModel[] args)
     => new(name, description) { Args = args };
   protected override TypeInputModel NewModel(string name, string description)
     => new(name, description);
   protected override ObjBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
-  protected override ObjTypeArgModel NewArg(string argument, bool isParam = false)
+  protected override TypeArgModel NewArg(string argument, bool isParam = false)
     => new(TypeKindModel.Output, argument, "") { IsTypeParam = isParam };
 }

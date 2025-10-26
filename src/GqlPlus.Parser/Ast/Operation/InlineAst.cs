@@ -14,11 +14,7 @@ internal sealed record class InlineAst(
 
   internal override string Abbr => "i";
 
-  IEnumerable<IGqlpDirective> IGqlpDirectives.Directives
-  {
-    get => Directives;
-    init => Directives = [.. value];
-  }
+  IEnumerable<IGqlpDirective> IGqlpDirectives.Directives => Directives;
   IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
 
   public bool Equals(InlineAst? other)

@@ -9,10 +9,10 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
   public void ModelWithAlternateCollection_ResolvesCorrectly(string name, string alternate, string key)
   {
     ModifierModel modifier = new(ModifierKind.Dict) { Key = key };
-    ObjAlternateModel objAlternate = MakeCollectionAlternate(alternate, modifier);
-    ObjectForModel allAlternate = new ObjectForModel<ObjAlternateModel>(objAlternate, name);
+    AlternateModel theAlternate = MakeCollectionAlternate(alternate, modifier);
+    ObjectForModel allAlternate = new ObjectForModel<AlternateModel>(theAlternate, name);
     TModel model = NewModel(name, "") with {
-      Alternates = [objAlternate],
+      Alternates = [theAlternate],
     };
 
     TModel result = Resolver.Resolve(model, Context);
@@ -20,17 +20,17 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(name),
-        r => r.Alternates.ShouldContain(objAlternate),
+        r => r.Alternates.ShouldContain(theAlternate),
         r => r.AllAlternates.ShouldContain(allAlternate));
   }
 
   [Theory, RepeatData]
   public void ModelWithAlternates_ResolvesCorrectly(string name, string[] alternates)
   {
-    ObjAlternateModel[] objAlternates = [.. alternates.Select(MakeAlternate)];
-    ObjectForModel[] allAlternates = [.. objAlternates.Select(a => new ObjectForModel<ObjAlternateModel>(a, name))];
+    AlternateModel[] theAlternates = [.. alternates.Select(MakeAlternate)];
+    ObjectForModel[] allAlternates = [.. theAlternates.Select(a => new ObjectForModel<AlternateModel>(a, name))];
     TModel model = NewModel(name, "") with {
-      Alternates = objAlternates,
+      Alternates = theAlternates,
     };
 
     TModel result = Resolver.Resolve(model, Context);
@@ -38,17 +38,17 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(name),
-        r => r.Alternates.ShouldBeEquivalentTo(objAlternates),
+        r => r.Alternates.ShouldBeEquivalentTo(theAlternates),
         r => r.AllAlternates.ShouldBeEquivalentTo(allAlternates));
   }
 
   [Theory, RepeatData]
   public void ModelWithParamParentAlternates_ResolvesCorrectly(string name, string parent, string[] alternates)
   {
-    ObjAlternateModel[] objAlternates = [.. alternates.Select(MakeAlternate)];
-    ObjectForModel[] allAlternates = [.. objAlternates.Select(a => new ObjectForModel<ObjAlternateModel>(a, parent))];
+    AlternateModel[] theAlternates = [.. alternates.Select(MakeAlternate)];
+    ObjectForModel[] allAlternates = [.. theAlternates.Select(a => new ObjectForModel<AlternateModel>(a, parent))];
     TModel parentModel = NewModel(parent, "") with {
-      Alternates = objAlternates,
+      Alternates = theAlternates,
     };
     Context.Types["$" + parent] = parentModel;
 
@@ -80,8 +80,8 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
       Parent = MakeBase(parent, "", NewArg(key)),
     };
 
-    ObjAlternateModel expectedAlternate = MakeCollectionAlternate(alternate, new(ModifierKind.Dict) { Key = key });
-    ObjectForModel[] allAlternates = [new ObjectForModel<ObjAlternateModel>(expectedAlternate, parent)];
+    AlternateModel expectedAlternate = MakeCollectionAlternate(alternate, new(ModifierKind.Dict) { Key = key });
+    ObjectForModel[] allAlternates = [new ObjectForModel<AlternateModel>(expectedAlternate, parent)];
     TModel expectedParent = parentModel with {
       Alternates = [expectedAlternate],
       AllAlternates = allAlternates,
@@ -113,8 +113,8 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
       Parent = MakeBase(parent, "", NewArg(alternate)),
     };
 
-    ObjAlternateModel expectedAlternate = MakeCollectionAlternate(alternate, collection);
-    ObjectForModel[] allAlternates = [new ObjectForModel<ObjAlternateModel>(expectedAlternate, parent)];
+    AlternateModel expectedAlternate = MakeCollectionAlternate(alternate, collection);
+    ObjectForModel[] allAlternates = [new ObjectForModel<AlternateModel>(expectedAlternate, parent)];
     TModel expectedParent = parentModel with {
       Alternates = [expectedAlternate],
       AllAlternates = allAlternates,
@@ -132,10 +132,10 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
   [Theory, RepeatData]
   public void ModelWithParentAlternates_ResolvesCorrectly(string name, string parent, string[] alternates)
   {
-    ObjAlternateModel[] objAlternates = [.. alternates.Select(MakeAlternate)];
-    ObjectForModel[] allAlternates = [.. objAlternates.Select(a => new ObjectForModel<ObjAlternateModel>(a, parent))];
+    AlternateModel[] theAlternates = [.. alternates.Select(MakeAlternate)];
+    ObjectForModel[] allAlternates = [.. theAlternates.Select(a => new ObjectForModel<AlternateModel>(a, parent))];
     TModel parentModel = NewModel(parent, "") with {
-      Alternates = objAlternates,
+      Alternates = theAlternates,
     };
     Context.AddModels([parentModel]);
 
@@ -151,7 +151,7 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
         r => r.AllAlternates.ShouldBeEquivalentTo(allAlternates));
   }
 
-  protected abstract ObjAlternateModel MakeAlternate(string alternate);
-  protected abstract ObjAlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection);
-  protected abstract ObjAlternateModel MakeParamAlternate(string alternate, CollectionModel collection);
+  protected abstract AlternateModel MakeAlternate(string alternate);
+  protected abstract AlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection);
+  protected abstract AlternateModel MakeParamAlternate(string alternate, CollectionModel collection);
 }

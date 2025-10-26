@@ -9,13 +9,7 @@ public abstract class TestObjectField<TObjField>(
 ) : BaseAliasedTests<FieldInput, TObjField>(fieldChecks)
   where TObjField : IGqlpObjField
 {
-  [Theory]
-  [RepeatInlineData(Repeats, "Boolean")]
-  [RepeatInlineData(Repeats, "Number")]
-  [RepeatInlineData(Repeats, "String")]
-  [RepeatInlineData(Repeats, "^")]
-  [RepeatInlineData(Repeats, "0")]
-  [RepeatInlineData(Repeats, "*")]
+  [Theory, RepeatClassData<ObjTypeTestData>]
   public void WithSimple_ReturnsCorrectAst(string fieldType, string name)
   => fieldChecks.WithMinimum(name, fieldType);
 
@@ -70,4 +64,18 @@ public interface ICheckObjectField<TObjField>
   void WithMinimum(string name, string fieldType);
   void WithModifiers(string name, string fieldType);
   void WithModifiersBad(string name, string fieldType);
+}
+
+public class ObjTypeTestData :
+  TheoryData<string>
+{
+  public ObjTypeTestData()
+  {
+    Add("Boolean");
+    Add("Number");
+    Add("String");
+    Add("^");
+    Add("0");
+    Add("*");
+  }
 }

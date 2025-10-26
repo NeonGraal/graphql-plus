@@ -11,33 +11,31 @@ namespace GqlPlus;
 public sealed class RepeatDataAttribute
   : AutoDataAttribute
 {
-  private static bool IsCi => bool.TryParse(Environment.GetEnvironmentVariable("CI"), out bool isCi) && isCi;
-
   public RepeatDataAttribute()
     : this(Repeats)
   { }
 
   public RepeatDataAttribute(int repeat)
-    : base(() => new Fixture().Customize(new TestsCustomizations()))
+    : base(TestsCustomizations.CreateFixture())
   {
     if (repeat < 1) {
       throw new ArgumentException("Repeat must be greater than 0.");
     }
 
-    if (IsCi) {
+    if (TestsCustomizations.IsCi) {
       repeat = CiRepeats;
     }
 
     Repeat = repeat;
   }
 
-  public int Repeat { get; } = 1;
+  public int Repeat { get; }
 
   public override async ValueTask<IReadOnlyCollection<ITheoryDataRow>> GetData(MethodInfo testMethod, DisposalTracker disposalTracker)
   {
     List<ITheoryDataRow> data = [];
 
-    if (!IsCi) {
+    if (!TestsCustomizations.IsCi) {
       ParameterInfo[] stringParams = [.. testMethod.ThrowIfNull().GetParameters()
         .Where(p => !p.GetCustomAttributes<RegularExpressionAttribute>(true).Any())
         .Where(p => p.ParameterType == typeof(string) || p.ParameterType == typeof(string[]))];
@@ -50,9 +48,9 @@ public sealed class RepeatDataAttribute
     }
 
     int repeats = Repeat * testMethod?.GetParameters()?.Length ?? 0;
-    for (int i = 0; i < repeats; ++i) {
+    for (int i = 1; i <= repeats; ++i) {
       IReadOnlyCollection<ITheoryDataRow> values = await base.GetData(testMethod, disposalTracker).ConfigureAwait(false);
-      data.Add(values.First());
+      data.AddRange(values);
     }
 
     return data.AsReadOnly();

@@ -23,7 +23,7 @@ internal class OptionParser<TOption>(
           : tokens.Partial(label, "')' after option", () => result));
     }
 
-    return 0.Empty<TOption>();
+    return default(TOption).Empty();
   }
 }
 

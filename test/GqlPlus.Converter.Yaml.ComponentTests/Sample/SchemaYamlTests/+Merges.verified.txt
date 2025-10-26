@@ -341,12 +341,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier ObjAltDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: ObjAltDual
       type: !_ObjBase
         name: ObjAltDualType
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: ObjAltDualType
     name: ObjAltDual
@@ -356,69 +356,69 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier ObjAltEnumDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: ObjAltEnumDual
       type: !_ObjBase
         name: Boolean
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: ObjAltEnumDual
       type: !_ObjBase
         name: Boolean
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: Boolean
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: Boolean
     name: ObjAltEnumDual
     typeKind: !_TypeKind Dual
   !_Identifier ObjAltEnumInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: ObjAltEnumInp
       type: !_ObjBase
         name: Boolean
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: ObjAltEnumInp
       type: !_ObjBase
         name: Boolean
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: Boolean
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: Boolean
     name: ObjAltEnumInp
     typeKind: !_TypeKind Input
   !_Identifier ObjAltEnumOutp: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: ObjAltEnumOutp
       type: !_ObjBase
         name: Boolean
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: ObjAltEnumOutp
       type: !_ObjBase
         name: Boolean
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: Boolean
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: Boolean
     name: ObjAltEnumOutp
     typeKind: !_TypeKind Output
   !_Identifier ObjAltInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: ObjAltInp
       type: !_ObjBase
         name: ObjAltInpType
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: ObjAltInpType
     name: ObjAltInp
@@ -428,12 +428,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier ObjAltOutp: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: ObjAltOutp
       type: !_ObjBase
         name: ObjAltOutpType
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: ObjAltOutpType
     name: ObjAltOutp

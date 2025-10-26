@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier AltGnrcPrntParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamInp
         type: !_ObjBase
           name: String
@@ -13,7 +13,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -25,7 +25,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier GnrcPrntParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntParamInp
         type: !_ObjBase
           name: AltGnrcPrntParamInp
@@ -33,17 +33,17 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntParamInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntParamInp
     typeKind: !_TypeKind Input
   !_Identifier RefGnrcPrntParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntParamInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcPrntParamInp

@@ -6,14 +6,14 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "GnrcAltArgDescrOutp",
           "type": {
             "$tag": "_ObjBase",
             "name": "RefGnrcAltArgDescrOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "description": "Test Descr",
                 "typeParam": "type"
               }
@@ -23,13 +23,13 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "RefGnrcAltArgDescrOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "description": "Test Descr",
                 "typeParam": "type"
               }
@@ -61,7 +61,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "RefGnrcAltArgDescrOutp",
           "type": {
             "$tag": "_ObjBase",
@@ -71,7 +71,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "typeParam": "ref"

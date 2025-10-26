@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifying.Schema.Simple;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Verifying.Schema.Simple;
 
 public abstract class AstDomainVerifierTestsBase<TItem>
   : VerifierTypeTestsBase
@@ -13,7 +15,7 @@ public abstract class AstDomainVerifierTestsBase<TItem>
 
     EnumContext context = new(Types, Errors, EnumValues);
 
-    IGqlpDomain<TItem> domain = A.Domain<TItem>("", DomainKind.Boolean);
+    IGqlpDomain<TItem> domain = A.Domain<TItem>("", DomainKind.Boolean).AsDomain;
 
     verifier.Verify(domain, context);
 
@@ -29,7 +31,8 @@ public abstract class AstDomainVerifierTestsBase<TItem>
     IGqlpDomain<TItem> parent = A.Domain("parent", DomainKind.Boolean, parentItem);
     AddTypes(parent);
 
-    IGqlpDomain<TItem> domain = A.Domain<TItem>("domain", [], "parent", "", DomainKind.Boolean);
+    IGqlpDomain<TItem> domain = A.Domain<TItem>("domain", DomainKind.Boolean)
+      .WithParent("parent").AsDomain;
 
     EnumContext context = new(Types, Errors, EnumValues);
 

@@ -6,7 +6,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "AltGnrcAltParamInp",
           "type": {
             "$tag": "_ObjBase",
@@ -27,7 +27,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "String"
@@ -54,14 +54,14 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "GnrcAltParamInp",
           "type": {
             "$tag": "_ObjBase",
             "name": "RefGnrcAltParamInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "AltGnrcAltParamInp"
               }
             ]
@@ -70,13 +70,13 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "RefGnrcAltParamInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "AltGnrcAltParamInp"
               }
             ]
@@ -93,7 +93,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "RefGnrcAltParamInp",
           "type": {
             "$tag": "_ObjBase",
@@ -103,7 +103,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "typeParam": "ref"

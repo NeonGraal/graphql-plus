@@ -44,6 +44,6 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntStrDomOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomGnrcPrntStrDomOutp
     typeKind: !_TypeKind Output

@@ -246,7 +246,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_AndType",
           "type": {
             "$tag": "_ObjBase",
@@ -267,7 +267,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_Type"
@@ -386,11 +386,11 @@
             }
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "typeParam": "item"
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "typeParam": "domainItem"
           }
         ]
@@ -540,7 +540,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_BasicValue",
           "type": {
             "$tag": "_ObjBase",
@@ -548,7 +548,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_BasicValue",
           "type": {
             "$tag": "_ObjBase",
@@ -556,7 +556,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_BasicValue",
           "type": {
             "$tag": "_ObjBase",
@@ -564,7 +564,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_BasicValue",
           "type": {
             "$tag": "_ObjBase",
@@ -574,28 +574,28 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_DomainKind"
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_EnumValue"
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_DomainKind"
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_DomainKind"
@@ -612,7 +612,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_AndType",
           "type": {
             "$tag": "_ObjBase",
@@ -620,7 +620,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Categories",
           "type": {
             "$tag": "_ObjBase",
@@ -650,7 +650,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_Category"
@@ -788,7 +788,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -985,7 +985,7 @@
         "name": "_BaseType",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "typeParam": "kind"
           }
         ]
@@ -1025,7 +1025,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Collections",
           "type": {
             "$tag": "_ObjBase",
@@ -1044,7 +1044,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Collections",
           "type": {
             "$tag": "_ObjBase",
@@ -1063,7 +1063,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Collections",
           "type": {
             "$tag": "_ObjBase",
@@ -1084,7 +1084,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_Modifier",
@@ -1102,7 +1102,7 @@
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_ModifierKeyed",
@@ -1120,7 +1120,7 @@
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_ModifierKeyed",
@@ -1308,7 +1308,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_AndType",
           "type": {
             "$tag": "_ObjBase",
@@ -1316,7 +1316,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Directives",
           "type": {
             "$tag": "_ObjBase",
@@ -1346,7 +1346,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_Directive"
@@ -1448,7 +1448,7 @@
         "name": "_DomainItem",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_DomainLabel"
           }
         ]
@@ -1477,7 +1477,7 @@
         "name": "_DomainItem",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_DomainRange"
           }
         ]
@@ -1506,7 +1506,7 @@
         "name": "_DomainItem",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_DomainRegex"
           }
         ]
@@ -1535,7 +1535,7 @@
         "name": "_DomainItem",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_DomainTrueFalse"
           }
         ]
@@ -1921,7 +1921,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_DomainValue",
           "type": {
             "$tag": "_ObjBase",
@@ -1951,7 +1951,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "typeParam": "value"
@@ -1974,7 +1974,7 @@
         "name": "_DomainRef",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "typeParam": "kind"
           }
         ]
@@ -2029,7 +2029,7 @@
         "name": "_ObjField",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_ObjFieldType"
           }
         ]
@@ -2165,7 +2165,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -2279,7 +2279,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -2395,7 +2395,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ForParam",
           "type": {
             "$tag": "_ObjBase",
@@ -2403,14 +2403,14 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ForParam",
           "type": {
             "$tag": "_ObjBase",
             "name": "_ObjField",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "typeParam": "type"
               }
             ]
@@ -2419,20 +2419,20 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_ObjAlternate"
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_ObjField",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "typeParam": "type"
               }
             ]
@@ -2505,7 +2505,7 @@
         "name": "_ObjField",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_InputFieldType"
           }
         ]
@@ -2519,7 +2519,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ObjBase",
           "type": {
             "$tag": "_ObjBase",
@@ -2527,7 +2527,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ObjFieldType",
           "type": {
             "$tag": "_ObjBase",
@@ -2624,7 +2624,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ObjBase",
           "type": {
             "$tag": "_ObjBase",
@@ -2632,7 +2632,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ObjFieldType",
           "type": {
             "$tag": "_ObjBase",
@@ -2870,7 +2870,7 @@
         "name": "_Modifier",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "typeParam": "kind"
           }
         ]
@@ -2952,7 +2952,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Modifiers",
           "type": {
             "$tag": "_ObjBase",
@@ -2971,7 +2971,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Modifiers",
           "type": {
             "$tag": "_ObjBase",
@@ -2981,7 +2981,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_Modifier",
@@ -2999,7 +2999,7 @@
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_Collections"
@@ -3095,7 +3095,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ObjAlternate",
           "type": {
             "$tag": "_ObjBase",
@@ -3134,7 +3134,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_ObjAlternateEnum"
@@ -3222,7 +3222,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ObjBase",
           "type": {
             "$tag": "_ObjBase",
@@ -3252,7 +3252,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeParam"
@@ -3527,7 +3527,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ObjBase",
           "type": {
             "$tag": "_ObjBase",
@@ -3535,7 +3535,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ObjFieldType",
           "type": {
             "$tag": "_ObjBase",
@@ -3583,7 +3583,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_ObjFieldEnum"
@@ -3623,7 +3623,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ObjTypeArg",
           "type": {
             "$tag": "_ObjBase",
@@ -3653,7 +3653,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeParam"
@@ -3685,7 +3685,7 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_TypeKind"
           }
         ]
@@ -3707,7 +3707,7 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_TypeKind"
               }
             ]
@@ -3723,7 +3723,7 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_TypeKind"
               }
             ]
@@ -3759,7 +3759,7 @@
         "name": "_ObjField",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_ObjFieldType"
           }
         ]
@@ -3773,7 +3773,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ObjBase",
           "type": {
             "$tag": "_ObjBase",
@@ -3781,7 +3781,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_ObjFieldType",
           "type": {
             "$tag": "_ObjBase",
@@ -3974,11 +3974,11 @@
         "name": "_ChildType",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "typeParam": "kind"
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_Named"
           }
         ]
@@ -4475,7 +4475,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Type",
           "type": {
             "$tag": "_ObjBase",
@@ -4494,7 +4494,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Type",
           "type": {
             "$tag": "_ObjBase",
@@ -4513,7 +4513,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Type",
           "type": {
             "$tag": "_ObjBase",
@@ -4521,7 +4521,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Type",
           "type": {
             "$tag": "_ObjBase",
@@ -4529,7 +4529,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Type",
           "type": {
             "$tag": "_ObjBase",
@@ -4537,7 +4537,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Type",
           "type": {
             "$tag": "_ObjBase",
@@ -4545,7 +4545,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Type",
           "type": {
             "$tag": "_ObjBase",
@@ -4553,7 +4553,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_Type",
           "type": {
             "$tag": "_ObjBase",
@@ -4563,7 +4563,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_BaseType",
@@ -4581,7 +4581,7 @@
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_BaseType",
@@ -4599,42 +4599,42 @@
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeDual"
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeEnum"
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeInput"
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeOutput"
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeDomain"
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeUnion"
@@ -4651,7 +4651,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_TypeDomain",
           "type": {
             "$tag": "_ObjBase",
@@ -4667,18 +4667,18 @@
                 }
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainTrueFalse"
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainItemTrueFalse"
               }
             ]
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_TypeDomain",
           "type": {
             "$tag": "_ObjBase",
@@ -4694,18 +4694,18 @@
                 }
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainLabel"
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainItemLabel"
               }
             ]
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_TypeDomain",
           "type": {
             "$tag": "_ObjBase",
@@ -4721,18 +4721,18 @@
                 }
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainRange"
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainItemRange"
               }
             ]
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_TypeDomain",
           "type": {
             "$tag": "_ObjBase",
@@ -4748,11 +4748,11 @@
                 }
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainRegex"
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainItemRegex"
               }
             ]
@@ -4761,7 +4761,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_BaseDomain",
@@ -4776,18 +4776,18 @@
                 }
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainTrueFalse"
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainItemTrueFalse"
               }
             ]
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_BaseDomain",
@@ -4802,18 +4802,18 @@
                 }
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainLabel"
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainItemLabel"
               }
             ]
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_BaseDomain",
@@ -4828,18 +4828,18 @@
                 }
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainRange"
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainItemRange"
               }
             ]
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_BaseDomain",
@@ -4854,11 +4854,11 @@
                 }
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainRegex"
               },
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_DomainItemRegex"
               }
             ]
@@ -4964,7 +4964,7 @@
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "typeParam": "field"
               }
             ]
@@ -4988,7 +4988,7 @@
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_ObjAlternate"
               }
             ]
@@ -5010,7 +5010,7 @@
             }
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_DualField"
           }
         ]
@@ -5093,11 +5093,11 @@
             }
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_Aliased"
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_EnumLabel"
           }
         ]
@@ -5111,7 +5111,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -5363,7 +5363,7 @@
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "typeParam": "field"
               }
             ]
@@ -5387,7 +5387,7 @@
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_ObjAlternate"
               }
             ]
@@ -5409,7 +5409,7 @@
             }
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_InputField"
           }
         ]
@@ -5584,7 +5584,7 @@
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "typeParam": "field"
               }
             ]
@@ -5608,7 +5608,7 @@
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_ObjAlternate"
               }
             ]
@@ -5684,7 +5684,7 @@
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "typeParam": "field"
               }
             ]
@@ -5707,7 +5707,7 @@
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_ObjAlternate"
               }
             ]
@@ -5720,11 +5720,11 @@
         "name": "_ChildType",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "typeParam": "kind"
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_ObjBase"
           }
         ]
@@ -5853,7 +5853,7 @@
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "typeParam": "field"
               }
             ]
@@ -5877,7 +5877,7 @@
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "_ObjAlternate"
               }
             ]
@@ -5899,7 +5899,7 @@
             }
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_OutputField"
           }
         ]
@@ -6020,7 +6020,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_TypeSimple",
           "type": {
             "$tag": "_ObjBase",
@@ -6039,7 +6039,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_TypeSimple",
           "type": {
             "$tag": "_ObjBase",
@@ -6058,7 +6058,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_TypeSimple",
           "type": {
             "$tag": "_ObjBase",
@@ -6077,7 +6077,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "_TypeSimple",
           "type": {
             "$tag": "_ObjBase",
@@ -6098,7 +6098,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeRef",
@@ -6116,7 +6116,7 @@
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeRef",
@@ -6134,7 +6134,7 @@
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeRef",
@@ -6152,7 +6152,7 @@
           }
         },
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "_TypeRef",
@@ -6249,11 +6249,11 @@
             }
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_UnionRef"
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_UnionMember"
           }
         ]
@@ -6304,7 +6304,7 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_SimpleKind"
           }
         ]

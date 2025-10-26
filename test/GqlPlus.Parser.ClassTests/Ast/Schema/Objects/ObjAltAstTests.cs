@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class ObjAltAstTests
+public class AlternateAstTests
   : AstAbbreviatedTests<AlternateInput>
 {
   [Theory, RepeatData]
@@ -58,7 +58,7 @@ public class ObjAltAstTests
 }
 
 internal sealed class AstObjectAlternateChecks
-  : AstAbbreviatedChecks<AlternateInput, ObjAltAst>
+  : AstAbbreviatedChecks<AlternateInput, AlternateAst>
   , IAstObjectAlternateChecks
 {
   [SuppressMessage("Style", "IDE0290:Use primary constructor")]
@@ -67,7 +67,7 @@ internal sealed class AstObjectAlternateChecks
   { }
 
   internal delegate ObjBaseAst BaseBy(AlternateInput input);
-  internal static ObjAltAst AlternateBy(AlternateInput input)
+  internal static AlternateAst AlternateBy(AlternateInput input)
     => new(AstNulls.At, input.Type, "");
 
   public void HashCode_WithModifiers(AlternateInput input)
@@ -100,7 +100,7 @@ internal sealed class AstObjectAlternateChecks
 
   public void ModifiedType_WithArgs(AlternateInput input, string[] arguments)
   {
-    ObjAltAst alternate = AlternateBy(input) with { Args = arguments.ObjTypeArgs() };
+    AlternateAst alternate = AlternateBy(input) with { Args = arguments.TypeArgs() };
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     alternate.ModifiedType.ShouldBe(expected);
@@ -108,7 +108,7 @@ internal sealed class AstObjectAlternateChecks
 
   public void ModifiedType_WithModifiers(AlternateInput input)
   {
-    ObjAltAst alternate = CreateModifiers(input);
+    AlternateAst alternate = CreateModifiers(input);
     string expected = $"{input.Type} [] ?";
 
     alternate.ModifiedType.ShouldBe(expected);
@@ -116,8 +116,8 @@ internal sealed class AstObjectAlternateChecks
 
   public void ModifiedType_WithModifiersAndArgs(AlternateInput input, string[] arguments)
   {
-    ObjAltAst alternate = AlternateBy(input) with {
-      Args = arguments.ObjTypeArgs(),
+    AlternateAst alternate = AlternateBy(input) with {
+      Args = arguments.TypeArgs(),
       Modifiers = TestMods()
     };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
@@ -125,10 +125,10 @@ internal sealed class AstObjectAlternateChecks
     alternate.ModifiedType.ShouldBe(expected);
   }
 
-  private ObjAltAst CreateEnumValue(AlternateInput input, string enumLabel)
+  private AlternateAst CreateEnumValue(AlternateInput input, string enumLabel)
     => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, input.Type, enumLabel) };
 
-  private ObjAltAst CreateModifiers(AlternateInput input)
+  private AlternateAst CreateModifiers(AlternateInput input)
     => CreateInput(input) with { Modifiers = TestMods() };
 }
 

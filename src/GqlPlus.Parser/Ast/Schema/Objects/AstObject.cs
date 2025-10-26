@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -12,11 +13,11 @@ internal abstract record class AstObject<TObjField>(
 {
   public IGqlpTypeParam[] TypeParams { get; set; } = [];
   public TObjField[] ObjFields { get; set; } = [];
-  public IGqlpObjAlt[] Alternates { get; set; } = [];
+  public IGqlpAlternate[] Alternates { get; set; } = [];
 
   IEnumerable<IGqlpTypeParam> IGqlpObject.TypeParams => TypeParams;
   IEnumerable<IGqlpObjField> IGqlpObject.Fields => ObjFields.Cast<IGqlpObjField>();
-  IEnumerable<IGqlpObjAlt> IGqlpObject.Alternates => Alternates;
+  IEnumerable<IGqlpAlternate> IGqlpObject.Alternates => Alternates;
 
   IEnumerable<TObjField> IGqlpObject<TObjField>.ObjFields => ObjFields;
 

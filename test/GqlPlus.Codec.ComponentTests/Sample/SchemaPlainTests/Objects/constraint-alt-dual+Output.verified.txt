@@ -22,42 +22,42 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier CnstAltDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltDualOutp
         type: !_ObjBase
           name: RefCnstAltDualOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltDualOutp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstAltDualOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltDualOutp
     name: CnstAltDualOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstAltDualOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstAltDualOutp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstAltDualOutp
     typeKind: !_TypeKind Dual
   !_Identifier RefCnstAltDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefCnstAltDualOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefCnstAltDualOutp

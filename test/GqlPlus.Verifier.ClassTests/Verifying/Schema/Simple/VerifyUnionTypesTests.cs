@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifying.Schema.Simple;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyUnionTypesTests
@@ -6,16 +8,18 @@ public class VerifyUnionTypesTests
 {
   private readonly ForM<IGqlpUnionMember> _mergeMembers = new();
   private readonly VerifyUnionTypes _verifier;
-  private readonly IGqlpUnion _union;
 
-  protected override IGqlpUnion TheUsage => _union;
+  private readonly UnionBuilder _union;
+  private IGqlpUnion? _usage;
+
+  protected override IGqlpUnion TheUsage => _usage ??= _union.AsUnion;
   protected override IVerifyUsage<IGqlpUnion> Verifier => _verifier;
 
   public VerifyUnionTypesTests()
   {
     _verifier = new(Aliased.Intf, _mergeMembers.Intf);
 
-    _union = A.Union("Union");
+    _union = new("Union");
   }
 
   [Fact]
@@ -32,7 +36,7 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_ReturnsNoErrors()
   {
-    Usages.Add(_union);
+    Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
@@ -42,9 +46,9 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithUndefinedMembers_ReturnsErrors()
   {
-    A.SetUnionMembers(_union, "Member1", "Member2");
+    _union.WithMembers(["Member1", "Member2"]);
 
-    Usages.Add(_union);
+    Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
@@ -56,9 +60,9 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2");
 
-    A.SetUnionMembers(_union, "Member1", "Member2");
+    _union.WithMembers(["Member1", "Member2"]);
 
-    Usages.Add(_union);
+    Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
@@ -68,9 +72,9 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithSelfMember_ReturnsError()
   {
-    A.SetUnionMembers(_union, "Union");
+    _union.WithMembers(["Union"]);
 
-    Usages.Add(_union);
+    Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
@@ -80,10 +84,9 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithSelfParent_ReturnsError()
   {
-    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Union");
-    _union.Parent.Returns(parentRef);
+    _union.WithParent("Union");
 
-    Usages.Add(_union);
+    Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
@@ -95,15 +98,13 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion parent = A.Union("Parent", "Member3", "Member4");
+    IGqlpUnion parent = A.Union("Parent").WithMembers(["Member3", "Member4"]).AsUnion;
     Definitions.Add(parent);
 
-    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member2");
-    _union.Items.Returns(members);
-    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Parent");
-    _union.Parent.Returns(parentRef);
+    _union.WithMembers(["Member1", "Member2"]);
+    _union.WithParent("Parent");
 
-    Usages.Add(_union);
+    Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
@@ -117,13 +118,12 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion member = A.Union("Member", "Member3", "Member4");
+    IGqlpUnion member = A.Union("Member").WithMembers(["Member3", "Member4"]).AsUnion;
     Definitions.Add(member);
 
-    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member2", "Member");
-    _union.Items.Returns(members);
+    _union.WithMembers(["Member1", "Member2", "Member"]);
 
-    Usages.Add(_union);
+    Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
@@ -135,13 +135,12 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion member = A.Union("Member", "Member3", "Member4", "Union");
+    IGqlpUnion member = A.Union("Member").WithMembers(["Member3", "Member4", "Union"]).AsUnion;
     Definitions.Add(member);
 
-    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member2", "Member");
-    _union.Items.Returns(members);
+    _union.WithMembers(["Member1", "Member2", "Member"]);
 
-    Usages.Add(_union);
+    Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
@@ -153,18 +152,15 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2");
 
-    IGqlpUnion parent = A.Union("Parent", "Member2", "Union");
+    IGqlpUnion parent = A.Union("Parent").WithMembers(["Member2", "Union"]).AsUnion;
     Definitions.Add(parent);
 
-    IGqlpUnion member = A.Union("Member");
-    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Parent");
-    member.Parent.Returns(parentRef);
+    IGqlpUnion member = A.Union("Member").WithParent("Parent").AsUnion;
     Definitions.Add(member);
 
-    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member");
-    _union.Items.Returns(members);
+    _union.WithMembers(["Member1", "Member"]);
 
-    Usages.Add(_union);
+    Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 

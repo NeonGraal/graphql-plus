@@ -5,7 +5,7 @@ public interface IGqlpObject
 {
   IEnumerable<IGqlpTypeParam> TypeParams { get; }
   IEnumerable<IGqlpObjField> Fields { get; }
-  IEnumerable<IGqlpObjAlt> Alternates { get; }
+  IEnumerable<IGqlpAlternate> Alternates { get; }
 }
 
 public interface IGqlpObject<TField>
@@ -26,7 +26,7 @@ public interface IGqlpObjType
   string FullType { get; }
 }
 
-public interface IGqlpObjectEnum
+public interface IGqlpObjEnum
   : IGqlpError
 {
   string EnumTypeName { get; }
@@ -35,35 +35,38 @@ public interface IGqlpObjectEnum
   void SetEnumType(string enumType);
 }
 
-public interface IGqlpObjTypeArg
+public interface IGqlpTypeArg
   : IGqlpObjType
-  , IGqlpObjectEnum
-  , IEquatable<IGqlpObjTypeArg>
+  , IGqlpObjEnum
+  , IEquatable<IGqlpTypeArg>
 { }
 
 public interface IGqlpObjBase
   : IGqlpObjType
   , IEquatable<IGqlpObjBase>
 {
-  IEnumerable<IGqlpObjTypeArg> Args { get; }
+  IEnumerable<IGqlpTypeArg> Args { get; }
 
   void SetName(string name);
 }
 
-public interface IGqlpObjField
-  : IGqlpAliased
-  , IGqlpObjectEnum
-  , IGqlpModifiers
+public interface IGqlpObjFieldType
+  : IGqlpModifiers
 {
   IGqlpObjBase Type { get; }
   string ModifiedType { get; }
 }
 
-public interface IGqlpObjAlt
-  : IGqlpError
-  , IGqlpObjBase
+public interface IGqlpObjField
+  : IGqlpAliased
+  , IGqlpObjFieldType
+  , IGqlpObjEnum
+{ }
+
+public interface IGqlpAlternate
+  : IGqlpObjBase
   , IGqlpModifiers
-  , IGqlpObjectEnum
+  , IGqlpObjEnum
 { }
 
 public interface IGqlpTypeParam
@@ -84,12 +87,17 @@ public interface IGqlpInputObject
   : IGqlpObject<IGqlpInputField>
 { }
 
-public interface IGqlpInputField
-  : IGqlpObjField
-  , IEquatable<IGqlpInputField>
+public interface IGqlpInputFieldType
+  : IGqlpObjFieldType
 {
   IGqlpConstant? DefaultValue { get; }
 }
+
+public interface IGqlpInputField
+  : IGqlpObjField
+  , IGqlpInputFieldType
+  , IEquatable<IGqlpInputField>
+{ }
 
 public interface IGqlpOutputObject
   : IGqlpObject<IGqlpOutputField>
@@ -104,9 +112,6 @@ public interface IGqlpOutputField
 
 public interface IGqlpInputParam
   : IGqlpDescribed
-  , IGqlpModifiers
+  , IGqlpInputFieldType
   , IEquatable<IGqlpInputParam>
-{
-  IGqlpObjBase Type { get; }
-  IGqlpConstant? DefaultValue { get; }
-}
+{ }

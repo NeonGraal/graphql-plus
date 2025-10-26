@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
@@ -13,6 +14,7 @@ internal sealed record class InputParamAst(
   public IGqlpConstant? DefaultValue { get; set; }
 
   internal override string Abbr => "Pa";
+  public string ModifiedType => Type.GetFields().Skip(2).Concat(Modifiers.AsString()).Joined();
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
   string IGqlpDescribed.Description => Type.Description;

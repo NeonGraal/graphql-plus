@@ -17,8 +17,9 @@ internal class TheoryClassDataSource(
   protected override IEnumerable<object[]> GetData()
   {
     object? instance = Activator.CreateInstance(type: Type, args: _parameters);
-    if (instance is not IReadOnlyCollection<ITheoryDataRow> enumerable)
+    if (instance is not IReadOnlyCollection<ITheoryDataRow> enumerable) {
       throw new InvalidOperationException($"Data source type \"{Type}\" should implement the \"{typeof(IReadOnlyCollection<ITheoryDataRow>)}\" interface.");
+    }
 
     return enumerable.Select(ConvertRow);
 

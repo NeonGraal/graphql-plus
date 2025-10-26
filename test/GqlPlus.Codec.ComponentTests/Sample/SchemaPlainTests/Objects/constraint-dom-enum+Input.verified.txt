@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier CnstDomEnumInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstDomEnumInp
         type: !_ObjBase
           name: RefCnstDomEnumInp
@@ -12,7 +12,7 @@ types: !_Map_Type
               name: EnumCnstDomEnumInp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstDomEnumInp
           typeArgs:

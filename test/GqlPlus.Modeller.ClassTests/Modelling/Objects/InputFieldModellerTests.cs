@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Building.Schema;
+
+namespace GqlPlus.Modelling.Objects;
 
 public class InputFieldModellerTests
   : ModellerObjectBaseTestBase<IGqlpInputField, InputFieldModel, ObjBaseModel>
@@ -18,7 +20,7 @@ public class InputFieldModellerTests
   public void FieldModel_WithValidField_ReturnsExpectedInputFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpInputField ast = A.ObjField<IGqlpInputField>(name, typeName).SetDescr(contents);
+    IGqlpInputField ast = A.InputField(name, typeName).WithDescr(contents).AsInputField;
 
     ObjBaseModel typeModel = new(typeName, "");
     ToModelReturns(ObjBase, typeModel);
@@ -40,9 +42,10 @@ public class InputFieldModellerTests
   public void FieldModel_WithValidDefault_ReturnsExpectedInputFieldModel(string name, string contents, string typeName, string defaultValue)
   {
     // Arrange
-    IGqlpInputField ast = A.ObjField<IGqlpInputField>(name, typeName).SetDescr(contents);
-    IGqlpConstant defaultAst = A.Constant(defaultValue);
-    ast.DefaultValue.Returns(defaultAst);
+    IGqlpInputField ast = A.InputField(name, typeName)
+      .WithDescr(contents)
+      .WithDefault(A.Constant(defaultValue))
+      .AsInputField;
 
     ObjBaseModel typeModel = new(typeName, "");
     ToModelReturns(ObjBase, typeModel);

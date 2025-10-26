@@ -65,6 +65,6 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntEnumDomDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomGnrcPrntEnumDomDual
     typeKind: !_TypeKind Dual

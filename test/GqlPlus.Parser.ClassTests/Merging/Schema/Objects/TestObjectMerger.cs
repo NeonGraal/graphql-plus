@@ -34,13 +34,13 @@ public abstract class TestObjectMerger<TObject, TObjField>
         MakeObject(name, fields: fields));
 
   protected IMerge<IGqlpTypeParam> TypeParams { get; }
-  protected IMerge<IGqlpObjAlt> Alternates { get; }
+  protected IMerge<IGqlpAlternate> Alternates { get; }
   protected IMerge<TObjField> Fields { get; }
 
   protected TestObjectMerger()
   {
     TypeParams = Merger<IGqlpTypeParam>();
-    Alternates = Merger<IGqlpObjAlt>();
+    Alternates = Merger<IGqlpAlternate>();
     Fields = Merger<TObjField>();
   }
 

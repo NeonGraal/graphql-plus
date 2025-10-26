@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Matching;
 
 public class UnionConstraintMatcherTests
   : MatchAnyTypesTestsBase
@@ -11,7 +13,7 @@ public class UnionConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingUnionMember(string name, string constraint)
   {
-    IGqlpUnion union = A.Union(constraint, "", name);
+    IGqlpUnion union = A.Union(constraint).WithMembers([name]).AsUnion;
     Types[constraint] = union;
 
     IGqlpType type = A.Named<IGqlpType>(name);
@@ -26,11 +28,11 @@ public class UnionConstraintMatcherTests
   {
     this.SkipEqual3(constraint, name, parent);
 
-    IGqlpUnion union = A.Union(constraint, name);
+    IGqlpUnion union = A.Union(constraint).WithMembers([name]).AsUnion;
     Types[constraint] = union;
 
-    IGqlpSimple simple = A.Simple<IGqlpSimple>(name);
-    Types[name] = A.SetParent(simple, parent);
+    IGqlpSimple simple = A.Simple<IGqlpSimple>(name).WithParent(parent).AsSimple;
+    Types[name] = simple;
 
     IGqlpType type = A.Named<IGqlpType>(parent);
     Types[parent] = type;

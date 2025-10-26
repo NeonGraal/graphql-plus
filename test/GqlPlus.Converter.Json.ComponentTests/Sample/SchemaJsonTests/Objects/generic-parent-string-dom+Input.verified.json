@@ -91,7 +91,7 @@
         "name": "FieldGnrcPrntStrDomInp",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "DomGnrcPrntStrDomInp"
           }
         ]

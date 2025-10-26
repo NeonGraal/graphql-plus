@@ -57,9 +57,9 @@ types: !_Map_Type
         label: Domain
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-      - !_ObjTypeArg
+      - !_TypeArg
         typeParam: item
-      - !_ObjTypeArg
+      - !_TypeArg
         typeParam: domainItem
     typeKind: !_TypeKind Output
     typeParams:
@@ -96,33 +96,33 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _BasicValue: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _BasicValue
       type: !_ObjBase
         name: _DomainKind
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _BasicValue
       type: !_ObjBase
         name: _EnumValue
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _BasicValue
       type: !_ObjBase
         name: _DomainKind
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _BasicValue
       type: !_ObjBase
         name: _DomainKind
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _DomainKind
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _EnumValue
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _DomainKind
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _DomainKind
     name: _BasicValue
@@ -165,7 +165,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _DomainItem
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _DomainLabel
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemRange: !_TypeOutput
@@ -179,7 +179,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _DomainItem
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _DomainRange
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemRegex: !_TypeOutput
@@ -193,7 +193,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _DomainItem
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _DomainRegex
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemTrueFalse: !_TypeOutput
@@ -207,7 +207,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _DomainItem
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _DomainTrueFalse
     typeKind: !_TypeKind Output
   !_Identifier _DomainKind: !_TypeEnum
@@ -356,7 +356,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _DomainValue: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _DomainValue
       type: !_ObjBase
         typeParam: value
@@ -372,7 +372,7 @@ types: !_Map_Type
       type: !_ObjBase
         typeParam: value
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         typeParam: value
     fields:
@@ -384,7 +384,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _DomainRef
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         typeParam: kind
     typeKind: !_TypeKind Output
     typeParams:
@@ -437,7 +437,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _TypeDomain: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _TypeDomain
       type: !_ObjBase
         name: _BaseDomain
@@ -446,11 +446,11 @@ types: !_Map_Type
           label: Boolean
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainTrueFalse
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainItemTrueFalse
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _TypeDomain
       type: !_ObjBase
         name: _BaseDomain
@@ -459,11 +459,11 @@ types: !_Map_Type
           label: Enum
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainLabel
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainItemLabel
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _TypeDomain
       type: !_ObjBase
         name: _BaseDomain
@@ -472,11 +472,11 @@ types: !_Map_Type
           label: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainRange
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainItemRange
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _TypeDomain
       type: !_ObjBase
         name: _BaseDomain
@@ -485,12 +485,12 @@ types: !_Map_Type
           label: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainRegex
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainItemRegex
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
@@ -498,11 +498,11 @@ types: !_Map_Type
           label: Boolean
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainTrueFalse
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainItemTrueFalse
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
@@ -510,11 +510,11 @@ types: !_Map_Type
           label: Enum
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainLabel
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainItemLabel
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
@@ -522,11 +522,11 @@ types: !_Map_Type
           label: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainRange
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainItemRange
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
@@ -534,9 +534,9 @@ types: !_Map_Type
           label: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainRegex
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _DomainItemRegex
     name: _TypeDomain
     typeKind: !_TypeKind Output
@@ -549,9 +549,9 @@ types: !_Map_Type
         label: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _Aliased
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _EnumLabel
     typeKind: !_TypeKind Output
   !_Identifier _TypeUnion: !_TypeOutput
@@ -563,9 +563,9 @@ types: !_Map_Type
         label: Union
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _UnionRef
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _UnionMember
     typeKind: !_TypeKind Output
   !_Identifier _UnionMember: !_TypeOutput
@@ -589,6 +589,6 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _TypeRef
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _SimpleKind
     typeKind: !_TypeKind Output

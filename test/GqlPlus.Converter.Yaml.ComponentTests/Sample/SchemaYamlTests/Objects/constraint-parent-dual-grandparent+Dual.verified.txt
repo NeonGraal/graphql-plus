@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier AltCnstPrntDualGrndDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: GrndCnstPrntDualGrndDual
       type: !_ObjBase
         name: String
@@ -23,7 +23,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier CnstPrntDualGrndDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: GrndCnstPrntDualGrndDual
       type: !_ObjBase
         name: String
@@ -37,24 +37,24 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntDualGrndDual
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: AltCnstPrntDualGrndDual
     typeKind: !_TypeKind Dual
   !_Identifier GrndCnstPrntDualGrndDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: GrndCnstPrntDualGrndDual
       type: !_ObjBase
         name: String
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: String
     name: GrndCnstPrntDualGrndDual
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntDualGrndDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: GrndCnstPrntDualGrndDual
       type: !_ObjBase
         name: String

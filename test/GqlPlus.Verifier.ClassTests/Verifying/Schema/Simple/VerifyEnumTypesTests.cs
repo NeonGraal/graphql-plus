@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifying.Schema.Simple;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyEnumTypesTests
@@ -7,9 +9,10 @@ public class VerifyEnumTypesTests
   private readonly ForM<IGqlpEnumLabel> _mergeLabels = new();
   private readonly VerifyEnumTypes _verifier;
 
-  private readonly IGqlpEnum _enum;
+  private readonly EnumBuilder _enum;
+  private IGqlpEnum? _usage;
 
-  protected override IGqlpEnum TheUsage => _enum;
+  protected override IGqlpEnum TheUsage => _usage ??= _enum.AsEnum;
   protected override IVerifyUsage<IGqlpEnum> Verifier => _verifier;
 
   public VerifyEnumTypesTests()
@@ -33,7 +36,7 @@ public class VerifyEnumTypesTests
   [Fact]
   public void Verify_Enum_ReturnsNoErrors()
   {
-    Usages.Add(_enum);
+    Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
@@ -45,9 +48,9 @@ public class VerifyEnumTypesTests
   {
     IGqlpEnumLabel[] labels = A.NamedArray<IGqlpEnumLabel>("Label1", "Label2");
     labels[0].Aliases.Returns(["Alias1", "Alias2"]);
-    _enum.Items.Returns(labels);
+    _enum.WithLabels(labels);
 
-    Usages.Add(_enum);
+    Usages.Add(TheUsage);
 
     _verifier.Verify(UsageAliased, Errors);
 
@@ -63,8 +66,8 @@ public class VerifyEnumTypesTests
 
     Define<IGqlpEnum>(parentName);
 
-    IGqlpEnum anEnum = A.Enum(name);
-    Usages.Add(A.SetParent(anEnum, parentName));
+    IGqlpEnum anEnum = A.Enum(name).WithParent(parentName).AsEnum;
+    Usages.Add(anEnum);
 
     _verifier.Verify(UsageAliased, Errors);
 
@@ -79,7 +82,10 @@ public class VerifyEnumTypesTests
     IGqlpEnum parent = A.Enum(parentName, parentLabels);
     Definitions.Add(parent);
 
-    IGqlpEnum anEnum = A.Enum(name, labels, parentName);
+    IGqlpEnum anEnum = A.Enum(name)
+      .WithParent(parentName)
+      .WithLabels(labels)
+      .AsEnum;
     Usages.Add(anEnum);
 
     _verifier.Verify(UsageAliased, Errors);
@@ -95,7 +101,10 @@ public class VerifyEnumTypesTests
     IGqlpEnum parent = A.Enum(parentName, parentLabels);
     Definitions.Add(parent);
 
-    IGqlpEnum anEnum = A.Enum(name, labels, parentName);
+    IGqlpEnum anEnum = A.Enum(name)
+      .WithParent(parentName)
+      .WithLabels(labels)
+      .AsEnum;
     Usages.Add(anEnum);
 
     _mergeLabels.Intf.CanMerge(Arg.Any<IEnumerable<IGqlpEnumLabel>>()).Returns("Error".MakeMessages());

@@ -18,8 +18,8 @@ internal sealed class DualDeclAstChecks
       parent => new ObjBaseAst(AstNulls.At, parent, ""))
   { }
 
-  protected override IGqlpObjAlt[] CreateAlternates(IEnumerable<AlternateInput> alternates)
-    => alternates.ObjAlts();
+  protected override IGqlpAlternate[] CreateAlternates(IEnumerable<AlternateInput> alternates)
+    => alternates.Alternates();
   protected override IGqlpDualField[] CreateFields(IEnumerable<FieldInput> fields)
     => fields.DualFields();
   protected override string FieldString(FieldInput input)

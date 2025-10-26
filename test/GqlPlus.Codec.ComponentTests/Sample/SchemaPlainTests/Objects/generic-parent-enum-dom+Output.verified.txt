@@ -65,6 +65,6 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntEnumDomOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomGnrcPrntEnumDomOutp
     typeKind: !_TypeKind Output

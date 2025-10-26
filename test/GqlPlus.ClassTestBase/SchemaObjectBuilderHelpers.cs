@@ -1,111 +1,43 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus;
 
 public static class SchemaObjectBuilderHelpers
 {
-  public static T SetDescr<T>(this T described, string description)
-    where T : IGqlpDescribed
+  public static TObject Obj<TObject, TField>(this IMockBuilder builder, TypeKind kind, string typeName, string parent = "", bool isTypeParam = false)
+    where TObject : class, IGqlpObject<TField>
+    where TField : class, IGqlpObjField
   {
-    described.Description.Returns(description);
-    return described;
-  }
-
-  public static TObject Obj<TObject>(this IMockBuilder builder, TypeKind kind, string typeName, string parent = "", bool isTypeParam = false)
-    where TObject : class, IGqlpObject
-  {
-    TObject theObj = builder.Named<TObject, IGqlpType>(typeName);
-    theObj.Kind.Returns(kind);
-    theObj.Label.Returns(kind.ToString());
-    if (!string.IsNullOrWhiteSpace(parent)) {
-      IGqlpObjBase parentRef = builder.ObjBase(parent, isTypeParam);
-      theObj.SetParent(parentRef);
-    } else {
-      theObj.SetParent(null);
-    }
+    TObject theObj = builder.Obj<TObject, TField>(kind, typeName).WithParent(parent, t => t.IsTypeParam(isTypeParam)).AsObject;
 
     return theObj;
   }
-  public static TObject SetParent<TObject>([NotNull] this TObject obj, IGqlpObjBase? parent)
-    where TObject : class, IGqlpObject
-  {
-    obj.Parent.Returns(parent);
 
-    return obj;
-  }
+  public static AlternateBuilder Alternate(this IMockBuilder _, string name)
+    => new(name);
 
-  public static IGqlpObjBase ObjBase(this IMockBuilder builder, string typeName, bool isTypeParam = false)
-  {
-    IGqlpObjBase theType = builder.Named<IGqlpObjBase>(typeName);
-    if (isTypeParam) {
-      theType.IsTypeParam.Returns(true);
-      theType.FullType.Returns("$" + typeName);
-      theType.TypeName.Returns("$" + typeName);
-    } else {
-      theType.FullType.Returns(typeName);
-      theType.TypeName.Returns(typeName);
-    }
+  public static TypeArgBuilder TypeArg(this IMockBuilder _, string typeName)
+    => new(typeName);
 
-    return theType;
-  }
-  public static TBase SetArgs<TBase, TTypeArg>([NotNull] this TBase objBase, params TTypeArg[] args)
-    where TBase : class, IGqlpObjBase
-    where TTypeArg : class, IGqlpObjTypeArg
-  {
-    string typeName = args.Bracket("<", ">")
-      .Prepend(objBase.TypeName).Joined();
-
-    objBase.FullType.Returns(typeName);
-    objBase.Args.Returns(args);
-
-    return objBase;
-  }
-
-  public static IGqlpObjTypeArg ObjTypeArg(this IMockBuilder builder, string typeName, bool isTypeParam = false)
-  {
-    IGqlpObjTypeArg theArg = builder.Named<IGqlpObjTypeArg>(typeName);
-    theArg.EnumValue.Returns((IGqlpEnumValue?)null);
-    if (isTypeParam) {
-      theArg.IsTypeParam.Returns(true);
-      theArg.TypeName.Returns("$" + typeName);
-      theArg.FullType.Returns("$" + typeName);
-    } else {
-      theArg.TypeName.Returns(typeName);
-      theArg.EnumTypeName.Returns(typeName);
-      theArg.FullType.Returns(typeName);
-    }
-
-    return theArg;
-  }
-
-  public static IGqlpObjTypeArg ObjEnumArg(this IMockBuilder builder, string enumType, string enumLabel)
-  {
-    IGqlpEnumValue enumValue = builder.EnumValue(enumType, enumLabel);
-    IGqlpObjTypeArg theArg = builder.ObjTypeArg(enumType);
-    theArg.EnumValue.Returns(enumValue);
-    return theArg;
-  }
-
-  public static TField ObjField<TField>(this IMockBuilder builder, string fieldName, IGqlpObjBase type, params IGqlpModifier[] modifiers)
+  public static ObjFieldBuilder<TField> ObjField<TField>(this IMockBuilder _, string fieldName, string typeName)
     where TField : class, IGqlpObjField
-  {
-    TField theField = builder.Named<TField>(fieldName, "");
-    theField.Type.Returns(type);
-    theField.Modifiers.Returns(modifiers);
-    theField.EnumValue.Returns((IGqlpEnumValue?)null);
+    => new(fieldName, typeName);
+  public static DualFieldBuilder DualField(this IMockBuilder _, string fieldName, string typeName)
+    => new(fieldName, typeName);
+  public static InputFieldBuilder InputField(this IMockBuilder _, string fieldName, string typeName)
+    => new(fieldName, typeName);
+  public static OutputFieldBuilder OutputField(this IMockBuilder _, string fieldName, string typeName)
+    => new(fieldName, typeName);
 
-    return theField;
-  }
-  public static TField ObjField<TField>(this IMockBuilder builder, string fieldName, string typeName, params IGqlpModifier[] modifiers)
+  public static ObjectBuilder<TObject, TField> Obj<TObject, TField>(this IMockBuilder _, TypeKind kind, string name)
+    where TObject : class, IGqlpObject<TField>
     where TField : class, IGqlpObjField
-    => builder.ObjField<TField>(fieldName, builder.ObjBase(typeName), modifiers);
-  public static TField SetModifiers<TField>([NotNull] this TField field, params IGqlpModifier[] modifiers)
-    where TField : class, IGqlpModifiers
-  {
-    field.Modifiers.Returns(modifiers);
-
-    return field;
-  }
+    => new(name, kind);
+  public static ObjectBuilder<IGqlpDualObject, IGqlpDualField> DualObj(this IMockBuilder _, string name)
+    => _.Obj<IGqlpDualObject, IGqlpDualField>(TypeKind.Dual, name);
+  public static ObjectBuilder<IGqlpInputObject, IGqlpInputField> InputObj(this IMockBuilder _, string name)
+    => _.Obj<IGqlpInputObject, IGqlpInputField>(TypeKind.Input, name);
+  public static ObjectBuilder<IGqlpOutputObject, IGqlpOutputField> OutputObj(this IMockBuilder _, string name)
+    => _.Obj<IGqlpOutputObject, IGqlpOutputField>(TypeKind.Output, name);
 }

@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier AltGnrcAltParamDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: AltGnrcAltParamDual
       type: !_ObjBase
         name: String
@@ -13,7 +13,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: Number
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: String
     fields:
@@ -25,30 +25,30 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier GnrcAltParamDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: GnrcAltParamDual
       type: !_ObjBase
         name: RefGnrcAltParamDual
         typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcAltParamDual
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: RefGnrcAltParamDual
         typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcAltParamDual
     name: GnrcAltParamDual
     typeKind: !_TypeKind Dual
   !_Identifier RefGnrcAltParamDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: RefGnrcAltParamDual
       type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         typeParam: ref
     name: RefGnrcAltParamDual

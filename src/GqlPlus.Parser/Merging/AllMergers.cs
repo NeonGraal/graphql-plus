@@ -41,7 +41,7 @@ public static class AllMergers
       .AddMerge<IGqlpTypeParam, MergeTypeParams>()
 
       .AddMergeAll<IGqlpDualObject, IGqlpType, MergeDualObjects>()
-      .AddMerge<IGqlpObjAlt, MergeObjAlts>()
+      .AddMerge<IGqlpAlternate, MergeAlternates>()
       .AddMerge<IGqlpDualField, MergeDualFields>()
       .AddMergeAll<IGqlpInputObject, IGqlpType, MergeInputObjects>()
       .AddMerge<IGqlpInputField, MergeInputFields>()

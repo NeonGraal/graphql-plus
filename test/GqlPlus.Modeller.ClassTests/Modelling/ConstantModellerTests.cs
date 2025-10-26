@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling;
+﻿using GqlPlus.Building;
+
+namespace GqlPlus.Modelling;
 
 public class ConstantModellerTests
   : ModellerClassTestBase<IGqlpConstant, ConstantModel>
@@ -17,8 +19,7 @@ public class ConstantModellerTests
   public void ToModel_WithFields_ReturnsExpectedConstantModel(string key, string value)
   {
     // Arrange
-    IGqlpConstant valueConstant = A.Constant(value);
-    IGqlpConstant ast = A.Constant(key, valueConstant);
+    IGqlpConstant ast = A.Constant().WithField(key, value).AsConstant;
 
     _fieldKeyModeller.ToModel(Arg.Any<IGqlpFieldKey>(), TypeKinds)
         .Returns(SimpleModel.Str(value));

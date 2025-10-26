@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier RefGnrcAltModStrInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierDictionary
         by: '*'
@@ -12,7 +12,7 @@ types: !_Map_Type
       type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierDictionary
         by: '*'

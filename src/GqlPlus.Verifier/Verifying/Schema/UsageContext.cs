@@ -64,27 +64,25 @@ public class UsageContext(
   }
 }
 
-internal record struct SelfUsage<TAst>(List<string> Chain, TAst Usage, string Label)
+internal record struct SelfUsage<TAst>(string head, TAst Usage, string Label)
   where TAst : IGqlpType
 {
+  private List<string> _chain = [head];
+
   internal TypeKind Kind { get; } = Usage.Kind;
-  internal readonly string? Current => Chain.FirstOrDefault();
+  internal readonly string Current => _chain.First();
   internal readonly bool DifferentName
   {
     get {
-      if (Chain.Count == 0) {
-        return true;
-      }
-
-      if (Chain.Count > 99) {
+      if (_chain.Count > 99) {
         return false;
       }
 
-      if (Chain.Contains(Usage.Name)) {
+      if (_chain.Contains(Usage.Name)) {
         return false;
       }
 
-      return !Chain.Skip(1).Contains(Current);
+      return !_chain.Skip(1).Contains(Current);
     }
   }
 
@@ -92,10 +90,11 @@ internal record struct SelfUsage<TAst>(List<string> Chain, TAst Usage, string La
   internal readonly string UsageLabel => Usage.Label;
 
   internal readonly SelfUsage<TAst> AddNext(string next)
-    => new([next, .. Chain], Usage, Label);
+    => new SelfUsage<TAst>(next, Usage, Label) with { _chain = [next, .. _chain] };
 
+  [ExcludeFromCodeCoverage]
   public override readonly string? ToString()
-    => $"{UsageLabel}: {UsageName} - [{Chain.Joined(" -> ")}] ({Label})";
+    => $"{UsageLabel}: {UsageName} - [{_chain.Joined(" -> ")}] ({Label})";
 }
 
 internal static class UsageHelpers

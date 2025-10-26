@@ -2,20 +2,20 @@
 types: !_Map_Type
   !_Identifier GnrcAltArgDescrDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: GnrcAltArgDescrDual
       type: !_ObjBase
         name: RefGnrcAltArgDescrDual
         typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           description: 'Test Descr'
           typeParam: type
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: RefGnrcAltArgDescrDual
         typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           description: 'Test Descr'
           typeParam: type
     name: GnrcAltArgDescrDual
@@ -28,12 +28,12 @@ types: !_Map_Type
       name: type
   !_Identifier RefGnrcAltArgDescrDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: RefGnrcAltArgDescrDual
       type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         typeParam: ref
     name: RefGnrcAltArgDescrDual

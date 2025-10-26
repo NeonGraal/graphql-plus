@@ -16,7 +16,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier FldFieldDualDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: FldFieldDualDual
       type: !_ObjBase
         name: String
@@ -27,7 +27,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: Number
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: String
     fields:

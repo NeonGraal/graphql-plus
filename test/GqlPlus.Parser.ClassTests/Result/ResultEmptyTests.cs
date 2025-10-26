@@ -1,26 +1,26 @@
 ﻿namespace GqlPlus.Result;
 
-public class ResultEmptyTests : BaseResultTests
+public class ResultEmptyTests : TestResultBase
 {
   private const string Empty = "Empty";
   private readonly IResult<string> _empty = Empty.Empty();
+  private readonly IResult<string[]> _emptyArray = Array.Empty<string>().Empty();
+  private readonly IResultArray<string> _emptyResultArray = Array.Empty<string>().EmptyArray();
 
-  [Fact]
-  public void Optional_ThrowsInvalidOperation()
-  {
-    string? result = _empty.Optional();
+  // Abstract method implementations
+  protected override IResult<string> CreateResult() => _empty;
+  protected override IResult<string[]> CreateArrayResult() => _emptyArray;
+  protected override IResultArray<string> CreateResultArray() => _emptyResultArray;
 
-    result.ShouldBe(default);
-  }
+  protected override bool ExpectedIsEmpty => true;
+  protected override bool ExpectedRequiredThrows => true;
+  protected override string? ExpectedOptionalValue => null;
+  protected override string? ExpectedMessage => null;
 
-  [Fact]
-  public void Required_ThrowsInvalidOperation()
-  {
-    Action action = () => _empty.Required();
+  protected override bool ExpectedArrayRequiredThrows => true;
+  protected override IEnumerable<string>? ExpectedArrayOptionalValue => [];
 
-    action.ShouldThrow<InvalidOperationException>()
-      .Message.ShouldContain("empty");
-  }
+  protected override bool ExpectedActionCalled => true;
 
   [Fact]
   public void Select_WithOnReturnsResultOk()

@@ -6,7 +6,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "AltGnrcFieldParamDual",
           "type": {
             "$tag": "_ObjBase",
@@ -27,7 +27,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "name": "String"
@@ -62,7 +62,7 @@
             "name": "RefGnrcFieldParamDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "AltGnrcFieldParamDual"
               }
             ]
@@ -78,7 +78,7 @@
             "name": "RefGnrcFieldParamDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
+                "$tag": "_TypeArg",
                 "name": "AltGnrcFieldParamDual"
               }
             ]
@@ -95,7 +95,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_ObjAlternate)",
+          "$tag": "_ObjectFor(_Alternate)",
           "object": "RefGnrcFieldParamDual",
           "type": {
             "$tag": "_ObjBase",
@@ -105,7 +105,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_ObjAlternate",
+          "$tag": "_Alternate",
           "type": {
             "$tag": "_ObjBase",
             "typeParam": "ref"

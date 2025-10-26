@@ -5,6 +5,22 @@ public class ComplexValueTests
   [Fact]
   public void Empty_ShouldBeCorrect()
   {
+    TestComplexValue value = new([]);
+
+    value.ShouldSatisfyAllConditions(
+      v => v.Tag.ShouldBeNullOrEmpty(),
+
+      v => v.TryGetBoolean(out _).ShouldBeFalse(),
+      v => v.TryGetNumber(out _).ShouldBeFalse(),
+      v => v.TryGetText(out _).ShouldBeFalse(),
+      v => v.TryGetList(out _).ShouldBeFalse(),
+      v => v.TryGetMap(out _).ShouldBeFalse()
+    );
+  }
+
+  [Fact]
+  public void EmptyString_ShouldBeCorrect()
+  {
     TestComplexValue value = new("");
 
     value.ShouldSatisfyAllConditions(
@@ -16,6 +32,15 @@ public class ComplexValueTests
       v => v.TryGetList(out _).ShouldBeFalse(),
       v => v.TryGetMap(out _).ShouldBeFalse()
     );
+  }
+
+  [Fact]
+  public void Equals_Empty_ShouldReturnFalse()
+  {
+    TestComplexValue testValue = new([]);
+    TestComplexValue otherValue = new([]);
+
+    testValue.Equals(otherValue).ShouldBeFalse();
   }
 
   [Theory, RepeatData]
@@ -44,6 +69,15 @@ public class ComplexValueTests
     TestComplexValue otherValue = new(value);
 
     testValue.Equals(otherValue).ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Equals_Object_ShouldReturnFalse(string value)
+  {
+    TestComplexValue testValue = new(value);
+    object otherValue = value;
+
+    testValue.Equals(otherValue).ShouldBeFalse();
   }
 
   [Theory, RepeatData]
@@ -106,10 +140,10 @@ public class ComplexValueTests
     { }
 
     public bool Equals(TestComplexValue? other)
-      => Equals(other as ComplexValue<ScalarValue, TestComplexValue>);
+      => base.Equals(other);
 
     public override bool Equals(object obj)
-      => Equals(obj as TestComplexValue);
+      => base.Equals(obj);
 
     public override int GetHashCode()
       => base.GetHashCode();

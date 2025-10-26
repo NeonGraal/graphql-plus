@@ -20,5 +20,5 @@ internal class DualFieldModeller(
 ) : ModellerObjField<IGqlpDualField, DualFieldModel>(modifier, objBase)
 {
   protected override DualFieldModel FieldModel(IGqlpDualField ast, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, type with { Description = ast.Type.Description }, ast.Description);
+    => new(ast.Name, type with { Description = ast.Type.Description.IfWhiteSpace() }, ast.Description);
 }

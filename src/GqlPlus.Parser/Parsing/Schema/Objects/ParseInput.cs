@@ -14,7 +14,7 @@ internal class ParseInput(
   protected override IGqlpInputObject MakeResult(AstPartial<IGqlpTypeParam, NullOption> partial, ObjectDefinition<IGqlpInputField> value)
     => new InputDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
-      TypeParams = partial.Params.ArrayOf<TypeParamAst>(),
+      TypeParams = partial.Params,
       Parent = value.Parent,
       ObjFields = value.Fields,
       Alternates = value.Alternates,
@@ -23,6 +23,6 @@ internal class ParseInput(
   protected override IGqlpInputObject ToResult(AstPartial<IGqlpTypeParam, NullOption> partial)
     => new InputDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
-      TypeParams = partial.Params.ArrayOf<TypeParamAst>(),
+      TypeParams = partial.Params,
     };
 }

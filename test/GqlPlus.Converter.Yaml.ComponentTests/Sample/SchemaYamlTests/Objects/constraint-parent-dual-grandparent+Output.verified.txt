@@ -31,24 +31,24 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntDualGrndOutp
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: AltCnstPrntDualGrndOutp
     typeKind: !_TypeKind Output
   !_Identifier GrndCnstPrntDualGrndOutp: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: GrndCnstPrntDualGrndOutp
       type: !_ObjBase
         name: String
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: String
     name: GrndCnstPrntDualGrndOutp
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntDualGrndOutp: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: GrndCnstPrntDualGrndOutp
       type: !_ObjBase
         name: String

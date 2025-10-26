@@ -16,9 +16,9 @@ types: !_Map_Type
         label: Union
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _UnionRef
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _UnionMember
     typeKind: !_TypeKind Output
   !_Identifier _UnionMember: !_TypeOutput
@@ -42,6 +42,6 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _TypeRef
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: _SimpleKind
     typeKind: !_TypeKind Output

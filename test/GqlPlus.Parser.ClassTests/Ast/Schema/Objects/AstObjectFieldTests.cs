@@ -101,7 +101,7 @@ internal sealed class AstObjectFieldChecks<TObjField>(
 
   public void ModifiedType_WithArgs(FieldInput input, string[] arguments)
   {
-    TObjField field = _createField(input, BaseBy(input) with { Args = arguments.ObjTypeArgs() });
+    TObjField field = _createField(input, BaseBy(input) with { Args = arguments.TypeArgs() });
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     field.ModifiedType.ShouldBe(expected);
@@ -119,7 +119,7 @@ internal sealed class AstObjectFieldChecks<TObjField>(
   {
     TObjField field = _createField(
         input,
-        BaseBy(input) with { Args = arguments.ObjTypeArgs() }
+        BaseBy(input) with { Args = arguments.TypeArgs() }
       ) with { Modifiers = TestMods() };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 

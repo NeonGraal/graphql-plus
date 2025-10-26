@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier CnstEnumOutp: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: CnstEnumOutp
       type: !_ObjBase
         name: RefCnstEnumOutp
@@ -12,7 +12,7 @@ types: !_Map_Type
           name: EnumCnstEnumOutp
           typeKind: !_SimpleKind Enum
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: RefCnstEnumOutp
         typeArgs:

@@ -41,6 +41,6 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntSmplEnumInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: EnumGnrcPrntSmplEnumInp
     typeKind: !_TypeKind Input

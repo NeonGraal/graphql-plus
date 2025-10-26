@@ -1,19 +1,36 @@
 ﻿namespace GqlPlus.Result;
 
-public class ResultPartialArrayTests : BaseResultTests
+public class ResultPartialArrayTests : TestResultBase
 {
   private const string Partial = "Partial";
   private readonly IResultArray<string> _partialArray = new[] { Partial }.PartialArray(Partial.ParseMessage());
+  private readonly IResult<string> _partial = Partial.Partial(Partial.ParseMessage());
+  private readonly IResult<string[]> _partialArrayResult = new[] { Partial }.Partial(Partial.ParseMessage());
 
-  [Fact]
-  public void AsPartialArray_ReturnsResultArrayPartial()
-  {
-    IResultArray<string> result = _partialArray.AsPartialArray(SampleArray);
+  // Abstract method implementations
+  protected override IResult<string> CreateResult() => _partial;
+  protected override IResult<string[]> CreateArrayResult() => _partialArrayResult;
+  protected override IResultArray<string> CreateResultArray() => _partialArray;
 
-    result.ShouldBeOfType<ResultArrayPartial<string>>()
-      .Message.Message.ShouldBe(Partial);
-    result.Optional().ShouldBe(SampleArray);
-  }
+  protected override bool ExpectedHasValue => true;
+  protected override bool ExpectedIsError => true;
+  protected override string? ExpectedOptionalValue => Partial;
+  protected override bool ExpectedRequiredThrows => true;
+  protected override string? ExpectedMessage => Partial;
+
+  protected override Type ExpectedAsResultType => typeof(ResultError<int>);
+  protected override Type ExpectedAsPartialType => typeof(ResultPartial<string>);
+  protected override Type ExpectedSelectType => typeof(ResultPartial<int>);
+  protected override Type ExpectedAsResultArrayType => typeof(ResultArrayPartial<string>);
+  protected override Type ExpectedAsPartialArrayType => typeof(ResultArrayPartial<string>);
+  protected override Type ExpectedArrayAsResultArrayType => typeof(ResultArrayError<int>);
+  protected override Type ExpectedArrayAsPartialArrayType => typeof(ResultArrayPartial<string>);
+
+  protected override bool ExpectedArrayRequiredThrows => true;
+  protected override IEnumerable<string>? ExpectedArrayOptionalValue => [Partial];
+
+  protected override bool ExpectedWithValueCalled => true;
+  protected override bool ExpectedActionCalled => true;
 
   [Fact]
   public void AsResultArray_ReturnsResultArrayPartial()
@@ -26,29 +43,11 @@ public class ResultPartialArrayTests : BaseResultTests
   }
 
   [Fact]
-  public void AsResultArrayInt_ReturnsResultArrayErrorInt()
-  {
-    IResultArray<int> result = _partialArray.AsResultArray<int>();
-
-    result.ShouldBeOfType<ResultArrayError<int>>()
-      .Message.Message.ShouldBe("Partial");
-  }
-
-  [Fact]
   public void AsResultArrayObject_ReturnsResultArrayPartialObject()
   {
     IResultArray<object> result = _partialArray.AsResultArray<object>();
 
     result.ShouldBeOfType<ResultArrayPartial<object>>()
-      .Message.Message.ShouldBe("Partial");
-  }
-
-  [Fact]
-  public void AsResultInt_ReturnsResultErrorInt()
-  {
-    IResult<int> result = _partialArray.AsResult<int>();
-
-    result.ShouldBeOfType<ResultError<int>>()
       .Message.Message.ShouldBe("Partial");
   }
 
@@ -59,14 +58,5 @@ public class ResultPartialArrayTests : BaseResultTests
 
     result.ShouldBeOfType<ResultPartial<object>>()
       .Message.Message.ShouldBe("Partial");
-  }
-
-  [Fact]
-  public void Map_ReturnsOtherwise()
-  {
-    IResult<string> result = _partialArray.Map(a => Sample.Ok(), () => Sample.Ok());
-
-    result.ShouldBeOfType<ResultOk<string>>()
-      .Required().ShouldBe(Sample);
   }
 }

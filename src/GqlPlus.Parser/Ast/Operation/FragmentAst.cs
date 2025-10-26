@@ -18,8 +18,8 @@ internal sealed record class FragmentAst(
     => other is IGqlpFragment fragment && Equals(fragment);
   public bool Equals(IGqlpFragment? other)
     => base.Equals(other)
-    && OnType == other.OnType
-    && Selections.SequenceEqual(other.Selections);
+    && OnType.NullEqual(other?.OnType)
+    && Selections.SequenceEqual(other?.Selections);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), OnType, Selections.Length);
 

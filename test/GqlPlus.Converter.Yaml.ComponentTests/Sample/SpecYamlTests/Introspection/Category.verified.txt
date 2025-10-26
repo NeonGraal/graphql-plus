@@ -9,7 +9,7 @@ errors:
 types: !_Map_Type
   !_Identifier _Categories: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Categories
       type: !_ObjBase
         name: _Category
@@ -20,7 +20,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Category
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _Category
     fields:

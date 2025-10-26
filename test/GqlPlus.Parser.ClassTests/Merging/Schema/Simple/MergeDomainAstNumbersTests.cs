@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging.Simple;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Merging.Schema.Simple;
 
@@ -25,5 +26,5 @@ public class MergeDomainAstNumbersTests
     };
 
   protected override IGqlpDomainRange[] MakeItems(DomainRangeInput input)
-    => input.DomainRange();
+    => [new DomainRangeAst(AstNulls.At, "", false, input.Lower, input.Upper)];
 }

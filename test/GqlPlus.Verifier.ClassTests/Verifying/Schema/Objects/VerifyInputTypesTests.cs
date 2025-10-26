@@ -12,7 +12,7 @@ public class VerifyInputTypesTests
 
   public VerifyInputTypesTests()
     : base(TypeKind.Input)
-    => Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
+    => Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate));
 
   [Theory, RepeatData]
   public void Verify_Input_WithFieldNullDefault_ReturnsError(string fieldName, string fieldType)

@@ -12,9 +12,6 @@ public static class OperationTestHelpers
   public static IGqlpSelection[] Fields(this string[] fields)
     => [.. fields.Select(f => new FieldAst(AstNulls.At, f))];
 
-  public static IGqlpArg[] Args(this string[] values)
-    => [.. values.Select(l => new ArgAst(l.FieldKey()))];
-
   public static IGqlpArg[] ArgList(this string value)
     => [new ArgAst(AstNulls.At, value), new ArgAst(value.FieldKey())];
 

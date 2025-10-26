@@ -19,15 +19,13 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
   public async Task HtmlInternalTypes(string type)
     => await RenderTypeHtml("Internal", BuiltInData.InternalMap[type], BuiltIn.Internal);
 
-  private readonly SchemaAst _basicSchema = new(AstNulls.At) { Declarations = BuiltIn.Basic };
+  private readonly IGqlpSchema _basicSchema = BuiltIn.Basic.Schema();
 
   [Fact]
   public async Task HtmlAllBasicTypes()
     => await RenderSchemaHtml(_basicSchema, "!Basic");
 
-  private readonly SchemaAst _internalSchema = new(AstNulls.At) {
-    Declarations = BuiltIn.Internal
-  };
+  private readonly IGqlpSchema _internalSchema = BuiltIn.Internal.Schema();
 
   [Fact]
   public async Task HtmlAllInternalTypes()
@@ -88,13 +86,9 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
   {
     Assert.SkipWhen(type is null, "type is null");
 
-    SchemaAst schema = new(AstNulls.At) {
-      Declarations = [type]
-    };
+    IGqlpSchema schema = type.Schema();
 
-    SchemaAst extrasSchema = new(AstNulls.At) {
-      Declarations = [.. extras.Where(e => e != type)]
-    };
+    IGqlpSchema extrasSchema = extras.Where(e => e != type).Schema();
 
     IModelsContext context = encoder.Context();
     Structured result = encoder.EncodeAst(schema, context, extrasSchema);
@@ -106,18 +100,14 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
   {
     Assert.SkipWhen(type is null, "type is null");
 
-    SchemaAst schema = new(AstNulls.At) {
-      Declarations = [type]
-    };
+    IGqlpSchema schema = type.Schema();
 
-    SchemaAst extrasSchema = new(AstNulls.At) {
-      Declarations = [.. extras.Where(e => e != type)]
-    };
+    IGqlpSchema extrasSchema = extras.Where(e => e != type).Schema();
 
     await RenderSchemaHtml(schema, type.Name, section, extrasSchema);
   }
 
-  private async Task RenderSchemaHtml(SchemaAst schema, string filename, string section = "", SchemaAst? extras = null)
+  private async Task RenderSchemaHtml(IGqlpSchema schema, string filename, string section = "", IGqlpSchema? extras = null)
   {
     Structured result = encoder.EncodeAst(schema, encoder.Context(), extras);
 

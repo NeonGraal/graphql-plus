@@ -53,7 +53,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 
     CheckTypeRef(context, field.Type, "Field of " + usage.Name);
     context.CheckModifiers(field);
-    CheckForSelf(new([field.Type.FullType], usage, "a field"), usage.Name, context);
+    CheckForSelf(new(field.Type.FullType, usage, "a field"), usage.Name, context);
   }
 
   private void UsageAlternate(IGqlpAlternate alternate, TObject usage, ObjectContext context)
@@ -65,7 +65,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 
     CheckTypeRef(context, alternate, "Alternate of " + usage.Name);
     context.CheckModifiers(alternate);
-    CheckForSelf(new([alternate.FullType], usage, "an alternate"), usage.Name, context);
+    CheckForSelf(new(alternate.FullType, usage, "an alternate"), usage.Name, context);
   }
 
   private static void CheckObjEnum(string label, IGqlpObjEnum objEnum, ObjectContext context)
@@ -300,8 +300,7 @@ internal record class ObjectVerifierParams<TObject, TObjField>(
   IVerifyAliased<TObject> Aliased,
   IMerge<TObjField> MergeFields,
   IMerge<IGqlpAlternate> MergeAlternates,
-  Matcher<IGqlpTypeArg>.D ConstraintMatcher,
-  ILoggerFactory Logger
+  Matcher<IGqlpTypeArg>.D ConstraintMatcher
 )
   where TObject : IGqlpObject
   where TObjField : IGqlpObjField

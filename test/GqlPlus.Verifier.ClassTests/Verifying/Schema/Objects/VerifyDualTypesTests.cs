@@ -8,5 +8,5 @@ public class VerifyDualTypesTests
 
   public VerifyDualTypesTests()
     : base(TypeKind.Dual)
-    => Verifier = new VerifyDualTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
+    => Verifier = new VerifyDualTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate));
 }

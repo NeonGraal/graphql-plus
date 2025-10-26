@@ -11,7 +11,7 @@ public class VerifyOutputTypesTests
 
   public VerifyOutputTypesTests()
     : base(TypeKind.Output)
-    => Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
+    => Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate));
 
   [Fact]
   public void Verify_Output_WithFieldParams_ReturnsNoErrors()

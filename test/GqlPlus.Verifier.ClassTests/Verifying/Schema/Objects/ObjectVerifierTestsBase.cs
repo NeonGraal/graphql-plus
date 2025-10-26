@@ -68,7 +68,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     Verify_Errors("cannot be a field of itself", name);
   }
 
-  [Theory, RepeatInlineData(ModifierKind.Opt), RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  [Theory, RepeatClassData<ModifersTestData>]
+
   public void Verify_WithSameFieldModifier_ReturnsErrors(ModifierKind kind, string name, string fieldName)
   {
     Define<IGqlpTypeSpecial>("String");
@@ -90,7 +91,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     Verify_Errors("cannot be a field of itself", name);
   }
 
-  [Theory, RepeatInlineData(ModifierKind.Opt), RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  [Theory, RepeatClassData<ModifersTestData>]
+
   public void Verify_WithSameFieldRecurseModifier_ReturnsErrors(ModifierKind kind, string name, string fieldName, string typeName)
   {
     this.SkipEqual(typeName, name);
@@ -118,7 +120,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     Verify_Errors("cannot be a field of itself", name);
   }
 
-  [Theory, RepeatInlineData(ModifierKind.Opt), RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  [Theory, RepeatClassData<ModifersTestData>]
+
   public void Verify_WithSameFieldParentModifier_ReturnsErrors(ModifierKind kind, string name, string fieldName, string typeName)
   {
     this.SkipEqual(typeName, name);
@@ -208,7 +211,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     Verify_NoErrors();
   }
 
-  [Theory, RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  [Theory, RepeatClassData<CollectionsTestData>]
   public void Verify_WithAlternateModifier_ReturnsNoErrors(ModifierKind kind)
   {
     Define<IGqlpTypeSpecial>("String");
@@ -226,7 +229,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     Verify_Errors("cannot be an alternate of itself", name);
   }
 
-  [Theory, RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  [Theory, RepeatClassData<CollectionsTestData>]
   public void Verify_WithSameAlternateModifier_ReturnsErrors(ModifierKind kind, string name)
   {
     Define<IGqlpTypeSpecial>("String");
@@ -258,7 +261,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     Verify_Errors("cannot be an alternate of itself", name);
   }
 
-  [Theory, RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  [Theory, RepeatClassData<CollectionsTestData>]
+
   public void Verify_WithSameAlternateRecurseModifier_ReturnsErrors(ModifierKind kind, string name, string altType)
   {
     Define<IGqlpTypeSpecial>("String");
@@ -280,7 +284,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     Verify_Errors("cannot be an alternate of itself", name);
   }
 
-  [Theory, RepeatInlineData(ModifierKind.Opt), RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  [Theory, RepeatClassData<ModifersTestData>]
   public void Verify_WithSameAlternateParentModifier_ReturnsErrors(ModifierKind kind, string name, string altType)
   {
     Define<IGqlpTypeSpecial>("String");
@@ -650,4 +654,23 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 
   protected void ObjectField(ObjectBuilder<TObject, TField> builder, string fieldName, string fieldType, Action<ObjFieldBuilder<TField>>? config = null)
     => builder.WithObjFields(A.ObjField<TField>(fieldName, fieldType).FluentAction(config).AsObjField);
+}
+
+public class ModifersTestData
+  : CollectionsTestData
+{
+  public ModifersTestData()
+  {
+    Add(ModifierKind.Opt);
+  }
+}
+
+public class CollectionsTestData
+  : TheoryData<ModifierKind>
+{
+  public CollectionsTestData()
+  {
+    Add(ModifierKind.List);
+    Add(ModifierKind.Dict);
+  }
 }

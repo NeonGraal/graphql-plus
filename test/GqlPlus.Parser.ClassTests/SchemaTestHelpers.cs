@@ -26,9 +26,6 @@ internal static class SchemaTestHelpers
   public static InputParamAst[] Params(this IEnumerable<string> parameters)
     => [.. parameters.Select(parameter => new InputParamAst(AstNulls.At, parameter))];
 
-  public static InputParamAst[] Params(this string[] parameters, Func<InputParamAst, InputParamAst> mapping)
-    => [.. parameters.Select(parameter => mapping(new InputParamAst(AstNulls.At, parameter)))];
-
   private static TResult[] WithExcludes<TInput, TResult>(this TInput[] inputs, Func<TInput, TResult> mapping)
     where TResult : AstDomainItem
   {
@@ -42,9 +39,6 @@ internal static class SchemaTestHelpers
 
   public static DomainLabelAst[] DomainLabels(this string[] labels)
     => [.. labels.WithExcludes(r => new DomainLabelAst(AstNulls.At, "", false, r))];
-
-  public static DomainRangeAst[] DomainRanges(this DomainRangeInput[] ranges)
-    => [.. ranges.WithExcludes(r => new DomainRangeAst(AstNulls.At, "", false, r.Lower, r.Upper))];
 
   public static DomainRegexAst[] DomainRegexes(this string[] regexes)
     => [.. regexes.WithExcludes(r => new DomainRegexAst(AstNulls.At, "", false, r))];

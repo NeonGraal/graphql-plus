@@ -18,7 +18,7 @@ public class ResultEmptyArrayTests : TestResultBase
   protected override string? ExpectedMessage => null;
 
   protected override bool ExpectedArrayRequiredThrows => true;
-  protected override IEnumerable<string>? ExpectedArrayOptionalValue => Array.Empty<string>();
+  protected override IEnumerable<string>? ExpectedArrayOptionalValue => [];
 
   protected override bool ExpectedActionCalled => true;
 

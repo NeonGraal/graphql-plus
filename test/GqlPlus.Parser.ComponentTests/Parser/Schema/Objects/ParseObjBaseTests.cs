@@ -19,13 +19,7 @@ public class ParseObjBaseTests(
   public void WithTypeParamBad_ReturnsFalse()
   => objectBaseChecks.WithTypeParamBad();
 
-  [Theory]
-  [RepeatInlineData(Repeats, "Boolean")]
-  [RepeatInlineData(Repeats, "Number")]
-  [RepeatInlineData(Repeats, "String")]
-  [RepeatInlineData(Repeats, "^")]
-  [RepeatInlineData(Repeats, "0")]
-  [RepeatInlineData(Repeats, "*")]
+  [Theory, RepeatClassData<ObjTypeTestData>]
   public void WithSimpleArgs_ReturnsCorrectAst(string argument, string name)
   => objectBaseChecks.WithTypeArgs(name, [argument]);
 

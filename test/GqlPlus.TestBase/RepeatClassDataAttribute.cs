@@ -7,14 +7,10 @@ using Xunit.Sdk;
 
 namespace GqlPlus;
 
-public sealed class RepeatClassDataAttribute
+public abstract class RepeatClassDataBase
   : ClassAutoDataAttribute
 {
-  public RepeatClassDataAttribute(Type sourceType, params object[] parameters)
-    : this(Repeats, sourceType, parameters)
-  { }
-
-  public RepeatClassDataAttribute(int repeat, Type sourceType, params object[] parameters)
+  protected RepeatClassDataBase(int repeat, Type sourceType, params object[] parameters)
     : base(TestsCustomizations.CreateFixture(), sourceType, parameters)
   {
     if (repeat < 1) {
@@ -53,4 +49,26 @@ public sealed class RepeatClassDataAttribute
 
     return new ValueTask<IReadOnlyCollection<ITheoryDataRow>>(data.AsReadOnly());
   }
+}
+
+public sealed class RepeatClassDataAttribute<T>
+  : RepeatClassDataBase
+{
+  public RepeatClassDataAttribute(params object[] parameters)
+    : base(Repeats, typeof(T), parameters)
+  { }
+  public RepeatClassDataAttribute(int repeat, params object[] parameters)
+    : base(repeat, typeof(T), parameters)
+  { }
+}
+
+public sealed class RepeatClassDataAttribute
+  : RepeatClassDataBase
+{
+  public RepeatClassDataAttribute(Type sourceType, params object[] parameters)
+    : base(Repeats, sourceType, parameters)
+  { }
+  public RepeatClassDataAttribute(int repeat, Type sourceType, params object[] parameters)
+    : base(repeat, sourceType, parameters)
+  { }
 }

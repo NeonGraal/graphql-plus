@@ -15,28 +15,6 @@ public static class TestHelpers
   public const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
   public const string PunctuationPattern = @"[!$-&(-*.:<-@[-^`{-~]";
 
-  public static IGqlpFieldKey FieldKey(this string value)
-    => new FieldKeyAst(AstNulls.At, "", value);
-
-  public static IGqlpConstant[] ConstantList(this string value)
-    => [
-      new ConstantAst(value.FieldKey()),
-      new ConstantAst(value.FieldKey())
-    ];
-
-  public static IGqlpFields<IGqlpConstant> ConstantObject(this string value, string key)
-  {
-    IGqlpFieldKey keyAst = key.FieldKey();
-    IGqlpFieldKey valueAst = value.FieldKey();
-
-    return key == value
-      ? new AstFields<IGqlpConstant>(keyAst, new ConstantAst(valueAst))
-      : new AstFields<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst), [valueAst] = new ConstantAst(keyAst) };
-  }
-
-  public static TokenMessage ParseMessage(this string message)
-    => new(AstNulls.At, message);
-
   public static string Quote(this string contents)
   {
     if (contents is null) {
@@ -73,12 +51,6 @@ public static class TestHelpers
     tokens.Read();
     return tokens;
   }
-
-  public static IGqlpModifier[] TestMods()
-    => [ModifierAst.List(AstNulls.At), ModifierAst.Optional(AstNulls.At)];
-
-  public static IGqlpModifier[] TestCollections()
-    => [ModifierAst.List(AstNulls.At), ModifierAst.Dict(AstNulls.At, "String", false)];
 
   public static TCheck SkipIf<TCheck>(this TCheck check, bool skipIf, [CallerArgumentExpression(nameof(skipIf))] string? skipExpression = null)
   {

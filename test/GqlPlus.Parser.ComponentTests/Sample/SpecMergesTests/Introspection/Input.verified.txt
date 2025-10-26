@@ -3,48 +3,35 @@
 Success
 {
   !Ou I@008/0001
-  _TypeInput
-  :
-  I@007/0002
-  _TypeObject
-  <
-    I@019/0002
-    _TypeKind.Input
-    I@035/0002
-    _InputField
-  >
-}
-{
-  !Ou I@008/0005
   _InputField
   :
-  I@007/0006
+  I@007/0002
   _ObjField
   <
-    I@017/0006
+    I@017/0002
     _InputFieldType
   >
 }
 {
-  !Ou I@008/0009
+  !Ou I@008/0005
   _InputFieldType
   :
-  I@007/0010
+  I@007/0006
   _ObjFieldType
   {
-    !OF I@009/0011
+    !OF I@009/0007
     default
     :
-    I@018/0011
+    I@018/0007
     Value
     ?
   }
 }
 {
-  !Ou I@008/0014
+  !Ou I@008/0010
   _InputParam
   :
-  I@007/0015
+  I@007/0011
   _InputFieldType
 }
 ]

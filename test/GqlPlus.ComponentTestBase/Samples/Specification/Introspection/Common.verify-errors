@@ -1,10 +1,26 @@
 ﻿'_Aliased' not defined
+'_Aliased' not match '_Described'
+'_BaseDomain' not defined
 '_Described' not defined
+'_DomainItemLabel' not defined
+'_DomainItemRange' not defined
+'_DomainItemRegex' not defined
+'_DomainItemTrueFalse' not defined
+'_DomainKind' not an Enum type
+'_DomainKind' not defined
+'_DomainLabel' not defined
+'_DomainRange' not defined
+'_DomainRegex' not defined
+'_DomainTrueFalse' not defined
+'_DualField' not defined
+'_EnumLabel' not defined
+'_EnumLabel' not match '_Described'
+'_InputField' not defined
 '_Named' not defined
 '_Named' not match '_Described'
-'_TypeDomain' not defined
-'_TypeDual' not defined
-'_TypeEnum' not defined
-'_TypeInput' not defined
-'_TypeOutput' not defined
-'_TypeUnion' not defined
+'_OutputField' not defined
+'_TypeObject' not defined
+'_UnionMember' not defined
+'_UnionMember' not match '_Described'
+'_UnionRef' not defined
+'_UnionRef' not match '_Described'

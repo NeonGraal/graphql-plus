@@ -1,1 +1,1 @@
-b078593  (HEAD -> improve-builders, origin/improve-builders) 2025-10-20 Correct verify-errors for Alternate renaming
+b6a813c  (HEAD -> simplify-object) 2025-10-27 Remove unecessary introspection objects

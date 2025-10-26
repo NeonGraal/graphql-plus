@@ -7,14 +7,6 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _TypeInput can\u0027t get model for type \u0027_TypeObject\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "End"
-      },
       "_message": "In _InputField can\u0027t get model for type \u0027_ObjField\u0027"
     },
     {
@@ -123,33 +115,6 @@
       "parent": {
         "$tag": "_ObjBase",
         "name": "_InputFieldType"
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_TypeInput": {
-      "$tag": "_TypeOutput",
-      "name": "_TypeInput",
-      "parent": {
-        "$tag": "_ObjBase",
-        "name": "_TypeObject",
-        "typeArgs": [
-          {
-            "$tag": "_EnumValue",
-            "label": "Input",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$tag": "_SimpleKind",
-              "value": "Enum"
-            }
-          },
-          {
-            "$tag": "_TypeArg",
-            "name": "_InputField"
-          }
-        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",

@@ -7,17 +7,19 @@ public class ParseSelectionTests(
   IOneChecksParser<IGqlpSelection> checks
 )
 {
-  [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
+  [Theory]
+  [RepeatInlineData("...")]
+  [RepeatInlineData("|")]
   public void WithInline_ReturnsCorrectAst(string prefix, string[] fields)
     => checks.TrueExpected(
       prefix + " {" + fields.Joined() + "}",
       new InlineAst(AstNulls.At, fields.Fields()));
 
   [Theory]
-  [RepeatInlineData(Repeats, "...", " on ")]
-  [RepeatInlineData(Repeats, "|", " on ")]
-  [RepeatInlineData(Repeats, "...", ":")]
-  [RepeatInlineData(Repeats, "|", ":")]
+  [RepeatInlineData("...", " on ")]
+  [RepeatInlineData("|", " on ")]
+  [RepeatInlineData("...", ":")]
+  [RepeatInlineData("|", ":")]
   public void WithInlineType_ReturnsCorrectAst(string inlinePrefix, string typePrefix, string[] fields, string inlineType)
     => checks.TrueExpected(
       inlinePrefix + typePrefix + inlineType + "{" + fields.Joined() + "}",
@@ -38,7 +40,9 @@ public class ParseSelectionTests(
         Directives = directives.Directives(),
       });
 
-  [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
+  [Theory]
+  [RepeatInlineData("...")]
+  [RepeatInlineData("|")]
   public void WithSpread_ReturnsCorrectAst(string prefix, string fragment)
     => checks
       .SkipWhitespace(fragment)

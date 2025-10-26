@@ -12,7 +12,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier GnrcEnumOutp: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: GnrcEnumOutp
       type: !_ObjBase
         name: RefGnrcEnumOutp
@@ -22,7 +22,7 @@ types: !_Map_Type
           name: EnumGnrcEnumOutp
           typeKind: !_SimpleKind Enum
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: RefGnrcEnumOutp
         typeArgs:

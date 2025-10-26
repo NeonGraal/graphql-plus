@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier _Collections: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Collections
       type: !_ObjBase
         name: _Modifier
@@ -11,7 +11,7 @@ types: !_Map_Type
           label: List
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Collections
       type: !_ObjBase
         name: _ModifierKeyed
@@ -20,7 +20,7 @@ types: !_Map_Type
           label: Dictionary
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Collections
       type: !_ObjBase
         name: _ModifierKeyed
@@ -30,7 +30,7 @@ types: !_Map_Type
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _Modifier
         typeArgs:
@@ -38,7 +38,7 @@ types: !_Map_Type
           label: List
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _ModifierKeyed
         typeArgs:
@@ -46,7 +46,7 @@ types: !_Map_Type
           label: Dictionary
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _ModifierKeyed
         typeArgs:
@@ -106,7 +106,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Modifier
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         typeParam: kind
     typeKind: !_TypeKind Dual
     typeParams:
@@ -148,7 +148,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier _Modifiers: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Modifiers
       type: !_ObjBase
         name: _Modifier
@@ -157,12 +157,12 @@ types: !_Map_Type
           label: Optional
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Modifiers
       type: !_ObjBase
         name: _Collections
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _Modifier
         typeArgs:
@@ -170,7 +170,7 @@ types: !_Map_Type
           label: Optional
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _Collections
     name: _Modifiers

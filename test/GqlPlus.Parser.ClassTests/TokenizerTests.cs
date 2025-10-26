@@ -66,9 +66,9 @@ public class TokenizerTests
   }
 
   [Theory]
-  [RepeatInlineData(Repeats, "# \n")]
-  [RepeatInlineData(Repeats, "# \r")]
-  [RepeatInlineData(Repeats, "# \r\n")]
+  [RepeatInlineData("# \n")]
+  [RepeatInlineData("# \r")]
+  [RepeatInlineData("# \r\n")]
   public void Identifier_AfterComment_ReturnsIdentifier(string comment, string expected)
   {
     ITokenizer tokens = PrepareTokens(comment + expected);
@@ -388,8 +388,8 @@ public class TokenizerTests
   }
 
   [Theory]
-  [RepeatInlineData(Repeats, " ")]
-  [RepeatInlineData(Repeats, "\t")]
+  [RepeatInlineData(" ")]
+  [RepeatInlineData("\t")]
   public void Error_AfterWhitespace_ReturnsAtIdentifier(string space, string value, string message)
   {
     ITokenizer tokens = PrepareTokens(space + value);
@@ -400,9 +400,9 @@ public class TokenizerTests
   }
 
   [Theory]
-  [RepeatInlineData(Repeats, "\r")]
-  [RepeatInlineData(Repeats, "\n")]
-  [RepeatInlineData(Repeats, "\r\n")]
+  [RepeatInlineData("\r")]
+  [RepeatInlineData("\n")]
+  [RepeatInlineData("\r\n")]
   public void Error_AfterLine_ReturnsAtIdentifier(string line, string value, string message)
   {
     ITokenizer tokens = PrepareTokens(line + value);
@@ -413,9 +413,9 @@ public class TokenizerTests
   }
 
   [Theory]
-  [RepeatInlineData(Repeats, "# \r")]
-  [RepeatInlineData(Repeats, "# \n")]
-  [RepeatInlineData(Repeats, "# \r\n")]
+  [RepeatInlineData("# \r")]
+  [RepeatInlineData("# \n")]
+  [RepeatInlineData("# \r\n")]
   public void Error_AfterComment_ReturnsAtIdentifier(string comment, string value, string message)
   {
     ITokenizer tokens = PrepareTokens(comment + value);

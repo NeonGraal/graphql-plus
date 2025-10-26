@@ -5,9 +5,9 @@ public class TypeDualResolverParentTests
 {
   protected override IResolver<TypeDualModel> Resolver { get; } = new TypeDualResolver();
 
-  protected override ObjBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)
+  protected override ObjBaseModel MakeBase(string name, string description = "", params TypeArgModel[] args)
     => new(name, description) { Args = args };
-  protected override ObjTypeArgModel NewArg(string argument, bool isParam = false)
+  protected override TypeArgModel NewArg(string argument, bool isParam = false)
     => new(TypeKindModel.Dual, argument, "") { IsTypeParam = isParam };
   protected override TypeDualModel NewModel(string name, string description)
     => new(name, description);

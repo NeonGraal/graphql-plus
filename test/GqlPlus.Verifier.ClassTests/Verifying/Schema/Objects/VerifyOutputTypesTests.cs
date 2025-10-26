@@ -1,38 +1,30 @@
-﻿namespace GqlPlus.Verifying.Schema.Objects;
+﻿using GqlPlus.Building;
+using GqlPlus.Building.Schema.Objects;
+
+namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyOutputTypesTests
   : ObjectDualVerifierTestsBase<IGqlpOutputObject, IGqlpOutputField>
 {
-  private readonly IGqlpOutputObject _output;
-
-  protected override IGqlpOutputObject TheObject => _output;
   protected override IVerifyUsage<IGqlpOutputObject> Verifier { get; }
 
   public VerifyOutputTypesTests()
     : base(TypeKind.Output)
-  {
-    Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
-
-    _output = A.Obj<IGqlpOutputObject>(TypeKind.Output, "Output");
-  }
+    => Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate));
 
   [Fact]
   public void Verify_Output_WithFieldParams_ReturnsNoErrors()
   {
     DefineObject("b");
-    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>(TypeKind.Input, "c");
+    IGqlpInputObject paramType = A.Obj<IGqlpInputObject, IGqlpInputField>(TypeKind.Input, "c").AsObject;
     Define(paramType);
 
-    IGqlpInputParam param = A.InputParam("c");
-    IGqlpOutputField field = ObjectField("a", "b", _output);
-    field.Params.Returns([param]);
+    IGqlpInputParam param = A.InputParam("c").AsInputParam;
+    IGqlpOutputField field = A.OutputField("a", "b").WithParams([param]).AsOutputField;
+    TheBuilder.WithObjFields(field);
 
-    Usages.Add(_output);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 
   [Fact]
@@ -40,21 +32,18 @@ public class VerifyOutputTypesTests
   {
     DefineObject("b");
 
-    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>(TypeKind.Input, "c");
+    IGqlpInputObject paramType = A.Obj<IGqlpInputObject, IGqlpInputField>(TypeKind.Input, "c").AsObject;
     Define(paramType);
     Define<IGqlpEnum, IGqlpSimple>("d");
 
-    IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, "d");
-    IGqlpInputParam param = A.InputParam("c");
-    param.Modifiers.Returns([modifier]);
+    IGqlpInputParam param = A.InputParam("c").WithModifier(ModifierKind.Dict, "d").AsInputParam;
 
-    IGqlpOutputField field = A.OutputField("a", "b");
-    field.Params.Returns([param]);
+    IGqlpOutputField field = A.OutputField("a", "b").WithParams(param).AsOutputField;
 
-    _output.Fields.Returns([field]);
-    _output.ObjFields.Returns([field]);
+    TheObject.Fields.Returns([field]);
+    TheObject.ObjFields.Returns([field]);
 
-    Usages.Add(_output);
+    Usages.Add(TheObject);
 
     Verifier.Verify(UsageAliased, Errors);
 

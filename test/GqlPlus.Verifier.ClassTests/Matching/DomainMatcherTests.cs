@@ -17,7 +17,7 @@ public class DomainMatcherTests
   public void Matches_ReturnsFalse_WhenMatchingUnknownKind()
   {
     // Arrange
-    IGqlpDomain type = A.Domain<IGqlpDomainItem>("Unknown", (DomainKind)99);
+    IGqlpDomain type = A.Domain<IGqlpDomainItem>("Unknown", (DomainKind)99).AsDomain;
 
     // Act
     bool result = _sut.Matches(type, "Unknown", Context);
@@ -32,7 +32,7 @@ public class DomainMatcherTests
     this.SkipEqual(kind, DomainKind.Enum, "Enum kind requires specific label matching logic.");
 
     // Arrange
-    IGqlpDomain type = A.Domain<IGqlpDomainLabel>(name, kind);
+    IGqlpDomain type = A.Domain<IGqlpDomainLabel>(name, kind).AsDomain;
 
     // Act
     bool result = _sut.Matches(type, $"{kind}", Context);
@@ -42,10 +42,10 @@ public class DomainMatcherTests
   }
 
   [Theory, RepeatData]
-  public void Matches_ReturnsTrue_WhenMatchingEnumDomain(string domain, string constraint)
+  public void Matches_ReturnsTrue_WhenMatchingEnumByName(string domain, string constraint)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, null, constraint, "");
+    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, constraint, "");
 
     // Act
     bool result = _sut.Matches(type, constraint, Context);
@@ -55,12 +55,12 @@ public class DomainMatcherTests
   }
 
   [Theory, RepeatData]
-  public void Matches_ReturnsTrue_WhenMatchingEnumParent(string domain, string constraint, string enumName)
+  public void Matches_ReturnsTrue_WhenMatchingEnumByMatcher(string domain, string constraint, string enumName)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, null, enumName, "");
+    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, enumName, "");
 
-    IGqlpEnum enumType = A.Enum(enumName, []);
+    IGqlpEnum enumType = A.Enum(enumName).AsEnum;
     Types[enumName] = enumType;
 
     _enumMatcher.Matches(enumType, constraint, Context).Returns(true);
@@ -76,7 +76,7 @@ public class DomainMatcherTests
   public void Matches_ReturnsTrue_WhenMatchingLabelDomain(string domain, string constraint, string enumLabel)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, null, "", enumLabel);
+    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, "", enumLabel);
 
     IGqlpEnum enumType = A.Enum(constraint, [enumLabel]);
     EnumValues[enumLabel] = constraint;

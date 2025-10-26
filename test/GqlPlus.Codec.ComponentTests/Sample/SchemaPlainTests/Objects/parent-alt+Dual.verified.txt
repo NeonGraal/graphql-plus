@@ -2,11 +2,11 @@
 types: !_Map_Type
   !_Identifier PrntAltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntAltDual
         type: !_ObjBase
           name: String
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntAltDual
         type: !_ObjBase
           name: Number
@@ -17,7 +17,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Number
     name: PrntAltDual
@@ -26,7 +26,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier RefPrntAltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntAltDual
         type: !_ObjBase
           name: String
@@ -37,7 +37,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:

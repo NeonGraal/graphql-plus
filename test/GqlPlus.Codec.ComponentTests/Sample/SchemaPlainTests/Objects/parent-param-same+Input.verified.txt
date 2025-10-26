@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier PrntParamSameInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamSameInp
         type: !_ObjBase
           typeParam: a
@@ -21,7 +21,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntParamSameInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: a
     typeKind: !_TypeKind Input
     typeParams:
@@ -32,12 +32,12 @@ types: !_Map_Type
         name: a
   !_Identifier RefPrntParamSameInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamSameInp
         type: !_ObjBase
           typeParam: a
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: a
     name: RefPrntParamSameInp

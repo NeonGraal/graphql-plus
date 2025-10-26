@@ -2,19 +2,19 @@
 types: !_Map_Type
   !_Identifier ObjAltEnumInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltEnumInp
         type: !_ObjBase
           name: Boolean
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltEnumInp
         type: !_ObjBase
           name: Boolean
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Boolean
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Boolean
     name: ObjAltEnumInp

@@ -127,13 +127,13 @@ public class ParseEnumValueTests
   [Fact]
   public void Parse_ShouldHandleBuiltInValues_Correctly()
   {
-    (string, string)[] builtInValues = new[]
-    {
+    (string, string)[] builtInValues =
+    [
       ("true", "Boolean"),
       ("false", "Boolean"),
       ("null", "Null"),
       ("_", "Unit")
-    };
+    ];
 
     foreach ((string label, string expectedType) in builtInValues) {
       // Arrange

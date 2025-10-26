@@ -15,7 +15,7 @@ errors:
 types: !_Map_Type
   !_Identifier _AndType: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _AndType
       type: !_ObjBase
         name: _Type
@@ -26,7 +26,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Type
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _Type
     fields:
@@ -40,11 +40,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _Categories: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _AndType
       type: !_ObjBase
         name: _Type
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Categories
       type: !_ObjBase
         name: _Category
@@ -60,7 +60,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Category
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _Category
     fields:
@@ -158,11 +158,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _Directives: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _AndType
       type: !_ObjBase
         name: _Type
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Directives
       type: !_ObjBase
         name: _Directive
@@ -178,7 +178,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Directive
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _Directive
     fields:

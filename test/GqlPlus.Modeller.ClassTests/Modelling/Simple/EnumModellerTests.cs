@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Modelling.Simple;
 
 public class EnumModellerTests
   : TypeModellerTests<IGqlpEnum, TypeEnumModel>
@@ -18,7 +20,7 @@ public class EnumModellerTests
   {
     // Arrange
     IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, aliases, contents);
-    IGqlpEnum ast = A.Enum(name, [], null, "", label);
+    IGqlpEnum ast = A.Enum(name).WithLabels(label).AsEnum;
 
     // Act
     TypeEnumModel result = Modeller.ToModel(ast, TypeKinds);

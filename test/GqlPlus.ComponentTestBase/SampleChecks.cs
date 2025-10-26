@@ -112,15 +112,13 @@ public class SampleChecks
     return expected;
   }
 
-  protected VerifySettings CustomSettings(string category, string group, string file, string section = "")
+  protected VerifySettings CustomSettings(string category, string group, string file, string section = "", bool scrubEmptyLines = true)
   {
     VerifySettings settings = new();
-    settings.ScrubEmptyLines();
     settings.UseFileName(file);
-    if (string.IsNullOrWhiteSpace(section)) {
-      settings.UseDirectory($"{category}{group}Tests");
-    } else {
-      settings.UseDirectory($"{category}{group}Tests/{section}");
+    settings.UseDirectory(new string[] { $"{category}{group}Tests", section }.Joined("/"));
+    if (scrubEmptyLines) {
+      settings.ScrubEmptyLines();
     }
 
     return settings.CheckAutoVerify();

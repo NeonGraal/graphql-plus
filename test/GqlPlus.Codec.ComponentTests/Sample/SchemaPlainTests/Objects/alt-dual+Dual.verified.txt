@@ -2,19 +2,19 @@
 types: !_Map_Type
   !_Identifier AltDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltDualDual
         type: !_ObjBase
           name: ObjDualAltDualDual
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: ObjDualAltDualDual
     name: AltDualDual
     typeKind: !_TypeKind Dual
   !_Identifier ObjDualAltDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjDualAltDualDual
         type: !_ObjBase
           name: String
@@ -25,7 +25,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:

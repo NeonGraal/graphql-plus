@@ -34,11 +34,7 @@ public class ParseFragmentsTests(
   public void Start_WithNoFields_ReturnsFalse(string fragment, string onType)
     => startChecks.FalseExpected('&' + fragment + ':' + onType + "{}");
 
-  [Theory]
-  [RepeatInlineData(Repeats, "fragment ", " on ")]
-  [RepeatInlineData(Repeats, "&", " on ")]
-  [RepeatInlineData(Repeats, "fragment ", ":")]
-  [RepeatInlineData(Repeats, "&", ":")]
+  [Theory, RepeatClassData<FragmentEndTestData>()]
   public void End_WithMinimum_ReturnsCorrectAst(string fragmentPrefix, string typePrefix, string fragment, string onType, string[] fields)
     => endChecks.TrueExpected(
       fragmentPrefix + fragment + typePrefix + onType + "{" + fields.Joined() + "}",
@@ -54,13 +50,21 @@ public class ParseFragmentsTests(
   public void Start_WithDirectiveBad_ReturnsFalse(string fragment, string onType, string[] fields)
     => startChecks.FalseExpected("&" + fragment + ":" + onType + "@{" + fields.Joined() + "}");
 
-  [Theory]
-  [RepeatInlineData(Repeats, "fragment ", " on ")]
-  [RepeatInlineData(Repeats, "&", " on ")]
-  [RepeatInlineData(Repeats, "fragment ", ":")]
-  [RepeatInlineData(Repeats, "&", ":")]
+  [Theory, RepeatClassData<FragmentEndTestData>()]
   public void End_WithDirective_ReturnsCorrectAst(string fragmentPrefix, string typePrefix, string fragment, string onType, string[] fields, string[] directives)
     => endChecks.TrueExpected(
       fragmentPrefix + fragment + typePrefix + onType + directives.Joined(s => "@" + s) + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()) { Directives = directives.Directives() });
+}
+
+public class FragmentEndTestData
+  : TheoryData<string, string>
+{
+  public FragmentEndTestData()
+  {
+    Add("fragment ", " on ");
+    Add("&", " on ");
+    Add("fragment ", ":");
+    Add("&", ":");
+  }
 }

@@ -17,7 +17,7 @@ public class ResultOkArrayTests : TestResultBase
   protected override string? ExpectedOptionalValue => Ok;
   protected override string? ExpectedMessage => null;
 
-  protected override IEnumerable<string>? ExpectedArrayOptionalValue => new[] { Ok };
+  protected override IEnumerable<string>? ExpectedArrayOptionalValue => [Ok];
 
   protected override bool ExpectedWithValueCalled => true;
   protected override bool ExpectedActionCalled => true;

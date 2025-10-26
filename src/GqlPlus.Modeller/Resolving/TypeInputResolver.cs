@@ -67,14 +67,14 @@ internal class TypeInputResolver
       return field;
     };
 
-  private Func<ObjAlternateModel, ObjAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
+  private Func<AlternateModel, AlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
       if (alternate.Type is ObjBaseModel inputType && GetInputArgument(label, inputType, arguments, out ObjBaseModel? argModel)) {
-        alternate = new ObjAlternateModel(argModel) { Collections = alternate.Collections };
+        alternate = new AlternateModel(argModel) { Collections = alternate.Collections };
       }
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
-        collections => alternate = new ObjAlternateModel(alternate.Type) { Collections = collections });
+        collections => alternate = new AlternateModel(alternate.Type) { Collections = collections });
 
       return alternate;
     };
@@ -83,7 +83,7 @@ internal class TypeInputResolver
   {
     outBase = null;
     if (inputBase?.IsTypeParam == true) {
-      if (arguments.TryGetArg(label, inputBase.Name, out ObjTypeArgModel? inputArg)) {
+      if (arguments.TryGetArg(label, inputBase.Name, out TypeArgModel? inputArg)) {
         if (!arguments.TryGetType(label, inputArg.Name, out outBase, false)) {
           outBase = new(inputArg.Name, inputArg.Description) { IsTypeParam = inputArg.IsTypeParam };
         }

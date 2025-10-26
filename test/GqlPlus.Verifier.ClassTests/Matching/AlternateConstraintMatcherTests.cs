@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Building.Schema.Objects;
+
+namespace GqlPlus.Matching;
 
 public class AlternateConstraintMatcherTests
   : MatchAnyTypesTestsBase
@@ -11,12 +13,12 @@ public class AlternateConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingAlternateMember(string name, string constraint)
   {
-    IGqlpObject objectType = A.Named<IGqlpObject>(constraint);
-    IGqlpObjAlt alternate = A.Named<IGqlpObjAlt>(name);
-    objectType.Alternates.Returns([alternate]);
+    IGqlpObject objectType = A.DualObj(constraint)
+      .WithAlternate(name)
+      .AsObject;
     Types[constraint] = objectType;
 
-    IGqlpType type = A.Named<IGqlpType>(name);
+    IGqlpType type = A.DualObj(name).AsObject;
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -28,15 +30,17 @@ public class AlternateConstraintMatcherTests
   {
     this.SkipEqual3(name, constraint, parent);
 
-    IGqlpObject constraintType = A.Obj<IGqlpObject>(TypeKind.Dual, constraint);
-    IGqlpObjAlt alternate = A.Named<IGqlpObjAlt>(name);
-    constraintType.Alternates.Returns([alternate]);
+    IGqlpObject constraintType = A.DualObj(constraint)
+      .WithAlternate(name)
+      .AsObject;
     Types[constraint] = constraintType;
 
-    IGqlpObject namedType = A.Obj<IGqlpObject>(TypeKind.Dual, name, parent);
+    IGqlpObject namedType = A.DualObj(name)
+      .WithParent(parent)
+      .AsObject;
     Types[name] = namedType;
 
-    IGqlpType type = A.Named<IGqlpType>(parent);
+    IGqlpType type = A.DualObj(parent).AsObject;
     Types[parent] = type;
     AnyTypeMatches(expected);
 

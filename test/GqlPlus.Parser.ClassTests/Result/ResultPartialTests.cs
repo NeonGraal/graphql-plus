@@ -27,7 +27,7 @@ public class ResultPartialTests : TestResultBase
   protected override Type ExpectedArrayAsPartialArrayType => typeof(ResultArrayPartial<string>);
 
   protected override bool ExpectedArrayRequiredThrows => true;
-  protected override IEnumerable<string>? ExpectedArrayOptionalValue => new[] { Partial };
+  protected override IEnumerable<string>? ExpectedArrayOptionalValue => [Partial];
 
   protected override bool ExpectedWithValueCalled => true;
   protected override bool ExpectedActionCalled => true;

@@ -74,7 +74,7 @@ public class Tokenizer
     }
   }
 
-  internal Tokenizer(string operation)
+  public Tokenizer(string operation)
   {
     _operation = operation.AsMemory();
     _len = _operation.Length;

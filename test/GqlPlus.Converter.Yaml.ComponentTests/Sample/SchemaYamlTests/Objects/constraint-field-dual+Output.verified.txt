@@ -31,17 +31,17 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldDualOutp
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: AltCnstFieldDualOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstFieldDualOutp: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: PrntCnstFieldDualOutp
       type: !_ObjBase
         name: String
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: String
     name: PrntCnstFieldDualOutp

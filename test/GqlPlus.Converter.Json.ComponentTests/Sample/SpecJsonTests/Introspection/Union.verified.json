@@ -37,11 +37,11 @@
             }
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_UnionRef"
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_UnionMember"
           }
         ]
@@ -92,7 +92,7 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_SimpleKind"
           }
         ]

@@ -15,7 +15,7 @@ errors:
 types: !_Map_Type
   !_Identifier _OpArgList: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -23,7 +23,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _OpArgValue
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -33,7 +33,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgMap: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierDictionary
         by: Scalar
@@ -54,7 +54,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Identifier
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierDictionary
         by: Scalar
@@ -75,7 +75,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgValue: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpArgValue
       type: !_ObjBase
         name: Value
@@ -86,7 +86,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Identifier
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: Value
     fields:
@@ -98,26 +98,26 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgument: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpArgument
       type: !_ObjBase
         name: _OpArgValue
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpArgument
       type: !_ObjBase
         name: _OpArgList
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpArgument
       type: !_ObjBase
         name: _OpArgMap
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpArgValue
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpArgList
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpArgMap
     name: _OpArgument
@@ -254,38 +254,38 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _OpObject: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpObject
       type: !_ObjBase
         name: _OpField
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpObject
       type: !_ObjBase
         name: _OpSpread
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpObject
       type: !_ObjBase
         name: _OpInline
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpField
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpSpread
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _OpInline
     name: _OpObject
     typeKind: !_TypeKind Output
   !_Identifier _OpResult: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _OpResult
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _SimpleKind
     allFields:
     - !_ObjectFor(_OutputField)
@@ -301,11 +301,11 @@ types: !_Map_Type
       type: !_ObjBase
         name: _OpArgument
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: _SimpleKind
     fields:
     - !_OutputField
@@ -454,11 +454,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _Operations: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Operations
       type: !_ObjBase
         name: _Operation
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: _Operations
       type: !_ObjBase
         name: _Type
@@ -474,10 +474,10 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Type
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _Operation
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: _Type
     fields:

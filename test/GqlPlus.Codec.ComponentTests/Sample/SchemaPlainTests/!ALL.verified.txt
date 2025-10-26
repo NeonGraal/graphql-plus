@@ -213,7 +213,7 @@ settings: !_Map_Setting
 types: !_Map_Type
   !_Identifier AltAltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltAltDual
         type: !_ObjBase
           name: String
@@ -224,7 +224,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -236,7 +236,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltAltInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltAltInp
         type: !_ObjBase
           name: String
@@ -247,7 +247,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -259,7 +259,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltAltModBoolDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltAltModBoolDual
         type: !_ObjBase
           name: String
@@ -270,7 +270,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -282,7 +282,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltAltModBoolInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltAltModBoolInp
         type: !_ObjBase
           name: String
@@ -293,7 +293,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -305,7 +305,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltAltModBoolOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltAltModBoolOutp
         type: !_ObjBase
           name: String
@@ -316,7 +316,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -328,7 +328,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltAltModParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltAltModParamDual
         type: !_ObjBase
           name: String
@@ -339,7 +339,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -351,7 +351,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltAltModParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltAltModParamInp
         type: !_ObjBase
           name: String
@@ -362,7 +362,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -374,7 +374,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltAltModParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltAltModParamOutp
         type: !_ObjBase
           name: String
@@ -385,7 +385,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -397,7 +397,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltAltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltAltOutp
         type: !_ObjBase
           name: String
@@ -408,7 +408,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -420,7 +420,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltCnstAltDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstAltDualDual
         type: !_ObjBase
           name: String
@@ -473,7 +473,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltCnstAltObjDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstAltObjDual
         type: !_ObjBase
           name: String
@@ -494,7 +494,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltCnstAltObjInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstAltObjInp
         type: !_ObjBase
           name: String
@@ -515,7 +515,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltCnstAltObjOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstAltObjOutp
         type: !_ObjBase
           name: String
@@ -536,7 +536,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltCnstFieldDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstFieldDualDual
         type: !_ObjBase
           name: String
@@ -589,7 +589,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltCnstFieldObjDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstFieldObjDual
         type: !_ObjBase
           name: String
@@ -610,7 +610,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltCnstFieldObjInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstFieldObjInp
         type: !_ObjBase
           name: String
@@ -631,7 +631,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltCnstFieldObjOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstFieldObjOutp
         type: !_ObjBase
           name: String
@@ -652,7 +652,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltCnstPrntDualGrndDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GrndCnstPrntDualGrndDual
         type: !_ObjBase
           name: String
@@ -705,7 +705,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltCnstPrntDualPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntDualPrntDual
         type: !_ObjBase
           name: String
@@ -758,7 +758,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltCnstPrntObjPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntObjPrntDual
         type: !_ObjBase
           name: String
@@ -779,7 +779,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltCnstPrntObjPrntInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntObjPrntInp
         type: !_ObjBase
           name: String
@@ -800,7 +800,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltCnstPrntObjPrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntObjPrntOutp
         type: !_ObjBase
           name: String
@@ -821,13 +821,13 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltDescrDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltDescrDual
         type: !_ObjBase
           description: 'Test Descr'
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           description: 'Test Descr'
           name: String
@@ -835,13 +835,13 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltDescrInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltDescrInp
         type: !_ObjBase
           description: 'Test Descr'
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           description: 'Test Descr'
           name: String
@@ -849,13 +849,13 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltDescrOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltDescrOutp
         type: !_ObjBase
           description: 'Test Descr'
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           description: 'Test Descr'
           name: String
@@ -863,91 +863,91 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltDual
         type: !_ObjBase
           name: AltAltDual
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: AltAltDual
     name: AltDual
     typeKind: !_TypeKind Dual
   !_Identifier AltDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltDualDual
         type: !_ObjBase
           name: ObjDualAltDualDual
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: ObjDualAltDualDual
     name: AltDualDual
     typeKind: !_TypeKind Dual
   !_Identifier AltDualInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltDualInp
         type: !_ObjBase
           name: ObjDualAltDualInp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: ObjDualAltDualInp
     name: AltDualInp
     typeKind: !_TypeKind Input
   !_Identifier AltDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltDualOutp
         type: !_ObjBase
           name: ObjDualAltDualOutp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: ObjDualAltDualOutp
     name: AltDualOutp
     typeKind: !_TypeKind Output
   !_Identifier AltEnumDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltEnumDual
         type: !_ObjBase
           name: EnumAltEnumDual
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: EnumAltEnumDual
     name: AltEnumDual
     typeKind: !_TypeKind Dual
   !_Identifier AltEnumInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltEnumInp
         type: !_ObjBase
           name: EnumAltEnumInp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: EnumAltEnumInp
     name: AltEnumInp
     typeKind: !_TypeKind Input
   !_Identifier AltEnumOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltEnumOutp
         type: !_ObjBase
           name: EnumAltEnumOutp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: EnumAltEnumOutp
     name: AltEnumOutp
     typeKind: !_TypeKind Output
   !_Identifier AltGnrcAltDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcAltDualDual
         type: !_ObjBase
           name: String
@@ -958,7 +958,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -970,7 +970,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcAltDualInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcAltDualInp
         type: !_ObjBase
           name: String
@@ -981,7 +981,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -993,7 +993,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcAltDualOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcAltDualOutp
         type: !_ObjBase
           name: String
@@ -1004,7 +1004,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1016,7 +1016,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcAltParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcAltParamDual
         type: !_ObjBase
           name: String
@@ -1027,7 +1027,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1039,7 +1039,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcAltParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcAltParamInp
         type: !_ObjBase
           name: String
@@ -1050,7 +1050,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1062,7 +1062,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltGnrcAltParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcAltParamOutp
         type: !_ObjBase
           name: String
@@ -1073,7 +1073,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1085,7 +1085,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltGnrcFieldDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcFieldDualDual
         type: !_ObjBase
           name: String
@@ -1096,7 +1096,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1108,7 +1108,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcFieldDualInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcFieldDualInp
         type: !_ObjBase
           name: String
@@ -1119,7 +1119,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1131,7 +1131,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcFieldDualOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcFieldDualOutp
         type: !_ObjBase
           name: String
@@ -1142,7 +1142,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1154,7 +1154,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcFieldParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcFieldParamDual
         type: !_ObjBase
           name: String
@@ -1165,7 +1165,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1177,7 +1177,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcFieldParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcFieldParamInp
         type: !_ObjBase
           name: String
@@ -1188,7 +1188,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1200,7 +1200,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltGnrcFieldParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcFieldParamOutp
         type: !_ObjBase
           name: String
@@ -1211,7 +1211,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1223,7 +1223,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltGnrcPrntDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntDualDual
         type: !_ObjBase
           name: String
@@ -1234,7 +1234,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1246,7 +1246,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcPrntDualInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntDualInp
         type: !_ObjBase
           name: String
@@ -1257,7 +1257,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1269,7 +1269,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcPrntDualOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntDualOutp
         type: !_ObjBase
           name: String
@@ -1280,7 +1280,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1292,7 +1292,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcPrntDualPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntDualPrntDual
         type: !_ObjBase
           name: String
@@ -1303,7 +1303,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1315,7 +1315,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcPrntDualPrntInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntDualPrntInp
         type: !_ObjBase
           name: String
@@ -1326,7 +1326,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1338,7 +1338,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcPrntDualPrntOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntDualPrntOutp
         type: !_ObjBase
           name: String
@@ -1349,7 +1349,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1361,7 +1361,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcPrntParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamDual
         type: !_ObjBase
           name: String
@@ -1372,7 +1372,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1384,7 +1384,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcPrntParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamInp
         type: !_ObjBase
           name: String
@@ -1395,7 +1395,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1407,7 +1407,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltGnrcPrntParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamOutp
         type: !_ObjBase
           name: String
@@ -1418,7 +1418,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1430,7 +1430,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltGnrcPrntParamPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamPrntDual
         type: !_ObjBase
           name: String
@@ -1441,7 +1441,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1453,7 +1453,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltGnrcPrntParamPrntInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamPrntInp
         type: !_ObjBase
           name: String
@@ -1464,7 +1464,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1476,7 +1476,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltGnrcPrntParamPrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamPrntOutp
         type: !_ObjBase
           name: String
@@ -1487,7 +1487,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -1499,19 +1499,19 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltInp
         type: !_ObjBase
           name: AltAltInp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: AltAltInp
     name: AltInp
     typeKind: !_TypeKind Input
   !_Identifier AltModBoolDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierDictionary
             by: ^
@@ -1521,7 +1521,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: AltAltModBoolDual
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierDictionary
             by: ^
@@ -1533,7 +1533,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier AltModBoolInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierDictionary
             by: ^
@@ -1543,7 +1543,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: AltAltModBoolInp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierDictionary
             by: ^
@@ -1555,7 +1555,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier AltModBoolOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierDictionary
             by: ^
@@ -1565,7 +1565,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: AltAltModBoolOutp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierDictionary
             by: ^
@@ -1577,7 +1577,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltModParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -1586,7 +1586,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: AltAltModParamDual
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -1603,7 +1603,7 @@ types: !_Map_Type
         name: mod
   !_Identifier AltModParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -1612,7 +1612,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: AltAltModParamInp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -1629,7 +1629,7 @@ types: !_Map_Type
         name: mod
   !_Identifier AltModParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -1638,7 +1638,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: AltAltModParamOutp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -1655,48 +1655,48 @@ types: !_Map_Type
         name: mod
   !_Identifier AltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltOutp
         type: !_ObjBase
           name: AltAltOutp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: AltAltOutp
     name: AltOutp
     typeKind: !_TypeKind Output
   !_Identifier AltSmplDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltSmplDual
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: AltSmplDual
     typeKind: !_TypeKind Dual
   !_Identifier AltSmplInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltSmplInp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: AltSmplInp
     typeKind: !_TypeKind Input
   !_Identifier AltSmplOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltSmplOutp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: AltSmplOutp
@@ -1706,66 +1706,66 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier CnstAltDmnDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltDmnDual
         type: !_ObjBase
           name: RefCnstAltDmnDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: DomCnstAltDmnDual
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstAltDmnDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: DomCnstAltDmnDual
     name: CnstAltDmnDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstAltDmnInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltDmnInp
         type: !_ObjBase
           name: RefCnstAltDmnInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: DomCnstAltDmnInp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstAltDmnInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: DomCnstAltDmnInp
     name: CnstAltDmnInp
     typeKind: !_TypeKind Input
   !_Identifier CnstAltDmnOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltDmnOutp
         type: !_ObjBase
           name: RefCnstAltDmnOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: DomCnstAltDmnOutp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstAltDmnOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: DomCnstAltDmnOutp
     name: CnstAltDmnOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstAltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltDual
         type: !_ObjBase
           typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: type
     name: CnstAltDual
@@ -1778,66 +1778,66 @@ types: !_Map_Type
         name: type
   !_Identifier CnstAltDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltDualDual
         type: !_ObjBase
           name: RefCnstAltDualDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltDualDual
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstAltDualDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltDualDual
     name: CnstAltDualDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstAltDualInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltDualInp
         type: !_ObjBase
           name: RefCnstAltDualInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltDualInp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstAltDualInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltDualInp
     name: CnstAltDualInp
     typeKind: !_TypeKind Input
   !_Identifier CnstAltDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltDualOutp
         type: !_ObjBase
           name: RefCnstAltDualOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltDualOutp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstAltDualOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltDualOutp
     name: CnstAltDualOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstAltInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltInp
         type: !_ObjBase
           typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: type
     name: CnstAltInp
@@ -1850,66 +1850,66 @@ types: !_Map_Type
         name: type
   !_Identifier CnstAltObjDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltObjDual
         type: !_ObjBase
           name: RefCnstAltObjDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltObjDual
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstAltObjDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltObjDual
     name: CnstAltObjDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstAltObjInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltObjInp
         type: !_ObjBase
           name: RefCnstAltObjInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltObjInp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstAltObjInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltObjInp
     name: CnstAltObjInp
     typeKind: !_TypeKind Input
   !_Identifier CnstAltObjOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltObjOutp
         type: !_ObjBase
           name: RefCnstAltObjOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltObjOutp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstAltObjOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltCnstAltObjOutp
     name: CnstAltObjOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstAltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstAltOutp
         type: !_ObjBase
           typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: type
     name: CnstAltOutp
@@ -1922,7 +1922,7 @@ types: !_Map_Type
         name: type
   !_Identifier CnstDomEnumDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstDomEnumDual
         type: !_ObjBase
           name: RefCnstDomEnumDual
@@ -1932,7 +1932,7 @@ types: !_Map_Type
               name: EnumCnstDomEnumDual
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstDomEnumDual
           typeArgs:
@@ -1944,7 +1944,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier CnstDomEnumInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstDomEnumInp
         type: !_ObjBase
           name: RefCnstDomEnumInp
@@ -1954,7 +1954,7 @@ types: !_Map_Type
               name: EnumCnstDomEnumInp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstDomEnumInp
           typeArgs:
@@ -1966,7 +1966,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier CnstDomEnumOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstDomEnumOutp
         type: !_ObjBase
           name: RefCnstDomEnumOutp
@@ -1976,7 +1976,7 @@ types: !_Map_Type
               name: EnumCnstDomEnumOutp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstDomEnumOutp
           typeArgs:
@@ -1988,7 +1988,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier CnstEnumDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstEnumDual
         type: !_ObjBase
           name: RefCnstEnumDual
@@ -1998,7 +1998,7 @@ types: !_Map_Type
               name: EnumCnstEnumDual
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstEnumDual
           typeArgs:
@@ -2010,7 +2010,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier CnstEnumInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstEnumInp
         type: !_ObjBase
           name: RefCnstEnumInp
@@ -2020,7 +2020,7 @@ types: !_Map_Type
               name: EnumCnstEnumInp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstEnumInp
           typeArgs:
@@ -2032,7 +2032,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier CnstEnumOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstEnumOutp
         type: !_ObjBase
           name: RefCnstEnumOutp
@@ -2042,7 +2042,7 @@ types: !_Map_Type
               name: EnumCnstEnumOutp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstEnumOutp
           typeArgs:
@@ -2054,7 +2054,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier CnstEnumPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstEnumPrntDual
         type: !_ObjBase
           name: RefCnstEnumPrntDual
@@ -2064,7 +2064,7 @@ types: !_Map_Type
               name: EnumCnstEnumPrntDual
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstEnumPrntDual
           typeArgs:
@@ -2076,7 +2076,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier CnstEnumPrntInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstEnumPrntInp
         type: !_ObjBase
           name: RefCnstEnumPrntInp
@@ -2086,7 +2086,7 @@ types: !_Map_Type
               name: EnumCnstEnumPrntInp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstEnumPrntInp
           typeArgs:
@@ -2098,7 +2098,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier CnstEnumPrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstEnumPrntOutp
         type: !_ObjBase
           name: RefCnstEnumPrntOutp
@@ -2108,7 +2108,7 @@ types: !_Map_Type
               name: EnumCnstEnumPrntOutp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstEnumPrntOutp
           typeArgs:
@@ -2129,7 +2129,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldDmnDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomCnstFieldDmnDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstFieldDmnInp: !_TypeInput
@@ -2143,7 +2143,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldDmnInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomCnstFieldDmnInp
     typeKind: !_TypeKind Input
   !_Identifier CnstFieldDmnOutp: !_TypeOutput
@@ -2157,7 +2157,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldDmnOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomCnstFieldDmnOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstFieldDualDual: !_TypeDual
@@ -2171,7 +2171,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldDualDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstFieldDualDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstFieldDualInp: !_TypeInput
@@ -2185,7 +2185,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldDualInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstFieldDualInp
     typeKind: !_TypeKind Input
   !_Identifier CnstFieldDualOutp: !_TypeOutput
@@ -2199,7 +2199,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldDualOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstFieldDualOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstFieldObjDual: !_TypeDual
@@ -2213,7 +2213,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldObjDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstFieldObjDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstFieldObjInp: !_TypeInput
@@ -2227,7 +2227,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldObjInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstFieldObjInp
     typeKind: !_TypeKind Input
   !_Identifier CnstFieldObjOutp: !_TypeOutput
@@ -2241,12 +2241,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldObjOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstFieldObjOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstPrntDualGrndDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GrndCnstPrntDualGrndDual
         type: !_ObjBase
           name: String
@@ -2260,7 +2260,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntDualGrndDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstPrntDualGrndDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstPrntDualGrndInp: !_TypeInput
@@ -2274,7 +2274,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntDualGrndInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstPrntDualGrndInp
     typeKind: !_TypeKind Input
   !_Identifier CnstPrntDualGrndOutp: !_TypeOutput
@@ -2288,12 +2288,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntDualGrndOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstPrntDualGrndOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstPrntDualPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntDualPrntDual
         type: !_ObjBase
           name: String
@@ -2307,7 +2307,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntDualPrntDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstPrntDualPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstPrntDualPrntInp: !_TypeInput
@@ -2321,7 +2321,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntDualPrntInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstPrntDualPrntInp
     typeKind: !_TypeKind Input
   !_Identifier CnstPrntDualPrntOutp: !_TypeOutput
@@ -2335,12 +2335,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntDualPrntOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstPrntDualPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstPrntEnumDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstPrntEnumDual
         type: !_ObjBase
           name: RefCnstPrntEnumDual
@@ -2350,7 +2350,7 @@ types: !_Map_Type
               name: ParentCnstPrntEnumDual
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstPrntEnumDual
           typeArgs:
@@ -2362,7 +2362,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier CnstPrntEnumInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstPrntEnumInp
         type: !_ObjBase
           name: RefCnstPrntEnumInp
@@ -2372,7 +2372,7 @@ types: !_Map_Type
               name: ParentCnstPrntEnumInp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstPrntEnumInp
           typeArgs:
@@ -2384,7 +2384,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier CnstPrntEnumOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstPrntEnumOutp
         type: !_ObjBase
           name: RefCnstPrntEnumOutp
@@ -2394,7 +2394,7 @@ types: !_Map_Type
               name: ParentCnstPrntEnumOutp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstPrntEnumOutp
           typeArgs:
@@ -2406,7 +2406,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier CnstPrntObjPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntObjPrntDual
         type: !_ObjBase
           name: String
@@ -2420,12 +2420,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntObjPrntDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstPrntObjPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstPrntObjPrntInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntObjPrntInp
         type: !_ObjBase
           name: String
@@ -2439,12 +2439,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntObjPrntInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
   !_Identifier CnstPrntObjPrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntObjPrntOutp
         type: !_ObjBase
           name: String
@@ -2458,7 +2458,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstPrntObjPrntOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstPrntObjPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier Ctgr: !_TypeOutput
@@ -5083,7 +5083,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier FldFieldDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: FldFieldDualDual
         type: !_ObjBase
           name: String
@@ -5094,7 +5094,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -5106,7 +5106,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier FldFieldDualInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: FldFieldDualInp
         type: !_ObjBase
           name: String
@@ -5117,7 +5117,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -5129,7 +5129,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier FldFieldDualOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: FldFieldDualOutp
         type: !_ObjBase
           name: String
@@ -5140,7 +5140,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -5152,7 +5152,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier FldFieldModParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: FldFieldModParamDual
         type: !_ObjBase
           name: String
@@ -5163,7 +5163,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -5175,7 +5175,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier FldFieldModParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: FldFieldModParamInp
         type: !_ObjBase
           name: String
@@ -5186,7 +5186,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -5198,7 +5198,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier FldFieldModParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: FldFieldModParamOutp
         type: !_ObjBase
           name: String
@@ -5209,7 +5209,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -5221,7 +5221,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier FldFieldObjDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: FldFieldObjDual
         type: !_ObjBase
           name: String
@@ -5232,7 +5232,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -5244,7 +5244,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier FldFieldObjInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: FldFieldObjInp
         type: !_ObjBase
           name: String
@@ -5255,7 +5255,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -5267,7 +5267,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier FldFieldObjOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: FldFieldObjOutp
         type: !_ObjBase
           name: String
@@ -5278,7 +5278,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -5329,20 +5329,20 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier GnrcAltArgDescrDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltArgDescrDual
         type: !_ObjBase
           name: RefGnrcAltArgDescrDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               description: 'Test Descr'
               typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltArgDescrDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               description: 'Test Descr'
               typeParam: type
     name: GnrcAltArgDescrDual
@@ -5355,20 +5355,20 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcAltArgDescrInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltArgDescrInp
         type: !_ObjBase
           name: RefGnrcAltArgDescrInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               description: 'Test Descr'
               typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltArgDescrInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               description: 'Test Descr'
               typeParam: type
     name: GnrcAltArgDescrInp
@@ -5381,20 +5381,20 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcAltArgDescrOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltArgDescrOutp
         type: !_ObjBase
           name: RefGnrcAltArgDescrOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               description: 'Test Descr'
               typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltArgDescrOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               description: 'Test Descr'
               typeParam: type
     name: GnrcAltArgDescrOutp
@@ -5407,19 +5407,19 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcAltArgDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltArgDual
         type: !_ObjBase
           name: RefGnrcAltArgDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltArgDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     name: GnrcAltArgDual
     typeKind: !_TypeKind Dual
@@ -5431,19 +5431,19 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcAltArgInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltArgInp
         type: !_ObjBase
           name: RefGnrcAltArgInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltArgInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     name: GnrcAltArgInp
     typeKind: !_TypeKind Input
@@ -5455,19 +5455,19 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcAltArgOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltArgOutp
         type: !_ObjBase
           name: RefGnrcAltArgOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltArgOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     name: GnrcAltArgOutp
     typeKind: !_TypeKind Output
@@ -5479,12 +5479,12 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcAltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltDual
         type: !_ObjBase
           typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: type
     name: GnrcAltDual
@@ -5497,66 +5497,66 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcAltDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltDualDual
         type: !_ObjBase
           name: RefGnrcAltDualDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltDualDual
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltDualDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltDualDual
     name: GnrcAltDualDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcAltDualInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltDualInp
         type: !_ObjBase
           name: RefGnrcAltDualInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltDualInp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltDualInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltDualInp
     name: GnrcAltDualInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcAltDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltDualOutp
         type: !_ObjBase
           name: RefGnrcAltDualOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltDualOutp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltDualOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltDualOutp
     name: GnrcAltDualOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcAltInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltInp
         type: !_ObjBase
           typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: type
     name: GnrcAltInp
@@ -5569,12 +5569,12 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcAltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltOutp
         type: !_ObjBase
           typeParam: type
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: type
     name: GnrcAltOutp
@@ -5587,109 +5587,109 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcAltParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltParamDual
         type: !_ObjBase
           name: RefGnrcAltParamDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltParamDual
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltParamDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltParamDual
     name: GnrcAltParamDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcAltParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltParamInp
         type: !_ObjBase
           name: RefGnrcAltParamInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltParamInp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltParamInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltParamInp
     name: GnrcAltParamInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcAltParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltParamOutp
         type: !_ObjBase
           name: RefGnrcAltParamOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltParamOutp
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltParamOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcAltParamOutp
     name: GnrcAltParamOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcAltSmplDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltSmplDual
         type: !_ObjBase
           name: RefGnrcAltSmplDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltSmplDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: String
     name: GnrcAltSmplDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcAltSmplInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltSmplInp
         type: !_ObjBase
           name: RefGnrcAltSmplInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltSmplInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: String
     name: GnrcAltSmplInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcAltSmplOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcAltSmplOutp
         type: !_ObjBase
           name: RefGnrcAltSmplOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcAltSmplOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: String
     name: GnrcAltSmplOutp
     typeKind: !_TypeKind Output
@@ -5758,7 +5758,7 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcEnumDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcEnumDual
         type: !_ObjBase
           name: RefGnrcEnumDual
@@ -5768,7 +5768,7 @@ types: !_Map_Type
               name: EnumGnrcEnumDual
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcEnumDual
           typeArgs:
@@ -5780,7 +5780,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier GnrcEnumInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcEnumInp
         type: !_ObjBase
           name: RefGnrcEnumInp
@@ -5790,7 +5790,7 @@ types: !_Map_Type
               name: EnumGnrcEnumInp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcEnumInp
           typeArgs:
@@ -5802,7 +5802,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier GnrcEnumOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcEnumOutp
         type: !_ObjBase
           name: RefGnrcEnumOutp
@@ -5812,7 +5812,7 @@ types: !_Map_Type
               name: EnumGnrcEnumOutp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcEnumOutp
           typeArgs:
@@ -5830,7 +5830,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldArgDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     fields:
       - !_DualField
@@ -5838,7 +5838,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldArgDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     name: GnrcFieldArgDual
     typeKind: !_TypeKind Dual
@@ -5856,7 +5856,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldArgInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     fields:
       - !_InputField
@@ -5864,7 +5864,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldArgInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     name: GnrcFieldArgInp
     typeKind: !_TypeKind Input
@@ -5882,7 +5882,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldArgOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     fields:
       - !_OutputField
@@ -5890,7 +5890,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldArgOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               typeParam: type
     name: GnrcFieldArgOutp
     typeKind: !_TypeKind Output
@@ -5928,7 +5928,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldDualDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldDualDual
     fields:
       - !_DualField
@@ -5936,7 +5936,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldDualDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldDualDual
     name: GnrcFieldDualDual
     typeKind: !_TypeKind Dual
@@ -5948,7 +5948,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldDualInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldDualInp
     fields:
       - !_InputField
@@ -5956,7 +5956,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldDualInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldDualInp
     name: GnrcFieldDualInp
     typeKind: !_TypeKind Input
@@ -5968,7 +5968,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldDualOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldDualOutp
     fields:
       - !_OutputField
@@ -5976,7 +5976,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldDualOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldDualOutp
     name: GnrcFieldDualOutp
     typeKind: !_TypeKind Output
@@ -6028,7 +6028,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldParamDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldParamDual
     fields:
       - !_DualField
@@ -6036,7 +6036,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldParamDual
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldParamDual
     name: GnrcFieldParamDual
     typeKind: !_TypeKind Dual
@@ -6048,7 +6048,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldParamInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldParamInp
     fields:
       - !_InputField
@@ -6056,7 +6056,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldParamInp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldParamInp
     name: GnrcFieldParamInp
     typeKind: !_TypeKind Input
@@ -6068,7 +6068,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldParamOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldParamOutp
     fields:
       - !_OutputField
@@ -6076,13 +6076,13 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefGnrcFieldParamOutp
           typeArgs:
-            - !_ObjTypeArg
+            - !_TypeArg
               name: AltGnrcFieldParamOutp
     name: GnrcFieldParamOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcPrntArgDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntArgDual
         type: !_ObjBase
           typeParam: ref
@@ -6090,7 +6090,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntArgDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: type
     typeKind: !_TypeKind Dual
     typeParams:
@@ -6101,7 +6101,7 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcPrntArgInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntArgInp
         type: !_ObjBase
           typeParam: ref
@@ -6109,7 +6109,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntArgInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: type
     typeKind: !_TypeKind Input
     typeParams:
@@ -6120,7 +6120,7 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcPrntArgOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntArgOutp
         type: !_ObjBase
           typeParam: ref
@@ -6128,7 +6128,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntArgOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: type
     typeKind: !_TypeKind Output
     typeParams:
@@ -6186,7 +6186,7 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcPrntDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntDualDual
         type: !_ObjBase
           name: AltGnrcPrntDualDual
@@ -6194,12 +6194,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntDualDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntDualDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcPrntDualInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntDualInp
         type: !_ObjBase
           name: AltGnrcPrntDualInp
@@ -6207,12 +6207,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntDualInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntDualInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcPrntDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntDualOutp
         type: !_ObjBase
           name: AltGnrcPrntDualOutp
@@ -6220,12 +6220,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntDualOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntDualOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcPrntDualPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntDualPrntDual
         type: !_ObjBase
           name: String
@@ -6239,7 +6239,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntDualPrntDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntDualPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcPrntDualPrntInp: !_TypeInput
@@ -6247,7 +6247,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntDualPrntInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntDualPrntInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcPrntDualPrntOutp: !_TypeOutput
@@ -6255,7 +6255,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntDualPrntOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntDualPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcPrntEnumChildDual: !_TypeDual
@@ -6269,7 +6269,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntEnumChildDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: ParentGnrcPrntEnumChildDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcPrntEnumChildInp: !_TypeInput
@@ -6283,7 +6283,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntEnumChildInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: ParentGnrcPrntEnumChildInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcPrntEnumChildOutp: !_TypeOutput
@@ -6297,7 +6297,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntEnumChildOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: ParentGnrcPrntEnumChildOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcPrntEnumDomDual: !_TypeDual
@@ -6311,7 +6311,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntEnumDomDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomGnrcPrntEnumDomDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcPrntEnumDomInp: !_TypeInput
@@ -6325,7 +6325,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntEnumDomInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomGnrcPrntEnumDomInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcPrntEnumDomOutp: !_TypeOutput
@@ -6339,7 +6339,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntEnumDomOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomGnrcPrntEnumDomOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcPrntEnumPrntDual: !_TypeDual
@@ -6353,7 +6353,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntEnumPrntDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: EnumGnrcPrntEnumPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcPrntEnumPrntInp: !_TypeInput
@@ -6367,7 +6367,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntEnumPrntInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: EnumGnrcPrntEnumPrntInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcPrntEnumPrntOutp: !_TypeOutput
@@ -6381,7 +6381,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntEnumPrntOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: EnumGnrcPrntEnumPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcPrntInp: !_TypeInput
@@ -6408,7 +6408,7 @@ types: !_Map_Type
         name: type
   !_Identifier GnrcPrntParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntParamDual
         type: !_ObjBase
           name: AltGnrcPrntParamDual
@@ -6416,12 +6416,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntParamDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntParamDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcPrntParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntParamInp
         type: !_ObjBase
           name: AltGnrcPrntParamInp
@@ -6429,12 +6429,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntParamInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntParamInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcPrntParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntParamOutp
         type: !_ObjBase
           name: AltGnrcPrntParamOutp
@@ -6442,12 +6442,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntParamOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntParamOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcPrntParamPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamPrntDual
         type: !_ObjBase
           name: String
@@ -6461,12 +6461,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntParamPrntDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntParamPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcPrntParamPrntInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamPrntInp
         type: !_ObjBase
           name: String
@@ -6480,12 +6480,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntParamPrntInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntParamPrntInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcPrntParamPrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamPrntOutp
         type: !_ObjBase
           name: String
@@ -6499,7 +6499,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefGnrcPrntParamPrntOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltGnrcPrntParamPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcPrntSmplEnumDual: !_TypeDual
@@ -6513,7 +6513,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntSmplEnumDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: EnumGnrcPrntSmplEnumDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcPrntSmplEnumInp: !_TypeInput
@@ -6527,7 +6527,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntSmplEnumInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: EnumGnrcPrntSmplEnumInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcPrntSmplEnumOutp: !_TypeOutput
@@ -6541,7 +6541,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntSmplEnumOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: EnumGnrcPrntSmplEnumOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcPrntStrDomDual: !_TypeDual
@@ -6555,7 +6555,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntStrDomDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomGnrcPrntStrDomDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcPrntStrDomInp: !_TypeInput
@@ -6569,7 +6569,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntStrDomInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomGnrcPrntStrDomInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcPrntStrDomOutp: !_TypeOutput
@@ -6583,12 +6583,12 @@ types: !_Map_Type
     parent: !_ObjBase
       name: FieldGnrcPrntStrDomOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: DomGnrcPrntStrDomOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcValueDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcValueDual
         type: !_ObjBase
           name: RefGnrcValueDual
@@ -6598,7 +6598,7 @@ types: !_Map_Type
               name: EnumGnrcValueDual
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcValueDual
           typeArgs:
@@ -6610,7 +6610,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier GnrcValueInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcValueInp
         type: !_ObjBase
           name: RefGnrcValueInp
@@ -6620,7 +6620,7 @@ types: !_Map_Type
               name: EnumGnrcValueInp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcValueInp
           typeArgs:
@@ -6632,7 +6632,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier GnrcValueOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GnrcValueOutp
         type: !_ObjBase
           name: RefGnrcValueOutp
@@ -6642,7 +6642,7 @@ types: !_Map_Type
               name: EnumGnrcValueOutp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefGnrcValueOutp
           typeArgs:
@@ -6654,36 +6654,36 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier GrndCnstPrntDualGrndDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GrndCnstPrntDualGrndDual
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: GrndCnstPrntDualGrndDual
     typeKind: !_TypeKind Dual
   !_Identifier GrndCnstPrntDualGrndInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GrndCnstPrntDualGrndInp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: GrndCnstPrntDualGrndInp
     typeKind: !_TypeKind Dual
   !_Identifier GrndCnstPrntDualGrndOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GrndCnstPrntDualGrndOutp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: GrndCnstPrntDualGrndOutp
@@ -6705,7 +6705,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InOutpDescrParam: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: InOutpDescrParam
         type: !_ObjBase
           name: String
@@ -6716,7 +6716,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -6728,7 +6728,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InOutpParam: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: InOutpParam
         type: !_ObjBase
           name: String
@@ -6739,7 +6739,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -6751,7 +6751,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InOutpParamDescr: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: InOutpParamDescr
         type: !_ObjBase
           name: String
@@ -6762,7 +6762,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -6774,7 +6774,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InOutpParamModDmn: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: InOutpParamModDmn
         type: !_ObjBase
           name: String
@@ -6785,7 +6785,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -6797,7 +6797,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InOutpParamModParam: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: InOutpParamModParam
         type: !_ObjBase
           name: String
@@ -6808,7 +6808,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -6820,7 +6820,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InOutpParamTypeDescr: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: InOutpParamTypeDescr
         type: !_ObjBase
           name: String
@@ -6831,7 +6831,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -6843,7 +6843,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InOutpPrntParam: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: InOutpPrntParam
         type: !_ObjBase
           name: String
@@ -6854,7 +6854,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -7037,12 +7037,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier ObjAltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltDual
         type: !_ObjBase
           name: ObjAltDualType
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: ObjAltDualType
     name: ObjAltDual
@@ -7052,69 +7052,69 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier ObjAltEnumDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltEnumDual
         type: !_ObjBase
           name: Boolean
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltEnumDual
         type: !_ObjBase
           name: Boolean
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Boolean
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Boolean
     name: ObjAltEnumDual
     typeKind: !_TypeKind Dual
   !_Identifier ObjAltEnumInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltEnumInp
         type: !_ObjBase
           name: Boolean
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltEnumInp
         type: !_ObjBase
           name: Boolean
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Boolean
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Boolean
     name: ObjAltEnumInp
     typeKind: !_TypeKind Input
   !_Identifier ObjAltEnumOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltEnumOutp
         type: !_ObjBase
           name: Boolean
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltEnumOutp
         type: !_ObjBase
           name: Boolean
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Boolean
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Boolean
     name: ObjAltEnumOutp
     typeKind: !_TypeKind Output
   !_Identifier ObjAltInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltInp
         type: !_ObjBase
           name: ObjAltInpType
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: ObjAltInpType
     name: ObjAltInp
@@ -7124,12 +7124,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier ObjAltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjAltOutp
         type: !_ObjBase
           name: ObjAltOutpType
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: ObjAltOutpType
     name: ObjAltOutp
@@ -7229,7 +7229,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier ObjDualAltDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjDualAltDualDual
         type: !_ObjBase
           name: String
@@ -7240,7 +7240,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -7252,7 +7252,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier ObjDualAltDualInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjDualAltDualInp
         type: !_ObjBase
           name: String
@@ -7263,7 +7263,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -7275,7 +7275,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier ObjDualAltDualOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: ObjDualAltDualOutp
         type: !_ObjBase
           name: String
@@ -7286,7 +7286,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -7901,7 +7901,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpPrntGnrc: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: OutpPrntGnrc
         type: !_ObjBase
           name: RefOutpPrntGnrc
@@ -7911,7 +7911,7 @@ types: !_Map_Type
               name: EnumOutpPrntGnrc
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefOutpPrntGnrc
           typeArgs:
@@ -8073,11 +8073,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier PrntAltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntAltDual
         type: !_ObjBase
           name: String
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntAltDual
         type: !_ObjBase
           name: Number
@@ -8088,7 +8088,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Number
     name: PrntAltDual
@@ -8097,11 +8097,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier PrntAltInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntAltInp
         type: !_ObjBase
           name: String
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntAltInp
         type: !_ObjBase
           name: Number
@@ -8112,7 +8112,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Number
     name: PrntAltInp
@@ -8121,11 +8121,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier PrntAltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntAltOutp
         type: !_ObjBase
           name: String
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntAltOutp
         type: !_ObjBase
           name: Number
@@ -8136,7 +8136,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: Number
     name: PrntAltOutp
@@ -8145,151 +8145,151 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstAltDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstAltDualDual
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstAltDualDual
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstAltDualInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstAltDualInp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstAltDualInp
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstAltDualOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstAltDualOutp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstAltDualOutp
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstAltObjDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstAltObjDual
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstAltObjDual
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstAltObjInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstAltObjInp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstAltObjInp
     typeKind: !_TypeKind Input
   !_Identifier PrntCnstAltObjOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstAltObjOutp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstAltObjOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstFieldDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstFieldDualDual
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstFieldDualDual
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstFieldDualInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstFieldDualInp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstFieldDualInp
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstFieldDualOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstFieldDualOutp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstFieldDualOutp
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstFieldObjDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstFieldObjDual
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstFieldObjDual
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstFieldObjInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstFieldObjInp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstFieldObjInp
     typeKind: !_TypeKind Input
   !_Identifier PrntCnstFieldObjOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstFieldObjOutp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstFieldObjOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstPrntDualGrndDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GrndCnstPrntDualGrndDual
         type: !_ObjBase
           name: String
@@ -8299,7 +8299,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntDualGrndInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GrndCnstPrntDualGrndInp
         type: !_ObjBase
           name: String
@@ -8309,7 +8309,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntDualGrndOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: GrndCnstPrntDualGrndOutp
         type: !_ObjBase
           name: String
@@ -8319,79 +8319,79 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntDualPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntDualPrntDual
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstPrntDualPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntDualPrntInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntDualPrntInp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstPrntDualPrntInp
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntDualPrntOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntDualPrntOutp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstPrntDualPrntOutp
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntObjPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntObjPrntDual
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstPrntObjPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntObjPrntInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntObjPrntInp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
   !_Identifier PrntCnstPrntObjPrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntCnstPrntObjPrntOutp
         type: !_ObjBase
           name: String
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     name: PrntCnstPrntObjPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntDescrDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDescrDual
         type: !_ObjBase
           name: String
@@ -8408,7 +8408,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier PrntDescrInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDescrInp
         type: !_ObjBase
           name: String
@@ -8425,7 +8425,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier PrntDescrOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDescrOutp
         type: !_ObjBase
           name: String
@@ -8593,7 +8593,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier PrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDual
         type: !_ObjBase
           name: String
@@ -8609,7 +8609,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier PrntDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDualDual
         type: !_ObjBase
           name: String
@@ -8687,7 +8687,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier PrntFieldDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntFieldDual
         type: !_ObjBase
           name: String
@@ -8743,7 +8743,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier PrntFieldInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntFieldInp
         type: !_ObjBase
           name: String
@@ -8769,7 +8769,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier PrntFieldOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntFieldOutp
         type: !_ObjBase
           name: String
@@ -8795,7 +8795,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier PrntInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntInp
         type: !_ObjBase
           name: String
@@ -8811,7 +8811,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier PrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntOutp
         type: !_ObjBase
           name: String
@@ -8857,7 +8857,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier PrntOutpPrntParamIn: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: PrntOutpPrntParamIn
         type: !_ObjBase
           name: String
@@ -8868,7 +8868,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -8880,7 +8880,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier PrntParamDiffDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffDual
         type: !_ObjBase
           typeParam: b
@@ -8899,7 +8899,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntParamDiffDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: a
     typeKind: !_TypeKind Dual
     typeParams:
@@ -8910,7 +8910,7 @@ types: !_Map_Type
         name: a
   !_Identifier PrntParamDiffInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffInp
         type: !_ObjBase
           typeParam: b
@@ -8929,7 +8929,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntParamDiffInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: a
     typeKind: !_TypeKind Input
     typeParams:
@@ -8940,7 +8940,7 @@ types: !_Map_Type
         name: a
   !_Identifier PrntParamDiffOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffOutp
         type: !_ObjBase
           typeParam: b
@@ -8959,7 +8959,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntParamDiffOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: a
     typeKind: !_TypeKind Output
     typeParams:
@@ -8970,7 +8970,7 @@ types: !_Map_Type
         name: a
   !_Identifier PrntParamSameDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamSameDual
         type: !_ObjBase
           typeParam: a
@@ -8989,7 +8989,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntParamSameDual
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: a
     typeKind: !_TypeKind Dual
     typeParams:
@@ -9000,7 +9000,7 @@ types: !_Map_Type
         name: a
   !_Identifier PrntParamSameInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamSameInp
         type: !_ObjBase
           typeParam: a
@@ -9019,7 +9019,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntParamSameInp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: a
     typeKind: !_TypeKind Input
     typeParams:
@@ -9030,7 +9030,7 @@ types: !_Map_Type
         name: a
   !_Identifier PrntParamSameOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamSameOutp
         type: !_ObjBase
           typeParam: a
@@ -9049,7 +9049,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntParamSameOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: a
     typeKind: !_TypeKind Output
     typeParams:
@@ -9100,12 +9100,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Union
   !_Identifier RefCnstAltDmnDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefCnstAltDmnDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefCnstAltDmnDual
@@ -9118,12 +9118,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefCnstAltDmnInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefCnstAltDmnInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefCnstAltDmnInp
@@ -9136,12 +9136,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefCnstAltDmnOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefCnstAltDmnOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefCnstAltDmnOutp
@@ -9154,12 +9154,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefCnstAltDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefCnstAltDualDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefCnstAltDualDual
@@ -9172,12 +9172,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefCnstAltDualInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefCnstAltDualInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefCnstAltDualInp
@@ -9190,12 +9190,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefCnstAltDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefCnstAltDualOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefCnstAltDualOutp
@@ -9208,12 +9208,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefCnstAltObjDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefCnstAltObjDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefCnstAltObjDual
@@ -9226,12 +9226,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefCnstAltObjInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefCnstAltObjInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefCnstAltObjInp
@@ -9244,12 +9244,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefCnstAltObjOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefCnstAltObjOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefCnstAltObjOutp
@@ -9781,12 +9781,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltArgDescrDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltArgDescrDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltArgDescrDual
@@ -9799,12 +9799,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltArgDescrInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltArgDescrInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltArgDescrInp
@@ -9817,12 +9817,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltArgDescrOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltArgDescrOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltArgDescrOutp
@@ -9835,12 +9835,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltArgDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltArgDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltArgDual
@@ -9853,12 +9853,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltArgInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltArgInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltArgInp
@@ -9871,12 +9871,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltArgOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltArgOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltArgOutp
@@ -9889,12 +9889,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltDualDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltDualDual
@@ -9907,12 +9907,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltDualInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltDualInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltDualInp
@@ -9925,12 +9925,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltDualOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltDualOutp
@@ -9943,7 +9943,7 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltModParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -9952,7 +9952,7 @@ types: !_Map_Type
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -9974,7 +9974,7 @@ types: !_Map_Type
         name: mod
   !_Identifier RefGnrcAltModParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -9983,7 +9983,7 @@ types: !_Map_Type
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -10005,7 +10005,7 @@ types: !_Map_Type
         name: mod
   !_Identifier RefGnrcAltModParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -10014,7 +10014,7 @@ types: !_Map_Type
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierTypeParam
             by: mod
@@ -10036,7 +10036,7 @@ types: !_Map_Type
         name: mod
   !_Identifier RefGnrcAltModStrDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierDictionary
             by: '*'
@@ -10046,7 +10046,7 @@ types: !_Map_Type
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierDictionary
             by: '*'
@@ -10064,7 +10064,7 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltModStrInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierDictionary
             by: '*'
@@ -10074,7 +10074,7 @@ types: !_Map_Type
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierDictionary
             by: '*'
@@ -10092,7 +10092,7 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltModStrOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierDictionary
             by: '*'
@@ -10102,7 +10102,7 @@ types: !_Map_Type
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         collections:
           - !_ModifierDictionary
             by: '*'
@@ -10120,12 +10120,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltParamDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltParamDual
@@ -10138,12 +10138,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltParamInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltParamInp
@@ -10156,12 +10156,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltParamOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltParamOutp
@@ -10174,12 +10174,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltSmplDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltSmplDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltSmplDual
@@ -10192,12 +10192,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltSmplInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltSmplInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltSmplInp
@@ -10210,12 +10210,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcAltSmplOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcAltSmplOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltSmplOutp
@@ -10288,12 +10288,12 @@ types: !_Map_Type
         name: type
   !_Identifier RefGnrcFieldArgDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcFieldArgDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldArgDual
@@ -10306,12 +10306,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcFieldArgInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcFieldArgInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldArgInp
@@ -10324,12 +10324,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcFieldArgOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcFieldArgOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldArgOutp
@@ -10342,12 +10342,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcFieldDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcFieldDualDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldDualDual
@@ -10360,12 +10360,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcFieldDualInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcFieldDualInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldDualInp
@@ -10378,12 +10378,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcFieldDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcFieldDualOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldDualOutp
@@ -10396,12 +10396,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcFieldParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcFieldParamDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldParamDual
@@ -10414,12 +10414,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcFieldParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcFieldParamInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldParamInp
@@ -10432,12 +10432,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcFieldParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcFieldParamOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldParamOutp
@@ -10450,12 +10450,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcPrntArgDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntArgDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcPrntArgDual
@@ -10468,12 +10468,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcPrntArgInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntArgInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcPrntArgInp
@@ -10486,12 +10486,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcPrntArgOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntArgOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcPrntArgOutp
@@ -10504,12 +10504,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcPrntDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntDualDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcPrntDualDual
@@ -10522,12 +10522,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcPrntDualInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntDualInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcPrntDualInp
@@ -10540,12 +10540,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcPrntDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntDualOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcPrntDualOutp
@@ -10591,12 +10591,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcPrntParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntParamDual
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcPrntParamDual
@@ -10609,12 +10609,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcPrntParamInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntParamInp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcPrntParamInp
@@ -10627,12 +10627,12 @@ types: !_Map_Type
         name: ref
   !_Identifier RefGnrcPrntParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefGnrcPrntParamOutp
         type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: ref
     name: RefGnrcPrntParamOutp
@@ -10767,7 +10767,7 @@ types: !_Map_Type
         name: type
   !_Identifier RefPrntAltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntAltDual
         type: !_ObjBase
           name: String
@@ -10778,7 +10778,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -10790,7 +10790,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier RefPrntAltInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntAltInp
         type: !_ObjBase
           name: String
@@ -10801,7 +10801,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -10813,7 +10813,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier RefPrntAltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntAltOutp
         type: !_ObjBase
           name: String
@@ -10824,7 +10824,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -10836,7 +10836,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier RefPrntDescrDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDescrDual
         type: !_ObjBase
           name: String
@@ -10847,7 +10847,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -10859,7 +10859,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier RefPrntDescrInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDescrInp
         type: !_ObjBase
           name: String
@@ -10870,7 +10870,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -10882,7 +10882,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier RefPrntDescrOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDescrOutp
         type: !_ObjBase
           name: String
@@ -10893,7 +10893,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -10905,7 +10905,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier RefPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDual
         type: !_ObjBase
           name: String
@@ -10916,7 +10916,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -10928,7 +10928,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier RefPrntDualDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDualDual
         type: !_ObjBase
           name: String
@@ -10939,7 +10939,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -10951,7 +10951,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier RefPrntDualInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDualInp
         type: !_ObjBase
           name: String
@@ -10962,7 +10962,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -10974,7 +10974,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier RefPrntDualOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntDualOutp
         type: !_ObjBase
           name: String
@@ -10985,7 +10985,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -10997,7 +10997,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier RefPrntFieldDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntFieldDual
         type: !_ObjBase
           name: String
@@ -11008,7 +11008,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -11020,7 +11020,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier RefPrntFieldInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntFieldInp
         type: !_ObjBase
           name: String
@@ -11031,7 +11031,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -11043,7 +11043,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier RefPrntFieldOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntFieldOutp
         type: !_ObjBase
           name: String
@@ -11054,7 +11054,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -11066,7 +11066,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier RefPrntInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntInp
         type: !_ObjBase
           name: String
@@ -11077,7 +11077,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -11089,7 +11089,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier RefPrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntOutp
         type: !_ObjBase
           name: String
@@ -11100,7 +11100,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: Number
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: String
     fields:
@@ -11112,12 +11112,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier RefPrntParamDiffDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffDual
         type: !_ObjBase
           typeParam: b
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: b
     name: RefPrntParamDiffDual
@@ -11130,12 +11130,12 @@ types: !_Map_Type
         name: b
   !_Identifier RefPrntParamDiffInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffInp
         type: !_ObjBase
           typeParam: b
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: b
     name: RefPrntParamDiffInp
@@ -11148,12 +11148,12 @@ types: !_Map_Type
         name: b
   !_Identifier RefPrntParamDiffOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffOutp
         type: !_ObjBase
           typeParam: b
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: b
     name: RefPrntParamDiffOutp
@@ -11166,12 +11166,12 @@ types: !_Map_Type
         name: b
   !_Identifier RefPrntParamSameDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamSameDual
         type: !_ObjBase
           typeParam: a
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: a
     name: RefPrntParamSameDual
@@ -11184,12 +11184,12 @@ types: !_Map_Type
         name: a
   !_Identifier RefPrntParamSameInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamSameInp
         type: !_ObjBase
           typeParam: a
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: a
     name: RefPrntParamSameInp
@@ -11202,12 +11202,12 @@ types: !_Map_Type
         name: a
   !_Identifier RefPrntParamSameOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamSameOutp
         type: !_ObjBase
           typeParam: a
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: a
     name: RefPrntParamSameOutp

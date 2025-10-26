@@ -12,7 +12,7 @@ internal abstract class ModellerObject<TAst, TObjFieldAst, TModel, TObjField>(
   internal ObjBaseModel? ParentModel(IGqlpObjBase? parent, IMap<TypeKindModel> typeKinds)
     => parent is null ? default : BaseModel(parent, typeKinds);
 
-  internal ObjAlternateModel[] AlternatesModels(IEnumerable<IGqlpObjAlt> alternates, IMap<TypeKindModel> typeKinds)
+  internal AlternateModel[] AlternatesModels(IEnumerable<IGqlpAlternate> alternates, IMap<TypeKindModel> typeKinds)
     => modellers.Alternate.ToModels(alternates, typeKinds);
 
   internal TObjField[] FieldsModels(IEnumerable<TObjFieldAst> fields, IMap<TypeKindModel> typeKinds)
@@ -27,7 +27,7 @@ internal abstract class ModellerObject<TAst, TObjFieldAst, TModel, TObjField>(
 
 internal record class ObjectModellers<TObjFieldAst, TObjField>(
   IModeller<IGqlpTypeParam, TypeParamModel> TypeParams,
-  IModeller<IGqlpObjAlt, ObjAlternateModel> Alternate,
+  IModeller<IGqlpAlternate, AlternateModel> Alternate,
   IModeller<TObjFieldAst, TObjField> Field,
   IModeller<IGqlpObjBase, ObjBaseModel> Base)
   where TObjFieldAst : IGqlpObjField

@@ -34,5 +34,5 @@ public readonly struct ResultArrayPartial<TValue>
           : Message.ErrorArray<TResult>();
 
   public IResult<TResult> Map<TResult>(SelectResult<IEnumerable<TValue>, TResult> onValue, OnResult<TResult>? otherwise = null)
-    => onValue?.Invoke(Result) ?? 0.Empty<TResult>();
+    => onValue?.Invoke(Result) ?? default(TResult).Empty();
 }

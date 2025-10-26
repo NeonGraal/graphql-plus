@@ -48,9 +48,9 @@ public static class AllEncoders
       // Object
       .AddBaseEncoder<ObjBaseModel>()
       .AddEncoder<TypeParamModel, TypeParamEncoder>()
-      .AddEncoder<ObjAlternateModel, ObjectAlternateEncoder>()
-      .AddEncoder<ObjectForModel<ObjAlternateModel>, ObjectForEncoder<ObjAlternateModel>>()
-      .AddEncoder<ObjTypeArgModel, ObjTypeArgEncoder>()
+      .AddEncoder<AlternateModel, ObjectAlternateEncoder>()
+      .AddEncoder<ObjectForModel<AlternateModel>, ObjectForEncoder<AlternateModel>>()
+      .AddEncoder<TypeArgModel, TypeArgEncoder>()
       // Dual
       .AddEncoder<DualFieldModel, DualFieldEncoder>()
       .AddTypeEncoder<TypeDualModel, TypeDualEncoder>()

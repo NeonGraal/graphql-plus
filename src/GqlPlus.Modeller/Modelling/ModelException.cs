@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Modelling;
 
 public class ModelException
   : Exception
@@ -10,6 +12,7 @@ public class ModelException
     : base(message)
   { }
 
+  [ExcludeFromCodeCoverage]
   public ModelException(string message, Exception innerException)
     : base(message, innerException)
   { }

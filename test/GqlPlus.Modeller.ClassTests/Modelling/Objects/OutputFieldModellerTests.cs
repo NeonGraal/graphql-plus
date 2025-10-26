@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Building.Schema;
+
+namespace GqlPlus.Modelling.Objects;
 
 public class OutputFieldModellerTests
   : ModellerObjectBaseTestBase<IGqlpOutputField, OutputFieldModel, ObjBaseModel>
@@ -17,7 +19,7 @@ public class OutputFieldModellerTests
   public void FieldModel_WithValidField_ReturnsExpectedOutputFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpOutputField ast = A.OutputField(name, typeName).SetDescr(contents);
+    IGqlpOutputField ast = A.OutputField(name, typeName).WithDescr(contents).AsOutputField;
 
     ObjBaseModel outputType = new(typeName, "");
     ToModelReturns(ObjBase, outputType);

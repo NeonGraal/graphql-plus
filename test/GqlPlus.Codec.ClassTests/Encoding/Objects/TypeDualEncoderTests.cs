@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class TypeDualEncoderTests
-  : TypeObjectEncoderBase<TypeDualModel, ObjBaseModel, DualFieldModel, ObjAlternateModel>
+  : TypeObjectEncoderBase<TypeDualModel, ObjBaseModel, DualFieldModel, AlternateModel>
 {
   public TypeDualEncoderTests()
-    => Encoder = new TypeDualEncoder(new(ObjBase, Field, ObjField, DualField, Alternate, ObjAlternate, DualAlternate, TypeParam));
+    => Encoder = new TypeDualEncoder(new(ObjBase, Field, ForField, DualField, Alternate, ForAlternate, DualAlternate, TypeParam));
 
   protected override IEncoder<TypeDualModel> Encoder { get; }
 
@@ -21,8 +21,8 @@ public class TypeDualEncoderTests
   public void Encode_WithAllModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName)
   {
     ObjBaseModel parent = new(parentType, "");
-    ObjAlternateModel alternate = new(new ObjBaseModel(alternateType, ""));
-    ObjectForModel<ObjAlternateModel> alternateFor = new(alternate, name);
+    AlternateModel alternate = new(new ObjBaseModel(alternateType, ""));
+    ObjectForModel<AlternateModel> alternateFor = new(alternate, name);
     DualFieldModel field = new(fieldName, null, "");
     ObjectForModel<DualFieldModel> fieldFor = new(field, name);
     TypeParamModel typeParam = new(paramName, "", default!);
@@ -38,9 +38,9 @@ public class TypeDualEncoderTests
 
     EncodeReturnsMap(ObjBase, "_Parent", parentType);
     EncodeReturnsMap(Alternate, "_Alternate", alternateType);
-    EncodeReturnsMap(ObjAlternate, "_AlternateFor", alternateType);
+    EncodeReturnsMap(ForAlternate, "_AlternateFor", alternateType);
     EncodeReturnsMap(Field, "_Field", fieldName);
-    EncodeReturnsMap(ObjField, "_FieldFor", fieldName);
+    EncodeReturnsMap(ForField, "_FieldFor", fieldName);
     EncodeReturnsMap(TypeParam, "_TypeParam", paramName);
 
     EncodeAndCheck(model, [
@@ -68,7 +68,7 @@ public class TypeDualEncoderTests
     };
 
     EncodeReturnsMap(Field, "_Field", fieldName);
-    EncodeReturnsMap(ObjField, "_FieldFor", fieldName);
+    EncodeReturnsMap(ForField, "_FieldFor", fieldName);
 
     Action act = () => Encoder.Encode(model);
 

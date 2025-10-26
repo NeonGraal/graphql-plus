@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier AltCnstAltObjInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: PrntCnstAltObjInp
       type: !_ObjBase
         name: String
@@ -23,42 +23,42 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier CnstAltObjInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: CnstAltObjInp
       type: !_ObjBase
         name: RefCnstAltObjInp
         typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstAltObjInp
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: RefCnstAltObjInp
         typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           name: AltCnstAltObjInp
     name: CnstAltObjInp
     typeKind: !_TypeKind Input
   !_Identifier PrntCnstAltObjInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: PrntCnstAltObjInp
       type: !_ObjBase
         name: String
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: String
     name: PrntCnstAltObjInp
     typeKind: !_TypeKind Input
   !_Identifier RefCnstAltObjInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: RefCnstAltObjInp
       type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         typeParam: ref
     name: RefCnstAltObjInp

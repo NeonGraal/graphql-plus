@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier AltAltModBoolOutp: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: AltAltModBoolOutp
       type: !_ObjBase
         name: String
@@ -13,7 +13,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: Number
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: String
     fields:
@@ -25,7 +25,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier AltModBoolOutp: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierDictionary
         by: ^
@@ -35,7 +35,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: AltAltModBoolOutp
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       collections:
       - !_ModifierDictionary
         by: ^

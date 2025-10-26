@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast;
-
-namespace GqlPlus.Merging;
+﻿namespace GqlPlus.Merging;
 
 internal abstract class DistinctMerger<TItem>(
   ILoggerFactory logger

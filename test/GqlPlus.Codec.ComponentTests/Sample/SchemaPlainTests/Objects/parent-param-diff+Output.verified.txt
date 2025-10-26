@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier PrntParamDiffOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffOutp
         type: !_ObjBase
           typeParam: b
@@ -21,7 +21,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntParamDiffOutp
       typeArgs:
-        - !_ObjTypeArg
+        - !_TypeArg
           typeParam: a
     typeKind: !_TypeKind Output
     typeParams:
@@ -32,12 +32,12 @@ types: !_Map_Type
         name: a
   !_Identifier RefPrntParamDiffOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffOutp
         type: !_ObjBase
           typeParam: b
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           typeParam: b
     name: RefPrntParamDiffOutp

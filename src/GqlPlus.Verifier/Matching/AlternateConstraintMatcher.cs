@@ -14,6 +14,6 @@ internal class AlternateConstraintMatcher(
     => base.MatchesConstraint(type, constraint, context)
       || constraint.Alternates.Any(MatchesAltMember(type, context));
 
-  private Func<IGqlpObjAlt, bool> MatchesAltMember(IGqlpType type, EnumContext context)
+  private Func<IGqlpAlternate, bool> MatchesAltMember(IGqlpType type, EnumContext context)
     => alternate => MatchArgOrType<IGqlpType, EnumContext>(type.Name, alternate.Name, context, _anyTypeMatcher.Matches);
 }

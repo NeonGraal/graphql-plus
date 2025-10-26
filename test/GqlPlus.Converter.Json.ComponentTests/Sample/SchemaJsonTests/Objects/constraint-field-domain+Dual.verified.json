@@ -21,7 +21,7 @@
         "name": "RefCnstFieldDmnDual",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "DomCnstFieldDmnDual"
           }
         ]

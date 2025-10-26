@@ -1,18 +1,26 @@
 ﻿namespace GqlPlus.Result;
 
-public class ResultOkTests : BaseResultTests
+public class ResultOkTests : TestResultBase
 {
   private const string Ok = "Ok";
   private readonly IResult<string> _ok = Ok.Ok();
   private readonly IResult<string[]> _okArray = new[] { Ok }.Ok();
+  private readonly IResultArray<string> _okResultArray = new[] { Ok }.OkArray();
 
-  [Fact]
-  public void AsResultArray_ReturnsResultArrayOk()
-  {
-    IResultArray<string> result = _ok.AsResultArray(SampleArray);
+  // Abstract method implementations
+  protected override IResult<string> CreateResult() => _ok;
+  protected override IResult<string[]> CreateArrayResult() => _okArray;
+  protected override IResultArray<string> CreateResultArray() => _okResultArray;
 
-    result.ShouldBeOfType<ResultArrayEmpty<string>>();
-  }
+  protected override bool ExpectedHasValue => true;
+  protected override bool ExpectedIsOk => true;
+  protected override string? ExpectedOptionalValue => Ok;
+  protected override string? ExpectedMessage => null;
+
+  protected override IEnumerable<string>? ExpectedArrayOptionalValue => [Ok];
+
+  protected override bool ExpectedWithValueCalled => true;
+  protected override bool ExpectedActionCalled => true;
 
   [Fact]
   public void Array_AsResultArray_ReturnsResultArrayOk()

@@ -4,7 +4,7 @@ public class ObjectBaseEncoderTests
   : ObjectArgEncoderBase<ObjBaseModel>
 {
   public ObjectBaseEncoderTests()
-    => Encoder = new ObjectBaseEncoder<ObjBaseModel>(ObjTypeArg);
+    => Encoder = new ObjectBaseEncoder<ObjBaseModel>(TypeArg);
 
   protected override IEncoder<ObjBaseModel> Encoder { get; }
 

@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class TypeInputEncoderTests
-  : TypeObjectEncoderBase<TypeInputModel, ObjBaseModel, InputFieldModel, ObjAlternateModel>
+  : TypeObjectEncoderBase<TypeInputModel, ObjBaseModel, InputFieldModel, AlternateModel>
 {
   public TypeInputEncoderTests()
-    => Encoder = new TypeInputEncoder(new(ObjBase, Field, ObjField, DualField, Alternate, ObjAlternate, DualAlternate, TypeParam));
+    => Encoder = new TypeInputEncoder(new(ObjBase, Field, ForField, DualField, Alternate, ForAlternate, DualAlternate, TypeParam));
 
   protected override IEncoder<TypeInputModel> Encoder { get; }
 
@@ -21,8 +21,8 @@ public class TypeInputEncoderTests
   public void Encode_WithDualModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName)
   {
     ObjBaseModel parent = new(parentType, "");
-    ObjAlternateModel alternate = new(new ObjBaseModel(alternateType, ""));
-    ObjectForModel<ObjAlternateModel> alternateFor = new(alternate, name);
+    AlternateModel alternate = new(new ObjBaseModel(alternateType, ""));
+    ObjectForModel<AlternateModel> alternateFor = new(alternate, name);
     DualFieldModel field = new(fieldName, new("", ""), "");
     ObjectForModel<DualFieldModel> fieldFor = new(field, name);
     TypeParamModel typeParam = new(paramName, "", default!);
@@ -39,10 +39,10 @@ public class TypeInputEncoderTests
     EncodeReturnsMap(ObjBase, "_Parent", parentType);
     EncodeReturnsMap(Alternate, "_Alternate", alternateType);
     EncodeReturnsMap(DualAlternate, "_DualAlternate", alternateType);
-    EncodeReturnsMap(ObjAlternate, "_AlternateFor", alternateType);
+    EncodeReturnsMap(ForAlternate, "_AlternateFor", alternateType);
     EncodeReturnsMap(Field, "_Field", fieldName);
     EncodeReturnsMap(DualField, "_DualField", fieldName);
-    EncodeReturnsMap(ObjField, "_FieldFor", fieldName);
+    EncodeReturnsMap(ForField, "_FieldFor", fieldName);
     EncodeReturnsMap(TypeParam, "_TypeParam", paramName);
 
     EncodeAndCheck(model, [

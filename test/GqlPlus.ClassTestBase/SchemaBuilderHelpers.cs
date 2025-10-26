@@ -1,24 +1,16 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Building.Schema;
 
 namespace GqlPlus;
 
 public static class SchemaBuilderHelpers
 {
-  public static T Aliased<T>(this IMockBuilder builder, string name, string[] aliases, string description = "")
+  public static T Aliased<T>(this IMockBuilder _, string name, string[] aliases, string description = "")
     where T : class, IGqlpAliased
-  {
-    T result = builder.Named<T>(name, description);
-    result.Aliases.Returns(aliases);
-    return result;
-  }
-  public static T Aliased<T, T1>(this IMockBuilder builder, string name, string[] aliases, string description = "")
-    where T : class, T1
-    where T1 : class, IGqlpAliased
-  {
-    T result = builder.Named<T>(name, description);
-    result.Aliases.Returns(aliases);
-    return result;
-  }
+    => new AliasedBuilder<T>(name)
+      .WithAliases(aliases)
+      .WithDescr(description)
+      .AsAliased;
 
   public static T Descr<T>(this IMockBuilder builder, string description)
     where T : class, IGqlpDescribed
@@ -28,14 +20,6 @@ public static class SchemaBuilderHelpers
     return result;
   }
 
-  public static IGqlpInputParam InputParam(this IMockBuilder builder, string type, bool isTypeParam = false)
-  {
-    IGqlpObjBase typeBase = builder.ObjBase(type, isTypeParam);
-    IGqlpInputParam input = builder.Error<IGqlpInputParam>();
-    input.Type.Returns(typeBase);
-    return input;
-  }
-
   public static T Named<T>(this IMockBuilder builder, string name)
     where T : class, IGqlpNamed
   {
@@ -43,7 +27,6 @@ public static class SchemaBuilderHelpers
     result.Name.Returns(name);
     return result;
   }
-
   public static T Named<T, T1>(this IMockBuilder builder, string name)
     where T : class, T1
     where T1 : class, IGqlpNamed
@@ -65,10 +48,9 @@ public static class SchemaBuilderHelpers
     where T : class, IGqlpNamed
     => builder.ArrayOf((b, i) => b.Named<T>(i), names);
 
-  public static IGqlpTypeParam TypeParam(this IMockBuilder builder, string paramName, string constraint)
-  {
-    IGqlpTypeParam typeParam = builder.Named<IGqlpTypeParam>(paramName);
-    typeParam.Constraint.Returns(constraint);
-    return typeParam;
-  }
+  public static IGqlpTypeParam TypeParam(this IMockBuilder _, string paramName, string constraint)
+    => new TypeParamBuilder(paramName, constraint).AsTypeParam;
+
+  public static InputParamBuilder InputParam(this IMockBuilder _, string typeName)
+    => new(typeName);
 }

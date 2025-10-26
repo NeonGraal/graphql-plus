@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier AltCnstFieldDualDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: PrntCnstFieldDualDual
       type: !_ObjBase
         name: String
@@ -32,17 +32,17 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefCnstFieldDualDual
       typeArgs:
-      - !_ObjTypeArg
+      - !_TypeArg
         name: AltCnstFieldDualDual
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstFieldDualDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_ObjAlternate)
+    - !_ObjectFor(_Alternate)
       object: PrntCnstFieldDualDual
       type: !_ObjBase
         name: String
     alternates:
-    - !_ObjAlternate
+    - !_Alternate
       type: !_ObjBase
         name: String
     name: PrntCnstFieldDualDual

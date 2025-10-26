@@ -7,10 +7,10 @@ internal class MergeInputObjects(
   ILoggerFactory logger,
   IMerge<IGqlpInputField> fields,
   IMerge<IGqlpTypeParam> typeParams,
-  IMerge<IGqlpObjAlt> alternates
+  IMerge<IGqlpAlternate> alternates
 ) : AstObjectsMerger<IGqlpInputObject, IGqlpInputField>(logger, fields, typeParams, alternates)
 {
-  protected override IGqlpInputObject SetAlternates(IGqlpInputObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpObjAlt> alternates)
+  protected override IGqlpInputObject SetAlternates(IGqlpInputObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpAlternate> alternates)
     => (InputDeclAst)obj with {
       TypeParams = typeParams.ArrayOf<TypeParamAst>(),
       Alternates = [.. alternates],

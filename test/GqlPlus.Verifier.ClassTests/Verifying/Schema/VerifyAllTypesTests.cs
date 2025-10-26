@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifying.Schema;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Verifying.Schema;
 
 [TracePerTest]
 public class VerifyAllTypesTests
@@ -44,7 +46,7 @@ public class VerifyAllTypesTests
   [Fact]
   public void Verify_Schema_WithAliasedDeclarations_ReturnsNoErrors()
   {
-    IGqlpType type = A.Enum("Enum", ["Alias"], "", "");
+    IGqlpType type = A.Enum("Enum").WithLabels(["Alias"]).AsEnum;
 
     _verifier.Verify([type], Errors);
 
@@ -54,9 +56,9 @@ public class VerifyAllTypesTests
   [Fact]
   public void Verify_Schema_WithAliasDuplicates_ReturnsError()
   {
-    IGqlpType type1 = A.Enum("Enum", ["Alias"], "", "");
+    IGqlpType type1 = A.Enum("Enum").WithLabels(["Alias"]).AsEnum;
 
-    IGqlpType type2 = A.Union("Union", ["Alias"], "", "");
+    IGqlpType type2 = A.Union("Union").WithMembers(["Alias"]).AsUnion;
 
     _verifier.Verify([type1, type2], Errors);
 

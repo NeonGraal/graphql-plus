@@ -28,7 +28,7 @@
         "name": "_ObjField",
         "typeArgs": [
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_ObjFieldType"
           }
         ]
@@ -55,7 +55,7 @@
             }
           },
           {
-            "$tag": "_ObjTypeArg",
+            "$tag": "_TypeArg",
             "name": "_DualField"
           }
         ]

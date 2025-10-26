@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema.Simple;
-
-namespace GqlPlus;
+﻿namespace GqlPlus;
 
 public record struct EnumLabelInput(string EnumType, string Label)
   : IComparable<EnumLabelInput>
@@ -41,9 +39,6 @@ public record struct DomainRangeInput(decimal? Min, decimal? Max)
 
     return result;
   }
-
-  internal DomainRangeAst[] DomainRange()
-    => [new(AstNulls.At, "", false, Lower, Upper)];
 }
 
 public record struct AlternateInput(string Type)

@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier CnstDomEnumOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_ObjAlternate)
+      - !_ObjectFor(_Alternate)
         object: CnstDomEnumOutp
         type: !_ObjBase
           name: RefCnstDomEnumOutp
@@ -12,7 +12,7 @@ types: !_Map_Type
               name: EnumCnstDomEnumOutp
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_ObjAlternate
+      - !_Alternate
         type: !_ObjBase
           name: RefCnstDomEnumOutp
           typeArgs:

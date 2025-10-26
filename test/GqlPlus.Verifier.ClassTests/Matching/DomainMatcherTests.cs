@@ -1,6 +1,4 @@
-﻿using GqlPlus.Building.Schema.Simple;
-
-namespace GqlPlus.Matching;
+﻿namespace GqlPlus.Matching;
 
 public class DomainMatcherTests
   : MatchTestsBase

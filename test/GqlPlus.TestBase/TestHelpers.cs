@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
-
-using GqlPlus.Abstractions;
 using GqlPlus.Token;
 using Xunit;
 

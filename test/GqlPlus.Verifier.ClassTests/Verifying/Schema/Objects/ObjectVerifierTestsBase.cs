@@ -659,10 +659,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 public class ModifersTestData
   : CollectionsTestData
 {
-  public ModifersTestData()
-  {
-    Add(ModifierKind.Opt);
-  }
+  public ModifersTestData() => Add(ModifierKind.Opt);
 }
 
 public class CollectionsTestData

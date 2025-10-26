@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus;

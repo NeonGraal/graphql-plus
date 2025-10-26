@@ -1,6 +1,4 @@
-﻿using GqlPlus.Token;
-
-namespace GqlPlus;
+﻿namespace GqlPlus;
 
 public static class CommonTestHelpers
 {

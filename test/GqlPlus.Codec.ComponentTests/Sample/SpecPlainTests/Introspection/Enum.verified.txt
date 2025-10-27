@@ -2,9 +2,6 @@
 errors:
   - !_Error
     _kind: !_TokenKind End
-    _message: In _TypeEnum can't get model for type '_ParentType'
-  - !_Error
-    _kind: !_TokenKind End
     _message: In _EnumLabel can't get model for type '_Aliased'
   - !_Error
     _kind: !_TokenKind End
@@ -46,18 +43,4 @@ types: !_Map_Type
           label: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Output
-  !_Identifier _TypeEnum: !_TypeOutput
-    name: _TypeEnum
-    parent: !_ObjBase
-      name: _ParentType
-      typeArgs:
-        - !_EnumValue
-          label: Enum
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
-        - !_TypeArg
-          name: _Aliased
-        - !_TypeArg
-          name: _EnumLabel
     typeKind: !_TypeKind Output

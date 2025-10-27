@@ -1,9 +1,6 @@
 ﻿namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
-public class VerifyOutputsAliasedTests
-  : AliasedVerifierTestsBase<IGqlpOutputObject>
-{
-  internal override GroupedVerifier<IGqlpOutputObject> NewGroupedVerifier()
-    => new VerifyOutputsAliased(Definition, Merger, LoggerFactory);
-}
+public class VerifyOutputsAliasedTests()
+  : VerifyObjectsAliasedTests<IGqlpOutputField>(TypeKind.Output)
+{ }

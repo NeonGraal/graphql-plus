@@ -37,14 +37,14 @@ public static class AllModellers
       .AddModeller<IGqlpAlternate, AlternateModel, AlternateModeller>()
 
       .AddObjectModellers<IGqlpDualField, DualFieldModel, DualFieldModeller>()
-      .AddTypeModeller<IGqlpDualObject, TypeDualModel, DualModeller>()
+      .AddTypeModeller<IGqlpObject<IGqlpDualField>, TypeDualModel, DualModeller>()
 
       .AddObjectModellers<IGqlpInputField, InputFieldModel, InputFieldModeller>()
-      .AddTypeModeller<IGqlpInputObject, TypeInputModel, InputModeller>()
+      .AddTypeModeller<IGqlpObject<IGqlpInputField>, TypeInputModel, InputModeller>()
       .AddModeller<IGqlpInputParam, InputParamModel, InputParamModeller>()
 
       .AddObjectModellers<IGqlpOutputField, OutputFieldModel, OutputFieldModeller>()
-      .AddTypeModeller<IGqlpOutputObject, TypeOutputModel, OutputModeller>()
+      .AddTypeModeller<IGqlpObject<IGqlpOutputField>, TypeOutputModel, OutputModeller>()
     ;
 
   private static IServiceCollection AddModeller<TAst, TModel, TModeller>(this IServiceCollection services)

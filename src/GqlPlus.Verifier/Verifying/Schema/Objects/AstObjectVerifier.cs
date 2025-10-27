@@ -6,16 +6,14 @@ using GqlPlus.Merging;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
-internal abstract class AstObjectVerifier<TObject, TObjField>(
-  TypeKind kind,
-  ObjectVerifierParams<TObject, TObjField> verifiers
-) : AstParentItemVerifier<TObject, IGqlpObjBase, ObjectContext, TObjField>(verifiers.Aliased, verifiers.MergeFields)
-  where TObject : IGqlpObject<TObjField>
+internal class AstObjectVerifier<TObjField>(
+  ObjectVerifierParams<TObjField> verifiers
+) : AstParentItemVerifier<IGqlpObject<TObjField>, IGqlpObjBase, ObjectContext, TObjField>(verifiers.Aliased, verifiers.MergeFields)
   where TObjField : IGqlpObjField
 {
   private readonly Matcher<IGqlpTypeArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
 
-  protected override void UsageValue(TObject usage, ObjectContext context)
+  protected override void UsageValue(IGqlpObject<TObjField> usage, ObjectContext context)
   {
     base.UsageValue(usage, context);
 
@@ -44,7 +42,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     }
   }
 
-  protected virtual void UsageField(TObjField field, TObject usage, ObjectContext context)
+  protected virtual void UsageField(TObjField field, IGqlpObject<TObjField> usage, ObjectContext context)
   {
     if (field.EnumValue is not null) {
       CheckObjEnum(usage.Label + " Field", field, context);
@@ -56,7 +54,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     CheckForSelf(new(field.Type.FullType, usage, "a field"), usage.Name, context);
   }
 
-  private void UsageAlternate(IGqlpAlternate alternate, TObject usage, ObjectContext context)
+  private void UsageAlternate(IGqlpAlternate alternate, IGqlpObject<TObjField> usage, ObjectContext context)
   {
     if (alternate.EnumValue is not null) {
       CheckObjEnum(usage.Label + " Alternate", alternate, context);
@@ -212,10 +210,10 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
   }
 
   protected override void CheckParentType(
-    SelfUsage<TObject> input,
+    SelfUsage<IGqlpObject<TObjField>> input,
     ObjectContext context,
     bool top,
-    Action<TObject>? onParent = null)
+    Action<IGqlpObject<TObjField>>? onParent = null)
   {
     if (input.Current?.StartsWith("$", StringComparison.Ordinal) == true) {
       string parameter = input.Current[1..];
@@ -231,14 +229,14 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     base.CheckParentType(input, context, top, onParent);
   }
 
-  protected override bool CheckAstParentType(SelfUsage<TObject> input, IGqlpType astType)
+  protected override bool CheckAstParentType(SelfUsage<IGqlpObject<TObjField>> input, IGqlpType astType)
     => base.CheckAstParentType(input, astType)
       || astType.Kind == TypeKind.Dual;
 
-  protected override IEnumerable<TObjField> GetItems(TObject usage)
+  protected override IEnumerable<TObjField> GetItems(IGqlpObject<TObjField> usage)
     => usage.ObjFields;
 
-  protected override void OnParentType(SelfUsage<TObject> input, ObjectContext context, TObject parentType, bool top)
+  protected override void OnParentType(SelfUsage<IGqlpObject<TObjField>> input, ObjectContext context, IGqlpObject<TObjField> parentType, bool top)
   {
     if (top && parentType.Kind != TypeKind.Dual) {
       base.OnParentType(input, context, parentType, top);
@@ -255,10 +253,10 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     }
   }
 
-  private void CheckForSelf(SelfUsage<TObject> input, string current, ObjectContext context)
+  private void CheckForSelf(SelfUsage<IGqlpObject<TObjField>> input, string current, ObjectContext context)
   {
     if (context.DifferentName(input, current)
-      && context.GetTyped(input.Current, out TObject? parentType)) {
+      && context.GetTyped(input.Current, out IGqlpObject<TObjField>? parentType)) {
       CheckParent(input, parentType, context, false);
 
       foreach (TObjField field in parentType.ObjFields) {
@@ -271,7 +269,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     }
   }
 
-  protected override void CheckMergeParent(SelfUsage<TObject> input, ObjectContext context)
+  protected override void CheckMergeParent(SelfUsage<IGqlpObject<TObjField>> input, ObjectContext context)
   {
     base.CheckMergeParent(input, context);
 
@@ -285,23 +283,22 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     }
   }
 
-  protected override ObjectContext MakeContext(TObject usage, IGqlpType[] aliased, IMessages errors)
+  protected override ObjectContext MakeContext(IGqlpObject<TObjField> usage, IGqlpType[] aliased, IMessages errors)
   {
     Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))
       .Concat(usage.TypeParams.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 
-    return new(validTypes, errors, aliased.MakeEnumValues(), kind);
+    return new(validTypes, errors, aliased.MakeEnumValues(), verifiers.FieldKind.FieldKind);
   }
 }
 
-internal record class ObjectVerifierParams<TObject, TObjField>(
-  IVerifyAliased<TObject> Aliased,
+internal record class ObjectVerifierParams<TObjField>(
+  IVerifyAliased<IGqlpObject<TObjField>> Aliased,
   IMerge<TObjField> MergeFields,
   IMerge<IGqlpAlternate> MergeAlternates,
-  Matcher<IGqlpTypeArg>.D ConstraintMatcher
+  Matcher<IGqlpTypeArg>.D ConstraintMatcher,
+  IGqlpFieldKind<TObjField> FieldKind
 )
-  where TObject : IGqlpObject
-  where TObjField : IGqlpObjField
-  ;
+  where TObjField : IGqlpObjField;

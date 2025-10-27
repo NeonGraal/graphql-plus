@@ -5,11 +5,11 @@ using GqlPlus.Parsing.Schema.Objects;
 namespace GqlPlus.Parser.Schema.Objects;
 
 public class ParseDualTests(
-  ICheckObject<IGqlpDualObject> objectChecks
-) : TestObject<IGqlpDualObject>(objectChecks)
+  ICheckObject<IGqlpDualField> objectChecks
+) : TestObject<IGqlpDualField>(objectChecks)
 { }
 
 internal sealed class ParseDualChecks(
-  Parser<IGqlpDualObject>.D parser
-) : CheckObject<IGqlpDualObject, DualDeclAst, IGqlpDualField, DualFieldAst>(new DualFactories(), parser)
+  Parser<IGqlpObject<IGqlpDualField>>.D parser
+) : CheckObject<IGqlpDualField, DualFieldAst>(new DualFactories(), parser)
 { }

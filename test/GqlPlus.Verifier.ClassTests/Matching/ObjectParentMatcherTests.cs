@@ -1,18 +1,17 @@
 ﻿namespace GqlPlus.Matching;
 
-public abstract class ObjectParentMatcherTests<TObject, TField>(
+public abstract class ObjectParentMatcherTests<TObjField>(
   TypeKind kind
 ) : MatchTestsBase
-    where TObject : class, IGqlpObject<TField>
-    where TField : class, IGqlpObjField
+    where TObjField : class, IGqlpObjField
 {
-  internal abstract ObjectParentMatcher<TObject> Sut { get; }
+  internal abstract ObjectParentMatcher<TObjField> Sut { get; }
   protected TypeKind Kind { get; } = kind;
 
   [Theory, RepeatData]
   public void Object_Matches_SameName_ReturnsTrue(string constraint)
   {
-    TObject type = A.Obj<TObject, TField>(Kind, constraint).AsObject;
+    IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, constraint).AsObject;
 
     bool result = Sut.Matches(type, constraint, Context);
 
@@ -24,7 +23,7 @@ public abstract class ObjectParentMatcherTests<TObject, TField>(
   {
     this.SkipEqual(name, constraint);
 
-    TObject type = A.Obj<TObject, TField>(Kind, name, constraint);
+    IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name, constraint);
 
     bool result = Sut.Matches(type, constraint, Context);
 
@@ -39,7 +38,7 @@ public abstract class ObjectParentMatcherTests<TObject, TField>(
     IGqlpTypeParam typeParam = A.TypeParam(typeArg, constraint);
     Types["$" + typeArg] = typeParam;
 
-    TObject type = A.Obj<TObject, TField>(Kind, name, typeArg, true);
+    IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name, typeArg, true);
 
     bool result = Sut.Matches(type, constraint, Context);
 
@@ -51,10 +50,10 @@ public abstract class ObjectParentMatcherTests<TObject, TField>(
   {
     this.SkipEqual(name, constraint);
 
-    TObject parentType = A.Obj<TObject, TField>(Kind, parent, constraint);
+    IGqlpObject<TObjField> parentType = A.Obj<TObjField>(Kind, parent, constraint);
     Types["$" + typeArg] = parentType;
 
-    TObject type = A.Obj<TObject, TField>(Kind, name, typeArg, true);
+    IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name, typeArg, true);
 
     bool result = Sut.Matches(type, constraint, Context);
 
@@ -66,9 +65,9 @@ public abstract class ObjectParentMatcherTests<TObject, TField>(
   {
     this.SkipEqual(name, parent);
 
-    TObject type = A.Obj<TObject, TField>(Kind, name, parent);
+    IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name, parent);
 
-    TObject parentType = A.Obj<TObject, TField>(Kind, parent, constraint);
+    IGqlpObject<TObjField> parentType = A.Obj<TObjField>(Kind, parent, constraint);
     Types[parent] = parentType;
 
     bool result = Sut.Matches(type, constraint, Context);
@@ -78,11 +77,11 @@ public abstract class ObjectParentMatcherTests<TObject, TField>(
 }
 
 public class DualObjectParentMatcherTests
-  : ObjectParentMatcherTests<IGqlpDualObject, IGqlpDualField>
+  : ObjectParentMatcherTests<IGqlpDualField>
 {
   public DualObjectParentMatcherTests()
     : base(TypeKind.Dual)
     => Sut = new(LoggerFactory);
 
-  internal override ObjectParentMatcher<IGqlpDualObject> Sut { get; }
+  internal override ObjectParentMatcher<IGqlpDualField> Sut { get; }
 }

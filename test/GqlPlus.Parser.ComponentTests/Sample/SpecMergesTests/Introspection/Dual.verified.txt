@@ -3,25 +3,12 @@
 Success
 {
   !Ou I@008/0001
-  _TypeDual
-  :
-  I@007/0002
-  _TypeObject
-  <
-    I@019/0002
-    _TypeKind.Dual
-    I@034/0002
-    _DualField
-  >
-}
-{
-  !Ou I@008/0005
   _DualField
   :
-  I@007/0006
+  I@007/0002
   _ObjField
   <
-    I@017/0006
+    I@017/0002
     _ObjFieldType
   >
 }

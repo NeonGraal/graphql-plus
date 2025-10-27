@@ -11,6 +11,7 @@ public class AllVerifiersTests
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
+      .AddFieldObjectKinds()
       .AddMergers()
       .AddMatchers()
       .AddVerifiers()

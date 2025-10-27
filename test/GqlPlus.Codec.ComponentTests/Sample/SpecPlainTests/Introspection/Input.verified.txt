@@ -2,9 +2,6 @@
 errors:
   - !_Error
     _kind: !_TokenKind End
-    _message: In _TypeInput can't get model for type '_TypeObject'
-  - !_Error
-    _kind: !_TokenKind End
     _message: In _InputField can't get model for type '_ObjField'
   - !_Error
     _kind: !_TokenKind End
@@ -47,16 +44,4 @@ types: !_Map_Type
     name: _InputParam
     parent: !_ObjBase
       name: _InputFieldType
-    typeKind: !_TypeKind Output
-  !_Identifier _TypeInput: !_TypeOutput
-    name: _TypeInput
-    parent: !_ObjBase
-      name: _TypeObject
-      typeArgs:
-        - !_EnumValue
-          label: Input
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
-        - !_TypeArg
-          name: _InputField
     typeKind: !_TypeKind Output

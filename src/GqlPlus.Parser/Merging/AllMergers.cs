@@ -41,14 +41,11 @@ public static class AllMergers
       // Object types
       .AddMerge<IGqlpTypeParam, MergeTypeParams>()
 
-      .AddMergeAll<IGqlpDualObject, IGqlpType, MergeDualObjects>()
       .AddMerge<IGqlpAlternate, MergeAlternates>()
-      .AddMerge<IGqlpDualField, MergeDualFields>()
-      .AddMergeAll<IGqlpInputObject, IGqlpType, MergeInputObjects>()
-      .AddMerge<IGqlpInputField, MergeInputFields>()
+      .AddMergeObject<IGqlpDualField, MergeDualFields>()
+      .AddMergeObject<IGqlpInputField, MergeInputFields>()
       .AddMerge<IGqlpInputParam, MergeInputParams>()
-      .AddMergeAll<IGqlpOutputObject, IGqlpType, MergeOutputObjects>()
-      .AddMerge<IGqlpOutputField, MergeOutputFields>()
+      .AddMergeObject<IGqlpOutputField, MergeOutputFields>()
     ;
 
   private static IServiceCollection AddMerge<TValue, TService>(this IServiceCollection services)
@@ -73,4 +70,11 @@ public static class AllMergers
   where TItem : class, IGqlpDomainItem
     => services
       .AddMergeAll<IGqlpDomain<TItem>, IGqlpDomain, MergeDomains<TItemAst, TItem>>();
+
+  private static IServiceCollection AddMergeObject<TField, TService>(this IServiceCollection services)
+  where TField : IGqlpObjField
+  where TService : AstObjectFieldsMerger<TField>
+    => services
+      .AddMergeAll<IGqlpObject<TField>, IGqlpType, AstObjectsMerger<TField>>()
+      .AddMerge<TField, TService>();
 }

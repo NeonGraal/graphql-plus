@@ -7,8 +7,8 @@ internal sealed record class UnionDeclAst(
   ITokenAt At,
   string Name,
   string Description,
-  IGqlpUnionMember[] Members
-) : AstSimple<IGqlpUnionMember>(At, Name, Description, Members)
+  IGqlpUnionMember[] Items
+) : AstSimple<IGqlpUnionMember>(At, Name, Description, Items)
   , IGqlpUnion
 {
   public override TypeKind Kind => TypeKind.Union;

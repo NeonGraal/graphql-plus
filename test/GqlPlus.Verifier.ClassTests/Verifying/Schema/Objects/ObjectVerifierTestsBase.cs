@@ -2,18 +2,17 @@
 using GqlPlus.Building.Schema;
 using GqlPlus.Building.Schema.Objects;
 using GqlPlus.Matching;
-using GqlPlus.Parsing.Schema.Objects;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
-public abstract class ObjectVerifierTestsBase<TField>
-  : UsageVerifierTestsBase<IGqlpObject<TField>>
-  where TField : class, IGqlpObjField
+public abstract class ObjectVerifierTestsBase<TObjField>
+  : UsageVerifierTestsBase<IGqlpObject<TObjField>>
+  where TObjField : class, IGqlpObjField
 {
-  internal readonly ForM<TField> MergeFields = new();
+  internal readonly ForM<TObjField> MergeFields = new();
   internal readonly ForM<IGqlpAlternate> MergeAlternates = new();
   protected TypeKind Kind { get; }
-  internal ObjectVerifierParams<TField> Verifiers { get; }
+  internal ObjectVerifierParams<TObjField> Verifiers { get; }
 
   protected ObjectVerifierTestsBase(TypeKind kind)
   {
@@ -29,7 +28,7 @@ public abstract class ObjectVerifierTestsBase<TField>
       MergeFields.Intf,
       MergeAlternates.Intf,
       ArgDelegate,
-      new FieldObjectKind<TField>(kind));
+      new FieldObjectKind<TObjField>(kind));
 
     TheBuilder = new(kind.ToString(), kind);
   }
@@ -37,11 +36,11 @@ public abstract class ObjectVerifierTestsBase<TField>
   protected Matcher<IGqlpTypeArg>.I ArgMatcher { get; }
   protected Matcher<IGqlpTypeArg>.D ArgDelegate { get; }
 
-  protected sealed override IGqlpObject<TField> TheUsage => TheObject;
+  protected sealed override IGqlpObject<TObjField> TheUsage => TheObject;
 
-  protected ObjectBuilder<TField> TheBuilder { get; }
-  protected IGqlpObject<TField> TheObject => _theObject ??= TheBuilder.AsObject;
-  private IGqlpObject<TField>? _theObject;
+  protected ObjectBuilder<TObjField> TheBuilder { get; }
+  protected IGqlpObject<TObjField> TheObject => _theObject ??= TheBuilder.AsObject;
+  private IGqlpObject<TObjField>? _theObject;
 
   [Fact]
   public void Verify_CallsMergeFieldsAndAlternates_WithoutErrors()
@@ -651,17 +650,17 @@ public abstract class ObjectVerifierTestsBase<TField>
       e => e.ShouldContain(m => m.Message.Contains(message), string.Join('\n', Errors.Select(m => " - " + m.Message))));
   }
 
-  protected void DefineObject(string name, Action<ObjectBuilder<TField>>? config = null)
+  protected void DefineObject(string name, Action<ObjectBuilder<TObjField>>? config = null)
   {
-    ObjectBuilder<TField> builder = A.Obj<TField>(Kind, name);
+    ObjectBuilder<TObjField> builder = A.Obj<TObjField>(Kind, name);
     config?.Invoke(builder);
-    IGqlpObject<TField> obj = builder.AsObject;
+    IGqlpObject<TObjField> obj = builder.AsObject;
     Definitions.Add(obj);
     Usages.Add(obj);
   }
 
-  protected void ObjectField(ObjectBuilder<TField> builder, string fieldName, string fieldType, Action<ObjFieldBuilder<TField>>? config = null)
-    => builder.WithObjFields(A.ObjField<TField>(fieldName, fieldType).FluentAction(config).AsObjField);
+  protected void ObjectField(ObjectBuilder<TObjField> builder, string fieldName, string fieldType, Action<ObjFieldBuilder<TObjField>>? config = null)
+    => builder.WithObjFields(A.ObjField<TObjField>(fieldName, fieldType).FluentAction(config).AsObjField);
 }
 
 public class ModifersTestData

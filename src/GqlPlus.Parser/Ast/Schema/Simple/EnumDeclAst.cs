@@ -7,8 +7,8 @@ internal sealed record class EnumDeclAst(
   ITokenAt At,
   string Name,
   string Description,
-  IGqlpEnumLabel[] Labels
-) : AstSimple<IGqlpEnumLabel>(At, Name, Description, Labels)
+  IGqlpEnumLabel[] Items
+) : AstSimple<IGqlpEnumLabel>(At, Name, Description, Items)
   , IGqlpEnum
 {
   public override TypeKind Kind => TypeKind.Enum;

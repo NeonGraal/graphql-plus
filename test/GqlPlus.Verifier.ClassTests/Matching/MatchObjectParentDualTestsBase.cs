@@ -1,15 +1,15 @@
 ﻿namespace GqlPlus.Matching;
 
-public abstract class MatchObjectParentDualTestsBase<TField>(TypeKind kind)
-  : ObjectParentMatcherTests<TField>(kind)
-  where TField : class, IGqlpObjField
+public abstract class MatchObjectParentDualTestsBase<TObjField>(TypeKind kind)
+  : ObjectParentMatcherTests<TObjField>(kind)
+  where TObjField : class, IGqlpObjField
 {
   [Theory, RepeatData]
   public void Object_Matches_DualParent_ReturnsTrue(string name, string parent, string constraint)
   {
     this.SkipEqual(name, parent);
 
-    IGqlpObject<TField> type = A.Obj<TField>(Kind, name, parent);
+    IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name, parent);
 
     IGqlpObject<IGqlpDualField> parentType = A.Obj<IGqlpDualField>(Kind, parent, constraint);
     Types[parent] = parentType;
@@ -19,8 +19,8 @@ public abstract class MatchObjectParentDualTestsBase<TField>(TypeKind kind)
     result.ShouldBeTrue();
   }
 
-  internal override ObjectParentMatcher<TField> Sut => DualSut;
-  internal abstract MatchObjectParentDualBase<TField> DualSut { get; }
+  internal override ObjectParentMatcher<TObjField> Sut => DualSut;
+  internal abstract MatchObjectParentDualBase<TObjField> DualSut { get; }
 }
 
 public class InputParentMatcherTests

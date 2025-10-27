@@ -1,6 +1,4 @@
 ﻿[
-  ( !TZ _Scalar [ Scalar ] ),
-  ( !TZ _Value [ Value ] ),
   ( !En Void [ _Void ] ),
   ( !En Null [ _Null null ] !EL null ),
   ( !Un _Basic [ Basic ] !UM Boolean !UM Number !UM String !UM Unit ),
@@ -25,5 +23,7 @@
   ( !TZ _Enum [ Enum ] ),
   ( !TZ _Dual [ Dual ] ),
   ( !TZ _Input [ Input ] ),
-  ( !TZ _Output [ Output ] )
+  ( !TZ _Output [ Output ] ),
+  ( !TZ _Scalar [ Scalar ] ),
+  ( !TZ _Value [ Value ] )
 ]

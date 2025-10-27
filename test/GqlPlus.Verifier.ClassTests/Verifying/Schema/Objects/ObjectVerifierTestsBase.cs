@@ -2,17 +2,18 @@
 using GqlPlus.Building.Schema;
 using GqlPlus.Building.Schema.Objects;
 using GqlPlus.Matching;
+using GqlPlus.Parsing.Schema.Objects;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
-public abstract class ObjectVerifierTestsBase<TObject, TField>
-  : UsageVerifierTestsBase<TObject>
-  where TObject : class, IGqlpObject<TField>
+public abstract class ObjectVerifierTestsBase<TField>
+  : UsageVerifierTestsBase<IGqlpObject<TField>>
   where TField : class, IGqlpObjField
 {
   internal readonly ForM<TField> MergeFields = new();
   internal readonly ForM<IGqlpAlternate> MergeAlternates = new();
   protected TypeKind Kind { get; }
+  internal ObjectVerifierParams<TField> Verifiers { get; }
 
   protected ObjectVerifierTestsBase(TypeKind kind)
   {
@@ -23,17 +24,24 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     ArgDelegate = A.Of<Matcher<IGqlpTypeArg>.D>();
     ArgDelegate().Returns(ArgMatcher);
 
+    Verifiers = new(
+      Aliased.Intf,
+      MergeFields.Intf,
+      MergeAlternates.Intf,
+      ArgDelegate,
+      new FieldObjectKind<TField>(kind));
+
     TheBuilder = new(kind.ToString(), kind);
   }
 
   protected Matcher<IGqlpTypeArg>.I ArgMatcher { get; }
   protected Matcher<IGqlpTypeArg>.D ArgDelegate { get; }
 
-  protected sealed override TObject TheUsage => TheObject;
+  protected sealed override IGqlpObject<TField> TheUsage => TheObject;
 
-  protected ObjectBuilder<TObject, TField> TheBuilder { get; }
-  protected TObject TheObject => _theObject ??= TheBuilder.AsObject;
-  private TObject? _theObject;
+  protected ObjectBuilder<TField> TheBuilder { get; }
+  protected IGqlpObject<TField> TheObject => _theObject ??= TheBuilder.AsObject;
+  private IGqlpObject<TField>? _theObject;
 
   [Fact]
   public void Verify_CallsMergeFieldsAndAlternates_WithoutErrors()
@@ -643,16 +651,16 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
       e => e.ShouldContain(m => m.Message.Contains(message), string.Join('\n', Errors.Select(m => " - " + m.Message))));
   }
 
-  protected void DefineObject(string name, Action<ObjectBuilder<TObject, TField>>? config = null)
+  protected void DefineObject(string name, Action<ObjectBuilder<TField>>? config = null)
   {
-    ObjectBuilder<TObject, TField> builder = A.Obj<TObject, TField>(Kind, name);
+    ObjectBuilder<TField> builder = A.Obj<TField>(Kind, name);
     config?.Invoke(builder);
-    TObject obj = builder.AsObject;
+    IGqlpObject<TField> obj = builder.AsObject;
     Definitions.Add(obj);
     Usages.Add(obj);
   }
 
-  protected void ObjectField(ObjectBuilder<TObject, TField> builder, string fieldName, string fieldType, Action<ObjFieldBuilder<TField>>? config = null)
+  protected void ObjectField(ObjectBuilder<TField> builder, string fieldName, string fieldType, Action<ObjFieldBuilder<TField>>? config = null)
     => builder.WithObjFields(A.ObjField<TField>(fieldName, fieldType).FluentAction(config).AsObjField);
 }
 

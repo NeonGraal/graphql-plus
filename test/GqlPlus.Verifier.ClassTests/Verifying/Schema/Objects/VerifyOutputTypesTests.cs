@@ -5,19 +5,19 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyOutputTypesTests
-  : ObjectDualVerifierTestsBase<IGqlpOutputObject, IGqlpOutputField>
+  : ObjectVerifierTestsBase<IGqlpOutputField>
 {
-  protected override IVerifyUsage<IGqlpOutputObject> Verifier { get; }
+  protected override IVerifyUsage<IGqlpObject<IGqlpOutputField>> Verifier { get; }
 
   public VerifyOutputTypesTests()
     : base(TypeKind.Output)
-    => Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate));
+    => Verifier = new VerifyOutputTypes(Verifiers);
 
   [Fact]
   public void Verify_Output_WithFieldParams_ReturnsNoErrors()
   {
     DefineObject("b");
-    IGqlpInputObject paramType = A.Obj<IGqlpInputObject, IGqlpInputField>(TypeKind.Input, "c").AsObject;
+    IGqlpObject<IGqlpInputField> paramType = A.Obj<IGqlpInputField>(TypeKind.Input, "c").AsObject;
     Define(paramType);
 
     IGqlpInputParam param = A.InputParam("c").AsInputParam;
@@ -32,7 +32,7 @@ public class VerifyOutputTypesTests
   {
     DefineObject("b");
 
-    IGqlpInputObject paramType = A.Obj<IGqlpInputObject, IGqlpInputField>(TypeKind.Input, "c").AsObject;
+    IGqlpObject<IGqlpInputField> paramType = A.Obj<IGqlpInputField>(TypeKind.Input, "c").AsObject;
     Define(paramType);
     Define<IGqlpEnum, IGqlpSimple>("d");
 

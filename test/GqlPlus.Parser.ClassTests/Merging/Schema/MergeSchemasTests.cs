@@ -61,7 +61,10 @@ public class MergeSchemasTests
     => new SchemaAst(AstNulls.At);
 
   private static AstDeclaration[] CategoryDeclarations(string category)
-    => [new CategoryDeclAst(AstNulls.At, new TypeRefAst(AstNulls.At, category)), new OutputDeclAst(AstNulls.At, category)];
+    => [
+      new CategoryDeclAst(AstNulls.At, new TypeRefAst(AstNulls.At, category)),
+      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, category, ""),
+      ];
 
   private static AstDeclaration[] OptionDeclarations(string option)
     => [new OptionDeclAst(AstNulls.At, option)];

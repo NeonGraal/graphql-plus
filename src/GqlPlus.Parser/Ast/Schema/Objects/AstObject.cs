@@ -3,17 +3,20 @@ using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal abstract record class AstObject<TObjField>(
-  ITokenAt At,
-  string Name,
-  string Description
-) : AstType<IGqlpObjBase>(At, Name, Description)
+internal record class AstObject<TObjField>
+  : AstType<IGqlpObjBase>
   , IGqlpObject<TObjField>
   where TObjField : IGqlpObjField
 {
+  internal AstObject(TypeKind kind, ITokenAt at, string name, string description)
+    : base(at, name, description)
+    => Kind = kind;
+
   public IGqlpTypeParam[] TypeParams { get; set; } = [];
   public TObjField[] ObjFields { get; set; } = [];
   public IGqlpAlternate[] Alternates { get; set; } = [];
+
+  public override TypeKind Kind { get; }
 
   IEnumerable<IGqlpTypeParam> IGqlpObject.TypeParams => TypeParams;
   IEnumerable<IGqlpObjField> IGqlpObject.Fields => ObjFields.Cast<IGqlpObjField>();

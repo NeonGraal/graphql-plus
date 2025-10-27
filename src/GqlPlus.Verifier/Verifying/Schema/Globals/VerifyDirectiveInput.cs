@@ -14,7 +14,7 @@ internal class VerifyDirectiveInput(
     foreach (IGqlpInputParam parameter in usage.Params) {
       string typeName = (parameter.Type.IsTypeParam ? "$" : "") + parameter.Type.Name;
       if (context.GetType(typeName, out IGqlpDescribed? type)) {
-        context.AddError(parameter, "Directive Param", $"'{typeName}' is an Output type", type is IGqlpOutputObject);
+        context.AddError(parameter, "Directive Param", $"'{typeName}' is an Output type", type is IGqlpObject<IGqlpOutputField>);
       } else {
         context.AddError(parameter, "Directive Param", $"'{typeName}' not defined");
       }

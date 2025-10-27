@@ -61,9 +61,9 @@ public static class BuiltIn
     new SpecialTypeAst("Domain", t => t is IGqlpDomain),
     new SpecialTypeAst("Union", t => t is IGqlpUnion),
     new SpecialTypeAst("Enum", t => t is IGqlpEnum),
-    new SpecialTypeAst("Dual", t => t is IGqlpDualObject),
-    new SpecialTypeAst("Input", t => t is IGqlpInputObject),
-    new SpecialTypeAst("Output", t => t is IGqlpOutputObject),
+    new SpecialTypeAst("Dual", t => t is IGqlpObject<IGqlpDualField>),
+    new SpecialTypeAst("Input", t => t is IGqlpObject<IGqlpInputField>),
+    new SpecialTypeAst("Output", t => t is IGqlpObject<IGqlpOutputField>),
   ];
 
   internal static Map<string> EnumValues = new() {
@@ -73,14 +73,14 @@ public static class BuiltIn
     ["false"] = "Boolean",
   };
 
-  private static DualDeclAst DualObj(string label, params IGqlpAlternate[] alternates)
-    => new(AstNulls.At, label) { Alternates = alternates };
+  private static AstObject<IGqlpDualField> DualObj(string label, params IGqlpAlternate[] alternates)
+    => new(TypeKind.Dual, AstNulls.At, label, "") { Alternates = alternates };
 
-  private static DualDeclAst DualObj(string label, ObjBaseAst parent, params string[] aliases)
-    => new(AstNulls.At, label) { Aliases = aliases, Parent = parent };
+  private static AstObject<IGqlpDualField> DualObj(string label, ObjBaseAst parent, params string[] aliases)
+    => new(TypeKind.Dual, AstNulls.At, label, "") { Aliases = aliases, Parent = parent };
 
-  private static DualDeclAst DualObj(string label, ObjBaseAst? parent, TypeParamAst[] typeParams, params IGqlpAlternate[] alternates)
-    => new(AstNulls.At, "_" + label) { Parent = parent, TypeParams = typeParams, Alternates = alternates };
+  private static AstObject<IGqlpDualField> DualObj(string label, ObjBaseAst? parent, TypeParamAst[] typeParams, params IGqlpAlternate[] alternates)
+    => new(TypeKind.Dual, AstNulls.At, "_" + label, "") { Parent = parent, TypeParams = typeParams, Alternates = alternates };
 
   //private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, ObjBaseAst parent)
   //  => new(AstNulls.At, "_" + label) { TypeParams = typeParams, Parent = parent };

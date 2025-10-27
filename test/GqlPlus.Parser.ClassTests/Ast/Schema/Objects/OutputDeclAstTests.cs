@@ -11,15 +11,12 @@ public class OutputDeclAstTests
 }
 
 internal sealed class OutputDeclAstChecks
-  : AstObjectChecks<OutputDeclAst, IGqlpOutputField>
+  : AstObjectChecks<IGqlpOutputField>
 {
   public OutputDeclAstChecks()
-    : base(dual => new OutputDeclAst(AstNulls.At, dual),
-      parent => new ObjBaseAst(AstNulls.At, parent, ""))
+    : base(TypeKind.Output, parent => new ObjBaseAst(AstNulls.At, parent, ""))
   { }
 
-  protected override IGqlpAlternate[] CreateAlternates(IEnumerable<AlternateInput> alternates)
-    => alternates.Alternates();
   protected override IGqlpOutputField[] CreateFields(IEnumerable<FieldInput> fields)
     => fields.OutputFields();
   protected override string FieldString(FieldInput input)

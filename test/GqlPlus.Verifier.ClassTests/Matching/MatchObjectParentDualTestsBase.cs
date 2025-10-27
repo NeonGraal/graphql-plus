@@ -1,8 +1,7 @@
 ﻿namespace GqlPlus.Matching;
 
-public abstract class MatchObjectParentDualTestsBase<TObject, TField>(TypeKind kind)
-  : ObjectParentMatcherTests<TObject, TField>(kind)
-  where TObject : class, IGqlpObject<TField>
+public abstract class MatchObjectParentDualTestsBase<TField>(TypeKind kind)
+  : ObjectParentMatcherTests<TField>(kind)
   where TField : class, IGqlpObjField
 {
   [Theory, RepeatData]
@@ -10,9 +9,9 @@ public abstract class MatchObjectParentDualTestsBase<TObject, TField>(TypeKind k
   {
     this.SkipEqual(name, parent);
 
-    TObject type = A.Obj<TObject, TField>(Kind, name, parent);
+    IGqlpObject<TField> type = A.Obj<TField>(Kind, name, parent);
 
-    IGqlpDualObject parentType = A.Obj<IGqlpDualObject, IGqlpDualField>(Kind, parent, constraint);
+    IGqlpObject<IGqlpDualField> parentType = A.Obj<IGqlpDualField>(Kind, parent, constraint);
     Types[parent] = parentType;
 
     bool result = Sut.Matches(type, constraint, Context);
@@ -20,26 +19,26 @@ public abstract class MatchObjectParentDualTestsBase<TObject, TField>(TypeKind k
     result.ShouldBeTrue();
   }
 
-  internal override ObjectParentMatcher<TObject> Sut => DualSut;
-  internal abstract MatchObjectParentDualBase<TObject> DualSut { get; }
+  internal override ObjectParentMatcher<TField> Sut => DualSut;
+  internal abstract MatchObjectParentDualBase<TField> DualSut { get; }
 }
 
 public class InputParentMatcherTests
-  : MatchObjectParentDualTestsBase<IGqlpInputObject, IGqlpInputField>
+  : MatchObjectParentDualTestsBase<IGqlpInputField>
 {
   public InputParentMatcherTests()
     : base(TypeKind.Input)
     => DualSut = new(LoggerFactory);
 
-  internal override MatchObjectParentDualBase<IGqlpInputObject> DualSut { get; }
+  internal override MatchObjectParentDualBase<IGqlpInputField> DualSut { get; }
 }
 
 public class OutputParentMatcherTests
-  : MatchObjectParentDualTestsBase<IGqlpOutputObject, IGqlpOutputField>
+  : MatchObjectParentDualTestsBase<IGqlpOutputField>
 {
   public OutputParentMatcherTests()
     : base(TypeKind.Output)
     => DualSut = new(LoggerFactory);
 
-  internal override MatchObjectParentDualBase<IGqlpOutputObject> DualSut { get; }
+  internal override MatchObjectParentDualBase<IGqlpOutputField> DualSut { get; }
 }

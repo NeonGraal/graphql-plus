@@ -2,9 +2,9 @@
 
 internal class OutputModeller(
   ObjectModellers<IGqlpOutputField, OutputFieldModel> modellers
-) : ModellerObject<IGqlpOutputObject, IGqlpOutputField, TypeOutputModel, OutputFieldModel>(TypeKindModel.Output, modellers)
+) : ModellerObject<IGqlpObject<IGqlpOutputField>, IGqlpOutputField, TypeOutputModel, OutputFieldModel>(TypeKindModel.Output, modellers)
 {
-  protected override TypeOutputModel ToModel(IGqlpOutputObject ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeOutputModel ToModel(IGqlpObject<IGqlpOutputField> ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
       Parent = ParentModel(ast.Parent, typeKinds),

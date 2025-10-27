@@ -43,7 +43,7 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_DefinedOutput_ReturnsNoError()
   {
-    Define<IGqlpOutputObject>("Type");
+    Define<IGqlpObject<IGqlpOutputField>>("Type");
 
     Usages.Add(_category);
 
@@ -55,7 +55,7 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_WithAliases_ReturnsNoError()
   {
-    Define<IGqlpOutputObject>("Type");
+    Define<IGqlpObject<IGqlpOutputField>>("Type");
     _category.Aliases.Returns(["Alias1", "Alias2"]);
     Usages.Add(_category);
 
@@ -67,7 +67,7 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_DefinedGenericOutput_ReturnsError()
   {
-    IGqlpOutputObject outputType = A.Named<IGqlpOutputObject>("Type");
+    IGqlpObject<IGqlpOutputField> outputType = A.Named<IGqlpObject<IGqlpOutputField>>("Type");
     IGqlpTypeParam typeParam = A.TypeParam("a", "b");
     outputType.TypeParams.Returns([typeParam]);
     Definitions.Add(outputType);
@@ -82,7 +82,7 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_DefinedInput_ReturnsError()
   {
-    Define<IGqlpInputObject>("Type");
+    Define<IGqlpObject<IGqlpInputField>>("Type");
 
     Usages.Add(_category);
 

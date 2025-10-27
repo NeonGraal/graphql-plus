@@ -7,13 +7,14 @@ public class ParseOutputTests
 {
   private readonly Parser<IGqlpTypeParam>.IA _param;
   private readonly Parser<ObjectDefinition<IGqlpOutputField>>.I _definition;
-  private readonly ParseOutput _parser;
+  private readonly ObjectParser<IGqlpOutputField> _parser;
 
   public ParseOutputTests()
   {
     Parser<IGqlpTypeParam>.DA param = ParserAFor(out _param);
     Parser<ObjectDefinition<IGqlpOutputField>>.D definition = ParserFor(out _definition);
-    _parser = new ParseOutput(SimpleName, param, Aliases, OptionNull, definition);
+    IGqlpFieldKind<IGqlpOutputField> fieldKind = new FieldObjectKind<IGqlpOutputField>(TypeKind.Output);
+    _parser = new ObjectParser<IGqlpOutputField>(SimpleName, param, Aliases, OptionNull, definition, fieldKind);
   }
 
   [Theory, RepeatData]
@@ -24,10 +25,10 @@ public class ParseOutputTests
     ParseOk(_definition, new ObjectDefinition<IGqlpOutputField>());
 
     // Act
-    IResult<IGqlpOutputObject> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpObject<IGqlpOutputField>> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultOk<IGqlpOutputObject>>();
+    result.ShouldBeAssignableTo<IResultOk<IGqlpObject<IGqlpOutputField>>>();
   }
 
   [Fact]
@@ -35,10 +36,10 @@ public class ParseOutputTests
   {
     // Arrange
     Tokenizer.Identifier(out _).Returns(false);
-    SetupError<IGqlpOutputObject>();
+    SetupError<IGqlpObject<IGqlpOutputField>>();
 
     // Act
-    IResult<IGqlpOutputObject> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpObject<IGqlpOutputField>> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

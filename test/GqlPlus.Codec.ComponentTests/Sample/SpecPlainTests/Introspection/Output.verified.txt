@@ -2,9 +2,6 @@
 errors:
   - !_Error
     _kind: !_TokenKind End
-    _message: In _TypeOutput can't get model for type '_TypeObject'
-  - !_Error
-    _kind: !_TokenKind End
     _message: In _OutputField can't get model for type '_ObjField'
   - !_Error
     _kind: !_TokenKind End
@@ -35,16 +32,4 @@ types: !_Map_Type
     name: _OutputFieldType
     parent: !_ObjBase
       name: _ObjFieldType
-    typeKind: !_TypeKind Output
-  !_Identifier _TypeOutput: !_TypeOutput
-    name: _TypeOutput
-    parent: !_ObjBase
-      name: _TypeObject
-      typeArgs:
-        - !_EnumValue
-          label: Output
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
-        - !_TypeArg
-          name: _OutputField
     typeKind: !_TypeKind Output

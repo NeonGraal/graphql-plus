@@ -5,14 +5,9 @@ namespace GqlPlus;
 
 public static class SchemaObjectBuilderHelpers
 {
-  public static TObject Obj<TObject, TField>(this IMockBuilder builder, TypeKind kind, string typeName, string parent = "", bool isTypeParam = false)
-    where TObject : class, IGqlpObject<TField>
+  public static IGqlpObject<TField> Obj<TField>(this IMockBuilder builder, TypeKind kind, string typeName, string parent = "", bool isTypeParam = false)
     where TField : class, IGqlpObjField
-  {
-    TObject theObj = builder.Obj<TObject, TField>(kind, typeName).WithParent(parent, t => t.IsTypeParam(isTypeParam)).AsObject;
-
-    return theObj;
-  }
+    => builder.Obj<TField>(kind, typeName).WithParent(parent, t => t.IsTypeParam(isTypeParam)).AsObject;
 
   public static AlternateBuilder Alternate(this IMockBuilder _, string name)
     => new(name);
@@ -30,14 +25,13 @@ public static class SchemaObjectBuilderHelpers
   public static OutputFieldBuilder OutputField(this IMockBuilder _, string fieldName, string typeName)
     => new(fieldName, typeName);
 
-  public static ObjectBuilder<TObject, TField> Obj<TObject, TField>(this IMockBuilder _, TypeKind kind, string name)
-    where TObject : class, IGqlpObject<TField>
+  public static ObjectBuilder<TField> Obj<TField>(this IMockBuilder _, TypeKind kind, string name)
     where TField : class, IGqlpObjField
     => new(name, kind);
-  public static ObjectBuilder<IGqlpDualObject, IGqlpDualField> DualObj(this IMockBuilder _, string name)
-    => _.Obj<IGqlpDualObject, IGqlpDualField>(TypeKind.Dual, name);
-  public static ObjectBuilder<IGqlpInputObject, IGqlpInputField> InputObj(this IMockBuilder _, string name)
-    => _.Obj<IGqlpInputObject, IGqlpInputField>(TypeKind.Input, name);
-  public static ObjectBuilder<IGqlpOutputObject, IGqlpOutputField> OutputObj(this IMockBuilder _, string name)
-    => _.Obj<IGqlpOutputObject, IGqlpOutputField>(TypeKind.Output, name);
+  public static ObjectBuilder<IGqlpDualField> DualObj(this IMockBuilder _, string name)
+    => _.Obj<IGqlpDualField>(TypeKind.Dual, name);
+  public static ObjectBuilder<IGqlpInputField> InputObj(this IMockBuilder _, string name)
+    => _.Obj<IGqlpInputField>(TypeKind.Input, name);
+  public static ObjectBuilder<IGqlpOutputField> OutputObj(this IMockBuilder _, string name)
+    => _.Obj<IGqlpOutputField>(TypeKind.Output, name);
 }

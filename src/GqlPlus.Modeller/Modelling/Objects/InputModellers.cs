@@ -2,9 +2,9 @@
 
 internal class InputModeller(
   ObjectModellers<IGqlpInputField, InputFieldModel> modellers
-) : ModellerObject<IGqlpInputObject, IGqlpInputField, TypeInputModel, InputFieldModel>(TypeKindModel.Input, modellers)
+) : ModellerObject<IGqlpObject<IGqlpInputField>, IGqlpInputField, TypeInputModel, InputFieldModel>(TypeKindModel.Input, modellers)
 {
-  protected override TypeInputModel ToModel(IGqlpInputObject ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeInputModel ToModel(IGqlpObject<IGqlpInputField> ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
       Parent = ParentModel(ast.Parent, typeKinds),

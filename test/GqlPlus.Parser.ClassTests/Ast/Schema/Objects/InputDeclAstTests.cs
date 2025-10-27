@@ -11,15 +11,12 @@ public class InputDeclAstTests
 }
 
 internal sealed class InputDeclAstChecks
-  : AstObjectChecks<InputDeclAst, IGqlpInputField>
+  : AstObjectChecks<IGqlpInputField>
 {
   public InputDeclAstChecks()
-    : base(dual => new InputDeclAst(AstNulls.At, dual),
-      parent => new ObjBaseAst(AstNulls.At, parent, ""))
+    : base(TypeKind.Input, parent => new ObjBaseAst(AstNulls.At, parent, ""))
   { }
 
-  protected override IGqlpAlternate[] CreateAlternates(IEnumerable<AlternateInput> alternates)
-    => alternates.Alternates();
   protected override IGqlpInputField[] CreateFields(IEnumerable<FieldInput> fields)
     => fields.InputFields();
   protected override string FieldString(FieldInput input)

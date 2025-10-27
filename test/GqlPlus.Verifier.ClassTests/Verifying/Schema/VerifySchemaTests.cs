@@ -49,7 +49,7 @@ public class VerifySchemaTests
   [Fact]
   public void Verify_Schema_WithOutputDeclaration_ReturnsNoErrors()
   {
-    IGqlpOutputObject output = A.Of<IGqlpOutputObject, IGqlpType>();
+    IGqlpObject<IGqlpOutputField> output = A.Of<IGqlpObject<IGqlpOutputField>, IGqlpType>();
     _schema.Declarations.Returns([output]);
 
     _verifier.Verify(_schema, Errors);

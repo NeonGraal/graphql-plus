@@ -17,8 +17,8 @@ internal class VerifySchema(
     IGqlpSchemaOption[] options = item.Declarations.ArrayOf<IGqlpSchemaOption>();
 
     IGqlpType[] astTypes = item.Declarations.ArrayOf<IGqlpType>();
-    IGqlpType[] outputTypes = [.. astTypes.Where(TypeIs<IGqlpOutputObject>), .. BuiltIn.Basic, .. BuiltIn.Internal];
-    IGqlpType[] inputTypes = [.. astTypes.Where(TypeIs<IGqlpInputObject>), .. BuiltIn.Basic, .. BuiltIn.Internal];
+    IGqlpType[] outputTypes = [.. astTypes.Where(TypeIs<IGqlpObject<IGqlpOutputField>>), .. BuiltIn.Basic, .. BuiltIn.Internal];
+    IGqlpType[] inputTypes = [.. astTypes.Where(TypeIs<IGqlpObject<IGqlpInputField>>), .. BuiltIn.Basic, .. BuiltIn.Internal];
 
     categoryOutputs.Verify(new(categories, outputTypes), errors);
     directiveInputs.Verify(new(directives, inputTypes), errors);

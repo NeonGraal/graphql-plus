@@ -1,7 +1,3 @@
-output _TypeUnion {
-    : _ParentType<_TypeKind.Union _UnionRef _UnionMember>
-    }
-
 output _UnionRef {
     : _TypeRef<_SimpleKind>
     }

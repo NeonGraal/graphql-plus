@@ -4,10 +4,10 @@ using GqlPlus.Parsing.Schema.Objects;
 
 namespace GqlPlus.Parser.Schema.Objects;
 
-public abstract class TestObject<TObject>(
-  ICheckObject<TObject> objectChecks
-) : BaseAliasedTests<ObjectInput, TObject>(objectChecks)
-where TObject : IGqlpObject
+public abstract class TestObject<TObjField>(
+  ICheckObject<TObjField> objectChecks
+) : BaseAliasedTests<ObjectInput, IGqlpObject<TObjField>>(objectChecks)
+where TObjField : IGqlpObjField
 {
   [Theory, RepeatData]
   public void WithAlternates_ReturnsCorrectAst(string name, string[] others)
@@ -81,17 +81,15 @@ where TObject : IGqlpObject
 
 public record struct ObjectInput(string Name, string Other);
 
-internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst>
-  : BaseAliasedChecks<ObjectInput, TObjectAst, TObject>
-  , ICheckObject<TObject>
-  where TObject : IGqlpObject<TObjField>
-  where TObjectAst : AstObject<TObjField>, TObject
+internal class CheckObject<TObjField, TObjFieldAst>
+  : BaseAliasedChecks<ObjectInput, AstObject<TObjField>, IGqlpObject<TObjField>>
+  , ICheckObject<TObjField>
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField, TObjField
 {
-  private readonly IObjectFactories<TObjectAst, TObjField, TObjFieldAst> _factories;
+  private readonly IObjectFactories<TObjField, TObjFieldAst> _factories;
 
-  internal CheckObject(IObjectFactories<TObjectAst, TObjField, TObjFieldAst> factories, Parser<TObject>.D parser)
+  internal CheckObject(IObjectFactories<TObjField, TObjFieldAst> factories, Parser<IGqlpObject<TObjField>>.D parser)
     : base(parser)
     => _factories = factories;
 
@@ -188,7 +186,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst>
   public void WithParentGenericFieldBad(string name, string parent, string subType, string field, string fieldType)
     => FalseExpected(name + "{:" + parent + "<" + subType + " " + field + ":" + fieldType + "}");
 
-  public TObjectAst Object(string name)
+  public AstObject<TObjField> Object(string name)
     => _factories.Object(AstNulls.At, name);
 
   public TObjField ObjField(string field, string baseType)
@@ -211,15 +209,15 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst>
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";
-  protected internal sealed override TObjectAst NamedFactory(ObjectInput input)
+  protected internal sealed override AstObject<TObjField> NamedFactory(ObjectInput input)
     => Object(input.Name) with { Alternates = [Alternate(input.Other)] };
 }
 
 public record struct AlternateComment(string Content, string Alternate);
 
-public interface ICheckObject<TObject>
-  : IBaseAliasedChecks<ObjectInput, TObject>
-where TObject : IGqlpObject
+public interface ICheckObject<TField>
+  : IBaseAliasedChecks<ObjectInput, IGqlpObject<TField>>
+where TField : IGqlpObjField
 {
   void WithNameBad(decimal id, string[] others);
   void WithTypeParams(string name, string other, string[] typeParams);

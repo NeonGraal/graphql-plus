@@ -2,9 +2,9 @@
 
 internal class DualModeller(
   ObjectModellers<IGqlpDualField, DualFieldModel> modellers
-) : ModellerObject<IGqlpDualObject, IGqlpDualField, TypeDualModel, DualFieldModel>(TypeKindModel.Dual, modellers)
+) : ModellerObject<IGqlpObject<IGqlpDualField>, IGqlpDualField, TypeDualModel, DualFieldModel>(TypeKindModel.Dual, modellers)
 {
-  protected override TypeDualModel ToModel(IGqlpDualObject ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeDualModel ToModel(IGqlpObject<IGqlpDualField> ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
       Parent = ParentModel(ast.Parent, typeKinds),

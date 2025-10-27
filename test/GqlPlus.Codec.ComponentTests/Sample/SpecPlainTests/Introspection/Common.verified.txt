@@ -177,27 +177,114 @@ types: !_Map_Type
       - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
-          name: _TypeDual
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Boolean
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainTrueFalse
+            - !_TypeArg
+              name: _DomainItemTrueFalse
       - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
-          name: _TypeEnum
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Enum
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainLabel
+            - !_TypeArg
+              name: _DomainItemLabel
       - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
-          name: _TypeInput
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Number
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainRange
+            - !_TypeArg
+              name: _DomainItemRange
       - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
-          name: _TypeOutput
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: String
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainRegex
+            - !_TypeArg
+              name: _DomainItemRegex
       - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
-          name: _TypeDomain
+          name: _ParentType
+          typeArgs:
+            - !_EnumValue
+              label: Enum
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _Aliased
+            - !_TypeArg
+              name: _EnumLabel
       - !_ObjectFor(_Alternate)
         object: _Type
         type: !_ObjBase
-          name: _TypeUnion
+          name: _ParentType
+          typeArgs:
+            - !_EnumValue
+              label: Union
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _UnionRef
+            - !_TypeArg
+              name: _UnionMember
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Dual
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DualField
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Input
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _InputField
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Output
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _OutputField
     alternates:
       - !_Alternate
         type: !_ObjBase
@@ -217,22 +304,106 @@ types: !_Map_Type
               typeKind: !_SimpleKind Enum
       - !_Alternate
         type: !_ObjBase
-          name: _TypeDual
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Boolean
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainTrueFalse
+            - !_TypeArg
+              name: _DomainItemTrueFalse
       - !_Alternate
         type: !_ObjBase
-          name: _TypeEnum
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Enum
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainLabel
+            - !_TypeArg
+              name: _DomainItemLabel
       - !_Alternate
         type: !_ObjBase
-          name: _TypeInput
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Number
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainRange
+            - !_TypeArg
+              name: _DomainItemRange
       - !_Alternate
         type: !_ObjBase
-          name: _TypeOutput
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: String
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainRegex
+            - !_TypeArg
+              name: _DomainItemRegex
       - !_Alternate
         type: !_ObjBase
-          name: _TypeDomain
+          name: _ParentType
+          typeArgs:
+            - !_EnumValue
+              label: Enum
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _Aliased
+            - !_TypeArg
+              name: _EnumLabel
       - !_Alternate
         type: !_ObjBase
-          name: _TypeUnion
+          name: _ParentType
+          typeArgs:
+            - !_EnumValue
+              label: Union
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _UnionRef
+            - !_TypeArg
+              name: _UnionMember
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Dual
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DualField
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Input
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _InputField
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Output
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _OutputField
     name: _Type
     typeKind: !_TypeKind Output
   !_Identifier _TypeKind: !_TypeEnum

@@ -40,7 +40,7 @@ public class MergeAllTypesTests
 
     IGqlpType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new OutputDeclAst(AstNulls.At, outputType) { ObjFields = [field] },
+      new AstObject < IGqlpOutputField > (TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
     ];
 
     // Act
@@ -68,7 +68,7 @@ public class MergeAllTypesTests
 
     IGqlpType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new OutputDeclAst(AstNulls.At, outputType) { ObjFields = [field] },
+      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
     ];
 
     // Act
@@ -92,7 +92,7 @@ public class MergeAllTypesTests
 
     IGqlpType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new OutputDeclAst(AstNulls.At, outputType) { Alternates = [alt] },
+      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { Alternates = [alt] },
     ];
 
     // Act
@@ -119,7 +119,7 @@ public class MergeAllTypesTests
 
     IGqlpType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new OutputDeclAst(AstNulls.At, outputType) { Alternates = [alt] },
+      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { Alternates = [alt] },
     ];
 
     // Act

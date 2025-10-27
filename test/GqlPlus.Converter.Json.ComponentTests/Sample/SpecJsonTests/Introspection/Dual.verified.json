@@ -7,14 +7,6 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _TypeDual can\u0027t get model for type \u0027_TypeObject\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "End"
-      },
       "_message": "In _DualField can\u0027t get model for type \u0027_ObjField\u0027"
     }
   ],
@@ -30,33 +22,6 @@
           {
             "$tag": "_TypeArg",
             "name": "_ObjFieldType"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_TypeDual": {
-      "$tag": "_TypeOutput",
-      "name": "_TypeDual",
-      "parent": {
-        "$tag": "_ObjBase",
-        "name": "_TypeObject",
-        "typeArgs": [
-          {
-            "$tag": "_EnumValue",
-            "label": "Dual",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$tag": "_SimpleKind",
-              "value": "Enum"
-            }
-          },
-          {
-            "$tag": "_TypeArg",
-            "name": "_DualField"
           }
         ]
       },

@@ -30,13 +30,13 @@ public static class Startup
       .AddTransient<IParseObjBaseChecks, ParseObjBaseChecks>()
 
       .AddTransient<ICheckObjectField<IGqlpDualField>, ParseDualFieldChecks>()
-      .AddTransient<ICheckObject<IGqlpDualObject>, ParseDualChecks>()
+      .AddTransient<ICheckObject<IGqlpDualField>, ParseDualChecks>()
 
       .AddTransient<ICheckObjectField<IGqlpInputField>, ParseInputFieldChecks>()
-      .AddTransient<ICheckObject<IGqlpInputObject>, ParseInputChecks>()
+      .AddTransient<ICheckObject<IGqlpInputField>, ParseInputChecks>()
 
       .AddTransient<ICheckObjectField<IGqlpOutputField>, ParseOutputFieldChecks>()
-      .AddTransient<ICheckObject<IGqlpOutputObject>, ParseOutputChecks>()
+      .AddTransient<ICheckObject<IGqlpOutputField>, ParseOutputChecks>()
 
       .AddComponentTest();
 }

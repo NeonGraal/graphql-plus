@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class DualModellerTests
-  : ModellerObjectBaseTestBase<IGqlpDualObject, TypeDualModel, ObjBaseModel>
+  : ModellerObjectBaseTestBase<IGqlpObject<IGqlpDualField>, TypeDualModel, ObjBaseModel>
 {
   public DualModellerTests()
   {
@@ -12,13 +12,13 @@ public class DualModellerTests
     Modeller = new DualModeller(new(typeParam, alternate, objField, ObjBase));
   }
 
-  protected override IModeller<IGqlpDualObject, TypeDualModel> Modeller { get; }
+  protected override IModeller<IGqlpObject<IGqlpDualField>, TypeDualModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidObject_ReturnsExpectedTypeDualModel(string name, string[] aliases, string content)
   {
     // Arrange
-    IGqlpDualObject ast = A.Aliased<IGqlpDualObject>(name, aliases, content);
+    IGqlpObject<IGqlpDualField> ast = A.Aliased<IGqlpObject<IGqlpDualField>>(name, aliases, content);
 
     // Act
     TypeDualModel result = Modeller.ToModel(ast, TypeKinds);

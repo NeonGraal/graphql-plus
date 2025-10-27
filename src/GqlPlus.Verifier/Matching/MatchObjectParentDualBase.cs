@@ -3,16 +3,16 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-internal class MatchObjectParentDualBase<TType>(
+internal class MatchObjectParentDualBase<TField>(
   ILoggerFactory logger
-) : ObjectParentMatcher<TType>(logger)
-  where TType : class, IGqlpObject
+) : ObjectParentMatcher<TField>(logger)
+  where TField : class, IGqlpObjField
 {
   protected override bool MatchParent(IGqlpObjBase parent, string constraint, UsageContext context)
     => parent is not null && (
-      MatchArgOrType<TType, UsageContext>(parent.TypeName, constraint, context, MatchObject)
-    || MatchArgOrType<IGqlpDualObject, UsageContext>(parent.TypeName, constraint, context, MatchDual));
+      MatchArgOrType<IGqlpObject<TField>, UsageContext>(parent.TypeName, constraint, context, MatchObject)
+    || MatchArgOrType<IGqlpObject<IGqlpDualField>, UsageContext>(parent.TypeName, constraint, context, MatchDual));
 
-  private bool MatchDual(IGqlpDualObject dual, string constraint, UsageContext context)
+  private bool MatchDual(IGqlpObject<IGqlpDualField> dual, string constraint, UsageContext context)
     => MatchObject(dual, constraint, context);
 }

@@ -37,12 +37,9 @@ public static class AllVerifiers
       .AddVerifyUsageAliased<IGqlpEnum, VerifyEnumsAliased, VerifyEnumTypes>()
       .AddVerifyUsageAliased<IGqlpUnion, VerifyUnionsAliased, VerifyUnionTypes>()
       // Object Types
-      .AddSingleton<ObjectVerifierParams<IGqlpDualObject, IGqlpDualField>>()
-      .AddVerifyUsageAliased<IGqlpDualObject, VerifyDualsAliased, VerifyDualTypes>()
-      .AddSingleton<ObjectVerifierParams<IGqlpInputObject, IGqlpInputField>>()
-      .AddVerifyUsageAliased<IGqlpInputObject, VerifyInputsAliased, VerifyInputTypes>()
-      .AddSingleton<ObjectVerifierParams<IGqlpOutputObject, IGqlpOutputField>>()
-      .AddVerifyUsageAliased<IGqlpOutputObject, VerifyOutputsAliased, VerifyOutputTypes>()
+      .AddVerifyObject<IGqlpDualField, VerifyDualTypes>()
+      .AddVerifyObject<IGqlpInputField, VerifyInputTypes>()
+      .AddVerifyObject<IGqlpOutputField, VerifyOutputTypes>()
     ;
 
   private static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)
@@ -84,4 +81,11 @@ public static class AllVerifiers
   private static IServiceCollection AddVerifyDomainContext<TService>(this IServiceCollection services)
     where TService : class, IVerifyDomain
     => services.AddSingleton<IVerifyDomain, TService>();
+
+  private static IServiceCollection AddVerifyObject<TField, TService>(this IServiceCollection services)
+    where TField : IGqlpObjField
+    where TService : AstObjectVerifier<TField>
+    => services
+      .AddSingleton<ObjectVerifierParams<TField>>()
+      .AddVerifyUsageAliased<IGqlpObject<TField>, ObjectsAliasedVerifier<TField>, TService>();
 }

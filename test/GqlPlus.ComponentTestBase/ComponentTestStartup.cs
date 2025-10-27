@@ -24,6 +24,7 @@ public static class ComponentTestStartup
         }
       })
       .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
+      .AddFieldObjectKinds()
       .AddCommonParsers()
       .AddOperationParsers()
       .AddSchemaParsers()

@@ -15,284 +15,239 @@ Success
 }
 {
   !Ou I@008/0003
-  _TypeDomain
-  |
-  I@007/0004
-  _BaseDomain
-  <
-    I@019/0004
-    _DomainKind.Boolean
-    I@039/0004
-    _DomainTrueFalse
-    I@056/0004
-    _DomainItemTrueFalse
-  >
-  I@007/0005
-  _BaseDomain
-  <
-    I@019/0005
-    _DomainKind.Enum
-    I@036/0005
-    _DomainLabel
-    I@049/0005
-    _DomainItemLabel
-  >
-  I@007/0006
-  _BaseDomain
-  <
-    I@019/0006
-    _DomainKind.Number
-    I@038/0006
-    _DomainRange
-    I@051/0006
-    _DomainItemRange
-  >
-  I@007/0007
-  _BaseDomain
-  <
-    I@019/0007
-    _DomainKind.String
-    I@038/0007
-    _DomainRegex
-    I@051/0007
-    _DomainItemRegex
-  >
-}
-{
-  !Ou I@008/0010
   _DomainRef
   <
-    I@020/0010
+    I@020/0003
     $kind
     :_DomainKind
   >
   :
-  I@007/0011
+  I@007/0004
   _TypeRef
   <
-    I@016/0011
+    I@016/0004
     _TypeKind.Domain
   >
   {
-    !OF I@009/0012
+    !OF I@009/0005
     domainKind
     :
-    I@022/0012
+    I@022/0005
     $kind
   }
 }
 {
-  !Ou I@008/0015
+  !Ou I@008/0008
   _BaseDomain
   <
-    I@021/0015
+    I@021/0008
     $domain
     :_DomainKind
-    I@041/0015
+    I@041/0008
     $item
     :_BaseDomainItem
-    I@063/0015
+    I@063/0008
     $domainItem
     :_DomainItem
   >
   :
-  I@007/0016
+  I@007/0009
   _ParentType
   <
-    I@019/0016
+    I@019/0009
     _TypeKind.Domain
-    I@037/0016
+    I@037/0009
     $item
-    I@043/0016
+    I@043/0009
     $domainItem
   >
   {
-    !OF I@009/0017
+    !OF I@009/0010
     domainKind
     :
-    I@022/0017
+    I@022/0010
     $domain
   }
 }
 {
-  !Du I@006/0020
+  !Du I@006/0013
   _BaseDomainItem
   :
-  I@007/0021
+  I@007/0014
   _Described
   {
-    !DF I@009/0022
+    !DF I@009/0015
     exclude
     :
-    I@018/0022
+    I@018/0015
     Boolean
   }
 }
 {
-  !Ou I@008/0025
+  !Ou I@008/0018
   _DomainItem
   <
-    I@021/0025
+    I@021/0018
     $item
     :_BaseDomainItem
   >
   :
-  I@008/0026
+  I@008/0019
   $item
   {
-    !OF I@009/0027
+    !OF I@009/0020
     domain
     :
-    I@017/0027
+    I@017/0020
     _Identifier
   }
 }
 {
-  !Ou I@008/0030
+  !Ou I@008/0023
   _DomainValue
   <
-    I@022/0030
+    I@022/0023
     $kind
     :_DomainKind
-    I@040/0030
+    I@040/0023
     $value
     :_BasicValue
   >
   :
-  I@007/0031
+  I@007/0024
   _DomainRef
   <
-    I@019/0031
+    I@019/0024
     $kind
   >
   {
-    !OF I@009/0032
+    !OF I@009/0025
     value
     :
-    I@017/0032
+    I@017/0025
     $value
   }
   |
-  P@007/0033
+  P@007/0026
   $value
 }
 {
-  !Ou I@008/0036
+  !Ou I@008/0029
   _BasicValue
   |
-  I@007/0037
+  I@007/0030
   _DomainKind.Boolean
-  I@007/0038
+  I@007/0031
   _EnumValue
-  I@007/0039
+  I@007/0032
   _DomainKind.Number
-  I@007/0040
+  I@007/0033
   _DomainKind.String
 }
 {
-  !Du I@006/0043
+  !Du I@006/0036
   _DomainTrueFalse
   :
-  I@007/0044
+  I@007/0037
   _BaseDomainItem
   {
-    !DF I@009/0045
+    !DF I@009/0038
     value
     :
-    I@016/0045
+    I@016/0038
     Boolean
   }
 }
 {
-  !Ou I@008/0048
+  !Ou I@008/0041
   _DomainItemTrueFalse
   :
-  I@007/0049
+  I@007/0042
   _DomainItem
   <
-    I@019/0049
+    I@019/0042
     _DomainTrueFalse
   >
 }
 {
-  !Ou I@008/0052
+  !Ou I@008/0045
   _DomainLabel
   :
-  I@007/0053
+  I@007/0046
   _BaseDomainItem
   {
-    !OF I@009/0054
+    !OF I@009/0047
     label
     :
-    I@016/0054
+    I@016/0047
     _EnumValue
   }
 }
 {
-  !Ou I@008/0057
+  !Ou I@008/0050
   _DomainItemLabel
   :
-  I@007/0058
+  I@007/0051
   _DomainItem
   <
-    I@019/0058
+    I@019/0051
     _DomainLabel
   >
 }
 {
-  !Du I@006/0061
+  !Du I@006/0054
   _DomainRange
   :
-  I@007/0062
+  I@007/0055
   _BaseDomainItem
   {
-    !DF I@009/0063
+    !DF I@009/0056
     lower
     :
-    I@016/0063
+    I@016/0056
     Number
     ?
-    !DF I@009/0064
+    !DF I@009/0057
     upper
     :
-    I@016/0064
+    I@016/0057
     Number
     ?
   }
 }
 {
-  !Ou I@008/0067
+  !Ou I@008/0060
   _DomainItemRange
   :
-  I@007/0068
+  I@007/0061
   _DomainItem
   <
-    I@019/0068
+    I@019/0061
     _DomainRange
   >
 }
 {
-  !Du I@006/0071
+  !Du I@006/0064
   _DomainRegex
   :
-  I@007/0072
+  I@007/0065
   _BaseDomainItem
   {
-    !DF I@009/0073
+    !DF I@009/0066
     pattern
     :
-    I@018/0073
+    I@018/0066
     String
   }
 }
 {
-  !Ou I@008/0076
+  !Ou I@008/0069
   _DomainItemRegex
   :
-  I@007/0077
+  I@007/0070
   _DomainItem
   <
-    I@019/0077
+    I@019/0070
     _DomainRegex
   >
 }

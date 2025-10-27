@@ -7,14 +7,6 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _TypeEnum can\u0027t get model for type \u0027_ParentType\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "End"
-      },
       "_message": "In _EnumLabel can\u0027t get model for type \u0027_Aliased\u0027"
     },
     {
@@ -97,37 +89,6 @@
               "$tag": "_SimpleKind",
               "value": "Enum"
             }
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_TypeEnum": {
-      "$tag": "_TypeOutput",
-      "name": "_TypeEnum",
-      "parent": {
-        "$tag": "_ObjBase",
-        "name": "_ParentType",
-        "typeArgs": [
-          {
-            "$tag": "_EnumValue",
-            "label": "Enum",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$tag": "_SimpleKind",
-              "value": "Enum"
-            }
-          },
-          {
-            "$tag": "_TypeArg",
-            "name": "_Aliased"
-          },
-          {
-            "$tag": "_TypeArg",
-            "name": "_EnumLabel"
           }
         ]
       },

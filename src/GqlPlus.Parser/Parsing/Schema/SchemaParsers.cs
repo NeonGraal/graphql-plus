@@ -53,19 +53,10 @@ public static class SchemaParsers
       .AddParserArray<IGqlpAlternate, ParseAlternates>()
       .AddParser<IGqlpObjBase, ParseObjBase>()
       .AddParserArray<IGqlpTypeArg, ParseTypeArgs>()
-      // Dual
-      .AddParser<IGqlpDualField, ParseDualField>()
-      .AddDeclarationParser<IGqlpDualObject, ParseDual>("dual")
-      .AddObjectParser<IGqlpDualField>()
-      // Input
-      .AddParser<IGqlpInputField, ParseInputField>()
-      .AddDeclarationParser<IGqlpInputObject, ParseInput>("input")
-      .AddObjectParser<IGqlpInputField>()
+      .AddObjectParser<IGqlpDualField, ParseDualField>(TypeKind.Dual)
+      .AddObjectParser<IGqlpInputField, ParseInputField>(TypeKind.Input)
       .AddParserArray<IGqlpInputParam, ParseInputParams>()
-      // Output
-      .AddParser<IGqlpOutputField, ParseOutputField>()
-      .AddDeclarationParser<IGqlpOutputObject, ParseOutput>("output")
-      .AddObjectParser<IGqlpOutputField>()
+      .AddObjectParser<IGqlpOutputField, ParseOutputField>(TypeKind.Output)
       // Schema
       .AddParser<IGqlpSchema, ParseSchema>()
       ;
@@ -80,9 +71,13 @@ public static class SchemaParsers
       .AddParser<IOptionParser<TOption>, TOption, OptionParser<TOption>>()
       .AddParser<IEnumParser<TOption>, TOption, EnumParser<TOption>>();
 
-  private static IServiceCollection AddObjectParser<TObjField>(this IServiceCollection services)
+  [SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
+  private static IServiceCollection AddObjectParser<TObjField, TParser>(this IServiceCollection services, TypeKind kind)
     where TObjField : IGqlpObjField
+    where TParser : class, Parser<TObjField>.I
     => services
+      .AddParser<TObjField, TParser>()
+      .AddDeclarationParser<IGqlpObject<TObjField>, ObjectParser<TObjField>>(kind.ToString().ToLowerInvariant())
       .AddParser<ObjectDefinition<TObjField>, ParseObjectDefinition<TObjField>>();
 
   private static IServiceCollection AddDeclarationParser<TObject, TParser>(this IServiceCollection services, string selector)

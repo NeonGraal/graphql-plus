@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class InputModellerTests
-  : ModellerObjectBaseTestBase<IGqlpInputObject, TypeInputModel, ObjBaseModel>
+  : ModellerObjectBaseTestBase<IGqlpObject<IGqlpInputField>, TypeInputModel, ObjBaseModel>
 {
   public InputModellerTests()
   {
@@ -12,13 +12,13 @@ public class InputModellerTests
     Modeller = new InputModeller(new(typeParam, alternate, objField, ObjBase));
   }
 
-  protected override IModeller<IGqlpInputObject, TypeInputModel> Modeller { get; }
+  protected override IModeller<IGqlpObject<IGqlpInputField>, TypeInputModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidObject_ReturnsExpectedTypeInputModel(string name, string[] aliases, string content)
   {
     // Arrange
-    IGqlpInputObject ast = A.Aliased<IGqlpInputObject>(name, aliases, content);
+    IGqlpObject<IGqlpInputField> ast = A.Aliased<IGqlpObject<IGqlpInputField>>(name, aliases, content);
 
     // Act
     TypeInputModel result = Modeller.ToModel(ast, TypeKinds);

@@ -3,41 +3,26 @@
 Success
 {
   !Ou I@008/0001
-  _TypeUnion
-  :
-  I@007/0002
-  _ParentType
-  <
-    I@019/0002
-    _TypeKind.Union
-    I@035/0002
-    _UnionRef
-    I@045/0002
-    _UnionMember
-  >
-}
-{
-  !Ou I@008/0005
   _UnionRef
   :
-  I@007/0006
+  I@007/0002
   _TypeRef
   <
-    I@016/0006
+    I@016/0002
     _SimpleKind
   >
 }
 {
-  !Ou I@008/0009
+  !Ou I@008/0005
   _UnionMember
   :
-  I@007/0010
+  I@007/0006
   _UnionRef
   {
-    !OF I@009/0011
+    !OF I@009/0007
     union
     :
-    I@016/0011
+    I@016/0007
     _Identifier
   }
 }

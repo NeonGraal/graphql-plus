@@ -9,6 +9,7 @@ public class SchemaParsersTests
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
+      .AddFieldObjectKinds()
       .AddCommonParsers()
       .AddSchemaParsers()
       .BuildServiceProvider();

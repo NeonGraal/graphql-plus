@@ -16,6 +16,12 @@ public interface IGqlpObject<TField>
   IEnumerable<TField> ObjFields { get; }
 }
 
+public interface IGqlpFieldKind<TField>
+  where TField : IGqlpObjField
+{
+  TypeKind FieldKind { get; }
+}
+
 public interface IGqlpObjType
   : IGqlpNamed
   , IEquatable<IGqlpObjType>
@@ -75,16 +81,8 @@ public interface IGqlpTypeParam
   string Constraint { get; }
 }
 
-public interface IGqlpDualObject
-  : IGqlpObject<IGqlpDualField>
-{ }
-
 public interface IGqlpDualField
   : IGqlpObjField
-{ }
-
-public interface IGqlpInputObject
-  : IGqlpObject<IGqlpInputField>
 { }
 
 public interface IGqlpInputFieldType
@@ -97,10 +95,6 @@ public interface IGqlpInputField
   : IGqlpObjField
   , IGqlpInputFieldType
   , IEquatable<IGqlpInputField>
-{ }
-
-public interface IGqlpOutputObject
-  : IGqlpObject<IGqlpOutputField>
 { }
 
 public interface IGqlpOutputField

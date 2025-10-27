@@ -1,1 +1,1 @@
-21a09ee  (HEAD -> operation) 2025-10-09 Add _Path and improve _Identifier in Introspection
+928d017  (HEAD -> operation) 2025-10-27 Merge branch 'main' into operation

@@ -102,21 +102,9 @@ public class test_ForParam<Ttype>
   public _ObjField<Ttype> As_ObjField { get; set; }
 }
 
-public class test_TypeDual
-  : test_TypeObject
-  , Itest_TypeDual
-{
-}
-
 public class test_DualField
   : test_ObjField
   , Itest_DualField
-{
-}
-
-public class test_TypeInput
-  : test_TypeObject
-  , Itest_TypeInput
 {
 }
 
@@ -136,12 +124,6 @@ public class test_InputFieldType
 public class test_InputParam
   : test_InputFieldType
   , Itest_InputParam
-{
-}
-
-public class test_TypeOutput
-  : test_TypeObject
-  , Itest_TypeOutput
 {
 }
 

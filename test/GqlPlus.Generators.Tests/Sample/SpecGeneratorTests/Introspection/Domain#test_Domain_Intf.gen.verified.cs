@@ -5,14 +5,6 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Domain;
 
-public interface Itest_TypeDomain
-{
-  _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; }
-}
-
 public interface Itest_DomainRef<Tkind>
   : Itest_TypeRef
 {

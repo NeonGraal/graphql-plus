@@ -91,12 +91,15 @@ output _Setting {
 output _Type {
     | _BaseType<_TypeKind.Basic>
     | _BaseType<_TypeKind.Internal>
-    | _TypeDual
-    | _TypeEnum
-    | _TypeInput
-    | _TypeOutput
-    | _TypeDomain
-    | _TypeUnion
+    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
+    | _BaseDomain<_DomainKind.Enum _DomainLabel _DomainItemLabel>
+    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
+    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
+    | _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
+    | _ParentType<_TypeKind.Union _UnionRef _UnionMember>
+    | _TypeObject<_TypeKind.Dual _DualField>
+    | _TypeObject<_TypeKind.Input _InputField>
+    | _TypeObject<_TypeKind.Output _OutputField>
     }
 
 output _BaseType<$kind:_TypeKind> {
@@ -155,13 +158,6 @@ dual _Modifier<$kind:_ModifierKind> {
     }
 
 enum _DomainKind { Boolean Enum Number String }
-
-output _TypeDomain {
-    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
-    | _BaseDomain<_DomainKind.Enum _DomainLabel _DomainItemLabel>
-    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
-    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
-    }
 
 output _DomainRef<$kind:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
@@ -233,10 +229,6 @@ output _DomainItemRegex {
     : _DomainItem<_DomainRegex>
     }
 
-output _TypeEnum {
-    : _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
-    }
-
 dual _EnumLabel {
     : _Aliased
         enum: _Identifier
@@ -245,10 +237,6 @@ dual _EnumLabel {
 output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
         label: _Identifier
-    }
-
-output _TypeUnion {
-    : _ParentType<_TypeKind.Union _UnionRef _UnionMember>
     }
 
 output _UnionRef {
@@ -329,16 +317,8 @@ output _ForParam<$type:_ObjFieldType> {
     | _ObjField<$type>
     }
 
-output _TypeDual {
-    : _TypeObject<_TypeKind.Dual _DualField>
-    }
-
 output _DualField {
     : _ObjField<_ObjFieldType>
-    }
-
-output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputField>
     }
 
 output _InputField {
@@ -352,10 +332,6 @@ output _InputFieldType {
 
 output _InputParam {
     : _InputFieldType
-    }
-
-output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputField>
     }
 
 output _OutputField {
@@ -493,12 +469,15 @@ public class Cmpt_Type
 {
   public _BaseType<_TypeKind> As_BaseType { get; set; }
   public _BaseType<_TypeKind> As_BaseType { get; set; }
-  public _TypeDual As_TypeDual { get; set; }
-  public _TypeEnum As_TypeEnum { get; set; }
-  public _TypeInput As_TypeInput { get; set; }
-  public _TypeOutput As_TypeOutput { get; set; }
-  public _TypeDomain As_TypeDomain { get; set; }
-  public _TypeUnion As_TypeUnion { get; set; }
+  public _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; set; }
+  public _ParentType<_TypeKind, _Aliased, _EnumLabel> As_ParentType { get; set; }
+  public _ParentType<_TypeKind, _UnionRef, _UnionMember> As_ParentType { get; set; }
+  public _TypeObject<_TypeKind, _DualField> As_TypeObject { get; set; }
+  public _TypeObject<_TypeKind, _InputField> As_TypeObject { get; set; }
+  public _TypeObject<_TypeKind, _OutputField> As_TypeObject { get; set; }
 }
 
 public class Cmpt_BaseType<Tkind>
@@ -566,15 +545,6 @@ public class Cmpt_Modifier<Tkind>
   : ICmpt_Modifier<Tkind>
 {
   public Tkind modifierKind { get; set; }
-}
-
-public class Cmpt_TypeDomain
-  : ICmpt_TypeDomain
-{
-  public _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; set; }
-  public _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; set; }
-  public _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; set; }
-  public _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; set; }
 }
 
 public class Cmpt_DomainRef<Tkind>
@@ -675,12 +645,6 @@ public class Cmpt_DomainItemRegex
 {
 }
 
-public class Cmpt_TypeEnum
-  : Cmpt_ParentType
-  , ICmpt_TypeEnum
-{
-}
-
 public class Cmpt_EnumLabel
   : Cmpt_Aliased
   , ICmpt_EnumLabel
@@ -693,12 +657,6 @@ public class Cmpt_EnumValue
   , ICmpt_EnumValue
 {
   public _Identifier label { get; set; }
-}
-
-public class Cmpt_TypeUnion
-  : Cmpt_ParentType
-  , ICmpt_TypeUnion
-{
 }
 
 public class Cmpt_UnionRef
@@ -811,21 +769,9 @@ public class Cmpt_ForParam<Ttype>
   public _ObjField<Ttype> As_ObjField { get; set; }
 }
 
-public class Cmpt_TypeDual
-  : Cmpt_TypeObject
-  , ICmpt_TypeDual
-{
-}
-
 public class Cmpt_DualField
   : Cmpt_ObjField
   , ICmpt_DualField
-{
-}
-
-public class Cmpt_TypeInput
-  : Cmpt_TypeObject
-  , ICmpt_TypeInput
 {
 }
 
@@ -845,12 +791,6 @@ public class Cmpt_InputFieldType
 public class Cmpt_InputParam
   : Cmpt_InputFieldType
   , ICmpt_InputParam
-{
-}
-
-public class Cmpt_TypeOutput
-  : Cmpt_TypeObject
-  , ICmpt_TypeOutput
 {
 }
 

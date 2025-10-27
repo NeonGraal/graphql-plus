@@ -23,9 +23,9 @@ public static class AllGenerators
       .AddTypeGenerator<DomainStringGenerator>()
       .AddTypeGenerator<UnionGenerator>()
       // Objects
-      .AddTypeGenerator<DualGenerator>()
-      .AddTypeGenerator<InputGenerator>()
-      .AddTypeGenerator<OutputGenerator>()
+      .AddTypeGenerator<GenerateForObject<IGqlpDualField>>()
+      .AddTypeGenerator<GenerateForObject<IGqlpInputField>>()
+      .AddTypeGenerator<GenerateForObject<IGqlpOutputField>>()
     ;
 
   private static IServiceCollection AddGenerator<TAst, TGenerator>(this IServiceCollection services)

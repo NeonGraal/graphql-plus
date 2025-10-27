@@ -1,8 +1,4 @@
 ﻿/* Input
-output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputField>
-    }
-
 output _InputField {
     : _ObjField<_InputFieldType>
     }
@@ -22,11 +18,6 @@ output _InputParam {
 /*
 */
 namespace Components.Gqlp_Spec_Input;
-
-public interface ICmpt_TypeInput
-  : ICmpt_TypeObject
-{
-}
 
 public interface ICmpt_InputField
   : ICmpt_ObjField

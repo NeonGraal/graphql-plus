@@ -10,12 +10,15 @@ public class test_Type
 {
   public _BaseType<_TypeKind> As_BaseType { get; set; }
   public _BaseType<_TypeKind> As_BaseType { get; set; }
-  public _TypeDual As_TypeDual { get; set; }
-  public _TypeEnum As_TypeEnum { get; set; }
-  public _TypeInput As_TypeInput { get; set; }
-  public _TypeOutput As_TypeOutput { get; set; }
-  public _TypeDomain As_TypeDomain { get; set; }
-  public _TypeUnion As_TypeUnion { get; set; }
+  public _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; set; }
+  public _ParentType<_TypeKind, _Aliased, _EnumLabel> As_ParentType { get; set; }
+  public _ParentType<_TypeKind, _UnionRef, _UnionMember> As_ParentType { get; set; }
+  public _TypeObject<_TypeKind, _DualField> As_TypeObject { get; set; }
+  public _TypeObject<_TypeKind, _InputField> As_TypeObject { get; set; }
+  public _TypeObject<_TypeKind, _OutputField> As_TypeObject { get; set; }
 }
 
 public class test_BaseType<Tkind>

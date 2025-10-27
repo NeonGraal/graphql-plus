@@ -1,11 +1,10 @@
 ﻿namespace GqlPlus.Generating.Objects;
 
-internal abstract class GenerateForObject<TObj, TField>
-  : GenerateForClass<TObj>
-  where TObj : IGqlpObject<TField>
-  where TField : IGqlpObjField
+internal class GenerateForObject<TObjField>
+  : GenerateForClass<IGqlpObject<TObjField>>
+  where TObjField : IGqlpObjField
 {
-  internal override IEnumerable<MapPair<string>> TypeMembers(TObj ast, GqlpGeneratorContext context)
+  internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
     => [.. ast.Fields.Select(FieldMember(context)), .. ast.Alternates.Select(AlternateMember(context))];
 
   private Func<IGqlpObjField, MapPair<string>> FieldMember(GqlpGeneratorContext context)
@@ -28,7 +27,7 @@ internal abstract class GenerateForObject<TObj, TField>
       : typeAst.Name + args;
   }
 
-  protected override void InterfaceHeader(TObj ast, GqlpGeneratorContext context)
+  protected override void InterfaceHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
 
@@ -38,7 +37,7 @@ internal abstract class GenerateForObject<TObj, TField>
     }
   }
 
-  protected override void ClassHeader(TObj ast, GqlpGeneratorContext context)
+  protected override void ClassHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
 

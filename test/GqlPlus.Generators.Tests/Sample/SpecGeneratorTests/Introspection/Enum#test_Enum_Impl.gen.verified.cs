@@ -5,12 +5,6 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Enum;
 
-public class test_TypeEnum
-  : test_ParentType
-  , Itest_TypeEnum
-{
-}
-
 public class test_EnumLabel
   : test_Aliased
   , Itest_EnumLabel

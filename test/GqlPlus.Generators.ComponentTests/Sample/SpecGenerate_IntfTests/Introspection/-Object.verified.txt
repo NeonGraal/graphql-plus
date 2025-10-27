@@ -68,16 +68,8 @@ output _ForParam<$type:_ObjFieldType> {
     | _ObjField<$type>
     }
 
-output _TypeDual {
-    : _TypeObject<_TypeKind.Dual _DualField>
-    }
-
 output _DualField {
     : _ObjField<_ObjFieldType>
-    }
-
-output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputField>
     }
 
 output _InputField {
@@ -91,10 +83,6 @@ output _InputFieldType {
 
 output _InputParam {
     : _InputFieldType
-    }
-
-output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputField>
     }
 
 output _OutputField {
@@ -197,18 +185,8 @@ public interface ICmpt_ForParam<Ttype>
   _ObjField<Ttype> As_ObjField { get; }
 }
 
-public interface ICmpt_TypeDual
-  : ICmpt_TypeObject
-{
-}
-
 public interface ICmpt_DualField
   : ICmpt_ObjField
-{
-}
-
-public interface ICmpt_TypeInput
-  : ICmpt_TypeObject
 {
 }
 
@@ -225,11 +203,6 @@ public interface ICmpt_InputFieldType
 
 public interface ICmpt_InputParam
   : ICmpt_InputFieldType
-{
-}
-
-public interface ICmpt_TypeOutput
-  : ICmpt_TypeObject
 {
 }
 

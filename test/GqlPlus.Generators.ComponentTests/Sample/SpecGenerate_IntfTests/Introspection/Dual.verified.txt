@@ -1,8 +1,4 @@
 ﻿/* Dual
-output _TypeDual {
-    : _TypeObject<_TypeKind.Dual _DualField>
-    }
-
 output _DualField {
     : _ObjField<_ObjFieldType>
     }
@@ -13,11 +9,6 @@ output _DualField {
 /*
 */
 namespace Components.Gqlp_Spec_Dual;
-
-public interface ICmpt_TypeDual
-  : ICmpt_TypeObject
-{
-}
 
 public interface ICmpt_DualField
   : ICmpt_ObjField

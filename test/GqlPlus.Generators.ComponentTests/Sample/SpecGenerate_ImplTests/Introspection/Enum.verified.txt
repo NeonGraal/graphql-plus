@@ -1,8 +1,4 @@
 ﻿/* Enum
-output _TypeEnum {
-    : _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
-    }
-
 dual _EnumLabel {
     : _Aliased
         enum: _Identifier
@@ -19,12 +15,6 @@ output _EnumValue {
 /*
 */
 namespace Components.Gqlp_Spec_Enum;
-
-public class Cmpt_TypeEnum
-  : Cmpt_ParentType
-  , ICmpt_TypeEnum
-{
-}
 
 public class Cmpt_EnumLabel
   : Cmpt_Aliased

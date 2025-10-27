@@ -5,11 +5,6 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Union;
 
-public interface Itest_TypeUnion
-  : Itest_ParentType
-{
-}
-
 public interface Itest_UnionRef
   : Itest_TypeRef
 {

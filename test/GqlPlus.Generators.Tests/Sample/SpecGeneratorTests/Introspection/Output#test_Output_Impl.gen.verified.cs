@@ -5,12 +5,6 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Output;
 
-public class test_TypeOutput
-  : test_TypeObject
-  , Itest_TypeOutput
-{
-}
-
 public class test_OutputField
   : test_ObjField
   , Itest_OutputField

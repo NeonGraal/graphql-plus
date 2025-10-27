@@ -1,13 +1,6 @@
 ﻿/* -Simple
 enum _DomainKind { Boolean Enum Number String }
 
-output _TypeDomain {
-    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
-    | _BaseDomain<_DomainKind.Enum _DomainLabel _DomainItemLabel>
-    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
-    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
-    }
-
 output _DomainRef<$kind:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
         domainKind: $kind
@@ -78,10 +71,6 @@ output _DomainItemRegex {
     : _DomainItem<_DomainRegex>
     }
 
-output _TypeEnum {
-    : _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
-    }
-
 dual _EnumLabel {
     : _Aliased
         enum: _Identifier
@@ -90,10 +79,6 @@ dual _EnumLabel {
 output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
         label: _Identifier
-    }
-
-output _TypeUnion {
-    : _ParentType<_TypeKind.Union _UnionRef _UnionMember>
     }
 
 output _UnionRef {

@@ -9,12 +9,15 @@ public interface Itest_Type
 {
   _BaseType<_TypeKind> As_BaseType { get; }
   _BaseType<_TypeKind> As_BaseType { get; }
-  _TypeDual As_TypeDual { get; }
-  _TypeEnum As_TypeEnum { get; }
-  _TypeInput As_TypeInput { get; }
-  _TypeOutput As_TypeOutput { get; }
-  _TypeDomain As_TypeDomain { get; }
-  _TypeUnion As_TypeUnion { get; }
+  _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; }
+  _ParentType<_TypeKind, _Aliased, _EnumLabel> As_ParentType { get; }
+  _ParentType<_TypeKind, _UnionRef, _UnionMember> As_ParentType { get; }
+  _TypeObject<_TypeKind, _DualField> As_TypeObject { get; }
+  _TypeObject<_TypeKind, _InputField> As_TypeObject { get; }
+  _TypeObject<_TypeKind, _OutputField> As_TypeObject { get; }
 }
 
 public interface Itest_BaseType<Tkind>

@@ -1,8 +1,4 @@
 ﻿/* Union
-output _TypeUnion {
-    : _ParentType<_TypeKind.Union _UnionRef _UnionMember>
-    }
-
 output _UnionRef {
     : _TypeRef<_SimpleKind>
     }
@@ -18,11 +14,6 @@ output _UnionMember {
 /*
 */
 namespace Components.Gqlp_Spec_Union;
-
-public interface ICmpt_TypeUnion
-  : ICmpt_ParentType
-{
-}
 
 public interface ICmpt_UnionRef
   : ICmpt_TypeRef

@@ -2,11 +2,10 @@
 
 namespace GqlPlus.Generating.Objects;
 
-public abstract class GenerateObjectTestsBase<TObject, TField>(
+public abstract class GenerateObjectTestsBase<TObjField>(
   TypeKind kind
-) : GenerateTypeClassTestsBase<TObject, IGqlpObjBase>
-  where TObject : class, IGqlpObject<TField>
-  where TField : class, IGqlpObjField
+) : GenerateTypeClassTestsBase<IGqlpObject<TObjField>, IGqlpObjBase>
+  where TObjField : class, IGqlpObjField
 {
   protected TypeKind Kind { get; } = kind;
 
@@ -15,7 +14,7 @@ public abstract class GenerateObjectTestsBase<TObject, TField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TObject type = A.Obj<TObject, TField>(Kind, name)
+    IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name)
       .WithParent(parent)
       .AsObject;
 
@@ -33,8 +32,8 @@ public abstract class GenerateObjectTestsBase<TObject, TField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TObject obj = A.Obj<TObject, TField>(Kind, name)
-      .WithObjFields(A.ObjField<TField>(fieldName, fieldType).AsObjField)
+    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+      .WithObjFields(A.ObjField<TObjField>(fieldName, fieldType).AsObjField)
       .AsObject;
 
     // Act
@@ -52,7 +51,7 @@ public abstract class GenerateObjectTestsBase<TObject, TField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TObject obj = A.Obj<TObject, TField>(Kind, name)
+    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithAlternate(alternateType)
       .AsObject;
 
@@ -71,7 +70,7 @@ public abstract class GenerateObjectTestsBase<TObject, TField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TObject obj = A.Obj<TObject, TField>(Kind, name)
+    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithAlternate(alternateType, a => a.WithArg(argName))
       .AsObject;
 
@@ -90,8 +89,8 @@ public abstract class GenerateObjectTestsBase<TObject, TField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TObject obj = A.Obj<TObject, TField>(Kind, name)
-      .WithObjFields(A.ObjField<TField>(fieldName, fieldType).AsObjField)
+    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+      .WithObjFields(A.ObjField<TObjField>(fieldName, fieldType).AsObjField)
       .WithAlternate(alternateType)
       .AsObject;
 
@@ -111,7 +110,7 @@ public abstract class GenerateObjectTestsBase<TObject, TField>(
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TObject obj = A.Obj<TObject, TField>(Kind, name)
+    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
       .WithTypeParams([.. parameters.Select(t => A.TypeParam(t, "String"))])
       .AsObject;
 
@@ -137,11 +136,14 @@ public abstract class GenerateObjectTestsBase<TObject, TField>(
     };
 
   protected virtual Action<string> CheckGeneratedCodeField(GqlpGeneratorType generatorType, string fieldName, string fieldType)
-    => GenerateObjectTestsBase<TObject, TField>.CheckGeneratedBoth(generatorType, fieldType + " " + fieldName + " { get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, fieldType + " " + fieldName + " { get;");
 
   protected virtual Action<string> CheckGeneratedCodeAlternate(GqlpGeneratorType generatorType, string alternateType)
-    => GenerateObjectTestsBase<TObject, TField>.CheckGeneratedBoth(generatorType, $"{alternateType} As{alternateType} {{ get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{alternateType} As{alternateType} {{ get;");
 
   protected virtual Action<string> CheckGeneratedCodeAlternateArg(GqlpGeneratorType generatorType, string alternateType, string argName)
-    => GenerateObjectTestsBase<TObject, TField>.CheckGeneratedBoth(generatorType, $"{alternateType}<{argName}> As{alternateType} {{ get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{alternateType}<{argName}> As{alternateType} {{ get;");
+
+  internal override GenerateForType<IGqlpObject<TObjField>> TypeGenerator { get; }
+    = new GenerateForObject<TObjField>();
 }

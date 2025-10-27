@@ -108,12 +108,15 @@ public interface Itest_Type
 {
   _BaseType<_TypeKind> As_BaseType { get; }
   _BaseType<_TypeKind> As_BaseType { get; }
-  _TypeDual As_TypeDual { get; }
-  _TypeEnum As_TypeEnum { get; }
-  _TypeInput As_TypeInput { get; }
-  _TypeOutput As_TypeOutput { get; }
-  _TypeDomain As_TypeDomain { get; }
-  _TypeUnion As_TypeUnion { get; }
+  _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; }
+  _ParentType<_TypeKind, _Aliased, _EnumLabel> As_ParentType { get; }
+  _ParentType<_TypeKind, _UnionRef, _UnionMember> As_ParentType { get; }
+  _TypeObject<_TypeKind, _DualField> As_TypeObject { get; }
+  _TypeObject<_TypeKind, _InputField> As_TypeObject { get; }
+  _TypeObject<_TypeKind, _OutputField> As_TypeObject { get; }
 }
 
 public interface Itest_BaseType<Tkind>
@@ -172,14 +175,6 @@ public interface Itest_Modifiers
 public interface Itest_Modifier<Tkind>
 {
   Tkind modifierKind { get; }
-}
-
-public interface Itest_TypeDomain
-{
-  _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; }
 }
 
 public interface Itest_DomainRef<Tkind>
@@ -266,11 +261,6 @@ public interface Itest_DomainItemRegex
 {
 }
 
-public interface Itest_TypeEnum
-  : Itest_ParentType
-{
-}
-
 public interface Itest_EnumLabel
   : Itest_Aliased
 {
@@ -281,11 +271,6 @@ public interface Itest_EnumValue
   : Itest_TypeRef
 {
   _Identifier label { get; }
-}
-
-public interface Itest_TypeUnion
-  : Itest_ParentType
-{
 }
 
 public interface Itest_UnionRef
@@ -383,18 +368,8 @@ public interface Itest_ForParam<Ttype>
   _ObjField<Ttype> As_ObjField { get; }
 }
 
-public interface Itest_TypeDual
-  : Itest_TypeObject
-{
-}
-
 public interface Itest_DualField
   : Itest_ObjField
-{
-}
-
-public interface Itest_TypeInput
-  : Itest_TypeObject
 {
 }
 
@@ -411,11 +386,6 @@ public interface Itest_InputFieldType
 
 public interface Itest_InputParam
   : Itest_InputFieldType
-{
-}
-
-public interface Itest_TypeOutput
-  : Itest_TypeObject
 {
 }
 

@@ -1,13 +1,6 @@
 ﻿/* Domain
 enum _DomainKind { Boolean Enum Number String }
 
-output _TypeDomain {
-    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
-    | _BaseDomain<_DomainKind.Enum _DomainLabel _DomainItemLabel>
-    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
-    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
-    }
-
 output _DomainRef<$kind:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
         domainKind: $kind
@@ -84,14 +77,6 @@ output _DomainItemRegex {
 /*
 */
 namespace Components.Gqlp_Spec_Domain;
-
-public interface ICmpt_TypeDomain
-{
-  _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; }
-}
 
 public interface ICmpt_DomainRef<Tkind>
   : ICmpt_TypeRef

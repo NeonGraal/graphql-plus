@@ -1,8 +1,4 @@
 ﻿/* Output
-output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputField>
-    }
-
 output _OutputField {
     : _ObjField<_ObjFieldType>
     }
@@ -18,11 +14,6 @@ output _OutputFieldType {
 /*
 */
 namespace Components.Gqlp_Spec_Output;
-
-public interface ICmpt_TypeOutput
-  : ICmpt_TypeObject
-{
-}
 
 public interface ICmpt_OutputField
   : ICmpt_ObjField

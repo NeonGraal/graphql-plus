@@ -89,18 +89,8 @@ public interface Itest_ForParam<Ttype>
   _ObjField<Ttype> As_ObjField { get; }
 }
 
-public interface Itest_TypeDual
-  : Itest_TypeObject
-{
-}
-
 public interface Itest_DualField
   : Itest_ObjField
-{
-}
-
-public interface Itest_TypeInput
-  : Itest_TypeObject
 {
 }
 
@@ -117,11 +107,6 @@ public interface Itest_InputFieldType
 
 public interface Itest_InputParam
   : Itest_InputFieldType
-{
-}
-
-public interface Itest_TypeOutput
-  : Itest_TypeObject
 {
 }
 

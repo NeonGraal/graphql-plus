@@ -2,12 +2,15 @@
 output _Type {
     | _BaseType<_TypeKind.Basic>
     | _BaseType<_TypeKind.Internal>
-    | _TypeDual
-    | _TypeEnum
-    | _TypeInput
-    | _TypeOutput
-    | _TypeDomain
-    | _TypeUnion
+    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
+    | _BaseDomain<_DomainKind.Enum _DomainLabel _DomainItemLabel>
+    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
+    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
+    | _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
+    | _ParentType<_TypeKind.Union _UnionRef _UnionMember>
+    | _TypeObject<_TypeKind.Dual _DualField>
+    | _TypeObject<_TypeKind.Input _InputField>
+    | _TypeObject<_TypeKind.Output _OutputField>
     }
 
 output _BaseType<$kind:_TypeKind> {
@@ -53,12 +56,15 @@ public interface ICmpt_Type
 {
   _BaseType<_TypeKind> As_BaseType { get; }
   _BaseType<_TypeKind> As_BaseType { get; }
-  _TypeDual As_TypeDual { get; }
-  _TypeEnum As_TypeEnum { get; }
-  _TypeInput As_TypeInput { get; }
-  _TypeOutput As_TypeOutput { get; }
-  _TypeDomain As_TypeDomain { get; }
-  _TypeUnion As_TypeUnion { get; }
+  _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; }
+  _ParentType<_TypeKind, _Aliased, _EnumLabel> As_ParentType { get; }
+  _ParentType<_TypeKind, _UnionRef, _UnionMember> As_ParentType { get; }
+  _TypeObject<_TypeKind, _DualField> As_TypeObject { get; }
+  _TypeObject<_TypeKind, _InputField> As_TypeObject { get; }
+  _TypeObject<_TypeKind, _OutputField> As_TypeObject { get; }
 }
 
 public interface ICmpt_BaseType<Tkind>

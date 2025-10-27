@@ -124,12 +124,15 @@ public class test_Type
 {
   public _BaseType<_TypeKind> As_BaseType { get; set; }
   public _BaseType<_TypeKind> As_BaseType { get; set; }
-  public _TypeDual As_TypeDual { get; set; }
-  public _TypeEnum As_TypeEnum { get; set; }
-  public _TypeInput As_TypeInput { get; set; }
-  public _TypeOutput As_TypeOutput { get; set; }
-  public _TypeDomain As_TypeDomain { get; set; }
-  public _TypeUnion As_TypeUnion { get; set; }
+  public _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; set; }
+  public _ParentType<_TypeKind, _Aliased, _EnumLabel> As_ParentType { get; set; }
+  public _ParentType<_TypeKind, _UnionRef, _UnionMember> As_ParentType { get; set; }
+  public _TypeObject<_TypeKind, _DualField> As_TypeObject { get; set; }
+  public _TypeObject<_TypeKind, _InputField> As_TypeObject { get; set; }
+  public _TypeObject<_TypeKind, _OutputField> As_TypeObject { get; set; }
 }
 
 public class test_BaseType<Tkind>
@@ -197,15 +200,6 @@ public class test_Modifier<Tkind>
   : Itest_Modifier<Tkind>
 {
   public Tkind modifierKind { get; set; }
-}
-
-public class test_TypeDomain
-  : Itest_TypeDomain
-{
-  public _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; set; }
-  public _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; set; }
-  public _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; set; }
-  public _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; set; }
 }
 
 public class test_DomainRef<Tkind>
@@ -306,12 +300,6 @@ public class test_DomainItemRegex
 {
 }
 
-public class test_TypeEnum
-  : test_ParentType
-  , Itest_TypeEnum
-{
-}
-
 public class test_EnumLabel
   : test_Aliased
   , Itest_EnumLabel
@@ -324,12 +312,6 @@ public class test_EnumValue
   , Itest_EnumValue
 {
   public _Identifier label { get; set; }
-}
-
-public class test_TypeUnion
-  : test_ParentType
-  , Itest_TypeUnion
-{
 }
 
 public class test_UnionRef
@@ -442,21 +424,9 @@ public class test_ForParam<Ttype>
   public _ObjField<Ttype> As_ObjField { get; set; }
 }
 
-public class test_TypeDual
-  : test_TypeObject
-  , Itest_TypeDual
-{
-}
-
 public class test_DualField
   : test_ObjField
   , Itest_DualField
-{
-}
-
-public class test_TypeInput
-  : test_TypeObject
-  , Itest_TypeInput
 {
 }
 
@@ -476,12 +446,6 @@ public class test_InputFieldType
 public class test_InputParam
   : test_InputFieldType
   , Itest_InputParam
-{
-}
-
-public class test_TypeOutput
-  : test_TypeObject
-  , Itest_TypeOutput
 {
 }
 

@@ -5,14 +5,6 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
-public interface Itest_TypeDomain
-{
-  _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; }
-}
-
 public interface Itest_DomainRef<Tkind>
   : Itest_TypeRef
 {
@@ -97,11 +89,6 @@ public interface Itest_DomainItemRegex
 {
 }
 
-public interface Itest_TypeEnum
-  : Itest_ParentType
-{
-}
-
 public interface Itest_EnumLabel
   : Itest_Aliased
 {
@@ -112,11 +99,6 @@ public interface Itest_EnumValue
   : Itest_TypeRef
 {
   _Identifier label { get; }
-}
-
-public interface Itest_TypeUnion
-  : Itest_ParentType
-{
 }
 
 public interface Itest_UnionRef

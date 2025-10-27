@@ -1,13 +1,6 @@
 ﻿/* -Simple
 enum _DomainKind { Boolean Enum Number String }
 
-output _TypeDomain {
-    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
-    | _BaseDomain<_DomainKind.Enum _DomainLabel _DomainItemLabel>
-    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
-    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
-    }
-
 output _DomainRef<$kind:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
         domainKind: $kind
@@ -78,10 +71,6 @@ output _DomainItemRegex {
     : _DomainItem<_DomainRegex>
     }
 
-output _TypeEnum {
-    : _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
-    }
-
 dual _EnumLabel {
     : _Aliased
         enum: _Identifier
@@ -90,10 +79,6 @@ dual _EnumLabel {
 output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
         label: _Identifier
-    }
-
-output _TypeUnion {
-    : _ParentType<_TypeKind.Union _UnionRef _UnionMember>
     }
 
 output _UnionRef {
@@ -111,14 +96,6 @@ output _UnionMember {
 /*
 */
 namespace Components.Gqlp_Spec_Simple;
-
-public interface ICmpt_TypeDomain
-{
-  _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; }
-}
 
 public interface ICmpt_DomainRef<Tkind>
   : ICmpt_TypeRef
@@ -204,11 +181,6 @@ public interface ICmpt_DomainItemRegex
 {
 }
 
-public interface ICmpt_TypeEnum
-  : ICmpt_ParentType
-{
-}
-
 public interface ICmpt_EnumLabel
   : ICmpt_Aliased
 {
@@ -219,11 +191,6 @@ public interface ICmpt_EnumValue
   : ICmpt_TypeRef
 {
   _Identifier label { get; }
-}
-
-public interface ICmpt_TypeUnion
-  : ICmpt_ParentType
-{
 }
 
 public interface ICmpt_UnionRef

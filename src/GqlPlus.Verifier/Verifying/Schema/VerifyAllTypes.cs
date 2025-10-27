@@ -3,10 +3,10 @@
 namespace GqlPlus.Verifying.Schema;
 
 internal class VerifyAllTypes(
-  IVerifyUsage<IGqlpDualObject> dualAllTypes,
+  IVerifyUsage<IGqlpObject<IGqlpDualField>> dualAllTypes,
   IVerifyUsage<IGqlpEnum> enumAllTypes,
-  IVerifyUsage<IGqlpInputObject> inputAllTypes,
-  IVerifyUsage<IGqlpOutputObject> outputAllTypes,
+  IVerifyUsage<IGqlpObject<IGqlpInputField>> inputAllTypes,
+  IVerifyUsage<IGqlpObject<IGqlpOutputField>> outputAllTypes,
   IVerifyUsage<IGqlpDomain> domainAllTypes,
   IVerifyUsage<IGqlpUnion> unionAllTypes
 ) : IVerify<IGqlpType[]>
@@ -15,10 +15,10 @@ internal class VerifyAllTypes(
   {
     IGqlpType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
 
-    IGqlpDualObject[] dualTypes = item.ArrayOf<IGqlpDualObject>();
+    IGqlpObject<IGqlpDualField>[] dualTypes = item.ArrayOf<IGqlpObject<IGqlpDualField>>();
     IGqlpEnum[] enumTypes = item.ArrayOf<IGqlpEnum>();
-    IGqlpInputObject[] inputTypes = item.ArrayOf<IGqlpInputObject>();
-    IGqlpOutputObject[] outputTypes = item.ArrayOf<IGqlpOutputObject>();
+    IGqlpObject<IGqlpInputField>[] inputTypes = item.ArrayOf<IGqlpObject<IGqlpInputField>>();
+    IGqlpObject<IGqlpOutputField>[] outputTypes = item.ArrayOf<IGqlpObject<IGqlpOutputField>>();
     IGqlpDomain[] domainTypes = item.ArrayOf<IGqlpDomain>();
     IGqlpUnion[] unionTypes = item.ArrayOf<IGqlpUnion>();
 

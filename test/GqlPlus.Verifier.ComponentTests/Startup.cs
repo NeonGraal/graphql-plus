@@ -9,6 +9,7 @@ public static class Startup
   public static void ConfigureServices(IServiceCollection services)
     => services
       .AddComponentTest(false)
+      .AddFieldObjectKinds()
       .AddMatchers()
       .AddVerifiers();
 }

@@ -280,109 +280,70 @@ Success
 }
 {
   !Ou I@008/0070
-  _TypeDual
+  _DualField
   :
   I@007/0071
-  _TypeObject
+  _ObjField
   <
-    I@019/0071
-    _TypeKind.Dual
-    I@034/0071
-    _DualField
+    I@017/0071
+    _ObjFieldType
   >
 }
 {
   !Ou I@008/0074
-  _DualField
+  _InputField
   :
   I@007/0075
   _ObjField
   <
     I@017/0075
-    _ObjFieldType
-  >
-}
-{
-  !Ou I@008/0078
-  _TypeInput
-  :
-  I@007/0079
-  _TypeObject
-  <
-    I@019/0079
-    _TypeKind.Input
-    I@035/0079
-    _InputField
-  >
-}
-{
-  !Ou I@008/0082
-  _InputField
-  :
-  I@007/0083
-  _ObjField
-  <
-    I@017/0083
     _InputFieldType
   >
 }
 {
-  !Ou I@008/0086
+  !Ou I@008/0078
   _InputFieldType
   :
-  I@007/0087
+  I@007/0079
   _ObjFieldType
   {
-    !OF I@009/0088
+    !OF I@009/0080
     default
     :
-    I@018/0088
+    I@018/0080
     Value
     ?
   }
 }
 {
-  !Ou I@008/0091
+  !Ou I@008/0083
   _InputParam
   :
-  I@007/0092
+  I@007/0084
   _InputFieldType
 }
 {
-  !Ou I@008/0095
-  _TypeOutput
-  :
-  I@007/0096
-  _TypeObject
-  <
-    I@019/0096
-    _TypeKind.Output
-    I@036/0096
-    _OutputField
-  >
-}
-{
-  !Ou I@008/0099
+  !Ou I@008/0087
   _OutputField
   :
-  I@007/0100
+  I@007/0088
   _ObjField
   <
-    I@017/0100
+    I@017/0088
     _ObjFieldType
   >
 }
 {
-  !Ou I@008/0103
+  !Ou I@008/0091
   _OutputFieldType
   :
-  I@007/0104
+  I@007/0092
   _ObjFieldType
   {
-    !OF I@009/0105
+    !OF I@009/0093
     parameters
     :
-    I@021/0105
+    I@021/0093
     _InputParam
     []
   }

@@ -58,32 +58,9 @@ public class ObjectBuilder<TField>
 
     return result;
   }
-}
 
-public class ObjectBuilder<TObject, TField>
-  : ObjectBuilder<TField>
-  where TObject : class, IGqlpObject<TField>
-  where TField : class, IGqlpObjField
-{
-  public ObjectBuilder(string name, TypeKind kind)
-    : base(name, kind)
-    => Add<TObject>();
-
-  protected new T Build<T>()
-    where T : class, IGqlpObject<TField>
-  {
-    T result = base.Build<T>();
-
-    IGqlpObjBase? parent = BaseBuilder?.AsObjBase;
-
-    result.Fields.Returns(_fields);
-    result.ObjFields.Returns(_fields);
-
-    return result;
-  }
-
-  public TObject AsObject
-    => Build<TObject>();
+  public IGqlpObject<TField> AsObject
+    => Build<IGqlpObject<TField>>();
 }
 
 public static class ObjectBuilderHelper

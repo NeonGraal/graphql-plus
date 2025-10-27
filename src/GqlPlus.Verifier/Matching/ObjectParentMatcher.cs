@@ -3,13 +3,13 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-internal class ObjectParentMatcher<TType>(
+internal class ObjectParentMatcher<TField>(
   ILoggerFactory logger
-) : MatchParentBase<IGqlpObjBase, TType>(logger)
-  where TType : class, IGqlpObject
+) : MatchParentBase<IGqlpObjBase, IGqlpObject<TField>>(logger)
+  where TField : class, IGqlpObjField
 {
   protected override bool MatchParent(IGqlpObjBase parent, string constraint, UsageContext context)
-    => MatchArgOrType<TType, UsageContext>(parent.TypeName, constraint, context, MatchObject);
+    => MatchArgOrType<IGqlpObject<TField>, UsageContext>(parent.TypeName, constraint, context, MatchObject);
 
   protected bool MatchObject<TObj>(TObj obj, string constraint, UsageContext context)
     where TObj : class, IGqlpObject

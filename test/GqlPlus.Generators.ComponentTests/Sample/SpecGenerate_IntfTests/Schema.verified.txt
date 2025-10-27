@@ -1,0 +1,76 @@
+﻿/* Schema
+"$T?"
+dual _Opt<$T:_Any> [Opt] { | $T | Null }
+
+dual _List<$T:_Any> [List] { | $T[] }
+
+dual _Dict<$K:_Key $T:_Any> [Dict] { | $T[$K] }
+
+dual _Map<$T:_Any> [Map] { | $T[*] }
+
+dual _Array<$T:_Any> [Array] { | $T[0] }
+
+dual _IfElse<$T:_Any> [IfElse] { | $T[^] }
+
+dual _Set<$K:_Key> [Set] { | _[$K] }
+
+dual _Mask<$K:_Key> [Mask] { | ^[$K] }
+
+union _Key { }
+dual _Any { }
+*/
+
+// Generated from Spec Schema for Intf
+
+/*
+*/
+namespace Components.Gqlp_Spec_Schema;
+
+public interface ICmpt_Opt<TT>
+{
+  TT AsT { get; }
+  Null AsNull { get; }
+}
+
+public interface ICmpt_List<TT>
+{
+  TT AsT { get; }
+}
+
+public interface ICmpt_Dict<TK,TT>
+{
+  TT AsT { get; }
+}
+
+public interface ICmpt_Map<TT>
+{
+  TT AsT { get; }
+}
+
+public interface ICmpt_Array<TT>
+{
+  TT AsT { get; }
+}
+
+public interface ICmpt_IfElse<TT>
+{
+  TT AsT { get; }
+}
+
+public interface ICmpt_Set<TK>
+{
+  Unit AsUnit { get; }
+}
+
+public interface ICmpt_Mask<TK>
+{
+  Boolean As^ { get; }
+}
+
+public interface ICmpt_Key
+{
+}
+
+public interface ICmpt_Any
+{
+}

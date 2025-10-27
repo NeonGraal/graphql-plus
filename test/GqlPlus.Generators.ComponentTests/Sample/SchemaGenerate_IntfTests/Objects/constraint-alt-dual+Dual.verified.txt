@@ -1,0 +1,33 @@
+﻿/* constraint-alt-dual+Dual
+dual CnstAltDualDual { | RefCnstAltDualDual<AltCnstAltDualDual> }
+dual RefCnstAltDualDual<$ref:PrntCnstAltDualDual> { | $ref }
+dual PrntCnstAltDualDual { | String }
+dual AltCnstAltDualDual { :PrntCnstAltDualDual alt: Number }
+*/
+
+// Generated from Schema constraint-alt-dual+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_alt_dual_Dual;
+
+public interface ICmptCnstAltDualDual
+{
+  RefCnstAltDualDual<AltCnstAltDualDual> AsRefCnstAltDualDual { get; }
+}
+
+public interface ICmptRefCnstAltDualDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface ICmptPrntCnstAltDualDual
+{
+  String AsString { get; }
+}
+
+public interface ICmptAltCnstAltDualDual
+  : ICmptPrntCnstAltDualDual
+{
+  Number alt { get; }
+}

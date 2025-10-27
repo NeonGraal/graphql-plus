@@ -1,0 +1,31 @@
+﻿/* Enum
+dual _EnumLabel {
+    : _Aliased
+        enum: _Identifier
+    }
+
+output _EnumValue {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Identifier
+    }
+*/
+
+// Generated from Spec Enum for Impl
+
+/*
+*/
+namespace Components.Gqlp_Spec_Enum;
+
+public class Cmpt_EnumLabel
+  : Cmpt_Aliased
+  , ICmpt_EnumLabel
+{
+  public _Identifier enum { get; set; }
+}
+
+public class Cmpt_EnumValue
+  : Cmpt_TypeRef
+  , ICmpt_EnumValue
+{
+  public _Identifier label { get; set; }
+}

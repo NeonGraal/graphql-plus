@@ -1,0 +1,51 @@
+﻿/* Names
+dual _Aliased {
+    : _Named
+        aliases: _Identifier[]
+    }
+
+dual _Named {
+    : _Described
+        name: _Identifier
+    }
+
+dual _Described {
+        description: String[]
+    }
+
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
+*/
+
+// Generated from Spec Names for Intf
+
+/*
+*/
+namespace Components.Gqlp_Spec_Names;
+
+public interface ICmpt_Aliased
+  : ICmpt_Named
+{
+  _Identifier aliases { get; }
+}
+
+public interface ICmpt_Named
+  : ICmpt_Described
+{
+  _Identifier name { get; }
+}
+
+public interface ICmpt_Described
+{
+  String description { get; }
+}
+
+public interface ICmpt_AndType
+  : ICmpt_Named
+{
+  _Type type { get; }
+  _Type As_Type { get; }
+}

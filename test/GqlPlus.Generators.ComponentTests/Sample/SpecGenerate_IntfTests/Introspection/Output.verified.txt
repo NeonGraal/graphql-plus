@@ -1,0 +1,27 @@
+﻿/* Output
+output _OutputField {
+    : _ObjField<_ObjFieldType>
+    }
+
+output _OutputFieldType {
+    : _ObjFieldType
+        parameters: _InputParam[]
+    }
+*/
+
+// Generated from Spec Output for Intf
+
+/*
+*/
+namespace Components.Gqlp_Spec_Output;
+
+public interface ICmpt_OutputField
+  : ICmpt_ObjField
+{
+}
+
+public interface ICmpt_OutputFieldType
+  : ICmpt_ObjFieldType
+{
+  _InputParam parameters { get; }
+}

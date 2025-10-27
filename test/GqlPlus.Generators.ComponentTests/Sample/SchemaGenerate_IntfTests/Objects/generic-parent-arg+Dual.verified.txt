@@ -1,0 +1,20 @@
+﻿/* generic-parent-arg+Dual
+dual GnrcPrntArgDual<$type:String> { :RefGnrcPrntArgDual<$type> }
+dual RefGnrcPrntArgDual<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-parent-arg+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_parent_arg_Dual;
+
+public interface ICmptGnrcPrntArgDual<Ttype>
+  : ICmptRefGnrcPrntArgDual
+{
+}
+
+public interface ICmptRefGnrcPrntArgDual<Tref>
+{
+  Tref Asref { get; }
+}

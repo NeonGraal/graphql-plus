@@ -1,0 +1,23 @@
+﻿/* alt-mod-Boolean+Dual
+dual AltModBoolDual { | AltAltModBoolDual[^] }
+dual AltAltModBoolDual { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-Boolean+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
+
+public class CmptAltModBoolDual
+  : ICmptAltModBoolDual
+{
+  public AltAltModBoolDual AsAltAltModBoolDual { get; set; }
+}
+
+public class CmptAltAltModBoolDual
+  : ICmptAltAltModBoolDual
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

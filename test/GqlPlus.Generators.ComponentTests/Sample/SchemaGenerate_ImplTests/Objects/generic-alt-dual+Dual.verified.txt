@@ -1,0 +1,30 @@
+﻿/* generic-alt-dual+Dual
+dual GnrcAltDualDual { | RefGnrcAltDualDual<AltGnrcAltDualDual> }
+dual RefGnrcAltDualDual<$ref:_Dual> { | $ref }
+dual AltGnrcAltDualDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-dual+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_alt_dual_Dual;
+
+public class CmptGnrcAltDualDual
+  : ICmptGnrcAltDualDual
+{
+  public RefGnrcAltDualDual<AltGnrcAltDualDual> AsRefGnrcAltDualDual { get; set; }
+}
+
+public class CmptRefGnrcAltDualDual<Tref>
+  : ICmptRefGnrcAltDualDual<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
+public class CmptAltGnrcAltDualDual
+  : ICmptAltGnrcAltDualDual
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

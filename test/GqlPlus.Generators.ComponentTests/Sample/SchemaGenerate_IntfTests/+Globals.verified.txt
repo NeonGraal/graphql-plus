@@ -1,0 +1,73 @@
+﻿// Generated from Schema +Globals for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_Globals;
+
+public interface ICmptCtgrDscrs
+{
+}
+
+public interface ICmptCtgrOutp
+{
+}
+
+public interface ICmptCtgrOutpDescr
+{
+}
+
+public interface ICmptCtgrOutpDict
+{
+}
+
+public interface ICmptCtgrOutpList
+{
+}
+
+public interface ICmptCtgrOutpOptl
+{
+}
+
+public interface ICmptDescr
+{
+}
+
+public interface ICmptDescrBcks
+{
+}
+
+public interface ICmptDescrBtwn
+{
+}
+
+public interface ICmptDescrCmpl
+{
+}
+
+public interface ICmptDescrDbl
+{
+}
+
+public interface ICmptDescrSngl
+{
+}
+
+public interface ICmptDscrs
+{
+}
+
+public interface ICmptInDrctParamDict
+{
+}
+
+public interface ICmptInDrctParamIn
+{
+}
+
+public interface ICmptInDrctParamList
+{
+}
+
+public interface ICmptInDrctParamOpt
+{
+}

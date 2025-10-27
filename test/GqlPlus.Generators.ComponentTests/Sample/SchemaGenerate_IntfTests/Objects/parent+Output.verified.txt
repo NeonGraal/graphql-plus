@@ -1,0 +1,21 @@
+﻿/* parent+Output
+output PrntOutp { :RefPrntOutp }
+output RefPrntOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent+Output for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_parent_Output;
+
+public interface ICmptPrntOutp
+  : ICmptRefPrntOutp
+{
+}
+
+public interface ICmptRefPrntOutp
+{
+  Number parent { get; }
+  String AsString { get; }
+}

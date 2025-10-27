@@ -1,0 +1,28 @@
+﻿/* constraint-alt-domain+Output
+output CnstAltDmnOutp { | RefCnstAltDmnOutp<DomCnstAltDmnOutp> }
+output RefCnstAltDmnOutp<$ref:String> { | $ref }
+domain DomCnstAltDmnOutp { String /\w+/ }
+*/
+
+// Generated from Schema constraint-alt-domain+Output for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
+
+public class CmptCnstAltDmnOutp
+  : ICmptCnstAltDmnOutp
+{
+  public RefCnstAltDmnOutp<DomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; set; }
+}
+
+public class CmptRefCnstAltDmnOutp<Tref>
+  : ICmptRefCnstAltDmnOutp<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
+public class CmptDomCnstAltDmnOutp
+  : ICmptDomCnstAltDmnOutp
+{
+}

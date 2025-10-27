@@ -1,0 +1,22 @@
+﻿/* object-alt+Dual
+dual ObjAltDual { | ObjAltDualType }
+dual ObjAltDual { | ObjAltDualType }
+dual ObjAltDualType { }
+*/
+
+// Generated from Schema object-alt+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_object_alt_Dual;
+
+public class CmptObjAltDual
+  : ICmptObjAltDual
+{
+  public ObjAltDualType AsObjAltDualType { get; set; }
+}
+
+public class CmptObjAltDualType
+  : ICmptObjAltDualType
+{
+}

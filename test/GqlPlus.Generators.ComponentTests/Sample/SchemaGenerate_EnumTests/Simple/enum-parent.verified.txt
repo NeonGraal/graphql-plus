@@ -1,0 +1,21 @@
+﻿/* enum-parent
+enum EnumPrnt { :PrntEnumPrnt enumPrnt }
+enum PrntEnumPrnt { prnt_enumPrnt }
+*/
+
+// Generated from Schema enum-parent for Enum
+
+/*
+*/
+namespace Components.Gqlp_Schema_enum_parent;
+
+public enum CmptEnumPrnt
+{
+  prnt_enumPrnt = PrntEnumPrnt.prnt_enumPrnt,
+  enumPrnt,
+}
+
+public enum CmptPrntEnumPrnt
+{
+  prnt_enumPrnt,
+}

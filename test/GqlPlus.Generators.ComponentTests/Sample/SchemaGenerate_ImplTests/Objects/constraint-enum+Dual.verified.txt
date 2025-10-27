@@ -1,0 +1,23 @@
+﻿/* constraint-enum+Dual
+dual CnstEnumDual { | RefCnstEnumDual<cnstEnumDual> }
+dual RefCnstEnumDual<$type:EnumCnstEnumDual> { field: $type }
+enum EnumCnstEnumDual { cnstEnumDual }
+*/
+
+// Generated from Schema constraint-enum+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_enum_Dual;
+
+public class CmptCnstEnumDual
+  : ICmptCnstEnumDual
+{
+  public RefCnstEnumDual<EnumCnstEnumDual> AsRefCnstEnumDual { get; set; }
+}
+
+public class CmptRefCnstEnumDual<Ttype>
+  : ICmptRefCnstEnumDual<Ttype>
+{
+  public Ttype field { get; set; }
+}

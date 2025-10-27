@@ -1,0 +1,33 @@
+﻿/* constraint-parent-obj-parent+Input
+input CnstPrntObjPrntInp { :RefCnstPrntObjPrntInp<AltCnstPrntObjPrntInp> }
+input RefCnstPrntObjPrntInp<$ref:PrntCnstPrntObjPrntInp> { :$ref }
+input PrntCnstPrntObjPrntInp { | String }
+input AltCnstPrntObjPrntInp { :PrntCnstPrntObjPrntInp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-obj-parent+Input for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Input;
+
+public interface ICmptCnstPrntObjPrntInp
+  : ICmptRefCnstPrntObjPrntInp
+{
+}
+
+public interface ICmptRefCnstPrntObjPrntInp<Tref>
+  : ICmptref
+{
+}
+
+public interface ICmptPrntCnstPrntObjPrntInp
+{
+  String AsString { get; }
+}
+
+public interface ICmptAltCnstPrntObjPrntInp
+  : ICmptPrntCnstPrntObjPrntInp
+{
+  Number alt { get; }
+}

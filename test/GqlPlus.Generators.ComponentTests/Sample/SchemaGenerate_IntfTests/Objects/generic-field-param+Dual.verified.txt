@@ -1,0 +1,27 @@
+﻿/* generic-field-param+Dual
+dual GnrcFieldParamDual { field: RefGnrcFieldParamDual<AltGnrcFieldParamDual> }
+dual RefGnrcFieldParamDual<$ref:_Dual> { | $ref }
+dual AltGnrcFieldParamDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-param+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_field_param_Dual;
+
+public interface ICmptGnrcFieldParamDual
+{
+  RefGnrcFieldParamDual<AltGnrcFieldParamDual> field { get; }
+}
+
+public interface ICmptRefGnrcFieldParamDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface ICmptAltGnrcFieldParamDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}

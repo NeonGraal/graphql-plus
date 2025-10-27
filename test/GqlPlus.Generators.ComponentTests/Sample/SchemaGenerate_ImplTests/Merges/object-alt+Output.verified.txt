@@ -1,0 +1,22 @@
+﻿/* object-alt+Output
+output ObjAltOutp { | ObjAltOutpType }
+output ObjAltOutp { | ObjAltOutpType }
+output ObjAltOutpType { }
+*/
+
+// Generated from Schema object-alt+Output for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_object_alt_Output;
+
+public class CmptObjAltOutp
+  : ICmptObjAltOutp
+{
+  public ObjAltOutpType AsObjAltOutpType { get; set; }
+}
+
+public class CmptObjAltOutpType
+  : ICmptObjAltOutpType
+{
+}

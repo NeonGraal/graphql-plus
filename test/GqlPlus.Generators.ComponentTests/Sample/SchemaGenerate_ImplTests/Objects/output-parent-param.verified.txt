@@ -1,0 +1,45 @@
+﻿/* output-parent-param
+output OutpPrntParam { :PrntOutpPrntParam field(InOutpPrntParam): FldOutpPrntParam }
+output PrntOutpPrntParam { field(PrntOutpPrntParamIn): FldOutpPrntParam }
+dual FldOutpPrntParam { }
+input InOutpPrntParam { param: Number | String }
+input PrntOutpPrntParamIn { parent: Number | String }
+*/
+
+// Generated from Schema output-parent-param for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_output_parent_param;
+
+public class CmptOutpPrntParam
+  : CmptPrntOutpPrntParam
+  , ICmptOutpPrntParam
+{
+  public FldOutpPrntParam field { get; set; }
+}
+
+public class CmptPrntOutpPrntParam
+  : ICmptPrntOutpPrntParam
+{
+  public FldOutpPrntParam field { get; set; }
+}
+
+public class CmptFldOutpPrntParam
+  : ICmptFldOutpPrntParam
+{
+}
+
+public class CmptInOutpPrntParam
+  : ICmptInOutpPrntParam
+{
+  public Number param { get; set; }
+  public String AsString { get; set; }
+}
+
+public class CmptPrntOutpPrntParamIn
+  : ICmptPrntOutpPrntParamIn
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

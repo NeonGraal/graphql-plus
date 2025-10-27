@@ -1,0 +1,21 @@
+﻿/* parent-param-same+Output
+output PrntParamSameOutp<$a:String> { :RefPrntParamSameOutp<$a> field: $a }
+output RefPrntParamSameOutp<$a:String> { | $a }
+*/
+
+// Generated from Schema parent-param-same+Output for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_parent_param_same_Output;
+
+public interface ICmptPrntParamSameOutp<Ta>
+  : ICmptRefPrntParamSameOutp
+{
+  Ta field { get; }
+}
+
+public interface ICmptRefPrntParamSameOutp<Ta>
+{
+  Ta Asa { get; }
+}

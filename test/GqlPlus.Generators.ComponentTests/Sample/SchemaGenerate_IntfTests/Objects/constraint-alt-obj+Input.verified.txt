@@ -1,0 +1,33 @@
+﻿/* constraint-alt-obj+Input
+input CnstAltObjInp { | RefCnstAltObjInp<AltCnstAltObjInp> }
+input RefCnstAltObjInp<$ref:PrntCnstAltObjInp> { | $ref }
+input PrntCnstAltObjInp { | String }
+input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
+*/
+
+// Generated from Schema constraint-alt-obj+Input for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
+
+public interface ICmptCnstAltObjInp
+{
+  RefCnstAltObjInp<AltCnstAltObjInp> AsRefCnstAltObjInp { get; }
+}
+
+public interface ICmptRefCnstAltObjInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface ICmptPrntCnstAltObjInp
+{
+  String AsString { get; }
+}
+
+public interface ICmptAltCnstAltObjInp
+  : ICmptPrntCnstAltObjInp
+{
+  Number alt { get; }
+}

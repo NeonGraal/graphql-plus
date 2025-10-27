@@ -1,0 +1,37 @@
+﻿/* constraint-parent-obj-parent+Dual
+dual CnstPrntObjPrntDual { :RefCnstPrntObjPrntDual<AltCnstPrntObjPrntDual> }
+dual RefCnstPrntObjPrntDual<$ref:PrntCnstPrntObjPrntDual> { :$ref }
+dual PrntCnstPrntObjPrntDual { | String }
+dual AltCnstPrntObjPrntDual { :PrntCnstPrntObjPrntDual alt: Number }
+*/
+
+// Generated from Schema constraint-parent-obj-parent+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Dual;
+
+public class CmptCnstPrntObjPrntDual
+  : CmptRefCnstPrntObjPrntDual
+  , ICmptCnstPrntObjPrntDual
+{
+}
+
+public class CmptRefCnstPrntObjPrntDual<Tref>
+  : Cmptref
+  , ICmptRefCnstPrntObjPrntDual<Tref>
+{
+}
+
+public class CmptPrntCnstPrntObjPrntDual
+  : ICmptPrntCnstPrntObjPrntDual
+{
+  public String AsString { get; set; }
+}
+
+public class CmptAltCnstPrntObjPrntDual
+  : CmptPrntCnstPrntObjPrntDual
+  , ICmptAltCnstPrntObjPrntDual
+{
+  public Number alt { get; set; }
+}

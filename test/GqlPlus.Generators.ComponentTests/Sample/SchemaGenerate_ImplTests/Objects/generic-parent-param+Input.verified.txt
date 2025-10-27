@@ -1,0 +1,30 @@
+﻿/* generic-parent-param+Input
+input GnrcPrntParamInp { :RefGnrcPrntParamInp<AltGnrcPrntParamInp> }
+input RefGnrcPrntParamInp<$ref:_Input> { | $ref }
+input AltGnrcPrntParamInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-param+Input for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_parent_param_Input;
+
+public class CmptGnrcPrntParamInp
+  : CmptRefGnrcPrntParamInp
+  , ICmptGnrcPrntParamInp
+{
+}
+
+public class CmptRefGnrcPrntParamInp<Tref>
+  : ICmptRefGnrcPrntParamInp<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
+public class CmptAltGnrcPrntParamInp
+  : ICmptAltGnrcPrntParamInp
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

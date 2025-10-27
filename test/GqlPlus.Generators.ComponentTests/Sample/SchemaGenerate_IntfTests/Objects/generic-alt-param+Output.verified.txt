@@ -1,0 +1,27 @@
+﻿/* generic-alt-param+Output
+output GnrcAltParamOutp { | RefGnrcAltParamOutp<AltGnrcAltParamOutp> }
+output RefGnrcAltParamOutp<$ref:_Output> { | $ref }
+output AltGnrcAltParamOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Output for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_alt_param_Output;
+
+public interface ICmptGnrcAltParamOutp
+{
+  RefGnrcAltParamOutp<AltGnrcAltParamOutp> AsRefGnrcAltParamOutp { get; }
+}
+
+public interface ICmptRefGnrcAltParamOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface ICmptAltGnrcAltParamOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}

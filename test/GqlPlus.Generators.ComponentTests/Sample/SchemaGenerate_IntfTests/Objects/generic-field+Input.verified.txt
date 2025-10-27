@@ -1,0 +1,14 @@
+﻿/* generic-field+Input
+input GnrcFieldInp<$type:String> { field: $type }
+*/
+
+// Generated from Schema generic-field+Input for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_field_Input;
+
+public interface ICmptGnrcFieldInp<Ttype>
+{
+  Ttype field { get; }
+}

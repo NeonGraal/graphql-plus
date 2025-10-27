@@ -1,0 +1,23 @@
+﻿/* parent+Input
+input PrntInp { :RefPrntInp }
+input RefPrntInp { parent: Number | String }
+*/
+
+// Generated from Schema parent+Input for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_parent_Input;
+
+public class CmptPrntInp
+  : CmptRefPrntInp
+  , ICmptPrntInp
+{
+}
+
+public class CmptRefPrntInp
+  : ICmptRefPrntInp
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

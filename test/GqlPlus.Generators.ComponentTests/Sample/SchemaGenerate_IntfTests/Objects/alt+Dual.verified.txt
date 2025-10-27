@@ -1,0 +1,21 @@
+﻿/* alt+Dual
+dual AltDual { | AltAltDual }
+dual AltAltDual { alt: Number | String }
+*/
+
+// Generated from Schema alt+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_alt_Dual;
+
+public interface ICmptAltDual
+{
+  AltAltDual AsAltAltDual { get; }
+}
+
+public interface ICmptAltAltDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}

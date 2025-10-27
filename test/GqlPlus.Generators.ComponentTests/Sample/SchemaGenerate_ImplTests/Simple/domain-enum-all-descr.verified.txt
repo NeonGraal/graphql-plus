@@ -1,0 +1,15 @@
+﻿/* domain-enum-all-descr
+domain DmnEnumAllDescr { enum "DomAll" "Descr" EnumDmnEnumAllDescr.* }
+enum EnumDmnEnumAllDescr { dmnEnumAllDescr enum_dmnEnumAllDescr }
+*/
+
+// Generated from Schema domain-enum-all-descr for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_domain_enum_all_descr;
+
+public class CmptDmnEnumAllDescr
+  : ICmptDmnEnumAllDescr
+{
+}

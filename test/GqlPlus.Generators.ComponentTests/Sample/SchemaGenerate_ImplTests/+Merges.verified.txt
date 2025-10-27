@@ -1,0 +1,444 @@
+﻿// Generated from Schema +Merges for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_Merges;
+
+public class CmptCtgr
+  : ICmptCtgr
+{
+}
+
+public class CmptCtgrAlias
+  : ICmptCtgrAlias
+{
+}
+
+public class CmptCtgrDescr
+  : ICmptCtgrDescr
+{
+}
+
+public class CmptCtgrMod
+  : ICmptCtgrMod
+{
+}
+
+public class CmptInDrctParam
+  : ICmptInDrctParam
+{
+}
+
+public class CmptDmnAlias
+  : ICmptDmnAlias
+{
+}
+
+public class CmptDmnBool
+  : ICmptDmnBool
+{
+}
+
+public class CmptDmnBoolDiff
+  : ICmptDmnBoolDiff
+{
+}
+
+public class CmptDmnBoolSame
+  : ICmptDmnBoolSame
+{
+}
+
+public class CmptDmnEnumDiff
+  : ICmptDmnEnumDiff
+{
+}
+
+public class CmptDmnEnumSame
+  : ICmptDmnEnumSame
+{
+}
+
+public class CmptDmnNmbr
+  : ICmptDmnNmbr
+{
+}
+
+public class CmptDmnNmbrDiff
+  : ICmptDmnNmbrDiff
+{
+}
+
+public class CmptDmnNmbrSame
+  : ICmptDmnNmbrSame
+{
+}
+
+public class CmptDmnStr
+  : ICmptDmnStr
+{
+}
+
+public class CmptDmnStrDiff
+  : ICmptDmnStrDiff
+{
+}
+
+public class CmptDmnStrSame
+  : ICmptDmnStrSame
+{
+}
+
+public class CmptObjDual
+  : ICmptObjDual
+{
+}
+
+public class CmptObjInp
+  : ICmptObjInp
+{
+}
+
+public class CmptObjOutp
+  : ICmptObjOutp
+{
+}
+
+public class CmptObjAliasDual
+  : ICmptObjAliasDual
+{
+}
+
+public class CmptObjAliasInp
+  : ICmptObjAliasInp
+{
+}
+
+public class CmptObjAliasOutp
+  : ICmptObjAliasOutp
+{
+}
+
+public class CmptObjAltDual
+  : ICmptObjAltDual
+{
+  public ObjAltDualType AsObjAltDualType { get; set; }
+}
+
+public class CmptObjAltDualType
+  : ICmptObjAltDualType
+{
+}
+
+public class CmptObjAltInp
+  : ICmptObjAltInp
+{
+  public ObjAltInpType AsObjAltInpType { get; set; }
+}
+
+public class CmptObjAltInpType
+  : ICmptObjAltInpType
+{
+}
+
+public class CmptObjAltOutp
+  : ICmptObjAltOutp
+{
+  public ObjAltOutpType AsObjAltOutpType { get; set; }
+}
+
+public class CmptObjAltOutpType
+  : ICmptObjAltOutpType
+{
+}
+
+public class CmptObjAltEnumDual
+  : ICmptObjAltEnumDual
+{
+  public Boolean AsBoolean { get; set; }
+  public Boolean AsBoolean { get; set; }
+}
+
+public class CmptObjAltEnumInp
+  : ICmptObjAltEnumInp
+{
+  public Boolean AsBoolean { get; set; }
+  public Boolean AsBoolean { get; set; }
+}
+
+public class CmptObjAltEnumOutp
+  : ICmptObjAltEnumOutp
+{
+  public Boolean AsBoolean { get; set; }
+  public Boolean AsBoolean { get; set; }
+}
+
+public class CmptObjCnstDual<Ttype>
+  : ICmptObjCnstDual<Ttype>
+{
+  public Ttype field { get; set; }
+  public Ttype str { get; set; }
+}
+
+public class CmptObjCnstInp<Ttype>
+  : ICmptObjCnstInp<Ttype>
+{
+  public Ttype field { get; set; }
+  public Ttype str { get; set; }
+}
+
+public class CmptObjCnstOutp<Ttype>
+  : ICmptObjCnstOutp<Ttype>
+{
+  public Ttype field { get; set; }
+  public Ttype str { get; set; }
+}
+
+public class CmptObjFieldDual
+  : ICmptObjFieldDual
+{
+  public FldObjFieldDual field { get; set; }
+}
+
+public class CmptFldObjFieldDual
+  : ICmptFldObjFieldDual
+{
+}
+
+public class CmptObjFieldInp
+  : ICmptObjFieldInp
+{
+  public FldObjFieldInp field { get; set; }
+}
+
+public class CmptFldObjFieldInp
+  : ICmptFldObjFieldInp
+{
+}
+
+public class CmptObjFieldOutp
+  : ICmptObjFieldOutp
+{
+  public FldObjFieldOutp field { get; set; }
+}
+
+public class CmptFldObjFieldOutp
+  : ICmptFldObjFieldOutp
+{
+}
+
+public class CmptObjFieldAliasDual
+  : ICmptObjFieldAliasDual
+{
+  public FldObjFieldAliasDual field { get; set; }
+}
+
+public class CmptFldObjFieldAliasDual
+  : ICmptFldObjFieldAliasDual
+{
+}
+
+public class CmptObjFieldAliasInp
+  : ICmptObjFieldAliasInp
+{
+  public FldObjFieldAliasInp field { get; set; }
+}
+
+public class CmptFldObjFieldAliasInp
+  : ICmptFldObjFieldAliasInp
+{
+}
+
+public class CmptObjFieldAliasOutp
+  : ICmptObjFieldAliasOutp
+{
+  public FldObjFieldAliasOutp field { get; set; }
+}
+
+public class CmptFldObjFieldAliasOutp
+  : ICmptFldObjFieldAliasOutp
+{
+}
+
+public class CmptObjFieldEnumAliasDual
+  : ICmptObjFieldEnumAliasDual
+{
+  public Boolean field { get; set; }
+}
+
+public class CmptObjFieldEnumAliasInp
+  : ICmptObjFieldEnumAliasInp
+{
+  public Boolean field { get; set; }
+}
+
+public class CmptObjFieldEnumAliasOutp
+  : ICmptObjFieldEnumAliasOutp
+{
+  public Boolean field { get; set; }
+}
+
+public class CmptObjFieldEnumValueDual
+  : ICmptObjFieldEnumValueDual
+{
+  public Boolean field { get; set; }
+}
+
+public class CmptObjFieldEnumValueInp
+  : ICmptObjFieldEnumValueInp
+{
+  public Boolean field { get; set; }
+}
+
+public class CmptObjFieldEnumValueOutp
+  : ICmptObjFieldEnumValueOutp
+{
+  public Boolean field { get; set; }
+}
+
+public class CmptObjFieldTypeAliasDual
+  : ICmptObjFieldTypeAliasDual
+{
+  public String field { get; set; }
+}
+
+public class CmptObjFieldTypeAliasInp
+  : ICmptObjFieldTypeAliasInp
+{
+  public String field { get; set; }
+}
+
+public class CmptObjFieldTypeAliasOutp
+  : ICmptObjFieldTypeAliasOutp
+{
+  public String field { get; set; }
+}
+
+public class CmptObjParamDual<Ttest,Ttype>
+  : ICmptObjParamDual<Ttest,Ttype>
+{
+  public Ttest test { get; set; }
+  public Ttype type { get; set; }
+}
+
+public class CmptObjParamInp<Ttest,Ttype>
+  : ICmptObjParamInp<Ttest,Ttype>
+{
+  public Ttest test { get; set; }
+  public Ttype type { get; set; }
+}
+
+public class CmptObjParamOutp<Ttest,Ttype>
+  : ICmptObjParamOutp<Ttest,Ttype>
+{
+  public Ttest test { get; set; }
+  public Ttype type { get; set; }
+}
+
+public class CmptObjParamDupDual<Ttest>
+  : ICmptObjParamDupDual<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
+}
+
+public class CmptObjParamDupInp<Ttest>
+  : ICmptObjParamDupInp<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
+}
+
+public class CmptObjParamDupOutp<Ttest>
+  : ICmptObjParamDupOutp<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
+}
+
+public class CmptObjPrntDual
+  : CmptRefObjPrntDual
+  , ICmptObjPrntDual
+{
+}
+
+public class CmptRefObjPrntDual
+  : ICmptRefObjPrntDual
+{
+}
+
+public class CmptObjPrntInp
+  : CmptRefObjPrntInp
+  , ICmptObjPrntInp
+{
+}
+
+public class CmptRefObjPrntInp
+  : ICmptRefObjPrntInp
+{
+}
+
+public class CmptObjPrntOutp
+  : CmptRefObjPrntOutp
+  , ICmptObjPrntOutp
+{
+}
+
+public class CmptRefObjPrntOutp
+  : ICmptRefObjPrntOutp
+{
+}
+
+public class CmptOutpFieldParam
+  : ICmptOutpFieldParam
+{
+  public FldOutpFieldParam field { get; set; }
+}
+
+public class CmptOutpFieldParam1
+  : ICmptOutpFieldParam1
+{
+}
+
+public class CmptOutpFieldParam2
+  : ICmptOutpFieldParam2
+{
+}
+
+public class CmptFldOutpFieldParam
+  : ICmptFldOutpFieldParam
+{
+}
+
+public class CmptUnionAlias
+  : ICmptUnionAlias
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+}
+
+public class CmptUnionDiff
+  : ICmptUnionDiff
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+}
+
+public class CmptUnionSame
+  : ICmptUnionSame
+{
+  public Boolean AsBoolean { get; set; }
+}
+
+public class CmptUnionSamePrnt
+  : CmptPrntUnionSamePrnt
+  , ICmptUnionSamePrnt
+{
+  public Boolean AsBoolean { get; set; }
+}
+
+public class CmptPrntUnionSamePrnt
+  : ICmptPrntUnionSamePrnt
+{
+  public String AsString { get; set; }
+}

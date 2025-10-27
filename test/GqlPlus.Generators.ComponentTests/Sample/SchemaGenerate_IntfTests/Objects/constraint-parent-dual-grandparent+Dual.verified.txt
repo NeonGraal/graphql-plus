@@ -1,0 +1,39 @@
+﻿/* constraint-parent-dual-grandparent+Dual
+dual CnstPrntDualGrndDual { :RefCnstPrntDualGrndDual<AltCnstPrntDualGrndDual> }
+dual RefCnstPrntDualGrndDual<$ref:GrndCnstPrntDualGrndDual> { :$ref }
+dual GrndCnstPrntDualGrndDual { | String }
+dual PrntCnstPrntDualGrndDual { :GrndCnstPrntDualGrndDual }
+dual AltCnstPrntDualGrndDual { :PrntCnstPrntDualGrndDual alt: Number }
+*/
+
+// Generated from Schema constraint-parent-dual-grandparent+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Dual;
+
+public interface ICmptCnstPrntDualGrndDual
+  : ICmptRefCnstPrntDualGrndDual
+{
+}
+
+public interface ICmptRefCnstPrntDualGrndDual<Tref>
+  : ICmptref
+{
+}
+
+public interface ICmptGrndCnstPrntDualGrndDual
+{
+  String AsString { get; }
+}
+
+public interface ICmptPrntCnstPrntDualGrndDual
+  : ICmptGrndCnstPrntDualGrndDual
+{
+}
+
+public interface ICmptAltCnstPrntDualGrndDual
+  : ICmptPrntCnstPrntDualGrndDual
+{
+  Number alt { get; }
+}

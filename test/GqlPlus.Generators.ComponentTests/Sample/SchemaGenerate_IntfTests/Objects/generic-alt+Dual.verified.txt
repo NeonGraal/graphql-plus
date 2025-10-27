@@ -1,0 +1,14 @@
+﻿/* generic-alt+Dual
+dual GnrcAltDual<$type:String> { | $type }
+*/
+
+// Generated from Schema generic-alt+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_alt_Dual;
+
+public interface ICmptGnrcAltDual<Ttype>
+{
+  Ttype Astype { get; }
+}

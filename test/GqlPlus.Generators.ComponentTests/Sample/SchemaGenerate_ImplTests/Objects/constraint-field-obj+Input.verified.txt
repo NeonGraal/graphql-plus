@@ -1,0 +1,37 @@
+﻿/* constraint-field-obj+Input
+input CnstFieldObjInp { :RefCnstFieldObjInp<AltCnstFieldObjInp> }
+input RefCnstFieldObjInp<$ref:PrntCnstFieldObjInp> { field: $ref }
+input PrntCnstFieldObjInp { | String }
+input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Input for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_field_obj_Input;
+
+public class CmptCnstFieldObjInp
+  : CmptRefCnstFieldObjInp
+  , ICmptCnstFieldObjInp
+{
+}
+
+public class CmptRefCnstFieldObjInp<Tref>
+  : ICmptRefCnstFieldObjInp<Tref>
+{
+  public Tref field { get; set; }
+}
+
+public class CmptPrntCnstFieldObjInp
+  : ICmptPrntCnstFieldObjInp
+{
+  public String AsString { get; set; }
+}
+
+public class CmptAltCnstFieldObjInp
+  : CmptPrntCnstFieldObjInp
+  , ICmptAltCnstFieldObjInp
+{
+  public Number alt { get; set; }
+}

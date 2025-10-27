@@ -1,0 +1,22 @@
+﻿/* object-field+Dual
+dual ObjFieldDual { field: FldObjFieldDual }
+dual ObjFieldDual { field: FldObjFieldDual }
+dual FldObjFieldDual { }
+*/
+
+// Generated from Schema object-field+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_object_field_Dual;
+
+public class CmptObjFieldDual
+  : ICmptObjFieldDual
+{
+  public FldObjFieldDual field { get; set; }
+}
+
+public class CmptFldObjFieldDual
+  : ICmptFldObjFieldDual
+{
+}

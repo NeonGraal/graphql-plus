@@ -1,0 +1,22 @@
+﻿/* generic-field-arg+Output
+output GnrcFieldArgOutp<$type:String> { field: RefGnrcFieldArgOutp<$type> }
+output RefGnrcFieldArgOutp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-field-arg+Output for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_field_arg_Output;
+
+public class CmptGnrcFieldArgOutp<Ttype>
+  : ICmptGnrcFieldArgOutp<Ttype>
+{
+  public RefGnrcFieldArgOutp<Ttype> field { get; set; }
+}
+
+public class CmptRefGnrcFieldArgOutp<Tref>
+  : ICmptRefGnrcFieldArgOutp<Tref>
+{
+  public Tref Asref { get; set; }
+}

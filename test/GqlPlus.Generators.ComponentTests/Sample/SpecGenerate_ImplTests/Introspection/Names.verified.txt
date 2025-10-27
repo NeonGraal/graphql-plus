@@ -1,0 +1,55 @@
+﻿/* Names
+dual _Aliased {
+    : _Named
+        aliases: _Identifier[]
+    }
+
+dual _Named {
+    : _Described
+        name: _Identifier
+    }
+
+dual _Described {
+        description: String[]
+    }
+
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
+*/
+
+// Generated from Spec Names for Impl
+
+/*
+*/
+namespace Components.Gqlp_Spec_Names;
+
+public class Cmpt_Aliased
+  : Cmpt_Named
+  , ICmpt_Aliased
+{
+  public _Identifier aliases { get; set; }
+}
+
+public class Cmpt_Named
+  : Cmpt_Described
+  , ICmpt_Named
+{
+  public _Identifier name { get; set; }
+}
+
+public class Cmpt_Described
+  : ICmpt_Described
+{
+  public String description { get; set; }
+}
+
+public class Cmpt_AndType
+  : Cmpt_Named
+  , ICmpt_AndType
+{
+  public _Type type { get; set; }
+  public _Type As_Type { get; set; }
+}

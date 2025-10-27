@@ -1,0 +1,36 @@
+﻿/* Input
+output _InputField {
+    : _ObjField<_InputFieldType>
+    }
+
+output _InputFieldType {
+    : _ObjFieldType
+        default: Value?
+    }
+
+output _InputParam {
+    : _InputFieldType
+    }
+*/
+
+// Generated from Spec Input for Intf
+
+/*
+*/
+namespace Components.Gqlp_Spec_Input;
+
+public interface ICmpt_InputField
+  : ICmpt_ObjField
+{
+}
+
+public interface ICmpt_InputFieldType
+  : ICmpt_ObjFieldType
+{
+  _Value default { get; }
+}
+
+public interface ICmpt_InputParam
+  : ICmpt_InputFieldType
+{
+}

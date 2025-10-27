@@ -1,0 +1,34 @@
+﻿/* default
+category { Query }
+output Query { }
+
+category { (sequential) Mutation }
+output Mutation { }
+
+category { (single) Subscription }
+output Subscription { }
+
+output _Schema { }
+*/
+
+// Generated from Schema default for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_default;
+
+public interface ICmptQuery
+{
+}
+
+public interface ICmptMutation
+{
+}
+
+public interface ICmptSubscription
+{
+}
+
+public interface ICmpt_Schema
+{
+}

@@ -1,0 +1,28 @@
+﻿/* constraint-field-domain+Input
+input CnstFieldDmnInp { :RefCnstFieldDmnInp<DomCnstFieldDmnInp> }
+input RefCnstFieldDmnInp<$ref:String> { field: $ref }
+domain DomCnstFieldDmnInp { String /\w+/ }
+*/
+
+// Generated from Schema constraint-field-domain+Input for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_field_domain_Input;
+
+public class CmptCnstFieldDmnInp
+  : CmptRefCnstFieldDmnInp
+  , ICmptCnstFieldDmnInp
+{
+}
+
+public class CmptRefCnstFieldDmnInp<Tref>
+  : ICmptRefCnstFieldDmnInp<Tref>
+{
+  public Tref field { get; set; }
+}
+
+public class CmptDomCnstFieldDmnInp
+  : ICmptDomCnstFieldDmnInp
+{
+}

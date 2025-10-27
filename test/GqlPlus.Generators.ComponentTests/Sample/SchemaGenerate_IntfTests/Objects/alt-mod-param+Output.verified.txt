@@ -1,0 +1,21 @@
+﻿/* alt-mod-param+Output
+output AltModParamOutp<$mod:String> { | AltAltModParamOutp[$mod] }
+output AltAltModParamOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-param+Output for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_alt_mod_param_Output;
+
+public interface ICmptAltModParamOutp<Tmod>
+{
+  AltAltModParamOutp AsAltAltModParamOutp { get; }
+}
+
+public interface ICmptAltAltModParamOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}

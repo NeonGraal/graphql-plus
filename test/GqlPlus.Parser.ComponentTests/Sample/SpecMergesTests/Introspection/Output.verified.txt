@@ -3,39 +3,26 @@
 Success
 {
   !Ou I@008/0001
-  _TypeOutput
-  :
-  I@007/0002
-  _TypeObject
-  <
-    I@019/0002
-    _TypeKind.Output
-    I@036/0002
-    _OutputField
-  >
-}
-{
-  !Ou I@008/0005
   _OutputField
   :
-  I@007/0006
+  I@007/0002
   _ObjField
   <
-    I@017/0006
+    I@017/0002
     _ObjFieldType
   >
 }
 {
-  !Ou I@008/0009
+  !Ou I@008/0005
   _OutputFieldType
   :
-  I@007/0010
+  I@007/0006
   _ObjFieldType
   {
-    !OF I@009/0011
+    !OF I@009/0007
     parameters
     :
-    I@021/0011
+    I@021/0007
     _InputParam
     []
   }

@@ -6,13 +6,13 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyInputTypesTests
-  : ObjectDualVerifierTestsBase<IGqlpInputObject, IGqlpInputField>
+  : ObjectVerifierTestsBase<IGqlpInputField>
 {
-  protected override IVerifyUsage<IGqlpInputObject> Verifier { get; }
+  protected override IVerifyUsage<IGqlpObject<IGqlpInputField>> Verifier { get; }
 
   public VerifyInputTypesTests()
     : base(TypeKind.Input)
-    => Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate));
+    => Verifier = new VerifyInputTypes(Verifiers);
 
   [Theory, RepeatData]
   public void Verify_Input_WithFieldNullDefault_ReturnsError(string fieldName, string fieldType)

@@ -18,171 +18,243 @@ Success
     _TypeKind.Internal
   >
   I@007/0004
-  _TypeDual
+  _BaseDomain
+  <
+    I@019/0004
+    _DomainKind.Boolean
+    I@039/0004
+    _DomainTrueFalse
+    I@056/0004
+    _DomainItemTrueFalse
+  >
   I@007/0005
-  _TypeEnum
+  _BaseDomain
+  <
+    I@019/0005
+    _DomainKind.Enum
+    I@036/0005
+    _DomainLabel
+    I@049/0005
+    _DomainItemLabel
+  >
   I@007/0006
-  _TypeInput
+  _BaseDomain
+  <
+    I@019/0006
+    _DomainKind.Number
+    I@038/0006
+    _DomainRange
+    I@051/0006
+    _DomainItemRange
+  >
   I@007/0007
-  _TypeOutput
+  _BaseDomain
+  <
+    I@019/0007
+    _DomainKind.String
+    I@038/0007
+    _DomainRegex
+    I@051/0007
+    _DomainItemRegex
+  >
   I@007/0008
-  _TypeDomain
-  I@007/0009
-  _TypeUnion
-}
-{
-  !Ou I@008/0012
-  _BaseType
-  <
-    I@019/0012
-    $kind
-    :_TypeKind
-  >
-  :
-  I@007/0013
-  _Aliased
-  {
-    !OF I@009/0014
-    typeKind
-    :
-    I@020/0014
-    $kind
-  }
-}
-{
-  !Ou I@008/0017
-  _ChildType
-  <
-    I@020/0017
-    $kind
-    :_TypeKind
-    I@036/0017
-    $parent
-    :_Described
-  >
-  :
-  I@007/0018
-  _BaseType
-  <
-    I@018/0018
-    $kind
-  >
-  {
-    !OF I@009/0019
-    parent
-    :
-    I@018/0019
-    $parent
-  }
-}
-{
-  !Ou I@008/0022
   _ParentType
   <
-    I@021/0022
+    I@019/0008
+    _TypeKind.Enum
+    I@034/0008
+    _Aliased
+    I@043/0008
+    _EnumLabel
+  >
+  I@007/0009
+  _ParentType
+  <
+    I@019/0009
+    _TypeKind.Union
+    I@035/0009
+    _UnionRef
+    I@045/0009
+    _UnionMember
+  >
+  I@007/0010
+  _TypeObject
+  <
+    I@019/0010
+    _TypeKind.Dual
+    I@034/0010
+    _DualField
+  >
+  I@007/0011
+  _TypeObject
+  <
+    I@019/0011
+    _TypeKind.Input
+    I@035/0011
+    _InputField
+  >
+  I@007/0012
+  _TypeObject
+  <
+    I@019/0012
+    _TypeKind.Output
+    I@036/0012
+    _OutputField
+  >
+}
+{
+  !Ou I@008/0015
+  _BaseType
+  <
+    I@019/0015
     $kind
     :_TypeKind
-    I@037/0022
+  >
+  :
+  I@007/0016
+  _Aliased
+  {
+    !OF I@009/0017
+    typeKind
+    :
+    I@020/0017
+    $kind
+  }
+}
+{
+  !Ou I@008/0020
+  _ChildType
+  <
+    I@020/0020
+    $kind
+    :_TypeKind
+    I@036/0020
+    $parent
+    :_Described
+  >
+  :
+  I@007/0021
+  _BaseType
+  <
+    I@018/0021
+    $kind
+  >
+  {
+    !OF I@009/0022
+    parent
+    :
+    I@018/0022
+    $parent
+  }
+}
+{
+  !Ou I@008/0025
+  _ParentType
+  <
+    I@021/0025
+    $kind
+    :_TypeKind
+    I@037/0025
     $item
     :_Described
-    I@054/0022
+    I@054/0025
     $allItem
     :_Described
   >
   :
-  I@007/0023
+  I@007/0026
   _ChildType
   <
-    I@019/0023
+    I@019/0026
     $kind
-    I@024/0023
+    I@024/0026
     _Named
   >
   {
-    !OF I@009/0024
+    !OF I@009/0027
     items
     :
-    I@017/0024
+    I@017/0027
     $item
     []
-    !OF I@009/0025
+    !OF I@009/0028
     allItems
     :
-    I@020/0025
+    I@020/0028
     $allItem
     []
   }
 }
 {
-  !En I@006/0028
+  !En I@006/0031
   _SimpleKind
-  !EL I@020/0028
+  !EL I@020/0031
   Basic
-  !EL I@026/0028
+  !EL I@026/0031
   Enum
-  !EL I@031/0028
+  !EL I@031/0031
   Internal
-  !EL I@040/0028
+  !EL I@040/0031
   Domain
-  !EL I@047/0028
+  !EL I@047/0031
   Union
 }
 {
-  !En I@006/0030
+  !En I@006/0033
   _TypeKind
-  :( !Tr I@019/0030 _SimpleKind )
-  !EL I@031/0030
+  :( !Tr I@019/0033 _SimpleKind )
+  !EL I@031/0033
   Dual
-  !EL I@036/0030
+  !EL I@036/0033
   Input
-  !EL I@042/0030
+  !EL I@042/0033
   Output
 }
 {
-  !Du I@006/0032
+  !Du I@006/0035
   _TypeRef
   <
-    I@016/0032
+    I@016/0035
     $kind
     :_TypeKind
   >
   :
-  I@007/0033
+  I@007/0036
   _Named
   {
-    !DF I@009/0034
+    !DF I@009/0037
     typeKind
     :
-    I@020/0034
+    I@020/0037
     $kind
   }
 }
 {
-  !Du I@006/0037
+  !Du I@006/0040
   _TypeSimple
   |
-  I@007/0038
-  _TypeRef
-  <
-    I@016/0038
-    _TypeKind.Basic
-  >
-  I@007/0039
-  _TypeRef
-  <
-    I@016/0039
-    _TypeKind.Enum
-  >
-  I@007/0040
-  _TypeRef
-  <
-    I@016/0040
-    _TypeKind.Domain
-  >
   I@007/0041
   _TypeRef
   <
     I@016/0041
+    _TypeKind.Basic
+  >
+  I@007/0042
+  _TypeRef
+  <
+    I@016/0042
+    _TypeKind.Enum
+  >
+  I@007/0043
+  _TypeRef
+  <
+    I@016/0043
+    _TypeKind.Domain
+  >
+  I@007/0044
+  _TypeRef
+  <
+    I@016/0044
     _TypeKind.Union
   >
 }

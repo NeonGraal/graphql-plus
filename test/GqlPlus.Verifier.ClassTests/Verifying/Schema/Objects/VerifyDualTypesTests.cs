@@ -2,11 +2,11 @@
 
 [TracePerTest]
 public class VerifyDualTypesTests
-  : ObjectVerifierTestsBase<IGqlpDualObject, IGqlpDualField>
+  : ObjectVerifierTestsBase<IGqlpDualField>
 {
-  protected override IVerifyUsage<IGqlpDualObject> Verifier { get; }
+  protected override IVerifyUsage<IGqlpObject<IGqlpDualField>> Verifier { get; }
 
   public VerifyDualTypesTests()
     : base(TypeKind.Dual)
-    => Verifier = new VerifyDualTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate));
+    => Verifier = new VerifyDualTypes(Verifiers);
 }

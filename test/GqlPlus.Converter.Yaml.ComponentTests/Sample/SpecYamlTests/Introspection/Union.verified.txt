@@ -2,25 +2,8 @@
 errors:
 - !_Error
   _kind: !_TokenKind End
-  _message: In _TypeUnion can't get model for type '_ParentType'
-- !_Error
-  _kind: !_TokenKind End
   _message: In _UnionRef can't get model for type '_TypeRef'
 types: !_Map_Type
-  !_Identifier _TypeUnion: !_TypeOutput
-    name: _TypeUnion
-    parent: !_ObjBase
-      name: _ParentType
-      typeArgs:
-      - !_EnumValue
-        label: Union
-        name: _TypeKind
-        typeKind: !_SimpleKind Enum
-      - !_TypeArg
-        name: _UnionRef
-      - !_TypeArg
-        name: _UnionMember
-    typeKind: !_TypeKind Output
   !_Identifier _UnionMember: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)

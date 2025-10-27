@@ -1,7 +1,3 @@
-output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputField>
-    }
-
 output _OutputField {
     : _ObjField<_ObjFieldType>
     }

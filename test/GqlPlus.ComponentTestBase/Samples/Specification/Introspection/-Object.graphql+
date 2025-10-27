@@ -67,16 +67,8 @@ output _ForParam<$type:_ObjFieldType> {
     | _ObjField<$type>
     }
 
-output _TypeDual {
-    : _TypeObject<_TypeKind.Dual _DualField>
-    }
-
 output _DualField {
     : _ObjField<_ObjFieldType>
-    }
-
-output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputField>
     }
 
 output _InputField {
@@ -90,10 +82,6 @@ output _InputFieldType {
 
 output _InputParam {
     : _InputFieldType
-    }
-
-output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputField>
     }
 
 output _OutputField {

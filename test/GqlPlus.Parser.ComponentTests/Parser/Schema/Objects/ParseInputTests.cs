@@ -5,11 +5,11 @@ using GqlPlus.Parsing.Schema.Objects;
 namespace GqlPlus.Parser.Schema.Objects;
 
 public class ParseInputTests(
-  ICheckObject<IGqlpInputObject> objectChecks
-) : TestObject<IGqlpInputObject>(objectChecks)
+  ICheckObject<IGqlpInputField> objectChecks
+) : TestObject<IGqlpInputField>(objectChecks)
 { }
 
 internal sealed class ParseInputChecks(
-  Parser<IGqlpInputObject>.D parser
-) : CheckObject<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst>(new InputFactories(), parser)
+  Parser<IGqlpObject<IGqlpInputField>>.D parser
+) : CheckObject<IGqlpInputField, InputFieldAst>(new InputFactories(), parser)
 { }

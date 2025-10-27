@@ -43,7 +43,7 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_DefinedInput_ReturnsNoError()
   {
-    Define<IGqlpInputObject>("Type");
+    Define<IGqlpObject<IGqlpInputField>>("Type");
 
     Usages.Add(_directive);
 
@@ -55,7 +55,7 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_WithAliases_ReturnsNoError()
   {
-    Define<IGqlpInputObject>("Type");
+    Define<IGqlpObject<IGqlpInputField>>("Type");
 
     _directive.Aliases.Returns(["Alias1", "Alias2"]);
     Usages.Add(_directive);
@@ -68,7 +68,7 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_DefinedOutput_ReturnsError()
   {
-    Define<IGqlpOutputObject>("Type");
+    Define<IGqlpObject<IGqlpOutputField>>("Type");
 
     Usages.Add(_directive);
 

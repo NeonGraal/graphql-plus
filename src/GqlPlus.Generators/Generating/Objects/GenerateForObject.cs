@@ -1,17 +1,30 @@
-﻿namespace GqlPlus.Generating.Objects;
+﻿using System.Linq;
+
+namespace GqlPlus.Generating.Objects;
 
 internal class GenerateForObject<TObjField>
   : GenerateForClass<IGqlpObject<TObjField>>
   where TObjField : IGqlpObjField
 {
+  public GenerateForObject()
+  {
+    _generators.Add(GqlpGeneratorType.Interface, GenerateObjectInterfaces);
+  }
+
+  private void GenerateObjectInterfaces(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+  {
+    GenerateBlock(InterfaceHeader, InterfaceMember)(ast, context);
+    GenerateBlock(ast, context, InterfaceFieldsHeader, ast.Alternates.Select(AlternateMember(context), ClassMember);
+  }
+
   internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
-    => [.. ast.Fields.Select(FieldMember(context)), .. ast.Alternates.Select(AlternateMember(context))];
+    => [.. ast.Fields.Select(FieldMember(context)), .. AlternateMembers(ast, context)];
 
   private Func<IGqlpObjField, MapPair<string>> FieldMember(GqlpGeneratorContext context)
     => field => new(field.Name, TypeString(field.Type, context));
 
-  private Func<IGqlpAlternate, MapPair<string>> AlternateMember(GqlpGeneratorContext context)
-    => alternate => new("As" + alternate.Name, TypeString(alternate, context));
+  private IEnumerable<MapPair<string>> AlternateMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+    => ast.Alternates.Select(alternate => new MapPair<string>("As" + alternate.Name, TypeString(alternate, context)));
 
   protected virtual string TypeString(IGqlpObjType type, GqlpGeneratorContext context)
   {

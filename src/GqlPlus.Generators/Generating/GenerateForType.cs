@@ -12,6 +12,7 @@ internal abstract class GenerateForType<T>
     => Generate((T)ast, context);
 
   protected delegate void GenerateDelegate(T ast, GqlpGeneratorContext context);
+  protected delegate IEnumerable<MapPair<string>> GenerateMembers(T ast, GqlpGeneratorContext context);
   protected delegate void GenerateMember(MapPair<string> item, GqlpGeneratorContext context);
 
   protected Dictionary<GqlpGeneratorType, GenerateDelegate> _generators = [];
@@ -27,16 +28,19 @@ internal abstract class GenerateForType<T>
   }
 
   protected GenerateDelegate GenerateBlock(GenerateDelegate head, GenerateMember member)
-    => (ast, context) => {
-      context.Write("");
-      head(ast, context);
-      context.Write("{");
-      foreach (MapPair<string> item in TypeMembers(ast, context)) {
-        member(item, context);
-      }
+    => (ast, context) => GenerateBlock(ast, context, head, TypeMembers, member);
 
-      context.Write("}");
-    };
+  protected static void GenerateBlock(T ast, GqlpGeneratorContext context, GenerateDelegate head, GenerateMembers members, GenerateMember member)
+  {
+    context.Write("");
+    head(ast, context);
+    context.Write("{");
+    foreach (MapPair<string> item in members(ast, context)) {
+      member(item, context);
+    }
+
+    context.Write("}");
+  }
 
   protected virtual void InterfaceHeader(T ast, GqlpGeneratorContext context)
     => context.Write("public interface I" + context.TypeName(ast));

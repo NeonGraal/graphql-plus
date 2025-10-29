@@ -22,4 +22,6 @@ public class MergeDomainTrueFalsesTests(
 
   protected override IGqlpDomainTrueFalse MakeItem(bool input, bool excludes)
     => new DomainTrueFalseAst(AstNulls.At, "", excludes, input);
+  protected override bool InputEquals(bool input1, bool input2)
+    => input1 == input2;
 }

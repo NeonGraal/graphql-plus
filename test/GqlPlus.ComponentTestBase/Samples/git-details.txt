@@ -1,1 +1,1 @@
-b6a813c  (HEAD -> simplify-object) 2025-10-27 Remove unecessary introspection objects
+928d017  (HEAD -> operation) 2025-10-27 Merge branch 'main' into operation

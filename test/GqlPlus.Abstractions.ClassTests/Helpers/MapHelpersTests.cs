@@ -1,7 +1,37 @@
 ﻿namespace GqlPlus.Helpers;
 
-public class MapTests
+public class MapHelpersTests
 {
+  [Theory, RepeatData]
+  public void ToPair_FromInt(int value)
+  {
+    MapPair<int> pair = value.ToPair(k => $"{k}");
+
+    pair.ShouldSatisfyAllConditions(
+      m => m.Key.ShouldBe($"{value}"),
+      m => m.Value.ShouldBe(value));
+  }
+
+  [Theory, RepeatData]
+  public void ToPair_FromDecimal(decimal value, string key)
+  {
+    MapPair<decimal> pair = value.ToPair(key);
+
+    pair.ShouldSatisfyAllConditions(
+      m => m.Key.ShouldBe(key),
+      m => m.Value.ShouldBe(value));
+  }
+
+  [Theory, RepeatData]
+  public void ToPair_FromStringInt(StringInt value)
+  {
+    MapPair<int> pair = value.ToPair(k => k.Name, k => k.Age);
+
+    pair.ShouldSatisfyAllConditions(
+      m => m.Key.ShouldBe(value.Name),
+      m => m.Value.ShouldBe(value.Age));
+  }
+
   [Theory, RepeatData]
   public void ToMap_FromStrings(string[] values)
   {

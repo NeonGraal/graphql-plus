@@ -220,21 +220,21 @@ public class CmptObjDualAltDualOutp
 public class CmptAltEnumDual
   : ICmptAltEnumDual
 {
-  public CmptEnumAltEnumDual AsEnumAltEnumDual { get; set; }
+  public CmptEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
   public CmptAltEnumDual AltEnumDual { get; set; }
 }
 
 public class CmptAltEnumInp
   : ICmptAltEnumInp
 {
-  public CmptEnumAltEnumInp AsEnumAltEnumInp { get; set; }
+  public CmptEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
   public CmptAltEnumInp AltEnumInp { get; set; }
 }
 
 public class CmptAltEnumOutp
   : ICmptAltEnumOutp
 {
-  public CmptEnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
+  public CmptEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
   public CmptAltEnumOutp AltEnumOutp { get; set; }
 }
 
@@ -3542,24 +3542,24 @@ public class CmptObjAltOutpType
 public class CmptObjAltEnumDual
   : ICmptObjAltEnumDual
 {
-  public CmptBoolean AsBoolean { get; set; }
-  public CmptBoolean AsBoolean { get; set; }
+  public CmptBoolean AsBooleantrue { get; set; }
+  public CmptBoolean AsBooleanfalse { get; set; }
   public CmptObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 
 public class CmptObjAltEnumInp
   : ICmptObjAltEnumInp
 {
-  public CmptBoolean AsBoolean { get; set; }
-  public CmptBoolean AsBoolean { get; set; }
+  public CmptBoolean AsBooleantrue { get; set; }
+  public CmptBoolean AsBooleanfalse { get; set; }
   public CmptObjAltEnumInp ObjAltEnumInp { get; set; }
 }
 
 public class CmptObjAltEnumOutp
   : ICmptObjAltEnumOutp
 {
-  public CmptBoolean AsBoolean { get; set; }
-  public CmptBoolean AsBoolean { get; set; }
+  public CmptBoolean AsBooleantrue { get; set; }
+  public CmptBoolean AsBooleanfalse { get; set; }
   public CmptObjAltEnumOutp ObjAltEnumOutp { get; set; }
 }
 

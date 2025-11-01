@@ -66,6 +66,25 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
+  public void GenerateType_WithAlternateEnum_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string enumType, string enumLabel)
+  {
+    // Arrange
+    GqlpGeneratorContext context = Context(baseType, generatorType);
+    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+      .WithAlternate(enumType, a => a.WithObjEnum(enumLabel))
+      .AsObject;
+
+    // Act
+    TypeGenerator.GenerateType(obj, context);
+
+    // Assert
+    string result = context.ToString();
+    result.ShouldSatisfyAllConditions(
+      CheckGeneratedCodeName(generatorType, name),
+      CheckGeneratedCodeAlternateEnum(generatorType, enumType, enumLabel));
+  }
+
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithAlternateArgs_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string alternateType, string argName)
   {
     // Arrange
@@ -143,6 +162,9 @@ public abstract class GenerateObjectTestsBase<TObjField>(
 
   protected virtual Action<string> CheckGeneratedCodeAlternateArg(GqlpGeneratorType generatorType, string alternateType, string argName)
     => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{alternateType}<test{argName}> As{alternateType} {{ get;");
+
+  protected virtual Action<string> CheckGeneratedCodeAlternateEnum(GqlpGeneratorType generatorType, string enumType, string enumLabel)
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{enumType} As{enumType}{enumLabel} {{ get;");
 
   internal override GenerateForType<IGqlpObject<TObjField>> TypeGenerator { get; }
     = new GenerateForObject<TObjField>();

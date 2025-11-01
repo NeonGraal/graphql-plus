@@ -210,8 +210,8 @@ public interface ICmptObjAltOutpTypeField
 
 public interface ICmptObjAltEnumDual
 {
-  public CmptBoolean AsBoolean { get; set; }
-  public CmptBoolean AsBoolean { get; set; }
+  public CmptBoolean AsBooleantrue { get; set; }
+  public CmptBoolean AsBooleanfalse { get; set; }
   public CmptObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 
@@ -221,8 +221,8 @@ public interface ICmptObjAltEnumDualField
 
 public interface ICmptObjAltEnumInp
 {
-  public CmptBoolean AsBoolean { get; set; }
-  public CmptBoolean AsBoolean { get; set; }
+  public CmptBoolean AsBooleantrue { get; set; }
+  public CmptBoolean AsBooleanfalse { get; set; }
   public CmptObjAltEnumInp ObjAltEnumInp { get; set; }
 }
 
@@ -232,8 +232,8 @@ public interface ICmptObjAltEnumInpField
 
 public interface ICmptObjAltEnumOutp
 {
-  public CmptBoolean AsBoolean { get; set; }
-  public CmptBoolean AsBoolean { get; set; }
+  public CmptBoolean AsBooleantrue { get; set; }
+  public CmptBoolean AsBooleanfalse { get; set; }
   public CmptObjAltEnumOutp ObjAltEnumOutp { get; set; }
 }
 

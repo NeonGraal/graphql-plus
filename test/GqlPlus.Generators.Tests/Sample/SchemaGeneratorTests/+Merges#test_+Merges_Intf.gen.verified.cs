@@ -211,8 +211,8 @@ public interface ItestObjAltOutpTypeField
 
 public interface ItestObjAltEnumDual
 {
-  public testBoolean AsBoolean { get; set; }
-  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBooleantrue { get; set; }
+  public testBoolean AsBooleanfalse { get; set; }
   public testObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 
@@ -222,8 +222,8 @@ public interface ItestObjAltEnumDualField
 
 public interface ItestObjAltEnumInp
 {
-  public testBoolean AsBoolean { get; set; }
-  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBooleantrue { get; set; }
+  public testBoolean AsBooleanfalse { get; set; }
   public testObjAltEnumInp ObjAltEnumInp { get; set; }
 }
 
@@ -233,8 +233,8 @@ public interface ItestObjAltEnumInpField
 
 public interface ItestObjAltEnumOutp
 {
-  public testBoolean AsBoolean { get; set; }
-  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBooleantrue { get; set; }
+  public testBoolean AsBooleanfalse { get; set; }
   public testObjAltEnumOutp ObjAltEnumOutp { get; set; }
 }
 

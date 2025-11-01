@@ -7,8 +7,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alt_enum_Dual;
 
 public interface ItestObjAltEnumDual
 {
-  public testBoolean AsBoolean { get; set; }
-  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBooleantrue { get; set; }
+  public testBoolean AsBooleanfalse { get; set; }
   public testObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 

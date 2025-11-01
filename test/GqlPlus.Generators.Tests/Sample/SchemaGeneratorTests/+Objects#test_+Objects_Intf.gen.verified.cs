@@ -163,7 +163,7 @@ public interface ItestObjDualAltDualOutpField
 
 public interface ItestAltEnumDual
 {
-  public testEnumAltEnumDual AsEnumAltEnumDual { get; set; }
+  public testEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
   public testAltEnumDual AltEnumDual { get; set; }
 }
 
@@ -173,7 +173,7 @@ public interface ItestAltEnumDualField
 
 public interface ItestAltEnumInp
 {
-  public testEnumAltEnumInp AsEnumAltEnumInp { get; set; }
+  public testEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
   public testAltEnumInp AltEnumInp { get; set; }
 }
 
@@ -183,7 +183,7 @@ public interface ItestAltEnumInpField
 
 public interface ItestAltEnumOutp
 {
-  public testEnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
+  public testEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
   public testAltEnumOutp AltEnumOutp { get; set; }
 }
 

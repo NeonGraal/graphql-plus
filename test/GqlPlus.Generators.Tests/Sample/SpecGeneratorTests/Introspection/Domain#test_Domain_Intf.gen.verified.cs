@@ -68,10 +68,10 @@ public interface Itest_DomainValueField<Tkind,Tvalue>
 
 public interface Itest_BasicValue
 {
-  public test_DomainKind As_DomainKind { get; set; }
+  public test_DomainKind As_DomainKindBoolean { get; set; }
   public test_EnumValue As_EnumValue { get; set; }
-  public test_DomainKind As_DomainKind { get; set; }
-  public test_DomainKind As_DomainKind { get; set; }
+  public test_DomainKind As_DomainKindNumber { get; set; }
+  public test_DomainKind As_DomainKindString { get; set; }
   public test_BasicValue _BasicValue { get; set; }
 }
 

@@ -72,7 +72,7 @@ public class Cmpt_IfElse<TT>
 public class Cmpt_Set<TK>
   : ICmpt_Set<TK>
 {
-  public IDictionary<TK, CmptUnit> AsUnit { get; set; }
+  public IDictionary<TK, CmptUnit> AsUnit_ { get; set; }
   public Cmpt_Set _Set { get; set; }
 }
 

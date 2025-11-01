@@ -118,21 +118,21 @@ public class CmptObjDualAltDualOutp
 public class CmptAltEnumDual
   : ICmptAltEnumDual
 {
-  public CmptEnumAltEnumDual AsEnumAltEnumDual { get; set; }
+  public CmptEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
   public CmptAltEnumDual AltEnumDual { get; set; }
 }
 
 public class CmptAltEnumInp
   : ICmptAltEnumInp
 {
-  public CmptEnumAltEnumInp AsEnumAltEnumInp { get; set; }
+  public CmptEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
   public CmptAltEnumInp AltEnumInp { get; set; }
 }
 
 public class CmptAltEnumOutp
   : ICmptAltEnumOutp
 {
-  public CmptEnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
+  public CmptEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
   public CmptAltEnumOutp AltEnumOutp { get; set; }
 }
 

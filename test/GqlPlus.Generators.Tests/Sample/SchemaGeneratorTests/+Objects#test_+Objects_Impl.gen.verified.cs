@@ -119,21 +119,21 @@ public class testObjDualAltDualOutp
 public class testAltEnumDual
   : ItestAltEnumDual
 {
-  public testEnumAltEnumDual AsEnumAltEnumDual { get; set; }
+  public testEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
   public testAltEnumDual AltEnumDual { get; set; }
 }
 
 public class testAltEnumInp
   : ItestAltEnumInp
 {
-  public testEnumAltEnumInp AsEnumAltEnumInp { get; set; }
+  public testEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
   public testAltEnumInp AltEnumInp { get; set; }
 }
 
 public class testAltEnumOutp
   : ItestAltEnumOutp
 {
-  public testEnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
+  public testEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
   public testAltEnumOutp AltEnumOutp { get; set; }
 }
 

@@ -716,10 +716,10 @@ public interface ICmpt_DomainValueField<Tkind,Tvalue>
 
 public interface ICmpt_BasicValue
 {
-  public Cmpt_DomainKind As_DomainKind { get; set; }
+  public Cmpt_DomainKind As_DomainKindBoolean { get; set; }
   public Cmpt_EnumValue As_EnumValue { get; set; }
-  public Cmpt_DomainKind As_DomainKind { get; set; }
-  public Cmpt_DomainKind As_DomainKind { get; set; }
+  public Cmpt_DomainKind As_DomainKindNumber { get; set; }
+  public Cmpt_DomainKind As_DomainKindString { get; set; }
   public Cmpt_BasicValue _BasicValue { get; set; }
 }
 

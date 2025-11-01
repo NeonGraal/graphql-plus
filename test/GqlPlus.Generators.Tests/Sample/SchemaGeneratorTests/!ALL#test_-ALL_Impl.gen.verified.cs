@@ -221,21 +221,21 @@ public class testObjDualAltDualOutp
 public class testAltEnumDual
   : ItestAltEnumDual
 {
-  public testEnumAltEnumDual AsEnumAltEnumDual { get; set; }
+  public testEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
   public testAltEnumDual AltEnumDual { get; set; }
 }
 
 public class testAltEnumInp
   : ItestAltEnumInp
 {
-  public testEnumAltEnumInp AsEnumAltEnumInp { get; set; }
+  public testEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
   public testAltEnumInp AltEnumInp { get; set; }
 }
 
 public class testAltEnumOutp
   : ItestAltEnumOutp
 {
-  public testEnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
+  public testEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
   public testAltEnumOutp AltEnumOutp { get; set; }
 }
 
@@ -3543,24 +3543,24 @@ public class testObjAltOutpType
 public class testObjAltEnumDual
   : ItestObjAltEnumDual
 {
-  public testBoolean AsBoolean { get; set; }
-  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBooleantrue { get; set; }
+  public testBoolean AsBooleanfalse { get; set; }
   public testObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 
 public class testObjAltEnumInp
   : ItestObjAltEnumInp
 {
-  public testBoolean AsBoolean { get; set; }
-  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBooleantrue { get; set; }
+  public testBoolean AsBooleanfalse { get; set; }
   public testObjAltEnumInp ObjAltEnumInp { get; set; }
 }
 
 public class testObjAltEnumOutp
   : ItestObjAltEnumOutp
 {
-  public testBoolean AsBoolean { get; set; }
-  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBooleantrue { get; set; }
+  public testBoolean AsBooleanfalse { get; set; }
   public testObjAltEnumOutp ObjAltEnumOutp { get; set; }
 }
 

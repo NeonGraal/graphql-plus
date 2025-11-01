@@ -173,24 +173,24 @@ public class testObjAltOutpType
 public class testObjAltEnumDual
   : ItestObjAltEnumDual
 {
-  public testBoolean AsBoolean { get; set; }
-  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBooleantrue { get; set; }
+  public testBoolean AsBooleanfalse { get; set; }
   public testObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 
 public class testObjAltEnumInp
   : ItestObjAltEnumInp
 {
-  public testBoolean AsBoolean { get; set; }
-  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBooleantrue { get; set; }
+  public testBoolean AsBooleanfalse { get; set; }
   public testObjAltEnumInp ObjAltEnumInp { get; set; }
 }
 
 public class testObjAltEnumOutp
   : ItestObjAltEnumOutp
 {
-  public testBoolean AsBoolean { get; set; }
-  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBooleantrue { get; set; }
+  public testBoolean AsBooleanfalse { get; set; }
   public testObjAltEnumOutp ObjAltEnumOutp { get; set; }
 }
 

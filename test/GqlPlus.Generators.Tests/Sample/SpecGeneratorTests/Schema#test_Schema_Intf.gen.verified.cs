@@ -68,7 +68,7 @@ public interface Itest_IfElseField<TT>
 
 public interface Itest_Set<TK>
 {
-  public IDictionary<TK, testUnit> AsUnit { get; set; }
+  public IDictionary<TK, testUnit> AsUnit_ { get; set; }
   public test_Set _Set { get; set; }
 }
 

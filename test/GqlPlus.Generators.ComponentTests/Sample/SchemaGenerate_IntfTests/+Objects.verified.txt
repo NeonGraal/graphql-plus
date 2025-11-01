@@ -162,7 +162,7 @@ public interface ICmptObjDualAltDualOutpField
 
 public interface ICmptAltEnumDual
 {
-  public CmptEnumAltEnumDual AsEnumAltEnumDual { get; set; }
+  public CmptEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
   public CmptAltEnumDual AltEnumDual { get; set; }
 }
 
@@ -172,7 +172,7 @@ public interface ICmptAltEnumDualField
 
 public interface ICmptAltEnumInp
 {
-  public CmptEnumAltEnumInp AsEnumAltEnumInp { get; set; }
+  public CmptEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
   public CmptAltEnumInp AltEnumInp { get; set; }
 }
 
@@ -182,7 +182,7 @@ public interface ICmptAltEnumInpField
 
 public interface ICmptAltEnumOutp
 {
-  public CmptEnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
+  public CmptEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
   public CmptAltEnumOutp AltEnumOutp { get; set; }
 }
 

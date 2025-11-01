@@ -89,7 +89,7 @@ public interface ICmpt_IfElseField<TT>
 
 public interface ICmpt_Set<TK>
 {
-  public IDictionary<TK, CmptUnit> AsUnit { get; set; }
+  public IDictionary<TK, CmptUnit> AsUnit_ { get; set; }
   public Cmpt_Set _Set { get; set; }
 }
 

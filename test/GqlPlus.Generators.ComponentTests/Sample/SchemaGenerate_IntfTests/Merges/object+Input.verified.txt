@@ -11,4 +11,9 @@ namespace Components.Gqlp_Schema_object_Input;
 
 public interface ICmptObjInp
 {
+  public CmptObjInp ObjInp { get; set; }
+}
+
+public interface ICmptObjInpField
+{
 }

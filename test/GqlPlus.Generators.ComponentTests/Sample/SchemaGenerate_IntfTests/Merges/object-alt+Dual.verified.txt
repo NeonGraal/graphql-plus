@@ -12,9 +12,19 @@ namespace Components.Gqlp_Schema_object_alt_Dual;
 
 public interface ICmptObjAltDual
 {
-  ObjAltDualType AsObjAltDualType { get; }
+  public CmptObjAltDualType AsObjAltDualType { get; set; }
+  public CmptObjAltDual ObjAltDual { get; set; }
+}
+
+public interface ICmptObjAltDualField
+{
 }
 
 public interface ICmptObjAltDualType
+{
+  public CmptObjAltDualType ObjAltDualType { get; set; }
+}
+
+public interface ICmptObjAltDualTypeField
 {
 }

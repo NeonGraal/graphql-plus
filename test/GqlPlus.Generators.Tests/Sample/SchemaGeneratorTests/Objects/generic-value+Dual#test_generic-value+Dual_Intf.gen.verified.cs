@@ -7,10 +7,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Dual;
 
 public interface ItestGnrcValueDual
 {
-  RefGnrcValueDual<EnumGnrcValueDual> AsRefGnrcValueDual { get; }
+  public testRefGnrcValueDual<testEnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
+  public testGnrcValueDual GnrcValueDual { get; set; }
+}
+
+public interface ItestGnrcValueDualField
+{
 }
 
 public interface ItestRefGnrcValueDual<Ttype>
 {
-  Ttype field { get; }
+  public testRefGnrcValueDual RefGnrcValueDual { get; set; }
+}
+
+public interface ItestRefGnrcValueDualField<Ttype>
+{
+  public Ttype field { get; set; }
 }

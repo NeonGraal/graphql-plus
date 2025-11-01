@@ -8,10 +8,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_param_diff_Input;
 public interface ItestPrntParamDiffInp<Ta>
   : ItestRefPrntParamDiffInp
 {
-  Ta field { get; }
+  public testPrntParamDiffInp PrntParamDiffInp { get; set; }
+}
+
+public interface ItestPrntParamDiffInpField<Ta>
+  : ItestRefPrntParamDiffInpField
+{
+  public Ta field { get; set; }
 }
 
 public interface ItestRefPrntParamDiffInp<Tb>
 {
-  Tb Asb { get; }
+  public Tb Asb { get; set; }
+  public testRefPrntParamDiffInp RefPrntParamDiffInp { get; set; }
+}
+
+public interface ItestRefPrntParamDiffInpField<Tb>
+{
 }

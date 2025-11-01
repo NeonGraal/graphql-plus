@@ -9,17 +9,20 @@ public class testGnrcPrntDualDual
   : testRefGnrcPrntDualDual
   , ItestGnrcPrntDualDual
 {
+  public testGnrcPrntDualDual GnrcPrntDualDual { get; set; }
 }
 
 public class testRefGnrcPrntDualDual<Tref>
   : ItestRefGnrcPrntDualDual<Tref>
 {
   public Tref Asref { get; set; }
+  public testRefGnrcPrntDualDual RefGnrcPrntDualDual { get; set; }
 }
 
 public class testAltGnrcPrntDualDual
   : ItestAltGnrcPrntDualDual
 {
-  public Number alt { get; set; }
-  public String AsString { get; set; }
+  public testNumber alt { get; set; }
+  public testString AsString { get; set; }
+  public testAltGnrcPrntDualDual AltGnrcPrntDualDual { get; set; }
 }

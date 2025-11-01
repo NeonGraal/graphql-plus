@@ -14,20 +14,43 @@ namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Output;
 public interface ICmptCnstPrntObjPrntOutp
   : ICmptRefCnstPrntObjPrntOutp
 {
+  public CmptCnstPrntObjPrntOutp CnstPrntObjPrntOutp { get; set; }
+}
+
+public interface ICmptCnstPrntObjPrntOutpField
+  : ICmptRefCnstPrntObjPrntOutpField
+{
 }
 
 public interface ICmptRefCnstPrntObjPrntOutp<Tref>
   : ICmptref
 {
+  public CmptRefCnstPrntObjPrntOutp RefCnstPrntObjPrntOutp { get; set; }
+}
+
+public interface ICmptRefCnstPrntObjPrntOutpField<Tref>
+  : ICmptrefField
+{
 }
 
 public interface ICmptPrntCnstPrntObjPrntOutp
 {
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstPrntObjPrntOutp PrntCnstPrntObjPrntOutp { get; set; }
+}
+
+public interface ICmptPrntCnstPrntObjPrntOutpField
+{
 }
 
 public interface ICmptAltCnstPrntObjPrntOutp
   : ICmptPrntCnstPrntObjPrntOutp
 {
-  Number alt { get; }
+  public CmptAltCnstPrntObjPrntOutp AltCnstPrntObjPrntOutp { get; set; }
+}
+
+public interface ICmptAltCnstPrntObjPrntOutpField
+  : ICmptPrntCnstPrntObjPrntOutpField
+{
+  public CmptNumber alt { get; set; }
 }

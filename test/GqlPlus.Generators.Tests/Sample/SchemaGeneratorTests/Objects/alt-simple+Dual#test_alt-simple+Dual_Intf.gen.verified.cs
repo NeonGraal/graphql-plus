@@ -7,5 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Dual;
 
 public interface ItestAltSmplDual
 {
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testAltSmplDual AltSmplDual { get; set; }
+}
+
+public interface ItestAltSmplDualField
+{
 }

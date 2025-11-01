@@ -7,16 +7,31 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_dual_Output;
 
 public interface ItestGnrcFieldDualOutp
 {
-  RefGnrcFieldDualOutp<AltGnrcFieldDualOutp> field { get; }
+  public testGnrcFieldDualOutp GnrcFieldDualOutp { get; set; }
+}
+
+public interface ItestGnrcFieldDualOutpField
+{
+  public testRefGnrcFieldDualOutp<testAltGnrcFieldDualOutp> field { get; set; }
 }
 
 public interface ItestRefGnrcFieldDualOutp<Tref>
 {
-  Tref Asref { get; }
+  public Tref Asref { get; set; }
+  public testRefGnrcFieldDualOutp RefGnrcFieldDualOutp { get; set; }
+}
+
+public interface ItestRefGnrcFieldDualOutpField<Tref>
+{
 }
 
 public interface ItestAltGnrcFieldDualOutp
 {
-  Number alt { get; }
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testAltGnrcFieldDualOutp AltGnrcFieldDualOutp { get; set; }
+}
+
+public interface ItestAltGnrcFieldDualOutpField
+{
+  public testNumber alt { get; set; }
 }

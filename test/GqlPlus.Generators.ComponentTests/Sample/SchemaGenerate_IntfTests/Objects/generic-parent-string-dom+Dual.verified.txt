@@ -13,11 +13,22 @@ namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
 public interface ICmptGnrcPrntStrDomDual
   : ICmptFieldGnrcPrntStrDomDual
 {
+  public CmptGnrcPrntStrDomDual GnrcPrntStrDomDual { get; set; }
+}
+
+public interface ICmptGnrcPrntStrDomDualField
+  : ICmptFieldGnrcPrntStrDomDualField
+{
 }
 
 public interface ICmptFieldGnrcPrntStrDomDual<Tref>
 {
-  Tref field { get; }
+  public CmptFieldGnrcPrntStrDomDual FieldGnrcPrntStrDomDual { get; set; }
+}
+
+public interface ICmptFieldGnrcPrntStrDomDualField<Tref>
+{
+  public Tref field { get; set; }
 }
 
 public interface ICmptDomGnrcPrntStrDomDual

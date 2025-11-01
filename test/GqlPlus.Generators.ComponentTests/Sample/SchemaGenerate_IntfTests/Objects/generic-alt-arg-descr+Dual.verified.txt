@@ -11,10 +11,20 @@ namespace Components.Gqlp_Schema_generic_alt_arg_descr_Dual;
 
 public interface ICmptGnrcAltArgDescrDual<Ttype>
 {
-  RefGnrcAltArgDescrDual<Ttype> AsRefGnrcAltArgDescrDual { get; }
+  public CmptRefGnrcAltArgDescrDual<Ttype> AsRefGnrcAltArgDescrDual { get; set; }
+  public CmptGnrcAltArgDescrDual GnrcAltArgDescrDual { get; set; }
+}
+
+public interface ICmptGnrcAltArgDescrDualField<Ttype>
+{
 }
 
 public interface ICmptRefGnrcAltArgDescrDual<Tref>
 {
-  Tref Asref { get; }
+  public Tref Asref { get; set; }
+  public CmptRefGnrcAltArgDescrDual RefGnrcAltArgDescrDual { get; set; }
+}
+
+public interface ICmptRefGnrcAltArgDescrDualField<Tref>
+{
 }

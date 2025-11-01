@@ -13,18 +13,21 @@ namespace Components.Gqlp_Schema_generic_alt_param_Input;
 public class CmptGnrcAltParamInp
   : ICmptGnrcAltParamInp
 {
-  public RefGnrcAltParamInp<AltGnrcAltParamInp> AsRefGnrcAltParamInp { get; set; }
+  public CmptRefGnrcAltParamInp<CmptAltGnrcAltParamInp> AsRefGnrcAltParamInp { get; set; }
+  public CmptGnrcAltParamInp GnrcAltParamInp { get; set; }
 }
 
 public class CmptRefGnrcAltParamInp<Tref>
   : ICmptRefGnrcAltParamInp<Tref>
 {
   public Tref Asref { get; set; }
+  public CmptRefGnrcAltParamInp RefGnrcAltParamInp { get; set; }
 }
 
 public class CmptAltGnrcAltParamInp
   : ICmptAltGnrcAltParamInp
 {
-  public Number alt { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcAltParamInp AltGnrcAltParamInp { get; set; }
 }

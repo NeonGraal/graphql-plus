@@ -13,5 +13,6 @@ namespace Components.Gqlp_Schema_field_enum_parent_Dual;
 public class CmptFieldEnumPrntDual
   : ICmptFieldEnumPrntDual
 {
-  public EnumFieldEnumPrntDual field { get; set; }
+  public CmptEnumFieldEnumPrntDual field { get; set; }
+  public CmptFieldEnumPrntDual FieldEnumPrntDual { get; set; }
 }

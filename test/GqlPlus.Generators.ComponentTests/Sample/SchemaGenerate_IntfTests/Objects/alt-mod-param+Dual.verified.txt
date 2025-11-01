@@ -11,11 +11,21 @@ namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 
 public interface ICmptAltModParamDual<Tmod>
 {
-  AltAltModParamDual AsAltAltModParamDual { get; }
+  public IDictionary<Tmod, CmptAltAltModParamDual> AsAltAltModParamDual { get; set; }
+  public CmptAltModParamDual AltModParamDual { get; set; }
+}
+
+public interface ICmptAltModParamDualField<Tmod>
+{
 }
 
 public interface ICmptAltAltModParamDual
 {
-  Number alt { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptAltAltModParamDual AltAltModParamDual { get; set; }
+}
+
+public interface ICmptAltAltModParamDualField
+{
+  public CmptNumber alt { get; set; }
 }

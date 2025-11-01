@@ -9,49 +9,57 @@ public class test_Opt<TT>
   : Itest_Opt<TT>
 {
   public TT AsT { get; set; }
-  public Null AsNull { get; set; }
+  public testNull AsNull { get; set; }
+  public test_Opt _Opt { get; set; }
 }
 
 public class test_List<TT>
   : Itest_List<TT>
 {
-  public TT AsT { get; set; }
+  public ICollection<TT> AsT { get; set; }
+  public test_List _List { get; set; }
 }
 
 public class test_Dict<TK,TT>
   : Itest_Dict<TK,TT>
 {
-  public TT AsT { get; set; }
+  public IDictionary<TK, TT> AsT { get; set; }
+  public test_Dict _Dict { get; set; }
 }
 
 public class test_Map<TT>
   : Itest_Map<TT>
 {
-  public TT AsT { get; set; }
+  public IDictionary<testString, TT> AsT { get; set; }
+  public test_Map _Map { get; set; }
 }
 
 public class test_Array<TT>
   : Itest_Array<TT>
 {
-  public TT AsT { get; set; }
+  public IDictionary<testNumber, TT> AsT { get; set; }
+  public test_Array _Array { get; set; }
 }
 
 public class test_IfElse<TT>
   : Itest_IfElse<TT>
 {
-  public TT AsT { get; set; }
+  public IDictionary<testBoolean, TT> AsT { get; set; }
+  public test_IfElse _IfElse { get; set; }
 }
 
 public class test_Set<TK>
   : Itest_Set<TK>
 {
-  public Unit AsUnit { get; set; }
+  public IDictionary<TK, testUnit> AsUnit { get; set; }
+  public test_Set _Set { get; set; }
 }
 
 public class test_Mask<TK>
   : Itest_Mask<TK>
 {
-  public Boolean As^ { get; set; }
+  public IDictionary<TK, testBoolean> As^ { get; set; }
+  public test_Mask _Mask { get; set; }
 }
 
 public class test_Key
@@ -62,4 +70,5 @@ public class test_Key
 public class test_Any
   : Itest_Any
 {
+  public test_Any _Any { get; set; }
 }

@@ -12,12 +12,14 @@ namespace Components.Gqlp_Schema_field_object_Input;
 public class CmptFieldObjInp
   : ICmptFieldObjInp
 {
-  public FldFieldObjInp field { get; set; }
+  public CmptFldFieldObjInp field { get; set; }
+  public CmptFieldObjInp FieldObjInp { get; set; }
 }
 
 public class CmptFldFieldObjInp
   : ICmptFldFieldObjInp
 {
-  public Number field { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber field { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptFldFieldObjInp FldFieldObjInp { get; set; }
 }

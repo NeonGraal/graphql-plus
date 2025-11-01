@@ -27,7 +27,7 @@ internal sealed record class ModifierAst(
     => (Kind, _toString) = (kind, toString);
 
   public ModifierKind Kind { get; }
-  public string? Key { get; init; }
+  public string Key { get; init; } = "";
   public bool IsOptional { get; init; }
 
   ModifierKind IGqlpModifier.ModifierKind => Kind;
@@ -43,7 +43,7 @@ internal sealed record class ModifierAst(
   public bool Equals(IGqlpModifier? other)
     => other is not null
     && Kind == other.ModifierKind
-    && Key.NullEqual(other.Key)
+    && string.Equals(Key, other.Key, StringComparison.Ordinal)
     && IsOptional.NullEqual(other.IsOptional);
 
   // override object.GetHashCode

@@ -14,11 +14,22 @@ namespace Components.Gqlp_Schema_generic_parent_enum_dom_Input;
 public interface ICmptGnrcPrntEnumDomInp
   : ICmptFieldGnrcPrntEnumDomInp
 {
+  public CmptGnrcPrntEnumDomInp GnrcPrntEnumDomInp { get; set; }
+}
+
+public interface ICmptGnrcPrntEnumDomInpField
+  : ICmptFieldGnrcPrntEnumDomInpField
+{
 }
 
 public interface ICmptFieldGnrcPrntEnumDomInp<Tref>
 {
-  Tref field { get; }
+  public CmptFieldGnrcPrntEnumDomInp FieldGnrcPrntEnumDomInp { get; set; }
+}
+
+public interface ICmptFieldGnrcPrntEnumDomInpField<Tref>
+{
+  public Tref field { get; set; }
 }
 
 public interface ICmptDomGnrcPrntEnumDomInp

@@ -11,5 +11,6 @@ namespace Components.Gqlp_Schema_alt_descr_Output;
 public class CmptAltDescrOutp
   : ICmptAltDescrOutp
 {
-  public String AsString { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltDescrOutp AltDescrOutp { get; set; }
 }

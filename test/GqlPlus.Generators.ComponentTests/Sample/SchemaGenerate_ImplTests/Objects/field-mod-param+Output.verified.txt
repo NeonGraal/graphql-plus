@@ -12,12 +12,14 @@ namespace Components.Gqlp_Schema_field_mod_param_Output;
 public class CmptFieldModParamOutp<Tmod>
   : ICmptFieldModParamOutp<Tmod>
 {
-  public FldFieldModParamOutp field { get; set; }
+  public IDictionary<Tmod, CmptFldFieldModParamOutp> field { get; set; }
+  public CmptFieldModParamOutp FieldModParamOutp { get; set; }
 }
 
 public class CmptFldFieldModParamOutp
   : ICmptFldFieldModParamOutp
 {
-  public Number field { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber field { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptFldFieldModParamOutp FldFieldModParamOutp { get; set; }
 }

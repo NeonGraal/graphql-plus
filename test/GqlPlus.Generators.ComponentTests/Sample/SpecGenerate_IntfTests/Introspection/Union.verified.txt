@@ -18,10 +18,22 @@ namespace Components.Gqlp_Spec_Union;
 public interface ICmpt_UnionRef
   : ICmpt_TypeRef
 {
+  public Cmpt_UnionRef _UnionRef { get; set; }
+}
+
+public interface ICmpt_UnionRefField
+  : ICmpt_TypeRefField
+{
 }
 
 public interface ICmpt_UnionMember
   : ICmpt_UnionRef
 {
-  _Identifier union { get; }
+  public Cmpt_UnionMember _UnionMember { get; set; }
+}
+
+public interface ICmpt_UnionMemberField
+  : ICmpt_UnionRefField
+{
+  public Cmpt_Identifier union { get; set; }
 }

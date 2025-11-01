@@ -14,13 +14,15 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
 public class CmptCnstDomEnumInp
   : ICmptCnstDomEnumInp
 {
-  public RefCnstDomEnumInp<EnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public CmptRefCnstDomEnumInp<CmptEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public CmptCnstDomEnumInp CnstDomEnumInp { get; set; }
 }
 
 public class CmptRefCnstDomEnumInp<Ttype>
   : ICmptRefCnstDomEnumInp<Ttype>
 {
   public Ttype field { get; set; }
+  public CmptRefCnstDomEnumInp RefCnstDomEnumInp { get; set; }
 }
 
 public class CmptJustCnstDomEnumInp

@@ -43,10 +43,11 @@ public class Cmpt_Schema
   : Cmpt_Named
   , ICmpt_Schema
 {
-  public _Categories categories { get; set; }
-  public _Directives directives { get; set; }
-  public _Type types { get; set; }
-  public _Setting settings { get; set; }
+  public IDictionary<Cmpt_Identifier, Cmpt_Categories> categories { get; set; }
+  public IDictionary<Cmpt_Identifier, Cmpt_Directives> directives { get; set; }
+  public IDictionary<Cmpt_Identifier, Cmpt_Type> types { get; set; }
+  public IDictionary<Cmpt_Identifier, Cmpt_Setting> settings { get; set; }
+  public Cmpt_Schema _Schema { get; set; }
 }
 
 public class Cmpt_Identifier
@@ -57,12 +58,13 @@ public class Cmpt_Identifier
 public class Cmpt_Filter
   : ICmpt_Filter
 {
-  public _NameFilter names { get; set; }
-  public Boolean matchAliases { get; set; }
-  public _NameFilter aliases { get; set; }
-  public Boolean returnByAlias { get; set; }
-  public Boolean returnReferencedTypes { get; set; }
-  public _NameFilter As_NameFilter { get; set; }
+  public ICollection<Cmpt_NameFilter> names { get; set; }
+  public CmptBoolean? matchAliases { get; set; }
+  public ICollection<Cmpt_NameFilter> aliases { get; set; }
+  public CmptBoolean? returnByAlias { get; set; }
+  public CmptBoolean? returnReferencedTypes { get; set; }
+  public ICollection<Cmpt_NameFilter> As_NameFilter { get; set; }
+  public Cmpt_Filter _Filter { get; set; }
 }
 
 public class Cmpt_NameFilter
@@ -74,12 +76,14 @@ public class Cmpt_CategoryFilter
   : Cmpt_Filter
   , ICmpt_CategoryFilter
 {
-  public _Resolution resolutions { get; set; }
+  public ICollection<Cmpt_Resolution> resolutions { get; set; }
+  public Cmpt_CategoryFilter _CategoryFilter { get; set; }
 }
 
 public class Cmpt_TypeFilter
   : Cmpt_Filter
   , ICmpt_TypeFilter
 {
-  public _TypeKind kinds { get; set; }
+  public ICollection<Cmpt_TypeKind> kinds { get; set; }
+  public Cmpt_TypeFilter _TypeFilter { get; set; }
 }

@@ -12,12 +12,14 @@ namespace Components.Gqlp_Schema_field_dual_Input;
 public class CmptFieldDualInp
   : ICmptFieldDualInp
 {
-  public FldFieldDualInp field { get; set; }
+  public CmptFldFieldDualInp field { get; set; }
+  public CmptFieldDualInp FieldDualInp { get; set; }
 }
 
 public class CmptFldFieldDualInp
   : ICmptFldFieldDualInp
 {
-  public Number field { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber field { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptFldFieldDualInp FldFieldDualInp { get; set; }
 }

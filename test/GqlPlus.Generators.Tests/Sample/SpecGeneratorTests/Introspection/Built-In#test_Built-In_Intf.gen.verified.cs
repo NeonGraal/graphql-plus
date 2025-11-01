@@ -7,25 +7,46 @@ namespace GqlPlus.GeneratorTests.Gqlp_Built_In;
 
 public interface Itest_Collections
 {
-  _Modifier<_ModifierKind> As_Modifier { get; }
-  _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; }
-  _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; }
+  public test_Modifier<test_ModifierKind> As_Modifier { get; set; }
+  public test_ModifierKeyed<test_ModifierKind> As_ModifierKeyed { get; set; }
+  public test_ModifierKeyed<test_ModifierKind> As_ModifierKeyed { get; set; }
+  public test_Collections _Collections { get; set; }
+}
+
+public interface Itest_CollectionsField
+{
 }
 
 public interface Itest_ModifierKeyed<Tkind>
   : Itest_Modifier
 {
-  _TypeSimple by { get; }
-  Boolean optional { get; }
+  public test_ModifierKeyed _ModifierKeyed { get; set; }
+}
+
+public interface Itest_ModifierKeyedField<Tkind>
+  : Itest_ModifierField
+{
+  public test_TypeSimple by { get; set; }
+  public testBoolean optional { get; set; }
 }
 
 public interface Itest_Modifiers
 {
-  _Modifier<_ModifierKind> As_Modifier { get; }
-  _Collections As_Collections { get; }
+  public test_Modifier<test_ModifierKind> As_Modifier { get; set; }
+  public test_Collections As_Collections { get; set; }
+  public test_Modifiers _Modifiers { get; set; }
+}
+
+public interface Itest_ModifiersField
+{
 }
 
 public interface Itest_Modifier<Tkind>
 {
-  Tkind modifierKind { get; }
+  public test_Modifier _Modifier { get; set; }
+}
+
+public interface Itest_ModifierField<Tkind>
+{
+  public Tkind modifierKind { get; set; }
 }

@@ -28,43 +28,83 @@ namespace Components.Gqlp_Spec_Schema;
 
 public interface ICmpt_Opt<TT>
 {
-  TT AsT { get; }
-  Null AsNull { get; }
+  public TT AsT { get; set; }
+  public CmptNull AsNull { get; set; }
+  public Cmpt_Opt _Opt { get; set; }
+}
+
+public interface ICmpt_OptField<TT>
+{
 }
 
 public interface ICmpt_List<TT>
 {
-  TT AsT { get; }
+  public ICollection<TT> AsT { get; set; }
+  public Cmpt_List _List { get; set; }
+}
+
+public interface ICmpt_ListField<TT>
+{
 }
 
 public interface ICmpt_Dict<TK,TT>
 {
-  TT AsT { get; }
+  public IDictionary<TK, TT> AsT { get; set; }
+  public Cmpt_Dict _Dict { get; set; }
+}
+
+public interface ICmpt_DictField<TK,TT>
+{
 }
 
 public interface ICmpt_Map<TT>
 {
-  TT AsT { get; }
+  public IDictionary<CmptString, TT> AsT { get; set; }
+  public Cmpt_Map _Map { get; set; }
+}
+
+public interface ICmpt_MapField<TT>
+{
 }
 
 public interface ICmpt_Array<TT>
 {
-  TT AsT { get; }
+  public IDictionary<CmptNumber, TT> AsT { get; set; }
+  public Cmpt_Array _Array { get; set; }
+}
+
+public interface ICmpt_ArrayField<TT>
+{
 }
 
 public interface ICmpt_IfElse<TT>
 {
-  TT AsT { get; }
+  public IDictionary<CmptBoolean, TT> AsT { get; set; }
+  public Cmpt_IfElse _IfElse { get; set; }
+}
+
+public interface ICmpt_IfElseField<TT>
+{
 }
 
 public interface ICmpt_Set<TK>
 {
-  Unit AsUnit { get; }
+  public IDictionary<TK, CmptUnit> AsUnit { get; set; }
+  public Cmpt_Set _Set { get; set; }
+}
+
+public interface ICmpt_SetField<TK>
+{
 }
 
 public interface ICmpt_Mask<TK>
 {
-  Boolean As^ { get; }
+  public IDictionary<TK, CmptBoolean> As^ { get; set; }
+  public Cmpt_Mask _Mask { get; set; }
+}
+
+public interface ICmpt_MaskField<TK>
+{
 }
 
 public interface ICmpt_Key
@@ -72,5 +112,10 @@ public interface ICmpt_Key
 }
 
 public interface ICmpt_Any
+{
+  public Cmpt_Any _Any { get; set; }
+}
+
+public interface ICmpt_AnyField
 {
 }

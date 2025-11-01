@@ -12,11 +12,13 @@ namespace Components.Gqlp_Schema_generic_alt_arg_Output;
 public class CmptGnrcAltArgOutp<Ttype>
   : ICmptGnrcAltArgOutp<Ttype>
 {
-  public RefGnrcAltArgOutp<Ttype> AsRefGnrcAltArgOutp { get; set; }
+  public CmptRefGnrcAltArgOutp<Ttype> AsRefGnrcAltArgOutp { get; set; }
+  public CmptGnrcAltArgOutp GnrcAltArgOutp { get; set; }
 }
 
 public class CmptRefGnrcAltArgOutp<Tref>
   : ICmptRefGnrcAltArgOutp<Tref>
 {
   public Tref Asref { get; set; }
+  public CmptRefGnrcAltArgOutp RefGnrcAltArgOutp { get; set; }
 }

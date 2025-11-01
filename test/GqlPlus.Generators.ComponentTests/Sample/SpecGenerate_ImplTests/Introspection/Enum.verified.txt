@@ -20,12 +20,14 @@ public class Cmpt_EnumLabel
   : Cmpt_Aliased
   , ICmpt_EnumLabel
 {
-  public _Identifier enum { get; set; }
+  public Cmpt_Identifier enum { get; set; }
+  public Cmpt_EnumLabel _EnumLabel { get; set; }
 }
 
 public class Cmpt_EnumValue
   : Cmpt_TypeRef
   , ICmpt_EnumValue
 {
-  public _Identifier label { get; set; }
+  public Cmpt_Identifier label { get; set; }
+  public Cmpt_EnumValue _EnumValue { get; set; }
 }

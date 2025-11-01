@@ -7,4 +7,9 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_single;
 
 public interface ItestDescrSngl
 {
+  public testDescrSngl DescrSngl { get; set; }
+}
+
+public interface ItestDescrSnglField
+{
 }

@@ -7,6 +7,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alt_enum_Output;
 
 public interface ItestObjAltEnumOutp
 {
-  Boolean AsBoolean { get; }
-  Boolean AsBoolean { get; }
+  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBoolean { get; set; }
+  public testObjAltEnumOutp ObjAltEnumOutp { get; set; }
+}
+
+public interface ItestObjAltEnumOutpField
+{
 }

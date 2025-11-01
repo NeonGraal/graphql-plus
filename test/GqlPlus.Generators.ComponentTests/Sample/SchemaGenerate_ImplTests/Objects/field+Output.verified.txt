@@ -11,5 +11,6 @@ namespace Components.Gqlp_Schema_field_Output;
 public class CmptFieldOutp
   : ICmptFieldOutp
 {
-  public String field { get; set; }
+  public CmptString field { get; set; }
+  public CmptFieldOutp FieldOutp { get; set; }
 }

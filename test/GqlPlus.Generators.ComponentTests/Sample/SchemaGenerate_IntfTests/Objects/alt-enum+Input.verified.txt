@@ -11,5 +11,10 @@ namespace Components.Gqlp_Schema_alt_enum_Input;
 
 public interface ICmptAltEnumInp
 {
-  EnumAltEnumInp AsEnumAltEnumInp { get; }
+  public CmptEnumAltEnumInp AsEnumAltEnumInp { get; set; }
+  public CmptAltEnumInp AltEnumInp { get; set; }
+}
+
+public interface ICmptAltEnumInpField
+{
 }

@@ -8,11 +8,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_Dual;
 public class testGnrcAltArgDual<Ttype>
   : ItestGnrcAltArgDual<Ttype>
 {
-  public RefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; set; }
+  public testRefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; set; }
+  public testGnrcAltArgDual GnrcAltArgDual { get; set; }
 }
 
 public class testRefGnrcAltArgDual<Tref>
   : ItestRefGnrcAltArgDual<Tref>
 {
   public Tref Asref { get; set; }
+  public testRefGnrcAltArgDual RefGnrcAltArgDual { get; set; }
 }

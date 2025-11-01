@@ -7,5 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_value_Dual;
 
 public interface ItestFieldValueDual
 {
-  EnumFieldValueDual field { get; }
+  public testFieldValueDual FieldValueDual { get; set; }
+}
+
+public interface ItestFieldValueDualField
+{
+  public testEnumFieldValueDual field { get; set; }
 }

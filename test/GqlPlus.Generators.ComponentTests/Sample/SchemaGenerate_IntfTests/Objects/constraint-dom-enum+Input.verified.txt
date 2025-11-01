@@ -13,12 +13,22 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
 
 public interface ICmptCnstDomEnumInp
 {
-  RefCnstDomEnumInp<EnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; }
+  public CmptRefCnstDomEnumInp<CmptEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public CmptCnstDomEnumInp CnstDomEnumInp { get; set; }
+}
+
+public interface ICmptCnstDomEnumInpField
+{
 }
 
 public interface ICmptRefCnstDomEnumInp<Ttype>
 {
-  Ttype field { get; }
+  public CmptRefCnstDomEnumInp RefCnstDomEnumInp { get; set; }
+}
+
+public interface ICmptRefCnstDomEnumInpField<Ttype>
+{
+  public Ttype field { get; set; }
 }
 
 public interface ICmptJustCnstDomEnumInp

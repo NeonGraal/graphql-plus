@@ -10,5 +10,10 @@ namespace Components.Gqlp_Schema_constraint_alt_Output;
 
 public interface ICmptCnstAltOutp<Ttype>
 {
-  Ttype Astype { get; }
+  public Ttype Astype { get; set; }
+  public CmptCnstAltOutp CnstAltOutp { get; set; }
+}
+
+public interface ICmptCnstAltOutpField<Ttype>
+{
 }

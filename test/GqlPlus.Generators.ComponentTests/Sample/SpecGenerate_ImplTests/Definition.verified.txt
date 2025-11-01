@@ -73,6 +73,7 @@ public class Cmpt_Key
 public class Cmpt_Object
   : ICmpt_Object
 {
+  public Cmpt_Object _Object { get; set; }
 }
 
 public class Cmpt_Domain
@@ -83,6 +84,7 @@ public class Cmpt_Domain
 public class Cmpt_Dual
   : ICmpt_Dual
 {
+  public Cmpt_Dual _Dual { get; set; }
 }
 
 public class Cmpt_Enum
@@ -93,11 +95,13 @@ public class Cmpt_Enum
 public class Cmpt_Input
   : ICmpt_Input
 {
+  public Cmpt_Input _Input { get; set; }
 }
 
 public class Cmpt_Output
   : ICmpt_Output
 {
+  public Cmpt_Output _Output { get; set; }
 }
 
 public class Cmpt_Union

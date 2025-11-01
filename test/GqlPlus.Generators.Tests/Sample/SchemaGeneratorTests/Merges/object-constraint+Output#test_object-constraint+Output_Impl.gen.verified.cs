@@ -10,4 +10,5 @@ public class testObjCnstOutp<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
+  public testObjCnstOutp ObjCnstOutp { get; set; }
 }

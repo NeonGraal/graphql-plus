@@ -8,4 +8,5 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_output;
 public class testCtgrOutp
   : ItestCtgrOutp
 {
+  public testCtgrOutp CtgrOutp { get; set; }
 }

@@ -10,5 +10,10 @@ namespace Components.Gqlp_Schema_alt_descr_Dual;
 
 public interface ICmptAltDescrDual
 {
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptAltDescrDual AltDescrDual { get; set; }
+}
+
+public interface ICmptAltDescrDualField
+{
 }

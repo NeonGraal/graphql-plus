@@ -11,4 +11,9 @@ namespace Components.Gqlp_Schema_object_alias_Dual;
 
 public interface ICmptObjAliasDual
 {
+  public CmptObjAliasDual ObjAliasDual { get; set; }
+}
+
+public interface ICmptObjAliasDualField
+{
 }

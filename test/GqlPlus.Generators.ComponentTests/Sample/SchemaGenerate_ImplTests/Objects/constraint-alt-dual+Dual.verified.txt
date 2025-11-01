@@ -14,24 +14,28 @@ namespace Components.Gqlp_Schema_constraint_alt_dual_Dual;
 public class CmptCnstAltDualDual
   : ICmptCnstAltDualDual
 {
-  public RefCnstAltDualDual<AltCnstAltDualDual> AsRefCnstAltDualDual { get; set; }
+  public CmptRefCnstAltDualDual<CmptAltCnstAltDualDual> AsRefCnstAltDualDual { get; set; }
+  public CmptCnstAltDualDual CnstAltDualDual { get; set; }
 }
 
 public class CmptRefCnstAltDualDual<Tref>
   : ICmptRefCnstAltDualDual<Tref>
 {
   public Tref Asref { get; set; }
+  public CmptRefCnstAltDualDual RefCnstAltDualDual { get; set; }
 }
 
 public class CmptPrntCnstAltDualDual
   : ICmptPrntCnstAltDualDual
 {
-  public String AsString { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstAltDualDual PrntCnstAltDualDual { get; set; }
 }
 
 public class CmptAltCnstAltDualDual
   : CmptPrntCnstAltDualDual
   , ICmptAltCnstAltDualDual
 {
-  public Number alt { get; set; }
+  public CmptNumber alt { get; set; }
+  public CmptAltCnstAltDualDual AltCnstAltDualDual { get; set; }
 }

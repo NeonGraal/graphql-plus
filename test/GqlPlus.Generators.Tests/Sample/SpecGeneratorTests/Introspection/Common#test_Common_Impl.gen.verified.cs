@@ -8,17 +8,18 @@ namespace GqlPlus.GeneratorTests.Gqlp_Common;
 public class test_Type
   : Itest_Type
 {
-  public _BaseType<_TypeKind> As_BaseType { get; set; }
-  public _BaseType<_TypeKind> As_BaseType { get; set; }
-  public _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; set; }
-  public _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; set; }
-  public _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; set; }
-  public _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; set; }
-  public _ParentType<_TypeKind, _Aliased, _EnumLabel> As_ParentType { get; set; }
-  public _ParentType<_TypeKind, _UnionRef, _UnionMember> As_ParentType { get; set; }
-  public _TypeObject<_TypeKind, _DualField> As_TypeObject { get; set; }
-  public _TypeObject<_TypeKind, _InputField> As_TypeObject { get; set; }
-  public _TypeObject<_TypeKind, _OutputField> As_TypeObject { get; set; }
+  public test_BaseType<test_TypeKind> As_BaseType { get; set; }
+  public test_BaseType<test_TypeKind> As_BaseType { get; set; }
+  public test_BaseDomain<test_DomainKind, test_DomainTrueFalse, test_DomainItemTrueFalse> As_BaseDomain { get; set; }
+  public test_BaseDomain<test_DomainKind, test_DomainLabel, test_DomainItemLabel> As_BaseDomain { get; set; }
+  public test_BaseDomain<test_DomainKind, test_DomainRange, test_DomainItemRange> As_BaseDomain { get; set; }
+  public test_BaseDomain<test_DomainKind, test_DomainRegex, test_DomainItemRegex> As_BaseDomain { get; set; }
+  public test_ParentType<test_TypeKind, test_Aliased, test_EnumLabel> As_ParentType { get; set; }
+  public test_ParentType<test_TypeKind, test_UnionRef, test_UnionMember> As_ParentType { get; set; }
+  public test_TypeObject<test_TypeKind, test_DualField> As_TypeObject { get; set; }
+  public test_TypeObject<test_TypeKind, test_InputField> As_TypeObject { get; set; }
+  public test_TypeObject<test_TypeKind, test_OutputField> As_TypeObject { get; set; }
+  public test_Type _Type { get; set; }
 }
 
 public class test_BaseType<Tkind>
@@ -26,6 +27,7 @@ public class test_BaseType<Tkind>
   , Itest_BaseType<Tkind>
 {
   public Tkind typeKind { get; set; }
+  public test_BaseType _BaseType { get; set; }
 }
 
 public class test_ChildType<Tkind,Tparent>
@@ -33,14 +35,16 @@ public class test_ChildType<Tkind,Tparent>
   , Itest_ChildType<Tkind,Tparent>
 {
   public Tparent parent { get; set; }
+  public test_ChildType _ChildType { get; set; }
 }
 
 public class test_ParentType<Tkind,Titem,TallItem>
   : test_ChildType
   , Itest_ParentType<Tkind,Titem,TallItem>
 {
-  public Titem items { get; set; }
-  public TallItem allItems { get; set; }
+  public ICollection<Titem> items { get; set; }
+  public ICollection<TallItem> allItems { get; set; }
+  public test_ParentType _ParentType { get; set; }
 }
 
 public class test_TypeRef<Tkind>
@@ -48,13 +52,15 @@ public class test_TypeRef<Tkind>
   , Itest_TypeRef<Tkind>
 {
   public Tkind typeKind { get; set; }
+  public test_TypeRef _TypeRef { get; set; }
 }
 
 public class test_TypeSimple
   : Itest_TypeSimple
 {
-  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
-  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
-  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
-  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
+  public test_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public test_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public test_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public test_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public test_TypeSimple _TypeSimple { get; set; }
 }

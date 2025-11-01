@@ -11,5 +11,6 @@ namespace Components.Gqlp_Schema_generic_alt_mod_param_Dual;
 public class CmptRefGnrcAltModParamDual<Tref,Tmod>
   : ICmptRefGnrcAltModParamDual<Tref,Tmod>
 {
-  public Tref Asref { get; set; }
+  public IDictionary<Tmod, Tref> Asref { get; set; }
+  public CmptRefGnrcAltModParamDual RefGnrcAltModParamDual { get; set; }
 }

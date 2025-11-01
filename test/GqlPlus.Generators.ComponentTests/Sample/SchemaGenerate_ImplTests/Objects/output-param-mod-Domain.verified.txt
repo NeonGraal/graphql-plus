@@ -13,14 +13,16 @@ namespace Components.Gqlp_Schema_output_param_mod_Domain;
 public class CmptOutpParamModDmn
   : ICmptOutpParamModDmn
 {
-  public DomOutpParamModDmn field { get; set; }
+  public CmptDomOutpParamModDmn field { get; set; }
+  public CmptOutpParamModDmn OutpParamModDmn { get; set; }
 }
 
 public class CmptInOutpParamModDmn
   : ICmptInOutpParamModDmn
 {
-  public Number param { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber param { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptInOutpParamModDmn InOutpParamModDmn { get; set; }
 }
 
 public class CmptDomOutpParamModDmn

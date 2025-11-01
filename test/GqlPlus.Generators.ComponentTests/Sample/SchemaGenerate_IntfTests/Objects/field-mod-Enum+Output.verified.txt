@@ -11,5 +11,10 @@ namespace Components.Gqlp_Schema_field_mod_Enum_Output;
 
 public interface ICmptFieldModEnumOutp
 {
-  String field { get; }
+  public CmptFieldModEnumOutp FieldModEnumOutp { get; set; }
+}
+
+public interface ICmptFieldModEnumOutpField
+{
+  public IDictionary<CmptEnumFieldModEnumOutp, CmptString> field { get; set; }
 }

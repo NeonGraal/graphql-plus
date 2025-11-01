@@ -8,5 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_value_Dual;
 public class testObjFieldEnumValueDual
   : ItestObjFieldEnumValueDual
 {
-  public Boolean field { get; set; }
+  public testBoolean field { get; set; }
+  public testObjFieldEnumValueDual ObjFieldEnumValueDual { get; set; }
 }

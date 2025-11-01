@@ -12,4 +12,5 @@ public class CmptGnrcAltDual<Ttype>
   : ICmptGnrcAltDual<Ttype>
 {
   public Ttype Astype { get; set; }
+  public CmptGnrcAltDual GnrcAltDual { get; set; }
 }

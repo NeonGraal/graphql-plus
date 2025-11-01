@@ -9,4 +9,5 @@ public class testGnrcAltOutp<Ttype>
   : ItestGnrcAltOutp<Ttype>
 {
   public Ttype Astype { get; set; }
+  public testGnrcAltOutp GnrcAltOutp { get; set; }
 }

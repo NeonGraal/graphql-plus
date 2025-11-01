@@ -10,5 +10,10 @@ namespace Components.Gqlp_Schema_generic_alt_mod_param_Input;
 
 public interface ICmptRefGnrcAltModParamInp<Tref,Tmod>
 {
-  Tref Asref { get; }
+  public IDictionary<Tmod, Tref> Asref { get; set; }
+  public CmptRefGnrcAltModParamInp RefGnrcAltModParamInp { get; set; }
+}
+
+public interface ICmptRefGnrcAltModParamInpField<Tref,Tmod>
+{
 }

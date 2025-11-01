@@ -12,11 +12,13 @@ namespace Components.Gqlp_Schema_generic_alt_arg_Dual;
 public class CmptGnrcAltArgDual<Ttype>
   : ICmptGnrcAltArgDual<Ttype>
 {
-  public RefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; set; }
+  public CmptRefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; set; }
+  public CmptGnrcAltArgDual GnrcAltArgDual { get; set; }
 }
 
 public class CmptRefGnrcAltArgDual<Tref>
   : ICmptRefGnrcAltArgDual<Tref>
 {
   public Tref Asref { get; set; }
+  public CmptRefGnrcAltArgDual RefGnrcAltArgDual { get; set; }
 }

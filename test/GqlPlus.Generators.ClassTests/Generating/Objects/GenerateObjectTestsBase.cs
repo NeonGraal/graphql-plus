@@ -142,7 +142,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{alternateType} As{alternateType} {{ get;");
 
   protected virtual Action<string> CheckGeneratedCodeAlternateArg(GqlpGeneratorType generatorType, string alternateType, string argName)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{alternateType}<{argName}> As{alternateType} {{ get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{alternateType}<test{argName}> As{alternateType} {{ get;");
 
   internal override GenerateForType<IGqlpObject<TObjField>> TypeGenerator { get; }
     = new GenerateForObject<TObjField>();

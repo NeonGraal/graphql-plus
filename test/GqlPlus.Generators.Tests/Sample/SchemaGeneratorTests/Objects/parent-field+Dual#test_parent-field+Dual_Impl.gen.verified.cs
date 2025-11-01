@@ -9,12 +9,14 @@ public class testPrntFieldDual
   : testRefPrntFieldDual
   , ItestPrntFieldDual
 {
-  public Number field { get; set; }
+  public testNumber field { get; set; }
+  public testPrntFieldDual PrntFieldDual { get; set; }
 }
 
 public class testRefPrntFieldDual
   : ItestRefPrntFieldDual
 {
-  public Number parent { get; set; }
-  public String AsString { get; set; }
+  public testNumber parent { get; set; }
+  public testString AsString { get; set; }
+  public testRefPrntFieldDual RefPrntFieldDual { get; set; }
 }

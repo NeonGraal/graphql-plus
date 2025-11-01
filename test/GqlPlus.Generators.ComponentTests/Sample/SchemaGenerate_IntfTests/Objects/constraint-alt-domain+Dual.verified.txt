@@ -12,12 +12,22 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
 
 public interface ICmptCnstAltDmnDual
 {
-  RefCnstAltDmnDual<DomCnstAltDmnDual> AsRefCnstAltDmnDual { get; }
+  public CmptRefCnstAltDmnDual<CmptDomCnstAltDmnDual> AsRefCnstAltDmnDual { get; set; }
+  public CmptCnstAltDmnDual CnstAltDmnDual { get; set; }
+}
+
+public interface ICmptCnstAltDmnDualField
+{
 }
 
 public interface ICmptRefCnstAltDmnDual<Tref>
 {
-  Tref Asref { get; }
+  public Tref Asref { get; set; }
+  public CmptRefCnstAltDmnDual RefCnstAltDmnDual { get; set; }
+}
+
+public interface ICmptRefCnstAltDmnDualField<Tref>
+{
 }
 
 public interface ICmptDomCnstAltDmnDual

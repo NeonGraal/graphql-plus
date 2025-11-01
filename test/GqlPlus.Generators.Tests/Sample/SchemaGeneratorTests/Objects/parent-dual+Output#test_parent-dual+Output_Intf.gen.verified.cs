@@ -8,10 +8,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_dual_Output;
 public interface ItestPrntDualOutp
   : ItestRefPrntDualOutp
 {
+  public testPrntDualOutp PrntDualOutp { get; set; }
+}
+
+public interface ItestPrntDualOutpField
+  : ItestRefPrntDualOutpField
+{
 }
 
 public interface ItestRefPrntDualOutp
 {
-  Number parent { get; }
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testRefPrntDualOutp RefPrntDualOutp { get; set; }
+}
+
+public interface ItestRefPrntDualOutpField
+{
+  public testNumber parent { get; set; }
 }

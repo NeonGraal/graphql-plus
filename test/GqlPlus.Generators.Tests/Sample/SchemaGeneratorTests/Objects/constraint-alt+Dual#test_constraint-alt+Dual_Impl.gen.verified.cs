@@ -9,4 +9,5 @@ public class testCnstAltDual<Ttype>
   : ItestCnstAltDual<Ttype>
 {
   public Ttype Astype { get; set; }
+  public testCnstAltDual CnstAltDual { get; set; }
 }

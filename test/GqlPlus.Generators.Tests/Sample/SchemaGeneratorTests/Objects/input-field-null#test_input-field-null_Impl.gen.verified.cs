@@ -8,10 +8,12 @@ namespace GqlPlus.GeneratorTests.Gqlp_input_field_null;
 public class testInpFieldNull
   : ItestInpFieldNull
 {
-  public FldInpFieldNull field { get; set; }
+  public testFldInpFieldNull? field { get; set; }
+  public testInpFieldNull InpFieldNull { get; set; }
 }
 
 public class testFldInpFieldNull
   : ItestFldInpFieldNull
 {
+  public testFldInpFieldNull FldInpFieldNull { get; set; }
 }

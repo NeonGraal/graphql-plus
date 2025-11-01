@@ -8,20 +8,43 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_obj_parent_Output;
 public interface ItestCnstPrntObjPrntOutp
   : ItestRefCnstPrntObjPrntOutp
 {
+  public testCnstPrntObjPrntOutp CnstPrntObjPrntOutp { get; set; }
+}
+
+public interface ItestCnstPrntObjPrntOutpField
+  : ItestRefCnstPrntObjPrntOutpField
+{
 }
 
 public interface ItestRefCnstPrntObjPrntOutp<Tref>
   : Itestref
 {
+  public testRefCnstPrntObjPrntOutp RefCnstPrntObjPrntOutp { get; set; }
+}
+
+public interface ItestRefCnstPrntObjPrntOutpField<Tref>
+  : ItestrefField
+{
 }
 
 public interface ItestPrntCnstPrntObjPrntOutp
 {
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testPrntCnstPrntObjPrntOutp PrntCnstPrntObjPrntOutp { get; set; }
+}
+
+public interface ItestPrntCnstPrntObjPrntOutpField
+{
 }
 
 public interface ItestAltCnstPrntObjPrntOutp
   : ItestPrntCnstPrntObjPrntOutp
 {
-  Number alt { get; }
+  public testAltCnstPrntObjPrntOutp AltCnstPrntObjPrntOutp { get; set; }
+}
+
+public interface ItestAltCnstPrntObjPrntOutpField
+  : ItestPrntCnstPrntObjPrntOutpField
+{
+  public testNumber alt { get; set; }
 }

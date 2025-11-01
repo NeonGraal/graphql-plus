@@ -8,11 +8,22 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_field_Input;
 public interface ItestPrntFieldInp
   : ItestRefPrntFieldInp
 {
-  Number field { get; }
+  public testPrntFieldInp PrntFieldInp { get; set; }
+}
+
+public interface ItestPrntFieldInpField
+  : ItestRefPrntFieldInpField
+{
+  public testNumber field { get; set; }
 }
 
 public interface ItestRefPrntFieldInp
 {
-  Number parent { get; }
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testRefPrntFieldInp RefPrntFieldInp { get; set; }
+}
+
+public interface ItestRefPrntFieldInpField
+{
+  public testNumber parent { get; set; }
 }

@@ -30,49 +30,57 @@ public class Cmpt_Opt<TT>
   : ICmpt_Opt<TT>
 {
   public TT AsT { get; set; }
-  public Null AsNull { get; set; }
+  public CmptNull AsNull { get; set; }
+  public Cmpt_Opt _Opt { get; set; }
 }
 
 public class Cmpt_List<TT>
   : ICmpt_List<TT>
 {
-  public TT AsT { get; set; }
+  public ICollection<TT> AsT { get; set; }
+  public Cmpt_List _List { get; set; }
 }
 
 public class Cmpt_Dict<TK,TT>
   : ICmpt_Dict<TK,TT>
 {
-  public TT AsT { get; set; }
+  public IDictionary<TK, TT> AsT { get; set; }
+  public Cmpt_Dict _Dict { get; set; }
 }
 
 public class Cmpt_Map<TT>
   : ICmpt_Map<TT>
 {
-  public TT AsT { get; set; }
+  public IDictionary<CmptString, TT> AsT { get; set; }
+  public Cmpt_Map _Map { get; set; }
 }
 
 public class Cmpt_Array<TT>
   : ICmpt_Array<TT>
 {
-  public TT AsT { get; set; }
+  public IDictionary<CmptNumber, TT> AsT { get; set; }
+  public Cmpt_Array _Array { get; set; }
 }
 
 public class Cmpt_IfElse<TT>
   : ICmpt_IfElse<TT>
 {
-  public TT AsT { get; set; }
+  public IDictionary<CmptBoolean, TT> AsT { get; set; }
+  public Cmpt_IfElse _IfElse { get; set; }
 }
 
 public class Cmpt_Set<TK>
   : ICmpt_Set<TK>
 {
-  public Unit AsUnit { get; set; }
+  public IDictionary<TK, CmptUnit> AsUnit { get; set; }
+  public Cmpt_Set _Set { get; set; }
 }
 
 public class Cmpt_Mask<TK>
   : ICmpt_Mask<TK>
 {
-  public Boolean As^ { get; set; }
+  public IDictionary<TK, CmptBoolean> As^ { get; set; }
+  public Cmpt_Mask _Mask { get; set; }
 }
 
 public class Cmpt_Key
@@ -83,4 +91,5 @@ public class Cmpt_Key
 public class Cmpt_Any
   : ICmpt_Any
 {
+  public Cmpt_Any _Any { get; set; }
 }

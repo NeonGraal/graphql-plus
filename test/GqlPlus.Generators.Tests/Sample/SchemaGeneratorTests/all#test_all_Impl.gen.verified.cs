@@ -20,20 +20,23 @@ public class testMany
 public class testField
   : ItestField
 {
-  public String strings { get; set; }
+  public ICollection<testString> strings { get; set; }
+  public testField Field { get; set; }
 }
 
 public class testParam
   : ItestParam
 {
-  public Many afterId { get; set; }
-  public Many beforeId { get; set; }
-  public String AsString { get; set; }
+  public testMany? afterId { get; set; }
+  public testMany beforeId { get; set; }
+  public testString AsString { get; set; }
+  public testParam Param { get; set; }
 }
 
 public class testAll
   : ItestAll
 {
-  public Field items { get; set; }
-  public String AsString { get; set; }
+  public testField items { get; set; }
+  public testString AsString { get; set; }
+  public testAll All { get; set; }
 }

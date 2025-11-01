@@ -18,7 +18,7 @@ internal abstract class GenerateForType<T>
   protected Dictionary<GqlpGeneratorType, GenerateDelegate> _generators = [];
 
   protected GenerateForType()
-    => _generators.Add(GqlpGeneratorType.Interface, GenerateBlock(InterfaceHeader, InterfaceMember));
+    => _generators[GqlpGeneratorType.Interface] = GenerateBlock(InterfaceHeader, InterfaceMember);
 
   private void Generate(T ast, GqlpGeneratorContext context)
   {

@@ -7,4 +7,9 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_output_dict;
 
 public interface ItestCtgrOutpDict
 {
+  public testCtgrOutpDict CtgrOutpDict { get; set; }
+}
+
+public interface ItestCtgrOutpDictField
+{
 }

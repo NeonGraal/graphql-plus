@@ -8,12 +8,14 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_Output;
 public class testAltOutp
   : ItestAltOutp
 {
-  public AltAltOutp AsAltAltOutp { get; set; }
+  public testAltAltOutp AsAltAltOutp { get; set; }
+  public testAltOutp AltOutp { get; set; }
 }
 
 public class testAltAltOutp
   : ItestAltAltOutp
 {
-  public Number alt { get; set; }
-  public String AsString { get; set; }
+  public testNumber alt { get; set; }
+  public testString AsString { get; set; }
+  public testAltAltOutp AltAltOutp { get; set; }
 }

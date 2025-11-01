@@ -14,20 +14,43 @@ namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Dual;
 public interface ICmptCnstPrntDualPrntDual
   : ICmptRefCnstPrntDualPrntDual
 {
+  public CmptCnstPrntDualPrntDual CnstPrntDualPrntDual { get; set; }
+}
+
+public interface ICmptCnstPrntDualPrntDualField
+  : ICmptRefCnstPrntDualPrntDualField
+{
 }
 
 public interface ICmptRefCnstPrntDualPrntDual<Tref>
   : ICmptref
 {
+  public CmptRefCnstPrntDualPrntDual RefCnstPrntDualPrntDual { get; set; }
+}
+
+public interface ICmptRefCnstPrntDualPrntDualField<Tref>
+  : ICmptrefField
+{
 }
 
 public interface ICmptPrntCnstPrntDualPrntDual
 {
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstPrntDualPrntDual PrntCnstPrntDualPrntDual { get; set; }
+}
+
+public interface ICmptPrntCnstPrntDualPrntDualField
+{
 }
 
 public interface ICmptAltCnstPrntDualPrntDual
   : ICmptPrntCnstPrntDualPrntDual
 {
-  Number alt { get; }
+  public CmptAltCnstPrntDualPrntDual AltCnstPrntDualPrntDual { get; set; }
+}
+
+public interface ICmptAltCnstPrntDualPrntDualField
+  : ICmptPrntCnstPrntDualPrntDualField
+{
+  public CmptNumber alt { get; set; }
 }

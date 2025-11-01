@@ -25,15 +25,17 @@ public class Cmpt_Directives
   : Cmpt_AndType
   , ICmpt_Directives
 {
-  public _Directive directive { get; set; }
-  public _Directive As_Directive { get; set; }
+  public Cmpt_Directive directive { get; set; }
+  public Cmpt_Directive As_Directive { get; set; }
+  public Cmpt_Directives _Directives { get; set; }
 }
 
 public class Cmpt_Directive
   : Cmpt_Aliased
   , ICmpt_Directive
 {
-  public _InputParam parameters { get; set; }
-  public Boolean repeatable { get; set; }
-  public Unit locations { get; set; }
+  public ICollection<Cmpt_InputParam> parameters { get; set; }
+  public CmptBoolean repeatable { get; set; }
+  public IDictionary<Cmpt_Location, CmptUnit> locations { get; set; }
+  public Cmpt_Directive _Directive { get; set; }
 }

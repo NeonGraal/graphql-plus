@@ -11,4 +11,10 @@ namespace Components.Gqlp_Schema_generic_parent_Dual;
 public interface ICmptGnrcPrntDual<Ttype>
   : ICmpttype
 {
+  public CmptGnrcPrntDual GnrcPrntDual { get; set; }
+}
+
+public interface ICmptGnrcPrntDualField<Ttype>
+  : ICmpttypeField
+{
 }

@@ -11,11 +11,21 @@ namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
 
 public interface ICmptAltModBoolDual
 {
-  AltAltModBoolDual AsAltAltModBoolDual { get; }
+  public IDictionary<CmptBoolean, CmptAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
+  public CmptAltModBoolDual AltModBoolDual { get; set; }
+}
+
+public interface ICmptAltModBoolDualField
+{
 }
 
 public interface ICmptAltAltModBoolDual
 {
-  Number alt { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptAltAltModBoolDual AltAltModBoolDual { get; set; }
+}
+
+public interface ICmptAltAltModBoolDualField
+{
+  public CmptNumber alt { get; set; }
 }

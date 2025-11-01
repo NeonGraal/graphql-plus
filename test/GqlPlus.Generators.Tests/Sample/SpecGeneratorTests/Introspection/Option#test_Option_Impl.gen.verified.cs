@@ -9,5 +9,6 @@ public class test_Setting
   : test_Named
   , Itest_Setting
 {
-  public _Value value { get; set; }
+  public test_Value value { get; set; }
+  public test_Setting _Setting { get; set; }
 }

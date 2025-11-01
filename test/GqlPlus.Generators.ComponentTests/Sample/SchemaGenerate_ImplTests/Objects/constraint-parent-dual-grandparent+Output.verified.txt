@@ -16,29 +16,34 @@ public class CmptCnstPrntDualGrndOutp
   : CmptRefCnstPrntDualGrndOutp
   , ICmptCnstPrntDualGrndOutp
 {
+  public CmptCnstPrntDualGrndOutp CnstPrntDualGrndOutp { get; set; }
 }
 
 public class CmptRefCnstPrntDualGrndOutp<Tref>
   : Cmptref
   , ICmptRefCnstPrntDualGrndOutp<Tref>
 {
+  public CmptRefCnstPrntDualGrndOutp RefCnstPrntDualGrndOutp { get; set; }
 }
 
 public class CmptGrndCnstPrntDualGrndOutp
   : ICmptGrndCnstPrntDualGrndOutp
 {
-  public String AsString { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptGrndCnstPrntDualGrndOutp GrndCnstPrntDualGrndOutp { get; set; }
 }
 
 public class CmptPrntCnstPrntDualGrndOutp
   : CmptGrndCnstPrntDualGrndOutp
   , ICmptPrntCnstPrntDualGrndOutp
 {
+  public CmptPrntCnstPrntDualGrndOutp PrntCnstPrntDualGrndOutp { get; set; }
 }
 
 public class CmptAltCnstPrntDualGrndOutp
   : CmptPrntCnstPrntDualGrndOutp
   , ICmptAltCnstPrntDualGrndOutp
 {
-  public Number alt { get; set; }
+  public CmptNumber alt { get; set; }
+  public CmptAltCnstPrntDualGrndOutp AltCnstPrntDualGrndOutp { get; set; }
 }

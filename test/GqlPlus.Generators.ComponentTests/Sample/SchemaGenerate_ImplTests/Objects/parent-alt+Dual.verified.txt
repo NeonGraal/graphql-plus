@@ -13,12 +13,14 @@ public class CmptPrntAltDual
   : CmptRefPrntAltDual
   , ICmptPrntAltDual
 {
-  public Number AsNumber { get; set; }
+  public CmptNumber AsNumber { get; set; }
+  public CmptPrntAltDual PrntAltDual { get; set; }
 }
 
 public class CmptRefPrntAltDual
   : ICmptRefPrntAltDual
 {
-  public Number parent { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber parent { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptRefPrntAltDual RefPrntAltDual { get; set; }
 }

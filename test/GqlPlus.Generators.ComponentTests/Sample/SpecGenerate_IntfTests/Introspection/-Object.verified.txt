@@ -108,111 +108,217 @@ public interface ICmpt_ObjectKind
 public interface ICmpt_TypeObject<Tkind,Tfield>
   : ICmpt_ChildType
 {
-  _ObjTypeParam typeParams { get; }
-  Tfield fields { get; }
-  _ObjAlternate alternates { get; }
-  _ObjectFor<Tfield> allFields { get; }
-  _ObjectFor<_ObjAlternate> allAlternates { get; }
+  public Cmpt_TypeObject _TypeObject { get; set; }
+}
+
+public interface ICmpt_TypeObjectField<Tkind,Tfield>
+  : ICmpt_ChildTypeField
+{
+  public ICollection<Cmpt_ObjTypeParam> typeParams { get; set; }
+  public ICollection<Tfield> fields { get; set; }
+  public ICollection<Cmpt_ObjAlternate> alternates { get; set; }
+  public ICollection<Cmpt_ObjectFor<Tfield>> allFields { get; set; }
+  public ICollection<Cmpt_ObjectFor<Cmpt_ObjAlternate>> allAlternates { get; set; }
 }
 
 public interface ICmpt_ObjTypeParam
   : ICmpt_Named
 {
-  _TypeRef<_TypeKind> constraint { get; }
+  public Cmpt_ObjTypeParam _ObjTypeParam { get; set; }
+}
+
+public interface ICmpt_ObjTypeParamField
+  : ICmpt_NamedField
+{
+  public Cmpt_TypeRef<Cmpt_TypeKind> constraint { get; set; }
 }
 
 public interface ICmpt_ObjBase
   : ICmpt_Named
 {
-  _ObjTypeArg typeArgs { get; }
-  _TypeParam As_TypeParam { get; }
+  public Cmpt_TypeParam As_TypeParam { get; set; }
+  public Cmpt_ObjBase _ObjBase { get; set; }
+}
+
+public interface ICmpt_ObjBaseField
+  : ICmpt_NamedField
+{
+  public ICollection<Cmpt_ObjTypeArg> typeArgs { get; set; }
 }
 
 public interface ICmpt_ObjTypeArg
   : ICmpt_TypeRef
 {
-  _Identifier label { get; }
-  _TypeParam As_TypeParam { get; }
+  public Cmpt_TypeParam As_TypeParam { get; set; }
+  public Cmpt_ObjTypeArg _ObjTypeArg { get; set; }
+}
+
+public interface ICmpt_ObjTypeArgField
+  : ICmpt_TypeRefField
+{
+  public Cmpt_Identifier? label { get; set; }
 }
 
 public interface ICmpt_TypeParam
   : ICmpt_Described
 {
-  _Identifier typeParam { get; }
+  public Cmpt_TypeParam _TypeParam { get; set; }
+}
+
+public interface ICmpt_TypeParamField
+  : ICmpt_DescribedField
+{
+  public Cmpt_Identifier typeParam { get; set; }
 }
 
 public interface ICmpt_ObjAlternate
 {
-  _ObjBase type { get; }
-  _Collections collections { get; }
-  _ObjAlternateEnum As_ObjAlternateEnum { get; }
+  public Cmpt_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
+  public Cmpt_ObjAlternate _ObjAlternate { get; set; }
+}
+
+public interface ICmpt_ObjAlternateField
+{
+  public Cmpt_ObjBase type { get; set; }
+  public ICollection<Cmpt_Collections> collections { get; set; }
 }
 
 public interface ICmpt_ObjAlternateEnum
   : ICmpt_TypeRef
 {
-  _Identifier label { get; }
+  public Cmpt_ObjAlternateEnum _ObjAlternateEnum { get; set; }
+}
+
+public interface ICmpt_ObjAlternateEnumField
+  : ICmpt_TypeRefField
+{
+  public Cmpt_Identifier label { get; set; }
 }
 
 public interface ICmpt_ObjectFor<Tfor>
   : ICmptfor
 {
-  _Identifier object { get; }
+  public Cmpt_ObjectFor _ObjectFor { get; set; }
+}
+
+public interface ICmpt_ObjectForField<Tfor>
+  : ICmptforField
+{
+  public Cmpt_Identifier object { get; set; }
 }
 
 public interface ICmpt_ObjField<Ttype>
   : ICmpt_Aliased
 {
-  Ttype type { get; }
+  public Cmpt_ObjField _ObjField { get; set; }
+}
+
+public interface ICmpt_ObjFieldField<Ttype>
+  : ICmpt_AliasedField
+{
+  public Ttype type { get; set; }
 }
 
 public interface ICmpt_ObjFieldType
   : ICmpt_ObjBase
 {
-  _Modifiers modifiers { get; }
-  _ObjFieldEnum As_ObjFieldEnum { get; }
+  public Cmpt_ObjFieldEnum As_ObjFieldEnum { get; set; }
+  public Cmpt_ObjFieldType _ObjFieldType { get; set; }
+}
+
+public interface ICmpt_ObjFieldTypeField
+  : ICmpt_ObjBaseField
+{
+  public ICollection<Cmpt_Modifiers> modifiers { get; set; }
 }
 
 public interface ICmpt_ObjFieldEnum
   : ICmpt_TypeRef
 {
-  _Identifier label { get; }
+  public Cmpt_ObjFieldEnum _ObjFieldEnum { get; set; }
+}
+
+public interface ICmpt_ObjFieldEnumField
+  : ICmpt_TypeRefField
+{
+  public Cmpt_Identifier label { get; set; }
 }
 
 public interface ICmpt_ForParam<Ttype>
 {
-  _ObjAlternate As_ObjAlternate { get; }
-  _ObjField<Ttype> As_ObjField { get; }
+  public Cmpt_ObjAlternate As_ObjAlternate { get; set; }
+  public Cmpt_ObjField<Ttype> As_ObjField { get; set; }
+  public Cmpt_ForParam _ForParam { get; set; }
+}
+
+public interface ICmpt_ForParamField<Ttype>
+{
 }
 
 public interface ICmpt_DualField
   : ICmpt_ObjField
+{
+  public Cmpt_DualField _DualField { get; set; }
+}
+
+public interface ICmpt_DualFieldField
+  : ICmpt_ObjFieldField
 {
 }
 
 public interface ICmpt_InputField
   : ICmpt_ObjField
 {
+  public Cmpt_InputField _InputField { get; set; }
+}
+
+public interface ICmpt_InputFieldField
+  : ICmpt_ObjFieldField
+{
 }
 
 public interface ICmpt_InputFieldType
   : ICmpt_ObjFieldType
 {
-  _Value default { get; }
+  public Cmpt_InputFieldType _InputFieldType { get; set; }
+}
+
+public interface ICmpt_InputFieldTypeField
+  : ICmpt_ObjFieldTypeField
+{
+  public Cmpt_Value? default { get; set; }
 }
 
 public interface ICmpt_InputParam
   : ICmpt_InputFieldType
+{
+  public Cmpt_InputParam _InputParam { get; set; }
+}
+
+public interface ICmpt_InputParamField
+  : ICmpt_InputFieldTypeField
 {
 }
 
 public interface ICmpt_OutputField
   : ICmpt_ObjField
 {
+  public Cmpt_OutputField _OutputField { get; set; }
+}
+
+public interface ICmpt_OutputFieldField
+  : ICmpt_ObjFieldField
+{
 }
 
 public interface ICmpt_OutputFieldType
   : ICmpt_ObjFieldType
 {
-  _InputParam parameters { get; }
+  public Cmpt_OutputFieldType _OutputFieldType { get; set; }
+}
+
+public interface ICmpt_OutputFieldTypeField
+  : ICmpt_ObjFieldTypeField
+{
+  public ICollection<Cmpt_InputParam> parameters { get; set; }
 }

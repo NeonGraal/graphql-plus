@@ -11,9 +11,19 @@ namespace Components.Gqlp_Schema_input_field_null;
 
 public interface ICmptInpFieldNull
 {
-  FldInpFieldNull field { get; }
+  public CmptInpFieldNull InpFieldNull { get; set; }
+}
+
+public interface ICmptInpFieldNullField
+{
+  public CmptFldInpFieldNull? field { get; set; }
 }
 
 public interface ICmptFldInpFieldNull
+{
+  public CmptFldInpFieldNull FldInpFieldNull { get; set; }
+}
+
+public interface ICmptFldInpFieldNullField
 {
 }

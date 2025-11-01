@@ -14,9 +14,20 @@ namespace Components.Gqlp_Schema_generic_parent_enum_parent_Output;
 public interface ICmptGnrcPrntEnumPrntOutp
   : ICmptFieldGnrcPrntEnumPrntOutp
 {
+  public CmptGnrcPrntEnumPrntOutp GnrcPrntEnumPrntOutp { get; set; }
+}
+
+public interface ICmptGnrcPrntEnumPrntOutpField
+  : ICmptFieldGnrcPrntEnumPrntOutpField
+{
 }
 
 public interface ICmptFieldGnrcPrntEnumPrntOutp<Tref>
 {
-  Tref field { get; }
+  public CmptFieldGnrcPrntEnumPrntOutp FieldGnrcPrntEnumPrntOutp { get; set; }
+}
+
+public interface ICmptFieldGnrcPrntEnumPrntOutpField<Tref>
+{
+  public Tref field { get; set; }
 }

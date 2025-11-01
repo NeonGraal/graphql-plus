@@ -7,5 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_alias_Output;
 
 public interface ItestObjFieldEnumAliasOutp
 {
-  Boolean field { get; }
+  public testObjFieldEnumAliasOutp ObjFieldEnumAliasOutp { get; set; }
+}
+
+public interface ItestObjFieldEnumAliasOutpField
+{
+  public testBoolean field { get; set; }
 }

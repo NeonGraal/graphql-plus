@@ -12,5 +12,6 @@ namespace Components.Gqlp_Schema_object_field_enum_alias_Input;
 public class CmptObjFieldEnumAliasInp
   : ICmptObjFieldEnumAliasInp
 {
-  public Boolean field { get; set; }
+  public CmptBoolean field { get; set; }
+  public CmptObjFieldEnumAliasInp ObjFieldEnumAliasInp { get; set; }
 }

@@ -8,10 +8,16 @@ namespace GqlPlus.GeneratorTests.Gqlp__Schema;
 public interface Itest_Schema
   : Itest_Named
 {
-  _Categories categories { get; }
-  _Directives directives { get; }
-  _Type types { get; }
-  _Setting settings { get; }
+  public test_Schema _Schema { get; set; }
+}
+
+public interface Itest_SchemaField
+  : Itest_NamedField
+{
+  public IDictionary<test_Identifier, test_Categories> categories { get; set; }
+  public IDictionary<test_Identifier, test_Directives> directives { get; set; }
+  public IDictionary<test_Identifier, test_Type> types { get; set; }
+  public IDictionary<test_Identifier, test_Setting> settings { get; set; }
 }
 
 public interface Itest_Identifier
@@ -20,12 +26,17 @@ public interface Itest_Identifier
 
 public interface Itest_Filter
 {
-  _NameFilter names { get; }
-  Boolean matchAliases { get; }
-  _NameFilter aliases { get; }
-  Boolean returnByAlias { get; }
-  Boolean returnReferencedTypes { get; }
-  _NameFilter As_NameFilter { get; }
+  public ICollection<test_NameFilter> As_NameFilter { get; set; }
+  public test_Filter _Filter { get; set; }
+}
+
+public interface Itest_FilterField
+{
+  public ICollection<test_NameFilter> names { get; set; }
+  public testBoolean? matchAliases { get; set; }
+  public ICollection<test_NameFilter> aliases { get; set; }
+  public testBoolean? returnByAlias { get; set; }
+  public testBoolean? returnReferencedTypes { get; set; }
 }
 
 public interface Itest_NameFilter
@@ -35,28 +46,57 @@ public interface Itest_NameFilter
 public interface Itest_CategoryFilter
   : Itest_Filter
 {
-  _Resolution resolutions { get; }
+  public test_CategoryFilter _CategoryFilter { get; set; }
+}
+
+public interface Itest_CategoryFilterField
+  : Itest_FilterField
+{
+  public ICollection<test_Resolution> resolutions { get; set; }
 }
 
 public interface Itest_TypeFilter
   : Itest_Filter
 {
-  _TypeKind kinds { get; }
+  public test_TypeFilter _TypeFilter { get; set; }
+}
+
+public interface Itest_TypeFilterField
+  : Itest_FilterField
+{
+  public ICollection<test_TypeKind> kinds { get; set; }
 }
 
 public interface Itest_Aliased
   : Itest_Named
 {
-  _Identifier aliases { get; }
+  public test_Aliased _Aliased { get; set; }
+}
+
+public interface Itest_AliasedField
+  : Itest_NamedField
+{
+  public ICollection<test_Identifier> aliases { get; set; }
 }
 
 public interface Itest_Named
   : Itest_Described
 {
-  _Identifier name { get; }
+  public test_Named _Named { get; set; }
+}
+
+public interface Itest_NamedField
+  : Itest_DescribedField
+{
+  public test_Identifier name { get; set; }
 }
 
 public interface Itest_Described
 {
-  String description { get; }
+  public test_Described _Described { get; set; }
+}
+
+public interface Itest_DescribedField
+{
+  public ICollection<testString> description { get; set; }
 }

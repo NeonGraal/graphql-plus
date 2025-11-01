@@ -7,5 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Dual;
 
 public interface ItestFieldEnumPrntDual
 {
-  EnumFieldEnumPrntDual field { get; }
+  public testFieldEnumPrntDual FieldEnumPrntDual { get; set; }
+}
+
+public interface ItestFieldEnumPrntDualField
+{
+  public testEnumFieldEnumPrntDual field { get; set; }
 }

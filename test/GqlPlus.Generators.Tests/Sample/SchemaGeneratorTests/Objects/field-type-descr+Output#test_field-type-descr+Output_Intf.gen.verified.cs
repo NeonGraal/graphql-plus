@@ -7,5 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_type_descr_Output;
 
 public interface ItestFieldTypeDescrOutp
 {
-  Number field { get; }
+  public testFieldTypeDescrOutp FieldTypeDescrOutp { get; set; }
+}
+
+public interface ItestFieldTypeDescrOutpField
+{
+  public testNumber field { get; set; }
 }

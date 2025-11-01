@@ -9,4 +9,5 @@ public class testGnrcDescrDual<Ttype>
   : ItestGnrcDescrDual<Ttype>
 {
   public Ttype field { get; set; }
+  public testGnrcDescrDual GnrcDescrDual { get; set; }
 }

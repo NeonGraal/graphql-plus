@@ -11,11 +11,21 @@ namespace Components.Gqlp_Schema_alt_mod_param_Output;
 
 public interface ICmptAltModParamOutp<Tmod>
 {
-  AltAltModParamOutp AsAltAltModParamOutp { get; }
+  public IDictionary<Tmod, CmptAltAltModParamOutp> AsAltAltModParamOutp { get; set; }
+  public CmptAltModParamOutp AltModParamOutp { get; set; }
+}
+
+public interface ICmptAltModParamOutpField<Tmod>
+{
 }
 
 public interface ICmptAltAltModParamOutp
 {
-  Number alt { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptAltAltModParamOutp AltAltModParamOutp { get; set; }
+}
+
+public interface ICmptAltAltModParamOutpField
+{
+  public CmptNumber alt { get; set; }
 }

@@ -51,42 +51,78 @@ namespace Components.Gqlp_Spec_Global;
 public interface ICmpt_AndType
   : ICmpt_Named
 {
-  _Type type { get; }
-  _Type As_Type { get; }
+  public Cmpt_Type As_Type { get; set; }
+  public Cmpt_AndType _AndType { get; set; }
+}
+
+public interface ICmpt_AndTypeField
+  : ICmpt_NamedField
+{
+  public Cmpt_Type type { get; set; }
 }
 
 public interface ICmpt_Categories
   : ICmpt_AndType
 {
-  _Category category { get; }
-  _Category As_Category { get; }
+  public Cmpt_Category As_Category { get; set; }
+  public Cmpt_Categories _Categories { get; set; }
+}
+
+public interface ICmpt_CategoriesField
+  : ICmpt_AndTypeField
+{
+  public Cmpt_Category category { get; set; }
 }
 
 public interface ICmpt_Category
   : ICmpt_Aliased
 {
-  _Resolution resolution { get; }
-  _TypeRef<_TypeKind> output { get; }
-  _Modifiers modifiers { get; }
+  public Cmpt_Category _Category { get; set; }
+}
+
+public interface ICmpt_CategoryField
+  : ICmpt_AliasedField
+{
+  public Cmpt_Resolution resolution { get; set; }
+  public Cmpt_TypeRef<Cmpt_TypeKind> output { get; set; }
+  public ICollection<Cmpt_Modifiers> modifiers { get; set; }
 }
 
 public interface ICmpt_Directives
   : ICmpt_AndType
 {
-  _Directive directive { get; }
-  _Directive As_Directive { get; }
+  public Cmpt_Directive As_Directive { get; set; }
+  public Cmpt_Directives _Directives { get; set; }
+}
+
+public interface ICmpt_DirectivesField
+  : ICmpt_AndTypeField
+{
+  public Cmpt_Directive directive { get; set; }
 }
 
 public interface ICmpt_Directive
   : ICmpt_Aliased
 {
-  _InputParam parameters { get; }
-  Boolean repeatable { get; }
-  Unit locations { get; }
+  public Cmpt_Directive _Directive { get; set; }
+}
+
+public interface ICmpt_DirectiveField
+  : ICmpt_AliasedField
+{
+  public ICollection<Cmpt_InputParam> parameters { get; set; }
+  public CmptBoolean repeatable { get; set; }
+  public IDictionary<Cmpt_Location, CmptUnit> locations { get; set; }
 }
 
 public interface ICmpt_Setting
   : ICmpt_Named
 {
-  _Value value { get; }
+  public Cmpt_Setting _Setting { get; set; }
+}
+
+public interface ICmpt_SettingField
+  : ICmpt_NamedField
+{
+  public Cmpt_Value value { get; set; }
 }

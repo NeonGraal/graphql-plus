@@ -13,18 +13,21 @@ namespace Components.Gqlp_Schema_generic_field_dual_Dual;
 public class CmptGnrcFieldDualDual
   : ICmptGnrcFieldDualDual
 {
-  public RefGnrcFieldDualDual<AltGnrcFieldDualDual> field { get; set; }
+  public CmptRefGnrcFieldDualDual<CmptAltGnrcFieldDualDual> field { get; set; }
+  public CmptGnrcFieldDualDual GnrcFieldDualDual { get; set; }
 }
 
 public class CmptRefGnrcFieldDualDual<Tref>
   : ICmptRefGnrcFieldDualDual<Tref>
 {
   public Tref Asref { get; set; }
+  public CmptRefGnrcFieldDualDual RefGnrcFieldDualDual { get; set; }
 }
 
 public class CmptAltGnrcFieldDualDual
   : ICmptAltGnrcFieldDualDual
 {
-  public Number alt { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcFieldDualDual AltGnrcFieldDualDual { get; set; }
 }

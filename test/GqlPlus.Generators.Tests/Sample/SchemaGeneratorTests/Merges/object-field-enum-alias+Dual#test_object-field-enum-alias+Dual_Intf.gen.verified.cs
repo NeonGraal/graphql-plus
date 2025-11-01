@@ -7,5 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_alias_Dual;
 
 public interface ItestObjFieldEnumAliasDual
 {
-  Boolean field { get; }
+  public testObjFieldEnumAliasDual ObjFieldEnumAliasDual { get; set; }
+}
+
+public interface ItestObjFieldEnumAliasDualField
+{
+  public testBoolean field { get; set; }
 }

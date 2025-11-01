@@ -8,5 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Output;
 public class testAltEnumOutp
   : ItestAltEnumOutp
 {
-  public EnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
+  public testEnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
+  public testAltEnumOutp AltEnumOutp { get; set; }
 }

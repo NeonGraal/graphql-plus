@@ -13,18 +13,21 @@ namespace Components.Gqlp_Schema_generic_alt_param_Dual;
 public class CmptGnrcAltParamDual
   : ICmptGnrcAltParamDual
 {
-  public RefGnrcAltParamDual<AltGnrcAltParamDual> AsRefGnrcAltParamDual { get; set; }
+  public CmptRefGnrcAltParamDual<CmptAltGnrcAltParamDual> AsRefGnrcAltParamDual { get; set; }
+  public CmptGnrcAltParamDual GnrcAltParamDual { get; set; }
 }
 
 public class CmptRefGnrcAltParamDual<Tref>
   : ICmptRefGnrcAltParamDual<Tref>
 {
   public Tref Asref { get; set; }
+  public CmptRefGnrcAltParamDual RefGnrcAltParamDual { get; set; }
 }
 
 public class CmptAltGnrcAltParamDual
   : ICmptAltGnrcAltParamDual
 {
-  public Number alt { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcAltParamDual AltGnrcAltParamDual { get; set; }
 }

@@ -10,5 +10,10 @@ namespace Components.Gqlp_Schema_generic_alt_mod_String_Input;
 
 public interface ICmptRefGnrcAltModStrInp<Tref>
 {
-  Tref Asref { get; }
+  public IDictionary<CmptString, Tref> Asref { get; set; }
+  public CmptRefGnrcAltModStrInp RefGnrcAltModStrInp { get; set; }
+}
+
+public interface ICmptRefGnrcAltModStrInpField<Tref>
+{
 }

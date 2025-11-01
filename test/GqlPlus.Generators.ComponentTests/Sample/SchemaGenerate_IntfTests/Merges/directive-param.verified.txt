@@ -12,4 +12,9 @@ namespace Components.Gqlp_Schema_directive_param;
 
 public interface ICmptInDrctParam
 {
+  public CmptInDrctParam InDrctParam { get; set; }
+}
+
+public interface ICmptInDrctParamField
+{
 }

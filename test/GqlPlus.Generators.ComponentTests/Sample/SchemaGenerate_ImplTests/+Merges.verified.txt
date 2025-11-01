@@ -7,26 +7,31 @@ namespace Components.Gqlp_Schema_Merges;
 public class CmptCtgr
   : ICmptCtgr
 {
+  public CmptCtgr Ctgr { get; set; }
 }
 
 public class CmptCtgrAlias
   : ICmptCtgrAlias
 {
+  public CmptCtgrAlias CtgrAlias { get; set; }
 }
 
 public class CmptCtgrDescr
   : ICmptCtgrDescr
 {
+  public CmptCtgrDescr CtgrDescr { get; set; }
 }
 
 public class CmptCtgrMod
   : ICmptCtgrMod
 {
+  public CmptCtgrMod CtgrMod { get; set; }
 }
 
 public class CmptInDrctParam
   : ICmptInDrctParam
 {
+  public CmptInDrctParam InDrctParam { get; set; }
 }
 
 public class CmptDmnAlias
@@ -92,85 +97,100 @@ public class CmptDmnStrSame
 public class CmptObjDual
   : ICmptObjDual
 {
+  public CmptObjDual ObjDual { get; set; }
 }
 
 public class CmptObjInp
   : ICmptObjInp
 {
+  public CmptObjInp ObjInp { get; set; }
 }
 
 public class CmptObjOutp
   : ICmptObjOutp
 {
+  public CmptObjOutp ObjOutp { get; set; }
 }
 
 public class CmptObjAliasDual
   : ICmptObjAliasDual
 {
+  public CmptObjAliasDual ObjAliasDual { get; set; }
 }
 
 public class CmptObjAliasInp
   : ICmptObjAliasInp
 {
+  public CmptObjAliasInp ObjAliasInp { get; set; }
 }
 
 public class CmptObjAliasOutp
   : ICmptObjAliasOutp
 {
+  public CmptObjAliasOutp ObjAliasOutp { get; set; }
 }
 
 public class CmptObjAltDual
   : ICmptObjAltDual
 {
-  public ObjAltDualType AsObjAltDualType { get; set; }
+  public CmptObjAltDualType AsObjAltDualType { get; set; }
+  public CmptObjAltDual ObjAltDual { get; set; }
 }
 
 public class CmptObjAltDualType
   : ICmptObjAltDualType
 {
+  public CmptObjAltDualType ObjAltDualType { get; set; }
 }
 
 public class CmptObjAltInp
   : ICmptObjAltInp
 {
-  public ObjAltInpType AsObjAltInpType { get; set; }
+  public CmptObjAltInpType AsObjAltInpType { get; set; }
+  public CmptObjAltInp ObjAltInp { get; set; }
 }
 
 public class CmptObjAltInpType
   : ICmptObjAltInpType
 {
+  public CmptObjAltInpType ObjAltInpType { get; set; }
 }
 
 public class CmptObjAltOutp
   : ICmptObjAltOutp
 {
-  public ObjAltOutpType AsObjAltOutpType { get; set; }
+  public CmptObjAltOutpType AsObjAltOutpType { get; set; }
+  public CmptObjAltOutp ObjAltOutp { get; set; }
 }
 
 public class CmptObjAltOutpType
   : ICmptObjAltOutpType
 {
+  public CmptObjAltOutpType ObjAltOutpType { get; set; }
 }
 
 public class CmptObjAltEnumDual
   : ICmptObjAltEnumDual
 {
-  public Boolean AsBoolean { get; set; }
-  public Boolean AsBoolean { get; set; }
+  public CmptBoolean AsBoolean { get; set; }
+  public CmptBoolean AsBoolean { get; set; }
+  public CmptObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 
 public class CmptObjAltEnumInp
   : ICmptObjAltEnumInp
 {
-  public Boolean AsBoolean { get; set; }
-  public Boolean AsBoolean { get; set; }
+  public CmptBoolean AsBoolean { get; set; }
+  public CmptBoolean AsBoolean { get; set; }
+  public CmptObjAltEnumInp ObjAltEnumInp { get; set; }
 }
 
 public class CmptObjAltEnumOutp
   : ICmptObjAltEnumOutp
 {
-  public Boolean AsBoolean { get; set; }
-  public Boolean AsBoolean { get; set; }
+  public CmptBoolean AsBoolean { get; set; }
+  public CmptBoolean AsBoolean { get; set; }
+  public CmptObjAltEnumOutp ObjAltEnumOutp { get; set; }
 }
 
 public class CmptObjCnstDual<Ttype>
@@ -178,6 +198,7 @@ public class CmptObjCnstDual<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
+  public CmptObjCnstDual ObjCnstDual { get; set; }
 }
 
 public class CmptObjCnstInp<Ttype>
@@ -185,6 +206,7 @@ public class CmptObjCnstInp<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
+  public CmptObjCnstInp ObjCnstInp { get; set; }
 }
 
 public class CmptObjCnstOutp<Ttype>
@@ -192,126 +214,148 @@ public class CmptObjCnstOutp<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
+  public CmptObjCnstOutp ObjCnstOutp { get; set; }
 }
 
 public class CmptObjFieldDual
   : ICmptObjFieldDual
 {
-  public FldObjFieldDual field { get; set; }
+  public CmptFldObjFieldDual field { get; set; }
+  public CmptObjFieldDual ObjFieldDual { get; set; }
 }
 
 public class CmptFldObjFieldDual
   : ICmptFldObjFieldDual
 {
+  public CmptFldObjFieldDual FldObjFieldDual { get; set; }
 }
 
 public class CmptObjFieldInp
   : ICmptObjFieldInp
 {
-  public FldObjFieldInp field { get; set; }
+  public CmptFldObjFieldInp field { get; set; }
+  public CmptObjFieldInp ObjFieldInp { get; set; }
 }
 
 public class CmptFldObjFieldInp
   : ICmptFldObjFieldInp
 {
+  public CmptFldObjFieldInp FldObjFieldInp { get; set; }
 }
 
 public class CmptObjFieldOutp
   : ICmptObjFieldOutp
 {
-  public FldObjFieldOutp field { get; set; }
+  public CmptFldObjFieldOutp field { get; set; }
+  public CmptObjFieldOutp ObjFieldOutp { get; set; }
 }
 
 public class CmptFldObjFieldOutp
   : ICmptFldObjFieldOutp
 {
+  public CmptFldObjFieldOutp FldObjFieldOutp { get; set; }
 }
 
 public class CmptObjFieldAliasDual
   : ICmptObjFieldAliasDual
 {
-  public FldObjFieldAliasDual field { get; set; }
+  public CmptFldObjFieldAliasDual field { get; set; }
+  public CmptObjFieldAliasDual ObjFieldAliasDual { get; set; }
 }
 
 public class CmptFldObjFieldAliasDual
   : ICmptFldObjFieldAliasDual
 {
+  public CmptFldObjFieldAliasDual FldObjFieldAliasDual { get; set; }
 }
 
 public class CmptObjFieldAliasInp
   : ICmptObjFieldAliasInp
 {
-  public FldObjFieldAliasInp field { get; set; }
+  public CmptFldObjFieldAliasInp field { get; set; }
+  public CmptObjFieldAliasInp ObjFieldAliasInp { get; set; }
 }
 
 public class CmptFldObjFieldAliasInp
   : ICmptFldObjFieldAliasInp
 {
+  public CmptFldObjFieldAliasInp FldObjFieldAliasInp { get; set; }
 }
 
 public class CmptObjFieldAliasOutp
   : ICmptObjFieldAliasOutp
 {
-  public FldObjFieldAliasOutp field { get; set; }
+  public CmptFldObjFieldAliasOutp field { get; set; }
+  public CmptObjFieldAliasOutp ObjFieldAliasOutp { get; set; }
 }
 
 public class CmptFldObjFieldAliasOutp
   : ICmptFldObjFieldAliasOutp
 {
+  public CmptFldObjFieldAliasOutp FldObjFieldAliasOutp { get; set; }
 }
 
 public class CmptObjFieldEnumAliasDual
   : ICmptObjFieldEnumAliasDual
 {
-  public Boolean field { get; set; }
+  public CmptBoolean field { get; set; }
+  public CmptObjFieldEnumAliasDual ObjFieldEnumAliasDual { get; set; }
 }
 
 public class CmptObjFieldEnumAliasInp
   : ICmptObjFieldEnumAliasInp
 {
-  public Boolean field { get; set; }
+  public CmptBoolean field { get; set; }
+  public CmptObjFieldEnumAliasInp ObjFieldEnumAliasInp { get; set; }
 }
 
 public class CmptObjFieldEnumAliasOutp
   : ICmptObjFieldEnumAliasOutp
 {
-  public Boolean field { get; set; }
+  public CmptBoolean field { get; set; }
+  public CmptObjFieldEnumAliasOutp ObjFieldEnumAliasOutp { get; set; }
 }
 
 public class CmptObjFieldEnumValueDual
   : ICmptObjFieldEnumValueDual
 {
-  public Boolean field { get; set; }
+  public CmptBoolean field { get; set; }
+  public CmptObjFieldEnumValueDual ObjFieldEnumValueDual { get; set; }
 }
 
 public class CmptObjFieldEnumValueInp
   : ICmptObjFieldEnumValueInp
 {
-  public Boolean field { get; set; }
+  public CmptBoolean field { get; set; }
+  public CmptObjFieldEnumValueInp ObjFieldEnumValueInp { get; set; }
 }
 
 public class CmptObjFieldEnumValueOutp
   : ICmptObjFieldEnumValueOutp
 {
-  public Boolean field { get; set; }
+  public CmptBoolean field { get; set; }
+  public CmptObjFieldEnumValueOutp ObjFieldEnumValueOutp { get; set; }
 }
 
 public class CmptObjFieldTypeAliasDual
   : ICmptObjFieldTypeAliasDual
 {
-  public String field { get; set; }
+  public CmptString field { get; set; }
+  public CmptObjFieldTypeAliasDual ObjFieldTypeAliasDual { get; set; }
 }
 
 public class CmptObjFieldTypeAliasInp
   : ICmptObjFieldTypeAliasInp
 {
-  public String field { get; set; }
+  public CmptString field { get; set; }
+  public CmptObjFieldTypeAliasInp ObjFieldTypeAliasInp { get; set; }
 }
 
 public class CmptObjFieldTypeAliasOutp
   : ICmptObjFieldTypeAliasOutp
 {
-  public String field { get; set; }
+  public CmptString field { get; set; }
+  public CmptObjFieldTypeAliasOutp ObjFieldTypeAliasOutp { get; set; }
 }
 
 public class CmptObjParamDual<Ttest,Ttype>
@@ -319,6 +363,7 @@ public class CmptObjParamDual<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
+  public CmptObjParamDual ObjParamDual { get; set; }
 }
 
 public class CmptObjParamInp<Ttest,Ttype>
@@ -326,6 +371,7 @@ public class CmptObjParamInp<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
+  public CmptObjParamInp ObjParamInp { get; set; }
 }
 
 public class CmptObjParamOutp<Ttest,Ttype>
@@ -333,6 +379,7 @@ public class CmptObjParamOutp<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
+  public CmptObjParamOutp ObjParamOutp { get; set; }
 }
 
 public class CmptObjParamDupDual<Ttest>
@@ -340,6 +387,7 @@ public class CmptObjParamDupDual<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
+  public CmptObjParamDupDual ObjParamDupDual { get; set; }
 }
 
 public class CmptObjParamDupInp<Ttest>
@@ -347,6 +395,7 @@ public class CmptObjParamDupInp<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
+  public CmptObjParamDupInp ObjParamDupInp { get; set; }
 }
 
 public class CmptObjParamDupOutp<Ttest>
@@ -354,60 +403,71 @@ public class CmptObjParamDupOutp<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
+  public CmptObjParamDupOutp ObjParamDupOutp { get; set; }
 }
 
 public class CmptObjPrntDual
   : CmptRefObjPrntDual
   , ICmptObjPrntDual
 {
+  public CmptObjPrntDual ObjPrntDual { get; set; }
 }
 
 public class CmptRefObjPrntDual
   : ICmptRefObjPrntDual
 {
+  public CmptRefObjPrntDual RefObjPrntDual { get; set; }
 }
 
 public class CmptObjPrntInp
   : CmptRefObjPrntInp
   , ICmptObjPrntInp
 {
+  public CmptObjPrntInp ObjPrntInp { get; set; }
 }
 
 public class CmptRefObjPrntInp
   : ICmptRefObjPrntInp
 {
+  public CmptRefObjPrntInp RefObjPrntInp { get; set; }
 }
 
 public class CmptObjPrntOutp
   : CmptRefObjPrntOutp
   , ICmptObjPrntOutp
 {
+  public CmptObjPrntOutp ObjPrntOutp { get; set; }
 }
 
 public class CmptRefObjPrntOutp
   : ICmptRefObjPrntOutp
 {
+  public CmptRefObjPrntOutp RefObjPrntOutp { get; set; }
 }
 
 public class CmptOutpFieldParam
   : ICmptOutpFieldParam
 {
-  public FldOutpFieldParam field { get; set; }
+  public CmptFldOutpFieldParam field { get; set; }
+  public CmptOutpFieldParam OutpFieldParam { get; set; }
 }
 
 public class CmptOutpFieldParam1
   : ICmptOutpFieldParam1
 {
+  public CmptOutpFieldParam1 OutpFieldParam1 { get; set; }
 }
 
 public class CmptOutpFieldParam2
   : ICmptOutpFieldParam2
 {
+  public CmptOutpFieldParam2 OutpFieldParam2 { get; set; }
 }
 
 public class CmptFldOutpFieldParam
   : ICmptFldOutpFieldParam
 {
+  public CmptFldOutpFieldParam FldOutpFieldParam { get; set; }
 }
 
 public class CmptUnionAlias

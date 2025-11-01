@@ -13,21 +13,42 @@ namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
 
 public interface ICmptCnstAltObjInp
 {
-  RefCnstAltObjInp<AltCnstAltObjInp> AsRefCnstAltObjInp { get; }
+  public CmptRefCnstAltObjInp<CmptAltCnstAltObjInp> AsRefCnstAltObjInp { get; set; }
+  public CmptCnstAltObjInp CnstAltObjInp { get; set; }
+}
+
+public interface ICmptCnstAltObjInpField
+{
 }
 
 public interface ICmptRefCnstAltObjInp<Tref>
 {
-  Tref Asref { get; }
+  public Tref Asref { get; set; }
+  public CmptRefCnstAltObjInp RefCnstAltObjInp { get; set; }
+}
+
+public interface ICmptRefCnstAltObjInpField<Tref>
+{
 }
 
 public interface ICmptPrntCnstAltObjInp
 {
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstAltObjInp PrntCnstAltObjInp { get; set; }
+}
+
+public interface ICmptPrntCnstAltObjInpField
+{
 }
 
 public interface ICmptAltCnstAltObjInp
   : ICmptPrntCnstAltObjInp
 {
-  Number alt { get; }
+  public CmptAltCnstAltObjInp AltCnstAltObjInp { get; set; }
+}
+
+public interface ICmptAltCnstAltObjInpField
+  : ICmptPrntCnstAltObjInpField
+{
+  public CmptNumber alt { get; set; }
 }

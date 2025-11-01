@@ -8,20 +8,42 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_dual_Input;
 public interface ItestCnstFieldDualInp
   : ItestRefCnstFieldDualInp
 {
+  public testCnstFieldDualInp CnstFieldDualInp { get; set; }
+}
+
+public interface ItestCnstFieldDualInpField
+  : ItestRefCnstFieldDualInpField
+{
 }
 
 public interface ItestRefCnstFieldDualInp<Tref>
 {
-  Tref field { get; }
+  public testRefCnstFieldDualInp RefCnstFieldDualInp { get; set; }
+}
+
+public interface ItestRefCnstFieldDualInpField<Tref>
+{
+  public Tref field { get; set; }
 }
 
 public interface ItestPrntCnstFieldDualInp
 {
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testPrntCnstFieldDualInp PrntCnstFieldDualInp { get; set; }
+}
+
+public interface ItestPrntCnstFieldDualInpField
+{
 }
 
 public interface ItestAltCnstFieldDualInp
   : ItestPrntCnstFieldDualInp
 {
-  Number alt { get; }
+  public testAltCnstFieldDualInp AltCnstFieldDualInp { get; set; }
+}
+
+public interface ItestAltCnstFieldDualInpField
+  : ItestPrntCnstFieldDualInpField
+{
+  public testNumber alt { get; set; }
 }

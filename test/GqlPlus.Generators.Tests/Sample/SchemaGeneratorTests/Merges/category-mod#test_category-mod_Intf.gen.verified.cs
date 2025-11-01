@@ -7,4 +7,9 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_mod;
 
 public interface ItestCtgrMod
 {
+  public testCtgrMod CtgrMod { get; set; }
+}
+
+public interface ItestCtgrModField
+{
 }

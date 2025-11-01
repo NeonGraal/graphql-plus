@@ -13,15 +13,31 @@ namespace Components.Gqlp_Schema_generic_parent_param_Input;
 public interface ICmptGnrcPrntParamInp
   : ICmptRefGnrcPrntParamInp
 {
+  public CmptGnrcPrntParamInp GnrcPrntParamInp { get; set; }
+}
+
+public interface ICmptGnrcPrntParamInpField
+  : ICmptRefGnrcPrntParamInpField
+{
 }
 
 public interface ICmptRefGnrcPrntParamInp<Tref>
 {
-  Tref Asref { get; }
+  public Tref Asref { get; set; }
+  public CmptRefGnrcPrntParamInp RefGnrcPrntParamInp { get; set; }
+}
+
+public interface ICmptRefGnrcPrntParamInpField<Tref>
+{
 }
 
 public interface ICmptAltGnrcPrntParamInp
 {
-  Number alt { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcPrntParamInp AltGnrcPrntParamInp { get; set; }
+}
+
+public interface ICmptAltGnrcPrntParamInpField
+{
+  public CmptNumber alt { get; set; }
 }

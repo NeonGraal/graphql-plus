@@ -9,47 +9,53 @@ public class test_AndType
   : test_Named
   , Itest_AndType
 {
-  public _Type type { get; set; }
-  public _Type As_Type { get; set; }
+  public test_Type type { get; set; }
+  public test_Type As_Type { get; set; }
+  public test_AndType _AndType { get; set; }
 }
 
 public class test_Categories
   : test_AndType
   , Itest_Categories
 {
-  public _Category category { get; set; }
-  public _Category As_Category { get; set; }
+  public test_Category category { get; set; }
+  public test_Category As_Category { get; set; }
+  public test_Categories _Categories { get; set; }
 }
 
 public class test_Category
   : test_Aliased
   , Itest_Category
 {
-  public _Resolution resolution { get; set; }
-  public _TypeRef<_TypeKind> output { get; set; }
-  public _Modifiers modifiers { get; set; }
+  public test_Resolution resolution { get; set; }
+  public test_TypeRef<test_TypeKind> output { get; set; }
+  public ICollection<test_Modifiers> modifiers { get; set; }
+  public test_Category _Category { get; set; }
 }
 
 public class test_Directives
   : test_AndType
   , Itest_Directives
 {
-  public _Directive directive { get; set; }
-  public _Directive As_Directive { get; set; }
+  public test_Directive directive { get; set; }
+  public test_Directive As_Directive { get; set; }
+  public test_Directives _Directives { get; set; }
 }
 
 public class test_Directive
   : test_Aliased
   , Itest_Directive
 {
-  public _InputParam parameters { get; set; }
-  public Boolean repeatable { get; set; }
-  public Unit locations { get; set; }
+  public ICollection<test_InputParam> parameters { get; set; }
+  public testBoolean repeatable { get; set; }
+  public IDictionary<test_Location, testUnit> locations { get; set; }
+  public test_Directive _Directive { get; set; }
 }
 
 public class test_Setting
   : test_Named
   , Itest_Setting
 {
-  public _Value value { get; set; }
+  public test_Value value { get; set; }
+  public test_Setting _Setting { get; set; }
 }

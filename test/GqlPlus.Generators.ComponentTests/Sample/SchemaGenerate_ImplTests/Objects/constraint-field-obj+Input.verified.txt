@@ -15,23 +15,27 @@ public class CmptCnstFieldObjInp
   : CmptRefCnstFieldObjInp
   , ICmptCnstFieldObjInp
 {
+  public CmptCnstFieldObjInp CnstFieldObjInp { get; set; }
 }
 
 public class CmptRefCnstFieldObjInp<Tref>
   : ICmptRefCnstFieldObjInp<Tref>
 {
   public Tref field { get; set; }
+  public CmptRefCnstFieldObjInp RefCnstFieldObjInp { get; set; }
 }
 
 public class CmptPrntCnstFieldObjInp
   : ICmptPrntCnstFieldObjInp
 {
-  public String AsString { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstFieldObjInp PrntCnstFieldObjInp { get; set; }
 }
 
 public class CmptAltCnstFieldObjInp
   : CmptPrntCnstFieldObjInp
   , ICmptAltCnstFieldObjInp
 {
-  public Number alt { get; set; }
+  public CmptNumber alt { get; set; }
+  public CmptAltCnstFieldObjInp AltCnstFieldObjInp { get; set; }
 }

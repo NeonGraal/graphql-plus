@@ -10,5 +10,10 @@ namespace Components.Gqlp_Schema_field_Dual;
 
 public interface ICmptFieldDual
 {
-  String field { get; }
+  public CmptFieldDual FieldDual { get; set; }
+}
+
+public interface ICmptFieldDualField
+{
+  public CmptString field { get; set; }
 }

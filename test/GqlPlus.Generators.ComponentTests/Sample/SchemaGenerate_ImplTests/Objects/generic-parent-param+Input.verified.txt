@@ -14,17 +14,20 @@ public class CmptGnrcPrntParamInp
   : CmptRefGnrcPrntParamInp
   , ICmptGnrcPrntParamInp
 {
+  public CmptGnrcPrntParamInp GnrcPrntParamInp { get; set; }
 }
 
 public class CmptRefGnrcPrntParamInp<Tref>
   : ICmptRefGnrcPrntParamInp<Tref>
 {
   public Tref Asref { get; set; }
+  public CmptRefGnrcPrntParamInp RefGnrcPrntParamInp { get; set; }
 }
 
 public class CmptAltGnrcPrntParamInp
   : ICmptAltGnrcPrntParamInp
 {
-  public Number alt { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcPrntParamInp AltGnrcPrntParamInp { get; set; }
 }

@@ -13,11 +13,13 @@ public class CmptPrntDualInp
   : CmptRefPrntDualInp
   , ICmptPrntDualInp
 {
+  public CmptPrntDualInp PrntDualInp { get; set; }
 }
 
 public class CmptRefPrntDualInp
   : ICmptRefPrntDualInp
 {
-  public Number parent { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber parent { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptRefPrntDualInp RefPrntDualInp { get; set; }
 }

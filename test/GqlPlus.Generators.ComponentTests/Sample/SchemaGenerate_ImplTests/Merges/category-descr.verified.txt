@@ -15,4 +15,5 @@ namespace Components.Gqlp_Schema_category_descr;
 public class CmptCtgrDescr
   : ICmptCtgrDescr
 {
+  public CmptCtgrDescr CtgrDescr { get; set; }
 }

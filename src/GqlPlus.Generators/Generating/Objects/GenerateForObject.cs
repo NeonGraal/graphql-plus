@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using GqlPlus.Abstractions;
 
 namespace GqlPlus.Generating.Objects;
 
@@ -8,23 +8,46 @@ internal class GenerateForObject<TObjField>
 {
   public GenerateForObject()
   {
-    _generators.Add(GqlpGeneratorType.Interface, GenerateObjectInterfaces);
+    _generators[GqlpGeneratorType.Interface] = GenerateObjectInterfaces;
   }
 
   private void GenerateObjectInterfaces(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
-    GenerateBlock(InterfaceHeader, InterfaceMember)(ast, context);
-    GenerateBlock(ast, context, InterfaceFieldsHeader, ast.Alternates.Select(AlternateMember(context), ClassMember);
+    GenerateBlock(ast, context, InterfaceHeader, AlternateMembers, ClassMember);
+    GenerateBlock(ast, context, InterfaceFieldsHeader, FieldMembers, ClassMember);
   }
 
   internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
-    => [.. ast.Fields.Select(FieldMember(context)), .. AlternateMembers(ast, context)];
+    => [.. FieldMembers(ast, context), .. AlternateMembers(ast, context)];
 
-  private Func<IGqlpObjField, MapPair<string>> FieldMember(GqlpGeneratorContext context)
-    => field => new(field.Name, TypeString(field.Type, context));
+  private IEnumerable<MapPair<string>> FieldMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+    => ast.Fields.Select(f => ModifiedTypeString(f.Type, f, context).ToPair(f.Name));
 
   private IEnumerable<MapPair<string>> AlternateMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
-    => ast.Alternates.Select(alternate => new MapPair<string>("As" + alternate.Name, TypeString(alternate, context)));
+    => ast.Alternates.Select(a => ModifiedTypeString(a, a, context).ToPair("As" + a.Name)).Append(context.TypeName(ast).ToPair(ast.Name));
+
+  protected string ModifiedTypeString(IGqlpObjType type, IGqlpModifiers modifiers, GqlpGeneratorContext context)
+    => modifiers.Modifiers.Aggregate(TypeString(type, context), (s, m) => ModifyTypeString(s, m, context));
+
+  protected virtual string ModifyTypeString(string typeStr, IGqlpModifier modifier, GqlpGeneratorContext context)
+  {
+    if (modifier.ModifierKind == ModifierKind.Optional) {
+      return typeStr + "?";
+    }
+
+    if (modifier.ModifierKind == ModifierKind.List) {
+      return $"ICollection<{typeStr}>";
+    }
+
+    string keyTypeStr = modifier.Key;
+    if (modifier.ModifierKind == ModifierKind.Param) {
+      keyTypeStr = "T" + modifier.Key;
+    } else {
+      keyTypeStr = context.TypeName(modifier.Key);
+    }
+
+    return $"IDictionary<{keyTypeStr}, {typeStr}>";
+  }
 
   protected virtual string TypeString(IGqlpObjType type, GqlpGeneratorContext context)
   {
@@ -34,10 +57,17 @@ internal class GenerateForObject<TObjField>
 
     string args = type is IGqlpObjBase baseAst ? baseAst.Args.Surround("<", ">", a => TypeString(a!, context), ", ") : "";
 
-    IGqlpType? typeAst = context.GetTypeAst<IGqlpType>(type.Name);
-    return typeAst is null
-      ? type.Name + args
-      : typeAst.Name + args;
+    return context.TypeName(type) + args;
+  }
+
+  private void InterfaceFieldsHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+  {
+    string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
+
+    context.Write($"public interface I{context.TypeName(ast)}Field{typeParams}");
+    if (ast.Parent is not null) {
+      context.Write("  : I" + context.TypeName(ast.Parent) + "Field");
+    }
   }
 
   protected override void InterfaceHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)

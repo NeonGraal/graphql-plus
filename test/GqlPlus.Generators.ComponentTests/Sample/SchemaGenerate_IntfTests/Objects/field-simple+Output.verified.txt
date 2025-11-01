@@ -10,5 +10,10 @@ namespace Components.Gqlp_Schema_field_simple_Output;
 
 public interface ICmptFieldSmplOutp
 {
-  Number field { get; }
+  public CmptFieldSmplOutp FieldSmplOutp { get; set; }
+}
+
+public interface ICmptFieldSmplOutpField
+{
+  public CmptNumber field { get; set; }
 }

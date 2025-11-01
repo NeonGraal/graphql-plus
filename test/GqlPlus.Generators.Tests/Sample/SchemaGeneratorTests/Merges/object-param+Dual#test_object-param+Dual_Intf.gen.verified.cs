@@ -7,6 +7,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_param_Dual;
 
 public interface ItestObjParamDual<Ttest,Ttype>
 {
-  Ttest test { get; }
-  Ttype type { get; }
+  public testObjParamDual ObjParamDual { get; set; }
+}
+
+public interface ItestObjParamDualField<Ttest,Ttype>
+{
+  public Ttest test { get; set; }
+  public Ttype type { get; set; }
 }

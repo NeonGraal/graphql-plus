@@ -11,5 +11,10 @@ namespace Components.Gqlp_Schema_object_field_type_alias_Output;
 
 public interface ICmptObjFieldTypeAliasOutp
 {
-  String field { get; }
+  public CmptObjFieldTypeAliasOutp ObjFieldTypeAliasOutp { get; set; }
+}
+
+public interface ICmptObjFieldTypeAliasOutpField
+{
+  public CmptString field { get; set; }
 }

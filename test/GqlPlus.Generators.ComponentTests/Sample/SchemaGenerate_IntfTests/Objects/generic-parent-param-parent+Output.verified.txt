@@ -13,15 +13,32 @@ namespace Components.Gqlp_Schema_generic_parent_param_parent_Output;
 public interface ICmptGnrcPrntParamPrntOutp
   : ICmptRefGnrcPrntParamPrntOutp
 {
+  public CmptGnrcPrntParamPrntOutp GnrcPrntParamPrntOutp { get; set; }
+}
+
+public interface ICmptGnrcPrntParamPrntOutpField
+  : ICmptRefGnrcPrntParamPrntOutpField
+{
 }
 
 public interface ICmptRefGnrcPrntParamPrntOutp<Tref>
   : ICmptref
 {
+  public CmptRefGnrcPrntParamPrntOutp RefGnrcPrntParamPrntOutp { get; set; }
+}
+
+public interface ICmptRefGnrcPrntParamPrntOutpField<Tref>
+  : ICmptrefField
+{
 }
 
 public interface ICmptAltGnrcPrntParamPrntOutp
 {
-  Number alt { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcPrntParamPrntOutp AltGnrcPrntParamPrntOutp { get; set; }
+}
+
+public interface ICmptAltGnrcPrntParamPrntOutpField
+{
+  public CmptNumber alt { get; set; }
 }

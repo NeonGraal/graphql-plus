@@ -14,4 +14,5 @@ public class CmptObjCnstDual<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
+  public CmptObjCnstDual ObjCnstDual { get; set; }
 }

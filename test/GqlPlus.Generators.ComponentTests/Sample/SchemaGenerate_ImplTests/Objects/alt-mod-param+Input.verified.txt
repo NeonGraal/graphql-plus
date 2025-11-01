@@ -12,12 +12,14 @@ namespace Components.Gqlp_Schema_alt_mod_param_Input;
 public class CmptAltModParamInp<Tmod>
   : ICmptAltModParamInp<Tmod>
 {
-  public AltAltModParamInp AsAltAltModParamInp { get; set; }
+  public IDictionary<Tmod, CmptAltAltModParamInp> AsAltAltModParamInp { get; set; }
+  public CmptAltModParamInp AltModParamInp { get; set; }
 }
 
 public class CmptAltAltModParamInp
   : ICmptAltAltModParamInp
 {
-  public Number alt { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltAltModParamInp AltAltModParamInp { get; set; }
 }

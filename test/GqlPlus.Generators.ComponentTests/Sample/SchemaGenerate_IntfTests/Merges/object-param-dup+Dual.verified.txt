@@ -11,6 +11,11 @@ namespace Components.Gqlp_Schema_object_param_dup_Dual;
 
 public interface ICmptObjParamDupDual<Ttest>
 {
-  Ttest test { get; }
-  Ttest type { get; }
+  public CmptObjParamDupDual ObjParamDupDual { get; set; }
+}
+
+public interface ICmptObjParamDupDualField<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
 }

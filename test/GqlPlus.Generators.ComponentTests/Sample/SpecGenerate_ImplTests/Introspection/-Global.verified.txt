@@ -52,47 +52,53 @@ public class Cmpt_AndType
   : Cmpt_Named
   , ICmpt_AndType
 {
-  public _Type type { get; set; }
-  public _Type As_Type { get; set; }
+  public Cmpt_Type type { get; set; }
+  public Cmpt_Type As_Type { get; set; }
+  public Cmpt_AndType _AndType { get; set; }
 }
 
 public class Cmpt_Categories
   : Cmpt_AndType
   , ICmpt_Categories
 {
-  public _Category category { get; set; }
-  public _Category As_Category { get; set; }
+  public Cmpt_Category category { get; set; }
+  public Cmpt_Category As_Category { get; set; }
+  public Cmpt_Categories _Categories { get; set; }
 }
 
 public class Cmpt_Category
   : Cmpt_Aliased
   , ICmpt_Category
 {
-  public _Resolution resolution { get; set; }
-  public _TypeRef<_TypeKind> output { get; set; }
-  public _Modifiers modifiers { get; set; }
+  public Cmpt_Resolution resolution { get; set; }
+  public Cmpt_TypeRef<Cmpt_TypeKind> output { get; set; }
+  public ICollection<Cmpt_Modifiers> modifiers { get; set; }
+  public Cmpt_Category _Category { get; set; }
 }
 
 public class Cmpt_Directives
   : Cmpt_AndType
   , ICmpt_Directives
 {
-  public _Directive directive { get; set; }
-  public _Directive As_Directive { get; set; }
+  public Cmpt_Directive directive { get; set; }
+  public Cmpt_Directive As_Directive { get; set; }
+  public Cmpt_Directives _Directives { get; set; }
 }
 
 public class Cmpt_Directive
   : Cmpt_Aliased
   , ICmpt_Directive
 {
-  public _InputParam parameters { get; set; }
-  public Boolean repeatable { get; set; }
-  public Unit locations { get; set; }
+  public ICollection<Cmpt_InputParam> parameters { get; set; }
+  public CmptBoolean repeatable { get; set; }
+  public IDictionary<Cmpt_Location, CmptUnit> locations { get; set; }
+  public Cmpt_Directive _Directive { get; set; }
 }
 
 public class Cmpt_Setting
   : Cmpt_Named
   , ICmpt_Setting
 {
-  public _Value value { get; set; }
+  public Cmpt_Value value { get; set; }
+  public Cmpt_Setting _Setting { get; set; }
 }

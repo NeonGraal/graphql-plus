@@ -7,48 +7,82 @@ namespace GqlPlus.GeneratorTests.Gqlp_Common;
 
 public interface Itest_Type
 {
-  _BaseType<_TypeKind> As_BaseType { get; }
-  _BaseType<_TypeKind> As_BaseType { get; }
-  _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; }
-  _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; }
-  _ParentType<_TypeKind, _Aliased, _EnumLabel> As_ParentType { get; }
-  _ParentType<_TypeKind, _UnionRef, _UnionMember> As_ParentType { get; }
-  _TypeObject<_TypeKind, _DualField> As_TypeObject { get; }
-  _TypeObject<_TypeKind, _InputField> As_TypeObject { get; }
-  _TypeObject<_TypeKind, _OutputField> As_TypeObject { get; }
+  public test_BaseType<test_TypeKind> As_BaseType { get; set; }
+  public test_BaseType<test_TypeKind> As_BaseType { get; set; }
+  public test_BaseDomain<test_DomainKind, test_DomainTrueFalse, test_DomainItemTrueFalse> As_BaseDomain { get; set; }
+  public test_BaseDomain<test_DomainKind, test_DomainLabel, test_DomainItemLabel> As_BaseDomain { get; set; }
+  public test_BaseDomain<test_DomainKind, test_DomainRange, test_DomainItemRange> As_BaseDomain { get; set; }
+  public test_BaseDomain<test_DomainKind, test_DomainRegex, test_DomainItemRegex> As_BaseDomain { get; set; }
+  public test_ParentType<test_TypeKind, test_Aliased, test_EnumLabel> As_ParentType { get; set; }
+  public test_ParentType<test_TypeKind, test_UnionRef, test_UnionMember> As_ParentType { get; set; }
+  public test_TypeObject<test_TypeKind, test_DualField> As_TypeObject { get; set; }
+  public test_TypeObject<test_TypeKind, test_InputField> As_TypeObject { get; set; }
+  public test_TypeObject<test_TypeKind, test_OutputField> As_TypeObject { get; set; }
+  public test_Type _Type { get; set; }
+}
+
+public interface Itest_TypeField
+{
 }
 
 public interface Itest_BaseType<Tkind>
   : Itest_Aliased
 {
-  Tkind typeKind { get; }
+  public test_BaseType _BaseType { get; set; }
+}
+
+public interface Itest_BaseTypeField<Tkind>
+  : Itest_AliasedField
+{
+  public Tkind typeKind { get; set; }
 }
 
 public interface Itest_ChildType<Tkind,Tparent>
   : Itest_BaseType
 {
-  Tparent parent { get; }
+  public test_ChildType _ChildType { get; set; }
+}
+
+public interface Itest_ChildTypeField<Tkind,Tparent>
+  : Itest_BaseTypeField
+{
+  public Tparent parent { get; set; }
 }
 
 public interface Itest_ParentType<Tkind,Titem,TallItem>
   : Itest_ChildType
 {
-  Titem items { get; }
-  TallItem allItems { get; }
+  public test_ParentType _ParentType { get; set; }
+}
+
+public interface Itest_ParentTypeField<Tkind,Titem,TallItem>
+  : Itest_ChildTypeField
+{
+  public ICollection<Titem> items { get; set; }
+  public ICollection<TallItem> allItems { get; set; }
 }
 
 public interface Itest_TypeRef<Tkind>
   : Itest_Named
 {
-  Tkind typeKind { get; }
+  public test_TypeRef _TypeRef { get; set; }
+}
+
+public interface Itest_TypeRefField<Tkind>
+  : Itest_NamedField
+{
+  public Tkind typeKind { get; set; }
 }
 
 public interface Itest_TypeSimple
 {
-  _TypeRef<_TypeKind> As_TypeRef { get; }
-  _TypeRef<_TypeKind> As_TypeRef { get; }
-  _TypeRef<_TypeKind> As_TypeRef { get; }
-  _TypeRef<_TypeKind> As_TypeRef { get; }
+  public test_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public test_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public test_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public test_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public test_TypeSimple _TypeSimple { get; set; }
+}
+
+public interface Itest_TypeSimpleField
+{
 }

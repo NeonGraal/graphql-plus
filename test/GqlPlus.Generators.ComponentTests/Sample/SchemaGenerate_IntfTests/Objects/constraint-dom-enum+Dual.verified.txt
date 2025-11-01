@@ -13,12 +13,22 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 
 public interface ICmptCnstDomEnumDual
 {
-  RefCnstDomEnumDual<EnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; }
+  public CmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
+  public CmptCnstDomEnumDual CnstDomEnumDual { get; set; }
+}
+
+public interface ICmptCnstDomEnumDualField
+{
 }
 
 public interface ICmptRefCnstDomEnumDual<Ttype>
 {
-  Ttype field { get; }
+  public CmptRefCnstDomEnumDual RefCnstDomEnumDual { get; set; }
+}
+
+public interface ICmptRefCnstDomEnumDualField<Ttype>
+{
+  public Ttype field { get; set; }
 }
 
 public interface ICmptJustCnstDomEnumDual

@@ -7,84 +7,101 @@ namespace Components.Gqlp_Schema_Globals;
 public class CmptCtgrDscrs
   : ICmptCtgrDscrs
 {
+  public CmptCtgrDscrs CtgrDscrs { get; set; }
 }
 
 public class CmptCtgrOutp
   : ICmptCtgrOutp
 {
+  public CmptCtgrOutp CtgrOutp { get; set; }
 }
 
 public class CmptCtgrOutpDescr
   : ICmptCtgrOutpDescr
 {
+  public CmptCtgrOutpDescr CtgrOutpDescr { get; set; }
 }
 
 public class CmptCtgrOutpDict
   : ICmptCtgrOutpDict
 {
+  public CmptCtgrOutpDict CtgrOutpDict { get; set; }
 }
 
 public class CmptCtgrOutpList
   : ICmptCtgrOutpList
 {
+  public CmptCtgrOutpList CtgrOutpList { get; set; }
 }
 
 public class CmptCtgrOutpOptl
   : ICmptCtgrOutpOptl
 {
+  public CmptCtgrOutpOptl CtgrOutpOptl { get; set; }
 }
 
 public class CmptDescr
   : ICmptDescr
 {
+  public CmptDescr Descr { get; set; }
 }
 
 public class CmptDescrBcks
   : ICmptDescrBcks
 {
+  public CmptDescrBcks DescrBcks { get; set; }
 }
 
 public class CmptDescrBtwn
   : ICmptDescrBtwn
 {
+  public CmptDescrBtwn DescrBtwn { get; set; }
 }
 
 public class CmptDescrCmpl
   : ICmptDescrCmpl
 {
+  public CmptDescrCmpl DescrCmpl { get; set; }
 }
 
 public class CmptDescrDbl
   : ICmptDescrDbl
 {
+  public CmptDescrDbl DescrDbl { get; set; }
 }
 
 public class CmptDescrSngl
   : ICmptDescrSngl
 {
+  public CmptDescrSngl DescrSngl { get; set; }
 }
 
 public class CmptDscrs
   : ICmptDscrs
 {
+  public CmptDscrs Dscrs { get; set; }
 }
 
 public class CmptInDrctParamDict
   : ICmptInDrctParamDict
 {
+  public CmptInDrctParamDict InDrctParamDict { get; set; }
 }
 
 public class CmptInDrctParamIn
   : ICmptInDrctParamIn
 {
+  public CmptInDrctParamIn InDrctParamIn { get; set; }
 }
 
 public class CmptInDrctParamList
   : ICmptInDrctParamList
 {
+  public CmptInDrctParamList InDrctParamList { get; set; }
 }
 
 public class CmptInDrctParamOpt
   : ICmptInDrctParamOpt
 {
+  public CmptInDrctParamOpt InDrctParamOpt { get; set; }
 }

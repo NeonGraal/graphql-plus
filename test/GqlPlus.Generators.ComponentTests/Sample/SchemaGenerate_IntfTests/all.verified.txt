@@ -44,18 +44,33 @@ public interface ICmptMany
 
 public interface ICmptField
 {
-  String strings { get; }
+  public CmptField Field { get; set; }
+}
+
+public interface ICmptFieldField
+{
+  public ICollection<CmptString> strings { get; set; }
 }
 
 public interface ICmptParam
 {
-  Many afterId { get; }
-  Many beforeId { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptParam Param { get; set; }
+}
+
+public interface ICmptParamField
+{
+  public CmptMany? afterId { get; set; }
+  public CmptMany beforeId { get; set; }
 }
 
 public interface ICmptAll
 {
-  Field items { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptAll All { get; set; }
+}
+
+public interface ICmptAllField
+{
+  public CmptField items { get; set; }
 }

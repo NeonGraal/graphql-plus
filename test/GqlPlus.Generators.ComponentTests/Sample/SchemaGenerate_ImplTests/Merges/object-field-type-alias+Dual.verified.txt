@@ -12,5 +12,6 @@ namespace Components.Gqlp_Schema_object_field_type_alias_Dual;
 public class CmptObjFieldTypeAliasDual
   : ICmptObjFieldTypeAliasDual
 {
-  public String field { get; set; }
+  public CmptString field { get; set; }
+  public CmptObjFieldTypeAliasDual ObjFieldTypeAliasDual { get; set; }
 }

@@ -13,4 +13,5 @@ namespace Components.Gqlp_Schema_descrs;
 public class CmptDscrs
   : ICmptDscrs
 {
+  public CmptDscrs Dscrs { get; set; }
 }

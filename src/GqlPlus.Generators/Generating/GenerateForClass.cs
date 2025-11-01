@@ -5,7 +5,7 @@ internal abstract class GenerateForClass<T>
   where T : IGqlpType
 {
   protected GenerateForClass()
-    => _generators.Add(GqlpGeneratorType.Implementation, GenerateBlock(ClassHeader, ClassMember));
+    => _generators[GqlpGeneratorType.Implementation] = GenerateBlock(ClassHeader, ClassMember);
 
   protected virtual void ClassHeader(T ast, GqlpGeneratorContext context)
     => context.Write("public class " + context.TypeName(ast));

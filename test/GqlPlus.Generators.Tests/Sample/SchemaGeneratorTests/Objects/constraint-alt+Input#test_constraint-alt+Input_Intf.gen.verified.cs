@@ -7,5 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Input;
 
 public interface ItestCnstAltInp<Ttype>
 {
-  Ttype Astype { get; }
+  public Ttype Astype { get; set; }
+  public testCnstAltInp CnstAltInp { get; set; }
+}
+
+public interface ItestCnstAltInpField<Ttype>
+{
 }

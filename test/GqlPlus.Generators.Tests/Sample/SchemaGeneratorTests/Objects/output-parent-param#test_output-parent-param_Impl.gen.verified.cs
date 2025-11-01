@@ -9,30 +9,35 @@ public class testOutpPrntParam
   : testPrntOutpPrntParam
   , ItestOutpPrntParam
 {
-  public FldOutpPrntParam field { get; set; }
+  public testFldOutpPrntParam field { get; set; }
+  public testOutpPrntParam OutpPrntParam { get; set; }
 }
 
 public class testPrntOutpPrntParam
   : ItestPrntOutpPrntParam
 {
-  public FldOutpPrntParam field { get; set; }
+  public testFldOutpPrntParam field { get; set; }
+  public testPrntOutpPrntParam PrntOutpPrntParam { get; set; }
 }
 
 public class testFldOutpPrntParam
   : ItestFldOutpPrntParam
 {
+  public testFldOutpPrntParam FldOutpPrntParam { get; set; }
 }
 
 public class testInOutpPrntParam
   : ItestInOutpPrntParam
 {
-  public Number param { get; set; }
-  public String AsString { get; set; }
+  public testNumber param { get; set; }
+  public testString AsString { get; set; }
+  public testInOutpPrntParam InOutpPrntParam { get; set; }
 }
 
 public class testPrntOutpPrntParamIn
   : ItestPrntOutpPrntParamIn
 {
-  public Number parent { get; set; }
-  public String AsString { get; set; }
+  public testNumber parent { get; set; }
+  public testString AsString { get; set; }
+  public testPrntOutpPrntParamIn PrntOutpPrntParamIn { get; set; }
 }

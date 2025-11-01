@@ -24,14 +24,26 @@ namespace Components.Gqlp_Spec_Directive;
 public interface ICmpt_Directives
   : ICmpt_AndType
 {
-  _Directive directive { get; }
-  _Directive As_Directive { get; }
+  public Cmpt_Directive As_Directive { get; set; }
+  public Cmpt_Directives _Directives { get; set; }
+}
+
+public interface ICmpt_DirectivesField
+  : ICmpt_AndTypeField
+{
+  public Cmpt_Directive directive { get; set; }
 }
 
 public interface ICmpt_Directive
   : ICmpt_Aliased
 {
-  _InputParam parameters { get; }
-  Boolean repeatable { get; }
-  Unit locations { get; }
+  public Cmpt_Directive _Directive { get; set; }
+}
+
+public interface ICmpt_DirectiveField
+  : ICmpt_AliasedField
+{
+  public ICollection<Cmpt_InputParam> parameters { get; set; }
+  public CmptBoolean repeatable { get; set; }
+  public IDictionary<Cmpt_Location, CmptUnit> locations { get; set; }
 }

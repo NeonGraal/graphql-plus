@@ -8,11 +8,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_Input;
 public class testGnrcAltArgInp<Ttype>
   : ItestGnrcAltArgInp<Ttype>
 {
-  public RefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; set; }
+  public testRefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; set; }
+  public testGnrcAltArgInp GnrcAltArgInp { get; set; }
 }
 
 public class testRefGnrcAltArgInp<Tref>
   : ItestRefGnrcAltArgInp<Tref>
 {
   public Tref Asref { get; set; }
+  public testRefGnrcAltArgInp RefGnrcAltArgInp { get; set; }
 }

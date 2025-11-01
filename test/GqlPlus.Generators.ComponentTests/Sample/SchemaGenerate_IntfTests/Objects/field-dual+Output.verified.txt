@@ -11,11 +11,21 @@ namespace Components.Gqlp_Schema_field_dual_Output;
 
 public interface ICmptFieldDualOutp
 {
-  FldFieldDualOutp field { get; }
+  public CmptFieldDualOutp FieldDualOutp { get; set; }
+}
+
+public interface ICmptFieldDualOutpField
+{
+  public CmptFldFieldDualOutp field { get; set; }
 }
 
 public interface ICmptFldFieldDualOutp
 {
-  Number field { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptFldFieldDualOutp FldFieldDualOutp { get; set; }
+}
+
+public interface ICmptFldFieldDualOutpField
+{
+  public CmptNumber field { get; set; }
 }

@@ -8,5 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Dual;
 public class testAltEnumDual
   : ItestAltEnumDual
 {
-  public EnumAltEnumDual AsEnumAltEnumDual { get; set; }
+  public testEnumAltEnumDual AsEnumAltEnumDual { get; set; }
+  public testAltEnumDual AltEnumDual { get; set; }
 }

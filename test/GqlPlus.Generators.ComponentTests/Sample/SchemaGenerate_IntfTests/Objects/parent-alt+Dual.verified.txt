@@ -12,11 +12,22 @@ namespace Components.Gqlp_Schema_parent_alt_Dual;
 public interface ICmptPrntAltDual
   : ICmptRefPrntAltDual
 {
-  Number AsNumber { get; }
+  public CmptNumber AsNumber { get; set; }
+  public CmptPrntAltDual PrntAltDual { get; set; }
+}
+
+public interface ICmptPrntAltDualField
+  : ICmptRefPrntAltDualField
+{
 }
 
 public interface ICmptRefPrntAltDual
 {
-  Number parent { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptRefPrntAltDual RefPrntAltDual { get; set; }
+}
+
+public interface ICmptRefPrntAltDualField
+{
+  public CmptNumber parent { get; set; }
 }

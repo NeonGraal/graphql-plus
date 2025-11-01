@@ -9,12 +9,14 @@ public class testPrntAltOutp
   : testRefPrntAltOutp
   , ItestPrntAltOutp
 {
-  public Number AsNumber { get; set; }
+  public testNumber AsNumber { get; set; }
+  public testPrntAltOutp PrntAltOutp { get; set; }
 }
 
 public class testRefPrntAltOutp
   : ItestRefPrntAltOutp
 {
-  public Number parent { get; set; }
-  public String AsString { get; set; }
+  public testNumber parent { get; set; }
+  public testString AsString { get; set; }
+  public testRefPrntAltOutp RefPrntAltOutp { get; set; }
 }

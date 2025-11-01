@@ -9,4 +9,5 @@ public class test_DualField
   : test_ObjField
   , Itest_DualField
 {
+  public test_DualField _DualField { get; set; }
 }

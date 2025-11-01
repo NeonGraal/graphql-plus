@@ -11,5 +11,10 @@ namespace Components.Gqlp_Schema_object_field_enum_alias_Output;
 
 public interface ICmptObjFieldEnumAliasOutp
 {
-  Boolean field { get; }
+  public CmptObjFieldEnumAliasOutp ObjFieldEnumAliasOutp { get; set; }
+}
+
+public interface ICmptObjFieldEnumAliasOutpField
+{
+  public CmptBoolean field { get; set; }
 }

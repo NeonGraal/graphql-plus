@@ -8,18 +8,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_param_Dual;
 public class testGnrcAltParamDual
   : ItestGnrcAltParamDual
 {
-  public RefGnrcAltParamDual<AltGnrcAltParamDual> AsRefGnrcAltParamDual { get; set; }
+  public testRefGnrcAltParamDual<testAltGnrcAltParamDual> AsRefGnrcAltParamDual { get; set; }
+  public testGnrcAltParamDual GnrcAltParamDual { get; set; }
 }
 
 public class testRefGnrcAltParamDual<Tref>
   : ItestRefGnrcAltParamDual<Tref>
 {
   public Tref Asref { get; set; }
+  public testRefGnrcAltParamDual RefGnrcAltParamDual { get; set; }
 }
 
 public class testAltGnrcAltParamDual
   : ItestAltGnrcAltParamDual
 {
-  public Number alt { get; set; }
-  public String AsString { get; set; }
+  public testNumber alt { get; set; }
+  public testString AsString { get; set; }
+  public testAltGnrcAltParamDual AltGnrcAltParamDual { get; set; }
 }

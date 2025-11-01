@@ -7,11 +7,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Output;
 
 public interface ItestAltModParamOutp<Tmod>
 {
-  AltAltModParamOutp AsAltAltModParamOutp { get; }
+  public IDictionary<Tmod, testAltAltModParamOutp> AsAltAltModParamOutp { get; set; }
+  public testAltModParamOutp AltModParamOutp { get; set; }
+}
+
+public interface ItestAltModParamOutpField<Tmod>
+{
 }
 
 public interface ItestAltAltModParamOutp
 {
-  Number alt { get; }
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testAltAltModParamOutp AltAltModParamOutp { get; set; }
+}
+
+public interface ItestAltAltModParamOutpField
+{
+  public testNumber alt { get; set; }
 }

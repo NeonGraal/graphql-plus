@@ -13,10 +13,12 @@ public class CmptGnrcPrntArgDual<Ttype>
   : CmptRefGnrcPrntArgDual
   , ICmptGnrcPrntArgDual<Ttype>
 {
+  public CmptGnrcPrntArgDual GnrcPrntArgDual { get; set; }
 }
 
 public class CmptRefGnrcPrntArgDual<Tref>
   : ICmptRefGnrcPrntArgDual<Tref>
 {
   public Tref Asref { get; set; }
+  public CmptRefGnrcPrntArgDual RefGnrcPrntArgDual { get; set; }
 }

@@ -12,4 +12,9 @@ namespace Components.Gqlp_Schema_category;
 
 public interface ICmptCtgr
 {
+  public CmptCtgr Ctgr { get; set; }
+}
+
+public interface ICmptCtgrField
+{
 }

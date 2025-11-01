@@ -11,4 +11,9 @@ namespace Components.Gqlp_Schema_descr;
 
 public interface ICmptDescr
 {
+  public CmptDescr Descr { get; set; }
+}
+
+public interface ICmptDescrField
+{
 }

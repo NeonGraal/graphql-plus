@@ -12,10 +12,20 @@ namespace Components.Gqlp_Schema_generic_value_Output;
 
 public interface ICmptGnrcValueOutp
 {
-  RefGnrcValueOutp<EnumGnrcValueOutp> AsRefGnrcValueOutp { get; }
+  public CmptRefGnrcValueOutp<CmptEnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
+  public CmptGnrcValueOutp GnrcValueOutp { get; set; }
+}
+
+public interface ICmptGnrcValueOutpField
+{
 }
 
 public interface ICmptRefGnrcValueOutp<Ttype>
 {
-  Ttype field { get; }
+  public CmptRefGnrcValueOutp RefGnrcValueOutp { get; set; }
+}
+
+public interface ICmptRefGnrcValueOutpField<Ttype>
+{
+  public Ttype field { get; set; }
 }

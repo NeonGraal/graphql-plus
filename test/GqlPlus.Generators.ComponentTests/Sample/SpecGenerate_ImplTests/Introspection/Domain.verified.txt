@@ -83,6 +83,7 @@ public class Cmpt_DomainRef<Tkind>
   , ICmpt_DomainRef<Tkind>
 {
   public Tkind domainKind { get; set; }
+  public Cmpt_DomainRef _DomainRef { get; set; }
 }
 
 public class Cmpt_BaseDomain<Tdomain,Titem,TdomainItem>
@@ -90,20 +91,23 @@ public class Cmpt_BaseDomain<Tdomain,Titem,TdomainItem>
   , ICmpt_BaseDomain<Tdomain,Titem,TdomainItem>
 {
   public Tdomain domainKind { get; set; }
+  public Cmpt_BaseDomain _BaseDomain { get; set; }
 }
 
 public class Cmpt_BaseDomainItem
   : Cmpt_Described
   , ICmpt_BaseDomainItem
 {
-  public Boolean exclude { get; set; }
+  public CmptBoolean exclude { get; set; }
+  public Cmpt_BaseDomainItem _BaseDomainItem { get; set; }
 }
 
 public class Cmpt_DomainItem<Titem>
   : Cmptitem
   , ICmpt_DomainItem<Titem>
 {
-  public _Identifier domain { get; set; }
+  public Cmpt_Identifier domain { get; set; }
+  public Cmpt_DomainItem _DomainItem { get; set; }
 }
 
 public class Cmpt_DomainValue<Tkind,Tvalue>
@@ -112,66 +116,76 @@ public class Cmpt_DomainValue<Tkind,Tvalue>
 {
   public Tvalue value { get; set; }
   public Tvalue Asvalue { get; set; }
+  public Cmpt_DomainValue _DomainValue { get; set; }
 }
 
 public class Cmpt_BasicValue
   : ICmpt_BasicValue
 {
-  public _DomainKind As_DomainKind { get; set; }
-  public _EnumValue As_EnumValue { get; set; }
-  public _DomainKind As_DomainKind { get; set; }
-  public _DomainKind As_DomainKind { get; set; }
+  public Cmpt_DomainKind As_DomainKind { get; set; }
+  public Cmpt_EnumValue As_EnumValue { get; set; }
+  public Cmpt_DomainKind As_DomainKind { get; set; }
+  public Cmpt_DomainKind As_DomainKind { get; set; }
+  public Cmpt_BasicValue _BasicValue { get; set; }
 }
 
 public class Cmpt_DomainTrueFalse
   : Cmpt_BaseDomainItem
   , ICmpt_DomainTrueFalse
 {
-  public Boolean value { get; set; }
+  public CmptBoolean value { get; set; }
+  public Cmpt_DomainTrueFalse _DomainTrueFalse { get; set; }
 }
 
 public class Cmpt_DomainItemTrueFalse
   : Cmpt_DomainItem
   , ICmpt_DomainItemTrueFalse
 {
+  public Cmpt_DomainItemTrueFalse _DomainItemTrueFalse { get; set; }
 }
 
 public class Cmpt_DomainLabel
   : Cmpt_BaseDomainItem
   , ICmpt_DomainLabel
 {
-  public _EnumValue label { get; set; }
+  public Cmpt_EnumValue label { get; set; }
+  public Cmpt_DomainLabel _DomainLabel { get; set; }
 }
 
 public class Cmpt_DomainItemLabel
   : Cmpt_DomainItem
   , ICmpt_DomainItemLabel
 {
+  public Cmpt_DomainItemLabel _DomainItemLabel { get; set; }
 }
 
 public class Cmpt_DomainRange
   : Cmpt_BaseDomainItem
   , ICmpt_DomainRange
 {
-  public Number lower { get; set; }
-  public Number upper { get; set; }
+  public CmptNumber? lower { get; set; }
+  public CmptNumber? upper { get; set; }
+  public Cmpt_DomainRange _DomainRange { get; set; }
 }
 
 public class Cmpt_DomainItemRange
   : Cmpt_DomainItem
   , ICmpt_DomainItemRange
 {
+  public Cmpt_DomainItemRange _DomainItemRange { get; set; }
 }
 
 public class Cmpt_DomainRegex
   : Cmpt_BaseDomainItem
   , ICmpt_DomainRegex
 {
-  public String pattern { get; set; }
+  public CmptString pattern { get; set; }
+  public Cmpt_DomainRegex _DomainRegex { get; set; }
 }
 
 public class Cmpt_DomainItemRegex
   : Cmpt_DomainItem
   , ICmpt_DomainItemRegex
 {
+  public Cmpt_DomainItemRegex _DomainItemRegex { get; set; }
 }

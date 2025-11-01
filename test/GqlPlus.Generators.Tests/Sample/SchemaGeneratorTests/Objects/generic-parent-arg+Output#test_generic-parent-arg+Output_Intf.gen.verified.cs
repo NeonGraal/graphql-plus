@@ -8,9 +8,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_arg_Output;
 public interface ItestGnrcPrntArgOutp<Ttype>
   : ItestRefGnrcPrntArgOutp
 {
+  public testGnrcPrntArgOutp GnrcPrntArgOutp { get; set; }
+}
+
+public interface ItestGnrcPrntArgOutpField<Ttype>
+  : ItestRefGnrcPrntArgOutpField
+{
 }
 
 public interface ItestRefGnrcPrntArgOutp<Tref>
 {
-  Tref Asref { get; }
+  public Tref Asref { get; set; }
+  public testRefGnrcPrntArgOutp RefGnrcPrntArgOutp { get; set; }
+}
+
+public interface ItestRefGnrcPrntArgOutpField<Tref>
+{
 }

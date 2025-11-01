@@ -12,4 +12,9 @@ namespace Components.Gqlp_Schema_descr_between;
 
 public interface ICmptDescrBtwn
 {
+  public CmptDescrBtwn DescrBtwn { get; set; }
+}
+
+public interface ICmptDescrBtwnField
+{
 }

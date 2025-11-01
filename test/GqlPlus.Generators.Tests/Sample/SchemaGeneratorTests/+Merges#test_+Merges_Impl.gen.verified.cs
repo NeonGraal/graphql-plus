@@ -8,26 +8,31 @@ namespace GqlPlus.GeneratorTests.Gqlp__Merges;
 public class testCtgr
   : ItestCtgr
 {
+  public testCtgr Ctgr { get; set; }
 }
 
 public class testCtgrAlias
   : ItestCtgrAlias
 {
+  public testCtgrAlias CtgrAlias { get; set; }
 }
 
 public class testCtgrDescr
   : ItestCtgrDescr
 {
+  public testCtgrDescr CtgrDescr { get; set; }
 }
 
 public class testCtgrMod
   : ItestCtgrMod
 {
+  public testCtgrMod CtgrMod { get; set; }
 }
 
 public class testInDrctParam
   : ItestInDrctParam
 {
+  public testInDrctParam InDrctParam { get; set; }
 }
 
 public class testDmnAlias
@@ -93,85 +98,100 @@ public class testDmnStrSame
 public class testObjDual
   : ItestObjDual
 {
+  public testObjDual ObjDual { get; set; }
 }
 
 public class testObjInp
   : ItestObjInp
 {
+  public testObjInp ObjInp { get; set; }
 }
 
 public class testObjOutp
   : ItestObjOutp
 {
+  public testObjOutp ObjOutp { get; set; }
 }
 
 public class testObjAliasDual
   : ItestObjAliasDual
 {
+  public testObjAliasDual ObjAliasDual { get; set; }
 }
 
 public class testObjAliasInp
   : ItestObjAliasInp
 {
+  public testObjAliasInp ObjAliasInp { get; set; }
 }
 
 public class testObjAliasOutp
   : ItestObjAliasOutp
 {
+  public testObjAliasOutp ObjAliasOutp { get; set; }
 }
 
 public class testObjAltDual
   : ItestObjAltDual
 {
-  public ObjAltDualType AsObjAltDualType { get; set; }
+  public testObjAltDualType AsObjAltDualType { get; set; }
+  public testObjAltDual ObjAltDual { get; set; }
 }
 
 public class testObjAltDualType
   : ItestObjAltDualType
 {
+  public testObjAltDualType ObjAltDualType { get; set; }
 }
 
 public class testObjAltInp
   : ItestObjAltInp
 {
-  public ObjAltInpType AsObjAltInpType { get; set; }
+  public testObjAltInpType AsObjAltInpType { get; set; }
+  public testObjAltInp ObjAltInp { get; set; }
 }
 
 public class testObjAltInpType
   : ItestObjAltInpType
 {
+  public testObjAltInpType ObjAltInpType { get; set; }
 }
 
 public class testObjAltOutp
   : ItestObjAltOutp
 {
-  public ObjAltOutpType AsObjAltOutpType { get; set; }
+  public testObjAltOutpType AsObjAltOutpType { get; set; }
+  public testObjAltOutp ObjAltOutp { get; set; }
 }
 
 public class testObjAltOutpType
   : ItestObjAltOutpType
 {
+  public testObjAltOutpType ObjAltOutpType { get; set; }
 }
 
 public class testObjAltEnumDual
   : ItestObjAltEnumDual
 {
-  public Boolean AsBoolean { get; set; }
-  public Boolean AsBoolean { get; set; }
+  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBoolean { get; set; }
+  public testObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 
 public class testObjAltEnumInp
   : ItestObjAltEnumInp
 {
-  public Boolean AsBoolean { get; set; }
-  public Boolean AsBoolean { get; set; }
+  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBoolean { get; set; }
+  public testObjAltEnumInp ObjAltEnumInp { get; set; }
 }
 
 public class testObjAltEnumOutp
   : ItestObjAltEnumOutp
 {
-  public Boolean AsBoolean { get; set; }
-  public Boolean AsBoolean { get; set; }
+  public testBoolean AsBoolean { get; set; }
+  public testBoolean AsBoolean { get; set; }
+  public testObjAltEnumOutp ObjAltEnumOutp { get; set; }
 }
 
 public class testObjCnstDual<Ttype>
@@ -179,6 +199,7 @@ public class testObjCnstDual<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
+  public testObjCnstDual ObjCnstDual { get; set; }
 }
 
 public class testObjCnstInp<Ttype>
@@ -186,6 +207,7 @@ public class testObjCnstInp<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
+  public testObjCnstInp ObjCnstInp { get; set; }
 }
 
 public class testObjCnstOutp<Ttype>
@@ -193,126 +215,148 @@ public class testObjCnstOutp<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
+  public testObjCnstOutp ObjCnstOutp { get; set; }
 }
 
 public class testObjFieldDual
   : ItestObjFieldDual
 {
-  public FldObjFieldDual field { get; set; }
+  public testFldObjFieldDual field { get; set; }
+  public testObjFieldDual ObjFieldDual { get; set; }
 }
 
 public class testFldObjFieldDual
   : ItestFldObjFieldDual
 {
+  public testFldObjFieldDual FldObjFieldDual { get; set; }
 }
 
 public class testObjFieldInp
   : ItestObjFieldInp
 {
-  public FldObjFieldInp field { get; set; }
+  public testFldObjFieldInp field { get; set; }
+  public testObjFieldInp ObjFieldInp { get; set; }
 }
 
 public class testFldObjFieldInp
   : ItestFldObjFieldInp
 {
+  public testFldObjFieldInp FldObjFieldInp { get; set; }
 }
 
 public class testObjFieldOutp
   : ItestObjFieldOutp
 {
-  public FldObjFieldOutp field { get; set; }
+  public testFldObjFieldOutp field { get; set; }
+  public testObjFieldOutp ObjFieldOutp { get; set; }
 }
 
 public class testFldObjFieldOutp
   : ItestFldObjFieldOutp
 {
+  public testFldObjFieldOutp FldObjFieldOutp { get; set; }
 }
 
 public class testObjFieldAliasDual
   : ItestObjFieldAliasDual
 {
-  public FldObjFieldAliasDual field { get; set; }
+  public testFldObjFieldAliasDual field { get; set; }
+  public testObjFieldAliasDual ObjFieldAliasDual { get; set; }
 }
 
 public class testFldObjFieldAliasDual
   : ItestFldObjFieldAliasDual
 {
+  public testFldObjFieldAliasDual FldObjFieldAliasDual { get; set; }
 }
 
 public class testObjFieldAliasInp
   : ItestObjFieldAliasInp
 {
-  public FldObjFieldAliasInp field { get; set; }
+  public testFldObjFieldAliasInp field { get; set; }
+  public testObjFieldAliasInp ObjFieldAliasInp { get; set; }
 }
 
 public class testFldObjFieldAliasInp
   : ItestFldObjFieldAliasInp
 {
+  public testFldObjFieldAliasInp FldObjFieldAliasInp { get; set; }
 }
 
 public class testObjFieldAliasOutp
   : ItestObjFieldAliasOutp
 {
-  public FldObjFieldAliasOutp field { get; set; }
+  public testFldObjFieldAliasOutp field { get; set; }
+  public testObjFieldAliasOutp ObjFieldAliasOutp { get; set; }
 }
 
 public class testFldObjFieldAliasOutp
   : ItestFldObjFieldAliasOutp
 {
+  public testFldObjFieldAliasOutp FldObjFieldAliasOutp { get; set; }
 }
 
 public class testObjFieldEnumAliasDual
   : ItestObjFieldEnumAliasDual
 {
-  public Boolean field { get; set; }
+  public testBoolean field { get; set; }
+  public testObjFieldEnumAliasDual ObjFieldEnumAliasDual { get; set; }
 }
 
 public class testObjFieldEnumAliasInp
   : ItestObjFieldEnumAliasInp
 {
-  public Boolean field { get; set; }
+  public testBoolean field { get; set; }
+  public testObjFieldEnumAliasInp ObjFieldEnumAliasInp { get; set; }
 }
 
 public class testObjFieldEnumAliasOutp
   : ItestObjFieldEnumAliasOutp
 {
-  public Boolean field { get; set; }
+  public testBoolean field { get; set; }
+  public testObjFieldEnumAliasOutp ObjFieldEnumAliasOutp { get; set; }
 }
 
 public class testObjFieldEnumValueDual
   : ItestObjFieldEnumValueDual
 {
-  public Boolean field { get; set; }
+  public testBoolean field { get; set; }
+  public testObjFieldEnumValueDual ObjFieldEnumValueDual { get; set; }
 }
 
 public class testObjFieldEnumValueInp
   : ItestObjFieldEnumValueInp
 {
-  public Boolean field { get; set; }
+  public testBoolean field { get; set; }
+  public testObjFieldEnumValueInp ObjFieldEnumValueInp { get; set; }
 }
 
 public class testObjFieldEnumValueOutp
   : ItestObjFieldEnumValueOutp
 {
-  public Boolean field { get; set; }
+  public testBoolean field { get; set; }
+  public testObjFieldEnumValueOutp ObjFieldEnumValueOutp { get; set; }
 }
 
 public class testObjFieldTypeAliasDual
   : ItestObjFieldTypeAliasDual
 {
-  public String field { get; set; }
+  public testString field { get; set; }
+  public testObjFieldTypeAliasDual ObjFieldTypeAliasDual { get; set; }
 }
 
 public class testObjFieldTypeAliasInp
   : ItestObjFieldTypeAliasInp
 {
-  public String field { get; set; }
+  public testString field { get; set; }
+  public testObjFieldTypeAliasInp ObjFieldTypeAliasInp { get; set; }
 }
 
 public class testObjFieldTypeAliasOutp
   : ItestObjFieldTypeAliasOutp
 {
-  public String field { get; set; }
+  public testString field { get; set; }
+  public testObjFieldTypeAliasOutp ObjFieldTypeAliasOutp { get; set; }
 }
 
 public class testObjParamDual<Ttest,Ttype>
@@ -320,6 +364,7 @@ public class testObjParamDual<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
+  public testObjParamDual ObjParamDual { get; set; }
 }
 
 public class testObjParamInp<Ttest,Ttype>
@@ -327,6 +372,7 @@ public class testObjParamInp<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
+  public testObjParamInp ObjParamInp { get; set; }
 }
 
 public class testObjParamOutp<Ttest,Ttype>
@@ -334,6 +380,7 @@ public class testObjParamOutp<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
+  public testObjParamOutp ObjParamOutp { get; set; }
 }
 
 public class testObjParamDupDual<Ttest>
@@ -341,6 +388,7 @@ public class testObjParamDupDual<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
+  public testObjParamDupDual ObjParamDupDual { get; set; }
 }
 
 public class testObjParamDupInp<Ttest>
@@ -348,6 +396,7 @@ public class testObjParamDupInp<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
+  public testObjParamDupInp ObjParamDupInp { get; set; }
 }
 
 public class testObjParamDupOutp<Ttest>
@@ -355,60 +404,71 @@ public class testObjParamDupOutp<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
+  public testObjParamDupOutp ObjParamDupOutp { get; set; }
 }
 
 public class testObjPrntDual
   : testRefObjPrntDual
   , ItestObjPrntDual
 {
+  public testObjPrntDual ObjPrntDual { get; set; }
 }
 
 public class testRefObjPrntDual
   : ItestRefObjPrntDual
 {
+  public testRefObjPrntDual RefObjPrntDual { get; set; }
 }
 
 public class testObjPrntInp
   : testRefObjPrntInp
   , ItestObjPrntInp
 {
+  public testObjPrntInp ObjPrntInp { get; set; }
 }
 
 public class testRefObjPrntInp
   : ItestRefObjPrntInp
 {
+  public testRefObjPrntInp RefObjPrntInp { get; set; }
 }
 
 public class testObjPrntOutp
   : testRefObjPrntOutp
   , ItestObjPrntOutp
 {
+  public testObjPrntOutp ObjPrntOutp { get; set; }
 }
 
 public class testRefObjPrntOutp
   : ItestRefObjPrntOutp
 {
+  public testRefObjPrntOutp RefObjPrntOutp { get; set; }
 }
 
 public class testOutpFieldParam
   : ItestOutpFieldParam
 {
-  public FldOutpFieldParam field { get; set; }
+  public testFldOutpFieldParam field { get; set; }
+  public testOutpFieldParam OutpFieldParam { get; set; }
 }
 
 public class testOutpFieldParam1
   : ItestOutpFieldParam1
 {
+  public testOutpFieldParam1 OutpFieldParam1 { get; set; }
 }
 
 public class testOutpFieldParam2
   : ItestOutpFieldParam2
 {
+  public testOutpFieldParam2 OutpFieldParam2 { get; set; }
 }
 
 public class testFldOutpFieldParam
   : ItestFldOutpFieldParam
 {
+  public testFldOutpFieldParam FldOutpFieldParam { get; set; }
 }
 
 public class testUnionAlias

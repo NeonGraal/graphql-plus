@@ -14,9 +14,11 @@ public class CmptObjPrntOutp
   : CmptRefObjPrntOutp
   , ICmptObjPrntOutp
 {
+  public CmptObjPrntOutp ObjPrntOutp { get; set; }
 }
 
 public class CmptRefObjPrntOutp
   : ICmptRefObjPrntOutp
 {
+  public CmptRefObjPrntOutp RefObjPrntOutp { get; set; }
 }

@@ -9,9 +9,11 @@ public class testObjPrntDual
   : testRefObjPrntDual
   , ItestObjPrntDual
 {
+  public testObjPrntDual ObjPrntDual { get; set; }
 }
 
 public class testRefObjPrntDual
   : ItestRefObjPrntDual
 {
+  public testRefObjPrntDual RefObjPrntDual { get; set; }
 }

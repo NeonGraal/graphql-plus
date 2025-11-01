@@ -7,12 +7,22 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Input;
 
 public interface ItestCnstDomEnumInp
 {
-  RefCnstDomEnumInp<EnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; }
+  public testRefCnstDomEnumInp<testEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public testCnstDomEnumInp CnstDomEnumInp { get; set; }
+}
+
+public interface ItestCnstDomEnumInpField
+{
 }
 
 public interface ItestRefCnstDomEnumInp<Ttype>
 {
-  Ttype field { get; }
+  public testRefCnstDomEnumInp RefCnstDomEnumInp { get; set; }
+}
+
+public interface ItestRefCnstDomEnumInpField<Ttype>
+{
+  public Ttype field { get; set; }
 }
 
 public interface ItestJustCnstDomEnumInp

@@ -8,5 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Input;
 public class testAltDescrInp
   : ItestAltDescrInp
 {
-  public String AsString { get; set; }
+  public testString AsString { get; set; }
+  public testAltDescrInp AltDescrInp { get; set; }
 }

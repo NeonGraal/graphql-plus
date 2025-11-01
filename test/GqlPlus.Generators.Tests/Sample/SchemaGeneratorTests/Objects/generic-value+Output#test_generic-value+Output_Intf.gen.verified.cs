@@ -7,10 +7,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Output;
 
 public interface ItestGnrcValueOutp
 {
-  RefGnrcValueOutp<EnumGnrcValueOutp> AsRefGnrcValueOutp { get; }
+  public testRefGnrcValueOutp<testEnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
+  public testGnrcValueOutp GnrcValueOutp { get; set; }
+}
+
+public interface ItestGnrcValueOutpField
+{
 }
 
 public interface ItestRefGnrcValueOutp<Ttype>
 {
-  Ttype field { get; }
+  public testRefGnrcValueOutp RefGnrcValueOutp { get; set; }
+}
+
+public interface ItestRefGnrcValueOutpField<Ttype>
+{
+  public Ttype field { get; set; }
 }

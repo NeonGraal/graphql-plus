@@ -8,24 +8,28 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_dual_Output;
 public class testCnstAltDualOutp
   : ItestCnstAltDualOutp
 {
-  public RefCnstAltDualOutp<AltCnstAltDualOutp> AsRefCnstAltDualOutp { get; set; }
+  public testRefCnstAltDualOutp<testAltCnstAltDualOutp> AsRefCnstAltDualOutp { get; set; }
+  public testCnstAltDualOutp CnstAltDualOutp { get; set; }
 }
 
 public class testRefCnstAltDualOutp<Tref>
   : ItestRefCnstAltDualOutp<Tref>
 {
   public Tref Asref { get; set; }
+  public testRefCnstAltDualOutp RefCnstAltDualOutp { get; set; }
 }
 
 public class testPrntCnstAltDualOutp
   : ItestPrntCnstAltDualOutp
 {
-  public String AsString { get; set; }
+  public testString AsString { get; set; }
+  public testPrntCnstAltDualOutp PrntCnstAltDualOutp { get; set; }
 }
 
 public class testAltCnstAltDualOutp
   : testPrntCnstAltDualOutp
   , ItestAltCnstAltDualOutp
 {
-  public Number alt { get; set; }
+  public testNumber alt { get; set; }
+  public testAltCnstAltDualOutp AltCnstAltDualOutp { get; set; }
 }

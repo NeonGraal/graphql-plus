@@ -13,10 +13,12 @@ namespace Components.Gqlp_Schema_object_field_alias_Input;
 public class CmptObjFieldAliasInp
   : ICmptObjFieldAliasInp
 {
-  public FldObjFieldAliasInp field { get; set; }
+  public CmptFldObjFieldAliasInp field { get; set; }
+  public CmptObjFieldAliasInp ObjFieldAliasInp { get; set; }
 }
 
 public class CmptFldObjFieldAliasInp
   : ICmptFldObjFieldAliasInp
 {
+  public CmptFldObjFieldAliasInp FldObjFieldAliasInp { get; set; }
 }

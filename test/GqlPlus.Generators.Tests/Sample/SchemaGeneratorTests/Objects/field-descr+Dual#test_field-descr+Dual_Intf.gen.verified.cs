@@ -7,5 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_descr_Dual;
 
 public interface ItestFieldDescrDual
 {
-  String field { get; }
+  public testFieldDescrDual FieldDescrDual { get; set; }
+}
+
+public interface ItestFieldDescrDualField
+{
+  public testString field { get; set; }
 }

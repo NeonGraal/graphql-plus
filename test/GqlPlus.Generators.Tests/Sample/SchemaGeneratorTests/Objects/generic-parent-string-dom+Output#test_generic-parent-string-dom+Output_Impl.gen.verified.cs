@@ -9,12 +9,14 @@ public class testGnrcPrntStrDomOutp
   : testFieldGnrcPrntStrDomOutp
   , ItestGnrcPrntStrDomOutp
 {
+  public testGnrcPrntStrDomOutp GnrcPrntStrDomOutp { get; set; }
 }
 
 public class testFieldGnrcPrntStrDomOutp<Tref>
   : ItestFieldGnrcPrntStrDomOutp<Tref>
 {
   public Tref field { get; set; }
+  public testFieldGnrcPrntStrDomOutp FieldGnrcPrntStrDomOutp { get; set; }
 }
 
 public class testDomGnrcPrntStrDomOutp

@@ -11,5 +11,6 @@ namespace Components.Gqlp_Schema_input_field_descr_Number;
 public class CmptInpFieldDescrNmbr
   : ICmptInpFieldDescrNmbr
 {
-  public Number field { get; set; }
+  public CmptNumber field { get; set; }
+  public CmptInpFieldDescrNmbr InpFieldDescrNmbr { get; set; }
 }

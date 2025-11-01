@@ -11,11 +11,21 @@ namespace Components.Gqlp_Schema_alt_Dual;
 
 public interface ICmptAltDual
 {
-  AltAltDual AsAltAltDual { get; }
+  public CmptAltAltDual AsAltAltDual { get; set; }
+  public CmptAltDual AltDual { get; set; }
+}
+
+public interface ICmptAltDualField
+{
 }
 
 public interface ICmptAltAltDual
 {
-  Number alt { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptAltAltDual AltAltDual { get; set; }
+}
+
+public interface ICmptAltAltDualField
+{
+  public CmptNumber alt { get; set; }
 }

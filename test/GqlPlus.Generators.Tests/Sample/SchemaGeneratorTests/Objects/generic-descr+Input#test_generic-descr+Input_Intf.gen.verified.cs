@@ -7,5 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Input;
 
 public interface ItestGnrcDescrInp<Ttype>
 {
-  Ttype field { get; }
+  public testGnrcDescrInp GnrcDescrInp { get; set; }
+}
+
+public interface ItestGnrcDescrInpField<Ttype>
+{
+  public Ttype field { get; set; }
 }

@@ -12,5 +12,6 @@ namespace Components.Gqlp_Schema_field_mod_Enum_Input;
 public class CmptFieldModEnumInp
   : ICmptFieldModEnumInp
 {
-  public String field { get; set; }
+  public IDictionary<CmptEnumFieldModEnumInp, CmptString> field { get; set; }
+  public CmptFieldModEnumInp FieldModEnumInp { get; set; }
 }

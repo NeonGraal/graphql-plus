@@ -12,10 +12,12 @@ namespace Components.Gqlp_Schema_input_field_null;
 public class CmptInpFieldNull
   : ICmptInpFieldNull
 {
-  public FldInpFieldNull field { get; set; }
+  public CmptFldInpFieldNull? field { get; set; }
+  public CmptInpFieldNull InpFieldNull { get; set; }
 }
 
 public class CmptFldInpFieldNull
   : ICmptFldInpFieldNull
 {
+  public CmptFldInpFieldNull FldInpFieldNull { get; set; }
 }

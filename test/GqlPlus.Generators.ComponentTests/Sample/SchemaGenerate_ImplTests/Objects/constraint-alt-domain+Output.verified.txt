@@ -13,13 +13,15 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 public class CmptCnstAltDmnOutp
   : ICmptCnstAltDmnOutp
 {
-  public RefCnstAltDmnOutp<DomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; set; }
+  public CmptRefCnstAltDmnOutp<CmptDomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; set; }
+  public CmptCnstAltDmnOutp CnstAltDmnOutp { get; set; }
 }
 
 public class CmptRefCnstAltDmnOutp<Tref>
   : ICmptRefCnstAltDmnOutp<Tref>
 {
   public Tref Asref { get; set; }
+  public CmptRefCnstAltDmnOutp RefCnstAltDmnOutp { get; set; }
 }
 
 public class CmptDomCnstAltDmnOutp

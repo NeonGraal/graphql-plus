@@ -8,4 +8,5 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_Dual;
 public class testObjDual
   : ItestObjDual
 {
+  public testObjDual ObjDual { get; set; }
 }

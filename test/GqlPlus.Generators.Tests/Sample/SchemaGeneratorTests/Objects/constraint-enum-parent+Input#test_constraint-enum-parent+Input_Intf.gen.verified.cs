@@ -7,10 +7,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_parent_Input;
 
 public interface ItestCnstEnumPrntInp
 {
-  RefCnstEnumPrntInp<EnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; }
+  public testRefCnstEnumPrntInp<testEnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; set; }
+  public testCnstEnumPrntInp CnstEnumPrntInp { get; set; }
+}
+
+public interface ItestCnstEnumPrntInpField
+{
 }
 
 public interface ItestRefCnstEnumPrntInp<Ttype>
 {
-  Ttype field { get; }
+  public testRefCnstEnumPrntInp RefCnstEnumPrntInp { get; set; }
+}
+
+public interface ItestRefCnstEnumPrntInpField<Ttype>
+{
+  public Ttype field { get; set; }
 }

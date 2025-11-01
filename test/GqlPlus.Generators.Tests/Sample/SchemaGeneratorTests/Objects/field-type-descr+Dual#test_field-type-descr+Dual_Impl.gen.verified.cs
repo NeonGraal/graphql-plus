@@ -8,5 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_type_descr_Dual;
 public class testFieldTypeDescrDual
   : ItestFieldTypeDescrDual
 {
-  public Number field { get; set; }
+  public testNumber field { get; set; }
+  public testFieldTypeDescrDual FieldTypeDescrDual { get; set; }
 }

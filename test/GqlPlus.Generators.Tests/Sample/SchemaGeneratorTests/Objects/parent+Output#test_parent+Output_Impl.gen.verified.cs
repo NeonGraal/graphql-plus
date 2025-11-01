@@ -9,11 +9,13 @@ public class testPrntOutp
   : testRefPrntOutp
   , ItestPrntOutp
 {
+  public testPrntOutp PrntOutp { get; set; }
 }
 
 public class testRefPrntOutp
   : ItestRefPrntOutp
 {
-  public Number parent { get; set; }
-  public String AsString { get; set; }
+  public testNumber parent { get; set; }
+  public testString AsString { get; set; }
+  public testRefPrntOutp RefPrntOutp { get; set; }
 }

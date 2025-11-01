@@ -7,4 +7,9 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_alias;
 
 public interface ItestCtgrAlias
 {
+  public testCtgrAlias CtgrAlias { get; set; }
+}
+
+public interface ItestCtgrAliasField
+{
 }

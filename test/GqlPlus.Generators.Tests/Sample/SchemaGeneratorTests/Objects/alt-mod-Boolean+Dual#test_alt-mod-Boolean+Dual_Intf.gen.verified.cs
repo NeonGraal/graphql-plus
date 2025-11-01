@@ -7,11 +7,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Dual;
 
 public interface ItestAltModBoolDual
 {
-  AltAltModBoolDual AsAltAltModBoolDual { get; }
+  public IDictionary<testBoolean, testAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
+  public testAltModBoolDual AltModBoolDual { get; set; }
+}
+
+public interface ItestAltModBoolDualField
+{
 }
 
 public interface ItestAltAltModBoolDual
 {
-  Number alt { get; }
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testAltAltModBoolDual AltAltModBoolDual { get; set; }
+}
+
+public interface ItestAltAltModBoolDualField
+{
+  public testNumber alt { get; set; }
 }

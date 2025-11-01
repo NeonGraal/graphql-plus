@@ -7,6 +7,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_param_Output;
 
 public interface ItestObjParamOutp<Ttest,Ttype>
 {
-  Ttest test { get; }
-  Ttype type { get; }
+  public testObjParamOutp ObjParamOutp { get; set; }
+}
+
+public interface ItestObjParamOutpField<Ttest,Ttype>
+{
+  public Ttest test { get; set; }
+  public Ttype type { get; set; }
 }

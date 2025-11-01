@@ -16,30 +16,35 @@ public class CmptOutpPrntParam
   : CmptPrntOutpPrntParam
   , ICmptOutpPrntParam
 {
-  public FldOutpPrntParam field { get; set; }
+  public CmptFldOutpPrntParam field { get; set; }
+  public CmptOutpPrntParam OutpPrntParam { get; set; }
 }
 
 public class CmptPrntOutpPrntParam
   : ICmptPrntOutpPrntParam
 {
-  public FldOutpPrntParam field { get; set; }
+  public CmptFldOutpPrntParam field { get; set; }
+  public CmptPrntOutpPrntParam PrntOutpPrntParam { get; set; }
 }
 
 public class CmptFldOutpPrntParam
   : ICmptFldOutpPrntParam
 {
+  public CmptFldOutpPrntParam FldOutpPrntParam { get; set; }
 }
 
 public class CmptInOutpPrntParam
   : ICmptInOutpPrntParam
 {
-  public Number param { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber param { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptInOutpPrntParam InOutpPrntParam { get; set; }
 }
 
 public class CmptPrntOutpPrntParamIn
   : ICmptPrntOutpPrntParamIn
 {
-  public Number parent { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber parent { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptPrntOutpPrntParamIn PrntOutpPrntParamIn { get; set; }
 }

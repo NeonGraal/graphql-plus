@@ -78,7 +78,10 @@ internal sealed class GqlpGeneratorContext
   }
 
   internal string TypeName(IGqlpNamed type)
+    => TypeName(type.Name);
+
+  internal string TypeName(string typeName)
     => ModelOptions.TypePrefix +
-      (_types.TryGetValue(type.Name, out IGqlpType theType)
-      ? theType.Name : type.Name);
+      (_types.TryGetValue(typeName, out IGqlpType theType)
+      ? theType.Name : typeName);
 }

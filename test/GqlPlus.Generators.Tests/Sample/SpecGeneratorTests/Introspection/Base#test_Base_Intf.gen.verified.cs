@@ -12,79 +12,149 @@ public interface Itest_ObjectKind
 public interface Itest_TypeObject<Tkind,Tfield>
   : Itest_ChildType
 {
-  _ObjTypeParam typeParams { get; }
-  Tfield fields { get; }
-  _ObjAlternate alternates { get; }
-  _ObjectFor<Tfield> allFields { get; }
-  _ObjectFor<_ObjAlternate> allAlternates { get; }
+  public test_TypeObject _TypeObject { get; set; }
+}
+
+public interface Itest_TypeObjectField<Tkind,Tfield>
+  : Itest_ChildTypeField
+{
+  public ICollection<test_ObjTypeParam> typeParams { get; set; }
+  public ICollection<Tfield> fields { get; set; }
+  public ICollection<test_ObjAlternate> alternates { get; set; }
+  public ICollection<test_ObjectFor<Tfield>> allFields { get; set; }
+  public ICollection<test_ObjectFor<test_ObjAlternate>> allAlternates { get; set; }
 }
 
 public interface Itest_ObjTypeParam
   : Itest_Named
 {
-  _TypeRef<_TypeKind> constraint { get; }
+  public test_ObjTypeParam _ObjTypeParam { get; set; }
+}
+
+public interface Itest_ObjTypeParamField
+  : Itest_NamedField
+{
+  public test_TypeRef<test_TypeKind> constraint { get; set; }
 }
 
 public interface Itest_ObjBase
   : Itest_Named
 {
-  _ObjTypeArg typeArgs { get; }
-  _TypeParam As_TypeParam { get; }
+  public test_TypeParam As_TypeParam { get; set; }
+  public test_ObjBase _ObjBase { get; set; }
+}
+
+public interface Itest_ObjBaseField
+  : Itest_NamedField
+{
+  public ICollection<test_ObjTypeArg> typeArgs { get; set; }
 }
 
 public interface Itest_ObjTypeArg
   : Itest_TypeRef
 {
-  _Identifier label { get; }
-  _TypeParam As_TypeParam { get; }
+  public test_TypeParam As_TypeParam { get; set; }
+  public test_ObjTypeArg _ObjTypeArg { get; set; }
+}
+
+public interface Itest_ObjTypeArgField
+  : Itest_TypeRefField
+{
+  public test_Identifier? label { get; set; }
 }
 
 public interface Itest_TypeParam
   : Itest_Described
 {
-  _Identifier typeParam { get; }
+  public test_TypeParam _TypeParam { get; set; }
+}
+
+public interface Itest_TypeParamField
+  : Itest_DescribedField
+{
+  public test_Identifier typeParam { get; set; }
 }
 
 public interface Itest_ObjAlternate
 {
-  _ObjBase type { get; }
-  _Collections collections { get; }
-  _ObjAlternateEnum As_ObjAlternateEnum { get; }
+  public test_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
+  public test_ObjAlternate _ObjAlternate { get; set; }
+}
+
+public interface Itest_ObjAlternateField
+{
+  public test_ObjBase type { get; set; }
+  public ICollection<test_Collections> collections { get; set; }
 }
 
 public interface Itest_ObjAlternateEnum
   : Itest_TypeRef
 {
-  _Identifier label { get; }
+  public test_ObjAlternateEnum _ObjAlternateEnum { get; set; }
+}
+
+public interface Itest_ObjAlternateEnumField
+  : Itest_TypeRefField
+{
+  public test_Identifier label { get; set; }
 }
 
 public interface Itest_ObjectFor<Tfor>
   : Itestfor
 {
-  _Identifier object { get; }
+  public test_ObjectFor _ObjectFor { get; set; }
+}
+
+public interface Itest_ObjectForField<Tfor>
+  : ItestforField
+{
+  public test_Identifier object { get; set; }
 }
 
 public interface Itest_ObjField<Ttype>
   : Itest_Aliased
 {
-  Ttype type { get; }
+  public test_ObjField _ObjField { get; set; }
+}
+
+public interface Itest_ObjFieldField<Ttype>
+  : Itest_AliasedField
+{
+  public Ttype type { get; set; }
 }
 
 public interface Itest_ObjFieldType
   : Itest_ObjBase
 {
-  _Modifiers modifiers { get; }
-  _ObjFieldEnum As_ObjFieldEnum { get; }
+  public test_ObjFieldEnum As_ObjFieldEnum { get; set; }
+  public test_ObjFieldType _ObjFieldType { get; set; }
+}
+
+public interface Itest_ObjFieldTypeField
+  : Itest_ObjBaseField
+{
+  public ICollection<test_Modifiers> modifiers { get; set; }
 }
 
 public interface Itest_ObjFieldEnum
   : Itest_TypeRef
 {
-  _Identifier label { get; }
+  public test_ObjFieldEnum _ObjFieldEnum { get; set; }
+}
+
+public interface Itest_ObjFieldEnumField
+  : Itest_TypeRefField
+{
+  public test_Identifier label { get; set; }
 }
 
 public interface Itest_ForParam<Ttype>
 {
-  _ObjAlternate As_ObjAlternate { get; }
-  _ObjField<Ttype> As_ObjField { get; }
+  public test_ObjAlternate As_ObjAlternate { get; set; }
+  public test_ObjField<Ttype> As_ObjField { get; set; }
+  public test_ForParam _ForParam { get; set; }
+}
+
+public interface Itest_ForParamField<Ttype>
+{
 }

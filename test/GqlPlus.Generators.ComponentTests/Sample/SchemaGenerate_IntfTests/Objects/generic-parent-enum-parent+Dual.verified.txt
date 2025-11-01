@@ -14,9 +14,20 @@ namespace Components.Gqlp_Schema_generic_parent_enum_parent_Dual;
 public interface ICmptGnrcPrntEnumPrntDual
   : ICmptFieldGnrcPrntEnumPrntDual
 {
+  public CmptGnrcPrntEnumPrntDual GnrcPrntEnumPrntDual { get; set; }
+}
+
+public interface ICmptGnrcPrntEnumPrntDualField
+  : ICmptFieldGnrcPrntEnumPrntDualField
+{
 }
 
 public interface ICmptFieldGnrcPrntEnumPrntDual<Tref>
 {
-  Tref field { get; }
+  public CmptFieldGnrcPrntEnumPrntDual FieldGnrcPrntEnumPrntDual { get; set; }
+}
+
+public interface ICmptFieldGnrcPrntEnumPrntDualField<Tref>
+{
+  public Tref field { get; set; }
 }

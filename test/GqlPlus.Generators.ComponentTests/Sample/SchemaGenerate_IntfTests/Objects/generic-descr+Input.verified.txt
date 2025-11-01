@@ -10,5 +10,10 @@ namespace Components.Gqlp_Schema_generic_descr_Input;
 
 public interface ICmptGnrcDescrInp<Ttype>
 {
-  Ttype field { get; }
+  public CmptGnrcDescrInp GnrcDescrInp { get; set; }
+}
+
+public interface ICmptGnrcDescrInpField<Ttype>
+{
+  public Ttype field { get; set; }
 }

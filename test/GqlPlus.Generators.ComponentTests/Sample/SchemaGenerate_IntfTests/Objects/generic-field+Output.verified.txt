@@ -10,5 +10,10 @@ namespace Components.Gqlp_Schema_generic_field_Output;
 
 public interface ICmptGnrcFieldOutp<Ttype>
 {
-  Ttype field { get; }
+  public CmptGnrcFieldOutp GnrcFieldOutp { get; set; }
+}
+
+public interface ICmptGnrcFieldOutpField<Ttype>
+{
+  public Ttype field { get; set; }
 }

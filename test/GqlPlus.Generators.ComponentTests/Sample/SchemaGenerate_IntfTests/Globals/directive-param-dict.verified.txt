@@ -11,4 +11,9 @@ namespace Components.Gqlp_Schema_directive_param_dict;
 
 public interface ICmptInDrctParamDict
 {
+  public CmptInDrctParamDict InDrctParamDict { get; set; }
+}
+
+public interface ICmptInDrctParamDictField
+{
 }

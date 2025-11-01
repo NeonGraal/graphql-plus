@@ -12,10 +12,21 @@ namespace Components.Gqlp_Schema_parent_dual_Input;
 public interface ICmptPrntDualInp
   : ICmptRefPrntDualInp
 {
+  public CmptPrntDualInp PrntDualInp { get; set; }
+}
+
+public interface ICmptPrntDualInpField
+  : ICmptRefPrntDualInpField
+{
 }
 
 public interface ICmptRefPrntDualInp
 {
-  Number parent { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptRefPrntDualInp RefPrntDualInp { get; set; }
+}
+
+public interface ICmptRefPrntDualInpField
+{
+  public CmptNumber parent { get; set; }
 }

@@ -8,18 +8,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_param_Input;
 public class testGnrcFieldParamInp
   : ItestGnrcFieldParamInp
 {
-  public RefGnrcFieldParamInp<AltGnrcFieldParamInp> field { get; set; }
+  public testRefGnrcFieldParamInp<testAltGnrcFieldParamInp> field { get; set; }
+  public testGnrcFieldParamInp GnrcFieldParamInp { get; set; }
 }
 
 public class testRefGnrcFieldParamInp<Tref>
   : ItestRefGnrcFieldParamInp<Tref>
 {
   public Tref Asref { get; set; }
+  public testRefGnrcFieldParamInp RefGnrcFieldParamInp { get; set; }
 }
 
 public class testAltGnrcFieldParamInp
   : ItestAltGnrcFieldParamInp
 {
-  public Number alt { get; set; }
-  public String AsString { get; set; }
+  public testNumber alt { get; set; }
+  public testString AsString { get; set; }
+  public testAltGnrcFieldParamInp AltGnrcFieldParamInp { get; set; }
 }

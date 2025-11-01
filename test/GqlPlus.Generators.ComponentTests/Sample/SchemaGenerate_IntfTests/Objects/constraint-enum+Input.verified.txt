@@ -12,10 +12,20 @@ namespace Components.Gqlp_Schema_constraint_enum_Input;
 
 public interface ICmptCnstEnumInp
 {
-  RefCnstEnumInp<EnumCnstEnumInp> AsRefCnstEnumInp { get; }
+  public CmptRefCnstEnumInp<CmptEnumCnstEnumInp> AsRefCnstEnumInp { get; set; }
+  public CmptCnstEnumInp CnstEnumInp { get; set; }
+}
+
+public interface ICmptCnstEnumInpField
+{
 }
 
 public interface ICmptRefCnstEnumInp<Ttype>
 {
-  Ttype field { get; }
+  public CmptRefCnstEnumInp RefCnstEnumInp { get; set; }
+}
+
+public interface ICmptRefCnstEnumInpField<Ttype>
+{
+  public Ttype field { get; set; }
 }

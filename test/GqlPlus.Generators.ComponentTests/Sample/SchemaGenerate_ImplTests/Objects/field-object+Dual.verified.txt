@@ -12,12 +12,14 @@ namespace Components.Gqlp_Schema_field_object_Dual;
 public class CmptFieldObjDual
   : ICmptFieldObjDual
 {
-  public FldFieldObjDual field { get; set; }
+  public CmptFldFieldObjDual field { get; set; }
+  public CmptFieldObjDual FieldObjDual { get; set; }
 }
 
 public class CmptFldFieldObjDual
   : ICmptFldFieldObjDual
 {
-  public Number field { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber field { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptFldFieldObjDual FldFieldObjDual { get; set; }
 }

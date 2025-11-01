@@ -7,5 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_String_Output;
 
 public interface ItestRefGnrcAltModStrOutp<Tref>
 {
-  Tref Asref { get; }
+  public IDictionary<testString, Tref> Asref { get; set; }
+  public testRefGnrcAltModStrOutp RefGnrcAltModStrOutp { get; set; }
+}
+
+public interface ItestRefGnrcAltModStrOutpField<Tref>
+{
 }

@@ -23,17 +23,20 @@ public class Cmpt_InputField
   : Cmpt_ObjField
   , ICmpt_InputField
 {
+  public Cmpt_InputField _InputField { get; set; }
 }
 
 public class Cmpt_InputFieldType
   : Cmpt_ObjFieldType
   , ICmpt_InputFieldType
 {
-  public _Value default { get; set; }
+  public Cmpt_Value? default { get; set; }
+  public Cmpt_InputFieldType _InputFieldType { get; set; }
 }
 
 public class Cmpt_InputParam
   : Cmpt_InputFieldType
   , ICmpt_InputParam
 {
+  public Cmpt_InputParam _InputParam { get; set; }
 }

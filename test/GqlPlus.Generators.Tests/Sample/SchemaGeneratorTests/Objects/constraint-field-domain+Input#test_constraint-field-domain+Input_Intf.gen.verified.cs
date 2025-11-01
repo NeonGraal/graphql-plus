@@ -8,11 +8,22 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Input;
 public interface ItestCnstFieldDmnInp
   : ItestRefCnstFieldDmnInp
 {
+  public testCnstFieldDmnInp CnstFieldDmnInp { get; set; }
+}
+
+public interface ItestCnstFieldDmnInpField
+  : ItestRefCnstFieldDmnInpField
+{
 }
 
 public interface ItestRefCnstFieldDmnInp<Tref>
 {
-  Tref field { get; }
+  public testRefCnstFieldDmnInp RefCnstFieldDmnInp { get; set; }
+}
+
+public interface ItestRefCnstFieldDmnInpField<Tref>
+{
+  public Tref field { get; set; }
 }
 
 public interface ItestDomCnstFieldDmnInp

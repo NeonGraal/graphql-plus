@@ -7,5 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Input;
 
 public interface ItestFieldEnumPrntInp
 {
-  EnumFieldEnumPrntInp field { get; }
+  public testFieldEnumPrntInp FieldEnumPrntInp { get; set; }
+}
+
+public interface ItestFieldEnumPrntInpField
+{
+  public testEnumFieldEnumPrntInp field { get; set; }
 }

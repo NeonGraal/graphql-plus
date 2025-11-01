@@ -8,5 +8,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_Option;
 public interface Itest_Setting
   : Itest_Named
 {
-  _Value value { get; }
+  public test_Setting _Setting { get; set; }
+}
+
+public interface Itest_SettingField
+  : Itest_NamedField
+{
+  public test_Value value { get; set; }
 }

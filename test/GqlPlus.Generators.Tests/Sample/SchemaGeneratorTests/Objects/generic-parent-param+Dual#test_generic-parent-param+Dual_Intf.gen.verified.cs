@@ -8,15 +8,31 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_param_Dual;
 public interface ItestGnrcPrntParamDual
   : ItestRefGnrcPrntParamDual
 {
+  public testGnrcPrntParamDual GnrcPrntParamDual { get; set; }
+}
+
+public interface ItestGnrcPrntParamDualField
+  : ItestRefGnrcPrntParamDualField
+{
 }
 
 public interface ItestRefGnrcPrntParamDual<Tref>
 {
-  Tref Asref { get; }
+  public Tref Asref { get; set; }
+  public testRefGnrcPrntParamDual RefGnrcPrntParamDual { get; set; }
+}
+
+public interface ItestRefGnrcPrntParamDualField<Tref>
+{
 }
 
 public interface ItestAltGnrcPrntParamDual
 {
-  Number alt { get; }
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testAltGnrcPrntParamDual AltGnrcPrntParamDual { get; set; }
+}
+
+public interface ItestAltGnrcPrntParamDualField
+{
+  public testNumber alt { get; set; }
 }

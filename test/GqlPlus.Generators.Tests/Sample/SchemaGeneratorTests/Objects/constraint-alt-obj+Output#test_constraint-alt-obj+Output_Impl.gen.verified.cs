@@ -8,24 +8,28 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_obj_Output;
 public class testCnstAltObjOutp
   : ItestCnstAltObjOutp
 {
-  public RefCnstAltObjOutp<AltCnstAltObjOutp> AsRefCnstAltObjOutp { get; set; }
+  public testRefCnstAltObjOutp<testAltCnstAltObjOutp> AsRefCnstAltObjOutp { get; set; }
+  public testCnstAltObjOutp CnstAltObjOutp { get; set; }
 }
 
 public class testRefCnstAltObjOutp<Tref>
   : ItestRefCnstAltObjOutp<Tref>
 {
   public Tref Asref { get; set; }
+  public testRefCnstAltObjOutp RefCnstAltObjOutp { get; set; }
 }
 
 public class testPrntCnstAltObjOutp
   : ItestPrntCnstAltObjOutp
 {
-  public String AsString { get; set; }
+  public testString AsString { get; set; }
+  public testPrntCnstAltObjOutp PrntCnstAltObjOutp { get; set; }
 }
 
 public class testAltCnstAltObjOutp
   : testPrntCnstAltObjOutp
   , ItestAltCnstAltObjOutp
 {
-  public Number alt { get; set; }
+  public testNumber alt { get; set; }
+  public testAltCnstAltObjOutp AltCnstAltObjOutp { get; set; }
 }

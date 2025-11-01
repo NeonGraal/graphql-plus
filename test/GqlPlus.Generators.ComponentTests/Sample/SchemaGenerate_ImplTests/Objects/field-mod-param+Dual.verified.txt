@@ -12,12 +12,14 @@ namespace Components.Gqlp_Schema_field_mod_param_Dual;
 public class CmptFieldModParamDual<Tmod>
   : ICmptFieldModParamDual<Tmod>
 {
-  public FldFieldModParamDual field { get; set; }
+  public IDictionary<Tmod, CmptFldFieldModParamDual> field { get; set; }
+  public CmptFieldModParamDual FieldModParamDual { get; set; }
 }
 
 public class CmptFldFieldModParamDual
   : ICmptFldFieldModParamDual
 {
-  public Number field { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber field { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptFldFieldModParamDual FldFieldModParamDual { get; set; }
 }

@@ -14,4 +14,5 @@ public class CmptObjParamDupDual<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
+  public CmptObjParamDupDual ObjParamDupDual { get; set; }
 }

@@ -14,20 +14,42 @@ namespace Components.Gqlp_Schema_constraint_field_obj_Output;
 public interface ICmptCnstFieldObjOutp
   : ICmptRefCnstFieldObjOutp
 {
+  public CmptCnstFieldObjOutp CnstFieldObjOutp { get; set; }
+}
+
+public interface ICmptCnstFieldObjOutpField
+  : ICmptRefCnstFieldObjOutpField
+{
 }
 
 public interface ICmptRefCnstFieldObjOutp<Tref>
 {
-  Tref field { get; }
+  public CmptRefCnstFieldObjOutp RefCnstFieldObjOutp { get; set; }
+}
+
+public interface ICmptRefCnstFieldObjOutpField<Tref>
+{
+  public Tref field { get; set; }
 }
 
 public interface ICmptPrntCnstFieldObjOutp
 {
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstFieldObjOutp PrntCnstFieldObjOutp { get; set; }
+}
+
+public interface ICmptPrntCnstFieldObjOutpField
+{
 }
 
 public interface ICmptAltCnstFieldObjOutp
   : ICmptPrntCnstFieldObjOutp
 {
-  Number alt { get; }
+  public CmptAltCnstFieldObjOutp AltCnstFieldObjOutp { get; set; }
+}
+
+public interface ICmptAltCnstFieldObjOutpField
+  : ICmptPrntCnstFieldObjOutpField
+{
+  public CmptNumber alt { get; set; }
 }

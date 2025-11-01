@@ -10,5 +10,10 @@ namespace Components.Gqlp_Schema_alt_simple_Input;
 
 public interface ICmptAltSmplInp
 {
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptAltSmplInp AltSmplInp { get; set; }
+}
+
+public interface ICmptAltSmplInpField
+{
 }

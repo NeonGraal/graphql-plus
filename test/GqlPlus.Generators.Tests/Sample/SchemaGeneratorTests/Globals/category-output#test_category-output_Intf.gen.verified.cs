@@ -7,4 +7,9 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_output;
 
 public interface ItestCtgrOutp
 {
+  public testCtgrOutp CtgrOutp { get; set; }
+}
+
+public interface ItestCtgrOutpField
+{
 }

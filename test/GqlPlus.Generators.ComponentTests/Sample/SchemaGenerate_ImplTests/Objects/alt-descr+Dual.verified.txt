@@ -11,5 +11,6 @@ namespace Components.Gqlp_Schema_alt_descr_Dual;
 public class CmptAltDescrDual
   : ICmptAltDescrDual
 {
-  public String AsString { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltDescrDual AltDescrDual { get; set; }
 }

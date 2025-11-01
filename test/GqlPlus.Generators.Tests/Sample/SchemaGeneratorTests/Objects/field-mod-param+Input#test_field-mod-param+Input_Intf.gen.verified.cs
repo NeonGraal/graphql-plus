@@ -7,11 +7,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Input;
 
 public interface ItestFieldModParamInp<Tmod>
 {
-  FldFieldModParamInp field { get; }
+  public testFieldModParamInp FieldModParamInp { get; set; }
+}
+
+public interface ItestFieldModParamInpField<Tmod>
+{
+  public IDictionary<Tmod, testFldFieldModParamInp> field { get; set; }
 }
 
 public interface ItestFldFieldModParamInp
 {
-  Number field { get; }
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testFldFieldModParamInp FldFieldModParamInp { get; set; }
+}
+
+public interface ItestFldFieldModParamInpField
+{
+  public testNumber field { get; set; }
 }

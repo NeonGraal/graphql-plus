@@ -12,4 +12,5 @@ namespace Components.Gqlp_Schema_descr_complex;
 public class CmptDescrCmpl
   : ICmptDescrCmpl
 {
+  public CmptDescrCmpl DescrCmpl { get; set; }
 }

@@ -11,4 +11,10 @@ namespace Components.Gqlp_Schema_generic_parent_Output;
 public interface ICmptGnrcPrntOutp<Ttype>
   : ICmpttype
 {
+  public CmptGnrcPrntOutp GnrcPrntOutp { get; set; }
+}
+
+public interface ICmptGnrcPrntOutpField<Ttype>
+  : ICmpttypeField
+{
 }

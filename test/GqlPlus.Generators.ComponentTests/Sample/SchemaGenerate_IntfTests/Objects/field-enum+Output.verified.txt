@@ -11,5 +11,10 @@ namespace Components.Gqlp_Schema_field_enum_Output;
 
 public interface ICmptFieldEnumOutp
 {
-  EnumFieldEnumOutp field { get; }
+  public CmptFieldEnumOutp FieldEnumOutp { get; set; }
+}
+
+public interface ICmptFieldEnumOutpField
+{
+  public CmptEnumFieldEnumOutp field { get; set; }
 }

@@ -15,26 +15,52 @@ namespace Components.Gqlp_Schema_output_parent_param;
 public interface ICmptOutpPrntParam
   : ICmptPrntOutpPrntParam
 {
-  FldOutpPrntParam field { get; }
+  public CmptOutpPrntParam OutpPrntParam { get; set; }
+}
+
+public interface ICmptOutpPrntParamField
+  : ICmptPrntOutpPrntParamField
+{
+  public CmptFldOutpPrntParam field { get; set; }
 }
 
 public interface ICmptPrntOutpPrntParam
 {
-  FldOutpPrntParam field { get; }
+  public CmptPrntOutpPrntParam PrntOutpPrntParam { get; set; }
+}
+
+public interface ICmptPrntOutpPrntParamField
+{
+  public CmptFldOutpPrntParam field { get; set; }
 }
 
 public interface ICmptFldOutpPrntParam
+{
+  public CmptFldOutpPrntParam FldOutpPrntParam { get; set; }
+}
+
+public interface ICmptFldOutpPrntParamField
 {
 }
 
 public interface ICmptInOutpPrntParam
 {
-  Number param { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptInOutpPrntParam InOutpPrntParam { get; set; }
+}
+
+public interface ICmptInOutpPrntParamField
+{
+  public CmptNumber param { get; set; }
 }
 
 public interface ICmptPrntOutpPrntParamIn
 {
-  Number parent { get; }
-  String AsString { get; }
+  public CmptString AsString { get; set; }
+  public CmptPrntOutpPrntParamIn PrntOutpPrntParamIn { get; set; }
+}
+
+public interface ICmptPrntOutpPrntParamInField
+{
+  public CmptNumber parent { get; set; }
 }

@@ -7,11 +7,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_object_Input;
 
 public interface ItestFieldObjInp
 {
-  FldFieldObjInp field { get; }
+  public testFieldObjInp FieldObjInp { get; set; }
+}
+
+public interface ItestFieldObjInpField
+{
+  public testFldFieldObjInp field { get; set; }
 }
 
 public interface ItestFldFieldObjInp
 {
-  Number field { get; }
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testFldFieldObjInp FldFieldObjInp { get; set; }
+}
+
+public interface ItestFldFieldObjInpField
+{
+  public testNumber field { get; set; }
 }

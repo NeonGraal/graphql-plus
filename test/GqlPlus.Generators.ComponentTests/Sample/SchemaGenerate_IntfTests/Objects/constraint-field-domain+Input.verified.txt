@@ -13,11 +13,22 @@ namespace Components.Gqlp_Schema_constraint_field_domain_Input;
 public interface ICmptCnstFieldDmnInp
   : ICmptRefCnstFieldDmnInp
 {
+  public CmptCnstFieldDmnInp CnstFieldDmnInp { get; set; }
+}
+
+public interface ICmptCnstFieldDmnInpField
+  : ICmptRefCnstFieldDmnInpField
+{
 }
 
 public interface ICmptRefCnstFieldDmnInp<Tref>
 {
-  Tref field { get; }
+  public CmptRefCnstFieldDmnInp RefCnstFieldDmnInp { get; set; }
+}
+
+public interface ICmptRefCnstFieldDmnInpField<Tref>
+{
+  public Tref field { get; set; }
 }
 
 public interface ICmptDomCnstFieldDmnInp

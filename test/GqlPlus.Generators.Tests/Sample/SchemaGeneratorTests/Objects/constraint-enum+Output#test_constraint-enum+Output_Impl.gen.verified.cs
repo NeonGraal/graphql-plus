@@ -8,11 +8,13 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_Output;
 public class testCnstEnumOutp
   : ItestCnstEnumOutp
 {
-  public RefCnstEnumOutp<EnumCnstEnumOutp> AsRefCnstEnumOutp { get; set; }
+  public testRefCnstEnumOutp<testEnumCnstEnumOutp> AsRefCnstEnumOutp { get; set; }
+  public testCnstEnumOutp CnstEnumOutp { get; set; }
 }
 
 public class testRefCnstEnumOutp<Ttype>
   : ItestRefCnstEnumOutp<Ttype>
 {
   public Ttype field { get; set; }
+  public testRefCnstEnumOutp RefCnstEnumOutp { get; set; }
 }

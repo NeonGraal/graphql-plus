@@ -9,9 +9,11 @@ public class testObjPrntOutp
   : testRefObjPrntOutp
   , ItestObjPrntOutp
 {
+  public testObjPrntOutp ObjPrntOutp { get; set; }
 }
 
 public class testRefObjPrntOutp
   : ItestRefObjPrntOutp
 {
+  public testRefObjPrntOutp RefObjPrntOutp { get; set; }
 }

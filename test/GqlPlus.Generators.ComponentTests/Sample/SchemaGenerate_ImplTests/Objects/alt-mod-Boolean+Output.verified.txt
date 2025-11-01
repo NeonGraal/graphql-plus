@@ -12,12 +12,14 @@ namespace Components.Gqlp_Schema_alt_mod_Boolean_Output;
 public class CmptAltModBoolOutp
   : ICmptAltModBoolOutp
 {
-  public AltAltModBoolOutp AsAltAltModBoolOutp { get; set; }
+  public IDictionary<CmptBoolean, CmptAltAltModBoolOutp> AsAltAltModBoolOutp { get; set; }
+  public CmptAltModBoolOutp AltModBoolOutp { get; set; }
 }
 
 public class CmptAltAltModBoolOutp
   : ICmptAltAltModBoolOutp
 {
-  public Number alt { get; set; }
-  public String AsString { get; set; }
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltAltModBoolOutp AltAltModBoolOutp { get; set; }
 }

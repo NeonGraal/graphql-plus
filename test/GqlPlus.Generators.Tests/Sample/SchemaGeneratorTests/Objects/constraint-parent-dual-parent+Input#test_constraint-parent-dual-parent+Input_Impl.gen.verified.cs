@@ -9,23 +9,27 @@ public class testCnstPrntDualPrntInp
   : testRefCnstPrntDualPrntInp
   , ItestCnstPrntDualPrntInp
 {
+  public testCnstPrntDualPrntInp CnstPrntDualPrntInp { get; set; }
 }
 
 public class testRefCnstPrntDualPrntInp<Tref>
   : testref
   , ItestRefCnstPrntDualPrntInp<Tref>
 {
+  public testRefCnstPrntDualPrntInp RefCnstPrntDualPrntInp { get; set; }
 }
 
 public class testPrntCnstPrntDualPrntInp
   : ItestPrntCnstPrntDualPrntInp
 {
-  public String AsString { get; set; }
+  public testString AsString { get; set; }
+  public testPrntCnstPrntDualPrntInp PrntCnstPrntDualPrntInp { get; set; }
 }
 
 public class testAltCnstPrntDualPrntInp
   : testPrntCnstPrntDualPrntInp
   , ItestAltCnstPrntDualPrntInp
 {
-  public Number alt { get; set; }
+  public testNumber alt { get; set; }
+  public testAltCnstPrntDualPrntInp AltCnstPrntDualPrntInp { get; set; }
 }

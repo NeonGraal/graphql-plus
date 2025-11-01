@@ -7,21 +7,42 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_obj_Dual;
 
 public interface ItestCnstAltObjDual
 {
-  RefCnstAltObjDual<AltCnstAltObjDual> AsRefCnstAltObjDual { get; }
+  public testRefCnstAltObjDual<testAltCnstAltObjDual> AsRefCnstAltObjDual { get; set; }
+  public testCnstAltObjDual CnstAltObjDual { get; set; }
+}
+
+public interface ItestCnstAltObjDualField
+{
 }
 
 public interface ItestRefCnstAltObjDual<Tref>
 {
-  Tref Asref { get; }
+  public Tref Asref { get; set; }
+  public testRefCnstAltObjDual RefCnstAltObjDual { get; set; }
+}
+
+public interface ItestRefCnstAltObjDualField<Tref>
+{
 }
 
 public interface ItestPrntCnstAltObjDual
 {
-  String AsString { get; }
+  public testString AsString { get; set; }
+  public testPrntCnstAltObjDual PrntCnstAltObjDual { get; set; }
+}
+
+public interface ItestPrntCnstAltObjDualField
+{
 }
 
 public interface ItestAltCnstAltObjDual
   : ItestPrntCnstAltObjDual
 {
-  Number alt { get; }
+  public testAltCnstAltObjDual AltCnstAltObjDual { get; set; }
+}
+
+public interface ItestAltCnstAltObjDualField
+  : ItestPrntCnstAltObjDualField
+{
+  public testNumber alt { get; set; }
 }

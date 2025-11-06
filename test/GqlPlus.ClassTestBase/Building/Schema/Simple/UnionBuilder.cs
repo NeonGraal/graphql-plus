@@ -11,7 +11,7 @@ public class UnionBuilder
     : base(name)
   {
     Add<IGqlpUnion>();
-    Add<IGqlpType>();
+    _typeKind = TypeKind.Union;
   }
 
   protected new T Build<T>()

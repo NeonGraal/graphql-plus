@@ -11,7 +11,7 @@ public class EnumBuilder
     : base(name)
   {
     Add<IGqlpEnum>();
-    Add<IGqlpType>();
+    _typeKind = TypeKind.Enum;
   }
 
   protected new T Build<T>()

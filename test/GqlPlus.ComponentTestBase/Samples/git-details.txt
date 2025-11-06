@@ -1,1 +1,1 @@
-ae5b15d  (HEAD -> main, origin/main, origin/HEAD) 2025-10-27 Merge pull request #39 from graphql-plus/simplify-object
+64fb53f  (HEAD -> verify-constraint) 2025-11-07 Correct object parents in samples

@@ -1,1 +1,1 @@
-object Name<$type:String> { :"Parent comment"$type }
+object Name<$type:_Dual> { :"Parent comment"$type }

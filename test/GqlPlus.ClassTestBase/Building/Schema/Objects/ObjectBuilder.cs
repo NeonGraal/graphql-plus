@@ -3,11 +3,10 @@
 namespace GqlPlus.Building.Schema.Objects;
 
 public class ObjectBuilder
-  : AliasedBuilder
+  : TypeBuilder
 {
   internal IGqlpTypeParam[] _typeParams = [];
   internal IGqlpAlternate[] _alternates = [];
-  private readonly TypeKind _kind;
 
   public ObjBaseBuilder? BaseBuilder { get; internal set; }
 
@@ -15,8 +14,7 @@ public class ObjectBuilder
     : base(name)
   {
     Add<IGqlpObject>();
-    Add<IGqlpType>();
-    _kind = kind;
+    _typeKind = kind;
   }
 
   protected new T Build<T>()
@@ -26,8 +24,7 @@ public class ObjectBuilder
 
     IGqlpObjBase? parent = BaseBuilder?.AsObjBase;
 
-    result.Kind.Returns(_kind);
-    result.Label.Returns(_kind.ToString());
+    result.Label.Returns(_typeKind.ToString());
     result.Parent.Returns(parent);
     result.TypeParams.Returns(_typeParams);
     result.Alternates.Returns(_alternates);

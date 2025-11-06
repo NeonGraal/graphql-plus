@@ -14,7 +14,7 @@ public class DomainBuilder<TItem>
   {
     Add<IGqlpDomain<TItem>>();
     Add<IGqlpDomain>();
-    Add<IGqlpType>();
+    _typeKind = TypeKind.Domain;
 
     _kind = kind;
   }

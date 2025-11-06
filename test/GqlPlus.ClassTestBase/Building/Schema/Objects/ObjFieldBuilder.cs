@@ -4,7 +4,7 @@ namespace GqlPlus.Building.Schema.Objects;
 
 public class ObjFieldBuilder
   : AliasedBuilder
-  , ITypeBuilder
+  , IObjTypeBuilder
   , IObjEnumBuilder
 {
   private IGqlpModifier[] _modifiers = [];

@@ -64,7 +64,7 @@ public class VerifyEnumTypesTests
   {
     this.SkipEqual(name, parentName);
 
-    Define<IGqlpEnum>(parentName);
+    Define(A.Enum(parentName).AsEnum);
 
     IGqlpEnum anEnum = A.Enum(name).WithParent(parentName).AsEnum;
     Usages.Add(anEnum);

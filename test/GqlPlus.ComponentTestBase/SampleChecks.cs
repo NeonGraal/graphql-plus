@@ -120,6 +120,7 @@ public class SampleChecks
     if (scrubEmptyLines) {
       settings.ScrubEmptyLines();
     }
+
     settings.AddScrubber("json", s => s.AppendLine(""));
 
     return settings.CheckAutoVerify();

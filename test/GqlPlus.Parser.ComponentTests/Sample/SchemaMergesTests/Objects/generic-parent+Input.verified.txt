@@ -7,10 +7,10 @@ Success
   <
     I@020/0001
     $type
-    :String
+    :_Dual
   >
   :
-  I@037/0001
+  I@036/0001
   $type
 }
 ]

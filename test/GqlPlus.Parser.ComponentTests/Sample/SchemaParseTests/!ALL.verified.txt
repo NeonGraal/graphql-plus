@@ -4037,10 +4037,10 @@ Success
   <
     I@020/0538
     $type
-    :String
+    :_Dual
   >
   :
-  I@037/0538
+  I@036/0538
   $type
 }
 {
@@ -4049,10 +4049,10 @@ Success
   <
     I@020/0540
     $type
-    :String
+    :_Dual
   >
   :
-  I@037/0540
+  I@036/0540
   $type
 }
 {
@@ -4061,10 +4061,10 @@ Success
   <
     I@022/0542
     $type
-    :String
+    :_Dual
   >
   :
-  I@039/0542
+  I@038/0542
   $type
 }
 {
@@ -4157,11 +4157,11 @@ Success
   <
     I@025/0553
     $type
-    :String
+    :_Dual
   >
   :
   'Parent comment'
-  I@058/0553
+  I@057/0553
   $type
 }
 {
@@ -4170,11 +4170,11 @@ Success
   <
     I@025/0555
     $type
-    :String
+    :_Dual
   >
   :
   'Parent comment'
-  I@058/0555
+  I@057/0555
   $type
 }
 {
@@ -4183,11 +4183,11 @@ Success
   <
     I@027/0557
     $type
-    :String
+    :_Dual
   >
   :
   'Parent comment'
-  I@060/0557
+  I@059/0557
   $type
 }
 {

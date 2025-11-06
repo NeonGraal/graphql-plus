@@ -3,16 +3,13 @@
 namespace GqlPlus.Building.Schema.Simple;
 
 public class SimpleBuilder
-  : AliasedBuilder
+  : TypeBuilder
 {
   internal IGqlpTypeRef? _parent;
 
   public SimpleBuilder(string name)
     : base(name)
-  {
-    Add<IGqlpSimple>();
-    Add<IGqlpType>();
-  }
+    => Add<IGqlpSimple>();
 
   protected new T Build<T>()
     where T : class, IGqlpSimple

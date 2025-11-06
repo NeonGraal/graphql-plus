@@ -13,6 +13,28 @@ public class VerifyInputTypesTests
   public VerifyInputTypesTests()
     : base(TypeKind.Input)
     => Verifier = new VerifyInputTypes(Verifiers);
+}
+
+[TracePerTest]
+public class VerifyInputAlternatesTests
+  : ObjectVerifierAlternatesTestsBase<IGqlpInputField>
+{
+  protected override IVerifyUsage<IGqlpObject<IGqlpInputField>> Verifier { get; }
+
+  public VerifyInputAlternatesTests()
+    : base(TypeKind.Input)
+    => Verifier = new VerifyInputTypes(Verifiers);
+}
+
+[TracePerTest]
+public class VerifyInputFieldsTests
+  : ObjectVerifierFieldsTestsBase<IGqlpInputField>
+{
+  protected override IVerifyUsage<IGqlpObject<IGqlpInputField>> Verifier { get; }
+
+  public VerifyInputFieldsTests()
+    : base(TypeKind.Input)
+    => Verifier = new VerifyInputTypes(Verifiers);
 
   [Theory, RepeatData]
   public void Verify_Input_WithFieldNullDefault_ReturnsError(string fieldName, string fieldType)

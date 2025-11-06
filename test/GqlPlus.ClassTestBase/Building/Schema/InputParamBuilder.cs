@@ -47,21 +47,21 @@ public class InputParamBuilder
     => _defaultValue = defaultValue;
 }
 
-public interface ITypeBuilder
+public interface IObjTypeBuilder
   : IModifiersBuilder
 {
   ObjBaseBuilder BaseBuilder { get; }
 }
 
-public static class TypeBuilderHelper
+public static class ObjTypeBuilderHelper
 {
   public static T WithType<T>(this T builder, Action<ObjBaseBuilder> config)
-    where T : ITypeBuilder
+    where T : IObjTypeBuilder
     => builder.FluentAction(b => config(b.BaseBuilder));
 }
 
 public interface IInputTypeBuilder
-  : ITypeBuilder
+  : IObjTypeBuilder
 {
   void SetDefaultValue(IGqlpConstant? defaultValue);
 }

@@ -23,17 +23,17 @@ public static class BuiltIn
 
   static BuiltIn()
   {
-    SpecialTypeAst scalar = new("Scalar", t => t == Scalar);
-    SpecialTypeAst value = new("Value", t => t == Scalar || t == Value);
+    SpecialTypeAst scalar = new("Scalar", TypeKind.Internal, t => t == Scalar);
+    SpecialTypeAst value = new("Value", TypeKind.Internal, t => t == Scalar || t == Value);
 
     Special = [
-      new SpecialTypeAst("Any", t => true),
-      new SpecialTypeAst("Domain", t => t is IGqlpDomain),
-      new SpecialTypeAst("Union", t => t is IGqlpUnion),
-      new SpecialTypeAst("Enum", t => t is IGqlpEnum),
-      new SpecialTypeAst("Dual", t => t is IGqlpObject<IGqlpDualField>),
-      new SpecialTypeAst("Input", t => t is IGqlpObject<IGqlpInputField>),
-      new SpecialTypeAst("Output", t => t is IGqlpObject<IGqlpOutputField>),
+      new SpecialTypeAst("Any"),
+      new SpecialTypeAst("Domain", TypeKind.Domain, t => t is IGqlpDomain),
+      new SpecialTypeAst("Union", TypeKind.Union, t => t is IGqlpUnion),
+      new SpecialTypeAst("Enum", TypeKind.Enum, t => t is IGqlpEnum),
+      new SpecialTypeAst("Dual", TypeKind.Dual, t => t is IGqlpObject<IGqlpDualField>),
+      new SpecialTypeAst("Input", TypeKind.Input, t => t is IGqlpObject<IGqlpInputField>),
+      new SpecialTypeAst("Output", TypeKind.Output, t => t is IGqlpObject<IGqlpOutputField>),
       scalar, value,
     ];
     Internal = [.. InternalSimple, .. InternalObject, .. Special];
@@ -73,7 +73,7 @@ public static class BuiltIn
   internal static IGqlpType Scalar { get; }
   internal static IGqlpType Value { get; }
 
-  internal static SpecialTypeAst[] Special { get; }
+  internal static IGqlpTypeSpecial[] Special { get; }
 
   internal static Map<string> EnumValues = new() {
     ["_"] = "Unit",

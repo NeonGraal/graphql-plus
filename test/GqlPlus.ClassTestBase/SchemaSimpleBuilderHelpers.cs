@@ -9,11 +9,20 @@ public static class SchemaSimpleBuilderHelpers
     where TItem : IGqlpDomainItem
     => _.Domain<TItem>(name, kind).WithItems(items).AsDomain;
 
+  public static IGqlpDomain<IGqlpDomainTrueFalse> DomainBoolean(this IMockBuilder _, string name)
+    => _.Domain<IGqlpDomainTrueFalse>(name, DomainKind.Boolean).AsDomain;
+
   public static IGqlpDomain<IGqlpDomainLabel> DomainEnum(this IMockBuilder _, string name, string enumType, string enumLabel)
     => _.DomainEnum(name).WithItems(_.DomainLabel(enumType, enumLabel)).AsDomain;
 
   public static IGqlpDomainLabel DomainLabel(this IMockBuilder _, string enumType, string enumLabel)
     => new DomainLabelBuilder(enumType, enumLabel).AsLabel;
+
+  public static IGqlpDomain<IGqlpDomainRange> DomainNumber(this IMockBuilder _, string name)
+    => _.Domain<IGqlpDomainRange>(name, DomainKind.Number).AsDomain;
+
+  public static IGqlpDomain<IGqlpDomainRegex> DomainString(this IMockBuilder _, string name)
+    => _.Domain<IGqlpDomainRegex>(name, DomainKind.String).AsDomain;
 
   public static IGqlpDomainTrueFalse DomainTrueFalse(this IMockBuilder _, bool value, bool excludes = false)
     => new DomainTrueFalseBuilder(value)

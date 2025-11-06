@@ -12,6 +12,28 @@ public class VerifyOutputTypesTests
   public VerifyOutputTypesTests()
     : base(TypeKind.Output)
     => Verifier = new VerifyOutputTypes(Verifiers);
+}
+
+[TracePerTest]
+public class VerifyOutputAlternatesTests
+  : ObjectVerifierAlternatesTestsBase<IGqlpOutputField>
+{
+  protected override IVerifyUsage<IGqlpObject<IGqlpOutputField>> Verifier { get; }
+
+  public VerifyOutputAlternatesTests()
+    : base(TypeKind.Output)
+    => Verifier = new VerifyOutputTypes(Verifiers);
+}
+
+[TracePerTest]
+public class VerifyOutputFieldsTests
+  : ObjectVerifierFieldsTestsBase<IGqlpOutputField>
+{
+  protected override IVerifyUsage<IGqlpObject<IGqlpOutputField>> Verifier { get; }
+
+  public VerifyOutputFieldsTests()
+    : base(TypeKind.Output)
+    => Verifier = new VerifyOutputTypes(Verifiers);
 
   [Fact]
   public void Verify_Output_WithFieldParams_ReturnsNoErrors()

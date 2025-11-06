@@ -15,13 +15,14 @@ internal class AstObjectVerifier<TObjField>(
 
   protected override void UsageValue(IGqlpObject<TObjField> usage, ObjectContext context)
   {
+    UsageTypeParams(usage.Label, usage.TypeParams, context);
+
     base.UsageValue(usage, context);
 
     if (usage.Parent is not null) {
       CheckTypeRef(context, usage.Parent, "Parent of " + usage.Name, context.ParentKinds, false);
     }
 
-    UsageTypeParams(usage.Label, usage.TypeParams, context);
     foreach (TObjField field in usage.ObjFields) {
       UsageField(field, usage, context);
     }
@@ -115,13 +116,21 @@ internal class AstObjectVerifier<TObjField>(
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     validKinds ??= context.FieldKinds;
     if (context.GetType(typeName, out IGqlpDescribed? definition)) {
-      if (definition is IGqlpType typeDef && !validKinds.Contains(typeDef.Kind)) {
-        error("Invalid Kind for", $"{typeDef.Kind} not one of {string.Join(",", validKinds)}", check);
+      if (definition is IGqlpTypeParam typeParam) {
+        if (!context.GetType(typeParam.Constraint, out definition)) {
+          error($"Invalid Constraint for {typeParam.Name} on", $"'{typeParam.Constraint}' not defined", check);
+        }
+      }
+
+      if (definition is IGqlpTypeSpecial specialType && !specialType.MatchesKindSpecial(validKinds)) {
+        error("Invalid Kind for", $"{specialType.Name} not one of [{string.Join(",", validKinds)}]");
+      } else if (definition is IGqlpType typeDef && !validKinds.Contains(typeDef.Kind)) {
+        error("Invalid Kind for", $"{typeDef.Kind}({typeDef.Name}) not one of [{string.Join(",", validKinds)}]");
       }
 
       CheckTypeArgs(error, context, reference, definition);
     } else {
-      error($"'{typeName}' not defined", "", check);
+      error("Invalid reference on ", $"'{typeName}' not defined", check);
 
       if (reference is IGqlpObjBase baseType) {
         CheckArgsTypes(error, context, baseType);

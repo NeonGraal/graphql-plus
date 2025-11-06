@@ -103,22 +103,39 @@ internal static class UsageHelpers
     where TContext : UsageContext
   {
     foreach (IGqlpModifier modifier in modified.Modifiers) {
-      if (modifier.ModifierKind == ModifierKind.Param) {
-        if (!context.GetType("$" + modifier.Key, out IGqlpDescribed? key)) {
-          context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' not defined");
-        }
-      }
-
-      if (modifier.ModifierKind == ModifierKind.Dict) {
-        if (context.GetType(modifier.Key, out IGqlpDescribed? key)) {
-          context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type", key is not IGqlpSimple and not IGqlpTypeParam);
-        } else {
-          context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' not defined");
-        }
+      switch (modifier.ModifierKind) {
+        case ModifierKind.Param:
+          CheckParam(modifier.Key);
+          break;
+        case ModifierKind.Dict:
+          CheckKey(modifier.Key);
+          break;
+        default:
+          break;
       }
     }
 
     return context;
+
+    void CheckParam(string? paramName)
+    {
+      if (context.GetType("$" + paramName, out IGqlpDescribed? key)) {
+        if (key is IGqlpTypeParam typeParam) {
+          CheckKey(typeParam.Constraint, $"constraint '{typeParam.Constraint}' ");
+        }
+      } else {
+        context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{paramName}' not defined");
+      }
+    }
+
+    void CheckKey(string? keyName, string label = "")
+    {
+      if (context.GetType(keyName, out IGqlpDescribed? key)) {
+        context.AddError((IGqlpAbbreviated)modified, "Modifier", $"{label}'{keyName}' invalid type", key is not IGqlpSimple and not IGqlpTypeParam);
+      } else {
+        context.AddError((IGqlpAbbreviated)modified, "Modifier", $"{label}'{keyName}' not defined");
+      }
+    }
   }
 }
 

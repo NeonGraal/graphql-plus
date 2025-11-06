@@ -1,4 +1,5 @@
-﻿namespace GqlPlus.Abstractions.Schema;
+﻿
+namespace GqlPlus.Abstractions.Schema;
 
 public interface IGqlpType
   : IGqlpDeclaration
@@ -26,6 +27,7 @@ public interface IGqlpTypeRef
 public interface IGqlpTypeSpecial
   : IGqlpSimple
 {
+  bool MatchesKindSpecial(HashSet<TypeKind> validKinds);
   bool MatchesTypeSpecial(IGqlpType type);
 }
 

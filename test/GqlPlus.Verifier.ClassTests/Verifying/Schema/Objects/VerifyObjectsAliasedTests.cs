@@ -8,3 +8,18 @@ public abstract class VerifyObjectsAliasedTests<TObjField>(
   internal override GroupedVerifier<IGqlpObject<TObjField>> NewGroupedVerifier()
     => new ObjectsAliasedVerifier<TObjField>(Definition, Merger, LoggerFactory, new FieldObjectKind<TObjField>(kind));
 }
+
+[TracePerTest]
+public class VerifyDualsAliasedTests()
+  : VerifyObjectsAliasedTests<IGqlpDualField>(TypeKind.Dual)
+{ }
+
+[TracePerTest]
+public class VerifyInputsAliasedTests()
+  : VerifyObjectsAliasedTests<IGqlpInputField>(TypeKind.Input)
+{ }
+
+[TracePerTest]
+public class VerifyOutputsAliasedTests()
+  : VerifyObjectsAliasedTests<IGqlpOutputField>(TypeKind.Output)
+{ }

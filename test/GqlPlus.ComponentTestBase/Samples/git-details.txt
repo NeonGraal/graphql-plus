@@ -1,1 +1,1 @@
-b6a813c  (HEAD -> simplify-object) 2025-10-27 Remove unecessary introspection objects
+ae5b15d  (HEAD -> main, origin/main, origin/HEAD) 2025-10-27 Merge pull request #39 from graphql-plus/simplify-object

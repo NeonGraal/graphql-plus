@@ -1,1 +1,1 @@
-11adbc2  (HEAD -> request) 2025-10-27 Merge branch 'main' into request
+02e1ac5  (HEAD -> request) 2025-11-07 Remove uneeded object type verify-errors

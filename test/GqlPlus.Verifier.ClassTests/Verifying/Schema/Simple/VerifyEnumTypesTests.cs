@@ -64,7 +64,7 @@ public class VerifyEnumTypesTests
   {
     this.SkipEqual(name, parentName);
 
-    Define<IGqlpEnum>(parentName);
+    Define(A.Enum(parentName).AsEnum);
 
     IGqlpEnumLabel[] labels = A.NamedArray<IGqlpEnumLabel>("Label1", "Label2");
     IGqlpEnum anEnum = A.Enum(name)

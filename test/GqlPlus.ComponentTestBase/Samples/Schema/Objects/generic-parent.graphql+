@@ -1,1 +1,1 @@
-object Name<$type:String> { :$type }
+object Name<$type:_Dual> { :$type }

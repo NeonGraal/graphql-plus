@@ -7,11 +7,11 @@ Success
   <
     I@025/0001
     $type
-    :String
+    :_Dual
   >
   :
   'Parent comment'
-  I@058/0001
+  I@057/0001
   $type
 }
 ]

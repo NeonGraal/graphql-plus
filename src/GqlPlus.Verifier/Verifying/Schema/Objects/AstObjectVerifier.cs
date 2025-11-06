@@ -15,13 +15,14 @@ internal class AstObjectVerifier<TObjField>(
 
   protected override void UsageValue(IGqlpObject<TObjField> usage, ObjectContext context)
   {
+    UsageTypeParams(usage.Label, usage.TypeParams, context);
+
     base.UsageValue(usage, context);
 
     if (usage.Parent is not null) {
       CheckTypeRef(context, usage.Parent, "Parent of " + usage.Name, context.ParentKinds, false);
     }
 
-    UsageTypeParams(usage.Label, usage.TypeParams, context);
     foreach (TObjField field in usage.ObjFields) {
       UsageField(field, usage, context);
     }
@@ -115,13 +116,25 @@ internal class AstObjectVerifier<TObjField>(
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     validKinds ??= context.FieldKinds;
     if (context.GetType(typeName, out IGqlpDescribed? definition)) {
-      if (definition is IGqlpType typeDef && !validKinds.Contains(typeDef.Kind)) {
-        error("Invalid Kind for", $"{typeDef.Kind} not one of {string.Join(",", validKinds)}", check);
+      bool isTypeParam = false;
+      if (definition is IGqlpTypeParam typeParam) {
+        isTypeParam = true;
+        if (!context.GetType(typeParam.Constraint, out definition)) {
+          error($"Invalid Constraint for {typeParam.Name} on", $"'{typeParam.Constraint}' not defined", check);
+        }
       }
 
-      CheckTypeArgs(error, context, reference, definition);
+      if (definition is IGqlpTypeSpecial specialType) {
+        error("Invalid Kind for", $"{specialType.Name} not one of [{string.Join(",", validKinds)}]", !specialType.MatchesKindSpecial(validKinds));
+      } else if (definition is IGqlpType typeDef) {
+        error("Invalid Kind for", $"{typeDef.Kind}({typeDef.Name}) not one of [{string.Join(",", validKinds)}]", !validKinds.Contains(typeDef.Kind));
+      }
+
+      if (!isTypeParam) {
+        CheckTypeArgs(error, context, reference, definition);
+      }
     } else {
-      error($"'{typeName}' not defined", "", check);
+      error("Invalid reference on ", $"'{typeName}' not defined", check);
 
       if (reference is IGqlpObjBase baseType) {
         CheckArgsTypes(error, context, baseType);
@@ -178,8 +191,8 @@ internal class AstObjectVerifier<TObjField>(
     int numArgs = reference is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
     if (definition is IGqlpObject objectDef) {
       CheckTypeArgsDefBase(error, context, reference, numArgs, objectDef, objectDef.TypeParams.Count());
-    } else if (definition is IGqlpSimple simple && numArgs != 0) {
-      error("Args mismatch on", $"Expected none, given {numArgs}");
+    } else if (definition is IGqlpSimple simple) {
+      error("Args mismatch on", $"Expected none, given {numArgs}", numArgs != 0);
     }
   }
 
@@ -230,8 +243,7 @@ internal class AstObjectVerifier<TObjField>(
   }
 
   protected override bool CheckAstParentType(SelfUsage<IGqlpObject<TObjField>> input, IGqlpType astType)
-    => base.CheckAstParentType(input, astType)
-      || astType.Kind == TypeKind.Dual;
+    => true; // Allow any type as parent, checks are done in CheckTypeRef
 
   protected override IEnumerable<TObjField> GetItems(IGqlpObject<TObjField> usage)
     => usage.ObjFields;

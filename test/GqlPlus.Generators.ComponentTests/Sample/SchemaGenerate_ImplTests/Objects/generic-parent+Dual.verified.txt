@@ -1,5 +1,5 @@
 ﻿/* generic-parent+Dual
-dual GnrcPrntDual<$type:String> { :$type }
+dual GnrcPrntDual<$type:_Dual> { :$type }
 */
 
 // Generated from Schema generic-parent+Dual for Impl

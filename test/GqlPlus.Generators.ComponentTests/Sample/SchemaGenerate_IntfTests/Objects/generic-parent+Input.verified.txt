@@ -1,5 +1,5 @@
 ﻿/* generic-parent+Input
-input GnrcPrntInp<$type:String> { :$type }
+input GnrcPrntInp<$type:_Dual> { :$type }
 */
 
 // Generated from Schema generic-parent+Input for Intf

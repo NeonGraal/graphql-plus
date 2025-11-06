@@ -1,5 +1,5 @@
 ﻿/* generic-parent-descr+Output
-output GnrcPrntDescrOutp<$type:String> { :"Parent comment"$type }
+output GnrcPrntDescrOutp<$type:_Dual> { :"Parent comment"$type }
 */
 
 // Generated from Schema generic-parent-descr+Output for Impl

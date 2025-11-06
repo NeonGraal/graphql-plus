@@ -10791,10 +10791,10 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "String",
+            "name": "_Dual",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             }
           },
           "name": "type"
@@ -10818,10 +10818,10 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "String",
+            "name": "_Dual",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             }
           },
           "name": "type"
@@ -10845,10 +10845,10 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "String",
+            "name": "_Dual",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             }
           },
           "name": "type"
@@ -10871,10 +10871,10 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "String",
+            "name": "_Dual",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             }
           },
           "name": "type"
@@ -11317,10 +11317,10 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "String",
+            "name": "_Dual",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             }
           },
           "name": "type"
@@ -11343,10 +11343,10 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "String",
+            "name": "_Dual",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             }
           },
           "name": "type"

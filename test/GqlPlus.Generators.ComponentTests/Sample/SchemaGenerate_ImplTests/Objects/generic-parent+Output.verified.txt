@@ -1,5 +1,5 @@
 ﻿/* generic-parent+Output
-output GnrcPrntOutp<$type:String> { :$type }
+output GnrcPrntOutp<$type:_Dual> { :$type }
 */
 
 // Generated from Schema generic-parent+Output for Impl

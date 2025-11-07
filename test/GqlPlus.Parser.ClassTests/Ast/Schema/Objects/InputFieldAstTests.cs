@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+
+namespace GqlPlus.Ast.Schema.Objects;
 
 public class InputFieldAstTests
   : AstObjectFieldTests
@@ -28,8 +30,12 @@ public class InputFieldAstTests
   protected override string AliasesString(FieldInput input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
 
-  private readonly AstObjectFieldChecks<InputFieldAst> _checks = new(
-      (input, objBase) => new(AstNulls.At, input.Name, objBase));
+  private readonly AstObjectFieldChecks<InputFieldAst> _checks = new(CreateInput, CloneInput);
+
+  private static InputFieldAst CloneInput(InputFieldAst original, FieldInput input)
+    => original with { Name = input.Name };
+  private static InputFieldAst CreateInput(FieldInput input, IGqlpObjBase objBase)
+    => new(AstNulls.At, input.Name, objBase);
 
   internal override IAstObjectFieldChecks FieldChecks => _checks;
 }

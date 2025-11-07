@@ -55,9 +55,7 @@ public abstract class AstObjectTests
 internal abstract class AstObjectChecks<TObjField>(
   TypeKind kind,
   AstTypeChecks<AstObject<TObjField>, IGqlpObjBase>.ParentCreator createParent
-) : AstTypeChecks<AstObject<TObjField>, IGqlpObjBase>(
-    input => new AstObject<TObjField>(kind, AstNulls.At, input, ""),
-    createParent)
+) : AstTypeChecks<AstObject<TObjField>, IGqlpObjBase>(CreateObject(kind), CloneObject, createParent)
   , IAstObjectChecks
   where TObjField : IGqlpObjField
 {
@@ -109,6 +107,10 @@ internal abstract class AstObjectChecks<TObjField>(
 
   protected abstract TObjField[] CreateFields(IEnumerable<FieldInput> fields);
   protected abstract string FieldString(FieldInput input);
+  private static CreateBy<string> CreateObject(TypeKind kind)
+    => input => new(kind, AstNulls.At, input, "");
+  private static AstObject<TObjField> CloneObject(AstObject<TObjField> original, string input)
+    => original with { Name = input };
 }
 
 internal interface IAstObjectChecks

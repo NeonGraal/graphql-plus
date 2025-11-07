@@ -17,8 +17,8 @@ public static class CommonTestHelpers
     IGqlpFieldKey valueAst = value.FieldKey();
 
     return key == value
-      ? new AstFields<IGqlpConstant>(keyAst, new ConstantAst(valueAst))
-      : new AstFields<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst), [valueAst] = new ConstantAst(keyAst) };
+      ? new FieldsAst<IGqlpConstant>(keyAst, new ConstantAst(valueAst))
+      : new FieldsAst<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst), [valueAst] = new ConstantAst(keyAst) };
   }
 
   public static IGqlpModifier[] TestMods()

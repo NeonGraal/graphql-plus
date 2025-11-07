@@ -30,5 +30,4 @@ public abstract record class AstAbbreviated(ITokenAt At)
   ITokenAt IGqlpAbbreviated.At => At;
 
   IEnumerable<string?> IGqlpAbbreviated.GetFields() => GetFields();
-  string IGqlpAbbreviated.Abbr => Abbr;
 }

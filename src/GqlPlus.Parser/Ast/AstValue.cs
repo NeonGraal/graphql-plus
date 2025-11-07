@@ -7,7 +7,7 @@ internal abstract record class AstValue<TValue>(
   where TValue : IGqlpValue<TValue>
 {
   public TValue[] Values { get; init; } = [];
-  public IGqlpFields<TValue> Fields { get; init; } = new AstFields<TValue>();
+  public IGqlpFields<TValue> Fields { get; init; } = new FieldsAst<TValue>();
 
   IEnumerable<TValue> IGqlpValue<TValue>.Values => Values;
   IGqlpFields<TValue> IGqlpValue<TValue>.Fields => Fields;

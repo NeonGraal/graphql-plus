@@ -1,4 +1,5 @@
-﻿namespace GqlPlus.Ast.Schema.Simple;
+﻿
+namespace GqlPlus.Ast.Schema.Simple;
 
 public class UnionAstTests
   : AstTypeTests
@@ -42,7 +43,12 @@ public class UnionAstTests
       unionMembers1.SequenceEqual(unionMembers2));
 
   private readonly AstTypeChecks<UnionDeclAst> _checks
-    = new(name => new UnionDeclAst(AstNulls.At, name, []));
+    = new(CreateUnion, CloneUnion);
+
+  private static UnionDeclAst CloneUnion(UnionDeclAst original, string input)
+    => original with { Name = input };
+  private static UnionDeclAst CreateUnion(string input)
+    => new(AstNulls.At, input, []);
 
   internal override IAstTypeChecks TypeChecks => _checks;
 }

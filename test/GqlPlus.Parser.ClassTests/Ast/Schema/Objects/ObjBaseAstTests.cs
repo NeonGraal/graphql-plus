@@ -62,11 +62,11 @@ public class ObjBaseAstTests
 }
 
 internal sealed class ObjBaseAstChecks
-  : AstAbbreviatedChecks<string, IGqlpObjBase>
+  : AstAbbreviatedChecks<string, ObjBaseAst>
   , IObjBaseAstChecks
 {
   public ObjBaseAstChecks()
-    : base(BaseBy)
+    : base(BaseBy, (original, input) => original with { Name = input })
   { }
 
   internal static ObjBaseAst BaseBy(string input)

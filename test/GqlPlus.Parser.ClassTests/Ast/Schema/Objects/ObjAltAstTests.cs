@@ -63,11 +63,13 @@ internal sealed class AstObjectAlternateChecks
 {
   [SuppressMessage("Style", "IDE0290:Use primary constructor")]
   public AstObjectAlternateChecks()
-    : base(AlternateBy)
+    : base(CreateAlternate, CloneAlternate)
   { }
-
   internal delegate ObjBaseAst BaseBy(AlternateInput input);
-  internal static AlternateAst AlternateBy(AlternateInput input)
+
+  private static AlternateAst CloneAlternate(AlternateAst original, AlternateInput input)
+    => original with { Name = input.Type };
+  internal static AlternateAst CreateAlternate(AlternateInput input)
     => new(AstNulls.At, input.Type, "");
 
   public void HashCode_WithModifiers(AlternateInput input)
@@ -100,7 +102,7 @@ internal sealed class AstObjectAlternateChecks
 
   public void ModifiedType_WithArgs(AlternateInput input, string[] arguments)
   {
-    AlternateAst alternate = AlternateBy(input) with { Args = arguments.TypeArgs() };
+    AlternateAst alternate = CreateAlternate(input) with { Args = arguments.TypeArgs() };
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     alternate.ModifiedType.ShouldBe(expected);
@@ -116,7 +118,7 @@ internal sealed class AstObjectAlternateChecks
 
   public void ModifiedType_WithModifiersAndArgs(AlternateInput input, string[] arguments)
   {
-    AlternateAst alternate = AlternateBy(input) with {
+    AlternateAst alternate = CreateAlternate(input) with {
       Args = arguments.TypeArgs(),
       Modifiers = TestMods()
     };

@@ -7,7 +7,7 @@ internal sealed record class ArgAst
   : AstValue<IGqlpArg>
   , IGqlpArg
 {
-  public string? Variable { get; }
+  public string? Variable { get; internal init; }
   public IGqlpConstant? Constant { get; }
 
   internal override string Abbr => "a";

@@ -19,8 +19,6 @@ internal abstract record class AstValue<TValue>(
     : this(at)
     => Fields = fields;
 
-  public virtual bool Equals(AstValue<TValue>? other)
-    => other is IGqlpValue<TValue> value && Equals(value);
   public bool Equals(IGqlpValue<TValue>? other)
     => other is not null
     && Values.SequenceEqual(other.Values)

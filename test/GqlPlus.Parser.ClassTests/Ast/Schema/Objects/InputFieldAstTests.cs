@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -38,4 +39,32 @@ public class InputFieldAstTests
     => new(AstNulls.At, input.Name, objBase);
 
   internal override IAstObjectFieldChecks FieldChecks => _checks;
+}
+
+public class InputFieldTypeTests
+    : ObjFieldTypeTests<FieldInput>
+{
+  private readonly InputFieldTypeChecks _checks = new(CreateInput, CloneInput);
+
+  private static InputFieldAst CloneInput(InputFieldAst original, FieldInput input)
+    => original with { Name = input.Name };
+  private static InputFieldAst CreateInput(FieldInput input, IGqlpObjBase objBase)
+    => new(AstNulls.At, input.Name, objBase);
+
+  internal override IObjFieldTypeChecks<FieldInput> FieldChecks => _checks;
+
+  protected override string InputString(FieldInput input)
+    => $"( !IF {input.Name} : {input.Type} )";
+}
+
+
+internal sealed class InputFieldTypeChecks(
+  ObjFieldTypeChecks<FieldInput, InputFieldAst>.TypeBy createType,
+  BaseAstChecks<InputFieldAst>.CloneBy<FieldInput> cloneInput
+) : ObjFieldTypeChecks<FieldInput, InputFieldAst>(createType, cloneInput)
+{
+  protected override InputFieldAst CreateEnum(FieldInput input, string enumLabel)
+    => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) };
+  protected override InputFieldAst WithModifiers(InputFieldAst objType)
+    => objType with { Modifiers = TestMods() };
 }

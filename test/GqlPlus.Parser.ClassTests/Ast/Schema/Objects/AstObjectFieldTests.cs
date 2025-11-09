@@ -2,6 +2,7 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
+// Todo: Move tests that can be done via ObjFieldTypeTests children
 public abstract class AstObjectFieldTests
   : AstAliasedTests<FieldInput>
 {

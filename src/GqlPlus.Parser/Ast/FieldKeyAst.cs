@@ -12,10 +12,6 @@ internal sealed record class FieldKeyAst(
   public string? Text { get; internal init; }
   public IGqlpEnumValue? EnumValue { get; }
 
-  // Backward compatibility properties
-  public string? EnumLabel => EnumValue?.EnumLabel;
-  public string? EnumType => EnumValue?.EnumType;
-
   internal override string Abbr => "k";
 
   internal FieldKeyAst(TokenAt at, decimal number)

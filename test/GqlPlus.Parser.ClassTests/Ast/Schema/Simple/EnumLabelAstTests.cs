@@ -4,7 +4,12 @@ public class EnumLabelAstTests
   : AstAliasedTests
 {
   private readonly AstAliasedChecks<EnumLabelAst> _checks
-    = new(name => new EnumLabelAst(AstNulls.At, name));
+    = new(CreateLabel, CloneLabel);
+
+  private static EnumLabelAst CloneLabel(EnumLabelAst original, string input)
+    => original with { Name = input };
+  private static EnumLabelAst CreateLabel(string input)
+    => new(AstNulls.At, input);
 
   internal override IAstAliasedChecks<string> AliasedChecks => _checks;
 

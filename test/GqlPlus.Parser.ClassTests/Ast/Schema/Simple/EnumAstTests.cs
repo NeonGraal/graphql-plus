@@ -1,4 +1,5 @@
-﻿namespace GqlPlus.Ast.Schema.Simple;
+﻿
+namespace GqlPlus.Ast.Schema.Simple;
 
 public class EnumAstTests
   : AstTypeTests
@@ -36,7 +37,12 @@ public class EnumAstTests
       enumLabels1.SequenceEqual(enumLabels2));
 
   private readonly AstTypeChecks<EnumDeclAst> _checks
-    = new(name => new EnumDeclAst(AstNulls.At, name, []));
+    = new(CreateEnum, CloneEnum);
+
+  private static EnumDeclAst CloneEnum(EnumDeclAst original, string input)
+    => original with { Name = input };
+  private static EnumDeclAst CreateEnum(string input)
+    => new(AstNulls.At, input, []);
 
   internal override IAstTypeChecks TypeChecks => _checks;
 }

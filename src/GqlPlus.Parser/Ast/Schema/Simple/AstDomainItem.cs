@@ -9,8 +9,6 @@ internal abstract record class AstDomainItem(
 ) : AstAbbreviated(At)
   , IGqlpDomainItem
 {
-  public virtual bool Equals(AstDomainItem? other)
-  => other is IGqlpDomainItem domainItem && Equals(domainItem);
   public bool Equals(IGqlpDomainItem? other)
   => Equals(other as IGqlpDescribed)
       && Excludes.NullEqual(other.Excludes);

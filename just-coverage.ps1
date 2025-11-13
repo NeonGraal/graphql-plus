@@ -3,7 +3,7 @@ param (
   $Section = "",
   [switch]$IncludeTests = $false,
   [switch]$ClassTests = $false,
-  $Framework = "9.0"
+  $Framework = "10.0"
 )
 
 $coverageFile = "$PWD/coverage/Coverage-$Framework.xml"

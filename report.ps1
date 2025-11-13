@@ -2,7 +2,7 @@
 param (
   [int]$Threshold = 20,
   [switch]$ClassTests = $false,
-  $Framework = "9.0"
+  $Framework = "10.0"
 )
 
 $coverageFile = "$PWD/coverage/Coverage-$Framework*.xml"

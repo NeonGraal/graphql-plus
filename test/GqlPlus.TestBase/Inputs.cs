@@ -41,25 +41,31 @@ public record struct DomainRangeInput(decimal? Min, decimal? Max)
   }
 }
 
-public record struct AlternateInput(string Type)
-  : IComparable<AlternateInput>, ITypeParamInput
+public record struct TypeInput(
+  string Type
+) : IComparable<TypeInput>
+  , ITypeInput
 {
   public bool TypeParam { get; private init; } = false;
 
-  public AlternateInput MakeTypeParam()
+  public TypeInput MakeTypeParam()
     => this with { TypeParam = true };
 
-  public readonly int CompareTo(AlternateInput other)
+  public readonly int CompareTo(TypeInput other)
     => string.CompareOrdinal(Type, other.Type);
+  public override readonly string? ToString()
+    => Type;
 }
 
-internal interface ITypeParamInput
+internal interface ITypeInput
 {
+  string Type { get; }
   bool TypeParam { get; }
 }
 
 public record struct FieldInput(string Name, string Type)
-  : IComparable<FieldInput>, ITypeParamInput
+  : IComparable<FieldInput>
+  , ITypeInput
 {
   public bool TypeParam { get; private init; } = false;
 
@@ -72,6 +78,8 @@ public record struct FieldInput(string Name, string Type)
 
     return comp == 0 ? string.CompareOrdinal(Type, other.Type) : comp;
   }
+
+  public readonly override string? ToString() => $"{Name} : {Type}";
 }
 
 public record struct OperationInput(string Name, string Category);

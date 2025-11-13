@@ -53,15 +53,17 @@ public abstract class AstDirectivesTests<TInput>
 }
 
 internal sealed class AstDirectivesChecks<TAst>(
-  AstDirectivesChecks<string, TAst>.CreateDirectives<string> createDirectives
-) : AstDirectivesChecks<string, TAst>(createDirectives)
+  AstDirectivesChecks<string, TAst>.CreateDirectives<string> createDirectives,
+  BaseAstChecks<TAst>.CloneBy<string> cloneInput
+) : AstDirectivesChecks<string, TAst>(createDirectives, cloneInput)
   , IAstDirectivesChecks
   where TAst : IGqlpDirectives
 { }
 
 internal class AstDirectivesChecks<TInput, TAst>(
-  AstDirectivesChecks<TInput, TAst>.CreateDirectives<TInput> createDirectives
-) : AstAbbreviatedChecks<TInput, TAst>(i => createDirectives(i, []))
+  AstDirectivesChecks<TInput, TAst>.CreateDirectives<TInput> createDirectives,
+  BaseAstChecks<TAst>.CloneBy<TInput> cloneInput
+) : AstAbbreviatedChecks<TInput, TAst>(i => createDirectives(i, []), cloneInput)
   , IAstDirectivesChecks<TInput>
   where TAst : IGqlpDirectives
 {
@@ -81,7 +83,7 @@ internal class AstDirectivesChecks<TInput, TAst>(
     => Inequality(
       () => createDirectives(input, directives),
       () => CreateInput(input),
-      factoryExpression: CreateExpression);
+      factory1Expression: CreateExpression);
 
   public void Inequality_ByDirectives(TInput input, string[] directive1, string[] directive2)
     => InequalityBetween(directive1, directive2,

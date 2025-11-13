@@ -37,8 +37,7 @@ public abstract class ObjectVerifierTestsBase<TObjField>
   protected sealed override IGqlpObject<TObjField> TheUsage => TheObject;
 
   protected ObjectBuilder<TObjField> TheBuilder { get; }
-  protected IGqlpObject<TObjField> TheObject => _theObject ??= TheBuilder.AsObject;
-  private IGqlpObject<TObjField>? _theObject;
+  protected IGqlpObject<TObjField> TheObject { get => field ??= TheBuilder.AsObject; private set; }
 
   [Fact]
   public void Verify_CallsMergeFieldsAndAlternates_WithoutErrors()

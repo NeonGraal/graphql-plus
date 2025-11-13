@@ -2,20 +2,20 @@
 
 namespace GqlPlus.Ast;
 
-internal class AstFields<TValue>
+internal sealed class FieldsAst<TValue>
   : Dictionary<IGqlpFieldKey, TValue>
   , IEquatable<Dictionary<IGqlpFieldKey, TValue>>
   , IGqlpFields<TValue>
   where TValue : IGqlpValue<TValue>
 {
-  public AstFields()
+  public FieldsAst()
     : base() { }
-  public AstFields(IGqlpFieldKey key, TValue value)
+  public FieldsAst(IGqlpFieldKey key, TValue value)
     : base(key.DictWith(value)) { }
-  public AstFields(IDictionary<IGqlpFieldKey, TValue> dict)
+  public FieldsAst(IDictionary<IGqlpFieldKey, TValue> dict)
     : base(dict) { }
 
-  public virtual bool Equals(Dictionary<IGqlpFieldKey, TValue>? other)
+  public bool Equals(Dictionary<IGqlpFieldKey, TValue>? other)
     => other is not null
     && Keys.OrderedEqual(other.Keys)
     && Keys.All(k => this[k]?.Equals(other[k]) ?? false);
@@ -48,5 +48,5 @@ internal class AstFields<TValue>
   bool IImmutableDictionary<IGqlpFieldKey, TValue>.Contains(KeyValuePair<IGqlpFieldKey, TValue> pair)
     => this.Contains(pair);
   bool IEquatable<IGqlpFields<TValue>>.Equals(IGqlpFields<TValue>? other)
-    => Equals(other as AstFields<TValue>);
+    => Equals(other as FieldsAst<TValue>);
 }

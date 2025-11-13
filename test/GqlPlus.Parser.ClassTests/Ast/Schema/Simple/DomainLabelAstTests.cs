@@ -28,7 +28,12 @@ public class DomainLabelAstTests
   }
 
   private readonly AstAbbreviatedChecks<DomainLabelAst> _checks
-    = new(label => new DomainLabelAst(AstNulls.At, "", false, label));
+    = new(CreateLabel, CloneLabel);
+
+  private static DomainLabelAst CloneLabel(DomainLabelAst original, string input)
+    => original with { EnumItem = input };
+  private static DomainLabelAst CreateLabel(string input)
+    => new(AstNulls.At, "", false, input);
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

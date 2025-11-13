@@ -35,11 +35,20 @@ public class ModifierAstTests
     _checks.Text(() => ModifierAst.Param(AstNulls.At, key, optional), $"[${key}{optString}]");
   }
 
+  [Theory, RepeatData]
+  public void Clone(string key)
+  {
+    ModifierAst item = ModifierAst.Dict(AstNulls.At, key, false);
+    _checks.Equality(() => item, () => item with { Key = key });
+  }
+
   [Fact]
-  public void Inequality()
-    => _checks.Inequality(
-      () => ModifierAst.Optional(AstNulls.At),
-      () => ModifierAst.List(AstNulls.At));
+  public void Equality_WithOpti()
+    => _checks.Equality(() => ModifierAst.Optional(AstNulls.At));
+
+  [Fact]
+  public void Equality_WithList()
+    => _checks.Equality(() => ModifierAst.List(AstNulls.At));
 
   [Theory, RepeatData]
   public void Equality_WithDict(string key, bool optional)
@@ -48,6 +57,12 @@ public class ModifierAstTests
   [Theory, RepeatData]
   public void Equality_WithParam(string key, bool optional)
     => _checks.Equality(() => ModifierAst.Param(AstNulls.At, key, optional));
+
+  [Fact]
+  public void Inequality()
+    => _checks.Inequality(
+      () => ModifierAst.Optional(AstNulls.At),
+      () => ModifierAst.List(AstNulls.At));
 
   [Theory, RepeatData]
   public void Inequality_WithDict(string key, bool optional)
@@ -60,6 +75,10 @@ public class ModifierAstTests
     => _checks.Inequality(
       () => ModifierAst.Dict(AstNulls.At, key, optional),
       () => ModifierAst.Param(AstNulls.At, key, optional));
+
+  [Fact]
+  public void Inequality_WithNull()
+    => _checks.Inequality(() => ModifierAst.List(AstNulls.At), () => default!);
 
   [Theory, RepeatData]
   public void Inequality_BetweenKeys(string key1, string key2)

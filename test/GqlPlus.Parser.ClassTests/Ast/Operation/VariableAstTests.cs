@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
-
-namespace GqlPlus.Ast.Operation;
+﻿namespace GqlPlus.Ast.Operation;
 
 public class VariableAstTests
   : AstDirectivesTests
@@ -73,9 +71,11 @@ public class VariableAstTests
     => _checks.InequalityWith(name,
       () => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) });
 
-  internal AstDirectivesChecks<IGqlpVariable> _checks = new(Variable);
+  internal AstDirectivesChecks<VariableAst> _checks = new(CreateVariable, CloneVariable);
 
-  private static VariableAst Variable(string input, string[] directives)
+  private static VariableAst CloneVariable(VariableAst original, string input)
+    => original with { Identifier = input };
+  private static VariableAst CreateVariable(string input, string[] directives)
     => new(AstNulls.At, input) { Directives = directives.Directives() };
 
   internal override IAstDirectivesChecks DirectivesChecks => _checks;

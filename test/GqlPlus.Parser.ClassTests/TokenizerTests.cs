@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace GqlPlus;
@@ -272,7 +273,7 @@ public class TokenizerTests
     char expected = many.First();
 
     TrueAndExpected(
-      (out char result) => tokens.TakeAny(out result, many.ToCharArray()),
+      (out result) => tokens.TakeAny(out result, many.ToCharArray()),
       expected);
   }
 
@@ -317,7 +318,7 @@ public class TokenizerTests
     char expected = prefix.First();
 
     TrueAndExpected(
-      (out string? result) => tokens.Prefix(expected, out result, out TokenAt _),
+      (out result) => tokens.Prefix(expected, out result, out TokenAt _),
       identifier);
   }
 
@@ -423,6 +424,31 @@ public class TokenizerTests
     TokenMessage result = tokens.Error(message);
 
     CheckParseError(result, TokenKind.Identifer, value, message, 2);
+  }
+
+  [Theory, RepeatData]
+  public void Description_AfterRead_ReturnsDescription(string contents)
+  {
+    ITokenizer tokens = PrepareTokens(contents.Quote());
+    string result = tokens.Description();
+    result.ShouldBe(contents);
+  }
+
+  [Theory, RepeatData]
+  public void GetDescription_AfterTake_ReturnsDescription(string contents)
+  {
+    ITokenizer tokens = PrepareTokens(contents.Quote());
+    tokens.TakeDescription();
+    string result = tokens.GetDescription();
+    result.ShouldBe(contents);
+  }
+
+  [Fact]
+  public void GetDescription_WithoutTake_ReturnsEmpty()
+  {
+    ITokenizer tokens = PrepareTokens("'");
+    string result = tokens.GetDescription();
+    result.ShouldBeEmpty();
   }
 
   private static void CheckParseError(TokenMessage result, TokenKind kind, string expected, string message, int line = 1, int col = 1)

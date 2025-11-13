@@ -54,11 +54,11 @@ public class TypeArgAstTests
 }
 
 internal sealed class TypeArgAstChecks
-  : AstAbbreviatedChecks<string, IGqlpTypeArg>
+  : AstAbbreviatedChecks<string, TypeArgAst>
   , ITypeArgAstChecks
 {
   public TypeArgAstChecks()
-    : base(ArgBy)
+    : base(ArgBy, (original, input) => original with { Name = input })
   { }
 
   internal static TypeArgAst ArgBy(string input)

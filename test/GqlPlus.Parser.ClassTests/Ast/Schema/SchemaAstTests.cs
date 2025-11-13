@@ -6,8 +6,12 @@ public class SchemaAstTests
   : AstAbbreviatedTests
 {
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
-    = new AstAbbreviatedChecks<SchemaAst>(name => new SchemaAst(AstNulls.At) { Declarations = [new OptionDeclAst(AstNulls.At, name)] });
+    = new AstAbbreviatedChecks<SchemaAst>(CreateSchema, CloneSchema);
 
+  private static SchemaAst CloneSchema(SchemaAst original, string input)
+    => original with { Declarations = [new OptionDeclAst(AstNulls.At, input)] };
+  private static SchemaAst CreateSchema(string input)
+    => new(AstNulls.At) { Declarations = [new OptionDeclAst(AstNulls.At, input)] };
   protected override string AbbreviatedString(string input)
     => $"( !Sc Failure {{ !Op {input} }} )";
 }

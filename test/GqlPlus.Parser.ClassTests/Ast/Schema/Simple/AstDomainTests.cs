@@ -35,9 +35,8 @@ public abstract class AstDomainTests<TInput>
 
 internal abstract class AstDomainChecks<TInput, TItemAst, TItem>(
   DomainKind kind
-) : AstTypeChecks<AstDomain<TItemAst, TItem>>(
-    input => new AstDomain<TItemAst, TItem>(AstNulls.At, input, kind, [])
-  ), IAstDomainChecks<TInput>
+) : AstTypeChecks<AstDomain<TItemAst, TItem>>(CreateDomain(kind), CloneDomain)
+  , IAstDomainChecks<TInput>
   where TInput : IEquatable<TInput>
   where TItemAst : AstAbbreviated, TItem
   where TItem : IGqlpDomainItem
@@ -62,6 +61,10 @@ internal abstract class AstDomainChecks<TInput, TItemAst, TItem>(
 
   protected virtual bool SkipEquals(TInput input1, TInput input2)
     => input1.NullEqual(input2);
+  private static AstDomain<TItemAst, TItem> CloneDomain(AstDomain<TItemAst, TItem> original, string input)
+    => original with { Name = input };
+  private static CreateBy<string> CreateDomain(DomainKind kind)
+    => input => new(AstNulls.At, input, kind, []);
 
   protected abstract string ItemsString(string name, TInput input);
   protected abstract TItemAst[] DomainItems(TInput input);

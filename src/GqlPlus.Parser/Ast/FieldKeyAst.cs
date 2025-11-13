@@ -9,12 +9,8 @@ internal sealed record class FieldKeyAst(
   , IGqlpFieldKey
 {
   public decimal? Number { get; }
-  public string? Text { get; }
+  public string? Text { get; internal init; }
   public IGqlpEnumValue? EnumValue { get; }
-
-  // Backward compatibility properties
-  public string? EnumLabel => EnumValue?.EnumLabel;
-  public string? EnumType => EnumValue?.EnumType;
 
   internal override string Abbr => "k";
 

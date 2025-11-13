@@ -7,7 +7,7 @@ internal abstract record class AstValue<TValue>(
   where TValue : IGqlpValue<TValue>
 {
   public TValue[] Values { get; init; } = [];
-  public IGqlpFields<TValue> Fields { get; init; } = new AstFields<TValue>();
+  public IGqlpFields<TValue> Fields { get; init; } = new FieldsAst<TValue>();
 
   IEnumerable<TValue> IGqlpValue<TValue>.Values => Values;
   IGqlpFields<TValue> IGqlpValue<TValue>.Fields => Fields;
@@ -19,8 +19,6 @@ internal abstract record class AstValue<TValue>(
     : this(at)
     => Fields = fields;
 
-  public virtual bool Equals(AstValue<TValue>? other)
-    => other is IGqlpValue<TValue> value && Equals(value);
   public bool Equals(IGqlpValue<TValue>? other)
     => other is not null
     && Values.SequenceEqual(other.Values)

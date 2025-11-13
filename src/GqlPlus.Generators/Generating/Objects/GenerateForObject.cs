@@ -7,9 +7,7 @@ internal class GenerateForObject<TObjField>
   where TObjField : IGqlpObjField
 {
   public GenerateForObject()
-  {
-    _generators[GqlpGeneratorType.Interface] = GenerateObjectInterfaces;
-  }
+    => _generators[GqlpGeneratorType.Interface] = GenerateObjectInterfaces;
 
   private void GenerateObjectInterfaces(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {

@@ -21,6 +21,7 @@ internal record class AstDomain<TItemAst, TItem>(
     : this(at, name, "", kind)
     => Items = items;
 
+  [ExcludeFromCodeCoverage]
   public virtual bool Equals(AstDomain<TItemAst, TItem>? other)
     => other is IGqlpSimple<TItem> simple && Equals(simple);
   public bool Equals(IGqlpDomain<TItem> other)
@@ -47,8 +48,6 @@ internal abstract record class AstDomain(
 {
   public override TypeKind Kind => TypeKind.Domain;
 
-  public virtual bool Equals(AstDomain? other)
-    => other is IGqlpDomain domain && Equals(domain);
   public bool Equals(IGqlpDomain? other)
     => base.Equals(other)
     && DomainKind == other.DomainKind;

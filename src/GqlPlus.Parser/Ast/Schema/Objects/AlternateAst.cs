@@ -30,6 +30,7 @@ internal record class AlternateAst(
     Name = enumType;
   }
 
+  [ExcludeFromCodeCoverage]
   public virtual bool Equals(AlternateAst? other)
     => other is IGqlpAlternate alternate && Equals(alternate);
   public bool Equals(IGqlpAlternate? other)

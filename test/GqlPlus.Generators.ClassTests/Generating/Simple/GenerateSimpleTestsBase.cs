@@ -24,5 +24,4 @@ public abstract class GenerateSimpleTestsBase<TSimple>
       GeneratedCodeName(generatorType, name),
       GeneratedCodeParent(generatorType, parent));
   }
-
 }

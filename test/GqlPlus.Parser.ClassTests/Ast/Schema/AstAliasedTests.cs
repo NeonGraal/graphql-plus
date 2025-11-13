@@ -71,16 +71,18 @@ public abstract class AstAliasedTests<TInput>
 
 internal class AstAliasedChecks<TAliased>(
   BaseAstChecks<TAliased>.CreateBy<string> createInput,
+  BaseAstChecks<TAliased>.CloneBy<string> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstAliasedChecks<string, TAliased>(createInput, createExpression)
+) : AstAliasedChecks<string, TAliased>(createInput, cloneInput, createExpression)
   , IAstAliasedChecks
   where TAliased : AstAliased
 { }
 
 internal class AstAliasedChecks<TInput, TAliased>(
   BaseAstChecks<TAliased>.CreateBy<TInput> createInput,
+  BaseAstChecks<TAliased>.CloneBy<TInput> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstNamedChecks<TInput, TAliased>(createInput, createExpression)
+) : AstNamedChecks<TInput, TAliased>(createInput, cloneInput, createExpression)
   , IAstAliasedChecks<TInput>
   where TAliased : AstAliased
 {
@@ -98,7 +100,7 @@ internal class AstAliasedChecks<TInput, TAliased>(
     => Inequality(
       () => CreateAliases(input, aliases),
       () => CreateInput(input),
-      factoryExpression: CreateExpression);
+      factory1Expression: CreateExpression);
 
   public void Inequality_ByAliases(TInput input, string aliases1, string aliases2)
     => InequalityBetween(aliases1, aliases2,

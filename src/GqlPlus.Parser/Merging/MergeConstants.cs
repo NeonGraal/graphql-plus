@@ -36,7 +36,7 @@ internal class MergeConstants
         : b.Values.Prepend(a);
     }
 
-    return (ConstantAst)b with { Value = null, Fields = new AstFields<IGqlpConstant>(), Values = values.ArrayOf<ConstantAst>() };
+    return (ConstantAst)b with { Value = null, Fields = new FieldsAst<IGqlpConstant>(), Values = values.ArrayOf<ConstantAst>() };
   }
 
   private IGqlpConstant MergeFields(IGqlpConstant a, IGqlpConstant b)
@@ -45,6 +45,6 @@ internal class MergeConstants
       .ToLookup(p => p.Key, p => p.Value)
       .ToImmutableDictionary(g => g.Key, g => Merge(g).First());
 
-    return (ConstantAst)b with { Fields = new AstFields<IGqlpConstant>(fields) };
+    return (ConstantAst)b with { Fields = new FieldsAst<IGqlpConstant>(fields) };
   }
 }

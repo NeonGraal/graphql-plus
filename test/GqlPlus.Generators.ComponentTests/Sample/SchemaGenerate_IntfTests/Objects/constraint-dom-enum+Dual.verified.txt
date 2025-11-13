@@ -1,0 +1,36 @@
+﻿/* constraint-dom-enum+Dual
+dual CnstDomEnumDual { | RefCnstDomEnumDual<cnstDomEnumDual> }
+dual RefCnstDomEnumDual<$type:JustCnstDomEnumDual> { field: $type }
+enum EnumCnstDomEnumDual { cnstDomEnumDual other }
+domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
+*/
+
+// Generated from Schema constraint-dom-enum+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
+
+public interface ICmptCnstDomEnumDual
+{
+  public CmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
+  public CmptCnstDomEnumDual CnstDomEnumDual { get; set; }
+}
+
+public interface ICmptCnstDomEnumDualField
+{
+}
+
+public interface ICmptRefCnstDomEnumDual<Ttype>
+{
+  public CmptRefCnstDomEnumDual RefCnstDomEnumDual { get; set; }
+}
+
+public interface ICmptRefCnstDomEnumDualField<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public interface ICmptJustCnstDomEnumDual
+{
+}

@@ -1,0 +1,19 @@
+﻿/* category-output-descr
+category { "Output comment" CtgrOutpDescr }
+output CtgrOutpDescr { }
+*/
+
+// Generated from Schema category-output-descr for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_category_output_descr;
+
+public interface ICmptCtgrOutpDescr
+{
+  public CmptCtgrOutpDescr CtgrOutpDescr { get; set; }
+}
+
+public interface ICmptCtgrOutpDescrField
+{
+}

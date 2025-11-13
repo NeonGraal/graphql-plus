@@ -1,0 +1,31 @@
+﻿/* generic-enum+Output
+output GnrcEnumOutp { | RefGnrcEnumOutp<EnumGnrcEnumOutp.gnrcEnumOutp> }
+output RefGnrcEnumOutp<$type:_Enum> { field: $type }
+enum EnumGnrcEnumOutp { gnrcEnumOutp }
+*/
+
+// Generated from Schema generic-enum+Output for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_enum_Output;
+
+public interface ICmptGnrcEnumOutp
+{
+  public CmptRefGnrcEnumOutp<CmptEnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; set; }
+  public CmptGnrcEnumOutp GnrcEnumOutp { get; set; }
+}
+
+public interface ICmptGnrcEnumOutpField
+{
+}
+
+public interface ICmptRefGnrcEnumOutp<Ttype>
+{
+  public CmptRefGnrcEnumOutp RefGnrcEnumOutp { get; set; }
+}
+
+public interface ICmptRefGnrcEnumOutpField<Ttype>
+{
+  public Ttype field { get; set; }
+}

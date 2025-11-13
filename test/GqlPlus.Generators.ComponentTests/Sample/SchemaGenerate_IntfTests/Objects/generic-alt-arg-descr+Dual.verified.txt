@@ -1,0 +1,30 @@
+﻿/* generic-alt-arg-descr+Dual
+dual GnrcAltArgDescrDual<$type:String> { | RefGnrcAltArgDescrDual<"Test" "Descr"$type> }
+dual RefGnrcAltArgDescrDual<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-arg-descr+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_alt_arg_descr_Dual;
+
+public interface ICmptGnrcAltArgDescrDual<Ttype>
+{
+  public CmptRefGnrcAltArgDescrDual<Ttype> AsRefGnrcAltArgDescrDual { get; set; }
+  public CmptGnrcAltArgDescrDual GnrcAltArgDescrDual { get; set; }
+}
+
+public interface ICmptGnrcAltArgDescrDualField<Ttype>
+{
+}
+
+public interface ICmptRefGnrcAltArgDescrDual<Tref>
+{
+  public Tref Asref { get; set; }
+  public CmptRefGnrcAltArgDescrDual RefGnrcAltArgDescrDual { get; set; }
+}
+
+public interface ICmptRefGnrcAltArgDescrDualField<Tref>
+{
+}

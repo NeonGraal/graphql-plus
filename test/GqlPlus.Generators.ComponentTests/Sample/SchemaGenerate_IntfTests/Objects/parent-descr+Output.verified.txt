@@ -1,0 +1,32 @@
+﻿/* parent-descr+Output
+output PrntDescrOutp { : "Test" "Descr" RefPrntDescrOutp }
+output RefPrntDescrOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent-descr+Output for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_parent_descr_Output;
+
+public interface ICmptPrntDescrOutp
+  : ICmptRefPrntDescrOutp
+{
+  public CmptPrntDescrOutp PrntDescrOutp { get; set; }
+}
+
+public interface ICmptPrntDescrOutpField
+  : ICmptRefPrntDescrOutpField
+{
+}
+
+public interface ICmptRefPrntDescrOutp
+{
+  public CmptString AsString { get; set; }
+  public CmptRefPrntDescrOutp RefPrntDescrOutp { get; set; }
+}
+
+public interface ICmptRefPrntDescrOutpField
+{
+  public CmptNumber parent { get; set; }
+}

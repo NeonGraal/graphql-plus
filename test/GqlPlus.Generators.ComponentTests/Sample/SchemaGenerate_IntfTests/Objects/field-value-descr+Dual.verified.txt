@@ -1,0 +1,20 @@
+﻿/* field-value-descr+Dual
+dual FieldValueDescrDual { field = "Test" "Descr" fieldValueDescrDual }
+enum EnumFieldValueDescrDual { fieldValueDescrDual }
+*/
+
+// Generated from Schema field-value-descr+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_field_value_descr_Dual;
+
+public interface ICmptFieldValueDescrDual
+{
+  public CmptFieldValueDescrDual FieldValueDescrDual { get; set; }
+}
+
+public interface ICmptFieldValueDescrDualField
+{
+  public CmptEnumFieldValueDescrDual field { get; set; }
+}

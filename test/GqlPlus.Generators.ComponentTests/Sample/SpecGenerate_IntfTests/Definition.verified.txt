@@ -1,0 +1,121 @@
+﻿/* Definition
+enum Boolean [bool, ^] { false true }
+
+enum Null [null] { null }
+
+enum Unit [_] { _ }
+
+"No valid value"enum Void { }
+
+domain Number [int, 0] { Number }
+
+domain String [str, *] { String }
+
+union _Basic [Basic] { Boolean Number String Unit }
+
+union _Internal [Internal] { Null Void }
+
+union _Key [Key] { _Basic _Internal _Simple }
+
+"%"
+dual _Object [Object, obj, %] { }
+
+"All user defined Domain types" union _Domain [Domain] { }
+"All user defined Dual types" dual _Dual [Dual] { }
+"All user defined Enum types" union _Enum [Enum] { }
+"All user defined Input types" input _Input [Input] { }
+"All user defined Output types" output _Output [Output] { }
+"All user defined Union types" union _Union [Union] { }
+
+union _Simple [Simple] { _Enum _Domain _Union }
+*/
+
+// Generated from Spec Definition for Intf
+
+/*
+*/
+namespace Components.Gqlp_Spec_Definition;
+
+public interface ICmptNumber
+{
+}
+
+public interface ICmptString
+{
+}
+
+public interface ICmpt_Basic
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+  String AsString { get; }
+  Unit AsUnit { get; }
+}
+
+public interface ICmpt_Internal
+{
+  Null AsNull { get; }
+  Void AsVoid { get; }
+}
+
+public interface ICmpt_Key
+{
+  _Basic As_Basic { get; }
+  _Internal As_Internal { get; }
+  _Simple As_Simple { get; }
+}
+
+public interface ICmpt_Object
+{
+  public Cmpt_Object _Object { get; set; }
+}
+
+public interface ICmpt_ObjectField
+{
+}
+
+public interface ICmpt_Domain
+{
+}
+
+public interface ICmpt_Dual
+{
+  public Cmpt_Dual _Dual { get; set; }
+}
+
+public interface ICmpt_DualField
+{
+}
+
+public interface ICmpt_Enum
+{
+}
+
+public interface ICmpt_Input
+{
+  public Cmpt_Input _Input { get; set; }
+}
+
+public interface ICmpt_InputField
+{
+}
+
+public interface ICmpt_Output
+{
+  public Cmpt_Output _Output { get; set; }
+}
+
+public interface ICmpt_OutputField
+{
+}
+
+public interface ICmpt_Union
+{
+}
+
+public interface ICmpt_Simple
+{
+  _Enum As_Enum { get; }
+  _Domain As_Domain { get; }
+  _Union As_Union { get; }
+}

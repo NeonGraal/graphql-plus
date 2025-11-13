@@ -1,0 +1,25 @@
+﻿/* parent-dual+Output
+output PrntDualOutp { :RefPrntDualOutp }
+dual RefPrntDualOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent-dual+Output for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_parent_dual_Output;
+
+public class CmptPrntDualOutp
+  : CmptRefPrntDualOutp
+  , ICmptPrntDualOutp
+{
+  public CmptPrntDualOutp PrntDualOutp { get; set; }
+}
+
+public class CmptRefPrntDualOutp
+  : ICmptRefPrntDualOutp
+{
+  public CmptNumber parent { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptRefPrntDualOutp RefPrntDualOutp { get; set; }
+}

@@ -1,0 +1,24 @@
+﻿/* object-parent+Input
+input ObjPrntInp { :RefObjPrntInp }
+input ObjPrntInp { :RefObjPrntInp }
+input RefObjPrntInp { }
+*/
+
+// Generated from Schema object-parent+Input for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_object_parent_Input;
+
+public class CmptObjPrntInp
+  : CmptRefObjPrntInp
+  , ICmptObjPrntInp
+{
+  public CmptObjPrntInp ObjPrntInp { get; set; }
+}
+
+public class CmptRefObjPrntInp
+  : ICmptRefObjPrntInp
+{
+  public CmptRefObjPrntInp RefObjPrntInp { get; set; }
+}

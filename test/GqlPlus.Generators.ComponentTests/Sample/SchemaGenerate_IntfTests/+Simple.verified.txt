@@ -1,0 +1,155 @@
+﻿// Generated from Schema +Simple for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_Simple;
+
+public interface ICmptDmnBoolDescr
+{
+}
+
+public interface ICmptDmnBoolPrnt
+  : ICmptPrntDmnBoolPrnt
+{
+}
+
+public interface ICmptPrntDmnBoolPrnt
+{
+}
+
+public interface ICmptDmnBoolPrntDescr
+  : ICmptPrntDmnBoolPrntDescr
+{
+}
+
+public interface ICmptPrntDmnBoolPrntDescr
+{
+}
+
+public interface ICmptDmnEnumAll
+{
+}
+
+public interface ICmptDmnEnumAllDescr
+{
+}
+
+public interface ICmptDmnEnumAllPrnt
+{
+}
+
+public interface ICmptDmnEnumDescr
+{
+}
+
+public interface ICmptDmnEnumLabel
+{
+}
+
+public interface ICmptDmnEnumPrnt
+  : ICmptPrntDmnEnumPrnt
+{
+}
+
+public interface ICmptPrntDmnEnumPrnt
+{
+}
+
+public interface ICmptDmnEnumPrntDescr
+  : ICmptPrntDmnEnumPrntDescr
+{
+}
+
+public interface ICmptPrntDmnEnumPrntDescr
+{
+}
+
+public interface ICmptDmnEnumValue
+{
+}
+
+public interface ICmptDmnEnumValuePrnt
+{
+}
+
+public interface ICmptDmnNmbrDescr
+{
+}
+
+public interface ICmptDmnNmbrPrnt
+  : ICmptPrntDmnNmbrPrnt
+{
+}
+
+public interface ICmptPrntDmnNmbrPrnt
+{
+}
+
+public interface ICmptDmnNmbrPrntDescr
+  : ICmptPrntDmnNmbrPrntDescr
+{
+}
+
+public interface ICmptPrntDmnNmbrPrntDescr
+{
+}
+
+public interface ICmptDmnStrDescr
+{
+}
+
+public interface ICmptDmnStrPrnt
+  : ICmptPrntDmnStrPrnt
+{
+}
+
+public interface ICmptPrntDmnStrPrnt
+{
+}
+
+public interface ICmptDmnStrPrntDescr
+  : ICmptPrntDmnStrPrntDescr
+{
+}
+
+public interface ICmptPrntDmnStrPrntDescr
+{
+}
+
+public interface ICmptUnionDescr
+{
+  Number AsNumber { get; }
+}
+
+public interface ICmptUnionPrnt
+  : ICmptPrntUnionPrnt
+{
+  String AsString { get; }
+}
+
+public interface ICmptPrntUnionPrnt
+{
+  Number AsNumber { get; }
+}
+
+public interface ICmptUnionPrntDescr
+  : ICmptPrntUnionPrntDescr
+{
+  Number AsNumber { get; }
+}
+
+public interface ICmptPrntUnionPrntDescr
+{
+  Number AsNumber { get; }
+}
+
+public interface ICmptUnionPrntDup
+  : ICmptPrntUnionPrntDup
+{
+  Number AsNumber { get; }
+}
+
+public interface ICmptPrntUnionPrntDup
+{
+  Number AsNumber { get; }
+}

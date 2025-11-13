@@ -1,0 +1,36 @@
+﻿/* constraint-dom-enum+Input
+input CnstDomEnumInp { | RefCnstDomEnumInp<cnstDomEnumInp> }
+input RefCnstDomEnumInp<$type:JustCnstDomEnumInp> { field: $type }
+enum EnumCnstDomEnumInp { cnstDomEnumInp other }
+domain JustCnstDomEnumInp { enum EnumCnstDomEnumInp.cnstDomEnumInp }
+*/
+
+// Generated from Schema constraint-dom-enum+Input for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
+
+public interface ICmptCnstDomEnumInp
+{
+  public CmptRefCnstDomEnumInp<CmptEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public CmptCnstDomEnumInp CnstDomEnumInp { get; set; }
+}
+
+public interface ICmptCnstDomEnumInpField
+{
+}
+
+public interface ICmptRefCnstDomEnumInp<Ttype>
+{
+  public CmptRefCnstDomEnumInp RefCnstDomEnumInp { get; set; }
+}
+
+public interface ICmptRefCnstDomEnumInpField<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public interface ICmptJustCnstDomEnumInp
+{
+}

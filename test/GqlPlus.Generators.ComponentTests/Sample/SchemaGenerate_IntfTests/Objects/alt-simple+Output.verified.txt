@@ -1,0 +1,19 @@
+﻿/* alt-simple+Output
+output AltSmplOutp { | String }
+*/
+
+// Generated from Schema alt-simple+Output for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_alt_simple_Output;
+
+public interface ICmptAltSmplOutp
+{
+  public CmptString AsString { get; set; }
+  public CmptAltSmplOutp AltSmplOutp { get; set; }
+}
+
+public interface ICmptAltSmplOutpField
+{
+}

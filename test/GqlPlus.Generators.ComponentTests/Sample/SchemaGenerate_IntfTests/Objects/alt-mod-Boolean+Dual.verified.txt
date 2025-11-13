@@ -1,0 +1,31 @@
+﻿/* alt-mod-Boolean+Dual
+dual AltModBoolDual { | AltAltModBoolDual[^] }
+dual AltAltModBoolDual { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-Boolean+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
+
+public interface ICmptAltModBoolDual
+{
+  public IDictionary<CmptBoolean, CmptAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
+  public CmptAltModBoolDual AltModBoolDual { get; set; }
+}
+
+public interface ICmptAltModBoolDualField
+{
+}
+
+public interface ICmptAltAltModBoolDual
+{
+  public CmptString AsString { get; set; }
+  public CmptAltAltModBoolDual AltAltModBoolDual { get; set; }
+}
+
+public interface ICmptAltAltModBoolDualField
+{
+  public CmptNumber alt { get; set; }
+}

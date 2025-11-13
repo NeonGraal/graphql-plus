@@ -1,0 +1,49 @@
+﻿/* constraint-parent-dual-grandparent+Dual
+dual CnstPrntDualGrndDual { :RefCnstPrntDualGrndDual<AltCnstPrntDualGrndDual> }
+dual RefCnstPrntDualGrndDual<$ref:GrndCnstPrntDualGrndDual> { :$ref }
+dual GrndCnstPrntDualGrndDual { | String }
+dual PrntCnstPrntDualGrndDual { :GrndCnstPrntDualGrndDual }
+dual AltCnstPrntDualGrndDual { :PrntCnstPrntDualGrndDual alt: Number }
+*/
+
+// Generated from Schema constraint-parent-dual-grandparent+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Dual;
+
+public class CmptCnstPrntDualGrndDual
+  : CmptRefCnstPrntDualGrndDual
+  , ICmptCnstPrntDualGrndDual
+{
+  public CmptCnstPrntDualGrndDual CnstPrntDualGrndDual { get; set; }
+}
+
+public class CmptRefCnstPrntDualGrndDual<Tref>
+  : Cmptref
+  , ICmptRefCnstPrntDualGrndDual<Tref>
+{
+  public CmptRefCnstPrntDualGrndDual RefCnstPrntDualGrndDual { get; set; }
+}
+
+public class CmptGrndCnstPrntDualGrndDual
+  : ICmptGrndCnstPrntDualGrndDual
+{
+  public CmptString AsString { get; set; }
+  public CmptGrndCnstPrntDualGrndDual GrndCnstPrntDualGrndDual { get; set; }
+}
+
+public class CmptPrntCnstPrntDualGrndDual
+  : CmptGrndCnstPrntDualGrndDual
+  , ICmptPrntCnstPrntDualGrndDual
+{
+  public CmptPrntCnstPrntDualGrndDual PrntCnstPrntDualGrndDual { get; set; }
+}
+
+public class CmptAltCnstPrntDualGrndDual
+  : CmptPrntCnstPrntDualGrndDual
+  , ICmptAltCnstPrntDualGrndDual
+{
+  public CmptNumber alt { get; set; }
+  public CmptAltCnstPrntDualGrndDual AltCnstPrntDualGrndDual { get; set; }
+}

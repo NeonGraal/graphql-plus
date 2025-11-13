@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Verify.SourceGenerators" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\GqlPlus.Generators\GqlPlus.Generators.csproj" PrivateAssets="contentfiles;build" />
+    <ProjectReference Include="..\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.Generators.ComponentTestBase\GqlPlus.Generators.ComponentTestBase.csproj" />
+  </ItemGroup>
+
+</Project>

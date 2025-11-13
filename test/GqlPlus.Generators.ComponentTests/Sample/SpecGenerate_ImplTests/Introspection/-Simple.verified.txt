@@ -1,0 +1,241 @@
+﻿/* -Simple
+enum _DomainKind { Boolean Enum Number String }
+
+output _DomainRef<$kind:_DomainKind> {
+    : _TypeRef<_TypeKind.Domain>
+        domainKind: $kind
+    }
+
+output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
+    : _ParentType<_TypeKind.Domain $item $domainItem>
+        domainKind: $domain
+    }
+
+dual _BaseDomainItem {
+    : _Described
+        exclude: Boolean
+    }
+
+output _DomainItem<$item:_BaseDomainItem> {
+    : $item
+        domain: _Identifier
+    }
+
+output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$kind>
+        value: $value
+    | $value
+    }
+
+output _BasicValue {
+    | Boolean
+    | _EnumValue
+    | Number
+    | String
+    }
+
+dual _DomainTrueFalse {
+    : _BaseDomainItem
+        value: Boolean
+    }
+
+output _DomainItemTrueFalse {
+    : _DomainItem<_DomainTrueFalse>
+    }
+
+output _DomainLabel {
+    : _BaseDomainItem
+        label: _EnumValue
+    }
+
+output _DomainItemLabel {
+    : _DomainItem<_DomainLabel>
+    }
+
+dual _DomainRange {
+    : _BaseDomainItem
+        lower: Number?
+        upper: Number?
+    }
+
+output _DomainItemRange {
+    : _DomainItem<_DomainRange>
+    }
+
+dual _DomainRegex {
+    : _BaseDomainItem
+        pattern: String
+    }
+
+output _DomainItemRegex {
+    : _DomainItem<_DomainRegex>
+    }
+
+dual _EnumLabel {
+    : _Aliased
+        enum: _Identifier
+    }
+
+output _EnumValue {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Identifier
+    }
+
+output _UnionRef {
+    : _TypeRef<_SimpleKind>
+    }
+
+output _UnionMember {
+    : _UnionRef
+        union: _Identifier
+    }
+*/
+
+// Generated from Spec -Simple for Impl
+
+/*
+*/
+namespace Components.Gqlp_Spec_Simple;
+
+public class Cmpt_DomainRef<Tkind>
+  : Cmpt_TypeRef
+  , ICmpt_DomainRef<Tkind>
+{
+  public Tkind domainKind { get; set; }
+  public Cmpt_DomainRef _DomainRef { get; set; }
+}
+
+public class Cmpt_BaseDomain<Tdomain,Titem,TdomainItem>
+  : Cmpt_ParentType
+  , ICmpt_BaseDomain<Tdomain,Titem,TdomainItem>
+{
+  public Tdomain domainKind { get; set; }
+  public Cmpt_BaseDomain _BaseDomain { get; set; }
+}
+
+public class Cmpt_BaseDomainItem
+  : Cmpt_Described
+  , ICmpt_BaseDomainItem
+{
+  public CmptBoolean exclude { get; set; }
+  public Cmpt_BaseDomainItem _BaseDomainItem { get; set; }
+}
+
+public class Cmpt_DomainItem<Titem>
+  : Cmptitem
+  , ICmpt_DomainItem<Titem>
+{
+  public Cmpt_Identifier domain { get; set; }
+  public Cmpt_DomainItem _DomainItem { get; set; }
+}
+
+public class Cmpt_DomainValue<Tkind,Tvalue>
+  : Cmpt_DomainRef
+  , ICmpt_DomainValue<Tkind,Tvalue>
+{
+  public Tvalue value { get; set; }
+  public Tvalue Asvalue { get; set; }
+  public Cmpt_DomainValue _DomainValue { get; set; }
+}
+
+public class Cmpt_BasicValue
+  : ICmpt_BasicValue
+{
+  public Cmpt_DomainKind As_DomainKindBoolean { get; set; }
+  public Cmpt_EnumValue As_EnumValue { get; set; }
+  public Cmpt_DomainKind As_DomainKindNumber { get; set; }
+  public Cmpt_DomainKind As_DomainKindString { get; set; }
+  public Cmpt_BasicValue _BasicValue { get; set; }
+}
+
+public class Cmpt_DomainTrueFalse
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainTrueFalse
+{
+  public CmptBoolean value { get; set; }
+  public Cmpt_DomainTrueFalse _DomainTrueFalse { get; set; }
+}
+
+public class Cmpt_DomainItemTrueFalse
+  : Cmpt_DomainItem
+  , ICmpt_DomainItemTrueFalse
+{
+  public Cmpt_DomainItemTrueFalse _DomainItemTrueFalse { get; set; }
+}
+
+public class Cmpt_DomainLabel
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainLabel
+{
+  public Cmpt_EnumValue label { get; set; }
+  public Cmpt_DomainLabel _DomainLabel { get; set; }
+}
+
+public class Cmpt_DomainItemLabel
+  : Cmpt_DomainItem
+  , ICmpt_DomainItemLabel
+{
+  public Cmpt_DomainItemLabel _DomainItemLabel { get; set; }
+}
+
+public class Cmpt_DomainRange
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainRange
+{
+  public CmptNumber? lower { get; set; }
+  public CmptNumber? upper { get; set; }
+  public Cmpt_DomainRange _DomainRange { get; set; }
+}
+
+public class Cmpt_DomainItemRange
+  : Cmpt_DomainItem
+  , ICmpt_DomainItemRange
+{
+  public Cmpt_DomainItemRange _DomainItemRange { get; set; }
+}
+
+public class Cmpt_DomainRegex
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainRegex
+{
+  public CmptString pattern { get; set; }
+  public Cmpt_DomainRegex _DomainRegex { get; set; }
+}
+
+public class Cmpt_DomainItemRegex
+  : Cmpt_DomainItem
+  , ICmpt_DomainItemRegex
+{
+  public Cmpt_DomainItemRegex _DomainItemRegex { get; set; }
+}
+
+public class Cmpt_EnumLabel
+  : Cmpt_Aliased
+  , ICmpt_EnumLabel
+{
+  public Cmpt_Identifier enum { get; set; }
+  public Cmpt_EnumLabel _EnumLabel { get; set; }
+}
+
+public class Cmpt_EnumValue
+  : Cmpt_TypeRef
+  , ICmpt_EnumValue
+{
+  public Cmpt_Identifier label { get; set; }
+  public Cmpt_EnumValue _EnumValue { get; set; }
+}
+
+public class Cmpt_UnionRef
+  : Cmpt_TypeRef
+  , ICmpt_UnionRef
+{
+  public Cmpt_UnionRef _UnionRef { get; set; }
+}
+
+public class Cmpt_UnionMember
+  : Cmpt_UnionRef
+  , ICmpt_UnionMember
+{
+  public Cmpt_Identifier union { get; set; }
+  public Cmpt_UnionMember _UnionMember { get; set; }
+}

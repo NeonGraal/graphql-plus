@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.Generators.ComponentTestBase\GqlPlus.Generators.ComponentTestBase.csproj" />
     <ProjectReference Include="..\GqlPlus.TestGenerators\GqlPlus.TestGenerators.csproj" />
   </ItemGroup>
 

@@ -5,7 +5,7 @@ param (
   [switch]$ClassTests = $false,
   [switch]$Html = $false,
   [switch]$Report = $false,
-  $Framework = "9.0"
+  $Framework = "10.0"
 )
 
 dotnet tool restore

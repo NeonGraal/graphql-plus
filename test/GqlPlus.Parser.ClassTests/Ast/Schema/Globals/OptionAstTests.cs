@@ -26,7 +26,12 @@ public class OptionAstTests
       settings1.SequenceEqual(settings2));
 
   private readonly AstAliasedChecks<OptionDeclAst> _checks
-    = new(name => new OptionDeclAst(AstNulls.At, name));
+    = new(CreateOption, CloneOption);
+
+  private static OptionDeclAst CloneOption(OptionDeclAst original, string input)
+    => original with { Name = input };
+  private static OptionDeclAst CreateOption(string input)
+    => new(AstNulls.At, input);
 
   internal override IAstAliasedChecks<string> AliasedChecks => _checks;
 

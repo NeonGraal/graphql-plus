@@ -1,46 +1,43 @@
 ﻿namespace GqlPlus.Ast;
 
-public class FieldKeyAstTests : AstAbbreviatedTests
+public class FieldKeyAstTests
+  : AstAbbreviatedTests
 {
   [Theory, RepeatData]
   public void HashCode_WithNumber(decimal number)
-    => _checks.HashCode(() => FieldKey(number));
-
-  [Theory, RepeatData]
-  public void HashCode_WithString(string contents)
-    => _checks.HashCode(() => FieldKey(contents));
+    => _checks.HashCode(() => CreateFieldKey(number));
 
   [Theory, RepeatData]
   public void HashCode_WithEnumTypeAndValue(string enumType, string enumValue)
-    => _checks.HashCode(() => FieldKey(enumType, enumValue));
+    => _checks.HashCode(() => CreateFieldKey(enumType, enumValue));
 
   [Theory, RepeatData]
   public void String_WithNumber(decimal number)
     => _checks.Text(
-      () => FieldKey(number),
+      () => CreateFieldKey(number),
       $"( !k {number} )");
 
   [Theory, RepeatData]
   public void String_WithString(string contents)
     => _checks.Text(
-      () => FieldKey(contents),
+      () => CreateFieldKey(contents),
       $"( !k '{contents}' )");
 
   [Theory, RepeatData]
   public void String_WithEnumTypeAndValue(string enumType, string enumValue)
-    => _checks.Text(() => FieldKey(enumType, enumValue),
+    => _checks.Text(() => CreateFieldKey(enumType, enumValue),
       $"( !k {enumType}.{enumValue} )");
 
   [Theory, RepeatData]
   public void Equality_WithNumber(decimal number)
     => _checks.Equality(
-      () => FieldKey(number));
+      () => CreateFieldKey(number));
 
   [Theory, RepeatData]
   public void Compare_WithNumber(decimal number1, decimal number2)
   {
-    FieldKeyAst left = FieldKey(number1);
-    FieldKeyAst right = FieldKey(number2);
+    FieldKeyAst left = CreateFieldKey(number1);
+    FieldKeyAst right = CreateFieldKey(number2);
 
     left.CompareTo(right).ShouldBe(number1.CompareTo(number2));
   }
@@ -48,8 +45,8 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void Inequality_WithNumberString(decimal number, string contents)
   {
-    FieldKeyAst left = FieldKey(number);
-    FieldKeyAst right = FieldKey(contents);
+    FieldKeyAst left = CreateFieldKey(number);
+    FieldKeyAst right = CreateFieldKey(contents);
 
     (left != right).ShouldBeTrue();
   }
@@ -57,22 +54,17 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void Inequality_WithNumberEnumValue(decimal number, string enumType, string enumValue)
   {
-    FieldKeyAst left = FieldKey(number);
-    FieldKeyAst right = FieldKey(enumType, enumValue);
+    FieldKeyAst left = CreateFieldKey(number);
+    FieldKeyAst right = CreateFieldKey(enumType, enumValue);
 
     (left != right).ShouldBeTrue();
   }
 
   [Theory, RepeatData]
-  public void Equality_WithString(string contents)
-    => _checks.Equality(
-      () => FieldKey(contents));
-
-  [Theory, RepeatData]
   public void Compare_WithString(string contents1, string contents2)
   {
-    FieldKeyAst left = FieldKey(contents1);
-    FieldKeyAst right = FieldKey(contents2);
+    FieldKeyAst left = CreateFieldKey(contents1);
+    FieldKeyAst right = CreateFieldKey(contents2);
     int expected = string.Compare(contents1, contents2, StringComparison.Ordinal);
 
     left.CompareTo(right).ShouldBe(expected);
@@ -81,8 +73,8 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void Inequality_WithStringEnumValue(string contents, string enumType, string enumValue)
   {
-    FieldKeyAst left = FieldKey(contents);
-    FieldKeyAst right = FieldKey(enumType, enumValue);
+    FieldKeyAst left = CreateFieldKey(contents);
+    FieldKeyAst right = CreateFieldKey(enumType, enumValue);
 
     (left != right).ShouldBeTrue();
   }
@@ -90,13 +82,13 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void Equality_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.Equality(
-      () => FieldKey(enumType, enumValue));
+      () => CreateFieldKey(enumType, enumValue));
 
   [Theory, RepeatData]
   public void Compare_WithEnumTypeAndValue(string enumType, string enumValue1, string enumValue2)
   {
-    FieldKeyAst left = FieldKey(enumType, enumValue1);
-    FieldKeyAst right = FieldKey(enumType, enumValue2);
+    FieldKeyAst left = CreateFieldKey(enumType, enumValue1);
+    FieldKeyAst right = CreateFieldKey(enumType, enumValue2);
     int expected = string.Compare(enumType + "." + enumValue1, enumType + "." + enumValue2, StringComparison.Ordinal);
 
     left.CompareTo(right).ShouldBe(expected);
@@ -109,8 +101,8 @@ public class FieldKeyAstTests : AstAbbreviatedTests
       return;
     }
 
-    FieldKeyAst left = FieldKey(enumType, enumValue);
-    FieldKeyAst right = FieldKey(enumValue, enumType);
+    FieldKeyAst left = CreateFieldKey(enumType, enumValue);
+    FieldKeyAst right = CreateFieldKey(enumValue, enumType);
 
     (left != right).ShouldBeTrue();
   }
@@ -133,7 +125,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   public void Inequality_WithEnumValue(string enumValue)
   {
     IGqlpFieldKey left = enumValue.FieldKey();
-    IGqlpFieldKey right = FieldKey(enumValue, enumValue);
+    IGqlpFieldKey right = CreateFieldKey(enumValue, enumValue);
 
     (left != right).ShouldBeTrue();
   }
@@ -141,13 +133,13 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void Equality_WithEnumType(string enumType)
     => _checks.Equality(
-      () => FieldKey(enumType, "enumValue"));
+      () => CreateFieldKey(enumType, "enumValue"));
 
   [Theory, RepeatData]
   public void Compare_WithEnumType(string enumType1, string enumType2)
   {
-    FieldKeyAst left = FieldKey(enumType1, "enumValue");
-    FieldKeyAst right = FieldKey(enumType2, "enumValue");
+    FieldKeyAst left = CreateFieldKey(enumType1, "enumValue");
+    FieldKeyAst right = CreateFieldKey(enumType2, "enumValue");
     int expected = string.Compare(enumType1 + ".enumValue", enumType2 + ".enumValue", StringComparison.Ordinal);
 
     left.CompareTo(right).ShouldBe(expected);
@@ -156,22 +148,28 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void Inequality_WithEnumType(string enumType)
   {
-    FieldKeyAst left = FieldKey(enumType, "enumValue");
-    FieldKeyAst right = FieldKey(enumType, enumType + "enumValue");
+    FieldKeyAst left = CreateFieldKey(enumType, "enumValue");
+    FieldKeyAst right = CreateFieldKey(enumType, enumType + "enumValue");
 
     (left != right).ShouldBeTrue();
   }
 
-  internal AstAbbreviatedChecks<string, IGqlpFieldKey> _checks = new(value => value.FieldKey());
+  internal AstAbbreviatedChecks<string, IGqlpFieldKey> _checks = new(CreateFieldKey, CloneFieldKey);
+
+  private static IGqlpFieldKey CloneFieldKey(IGqlpFieldKey original, string input)
+    => (FieldKeyAst)original with { Text = input };
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 
-  private static FieldKeyAst FieldKey(string enumType, string enumValue)
+  protected override string AbbreviatedString(string input)
+    => $"( !k '{input}' )";
+
+  private static FieldKeyAst CreateFieldKey(string enumType, string enumValue)
     => new(AstNulls.At, enumType, enumValue);
 
-  private static FieldKeyAst FieldKey(decimal number)
+  private static FieldKeyAst CreateFieldKey(decimal number)
     => new(AstNulls.At, number);
 
-  private static FieldKeyAst FieldKey(string contents)
+  private static FieldKeyAst CreateFieldKey(string contents)
     => new(AstNulls.At, contents);
 }

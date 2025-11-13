@@ -18,7 +18,7 @@ public abstract class TestObjectMerger<TObjField>
         MakeObject(name, typeParams: typeParams));
 
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsErrors(string name, AlternateInput[] alternates)
+  public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsErrors(string name, TypeInput[] alternates)
     => this
       .CanMergeReturnsError(Alternates)
       .CanMerge_Errors(
@@ -56,7 +56,7 @@ public abstract class TestObjectMerger<TObjField>
     IGqlpObjBase? parent = default,
     string[]? typeParams = null,
     FieldInput[]? fields = null,
-    AlternateInput[]? alternates = null)
+    TypeInput[]? alternates = null)
     => new AstObject<TObjField>(_kind, AstNulls.At, name, description) {
       Aliases = aliases ?? [],
       Parent = parent,

@@ -29,7 +29,12 @@ public class DirectiveAstTests : AstAbbreviatedTests
       variable => new DirectiveAst(AstNulls.At, name) { Arg = new ArgAst(AstNulls.At, variable) },
       variable1 == variable2);
 
-  private readonly AstAbbreviatedChecks<DirectiveAst> _checks = new(name => new DirectiveAst(AstNulls.At, name));
+  private readonly AstAbbreviatedChecks<DirectiveAst> _checks = new(CreateDirective, CloneDirective);
+
+  private static DirectiveAst CloneDirective(DirectiveAst original, string input)
+    => original with { Identifier = input };
+  private static DirectiveAst CreateDirective(string input)
+    => new(AstNulls.At, input);
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

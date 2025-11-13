@@ -5,7 +5,7 @@ param (
   [Switch]$ShowGithub = $false,
   [switch]$ClassTests = $false,
   [switch]$ShowFailures = $false,
-  $Framework = "9.0"
+  $Framework = "10.0"
 )
 
 $testSet = "All"

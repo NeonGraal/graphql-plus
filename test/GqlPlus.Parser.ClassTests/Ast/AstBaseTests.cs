@@ -18,6 +18,10 @@ public abstract class AstBaseTests<TInput>
   => BaseChecks.Text_WithInput(input, InputString(input));
 
   [Theory, RepeatData]
+  public void Clone(TInput input)
+    => BaseChecks.Clone_WithInput(input);
+
+  [Theory, RepeatData]
   public void Equality(TInput input)
     => BaseChecks.Equality_WithInput(input);
 
@@ -42,11 +46,12 @@ internal class AstBaseChecks<TInput, TAst>
   where TAst : IGqlpError
 {
   protected readonly CreateBy<TInput> CreateInput;
+  protected readonly CloneBy<TInput> CloneInput;
   protected readonly string CreateExpression;
 
-  public AstBaseChecks(CreateBy<TInput> createInput,
+  public AstBaseChecks(CreateBy<TInput> createInput, CloneBy<TInput> cloneInput,
     [CallerArgumentExpression(nameof(createInput))] string createExpression = "")
-    => (CreateInput, CreateExpression) = (createInput, createExpression);
+    => (CreateInput, CreateExpression, CloneInput) = (createInput, createExpression, cloneInput);
 
   public void HashCode_WithInput(TInput input)
     => HashCode(
@@ -58,9 +63,19 @@ internal class AstBaseChecks<TInput, TAst>
       () => CreateInput(input), expected,
       factoryExpression: CreateExpression);
 
+  public void Clone_WithInput(TInput input)
+  {
+    TAst item1 = CreateInput(input);
+    Equality(
+        () => item1,
+        () => CloneInput(item1, input),
+        CreateExpression);
+  }
+
   public void Equality_WithInput(TInput input)
     => Equality(
-      () => CreateInput(input), CreateExpression);
+      () => CreateInput(input),
+      CreateExpression);
 
   public void Inequality_WithInputs(TInput input1, TInput input2)
     => InequalityBetween(input1, input2, CreateInput, CreateExpression);
@@ -69,7 +84,7 @@ internal class AstBaseChecks<TInput, TAst>
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
     => Inequality(factory,
       () => CreateInput(input),
-      factoryExpression: factoryExpression);
+      factory1Expression: factoryExpression);
 }
 
 internal interface IAstBaseChecks
@@ -80,6 +95,7 @@ internal interface IAstBaseChecks<TInput>
 {
   void HashCode_WithInput(TInput input);
   void Text_WithInput(TInput input, string expected);
+  void Clone_WithInput(TInput input);
   void Equality_WithInput(TInput input);
   void Inequality_WithInputs(TInput input1, TInput input2);
 }

@@ -35,6 +35,94 @@ output _Directive {
 enum _Location { Operation Variable Field Inline Spread Fragment }
 
 
+output _Operations {
+        operation: _Operation
+        type: _Type
+    | _Operation
+    | _Type
+}
+
+output _Operation {
+    : _Aliased
+        category: _Identifier
+        variables: _OpVariable[]
+        directives: _OpDirective[]
+        fragments: _OpFragment[]
+        result: _OpResult
+}
+
+output _OpVariable {
+    : _Named
+        type: _ObjBase
+        modifiers: _Modifiers[]
+        default: Value?
+        directives: _OpDirective[]
+}
+
+dual _OpDirective {
+    : _Named
+        argument: _OpArgument?
+}
+
+output _OpFragment {
+    : _Named
+        type: _ObjBase
+        directives: _OpDirective[]
+}
+
+dual _OpArgument {
+    |   _OpArgValue
+    |   _OpArgList
+    |   _OpArgMap
+    }
+
+dual _OpArgValue {
+        variable: _Identifier
+    |   Value
+    }
+
+dual _OpArgList {
+    | _OpArgValue[]
+    }
+
+dual _OpArgMap {
+        value: _OpArgValue
+        byVariable: _Identifier
+    | _OpArgValue[Scalar]
+    }
+
+domain _Path { String /\$?\.*\w[\w\d]*(\.\w[\w\d]*)*/ }
+
+output _OpResult {
+        selections: _OpObject[_Path]
+        argument: _OpArgument?
+    | _TypeRef<_SimpleKind>
+}
+
+output _OpObject {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+}
+
+output _OpField {
+        alias: String?
+        field: String
+        argument: _OpArgument?
+        modifiers: _Modifiers[]
+        directives: _OpDirective[]
+}
+
+output _OpInline {
+        type: _ObjBase?
+        directives: _OpDirective[]
+}
+
+output _OpSpread {
+        fragment: String
+        directives: _OpDirective[]
+}
+
 output _Setting {
     : _Named
         value: Value

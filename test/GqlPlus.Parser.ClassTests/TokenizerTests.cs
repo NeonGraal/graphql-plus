@@ -273,7 +273,7 @@ public class TokenizerTests
     char expected = many.First();
 
     TrueAndExpected(
-      (out char result) => tokens.TakeAny(out result, many.ToCharArray()),
+      (out result) => tokens.TakeAny(out result, many.ToCharArray()),
       expected);
   }
 
@@ -318,7 +318,7 @@ public class TokenizerTests
     char expected = prefix.First();
 
     TrueAndExpected(
-      (out string? result) => tokens.Prefix(expected, out result, out TokenAt _),
+      (out result) => tokens.Prefix(expected, out result, out TokenAt _),
       identifier);
   }
 

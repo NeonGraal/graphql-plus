@@ -10,8 +10,6 @@
     <PackageReference Include="OpenTelemetry.AutoInstrumentation" />
     <PackageReference Include="OpenTelemetry.Exporter.InMemory" />
     <PackageReference Include="Shouldly" />
-    <PackageReference Include="System.Net.Http" />
-    <PackageReference Include="System.Text.RegularExpressions" />
     <PackageReference Include="Xunit.Combinatorial" />
   </ItemGroup>
 

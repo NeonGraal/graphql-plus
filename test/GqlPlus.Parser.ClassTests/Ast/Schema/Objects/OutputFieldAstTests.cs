@@ -56,7 +56,6 @@ public class OutputFieldAstTypeTests
     => $"( !OF {input.Name} : {input.Type} )";
 }
 
-
 internal sealed class OutputFieldAstTypeChecks(
   ObjFieldTypeChecks<FieldInput, OutputFieldAst>.TypeBy createType,
   BaseAstChecks<OutputFieldAst>.CloneBy<FieldInput> cloneInput

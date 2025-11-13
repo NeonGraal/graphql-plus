@@ -64,10 +64,10 @@ public class UsageContext(
   }
 }
 
-internal record struct SelfUsage<TAst>(string head, TAst Usage, string Label)
+internal record struct SelfUsage<TAst>(string Head, TAst Usage, string Label)
   where TAst : IGqlpType
 {
-  private List<string> _chain = [head];
+  private List<string> _chain = [Head];
 
   internal TypeKind Kind { get; } = Usage.Kind;
   internal readonly string Current => _chain.First();

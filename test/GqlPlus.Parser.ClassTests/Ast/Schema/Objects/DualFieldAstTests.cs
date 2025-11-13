@@ -34,7 +34,6 @@ public class DualFieldAstTypeTests
     => $"( !DF {input.Name} : {input.Type} )";
 }
 
-
 internal sealed class DualFieldAstTypeChecks(
   ObjFieldTypeChecks<FieldInput, DualFieldAst>.TypeBy createType,
   BaseAstChecks<DualFieldAst>.CloneBy<FieldInput> cloneInput

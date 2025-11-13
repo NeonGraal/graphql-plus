@@ -13,7 +13,6 @@
   <ItemGroup>
     <PackageReference Include="AutoFixture.AutoNSubstitute" />
     <PackageReference Include="NSubstitute" />
-    <PackageReference Include="System.ComponentModel.TypeConverter" />
   </ItemGroup>
 
   <ItemGroup>

@@ -64,7 +64,7 @@ public static class RenderFluid
 
   private static FluidValue RenderStructureConverter(Structured model)
   {
-    FluidValue result = NilValue.Empty;
+    FluidValue result = EmptyValue.Instance;
 
     if (model.List.Count > 0) {
       result = new ArrayValue([.. model.List.Select(RenderStructureConverter)]);
@@ -90,7 +90,7 @@ public static class RenderFluid
 
   private static FluidValue RenderValueConverter(StructureValue value)
   {
-    FluidValue result = NilValue.Empty;
+    FluidValue result = EmptyValue.Instance;
 
     if (value.Identifier is not null) {
       result = StringValue.Create(value.Identifier);

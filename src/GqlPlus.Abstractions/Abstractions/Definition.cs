@@ -12,7 +12,6 @@ public interface IGqlpAbbreviated
   , IEquatable<IGqlpAbbreviated>
 {
   ITokenAt At { get; }
-  string Abbr { get; }
   IEnumerable<string?> GetFields();
 }
 

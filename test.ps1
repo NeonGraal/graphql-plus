@@ -6,7 +6,7 @@ param (
   $Generate = "",
   [switch]$ClassTests = $false,
   [switch]$Html = $false,
-  $Framework = "9.0"
+  $Framework = "10.0"
 )
 
 $test = "test","-e","GQLPLUS_TEST_LOGGING=1","--no-build"

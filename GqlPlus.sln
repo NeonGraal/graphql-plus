@@ -1,11 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11205.157 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B834B2ED-0D27-4281-8523-B706B42DCC15}"
 	ProjectSection(SolutionItems) = preProject
 		src\Directory.Build.props = src\Directory.Build.props
+		src\GlobalSuppressions.cs = src\GlobalSuppressions.cs
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier", "src\GqlPlus.Verifier\GqlPlus.Verifier.csproj", "{DDB8D682-23EA-48C4-A1AD-65F114533202}"
@@ -14,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3B90AC37-1
 	ProjectSection(SolutionItems) = preProject
 		test\Directory.Build.props = test\Directory.Build.props
 		test\Directory.Build.targets = test\Directory.Build.targets
+		test\GlobalSuppressions.cs = test\GlobalSuppressions.cs
 		test\Html\index.html = test\Html\index.html
 	EndProjectSection
 EndProject
@@ -27,6 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\copilot-instructions.md = .github\copilot-instructions.md
 		.github\dependabot.yml = .github\dependabot.yml
 		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
 		.github\workflows\dotnet-test.yml = .github\workflows\dotnet-test.yml
 		.config\dotnet-tools.json = .config\dotnet-tools.json
 		format.ps1 = format.ps1
@@ -109,6 +112,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Codec.ClassTests", "test\GqlPlus.Codec.ClassTests\GqlPlus.Codec.ClassTests.csproj", "{3D07CC4F-1DF7-47AB-A02F-FE73EF1D5542}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Codec.ComponentTests", "test\GqlPlus.Codec.ComponentTests\GqlPlus.Codec.ComponentTests.csproj", "{7607F6AB-9D34-42AD-8174-06A46760AABE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		common\GlobalSuppressions.cs = common\GlobalSuppressions.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

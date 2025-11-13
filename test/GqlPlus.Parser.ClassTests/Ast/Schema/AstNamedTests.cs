@@ -58,16 +58,18 @@ public abstract class AstNamedTests<TInput>
 
 internal sealed class AstNamedChecks<TNamed>(
   BaseAstChecks<TNamed>.CreateBy<string> createInput,
+  BaseAstChecks<TNamed>.CloneBy<string> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstNamedChecks<string, TNamed>(createInput, createExpression)
+) : AstNamedChecks<string, TNamed>(createInput, cloneInput, createExpression)
   , IAstNamedChecks
   where TNamed : AstNamed
 { }
 
 internal class AstNamedChecks<TInput, TNamed>(
   BaseAstChecks<TNamed>.CreateBy<TInput> createInput,
+  BaseAstChecks<TNamed>.CloneBy<TInput> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstAbbreviatedChecks<TInput, TNamed>(createInput, createExpression)
+) : AstAbbreviatedChecks<TInput, TNamed>(createInput, cloneInput, createExpression)
   , IAstNamedChecks<TInput>
   where TNamed : AstNamed
 {
@@ -85,7 +87,7 @@ internal class AstNamedChecks<TInput, TNamed>(
     => Inequality(
       () => CreateDescription(input, description),
       () => CreateInput(input),
-      factoryExpression: CreateExpression);
+      factory1Expression: CreateExpression);
 
   public void Inequality_ByDescription(TInput input, string description1, string description2)
     => InequalityBetween(description1, description2,

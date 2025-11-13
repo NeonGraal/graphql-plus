@@ -4,31 +4,31 @@ public class EnumValueAstTests : AstAbbreviatedTests
 {
   [Theory, RepeatData]
   public void HashCode_WithLabel(string enumLabel)
-    => _checks.HashCode(() => EnumValue(enumLabel));
+    => _checks.HashCode(() => CreateEnumValue(enumLabel));
 
   [Theory, RepeatData]
   public void HashCode_WithTypeAndLabel(string enumType, string enumLabel)
-    => _checks.HashCode(() => EnumValue(enumType, enumLabel));
+    => _checks.HashCode(() => CreateEnumValue(enumType, enumLabel));
 
   [Theory, RepeatData]
   public void String_WithLabel(string enumLabel)
     => _checks.Text(
-      () => EnumValue(enumLabel),
+      () => CreateEnumValue(enumLabel),
       $"( !e {enumLabel} )");
 
   [Theory, RepeatData]
   public void String_WithTypeAndLabel(string enumType, string enumLabel)
     => _checks.Text(
-      () => EnumValue(enumType, enumLabel),
+      () => CreateEnumValue(enumType, enumLabel),
       $"( !e {enumType}.{enumLabel} )");
 
   [Theory, RepeatData]
   public void Equality_WithLabel(string enumLabel)
-    => _checks.Equality(() => EnumValue(enumLabel));
+    => _checks.Equality(() => CreateEnumValue(enumLabel));
 
   [Theory, RepeatData]
   public void Equality_WithTypeAndLabel(string enumType, string enumLabel)
-    => _checks.Equality(() => EnumValue(enumType, enumLabel));
+    => _checks.Equality(() => CreateEnumValue(enumType, enumLabel));
 
   [Theory, RepeatData]
   public void Inequality_WithDifferentLabels(string enumLabel1, string enumLabel2)
@@ -37,8 +37,8 @@ public class EnumValueAstTests : AstAbbreviatedTests
       return;
     }
 
-    EnumValueAst left = EnumValue(enumLabel1);
-    EnumValueAst right = EnumValue(enumLabel2);
+    EnumValueAst left = CreateEnumValue(enumLabel1);
+    EnumValueAst right = CreateEnumValue(enumLabel2);
 
     (left != right).ShouldBeTrue();
   }
@@ -50,8 +50,8 @@ public class EnumValueAstTests : AstAbbreviatedTests
       return;
     }
 
-    EnumValueAst left = EnumValue(enumType1, enumLabel);
-    EnumValueAst right = EnumValue(enumType2, enumLabel);
+    EnumValueAst left = CreateEnumValue(enumType1, enumLabel);
+    EnumValueAst right = CreateEnumValue(enumType2, enumLabel);
 
     (left != right).ShouldBeTrue();
   }
@@ -59,8 +59,8 @@ public class EnumValueAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void Inequality_WithLabelVsTypeAndLabel(string enumLabel, string enumType)
   {
-    EnumValueAst left = EnumValue(enumLabel);
-    EnumValueAst right = EnumValue(enumType, enumLabel);
+    EnumValueAst left = CreateEnumValue(enumLabel);
+    EnumValueAst right = CreateEnumValue(enumType, enumLabel);
 
     (left != right).ShouldBeTrue();
   }
@@ -68,8 +68,8 @@ public class EnumValueAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void Compare_JustLabels(string label1, string label2)
   {
-    EnumValueAst left = EnumValue(label1);
-    EnumValueAst right = EnumValue(label2);
+    EnumValueAst left = CreateEnumValue(label1);
+    EnumValueAst right = CreateEnumValue(label2);
     int expected = string.Compare(label1, label2, StringComparison.Ordinal);
 
     left.CompareTo(right).ShouldBe(expected);
@@ -78,8 +78,8 @@ public class EnumValueAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void Compare_WithLabels(string type, string label1, string label2)
   {
-    EnumValueAst left = EnumValue(type, label1);
-    EnumValueAst right = EnumValue(type, label2);
+    EnumValueAst left = CreateEnumValue(type, label1);
+    EnumValueAst right = CreateEnumValue(type, label2);
     int expected = string.Compare(type + "." + label1, type + "." + label2, StringComparison.Ordinal);
 
     left.CompareTo(right).ShouldBe(expected);
@@ -88,8 +88,8 @@ public class EnumValueAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void Compare_WithTypes(string label, string type1, string type2)
   {
-    EnumValueAst left = EnumValue(type1, label);
-    EnumValueAst right = EnumValue(type2, label);
+    EnumValueAst left = CreateEnumValue(type1, label);
+    EnumValueAst right = CreateEnumValue(type2, label);
     int expected = string.Compare(type1 + "." + label, type2 + "." + label, StringComparison.Ordinal);
 
     left.CompareTo(right).ShouldBe(expected);
@@ -98,7 +98,7 @@ public class EnumValueAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void EnumValue_WithLabel_ReturnsLabel(string enumLabel)
   {
-    EnumValueAst enumValue = EnumValue(enumLabel);
+    EnumValueAst enumValue = CreateEnumValue(enumLabel);
 
     enumValue.EnumValue.ShouldBe(enumLabel);
   }
@@ -106,7 +106,7 @@ public class EnumValueAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void EnumValue_WithTypeAndLabel_ReturnsTypeAndLabel(string enumType, string enumLabel)
   {
-    EnumValueAst enumValue = EnumValue(enumType, enumLabel);
+    EnumValueAst enumValue = CreateEnumValue(enumType, enumLabel);
 
     enumValue.EnumValue.ShouldBe($"{enumType}.{enumLabel}");
   }
@@ -114,7 +114,7 @@ public class EnumValueAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void EnumType_WithLabel_ReturnsNull(string enumLabel)
   {
-    EnumValueAst enumValue = EnumValue(enumLabel);
+    EnumValueAst enumValue = CreateEnumValue(enumLabel);
 
     ((IGqlpEnumValue)enumValue).EnumType.ShouldBeEmpty();
   }
@@ -122,7 +122,7 @@ public class EnumValueAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void EnumType_WithTypeAndLabel_ReturnsType(string enumType, string enumLabel)
   {
-    EnumValueAst enumValue = EnumValue(enumType, enumLabel);
+    EnumValueAst enumValue = CreateEnumValue(enumType, enumLabel);
 
     ((IGqlpEnumValue)enumValue).EnumType.ShouldBe(enumType);
   }
@@ -130,7 +130,7 @@ public class EnumValueAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void EnumLabel_WithLabel_ReturnsLabel(string enumLabel)
   {
-    EnumValueAst enumValue = EnumValue(enumLabel);
+    EnumValueAst enumValue = CreateEnumValue(enumLabel);
 
     ((IGqlpEnumValue)enumValue).EnumLabel.ShouldBe(enumLabel);
   }
@@ -138,7 +138,7 @@ public class EnumValueAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void EnumLabel_WithTypeAndLabel_ReturnsLabel(string enumType, string enumLabel)
   {
-    EnumValueAst enumValue = EnumValue(enumType, enumLabel);
+    EnumValueAst enumValue = CreateEnumValue(enumType, enumLabel);
 
     ((IGqlpEnumValue)enumValue).EnumLabel.ShouldBe(enumLabel);
   }
@@ -146,8 +146,8 @@ public class EnumValueAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void Equals_IGqlpEnumValue_WithSameValues_ReturnsTrue(string enumType, string enumLabel)
   {
-    EnumValueAst enumValue1 = EnumValue(enumType, enumLabel);
-    EnumValueAst enumValue2 = EnumValue(enumType, enumLabel);
+    EnumValueAst enumValue1 = CreateEnumValue(enumType, enumLabel);
+    EnumValueAst enumValue2 = CreateEnumValue(enumType, enumLabel);
 
     enumValue1.Equals((IGqlpEnumValue)enumValue2).ShouldBeTrue();
   }
@@ -159,19 +159,22 @@ public class EnumValueAstTests : AstAbbreviatedTests
       return;
     }
 
-    EnumValueAst enumValue1 = EnumValue(enumType1, enumLabel);
-    EnumValueAst enumValue2 = EnumValue(enumType2, enumLabel);
+    EnumValueAst enumValue1 = CreateEnumValue(enumType1, enumLabel);
+    EnumValueAst enumValue2 = CreateEnumValue(enumType2, enumLabel);
 
     enumValue1.Equals((IGqlpEnumValue)enumValue2).ShouldBeFalse();
   }
 
-  internal AstAbbreviatedChecks<string, IGqlpEnumValue> _checks = new(value => new EnumValueAst(AstNulls.At, value));
+  internal AstAbbreviatedChecks<string, EnumValueAst> _checks = new(CreateEnumValue, CloneEnumValue);
+
+  private static EnumValueAst CloneEnumValue(EnumValueAst original, string input)
+    => original with { Label = input };
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 
-  private static EnumValueAst EnumValue(string enumLabel)
+  private static EnumValueAst CreateEnumValue(string enumLabel)
     => new(AstNulls.At, enumLabel);
 
-  private static EnumValueAst EnumValue(string enumType, string enumLabel)
+  private static EnumValueAst CreateEnumValue(string enumType, string enumLabel)
     => new(AstNulls.At, enumType, enumLabel);
 }

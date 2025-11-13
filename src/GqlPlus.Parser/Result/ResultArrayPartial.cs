@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Token;
 
 namespace GqlPlus.Result;
+
 public readonly struct ResultArrayPartial<TValue>
   : IResultArrayPartial<TValue>
 {

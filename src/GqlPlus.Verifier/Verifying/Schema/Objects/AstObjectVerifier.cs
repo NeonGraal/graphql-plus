@@ -116,22 +116,18 @@ internal class AstObjectVerifier<TObjField>(
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     validKinds ??= context.FieldKinds;
     if (context.GetType(typeName, out IGqlpDescribed? definition)) {
-      bool isTypeParam = false;
       if (definition is IGqlpTypeParam typeParam) {
-        isTypeParam = true;
         if (!context.GetType(typeParam.Constraint, out definition)) {
           error($"Invalid Constraint for {typeParam.Name} on", $"'{typeParam.Constraint}' not defined", check);
         }
+      } else {
+        CheckTypeArgs(error, context, reference, definition);
       }
 
       if (definition is IGqlpTypeSpecial specialType) {
         error("Invalid Kind for", $"{specialType.Name} not one of [{string.Join(",", validKinds)}]", !specialType.MatchesKindSpecial(validKinds));
       } else if (definition is IGqlpType typeDef) {
         error("Invalid Kind for", $"{typeDef.Kind}({typeDef.Name}) not one of [{string.Join(",", validKinds)}]", !validKinds.Contains(typeDef.Kind));
-      }
-
-      if (!isTypeParam) {
-        CheckTypeArgs(error, context, reference, definition);
       }
     } else {
       error("Invalid reference on ", $"'{typeName}' not defined", check);

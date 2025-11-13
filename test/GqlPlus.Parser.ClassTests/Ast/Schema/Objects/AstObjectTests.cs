@@ -6,16 +6,16 @@ public abstract class AstObjectTests
   : AstTypeTests
 {
   [Theory, RepeatData]
-  public void HashCode_WithAlternates(string name, AlternateInput[] alternates)
+  public void HashCode_WithAlternates(string name, TypeInput[] alternates)
     => ObjectChecks.HashCode_WithAlternates(name, alternates);
   [Theory, RepeatData]
-  public void String_WithAlternates(string name, AlternateInput[] alternates)
+  public void String_WithAlternates(string name, TypeInput[] alternates)
     => ObjectChecks.String_WithAlternates(name, alternates);
   [Theory, RepeatData]
-  public void Equality_WithAlternates(string name, AlternateInput[] alternates)
+  public void Equality_WithAlternates(string name, TypeInput[] alternates)
     => ObjectChecks.Equality_WithAlternates(name, alternates);
   [Theory, RepeatData]
-  public void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2)
+  public void Inequality_BetweenAlternates(string name, TypeInput[] alternates1, TypeInput[] alternates2)
     => ObjectChecks.Inequality_BetweenAlternates(name, alternates1, alternates2);
 
   [Theory, RepeatData]
@@ -55,21 +55,19 @@ public abstract class AstObjectTests
 internal abstract class AstObjectChecks<TObjField>(
   TypeKind kind,
   AstTypeChecks<AstObject<TObjField>, IGqlpObjBase>.ParentCreator createParent
-) : AstTypeChecks<AstObject<TObjField>, IGqlpObjBase>(
-    input => new AstObject<TObjField>(kind, AstNulls.At, input, ""),
-    createParent)
+) : AstTypeChecks<AstObject<TObjField>, IGqlpObjBase>(CreateObject(kind), CloneObject, createParent)
   , IAstObjectChecks
   where TObjField : IGqlpObjField
 {
-  public void Equality_WithAlternates(string name, AlternateInput[] alternates)
+  public void Equality_WithAlternates(string name, TypeInput[] alternates)
     => Equality(() => CreateInput(name) with { Alternates = AstObjectChecks<TObjField>.CreateAlternates(alternates) });
-  public void HashCode_WithAlternates(string name, AlternateInput[] alternates)
+  public void HashCode_WithAlternates(string name, TypeInput[] alternates)
     => HashCode(() => CreateInput(name) with { Alternates = AstObjectChecks<TObjField>.CreateAlternates(alternates) });
-  public void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2)
+  public void Inequality_BetweenAlternates(string name, TypeInput[] alternates1, TypeInput[] alternates2)
     => InequalityBetween(alternates1, alternates2,
       alternates => CreateInput(name) with { Alternates = AstObjectChecks<TObjField>.CreateAlternates(alternates) },
       alternates1.OrderedEqual(alternates2));
-  public void String_WithAlternates(string name, AlternateInput[] alternates)
+  public void String_WithAlternates(string name, TypeInput[] alternates)
     => Text(
       () => CreateInput(name) with { Alternates = AstObjectChecks<TObjField>.CreateAlternates(alternates) },
       $"( !{Abbr} {name} | {alternates.Joined(AlternateString)} )");
@@ -102,22 +100,26 @@ internal abstract class AstObjectChecks<TObjField>(
       parameters => CreateInput(name) with { TypeParams = parameters.TypeParams() },
       typeParams1.SequenceEqual(typeParams2));
 
-  protected static IGqlpAlternate[] CreateAlternates(IEnumerable<AlternateInput> alternates)
+  protected static IGqlpAlternate[] CreateAlternates(IEnumerable<TypeInput> alternates)
     => alternates.Alternates();
-  protected string AlternateString(AlternateInput input)
+  protected string AlternateString(TypeInput input)
     => $"{input.Type} [] ?";
 
   protected abstract TObjField[] CreateFields(IEnumerable<FieldInput> fields);
   protected abstract string FieldString(FieldInput input);
+  private static CreateBy<string> CreateObject(TypeKind kind)
+    => input => new(kind, AstNulls.At, input, "");
+  private static AstObject<TObjField> CloneObject(AstObject<TObjField> original, string input)
+    => original with { Name = input };
 }
 
 internal interface IAstObjectChecks
   : IAstTypeChecks
 {
-  void HashCode_WithAlternates(string name, AlternateInput[] alternates);
-  void String_WithAlternates(string name, AlternateInput[] alternates);
-  void Equality_WithAlternates(string name, AlternateInput[] alternates);
-  void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2);
+  void HashCode_WithAlternates(string name, TypeInput[] alternates);
+  void String_WithAlternates(string name, TypeInput[] alternates);
+  void Equality_WithAlternates(string name, TypeInput[] alternates);
+  void Inequality_BetweenAlternates(string name, TypeInput[] alternates1, TypeInput[] alternates2);
 
   void HashCode_WithFields(string name, FieldInput[] fields);
   void String_WithFields(string name, FieldInput[] fields);

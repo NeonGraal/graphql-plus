@@ -22,7 +22,7 @@ public class ValueObjectParser<TValue>(
     }
 #pragma warning restore CA1062 // Validate arguments of public methods
 
-    AstFields<TValue> result = [];
+    FieldsAst<TValue> result = [];
     while (!tokens.Take('}')) {
       IResult<KeyValue<TValue>> field = _field.Parse(tokens, label);
       if (!field.Required(value => result.Add(value.Key, value.Value))) {

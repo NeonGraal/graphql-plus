@@ -1,4 +1,5 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+﻿
+namespace GqlPlus.Ast.Schema.Objects;
 
 public class ParamAstTests : AstAbbreviatedTests
 {
@@ -46,7 +47,12 @@ public class ParamAstTests : AstAbbreviatedTests
       def1 == def2);
 
   private readonly AstAbbreviatedChecks<InputParamAst> _checks
-    = new(name => new InputParamAst(AstNulls.At, name));
+    = new(CreateInputParam, CloneInputParam);
+
+  private static InputParamAst CloneInputParam(InputParamAst original, string input)
+    => original with { Type = new ObjBaseAst(AstNulls.At, input, "") };
+  private static InputParamAst CreateInputParam(string input)
+    => new(AstNulls.At, input);
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

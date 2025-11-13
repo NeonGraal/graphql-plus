@@ -57,7 +57,9 @@ public interface IGqlpObjBase
 }
 
 public interface IGqlpObjFieldType
-  : IGqlpModifiers
+  : IGqlpError
+  , IGqlpModifiers
+  , IGqlpObjEnum
 {
   IGqlpObjBase Type { get; }
   string ModifiedType { get; }
@@ -66,7 +68,6 @@ public interface IGqlpObjFieldType
 public interface IGqlpObjField
   : IGqlpAliased
   , IGqlpObjFieldType
-  , IGqlpObjEnum
 { }
 
 public interface IGqlpAlternate

@@ -14,7 +14,7 @@ internal static class SchemaTestHelpers
   public static OutputFieldAst[] OutputFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new OutputFieldAst(AstNulls.At, f.Name, ObjBase(f.Type, f.TypeParam)))];
 
-  public static AlternateAst[] Alternates(this IEnumerable<AlternateInput> alternates)
+  public static AlternateAst[] Alternates(this IEnumerable<TypeInput> alternates)
     => [.. alternates.Select(a => new AlternateAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
 
   private static ObjBaseAst ObjBase(string type, bool isTypeParam)

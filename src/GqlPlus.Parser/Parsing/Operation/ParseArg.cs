@@ -61,7 +61,7 @@ internal class ParseArg(
       : initial;
   }
 
-  private IResult<IGqlpArg> ParseArgMid(ITokenizer tokens, TokenAt at, AstFields<IGqlpArg> fields)
+  private IResult<IGqlpArg> ParseArgMid(ITokenizer tokens, TokenAt at, FieldsAst<IGqlpArg> fields)
   {
     if (tokens.Take(',')) {
       return _argument.I

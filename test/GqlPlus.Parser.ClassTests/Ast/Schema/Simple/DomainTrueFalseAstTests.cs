@@ -1,10 +1,16 @@
-﻿namespace GqlPlus.Ast.Schema.Simple;
+﻿
+namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainTrueFalseAstTests
   : AstAbbreviatedTests<bool>
 {
   private readonly AstAbbreviatedChecks<bool, DomainTrueFalseAst> _checks
-    = new(input => new DomainTrueFalseAst(AstNulls.At, "", false, input));
+    = new(CreateTrueFalse, CloneTrueFalse);
+
+  private static DomainTrueFalseAst CloneTrueFalse(DomainTrueFalseAst original, bool input)
+    => original with { Value = input };
+  private static DomainTrueFalseAst CreateTrueFalse(bool input)
+    => new(AstNulls.At, "", false, input);
 
   internal override IAstAbbreviatedChecks<bool> AbbreviatedChecks => _checks;
 }

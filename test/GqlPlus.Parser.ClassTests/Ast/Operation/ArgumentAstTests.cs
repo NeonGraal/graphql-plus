@@ -55,6 +55,15 @@ public class ArgAstTests
       key == enumValue);
 
   [Theory, RepeatData]
+  public void Clone(string variable)
+  {
+    ArgAst item = new(AstNulls.At, variable);
+    _checks.Equality(
+        () => item,
+        () => item with { Variable = variable });
+  }
+
+  [Theory, RepeatData]
   public void Equality_WithVariable(string variable)
     => _checks.Equality(
       () => new ArgAst(AstNulls.At, variable));

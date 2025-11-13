@@ -74,7 +74,12 @@ public class DirectiveAstTests : AstAliasedTests
     => $"( {DescriptionNameString(input, description)}{aliases} (Unique) None )";
 
   private readonly AstAliasedChecks<DirectiveDeclAst> _checks
-    = new(name => new DirectiveDeclAst(AstNulls.At, name));
+    = new(CreateDirective, CloneDirective);
+
+  private static DirectiveDeclAst CloneDirective(DirectiveDeclAst original, string input)
+    => original with { Name = input };
+  private static DirectiveDeclAst CreateDirective(string input)
+    => new(AstNulls.At, input);
 
   internal override IAstAliasedChecks<string> AliasedChecks => _checks;
 

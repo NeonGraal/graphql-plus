@@ -21,16 +21,17 @@ public abstract class AstAbbreviatedTests<TInput>
 
 internal sealed class AstAbbreviatedChecks<TAst>(
   BaseAstChecks<TAst>.CreateBy<string> createInput,
+  BaseAstChecks<TAst>.CloneBy<string> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstAbbreviatedChecks<string, TAst>(createInput, createExpression)
+) : AstAbbreviatedChecks<string, TAst>(createInput, cloneInput, createExpression)
   where TAst : IGqlpError
-{
-}
+{ }
 
 internal class AstAbbreviatedChecks<TInput, TAst>(
   BaseAstChecks<TAst>.CreateBy<TInput> createInput,
+  BaseAstChecks<TAst>.CloneBy<TInput> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstBaseChecks<TInput, TAst>(createInput, createExpression)
+) : AstBaseChecks<TInput, TAst>(createInput, cloneInput, createExpression)
   , IAstAbbreviatedChecks<TInput>
   where TAst : IGqlpError
 {

@@ -1,4 +1,5 @@
 ﻿namespace GqlPlus.Parsing.Schema;
+
 public class ParseNullsTests
   : ParserClassTestBase
 {

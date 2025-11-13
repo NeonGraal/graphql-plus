@@ -76,8 +76,7 @@ internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
       => HashCode(() => WithModifiers(CreateInput(input)));
 
   public void String_WithModifiers(TInput input, string expected)
-    => Text(
-      () => WithModifiers(CreateInput(input)), expected);
+    => Text(() => WithModifiers(CreateInput(input)), expected);
 
   public void Equality_WithModifiers(TInput input)
     => Equality(() => WithModifiers(CreateInput(input)));

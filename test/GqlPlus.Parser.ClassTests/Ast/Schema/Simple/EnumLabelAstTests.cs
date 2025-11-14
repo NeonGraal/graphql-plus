@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Ast.Schema.Simple;
 
 public class EnumLabelAstTests
-  : AstAliasedTests
+  : AstAliasedBaseTests
 {
   private readonly AstAliasedChecks<EnumLabelAst> _checks
     = new(CreateLabel, CloneLabel);

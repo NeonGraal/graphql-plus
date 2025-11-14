@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectTests
-  : AstTypeTests
+public abstract class AstObjectBaseTests
+  : AstTypeBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithAlternates(string name, TypeInput[] alternates)

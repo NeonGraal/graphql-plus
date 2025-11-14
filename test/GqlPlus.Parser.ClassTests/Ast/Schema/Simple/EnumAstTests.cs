@@ -2,7 +2,7 @@
 namespace GqlPlus.Ast.Schema.Simple;
 
 public class EnumAstTests
-  : AstTypeTests
+  : AstTypeBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithLabels(string name, string[] enumLabels)

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Ast.Operation;
 
 public class InlineAstTests
-  : AstDirectivesTests<string[]>
+  : AstDirectivesBaseTests<string[]>
 {
   [Theory, RepeatData]
   public void HashCode_WithOnType(string onType, string[] fields)

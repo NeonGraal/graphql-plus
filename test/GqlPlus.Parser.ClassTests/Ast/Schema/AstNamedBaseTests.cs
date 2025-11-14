@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Ast.Schema;
 
-public abstract class AstNamedTests<TInput>
-  : AstAbbreviatedTests<TInput>
+public abstract class AstNamedBaseTests<TInput>
+  : AstAbbreviatedBaseTests<TInput>
 {
   [Theory, RepeatData]
   public void HashCode_WithDescription(TInput input, string description)

@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
 public abstract class InputFieldTypeTests<TInput>
-  : ObjFieldTypeTests<TInput>
+  : ObjFieldTypeBaseTests<TInput>
 {
   [Theory, RepeatData]
   public void HashCode_WithDefault(TInput input, string def)

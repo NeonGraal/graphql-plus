@@ -1,10 +1,7 @@
-﻿using System.Runtime.CompilerServices;
-using System.Xml.Linq;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public class TypeParamAstTests
-  : AstAbbreviatedTests
+  : AstAbbreviatedBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithConstraint(string name, string constraint)

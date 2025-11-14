@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Ast.Operation;
 
 public class VariableAstTests
-  : AstDirectivesTests
+  : AstDirectivesBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithType(string name, string varType)

@@ -2,7 +2,7 @@
 namespace GqlPlus.Ast.Operation;
 
 public class OperationAstTests
-  : AstDirectivesTests
+  : AstDirectivesBaseTests
 {
   internal override IAstDirectivesChecks DirectivesChecks { get; }
     = new OperationAstChecks();

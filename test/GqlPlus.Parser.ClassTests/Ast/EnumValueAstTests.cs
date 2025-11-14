@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Ast;
 
-public class EnumValueAstTests : AstAbbreviatedTests
+public class EnumValueAstTests : AstAbbreviatedBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithLabel(string enumLabel)

@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast;
 
 public class FieldKeyAstTests
-  : AstAbbreviatedTests
+  : AstAbbreviatedBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithNumber(decimal number)

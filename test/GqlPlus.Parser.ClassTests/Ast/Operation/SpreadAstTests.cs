@@ -2,7 +2,7 @@
 namespace GqlPlus.Ast.Operation;
 
 public class SpreadAstTests
-  : AstDirectivesTests
+  : AstDirectivesBaseTests
 {
   internal override IAstDirectivesChecks DirectivesChecks { get; }
     = new AstDirectivesChecks<SpreadAst>(CreateSpread, CloneSpread);

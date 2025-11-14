@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
 public class DualFieldAstTests
-  : AstObjectFieldTests
+  : AstObjFieldBaseTests
 {
   internal override IAstObjectFieldChecks FieldChecks { get; }
     = new DualFieldAstChecks();
@@ -17,7 +17,7 @@ internal sealed class DualFieldAstChecks()
 }
 
 public class DualFieldAstTypeTests
-    : ObjFieldTypeTests<FieldInput>
+    : ObjFieldTypeBaseTests<FieldInput>
 {
   internal override IObjFieldTypeChecks<FieldInput> FieldChecks { get; }
     = new DualFieldAstTypeChecks();

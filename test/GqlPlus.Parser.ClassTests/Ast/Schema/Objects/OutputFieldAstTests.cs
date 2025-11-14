@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
 public class OutputFieldAstTests
-  : AstObjectFieldTests
+  : AstObjFieldBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithParam(FieldInput input, string[] parameters)
@@ -40,7 +40,7 @@ internal sealed class OutputFieldAstChecks()
 }
 
 public class OutputFieldAstTypeTests
-    : ObjFieldTypeTests<FieldInput>
+    : ObjFieldTypeBaseTests<FieldInput>
 {
   internal override IObjFieldTypeChecks<FieldInput> FieldChecks { get; }
     = new OutputFieldAstTypeChecks();

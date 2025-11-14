@@ -2,12 +2,12 @@
 
 namespace GqlPlus.Ast.Schema;
 
-public abstract class AstAliasedTests
-  : AstAliasedTests<string>
+public abstract class AstAliasedBaseTests
+  : AstAliasedBaseTests<string>
 { }
 
-public abstract class AstAliasedTests<TInput>
-  : AstNamedTests<TInput>
+public abstract class AstAliasedBaseTests<TInput>
+  : AstNamedBaseTests<TInput>
 {
   [Theory, RepeatData]
   public void HashCode_WithAlias(TInput input, string aliased)

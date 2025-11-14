@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Globals;
 
 public class DirectiveAstTests
-  : AstAliasedTests
+  : AstAliasedBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithOption(string name, DirectiveOption option)

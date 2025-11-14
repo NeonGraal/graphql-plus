@@ -2,7 +2,7 @@
 namespace GqlPlus.Ast.Schema.Simple;
 
 public class UnionAstTests
-  : AstTypeTests
+  : AstTypeBaseTests
 {
   [Theory, RepeatData]
   public void Inequality_BetweenParent(string name, string parent1, string parent2)

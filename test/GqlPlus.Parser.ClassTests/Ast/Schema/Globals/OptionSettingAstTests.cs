@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Ast.Schema.Globals;
 
 public class OptionSettingAstTests
-  : AstAliasedTests<SettingInput>
+  : AstAliasedBaseTests<SettingInput>
 {
   [Theory, RepeatData]
   public void Inequality_ByNames(string name1, string name2, string value)

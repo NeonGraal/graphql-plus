@@ -1,7 +1,7 @@
 ﻿
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class ParamAstTests : AstAbbreviatedTests
+public class ParamAstTests : AstAbbreviatedBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithModifiers(string name)

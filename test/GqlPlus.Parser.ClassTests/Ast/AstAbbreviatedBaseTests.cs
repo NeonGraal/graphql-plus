@@ -2,11 +2,11 @@
 
 namespace GqlPlus.Ast;
 
-public abstract class AstAbbreviatedTests
-  : AstAbbreviatedTests<string>
+public abstract class AstAbbreviatedBaseTests
+  : AstAbbreviatedBaseTests<string>
 { }
 
-public abstract class AstAbbreviatedTests<TInput>
+public abstract class AstAbbreviatedBaseTests<TInput>
   : AstBaseTests<TInput>
 {
   internal abstract IAstAbbreviatedChecks<TInput> AbbreviatedChecks { get; }

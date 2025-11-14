@@ -2,15 +2,15 @@
 
 namespace GqlPlus.Ast;
 
-public abstract class AstDirectivesTests
-  : AstDirectivesTests<string>
+public abstract class AstDirectivesBaseTests
+  : AstDirectivesBaseTests<string>
 {
   protected override bool InputEquals(string? input1, string? input2)
     => input1 == input2;
 }
 
-public abstract class AstDirectivesTests<TInput>
-  : AstAbbreviatedTests<TInput>
+public abstract class AstDirectivesBaseTests<TInput>
+  : AstAbbreviatedBaseTests<TInput>
 {
   [Theory, RepeatData]
   public void HashCode_WithDirectives(TInput input, string[] directives)

@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
 public class InputDeclAstTests
-  : AstObjectTests
+  : AstObjectBaseTests
 {
   private readonly InputDeclAstChecks _checks = new();
 

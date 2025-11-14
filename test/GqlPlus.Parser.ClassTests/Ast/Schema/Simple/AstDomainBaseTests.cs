@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public abstract class AstDomainTests<TInput>
-  : AstTypeTests
+public abstract class AstDomainBaseTests<TInput>
+  : AstTypeBaseTests
   where TInput : IEquatable<TInput>
 {
   [Theory, RepeatData]

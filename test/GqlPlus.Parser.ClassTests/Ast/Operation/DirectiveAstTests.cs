@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Ast.Operation;
 
-public class DirectiveAstTests : AstAbbreviatedTests
+public class DirectiveAstTests : AstAbbreviatedBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithArg(string variable, string name)

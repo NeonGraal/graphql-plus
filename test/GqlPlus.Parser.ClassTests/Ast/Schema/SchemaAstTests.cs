@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema;
 
 public class SchemaAstTests
-  : AstAbbreviatedTests
+  : AstAbbreviatedBaseTests
 {
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
     = new SchemaAstChecks();

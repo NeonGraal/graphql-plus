@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainRegexAstTests
-  : AstAbbreviatedTests
+  : AstAbbreviatedBaseTests
 {
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
     = new DomainRegexAstChecks();

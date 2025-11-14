@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
 public class InputFieldAstTests
-  : AstObjectFieldTests
+  : AstObjFieldBaseTests
 {
   internal override IAstObjectFieldChecks FieldChecks { get; }
     = new InputFieldAstChecks();

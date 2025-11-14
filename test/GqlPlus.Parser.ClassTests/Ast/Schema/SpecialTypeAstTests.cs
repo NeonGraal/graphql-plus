@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Ast.Schema;
 
 public class SpecialTypeAstTests
-  : AstAliasedTests
+  : AstAliasedBaseTests
 {
   internal override IAstAliasedChecks<string> AliasedChecks { get; }
     = new SpecialTypeAstChecks();

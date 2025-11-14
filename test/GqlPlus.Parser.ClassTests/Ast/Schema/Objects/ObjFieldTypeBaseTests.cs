@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class ObjFieldTypeTests<TInput>
-  : AstAbbreviatedTests<TInput>
+public abstract class ObjFieldTypeBaseTests<TInput>
+  : ObjEnumBaseTests<TInput>
 {
   [Theory, RepeatData]
   public void HashCode_WithModifiers(TInput input)
@@ -33,30 +33,14 @@ public abstract class ObjFieldTypeTests<TInput>
   public void ModifiedType_WithModifiersAndArgs(TInput input, string[] arguments)
     => FieldChecks.ModifiedType_WithModifiersAndArgs(input, arguments);
 
-  [Theory, RepeatData]
-  public void HashCode_WithEnumValue(TInput input, string enumLabel)
-      => FieldChecks.HashCode_WithEnumValue(input, enumLabel);
-
-  [Theory, RepeatData]
-  public void Text_WithEnumValue(TInput input, string enumLabel)
-    => FieldChecks.Text_WithEnumValue(input, enumLabel);
-
-  [Theory, RepeatData]
-  public void Equality_WithEnumValue(TInput input, string enumLabel)
-    => FieldChecks.Equality_WithEnumValue(input, enumLabel);
-
-  [Theory, RepeatData]
-  public void Inequality_BetweenEnumValues(TInput input, string enumValue1, string enumValue2)
-    => FieldChecks.Inequality_BetweenEnumValues(input, enumValue1, enumValue2);
-
   internal abstract IObjFieldTypeChecks<TInput> FieldChecks { get; }
-  internal override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => FieldChecks;
+  internal sealed override IObjEnumChecks<TInput> EnumChecks => FieldChecks;
 }
 
 internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
   ObjFieldTypeChecks<TInput, TObjType>.TypeBy createType,
   BaseAstChecks<TObjType>.CloneBy<TInput> cloneInput
-) : AstAbbreviatedChecks<TInput, TObjType>(input => createType(input, BaseBy(input)), cloneInput)
+) : ObjEnumChecks<TInput, TObjType>(input => createType(input, BaseBy(input)), cloneInput)
   , IObjFieldTypeChecks<TInput>
   where TObjType : IGqlpObjFieldType
   where TInput : ITypeInput
@@ -82,24 +66,6 @@ internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
   public void Inequality_WithModifiers(TInput input)
     => InequalityWith(input, () => WithModifiers(CreateInput(input)));
 
-  public void HashCode_WithEnumValue(TInput input, string enumLabel)
-      => HashCode(() => CreateEnum(input, enumLabel));
-
-  public void Text_WithEnumValue(TInput input, string enumLabel)
-    => Text(
-      () => CreateEnum(input, enumLabel),
-      InputString(input)
-      .Replace(":", "=", StringComparison.Ordinal)
-      .Replace(")", $".{enumLabel} )", StringComparison.Ordinal));
-
-  public void Equality_WithEnumValue(TInput input, string enumLabel)
-    => Equality(() => CreateEnum(input, enumLabel));
-
-  public void Inequality_BetweenEnumValues(TInput input, string enumValue1, string enumValue2)
-    => InequalityBetween(enumValue1, enumValue2,
-      enumLabel => CreateEnum(input, enumLabel),
-      enumValue1 == enumValue2);
-
   public void ModifiedType_WithArgs(TInput input, string[] arguments)
   {
     TObjType field = _createType(input, BaseBy(input) with { Args = arguments.TypeArgs() });
@@ -124,23 +90,21 @@ internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
     field.ModifiedType.ShouldBe(expected);
   }
 
-  protected abstract TObjType WithModifiers(TObjType objType);
+  protected override string EnumString(TInput input, string enumLabel)
+    => InputString(input)
+    .Replace(":", "=", StringComparison.Ordinal)
+    .Replace(")", $".{enumLabel} )", StringComparison.Ordinal);
 
-  protected abstract TObjType CreateEnum(TInput input, string enumLabel);
+  protected abstract TObjType WithModifiers(TObjType objType);
 }
 
 internal interface IObjFieldTypeChecks<TInput>
-  : IAstAbbreviatedChecks<TInput>
+  : IObjEnumChecks<TInput>
 {
   void HashCode_WithModifiers(TInput input);
   void Text_WithModifiers(TInput input);
   void Equality_WithModifiers(TInput input);
   void Inequality_WithModifiers(TInput input);
-
-  void HashCode_WithEnumValue(TInput input, string enumLabel);
-  void Text_WithEnumValue(TInput input, string enumLabel);
-  void Equality_WithEnumValue(TInput input, string enumLabel);
-  void Inequality_BetweenEnumValues(TInput input, string enumValue1, string enumValue2);
 
   void ModifiedType_WithArgs(TInput input, string[] arguments);
   void ModifiedType_WithModifiers(TInput input);

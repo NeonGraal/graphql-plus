@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Ast.Schema.Globals;
 
 public class OptionAstTests
-  : AstAliasedTests
+  : AstAliasedBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithSettings(string name, string[] settings)

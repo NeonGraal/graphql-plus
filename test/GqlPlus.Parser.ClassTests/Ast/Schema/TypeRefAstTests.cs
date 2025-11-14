@@ -2,7 +2,7 @@
 namespace GqlPlus.Ast.Schema;
 
 public class TypeRefAstTests
-  : AstNamedTests<string>
+  : AstNamedBaseTests<string>
 {
   internal sealed override IAstNamedChecks NamedChecks { get; }
     = new AstNamedChecks<TypeRefAst>(CreateTypeRef, CloneTypeRef);

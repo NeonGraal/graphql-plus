@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
 public class ObjBaseAstTests
-  : AstAbbreviatedTests<string>
+  : AstAbbreviatedBaseTests<string>
 {
   [Theory, RepeatData]
   public void HashCode_WithIsTypeParam(string input)

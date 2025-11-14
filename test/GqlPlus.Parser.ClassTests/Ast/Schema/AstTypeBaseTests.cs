@@ -3,8 +3,8 @@ using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema;
 
-public abstract class AstTypeTests
-  : AstAliasedTests
+public abstract class AstTypeBaseTests
+  : AstAliasedBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithParent(string name, string parent)

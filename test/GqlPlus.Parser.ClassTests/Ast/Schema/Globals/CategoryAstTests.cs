@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Globals;
 
 public class CategoryAstTests
-  : AstAliasedTests
+  : AstAliasedBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithOutputAndName(string name, string output)

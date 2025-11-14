@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectFieldTests
-  : AstAliasedTests<FieldInput>
+public abstract class AstObjFieldBaseTests
+  : AstAliasedBaseTests<FieldInput>
 {
   internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Ast.Operation;
 
 public class FragmentAstTests
-  : AstDirectivesTests<FragmentInput>
+  : AstDirectivesBaseTests<FragmentInput>
 {
   [Fact]
   public void HashCode_Null()

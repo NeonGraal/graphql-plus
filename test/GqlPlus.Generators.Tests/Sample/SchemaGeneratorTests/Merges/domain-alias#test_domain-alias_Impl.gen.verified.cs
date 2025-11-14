@@ -6,6 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_alias;
 
 public class testDmnAlias
-  : ItestDmnAlias
+  : DomainNumber
+  , ItestDmnAlias
 {
 }

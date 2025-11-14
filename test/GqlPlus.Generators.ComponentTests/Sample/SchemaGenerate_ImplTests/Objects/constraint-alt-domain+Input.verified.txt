@@ -25,6 +25,7 @@ public class CmptRefCnstAltDmnInp<Tref>
 }
 
 public class CmptDomCnstAltDmnInp
-  : ICmptDomCnstAltDmnInp
+  : DomainString
+  , ICmptDomCnstAltDmnInp
 {
 }

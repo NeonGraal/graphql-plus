@@ -33,5 +33,6 @@ public interface ICmptFieldGnrcPrntEnumDomDualField<Tref>
 }
 
 public interface ICmptDomGnrcPrntEnumDomDual
+  : IDomainEnum
 {
 }

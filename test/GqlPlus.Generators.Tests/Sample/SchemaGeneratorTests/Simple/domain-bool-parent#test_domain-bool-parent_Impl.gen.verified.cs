@@ -12,6 +12,7 @@ public class testDmnBoolPrnt
 }
 
 public class testPrntDmnBoolPrnt
-  : ItestPrntDmnBoolPrnt
+  : DomainBoolean
+  , ItestPrntDmnBoolPrnt
 {
 }

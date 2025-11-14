@@ -385,7 +385,8 @@ public class CmptRefCnstAltDmnDual<Tref>
 }
 
 public class CmptDomCnstAltDmnDual
-  : ICmptDomCnstAltDmnDual
+  : DomainString
+  , ICmptDomCnstAltDmnDual
 {
 }
 
@@ -404,7 +405,8 @@ public class CmptRefCnstAltDmnInp<Tref>
 }
 
 public class CmptDomCnstAltDmnInp
-  : ICmptDomCnstAltDmnInp
+  : DomainString
+  , ICmptDomCnstAltDmnInp
 {
 }
 
@@ -423,7 +425,8 @@ public class CmptRefCnstAltDmnOutp<Tref>
 }
 
 public class CmptDomCnstAltDmnOutp
-  : ICmptDomCnstAltDmnOutp
+  : DomainString
+  , ICmptDomCnstAltDmnOutp
 {
 }
 
@@ -616,7 +619,8 @@ public class CmptRefCnstDomEnumDual<Ttype>
 }
 
 public class CmptJustCnstDomEnumDual
-  : ICmptJustCnstDomEnumDual
+  : DomainEnum
+  , ICmptJustCnstDomEnumDual
 {
 }
 
@@ -635,7 +639,8 @@ public class CmptRefCnstDomEnumInp<Ttype>
 }
 
 public class CmptJustCnstDomEnumInp
-  : ICmptJustCnstDomEnumInp
+  : DomainEnum
+  , ICmptJustCnstDomEnumInp
 {
 }
 
@@ -654,7 +659,8 @@ public class CmptRefCnstDomEnumOutp<Ttype>
 }
 
 public class CmptJustCnstDomEnumOutp
-  : ICmptJustCnstDomEnumOutp
+  : DomainEnum
+  , ICmptJustCnstDomEnumOutp
 {
 }
 
@@ -757,7 +763,8 @@ public class CmptRefCnstFieldDmnDual<Tref>
 }
 
 public class CmptDomCnstFieldDmnDual
-  : ICmptDomCnstFieldDmnDual
+  : DomainString
+  , ICmptDomCnstFieldDmnDual
 {
 }
 
@@ -776,7 +783,8 @@ public class CmptRefCnstFieldDmnInp<Tref>
 }
 
 public class CmptDomCnstFieldDmnInp
-  : ICmptDomCnstFieldDmnInp
+  : DomainString
+  , ICmptDomCnstFieldDmnInp
 {
 }
 
@@ -795,7 +803,8 @@ public class CmptRefCnstFieldDmnOutp<Tref>
 }
 
 public class CmptDomCnstFieldDmnOutp
-  : ICmptDomCnstFieldDmnOutp
+  : DomainString
+  , ICmptDomCnstFieldDmnOutp
 {
 }
 
@@ -2473,7 +2482,8 @@ public class CmptFieldGnrcPrntEnumDomDual<Tref>
 }
 
 public class CmptDomGnrcPrntEnumDomDual
-  : ICmptDomGnrcPrntEnumDomDual
+  : DomainEnum
+  , ICmptDomGnrcPrntEnumDomDual
 {
 }
 
@@ -2492,7 +2502,8 @@ public class CmptFieldGnrcPrntEnumDomInp<Tref>
 }
 
 public class CmptDomGnrcPrntEnumDomInp
-  : ICmptDomGnrcPrntEnumDomInp
+  : DomainEnum
+  , ICmptDomGnrcPrntEnumDomInp
 {
 }
 
@@ -2511,7 +2522,8 @@ public class CmptFieldGnrcPrntEnumDomOutp<Tref>
 }
 
 public class CmptDomGnrcPrntEnumDomOutp
-  : ICmptDomGnrcPrntEnumDomOutp
+  : DomainEnum
+  , ICmptDomGnrcPrntEnumDomOutp
 {
 }
 
@@ -2746,7 +2758,8 @@ public class CmptFieldGnrcPrntStrDomDual<Tref>
 }
 
 public class CmptDomGnrcPrntStrDomDual
-  : ICmptDomGnrcPrntStrDomDual
+  : DomainString
+  , ICmptDomGnrcPrntStrDomDual
 {
 }
 
@@ -2765,7 +2778,8 @@ public class CmptFieldGnrcPrntStrDomInp<Tref>
 }
 
 public class CmptDomGnrcPrntStrDomInp
-  : ICmptDomGnrcPrntStrDomInp
+  : DomainString
+  , ICmptDomGnrcPrntStrDomInp
 {
 }
 
@@ -2784,7 +2798,8 @@ public class CmptFieldGnrcPrntStrDomOutp<Tref>
 }
 
 public class CmptDomGnrcPrntStrDomOutp
-  : ICmptDomGnrcPrntStrDomOutp
+  : DomainString
+  , ICmptDomGnrcPrntStrDomOutp
 {
 }
 
@@ -2957,7 +2972,8 @@ public class CmptInOutpParamModDmn
 }
 
 public class CmptDomOutpParamModDmn
-  : ICmptDomOutpParamModDmn
+  : DomainNumber
+  , ICmptDomOutpParamModDmn
 {
 }
 
@@ -2977,7 +2993,8 @@ public class CmptInOutpParamModParam
 }
 
 public class CmptDomOutpParamModParam
-  : ICmptDomOutpParamModParam
+  : DomainNumber
+  , ICmptDomOutpParamModParam
 {
 }
 
@@ -3405,62 +3422,74 @@ public class CmptInDrctParam
 }
 
 public class CmptDmnAlias
-  : ICmptDmnAlias
+  : DomainNumber
+  , ICmptDmnAlias
 {
 }
 
 public class CmptDmnBool
-  : ICmptDmnBool
+  : DomainBoolean
+  , ICmptDmnBool
 {
 }
 
 public class CmptDmnBoolDiff
-  : ICmptDmnBoolDiff
+  : DomainBoolean
+  , ICmptDmnBoolDiff
 {
 }
 
 public class CmptDmnBoolSame
-  : ICmptDmnBoolSame
+  : DomainBoolean
+  , ICmptDmnBoolSame
 {
 }
 
 public class CmptDmnEnumDiff
-  : ICmptDmnEnumDiff
+  : DomainEnum
+  , ICmptDmnEnumDiff
 {
 }
 
 public class CmptDmnEnumSame
-  : ICmptDmnEnumSame
+  : DomainEnum
+  , ICmptDmnEnumSame
 {
 }
 
 public class CmptDmnNmbr
-  : ICmptDmnNmbr
+  : DomainNumber
+  , ICmptDmnNmbr
 {
 }
 
 public class CmptDmnNmbrDiff
-  : ICmptDmnNmbrDiff
+  : DomainNumber
+  , ICmptDmnNmbrDiff
 {
 }
 
 public class CmptDmnNmbrSame
-  : ICmptDmnNmbrSame
+  : DomainNumber
+  , ICmptDmnNmbrSame
 {
 }
 
 public class CmptDmnStr
-  : ICmptDmnStr
+  : DomainString
+  , ICmptDmnStr
 {
 }
 
 public class CmptDmnStrDiff
-  : ICmptDmnStrDiff
+  : DomainString
+  , ICmptDmnStrDiff
 {
 }
 
 public class CmptDmnStrSame
-  : ICmptDmnStrSame
+  : DomainString
+  , ICmptDmnStrSame
 {
 }
 
@@ -3874,7 +3903,8 @@ public class CmptPrntUnionSamePrnt
 }
 
 public class CmptDmnBoolDescr
-  : ICmptDmnBoolDescr
+  : DomainBoolean
+  , ICmptDmnBoolDescr
 {
 }
 
@@ -3885,7 +3915,8 @@ public class CmptDmnBoolPrnt
 }
 
 public class CmptPrntDmnBoolPrnt
-  : ICmptPrntDmnBoolPrnt
+  : DomainBoolean
+  , ICmptPrntDmnBoolPrnt
 {
 }
 
@@ -3896,32 +3927,38 @@ public class CmptDmnBoolPrntDescr
 }
 
 public class CmptPrntDmnBoolPrntDescr
-  : ICmptPrntDmnBoolPrntDescr
+  : DomainBoolean
+  , ICmptPrntDmnBoolPrntDescr
 {
 }
 
 public class CmptDmnEnumAll
-  : ICmptDmnEnumAll
+  : DomainEnum
+  , ICmptDmnEnumAll
 {
 }
 
 public class CmptDmnEnumAllDescr
-  : ICmptDmnEnumAllDescr
+  : DomainEnum
+  , ICmptDmnEnumAllDescr
 {
 }
 
 public class CmptDmnEnumAllPrnt
-  : ICmptDmnEnumAllPrnt
+  : DomainEnum
+  , ICmptDmnEnumAllPrnt
 {
 }
 
 public class CmptDmnEnumDescr
-  : ICmptDmnEnumDescr
+  : DomainEnum
+  , ICmptDmnEnumDescr
 {
 }
 
 public class CmptDmnEnumLabel
-  : ICmptDmnEnumLabel
+  : DomainEnum
+  , ICmptDmnEnumLabel
 {
 }
 
@@ -3932,7 +3969,8 @@ public class CmptDmnEnumPrnt
 }
 
 public class CmptPrntDmnEnumPrnt
-  : ICmptPrntDmnEnumPrnt
+  : DomainEnum
+  , ICmptPrntDmnEnumPrnt
 {
 }
 
@@ -3943,22 +3981,26 @@ public class CmptDmnEnumPrntDescr
 }
 
 public class CmptPrntDmnEnumPrntDescr
-  : ICmptPrntDmnEnumPrntDescr
+  : DomainEnum
+  , ICmptPrntDmnEnumPrntDescr
 {
 }
 
 public class CmptDmnEnumValue
-  : ICmptDmnEnumValue
+  : DomainEnum
+  , ICmptDmnEnumValue
 {
 }
 
 public class CmptDmnEnumValuePrnt
-  : ICmptDmnEnumValuePrnt
+  : DomainEnum
+  , ICmptDmnEnumValuePrnt
 {
 }
 
 public class CmptDmnNmbrDescr
-  : ICmptDmnNmbrDescr
+  : DomainNumber
+  , ICmptDmnNmbrDescr
 {
 }
 
@@ -3969,7 +4011,8 @@ public class CmptDmnNmbrPrnt
 }
 
 public class CmptPrntDmnNmbrPrnt
-  : ICmptPrntDmnNmbrPrnt
+  : DomainNumber
+  , ICmptPrntDmnNmbrPrnt
 {
 }
 
@@ -3980,12 +4023,14 @@ public class CmptDmnNmbrPrntDescr
 }
 
 public class CmptPrntDmnNmbrPrntDescr
-  : ICmptPrntDmnNmbrPrntDescr
+  : DomainNumber
+  , ICmptPrntDmnNmbrPrntDescr
 {
 }
 
 public class CmptDmnStrDescr
-  : ICmptDmnStrDescr
+  : DomainString
+  , ICmptDmnStrDescr
 {
 }
 
@@ -3996,7 +4041,8 @@ public class CmptDmnStrPrnt
 }
 
 public class CmptPrntDmnStrPrnt
-  : ICmptPrntDmnStrPrnt
+  : DomainString
+  , ICmptPrntDmnStrPrnt
 {
 }
 
@@ -4007,7 +4053,8 @@ public class CmptDmnStrPrntDescr
 }
 
 public class CmptPrntDmnStrPrntDescr
-  : ICmptPrntDmnStrPrntDescr
+  : DomainString
+  , ICmptPrntDmnStrPrntDescr
 {
 }
 

@@ -20,6 +20,7 @@ public class testFieldGnrcPrntEnumDomInp<Tref>
 }
 
 public class testDomGnrcPrntEnumDomInp
-  : ItestDomGnrcPrntEnumDomInp
+  : DomainEnum
+  , ItestDomGnrcPrntEnumDomInp
 {
 }

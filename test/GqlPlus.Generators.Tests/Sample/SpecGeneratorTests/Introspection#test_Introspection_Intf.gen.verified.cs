@@ -21,6 +21,7 @@ public interface Itest_SchemaField
 }
 
 public interface Itest_Identifier
+  : IDomainString
 {
 }
 
@@ -40,6 +41,7 @@ public interface Itest_FilterField
 }
 
 public interface Itest_NameFilter
+  : IDomainString
 {
 }
 
@@ -523,6 +525,7 @@ public interface Itest_UnionMemberField
 }
 
 public interface Itest_ObjectKind
+  : IDomainEnum
 {
 }
 

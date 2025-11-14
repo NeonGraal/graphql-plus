@@ -397,6 +397,7 @@ public interface ICmptRefCnstAltDmnDualField<Tref>
 }
 
 public interface ICmptDomCnstAltDmnDual
+  : IDomainString
 {
 }
 
@@ -421,6 +422,7 @@ public interface ICmptRefCnstAltDmnInpField<Tref>
 }
 
 public interface ICmptDomCnstAltDmnInp
+  : IDomainString
 {
 }
 
@@ -445,6 +447,7 @@ public interface ICmptRefCnstAltDmnOutpField<Tref>
 }
 
 public interface ICmptDomCnstAltDmnOutp
+  : IDomainString
 {
 }
 
@@ -721,6 +724,7 @@ public interface ICmptRefCnstDomEnumDualField<Ttype>
 }
 
 public interface ICmptJustCnstDomEnumDual
+  : IDomainEnum
 {
 }
 
@@ -745,6 +749,7 @@ public interface ICmptRefCnstDomEnumInpField<Ttype>
 }
 
 public interface ICmptJustCnstDomEnumInp
+  : IDomainEnum
 {
 }
 
@@ -769,6 +774,7 @@ public interface ICmptRefCnstDomEnumOutpField<Ttype>
 }
 
 public interface ICmptJustCnstDomEnumOutp
+  : IDomainEnum
 {
 }
 
@@ -914,6 +920,7 @@ public interface ICmptRefCnstFieldDmnDualField<Tref>
 }
 
 public interface ICmptDomCnstFieldDmnDual
+  : IDomainString
 {
 }
 
@@ -939,6 +946,7 @@ public interface ICmptRefCnstFieldDmnInpField<Tref>
 }
 
 public interface ICmptDomCnstFieldDmnInp
+  : IDomainString
 {
 }
 
@@ -964,6 +972,7 @@ public interface ICmptRefCnstFieldDmnOutpField<Tref>
 }
 
 public interface ICmptDomCnstFieldDmnOutp
+  : IDomainString
 {
 }
 
@@ -3404,6 +3413,7 @@ public interface ICmptFieldGnrcPrntEnumDomDualField<Tref>
 }
 
 public interface ICmptDomGnrcPrntEnumDomDual
+  : IDomainEnum
 {
 }
 
@@ -3429,6 +3439,7 @@ public interface ICmptFieldGnrcPrntEnumDomInpField<Tref>
 }
 
 public interface ICmptDomGnrcPrntEnumDomInp
+  : IDomainEnum
 {
 }
 
@@ -3454,6 +3465,7 @@ public interface ICmptFieldGnrcPrntEnumDomOutpField<Tref>
 }
 
 public interface ICmptDomGnrcPrntEnumDomOutp
+  : IDomainEnum
 {
 }
 
@@ -3800,6 +3812,7 @@ public interface ICmptFieldGnrcPrntStrDomDualField<Tref>
 }
 
 public interface ICmptDomGnrcPrntStrDomDual
+  : IDomainString
 {
 }
 
@@ -3825,6 +3838,7 @@ public interface ICmptFieldGnrcPrntStrDomInpField<Tref>
 }
 
 public interface ICmptDomGnrcPrntStrDomInp
+  : IDomainString
 {
 }
 
@@ -3850,6 +3864,7 @@ public interface ICmptFieldGnrcPrntStrDomOutpField<Tref>
 }
 
 public interface ICmptDomGnrcPrntStrDomOutp
+  : IDomainString
 {
 }
 
@@ -4094,6 +4109,7 @@ public interface ICmptInOutpParamModDmnField
 }
 
 public interface ICmptDomOutpParamModDmn
+  : IDomainNumber
 {
 }
 
@@ -4119,6 +4135,7 @@ public interface ICmptInOutpParamModParamField
 }
 
 public interface ICmptDomOutpParamModParam
+  : IDomainNumber
 {
 }
 

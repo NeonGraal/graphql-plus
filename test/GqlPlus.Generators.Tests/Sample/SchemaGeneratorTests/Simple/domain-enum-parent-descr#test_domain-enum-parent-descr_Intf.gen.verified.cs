@@ -11,5 +11,6 @@ public interface ItestDmnEnumPrntDescr
 }
 
 public interface ItestPrntDmnEnumPrntDescr
+  : IDomainEnum
 {
 }

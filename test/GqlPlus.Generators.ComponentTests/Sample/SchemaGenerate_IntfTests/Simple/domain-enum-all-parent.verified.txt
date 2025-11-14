@@ -11,5 +11,6 @@ enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt }
 namespace Components.Gqlp_Schema_domain_enum_all_parent;
 
 public interface ICmptDmnEnumAllPrnt
+  : IDomainEnum
 {
 }

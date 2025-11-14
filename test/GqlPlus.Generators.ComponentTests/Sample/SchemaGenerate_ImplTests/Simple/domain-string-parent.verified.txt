@@ -16,6 +16,7 @@ public class CmptDmnStrPrnt
 }
 
 public class CmptPrntDmnStrPrnt
-  : ICmptPrntDmnStrPrnt
+  : DomainString
+  , ICmptPrntDmnStrPrnt
 {
 }

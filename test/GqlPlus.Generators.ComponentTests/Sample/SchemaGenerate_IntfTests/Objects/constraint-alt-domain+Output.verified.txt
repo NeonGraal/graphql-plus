@@ -31,5 +31,6 @@ public interface ICmptRefCnstAltDmnOutpField<Tref>
 }
 
 public interface ICmptDomCnstAltDmnOutp
+  : IDomainString
 {
 }

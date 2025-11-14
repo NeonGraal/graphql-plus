@@ -398,6 +398,7 @@ public interface ItestRefCnstAltDmnDualField<Tref>
 }
 
 public interface ItestDomCnstAltDmnDual
+  : IDomainString
 {
 }
 
@@ -422,6 +423,7 @@ public interface ItestRefCnstAltDmnInpField<Tref>
 }
 
 public interface ItestDomCnstAltDmnInp
+  : IDomainString
 {
 }
 
@@ -446,6 +448,7 @@ public interface ItestRefCnstAltDmnOutpField<Tref>
 }
 
 public interface ItestDomCnstAltDmnOutp
+  : IDomainString
 {
 }
 
@@ -722,6 +725,7 @@ public interface ItestRefCnstDomEnumDualField<Ttype>
 }
 
 public interface ItestJustCnstDomEnumDual
+  : IDomainEnum
 {
 }
 
@@ -746,6 +750,7 @@ public interface ItestRefCnstDomEnumInpField<Ttype>
 }
 
 public interface ItestJustCnstDomEnumInp
+  : IDomainEnum
 {
 }
 
@@ -770,6 +775,7 @@ public interface ItestRefCnstDomEnumOutpField<Ttype>
 }
 
 public interface ItestJustCnstDomEnumOutp
+  : IDomainEnum
 {
 }
 
@@ -915,6 +921,7 @@ public interface ItestRefCnstFieldDmnDualField<Tref>
 }
 
 public interface ItestDomCnstFieldDmnDual
+  : IDomainString
 {
 }
 
@@ -940,6 +947,7 @@ public interface ItestRefCnstFieldDmnInpField<Tref>
 }
 
 public interface ItestDomCnstFieldDmnInp
+  : IDomainString
 {
 }
 
@@ -965,6 +973,7 @@ public interface ItestRefCnstFieldDmnOutpField<Tref>
 }
 
 public interface ItestDomCnstFieldDmnOutp
+  : IDomainString
 {
 }
 
@@ -3405,6 +3414,7 @@ public interface ItestFieldGnrcPrntEnumDomDualField<Tref>
 }
 
 public interface ItestDomGnrcPrntEnumDomDual
+  : IDomainEnum
 {
 }
 
@@ -3430,6 +3440,7 @@ public interface ItestFieldGnrcPrntEnumDomInpField<Tref>
 }
 
 public interface ItestDomGnrcPrntEnumDomInp
+  : IDomainEnum
 {
 }
 
@@ -3455,6 +3466,7 @@ public interface ItestFieldGnrcPrntEnumDomOutpField<Tref>
 }
 
 public interface ItestDomGnrcPrntEnumDomOutp
+  : IDomainEnum
 {
 }
 
@@ -3801,6 +3813,7 @@ public interface ItestFieldGnrcPrntStrDomDualField<Tref>
 }
 
 public interface ItestDomGnrcPrntStrDomDual
+  : IDomainString
 {
 }
 
@@ -3826,6 +3839,7 @@ public interface ItestFieldGnrcPrntStrDomInpField<Tref>
 }
 
 public interface ItestDomGnrcPrntStrDomInp
+  : IDomainString
 {
 }
 
@@ -3851,6 +3865,7 @@ public interface ItestFieldGnrcPrntStrDomOutpField<Tref>
 }
 
 public interface ItestDomGnrcPrntStrDomOutp
+  : IDomainString
 {
 }
 
@@ -4095,6 +4110,7 @@ public interface ItestInOutpParamModDmnField
 }
 
 public interface ItestDomOutpParamModDmn
+  : IDomainNumber
 {
 }
 
@@ -4120,6 +4136,7 @@ public interface ItestInOutpParamModParamField
 }
 
 public interface ItestDomOutpParamModParam
+  : IDomainNumber
 {
 }
 

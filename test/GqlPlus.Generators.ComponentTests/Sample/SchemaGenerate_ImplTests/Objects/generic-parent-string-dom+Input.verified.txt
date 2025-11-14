@@ -25,6 +25,7 @@ public class CmptFieldGnrcPrntStrDomInp<Tref>
 }
 
 public class CmptDomGnrcPrntStrDomInp
-  : ICmptDomGnrcPrntStrDomInp
+  : DomainString
+  , ICmptDomGnrcPrntStrDomInp
 {
 }

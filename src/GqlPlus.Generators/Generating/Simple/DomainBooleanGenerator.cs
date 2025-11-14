@@ -1,6 +1,5 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
-internal sealed class DomainBooleanGenerator
-  : GenerateBaseDomain<IGqlpDomainTrueFalse>
-{
-}
+internal sealed class DomainBooleanGenerator()
+  : GenerateBaseDomain<IGqlpDomainTrueFalse>(DomainKind.Boolean)
+{ }

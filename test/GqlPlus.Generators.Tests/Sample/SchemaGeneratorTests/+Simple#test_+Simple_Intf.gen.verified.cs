@@ -6,6 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
 public interface ItestDmnBoolDescr
+  : IDomainBoolean
 {
 }
 
@@ -15,6 +16,7 @@ public interface ItestDmnBoolPrnt
 }
 
 public interface ItestPrntDmnBoolPrnt
+  : IDomainBoolean
 {
 }
 
@@ -24,26 +26,32 @@ public interface ItestDmnBoolPrntDescr
 }
 
 public interface ItestPrntDmnBoolPrntDescr
+  : IDomainBoolean
 {
 }
 
 public interface ItestDmnEnumAll
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumAllDescr
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumAllPrnt
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumDescr
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumLabel
+  : IDomainEnum
 {
 }
 
@@ -53,6 +61,7 @@ public interface ItestDmnEnumPrnt
 }
 
 public interface ItestPrntDmnEnumPrnt
+  : IDomainEnum
 {
 }
 
@@ -62,18 +71,22 @@ public interface ItestDmnEnumPrntDescr
 }
 
 public interface ItestPrntDmnEnumPrntDescr
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumValue
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumValuePrnt
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnNmbrDescr
+  : IDomainNumber
 {
 }
 
@@ -83,6 +96,7 @@ public interface ItestDmnNmbrPrnt
 }
 
 public interface ItestPrntDmnNmbrPrnt
+  : IDomainNumber
 {
 }
 
@@ -92,10 +106,12 @@ public interface ItestDmnNmbrPrntDescr
 }
 
 public interface ItestPrntDmnNmbrPrntDescr
+  : IDomainNumber
 {
 }
 
 public interface ItestDmnStrDescr
+  : IDomainString
 {
 }
 
@@ -105,6 +121,7 @@ public interface ItestDmnStrPrnt
 }
 
 public interface ItestPrntDmnStrPrnt
+  : IDomainString
 {
 }
 
@@ -114,6 +131,7 @@ public interface ItestDmnStrPrntDescr
 }
 
 public interface ItestPrntDmnStrPrntDescr
+  : IDomainString
 {
 }
 

@@ -6,6 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_boolean_diff;
 
 public class testDmnBoolDiff
-  : ItestDmnBoolDiff
+  : DomainBoolean
+  , ItestDmnBoolDiff
 {
 }

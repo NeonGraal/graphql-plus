@@ -26,6 +26,7 @@ public class CmptFieldGnrcPrntEnumDomOutp<Tref>
 }
 
 public class CmptDomGnrcPrntEnumDomOutp
-  : ICmptDomGnrcPrntEnumDomOutp
+  : DomainEnum
+  , ICmptDomGnrcPrntEnumDomOutp
 {
 }

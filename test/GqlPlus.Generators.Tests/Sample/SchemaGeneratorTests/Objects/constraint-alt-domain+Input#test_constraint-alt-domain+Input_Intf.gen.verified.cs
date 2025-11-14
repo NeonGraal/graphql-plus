@@ -26,5 +26,6 @@ public interface ItestRefCnstAltDmnInpField<Tref>
 }
 
 public interface ItestDomCnstAltDmnInp
+  : IDomainString
 {
 }

@@ -9,5 +9,6 @@ domain DmnNmbrDescr { Number "DomNumber" "Descr" <2 }
 namespace Components.Gqlp_Schema_domain_number_descr;
 
 public interface ICmptDmnNmbrDescr
+  : IDomainNumber
 {
 }

@@ -5,7 +5,8 @@
 namespace Components.Gqlp_Schema_Simple;
 
 public class CmptDmnBoolDescr
-  : ICmptDmnBoolDescr
+  : DomainBoolean
+  , ICmptDmnBoolDescr
 {
 }
 
@@ -16,7 +17,8 @@ public class CmptDmnBoolPrnt
 }
 
 public class CmptPrntDmnBoolPrnt
-  : ICmptPrntDmnBoolPrnt
+  : DomainBoolean
+  , ICmptPrntDmnBoolPrnt
 {
 }
 
@@ -27,32 +29,38 @@ public class CmptDmnBoolPrntDescr
 }
 
 public class CmptPrntDmnBoolPrntDescr
-  : ICmptPrntDmnBoolPrntDescr
+  : DomainBoolean
+  , ICmptPrntDmnBoolPrntDescr
 {
 }
 
 public class CmptDmnEnumAll
-  : ICmptDmnEnumAll
+  : DomainEnum
+  , ICmptDmnEnumAll
 {
 }
 
 public class CmptDmnEnumAllDescr
-  : ICmptDmnEnumAllDescr
+  : DomainEnum
+  , ICmptDmnEnumAllDescr
 {
 }
 
 public class CmptDmnEnumAllPrnt
-  : ICmptDmnEnumAllPrnt
+  : DomainEnum
+  , ICmptDmnEnumAllPrnt
 {
 }
 
 public class CmptDmnEnumDescr
-  : ICmptDmnEnumDescr
+  : DomainEnum
+  , ICmptDmnEnumDescr
 {
 }
 
 public class CmptDmnEnumLabel
-  : ICmptDmnEnumLabel
+  : DomainEnum
+  , ICmptDmnEnumLabel
 {
 }
 
@@ -63,7 +71,8 @@ public class CmptDmnEnumPrnt
 }
 
 public class CmptPrntDmnEnumPrnt
-  : ICmptPrntDmnEnumPrnt
+  : DomainEnum
+  , ICmptPrntDmnEnumPrnt
 {
 }
 
@@ -74,22 +83,26 @@ public class CmptDmnEnumPrntDescr
 }
 
 public class CmptPrntDmnEnumPrntDescr
-  : ICmptPrntDmnEnumPrntDescr
+  : DomainEnum
+  , ICmptPrntDmnEnumPrntDescr
 {
 }
 
 public class CmptDmnEnumValue
-  : ICmptDmnEnumValue
+  : DomainEnum
+  , ICmptDmnEnumValue
 {
 }
 
 public class CmptDmnEnumValuePrnt
-  : ICmptDmnEnumValuePrnt
+  : DomainEnum
+  , ICmptDmnEnumValuePrnt
 {
 }
 
 public class CmptDmnNmbrDescr
-  : ICmptDmnNmbrDescr
+  : DomainNumber
+  , ICmptDmnNmbrDescr
 {
 }
 
@@ -100,7 +113,8 @@ public class CmptDmnNmbrPrnt
 }
 
 public class CmptPrntDmnNmbrPrnt
-  : ICmptPrntDmnNmbrPrnt
+  : DomainNumber
+  , ICmptPrntDmnNmbrPrnt
 {
 }
 
@@ -111,12 +125,14 @@ public class CmptDmnNmbrPrntDescr
 }
 
 public class CmptPrntDmnNmbrPrntDescr
-  : ICmptPrntDmnNmbrPrntDescr
+  : DomainNumber
+  , ICmptPrntDmnNmbrPrntDescr
 {
 }
 
 public class CmptDmnStrDescr
-  : ICmptDmnStrDescr
+  : DomainString
+  , ICmptDmnStrDescr
 {
 }
 
@@ -127,7 +143,8 @@ public class CmptDmnStrPrnt
 }
 
 public class CmptPrntDmnStrPrnt
-  : ICmptPrntDmnStrPrnt
+  : DomainString
+  , ICmptPrntDmnStrPrnt
 {
 }
 
@@ -138,7 +155,8 @@ public class CmptDmnStrPrntDescr
 }
 
 public class CmptPrntDmnStrPrntDescr
-  : ICmptPrntDmnStrPrntDescr
+  : DomainString
+  , ICmptPrntDmnStrPrntDescr
 {
 }
 

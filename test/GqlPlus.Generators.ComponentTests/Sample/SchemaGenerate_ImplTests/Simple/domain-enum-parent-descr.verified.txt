@@ -17,6 +17,7 @@ public class CmptDmnEnumPrntDescr
 }
 
 public class CmptPrntDmnEnumPrntDescr
-  : ICmptPrntDmnEnumPrntDescr
+  : DomainEnum
+  , ICmptPrntDmnEnumPrntDescr
 {
 }

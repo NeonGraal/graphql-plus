@@ -6,7 +6,8 @@
 namespace GqlPlus.GeneratorTests.Gqlp_all;
 
 public class testGuid
-  : ItestGuid
+  : DomainString
+  , ItestGuid
 {
 }
 

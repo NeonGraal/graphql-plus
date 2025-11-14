@@ -6,5 +6,6 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_same;
 
 public interface ItestDmnNmbrSame
+  : IDomainNumber
 {
 }

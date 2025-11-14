@@ -35,62 +35,74 @@ public class CmptInDrctParam
 }
 
 public class CmptDmnAlias
-  : ICmptDmnAlias
+  : DomainNumber
+  , ICmptDmnAlias
 {
 }
 
 public class CmptDmnBool
-  : ICmptDmnBool
+  : DomainBoolean
+  , ICmptDmnBool
 {
 }
 
 public class CmptDmnBoolDiff
-  : ICmptDmnBoolDiff
+  : DomainBoolean
+  , ICmptDmnBoolDiff
 {
 }
 
 public class CmptDmnBoolSame
-  : ICmptDmnBoolSame
+  : DomainBoolean
+  , ICmptDmnBoolSame
 {
 }
 
 public class CmptDmnEnumDiff
-  : ICmptDmnEnumDiff
+  : DomainEnum
+  , ICmptDmnEnumDiff
 {
 }
 
 public class CmptDmnEnumSame
-  : ICmptDmnEnumSame
+  : DomainEnum
+  , ICmptDmnEnumSame
 {
 }
 
 public class CmptDmnNmbr
-  : ICmptDmnNmbr
+  : DomainNumber
+  , ICmptDmnNmbr
 {
 }
 
 public class CmptDmnNmbrDiff
-  : ICmptDmnNmbrDiff
+  : DomainNumber
+  , ICmptDmnNmbrDiff
 {
 }
 
 public class CmptDmnNmbrSame
-  : ICmptDmnNmbrSame
+  : DomainNumber
+  , ICmptDmnNmbrSame
 {
 }
 
 public class CmptDmnStr
-  : ICmptDmnStr
+  : DomainString
+  , ICmptDmnStr
 {
 }
 
 public class CmptDmnStrDiff
-  : ICmptDmnStrDiff
+  : DomainString
+  , ICmptDmnStrDiff
 {
 }
 
 public class CmptDmnStrSame
-  : ICmptDmnStrSame
+  : DomainString
+  , ICmptDmnStrSame
 {
 }
 

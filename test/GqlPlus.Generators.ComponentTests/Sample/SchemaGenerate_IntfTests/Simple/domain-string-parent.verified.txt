@@ -15,5 +15,6 @@ public interface ICmptDmnStrPrnt
 }
 
 public interface ICmptPrntDmnStrPrnt
+  : IDomainString
 {
 }

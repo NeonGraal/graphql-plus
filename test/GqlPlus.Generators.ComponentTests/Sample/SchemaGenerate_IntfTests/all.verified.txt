@@ -33,6 +33,7 @@ output All {
 namespace Components.Gqlp_Schema_all;
 
 public interface ICmptGuid
+  : IDomainString
 {
 }
 

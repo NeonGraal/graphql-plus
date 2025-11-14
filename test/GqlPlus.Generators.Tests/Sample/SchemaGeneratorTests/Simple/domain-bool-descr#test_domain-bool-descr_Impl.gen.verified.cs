@@ -6,6 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_bool_descr;
 
 public class testDmnBoolDescr
-  : ItestDmnBoolDescr
+  : DomainBoolean
+  , ItestDmnBoolDescr
 {
 }

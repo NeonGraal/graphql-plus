@@ -6,7 +6,8 @@
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
 public class testDmnBoolDescr
-  : ItestDmnBoolDescr
+  : DomainBoolean
+  , ItestDmnBoolDescr
 {
 }
 
@@ -17,7 +18,8 @@ public class testDmnBoolPrnt
 }
 
 public class testPrntDmnBoolPrnt
-  : ItestPrntDmnBoolPrnt
+  : DomainBoolean
+  , ItestPrntDmnBoolPrnt
 {
 }
 
@@ -28,32 +30,38 @@ public class testDmnBoolPrntDescr
 }
 
 public class testPrntDmnBoolPrntDescr
-  : ItestPrntDmnBoolPrntDescr
+  : DomainBoolean
+  , ItestPrntDmnBoolPrntDescr
 {
 }
 
 public class testDmnEnumAll
-  : ItestDmnEnumAll
+  : DomainEnum
+  , ItestDmnEnumAll
 {
 }
 
 public class testDmnEnumAllDescr
-  : ItestDmnEnumAllDescr
+  : DomainEnum
+  , ItestDmnEnumAllDescr
 {
 }
 
 public class testDmnEnumAllPrnt
-  : ItestDmnEnumAllPrnt
+  : DomainEnum
+  , ItestDmnEnumAllPrnt
 {
 }
 
 public class testDmnEnumDescr
-  : ItestDmnEnumDescr
+  : DomainEnum
+  , ItestDmnEnumDescr
 {
 }
 
 public class testDmnEnumLabel
-  : ItestDmnEnumLabel
+  : DomainEnum
+  , ItestDmnEnumLabel
 {
 }
 
@@ -64,7 +72,8 @@ public class testDmnEnumPrnt
 }
 
 public class testPrntDmnEnumPrnt
-  : ItestPrntDmnEnumPrnt
+  : DomainEnum
+  , ItestPrntDmnEnumPrnt
 {
 }
 
@@ -75,22 +84,26 @@ public class testDmnEnumPrntDescr
 }
 
 public class testPrntDmnEnumPrntDescr
-  : ItestPrntDmnEnumPrntDescr
+  : DomainEnum
+  , ItestPrntDmnEnumPrntDescr
 {
 }
 
 public class testDmnEnumValue
-  : ItestDmnEnumValue
+  : DomainEnum
+  , ItestDmnEnumValue
 {
 }
 
 public class testDmnEnumValuePrnt
-  : ItestDmnEnumValuePrnt
+  : DomainEnum
+  , ItestDmnEnumValuePrnt
 {
 }
 
 public class testDmnNmbrDescr
-  : ItestDmnNmbrDescr
+  : DomainNumber
+  , ItestDmnNmbrDescr
 {
 }
 
@@ -101,7 +114,8 @@ public class testDmnNmbrPrnt
 }
 
 public class testPrntDmnNmbrPrnt
-  : ItestPrntDmnNmbrPrnt
+  : DomainNumber
+  , ItestPrntDmnNmbrPrnt
 {
 }
 
@@ -112,12 +126,14 @@ public class testDmnNmbrPrntDescr
 }
 
 public class testPrntDmnNmbrPrntDescr
-  : ItestPrntDmnNmbrPrntDescr
+  : DomainNumber
+  , ItestPrntDmnNmbrPrntDescr
 {
 }
 
 public class testDmnStrDescr
-  : ItestDmnStrDescr
+  : DomainString
+  , ItestDmnStrDescr
 {
 }
 
@@ -128,7 +144,8 @@ public class testDmnStrPrnt
 }
 
 public class testPrntDmnStrPrnt
-  : ItestPrntDmnStrPrnt
+  : DomainString
+  , ItestPrntDmnStrPrnt
 {
 }
 
@@ -139,7 +156,8 @@ public class testDmnStrPrntDescr
 }
 
 public class testPrntDmnStrPrntDescr
-  : ItestPrntDmnStrPrntDescr
+  : DomainString
+  , ItestPrntDmnStrPrntDescr
 {
 }
 

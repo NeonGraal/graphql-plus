@@ -32,5 +32,6 @@ public interface ICmptRefCnstDomEnumOutpField<Ttype>
 }
 
 public interface ICmptJustCnstDomEnumOutp
+  : IDomainEnum
 {
 }

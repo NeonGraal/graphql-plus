@@ -69,6 +69,7 @@ public interface ICmpt_SchemaField
 }
 
 public interface ICmpt_Identifier
+  : IDomainString
 {
 }
 
@@ -88,6 +89,7 @@ public interface ICmpt_FilterField
 }
 
 public interface ICmpt_NameFilter
+  : IDomainString
 {
 }
 

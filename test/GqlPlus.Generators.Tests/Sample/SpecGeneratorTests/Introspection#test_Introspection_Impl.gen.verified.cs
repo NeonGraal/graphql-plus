@@ -17,7 +17,8 @@ public class test_Schema
 }
 
 public class test_Identifier
-  : Itest_Identifier
+  : DomainString
+  , Itest_Identifier
 {
 }
 
@@ -34,7 +35,8 @@ public class test_Filter
 }
 
 public class test_NameFilter
-  : Itest_NameFilter
+  : DomainString
+  , Itest_NameFilter
 {
 }
 
@@ -369,7 +371,8 @@ public class test_UnionMember
 }
 
 public class test_ObjectKind
-  : Itest_ObjectKind
+  : DomainEnum
+  , Itest_ObjectKind
 {
 }
 

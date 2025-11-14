@@ -16,5 +16,6 @@ public interface ICmptDmnEnumPrnt
 }
 
 public interface ICmptPrntDmnEnumPrnt
+  : IDomainEnum
 {
 }

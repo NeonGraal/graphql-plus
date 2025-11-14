@@ -550,6 +550,7 @@ public interface ICmptRefCnstAltDmnDualField<Tref>
 }
 
 public interface ICmptDomCnstAltDmnDual
+  : IDomainString
 {
 }
 
@@ -574,6 +575,7 @@ public interface ICmptRefCnstAltDmnInpField<Tref>
 }
 
 public interface ICmptDomCnstAltDmnInp
+  : IDomainString
 {
 }
 
@@ -598,6 +600,7 @@ public interface ICmptRefCnstAltDmnOutpField<Tref>
 }
 
 public interface ICmptDomCnstAltDmnOutp
+  : IDomainString
 {
 }
 
@@ -874,6 +877,7 @@ public interface ICmptRefCnstDomEnumDualField<Ttype>
 }
 
 public interface ICmptJustCnstDomEnumDual
+  : IDomainEnum
 {
 }
 
@@ -898,6 +902,7 @@ public interface ICmptRefCnstDomEnumInpField<Ttype>
 }
 
 public interface ICmptJustCnstDomEnumInp
+  : IDomainEnum
 {
 }
 
@@ -922,6 +927,7 @@ public interface ICmptRefCnstDomEnumOutpField<Ttype>
 }
 
 public interface ICmptJustCnstDomEnumOutp
+  : IDomainEnum
 {
 }
 
@@ -1067,6 +1073,7 @@ public interface ICmptRefCnstFieldDmnDualField<Tref>
 }
 
 public interface ICmptDomCnstFieldDmnDual
+  : IDomainString
 {
 }
 
@@ -1092,6 +1099,7 @@ public interface ICmptRefCnstFieldDmnInpField<Tref>
 }
 
 public interface ICmptDomCnstFieldDmnInp
+  : IDomainString
 {
 }
 
@@ -1117,6 +1125,7 @@ public interface ICmptRefCnstFieldDmnOutpField<Tref>
 }
 
 public interface ICmptDomCnstFieldDmnOutp
+  : IDomainString
 {
 }
 
@@ -3557,6 +3566,7 @@ public interface ICmptFieldGnrcPrntEnumDomDualField<Tref>
 }
 
 public interface ICmptDomGnrcPrntEnumDomDual
+  : IDomainEnum
 {
 }
 
@@ -3582,6 +3592,7 @@ public interface ICmptFieldGnrcPrntEnumDomInpField<Tref>
 }
 
 public interface ICmptDomGnrcPrntEnumDomInp
+  : IDomainEnum
 {
 }
 
@@ -3607,6 +3618,7 @@ public interface ICmptFieldGnrcPrntEnumDomOutpField<Tref>
 }
 
 public interface ICmptDomGnrcPrntEnumDomOutp
+  : IDomainEnum
 {
 }
 
@@ -3953,6 +3965,7 @@ public interface ICmptFieldGnrcPrntStrDomDualField<Tref>
 }
 
 public interface ICmptDomGnrcPrntStrDomDual
+  : IDomainString
 {
 }
 
@@ -3978,6 +3991,7 @@ public interface ICmptFieldGnrcPrntStrDomInpField<Tref>
 }
 
 public interface ICmptDomGnrcPrntStrDomInp
+  : IDomainString
 {
 }
 
@@ -4003,6 +4017,7 @@ public interface ICmptFieldGnrcPrntStrDomOutpField<Tref>
 }
 
 public interface ICmptDomGnrcPrntStrDomOutp
+  : IDomainString
 {
 }
 
@@ -4247,6 +4262,7 @@ public interface ICmptInOutpParamModDmnField
 }
 
 public interface ICmptDomOutpParamModDmn
+  : IDomainNumber
 {
 }
 
@@ -4272,6 +4288,7 @@ public interface ICmptInOutpParamModParamField
 }
 
 public interface ICmptDomOutpParamModParam
+  : IDomainNumber
 {
 }
 
@@ -4892,50 +4909,62 @@ public interface ICmptInDrctParamField
 }
 
 public interface ICmptDmnAlias
+  : IDomainNumber
 {
 }
 
 public interface ICmptDmnBool
+  : IDomainBoolean
 {
 }
 
 public interface ICmptDmnBoolDiff
+  : IDomainBoolean
 {
 }
 
 public interface ICmptDmnBoolSame
+  : IDomainBoolean
 {
 }
 
 public interface ICmptDmnEnumDiff
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumSame
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnNmbr
+  : IDomainNumber
 {
 }
 
 public interface ICmptDmnNmbrDiff
+  : IDomainNumber
 {
 }
 
 public interface ICmptDmnNmbrSame
+  : IDomainNumber
 {
 }
 
 public interface ICmptDmnStr
+  : IDomainString
 {
 }
 
 public interface ICmptDmnStrDiff
+  : IDomainString
 {
 }
 
 public interface ICmptDmnStrSame
+  : IDomainString
 {
 }
 
@@ -5512,6 +5541,7 @@ public interface ICmptPrntUnionSamePrnt
 }
 
 public interface ICmptDmnBoolDescr
+  : IDomainBoolean
 {
 }
 
@@ -5521,6 +5551,7 @@ public interface ICmptDmnBoolPrnt
 }
 
 public interface ICmptPrntDmnBoolPrnt
+  : IDomainBoolean
 {
 }
 
@@ -5530,26 +5561,32 @@ public interface ICmptDmnBoolPrntDescr
 }
 
 public interface ICmptPrntDmnBoolPrntDescr
+  : IDomainBoolean
 {
 }
 
 public interface ICmptDmnEnumAll
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumAllDescr
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumAllPrnt
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumDescr
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumLabel
+  : IDomainEnum
 {
 }
 
@@ -5559,6 +5596,7 @@ public interface ICmptDmnEnumPrnt
 }
 
 public interface ICmptPrntDmnEnumPrnt
+  : IDomainEnum
 {
 }
 
@@ -5568,18 +5606,22 @@ public interface ICmptDmnEnumPrntDescr
 }
 
 public interface ICmptPrntDmnEnumPrntDescr
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumValue
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumValuePrnt
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnNmbrDescr
+  : IDomainNumber
 {
 }
 
@@ -5589,6 +5631,7 @@ public interface ICmptDmnNmbrPrnt
 }
 
 public interface ICmptPrntDmnNmbrPrnt
+  : IDomainNumber
 {
 }
 
@@ -5598,10 +5641,12 @@ public interface ICmptDmnNmbrPrntDescr
 }
 
 public interface ICmptPrntDmnNmbrPrntDescr
+  : IDomainNumber
 {
 }
 
 public interface ICmptDmnStrDescr
+  : IDomainString
 {
 }
 
@@ -5611,6 +5656,7 @@ public interface ICmptDmnStrPrnt
 }
 
 public interface ICmptPrntDmnStrPrnt
+  : IDomainString
 {
 }
 
@@ -5620,6 +5666,7 @@ public interface ICmptDmnStrPrntDescr
 }
 
 public interface ICmptPrntDmnStrPrntDescr
+  : IDomainString
 {
 }
 

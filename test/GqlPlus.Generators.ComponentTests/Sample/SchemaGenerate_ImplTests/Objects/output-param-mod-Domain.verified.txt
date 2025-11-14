@@ -26,6 +26,7 @@ public class CmptInOutpParamModDmn
 }
 
 public class CmptDomOutpParamModDmn
-  : ICmptDomOutpParamModDmn
+  : DomainNumber
+  , ICmptDomOutpParamModDmn
 {
 }

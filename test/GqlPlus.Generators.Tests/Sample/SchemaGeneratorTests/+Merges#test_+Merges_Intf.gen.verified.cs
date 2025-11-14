@@ -51,50 +51,62 @@ public interface ItestInDrctParamField
 }
 
 public interface ItestDmnAlias
+  : IDomainNumber
 {
 }
 
 public interface ItestDmnBool
+  : IDomainBoolean
 {
 }
 
 public interface ItestDmnBoolDiff
+  : IDomainBoolean
 {
 }
 
 public interface ItestDmnBoolSame
+  : IDomainBoolean
 {
 }
 
 public interface ItestDmnEnumDiff
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumSame
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnNmbr
+  : IDomainNumber
 {
 }
 
 public interface ItestDmnNmbrDiff
+  : IDomainNumber
 {
 }
 
 public interface ItestDmnNmbrSame
+  : IDomainNumber
 {
 }
 
 public interface ItestDmnStr
+  : IDomainString
 {
 }
 
 public interface ItestDmnStrDiff
+  : IDomainString
 {
 }
 
 public interface ItestDmnStrSame
+  : IDomainString
 {
 }
 

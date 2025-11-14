@@ -155,9 +155,6 @@ public class EnumGeneratorTests
   protected override Action<string> CheckGeneratedCodeName(GqlpGeneratorType generatorType, string name)
     => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain("public enum test" + name));
 
-  protected override Action<string> CheckGeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
-    => result => result.ShouldNotContain(":");
-
   private static Action<string> ResultEmptyUnlessEnum(GqlpGeneratorType generatorType, Action<string> check)
     => generatorType == GqlpGeneratorType.Enum ? check
       : result => result.ShouldBeEmpty();

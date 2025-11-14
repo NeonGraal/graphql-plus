@@ -20,6 +20,7 @@ public class testRefCnstFieldDmnOutp<Tref>
 }
 
 public class testDomCnstFieldDmnOutp
-  : ItestDomCnstFieldDmnOutp
+  : DomainString
+  , ItestDomCnstFieldDmnOutp
 {
 }

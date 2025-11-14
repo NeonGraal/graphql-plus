@@ -6,10 +6,12 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
 public interface ItestNumber
+  : IDomainNumber
 {
 }
 
 public interface ItestString
+  : IDomainString
 {
 }
 

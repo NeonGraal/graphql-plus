@@ -12,6 +12,7 @@ public class testDmnStrPrntDescr
 }
 
 public class testPrntDmnStrPrntDescr
-  : ItestPrntDmnStrPrntDescr
+  : DomainString
+  , ItestPrntDmnStrPrntDescr
 {
 }

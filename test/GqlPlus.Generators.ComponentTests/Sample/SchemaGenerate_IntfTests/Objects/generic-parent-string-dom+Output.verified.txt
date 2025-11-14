@@ -32,5 +32,6 @@ public interface ICmptFieldGnrcPrntStrDomOutpField<Tref>
 }
 
 public interface ICmptDomGnrcPrntStrDomOutp
+  : IDomainString
 {
 }

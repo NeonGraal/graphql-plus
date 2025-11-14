@@ -6,6 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp__Object;
 
 public interface Itest_ObjectKind
+  : IDomainEnum
 {
 }
 

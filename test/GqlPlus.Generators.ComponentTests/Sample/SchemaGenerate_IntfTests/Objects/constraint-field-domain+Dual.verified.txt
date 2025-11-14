@@ -32,5 +32,6 @@ public interface ICmptRefCnstFieldDmnDualField<Tref>
 }
 
 public interface ICmptDomCnstFieldDmnDual
+  : IDomainString
 {
 }

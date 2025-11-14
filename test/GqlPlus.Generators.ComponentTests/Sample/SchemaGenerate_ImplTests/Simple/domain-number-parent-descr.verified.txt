@@ -16,6 +16,7 @@ public class CmptDmnNmbrPrntDescr
 }
 
 public class CmptPrntDmnNmbrPrntDescr
-  : ICmptPrntDmnNmbrPrntDescr
+  : DomainNumber
+  , ICmptPrntDmnNmbrPrntDescr
 {
 }

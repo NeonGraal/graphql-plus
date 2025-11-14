@@ -26,6 +26,7 @@ public class CmptRefCnstDomEnumInp<Ttype>
 }
 
 public class CmptJustCnstDomEnumInp
-  : ICmptJustCnstDomEnumInp
+  : DomainEnum
+  , ICmptJustCnstDomEnumInp
 {
 }

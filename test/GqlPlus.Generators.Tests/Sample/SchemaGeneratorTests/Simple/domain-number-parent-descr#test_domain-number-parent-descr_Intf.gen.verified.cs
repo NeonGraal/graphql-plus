@@ -11,5 +11,6 @@ public interface ItestDmnNmbrPrntDescr
 }
 
 public interface ItestPrntDmnNmbrPrntDescr
+  : IDomainNumber
 {
 }

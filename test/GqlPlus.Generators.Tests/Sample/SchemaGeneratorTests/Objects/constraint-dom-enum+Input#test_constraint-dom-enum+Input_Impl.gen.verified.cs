@@ -20,6 +20,7 @@ public class testRefCnstDomEnumInp<Ttype>
 }
 
 public class testJustCnstDomEnumInp
-  : ItestJustCnstDomEnumInp
+  : DomainEnum
+  , ItestJustCnstDomEnumInp
 {
 }

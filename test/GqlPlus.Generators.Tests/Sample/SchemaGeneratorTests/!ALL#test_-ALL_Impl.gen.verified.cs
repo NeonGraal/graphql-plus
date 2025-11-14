@@ -386,7 +386,8 @@ public class testRefCnstAltDmnDual<Tref>
 }
 
 public class testDomCnstAltDmnDual
-  : ItestDomCnstAltDmnDual
+  : DomainString
+  , ItestDomCnstAltDmnDual
 {
 }
 
@@ -405,7 +406,8 @@ public class testRefCnstAltDmnInp<Tref>
 }
 
 public class testDomCnstAltDmnInp
-  : ItestDomCnstAltDmnInp
+  : DomainString
+  , ItestDomCnstAltDmnInp
 {
 }
 
@@ -424,7 +426,8 @@ public class testRefCnstAltDmnOutp<Tref>
 }
 
 public class testDomCnstAltDmnOutp
-  : ItestDomCnstAltDmnOutp
+  : DomainString
+  , ItestDomCnstAltDmnOutp
 {
 }
 
@@ -617,7 +620,8 @@ public class testRefCnstDomEnumDual<Ttype>
 }
 
 public class testJustCnstDomEnumDual
-  : ItestJustCnstDomEnumDual
+  : DomainEnum
+  , ItestJustCnstDomEnumDual
 {
 }
 
@@ -636,7 +640,8 @@ public class testRefCnstDomEnumInp<Ttype>
 }
 
 public class testJustCnstDomEnumInp
-  : ItestJustCnstDomEnumInp
+  : DomainEnum
+  , ItestJustCnstDomEnumInp
 {
 }
 
@@ -655,7 +660,8 @@ public class testRefCnstDomEnumOutp<Ttype>
 }
 
 public class testJustCnstDomEnumOutp
-  : ItestJustCnstDomEnumOutp
+  : DomainEnum
+  , ItestJustCnstDomEnumOutp
 {
 }
 
@@ -758,7 +764,8 @@ public class testRefCnstFieldDmnDual<Tref>
 }
 
 public class testDomCnstFieldDmnDual
-  : ItestDomCnstFieldDmnDual
+  : DomainString
+  , ItestDomCnstFieldDmnDual
 {
 }
 
@@ -777,7 +784,8 @@ public class testRefCnstFieldDmnInp<Tref>
 }
 
 public class testDomCnstFieldDmnInp
-  : ItestDomCnstFieldDmnInp
+  : DomainString
+  , ItestDomCnstFieldDmnInp
 {
 }
 
@@ -796,7 +804,8 @@ public class testRefCnstFieldDmnOutp<Tref>
 }
 
 public class testDomCnstFieldDmnOutp
-  : ItestDomCnstFieldDmnOutp
+  : DomainString
+  , ItestDomCnstFieldDmnOutp
 {
 }
 
@@ -2474,7 +2483,8 @@ public class testFieldGnrcPrntEnumDomDual<Tref>
 }
 
 public class testDomGnrcPrntEnumDomDual
-  : ItestDomGnrcPrntEnumDomDual
+  : DomainEnum
+  , ItestDomGnrcPrntEnumDomDual
 {
 }
 
@@ -2493,7 +2503,8 @@ public class testFieldGnrcPrntEnumDomInp<Tref>
 }
 
 public class testDomGnrcPrntEnumDomInp
-  : ItestDomGnrcPrntEnumDomInp
+  : DomainEnum
+  , ItestDomGnrcPrntEnumDomInp
 {
 }
 
@@ -2512,7 +2523,8 @@ public class testFieldGnrcPrntEnumDomOutp<Tref>
 }
 
 public class testDomGnrcPrntEnumDomOutp
-  : ItestDomGnrcPrntEnumDomOutp
+  : DomainEnum
+  , ItestDomGnrcPrntEnumDomOutp
 {
 }
 
@@ -2747,7 +2759,8 @@ public class testFieldGnrcPrntStrDomDual<Tref>
 }
 
 public class testDomGnrcPrntStrDomDual
-  : ItestDomGnrcPrntStrDomDual
+  : DomainString
+  , ItestDomGnrcPrntStrDomDual
 {
 }
 
@@ -2766,7 +2779,8 @@ public class testFieldGnrcPrntStrDomInp<Tref>
 }
 
 public class testDomGnrcPrntStrDomInp
-  : ItestDomGnrcPrntStrDomInp
+  : DomainString
+  , ItestDomGnrcPrntStrDomInp
 {
 }
 
@@ -2785,7 +2799,8 @@ public class testFieldGnrcPrntStrDomOutp<Tref>
 }
 
 public class testDomGnrcPrntStrDomOutp
-  : ItestDomGnrcPrntStrDomOutp
+  : DomainString
+  , ItestDomGnrcPrntStrDomOutp
 {
 }
 
@@ -2958,7 +2973,8 @@ public class testInOutpParamModDmn
 }
 
 public class testDomOutpParamModDmn
-  : ItestDomOutpParamModDmn
+  : DomainNumber
+  , ItestDomOutpParamModDmn
 {
 }
 
@@ -2978,7 +2994,8 @@ public class testInOutpParamModParam
 }
 
 public class testDomOutpParamModParam
-  : ItestDomOutpParamModParam
+  : DomainNumber
+  , ItestDomOutpParamModParam
 {
 }
 
@@ -3406,62 +3423,74 @@ public class testInDrctParam
 }
 
 public class testDmnAlias
-  : ItestDmnAlias
+  : DomainNumber
+  , ItestDmnAlias
 {
 }
 
 public class testDmnBool
-  : ItestDmnBool
+  : DomainBoolean
+  , ItestDmnBool
 {
 }
 
 public class testDmnBoolDiff
-  : ItestDmnBoolDiff
+  : DomainBoolean
+  , ItestDmnBoolDiff
 {
 }
 
 public class testDmnBoolSame
-  : ItestDmnBoolSame
+  : DomainBoolean
+  , ItestDmnBoolSame
 {
 }
 
 public class testDmnEnumDiff
-  : ItestDmnEnumDiff
+  : DomainEnum
+  , ItestDmnEnumDiff
 {
 }
 
 public class testDmnEnumSame
-  : ItestDmnEnumSame
+  : DomainEnum
+  , ItestDmnEnumSame
 {
 }
 
 public class testDmnNmbr
-  : ItestDmnNmbr
+  : DomainNumber
+  , ItestDmnNmbr
 {
 }
 
 public class testDmnNmbrDiff
-  : ItestDmnNmbrDiff
+  : DomainNumber
+  , ItestDmnNmbrDiff
 {
 }
 
 public class testDmnNmbrSame
-  : ItestDmnNmbrSame
+  : DomainNumber
+  , ItestDmnNmbrSame
 {
 }
 
 public class testDmnStr
-  : ItestDmnStr
+  : DomainString
+  , ItestDmnStr
 {
 }
 
 public class testDmnStrDiff
-  : ItestDmnStrDiff
+  : DomainString
+  , ItestDmnStrDiff
 {
 }
 
 public class testDmnStrSame
-  : ItestDmnStrSame
+  : DomainString
+  , ItestDmnStrSame
 {
 }
 
@@ -3875,7 +3904,8 @@ public class testPrntUnionSamePrnt
 }
 
 public class testDmnBoolDescr
-  : ItestDmnBoolDescr
+  : DomainBoolean
+  , ItestDmnBoolDescr
 {
 }
 
@@ -3886,7 +3916,8 @@ public class testDmnBoolPrnt
 }
 
 public class testPrntDmnBoolPrnt
-  : ItestPrntDmnBoolPrnt
+  : DomainBoolean
+  , ItestPrntDmnBoolPrnt
 {
 }
 
@@ -3897,32 +3928,38 @@ public class testDmnBoolPrntDescr
 }
 
 public class testPrntDmnBoolPrntDescr
-  : ItestPrntDmnBoolPrntDescr
+  : DomainBoolean
+  , ItestPrntDmnBoolPrntDescr
 {
 }
 
 public class testDmnEnumAll
-  : ItestDmnEnumAll
+  : DomainEnum
+  , ItestDmnEnumAll
 {
 }
 
 public class testDmnEnumAllDescr
-  : ItestDmnEnumAllDescr
+  : DomainEnum
+  , ItestDmnEnumAllDescr
 {
 }
 
 public class testDmnEnumAllPrnt
-  : ItestDmnEnumAllPrnt
+  : DomainEnum
+  , ItestDmnEnumAllPrnt
 {
 }
 
 public class testDmnEnumDescr
-  : ItestDmnEnumDescr
+  : DomainEnum
+  , ItestDmnEnumDescr
 {
 }
 
 public class testDmnEnumLabel
-  : ItestDmnEnumLabel
+  : DomainEnum
+  , ItestDmnEnumLabel
 {
 }
 
@@ -3933,7 +3970,8 @@ public class testDmnEnumPrnt
 }
 
 public class testPrntDmnEnumPrnt
-  : ItestPrntDmnEnumPrnt
+  : DomainEnum
+  , ItestPrntDmnEnumPrnt
 {
 }
 
@@ -3944,22 +3982,26 @@ public class testDmnEnumPrntDescr
 }
 
 public class testPrntDmnEnumPrntDescr
-  : ItestPrntDmnEnumPrntDescr
+  : DomainEnum
+  , ItestPrntDmnEnumPrntDescr
 {
 }
 
 public class testDmnEnumValue
-  : ItestDmnEnumValue
+  : DomainEnum
+  , ItestDmnEnumValue
 {
 }
 
 public class testDmnEnumValuePrnt
-  : ItestDmnEnumValuePrnt
+  : DomainEnum
+  , ItestDmnEnumValuePrnt
 {
 }
 
 public class testDmnNmbrDescr
-  : ItestDmnNmbrDescr
+  : DomainNumber
+  , ItestDmnNmbrDescr
 {
 }
 
@@ -3970,7 +4012,8 @@ public class testDmnNmbrPrnt
 }
 
 public class testPrntDmnNmbrPrnt
-  : ItestPrntDmnNmbrPrnt
+  : DomainNumber
+  , ItestPrntDmnNmbrPrnt
 {
 }
 
@@ -3981,12 +4024,14 @@ public class testDmnNmbrPrntDescr
 }
 
 public class testPrntDmnNmbrPrntDescr
-  : ItestPrntDmnNmbrPrntDescr
+  : DomainNumber
+  , ItestPrntDmnNmbrPrntDescr
 {
 }
 
 public class testDmnStrDescr
-  : ItestDmnStrDescr
+  : DomainString
+  , ItestDmnStrDescr
 {
 }
 
@@ -3997,7 +4042,8 @@ public class testDmnStrPrnt
 }
 
 public class testPrntDmnStrPrnt
-  : ItestPrntDmnStrPrnt
+  : DomainString
+  , ItestPrntDmnStrPrnt
 {
 }
 
@@ -4008,7 +4054,8 @@ public class testDmnStrPrntDescr
 }
 
 public class testPrntDmnStrPrntDescr
-  : ItestPrntDmnStrPrntDescr
+  : DomainString
+  , ItestPrntDmnStrPrntDescr
 {
 }
 

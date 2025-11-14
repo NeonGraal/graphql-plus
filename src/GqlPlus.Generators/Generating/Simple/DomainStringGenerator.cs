@@ -1,6 +1,5 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
-internal sealed class DomainStringGenerator
-  : GenerateBaseDomain<IGqlpDomainRegex>
-{
-}
+internal sealed class DomainStringGenerator()
+  : GenerateBaseDomain<IGqlpDomainRegex>(DomainKind.String)
+{ }

@@ -6,5 +6,6 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_bool_descr;
 
 public interface ItestDmnBoolDescr
+  : IDomainBoolean
 {
 }

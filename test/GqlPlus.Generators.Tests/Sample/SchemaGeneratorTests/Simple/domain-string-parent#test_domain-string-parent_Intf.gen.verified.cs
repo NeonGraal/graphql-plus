@@ -11,5 +11,6 @@ public interface ItestDmnStrPrnt
 }
 
 public interface ItestPrntDmnStrPrnt
+  : IDomainString
 {
 }

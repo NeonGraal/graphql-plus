@@ -5,6 +5,7 @@
 namespace Components.Gqlp_Schema_Simple;
 
 public interface ICmptDmnBoolDescr
+  : IDomainBoolean
 {
 }
 
@@ -14,6 +15,7 @@ public interface ICmptDmnBoolPrnt
 }
 
 public interface ICmptPrntDmnBoolPrnt
+  : IDomainBoolean
 {
 }
 
@@ -23,26 +25,32 @@ public interface ICmptDmnBoolPrntDescr
 }
 
 public interface ICmptPrntDmnBoolPrntDescr
+  : IDomainBoolean
 {
 }
 
 public interface ICmptDmnEnumAll
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumAllDescr
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumAllPrnt
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumDescr
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumLabel
+  : IDomainEnum
 {
 }
 
@@ -52,6 +60,7 @@ public interface ICmptDmnEnumPrnt
 }
 
 public interface ICmptPrntDmnEnumPrnt
+  : IDomainEnum
 {
 }
 
@@ -61,18 +70,22 @@ public interface ICmptDmnEnumPrntDescr
 }
 
 public interface ICmptPrntDmnEnumPrntDescr
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumValue
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumValuePrnt
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnNmbrDescr
+  : IDomainNumber
 {
 }
 
@@ -82,6 +95,7 @@ public interface ICmptDmnNmbrPrnt
 }
 
 public interface ICmptPrntDmnNmbrPrnt
+  : IDomainNumber
 {
 }
 
@@ -91,10 +105,12 @@ public interface ICmptDmnNmbrPrntDescr
 }
 
 public interface ICmptPrntDmnNmbrPrntDescr
+  : IDomainNumber
 {
 }
 
 public interface ICmptDmnStrDescr
+  : IDomainString
 {
 }
 
@@ -104,6 +120,7 @@ public interface ICmptDmnStrPrnt
 }
 
 public interface ICmptPrntDmnStrPrnt
+  : IDomainString
 {
 }
 
@@ -113,6 +130,7 @@ public interface ICmptDmnStrPrntDescr
 }
 
 public interface ICmptPrntDmnStrPrntDescr
+  : IDomainString
 {
 }
 

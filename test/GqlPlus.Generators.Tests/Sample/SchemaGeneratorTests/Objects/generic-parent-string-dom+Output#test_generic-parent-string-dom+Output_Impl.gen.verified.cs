@@ -20,6 +20,7 @@ public class testFieldGnrcPrntStrDomOutp<Tref>
 }
 
 public class testDomGnrcPrntStrDomOutp
-  : ItestDomGnrcPrntStrDomOutp
+  : DomainString
+  , ItestDomGnrcPrntStrDomOutp
 {
 }

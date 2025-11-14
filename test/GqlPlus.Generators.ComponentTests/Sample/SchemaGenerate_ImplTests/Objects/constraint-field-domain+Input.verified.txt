@@ -25,6 +25,7 @@ public class CmptRefCnstFieldDmnInp<Tref>
 }
 
 public class CmptDomCnstFieldDmnInp
-  : ICmptDomCnstFieldDmnInp
+  : DomainString
+  , ICmptDomCnstFieldDmnInp
 {
 }

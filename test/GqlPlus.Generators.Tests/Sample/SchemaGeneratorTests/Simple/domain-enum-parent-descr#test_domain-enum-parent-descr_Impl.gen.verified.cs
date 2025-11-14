@@ -12,6 +12,7 @@ public class testDmnEnumPrntDescr
 }
 
 public class testPrntDmnEnumPrntDescr
-  : ItestPrntDmnEnumPrntDescr
+  : DomainEnum
+  , ItestPrntDmnEnumPrntDescr
 {
 }

@@ -50,50 +50,62 @@ public interface ICmptInDrctParamField
 }
 
 public interface ICmptDmnAlias
+  : IDomainNumber
 {
 }
 
 public interface ICmptDmnBool
+  : IDomainBoolean
 {
 }
 
 public interface ICmptDmnBoolDiff
+  : IDomainBoolean
 {
 }
 
 public interface ICmptDmnBoolSame
+  : IDomainBoolean
 {
 }
 
 public interface ICmptDmnEnumDiff
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnEnumSame
+  : IDomainEnum
 {
 }
 
 public interface ICmptDmnNmbr
+  : IDomainNumber
 {
 }
 
 public interface ICmptDmnNmbrDiff
+  : IDomainNumber
 {
 }
 
 public interface ICmptDmnNmbrSame
+  : IDomainNumber
 {
 }
 
 public interface ICmptDmnStr
+  : IDomainString
 {
 }
 
 public interface ICmptDmnStrDiff
+  : IDomainString
 {
 }
 
 public interface ICmptDmnStrSame
+  : IDomainString
 {
 }
 

@@ -1,6 +1,5 @@
 ﻿namespace GqlPlus.Generating.Simple;
 
-internal sealed class DomainEnumGenerator
-  : GenerateBaseDomain<IGqlpDomainLabel>
-{
-}
+internal sealed class DomainEnumGenerator()
+  : GenerateBaseDomain<IGqlpDomainLabel>(DomainKind.Enum)
+{ }

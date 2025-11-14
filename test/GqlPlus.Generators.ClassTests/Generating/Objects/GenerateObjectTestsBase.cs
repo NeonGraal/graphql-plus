@@ -24,7 +24,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     // Assert
     context.CheckForRequired(
       GeneratedCodeName(generatorType, name),
-      GeneratedCodeParent(generatorType, parent));
+      GeneratedCodeParent(generatorType, "test" + parent));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]

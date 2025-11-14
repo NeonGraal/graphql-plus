@@ -362,7 +362,8 @@ public class Cmpt_Schema
 }
 
 public class Cmpt_Identifier
-  : ICmpt_Identifier
+  : DomainString
+  , ICmpt_Identifier
 {
 }
 
@@ -379,7 +380,8 @@ public class Cmpt_Filter
 }
 
 public class Cmpt_NameFilter
-  : ICmpt_NameFilter
+  : DomainString
+  , ICmpt_NameFilter
 {
 }
 
@@ -714,7 +716,8 @@ public class Cmpt_UnionMember
 }
 
 public class Cmpt_ObjectKind
-  : ICmpt_ObjectKind
+  : DomainEnum
+  , ICmpt_ObjectKind
 {
 }
 

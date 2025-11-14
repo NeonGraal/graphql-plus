@@ -27,5 +27,6 @@ public interface ItestFieldGnrcPrntStrDomOutpField<Tref>
 }
 
 public interface ItestDomGnrcPrntStrDomOutp
+  : IDomainString
 {
 }

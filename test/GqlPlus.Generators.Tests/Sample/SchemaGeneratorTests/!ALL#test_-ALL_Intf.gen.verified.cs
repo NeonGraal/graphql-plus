@@ -551,6 +551,7 @@ public interface ItestRefCnstAltDmnDualField<Tref>
 }
 
 public interface ItestDomCnstAltDmnDual
+  : IDomainString
 {
 }
 
@@ -575,6 +576,7 @@ public interface ItestRefCnstAltDmnInpField<Tref>
 }
 
 public interface ItestDomCnstAltDmnInp
+  : IDomainString
 {
 }
 
@@ -599,6 +601,7 @@ public interface ItestRefCnstAltDmnOutpField<Tref>
 }
 
 public interface ItestDomCnstAltDmnOutp
+  : IDomainString
 {
 }
 
@@ -875,6 +878,7 @@ public interface ItestRefCnstDomEnumDualField<Ttype>
 }
 
 public interface ItestJustCnstDomEnumDual
+  : IDomainEnum
 {
 }
 
@@ -899,6 +903,7 @@ public interface ItestRefCnstDomEnumInpField<Ttype>
 }
 
 public interface ItestJustCnstDomEnumInp
+  : IDomainEnum
 {
 }
 
@@ -923,6 +928,7 @@ public interface ItestRefCnstDomEnumOutpField<Ttype>
 }
 
 public interface ItestJustCnstDomEnumOutp
+  : IDomainEnum
 {
 }
 
@@ -1068,6 +1074,7 @@ public interface ItestRefCnstFieldDmnDualField<Tref>
 }
 
 public interface ItestDomCnstFieldDmnDual
+  : IDomainString
 {
 }
 
@@ -1093,6 +1100,7 @@ public interface ItestRefCnstFieldDmnInpField<Tref>
 }
 
 public interface ItestDomCnstFieldDmnInp
+  : IDomainString
 {
 }
 
@@ -1118,6 +1126,7 @@ public interface ItestRefCnstFieldDmnOutpField<Tref>
 }
 
 public interface ItestDomCnstFieldDmnOutp
+  : IDomainString
 {
 }
 
@@ -3558,6 +3567,7 @@ public interface ItestFieldGnrcPrntEnumDomDualField<Tref>
 }
 
 public interface ItestDomGnrcPrntEnumDomDual
+  : IDomainEnum
 {
 }
 
@@ -3583,6 +3593,7 @@ public interface ItestFieldGnrcPrntEnumDomInpField<Tref>
 }
 
 public interface ItestDomGnrcPrntEnumDomInp
+  : IDomainEnum
 {
 }
 
@@ -3608,6 +3619,7 @@ public interface ItestFieldGnrcPrntEnumDomOutpField<Tref>
 }
 
 public interface ItestDomGnrcPrntEnumDomOutp
+  : IDomainEnum
 {
 }
 
@@ -3954,6 +3966,7 @@ public interface ItestFieldGnrcPrntStrDomDualField<Tref>
 }
 
 public interface ItestDomGnrcPrntStrDomDual
+  : IDomainString
 {
 }
 
@@ -3979,6 +3992,7 @@ public interface ItestFieldGnrcPrntStrDomInpField<Tref>
 }
 
 public interface ItestDomGnrcPrntStrDomInp
+  : IDomainString
 {
 }
 
@@ -4004,6 +4018,7 @@ public interface ItestFieldGnrcPrntStrDomOutpField<Tref>
 }
 
 public interface ItestDomGnrcPrntStrDomOutp
+  : IDomainString
 {
 }
 
@@ -4248,6 +4263,7 @@ public interface ItestInOutpParamModDmnField
 }
 
 public interface ItestDomOutpParamModDmn
+  : IDomainNumber
 {
 }
 
@@ -4273,6 +4289,7 @@ public interface ItestInOutpParamModParamField
 }
 
 public interface ItestDomOutpParamModParam
+  : IDomainNumber
 {
 }
 
@@ -4893,50 +4910,62 @@ public interface ItestInDrctParamField
 }
 
 public interface ItestDmnAlias
+  : IDomainNumber
 {
 }
 
 public interface ItestDmnBool
+  : IDomainBoolean
 {
 }
 
 public interface ItestDmnBoolDiff
+  : IDomainBoolean
 {
 }
 
 public interface ItestDmnBoolSame
+  : IDomainBoolean
 {
 }
 
 public interface ItestDmnEnumDiff
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumSame
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnNmbr
+  : IDomainNumber
 {
 }
 
 public interface ItestDmnNmbrDiff
+  : IDomainNumber
 {
 }
 
 public interface ItestDmnNmbrSame
+  : IDomainNumber
 {
 }
 
 public interface ItestDmnStr
+  : IDomainString
 {
 }
 
 public interface ItestDmnStrDiff
+  : IDomainString
 {
 }
 
 public interface ItestDmnStrSame
+  : IDomainString
 {
 }
 
@@ -5513,6 +5542,7 @@ public interface ItestPrntUnionSamePrnt
 }
 
 public interface ItestDmnBoolDescr
+  : IDomainBoolean
 {
 }
 
@@ -5522,6 +5552,7 @@ public interface ItestDmnBoolPrnt
 }
 
 public interface ItestPrntDmnBoolPrnt
+  : IDomainBoolean
 {
 }
 
@@ -5531,26 +5562,32 @@ public interface ItestDmnBoolPrntDescr
 }
 
 public interface ItestPrntDmnBoolPrntDescr
+  : IDomainBoolean
 {
 }
 
 public interface ItestDmnEnumAll
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumAllDescr
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumAllPrnt
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumDescr
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumLabel
+  : IDomainEnum
 {
 }
 
@@ -5560,6 +5597,7 @@ public interface ItestDmnEnumPrnt
 }
 
 public interface ItestPrntDmnEnumPrnt
+  : IDomainEnum
 {
 }
 
@@ -5569,18 +5607,22 @@ public interface ItestDmnEnumPrntDescr
 }
 
 public interface ItestPrntDmnEnumPrntDescr
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumValue
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnEnumValuePrnt
+  : IDomainEnum
 {
 }
 
 public interface ItestDmnNmbrDescr
+  : IDomainNumber
 {
 }
 
@@ -5590,6 +5632,7 @@ public interface ItestDmnNmbrPrnt
 }
 
 public interface ItestPrntDmnNmbrPrnt
+  : IDomainNumber
 {
 }
 
@@ -5599,10 +5642,12 @@ public interface ItestDmnNmbrPrntDescr
 }
 
 public interface ItestPrntDmnNmbrPrntDescr
+  : IDomainNumber
 {
 }
 
 public interface ItestDmnStrDescr
+  : IDomainString
 {
 }
 
@@ -5612,6 +5657,7 @@ public interface ItestDmnStrPrnt
 }
 
 public interface ItestPrntDmnStrPrnt
+  : IDomainString
 {
 }
 
@@ -5621,6 +5667,7 @@ public interface ItestDmnStrPrntDescr
 }
 
 public interface ItestPrntDmnStrPrntDescr
+  : IDomainString
 {
 }
 

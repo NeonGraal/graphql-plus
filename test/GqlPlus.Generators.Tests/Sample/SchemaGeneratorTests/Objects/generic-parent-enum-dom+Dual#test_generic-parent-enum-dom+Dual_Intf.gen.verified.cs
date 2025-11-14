@@ -27,5 +27,6 @@ public interface ItestFieldGnrcPrntEnumDomDualField<Tref>
 }
 
 public interface ItestDomGnrcPrntEnumDomDual
+  : IDomainEnum
 {
 }

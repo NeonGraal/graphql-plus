@@ -71,18 +71,9 @@ public abstract class GenerateTypeClassTestsBase
 
   protected virtual string GeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
     => generatorType switch {
-      GqlpGeneratorType.Interface => ": I" + "test" + parent,
-      GqlpGeneratorType.Implementation => ": test" + parent,
+      GqlpGeneratorType.Interface => ": I" + parent,
+      GqlpGeneratorType.Implementation => ": " + parent,
       _ => "",
-    };
-
-  protected virtual Action<string> CheckGeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
-    => result => {
-      switch (generatorType) {
-        case GqlpGeneratorType.Interface: result.ShouldContain(": I" + "test" + parent); break;
-        case GqlpGeneratorType.Implementation: result.ShouldContain(": test" + parent); break;
-        default: result.ShouldBeEmpty(); break;
-      }
     };
 }
 

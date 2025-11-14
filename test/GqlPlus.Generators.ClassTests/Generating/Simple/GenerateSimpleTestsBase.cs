@@ -22,6 +22,6 @@ public abstract class GenerateSimpleTestsBase<TSimple>
     // Assert
     context.CheckForRequired(
       GeneratedCodeName(generatorType, name),
-      GeneratedCodeParent(generatorType, parent));
+      GeneratedCodeParent(generatorType, "test" + parent));
   }
 }

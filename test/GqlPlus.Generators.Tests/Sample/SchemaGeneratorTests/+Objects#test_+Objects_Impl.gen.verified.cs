@@ -284,7 +284,8 @@ public class testRefCnstAltDmnDual<Tref>
 }
 
 public class testDomCnstAltDmnDual
-  : ItestDomCnstAltDmnDual
+  : DomainString
+  , ItestDomCnstAltDmnDual
 {
 }
 
@@ -303,7 +304,8 @@ public class testRefCnstAltDmnInp<Tref>
 }
 
 public class testDomCnstAltDmnInp
-  : ItestDomCnstAltDmnInp
+  : DomainString
+  , ItestDomCnstAltDmnInp
 {
 }
 
@@ -322,7 +324,8 @@ public class testRefCnstAltDmnOutp<Tref>
 }
 
 public class testDomCnstAltDmnOutp
-  : ItestDomCnstAltDmnOutp
+  : DomainString
+  , ItestDomCnstAltDmnOutp
 {
 }
 
@@ -515,7 +518,8 @@ public class testRefCnstDomEnumDual<Ttype>
 }
 
 public class testJustCnstDomEnumDual
-  : ItestJustCnstDomEnumDual
+  : DomainEnum
+  , ItestJustCnstDomEnumDual
 {
 }
 
@@ -534,7 +538,8 @@ public class testRefCnstDomEnumInp<Ttype>
 }
 
 public class testJustCnstDomEnumInp
-  : ItestJustCnstDomEnumInp
+  : DomainEnum
+  , ItestJustCnstDomEnumInp
 {
 }
 
@@ -553,7 +558,8 @@ public class testRefCnstDomEnumOutp<Ttype>
 }
 
 public class testJustCnstDomEnumOutp
-  : ItestJustCnstDomEnumOutp
+  : DomainEnum
+  , ItestJustCnstDomEnumOutp
 {
 }
 
@@ -656,7 +662,8 @@ public class testRefCnstFieldDmnDual<Tref>
 }
 
 public class testDomCnstFieldDmnDual
-  : ItestDomCnstFieldDmnDual
+  : DomainString
+  , ItestDomCnstFieldDmnDual
 {
 }
 
@@ -675,7 +682,8 @@ public class testRefCnstFieldDmnInp<Tref>
 }
 
 public class testDomCnstFieldDmnInp
-  : ItestDomCnstFieldDmnInp
+  : DomainString
+  , ItestDomCnstFieldDmnInp
 {
 }
 
@@ -694,7 +702,8 @@ public class testRefCnstFieldDmnOutp<Tref>
 }
 
 public class testDomCnstFieldDmnOutp
-  : ItestDomCnstFieldDmnOutp
+  : DomainString
+  , ItestDomCnstFieldDmnOutp
 {
 }
 
@@ -2372,7 +2381,8 @@ public class testFieldGnrcPrntEnumDomDual<Tref>
 }
 
 public class testDomGnrcPrntEnumDomDual
-  : ItestDomGnrcPrntEnumDomDual
+  : DomainEnum
+  , ItestDomGnrcPrntEnumDomDual
 {
 }
 
@@ -2391,7 +2401,8 @@ public class testFieldGnrcPrntEnumDomInp<Tref>
 }
 
 public class testDomGnrcPrntEnumDomInp
-  : ItestDomGnrcPrntEnumDomInp
+  : DomainEnum
+  , ItestDomGnrcPrntEnumDomInp
 {
 }
 
@@ -2410,7 +2421,8 @@ public class testFieldGnrcPrntEnumDomOutp<Tref>
 }
 
 public class testDomGnrcPrntEnumDomOutp
-  : ItestDomGnrcPrntEnumDomOutp
+  : DomainEnum
+  , ItestDomGnrcPrntEnumDomOutp
 {
 }
 
@@ -2645,7 +2657,8 @@ public class testFieldGnrcPrntStrDomDual<Tref>
 }
 
 public class testDomGnrcPrntStrDomDual
-  : ItestDomGnrcPrntStrDomDual
+  : DomainString
+  , ItestDomGnrcPrntStrDomDual
 {
 }
 
@@ -2664,7 +2677,8 @@ public class testFieldGnrcPrntStrDomInp<Tref>
 }
 
 public class testDomGnrcPrntStrDomInp
-  : ItestDomGnrcPrntStrDomInp
+  : DomainString
+  , ItestDomGnrcPrntStrDomInp
 {
 }
 
@@ -2683,7 +2697,8 @@ public class testFieldGnrcPrntStrDomOutp<Tref>
 }
 
 public class testDomGnrcPrntStrDomOutp
-  : ItestDomGnrcPrntStrDomOutp
+  : DomainString
+  , ItestDomGnrcPrntStrDomOutp
 {
 }
 
@@ -2856,7 +2871,8 @@ public class testInOutpParamModDmn
 }
 
 public class testDomOutpParamModDmn
-  : ItestDomOutpParamModDmn
+  : DomainNumber
+  , ItestDomOutpParamModDmn
 {
 }
 
@@ -2876,7 +2892,8 @@ public class testInOutpParamModParam
 }
 
 public class testDomOutpParamModParam
-  : ItestDomOutpParamModParam
+  : DomainNumber
+  , ItestDomOutpParamModParam
 {
 }
 

@@ -20,6 +20,7 @@ public class testRefCnstAltDmnInp<Tref>
 }
 
 public class testDomCnstAltDmnInp
-  : ItestDomCnstAltDmnInp
+  : DomainString
+  , ItestDomCnstAltDmnInp
 {
 }

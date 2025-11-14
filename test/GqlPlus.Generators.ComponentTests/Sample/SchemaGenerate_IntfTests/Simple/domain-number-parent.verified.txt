@@ -15,5 +15,6 @@ public interface ICmptDmnNmbrPrnt
 }
 
 public interface ICmptPrntDmnNmbrPrnt
+  : IDomainNumber
 {
 }

@@ -6,6 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_diff;
 
 public class testDmnEnumDiff
-  : ItestDmnEnumDiff
+  : DomainEnum
+  , ItestDmnEnumDiff
 {
 }

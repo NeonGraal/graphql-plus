@@ -27,5 +27,6 @@ public interface ItestRefCnstFieldDmnDualField<Tref>
 }
 
 public interface ItestDomCnstFieldDmnDual
+  : IDomainString
 {
 }

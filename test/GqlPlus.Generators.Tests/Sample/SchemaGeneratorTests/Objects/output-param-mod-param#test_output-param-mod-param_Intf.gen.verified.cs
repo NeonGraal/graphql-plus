@@ -27,5 +27,6 @@ public interface ItestInOutpParamModParamField
 }
 
 public interface ItestDomOutpParamModParam
+  : IDomainNumber
 {
 }

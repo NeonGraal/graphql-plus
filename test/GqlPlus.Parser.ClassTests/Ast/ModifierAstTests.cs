@@ -22,14 +22,14 @@ public class ModifierAstTests
   }
 
   [Theory, RepeatData]
-  public void String_WithDict(string key, bool optional)
+  public void Text_WithDict(string key, bool optional)
   {
     string optString = optional ? "?" : "";
     _checks.Text(() => ModifierAst.Dict(AstNulls.At, key, optional), $"[{key}{optString}]");
   }
 
   [Theory, RepeatData]
-  public void String_WithParam(string key, bool optional)
+  public void Text_WithParam(string key, bool optional)
   {
     string optString = optional ? "?" : "";
     _checks.Text(() => ModifierAst.Param(AstNulls.At, key, optional), $"[${key}{optString}]");

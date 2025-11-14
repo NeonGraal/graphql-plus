@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Ast.Schema.Simple;
 
 public class UnionMemberAstTests
-  : AstNamedTests
+  : AstNamedBaseTests<string>
 {
   private readonly AstNamedChecks<UnionMemberAst> _checks
     = new(CreateMember, CloneMember);

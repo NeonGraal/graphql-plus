@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainLabelAstTests
-  : AstAbbreviatedTests
+  : AstAbbreviatedBaseTests
 {
   [Theory, RepeatData]
   public void SetEnumType_WhenCurrentlyEmpty_SetsValue(string enumType, string enumLabel)

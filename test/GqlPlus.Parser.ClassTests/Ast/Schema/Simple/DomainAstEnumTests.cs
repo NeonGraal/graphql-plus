@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainAstEnumTests
-  : AstDomainTests<DomainLabelInput>
+  : AstDomainBaseTests<DomainLabelInput>
 {
   [Theory, RepeatData]
   public void Inequality_BetweenSpecifcItems(string name, string type1, string type2, string label)

@@ -2,24 +2,19 @@
 
 namespace GqlPlus.Ast;
 
-public abstract class AstAbbreviatedTests
-  : AstAbbreviatedTests<string>
+public abstract class AstAbbreviatedBaseTests
+  : AstAbbreviatedBaseTests<string>
 { }
 
-public abstract class AstAbbreviatedTests<TInput>
+public abstract class AstAbbreviatedBaseTests<TInput>
   : AstBaseTests<TInput>
 {
   internal abstract IAstAbbreviatedChecks<TInput> AbbreviatedChecks { get; }
 
-  protected virtual string AbbreviatedString(TInput input)
-    => $"( !{AbbreviatedChecks.Abbr} {input} )";
-  protected override string InputString(TInput input)
-    => AbbreviatedString(input);
-
   internal sealed override IAstBaseChecks<TInput> BaseChecks => AbbreviatedChecks;
 }
 
-internal sealed class AstAbbreviatedChecks<TAst>(
+internal class AstAbbreviatedChecks<TAst>(
   BaseAstChecks<TAst>.CreateBy<string> createInput,
   BaseAstChecks<TAst>.CloneBy<string> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
@@ -36,6 +31,11 @@ internal class AstAbbreviatedChecks<TInput, TAst>(
   where TAst : IGqlpError
 {
   public string Abbr { get; } = ((createInput(default!) as AstAbbreviated)?.Abbr).IfWhiteSpace("??");
+
+  protected virtual string AbbreviatedString(TInput input)
+    => $"( !{Abbr} {input} )";
+  protected override string InputString(TInput input)
+    => AbbreviatedString(input);
 }
 
 internal interface IAstAbbreviatedChecks<TInput>

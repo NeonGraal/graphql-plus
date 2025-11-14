@@ -2,7 +2,7 @@
 namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainTrueFalseAstTests
-  : AstAbbreviatedTests<bool>
+  : AstAbbreviatedBaseTests<bool>
 {
   private readonly AstAbbreviatedChecks<bool, DomainTrueFalseAst> _checks
     = new(CreateTrueFalse, CloneTrueFalse);

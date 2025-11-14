@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using GqlPlus;
+﻿using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Token;
 

@@ -30,25 +30,25 @@ public class ArgAstTests
       () => new ArgAst(AstNulls.At, enumValue.ArgObject(key)));
 
   [Theory, RepeatData]
-  public void String_WithVariable(string variable)
+  public void Text_WithVariable(string variable)
     => _checks.Text(
       () => new ArgAst(AstNulls.At, variable),
       $"( !a ${variable} )");
 
   [Theory, RepeatData]
-  public void String_WithConstant(string enumValue)
+  public void Text_WithConstant(string enumValue)
     => _checks.Text(
       () => new ArgAst(new ConstantAst(enumValue.FieldKey())),
       $"( !k {enumValue} )");
 
   [Theory, RepeatData]
-  public void String_WithValues(string enumValue)
+  public void Text_WithValues(string enumValue)
     => _checks.Text(
       () => new ArgAst(AstNulls.At, enumValue.ArgList()),
       $"( !a [ !a ${enumValue} !k {enumValue} ] )");
 
   [Theory, RepeatData]
-  public void String_WithFields(string key, string enumValue)
+  public void Text_WithFields(string key, string enumValue)
     => _checks.Text(
       () => new ArgAst(AstNulls.At, enumValue.ArgObject(key)),
       $"( !a {{ ( !k {key} ):( !a ${enumValue} ) ( !k {enumValue} ):( !k {key} ) }} )",

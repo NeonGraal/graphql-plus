@@ -14,8 +14,6 @@ internal record class AlternateAst(
 
   public IGqlpEnumValue? EnumValue { get; set; }
 
-  public string ModifiedType => GetFields().Skip(2).Joined();
-
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
   string IGqlpObjEnum.EnumTypeName => IsTypeParam ? "" : Name;

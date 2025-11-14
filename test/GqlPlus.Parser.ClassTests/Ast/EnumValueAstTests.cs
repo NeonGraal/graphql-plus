@@ -11,13 +11,13 @@ public class EnumValueAstTests : AstAbbreviatedTests
     => _checks.HashCode(() => CreateEnumValue(enumType, enumLabel));
 
   [Theory, RepeatData]
-  public void String_WithLabel(string enumLabel)
+  public void Text_WithLabel(string enumLabel)
     => _checks.Text(
       () => CreateEnumValue(enumLabel),
       $"( !e {enumLabel} )");
 
   [Theory, RepeatData]
-  public void String_WithTypeAndLabel(string enumType, string enumLabel)
+  public void Text_WithTypeAndLabel(string enumType, string enumLabel)
     => _checks.Text(
       () => CreateEnumValue(enumType, enumLabel),
       $"( !e {enumType}.{enumLabel} )");

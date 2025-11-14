@@ -10,7 +10,7 @@ public class EnumAstTests
         () => new EnumDeclAst(AstNulls.At, name, enumLabels.EnumLabels()));
 
   [Theory, RepeatData]
-  public void String_WithLabels(string name, string[] enumLabels)
+  public void Text_WithLabels(string name, string[] enumLabels)
     => _checks.Text(
       () => new EnumDeclAst(AstNulls.At, name, enumLabels.EnumLabels()),
       $"( !En {name} {enumLabels.Joined(s => "!EL " + s)} )");

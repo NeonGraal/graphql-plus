@@ -7,12 +7,10 @@ public abstract class AstObjectFieldTests
 {
   internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
-  protected override string InputName(FieldInput input) => input.Name;
-
   internal abstract IAstObjectFieldChecks FieldChecks { get; }
 }
 
-internal sealed class AstObjectFieldChecks<TObjField>(
+internal class AstObjectFieldChecks<TObjField>(
   AstObjectFieldChecks<TObjField>.FieldBy createField,
   BaseAstChecks<TObjField>.CloneBy<FieldInput> cloneField
 ) : AstAliasedChecks<FieldInput, TObjField>(input => createField(input, BaseBy(input)), cloneField)
@@ -23,6 +21,8 @@ internal sealed class AstObjectFieldChecks<TObjField>(
 
   internal static ObjBaseAst BaseBy(FieldInput input)
     => new(AstNulls.At, input.Type, "") { IsTypeParam = input.TypeParam };
+
+  protected override string InputName(FieldInput input) => input.Name;
 }
 
 internal interface IAstObjectFieldChecks

@@ -10,23 +10,23 @@ public abstract class AstBaseTests<TInput>
   => BaseChecks.HashCode_WithInput(default!);
 
   [Theory, RepeatData]
-  public void HashCode(TInput input)
+  public void HashCode_WithInput(TInput input)
   => BaseChecks.HashCode_WithInput(input);
 
   [Theory, RepeatData]
-  public void Text(TInput input)
-  => BaseChecks.Text_WithInput(input, InputString(input));
+  public void Text_WithInput(TInput input)
+  => BaseChecks.Text_WithInput(input);
 
   [Theory, RepeatData]
-  public void Clone(TInput input)
+  public void Clone_WithInput(TInput input)
     => BaseChecks.Clone_WithInput(input);
 
   [Theory, RepeatData]
-  public void Equality(TInput input)
+  public void Equality_WithInput(TInput input)
     => BaseChecks.Equality_WithInput(input);
 
   [Theory, RepeatData]
-  public void Inequality(TInput input1, TInput input2)
+  public void Inequality_WithInputs(TInput input1, TInput input2)
     => BaseChecks
       .SkipIf(SameInput(input1, input2))
       .Inequality_WithInputs(input1, input2);
@@ -58,9 +58,10 @@ internal class AstBaseChecks<TInput, TAst>
       () => CreateInput(input),
       CreateExpression);
 
-  public void Text_WithInput(TInput input, string expected)
+  public void Text_WithInput(TInput input)
     => Text(
-      () => CreateInput(input), expected,
+      () => CreateInput(input),
+      InputString(input),
       factoryExpression: CreateExpression);
 
   public void Clone_WithInput(TInput input)
@@ -85,6 +86,9 @@ internal class AstBaseChecks<TInput, TAst>
     => Inequality(factory,
       () => CreateInput(input),
       factory1Expression: factoryExpression);
+
+  protected virtual string InputString(TInput input)
+    => $"( !{input} )";
 }
 
 internal interface IAstBaseChecks
@@ -94,7 +98,7 @@ internal interface IAstBaseChecks
 internal interface IAstBaseChecks<TInput>
 {
   void HashCode_WithInput(TInput input);
-  void Text_WithInput(TInput input, string expected);
+  void Text_WithInput(TInput input);
   void Clone_WithInput(TInput input);
   void Equality_WithInput(TInput input);
   void Inequality_WithInputs(TInput input1, TInput input2);

@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+﻿using System.Runtime.CompilerServices;
+using System.Xml.Linq;
+
+namespace GqlPlus.Ast.Schema.Objects;
 
 public class TypeParamAstTests
   : AstAbbreviatedTests
@@ -9,7 +12,7 @@ public class TypeParamAstTests
         () => new TypeParamAst(AstNulls.At, name) { Constraint = constraint });
 
   [Theory, RepeatData]
-  public void String_WithConstraint(string name, string constraint)
+  public void Text_WithConstraint(string name, string constraint)
   => _checks.Text(
       () => new TypeParamAst(AstNulls.At, name) { Constraint = constraint },
       $"( ${name} :{constraint} )");
@@ -24,11 +27,19 @@ public class TypeParamAstTests
     => _checks.InequalityWith(name,
       () => new TypeParamAst(AstNulls.At, name) { Constraint = constraint });
 
+  private readonly TypeParamAstChecks _checks = new();
+
+  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
+}
+
+internal sealed class TypeParamAstChecks()
+  : AstAbbreviatedChecks<TypeParamAst>(CreateTypeParam, CloneTypeParam)
+{
   protected override string AbbreviatedString(string input)
     => $"( ${input} )";
 
-  private readonly AstAbbreviatedChecks<TypeParamAst> _checks
-    = new(name => new TypeParamAst(AstNulls.At, name), (original, name) => original with { Name = name });
-
-  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
+  private static TypeParamAst CloneTypeParam(TypeParamAst original, string input)
+    => original with { Name = input };
+  private static TypeParamAst CreateTypeParam(string input)
+    => new(AstNulls.At, input);
 }

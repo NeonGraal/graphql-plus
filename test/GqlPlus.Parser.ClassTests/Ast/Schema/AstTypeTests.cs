@@ -12,9 +12,9 @@ public abstract class AstTypeTests
       .HashCode_WithParent(name, parent);
 
   [Theory, RepeatData]
-  public void String_WithParent(string name, string parent)
+  public void Text_WithParent(string name, string parent)
     => TypeChecks
-      .String_WithParent(name, parent, ParentString(name, parent));
+      .Text_WithParent(name, parent);
 
   [Theory, RepeatData]
   public void Equality_WithParent(string name, string parent)
@@ -66,11 +66,14 @@ internal class AstTypeChecks<TType, TParent>(
   public void Inequality_ByParents(string name, string parent1, string parent2)
     => InequalityBetween(parent1, parent2, parent => CreateType(name, parent));
 
-  public void String_WithParent(string name, string parent, string expected)
-    => Text(() => CreateType(name, parent), expected);
+  public void Text_WithParent(string name, string parent)
+    => Text(() => CreateType(name, parent), ParentString(name, parent));
 
   private TType CreateType(string name, string parent)
     => CreateInput(name) with { Parent = CreateParent(parent) };
+
+  protected virtual string ParentString(string name, string parent)
+    => $"( !{Abbr} {name} :( !Tr {parent} ) )";
 }
 
 internal class AstTypeChecks<TType>(
@@ -89,7 +92,7 @@ internal interface IAstTypeChecks
   : IAstAliasedChecks
 {
   void HashCode_WithParent(string name, string parent);
-  void String_WithParent(string name, string parent, string expected);
+  void Text_WithParent(string name, string parent);
   void Equality_WithParent(string name, string parent);
   void Inequality_WithParent(string name, string parent);
   void Inequality_ByParents(string name, string parent1, string parent2);

@@ -16,7 +16,7 @@ public class UnionAstTests
         () => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()));
 
   [Theory, RepeatData]
-  public void String_WithMembers(string name, string[] unionMembers)
+  public void Text_WithMembers(string name, string[] unionMembers)
     => _checks.Text(
       () => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()),
       $"( !Un {name} {unionMembers.Joined(s => "!UM " + s)} )");

@@ -2,12 +2,6 @@
 
 namespace GqlPlus.Ast.Schema;
 
-public abstract class AstNamedTests
-  : AstNamedTests<string>
-{
-  protected override string InputName(string input) => input;
-}
-
 public abstract class AstNamedTests<TInput>
   : AstAbbreviatedTests<TInput>
 {
@@ -16,8 +10,8 @@ public abstract class AstNamedTests<TInput>
   => NamedChecks.HashCode_WithDescription(input, description);
 
   [Theory, RepeatData]
-  public void String_WithDescription(TInput input, string description)
-    => NamedChecks.String_WithDescription(input, DescriptionString(input, description), description);
+  public void Text_WithDescription(TInput input, string description)
+    => NamedChecks.Text_WithDescription(input, description);
 
   [Theory, RepeatData]
   public void Equality_WithDescription(TInput input, string description)
@@ -39,18 +33,6 @@ public abstract class AstNamedTests<TInput>
       .SkipEqual(input1, input2)
       .Inequality_WithDescriptionByInputs(input1, input2, description);
 
-  protected virtual string DescriptionString(TInput input, string description)
-    => $"( {DescriptionNameString(input, description)} )";
-
-  protected string DescriptionNameString(TInput input, string description)
-    => string.IsNullOrWhiteSpace(description)
-      ? $"!{NamedChecks.Abbr} {InputName(input)}"
-      : $"'{description}' !{NamedChecks.Abbr} {InputName(input)}";
-
-  protected abstract string InputName(TInput input);
-
-  protected sealed override string AbbreviatedString(TInput input) => DescriptionString(input, "");
-
   internal sealed override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => NamedChecks;
 
   internal abstract IAstNamedChecks<TInput> NamedChecks { get; }
@@ -63,9 +45,11 @@ internal sealed class AstNamedChecks<TNamed>(
 ) : AstNamedChecks<string, TNamed>(createInput, cloneInput, createExpression)
   , IAstNamedChecks
   where TNamed : AstNamed
-{ }
+{
+  protected override string InputName(string input) => input;
+}
 
-internal class AstNamedChecks<TInput, TNamed>(
+internal abstract class AstNamedChecks<TInput, TNamed>(
   BaseAstChecks<TNamed>.CreateBy<TInput> createInput,
   BaseAstChecks<TNamed>.CloneBy<TInput> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
@@ -99,13 +83,26 @@ internal class AstNamedChecks<TInput, TNamed>(
       input => CreateDescription(input, description),
       CreateExpression);
 
-  public void String_WithDescription(TInput input, string expected, string description)
+  public void Text_WithDescription(TInput input, string description)
     => Text(
-      () => CreateDescription(input, description), expected,
+      () => CreateDescription(input, description),
+      DescriptionString(input, description),
       factoryExpression: CreateExpression);
 
   private TNamed CreateDescription(TInput input, string description)
     => CreateInput(input) with { Description = description };
+
+  protected virtual string DescriptionString(TInput input, string description)
+    => $"( {DescriptionNameString(input, description)} )";
+
+  protected string DescriptionNameString(TInput input, string description)
+    => string.IsNullOrWhiteSpace(description)
+      ? $"!{Abbr} {InputName(input)}"
+      : $"'{description}' !{Abbr} {InputName(input)}";
+
+  protected abstract string InputName(TInput input);
+
+  protected sealed override string AbbreviatedString(TInput input) => DescriptionString(input, "");
 }
 
 internal interface IAstNamedChecks
@@ -117,7 +114,7 @@ internal interface IAstNamedChecks<TInput>
   : IAstAbbreviatedChecks<TInput>
 {
   void HashCode_WithDescription(TInput input, string description);
-  void String_WithDescription(TInput input, string expected, string description);
+  void Text_WithDescription(TInput input, string description);
   void Equality_WithDescription(TInput input, string description);
   void Inequality_WithDescription(TInput input, string description);
   void Inequality_WithDescriptionByInputs(TInput input1, TInput input2, string description);

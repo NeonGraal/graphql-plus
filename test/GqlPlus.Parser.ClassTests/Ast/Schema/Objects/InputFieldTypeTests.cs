@@ -10,8 +10,8 @@ public abstract class InputFieldTypeTests<TInput>
       => InputFieldChecks.HashCode_WithDefault(input, def);
 
   [Theory, RepeatData]
-  public void String_WithDefault(TInput input, string def)
-    => InputFieldChecks.String_WithDefault(input, def);
+  public void Text_WithDefault(TInput input, string def)
+    => InputFieldChecks.Text_WithDefault(input, def);
 
   [Theory, RepeatData]
   public void Equality_WithDefault(TInput input, string def)
@@ -35,7 +35,7 @@ internal abstract class InputFieldTypeChecks<TInput, TObjType>(
 {
   public void HashCode_WithDefault(TInput input, string def)
       => HashCode(() => WithDefault(CreateInput(input), def));
-  public void String_WithDefault(TInput input, string def)
+  public void Text_WithDefault(TInput input, string def)
     => Text(() => WithDefault(CreateInput(input), def), DefaultString(input, def));
   public void Equality_WithDefault(TInput input, string def)
     => Equality(() => WithDefault(CreateInput(input), def));
@@ -52,7 +52,7 @@ internal interface IInputFieldTypeChecks<TInput>
   : IObjFieldTypeChecks<TInput>
 {
   void HashCode_WithDefault(TInput input, string def);
-  void String_WithDefault(TInput input, string def);
+  void Text_WithDefault(TInput input, string def);
   void Equality_WithDefault(TInput input, string def);
   void Inequality_BetweenDefaults(TInput input, string def1, string def2);
 }

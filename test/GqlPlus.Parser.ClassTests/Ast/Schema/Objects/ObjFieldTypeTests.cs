@@ -10,9 +10,8 @@ public abstract class ObjFieldTypeTests<TInput>
       => FieldChecks.HashCode_WithModifiers(input);
 
   [Theory, RepeatData]
-  public void String_WithModifiers(TInput input)
-    => FieldChecks.String_WithModifiers(input,
-      InputString(input).Replace(")", "[] ? )", StringComparison.Ordinal));
+  public void Text_WithModifiers(TInput input)
+    => FieldChecks.Text_WithModifiers(input);
 
   [Theory, RepeatData]
   public void Equality_WithModifiers(TInput input)
@@ -39,11 +38,8 @@ public abstract class ObjFieldTypeTests<TInput>
       => FieldChecks.HashCode_WithEnumValue(input, enumLabel);
 
   [Theory, RepeatData]
-  public void String_WithEnumValue(TInput input, string enumLabel)
-    => FieldChecks.String_WithEnumValue(input, enumLabel,
-      InputString(input)
-      .Replace(":", "=", StringComparison.Ordinal)
-      .Replace(")", $".{enumLabel} )", StringComparison.Ordinal));
+  public void Text_WithEnumValue(TInput input, string enumLabel)
+    => FieldChecks.Text_WithEnumValue(input, enumLabel);
 
   [Theory, RepeatData]
   public void Equality_WithEnumValue(TInput input, string enumLabel)
@@ -75,8 +71,10 @@ internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
   public void HashCode_WithModifiers(TInput input)
       => HashCode(() => WithModifiers(CreateInput(input)));
 
-  public void String_WithModifiers(TInput input, string expected)
-    => Text(() => WithModifiers(CreateInput(input)), expected);
+  public void Text_WithModifiers(TInput input)
+    => Text(
+      () => WithModifiers(CreateInput(input)),
+      InputString(input).Replace(")", "[] ? )", StringComparison.Ordinal));
 
   public void Equality_WithModifiers(TInput input)
     => Equality(() => WithModifiers(CreateInput(input)));
@@ -87,9 +85,12 @@ internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
   public void HashCode_WithEnumValue(TInput input, string enumLabel)
       => HashCode(() => CreateEnum(input, enumLabel));
 
-  public void String_WithEnumValue(TInput input, string enumLabel, string expected)
+  public void Text_WithEnumValue(TInput input, string enumLabel)
     => Text(
-      () => CreateEnum(input, enumLabel), expected);
+      () => CreateEnum(input, enumLabel),
+      InputString(input)
+      .Replace(":", "=", StringComparison.Ordinal)
+      .Replace(")", $".{enumLabel} )", StringComparison.Ordinal));
 
   public void Equality_WithEnumValue(TInput input, string enumLabel)
     => Equality(() => CreateEnum(input, enumLabel));
@@ -132,12 +133,12 @@ internal interface IObjFieldTypeChecks<TInput>
   : IAstAbbreviatedChecks<TInput>
 {
   void HashCode_WithModifiers(TInput input);
-  void String_WithModifiers(TInput input, string expected);
+  void Text_WithModifiers(TInput input);
   void Equality_WithModifiers(TInput input);
   void Inequality_WithModifiers(TInput input);
 
   void HashCode_WithEnumValue(TInput input, string enumLabel);
-  void String_WithEnumValue(TInput input, string enumLabel, string expected);
+  void Text_WithEnumValue(TInput input, string enumLabel);
   void Equality_WithEnumValue(TInput input, string enumLabel);
   void Inequality_BetweenEnumValues(TInput input, string enumValue1, string enumValue2);
 

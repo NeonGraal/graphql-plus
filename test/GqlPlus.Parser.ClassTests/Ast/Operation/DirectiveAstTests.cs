@@ -8,7 +8,7 @@ public class DirectiveAstTests : AstAbbreviatedTests
       () => new DirectiveAst(AstNulls.At, name) { Arg = new ArgAst(AstNulls.At, variable) });
 
   [Theory, RepeatData]
-  public void String_WithArg(string variable, string name)
+  public void Text_WithArg(string variable, string name)
     => _checks.Text(
       () => new DirectiveAst(AstNulls.At, name) { Arg = new ArgAst(AstNulls.At, variable) },
       $"( !d {name} ( !a ${variable} ) )");

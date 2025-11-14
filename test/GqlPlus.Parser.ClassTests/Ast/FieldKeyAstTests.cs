@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Ast;
+﻿using System.Runtime.CompilerServices;
+
+namespace GqlPlus.Ast;
 
 public class FieldKeyAstTests
   : AstAbbreviatedTests
@@ -12,19 +14,19 @@ public class FieldKeyAstTests
     => _checks.HashCode(() => CreateFieldKey(enumType, enumValue));
 
   [Theory, RepeatData]
-  public void String_WithNumber(decimal number)
+  public void Text_WithNumber(decimal number)
     => _checks.Text(
       () => CreateFieldKey(number),
       $"( !k {number} )");
 
   [Theory, RepeatData]
-  public void String_WithString(string contents)
+  public void Text_WithString(string contents)
     => _checks.Text(
       () => CreateFieldKey(contents),
       $"( !k '{contents}' )");
 
   [Theory, RepeatData]
-  public void String_WithEnumTypeAndValue(string enumType, string enumValue)
+  public void Text_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.Text(() => CreateFieldKey(enumType, enumValue),
       $"( !k {enumType}.{enumValue} )");
 
@@ -154,15 +156,9 @@ public class FieldKeyAstTests
     (left != right).ShouldBeTrue();
   }
 
-  internal AstAbbreviatedChecks<string, IGqlpFieldKey> _checks = new(CreateFieldKey, CloneFieldKey);
-
-  private static IGqlpFieldKey CloneFieldKey(IGqlpFieldKey original, string input)
-    => (FieldKeyAst)original with { Text = input };
+  internal FieldKeyAstChecks _checks = new(CreateFieldKey);
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
-
-  protected override string AbbreviatedString(string input)
-    => $"( !k '{input}' )";
 
   private static FieldKeyAst CreateFieldKey(string enumType, string enumValue)
     => new(AstNulls.At, enumType, enumValue);
@@ -172,4 +168,16 @@ public class FieldKeyAstTests
 
   private static FieldKeyAst CreateFieldKey(string contents)
     => new(AstNulls.At, contents);
+}
+
+internal sealed class FieldKeyAstChecks(
+  BaseAstChecks<IGqlpFieldKey>.CreateBy<string> createInput,
+  [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
+) : AstAbbreviatedChecks<string, IGqlpFieldKey>(createInput, CloneFieldKey, createExpression)
+{
+  protected override string AbbreviatedString(string input)
+    => $"( !k '{input}' )";
+
+  private static IGqlpFieldKey CloneFieldKey(IGqlpFieldKey original, string input)
+    => (FieldKeyAst)original with { Text = input };
 }

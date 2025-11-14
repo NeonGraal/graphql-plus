@@ -16,19 +16,19 @@ public class VariableAstTests
     => _checks.HashCode(() => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) });
 
   [Theory, RepeatData]
-  public void String_WithType(string name, string varType)
+  public void Text_WithType(string name, string varType)
     => _checks.Text(
       () => new VariableAst(AstNulls.At, name) { Type = varType },
       $"( !v {name} :{varType} )");
 
   [Theory, RepeatData]
-  public void String_WithModifiers(string name)
+  public void Text_WithModifiers(string name)
     => _checks.Text(
       () => new VariableAst(AstNulls.At, name) { Modifiers = TestMods() },
       $"( !v {name} [] ? )");
 
   [Theory, RepeatData]
-  public void String_WithDefault(string name, string value)
+  public void Text_WithDefault(string name, string value)
     => _checks.Text(
       () => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) },
       $"( !v {name} =( !k '{value}' ) )");

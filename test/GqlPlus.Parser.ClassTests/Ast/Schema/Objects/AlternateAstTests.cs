@@ -10,8 +10,8 @@ public class AlternateAstTests
       => AlternateChecks.HashCode_WithModifiers(input);
 
   [Theory, RepeatData]
-  public void String_WithModifiers(TypeInput input)
-    => AlternateChecks.String_WithModifiers(input);
+  public void Text_WithModifiers(TypeInput input)
+    => AlternateChecks.Text_WithModifiers(input);
 
   [Theory, RepeatData]
   public void Equality_WithModifiers(TypeInput input)
@@ -26,8 +26,8 @@ public class AlternateAstTests
       => AlternateChecks.HashCode_WithEnumValue(input, enumLabel);
 
   [Theory, RepeatData]
-  public void String_WithEnumValue(TypeInput input, string enumLabel)
-    => AlternateChecks.String_WithEnumValue(input, enumLabel);
+  public void Text_WithEnumValue(TypeInput input, string enumLabel)
+    => AlternateChecks.Text_WithEnumValue(input, enumLabel);
 
   [Theory, RepeatData]
   public void Equality_WithEnumValue(TypeInput input, string enumLabel)
@@ -51,9 +51,6 @@ public class AlternateAstTests
 
   internal sealed override IAstAbbreviatedChecks<TypeInput> AbbreviatedChecks => AlternateChecks;
 
-  protected override string InputString(TypeInput input)
-    => $"( {input.Type} )";
-
   internal IAstObjectAlternateChecks AlternateChecks { get; } = new AstObjectAlternateChecks();
 }
 
@@ -75,7 +72,7 @@ internal sealed class AstObjectAlternateChecks
   public void HashCode_WithModifiers(TypeInput input)
       => HashCode(() => CreateModifiers(input));
 
-  public void String_WithModifiers(TypeInput input)
+  public void Text_WithModifiers(TypeInput input)
     => Text(
       () => CreateModifiers(input),
       $"( {input.Type} [] ? )");
@@ -89,7 +86,7 @@ internal sealed class AstObjectAlternateChecks
   public void HashCode_WithEnumValue(TypeInput input, string enumLabel)
       => HashCode(() => CreateEnumValue(input, enumLabel));
 
-  public void String_WithEnumValue(TypeInput input, string enumLabel)
+  public void Text_WithEnumValue(TypeInput input, string enumLabel)
     => Text(
       () => CreateEnumValue(input, enumLabel),
       $"( {input.Type}.{enumLabel} )");
@@ -127,6 +124,9 @@ internal sealed class AstObjectAlternateChecks
     alternate.ModifiedType.ShouldBe(expected);
   }
 
+  protected override string InputString(TypeInput input)
+    => $"( {input.Type} )";
+
   private AlternateAst CreateEnumValue(TypeInput input, string enumLabel)
     => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, input.Type, enumLabel) };
 
@@ -138,12 +138,12 @@ internal interface IAstObjectAlternateChecks
   : IAstAbbreviatedChecks<TypeInput>
 {
   void HashCode_WithModifiers(TypeInput input);
-  void String_WithModifiers(TypeInput input);
+  void Text_WithModifiers(TypeInput input);
   void Equality_WithModifiers(TypeInput input);
   void Inequality_WithModifiers(TypeInput input);
 
   void HashCode_WithEnumValue(TypeInput input, string enumLabel);
-  void String_WithEnumValue(TypeInput input, string enumLabel);
+  void Text_WithEnumValue(TypeInput input, string enumLabel);
   void Equality_WithEnumValue(TypeInput input, string enumLabel);
   void Inequality_WithEnumValue(TypeInput input, string enumLabel);
 

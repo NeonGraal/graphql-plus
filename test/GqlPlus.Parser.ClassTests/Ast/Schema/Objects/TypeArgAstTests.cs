@@ -10,8 +10,8 @@ public class TypeArgAstTests
       => TypeArgChecks.HashCode_WithIsTypeParam(input);
 
   [Theory, RepeatData]
-  public void String_WithIsTypeParam(string input)
-    => TypeArgChecks.String_WithIsTypeParam(input);
+  public void Text_WithIsTypeParam(string input)
+    => TypeArgChecks.Text_WithIsTypeParam(input);
 
   [Theory, RepeatData]
   public void Equality_WithIsTypeParam(string input)
@@ -26,8 +26,8 @@ public class TypeArgAstTests
     => TypeArgChecks.HashCode_WithEnumValue(input, enumLabel);
 
   [Theory, RepeatData]
-  public void String_WithEnumValue(string input, string enumLabel)
-    => TypeArgChecks.String_WithEnumValue(input, enumLabel);
+  public void Text_WithEnumValue(string input, string enumLabel)
+    => TypeArgChecks.Text_WithEnumValue(input, enumLabel);
 
   [Theory, RepeatData]
   public void Equality_WithEnumValue(string input, string enumLabel)
@@ -47,81 +47,79 @@ public class TypeArgAstTests
 
   internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => TypeArgChecks;
 
-  protected override string AbbreviatedString(string input)
-    => $"( {input} )";
-
   internal TypeArgAstChecks TypeArgChecks { get; } = new();
 }
 
-internal sealed class TypeArgAstChecks
-  : AstAbbreviatedChecks<string, TypeArgAst>
+internal sealed class TypeArgAstChecks()
+  : AstAbbreviatedChecks<string, TypeArgAst>(CreateTypeArg, CloneTypeArg)
   , ITypeArgAstChecks
 {
-  public TypeArgAstChecks()
-    : base(ArgBy, (original, input) => original with { Name = input })
-  { }
-
-  internal static TypeArgAst ArgBy(string input)
+  private static TypeArgAst CloneTypeArg(TypeArgAst original, string input)
+    => original with { Name = input };
+  internal static TypeArgAst CreateTypeArg(string input)
     => new(AstNulls.At, input, "");
 
   public void HashCode_WithIsTypeParam(string input)
-      => HashCode(() => ArgBy(input) with { IsTypeParam = true });
+      => HashCode(() => CreateTypeArg(input) with { IsTypeParam = true });
 
-  public void String_WithIsTypeParam(string input)
+  public void Text_WithIsTypeParam(string input)
     => Text(
-      () => ArgBy(input) with { IsTypeParam = true },
+      () => CreateTypeArg(input) with { IsTypeParam = true },
       $"( ${input} )");
 
   public void Equality_WithIsTypeParam(string input)
-    => Equality(() => ArgBy(input) with { IsTypeParam = true });
+    => Equality(() => CreateTypeArg(input) with { IsTypeParam = true });
 
   public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
     => InequalityBetween(isTypeParam1, !isTypeParam1,
-      isTypeParam => ArgBy(input) with { IsTypeParam = isTypeParam },
+      isTypeParam => CreateTypeArg(input) with { IsTypeParam = isTypeParam },
       false);
 
   public void HashCode_WithEnumValue(string input, string enumLabel)
       => HashCode(
-        () => ArgBy(input) with { EnumValue = new EnumValueAst(AstNulls.At, input, enumLabel) });
+        () => CreateTypeArg(input) with { EnumValue = new EnumValueAst(AstNulls.At, input, enumLabel) });
 
-  public void String_WithEnumValue(string input, string enumLabel)
+  public void Text_WithEnumValue(string input, string enumLabel)
     => Text(
-      () => ArgBy(input) with { EnumValue = new EnumValueAst(AstNulls.At, input, enumLabel) },
+      () => CreateTypeArg(input) with { EnumValue = new EnumValueAst(AstNulls.At, input, enumLabel) },
       $"( {input}.{enumLabel} )");
 
   public void Equality_WithEnumValue(string input, string enumLabel)
     => Equality(
-      () => ArgBy(input) with { EnumValue = new EnumValueAst(AstNulls.At, input, enumLabel) });
+      () => CreateTypeArg(input) with { EnumValue = new EnumValueAst(AstNulls.At, input, enumLabel) });
 
   public void Inequality_BetweenEnumValues(string input, string enumLabel1, string enumLabel2)
     => InequalityBetween(enumLabel1, enumLabel2,
-      enumLabel => ArgBy(input) with { EnumValue = new EnumValueAst(AstNulls.At, input, enumLabel) },
+      enumLabel => CreateTypeArg(input) with { EnumValue = new EnumValueAst(AstNulls.At, input, enumLabel) },
       enumLabel1 == enumLabel2);
 
   public void FullType_WithDefault(string input)
   {
-    TypeArgAst objArg = ArgBy(input);
+    TypeArgAst objArg = CreateTypeArg(input);
 
     objArg.FullType.ShouldBe(input);
   }
 
   public void FullType_WithIsTypeParam(string input)
   {
-    IGqlpTypeArg objArg = ArgBy(input) with { IsTypeParam = true };
+    IGqlpTypeArg objArg = CreateTypeArg(input) with { IsTypeParam = true };
 
     objArg.FullType.ShouldBe("$" + input);
   }
+
+  protected override string AbbreviatedString(string input)
+    => $"( {input} )";
 }
 
 internal interface ITypeArgAstChecks
   : IAstAbbreviatedChecks<string>
 {
   void HashCode_WithIsTypeParam(string input);
-  void String_WithIsTypeParam(string input);
+  void Text_WithIsTypeParam(string input);
   void Equality_WithIsTypeParam(string input);
   void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1);
   void HashCode_WithEnumValue(string input, string enumLabel);
-  void String_WithEnumValue(string input, string enumLabel);
+  void Text_WithEnumValue(string input, string enumLabel);
   void Equality_WithEnumValue(string input, string enumLabel);
   void Inequality_BetweenEnumValues(string input, string enumLabel1, string enumLabel2);
   void FullType_WithDefault(string input);

@@ -4,9 +4,7 @@ namespace GqlPlus.Ast.Schema;
 
 public abstract class AstAliasedTests
   : AstAliasedTests<string>
-{
-  protected override string InputName(string input) => input;
-}
+{ }
 
 public abstract class AstAliasedTests<TInput>
   : AstNamedTests<TInput>
@@ -20,12 +18,12 @@ public abstract class AstAliasedTests<TInput>
   => AliasedChecks.HashCode_WithAliases(input, alias1, alias2);
 
   [Theory, RepeatData]
-  public void String_WithAlias(TInput input, string aliased)
-    => AliasedChecks.String_WithAliases(input, AliasesString(input, "", Aliases(aliased)), aliased);
+  public void Text_WithAlias(TInput input, string aliased)
+    => AliasedChecks.Text_WithAliases(input, aliased);
 
   [Theory, RepeatData]
-  public void String_WithAliases(TInput input, string[] aliases)
-    => AliasedChecks.String_WithAliases(input, AliasesString(input, "", Aliases(aliases)), aliases);
+  public void Text_WithAliases(TInput input, string[] aliases)
+    => AliasedChecks.Text_WithAliases(input, aliases);
 
   [Theory, RepeatData]
   public void Equality_WithAlias(TInput input, string aliased)
@@ -55,15 +53,6 @@ public abstract class AstAliasedTests<TInput>
       .SkipEqual(input1, input2)
       .Inequality_WithAliasByInputs(input1, input2, aliased);
 
-  protected virtual string AliasesString(TInput input, string description, string aliases)
-    => $"( {DescriptionNameString(input, description)}{aliases} )";
-
-  protected sealed override string DescriptionString(TInput input, string description)
-    => AliasesString(input, description, "");
-
-  private static string Aliases(params string[] aliases)
-    => aliases.Bracket(" [", "]", true).Joined();
-
   internal sealed override IAstNamedChecks<TInput> NamedChecks => AliasedChecks;
 
   internal abstract IAstAliasedChecks<TInput> AliasedChecks { get; }
@@ -76,9 +65,11 @@ internal class AstAliasedChecks<TAliased>(
 ) : AstAliasedChecks<string, TAliased>(createInput, cloneInput, createExpression)
   , IAstAliasedChecks
   where TAliased : AstAliased
-{ }
+{
+  protected override string InputName(string input) => input;
+}
 
-internal class AstAliasedChecks<TInput, TAliased>(
+internal abstract class AstAliasedChecks<TInput, TAliased>(
   BaseAstChecks<TAliased>.CreateBy<TInput> createInput,
   BaseAstChecks<TAliased>.CloneBy<TInput> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
@@ -112,13 +103,23 @@ internal class AstAliasedChecks<TInput, TAliased>(
       input => CreateAliases(input, aliased),
       CreateExpression);
 
-  public void String_WithAliases(TInput input, string expected, params string[] aliases)
+  public void Text_WithAliases(TInput input, params string[] aliases)
     => Text(
-      () => CreateAliases(input, aliases), expected,
+      () => CreateAliases(input, aliases),
+      AliasesString(input, "", Aliases(aliases)),
       factoryExpression: CreateExpression);
 
   private TAliased CreateAliases(TInput input, params string[] aliases)
     => CreateInput(input) with { Aliases = aliases };
+
+  protected virtual string AliasesString(TInput input, string description, string aliases)
+    => $"( {DescriptionNameString(input, description)}{aliases} )";
+
+  protected sealed override string DescriptionString(TInput input, string description)
+    => AliasesString(input, description, "");
+
+  private static string Aliases(params string[] aliases)
+    => aliases.Bracket(" [", "]", true).Joined();
 }
 
 internal interface IAstAliasedChecks
@@ -130,7 +131,7 @@ internal interface IAstAliasedChecks<TInput>
   : IAstNamedChecks<TInput>
 {
   void HashCode_WithAliases(TInput input, params string[] aliases);
-  void String_WithAliases(TInput input, string expected, params string[] aliases);
+  void Text_WithAliases(TInput input, params string[] aliases);
   void Equality_WithAliases(TInput input, params string[] aliases);
   void Inequality_WithAliases(TInput input, params string[] aliases);
   void Inequality_WithAliasByInputs(TInput input1, TInput input2, string alias);

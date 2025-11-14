@@ -11,7 +11,7 @@ public class CategoryAstTests
       () => new CategoryDeclAst(AstNulls.At, name, new TypeRefAst(AstNulls.At, output)));
 
   [Theory, RepeatData]
-  public void String_WithOutputAndName(string name, string output)
+  public void Text_WithOutputAndName(string name, string output)
     => _checks.Text(
       () => new CategoryDeclAst(AstNulls.At, name, new TypeRefAst(AstNulls.At, output)),
       $"( !Ca {name} (Parallel) !Tr {output} )");
@@ -27,7 +27,7 @@ public class CategoryAstTests
       () => new CategoryDeclAst(AstNulls.At, name, new TypeRefAst(AstNulls.At, name, description)));
 
   [Theory, RepeatData]
-  public void String_WithOutputDescription(string name, string description)
+  public void Text_WithOutputDescription(string name, string description)
     => _checks.Text(
       () => new CategoryDeclAst(AstNulls.At, name, new TypeRefAst(AstNulls.At, name, description)),
       $"( !Ca {name} (Parallel) '{description}' !Tr {name} )");
@@ -55,7 +55,7 @@ public class CategoryAstTests
         () => CreateCategory(name) with { Option = option });
 
   [Theory, RepeatData]
-  public void String_WithOption(string name, CategoryOption option)
+  public void Text_WithOption(string name, CategoryOption option)
     => _checks.Text(
       () => CreateCategory(name) with { Option = option },
       $"( !Ca {name.Camelize()} ({option}) !Tr {name} )");
@@ -71,13 +71,8 @@ public class CategoryAstTests
       option => CreateCategory(name) with { Option = option },
       option1 == option2);
 
-  protected override string AliasesString(string input, string description, string aliases)
-    => $"( {DescriptionNameString(input.Camelize(), description)}{aliases} (Parallel) !Tr {input} )";
+  private readonly CategoryAstChecks _checks = new();
 
-  private readonly AstAliasedChecks<CategoryDeclAst> _checks = new(CreateCategory, CloneCategory);
-
-  private static CategoryDeclAst CloneCategory(CategoryDeclAst original, string input)
-    => original with { Output = new TypeRefAst(AstNulls.At, input) };
   private static CategoryDeclAst CreateCategory(string name)
     => new(AstNulls.At, name.Camelize(), new TypeRefAst(AstNulls.At, name));
 
@@ -85,4 +80,16 @@ public class CategoryAstTests
 
   protected override Func<string, string, bool> SameInput
     => (name1, name2) => name1.Camelize() == name2.Camelize();
+}
+
+internal sealed class CategoryAstChecks()
+  : AstAliasedChecks<CategoryDeclAst>(CreateCategory, CloneCategory)
+{
+  protected override string AliasesString(string input, string description, string aliases)
+    => $"( {DescriptionNameString(input.Camelize(), description)}{aliases} (Parallel) !Tr {input} )";
+
+  private static CategoryDeclAst CloneCategory(CategoryDeclAst original, string input)
+    => original with { Output = new TypeRefAst(AstNulls.At, input) };
+  private static CategoryDeclAst CreateCategory(string name)
+    => new(AstNulls.At, name.Camelize(), new TypeRefAst(AstNulls.At, name));
 }

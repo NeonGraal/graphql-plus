@@ -11,12 +11,17 @@ public static class TestGeneratorsHelper
   static TestGeneratorsHelper()
     => DiffRunner.MaxInstancesToLaunch(20);
 
+  public static GeneratorDriver Generate(this IIncrementalGenerator generator, string source, params Type[] types)
+    => generator.Generate(source, [], types);
+
   public static GeneratorDriver Generate(this IIncrementalGenerator generator, string source, ImmutableArray<AdditionalText> additionalPaths)
+    => generator.Generate(source, additionalPaths, [typeof(object)]);
+
+  public static GeneratorDriver Generate(this IIncrementalGenerator generator, string source, ImmutableArray<AdditionalText> additionalPaths, IEnumerable<Type> types)
   {
     SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(source);
 
-    IEnumerable<PortableExecutableReference> references =
-    [MetadataReference.CreateFromFile(typeof(object).Assembly.Location)];
+    IEnumerable<PortableExecutableReference> references = types.Select(type => MetadataReference.CreateFromFile(type.Assembly.Location));
 
     CSharpCompilation compilation = CSharpCompilation.Create(
         assemblyName: "Tests",

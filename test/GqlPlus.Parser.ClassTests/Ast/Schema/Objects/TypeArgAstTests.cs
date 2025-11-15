@@ -2,7 +2,8 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class TypeArgAstTests
+[CheckTestsFor(nameof(TypeArgChecks), typeof(ITypeArgAstChecks))]
+public partial class TypeArgAstTests
   : ObjEnumBaseTests<string>
 {
   [Theory, RepeatData]

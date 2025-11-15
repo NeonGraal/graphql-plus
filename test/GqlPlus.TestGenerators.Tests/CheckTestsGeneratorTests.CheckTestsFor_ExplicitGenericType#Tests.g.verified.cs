@@ -2,6 +2,6 @@
 namespace GqlpPlusTests;
 partial class Tests {
   [Theory, RepeatData]
-  public void Check_Basic(string name)
-    => Checks.Check_Basic(name);
+  public void Check_Name(string name)
+    => Checks.Check_Name(name);
 }

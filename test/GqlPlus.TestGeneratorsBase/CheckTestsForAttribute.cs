@@ -1,14 +1,13 @@
 ﻿namespace GqlPlus;
 
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
-public sealed class CheckTestsForAttribute : Attribute
+public sealed class CheckTestsForAttribute(
+  string target,
+  Type? checks = null
+) : Attribute
 {
-  public string Target { get; }
-  public Type? Checks { get; }
+  public string Target { get; } = target;
+  public Type? Checks { get; } = checks;
 
-  public CheckTestsForAttribute(string target, Type? checks = null)
-  {
-    Target = target;
-    Checks = checks;
-  }
+  public bool Inherited { get; set; }
 }

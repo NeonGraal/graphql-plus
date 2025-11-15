@@ -6,29 +6,29 @@ namespace GqlPlus.Ast.Schema.Objects;
 public partial class TypeArgAstTests
   : ObjEnumBaseTests<string>
 {
-  [Theory, RepeatData]
-  public void HashCode_WithIsTypeParam(string input)
-      => TypeArgChecks.HashCode_WithIsTypeParam(input);
+  //[Theory, RepeatData]
+  //public void HashCode_WithIsTypeParam_Old(string input)
+  //    => TypeArgChecks.HashCode_WithIsTypeParam(input);
 
-  [Theory, RepeatData]
-  public void Text_WithIsTypeParam(string input)
-    => TypeArgChecks.Text_WithIsTypeParam(input);
+  //[Theory, RepeatData]
+  //public void Text_WithIsTypeParam_Old(string input)
+  //  => TypeArgChecks.Text_WithIsTypeParam(input);
 
-  [Theory, RepeatData]
-  public void Equality_WithIsTypeParam(string input)
-    => TypeArgChecks.Equality_WithIsTypeParam(input);
+  //[Theory, RepeatData]
+  //public void Equality_WithIsTypeParam_Old(string input)
+  //  => TypeArgChecks.Equality_WithIsTypeParam(input);
 
-  [Theory, RepeatData]
-  public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
-    => TypeArgChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
+  //[Theory, RepeatData]
+  //public void Inequality_BetweenIsTypeParams_Old(string input, bool isTypeParam1)
+  //  => TypeArgChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
 
-  [Theory, RepeatData]
-  public void FullType_WithDefault(string input)
-    => TypeArgChecks.FullType_WithDefault(input);
+  //[Theory, RepeatData]
+  //public void FullType_WithDefault_Old(string input)
+  //  => TypeArgChecks.FullType_WithDefault(input);
 
-  [Theory, RepeatData]
-  public void FullType_WithIsTypeParam(string input)
-    => TypeArgChecks.FullType_WithIsTypeParam(input);
+  //[Theory, RepeatData]
+  //public void FullType_WithIsTypeParam_Old(string input)
+  //  => TypeArgChecks.FullType_WithIsTypeParam(input);
 
   internal sealed override IObjEnumChecks<string> EnumChecks => TypeArgChecks;
 

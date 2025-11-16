@@ -17,7 +17,7 @@ public class OptionSettingAstTests
 }
 
 internal sealed class OptionSettingAstChecks()
-  : AstAliasedChecks<SettingInput, OptionSettingAst>(CreateSetting, CloneSetting)
+  : AstAliasedChecks<SettingInput, OptionSettingAst>(CreateSetting)
 {
   public void Inequality_ByNames(string name1, string name2, string value)
     => InequalityBetween(name1, name2,

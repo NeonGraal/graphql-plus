@@ -46,17 +46,15 @@ public abstract class AstDirectivesBaseTests<TInput>
 }
 
 internal class AstDirectivesChecks<TAst>(
-  AstDirectivesChecks<string, TAst>.CreateDirectives<string> createDirectives,
-  BaseAstChecks<TAst>.CloneBy<string> cloneInput
-) : AstDirectivesChecks<string, TAst>(createDirectives, cloneInput)
+  AstDirectivesChecks<string, TAst>.CreateDirectives<string> createDirectives
+) : AstDirectivesChecks<string, TAst>(createDirectives)
   , IAstDirectivesChecks
   where TAst : IGqlpDirectives
 { }
 
 internal class AstDirectivesChecks<TInput, TAst>(
-  AstDirectivesChecks<TInput, TAst>.CreateDirectives<TInput> createDirectives,
-  BaseAstChecks<TAst>.CloneBy<TInput> cloneInput
-) : AstAbbreviatedChecks<TInput, TAst>(i => createDirectives(i, []), cloneInput)
+  AstDirectivesChecks<TInput, TAst>.CreateDirectives<TInput> createDirectives
+) : AstAbbreviatedChecks<TInput, TAst>(i => createDirectives(i, []))
   , IAstDirectivesChecks<TInput>
   where TAst : IGqlpDirectives
 {
@@ -105,15 +103,16 @@ internal class AstDirectivesChecks<TInput, TAst>(
 }
 
 internal interface IAstDirectivesChecks
-  : IAstDirectivesChecks<string>, IAstBaseChecks
+  : IAstDirectivesChecks<string>
 { }
 
-internal interface IAstDirectivesChecks<I> : IAstAbbreviatedChecks<I>
+internal interface IAstDirectivesChecks<TInput>
+  : IAstAbbreviatedChecks<TInput>
 {
-  void HashCode_WithDirectives(I input, string[] directives);
-  void Text_WithDirectives(I input, string[] directives);
-  void Equality_WithDirectives(I input, string[] directives);
-  void Inequality_WithDirectives(I input, string[] directives);
-  void Inequality_ByInputs_WithDirectives(I input1, I input2, string[] directives);
-  void Inequality_ByDirectives_WithInput(I input, string[] directives1, string[] directives2);
+  void HashCode_WithDirectives(TInput input, string[] directives);
+  void Text_WithDirectives(TInput input, string[] directives);
+  void Equality_WithDirectives(TInput input, string[] directives);
+  void Inequality_WithDirectives(TInput input, string[] directives);
+  void Inequality_ByInputs_WithDirectives(TInput input1, TInput input2, string[] directives);
+  void Inequality_ByDirectives_WithInput(TInput input, string[] directives1, string[] directives2);
 }

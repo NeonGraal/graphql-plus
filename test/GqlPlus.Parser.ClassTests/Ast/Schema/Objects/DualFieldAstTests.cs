@@ -10,7 +10,7 @@ public class DualFieldAstTests
 }
 
 internal sealed class DualFieldAstChecks()
-  : AstObjectFieldChecks<DualFieldAst>(DualFieldFactory.Create, DualFieldFactory.Clone)
+  : AstObjectFieldChecks<DualFieldAst>(DualFieldFactory.Create)
 {
   protected override string AliasesString(FieldInput input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
@@ -24,7 +24,7 @@ public class DualFieldAstTypeTests
 }
 
 internal sealed class DualFieldAstTypeChecks()
-  : ObjFieldTypeChecks<FieldInput, DualFieldAst>(DualFieldFactory.Create, DualFieldFactory.Clone)
+  : ObjFieldTypeChecks<FieldInput, DualFieldAst>(DualFieldFactory.Create)
 {
   protected override DualFieldAst CreateEnum(FieldInput input, string enumLabel)
     => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) };

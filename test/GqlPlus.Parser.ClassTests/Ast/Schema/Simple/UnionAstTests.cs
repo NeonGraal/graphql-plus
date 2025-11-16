@@ -43,7 +43,7 @@ public class UnionAstTests
       unionMembers1.SequenceEqual(unionMembers2));
 
   private readonly AstTypeChecks<UnionDeclAst> _checks
-    = new(CreateUnion, CloneUnion);
+    = new(CreateUnion);
 
   private static UnionDeclAst CloneUnion(UnionDeclAst original, string input)
     => original with { Name = input };

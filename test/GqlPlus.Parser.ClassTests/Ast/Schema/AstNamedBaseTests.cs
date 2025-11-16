@@ -40,9 +40,8 @@ public abstract class AstNamedBaseTests<TInput>
 
 internal sealed class AstNamedChecks<TNamed>(
   BaseAstChecks<TNamed>.CreateBy<string> createInput,
-  BaseAstChecks<TNamed>.CloneBy<string> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstNamedChecks<string, TNamed>(createInput, cloneInput, createExpression)
+) : AstNamedChecks<string, TNamed>(createInput, createExpression)
   , IAstNamedChecks
   where TNamed : AstNamed
 {
@@ -51,9 +50,8 @@ internal sealed class AstNamedChecks<TNamed>(
 
 internal abstract class AstNamedChecks<TInput, TNamed>(
   BaseAstChecks<TNamed>.CreateBy<TInput> createInput,
-  BaseAstChecks<TNamed>.CloneBy<TInput> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstAbbreviatedChecks<TInput, TNamed>(createInput, cloneInput, createExpression)
+) : AstAbbreviatedChecks<TInput, TNamed>(createInput, createExpression)
   , IAstNamedChecks<TInput>
   where TNamed : AstNamed
 {
@@ -107,7 +105,6 @@ internal abstract class AstNamedChecks<TInput, TNamed>(
 
 internal interface IAstNamedChecks
   : IAstNamedChecks<string>
-  , IAstBaseChecks
 { }
 
 internal interface IAstNamedChecks<TInput>

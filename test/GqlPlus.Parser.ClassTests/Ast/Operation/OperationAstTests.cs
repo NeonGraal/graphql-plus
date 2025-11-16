@@ -9,7 +9,7 @@ public class OperationAstTests
 }
 
 internal sealed class OperationAstChecks()
-  : AstDirectivesChecks<OperationAst>(CreateOperation, CloneOperation)
+  : AstDirectivesChecks<OperationAst>(CreateOperation)
 {
   protected override string DirectiveString(string input, string directives)
     => $"( !g query {input} Failure{directives} )";

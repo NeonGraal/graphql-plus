@@ -8,7 +8,7 @@ public class SpecialTypeAstTests
 }
 
 internal sealed class SpecialTypeAstChecks()
-  : AstAliasedChecks<SpecialTypeAst>(CreateSpecial, CloneSpecial)
+  : AstAliasedChecks<SpecialTypeAst>(CreateSpecial)
 {
   protected override string AliasesString(string input, string description, string aliases)
     => $"( {DescriptionNameString("_" + input, description)}{SpecialTypeAliases(input, aliases)} )";

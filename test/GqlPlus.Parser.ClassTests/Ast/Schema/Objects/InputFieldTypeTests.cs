@@ -2,33 +2,17 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class InputFieldTypeTests<TInput>
+[CheckTestsFor(nameof(InputFieldChecks))]
+public abstract partial class InputFieldTypeTests<TInput>
   : ObjFieldTypeBaseTests<TInput>
 {
-  [Theory, RepeatData]
-  public void HashCode_WithDefault(TInput input, string def)
-      => InputFieldChecks.HashCode_WithDefault(input, def);
-
-  [Theory, RepeatData]
-  public void Text_WithDefault(TInput input, string def)
-    => InputFieldChecks.Text_WithDefault(input, def);
-
-  [Theory, RepeatData]
-  public void Equality_WithDefault(TInput input, string def)
-    => InputFieldChecks.Equality_WithDefault(input, def);
-
-  [Theory, RepeatData]
-  public void Inequality_BetweenDefaults(TInput input, string def1, string def2)
-    => InputFieldChecks.Inequality_BetweenDefaults(input, def1, def2);
-
   internal abstract IInputFieldTypeChecks<TInput> InputFieldChecks { get; }
   internal sealed override IObjFieldTypeChecks<TInput> FieldChecks => InputFieldChecks;
 }
 
 internal abstract class InputFieldTypeChecks<TInput, TObjType>(
-  ObjFieldTypeChecks<TInput, TObjType>.TypeBy createType,
-  BaseAstChecks<TObjType>.CloneBy<TInput> cloneInput
-) : ObjFieldTypeChecks<TInput, TObjType>(createType, cloneInput)
+  ObjFieldTypeChecks<TInput, TObjType>.TypeBy createType
+) : ObjFieldTypeChecks<TInput, TObjType>(createType)
   , IInputFieldTypeChecks<TInput>
   where TObjType : IGqlpInputFieldType
   where TInput : ITypeInput

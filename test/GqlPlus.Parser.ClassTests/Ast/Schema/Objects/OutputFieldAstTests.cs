@@ -33,7 +33,7 @@ public class OutputFieldAstTests
 }
 
 internal sealed class OutputFieldAstChecks()
-  : AstObjectFieldChecks<OutputFieldAst>(OutputFieldFactory.Create, OutputFieldFactory.Clone)
+  : AstObjectFieldChecks<OutputFieldAst>(OutputFieldFactory.Create)
 {
   protected override string AliasesString(FieldInput input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
@@ -50,7 +50,7 @@ public class OutputFieldAstTypeTests
 }
 
 internal sealed class OutputFieldAstTypeChecks()
-  : ObjFieldTypeChecks<FieldInput, OutputFieldAst>(OutputFieldFactory.Create, OutputFieldFactory.Clone)
+  : ObjFieldTypeChecks<FieldInput, OutputFieldAst>(OutputFieldFactory.Create)
 {
   protected override OutputFieldAst CreateEnum(FieldInput input, string enumLabel)
     => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) };

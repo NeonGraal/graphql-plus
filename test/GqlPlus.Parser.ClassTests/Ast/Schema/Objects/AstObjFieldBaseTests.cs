@@ -11,9 +11,8 @@ public abstract class AstObjFieldBaseTests
 }
 
 internal class AstObjectFieldChecks<TObjField>(
-  AstObjectFieldChecks<TObjField>.FieldBy createField,
-  BaseAstChecks<TObjField>.CloneBy<FieldInput> cloneField
-) : AstAliasedChecks<FieldInput, TObjField>(input => createField(input, BaseBy(input)), cloneField)
+  AstObjectFieldChecks<TObjField>.FieldBy createField
+) : AstAliasedChecks<FieldInput, TObjField>(input => createField(input, BaseBy(input)))
   , IAstObjectFieldChecks
   where TObjField : AstObjField
 {

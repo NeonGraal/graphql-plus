@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Immutable;
-using System.Reflection.Metadata;
+﻿using System.Collections.Immutable;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.Text;
 
 namespace GqlPlus;
 
@@ -14,21 +11,42 @@ public class CheckTestsGenerator
 {
   public void Initialize(IncrementalGeneratorInitializationContext context)
   {
-    IncrementalValuesProvider<CheckTestsClass> simple = context
+    IncrementalValuesProvider<CheckTestsClass> checkTestsFor = context
       .SyntaxProvider
       .ForAttributeWithMetadataName(
         fullyQualifiedMetadataName: "GqlPlus." + nameof(CheckTestsForAttribute),
         predicate: static (syntaxNode, cancellationToken) => syntaxNode is ClassDeclarationSyntax,
         transform: static (context, cancellationToken) => {
-          if (context.TargetSymbol is INamedTypeSymbol containingClass) {
-            return CreateCheckTestClass(containingClass, context.Attributes);
+          if (context.TargetSymbol is INamedTypeSymbol forClass) {
+            return CreateCheckTestClass(forClass, context.Attributes);
           }
 
-          return new CheckTestsClass("", "", []);
+          return new CheckTestsClass("", "", "", []);
         }
     );
 
-    context.RegisterSourceOutput(simple, static (context, model) => {
+    IncrementalValuesProvider<CheckTestsClass> checkTests = context
+      .SyntaxProvider
+      .ForAttributeWithMetadataName(
+        fullyQualifiedMetadataName: "GqlPlus." + nameof(CheckTestsAttribute),
+        predicate: static (syntaxNode, cancellationToken) => syntaxNode is PropertyDeclarationSyntax,
+        transform: static (context, cancellationToken) => {
+          if (context.TargetSymbol is IPropertySymbol forProperty) {
+            return CreateCheckTestProperty(forProperty, context.Attributes);
+          }
+
+          return new CheckTestsClass("", "", "", []);
+        }
+    );
+
+    IncrementalValuesProvider<CheckTestsClass> combined = checkTestsFor.Collect()
+      .Combine(checkTests.Collect())
+      .SelectMany((pair, cancellationToken)
+      => pair.Left.Concat(pair.Right)
+        .GroupBy(c => c.TheClass + c.TypeArguments)
+        .Select(g => g.Aggregate((l, r) => l.AddMethods(r.Methods))));
+
+    context.RegisterSourceOutput(combined, static (context, model) => {
       if (!string.IsNullOrWhiteSpace(model.TheClass)) {
         context.AddSource($"{model.TheClass}.g.cs", RenderPartialClass(model));
       }
@@ -42,7 +60,12 @@ public class CheckTestsGenerator
       sb.AppendLine($"namespace {model.TheNamespace};");
     }
 
-    sb.AppendLine("partial class " + model.TheClass + " {");
+    sb.Append("partial class " + model.TheClass);
+    if (!string.IsNullOrWhiteSpace(model.TypeArguments)) {
+      sb.Append("<" + model.TypeArguments + ">");
+    }
+
+    sb.AppendLine(" {");
     foreach (IGrouping<string, CheckTestsMethod> methods in model.Methods.GroupBy(m => m.Name)) {
       if (methods.Count() == 1) {
         RenderMethod(methods.First(), methods.Key);
@@ -74,64 +97,110 @@ public class CheckTestsGenerator
     }
   }
 
+  private static CheckTestsClass CreateCheckTestProperty(IPropertySymbol forProperty, ImmutableArray<AttributeData> attributes)
+  {
+    return new CheckTestsClass(forProperty.ContainingType, attributes.SelectMany(CreateAttributeMethods));
+
+    IEnumerable<CheckTestsMethod> CreateAttributeMethods(AttributeData attribute)
+    {
+      if (attribute.ConstructorArguments.Length >= 1) {
+        return CreateMethods(forProperty.Name, forProperty, attribute, 0);
+      }
+
+      return [];
+    }
+  }
+
   private static CheckTestsClass CreateCheckTestClass(INamedTypeSymbol containingClass, ImmutableArray<AttributeData> attributes)
   {
-    string theNamespace = containingClass.ContainingNamespace
-      ?.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat.WithGlobalNamespaceStyle(SymbolDisplayGlobalNamespaceStyle.Omitted))
-      ?? "";
-    return new CheckTestsClass(
-      theNamespace,
-      containingClass.Name,
-      attributes.SelectMany(CreateAttributeMethods));
+    return new CheckTestsClass(containingClass, attributes.SelectMany(CreateAttributeMethods));
 
     IEnumerable<CheckTestsMethod> CreateAttributeMethods(AttributeData attribute)
     {
       string propertyName = attribute.ConstructorArguments[0].Value?.ToString() ?? throw new ArgumentException("Must supply Target for CheckTestsFor");
       if (attribute.ConstructorArguments.Length >= 2) {
-        ITypeSymbol? propertyType = attribute.ConstructorArguments[1].Value as ITypeSymbol;
+        IPropertySymbol? propertySymbol = containingClass.GetMembers(propertyName).FirstOrDefault() as IPropertySymbol;
 
-        if (propertyType is null) {
-          IPropertySymbol? propertySymbol = containingClass.GetMembers(propertyName).FirstOrDefault() as IPropertySymbol;
-          propertyType = propertySymbol?.Type;
-        }
-
-        bool inherited = attribute.NamedArguments.Any(kv => kv.Key == "Inherited" && (bool)kv.Value.Value!);
-
-        return CreateMethods(propertyName, propertyType, inherited);
+        return CreateMethods(propertyName, propertySymbol, attribute, 1);
       }
 
       return [];
     }
+  }
 
-    IEnumerable<CheckTestsMethod> CreateMethods(string propertyName, ITypeSymbol? propertyType, bool inherited)
-    {
-      if (propertyType is null) {
-        yield break;
-      }
+  private static IEnumerable<CheckTestsMethod> CreateMethods(string propertyName, IPropertySymbol? propertySymbol, AttributeData attribute, int typeArg)
+  {
+    ITypeSymbol? propertyType = attribute.ConstructorArguments[typeArg].Value as ITypeSymbol;
 
-      foreach (IMethodSymbol method in propertyType.GetMembers().OfType<IMethodSymbol>()) {
-        string returnsType = method.ReturnsVoid ? "void" : method.ReturnType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
-        yield return new CheckTestsMethod(method.Name, returnsType, propertyName, method.Parameters.Select(CreateParameter));
+    if (propertyType is null) {
+      propertyType = propertySymbol?.Type;
+    } else {
+      if (propertyType is INamedTypeSymbol namedType && namedType.IsUnboundGenericType) {
+        if (propertySymbol?.Type is INamedTypeSymbol namedProperty) {
+          propertyType = namedProperty.AllInterfaces
+            .FirstOrDefault(i => SymbolEqualityComparer.Default.Equals(i.ConstructUnboundGenericType(), namedType));
+        }
       }
+    }
 
-      if (!inherited) {
-        yield break;
-      }
+    bool inherited = attribute.NamedArguments.Any(kv => kv.Key == "Inherited" && (bool)kv.Value.Value!);
+    return CreateMethods(propertyName, propertyType, inherited);
+  }
 
-      foreach (CheckTestsMethod method in propertyType.Interfaces.SelectMany(i => CreateMethods(propertyName, i, true))) {
-        yield return method;
-      }
+  private static IEnumerable<CheckTestsMethod> CreateMethods(string propertyName, ITypeSymbol? propertyType, bool inherited)
+  {
+    if (propertyType is null) {
+      yield break;
+    }
+
+    IEnumerable<IMethodSymbol> methods = propertyType.GetMembers()
+      .OfType<IMethodSymbol>()
+      .Where(m => m.MethodKind == MethodKind.Ordinary && !m.IsStatic);
+    foreach (IMethodSymbol method in methods) {
+      string returnsType = method.ReturnsVoid ? "void" : method.ReturnType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+      yield return new CheckTestsMethod(method.Name, returnsType, propertyName, method.Parameters.Select(CreateParameter));
+    }
+
+    if (!inherited) {
+      yield break;
+    }
+
+    foreach (CheckTestsMethod method in propertyType.Interfaces.SelectMany(i => CreateMethods(propertyName, i, true))) {
+      yield return method;
     }
   }
 
   private static CheckTestsParameter CreateParameter(IParameterSymbol parameter)
     => new(parameter.Name, parameter.Type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat));
 
-  private sealed class CheckTestsClass(string theNamespace, string theClass, IEnumerable<CheckTestsMethod> methods)
+  private sealed class CheckTestsClass
   {
-    public string TheNamespace { get; } = theNamespace;
-    public string TheClass { get; } = theClass;
-    public ImmutableArray<CheckTestsMethod> Methods { get; } = [.. methods];
+    public string TheNamespace { get; }
+    public string TheClass { get; }
+    public string TypeArguments { get; }
+    public ImmutableArray<CheckTestsMethod> Methods { get; }
+
+    public CheckTestsClass(INamedTypeSymbol containingClass, IEnumerable<CheckTestsMethod> methods)
+    {
+      TheNamespace = containingClass.ContainingNamespace
+        ?.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat.WithGlobalNamespaceStyle(SymbolDisplayGlobalNamespaceStyle.Omitted))
+        ?? "";
+      TheClass = containingClass.Name;
+      TypeArguments = string.Join(", ", containingClass.TypeArguments
+        .Select(ta => ta.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat)));
+      Methods = [.. methods];
+    }
+
+    public CheckTestsClass(string theNamespace, string theClass, string typeArguments, IEnumerable<CheckTestsMethod> methods)
+    {
+      TheNamespace = theNamespace;
+      TheClass = theClass;
+      TypeArguments = typeArguments;
+      Methods = [.. methods];
+    }
+
+    public CheckTestsClass AddMethods(IEnumerable<CheckTestsMethod> methods)
+      => new(TheNamespace, TheClass, TypeArguments, Methods.Concat(methods));
   }
 
   private sealed class CheckTestsMethod(string methodName, string returnsType, string propertyName, IEnumerable<CheckTestsParameter> parameters)

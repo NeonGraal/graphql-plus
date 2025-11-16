@@ -8,7 +8,7 @@ public class DomainRegexAstTests
 }
 
 internal sealed class DomainRegexAstChecks()
-  : AstAbbreviatedChecks<DomainRegexAst>(CreateRegex, CloneRegex)
+  : AstAbbreviatedChecks<DomainRegexAst>(CreateRegex)
 {
   protected override string AbbreviatedString(string input)
     => $"( !DX /{input}/ )";

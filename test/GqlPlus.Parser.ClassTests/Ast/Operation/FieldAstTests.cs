@@ -1,7 +1,8 @@
 ﻿
 namespace GqlPlus.Ast.Operation;
 
-public class FieldAstTests : AstDirectivesBaseTests
+public class FieldAstTests
+  : AstDirectivesBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithAlias(string name, string alias)
@@ -87,7 +88,7 @@ public class FieldAstTests : AstDirectivesBaseTests
     => _checks.InequalityWith(name,
       () => CreateField(name) with { Selections = fields.Fields() });
 
-  private readonly AstDirectivesChecks<FieldAst> _checks = new(CreateField, CloneField);
+  private readonly AstDirectivesChecks<FieldAst> _checks = new(CreateField);
 
   internal override IAstDirectivesChecks DirectivesChecks => _checks;
 

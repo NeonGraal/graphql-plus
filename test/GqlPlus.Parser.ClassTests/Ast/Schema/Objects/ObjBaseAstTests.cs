@@ -62,7 +62,7 @@ public class ObjBaseAstTests
 }
 
 internal sealed class ObjBaseAstChecks()
-  : AstAbbreviatedChecks<string, ObjBaseAst>(CreateBase, CloneBase)
+  : AstAbbreviatedChecks<string, ObjBaseAst>(CreateBase)
   , IObjBaseAstChecks
 {
   private static ObjBaseAst CloneBase(ObjBaseAst original, string input)

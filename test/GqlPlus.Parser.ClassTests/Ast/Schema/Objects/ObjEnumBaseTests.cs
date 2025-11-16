@@ -31,9 +31,8 @@ public abstract class ObjEnumBaseTests<TInput>
 }
 
 internal abstract class ObjEnumChecks<TInput, TObjType>(
-  BaseAstChecks<TObjType>.CreateBy<TInput> createInput,
-  BaseAstChecks<TObjType>.CloneBy<TInput> cloneInput
-) : AstAbbreviatedChecks<TInput, TObjType>(createInput, cloneInput)
+  BaseAstChecks<TObjType>.CreateBy<TInput> createInput
+) : AstAbbreviatedChecks<TInput, TObjType>(createInput)
   , IObjEnumChecks<TInput>
   where TObjType : IGqlpObjEnum
 {

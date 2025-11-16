@@ -83,7 +83,7 @@ public class CategoryAstTests
 }
 
 internal sealed class CategoryAstChecks()
-  : AstAliasedChecks<CategoryDeclAst>(CreateCategory, CloneCategory)
+  : AstAliasedChecks<CategoryDeclAst>(CreateCategory)
 {
   protected override string AliasesString(string input, string description, string aliases)
     => $"( {DescriptionNameString(input.Camelize(), description)}{aliases} (Parallel) !Tr {input} )";

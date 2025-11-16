@@ -47,7 +47,7 @@ public class ParamAstTests : AstAbbreviatedBaseTests
       def1 == def2);
 
   private readonly AstAbbreviatedChecks<InputParamAst> _checks
-    = new(CreateInputParam, CloneInputParam);
+    = new(CreateInputParam);
 
   private static InputParamAst CloneInputParam(InputParamAst original, string input)
     => original with { Type = new ObjBaseAst(AstNulls.At, input, "") };

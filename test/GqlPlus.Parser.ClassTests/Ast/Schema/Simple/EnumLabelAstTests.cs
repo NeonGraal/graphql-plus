@@ -4,7 +4,7 @@ public class EnumLabelAstTests
   : AstAliasedBaseTests
 {
   private readonly AstAliasedChecks<EnumLabelAst> _checks
-    = new(CreateLabel, CloneLabel);
+    = new(CreateLabel);
 
   private static EnumLabelAst CloneLabel(EnumLabelAst original, string input)
     => original with { Name = input };

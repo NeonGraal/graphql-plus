@@ -5,7 +5,7 @@ public class SpreadAstTests
   : AstDirectivesBaseTests
 {
   internal override IAstDirectivesChecks DirectivesChecks { get; }
-    = new AstDirectivesChecks<SpreadAst>(CreateSpread, CloneSpread);
+    = new AstDirectivesChecks<SpreadAst>(CreateSpread);
 
   private static SpreadAst CloneSpread(SpreadAst original, string input)
     => original with { Identifier = input };

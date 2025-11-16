@@ -80,7 +80,7 @@ public class DirectiveAstTests
 }
 
 internal sealed class DirectiveAstChecks()
-  : AstAliasedChecks<DirectiveDeclAst>(CreateDirective, CloneDirective)
+  : AstAliasedChecks<DirectiveDeclAst>(CreateDirective)
 {
   protected override string AliasesString(string input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} (Unique) None )";

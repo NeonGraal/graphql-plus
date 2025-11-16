@@ -6,7 +6,7 @@ public class InputParamAstTests
   : InputFieldTypeTests<TypeInput>
 {
   internal override InputParamAstChecks InputFieldChecks { get; }
-    = new(CreateInput, CloneInput);
+    = new(CreateInput);
 
   private static InputParamAst CloneInput(InputParamAst original, TypeInput input)
     => original with { Type = new ObjBaseAst(AstNulls.At, input.Type, "") };
@@ -15,9 +15,8 @@ public class InputParamAstTests
 }
 
 internal sealed class InputParamAstChecks(
-  ObjFieldTypeChecks<TypeInput, InputParamAst>.TypeBy createType,
-  BaseAstChecks<InputParamAst>.CloneBy<TypeInput> cloneInput
-) : InputFieldTypeChecks<TypeInput, InputParamAst>(createType, cloneInput)
+  ObjFieldTypeChecks<TypeInput, InputParamAst>.TypeBy createType
+) : InputFieldTypeChecks<TypeInput, InputParamAst>(createType)
 {
   protected override InputParamAst CreateEnum(TypeInput input, string enumLabel)
     => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) };

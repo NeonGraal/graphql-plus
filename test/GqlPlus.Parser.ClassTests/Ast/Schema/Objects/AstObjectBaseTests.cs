@@ -52,7 +52,7 @@ public abstract class AstObjectBaseTests
 internal abstract class AstObjectChecks<TObjField>(
   TypeKind kind,
   AstTypeChecks<AstObject<TObjField>, IGqlpObjBase>.ParentCreator createParent
-) : AstTypeChecks<AstObject<TObjField>, IGqlpObjBase>(CreateObject(kind), CloneObject, createParent)
+) : AstTypeChecks<AstObject<TObjField>, IGqlpObjBase>(CreateObject(kind), createParent)
   , IAstObjectChecks
   where TObjField : IGqlpObjField
 {

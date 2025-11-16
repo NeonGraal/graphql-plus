@@ -32,7 +32,7 @@ internal sealed class AstObjectAlternateChecks
 {
   [SuppressMessage("Style", "IDE0290:Use primary constructor")]
   public AstObjectAlternateChecks()
-    : base(CreateAlternate, CloneAlternate)
+    : base(CreateAlternate)
   { }
   internal delegate ObjBaseAst BaseBy(TypeInput input);
 

@@ -10,7 +10,7 @@ public class SchemaAstTests
 }
 
 internal sealed class SchemaAstChecks()
-  : AstAbbreviatedChecks<SchemaAst>(CreateSchema, CloneSchema)
+  : AstAbbreviatedChecks<SchemaAst>(CreateSchema)
 {
   protected override string AbbreviatedString(string input)
     => $"( !Sc Failure {{ !Op {input} }} )";

@@ -4,7 +4,7 @@ public class UnionMemberAstTests
   : AstNamedBaseTests<string>
 {
   private readonly AstNamedChecks<UnionMemberAst> _checks
-    = new(CreateMember, CloneMember);
+    = new(CreateMember);
 
   private static UnionMemberAst CloneMember(UnionMemberAst original, string input)
     => original with { Name = input };

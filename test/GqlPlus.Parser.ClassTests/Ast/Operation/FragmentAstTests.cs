@@ -34,7 +34,7 @@ public class FragmentAstTests
 }
 
 internal sealed class FragmentAstChecks()
-  : AstDirectivesChecks<FragmentInput, FragmentAst>(CreateFragment, CloneFragment)
+  : AstDirectivesChecks<FragmentInput, FragmentAst>(CreateFragment)
   , IAstDirectivesChecks<FragmentInput>
 {
   protected override string DirectiveString(FragmentInput input, string directives)

@@ -30,7 +30,7 @@ public class TypeParamAstTests
 }
 
 internal sealed class TypeParamAstChecks()
-  : AstAbbreviatedChecks<TypeParamAst>(CreateTypeParam, CloneTypeParam)
+  : AstAbbreviatedChecks<TypeParamAst>(CreateTypeParam)
 {
   protected override string AbbreviatedString(string input)
     => $"( ${input} )";

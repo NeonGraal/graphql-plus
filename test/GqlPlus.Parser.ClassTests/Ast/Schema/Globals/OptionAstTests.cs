@@ -34,7 +34,7 @@ public class OptionAstTests
 }
 
 internal sealed class OptionAstChecks()
-  : AstAliasedChecks<OptionDeclAst>(CreateOption, CloneOption)
+  : AstAliasedChecks<OptionDeclAst>(CreateOption)
 {
   private static OptionDeclAst CloneOption(OptionDeclAst original, string input)
     => original with { Name = input };

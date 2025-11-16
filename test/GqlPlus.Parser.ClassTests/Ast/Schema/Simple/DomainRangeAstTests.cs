@@ -5,7 +5,7 @@ public class DomainRangeAstTests
   : AstAbbreviatedBaseTests<DomainRangeInput>
 {
   private readonly AstAbbreviatedChecks<DomainRangeInput, DomainRangeAst> _checks
-    = new(CreateRange, CloneRange);
+    = new(CreateRange);
 
   private static DomainRangeAst CloneRange(DomainRangeAst original, DomainRangeInput input)
     => original with { Lower = input.Lower, Upper = input.Upper };

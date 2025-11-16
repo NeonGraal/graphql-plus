@@ -60,9 +60,8 @@ public abstract class AstAliasedBaseTests<TInput>
 
 internal class AstAliasedChecks<TAliased>(
   BaseAstChecks<TAliased>.CreateBy<string> createInput,
-  BaseAstChecks<TAliased>.CloneBy<string> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstAliasedChecks<string, TAliased>(createInput, cloneInput, createExpression)
+) : AstAliasedChecks<string, TAliased>(createInput, createExpression)
   , IAstAliasedChecks
   where TAliased : AstAliased
 {
@@ -71,9 +70,8 @@ internal class AstAliasedChecks<TAliased>(
 
 internal abstract class AstAliasedChecks<TInput, TAliased>(
   BaseAstChecks<TAliased>.CreateBy<TInput> createInput,
-  BaseAstChecks<TAliased>.CloneBy<TInput> cloneInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstNamedChecks<TInput, TAliased>(createInput, cloneInput, createExpression)
+) : AstNamedChecks<TInput, TAliased>(createInput, createExpression)
   , IAstAliasedChecks<TInput>
   where TAliased : AstAliased
 {
@@ -124,7 +122,6 @@ internal abstract class AstAliasedChecks<TInput, TAliased>(
 
 internal interface IAstAliasedChecks
   : IAstAliasedChecks<string>
-  , IAstBaseChecks
 { }
 
 internal interface IAstAliasedChecks<TInput>

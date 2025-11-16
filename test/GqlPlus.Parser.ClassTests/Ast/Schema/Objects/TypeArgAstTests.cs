@@ -36,7 +36,7 @@ public partial class TypeArgAstTests
 }
 
 internal sealed class TypeArgAstChecks()
-  : ObjEnumChecks<string, TypeArgAst>(CreateTypeArg, CloneTypeArg)
+  : ObjEnumChecks<string, TypeArgAst>(CreateTypeArg)
   , ITypeArgAstChecks
 {
   private static TypeArgAst CloneTypeArg(TypeArgAst original, string input)

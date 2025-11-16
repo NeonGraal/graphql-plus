@@ -37,7 +37,7 @@ public class EnumAstTests
       enumLabels1.SequenceEqual(enumLabels2));
 
   private readonly AstTypeChecks<EnumDeclAst> _checks
-    = new(CreateEnum, CloneEnum);
+    = new(CreateEnum);
 
   private static EnumDeclAst CloneEnum(EnumDeclAst original, string input)
     => original with { Name = input };

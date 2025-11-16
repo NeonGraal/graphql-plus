@@ -18,10 +18,6 @@ public abstract class AstBaseTests<TInput>
   => BaseChecks.Text_WithInput(input);
 
   [Theory, RepeatData]
-  public void Clone_WithInput(TInput input)
-    => BaseChecks.Clone_WithInput(input);
-
-  [Theory, RepeatData]
   public void Equality_WithInput(TInput input)
     => BaseChecks.Equality_WithInput(input);
 
@@ -46,12 +42,10 @@ internal class AstBaseChecks<TInput, TAst>
   where TAst : IGqlpError
 {
   protected readonly CreateBy<TInput> CreateInput;
-  protected readonly CloneBy<TInput> CloneInput;
   protected readonly string CreateExpression;
 
-  public AstBaseChecks(CreateBy<TInput> createInput, CloneBy<TInput> cloneInput,
-    [CallerArgumentExpression(nameof(createInput))] string createExpression = "")
-    => (CreateInput, CreateExpression, CloneInput) = (createInput, createExpression, cloneInput);
+  public AstBaseChecks(CreateBy<TInput> createInput, [CallerArgumentExpression(nameof(createInput))] string createExpression = "")
+    => (CreateInput, CreateExpression) = (createInput, createExpression);
 
   public void HashCode_WithInput(TInput input)
     => HashCode(
@@ -63,15 +57,6 @@ internal class AstBaseChecks<TInput, TAst>
       () => CreateInput(input),
       InputString(input),
       factoryExpression: CreateExpression);
-
-  public void Clone_WithInput(TInput input)
-  {
-    TAst item1 = CreateInput(input);
-    Equality(
-        () => item1,
-        () => CloneInput(item1, input),
-        CreateExpression);
-  }
 
   public void Equality_WithInput(TInput input)
     => Equality(
@@ -91,15 +76,10 @@ internal class AstBaseChecks<TInput, TAst>
     => $"( !{input} )";
 }
 
-internal interface IAstBaseChecks
-  : IAstBaseChecks<string>
-{ }
-
 internal interface IAstBaseChecks<TInput>
 {
   void HashCode_WithInput(TInput input);
   void Text_WithInput(TInput input);
-  void Clone_WithInput(TInput input);
   void Equality_WithInput(TInput input);
   void Inequality_WithInputs(TInput input1, TInput input2);
 }

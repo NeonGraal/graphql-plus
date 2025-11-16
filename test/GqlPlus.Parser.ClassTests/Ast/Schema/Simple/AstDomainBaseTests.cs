@@ -29,7 +29,7 @@ public abstract class AstDomainBaseTests<TInput>
 
 internal abstract class AstDomainChecks<TInput, TItemAst, TItem>(
   DomainKind kind
-) : AstTypeChecks<AstDomain<TItemAst, TItem>>(CreateDomain(kind), CloneDomain)
+) : AstTypeChecks<AstDomain<TItemAst, TItem>>(CreateDomain(kind))
   , IAstDomainChecks<TInput>
   where TInput : IEquatable<TInput>
   where TItemAst : AstAbbreviated, TItem

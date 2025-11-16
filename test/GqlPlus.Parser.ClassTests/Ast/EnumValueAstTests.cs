@@ -165,7 +165,7 @@ public class EnumValueAstTests : AstAbbreviatedBaseTests
     enumValue1.Equals((IGqlpEnumValue)enumValue2).ShouldBeFalse();
   }
 
-  internal AstAbbreviatedChecks<string, EnumValueAst> _checks = new(CreateEnumValue, CloneEnumValue);
+  internal AstAbbreviatedChecks<string, EnumValueAst> _checks = new(CreateEnumValue);
 
   private static EnumValueAst CloneEnumValue(EnumValueAst original, string input)
     => original with { Label = input };

@@ -173,7 +173,7 @@ public class FieldKeyAstTests
 internal sealed class FieldKeyAstChecks(
   BaseAstChecks<IGqlpFieldKey>.CreateBy<string> createInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstAbbreviatedChecks<string, IGqlpFieldKey>(createInput, CloneFieldKey, createExpression)
+) : AstAbbreviatedChecks<string, IGqlpFieldKey>(createInput, createExpression)
 {
   protected override string AbbreviatedString(string input)
     => $"( !k '{input}' )";

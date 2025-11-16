@@ -32,7 +32,7 @@ public class InlineAstTests
 }
 
 internal sealed class InlineAstChecks()
-  : AstDirectivesChecks<string[], InlineAst>(CreateInline, CloneInline)
+  : AstDirectivesChecks<string[], InlineAst>(CreateInline)
 {
   protected override string DirectiveString(string[] input, string directives)
     => $"( !i{directives} {{ {input.Joined(s => "!f " + s)} }} )";

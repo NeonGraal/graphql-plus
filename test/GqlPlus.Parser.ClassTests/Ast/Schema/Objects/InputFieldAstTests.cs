@@ -10,7 +10,7 @@ public class InputFieldAstTests
 }
 
 internal sealed class InputFieldAstChecks()
-  : AstObjectFieldChecks<InputFieldAst>(InputFieldFactory.Create, InputFieldFactory.Clone)
+  : AstObjectFieldChecks<InputFieldAst>(InputFieldFactory.Create)
 {
   protected override string AliasesString(FieldInput input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
@@ -27,7 +27,7 @@ public class InputFieldAstTypeTests
 }
 
 internal sealed class InputFieldAstTypeChecks()
-  : InputFieldTypeChecks<FieldInput, InputFieldAst>(InputFieldFactory.Create, InputFieldFactory.Clone)
+  : InputFieldTypeChecks<FieldInput, InputFieldAst>(InputFieldFactory.Create)
 {
   protected override InputFieldAst CreateEnum(FieldInput input, string enumLabel)
     => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) };

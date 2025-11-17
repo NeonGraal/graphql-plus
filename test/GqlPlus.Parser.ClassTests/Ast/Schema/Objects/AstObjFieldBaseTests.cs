@@ -12,16 +12,20 @@ public abstract class AstObjFieldBaseTests
 
 internal class AstObjectFieldChecks<TObjField>(
   AstObjectFieldChecks<TObjField>.FieldBy createField
-) : AstAliasedChecks<FieldInput, TObjField>(input => createField(input, BaseBy(input)))
+) : AstAliasedChecks<FieldInput, TObjField>(input => createField(input, ObjBaseFactory.Create(input)))
   , IAstObjectFieldChecks
   where TObjField : AstObjField
 {
   internal delegate TObjField FieldBy(FieldInput input, IGqlpObjBase objBase);
 
-  internal static ObjBaseAst BaseBy(FieldInput input)
-    => new(AstNulls.At, input.Type, "") { IsTypeParam = input.TypeParam };
-
   protected override string InputName(FieldInput input) => input.Name;
+}
+
+internal static class ObjBaseFactory
+{
+  internal static ObjBaseAst Create<TInput>(TInput input)
+    where TInput : ITypeInput
+    => new(AstNulls.At, input.Type, "");
 }
 
 internal interface IAstObjectFieldChecks

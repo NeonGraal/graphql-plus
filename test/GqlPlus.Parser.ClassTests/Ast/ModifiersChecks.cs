@@ -1,12 +1,10 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace GqlPlus.Ast;
+﻿namespace GqlPlus.Ast;
 
 internal class ModifiersChecks<TInput, TAst>(
   BaseAstChecks<TAst>.CreateBy<TInput> createInput,
   Func<TAst, TAst> addModifiers,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstBaseChecks<TInput, TAst>(createInput, createExpression)
+) : AstAbbreviatedChecks<TInput, TAst>(createInput, createExpression)
   , IModifiersChecks<TInput>
   where TAst : IGqlpModifiers
 {
@@ -21,7 +19,7 @@ internal class ModifiersChecks<TInput, TAst>(
 
   private string ModifiersString(TInput input)
     => InputString(input)
-    .Replace(")", "[] ? )", StringComparison.Ordinal);
+    .Replace(" )", " [] ? )", StringComparison.Ordinal);
 }
 
 internal interface IModifiersChecks<TInput>

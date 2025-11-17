@@ -1,8 +1,9 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Ast.Schema.Globals;
 
-public class CategoryAstTests
+public partial class CategoryAstTests
   : AstAliasedBaseTests
 {
   [Theory, RepeatData]
@@ -73,23 +74,36 @@ public class CategoryAstTests
 
   private readonly CategoryAstChecks _checks = new();
 
-  private static CategoryDeclAst CreateCategory(string name)
-    => new(AstNulls.At, name.Camelize(), new TypeRefAst(AstNulls.At, name));
-
   internal override IAstAliasedChecks<string> AliasedChecks => _checks;
+
+  [CheckTests]
+  internal IModifiersChecks<string> ModifiersChecks { get; } = new CategoryModifiersChecks();
+
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; }
+    = new CloneChecks<string, CategoryDeclAst>(
+      CreateCategory,
+      (original, input) => original with { Output = new TypeRefAst(AstNulls.At, input) });
+
+  internal static CategoryDeclAst CreateCategory(string name)
+    => new(AstNulls.At, name.Camelize(), new TypeRefAst(AstNulls.At, name));
 
   protected override Func<string, string, bool> SameInput
     => (name1, name2) => name1.Camelize() == name2.Camelize();
 }
 
 internal sealed class CategoryAstChecks()
-  : AstAliasedChecks<CategoryDeclAst>(CreateCategory)
+  : AstAliasedChecks<CategoryDeclAst>(CategoryAstTests.CreateCategory)
 {
   protected override string AliasesString(string input, string description, string aliases)
     => $"( {DescriptionNameString(input.Camelize(), description)}{aliases} (Parallel) !Tr {input} )";
+}
 
-  private static CategoryDeclAst CloneCategory(CategoryDeclAst original, string input)
-    => original with { Output = new TypeRefAst(AstNulls.At, input) };
-  private static CategoryDeclAst CreateCategory(string name)
-    => new(AstNulls.At, name.Camelize(), new TypeRefAst(AstNulls.At, name));
+internal sealed class CategoryModifiersChecks()
+  : ModifiersChecks<string, CategoryDeclAst>(
+      CategoryAstTests.CreateCategory,
+      ast => ast with { Modifiers = TestMods() })
+{
+  protected override string InputString(string input)
+    => $"( !Ca {input.Camelize()} (Parallel) !Tr {input} )";
 }

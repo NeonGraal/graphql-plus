@@ -1,13 +1,23 @@
 ﻿namespace GqlPlus.Ast.Operation;
 
-[CheckTestsFor(nameof(Checks), Inherited = true)]
-[CheckTestsFor(nameof(ModifiersChecks))]
-[CheckTestsFor(nameof(CloneChecks))]
 public partial class VariableAstTests
 {
+  [CheckTests(Inherited = true)]
   internal IVariableAstChecks Checks { get; } = new VariableAstChecks();
-  internal IModifiersChecks<string> ModifiersChecks { get; } = new VariableModifiersChecks();
-  internal ICloneChecks<string> CloneChecks { get; } = new CloneChecks<string, VariableAst>(VariableAstFactory.Create, VariableAstFactory.Clone);
+
+  [CheckTests]
+  internal IModifiersChecks<string> ModifiersChecks { get; } = new ModifiersChecks<string, VariableAst>(
+      CreateVariable,
+      ast => ast with { Modifiers = TestMods() });
+
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; }
+    = new CloneChecks<string, VariableAst>(
+      CreateVariable,
+      (VariableAst original, string input) => original with { Identifier = input });
+
+  internal static VariableAst CreateVariable(string input)
+    => new(AstNulls.At, input);
 }
 
 internal sealed class VariableAstChecks()
@@ -55,23 +65,7 @@ internal sealed class VariableAstChecks()
       () => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) });
 
   private static VariableAst CreateVariable(string input, string[] directives)
-    => VariableAstFactory.Create(input) with { Directives = directives.Directives() };
-}
-
-internal sealed class VariableModifiersChecks()
-  : ModifiersChecks<string, VariableAst>(
-      VariableAstFactory.Create, ast => ast with { Modifiers = TestMods() })
-{
-  protected override string InputString(string input)
-    => $"( !v {input} )";
-}
-
-internal static class VariableAstFactory
-{
-  internal static VariableAst Clone(VariableAst original, string input)
-    => original with { Identifier = input };
-  internal static VariableAst Create(string input)
-    => new(AstNulls.At, input);
+    => new(AstNulls.At, input) { Directives = directives.Directives() };
 }
 
 internal interface IVariableAstChecks

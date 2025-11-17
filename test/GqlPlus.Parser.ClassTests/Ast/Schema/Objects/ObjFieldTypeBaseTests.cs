@@ -39,7 +39,7 @@ public abstract class ObjFieldTypeBaseTests<TInput>
 
 internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
   ObjFieldTypeChecks<TInput, TObjType>.TypeBy createType
-) : ObjEnumChecks<TInput, TObjType>(input => createType(input, BaseBy(input)))
+) : ObjEnumChecks<TInput, TObjType>(input => createType(input, ObjBaseFactory.Create(input)))
   , IObjFieldTypeChecks<TInput>
   where TObjType : IGqlpObjFieldType
   where TInput : ITypeInput

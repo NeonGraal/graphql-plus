@@ -1,14 +1,12 @@
 ﻿
 namespace GqlPlus.Ast.Operation;
 
-public class SpreadAstTests
-  : AstDirectivesBaseTests
+public partial class SpreadAstTests
 {
-  internal override IAstDirectivesChecks DirectivesChecks { get; }
+  [CheckTests]
+  internal IAstDirectivesChecks DirectivesChecks { get; }
     = new AstDirectivesChecks<SpreadAst>(CreateSpread);
 
-  private static SpreadAst CloneSpread(SpreadAst original, string input)
-    => original with { Identifier = input };
   private static SpreadAst CreateSpread(string name, string[] directives)
     => new(AstNulls.At, name) { Directives = directives.Directives() };
 }

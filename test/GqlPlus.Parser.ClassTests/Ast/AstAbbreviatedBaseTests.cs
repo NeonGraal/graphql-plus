@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace GqlPlus.Ast;
+﻿namespace GqlPlus.Ast;
 
 public abstract class AstAbbreviatedBaseTests
   : AstAbbreviatedBaseTests<string>

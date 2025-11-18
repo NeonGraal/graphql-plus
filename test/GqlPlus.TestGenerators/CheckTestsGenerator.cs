@@ -11,20 +11,6 @@ public class CheckTestsGenerator
 {
   public void Initialize(IncrementalGeneratorInitializationContext context)
   {
-    IncrementalValuesProvider<CheckTestsClass> checkTestsFor = context
-      .SyntaxProvider
-      .ForAttributeWithMetadataName(
-        fullyQualifiedMetadataName: "GqlPlus." + nameof(CheckTestsForAttribute),
-        predicate: static (syntaxNode, cancellationToken) => syntaxNode is ClassDeclarationSyntax,
-        transform: static (context, cancellationToken) => {
-          if (context.TargetSymbol is INamedTypeSymbol forClass) {
-            return CreateCheckTestClass(forClass, context.Attributes);
-          }
-
-          return new CheckTestsClass("", "", "", []);
-        }
-    );
-
     IncrementalValuesProvider<CheckTestsClass> checkTests = context
       .SyntaxProvider
       .ForAttributeWithMetadataName(
@@ -39,12 +25,10 @@ public class CheckTestsGenerator
         }
     );
 
-    IncrementalValuesProvider<CheckTestsClass> combined = checkTestsFor.Collect()
-      .Combine(checkTests.Collect())
+    IncrementalValuesProvider<CheckTestsClass> combined = checkTests.Collect()
       .SelectMany((pair, cancellationToken)
-      => pair.Left.Concat(pair.Right)
-        .GroupBy(c => c.TheClass + c.TypeArguments)
-        .Select(g => g.Aggregate((l, r) => l.AddMethods(r.Methods))));
+        => pair.GroupBy(c => c.TheClass + c.TypeArguments)
+          .Select(g => g.Aggregate((l, r) => l.AddMethods(r.Methods))));
 
     context.RegisterSourceOutput(combined, static (context, model) => {
       if (!string.IsNullOrWhiteSpace(model.TheClass)) {
@@ -87,6 +71,10 @@ public class CheckTestsGenerator
 
     void RenderMethod(CheckTestsMethod method, string methodName)
     {
+      if (method.StartLine is not null) {
+        sb.AppendLine($"#line {method.StartLine} \"{method.FilePath}\"");
+      }
+
       sb.AppendLine(method.Parameters.Any() ? "  [Theory, RepeatData]" : "  [Fact]");
       sb.Append($"  public {method.Returns} {methodName}(");
       sb.Append(string.Join(", ", method.Parameters.Select(p => $"{p}")));
@@ -111,23 +99,6 @@ public class CheckTestsGenerator
     }
   }
 
-  private static CheckTestsClass CreateCheckTestClass(INamedTypeSymbol containingClass, ImmutableArray<AttributeData> attributes)
-  {
-    return new CheckTestsClass(containingClass, attributes.SelectMany(CreateAttributeMethods));
-
-    IEnumerable<CheckTestsMethod> CreateAttributeMethods(AttributeData attribute)
-    {
-      string propertyName = attribute.ConstructorArguments[0].Value?.ToString() ?? throw new ArgumentException("Must supply Target for CheckTestsFor");
-      if (attribute.ConstructorArguments.Length >= 2) {
-        IPropertySymbol? propertySymbol = containingClass.GetMembers(propertyName).FirstOrDefault() as IPropertySymbol;
-
-        return CreateMethods(propertyName, propertySymbol, attribute, 1);
-      }
-
-      return [];
-    }
-  }
-
   private static IEnumerable<CheckTestsMethod> CreateMethods(string propertyName, IPropertySymbol? propertySymbol, AttributeData attribute, int typeArg)
   {
     ITypeSymbol? propertyType = attribute.ConstructorArguments[typeArg].Value as ITypeSymbol;
@@ -143,29 +114,29 @@ public class CheckTestsGenerator
       }
     }
 
+    FileLinePositionSpan? propertyLocation = propertySymbol?.Locations.FirstOrDefault()?.GetLineSpan();
     bool inherited = attribute.NamedArguments.Any(kv => kv.Key == "Inherited" && (bool)kv.Value.Value!);
-    return CreateMethods(propertyName, propertyType, inherited);
+    return CreateMethods(propertyName, propertyLocation, propertyType, inherited);
   }
 
-  private static IEnumerable<CheckTestsMethod> CreateMethods(string propertyName, ITypeSymbol? propertyType, bool inherited)
+  private static IEnumerable<CheckTestsMethod> CreateMethods(string propertyName, FileLinePositionSpan? propertyLocation, ITypeSymbol? propertyType, bool inherited)
   {
     if (propertyType is null) {
       yield break;
     }
 
-    IEnumerable<IMethodSymbol> methods = propertyType.GetMembers()
+    IMethodSymbol[] methods = [.. propertyType.GetMembers()
       .OfType<IMethodSymbol>()
-      .Where(m => m.MethodKind == MethodKind.Ordinary && !m.IsStatic);
+      .Where(m => m.MethodKind == MethodKind.Ordinary && !m.IsStatic)];
     foreach (IMethodSymbol method in methods) {
-      string returnsType = method.ReturnsVoid ? "void" : method.ReturnType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
-      yield return new CheckTestsMethod(method.Name, returnsType, propertyName, method.Parameters.Select(CreateParameter));
+      yield return new CheckTestsMethod(method, propertyName, propertyLocation);
     }
 
-    if (!inherited) {
+    if (!inherited && methods.Length > 0) {
       yield break;
     }
 
-    foreach (CheckTestsMethod method in propertyType.Interfaces.SelectMany(i => CreateMethods(propertyName, i, true))) {
+    foreach (CheckTestsMethod method in propertyType.Interfaces.SelectMany(i => CreateMethods(propertyName, propertyLocation, i, inherited))) {
       yield return method;
     }
   }
@@ -203,12 +174,24 @@ public class CheckTestsGenerator
       => new(TheNamespace, TheClass, TypeArguments, Methods.Concat(methods));
   }
 
-  private sealed class CheckTestsMethod(string methodName, string returnsType, string propertyName, IEnumerable<CheckTestsParameter> parameters)
+  private sealed class CheckTestsMethod
   {
-    public string Name { get; } = methodName;
-    public string Returns { get; } = returnsType;
-    public string Property { get; } = propertyName;
-    public ImmutableArray<CheckTestsParameter> Parameters { get; } = [.. parameters];
+    public string Name { get; }
+    public string Returns { get; }
+    public string Property { get; }
+    public ImmutableArray<CheckTestsParameter> Parameters { get; }
+    public string? FilePath { get; }
+    public int? StartLine { get; }
+
+    public CheckTestsMethod(IMethodSymbol method, string propertyName, FileLinePositionSpan? propertyLocation)
+    {
+      Name = method.Name;
+      Returns = method.ReturnsVoid ? "void" : method.ReturnType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+      Property = propertyName;
+      FilePath = propertyLocation?.Path;
+      StartLine = propertyLocation?.StartLinePosition.Line;
+      Parameters = [.. method.Parameters.Select(CreateParameter)];
+    }
   }
 
   private sealed record CheckTestsParameter(string Name, string Type)

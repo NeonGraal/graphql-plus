@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace GqlPlus.Ast;
+﻿namespace GqlPlus.Ast;
 
 #pragma warning disable CA1822 // Mark members as static
 internal class BaseAstChecks<TAst>

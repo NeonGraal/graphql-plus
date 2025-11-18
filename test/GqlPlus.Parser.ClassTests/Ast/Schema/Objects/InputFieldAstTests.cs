@@ -2,32 +2,40 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class InputFieldAstTests
-  : AstObjFieldBaseTests
+public partial class InputFieldAstTests
 {
-  internal override IAstObjectFieldChecks FieldChecks { get; }
+  [CheckTests, CheckTests(typeof(IAstNamedChecks<FieldInput>))]
+  internal IAstAliasedChecks<FieldInput> AliasedChecks { get; }
     = new InputFieldAstChecks();
+
+  [CheckTests(Inherited = true)]
+  internal IObjFieldTypeChecks<FieldInput> FieldTypeChecks { get; }
+    = new InputFieldAstTypeChecks();
+
+  [CheckTests]
+  internal IModifiersChecks<FieldInput> ModifiersChecks { get; }
+    = new ObjFieldModifiersChecks<FieldInput, InputFieldAst>(
+      CreateInput,
+      ast => ast with { Modifiers = TestMods() });
+
+  [CheckTests]
+  internal ICloneChecks<FieldInput> CloneChecks { get; } = new ObjFieldCloneChecks<FieldInput, InputFieldAst>(
+    CreateInput,
+    (original, input) => original with { Name = input.Name });
+
+  internal static InputFieldAst CreateInput(FieldInput input, IGqlpObjBase objBase)
+    => new(AstNulls.At, input.Name, objBase);
 }
 
 internal sealed class InputFieldAstChecks()
-  : AstObjectFieldChecks<InputFieldAst>(InputFieldFactory.Create)
+  : AstObjectFieldChecks<InputFieldAst>(InputFieldAstTests.CreateInput)
 {
   protected override string AliasesString(FieldInput input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
 }
 
-public class InputFieldAstTypeTests
-    : InputFieldTypeTests<FieldInput>
-{
-  internal override IInputFieldTypeChecks<FieldInput> InputFieldChecks { get; }
-    = new InputFieldAstTypeChecks();
-
-  protected override string InputString(FieldInput input)
-    => $"( !IF {input.Name} : {input.Type} )";
-}
-
 internal sealed class InputFieldAstTypeChecks()
-  : InputFieldTypeChecks<FieldInput, InputFieldAst>(InputFieldFactory.Create)
+  : InputFieldTypeChecks<FieldInput, InputFieldAst>(InputFieldAstTests.CreateInput)
 {
   protected override InputFieldAst CreateEnum(FieldInput input, string enumLabel)
     => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) };
@@ -40,12 +48,4 @@ internal sealed class InputFieldAstTypeChecks()
 
   protected override string InputString(FieldInput input)
     => $"( !IF {input.Name} : {input.Type} )";
-}
-
-internal static class InputFieldFactory
-{
-  internal static InputFieldAst Clone(InputFieldAst original, FieldInput input)
-    => original with { Name = input.Name };
-  internal static InputFieldAst Create(FieldInput input, IGqlpObjBase objBase)
-    => new(AstNulls.At, input.Name, objBase);
 }

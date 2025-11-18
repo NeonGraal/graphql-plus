@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace GqlPlus.Ast.Schema;
+﻿namespace GqlPlus.Ast.Schema;
 
 public abstract class AstAliasedBaseTests
   : AstAliasedBaseTests<string>

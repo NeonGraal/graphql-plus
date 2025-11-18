@@ -1,5 +1,4 @@
 ﻿using System.Collections.Immutable;
-using System.Linq;
 using Basic.Reference.Assemblies;
 using DiffEngine;
 using Microsoft.CodeAnalysis;
@@ -22,7 +21,7 @@ public static class TestGeneratorsHelper
 
   public static GeneratorDriver Generate(this IIncrementalGenerator generator, string source, ImmutableArray<AdditionalText> additionalPaths, IEnumerable<Type> types, bool addNet20)
   {
-    SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(source);
+    SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(source, path: "{testString}");
 
     IEnumerable<PortableExecutableReference> references = types.Select(type => MetadataReference.CreateFromFile(type.Assembly.Location));
 

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast.Schema.Globals;
 
-public class DirectiveAstTests
+public class DirectiveDeclAstTests
   : AstAliasedBaseTests
 {
   [Theory, RepeatData]

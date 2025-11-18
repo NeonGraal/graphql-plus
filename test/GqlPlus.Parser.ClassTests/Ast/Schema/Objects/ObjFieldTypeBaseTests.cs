@@ -6,22 +6,6 @@ public abstract class ObjFieldTypeBaseTests<TInput>
   : ObjEnumBaseTests<TInput>
 {
   [Theory, RepeatData]
-  public void HashCode_WithModifiers(TInput input)
-      => FieldChecks.HashCode_WithModifiers(input);
-
-  [Theory, RepeatData]
-  public void Text_WithModifiers(TInput input)
-    => FieldChecks.Text_WithModifiers(input);
-
-  [Theory, RepeatData]
-  public void Equality_WithModifiers(TInput input)
-    => FieldChecks.Equality_WithModifiers(input);
-
-  [Theory, RepeatData]
-  public void Inequality_WithModifiers(TInput input)
-    => FieldChecks.Inequality_WithModifiers(input);
-
-  [Theory, RepeatData]
   public void ModifiedType_WithArgs(TInput input, string[] arguments)
     => FieldChecks.ModifiedType_WithArgs(input, arguments);
 
@@ -38,36 +22,17 @@ public abstract class ObjFieldTypeBaseTests<TInput>
 }
 
 internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
-  ObjFieldTypeChecks<TInput, TObjType>.TypeBy createType
-) : ObjEnumChecks<TInput, TObjType>(input => createType(input, ObjBaseFactory.Create(input)))
+  TypeBy<TInput, TObjType> createType
+) : ObjEnumChecks<TInput, TObjType>(ToCreateBy(createType))
   , IObjFieldTypeChecks<TInput>
   where TObjType : IGqlpObjFieldType
   where TInput : ITypeInput
 {
-  private readonly TypeBy _createType = createType;
-
-  internal delegate TObjType TypeBy(TInput input, IGqlpObjBase objBase);
-
-  internal static ObjBaseAst BaseBy(TInput input)
-    => new(AstNulls.At, input.Type, "") { IsTypeParam = input.TypeParam };
-
-  public void HashCode_WithModifiers(TInput input)
-      => HashCode(() => WithModifiers(CreateInput(input)));
-
-  public void Text_WithModifiers(TInput input)
-    => Text(
-      () => WithModifiers(CreateInput(input)),
-      InputString(input).Replace(")", "[] ? )", StringComparison.Ordinal));
-
-  public void Equality_WithModifiers(TInput input)
-    => Equality(() => WithModifiers(CreateInput(input)));
-
-  public void Inequality_WithModifiers(TInput input)
-    => InequalityWith(input, () => WithModifiers(CreateInput(input)));
+  private readonly TypeBy<TInput, TObjType> _createType = createType;
 
   public void ModifiedType_WithArgs(TInput input, string[] arguments)
   {
-    TObjType field = _createType(input, BaseBy(input) with { Args = arguments.TypeArgs() });
+    TObjType field = _createType(input, CreateBase(input) with { Args = arguments.TypeArgs() });
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     field.ModifiedType.ShouldBe(expected);
@@ -83,11 +48,17 @@ internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
 
   public void ModifiedType_WithModifiersAndArgs(TInput input, string[] arguments)
   {
-    TObjType field = WithModifiers(_createType(input, BaseBy(input) with { Args = arguments.TypeArgs() }));
+    TObjType field = WithModifiers(_createType(input, CreateBase(input) with { Args = arguments.TypeArgs() }));
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 
     field.ModifiedType.ShouldBe(expected);
   }
+
+  internal static CreateBy<TInput> ToCreateBy(TypeBy<TInput, TObjType> createType)
+    => input => createType(input, CreateBase(input));
+
+  internal static ObjBaseAst CreateBase(TInput input)
+     => new(AstNulls.At, input.Type, "");
 
   protected override string EnumString(TInput input, string enumLabel)
     => InputString(input)
@@ -97,14 +68,32 @@ internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
   protected abstract TObjType WithModifiers(TObjType objType);
 }
 
+internal sealed class ObjFieldModifiersChecks<TInput, TObjType>(
+  TypeBy<TInput, TObjType> createType,
+  Func<TObjType, TObjType> addModifiers,
+  [CallerArgumentExpression(nameof(createType))] string createExpression = ""
+) : ModifiersChecks<TInput, TObjType>(ObjFieldTypeChecks<TInput, TObjType>.ToCreateBy(createType), addModifiers, createExpression)
+  where TObjType : IGqlpObjFieldType
+  where TInput : ITypeInput
+{ }
+
+internal sealed class ObjFieldCloneChecks<TInput, TObjType>(
+  TypeBy<TInput, TObjType> createType,
+  BaseAstChecks<TObjType>.CloneBy<TInput> cloneInput,
+  [CallerArgumentExpression(nameof(createType))] string createExpression = "",
+  [CallerArgumentExpression(nameof(cloneInput))] string cloneExpression = ""
+) : CloneChecks<TInput, TObjType>(ObjFieldTypeChecks<TInput, TObjType>.ToCreateBy(createType), cloneInput, createExpression, cloneExpression)
+  where TObjType : IGqlpObjFieldType
+  where TInput : ITypeInput
+{ }
+
+internal delegate TObjType TypeBy<TInput, TObjType>(TInput input, IGqlpObjBase objBase)
+  where TObjType : IGqlpObjFieldType
+  where TInput : ITypeInput;
+
 internal interface IObjFieldTypeChecks<TInput>
   : IObjEnumChecks<TInput>
 {
-  void HashCode_WithModifiers(TInput input);
-  void Text_WithModifiers(TInput input);
-  void Equality_WithModifiers(TInput input);
-  void Inequality_WithModifiers(TInput input);
-
   void ModifiedType_WithArgs(TInput input, string[] arguments);
   void ModifiedType_WithModifiers(TInput input);
   void ModifiedType_WithModifiersAndArgs(TInput input, string[] arguments);

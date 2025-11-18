@@ -2,16 +2,8 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-[CheckTestsFor(nameof(InputFieldChecks))]
-public abstract partial class InputFieldTypeTests<TInput>
-  : ObjFieldTypeBaseTests<TInput>
-{
-  internal abstract IInputFieldTypeChecks<TInput> InputFieldChecks { get; }
-  internal sealed override IObjFieldTypeChecks<TInput> FieldChecks => InputFieldChecks;
-}
-
 internal abstract class InputFieldTypeChecks<TInput, TObjType>(
-  ObjFieldTypeChecks<TInput, TObjType>.TypeBy createType
+  TypeBy<TInput, TObjType> createType
 ) : ObjFieldTypeChecks<TInput, TObjType>(createType)
   , IInputFieldTypeChecks<TInput>
   where TObjType : IGqlpInputFieldType

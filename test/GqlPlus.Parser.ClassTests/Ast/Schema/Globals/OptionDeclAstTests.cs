@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Ast.Schema.Globals;
 
-public class OptionAstTests
+public class OptionDeclAstTests
   : AstAliasedBaseTests
 {
   [Theory, RepeatData]

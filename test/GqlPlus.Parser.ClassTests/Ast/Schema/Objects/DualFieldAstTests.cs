@@ -2,29 +2,40 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class DualFieldAstTests
-  : AstObjFieldBaseTests
+public partial class DualFieldAstTests
 {
-  internal override IAstObjectFieldChecks FieldChecks { get; }
+  [CheckTests, CheckTests(typeof(IAstNamedChecks<FieldInput>))]
+  internal IAstAliasedChecks<FieldInput> FieldChecks { get; }
     = new DualFieldAstChecks();
+
+  [CheckTests(Inherited = true)]
+  internal IObjFieldTypeChecks<FieldInput> FieldTypeChecks { get; }
+    = new DualFieldAstTypeChecks();
+
+  [CheckTests]
+  internal IModifiersChecks<FieldInput> ModifiersChecks { get; }
+    = new ObjFieldModifiersChecks<FieldInput, DualFieldAst>(
+      CreateDual,
+      ast => ast with { Modifiers = TestMods() });
+
+  [CheckTests]
+  internal ICloneChecks<FieldInput> CloneChecks { get; } = new ObjFieldCloneChecks<FieldInput, DualFieldAst>(
+    CreateDual,
+    (original, input) => original with { Name = input.Name });
+
+  internal static DualFieldAst CreateDual(FieldInput input, IGqlpObjBase objBase)
+    => new(AstNulls.At, input.Name, objBase);
 }
 
 internal sealed class DualFieldAstChecks()
-  : AstObjectFieldChecks<DualFieldAst>(DualFieldFactory.Create)
+  : AstObjectFieldChecks<DualFieldAst>(DualFieldAstTests.CreateDual)
 {
   protected override string AliasesString(FieldInput input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
 }
 
-public class DualFieldAstTypeTests
-    : ObjFieldTypeBaseTests<FieldInput>
-{
-  internal override IObjFieldTypeChecks<FieldInput> FieldChecks { get; }
-    = new DualFieldAstTypeChecks();
-}
-
 internal sealed class DualFieldAstTypeChecks()
-  : ObjFieldTypeChecks<FieldInput, DualFieldAst>(DualFieldFactory.Create)
+  : ObjFieldTypeChecks<FieldInput, DualFieldAst>(DualFieldAstTests.CreateDual)
 {
   protected override DualFieldAst CreateEnum(FieldInput input, string enumLabel)
     => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) };
@@ -32,12 +43,4 @@ internal sealed class DualFieldAstTypeChecks()
     => $"( !DF {input.Name} : {input.Type} )";
   protected override DualFieldAst WithModifiers(DualFieldAst objType)
     => objType with { Modifiers = TestMods() };
-}
-
-internal static class DualFieldFactory
-{
-  internal static DualFieldAst Clone(DualFieldAst original, FieldInput input)
-    => original with { Name = input.Name };
-  internal static DualFieldAst Create(FieldInput input, IGqlpObjBase objBase)
-    => new(AstNulls.At, input.Name, objBase);
 }

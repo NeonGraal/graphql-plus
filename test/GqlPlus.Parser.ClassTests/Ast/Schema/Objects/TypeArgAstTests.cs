@@ -2,37 +2,10 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-[CheckTestsFor(nameof(TypeArgChecks), typeof(ITypeArgAstChecks))]
 public partial class TypeArgAstTests
-  : ObjEnumBaseTests<string>
 {
-  //[Theory, RepeatData]
-  //public void HashCode_WithIsTypeParam_Old(string input)
-  //    => TypeArgChecks.HashCode_WithIsTypeParam(input);
-
-  //[Theory, RepeatData]
-  //public void Text_WithIsTypeParam_Old(string input)
-  //  => TypeArgChecks.Text_WithIsTypeParam(input);
-
-  //[Theory, RepeatData]
-  //public void Equality_WithIsTypeParam_Old(string input)
-  //  => TypeArgChecks.Equality_WithIsTypeParam(input);
-
-  //[Theory, RepeatData]
-  //public void Inequality_BetweenIsTypeParams_Old(string input, bool isTypeParam1)
-  //  => TypeArgChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
-
-  //[Theory, RepeatData]
-  //public void FullType_WithDefault_Old(string input)
-  //  => TypeArgChecks.FullType_WithDefault(input);
-
-  //[Theory, RepeatData]
-  //public void FullType_WithIsTypeParam_Old(string input)
-  //  => TypeArgChecks.FullType_WithIsTypeParam(input);
-
-  internal sealed override IObjEnumChecks<string> EnumChecks => TypeArgChecks;
-
-  internal TypeArgAstChecks TypeArgChecks { get; } = new();
+  [CheckTests(Inherited = true)]
+  internal ITypeArgAstChecks TypeArgChecks { get; } = new TypeArgAstChecks();
 }
 
 internal sealed class TypeArgAstChecks()

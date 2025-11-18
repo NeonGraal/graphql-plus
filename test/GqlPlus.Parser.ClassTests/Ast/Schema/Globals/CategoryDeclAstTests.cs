@@ -1,9 +1,8 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Ast.Schema.Globals;
 
-public partial class CategoryAstTests
+public partial class CategoryDeclAstTests
   : AstAliasedBaseTests
 {
   [Theory, RepeatData]
@@ -93,7 +92,7 @@ public partial class CategoryAstTests
 }
 
 internal sealed class CategoryAstChecks()
-  : AstAliasedChecks<CategoryDeclAst>(CategoryAstTests.CreateCategory)
+  : AstAliasedChecks<CategoryDeclAst>(CategoryDeclAstTests.CreateCategory)
 {
   protected override string AliasesString(string input, string description, string aliases)
     => $"( {DescriptionNameString(input.Camelize(), description)}{aliases} (Parallel) !Tr {input} )";
@@ -101,7 +100,7 @@ internal sealed class CategoryAstChecks()
 
 internal sealed class CategoryModifiersChecks()
   : ModifiersChecks<string, CategoryDeclAst>(
-      CategoryAstTests.CreateCategory,
+      CategoryDeclAstTests.CreateCategory,
       ast => ast with { Modifiers = TestMods() })
 {
   protected override string InputString(string input)

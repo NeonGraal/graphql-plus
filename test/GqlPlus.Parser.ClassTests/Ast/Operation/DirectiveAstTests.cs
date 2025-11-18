@@ -1,11 +1,12 @@
 ﻿
 namespace GqlPlus.Ast.Operation;
 
-[CheckTestsFor(nameof(Checks))]
-[CheckTestsFor(nameof(CloneChecks))]
 public partial class DirectiveAstTests
 {
+  [CheckTests]
   private IDirectiveAstChecks Checks { get; } = new DirectiveAstChecks();
+
+  [CheckTests]
   private ICloneChecks<string> CloneChecks { get; } = new CloneChecks<string, DirectiveAst>(
     DirectiveAstChecks.CreateDirective, CloneDirective);
 

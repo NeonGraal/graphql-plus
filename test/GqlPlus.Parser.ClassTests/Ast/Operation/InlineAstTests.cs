@@ -1,7 +1,6 @@
 ﻿namespace GqlPlus.Ast.Operation;
 
-public class InlineAstTests
-  : AstDirectivesBaseTests<string[]>
+public partial class InlineAstTests
 {
   [Theory, RepeatData]
   public void HashCode_WithOnType(string onType, string[] fields)
@@ -25,10 +24,17 @@ public class InlineAstTests
 
   private readonly InlineAstChecks _checks = new();
 
-  internal override IAstDirectivesChecks<string[]> DirectivesChecks => _checks;
+  [CheckTests]
+  internal IAstDirectivesChecks<string[]> DirectivesChecks => _checks;
 
-  protected override bool InputEquals(string[]? input1, string[]? input2)
-    => input1 is null ? input2 is null : input2 is not null && input1.SequenceEqual(input2);
+  [CheckTests]
+  internal ICloneChecks<string[]> CloneChecks { get; }
+    = new CloneChecks<string[], InlineAst>(
+      CreateInline,
+      (original, input) => original with { Selections = input?.Fields() ?? [] });
+
+  private static InlineAst CreateInline(string[] input)
+    => new(AstNulls.At, input?.Fields() ?? []);
 }
 
 internal sealed class InlineAstChecks()
@@ -37,8 +43,6 @@ internal sealed class InlineAstChecks()
   protected override string DirectiveString(string[] input, string directives)
     => $"( !i{directives} {{ {input.Joined(s => "!f " + s)} }} )";
 
-  private static InlineAst CreateInline(string[] input, string[] directives)
+  internal static InlineAst CreateInline(string[] input, string[] directives)
     => new(AstNulls.At, input?.Fields() ?? []) { Directives = directives.Directives() };
-  private static InlineAst CloneInline(InlineAst original, string[] input)
-    => original with { Selections = input?.Fields() ?? [] };
 }

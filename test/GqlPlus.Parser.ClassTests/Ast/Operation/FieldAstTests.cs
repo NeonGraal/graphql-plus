@@ -1,8 +1,7 @@
-﻿
-namespace GqlPlus.Ast.Operation;
+﻿namespace GqlPlus.Ast.Operation;
 
 public partial class FieldAstTests
-  : AstDirectivesBaseTests
+  : AstDirectivesBaseTests<string>
 {
   [Theory, RepeatData]
   public void HashCode_WithAlias(string name, string alias)

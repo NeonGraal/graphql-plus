@@ -14,7 +14,7 @@ public partial class VariableAstTests
   internal ICloneChecks<string> CloneChecks { get; }
     = new CloneChecks<string, VariableAst>(
       CreateVariable,
-      (VariableAst original, string input) => original with { Identifier = input });
+      (original, input) => original with { Identifier = input });
 
   internal static VariableAst CreateVariable(string input)
     => new(AstNulls.At, input);

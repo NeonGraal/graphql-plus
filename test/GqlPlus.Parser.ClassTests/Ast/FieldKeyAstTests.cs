@@ -1,7 +1,6 @@
 ﻿namespace GqlPlus.Ast;
 
-public class FieldKeyAstTests
-  : AstAbbreviatedBaseTests
+public partial class FieldKeyAstTests
 {
   [Theory, RepeatData]
   public void HashCode_WithNumber(decimal number)
@@ -154,9 +153,16 @@ public class FieldKeyAstTests
     (left != right).ShouldBeTrue();
   }
 
-  internal FieldKeyAstChecks _checks = new(CreateFieldKey);
+  internal FieldKeyAstChecks _checks = new();
 
-  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
+  [CheckTests]
+  internal IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
+
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; }
+    = new CloneChecks<string, FieldKeyAst>(
+      CreateFieldKey,
+      (original, input) => original with { Text = input });
 
   private static FieldKeyAst CreateFieldKey(string enumType, string enumValue)
     => new(AstNulls.At, enumType, enumValue);
@@ -164,18 +170,13 @@ public class FieldKeyAstTests
   private static FieldKeyAst CreateFieldKey(decimal number)
     => new(AstNulls.At, number);
 
-  private static FieldKeyAst CreateFieldKey(string contents)
+  internal static FieldKeyAst CreateFieldKey(string contents)
     => new(AstNulls.At, contents);
 }
 
-internal sealed class FieldKeyAstChecks(
-  BaseAstChecks<IGqlpFieldKey>.CreateBy<string> createInput,
-  [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstAbbreviatedChecks<string, IGqlpFieldKey>(createInput, createExpression)
+internal sealed class FieldKeyAstChecks()
+  : AstAbbreviatedChecks<string, IGqlpFieldKey>(FieldKeyAstTests.CreateFieldKey)
 {
   protected override string AbbreviatedString(string input)
     => $"( !k '{input}' )";
-
-  private static IGqlpFieldKey CloneFieldKey(IGqlpFieldKey original, string input)
-    => (FieldKeyAst)original with { Text = input };
 }

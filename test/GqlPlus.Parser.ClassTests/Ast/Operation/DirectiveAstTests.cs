@@ -1,9 +1,8 @@
-﻿
-namespace GqlPlus.Ast.Operation;
+﻿namespace GqlPlus.Ast.Operation;
 
 public partial class DirectiveAstTests
 {
-  [CheckTests]
+  [CheckTests(Inherited = true)]
   private IDirectiveAstChecks Checks { get; } = new DirectiveAstChecks();
 
   [CheckTests]

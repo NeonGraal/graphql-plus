@@ -2,13 +2,6 @@
 
 namespace GqlPlus.Ast;
 
-public abstract class AstDirectivesBaseTests
-  : AstDirectivesBaseTests<string>
-{
-  protected override bool InputEquals(string? input1, string? input2)
-    => input1 == input2;
-}
-
 public abstract class AstDirectivesBaseTests<TInput>
   : AstAbbreviatedBaseTests<TInput>
 {
@@ -39,8 +32,6 @@ public abstract class AstDirectivesBaseTests<TInput>
     .Inequality_ByInputs_WithDirectives(input1, input2, directives);
 
   internal sealed override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => DirectivesChecks;
-
-  protected abstract bool InputEquals(TInput? input1, TInput? input2);
 
   internal abstract IAstDirectivesChecks<TInput> DirectivesChecks { get; }
 }
@@ -76,13 +67,21 @@ internal class AstDirectivesChecks<TInput, TAst>(
       () => CreateInput(input),
       factory1Expression: CreateExpression);
 
+  public void Inequality_WithDirectivesObject(TInput input, string[] directives)
+    => Inequality(
+      () => createDirectives(input, directives),
+      () => new TestDirectives(directives),
+      CreateExpression);
+
   public void Inequality_ByDirectives_WithInput(TInput input, string[] directive1, string[] directive2)
-    => InequalityBetween(directive1, directive2,
+    => this.SkipEqual(directive1, directive2)
+    .InequalityBetween(directive1, directive2,
       directives => createDirectives(input, directives),
       directive1.SequenceEqual(directive2), CreateExpression);
 
   public void Inequality_ByInputs_WithDirectives(TInput input1, TInput input2, string[] directives)
-    => InequalityBetween(input1, input2,
+    => this.SkipEqual(input1, input2)
+    .InequalityBetween(input1, input2,
       input => createDirectives(input, directives),
       input1.ThrowIfNull().Equals(input2), CreateExpression);
 
@@ -100,6 +99,17 @@ internal class AstDirectivesChecks<TInput, TAst>(
 
   private static string Directives(string[] directives)
     => " " + directives.Joined(d => $"( !d {d} )");
+
+  private sealed record class TestDirectives
+    : AstBase
+    , IGqlpDirectives
+  {
+    public TestDirectives(string[] directives)
+      : base(AstNulls.At)
+      => Directives = directives.Directives();
+
+    public IEnumerable<IGqlpDirective> Directives { get; }
+  }
 }
 
 internal interface IAstDirectivesChecks
@@ -112,6 +122,7 @@ internal interface IAstDirectivesChecks<TInput>
   void HashCode_WithDirectives(TInput input, string[] directives);
   void Text_WithDirectives(TInput input, string[] directives);
   void Equality_WithDirectives(TInput input, string[] directives);
+  void Inequality_WithDirectivesObject(TInput input, string[] directives);
   void Inequality_WithDirectives(TInput input, string[] directives);
   void Inequality_ByInputs_WithDirectives(TInput input1, TInput input2, string[] directives);
   void Inequality_ByDirectives_WithInput(TInput input, string[] directives1, string[] directives2);

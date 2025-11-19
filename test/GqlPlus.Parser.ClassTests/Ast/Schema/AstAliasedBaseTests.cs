@@ -90,7 +90,8 @@ internal abstract class AstAliasedChecks<TInput, TAliased>(
       factory1Expression: CreateExpression);
 
   public void Inequality_ByAliases(TInput input, string aliases1, string aliases2)
-    => InequalityBetween(aliases1, aliases2,
+    => this.SkipEqual(aliases1, aliases2)
+    .InequalityBetween(aliases1, aliases2,
       aliases => CreateAliases(input, aliases),
       CreateExpression);
 

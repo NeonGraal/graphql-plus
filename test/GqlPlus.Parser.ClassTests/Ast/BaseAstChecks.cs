@@ -3,6 +3,7 @@
 #pragma warning disable CA1822 // Mark members as static
 internal class BaseAstChecks<TAst>
 {
+  internal delegate object? ObjCreator();
   internal delegate TAst AstCreator();
   internal delegate TAst CreateBy<TBy>(TBy input);
   internal delegate TAst CloneBy<TBy>(TAst original, TBy input);
@@ -17,12 +18,12 @@ internal class BaseAstChecks<TAst>
     result.ShouldBe(expected, factoryExpression);
   }
 
-  public void Equality(AstCreator factory1, AstCreator factory2,
+  public void Equality(AstCreator factory1, ObjCreator factory2,
     [CallerArgumentExpression(nameof(factory1))] string factory1Expression = "",
     [CallerArgumentExpression(nameof(factory2))] string factory2Expression = "")
   {
     TAst? left = factory1();
-    TAst? right = factory2();
+    object? right = factory2();
 
     bool result = left.ThrowIfNull().Equals(right);
 
@@ -33,14 +34,14 @@ internal class BaseAstChecks<TAst>
 
   public void Equality(AstCreator factory,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
-    => Equality(factory, factory, factoryExpression, factoryExpression);
+    => Equality(factory, () => factory(), factoryExpression, factoryExpression);
 
-  public void Inequality(AstCreator factory1, AstCreator factory2,
+  public void Inequality(AstCreator factory1, ObjCreator factory2,
     [CallerArgumentExpression(nameof(factory1))] string factory1Expression = "",
     [CallerArgumentExpression(nameof(factory2))] string factory2Expression = "")
   {
     TAst? left = factory1();
-    TAst? right = factory2();
+    object? right = factory2();
 
     bool result = left.ThrowIfNull().Equals(right);
 
@@ -49,7 +50,7 @@ internal class BaseAstChecks<TAst>
       () => left.ShouldNotBeSameAs(right, factory2Expression));
   }
 
-  public void Inequality(AstCreator factory1, AstCreator factory2, bool skipIf,
+  public void Inequality(AstCreator factory1, ObjCreator factory2, bool skipIf,
     [CallerArgumentExpression(nameof(factory1))] string factory1Expression = "",
     [CallerArgumentExpression(nameof(factory2))] string factory2Expression = "",
     [CallerArgumentExpression(nameof(skipIf))] string skipIfExpression = "")

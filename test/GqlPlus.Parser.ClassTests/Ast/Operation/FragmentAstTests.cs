@@ -1,7 +1,6 @@
 ﻿namespace GqlPlus.Ast.Operation;
 
-public class FragmentAstTests
-  : AstDirectivesBaseTests<FragmentInput>
+public partial class FragmentAstTests
 {
   [Fact]
   public void HashCode_Null()
@@ -27,10 +26,17 @@ public class FragmentAstTests
 
   internal FragmentAstChecks _checks = new();
 
-  internal override IAstDirectivesChecks<FragmentInput> DirectivesChecks => _checks;
+  [CheckTests]
+  internal IAstDirectivesChecks<FragmentInput> DirectivesChecks => _checks;
 
-  protected override bool InputEquals(FragmentInput input1, FragmentInput input2)
-    => input1 == input2;
+  [CheckTests]
+  internal ICloneChecks<FragmentInput> CloneChecks { get; }
+    = new CloneChecks<FragmentInput, FragmentAst>(
+      CreateFragment,
+      (original, input) => original with { Identifier = input.Name });
+
+  private static FragmentAst CreateFragment(FragmentInput input)
+    => new(AstNulls.At, input.Name, input.OnType, new[] { input.Field }.Fields());
 }
 
 internal sealed class FragmentAstChecks()
@@ -40,8 +46,6 @@ internal sealed class FragmentAstChecks()
   protected override string DirectiveString(FragmentInput input, string directives)
     => $"( !t {input.Name}{directives} :{input.OnType} {{ !f {input.Field} }} )";
 
-  private static FragmentAst CloneFragment(FragmentAst original, FragmentInput input)
-    => original with { Identifier = input.Name };
   private static FragmentAst CreateFragment(FragmentInput input, string[] directives)
     => new(AstNulls.At, input.Name, input.OnType, new[] { input.Field }.Fields()) {
       Directives = directives.Directives()

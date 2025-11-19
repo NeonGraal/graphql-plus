@@ -141,9 +141,6 @@ public class CheckTestsGenerator
     }
   }
 
-  private static CheckTestsParameter CreateParameter(IParameterSymbol parameter)
-    => new(parameter.Name, parameter.Type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat));
-
   private sealed class CheckTestsClass
   {
     public string TheNamespace { get; }
@@ -174,24 +171,19 @@ public class CheckTestsGenerator
       => new(TheNamespace, TheClass, TypeArguments, Methods.Concat(methods));
   }
 
-  private sealed class CheckTestsMethod
+  private sealed class CheckTestsMethod(IMethodSymbol method, string propertyName, FileLinePositionSpan? propertyLocation)
   {
-    public string Name { get; }
+    public string Name { get; } = method.Name;
     public string Returns { get; }
-    public string Property { get; }
+      = method.ReturnsVoid ? "void" : method.ReturnType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+    public string Property { get; } = propertyName;
     public ImmutableArray<CheckTestsParameter> Parameters { get; }
-    public string? FilePath { get; }
-    public int? StartLine { get; }
+      = [.. method.Parameters.Select(CreateParameter)];
+    public string? FilePath { get; } = propertyLocation?.Path;
+    public int? StartLine { get; } = propertyLocation?.StartLinePosition.Line;
 
-    public CheckTestsMethod(IMethodSymbol method, string propertyName, FileLinePositionSpan? propertyLocation)
-    {
-      Name = method.Name;
-      Returns = method.ReturnsVoid ? "void" : method.ReturnType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
-      Property = propertyName;
-      FilePath = propertyLocation?.Path;
-      StartLine = propertyLocation?.StartLinePosition.Line;
-      Parameters = [.. method.Parameters.Select(CreateParameter)];
-    }
+    private static CheckTestsParameter CreateParameter(IParameterSymbol parameter)
+      => new(parameter.Name, parameter.Type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat));
   }
 
   private sealed record CheckTestsParameter(string Name, string Type)

@@ -27,9 +27,7 @@ public abstract class AstTypeBaseTests
 
   [Theory, RepeatData]
   public void Inequality_BetweenParents(string name, string parent1, string parent2)
-    => TypeChecks
-      .SkipEqual(parent1, parent2)
-      .Inequality_ByParents(name, parent1, parent2);
+    => TypeChecks.Inequality_ByParents(name, parent1, parent2);
 
   protected virtual string ParentString(string name, string parent)
     => $"( !{AliasedChecks.Abbr} {name} :( !Tr {parent} ) )";
@@ -62,7 +60,8 @@ internal class AstTypeChecks<TType, TParent>(
     => Inequality(() => CreateInput(name), () => CreateType(name, parent), CreateExpression);
 
   public void Inequality_ByParents(string name, string parent1, string parent2)
-    => InequalityBetween(parent1, parent2, parent => CreateType(name, parent));
+    => this.SkipEqual(parent1, parent2)
+    .InequalityBetween(parent1, parent2, parent => CreateType(name, parent));
 
   public void Text_WithParent(string name, string parent)
     => Text(() => CreateType(name, parent), ParentString(name, parent));

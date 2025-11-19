@@ -41,15 +41,11 @@ public abstract class AstAliasedBaseTests<TInput>
 
   [Theory, RepeatData]
   public void Inequality_ByAliases(TInput input, string alias1, string alias2)
-    => AliasedChecks
-      .SkipEqual(alias1, alias2)
-      .Inequality_ByAliases(input, alias1, alias2);
+    => AliasedChecks.Inequality_ByAliases(input, alias1, alias2);
 
   [Theory, RepeatData]
   public void Inequality_WithAliasByInputs(TInput input1, TInput input2, string aliased)
-    => AliasedChecks
-      .SkipEqual(input1, input2)
-      .Inequality_WithAliasByInputs(input1, input2, aliased);
+    => AliasedChecks.Inequality_WithAliasByInputs(input1, input2, aliased);
 
   internal sealed override IAstNamedChecks<TInput> NamedChecks => AliasedChecks;
 
@@ -96,7 +92,8 @@ internal abstract class AstAliasedChecks<TInput, TAliased>(
       CreateExpression);
 
   public void Inequality_WithAliasByInputs(TInput input1, TInput input2, string aliased)
-    => InequalityBetween(input1, input2,
+    => this.SkipEqual(input1, input2)
+    .InequalityBetween(input1, input2,
       input => CreateAliases(input, aliased),
       CreateExpression);
 

@@ -27,9 +27,7 @@ public abstract class AstDirectivesBaseTests<TInput>
 
   [Theory, RepeatData]
   public void Inequality_ByInputs_WithDirectives(TInput input1, TInput input2, string[] directives)
-    => DirectivesChecks
-    .SkipEqual(input1, input2)
-    .Inequality_ByInputs_WithDirectives(input1, input2, directives);
+    => DirectivesChecks.Inequality_ByInputs_WithDirectives(input1, input2, directives);
 
   internal sealed override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => DirectivesChecks;
 

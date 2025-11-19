@@ -21,15 +21,11 @@ public abstract class AstNamedBaseTests<TInput>
 
   [Theory, RepeatData]
   public void Inequality_ByDescription(TInput input, string description1, string description2)
-    => NamedChecks
-      .SkipEqual(description1, description2)
-      .Inequality_ByDescription(input, description1, description2);
+    => NamedChecks.Inequality_ByDescription(input, description1, description2);
 
   [Theory, RepeatData]
   public void Inequality_WithDescriptionByInputs(TInput input1, TInput input2, string description)
-    => NamedChecks
-      .SkipEqual(input1, input2)
-      .Inequality_WithDescriptionByInputs(input1, input2, description);
+    => NamedChecks.Inequality_WithDescriptionByInputs(input1, input2, description);
 
   internal sealed override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => NamedChecks;
 
@@ -70,12 +66,14 @@ internal abstract class AstNamedChecks<TInput, TNamed>(
       factory1Expression: CreateExpression);
 
   public void Inequality_ByDescription(TInput input, string description1, string description2)
-    => InequalityBetween(description1, description2,
+    => this.SkipEqual(description1, description2)
+      .InequalityBetween(description1, description2,
       description => CreateDescription(input, description),
       CreateExpression);
 
   public void Inequality_WithDescriptionByInputs(TInput input1, TInput input2, string description)
-    => InequalityBetween(input1, input2,
+    => this.SkipEqual(input1, input2)
+      .InequalityBetween(input1, input2,
       input => CreateDescription(input, description),
       CreateExpression);
 

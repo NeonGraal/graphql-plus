@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainLabelAstTests
-  : AstAbbreviatedTests
+  : AstAbbreviatedBaseTests
 {
   [Theory, RepeatData]
   public void SetEnumType_WhenCurrentlyEmpty_SetsValue(string enumType, string enumLabel)
@@ -28,7 +28,7 @@ public class DomainLabelAstTests
   }
 
   private readonly AstAbbreviatedChecks<DomainLabelAst> _checks
-    = new(CreateLabel, CloneLabel);
+    = new(CreateLabel);
 
   private static DomainLabelAst CloneLabel(DomainLabelAst original, string input)
     => original with { EnumItem = input };

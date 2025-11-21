@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainAstNumberTests
-  : AstDomainTests<DomainRangeInput>
+  : AstDomainBaseTests<DomainRangeInput>
 {
   internal override IAstDomainChecks<DomainRangeInput> Checks => _checks;
 

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using GqlPlus;
+﻿using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Token;
 
@@ -15,15 +14,12 @@ internal sealed record class InputParamAst(
   public IGqlpConstant? DefaultValue { get; set; }
   public IGqlpEnumValue? EnumValue { get; set; }
 
-  string IGqlpObjEnum.EnumTypeName => "";
+  string IGqlpObjEnum.EnumTypeName => Type?.Name ?? "";
   void IGqlpObjEnum.SetEnumType(string enumType)
   {
+    string enumLabel = EnumValue?.EnumLabel ?? Type.Name;
     Type.SetName(enumType);
-    if (EnumValue == null) {
-      EnumValue = new EnumValueAst(At, enumType, Type.Name);
-    } else {
-      EnumValue = new EnumValueAst(At, enumType, EnumValue.EnumLabel ?? Type.Name);
-    }
+    EnumValue = new EnumValueAst(At, enumType, enumLabel);
   }
 
   internal override string Abbr => "Pa";

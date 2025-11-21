@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainAstBooleanTests
-  : AstDomainTests<bool>
+  : AstDomainBaseTests<bool>
 {
   internal override IAstDomainChecks<bool> Checks => _checks;
 

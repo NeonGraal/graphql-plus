@@ -69,12 +69,12 @@ types: !_Map_Type
       name: exclude
       object: _BaseDomainItem
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     fields:
     - !_DualField
       name: exclude
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     name: _BaseDomainItem
     parent: !_ObjBase
       name: _Described
@@ -242,30 +242,30 @@ types: !_Map_Type
       name: exclude
       object: _BaseDomainItem
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: lower
       object: _DomainRange
       type: !_ObjBase
-        name: Number
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: upper
       object: _DomainRange
       type: !_ObjBase
-        name: Number
+        name: _DomainKind
     fields:
     - !_DualField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: lower
       type: !_ObjBase
-        name: Number
+        name: _DomainKind
     - !_DualField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: upper
       type: !_ObjBase
-        name: Number
+        name: _DomainKind
     name: _DomainRange
     parent: !_ObjBase
       name: _BaseDomainItem
@@ -303,17 +303,17 @@ types: !_Map_Type
       name: exclude
       object: _BaseDomainItem
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: pattern
       object: _DomainRegex
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     fields:
     - !_DualField
       name: pattern
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     name: _DomainRegex
     parent: !_ObjBase
       name: _BaseDomainItem
@@ -324,17 +324,17 @@ types: !_Map_Type
       name: exclude
       object: _BaseDomainItem
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: value
       object: _DomainTrueFalse
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     fields:
     - !_DualField
       name: value
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     name: _DomainTrueFalse
     parent: !_ObjBase
       name: _BaseDomainItem

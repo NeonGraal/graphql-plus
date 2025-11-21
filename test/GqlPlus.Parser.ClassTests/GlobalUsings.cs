@@ -1,4 +1,5 @@
 ﻿global using System.ComponentModel.DataAnnotations;
+global using System.Runtime.CompilerServices;
 global using GqlPlus.Abstractions;
 global using GqlPlus.Ast;
 global using GqlPlus.Result;

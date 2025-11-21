@@ -2,8 +2,7 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class OutputFieldAstTests
-  : AstObjectFieldTests
+public partial class OutputFieldAstTests
 {
   [Theory, RepeatData]
   public void HashCode_WithParam(FieldInput input, string[] parameters)
@@ -11,7 +10,7 @@ public class OutputFieldAstTests
         () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, "")) { Params = parameters.Params() });
 
   [Theory, RepeatData]
-  public void String_WithParams(FieldInput input, string[] parameters)
+  public void Text_WithParams(FieldInput input, string[] parameters)
     => _checks.Text(
       () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, "")) { Params = parameters.Params() },
       $"( !OF {input.Name} ( {parameters.Joined(s => "!Pa " + s)} ) : {input.Type} )");
@@ -27,39 +26,39 @@ public class OutputFieldAstTests
       parameters => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, "")) { Params = parameters.Params() },
       parameters1.SequenceEqual(parameters2));
 
+  private readonly OutputFieldAstChecks _checks = new();
+
+  [CheckTests, CheckTests(typeof(IAstNamedChecks<FieldInput>))]
+  private IAstAliasedChecks<FieldInput> FieldChecks => _checks;
+
+  [CheckTests(Inherited = true)]
+  internal IObjFieldTypeChecks<FieldInput> FieldTypeChecks { get; }
+    = new OutputFieldAstTypeChecks();
+
+  [CheckTests]
+  internal IModifiersChecks<FieldInput> ModifiersChecks { get; }
+    = new ObjFieldModifiersChecks<FieldInput, OutputFieldAst>(
+      CreateOutput,
+      ast => ast with { Modifiers = TestMods() });
+
+  [CheckTests]
+  internal ICloneChecks<FieldInput> CloneChecks { get; } = new ObjFieldCloneChecks<FieldInput, OutputFieldAst>(
+    CreateOutput,
+    (original, input) => original with { Name = input.Name });
+
+  internal static OutputFieldAst CreateOutput(FieldInput input, IGqlpObjBase objBase)
+    => new(AstNulls.At, input.Name, objBase);
+}
+
+internal sealed class OutputFieldAstChecks()
+  : AstObjectFieldChecks<OutputFieldAst>(OutputFieldAstTests.CreateOutput)
+{
   protected override string AliasesString(FieldInput input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
-
-  private readonly AstObjectFieldChecks<OutputFieldAst> _checks = new(CreateOutput, CloneOutput);
-
-  private static OutputFieldAst CloneOutput(OutputFieldAst original, FieldInput input)
-    => original with { Name = input.Name };
-  private static OutputFieldAst CreateOutput(FieldInput input, IGqlpObjBase objBase)
-    => new(AstNulls.At, input.Name, objBase);
-
-  internal override IAstObjectFieldChecks FieldChecks => _checks;
 }
 
-public class OutputFieldAstTypeTests
-    : ObjFieldTypeTests<FieldInput>
-{
-  private readonly OutputFieldAstTypeChecks _checks = new(CreateInput, CloneInput);
-
-  private static OutputFieldAst CloneInput(OutputFieldAst original, FieldInput input)
-    => original with { Name = input.Name };
-  private static OutputFieldAst CreateInput(FieldInput input, IGqlpObjBase objBase)
-    => new(AstNulls.At, input.Name, objBase);
-
-  internal override IObjFieldTypeChecks<FieldInput> FieldChecks => _checks;
-
-  protected override string InputString(FieldInput input)
-    => $"( !OF {input.Name} : {input.Type} )";
-}
-
-internal sealed class OutputFieldAstTypeChecks(
-  ObjFieldTypeChecks<FieldInput, OutputFieldAst>.TypeBy createType,
-  BaseAstChecks<OutputFieldAst>.CloneBy<FieldInput> cloneInput
-) : ObjFieldTypeChecks<FieldInput, OutputFieldAst>(createType, cloneInput)
+internal sealed class OutputFieldAstTypeChecks()
+  : ObjFieldTypeChecks<FieldInput, OutputFieldAst>(OutputFieldAstTests.CreateOutput)
 {
   protected override OutputFieldAst CreateEnum(FieldInput input, string enumLabel)
     => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) };

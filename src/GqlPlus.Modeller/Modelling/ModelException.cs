@@ -12,7 +12,6 @@ public class ModelException
     : base(message)
   { }
 
-  [ExcludeFromCodeCoverage]
   public ModelException(string message, Exception innerException)
     : base(message, innerException)
   { }

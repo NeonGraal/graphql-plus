@@ -62,7 +62,8 @@ internal class AstBaseChecks<TInput, TAst>
       CreateExpression);
 
   public void Inequality_WithInputs(TInput input1, TInput input2)
-    => InequalityBetween(input1, input2, CreateInput, CreateExpression);
+    => this.SkipIf(SameInput(input1, input2))
+    .InequalityBetween(input1, input2, CreateInput, CreateExpression);
 
   public void InequalityWith(TInput input, AstCreator factory,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
@@ -72,6 +73,8 @@ internal class AstBaseChecks<TInput, TAst>
 
   protected virtual string InputString(TInput input)
     => $"( !{input} )";
+  protected virtual Func<TInput, TInput, bool> SameInput { get; }
+    = (input1, input2) => input1.ThrowIfNull().Equals(input2);
 }
 
 internal interface IAstBaseChecks<TInput>

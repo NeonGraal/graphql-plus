@@ -6,43 +6,47 @@ public partial class TypeArgAstTests
 {
   [CheckTests(Inherited = true)]
   internal ITypeArgAstChecks TypeArgChecks { get; } = new TypeArgAstChecks();
+
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; }
+    = new CloneChecks<string, TypeArgAst>(
+      CreateTypeArg,
+      (original, input) => original with { Name = input });
+
+  internal static TypeArgAst CreateTypeArg(string input)
+    => new(AstNulls.At, input, "");
 }
 
 internal sealed class TypeArgAstChecks()
-  : ObjEnumChecks<string, TypeArgAst>(CreateTypeArg)
+  : ObjEnumChecks<string, TypeArgAst>(TypeArgAstTests.CreateTypeArg)
   , ITypeArgAstChecks
 {
-  private static TypeArgAst CloneTypeArg(TypeArgAst original, string input)
-    => original with { Name = input };
-  internal static TypeArgAst CreateTypeArg(string input)
-    => new(AstNulls.At, input, "");
-
   public void HashCode_WithIsTypeParam(string input)
-      => HashCode(() => CreateTypeArg(input) with { IsTypeParam = true });
+      => HashCode(() => CreateInput(input) with { IsTypeParam = true });
 
   public void Text_WithIsTypeParam(string input)
     => Text(
-      () => CreateTypeArg(input) with { IsTypeParam = true },
+      () => CreateInput(input) with { IsTypeParam = true },
       $"( ${input} )");
 
   public void Equality_WithIsTypeParam(string input)
-    => Equality(() => CreateTypeArg(input) with { IsTypeParam = true });
+    => Equality(() => CreateInput(input) with { IsTypeParam = true });
 
   public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
     => InequalityBetween(isTypeParam1, !isTypeParam1,
-      isTypeParam => CreateTypeArg(input) with { IsTypeParam = isTypeParam },
+      isTypeParam => CreateInput(input) with { IsTypeParam = isTypeParam },
       false);
 
   public void FullType_WithDefault(string input)
   {
-    TypeArgAst objArg = CreateTypeArg(input);
+    TypeArgAst objArg = CreateInput(input);
 
     objArg.FullType.ShouldBe(input);
   }
 
   public void FullType_WithIsTypeParam(string input)
   {
-    IGqlpTypeArg objArg = CreateTypeArg(input) with { IsTypeParam = true };
+    IGqlpTypeArg objArg = CreateInput(input) with { IsTypeParam = true };
 
     objArg.FullType.ShouldBe("$" + input);
   }

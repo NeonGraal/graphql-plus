@@ -2,8 +2,7 @@
 
 namespace GqlPlus.Ast.Schema.Globals;
 
-public class DirectiveDeclAstTests
-  : AstAliasedBaseTests
+public partial class DirectiveDeclAstTests
 {
   [Theory, RepeatData]
   public void HashCode_WithOption(string name, DirectiveOption option)
@@ -73,20 +72,25 @@ public class DirectiveDeclAstTests
 
   private readonly DirectiveAstChecks _checks = new();
 
-  internal override IAstAliasedChecks<string> AliasedChecks => _checks;
+  [CheckTests(Inherited = true)]
+  internal IAstAliasedChecks<string> AliasedChecks => _checks;
 
-  protected override Func<string, string, bool> SameInput
-    => (name1, name2) => name1.Camelize() == name2.Camelize();
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; }
+    = new CloneChecks<string, DirectiveDeclAst>(
+      CreateDirective,
+      (original, input) => original with { Name = input });
+
+  internal static DirectiveDeclAst CreateDirective(string input)
+    => new(AstNulls.At, input);
 }
 
 internal sealed class DirectiveAstChecks()
-  : AstAliasedChecks<DirectiveDeclAst>(CreateDirective)
+  : AstAliasedChecks<DirectiveDeclAst>(DirectiveDeclAstTests.CreateDirective)
 {
   protected override string AliasesString(string input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} (Unique) None )";
 
-  private static DirectiveDeclAst CloneDirective(DirectiveDeclAst original, string input)
-    => original with { Name = input };
-  private static DirectiveDeclAst CreateDirective(string input)
-    => new(AstNulls.At, input);
+  protected override Func<string, string, bool> SameInput
+    => (name1, name2) => name1.Camelize() == name2.Camelize();
 }

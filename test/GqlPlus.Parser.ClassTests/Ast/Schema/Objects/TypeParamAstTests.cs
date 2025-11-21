@@ -1,7 +1,6 @@
 ﻿namespace GqlPlus.Ast.Schema.Objects;
 
-public class TypeParamAstTests
-  : AstAbbreviatedBaseTests
+public partial class TypeParamAstTests
 {
   [Theory, RepeatData]
   public void HashCode_WithConstraint(string name, string constraint)
@@ -26,17 +25,22 @@ public class TypeParamAstTests
 
   private readonly TypeParamAstChecks _checks = new();
 
-  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
+  [CheckTests(Inherited = true)]
+  internal IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
+
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; }
+    = new CloneChecks<string, TypeParamAst>(
+      CreateTypeParam,
+      (original, input) => original with { Name = input });
+
+  internal static TypeParamAst CreateTypeParam(string input)
+    => new(AstNulls.At, input);
 }
 
 internal sealed class TypeParamAstChecks()
-  : AstAbbreviatedChecks<TypeParamAst>(CreateTypeParam)
+  : AstAbbreviatedChecks<TypeParamAst>(TypeParamAstTests.CreateTypeParam)
 {
   protected override string AbbreviatedString(string input)
     => $"( ${input} )";
-
-  private static TypeParamAst CloneTypeParam(TypeParamAst original, string input)
-    => original with { Name = input };
-  private static TypeParamAst CreateTypeParam(string input)
-    => new(AstNulls.At, input);
 }

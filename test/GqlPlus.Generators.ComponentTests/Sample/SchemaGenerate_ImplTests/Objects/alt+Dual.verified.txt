@@ -1,0 +1,25 @@
+﻿/* alt+Dual
+dual AltDual { | AltAltDual }
+dual AltAltDual { alt: Number | String }
+*/
+
+// Generated from Schema alt+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_alt_Dual;
+
+public class CmptAltDual
+  : ICmptAltDual
+{
+  public CmptAltAltDual AsAltAltDual { get; set; }
+  public CmptAltDual AltDual { get; set; }
+}
+
+public class CmptAltAltDual
+  : ICmptAltAltDual
+{
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltAltDual AltAltDual { get; set; }
+}

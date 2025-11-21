@@ -95,7 +95,6 @@ internal abstract class DeclarationParser<TDefinition, TResult>(
 ) : DeclarationParser<NullAst, TDefinition, TResult>(name, param, aliases, option, definition)
 { }
 
-
 internal record class AstPartial<TParam, TOption>(
   ITokenAt At,
   string Name,

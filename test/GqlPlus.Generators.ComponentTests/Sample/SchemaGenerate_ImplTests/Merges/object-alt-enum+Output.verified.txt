@@ -1,0 +1,18 @@
+﻿/* object-alt-enum+Output
+output ObjAltEnumOutp { ! true }
+output ObjAltEnumOutp { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Output for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_object_alt_enum_Output;
+
+public class CmptObjAltEnumOutp
+  : ICmptObjAltEnumOutp
+{
+  public CmptBoolean AsBooleantrue { get; set; }
+  public CmptBoolean AsBooleanfalse { get; set; }
+  public CmptObjAltEnumOutp ObjAltEnumOutp { get; set; }
+}

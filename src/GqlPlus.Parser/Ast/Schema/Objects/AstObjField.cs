@@ -31,7 +31,6 @@ internal abstract record class AstObjField(
 
   public string ModifiedType => Type.GetFields().Skip(2).Concat(Modifiers.AsString()).Joined();
 
-
   public virtual bool Equals(AstObjField? other)
     => other is IGqlpObjField field && Equals(field);
   public bool Equals(IGqlpObjField? other)

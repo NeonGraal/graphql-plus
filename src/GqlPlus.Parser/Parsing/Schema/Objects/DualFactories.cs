@@ -4,7 +4,6 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-
 internal sealed class DualFactories
   : IObjectFactories<IGqlpDualField, DualFieldAst>
 {

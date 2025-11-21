@@ -1,0 +1,26 @@
+﻿/* parent-field+Dual
+dual PrntFieldDual { :RefPrntFieldDual field: Number }
+dual RefPrntFieldDual { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_parent_field_Dual;
+
+public class CmptPrntFieldDual
+  : CmptRefPrntFieldDual
+  , ICmptPrntFieldDual
+{
+  public CmptNumber field { get; set; }
+  public CmptPrntFieldDual PrntFieldDual { get; set; }
+}
+
+public class CmptRefPrntFieldDual
+  : ICmptRefPrntFieldDual
+{
+  public CmptNumber parent { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptRefPrntFieldDual RefPrntFieldDual { get; set; }
+}

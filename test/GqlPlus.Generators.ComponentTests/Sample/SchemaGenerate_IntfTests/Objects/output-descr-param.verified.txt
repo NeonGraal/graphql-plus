@@ -1,0 +1,41 @@
+﻿/* output-descr-param
+output OutpDescrParam { "Test" "Descr" field(InOutpDescrParam): FldOutpDescrParam }
+dual FldOutpDescrParam { }
+input InOutpDescrParam { param: Number | String }
+*/
+
+// Generated from Schema output-descr-param for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_output_descr_param;
+
+public interface ICmptOutpDescrParam
+{
+  public CmptOutpDescrParam OutpDescrParam { get; set; }
+}
+
+public interface ICmptOutpDescrParamField
+{
+  public CmptFldOutpDescrParam field { get; set; }
+}
+
+public interface ICmptFldOutpDescrParam
+{
+  public CmptFldOutpDescrParam FldOutpDescrParam { get; set; }
+}
+
+public interface ICmptFldOutpDescrParamField
+{
+}
+
+public interface ICmptInOutpDescrParam
+{
+  public CmptString AsString { get; set; }
+  public CmptInOutpDescrParam InOutpDescrParam { get; set; }
+}
+
+public interface ICmptInOutpDescrParamField
+{
+  public CmptNumber param { get; set; }
+}

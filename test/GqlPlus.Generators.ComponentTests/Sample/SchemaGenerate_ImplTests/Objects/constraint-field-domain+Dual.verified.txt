@@ -1,0 +1,31 @@
+﻿/* constraint-field-domain+Dual
+dual CnstFieldDmnDual { :RefCnstFieldDmnDual<DomCnstFieldDmnDual> }
+dual RefCnstFieldDmnDual<$ref:String> { field: $ref }
+domain DomCnstFieldDmnDual { String /\w+/ }
+*/
+
+// Generated from Schema constraint-field-domain+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_field_domain_Dual;
+
+public class CmptCnstFieldDmnDual
+  : CmptRefCnstFieldDmnDual
+  , ICmptCnstFieldDmnDual
+{
+  public CmptCnstFieldDmnDual CnstFieldDmnDual { get; set; }
+}
+
+public class CmptRefCnstFieldDmnDual<Tref>
+  : ICmptRefCnstFieldDmnDual<Tref>
+{
+  public Tref field { get; set; }
+  public CmptRefCnstFieldDmnDual RefCnstFieldDmnDual { get; set; }
+}
+
+public class CmptDomCnstFieldDmnDual
+  : DomainString
+  , ICmptDomCnstFieldDmnDual
+{
+}

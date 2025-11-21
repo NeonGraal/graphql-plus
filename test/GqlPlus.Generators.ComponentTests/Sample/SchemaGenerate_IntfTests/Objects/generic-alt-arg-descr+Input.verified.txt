@@ -1,0 +1,30 @@
+﻿/* generic-alt-arg-descr+Input
+input GnrcAltArgDescrInp<$type:String> { | RefGnrcAltArgDescrInp<"Test" "Descr"$type> }
+input RefGnrcAltArgDescrInp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-arg-descr+Input for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_alt_arg_descr_Input;
+
+public interface ICmptGnrcAltArgDescrInp<Ttype>
+{
+  public CmptRefGnrcAltArgDescrInp<Ttype> AsRefGnrcAltArgDescrInp { get; set; }
+  public CmptGnrcAltArgDescrInp GnrcAltArgDescrInp { get; set; }
+}
+
+public interface ICmptGnrcAltArgDescrInpField<Ttype>
+{
+}
+
+public interface ICmptRefGnrcAltArgDescrInp<Tref>
+{
+  public Tref Asref { get; set; }
+  public CmptRefGnrcAltArgDescrInp RefGnrcAltArgDescrInp { get; set; }
+}
+
+public interface ICmptRefGnrcAltArgDescrInpField<Tref>
+{
+}

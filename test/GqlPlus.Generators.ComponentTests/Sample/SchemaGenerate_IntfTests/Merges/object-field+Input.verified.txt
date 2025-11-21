@@ -1,0 +1,30 @@
+﻿/* object-field+Input
+input ObjFieldInp { field: FldObjFieldInp }
+input ObjFieldInp { field: FldObjFieldInp }
+input FldObjFieldInp { }
+*/
+
+// Generated from Schema object-field+Input for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_object_field_Input;
+
+public interface ICmptObjFieldInp
+{
+  public CmptObjFieldInp ObjFieldInp { get; set; }
+}
+
+public interface ICmptObjFieldInpField
+{
+  public CmptFldObjFieldInp field { get; set; }
+}
+
+public interface ICmptFldObjFieldInp
+{
+  public CmptFldObjFieldInp FldObjFieldInp { get; set; }
+}
+
+public interface ICmptFldObjFieldInpField
+{
+}

@@ -1,0 +1,25 @@
+﻿/* alt+Input
+input AltInp { | AltAltInp }
+input AltAltInp { alt: Number | String }
+*/
+
+// Generated from Schema alt+Input for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_alt_Input;
+
+public class CmptAltInp
+  : ICmptAltInp
+{
+  public CmptAltAltInp AsAltAltInp { get; set; }
+  public CmptAltInp AltInp { get; set; }
+}
+
+public class CmptAltAltInp
+  : ICmptAltAltInp
+{
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltAltInp AltAltInp { get; set; }
+}

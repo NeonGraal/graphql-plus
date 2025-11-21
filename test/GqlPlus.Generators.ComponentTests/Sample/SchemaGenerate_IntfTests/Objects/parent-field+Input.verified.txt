@@ -1,0 +1,33 @@
+﻿/* parent-field+Input
+input PrntFieldInp { :RefPrntFieldInp field: Number }
+input RefPrntFieldInp { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Input for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_parent_field_Input;
+
+public interface ICmptPrntFieldInp
+  : ICmptRefPrntFieldInp
+{
+  public CmptPrntFieldInp PrntFieldInp { get; set; }
+}
+
+public interface ICmptPrntFieldInpField
+  : ICmptRefPrntFieldInpField
+{
+  public CmptNumber field { get; set; }
+}
+
+public interface ICmptRefPrntFieldInp
+{
+  public CmptString AsString { get; set; }
+  public CmptRefPrntFieldInp RefPrntFieldInp { get; set; }
+}
+
+public interface ICmptRefPrntFieldInpField
+{
+  public CmptNumber parent { get; set; }
+}

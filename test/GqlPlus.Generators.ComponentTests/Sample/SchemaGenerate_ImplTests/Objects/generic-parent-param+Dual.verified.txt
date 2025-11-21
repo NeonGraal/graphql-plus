@@ -1,0 +1,33 @@
+﻿/* generic-parent-param+Dual
+dual GnrcPrntParamDual { :RefGnrcPrntParamDual<AltGnrcPrntParamDual> }
+dual RefGnrcPrntParamDual<$ref:_Dual> { | $ref }
+dual AltGnrcPrntParamDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-param+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_parent_param_Dual;
+
+public class CmptGnrcPrntParamDual
+  : CmptRefGnrcPrntParamDual
+  , ICmptGnrcPrntParamDual
+{
+  public CmptGnrcPrntParamDual GnrcPrntParamDual { get; set; }
+}
+
+public class CmptRefGnrcPrntParamDual<Tref>
+  : ICmptRefGnrcPrntParamDual<Tref>
+{
+  public Tref Asref { get; set; }
+  public CmptRefGnrcPrntParamDual RefGnrcPrntParamDual { get; set; }
+}
+
+public class CmptAltGnrcPrntParamDual
+  : ICmptAltGnrcPrntParamDual
+{
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcPrntParamDual AltGnrcPrntParamDual { get; set; }
+}

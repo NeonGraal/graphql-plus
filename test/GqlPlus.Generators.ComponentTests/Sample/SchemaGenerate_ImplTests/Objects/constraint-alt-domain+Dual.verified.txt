@@ -1,0 +1,31 @@
+﻿/* constraint-alt-domain+Dual
+dual CnstAltDmnDual { | RefCnstAltDmnDual<DomCnstAltDmnDual> }
+dual RefCnstAltDmnDual<$ref:String> { | $ref }
+domain DomCnstAltDmnDual { String /\w+/ }
+*/
+
+// Generated from Schema constraint-alt-domain+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
+
+public class CmptCnstAltDmnDual
+  : ICmptCnstAltDmnDual
+{
+  public CmptRefCnstAltDmnDual<CmptDomCnstAltDmnDual> AsRefCnstAltDmnDual { get; set; }
+  public CmptCnstAltDmnDual CnstAltDmnDual { get; set; }
+}
+
+public class CmptRefCnstAltDmnDual<Tref>
+  : ICmptRefCnstAltDmnDual<Tref>
+{
+  public Tref Asref { get; set; }
+  public CmptRefCnstAltDmnDual RefCnstAltDmnDual { get; set; }
+}
+
+public class CmptDomCnstAltDmnDual
+  : DomainString
+  , ICmptDomCnstAltDmnDual
+{
+}

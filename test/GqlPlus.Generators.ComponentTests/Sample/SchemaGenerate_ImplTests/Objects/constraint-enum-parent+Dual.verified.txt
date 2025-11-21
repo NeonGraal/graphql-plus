@@ -1,0 +1,26 @@
+﻿/* constraint-enum-parent+Dual
+dual CnstEnumPrntDual { | RefCnstEnumPrntDual<cnstEnumPrntDual> }
+dual RefCnstEnumPrntDual<$type:ParentCnstEnumPrntDual> { field: $type }
+enum EnumCnstEnumPrntDual { :ParentCnstEnumPrntDual cnstEnumPrntDual }
+enum ParentCnstEnumPrntDual { parentCnstEnumPrntDual }
+*/
+
+// Generated from Schema constraint-enum-parent+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_enum_parent_Dual;
+
+public class CmptCnstEnumPrntDual
+  : ICmptCnstEnumPrntDual
+{
+  public CmptRefCnstEnumPrntDual<CmptEnumCnstEnumPrntDual> AsRefCnstEnumPrntDual { get; set; }
+  public CmptCnstEnumPrntDual CnstEnumPrntDual { get; set; }
+}
+
+public class CmptRefCnstEnumPrntDual<Ttype>
+  : ICmptRefCnstEnumPrntDual<Ttype>
+{
+  public Ttype field { get; set; }
+  public CmptRefCnstEnumPrntDual RefCnstEnumPrntDual { get; set; }
+}

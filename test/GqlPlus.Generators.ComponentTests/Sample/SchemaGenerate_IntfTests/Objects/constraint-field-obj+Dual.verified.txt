@@ -1,0 +1,55 @@
+﻿/* constraint-field-obj+Dual
+dual CnstFieldObjDual { :RefCnstFieldObjDual<AltCnstFieldObjDual> }
+dual RefCnstFieldObjDual<$ref:PrntCnstFieldObjDual> { field: $ref }
+dual PrntCnstFieldObjDual { | String }
+dual AltCnstFieldObjDual { :PrntCnstFieldObjDual alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_field_obj_Dual;
+
+public interface ICmptCnstFieldObjDual
+  : ICmptRefCnstFieldObjDual
+{
+  public CmptCnstFieldObjDual CnstFieldObjDual { get; set; }
+}
+
+public interface ICmptCnstFieldObjDualField
+  : ICmptRefCnstFieldObjDualField
+{
+}
+
+public interface ICmptRefCnstFieldObjDual<Tref>
+{
+  public CmptRefCnstFieldObjDual RefCnstFieldObjDual { get; set; }
+}
+
+public interface ICmptRefCnstFieldObjDualField<Tref>
+{
+  public Tref field { get; set; }
+}
+
+public interface ICmptPrntCnstFieldObjDual
+{
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstFieldObjDual PrntCnstFieldObjDual { get; set; }
+}
+
+public interface ICmptPrntCnstFieldObjDualField
+{
+}
+
+public interface ICmptAltCnstFieldObjDual
+  : ICmptPrntCnstFieldObjDual
+{
+  public CmptAltCnstFieldObjDual AltCnstFieldObjDual { get; set; }
+}
+
+public interface ICmptAltCnstFieldObjDualField
+  : ICmptPrntCnstFieldObjDualField
+{
+  public CmptNumber alt { get; set; }
+}

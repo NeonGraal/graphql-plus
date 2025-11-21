@@ -1,0 +1,41 @@
+﻿/* constraint-alt-dual+Dual
+dual CnstAltDualDual { | RefCnstAltDualDual<AltCnstAltDualDual> }
+dual RefCnstAltDualDual<$ref:PrntCnstAltDualDual> { | $ref }
+dual PrntCnstAltDualDual { | String }
+dual AltCnstAltDualDual { :PrntCnstAltDualDual alt: Number }
+*/
+
+// Generated from Schema constraint-alt-dual+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_alt_dual_Dual;
+
+public class CmptCnstAltDualDual
+  : ICmptCnstAltDualDual
+{
+  public CmptRefCnstAltDualDual<CmptAltCnstAltDualDual> AsRefCnstAltDualDual { get; set; }
+  public CmptCnstAltDualDual CnstAltDualDual { get; set; }
+}
+
+public class CmptRefCnstAltDualDual<Tref>
+  : ICmptRefCnstAltDualDual<Tref>
+{
+  public Tref Asref { get; set; }
+  public CmptRefCnstAltDualDual RefCnstAltDualDual { get; set; }
+}
+
+public class CmptPrntCnstAltDualDual
+  : ICmptPrntCnstAltDualDual
+{
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstAltDualDual PrntCnstAltDualDual { get; set; }
+}
+
+public class CmptAltCnstAltDualDual
+  : CmptPrntCnstAltDualDual
+  , ICmptAltCnstAltDualDual
+{
+  public CmptNumber alt { get; set; }
+  public CmptAltCnstAltDualDual AltCnstAltDualDual { get; set; }
+}

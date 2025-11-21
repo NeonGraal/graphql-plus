@@ -38,10 +38,10 @@ Success
     Boolean
     !OF I@009/0011
     locations
-    :
+    =
     I@020/0011
-    _
-    [_Location]
+    Unit
+    ._
   }
 }
 {

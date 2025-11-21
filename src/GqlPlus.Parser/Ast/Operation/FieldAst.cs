@@ -35,7 +35,7 @@ internal sealed record class FieldAst(
     => //base.GetFields()
       new[] { AbbrAt, FieldAlias.Suffixed(":"), Identifier }
       .Concat(Arg.Bracket("(", ")"))
-      .Append(string.Join("", Modifiers.AsString()))
+      .Concat(Modifiers.AsString())
       .Concat(Directives.AsString())
       .Concat(Selections.Bracket("{", "}"));
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class ParamAstTests : AstAbbreviatedTests
+public class ParamAstTests : AstAbbreviatedBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithModifiers(string name)
@@ -9,7 +9,7 @@ public class ParamAstTests : AstAbbreviatedTests
         () => new InputParamAst(AstNulls.At, name) { Modifiers = TestMods() });
 
   [Theory, RepeatData]
-  public void String_WithModifiers(string name)
+  public void Text_WithModifiers(string name)
     => _checks.Text(
       () => new InputParamAst(AstNulls.At, name) { Modifiers = TestMods() },
       $"( !Pa {name} [] ? )");
@@ -30,7 +30,7 @@ public class ParamAstTests : AstAbbreviatedTests
         () => new InputParamAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, def)) });
 
   [Theory, RepeatData]
-  public void String_WithDefault(string name, string def)
+  public void Text_WithDefault(string name, string def)
     => _checks.Text(
       () => new InputParamAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, def)) },
       $"( !Pa {name} =( !k '{def}' ) )");
@@ -47,7 +47,7 @@ public class ParamAstTests : AstAbbreviatedTests
       def1 == def2);
 
   private readonly AstAbbreviatedChecks<InputParamAst> _checks
-    = new(CreateInputParam, CloneInputParam);
+    = new(CreateInputParam);
 
   private static InputParamAst CloneInputParam(InputParamAst original, string input)
     => original with { Type = new ObjBaseAst(AstNulls.At, input, "") };

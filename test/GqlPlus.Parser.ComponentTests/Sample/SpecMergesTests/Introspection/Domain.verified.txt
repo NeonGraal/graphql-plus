@@ -78,9 +78,10 @@ Success
   {
     !DF I@009/0015
     exclude
-    :
+    =
     I@018/0015
-    Boolean
+    _DomainKind
+    .Boolean
   }
 }
 {
@@ -153,9 +154,10 @@ Success
   {
     !DF I@009/0038
     value
-    :
+    =
     I@016/0038
-    Boolean
+    _DomainKind
+    .Boolean
   }
 }
 {
@@ -203,16 +205,16 @@ Success
   {
     !DF I@009/0056
     lower
-    :
+    =
     I@016/0056
-    Number
-    ?
+    _DomainKind
+    .Number
     !DF I@009/0057
     upper
-    :
+    =
     I@016/0057
-    Number
-    ?
+    _DomainKind
+    .Number
   }
 }
 {
@@ -235,9 +237,10 @@ Success
   {
     !DF I@009/0066
     pattern
-    :
+    =
     I@018/0066
-    String
+    _DomainKind
+    .String
   }
 }
 {

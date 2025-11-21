@@ -77,11 +77,10 @@ Success
     []
     !IF I@009/0013
     matchAliases
-    :
+    =
     I@023/0013
-    Boolean
-    ?
-    =( !k I@034/0013 Boolean.true )
+    _DomainKind
+    .Boolean
     !IF I@009/0014
     aliases
     :
@@ -90,18 +89,16 @@ Success
     []
     !IF I@009/0015
     returnByAlias
-    :
+    =
     I@024/0015
-    Boolean
-    ?
-    =( !k I@035/0015 Boolean.false )
+    _DomainKind
+    .Boolean
     !IF I@009/0016
     returnReferencedTypes
-    :
+    =
     I@032/0016
-    Boolean
-    ?
-    =( !k I@043/0016 Boolean.false )
+    _DomainKind
+    .Boolean
   }
   |
   I@007/0017
@@ -181,10 +178,10 @@ Success
   {
     !DF I@009/0045
     description
-    :
+    =
     I@022/0045
-    String
-    []
+    _DomainKind
+    .String
   }
 }
 {
@@ -292,15 +289,16 @@ Success
     []
     !OF I@009/0078
     repeatable
-    :
+    =
     I@021/0078
-    Boolean
+    _DomainKind
+    .Boolean
     !OF I@009/0079
     locations
-    :
+    =
     I@020/0079
-    _
-    [_Location]
+    Unit
+    ._
   }
 }
 {
@@ -636,9 +634,10 @@ Success
     _TypeSimple
     !DF I@009/0145
     optional
-    :
+    =
     I@019/0145
-    Boolean
+    _DomainKind
+    .Boolean
   }
 }
 {
@@ -768,9 +767,10 @@ Success
   {
     !DF I@009/0173
     exclude
-    :
+    =
     I@018/0173
-    Boolean
+    _DomainKind
+    .Boolean
   }
 }
 {
@@ -843,9 +843,10 @@ Success
   {
     !DF I@009/0196
     value
-    :
+    =
     I@016/0196
-    Boolean
+    _DomainKind
+    .Boolean
   }
 }
 {
@@ -893,16 +894,16 @@ Success
   {
     !DF I@009/0214
     lower
-    :
+    =
     I@016/0214
-    Number
-    ?
+    _DomainKind
+    .Number
     !DF I@009/0215
     upper
-    :
+    =
     I@016/0215
-    Number
-    ?
+    _DomainKind
+    .Number
   }
 }
 {
@@ -925,9 +926,10 @@ Success
   {
     !DF I@009/0224
     pattern
-    :
+    =
     I@018/0224
-    String
+    _DomainKind
+    .String
   }
 }
 {

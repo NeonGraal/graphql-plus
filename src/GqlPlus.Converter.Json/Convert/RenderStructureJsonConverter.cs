@@ -7,7 +7,6 @@ internal sealed class RenderStructureJsonConverter
 {
   internal static RenderValueJsonConverter ValueConverter { get; } = new();
 
-  [ExcludeFromCodeCoverage]
   public override Structured? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
   public override void Write(Utf8JsonWriter writer, Structured value, JsonSerializerOptions options)
   {

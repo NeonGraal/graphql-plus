@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public abstract class AstDomainTests<TInput>
-  : AstTypeTests
+public abstract class AstDomainBaseTests<TInput>
+  : AstTypeBaseTests
   where TInput : IEquatable<TInput>
 {
   [Theory, RepeatData]
@@ -11,8 +11,8 @@ public abstract class AstDomainTests<TInput>
       => Checks.HashCode_WithItems(name, input);
 
   [Theory, RepeatData]
-  public void String_WithItems(string name, TInput input)
-    => Checks.String_WithItems(name, input);
+  public void Text_WithItems(string name, TInput input)
+    => Checks.Text_WithItems(name, input);
 
   [Theory, RepeatData]
   public void Equality_WithItems(string name, TInput input)
@@ -22,20 +22,14 @@ public abstract class AstDomainTests<TInput>
   public void Inequality_BetweenItems(string name, TInput input1, TInput input2)
     => Checks.Inequality_BetweenItems(name, input1, input2);
 
-  protected override string AliasesString(string input, string description, string aliases)
-    => $"( {DescriptionNameString(input, description)}{aliases} {Checks.Kind} )";
-
   internal abstract IAstDomainChecks<TInput> Checks { get; }
 
   internal override IAstTypeChecks TypeChecks => Checks;
-
-  protected override string ParentString(string name, string parent)
-    => $"( !{AliasedChecks.Abbr} {name} {Checks.Kind} :( !Tr {parent} ) )";
 }
 
 internal abstract class AstDomainChecks<TInput, TItemAst, TItem>(
   DomainKind kind
-) : AstTypeChecks<AstDomain<TItemAst, TItem>>(CreateDomain(kind), CloneDomain)
+) : AstTypeChecks<AstDomain<TItemAst, TItem>>(CreateDomain(kind))
   , IAstDomainChecks<TInput>
   where TInput : IEquatable<TInput>
   where TItemAst : AstAbbreviated, TItem
@@ -54,7 +48,7 @@ internal abstract class AstDomainChecks<TInput, TItemAst, TItem>(
       input => NewDomain(name, DomainItems(input)),
       SkipEquals(input1, input2));
 
-  public void String_WithItems(string name, TInput input)
+  public void Text_WithItems(string name, TInput input)
     => Text(
       () => NewDomain(name, DomainItems(input)),
       ItemsString(name, input));
@@ -65,6 +59,12 @@ internal abstract class AstDomainChecks<TInput, TItemAst, TItem>(
     => original with { Name = input };
   private static CreateBy<string> CreateDomain(DomainKind kind)
     => input => new(AstNulls.At, input, kind, []);
+
+  protected override string AliasesString(string input, string description, string aliases)
+    => $"( {DescriptionNameString(input, description)}{aliases} {Kind} )";
+
+  protected override string ParentString(string name, string parent)
+    => $"( !{Abbr} {name} {Kind} :( !Tr {parent} ) )";
 
   protected abstract string ItemsString(string name, TInput input);
   protected abstract TItemAst[] DomainItems(TInput input);
@@ -78,7 +78,7 @@ internal interface IAstDomainChecks<TInput>
   DomainKind Kind { get; }
 
   void HashCode_WithItems(string name, TInput input);
-  void String_WithItems(string name, TInput input);
+  void Text_WithItems(string name, TInput input);
   void Equality_WithItems(string name, TInput input);
   void Inequality_BetweenItems(string name, TInput input1, TInput input2);
 }

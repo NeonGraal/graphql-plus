@@ -2,7 +2,7 @@
 namespace GqlPlus.Ast.Schema.Simple;
 
 public class UnionAstTests
-  : AstTypeTests
+  : AstTypeBaseTests
 {
   [Theory, RepeatData]
   public void Inequality_BetweenParent(string name, string parent1, string parent2)
@@ -16,7 +16,7 @@ public class UnionAstTests
         () => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()));
 
   [Theory, RepeatData]
-  public void String_WithMembers(string name, string[] unionMembers)
+  public void Text_WithMembers(string name, string[] unionMembers)
     => _checks.Text(
       () => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()),
       $"( !Un {name} {unionMembers.Joined(s => "!UM " + s)} )");
@@ -43,7 +43,7 @@ public class UnionAstTests
       unionMembers1.SequenceEqual(unionMembers2));
 
   private readonly AstTypeChecks<UnionDeclAst> _checks
-    = new(CreateUnion, CloneUnion);
+    = new(CreateUnion);
 
   private static UnionDeclAst CloneUnion(UnionDeclAst original, string input)
     => original with { Name = input };

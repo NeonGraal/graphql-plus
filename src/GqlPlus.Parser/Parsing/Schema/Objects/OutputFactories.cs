@@ -4,7 +4,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-[ExcludeFromCodeCoverage]
+
 
 internal class OutputFactories
   : IObjectFactories<IGqlpOutputField, OutputFieldAst>

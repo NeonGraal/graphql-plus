@@ -1,7 +1,8 @@
 ﻿namespace GqlPlus.Abstractions.Operation;
 
 public interface IGqlpSelection
-  : IGqlpError, IGqlpDirectives
+  : IGqlpError
+  , IGqlpDirectives
 { }
 
 public interface IGqlpField

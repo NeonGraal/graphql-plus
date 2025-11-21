@@ -182,7 +182,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         },
         {
@@ -456,7 +456,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         },
         {
@@ -465,7 +465,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -475,7 +475,7 @@
           "name": "exclude",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -840,7 +840,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -877,7 +877,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -896,7 +896,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -1162,7 +1162,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -1181,7 +1181,7 @@
           "name": "description",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -1214,34 +1214,24 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "repeatable",
+          "field": "repeatable",
+          "label": "Boolean",
+          "name": "_DomainKind",
           "object": "_Directive",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "Boolean"
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "_Location",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Dict"
-              },
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
-              }
-            }
-          ],
-          "name": "locations",
+          "field": "locations",
+          "label": "_",
+          "name": "Unit",
           "object": "_Directive",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_"
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         }
       ],
@@ -1264,33 +1254,23 @@
           }
         },
         {
-          "$tag": "_OutputField",
-          "name": "repeatable",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "Boolean"
+          "$tag": "_OutputEnum",
+          "field": "repeatable",
+          "label": "Boolean",
+          "name": "_DomainKind",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         },
         {
-          "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "_Location",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Dict"
-              },
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
-              }
-            }
-          ],
-          "name": "locations",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_"
+          "$tag": "_OutputEnum",
+          "field": "locations",
+          "label": "_",
+          "name": "Unit",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         }
       ],
@@ -1644,7 +1624,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         },
         {
@@ -1653,7 +1633,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -1671,7 +1651,7 @@
           "object": "_DomainRange",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         },
         {
@@ -1689,7 +1669,7 @@
           "object": "_DomainRange",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -1708,7 +1688,7 @@
           "name": "lower",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         },
         {
@@ -1725,7 +1705,7 @@
           "name": "upper",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -1815,7 +1795,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         },
         {
@@ -1824,7 +1804,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -1833,7 +1813,7 @@
           "object": "_DomainRegex",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -1843,7 +1823,7 @@
           "name": "pattern",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -1875,7 +1855,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         },
         {
@@ -1884,7 +1864,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -1893,7 +1873,7 @@
           "object": "_DomainTrueFalse",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -1903,7 +1883,7 @@
           "name": "value",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -2057,7 +2037,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         },
         {
@@ -2217,7 +2197,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -2254,7 +2234,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -2273,7 +2253,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -2328,7 +2308,7 @@
           "name": "matchAliases",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -2363,7 +2343,7 @@
           "name": "returnByAlias",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -2381,7 +2361,7 @@
           "name": "returnReferencedTypes",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -2842,7 +2822,7 @@
           "object": "_ModifierKeyed",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -2860,7 +2840,7 @@
           "name": "optional",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -3030,7 +3010,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         },
         {
@@ -5066,7 +5046,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -5103,7 +5083,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -5122,7 +5102,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -5565,7 +5545,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         },
         {

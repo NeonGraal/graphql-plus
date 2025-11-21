@@ -19,10 +19,6 @@ internal sealed record class InlineAst(
 
   public bool Equals(InlineAst? other)
     => other is IGqlpInline inline && Equals(inline);
-  public bool Equals(IGqlpDirectives? other)
-    => other is IGqlpInline inline ? Equals(inline)
-      : base.Equals(other)
-        && Directives.SequenceEqual(other.Directives);
   public bool Equals(IGqlpInline? other)
     => base.Equals(other)
     && Directives.SequenceEqual(other.Directives)

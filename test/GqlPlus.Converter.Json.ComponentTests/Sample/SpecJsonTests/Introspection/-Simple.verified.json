@@ -183,7 +183,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -193,7 +193,7 @@
           "name": "exclude",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -541,7 +541,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -559,7 +559,7 @@
           "object": "_DomainRange",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         },
         {
@@ -577,7 +577,7 @@
           "object": "_DomainRange",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -596,7 +596,7 @@
           "name": "lower",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         },
         {
@@ -613,7 +613,7 @@
           "name": "upper",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -694,7 +694,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -703,7 +703,7 @@
           "object": "_DomainRegex",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -713,7 +713,7 @@
           "name": "pattern",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -736,7 +736,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -745,7 +745,7 @@
           "object": "_DomainTrueFalse",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -755,7 +755,7 @@
           "name": "value",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         }
       ],

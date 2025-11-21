@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Ast;
 
-public class EnumValueAstTests : AstAbbreviatedTests
+public partial class EnumValueAstTests
 {
   [Theory, RepeatData]
   public void HashCode_WithLabel(string enumLabel)
@@ -11,13 +11,13 @@ public class EnumValueAstTests : AstAbbreviatedTests
     => _checks.HashCode(() => CreateEnumValue(enumType, enumLabel));
 
   [Theory, RepeatData]
-  public void String_WithLabel(string enumLabel)
+  public void Text_WithLabel(string enumLabel)
     => _checks.Text(
       () => CreateEnumValue(enumLabel),
       $"( !e {enumLabel} )");
 
   [Theory, RepeatData]
-  public void String_WithTypeAndLabel(string enumType, string enumLabel)
+  public void Text_WithTypeAndLabel(string enumType, string enumLabel)
     => _checks.Text(
       () => CreateEnumValue(enumType, enumLabel),
       $"( !e {enumType}.{enumLabel} )");
@@ -165,12 +165,17 @@ public class EnumValueAstTests : AstAbbreviatedTests
     enumValue1.Equals((IGqlpEnumValue)enumValue2).ShouldBeFalse();
   }
 
-  internal AstAbbreviatedChecks<string, EnumValueAst> _checks = new(CreateEnumValue, CloneEnumValue);
+  internal AstAbbreviatedChecks<string, EnumValueAst> _checks
+    = new(CreateEnumValue);
 
-  private static EnumValueAst CloneEnumValue(EnumValueAst original, string input)
-    => original with { Label = input };
+  [CheckTests]
+  internal IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 
-  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; }
+    = new CloneChecks<string, EnumValueAst>(
+      CreateEnumValue,
+      (original, input) => original with { Label = input });
 
   private static EnumValueAst CreateEnumValue(string enumLabel)
     => new(AstNulls.At, enumLabel);

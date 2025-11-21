@@ -45,9 +45,10 @@ internal sealed record class OperationAst(
     => other is IGqlpOperation operation && Equals(operation);
   public bool Equals(IGqlpOperation other)
     => base.Equals(other)
-    && Result == other.Result;
+    && Result == other.Result
+    && Modifiers.SequenceEqual(other.Modifiers);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Result);
+    => HashCode.Combine(base.GetHashCode(), Result, Modifiers.Length);
 
   internal override IEnumerable<string?> GetFields()
     => // base.GetFields()
@@ -58,6 +59,6 @@ internal sealed record class OperationAst(
       .Append(ResultType)
       .Concat(Arg.Bracket("(", ")"))
       .Concat(ResultObject.Bracket("{", "}"))
-      .Append(Modifiers.AsString().Joined(""))
+      .Concat(Modifiers.AsString())
       .Concat(Fragments.Bracket());
 }

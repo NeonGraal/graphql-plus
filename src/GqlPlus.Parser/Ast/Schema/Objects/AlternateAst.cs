@@ -14,8 +14,6 @@ internal record class AlternateAst(
 
   public IGqlpEnumValue? EnumValue { get; set; }
 
-  public string ModifiedType => GetFields().Skip(2).Joined();
-
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
   string IGqlpObjEnum.EnumTypeName => IsTypeParam ? "" : Name;
@@ -30,7 +28,7 @@ internal record class AlternateAst(
     Name = enumType;
   }
 
-  [ExcludeFromCodeCoverage]
+  
   public virtual bool Equals(AlternateAst? other)
     => other is IGqlpAlternate alternate && Equals(alternate);
   public bool Equals(IGqlpAlternate? other)

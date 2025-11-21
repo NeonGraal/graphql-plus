@@ -4,8 +4,6 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-[ExcludeFromCodeCoverage]
-
 internal sealed class InputFactories
   : IObjectFactories<IGqlpInputField, InputFieldAst>
 {

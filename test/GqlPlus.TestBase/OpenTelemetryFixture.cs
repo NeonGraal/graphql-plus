@@ -7,7 +7,6 @@ using Xunit;
 
 namespace GqlPlus;
 
-[ExcludeFromCodeCoverage]
 public sealed class OpenTelemetryFixture : IDisposable, IAsyncLifetime
 {
   public static readonly ActivitySource ActivitySource = new(TracerName);

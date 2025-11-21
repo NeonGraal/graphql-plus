@@ -2,22 +2,29 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class InputParamAstTests
-  : InputFieldTypeTests<TypeInput>
+public partial class InputParamAstTests
 {
-  internal override InputParamAstChecks InputFieldChecks { get; }
-    = new(CreateInput, CloneInput);
+  [CheckTests(Inherited = true)]
+  internal IInputFieldTypeChecks<TypeInput> FieldTypeChecks { get; }
+    = new InputParamAstChecks();
 
-  private static InputParamAst CloneInput(InputParamAst original, TypeInput input)
-    => original with { Type = new ObjBaseAst(AstNulls.At, input.Type, "") };
-  private static InputParamAst CreateInput(TypeInput input, IGqlpObjBase objBase)
+  [CheckTests]
+  internal IModifiersChecks<TypeInput> ModifiersChecks { get; }
+    = new ObjFieldModifiersChecks<TypeInput, InputParamAst>(
+      CreateInput,
+      ast => ast with { Modifiers = TestMods() });
+
+  [CheckTests]
+  internal ICloneChecks<TypeInput> CloneChecks { get; } = new ObjFieldCloneChecks<TypeInput, InputParamAst>(
+    CreateInput,
+    (original, input) => original with { Type = ObjFieldTypeChecks<TypeInput, InputParamAst>.CreateBase(input) });
+
+  internal static InputParamAst CreateInput(TypeInput input, IGqlpObjBase objBase)
     => new(AstNulls.At, objBase);
 }
 
-internal sealed class InputParamAstChecks(
-  ObjFieldTypeChecks<TypeInput, InputParamAst>.TypeBy createType,
-  BaseAstChecks<InputParamAst>.CloneBy<TypeInput> cloneInput
-) : InputFieldTypeChecks<TypeInput, InputParamAst>(createType, cloneInput)
+internal sealed class InputParamAstChecks()
+  : InputFieldTypeChecks<TypeInput, InputParamAst>(InputParamAstTests.CreateInput)
 {
   protected override InputParamAst CreateEnum(TypeInput input, string enumLabel)
     => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) };

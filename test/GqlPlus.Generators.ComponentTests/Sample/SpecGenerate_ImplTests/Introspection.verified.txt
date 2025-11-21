@@ -371,10 +371,10 @@ public class Cmpt_Filter
   : ICmpt_Filter
 {
   public ICollection<Cmpt_NameFilter> names { get; set; }
-  public CmptBoolean? matchAliases { get; set; }
+  public Cmpt_DomainKind? matchAliases { get; set; }
   public ICollection<Cmpt_NameFilter> aliases { get; set; }
-  public CmptBoolean? returnByAlias { get; set; }
-  public CmptBoolean? returnReferencedTypes { get; set; }
+  public Cmpt_DomainKind? returnByAlias { get; set; }
+  public Cmpt_DomainKind? returnReferencedTypes { get; set; }
   public ICollection<Cmpt_NameFilter> As_NameFilter { get; set; }
   public Cmpt_Filter _Filter { get; set; }
 }
@@ -420,7 +420,7 @@ public class Cmpt_Named
 public class Cmpt_Described
   : ICmpt_Described
 {
-  public ICollection<CmptString> description { get; set; }
+  public ICollection<Cmpt_DomainKind> description { get; set; }
   public Cmpt_Described _Described { get; set; }
 }
 
@@ -466,7 +466,7 @@ public class Cmpt_Directive
   , ICmpt_Directive
 {
   public ICollection<Cmpt_InputParam> parameters { get; set; }
-  public CmptBoolean repeatable { get; set; }
+  public Cmpt_DomainKind repeatable { get; set; }
   public IDictionary<Cmpt_Location, CmptUnit> locations { get; set; }
   public Cmpt_Directive _Directive { get; set; }
 }
@@ -553,7 +553,7 @@ public class Cmpt_ModifierKeyed<Tkind>
   , ICmpt_ModifierKeyed<Tkind>
 {
   public Cmpt_TypeSimple by { get; set; }
-  public CmptBoolean optional { get; set; }
+  public Cmpt_DomainKind optional { get; set; }
   public Cmpt_ModifierKeyed _ModifierKeyed { get; set; }
 }
 
@@ -592,7 +592,7 @@ public class Cmpt_BaseDomainItem
   : Cmpt_Described
   , ICmpt_BaseDomainItem
 {
-  public CmptBoolean exclude { get; set; }
+  public Cmpt_DomainKind exclude { get; set; }
   public Cmpt_BaseDomainItem _BaseDomainItem { get; set; }
 }
 
@@ -627,7 +627,7 @@ public class Cmpt_DomainTrueFalse
   : Cmpt_BaseDomainItem
   , ICmpt_DomainTrueFalse
 {
-  public CmptBoolean value { get; set; }
+  public Cmpt_DomainKind value { get; set; }
   public Cmpt_DomainTrueFalse _DomainTrueFalse { get; set; }
 }
 
@@ -657,8 +657,8 @@ public class Cmpt_DomainRange
   : Cmpt_BaseDomainItem
   , ICmpt_DomainRange
 {
-  public CmptNumber? lower { get; set; }
-  public CmptNumber? upper { get; set; }
+  public Cmpt_DomainKind? lower { get; set; }
+  public Cmpt_DomainKind? upper { get; set; }
   public Cmpt_DomainRange _DomainRange { get; set; }
 }
 
@@ -673,7 +673,7 @@ public class Cmpt_DomainRegex
   : Cmpt_BaseDomainItem
   , ICmpt_DomainRegex
 {
-  public CmptString pattern { get; set; }
+  public Cmpt_DomainKind pattern { get; set; }
   public Cmpt_DomainRegex _DomainRegex { get; set; }
 }
 

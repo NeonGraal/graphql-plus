@@ -25,7 +25,7 @@ public class test_BaseDomainItem
   : test_Described
   , Itest_BaseDomainItem
 {
-  public testBoolean exclude { get; set; }
+  public test_DomainKind exclude { get; set; }
   public test_BaseDomainItem _BaseDomainItem { get; set; }
 }
 
@@ -60,7 +60,7 @@ public class test_DomainTrueFalse
   : test_BaseDomainItem
   , Itest_DomainTrueFalse
 {
-  public testBoolean value { get; set; }
+  public test_DomainKind value { get; set; }
   public test_DomainTrueFalse _DomainTrueFalse { get; set; }
 }
 
@@ -90,8 +90,8 @@ public class test_DomainRange
   : test_BaseDomainItem
   , Itest_DomainRange
 {
-  public testNumber? lower { get; set; }
-  public testNumber? upper { get; set; }
+  public test_DomainKind? lower { get; set; }
+  public test_DomainKind? upper { get; set; }
   public test_DomainRange _DomainRange { get; set; }
 }
 
@@ -106,7 +106,7 @@ public class test_DomainRegex
   : test_BaseDomainItem
   , Itest_DomainRegex
 {
-  public testString pattern { get; set; }
+  public test_DomainKind pattern { get; set; }
   public test_DomainRegex _DomainRegex { get; set; }
 }
 

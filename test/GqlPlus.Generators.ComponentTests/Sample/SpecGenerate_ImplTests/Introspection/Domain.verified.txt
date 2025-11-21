@@ -98,7 +98,7 @@ public class Cmpt_BaseDomainItem
   : Cmpt_Described
   , ICmpt_BaseDomainItem
 {
-  public CmptBoolean exclude { get; set; }
+  public Cmpt_DomainKind exclude { get; set; }
   public Cmpt_BaseDomainItem _BaseDomainItem { get; set; }
 }
 
@@ -133,7 +133,7 @@ public class Cmpt_DomainTrueFalse
   : Cmpt_BaseDomainItem
   , ICmpt_DomainTrueFalse
 {
-  public CmptBoolean value { get; set; }
+  public Cmpt_DomainKind value { get; set; }
   public Cmpt_DomainTrueFalse _DomainTrueFalse { get; set; }
 }
 
@@ -163,8 +163,8 @@ public class Cmpt_DomainRange
   : Cmpt_BaseDomainItem
   , ICmpt_DomainRange
 {
-  public CmptNumber? lower { get; set; }
-  public CmptNumber? upper { get; set; }
+  public Cmpt_DomainKind? lower { get; set; }
+  public Cmpt_DomainKind? upper { get; set; }
   public Cmpt_DomainRange _DomainRange { get; set; }
 }
 
@@ -179,7 +179,7 @@ public class Cmpt_DomainRegex
   : Cmpt_BaseDomainItem
   , ICmpt_DomainRegex
 {
-  public CmptString pattern { get; set; }
+  public Cmpt_DomainKind pattern { get; set; }
   public Cmpt_DomainRegex _DomainRegex { get; set; }
 }
 

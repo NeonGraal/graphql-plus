@@ -38,7 +38,7 @@ public interface Itest_BaseDomainItem
 public interface Itest_BaseDomainItemField
   : Itest_DescribedField
 {
-  public testBoolean exclude { get; set; }
+  public test_DomainKind exclude { get; set; }
 }
 
 public interface Itest_DomainItem<Titem>
@@ -88,7 +88,7 @@ public interface Itest_DomainTrueFalse
 public interface Itest_DomainTrueFalseField
   : Itest_BaseDomainItemField
 {
-  public testBoolean value { get; set; }
+  public test_DomainKind value { get; set; }
 }
 
 public interface Itest_DomainItemTrueFalse
@@ -134,8 +134,8 @@ public interface Itest_DomainRange
 public interface Itest_DomainRangeField
   : Itest_BaseDomainItemField
 {
-  public testNumber? lower { get; set; }
-  public testNumber? upper { get; set; }
+  public test_DomainKind? lower { get; set; }
+  public test_DomainKind? upper { get; set; }
 }
 
 public interface Itest_DomainItemRange
@@ -158,7 +158,7 @@ public interface Itest_DomainRegex
 public interface Itest_DomainRegexField
   : Itest_BaseDomainItemField
 {
-  public testString pattern { get; set; }
+  public test_DomainKind pattern { get; set; }
 }
 
 public interface Itest_DomainItemRegex

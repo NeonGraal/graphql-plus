@@ -3,7 +3,6 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Operation;
 
-[ExcludeFromCodeCoverage]
 public class OperationContext
   : Tokenizer
   , IOperationContext

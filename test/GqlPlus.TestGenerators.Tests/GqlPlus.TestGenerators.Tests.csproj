@@ -9,8 +9,35 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GqlPlus.Generators.ComponentTestBase\GqlPlus.Generators.ComponentTestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj" />
     <ProjectReference Include="..\GqlPlus.TestGenerators\GqlPlus.TestGenerators.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CheckTestsGeneratorTests.SubDirectoryAdditionalFiles#MoreData.gen.verified.cs">
+      <DependentUpon>CheckTestsGeneratorTests.cs</DependentUpon>
+    </None>
+    <None Update="CheckTestsGeneratorTests.SubDirectoryAdditionalFiles#FilesData.gen.verified.cs">
+      <DependentUpon>CheckTestsGeneratorTests.cs</DependentUpon>
+    </None>
+    <None Update="CheckTestsGeneratorTests.ManyFiles#TopData.gen.verified.cs">
+      <DependentUpon>CheckTestsGeneratorTests.cs</DependentUpon>
+    </None>
+    <None Update="CheckTestsGeneratorTests.ManyFiles#RightData.gen.verified.cs">
+      <DependentUpon>CheckTestsGeneratorTests.cs</DependentUpon>
+    </None>
+    <None Update="CheckTestsGeneratorTests.ManyFiles#LeftData.gen.verified.cs">
+      <DependentUpon>CheckTestsGeneratorTests.cs</DependentUpon>
+    </None>
+    <None Update="CheckTestsGeneratorTests.ManyFiles#CentreData.gen.verified.cs">
+      <DependentUpon>CheckTestsGeneratorTests.cs</DependentUpon>
+    </None>
+    <None Update="CheckTestsGeneratorTests.ManyFiles#BottomData.gen.verified.cs">
+      <DependentUpon>CheckTestsGeneratorTests.cs</DependentUpon>
+    </None>
+    <None Update="CheckTestsGeneratorTests.IgnoresIncorrectAdditionalFiles#FilesData.gen.verified.cs">
+      <DependentUpon>CheckTestsGeneratorTests.cs</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>

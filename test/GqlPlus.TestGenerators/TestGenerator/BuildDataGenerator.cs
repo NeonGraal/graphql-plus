@@ -17,16 +17,18 @@ public class BuildDataGenerator : IIncrementalGenerator
 
   public void Initialize(IncrementalGeneratorInitializationContext context)
   {
-    IncrementalValueProvider<ImmutableArray<string>> gitDetails = context.AdditionalTextsProvider
-                                .Where(text => text.Path.EndsWith("git-details.txt", StringComparison.OrdinalIgnoreCase))
-                                .Select((text, token) => text.GetText(token)?.ToString() ?? "")
-                                .Where(text => !string.IsNullOrWhiteSpace(text))
-                                .Collect();
+    IncrementalValueProvider<ImmutableArray<string>> gitDetails = context
+      .AdditionalTextsProvider
+      .Where(text => text.Path.EndsWith("git-details.txt", StringComparison.OrdinalIgnoreCase))
+      .Select((text, token) => text.GetText(token)?.ToString())
+      .Where(text => text is not null)!
+      .Collect<string>();
 
-    IncrementalValueProvider<ImmutableArray<string>> samples = context.AdditionalTextsProvider
-                                .Select((text, token) => text.Path)
-                                .Where(path => Path.GetExtension(path).StartsWith(".g", StringComparison.OrdinalIgnoreCase))
-                                .Collect();
+    IncrementalValueProvider<ImmutableArray<string>> samples = context
+      .AdditionalTextsProvider
+      .Select((text, token) => text.Path)
+      .Where(path => Path.GetExtension(path).StartsWith(".g", StringComparison.OrdinalIgnoreCase))
+      .Collect();
 
     context.RegisterSourceOutput(samples.Combine(gitDetails), GenerateCode);
   }

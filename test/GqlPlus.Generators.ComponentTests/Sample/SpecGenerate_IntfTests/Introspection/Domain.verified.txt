@@ -111,7 +111,7 @@ public interface ICmpt_BaseDomainItem
 public interface ICmpt_BaseDomainItemField
   : ICmpt_DescribedField
 {
-  public CmptBoolean exclude { get; set; }
+  public Cmpt_DomainKind exclude { get; set; }
 }
 
 public interface ICmpt_DomainItem<Titem>
@@ -161,7 +161,7 @@ public interface ICmpt_DomainTrueFalse
 public interface ICmpt_DomainTrueFalseField
   : ICmpt_BaseDomainItemField
 {
-  public CmptBoolean value { get; set; }
+  public Cmpt_DomainKind value { get; set; }
 }
 
 public interface ICmpt_DomainItemTrueFalse
@@ -207,8 +207,8 @@ public interface ICmpt_DomainRange
 public interface ICmpt_DomainRangeField
   : ICmpt_BaseDomainItemField
 {
-  public CmptNumber? lower { get; set; }
-  public CmptNumber? upper { get; set; }
+  public Cmpt_DomainKind? lower { get; set; }
+  public Cmpt_DomainKind? upper { get; set; }
 }
 
 public interface ICmpt_DomainItemRange
@@ -231,7 +231,7 @@ public interface ICmpt_DomainRegex
 public interface ICmpt_DomainRegexField
   : ICmpt_BaseDomainItemField
 {
-  public CmptString pattern { get; set; }
+  public Cmpt_DomainKind pattern { get; set; }
 }
 
 public interface ICmpt_DomainItemRegex

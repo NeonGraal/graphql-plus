@@ -2,7 +2,7 @@
 namespace GqlPlus.Ast.Schema.Simple;
 
 public class EnumAstTests
-  : AstTypeTests
+  : AstTypeBaseTests
 {
   [Theory, RepeatData]
   public void HashCode_WithLabels(string name, string[] enumLabels)
@@ -10,7 +10,7 @@ public class EnumAstTests
         () => new EnumDeclAst(AstNulls.At, name, enumLabels.EnumLabels()));
 
   [Theory, RepeatData]
-  public void String_WithLabels(string name, string[] enumLabels)
+  public void Text_WithLabels(string name, string[] enumLabels)
     => _checks.Text(
       () => new EnumDeclAst(AstNulls.At, name, enumLabels.EnumLabels()),
       $"( !En {name} {enumLabels.Joined(s => "!EL " + s)} )");
@@ -37,7 +37,7 @@ public class EnumAstTests
       enumLabels1.SequenceEqual(enumLabels2));
 
   private readonly AstTypeChecks<EnumDeclAst> _checks
-    = new(CreateEnum, CloneEnum);
+    = new(CreateEnum);
 
   private static EnumDeclAst CloneEnum(EnumDeclAst original, string input)
     => original with { Name = input };

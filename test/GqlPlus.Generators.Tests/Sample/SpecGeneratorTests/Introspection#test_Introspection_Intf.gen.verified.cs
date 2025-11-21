@@ -34,10 +34,10 @@ public interface Itest_Filter
 public interface Itest_FilterField
 {
   public ICollection<test_NameFilter> names { get; set; }
-  public testBoolean? matchAliases { get; set; }
+  public test_DomainKind? matchAliases { get; set; }
   public ICollection<test_NameFilter> aliases { get; set; }
-  public testBoolean? returnByAlias { get; set; }
-  public testBoolean? returnReferencedTypes { get; set; }
+  public test_DomainKind? returnByAlias { get; set; }
+  public test_DomainKind? returnReferencedTypes { get; set; }
 }
 
 public interface Itest_NameFilter
@@ -100,7 +100,7 @@ public interface Itest_Described
 
 public interface Itest_DescribedField
 {
-  public ICollection<testString> description { get; set; }
+  public ICollection<test_DomainKind> description { get; set; }
 }
 
 public interface Itest_AndType
@@ -166,7 +166,7 @@ public interface Itest_DirectiveField
   : Itest_AliasedField
 {
   public ICollection<test_InputParam> parameters { get; set; }
-  public testBoolean repeatable { get; set; }
+  public test_DomainKind repeatable { get; set; }
   public IDictionary<test_Location, testUnit> locations { get; set; }
 }
 
@@ -286,7 +286,7 @@ public interface Itest_ModifierKeyedField<Tkind>
   : Itest_ModifierField
 {
   public test_TypeSimple by { get; set; }
-  public testBoolean optional { get; set; }
+  public test_DomainKind optional { get; set; }
 }
 
 public interface Itest_Modifiers
@@ -343,7 +343,7 @@ public interface Itest_BaseDomainItem
 public interface Itest_BaseDomainItemField
   : Itest_DescribedField
 {
-  public testBoolean exclude { get; set; }
+  public test_DomainKind exclude { get; set; }
 }
 
 public interface Itest_DomainItem<Titem>
@@ -393,7 +393,7 @@ public interface Itest_DomainTrueFalse
 public interface Itest_DomainTrueFalseField
   : Itest_BaseDomainItemField
 {
-  public testBoolean value { get; set; }
+  public test_DomainKind value { get; set; }
 }
 
 public interface Itest_DomainItemTrueFalse
@@ -439,8 +439,8 @@ public interface Itest_DomainRange
 public interface Itest_DomainRangeField
   : Itest_BaseDomainItemField
 {
-  public testNumber? lower { get; set; }
-  public testNumber? upper { get; set; }
+  public test_DomainKind? lower { get; set; }
+  public test_DomainKind? upper { get; set; }
 }
 
 public interface Itest_DomainItemRange
@@ -463,7 +463,7 @@ public interface Itest_DomainRegex
 public interface Itest_DomainRegexField
   : Itest_BaseDomainItemField
 {
-  public testString pattern { get; set; }
+  public test_DomainKind pattern { get; set; }
 }
 
 public interface Itest_DomainItemRegex

@@ -1,7 +1,6 @@
 ﻿namespace GqlPlus.Ast.Operation;
 
-public class FragmentAstTests
-  : AstDirectivesTests<FragmentInput>
+public partial class FragmentAstTests
 {
   [Fact]
   public void HashCode_Null()
@@ -25,22 +24,32 @@ public class FragmentAstTests
       field => new FragmentAst(AstNulls.At, name, onType, field.Fields()),
       fields1.SequenceEqual(fields2));
 
-  internal AstDirectivesChecks<FragmentInput, FragmentAst> _checks = new(CreateFragment, CloneFragment);
+  internal FragmentAstChecks _checks = new();
 
-  private static FragmentAst CloneFragment(FragmentAst original, FragmentInput input)
-    => original with { Identifier = input.Name };
+  [CheckTests]
+  internal IAstDirectivesChecks<FragmentInput> DirectivesChecks => _checks;
+
+  [CheckTests]
+  internal ICloneChecks<FragmentInput> CloneChecks { get; }
+    = new CloneChecks<FragmentInput, FragmentAst>(
+      CreateFragment,
+      (original, input) => original with { Identifier = input.Name });
+
+  private static FragmentAst CreateFragment(FragmentInput input)
+    => new(AstNulls.At, input.Name, input.OnType, new[] { input.Field }.Fields());
+}
+
+internal sealed class FragmentAstChecks()
+  : AstDirectivesChecks<FragmentInput, FragmentAst>(CreateFragment)
+  , IAstDirectivesChecks<FragmentInput>
+{
+  protected override string DirectiveString(FragmentInput input, string directives)
+    => $"( !t {input.Name}{directives} :{input.OnType} {{ !f {input.Field} }} )";
+
   private static FragmentAst CreateFragment(FragmentInput input, string[] directives)
     => new(AstNulls.At, input.Name, input.OnType, new[] { input.Field }.Fields()) {
       Directives = directives.Directives()
     };
-
-  internal override IAstDirectivesChecks<FragmentInput> DirectivesChecks => _checks;
-
-  protected override string DirectiveString(FragmentInput input, string directives)
-    => $"( !t {input.Name}{directives} :{input.OnType} {{ !f {input.Field} }} )";
-
-  protected override bool InputEquals(FragmentInput input1, FragmentInput input2)
-    => input1 == input2;
 }
 
 public record struct FragmentInput(string Name, string OnType, string Field);

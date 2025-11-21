@@ -3,15 +3,20 @@
 namespace GqlPlus.Ast.Schema;
 
 public class SchemaAstTests
-  : AstAbbreviatedTests
+  : AstAbbreviatedBaseTests
 {
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
-    = new AstAbbreviatedChecks<SchemaAst>(CreateSchema, CloneSchema);
+    = new SchemaAstChecks();
+}
+
+internal sealed class SchemaAstChecks()
+  : AstAbbreviatedChecks<SchemaAst>(CreateSchema)
+{
+  protected override string AbbreviatedString(string input)
+    => $"( !Sc Failure {{ !Op {input} }} )";
 
   private static SchemaAst CloneSchema(SchemaAst original, string input)
     => original with { Declarations = [new OptionDeclAst(AstNulls.At, input)] };
   private static SchemaAst CreateSchema(string input)
     => new(AstNulls.At) { Declarations = [new OptionDeclAst(AstNulls.At, input)] };
-  protected override string AbbreviatedString(string input)
-    => $"( !Sc Failure {{ !Op {input} }} )";
 }

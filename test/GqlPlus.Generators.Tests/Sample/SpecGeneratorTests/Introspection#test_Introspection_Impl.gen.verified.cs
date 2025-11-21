@@ -26,10 +26,10 @@ public class test_Filter
   : Itest_Filter
 {
   public ICollection<test_NameFilter> names { get; set; }
-  public testBoolean? matchAliases { get; set; }
+  public test_DomainKind? matchAliases { get; set; }
   public ICollection<test_NameFilter> aliases { get; set; }
-  public testBoolean? returnByAlias { get; set; }
-  public testBoolean? returnReferencedTypes { get; set; }
+  public test_DomainKind? returnByAlias { get; set; }
+  public test_DomainKind? returnReferencedTypes { get; set; }
   public ICollection<test_NameFilter> As_NameFilter { get; set; }
   public test_Filter _Filter { get; set; }
 }
@@ -75,7 +75,7 @@ public class test_Named
 public class test_Described
   : Itest_Described
 {
-  public ICollection<testString> description { get; set; }
+  public ICollection<test_DomainKind> description { get; set; }
   public test_Described _Described { get; set; }
 }
 
@@ -121,7 +121,7 @@ public class test_Directive
   , Itest_Directive
 {
   public ICollection<test_InputParam> parameters { get; set; }
-  public testBoolean repeatable { get; set; }
+  public test_DomainKind repeatable { get; set; }
   public IDictionary<test_Location, testUnit> locations { get; set; }
   public test_Directive _Directive { get; set; }
 }
@@ -208,7 +208,7 @@ public class test_ModifierKeyed<Tkind>
   , Itest_ModifierKeyed<Tkind>
 {
   public test_TypeSimple by { get; set; }
-  public testBoolean optional { get; set; }
+  public test_DomainKind optional { get; set; }
   public test_ModifierKeyed _ModifierKeyed { get; set; }
 }
 
@@ -247,7 +247,7 @@ public class test_BaseDomainItem
   : test_Described
   , Itest_BaseDomainItem
 {
-  public testBoolean exclude { get; set; }
+  public test_DomainKind exclude { get; set; }
   public test_BaseDomainItem _BaseDomainItem { get; set; }
 }
 
@@ -282,7 +282,7 @@ public class test_DomainTrueFalse
   : test_BaseDomainItem
   , Itest_DomainTrueFalse
 {
-  public testBoolean value { get; set; }
+  public test_DomainKind value { get; set; }
   public test_DomainTrueFalse _DomainTrueFalse { get; set; }
 }
 
@@ -312,8 +312,8 @@ public class test_DomainRange
   : test_BaseDomainItem
   , Itest_DomainRange
 {
-  public testNumber? lower { get; set; }
-  public testNumber? upper { get; set; }
+  public test_DomainKind? lower { get; set; }
+  public test_DomainKind? upper { get; set; }
   public test_DomainRange _DomainRange { get; set; }
 }
 
@@ -328,7 +328,7 @@ public class test_DomainRegex
   : test_BaseDomainItem
   , Itest_DomainRegex
 {
-  public testString pattern { get; set; }
+  public test_DomainKind pattern { get; set; }
   public test_DomainRegex _DomainRegex { get; set; }
 }
 

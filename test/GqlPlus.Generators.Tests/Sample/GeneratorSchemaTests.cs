@@ -11,7 +11,7 @@ public class GeneratorSchemaTests
   public Task NoAdditionalFiles()
   {
     GeneratorDriver driver = new GqlpGenerator()
-      .Generate("", []);
+      .Generate("");
 
     return Verify(driver);
   }
@@ -23,7 +23,7 @@ public class GeneratorSchemaTests
     string testFile = test.Replace("!", "-", StringComparison.Ordinal) + ".graphql+";
 
     GeneratorDriver driver = new GqlpGenerator()
-      .Generate(GeneratorSource, testFile.AdditionalString(input), options);
+      .Generate(GeneratorSource, testFile.AdditionalString(input), [typeof(GqlpGeneratorType)], options, true);
 
     await Verify(driver, CustomSettings(label, "Generator", test, section, scrubEmptyLines: false));
   }

@@ -379,10 +379,10 @@ public interface ICmpt_Filter
 public interface ICmpt_FilterField
 {
   public ICollection<Cmpt_NameFilter> names { get; set; }
-  public CmptBoolean? matchAliases { get; set; }
+  public Cmpt_DomainKind? matchAliases { get; set; }
   public ICollection<Cmpt_NameFilter> aliases { get; set; }
-  public CmptBoolean? returnByAlias { get; set; }
-  public CmptBoolean? returnReferencedTypes { get; set; }
+  public Cmpt_DomainKind? returnByAlias { get; set; }
+  public Cmpt_DomainKind? returnReferencedTypes { get; set; }
 }
 
 public interface ICmpt_NameFilter
@@ -445,7 +445,7 @@ public interface ICmpt_Described
 
 public interface ICmpt_DescribedField
 {
-  public ICollection<CmptString> description { get; set; }
+  public ICollection<Cmpt_DomainKind> description { get; set; }
 }
 
 public interface ICmpt_AndType
@@ -511,7 +511,7 @@ public interface ICmpt_DirectiveField
   : ICmpt_AliasedField
 {
   public ICollection<Cmpt_InputParam> parameters { get; set; }
-  public CmptBoolean repeatable { get; set; }
+  public Cmpt_DomainKind repeatable { get; set; }
   public IDictionary<Cmpt_Location, CmptUnit> locations { get; set; }
 }
 
@@ -631,7 +631,7 @@ public interface ICmpt_ModifierKeyedField<Tkind>
   : ICmpt_ModifierField
 {
   public Cmpt_TypeSimple by { get; set; }
-  public CmptBoolean optional { get; set; }
+  public Cmpt_DomainKind optional { get; set; }
 }
 
 public interface ICmpt_Modifiers
@@ -688,7 +688,7 @@ public interface ICmpt_BaseDomainItem
 public interface ICmpt_BaseDomainItemField
   : ICmpt_DescribedField
 {
-  public CmptBoolean exclude { get; set; }
+  public Cmpt_DomainKind exclude { get; set; }
 }
 
 public interface ICmpt_DomainItem<Titem>
@@ -738,7 +738,7 @@ public interface ICmpt_DomainTrueFalse
 public interface ICmpt_DomainTrueFalseField
   : ICmpt_BaseDomainItemField
 {
-  public CmptBoolean value { get; set; }
+  public Cmpt_DomainKind value { get; set; }
 }
 
 public interface ICmpt_DomainItemTrueFalse
@@ -784,8 +784,8 @@ public interface ICmpt_DomainRange
 public interface ICmpt_DomainRangeField
   : ICmpt_BaseDomainItemField
 {
-  public CmptNumber? lower { get; set; }
-  public CmptNumber? upper { get; set; }
+  public Cmpt_DomainKind? lower { get; set; }
+  public Cmpt_DomainKind? upper { get; set; }
 }
 
 public interface ICmpt_DomainItemRange
@@ -808,7 +808,7 @@ public interface ICmpt_DomainRegex
 public interface ICmpt_DomainRegexField
   : ICmpt_BaseDomainItemField
 {
-  public CmptString pattern { get; set; }
+  public Cmpt_DomainKind pattern { get; set; }
 }
 
 public interface ICmpt_DomainItemRegex

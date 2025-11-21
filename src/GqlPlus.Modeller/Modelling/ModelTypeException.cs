@@ -19,7 +19,6 @@ public class ModelTypeException<TModel>
     : base(message)
   { }
 
-  [ExcludeFromCodeCoverage]
   public ModelTypeException(string message, Exception innerException)
     : base(message, innerException)
   { }

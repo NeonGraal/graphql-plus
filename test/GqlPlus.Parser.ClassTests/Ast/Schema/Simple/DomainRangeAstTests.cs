@@ -2,10 +2,10 @@
 namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainRangeAstTests
-  : AstAbbreviatedTests<DomainRangeInput>
+  : AstAbbreviatedBaseTests<DomainRangeInput>
 {
   private readonly AstAbbreviatedChecks<DomainRangeInput, DomainRangeAst> _checks
-    = new(CreateRange, CloneRange);
+    = new(CreateRange);
 
   private static DomainRangeAst CloneRange(DomainRangeAst original, DomainRangeInput input)
     => original with { Lower = input.Lower, Upper = input.Upper };

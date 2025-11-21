@@ -12,7 +12,7 @@ public class BuildDataGeneratorTests
     string source = "using GqlPlusTests;";
 
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
-      .Generate(source, []);
+      .Generate(source);
 
     return Verifier.Verify(driver, _settings);
   }

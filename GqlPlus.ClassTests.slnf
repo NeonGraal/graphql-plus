@@ -16,9 +16,13 @@
       "test\\GqlPlus.Converter.ClassTestBase\\GqlPlus.Converter.ClassTestBase.csproj",
       "test\\GqlPlus.Converter.Json.ClassTests\\GqlPlus.Converter.Json.ClassTests.csproj",
       "test\\GqlPlus.Converter.Yaml.ClassTests\\GqlPlus.Converter.Yaml.ClassTests.csproj",
+      "test\\GqlPlus.GeneratorsTestBase\\GqlPlus.GeneratorsTestBase.csproj",
       "test\\GqlPlus.Modeller.ClassTests\\GqlPlus.Modeller.ClassTests.csproj",
       "test\\GqlPlus.Parser.ClassTests\\GqlPlus.Parser.ClassTests.csproj",
       "test\\GqlPlus.TestBase\\GqlPlus.TestBase.csproj",
+      "test\\GqlPlus.TestGenerators.Tests\\GqlPlus.TestGenerators.Tests.csproj",
+      "test\\GqlPlus.TestGeneratorsBase\\GqlPlus.TestGeneratorsBase.csproj",
+      "test\\GqlPlus.TestGenerators\\GqlPlus.TestGenerators.csproj",
       "test\\GqlPlus.Verifier.ClassTests\\GqlPlus.Verifier.ClassTests.csproj"
     ]
   }

@@ -77,7 +77,7 @@ types: !_Map_Type
       name: description
       object: _Described
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: name
       object: _Named
@@ -194,17 +194,17 @@ types: !_Map_Type
       name: description
       object: _Described
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     fields:
     - !_DualField
       name: exclude
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     name: _BaseDomainItem
     parent: !_ObjBase
       name: _Described
@@ -366,7 +366,7 @@ types: !_Map_Type
       name: matchAliases
       object: _Filter
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -379,14 +379,14 @@ types: !_Map_Type
       name: returnByAlias
       object: _Filter
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_InputField)
       default: false
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: returnReferencedTypes
       object: _Filter
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: resolutions
@@ -501,13 +501,13 @@ types: !_Map_Type
       name: description
       object: _Described
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     fields:
     - !_DualField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: description
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     name: _Described
     typeKind: !_TypeKind Dual
   !_Identifier _Directive: !_TypeOutput
@@ -519,33 +519,33 @@ types: !_Map_Type
       type: !_ObjBase
         name: _InputParam
     - !_ObjectFor(_OutputField)
-      name: repeatable
+      field: repeatable
+      label: Boolean
+      name: _DomainKind
       object: _Directive
-      type: !_ObjBase
-        name: Boolean
+      typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict,
-          typeKind: !_SimpleKind Enum}]
-      name: locations
+      field: locations
+      label: _
+      name: Unit
       object: _Directive
-      type: !_ObjBase
-        name: _
+      typeKind: !_SimpleKind Enum
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameters
       type: !_ObjBase
         name: _InputParam
-    - !_OutputField
-      name: repeatable
-      type: !_ObjBase
-        name: Boolean
-    - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict,
-          typeKind: !_SimpleKind Enum}]
-      name: locations
-      type: !_ObjBase
-        name: _
+    - !_OutputEnum
+      field: repeatable
+      label: Boolean
+      name: _DomainKind
+      typeKind: !_SimpleKind Enum
+    - !_OutputEnum
+      field: locations
+      label: _
+      name: Unit
+      typeKind: !_SimpleKind Enum
     name: _Directive
     parent: !_ObjBase
       name: _Aliased
@@ -715,35 +715,35 @@ types: !_Map_Type
       name: description
       object: _Described
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: lower
       object: _DomainRange
       type: !_ObjBase
-        name: Number
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: upper
       object: _DomainRange
       type: !_ObjBase
-        name: Number
+        name: _DomainKind
     fields:
     - !_DualField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: lower
       type: !_ObjBase
-        name: Number
+        name: _DomainKind
     - !_DualField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: upper
       type: !_ObjBase
-        name: Number
+        name: _DomainKind
     name: _DomainRange
     parent: !_ObjBase
       name: _BaseDomainItem
@@ -782,22 +782,22 @@ types: !_Map_Type
       name: description
       object: _Described
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: pattern
       object: _DomainRegex
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     fields:
     - !_DualField
       name: pattern
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     name: _DomainRegex
     parent: !_ObjBase
       name: _BaseDomainItem
@@ -809,22 +809,22 @@ types: !_Map_Type
       name: description
       object: _Described
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: value
       object: _DomainTrueFalse
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     fields:
     - !_DualField
       name: value
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     name: _DomainTrueFalse
     parent: !_ObjBase
       name: _BaseDomainItem
@@ -894,7 +894,7 @@ types: !_Map_Type
       name: description
       object: _Described
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: name
       object: _Named
@@ -963,7 +963,7 @@ types: !_Map_Type
       name: matchAliases
       object: _Filter
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -976,14 +976,14 @@ types: !_Map_Type
       name: returnByAlias
       object: _Filter
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_InputField)
       default: false
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: returnReferencedTypes
       object: _Filter
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     alternates:
     - !_Alternate
       collections:
@@ -1002,7 +1002,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: matchAliases
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -1013,13 +1013,13 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: returnByAlias
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_InputField
       default: false
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: returnReferencedTypes
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     name: _Filter
     typeKind: !_TypeKind Input
   !_Identifier _ForParam: !_TypeOutput
@@ -1223,7 +1223,7 @@ types: !_Map_Type
       name: optional
       object: _ModifierKeyed
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     fields:
     - !_DualField
       name: by
@@ -1232,7 +1232,7 @@ types: !_Map_Type
     - !_DualField
       name: optional
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     name: _ModifierKeyed
     parent: !_ObjBase
       name: _Modifier
@@ -1330,7 +1330,7 @@ types: !_Map_Type
       name: description
       object: _Described
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: name
       object: _Named
@@ -1742,7 +1742,7 @@ types: !_Map_Type
       name: description
       object: _Described
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: name
       object: _Named
@@ -1767,16 +1767,17 @@ types: !_Map_Type
   !_Identifier _OpField: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: alias
+      field: alias
+      label: String
+      name: _DomainKind
       object: _OpField
-      type: !_ObjBase
-        name: String
+      typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputField)
-      name: field
+      field: field
+      label: String
+      name: _DomainKind
       object: _OpField
-      type: !_ObjBase
-        name: String
+      typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
@@ -1796,15 +1797,16 @@ types: !_Map_Type
       type: !_ObjBase
         name: _OpDirective
     fields:
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: alias
-      type: !_ObjBase
-        name: String
-    - !_OutputField
-      name: field
-      type: !_ObjBase
-        name: String
+    - !_OutputEnum
+      field: alias
+      label: String
+      name: _DomainKind
+      typeKind: !_SimpleKind Enum
+    - !_OutputEnum
+      field: field
+      label: String
+      name: _DomainKind
+      typeKind: !_SimpleKind Enum
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
@@ -1949,10 +1951,11 @@ types: !_Map_Type
   !_Identifier _OpSpread: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: fragment
+      field: fragment
+      label: String
+      name: _DomainKind
       object: _OpSpread
-      type: !_ObjBase
-        name: String
+      typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -1960,10 +1963,11 @@ types: !_Map_Type
       type: !_ObjBase
         name: _OpDirective
     fields:
-    - !_OutputField
-      name: fragment
-      type: !_ObjBase
-        name: String
+    - !_OutputEnum
+      field: fragment
+      label: String
+      name: _DomainKind
+      typeKind: !_SimpleKind Enum
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -2695,7 +2699,7 @@ types: !_Map_Type
       name: matchAliases
       object: _Filter
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -2708,14 +2712,14 @@ types: !_Map_Type
       name: returnByAlias
       object: _Filter
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_InputField)
       default: false
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: returnReferencedTypes
       object: _Filter
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: kinds
@@ -2893,7 +2897,7 @@ types: !_Map_Type
       name: description
       object: _Described
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     - !_ObjectFor(_DualField)
       name: name
       object: _Named

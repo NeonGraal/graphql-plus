@@ -144,11 +144,11 @@ types: !_Map_Type
       type: !_ObjBase
         name: Boolean
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
-      name: locations
+      field: locations
+      label: _
+      name: Unit
       object: _Directive
-      type: !_ObjBase
-        name: _
+      typeKind: !_SimpleKind Enum
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -159,11 +159,11 @@ types: !_Map_Type
       name: repeatable
       type: !_ObjBase
         name: Boolean
-    - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
-      name: locations
-      type: !_ObjBase
-        name: _
+    - !_OutputEnum
+      field: locations
+      label: _
+      name: Unit
+      typeKind: !_SimpleKind Enum
     name: _Directive
     parent: !_ObjBase
       name: _Aliased

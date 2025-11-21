@@ -89,11 +89,10 @@ Success
     []
     !IF I@009/0014
     matchAliases
-    :
+    =
     I@023/0014
-    Boolean
-    ?
-    =( !k I@034/0014 Boolean.true )
+    _DomainKind
+    .Boolean
     !IF I@009/0015
     aliases
     :
@@ -102,18 +101,16 @@ Success
     []
     !IF I@009/0016
     returnByAlias
-    :
+    =
     I@024/0016
-    Boolean
-    ?
-    =( !k I@035/0016 Boolean.false )
+    _DomainKind
+    .Boolean
     !IF I@009/0017
     returnReferencedTypes
-    :
+    =
     I@032/0017
-    Boolean
-    ?
-    =( !k I@043/0017 Boolean.false )
+    _DomainKind
+    .Boolean
   }
   |
   I@007/0018
@@ -193,10 +190,10 @@ Success
   {
     !DF I@009/0046
     description
-    :
+    =
     I@022/0046
-    String
-    []
+    _DomainKind
+    .String
   }
 }
 {
@@ -304,15 +301,16 @@ Success
     []
     !OF I@009/0079
     repeatable
-    :
+    =
     I@021/0079
-    Boolean
+    _DomainKind
+    .Boolean
     !OF I@009/0080
     locations
-    :
+    =
     I@020/0080
-    _
-    [_Location]
+    Unit
+    ._
   }
 }
 {
@@ -558,15 +556,16 @@ Success
   {
     !OF I@009/0157
     alias
-    :
+    =
     I@016/0157
-    String
-    ?
+    _DomainKind
+    .String
     !OF I@009/0158
     field
-    :
+    =
     I@016/0158
-    String
+    _DomainKind
+    .String
     !OF I@009/0159
     argument
     :
@@ -611,9 +610,10 @@ Success
   {
     !OF I@009/0170
     fragment
-    :
+    =
     I@019/0170
-    String
+    _DomainKind
+    .String
     !OF I@009/0171
     directives
     :
@@ -939,9 +939,10 @@ Success
     _TypeSimple
     !DF I@009/0234
     optional
-    :
+    =
     I@019/0234
-    Boolean
+    _DomainKind
+    .Boolean
   }
 }
 {
@@ -1071,9 +1072,10 @@ Success
   {
     !DF I@009/0262
     exclude
-    :
+    =
     I@018/0262
-    Boolean
+    _DomainKind
+    .Boolean
   }
 }
 {
@@ -1146,9 +1148,10 @@ Success
   {
     !DF I@009/0285
     value
-    :
+    =
     I@016/0285
-    Boolean
+    _DomainKind
+    .Boolean
   }
 }
 {
@@ -1196,16 +1199,16 @@ Success
   {
     !DF I@009/0303
     lower
-    :
+    =
     I@016/0303
-    Number
-    ?
+    _DomainKind
+    .Number
     !DF I@009/0304
     upper
-    :
+    =
     I@016/0304
-    Number
-    ?
+    _DomainKind
+    .Number
   }
 }
 {
@@ -1228,9 +1231,10 @@ Success
   {
     !DF I@009/0313
     pattern
-    :
+    =
     I@018/0313
-    String
+    _DomainKind
+    .String
   }
 }
 {

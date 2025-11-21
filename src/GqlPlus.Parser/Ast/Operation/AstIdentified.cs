@@ -8,7 +8,7 @@ internal abstract record class AstIdentified(
 ) : AstAbbreviated(At)
   , IGqlpIdentified
 {
-  [ExcludeFromCodeCoverage]
+  
   public virtual bool Equals(AstIdentified? other)
     => other is IGqlpIdentified identified && Equals(identified);
   public bool Equals(IGqlpIdentified? other)

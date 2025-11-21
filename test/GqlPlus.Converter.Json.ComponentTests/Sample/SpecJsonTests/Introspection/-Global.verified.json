@@ -328,25 +328,13 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "_Location",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Dict"
-              },
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
-              }
-            }
-          ],
-          "name": "locations",
+          "field": "locations",
+          "label": "_",
+          "name": "Unit",
           "object": "_Directive",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_"
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         }
       ],
@@ -377,25 +365,13 @@
           }
         },
         {
-          "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "_Location",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Dict"
-              },
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
-              }
-            }
-          ],
-          "name": "locations",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_"
+          "$tag": "_OutputEnum",
+          "field": "locations",
+          "label": "_",
+          "name": "Unit",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         }
       ],

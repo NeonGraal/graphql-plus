@@ -1,16 +1,37 @@
-﻿
-namespace GqlPlus.Ast.Operation;
+﻿namespace GqlPlus.Ast.Operation;
 
-public class OperationAstTests : AstDirectivesTests
+public partial class OperationAstTests
 {
-  internal override IAstDirectivesChecks DirectivesChecks { get; }
-    = new AstDirectivesChecks<OperationAst>(CreateOperation, CloneOperation);
+  [CheckTests(Inherited = true)]
+  internal IAstDirectivesChecks DirectivesChecks { get; } = new OperationAstChecks();
 
-  private static OperationAst CloneOperation(OperationAst original, string input)
-    => original with { Identifier = input };
-  private static OperationAst CreateOperation(string name, string[] directives)
-    => new(AstNulls.At, name) { Directives = directives.Directives() };
+  [CheckTests]
+  internal IModifiersChecks<string> ModifiersChecks { get; } = new OperationModifiersChecks();
 
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; } = new CloneChecks<string, OperationAst>(
+    CreateOperation,
+    (original, input) => original with { Identifier = input });
+
+  internal static OperationAst CreateOperation(string input)
+    => new(AstNulls.At, input);
+}
+
+internal sealed class OperationAstChecks()
+  : AstDirectivesChecks<OperationAst>(CreateOperation)
+{
   protected override string DirectiveString(string input, string directives)
     => $"( !g query {input} Failure{directives} )";
+
+  private static OperationAst CreateOperation(string name, string[] directives)
+    => new(AstNulls.At, name) { Directives = directives.Directives() };
+}
+
+internal sealed class OperationModifiersChecks()
+  : ModifiersChecks<string, OperationAst>(
+      OperationAstTests.CreateOperation,
+      ast => ast with { Modifiers = TestMods() })
+{
+  protected override string InputString(string input)
+    => $"( !g query {input} Failure )";
 }

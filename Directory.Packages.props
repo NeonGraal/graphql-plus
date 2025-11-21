@@ -1,15 +1,13 @@
 <Project>
-
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
-
   <!-- Global packages defined in root Directory.Build.props -->
   <ItemGroup>
+    <PackageVersion Include="Basic.Reference.Assemblies" Version="1.6.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="4.14.0" />
   </ItemGroup>
-
   <!-- Source project packages -->
   <ItemGroup>
     <PackageVersion Include="Microsoft.Bcl.HashCode" Version="6.0.0" />
@@ -20,7 +18,6 @@
     <PackageVersion Include="System.Text.Json" Version="10.0.0" />
     <PackageVersion Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
-
   <!-- Test framework packages defined in test/Directory.Build.targets -->
   <ItemGroup>
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
@@ -30,7 +27,6 @@
     <PackageVersion Include="xunit.v3.extensibility.core" Version="3.2.0" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
   </ItemGroup>
-
   <!-- Test utility packages -->
   <ItemGroup>
     <PackageVersion Include="AutoFixture.AutoNSubstitute" Version="4.18.1" />
@@ -48,5 +44,4 @@
     <PackageVersion Include="Xunit.DependencyInjection" Version="11.1.0" />
     <PackageVersion Include="Xunit.DependencyInjection.Logging" Version="11.0.0" />
   </ItemGroup>
-
 </Project>

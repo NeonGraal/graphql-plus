@@ -21,7 +21,7 @@ internal record class ObjBaseAst(
 
   public void SetName(string name) => Name = name;
 
-  
+
   public virtual bool Equals(ObjBaseAst? other)
     => other is IGqlpObjBase objBase && Equals(objBase);
   public bool Equals([NotNullWhen(true)] IGqlpObjBase? other)

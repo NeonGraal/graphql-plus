@@ -4,7 +4,7 @@
   </PropertyGroup>
   <!-- Global packages defined in root Directory.Build.props -->
   <ItemGroup>
-    <PackageVersion Include="Basic.Reference.Assemblies" Version="1.6.0" />
+    <PackageVersion Include="Basic.Reference.Assemblies" Version="1.8.3" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="4.14.0" />
   </ItemGroup>

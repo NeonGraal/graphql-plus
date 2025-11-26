@@ -1,26 +1,28 @@
-﻿
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
-public class PlainStructureTests
+public class YamlStructureFullTests
   : ConvertStructureBase
 {
-  protected override string[] ConvertTo(Structured model) => model.ToPlain(false);
+  protected override string[] ConvertTo(Structured model)
+    => model.ToYaml(false).ToLines();
+
+  protected override bool Flow => true;
 
   protected override string[] Expected_List(string[] value)
-  => value.BlockList("- ");
+    => value.FlowList();
 
   protected override string[] Expected_Map(MapPair<string>[] value)
-    => value.BlockMap();
+    => value.FlowMap();
 
   protected override string[] Expected_ListOfLists(string[][] value)
-    => value.BlockList(v => ["-", .. v!.BlockList("  - ")]);
+    => value.FlowList(v => v!.FlowList());
 
   protected override string[] Expected_MapOfLists(MapPair<string[]>[] value)
-    => value.BlockMap(v => ["", .. v!.BlockList("  - ")]);
+    => value.FlowMap(v => v!.FlowList());
 
   protected override string[] Expected_ListOfMaps(MapPair<string>[][] value)
-    => value.BlockList(v => ["-", .. v!.BlockMap("  ")]);
+    => value.FlowList(v => v!.FlowMap());
 
   protected override string[] Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => value.BlockMap(v => ["", .. v!.BlockMap(b => [b!], "  ")]);
+    => value.FlowMap(v => v!.FlowMap());
 }

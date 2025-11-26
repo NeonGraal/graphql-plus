@@ -1,29 +1,31 @@
 ﻿namespace GqlPlus.Convert;
 
-public class PlainStructureTagTests
+public class YamlStructureFullTagTests
   : ConvertStructureBase
 {
-  protected override string[] ConvertTo(Structured model) => model.ToPlain(false);
+  protected override string[] ConvertTo(Structured model)
+    => model.ToYaml(false).ToLines();
 
+  protected override bool Flow => true;
   protected override string ValueTag => "value";
   protected override string ListTag => "list";
   protected override string MapTag => "map";
 
   protected override string[] Expected_List(string[] value)
-  => value.BlockList("- !value ");
+    => value.FlowList("!value ");
 
   protected override string[] Expected_Map(MapPair<string>[] value)
-    => ["!map", .. value.BlockMap("", "!value ")];
+    => value.FlowMap("!map ", "!value ");
 
   protected override string[] Expected_ListOfLists(string[][] value)
-    => value.BlockList(v => ["-", .. v!.BlockList("  - !value ")]);
+    => value.FlowList(v => v!.FlowList("!value ", "  "));
 
   protected override string[] Expected_MapOfLists(MapPair<string[]>[] value)
-    => ["!map", .. value.BlockMap(v => ["", .. v!.BlockList("  - !value ")])];
+    => value.FlowMap(v => v!.FlowList("!value ", "  "), "!map ");
 
   protected override string[] Expected_ListOfMaps(MapPair<string>[][] value)
-    => value.BlockList(v => ["- !map", .. v!.BlockMap("  ", "!value ")]);
+    => value.FlowList(v => v!.FlowMap("!map ", "!value ", "  "));
 
   protected override string[] Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => ["!map", .. value.BlockMap(v => ["!map", .. v!.BlockMap("  ", "!value ")])];
+    => value.FlowMap(v => v!.FlowMap("!map ", "!value ", "  "), "!map ");
 }

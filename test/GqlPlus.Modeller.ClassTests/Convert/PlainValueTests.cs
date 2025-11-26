@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Convert;
+﻿
+namespace GqlPlus.Convert;
 
 public class PlainValueTests
-  : PlainValueBase
+  : ConvertValueBase
 {
-  protected override string Tag => "";
+  protected override string[] Convert(Structured model) => model.ToPlain(false);
+
   protected override string[] Expected_Empty() => [];
   protected override string[] Expected_String(string value) => [value.Quoted("'")];
   protected override string[] Expected_Identifier(string value) => [value];

@@ -1,13 +1,17 @@
-﻿namespace GqlPlus.Convert;
+﻿
+namespace GqlPlus.Convert;
 
 public class PlainValueTagTests
-  : PlainValueBase
+  : ConvertValueBase
 {
-  protected override string Tag => "tag";
+  public PlainValueTagTests() => Tag = "tag";
+
+  protected override string[] Convert(Structured model) => model.ToPlain(false);
+
   protected override string[] Expected_Empty() => [];
-  protected override string[] Expected_String(string value) => ["!tag " + value.Quoted("'")];
-  protected override string[] Expected_Identifier(string value) => ["!tag " + value];
-  protected override string[] Expected_Punctuation(string value) => ["!tag '" + value + "'"];
-  protected override string[] Expected_Decimal(decimal value) => [$"!tag {value:0.#####}"];
-  protected override string[] Expected_Bool(bool value) => ["!tag " + value.ToString().ToLowerInvariant()];
+  protected override string[] Expected_String(string value) => [$"!{Tag} '{value}'"];
+  protected override string[] Expected_Identifier(string value) => [$"!{Tag} {value}"];
+  protected override string[] Expected_Punctuation(string value) => [$"!{Tag} '{value}'"];
+  protected override string[] Expected_Decimal(decimal value) => [$"!{Tag} {value:0.#####}"];
+  protected override string[] Expected_Bool(bool value) => [$"!{Tag} {value.TrueFalse()}"];
 }

@@ -1,11 +1,13 @@
 ﻿namespace GqlPlus.Convert;
 
-public abstract class PlainStructureBase
+public abstract class ConvertStructureBase
 {
-  protected abstract bool Flow { get; }
-  protected abstract string ValueTag { get; }
-  protected abstract string ListTag { get; }
-  protected abstract string MapTag { get; }
+  protected abstract string[] ConvertTo(Structured model);
+
+  protected virtual bool Flow => false;
+  protected virtual string ValueTag => "";
+  protected virtual string ListTag => "";
+  protected virtual string MapTag => "";
   protected abstract string[] Expected_List(string[] value);
   protected abstract string[] Expected_Map(MapPair<string>[] value);
   protected abstract string[] Expected_ListOfLists(string[][] value);
@@ -14,75 +16,75 @@ public abstract class PlainStructureBase
   protected abstract string[] Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value);
 
   [Theory, RepeatData]
-  public void ToPlain_List(string[] value)
+  public void ConvertTo_List(string[] value)
   {
     string[] expected = Expected_List(value);
     Structured model = AsList(value, AsValue);
 
-    string[] result = model.ToPlain(false);
+    string[] result = ConvertTo(model);
 
     result.ShouldBe(expected);
   }
 
   [Theory, RepeatData]
-  public void ToPlain_Map(MapPair<string>[] value)
+  public void ConvertTo_Map(MapPair<string>[] value)
   {
     Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
     string[] expected = Expected_Map(value);
     Structured model = AsMap(value, AsValue);
 
-    string[] result = model.ToPlain(false);
+    string[] result = ConvertTo(model);
 
     result.ShouldBe(expected);
   }
 
   [Theory, RepeatData]
-  public void ToPlain_ListOfLists(string[][] value)
+  public void ConvertTo_ListOfLists(string[][] value)
   {
     string[] expected = Expected_ListOfLists(value);
     Structured model = AsList(value, v => AsList(v, AsValue));
 
-    string[] result = model.ToPlain(false);
+    string[] result = ConvertTo(model);
 
     result.ShouldBe(expected);
   }
 
   [Theory, RepeatData]
-  public void ToPlain_MapOfLists(MapPair<string[]>[] value)
+  public void ConvertTo_MapOfLists(MapPair<string[]>[] value)
   {
     Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
     string[] expected = Expected_MapOfLists(value);
     Structured model = AsMap(value, v => AsList(v, AsValue));
 
-    string[] result = model.ToPlain(false);
+    string[] result = ConvertTo(model);
 
     result.ShouldBe(expected);
   }
 
   [Theory, RepeatData]
-  public void ToPlain_ListOfMaps(MapPair<string>[][] value)
+  public void ConvertTo_ListOfMaps(MapPair<string>[][] value)
   {
     Assert.SkipWhen(value is null || value.Any(v => MapDups(v)), "Duplicate Keys in map");
 
     string[] expected = Expected_ListOfMaps(value);
     Structured model = AsList(value, v => AsMap(v, AsValue));
 
-    string[] result = model.ToPlain(false);
+    string[] result = ConvertTo(model);
 
     result.ShouldBe(expected);
   }
 
   [Theory, RepeatData]
-  public void ToPlain_MapOfMaps(MapPair<MapPair<string>[]>[] value)
+  public void ConvertTo_MapOfMaps(MapPair<MapPair<string>[]>[] value)
   {
     Assert.SkipWhen(value is null || MapDups(value) || value.Any(v => MapDups(v.Value)), "Duplicate Keys in map");
 
     string[] expected = Expected_MapOfMaps(value);
     Structured model = AsMap(value, v => AsMap(v, AsValue));
 
-    string[] result = model.ToPlain(false);
+    string[] result = ConvertTo(model);
 
     result.ShouldBe(expected);
   }

@@ -20,7 +20,6 @@ internal sealed class FieldsAst<TValue>
     && Keys.OrderedEqual(other.Keys)
     && Keys.All(k => this[k]?.Equals(other[k]) ?? false);
 
-
   IImmutableDictionary<IGqlpFieldKey, TValue> IImmutableDictionary<IGqlpFieldKey, TValue>.Add(IGqlpFieldKey key, TValue value)
     => throw new NotImplementedException();
 

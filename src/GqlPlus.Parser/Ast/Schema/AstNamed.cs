@@ -11,7 +11,6 @@ public abstract record class AstNamed(
 {
   public string Name { get; set; } = Name;
 
-
   public virtual bool Equals(AstNamed? other)
     => other is IGqlpNamed named && Equals(named);
   public bool Equals(IGqlpNamed? other)

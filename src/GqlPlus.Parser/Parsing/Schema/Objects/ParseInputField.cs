@@ -14,7 +14,6 @@ internal class ParseInputField(
 {
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
-
   protected override void ApplyFieldParams(InputFieldAst field, IGqlpInputParam[] parameters)
     => throw new InvalidOperationException();
 

@@ -99,5 +99,5 @@ public abstract class ConvertStructureBase
     => value.ToMap(k => k.Key, v => mapper(v.Value)).Encode(MapTag, Flow);
 
   private static bool MapDups<T>(MapPair<T>[] value)
-    => value.Length != value.Select(v => v.Key).Distinct().Count();
+    => value.Length != value.Select(v => v.Key).Distinct(StringComparer.OrdinalIgnoreCase).Count();
 }

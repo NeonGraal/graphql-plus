@@ -25,7 +25,7 @@ internal static class JsonTestHelpers
     => values.AsUnindentedMap(JsonValue);
   internal static string AsUnindentedMap<T>(this MapPair<T>[] values, Func<T?, string> mapper, string tag = "")
     => values
-    .OrderBy(v => v.Key, StringComparer.InvariantCultureIgnoreCase)
+    .OrderBy(v => v.Key, StringComparer.OrdinalIgnoreCase)
     .Select(v => JsonValue(v.Key) + ":" + mapper(v.Value))
     .PrependWith(tag, $"\"$tag\":\"{tag}\"")
     .Surround("{", "}", ",");
@@ -37,7 +37,7 @@ internal static class JsonTestHelpers
     => values.AsIndentedMap(v => [JsonValue(v)]);
   internal static string[] AsIndentedMap<T>(this MapPair<T>[] values, Func<T?, string[]> mapper, string tag = "")
     => values
-    .OrderBy(v => v.Key, StringComparer.InvariantCultureIgnoreCase)
+    .OrderBy(v => v.Key, StringComparer.OrdinalIgnoreCase)
     .Select(v => mapper(v.Value).PrefixFirst(JsonValue(v.Key) + ": ").Indent().ToArray())
     .PrependWith(tag, [$"  \"$tag\": \"{tag}\""])
     .AddComma("{", "}");

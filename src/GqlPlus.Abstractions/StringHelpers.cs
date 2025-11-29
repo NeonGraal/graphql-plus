@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using GqlPlus.Structures;
 
 namespace GqlPlus;
 
@@ -42,6 +43,13 @@ public static class StringHelpers
         .Replace(quote, "\\" + quote),
       quote)
     : "";
+
+  public static string QuotedIdentifier(this string? text)
+    => text?.Length > 0 && !text.IsIdentifier()
+    ? text.Contains("'")
+      ? text.Quoted('"')
+      : text.Quoted("'")
+    : text ?? "";
 
   public static string Suffixed(this string? text, string suffix)
     => text?.Length > 0 ? text + suffix : "";

@@ -147,8 +147,6 @@ public static class RenderPlain
     }
   }
 
-  private static readonly char[] s_special = ['{', '}', '[', ']', '&', '*', '#', '?', '|', '-', '<', '>', '=', '!', '%', '@', ':', '`', ','];
-
   private static void WriteValue(StringBuilder sb, StructureValue value)
   {
     if (value is null || value.IsEmpty) {
@@ -164,13 +162,9 @@ public static class RenderPlain
     } else if (value.Number is not null) {
       sb.Append($"{value.Number:0.#####}");
     } else if (!string.IsNullOrWhiteSpace(value.Identifier)) {
-      if (value.Identifier.Intersect(s_special).Any()) {
-        sb.Append(value.Identifier.Quoted("'"));
-      } else {
         sb.Append(value.Identifier);
-      }
     } else if (!string.IsNullOrEmpty(value.Text)) {
-      sb.Append(value.Text.Quoted("'"));
+      sb.Append(value.Text.QuotedIdentifier());
     }
   }
 }

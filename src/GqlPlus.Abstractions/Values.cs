@@ -17,7 +17,7 @@ public interface IValue
 public abstract class BaseValue
   : IValue
 {
-  public virtual string Tag { get; protected set; } = "";
+  public virtual string Tag { get; set; } = "";
 
   internal static bool TryGet<T>(out T? value, Func<T?> valueGetter)
   {
@@ -114,7 +114,7 @@ public class ComplexValue<TValue, TObject>
   public IList<TObject> List { get; } = [];
   public IDict Map { get; } = new Dict();
 
-  public ComplexValue(TValue value)
+  public ComplexValue(TValue? value)
     => Value = value;
   public ComplexValue(IEnumerable<TObject> values)
     => List = [.. values];
@@ -135,9 +135,10 @@ public class ComplexValue<TValue, TObject>
   public override bool Equals(object obj)
     => Equals(obj as ComplexValue<TValue, TObject>);
   public bool Equals(ComplexValue<TValue, TObject>? other)
-    => this switch {
+    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
+    && this switch {
       { Value: not null } => Value.Equals(other?.Value),
-      { List.Count: > 0 } when other is not null => List.OrderedEqual(other.List),
+      { List.Count: > 0 } when other is not null => List.SequenceEqual(other.List),
       { Map.Count: > 0 } when other is not null => Map.Equals(other.Map),
       _ => false,
     };
@@ -147,4 +148,11 @@ public class ComplexValue<TValue, TObject>
       List?.GetHashCode() ?? 0,
       Map?.GetHashCode() ?? 0);
 
+  public override string ToString()
+    => this switch {
+      { List.Count: > 0 } => Tag.Suffixed("!") + List.Surround("[ ", " ]", i => $"{i}", ", "),
+      { Map.Count: > 0 } => Tag.Suffixed("!") + Map.Surround("{ ", " }", i => $"{i.Key}: {i.Value}", ", "),
+      { Value: not null } => $"{Value}",
+      _ => Tag + "()"
+    };
 }

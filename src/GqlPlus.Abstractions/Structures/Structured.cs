@@ -20,8 +20,8 @@ public class Structured
     : base(new StructureValue(value, tag)) => Tag = tag.IfWhiteSpace();
   public Structured(decimal? value, string? tag = null)
     : base(new StructureValue(value, tag)) => Tag = tag.IfWhiteSpace();
-  public Structured([NotNull] StructureValue value)
-    : base(value) => Tag = value.Tag;
+  public Structured(StructureValue? value)
+    : base(value) => Tag = (value?.Tag).IfWhiteSpace();
   public Structured(IEnumerable<Structured> list, string? tag = null, bool flow = false)
     : base(list) => (Tag, Flow) = (tag.IfWhiteSpace(), flow);
   public Structured(IDictionary<StructureValue, Structured> map, string? tag = null, bool flow = false)
@@ -103,14 +103,7 @@ public class Structured
     return this;
   }
 
-  public bool Equals(Structured? other)
-    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
-      && (Value.BothValued(other?.Value) ? Value.Equals(other.Value)
-      : List.BothAny(other?.List) ? List.SequenceEqual(other.List)
-      : Map.BothAny(other?.Map) && Map.Equals(other.Map));
-
-  public override bool Equals(object? obj)
-    => Equals(obj as Structured);
-  public override int GetHashCode()
-    => HashCode.Combine(Tag, Value?.GetHashCode() ?? 0, List.GetHashCode(), Map.GetHashCode());
+  public override bool Equals(object? obj) => obj is Structured structured && base.Equals(obj);
+  public override int GetHashCode() => HashCode.Combine(base.GetHashCode());
+  public bool Equals(Structured? other) => Equals(other as ComplexValue<StructureValue, Structured>);
 }

@@ -135,13 +135,14 @@ public class ComplexValue<TValue, TObject>
   public override bool Equals(object obj)
     => Equals(obj as ComplexValue<TValue, TObject>);
   public bool Equals(ComplexValue<TValue, TObject>? other)
-    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
-    && this switch {
-      { Value: not null } => Value.Equals(other?.Value),
-      { List.Count: > 0 } when other is not null => List.SequenceEqual(other.List),
-      { Map.Count: > 0 } when other is not null => Map.Equals(other.Map),
-      _ => false,
-    };
+    => other is not null
+      && string.Equals(Tag, other.Tag, StringComparison.Ordinal)
+      && this switch {
+        { Value: not null } => Value.Equals(other.Value),
+        { List.Count: > 0 } => List.SequenceEqual(other.List),
+        { Map.Count: > 0 } => Map.Equals(other.Map),
+        _ => false,
+      };
   public override int GetHashCode()
     => HashCode.Combine(Tag,
       Value?.GetHashCode() ?? 0,

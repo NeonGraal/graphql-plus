@@ -2,6 +2,7 @@
 
 namespace GqlPlus.Ast;
 
+[ExcludeFromCodeCoverage]
 internal sealed class FieldsAst<TValue>
   : Dictionary<IGqlpFieldKey, TValue>
   , IEquatable<Dictionary<IGqlpFieldKey, TValue>>

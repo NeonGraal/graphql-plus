@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions;
+﻿using GqlPlus.Abstractions;
 
 namespace GqlPlus.Structures;
 

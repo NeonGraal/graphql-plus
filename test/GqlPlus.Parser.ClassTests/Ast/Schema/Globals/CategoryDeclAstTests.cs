@@ -92,7 +92,7 @@ public partial class CategoryDeclAstTests
 }
 
 internal sealed class CategoryAstChecks()
-  : AstAliasedChecks<CategoryDeclAst>(CategoryDeclAstTests.CreateCategory)
+  : AstDeclarationChecks<CategoryDeclAst>(CategoryDeclAstTests.CreateCategory)
 {
   protected override string AliasesString(string input, string description, string aliases)
     => $"( {DescriptionNameString(input.Camelize(), description)}{aliases} (Parallel) !Tr {input} )";

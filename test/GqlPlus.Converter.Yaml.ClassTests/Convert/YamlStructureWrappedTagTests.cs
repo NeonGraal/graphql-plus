@@ -1,13 +1,9 @@
 ﻿namespace GqlPlus.Convert;
 
-public class YamlStructureWrappedTagTests
-  : ConvertStructureBase
+public class YamlStructureWrappedTagTests()
+  : ConvertStructureTestsBase(YamlTestHelpers.Wrapped)
 {
-  protected override string[] ConvertTo(Structured model)
-    => model.ToYaml(true).ToLines();
-
   protected override string ValueTag => "value";
-  protected override string ListTag => "list";
   protected override string MapTag => "map";
 
   protected override string[] Expected_List(string[] value)

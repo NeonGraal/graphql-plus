@@ -1,11 +1,8 @@
 ﻿namespace GqlPlus.Convert;
 
-public class JsonStructureIndentedTests
-  : ConvertStructureBase
+public class JsonStructureIndentedTests()
+  : ConvertStructureTestsBase(JsonTestHelpers.Indented)
 {
-  protected override string[] ConvertTo(Structured model)
-    => model.ToJson().ToLines();
-
   protected override string[] Expected_List(string[] value)
     => [value.AsUnindentedList()];
 

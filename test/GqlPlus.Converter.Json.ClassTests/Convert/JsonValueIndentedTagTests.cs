@@ -2,12 +2,11 @@
 namespace GqlPlus.Convert;
 
 public class JsonValueIndentedTagTests
-  : ConvertValueBase
+  : ConvertValueTestsBase
 {
   public JsonValueIndentedTagTests()
+    : base(JsonTestHelpers.Indented)
     => Tag = "tag";
-
-  protected override string[] Convert(Structured model) => model.ToJson().ToLines();
 
   protected override string[] Expected_Empty() => Tag.WithIndentedValue("");
   protected override string[] Expected_String(string value) => Tag.WithIndentedValue(value.JsonValue());

@@ -1,7 +1,16 @@
-﻿namespace GqlPlus.Convert;
+﻿using System.Text.Json;
+using Xunit.Sdk;
+
+namespace GqlPlus.Convert;
 
 internal static class JsonTestHelpers
 {
+  internal static IConvertTestsBase Indented { get; } = new JsonConverters();
+  internal static IConvertTestsBase Unindented { get; } = new JsonConverters(RenderJson.Unindented);
+
+  internal static string Surround(this string str, string open, string close, string by = "")
+    => $"{open}{by}{str}{by}{close}";
+
   internal static string WithUnindentedValue(this string tag, string? value)
     => tag.WithValue(value, ":").Surround("{", "}", "");
   internal static Func<string?, string> AsUnindentedValue(this string tag, string by = " ")
@@ -50,4 +59,14 @@ internal static class JsonTestHelpers
 
   internal static T[] PrependWith<T>(this IEnumerable<T> array, string value, T item)
     => string.IsNullOrWhiteSpace(value) ? [.. array] : [item, .. array];
+
+  private sealed class JsonConverters(
+    JsonSerializerOptions? options = null
+  ) : IConvertTestsBase
+  {
+    public Structured ConvertFrom(string[] input)
+      => throw SkipException.ForSkip("Json Deserialize not implemented yet");
+    public string[] ConvertTo(Structured model)
+      => model.ToJson(options).ToLines();
+  }
 }

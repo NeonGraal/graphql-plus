@@ -1,14 +1,10 @@
 ﻿namespace GqlPlus.Convert;
 
-public class JsonStructureUnindentedTagTests
-  : ConvertStructureBase
+public class JsonStructureUnindentedTagTests()
+  : ConvertStructureTestsBase(JsonTestHelpers.Unindented)
 {
-  protected override string[] ConvertTo(Structured model)
-    => model.ToJson(RenderJson.Unindented).ToLines();
-
   protected override bool Flow => true;
   protected override string ValueTag => "value";
-  protected override string ListTag => "list";
   protected override string MapTag => "map";
 
   protected override string[] Expected_List(string[] value)

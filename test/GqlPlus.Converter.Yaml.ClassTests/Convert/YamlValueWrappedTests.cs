@@ -1,11 +1,9 @@
 ﻿
 namespace GqlPlus.Convert;
 
-public class YamlValueWrappedTests
-  : ConvertValueBase
+public class YamlValueWrappedTests()
+  : ConvertValueTestsBase(YamlTestHelpers.Wrapped)
 {
-  protected override string[] Convert(Structured model) => model.ToYaml(true).ToLines();
-
   protected override string[] Expected_Empty() => ["--- ''"];
   protected override string[] Expected_String(string value) => [value.QuotedIdentifier()];
   protected override string[] Expected_Identifier(string value) => [value];

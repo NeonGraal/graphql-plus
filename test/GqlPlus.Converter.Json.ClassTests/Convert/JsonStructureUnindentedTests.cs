@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Convert;
 
-public class JsonStructureUnindentedTests
-  : ConvertStructureBase
+public class JsonStructureUnindentedTests()
+  : ConvertStructureTestsBase(JsonTestHelpers.Unindented)
 {
   [Fact]
   public void ExplicitTo_Map()
@@ -11,9 +11,6 @@ public class JsonStructureUnindentedTests
     MapPair<string>[] sample = [new("Jc", "zo1ixaI_p2V3_A4j_4Fy"), new("W", "ONl"), new("w", "Kc")];
     ConvertTo_Map(sample);
   }
-
-  protected override string[] ConvertTo(Structured model)
-    => model.ToJson(RenderJson.Unindented).ToLines();
 
   protected override bool Flow => true;
 

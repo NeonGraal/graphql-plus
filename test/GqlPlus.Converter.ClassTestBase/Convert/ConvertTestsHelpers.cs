@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Convert;
 
-public static class ConvertTestHelpers
+public static class ConvertTestsHelpers
 {
   public static string[] PrefixFirst(this string[] lines, string prefix, string indent = "")
     => lines is null ? [] : [prefix + lines[0], .. lines.Skip(1).Indent(indent)];

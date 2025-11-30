@@ -1,11 +1,9 @@
 ﻿
 namespace GqlPlus.Convert;
 
-public class JsonValueUnindentedTests
-  : ConvertValueBase
+public class JsonValueUnindentedTests()
+  : ConvertValueTestsBase(JsonTestHelpers.Unindented)
 {
-  protected override string[] Convert(Structured model) => model.ToJson(RenderJson.Unindented).ToLines();
-
   protected override string[] Expected_Empty() => [];
   protected override string[] Expected_String(string value) => [value.Quoted('"')];
   protected override string[] Expected_Identifier(string value) => [value.Quoted('"')];

@@ -1,7 +1,11 @@
-﻿namespace GqlPlus.Convert;
+﻿using Xunit.Sdk;
+
+namespace GqlPlus.Convert;
 
 internal static class PlainTestHelpers
 {
+  internal static IConvertTestsBase Converters { get; } = new PlainConverters();
+
   internal static string[] FlowOr<T>(this IEnumerable<T> list, Func<IEnumerable<T>, string> flowMap, Func<IEnumerable<T>, string[]> isMap)
   {
     string flow = flowMap(list);
@@ -61,5 +65,14 @@ internal static class PlainTestHelpers
     } else {
       return [prefix, .. item];
     }
+  }
+
+  private sealed class PlainConverters
+    : IConvertTestsBase
+  {
+    public Structured ConvertFrom(string[] input)
+      => throw SkipException.ForSkip("Plain Deserialize not implemented (yet)");
+    public string[] ConvertTo(Structured model)
+      => model.ToPlain(false);
   }
 }

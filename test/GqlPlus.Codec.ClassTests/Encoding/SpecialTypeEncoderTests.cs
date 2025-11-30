@@ -13,7 +13,7 @@ public class SpecialTypeEncoderTests
 
   private static string[] SpecialTypeExpected(string name, string content)
     => ["!_SpecialType",
-        $"description: " +content.QuotedIdentifier(),
+        $"description: " + content.QuotedIdentifier(),
         "name: " + name,
         "typeKind: !_TypeKind Special"
         ];

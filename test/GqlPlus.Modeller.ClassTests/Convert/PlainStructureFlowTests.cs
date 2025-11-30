@@ -1,7 +1,9 @@
-﻿namespace GqlPlus.Convert;
+﻿using Xunit.Sdk;
 
-public class PlainStructureFlowTests
-  : ConvertStructureBase
+namespace GqlPlus.Convert;
+
+public class PlainStructureFlowTests()
+  : ConvertStructureTestsBase(PlainTestHelpers.Converters)
 {
   [Fact]
   public void ConvertTo_ListOfMaps_Specific()
@@ -26,8 +28,6 @@ public class PlainStructureFlowTests
 
     ConvertTo_ListOfMaps(value);
   }
-
-  protected override string[] ConvertTo(Structured model) => model.ToPlain(false);
 
   protected override bool Flow => true;
 

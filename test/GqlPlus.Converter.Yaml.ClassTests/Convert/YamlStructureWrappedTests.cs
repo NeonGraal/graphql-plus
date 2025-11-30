@@ -1,11 +1,8 @@
 ﻿namespace GqlPlus.Convert;
 
-public class YamlStructureWrappedTests
-  : ConvertStructureBase
+public class YamlStructureWrappedTests()
+  : ConvertStructureTestsBase(YamlTestHelpers.Wrapped)
 {
-  protected override string[] ConvertTo(Structured model)
-    => model.ToYaml(true).ToLines();
-
   protected override string[] Expected_List(string[] value)
   => value.BlockList("- ");
 

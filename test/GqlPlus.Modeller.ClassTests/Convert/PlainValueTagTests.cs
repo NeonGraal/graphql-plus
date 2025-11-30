@@ -1,12 +1,14 @@
 ﻿
+using Xunit.Sdk;
+
 namespace GqlPlus.Convert;
 
 public class PlainValueTagTests
-  : ConvertValueBase
+  : ConvertValueTestsBase
 {
-  public PlainValueTagTests() => Tag = "tag";
-
-  protected override string[] Convert(Structured model) => model.ToPlain(false);
+  public PlainValueTagTests()
+    : base(PlainTestHelpers.Converters)
+    => Tag = "tag";
 
   protected override string[] Expected_Empty() => [];
   protected override string[] Expected_String(string value) => [$"!{Tag} " + value.QuotedIdentifier()];

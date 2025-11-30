@@ -9,6 +9,8 @@ public static class RenderPlain
   public static string[] ToPlain(this Structured model, bool _)
     => model is null || model.IsEmpty ? []
       : [.. WriteStructure(model).Where(s => !string.IsNullOrWhiteSpace(s))];
+  public static Structured FromPlain(this string[] input)
+    => throw new NotImplementedException();
 
   private static string[] WriteStructure(Structured item)
   {

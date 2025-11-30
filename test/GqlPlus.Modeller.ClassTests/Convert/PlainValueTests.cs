@@ -1,11 +1,11 @@
 ﻿
+using Xunit.Sdk;
+
 namespace GqlPlus.Convert;
 
-public class PlainValueTests
-  : ConvertValueBase
+public class PlainValueTests()
+  : ConvertValueTestsBase(PlainTestHelpers.Converters)
 {
-  protected override string[] Convert(Structured model) => model.ToPlain(false);
-
   protected override string[] Expected_Empty() => [];
   protected override string[] Expected_String(string value) => [value.QuotedIdentifier()];
   protected override string[] Expected_Identifier(string value) => [value];

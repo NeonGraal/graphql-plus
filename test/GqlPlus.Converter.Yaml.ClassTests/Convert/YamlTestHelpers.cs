@@ -1,7 +1,12 @@
-﻿namespace GqlPlus.Convert;
+﻿using Xunit.Sdk;
+
+namespace GqlPlus.Convert;
 
 internal static class YamlTestHelpers
 {
+  internal static IConvertTestsBase Full { get; } = new YamlConverters(false);
+  internal static IConvertTestsBase Wrapped { get; } = new YamlConverters(true);
+
   internal static string[] WithFullTag(this string tag, string value)
     => [$"!{tag} {value}"];
   internal static string[] WithWrappedTag(this string tag, string value)
@@ -66,5 +71,15 @@ internal static class YamlTestHelpers
     } else {
       return [prefix, .. item];
     }
+  }
+
+  private sealed class YamlConverters(
+    bool wrapped
+  ) : IConvertTestsBase
+  {
+    public Structured ConvertFrom(string[] input)
+      => throw SkipException.ForSkip("Yaml Deserialize not implemented yet");
+    public string[] ConvertTo(Structured model)
+      => model.ToYaml(wrapped).ToLines();
   }
 }

@@ -1,7 +1,9 @@
-﻿namespace GqlPlus.Convert;
+﻿using Xunit.Sdk;
 
-public class PlainStructureFlowTagTests
-  : ConvertStructureBase
+namespace GqlPlus.Convert;
+
+public class PlainStructureFlowTagTests()
+  : ConvertStructureTestsBase(PlainTestHelpers.Converters)
 {
   [Fact]
   public void ConvertTo_ListOfLists_Specific()
@@ -72,11 +74,10 @@ public class PlainStructureFlowTagTests
 
     ConvertTo_MapOfMaps(value);
   }
-  protected override string[] ConvertTo(Structured model) => model.ToPlain(false);
 
   protected override bool Flow => true;
   protected override string ValueTag => "value";
-  protected override string ListTag => "list";
+  //protected override string ListTag => "list";
   protected override string MapTag => "map";
 
   protected override string[] Expected_List(string[] value)

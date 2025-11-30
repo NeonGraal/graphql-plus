@@ -1,11 +1,11 @@
 ﻿
+using Xunit.Sdk;
+
 namespace GqlPlus.Convert;
 
-public class PlainStructureTests
-  : ConvertStructureBase
+public class PlainStructureTests()
+  : ConvertStructureTestsBase(PlainTestHelpers.Converters)
 {
-  protected override string[] ConvertTo(Structured model) => model.ToPlain(false);
-
   protected override string[] Expected_List(string[] value)
   => value.BlockList("- ");
 

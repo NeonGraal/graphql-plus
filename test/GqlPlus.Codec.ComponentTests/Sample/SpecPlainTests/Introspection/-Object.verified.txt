@@ -2,28 +2,28 @@
 errors:
   - !_Error
     _kind: !_TokenKind End
-    _message: In _TypeObject can't get model for type '_ChildType'
+    _message: "In _TypeObject can't get model for type '_ChildType'"
   - !_Error
     _kind: !_TokenKind End
-    _message: In _ObjTypeParam can't get model for type '_Named'
+    _message: "In _ObjTypeParam can't get model for type '_Named'"
   - !_Error
     _kind: !_TokenKind End
-    _message: In _ObjBase can't get model for type '_Named'
+    _message: "In _ObjBase can't get model for type '_Named'"
   - !_Error
     _kind: !_TokenKind End
-    _message: In _ObjTypeArg can't get model for type '_TypeRef'
+    _message: "In _ObjTypeArg can't get model for type '_TypeRef'"
   - !_Error
     _kind: !_TokenKind End
-    _message: In _TypeParam can't get model for type '_Described'
+    _message: "In _TypeParam can't get model for type '_Described'"
   - !_Error
     _kind: !_TokenKind End
-    _message: In _ObjAlternateEnum can't get model for type '_TypeRef'
+    _message: "In _ObjAlternateEnum can't get model for type '_TypeRef'"
   - !_Error
     _kind: !_TokenKind End
-    _message: In _ObjField can't get model for type '_Aliased'
+    _message: "In _ObjField can't get model for type '_Aliased'"
   - !_Error
     _kind: !_TokenKind End
-    _message: In _ObjFieldEnum can't get model for type '_TypeRef'
+    _message: "In _ObjFieldEnum can't get model for type '_TypeRef'"
 types: !_Map_Type
   !_Identifier _DualField: !_TypeOutput
     allFields:

@@ -10,7 +10,7 @@ public class OutputEnumEncoderTests
   public void Encode_WithValidModel_ReturnsStructured(string field, string enumType, string enumLabel, string contents)
     => EncodeAndCheck(new(field, enumType, enumLabel, contents), [
       "!_OutputEnum",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "field: " + field,
       "label: " + enumLabel,
       "name: " + enumType,

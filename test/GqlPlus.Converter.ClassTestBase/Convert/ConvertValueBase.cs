@@ -29,7 +29,7 @@ public abstract class ConvertValueBase
   public void Convert_String(string value)
   {
     string[] expected = Expected_String(value);
-    Structured model = new(StructureValue.Str(value, Tag));
+    Structured model = new(new(value, Tag));
 
     string[] result = Convert(model);
 

@@ -20,14 +20,14 @@ settings: !_Map_Setting
   !_Identifier all: !_Setting
     description: 'Schema Setting'
     name: all
-    value: 'test'
+    value: test
 types: !_Map_Type
   !_Identifier All: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: All
       type: !_ObjBase
-        description: 'Alternates'
+        description: Alternates
         name: String
     allFields:
     - !_ObjectFor(_OutputField)
@@ -43,7 +43,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate
       type: !_ObjBase
-        description: 'Alternates'
+        description: Alternates
         name: String
     description: 'An Output'
     fields:
@@ -85,14 +85,16 @@ types: !_Map_Type
       description: 'Guid Regex'
       domain: Guid
       exclude: false
-      pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
+      pattern: >-
+        [0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}
     description: 'A Domain'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       description: 'Guid Regex'
       exclude: false
-      pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
+      pattern: >-
+        [0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}
     name: Guid
     typeKind: !_TypeKind Domain
   !_Identifier Many: !_TypeUnion

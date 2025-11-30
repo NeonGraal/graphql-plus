@@ -30,7 +30,7 @@ public partial class CategoryDeclAstTests
   public void Text_WithOutputDescription(string name, string description)
     => _checks.Text(
       () => new CategoryDeclAst(AstNulls.At, name, new TypeRefAst(AstNulls.At, name, description)),
-      $"( !Ca {name} (Parallel) '{description}' !Tr {name} )");
+      $"( !Ca {name} (Parallel) {description.QuotedIdentifier()} !Tr {name} )");
 
   [Theory, RepeatData]
   public void Equality_WithOutputDescription(string name, string description)

@@ -9,7 +9,7 @@ public class PlainValueTagTests
   protected override string[] Convert(Structured model) => model.ToPlain(false);
 
   protected override string[] Expected_Empty() => [];
-  protected override string[] Expected_String(string value) => [$"!{Tag} '{value}'"];
+  protected override string[] Expected_String(string value) => [$"!{Tag} " + value.QuotedIdentifier()];
   protected override string[] Expected_Identifier(string value) => [$"!{Tag} {value}"];
   protected override string[] Expected_Punctuation(string value) => [$"!{Tag} '{value}'"];
   protected override string[] Expected_Decimal(decimal value) => [$"!{Tag} {value:0.#####}"];

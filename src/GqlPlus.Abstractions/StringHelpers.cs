@@ -51,6 +51,9 @@ public static class StringHelpers
       : text.Quoted("'")
     : text ?? "";
 
+  public static string QuotedIdentifier<T>(this T? value)
+    => value is null ? "" : value.ToString().QuotedIdentifier();
+
   public static string Suffixed(this string? text, string suffix)
     => text?.Length > 0 ? text + suffix : "";
 }

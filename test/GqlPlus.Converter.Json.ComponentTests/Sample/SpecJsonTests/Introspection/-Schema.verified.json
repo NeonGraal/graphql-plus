@@ -5,7 +5,7 @@
       "$tag": "_Error",
       "_kind": {
         "$tag": "_TokenKind",
-        "value": "End"
+        "$value": "End"
       },
       "_message": "In _Schema can\u0027t get model for type \u0027_Named\u0027"
     }
@@ -22,7 +22,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -49,7 +49,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -69,7 +69,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -87,7 +87,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "_CategoryFilter": {
@@ -100,7 +100,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -119,7 +119,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -138,7 +138,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -156,7 +156,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -175,7 +175,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -194,7 +194,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -212,7 +212,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -232,7 +232,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -250,7 +250,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "_Described": {
@@ -263,7 +263,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -283,7 +283,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -297,7 +297,7 @@
       "name": "_Described",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "_Filter": {
@@ -310,7 +310,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -329,7 +329,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -348,7 +348,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -366,7 +366,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -385,7 +385,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -404,7 +404,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -424,7 +424,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -442,7 +442,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -460,7 +460,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -477,7 +477,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -495,7 +495,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -513,7 +513,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -527,7 +527,7 @@
       "name": "_Filter",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "_Identifier": {
@@ -542,7 +542,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "String"
+        "$value": "String"
       },
       "items": [
         {
@@ -554,7 +554,35 @@
       "name": "_Identifier",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
+      }
+    },
+    "_NameFilter": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "_NameFilter",
+          "exclude": false,
+          "pattern": "[A-Za-z_.*]\u002B"
+        }
+      ],
+      "description": "_NameFilter is a simple match expression against _Identifier where \u0027.\u0027 matches any single character and \u0027*\u0027 matches zero or more of any character.",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "$value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "[A-Za-z_.*]\u002B"
+        }
+      ],
+      "name": "_NameFilter",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "$value": "Domain"
       }
     },
     "_Named": {
@@ -567,7 +595,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -605,35 +633,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
-      }
-    },
-    "_NameFilter": {
-      "$tag": "_DomainString",
-      "allItems": [
-        {
-          "$tag": "_DomainItem(_DomainRegex)",
-          "domain": "_NameFilter",
-          "exclude": false,
-          "pattern": "[A-Za-z_.*]\u002B"
-        }
-      ],
-      "description": "_NameFilter is a simple match expression against _Identifier where \u0027.\u0027 matches any single character and \u0027*\u0027 matches zero or more of any character.",
-      "domainKind": {
-        "$tag": "_DomainKind",
-        "value": "String"
-      },
-      "items": [
-        {
-          "$tag": "_DomainRegex",
-          "exclude": false,
-          "pattern": "[A-Za-z_.*]\u002B"
-        }
-      ],
-      "name": "_NameFilter",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Dual"
       }
     },
     "_Schema": {
@@ -647,11 +647,11 @@
               "by": "_Identifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Domain"
+                "$value": "Domain"
               }
             }
           ],
@@ -665,7 +665,7 @@
                   "$tag": "_Modifier",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Opt"
+                    "$value": "Opt"
                   }
                 }
               ],
@@ -685,11 +685,11 @@
               "by": "_Identifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Domain"
+                "$value": "Domain"
               }
             }
           ],
@@ -703,7 +703,7 @@
                   "$tag": "_Modifier",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Opt"
+                    "$value": "Opt"
                   }
                 }
               ],
@@ -723,11 +723,11 @@
               "by": "_Identifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Domain"
+                "$value": "Domain"
               }
             }
           ],
@@ -741,7 +741,7 @@
                   "$tag": "_Modifier",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Opt"
+                    "$value": "Opt"
                   }
                 }
               ],
@@ -761,11 +761,11 @@
               "by": "_Identifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Domain"
+                "$value": "Domain"
               }
             }
           ],
@@ -779,7 +779,7 @@
                   "$tag": "_Modifier",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Opt"
+                    "$value": "Opt"
                   }
                 }
               ],
@@ -801,11 +801,11 @@
               "by": "_Identifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Domain"
+                "$value": "Domain"
               }
             }
           ],
@@ -818,7 +818,7 @@
                   "$tag": "_Modifier",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Opt"
+                    "$value": "Opt"
                   }
                 }
               ],
@@ -838,11 +838,11 @@
               "by": "_Identifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Domain"
+                "$value": "Domain"
               }
             }
           ],
@@ -855,7 +855,7 @@
                   "$tag": "_Modifier",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Opt"
+                    "$value": "Opt"
                   }
                 }
               ],
@@ -875,11 +875,11 @@
               "by": "_Identifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Domain"
+                "$value": "Domain"
               }
             }
           ],
@@ -892,7 +892,7 @@
                   "$tag": "_Modifier",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Opt"
+                    "$value": "Opt"
                   }
                 }
               ],
@@ -912,11 +912,11 @@
               "by": "_Identifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Domain"
+                "$value": "Domain"
               }
             }
           ],
@@ -929,7 +929,7 @@
                   "$tag": "_Modifier",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Opt"
+                    "$value": "Opt"
                   }
                 }
               ],
@@ -949,7 +949,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "_TypeFilter": {
@@ -962,7 +962,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -981,7 +981,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -1000,7 +1000,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -1018,7 +1018,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -1037,7 +1037,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -1056,7 +1056,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -1074,7 +1074,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -1094,7 +1094,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -1112,7 +1112,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

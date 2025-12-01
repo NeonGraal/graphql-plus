@@ -1,11 +1,11 @@
-﻿namespace GqlPlus.Convert;
+﻿using Xunit.Sdk;
 
-public class PlainStructureTagTests
-  : PlainStructureBase
+namespace GqlPlus.Convert;
+
+public class PlainStructureTagTests()
+  : ConvertStructureTestsBase(PlainTestHelpers.Converters)
 {
-  protected override bool Flow => false;
   protected override string ValueTag => "value";
-  protected override string ListTag => "list";
   protected override string MapTag => "map";
 
   protected override string[] Expected_List(string[] value)

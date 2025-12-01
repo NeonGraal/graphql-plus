@@ -1,21 +1,23 @@
-﻿namespace GqlPlus.Convert;
+﻿using Xunit.Sdk;
 
-public class PlainStructureFlowTagTests
-  : PlainStructureBase
+namespace GqlPlus.Convert;
+
+public class PlainStructureFlowTagTests()
+  : ConvertStructureTestsBase(PlainTestHelpers.Converters)
 {
   [Fact]
-  public void ToPlain_ListOfLists_Specific()
+  public void ConvertTo_ListOfLists_Specific()
   {
     string[][] value = [
       ["W8XtjV_8d0_8FM6dqGHdBax_e_Go_24GKaBR1Q_qIBfS_Yr_SO", "am_J9", "jh_3fk41___fu_5_OsplL2X_61u", "Y_", "T"],
       ["j_"],
       ["NMQP_871F", "N_h____w9_4OV_a1Lcfh6"]];
 
-    ToPlain_ListOfLists(value);
+    ConvertTo_ListOfLists(value);
   }
 
   [Fact]
-  public void ToPlain_ListOfMaps_Specific()
+  public void ConvertTo_ListOfMaps_Specific()
   {
     MapPair<string>[][] value = [
       [new("WvF_KT", "fD3k_"), new("ys6Vh", "X"), new("o", "MN6Y1__b_3M") ],
@@ -23,22 +25,22 @@ public class PlainStructureFlowTagTests
       [new("TVHM", "o7") , new("A", "qQR_jBG2H_") , new("X_e_F", "uc")]
       ];
 
-    ToPlain_ListOfMaps(value);
+    ConvertTo_ListOfMaps(value);
   }
 
   [Fact]
-  public void ToPlain_Map_Specific()
+  public void ConvertTo_Map_Specific()
   {
     MapPair<string>[] value = [
       new("rAN1X_c1___No1YUC_ds_E_", "HaKYUJM0L "),
       new("vF_8F14s_QoB_", "g24_gm_1MQ__k"),
       new ("Z_1W0nm__2_aB", "O_81O0saDYY_G81b0P0")];
 
-    ToPlain_Map(value);
+    ConvertTo_Map(value);
   }
 
   [Fact]
-  public void ToPlain_MapOfLists_Specific()
+  public void ConvertTo_MapOfLists_Specific()
   {
     MapPair<string[]>[] value = [
       new("w", ["u", "G36","M57_"]),
@@ -46,11 +48,11 @@ public class PlainStructureFlowTagTests
       new("x9", ["i"])
       ];
 
-    ToPlain_MapOfLists(value);
+    ConvertTo_MapOfLists(value);
   }
 
   [Fact]
-  public void ToPlain_MapOfLists_Specific1()
+  public void ConvertTo_MapOfLists_Specific1()
   {
     MapPair<string[]>[] value = [
       new("RV_", ["s4AVrwq7Kgqwr_yk", "g_985rRj_", "yW6Kn7_j6V7n_5W1bmq1M4XhR", "m__bq0871k2tzQB", "w__UsN28Ge_5x_B_78"]),
@@ -58,11 +60,11 @@ public class PlainStructureFlowTagTests
       new("I", ["w"])
       ];
 
-    ToPlain_MapOfLists(value);
+    ConvertTo_MapOfLists(value);
   }
 
   [Fact]
-  public void ToPlain_MapOfMaps_Specific()
+  public void ConvertTo_MapOfMaps_Specific()
   {
     MapPair<MapPair<string>[]>[] value = [
       new("fW__8__i6", [new("Jx","L"), new("nW7Bwe20a__","p4_u__c_S"),new("uE5Bl0aOqrGG_5cH_7CUMp","uo88__Rh0ikg_13_60kW_AC_OIR_ok_KzvW8Y_yq5_j")]),
@@ -70,12 +72,12 @@ public class PlainStructureFlowTagTests
       new("cb3Dj2c", [new("B_h_j_XV", "cK___iv"), new("C", "A4__e5X_"), new("u6U_Vo", "r0wE")])
       ];
 
-    ToPlain_MapOfMaps(value);
+    ConvertTo_MapOfMaps(value);
   }
 
   protected override bool Flow => true;
   protected override string ValueTag => "value";
-  protected override string ListTag => "list";
+  //protected override string ListTag => "list";
   protected override string MapTag => "map";
 
   protected override string[] Expected_List(string[] value)

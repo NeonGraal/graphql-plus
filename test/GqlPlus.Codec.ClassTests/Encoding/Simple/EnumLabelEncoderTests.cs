@@ -9,7 +9,7 @@ public class EnumLabelEncoderTests : EncoderClassTestBase<EnumLabelModel>
   public void Encode_WithValidModel_ReturnsStructured(string name, string ofEnum, string contents)
     => EncodeAndCheck(new(name, ofEnum, contents), [
       "!_EnumLabel",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "enum: " + ofEnum,
       "name: " + name
       ]);

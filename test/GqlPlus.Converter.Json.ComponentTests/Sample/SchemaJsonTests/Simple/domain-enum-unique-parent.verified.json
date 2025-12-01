@@ -29,7 +29,7 @@
       "name": "DupDmnEnumUnqPrnt",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "EnumDmnEnumUnqPrnt": {
@@ -63,12 +63,12 @@
         "name": "PrntDmnEnumUnqPrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Enum"
+          "$value": "Enum"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "PrntDmnEnumUnqPrnt": {
@@ -98,7 +98,7 @@
       "name": "PrntDmnEnumUnqPrnt",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

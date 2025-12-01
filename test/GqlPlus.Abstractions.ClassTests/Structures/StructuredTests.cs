@@ -132,6 +132,18 @@ public class StructuredTests
     result.Equals(list2.Encode()).ShouldBeFalse();
   }
   [Theory, RepeatData]
+  public void Equals_ListDiffOrder_IsFalse(string value1, string value2)
+  {
+    this.SkipEqual(value1, value2);
+
+    string[] list1 = [value1, value2];
+    string[] list2 = [value2, value1];
+
+    Structured result = list1.Encode();
+
+    result.Equals(list2.Encode()).ShouldBeFalse();
+  }
+  [Theory, RepeatData]
   public void Equals_MapDiffKey_IsFalse(string key1, string value1, string key2)
   {
     this.SkipEqual(key1, key2);
@@ -166,6 +178,30 @@ public class StructuredTests
     Structured result = map1.Encode();
 
     result.Equals(map2.Encode()).ShouldBeFalse();
+  }
+  [Theory, RepeatData]
+  public void Equals_MapSameValue_IsTrue(string key1, string value1, string key2)
+  {
+    this.SkipEqual(key1, key2);
+
+    Map<Structured> map1 = new() { [key1] = new(value1), [key2] = new(value1), };
+    Map<Structured> map2 = new() { [key2] = new(value1), [key1] = new(value1), };
+
+    Structured result = map1.Encode();
+
+    result.Equals(map2.Encode()).ShouldBeTrue();
+  }
+  [Theory, RepeatData]
+  public void Equals_MapSameBoth_IsTrue(string key1, string value1, string key2, string value2)
+  {
+    this.SkipEqual(key1, key2);
+
+    Map<Structured> map1 = new() { [key1] = new(value1), [key2] = new(value2), };
+    Map<Structured> map2 = new() { [key2] = new(value2), [key1] = new(value1), };
+
+    Structured result = map1.Encode();
+
+    result.Equals(map2.Encode()).ShouldBeTrue();
   }
   [Fact]
   public void Equals_New_IsFalse()

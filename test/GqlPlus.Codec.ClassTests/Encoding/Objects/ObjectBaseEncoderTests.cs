@@ -12,7 +12,7 @@ public class ObjectBaseEncoderTests
   public void Encode_WithTypeParam_ReturnsStructuredWithTypeParam(string dual, string contents)
     => EncodeAndCheck(new(dual, contents) { IsTypeParam = true }, [
       "!_ObjBase",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "typeParam: " + dual
       ]);
 
@@ -20,7 +20,7 @@ public class ObjectBaseEncoderTests
   public void Encode_WithoutTypeParam_ReturnsStructuredWithDual(string dual, string contents)
     => EncodeAndCheck(new(dual, contents), [
       "!_ObjBase",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "name: " + dual
       ]);
 }

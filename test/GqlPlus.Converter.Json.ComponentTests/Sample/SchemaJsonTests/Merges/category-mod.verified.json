@@ -10,7 +10,7 @@
           "$tag": "_Modifier",
           "modifierKind": {
             "$tag": "_ModifierKind",
-            "value": "Opt"
+            "$value": "Opt"
           }
         }
       ],
@@ -20,12 +20,12 @@
         "name": "CtgrMod",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     }
   },
@@ -36,7 +36,7 @@
       "name": "CtgrMod",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

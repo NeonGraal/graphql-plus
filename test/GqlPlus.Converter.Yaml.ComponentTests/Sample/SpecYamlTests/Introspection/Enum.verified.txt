@@ -2,10 +2,10 @@
 errors:
 - !_Error
   _kind: !_TokenKind End
-  _message: In _EnumLabel can't get model for type '_Aliased'
+  _message: "In _EnumLabel can't get model for type '_Aliased'"
 - !_Error
   _kind: !_TokenKind End
-  _message: In _EnumValue can't get model for type '_TypeRef'
+  _message: "In _EnumValue can't get model for type '_TypeRef'"
 types: !_Map_Type
   !_Identifier _EnumLabel: !_TypeDual
     allFields:

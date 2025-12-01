@@ -47,7 +47,7 @@
       "name": "AltAltDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "AltDual": {
@@ -74,7 +74,7 @@
       "name": "AltDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

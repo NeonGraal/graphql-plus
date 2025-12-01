@@ -76,8 +76,8 @@ internal class RenderYamlTypeConverter
   private void WriteValue(IEmitter emitter, StructureValue value, string tag)
   {
     bool isString = !string.IsNullOrEmpty(value.Text) && string.IsNullOrWhiteSpace(value.Identifier);
-    bool plainImplicit = string.IsNullOrWhiteSpace(tag) && !isString;
-    TagName tagName = isString || plainImplicit ? new TagName() : new TagName("!" + tag);
+    bool plainImplicit = string.IsNullOrWhiteSpace(tag);
+    TagName tagName = plainImplicit ? new TagName() : new TagName("!" + tag);
 
     string text = "";
     if (!string.IsNullOrWhiteSpace(value.Identifier)) {
@@ -95,7 +95,7 @@ internal class RenderYamlTypeConverter
       style = GetStringScalarStyle(text);
     }
 
-    emitter.Emit(new Scalar(default, tagName, text!, style, plainImplicit, isString));
+    emitter.Emit(new Scalar(default, tagName, text!, style, plainImplicit, false));
   }
 
   protected virtual ScalarStyle GetStringScalarStyle(string text)

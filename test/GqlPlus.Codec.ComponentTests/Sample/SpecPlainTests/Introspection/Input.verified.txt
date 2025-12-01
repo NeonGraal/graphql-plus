@@ -2,10 +2,10 @@
 errors:
   - !_Error
     _kind: !_TokenKind End
-    _message: In _InputField can't get model for type '_ObjField'
+    _message: "In _InputField can't get model for type '_ObjField'"
   - !_Error
     _kind: !_TokenKind End
-    _message: In _InputFieldType can't get model for type '_ObjFieldType'
+    _message: "In _InputFieldType can't get model for type '_ObjFieldType'"
 types: !_Map_Type
   !_Identifier _InputField: !_TypeOutput
     name: _InputField

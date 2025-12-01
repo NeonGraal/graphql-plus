@@ -16,7 +16,7 @@ internal class DescribedEncoder<TModel>
   internal Structured Described(Structured encoded, TModel model)
     => encoded
     .AddIf(string.IsNullOrWhiteSpace(model.Description),
-      onFalse: f => f.Add("description", StructureValue.Str(model.Description)));
+      onFalse: f => f.Add("description", new(model.Description)));
 
   internal override Structured Encode(TModel model)
     => Described(base.Encode(model), model);

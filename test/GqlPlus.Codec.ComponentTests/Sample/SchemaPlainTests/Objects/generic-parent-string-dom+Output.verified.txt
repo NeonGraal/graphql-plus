@@ -5,12 +5,12 @@ types: !_Map_Type
       - !_DomainItem(_DomainRegex)
         domain: DomGnrcPrntStrDomOutp
         exclude: false
-        pattern: \w+
+        pattern: '\\w+'
     domainKind: !_DomainKind String
     items:
       - !_DomainRegex
         exclude: false
-        pattern: \w+
+        pattern: '\\w+'
     name: DomGnrcPrntStrDomOutp
     typeKind: !_TypeKind Domain
   !_Identifier FieldGnrcPrntStrDomOutp: !_TypeOutput

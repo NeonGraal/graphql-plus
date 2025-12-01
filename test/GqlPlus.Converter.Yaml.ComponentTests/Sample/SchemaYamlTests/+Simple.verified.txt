@@ -314,13 +314,13 @@ types: !_Map_Type
       description: 'DomString Descr'
       domain: DmnStrDescr
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       description: 'DomString Descr'
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     name: DmnStrDescr
     typeKind: !_TypeKind Domain
   !_Identifier DmnStrPrnt: !_DomainString
@@ -328,16 +328,16 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: PrntDmnStrPrnt
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     - !_DomainItem(_DomainRegex)
       domain: DmnStrPrnt
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     name: DmnStrPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntDmnStrPrnt
@@ -348,16 +348,16 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: PrntDmnStrPrntDescr
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     - !_DomainItem(_DomainRegex)
       domain: DmnStrPrntDescr
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     name: DmnStrPrntDescr
     parent: !_TypeRef(_SimpleKind)
       description: 'Parent comment'
@@ -765,12 +765,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: PrntDmnStrPrnt
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     name: PrntDmnStrPrnt
     typeKind: !_TypeKind Domain
   !_Identifier PrntDmnStrPrntDescr: !_DomainString
@@ -778,12 +778,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: PrntDmnStrPrntDescr
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     name: PrntDmnStrPrntDescr
     typeKind: !_TypeKind Domain
   !_Identifier PrntEnumPrnt: !_TypeEnum

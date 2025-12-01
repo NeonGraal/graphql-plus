@@ -9,7 +9,7 @@
           "$tag": "_Modifier",
           "modifierKind": {
             "$tag": "_ModifierKind",
-            "value": "Opt"
+            "$value": "Opt"
           }
         }
       ],
@@ -19,12 +19,12 @@
         "name": "CtgrOutpOptl",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     }
   },
@@ -35,7 +35,7 @@
       "name": "CtgrOutpOptl",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

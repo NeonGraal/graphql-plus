@@ -12,7 +12,7 @@ public class TypeOutputEncoderTests
   public void Encode_WithValidModel_ReturnsStructured(string name, string contents)
     => EncodeAndCheck(new(name, contents), [
       "!_TypeOutput",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "name: " + name,
       "typeKind: !_TypeKind Output"
       ]);

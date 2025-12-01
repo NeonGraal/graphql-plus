@@ -144,46 +144,52 @@ directives: !_Map_Directives
 errors:
 - !_Error
   _kind: !_TokenKind End
-  _message: In AltCnstAltDualInp can't get model for type 'PrntCnstAltDualInp'
+  _message: >-
+    In AltCnstAltDualInp can't get model for type 'PrntCnstAltDualInp'
 - !_Error
   _kind: !_TokenKind End
-  _message: In AltCnstAltDualOutp can't get model for type 'PrntCnstAltDualOutp'
+  _message: >-
+    In AltCnstAltDualOutp can't get model for type 'PrntCnstAltDualOutp'
 - !_Error
   _kind: !_TokenKind End
-  _message: In AltCnstFieldDualInp can't get model for type 'PrntCnstFieldDualInp'
+  _message: >-
+    In AltCnstFieldDualInp can't get model for type 'PrntCnstFieldDualInp'
 - !_Error
   _kind: !_TokenKind End
-  _message: In AltCnstFieldDualOutp can't get model for type 'PrntCnstFieldDualOutp'
+  _message: >-
+    In AltCnstFieldDualOutp can't get model for type 'PrntCnstFieldDualOutp'
 - !_Error
   _kind: !_TokenKind End
-  _message: In AltCnstPrntDualGrndInp can't get model for type
-    'PrntCnstPrntDualGrndInp'
+  _message: >-
+    In AltCnstPrntDualGrndInp can't get model for type 'PrntCnstPrntDualGrndInp'
 - !_Error
   _kind: !_TokenKind End
-  _message: In AltCnstPrntDualGrndOutp can't get model for type
-    'PrntCnstPrntDualGrndOutp'
+  _message: >-
+    In AltCnstPrntDualGrndOutp can't get model for type 'PrntCnstPrntDualGrndOutp'
 - !_Error
   _kind: !_TokenKind End
-  _message: In AltCnstPrntDualPrntInp can't get model for type
-    'PrntCnstPrntDualPrntInp'
+  _message: >-
+    In AltCnstPrntDualPrntInp can't get model for type 'PrntCnstPrntDualPrntInp'
 - !_Error
   _kind: !_TokenKind End
-  _message: In AltCnstPrntDualPrntOutp can't get model for type
-    'PrntCnstPrntDualPrntOutp'
+  _message: >-
+    In AltCnstPrntDualPrntOutp can't get model for type 'PrntCnstPrntDualPrntOutp'
 - !_Error
   _kind: !_TokenKind End
-  _message: In RefGnrcPrntDualPrntInp can't get model for type
-    'AltGnrcPrntDualPrntInp'
+  _message: >-
+    In RefGnrcPrntDualPrntInp can't get model for type 'AltGnrcPrntDualPrntInp'
 - !_Error
   _kind: !_TokenKind End
-  _message: In RefGnrcPrntDualPrntOutp can't get model for type
-    'AltGnrcPrntDualPrntOutp'
+  _message: >-
+    In RefGnrcPrntDualPrntOutp can't get model for type 'AltGnrcPrntDualPrntOutp'
 - !_Error
   _kind: !_TokenKind End
-  _message: In PrntDualInp can't get model for type 'RefPrntDualInp'
+  _message: >-
+    In PrntDualInp can't get model for type 'RefPrntDualInp'
 - !_Error
   _kind: !_TokenKind End
-  _message: In PrntDualOutp can't get model for type 'RefPrntDualOutp'
+  _message: >-
+    In PrntDualOutp can't get model for type 'RefPrntDualOutp'
 name: Schema
 settings: !_Map_Setting
   !_Identifier descr: !_Setting
@@ -1502,7 +1508,7 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierDictionary
-        by: ^
+        by: '^'
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       object: AltModBoolDual
@@ -1512,7 +1518,7 @@ types: !_Map_Type
     - !_Alternate
       collections:
       - !_ModifierDictionary
-        by: ^
+        by: '^'
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       type: !_ObjBase
@@ -1524,7 +1530,7 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierDictionary
-        by: ^
+        by: '^'
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       object: AltModBoolInp
@@ -1534,7 +1540,7 @@ types: !_Map_Type
     - !_Alternate
       collections:
       - !_ModifierDictionary
-        by: ^
+        by: '^'
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       type: !_ObjBase
@@ -1546,7 +1552,7 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate)
       collections:
       - !_ModifierDictionary
-        by: ^
+        by: '^'
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       object: AltModBoolOutp
@@ -1556,7 +1562,7 @@ types: !_Map_Type
     - !_Alternate
       collections:
       - !_ModifierDictionary
-        by: ^
+        by: '^'
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       type: !_ObjBase
@@ -2962,13 +2968,13 @@ types: !_Map_Type
       description: 'DomString Descr'
       domain: DmnStrDescr
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       description: 'DomString Descr'
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     name: DmnStrDescr
     typeKind: !_TypeKind Domain
   !_Identifier DmnStrDiff: !_DomainString
@@ -2976,12 +2982,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DmnStrDiff
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     name: DmnStrDiff
     typeKind: !_TypeKind Domain
   !_Identifier DmnStrPrnt: !_DomainString
@@ -2989,16 +2995,16 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: PrntDmnStrPrnt
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     - !_DomainItem(_DomainRegex)
       domain: DmnStrPrnt
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     name: DmnStrPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntDmnStrPrnt
@@ -3009,16 +3015,16 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: PrntDmnStrPrntDescr
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     - !_DomainItem(_DomainRegex)
       domain: DmnStrPrntDescr
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     name: DmnStrPrntDescr
     parent: !_TypeRef(_SimpleKind)
       description: 'Parent comment'
@@ -3030,12 +3036,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DmnStrSame
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     name: DmnStrSame
     typeKind: !_TypeKind Domain
   !_Identifier DomCnstAltDmnDual: !_DomainString
@@ -3043,12 +3049,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomCnstAltDmnDual
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     name: DomCnstAltDmnDual
     typeKind: !_TypeKind Domain
   !_Identifier DomCnstAltDmnInp: !_DomainString
@@ -3056,12 +3062,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomCnstAltDmnInp
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     name: DomCnstAltDmnInp
     typeKind: !_TypeKind Domain
   !_Identifier DomCnstAltDmnOutp: !_DomainString
@@ -3069,12 +3075,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomCnstAltDmnOutp
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     name: DomCnstAltDmnOutp
     typeKind: !_TypeKind Domain
   !_Identifier DomCnstFieldDmnDual: !_DomainString
@@ -3082,12 +3088,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomCnstFieldDmnDual
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     name: DomCnstFieldDmnDual
     typeKind: !_TypeKind Domain
   !_Identifier DomCnstFieldDmnInp: !_DomainString
@@ -3095,12 +3101,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomCnstFieldDmnInp
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     name: DomCnstFieldDmnInp
     typeKind: !_TypeKind Domain
   !_Identifier DomCnstFieldDmnOutp: !_DomainString
@@ -3108,12 +3114,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomCnstFieldDmnOutp
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     name: DomCnstFieldDmnOutp
     typeKind: !_TypeKind Domain
   !_Identifier DomGnrcPrntEnumDomDual: !_DomainEnum
@@ -3178,12 +3184,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomGnrcPrntStrDomDual
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     name: DomGnrcPrntStrDomDual
     typeKind: !_TypeKind Domain
   !_Identifier DomGnrcPrntStrDomInp: !_DomainString
@@ -3191,12 +3197,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomGnrcPrntStrDomInp
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     name: DomGnrcPrntStrDomInp
     typeKind: !_TypeKind Domain
   !_Identifier DomGnrcPrntStrDomOutp: !_DomainString
@@ -3204,12 +3210,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomGnrcPrntStrDomOutp
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     name: DomGnrcPrntStrDomOutp
     typeKind: !_TypeKind Domain
   !_Identifier DomOutpParamModDmn: !_DomainNumber
@@ -6946,14 +6952,14 @@ types: !_Map_Type
   !_Identifier InpFieldStr: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
-      default: 'default'
+      default: default
       name: field
       object: InpFieldStr
       type: !_ObjBase
         name: String
     fields:
     - !_InputField
-      default: 'default'
+      default: default
       name: field
       type: !_ObjBase
         name: String
@@ -8562,12 +8568,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: PrntDmnStrPrnt
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     name: PrntDmnStrPrnt
     typeKind: !_TypeKind Domain
   !_Identifier PrntDmnStrPrntDescr: !_DomainString
@@ -8575,12 +8581,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: PrntDmnStrPrntDescr
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     name: PrntDmnStrPrntDescr
     typeKind: !_TypeKind Domain
   !_Identifier PrntDual: !_TypeDual

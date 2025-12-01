@@ -16,7 +16,7 @@ internal static class JsonTestHelpers
   internal static Func<string?, string> AsUnindentedValue(this string tag, string by = " ")
     => value => tag.WithValue(value.JsonValue(), ":").Surround("{", "}", by);
   internal static string[] WithValue(this string tag, string? value, string sep)
-    => [$"\"$tag\"{sep}\"{tag}\",", $"\"value\"{sep}{value}"];
+    => [$"\"$tag\"{sep}\"{tag}\",", $"\"$value\"{sep}{value}"];
   internal static string[] WithIndentedValue(this string tag, string? value)
     => ["{", .. tag.WithValue(value, ": ").Indent(), "}"];
   internal static Func<string?, string[]> AsIndentedValue(this string tag)
@@ -34,7 +34,7 @@ internal static class JsonTestHelpers
     => values.AsUnindentedMap(JsonValue);
   internal static string AsUnindentedMap<T>(this MapPair<T>[] values, Func<T?, string> mapper, string tag = "")
     => values
-    .OrderBy(v => v.Key, StringComparer.OrdinalIgnoreCase)
+    .OrderBy(v => v.Key, StringComparer.Ordinal)
     .Select(v => JsonValue(v.Key) + ":" + mapper(v.Value))
     .PrependWith(tag, $"\"$tag\":\"{tag}\"")
     .Surround("{", "}", ",");
@@ -46,7 +46,7 @@ internal static class JsonTestHelpers
     => values.AsIndentedMap(v => [JsonValue(v)]);
   internal static string[] AsIndentedMap<T>(this MapPair<T>[] values, Func<T?, string[]> mapper, string tag = "")
     => values
-    .OrderBy(v => v.Key, StringComparer.OrdinalIgnoreCase)
+    .OrderBy(v => v.Key, StringComparer.Ordinal)
     .Select(v => mapper(v.Value).PrefixFirst(JsonValue(v.Key) + ": ").Indent().ToArray())
     .PrependWith(tag, [$"  \"$tag\": \"{tag}\""])
     .AddComma("{", "}");

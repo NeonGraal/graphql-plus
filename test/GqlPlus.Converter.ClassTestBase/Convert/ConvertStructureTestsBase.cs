@@ -245,5 +245,5 @@ public abstract class ConvertStructureTestsBase(IConvertTestsBase converters)
     => value.ToMap(k => k.Key, v => mapper(v.Value)).Encode(MapTag, Flow);
 
   private static bool MapDups<T>(MapPair<T>[] value)
-    => value.Length != value.Select(v => v.Key).Distinct(StringComparer.OrdinalIgnoreCase).Count();
+    => value.Length != value.Select(v => v.Key).Distinct(StringComparer.Ordinal).Count();
 }

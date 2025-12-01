@@ -93,7 +93,7 @@ public class ComplexValue<TValue, TObject>
   where TObject : ComplexValue<TValue, TObject>, IEquatable<TObject>, IValue
 {
   internal sealed class Dict
-    : Dictionary<TValue, TObject>, IDict
+    : SortedDictionary<TValue, TObject>, IDict
   {
     internal Dict() : base() { }
     internal Dict(IDictionary<TValue, TObject> dictionary)

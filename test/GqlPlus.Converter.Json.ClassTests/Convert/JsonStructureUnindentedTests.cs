@@ -6,10 +6,23 @@ public class JsonStructureUnindentedTests()
   : ConvertStructureTestsBase(JsonTestHelpers.Unindented)
 {
   [Fact]
-  public void ExplicitTo_Map()
+  public void ExplicitTo_MapOfMaps()
   {
-    MapPair<string>[] sample = [new("Jc", "zo1ixaI_p2V3_A4j_4Fy"), new("W", "ONl"), new("w", "Kc")];
-    ConvertTo_Map(sample);
+    MapPair<MapPair<string>[]>[] sample = [
+      new("i1_",[
+        new("Ofxg_hf_","hlwcFC_NG__N_O"),
+        new("QVe__MC71","K"),
+        new("o","H556__")]),
+      new("Nw_0__84_", [
+        new("H_NsVcK4jK","Mk"),
+        new("YO","vt5_nS___"),
+        new("VP0_V","oDB")]),
+      new("SJ__k_2_P",[
+        new("n___","R2Vn"),
+        new("g","J"),
+        new("Nw7","P__Q")])];
+    // [new("Jc", "zo1ixaI_p2V3_A4j_4Fy"), new("W", "ONl"), new("w", "Kc")];
+    ConvertTo_MapOfMaps(sample);
   }
 
   protected override bool Flow => true;

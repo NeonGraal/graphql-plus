@@ -7,7 +7,7 @@ public class JsonValueUnindentedTagTests
     : base(JsonTestHelpers.Unindented)
     => Tag = "tag";
 
-  protected override string[] Expected_Empty() => [Tag.WithUnindentedValue("")];
+  protected override string[] Expected_Empty() => [Tag.WithUnindentedValue("null")];
   protected override string[] Expected_String(string value) => [Tag.WithUnindentedValue(value.JsonValue())];
   protected override string[] Expected_Identifier(string value) => [Tag.WithUnindentedValue(value.JsonValue())];
   protected override string[] Expected_Punctuation(string value) => [Tag.WithUnindentedValue(value.JsonValue())];

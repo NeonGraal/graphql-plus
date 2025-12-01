@@ -4,7 +4,7 @@ namespace GqlPlus.Convert;
 public class JsonValueIndentedTests()
   : ConvertValueTestsBase(JsonTestHelpers.Indented)
 {
-  protected override string[] Expected_Empty() => [];
+  protected override string[] Expected_Empty() => ["null"];
   protected override string[] Expected_String(string value) => [value.Quoted('"')];
   protected override string[] Expected_Identifier(string value) => [value.Quoted('"')];
   protected override string[] Expected_Punctuation(string value) => [value.Quoted('"')];

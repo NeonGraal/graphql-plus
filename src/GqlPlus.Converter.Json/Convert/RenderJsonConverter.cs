@@ -13,6 +13,8 @@ internal abstract class RenderJsonConverter<T>
       writer.WriteNumberValue(value.Number.Value);
     } else if (!string.IsNullOrEmpty(value.Text)) {
       writer.WriteStringValue(value.Text);
+    } else {
+      writer.WriteNullValue();
     }
   }
 }

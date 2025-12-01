@@ -33,7 +33,7 @@ public abstract class ParentTypeEncoderClassTestBase<TModel, TItem, TAll, TInput
 
   protected virtual string[] ValidModelExpected(string name, string parent, string contents)
     => [$"!_Type{Kind}",
-        "description: " + contents.Quoted("'"),
+        "description: " + contents.QuotedIdentifier(),
         "name: " + name,
         "parent: !_TypeRef(_SimpleKind) " + parent,
         $"typeKind: !_TypeKind {Kind}"
@@ -42,8 +42,8 @@ public abstract class ParentTypeEncoderClassTestBase<TModel, TItem, TAll, TInput
   [Theory, RepeatData]
   public void Encode_WithItem_ReturnsStructured(string name, TInput item)
   {
-    EncodeReturns(Item, Arg.Any<TItem>(), StructureValue.Str($"{item}", "_ItemModel"));
-    EncodeReturns(All, Arg.Any<TAll>(), StructureValue.Str($"{item}", "_AllModel"));
+    EncodeReturns(Item, Arg.Any<TItem>(), new($"{item}", "_ItemModel"));
+    EncodeReturns(All, Arg.Any<TAll>(), new($"{item}", "_AllModel"));
 
     EncodeAndCheck(NewModel(name, "", null) with {
       Items = [NewItem(item)],
@@ -54,12 +54,15 @@ public abstract class ParentTypeEncoderClassTestBase<TModel, TItem, TAll, TInput
   protected virtual string[] WithItemExpected(string name, TInput item)
     => [$"!_Type{Kind}",
         "allItems:",
-        $"  - !_AllModel '{item}'",
+        ItemModel(item, "All"),
         "items:",
-        $"  - !_ItemModel '{item}'",
+        ItemModel(item, "Item"),
         "name: " + name,
         $"typeKind: !_TypeKind {Kind}"
         ];
+
+  protected virtual string ItemModel(TInput item, string prefix)
+    => $"  - !_{prefix}Model {item}";
 
   protected abstract TAll NewAll(TInput item, string name);
   protected abstract TItem NewItem(TInput item);

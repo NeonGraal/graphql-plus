@@ -26,7 +26,7 @@
       "name": "AltDualOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjDualAltDualOutp": {
@@ -74,7 +74,7 @@
       "name": "ObjDualAltDualOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

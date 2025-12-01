@@ -28,7 +28,7 @@
       "name": "FieldDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

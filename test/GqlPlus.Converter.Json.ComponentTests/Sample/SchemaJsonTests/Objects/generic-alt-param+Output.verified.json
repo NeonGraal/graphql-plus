@@ -47,7 +47,7 @@
       "name": "AltGnrcAltParamOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "GnrcAltParamOutp": {
@@ -86,7 +86,7 @@
       "name": "GnrcAltParamOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "RefGnrcAltParamOutp": {
@@ -113,7 +113,7 @@
       "name": "RefGnrcAltParamOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -123,7 +123,7 @@
             "name": "_Output",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Internal"
+              "$value": "Internal"
             }
           },
           "name": "ref"

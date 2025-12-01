@@ -13,11 +13,11 @@
               "by": "*",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Basic"
+                "$value": "Basic"
               }
             }
           ],
@@ -37,11 +37,11 @@
               "by": "*",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Basic"
+                "$value": "Basic"
               }
             }
           ],
@@ -54,7 +54,7 @@
       "name": "RefGnrcAltModStrDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       },
       "typeParams": [
         {
@@ -64,7 +64,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "ref"

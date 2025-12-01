@@ -20,7 +20,7 @@
       "name": "EnumGnrcPrntSmplEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "FieldGnrcPrntSmplEnumDual": {
@@ -49,7 +49,7 @@
       "name": "FieldGnrcPrntSmplEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       },
       "typeParams": [
         {
@@ -59,7 +59,7 @@
             "name": "_Simple",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Internal"
+              "$value": "Internal"
             }
           },
           "name": "ref"
@@ -92,7 +92,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

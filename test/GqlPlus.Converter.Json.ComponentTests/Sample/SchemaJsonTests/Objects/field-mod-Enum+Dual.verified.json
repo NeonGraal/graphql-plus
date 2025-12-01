@@ -20,7 +20,7 @@
       "name": "EnumFieldModEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "FieldModEnumDual": {
@@ -34,11 +34,11 @@
               "by": "EnumFieldModEnumDual",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Enum"
+                "$value": "Enum"
               }
             }
           ],
@@ -59,11 +59,11 @@
               "by": "EnumFieldModEnumDual",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Enum"
+                "$value": "Enum"
               }
             }
           ],
@@ -77,7 +77,7 @@
       "name": "FieldModEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

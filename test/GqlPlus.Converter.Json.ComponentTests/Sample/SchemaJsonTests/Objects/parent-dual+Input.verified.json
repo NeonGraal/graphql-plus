@@ -5,7 +5,7 @@
       "$tag": "_Error",
       "_kind": {
         "$tag": "_TokenKind",
-        "value": "End"
+        "$value": "End"
       },
       "_message": "In PrntDualInp can\u0027t get model for type \u0027RefPrntDualInp\u0027"
     }
@@ -21,7 +21,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "RefPrntDualInp": {
@@ -69,7 +69,7 @@
       "name": "RefPrntDualInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

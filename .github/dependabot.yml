@@ -2,28 +2,30 @@
 
 version: 2
 updates:
-  - package-ecosystem: "nuget"
-    directory: "/" # Location of package manifests
+  - package-ecosystem: nuget
+    directory: /
     schedule:
-      interval: "weekly"
+      interval: weekly
     groups:
       patch:
         applies-to: version-updates
         update-types:
-          - "patch"
+          - patch
       minor:
         applies-to: version-updates
         exclude-patterns:
-          - "Microsoft.CodeAnalysis.CSharp"
+          - Microsoft.CodeAnalysis.CSharp
+          - Basic.Reference.Assemblies
         update-types:
-          - "minor"
+          - minor
       major:
         applies-to: version-updates
         exclude-patterns:
-          - "Microsoft.CodeAnalysis.CSharp"
+          - Microsoft.CodeAnalysis.CSharp
+          - Basic.Reference.Assemblies
         update-types:
-          - "major"
-  - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
+          - major
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "weekly"
+      interval: weekly

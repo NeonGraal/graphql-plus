@@ -108,7 +108,7 @@ Success
   []
 }
 {
-  '_NameFilter is a simple match expression against _Identifier where \'.\' matches any single character and \'*\' matches zero or more of any character.'
+  "_NameFilter is a simple match expression against _Identifier where '.' matches any single character and '*' matches zero or more of any character."
   !Do I@008/0022
   _NameFilter
   String

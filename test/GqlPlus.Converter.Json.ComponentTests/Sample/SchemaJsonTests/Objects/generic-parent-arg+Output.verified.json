@@ -27,7 +27,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -37,7 +37,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "type"
@@ -68,7 +68,7 @@
       "name": "RefGnrcPrntArgOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -78,7 +78,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "ref"

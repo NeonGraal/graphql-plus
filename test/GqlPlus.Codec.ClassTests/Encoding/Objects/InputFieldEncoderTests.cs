@@ -26,7 +26,7 @@ public class InputFieldEncoderTests
     // Act & Accept
     EncodeAndCheck(new(name, inputBase, contents), [
       "!_InputField",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "name: " + name,
       "type: " + input
       ]);

@@ -5,7 +5,7 @@
       "$tag": "_Error",
       "_kind": {
         "$tag": "_TokenKind",
-        "value": "End"
+        "$value": "End"
       },
       "_message": "In _AndType can\u0027t get model for type \u0027_Named\u0027"
     }
@@ -22,7 +22,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -49,7 +49,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -69,7 +69,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -87,7 +87,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "_AndType": {
@@ -139,7 +139,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "_Described": {
@@ -152,7 +152,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -172,7 +172,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -186,7 +186,7 @@
       "name": "_Described",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "_Named": {
@@ -199,7 +199,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -237,7 +237,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

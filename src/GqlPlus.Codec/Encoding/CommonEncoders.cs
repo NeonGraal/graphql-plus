@@ -27,7 +27,7 @@ internal class SimpleEncoder
       { Boolean: not null } => new(model.Boolean, model.TypeName),
       { Number: not null } => new(model.Number, model.TypeName),
       { Text: not null } when !string.IsNullOrEmpty(model.Text)
-        => new(StructureValue.Str(model.Text, model.TypeName)),
+        => new(model.Text, model.TypeName),
       _ => new(""), // new("null", "Basic"),
     };
 }

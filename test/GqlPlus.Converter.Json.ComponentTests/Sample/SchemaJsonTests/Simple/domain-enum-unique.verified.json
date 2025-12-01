@@ -29,7 +29,7 @@
       "name": "EnumDmnEnumUnq",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "EnumDomDup": {
@@ -59,7 +59,7 @@
       "name": "EnumDomDup",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

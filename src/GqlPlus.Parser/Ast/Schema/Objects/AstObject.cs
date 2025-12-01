@@ -24,7 +24,6 @@ internal record class AstObject<TObjField>
 
   IEnumerable<TObjField> IGqlpObject<TObjField>.ObjFields => ObjFields;
 
-  
   public virtual bool Equals(AstObject<TObjField>? other)
     => other is IGqlpObject<TObjField> obj && Equals(obj);
   public bool Equals(IGqlpObject<TObjField>? other)

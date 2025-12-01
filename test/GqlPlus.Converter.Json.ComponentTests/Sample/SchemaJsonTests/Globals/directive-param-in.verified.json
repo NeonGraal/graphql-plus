@@ -30,7 +30,7 @@
       "name": "InDrctParamIn",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

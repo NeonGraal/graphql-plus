@@ -18,7 +18,7 @@
                 "name": "ParentCnstPrntEnumDual",
                 "typeKind": {
                   "$tag": "_SimpleKind",
-                  "value": "Enum"
+                  "$value": "Enum"
                 }
               }
             ]
@@ -38,7 +38,7 @@
                 "name": "ParentCnstPrntEnumDual",
                 "typeKind": {
                   "$tag": "_SimpleKind",
-                  "value": "Enum"
+                  "$value": "Enum"
                 }
               }
             ]
@@ -48,7 +48,7 @@
       "name": "CnstPrntEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "EnumCnstPrntEnumDual": {
@@ -77,12 +77,12 @@
         "name": "ParentCnstPrntEnumDual",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Enum"
+          "$value": "Enum"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "ParentCnstPrntEnumDual": {
@@ -103,7 +103,7 @@
       "name": "ParentCnstPrntEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "RefCnstPrntEnumDual": {
@@ -132,7 +132,7 @@
       "name": "RefCnstPrntEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       },
       "typeParams": [
         {
@@ -142,7 +142,7 @@
             "name": "EnumCnstPrntEnumDual",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           },
           "name": "type"

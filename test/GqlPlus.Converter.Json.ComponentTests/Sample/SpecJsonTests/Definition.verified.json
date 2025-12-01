@@ -2,6 +2,116 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
+    "Boolean": {
+      "$tag": "_TypeEnum",
+      "aliases": ["bool", "^"],
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "Boolean",
+          "name": "false"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "Boolean",
+          "name": "true"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "false"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "true"
+        }
+      ],
+      "name": "Boolean",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "$value": "Enum"
+      }
+    },
+    "Null": {
+      "$tag": "_TypeEnum",
+      "aliases": ["null"],
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "Null",
+          "name": "null"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "null"
+        }
+      ],
+      "name": "Null",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "$value": "Enum"
+      }
+    },
+    "Number": {
+      "$tag": "_DomainNumber",
+      "aliases": ["int", "0"],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "$value": "Number"
+      },
+      "name": "Number",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "$value": "Domain"
+      }
+    },
+    "String": {
+      "$tag": "_DomainString",
+      "aliases": ["str", "*"],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "$value": "String"
+      },
+      "name": "String",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "$value": "Domain"
+      }
+    },
+    "Unit": {
+      "$tag": "_TypeEnum",
+      "aliases": ["_"],
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "Unit",
+          "name": "_"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "_"
+        }
+      ],
+      "name": "Unit",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "$value": "Enum"
+      }
+    },
+    "Void": {
+      "$tag": "_TypeEnum",
+      "description": "No valid value",
+      "name": "Void",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "$value": "Enum"
+      }
+    },
     "_Basic": {
       "$tag": "_TypeUnion",
       "aliases": ["Basic"],
@@ -48,7 +158,7 @@
       "name": "_Basic",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     },
     "_Domain": {
@@ -58,7 +168,7 @@
       "name": "_Domain",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     },
     "_Dual": {
@@ -68,7 +178,7 @@
       "name": "_Dual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "_Enum": {
@@ -78,7 +188,7 @@
       "name": "_Enum",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     },
     "_Input": {
@@ -88,7 +198,7 @@
       "name": "_Input",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "_Internal": {
@@ -119,7 +229,7 @@
       "name": "_Internal",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     },
     "_Key": {
@@ -159,7 +269,7 @@
       "name": "_Key",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     },
     "_Object": {
@@ -169,7 +279,7 @@
       "name": "_Object",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "_Output": {
@@ -179,7 +289,7 @@
       "name": "_Output",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "_Simple": {
@@ -219,7 +329,7 @@
       "name": "_Simple",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     },
     "_Union": {
@@ -229,117 +339,7 @@
       "name": "_Union",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
-      }
-    },
-    "Boolean": {
-      "$tag": "_TypeEnum",
-      "aliases": ["bool", "^"],
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "Boolean",
-          "name": "false"
-        },
-        {
-          "$tag": "_EnumLabel",
-          "enum": "Boolean",
-          "name": "true"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "name": "false"
-        },
-        {
-          "$tag": "_Aliased",
-          "name": "true"
-        }
-      ],
-      "name": "Boolean",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Enum"
-      }
-    },
-    "Null": {
-      "$tag": "_TypeEnum",
-      "aliases": ["null"],
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "Null",
-          "name": "null"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "name": "null"
-        }
-      ],
-      "name": "Null",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Enum"
-      }
-    },
-    "Number": {
-      "$tag": "_DomainNumber",
-      "aliases": ["int", "0"],
-      "domainKind": {
-        "$tag": "_DomainKind",
-        "value": "Number"
-      },
-      "name": "Number",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Domain"
-      }
-    },
-    "String": {
-      "$tag": "_DomainString",
-      "aliases": ["str", "*"],
-      "domainKind": {
-        "$tag": "_DomainKind",
-        "value": "String"
-      },
-      "name": "String",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Domain"
-      }
-    },
-    "Unit": {
-      "$tag": "_TypeEnum",
-      "aliases": ["_"],
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "Unit",
-          "name": "_"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "name": "_"
-        }
-      ],
-      "name": "Unit",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Enum"
-      }
-    },
-    "Void": {
-      "$tag": "_TypeEnum",
-      "description": "No valid value",
-      "name": "Void",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Union"
       }
     }
   }

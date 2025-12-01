@@ -2,7 +2,7 @@
 errors:
 - !_Error
   _kind: !_TokenKind End
-  _message: In AltCnstPrntDualPrntOutp can't get model for type 'PrntCnstPrntDualPrntOutp'
+  _message: "In AltCnstPrntDualPrntOutp can't get model for type 'PrntCnstPrntDualPrntOutp'"
 types: !_Map_Type
   !_Identifier AltCnstPrntDualPrntOutp: !_TypeOutput
     allFields:

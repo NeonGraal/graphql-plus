@@ -42,7 +42,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "CnstAltObjOutp": {
@@ -81,7 +81,7 @@
       "name": "CnstAltObjOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "PrntCnstAltObjOutp": {
@@ -108,7 +108,7 @@
       "name": "PrntCnstAltObjOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "RefCnstAltObjOutp": {
@@ -135,7 +135,7 @@
       "name": "RefCnstAltObjOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -145,7 +145,7 @@
             "name": "PrntCnstAltObjOutp",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Output"
+              "$value": "Output"
             }
           },
           "name": "ref"

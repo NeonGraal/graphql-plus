@@ -20,7 +20,7 @@
       "name": "UnionSame",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     }
   }

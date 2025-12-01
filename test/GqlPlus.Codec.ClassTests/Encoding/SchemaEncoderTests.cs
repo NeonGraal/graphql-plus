@@ -27,7 +27,7 @@ public class SchemaEncoderTests
   public void Encode_WithValidModel_ReturnsStructured(string name, string contents)
     => EncodeAndCheck(new(name, contents), [
       "!_Schema",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "name: " + name
       ]);
 

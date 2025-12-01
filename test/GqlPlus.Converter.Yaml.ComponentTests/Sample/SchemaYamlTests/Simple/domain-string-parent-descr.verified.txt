@@ -5,16 +5,16 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: PrntDmnStrPrntDescr
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     - !_DomainItem(_DomainRegex)
       domain: DmnStrPrntDescr
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     name: DmnStrPrntDescr
     parent: !_TypeRef(_SimpleKind)
       description: 'Parent comment'
@@ -26,11 +26,11 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: PrntDmnStrPrntDescr
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: b+
+      pattern: 'b+'
     name: PrntDmnStrPrntDescr
     typeKind: !_TypeKind Domain

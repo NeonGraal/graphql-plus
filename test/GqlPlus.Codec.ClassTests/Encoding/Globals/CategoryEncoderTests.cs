@@ -29,7 +29,7 @@ public class CategoryEncoderTests
       Modifiers = [modifier],
     }, [
         "!_Category",
-        "description: " + contents.Quoted("'"),
+        "description: " + contents.QuotedIdentifier(),
         "modifiers: [List]",
         "name: " + name,
         "output: !Output " + outputName,

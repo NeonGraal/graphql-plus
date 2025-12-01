@@ -28,7 +28,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "DomCnstFieldDmnOutp": {
@@ -43,7 +43,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "String"
+        "$value": "String"
       },
       "items": [
         {
@@ -55,7 +55,7 @@
       "name": "DomCnstFieldDmnOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "RefCnstFieldDmnOutp": {
@@ -84,7 +84,7 @@
       "name": "RefCnstFieldDmnOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -94,7 +94,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "ref"

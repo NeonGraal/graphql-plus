@@ -6,12 +6,12 @@
       "$tag": "_DomainNumber",
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Number"
+        "$value": "Number"
       },
       "name": "DmnNmbr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     }
   }

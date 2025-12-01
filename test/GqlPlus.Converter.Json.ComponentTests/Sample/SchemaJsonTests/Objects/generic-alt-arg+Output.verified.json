@@ -38,7 +38,7 @@
       "name": "GnrcAltArgOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -48,7 +48,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "type"
@@ -79,7 +79,7 @@
       "name": "RefGnrcAltArgOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -89,7 +89,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "ref"

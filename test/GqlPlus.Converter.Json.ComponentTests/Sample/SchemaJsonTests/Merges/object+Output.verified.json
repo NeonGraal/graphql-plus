@@ -7,7 +7,7 @@
       "name": "ObjOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

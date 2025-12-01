@@ -5,7 +5,7 @@
       "$tag": "_Error",
       "_kind": {
         "$tag": "_TokenKind",
-        "value": "End"
+        "$value": "End"
       },
       "_message": "In RefGnrcPrntDualPrntInp can\u0027t get model for type \u0027AltGnrcPrntDualPrntInp\u0027"
     }
@@ -57,7 +57,7 @@
       "name": "AltGnrcPrntDualPrntInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "GnrcPrntDualPrntInp": {
@@ -75,7 +75,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "RefGnrcPrntDualPrntInp": {
@@ -87,7 +87,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       },
       "typeParams": [
         {
@@ -97,7 +97,7 @@
             "name": "_Dual",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Internal"
+              "$value": "Internal"
             }
           },
           "name": "ref"

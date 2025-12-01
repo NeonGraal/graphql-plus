@@ -29,7 +29,7 @@
       "name": "EnumDiff",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

@@ -2,16 +2,10 @@
 errors:
   - !_Error
     _kind: !_TokenKind End
-    _message: "In _DomainRef can't get model for type '_TypeRef'"
-  - !_Error
-    _kind: !_TokenKind End
     _message: "In _BaseDomain can't get model for type '_ParentType'"
   - !_Error
     _kind: !_TokenKind End
     _message: "In _BaseDomainItem can't get model for type '_Described'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In _DomainItem can't get model for type '_DomainTrueFalse'"
   - !_Error
     _kind: !_TokenKind End
     _message: "In _DomainLabel can't get model for type '_BaseDomainItem'"
@@ -21,6 +15,12 @@ errors:
   - !_Error
     _kind: !_TokenKind End
     _message: "In _DomainItem can't get model for type '_DomainRegex'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _DomainItem can't get model for type '_DomainTrueFalse'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _DomainRef can't get model for type '_TypeRef'"
 types: !_Map_Type
   !_Identifier _BaseDomain: !_TypeOutput
     allFields:

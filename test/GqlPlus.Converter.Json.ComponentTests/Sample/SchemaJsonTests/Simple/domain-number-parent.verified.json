@@ -20,7 +20,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Number"
+        "$value": "Number"
       },
       "items": [
         {
@@ -35,12 +35,12 @@
         "name": "PrntDmnNmbrPrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Domain"
+          "$value": "Domain"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "PrntDmnNmbrPrnt": {
@@ -55,7 +55,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Number"
+        "$value": "Number"
       },
       "items": [
         {
@@ -67,7 +67,7 @@
       "name": "PrntDmnNmbrPrnt",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     }
   }

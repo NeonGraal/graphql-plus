@@ -29,12 +29,12 @@
         "name": "PrntEnumPrntDup",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Enum"
+          "$value": "Enum"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "PrntEnumPrntDup": {
@@ -57,7 +57,7 @@
       "name": "PrntEnumPrntDup",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

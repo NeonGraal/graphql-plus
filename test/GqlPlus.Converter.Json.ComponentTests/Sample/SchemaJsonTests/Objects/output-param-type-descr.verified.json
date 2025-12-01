@@ -7,7 +7,7 @@
       "name": "FldOutpParamTypeDescr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "InOutpParamTypeDescr": {
@@ -55,7 +55,7 @@
       "name": "InOutpParamTypeDescr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "OutpParamTypeDescr": {
@@ -98,7 +98,7 @@
       "name": "OutpParamTypeDescr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

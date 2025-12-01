@@ -28,7 +28,7 @@
       "name": "ObjFieldTypeAliasInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

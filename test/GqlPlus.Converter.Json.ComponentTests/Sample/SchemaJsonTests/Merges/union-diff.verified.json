@@ -29,7 +29,7 @@
       "name": "UnionDiff",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     }
   }

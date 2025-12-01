@@ -28,7 +28,7 @@
       "name": "FieldDualInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "FldFieldDualInp": {
@@ -76,7 +76,7 @@
       "name": "FldFieldDualInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

@@ -42,7 +42,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "CnstFieldObjInp": {
@@ -71,7 +71,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "PrntCnstFieldObjInp": {
@@ -98,7 +98,7 @@
       "name": "PrntCnstFieldObjInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "RefCnstFieldObjInp": {
@@ -127,7 +127,7 @@
       "name": "RefCnstFieldObjInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       },
       "typeParams": [
         {
@@ -137,7 +137,7 @@
             "name": "PrntCnstFieldObjInp",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Input"
+              "$value": "Input"
             }
           },
           "name": "ref"

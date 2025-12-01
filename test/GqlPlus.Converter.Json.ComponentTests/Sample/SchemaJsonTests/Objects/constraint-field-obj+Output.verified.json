@@ -42,7 +42,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "CnstFieldObjOutp": {
@@ -71,7 +71,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "PrntCnstFieldObjOutp": {
@@ -98,7 +98,7 @@
       "name": "PrntCnstFieldObjOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "RefCnstFieldObjOutp": {
@@ -127,7 +127,7 @@
       "name": "RefCnstFieldObjOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -137,7 +137,7 @@
             "name": "PrntCnstFieldObjOutp",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Output"
+              "$value": "Output"
             }
           },
           "name": "ref"

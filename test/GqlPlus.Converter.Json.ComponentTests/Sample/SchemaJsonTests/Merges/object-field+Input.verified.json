@@ -7,7 +7,7 @@
       "name": "FldObjFieldInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjFieldInp": {
@@ -36,7 +36,7 @@
       "name": "ObjFieldInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

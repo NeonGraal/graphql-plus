@@ -7,7 +7,7 @@
       "name": "FldObjFieldDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjFieldDual": {
@@ -36,7 +36,7 @@
       "name": "ObjFieldDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

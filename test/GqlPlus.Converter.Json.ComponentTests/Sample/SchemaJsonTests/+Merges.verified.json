@@ -11,12 +11,12 @@
         "name": "Ctgr",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     },
     "ctgrAlias": {
@@ -28,12 +28,12 @@
         "name": "CtgrAlias",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     },
     "ctgrDescr": {
@@ -45,12 +45,12 @@
         "name": "CtgrDescr",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     },
     "ctgrMod": {
@@ -61,7 +61,7 @@
           "$tag": "_Modifier",
           "modifierKind": {
             "$tag": "_ModifierKind",
-            "value": "Opt"
+            "$value": "Opt"
           }
         }
       ],
@@ -71,12 +71,12 @@
         "name": "CtgrMod",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     }
   },
@@ -136,7 +136,7 @@
       "name": "Ctgr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "CtgrAlias": {
@@ -144,7 +144,7 @@
       "name": "CtgrAlias",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "CtgrDescr": {
@@ -152,7 +152,7 @@
       "name": "CtgrDescr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "CtgrMod": {
@@ -160,7 +160,7 @@
       "name": "CtgrMod",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "DmnAlias": {
@@ -168,12 +168,12 @@
       "aliases": ["Num1", "Num2"],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Number"
+        "$value": "Number"
       },
       "name": "DmnAlias",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "DmnBool": {
@@ -194,7 +194,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Boolean"
+        "$value": "Boolean"
       },
       "items": [
         {
@@ -211,7 +211,7 @@
       "name": "DmnBool",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "DmnBoolDiff": {
@@ -232,7 +232,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Boolean"
+        "$value": "Boolean"
       },
       "items": [
         {
@@ -249,7 +249,7 @@
       "name": "DmnBoolDiff",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "DmnBoolSame": {
@@ -264,7 +264,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Boolean"
+        "$value": "Boolean"
       },
       "items": [
         {
@@ -276,7 +276,7 @@
       "name": "DmnBoolSame",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "DmnEnumDiff": {
@@ -292,7 +292,7 @@
             "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         },
@@ -306,14 +306,14 @@
             "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Enum"
+        "$value": "Enum"
       },
       "items": [
         {
@@ -325,7 +325,7 @@
             "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         },
@@ -338,7 +338,7 @@
             "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
@@ -346,7 +346,7 @@
       "name": "DmnEnumDiff",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "DmnEnumSame": {
@@ -362,14 +362,14 @@
             "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Enum"
+        "$value": "Enum"
       },
       "items": [
         {
@@ -381,7 +381,7 @@
             "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
@@ -389,19 +389,19 @@
       "name": "DmnEnumSame",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "DmnNmbr": {
       "$tag": "_DomainNumber",
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Number"
+        "$value": "Number"
       },
       "name": "DmnNmbr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "DmnNmbrDiff": {
@@ -417,7 +417,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Number"
+        "$value": "Number"
       },
       "items": [
         {
@@ -430,7 +430,7 @@
       "name": "DmnNmbrDiff",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "DmnNmbrSame": {
@@ -446,7 +446,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Number"
+        "$value": "Number"
       },
       "items": [
         {
@@ -459,19 +459,19 @@
       "name": "DmnNmbrSame",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "DmnStr": {
       "$tag": "_DomainString",
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "String"
+        "$value": "String"
       },
       "name": "DmnStr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "DmnStrDiff": {
@@ -486,7 +486,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "String"
+        "$value": "String"
       },
       "items": [
         {
@@ -498,7 +498,7 @@
       "name": "DmnStrDiff",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "DmnStrSame": {
@@ -513,7 +513,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "String"
+        "$value": "String"
       },
       "items": [
         {
@@ -525,7 +525,7 @@
       "name": "DmnStrSame",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "EnumAlias": {
@@ -547,7 +547,7 @@
       "name": "EnumAlias",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "EnumDiff": {
@@ -577,7 +577,7 @@
       "name": "EnumDiff",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "EnumSame": {
@@ -598,7 +598,7 @@
       "name": "EnumSame",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "EnumSamePrnt": {
@@ -627,12 +627,12 @@
         "name": "PrntEnumSamePrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Enum"
+          "$value": "Enum"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "EnumValueAlias": {
@@ -655,7 +655,7 @@
       "name": "EnumValueAlias",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "FldObjFieldAliasDual": {
@@ -663,7 +663,7 @@
       "name": "FldObjFieldAliasDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "FldObjFieldAliasInp": {
@@ -671,7 +671,7 @@
       "name": "FldObjFieldAliasInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "FldObjFieldAliasOutp": {
@@ -679,7 +679,7 @@
       "name": "FldObjFieldAliasOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "FldObjFieldDual": {
@@ -687,7 +687,7 @@
       "name": "FldObjFieldDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "FldObjFieldInp": {
@@ -695,7 +695,7 @@
       "name": "FldObjFieldInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "FldObjFieldOutp": {
@@ -703,7 +703,7 @@
       "name": "FldObjFieldOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "FldOutpFieldParam": {
@@ -711,7 +711,7 @@
       "name": "FldOutpFieldParam",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "InDrctParam": {
@@ -719,7 +719,7 @@
       "name": "InDrctParam",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjAliasDual": {
@@ -728,7 +728,7 @@
       "name": "ObjAliasDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjAliasInp": {
@@ -737,7 +737,7 @@
       "name": "ObjAliasInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjAliasOutp": {
@@ -746,7 +746,7 @@
       "name": "ObjAliasOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjAltDual": {
@@ -773,7 +773,7 @@
       "name": "ObjAltDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjAltDualType": {
@@ -781,7 +781,7 @@
       "name": "ObjAltDualType",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjAltEnumDual": {
@@ -823,7 +823,7 @@
       "name": "ObjAltEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjAltEnumInp": {
@@ -865,7 +865,7 @@
       "name": "ObjAltEnumInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjAltEnumOutp": {
@@ -907,7 +907,7 @@
       "name": "ObjAltEnumOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjAltInp": {
@@ -934,7 +934,7 @@
       "name": "ObjAltInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjAltInpType": {
@@ -942,7 +942,7 @@
       "name": "ObjAltInpType",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjAltOutp": {
@@ -969,7 +969,7 @@
       "name": "ObjAltOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjAltOutpType": {
@@ -977,7 +977,7 @@
       "name": "ObjAltOutpType",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjCnstDual": {
@@ -1023,7 +1023,7 @@
       "name": "ObjCnstDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       },
       "typeParams": [
         {
@@ -1033,7 +1033,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "type"
@@ -1083,7 +1083,7 @@
       "name": "ObjCnstInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       },
       "typeParams": [
         {
@@ -1093,7 +1093,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "type"
@@ -1143,7 +1143,7 @@
       "name": "ObjCnstOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -1153,7 +1153,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "type"
@@ -1165,7 +1165,7 @@
       "name": "ObjDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjFieldAliasDual": {
@@ -1196,7 +1196,7 @@
       "name": "ObjFieldAliasDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjFieldAliasInp": {
@@ -1227,7 +1227,7 @@
       "name": "ObjFieldAliasInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjFieldAliasOutp": {
@@ -1258,7 +1258,7 @@
       "name": "ObjFieldAliasOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjFieldDual": {
@@ -1287,7 +1287,7 @@
       "name": "ObjFieldDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjFieldEnumAliasDual": {
@@ -1318,7 +1318,7 @@
       "name": "ObjFieldEnumAliasDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjFieldEnumAliasInp": {
@@ -1349,7 +1349,7 @@
       "name": "ObjFieldEnumAliasInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjFieldEnumAliasOutp": {
@@ -1363,7 +1363,7 @@
           "object": "ObjFieldEnumAliasOutp",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
@@ -1375,14 +1375,14 @@
           "name": "Boolean",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
       "name": "ObjFieldEnumAliasOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjFieldEnumValueDual": {
@@ -1411,7 +1411,7 @@
       "name": "ObjFieldEnumValueDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjFieldEnumValueInp": {
@@ -1440,7 +1440,7 @@
       "name": "ObjFieldEnumValueInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjFieldEnumValueOutp": {
@@ -1454,7 +1454,7 @@
           "object": "ObjFieldEnumValueOutp",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
@@ -1466,14 +1466,14 @@
           "name": "Boolean",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
       "name": "ObjFieldEnumValueOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjFieldInp": {
@@ -1502,7 +1502,7 @@
       "name": "ObjFieldInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjFieldOutp": {
@@ -1531,7 +1531,7 @@
       "name": "ObjFieldOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjFieldTypeAliasDual": {
@@ -1560,7 +1560,7 @@
       "name": "ObjFieldTypeAliasDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjFieldTypeAliasInp": {
@@ -1589,7 +1589,7 @@
       "name": "ObjFieldTypeAliasInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjFieldTypeAliasOutp": {
@@ -1618,7 +1618,7 @@
       "name": "ObjFieldTypeAliasOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjInp": {
@@ -1626,7 +1626,7 @@
       "name": "ObjInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjOutp": {
@@ -1634,7 +1634,7 @@
       "name": "ObjOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjParamDual": {
@@ -1680,7 +1680,7 @@
       "name": "ObjParamDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       },
       "typeParams": [
         {
@@ -1690,7 +1690,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "test"
@@ -1702,7 +1702,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "type"
@@ -1752,7 +1752,7 @@
       "name": "ObjParamDupDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       },
       "typeParams": [
         {
@@ -1762,7 +1762,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "test"
@@ -1812,7 +1812,7 @@
       "name": "ObjParamDupInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       },
       "typeParams": [
         {
@@ -1822,7 +1822,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "test"
@@ -1872,7 +1872,7 @@
       "name": "ObjParamDupOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -1882,7 +1882,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "test"
@@ -1932,7 +1932,7 @@
       "name": "ObjParamInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       },
       "typeParams": [
         {
@@ -1942,7 +1942,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "test"
@@ -1954,7 +1954,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "type"
@@ -2004,7 +2004,7 @@
       "name": "ObjParamOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -2014,7 +2014,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "test"
@@ -2026,7 +2026,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "type"
@@ -2042,7 +2042,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjPrntInp": {
@@ -2054,7 +2054,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjPrntOutp": {
@@ -2066,7 +2066,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "OutpFieldParam": {
@@ -2115,7 +2115,7 @@
       "name": "OutpFieldParam",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "OutpFieldParam1": {
@@ -2123,7 +2123,7 @@
       "name": "OutpFieldParam1",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "OutpFieldParam2": {
@@ -2131,7 +2131,7 @@
       "name": "OutpFieldParam2",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "PrntEnumSamePrnt": {
@@ -2152,7 +2152,7 @@
       "name": "PrntEnumSamePrnt",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "PrntUnionSamePrnt": {
@@ -2173,7 +2173,7 @@
       "name": "PrntUnionSamePrnt",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     },
     "RefObjPrntDual": {
@@ -2181,7 +2181,7 @@
       "name": "RefObjPrntDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "RefObjPrntInp": {
@@ -2189,7 +2189,7 @@
       "name": "RefObjPrntInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "RefObjPrntOutp": {
@@ -2197,7 +2197,7 @@
       "name": "RefObjPrntOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "UnionAlias": {
@@ -2228,7 +2228,7 @@
       "name": "UnionAlias",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     },
     "UnionDiff": {
@@ -2258,7 +2258,7 @@
       "name": "UnionDiff",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     },
     "UnionSame": {
@@ -2279,7 +2279,7 @@
       "name": "UnionSame",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     },
     "UnionSamePrnt": {
@@ -2308,12 +2308,12 @@
         "name": "PrntUnionSamePrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Union"
+          "$value": "Union"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     }
   }

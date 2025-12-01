@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
 internal sealed class RenderValueJsonConverter
   : RenderJsonConverter<StructureValue>
@@ -15,7 +13,7 @@ internal sealed class RenderValueJsonConverter
 
     writer.WriteStartObject();
     writer.WriteString("$tag", value.Tag);
-    writer.WritePropertyName("value");
+    writer.WritePropertyName("$value");
     WriteValue(writer, value);
     writer.WriteEndObject();
   }

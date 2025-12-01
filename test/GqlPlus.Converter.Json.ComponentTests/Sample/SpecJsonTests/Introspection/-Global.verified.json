@@ -5,7 +5,7 @@
       "$tag": "_Error",
       "_kind": {
         "$tag": "_TokenKind",
-        "value": "End"
+        "$value": "End"
       },
       "_message": "In _AndType can\u0027t get model for type \u0027_Named\u0027"
     },
@@ -13,7 +13,7 @@
       "$tag": "_Error",
       "_kind": {
         "$tag": "_TokenKind",
-        "value": "End"
+        "$value": "End"
       },
       "_message": "In _Category can\u0027t get model for type \u0027_Aliased\u0027"
     },
@@ -21,7 +21,7 @@
       "$tag": "_Error",
       "_kind": {
         "$tag": "_TokenKind",
-        "value": "End"
+        "$value": "End"
       },
       "_message": "In _Directive can\u0027t get model for type \u0027_Aliased\u0027"
     },
@@ -29,7 +29,7 @@
       "$tag": "_Error",
       "_kind": {
         "$tag": "_TokenKind",
-        "value": "End"
+        "$value": "End"
       },
       "_message": "In _Setting can\u0027t get model for type \u0027_Named\u0027"
     }
@@ -85,7 +85,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "_Categories": {
@@ -154,7 +154,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "_Category": {
@@ -183,7 +183,7 @@
                 "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
-                  "value": "Enum"
+                  "$value": "Enum"
                 }
               }
             ]
@@ -196,7 +196,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -230,7 +230,7 @@
                 "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
-                  "value": "Enum"
+                  "$value": "Enum"
                 }
               }
             ]
@@ -243,7 +243,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -261,7 +261,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "_Directive": {
@@ -274,7 +274,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -302,7 +302,7 @@
           "object": "_Directive",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
@@ -314,7 +314,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -339,7 +339,7 @@
           "name": "Unit",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
@@ -350,7 +350,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "_Directives": {
@@ -419,7 +419,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "_Location": {
@@ -485,7 +485,7 @@
       "name": "_Location",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "_Resolution": {
@@ -524,7 +524,7 @@
       "name": "_Resolution",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "_Setting": {
@@ -557,7 +557,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

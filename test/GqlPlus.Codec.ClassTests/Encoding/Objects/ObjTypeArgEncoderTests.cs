@@ -18,7 +18,7 @@ public class TypeArgEncoderTests
   public void Encode_WithTypeParam_ReturnsStructuredWithTypeParam(string output, string contents)
     => EncodeAndCheck(new(TypeKindModel.Output, output, contents) { IsTypeParam = true }, [
       "!_TypeArg",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "typeParam: " + output
       ]);
 
@@ -26,7 +26,7 @@ public class TypeArgEncoderTests
   public void Encode_WithoutTypeParam_ReturnsStructuredWithOutput(string output, string contents)
     => EncodeAndCheck(new(TypeKindModel.Output, output, contents), [
       "!_TypeArg",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "name: " + output
       ]);
 }

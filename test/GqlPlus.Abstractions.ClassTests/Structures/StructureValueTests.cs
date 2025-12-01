@@ -11,9 +11,9 @@ public class StructureValueTests
   }
 
   [Theory, RepeatData]
-  public void IsEmpty_Text_IsFalse(string text)
+  public void IsEmpty_Text_IsFalse(string contents)
   {
-    StructureValue value = StructureValue.Str(text);
+    StructureValue value = new(contents);
 
     value.IsEmpty.ShouldBeFalse();
   }
@@ -35,21 +35,11 @@ public class StructureValueTests
   }
 
   [Fact]
-  public void IsEmpty_NummIdentifier_IsTrue()
+  public void IsEmpty_NullString_IsTrue()
   {
     string? identifier = null;
 
     StructureValue value = new(identifier);
-
-    value.IsEmpty.ShouldBeTrue();
-  }
-
-  [Fact]
-  public void IsEmpty_NullText_IsTrue()
-  {
-    string? text = null;
-
-    StructureValue value = StructureValue.Str(text);
 
     value.IsEmpty.ShouldBeTrue();
   }
@@ -107,21 +97,21 @@ public class StructureValueTests
   }
 
   [Theory, RepeatData]
-  public void CompareTo_Text_IsCorrect(string text1, string text2)
+  public void CompareTo_Text_IsCorrect(string contents1, string contents2)
   {
-    StructureValue value1 = StructureValue.Str(text1);
-    StructureValue value2 = StructureValue.Str(text2);
+    StructureValue value1 = new(contents1);
+    StructureValue value2 = new(contents2);
 
     int result = value1.CompareTo(value2);
 
-    result.ShouldBe(string.Compare(text1, text2, StringComparison.Ordinal));
+    result.ShouldBe(string.Compare(contents1, contents2, StringComparison.Ordinal));
   }
 
   [Theory, RepeatData]
   public void CompareTo_Tag_IsCorrect(string tag1, string tag2)
   {
-    StructureValue value1 = StructureValue.Str("a", tag1);
-    StructureValue value2 = StructureValue.Str("a", tag2);
+    StructureValue value1 = new("a", tag1);
+    StructureValue value2 = new("a", tag2);
 
     int result = value1.CompareTo(value2);
 
@@ -169,7 +159,7 @@ public class StructureValueTests
   [Theory, RepeatData]
   public void AsString_Text_IsCorrect(string text)
   {
-    StructureValue value = StructureValue.Str(text);
+    StructureValue value = new(text);
 
     value.AsString.ShouldBe(text);
   }
@@ -213,7 +203,8 @@ public class StructureValueTests
   [Theory, RepeatData]
   public void ToString_Text_IsCorrect(string text)
   {
-    StructureValue value = StructureValue.Str(text);
+    this.SkipIf(text.IsIdentifier());
+    StructureValue value = new(text);
 
     string result = $"{value}";
 

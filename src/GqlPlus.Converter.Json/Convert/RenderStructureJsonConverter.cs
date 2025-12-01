@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
 internal sealed class RenderStructureJsonConverter
   : RenderJsonConverter<Structured>
@@ -51,7 +49,7 @@ internal sealed class RenderStructureJsonConverter
 
     IEnumerable<(string, Structured)> ordered = map
       .Select(kv => (key: kv.Key.AsString, kv.Value))
-      .OrderBy(kv => kv.key);
+      .OrderBy(kv => kv.key, StringComparer.Ordinal);
 
     foreach ((string key, Structured value) in ordered) {
       writer.WritePropertyName(key);

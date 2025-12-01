@@ -28,7 +28,7 @@
       "name": "FieldSmplOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

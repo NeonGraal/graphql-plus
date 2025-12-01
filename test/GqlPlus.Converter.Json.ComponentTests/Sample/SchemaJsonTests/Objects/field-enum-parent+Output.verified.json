@@ -28,12 +28,12 @@
         "name": "PrntFieldEnumPrntOutp",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Enum"
+          "$value": "Enum"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "FieldEnumPrntOutp": {
@@ -47,7 +47,7 @@
           "object": "FieldEnumPrntOutp",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
@@ -59,14 +59,14 @@
           "name": "EnumFieldEnumPrntOutp",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
       "name": "FieldEnumPrntOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "PrntFieldEnumPrntOutp": {
@@ -87,7 +87,7 @@
       "name": "PrntFieldEnumPrntOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

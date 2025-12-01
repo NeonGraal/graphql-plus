@@ -2,7 +2,7 @@
 errors:
   - !_Error
     _kind: !_TokenKind End
-    _message: In PrntDualInp can't get model for type 'RefPrntDualInp'
+    _message: "In PrntDualInp can't get model for type 'RefPrntDualInp'"
 types: !_Map_Type
   !_Identifier PrntDualInp: !_TypeInput
     name: PrntDualInp

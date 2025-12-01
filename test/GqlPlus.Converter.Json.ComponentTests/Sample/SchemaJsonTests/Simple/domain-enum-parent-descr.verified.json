@@ -15,7 +15,7 @@
             "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         },
@@ -29,14 +29,14 @@
             "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Enum"
+        "$value": "Enum"
       },
       "items": [
         {
@@ -48,7 +48,7 @@
             "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
@@ -60,12 +60,12 @@
         "name": "PrntDmnEnumPrntDescr",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Domain"
+          "$value": "Domain"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "EnumDmnEnumPrntDescr": {
@@ -95,7 +95,7 @@
       "name": "EnumDmnEnumPrntDescr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "PrntDmnEnumPrntDescr": {
@@ -111,14 +111,14 @@
             "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Enum"
+        "$value": "Enum"
       },
       "items": [
         {
@@ -130,7 +130,7 @@
             "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
@@ -138,7 +138,7 @@
       "name": "PrntDmnEnumPrntDescr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     }
   }

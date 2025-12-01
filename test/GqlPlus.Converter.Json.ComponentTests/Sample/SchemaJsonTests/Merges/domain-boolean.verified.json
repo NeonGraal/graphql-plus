@@ -20,7 +20,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Boolean"
+        "$value": "Boolean"
       },
       "items": [
         {
@@ -37,7 +37,7 @@
       "name": "DmnBool",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     }
   }

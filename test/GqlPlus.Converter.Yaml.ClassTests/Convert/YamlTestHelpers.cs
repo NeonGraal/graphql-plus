@@ -1,12 +1,22 @@
-﻿namespace GqlPlus.Convert;
+﻿using Xunit.Sdk;
 
-internal static class PlainHelpers
+namespace GqlPlus.Convert;
+
+internal static class YamlTestHelpers
 {
+  internal static IConvertTestsBase Full { get; } = new YamlConverters(false);
+  internal static IConvertTestsBase Wrapped { get; } = new YamlConverters(true);
+
+  internal static string[] WithFullTag(this string tag, string value)
+    => [$"!{tag} {value}"];
+  internal static string[] WithWrappedTag(this string tag, string value)
+    => [$"!{tag} {value}"];
+
   internal static string[] FlowOr<T>(this IEnumerable<T> list, Func<IEnumerable<T>, string> flowMap, Func<IEnumerable<T>, string[]> isMap)
   {
     string flow = flowMap(list);
 
-    return flow.Length < RenderPlain.MaxLineLength ? [flow] : isMap(list);
+    return flow.Length < RenderYaml.BestWidth * 20 ? [flow] : isMap(list);
   }
 
   internal static string[] FlowList(this string[] value, string valuePrefix = "", string indent = "")
@@ -14,7 +24,7 @@ internal static class PlainHelpers
 
   internal static string[] FlowList<T>(this T[] value, Func<T?, string[]> mapper, string indent = "")
     => value.FlowOr(
-      f => f.Surround("[", "]", v => mapper(v).Joined(""), ","),
+      f => f.Surround("[", "]", v => mapper(v).Joined(""), ", "),
       i => i.IsList(v => v.BlockFirst(mapper, indent + "-")));
 
   internal static string[] FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "", string indent = "")
@@ -22,7 +32,7 @@ internal static class PlainHelpers
 
   internal static string[] FlowMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string mapPrefix = "", string indent = "")
     => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).FlowOr(
-      f => mapPrefix + f.Surround("{", "}", v => v.Key + ":" + mapper(v.Value).Joined(""), ","),
+      f => mapPrefix + f.Surround("{", "}", v => v.Key + ": " + mapper(v.Value).Joined(""), ", "),
       i => i.IsMap(v => mapper(v), indent, mapPrefix));
 
   internal static string[] BlockList(this string[] value, string prefix)
@@ -61,5 +71,15 @@ internal static class PlainHelpers
     } else {
       return [prefix, .. item];
     }
+  }
+
+  private sealed class YamlConverters(
+    bool wrapped
+  ) : IConvertTestsBase
+  {
+    public Structured ConvertFrom(string[] input)
+      => throw SkipException.ForSkip("Yaml Deserialize not implemented yet");
+    public string[] ConvertTo(Structured model)
+      => model.ToYaml(wrapped).ToLines();
   }
 }

@@ -1,19 +1,17 @@
 ﻿namespace GqlPlus.Ast.Schema.Globals;
 
-public class OptionSettingAstTests
-  : AstAliasedBaseTests<SettingInput>
+public partial class OptionSettingAstTests
 {
-  [Theory, RepeatData]
-  public void Inequality_ByNames(string name1, string name2, string value)
-    => _checks.Inequality_ByNames(name1, name2, value);
-
-  [Theory, RepeatData]
-  public void Inequality_ByValues(string name, string value1, string value2)
-    => _checks.Inequality_ByValues(name, value1, value2);
-
   private readonly OptionSettingAstChecks _checks = new();
 
-  internal override IAstAliasedChecks<SettingInput> AliasedChecks => _checks;
+  [CheckTests(Inherited = true)]
+  internal IAstAliasedChecks<SettingInput> AliasedChecks => _checks;
+
+  [CheckTests]
+  internal ICloneChecks<SettingInput> CloneChecks { get; }
+    = new CloneChecks<SettingInput, OptionSettingAst>(
+      OptionSettingAstChecks.CreateSetting,
+      (original, input) => original with { Name = input.Name });
 }
 
 internal sealed class OptionSettingAstChecks()
@@ -34,9 +32,7 @@ internal sealed class OptionSettingAstChecks()
 
   protected override string InputName(SettingInput input) => input.Name;
 
-  private static OptionSettingAst CloneSetting(OptionSettingAst original, SettingInput input)
-    => original with { Name = input.Name };
-  private static OptionSettingAst CreateSetting(SettingInput input)
+  internal static OptionSettingAst CreateSetting(SettingInput input)
     => new(AstNulls.At, input.Name, new ConstantAst(new FieldKeyAst(AstNulls.At, input.Value)));
 
   internal OptionSettingAst CreateSetting(string name, string value)

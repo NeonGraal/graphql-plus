@@ -15,14 +15,9 @@ public sealed class StructureValue
   public StructureValue(bool? value, string? tag = null)
     : base(value, tag) { }
   public StructureValue(string? value, string? tag = null)
-    : base(value, tag) => Identifier = value;
+    : base(value, tag) => Identifier = value.IsIdentifier() ? value : null;
   public StructureValue(decimal? value, string? tag = null)
     : base(value, tag) { }
-
-  public static StructureValue Str(string? value, string? tag = null)
-    => new(value, tag) {
-      Identifier = null
-    };
 
   public int CompareTo(StructureValue? other)
     => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
@@ -54,11 +49,13 @@ public sealed class StructureValue
     _ => "",
   };
 
-  public override string ToString() => this switch {
-    { Boolean: not null } => "B:" + Boolean.Value.TrueFalse(),
-    { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => "I:" + Identifier,
-    { Number: not null } => $"N:{Number:0.#####}",
-    { Text: not null } when !string.IsNullOrEmpty(Text) => "T:" + Text,
-    _ => "E",
-  };
+  public override string ToString()
+    => Tag.Suffixed("!")
+    + this switch {
+      { Boolean: not null } => "B:" + Boolean.Value.TrueFalse(),
+      { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => "I:" + Identifier,
+      { Number: not null } => $"N:{Number:0.#####}",
+      { Text: not null } when !string.IsNullOrEmpty(Text) => "T:" + Text,
+      _ => "E",
+    };
 }

@@ -12,7 +12,7 @@ public class TypeDualEncoderTests
   public void Encode_WithValidModel_ReturnsStructured(string name, string contents)
     => EncodeAndCheck(new(name, contents), [
       "!_TypeDual",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "name: " + name,
       "typeKind: !_TypeKind Dual"
       ]);
@@ -45,14 +45,14 @@ public class TypeDualEncoderTests
 
     EncodeAndCheck(model, [
       "!_TypeDual",
-      "allAlternates:", "  -", $"    value: !_AlternateFor '{alternateType}'",
-      "allFields:", "  -", $"    value: !_FieldFor '{fieldName}'",
-      "alternates:", "  -", $"    value: !_Alternate '{alternateType}'",
-      "fields:", "  -", $"    value: !_Field '{fieldName}'",
+      "allAlternates:", "  -", $"    value: !_AlternateFor " + alternateType.QuotedIdentifier(),
+      "allFields:", "  -", $"    value: !_FieldFor " + fieldName.QuotedIdentifier(),
+      "alternates:", "  -", $"    value: !_Alternate " + alternateType.QuotedIdentifier(),
+      "fields:", "  -", $"    value: !_Field " + fieldName.QuotedIdentifier(),
       "name: " + name,
-      "parent:", $"  value: !_Parent '{parentType}'",
+      "parent:", $"  value: !_Parent " + parentType.QuotedIdentifier(),
       "typeKind: !_TypeKind Dual",
-      "typeParams:", "  -", $"    value: !_TypeParam '{paramName}'"
+      "typeParams:", "  -", $"    value: !_TypeParam " + paramName.QuotedIdentifier()
       ]);
   }
 

@@ -28,7 +28,7 @@
       "name": "AltDescrDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

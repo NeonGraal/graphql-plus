@@ -30,7 +30,7 @@
       "name": "FieldDescrInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

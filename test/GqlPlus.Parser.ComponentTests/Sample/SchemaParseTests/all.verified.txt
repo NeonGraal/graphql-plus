@@ -117,7 +117,7 @@ Success
     Field
   }
   |
-  'Alternates'
+  Alternates
   S@007/0024
   String
 }

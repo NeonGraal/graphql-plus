@@ -2,10 +2,10 @@
 errors:
   - !_Error
     _kind: !_TokenKind End
-    _message: In _Directives can't get model for type '_AndType'
+    _message: "In _Directive can't get model for type '_Aliased'"
   - !_Error
     _kind: !_TokenKind End
-    _message: In _Directive can't get model for type '_Aliased'
+    _message: "In _Directives can't get model for type '_AndType'"
 types: !_Map_Type
   !_Identifier _Directive: !_TypeOutput
     allFields:

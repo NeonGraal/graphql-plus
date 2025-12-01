@@ -12,7 +12,7 @@ public class TypeRefEncoderTests
     // Arrange
     EncodeAndCheck(new TypeRefModel<TypeKindModel>(typeKind, name, description), [
         "!_TypeRef(_TypeKind)",
-        "description: " + description.Quoted("'"),
+        "description: " + description.QuotedIdentifier(),
         "name: "  + name,
         $"typeKind: !_TypeKind {typeKind}"
       ]);

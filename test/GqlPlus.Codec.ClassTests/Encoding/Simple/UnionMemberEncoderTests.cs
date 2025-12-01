@@ -10,7 +10,7 @@ public class UnionMemberEncoderTests
   public void Encode_WithValidModel_ReturnsStructured(string name, string ofUnion, string contents)
     => EncodeAndCheck(new(name, ofUnion, contents), [
       "!_UnionMember",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "name: " + name,
       "union: " + ofUnion
       ]);

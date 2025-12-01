@@ -5,11 +5,11 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DmnStrDiff
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: a+
+      pattern: 'a+'
     name: DmnStrDiff
     typeKind: !_TypeKind Domain

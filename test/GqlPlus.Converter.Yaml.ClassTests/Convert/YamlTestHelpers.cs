@@ -1,6 +1,4 @@
-﻿using Xunit.Sdk;
-
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
 internal static class YamlTestHelpers
 {
@@ -78,7 +76,7 @@ internal static class YamlTestHelpers
   ) : IConvertTestsBase
   {
     public Structured ConvertFrom(string[] input)
-      => throw SkipException.ForSkip("Yaml Deserialize not implemented yet");
+      => input.FromYaml();
     public string[] ConvertTo(Structured model)
       => model.ToYaml(wrapped).ToLines();
   }

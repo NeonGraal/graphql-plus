@@ -47,7 +47,7 @@
       "name": "AltAltModBoolInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "AltModBoolInp": {
@@ -61,11 +61,11 @@
               "by": "^",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Basic"
+                "$value": "Basic"
               }
             }
           ],
@@ -85,11 +85,11 @@
               "by": "^",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Basic"
+                "$value": "Basic"
               }
             }
           ],
@@ -102,7 +102,7 @@
       "name": "AltModBoolInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

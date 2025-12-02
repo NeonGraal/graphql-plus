@@ -11,7 +11,7 @@ internal class ParseDualField(
   Parser<IGqlpObjBase>.D parseBase
 ) : ObjectFieldParser<IGqlpDualField, DualFieldAst>(aliases, modifiers, parseBase)
 {
-  
+
   protected override void ApplyFieldParams(DualFieldAst field, IGqlpInputParam[] parameters)
     => throw new InvalidOperationException();
 

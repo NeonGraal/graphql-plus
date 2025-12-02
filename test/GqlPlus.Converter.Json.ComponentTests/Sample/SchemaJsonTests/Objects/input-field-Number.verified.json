@@ -30,7 +30,7 @@
       "name": "InpFieldNmbr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

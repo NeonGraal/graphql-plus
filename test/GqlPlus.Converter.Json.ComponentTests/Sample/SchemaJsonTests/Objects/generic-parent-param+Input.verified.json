@@ -47,7 +47,7 @@
       "name": "AltGnrcPrntParamInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "GnrcPrntParamInp": {
@@ -75,7 +75,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "RefGnrcPrntParamInp": {
@@ -102,7 +102,7 @@
       "name": "RefGnrcPrntParamInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       },
       "typeParams": [
         {
@@ -112,7 +112,7 @@
             "name": "_Input",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Internal"
+              "$value": "Internal"
             }
           },
           "name": "ref"

@@ -47,7 +47,7 @@
       "name": "AltAltInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "AltInp": {
@@ -74,7 +74,7 @@
       "name": "AltInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

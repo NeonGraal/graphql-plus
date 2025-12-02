@@ -1,7 +1,6 @@
 ﻿namespace GqlPlus.Ast.Schema.Globals;
 
-public class OptionDeclAstTests
-  : AstAliasedBaseTests
+public partial class OptionDeclAstTests
 {
   [Theory, RepeatData]
   public void HashCode_WithSettings(string name, string[] settings)
@@ -25,19 +24,17 @@ public class OptionDeclAstTests
       settings => new OptionDeclAst(AstNulls.At, name) { Settings = settings.OptionSettings() },
       settings1.SequenceEqual(settings2));
 
-  private readonly OptionAstChecks _checks = new();
+  private readonly AstDeclarationChecks<OptionDeclAst> _checks = new(CreateOption);
 
-  internal override IAstAliasedChecks<string> AliasedChecks => _checks;
+  [CheckTests(Inherited = true)]
+  internal IAstDeclarationChecks AliasedChecks => _checks;
 
-  protected override Func<string, string, bool> SameInput
-    => (name1, name2) => name1.Camelize() == name2.Camelize();
-}
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; }
+    = new CloneChecks<string, OptionDeclAst>(
+      CreateOption,
+      (original, input) => original with { Name = input });
 
-internal sealed class OptionAstChecks()
-  : AstAliasedChecks<OptionDeclAst>(CreateOption)
-{
-  private static OptionDeclAst CloneOption(OptionDeclAst original, string input)
-    => original with { Name = input };
   private static OptionDeclAst CreateOption(string input)
     => new(AstNulls.At, input);
 }

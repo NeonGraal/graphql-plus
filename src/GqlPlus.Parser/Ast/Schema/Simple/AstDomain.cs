@@ -21,7 +21,6 @@ internal record class AstDomain<TItemAst, TItem>(
     : this(at, name, "", kind)
     => Items = items;
 
-  
   public virtual bool Equals(AstDomain<TItemAst, TItem>? other)
     => other is IGqlpSimple<TItem> simple && Equals(simple);
   public bool Equals(IGqlpDomain<TItem> other)

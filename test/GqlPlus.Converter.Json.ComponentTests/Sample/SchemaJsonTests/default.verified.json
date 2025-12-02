@@ -10,12 +10,12 @@
         "name": "Mutation",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Sequential"
+        "$value": "Sequential"
       }
     },
     "query": {
@@ -26,12 +26,12 @@
         "name": "Query",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     },
     "subscription": {
@@ -42,31 +42,23 @@
         "name": "Subscription",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Single"
+        "$value": "Single"
       }
     }
   },
   "types": {
     "$tag": "_Map_Type",
-    "_Schema": {
-      "$tag": "_TypeOutput",
-      "name": "_Schema",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
     "Mutation": {
       "$tag": "_TypeOutput",
       "name": "Mutation",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "Query": {
@@ -74,7 +66,7 @@
       "name": "Query",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "Subscription": {
@@ -82,7 +74,15 @@
       "name": "Subscription",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
+      }
+    },
+    "_Schema": {
+      "$tag": "_TypeOutput",
+      "name": "_Schema",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "$value": "Output"
       }
     }
   }

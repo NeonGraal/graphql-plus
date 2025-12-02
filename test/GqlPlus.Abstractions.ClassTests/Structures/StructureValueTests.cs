@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Structures;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Structures;
 
 public class StructureValueTests
 {
@@ -11,9 +13,9 @@ public class StructureValueTests
   }
 
   [Theory, RepeatData]
-  public void IsEmpty_Text_IsFalse(string text)
+  public void IsEmpty_Text_IsFalse(string contents)
   {
-    StructureValue value = StructureValue.Str(text);
+    StructureValue value = new(contents);
 
     value.IsEmpty.ShouldBeFalse();
   }
@@ -35,21 +37,11 @@ public class StructureValueTests
   }
 
   [Fact]
-  public void IsEmpty_NummIdentifier_IsTrue()
+  public void IsEmpty_NullString_IsTrue()
   {
     string? identifier = null;
 
     StructureValue value = new(identifier);
-
-    value.IsEmpty.ShouldBeTrue();
-  }
-
-  [Fact]
-  public void IsEmpty_NullText_IsTrue()
-  {
-    string? text = null;
-
-    StructureValue value = StructureValue.Str(text);
 
     value.IsEmpty.ShouldBeTrue();
   }
@@ -82,7 +74,7 @@ public class StructureValueTests
 
     int result = value1.CompareTo(value2);
 
-    result.ShouldBe(-1);
+    result.ShouldBe(0);
   }
 
   [Fact]
@@ -107,21 +99,21 @@ public class StructureValueTests
   }
 
   [Theory, RepeatData]
-  public void CompareTo_Text_IsCorrect(string text1, string text2)
+  public void CompareTo_Text_IsCorrect(string contents1, string contents2)
   {
-    StructureValue value1 = StructureValue.Str(text1);
-    StructureValue value2 = StructureValue.Str(text2);
+    StructureValue value1 = new(contents1);
+    StructureValue value2 = new(contents2);
 
     int result = value1.CompareTo(value2);
 
-    result.ShouldBe(string.Compare(text1, text2, StringComparison.Ordinal));
+    result.ShouldBe(string.Compare(contents1, contents2, StringComparison.Ordinal));
   }
 
   [Theory, RepeatData]
   public void CompareTo_Tag_IsCorrect(string tag1, string tag2)
   {
-    StructureValue value1 = StructureValue.Str("a", tag1);
-    StructureValue value2 = StructureValue.Str("a", tag2);
+    StructureValue value1 = new("a", tag1);
+    StructureValue value2 = new("a", tag2);
 
     int result = value1.CompareTo(value2);
 
@@ -151,6 +143,83 @@ public class StructureValueTests
   }
 
   [Fact]
+  public void Equals_Empty_IsCorrect()
+  {
+    StructureValue value1 = new((string?)null);
+    StructureValue value2 = new((decimal?)null);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBeTrue();
+  }
+
+  [Fact]
+  [SuppressMessage("Maintainability", "CA1508:Avoid dead conditional code", Justification = "Testing")]
+  public void Equals_Null_IsCorrect()
+  {
+    StructureValue value = new((string?)null);
+
+    bool result = value.Equals(null);
+
+    result.ShouldBeFalse();
+  }
+
+  [Theory, RepeatData]
+  public void Equals_Identifier_IsCorrect(string identifier1, string identifier2)
+  {
+    StructureValue value1 = new(identifier1);
+    StructureValue value2 = new(identifier2);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBe(identifier1 == identifier2);
+  }
+
+  [Theory, RepeatData]
+  public void Equals_Text_IsCorrect(string contents1, string contents2)
+  {
+    StructureValue value1 = new(contents1);
+    StructureValue value2 = new(contents2);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBe(contents1 == contents2);
+  }
+
+  [Theory, RepeatData]
+  public void Equals_Tag_IsCorrect(string tag1, string tag2)
+  {
+    StructureValue value1 = new("a", tag1);
+    StructureValue value2 = new("a", tag2);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBe(tag1 == tag2);
+  }
+
+  [Theory, RepeatData]
+  public void Equals_Boolean_IsCorrect(bool check1, bool check2)
+  {
+    StructureValue value1 = new(check1);
+    StructureValue value2 = new(check2);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBe(check1 && check2);
+  }
+
+  [Theory, RepeatData]
+  public void Equals_Number_IsCorrect(decimal number1, decimal number2)
+  {
+    StructureValue value1 = new(number1);
+    StructureValue value2 = new(number2);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBe(number1 == number2);
+  }
+
+  [Fact]
   public void AsString_Empty_IsCorrect()
   {
     StructureValue value = new((string?)null);
@@ -169,7 +238,7 @@ public class StructureValueTests
   [Theory, RepeatData]
   public void AsString_Text_IsCorrect(string text)
   {
-    StructureValue value = StructureValue.Str(text);
+    StructureValue value = new(text);
 
     value.AsString.ShouldBe(text);
   }
@@ -213,7 +282,8 @@ public class StructureValueTests
   [Theory, RepeatData]
   public void ToString_Text_IsCorrect(string text)
   {
-    StructureValue value = StructureValue.Str(text);
+    this.SkipIf(text.IsIdentifier());
+    StructureValue value = new(text);
 
     string result = $"{value}";
 

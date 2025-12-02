@@ -8,7 +8,7 @@
       "name": "Dscrs",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

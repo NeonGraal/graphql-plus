@@ -15,14 +15,14 @@
             "name": "EnumDmnEnumAllPrnt",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Enum"
+        "$value": "Enum"
       },
       "items": [
         {
@@ -34,7 +34,7 @@
             "name": "EnumDmnEnumAllPrnt",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
@@ -42,7 +42,7 @@
       "name": "DmnEnumAllPrnt",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "EnumDmnEnumAllPrnt": {
@@ -71,12 +71,12 @@
         "name": "PrntDmnEnumAllPrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Enum"
+          "$value": "Enum"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "PrntDmnEnumAllPrnt": {
@@ -97,7 +97,7 @@
       "name": "PrntDmnEnumAllPrnt",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

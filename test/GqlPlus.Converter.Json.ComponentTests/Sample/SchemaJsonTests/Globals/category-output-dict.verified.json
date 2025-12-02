@@ -10,11 +10,11 @@
           "by": "*",
           "modifierKind": {
             "$tag": "_ModifierKind",
-            "value": "Dict"
+            "$value": "Dict"
           },
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Basic"
+            "$value": "Basic"
           }
         }
       ],
@@ -24,12 +24,12 @@
         "name": "CtgrOutpDict",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     }
   },
@@ -40,7 +40,7 @@
       "name": "CtgrOutpDict",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

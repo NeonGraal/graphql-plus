@@ -21,7 +21,7 @@
       "name": "EnumAlias",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

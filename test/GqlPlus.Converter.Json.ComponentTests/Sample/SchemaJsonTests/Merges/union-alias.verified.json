@@ -30,7 +30,7 @@
       "name": "UnionAlias",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     }
   }

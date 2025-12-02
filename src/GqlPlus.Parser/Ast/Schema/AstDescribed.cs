@@ -19,11 +19,11 @@ public abstract record class AstDescribed(
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Prepend(Description.Quoted("'"));
+      .Prepend(Description.QuotedIdentifier());
   void IAstSetDescription.SetDescription(string description)
     => Description = description;
 
-  protected string?[] DescriptionAt => [Description.Quoted("'"), At.ToString()];
+  protected string?[] DescriptionAt => [Description.QuotedIdentifier(), At.ToString()];
 }
 
 internal interface IAstSetDescription

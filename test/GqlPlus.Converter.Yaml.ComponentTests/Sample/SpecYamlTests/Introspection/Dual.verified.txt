@@ -2,7 +2,7 @@
 errors:
 - !_Error
   _kind: !_TokenKind End
-  _message: In _DualField can't get model for type '_ObjField'
+  _message: "In _DualField can't get model for type '_ObjField'"
 types: !_Map_Type
   !_Identifier _DualField: !_TypeOutput
     name: _DualField

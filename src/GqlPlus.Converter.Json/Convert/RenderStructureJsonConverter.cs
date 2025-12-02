@@ -1,13 +1,16 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
 internal sealed class RenderStructureJsonConverter
   : RenderJsonConverter<Structured>
 {
   internal static RenderValueJsonConverter ValueConverter { get; } = new();
 
-  public override Structured? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
+  public override Structured? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    => reader.TokenType switch {
+      JsonTokenType.StartObject => ReadMap(ref reader, options),
+      JsonTokenType.StartArray => ReadList(ref reader, options),
+      _ => new(ReadValue(ref reader)),
+    };
   public override void Write(Utf8JsonWriter writer, Structured value, JsonSerializerOptions options)
   {
     bool plain = string.IsNullOrWhiteSpace(value.Tag);
@@ -27,6 +30,43 @@ internal sealed class RenderStructureJsonConverter
     }
   }
 
+  private Structured ReadMap(ref Utf8JsonReader reader, JsonSerializerOptions options)
+  {
+    string tag = "";
+    StructureValue? value = null;
+    Dictionary<StructureValue, Structured> fields = [];
+    while (reader.Read()) {
+      if (reader.TokenType == JsonTokenType.EndObject) {
+        break;
+      }
+
+      // Read the property name
+      string propertyName = reader.GetString().IfWhiteSpace();
+      reader.Read(); // Move to the value
+
+      if (propertyName.Equals("$tag", StringComparison.Ordinal)) {
+        tag = reader.GetString().IfWhiteSpace();
+        continue;
+      }
+
+      if (propertyName.Equals("$value", StringComparison.Ordinal)) {
+        value = ValueConverter.Read(ref reader, typeof(StructureValue), options);
+        continue;
+      }
+
+      // Deserialize the value using the ValueConverter
+      Structured field = Read(ref reader, typeof(Structured), options) ?? new("");
+
+      fields.Add(new(propertyName), field);
+    }
+
+    if (value is not null) {
+      value.Tag = tag;
+      return new(value);
+    }
+
+    return new(fields, tag);
+  }
   private void WriteMap(Utf8JsonWriter writer, Structured value, JsonSerializerOptions options, bool plain)
   {
     KeyValuePair<StructureValue, Structured> first = value.Map.First();
@@ -51,7 +91,7 @@ internal sealed class RenderStructureJsonConverter
 
     IEnumerable<(string, Structured)> ordered = map
       .Select(kv => (key: kv.Key.AsString, kv.Value))
-      .OrderBy(kv => kv.key);
+      .OrderBy(kv => kv.key, StringComparer.Ordinal);
 
     foreach ((string key, Structured value) in ordered) {
       writer.WritePropertyName(key);
@@ -75,5 +115,21 @@ internal sealed class RenderStructureJsonConverter
     }
 
     writer.WriteEndArray();
+  }
+  private Structured ReadList(ref Utf8JsonReader reader, JsonSerializerOptions options)
+  {
+    List<Structured> items = [];
+    while (reader.Read()) {
+      if (reader.TokenType == JsonTokenType.EndArray) {
+        break;
+      }
+
+      Structured? item = Read(ref reader, typeof(Structured), options);
+      if (item is not null) {
+        items.Add(item);
+      }
+    }
+
+    return new(items);
   }
 }

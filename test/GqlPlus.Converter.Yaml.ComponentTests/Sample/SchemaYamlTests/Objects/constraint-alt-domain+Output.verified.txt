@@ -23,12 +23,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomCnstAltDmnOutp
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: \w+
+      pattern: '\w+'
     name: DomCnstAltDmnOutp
     typeKind: !_TypeKind Domain
   !_Identifier RefCnstAltDmnOutp: !_TypeOutput

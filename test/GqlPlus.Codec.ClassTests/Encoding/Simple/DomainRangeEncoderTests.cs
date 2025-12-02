@@ -37,4 +37,7 @@ public class DomainNumberEncoderTests
   protected override DomainKindModel DomainKind => DomainKindModel.Number;
 
   protected override DomainRangeModel NewItem(DomainRangeInput item) => new(item.Lower, item.Upper, false, "");
+
+  protected override string ItemModel(DomainRangeInput item, string prefix)
+    => $"  - !_{prefix}Model '{item}'";
 }

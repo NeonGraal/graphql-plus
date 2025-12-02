@@ -26,7 +26,7 @@
       "name": "AltEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "EnumAltEnumDual": {
@@ -47,7 +47,7 @@
       "name": "EnumAltEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

@@ -24,8 +24,22 @@ internal class RenderYamlTypeConverter
 {
   public bool Accepts(Type type) => type == typeof(Structured);
 
-  public object? ReadYaml(IParser parser, Type type) => throw new NotImplementedException();
-  public object? ReadYaml(IParser parser, Type type, ObjectDeserializer rootDeserializer) => throw new NotImplementedException();
+  public object? ReadYaml(IParser parser, Type type)
+  {
+    if (type == null) throw new ArgumentNullException(nameof(type));
+
+    // Deserialize the YAML data to the specified type
+    return parser.Current switch {
+      // Handle different token types accordingly
+      Scalar => ReadValue(parser),
+      SequenceStart => ReadList(parser, type),
+      MappingStart => ReadMap(parser, type),
+      _ => throw new InvalidOperationException($"Unexpected token type: {parser.Current}")
+    };
+  }
+
+  public object? ReadYaml(IParser parser, Type type, ObjectDeserializer rootDeserializer)
+    => ReadYaml(parser, type);
 
   public void WriteYaml(IEmitter emitter, object? value, Type type, ObjectSerializer serializer)
   {
@@ -49,6 +63,21 @@ internal class RenderYamlTypeConverter
     }
   }
 
+  private Structured ReadMap(IParser parser, Type type)
+  {
+    MappingStart start = parser.Consume<MappingStart>().ThrowIfNull();
+    string? tag = start.Tag.IsEmpty ? null : start.Tag.Value.TrimStart('!');
+    Dictionary<StructureValue, Structured> items = [];
+    while (parser.Current is not MappingEnd) {
+      Structured key = ReadValue(parser);
+      if (key.Value is not null && ReadYaml(parser, type) is Structured structured) {
+        items.Add(key.Value, structured);
+      }
+    }
+
+    parser.Consume<MappingEnd>().ThrowIfNull();
+    return new(items, tag, flow: start.Style == MappingStyle.Flow);
+  }
   private void WriteMap(IEmitter emitter, Structured model, bool plainImplicit, TagName tag, ObjectSerializer serializer)
   {
     MappingStyle flow = model.Flow ? MappingStyle.Flow : MappingStyle.Any;
@@ -61,6 +90,19 @@ internal class RenderYamlTypeConverter
     emitter.Emit(new MappingEnd());
   }
 
+  private Structured ReadList(IParser parser, Type type)
+  {
+    SequenceStart start = parser.Consume<SequenceStart>().ThrowIfNull();
+    List<Structured> items = [];
+    while (parser.Current is not SequenceEnd) {
+      if (ReadYaml(parser, type) is Structured structured) {
+        items.Add(structured);
+      }
+    }
+
+    parser.Consume<SequenceEnd>().ThrowIfNull();
+    return new(items, flow: start.Style == SequenceStyle.Flow);
+  }
   private void WriteList(IEmitter emitter, Type type, Structured model, bool plainImplicit, ObjectSerializer serializer)
   {
     SequenceStyle flow = model.Flow ? SequenceStyle.Flow : SequenceStyle.Any;
@@ -72,6 +114,20 @@ internal class RenderYamlTypeConverter
     emitter.Emit(new SequenceEnd());
   }
 
+  private Structured ReadValue(IParser parser)
+  {
+    Scalar current = parser.Consume<Scalar>().ThrowIfNull();
+    string? tag = current.Tag.IsEmpty ? null : current.Tag.Value.TrimStart('!');
+    if (decimal.TryParse(current.Value, out decimal number)) {
+      return new(number, tag);
+    }
+
+    if (bool.TryParse(current.Value, out bool boolean)) {
+      return new(boolean, tag);
+    }
+
+    return new(current.Value, tag);
+  }
   private void WriteValue(IEmitter emitter, StructureValue value, string tag)
   {
     bool isString = !string.IsNullOrEmpty(value.Text) && string.IsNullOrWhiteSpace(value.Identifier);

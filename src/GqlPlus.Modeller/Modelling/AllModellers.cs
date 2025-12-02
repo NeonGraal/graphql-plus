@@ -18,6 +18,7 @@ public static class AllModellers
       .AddModeller<IGqlpSchema, SchemaModel, SchemaModeller>()
       .AddModeller<IGqlpSchemaCategory, CategoryModel, CategoryModeller>()
       .AddModeller<IGqlpSchemaDirective, DirectiveModel, DirectiveModeller>()
+      .AddModeller<IGqlpSchemaOperation, OperationModel, OperationModeller>()
       .AddModeller<IGqlpSchemaSetting, SettingModel, SettingModeller>()
       // Types
       .AddTypesModeller()

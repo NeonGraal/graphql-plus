@@ -81,3 +81,5 @@ public record struct FieldInput(string Name, string Type)
 
   public readonly override string? ToString() => $"{Name} : {Type}";
 }
+
+public record struct OperationInput(string Name, string Category);

@@ -33,7 +33,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _OpDirective
       - !_ObjectFor(_InputField)
-        description: 'The body as a string as we can\'t have nested objects.'
+        description: "The body as a string as we can't have nested objects."
         name: body
         object: _OpField
         type: !_ObjBase
@@ -65,7 +65,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _OpDirective
       - !_InputField
-        description: 'The body as a string as we can\'t have nested objects.'
+        description: "The body as a string as we can't have nested objects."
         name: body
         type: !_ObjBase
           name: String
@@ -87,7 +87,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _OpDirective
       - !_ObjectFor(_InputField)
-        description: 'The body as a string as we can\'t have nested objects.'
+        description: "The body as a string as we can't have nested objects."
         name: body
         object: _OpInline
         type: !_ObjBase
@@ -105,7 +105,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _OpDirective
       - !_InputField
-        description: 'The body as a string as we can\'t have nested objects.'
+        description: "The body as a string as we can't have nested objects."
         name: body
         type: !_ObjBase
           name: String

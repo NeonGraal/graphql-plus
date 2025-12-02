@@ -71,7 +71,7 @@ Success
     I@021/0018
     _OpDirective
     []
-    'The body as a string as we can\'t have nested objects.'
+    "The body as a string as we can't have nested objects."
     !IF I@009/0020
     body
     :
@@ -96,7 +96,7 @@ Success
     I@021/0025
     _OpDirective
     []
-    'The body as a string as we can\'t have nested objects.'
+    "The body as a string as we can't have nested objects."
     !IF I@009/0027
     body
     :

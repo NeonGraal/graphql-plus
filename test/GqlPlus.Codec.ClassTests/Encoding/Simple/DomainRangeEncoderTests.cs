@@ -8,7 +8,7 @@ public class DomainRangeEncoderTests
 
   protected override string[] ItemExpected(DomainRangeInput item, bool excluded, string description)
     => ["!_DomainRange",
-        "description: " + description.Quoted("'"),
+        "description: " + description.QuotedIdentifier(),
         "exclude: " + excluded.TrueFalse(),
         $"from: {item.Lower:0.#####}",
         $"to: {item.Upper:0.#####}"

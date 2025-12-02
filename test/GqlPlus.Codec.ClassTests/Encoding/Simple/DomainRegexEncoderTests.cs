@@ -8,7 +8,7 @@ public class DomainRegexEncoderTests
 
   protected override string[] ItemExpected(string item, bool excluded, string description)
     => ["!_DomainRegex",
-        "description: " + description.Quoted("'"),
+        "description: " + description.QuotedIdentifier(),
         "exclude: " + excluded.TrueFalse(),
         "pattern: " + item
         ];
@@ -21,7 +21,7 @@ public class DomainItemRegexEncoderTests
   protected override string[] AllExpected(string name, string item, string description)
     => ["!_DomainItem(_DomainRegex)",
         "domain: " + name,
-        $"value: !_ItemModel '{item}'"
+        $"value: !_ItemModel " + item.QuotedIdentifier()
         ];
 
   protected override DomainRegexModel NewItem(string item, string description)

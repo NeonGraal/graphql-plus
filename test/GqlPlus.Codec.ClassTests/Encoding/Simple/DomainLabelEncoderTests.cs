@@ -15,7 +15,7 @@ public class DomainLabelEncoderTests
 
   protected override string[] ItemExpected(EnumLabelInput item, bool excluded, string description)
     => ["!_DomainLabel",
-        "description: " + description.Quoted("'"),
+        "description: " + description.QuotedIdentifier(),
         "exclude: " + excluded.TrueFalse(),
         "value:",
         $"  value: !_EnumValue '{item}'",

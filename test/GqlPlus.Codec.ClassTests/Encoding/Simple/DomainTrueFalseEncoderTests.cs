@@ -8,7 +8,7 @@ public class DomainTrueFalseEncoderTests
 
   protected override string[] ItemExpected(bool item, bool excluded, string description)
     => ["!_DomainTrueFalse",
-        "description: " + description.Quoted("'"),
+        "description: " + description.QuotedIdentifier(),
         "exclude: " + excluded.TrueFalse(),
         "value: " + item.TrueFalse()
         ];

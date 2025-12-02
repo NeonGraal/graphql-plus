@@ -14,7 +14,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "String"
+        "$value": "String"
       },
       "items": [
         {
@@ -26,7 +26,7 @@
       "name": "_Identifier",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "_Request": {
@@ -47,14 +47,14 @@
           "$tag": "_ObjectFor(_InputField)",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -69,14 +69,14 @@
           "$tag": "_ObjectFor(_InputField)",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -100,14 +100,14 @@
           "$tag": "_ObjectFor(_InputField)",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -134,14 +134,14 @@
           "$tag": "_InputField",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -155,14 +155,14 @@
           "$tag": "_InputField",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -184,14 +184,14 @@
           "$tag": "_InputField",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -205,7 +205,7 @@
       "name": "_Request",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

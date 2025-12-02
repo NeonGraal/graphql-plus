@@ -9,14 +9,14 @@
           "$tag": "_ObjectFor(_InputField)",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -43,7 +43,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -61,7 +61,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -79,7 +79,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -106,14 +106,14 @@
           "$tag": "_InputField",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -138,7 +138,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -155,7 +155,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -172,7 +172,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -195,7 +195,7 @@
       "name": "_OpField",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "_OpInline": {
@@ -205,14 +205,14 @@
           "$tag": "_ObjectFor(_InputField)",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -230,7 +230,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -257,14 +257,14 @@
           "$tag": "_InputField",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -281,7 +281,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -304,7 +304,7 @@
       "name": "_OpInline",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "_OpObject": {
@@ -361,7 +361,7 @@
       "name": "_OpObject",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "_OpResult": {
@@ -371,14 +371,14 @@
           "$tag": "_ObjectFor(_InputField)",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -396,7 +396,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -414,7 +414,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -431,14 +431,14 @@
           "$tag": "_InputField",
           "default": {
             "$tag": "Null",
-            "value": "null"
+            "$value": "null"
           },
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -455,7 +455,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -472,7 +472,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -486,7 +486,7 @@
       "name": "_OpResult",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "_OpSpread": {
@@ -508,7 +508,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -536,7 +536,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -550,7 +550,7 @@
       "name": "_OpSpread",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

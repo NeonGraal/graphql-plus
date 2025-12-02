@@ -164,7 +164,7 @@ public static class RenderPlain
     } else if (value.Number is not null) {
       sb.Append($"{value.Number:0.#####}");
     } else if (!string.IsNullOrWhiteSpace(value.Identifier)) {
-        sb.Append(value.Identifier);
+      sb.Append(value.Identifier);
     } else if (!string.IsNullOrEmpty(value.Text)) {
       sb.Append(value.Text.QuotedIdentifier());
     }

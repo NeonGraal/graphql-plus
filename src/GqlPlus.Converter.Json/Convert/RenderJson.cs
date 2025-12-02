@@ -19,4 +19,11 @@ public static class RenderJson
 
   public static string ToJson(this Structured model, JsonSerializerOptions? options = null)
     => JsonSerializer.Serialize(model, options ?? Indented);
+  public static Structured FromJson(this IEnumerable<string> json, JsonSerializerOptions? options = null)
+  {
+    string joined = json.Joined(Environment.NewLine);
+    Structured? result = string.IsNullOrWhiteSpace(joined) ? null
+      : JsonSerializer.Deserialize<Structured>(joined, options ?? Indented);
+    return result ?? new Structured("");
+  }
 }

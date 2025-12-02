@@ -1,6 +1,4 @@
-﻿using Xunit.Sdk;
-
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
 public class PlainStructureFlowTests()
   : ConvertStructureTestsBase(PlainTestHelpers.Converters)

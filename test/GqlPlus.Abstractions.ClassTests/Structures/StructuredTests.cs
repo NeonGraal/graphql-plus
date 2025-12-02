@@ -42,6 +42,30 @@ public class StructuredTests
     result.IsEmpty.ShouldBeTrue();
   }
 
+  [Fact]
+  public void Equals_Empty_IsTrue()
+  {
+    Structured result = new(null);
+
+    result.Equals(new(null)).ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Equals_SameTagEmpty_IsTrue(string tag)
+  {
+    Structured result = new(null) { Tag = tag };
+
+    result.Equals(new(null) { Tag = tag }).ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Equals_SameTagEmptyValue_IsTrue(string tag)
+  {
+    Structured result = new(new((string?)null, tag));
+
+    result.Equals(new(new((string?)null, tag))).ShouldBeTrue();
+  }
+
   [Theory, RepeatData]
   public void Equals_SameTagValue_IsTrue(string value, string tag)
   {
@@ -204,11 +228,11 @@ public class StructuredTests
     result.Equals(map2.Encode()).ShouldBeTrue();
   }
   [Fact]
-  public void Equals_New_IsFalse()
+  public void Equals_New_IsTrue()
   {
     Structured result = new((bool?)null);
 
-    result.Equals(new((bool?)null)).ShouldBeFalse();
+    result.Equals(new((bool?)null)).ShouldBeTrue();
   }
   [Theory, RepeatData]
   public void Equals_Tagged_IsFalse(string tag)

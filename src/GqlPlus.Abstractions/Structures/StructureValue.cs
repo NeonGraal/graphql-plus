@@ -25,15 +25,17 @@ public sealed class StructureValue
       : Identifier.BothValued(other?.Identifier) ? string.Compare(Identifier, other.Identifier, StringComparison.Ordinal)
       : Number.BothValued(other?.Number) ? Number.Value.CompareTo(other.Number)
       : Text.BothValued(other?.Text) ? string.Compare(Text, other.Text, StringComparison.Ordinal)
-      : -1
+      : 0
     : -1;
 
   public override bool Equals(object obj) => Equals(obj as StructureValue);
   public bool Equals(StructureValue? other)
-    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal) && (Boolean.BothValued(other?.Boolean) ? Boolean.Value == other.Boolean
+    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
+      && (Boolean.BothValued(other?.Boolean) ? Boolean.Value == other.Boolean
       : Identifier.BothValued(other?.Identifier) ? string.Equals(Identifier, other.Identifier, StringComparison.Ordinal)
       : Number.BothValued(other?.Number) ? Number.Value == other.Number
-      : Text.BothValued(other?.Text) && string.Equals(Text, other.Text, StringComparison.Ordinal));
+      : Text.BothValued(other?.Text) ? string.Equals(Text, other.Text, StringComparison.Ordinal)
+      : IsEmpty && other?.IsEmpty == true);
   public override int GetHashCode()
     => HashCode.Combine(Tag,
       Boolean?.GetHashCode() ?? 0,

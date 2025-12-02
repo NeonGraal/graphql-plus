@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Structures;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Structures;
 
 public class StructureValueTests
 {
@@ -72,7 +74,7 @@ public class StructureValueTests
 
     int result = value1.CompareTo(value2);
 
-    result.ShouldBe(-1);
+    result.ShouldBe(0);
   }
 
   [Fact]
@@ -138,6 +140,83 @@ public class StructureValueTests
     int result = value1.CompareTo(value2);
 
     result.ShouldBe(decimal.Compare(number1, number2));
+  }
+
+  [Fact]
+  public void Equals_Empty_IsCorrect()
+  {
+    StructureValue value1 = new((string?)null);
+    StructureValue value2 = new((decimal?)null);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBeTrue();
+  }
+
+  [Fact]
+  [SuppressMessage("Maintainability", "CA1508:Avoid dead conditional code", Justification = "Testing")]
+  public void Equals_Null_IsCorrect()
+  {
+    StructureValue value = new((string?)null);
+
+    bool result = value.Equals(null);
+
+    result.ShouldBeFalse();
+  }
+
+  [Theory, RepeatData]
+  public void Equals_Identifier_IsCorrect(string identifier1, string identifier2)
+  {
+    StructureValue value1 = new(identifier1);
+    StructureValue value2 = new(identifier2);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBe(identifier1 == identifier2);
+  }
+
+  [Theory, RepeatData]
+  public void Equals_Text_IsCorrect(string contents1, string contents2)
+  {
+    StructureValue value1 = new(contents1);
+    StructureValue value2 = new(contents2);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBe(contents1 == contents2);
+  }
+
+  [Theory, RepeatData]
+  public void Equals_Tag_IsCorrect(string tag1, string tag2)
+  {
+    StructureValue value1 = new("a", tag1);
+    StructureValue value2 = new("a", tag2);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBe(tag1 == tag2);
+  }
+
+  [Theory, RepeatData]
+  public void Equals_Boolean_IsCorrect(bool check1, bool check2)
+  {
+    StructureValue value1 = new(check1);
+    StructureValue value2 = new(check2);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBe(check1 && check2);
+  }
+
+  [Theory, RepeatData]
+  public void Equals_Number_IsCorrect(decimal number1, decimal number2)
+  {
+    StructureValue value1 = new(number1);
+    StructureValue value2 = new(number2);
+
+    bool result = value1.Equals(value2);
+
+    result.ShouldBe(number1 == number2);
   }
 
   [Fact]

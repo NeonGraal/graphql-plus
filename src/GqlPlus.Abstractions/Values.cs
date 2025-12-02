@@ -72,11 +72,13 @@ public class ScalarValue
   public override bool Equals(object obj)
     => Equals(obj as ScalarValue);
   public bool Equals(ScalarValue? other)
-    => this switch {
-      { Boolean: not null } => other?.Boolean == Boolean,
-      { Number: not null } => other?.Number == Number,
-      { Text: not null } => string.Equals(Text, other?.Text, StringComparison.Ordinal),
-      _ => false,
+    => other is not null
+    && this switch {
+      { Boolean: not null } => other.Boolean == Boolean,
+      { Number: not null } => other.Number == Number,
+      { Text: not null } when !string.IsNullOrEmpty(Text)
+        => string.Equals(Text, other.Text, StringComparison.Ordinal),
+      _ => other.IsEmpty,
     };
   public override int GetHashCode()
     => HashCode.Combine(Tag,
@@ -141,7 +143,7 @@ public class ComplexValue<TValue, TObject>
         { Value: not null } => Value.Equals(other.Value),
         { List.Count: > 0 } => List.SequenceEqual(other.List),
         { Map.Count: > 0 } => Map.Equals(other.Map),
-        _ => false,
+        _ => other.Value is null && other.List.Count == 0 && other.Map.Count == 0,
       };
   public override int GetHashCode()
     => HashCode.Combine(Tag,

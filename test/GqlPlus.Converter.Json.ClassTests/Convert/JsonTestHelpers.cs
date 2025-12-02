@@ -65,7 +65,7 @@ internal static class JsonTestHelpers
   ) : IConvertTestsBase
   {
     public Structured ConvertFrom(string[] input)
-      => throw SkipException.ForSkip("Json Deserialize not implemented yet");
+      => input.FromJson();
     public string[] ConvertTo(Structured model)
       => model.ToJson(options).ToLines();
   }

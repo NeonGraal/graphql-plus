@@ -1,0 +1,17 @@
+﻿/* field-value+Output
+output FieldValueOutp { field = fieldValueOutp }
+enum EnumFieldValueOutp { fieldValueOutp }
+*/
+
+// Generated from Schema field-value+Output for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_field_value_Output;
+
+public class CmptFieldValueOutp
+  : ICmptFieldValueOutp
+{
+  public CmptEnumFieldValueOutp field { get; set; }
+  public CmptFieldValueOutp FieldValueOutp { get; set; }
+}

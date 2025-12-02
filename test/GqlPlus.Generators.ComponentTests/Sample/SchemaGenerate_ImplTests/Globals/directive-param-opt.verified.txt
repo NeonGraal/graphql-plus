@@ -1,0 +1,16 @@
+﻿/* directive-param-opt
+directive @DrctParamOpt(InDrctParamOpt?) { all }
+input InDrctParamOpt { }
+*/
+
+// Generated from Schema directive-param-opt for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_directive_param_opt;
+
+public class CmptInDrctParamOpt
+  : ICmptInDrctParamOpt
+{
+  public CmptInDrctParamOpt InDrctParamOpt { get; set; }
+}

@@ -1,0 +1,31 @@
+﻿/* Output
+output _OutputField {
+    : _ObjField<_ObjFieldType>
+    }
+
+output _OutputFieldType {
+    : _ObjFieldType
+        parameters: _InputParam[]
+    }
+*/
+
+// Generated from Spec Output for Impl
+
+/*
+*/
+namespace Components.Gqlp_Spec_Output;
+
+public class Cmpt_OutputField
+  : Cmpt_ObjField
+  , ICmpt_OutputField
+{
+  public Cmpt_OutputField _OutputField { get; set; }
+}
+
+public class Cmpt_OutputFieldType
+  : Cmpt_ObjFieldType
+  , ICmpt_OutputFieldType
+{
+  public ICollection<Cmpt_InputParam> parameters { get; set; }
+  public Cmpt_OutputFieldType _OutputFieldType { get; set; }
+}

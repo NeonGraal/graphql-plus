@@ -1,0 +1,33 @@
+﻿/* generic-parent-param-parent+Output
+output GnrcPrntParamPrntOutp { :RefGnrcPrntParamPrntOutp<AltGnrcPrntParamPrntOutp> }
+output RefGnrcPrntParamPrntOutp<$ref:_Output> { :$ref }
+output AltGnrcPrntParamPrntOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-param-parent+Output for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_parent_param_parent_Output;
+
+public class CmptGnrcPrntParamPrntOutp
+  : CmptRefGnrcPrntParamPrntOutp
+  , ICmptGnrcPrntParamPrntOutp
+{
+  public CmptGnrcPrntParamPrntOutp GnrcPrntParamPrntOutp { get; set; }
+}
+
+public class CmptRefGnrcPrntParamPrntOutp<Tref>
+  : Cmptref
+  , ICmptRefGnrcPrntParamPrntOutp<Tref>
+{
+  public CmptRefGnrcPrntParamPrntOutp RefGnrcPrntParamPrntOutp { get; set; }
+}
+
+public class CmptAltGnrcPrntParamPrntOutp
+  : ICmptAltGnrcPrntParamPrntOutp
+{
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcPrntParamPrntOutp AltGnrcPrntParamPrntOutp { get; set; }
+}

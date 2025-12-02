@@ -1,0 +1,26 @@
+﻿/* constraint-enum-parent+Output
+output CnstEnumPrntOutp { | RefCnstEnumPrntOutp<cnstEnumPrntOutp> }
+output RefCnstEnumPrntOutp<$type:ParentCnstEnumPrntOutp> { field: $type }
+enum EnumCnstEnumPrntOutp { :ParentCnstEnumPrntOutp cnstEnumPrntOutp }
+enum ParentCnstEnumPrntOutp { parentCnstEnumPrntOutp }
+*/
+
+// Generated from Schema constraint-enum-parent+Output for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_enum_parent_Output;
+
+public class CmptCnstEnumPrntOutp
+  : ICmptCnstEnumPrntOutp
+{
+  public CmptRefCnstEnumPrntOutp<CmptEnumCnstEnumPrntOutp> AsRefCnstEnumPrntOutp { get; set; }
+  public CmptCnstEnumPrntOutp CnstEnumPrntOutp { get; set; }
+}
+
+public class CmptRefCnstEnumPrntOutp<Ttype>
+  : ICmptRefCnstEnumPrntOutp<Ttype>
+{
+  public Ttype field { get; set; }
+  public CmptRefCnstEnumPrntOutp RefCnstEnumPrntOutp { get; set; }
+}

@@ -1,0 +1,19 @@
+﻿/* category-output-optional
+category { CtgrOutpOptl? }
+output CtgrOutpOptl { }
+*/
+
+// Generated from Schema category-output-optional for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_category_output_optional;
+
+public interface ICmptCtgrOutpOptl
+{
+  public CmptCtgrOutpOptl CtgrOutpOptl { get; set; }
+}
+
+public interface ICmptCtgrOutpOptlField
+{
+}

@@ -1,0 +1,32 @@
+﻿/* parent-param-diff+Dual
+dual PrntParamDiffDual<$a:String> { :RefPrntParamDiffDual<$a> field: $a }
+dual RefPrntParamDiffDual<$b:String> { | $b }
+*/
+
+// Generated from Schema parent-param-diff+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_parent_param_diff_Dual;
+
+public interface ICmptPrntParamDiffDual<Ta>
+  : ICmptRefPrntParamDiffDual
+{
+  public CmptPrntParamDiffDual PrntParamDiffDual { get; set; }
+}
+
+public interface ICmptPrntParamDiffDualField<Ta>
+  : ICmptRefPrntParamDiffDualField
+{
+  public Ta field { get; set; }
+}
+
+public interface ICmptRefPrntParamDiffDual<Tb>
+{
+  public Tb Asb { get; set; }
+  public CmptRefPrntParamDiffDual RefPrntParamDiffDual { get; set; }
+}
+
+public interface ICmptRefPrntParamDiffDualField<Tb>
+{
+}

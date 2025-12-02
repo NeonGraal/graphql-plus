@@ -1,0 +1,31 @@
+﻿/* Union
+output _UnionRef {
+    : _TypeRef<_SimpleKind>
+    }
+
+output _UnionMember {
+    : _UnionRef
+        union: _Identifier
+    }
+*/
+
+// Generated from Spec Union for Impl
+
+/*
+*/
+namespace Components.Gqlp_Spec_Union;
+
+public class Cmpt_UnionRef
+  : Cmpt_TypeRef
+  , ICmpt_UnionRef
+{
+  public Cmpt_UnionRef _UnionRef { get; set; }
+}
+
+public class Cmpt_UnionMember
+  : Cmpt_UnionRef
+  , ICmpt_UnionMember
+{
+  public Cmpt_Identifier union { get; set; }
+  public Cmpt_UnionMember _UnionMember { get; set; }
+}

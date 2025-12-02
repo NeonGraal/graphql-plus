@@ -1,0 +1,16 @@
+﻿/* generic-alt-mod-param+Dual
+dual RefGnrcAltModParamDual<$ref:String $mod:String> { | $ref[$mod] }
+*/
+
+// Generated from Schema generic-alt-mod-param+Dual for Impl
+
+/*
+*/
+namespace Components.Gqlp_Schema_generic_alt_mod_param_Dual;
+
+public class CmptRefGnrcAltModParamDual<Tref,Tmod>
+  : ICmptRefGnrcAltModParamDual<Tref,Tmod>
+{
+  public IDictionary<Tmod, Tref> Asref { get; set; }
+  public CmptRefGnrcAltModParamDual RefGnrcAltModParamDual { get; set; }
+}

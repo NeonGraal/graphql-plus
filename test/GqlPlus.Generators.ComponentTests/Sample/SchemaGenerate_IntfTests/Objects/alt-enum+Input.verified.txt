@@ -1,0 +1,20 @@
+﻿/* alt-enum+Input
+input AltEnumInp { ! EnumAltEnumInp.altEnumInp }
+enum EnumAltEnumInp { altEnumInp }
+*/
+
+// Generated from Schema alt-enum+Input for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_alt_enum_Input;
+
+public interface ICmptAltEnumInp
+{
+  public CmptEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
+  public CmptAltEnumInp AltEnumInp { get; set; }
+}
+
+public interface ICmptAltEnumInpField
+{
+}

@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IsRoslynComponent>true</IsRoslynComponent>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GqlPlus.Generators.Attributes\GqlPlus.Generators.Attributes.csproj" />
+    <ProjectReference Include="..\GqlPlus.Parser\GqlPlus.Parser.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="GqlpGenerator.props" Pack="true" PackagePath="build" />
+  </ItemGroup>
+
+</Project>

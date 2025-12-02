@@ -1,0 +1,19 @@
+﻿/* alt-descr+Output
+output AltDescrOutp { | "Test" "Descr" String }
+*/
+
+// Generated from Schema alt-descr+Output for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_alt_descr_Output;
+
+public interface ICmptAltDescrOutp
+{
+  public CmptString AsString { get; set; }
+  public CmptAltDescrOutp AltDescrOutp { get; set; }
+}
+
+public interface ICmptAltDescrOutpField
+{
+}

@@ -1,0 +1,33 @@
+﻿/* parent-alt+Dual
+dual PrntAltDual { :RefPrntAltDual | Number }
+dual RefPrntAltDual {  parent: Number | String }
+*/
+
+// Generated from Schema parent-alt+Dual for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_parent_alt_Dual;
+
+public interface ICmptPrntAltDual
+  : ICmptRefPrntAltDual
+{
+  public CmptNumber AsNumber { get; set; }
+  public CmptPrntAltDual PrntAltDual { get; set; }
+}
+
+public interface ICmptPrntAltDualField
+  : ICmptRefPrntAltDualField
+{
+}
+
+public interface ICmptRefPrntAltDual
+{
+  public CmptString AsString { get; set; }
+  public CmptRefPrntAltDual RefPrntAltDual { get; set; }
+}
+
+public interface ICmptRefPrntAltDualField
+{
+  public CmptNumber parent { get; set; }
+}

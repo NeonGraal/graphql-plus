@@ -1,0 +1,20 @@
+﻿/* field-value+Input
+input FieldValueInp { field = fieldValueInp }
+enum EnumFieldValueInp { fieldValueInp }
+*/
+
+// Generated from Schema field-value+Input for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_field_value_Input;
+
+public interface ICmptFieldValueInp
+{
+  public CmptFieldValueInp FieldValueInp { get; set; }
+}
+
+public interface ICmptFieldValueInpField
+{
+  public CmptEnumFieldValueInp field { get; set; }
+}

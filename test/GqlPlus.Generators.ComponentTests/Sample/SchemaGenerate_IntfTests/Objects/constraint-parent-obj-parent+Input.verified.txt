@@ -1,0 +1,56 @@
+﻿/* constraint-parent-obj-parent+Input
+input CnstPrntObjPrntInp { :RefCnstPrntObjPrntInp<AltCnstPrntObjPrntInp> }
+input RefCnstPrntObjPrntInp<$ref:PrntCnstPrntObjPrntInp> { :$ref }
+input PrntCnstPrntObjPrntInp { | String }
+input AltCnstPrntObjPrntInp { :PrntCnstPrntObjPrntInp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-obj-parent+Input for Intf
+
+/*
+*/
+namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Input;
+
+public interface ICmptCnstPrntObjPrntInp
+  : ICmptRefCnstPrntObjPrntInp
+{
+  public CmptCnstPrntObjPrntInp CnstPrntObjPrntInp { get; set; }
+}
+
+public interface ICmptCnstPrntObjPrntInpField
+  : ICmptRefCnstPrntObjPrntInpField
+{
+}
+
+public interface ICmptRefCnstPrntObjPrntInp<Tref>
+  : ICmptref
+{
+  public CmptRefCnstPrntObjPrntInp RefCnstPrntObjPrntInp { get; set; }
+}
+
+public interface ICmptRefCnstPrntObjPrntInpField<Tref>
+  : ICmptrefField
+{
+}
+
+public interface ICmptPrntCnstPrntObjPrntInp
+{
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstPrntObjPrntInp PrntCnstPrntObjPrntInp { get; set; }
+}
+
+public interface ICmptPrntCnstPrntObjPrntInpField
+{
+}
+
+public interface ICmptAltCnstPrntObjPrntInp
+  : ICmptPrntCnstPrntObjPrntInp
+{
+  public CmptAltCnstPrntObjPrntInp AltCnstPrntObjPrntInp { get; set; }
+}
+
+public interface ICmptAltCnstPrntObjPrntInpField
+  : ICmptPrntCnstPrntObjPrntInpField
+{
+  public CmptNumber alt { get; set; }
+}

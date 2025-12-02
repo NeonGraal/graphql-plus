@@ -1,18 +1,16 @@
 ﻿namespace GqlPlus.Ast.Schema.Simple;
 
-public class EnumLabelAstTests
-  : AstAliasedBaseTests
+public partial class EnumLabelAstTests
 {
-  private readonly AstAliasedChecks<EnumLabelAst> _checks
-    = new(CreateLabel);
+  [CheckTests(Inherited = true)]
+  internal IAstAliasedChecks<string> AliasedChecks { get; }
+    = new AstAliasedChecks<EnumLabelAst>(CreateLabel);
 
-  private static EnumLabelAst CloneLabel(EnumLabelAst original, string input)
-    => original with { Name = input };
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; } = new CloneChecks<string, EnumLabelAst>(
+     CreateLabel,
+     (original, input) => original with { Name = input });
+
   private static EnumLabelAst CreateLabel(string input)
     => new(AstNulls.At, input);
-
-  internal override IAstAliasedChecks<string> AliasedChecks => _checks;
-
-  protected override Func<string, string, bool> SameInput
-    => (name1, name2) => name1.Camelize() == name2.Camelize();
 }

@@ -68,7 +68,7 @@ types: !_Map_Type
       - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierDictionary
-            by: ^
+            by: '^'
             modifierKind: !_ModifierKind Dict
         object: _IfElse
         type: !_ObjBase
@@ -77,7 +77,7 @@ types: !_Map_Type
       - !_Alternate
         collections:
           - !_ModifierDictionary
-            by: ^
+            by: '^'
             modifierKind: !_ModifierKind Dict
         type: !_ObjBase
           typeParam: T
@@ -154,7 +154,7 @@ types: !_Map_Type
             modifierKind: !_ModifierKind Param
         object: _Mask
         type: !_ObjBase
-          name: ^
+          name: '^'
     alternates:
       - !_Alternate
         collections:
@@ -162,7 +162,7 @@ types: !_Map_Type
             by: K
             modifierKind: !_ModifierKind Param
         type: !_ObjBase
-          name: ^
+          name: '^'
     name: _Mask
     typeKind: !_TypeKind Dual
     typeParams:

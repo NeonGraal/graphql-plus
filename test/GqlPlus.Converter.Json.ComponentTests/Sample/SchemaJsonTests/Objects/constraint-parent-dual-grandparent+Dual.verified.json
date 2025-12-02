@@ -42,7 +42,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "CnstPrntDualGrndDual": {
@@ -81,7 +81,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "GrndCnstPrntDualGrndDual": {
@@ -108,7 +108,7 @@
       "name": "GrndCnstPrntDualGrndDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "PrntCnstPrntDualGrndDual": {
@@ -130,7 +130,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "RefCnstPrntDualGrndDual": {
@@ -142,7 +142,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       },
       "typeParams": [
         {
@@ -152,7 +152,7 @@
             "name": "GrndCnstPrntDualGrndDual",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Dual"
+              "$value": "Dual"
             }
           },
           "name": "ref"

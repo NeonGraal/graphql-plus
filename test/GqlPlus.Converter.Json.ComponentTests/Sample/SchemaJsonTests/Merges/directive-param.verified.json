@@ -26,7 +26,7 @@
       "name": "InDrctParam",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

@@ -13,7 +13,7 @@
           "object": "ObjFieldEnumValueOutp",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
@@ -25,14 +25,14 @@
           "name": "Boolean",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
       "name": "ObjFieldEnumValueOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

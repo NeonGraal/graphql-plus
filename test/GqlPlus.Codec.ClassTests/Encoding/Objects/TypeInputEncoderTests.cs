@@ -12,7 +12,7 @@ public class TypeInputEncoderTests
   public void Encode_WithValidModel_ReturnsStructured(string name, string contents)
     => EncodeAndCheck(new(name, contents), [
       "!_TypeInput",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "name: " + name,
       "typeKind: !_TypeKind Input"
       ]);
@@ -47,14 +47,14 @@ public class TypeInputEncoderTests
 
     EncodeAndCheck(model, [
       "!_TypeInput",
-      "allAlternates:", "  -", $"    value: !_AlternateFor '{alternateType}'",
-      "allFields:", "  -", $"    value: !_DualField '{fieldName}'",
-      "alternates:", "  -", $"    value: !_Alternate '{alternateType}'",
-      "fields:", "  -", $"    value: !_Field '{fieldName}'",
+      "allAlternates:", "  -", $"    value: !_AlternateFor " + alternateType.QuotedIdentifier(),
+      "allFields:", "  -", $"    value: !_DualField " + fieldName.QuotedIdentifier(),
+      "alternates:", "  -", $"    value: !_Alternate " + alternateType.QuotedIdentifier(),
+      "fields:", "  -", $"    value: !_Field " + fieldName.QuotedIdentifier(),
       "name: " + name,
-      "parent:", $"  value: !_Parent '{parentType}'",
+      "parent:", $"  value: !_Parent " + parentType.QuotedIdentifier(),
       "typeKind: !_TypeKind Input",
-      "typeParams:", "  -", $"    value: !_TypeParam '{paramName}'"
+      "typeParams:", "  -", $"    value: !_TypeParam " + paramName.QuotedIdentifier()
       ]);
   }
 }

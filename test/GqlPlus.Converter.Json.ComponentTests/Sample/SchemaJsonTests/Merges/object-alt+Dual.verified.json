@@ -26,7 +26,7 @@
       "name": "ObjAltDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "ObjAltDualType": {
@@ -34,7 +34,7 @@
       "name": "ObjAltDualType",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

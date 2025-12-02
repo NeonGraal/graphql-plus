@@ -26,7 +26,7 @@
       "name": "CnstAltDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       },
       "typeParams": [
         {
@@ -36,7 +36,7 @@
             "name": "Number",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "type"

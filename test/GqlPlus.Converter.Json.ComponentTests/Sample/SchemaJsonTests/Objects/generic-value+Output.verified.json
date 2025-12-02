@@ -20,7 +20,7 @@
       "name": "EnumGnrcValueOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "GnrcValueOutp": {
@@ -39,7 +39,7 @@
                 "name": "EnumGnrcValueOutp",
                 "typeKind": {
                   "$tag": "_SimpleKind",
-                  "value": "Enum"
+                  "$value": "Enum"
                 }
               }
             ]
@@ -59,7 +59,7 @@
                 "name": "EnumGnrcValueOutp",
                 "typeKind": {
                   "$tag": "_SimpleKind",
-                  "value": "Enum"
+                  "$value": "Enum"
                 }
               }
             ]
@@ -69,7 +69,7 @@
       "name": "GnrcValueOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "RefGnrcValueOutp": {
@@ -98,7 +98,7 @@
       "name": "RefGnrcValueOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       },
       "typeParams": [
         {
@@ -108,7 +108,7 @@
             "name": "_Enum",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Internal"
+              "$value": "Internal"
             }
           },
           "name": "type"

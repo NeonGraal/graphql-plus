@@ -38,7 +38,7 @@
       "name": "CnstAltDmnInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "DomCnstAltDmnInp": {
@@ -53,7 +53,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "String"
+        "$value": "String"
       },
       "items": [
         {
@@ -65,7 +65,7 @@
       "name": "DomCnstAltDmnInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "RefCnstAltDmnInp": {
@@ -92,7 +92,7 @@
       "name": "RefCnstAltDmnInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       },
       "typeParams": [
         {
@@ -102,7 +102,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "ref"

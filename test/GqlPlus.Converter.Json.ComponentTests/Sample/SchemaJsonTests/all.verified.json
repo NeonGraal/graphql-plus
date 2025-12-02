@@ -12,12 +12,12 @@
         "name": "All",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     }
   },
@@ -78,7 +78,7 @@
                   "$tag": "_Modifier",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Opt"
+                    "$value": "Opt"
                   }
                 }
               ],
@@ -115,7 +115,7 @@
                   "$tag": "_Modifier",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Opt"
+                    "$value": "Opt"
                   }
                 }
               ],
@@ -131,7 +131,7 @@
       "name": "All",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "Field": {
@@ -145,7 +145,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -168,7 +168,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -183,7 +183,7 @@
       "name": "Field",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "Guid": {
@@ -200,7 +200,7 @@
       "description": "A Domain",
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "String"
+        "$value": "String"
       },
       "items": [
         {
@@ -213,7 +213,7 @@
       "name": "Guid",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "Many": {
@@ -248,7 +248,7 @@
       "name": "Many",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Union"
+        "$value": "Union"
       }
     },
     "One": {
@@ -283,7 +283,7 @@
       "name": "One",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "Param": {
@@ -308,7 +308,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -352,7 +352,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -377,7 +377,7 @@
       "name": "Param",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

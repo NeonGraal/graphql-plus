@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public class ModelException
   : Exception

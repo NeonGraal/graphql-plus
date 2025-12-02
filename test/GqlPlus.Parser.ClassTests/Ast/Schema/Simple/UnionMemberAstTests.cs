@@ -1,18 +1,16 @@
 ﻿namespace GqlPlus.Ast.Schema.Simple;
 
-public class UnionMemberAstTests
-  : AstNamedBaseTests<string>
+public partial class UnionMemberAstTests
 {
-  private readonly AstNamedChecks<UnionMemberAst> _checks
-    = new(CreateMember);
+  [CheckTests(Inherited = true)]
+  internal IAstNamedChecks<string> NamedChecks { get; }
+    = new AstNamedChecks<UnionMemberAst>(CreateMember);
 
-  private static UnionMemberAst CloneMember(UnionMemberAst original, string input)
-    => original with { Name = input };
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; } = new CloneChecks<string, UnionMemberAst>(
+     CreateMember,
+     (original, input) => original with { Name = input });
+
   private static UnionMemberAst CreateMember(string input)
     => new(AstNulls.At, input, "");
-
-  protected override Func<string, string, bool> SameInput
-    => (name1, name2) => name1.Camelize() == name2.Camelize();
-
-  internal override IAstNamedChecks<string> NamedChecks => _checks;
 }

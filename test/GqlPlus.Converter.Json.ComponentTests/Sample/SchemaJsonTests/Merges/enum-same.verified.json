@@ -20,7 +20,7 @@
       "name": "EnumSame",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

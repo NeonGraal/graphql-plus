@@ -38,8 +38,8 @@ public class MapHelpersTests
     Map<string> map = values.ToMap(static k => k);
 
     map.ShouldSatisfyAllConditions(
-      m => m.Keys.ShouldBe(values),
-      m => m.Values.ShouldBe(values));
+      m => m.Keys.ShouldBeOrdered(values),
+      m => m.Values.ShouldBeOrdered(values));
   }
 
   [Theory, RepeatData]
@@ -49,8 +49,8 @@ public class MapHelpersTests
     Map<int[]> map = groups.ToMap(static k => k.Key, static v => v.Select(a => a.Age).ToArray());
 
     map.ShouldSatisfyAllConditions(
-      m => m.Keys.ShouldBe(groups.Select(static k => k.Key)),
-      m => m.Values.ShouldBe(groups.Select(static v => v.Select(a => a.Age).ToArray())));
+      m => m.Keys.ShouldBeOrdered(groups.Select(static k => k.Key)),
+      m => m.Values.ShouldBe(groups.OrderBy(g => g.Key).Select(static v => v.Select(a => a.Age).ToArray())));
   }
 }
 

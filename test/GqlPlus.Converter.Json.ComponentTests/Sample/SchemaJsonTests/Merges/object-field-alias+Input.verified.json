@@ -7,7 +7,7 @@
       "name": "FldObjFieldAliasInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjFieldAliasInp": {
@@ -38,7 +38,7 @@
       "name": "ObjFieldAliasInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

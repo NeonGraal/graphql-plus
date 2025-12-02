@@ -2,7 +2,7 @@
 errors:
 - !_Error
   _kind: !_TokenKind End
-  _message: In RefGnrcPrntDualPrntInp can't get model for type 'AltGnrcPrntDualPrntInp'
+  _message: "In RefGnrcPrntDualPrntInp can't get model for type 'AltGnrcPrntDualPrntInp'"
 types: !_Map_Type
   !_Identifier AltGnrcPrntDualPrntInp: !_TypeDual
     allAlternates:

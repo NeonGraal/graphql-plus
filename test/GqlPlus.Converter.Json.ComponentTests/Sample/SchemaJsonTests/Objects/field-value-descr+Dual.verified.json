@@ -20,7 +20,7 @@
       "name": "EnumFieldValueDescrDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "FieldValueDescrDual": {
@@ -51,7 +51,7 @@
       "name": "FieldValueDescrDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

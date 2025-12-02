@@ -1,7 +1,7 @@
 ﻿
 namespace GqlPlus.Ast.Schema.Simple;
 
-public class UnionAstTests
+public partial class UnionAstTests
   : AstTypeBaseTests
 {
   [Theory, RepeatData]
@@ -45,8 +45,10 @@ public class UnionAstTests
   private readonly AstTypeChecks<UnionDeclAst> _checks
     = new(CreateUnion);
 
-  private static UnionDeclAst CloneUnion(UnionDeclAst original, string input)
-    => original with { Name = input };
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; } = new CloneChecks<string, UnionDeclAst>(
+     CreateUnion,
+     (original, input) => original with { Name = input });
   private static UnionDeclAst CreateUnion(string input)
     => new(AstNulls.At, input, []);
 

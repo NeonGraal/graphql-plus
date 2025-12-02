@@ -23,11 +23,11 @@
               "by": "String",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Basic"
+                "$value": "Basic"
               }
             }
           ],
@@ -44,7 +44,7 @@
       "name": "InDrctParamDict",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

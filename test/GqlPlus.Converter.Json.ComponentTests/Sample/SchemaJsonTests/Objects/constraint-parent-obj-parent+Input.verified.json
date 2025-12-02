@@ -42,7 +42,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "CnstPrntObjPrntInp": {
@@ -81,7 +81,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "PrntCnstPrntObjPrntInp": {
@@ -108,7 +108,7 @@
       "name": "PrntCnstPrntObjPrntInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "RefCnstPrntObjPrntInp": {
@@ -120,7 +120,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       },
       "typeParams": [
         {
@@ -130,7 +130,7 @@
             "name": "PrntCnstPrntObjPrntInp",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Input"
+              "$value": "Input"
             }
           },
           "name": "ref"

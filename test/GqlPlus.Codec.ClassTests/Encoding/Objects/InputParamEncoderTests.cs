@@ -22,7 +22,7 @@ public class InputParamEncoderTests
   public void Encode_WithValidModel_ReturnsStructured(string input, string contents)
     => EncodeAndCheck(new(input, contents), [
       "!_InputParam",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "name: " + input
       ]);
 }

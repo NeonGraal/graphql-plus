@@ -1,12 +1,10 @@
 ﻿using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using OpenTelemetry;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using Xunit;
 
 namespace GqlPlus;
-
 
 public sealed class OpenTelemetryFixture : IDisposable, IAsyncLifetime
 {

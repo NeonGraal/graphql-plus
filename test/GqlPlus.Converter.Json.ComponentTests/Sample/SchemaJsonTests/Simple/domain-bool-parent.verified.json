@@ -20,7 +20,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Boolean"
+        "$value": "Boolean"
       },
       "items": [
         {
@@ -35,12 +35,12 @@
         "name": "PrntDmnBoolPrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Domain"
+          "$value": "Domain"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "PrntDmnBoolPrnt": {
@@ -55,7 +55,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Boolean"
+        "$value": "Boolean"
       },
       "items": [
         {
@@ -67,7 +67,7 @@
       "name": "PrntDmnBoolPrnt",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     }
   }

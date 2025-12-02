@@ -33,13 +33,13 @@ public class SimpleEncoderTests
   [Theory, RepeatData]
   public void Encode_WithString_ReturnsStructuredString(string value)
     => EncodeAndCheck(SimpleModel.Str(value), [
-        $"'{value}'"
+        value.QuotedIdentifier()
         ]);
 
   [Theory, RepeatData]
   public void Encode_WithDomainString_ReturnsStructuredString(string domain, string value)
     => EncodeAndCheck(SimpleModel.StrDom(domain, value), [
-        $"!{domain} '{value}'"
+        $"!{domain} " + value.QuotedIdentifier()
         ]);
 
   [Theory, RepeatData]

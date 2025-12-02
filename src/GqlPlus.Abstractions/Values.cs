@@ -17,7 +17,7 @@ public interface IValue
 public abstract class BaseValue
   : IValue
 {
-  public virtual string Tag { get; protected set; } = "";
+  public virtual string Tag { get; set; } = "";
 
   internal static bool TryGet<T>(out T? value, Func<T?> valueGetter)
   {
@@ -72,11 +72,13 @@ public class ScalarValue
   public override bool Equals(object obj)
     => Equals(obj as ScalarValue);
   public bool Equals(ScalarValue? other)
-    => this switch {
-      { Boolean: not null } => other?.Boolean == Boolean,
-      { Number: not null } => other?.Number == Number,
-      { Text: not null } => string.Equals(Text, other?.Text, StringComparison.Ordinal),
-      _ => false,
+    => other is not null
+    && this switch {
+      { Boolean: not null } => other.Boolean == Boolean,
+      { Number: not null } => other.Number == Number,
+      { Text: not null } when !string.IsNullOrEmpty(Text)
+        => string.Equals(Text, other.Text, StringComparison.Ordinal),
+      _ => other.IsEmpty,
     };
   public override int GetHashCode()
     => HashCode.Combine(Tag,
@@ -93,7 +95,7 @@ public class ComplexValue<TValue, TObject>
   where TObject : ComplexValue<TValue, TObject>, IEquatable<TObject>, IValue
 {
   internal sealed class Dict
-    : Dictionary<TValue, TObject>, IDict
+    : SortedDictionary<TValue, TObject>, IDict
   {
     internal Dict() : base() { }
     internal Dict(IDictionary<TValue, TObject> dictionary)
@@ -114,7 +116,7 @@ public class ComplexValue<TValue, TObject>
   public IList<TObject> List { get; } = [];
   public IDict Map { get; } = new Dict();
 
-  public ComplexValue(TValue value)
+  public ComplexValue(TValue? value)
     => Value = value;
   public ComplexValue(IEnumerable<TObject> values)
     => List = [.. values];
@@ -135,16 +137,25 @@ public class ComplexValue<TValue, TObject>
   public override bool Equals(object obj)
     => Equals(obj as ComplexValue<TValue, TObject>);
   public bool Equals(ComplexValue<TValue, TObject>? other)
-    => this switch {
-      { Value: not null } => Value.Equals(other?.Value),
-      { List.Count: > 0 } when other is not null => List.OrderedEqual(other.List),
-      { Map.Count: > 0 } when other is not null => Map.Equals(other.Map),
-      _ => false,
-    };
+    => other is not null
+      && string.Equals(Tag, other.Tag, StringComparison.Ordinal)
+      && this switch {
+        { Value: not null } => Value.Equals(other.Value),
+        { List.Count: > 0 } => List.SequenceEqual(other.List),
+        { Map.Count: > 0 } => Map.Equals(other.Map),
+        _ => other.Value is null && other.List.Count == 0 && other.Map.Count == 0,
+      };
   public override int GetHashCode()
     => HashCode.Combine(Tag,
       Value?.GetHashCode() ?? 0,
       List?.GetHashCode() ?? 0,
       Map?.GetHashCode() ?? 0);
 
+  public override string ToString()
+    => this switch {
+      { List.Count: > 0 } => Tag.Suffixed("!") + List.Surround("[ ", " ]", i => $"{i}", ", "),
+      { Map.Count: > 0 } => Tag.Suffixed("!") + Map.Surround("{ ", " }", i => $"{i.Key}: {i.Value}", ", "),
+      { Value: not null } => $"{Value}",
+      _ => Tag + "()"
+    };
 }

@@ -13,7 +13,7 @@
               "by": "mod",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Param"
+                "$value": "Param"
               }
             }
           ],
@@ -34,7 +34,7 @@
               "by": "mod",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Param"
+                "$value": "Param"
               }
             }
           ],
@@ -48,7 +48,7 @@
       "name": "FieldModParamDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       },
       "typeParams": [
         {
@@ -58,7 +58,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "mod"
@@ -110,7 +110,7 @@
       "name": "FldFieldModParamDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     }
   }

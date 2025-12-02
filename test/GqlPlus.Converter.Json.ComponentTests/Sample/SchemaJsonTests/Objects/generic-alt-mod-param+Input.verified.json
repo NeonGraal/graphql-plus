@@ -13,7 +13,7 @@
               "by": "mod",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Param"
+                "$value": "Param"
               }
             }
           ],
@@ -33,7 +33,7 @@
               "by": "mod",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Param"
+                "$value": "Param"
               }
             }
           ],
@@ -46,7 +46,7 @@
       "name": "RefGnrcAltModParamInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       },
       "typeParams": [
         {
@@ -56,7 +56,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "ref"
@@ -68,7 +68,7 @@
             "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "$value": "Basic"
             }
           },
           "name": "mod"

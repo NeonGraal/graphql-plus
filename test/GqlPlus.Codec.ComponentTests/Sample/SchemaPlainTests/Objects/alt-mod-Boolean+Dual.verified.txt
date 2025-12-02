@@ -28,7 +28,7 @@ types: !_Map_Type
       - !_ObjectFor(_Alternate)
         collections:
           - !_ModifierDictionary
-            by: ^
+            by: '^'
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
         object: AltModBoolDual
@@ -38,7 +38,7 @@ types: !_Map_Type
       - !_Alternate
         collections:
           - !_ModifierDictionary
-            by: ^
+            by: '^'
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
         type: !_ObjBase

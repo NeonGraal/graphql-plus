@@ -19,12 +19,12 @@ types: !_Map_Type
       - !_DomainItem(_DomainRegex)
         domain: DomCnstFieldDmnInp
         exclude: false
-        pattern: \w+
+        pattern: '\\w+'
     domainKind: !_DomainKind String
     items:
       - !_DomainRegex
         exclude: false
-        pattern: \w+
+        pattern: '\\w+'
     name: DomCnstFieldDmnInp
     typeKind: !_TypeKind Domain
   !_Identifier RefCnstFieldDmnInp: !_TypeInput

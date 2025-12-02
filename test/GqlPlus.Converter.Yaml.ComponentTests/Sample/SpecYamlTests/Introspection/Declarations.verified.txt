@@ -2,7 +2,7 @@
 errors:
 - !_Error
   _kind: !_TokenKind End
-  _message: In _Schema can't get model for type '_Named'
+  _message: "In _Schema can't get model for type '_Named'"
 types: !_Map_Type
   !_Identifier _CategoryFilter: !_TypeInput
     allAlternates:
@@ -149,12 +149,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: _Identifier
       exclude: false
-      pattern: \w[\w\d]*
+      pattern: '\w[\w\d]*'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: \w[\w\d]*
+      pattern: '\w[\w\d]*'
     name: _Identifier
     typeKind: !_TypeKind Domain
   !_Identifier _NameFilter: !_DomainString

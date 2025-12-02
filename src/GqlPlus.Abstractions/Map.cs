@@ -3,7 +3,7 @@
 namespace GqlPlus;
 
 public class Map<TMap>
-  : Dictionary<string, TMap>
+  : SortedDictionary<string, TMap>
   , IMap<TMap>
   , IReadOnlyMap<TMap>
 {

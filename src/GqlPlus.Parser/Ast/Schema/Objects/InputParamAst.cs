@@ -33,6 +33,7 @@ internal sealed record class InputParamAst(
 
   public bool Equals(InputParamAst? other)
     => other is IGqlpInputParam inputParam && Equals(inputParam);
+  [ExcludeFromCodeCoverage]
   public bool Equals(IGqlpDescribed? other)
     => other is IGqlpInputParam inputParam && Equals(inputParam);
   public bool Equals(IGqlpInputParam? other)

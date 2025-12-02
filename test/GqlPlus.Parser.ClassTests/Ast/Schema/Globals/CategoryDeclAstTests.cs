@@ -30,7 +30,7 @@ public partial class CategoryDeclAstTests
   public void Text_WithOutputDescription(string name, string description)
     => _checks.Text(
       () => new CategoryDeclAst(AstNulls.At, name, new TypeRefAst(AstNulls.At, name, description)),
-      $"( !Ca {name} (Parallel) '{description}' !Tr {name} )");
+      $"( !Ca {name} (Parallel) {description.QuotedIdentifier()} !Tr {name} )");
 
   [Theory, RepeatData]
   public void Equality_WithOutputDescription(string name, string description)
@@ -92,7 +92,7 @@ public partial class CategoryDeclAstTests
 }
 
 internal sealed class CategoryAstChecks()
-  : AstAliasedChecks<CategoryDeclAst>(CategoryDeclAstTests.CreateCategory)
+  : AstDeclarationChecks<CategoryDeclAst>(CategoryDeclAstTests.CreateCategory)
 {
   protected override string AliasesString(string input, string description, string aliases)
     => $"( {DescriptionNameString(input.Camelize(), description)}{aliases} (Parallel) !Tr {input} )";

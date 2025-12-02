@@ -2,6 +2,7 @@
 
 namespace GqlPlus.Ast;
 
+[ExcludeFromCodeCoverage]
 internal sealed class FieldsAst<TValue>
   : Dictionary<IGqlpFieldKey, TValue>
   , IEquatable<Dictionary<IGqlpFieldKey, TValue>>
@@ -19,7 +20,6 @@ internal sealed class FieldsAst<TValue>
     => other is not null
     && Keys.OrderedEqual(other.Keys)
     && Keys.All(k => this[k]?.Equals(other[k]) ?? false);
-
 
   IImmutableDictionary<IGqlpFieldKey, TValue> IImmutableDictionary<IGqlpFieldKey, TValue>.Add(IGqlpFieldKey key, TValue value)
     => throw new NotImplementedException();

@@ -15,14 +15,9 @@ public sealed class StructureValue
   public StructureValue(bool? value, string? tag = null)
     : base(value, tag) { }
   public StructureValue(string? value, string? tag = null)
-    : base(value, tag) => Identifier = value;
+    : base(value, tag) => Identifier = value.IsIdentifier() ? value : null;
   public StructureValue(decimal? value, string? tag = null)
     : base(value, tag) { }
-
-  public static StructureValue Str(string? value, string? tag = null)
-    => new(value, tag) {
-      Identifier = null
-    };
 
   public int CompareTo(StructureValue? other)
     => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
@@ -30,15 +25,17 @@ public sealed class StructureValue
       : Identifier.BothValued(other?.Identifier) ? string.Compare(Identifier, other.Identifier, StringComparison.Ordinal)
       : Number.BothValued(other?.Number) ? Number.Value.CompareTo(other.Number)
       : Text.BothValued(other?.Text) ? string.Compare(Text, other.Text, StringComparison.Ordinal)
-      : -1
+      : 0
     : -1;
 
   public override bool Equals(object obj) => Equals(obj as StructureValue);
   public bool Equals(StructureValue? other)
-    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal) && (Boolean.BothValued(other?.Boolean) ? Boolean.Value == other.Boolean
+    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
+      && (Boolean.BothValued(other?.Boolean) ? Boolean.Value == other.Boolean
       : Identifier.BothValued(other?.Identifier) ? string.Equals(Identifier, other.Identifier, StringComparison.Ordinal)
       : Number.BothValued(other?.Number) ? Number.Value == other.Number
-      : Text.BothValued(other?.Text) && string.Equals(Text, other.Text, StringComparison.Ordinal));
+      : Text.BothValued(other?.Text) ? string.Equals(Text, other.Text, StringComparison.Ordinal)
+      : IsEmpty && other?.IsEmpty == true);
   public override int GetHashCode()
     => HashCode.Combine(Tag,
       Boolean?.GetHashCode() ?? 0,
@@ -54,11 +51,13 @@ public sealed class StructureValue
     _ => "",
   };
 
-  public override string ToString() => this switch {
-    { Boolean: not null } => "B:" + Boolean.Value.TrueFalse(),
-    { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => "I:" + Identifier,
-    { Number: not null } => $"N:{Number:0.#####}",
-    { Text: not null } when !string.IsNullOrEmpty(Text) => "T:" + Text,
-    _ => "E",
-  };
+  public override string ToString()
+    => Tag.Suffixed("!")
+    + this switch {
+      { Boolean: not null } => "B:" + Boolean.Value.TrueFalse(),
+      { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => "I:" + Identifier,
+      { Number: not null } => $"N:{Number:0.#####}",
+      { Text: not null } when !string.IsNullOrEmpty(Text) => "T:" + Text,
+      _ => "E",
+    };
 }

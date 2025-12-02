@@ -6,12 +6,12 @@ types: !_Map_Type
         description: 'DomString Descr'
         domain: DmnStrDescr
         exclude: false
-        pattern: a+
+        pattern: 'a+'
     domainKind: !_DomainKind String
     items:
       - !_DomainRegex
         description: 'DomString Descr'
         exclude: false
-        pattern: a+
+        pattern: 'a+'
     name: DmnStrDescr
     typeKind: !_TypeKind Domain

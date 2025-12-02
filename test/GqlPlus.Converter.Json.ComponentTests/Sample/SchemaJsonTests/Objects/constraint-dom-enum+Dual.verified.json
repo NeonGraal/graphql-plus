@@ -18,7 +18,7 @@
                 "name": "EnumCnstDomEnumDual",
                 "typeKind": {
                   "$tag": "_SimpleKind",
-                  "value": "Enum"
+                  "$value": "Enum"
                 }
               }
             ]
@@ -38,7 +38,7 @@
                 "name": "EnumCnstDomEnumDual",
                 "typeKind": {
                   "$tag": "_SimpleKind",
-                  "value": "Enum"
+                  "$value": "Enum"
                 }
               }
             ]
@@ -48,7 +48,7 @@
       "name": "CnstDomEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "EnumCnstDomEnumDual": {
@@ -78,7 +78,7 @@
       "name": "EnumCnstDomEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "JustCnstDomEnumDual": {
@@ -94,14 +94,14 @@
             "name": "EnumCnstDomEnumDual",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Enum"
+        "$value": "Enum"
       },
       "items": [
         {
@@ -113,7 +113,7 @@
             "name": "EnumCnstDomEnumDual",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
@@ -121,7 +121,7 @@
       "name": "JustCnstDomEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "RefCnstDomEnumDual": {
@@ -150,7 +150,7 @@
       "name": "RefCnstDomEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       },
       "typeParams": [
         {
@@ -160,7 +160,7 @@
             "name": "JustCnstDomEnumDual",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Domain"
+              "$value": "Domain"
             }
           },
           "name": "type"

@@ -1,7 +1,7 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier Boolean: !_TypeEnum
-    aliases: [bool, ^]
+    aliases: [bool, '^']
     allItems:
     - !_EnumLabel
       enum: Boolean

@@ -41,7 +41,7 @@
       "name": "ObjAltEnumInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

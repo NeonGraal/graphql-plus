@@ -11,12 +11,12 @@
         "name": "Cat",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     },
     "ctgrDscrs": {
@@ -28,12 +28,12 @@
         "name": "CtgrDscrs",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     },
     "ctgrOutp": {
@@ -44,12 +44,12 @@
         "name": "CtgrOutp",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     },
     "ctgrOutpDescr": {
@@ -61,12 +61,12 @@
         "name": "CtgrOutpDescr",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     },
     "ctgrOutpDict": {
@@ -77,11 +77,11 @@
           "by": "*",
           "modifierKind": {
             "$tag": "_ModifierKind",
-            "value": "Dict"
+            "$value": "Dict"
           },
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Basic"
+            "$value": "Basic"
           }
         }
       ],
@@ -91,12 +91,12 @@
         "name": "CtgrOutpDict",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     },
     "ctgrOutpList": {
@@ -106,7 +106,7 @@
           "$tag": "_Modifier",
           "modifierKind": {
             "$tag": "_ModifierKind",
-            "value": "List"
+            "$value": "List"
           }
         }
       ],
@@ -116,12 +116,12 @@
         "name": "CtgrOutpList",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     },
     "ctgrOutpOptl": {
@@ -131,7 +131,7 @@
           "$tag": "_Modifier",
           "modifierKind": {
             "$tag": "_ModifierKind",
-            "value": "Opt"
+            "$value": "Opt"
           }
         }
       ],
@@ -141,12 +141,12 @@
         "name": "CtgrOutpOptl",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     },
     "descrBtwn": {
@@ -157,12 +157,12 @@
         "name": "DescrBtwn",
         "typeKind": {
           "$tag": "_TypeKind",
-          "value": "Output"
+          "$value": "Output"
         }
       },
       "resolution": {
         "$tag": "_Resolution",
-        "value": "Parallel"
+        "$value": "Parallel"
       }
     }
   },
@@ -218,11 +218,11 @@
               "by": "String",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Dict"
+                "$value": "Dict"
               },
               "typeKind": {
                 "$tag": "_SimpleKind",
-                "value": "Basic"
+                "$value": "Basic"
               }
             }
           ],
@@ -271,7 +271,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "$value": "List"
               }
             }
           ],
@@ -300,7 +300,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "$value": "Opt"
               }
             }
           ],
@@ -341,7 +341,7 @@
       "name": "Cat",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "CtgrDscrs": {
@@ -349,7 +349,7 @@
       "name": "CtgrDscrs",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "CtgrOutp": {
@@ -357,7 +357,7 @@
       "name": "CtgrOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "CtgrOutpDescr": {
@@ -365,7 +365,7 @@
       "name": "CtgrOutpDescr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "CtgrOutpDict": {
@@ -373,7 +373,7 @@
       "name": "CtgrOutpDict",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "CtgrOutpList": {
@@ -381,7 +381,7 @@
       "name": "CtgrOutpList",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "CtgrOutpOptl": {
@@ -389,7 +389,7 @@
       "name": "CtgrOutpOptl",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "Descr": {
@@ -398,7 +398,7 @@
       "name": "Descr",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "DescrBcks": {
@@ -407,7 +407,7 @@
       "name": "DescrBcks",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "DescrBtwn": {
@@ -416,7 +416,7 @@
       "name": "DescrBtwn",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "DescrCmpl": {
@@ -425,7 +425,7 @@
       "name": "DescrCmpl",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "DescrDbl": {
@@ -434,7 +434,7 @@
       "name": "DescrDbl",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "DescrSngl": {
@@ -443,7 +443,7 @@
       "name": "DescrSngl",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "Dscrs": {
@@ -452,7 +452,7 @@
       "name": "Dscrs",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "InDrctParamDict": {
@@ -460,7 +460,7 @@
       "name": "InDrctParamDict",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "InDrctParamIn": {
@@ -468,7 +468,7 @@
       "name": "InDrctParamIn",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "InDrctParamList": {
@@ -476,7 +476,7 @@
       "name": "InDrctParamList",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "InDrctParamOpt": {
@@ -484,7 +484,7 @@
       "name": "InDrctParamOpt",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

@@ -12,7 +12,7 @@ public class DomainRefEncoderTests
     // Arrange
     EncodeAndCheck(new DomainRefModel(name, domainKind, description), [
         "!_DomainRef",
-        "description: " + description.Quoted("'"),
+        "description: " + description.QuotedIdentifier(),
         $"domainKind: !_DomainKind {domainKind}",
         "name: "  + name,
         "typeKind: !_SimpleKind Domain"

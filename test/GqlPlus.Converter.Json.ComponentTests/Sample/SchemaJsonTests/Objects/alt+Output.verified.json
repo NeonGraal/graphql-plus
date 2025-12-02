@@ -47,7 +47,7 @@
       "name": "AltAltOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "AltOutp": {
@@ -74,7 +74,7 @@
       "name": "AltOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

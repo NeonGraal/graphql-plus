@@ -28,7 +28,7 @@
       "name": "AltDescrInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

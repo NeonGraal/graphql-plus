@@ -144,11 +144,11 @@ types: !_Map_Type
     name: DescrBtwn
     typeKind: !_TypeKind Output
   !_Identifier DescrCmpl: !_TypeOutput
-    description: 'A "more" \'Complicated\' \\ description'
+    description: "A \"more\" 'Complicated' \\ description"
     name: DescrCmpl
     typeKind: !_TypeKind Output
   !_Identifier DescrDbl: !_TypeOutput
-    description: 'A \'double-quoted\' description'
+    description: "A 'double-quoted' description"
     name: DescrDbl
     typeKind: !_TypeKind Output
   !_Identifier DescrSngl: !_TypeOutput

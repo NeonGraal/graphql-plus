@@ -73,7 +73,7 @@ public partial class DirectiveDeclAstTests
   private readonly DirectiveDeclAstChecks _checks = new();
 
   [CheckTests(Inherited = true)]
-  internal IAstAliasedChecks<string> AliasedChecks => _checks;
+  internal IAstDeclarationChecks AliasedChecks => _checks;
 
   [CheckTests]
   internal ICloneChecks<string> CloneChecks { get; }
@@ -86,7 +86,7 @@ public partial class DirectiveDeclAstTests
 }
 
 internal sealed class DirectiveDeclAstChecks()
-  : AstAliasedChecks<DirectiveDeclAst>(DirectiveDeclAstTests.CreateDirective)
+  : AstDeclarationChecks<DirectiveDeclAst>(DirectiveDeclAstTests.CreateDirective)
 {
   protected override string AliasesString(string input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} (Unique) None )";

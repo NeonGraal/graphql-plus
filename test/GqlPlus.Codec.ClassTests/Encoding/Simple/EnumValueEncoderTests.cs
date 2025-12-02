@@ -10,7 +10,7 @@ public class EnumValueEncoderTests
   public void Encode_WithValidModel_ReturnsStructured(EnumLabelInput input, string contents)
     => EncodeAndCheck(new(input.EnumType, input.Label, contents), [
       "!_EnumValue",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "label: " + input.Label,
       "name: " + input.EnumType,
       "typeKind: !_SimpleKind Enum"

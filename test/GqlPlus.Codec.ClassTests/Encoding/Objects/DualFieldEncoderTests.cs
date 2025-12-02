@@ -24,7 +24,7 @@ public class DualFieldEncoderTests
     // Act & Accept
     EncodeAndCheck(new(name, dualBase, contents), [
       "!_DualField",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "name: " + name,
       "type: " + dual
       ]);

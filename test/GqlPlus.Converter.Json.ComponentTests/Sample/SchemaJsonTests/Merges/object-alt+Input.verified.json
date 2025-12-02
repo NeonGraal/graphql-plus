@@ -26,7 +26,7 @@
       "name": "ObjAltInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ObjAltInpType": {
@@ -34,7 +34,7 @@
       "name": "ObjAltInpType",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

@@ -28,7 +28,7 @@ public class OutputFieldEncoderTests
     // Act & Accept
     EncodeAndCheck(new(name, outputBase, contents), [
       "!_OutputField",
-      "description: " + contents.Quoted("'"),
+      "description: " + contents.QuotedIdentifier(),
       "name: " + name,
       "type: " + output
       ]);

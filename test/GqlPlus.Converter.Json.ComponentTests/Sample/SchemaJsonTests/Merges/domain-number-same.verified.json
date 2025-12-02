@@ -15,7 +15,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Number"
+        "$value": "Number"
       },
       "items": [
         {
@@ -28,7 +28,7 @@
       "name": "DmnNmbrSame",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     }
   }

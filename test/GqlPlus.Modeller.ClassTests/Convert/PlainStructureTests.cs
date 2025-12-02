@@ -1,13 +1,8 @@
 ﻿namespace GqlPlus.Convert;
 
-public class PlainStructureTests
-  : PlainStructureBase
+public class PlainStructureTests()
+  : ConvertStructureTestsBase(PlainTestHelpers.Converters)
 {
-  protected override bool Flow => false;
-  protected override string ValueTag => "";
-  protected override string ListTag => "";
-  protected override string MapTag => "";
-
   protected override string[] Expected_List(string[] value)
   => value.BlockList("- ");
 

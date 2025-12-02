@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using GqlPlus.Token;
+using Shouldly;
 using Xunit;
 
 namespace GqlPlus;
@@ -109,5 +110,17 @@ public static class TestHelpers
     Assert.SkipWhen(array.Length < 2, arrayExpression + ".Length < 2");
 
     return check;
+  }
+
+  public static void ShouldBeOrdered<T>(this IEnumerable<T> actual, IEnumerable<T> expected)
+    where T : IComparable<T>
+  {
+    T[] actualArray = [.. actual];
+    T[] expectedArray = [.. expected];
+    actualArray.Length.ShouldBe(expectedArray.Length);
+
+    Array.Sort(actualArray);
+    Array.Sort(expectedArray);
+    actualArray.ShouldBe(expectedArray);
   }
 }

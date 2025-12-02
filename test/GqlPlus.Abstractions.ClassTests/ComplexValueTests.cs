@@ -35,12 +35,12 @@ public class ComplexValueTests
   }
 
   [Fact]
-  public void Equals_Empty_ShouldReturnFalse()
+  public void Equals_Empty_ShouldReturnTrue()
   {
     TestComplexValue testValue = new([]);
     TestComplexValue otherValue = new([]);
 
-    testValue.Equals(otherValue).ShouldBeFalse();
+    testValue.Equals(otherValue).ShouldBeTrue();
   }
 
   [Theory, RepeatData]

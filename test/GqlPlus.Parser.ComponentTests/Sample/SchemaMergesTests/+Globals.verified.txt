@@ -171,12 +171,12 @@ Success
   DescrBtwn
 }
 {
-  'A "more" \'Complicated\' \\ description'
+  "A \"more\" 'Complicated' \\ description"
   !Ou I@008/0002
   DescrCmpl
 }
 {
-  'A \'double-quoted\' description'
+  "A 'double-quoted' description"
   !Ou I@008/0002
   DescrDbl
 }

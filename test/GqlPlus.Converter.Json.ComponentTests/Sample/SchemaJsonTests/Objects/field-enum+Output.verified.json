@@ -20,7 +20,7 @@
       "name": "EnumFieldEnumOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "FieldEnumOutp": {
@@ -34,7 +34,7 @@
           "object": "FieldEnumOutp",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
@@ -46,14 +46,14 @@
           "name": "EnumFieldEnumOutp",
           "typeKind": {
             "$tag": "_SimpleKind",
-            "value": "Enum"
+            "$value": "Enum"
           }
         }
       ],
       "name": "FieldEnumOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

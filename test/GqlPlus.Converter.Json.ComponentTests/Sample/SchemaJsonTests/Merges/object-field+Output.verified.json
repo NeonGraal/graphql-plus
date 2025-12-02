@@ -7,7 +7,7 @@
       "name": "FldObjFieldOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     },
     "ObjFieldOutp": {
@@ -36,7 +36,7 @@
       "name": "ObjFieldOutp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

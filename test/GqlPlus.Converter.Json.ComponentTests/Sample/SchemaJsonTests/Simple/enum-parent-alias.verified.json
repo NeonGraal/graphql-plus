@@ -39,12 +39,12 @@
         "name": "PrntEnumPrntAlias",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Enum"
+          "$value": "Enum"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "PrntEnumPrntAlias": {
@@ -65,7 +65,7 @@
       "name": "PrntEnumPrntAlias",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

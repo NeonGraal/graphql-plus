@@ -15,7 +15,7 @@
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Number"
+        "$value": "Number"
       },
       "items": [
         {
@@ -28,7 +28,7 @@
       "name": "DomOutpParamModDmn",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     },
     "InOutpParamModDmn": {
@@ -76,7 +76,7 @@
       "name": "InOutpParamModDmn",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "OutpParamModDmn": {
@@ -95,11 +95,11 @@
                   "by": "DomOutpParamModDmn",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Dict"
+                    "$value": "Dict"
                   },
                   "typeKind": {
                     "$tag": "_SimpleKind",
-                    "value": "Domain"
+                    "$value": "Domain"
                   }
                 }
               ],
@@ -125,11 +125,11 @@
                   "by": "DomOutpParamModDmn",
                   "modifierKind": {
                     "$tag": "_ModifierKind",
-                    "value": "Dict"
+                    "$value": "Dict"
                   },
                   "typeKind": {
                     "$tag": "_SimpleKind",
-                    "value": "Domain"
+                    "$value": "Domain"
                   }
                 }
               ],
@@ -145,7 +145,7 @@
       "name": "OutpParamModDmn",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "$value": "Output"
       }
     }
   }

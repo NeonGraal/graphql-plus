@@ -43,12 +43,12 @@ public class ScalarValueTests
   }
 
   [Fact]
-  public void Equals_WithNull_ShouldReturnFalse()
+  public void Equals_WithNull_ShouldReturnTrue()
   {
     ScalarValue scalarValue = new((string?)null);
     ScalarValue otherValue = new((string?)null);
 
-    scalarValue.Equals(otherValue).ShouldBeFalse();
+    scalarValue.Equals(otherValue).ShouldBeTrue();
   }
 
   [Theory, RepeatData]

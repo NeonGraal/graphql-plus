@@ -18,7 +18,8 @@ internal sealed class IdentifierSpecimenBuilder : ISpecimenBuilder
 
   private static object ResolveType(Type type, string name, ISpecimenContext context)
     => type == typeof(string)
-      ? name == "contents"
+      ? name.StartsWith("contents", StringComparison.Ordinal)
+          || name.StartsWith("text", StringComparison.Ordinal)
         ? context.Resolve(new RegularExpressionRequest(".{9,999}"))
         : context.Resolve(new RegularExpressionRequest(IdentifierPattern))
       : new NoSpecimen();

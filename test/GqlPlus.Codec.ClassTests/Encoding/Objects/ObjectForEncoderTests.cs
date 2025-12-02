@@ -22,7 +22,7 @@ public class ObjectForEncoderTests
     EncodeAndCheck(new(new(input, "", default!), name),
       ["!_ObjectFor(_TypeParam)",
         "object: " + name,
-        $"value: !_TypeParam '{input}'"
+        $"value: !_TypeParam " + input.QuotedIdentifier()
         ]);
   }
 }

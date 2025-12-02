@@ -5,7 +5,7 @@
       "$tag": "_Error",
       "_kind": {
         "$tag": "_TokenKind",
-        "value": "End"
+        "$value": "End"
       },
       "_message": "In AltCnstAltDualInp can\u0027t get model for type \u0027PrntCnstAltDualInp\u0027"
     }
@@ -42,7 +42,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "CnstAltDualInp": {
@@ -81,7 +81,7 @@
       "name": "CnstAltDualInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "PrntCnstAltDualInp": {
@@ -108,7 +108,7 @@
       "name": "PrntCnstAltDualInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "RefCnstAltDualInp": {
@@ -135,7 +135,7 @@
       "name": "RefCnstAltDualInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       },
       "typeParams": [
         {
@@ -145,7 +145,7 @@
             "name": "PrntCnstAltDualInp",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Dual"
+              "$value": "Dual"
             }
           },
           "name": "ref"

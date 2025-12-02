@@ -27,7 +27,7 @@ public class DirectiveEncoderTests
       Repeatable = true,
     }, [
         "!_Directive",
-        $"description: " + contents.Quoted("'"),
+        $"description: " + contents.QuotedIdentifier(),
         "locations: !_Set(_Location){Operation:_}",
         "name: " + name,
         "parameters:",

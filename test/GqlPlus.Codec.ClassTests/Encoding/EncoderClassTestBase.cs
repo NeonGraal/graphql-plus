@@ -14,7 +14,7 @@ public abstract class EncoderClassTestBase<TModel>
   public void EncodeReturnsMap<T>([NotNull] IEncoder<T> encoder, string tag, object? value)
     where T : IModelBase
   {
-    Map<Structured> returns = new() { ["value"] = StructureValue.Str($"{value}", tag) };
+    Map<Structured> returns = new() { ["value"] = new($"{value}", tag) };
     encoder.Encode(default!).ReturnsForAnyArgs(returns.Encode());
   }
   public void EncodeReturns<T>([NotNull] IEncoder<T> encoder, T model, Structured returns)

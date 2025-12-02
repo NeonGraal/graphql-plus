@@ -42,7 +42,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "CnstAltDualDual": {
@@ -81,7 +81,7 @@
       "name": "CnstAltDualDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "PrntCnstAltDualDual": {
@@ -108,7 +108,7 @@
       "name": "PrntCnstAltDualDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "RefCnstAltDualDual": {
@@ -135,7 +135,7 @@
       "name": "RefCnstAltDualDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       },
       "typeParams": [
         {
@@ -145,7 +145,7 @@
             "name": "PrntCnstAltDualDual",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Dual"
+              "$value": "Dual"
             }
           },
           "name": "ref"

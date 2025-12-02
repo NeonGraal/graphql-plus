@@ -28,12 +28,12 @@
         "name": "ParentGnrcPrntEnumChildInp",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Enum"
+          "$value": "Enum"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "FieldGnrcPrntEnumChildInp": {
@@ -62,7 +62,7 @@
       "name": "FieldGnrcPrntEnumChildInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       },
       "typeParams": [
         {
@@ -72,7 +72,7 @@
             "name": "EnumGnrcPrntEnumChildInp",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           },
           "name": "ref"
@@ -105,7 +105,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     },
     "ParentGnrcPrntEnumChildInp": {
@@ -126,7 +126,7 @@
       "name": "ParentGnrcPrntEnumChildInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

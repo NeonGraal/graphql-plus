@@ -28,12 +28,12 @@
         "name": "PrntFieldEnumPrntDual",
         "typeKind": {
           "$tag": "_SimpleKind",
-          "value": "Enum"
+          "$value": "Enum"
         }
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "FieldEnumPrntDual": {
@@ -62,7 +62,7 @@
       "name": "FieldEnumPrntDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Dual"
+        "$value": "Dual"
       }
     },
     "PrntFieldEnumPrntDual": {
@@ -83,7 +83,7 @@
       "name": "PrntFieldEnumPrntDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     }
   }

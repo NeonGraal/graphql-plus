@@ -23,8 +23,8 @@ public class TypeParamEncoderTests
 
     EncodeAndCheck(new(input, contents, typeRef),
       ["!_TypeParam",
-        "constraint:", $"  value: !_TypeRef '{typeName}'",
-        "description: " + contents.Quoted("'"),
+        "constraint:", $"  value: !_TypeRef " + typeName.QuotedIdentifier(),
+        "description: " + contents.QuotedIdentifier(),
         "name: " + input
         ]);
   }

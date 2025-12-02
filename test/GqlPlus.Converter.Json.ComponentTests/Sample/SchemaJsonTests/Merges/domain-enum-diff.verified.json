@@ -15,7 +15,7 @@
             "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         },
@@ -29,14 +29,14 @@
             "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
       ],
       "domainKind": {
         "$tag": "_DomainKind",
-        "value": "Enum"
+        "$value": "Enum"
       },
       "items": [
         {
@@ -48,7 +48,7 @@
             "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         },
@@ -61,7 +61,7 @@
             "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
-              "value": "Enum"
+              "$value": "Enum"
             }
           }
         }
@@ -69,7 +69,7 @@
       "name": "DmnEnumDiff",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "$value": "Domain"
       }
     }
   }

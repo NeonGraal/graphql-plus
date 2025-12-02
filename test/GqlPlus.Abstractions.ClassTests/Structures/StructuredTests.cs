@@ -42,6 +42,30 @@ public class StructuredTests
     result.IsEmpty.ShouldBeTrue();
   }
 
+  [Fact]
+  public void Equals_Empty_IsTrue()
+  {
+    Structured result = new(null);
+
+    result.Equals(new(null)).ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Equals_SameTagEmpty_IsTrue(string tag)
+  {
+    Structured result = new(null) { Tag = tag };
+
+    result.Equals(new(null) { Tag = tag }).ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Equals_SameTagEmptyValue_IsTrue(string tag)
+  {
+    Structured result = new(new((string?)null, tag));
+
+    result.Equals(new(new((string?)null, tag))).ShouldBeTrue();
+  }
+
   [Theory, RepeatData]
   public void Equals_SameTagValue_IsTrue(string value, string tag)
   {
@@ -132,6 +156,18 @@ public class StructuredTests
     result.Equals(list2.Encode()).ShouldBeFalse();
   }
   [Theory, RepeatData]
+  public void Equals_ListDiffOrder_IsFalse(string value1, string value2)
+  {
+    this.SkipEqual(value1, value2);
+
+    string[] list1 = [value1, value2];
+    string[] list2 = [value2, value1];
+
+    Structured result = list1.Encode();
+
+    result.Equals(list2.Encode()).ShouldBeFalse();
+  }
+  [Theory, RepeatData]
   public void Equals_MapDiffKey_IsFalse(string key1, string value1, string key2)
   {
     this.SkipEqual(key1, key2);
@@ -167,12 +203,36 @@ public class StructuredTests
 
     result.Equals(map2.Encode()).ShouldBeFalse();
   }
+  [Theory, RepeatData]
+  public void Equals_MapSameValue_IsTrue(string key1, string value1, string key2)
+  {
+    this.SkipEqual(key1, key2);
+
+    Map<Structured> map1 = new() { [key1] = new(value1), [key2] = new(value1), };
+    Map<Structured> map2 = new() { [key2] = new(value1), [key1] = new(value1), };
+
+    Structured result = map1.Encode();
+
+    result.Equals(map2.Encode()).ShouldBeTrue();
+  }
+  [Theory, RepeatData]
+  public void Equals_MapSameBoth_IsTrue(string key1, string value1, string key2, string value2)
+  {
+    this.SkipEqual(key1, key2);
+
+    Map<Structured> map1 = new() { [key1] = new(value1), [key2] = new(value2), };
+    Map<Structured> map2 = new() { [key2] = new(value2), [key1] = new(value1), };
+
+    Structured result = map1.Encode();
+
+    result.Equals(map2.Encode()).ShouldBeTrue();
+  }
   [Fact]
-  public void Equals_New_IsFalse()
+  public void Equals_New_IsTrue()
   {
     Structured result = new((bool?)null);
 
-    result.Equals(new((bool?)null)).ShouldBeFalse();
+    result.Equals(new((bool?)null)).ShouldBeTrue();
   }
   [Theory, RepeatData]
   public void Equals_Tagged_IsFalse(string tag)

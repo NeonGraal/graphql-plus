@@ -30,7 +30,7 @@
       "name": "ObjFieldEnumAliasInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

@@ -20,7 +20,7 @@
       "name": "EnumInpFieldEnum",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Enum"
+        "$value": "Enum"
       }
     },
     "InpFieldEnum": {
@@ -51,7 +51,7 @@
       "name": "InpFieldEnum",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

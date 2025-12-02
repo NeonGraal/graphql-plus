@@ -28,7 +28,7 @@
       "name": "FieldSmplInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

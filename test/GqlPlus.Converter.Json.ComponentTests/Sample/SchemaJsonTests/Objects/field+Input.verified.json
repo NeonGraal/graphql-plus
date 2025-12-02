@@ -28,7 +28,7 @@
       "name": "FieldInp",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Input"
+        "$value": "Input"
       }
     }
   }

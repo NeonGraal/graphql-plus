@@ -90,9 +90,7 @@ internal abstract class AstNamedChecks<TInput, TNamed>(
     => $"( {DescriptionNameString(input, description)} )";
 
   protected string DescriptionNameString(TInput input, string description)
-    => string.IsNullOrWhiteSpace(description)
-      ? $"!{Abbr} {InputName(input)}"
-      : $"'{description}' !{Abbr} {InputName(input)}";
+    => description.QuotedIdentifier().Suffixed(" ") + $"!{Abbr} {InputName(input)}";
 
   protected abstract string InputName(TInput input);
 

@@ -2,7 +2,7 @@
 !Sc S@001/0001
 Success
 {
-  'A "more" \'Complicated\' \\ description'
+  "A \"more\" 'Complicated' \\ description"
   !Ou I@008/0002
   DescrCmpl
 }

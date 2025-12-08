@@ -21,7 +21,7 @@
   <!-- Test framework packages defined in test/Directory.Build.targets -->
   <ItemGroup>
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
-    <PackageVersion Include="xunit.v3" Version="3.2.0" />
+    <PackageVersion Include="xunit.v3" Version="3.2.1" />
     <PackageVersion Include="xunit.v3.assert" Version="3.2.1" />
     <PackageVersion Include="xunit.v3.common" Version="3.2.1" />
     <PackageVersion Include="xunit.v3.extensibility.core" Version="3.2.1" />

@@ -43,7 +43,7 @@ internal sealed record class InputParamAst(
     && EnumValue.NullEqual(other.EnumValue)
     && DefaultValue.NullEqual(other.DefaultValue);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Type, Modifiers.Length, EnumValue?.EnumLabel, DefaultValue);
+    => HashCode.Combine(base.GetHashCode(), Type.NullHashCode(), Modifiers.Length, EnumValue.NullHashCode(), DefaultValue.NullHashCode());
 
   internal override IEnumerable<string?> GetFields()
     => string.IsNullOrWhiteSpace(EnumValue?.EnumLabel)

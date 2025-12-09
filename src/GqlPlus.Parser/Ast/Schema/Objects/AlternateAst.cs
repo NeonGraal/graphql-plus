@@ -35,7 +35,7 @@ internal record class AlternateAst(
     && Modifiers.SequenceEqual(other.Modifiers)
     && EnumValue.NullEqual(other.EnumValue);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Modifiers.Length, EnumValue);
+    => HashCode.Combine(base.GetHashCode(), Modifiers.Length, EnumValue.NullHashCode());
 
   internal override IEnumerable<string?> GetFields()
     => EnumValue is null

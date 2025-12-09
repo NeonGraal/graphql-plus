@@ -74,8 +74,8 @@ public class SimpleModel
         || EnumValue is not null && EnumValue.Equals(other?.EnumValue));
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(),
-      TypeRef?.GetHashCode() ?? 0,
-      EnumValue?.GetHashCode() ?? 0);
+      TypeRef.NullHashCode(),
+      EnumValue.NullHashCode());
 }
 
 public record class CollectionModel(

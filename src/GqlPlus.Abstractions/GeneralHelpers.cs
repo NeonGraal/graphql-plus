@@ -33,6 +33,9 @@ public static class GeneralHelpers
     return [.. result];
   }
 
+  public static int NullHashCode<T>(this T? value)
+    => value?.GetHashCode() ?? 0;
+
   public static bool NullEqual(this decimal? left, decimal? right)
     => left is null && right is null
     || left is not null && left == right;

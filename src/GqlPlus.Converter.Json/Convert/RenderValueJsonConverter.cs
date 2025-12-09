@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Convert;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Convert;
 
 internal sealed class RenderValueJsonConverter
   : RenderJsonConverter<StructureValue>
@@ -23,6 +25,7 @@ internal sealed class RenderValueJsonConverter
     writer.WriteEndObject();
   }
 
+  [ExcludeFromCodeCoverage]
   private StructureValue? ReadTagged(ref Utf8JsonReader reader)
   {
     string tag = "";

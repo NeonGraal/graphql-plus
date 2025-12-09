@@ -72,19 +72,22 @@ public class ScalarValue
   public override bool Equals(object obj)
     => Equals(obj as ScalarValue);
   public bool Equals(ScalarValue? other)
+    => ScalarEquals(other, () => IsEmpty && other?.IsEmpty == true);
+  protected bool ScalarEquals(ScalarValue? other, Func<bool>? otherwise = null)
     => other is not null
-    && this switch {
-      { Boolean: not null } => other.Boolean == Boolean,
-      { Number: not null } => other.Number == Number,
-      { Text: not null } when !string.IsNullOrEmpty(Text)
-        => string.Equals(Text, other.Text, StringComparison.Ordinal),
-      _ => other.IsEmpty,
-    };
+      && string.Equals(Tag, other.Tag, StringComparison.Ordinal)
+      && this switch {
+        { Boolean: not null }
+          => other.Boolean == Boolean,
+        { Number: not null }
+          => other.Number == Number,
+        _ when !string.IsNullOrEmpty(Text)
+          => string.Equals(Text, other.Text, StringComparison.Ordinal),
+        _ => otherwise?.Invoke() ?? false,
+      };
+
   public override int GetHashCode()
-    => HashCode.Combine(Tag,
-      Boolean?.GetHashCode() ?? 0,
-      Number?.GetHashCode() ?? 0,
-      Text?.GetHashCode() ?? 0);
+    => HashCode.Combine(Tag, Boolean, Number, Text);
 }
 
 #pragma warning disable CA1034 // Nested types should not be visible
@@ -147,9 +150,9 @@ public class ComplexValue<TValue, TObject>
       };
   public override int GetHashCode()
     => HashCode.Combine(Tag,
-      Value?.GetHashCode() ?? 0,
-      List?.GetHashCode() ?? 0,
-      Map?.GetHashCode() ?? 0);
+      Value.NullHashCode(),
+      List.NullHashCode(),
+      Map.NullHashCode());
 
   public override string ToString()
     => this switch {

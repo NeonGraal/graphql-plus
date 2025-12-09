@@ -2,11 +2,16 @@
 
 namespace GqlPlus.Ast.Schema;
 
-public class SchemaAstTests
-  : AstAbbreviatedBaseTests
+public partial class SchemaAstTests
 {
-  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
+  [CheckTests(Inherited = true)]
+  internal IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
     = new SchemaAstChecks();
+
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; } = new CloneChecks<string, SchemaAst>(
+    SchemaAstChecks.CreateSchema,
+    (original, input) => original with { Declarations = [new OptionDeclAst(AstNulls.At, input)] });
 }
 
 internal sealed class SchemaAstChecks()
@@ -15,8 +20,6 @@ internal sealed class SchemaAstChecks()
   protected override string AbbreviatedString(string input)
     => $"( !Sc Failure {{ !Op {input} }} )";
 
-  private static SchemaAst CloneSchema(SchemaAst original, string input)
-    => original with { Declarations = [new OptionDeclAst(AstNulls.At, input)] };
-  private static SchemaAst CreateSchema(string input)
+  internal static SchemaAst CreateSchema(string input)
     => new(AstNulls.At) { Declarations = [new OptionDeclAst(AstNulls.At, input)] };
 }

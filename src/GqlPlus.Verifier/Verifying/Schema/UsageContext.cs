@@ -91,9 +91,6 @@ internal record struct SelfUsage<TAst>(string Head, TAst Usage, string Label)
 
   internal readonly SelfUsage<TAst> AddNext(string next)
     => new SelfUsage<TAst>(next, Usage, Label) with { _chain = [next, .. _chain] };
-
-  public override readonly string? ToString()
-    => $"{UsageLabel}: {UsageName} - [{_chain.Joined(" -> ")}] ({Label})";
 }
 
 internal static class UsageHelpers

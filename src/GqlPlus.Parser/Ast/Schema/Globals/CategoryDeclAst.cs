@@ -37,7 +37,7 @@ internal sealed record class CategoryDeclAst(
     && Output.Equals(other.Output)
     && Modifiers.SequenceEqual(other.Modifiers);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Option, Output, Modifiers.Length);
+    => HashCode.Combine(base.GetHashCode(), Option, Output.NullHashCode(), Modifiers.Length);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

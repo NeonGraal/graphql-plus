@@ -32,5 +32,5 @@ internal abstract record class AstType<TParent>(
     => base.Equals(other)
       && Parent.NullEqual(other.Parent);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Parent);
+    => HashCode.Combine(base.GetHashCode(), Parent.NullHashCode());
 }

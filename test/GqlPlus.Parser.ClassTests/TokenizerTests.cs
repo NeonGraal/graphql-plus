@@ -426,6 +426,65 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData]
+  public void Error_LabelAndExpected_ReturnsCorrect(string label, string expected)
+  {
+    Tokenizer tokens = new("");
+    string message = $"Invalid {label}. Expected {expected}.";
+
+    TokenMessage result = tokens.Error(label, expected);
+
+    CheckParseError(result, TokenKind.Start, "<END>", message, 0, 0);
+  }
+
+  [Theory, RepeatData]
+  public void Error_Result_ReturnsCorrect(string data, string label, string expected)
+  {
+    Tokenizer tokens = new("");
+    string message = $"Invalid {label}. Expected {expected}.";
+
+    IResult<string> result = tokens.Error(label, expected, data);
+
+    result.ShouldBeAssignableTo<IResultError<string>>()
+      .Message.Message.ShouldBe(message);
+  }
+
+  [Theory, RepeatData]
+  public void ErrorArray_Result_ReturnsCorrect(string data, string label, string expected)
+  {
+    Tokenizer tokens = new("");
+    string message = $"Invalid {label}. Expected {expected}.";
+
+    IResultArray<string> result = tokens.ErrorArray(label, expected, [data]);
+
+    result.ShouldBeAssignableTo<IResultArrayError<string>>()
+      .Message.Message.ShouldBe(message);
+  }
+
+  [Theory, RepeatData]
+  public void Partial_Result_ReturnsCorrect(string data, string label, string expected)
+  {
+    Tokenizer tokens = new("");
+    string message = $"Invalid {label}. Expected {expected}.";
+
+    IResult<string> result = tokens.Partial(label, expected, () => data);
+
+    result.ShouldBeAssignableTo<IResultPartial<string>>()
+      .Message.Message.ShouldBe(message);
+  }
+
+  [Theory, RepeatData]
+  public void PartialArray_Result_ReturnsCorrect(string data, string label, string expected)
+  {
+    Tokenizer tokens = new("");
+    string message = $"Invalid {label}. Expected {expected}.";
+
+    IResultArray<string> result = tokens.PartialArray<string>(label, expected, () => [data]);
+
+    result.ShouldBeAssignableTo<IResultArrayPartial<string>>()
+      .Message.Message.ShouldBe(message);
+  }
+
+  [Theory, RepeatData]
   public void Description_AfterRead_ReturnsDescription(string contents)
   {
     ITokenizer tokens = PrepareTokens(contents.Quote());
@@ -448,6 +507,21 @@ public class TokenizerTests
     ITokenizer tokens = PrepareTokens("'");
     string result = tokens.GetDescription();
     result.ShouldBeEmpty();
+  }
+
+  [Theory, RepeatData]
+  public void TokenMessage_CloneAndMessage_ReturnsCorrect(string first, string second)
+  {
+    TokenMessage original = new(TokenKind.Identifer, 1, 2, "", first);
+
+    TokenMessage clone = original with { Message = second };
+
+    clone.ShouldSatisfyAllConditions(
+      c => c.Kind.ShouldBe(original.Kind),
+      c => c.Line.ShouldBe(original.Line),
+      c => c.Column.ShouldBe(original.Column),
+      c => c.After.ShouldBe(original.After),
+      c => c.Message.ShouldBe(second));
   }
 
   private static void CheckParseError(TokenMessage result, TokenKind kind, string expected, string message, int line = 1, int col = 1)

@@ -22,7 +22,7 @@ internal sealed record class OptionSettingAst(
     => base.Equals(other as IGqlpAliased)
     && Value.Equals(other.Value);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Value);
+    => HashCode.Combine(base.GetHashCode(), Value.NullHashCode());
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

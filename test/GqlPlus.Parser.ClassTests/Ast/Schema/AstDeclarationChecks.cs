@@ -11,7 +11,10 @@ internal class AstDeclarationChecks<TDeclaration>(
   {
     TDeclaration instance = CreateInput(input);
 
-    string expectedLabel = typeof(TDeclaration).Name.Replace("DeclAst", "", StringComparison.Ordinal);
+    string expectedLabel = typeof(TDeclaration).Name
+      .Replace("Decl", "", StringComparison.Ordinal)
+      .Replace("Ast", "", StringComparison.Ordinal)
+      .Split('`', 2)[0];
 
     Assert.Equal(expectedLabel, instance.Label);
   }

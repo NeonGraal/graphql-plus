@@ -27,7 +27,7 @@ internal sealed record class OutputFieldAst(
     && Params.SequenceEqual(other!.Params)
     && EnumValue.NullEqual(other.EnumValue);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Params.Length, EnumValue?.EnumLabel);
+    => HashCode.Combine(base.GetHashCode(), Params.Length, EnumValue.NullHashCode());
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

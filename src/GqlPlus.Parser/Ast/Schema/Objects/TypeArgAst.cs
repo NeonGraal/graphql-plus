@@ -36,5 +36,5 @@ public sealed record class TypeArgAst(
     => base.Equals(other)
     && EnumValue.NullEqual(other.EnumValue);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), EnumValue?.GetHashCode() ?? 0);
+    => HashCode.Combine(base.GetHashCode(), EnumValue.NullHashCode());
 }

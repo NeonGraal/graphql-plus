@@ -8,6 +8,11 @@ public class MergeInputParamsTests
   : TestDescriptionsMerger<IGqlpInputParam>
 {
   [Theory, RepeatData]
+  public void CanMerge_TwoAstsSameNameDifferentModifiers_ReturnsErrors(string input)
+    => CanMerge_Errors([MakeAst(input),
+      new InputParamAst(AstNulls.At, new ObjBaseAst(AstNulls.At, input, "")) { Modifiers = TestMods()}]);
+
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string input, string value)
     => CanMerge_Good([MakeDescribed(input), MakeDefault(input, value)]);
 

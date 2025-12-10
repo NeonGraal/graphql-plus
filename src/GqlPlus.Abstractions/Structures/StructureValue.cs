@@ -30,18 +30,11 @@ public sealed class StructureValue
 
   public override bool Equals(object obj) => Equals(obj as StructureValue);
   public bool Equals(StructureValue? other)
-    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
-      && (Boolean.BothValued(other?.Boolean) ? Boolean.Value == other.Boolean
-      : Identifier.BothValued(other?.Identifier) ? string.Equals(Identifier, other.Identifier, StringComparison.Ordinal)
-      : Number.BothValued(other?.Number) ? Number.Value == other.Number
-      : Text.BothValued(other?.Text) ? string.Equals(Text, other.Text, StringComparison.Ordinal)
+    => ScalarEquals(other, () => Identifier.BothValued(other?.Identifier)
+      ? string.Equals(Identifier, other.Identifier, StringComparison.Ordinal)
       : IsEmpty && other?.IsEmpty == true);
   public override int GetHashCode()
-    => HashCode.Combine(Tag,
-      Boolean?.GetHashCode() ?? 0,
-      Identifier?.GetHashCode() ?? 0,
-      Number?.GetHashCode() ?? 0,
-      Text?.GetHashCode() ?? 0);
+    => HashCode.Combine(base.GetHashCode(), Identifier);
 
   public string AsString => this switch {
     { Boolean: not null } => Boolean.Value.TrueFalse(),

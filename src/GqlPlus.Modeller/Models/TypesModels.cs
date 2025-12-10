@@ -76,12 +76,12 @@ public record class SpecialTypeModel(
 internal static class ModelHelper
 {
   [return: NotNullIfNotNull(nameof(input))]
-  internal static TypeRefModel<TKind>? TypeRef<TKind>(this string? input, TKind kind)
+  internal static TypeRefModel<TKind>? TypeRef<TKind>(this string? input, TKind kind, string? description = null)
     where TKind : Enum
-    => input is null ? null : new(kind, input, "");
+    => string.IsNullOrWhiteSpace(input) ? null : new(kind, input!, description.IfWhiteSpace());
 
   [return: NotNullIfNotNull(nameof(input))]
   internal static TypeRefModel<TKind>? TypeRef<TKind>(this IGqlpTypeRef? input, TKind kind)
     where TKind : Enum
-    => input is null ? null : new(kind, input.Name, input.Description);
+    => input?.Name.TypeRef(kind, input.Description);
 }

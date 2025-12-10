@@ -29,7 +29,7 @@ internal sealed record class ConstantAst(
     => base.Equals(other)
     && Value.NullEqual(other.Value);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Value);
+    => HashCode.Combine(base.GetHashCode(), Value.NullHashCode());
 
   internal override IEnumerable<string?> GetFields()
     => Value?.GetFields() ?? base.GetFields();

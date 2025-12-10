@@ -9,6 +9,9 @@ public static class SchemaObjectBuilderHelpers
     where TField : class, IGqlpObjField
     => builder.Obj<TField>(kind, typeName).WithParent(parent, t => t.IsTypeParam(isTypeParam)).AsObject;
 
+  public static ObjBaseBuilder ObjBase(this IMockBuilder _, string name)
+    => new(name);
+
   public static AlternateBuilder Alternate(this IMockBuilder _, string name)
     => new(name);
 

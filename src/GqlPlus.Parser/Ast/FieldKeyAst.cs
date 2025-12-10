@@ -30,7 +30,7 @@ internal sealed record class FieldKeyAst(
   public bool Equals(FieldKeyAst? other)
     => other is IGqlpFieldKey fieldKey && Equals(fieldKey);
   public override int GetHashCode()
-  => HashCode.Combine(base.GetHashCode(), EnumValue, Number, Text);
+  => HashCode.Combine(base.GetHashCode(), EnumValue.NullHashCode(), Number, Text);
 
   public bool Equals(IGqlpFieldKey? other)
     => CompareTo(other) == 0;

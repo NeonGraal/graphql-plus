@@ -99,7 +99,7 @@ internal class AstDirectivesChecks<TInput, TAst>(
     => " " + directives.Joined(d => $"( !d {d} )");
 
   private sealed record class TestDirectives
-    : AstBase
+    : AstAbbreviated
     , IGqlpDirectives
   {
     public TestDirectives(string[] directives)
@@ -107,6 +107,7 @@ internal class AstDirectivesChecks<TInput, TAst>(
       => Directives = directives.Directives();
 
     public IEnumerable<IGqlpDirective> Directives { get; }
+    internal override string Abbr => "Te";
   }
 }
 

@@ -41,7 +41,7 @@ public interface IGqlpVariable
 }
 
 public interface IGqlpDirectives
-  : IGqlpError
+  : IGqlpAbbreviated
 {
   IEnumerable<IGqlpDirective> Directives { get; }
 }

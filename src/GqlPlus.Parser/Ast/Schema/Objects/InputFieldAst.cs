@@ -25,7 +25,7 @@ internal sealed record class InputFieldAst(
     => base.Equals(other)
     && DefaultValue.NullEqual(other!.DefaultValue);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), DefaultValue);
+    => HashCode.Combine(base.GetHashCode(), DefaultValue.NullHashCode());
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

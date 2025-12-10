@@ -33,7 +33,7 @@ public interface IGqlpObjType
 }
 
 public interface IGqlpObjEnum
-  : IGqlpError
+  : IGqlpAbbreviated
 {
   string EnumTypeName { get; }
   IGqlpEnumValue? EnumValue { get; }

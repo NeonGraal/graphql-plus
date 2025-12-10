@@ -56,7 +56,7 @@ public enum ModifierKind
 }
 
 public interface IGqlpModifiers
-  : IGqlpError
+  : IGqlpAbbreviated
 {
   IEnumerable<IGqlpModifier> Modifiers { get; }
 }

@@ -29,7 +29,7 @@ internal sealed record class FieldAst(
     && Modifiers.SequenceEqual(other.Modifiers)
     && Selections.SequenceEqual(other.Selections);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), FieldAlias, Arg, Modifiers.Length, Selections.Length);
+    => HashCode.Combine(base.GetHashCode(), FieldAlias, Arg.NullHashCode(), Modifiers.Length, Selections.Length);
 
   internal override IEnumerable<string?> GetFields()
     => //base.GetFields()

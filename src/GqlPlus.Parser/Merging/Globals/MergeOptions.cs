@@ -8,7 +8,6 @@ internal class MergeOptions(
   IMerge<IGqlpSchemaSetting> settings
 ) : AstAliasedMerger<IGqlpSchemaOption>(logger)
 {
-
   protected override string ItemGroupKey(IGqlpSchemaOption item) => "Option";
 
   protected override string ItemMatchName => "Name";

@@ -18,6 +18,14 @@ public class MergeOptionsTests
         new OptionDeclAst(AstNulls.At, name));
 
   [Theory, RepeatData]
+  public void CanMerge_TwoAstsDifferentNames_ReturnsErrors(string input1, string input2)
+  {
+    Assert.SkipWhen(input1 is null || input1 == input2, "same input");
+
+    CanMerge_Errors([MakeAst(input1), MakeAst(input2)]);
+  }
+
+  [Theory, RepeatData]
   public void Merge_TwoAstsWithSettings_CallsSettingsMerge(string name, string[] settings1, string[] settings2)
     => this
     .SkipNull(settings1)

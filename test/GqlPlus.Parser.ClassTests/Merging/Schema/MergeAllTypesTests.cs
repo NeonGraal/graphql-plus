@@ -8,6 +8,11 @@ public class MergeAllTypesTests
   : TestAbbreviatedMerger<IGqlpType>
 {
   [Theory, RepeatData]
+  public void CanMerge_TwoAstsSameNameDifferentTypes_ReturnsErrors(string input)
+    => CanMerge_Errors([MakeAst(input),
+      new AstObject<IGqlpDualField>(TypeKind.Dual, AstNulls.At, input, "")]);
+
+  [Theory, RepeatData]
   public void FixupType_WithDomainLabel_FixesType(string enumType, string enumLabel, string domainType)
   {
     this.SkipEqual(enumType, domainType);

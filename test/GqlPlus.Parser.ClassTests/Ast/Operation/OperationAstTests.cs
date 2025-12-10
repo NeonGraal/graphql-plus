@@ -1,7 +1,22 @@
-﻿namespace GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+
+namespace GqlPlus.Ast.Operation;
 
 public partial class OperationAstTests
 {
+  [Theory, RepeatData]
+  public void Initial_Lists_Empty(string input)
+  {
+    IGqlpOperation ast = CreateOperation(input);
+
+    ast.ShouldSatisfyAllConditions(
+      a => a.Fragments.ShouldBeEmpty(),
+      a => a.Errors.ShouldBeEmpty(),
+      a => a.Usages.ShouldBeEmpty(),
+      a => a.Spreads.ShouldBeEmpty()
+      );
+  }
+
   [CheckTests(Inherited = true)]
   internal IAstDirectivesChecks DirectivesChecks { get; } = new OperationAstChecks();
 

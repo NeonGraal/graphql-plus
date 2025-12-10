@@ -32,7 +32,7 @@ internal sealed record class ArgAst
     && Variable.NullEqual(other.Variable)
     && Constant.NullEqual(other.Constant);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Variable, Constant);
+    => HashCode.Combine(base.GetHashCode(), Variable, Constant.NullHashCode());
   internal override IEnumerable<string?> GetFields()
     => Constant?.GetFields() ?? base.GetFields().Append(Variable.Prefixed("$"));
 }

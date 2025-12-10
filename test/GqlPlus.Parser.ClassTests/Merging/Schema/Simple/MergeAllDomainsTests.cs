@@ -7,6 +7,11 @@ namespace GqlPlus.Merging.Schema.Simple;
 public class MergeAllDomainsTests
   : TestDescriptionsMerger<IGqlpDomain>
 {
+  [Theory, RepeatData]
+  public void CanMerge_TwoAstsSameNameDifferentTypes_ReturnsErrors(string input)
+    => CanMerge_Errors([MakeAst(input),
+      new AstDomain<DomainRegexAst, IGqlpDomainRegex>(AstNulls.At, input, DomainKind.String, [])]);
+
   private readonly MergeAllDomains _merger;
 
   public MergeAllDomainsTests(ITestOutputHelper outputHelper)

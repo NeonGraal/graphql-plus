@@ -1,11 +1,13 @@
 ﻿namespace GqlPlus.Merging;
 
-internal abstract class DistinctMerger<TItem>(
-  ILoggerFactory logger
-) : GroupsMerger<TItem>
+internal abstract class DistinctMerger<TItem>
+  : GroupsMerger<TItem>
   where TItem : IGqlpError
 {
-  private readonly ILogger _logger = logger.CreateTypedLogger<DistinctMerger<TItem>>();
+  private readonly ILogger _logger;
+
+  public DistinctMerger(ILoggerFactory logger)
+    => _logger = logger.CreateTypedLogger(this);
 
   protected override IMessages CanMergeGroup(IGrouping<string, TItem> group)
   {

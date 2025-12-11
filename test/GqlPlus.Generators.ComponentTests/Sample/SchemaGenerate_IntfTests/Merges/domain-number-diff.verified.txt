@@ -4,9 +4,9 @@ domain DmnNmbrDiff { number }
 */
 
 // Generated from Schema domain-number-diff for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_number_diff;
 
 public interface ICmptDmnNmbrDiff

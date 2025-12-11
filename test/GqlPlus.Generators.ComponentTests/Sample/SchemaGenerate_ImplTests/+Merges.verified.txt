@@ -1,7 +1,7 @@
 ﻿// Generated from Schema +Merges for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_Merges;
 
 public class CmptCtgr

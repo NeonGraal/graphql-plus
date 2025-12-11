@@ -5,9 +5,9 @@ enum EnumCnstEnumDual { cnstEnumDual }
 */
 
 // Generated from Schema constraint-enum+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_enum_Dual;
 
 public class CmptCnstEnumDual

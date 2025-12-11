@@ -4,9 +4,9 @@ dual ObjDualAltDualDual { alt: Number | String }
 */
 
 // Generated from Schema alt-dual+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_dual_Dual;
 
 public interface ICmptAltDualDual

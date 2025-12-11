@@ -6,9 +6,9 @@ domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
 */
 
 // Generated from Schema constraint-dom-enum+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
 
 public interface ICmptCnstDomEnumOutp

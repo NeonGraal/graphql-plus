@@ -14,9 +14,9 @@ output _InputParam {
 */
 
 // Generated from Spec Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Input;
 
 public interface ICmpt_InputField

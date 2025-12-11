@@ -4,9 +4,9 @@ enum EnumFieldModEnumOutp { value }
 */
 
 // Generated from Schema field-mod-Enum+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_mod_Enum_Output;
 
 public class CmptFieldModEnumOutp

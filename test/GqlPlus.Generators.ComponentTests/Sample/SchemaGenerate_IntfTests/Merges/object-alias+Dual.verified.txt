@@ -4,9 +4,9 @@ dual ObjAliasDual [Dual2] { }
 */
 
 // Generated from Schema object-alias+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_alias_Dual;
 
 public interface ICmptObjAliasDual

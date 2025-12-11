@@ -6,9 +6,9 @@ domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
 */
 
 // Generated from Schema constraint-dom-enum+Dual for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 
 public enum CmptEnumCnstDomEnumDual

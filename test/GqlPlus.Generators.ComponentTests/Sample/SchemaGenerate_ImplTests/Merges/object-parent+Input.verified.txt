@@ -5,9 +5,9 @@ input RefObjPrntInp { }
 */
 
 // Generated from Schema object-parent+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_parent_Input;
 
 public class CmptObjPrntInp

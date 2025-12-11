@@ -7,9 +7,9 @@ dual AltCnstPrntDualGrndDual { :PrntCnstPrntDualGrndDual alt: Number }
 */
 
 // Generated from Schema constraint-parent-dual-grandparent+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Dual;
 
 public class CmptCnstPrntDualGrndDual

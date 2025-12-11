@@ -4,9 +4,9 @@ enum EnumFieldEnumOutp { fieldEnumOutp }
 */
 
 // Generated from Schema field-enum+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_enum_Output;
 
 public interface ICmptFieldEnumOutp

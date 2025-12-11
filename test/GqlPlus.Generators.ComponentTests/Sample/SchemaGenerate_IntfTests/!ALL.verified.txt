@@ -1,7 +1,7 @@
 ﻿// Generated from Schema !ALL for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_ALL;
 
 public interface ICmptCtgrDscrs

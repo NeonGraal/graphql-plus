@@ -1,5 +1,4 @@
 ﻿// Generated from Schema +Globals for Stat
-
 /*
 
 Category ctgrDscrs
@@ -17,4 +16,5 @@ Directive DrctParamList
 Directive DrctParamOpt
 Option Schema
 */
+
 namespace Components.Gqlp_Schema_Globals;

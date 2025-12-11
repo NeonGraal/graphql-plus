@@ -1,8 +1,8 @@
 ﻿//HintName: test_Input_Intf.gen.cs
 // Generated from Input.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Input;
 
 public interface Itest_InputField

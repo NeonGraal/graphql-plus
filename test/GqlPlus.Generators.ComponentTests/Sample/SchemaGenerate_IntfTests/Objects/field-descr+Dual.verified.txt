@@ -3,9 +3,9 @@ dual FieldDescrDual { "Test" "Descr" field: String }
 */
 
 // Generated from Schema field-descr+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_descr_Dual;
 
 public interface ICmptFieldDescrDual

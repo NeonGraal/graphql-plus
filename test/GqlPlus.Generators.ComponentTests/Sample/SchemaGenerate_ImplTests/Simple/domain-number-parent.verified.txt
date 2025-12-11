@@ -4,9 +4,9 @@ domain PrntDmnNmbrPrnt { Number <2 }
 */
 
 // Generated from Schema domain-number-parent for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_number_parent;
 
 public class CmptDmnNmbrPrnt

@@ -6,9 +6,9 @@ dual AltCnstAltDualDual { :PrntCnstAltDualDual alt: Number }
 */
 
 // Generated from Schema constraint-alt-dual+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_alt_dual_Dual;
 
 public class CmptCnstAltDualDual

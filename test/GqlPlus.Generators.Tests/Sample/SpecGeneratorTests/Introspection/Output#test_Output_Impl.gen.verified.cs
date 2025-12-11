@@ -1,8 +1,8 @@
 ﻿//HintName: test_Output_Impl.gen.cs
 // Generated from Output.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Output;
 
 public class test_OutputField

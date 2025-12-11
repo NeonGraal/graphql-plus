@@ -27,11 +27,11 @@ output All {
 */
 
 // Generated from Schema all for Stat
-
 /*
 
 Category all
 Directive all
 Option Schema
 */
+
 namespace Components.Gqlp_Schema_all;

@@ -5,9 +5,9 @@ dual ObjAltDualType { }
 */
 
 // Generated from Schema object-alt+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_alt_Dual;
 
 public class CmptObjAltDual

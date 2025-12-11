@@ -4,9 +4,9 @@ domain DmnStr { string }
 */
 
 // Generated from Schema domain-string for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_string;
 
 public class CmptDmnStr

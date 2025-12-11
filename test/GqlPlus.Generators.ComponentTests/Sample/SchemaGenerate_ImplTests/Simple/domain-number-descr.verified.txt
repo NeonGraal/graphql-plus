@@ -3,9 +3,9 @@ domain DmnNmbrDescr { Number "DomNumber" "Descr" <2 }
 */
 
 // Generated from Schema domain-number-descr for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_number_descr;
 
 public class CmptDmnNmbrDescr

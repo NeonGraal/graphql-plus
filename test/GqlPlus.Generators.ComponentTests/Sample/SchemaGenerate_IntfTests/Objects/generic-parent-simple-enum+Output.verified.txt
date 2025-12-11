@@ -5,9 +5,9 @@ enum EnumGnrcPrntSmplEnumOutp { gnrcPrntSmplEnumOutp }
 */
 
 // Generated from Schema generic-parent-simple-enum+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_simple_enum_Output;
 
 public interface ICmptGnrcPrntSmplEnumOutp

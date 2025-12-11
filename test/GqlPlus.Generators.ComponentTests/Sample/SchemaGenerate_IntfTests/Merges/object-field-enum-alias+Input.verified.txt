@@ -4,9 +4,9 @@ input ObjFieldEnumAliasInp { field [field2] = true }
 */
 
 // Generated from Schema object-field-enum-alias+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_field_enum_alias_Input;
 
 public interface ICmptObjFieldEnumAliasInp

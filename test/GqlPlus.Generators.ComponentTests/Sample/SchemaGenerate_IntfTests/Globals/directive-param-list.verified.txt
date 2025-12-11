@@ -4,9 +4,9 @@ input InDrctParamList { }
 */
 
 // Generated from Schema directive-param-list for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_directive_param_list;
 
 public interface ICmptInDrctParamList

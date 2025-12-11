@@ -1,8 +1,8 @@
 ﻿//HintName: test_output-parent-param_Intf.gen.cs
 // Generated from output-parent-param.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_output_parent_param;
 
 public interface ItestOutpPrntParam

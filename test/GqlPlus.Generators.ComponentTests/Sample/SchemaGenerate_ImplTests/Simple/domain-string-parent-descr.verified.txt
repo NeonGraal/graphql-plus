@@ -4,9 +4,9 @@ domain PrntDmnStrPrntDescr { String /b+/ }
 */
 
 // Generated from Schema domain-string-parent-descr for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_string_parent_descr;
 
 public class CmptDmnStrPrntDescr

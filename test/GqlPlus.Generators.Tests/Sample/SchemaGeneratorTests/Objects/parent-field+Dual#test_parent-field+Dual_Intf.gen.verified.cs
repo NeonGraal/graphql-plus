@@ -1,8 +1,8 @@
 ﻿//HintName: test_parent-field+Dual_Intf.gen.cs
 // Generated from parent-field+Dual.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_parent_field_Dual;
 
 public interface ItestPrntFieldDual

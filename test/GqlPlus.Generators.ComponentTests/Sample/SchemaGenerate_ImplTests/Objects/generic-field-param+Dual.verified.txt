@@ -5,9 +5,9 @@ dual AltGnrcFieldParamDual { alt: Number | String }
 */
 
 // Generated from Schema generic-field-param+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_field_param_Dual;
 
 public class CmptGnrcFieldParamDual

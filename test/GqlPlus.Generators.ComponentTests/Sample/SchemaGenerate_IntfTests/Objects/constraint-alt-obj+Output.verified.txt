@@ -6,9 +6,9 @@ output AltCnstAltObjOutp { :PrntCnstAltObjOutp alt: Number }
 */
 
 // Generated from Schema constraint-alt-obj+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_alt_obj_Output;
 
 public interface ICmptCnstAltObjOutp

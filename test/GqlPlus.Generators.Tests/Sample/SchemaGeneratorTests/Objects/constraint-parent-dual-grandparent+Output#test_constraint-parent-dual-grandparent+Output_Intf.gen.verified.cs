@@ -1,8 +1,8 @@
 ﻿//HintName: test_constraint-parent-dual-grandparent+Output_Intf.gen.cs
 // Generated from constraint-parent-dual-grandparent+Output.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_grandparent_Output;
 
 public interface ItestCnstPrntDualGrndOutp

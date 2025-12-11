@@ -4,9 +4,9 @@ output RefPrntAltOutp {  parent: Number | String }
 */
 
 // Generated from Schema parent-alt+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_alt_Output;
 
 public class CmptPrntAltOutp

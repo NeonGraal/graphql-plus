@@ -4,9 +4,9 @@ enum EnumAltEnumDual { altEnumDual }
 */
 
 // Generated from Schema alt-enum+Dual for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_enum_Dual;
 
 public enum CmptEnumAltEnumDual

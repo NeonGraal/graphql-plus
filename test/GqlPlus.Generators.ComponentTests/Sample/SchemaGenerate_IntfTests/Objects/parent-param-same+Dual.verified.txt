@@ -4,9 +4,9 @@ dual RefPrntParamSameDual<$a:String> { | $a }
 */
 
 // Generated from Schema parent-param-same+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_param_same_Dual;
 
 public interface ICmptPrntParamSameDual<Ta>

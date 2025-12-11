@@ -1,7 +1,7 @@
 ﻿// Generated from Schema +Globals for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_Globals;
 
 public class CmptCtgrDscrs

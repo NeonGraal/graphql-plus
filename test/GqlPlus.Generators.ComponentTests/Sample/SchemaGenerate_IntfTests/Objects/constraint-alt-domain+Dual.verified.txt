@@ -5,9 +5,9 @@ domain DomCnstAltDmnDual { String /\w+/ }
 */
 
 // Generated from Schema constraint-alt-domain+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
 
 public interface ICmptCnstAltDmnDual

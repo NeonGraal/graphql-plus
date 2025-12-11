@@ -5,9 +5,9 @@ input AltGnrcFieldParamInp { alt: Number | String }
 */
 
 // Generated from Schema generic-field-param+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_field_param_Input;
 
 public class CmptGnrcFieldParamInp

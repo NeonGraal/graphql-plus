@@ -1,8 +1,8 @@
 ﻿//HintName: test_Category_Impl.gen.cs
 // Generated from Category.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Category;
 
 public class test_Categories

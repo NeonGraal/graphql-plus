@@ -4,9 +4,9 @@ output RefGnrcAltSmplOutp<$ref:String> { | $ref }
 */
 
 // Generated from Schema generic-alt-simple+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_alt_simple_Output;
 
 public interface ICmptGnrcAltSmplOutp

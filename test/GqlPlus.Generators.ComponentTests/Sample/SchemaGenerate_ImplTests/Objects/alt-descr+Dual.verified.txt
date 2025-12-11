@@ -3,9 +3,9 @@ dual AltDescrDual { | "Test" "Descr" String }
 */
 
 // Generated from Schema alt-descr+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_descr_Dual;
 
 public class CmptAltDescrDual

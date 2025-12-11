@@ -1,8 +1,8 @@
 ﻿//HintName: test_-Schema_Intf.gen.cs
 // Generated from -Schema.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Schema;
 
 public interface Itest_Schema

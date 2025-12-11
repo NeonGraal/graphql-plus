@@ -1,8 +1,8 @@
 ﻿//HintName: test_all_Impl.gen.cs
 // Generated from all.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_all;
 
 public class testGuid

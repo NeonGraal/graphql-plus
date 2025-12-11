@@ -1,7 +1,7 @@
 ﻿// Generated from Schema +Simple for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_Simple;
 
 public enum CmptEnumDmnEnumAll

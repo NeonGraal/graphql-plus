@@ -3,9 +3,9 @@ output GnrcAltOutp<$type:String> { | $type }
 */
 
 // Generated from Schema generic-alt+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_alt_Output;
 
 public interface ICmptGnrcAltOutp<Ttype>

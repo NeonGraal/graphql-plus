@@ -5,9 +5,9 @@ input InOutpParamDescr { param: Number | String }
 */
 
 // Generated from Schema output-param-descr for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_output_param_descr;
 
 public interface ICmptOutpParamDescr

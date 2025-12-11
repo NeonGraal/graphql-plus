@@ -5,9 +5,9 @@ input FldObjFieldAliasInp { }
 */
 
 // Generated from Schema object-field-alias+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_field_alias_Input;
 
 public class CmptObjFieldAliasInp

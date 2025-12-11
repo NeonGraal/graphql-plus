@@ -7,9 +7,9 @@ output CtgrDescr { }
 */
 
 // Generated from Schema category-descr for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_category_descr;
 
 public class CmptCtgrDescr

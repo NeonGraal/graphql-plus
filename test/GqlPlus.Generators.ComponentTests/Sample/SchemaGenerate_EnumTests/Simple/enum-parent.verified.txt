@@ -4,9 +4,9 @@ enum PrntEnumPrnt { prnt_enumPrnt }
 */
 
 // Generated from Schema enum-parent for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_enum_parent;
 
 public enum CmptEnumPrnt

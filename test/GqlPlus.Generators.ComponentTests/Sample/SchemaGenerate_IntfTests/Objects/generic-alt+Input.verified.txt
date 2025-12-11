@@ -3,9 +3,9 @@ input GnrcAltInp<$type:String> { | $type }
 */
 
 // Generated from Schema generic-alt+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_alt_Input;
 
 public interface ICmptGnrcAltInp<Ttype>

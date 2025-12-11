@@ -4,9 +4,9 @@ domain DmnEnumDiff { enum false }
 */
 
 // Generated from Schema domain-enum-diff for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_enum_diff;
 
 public interface ICmptDmnEnumDiff

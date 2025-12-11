@@ -4,9 +4,9 @@ dual ObjAltEnumDual { ! false }
 */
 
 // Generated from Schema object-alt-enum+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_alt_enum_Dual;
 
 public interface ICmptObjAltEnumDual

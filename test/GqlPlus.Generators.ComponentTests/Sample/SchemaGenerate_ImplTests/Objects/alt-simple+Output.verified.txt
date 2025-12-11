@@ -3,9 +3,9 @@ output AltSmplOutp { | String }
 */
 
 // Generated from Schema alt-simple+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_simple_Output;
 
 public class CmptAltSmplOutp

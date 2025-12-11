@@ -1,7 +1,7 @@
 ﻿// Generated from Schema +Objects for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_Objects;
 
 public enum CmptEnumAltEnumDual

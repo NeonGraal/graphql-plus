@@ -4,9 +4,9 @@ input ObjInp { }
 */
 
 // Generated from Schema object+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_Input;
 
 public interface ICmptObjInp

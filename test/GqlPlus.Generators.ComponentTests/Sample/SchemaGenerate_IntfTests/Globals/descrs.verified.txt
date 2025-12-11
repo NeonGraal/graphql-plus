@@ -5,9 +5,9 @@ output Dscrs { }
 */
 
 // Generated from Schema descrs for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_descrs;
 
 public interface ICmptDscrs

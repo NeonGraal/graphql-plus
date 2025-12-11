@@ -4,9 +4,9 @@ output ObjParamDupOutp<$test:String> { type: $test }
 */
 
 // Generated from Schema object-param-dup+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_param_dup_Output;
 
 public interface ICmptObjParamDupOutp<Ttest>

@@ -92,9 +92,9 @@ output _UnionMember {
 */
 
 // Generated from Spec -Simple for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Simple;
 
 public enum Cmpt_DomainKind

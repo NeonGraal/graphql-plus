@@ -6,9 +6,9 @@ enum ParentCnstEnumPrntDual { parentCnstEnumPrntDual }
 */
 
 // Generated from Schema constraint-enum-parent+Dual for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_enum_parent_Dual;
 
 public enum CmptEnumCnstEnumPrntDual

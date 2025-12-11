@@ -3,9 +3,9 @@ output GnrcPrntOutp<$type:_Dual> { :$type }
 */
 
 // Generated from Schema generic-parent+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_Output;
 
 public interface ICmptGnrcPrntOutp<Ttype>

@@ -4,9 +4,9 @@ input ObjInp { }
 */
 
 // Generated from Schema object+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_Input;
 
 public class CmptObjInp

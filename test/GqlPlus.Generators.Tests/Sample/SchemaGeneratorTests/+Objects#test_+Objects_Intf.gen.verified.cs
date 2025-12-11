@@ -1,8 +1,8 @@
 ﻿//HintName: test_+Objects_Intf.gen.cs
 // Generated from +Objects.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Objects;
 
 public interface ItestAltDual

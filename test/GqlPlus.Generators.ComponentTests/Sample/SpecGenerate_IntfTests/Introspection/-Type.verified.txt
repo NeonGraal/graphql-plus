@@ -70,9 +70,9 @@ dual _Modifier<$kind:_ModifierKind> {
 */
 
 // Generated from Spec -Type for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Type;
 
 public interface ICmpt_Type

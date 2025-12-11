@@ -3,9 +3,9 @@ input InpFieldStr { field: String = 'default' }
 */
 
 // Generated from Schema input-field-String for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_input_field_String;
 
 public interface ICmptInpFieldStr

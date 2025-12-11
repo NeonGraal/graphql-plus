@@ -7,9 +7,9 @@ output CtgrDescr { }
 */
 
 // Generated from Schema category-descr for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_category_descr;
 
 public interface ICmptCtgrDescr

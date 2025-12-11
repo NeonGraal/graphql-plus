@@ -10,9 +10,9 @@ output _UnionMember {
 */
 
 // Generated from Spec Union for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Union;
 
 public class Cmpt_UnionRef

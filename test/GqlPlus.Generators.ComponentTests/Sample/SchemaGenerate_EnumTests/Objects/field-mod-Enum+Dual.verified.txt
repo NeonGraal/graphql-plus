@@ -4,9 +4,9 @@ enum EnumFieldModEnumDual { value }
 */
 
 // Generated from Schema field-mod-Enum+Dual for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_mod_Enum_Dual;
 
 public enum CmptEnumFieldModEnumDual

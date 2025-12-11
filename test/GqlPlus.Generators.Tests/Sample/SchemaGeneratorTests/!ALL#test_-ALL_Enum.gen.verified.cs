@@ -1,8 +1,8 @@
 ﻿//HintName: test_-ALL_Enum.gen.cs
 // Generated from -ALL.graphql+ for Enum
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__ALL;
 
 public enum testEnumAltEnumDual

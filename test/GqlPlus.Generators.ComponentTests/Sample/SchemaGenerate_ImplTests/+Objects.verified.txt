@@ -1,7 +1,7 @@
 ﻿// Generated from Schema +Objects for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_Objects;
 
 public class CmptAltDual

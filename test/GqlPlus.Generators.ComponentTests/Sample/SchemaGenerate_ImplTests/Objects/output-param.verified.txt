@@ -5,9 +5,9 @@ input InOutpParam { param: Number | String }
 */
 
 // Generated from Schema output-param for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_output_param;
 
 public class CmptOutpParam

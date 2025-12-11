@@ -4,9 +4,9 @@ dual RefPrntParamDiffDual<$b:String> { | $b }
 */
 
 // Generated from Schema parent-param-diff+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_param_diff_Dual;
 
 public class CmptPrntParamDiffDual<Ta>

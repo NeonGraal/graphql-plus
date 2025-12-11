@@ -4,9 +4,9 @@ dual ObjParamDual<$type:String> { type: $type }
 */
 
 // Generated from Schema object-param+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_param_Dual;
 
 public interface ICmptObjParamDual<Ttest,Ttype>

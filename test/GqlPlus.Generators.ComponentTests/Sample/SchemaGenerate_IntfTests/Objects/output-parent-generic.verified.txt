@@ -6,9 +6,9 @@ enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
 */
 
 // Generated from Schema output-parent-generic for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_output_parent_generic;
 
 public interface ICmptOutpPrntGnrc

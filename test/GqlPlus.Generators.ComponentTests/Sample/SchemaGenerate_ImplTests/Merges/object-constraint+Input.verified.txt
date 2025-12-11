@@ -4,9 +4,9 @@ input ObjCnstInp<$type:String> { str: $type }
 */
 
 // Generated from Schema object-constraint+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_constraint_Input;
 
 public class CmptObjCnstInp<Ttype>

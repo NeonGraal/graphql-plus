@@ -4,9 +4,9 @@ dual FldFieldDualInp { field: Number | String }
 */
 
 // Generated from Schema field-dual+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_dual_Input;
 
 public class CmptFieldDualInp

@@ -4,9 +4,9 @@ domain PrntDmnBoolPrnt { Boolean true }
 */
 
 // Generated from Schema domain-bool-parent for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_bool_parent;
 
 public class CmptDmnBoolPrnt

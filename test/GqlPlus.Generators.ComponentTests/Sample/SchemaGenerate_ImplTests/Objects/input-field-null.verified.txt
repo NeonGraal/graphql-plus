@@ -4,9 +4,9 @@ dual FldInpFieldNull { }
 */
 
 // Generated from Schema input-field-null for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_input_field_null;
 
 public class CmptInpFieldNull

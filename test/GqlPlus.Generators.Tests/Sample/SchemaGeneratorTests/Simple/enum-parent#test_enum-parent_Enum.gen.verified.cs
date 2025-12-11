@@ -1,8 +1,8 @@
 ﻿//HintName: test_enum-parent_Enum.gen.cs
 // Generated from enum-parent.graphql+ for Enum
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_enum_parent;
 
 public enum testEnumPrnt

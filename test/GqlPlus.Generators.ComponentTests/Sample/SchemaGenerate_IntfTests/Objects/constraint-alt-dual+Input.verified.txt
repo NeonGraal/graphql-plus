@@ -6,9 +6,9 @@ input AltCnstAltDualInp { :PrntCnstAltDualInp alt: Number }
 */
 
 // Generated from Schema constraint-alt-dual+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_alt_dual_Input;
 
 public interface ICmptCnstAltDualInp

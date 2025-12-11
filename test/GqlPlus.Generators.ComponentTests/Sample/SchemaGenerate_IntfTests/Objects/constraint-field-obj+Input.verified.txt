@@ -6,9 +6,9 @@ input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
 */
 
 // Generated from Schema constraint-field-obj+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_field_obj_Input;
 
 public interface ICmptCnstFieldObjInp

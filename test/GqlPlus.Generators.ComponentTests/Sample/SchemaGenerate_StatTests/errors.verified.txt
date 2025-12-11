@@ -10,9 +10,9 @@ output NoParams<> {}
 */
 
 // Generated from Schema errors for Stat
-
 /*
 
 Category query
 */
+
 namespace Components.Gqlp_Schema_errors;

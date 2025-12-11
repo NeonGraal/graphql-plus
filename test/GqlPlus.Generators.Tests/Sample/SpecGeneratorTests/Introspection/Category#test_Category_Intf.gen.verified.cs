@@ -1,8 +1,8 @@
 ﻿//HintName: test_Category_Intf.gen.cs
 // Generated from Category.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Category;
 
 public interface Itest_Categories

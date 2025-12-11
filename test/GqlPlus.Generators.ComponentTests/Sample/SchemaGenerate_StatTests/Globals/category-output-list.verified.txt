@@ -4,9 +4,9 @@ output CtgrOutpList { }
 */
 
 // Generated from Schema category-output-list for Stat
-
 /*
 
 Category ctgrOutpList
 */
+
 namespace Components.Gqlp_Schema_category_output_list;

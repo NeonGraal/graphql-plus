@@ -1,8 +1,8 @@
 ﻿//HintName: test_Names_Impl.gen.cs
 // Generated from Names.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Names;
 
 public class test_Aliased

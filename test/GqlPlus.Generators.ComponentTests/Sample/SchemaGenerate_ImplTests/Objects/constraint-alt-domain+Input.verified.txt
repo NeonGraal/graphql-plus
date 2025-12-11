@@ -5,9 +5,9 @@ domain DomCnstAltDmnInp { String /\w+/ }
 */
 
 // Generated from Schema constraint-alt-domain+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
 
 public class CmptCnstAltDmnInp

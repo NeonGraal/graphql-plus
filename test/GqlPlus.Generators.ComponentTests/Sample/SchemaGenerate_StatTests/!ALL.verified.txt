@@ -1,5 +1,4 @@
 ﻿// Generated from Schema !ALL for Stat
-
 /*
 
 Category ctgrDscrs
@@ -24,4 +23,5 @@ Directive DrctAlias
 Directive DrctParam
 Option Schema
 */
+
 namespace Components.Gqlp_Schema_ALL;

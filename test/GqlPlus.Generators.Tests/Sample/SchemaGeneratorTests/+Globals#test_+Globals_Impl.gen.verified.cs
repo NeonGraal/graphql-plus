@@ -1,8 +1,8 @@
 ﻿//HintName: test_+Globals_Impl.gen.cs
 // Generated from +Globals.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Globals;
 
 public class testCtgrDscrs

@@ -4,9 +4,9 @@ dual RefGnrcAltArgDual<$ref:String> { | $ref }
 */
 
 // Generated from Schema generic-alt-arg+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_alt_arg_Dual;
 
 public interface ICmptGnrcAltArgDual<Ttype>

@@ -6,9 +6,9 @@ enum ParentGnrcPrntEnumChildDual { gnrcPrntEnumChildDualParent }
 */
 
 // Generated from Schema generic-parent-enum-child+Dual for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_enum_child_Dual;
 
 public enum CmptEnumGnrcPrntEnumChildDual

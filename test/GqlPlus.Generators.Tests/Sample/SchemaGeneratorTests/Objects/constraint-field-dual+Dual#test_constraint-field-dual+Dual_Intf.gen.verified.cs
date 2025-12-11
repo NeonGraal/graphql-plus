@@ -1,8 +1,8 @@
 ﻿//HintName: test_constraint-field-dual+Dual_Intf.gen.cs
 // Generated from constraint-field-dual+Dual.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_dual_Dual;
 
 public interface ItestCnstFieldDualDual

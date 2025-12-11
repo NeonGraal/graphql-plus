@@ -1,8 +1,8 @@
 ﻿//HintName: test_generic-parent-dual-parent+Dual_Impl.gen.cs
 // Generated from generic-parent-dual-parent+Dual.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_parent_Dual;
 
 public class testGnrcPrntDualPrntDual

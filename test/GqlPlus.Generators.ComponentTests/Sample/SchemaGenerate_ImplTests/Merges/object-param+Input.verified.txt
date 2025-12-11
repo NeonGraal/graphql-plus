@@ -4,9 +4,9 @@ input ObjParamInp<$type:String> { type: $type }
 */
 
 // Generated from Schema object-param+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_param_Input;
 
 public class CmptObjParamInp<Ttest,Ttype>

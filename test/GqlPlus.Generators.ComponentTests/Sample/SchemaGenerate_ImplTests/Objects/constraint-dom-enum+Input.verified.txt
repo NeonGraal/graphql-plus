@@ -6,9 +6,9 @@ domain JustCnstDomEnumInp { enum EnumCnstDomEnumInp.cnstDomEnumInp }
 */
 
 // Generated from Schema constraint-dom-enum+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
 
 public class CmptCnstDomEnumInp

@@ -92,9 +92,9 @@ output _UnionMember {
 */
 
 // Generated from Spec -Simple for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Simple;
 
 public class Cmpt_DomainRef<Tkind>

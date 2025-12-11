@@ -5,9 +5,9 @@ dual AltGnrcPrntDualDual { alt: Number | String }
 */
 
 // Generated from Schema generic-parent-dual+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_dual_Dual;
 
 public class CmptGnrcPrntDualDual

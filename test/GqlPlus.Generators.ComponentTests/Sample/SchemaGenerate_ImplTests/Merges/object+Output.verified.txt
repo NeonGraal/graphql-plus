@@ -4,9 +4,9 @@ output ObjOutp { }
 */
 
 // Generated from Schema object+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_Output;
 
 public class CmptObjOutp

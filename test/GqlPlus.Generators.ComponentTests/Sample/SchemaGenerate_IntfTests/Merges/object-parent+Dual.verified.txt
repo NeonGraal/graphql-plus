@@ -5,9 +5,9 @@ dual RefObjPrntDual { }
 */
 
 // Generated from Schema object-parent+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_parent_Dual;
 
 public interface ICmptObjPrntDual

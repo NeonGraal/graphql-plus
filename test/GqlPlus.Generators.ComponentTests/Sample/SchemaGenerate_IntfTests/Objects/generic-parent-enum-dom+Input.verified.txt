@@ -6,9 +6,9 @@ domain DomGnrcPrntEnumDomInp { enum gnrcPrntEnumDomInpLabel }
 */
 
 // Generated from Schema generic-parent-enum-dom+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Input;
 
 public interface ICmptGnrcPrntEnumDomInp

@@ -4,9 +4,9 @@ dual RefPrntDual { parent: Number | String }
 */
 
 // Generated from Schema parent+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_Dual;
 
 public interface ICmptPrntDual

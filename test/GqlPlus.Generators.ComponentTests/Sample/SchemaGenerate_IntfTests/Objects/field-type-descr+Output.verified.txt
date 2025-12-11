@@ -3,9 +3,9 @@ output FieldTypeDescrOutp { field: "Test" "Descr" Number }
 */
 
 // Generated from Schema field-type-descr+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_type_descr_Output;
 
 public interface ICmptFieldTypeDescrOutp

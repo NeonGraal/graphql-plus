@@ -19,7 +19,6 @@ internal sealed class GqlpGeneratorContext
 
     _prefix = new();
     _prefix.AppendLine($"// Generated from {path} for {GeneratorOptions.GeneratorType}");
-    _prefix.AppendLine("\n/*");
 
     AddTypes(BuiltIn.Internal);
     AddTypes(BuiltIn.Basic);
@@ -40,11 +39,21 @@ internal sealed class GqlpGeneratorContext
   public void WritePrefix(string text)
     => (_prefixWritten ? _builder : _prefix).Append(text);
 
+  public void WritePrefixLine(string text)
+    => (_prefixWritten ? _builder : _prefix).AppendLine(text);
+
   public void Write(string text)
   {
     if (!_prefixWritten) {
-      _builder.AppendLine(_prefix.ToString());
       _prefixWritten = true;
+      string prefix = _prefix.ToString();
+      if (!string.IsNullOrWhiteSpace(prefix)) {
+        _builder.AppendLine(prefix);
+      }
+
+      if (string.IsNullOrWhiteSpace(text)) {
+        return;
+      }
     }
 
     _builder.AppendLine(text);

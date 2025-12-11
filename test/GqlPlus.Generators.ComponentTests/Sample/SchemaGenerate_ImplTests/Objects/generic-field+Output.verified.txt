@@ -3,9 +3,9 @@ output GnrcFieldOutp<$type:String> { field: $type }
 */
 
 // Generated from Schema generic-field+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_field_Output;
 
 public class CmptGnrcFieldOutp<Ttype>

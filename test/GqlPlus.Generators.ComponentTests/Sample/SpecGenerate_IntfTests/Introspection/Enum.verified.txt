@@ -11,9 +11,9 @@ output _EnumValue {
 */
 
 // Generated from Spec Enum for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Enum;
 
 public interface ICmpt_EnumLabel

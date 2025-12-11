@@ -27,9 +27,9 @@ output All {
 */
 
 // Generated from Schema all for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_all;
 
 public class CmptGuid

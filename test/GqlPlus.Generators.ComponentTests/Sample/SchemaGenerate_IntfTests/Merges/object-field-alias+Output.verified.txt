@@ -5,9 +5,9 @@ output FldObjFieldAliasOutp { }
 */
 
 // Generated from Schema object-field-alias+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_field_alias_Output;
 
 public interface ICmptObjFieldAliasOutp

@@ -5,9 +5,9 @@ output CtgrMod { }
 */
 
 // Generated from Schema category-mod for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_category_mod;
 
 public class CmptCtgrMod

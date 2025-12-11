@@ -1,8 +1,8 @@
 ﻿//HintName: test_-Type_Enum.gen.cs
 // Generated from -Type.graphql+ for Enum
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Type;
 
 public enum test_SimpleKind

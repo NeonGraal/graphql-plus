@@ -5,9 +5,9 @@ dual AltGnrcAltDualOutp { alt: Number | String }
 */
 
 // Generated from Schema generic-alt-dual+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_alt_dual_Output;
 
 public interface ICmptGnrcAltDualOutp

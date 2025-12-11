@@ -1,8 +1,8 @@
 ﻿//HintName: test_generic-alt-param+Output_Intf.gen.cs
 // Generated from generic-alt-param+Output.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_param_Output;
 
 public interface ItestGnrcAltParamOutp

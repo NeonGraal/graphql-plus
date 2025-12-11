@@ -4,9 +4,9 @@ dual RefPrntDescrDual { parent: Number | String }
 */
 
 // Generated from Schema parent-descr+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_descr_Dual;
 
 public class CmptPrntDescrDual

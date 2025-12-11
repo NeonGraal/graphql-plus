@@ -1,8 +1,8 @@
 ﻿//HintName: test_parent-field+Input_Impl.gen.cs
 // Generated from parent-field+Input.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_parent_field_Input;
 
 public class testPrntFieldInp

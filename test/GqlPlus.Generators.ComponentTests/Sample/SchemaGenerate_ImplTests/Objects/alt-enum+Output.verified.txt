@@ -4,9 +4,9 @@ enum EnumAltEnumOutp { altEnumOutp }
 */
 
 // Generated from Schema alt-enum+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_enum_Output;
 
 public class CmptAltEnumOutp

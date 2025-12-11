@@ -5,9 +5,9 @@ output Ctgr { }
 */
 
 // Generated from Schema category for Stat
-
 /*
 
 Category ctgr
 */
+
 namespace Components.Gqlp_Schema_category;

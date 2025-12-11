@@ -4,9 +4,9 @@ input FldFieldModParamInp { field: Number | String }
 */
 
 // Generated from Schema field-mod-param+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_mod_param_Input;
 
 public interface ICmptFieldModParamInp<Tmod>

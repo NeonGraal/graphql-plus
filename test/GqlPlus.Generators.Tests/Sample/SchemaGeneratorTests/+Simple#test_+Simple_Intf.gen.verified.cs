@@ -1,8 +1,8 @@
 ﻿//HintName: test_+Simple_Intf.gen.cs
 // Generated from +Simple.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
 public interface ItestDmnBoolDescr

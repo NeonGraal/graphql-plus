@@ -1,8 +1,8 @@
 ﻿//HintName: test_+Simple_Impl.gen.cs
 // Generated from +Simple.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
 public class testDmnBoolDescr

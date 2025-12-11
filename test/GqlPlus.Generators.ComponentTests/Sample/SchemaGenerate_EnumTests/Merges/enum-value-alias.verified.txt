@@ -4,9 +4,9 @@ enum EnumValueAlias { enumValueAlias [val2] }
 */
 
 // Generated from Schema enum-value-alias for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_enum_value_alias;
 
 public enum CmptEnumValueAlias

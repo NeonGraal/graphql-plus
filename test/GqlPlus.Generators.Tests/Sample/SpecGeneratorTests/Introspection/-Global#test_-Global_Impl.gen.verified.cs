@@ -1,8 +1,8 @@
 ﻿//HintName: test_-Global_Impl.gen.cs
 // Generated from -Global.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Global;
 
 public class test_AndType

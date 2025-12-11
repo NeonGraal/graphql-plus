@@ -3,9 +3,9 @@ domain DmnBoolDescr { Boolean "DomBool" "Descr" true }
 */
 
 // Generated from Schema domain-bool-descr for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_bool_descr;
 
 public class CmptDmnBoolDescr

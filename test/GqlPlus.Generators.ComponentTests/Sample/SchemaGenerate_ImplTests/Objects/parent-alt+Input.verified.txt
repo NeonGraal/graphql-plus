@@ -4,9 +4,9 @@ input RefPrntAltInp {  parent: Number | String }
 */
 
 // Generated from Schema parent-alt+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_alt_Input;
 
 public class CmptPrntAltInp

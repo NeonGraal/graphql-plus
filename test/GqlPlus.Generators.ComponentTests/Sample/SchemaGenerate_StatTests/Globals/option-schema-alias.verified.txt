@@ -3,9 +3,9 @@ option Schema [Alias] { }
 */
 
 // Generated from Schema option-schema-alias for Stat
-
 /*
 
 Option Schema
 */
+
 namespace Components.Gqlp_Schema_option_schema_alias;

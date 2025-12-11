@@ -4,9 +4,9 @@ output DescrCmpl { }
 */
 
 // Generated from Schema descr-complex for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_descr_complex;
 
 public interface ICmptDescrCmpl

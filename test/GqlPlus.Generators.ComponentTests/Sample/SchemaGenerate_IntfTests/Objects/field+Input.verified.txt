@@ -3,9 +3,9 @@ input FieldInp { field: String }
 */
 
 // Generated from Schema field+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_Input;
 
 public interface ICmptFieldInp

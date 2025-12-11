@@ -4,9 +4,9 @@ output CtgrOutpDescr { }
 */
 
 // Generated from Schema category-output-descr for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_category_output_descr;
 
 public class CmptCtgrOutpDescr

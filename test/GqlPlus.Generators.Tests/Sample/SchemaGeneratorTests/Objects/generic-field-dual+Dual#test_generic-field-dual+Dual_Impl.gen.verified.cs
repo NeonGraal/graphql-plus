@@ -1,8 +1,8 @@
 ﻿//HintName: test_generic-field-dual+Dual_Impl.gen.cs
 // Generated from generic-field-dual+Dual.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_dual_Dual;
 
 public class testGnrcFieldDualDual

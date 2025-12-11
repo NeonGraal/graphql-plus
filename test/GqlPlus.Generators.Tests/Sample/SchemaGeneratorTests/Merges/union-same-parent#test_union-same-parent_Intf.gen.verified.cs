@@ -1,8 +1,8 @@
 ﻿//HintName: test_union-same-parent_Intf.gen.cs
 // Generated from union-same-parent.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_union_same_parent;
 
 public interface ItestUnionSamePrnt

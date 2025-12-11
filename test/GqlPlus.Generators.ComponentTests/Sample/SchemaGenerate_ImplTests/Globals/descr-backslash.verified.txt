@@ -4,9 +4,9 @@ output DescrBcks { }
 */
 
 // Generated from Schema descr-backslash for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_descr_backslash;
 
 public class CmptDescrBcks

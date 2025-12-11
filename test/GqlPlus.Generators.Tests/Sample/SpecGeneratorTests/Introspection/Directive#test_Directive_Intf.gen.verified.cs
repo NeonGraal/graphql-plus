@@ -1,8 +1,8 @@
 ﻿//HintName: test_Directive_Intf.gen.cs
 // Generated from Directive.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Directive;
 
 public interface Itest_Directives

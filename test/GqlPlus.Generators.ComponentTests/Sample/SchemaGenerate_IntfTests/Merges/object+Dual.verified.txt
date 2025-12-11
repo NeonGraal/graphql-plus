@@ -4,9 +4,9 @@ dual ObjDual { }
 */
 
 // Generated from Schema object+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_Dual;
 
 public interface ICmptObjDual

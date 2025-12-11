@@ -1,8 +1,8 @@
 ﻿//HintName: test_Directive_Impl.gen.cs
 // Generated from Directive.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Directive;
 
 public class test_Directives

@@ -5,9 +5,9 @@ union PrntUnionSamePrnt { String }
 */
 
 // Generated from Schema union-same-parent for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_union_same_parent;
 
 public class CmptUnionSamePrnt

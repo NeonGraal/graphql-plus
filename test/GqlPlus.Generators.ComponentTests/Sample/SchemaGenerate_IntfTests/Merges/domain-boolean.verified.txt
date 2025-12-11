@@ -4,9 +4,9 @@ domain DmnBool { boolean }
 */
 
 // Generated from Schema domain-boolean for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_boolean;
 
 public interface ICmptDmnBool

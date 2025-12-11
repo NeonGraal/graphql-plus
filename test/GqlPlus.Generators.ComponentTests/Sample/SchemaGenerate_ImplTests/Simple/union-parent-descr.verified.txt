@@ -4,9 +4,9 @@ union PrntUnionPrntDescr { Number }
 */
 
 // Generated from Schema union-parent-descr for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_union_parent_descr;
 
 public class CmptUnionPrntDescr

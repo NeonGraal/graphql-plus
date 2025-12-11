@@ -5,9 +5,9 @@ dual FldObjFieldDual { }
 */
 
 // Generated from Schema object-field+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_field_Dual;
 
 public interface ICmptObjFieldDual

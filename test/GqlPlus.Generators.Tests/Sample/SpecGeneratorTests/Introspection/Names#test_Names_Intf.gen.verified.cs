@@ -1,8 +1,8 @@
 ﻿//HintName: test_Names_Intf.gen.cs
 // Generated from Names.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Names;
 
 public interface Itest_Aliased

@@ -4,9 +4,9 @@ output RefGnrcAltArgDescrOutp<$ref:String> { | $ref }
 */
 
 // Generated from Schema generic-alt-arg-descr+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_alt_arg_descr_Output;
 
 public class CmptGnrcAltArgDescrOutp<Ttype>

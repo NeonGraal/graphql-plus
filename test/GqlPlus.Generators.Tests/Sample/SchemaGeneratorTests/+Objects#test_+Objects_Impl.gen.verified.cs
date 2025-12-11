@@ -1,8 +1,8 @@
 ﻿//HintName: test_+Objects_Impl.gen.cs
 // Generated from +Objects.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Objects;
 
 public class testAltDual

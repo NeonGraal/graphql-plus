@@ -6,9 +6,9 @@ output AltCnstPrntDualPrntOutp { :PrntCnstPrntDualPrntOutp alt: Number }
 */
 
 // Generated from Schema constraint-parent-dual-parent+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Output;
 
 public interface ICmptCnstPrntDualPrntOutp

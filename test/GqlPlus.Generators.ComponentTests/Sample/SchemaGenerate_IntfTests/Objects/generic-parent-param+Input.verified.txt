@@ -5,9 +5,9 @@ input AltGnrcPrntParamInp { alt: Number | String }
 */
 
 // Generated from Schema generic-parent-param+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_param_Input;
 
 public interface ICmptGnrcPrntParamInp

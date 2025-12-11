@@ -345,9 +345,9 @@ output _OutputFieldType {
 */
 
 // Generated from Spec Introspection for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Introspection;
 
 public class Cmpt_Schema

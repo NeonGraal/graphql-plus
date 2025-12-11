@@ -1,8 +1,8 @@
 ﻿//HintName: test_Introspection_Intf.gen.cs
 // Generated from Introspection.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Introspection;
 
 public interface Itest_Schema

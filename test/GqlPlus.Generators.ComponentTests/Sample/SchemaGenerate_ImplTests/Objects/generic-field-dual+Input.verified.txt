@@ -5,9 +5,9 @@ dual AltGnrcFieldDualInp { alt: Number | String }
 */
 
 // Generated from Schema generic-field-dual+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_field_dual_Input;
 
 public class CmptGnrcFieldDualInp

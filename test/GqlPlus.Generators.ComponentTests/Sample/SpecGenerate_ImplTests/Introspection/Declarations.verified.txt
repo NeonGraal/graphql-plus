@@ -34,9 +34,9 @@ input _TypeFilter {
 */
 
 // Generated from Spec Declarations for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Declarations;
 
 public class Cmpt_Schema

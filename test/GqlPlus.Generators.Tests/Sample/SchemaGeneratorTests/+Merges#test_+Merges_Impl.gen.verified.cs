@@ -1,8 +1,8 @@
 ﻿//HintName: test_+Merges_Impl.gen.cs
 // Generated from +Merges.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Merges;
 
 public class testCtgr

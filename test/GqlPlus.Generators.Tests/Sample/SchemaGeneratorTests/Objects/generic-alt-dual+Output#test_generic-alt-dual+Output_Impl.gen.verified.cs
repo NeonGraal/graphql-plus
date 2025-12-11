@@ -1,8 +1,8 @@
 ﻿//HintName: test_generic-alt-dual+Output_Impl.gen.cs
 // Generated from generic-alt-dual+Output.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_dual_Output;
 
 public class testGnrcAltDualOutp

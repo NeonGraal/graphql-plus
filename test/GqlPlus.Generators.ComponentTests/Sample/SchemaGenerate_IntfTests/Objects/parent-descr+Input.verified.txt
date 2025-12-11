@@ -4,9 +4,9 @@ input RefPrntDescrInp { parent: Number | String }
 */
 
 // Generated from Schema parent-descr+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_descr_Input;
 
 public interface ICmptPrntDescrInp

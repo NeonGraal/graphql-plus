@@ -73,9 +73,9 @@ output _DomainItemRegex {
 */
 
 // Generated from Spec Domain for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Domain;
 
 public interface ICmpt_DomainRef<Tkind>

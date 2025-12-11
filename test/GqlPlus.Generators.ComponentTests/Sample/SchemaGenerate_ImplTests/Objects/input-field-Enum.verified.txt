@@ -4,9 +4,9 @@ enum EnumInpFieldEnum { inpFieldEnum }
 */
 
 // Generated from Schema input-field-Enum for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_input_field_Enum;
 
 public class CmptInpFieldEnum

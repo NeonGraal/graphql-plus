@@ -4,9 +4,9 @@ output CtgrOutp { }
 */
 
 // Generated from Schema category-output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_category_output;
 
 public interface ICmptCtgrOutp

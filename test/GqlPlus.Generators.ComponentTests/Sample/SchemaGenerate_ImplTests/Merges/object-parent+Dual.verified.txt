@@ -5,9 +5,9 @@ dual RefObjPrntDual { }
 */
 
 // Generated from Schema object-parent+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_parent_Dual;
 
 public class CmptObjPrntDual

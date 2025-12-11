@@ -4,9 +4,9 @@ input RefPrntParamDiffInp<$b:String> { | $b }
 */
 
 // Generated from Schema parent-param-diff+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_param_diff_Input;
 
 public class CmptPrntParamDiffInp<Ta>

@@ -5,9 +5,9 @@ output DescrBtwn { }
 */
 
 // Generated from Schema descr-between for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_descr_between;
 
 public class CmptDescrBtwn

@@ -5,9 +5,9 @@ enum EnumGnrcEnumDual { gnrcEnumDual }
 */
 
 // Generated from Schema generic-enum+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_enum_Dual;
 
 public interface ICmptGnrcEnumDual

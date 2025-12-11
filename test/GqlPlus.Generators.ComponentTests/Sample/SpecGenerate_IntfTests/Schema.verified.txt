@@ -21,9 +21,9 @@ dual _Any { }
 */
 
 // Generated from Spec Schema for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Schema;
 
 public interface ICmpt_Opt<TT>

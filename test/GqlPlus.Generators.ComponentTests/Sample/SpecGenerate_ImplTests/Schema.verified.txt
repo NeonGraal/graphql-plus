@@ -21,9 +21,9 @@ dual _Any { }
 */
 
 // Generated from Spec Schema for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Schema;
 
 public class Cmpt_Opt<TT>

@@ -4,9 +4,9 @@ output ObjAliasOutp [Output2] { }
 */
 
 // Generated from Schema object-alias+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_alias_Output;
 
 public class CmptObjAliasOutp

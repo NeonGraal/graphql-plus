@@ -4,9 +4,9 @@ output AltAltModBoolOutp { alt: Number | String }
 */
 
 // Generated from Schema alt-mod-Boolean+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Output;
 
 public class CmptAltModBoolOutp

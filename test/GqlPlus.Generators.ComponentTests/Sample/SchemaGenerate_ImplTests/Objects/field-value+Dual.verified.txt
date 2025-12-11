@@ -4,9 +4,9 @@ enum EnumFieldValueDual { fieldValueDual }
 */
 
 // Generated from Schema field-value+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_value_Dual;
 
 public class CmptFieldValueDual

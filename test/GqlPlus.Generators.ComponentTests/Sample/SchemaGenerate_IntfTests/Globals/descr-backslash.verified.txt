@@ -4,9 +4,9 @@ output DescrBcks { }
 */
 
 // Generated from Schema descr-backslash for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_descr_backslash;
 
 public interface ICmptDescrBcks

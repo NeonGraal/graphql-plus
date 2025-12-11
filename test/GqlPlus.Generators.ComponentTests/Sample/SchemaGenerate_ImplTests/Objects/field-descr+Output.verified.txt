@@ -3,9 +3,9 @@ output FieldDescrOutp { "Test" "Descr" field: String }
 */
 
 // Generated from Schema field-descr+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_descr_Output;
 
 public class CmptFieldDescrOutp

@@ -3,9 +3,9 @@ dual FieldSmplDual { field: Number }
 */
 
 // Generated from Schema field-simple+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_simple_Dual;
 
 public class CmptFieldSmplDual

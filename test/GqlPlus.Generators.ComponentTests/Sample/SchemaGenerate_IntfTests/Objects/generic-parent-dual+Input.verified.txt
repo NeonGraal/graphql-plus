@@ -5,9 +5,9 @@ dual AltGnrcPrntDualInp { alt: Number | String }
 */
 
 // Generated from Schema generic-parent-dual+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_dual_Input;
 
 public interface ICmptGnrcPrntDualInp

@@ -1,8 +1,8 @@
 ﻿//HintName: test_Union_Impl.gen.cs
 // Generated from Union.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Union;
 
 public class test_UnionRef

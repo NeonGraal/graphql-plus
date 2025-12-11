@@ -21,9 +21,9 @@ output _AndType {
 */
 
 // Generated from Spec Names for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Names;
 
 public interface ICmpt_Aliased

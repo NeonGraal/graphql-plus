@@ -4,9 +4,9 @@ dual ObjParamDupDual<$test:String> { type: $test }
 */
 
 // Generated from Schema object-param-dup+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_param_dup_Dual;
 
 public class CmptObjParamDupDual<Ttest>

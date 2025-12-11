@@ -4,9 +4,9 @@ input AltAltInp { alt: Number | String }
 */
 
 // Generated from Schema alt+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_Input;
 
 public class CmptAltInp

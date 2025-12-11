@@ -1,8 +1,8 @@
 ﻿//HintName: test_+Merges_Intf.gen.cs
 // Generated from +Merges.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Merges;
 
 public interface ItestCtgr

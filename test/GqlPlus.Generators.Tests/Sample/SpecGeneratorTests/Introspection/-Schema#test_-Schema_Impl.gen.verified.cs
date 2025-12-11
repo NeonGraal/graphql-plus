@@ -1,8 +1,8 @@
 ﻿//HintName: test_-Schema_Impl.gen.cs
 // Generated from -Schema.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Schema;
 
 public class test_Schema

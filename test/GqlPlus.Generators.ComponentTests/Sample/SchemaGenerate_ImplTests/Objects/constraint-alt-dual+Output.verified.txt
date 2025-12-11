@@ -6,9 +6,9 @@ output AltCnstAltDualOutp { :PrntCnstAltDualOutp alt: Number }
 */
 
 // Generated from Schema constraint-alt-dual+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_alt_dual_Output;
 
 public class CmptCnstAltDualOutp

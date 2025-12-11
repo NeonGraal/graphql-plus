@@ -1,8 +1,8 @@
 ﻿//HintName: test_Domain_Impl.gen.cs
 // Generated from Domain.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Domain;
 
 public class test_DomainRef<Tkind>

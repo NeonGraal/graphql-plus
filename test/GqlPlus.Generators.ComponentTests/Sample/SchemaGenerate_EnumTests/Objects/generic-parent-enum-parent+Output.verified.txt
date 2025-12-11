@@ -6,9 +6,9 @@ enum ParentGnrcPrntEnumPrntOutp { gnrcPrntEnumPrntOutpParent }
 */
 
 // Generated from Schema generic-parent-enum-parent+Output for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_enum_parent_Output;
 
 public enum CmptEnumGnrcPrntEnumPrntOutp

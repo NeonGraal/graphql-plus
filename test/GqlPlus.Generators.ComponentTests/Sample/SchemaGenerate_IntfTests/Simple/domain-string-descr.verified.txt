@@ -3,9 +3,9 @@ domain DmnStrDescr { String "DomString" "Descr" /a+/ }
 */
 
 // Generated from Schema domain-string-descr for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_string_descr;
 
 public interface ICmptDmnStrDescr

@@ -4,9 +4,9 @@ output ObjFieldEnumAliasOutp { field [field2] = true }
 */
 
 // Generated from Schema object-field-enum-alias+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_field_enum_alias_Output;
 
 public interface ICmptObjFieldEnumAliasOutp

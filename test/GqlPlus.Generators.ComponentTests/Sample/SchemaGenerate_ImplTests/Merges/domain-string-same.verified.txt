@@ -4,9 +4,9 @@ domain DmnStrSame { string /a+/ }
 */
 
 // Generated from Schema domain-string-same for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_string_same;
 
 public class CmptDmnStrSame

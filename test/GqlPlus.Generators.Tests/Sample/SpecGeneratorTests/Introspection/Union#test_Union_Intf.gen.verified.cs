@@ -1,8 +1,8 @@
 ﻿//HintName: test_Union_Intf.gen.cs
 // Generated from Union.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Union;
 
 public interface Itest_UnionRef

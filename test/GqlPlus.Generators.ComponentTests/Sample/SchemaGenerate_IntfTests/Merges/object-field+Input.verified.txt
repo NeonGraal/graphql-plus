@@ -5,9 +5,9 @@ input FldObjFieldInp { }
 */
 
 // Generated from Schema object-field+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_field_Input;
 
 public interface ICmptObjFieldInp

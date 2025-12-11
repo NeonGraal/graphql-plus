@@ -5,9 +5,9 @@ enum EnumDmnEnumPrnt { enum_dmnEnumPrnt prnt_dmnEnumPrnt }
 */
 
 // Generated from Schema domain-enum-parent for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_enum_parent;
 
 public class CmptDmnEnumPrnt

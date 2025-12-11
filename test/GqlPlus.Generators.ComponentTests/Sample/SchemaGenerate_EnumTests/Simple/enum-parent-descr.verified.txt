@@ -4,9 +4,9 @@ enum PrntEnumPrntDescr { prnt_enumPrntDescr }
 */
 
 // Generated from Schema enum-parent-descr for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_enum_parent_descr;
 
 public enum CmptEnumPrntDescr

@@ -4,9 +4,9 @@ dual ObjAliasDual [Dual2] { }
 */
 
 // Generated from Schema object-alias+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_alias_Dual;
 
 public class CmptObjAliasDual

@@ -4,9 +4,9 @@ output Descr { }
 */
 
 // Generated from Schema descr for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_descr;
 
 public interface ICmptDescr

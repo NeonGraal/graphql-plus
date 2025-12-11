@@ -4,9 +4,9 @@ output RefPrntParamDiffOutp<$b:String> { | $b }
 */
 
 // Generated from Schema parent-param-diff+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_param_diff_Output;
 
 public class CmptPrntParamDiffOutp<Ta>

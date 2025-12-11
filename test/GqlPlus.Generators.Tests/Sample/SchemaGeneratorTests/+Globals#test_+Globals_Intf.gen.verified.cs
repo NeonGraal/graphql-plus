@@ -1,8 +1,8 @@
 ﻿//HintName: test_+Globals_Intf.gen.cs
 // Generated from +Globals.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Globals;
 
 public interface ItestCtgrDscrs

@@ -3,9 +3,9 @@ dual GnrcPrntDual<$type:_Dual> { :$type }
 */
 
 // Generated from Schema generic-parent+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_Dual;
 
 public class CmptGnrcPrntDual<Ttype>

@@ -1,8 +1,8 @@
 ﻿//HintName: test_Introspection_Enum.gen.cs
 // Generated from Introspection.graphql+ for Enum
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Introspection;
 
 public enum test_Resolution

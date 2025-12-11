@@ -1,6 +1,5 @@
 ﻿//HintName: test_+Merges_Stat.gen.cs
 // Generated from +Merges.graphql+ for Stat
-
 /*
 
 Category ctgr
@@ -12,4 +11,5 @@ Directive DrctAlias
 Directive DrctParam
 Option Schema
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Merges;

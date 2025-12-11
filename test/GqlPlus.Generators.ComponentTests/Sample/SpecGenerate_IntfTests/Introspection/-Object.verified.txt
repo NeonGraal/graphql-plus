@@ -96,9 +96,9 @@ output _OutputFieldType {
 */
 
 // Generated from Spec -Object for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Object;
 
 public interface ICmpt_ObjectKind

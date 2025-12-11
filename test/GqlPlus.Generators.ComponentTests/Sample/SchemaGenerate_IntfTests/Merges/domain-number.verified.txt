@@ -4,9 +4,9 @@ domain DmnNmbr { number }
 */
 
 // Generated from Schema domain-number for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_number;
 
 public interface ICmptDmnNmbr

@@ -21,9 +21,9 @@ output _AndType {
 */
 
 // Generated from Spec Names for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Names;
 
 public class Cmpt_Aliased

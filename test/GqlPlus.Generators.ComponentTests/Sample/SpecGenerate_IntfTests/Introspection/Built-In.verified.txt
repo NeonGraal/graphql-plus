@@ -24,9 +24,9 @@ dual _Modifier<$kind:_ModifierKind> {
 */
 
 // Generated from Spec Built-In for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Built_In;
 
 public interface ICmpt_Collections

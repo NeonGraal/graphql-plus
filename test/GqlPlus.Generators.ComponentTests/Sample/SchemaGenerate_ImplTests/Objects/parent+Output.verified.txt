@@ -4,9 +4,9 @@ output RefPrntOutp { parent: Number | String }
 */
 
 // Generated from Schema parent+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_Output;
 
 public class CmptPrntOutp

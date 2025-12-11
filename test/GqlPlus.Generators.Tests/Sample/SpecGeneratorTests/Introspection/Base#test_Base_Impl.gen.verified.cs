@@ -1,8 +1,8 @@
 ﻿//HintName: test_Base_Impl.gen.cs
 // Generated from Base.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Base;
 
 public class test_ObjectKind

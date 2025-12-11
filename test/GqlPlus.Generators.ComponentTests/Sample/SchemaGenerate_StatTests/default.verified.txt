@@ -12,11 +12,11 @@ output _Schema { }
 */
 
 // Generated from Schema default for Stat
-
 /*
 
 Category query
 Category mutation
 Category subscription
 */
+
 namespace Components.Gqlp_Schema_default;

@@ -4,9 +4,9 @@ enum EnumDiff { two }
 */
 
 // Generated from Schema enum-diff for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_enum_diff;
 
 public enum CmptEnumDiff

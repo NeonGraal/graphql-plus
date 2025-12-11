@@ -4,9 +4,9 @@ union PrntUnionPrntDup { Number }
 */
 
 // Generated from Schema union-parent-dup for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_union_parent_dup;
 
 public class CmptUnionPrntDup

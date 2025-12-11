@@ -1,7 +1,7 @@
 ﻿// Generated from Schema !ALL for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_ALL;
 
 public enum CmptEnumAltEnumDual

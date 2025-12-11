@@ -1,8 +1,8 @@
 ﻿//HintName: test_parent+Input_Intf.gen.cs
 // Generated from parent+Input.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_parent_Input;
 
 public interface ItestPrntInp

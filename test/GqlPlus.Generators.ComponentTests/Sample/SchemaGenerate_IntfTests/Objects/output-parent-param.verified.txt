@@ -7,9 +7,9 @@ input PrntOutpPrntParamIn { parent: Number | String }
 */
 
 // Generated from Schema output-parent-param for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_output_parent_param;
 
 public interface ICmptOutpPrntParam

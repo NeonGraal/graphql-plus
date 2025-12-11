@@ -6,9 +6,9 @@ input AltCnstPrntObjPrntInp { :PrntCnstPrntObjPrntInp alt: Number }
 */
 
 // Generated from Schema constraint-parent-obj-parent+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Input;
 
 public interface ICmptCnstPrntObjPrntInp

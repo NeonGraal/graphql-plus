@@ -1,8 +1,8 @@
 ﻿//HintName: test_-ALL_Impl.gen.cs
 // Generated from -ALL.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__ALL;
 
 public class testCtgrDscrs

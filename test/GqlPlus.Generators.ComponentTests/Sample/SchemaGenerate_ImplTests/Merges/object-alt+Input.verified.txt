@@ -5,9 +5,9 @@ input ObjAltInpType { }
 */
 
 // Generated from Schema object-alt+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_alt_Input;
 
 public class CmptObjAltInp

@@ -10,9 +10,9 @@ output _OutputFieldType {
 */
 
 // Generated from Spec Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Output;
 
 public interface ICmpt_OutputField

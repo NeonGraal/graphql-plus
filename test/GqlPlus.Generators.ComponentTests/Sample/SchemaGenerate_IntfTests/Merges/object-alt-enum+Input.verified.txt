@@ -4,9 +4,9 @@ input ObjAltEnumInp { ! false }
 */
 
 // Generated from Schema object-alt-enum+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_alt_enum_Input;
 
 public interface ICmptObjAltEnumInp

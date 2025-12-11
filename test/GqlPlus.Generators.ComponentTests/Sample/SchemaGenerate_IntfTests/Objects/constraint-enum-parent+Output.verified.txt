@@ -6,9 +6,9 @@ enum ParentCnstEnumPrntOutp { parentCnstEnumPrntOutp }
 */
 
 // Generated from Schema constraint-enum-parent+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_enum_parent_Output;
 
 public interface ICmptCnstEnumPrntOutp

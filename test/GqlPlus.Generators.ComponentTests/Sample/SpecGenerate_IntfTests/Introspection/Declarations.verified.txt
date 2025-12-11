@@ -34,9 +34,9 @@ input _TypeFilter {
 */
 
 // Generated from Spec Declarations for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Declarations;
 
 public interface ICmpt_Schema

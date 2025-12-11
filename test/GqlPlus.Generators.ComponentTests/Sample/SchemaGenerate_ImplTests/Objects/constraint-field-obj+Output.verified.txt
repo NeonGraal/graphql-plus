@@ -6,9 +6,9 @@ output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
 */
 
 // Generated from Schema constraint-field-obj+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_field_obj_Output;
 
 public class CmptCnstFieldObjOutp

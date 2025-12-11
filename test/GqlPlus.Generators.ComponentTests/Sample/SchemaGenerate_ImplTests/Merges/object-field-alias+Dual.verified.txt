@@ -5,9 +5,9 @@ dual FldObjFieldAliasDual { }
 */
 
 // Generated from Schema object-field-alias+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_field_alias_Dual;
 
 public class CmptObjFieldAliasDual

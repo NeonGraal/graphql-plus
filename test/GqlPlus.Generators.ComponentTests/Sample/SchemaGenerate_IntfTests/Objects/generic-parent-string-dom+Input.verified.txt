@@ -5,9 +5,9 @@ domain DomGnrcPrntStrDomInp { string /\w+/ }
 */
 
 // Generated from Schema generic-parent-string-dom+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Input;
 
 public interface ICmptGnrcPrntStrDomInp

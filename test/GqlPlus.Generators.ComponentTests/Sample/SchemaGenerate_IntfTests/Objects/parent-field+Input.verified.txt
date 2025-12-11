@@ -4,9 +4,9 @@ input RefPrntFieldInp { parent: Number | String }
 */
 
 // Generated from Schema parent-field+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_field_Input;
 
 public interface ICmptPrntFieldInp

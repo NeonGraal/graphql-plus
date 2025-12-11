@@ -4,9 +4,9 @@ directive @DrctDescr { all }
 */
 
 // Generated from Schema directive-descr for Stat
-
 /*
 
 Directive DrctDescr
 */
+
 namespace Components.Gqlp_Schema_directive_descr;

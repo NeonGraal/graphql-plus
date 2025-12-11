@@ -12,13 +12,14 @@ internal sealed class SchemaGenerator(
     IGqlpType[] types = Typed<IGqlpType>(ast);
     context.AddTypes(types);
 
+    context.WritePrefixLine("/*");
     Typed<IGqlpSchemaCategory>(ast).Generate(categoryGenerator, context);
     Typed<IGqlpSchemaDirective>(ast).Generate(directiveGenerator, context);
     Typed<IGqlpSchemaOption>(ast).Generate(optionGenerator, context);
-
-    context.WritePrefix("*/\n");
+    context.WritePrefixLine("*/");
+    context.WritePrefixLine("");
     string nameSpace = context.GeneratorOptions.NameSpace.IfWhiteSpace(context.ModelOptions.BaseNamespace);
-    context.WritePrefix($"namespace {nameSpace}.Gqlp_" + context.SafeFile + ";");
+    context.WritePrefixLine($"namespace {nameSpace}.Gqlp_" + context.SafeFile + ";");
 
     foreach (IGqlpType type in types) {
       ITypeGenerator generator = typeGenerators.Where(g => g.ForType(type)).FirstOrDefault();

@@ -4,9 +4,9 @@ input RefGnrcPrntArgInp<$ref:String> { | $ref }
 */
 
 // Generated from Schema generic-parent-arg+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_arg_Input;
 
 public class CmptGnrcPrntArgInp<Ttype>

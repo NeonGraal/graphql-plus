@@ -5,9 +5,9 @@ enum PrntDmnEnumValuePrnt { prnt_dmnEnumValuePrnt }
 */
 
 // Generated from Schema domain-enum-value-parent for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_enum_value_parent;
 
 public interface ICmptDmnEnumValuePrnt

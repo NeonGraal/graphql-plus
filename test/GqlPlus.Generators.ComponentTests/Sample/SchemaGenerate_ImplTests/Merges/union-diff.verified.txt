@@ -4,9 +4,9 @@ union UnionDiff { Number }
 */
 
 // Generated from Schema union-diff for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_union_diff;
 
 public class CmptUnionDiff

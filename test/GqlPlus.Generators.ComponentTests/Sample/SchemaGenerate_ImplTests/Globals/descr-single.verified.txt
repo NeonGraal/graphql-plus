@@ -4,9 +4,9 @@ output DescrSngl { }
 */
 
 // Generated from Schema descr-single for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_descr_single;
 
 public class CmptDescrSngl

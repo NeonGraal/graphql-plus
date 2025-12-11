@@ -6,9 +6,9 @@ dual AltCnstAltObjDual { :PrntCnstAltObjDual alt: Number }
 */
 
 // Generated from Schema constraint-alt-obj+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_alt_obj_Dual;
 
 public interface ICmptCnstAltObjDual

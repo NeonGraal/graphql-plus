@@ -4,9 +4,9 @@ dual RefPrntFieldDual { parent: Number | String }
 */
 
 // Generated from Schema parent-field+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_field_Dual;
 
 public interface ICmptPrntFieldDual

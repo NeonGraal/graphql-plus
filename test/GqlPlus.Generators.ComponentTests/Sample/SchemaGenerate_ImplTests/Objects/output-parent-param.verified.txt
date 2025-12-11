@@ -7,9 +7,9 @@ input PrntOutpPrntParamIn { parent: Number | String }
 */
 
 // Generated from Schema output-parent-param for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_output_parent_param;
 
 public class CmptOutpPrntParam

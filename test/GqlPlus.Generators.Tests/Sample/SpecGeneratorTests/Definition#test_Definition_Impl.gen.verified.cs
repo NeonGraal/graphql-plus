@@ -1,8 +1,8 @@
 ﻿//HintName: test_Definition_Impl.gen.cs
 // Generated from Definition.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
 public class testNumber

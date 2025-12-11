@@ -4,9 +4,9 @@ dual ObjCnstDual<$type:String> { str: $type }
 */
 
 // Generated from Schema object-constraint+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_constraint_Dual;
 
 public interface ICmptObjCnstDual<Ttype>

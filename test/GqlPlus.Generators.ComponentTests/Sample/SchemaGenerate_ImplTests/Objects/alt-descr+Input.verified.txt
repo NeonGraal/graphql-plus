@@ -3,9 +3,9 @@ input AltDescrInp { | "Test" "Descr" String }
 */
 
 // Generated from Schema alt-descr+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_descr_Input;
 
 public class CmptAltDescrInp

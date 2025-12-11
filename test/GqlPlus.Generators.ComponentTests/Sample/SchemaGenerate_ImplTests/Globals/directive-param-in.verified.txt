@@ -4,9 +4,9 @@ input InDrctParamIn { }
 */
 
 // Generated from Schema directive-param-in for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_directive_param_in;
 
 public class CmptInDrctParamIn

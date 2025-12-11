@@ -4,9 +4,9 @@ enum PrntEnumPrntAlias { prnt_enumPrntAlias }
 */
 
 // Generated from Schema enum-parent-alias for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_enum_parent_alias;
 
 public enum CmptEnumPrntAlias

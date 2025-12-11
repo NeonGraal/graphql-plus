@@ -1,8 +1,8 @@
 ﻿//HintName: test_Domain_Intf.gen.cs
 // Generated from Domain.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Domain;
 
 public interface Itest_DomainRef<Tkind>

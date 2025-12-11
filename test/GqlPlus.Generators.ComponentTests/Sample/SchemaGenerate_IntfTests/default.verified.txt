@@ -12,9 +12,9 @@ output _Schema { }
 */
 
 // Generated from Schema default for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_default;
 
 public interface ICmptQuery

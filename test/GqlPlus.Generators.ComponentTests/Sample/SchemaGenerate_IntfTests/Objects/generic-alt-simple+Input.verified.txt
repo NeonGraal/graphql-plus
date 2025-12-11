@@ -4,9 +4,9 @@ input RefGnrcAltSmplInp<$ref:String> { | $ref }
 */
 
 // Generated from Schema generic-alt-simple+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_alt_simple_Input;
 
 public interface ICmptGnrcAltSmplInp

@@ -6,9 +6,9 @@ enum ParentCnstPrntEnumInp { parentCnstPrntEnumInp }
 */
 
 // Generated from Schema constraint-parent-enum+Input for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_parent_enum_Input;
 
 public enum CmptEnumCnstPrntEnumInp

@@ -3,9 +3,9 @@ output FieldSmplOutp { field: Number }
 */
 
 // Generated from Schema field-simple+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_simple_Output;
 
 public interface ICmptFieldSmplOutp

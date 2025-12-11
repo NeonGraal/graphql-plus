@@ -5,9 +5,9 @@ output _DualField {
 */
 
 // Generated from Spec Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Dual;
 
 public interface ICmpt_DualField

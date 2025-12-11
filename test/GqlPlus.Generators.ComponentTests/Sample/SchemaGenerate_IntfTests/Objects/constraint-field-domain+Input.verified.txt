@@ -5,9 +5,9 @@ domain DomCnstFieldDmnInp { String /\w+/ }
 */
 
 // Generated from Schema constraint-field-domain+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_field_domain_Input;
 
 public interface ICmptCnstFieldDmnInp

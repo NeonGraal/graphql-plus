@@ -6,9 +6,9 @@ enum ParentCnstPrntEnumOutp { parentCnstPrntEnumOutp }
 */
 
 // Generated from Schema constraint-parent-enum+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_parent_enum_Output;
 
 public class CmptCnstPrntEnumOutp

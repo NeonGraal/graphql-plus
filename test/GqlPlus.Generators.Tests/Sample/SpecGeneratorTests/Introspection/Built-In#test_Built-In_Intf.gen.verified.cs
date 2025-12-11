@@ -1,8 +1,8 @@
 ﻿//HintName: test_Built-In_Intf.gen.cs
 // Generated from Built-In.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Built_In;
 
 public interface Itest_Collections

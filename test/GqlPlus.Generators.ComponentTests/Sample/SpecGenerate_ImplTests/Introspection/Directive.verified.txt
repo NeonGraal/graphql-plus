@@ -16,9 +16,9 @@ enum _Location { Operation Variable Field Inline Spread Fragment }
 */
 
 // Generated from Spec Directive for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Directive;
 
 public class Cmpt_Directives

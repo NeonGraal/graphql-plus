@@ -5,9 +5,9 @@ output FldObjFieldOutp { }
 */
 
 // Generated from Schema object-field+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_field_Output;
 
 public interface ICmptObjFieldOutp

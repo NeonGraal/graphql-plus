@@ -3,9 +3,9 @@ enum EnumDescr { "Enum" "Descr" enumDescr }
 */
 
 // Generated from Schema enum-descr for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_enum_descr;
 
 public enum CmptEnumDescr

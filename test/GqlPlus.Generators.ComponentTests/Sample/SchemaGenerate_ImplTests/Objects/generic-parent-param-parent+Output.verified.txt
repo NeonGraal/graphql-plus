@@ -5,9 +5,9 @@ output AltGnrcPrntParamPrntOutp { alt: Number | String }
 */
 
 // Generated from Schema generic-parent-param-parent+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_param_parent_Output;
 
 public class CmptGnrcPrntParamPrntOutp

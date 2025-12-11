@@ -4,9 +4,9 @@ dual RefPrntDualOutp { parent: Number | String }
 */
 
 // Generated from Schema parent-dual+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_dual_Output;
 
 public class CmptPrntDualOutp

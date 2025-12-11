@@ -4,9 +4,9 @@ output ObjCnstOutp<$type:String> { str: $type }
 */
 
 // Generated from Schema object-constraint+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_constraint_Output;
 
 public class CmptObjCnstOutp<Ttype>

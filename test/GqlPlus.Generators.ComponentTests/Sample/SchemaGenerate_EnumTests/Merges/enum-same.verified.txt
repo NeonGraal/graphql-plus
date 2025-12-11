@@ -4,9 +4,9 @@ enum EnumSame { enumSame }
 */
 
 // Generated from Schema enum-same for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_enum_same;
 
 public enum CmptEnumSame

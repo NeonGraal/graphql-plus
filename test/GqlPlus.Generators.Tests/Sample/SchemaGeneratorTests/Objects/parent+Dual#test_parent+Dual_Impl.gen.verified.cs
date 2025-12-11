@@ -1,8 +1,8 @@
 ﻿//HintName: test_parent+Dual_Impl.gen.cs
 // Generated from parent+Dual.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_parent_Dual;
 
 public class testPrntDual

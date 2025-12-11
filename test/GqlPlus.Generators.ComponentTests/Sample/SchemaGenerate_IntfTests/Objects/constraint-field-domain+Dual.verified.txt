@@ -5,9 +5,9 @@ domain DomCnstFieldDmnDual { String /\w+/ }
 */
 
 // Generated from Schema constraint-field-domain+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_field_domain_Dual;
 
 public interface ICmptCnstFieldDmnDual

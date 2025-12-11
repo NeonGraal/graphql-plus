@@ -1,8 +1,8 @@
 ﻿//HintName: test_constraint-alt-obj+Dual_Impl.gen.cs
 // Generated from constraint-alt-obj+Dual.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_obj_Dual;
 
 public class testCnstAltObjDual

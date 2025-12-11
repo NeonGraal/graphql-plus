@@ -4,9 +4,9 @@ union UnionSame { Boolean }
 */
 
 // Generated from Schema union-same for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_union_same;
 
 public class CmptUnionSame

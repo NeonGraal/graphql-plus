@@ -6,9 +6,9 @@ domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
 */
 
 // Generated from Schema generic-parent-enum-dom+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Dual;
 
 public interface ICmptGnrcPrntEnumDomDual

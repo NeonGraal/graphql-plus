@@ -4,9 +4,9 @@ directive @Drct { spread }
 */
 
 // Generated from Schema directive for Stat
-
 /*
 
 Directive Drct
 */
+
 namespace Components.Gqlp_Schema_directive;

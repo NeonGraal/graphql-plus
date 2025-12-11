@@ -7,9 +7,9 @@ dual FldOutpFieldParam { }
 */
 
 // Generated from Schema output-field-param for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_output_field_param;
 
 public interface ICmptOutpFieldParam

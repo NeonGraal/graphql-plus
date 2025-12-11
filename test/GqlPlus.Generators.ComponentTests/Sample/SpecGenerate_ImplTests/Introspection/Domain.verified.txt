@@ -73,9 +73,9 @@ output _DomainItemRegex {
 */
 
 // Generated from Spec Domain for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Domain;
 
 public class Cmpt_DomainRef<Tkind>

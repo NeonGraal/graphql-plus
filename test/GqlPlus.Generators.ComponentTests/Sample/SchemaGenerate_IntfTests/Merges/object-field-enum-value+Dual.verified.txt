@@ -4,9 +4,9 @@ dual ObjFieldEnumValueDual { field = true }
 */
 
 // Generated from Schema object-field-enum-value+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_field_enum_value_Dual;
 
 public interface ICmptObjFieldEnumValueDual

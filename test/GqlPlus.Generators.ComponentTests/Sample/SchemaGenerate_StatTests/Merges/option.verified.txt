@@ -4,9 +4,9 @@ option Schema { }
 */
 
 // Generated from Schema option for Stat
-
 /*
 
 Option Schema
 */
+
 namespace Components.Gqlp_Schema_option;

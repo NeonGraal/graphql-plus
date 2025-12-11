@@ -1,8 +1,8 @@
 ﻿//HintName: test_Enum_Impl.gen.cs
 // Generated from Enum.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Enum;
 
 public class test_EnumLabel

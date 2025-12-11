@@ -1,8 +1,8 @@
 ﻿//HintName: test_-Object_Impl.gen.cs
 // Generated from -Object.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Object;
 
 public class test_ObjectKind

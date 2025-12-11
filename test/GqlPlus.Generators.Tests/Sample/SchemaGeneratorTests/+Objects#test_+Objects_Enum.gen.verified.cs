@@ -1,8 +1,8 @@
 ﻿//HintName: test_+Objects_Enum.gen.cs
 // Generated from +Objects.graphql+ for Enum
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Objects;
 
 public enum testEnumAltEnumDual

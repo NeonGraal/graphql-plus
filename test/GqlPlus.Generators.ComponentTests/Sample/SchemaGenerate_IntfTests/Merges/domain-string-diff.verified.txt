@@ -4,9 +4,9 @@ domain DmnStrDiff { string }
 */
 
 // Generated from Schema domain-string-diff for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_domain_string_diff;
 
 public interface ICmptDmnStrDiff

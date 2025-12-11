@@ -4,9 +4,9 @@ output RefPrntDescrOutp { parent: Number | String }
 */
 
 // Generated from Schema parent-descr+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_descr_Output;
 
 public interface ICmptPrntDescrOutp

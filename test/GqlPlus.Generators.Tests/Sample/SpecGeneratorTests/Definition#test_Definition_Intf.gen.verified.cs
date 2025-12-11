@@ -1,8 +1,8 @@
 ﻿//HintName: test_Definition_Intf.gen.cs
 // Generated from Definition.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
 public interface ItestNumber

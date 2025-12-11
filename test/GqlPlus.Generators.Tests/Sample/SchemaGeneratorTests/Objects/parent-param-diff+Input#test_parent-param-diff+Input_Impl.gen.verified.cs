@@ -1,8 +1,8 @@
 ﻿//HintName: test_parent-param-diff+Input_Impl.gen.cs
 // Generated from parent-param-diff+Input.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_parent_param_diff_Input;
 
 public class testPrntParamDiffInp<Ta>

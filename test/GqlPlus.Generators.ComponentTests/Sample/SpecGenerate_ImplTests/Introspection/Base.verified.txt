@@ -70,9 +70,9 @@ output _ForParam<$type:_ObjFieldType> {
 */
 
 // Generated from Spec Base for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Base;
 
 public class Cmpt_ObjectKind

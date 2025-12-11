@@ -4,9 +4,9 @@ dual AltAltDual { alt: Number | String }
 */
 
 // Generated from Schema alt+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_Dual;
 
 public class CmptAltDual

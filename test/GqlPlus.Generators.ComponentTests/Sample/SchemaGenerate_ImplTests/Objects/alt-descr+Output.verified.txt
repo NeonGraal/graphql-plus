@@ -3,9 +3,9 @@ output AltDescrOutp { | "Test" "Descr" String }
 */
 
 // Generated from Schema alt-descr+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_descr_Output;
 
 public class CmptAltDescrOutp

@@ -4,9 +4,9 @@ enum EnumFieldValueDescrDual { fieldValueDescrDual }
 */
 
 // Generated from Schema field-value-descr+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_value_descr_Dual;
 
 public interface ICmptFieldValueDescrDual

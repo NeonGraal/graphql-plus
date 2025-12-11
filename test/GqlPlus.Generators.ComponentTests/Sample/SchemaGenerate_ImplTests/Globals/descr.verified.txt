@@ -4,9 +4,9 @@ output Descr { }
 */
 
 // Generated from Schema descr for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_descr;
 
 public class CmptDescr

@@ -6,9 +6,9 @@ enum ParentCnstEnumPrntInp { parentCnstEnumPrntInp }
 */
 
 // Generated from Schema constraint-enum-parent+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_enum_parent_Input;
 
 public interface ICmptCnstEnumPrntInp

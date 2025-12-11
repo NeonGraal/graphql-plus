@@ -5,9 +5,9 @@ output Dscrs { }
 */
 
 // Generated from Schema descrs for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_descrs;
 
 public class CmptDscrs

@@ -6,9 +6,9 @@ dual AltCnstPrntObjPrntDual { :PrntCnstPrntObjPrntDual alt: Number }
 */
 
 // Generated from Schema constraint-parent-obj-parent+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Dual;
 
 public class CmptCnstPrntObjPrntDual

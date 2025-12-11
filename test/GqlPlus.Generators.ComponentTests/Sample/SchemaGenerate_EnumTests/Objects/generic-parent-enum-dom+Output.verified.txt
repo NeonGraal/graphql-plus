@@ -6,9 +6,9 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 */
 
 // Generated from Schema generic-parent-enum-dom+Output for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
 public enum CmptEnumGnrcPrntEnumDomOutp

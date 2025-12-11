@@ -5,9 +5,9 @@ domain DomOutpParamModDmn { number 1 ~ 10 }
 */
 
 // Generated from Schema output-param-mod-Domain for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_output_param_mod_Domain;
 
 public class CmptOutpParamModDmn

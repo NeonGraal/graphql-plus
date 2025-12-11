@@ -3,9 +3,9 @@ input CnstAltInp<$type:Number> { | $type }
 */
 
 // Generated from Schema constraint-alt+Input for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_alt_Input;
 
 public interface ICmptCnstAltInp<Ttype>

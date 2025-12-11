@@ -1,8 +1,8 @@
 ﻿//HintName: test_-Type_Intf.gen.cs
 // Generated from -Type.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__Type;
 
 public interface Itest_Type

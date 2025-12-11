@@ -1,8 +1,8 @@
 ﻿//HintName: test_enum-parent-dup_Enum.gen.cs
 // Generated from enum-parent-dup.graphql+ for Enum
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_enum_parent_dup;
 
 public enum testEnumPrntDup

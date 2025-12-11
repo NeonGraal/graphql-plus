@@ -4,9 +4,9 @@ output AltAltOutp { alt: Number | String }
 */
 
 // Generated from Schema alt+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_Output;
 
 public class CmptAltOutp

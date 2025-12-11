@@ -1,8 +1,7 @@
 ﻿
 namespace GqlPlus.Generating.Simple;
 
-internal abstract class
-  GenerateForSimple<T>
+internal abstract class GenerateForSimple<T>
   : GenerateForClass<T>
   where T : IGqlpSimple
 {

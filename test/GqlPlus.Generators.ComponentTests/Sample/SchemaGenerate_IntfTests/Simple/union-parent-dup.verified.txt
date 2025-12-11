@@ -4,9 +4,9 @@ union PrntUnionPrntDup { Number }
 */
 
 // Generated from Schema union-parent-dup for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_union_parent_dup;
 
 public interface ICmptUnionPrntDup

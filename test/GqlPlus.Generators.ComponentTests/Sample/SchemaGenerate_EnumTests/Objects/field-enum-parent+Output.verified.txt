@@ -5,9 +5,9 @@ enum PrntFieldEnumPrntOutp { prnt_fieldEnumPrntOutp }
 */
 
 // Generated from Schema field-enum-parent+Output for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_enum_parent_Output;
 
 public enum CmptEnumFieldEnumPrntOutp

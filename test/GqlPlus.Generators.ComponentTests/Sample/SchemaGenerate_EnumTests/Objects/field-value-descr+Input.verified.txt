@@ -4,9 +4,9 @@ enum EnumFieldValueDescrInp { fieldValueDescrInp }
 */
 
 // Generated from Schema field-value-descr+Input for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_value_descr_Input;
 
 public enum CmptEnumFieldValueDescrInp

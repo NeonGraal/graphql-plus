@@ -4,9 +4,9 @@ output RefPrntParamSameOutp<$a:String> { | $a }
 */
 
 // Generated from Schema parent-param-same+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_param_same_Output;
 
 public class CmptPrntParamSameOutp<Ta>

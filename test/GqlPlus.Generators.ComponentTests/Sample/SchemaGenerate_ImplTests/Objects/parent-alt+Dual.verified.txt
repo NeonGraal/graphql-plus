@@ -4,9 +4,9 @@ dual RefPrntAltDual {  parent: Number | String }
 */
 
 // Generated from Schema parent-alt+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_parent_alt_Dual;
 
 public class CmptPrntAltDual

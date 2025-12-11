@@ -7,9 +7,9 @@ output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
 */
 
 // Generated from Schema constraint-parent-dual-grandparent+Output for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
 
 public class CmptCnstPrntDualGrndOutp

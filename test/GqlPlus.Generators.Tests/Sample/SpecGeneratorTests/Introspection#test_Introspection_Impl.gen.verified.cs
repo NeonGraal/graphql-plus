@@ -1,8 +1,8 @@
 ﻿//HintName: test_Introspection_Impl.gen.cs
 // Generated from Introspection.graphql+ for Impl
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Introspection;
 
 public class test_Schema

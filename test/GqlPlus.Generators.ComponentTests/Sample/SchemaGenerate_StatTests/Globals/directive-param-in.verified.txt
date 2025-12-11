@@ -4,9 +4,9 @@ input InDrctParamIn { }
 */
 
 // Generated from Schema directive-param-in for Stat
-
 /*
 
 Directive DrctParamIn
 */
+
 namespace Components.Gqlp_Schema_directive_param_in;

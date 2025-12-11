@@ -5,9 +5,9 @@ output CtgrMod { }
 */
 
 // Generated from Schema category-mod for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_category_mod;
 
 public interface ICmptCtgrMod

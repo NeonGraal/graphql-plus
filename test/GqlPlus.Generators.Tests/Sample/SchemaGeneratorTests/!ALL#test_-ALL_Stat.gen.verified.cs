@@ -1,6 +1,5 @@
 ﻿//HintName: test_-ALL_Stat.gen.cs
 // Generated from -ALL.graphql+ for Stat
-
 /*
 
 Category ctgrDscrs
@@ -25,4 +24,5 @@ Directive DrctAlias
 Directive DrctParam
 Option Schema
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp__ALL;

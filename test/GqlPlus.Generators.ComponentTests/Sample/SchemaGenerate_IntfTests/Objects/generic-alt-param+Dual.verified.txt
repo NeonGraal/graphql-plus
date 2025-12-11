@@ -5,9 +5,9 @@ dual AltGnrcAltParamDual { alt: Number | String }
 */
 
 // Generated from Schema generic-alt-param+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_alt_param_Dual;
 
 public interface ICmptGnrcAltParamDual

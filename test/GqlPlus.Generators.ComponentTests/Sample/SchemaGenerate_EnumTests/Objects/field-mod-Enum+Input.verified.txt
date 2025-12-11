@@ -4,9 +4,9 @@ enum EnumFieldModEnumInp { value }
 */
 
 // Generated from Schema field-mod-Enum+Input for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_mod_Enum_Input;
 
 public enum CmptEnumFieldModEnumInp

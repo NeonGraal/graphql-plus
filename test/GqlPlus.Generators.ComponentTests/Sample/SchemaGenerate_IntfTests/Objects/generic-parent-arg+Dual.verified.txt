@@ -4,9 +4,9 @@ dual RefGnrcPrntArgDual<$ref:String> { | $ref }
 */
 
 // Generated from Schema generic-parent-arg+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_parent_arg_Dual;
 
 public interface ICmptGnrcPrntArgDual<Ttype>

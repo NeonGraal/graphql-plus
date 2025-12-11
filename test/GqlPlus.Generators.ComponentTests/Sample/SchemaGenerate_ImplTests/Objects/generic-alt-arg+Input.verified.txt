@@ -4,9 +4,9 @@ input RefGnrcAltArgInp<$ref:String> { | $ref }
 */
 
 // Generated from Schema generic-alt-arg+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_generic_alt_arg_Input;
 
 public class CmptGnrcAltArgInp<Ttype>

@@ -4,9 +4,9 @@ union UnionAlias [UnA2] { Number }
 */
 
 // Generated from Schema union-alias for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_union_alias;
 
 public interface ICmptUnionAlias

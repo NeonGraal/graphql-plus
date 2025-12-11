@@ -4,9 +4,9 @@ input AltAltModBoolInp { alt: Number | String }
 */
 
 // Generated from Schema alt-mod-Boolean+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 
 public class CmptAltModBoolInp

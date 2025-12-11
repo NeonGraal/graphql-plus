@@ -1,8 +1,8 @@
 ﻿//HintName: test_Declarations_Intf.gen.cs
 // Generated from Declarations.graphql+ for Intf
-
 /*
 */
+
 namespace GqlPlus.GeneratorTests.Gqlp_Declarations;
 
 public interface Itest_Schema

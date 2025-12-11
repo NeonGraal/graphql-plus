@@ -4,9 +4,9 @@ dual AltAltModBoolDual { alt: Number | String }
 */
 
 // Generated from Schema alt-mod-Boolean+Dual for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
 
 public interface ICmptAltModBoolDual

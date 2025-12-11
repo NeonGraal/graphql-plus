@@ -73,9 +73,9 @@ output _DomainItemRegex {
 */
 
 // Generated from Spec Domain for Enum
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Domain;
 
 public enum Cmpt_DomainKind

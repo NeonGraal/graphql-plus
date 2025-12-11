@@ -43,9 +43,9 @@ output _Setting {
 */
 
 // Generated from Spec -Global for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Global;
 
 public class Cmpt_AndType

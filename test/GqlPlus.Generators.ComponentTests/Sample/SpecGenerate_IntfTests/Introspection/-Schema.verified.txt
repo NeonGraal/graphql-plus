@@ -48,9 +48,9 @@ dual _Described {
 */
 
 // Generated from Spec -Schema for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Spec_Schema;
 
 public interface ICmpt_Schema

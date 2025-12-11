@@ -5,9 +5,9 @@ enum PrntFieldEnumPrntDual { prnt_fieldEnumPrntDual }
 */
 
 // Generated from Schema field-enum-parent+Dual for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_enum_parent_Dual;
 
 public class CmptFieldEnumPrntDual

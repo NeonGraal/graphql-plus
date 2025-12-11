@@ -4,9 +4,9 @@ input ObjFieldTypeAliasInp { field: String }
 */
 
 // Generated from Schema object-field-type-alias+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_object_field_type_alias_Input;
 
 public class CmptObjFieldTypeAliasInp

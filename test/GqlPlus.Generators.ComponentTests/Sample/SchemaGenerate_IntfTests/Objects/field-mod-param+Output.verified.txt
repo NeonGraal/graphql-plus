@@ -4,9 +4,9 @@ output FldFieldModParamOutp { field: Number | String }
 */
 
 // Generated from Schema field-mod-param+Output for Intf
-
 /*
 */
+
 namespace Components.Gqlp_Schema_field_mod_param_Output;
 
 public interface ICmptFieldModParamOutp<Tmod>

@@ -6,9 +6,9 @@ input AltCnstFieldDualInp { :PrntCnstFieldDualInp alt: Number }
 */
 
 // Generated from Schema constraint-field-dual+Input for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_constraint_field_dual_Input;
 
 public class CmptCnstFieldDualInp

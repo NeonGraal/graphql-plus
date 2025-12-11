@@ -1,7 +1,7 @@
 ﻿// Generated from Schema !ALL for Impl
-
 /*
 */
+
 namespace Components.Gqlp_Schema_ALL;
 
 public class CmptCtgrDscrs

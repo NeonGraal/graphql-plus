@@ -45,6 +45,13 @@ public sealed class RepeatDataAttribute
       } else if (stringParams.Length > 2) {
         data.AddRange(await GetStringDataRows(stringParams, testMethod, disposalTracker));
       }
+
+      ParameterInfo[] boolParams = [.. testMethod.ThrowIfNull().GetParameters()
+        .Where(p => p.ParameterType == typeof(bool))];
+
+      if (boolParams.Length > 1) {
+        data.AddRange(await GetBoolDataRows(boolParams, testMethod, disposalTracker));
+      }
     }
 
     int repeats = Repeat * testMethod?.GetParameters()?.Length ?? 0;
@@ -83,13 +90,42 @@ public sealed class RepeatDataAttribute
     }
   }
 
+  private async Task<IEnumerable<ITheoryDataRow>> GetBoolDataRows(ParameterInfo[] boolParams, MethodInfo testMethod, DisposalTracker disposalTracker)
+  {
+    object?[] row = (await base.GetData(testMethod, disposalTracker)).First().GetData();
+
+    List<ITheoryDataRow> dataRows = [];
+    for (int i = 0; i < boolParams.Length; i++) {
+      SetRowFixed(i);
+    }
+
+    dataRows.Add(new TheoryDataRow([.. row]));
+    for (int i = 0; i < boolParams.Length; i++) {
+      SetRowFixed(i, true);
+      dataRows.Add(new TheoryDataRow([.. row]));
+
+      for (int j = 0; j < i; j++) {
+        SetRowFixed(j, true);
+        dataRows.Add(new TheoryDataRow([.. row]));
+      }
+
+      for (int j = 0; j <= i; j++) {
+        SetRowFixed(j);
+      }
+    }
+
+    return dataRows;
+
+    void SetRowFixed(int index, bool value = false)
+    {
+      ParameterInfo param = boolParams[index];
+      row[param.Position] = value;
+    }
+  }
+
   private static TheoryDataRow GetFixedDataRow(MethodInfo testMethod)
   {
-    AutoDataSource source = new(() => {
-      IFixture fixture = new Fixture().Customize(new TestsCustomizations());
-      fixture.Customizations.Insert(0, new FixedStringSpecimenBuilder());
-      return fixture;
-    });
+    AutoDataSource source = new(TestsCustomizations.CreateFixture(true));
 
     return source.GetData(testMethod)
         .Select(x => new TheoryDataRow(x))

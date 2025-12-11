@@ -18,16 +18,22 @@ public sealed class TestsCustomizations
       fixture.Customizations.Insert(0, new RandomEnumSequenceGenerator());
       fixture.Customizations.Insert(0, new IdentifierSpecimenBuilder());
       fixture.Customizations.Insert(0, new DecimalSpecimenBuilder());
-      fixture.Customizations.Insert(0, new BooleanSpecimenBuilder());
+      fixture.Customizations.Insert(0, new RandomBooleanSequenceGenerator());
     }
   }
 
+  private static readonly Dictionary<bool, Fixture> s_fixtures = [];
+
   public static Func<IFixture> CreateFixture(bool localTests = false)
     => () => {
-      Fixture fixture = new();
-      fixture.Customize(new TestsCustomizations());
-      if (localTests) {
-        fixture.Customizations.Insert(0, new FixedStringSpecimenBuilder());
+      if (!s_fixtures.TryGetValue(localTests, out Fixture? fixture)) {
+        fixture = new();
+        fixture.Customize(new TestsCustomizations());
+        if (localTests) {
+          fixture.Customizations.Insert(0, new FixedStringSpecimenBuilder());
+        }
+
+        s_fixtures[localTests] = fixture;
       }
 
       return fixture;

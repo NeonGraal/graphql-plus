@@ -4,12 +4,15 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Merging;
 
-internal abstract class AstAliasedMerger<TItem>(
-  ILoggerFactory logger
-) : DistinctMerger<TItem>(logger)
+internal abstract class AstAliasedMerger<TItem>
+  : DistinctMerger<TItem>
   where TItem : IGqlpAliased
 {
-  private readonly ILogger _logger = logger.CreateTypedLogger<AstAliasedMerger<TItem>>();
+  private readonly ILogger _logger;
+
+  public AstAliasedMerger(ILoggerFactory logger)
+    : base(logger)
+    => _logger = logger.CreateTypedLogger(this);
 
   protected override string ItemGroupKey(TItem item) => item.Name;
 

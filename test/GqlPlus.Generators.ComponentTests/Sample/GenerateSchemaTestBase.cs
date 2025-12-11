@@ -7,9 +7,8 @@ using Microsoft.Extensions.Logging;
 namespace GqlPlus.Sample;
 
 public abstract class GenerateSchemaTestBase(
-  ILoggerFactory logger,
   ISchemaGeneratorChecks checks
-) : TestSchemaAsts(logger, checks)
+) : TestSchemaAsts(checks)
 {
   protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "")
   {

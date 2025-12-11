@@ -6,9 +6,8 @@ namespace GqlPlus.Sample;
 
 [Trait("Generate", "Html")]
 public class HtmlSchemaTests(
-  ILoggerFactory logger,
   ISchemaVerifyChecks checks
-) : TestSchemaVerify(logger, checks)
+) : TestSchemaVerify(checks)
 {
   [Fact]
   public async Task Index_Schema()

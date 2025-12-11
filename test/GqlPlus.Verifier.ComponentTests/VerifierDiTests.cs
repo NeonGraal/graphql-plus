@@ -4,10 +4,8 @@ using Xunit.DependencyInjection;
 
 namespace GqlPlus;
 
-public class VerifierDiTests(
-  IServiceCollection services,
-  ITestOutputHelperAccessor output
-) : DependencyInjectionChecks(services, output)
+public class VerifierDiTests(IServiceCollection services)
+  : DependencyInjectionChecks(services)
 {
   protected override string Label => "Verifier";
 }

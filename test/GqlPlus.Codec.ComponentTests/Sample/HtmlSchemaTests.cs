@@ -6,9 +6,8 @@ namespace GqlPlus.Sample;
 
 [Trait("Generate", "Html")]
 public class HtmlSchemaTests(
-  ILoggerFactory logger,
   ISchemaVerifyChecks checks
-) : TestSchemaVerify(logger, checks)
+) : TestSchemaVerify(checks)
 {
   [Fact]
   public async Task Index_Schema()
@@ -53,7 +52,7 @@ public class HtmlSchemaTests(
   [Fact]
   public async Task Index_DI()
   {
-    string[] files = ["Codec", "Parser", "Modeller", "Verifier"];
+    string[] files = ["Codec", "Generator", "Modeller", "Parser", "Verifier"];
 
     Map<IEnumerable<string>> groups = new() {
       ["Table"] = files,

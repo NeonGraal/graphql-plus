@@ -15,10 +15,7 @@ using Xunit.Internal;
 namespace GqlPlus;
 
 [Trait("Generate", "Html")]
-public abstract class DependencyInjectionChecks(
-  IServiceCollection services,
-  ITestOutputHelperAccessor output
-)
+public abstract class DependencyInjectionChecks(IServiceCollection services)
 {
   private const int MaxGroupSize = 5;
   private const string FunctionRequirement = "=>";
@@ -159,8 +156,6 @@ public abstract class DependencyInjectionChecks(
     services.ShouldSatisfyAllConditions(Label,
       s =>
         s.ForEach(di => {
-          sb.Clear();
-
           sb.Append(di.Service.Id);
           sb.Append(", ");
 
@@ -168,9 +163,11 @@ public abstract class DependencyInjectionChecks(
             .Where(p => p.Key != InstanceRequirement && !MatchType(hashset, p.Value))
             .Select(p => $"{di.Service.Name} {p.Key} : " + p.Value.Name)];
 
-          missing.ShouldBeEmpty();
-          output.Output?.WriteLine(sb.ToString());
+          sb.AppendLine(missing.Joined(" "));
+          missing.ShouldBeEmpty("missing requirements for " + di.Service.Id);
         }));
+
+    TestContext.Current.AddAttachment(Label, sb.ToString());
   }
 
   [Fact]

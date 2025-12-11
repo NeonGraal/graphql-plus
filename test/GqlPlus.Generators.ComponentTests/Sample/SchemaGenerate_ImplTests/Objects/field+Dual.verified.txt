@@ -1,0 +1,16 @@
+﻿/* field+Dual
+dual FieldDual { field: String }
+*/
+
+// Generated from Schema field+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_Dual;
+
+public class CmptFieldDual
+  : ICmptFieldDual
+{
+  public CmptString field { get; set; }
+  public CmptFieldDual FieldDual { get; set; }
+}

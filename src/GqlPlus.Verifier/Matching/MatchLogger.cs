@@ -5,13 +5,13 @@ namespace GqlPlus.Matching;
 
 internal abstract class MatchLogger
 {
-  protected ILogger Logger { get; }
+  private readonly ILogger _logger;
 
   protected MatchLogger(ILoggerFactory logger)
-    => Logger = logger.CreateTypedLogger(this);
+    => _logger = logger.CreateTypedLogger(this);
 
   internal void TryingMatch(object type, string constraint)
-    => Logger.TryingMatch(type, constraint);
+    => _logger.TryingMatch(type, constraint);
 
   protected delegate bool MatchAction<TType, TContext>(TType type, string constraint, TContext context)
     where TType : class, IGqlpNamed

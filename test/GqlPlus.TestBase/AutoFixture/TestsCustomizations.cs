@@ -1,4 +1,5 @@
-﻿using AutoFixture;
+﻿using System.Collections.Concurrent;
+using AutoFixture;
 
 namespace GqlPlus.AutoFixture;
 
@@ -22,7 +23,7 @@ public sealed class TestsCustomizations
     }
   }
 
-  private static readonly Dictionary<bool, Fixture> s_fixtures = [];
+  private static readonly ConcurrentDictionary<bool, Fixture> s_fixtures = [];
 
   public static Func<IFixture> CreateFixture(bool localTests = false)
     => () => {

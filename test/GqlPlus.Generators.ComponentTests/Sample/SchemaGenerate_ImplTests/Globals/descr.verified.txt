@@ -1,0 +1,16 @@
+﻿/* descr
+"A simple description"
+output Descr { }
+*/
+
+// Generated from Schema descr for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr;
+
+public class CmptDescr
+  : ICmptDescr
+{
+  public CmptDescr Descr { get; set; }
+}

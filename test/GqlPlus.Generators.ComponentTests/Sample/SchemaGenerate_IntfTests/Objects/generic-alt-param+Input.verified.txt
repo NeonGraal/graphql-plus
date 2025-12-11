@@ -1,0 +1,42 @@
+﻿/* generic-alt-param+Input
+input GnrcAltParamInp { | RefGnrcAltParamInp<AltGnrcAltParamInp> }
+input RefGnrcAltParamInp<$ref:_Input> { | $ref }
+input AltGnrcAltParamInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_param_Input;
+
+public interface ICmptGnrcAltParamInp
+{
+  public CmptRefGnrcAltParamInp<CmptAltGnrcAltParamInp> AsRefGnrcAltParamInp { get; set; }
+  public CmptGnrcAltParamInp GnrcAltParamInp { get; set; }
+}
+
+public interface ICmptGnrcAltParamInpField
+{
+}
+
+public interface ICmptRefGnrcAltParamInp<Tref>
+{
+  public Tref Asref { get; set; }
+  public CmptRefGnrcAltParamInp RefGnrcAltParamInp { get; set; }
+}
+
+public interface ICmptRefGnrcAltParamInpField<Tref>
+{
+}
+
+public interface ICmptAltGnrcAltParamInp
+{
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcAltParamInp AltGnrcAltParamInp { get; set; }
+}
+
+public interface ICmptAltGnrcAltParamInpField
+{
+  public CmptNumber alt { get; set; }
+}

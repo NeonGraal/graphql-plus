@@ -1,0 +1,25 @@
+﻿/* alt-dual+Output
+output AltDualOutp { | ObjDualAltDualOutp }
+dual ObjDualAltDualOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt-dual+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_dual_Output;
+
+public class CmptAltDualOutp
+  : ICmptAltDualOutp
+{
+  public CmptObjDualAltDualOutp AsObjDualAltDualOutp { get; set; }
+  public CmptAltDualOutp AltDualOutp { get; set; }
+}
+
+public class CmptObjDualAltDualOutp
+  : ICmptObjDualAltDualOutp
+{
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptObjDualAltDualOutp ObjDualAltDualOutp { get; set; }
+}

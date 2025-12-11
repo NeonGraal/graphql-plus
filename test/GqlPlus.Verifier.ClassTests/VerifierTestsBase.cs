@@ -10,22 +10,20 @@ public class VerifierTestsBase
   protected Messages Errors { get; } = [];
 
   protected ILoggerFactory LoggerFactory { get; } = A.Of<ILoggerFactory>();
-  protected ILogger Logger { get; } = A.Of<ILogger>();
+  private readonly ILogger _logger = A.Of<ILogger>();
 
   public VerifierTestsBase()
   {
-    Logger.IsEnabled(Arg.Any<LogLevel>())
+    _logger.IsEnabled(Arg.Any<LogLevel>())
       .ReturnsForAnyArgs(true);
 
     LoggerFactory.CreateLogger(Arg.Any<string>())
-      .ReturnsForAnyArgs(Logger);
-    //LoggerFactory.CreateLogger<VerifierTestsBase>()
-    //  .ReturnsForAnyArgs(Logger);
+      .ReturnsForAnyArgs(_logger);
   }
 
   protected void LoggerCalled(LogLevel level, string message, int times = 1)
   {
-    Logger.Received(times).Log(
+    _logger.Received(times).Log(
       level,
       Arg.Any<EventId>(),
       Arg.Is<object>(o => $"{o}".Contains(message)),

@@ -1,0 +1,41 @@
+﻿/* constraint-field-dual+Output
+output CnstFieldDualOutp { :RefCnstFieldDualOutp<AltCnstFieldDualOutp> }
+output RefCnstFieldDualOutp<$ref:PrntCnstFieldDualOutp> { field: $ref }
+dual PrntCnstFieldDualOutp { | String }
+output AltCnstFieldDualOutp { :PrntCnstFieldDualOutp alt: Number }
+*/
+
+// Generated from Schema constraint-field-dual+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_dual_Output;
+
+public class CmptCnstFieldDualOutp
+  : CmptRefCnstFieldDualOutp
+  , ICmptCnstFieldDualOutp
+{
+  public CmptCnstFieldDualOutp CnstFieldDualOutp { get; set; }
+}
+
+public class CmptRefCnstFieldDualOutp<Tref>
+  : ICmptRefCnstFieldDualOutp<Tref>
+{
+  public Tref field { get; set; }
+  public CmptRefCnstFieldDualOutp RefCnstFieldDualOutp { get; set; }
+}
+
+public class CmptPrntCnstFieldDualOutp
+  : ICmptPrntCnstFieldDualOutp
+{
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstFieldDualOutp PrntCnstFieldDualOutp { get; set; }
+}
+
+public class CmptAltCnstFieldDualOutp
+  : CmptPrntCnstFieldDualOutp
+  , ICmptAltCnstFieldDualOutp
+{
+  public CmptNumber alt { get; set; }
+  public CmptAltCnstFieldDualOutp AltCnstFieldDualOutp { get; set; }
+}

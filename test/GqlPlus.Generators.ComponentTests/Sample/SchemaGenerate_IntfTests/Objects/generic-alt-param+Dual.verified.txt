@@ -1,0 +1,42 @@
+﻿/* generic-alt-param+Dual
+dual GnrcAltParamDual { | RefGnrcAltParamDual<AltGnrcAltParamDual> }
+dual RefGnrcAltParamDual<$ref:_Dual> { | $ref }
+dual AltGnrcAltParamDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_param_Dual;
+
+public interface ICmptGnrcAltParamDual
+{
+  public CmptRefGnrcAltParamDual<CmptAltGnrcAltParamDual> AsRefGnrcAltParamDual { get; set; }
+  public CmptGnrcAltParamDual GnrcAltParamDual { get; set; }
+}
+
+public interface ICmptGnrcAltParamDualField
+{
+}
+
+public interface ICmptRefGnrcAltParamDual<Tref>
+{
+  public Tref Asref { get; set; }
+  public CmptRefGnrcAltParamDual RefGnrcAltParamDual { get; set; }
+}
+
+public interface ICmptRefGnrcAltParamDualField<Tref>
+{
+}
+
+public interface ICmptAltGnrcAltParamDual
+{
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcAltParamDual AltGnrcAltParamDual { get; set; }
+}
+
+public interface ICmptAltGnrcAltParamDualField
+{
+  public CmptNumber alt { get; set; }
+}

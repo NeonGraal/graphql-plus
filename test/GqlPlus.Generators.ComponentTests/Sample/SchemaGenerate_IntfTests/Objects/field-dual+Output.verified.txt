@@ -1,0 +1,31 @@
+﻿/* field-dual+Output
+output FieldDualOutp { field: FldFieldDualOutp }
+dual FldFieldDualOutp { field: Number | String }
+*/
+
+// Generated from Schema field-dual+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_dual_Output;
+
+public interface ICmptFieldDualOutp
+{
+  public CmptFieldDualOutp FieldDualOutp { get; set; }
+}
+
+public interface ICmptFieldDualOutpField
+{
+  public CmptFldFieldDualOutp field { get; set; }
+}
+
+public interface ICmptFldFieldDualOutp
+{
+  public CmptString AsString { get; set; }
+  public CmptFldFieldDualOutp FldFieldDualOutp { get; set; }
+}
+
+public interface ICmptFldFieldDualOutpField
+{
+  public CmptNumber field { get; set; }
+}

@@ -6,9 +6,8 @@ namespace GqlPlus.Sample;
 [Trait("Generate", "Yaml")]
 [Trait("Generate", "Plain")]
 public class PlainSchemaTests(
-  ILoggerFactory logger,
   ISchemaVerifyChecks checks
-) : TestSchemaVerify(logger, checks)
+) : TestSchemaVerify(checks)
 {
   protected override Task VerifyResult(Structured result, string label, string test, string section)
     => Verify(result.ToPlain(true).Joined(Environment.NewLine), CustomSettings(label, "Plain", test, section));

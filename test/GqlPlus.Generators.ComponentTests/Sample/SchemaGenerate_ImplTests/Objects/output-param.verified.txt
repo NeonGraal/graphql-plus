@@ -1,0 +1,32 @@
+﻿/* output-param
+output OutpParam { field(InOutpParam): FldOutpParam }
+dual FldOutpParam { }
+input InOutpParam { param: Number | String }
+*/
+
+// Generated from Schema output-param for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param;
+
+public class CmptOutpParam
+  : ICmptOutpParam
+{
+  public CmptFldOutpParam field { get; set; }
+  public CmptOutpParam OutpParam { get; set; }
+}
+
+public class CmptFldOutpParam
+  : ICmptFldOutpParam
+{
+  public CmptFldOutpParam FldOutpParam { get; set; }
+}
+
+public class CmptInOutpParam
+  : ICmptInOutpParam
+{
+  public CmptNumber param { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptInOutpParam InOutpParam { get; set; }
+}

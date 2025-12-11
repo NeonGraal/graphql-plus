@@ -205,7 +205,7 @@ public class StructureValueTests
 
     bool result = value1.Equals(value2);
 
-    result.ShouldBe(check1 && check2);
+    result.ShouldBe(check1 == check2);
   }
 
   [Theory, RepeatData]

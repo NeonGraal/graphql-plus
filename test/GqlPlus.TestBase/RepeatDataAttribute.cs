@@ -85,11 +85,7 @@ public sealed class RepeatDataAttribute
 
   private static TheoryDataRow GetFixedDataRow(MethodInfo testMethod)
   {
-    AutoDataSource source = new(() => {
-      IFixture fixture = new Fixture().Customize(new TestsCustomizations());
-      fixture.Customizations.Insert(0, new FixedStringSpecimenBuilder());
-      return fixture;
-    });
+    AutoDataSource source = new(TestsCustomizations.CreateFixture(true));
 
     return source.GetData(testMethod)
         .Select(x => new TheoryDataRow(x))

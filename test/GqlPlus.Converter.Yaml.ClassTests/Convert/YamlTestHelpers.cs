@@ -5,9 +5,7 @@ internal static class YamlTestHelpers
   internal static IConvertTestsBase Full { get; } = new YamlConverters(false);
   internal static IConvertTestsBase Wrapped { get; } = new YamlConverters(true);
 
-  internal static string[] WithFullTag(this string tag, string value)
-    => [$"!{tag} {value}"];
-  internal static string[] WithWrappedTag(this string tag, string value)
+  internal static string[] Tagged(this string tag, string value)
     => [$"!{tag} {value}"];
 
   internal static string[] FlowOr<T>(this IEnumerable<T> list, Func<IEnumerable<T>, string> flowMap, Func<IEnumerable<T>, string[]> isMap)

@@ -27,7 +27,7 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: build
           path: |
@@ -98,13 +98,13 @@ jobs:
           recreate: true
           path: coverage/SummaryGithub.md
       - name: Upload Tests artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: always()
         with:
           name: tests-${{ matrix.version }}-${{ env.testType }}
           path: "**/TestResults-${{ matrix.version }}.trx"
       - name: Upload Coverage artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: always()
         with:
           name: coverage-${{ matrix.version }}-${{ env.testType }}

@@ -6,8 +6,5 @@
     <IsTestProject>false</IsTestProject>
     <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Collections.Immutable" VersionOverride="6.0.1" />
-  </ItemGroup>
 
 </Project>

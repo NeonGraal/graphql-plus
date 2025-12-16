@@ -1,80 +1,82 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "DmnEnumAllDescr": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "description": "DomAll Descr",
           "domain": "DmnEnumAllDescr",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "*",
             "name": "EnumDmnEnumAllDescr",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "description": "DomAll Descr",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "*",
             "name": "EnumDmnEnumAllDescr",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumAllDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumAllDescr": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumAllDescr",
           "name": "dmnEnumAllDescr"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumAllDescr",
           "name": "enum_dmnEnumAllDescr"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumAllDescr"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enum_dmnEnumAllDescr"
         }
       ],
       "name": "EnumDmnEnumAllDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     }
   }

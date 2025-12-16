@@ -1,12 +1,13 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "DmnBoolDescr": {
-      "$tag": "_DomainBoolean",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainBoolean",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "description": "DomBool Descr",
           "domain": "DmnBoolDescr",
           "exclude": false,
@@ -14,12 +15,12 @@
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Boolean"
+        "$value": "Boolean",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "description": "DomBool Descr",
           "exclude": false,
           "value": true
@@ -27,534 +28,546 @@
       ],
       "name": "DmnBoolDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnBoolPrnt": {
-      "$tag": "_DomainBoolean",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainBoolean",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "PrntDmnBoolPrnt",
           "exclude": false,
           "value": true
         },
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "DmnBoolPrnt",
           "exclude": false,
           "value": false
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Boolean"
+        "$value": "Boolean",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": false
         }
       ],
       "name": "DmnBoolPrnt",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntDmnBoolPrnt",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Domain"
+          "$value": "Domain",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnBoolPrntDescr": {
-      "$tag": "_DomainBoolean",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainBoolean",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "PrntDmnBoolPrntDescr",
           "exclude": false,
           "value": true
         },
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "DmnBoolPrntDescr",
           "exclude": false,
           "value": false
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Boolean"
+        "$value": "Boolean",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": false
         }
       ],
       "name": "DmnBoolPrntDescr",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "description": "Parent comment",
         "name": "PrntDmnBoolPrntDescr",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Domain"
+          "$value": "Domain",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnEnumAll": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "DmnEnumAll",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "*",
             "name": "EnumDmnEnumAll",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "*",
             "name": "EnumDmnEnumAll",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumAll",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnEnumAllDescr": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "description": "DomAll Descr",
           "domain": "DmnEnumAllDescr",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "*",
             "name": "EnumDmnEnumAllDescr",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "description": "DomAll Descr",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "*",
             "name": "EnumDmnEnumAllDescr",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumAllDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnEnumAllPrnt": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "DmnEnumAllPrnt",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "*",
             "name": "EnumDmnEnumAllPrnt",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "*",
             "name": "EnumDmnEnumAllPrnt",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumAllPrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnEnumDescr": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "description": "DomEnum Descr",
           "domain": "DmnEnumDescr",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "dmnEnumDescr",
             "name": "EnumDmnEnumDescr",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "description": "DomEnum Descr",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "dmnEnumDescr",
             "name": "EnumDmnEnumDescr",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnEnumLabel": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "DmnEnumLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "dmnEnumLabel",
             "name": "EnumDmnEnumLabel",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "dmnEnumLabel",
             "name": "EnumDmnEnumLabel",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumLabel",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnEnumPrnt": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "PrntDmnEnumPrnt",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "prnt_dmnEnumPrnt",
             "name": "EnumDmnEnumPrnt",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         },
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "DmnEnumPrnt",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "enum_dmnEnumPrnt",
             "name": "EnumDmnEnumPrnt",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "enum_dmnEnumPrnt",
             "name": "EnumDmnEnumPrnt",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumPrnt",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntDmnEnumPrnt",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Domain"
+          "$value": "Domain",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnEnumPrntDescr": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "PrntDmnEnumPrntDescr",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "prnt_dmnEnumPrntDescr",
             "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         },
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "DmnEnumPrntDescr",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "enum_dmnEnumPrntDescr",
             "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "enum_dmnEnumPrntDescr",
             "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumPrntDescr",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "description": "Parent comment",
         "name": "PrntDmnEnumPrntDescr",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Domain"
+          "$value": "Domain",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnEnumValue": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "DmnEnumValue",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "dmnEnumValue",
             "name": "EnumDmnEnumValue",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "dmnEnumValue",
             "name": "EnumDmnEnumValue",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumValue",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnEnumValuePrnt": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "DmnEnumValuePrnt",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "prnt_dmnEnumValuePrnt",
             "name": "EnumDmnEnumValuePrnt",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "prnt_dmnEnumValuePrnt",
             "name": "EnumDmnEnumValuePrnt",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumValuePrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnNmbrDescr": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRange)",
+          "$mapTag": "_DomainItem(_DomainRange)",
           "description": "DomNumber Descr",
           "domain": "DmnNmbrDescr",
           "exclude": false,
@@ -562,12 +575,12 @@
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRange",
+          "$mapTag": "_DomainRange",
           "description": "DomNumber Descr",
           "exclude": false,
           "to": 2
@@ -575,98 +588,101 @@
       ],
       "name": "DmnNmbrDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnNmbrPrnt": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRange)",
+          "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "PrntDmnNmbrPrnt",
           "exclude": false,
           "to": 2
         },
         {
-          "$tag": "_DomainItem(_DomainRange)",
+          "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "DmnNmbrPrnt",
           "exclude": false,
           "from": 2
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRange",
+          "$mapTag": "_DomainRange",
           "exclude": false,
           "from": 2
         }
       ],
       "name": "DmnNmbrPrnt",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntDmnNmbrPrnt",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Domain"
+          "$value": "Domain",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnNmbrPrntDescr": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRange)",
+          "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "PrntDmnNmbrPrntDescr",
           "exclude": false,
           "to": 2
         },
         {
-          "$tag": "_DomainItem(_DomainRange)",
+          "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "DmnNmbrPrntDescr",
           "exclude": false,
           "from": 2
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRange",
+          "$mapTag": "_DomainRange",
           "exclude": false,
           "from": 2
         }
       ],
       "name": "DmnNmbrPrntDescr",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "description": "Parent comment",
         "name": "PrntDmnNmbrPrntDescr",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Domain"
+          "$value": "Domain",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnStrDescr": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "description": "DomString Descr",
           "domain": "DmnStrDescr",
           "exclude": false,
@@ -674,12 +690,12 @@
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRegex",
+          "$mapTag": "_DomainRegex",
           "description": "DomString Descr",
           "exclude": false,
           "pattern": "a\u002B"
@@ -687,128 +703,132 @@
       ],
       "name": "DmnStrDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnStrPrnt": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "PrntDmnStrPrnt",
           "exclude": false,
           "pattern": "b\u002B"
         },
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "DmnStrPrnt",
           "exclude": false,
           "pattern": "a\u002B"
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRegex",
+          "$mapTag": "_DomainRegex",
           "exclude": false,
           "pattern": "a\u002B"
         }
       ],
       "name": "DmnStrPrnt",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntDmnStrPrnt",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Domain"
+          "$value": "Domain",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnStrPrntDescr": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "PrntDmnStrPrntDescr",
           "exclude": false,
           "pattern": "b\u002B"
         },
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "DmnStrPrntDescr",
           "exclude": false,
           "pattern": "a\u002B"
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRegex",
+          "$mapTag": "_DomainRegex",
           "exclude": false,
           "pattern": "a\u002B"
         }
       ],
       "name": "DmnStrPrntDescr",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "description": "Parent comment",
         "name": "PrntDmnStrPrntDescr",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Domain"
+          "$value": "Domain",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DupDmnEnumUnqPrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "DupDmnEnumUnqPrnt",
           "name": "dmnEnumUnqPrnt"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "DupDmnEnumUnqPrnt",
           "name": "dup_dmnEnumUnqPrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumUnqPrnt"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dup_dmnEnumUnqPrnt"
         }
       ],
       "name": "DupDmnEnumUnqPrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDescr": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "description": "Enum Descr",
           "enum": "EnumDescr",
           "name": "enumDescr"
@@ -816,416 +836,430 @@
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "description": "Enum Descr",
           "name": "enumDescr"
         }
       ],
       "name": "EnumDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumAll": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumAll",
           "name": "dmnEnumAll"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumAll",
           "name": "enum_dmnEnumAll"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumAll"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enum_dmnEnumAll"
         }
       ],
       "name": "EnumDmnEnumAll",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumAllDescr": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumAllDescr",
           "name": "dmnEnumAllDescr"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumAllDescr",
           "name": "enum_dmnEnumAllDescr"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumAllDescr"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enum_dmnEnumAllDescr"
         }
       ],
       "name": "EnumDmnEnumAllDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumAllPrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntDmnEnumAllPrnt",
           "name": "prnt_dmnEnumAllPrnt"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumAllPrnt",
           "name": "dmnEnumAllPrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumAllPrnt"
         }
       ],
       "name": "EnumDmnEnumAllPrnt",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntDmnEnumAllPrnt",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Enum"
+          "$value": "Enum",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumDescr": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumDescr",
           "name": "dmnEnumDescr"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumDescr"
         }
       ],
       "name": "EnumDmnEnumDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumLabel": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumLabel",
           "name": "dmnEnumLabel"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumLabel"
         }
       ],
       "name": "EnumDmnEnumLabel",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumPrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumPrnt",
           "name": "enum_dmnEnumPrnt"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumPrnt",
           "name": "prnt_dmnEnumPrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enum_dmnEnumPrnt"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "prnt_dmnEnumPrnt"
         }
       ],
       "name": "EnumDmnEnumPrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumPrntDescr": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumPrntDescr",
           "name": "enum_dmnEnumPrntDescr"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumPrntDescr",
           "name": "prnt_dmnEnumPrntDescr"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enum_dmnEnumPrntDescr"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "prnt_dmnEnumPrntDescr"
         }
       ],
       "name": "EnumDmnEnumPrntDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumUnq": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumUnq",
           "name": "enum_dmnEnumUnq"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumUnq",
           "name": "dmnEnumUnq"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enum_dmnEnumUnq"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumUnq"
         }
       ],
       "name": "EnumDmnEnumUnq",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumUnqPrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntDmnEnumUnqPrnt",
           "name": "dmnEnumUnqPrnt"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntDmnEnumUnqPrnt",
           "name": "prnt_dmnEnumUnqPrnt"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumUnqPrnt",
           "name": "enum_dmnEnumUnqPrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enum_dmnEnumUnqPrnt"
         }
       ],
       "name": "EnumDmnEnumUnqPrnt",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntDmnEnumUnqPrnt",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Enum"
+          "$value": "Enum",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumValue": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumValue",
           "name": "dmnEnumValue"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumValue"
         }
       ],
       "name": "EnumDmnEnumValue",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDmnEnumValuePrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntDmnEnumValuePrnt",
           "name": "prnt_dmnEnumValuePrnt"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumValuePrnt",
           "name": "dmnEnumValuePrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumValuePrnt"
         }
       ],
       "name": "EnumDmnEnumValuePrnt",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntDmnEnumValuePrnt",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Enum"
+          "$value": "Enum",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDomDup": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDomDup",
           "name": "dmnEnumUnq"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDomDup",
           "name": "dup_dmnEnumUnq"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumUnq"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dup_dmnEnumUnq"
         }
       ],
       "name": "EnumDomDup",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumPrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntEnumPrnt",
           "name": "prnt_enumPrnt"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumPrnt",
           "name": "enumPrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enumPrnt"
         }
       ],
       "name": "EnumPrnt",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntEnumPrnt",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Enum"
+          "$value": "Enum",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumPrntAlias": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntEnumPrntAlias",
           "name": "prnt_enumPrntAlias"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumPrntAlias",
           "name": "val_enumPrntAlias"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "aliases": ["enumPrntAlias"],
           "enum": "EnumPrntAlias",
           "name": "prnt_enumPrntAlias"
@@ -1233,487 +1267,504 @@
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "val_enumPrntAlias"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "aliases": ["enumPrntAlias"],
           "name": "prnt_enumPrntAlias"
         }
       ],
       "name": "EnumPrntAlias",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntEnumPrntAlias",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Enum"
+          "$value": "Enum",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumPrntDescr": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntEnumPrntDescr",
           "name": "prnt_enumPrntDescr"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumPrntDescr",
           "name": "enumPrntDescr"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enumPrntDescr"
         }
       ],
       "name": "EnumPrntDescr",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "description": "Parent comment",
         "name": "PrntEnumPrntDescr",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Enum"
+          "$value": "Enum",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumPrntDup": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "aliases": ["enumPrntDup"],
           "enum": "PrntEnumPrntDup",
           "name": "prnt_enumPrntDup"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumPrntDup",
           "name": "enumPrntDup"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enumPrntDup"
         }
       ],
       "name": "EnumPrntDup",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntEnumPrntDup",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Enum"
+          "$value": "Enum",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnBoolPrnt": {
-      "$tag": "_DomainBoolean",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainBoolean",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "PrntDmnBoolPrnt",
           "exclude": false,
           "value": true
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Boolean"
+        "$value": "Boolean",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": true
         }
       ],
       "name": "PrntDmnBoolPrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnBoolPrntDescr": {
-      "$tag": "_DomainBoolean",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainBoolean",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "PrntDmnBoolPrntDescr",
           "exclude": false,
           "value": true
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Boolean"
+        "$value": "Boolean",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": true
         }
       ],
       "name": "PrntDmnBoolPrntDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnEnumAllPrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntDmnEnumAllPrnt",
           "name": "prnt_dmnEnumAllPrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "prnt_dmnEnumAllPrnt"
         }
       ],
       "name": "PrntDmnEnumAllPrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnEnumPrnt": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "PrntDmnEnumPrnt",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "prnt_dmnEnumPrnt",
             "name": "EnumDmnEnumPrnt",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "prnt_dmnEnumPrnt",
             "name": "EnumDmnEnumPrnt",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "PrntDmnEnumPrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnEnumPrntDescr": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "PrntDmnEnumPrntDescr",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "prnt_dmnEnumPrntDescr",
             "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "prnt_dmnEnumPrntDescr",
             "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "PrntDmnEnumPrntDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnEnumUnqPrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntDmnEnumUnqPrnt",
           "name": "dmnEnumUnqPrnt"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntDmnEnumUnqPrnt",
           "name": "prnt_dmnEnumUnqPrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "dmnEnumUnqPrnt"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "prnt_dmnEnumUnqPrnt"
         }
       ],
       "name": "PrntDmnEnumUnqPrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnEnumValuePrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntDmnEnumValuePrnt",
           "name": "prnt_dmnEnumValuePrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "prnt_dmnEnumValuePrnt"
         }
       ],
       "name": "PrntDmnEnumValuePrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnNmbrPrnt": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRange)",
+          "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "PrntDmnNmbrPrnt",
           "exclude": false,
           "to": 2
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRange",
+          "$mapTag": "_DomainRange",
           "exclude": false,
           "to": 2
         }
       ],
       "name": "PrntDmnNmbrPrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnNmbrPrntDescr": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRange)",
+          "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "PrntDmnNmbrPrntDescr",
           "exclude": false,
           "to": 2
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRange",
+          "$mapTag": "_DomainRange",
           "exclude": false,
           "to": 2
         }
       ],
       "name": "PrntDmnNmbrPrntDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnStrPrnt": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "PrntDmnStrPrnt",
           "exclude": false,
           "pattern": "b\u002B"
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRegex",
+          "$mapTag": "_DomainRegex",
           "exclude": false,
           "pattern": "b\u002B"
         }
       ],
       "name": "PrntDmnStrPrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnStrPrntDescr": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "PrntDmnStrPrntDescr",
           "exclude": false,
           "pattern": "b\u002B"
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRegex",
+          "$mapTag": "_DomainRegex",
           "exclude": false,
           "pattern": "b\u002B"
         }
       ],
       "name": "PrntDmnStrPrntDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntEnumPrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntEnumPrnt",
           "name": "prnt_enumPrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "prnt_enumPrnt"
         }
       ],
       "name": "PrntEnumPrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntEnumPrntAlias": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntEnumPrntAlias",
           "name": "prnt_enumPrntAlias"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "prnt_enumPrntAlias"
         }
       ],
       "name": "PrntEnumPrntAlias",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntEnumPrntDescr": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntEnumPrntDescr",
           "name": "prnt_enumPrntDescr"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "prnt_enumPrntDescr"
         }
       ],
       "name": "PrntEnumPrntDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntEnumPrntDup": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "aliases": ["enumPrntDup"],
           "enum": "PrntEnumPrntDup",
           "name": "prnt_enumPrntDup"
@@ -1721,85 +1772,89 @@
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "aliases": ["enumPrntDup"],
           "name": "prnt_enumPrntDup"
         }
       ],
       "name": "PrntEnumPrntDup",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntUnionPrnt": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "PrntUnionPrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Number"
         }
       ],
       "name": "PrntUnionPrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntUnionPrntDescr": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "PrntUnionPrntDescr"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Number"
         }
       ],
       "name": "PrntUnionPrntDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntUnionPrntDup": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "PrntUnionPrntDup"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Number"
         }
       ],
       "name": "PrntUnionPrntDup",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "UnionDescr": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "description": "Union Descr",
           "name": "Number",
           "union": "UnionDescr"
@@ -1807,118 +1862,121 @@
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "description": "Union Descr",
           "name": "Number"
         }
       ],
       "name": "UnionDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "UnionPrnt": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "PrntUnionPrnt"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "String",
           "union": "UnionPrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "String"
         }
       ],
       "name": "UnionPrnt",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntUnionPrnt",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Union"
+          "$value": "Union",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "UnionPrntDescr": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "PrntUnionPrntDescr"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "UnionPrntDescr"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Number"
         }
       ],
       "name": "UnionPrntDescr",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "description": "Parent comment",
         "name": "PrntUnionPrntDescr",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Union"
+          "$value": "Union",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "UnionPrntDup": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "PrntUnionPrntDup"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "UnionPrntDup"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Number"
         }
       ],
       "name": "UnionPrntDup",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntUnionPrntDup",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Union"
+          "$value": "Union",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     }
   }

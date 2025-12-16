@@ -1,69 +1,33 @@
-﻿!_Schema
-errors:
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In AltCnstPrntDualGrndInp can't get model for type 'PrntCnstPrntDualGrndInp'"
-types: !_Map_Type
-  !_Identifier AltCnstPrntDualGrndInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: alt
-        object: AltCnstPrntDualGrndInp
-        type: !_ObjBase
-          name: Number
-    fields:
-      - !_InputField
-        name: alt
-        type: !_ObjBase
-          name: Number
-    name: AltCnstPrntDualGrndInp
-    parent: !_ObjBase
-      name: PrntCnstPrntDualGrndInp
-    typeKind: !_TypeKind Input
-  !_Identifier CnstPrntDualGrndInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: alt
-        object: AltCnstPrntDualGrndInp
-        type: !_ObjBase
-          name: Number
-    name: CnstPrntDualGrndInp
-    parent: !_ObjBase
-      name: RefCnstPrntDualGrndInp
-      typeArgs:
-        - !_TypeArg
-          name: AltCnstPrntDualGrndInp
-    typeKind: !_TypeKind Input
-  !_Identifier GrndCnstPrntDualGrndInp: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: GrndCnstPrntDualGrndInp
-        type: !_ObjBase
-          name: String
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    name: GrndCnstPrntDualGrndInp
-    typeKind: !_TypeKind Dual
-  !_Identifier PrntCnstPrntDualGrndInp: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: GrndCnstPrntDualGrndInp
-        type: !_ObjBase
-          name: String
-    name: PrntCnstPrntDualGrndInp
-    parent: !_ObjBase
-      name: GrndCnstPrntDualGrndInp
-    typeKind: !_TypeKind Dual
-  !_Identifier RefCnstPrntDualGrndInp: !_TypeInput
-    name: RefCnstPrntDualGrndInp
-    parent: !_ObjBase
-      typeParam: ref
-    typeKind: !_TypeKind Input
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: GrndCnstPrntDualGrndInp
-          typeKind: !_TypeKind Dual
-        name: ref
+﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
+[_Schema]:errors[_Errors].0[_Error]:_message="In AltCnstPrntDualGrndInp can't get model for type 'PrntCnstPrntDualGrndInp'"
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstPrntDualGrndInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstPrntDualGrndInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=AltCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstPrntDualGrndInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstPrntDualGrndInp[_TypeInput]:fields.0[_InputField]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstPrntDualGrndInp[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstPrntDualGrndInp[_TypeInput]:name=AltCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstPrntDualGrndInp[_TypeInput]:parent[_ObjBase]:name=PrntCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstPrntDualGrndInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntDualGrndInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntDualGrndInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=AltCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntDualGrndInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntDualGrndInp[_TypeInput]:name=CnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntDualGrndInp[_TypeInput]:parent[_ObjBase]:name=RefCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntDualGrndInp[_TypeInput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=AltCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntDualGrndInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]GrndCnstPrntDualGrndInp[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=GrndCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]GrndCnstPrntDualGrndInp[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]GrndCnstPrntDualGrndInp[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]GrndCnstPrntDualGrndInp[_TypeDual]:name=GrndCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]GrndCnstPrntDualGrndInp[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstPrntDualGrndInp[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=GrndCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstPrntDualGrndInp[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstPrntDualGrndInp[_TypeDual]:name=PrntCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstPrntDualGrndInp[_TypeDual]:parent[_ObjBase]:name=GrndCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstPrntDualGrndInp[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntDualGrndInp[_TypeInput]:name=RefCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntDualGrndInp[_TypeInput]:parent[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntDualGrndInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntDualGrndInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=GrndCnstPrntDualGrndInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntDualGrndInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntDualGrndInp[_TypeInput]:typeParams.0[_TypeParam]:name=ref

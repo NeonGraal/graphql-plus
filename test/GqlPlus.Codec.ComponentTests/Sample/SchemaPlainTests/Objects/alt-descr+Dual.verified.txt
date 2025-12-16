@@ -1,16 +1,7 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltDescrDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: AltDescrDual
-        type: !_ObjBase
-          description: 'Test Descr'
-          name: String
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          description: 'Test Descr'
-          name: String
-    name: AltDescrDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]AltDescrDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrDual[_TypeDual]:name=AltDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrDual[_TypeDual]:typeKind=[_TypeKind]Dual

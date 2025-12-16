@@ -1,38 +1,15 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcAltSmplDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: GnrcAltSmplDual
-        type: !_ObjBase
-          name: RefGnrcAltSmplDual
-          typeArgs:
-            - !_TypeArg
-              name: String
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: RefGnrcAltSmplDual
-          typeArgs:
-            - !_TypeArg
-              name: String
-    name: GnrcAltSmplDual
-    typeKind: !_TypeKind Dual
-  !_Identifier RefGnrcAltSmplDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: RefGnrcAltSmplDual
-        type: !_ObjBase
-          typeParam: ref
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          typeParam: ref
-    name: RefGnrcAltSmplDual
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: ref
+﻿[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=GnrcAltSmplDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=RefGnrcAltSmplDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=RefGnrcAltSmplDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplDual[_TypeDual]:name=GnrcAltSmplDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefGnrcAltSmplDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplDual[_TypeDual]:name=RefGnrcAltSmplDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplDual[_TypeDual]:typeParams.0[_TypeParam]:name=ref

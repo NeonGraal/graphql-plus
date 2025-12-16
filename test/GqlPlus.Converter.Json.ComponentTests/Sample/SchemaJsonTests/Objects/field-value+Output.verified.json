@@ -1,59 +1,61 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "EnumFieldValueOutp": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumFieldValueOutp",
           "name": "fieldValueOutp"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "fieldValueOutp"
         }
       ],
       "name": "EnumFieldValueOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "FieldValueOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "field": "field",
           "label": "fieldValueOutp",
           "name": "EnumFieldValueOutp",
           "object": "FieldValueOutp",
           "typeKind": {
-            "$tag": "_SimpleKind",
-            "$value": "Enum"
+            "$value": "Enum",
+            "$valueTag": "_SimpleKind"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputEnum",
+          "$mapTag": "_OutputEnum",
           "field": "field",
           "label": "fieldValueOutp",
           "name": "EnumFieldValueOutp",
           "typeKind": {
-            "$tag": "_SimpleKind",
-            "$value": "Enum"
+            "$value": "Enum",
+            "$valueTag": "_SimpleKind"
           }
         }
       ],
       "name": "FieldValueOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     }
   }

@@ -1,5 +1,5 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "aliases": ["Alias"],
   "name": "Schema"
 }

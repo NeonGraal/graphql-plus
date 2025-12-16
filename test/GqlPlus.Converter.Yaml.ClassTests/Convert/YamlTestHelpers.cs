@@ -15,42 +15,45 @@ internal static class YamlTestHelpers
     return flow.Length < RenderYaml.BestWidth * 20 ? [flow] : isMap(list);
   }
 
-  internal static string[] FlowList(this string[] value, string valuePrefix = "", string indent = "")
-    => value.FlowList(v => [valuePrefix + v], indent);
+  internal static string[] FlowList(this string[] value, string valuePrefix = "", string listPrefix = "", string indent = "")
+    => value.FlowList(v => [valuePrefix + v], listPrefix, indent);
 
-  internal static string[] FlowList<T>(this T[] value, Func<T?, string[]> mapper, string indent = "")
+  internal static string[] FlowList<T>(this T[] value, Func<T?, string[]> mapper, string listPrefix = "", string indent = "")
     => value.FlowOr(
-      f => f.Surround("[", "]", v => mapper(v).Joined(""), ", "),
-      i => i.IsList(v => v.BlockFirst(mapper, indent + "-")));
+      f => f.Surround(listPrefix + "[", "]", v => mapper(v).Joined(""), ", "),
+      i => i.IsList(v => v.BlockFirst(mapper, indent + "-"), listPrefix));
 
-  internal static string[] FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "", string indent = "")
-    => list.FlowMap(v => [valuePrefix + v], mapPrefix, indent);
+  internal static string[] FlowMap(this MapPair<string>[] list, string mapPrefix = "", string keyPrefix = "", string valuePrefix = "", string indent = "")
+    => list.FlowMap(v => [valuePrefix + v], mapPrefix, keyPrefix, indent);
 
-  internal static string[] FlowMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string mapPrefix = "", string indent = "")
+  internal static string[] FlowMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string mapPrefix = "", string keyPrefix = "", string indent = "")
     => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).FlowOr(
-      f => mapPrefix + f.Surround("{", "}", v => v.Key + ": " + mapper(v.Value).Joined(""), ", "),
-      i => i.IsMap(v => mapper(v), indent, mapPrefix));
+      f => mapPrefix + f.Surround("{", "}", v => keyPrefix + v.Key + ": " + mapper(v.Value).Joined(""), ", "),
+      i => i.IsMap(v => mapper(v), indent + keyPrefix, mapPrefix));
 
-  internal static string[] BlockList(this string[] value, string prefix)
-    => value.IsList(v => [prefix + v]);
+  internal static string[] BlockList(this string[] value, string itemPrefix, string listPrefix = "")
+    => value.IsList(v => [itemPrefix + v], listPrefix);
 
-  internal static string[] BlockList<T>(this T[] value, Func<T?, string[]> mapper)
-    => value.IsList(mapper);
+  internal static string[] BlockList<T>(this T[] value, Func<T?, string[]> mapper, string listPrefix = "")
+    => value.IsList(mapper, listPrefix);
 
-  internal static string[] BlockMap(this MapPair<string>[] list, string keyPrefix = "", string valuePrefix = "")
-    => list.BlockMap(v => [valuePrefix + v], keyPrefix);
+  internal static string[] BlockMap(this MapPair<string>[] list, string keyPrefix = "", string valuePrefix = "", string mapPrefix = "")
+    => list.BlockMap(v => [valuePrefix + v], keyPrefix, mapPrefix);
 
-  internal static string[] BlockMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string keyPrefix = "")
-    => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).IsMap(mapper, keyPrefix);
+  internal static string[] BlockMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string keyPrefix = "", string mapPrefix = "")
+    => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).IsMap(mapper, keyPrefix, mapPrefix);
 
-  private static string[] IsList<T>(this IEnumerable<T> value, Func<T?, string[]> mapper)
-    => [.. value.SelectMany(mapper).Where(s => !string.IsNullOrWhiteSpace(s))];
-
-  private static string[] IsMap<T>(this IEnumerable<MapPair<T>> list, Func<T?, string[]> mapper, string keyPrefix = "", string mapPrefix = "")
+  private static string[] IsList<T>(this IEnumerable<T> list, Func<T?, string[]> mapper, string listPrefix)
     => [.. list
+      .SelectMany(mapper)
+      .Prepend(listPrefix)
+      .RemoveEmpty()];
+
+  private static string[] IsMap<T>(this IEnumerable<MapPair<T>> map, Func<T?, string[]> mapper, string keyPrefix, string mapPrefix)
+    => [.. map
       .SelectMany(v => v.Value.BlockFirst(mapper,  keyPrefix + v.Key + ":"))
       .Prepend(mapPrefix)
-      .Where(s => !string.IsNullOrWhiteSpace(s))];
+      .RemoveEmpty()];
 
   private static string[] BlockFirst<T>(this T value, Func<T?, string[]> mapper, string prefix)
   {

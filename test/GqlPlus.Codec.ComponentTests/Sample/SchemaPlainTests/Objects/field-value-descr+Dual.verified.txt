@@ -1,28 +1,14 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumFieldValueDescrDual: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumFieldValueDescrDual
-        name: fieldValueDescrDual
-    items:
-      - !_Aliased
-        name: fieldValueDescrDual
-    name: EnumFieldValueDescrDual
-    typeKind: !_TypeKind Enum
-  !_Identifier FieldValueDescrDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: FieldValueDescrDual
-        type: !_ObjBase
-          description: 'Test Descr'
-          name: EnumFieldValueDescrDual
-    fields:
-      - !_DualField
-        name: field
-        type: !_ObjBase
-          description: 'Test Descr'
-          name: EnumFieldValueDescrDual
-    name: FieldValueDescrDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDescrDual[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumFieldValueDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDescrDual[_TypeEnum]:allItems.0[_EnumLabel]:name=fieldValueDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDescrDual[_TypeEnum]:items.0[_Aliased]:name=fieldValueDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDescrDual[_TypeEnum]:name=EnumFieldValueDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDescrDual[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=FieldValueDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=EnumFieldValueDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=EnumFieldValueDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrDual[_TypeDual]:name=FieldValueDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrDual[_TypeDual]:typeKind=[_TypeKind]Dual

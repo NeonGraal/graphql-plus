@@ -1,20 +1,11 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier InpFieldNmbrDescr: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        default: 42
-        name: field
-        object: InpFieldNmbrDescr
-        type: !_ObjBase
-          description: 'Test Descr'
-          name: Number
-    fields:
-      - !_InputField
-        default: 42
-        name: field
-        type: !_ObjBase
-          description: 'Test Descr'
-          name: Number
-    name: InpFieldNmbrDescr
-    typeKind: !_TypeKind Input
+﻿[_Schema]:types[_Map_Type]:[_Identifier]InpFieldNmbrDescr[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:default=42
+[_Schema]:types[_Map_Type]:[_Identifier]InpFieldNmbrDescr[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]InpFieldNmbrDescr[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=InpFieldNmbrDescr
+[_Schema]:types[_Map_Type]:[_Identifier]InpFieldNmbrDescr[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]InpFieldNmbrDescr[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]InpFieldNmbrDescr[_TypeInput]:fields.0[_InputField]:default=42
+[_Schema]:types[_Map_Type]:[_Identifier]InpFieldNmbrDescr[_TypeInput]:fields.0[_InputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]InpFieldNmbrDescr[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]InpFieldNmbrDescr[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]InpFieldNmbrDescr[_TypeInput]:name=InpFieldNmbrDescr
+[_Schema]:types[_Map_Type]:[_Identifier]InpFieldNmbrDescr[_TypeInput]:typeKind=[_TypeKind]Input

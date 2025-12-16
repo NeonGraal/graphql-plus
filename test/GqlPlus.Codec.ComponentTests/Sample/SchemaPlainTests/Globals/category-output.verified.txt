@@ -1,12 +1,6 @@
-﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier ctgrOutp: !_Category
-    name: ctgrOutp
-    output: !_TypeRef(_TypeKind)
-      name: CtgrOutp
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-types: !_Map_Type
-  !_Identifier CtgrOutp: !_TypeOutput
-    name: CtgrOutp
-    typeKind: !_TypeKind Output
+﻿[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutp[_Category]:name=ctgrOutp
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutp[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrOutp
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutp[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutp[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutp[_TypeOutput]:name=CtgrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutp[_TypeOutput]:typeKind=[_TypeKind]Output

@@ -13,11 +13,9 @@ public class CollectionEncoderTests
     EncodeAndCheck(new(ModifierKind.Dict) {
       Key = key,
       IsOptional = true
-    }, [
-        "!_ModifierDictionary",
-        "by: " + key,
-        "modifierKind: !_ModifierKind Dict",
-        "optional: true"
-        ]);
+    }, TagAll("_ModifierDictionary",
+        ":by=" + key,
+        ":modifierKind=[_ModifierKind]Dict",
+        ":optional=true"));
   }
 }

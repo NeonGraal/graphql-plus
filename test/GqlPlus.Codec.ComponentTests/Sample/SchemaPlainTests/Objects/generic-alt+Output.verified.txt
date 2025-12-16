@@ -1,20 +1,8 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcAltOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: GnrcAltOutp
-        type: !_ObjBase
-          typeParam: type
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          typeParam: type
-    name: GnrcAltOutp
-    typeKind: !_TypeKind Output
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: type
+﻿[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=GnrcAltOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltOutp[_TypeOutput]:name=GnrcAltOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltOutp[_TypeOutput]:typeParams.0[_TypeParam]:name=type

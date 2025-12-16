@@ -1,15 +1,8 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnBoolSame: !_DomainBoolean
-    allItems:
-      - !_DomainItem(_DomainTrueFalse)
-        domain: DmnBoolSame
-        exclude: false
-        value: true
-    domainKind: !_DomainKind Boolean
-    items:
-      - !_DomainTrueFalse
-        exclude: false
-        value: true
-    name: DmnBoolSame
-    typeKind: !_TypeKind Domain
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolSame[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:domain=DmnBoolSame
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolSame[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolSame[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolSame[_DomainBoolean]:domainKind=[_DomainKind]Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolSame[_DomainBoolean]:items.0[_DomainTrueFalse]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolSame[_DomainBoolean]:items.0[_DomainTrueFalse]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolSame[_DomainBoolean]:name=DmnBoolSame
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolSame[_DomainBoolean]:typeKind=[_TypeKind]Domain

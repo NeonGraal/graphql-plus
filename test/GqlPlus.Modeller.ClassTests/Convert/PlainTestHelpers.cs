@@ -9,20 +9,21 @@ internal static class PlainTestHelpers
   internal static Func<string?, string[]> Tagged(this string tag, string prefix = "=")
     => value => [string.IsNullOrWhiteSpace(tag)
       ? prefix + value.IfWhiteSpace()
-      : $"{prefix}({tag}){value}"];
+      : $"{prefix}[{tag}]{value}"];
 
-  internal static string[] BlockList<T>(this T[]? list, Func<T?, string[]> mapper)
+  internal static string[] BlockList<T>(this T[]? list, Func<T?, string[]> mapper, string listTag)
     => list is null ? []
       : [.. list
         .SelectMany((v, idx) => mapper(v)
-          .Select(t => $".{idx}" + t))];
+          .Select(t => $".{idx}" + t))
+          .SelectMany(listTag.Tagged(""))];
 
-  internal static string[] BlockMap<T>(this MapPair<T>[]? map, Func<T?, string[]> mapper, string mapTag = "")
+  internal static string[] BlockMap<T>(this MapPair<T>[]? map, Func<T?, string[]> mapper, string mapTag, string keyTag)
     => map is null ? []
       : [.. map
         .OrderBy(kv => kv.Key, StringComparer.Ordinal)
         .SelectMany(v => mapper(v.Value)
-          .Select(t => ":" + v.Key + t))
+          .Select(t => keyTag.Tagged(":")(v.Key)[0] + t))
           .SelectMany(mapTag.Tagged(""))];
 
   private sealed class PlainConverters

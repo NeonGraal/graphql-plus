@@ -1,38 +1,39 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "ObjFieldEnumValueOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "field": "field",
           "label": "true",
           "name": "Boolean",
           "object": "ObjFieldEnumValueOutp",
           "typeKind": {
-            "$tag": "_SimpleKind",
-            "$value": "Enum"
+            "$value": "Enum",
+            "$valueTag": "_SimpleKind"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputEnum",
+          "$mapTag": "_OutputEnum",
           "field": "field",
           "label": "true",
           "name": "Boolean",
           "typeKind": {
-            "$tag": "_SimpleKind",
-            "$value": "Enum"
+            "$value": "Enum",
+            "$valueTag": "_SimpleKind"
           }
         }
       ],
       "name": "ObjFieldEnumValueOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     }
   }

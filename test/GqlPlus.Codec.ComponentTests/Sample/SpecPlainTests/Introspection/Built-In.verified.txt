@@ -1,177 +1,93 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier _Collections: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _Collections
-        type: !_ObjBase
-          name: _Modifier
-          typeArgs:
-            - !_EnumValue
-              label: List
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_Alternate)
-        object: _Collections
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: Dictionary
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_Alternate)
-        object: _Collections
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: TypeParam
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: _Modifier
-          typeArgs:
-            - !_EnumValue
-              label: List
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_Alternate
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: Dictionary
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_Alternate
-        type: !_ObjBase
-          name: _ModifierKeyed
-          typeArgs:
-            - !_EnumValue
-              label: TypeParam
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-    name: _Collections
-    typeKind: !_TypeKind Dual
-  !_Identifier _Modifier: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: modifierKind
-        object: _Modifier
-        type: !_ObjBase
-          typeParam: kind
-    fields:
-      - !_DualField
-        name: modifierKind
-        type: !_ObjBase
-          typeParam: kind
-    name: _Modifier
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: _ModifierKind
-          typeKind: !_TypeKind Enum
-        name: kind
-  !_Identifier _ModifierKeyed: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: modifierKind
-        object: _Modifier
-        type: !_ObjBase
-          typeParam: kind
-      - !_ObjectFor(_DualField)
-        name: by
-        object: _ModifierKeyed
-        type: !_ObjBase
-          name: _TypeSimple
-      - !_ObjectFor(_DualField)
-        name: optional
-        object: _ModifierKeyed
-        type: !_ObjBase
-          name: Boolean
-    fields:
-      - !_DualField
-        name: by
-        type: !_ObjBase
-          name: _TypeSimple
-      - !_DualField
-        name: optional
-        type: !_ObjBase
-          name: Boolean
-    name: _ModifierKeyed
-    parent: !_ObjBase
-      name: _Modifier
-      typeArgs:
-        - !_TypeArg
-          typeParam: kind
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: _ModifierKind
-          typeKind: !_TypeKind Enum
-        name: kind
-  !_Identifier _ModifierKind: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        aliases: [Optional]
-        enum: _ModifierKind
-        name: Opt
-      - !_EnumLabel
-        enum: _ModifierKind
-        name: List
-      - !_EnumLabel
-        aliases: [Dictionary]
-        enum: _ModifierKind
-        name: Dict
-      - !_EnumLabel
-        aliases: [TypeParam]
-        enum: _ModifierKind
-        name: Param
-    items:
-      - !_Aliased
-        aliases: [Optional]
-        name: Opt
-      - !_Aliased
-        name: List
-      - !_Aliased
-        aliases: [Dictionary]
-        name: Dict
-      - !_Aliased
-        aliases: [TypeParam]
-        name: Param
-    name: _ModifierKind
-    typeKind: !_TypeKind Enum
-  !_Identifier _Modifiers: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _Modifiers
-        type: !_ObjBase
-          name: _Modifier
-          typeArgs:
-            - !_EnumValue
-              label: Optional
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_Alternate)
-        object: _Modifiers
-        type: !_ObjBase
-          name: _Collections
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: _Modifier
-          typeArgs:
-            - !_EnumValue
-              label: Optional
-              name: _ModifierKind
-              typeKind: !_SimpleKind Enum
-      - !_Alternate
-        type: !_ObjBase
-          name: _Collections
-    name: _Modifiers
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=_Collections
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=List
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:object=_Collections
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_ModifierKeyed
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=Dictionary
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.2[_ObjectFor(_Alternate)]:object=_Collections
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.2[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_ModifierKeyed
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.2[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=TypeParam
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.2[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:allAlternates.2[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=List
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.1[_Alternate]:type[_ObjBase]:name=_ModifierKeyed
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.1[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=Dictionary
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.1[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.1[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.2[_Alternate]:type[_ObjBase]:name=_ModifierKeyed
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.2[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=TypeParam
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.2[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:alternates.2[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:name=_Collections
+[_Schema]:types[_Map_Type]:[_Identifier]_Collections[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=modifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:typeParam=kind
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeDual]:fields.0[_DualField]:name=modifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:typeParam=kind
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeDual]:name=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeDual]:typeParams.0[_TypeParam]:name=kind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=modifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:typeParam=kind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:name=by
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:object=_ModifierKeyed
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:type[_ObjBase]:name=_TypeSimple
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:name=optional
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:object=_ModifierKeyed
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:fields.0[_DualField]:name=by
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_TypeSimple
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:fields.1[_DualField]:name=optional
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:fields.1[_DualField]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:name=_ModifierKeyed
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:parent[_ObjBase]:name=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:parent[_ObjBase]:typeArgs.0[_TypeArg]:typeParam=kind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKeyed[_TypeDual]:typeParams.0[_TypeParam]:name=kind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.0[_EnumLabel]:aliases.0=Optional
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.0[_EnumLabel]:enum=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.0[_EnumLabel]:name=Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.1[_EnumLabel]:enum=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.1[_EnumLabel]:name=List
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.2[_EnumLabel]:aliases.0=Dictionary
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.2[_EnumLabel]:enum=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.2[_EnumLabel]:name=Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.3[_EnumLabel]:aliases.0=TypeParam
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.3[_EnumLabel]:enum=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.3[_EnumLabel]:name=Param
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.0[_Aliased]:aliases.0=Optional
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.0[_Aliased]:name=Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.1[_Aliased]:name=List
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.2[_Aliased]:aliases.0=Dictionary
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.2[_Aliased]:name=Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.3[_Aliased]:aliases.0=TypeParam
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.3[_Aliased]:name=Param
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=_Modifiers
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=Optional
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:object=_Modifiers
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_Collections
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=Optional
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:alternates.1[_Alternate]:type[_ObjBase]:name=_Collections
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:name=_Modifiers
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifiers[_TypeDual]:typeKind=[_TypeKind]Dual

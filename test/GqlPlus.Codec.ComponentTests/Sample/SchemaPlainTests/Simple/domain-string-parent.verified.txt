@@ -1,35 +1,21 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnStrPrnt: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: PrntDmnStrPrnt
-        exclude: false
-        pattern: 'b+'
-      - !_DomainItem(_DomainRegex)
-        domain: DmnStrPrnt
-        exclude: false
-        pattern: 'a+'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: 'a+'
-    name: DmnStrPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnStrPrnt
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnStrPrnt: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: PrntDmnStrPrnt
-        exclude: false
-        pattern: 'b+'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: 'b+'
-    name: PrntDmnStrPrnt
-    typeKind: !_TypeKind Domain
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=PrntDmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='b+'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.1[_DomainItem(_DomainRegex)]:domain=DmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.1[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.1[_DomainItem(_DomainRegex)]:pattern='a+'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:items.0[_DomainRegex]:pattern='a+'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:name=DmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=PrntDmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='b+'
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:items.0[_DomainRegex]:pattern='b+'
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:name=PrntDmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:typeKind=[_TypeKind]Domain

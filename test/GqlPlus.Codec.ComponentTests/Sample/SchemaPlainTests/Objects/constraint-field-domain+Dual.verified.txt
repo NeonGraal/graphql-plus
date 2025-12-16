@@ -1,49 +1,25 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier CnstFieldDmnDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: RefCnstFieldDmnDual
-        type: !_ObjBase
-          name: DomCnstFieldDmnDual
-    name: CnstFieldDmnDual
-    parent: !_ObjBase
-      name: RefCnstFieldDmnDual
-      typeArgs:
-        - !_TypeArg
-          name: DomCnstFieldDmnDual
-    typeKind: !_TypeKind Dual
-  !_Identifier DomCnstFieldDmnDual: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: DomCnstFieldDmnDual
-        exclude: false
-        pattern: '\\w+'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: '\\w+'
-    name: DomCnstFieldDmnDual
-    typeKind: !_TypeKind Domain
-  !_Identifier RefCnstFieldDmnDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: RefCnstFieldDmnDual
-        type: !_ObjBase
-          typeParam: ref
-    fields:
-      - !_DualField
-        name: field
-        type: !_ObjBase
-          typeParam: ref
-    name: RefCnstFieldDmnDual
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: ref
+﻿[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDmnDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDmnDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=RefCnstFieldDmnDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDmnDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=DomCnstFieldDmnDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDmnDual[_TypeDual]:name=CnstFieldDmnDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDmnDual[_TypeDual]:parent[_ObjBase]:name=RefCnstFieldDmnDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDmnDual[_TypeDual]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=DomCnstFieldDmnDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDmnDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstFieldDmnDual[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=DomCnstFieldDmnDual
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstFieldDmnDual[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstFieldDmnDual[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='\\w+'
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstFieldDmnDual[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstFieldDmnDual[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstFieldDmnDual[_DomainString]:items.0[_DomainRegex]:pattern='\\w+'
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstFieldDmnDual[_DomainString]:name=DomCnstFieldDmnDual
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstFieldDmnDual[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDmnDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDmnDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=RefCnstFieldDmnDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDmnDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDmnDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDmnDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDmnDual[_TypeDual]:name=RefCnstFieldDmnDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDmnDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDmnDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDmnDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDmnDual[_TypeDual]:typeParams.0[_TypeParam]:name=ref

@@ -1,103 +1,110 @@
 ﻿{
-  "$tag": "_Schema",
-  "_ctxErrors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 17,
-        "_line": 1
+  "$mapTag": "_Schema",
+  "_ctxErrors": {
+    "$list": [
+      {
+        "$mapTag": "_Error",
+        "_at": {
+          "$mapTag": "_At",
+          "_col": 17,
+          "_line": 1
+        },
+        "_kind": {
+          "$value": "Punctuation",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "Invalid Category Output. Expected type name."
       },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "Punctuation"
+      {
+        "$mapTag": "_Error",
+        "_at": {
+          "$mapTag": "_At",
+          "_col": 17,
+          "_line": 1
+        },
+        "_kind": {
+          "$value": "Punctuation",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "Invalid Category. Expected output type."
       },
-      "_message": "Invalid Category Output. Expected type name."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 17,
-        "_line": 1
+      {
+        "$mapTag": "_Error",
+        "_at": {
+          "$mapTag": "_At",
+          "_col": 17,
+          "_line": 1
+        },
+        "_kind": {
+          "$value": "Punctuation",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "Invalid Schema. Expected no more text."
+      }
+    ],
+    "$listTag": "_Errors"
+  },
+  "_errors": {
+    "$list": [
+      {
+        "$mapTag": "_Error",
+        "_at": {
+          "$mapTag": "_At",
+          "_col": 17,
+          "_line": 1
+        },
+        "_kind": {
+          "$value": "Punctuation",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "Invalid Category Output. Expected type name."
       },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "Punctuation"
+      {
+        "$mapTag": "_Error",
+        "_at": {
+          "$mapTag": "_At",
+          "_col": 17,
+          "_line": 1
+        },
+        "_kind": {
+          "$value": "Punctuation",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "Invalid Category. Expected output type."
       },
-      "_message": "Invalid Category. Expected output type."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 17,
-        "_line": 1
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "Punctuation"
-      },
-      "_message": "Invalid Schema. Expected no more text."
-    }
-  ],
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 17,
-        "_line": 1
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "Punctuation"
-      },
-      "_message": "Invalid Category Output. Expected type name."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 17,
-        "_line": 1
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "Punctuation"
-      },
-      "_message": "Invalid Category. Expected output type."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 17,
-        "_line": 1
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "Punctuation"
-      },
-      "_message": "Invalid Schema. Expected no more text."
-    }
-  ],
+      {
+        "$mapTag": "_Error",
+        "_at": {
+          "$mapTag": "_At",
+          "_col": 17,
+          "_line": 1
+        },
+        "_kind": {
+          "$value": "Punctuation",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "Invalid Schema. Expected no more text."
+      }
+    ],
+    "$listTag": "_Errors"
+  },
   "categories": {
-    "$tag": "_Map_Categories",
+    "$mapTag": "_Map_Categories",
     "query": {
-      "$tag": "_Category",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
       "name": "query",
       "output": {
-        "$tag": "_TypeRef(_TypeKind)",
+        "$mapTag": "_TypeRef(_TypeKind)",
         "name": "query",
         "typeKind": {
-          "$tag": "_TypeKind",
-          "$value": "Output"
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
         }
       },
       "resolution": {
-        "$tag": "_Resolution",
-        "$value": "Parallel"
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
       }
     }
   }

@@ -1,10 +1,5 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjPrntOutp: !_TypeOutput
-    name: ObjPrntOutp
-    parent: !_ObjBase
-      name: RefObjPrntOutp
-    typeKind: !_TypeKind Output
-  !_Identifier RefObjPrntOutp: !_TypeOutput
-    name: RefObjPrntOutp
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntOutp[_TypeOutput]:name=ObjPrntOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntOutp[_TypeOutput]:parent[_ObjBase]:name=RefObjPrntOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]RefObjPrntOutp[_TypeOutput]:name=RefObjPrntOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefObjPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output

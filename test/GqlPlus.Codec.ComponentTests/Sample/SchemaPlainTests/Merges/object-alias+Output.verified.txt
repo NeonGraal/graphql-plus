@@ -1,6 +1,4 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjAliasOutp: !_TypeOutput
-    aliases: [Output1,Output2]
-    name: ObjAliasOutp
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjAliasOutp[_TypeOutput]:aliases.0=Output1
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAliasOutp[_TypeOutput]:aliases.1=Output2
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAliasOutp[_TypeOutput]:name=ObjAliasOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAliasOutp[_TypeOutput]:typeKind=[_TypeKind]Output

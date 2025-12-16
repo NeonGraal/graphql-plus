@@ -1,21 +1,13 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier FldObjFieldAliasDual: !_TypeDual
-    name: FldObjFieldAliasDual
-    typeKind: !_TypeKind Dual
-  !_Identifier ObjFieldAliasDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        aliases: [field1,field2]
-        name: field
-        object: ObjFieldAliasDual
-        type: !_ObjBase
-          name: FldObjFieldAliasDual
-    fields:
-      - !_DualField
-        aliases: [field1,field2]
-        name: field
-        type: !_ObjBase
-          name: FldObjFieldAliasDual
-    name: ObjFieldAliasDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]FldObjFieldAliasDual[_TypeDual]:name=FldObjFieldAliasDual
+[_Schema]:types[_Map_Type]:[_Identifier]FldObjFieldAliasDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:aliases.0=field1
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:aliases.1=field2
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=ObjFieldAliasDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=FldObjFieldAliasDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasDual[_TypeDual]:fields.0[_DualField]:aliases.0=field1
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasDual[_TypeDual]:fields.0[_DualField]:aliases.1=field2
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=FldObjFieldAliasDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasDual[_TypeDual]:name=ObjFieldAliasDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasDual[_TypeDual]:typeKind=[_TypeKind]Dual

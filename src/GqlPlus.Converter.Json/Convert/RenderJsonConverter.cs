@@ -13,6 +13,28 @@ internal abstract class RenderJsonConverter<T>
     _ => null,
   };
 
+  protected void WriteTag(Utf8JsonWriter writer, string tag, string tagName)
+  {
+    if (!string.IsNullOrWhiteSpace(tag)) {
+      writer.WriteString("$" + tagName, tag);
+    }
+  }
+
+  protected void WriteValueTagged(Utf8JsonWriter writer, StructureValue value, string keyTag = "")
+  {
+    if (string.IsNullOrWhiteSpace(value.Tag) && string.IsNullOrWhiteSpace(keyTag)) {
+      WriteValue(writer, value);
+      return;
+    }
+
+    writer.WriteStartObject();
+    WriteTag(writer, keyTag, "keyTag");
+    writer.WritePropertyName("$value");
+    WriteValue(writer, value);
+    WriteTag(writer, value.Tag, "valueTag");
+    writer.WriteEndObject();
+  }
+
   protected void WriteValue(Utf8JsonWriter writer, StructureValue value)
   {
     if (!string.IsNullOrWhiteSpace(value.Identifier)) {

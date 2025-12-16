@@ -1,39 +1,17 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier FieldObjOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: field
-        object: FieldObjOutp
-        type: !_ObjBase
-          name: FldFieldObjOutp
-    fields:
-      - !_OutputField
-        name: field
-        type: !_ObjBase
-          name: FldFieldObjOutp
-    name: FieldObjOutp
-    typeKind: !_TypeKind Output
-  !_Identifier FldFieldObjOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: FldFieldObjOutp
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: field
-        object: FldFieldObjOutp
-        type: !_ObjBase
-          name: Number
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_OutputField
-        name: field
-        type: !_ObjBase
-          name: Number
-    name: FldFieldObjOutp
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]FieldObjOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldObjOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=FieldObjOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldObjOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=FldFieldObjOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldObjOutp[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldObjOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=FldFieldObjOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldObjOutp[_TypeOutput]:name=FieldObjOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldObjOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]FldFieldObjOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=FldFieldObjOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FldFieldObjOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]FldFieldObjOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FldFieldObjOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=FldFieldObjOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FldFieldObjOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]FldFieldObjOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]FldFieldObjOutp[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FldFieldObjOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]FldFieldObjOutp[_TypeOutput]:name=FldFieldObjOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FldFieldObjOutp[_TypeOutput]:typeKind=[_TypeKind]Output

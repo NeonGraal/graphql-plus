@@ -28,10 +28,8 @@ public class CategoriesEncoderTests
     EncodeAndCheck(new() {
       Type = type,
       And = category
-    }, [
-        "!_Categories",
-        "category: !Category " + name,
-        "type: !Input " + name
-        ]);
+    }, TagAll("_Categories",
+        ":category=[Category]" + name,
+        ":type=[Input]" + name));
   }
 }

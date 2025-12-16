@@ -1,31 +1,15 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjCnstOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: field
-        object: ObjCnstOutp
-        type: !_ObjBase
-          typeParam: type
-      - !_ObjectFor(_OutputField)
-        name: str
-        object: ObjCnstOutp
-        type: !_ObjBase
-          typeParam: type
-    fields:
-      - !_OutputField
-        name: field
-        type: !_ObjBase
-          typeParam: type
-      - !_OutputField
-        name: str
-        type: !_ObjBase
-          typeParam: type
-    name: ObjCnstOutp
-    typeKind: !_TypeKind Output
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: type
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=ObjCnstOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:name=str
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:object=ObjCnstOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:fields.1[_OutputField]:name=str
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:name=ObjCnstOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]ObjCnstOutp[_TypeOutput]:typeParams.0[_TypeParam]:name=type

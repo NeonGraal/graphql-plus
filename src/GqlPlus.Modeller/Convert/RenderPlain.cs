@@ -8,7 +8,7 @@ public static class RenderPlain
 
   public static string[] ToPlain(this Structured model, bool _)
     => model is null || model.IsEmpty ? []
-      : [.. WriteStructure(model).Where(s => !string.IsNullOrWhiteSpace(s))];
+      : [.. WriteStructure(model).RemoveEmpty()];
   public static Structured FromPlain(this string[] input)
     => throw new NotImplementedException();
 
@@ -20,6 +20,7 @@ public static class RenderPlain
       return [prefix + sb.ToString()];
     }
 
+    prefix += item.Tag.Prefixed("[").Suffixed("]");
     string[] result = [];
 
     if (item.List.Any()) {
@@ -27,7 +28,7 @@ public static class RenderPlain
     }
 
     if (item.Map.Any()) {
-      return WriteMap(item.Map, prefix + item.Tag.Prefixed("(").Suffixed(")"));
+      return WriteMap(item.Map, prefix);
     }
 
     return [];
@@ -55,7 +56,7 @@ public static class RenderPlain
 
     sb.Append(prefix);
     if (!string.IsNullOrWhiteSpace(value.Tag)) {
-      sb.Append($"({value.Tag})");
+      sb.Append($"[{value.Tag}]");
     }
 
     if (value.Boolean is not null) {

@@ -3,6 +3,23 @@
   "aliases": ["Alias"],
   "categories": {
     "$mapTag": "_Map_Categories",
+    "cat": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
+      "name": "cat",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "Cat",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
     "ctgrDscrs": {
       "$keyTag": "_Identifier",
       "$mapTag": "_Category",
@@ -308,6 +325,16 @@
     }
   },
   "name": "Schema",
+  "operations": {
+    "$mapTag": "_Map_Operations",
+    "Op": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Operation",
+      "category": "cat",
+      "name": "Op",
+      "operation": "TBC"
+    }
+  },
   "settings": {
     "$mapTag": "_Map_Setting",
     "descr": {
@@ -326,6 +353,15 @@
   },
   "types": {
     "$mapTag": "_Map_Type",
+    "Cat": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
+      "name": "Cat",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "CtgrDscrs": {
       "$keyTag": "_Identifier",
       "$mapTag": "_TypeOutput",

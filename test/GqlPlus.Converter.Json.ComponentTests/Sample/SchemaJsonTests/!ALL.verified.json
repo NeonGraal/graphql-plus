@@ -3,6 +3,23 @@
   "aliases": ["Alias", "Opt1", "Opt2"],
   "categories": {
     "$mapTag": "_Map_Categories",
+    "cat": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
+      "name": "cat",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "Cat",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
     "ctgr": {
       "$keyTag": "_Identifier",
       "$mapTag": "_Category",
@@ -226,6 +243,23 @@
       "output": {
         "$mapTag": "_TypeRef(_TypeKind)",
         "name": "DescrBtwn",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
+    "op": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
+      "name": "op",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "Op",
         "typeKind": {
           "$value": "Output",
           "$valueTag": "_TypeKind"
@@ -529,6 +563,35 @@
     "$listTag": "_Errors"
   },
   "name": "Schema",
+  "operations": {
+    "$mapTag": "_Map_Operations",
+    "Op": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Operations",
+      "operation": {
+        "$mapTag": "_Operation",
+        "category": "cat",
+        "name": "Op",
+        "operation": "TBC"
+      },
+      "type": {
+        "$mapTag": "_TypeOutput",
+        "name": "Op",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      }
+    },
+    "Operation": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Operation",
+      "aliases": ["Op1", "Op2"],
+      "category": "op",
+      "name": "Operation",
+      "operation": "TBC"
+    }
+  },
   "settings": {
     "$mapTag": "_Map_Setting",
     "descr": {
@@ -3795,6 +3858,15 @@
         }
       ],
       "name": "AltSmplOutp",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Cat": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
+      "name": "Cat",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"
@@ -17106,6 +17178,15 @@
         "$mapTag": "_ObjBase",
         "name": "RefObjPrntOutp"
       },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Op": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
+      "name": "Op",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"

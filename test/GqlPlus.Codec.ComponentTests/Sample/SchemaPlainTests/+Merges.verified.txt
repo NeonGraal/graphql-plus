@@ -22,6 +22,10 @@
 [_Schema]:categories[_Map_Categories]:[_Identifier]ctgrMod[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrMod
 [_Schema]:categories[_Map_Categories]:[_Identifier]ctgrMod[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
 [_Schema]:categories[_Map_Categories]:[_Identifier]ctgrMod[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:categories[_Map_Categories]:[_Identifier]op[_Category]:name=op
+[_Schema]:categories[_Map_Categories]:[_Identifier]op[_Category]:output[_TypeRef(_TypeKind)]:name=Op
+[_Schema]:categories[_Map_Categories]:[_Identifier]op[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]op[_Category]:resolution=[_Resolution]Parallel
 [_Schema]:directives[_Map_Directives]:[_Identifier]Drct[_Directive]:locations[_Set(_Location)]:Inline=_
 [_Schema]:directives[_Map_Directives]:[_Identifier]Drct[_Directive]:locations[_Set(_Location)]:Spread=_
 [_Schema]:directives[_Map_Directives]:[_Identifier]Drct[_Directive]:name=Drct
@@ -38,6 +42,11 @@
 [_Schema]:directives[_Map_Directives]:[_Identifier]DrctParam[_Directive]:parameters.0[_InputParam]:name=InDrctParam
 [_Schema]:directives[_Map_Directives]:[_Identifier]DrctParam[_Directive]:repeatable=false
 [_Schema]:name=Schema
+[_Schema]:operations[_Map_Operations]:[_Identifier]Operation[_Operation]:aliases.0=Op1
+[_Schema]:operations[_Map_Operations]:[_Identifier]Operation[_Operation]:aliases.1=Op2
+[_Schema]:operations[_Map_Operations]:[_Identifier]Operation[_Operation]:category=op
+[_Schema]:operations[_Map_Operations]:[_Identifier]Operation[_Operation]:name=Operation
+[_Schema]:operations[_Map_Operations]:[_Identifier]Operation[_Operation]:operation=TBC
 [_Schema]:settings[_Map_Setting]:[_Identifier]merged[_Setting]:name=merged
 [_Schema]:settings[_Map_Setting]:[_Identifier]merged[_Setting]:value[_ConstantList].0=true
 [_Schema]:settings[_Map_Setting]:[_Identifier]merged[_Setting]:value[_ConstantList].1=0
@@ -566,6 +575,8 @@
 [_Schema]:types[_Map_Type]:[_Identifier]ObjPrntOutp[_TypeOutput]:name=ObjPrntOutp
 [_Schema]:types[_Map_Type]:[_Identifier]ObjPrntOutp[_TypeOutput]:parent[_ObjBase]:name=RefObjPrntOutp
 [_Schema]:types[_Map_Type]:[_Identifier]ObjPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]Op[_TypeOutput]:name=Op
+[_Schema]:types[_Map_Type]:[_Identifier]Op[_TypeOutput]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
 [_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=OutpFieldParam
 [_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:name=OutpFieldParam1

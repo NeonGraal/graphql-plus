@@ -1,4 +1,8 @@
 ﻿[_Schema]:aliases.0=Alias
+[_Schema]:categories[_Map_Categories]:[_Identifier]cat[_Category]:name=cat
+[_Schema]:categories[_Map_Categories]:[_Identifier]cat[_Category]:output[_TypeRef(_TypeKind)]:name=Cat
+[_Schema]:categories[_Map_Categories]:[_Identifier]cat[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]cat[_Category]:resolution=[_Resolution]Parallel
 [_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:description='A Category described'
 [_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:name=ctgrDscrs
 [_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrDscrs
@@ -93,11 +97,16 @@
 [_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:parameters.0[_InputParam]:name=InDrctParamOpt
 [_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:repeatable=false
 [_Schema]:name=Schema
+[_Schema]:operations[_Map_Operations]:[_Identifier]Op[_Operation]:category=cat
+[_Schema]:operations[_Map_Operations]:[_Identifier]Op[_Operation]:name=Op
+[_Schema]:operations[_Map_Operations]:[_Identifier]Op[_Operation]:operation=TBC
 [_Schema]:settings[_Map_Setting]:[_Identifier]descr[_Setting]:description='Option Descr'
 [_Schema]:settings[_Map_Setting]:[_Identifier]descr[_Setting]:name=descr
 [_Schema]:settings[_Map_Setting]:[_Identifier]descr[_Setting]:value=true
 [_Schema]:settings[_Map_Setting]:[_Identifier]global[_Setting]:name=global
 [_Schema]:settings[_Map_Setting]:[_Identifier]global[_Setting]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]Cat[_TypeOutput]:name=Cat
+[_Schema]:types[_Map_Type]:[_Identifier]Cat[_TypeOutput]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map_Type]:[_Identifier]CtgrDscrs[_TypeOutput]:name=CtgrDscrs
 [_Schema]:types[_Map_Type]:[_Identifier]CtgrDscrs[_TypeOutput]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map_Type]:[_Identifier]CtgrOutp[_TypeOutput]:name=CtgrOutp

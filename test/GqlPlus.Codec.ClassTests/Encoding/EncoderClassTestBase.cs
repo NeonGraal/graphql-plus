@@ -26,4 +26,7 @@ public abstract class EncoderClassTestBase<TModel>
       .ShouldNotBeNull()
       .ToPlain(false)
       .ShouldBe(expected);
+
+  internal static string[] TagAll(string tag, params string[] items)
+    => [.. items.Select(i => $"[{tag}]" + i)];
 }

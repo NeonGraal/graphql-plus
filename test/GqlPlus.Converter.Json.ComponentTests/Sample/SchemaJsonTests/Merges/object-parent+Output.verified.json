@@ -1,25 +1,27 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "ObjPrntOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "ObjPrntOutp",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "RefObjPrntOutp"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "RefObjPrntOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "RefObjPrntOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     }
   }

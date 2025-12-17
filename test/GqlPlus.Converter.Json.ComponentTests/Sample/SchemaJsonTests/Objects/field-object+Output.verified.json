@@ -1,82 +1,84 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "FieldObjOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "FieldObjOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldFieldObjOutp"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldFieldObjOutp"
           }
         }
       ],
       "name": "FieldObjOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "FldFieldObjOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "FldFieldObjOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "FldFieldObjOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "FldFieldObjOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     }
   }

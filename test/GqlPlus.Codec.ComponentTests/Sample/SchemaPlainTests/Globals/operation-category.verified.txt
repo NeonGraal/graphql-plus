@@ -1,17 +1,9 @@
-﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier cat: !_Category
-    name: cat
-    output: !_TypeRef(_TypeKind)
-      name: Cat
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-operations: !_Map_Operations
-  !_Identifier Op: !_Operation
-    category: cat
-    name: Op
-    operation: TBC
-types: !_Map_Type
-  !_Identifier Cat: !_TypeOutput
-    name: Cat
-    typeKind: !_TypeKind Output
+﻿[_Schema]:categories[_Map_Categories]:[_Identifier]cat[_Category]:name=cat
+[_Schema]:categories[_Map_Categories]:[_Identifier]cat[_Category]:output[_TypeRef(_TypeKind)]:name=Cat
+[_Schema]:categories[_Map_Categories]:[_Identifier]cat[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]cat[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:operations[_Map_Operations]:[_Identifier]Op[_Operation]:category=cat
+[_Schema]:operations[_Map_Operations]:[_Identifier]Op[_Operation]:name=Op
+[_Schema]:operations[_Map_Operations]:[_Identifier]Op[_Operation]:operation=TBC
+[_Schema]:types[_Map_Type]:[_Identifier]Cat[_TypeOutput]:name=Cat
+[_Schema]:types[_Map_Type]:[_Identifier]Cat[_TypeOutput]:typeKind=[_TypeKind]Output

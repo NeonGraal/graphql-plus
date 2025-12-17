@@ -153,7 +153,7 @@ directives: !_Map_Directives
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: InDrctParamOpt
     repeatable: false
-errors:
+errors: !_Errors
 - !_Error
   _kind: !_TokenKind End
   _message: >-
@@ -227,7 +227,7 @@ settings: !_Map_Setting
     value: true
   !_Identifier merged: !_Setting
     name: merged
-    value:
+    value: !_ConstantList
     - true
     - 0
 types: !_Map_Type

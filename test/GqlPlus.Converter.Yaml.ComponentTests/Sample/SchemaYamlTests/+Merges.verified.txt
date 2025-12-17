@@ -62,7 +62,7 @@ operations: !_Map_Operations
 settings: !_Map_Setting
   !_Identifier merged: !_Setting
     name: merged
-    value:
+    value: !_ConstantList
     - true
     - 0
 types: !_Map_Type

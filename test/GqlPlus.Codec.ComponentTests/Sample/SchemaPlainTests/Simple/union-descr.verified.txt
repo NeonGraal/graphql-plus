@@ -1,14 +1,7 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier UnionDescr: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        description: 'Union Descr'
-        name: Number
-        union: UnionDescr
-    items:
-      - !_Aliased
-        description: 'Union Descr'
-        name: Number
-    name: UnionDescr
-    typeKind: !_TypeKind Union
+﻿[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:allItems.0[_UnionMember]:description='Union Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:allItems.0[_UnionMember]:union=UnionDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:items.0[_Aliased]:description='Union Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:items.0[_Aliased]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:name=UnionDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:typeKind=[_TypeKind]Union

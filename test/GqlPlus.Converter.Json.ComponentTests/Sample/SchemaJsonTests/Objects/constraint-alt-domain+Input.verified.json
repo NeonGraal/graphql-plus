@@ -1,19 +1,20 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "CnstAltDmnInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "CnstAltDmnInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "RefCnstAltDmnInp",
             "typeArgs": [
               {
-                "$tag": "_TypeArg",
+                "$mapTag": "_TypeArg",
                 "name": "DomCnstAltDmnInp"
               }
             ]
@@ -22,13 +23,13 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "RefCnstAltDmnInp",
             "typeArgs": [
               {
-                "$tag": "_TypeArg",
+                "$mapTag": "_TypeArg",
                 "name": "DomCnstAltDmnInp"
               }
             ]
@@ -37,72 +38,74 @@
       ],
       "name": "CnstAltDmnInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "DomCnstAltDmnInp": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "DomCnstAltDmnInp",
           "exclude": false,
           "pattern": "\\w\u002B"
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRegex",
+          "$mapTag": "_DomainRegex",
           "exclude": false,
           "pattern": "\\w\u002B"
         }
       ],
       "name": "DomCnstAltDmnInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "RefCnstAltDmnInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "RefCnstAltDmnInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "name": "RefCnstAltDmnInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "ref"

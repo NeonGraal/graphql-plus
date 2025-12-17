@@ -1,24 +1,25 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "CnstEnumPrntOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "CnstEnumPrntOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "RefCnstEnumPrntOutp",
             "typeArgs": [
               {
-                "$tag": "_EnumValue",
+                "$mapTag": "_EnumValue",
                 "label": "cnstEnumPrntOutp",
                 "name": "EnumCnstEnumPrntOutp",
                 "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "$value": "Enum"
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
                 }
               }
             ]
@@ -27,18 +28,18 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "RefCnstEnumPrntOutp",
             "typeArgs": [
               {
-                "$tag": "_EnumValue",
+                "$mapTag": "_EnumValue",
                 "label": "cnstEnumPrntOutp",
                 "name": "EnumCnstEnumPrntOutp",
                 "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "$value": "Enum"
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
                 }
               }
             ]
@@ -47,102 +48,105 @@
       ],
       "name": "CnstEnumPrntOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumCnstEnumPrntOutp": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "ParentCnstEnumPrntOutp",
           "name": "parentCnstEnumPrntOutp"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumCnstEnumPrntOutp",
           "name": "cnstEnumPrntOutp"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "cnstEnumPrntOutp"
         }
       ],
       "name": "EnumCnstEnumPrntOutp",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "ParentCnstEnumPrntOutp",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Enum"
+          "$value": "Enum",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "ParentCnstEnumPrntOutp": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "ParentCnstEnumPrntOutp",
           "name": "parentCnstEnumPrntOutp"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "parentCnstEnumPrntOutp"
         }
       ],
       "name": "ParentCnstEnumPrntOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "RefCnstEnumPrntOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "RefCnstEnumPrntOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "name": "RefCnstEnumPrntOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "ParentCnstEnumPrntOutp",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "type"

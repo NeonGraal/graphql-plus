@@ -6,6 +6,8 @@ public abstract class ConvertStructureTestsBase(IConvertTestsBase converters)
   protected virtual bool Flow => false;
   protected virtual string ValueTag => "";
   protected virtual string MapTag => "";
+  protected virtual string ListTag => "";
+  protected virtual string KeyTag => "";
   protected abstract string[] Expected_List(string[] value);
   protected abstract string[] Expected_Map(MapPair<string>[] value);
   protected abstract string[] Expected_ListOfLists(string[][] value);
@@ -239,10 +241,10 @@ public abstract class ConvertStructureTestsBase(IConvertTestsBase converters)
     => new(value, ValueTag);
 
   private Structured AsList<T>(T[] value, Func<T, Structured> mapper)
-    => value.Encode(mapper, flow: Flow);
+    => value.Encode(mapper, ListTag, flow: Flow);
 
   private Structured AsMap<T>(MapPair<T>[] value, Func<T, Structured> mapper)
-    => value.ToMap(k => k.Key, v => mapper(v.Value)).Encode(MapTag, Flow);
+    => value.ToMap(k => k.Key, v => mapper(v.Value)).Encode(MapTag, KeyTag, Flow);
 
   private static bool MapDups<T>(MapPair<T>[] value)
     => value.Length != value.Select(v => v.Key).Distinct(StringComparer.Ordinal).Count();

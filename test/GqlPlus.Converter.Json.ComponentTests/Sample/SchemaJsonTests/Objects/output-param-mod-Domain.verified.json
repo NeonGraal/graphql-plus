@@ -1,12 +1,13 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "DomOutpParamModDmn": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRange)",
+          "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "DomOutpParamModDmn",
           "exclude": false,
           "from": 1,
@@ -14,12 +15,12 @@
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRange",
+          "$mapTag": "_DomainRange",
           "exclude": false,
           "from": 1,
           "to": 10
@@ -27,79 +28,81 @@
       ],
       "name": "DomOutpParamModDmn",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "InOutpParamModDmn": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "InOutpParamModDmn",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "param",
           "object": "InOutpParamModDmn",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "param",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "InOutpParamModDmn",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "OutpParamModDmn": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpParamModDmn",
           "parameters": [
             {
-              "$tag": "_InputParam",
+              "$mapTag": "_InputParam",
               "modifiers": [
                 {
-                  "$tag": "_ModifierDictionary",
+                  "$mapTag": "_ModifierDictionary",
                   "by": "DomOutpParamModDmn",
                   "modifierKind": {
-                    "$tag": "_ModifierKind",
-                    "$value": "Dict"
+                    "$value": "Dict",
+                    "$valueTag": "_ModifierKind"
                   },
                   "typeKind": {
-                    "$tag": "_SimpleKind",
-                    "$value": "Domain"
+                    "$value": "Domain",
+                    "$valueTag": "_SimpleKind"
                   }
                 }
               ],
@@ -107,29 +110,29 @@
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "DomOutpParamModDmn"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParam",
+              "$mapTag": "_InputParam",
               "modifiers": [
                 {
-                  "$tag": "_ModifierDictionary",
+                  "$mapTag": "_ModifierDictionary",
                   "by": "DomOutpParamModDmn",
                   "modifierKind": {
-                    "$tag": "_ModifierKind",
-                    "$value": "Dict"
+                    "$value": "Dict",
+                    "$valueTag": "_ModifierKind"
                   },
                   "typeKind": {
-                    "$tag": "_SimpleKind",
-                    "$value": "Domain"
+                    "$value": "Domain",
+                    "$valueTag": "_SimpleKind"
                   }
                 }
               ],
@@ -137,15 +140,15 @@
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "DomOutpParamModDmn"
           }
         }
       ],
       "name": "OutpParamModDmn",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     }
   }

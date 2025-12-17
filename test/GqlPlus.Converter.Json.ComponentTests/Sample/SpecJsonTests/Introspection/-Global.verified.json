@@ -1,1207 +1,1226 @@
 ﻿{
-  "$tag": "_Schema",
-  "errors": [
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
+  "$mapTag": "_Schema",
+  "errors": {
+    "$list": [
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _AndType can\u0027t get model for type \u0027_Named\u0027"
       },
-      "_message": "In _AndType can\u0027t get model for type \u0027_Named\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _Category can\u0027t get model for type \u0027_Aliased\u0027"
       },
-      "_message": "In _Category can\u0027t get model for type \u0027_Aliased\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _Directive can\u0027t get model for type \u0027_Aliased\u0027"
       },
-      "_message": "In _Directive can\u0027t get model for type \u0027_Aliased\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _OpDirective can\u0027t get model for type \u0027_Named\u0027"
       },
-      "_message": "In _OpDirective can\u0027t get model for type \u0027_Named\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _Operation can\u0027t get model for type \u0027_Aliased\u0027"
       },
-      "_message": "In _Operation can\u0027t get model for type \u0027_Aliased\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _OpFragment can\u0027t get model for type \u0027_Named\u0027"
       },
-      "_message": "In _OpFragment can\u0027t get model for type \u0027_Named\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _OpVariable can\u0027t get model for type \u0027_Named\u0027"
       },
-      "_message": "In _OpVariable can\u0027t get model for type \u0027_Named\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
-      },
-      "_message": "In _Setting can\u0027t get model for type \u0027_Named\u0027"
-    }
-  ],
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _Setting can\u0027t get model for type \u0027_Named\u0027"
+      }
+    ],
+    "$listTag": "_Errors"
+  },
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "_AndType": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_AndType",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_AndType",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "type",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "name": "_AndType",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Categories": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_AndType",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_Categories",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_AndType",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "category",
           "object": "_Categories",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "category",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "name": "_Categories",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_AndType"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Category": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "resolution",
           "object": "_Category",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Resolution"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "output",
           "object": "_Category",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_EnumValue",
+                "$mapTag": "_EnumValue",
                 "label": "Output",
                 "name": "_TypeKind",
                 "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "$value": "Enum"
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
                 }
               }
             ]
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "modifiers",
           "object": "_Category",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Modifiers"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "resolution",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Resolution"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "output",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_EnumValue",
+                "$mapTag": "_EnumValue",
                 "label": "Output",
                 "name": "_TypeKind",
                 "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "$value": "Enum"
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
                 }
               }
             ]
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "modifiers",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Modifiers"
           }
         }
       ],
       "name": "_Category",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_Aliased"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Directive": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "parameters",
           "object": "_Directive",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_InputParam"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "repeatable",
           "object": "_Directive",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "field": "locations",
           "label": "_",
           "name": "Unit",
           "object": "_Directive",
           "typeKind": {
-            "$tag": "_SimpleKind",
-            "$value": "Enum"
+            "$value": "Enum",
+            "$valueTag": "_SimpleKind"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "parameters",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_InputParam"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "repeatable",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         },
         {
-          "$tag": "_OutputEnum",
+          "$mapTag": "_OutputEnum",
           "field": "locations",
           "label": "_",
           "name": "Unit",
           "typeKind": {
-            "$tag": "_SimpleKind",
-            "$value": "Enum"
+            "$value": "Enum",
+            "$valueTag": "_SimpleKind"
           }
         }
       ],
       "name": "_Directive",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_Aliased"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Directives": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_AndType",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_Directives",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Directive"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_AndType",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "directive",
           "object": "_Directives",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Directive"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Directive"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "directive",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Directive"
           }
         }
       ],
       "name": "_Directives",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_AndType"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Location": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Location",
           "name": "Operation"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Location",
           "name": "Variable"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Location",
           "name": "Field"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Location",
           "name": "Inline"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Location",
           "name": "Spread"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Location",
           "name": "Fragment"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Operation"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Variable"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Field"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Inline"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Spread"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Fragment"
         }
       ],
       "name": "_Location",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpArgList": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "collections": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "object": "_OpArgList",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgValue"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "collections": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgValue"
           }
         }
       ],
       "name": "_OpArgList",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpArgMap": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "collections": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "Scalar",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               },
               "typeKind": {
-                "$tag": "_SimpleKind",
-                "$value": "Internal"
+                "$value": "Internal",
+                "$valueTag": "_SimpleKind"
               }
             }
           ],
           "object": "_OpArgMap",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgValue"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "value",
           "object": "_OpArgMap",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgValue"
           }
         },
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "byVariable",
           "object": "_OpArgMap",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "collections": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "Scalar",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               },
               "typeKind": {
-                "$tag": "_SimpleKind",
-                "$value": "Internal"
+                "$value": "Internal",
+                "$valueTag": "_SimpleKind"
               }
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgValue"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "value",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgValue"
           }
         },
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "byVariable",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_OpArgMap",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpArgValue": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_OpArgValue",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Value"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "variable",
           "object": "_OpArgValue",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Value"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "variable",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_OpArgValue",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpArgument": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_OpArgument",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgValue"
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_OpArgument",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgList"
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_OpArgument",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgMap"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgValue"
           }
         },
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgList"
           }
         },
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgMap"
           }
         }
       ],
       "name": "_OpArgument",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpDirective": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "argument",
           "object": "_OpDirective",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgument"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "argument",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgument"
           }
         }
       ],
       "name": "_OpDirective",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpField": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "alias",
           "object": "_OpField",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "_OpField",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "argument",
           "object": "_OpField",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgument"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "modifiers",
           "object": "_OpField",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Modifiers"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "object": "_OpField",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "alias",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "argument",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgument"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "modifiers",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Modifiers"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         }
       ],
       "name": "_OpField",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpFragment": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_OpFragment",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_ObjBase"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "object": "_OpFragment",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "type",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_ObjBase"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         }
       ],
       "name": "_OpFragment",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpInline": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "type",
           "object": "_OpInline",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_ObjBase"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "object": "_OpInline",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "type",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_ObjBase"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         }
       ],
       "name": "_OpInline",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpObject": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_OpObject",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpField"
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_OpObject",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpSpread"
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_OpObject",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpInline"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpField"
           }
         },
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpSpread"
           }
         },
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpInline"
           }
         }
       ],
       "name": "_OpObject",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpResult": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_OpResult",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_TypeArg",
+                "$mapTag": "_TypeArg",
                 "name": "_SimpleKind"
               }
             ]
@@ -1210,56 +1229,56 @@
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "_Path",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               },
               "typeKind": {
-                "$tag": "_SimpleKind",
-                "$value": "Domain"
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
               }
             }
           ],
           "name": "selections",
           "object": "_OpResult",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpObject"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "argument",
           "object": "_OpResult",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgument"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_TypeArg",
+                "$mapTag": "_TypeArg",
                 "name": "_SimpleKind"
               }
             ]
@@ -1268,585 +1287,592 @@
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "_Path",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               },
               "typeKind": {
-                "$tag": "_SimpleKind",
-                "$value": "Domain"
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
               }
             }
           ],
           "name": "selections",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpObject"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "argument",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpArgument"
           }
         }
       ],
       "name": "_OpResult",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpSpread": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "fragment",
           "object": "_OpSpread",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "object": "_OpSpread",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "fragment",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         }
       ],
       "name": "_OpSpread",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_OpVariable": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_OpVariable",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_ObjBase"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "modifiers",
           "object": "_OpVariable",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Modifiers"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "default",
           "object": "_OpVariable",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Value"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "object": "_OpVariable",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "type",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_ObjBase"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "modifiers",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Modifiers"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "default",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Value"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         }
       ],
       "name": "_OpVariable",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Operation": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "category",
           "object": "_Operation",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Identifier"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "variables",
           "object": "_Operation",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpVariable"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "object": "_Operation",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "fragments",
           "object": "_Operation",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpFragment"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "result",
           "object": "_Operation",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpResult"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "category",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Identifier"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "variables",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpVariable"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "directives",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpDirective"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "fragments",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpFragment"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "result",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_OpResult"
           }
         }
       ],
       "name": "_Operation",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_Aliased"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Operations": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_Operations",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Operation"
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_Operations",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "operation",
           "object": "_Operations",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Operation"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_Operations",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Operation"
           }
         },
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "operation",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Operation"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "type",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "name": "_Operations",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Path": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "_Path",
           "exclude": false,
           "pattern": "\\$?\\.*\\w[\\w\\d]*(\\.\\w[\\w\\d]*)*"
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRegex",
+          "$mapTag": "_DomainRegex",
           "exclude": false,
           "pattern": "\\$?\\.*\\w[\\w\\d]*(\\.\\w[\\w\\d]*)*"
         }
       ],
       "name": "_Path",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Resolution": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Parallel"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Sequential"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Single"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Parallel"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Sequential"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Single"
         }
       ],
       "name": "_Resolution",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Setting": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "value",
           "object": "_Setting",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Value"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "value",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Value"
           }
         }
       ],
       "name": "_Setting",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     }
   }

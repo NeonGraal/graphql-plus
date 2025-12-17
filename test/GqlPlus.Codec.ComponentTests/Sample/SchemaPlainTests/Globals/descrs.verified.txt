@@ -1,6 +1,3 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier Dscrs: !_TypeOutput
-    description: 'A simple description With extra'
-    name: Dscrs
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]Dscrs[_TypeOutput]:description='A simple description With extra'
+[_Schema]:types[_Map_Type]:[_Identifier]Dscrs[_TypeOutput]:name=Dscrs
+[_Schema]:types[_Map_Type]:[_Identifier]Dscrs[_TypeOutput]:typeKind=[_TypeKind]Output

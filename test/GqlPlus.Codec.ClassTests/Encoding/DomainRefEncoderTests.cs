@@ -10,12 +10,11 @@ public class DomainRefEncoderTests
   public void Encode_WithAll_ReturnsExpected(string name, DomainKindModel domainKind, string description)
   {
     // Arrange
-    EncodeAndCheck(new DomainRefModel(name, domainKind, description), [
-        "!_DomainRef",
-        "description: " + description.QuotedIdentifier(),
-        $"domainKind: !_DomainKind {domainKind}",
-        "name: "  + name,
-        "typeKind: !_SimpleKind Domain"
-      ]);
+    EncodeAndCheck(new DomainRefModel(name, domainKind, description),
+      TagAll("_DomainRef",
+        ":description=" + description.QuotedIdentifier(),
+        $":domainKind=[_DomainKind]{domainKind}",
+        ":name=" + name,
+        ":typeKind=[_SimpleKind]Domain"));
   }
 }

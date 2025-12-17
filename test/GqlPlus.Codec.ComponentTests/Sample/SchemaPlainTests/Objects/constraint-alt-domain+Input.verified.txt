@@ -1,51 +1,23 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier CnstAltDmnInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: CnstAltDmnInp
-        type: !_ObjBase
-          name: RefCnstAltDmnInp
-          typeArgs:
-            - !_TypeArg
-              name: DomCnstAltDmnInp
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: RefCnstAltDmnInp
-          typeArgs:
-            - !_TypeArg
-              name: DomCnstAltDmnInp
-    name: CnstAltDmnInp
-    typeKind: !_TypeKind Input
-  !_Identifier DomCnstAltDmnInp: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: DomCnstAltDmnInp
-        exclude: false
-        pattern: '\\w+'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: '\\w+'
-    name: DomCnstAltDmnInp
-    typeKind: !_TypeKind Domain
-  !_Identifier RefCnstAltDmnInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: RefCnstAltDmnInp
-        type: !_ObjBase
-          typeParam: ref
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          typeParam: ref
-    name: RefCnstAltDmnInp
-    typeKind: !_TypeKind Input
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: ref
+﻿[_Schema]:types[_Map_Type]:[_Identifier]CnstAltDmnInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=CnstAltDmnInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstAltDmnInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=RefCnstAltDmnInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstAltDmnInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=DomCnstAltDmnInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstAltDmnInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=RefCnstAltDmnInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstAltDmnInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=DomCnstAltDmnInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstAltDmnInp[_TypeInput]:name=CnstAltDmnInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstAltDmnInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstAltDmnInp[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=DomCnstAltDmnInp
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstAltDmnInp[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstAltDmnInp[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='\\w+'
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstAltDmnInp[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstAltDmnInp[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstAltDmnInp[_DomainString]:items.0[_DomainRegex]:pattern='\\w+'
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstAltDmnInp[_DomainString]:name=DomCnstAltDmnInp
+[_Schema]:types[_Map_Type]:[_Identifier]DomCnstAltDmnInp[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstAltDmnInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefCnstAltDmnInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstAltDmnInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstAltDmnInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstAltDmnInp[_TypeInput]:name=RefCnstAltDmnInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstAltDmnInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstAltDmnInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstAltDmnInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstAltDmnInp[_TypeInput]:typeParams.0[_TypeParam]:name=ref

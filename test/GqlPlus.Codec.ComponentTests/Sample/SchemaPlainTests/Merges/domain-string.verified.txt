@@ -1,6 +1,3 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnStr: !_DomainString
-    domainKind: !_DomainKind String
-    name: DmnStr
-    typeKind: !_TypeKind Domain
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnStr[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStr[_DomainString]:name=DmnStr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStr[_DomainString]:typeKind=[_TypeKind]Domain

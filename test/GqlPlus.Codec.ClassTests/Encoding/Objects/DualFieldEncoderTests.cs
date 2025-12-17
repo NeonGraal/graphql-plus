@@ -22,11 +22,10 @@ public class DualFieldEncoderTests
     ObjBase.Encode(dualBase).Returns(new Structured(dual));
 
     // Act & Accept
-    EncodeAndCheck(new(name, dualBase, contents), [
-      "!_DualField",
-      "description: " + contents.QuotedIdentifier(),
-      "name: " + name,
-      "type: " + dual
-      ]);
+    EncodeAndCheck(new(name, dualBase, contents),
+      TagAll("_DualField",
+      ":description=" + contents.QuotedIdentifier(),
+      ":name=" + name,
+      ":type=" + dual));
   }
 }

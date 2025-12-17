@@ -1,16 +1,7 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier FieldSmplDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: FieldSmplDual
-        type: !_ObjBase
-          name: Number
-    fields:
-      - !_DualField
-        name: field
-        type: !_ObjBase
-          name: Number
-    name: FieldSmplDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=FieldSmplDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:name=FieldSmplDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:typeKind=[_TypeKind]Dual

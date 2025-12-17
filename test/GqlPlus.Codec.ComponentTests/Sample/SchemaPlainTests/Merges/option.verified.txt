@@ -1,2 +1,1 @@
-﻿!_Schema
-name: Schema
+﻿[_Schema]:name=Schema

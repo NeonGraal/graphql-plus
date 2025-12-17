@@ -1,100 +1,103 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "CnstFieldDmnDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "field",
           "object": "RefCnstFieldDmnDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "DomCnstFieldDmnDual"
           }
         }
       ],
       "name": "CnstFieldDmnDual",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "RefCnstFieldDmnDual",
         "typeArgs": [
           {
-            "$tag": "_TypeArg",
+            "$mapTag": "_TypeArg",
             "name": "DomCnstFieldDmnDual"
           }
         ]
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "DomCnstFieldDmnDual": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "DomCnstFieldDmnDual",
           "exclude": false,
           "pattern": "\\w\u002B"
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRegex",
+          "$mapTag": "_DomainRegex",
           "exclude": false,
           "pattern": "\\w\u002B"
         }
       ],
       "name": "DomCnstFieldDmnDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "RefCnstFieldDmnDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "field",
           "object": "RefCnstFieldDmnDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "name": "RefCnstFieldDmnDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "ref"

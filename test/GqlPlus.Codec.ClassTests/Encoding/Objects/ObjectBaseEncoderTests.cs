@@ -10,17 +10,15 @@ public class ObjectBaseEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithTypeParam_ReturnsStructuredWithTypeParam(string dual, string contents)
-    => EncodeAndCheck(new(dual, contents) { IsTypeParam = true }, [
-      "!_ObjBase",
-      "description: " + contents.QuotedIdentifier(),
-      "typeParam: " + dual
-      ]);
+    => EncodeAndCheck(new(dual, contents) { IsTypeParam = true },
+      TagAll("_ObjBase",
+      ":description=" + contents.QuotedIdentifier(),
+      ":typeParam=" + dual));
 
   [Theory, RepeatData]
   public void Encode_WithoutTypeParam_ReturnsStructuredWithDual(string dual, string contents)
-    => EncodeAndCheck(new(dual, contents), [
-      "!_ObjBase",
-      "description: " + contents.QuotedIdentifier(),
-      "name: " + dual
-      ]);
+    => EncodeAndCheck(new(dual, contents),
+      TagAll("_ObjBase",
+      ":description=" + contents.QuotedIdentifier(),
+      ":name=" + dual));
 }

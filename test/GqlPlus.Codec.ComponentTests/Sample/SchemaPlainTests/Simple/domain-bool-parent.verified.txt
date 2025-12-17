@@ -1,35 +1,21 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnBoolPrnt: !_DomainBoolean
-    allItems:
-      - !_DomainItem(_DomainTrueFalse)
-        domain: PrntDmnBoolPrnt
-        exclude: false
-        value: true
-      - !_DomainItem(_DomainTrueFalse)
-        domain: DmnBoolPrnt
-        exclude: false
-        value: false
-    domainKind: !_DomainKind Boolean
-    items:
-      - !_DomainTrueFalse
-        exclude: false
-        value: false
-    name: DmnBoolPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnBoolPrnt
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnBoolPrnt: !_DomainBoolean
-    allItems:
-      - !_DomainItem(_DomainTrueFalse)
-        domain: PrntDmnBoolPrnt
-        exclude: false
-        value: true
-    domainKind: !_DomainKind Boolean
-    items:
-      - !_DomainTrueFalse
-        exclude: false
-        value: true
-    name: PrntDmnBoolPrnt
-    typeKind: !_TypeKind Domain
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:domain=PrntDmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:domain=DmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:value=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:domainKind=[_DomainKind]Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:items.0[_DomainTrueFalse]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:items.0[_DomainTrueFalse]:value=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:name=DmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:domain=PrntDmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:domainKind=[_DomainKind]Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:items.0[_DomainTrueFalse]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:items.0[_DomainTrueFalse]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:name=PrntDmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:typeKind=[_TypeKind]Domain

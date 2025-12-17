@@ -1,47 +1,26 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnEnumValuePrnt: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: DmnEnumValuePrnt
-        exclude: false
-        value: !_EnumValue
-          label: prnt_dmnEnumValuePrnt
-          name: EnumDmnEnumValuePrnt
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: prnt_dmnEnumValuePrnt
-          name: EnumDmnEnumValuePrnt
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumValuePrnt
-    typeKind: !_TypeKind Domain
-  !_Identifier EnumDmnEnumValuePrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntDmnEnumValuePrnt
-        name: prnt_dmnEnumValuePrnt
-      - !_EnumLabel
-        enum: EnumDmnEnumValuePrnt
-        name: dmnEnumValuePrnt
-    items:
-      - !_Aliased
-        name: dmnEnumValuePrnt
-    name: EnumDmnEnumValuePrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnEnumValuePrnt
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier PrntDmnEnumValuePrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntDmnEnumValuePrnt
-        name: prnt_dmnEnumValuePrnt
-    items:
-      - !_Aliased
-        name: prnt_dmnEnumValuePrnt
-    name: PrntDmnEnumValuePrnt
-    typeKind: !_TypeKind Enum
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=DmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=prnt_dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=prnt_dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:name=DmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:allItems.1[_EnumLabel]:name=dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:items.0[_Aliased]:name=dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:name=EnumDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumValuePrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumValuePrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumValuePrnt[_TypeEnum]:items.0[_Aliased]:name=prnt_dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumValuePrnt[_TypeEnum]:name=PrntDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumValuePrnt[_TypeEnum]:typeKind=[_TypeKind]Enum

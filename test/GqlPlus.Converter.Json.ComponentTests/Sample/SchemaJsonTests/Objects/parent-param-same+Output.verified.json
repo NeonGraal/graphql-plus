@@ -1,64 +1,65 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "PrntParamSameOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "RefPrntParamSameOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "a"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "PrntParamSameOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "a"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "a"
           }
         }
       ],
       "name": "PrntParamSameOutp",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "RefPrntParamSameOutp",
         "typeArgs": [
           {
-            "$tag": "_TypeArg",
+            "$mapTag": "_TypeArg",
             "typeParam": "a"
           }
         ]
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "a"
@@ -66,40 +67,41 @@
       ]
     },
     "RefPrntParamSameOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "RefPrntParamSameOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "a"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "a"
           }
         }
       ],
       "name": "RefPrntParamSameOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "a"

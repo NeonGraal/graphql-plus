@@ -1,67 +1,69 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "AltGnrcAltParamInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "AltGnrcAltParamInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "alt",
           "object": "AltGnrcAltParamInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "alt",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "AltGnrcAltParamInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "GnrcAltParamInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "GnrcAltParamInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "RefGnrcAltParamInp",
             "typeArgs": [
               {
-                "$tag": "_TypeArg",
+                "$mapTag": "_TypeArg",
                 "name": "AltGnrcAltParamInp"
               }
             ]
@@ -70,13 +72,13 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "RefGnrcAltParamInp",
             "typeArgs": [
               {
-                "$tag": "_TypeArg",
+                "$mapTag": "_TypeArg",
                 "name": "AltGnrcAltParamInp"
               }
             ]
@@ -85,45 +87,46 @@
       ],
       "name": "GnrcAltParamInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "RefGnrcAltParamInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "RefGnrcAltParamInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "name": "RefGnrcAltParamInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "_Input",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Internal"
+              "$value": "Internal",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "ref"

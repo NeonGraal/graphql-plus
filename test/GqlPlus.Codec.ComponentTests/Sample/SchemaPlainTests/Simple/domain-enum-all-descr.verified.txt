@@ -1,38 +1,22 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnEnumAllDescr: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        description: 'DomAll Descr'
-        domain: DmnEnumAllDescr
-        exclude: false
-        value: !_EnumValue
-          label: '*'
-          name: EnumDmnEnumAllDescr
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        description: 'DomAll Descr'
-        exclude: false
-        value: !_EnumValue
-          label: '*'
-          name: EnumDmnEnumAllDescr
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumAllDescr
-    typeKind: !_TypeKind Domain
-  !_Identifier EnumDmnEnumAllDescr: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDmnEnumAllDescr
-        name: dmnEnumAllDescr
-      - !_EnumLabel
-        enum: EnumDmnEnumAllDescr
-        name: enum_dmnEnumAllDescr
-    items:
-      - !_Aliased
-        name: dmnEnumAllDescr
-      - !_Aliased
-        name: enum_dmnEnumAllDescr
-    name: EnumDmnEnumAllDescr
-    typeKind: !_TypeKind Enum
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:description='DomAll Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=DmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label='*'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:items.0[_DomainLabel]:description='DomAll Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label='*'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:name=DmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:allItems.0[_EnumLabel]:name=dmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:allItems.1[_EnumLabel]:name=enum_dmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:items.0[_Aliased]:name=dmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:items.1[_Aliased]:name=enum_dmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:name=EnumDmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:typeKind=[_TypeKind]Enum

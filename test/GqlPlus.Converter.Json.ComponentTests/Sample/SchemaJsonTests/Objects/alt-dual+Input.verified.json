@@ -1,80 +1,82 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "AltDualInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "AltDualInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "ObjDualAltDualInp"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "ObjDualAltDualInp"
           }
         }
       ],
       "name": "AltDualInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjDualAltDualInp": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "ObjDualAltDualInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "alt",
           "object": "ObjDualAltDualInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "alt",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "ObjDualAltDualInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     }
   }

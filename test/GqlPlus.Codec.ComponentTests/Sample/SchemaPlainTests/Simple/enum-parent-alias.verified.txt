@@ -1,35 +1,19 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumPrntAlias: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntEnumPrntAlias
-        name: prnt_enumPrntAlias
-      - !_EnumLabel
-        enum: EnumPrntAlias
-        name: val_enumPrntAlias
-      - !_EnumLabel
-        aliases: [enumPrntAlias]
-        enum: EnumPrntAlias
-        name: prnt_enumPrntAlias
-    items:
-      - !_Aliased
-        name: val_enumPrntAlias
-      - !_Aliased
-        aliases: [enumPrntAlias]
-        name: prnt_enumPrntAlias
-    name: EnumPrntAlias
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntEnumPrntAlias
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier PrntEnumPrntAlias: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntEnumPrntAlias
-        name: prnt_enumPrntAlias
-    items:
-      - !_Aliased
-        name: prnt_enumPrntAlias
-    name: PrntEnumPrntAlias
-    typeKind: !_TypeKind Enum
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntEnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.1[_EnumLabel]:name=val_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.2[_EnumLabel]:aliases.0=enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.2[_EnumLabel]:enum=EnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.2[_EnumLabel]:name=prnt_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:items.0[_Aliased]:name=val_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:items.1[_Aliased]:aliases.0=enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:items.1[_Aliased]:name=prnt_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:name=EnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=PrntEnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntAlias[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntEnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntAlias[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntAlias[_TypeEnum]:items.0[_Aliased]:name=prnt_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntAlias[_TypeEnum]:name=PrntEnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntAlias[_TypeEnum]:typeKind=[_TypeKind]Enum

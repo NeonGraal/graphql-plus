@@ -1,19 +1,9 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier FldObjFieldDual: !_TypeDual
-    name: FldObjFieldDual
-    typeKind: !_TypeKind Dual
-  !_Identifier ObjFieldDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: ObjFieldDual
-        type: !_ObjBase
-          name: FldObjFieldDual
-    fields:
-      - !_DualField
-        name: field
-        type: !_ObjBase
-          name: FldObjFieldDual
-    name: ObjFieldDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]FldObjFieldDual[_TypeDual]:name=FldObjFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]FldObjFieldDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=ObjFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=FldObjFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=FldObjFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldDual[_TypeDual]:name=ObjFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldDual[_TypeDual]:typeKind=[_TypeKind]Dual

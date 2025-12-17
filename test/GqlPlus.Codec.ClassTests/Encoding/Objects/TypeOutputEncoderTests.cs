@@ -10,10 +10,9 @@ public class TypeOutputEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithValidModel_ReturnsStructured(string name, string contents)
-    => EncodeAndCheck(new(name, contents), [
-      "!_TypeOutput",
-      "description: " + contents.QuotedIdentifier(),
-      "name: " + name,
-      "typeKind: !_TypeKind Output"
-      ]);
+    => EncodeAndCheck(new(name, contents),
+      TagAll("_TypeOutput",
+      ":description=" + contents.QuotedIdentifier(),
+      ":name=" + name,
+      ":typeKind=[_TypeKind]Output"));
 }

@@ -24,11 +24,10 @@ public class InputFieldEncoderTests
     ObjBase.Encode(inputBase).Returns(new Structured(input));
 
     // Act & Accept
-    EncodeAndCheck(new(name, inputBase, contents), [
-      "!_InputField",
-      "description: " + contents.QuotedIdentifier(),
-      "name: " + name,
-      "type: " + input
-      ]);
+    EncodeAndCheck(new(name, inputBase, contents),
+      TagAll("_InputField",
+      ":description=" + contents.QuotedIdentifier(),
+      ":name=" + name,
+      ":type=" + input));
   }
 }

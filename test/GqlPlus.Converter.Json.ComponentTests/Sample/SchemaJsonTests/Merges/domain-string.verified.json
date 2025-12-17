@@ -1,17 +1,18 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "DmnStr": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "name": "DmnStr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     }
   }

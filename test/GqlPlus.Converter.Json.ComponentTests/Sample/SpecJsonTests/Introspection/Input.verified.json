@@ -1,124 +1,130 @@
 ﻿{
-  "$tag": "_Schema",
-  "errors": [
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
+  "$mapTag": "_Schema",
+  "errors": {
+    "$list": [
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _InputField can\u0027t get model for type \u0027_ObjField\u0027"
       },
-      "_message": "In _InputField can\u0027t get model for type \u0027_ObjField\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
-      },
-      "_message": "In _InputFieldType can\u0027t get model for type \u0027_ObjFieldType\u0027"
-    }
-  ],
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _InputFieldType can\u0027t get model for type \u0027_ObjFieldType\u0027"
+      }
+    ],
+    "$listTag": "_Errors"
+  },
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "_InputField": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "_InputField",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_ObjField",
         "typeArgs": [
           {
-            "$tag": "_TypeArg",
+            "$mapTag": "_TypeArg",
             "name": "_InputFieldType"
           }
         ]
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_InputFieldType": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "default",
           "object": "_InputFieldType",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Value"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "default",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Value"
           }
         }
       ],
       "name": "_InputFieldType",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_ObjFieldType"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_InputParam": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "default",
           "object": "_InputFieldType",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Value"
           }
         }
       ],
       "name": "_InputParam",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_InputFieldType"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     }
   }

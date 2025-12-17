@@ -28,10 +28,8 @@ public class DirectivesEncoderTests
     EncodeAndCheck(new() {
       Type = type,
       And = directive
-    }, [
-        "!_Directives",
-        "directive: !Directive " + name,
-        "type: !Input " + name
-        ]);
+    }, TagAll("_Directives",
+        ":directive=[Directive]" + name,
+        ":type=[Input]" + name));
   }
 }

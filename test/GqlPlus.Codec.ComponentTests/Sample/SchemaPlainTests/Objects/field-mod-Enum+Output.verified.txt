@@ -1,28 +1,18 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumFieldModEnumOutp: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumFieldModEnumOutp
-        name: value
-    items:
-      - !_Aliased
-        name: value
-    name: EnumFieldModEnumOutp
-    typeKind: !_TypeKind Enum
-  !_Identifier FieldModEnumOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_ModifierDictionary{by:EnumFieldModEnumOutp,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
-        name: field
-        object: FieldModEnumOutp
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_OutputField
-        modifiers: [!_ModifierDictionary{by:EnumFieldModEnumOutp,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
-        name: field
-        type: !_ObjBase
-          name: String
-    name: FieldModEnumOutp
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldModEnumOutp[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumFieldModEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldModEnumOutp[_TypeEnum]:allItems.0[_EnumLabel]:name=value
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldModEnumOutp[_TypeEnum]:items.0[_Aliased]:name=value
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldModEnumOutp[_TypeEnum]:name=EnumFieldModEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldModEnumOutp[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:by=EnumFieldModEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=FieldModEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_ModifierDictionary]:by=EnumFieldModEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:name=FieldModEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldModEnumOutp[_TypeOutput]:typeKind=[_TypeKind]Output

@@ -1,12 +1,19 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "name": "Schema",
   "settings": {
-    "$tag": "_Map_Setting",
+    "$mapTag": "_Map_Setting",
     "merged": {
-      "$tag": "_Setting",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Setting",
       "name": "merged",
-      "value": [true, 0]
+      "value": {
+        "$list": [
+          true,
+          0
+        ],
+        "$listTag": "_ConstantList"
+      }
     }
   }
 }

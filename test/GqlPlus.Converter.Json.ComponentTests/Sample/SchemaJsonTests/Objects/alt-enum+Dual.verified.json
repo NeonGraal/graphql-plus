@@ -1,53 +1,55 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "AltEnumDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "AltEnumDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "EnumAltEnumDual"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "EnumAltEnumDual"
           }
         }
       ],
       "name": "AltEnumDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumAltEnumDual": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumAltEnumDual",
           "name": "altEnumDual"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "altEnumDual"
         }
       ],
       "name": "EnumAltEnumDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     }
   }

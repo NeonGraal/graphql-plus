@@ -1,61 +1,63 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "PrntUnionPrntDescr": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "PrntUnionPrntDescr"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Number"
         }
       ],
       "name": "PrntUnionPrntDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "UnionPrntDescr": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "PrntUnionPrntDescr"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "UnionPrntDescr"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Number"
         }
       ],
       "name": "UnionPrntDescr",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "description": "Parent comment",
         "name": "PrntUnionPrntDescr",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Union"
+          "$value": "Union",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     }
   }

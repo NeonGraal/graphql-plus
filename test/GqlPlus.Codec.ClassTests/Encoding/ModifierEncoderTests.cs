@@ -11,19 +11,18 @@ public class ModifierEncoderTests
   {
     // Arrange
     string[] keyExpected = [];
-    string tag = "!_Modifier";
+    string tag = "_Modifier";
     if (modifier is ModifierKind.Dict or ModifierKind.Param) {
-      keyExpected = [$"by: {key}"];
       tag += modifier is ModifierKind.Param ? "TypeParam" : "Dictionary";
+      keyExpected = [$"[{tag}]:by={key}"];
     }
 
     // Act
     EncodeAndCheck(new(modifier) {
       Key = key,
     }, [
-        tag,
         ..keyExpected,
-        $"modifierKind: !_ModifierKind {modifier}"
+        $"[{tag}]:modifierKind=[_ModifierKind]{modifier}"
         ]);
   }
 }

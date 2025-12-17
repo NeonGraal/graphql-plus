@@ -1,12 +1,13 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "DmnNmbrDescr": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRange)",
+          "$mapTag": "_DomainItem(_DomainRange)",
           "description": "DomNumber Descr",
           "domain": "DmnNmbrDescr",
           "exclude": false,
@@ -14,12 +15,12 @@
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRange",
+          "$mapTag": "_DomainRange",
           "description": "DomNumber Descr",
           "exclude": false,
           "to": 2
@@ -27,8 +28,8 @@
       ],
       "name": "DmnNmbrDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     }
   }

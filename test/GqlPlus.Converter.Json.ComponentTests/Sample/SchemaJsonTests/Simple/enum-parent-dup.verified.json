@@ -1,47 +1,49 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "EnumPrntDup": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "aliases": ["enumPrntDup"],
           "enum": "PrntEnumPrntDup",
           "name": "prnt_enumPrntDup"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumPrntDup",
           "name": "enumPrntDup"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enumPrntDup"
         }
       ],
       "name": "EnumPrntDup",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntEnumPrntDup",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Enum"
+          "$value": "Enum",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntEnumPrntDup": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "aliases": ["enumPrntDup"],
           "enum": "PrntEnumPrntDup",
           "name": "prnt_enumPrntDup"
@@ -49,15 +51,15 @@
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "aliases": ["enumPrntDup"],
           "name": "prnt_enumPrntDup"
         }
       ],
       "name": "PrntEnumPrntDup",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     }
   }

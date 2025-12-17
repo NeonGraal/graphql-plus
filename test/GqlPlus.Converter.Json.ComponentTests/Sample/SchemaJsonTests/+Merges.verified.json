@@ -1,107 +1,113 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "aliases": ["Opt1", "Opt2"],
   "categories": {
-    "$tag": "_Map_Categories",
+    "$mapTag": "_Map_Categories",
     "ctgr": {
-      "$tag": "_Category",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
       "name": "ctgr",
       "output": {
-        "$tag": "_TypeRef(_TypeKind)",
+        "$mapTag": "_TypeRef(_TypeKind)",
         "name": "Ctgr",
         "typeKind": {
-          "$tag": "_TypeKind",
-          "$value": "Output"
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
         }
       },
       "resolution": {
-        "$tag": "_Resolution",
-        "$value": "Parallel"
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
       }
     },
     "ctgrAlias": {
-      "$tag": "_Category",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
       "aliases": ["CatA1", "CatA2"],
       "name": "ctgrAlias",
       "output": {
-        "$tag": "_TypeRef(_TypeKind)",
+        "$mapTag": "_TypeRef(_TypeKind)",
         "name": "CtgrAlias",
         "typeKind": {
-          "$tag": "_TypeKind",
-          "$value": "Output"
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
         }
       },
       "resolution": {
-        "$tag": "_Resolution",
-        "$value": "Parallel"
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
       }
     },
     "ctgrDescr": {
-      "$tag": "_Category",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
       "description": "First category Second category",
       "name": "ctgrDescr",
       "output": {
-        "$tag": "_TypeRef(_TypeKind)",
+        "$mapTag": "_TypeRef(_TypeKind)",
         "name": "CtgrDescr",
         "typeKind": {
-          "$tag": "_TypeKind",
-          "$value": "Output"
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
         }
       },
       "resolution": {
-        "$tag": "_Resolution",
-        "$value": "Parallel"
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
       }
     },
     "ctgrMod": {
-      "$tag": "_Category",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
       "aliases": ["CatM1", "CatM2"],
       "modifiers": [
         {
-          "$tag": "_Modifier",
+          "$mapTag": "_Modifier",
           "modifierKind": {
-            "$tag": "_ModifierKind",
-            "$value": "Opt"
+            "$value": "Opt",
+            "$valueTag": "_ModifierKind"
           }
         }
       ],
       "name": "ctgrMod",
       "output": {
-        "$tag": "_TypeRef(_TypeKind)",
+        "$mapTag": "_TypeRef(_TypeKind)",
         "name": "CtgrMod",
         "typeKind": {
-          "$tag": "_TypeKind",
-          "$value": "Output"
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
         }
       },
       "resolution": {
-        "$tag": "_Resolution",
-        "$value": "Parallel"
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
       }
     },
     "op": {
-      "$tag": "_Category",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
       "name": "op",
       "output": {
-        "$tag": "_TypeRef(_TypeKind)",
+        "$mapTag": "_TypeRef(_TypeKind)",
         "name": "Op",
         "typeKind": {
-          "$tag": "_TypeKind",
-          "$value": "Output"
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
         }
       },
       "resolution": {
-        "$tag": "_Resolution",
-        "$value": "Parallel"
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
       }
     }
   },
   "directives": {
-    "$tag": "_Map_Directives",
+    "$mapTag": "_Map_Directives",
     "Drct": {
-      "$tag": "_Directive",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Directive",
       "locations": {
-        "$tag": "_Set(_Location)",
+        "$mapTag": "_Set(_Location)",
         "Inline": "_",
         "Spread": "_"
       },
@@ -109,10 +115,11 @@
       "repeatable": false
     },
     "DrctAlias": {
-      "$tag": "_Directive",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Directive",
       "aliases": ["DirA1", "DirA2"],
       "locations": {
-        "$tag": "_Set(_Location)",
+        "$mapTag": "_Set(_Location)",
         "Field": "_",
         "Variable": "_"
       },
@@ -120,16 +127,17 @@
       "repeatable": false
     },
     "DrctParam": {
-      "$tag": "_Directive",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Directive",
       "locations": {
-        "$tag": "_Set(_Location)",
+        "$mapTag": "_Set(_Location)",
         "Fragment": "_",
         "Operation": "_"
       },
       "name": "DrctParam",
       "parameters": [
         {
-          "$tag": "_InputParam",
+          "$mapTag": "_InputParam",
           "name": "InDrctParam"
         }
       ],
@@ -138,9 +146,10 @@
   },
   "name": "Schema",
   "operations": {
-    "$tag": "_Map_Operations",
+    "$mapTag": "_Map_Operations",
     "Operation": {
-      "$tag": "_Operation",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Operation",
       "aliases": ["Op1", "Op2"],
       "category": "op",
       "name": "Operation",
@@ -148,293 +157,312 @@
     }
   },
   "settings": {
-    "$tag": "_Map_Setting",
+    "$mapTag": "_Map_Setting",
     "merged": {
-      "$tag": "_Setting",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Setting",
       "name": "merged",
-      "value": [true, 0]
+      "value": {
+        "$list": [
+          true,
+          0
+        ],
+        "$listTag": "_ConstantList"
+      }
     }
   },
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "Ctgr": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "Ctgr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "CtgrAlias": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "CtgrAlias",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "CtgrDescr": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "CtgrDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "CtgrMod": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "CtgrMod",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnAlias": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "aliases": ["Num1", "Num2"],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "name": "DmnAlias",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnBool": {
-      "$tag": "_DomainBoolean",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainBoolean",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "DmnBool",
           "exclude": false,
           "value": false
         },
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "DmnBool",
           "exclude": false,
           "value": true
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Boolean"
+        "$value": "Boolean",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": false
         },
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": true
         }
       ],
       "name": "DmnBool",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnBoolDiff": {
-      "$tag": "_DomainBoolean",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainBoolean",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "DmnBoolDiff",
           "exclude": false,
           "value": true
         },
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "DmnBoolDiff",
           "exclude": false,
           "value": false
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Boolean"
+        "$value": "Boolean",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": true
         },
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": false
         }
       ],
       "name": "DmnBoolDiff",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnBoolSame": {
-      "$tag": "_DomainBoolean",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainBoolean",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "DmnBoolSame",
           "exclude": false,
           "value": true
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Boolean"
+        "$value": "Boolean",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": true
         }
       ],
       "name": "DmnBoolSame",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnEnumDiff": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "DmnEnumDiff",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "true",
             "name": "Boolean",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         },
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "DmnEnumDiff",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "false",
             "name": "Boolean",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "true",
             "name": "Boolean",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         },
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "false",
             "name": "Boolean",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumDiff",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnEnumSame": {
-      "$tag": "_DomainEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainLabel)",
+          "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "DmnEnumSame",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "true",
             "name": "Boolean",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainLabel",
+          "$mapTag": "_DomainLabel",
           "exclude": false,
           "value": {
-            "$tag": "_EnumValue",
+            "$mapTag": "_EnumValue",
             "label": "true",
             "name": "Boolean",
             "typeKind": {
-              "$tag": "_SimpleKind",
-              "$value": "Enum"
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
             }
           }
         }
       ],
       "name": "DmnEnumSame",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnNmbr": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "name": "DmnNmbr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnNmbrDiff": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRange)",
+          "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "DmnNmbrDiff",
           "exclude": false,
           "from": 1,
@@ -442,12 +470,12 @@
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRange",
+          "$mapTag": "_DomainRange",
           "exclude": false,
           "from": 1,
           "to": 9
@@ -455,15 +483,16 @@
       ],
       "name": "DmnNmbrDiff",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnNmbrSame": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRange)",
+          "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "DmnNmbrSame",
           "exclude": false,
           "from": 1,
@@ -471,12 +500,12 @@
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRange",
+          "$mapTag": "_DomainRange",
           "exclude": false,
           "from": 1,
           "to": 9
@@ -484,188 +513,196 @@
       ],
       "name": "DmnNmbrSame",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnStr": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "name": "DmnStr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnStrDiff": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "DmnStrDiff",
           "exclude": false,
           "pattern": "a\u002B"
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRegex",
+          "$mapTag": "_DomainRegex",
           "exclude": false,
           "pattern": "a\u002B"
         }
       ],
       "name": "DmnStrDiff",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "DmnStrSame": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "DmnStrSame",
           "exclude": false,
           "pattern": "a\u002B"
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRegex",
+          "$mapTag": "_DomainRegex",
           "exclude": false,
           "pattern": "a\u002B"
         }
       ],
       "name": "DmnStrSame",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumAlias": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "aliases": ["En1", "En2"],
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumAlias",
           "name": "enumAlias"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enumAlias"
         }
       ],
       "name": "EnumAlias",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumDiff": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDiff",
           "name": "one"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDiff",
           "name": "two"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "one"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "two"
         }
       ],
       "name": "EnumDiff",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumSame": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumSame",
           "name": "enumSame"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enumSame"
         }
       ],
       "name": "EnumSame",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumSamePrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntEnumSamePrnt",
           "name": "prnt_enumSamePrnt"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumSamePrnt",
           "name": "enumSamePrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "enumSamePrnt"
         }
       ],
       "name": "EnumSamePrnt",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntEnumSamePrnt",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Enum"
+          "$value": "Enum",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "EnumValueAlias": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "aliases": ["val1", "val2"],
           "enum": "EnumValueAlias",
           "name": "enumValueAlias"
@@ -673,393 +710,414 @@
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "aliases": ["val1", "val2"],
           "name": "enumValueAlias"
         }
       ],
       "name": "EnumValueAlias",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "FldObjFieldAliasDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "name": "FldObjFieldAliasDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "FldObjFieldAliasInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "name": "FldObjFieldAliasInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "FldObjFieldAliasOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "FldObjFieldAliasOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "FldObjFieldDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "name": "FldObjFieldDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "FldObjFieldInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "name": "FldObjFieldInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "FldObjFieldOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "FldObjFieldOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "FldOutpFieldParam": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "name": "FldOutpFieldParam",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "InDrctParam": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "name": "InDrctParam",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAliasDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "aliases": ["Dual1", "Dual2"],
       "name": "ObjAliasDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAliasInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "aliases": ["Input1", "Input2"],
       "name": "ObjAliasInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAliasOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "aliases": ["Output1", "Output2"],
       "name": "ObjAliasOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAltDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "ObjAltDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "ObjAltDualType"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "ObjAltDualType"
           }
         }
       ],
       "name": "ObjAltDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAltDualType": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "name": "ObjAltDualType",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAltEnumDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "ObjAltEnumDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "ObjAltEnumDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         },
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "name": "ObjAltEnumDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAltEnumInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "ObjAltEnumInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "ObjAltEnumInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         },
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "name": "ObjAltEnumInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAltEnumOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "ObjAltEnumOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "ObjAltEnumOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         },
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "name": "ObjAltEnumOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAltInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "ObjAltInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "ObjAltInpType"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "ObjAltInpType"
           }
         }
       ],
       "name": "ObjAltInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAltInpType": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "name": "ObjAltInpType",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAltOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "ObjAltOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "ObjAltOutpType"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "ObjAltOutpType"
           }
         }
       ],
       "name": "ObjAltOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjAltOutpType": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "ObjAltOutpType",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjCnstDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "field",
           "object": "ObjCnstDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         },
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "str",
           "object": "ObjCnstDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         },
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "str",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "name": "ObjCnstDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "type"
@@ -1067,59 +1125,60 @@
       ]
     },
     "ObjCnstInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "field",
           "object": "ObjCnstInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         },
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "str",
           "object": "ObjCnstInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         },
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "str",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "name": "ObjCnstInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "type"
@@ -1127,59 +1186,60 @@
       ]
     },
     "ObjCnstOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "ObjCnstOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "str",
           "object": "ObjCnstOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "str",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "name": "ObjCnstOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "type"
@@ -1187,548 +1247,567 @@
       ]
     },
     "ObjDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "name": "ObjDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldAliasDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "aliases": ["field1", "field2"],
           "name": "field",
           "object": "ObjFieldAliasDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldAliasDual"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldAliasDual"
           }
         }
       ],
       "name": "ObjFieldAliasDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldAliasInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "aliases": ["field1", "field2"],
           "name": "field",
           "object": "ObjFieldAliasInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldAliasInp"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldAliasInp"
           }
         }
       ],
       "name": "ObjFieldAliasInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldAliasOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "aliases": ["field1", "field2"],
           "name": "field",
           "object": "ObjFieldAliasOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldAliasOutp"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldAliasOutp"
           }
         }
       ],
       "name": "ObjFieldAliasOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "field",
           "object": "ObjFieldDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldDual"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldDual"
           }
         }
       ],
       "name": "ObjFieldDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldEnumAliasDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "aliases": ["field1", "field2"],
           "name": "field",
           "object": "ObjFieldEnumAliasDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "name": "ObjFieldEnumAliasDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldEnumAliasInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "aliases": ["field1", "field2"],
           "name": "field",
           "object": "ObjFieldEnumAliasInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "name": "ObjFieldEnumAliasInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldEnumAliasOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "field": "field",
           "label": "true",
           "name": "Boolean",
           "object": "ObjFieldEnumAliasOutp",
           "typeKind": {
-            "$tag": "_SimpleKind",
-            "$value": "Enum"
+            "$value": "Enum",
+            "$valueTag": "_SimpleKind"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputEnum",
+          "$mapTag": "_OutputEnum",
           "field": "field",
           "label": "true",
           "name": "Boolean",
           "typeKind": {
-            "$tag": "_SimpleKind",
-            "$value": "Enum"
+            "$value": "Enum",
+            "$valueTag": "_SimpleKind"
           }
         }
       ],
       "name": "ObjFieldEnumAliasOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldEnumValueDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "field",
           "object": "ObjFieldEnumValueDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "name": "ObjFieldEnumValueDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldEnumValueInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "field",
           "object": "ObjFieldEnumValueInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "name": "ObjFieldEnumValueInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldEnumValueOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "field": "field",
           "label": "true",
           "name": "Boolean",
           "object": "ObjFieldEnumValueOutp",
           "typeKind": {
-            "$tag": "_SimpleKind",
-            "$value": "Enum"
+            "$value": "Enum",
+            "$valueTag": "_SimpleKind"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputEnum",
+          "$mapTag": "_OutputEnum",
           "field": "field",
           "label": "true",
           "name": "Boolean",
           "typeKind": {
-            "$tag": "_SimpleKind",
-            "$value": "Enum"
+            "$value": "Enum",
+            "$valueTag": "_SimpleKind"
           }
         }
       ],
       "name": "ObjFieldEnumValueOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "field",
           "object": "ObjFieldInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldInp"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldInp"
           }
         }
       ],
       "name": "ObjFieldInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "ObjFieldOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldOutp"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldObjFieldOutp"
           }
         }
       ],
       "name": "ObjFieldOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldTypeAliasDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "field",
           "object": "ObjFieldTypeAliasDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "name": "ObjFieldTypeAliasDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldTypeAliasInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "field",
           "object": "ObjFieldTypeAliasInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "name": "ObjFieldTypeAliasInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjFieldTypeAliasOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "ObjFieldTypeAliasOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "name": "ObjFieldTypeAliasOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "name": "ObjInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "ObjOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjParamDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "test",
           "object": "ObjParamDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "type",
           "object": "ObjParamDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "test",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "type",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "name": "ObjParamDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "test"
         },
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "type"
@@ -1736,59 +1815,60 @@
       ]
     },
     "ObjParamDupDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "test",
           "object": "ObjParamDupDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "name": "type",
           "object": "ObjParamDupDual",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "test",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "name": "type",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         }
       ],
       "name": "ObjParamDupDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "test"
@@ -1796,59 +1876,60 @@
       ]
     },
     "ObjParamDupInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "test",
           "object": "ObjParamDupInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "type",
           "object": "ObjParamDupInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "test",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "type",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         }
       ],
       "name": "ObjParamDupInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "test"
@@ -1856,59 +1937,60 @@
       ]
     },
     "ObjParamDupOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "test",
           "object": "ObjParamDupOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "ObjParamDupOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "test",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "type",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         }
       ],
       "name": "ObjParamDupOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "test"
@@ -1916,71 +1998,72 @@
       ]
     },
     "ObjParamInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "test",
           "object": "ObjParamInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "type",
           "object": "ObjParamInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "test",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "type",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "name": "ObjParamInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "test"
         },
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "type"
@@ -1988,71 +2071,72 @@
       ]
     },
     "ObjParamOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "test",
           "object": "ObjParamOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "ObjParamOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "test",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "test"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "type",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "name": "ObjParamOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "test"
         },
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "type"
@@ -2060,294 +2144,310 @@
       ]
     },
     "ObjPrntDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "name": "ObjPrntDual",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "RefObjPrntDual"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjPrntInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "name": "ObjPrntInp",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "RefObjPrntInp"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "ObjPrntOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "ObjPrntOutp",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "RefObjPrntOutp"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "Op": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "Op",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "OutpFieldParam": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpFieldParam",
           "parameters": [
             {
-              "$tag": "_InputParam",
+              "$mapTag": "_InputParam",
               "name": "OutpFieldParam1"
             },
             {
-              "$tag": "_InputParam",
+              "$mapTag": "_InputParam",
               "name": "OutpFieldParam2"
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldOutpFieldParam"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParam",
+              "$mapTag": "_InputParam",
               "name": "OutpFieldParam1"
             },
             {
-              "$tag": "_InputParam",
+              "$mapTag": "_InputParam",
               "name": "OutpFieldParam2"
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "FldOutpFieldParam"
           }
         }
       ],
       "name": "OutpFieldParam",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "OutpFieldParam1": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "name": "OutpFieldParam1",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "OutpFieldParam2": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "name": "OutpFieldParam2",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntEnumSamePrnt": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "PrntEnumSamePrnt",
           "name": "prnt_enumSamePrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "prnt_enumSamePrnt"
         }
       ],
       "name": "PrntEnumSamePrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntUnionSamePrnt": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "String",
           "union": "PrntUnionSamePrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "String"
         }
       ],
       "name": "PrntUnionSamePrnt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "RefObjPrntDual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "name": "RefObjPrntDual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "RefObjPrntInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "name": "RefObjPrntInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "RefObjPrntOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "RefObjPrntOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "UnionAlias": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "aliases": ["UnA1", "UnA2"],
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Boolean",
           "union": "UnionAlias"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "UnionAlias"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Boolean"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Number"
         }
       ],
       "name": "UnionAlias",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "UnionDiff": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Boolean",
           "union": "UnionDiff"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "UnionDiff"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Boolean"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Number"
         }
       ],
       "name": "UnionDiff",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "UnionSame": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Boolean",
           "union": "UnionSame"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Boolean"
         }
       ],
       "name": "UnionSame",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "UnionSamePrnt": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "String",
           "union": "PrntUnionSamePrnt"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Boolean",
           "union": "UnionSamePrnt"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Boolean"
         }
       ],
       "name": "UnionSamePrnt",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "name": "PrntUnionSamePrnt",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Union"
+          "$value": "Union",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     }
   }

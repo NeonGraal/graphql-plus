@@ -1,32 +1,16 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumDmnEnumUnq: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDmnEnumUnq
-        name: enum_dmnEnumUnq
-      - !_EnumLabel
-        enum: EnumDmnEnumUnq
-        name: dmnEnumUnq
-    items:
-      - !_Aliased
-        name: enum_dmnEnumUnq
-      - !_Aliased
-        name: dmnEnumUnq
-    name: EnumDmnEnumUnq
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDomDup: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDomDup
-        name: dmnEnumUnq
-      - !_EnumLabel
-        enum: EnumDomDup
-        name: dup_dmnEnumUnq
-    items:
-      - !_Aliased
-        name: dmnEnumUnq
-      - !_Aliased
-        name: dup_dmnEnumUnq
-    name: EnumDomDup
-    typeKind: !_TypeKind Enum
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:allItems.0[_EnumLabel]:name=enum_dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:allItems.1[_EnumLabel]:name=dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:items.0[_Aliased]:name=enum_dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:items.1[_Aliased]:name=dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:name=EnumDmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDomDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:allItems.0[_EnumLabel]:name=dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDomDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:allItems.1[_EnumLabel]:name=dup_dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:items.0[_Aliased]:name=dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:items.1[_Aliased]:name=dup_dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:name=EnumDomDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:typeKind=[_TypeKind]Enum

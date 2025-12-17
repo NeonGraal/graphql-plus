@@ -1,7 +1,4 @@
-﻿!_Schema
-name: Schema
-settings: !_Map_Setting
-  !_Identifier descr: !_Setting
-    description: 'Option Descr'
-    name: descr
-    value: true
+﻿[_Schema]:name=Schema
+[_Schema]:settings[_Map_Setting]:[_Identifier]descr[_Setting]:description='Option Descr'
+[_Schema]:settings[_Map_Setting]:[_Identifier]descr[_Setting]:name=descr
+[_Schema]:settings[_Map_Setting]:[_Identifier]descr[_Setting]:value=true

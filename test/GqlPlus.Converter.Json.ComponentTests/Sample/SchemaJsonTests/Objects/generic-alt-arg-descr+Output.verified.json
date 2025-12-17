@@ -1,19 +1,20 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "GnrcAltArgDescrOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "GnrcAltArgDescrOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "RefGnrcAltArgDescrOutp",
             "typeArgs": [
               {
-                "$tag": "_TypeArg",
+                "$mapTag": "_TypeArg",
                 "description": "Test Descr",
                 "typeParam": "type"
               }
@@ -23,13 +24,13 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "RefGnrcAltArgDescrOutp",
             "typeArgs": [
               {
-                "$tag": "_TypeArg",
+                "$mapTag": "_TypeArg",
                 "description": "Test Descr",
                 "typeParam": "type"
               }
@@ -39,18 +40,18 @@
       ],
       "name": "GnrcAltArgDescrOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "type"
@@ -58,40 +59,41 @@
       ]
     },
     "RefGnrcAltArgDescrOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "RefGnrcAltArgDescrOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "name": "RefGnrcAltArgDescrOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "String",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Basic"
+              "$value": "Basic",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "ref"

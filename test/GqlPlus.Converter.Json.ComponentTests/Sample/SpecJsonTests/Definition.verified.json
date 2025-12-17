@@ -1,345 +1,362 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "Boolean": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "aliases": ["bool", "^"],
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "Boolean",
           "name": "false"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "Boolean",
           "name": "true"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "false"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "true"
         }
       ],
       "name": "Boolean",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "Null": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "aliases": ["null"],
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "Null",
           "name": "null"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "null"
         }
       ],
       "name": "Null",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "Number": {
-      "$tag": "_DomainNumber",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
       "aliases": ["int", "0"],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Number"
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
       },
       "name": "Number",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "String": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "aliases": ["str", "*"],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "name": "String",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "Unit": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "aliases": ["_"],
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "Unit",
           "name": "_"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "_"
         }
       ],
       "name": "Unit",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "Void": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "description": "No valid value",
       "name": "Void",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Basic": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "aliases": ["Basic"],
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Boolean",
           "union": "_Basic"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Number",
           "union": "_Basic"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "String",
           "union": "_Basic"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Unit",
           "union": "_Basic"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Boolean"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Number"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "String"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Unit"
         }
       ],
       "name": "_Basic",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Domain": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "aliases": ["Domain"],
       "description": "All user defined Domain types",
       "name": "_Domain",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Dual": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "aliases": ["Dual"],
       "description": "All user defined Dual types",
       "name": "_Dual",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Enum": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "aliases": ["Enum"],
       "description": "All user defined Enum types",
       "name": "_Enum",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Input": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "aliases": ["Input"],
       "description": "All user defined Input types",
       "name": "_Input",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Internal": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "aliases": ["Internal"],
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Null",
           "union": "_Internal"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "Void",
           "union": "_Internal"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Null"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Void"
         }
       ],
       "name": "_Internal",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Key": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "aliases": ["Key"],
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "_Basic",
           "union": "_Key"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "_Internal",
           "union": "_Key"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "_Simple",
           "union": "_Key"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "_Basic"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "_Internal"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "_Simple"
         }
       ],
       "name": "_Key",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Object": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "aliases": ["Object", "obj", "%"],
       "description": "%",
       "name": "_Object",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Output": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "aliases": ["Output"],
       "description": "All user defined Output types",
       "name": "_Output",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Simple": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "aliases": ["Simple"],
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "_Enum",
           "union": "_Simple"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "_Domain",
           "union": "_Simple"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "name": "_Union",
           "union": "_Simple"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "_Enum"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "_Domain"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "_Union"
         }
       ],
       "name": "_Simple",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Union": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "aliases": ["Union"],
       "description": "All user defined Union types",
       "name": "_Union",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     }
   }

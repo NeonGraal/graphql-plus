@@ -1,30 +1,18 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumFieldValueDescrOutp: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumFieldValueDescrOutp
-        name: fieldValueDescrOutp
-    items:
-      - !_Aliased
-        name: fieldValueDescrOutp
-    name: EnumFieldValueDescrOutp
-    typeKind: !_TypeKind Enum
-  !_Identifier FieldValueDescrOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        description: 'Test Descr'
-        field: field
-        label: fieldValueDescrOutp
-        name: EnumFieldValueDescrOutp
-        object: FieldValueDescrOutp
-        typeKind: !_SimpleKind Enum
-    fields:
-      - !_OutputEnum
-        description: 'Test Descr'
-        field: field
-        label: fieldValueDescrOutp
-        name: EnumFieldValueDescrOutp
-        typeKind: !_SimpleKind Enum
-    name: FieldValueDescrOutp
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDescrOutp[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumFieldValueDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDescrOutp[_TypeEnum]:allItems.0[_EnumLabel]:name=fieldValueDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDescrOutp[_TypeEnum]:items.0[_Aliased]:name=fieldValueDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDescrOutp[_TypeEnum]:name=EnumFieldValueDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDescrOutp[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:field=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:label=fieldValueDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=EnumFieldValueDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=FieldValueDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:fields.0[_OutputEnum]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:fields.0[_OutputEnum]:field=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:fields.0[_OutputEnum]:label=fieldValueDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:fields.0[_OutputEnum]:name=EnumFieldValueDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:fields.0[_OutputEnum]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:name=FieldValueDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDescrOutp[_TypeOutput]:typeKind=[_TypeKind]Output

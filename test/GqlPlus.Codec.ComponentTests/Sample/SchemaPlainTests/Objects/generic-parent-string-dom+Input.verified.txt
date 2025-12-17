@@ -1,49 +1,25 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DomGnrcPrntStrDomInp: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: DomGnrcPrntStrDomInp
-        exclude: false
-        pattern: '\\w+'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: '\\w+'
-    name: DomGnrcPrntStrDomInp
-    typeKind: !_TypeKind Domain
-  !_Identifier FieldGnrcPrntStrDomInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: field
-        object: FieldGnrcPrntStrDomInp
-        type: !_ObjBase
-          typeParam: ref
-    fields:
-      - !_InputField
-        name: field
-        type: !_ObjBase
-          typeParam: ref
-    name: FieldGnrcPrntStrDomInp
-    typeKind: !_TypeKind Input
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: ref
-  !_Identifier GnrcPrntStrDomInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: field
-        object: FieldGnrcPrntStrDomInp
-        type: !_ObjBase
-          name: DomGnrcPrntStrDomInp
-    name: GnrcPrntStrDomInp
-    parent: !_ObjBase
-      name: FieldGnrcPrntStrDomInp
-      typeArgs:
-        - !_TypeArg
-          name: DomGnrcPrntStrDomInp
-    typeKind: !_TypeKind Input
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DomGnrcPrntStrDomInp[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=DomGnrcPrntStrDomInp
+[_Schema]:types[_Map_Type]:[_Identifier]DomGnrcPrntStrDomInp[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DomGnrcPrntStrDomInp[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='\\w+'
+[_Schema]:types[_Map_Type]:[_Identifier]DomGnrcPrntStrDomInp[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]DomGnrcPrntStrDomInp[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DomGnrcPrntStrDomInp[_DomainString]:items.0[_DomainRegex]:pattern='\\w+'
+[_Schema]:types[_Map_Type]:[_Identifier]DomGnrcPrntStrDomInp[_DomainString]:name=DomGnrcPrntStrDomInp
+[_Schema]:types[_Map_Type]:[_Identifier]DomGnrcPrntStrDomInp[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntStrDomInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntStrDomInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=FieldGnrcPrntStrDomInp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntStrDomInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntStrDomInp[_TypeInput]:fields.0[_InputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntStrDomInp[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntStrDomInp[_TypeInput]:name=FieldGnrcPrntStrDomInp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntStrDomInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntStrDomInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntStrDomInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntStrDomInp[_TypeInput]:typeParams.0[_TypeParam]:name=ref
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntStrDomInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntStrDomInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=FieldGnrcPrntStrDomInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntStrDomInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=DomGnrcPrntStrDomInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntStrDomInp[_TypeInput]:name=GnrcPrntStrDomInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntStrDomInp[_TypeInput]:parent[_ObjBase]:name=FieldGnrcPrntStrDomInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntStrDomInp[_TypeInput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=DomGnrcPrntStrDomInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntStrDomInp[_TypeInput]:typeKind=[_TypeKind]Input

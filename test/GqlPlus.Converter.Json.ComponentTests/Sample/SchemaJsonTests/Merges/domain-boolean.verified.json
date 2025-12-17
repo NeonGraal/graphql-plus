@@ -1,43 +1,44 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "DmnBool": {
-      "$tag": "_DomainBoolean",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainBoolean",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "DmnBool",
           "exclude": false,
           "value": false
         },
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "DmnBool",
           "exclude": false,
           "value": true
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Boolean"
+        "$value": "Boolean",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": false
         },
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": true
         }
       ],
       "name": "DmnBool",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     }
   }

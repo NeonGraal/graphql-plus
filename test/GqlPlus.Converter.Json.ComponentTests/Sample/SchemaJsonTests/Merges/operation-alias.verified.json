@@ -1,28 +1,30 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "categories": {
-    "$tag": "_Map_Categories",
+    "$mapTag": "_Map_Categories",
     "op": {
-      "$tag": "_Category",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
       "name": "op",
       "output": {
-        "$tag": "_TypeRef(_TypeKind)",
+        "$mapTag": "_TypeRef(_TypeKind)",
         "name": "Op",
         "typeKind": {
-          "$tag": "_TypeKind",
-          "$value": "Output"
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
         }
       },
       "resolution": {
-        "$tag": "_Resolution",
-        "$value": "Parallel"
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
       }
     }
   },
   "operations": {
-    "$tag": "_Map_Operations",
+    "$mapTag": "_Map_Operations",
     "Operation": {
-      "$tag": "_Operation",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Operation",
       "aliases": ["Op1", "Op2"],
       "category": "op",
       "name": "Operation",
@@ -30,13 +32,14 @@
     }
   },
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "Op": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "Op",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     }
   }

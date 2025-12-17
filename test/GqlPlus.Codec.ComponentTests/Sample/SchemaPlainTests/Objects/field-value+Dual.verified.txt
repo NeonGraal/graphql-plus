@@ -1,26 +1,12 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumFieldValueDual: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumFieldValueDual
-        name: fieldValueDual
-    items:
-      - !_Aliased
-        name: fieldValueDual
-    name: EnumFieldValueDual
-    typeKind: !_TypeKind Enum
-  !_Identifier FieldValueDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: FieldValueDual
-        type: !_ObjBase
-          name: EnumFieldValueDual
-    fields:
-      - !_DualField
-        name: field
-        type: !_ObjBase
-          name: EnumFieldValueDual
-    name: FieldValueDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDual[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumFieldValueDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDual[_TypeEnum]:allItems.0[_EnumLabel]:name=fieldValueDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDual[_TypeEnum]:items.0[_Aliased]:name=fieldValueDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDual[_TypeEnum]:name=EnumFieldValueDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldValueDual[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=FieldValueDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=EnumFieldValueDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=EnumFieldValueDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDual[_TypeDual]:name=FieldValueDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldValueDual[_TypeDual]:typeKind=[_TypeKind]Dual

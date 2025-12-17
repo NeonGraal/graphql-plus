@@ -10,12 +10,11 @@ public class TypeInputEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithValidModel_ReturnsStructured(string name, string contents)
-    => EncodeAndCheck(new(name, contents), [
-      "!_TypeInput",
-      "description: " + contents.QuotedIdentifier(),
-      "name: " + name,
-      "typeKind: !_TypeKind Input"
-      ]);
+    => EncodeAndCheck(new(name, contents),
+      TagAll("_TypeInput",
+      ":description=" + contents.QuotedIdentifier(),
+      ":name=" + name,
+      ":typeKind=[_TypeKind]Input"));
 
   [Theory, RepeatData]
   public void Encode_WithDualModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName)
@@ -45,16 +44,15 @@ public class TypeInputEncoderTests
     EncodeReturnsMap(ForField, "_FieldFor", fieldName);
     EncodeReturnsMap(TypeParam, "_TypeParam", paramName);
 
-    EncodeAndCheck(model, [
-      "!_TypeInput",
-      "allAlternates:", "  -", $"    value: !_AlternateFor " + alternateType.QuotedIdentifier(),
-      "allFields:", "  -", $"    value: !_DualField " + fieldName.QuotedIdentifier(),
-      "alternates:", "  -", $"    value: !_Alternate " + alternateType.QuotedIdentifier(),
-      "fields:", "  -", $"    value: !_Field " + fieldName.QuotedIdentifier(),
-      "name: " + name,
-      "parent:", $"  value: !_Parent " + parentType.QuotedIdentifier(),
-      "typeKind: !_TypeKind Input",
-      "typeParams:", "  -", $"    value: !_TypeParam " + paramName.QuotedIdentifier()
-      ]);
+    EncodeAndCheck(model,
+      TagAll("_TypeInput",
+      $":allAlternates.0:value=[_AlternateFor]" + alternateType.QuotedIdentifier(),
+      $":allFields.0:value=[_DualField]" + fieldName.QuotedIdentifier(),
+      $":alternates.0:value=[_Alternate]" + alternateType.QuotedIdentifier(),
+      $":fields.0:value=[_Field]" + fieldName.QuotedIdentifier(),
+      ":name=" + name,
+      $":parent:value=[_Parent]" + parentType.QuotedIdentifier(),
+      ":typeKind=[_TypeKind]Input",
+      $":typeParams.0:value=[_TypeParam]" + paramName.QuotedIdentifier()));
   }
 }

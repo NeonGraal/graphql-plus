@@ -1,14 +1,5 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltSmplDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: AltSmplDual
-        type: !_ObjBase
-          name: String
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    name: AltSmplDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]AltSmplDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltSmplDual
+[_Schema]:types[_Map_Type]:[_Identifier]AltSmplDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltSmplDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltSmplDual[_TypeDual]:name=AltSmplDual
+[_Schema]:types[_Map_Type]:[_Identifier]AltSmplDual[_TypeDual]:typeKind=[_TypeKind]Dual

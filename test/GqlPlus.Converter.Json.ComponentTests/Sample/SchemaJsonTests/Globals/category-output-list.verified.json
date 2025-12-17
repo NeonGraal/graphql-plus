@@ -1,41 +1,43 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "categories": {
-    "$tag": "_Map_Categories",
+    "$mapTag": "_Map_Categories",
     "ctgrOutpList": {
-      "$tag": "_Category",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
       "modifiers": [
         {
-          "$tag": "_Modifier",
+          "$mapTag": "_Modifier",
           "modifierKind": {
-            "$tag": "_ModifierKind",
-            "$value": "List"
+            "$value": "List",
+            "$valueTag": "_ModifierKind"
           }
         }
       ],
       "name": "ctgrOutpList",
       "output": {
-        "$tag": "_TypeRef(_TypeKind)",
+        "$mapTag": "_TypeRef(_TypeKind)",
         "name": "CtgrOutpList",
         "typeKind": {
-          "$tag": "_TypeKind",
-          "$value": "Output"
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
         }
       },
       "resolution": {
-        "$tag": "_Resolution",
-        "$value": "Parallel"
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
       }
     }
   },
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "CtgrOutpList": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "name": "CtgrOutpList",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     }
   }

@@ -1,33 +1,20 @@
-﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier mutation: !_Category
-    name: mutation
-    output: !_TypeRef(_TypeKind)
-      name: Mutation
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Sequential
-  !_Identifier query: !_Category
-    name: query
-    output: !_TypeRef(_TypeKind)
-      name: Query
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-  !_Identifier subscription: !_Category
-    name: subscription
-    output: !_TypeRef(_TypeKind)
-      name: Subscription
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Single
-types: !_Map_Type
-  !_Identifier Mutation: !_TypeOutput
-    name: Mutation
-    typeKind: !_TypeKind Output
-  !_Identifier Query: !_TypeOutput
-    name: Query
-    typeKind: !_TypeKind Output
-  !_Identifier Subscription: !_TypeOutput
-    name: Subscription
-    typeKind: !_TypeKind Output
-  !_Identifier _Schema: !_TypeOutput
-    name: _Schema
-    typeKind: !_TypeKind Output
+﻿[_Schema]:categories[_Map_Categories]:[_Identifier]mutation[_Category]:name=mutation
+[_Schema]:categories[_Map_Categories]:[_Identifier]mutation[_Category]:output[_TypeRef(_TypeKind)]:name=Mutation
+[_Schema]:categories[_Map_Categories]:[_Identifier]mutation[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]mutation[_Category]:resolution=[_Resolution]Sequential
+[_Schema]:categories[_Map_Categories]:[_Identifier]query[_Category]:name=query
+[_Schema]:categories[_Map_Categories]:[_Identifier]query[_Category]:output[_TypeRef(_TypeKind)]:name=Query
+[_Schema]:categories[_Map_Categories]:[_Identifier]query[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]query[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:categories[_Map_Categories]:[_Identifier]subscription[_Category]:name=subscription
+[_Schema]:categories[_Map_Categories]:[_Identifier]subscription[_Category]:output[_TypeRef(_TypeKind)]:name=Subscription
+[_Schema]:categories[_Map_Categories]:[_Identifier]subscription[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]subscription[_Category]:resolution=[_Resolution]Single
+[_Schema]:types[_Map_Type]:[_Identifier]Mutation[_TypeOutput]:name=Mutation
+[_Schema]:types[_Map_Type]:[_Identifier]Mutation[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]Query[_TypeOutput]:name=Query
+[_Schema]:types[_Map_Type]:[_Identifier]Query[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]Subscription[_TypeOutput]:name=Subscription
+[_Schema]:types[_Map_Type]:[_Identifier]Subscription[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:name=_Schema
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:typeKind=[_TypeKind]Output

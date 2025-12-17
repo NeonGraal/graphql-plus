@@ -1,21 +1,8 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjAltEnumOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: ObjAltEnumOutp
-        type: !_ObjBase
-          name: Boolean
-      - !_ObjectFor(_Alternate)
-        object: ObjAltEnumOutp
-        type: !_ObjBase
-          name: Boolean
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: Boolean
-      - !_Alternate
-        type: !_ObjBase
-          name: Boolean
-    name: ObjAltEnumOutp
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=ObjAltEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumOutp[_TypeOutput]:allAlternates.1[_ObjectFor(_Alternate)]:object=ObjAltEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumOutp[_TypeOutput]:allAlternates.1[_ObjectFor(_Alternate)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumOutp[_TypeOutput]:alternates.1[_Alternate]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumOutp[_TypeOutput]:name=ObjAltEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumOutp[_TypeOutput]:typeKind=[_TypeKind]Output

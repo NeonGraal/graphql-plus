@@ -1,70 +1,35 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier CnstPrntEnumDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: CnstPrntEnumDual
-        type: !_ObjBase
-          name: RefCnstPrntEnumDual
-          typeArgs:
-            - !_EnumValue
-              label: parentCnstPrntEnumDual
-              name: ParentCnstPrntEnumDual
-              typeKind: !_SimpleKind Enum
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: RefCnstPrntEnumDual
-          typeArgs:
-            - !_EnumValue
-              label: parentCnstPrntEnumDual
-              name: ParentCnstPrntEnumDual
-              typeKind: !_SimpleKind Enum
-    name: CnstPrntEnumDual
-    typeKind: !_TypeKind Dual
-  !_Identifier EnumCnstPrntEnumDual: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: ParentCnstPrntEnumDual
-        name: parentCnstPrntEnumDual
-      - !_EnumLabel
-        enum: EnumCnstPrntEnumDual
-        name: cnstPrntEnumDual
-    items:
-      - !_Aliased
-        name: cnstPrntEnumDual
-    name: EnumCnstPrntEnumDual
-    parent: !_TypeRef(_SimpleKind)
-      name: ParentCnstPrntEnumDual
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier ParentCnstPrntEnumDual: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: ParentCnstPrntEnumDual
-        name: parentCnstPrntEnumDual
-    items:
-      - !_Aliased
-        name: parentCnstPrntEnumDual
-    name: ParentCnstPrntEnumDual
-    typeKind: !_TypeKind Enum
-  !_Identifier RefCnstPrntEnumDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: RefCnstPrntEnumDual
-        type: !_ObjBase
-          typeParam: type
-    fields:
-      - !_DualField
-        name: field
-        type: !_ObjBase
-          typeParam: type
-    name: RefCnstPrntEnumDual
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: EnumCnstPrntEnumDual
-          typeKind: !_TypeKind Enum
-        name: type
+﻿[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=CnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=RefCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=parentCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=ParentCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntEnumDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=RefCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntEnumDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=parentCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntEnumDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=ParentCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntEnumDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntEnumDual[_TypeDual]:name=CnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstPrntEnumDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstPrntEnumDual[_TypeEnum]:allItems.0[_EnumLabel]:enum=ParentCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstPrntEnumDual[_TypeEnum]:allItems.0[_EnumLabel]:name=parentCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstPrntEnumDual[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstPrntEnumDual[_TypeEnum]:allItems.1[_EnumLabel]:name=cnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstPrntEnumDual[_TypeEnum]:items.0[_Aliased]:name=cnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstPrntEnumDual[_TypeEnum]:name=EnumCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstPrntEnumDual[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=ParentCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstPrntEnumDual[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstPrntEnumDual[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]ParentCnstPrntEnumDual[_TypeEnum]:allItems.0[_EnumLabel]:enum=ParentCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]ParentCnstPrntEnumDual[_TypeEnum]:allItems.0[_EnumLabel]:name=parentCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]ParentCnstPrntEnumDual[_TypeEnum]:items.0[_Aliased]:name=parentCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]ParentCnstPrntEnumDual[_TypeEnum]:name=ParentCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]ParentCnstPrntEnumDual[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntEnumDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntEnumDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=RefCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntEnumDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntEnumDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntEnumDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntEnumDual[_TypeDual]:name=RefCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntEnumDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntEnumDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=EnumCnstPrntEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntEnumDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstPrntEnumDual[_TypeDual]:typeParams.0[_TypeParam]:name=type

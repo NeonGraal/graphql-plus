@@ -1,62 +1,31 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumGnrcPrntEnumChildDual: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: ParentGnrcPrntEnumChildDual
-        name: gnrcPrntEnumChildDualParent
-      - !_EnumLabel
-        enum: EnumGnrcPrntEnumChildDual
-        name: gnrcPrntEnumChildDualLabel
-    items:
-      - !_Aliased
-        name: gnrcPrntEnumChildDualLabel
-    name: EnumGnrcPrntEnumChildDual
-    parent: !_TypeRef(_SimpleKind)
-      name: ParentGnrcPrntEnumChildDual
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier FieldGnrcPrntEnumChildDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: FieldGnrcPrntEnumChildDual
-        type: !_ObjBase
-          typeParam: ref
-    fields:
-      - !_DualField
-        name: field
-        type: !_ObjBase
-          typeParam: ref
-    name: FieldGnrcPrntEnumChildDual
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: EnumGnrcPrntEnumChildDual
-          typeKind: !_TypeKind Enum
-        name: ref
-  !_Identifier GnrcPrntEnumChildDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: FieldGnrcPrntEnumChildDual
-        type: !_ObjBase
-          name: ParentGnrcPrntEnumChildDual
-    name: GnrcPrntEnumChildDual
-    parent: !_ObjBase
-      name: FieldGnrcPrntEnumChildDual
-      typeArgs:
-        - !_TypeArg
-          name: ParentGnrcPrntEnumChildDual
-    typeKind: !_TypeKind Dual
-  !_Identifier ParentGnrcPrntEnumChildDual: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: ParentGnrcPrntEnumChildDual
-        name: gnrcPrntEnumChildDualParent
-    items:
-      - !_Aliased
-        name: gnrcPrntEnumChildDualParent
-    name: ParentGnrcPrntEnumChildDual
-    typeKind: !_TypeKind Enum
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumChildDual[_TypeEnum]:allItems.0[_EnumLabel]:enum=ParentGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumChildDual[_TypeEnum]:allItems.0[_EnumLabel]:name=gnrcPrntEnumChildDualParent
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumChildDual[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumChildDual[_TypeEnum]:allItems.1[_EnumLabel]:name=gnrcPrntEnumChildDualLabel
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumChildDual[_TypeEnum]:items.0[_Aliased]:name=gnrcPrntEnumChildDualLabel
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumChildDual[_TypeEnum]:name=EnumGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumChildDual[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=ParentGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumChildDual[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumChildDual[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumChildDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumChildDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=FieldGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumChildDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumChildDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumChildDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumChildDual[_TypeDual]:name=FieldGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumChildDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumChildDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=EnumGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumChildDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumChildDual[_TypeDual]:typeParams.0[_TypeParam]:name=ref
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumChildDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumChildDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=FieldGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumChildDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=ParentGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumChildDual[_TypeDual]:name=GnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumChildDual[_TypeDual]:parent[_ObjBase]:name=FieldGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumChildDual[_TypeDual]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=ParentGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumChildDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]ParentGnrcPrntEnumChildDual[_TypeEnum]:allItems.0[_EnumLabel]:enum=ParentGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]ParentGnrcPrntEnumChildDual[_TypeEnum]:allItems.0[_EnumLabel]:name=gnrcPrntEnumChildDualParent
+[_Schema]:types[_Map_Type]:[_Identifier]ParentGnrcPrntEnumChildDual[_TypeEnum]:items.0[_Aliased]:name=gnrcPrntEnumChildDualParent
+[_Schema]:types[_Map_Type]:[_Identifier]ParentGnrcPrntEnumChildDual[_TypeEnum]:name=ParentGnrcPrntEnumChildDual
+[_Schema]:types[_Map_Type]:[_Identifier]ParentGnrcPrntEnumChildDual[_TypeEnum]:typeKind=[_TypeKind]Enum

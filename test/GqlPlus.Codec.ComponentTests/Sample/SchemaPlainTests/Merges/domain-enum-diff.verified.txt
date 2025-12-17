@@ -1,34 +1,21 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnEnumDiff: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: DmnEnumDiff
-        exclude: false
-        value: !_EnumValue
-          label: true
-          name: Boolean
-          typeKind: !_SimpleKind Enum
-      - !_DomainItem(_DomainLabel)
-        domain: DmnEnumDiff
-        exclude: false
-        value: !_EnumValue
-          label: false
-          name: Boolean
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: true
-          name: Boolean
-          typeKind: !_SimpleKind Enum
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: false
-          name: Boolean
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumDiff
-    typeKind: !_TypeKind Domain
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=DmnEnumDiff
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:domain=DmnEnumDiff
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:items.1[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:items.1[_DomainLabel]:value[_EnumValue]:label=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:items.1[_DomainLabel]:value[_EnumValue]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:items.1[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:name=DmnEnumDiff
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDiff[_DomainEnum]:typeKind=[_TypeKind]Domain

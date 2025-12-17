@@ -25,11 +25,10 @@ public class SchemaEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithValidModel_ReturnsStructured(string name, string contents)
-    => EncodeAndCheck(new(name, contents), [
-      "!_Schema",
-      "description: " + contents.QuotedIdentifier(),
-      "name: " + name
-      ]);
+    => EncodeAndCheck(new(name, contents),
+      TagAll("_Schema",
+      ":description=" + contents.QuotedIdentifier(),
+      ":name=" + name));
 
   [Theory, RepeatData]
   public void Encode_WithAll_ReturnsExpected(
@@ -55,16 +54,16 @@ public class SchemaEncoderTests
     EncodeReturns(_settings, Arg.Any<SettingModel>(), new Structured(settingName, "_Setting"));
     EncodeReturns(_types, Arg.Any<BaseTypeModel>(), new Structured(typeName, "_TypeOutput"));
 
-    EncodeAndCheck(model, [
-        "!_Schema",
-        "_errors:", "  - !_Error",
-        "    _kind: !_TokenKind Start", "    _message: " + errorMessage,
-        "aliases: " + aliases.Surround("[","]",","),
-        "categories: !_Map_Categories", $"  !_Identifier {categoryName}: !_Categories {categoryName}",
-        "directives: !_Map_Directives", $"  !_Identifier {directiveName}: !_Directives {directiveName}",
-        "name: " + name,
-        "settings: !_Map_Setting", $"  !_Identifier {settingName}: !_Setting {settingName}",
-        "types: !_Map_Type", $"  !_Identifier {typeName}: !_TypeOutput {typeName}"
-      ]);
+    IEnumerable<string> taggedAliases = aliases.Select((s, i) => $":aliases.{i}={s}");
+
+    EncodeAndCheck(model, TagAll("_Schema", [
+        ":_errors[_Errors].0[_Error]:_kind=[_TokenKind]Start",
+        ":_errors[_Errors].0[_Error]:_message=" + errorMessage,
+        .. taggedAliases,
+        $":categories[_Map_Categories]:[_Identifier]{categoryName}=[_Categories]{categoryName}",
+        $":directives[_Map_Directives]:[_Identifier]{directiveName}=[_Directives]{directiveName}",
+        ":name=" + name,
+        $":settings[_Map_Setting]:[_Identifier]{settingName}=[_Setting]{settingName}",
+        $":types[_Map_Type]:[_Identifier]{typeName}=[_TypeOutput]{typeName}"]));
   }
 }

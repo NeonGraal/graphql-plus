@@ -2,16 +2,14 @@
 using GqlPlus;
 using GqlPlus.Convert;
 using GqlPlus.Resolving;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
 [Trait("Generate", "Html")]
 public class DocumentSchemaTests(
-  ILoggerFactory logger,
   ISchemaVerifyChecks checks,
   IEncoder<BaseTypeModel> types
-) : TestSchemaVerify(logger, checks)
+) : TestSchemaVerify(checks)
 {
   [Fact]
   public async Task Index_Schema()

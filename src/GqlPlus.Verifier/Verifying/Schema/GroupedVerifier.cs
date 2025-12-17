@@ -3,13 +3,17 @@ using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema;
 
-internal abstract class GroupedVerifier<TAliased>(
-   IMerge<TAliased> merger,
-   ILoggerFactory logger
-) : IVerifyAliased<TAliased>
+internal abstract class GroupedVerifier<TAliased> : IVerifyAliased<TAliased>
  where TAliased : IGqlpAliased
 {
-  private readonly ILogger _logger = logger.CreateTypedLogger<GroupedVerifier<TAliased>>();
+  private readonly ILogger _logger;
+  private readonly IMerge<TAliased> _merger;
+
+  public GroupedVerifier(IMerge<TAliased> merger, ILoggerFactory logger)
+  {
+    _merger = merger;
+    _logger = logger.CreateTypedLogger(this);
+  }
 
   public abstract string Label { get; }
 
@@ -41,7 +45,7 @@ internal abstract class GroupedVerifier<TAliased>(
 
       _logger.VerifyingWithDefinitions(item.Key, item.Value.Length);
 
-      IMessages failures = merger.CanMerge(item.Value);
+      IMessages failures = _merger.CanMerge(item.Value);
       if (failures.Any()) {
         errors.Add(item.Value.Last().MakeError($"Multiple {Label} with name '{item.Key}' can't be merged."));
         errors.Add(failures);

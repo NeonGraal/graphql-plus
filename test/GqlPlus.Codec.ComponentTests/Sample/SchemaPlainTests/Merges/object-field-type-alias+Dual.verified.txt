@@ -1,16 +1,7 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjFieldTypeAliasDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: ObjFieldTypeAliasDual
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_DualField
-        name: field
-        type: !_ObjBase
-          name: String
-    name: ObjFieldTypeAliasDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldTypeAliasDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldTypeAliasDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=ObjFieldTypeAliasDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldTypeAliasDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldTypeAliasDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldTypeAliasDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldTypeAliasDual[_TypeDual]:name=ObjFieldTypeAliasDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldTypeAliasDual[_TypeDual]:typeKind=[_TypeKind]Dual

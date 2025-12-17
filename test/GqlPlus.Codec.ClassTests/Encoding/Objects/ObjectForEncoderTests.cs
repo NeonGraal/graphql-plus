@@ -20,9 +20,8 @@ public class ObjectForEncoderTests
     EncodeReturnsMap(_typeParam, "_TypeParam", input);
 
     EncodeAndCheck(new(new(input, "", default!), name),
-      ["!_ObjectFor(_TypeParam)",
-        "object: " + name,
-        $"value: !_TypeParam " + input.QuotedIdentifier()
-        ]);
+      TagAll("_ObjectFor(_TypeParam)",
+        ":object=" + name,
+        $":value=[_TypeParam]" + input.QuotedIdentifier()));
   }
 }

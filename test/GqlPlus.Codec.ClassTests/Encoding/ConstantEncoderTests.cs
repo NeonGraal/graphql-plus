@@ -29,7 +29,7 @@ public class ConstantEncoderTests
 
     // Act
     EncodeAndCheck(new(new Dictionary<SimpleModel, ConstantModel> { { simpleKey, valueModel } }), [
-        "!_ConstantMap", key + ": " + value]);
+        "[_ConstantMap]:"+ key + "=" + value]);
   }
 
   [Theory, RepeatData]
@@ -42,7 +42,7 @@ public class ConstantEncoderTests
     Encoder.Encode(valueModel).Returns(encodedValue);
 
     // Act
-    EncodeAndCheck(new([valueModel]), ["- " + value]);
+    EncodeAndCheck(new([valueModel]), ["[_ConstantList].0=" + value]);
   }
 
   [Theory, RepeatData]
@@ -53,6 +53,6 @@ public class ConstantEncoderTests
     Structured encodedValue = new(value);
     _simpleEncoder.Encode(valueModel).Returns(encodedValue);
 
-    EncodeAndCheck(new(valueModel), [value]);
+    EncodeAndCheck(new(valueModel), ["=" + value]);
   }
 }

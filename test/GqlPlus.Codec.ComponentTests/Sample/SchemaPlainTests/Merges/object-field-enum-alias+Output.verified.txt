@@ -1,18 +1,11 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjFieldEnumAliasOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        field: field
-        label: true
-        name: Boolean
-        object: ObjFieldEnumAliasOutp
-        typeKind: !_SimpleKind Enum
-    fields:
-      - !_OutputEnum
-        field: field
-        label: true
-        name: Boolean
-        typeKind: !_SimpleKind Enum
-    name: ObjFieldEnumAliasOutp
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumAliasOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:field=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumAliasOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:label=true
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumAliasOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumAliasOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=ObjFieldEnumAliasOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumAliasOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumAliasOutp[_TypeOutput]:fields.0[_OutputEnum]:field=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumAliasOutp[_TypeOutput]:fields.0[_OutputEnum]:label=true
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumAliasOutp[_TypeOutput]:fields.0[_OutputEnum]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumAliasOutp[_TypeOutput]:fields.0[_OutputEnum]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumAliasOutp[_TypeOutput]:name=ObjFieldEnumAliasOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumAliasOutp[_TypeOutput]:typeKind=[_TypeKind]Output

@@ -1,5 +1,2 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjInp: !_TypeInput
-    name: ObjInp
-    typeKind: !_TypeKind Input
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjInp[_TypeInput]:name=ObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjInp[_TypeInput]:typeKind=[_TypeKind]Input

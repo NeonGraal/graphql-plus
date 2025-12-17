@@ -1,46 +1,23 @@
-﻿!_Schema
-errors:
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In _EnumLabel can't get model for type '_Aliased'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In _EnumValue can't get model for type '_TypeRef'"
-types: !_Map_Type
-  !_Identifier _EnumLabel: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: enum
-        object: _EnumLabel
-        type: !_ObjBase
-          name: _Identifier
-    fields:
-      - !_DualField
-        name: enum
-        type: !_ObjBase
-          name: _Identifier
-    name: _EnumLabel
-    parent: !_ObjBase
-      name: _Aliased
-    typeKind: !_TypeKind Dual
-  !_Identifier _EnumValue: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: label
-        object: _EnumValue
-        type: !_ObjBase
-          name: _Identifier
-    fields:
-      - !_OutputField
-        name: label
-        type: !_ObjBase
-          name: _Identifier
-    name: _EnumValue
-    parent: !_ObjBase
-      name: _TypeRef
-      typeArgs:
-        - !_EnumValue
-          label: Enum
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Output
+﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
+[_Schema]:errors[_Errors].0[_Error]:_message="In _EnumLabel can't get model for type '_Aliased'"
+[_Schema]:errors[_Errors].1[_Error]:_kind=[_TokenKind]End
+[_Schema]:errors[_Errors].1[_Error]:_message="In _EnumValue can't get model for type '_TypeRef'"
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumLabel[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=enum
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumLabel[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_EnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumLabel[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumLabel[_TypeDual]:fields.0[_DualField]:name=enum
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumLabel[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumLabel[_TypeDual]:name=_EnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumLabel[_TypeDual]:parent[_ObjBase]:name=_Aliased
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumLabel[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumValue[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=label
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumValue[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=_EnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumValue[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumValue[_TypeOutput]:fields.0[_OutputField]:name=label
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumValue[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumValue[_TypeOutput]:name=_EnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumValue[_TypeOutput]:parent[_ObjBase]:name=_TypeRef
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumValue[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:label=Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumValue[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:name=_TypeKind
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumValue[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_EnumValue[_TypeOutput]:typeKind=[_TypeKind]Output

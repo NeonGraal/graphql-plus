@@ -1,35 +1,18 @@
-﻿!_Schema
-errors:
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In _OutputField can't get model for type '_ObjField'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In _OutputFieldType can't get model for type '_ObjFieldType'"
-types: !_Map_Type
-  !_Identifier _OutputField: !_TypeOutput
-    name: _OutputField
-    parent: !_ObjBase
-      name: _ObjField
-      typeArgs:
-        - !_TypeArg
-          name: _ObjFieldType
-    typeKind: !_TypeKind Output
-  !_Identifier _OutputFieldType: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
-        object: _OutputFieldType
-        type: !_ObjBase
-          name: _InputParam
-    fields:
-      - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
-        type: !_ObjBase
-          name: _InputParam
-    name: _OutputFieldType
-    parent: !_ObjBase
-      name: _ObjFieldType
-    typeKind: !_TypeKind Output
+﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
+[_Schema]:errors[_Errors].0[_Error]:_message="In _OutputField can't get model for type '_ObjField'"
+[_Schema]:errors[_Errors].1[_Error]:_kind=[_TokenKind]End
+[_Schema]:errors[_Errors].1[_Error]:_message="In _OutputFieldType can't get model for type '_ObjFieldType'"
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputField[_TypeOutput]:name=_OutputField
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputField[_TypeOutput]:parent[_ObjBase]:name=_ObjField
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputField[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=_ObjFieldType
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputField[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputFieldType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputFieldType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=parameters
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputFieldType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=_OutputFieldType
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputFieldType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_InputParam
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputFieldType[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputFieldType[_TypeOutput]:fields.0[_OutputField]:name=parameters
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputFieldType[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_InputParam
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputFieldType[_TypeOutput]:name=_OutputFieldType
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputFieldType[_TypeOutput]:parent[_ObjBase]:name=_ObjFieldType
+[_Schema]:types[_Map_Type]:[_Identifier]_OutputFieldType[_TypeOutput]:typeKind=[_TypeKind]Output

@@ -7,11 +7,10 @@ public class DomainRangeEncoderTests
     = new DomainRangeEncoder();
 
   protected override string[] ItemExpected(DomainRangeInput item, bool excluded)
-    => ["!_DomainRange",
-        "exclude: " + excluded.TrueFalse(),
-        $"from: {item.Lower:0.#####}",
-        $"to: {item.Upper:0.#####}"
-        ];
+    => TagAll("_DomainRange",
+        ":exclude=" + excluded.TrueFalse(),
+        $":from={item.Lower:0.#####}",
+        $":to={item.Upper:0.#####}");
 
   protected override DomainRangeModel NewItem(DomainRangeInput item, bool excluded) => new(item.Lower, item.Upper, excluded, "");
 }
@@ -20,10 +19,9 @@ public class DomainItemRangeEncoderTests
   : DomainAllEncoderTestBase<DomainRangeModel, DomainRangeInput>
 {
   protected override string[] AllExpected(string name, DomainRangeInput item)
-    => ["!_DomainItem(_DomainRange)",
-        "domain: " + name,
-        $"value: !_ItemModel '{item}'"
-        ];
+    => TagAll("_DomainItem(_DomainRange)",
+        ":domain=" + name,
+        $":value=[_ItemModel]'{item}'");
 
   protected override DomainRangeModel NewItem(DomainRangeInput item) => new(item.Lower, item.Upper, false, "");
 }
@@ -36,5 +34,5 @@ public class DomainNumberEncoderTests
   protected override DomainRangeModel NewItem(DomainRangeInput item) => new(item.Lower, item.Upper, false, "");
 
   protected override string ItemModel(DomainRangeInput item, string prefix)
-    => $"  - !_{prefix}Model '{item}'";
+    => $"{prefix}Model]'{item}'";
 }

@@ -1,17 +1,7 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjAltDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: ObjAltDual
-        type: !_ObjBase
-          name: ObjAltDualType
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: ObjAltDualType
-    name: ObjAltDual
-    typeKind: !_TypeKind Dual
-  !_Identifier ObjAltDualType: !_TypeDual
-    name: ObjAltDualType
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjAltDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=ObjAltDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=ObjAltDualType
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=ObjAltDualType
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltDual[_TypeDual]:name=ObjAltDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltDualType[_TypeDual]:name=ObjAltDualType
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltDualType[_TypeDual]:typeKind=[_TypeKind]Dual

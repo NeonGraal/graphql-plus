@@ -1,13 +1,9 @@
-﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier ctgrOutpDict: !_Category
-    modifiers: [!_ModifierDictionary{by:'*',modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
-    name: ctgrOutpDict
-    output: !_TypeRef(_TypeKind)
-      name: CtgrOutpDict
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-types: !_Map_Type
-  !_Identifier CtgrOutpDict: !_TypeOutput
-    name: CtgrOutpDict
-    typeKind: !_TypeKind Output
+﻿[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:modifiers.0[_ModifierDictionary]:by='*'
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Basic
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:name=ctgrOutpDict
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrOutpDict
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpDict[_TypeOutput]:name=CtgrOutpDict
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpDict[_TypeOutput]:typeKind=[_TypeKind]Output

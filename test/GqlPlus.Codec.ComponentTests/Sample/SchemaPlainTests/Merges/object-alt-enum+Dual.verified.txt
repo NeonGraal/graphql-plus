@@ -1,21 +1,8 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjAltEnumDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: ObjAltEnumDual
-        type: !_ObjBase
-          name: Boolean
-      - !_ObjectFor(_Alternate)
-        object: ObjAltEnumDual
-        type: !_ObjBase
-          name: Boolean
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: Boolean
-      - !_Alternate
-        type: !_ObjBase
-          name: Boolean
-    name: ObjAltEnumDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=ObjAltEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:object=ObjAltEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:alternates.1[_Alternate]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:name=ObjAltEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:typeKind=[_TypeKind]Dual

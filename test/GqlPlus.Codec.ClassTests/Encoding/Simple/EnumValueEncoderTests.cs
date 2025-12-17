@@ -8,11 +8,10 @@ public class EnumValueEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithValidModel_ReturnsStructured(EnumLabelInput input, string contents)
-    => EncodeAndCheck(new(input.EnumType, input.Label, contents), [
-      "!_EnumValue",
-      "description: " + contents.QuotedIdentifier(),
-      "label: " + input.Label,
-      "name: " + input.EnumType,
-      "typeKind: !_SimpleKind Enum"
-      ]);
+    => EncodeAndCheck(new(input.EnumType, input.Label, contents),
+      TagAll("_EnumValue",
+      ":description=" + contents.QuotedIdentifier(),
+      ":label=" + input.Label,
+      ":name=" + input.EnumType,
+      ":typeKind=[_SimpleKind]Enum"));
 }

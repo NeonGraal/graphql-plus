@@ -12,11 +12,10 @@ public class SpecialTypeEncoderTests
     => EncodeAndCheck(new(name, content), SpecialTypeExpected(name, content));
 
   private static string[] SpecialTypeExpected(string name, string content)
-    => ["!_SpecialType",
-        $"description: " + content.QuotedIdentifier(),
-        "name: " + name,
-        "typeKind: !_TypeKind Special"
-        ];
+    => TagAll("_SpecialType",
+      ":description=" + content.QuotedIdentifier(),
+        ":name=" + name,
+        ":typeKind=[_TypeKind]Special");
 
   [Fact]
   public void ForType_WithSpecialTypeModel_ReturnsTrue()

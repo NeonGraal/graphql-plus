@@ -1,23 +1,11 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcDescrDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: GnrcDescrDual
-        type: !_ObjBase
-          typeParam: type
-    fields:
-      - !_DualField
-        name: field
-        type: !_ObjBase
-          typeParam: type
-    name: GnrcDescrDual
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        description: 'Test Descr'
-        name: type
+﻿[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=GnrcDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrDual[_TypeDual]:name=GnrcDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrDual[_TypeDual]:typeParams.0[_TypeParam]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrDual[_TypeDual]:typeParams.0[_TypeParam]:name=type

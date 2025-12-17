@@ -5,22 +5,45 @@ public class JsonStructureIndentedTagTests()
 {
   protected override string ValueTag => "value";
   protected override string MapTag => "map";
+  protected override string ListTag => "list";
+  protected override string KeyTag => "key";
 
   protected override string[] Expected_List(string[] value)
-    => [value.AsUnindentedList(ValueTag.AsUnindentedValue(), ", ")];
+    => value.AsIndentedList(
+      ValueTag.AsIndentedValue(""),
+      listTag: ListTag.JsonValue());
 
   protected override string[] Expected_Map(MapPair<string>[] value)
-    => value.AsIndentedMap(ValueTag.AsIndentedValue(), tag: MapTag);
+    => value.AsIndentedMap(
+      ValueTag.AsIndentedValue(KeyTag.JsonValue()),
+      mapTag: MapTag.JsonValue());
 
   protected override string[] Expected_ListOfLists(string[][] value)
-    => [value.AsIndentedList(v => [v!.AsUnindentedList(ValueTag.AsUnindentedValue(), ", ")], "").SkipLast(1).Joined(""), "]"];
+    => value.AsIndentedList(
+      v => v!.AsIndentedList(
+        ValueTag.AsIndentedValue(" "),
+        listTag: ListTag.JsonValue()),
+      listTag: ListTag.JsonValue());
 
   protected override string[] Expected_MapOfLists(MapPair<string[]>[] value)
-    => value.AsIndentedMap(v => [v!.AsUnindentedList(ValueTag.AsUnindentedValue(), ", ")], tag: MapTag);
+    => value.AsIndentedMap(
+      v => v!.AsIndentedList(
+        ValueTag.AsIndentedValue(" "),
+        listTag: ListTag.JsonValue(),
+        keyTag: KeyTag.JsonValue()),
+      mapTag: MapTag.JsonValue());
 
   protected override string[] Expected_ListOfMaps(MapPair<string>[][] value)
-    => value.AsIndentedList(v => v!.AsIndentedMap(ValueTag.AsIndentedValue(), tag: MapTag));
+    => value.AsIndentedList(
+      v => v!.AsIndentedMap(ValueTag.AsIndentedValue(KeyTag.JsonValue()),
+        mapTag: MapTag.JsonValue()),
+      listTag: ListTag.JsonValue());
 
   protected override string[] Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => value.AsIndentedMap(v => v!.AsIndentedMap(ValueTag.AsIndentedValue(), tag: MapTag), tag: MapTag);
+    => value.AsIndentedMap(
+      v => v!.AsIndentedMap(
+        ValueTag.AsIndentedValue(KeyTag.JsonValue()),
+        mapTag: MapTag.JsonValue(),
+        keyTag: KeyTag.JsonValue()),
+      mapTag: MapTag.JsonValue());
 }

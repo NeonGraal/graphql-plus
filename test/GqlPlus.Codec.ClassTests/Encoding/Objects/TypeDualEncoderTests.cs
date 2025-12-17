@@ -10,12 +10,11 @@ public class TypeDualEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithValidModel_ReturnsStructured(string name, string contents)
-    => EncodeAndCheck(new(name, contents), [
-      "!_TypeDual",
-      "description: " + contents.QuotedIdentifier(),
-      "name: " + name,
-      "typeKind: !_TypeKind Dual"
-      ]);
+    => EncodeAndCheck(new(name, contents),
+      TagAll("_TypeDual",
+      ":description=" + contents.QuotedIdentifier(),
+      ":name=" + name,
+      ":typeKind=[_TypeKind]Dual"));
 
   [Theory, RepeatData]
   public void Encode_WithAllModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName)
@@ -43,17 +42,16 @@ public class TypeDualEncoderTests
     EncodeReturnsMap(ForField, "_FieldFor", fieldName);
     EncodeReturnsMap(TypeParam, "_TypeParam", paramName);
 
-    EncodeAndCheck(model, [
-      "!_TypeDual",
-      "allAlternates:", "  -", $"    value: !_AlternateFor " + alternateType.QuotedIdentifier(),
-      "allFields:", "  -", $"    value: !_FieldFor " + fieldName.QuotedIdentifier(),
-      "alternates:", "  -", $"    value: !_Alternate " + alternateType.QuotedIdentifier(),
-      "fields:", "  -", $"    value: !_Field " + fieldName.QuotedIdentifier(),
-      "name: " + name,
-      "parent:", $"  value: !_Parent " + parentType.QuotedIdentifier(),
-      "typeKind: !_TypeKind Dual",
-      "typeParams:", "  -", $"    value: !_TypeParam " + paramName.QuotedIdentifier()
-      ]);
+    EncodeAndCheck(model,
+      TagAll("_TypeDual",
+      ":allAlternates.0:value=[_AlternateFor]" + alternateType.QuotedIdentifier(),
+      ":allFields.0:value=[_FieldFor]" + fieldName.QuotedIdentifier(),
+      ":alternates.0:value=[_Alternate]" + alternateType.QuotedIdentifier(),
+      ":fields.0:value=[_Field]" + fieldName.QuotedIdentifier(),
+      ":name=" + name,
+      ":parent:value=[_Parent]" + parentType.QuotedIdentifier(),
+      ":typeKind=[_TypeKind]Dual",
+      ":typeParams.0:value=[_TypeParam]" + paramName.QuotedIdentifier()));
   }
 
   [Theory, RepeatData]

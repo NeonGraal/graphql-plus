@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Encoding.Objects;
+﻿using System.Diagnostics;
+
+namespace GqlPlus.Encoding.Objects;
 
 public class ObjectForEncoderTests
   : EncoderClassTestBase<ObjectForModel<TypeParamModel>>
@@ -20,9 +22,8 @@ public class ObjectForEncoderTests
     EncodeReturnsMap(_typeParam, "_TypeParam", input);
 
     EncodeAndCheck(new(new(input, "", default!), name),
-      ["!_ObjectFor(_TypeParam)",
-        "object: " + name,
-        $"value: !_TypeParam " + input.QuotedIdentifier()
-        ]);
+      TagAll("_ObjectFor(_TypeParam)",
+        ":object=" + name,
+        $":value=[_TypeParam]" + input.QuotedIdentifier()));
   }
 }

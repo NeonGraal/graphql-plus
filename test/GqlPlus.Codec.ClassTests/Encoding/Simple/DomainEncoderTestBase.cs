@@ -15,14 +15,16 @@ public abstract class DomainEncoderTestBase<TItem, TInput>
   protected override DomainItemModel<TItem> NewAll(TInput item, string name) => new(NewItem(item), name);
   protected override string[] ValidModelExpected(string name, string parent, string contents)
   {
-    string[] result = base.ValidModelExpected(name, parent, contents);
-    return [$"!_Domain{DomainKind}", result[1], $"domainKind: !_DomainKind {DomainKind}", .. result[2..]];
+    string[] result = [.. base.ValidModelExpected(name, parent, contents)
+      .Select(s => s.Replace($"_Type{Kind}", $"_Domain{DomainKind}", StringComparison.InvariantCulture))];
+    return [result[0], $"[_Domain{DomainKind}]:domainKind=[_DomainKind]{DomainKind}", .. result[1..]];
   }
 
   protected override string[] WithItemExpected(string name, TInput item)
   {
-    string[] result = base.WithItemExpected(name, item);
-    return [$"!_Domain{DomainKind}", .. result[1..3], $"domainKind: !_DomainKind {DomainKind}", .. result[3..]];
+    string[] result = [..base.WithItemExpected(name, item)
+      .Select(s => s.Replace($"_Type{Kind}", $"_Domain{DomainKind}", StringComparison.InvariantCulture))];
+    return [result[0], $"[_Domain{DomainKind}]:domainKind=[_DomainKind]{DomainKind}", .. result[1..]];
   }
 
   protected abstract DomainKindModel DomainKind { get; }

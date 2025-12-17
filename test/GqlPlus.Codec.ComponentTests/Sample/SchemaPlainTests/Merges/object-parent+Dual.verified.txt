@@ -1,10 +1,5 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjPrntDual: !_TypeDual
-    name: ObjPrntDual
-    parent: !_ObjBase
-      name: RefObjPrntDual
-    typeKind: !_TypeKind Dual
-  !_Identifier RefObjPrntDual: !_TypeDual
-    name: RefObjPrntDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntDual[_TypeDual]:name=ObjPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntDual[_TypeDual]:parent[_ObjBase]:name=RefObjPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefObjPrntDual[_TypeDual]:name=RefObjPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefObjPrntDual[_TypeDual]:typeKind=[_TypeKind]Dual

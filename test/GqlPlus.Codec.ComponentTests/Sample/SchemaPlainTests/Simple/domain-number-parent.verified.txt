@@ -1,35 +1,21 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnNmbrPrnt: !_DomainNumber
-    allItems:
-      - !_DomainItem(_DomainRange)
-        domain: PrntDmnNmbrPrnt
-        exclude: false
-        to: 2
-      - !_DomainItem(_DomainRange)
-        domain: DmnNmbrPrnt
-        exclude: false
-        from: 2
-    domainKind: !_DomainKind Number
-    items:
-      - !_DomainRange
-        exclude: false
-        from: 2
-    name: DmnNmbrPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnNmbrPrnt
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnNmbrPrnt: !_DomainNumber
-    allItems:
-      - !_DomainItem(_DomainRange)
-        domain: PrntDmnNmbrPrnt
-        exclude: false
-        to: 2
-    domainKind: !_DomainKind Number
-    items:
-      - !_DomainRange
-        exclude: false
-        to: 2
-    name: PrntDmnNmbrPrnt
-    typeKind: !_TypeKind Domain
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=PrntDmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:domain=DmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:from=2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:from=2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:name=DmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=PrntDmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=2
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:to=2
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:name=PrntDmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:typeKind=[_TypeKind]Domain

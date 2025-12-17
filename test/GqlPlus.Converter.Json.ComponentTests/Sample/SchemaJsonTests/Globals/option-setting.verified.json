@@ -1,10 +1,11 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "name": "Schema",
   "settings": {
-    "$tag": "_Map_Setting",
+    "$mapTag": "_Map_Setting",
     "global": {
-      "$tag": "_Setting",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Setting",
       "name": "global",
       "value": true
     }

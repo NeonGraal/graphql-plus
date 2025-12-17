@@ -26,11 +26,10 @@ public class OutputFieldEncoderTests
     ObjBase.Encode(outputBase).Returns(new Structured(output));
 
     // Act & Accept
-    EncodeAndCheck(new(name, outputBase, contents), [
-      "!_OutputField",
-      "description: " + contents.QuotedIdentifier(),
-      "name: " + name,
-      "type: " + output
-      ]);
+    EncodeAndCheck(new(name, outputBase, contents),
+      TagAll("_OutputField",
+      ":description=" + contents.QuotedIdentifier(),
+      ":name=" + name,
+      ":type=" + output));
   }
 }

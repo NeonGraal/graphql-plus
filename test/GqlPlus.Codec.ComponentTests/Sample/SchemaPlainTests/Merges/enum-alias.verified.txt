@@ -1,13 +1,7 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumAlias: !_TypeEnum
-    aliases: [En1,En2]
-    allItems:
-      - !_EnumLabel
-        enum: EnumAlias
-        name: enumAlias
-    items:
-      - !_Aliased
-        name: enumAlias
-    name: EnumAlias
-    typeKind: !_TypeKind Enum
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumAlias[_TypeEnum]:aliases.0=En1
+[_Schema]:types[_Map_Type]:[_Identifier]EnumAlias[_TypeEnum]:aliases.1=En2
+[_Schema]:types[_Map_Type]:[_Identifier]EnumAlias[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumAlias[_TypeEnum]:allItems.0[_EnumLabel]:name=enumAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumAlias[_TypeEnum]:items.0[_Aliased]:name=enumAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumAlias[_TypeEnum]:name=EnumAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumAlias[_TypeEnum]:typeKind=[_TypeKind]Enum

@@ -1,382 +1,240 @@
-﻿!_Schema
-errors:
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In _Schema can't get model for type '_Named'"
-types: !_Map_Type
-  !_Identifier _Aliased: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        object: _Described
-        type: !_ObjBase
-          name: String
-      - !_ObjectFor(_DualField)
-        name: name
-        object: _Named
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: aliases
-        object: _Aliased
-        type: !_ObjBase
-          name: _Identifier
-    fields:
-      - !_DualField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: aliases
-        type: !_ObjBase
-          name: _Identifier
-    name: _Aliased
-    parent: !_ObjBase
-      name: _Named
-    typeKind: !_TypeKind Dual
-  !_Identifier _CategoryFilter: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        collections:
-          - !_Modifier
-            modifierKind: !_ModifierKind List
-        object: _Filter
-        type: !_ObjBase
-          name: _NameFilter
-    allFields:
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: names
-        object: _Filter
-        type: !_ObjBase
-          name: _NameFilter
-      - !_ObjectFor(_InputField)
-        default: true
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: matchAliases
-        object: _Filter
-        type: !_ObjBase
-          name: Boolean
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: aliases
-        object: _Filter
-        type: !_ObjBase
-          name: _NameFilter
-      - !_ObjectFor(_InputField)
-        default: false
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: returnByAlias
-        object: _Filter
-        type: !_ObjBase
-          name: Boolean
-      - !_ObjectFor(_InputField)
-        default: false
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: returnReferencedTypes
-        object: _Filter
-        type: !_ObjBase
-          name: Boolean
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: resolutions
-        object: _CategoryFilter
-        type: !_ObjBase
-          name: _Resolution
-    fields:
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: resolutions
-        type: !_ObjBase
-          name: _Resolution
-    name: _CategoryFilter
-    parent: !_ObjBase
-      name: _Filter
-    typeKind: !_TypeKind Input
-  !_Identifier _Described: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        object: _Described
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_DualField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        type: !_ObjBase
-          name: String
-    name: _Described
-    typeKind: !_TypeKind Dual
-  !_Identifier _Filter: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        collections:
-          - !_Modifier
-            modifierKind: !_ModifierKind List
-        object: _Filter
-        type: !_ObjBase
-          name: _NameFilter
-    allFields:
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: names
-        object: _Filter
-        type: !_ObjBase
-          name: _NameFilter
-      - !_ObjectFor(_InputField)
-        default: true
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: matchAliases
-        object: _Filter
-        type: !_ObjBase
-          name: Boolean
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: aliases
-        object: _Filter
-        type: !_ObjBase
-          name: _NameFilter
-      - !_ObjectFor(_InputField)
-        default: false
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: returnByAlias
-        object: _Filter
-        type: !_ObjBase
-          name: Boolean
-      - !_ObjectFor(_InputField)
-        default: false
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: returnReferencedTypes
-        object: _Filter
-        type: !_ObjBase
-          name: Boolean
-    alternates:
-      - !_Alternate
-        collections:
-          - !_Modifier
-            modifierKind: !_ModifierKind List
-        type: !_ObjBase
-          name: _NameFilter
-    fields:
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: names
-        type: !_ObjBase
-          name: _NameFilter
-      - !_InputField
-        default: true
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: matchAliases
-        type: !_ObjBase
-          name: Boolean
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: aliases
-        type: !_ObjBase
-          name: _NameFilter
-      - !_InputField
-        default: false
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: returnByAlias
-        type: !_ObjBase
-          name: Boolean
-      - !_InputField
-        default: false
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: returnReferencedTypes
-        type: !_ObjBase
-          name: Boolean
-    name: _Filter
-    typeKind: !_TypeKind Input
-  !_Identifier _Identifier: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: _Identifier
-        exclude: false
-        pattern: '[A-Za-z_][A-Za-z0-9_]*'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: '[A-Za-z_][A-Za-z0-9_]*'
-    name: _Identifier
-    typeKind: !_TypeKind Domain
-  !_Identifier _NameFilter: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: _NameFilter
-        exclude: false
-        pattern: '[A-Za-z_.*]+'
-    description: "_NameFilter is a simple match expression against _Identifier where '.' matches any single character and '*' matches zero or more of any character."
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: '[A-Za-z_.*]+'
-    name: _NameFilter
-    typeKind: !_TypeKind Domain
-  !_Identifier _Named: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        object: _Described
-        type: !_ObjBase
-          name: String
-      - !_ObjectFor(_DualField)
-        name: name
-        object: _Named
-        type: !_ObjBase
-          name: _Identifier
-    fields:
-      - !_DualField
-        name: name
-        type: !_ObjBase
-          name: _Identifier
-    name: _Named
-    parent: !_ObjBase
-      name: _Described
-    typeKind: !_TypeKind Dual
-  !_Identifier _Schema: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-        name: categories
-        object: _Schema
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _CategoryFilter
-        type: !_ObjBase
-          name: _Categories
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-        name: directives
-        object: _Schema
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _Filter
-        type: !_ObjBase
-          name: _Directives
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-        name: types
-        object: _Schema
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _TypeFilter
-        type: !_ObjBase
-          name: _Type
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-        name: settings
-        object: _Schema
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _Filter
-        type: !_ObjBase
-          name: _Setting
-    fields:
-      - !_OutputField
-        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-        name: categories
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _CategoryFilter
-        type: !_ObjBase
-          name: _Categories
-      - !_OutputField
-        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-        name: directives
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _Filter
-        type: !_ObjBase
-          name: _Directives
-      - !_OutputField
-        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-        name: types
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _TypeFilter
-        type: !_ObjBase
-          name: _Type
-      - !_OutputField
-        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-        name: settings
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _Filter
-        type: !_ObjBase
-          name: _Setting
-    name: _Schema
-    parent: !_ObjBase
-      name: _Named
-    typeKind: !_TypeKind Output
-  !_Identifier _TypeFilter: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        collections:
-          - !_Modifier
-            modifierKind: !_ModifierKind List
-        object: _Filter
-        type: !_ObjBase
-          name: _NameFilter
-    allFields:
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: names
-        object: _Filter
-        type: !_ObjBase
-          name: _NameFilter
-      - !_ObjectFor(_InputField)
-        default: true
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: matchAliases
-        object: _Filter
-        type: !_ObjBase
-          name: Boolean
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: aliases
-        object: _Filter
-        type: !_ObjBase
-          name: _NameFilter
-      - !_ObjectFor(_InputField)
-        default: false
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: returnByAlias
-        object: _Filter
-        type: !_ObjBase
-          name: Boolean
-      - !_ObjectFor(_InputField)
-        default: false
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: returnReferencedTypes
-        object: _Filter
-        type: !_ObjBase
-          name: Boolean
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: kinds
-        object: _TypeFilter
-        type: !_ObjBase
-          name: _TypeKind
-    fields:
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: kinds
-        type: !_ObjBase
-          name: _TypeKind
-    name: _TypeFilter
-    parent: !_ObjBase
-      name: _Filter
-    typeKind: !_TypeKind Input
+﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
+[_Schema]:errors[_Errors].0[_Error]:_message="In _Schema can't get model for type '_Named'"
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=description
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_Described
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:object=_Named
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:name=aliases
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:object=_Aliased
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:fields.0[_DualField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:fields.0[_DualField]:name=aliases
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:name=_Aliased
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:parent[_ObjBase]:name=_Named
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=names
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:default=true
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:name=matchAliases
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:name=aliases
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:default=false
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:name=returnByAlias
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:default=false
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:name=returnReferencedTypes
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:name=resolutions
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:object=_CategoryFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Resolution
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:fields.0[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:fields.0[_InputField]:name=resolutions
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=_Resolution
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:name=_CategoryFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:parent[_ObjBase]:name=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_CategoryFilter[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=description
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_Described
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:fields.0[_DualField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:fields.0[_DualField]:name=description
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:name=_Described
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=names
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:default=true
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:name=matchAliases
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:name=aliases
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:default=false
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:name=returnByAlias
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:default=false
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:name=returnReferencedTypes
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:alternates.0[_Alternate]:collections.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.0[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.0[_InputField]:name=names
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.1[_InputField]:default=true
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.1[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.1[_InputField]:name=matchAliases
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.1[_InputField]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.2[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.2[_InputField]:name=aliases
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.2[_InputField]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.3[_InputField]:default=false
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.3[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.3[_InputField]:name=returnByAlias
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.3[_InputField]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.4[_InputField]:default=false
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.4[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.4[_InputField]:name=returnReferencedTypes
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:fields.4[_InputField]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:name=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_Filter[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='[A-Za-z_][A-Za-z0-9_]*'
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:items.0[_DomainRegex]:pattern='[A-Za-z_][A-Za-z0-9_]*'
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]_NameFilter[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_NameFilter[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]_NameFilter[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='[A-Za-z_.*]+'
+[_Schema]:types[_Map_Type]:[_Identifier]_NameFilter[_DomainString]:description="_NameFilter is a simple match expression against _Identifier where '.' matches any single character and '*' matches zero or more of any character."
+[_Schema]:types[_Map_Type]:[_Identifier]_NameFilter[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]_NameFilter[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]_NameFilter[_DomainString]:items.0[_DomainRegex]:pattern='[A-Za-z_.*]+'
+[_Schema]:types[_Map_Type]:[_Identifier]_NameFilter[_DomainString]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_NameFilter[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=description
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_Described
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:object=_Named
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:fields.0[_DualField]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:name=_Named
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:parent[_ObjBase]:name=_Described
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:by=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=categories
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=_Schema
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:name=_CategoryFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Categories
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:by=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:object=_Schema
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:name=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Directives
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:by=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:name=types
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:object=_Schema
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:name=_TypeFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Type
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:by=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:name=settings
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:object=_Schema
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:name=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Setting
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_ModifierDictionary]:by=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.0[_OutputField]:name=categories
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.0[_OutputField]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.0[_OutputField]:parameters.0[_InputParam]:name=_CategoryFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_Categories
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.1[_OutputField]:modifiers.0[_ModifierDictionary]:by=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.1[_OutputField]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.1[_OutputField]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.1[_OutputField]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.1[_OutputField]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.1[_OutputField]:parameters.0[_InputParam]:name=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:name=_Directives
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.2[_OutputField]:modifiers.0[_ModifierDictionary]:by=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.2[_OutputField]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.2[_OutputField]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.2[_OutputField]:name=types
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.2[_OutputField]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.2[_OutputField]:parameters.0[_InputParam]:name=_TypeFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.2[_OutputField]:type[_ObjBase]:name=_Type
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.3[_OutputField]:modifiers.0[_ModifierDictionary]:by=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.3[_OutputField]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.3[_OutputField]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.3[_OutputField]:name=settings
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.3[_OutputField]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.3[_OutputField]:parameters.0[_InputParam]:name=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:fields.3[_OutputField]:type[_ObjBase]:name=_Setting
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:name=_Schema
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:parent[_ObjBase]:name=_Named
+[_Schema]:types[_Map_Type]:[_Identifier]_Schema[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=names
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:default=true
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:name=matchAliases
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:name=aliases
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:type[_ObjBase]:name=_NameFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:default=false
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:name=returnByAlias
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:default=false
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:name=returnReferencedTypes
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:object=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:name=kinds
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:object=_TypeFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:type[_ObjBase]:name=_TypeKind
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:fields.0[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:fields.0[_InputField]:name=kinds
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=_TypeKind
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:name=_TypeFilter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:parent[_ObjBase]:name=_Filter
+[_Schema]:types[_Map_Type]:[_Identifier]_TypeFilter[_TypeInput]:typeKind=[_TypeKind]Input

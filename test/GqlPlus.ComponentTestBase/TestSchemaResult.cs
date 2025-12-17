@@ -1,11 +1,9 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Result;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus;
 
 public abstract class TestSchemaResult(
-  ILoggerFactory logger,
   ISchemaParseChecks checks
 ) : TestSchemaInputs
 {
@@ -29,11 +27,9 @@ public abstract class TestSchemaResult(
   public async Task Test_SimpleInvalid(string simple)
     => await ReplaceFileAsync("Simple/Invalid", simple, SampleInvalid_Input);
 
-  private readonly ILogger _logger = logger.CreateTypedLogger<TestSchemaAsts>();
-
   protected virtual async Task SampleInvalid_Input(string input, string section, string test)
   {
-    _logger.ParsingLabelledInput("Sample", input);
+    TestContext.Current.AddAttachment(test, input);
 
     IResult<IGqlpSchema> parse = checks.Parse(input, "Schema");
     if (parse.Required(s => s.Errors.ShouldBeEmpty())) {
@@ -45,7 +41,7 @@ public abstract class TestSchemaResult(
 
   protected override async Task Label_Input(string label, string input, string[] dirs, string test, string section)
   {
-    _logger.ParsingLabelledInput(label, input);
+    TestContext.Current.AddAttachment(test, input);
 
     IResult<IGqlpSchema> result = checks.Parse(input, label);
 

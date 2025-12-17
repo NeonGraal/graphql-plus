@@ -1,98 +1,51 @@
-﻿!_Schema
-errors:
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In _AndType can't get model for type '_Named'"
-types: !_Map_Type
-  !_Identifier _Aliased: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        object: _Described
-        type: !_ObjBase
-          name: String
-      - !_ObjectFor(_DualField)
-        name: name
-        object: _Named
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: aliases
-        object: _Aliased
-        type: !_ObjBase
-          name: _Identifier
-    fields:
-      - !_DualField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: aliases
-        type: !_ObjBase
-          name: _Identifier
-    name: _Aliased
-    parent: !_ObjBase
-      name: _Named
-    typeKind: !_TypeKind Dual
-  !_Identifier _AndType: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _AndType
-        type: !_ObjBase
-          name: _Type
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: type
-        object: _AndType
-        type: !_ObjBase
-          name: _Type
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: _Type
-    fields:
-      - !_OutputField
-        name: type
-        type: !_ObjBase
-          name: _Type
-    name: _AndType
-    parent: !_ObjBase
-      name: _Named
-    typeKind: !_TypeKind Output
-  !_Identifier _Described: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        object: _Described
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_DualField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        type: !_ObjBase
-          name: String
-    name: _Described
-    typeKind: !_TypeKind Dual
-  !_Identifier _Named: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        object: _Described
-        type: !_ObjBase
-          name: String
-      - !_ObjectFor(_DualField)
-        name: name
-        object: _Named
-        type: !_ObjBase
-          name: _Identifier
-    fields:
-      - !_DualField
-        name: name
-        type: !_ObjBase
-          name: _Identifier
-    name: _Named
-    parent: !_ObjBase
-      name: _Described
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
+[_Schema]:errors[_Errors].0[_Error]:_message="In _AndType can't get model for type '_Named'"
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=description
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_Described
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:object=_Named
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:name=aliases
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:object=_Aliased
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:fields.0[_DualField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:fields.0[_DualField]:name=aliases
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:name=_Aliased
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:parent[_ObjBase]:name=_Named
+[_Schema]:types[_Map_Type]:[_Identifier]_Aliased[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_AndType[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=_AndType
+[_Schema]:types[_Map_Type]:[_Identifier]_AndType[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_Type
+[_Schema]:types[_Map_Type]:[_Identifier]_AndType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=type
+[_Schema]:types[_Map_Type]:[_Identifier]_AndType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=_AndType
+[_Schema]:types[_Map_Type]:[_Identifier]_AndType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Type
+[_Schema]:types[_Map_Type]:[_Identifier]_AndType[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=_Type
+[_Schema]:types[_Map_Type]:[_Identifier]_AndType[_TypeOutput]:fields.0[_OutputField]:name=type
+[_Schema]:types[_Map_Type]:[_Identifier]_AndType[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_Type
+[_Schema]:types[_Map_Type]:[_Identifier]_AndType[_TypeOutput]:name=_AndType
+[_Schema]:types[_Map_Type]:[_Identifier]_AndType[_TypeOutput]:parent[_ObjBase]:name=_Named
+[_Schema]:types[_Map_Type]:[_Identifier]_AndType[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=description
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_Described
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:fields.0[_DualField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:fields.0[_DualField]:name=description
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:name=_Described
+[_Schema]:types[_Map_Type]:[_Identifier]_Described[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=description
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_Described
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:object=_Named
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:fields.0[_DualField]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:name=_Named
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:parent[_ObjBase]:name=_Described
+[_Schema]:types[_Map_Type]:[_Identifier]_Named[_TypeDual]:typeKind=[_TypeKind]Dual

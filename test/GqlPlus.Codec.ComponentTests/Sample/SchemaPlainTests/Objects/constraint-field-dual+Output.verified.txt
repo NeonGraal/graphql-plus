@@ -1,68 +1,32 @@
-﻿!_Schema
-errors:
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In AltCnstFieldDualOutp can't get model for type 'PrntCnstFieldDualOutp'"
-types: !_Map_Type
-  !_Identifier AltCnstFieldDualOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: alt
-        object: AltCnstFieldDualOutp
-        type: !_ObjBase
-          name: Number
-    fields:
-      - !_OutputField
-        name: alt
-        type: !_ObjBase
-          name: Number
-    name: AltCnstFieldDualOutp
-    parent: !_ObjBase
-      name: PrntCnstFieldDualOutp
-    typeKind: !_TypeKind Output
-  !_Identifier CnstFieldDualOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: field
-        object: RefCnstFieldDualOutp
-        type: !_ObjBase
-          name: AltCnstFieldDualOutp
-    name: CnstFieldDualOutp
-    parent: !_ObjBase
-      name: RefCnstFieldDualOutp
-      typeArgs:
-        - !_TypeArg
-          name: AltCnstFieldDualOutp
-    typeKind: !_TypeKind Output
-  !_Identifier PrntCnstFieldDualOutp: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: PrntCnstFieldDualOutp
-        type: !_ObjBase
-          name: String
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    name: PrntCnstFieldDualOutp
-    typeKind: !_TypeKind Dual
-  !_Identifier RefCnstFieldDualOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: field
-        object: RefCnstFieldDualOutp
-        type: !_ObjBase
-          typeParam: ref
-    fields:
-      - !_OutputField
-        name: field
-        type: !_ObjBase
-          typeParam: ref
-    name: RefCnstFieldDualOutp
-    typeKind: !_TypeKind Output
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: PrntCnstFieldDualOutp
-          typeKind: !_TypeKind Dual
-        name: ref
+﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
+[_Schema]:errors[_Errors].0[_Error]:_message="In AltCnstFieldDualOutp can't get model for type 'PrntCnstFieldDualOutp'"
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=AltCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldDualOutp[_TypeOutput]:fields.0[_OutputField]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldDualOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldDualOutp[_TypeOutput]:name=AltCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldDualOutp[_TypeOutput]:parent[_ObjBase]:name=PrntCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldDualOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=RefCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=AltCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDualOutp[_TypeOutput]:name=CnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDualOutp[_TypeOutput]:parent[_ObjBase]:name=RefCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDualOutp[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=AltCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldDualOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstFieldDualOutp[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=PrntCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstFieldDualOutp[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstFieldDualOutp[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstFieldDualOutp[_TypeDual]:name=PrntCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstFieldDualOutp[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=RefCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDualOutp[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDualOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDualOutp[_TypeOutput]:name=RefCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDualOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDualOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=PrntCnstFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDualOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldDualOutp[_TypeOutput]:typeParams.0[_TypeParam]:name=ref

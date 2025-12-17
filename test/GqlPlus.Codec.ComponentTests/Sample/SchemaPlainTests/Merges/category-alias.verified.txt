@@ -1,13 +1,8 @@
-﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier ctgrAlias: !_Category
-    aliases: [CatA1,CatA2]
-    name: ctgrAlias
-    output: !_TypeRef(_TypeKind)
-      name: CtgrAlias
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-types: !_Map_Type
-  !_Identifier CtgrAlias: !_TypeOutput
-    name: CtgrAlias
-    typeKind: !_TypeKind Output
+﻿[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrAlias[_Category]:aliases.0=CatA1
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrAlias[_Category]:aliases.1=CatA2
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrAlias[_Category]:name=ctgrAlias
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrAlias[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrAlias
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrAlias[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrAlias[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrAlias[_TypeOutput]:name=CtgrAlias
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrAlias[_TypeOutput]:typeKind=[_TypeKind]Output

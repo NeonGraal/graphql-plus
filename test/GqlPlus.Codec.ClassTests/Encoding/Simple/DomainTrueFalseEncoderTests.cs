@@ -7,12 +7,12 @@ public class DomainTrueFalseEncoderTests
     = new DomainTrueFalseEncoder();
 
   protected override string[] ItemExpected(bool item, bool excluded, string description)
-    => ["!_DomainTrueFalse",
-        "description: " + description.QuotedIdentifier(),
-        "exclude: " + excluded.TrueFalse(),
-        "value: " + item.TrueFalse()
-        ];
-  protected override DomainTrueFalseModel NewItem(bool item, bool excluded, string description) => new(item, excluded, description);
+    => TagAll("_DomainTrueFalse",
+        ":description=" + description.QuotedIdentifier(),
+        ":exclude=" + excluded.TrueFalse(),
+        ":value=" + item.TrueFalse());
+  protected override DomainTrueFalseModel NewItem(bool item, bool excluded, string description)
+    => new(item, excluded, description);
 }
 
 public class DomainBooleanEncoderTests

@@ -1,7 +1,5 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnAlias: !_DomainNumber
-    aliases: [Num1,Num2]
-    domainKind: !_DomainKind Number
-    name: DmnAlias
-    typeKind: !_TypeKind Domain
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnAlias[_DomainNumber]:aliases.0=Num1
+[_Schema]:types[_Map_Type]:[_Identifier]DmnAlias[_DomainNumber]:aliases.1=Num2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnAlias[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map_Type]:[_Identifier]DmnAlias[_DomainNumber]:name=DmnAlias
+[_Schema]:types[_Map_Type]:[_Identifier]DmnAlias[_DomainNumber]:typeKind=[_TypeKind]Domain

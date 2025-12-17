@@ -1,46 +1,20 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcAltArgDescrOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: GnrcAltArgDescrOutp
-        type: !_ObjBase
-          name: RefGnrcAltArgDescrOutp
-          typeArgs:
-            - !_TypeArg
-              description: 'Test Descr'
-              typeParam: type
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: RefGnrcAltArgDescrOutp
-          typeArgs:
-            - !_TypeArg
-              description: 'Test Descr'
-              typeParam: type
-    name: GnrcAltArgDescrOutp
-    typeKind: !_TypeKind Output
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: type
-  !_Identifier RefGnrcAltArgDescrOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: RefGnrcAltArgDescrOutp
-        type: !_ObjBase
-          typeParam: ref
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          typeParam: ref
-    name: RefGnrcAltArgDescrOutp
-    typeKind: !_TypeKind Output
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: ref
+﻿[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=GnrcAltArgDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=RefGnrcAltArgDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_TypeArg]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_TypeArg]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=RefGnrcAltArgDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_TypeArg]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_TypeArg]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:name=GnrcAltArgDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltArgDescrOutp[_TypeOutput]:typeParams.0[_TypeParam]:name=type
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltArgDescrOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefGnrcAltArgDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltArgDescrOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltArgDescrOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltArgDescrOutp[_TypeOutput]:name=RefGnrcAltArgDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltArgDescrOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltArgDescrOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltArgDescrOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltArgDescrOutp[_TypeOutput]:typeParams.0[_TypeParam]:name=ref

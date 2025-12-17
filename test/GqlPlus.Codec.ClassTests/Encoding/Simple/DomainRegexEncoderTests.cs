@@ -7,22 +7,21 @@ public class DomainRegexEncoderTests
     = new DomainRegexEncoder();
 
   protected override string[] ItemExpected(string item, bool excluded, string description)
-    => ["!_DomainRegex",
-        "description: " + description.QuotedIdentifier(),
-        "exclude: " + excluded.TrueFalse(),
-        "pattern: " + item
-        ];
-  protected override DomainRegexModel NewItem(string item, bool excluded, string description) => new(item, excluded, description);
+    => TagAll("_DomainRegex",
+        ":description=" + description.QuotedIdentifier(),
+        ":exclude=" + excluded.TrueFalse(),
+        ":pattern=" + item);
+  protected override DomainRegexModel NewItem(string item, bool excluded, string description)
+    => new(item, excluded, description);
 }
 
 public class DomainItemRegexEncoderTests
   : DomainAllEncoderTestBase<DomainRegexModel, string>
 {
   protected override string[] AllExpected(string name, string item, string description)
-    => ["!_DomainItem(_DomainRegex)",
-        "domain: " + name,
-        $"value: !_ItemModel " + item.QuotedIdentifier()
-        ];
+    => TagAll("_DomainItem(_DomainRegex)",
+        ":domain=" + name,
+        ":value=[_ItemModel]" + item.QuotedIdentifier());
 
   protected override DomainRegexModel NewItem(string item, string description)
     => new(item, false, description);

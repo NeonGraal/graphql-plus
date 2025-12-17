@@ -1,16 +1,7 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjFieldEnumValueInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: field
-        object: ObjFieldEnumValueInp
-        type: !_ObjBase
-          name: Boolean
-    fields:
-      - !_InputField
-        name: field
-        type: !_ObjBase
-          name: Boolean
-    name: ObjFieldEnumValueInp
-    typeKind: !_TypeKind Input
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumValueInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumValueInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=ObjFieldEnumValueInp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumValueInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumValueInp[_TypeInput]:fields.0[_InputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumValueInp[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumValueInp[_TypeInput]:name=ObjFieldEnumValueInp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldEnumValueInp[_TypeInput]:typeKind=[_TypeKind]Input

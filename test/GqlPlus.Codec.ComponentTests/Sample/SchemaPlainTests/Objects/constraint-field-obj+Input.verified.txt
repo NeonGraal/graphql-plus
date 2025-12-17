@@ -1,69 +1,32 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltCnstFieldObjInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: PrntCnstFieldObjInp
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: alt
-        object: AltCnstFieldObjInp
-        type: !_ObjBase
-          name: Number
-    fields:
-      - !_InputField
-        name: alt
-        type: !_ObjBase
-          name: Number
-    name: AltCnstFieldObjInp
-    parent: !_ObjBase
-      name: PrntCnstFieldObjInp
-    typeKind: !_TypeKind Input
-  !_Identifier CnstFieldObjInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: field
-        object: RefCnstFieldObjInp
-        type: !_ObjBase
-          name: AltCnstFieldObjInp
-    name: CnstFieldObjInp
-    parent: !_ObjBase
-      name: RefCnstFieldObjInp
-      typeArgs:
-        - !_TypeArg
-          name: AltCnstFieldObjInp
-    typeKind: !_TypeKind Input
-  !_Identifier PrntCnstFieldObjInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: PrntCnstFieldObjInp
-        type: !_ObjBase
-          name: String
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    name: PrntCnstFieldObjInp
-    typeKind: !_TypeKind Input
-  !_Identifier RefCnstFieldObjInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: field
-        object: RefCnstFieldObjInp
-        type: !_ObjBase
-          typeParam: ref
-    fields:
-      - !_InputField
-        name: field
-        type: !_ObjBase
-          typeParam: ref
-    name: RefCnstFieldObjInp
-    typeKind: !_TypeKind Input
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: PrntCnstFieldObjInp
-          typeKind: !_TypeKind Input
-        name: ref
+﻿[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldObjInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=PrntCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldObjInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldObjInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldObjInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=AltCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldObjInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldObjInp[_TypeInput]:fields.0[_InputField]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldObjInp[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldObjInp[_TypeInput]:name=AltCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldObjInp[_TypeInput]:parent[_ObjBase]:name=PrntCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltCnstFieldObjInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldObjInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldObjInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=RefCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldObjInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=AltCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldObjInp[_TypeInput]:name=CnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldObjInp[_TypeInput]:parent[_ObjBase]:name=RefCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldObjInp[_TypeInput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=AltCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]CnstFieldObjInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstFieldObjInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=PrntCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstFieldObjInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstFieldObjInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstFieldObjInp[_TypeInput]:name=PrntCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]PrntCnstFieldObjInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldObjInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldObjInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=RefCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldObjInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldObjInp[_TypeInput]:fields.0[_InputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldObjInp[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldObjInp[_TypeInput]:name=RefCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldObjInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldObjInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=PrntCnstFieldObjInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldObjInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstFieldObjInp[_TypeInput]:typeParams.0[_TypeParam]:name=ref

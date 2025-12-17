@@ -1,51 +1,23 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntFieldDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: RefPrntFieldDual
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: parent
-        object: RefPrntFieldDual
-        type: !_ObjBase
-          name: Number
-      - !_ObjectFor(_DualField)
-        name: field
-        object: PrntFieldDual
-        type: !_ObjBase
-          name: Number
-    fields:
-      - !_DualField
-        name: field
-        type: !_ObjBase
-          name: Number
-    name: PrntFieldDual
-    parent: !_ObjBase
-      name: RefPrntFieldDual
-    typeKind: !_TypeKind Dual
-  !_Identifier RefPrntFieldDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: RefPrntFieldDual
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: parent
-        object: RefPrntFieldDual
-        type: !_ObjBase
-          name: Number
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_DualField
-        name: parent
-        type: !_ObjBase
-          name: Number
-    name: RefPrntFieldDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefPrntFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=parent
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=RefPrntFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:object=PrntFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:name=PrntFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:parent[_ObjBase]:name=RefPrntFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]PrntFieldDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntFieldDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefPrntFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntFieldDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntFieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=parent
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntFieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=RefPrntFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntFieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntFieldDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntFieldDual[_TypeDual]:fields.0[_DualField]:name=parent
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntFieldDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntFieldDual[_TypeDual]:name=RefPrntFieldDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntFieldDual[_TypeDual]:typeKind=[_TypeKind]Dual

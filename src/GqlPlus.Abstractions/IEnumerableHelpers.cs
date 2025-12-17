@@ -52,15 +52,16 @@ public static class IEnumerableHelpers
     => string.Join(", ", items?.OrderBy(t => t, StringComparer.Ordinal).Select(i => $"'{i}'") ?? []);
 
   public static string Joined(this IEnumerable<string?>? items, string by = " ")
-    => string.Join(by,
-      items?.Where(i => !string.IsNullOrWhiteSpace(i))
-      ?? []);
+    => string.Join(by, items?.RemoveEmpty() ?? []);
 
   public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping, string by = " ")
     => (items?.Select(mapping).Joined(by)).IfWhiteSpace();
 
   public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
     => left.OrderBy(l => l, comparer).SequenceEqual(right.OrderBy(r => r, comparer));
+
+  public static IEnumerable<string> RemoveEmpty(this IEnumerable<string?>? items)
+    => items?.Where(i => !string.IsNullOrWhiteSpace(i)).Cast<string>() ?? [];
 
   public static string Surround(
     this IEnumerable<string>? items,

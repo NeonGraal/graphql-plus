@@ -1,17 +1,7 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjAltOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: ObjAltOutp
-        type: !_ObjBase
-          name: ObjAltOutpType
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: ObjAltOutpType
-    name: ObjAltOutp
-    typeKind: !_TypeKind Output
-  !_Identifier ObjAltOutpType: !_TypeOutput
-    name: ObjAltOutpType
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjAltOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=ObjAltOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=ObjAltOutpType
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=ObjAltOutpType
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltOutp[_TypeOutput]:name=ObjAltOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltOutpType[_TypeOutput]:name=ObjAltOutpType
+[_Schema]:types[_Map_Type]:[_Identifier]ObjAltOutpType[_TypeOutput]:typeKind=[_TypeKind]Output

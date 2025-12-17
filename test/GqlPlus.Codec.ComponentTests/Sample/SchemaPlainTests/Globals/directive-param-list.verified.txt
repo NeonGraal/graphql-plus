@@ -1,14 +1,12 @@
-﻿!_Schema
-directives: !_Map_Directives
-  !_Identifier DrctParamList: !_Directive
-    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
-    name: DrctParamList
-    parameters:
-      - !_InputParam
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: InDrctParamList
-    repeatable: false
-types: !_Map_Type
-  !_Identifier InDrctParamList: !_TypeInput
-    name: InDrctParamList
-    typeKind: !_TypeKind Input
+﻿[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Field=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Fragment=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Inline=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Operation=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Spread=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Variable=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:name=DrctParamList
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:parameters.0[_InputParam]:name=InDrctParamList
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:repeatable=false
+[_Schema]:types[_Map_Type]:[_Identifier]InDrctParamList[_TypeInput]:name=InDrctParamList
+[_Schema]:types[_Map_Type]:[_Identifier]InDrctParamList[_TypeInput]:typeKind=[_TypeKind]Input

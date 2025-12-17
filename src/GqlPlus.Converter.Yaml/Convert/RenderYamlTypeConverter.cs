@@ -26,7 +26,9 @@ internal class RenderYamlTypeConverter
 
   public object? ReadYaml(IParser parser, Type type)
   {
-    if (type == null) throw new ArgumentNullException(nameof(type));
+    if (type == null) {
+      throw new ArgumentNullException(nameof(type));
+    }
 
     // Deserialize the YAML data to the specified type
     return parser.Current switch {
@@ -47,7 +49,7 @@ internal class RenderYamlTypeConverter
       bool plainImplicit = string.IsNullOrWhiteSpace(model.Tag);
       TagName tag = plainImplicit ? new TagName() : new TagName("!" + model.Tag);
       if (model.List.Count > 0) {
-        WriteList(emitter, type, model, plainImplicit, serializer);
+        WriteList(emitter, type, model, plainImplicit, tag, serializer);
       } else if (model.Map.Count > 0) {
         WriteMap(emitter, model, plainImplicit, tag, serializer);
       } else if (model.Value is not null) {
@@ -93,6 +95,7 @@ internal class RenderYamlTypeConverter
   private Structured ReadList(IParser parser, Type type)
   {
     SequenceStart start = parser.Consume<SequenceStart>().ThrowIfNull();
+    string? tag = start.Tag.IsEmpty ? null : start.Tag.Value.TrimStart('!');
     List<Structured> items = [];
     while (parser.Current is not SequenceEnd) {
       if (ReadYaml(parser, type) is Structured structured) {
@@ -101,12 +104,12 @@ internal class RenderYamlTypeConverter
     }
 
     parser.Consume<SequenceEnd>().ThrowIfNull();
-    return new(items, flow: start.Style == SequenceStyle.Flow);
+    return new(items, tag, flow: start.Style == SequenceStyle.Flow);
   }
-  private void WriteList(IEmitter emitter, Type type, Structured model, bool plainImplicit, ObjectSerializer serializer)
+  private void WriteList(IEmitter emitter, Type type, Structured model, bool plainImplicit, TagName tag, ObjectSerializer serializer)
   {
     SequenceStyle flow = model.Flow ? SequenceStyle.Flow : SequenceStyle.Any;
-    emitter.Emit(new SequenceStart(default, default, plainImplicit, flow));
+    emitter.Emit(new SequenceStart(default, tag, plainImplicit, flow));
     foreach (Structured item in model.List) {
       WriteYaml(emitter, item, type, serializer);
     }

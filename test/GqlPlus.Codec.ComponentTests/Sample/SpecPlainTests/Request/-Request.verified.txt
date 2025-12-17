@@ -1,649 +1,370 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier _Identifier: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: _Identifier
-        exclude: false
-        pattern: '[A-Za-z_][A-Za-z0-9_]*'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: '[A-Za-z_][A-Za-z0-9_]*'
-    name: _Identifier
-    typeKind: !_TypeKind Domain
-  !_Identifier _Modifier: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: modifierKind
-        object: _Modifier
-        type: !_ObjBase
-          name: _ModifierKind
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: by
-        object: _Modifier
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: optional
-        object: _Modifier
-        type: !_ObjBase
-          name: Boolean
-    fields:
-      - !_InputField
-        name: modifierKind
-        type: !_ObjBase
-          name: _ModifierKind
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: by
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: optional
-        type: !_ObjBase
-          name: Boolean
-    name: _Modifier
-    typeKind: !_TypeKind Input
-  !_Identifier _ModifierKind: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        aliases: [Optional]
-        enum: _ModifierKind
-        name: Opt
-      - !_EnumLabel
-        enum: _ModifierKind
-        name: List
-      - !_EnumLabel
-        aliases: [Dictionary]
-        enum: _ModifierKind
-        name: Dict
-      - !_EnumLabel
-        aliases: [TypeParam]
-        enum: _ModifierKind
-        name: Param
-    items:
-      - !_Aliased
-        aliases: [Optional]
-        name: Opt
-      - !_Aliased
-        name: List
-      - !_Aliased
-        aliases: [Dictionary]
-        name: Dict
-      - !_Aliased
-        aliases: [TypeParam]
-        name: Param
-    name: _ModifierKind
-    typeKind: !_TypeKind Enum
-  !_Identifier _OpArgList: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        collections:
-          - !_Modifier
-            modifierKind: !_ModifierKind List
-        object: _OpArgList
-        type: !_ObjBase
-          name: _OpArgValue
-    alternates:
-      - !_Alternate
-        collections:
-          - !_Modifier
-            modifierKind: !_ModifierKind List
-        type: !_ObjBase
-          name: _OpArgValue
-    name: _OpArgList
-    typeKind: !_TypeKind Dual
-  !_Identifier _OpArgMap: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        collections:
-          - !_ModifierDictionary
-            by: Scalar
-            modifierKind: !_ModifierKind Dict
-            typeKind: !_SimpleKind Internal
-        object: _OpArgMap
-        type: !_ObjBase
-          name: _OpArgValue
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: value
-        object: _OpArgMap
-        type: !_ObjBase
-          name: _OpArgValue
-      - !_ObjectFor(_DualField)
-        name: byVariable
-        object: _OpArgMap
-        type: !_ObjBase
-          name: _Identifier
-    alternates:
-      - !_Alternate
-        collections:
-          - !_ModifierDictionary
-            by: Scalar
-            modifierKind: !_ModifierKind Dict
-            typeKind: !_SimpleKind Internal
-        type: !_ObjBase
-          name: _OpArgValue
-    fields:
-      - !_DualField
-        name: value
-        type: !_ObjBase
-          name: _OpArgValue
-      - !_DualField
-        name: byVariable
-        type: !_ObjBase
-          name: _Identifier
-    name: _OpArgMap
-    typeKind: !_TypeKind Dual
-  !_Identifier _OpArgValue: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _OpArgValue
-        type: !_ObjBase
-          name: Value
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: variable
-        object: _OpArgValue
-        type: !_ObjBase
-          name: _Identifier
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: Value
-    fields:
-      - !_DualField
-        name: variable
-        type: !_ObjBase
-          name: _Identifier
-    name: _OpArgValue
-    typeKind: !_TypeKind Dual
-  !_Identifier _OpArgument: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _OpArgument
-        type: !_ObjBase
-          name: _OpArgValue
-      - !_ObjectFor(_Alternate)
-        object: _OpArgument
-        type: !_ObjBase
-          name: _OpArgList
-      - !_ObjectFor(_Alternate)
-        object: _OpArgument
-        type: !_ObjBase
-          name: _OpArgMap
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: _OpArgValue
-      - !_Alternate
-        type: !_ObjBase
-          name: _OpArgList
-      - !_Alternate
-        type: !_ObjBase
-          name: _OpArgMap
-    name: _OpArgument
-    typeKind: !_TypeKind Dual
-  !_Identifier _OpDirective: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: name
-        object: _OpDirective
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: argument
-        object: _OpDirective
-        type: !_ObjBase
-          name: _OpArgument
-    fields:
-      - !_DualField
-        name: name
-        type: !_ObjBase
-          name: _Identifier
-      - !_DualField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: argument
-        type: !_ObjBase
-          name: _OpArgument
-    name: _OpDirective
-    typeKind: !_TypeKind Dual
-  !_Identifier _OpField: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: alias
-        object: _OpField
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        name: field
-        object: _OpField
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: argument
-        object: _OpField
-        type: !_ObjBase
-          name: _OpArgument
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: modifiers
-        object: _OpField
-        type: !_ObjBase
-          name: _Modifier
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        object: _OpField
-        type: !_ObjBase
-          name: _OpDirective
-      - !_ObjectFor(_InputField)
-        description: "The body as a string as we can't have nested objects."
-        name: body
-        object: _OpField
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_InputField
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: alias
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        name: field
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: argument
-        type: !_ObjBase
-          name: _OpArgument
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: modifiers
-        type: !_ObjBase
-          name: _Modifier
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        type: !_ObjBase
-          name: _OpDirective
-      - !_InputField
-        description: "The body as a string as we can't have nested objects."
-        name: body
-        type: !_ObjBase
-          name: String
-    name: _OpField
-    typeKind: !_TypeKind Input
-  !_Identifier _OpFragment: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: name
-        object: _OpFragment
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: type
-        object: _OpFragment
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        object: _OpFragment
-        type: !_ObjBase
-          name: _OpDirective
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: body
-        object: _OpFragment
-        type: !_ObjBase
-          name: _OpObject
-    fields:
-      - !_InputField
-        name: name
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: type
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        type: !_ObjBase
-          name: _OpDirective
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: body
-        type: !_ObjBase
-          name: _OpObject
-    name: _OpFragment
-    typeKind: !_TypeKind Input
-  !_Identifier _OpInline: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: type
-        object: _OpInline
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        object: _OpInline
-        type: !_ObjBase
-          name: _OpDirective
-      - !_ObjectFor(_InputField)
-        description: "The body as a string as we can't have nested objects."
-        name: body
-        object: _OpInline
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_InputField
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: type
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        type: !_ObjBase
-          name: _OpDirective
-      - !_InputField
-        description: "The body as a string as we can't have nested objects."
-        name: body
-        type: !_ObjBase
-          name: String
-    name: _OpInline
-    typeKind: !_TypeKind Input
-  !_Identifier _OpObject: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _OpObject
-        type: !_ObjBase
-          name: _OpField
-      - !_ObjectFor(_Alternate)
-        object: _OpObject
-        type: !_ObjBase
-          name: _OpSpread
-      - !_ObjectFor(_Alternate)
-        object: _OpObject
-        type: !_ObjBase
-          name: _OpInline
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: _OpField
-      - !_Alternate
-        type: !_ObjBase
-          name: _OpSpread
-      - !_Alternate
-        type: !_ObjBase
-          name: _OpInline
-    name: _OpObject
-    typeKind: !_TypeKind Input
-  !_Identifier _OpResult: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: domain
-        object: _OpResult
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: argument
-        object: _OpResult
-        type: !_ObjBase
-          name: _OpArgument
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: body
-        object: _OpResult
-        type: !_ObjBase
-          name: _OpObject
-    fields:
-      - !_InputField
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: domain
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: argument
-        type: !_ObjBase
-          name: _OpArgument
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: body
-        type: !_ObjBase
-          name: _OpObject
-    name: _OpResult
-    typeKind: !_TypeKind Input
-  !_Identifier _OpSpread: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: fragment
-        object: _OpSpread
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        object: _OpSpread
-        type: !_ObjBase
-          name: _OpDirective
-    fields:
-      - !_DualField
-        name: fragment
-        type: !_ObjBase
-          name: _Identifier
-      - !_DualField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        type: !_ObjBase
-          name: _OpDirective
-    name: _OpSpread
-    typeKind: !_TypeKind Dual
-  !_Identifier _OpVariable: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: name
-        object: _OpVariable
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: type
-        object: _OpVariable
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: modifiers
-        object: _OpVariable
-        type: !_ObjBase
-          name: _Modifier
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: default
-        object: _OpVariable
-        type: !_ObjBase
-          name: Value
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        object: _OpVariable
-        type: !_ObjBase
-          name: _OpDirective
-    fields:
-      - !_InputField
-        name: name
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: type
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: modifiers
-        type: !_ObjBase
-          name: _Modifier
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: default
-        type: !_ObjBase
-          name: Value
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        type: !_ObjBase
-          name: _OpDirective
-    name: _OpVariable
-    typeKind: !_TypeKind Input
-  !_Identifier _Operation: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _Operation
-        type: !_ObjBase
-          description: 'Parsed into above fields, plus Request category and operation'
-          name: String
-    allFields:
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: variables
-        object: _Operation
-        type: !_ObjBase
-          name: _OpVariable
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        object: _Operation
-        type: !_ObjBase
-          name: _OpDirective
-      - !_ObjectFor(_InputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: fragments
-        object: _Operation
-        type: !_ObjBase
-          name: _OpFragment
-      - !_ObjectFor(_InputField)
-        name: result
-        object: _Operation
-        type: !_ObjBase
-          name: _OpResult
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          description: 'Parsed into above fields, plus Request category and operation'
-          name: String
-    fields:
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: variables
-        type: !_ObjBase
-          name: _OpVariable
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        type: !_ObjBase
-          name: _OpDirective
-      - !_InputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: fragments
-        type: !_ObjBase
-          name: _OpFragment
-      - !_InputField
-        name: result
-        type: !_ObjBase
-          name: _OpResult
-    name: _Operation
-    typeKind: !_TypeKind Input
-  !_Identifier _Request: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _Request
-        type: !_ObjBase
-          description: 'Parsed into definition'
-          name: String
-    allFields:
-      - !_ObjectFor(_InputField)
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: category
-        object: _Request
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: operation
-        object: _Request
-        type: !_ObjBase
-          name: _Identifier
-      - !_ObjectFor(_InputField)
-        name: definition
-        object: _Request
-        type: !_ObjBase
-          name: _Operation
-      - !_ObjectFor(_InputField)
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: parameters
-        object: _Request
-        type: !_ObjBase
-          name: Any
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          description: 'Parsed into definition'
-          name: String
-    fields:
-      - !_InputField
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: category
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: operation
-        type: !_ObjBase
-          name: _Identifier
-      - !_InputField
-        name: definition
-        type: !_ObjBase
-          name: _Operation
-      - !_InputField
-        default: !Null null
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: parameters
-        type: !_ObjBase
-          name: Any
-    name: _Request
-    typeKind: !_TypeKind Input
+﻿[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='[A-Za-z_][A-Za-z0-9_]*'
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:items.0[_DomainRegex]:pattern='[A-Za-z_][A-Za-z0-9_]*'
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Identifier[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=modifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:name=by
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:object=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:name=optional
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:object=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:fields.0[_InputField]:name=modifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:fields.1[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:fields.1[_InputField]:name=by
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:fields.1[_InputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:fields.2[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:fields.2[_InputField]:name=optional
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:fields.2[_InputField]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:name=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Modifier[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.0[_EnumLabel]:aliases.0=Optional
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.0[_EnumLabel]:enum=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.0[_EnumLabel]:name=Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.1[_EnumLabel]:enum=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.1[_EnumLabel]:name=List
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.2[_EnumLabel]:aliases.0=Dictionary
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.2[_EnumLabel]:enum=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.2[_EnumLabel]:name=Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.3[_EnumLabel]:aliases.0=TypeParam
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.3[_EnumLabel]:enum=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:allItems.3[_EnumLabel]:name=Param
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.0[_Aliased]:aliases.0=Optional
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.0[_Aliased]:name=Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.1[_Aliased]:name=List
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.2[_Aliased]:aliases.0=Dictionary
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.2[_Aliased]:name=Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.3[_Aliased]:aliases.0=TypeParam
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:items.3[_Aliased]:name=Param
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:name=_ModifierKind
+[_Schema]:types[_Map_Type]:[_Identifier]_ModifierKind[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgList[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgList[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=_OpArgList
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgList[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_OpArgValue
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgList[_TypeDual]:alternates.0[_Alternate]:collections.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgList[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=_OpArgValue
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgList[_TypeDual]:name=_OpArgList
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgList[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_ModifierDictionary]:by=Scalar
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_ModifierDictionary]:typeKind=[_SimpleKind]Internal
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=_OpArgMap
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_OpArgValue
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=value
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_OpArgMap
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=_OpArgValue
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:name=byVariable
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:object=_OpArgMap
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:alternates.0[_Alternate]:collections.0[_ModifierDictionary]:by=Scalar
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:alternates.0[_Alternate]:collections.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:alternates.0[_Alternate]:collections.0[_ModifierDictionary]:typeKind=[_SimpleKind]Internal
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=_OpArgValue
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:fields.0[_DualField]:name=value
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_OpArgValue
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:fields.1[_DualField]:name=byVariable
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:fields.1[_DualField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:name=_OpArgMap
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgMap[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgValue[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=_OpArgValue
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgValue[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=Value
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgValue[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=variable
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgValue[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_OpArgValue
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgValue[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgValue[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=Value
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgValue[_TypeDual]:fields.0[_DualField]:name=variable
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgValue[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgValue[_TypeDual]:name=_OpArgValue
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgValue[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgument[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=_OpArgument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgument[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_OpArgValue
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgument[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:object=_OpArgument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgument[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_OpArgList
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgument[_TypeDual]:allAlternates.2[_ObjectFor(_Alternate)]:object=_OpArgument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgument[_TypeDual]:allAlternates.2[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_OpArgMap
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgument[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=_OpArgValue
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgument[_TypeDual]:alternates.1[_Alternate]:type[_ObjBase]:name=_OpArgList
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgument[_TypeDual]:alternates.2[_Alternate]:type[_ObjBase]:name=_OpArgMap
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgument[_TypeDual]:name=_OpArgument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpArgument[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:name=argument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:object=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:type[_ObjBase]:name=_OpArgument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:fields.0[_DualField]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:fields.1[_DualField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:fields.1[_DualField]:name=argument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:fields.1[_DualField]:type[_ObjBase]:name=_OpArgument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpDirective[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=alias
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=_OpField
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:object=_OpField
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:name=argument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:object=_OpField
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpArgument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:name=modifiers
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:object=_OpField
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:object=_OpField
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:description="The body as a string as we can't have nested objects."
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:name=body
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:object=_OpField
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:allFields.5[_ObjectFor(_InputField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.0[_InputField]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.0[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.0[_InputField]:name=alias
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.1[_InputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.1[_InputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.2[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.2[_InputField]:name=argument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.2[_InputField]:type[_ObjBase]:name=_OpArgument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.3[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.3[_InputField]:name=modifiers
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.3[_InputField]:type[_ObjBase]:name=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.4[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.4[_InputField]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.4[_InputField]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.5[_InputField]:description="The body as a string as we can't have nested objects."
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.5[_InputField]:name=body
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:fields.5[_InputField]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:name=_OpField
+[_Schema]:types[_Map_Type]:[_Identifier]_OpField[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=_OpFragment
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:name=type
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:object=_OpFragment
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:object=_OpFragment
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:name=body
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:object=_OpFragment
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpObject
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.0[_InputField]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.1[_InputField]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.1[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.1[_InputField]:name=type
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.1[_InputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.2[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.2[_InputField]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.2[_InputField]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.3[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.3[_InputField]:name=body
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:fields.3[_InputField]:type[_ObjBase]:name=_OpObject
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:name=_OpFragment
+[_Schema]:types[_Map_Type]:[_Identifier]_OpFragment[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=type
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=_OpInline
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:object=_OpInline
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:description="The body as a string as we can't have nested objects."
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:name=body
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:object=_OpInline
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:fields.0[_InputField]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:fields.0[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:fields.0[_InputField]:name=type
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:fields.1[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:fields.1[_InputField]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:fields.1[_InputField]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:fields.2[_InputField]:description="The body as a string as we can't have nested objects."
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:fields.2[_InputField]:name=body
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:fields.2[_InputField]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:name=_OpInline
+[_Schema]:types[_Map_Type]:[_Identifier]_OpInline[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]_OpObject[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=_OpObject
+[_Schema]:types[_Map_Type]:[_Identifier]_OpObject[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_OpField
+[_Schema]:types[_Map_Type]:[_Identifier]_OpObject[_TypeInput]:allAlternates.1[_ObjectFor(_Alternate)]:object=_OpObject
+[_Schema]:types[_Map_Type]:[_Identifier]_OpObject[_TypeInput]:allAlternates.1[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_OpSpread
+[_Schema]:types[_Map_Type]:[_Identifier]_OpObject[_TypeInput]:allAlternates.2[_ObjectFor(_Alternate)]:object=_OpObject
+[_Schema]:types[_Map_Type]:[_Identifier]_OpObject[_TypeInput]:allAlternates.2[_ObjectFor(_Alternate)]:type[_ObjBase]:name=_OpInline
+[_Schema]:types[_Map_Type]:[_Identifier]_OpObject[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=_OpField
+[_Schema]:types[_Map_Type]:[_Identifier]_OpObject[_TypeInput]:alternates.1[_Alternate]:type[_ObjBase]:name=_OpSpread
+[_Schema]:types[_Map_Type]:[_Identifier]_OpObject[_TypeInput]:alternates.2[_Alternate]:type[_ObjBase]:name=_OpInline
+[_Schema]:types[_Map_Type]:[_Identifier]_OpObject[_TypeInput]:name=_OpObject
+[_Schema]:types[_Map_Type]:[_Identifier]_OpObject[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=domain
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=_OpResult
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:name=argument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:object=_OpResult
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpArgument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:name=body
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:object=_OpResult
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpObject
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:fields.0[_InputField]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:fields.0[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:fields.0[_InputField]:name=domain
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:fields.1[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:fields.1[_InputField]:name=argument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:fields.1[_InputField]:type[_ObjBase]:name=_OpArgument
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:fields.2[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:fields.2[_InputField]:name=body
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:fields.2[_InputField]:type[_ObjBase]:name=_OpObject
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:name=_OpResult
+[_Schema]:types[_Map_Type]:[_Identifier]_OpResult[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=fragment
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_OpSpread
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:object=_OpSpread
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:fields.0[_DualField]:name=fragment
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:fields.1[_DualField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:fields.1[_DualField]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:fields.1[_DualField]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:name=_OpSpread
+[_Schema]:types[_Map_Type]:[_Identifier]_OpSpread[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=_OpVariable
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:name=type
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:object=_OpVariable
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:name=modifiers
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:object=_OpVariable
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:name=default
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:object=_OpVariable
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:type[_ObjBase]:name=Value
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:object=_OpVariable
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:allFields.4[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.0[_InputField]:name=name
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.1[_InputField]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.1[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.1[_InputField]:name=type
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.1[_InputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.2[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.2[_InputField]:name=modifiers
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.2[_InputField]:type[_ObjBase]:name=_Modifier
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.3[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.3[_InputField]:name=default
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.3[_InputField]:type[_ObjBase]:name=Value
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.4[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.4[_InputField]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:fields.4[_InputField]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:name=_OpVariable
+[_Schema]:types[_Map_Type]:[_Identifier]_OpVariable[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=_Operation
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:description='Parsed into above fields, plus Request category and operation'
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=variables
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=_Operation
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpVariable
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:object=_Operation
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:name=fragments
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:object=_Operation
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpFragment
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:name=result
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:object=_Operation
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:type[_ObjBase]:name=_OpResult
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:description='Parsed into above fields, plus Request category and operation'
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:fields.0[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:fields.0[_InputField]:name=variables
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=_OpVariable
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:fields.1[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:fields.1[_InputField]:name=directives
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:fields.1[_InputField]:type[_ObjBase]:name=_OpDirective
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:fields.2[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:fields.2[_InputField]:name=fragments
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:fields.2[_InputField]:type[_ObjBase]:name=_OpFragment
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:fields.3[_InputField]:name=result
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:fields.3[_InputField]:type[_ObjBase]:name=_OpResult
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:name=_Operation
+[_Schema]:types[_Map_Type]:[_Identifier]_Operation[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=_Request
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:description='Parsed into definition'
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=category
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=_Request
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:name=operation
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:object=_Request
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.1[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:name=definition
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:object=_Request
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.2[_ObjectFor(_InputField)]:type[_ObjBase]:name=_Operation
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:name=parameters
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:object=_Request
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:allFields.3[_ObjectFor(_InputField)]:type[_ObjBase]:name=Any
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:description='Parsed into definition'
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.0[_InputField]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.0[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.0[_InputField]:name=category
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.1[_InputField]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.1[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.1[_InputField]:name=operation
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.1[_InputField]:type[_ObjBase]:name=_Identifier
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.2[_InputField]:name=definition
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.2[_InputField]:type[_ObjBase]:name=_Operation
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.3[_InputField]:default=[Null]null
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.3[_InputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.3[_InputField]:name=parameters
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:fields.3[_InputField]:type[_ObjBase]:name=Any
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:name=_Request
+[_Schema]:types[_Map_Type]:[_Identifier]_Request[_TypeInput]:typeKind=[_TypeKind]Input

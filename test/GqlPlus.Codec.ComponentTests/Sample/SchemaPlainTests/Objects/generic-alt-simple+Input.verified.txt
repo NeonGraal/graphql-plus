@@ -1,38 +1,15 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcAltSmplInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: GnrcAltSmplInp
-        type: !_ObjBase
-          name: RefGnrcAltSmplInp
-          typeArgs:
-            - !_TypeArg
-              name: String
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: RefGnrcAltSmplInp
-          typeArgs:
-            - !_TypeArg
-              name: String
-    name: GnrcAltSmplInp
-    typeKind: !_TypeKind Input
-  !_Identifier RefGnrcAltSmplInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: RefGnrcAltSmplInp
-        type: !_ObjBase
-          typeParam: ref
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          typeParam: ref
-    name: RefGnrcAltSmplInp
-    typeKind: !_TypeKind Input
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: ref
+﻿[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=GnrcAltSmplInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=RefGnrcAltSmplInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=RefGnrcAltSmplInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplInp[_TypeInput]:name=GnrcAltSmplInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltSmplInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefGnrcAltSmplInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplInp[_TypeInput]:name=RefGnrcAltSmplInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltSmplInp[_TypeInput]:typeParams.0[_TypeParam]:name=ref

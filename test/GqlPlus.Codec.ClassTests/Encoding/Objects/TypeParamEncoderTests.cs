@@ -22,10 +22,9 @@ public class TypeParamEncoderTests
     EncodeReturnsMap(_typeKind, "_TypeRef", typeName);
 
     EncodeAndCheck(new(input, contents, typeRef),
-      ["!_TypeParam",
-        "constraint:", $"  value: !_TypeRef " + typeName.QuotedIdentifier(),
-        "description: " + contents.QuotedIdentifier(),
-        "name: " + input
-        ]);
+      TagAll("_TypeParam",
+        ":constraint:value=[_TypeRef]" + typeName.QuotedIdentifier(),
+        ":description=" + contents.QuotedIdentifier(),
+        ":name=" + input));
   }
 }

@@ -1,63 +1,27 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltGnrcFieldDualOutp: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: AltGnrcFieldDualOutp
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: alt
-        object: AltGnrcFieldDualOutp
-        type: !_ObjBase
-          name: Number
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_DualField
-        name: alt
-        type: !_ObjBase
-          name: Number
-    name: AltGnrcFieldDualOutp
-    typeKind: !_TypeKind Dual
-  !_Identifier GnrcFieldDualOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: field
-        object: GnrcFieldDualOutp
-        type: !_ObjBase
-          name: RefGnrcFieldDualOutp
-          typeArgs:
-            - !_TypeArg
-              name: AltGnrcFieldDualOutp
-    fields:
-      - !_OutputField
-        name: field
-        type: !_ObjBase
-          name: RefGnrcFieldDualOutp
-          typeArgs:
-            - !_TypeArg
-              name: AltGnrcFieldDualOutp
-    name: GnrcFieldDualOutp
-    typeKind: !_TypeKind Output
-  !_Identifier RefGnrcFieldDualOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: RefGnrcFieldDualOutp
-        type: !_ObjBase
-          typeParam: ref
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          typeParam: ref
-    name: RefGnrcFieldDualOutp
-    typeKind: !_TypeKind Output
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: _Dual
-          typeKind: !_TypeKind Internal
-        name: ref
+﻿[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcFieldDualOutp[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltGnrcFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcFieldDualOutp[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcFieldDualOutp[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcFieldDualOutp[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=AltGnrcFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcFieldDualOutp[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcFieldDualOutp[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcFieldDualOutp[_TypeDual]:fields.0[_DualField]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcFieldDualOutp[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcFieldDualOutp[_TypeDual]:name=AltGnrcFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcFieldDualOutp[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=GnrcFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=RefGnrcFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcFieldDualOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=AltGnrcFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcFieldDualOutp[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcFieldDualOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=RefGnrcFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcFieldDualOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=AltGnrcFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcFieldDualOutp[_TypeOutput]:name=GnrcFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcFieldDualOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcFieldDualOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefGnrcFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcFieldDualOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcFieldDualOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcFieldDualOutp[_TypeOutput]:name=RefGnrcFieldDualOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcFieldDualOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcFieldDualOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcFieldDualOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Internal
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcFieldDualOutp[_TypeOutput]:typeParams.0[_TypeParam]:name=ref

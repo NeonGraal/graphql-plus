@@ -1,921 +1,550 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnBoolDescr: !_DomainBoolean
-    allItems:
-      - !_DomainItem(_DomainTrueFalse)
-        description: 'DomBool Descr'
-        domain: DmnBoolDescr
-        exclude: false
-        value: true
-    domainKind: !_DomainKind Boolean
-    items:
-      - !_DomainTrueFalse
-        description: 'DomBool Descr'
-        exclude: false
-        value: true
-    name: DmnBoolDescr
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnBoolPrnt: !_DomainBoolean
-    allItems:
-      - !_DomainItem(_DomainTrueFalse)
-        domain: PrntDmnBoolPrnt
-        exclude: false
-        value: true
-      - !_DomainItem(_DomainTrueFalse)
-        domain: DmnBoolPrnt
-        exclude: false
-        value: false
-    domainKind: !_DomainKind Boolean
-    items:
-      - !_DomainTrueFalse
-        exclude: false
-        value: false
-    name: DmnBoolPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnBoolPrnt
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnBoolPrntDescr: !_DomainBoolean
-    allItems:
-      - !_DomainItem(_DomainTrueFalse)
-        domain: PrntDmnBoolPrntDescr
-        exclude: false
-        value: true
-      - !_DomainItem(_DomainTrueFalse)
-        domain: DmnBoolPrntDescr
-        exclude: false
-        value: false
-    domainKind: !_DomainKind Boolean
-    items:
-      - !_DomainTrueFalse
-        exclude: false
-        value: false
-    name: DmnBoolPrntDescr
-    parent: !_TypeRef(_SimpleKind)
-      description: 'Parent comment'
-      name: PrntDmnBoolPrntDescr
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnEnumAll: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: DmnEnumAll
-        exclude: false
-        value: !_EnumValue
-          label: '*'
-          name: EnumDmnEnumAll
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: '*'
-          name: EnumDmnEnumAll
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumAll
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnEnumAllDescr: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        description: 'DomAll Descr'
-        domain: DmnEnumAllDescr
-        exclude: false
-        value: !_EnumValue
-          label: '*'
-          name: EnumDmnEnumAllDescr
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        description: 'DomAll Descr'
-        exclude: false
-        value: !_EnumValue
-          label: '*'
-          name: EnumDmnEnumAllDescr
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumAllDescr
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnEnumAllPrnt: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: DmnEnumAllPrnt
-        exclude: false
-        value: !_EnumValue
-          label: '*'
-          name: EnumDmnEnumAllPrnt
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: '*'
-          name: EnumDmnEnumAllPrnt
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumAllPrnt
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnEnumDescr: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        description: 'DomEnum Descr'
-        domain: DmnEnumDescr
-        exclude: false
-        value: !_EnumValue
-          label: dmnEnumDescr
-          name: EnumDmnEnumDescr
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        description: 'DomEnum Descr'
-        exclude: false
-        value: !_EnumValue
-          label: dmnEnumDescr
-          name: EnumDmnEnumDescr
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumDescr
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnEnumLabel: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: DmnEnumLabel
-        exclude: false
-        value: !_EnumValue
-          label: dmnEnumLabel
-          name: EnumDmnEnumLabel
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: dmnEnumLabel
-          name: EnumDmnEnumLabel
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumLabel
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnEnumPrnt: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: PrntDmnEnumPrnt
-        exclude: false
-        value: !_EnumValue
-          label: prnt_dmnEnumPrnt
-          name: EnumDmnEnumPrnt
-          typeKind: !_SimpleKind Enum
-      - !_DomainItem(_DomainLabel)
-        domain: DmnEnumPrnt
-        exclude: false
-        value: !_EnumValue
-          label: enum_dmnEnumPrnt
-          name: EnumDmnEnumPrnt
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: enum_dmnEnumPrnt
-          name: EnumDmnEnumPrnt
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnEnumPrnt
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnEnumPrntDescr: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: PrntDmnEnumPrntDescr
-        exclude: false
-        value: !_EnumValue
-          label: prnt_dmnEnumPrntDescr
-          name: EnumDmnEnumPrntDescr
-          typeKind: !_SimpleKind Enum
-      - !_DomainItem(_DomainLabel)
-        domain: DmnEnumPrntDescr
-        exclude: false
-        value: !_EnumValue
-          label: enum_dmnEnumPrntDescr
-          name: EnumDmnEnumPrntDescr
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: enum_dmnEnumPrntDescr
-          name: EnumDmnEnumPrntDescr
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumPrntDescr
-    parent: !_TypeRef(_SimpleKind)
-      description: 'Parent comment'
-      name: PrntDmnEnumPrntDescr
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnEnumValue: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: DmnEnumValue
-        exclude: false
-        value: !_EnumValue
-          label: dmnEnumValue
-          name: EnumDmnEnumValue
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: dmnEnumValue
-          name: EnumDmnEnumValue
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumValue
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnEnumValuePrnt: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: DmnEnumValuePrnt
-        exclude: false
-        value: !_EnumValue
-          label: prnt_dmnEnumValuePrnt
-          name: EnumDmnEnumValuePrnt
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: prnt_dmnEnumValuePrnt
-          name: EnumDmnEnumValuePrnt
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumValuePrnt
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnNmbrDescr: !_DomainNumber
-    allItems:
-      - !_DomainItem(_DomainRange)
-        description: 'DomNumber Descr'
-        domain: DmnNmbrDescr
-        exclude: false
-        to: 2
-    domainKind: !_DomainKind Number
-    items:
-      - !_DomainRange
-        description: 'DomNumber Descr'
-        exclude: false
-        to: 2
-    name: DmnNmbrDescr
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnNmbrPrnt: !_DomainNumber
-    allItems:
-      - !_DomainItem(_DomainRange)
-        domain: PrntDmnNmbrPrnt
-        exclude: false
-        to: 2
-      - !_DomainItem(_DomainRange)
-        domain: DmnNmbrPrnt
-        exclude: false
-        from: 2
-    domainKind: !_DomainKind Number
-    items:
-      - !_DomainRange
-        exclude: false
-        from: 2
-    name: DmnNmbrPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnNmbrPrnt
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnNmbrPrntDescr: !_DomainNumber
-    allItems:
-      - !_DomainItem(_DomainRange)
-        domain: PrntDmnNmbrPrntDescr
-        exclude: false
-        to: 2
-      - !_DomainItem(_DomainRange)
-        domain: DmnNmbrPrntDescr
-        exclude: false
-        from: 2
-    domainKind: !_DomainKind Number
-    items:
-      - !_DomainRange
-        exclude: false
-        from: 2
-    name: DmnNmbrPrntDescr
-    parent: !_TypeRef(_SimpleKind)
-      description: 'Parent comment'
-      name: PrntDmnNmbrPrntDescr
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnStrDescr: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        description: 'DomString Descr'
-        domain: DmnStrDescr
-        exclude: false
-        pattern: 'a+'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        description: 'DomString Descr'
-        exclude: false
-        pattern: 'a+'
-    name: DmnStrDescr
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnStrPrnt: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: PrntDmnStrPrnt
-        exclude: false
-        pattern: 'b+'
-      - !_DomainItem(_DomainRegex)
-        domain: DmnStrPrnt
-        exclude: false
-        pattern: 'a+'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: 'a+'
-    name: DmnStrPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnStrPrnt
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
-  !_Identifier DmnStrPrntDescr: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: PrntDmnStrPrntDescr
-        exclude: false
-        pattern: 'b+'
-      - !_DomainItem(_DomainRegex)
-        domain: DmnStrPrntDescr
-        exclude: false
-        pattern: 'a+'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: 'a+'
-    name: DmnStrPrntDescr
-    parent: !_TypeRef(_SimpleKind)
-      description: 'Parent comment'
-      name: PrntDmnStrPrntDescr
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
-  !_Identifier DupDmnEnumUnqPrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: DupDmnEnumUnqPrnt
-        name: dmnEnumUnqPrnt
-      - !_EnumLabel
-        enum: DupDmnEnumUnqPrnt
-        name: dup_dmnEnumUnqPrnt
-    items:
-      - !_Aliased
-        name: dmnEnumUnqPrnt
-      - !_Aliased
-        name: dup_dmnEnumUnqPrnt
-    name: DupDmnEnumUnqPrnt
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDescr: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        description: 'Enum Descr'
-        enum: EnumDescr
-        name: enumDescr
-    items:
-      - !_Aliased
-        description: 'Enum Descr'
-        name: enumDescr
-    name: EnumDescr
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumAll: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDmnEnumAll
-        name: dmnEnumAll
-      - !_EnumLabel
-        enum: EnumDmnEnumAll
-        name: enum_dmnEnumAll
-    items:
-      - !_Aliased
-        name: dmnEnumAll
-      - !_Aliased
-        name: enum_dmnEnumAll
-    name: EnumDmnEnumAll
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumAllDescr: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDmnEnumAllDescr
-        name: dmnEnumAllDescr
-      - !_EnumLabel
-        enum: EnumDmnEnumAllDescr
-        name: enum_dmnEnumAllDescr
-    items:
-      - !_Aliased
-        name: dmnEnumAllDescr
-      - !_Aliased
-        name: enum_dmnEnumAllDescr
-    name: EnumDmnEnumAllDescr
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumAllPrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntDmnEnumAllPrnt
-        name: prnt_dmnEnumAllPrnt
-      - !_EnumLabel
-        enum: EnumDmnEnumAllPrnt
-        name: dmnEnumAllPrnt
-    items:
-      - !_Aliased
-        name: dmnEnumAllPrnt
-    name: EnumDmnEnumAllPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnEnumAllPrnt
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumDescr: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDmnEnumDescr
-        name: dmnEnumDescr
-    items:
-      - !_Aliased
-        name: dmnEnumDescr
-    name: EnumDmnEnumDescr
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumLabel: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDmnEnumLabel
-        name: dmnEnumLabel
-    items:
-      - !_Aliased
-        name: dmnEnumLabel
-    name: EnumDmnEnumLabel
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumPrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDmnEnumPrnt
-        name: enum_dmnEnumPrnt
-      - !_EnumLabel
-        enum: EnumDmnEnumPrnt
-        name: prnt_dmnEnumPrnt
-    items:
-      - !_Aliased
-        name: enum_dmnEnumPrnt
-      - !_Aliased
-        name: prnt_dmnEnumPrnt
-    name: EnumDmnEnumPrnt
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumPrntDescr: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDmnEnumPrntDescr
-        name: enum_dmnEnumPrntDescr
-      - !_EnumLabel
-        enum: EnumDmnEnumPrntDescr
-        name: prnt_dmnEnumPrntDescr
-    items:
-      - !_Aliased
-        name: enum_dmnEnumPrntDescr
-      - !_Aliased
-        name: prnt_dmnEnumPrntDescr
-    name: EnumDmnEnumPrntDescr
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumUnq: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDmnEnumUnq
-        name: enum_dmnEnumUnq
-      - !_EnumLabel
-        enum: EnumDmnEnumUnq
-        name: dmnEnumUnq
-    items:
-      - !_Aliased
-        name: enum_dmnEnumUnq
-      - !_Aliased
-        name: dmnEnumUnq
-    name: EnumDmnEnumUnq
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumUnqPrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntDmnEnumUnqPrnt
-        name: dmnEnumUnqPrnt
-      - !_EnumLabel
-        enum: PrntDmnEnumUnqPrnt
-        name: prnt_dmnEnumUnqPrnt
-      - !_EnumLabel
-        enum: EnumDmnEnumUnqPrnt
-        name: enum_dmnEnumUnqPrnt
-    items:
-      - !_Aliased
-        name: enum_dmnEnumUnqPrnt
-    name: EnumDmnEnumUnqPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnEnumUnqPrnt
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumValue: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDmnEnumValue
-        name: dmnEnumValue
-    items:
-      - !_Aliased
-        name: dmnEnumValue
-    name: EnumDmnEnumValue
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumValuePrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntDmnEnumValuePrnt
-        name: prnt_dmnEnumValuePrnt
-      - !_EnumLabel
-        enum: EnumDmnEnumValuePrnt
-        name: dmnEnumValuePrnt
-    items:
-      - !_Aliased
-        name: dmnEnumValuePrnt
-    name: EnumDmnEnumValuePrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnEnumValuePrnt
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDomDup: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDomDup
-        name: dmnEnumUnq
-      - !_EnumLabel
-        enum: EnumDomDup
-        name: dup_dmnEnumUnq
-    items:
-      - !_Aliased
-        name: dmnEnumUnq
-      - !_Aliased
-        name: dup_dmnEnumUnq
-    name: EnumDomDup
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumPrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntEnumPrnt
-        name: prnt_enumPrnt
-      - !_EnumLabel
-        enum: EnumPrnt
-        name: enumPrnt
-    items:
-      - !_Aliased
-        name: enumPrnt
-    name: EnumPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntEnumPrnt
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumPrntAlias: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntEnumPrntAlias
-        name: prnt_enumPrntAlias
-      - !_EnumLabel
-        enum: EnumPrntAlias
-        name: val_enumPrntAlias
-      - !_EnumLabel
-        aliases: [enumPrntAlias]
-        enum: EnumPrntAlias
-        name: prnt_enumPrntAlias
-    items:
-      - !_Aliased
-        name: val_enumPrntAlias
-      - !_Aliased
-        aliases: [enumPrntAlias]
-        name: prnt_enumPrntAlias
-    name: EnumPrntAlias
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntEnumPrntAlias
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumPrntDescr: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntEnumPrntDescr
-        name: prnt_enumPrntDescr
-      - !_EnumLabel
-        enum: EnumPrntDescr
-        name: enumPrntDescr
-    items:
-      - !_Aliased
-        name: enumPrntDescr
-    name: EnumPrntDescr
-    parent: !_TypeRef(_SimpleKind)
-      description: 'Parent comment'
-      name: PrntEnumPrntDescr
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumPrntDup: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        aliases: [enumPrntDup]
-        enum: PrntEnumPrntDup
-        name: prnt_enumPrntDup
-      - !_EnumLabel
-        enum: EnumPrntDup
-        name: enumPrntDup
-    items:
-      - !_Aliased
-        name: enumPrntDup
-    name: EnumPrntDup
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntEnumPrntDup
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier PrntDmnBoolPrnt: !_DomainBoolean
-    allItems:
-      - !_DomainItem(_DomainTrueFalse)
-        domain: PrntDmnBoolPrnt
-        exclude: false
-        value: true
-    domainKind: !_DomainKind Boolean
-    items:
-      - !_DomainTrueFalse
-        exclude: false
-        value: true
-    name: PrntDmnBoolPrnt
-    typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnBoolPrntDescr: !_DomainBoolean
-    allItems:
-      - !_DomainItem(_DomainTrueFalse)
-        domain: PrntDmnBoolPrntDescr
-        exclude: false
-        value: true
-    domainKind: !_DomainKind Boolean
-    items:
-      - !_DomainTrueFalse
-        exclude: false
-        value: true
-    name: PrntDmnBoolPrntDescr
-    typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnEnumAllPrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntDmnEnumAllPrnt
-        name: prnt_dmnEnumAllPrnt
-    items:
-      - !_Aliased
-        name: prnt_dmnEnumAllPrnt
-    name: PrntDmnEnumAllPrnt
-    typeKind: !_TypeKind Enum
-  !_Identifier PrntDmnEnumPrnt: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: PrntDmnEnumPrnt
-        exclude: false
-        value: !_EnumValue
-          label: prnt_dmnEnumPrnt
-          name: EnumDmnEnumPrnt
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: prnt_dmnEnumPrnt
-          name: EnumDmnEnumPrnt
-          typeKind: !_SimpleKind Enum
-    name: PrntDmnEnumPrnt
-    typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnEnumPrntDescr: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: PrntDmnEnumPrntDescr
-        exclude: false
-        value: !_EnumValue
-          label: prnt_dmnEnumPrntDescr
-          name: EnumDmnEnumPrntDescr
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: prnt_dmnEnumPrntDescr
-          name: EnumDmnEnumPrntDescr
-          typeKind: !_SimpleKind Enum
-    name: PrntDmnEnumPrntDescr
-    typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnEnumUnqPrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntDmnEnumUnqPrnt
-        name: dmnEnumUnqPrnt
-      - !_EnumLabel
-        enum: PrntDmnEnumUnqPrnt
-        name: prnt_dmnEnumUnqPrnt
-    items:
-      - !_Aliased
-        name: dmnEnumUnqPrnt
-      - !_Aliased
-        name: prnt_dmnEnumUnqPrnt
-    name: PrntDmnEnumUnqPrnt
-    typeKind: !_TypeKind Enum
-  !_Identifier PrntDmnEnumValuePrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntDmnEnumValuePrnt
-        name: prnt_dmnEnumValuePrnt
-    items:
-      - !_Aliased
-        name: prnt_dmnEnumValuePrnt
-    name: PrntDmnEnumValuePrnt
-    typeKind: !_TypeKind Enum
-  !_Identifier PrntDmnNmbrPrnt: !_DomainNumber
-    allItems:
-      - !_DomainItem(_DomainRange)
-        domain: PrntDmnNmbrPrnt
-        exclude: false
-        to: 2
-    domainKind: !_DomainKind Number
-    items:
-      - !_DomainRange
-        exclude: false
-        to: 2
-    name: PrntDmnNmbrPrnt
-    typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnNmbrPrntDescr: !_DomainNumber
-    allItems:
-      - !_DomainItem(_DomainRange)
-        domain: PrntDmnNmbrPrntDescr
-        exclude: false
-        to: 2
-    domainKind: !_DomainKind Number
-    items:
-      - !_DomainRange
-        exclude: false
-        to: 2
-    name: PrntDmnNmbrPrntDescr
-    typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnStrPrnt: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: PrntDmnStrPrnt
-        exclude: false
-        pattern: 'b+'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: 'b+'
-    name: PrntDmnStrPrnt
-    typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnStrPrntDescr: !_DomainString
-    allItems:
-      - !_DomainItem(_DomainRegex)
-        domain: PrntDmnStrPrntDescr
-        exclude: false
-        pattern: 'b+'
-    domainKind: !_DomainKind String
-    items:
-      - !_DomainRegex
-        exclude: false
-        pattern: 'b+'
-    name: PrntDmnStrPrntDescr
-    typeKind: !_TypeKind Domain
-  !_Identifier PrntEnumPrnt: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntEnumPrnt
-        name: prnt_enumPrnt
-    items:
-      - !_Aliased
-        name: prnt_enumPrnt
-    name: PrntEnumPrnt
-    typeKind: !_TypeKind Enum
-  !_Identifier PrntEnumPrntAlias: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntEnumPrntAlias
-        name: prnt_enumPrntAlias
-    items:
-      - !_Aliased
-        name: prnt_enumPrntAlias
-    name: PrntEnumPrntAlias
-    typeKind: !_TypeKind Enum
-  !_Identifier PrntEnumPrntDescr: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: PrntEnumPrntDescr
-        name: prnt_enumPrntDescr
-    items:
-      - !_Aliased
-        name: prnt_enumPrntDescr
-    name: PrntEnumPrntDescr
-    typeKind: !_TypeKind Enum
-  !_Identifier PrntEnumPrntDup: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        aliases: [enumPrntDup]
-        enum: PrntEnumPrntDup
-        name: prnt_enumPrntDup
-    items:
-      - !_Aliased
-        aliases: [enumPrntDup]
-        name: prnt_enumPrntDup
-    name: PrntEnumPrntDup
-    typeKind: !_TypeKind Enum
-  !_Identifier PrntUnionPrnt: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: Number
-        union: PrntUnionPrnt
-    items:
-      - !_Aliased
-        name: Number
-    name: PrntUnionPrnt
-    typeKind: !_TypeKind Union
-  !_Identifier PrntUnionPrntDescr: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: Number
-        union: PrntUnionPrntDescr
-    items:
-      - !_Aliased
-        name: Number
-    name: PrntUnionPrntDescr
-    typeKind: !_TypeKind Union
-  !_Identifier PrntUnionPrntDup: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: Number
-        union: PrntUnionPrntDup
-    items:
-      - !_Aliased
-        name: Number
-    name: PrntUnionPrntDup
-    typeKind: !_TypeKind Union
-  !_Identifier UnionDescr: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        description: 'Union Descr'
-        name: Number
-        union: UnionDescr
-    items:
-      - !_Aliased
-        description: 'Union Descr'
-        name: Number
-    name: UnionDescr
-    typeKind: !_TypeKind Union
-  !_Identifier UnionPrnt: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: Number
-        union: PrntUnionPrnt
-      - !_UnionMember
-        name: String
-        union: UnionPrnt
-    items:
-      - !_Aliased
-        name: String
-    name: UnionPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntUnionPrnt
-      typeKind: !_SimpleKind Union
-    typeKind: !_TypeKind Union
-  !_Identifier UnionPrntDescr: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: Number
-        union: PrntUnionPrntDescr
-      - !_UnionMember
-        name: Number
-        union: UnionPrntDescr
-    items:
-      - !_Aliased
-        name: Number
-    name: UnionPrntDescr
-    parent: !_TypeRef(_SimpleKind)
-      description: 'Parent comment'
-      name: PrntUnionPrntDescr
-      typeKind: !_SimpleKind Union
-    typeKind: !_TypeKind Union
-  !_Identifier UnionPrntDup: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: Number
-        union: PrntUnionPrntDup
-      - !_UnionMember
-        name: Number
-        union: UnionPrntDup
-    items:
-      - !_Aliased
-        name: Number
-    name: UnionPrntDup
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntUnionPrntDup
-      typeKind: !_SimpleKind Union
-    typeKind: !_TypeKind Union
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolDescr[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:description='DomBool Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolDescr[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:domain=DmnBoolDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolDescr[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolDescr[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolDescr[_DomainBoolean]:domainKind=[_DomainKind]Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolDescr[_DomainBoolean]:items.0[_DomainTrueFalse]:description='DomBool Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolDescr[_DomainBoolean]:items.0[_DomainTrueFalse]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolDescr[_DomainBoolean]:items.0[_DomainTrueFalse]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolDescr[_DomainBoolean]:name=DmnBoolDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolDescr[_DomainBoolean]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:domain=PrntDmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:domain=DmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:value=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:domainKind=[_DomainKind]Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:items.0[_DomainTrueFalse]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:items.0[_DomainTrueFalse]:value=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:name=DmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrnt[_DomainBoolean]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:domain=PrntDmnBoolPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:domain=DmnBoolPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:value=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:domainKind=[_DomainKind]Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:items.0[_DomainTrueFalse]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:items.0[_DomainTrueFalse]:value=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:name=DmnBoolPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:parent[_TypeRef(_SimpleKind)]:description='Parent comment'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnBoolPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBoolPrntDescr[_DomainBoolean]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=DmnEnumAll
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label='*'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumAll
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label='*'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumAll
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:name=DmnEnumAll
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAll[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:description='DomAll Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=DmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label='*'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:items.0[_DomainLabel]:description='DomAll Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label='*'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:name=DmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllDescr[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=DmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label='*'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label='*'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:name=DmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumAllPrnt[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:description='DomEnum Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=DmnEnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=dmnEnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:items.0[_DomainLabel]:description='DomEnum Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=dmnEnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:name=DmnEnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumDescr[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=DmnEnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=dmnEnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=dmnEnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:name=DmnEnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumLabel[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=PrntDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=prnt_dmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:domain=DmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=enum_dmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=enum_dmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:name=DmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrnt[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=PrntDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=prnt_dmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:domain=DmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=enum_dmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:allItems.1[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=enum_dmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:name=DmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:parent[_TypeRef(_SimpleKind)]:description='Parent comment'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumPrntDescr[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=DmnEnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=dmnEnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=dmnEnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:name=DmnEnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValue[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=DmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=prnt_dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=prnt_dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:name=DmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumValuePrnt[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDescr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:description='DomNumber Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDescr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=DmnNmbrDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDescr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDescr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDescr[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDescr[_DomainNumber]:items.0[_DomainRange]:description='DomNumber Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDescr[_DomainNumber]:items.0[_DomainRange]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDescr[_DomainNumber]:items.0[_DomainRange]:to=2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDescr[_DomainNumber]:name=DmnNmbrDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDescr[_DomainNumber]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=PrntDmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:domain=DmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:from=2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:from=2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:name=DmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrnt[_DomainNumber]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=PrntDmnNmbrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:domain=DmnNmbrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:from=2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:items.0[_DomainRange]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:items.0[_DomainRange]:from=2
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:name=DmnNmbrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:parent[_TypeRef(_SimpleKind)]:description='Parent comment'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnNmbrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPrntDescr[_DomainNumber]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrDescr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:description='DomString Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrDescr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=DmnStrDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrDescr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrDescr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='a+'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrDescr[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrDescr[_DomainString]:items.0[_DomainRegex]:description='DomString Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrDescr[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrDescr[_DomainString]:items.0[_DomainRegex]:pattern='a+'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrDescr[_DomainString]:name=DmnStrDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrDescr[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=PrntDmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='b+'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.1[_DomainItem(_DomainRegex)]:domain=DmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.1[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:allItems.1[_DomainItem(_DomainRegex)]:pattern='a+'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:items.0[_DomainRegex]:pattern='a+'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:name=DmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrnt[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=PrntDmnStrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='b+'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:allItems.1[_DomainItem(_DomainRegex)]:domain=DmnStrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:allItems.1[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:allItems.1[_DomainItem(_DomainRegex)]:pattern='a+'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:items.0[_DomainRegex]:pattern='a+'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:name=DmnStrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:parent[_TypeRef(_SimpleKind)]:description='Parent comment'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnStrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrPrntDescr[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]DupDmnEnumUnqPrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=DupDmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DupDmnEnumUnqPrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DupDmnEnumUnqPrnt[_TypeEnum]:allItems.1[_EnumLabel]:enum=DupDmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DupDmnEnumUnqPrnt[_TypeEnum]:allItems.1[_EnumLabel]:name=dup_dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DupDmnEnumUnqPrnt[_TypeEnum]:items.0[_Aliased]:name=dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DupDmnEnumUnqPrnt[_TypeEnum]:items.1[_Aliased]:name=dup_dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DupDmnEnumUnqPrnt[_TypeEnum]:name=DupDmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]DupDmnEnumUnqPrnt[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:allItems.0[_EnumLabel]:description='Enum Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:allItems.0[_EnumLabel]:name=enumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:items.0[_Aliased]:description='Enum Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:items.0[_Aliased]:name=enumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:name=EnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAll[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDmnEnumAll
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAll[_TypeEnum]:allItems.0[_EnumLabel]:name=dmnEnumAll
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAll[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDmnEnumAll
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAll[_TypeEnum]:allItems.1[_EnumLabel]:name=enum_dmnEnumAll
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAll[_TypeEnum]:items.0[_Aliased]:name=dmnEnumAll
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAll[_TypeEnum]:items.1[_Aliased]:name=enum_dmnEnumAll
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAll[_TypeEnum]:name=EnumDmnEnumAll
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAll[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:allItems.0[_EnumLabel]:name=dmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:allItems.1[_EnumLabel]:name=enum_dmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:items.0[_Aliased]:name=dmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:items.1[_Aliased]:name=enum_dmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:name=EnumDmnEnumAllDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllDescr[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllPrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntDmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllPrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_dmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllPrnt[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllPrnt[_TypeEnum]:allItems.1[_EnumLabel]:name=dmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllPrnt[_TypeEnum]:items.0[_Aliased]:name=dmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllPrnt[_TypeEnum]:name=EnumDmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllPrnt[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllPrnt[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumAllPrnt[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumDescr[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDmnEnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumDescr[_TypeEnum]:allItems.0[_EnumLabel]:name=dmnEnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumDescr[_TypeEnum]:items.0[_Aliased]:name=dmnEnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumDescr[_TypeEnum]:name=EnumDmnEnumDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumDescr[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumLabel[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDmnEnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumLabel[_TypeEnum]:allItems.0[_EnumLabel]:name=dmnEnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumLabel[_TypeEnum]:items.0[_Aliased]:name=dmnEnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumLabel[_TypeEnum]:name=EnumDmnEnumLabel
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumLabel[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=enum_dmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrnt[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrnt[_TypeEnum]:allItems.1[_EnumLabel]:name=prnt_dmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrnt[_TypeEnum]:items.0[_Aliased]:name=enum_dmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrnt[_TypeEnum]:items.1[_Aliased]:name=prnt_dmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrnt[_TypeEnum]:name=EnumDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrnt[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrntDescr[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrntDescr[_TypeEnum]:allItems.0[_EnumLabel]:name=enum_dmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrntDescr[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrntDescr[_TypeEnum]:allItems.1[_EnumLabel]:name=prnt_dmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrntDescr[_TypeEnum]:items.0[_Aliased]:name=enum_dmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrntDescr[_TypeEnum]:items.1[_Aliased]:name=prnt_dmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrntDescr[_TypeEnum]:name=EnumDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumPrntDescr[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:allItems.0[_EnumLabel]:name=enum_dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:allItems.1[_EnumLabel]:name=dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:items.0[_Aliased]:name=enum_dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:items.1[_Aliased]:name=dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:name=EnumDmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnq[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnqPrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntDmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnqPrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnqPrnt[_TypeEnum]:allItems.1[_EnumLabel]:enum=PrntDmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnqPrnt[_TypeEnum]:allItems.1[_EnumLabel]:name=prnt_dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnqPrnt[_TypeEnum]:allItems.2[_EnumLabel]:enum=EnumDmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnqPrnt[_TypeEnum]:allItems.2[_EnumLabel]:name=enum_dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnqPrnt[_TypeEnum]:items.0[_Aliased]:name=enum_dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnqPrnt[_TypeEnum]:name=EnumDmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnqPrnt[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnqPrnt[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumUnqPrnt[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValue[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDmnEnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValue[_TypeEnum]:allItems.0[_EnumLabel]:name=dmnEnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValue[_TypeEnum]:items.0[_Aliased]:name=dmnEnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValue[_TypeEnum]:name=EnumDmnEnumValue
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValue[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:allItems.1[_EnumLabel]:name=dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:items.0[_Aliased]:name=dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:name=EnumDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDmnEnumValuePrnt[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDomDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:allItems.0[_EnumLabel]:name=dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDomDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:allItems.1[_EnumLabel]:name=dup_dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:items.0[_Aliased]:name=dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:items.1[_Aliased]:name=dup_dmnEnumUnq
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:name=EnumDomDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDomDup[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_enumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrnt[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrnt[_TypeEnum]:allItems.1[_EnumLabel]:name=enumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrnt[_TypeEnum]:items.0[_Aliased]:name=enumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrnt[_TypeEnum]:name=EnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrnt[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=PrntEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrnt[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrnt[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntEnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.1[_EnumLabel]:name=val_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.2[_EnumLabel]:aliases.0=enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.2[_EnumLabel]:enum=EnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:allItems.2[_EnumLabel]:name=prnt_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:items.0[_Aliased]:name=val_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:items.1[_Aliased]:aliases.0=enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:items.1[_Aliased]:name=prnt_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:name=EnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=PrntEnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntAlias[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDescr[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDescr[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_enumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDescr[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDescr[_TypeEnum]:allItems.1[_EnumLabel]:name=enumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDescr[_TypeEnum]:items.0[_Aliased]:name=enumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDescr[_TypeEnum]:name=EnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDescr[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:description='Parent comment'
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDescr[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=PrntEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDescr[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDescr[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDup[_TypeEnum]:allItems.0[_EnumLabel]:aliases.0=enumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDup[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntEnumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDup[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_enumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDup[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDup[_TypeEnum]:allItems.1[_EnumLabel]:name=enumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDup[_TypeEnum]:items.0[_Aliased]:name=enumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDup[_TypeEnum]:name=EnumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDup[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=PrntEnumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDup[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumPrntDup[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:domain=PrntDmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:domainKind=[_DomainKind]Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:items.0[_DomainTrueFalse]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:items.0[_DomainTrueFalse]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:name=PrntDmnBoolPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrnt[_DomainBoolean]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrntDescr[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:domain=PrntDmnBoolPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrntDescr[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrntDescr[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrntDescr[_DomainBoolean]:domainKind=[_DomainKind]Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrntDescr[_DomainBoolean]:items.0[_DomainTrueFalse]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrntDescr[_DomainBoolean]:items.0[_DomainTrueFalse]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrntDescr[_DomainBoolean]:name=PrntDmnBoolPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnBoolPrntDescr[_DomainBoolean]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumAllPrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntDmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumAllPrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_dmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumAllPrnt[_TypeEnum]:items.0[_Aliased]:name=prnt_dmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumAllPrnt[_TypeEnum]:name=PrntDmnEnumAllPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumAllPrnt[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=PrntDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=prnt_dmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=prnt_dmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:name=PrntDmnEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrnt[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=PrntDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=prnt_dmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=prnt_dmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:name=PrntDmnEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumPrntDescr[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumUnqPrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntDmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumUnqPrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumUnqPrnt[_TypeEnum]:allItems.1[_EnumLabel]:enum=PrntDmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumUnqPrnt[_TypeEnum]:allItems.1[_EnumLabel]:name=prnt_dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumUnqPrnt[_TypeEnum]:items.0[_Aliased]:name=dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumUnqPrnt[_TypeEnum]:items.1[_Aliased]:name=prnt_dmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumUnqPrnt[_TypeEnum]:name=PrntDmnEnumUnqPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumUnqPrnt[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumValuePrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumValuePrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumValuePrnt[_TypeEnum]:items.0[_Aliased]:name=prnt_dmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumValuePrnt[_TypeEnum]:name=PrntDmnEnumValuePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnEnumValuePrnt[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=PrntDmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=2
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:to=2
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:name=PrntDmnNmbrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrnt[_DomainNumber]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrntDescr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=PrntDmnNmbrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrntDescr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrntDescr[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=2
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrntDescr[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrntDescr[_DomainNumber]:items.0[_DomainRange]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrntDescr[_DomainNumber]:items.0[_DomainRange]:to=2
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrntDescr[_DomainNumber]:name=PrntDmnNmbrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnNmbrPrntDescr[_DomainNumber]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=PrntDmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='b+'
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:items.0[_DomainRegex]:pattern='b+'
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:name=PrntDmnStrPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrnt[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrntDescr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=PrntDmnStrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrntDescr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrntDescr[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='b+'
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrntDescr[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrntDescr[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrntDescr[_DomainString]:items.0[_DomainRegex]:pattern='b+'
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrntDescr[_DomainString]:name=PrntDmnStrPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntDmnStrPrntDescr[_DomainString]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrnt[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrnt[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_enumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrnt[_TypeEnum]:items.0[_Aliased]:name=prnt_enumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrnt[_TypeEnum]:name=PrntEnumPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrnt[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntAlias[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntEnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntAlias[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntAlias[_TypeEnum]:items.0[_Aliased]:name=prnt_enumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntAlias[_TypeEnum]:name=PrntEnumPrntAlias
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntAlias[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDescr[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDescr[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_enumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDescr[_TypeEnum]:items.0[_Aliased]:name=prnt_enumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDescr[_TypeEnum]:name=PrntEnumPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDescr[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDup[_TypeEnum]:allItems.0[_EnumLabel]:aliases.0=enumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDup[_TypeEnum]:allItems.0[_EnumLabel]:enum=PrntEnumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDup[_TypeEnum]:allItems.0[_EnumLabel]:name=prnt_enumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDup[_TypeEnum]:items.0[_Aliased]:aliases.0=enumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDup[_TypeEnum]:items.0[_Aliased]:name=prnt_enumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDup[_TypeEnum]:name=PrntEnumPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]PrntEnumPrntDup[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrnt[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrnt[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrnt[_TypeUnion]:items.0[_Aliased]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrnt[_TypeUnion]:name=PrntUnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrnt[_TypeUnion]:typeKind=[_TypeKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDescr[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDescr[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDescr[_TypeUnion]:items.0[_Aliased]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDescr[_TypeUnion]:name=PrntUnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDescr[_TypeUnion]:typeKind=[_TypeKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDup[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDup[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDup[_TypeUnion]:items.0[_Aliased]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDup[_TypeUnion]:name=PrntUnionPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDup[_TypeUnion]:typeKind=[_TypeKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:allItems.0[_UnionMember]:description='Union Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:allItems.0[_UnionMember]:union=UnionDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:items.0[_Aliased]:description='Union Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:items.0[_Aliased]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:name=UnionDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionDescr[_TypeUnion]:typeKind=[_TypeKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:allItems.1[_UnionMember]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:allItems.1[_UnionMember]:union=UnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:items.0[_Aliased]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:name=UnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:name=PrntUnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:typeKind=[_TypeKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:allItems.1[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:allItems.1[_UnionMember]:union=UnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:items.0[_Aliased]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:name=UnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:description='Parent comment'
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:name=PrntUnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:typeKind=[_TypeKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDup[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDup[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDup[_TypeUnion]:allItems.1[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDup[_TypeUnion]:allItems.1[_UnionMember]:union=UnionPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDup[_TypeUnion]:items.0[_Aliased]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDup[_TypeUnion]:name=UnionPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDup[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:name=PrntUnionPrntDup
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDup[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDup[_TypeUnion]:typeKind=[_TypeKind]Union

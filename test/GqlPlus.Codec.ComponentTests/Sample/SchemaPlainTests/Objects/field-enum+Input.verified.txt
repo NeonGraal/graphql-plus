@@ -1,26 +1,12 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumFieldEnumInp: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumFieldEnumInp
-        name: fieldEnumInp
-    items:
-      - !_Aliased
-        name: fieldEnumInp
-    name: EnumFieldEnumInp
-    typeKind: !_TypeKind Enum
-  !_Identifier FieldEnumInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: field
-        object: FieldEnumInp
-        type: !_ObjBase
-          name: EnumFieldEnumInp
-    fields:
-      - !_InputField
-        name: field
-        type: !_ObjBase
-          name: EnumFieldEnumInp
-    name: FieldEnumInp
-    typeKind: !_TypeKind Input
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldEnumInp[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumFieldEnumInp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldEnumInp[_TypeEnum]:allItems.0[_EnumLabel]:name=fieldEnumInp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldEnumInp[_TypeEnum]:items.0[_Aliased]:name=fieldEnumInp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldEnumInp[_TypeEnum]:name=EnumFieldEnumInp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumFieldEnumInp[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldEnumInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldEnumInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=FieldEnumInp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldEnumInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=EnumFieldEnumInp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldEnumInp[_TypeInput]:fields.0[_InputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldEnumInp[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=EnumFieldEnumInp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldEnumInp[_TypeInput]:name=FieldEnumInp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldEnumInp[_TypeInput]:typeKind=[_TypeKind]Input

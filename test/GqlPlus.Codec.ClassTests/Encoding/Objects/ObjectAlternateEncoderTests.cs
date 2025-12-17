@@ -20,9 +20,8 @@ public class ObjectAlternateEncoderTests
   {
     ObjBaseModel objBase = new(dual, "");
     _objBaseEncoder.Encode(objBase).Returns(new Structured(dual));
-    EncodeAndCheck(new(objBase), [
-        "!_Alternate",
-        "type: " + dual
-      ]);
+    EncodeAndCheck(new(objBase),
+        TagAll("_Alternate",
+        ":type=" + dual));
   }
 }

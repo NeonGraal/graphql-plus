@@ -1,61 +1,25 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltGnrcAltParamInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: AltGnrcAltParamInp
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: alt
-        object: AltGnrcAltParamInp
-        type: !_ObjBase
-          name: Number
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_InputField
-        name: alt
-        type: !_ObjBase
-          name: Number
-    name: AltGnrcAltParamInp
-    typeKind: !_TypeKind Input
-  !_Identifier GnrcAltParamInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: GnrcAltParamInp
-        type: !_ObjBase
-          name: RefGnrcAltParamInp
-          typeArgs:
-            - !_TypeArg
-              name: AltGnrcAltParamInp
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: RefGnrcAltParamInp
-          typeArgs:
-            - !_TypeArg
-              name: AltGnrcAltParamInp
-    name: GnrcAltParamInp
-    typeKind: !_TypeKind Input
-  !_Identifier RefGnrcAltParamInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: RefGnrcAltParamInp
-        type: !_ObjBase
-          typeParam: ref
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          typeParam: ref
-    name: RefGnrcAltParamInp
-    typeKind: !_TypeKind Input
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: _Input
-          typeKind: !_TypeKind Internal
-        name: ref
+﻿[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcAltParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltGnrcAltParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcAltParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcAltParamInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcAltParamInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=AltGnrcAltParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcAltParamInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcAltParamInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcAltParamInp[_TypeInput]:fields.0[_InputField]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcAltParamInp[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcAltParamInp[_TypeInput]:name=AltGnrcAltParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcAltParamInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=GnrcAltParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=RefGnrcAltParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=AltGnrcAltParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltParamInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=RefGnrcAltParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltParamInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=AltGnrcAltParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltParamInp[_TypeInput]:name=GnrcAltParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcAltParamInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefGnrcAltParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltParamInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltParamInp[_TypeInput]:name=RefGnrcAltParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltParamInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltParamInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_Input
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltParamInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Internal
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltParamInp[_TypeInput]:typeParams.0[_TypeParam]:name=ref

@@ -1,10 +1,5 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjPrntInp: !_TypeInput
-    name: ObjPrntInp
-    parent: !_ObjBase
-      name: RefObjPrntInp
-    typeKind: !_TypeKind Input
-  !_Identifier RefObjPrntInp: !_TypeInput
-    name: RefObjPrntInp
-    typeKind: !_TypeKind Input
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntInp[_TypeInput]:name=ObjPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntInp[_TypeInput]:parent[_ObjBase]:name=RefObjPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]RefObjPrntInp[_TypeInput]:name=RefObjPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]RefObjPrntInp[_TypeInput]:typeKind=[_TypeKind]Input

@@ -1,6 +1,3 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DescrSngl: !_TypeOutput
-    description: 'A "single-quoted" description'
-    name: DescrSngl
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DescrSngl[_TypeOutput]:description='A "single-quoted" description'
+[_Schema]:types[_Map_Type]:[_Identifier]DescrSngl[_TypeOutput]:name=DescrSngl
+[_Schema]:types[_Map_Type]:[_Identifier]DescrSngl[_TypeOutput]:typeKind=[_TypeKind]Output

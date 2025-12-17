@@ -26,7 +26,9 @@ internal class RenderYamlTypeConverter
 
   public object? ReadYaml(IParser parser, Type type)
   {
-    if (type == null) throw new ArgumentNullException(nameof(type));
+    if (type == null) {
+      throw new ArgumentNullException(nameof(type));
+    }
 
     // Deserialize the YAML data to the specified type
     return parser.Current switch {

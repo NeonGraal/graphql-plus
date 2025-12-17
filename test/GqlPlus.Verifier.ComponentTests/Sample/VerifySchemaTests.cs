@@ -2,7 +2,6 @@
 using GqlPlus.Merging;
 using GqlPlus.Result;
 using GqlPlus.Verifying;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 

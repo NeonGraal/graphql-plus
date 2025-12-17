@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Result;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 

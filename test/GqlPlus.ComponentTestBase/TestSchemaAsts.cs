@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus;
 

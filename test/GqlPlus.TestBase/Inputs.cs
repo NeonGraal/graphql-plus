@@ -79,5 +79,5 @@ public record struct FieldInput(string Name, string Type)
     return comp == 0 ? string.CompareOrdinal(Type, other.Type) : comp;
   }
 
-  public readonly override string? ToString() => $"{Name} : {Type}";
+  public override readonly string? ToString() => $"{Name} : {Type}";
 }

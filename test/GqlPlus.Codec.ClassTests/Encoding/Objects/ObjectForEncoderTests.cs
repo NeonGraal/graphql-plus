@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace GqlPlus.Encoding.Objects;
+﻿namespace GqlPlus.Encoding.Objects;
 
 public class ObjectForEncoderTests
   : EncoderClassTestBase<ObjectForModel<TypeParamModel>>

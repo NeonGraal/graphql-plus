@@ -2,7 +2,6 @@
 using GqlPlus;
 using GqlPlus.Convert;
 using GqlPlus.Resolving;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 

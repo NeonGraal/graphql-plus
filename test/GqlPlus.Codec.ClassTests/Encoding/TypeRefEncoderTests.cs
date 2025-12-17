@@ -10,11 +10,11 @@ public class TypeRefEncoderTests
   public void Encode_WithAll_ReturnsExpected(TypeKindModel typeKind, string name, string description)
   {
     // Arrange
-    EncodeAndCheck(new TypeRefModel<TypeKindModel>(typeKind, name, description), [
-        "!_TypeRef(_TypeKind)",
-        "description: " + description.QuotedIdentifier(),
-        "name: "  + name,
-        $"typeKind: !_TypeKind {typeKind}"
-      ]);
+    EncodeAndCheck(new TypeRefModel<TypeKindModel>(typeKind, name, description),
+      TagAll(
+        "_TypeRef(_TypeKind)",
+        ":description=" + description.QuotedIdentifier(),
+        ":name=" + name,
+        $":typeKind=[_TypeKind]{typeKind}"));
   }
 }

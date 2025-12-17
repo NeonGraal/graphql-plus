@@ -1,5 +1,5 @@
 ﻿!_Schema
-errors:
+errors: !_Errors
 - !_Error
   _kind: !_TokenKind End
   _message: "In AltCnstPrntDualGrndOutp can't get model for type 'PrntCnstPrntDualGrndOutp'"

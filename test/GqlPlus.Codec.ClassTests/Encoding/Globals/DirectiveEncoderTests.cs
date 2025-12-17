@@ -26,13 +26,11 @@ public class DirectiveEncoderTests
       Parameters = [parameter],
       Repeatable = true,
     }, [
-        "!_Directive",
-        $"description: " + contents.QuotedIdentifier(),
-        "locations: !_Set(_Location){Operation:_}",
-        "name: " + name,
-        "parameters:",
-        "  - " + input,
-        "repeatable: true"
+        $"[_Directive]:description=" + contents.QuotedIdentifier(),
+        "[_Directive]:locations[_Set(_Location)]:Operation=_",
+        "[_Directive]:name=" + name,
+        "[_Directive]:parameters.0=" + input,
+        "[_Directive]:repeatable=true"
         ]);
   }
 }

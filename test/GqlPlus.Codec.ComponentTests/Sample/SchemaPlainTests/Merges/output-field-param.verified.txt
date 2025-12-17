@@ -1,35 +1,17 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier FldOutpFieldParam: !_TypeDual
-    name: FldOutpFieldParam
-    typeKind: !_TypeKind Dual
-  !_Identifier OutpFieldParam: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: field
-        object: OutpFieldParam
-        parameters:
-          - !_InputParam
-            name: OutpFieldParam1
-          - !_InputParam
-            name: OutpFieldParam2
-        type: !_ObjBase
-          name: FldOutpFieldParam
-    fields:
-      - !_OutputField
-        name: field
-        parameters:
-          - !_InputParam
-            name: OutpFieldParam1
-          - !_InputParam
-            name: OutpFieldParam2
-        type: !_ObjBase
-          name: FldOutpFieldParam
-    name: OutpFieldParam
-    typeKind: !_TypeKind Output
-  !_Identifier OutpFieldParam1: !_TypeInput
-    name: OutpFieldParam1
-    typeKind: !_TypeKind Input
-  !_Identifier OutpFieldParam2: !_TypeInput
-    name: OutpFieldParam2
-    typeKind: !_TypeKind Input
+﻿[_Schema]:types[_Map_Type]:[_Identifier]FldOutpFieldParam[_TypeDual]:name=FldOutpFieldParam
+[_Schema]:types[_Map_Type]:[_Identifier]FldOutpFieldParam[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=OutpFieldParam
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:name=OutpFieldParam1
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:parameters.1[_InputParam]:name=OutpFieldParam2
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=FldOutpFieldParam
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:fields.0[_OutputField]:parameters.0[_InputParam]:name=OutpFieldParam1
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:fields.0[_OutputField]:parameters.1[_InputParam]:name=OutpFieldParam2
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=FldOutpFieldParam
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:name=OutpFieldParam
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam1[_TypeInput]:name=OutpFieldParam1
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam1[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam2[_TypeInput]:name=OutpFieldParam2
+[_Schema]:types[_Map_Type]:[_Identifier]OutpFieldParam2[_TypeInput]:typeKind=[_TypeKind]Input

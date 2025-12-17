@@ -1,18 +1,9 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier FieldDescrDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        description: 'Test Descr'
-        name: field
-        object: FieldDescrDual
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_DualField
-        description: 'Test Descr'
-        name: field
-        type: !_ObjBase
-          name: String
-    name: FieldDescrDual
-    typeKind: !_TypeKind Dual
+﻿[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=FieldDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrDual[_TypeDual]:fields.0[_DualField]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrDual[_TypeDual]:name=FieldDescrDual
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrDual[_TypeDual]:typeKind=[_TypeKind]Dual

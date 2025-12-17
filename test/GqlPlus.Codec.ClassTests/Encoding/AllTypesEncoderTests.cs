@@ -23,7 +23,7 @@ public class AllTypesEncoderTests
     _typeEncoder.TypeEncode(model).Returns(expectedStructured);
 
     // Act
-    EncodeAndCheck(model, [type]);
+    EncodeAndCheck(model, ["=" + type]);
   }
 
   [Fact]

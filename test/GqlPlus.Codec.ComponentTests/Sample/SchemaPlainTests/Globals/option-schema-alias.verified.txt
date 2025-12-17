@@ -1,3 +1,2 @@
-﻿!_Schema
-aliases: [Alias]
-name: Schema
+﻿[_Schema]:aliases.0=Alias
+[_Schema]:name=Schema

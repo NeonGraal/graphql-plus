@@ -1,221 +1,227 @@
 ﻿{
-  "$tag": "_Schema",
-  "errors": [
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
+  "$mapTag": "_Schema",
+  "errors": {
+    "$list": [
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _Categories can\u0027t get model for type \u0027_AndType\u0027"
       },
-      "_message": "In _Categories can\u0027t get model for type \u0027_AndType\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "$value": "End"
-      },
-      "_message": "In _Category can\u0027t get model for type \u0027_Aliased\u0027"
-    }
-  ],
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
+        "_message": "In _Category can\u0027t get model for type \u0027_Aliased\u0027"
+      }
+    ],
+    "$listTag": "_Errors"
+  },
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "_Categories": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_Categories",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "category",
           "object": "_Categories",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "category",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "name": "_Categories",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_AndType"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Category": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "resolution",
           "object": "_Category",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Resolution"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "output",
           "object": "_Category",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_EnumValue",
+                "$mapTag": "_EnumValue",
                 "label": "Output",
                 "name": "_TypeKind",
                 "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "$value": "Enum"
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
                 }
               }
             ]
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "modifiers",
           "object": "_Category",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Modifiers"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "resolution",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Resolution"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "output",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_EnumValue",
+                "$mapTag": "_EnumValue",
                 "label": "Output",
                 "name": "_TypeKind",
                 "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "$value": "Enum"
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
                 }
               }
             ]
           }
         },
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "modifiers",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "_Modifiers"
           }
         }
       ],
       "name": "_Category",
       "parent": {
-        "$tag": "_ObjBase",
+        "$mapTag": "_ObjBase",
         "name": "_Aliased"
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Resolution": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Parallel"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Sequential"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Single"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Parallel"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Sequential"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "Single"
         }
       ],
       "name": "_Resolution",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     }
   }

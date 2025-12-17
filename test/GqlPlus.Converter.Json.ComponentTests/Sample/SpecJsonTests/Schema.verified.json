@@ -1,71 +1,73 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "_Any": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "name": "_Any",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "_Array": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "aliases": ["Array"],
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "collections": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "0",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "object": "_Array",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "collections": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "0",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         }
       ],
       "name": "_Array",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "_Any",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Dual"
+              "$value": "Dual",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "T"
@@ -73,73 +75,74 @@
       ]
     },
     "_Dict": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "aliases": ["Dict"],
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "collections": [
             {
-              "$tag": "_ModifierTypeParam",
+              "$mapTag": "_ModifierTypeParam",
               "by": "K",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Param"
+                "$value": "Param",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "object": "_Dict",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "collections": [
             {
-              "$tag": "_ModifierTypeParam",
+              "$mapTag": "_ModifierTypeParam",
               "by": "K",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Param"
+                "$value": "Param",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         }
       ],
       "name": "_Dict",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "_Key",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Union"
+              "$value": "Union",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "K"
         },
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "_Any",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Dual"
+              "$value": "Dual",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "T"
@@ -147,61 +150,62 @@
       ]
     },
     "_IfElse": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "aliases": ["IfElse"],
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "collections": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "^",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "object": "_IfElse",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "collections": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "^",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         }
       ],
       "name": "_IfElse",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "_Any",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Dual"
+              "$value": "Dual",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "T"
@@ -209,67 +213,69 @@
       ]
     },
     "_Key": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "name": "_Key",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "_List": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "aliases": ["List"],
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "collections": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "object": "_List",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "collections": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         }
       ],
       "name": "_List",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "_Any",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Dual"
+              "$value": "Dual",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "T"
@@ -277,61 +283,62 @@
       ]
     },
     "_Map": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "aliases": ["Map"],
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "collections": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "*",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "object": "_Map",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "collections": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "*",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         }
       ],
       "name": "_Map",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "_Any",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Dual"
+              "$value": "Dual",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "T"
@@ -339,61 +346,62 @@
       ]
     },
     "_Mask": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "aliases": ["Mask"],
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "collections": [
             {
-              "$tag": "_ModifierTypeParam",
+              "$mapTag": "_ModifierTypeParam",
               "by": "K",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Param"
+                "$value": "Param",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "object": "_Mask",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "^"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "collections": [
             {
-              "$tag": "_ModifierTypeParam",
+              "$mapTag": "_ModifierTypeParam",
               "by": "K",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Param"
+                "$value": "Param",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "^"
           }
         }
       ],
       "name": "_Mask",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "_Key",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Union"
+              "$value": "Union",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "K"
@@ -401,38 +409,39 @@
       ]
     },
     "_Opt": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "aliases": ["Opt"],
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_Opt",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "_Opt",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Null"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "T"
           }
         },
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Null"
           }
         }
@@ -440,18 +449,18 @@
       "description": "$T?",
       "name": "_Opt",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "_Any",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Dual"
+              "$value": "Dual",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "T"
@@ -459,61 +468,62 @@
       ]
     },
     "_Set": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "aliases": ["Set"],
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "collections": [
             {
-              "$tag": "_ModifierTypeParam",
+              "$mapTag": "_ModifierTypeParam",
               "by": "K",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Param"
+                "$value": "Param",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "object": "_Set",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Unit"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "collections": [
             {
-              "$tag": "_ModifierTypeParam",
+              "$mapTag": "_ModifierTypeParam",
               "by": "K",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Param"
+                "$value": "Param",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Unit"
           }
         }
       ],
       "name": "_Set",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "_Key",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Union"
+              "$value": "Union",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "K"

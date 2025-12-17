@@ -1,17 +1,10 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnNmbrDiff: !_DomainNumber
-    allItems:
-      - !_DomainItem(_DomainRange)
-        domain: DmnNmbrDiff
-        exclude: false
-        from: 1
-        to: 9
-    domainKind: !_DomainKind Number
-    items:
-      - !_DomainRange
-        exclude: false
-        from: 1
-        to: 9
-    name: DmnNmbrDiff
-    typeKind: !_TypeKind Domain
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDiff[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=DmnNmbrDiff
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDiff[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDiff[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:from=1
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDiff[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=9
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDiff[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDiff[_DomainNumber]:items.0[_DomainRange]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDiff[_DomainNumber]:items.0[_DomainRange]:from=1
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDiff[_DomainNumber]:items.0[_DomainRange]:to=9
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDiff[_DomainNumber]:name=DmnNmbrDiff
+[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrDiff[_DomainNumber]:typeKind=[_TypeKind]Domain

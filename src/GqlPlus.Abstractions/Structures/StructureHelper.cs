@@ -16,11 +16,13 @@ public static class StructureHelper
   public static Structured Encode(this IEnumerable<string> list, string? tag = null, bool flow = false)
     => list.Encode(i => new(i), tag, flow);
 
-  public static Structured Encode<T>(this IMap<T> groups, Func<T, Structured> mapper, string? tag = null, bool flow = false)
-    => new(groups.OrderBy(p => p.Key).ToDictionary(k => new StructureValue(k.Key), v => mapper(v.Value)), tag, flow);
+  public static Structured Encode<T>(this IMap<T> groups, Func<T, Structured> mapper, string? mapTag = null, string? keyTag = null, bool flow = false)
+    => new(groups
+        .OrderBy(p => p.Key)
+        .ToDictionary(k => new StructureValue(k.Key, keyTag), v => mapper(v.Value)), mapTag, flow);
 
-  public static Structured Encode(this IMap<Structured> groups, string? tag = null, bool flow = false)
-    => groups.Encode(v => v, tag, flow);
+  public static Structured Encode(this IMap<Structured> groups, string? mapTag = null, string? keyTag = null, bool flow = false)
+    => groups.Encode(v => v, mapTag, keyTag, flow);
 
   public static Structured Encode(this IMessages errors)
     => new(errors.Select(Encode), "_Errors");
@@ -43,7 +45,7 @@ public static class StructureHelper
     => new Map<Structured>() {
       ["_col"] = at.Column,
       ["_line"] = at.Line,
-    }.Encode("_At", true);
+    }.Encode("_At", flow: true);
 
   public static string TypeTag(this Type type)
   {

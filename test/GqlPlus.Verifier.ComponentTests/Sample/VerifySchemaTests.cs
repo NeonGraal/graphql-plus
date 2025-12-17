@@ -2,16 +2,14 @@
 using GqlPlus.Merging;
 using GqlPlus.Result;
 using GqlPlus.Verifying;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
 public class VerifySchemaTests(
-  ILoggerFactory logger,
   ISchemaParseChecks checks,
   IMerge<IGqlpSchema> schemaMerger,
   IVerify<IGqlpSchema> schemaVerifier
-) : TestSchemaResult(logger, checks)
+) : TestSchemaResult(checks)
 
 {
   protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")

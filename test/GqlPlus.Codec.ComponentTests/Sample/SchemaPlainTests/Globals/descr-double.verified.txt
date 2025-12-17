@@ -1,6 +1,3 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DescrDbl: !_TypeOutput
-    description: "A 'double-quoted' description"
-    name: DescrDbl
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DescrDbl[_TypeOutput]:description="A 'double-quoted' description"
+[_Schema]:types[_Map_Type]:[_Identifier]DescrDbl[_TypeOutput]:name=DescrDbl
+[_Schema]:types[_Map_Type]:[_Identifier]DescrDbl[_TypeOutput]:typeKind=[_TypeKind]Output

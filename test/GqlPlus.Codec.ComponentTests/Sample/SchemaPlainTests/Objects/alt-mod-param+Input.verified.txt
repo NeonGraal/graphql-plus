@@ -1,51 +1,22 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltAltModParamInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: AltAltModParamInp
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: alt
-        object: AltAltModParamInp
-        type: !_ObjBase
-          name: Number
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_InputField
-        name: alt
-        type: !_ObjBase
-          name: Number
-    name: AltAltModParamInp
-    typeKind: !_TypeKind Input
-  !_Identifier AltModParamInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        collections:
-          - !_ModifierTypeParam
-            by: mod
-            modifierKind: !_ModifierKind Param
-        object: AltModParamInp
-        type: !_ObjBase
-          name: AltAltModParamInp
-    alternates:
-      - !_Alternate
-        collections:
-          - !_ModifierTypeParam
-            by: mod
-            modifierKind: !_ModifierKind Param
-        type: !_ObjBase
-          name: AltAltModParamInp
-    name: AltModParamInp
-    typeKind: !_TypeKind Input
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: mod
+﻿[_Schema]:types[_Map_Type]:[_Identifier]AltAltModParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltAltModParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltModParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltModParamInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltModParamInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=AltAltModParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltModParamInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltModParamInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltModParamInp[_TypeInput]:fields.0[_InputField]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltModParamInp[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltModParamInp[_TypeInput]:name=AltAltModParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltModParamInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_ModifierTypeParam]:by=mod
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_ModifierTypeParam]:modifierKind=[_ModifierKind]Param
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltModParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=AltAltModParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:alternates.0[_Alternate]:collections.0[_ModifierTypeParam]:by=mod
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:alternates.0[_Alternate]:collections.0[_ModifierTypeParam]:modifierKind=[_ModifierKind]Param
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=AltAltModParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:name=AltModParamInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]AltModParamInp[_TypeInput]:typeParams.0[_TypeParam]:name=mod

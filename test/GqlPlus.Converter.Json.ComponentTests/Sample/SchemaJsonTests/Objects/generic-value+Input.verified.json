@@ -1,45 +1,47 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "EnumGnrcValueInp": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "enum": "EnumGnrcValueInp",
           "name": "gnrcValueInp"
         }
       ],
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "name": "gnrcValueInp"
         }
       ],
       "name": "EnumGnrcValueInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "GnrcValueInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "GnrcValueInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "RefGnrcValueInp",
             "typeArgs": [
               {
-                "$tag": "_EnumValue",
+                "$mapTag": "_EnumValue",
                 "label": "gnrcValueInp",
                 "name": "EnumGnrcValueInp",
                 "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "$value": "Enum"
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
                 }
               }
             ]
@@ -48,18 +50,18 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "RefGnrcValueInp",
             "typeArgs": [
               {
-                "$tag": "_EnumValue",
+                "$mapTag": "_EnumValue",
                 "label": "gnrcValueInp",
                 "name": "EnumGnrcValueInp",
                 "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "$value": "Enum"
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
                 }
               }
             ]
@@ -68,47 +70,48 @@
       ],
       "name": "GnrcValueInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     },
     "RefGnrcValueInp": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "name": "field",
           "object": "RefGnrcValueInp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "typeParam": "type"
           }
         }
       ],
       "name": "RefGnrcValueInp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       },
       "typeParams": [
         {
-          "$tag": "_TypeParam",
+          "$mapTag": "_TypeParam",
           "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
+            "$mapTag": "_TypeRef(_TypeKind)",
             "name": "_Enum",
             "typeKind": {
-              "$tag": "_TypeKind",
-              "$value": "Internal"
+              "$value": "Internal",
+              "$valueTag": "_TypeKind"
             }
           },
           "name": "type"

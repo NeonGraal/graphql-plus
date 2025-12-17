@@ -1,28 +1,14 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntUnionPrnt: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: Number
-        union: PrntUnionPrnt
-    items:
-      - !_Aliased
-        name: Number
-    name: PrntUnionPrnt
-    typeKind: !_TypeKind Union
-  !_Identifier UnionPrnt: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: Number
-        union: PrntUnionPrnt
-      - !_UnionMember
-        name: String
-        union: UnionPrnt
-    items:
-      - !_Aliased
-        name: String
-    name: UnionPrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntUnionPrnt
-      typeKind: !_SimpleKind Union
-    typeKind: !_TypeKind Union
+﻿[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrnt[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrnt[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrnt[_TypeUnion]:items.0[_Aliased]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrnt[_TypeUnion]:name=PrntUnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrnt[_TypeUnion]:typeKind=[_TypeKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:allItems.1[_UnionMember]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:allItems.1[_UnionMember]:union=UnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:items.0[_Aliased]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:name=UnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:name=PrntUnionPrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrnt[_TypeUnion]:typeKind=[_TypeKind]Union

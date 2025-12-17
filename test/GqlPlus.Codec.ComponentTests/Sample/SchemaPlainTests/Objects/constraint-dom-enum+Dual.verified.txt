@@ -1,78 +1,41 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier CnstDomEnumDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: CnstDomEnumDual
-        type: !_ObjBase
-          name: RefCnstDomEnumDual
-          typeArgs:
-            - !_EnumValue
-              label: cnstDomEnumDual
-              name: EnumCnstDomEnumDual
-              typeKind: !_SimpleKind Enum
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: RefCnstDomEnumDual
-          typeArgs:
-            - !_EnumValue
-              label: cnstDomEnumDual
-              name: EnumCnstDomEnumDual
-              typeKind: !_SimpleKind Enum
-    name: CnstDomEnumDual
-    typeKind: !_TypeKind Dual
-  !_Identifier EnumCnstDomEnumDual: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumCnstDomEnumDual
-        name: cnstDomEnumDual
-      - !_EnumLabel
-        enum: EnumCnstDomEnumDual
-        name: other
-    items:
-      - !_Aliased
-        name: cnstDomEnumDual
-      - !_Aliased
-        name: other
-    name: EnumCnstDomEnumDual
-    typeKind: !_TypeKind Enum
-  !_Identifier JustCnstDomEnumDual: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: JustCnstDomEnumDual
-        exclude: false
-        value: !_EnumValue
-          label: cnstDomEnumDual
-          name: EnumCnstDomEnumDual
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: cnstDomEnumDual
-          name: EnumCnstDomEnumDual
-          typeKind: !_SimpleKind Enum
-    name: JustCnstDomEnumDual
-    typeKind: !_TypeKind Domain
-  !_Identifier RefCnstDomEnumDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: RefCnstDomEnumDual
-        type: !_ObjBase
-          typeParam: type
-    fields:
-      - !_DualField
-        name: field
-        type: !_ObjBase
-          typeParam: type
-    name: RefCnstDomEnumDual
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: JustCnstDomEnumDual
-          typeKind: !_TypeKind Domain
-        name: type
+﻿[_Schema]:types[_Map_Type]:[_Identifier]CnstDomEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=CnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstDomEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=RefCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstDomEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=cnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstDomEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=EnumCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstDomEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]CnstDomEnumDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=RefCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstDomEnumDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=cnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstDomEnumDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=EnumCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstDomEnumDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]CnstDomEnumDual[_TypeDual]:name=CnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]CnstDomEnumDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstDomEnumDual[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstDomEnumDual[_TypeEnum]:allItems.0[_EnumLabel]:name=cnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstDomEnumDual[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstDomEnumDual[_TypeEnum]:allItems.1[_EnumLabel]:name=other
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstDomEnumDual[_TypeEnum]:items.0[_Aliased]:name=cnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstDomEnumDual[_TypeEnum]:items.1[_Aliased]:name=other
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstDomEnumDual[_TypeEnum]:name=EnumCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]EnumCnstDomEnumDual[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=JustCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=cnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=EnumCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=cnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=EnumCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:name=JustCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]JustCnstDomEnumDual[_DomainEnum]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstDomEnumDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstDomEnumDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=RefCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstDomEnumDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstDomEnumDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstDomEnumDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstDomEnumDual[_TypeDual]:name=RefCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstDomEnumDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstDomEnumDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=JustCnstDomEnumDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstDomEnumDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Domain
+[_Schema]:types[_Map_Type]:[_Identifier]RefCnstDomEnumDual[_TypeDual]:typeParams.0[_TypeParam]:name=type

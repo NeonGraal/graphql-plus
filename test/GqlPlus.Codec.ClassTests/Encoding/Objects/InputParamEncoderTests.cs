@@ -20,9 +20,8 @@ public class InputParamEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithValidModel_ReturnsStructured(string input, string contents)
-    => EncodeAndCheck(new(input, contents), [
-      "!_InputParam",
-      "description: " + contents.QuotedIdentifier(),
-      "name: " + input
-      ]);
+    => EncodeAndCheck(new(input, contents),
+      TagAll("_InputParam",
+      ":description=" + contents.QuotedIdentifier(),
+      ":name=" + input));
 }

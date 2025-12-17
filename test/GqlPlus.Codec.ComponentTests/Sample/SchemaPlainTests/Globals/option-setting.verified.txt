@@ -1,6 +1,3 @@
-﻿!_Schema
-name: Schema
-settings: !_Map_Setting
-  !_Identifier global: !_Setting
-    name: global
-    value: true
+﻿[_Schema]:name=Schema
+[_Schema]:settings[_Map_Setting]:[_Identifier]global[_Setting]:name=global
+[_Schema]:settings[_Map_Setting]:[_Identifier]global[_Setting]:value=true

@@ -1,18 +1,9 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier FieldDescrInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        description: 'Test Descr'
-        name: field
-        object: FieldDescrInp
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_InputField
-        description: 'Test Descr'
-        name: field
-        type: !_ObjBase
-          name: String
-    name: FieldDescrInp
-    typeKind: !_TypeKind Input
+﻿[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=FieldDescrInp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrInp[_TypeInput]:fields.0[_InputField]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrInp[_TypeInput]:fields.0[_InputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrInp[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrInp[_TypeInput]:name=FieldDescrInp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldDescrInp[_TypeInput]:typeKind=[_TypeKind]Input

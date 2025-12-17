@@ -1,6 +1,4 @@
-﻿!_Schema
-directives: !_Map_Directives
-  !_Identifier Drct: !_Directive
-    locations: !_Set(_Location){Inline:_,Spread:_}
-    name: Drct
-    repeatable: false
+﻿[_Schema]:directives[_Map_Directives]:[_Identifier]Drct[_Directive]:locations[_Set(_Location)]:Inline=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]Drct[_Directive]:locations[_Set(_Location)]:Spread=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]Drct[_Directive]:name=Drct
+[_Schema]:directives[_Map_Directives]:[_Identifier]Drct[_Directive]:repeatable=false

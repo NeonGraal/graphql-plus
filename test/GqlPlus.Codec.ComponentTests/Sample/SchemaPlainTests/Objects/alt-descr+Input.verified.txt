@@ -1,16 +1,7 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltDescrInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: AltDescrInp
-        type: !_ObjBase
-          description: 'Test Descr'
-          name: String
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          description: 'Test Descr'
-          name: String
-    name: AltDescrInp
-    typeKind: !_TypeKind Input
+﻿[_Schema]:types[_Map_Type]:[_Identifier]AltDescrInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltDescrInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrInp[_TypeInput]:name=AltDescrInp
+[_Schema]:types[_Map_Type]:[_Identifier]AltDescrInp[_TypeInput]:typeKind=[_TypeKind]Input

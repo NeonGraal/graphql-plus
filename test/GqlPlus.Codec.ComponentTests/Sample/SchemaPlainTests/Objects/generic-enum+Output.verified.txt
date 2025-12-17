@@ -1,54 +1,26 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumGnrcEnumOutp: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumGnrcEnumOutp
-        name: gnrcEnumOutp
-    items:
-      - !_Aliased
-        name: gnrcEnumOutp
-    name: EnumGnrcEnumOutp
-    typeKind: !_TypeKind Enum
-  !_Identifier GnrcEnumOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: GnrcEnumOutp
-        type: !_ObjBase
-          name: RefGnrcEnumOutp
-          typeArgs:
-            - !_EnumValue
-              label: gnrcEnumOutp
-              name: EnumGnrcEnumOutp
-              typeKind: !_SimpleKind Enum
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: RefGnrcEnumOutp
-          typeArgs:
-            - !_EnumValue
-              label: gnrcEnumOutp
-              name: EnumGnrcEnumOutp
-              typeKind: !_SimpleKind Enum
-    name: GnrcEnumOutp
-    typeKind: !_TypeKind Output
-  !_Identifier RefGnrcEnumOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: field
-        object: RefGnrcEnumOutp
-        type: !_ObjBase
-          typeParam: type
-    fields:
-      - !_OutputField
-        name: field
-        type: !_ObjBase
-          typeParam: type
-    name: RefGnrcEnumOutp
-    typeKind: !_TypeKind Output
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: _Enum
-          typeKind: !_TypeKind Internal
-        name: type
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcEnumOutp[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumGnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcEnumOutp[_TypeEnum]:allItems.0[_EnumLabel]:name=gnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcEnumOutp[_TypeEnum]:items.0[_Aliased]:name=gnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcEnumOutp[_TypeEnum]:name=EnumGnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcEnumOutp[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcEnumOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=GnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcEnumOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=RefGnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcEnumOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=gnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcEnumOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=EnumGnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcEnumOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcEnumOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=RefGnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcEnumOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:label=gnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcEnumOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:name=EnumGnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcEnumOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:typeArgs.0[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcEnumOutp[_TypeOutput]:name=GnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcEnumOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcEnumOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcEnumOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=RefGnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcEnumOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcEnumOutp[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcEnumOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcEnumOutp[_TypeOutput]:name=RefGnrcEnumOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcEnumOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcEnumOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_Enum
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcEnumOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Internal
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcEnumOutp[_TypeOutput]:typeParams.0[_TypeParam]:name=type

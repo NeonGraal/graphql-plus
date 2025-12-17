@@ -1,62 +1,31 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumGnrcPrntEnumPrntInp: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: ParentGnrcPrntEnumPrntInp
-        name: gnrcPrntEnumPrntInpParent
-      - !_EnumLabel
-        enum: EnumGnrcPrntEnumPrntInp
-        name: gnrcPrntEnumPrntInpLabel
-    items:
-      - !_Aliased
-        name: gnrcPrntEnumPrntInpLabel
-    name: EnumGnrcPrntEnumPrntInp
-    parent: !_TypeRef(_SimpleKind)
-      name: ParentGnrcPrntEnumPrntInp
-      typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Enum
-  !_Identifier FieldGnrcPrntEnumPrntInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: field
-        object: FieldGnrcPrntEnumPrntInp
-        type: !_ObjBase
-          typeParam: ref
-    fields:
-      - !_InputField
-        name: field
-        type: !_ObjBase
-          typeParam: ref
-    name: FieldGnrcPrntEnumPrntInp
-    typeKind: !_TypeKind Input
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: ParentGnrcPrntEnumPrntInp
-          typeKind: !_TypeKind Enum
-        name: ref
-  !_Identifier GnrcPrntEnumPrntInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: field
-        object: FieldGnrcPrntEnumPrntInp
-        type: !_ObjBase
-          name: EnumGnrcPrntEnumPrntInp
-    name: GnrcPrntEnumPrntInp
-    parent: !_ObjBase
-      name: FieldGnrcPrntEnumPrntInp
-      typeArgs:
-        - !_TypeArg
-          name: EnumGnrcPrntEnumPrntInp
-    typeKind: !_TypeKind Input
-  !_Identifier ParentGnrcPrntEnumPrntInp: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: ParentGnrcPrntEnumPrntInp
-        name: gnrcPrntEnumPrntInpParent
-    items:
-      - !_Aliased
-        name: gnrcPrntEnumPrntInpParent
-    name: ParentGnrcPrntEnumPrntInp
-    typeKind: !_TypeKind Enum
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumPrntInp[_TypeEnum]:allItems.0[_EnumLabel]:enum=ParentGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumPrntInp[_TypeEnum]:allItems.0[_EnumLabel]:name=gnrcPrntEnumPrntInpParent
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumPrntInp[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumPrntInp[_TypeEnum]:allItems.1[_EnumLabel]:name=gnrcPrntEnumPrntInpLabel
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumPrntInp[_TypeEnum]:items.0[_Aliased]:name=gnrcPrntEnumPrntInpLabel
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumPrntInp[_TypeEnum]:name=EnumGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumPrntInp[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:name=ParentGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumPrntInp[_TypeEnum]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]EnumGnrcPrntEnumPrntInp[_TypeEnum]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumPrntInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumPrntInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=FieldGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumPrntInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumPrntInp[_TypeInput]:fields.0[_InputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumPrntInp[_TypeInput]:fields.0[_InputField]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumPrntInp[_TypeInput]:name=FieldGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumPrntInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumPrntInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=ParentGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumPrntInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]FieldGnrcPrntEnumPrntInp[_TypeInput]:typeParams.0[_TypeParam]:name=ref
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumPrntInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumPrntInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:object=FieldGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumPrntInp[_TypeInput]:allFields.0[_ObjectFor(_InputField)]:type[_ObjBase]:name=EnumGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumPrntInp[_TypeInput]:name=GnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumPrntInp[_TypeInput]:parent[_ObjBase]:name=FieldGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumPrntInp[_TypeInput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=EnumGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntEnumPrntInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]ParentGnrcPrntEnumPrntInp[_TypeEnum]:allItems.0[_EnumLabel]:enum=ParentGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]ParentGnrcPrntEnumPrntInp[_TypeEnum]:allItems.0[_EnumLabel]:name=gnrcPrntEnumPrntInpParent
+[_Schema]:types[_Map_Type]:[_Identifier]ParentGnrcPrntEnumPrntInp[_TypeEnum]:items.0[_Aliased]:name=gnrcPrntEnumPrntInpParent
+[_Schema]:types[_Map_Type]:[_Identifier]ParentGnrcPrntEnumPrntInp[_TypeEnum]:name=ParentGnrcPrntEnumPrntInp
+[_Schema]:types[_Map_Type]:[_Identifier]ParentGnrcPrntEnumPrntInp[_TypeEnum]:typeKind=[_TypeKind]Enum

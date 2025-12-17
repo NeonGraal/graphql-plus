@@ -1,21 +1,13 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier FldObjFieldAliasOutp: !_TypeOutput
-    name: FldObjFieldAliasOutp
-    typeKind: !_TypeKind Output
-  !_Identifier ObjFieldAliasOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        aliases: [field1,field2]
-        name: field
-        object: ObjFieldAliasOutp
-        type: !_ObjBase
-          name: FldObjFieldAliasOutp
-    fields:
-      - !_OutputField
-        aliases: [field1,field2]
-        name: field
-        type: !_ObjBase
-          name: FldObjFieldAliasOutp
-    name: ObjFieldAliasOutp
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]FldObjFieldAliasOutp[_TypeOutput]:name=FldObjFieldAliasOutp
+[_Schema]:types[_Map_Type]:[_Identifier]FldObjFieldAliasOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:aliases.0=field1
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:aliases.1=field2
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=ObjFieldAliasOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=FldObjFieldAliasOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasOutp[_TypeOutput]:fields.0[_OutputField]:aliases.0=field1
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasOutp[_TypeOutput]:fields.0[_OutputField]:aliases.1=field2
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasOutp[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=FldObjFieldAliasOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasOutp[_TypeOutput]:name=ObjFieldAliasOutp
+[_Schema]:types[_Map_Type]:[_Identifier]ObjFieldAliasOutp[_TypeOutput]:typeKind=[_TypeKind]Output

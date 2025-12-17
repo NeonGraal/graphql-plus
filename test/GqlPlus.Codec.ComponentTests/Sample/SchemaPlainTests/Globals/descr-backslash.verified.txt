@@ -1,6 +1,3 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DescrBcks: !_TypeOutput
-    description: 'A backslash ("\\") description'
-    name: DescrBcks
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DescrBcks[_TypeOutput]:description='A backslash ("\\") description'
+[_Schema]:types[_Map_Type]:[_Identifier]DescrBcks[_TypeOutput]:name=DescrBcks
+[_Schema]:types[_Map_Type]:[_Identifier]DescrBcks[_TypeOutput]:typeKind=[_TypeKind]Output

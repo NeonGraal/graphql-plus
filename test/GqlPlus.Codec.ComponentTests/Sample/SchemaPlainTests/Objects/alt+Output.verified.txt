@@ -1,37 +1,15 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltAltOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: AltAltOutp
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: alt
-        object: AltAltOutp
-        type: !_ObjBase
-          name: Number
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_OutputField
-        name: alt
-        type: !_ObjBase
-          name: Number
-    name: AltAltOutp
-    typeKind: !_TypeKind Output
-  !_Identifier AltOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: AltOutp
-        type: !_ObjBase
-          name: AltAltOutp
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: AltAltOutp
-    name: AltOutp
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]AltAltOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltAltOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=AltAltOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltOutp[_TypeOutput]:fields.0[_OutputField]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltOutp[_TypeOutput]:name=AltAltOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltAltOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]AltOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=AltAltOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=AltAltOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltOutp[_TypeOutput]:name=AltOutp
+[_Schema]:types[_Map_Type]:[_Identifier]AltOutp[_TypeOutput]:typeKind=[_TypeKind]Output

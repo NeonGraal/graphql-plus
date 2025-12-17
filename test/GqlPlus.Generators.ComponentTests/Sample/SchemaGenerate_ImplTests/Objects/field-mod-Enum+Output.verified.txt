@@ -1,0 +1,17 @@
+﻿/* field-mod-Enum+Output
+output FieldModEnumOutp { field: String[EnumFieldModEnumOutp] }
+enum EnumFieldModEnumOutp { value }
+*/
+
+// Generated from Schema field-mod-Enum+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_mod_Enum_Output;
+
+public class CmptFieldModEnumOutp
+  : ICmptFieldModEnumOutp
+{
+  public IDictionary<CmptEnumFieldModEnumOutp, CmptString> field { get; set; }
+  public CmptFieldModEnumOutp FieldModEnumOutp { get; set; }
+}

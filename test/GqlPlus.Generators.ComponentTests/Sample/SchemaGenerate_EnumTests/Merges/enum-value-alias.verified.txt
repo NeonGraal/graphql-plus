@@ -1,0 +1,17 @@
+﻿/* enum-value-alias
+enum EnumValueAlias { enumValueAlias [val1] }
+enum EnumValueAlias { enumValueAlias [val2] }
+*/
+
+// Generated from Schema enum-value-alias for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_enum_value_alias;
+
+public enum CmptEnumValueAlias
+{
+  enumValueAlias,
+  val1 = enumValueAlias,
+  val2 = enumValueAlias,
+}

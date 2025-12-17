@@ -1,0 +1,16 @@
+﻿/* generic-parent-simple-enum+Input
+input GnrcPrntSmplEnumInp { :FieldGnrcPrntSmplEnumInp<EnumGnrcPrntSmplEnumInp> }
+input FieldGnrcPrntSmplEnumInp<$ref:_Simple> { field: $ref }
+enum EnumGnrcPrntSmplEnumInp { gnrcPrntSmplEnumInp }
+*/
+
+// Generated from Schema generic-parent-simple-enum+Input for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_simple_enum_Input;
+
+public enum CmptEnumGnrcPrntSmplEnumInp
+{
+  gnrcPrntSmplEnumInp,
+}

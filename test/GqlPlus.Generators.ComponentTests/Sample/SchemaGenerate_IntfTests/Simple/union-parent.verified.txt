@@ -1,0 +1,21 @@
+﻿/* union-parent
+union UnionPrnt { :PrntUnionPrnt String }
+union PrntUnionPrnt { Number }
+*/
+
+// Generated from Schema union-parent for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_parent;
+
+public interface ICmptUnionPrnt
+  : ICmptPrntUnionPrnt
+{
+  String AsString { get; }
+}
+
+public interface ICmptPrntUnionPrnt
+{
+  Number AsNumber { get; }
+}

@@ -1,0 +1,12 @@
+﻿/* category-output
+category { CtgrOutp }
+output CtgrOutp { }
+*/
+
+// Generated from Schema category-output for Stat
+/*
+
+Category ctgrOutp
+*/
+
+namespace Components.Gqlp_Schema_category_output;

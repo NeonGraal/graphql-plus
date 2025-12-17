@@ -1,0 +1,42 @@
+﻿/* default
+category { Query }
+output Query { }
+
+category { (sequential) Mutation }
+output Mutation { }
+
+category { (single) Subscription }
+output Subscription { }
+
+output _Schema { }
+*/
+
+// Generated from Schema default for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_default;
+
+public class CmptQuery
+  : ICmptQuery
+{
+  public CmptQuery Query { get; set; }
+}
+
+public class CmptMutation
+  : ICmptMutation
+{
+  public CmptMutation Mutation { get; set; }
+}
+
+public class CmptSubscription
+  : ICmptSubscription
+{
+  public CmptSubscription Subscription { get; set; }
+}
+
+public class Cmpt_Schema
+  : ICmpt_Schema
+{
+  public Cmpt_Schema _Schema { get; set; }
+}

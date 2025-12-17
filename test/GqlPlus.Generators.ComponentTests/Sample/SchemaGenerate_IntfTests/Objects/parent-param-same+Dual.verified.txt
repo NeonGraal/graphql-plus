@@ -1,0 +1,32 @@
+﻿/* parent-param-same+Dual
+dual PrntParamSameDual<$a:String> { :RefPrntParamSameDual<$a> field: $a }
+dual RefPrntParamSameDual<$a:String> { | $a }
+*/
+
+// Generated from Schema parent-param-same+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_param_same_Dual;
+
+public interface ICmptPrntParamSameDual<Ta>
+  : ICmptRefPrntParamSameDual
+{
+  public CmptPrntParamSameDual PrntParamSameDual { get; set; }
+}
+
+public interface ICmptPrntParamSameDualField<Ta>
+  : ICmptRefPrntParamSameDualField
+{
+  public Ta field { get; set; }
+}
+
+public interface ICmptRefPrntParamSameDual<Ta>
+{
+  public Ta Asa { get; set; }
+  public CmptRefPrntParamSameDual RefPrntParamSameDual { get; set; }
+}
+
+public interface ICmptRefPrntParamSameDualField<Ta>
+{
+}

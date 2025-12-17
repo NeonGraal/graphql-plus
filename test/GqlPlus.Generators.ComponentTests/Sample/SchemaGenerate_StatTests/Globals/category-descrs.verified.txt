@@ -1,0 +1,14 @@
+﻿/* category-descrs
+"A Category"
+"described"
+category { CtgrDscrs }
+output CtgrDscrs { }
+*/
+
+// Generated from Schema category-descrs for Stat
+/*
+
+Category ctgrDscrs
+*/
+
+namespace Components.Gqlp_Schema_category_descrs;

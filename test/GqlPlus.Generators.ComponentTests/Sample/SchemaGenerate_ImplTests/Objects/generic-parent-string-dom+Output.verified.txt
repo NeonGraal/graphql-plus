@@ -1,0 +1,31 @@
+﻿/* generic-parent-string-dom+Output
+output GnrcPrntStrDomOutp { :FieldGnrcPrntStrDomOutp<DomGnrcPrntStrDomOutp> }
+output FieldGnrcPrntStrDomOutp<$ref:String> { field: $ref }
+domain DomGnrcPrntStrDomOutp { string /\w+/ }
+*/
+
+// Generated from Schema generic-parent-string-dom+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_string_dom_Output;
+
+public class CmptGnrcPrntStrDomOutp
+  : CmptFieldGnrcPrntStrDomOutp
+  , ICmptGnrcPrntStrDomOutp
+{
+  public CmptGnrcPrntStrDomOutp GnrcPrntStrDomOutp { get; set; }
+}
+
+public class CmptFieldGnrcPrntStrDomOutp<Tref>
+  : ICmptFieldGnrcPrntStrDomOutp<Tref>
+{
+  public Tref field { get; set; }
+  public CmptFieldGnrcPrntStrDomOutp FieldGnrcPrntStrDomOutp { get; set; }
+}
+
+public class CmptDomGnrcPrntStrDomOutp
+  : DomainString
+  , ICmptDomGnrcPrntStrDomOutp
+{
+}

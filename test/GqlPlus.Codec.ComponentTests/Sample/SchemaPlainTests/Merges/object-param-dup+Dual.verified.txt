@@ -1,31 +1,15 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjParamDupDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: test
-        object: ObjParamDupDual
-        type: !_ObjBase
-          typeParam: test
-      - !_ObjectFor(_DualField)
-        name: type
-        object: ObjParamDupDual
-        type: !_ObjBase
-          typeParam: test
-    fields:
-      - !_DualField
-        name: test
-        type: !_ObjBase
-          typeParam: test
-      - !_DualField
-        name: type
-        type: !_ObjBase
-          typeParam: test
-    name: ObjParamDupDual
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: test
+﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=test
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=ObjParamDupDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:typeParam=test
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:name=type
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:object=ObjParamDupDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:type[_ObjBase]:typeParam=test
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:fields.0[_DualField]:name=test
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:typeParam=test
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:fields.1[_DualField]:name=type
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:fields.1[_DualField]:type[_ObjBase]:typeParam=test
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:name=ObjParamDupDual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]ObjParamDupDual[_TypeDual]:typeParams.0[_TypeParam]:name=test

@@ -1,21 +1,12 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnEnumSame: !_DomainEnum
-    allItems:
-      - !_DomainItem(_DomainLabel)
-        domain: DmnEnumSame
-        exclude: false
-        value: !_EnumValue
-          label: true
-          name: Boolean
-          typeKind: !_SimpleKind Enum
-    domainKind: !_DomainKind Enum
-    items:
-      - !_DomainLabel
-        exclude: false
-        value: !_EnumValue
-          label: true
-          name: Boolean
-          typeKind: !_SimpleKind Enum
-    name: DmnEnumSame
-    typeKind: !_TypeKind Domain
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:domain=DmnEnumSame
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:label=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:allItems.0[_DomainItem(_DomainLabel)]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:domainKind=[_DomainKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:items.0[_DomainLabel]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:label=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:items.0[_DomainLabel]:value[_EnumValue]:typeKind=[_SimpleKind]Enum
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:name=DmnEnumSame
+[_Schema]:types[_Map_Type]:[_Identifier]DmnEnumSame[_DomainEnum]:typeKind=[_TypeKind]Domain

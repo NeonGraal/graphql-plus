@@ -1,41 +1,18 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: RefPrntOutp
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: parent
-        object: RefPrntOutp
-        type: !_ObjBase
-          name: Number
-    name: PrntOutp
-    parent: !_ObjBase
-      name: RefPrntOutp
-    typeKind: !_TypeKind Output
-  !_Identifier RefPrntOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: RefPrntOutp
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: parent
-        object: RefPrntOutp
-        type: !_ObjBase
-          name: Number
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_OutputField
-        name: parent
-        type: !_ObjBase
-          name: Number
-    name: RefPrntOutp
-    typeKind: !_TypeKind Output
+﻿[_Schema]:types[_Map_Type]:[_Identifier]PrntOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefPrntOutp
+[_Schema]:types[_Map_Type]:[_Identifier]PrntOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=parent
+[_Schema]:types[_Map_Type]:[_Identifier]PrntOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=RefPrntOutp
+[_Schema]:types[_Map_Type]:[_Identifier]PrntOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntOutp[_TypeOutput]:name=PrntOutp
+[_Schema]:types[_Map_Type]:[_Identifier]PrntOutp[_TypeOutput]:parent[_ObjBase]:name=RefPrntOutp
+[_Schema]:types[_Map_Type]:[_Identifier]PrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefPrntOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=parent
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=RefPrntOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntOutp[_TypeOutput]:fields.0[_OutputField]:name=parent
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntOutp[_TypeOutput]:name=RefPrntOutp
+[_Schema]:types[_Map_Type]:[_Identifier]RefPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output

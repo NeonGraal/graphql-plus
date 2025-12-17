@@ -6,66 +6,25 @@ internal static class PlainTestHelpers
 {
   internal static IConvertTestsBase Converters { get; } = new PlainConverters();
 
-  internal static string[] FlowOr<T>(this IEnumerable<T> list, Func<IEnumerable<T>, string> flowMap, Func<IEnumerable<T>, string[]> isMap)
-  {
-    string flow = flowMap(list);
+  internal static Func<string?, string[]> Tagged(this string tag, string prefix = "=")
+    => value => [string.IsNullOrWhiteSpace(tag)
+      ? prefix + value.IfWhiteSpace()
+      : $"{prefix}[{tag}]{value}"];
 
-    return flow.Length < RenderPlain.MaxLineLength ? [flow] : isMap(list);
-  }
+  internal static string[] BlockList<T>(this T[]? list, Func<T?, string[]> mapper, string listTag)
+    => list is null ? []
+      : [.. list
+        .SelectMany((v, idx) => mapper(v)
+          .Select(t => $".{idx}" + t))
+          .SelectMany(listTag.Tagged(""))];
 
-  internal static string[] FlowList(this string[] value, string valuePrefix = "", string indent = "")
-    => value.FlowList(v => [valuePrefix + v], indent);
-
-  internal static string[] FlowList<T>(this T[] value, Func<T?, string[]> mapper, string indent = "")
-    => value.FlowOr(
-      f => f.Surround("[", "]", v => mapper(v).Joined(""), ","),
-      i => i.IsList(v => v.BlockFirst(mapper, indent + "-")));
-
-  internal static string[] FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "", string indent = "")
-    => list.FlowMap(v => [valuePrefix + v.QuotedIdentifier()], mapPrefix, indent);
-
-  internal static string[] FlowMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string mapPrefix = "", string indent = "")
-    => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).FlowOr(
-      f => mapPrefix + f.Surround("{", "}", v => v.Key + ":" + mapper(v.Value).Joined(""), ","),
-      i => i.IsMap(v => mapper(v), indent, mapPrefix));
-
-  internal static string[] BlockList(this string[] value, string prefix)
-    => value.IsList(v => [prefix + v]);
-
-  internal static string[] BlockList<T>(this T[] value, Func<T?, string[]> mapper)
-    => value.IsList(mapper);
-
-  internal static string[] BlockMap(this MapPair<string>[] list, string keyPrefix = "", string valuePrefix = "")
-    => list.BlockMap(v => [valuePrefix + v], keyPrefix);
-
-  internal static string[] BlockMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string keyPrefix = "")
-    => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).IsMap(mapper, keyPrefix);
-
-  private static string[] IsList<T>(this IEnumerable<T> value, Func<T?, string[]> mapper)
-    => [.. value.SelectMany(mapper).Where(s => !string.IsNullOrWhiteSpace(s))];
-
-  private static string[] IsMap<T>(this IEnumerable<MapPair<T>> list, Func<T?, string[]> mapper, string keyPrefix = "", string mapPrefix = "")
-    => [.. list
-      .SelectMany(v => v.Value.BlockFirst(mapper,  keyPrefix + v.Key + ":"))
-      .Prepend(mapPrefix)
-      .Where(s => !string.IsNullOrWhiteSpace(s))];
-
-  private static string[] BlockFirst<T>(this T value, Func<T?, string[]> mapper, string prefix)
-  {
-    string[] item = mapper(value);
-    if (item.Length == 0) {
-      return [];
-    }
-
-    string first = item[0];
-    if (item.Length == 1) {
-      return [prefix + " " + first];
-    } else if (first.StartsWith('!')) {
-      return [prefix + " " + first, .. item[1..]];
-    } else {
-      return [prefix, .. item];
-    }
-  }
+  internal static string[] BlockMap<T>(this MapPair<T>[]? map, Func<T?, string[]> mapper, string mapTag, string keyTag)
+    => map is null ? []
+      : [.. map
+        .OrderBy(kv => kv.Key, StringComparer.Ordinal)
+        .SelectMany(v => mapper(v.Value)
+          .Select(t => keyTag.Tagged(":")(v.Key)[0] + t))
+          .SelectMany(mapTag.Tagged(""))];
 
   private sealed class PlainConverters
     : IConvertTestsBase

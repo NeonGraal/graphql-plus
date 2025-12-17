@@ -8,12 +8,11 @@ public class OutputEnumEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithValidModel_ReturnsStructured(string field, string enumType, string enumLabel, string contents)
-    => EncodeAndCheck(new(field, enumType, enumLabel, contents), [
-      "!_OutputEnum",
-      "description: " + contents.QuotedIdentifier(),
-      "field: " + field,
-      "label: " + enumLabel,
-      "name: " + enumType,
-      "typeKind: !_SimpleKind Enum"
-    ]);
+    => EncodeAndCheck(new(field, enumType, enumLabel, contents),
+      TagAll("_OutputEnum",
+      ":description=" + contents.QuotedIdentifier(),
+      ":field=" + field,
+      ":label=" + enumLabel,
+      ":name=" + enumType,
+      ":typeKind=[_SimpleKind]Enum"));
 }

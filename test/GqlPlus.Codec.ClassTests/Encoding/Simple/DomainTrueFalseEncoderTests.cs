@@ -7,10 +7,9 @@ public class DomainTrueFalseEncoderTests
     = new DomainTrueFalseEncoder();
 
   protected override string[] ItemExpected(bool item, bool excluded)
-    => ["!_DomainTrueFalse",
-        "exclude: " + excluded.TrueFalse(),
-        "value: " + item.TrueFalse()
-        ];
+    => TagAll("_DomainTrueFalse",
+        ":exclude=" + excluded.TrueFalse(),
+        ":value=" + item.TrueFalse());
   protected override DomainTrueFalseModel NewItem(bool item, bool excluded) => new(item, excluded, "");
 }
 

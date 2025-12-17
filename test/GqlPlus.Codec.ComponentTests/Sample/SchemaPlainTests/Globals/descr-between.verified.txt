@@ -1,13 +1,7 @@
-﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier descrBtwn: !_Category
-    name: descrBtwn
-    output: !_TypeRef(_TypeKind)
-      name: DescrBtwn
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-types: !_Map_Type
-  !_Identifier DescrBtwn: !_TypeOutput
-    description: 'A description between'
-    name: DescrBtwn
-    typeKind: !_TypeKind Output
+﻿[_Schema]:categories[_Map_Categories]:[_Identifier]descrBtwn[_Category]:name=descrBtwn
+[_Schema]:categories[_Map_Categories]:[_Identifier]descrBtwn[_Category]:output[_TypeRef(_TypeKind)]:name=DescrBtwn
+[_Schema]:categories[_Map_Categories]:[_Identifier]descrBtwn[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]descrBtwn[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:types[_Map_Type]:[_Identifier]DescrBtwn[_TypeOutput]:description='A description between'
+[_Schema]:types[_Map_Type]:[_Identifier]DescrBtwn[_TypeOutput]:name=DescrBtwn
+[_Schema]:types[_Map_Type]:[_Identifier]DescrBtwn[_TypeOutput]:typeKind=[_TypeKind]Output

@@ -1,28 +1,14 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntUnionSamePrnt: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: String
-        union: PrntUnionSamePrnt
-    items:
-      - !_Aliased
-        name: String
-    name: PrntUnionSamePrnt
-    typeKind: !_TypeKind Union
-  !_Identifier UnionSamePrnt: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: String
-        union: PrntUnionSamePrnt
-      - !_UnionMember
-        name: Boolean
-        union: UnionSamePrnt
-    items:
-      - !_Aliased
-        name: Boolean
-    name: UnionSamePrnt
-    parent: !_TypeRef(_SimpleKind)
-      name: PrntUnionSamePrnt
-      typeKind: !_SimpleKind Union
-    typeKind: !_TypeKind Union
+﻿[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionSamePrnt[_TypeUnion]:allItems.0[_UnionMember]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionSamePrnt[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionSamePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionSamePrnt[_TypeUnion]:items.0[_Aliased]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionSamePrnt[_TypeUnion]:name=PrntUnionSamePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionSamePrnt[_TypeUnion]:typeKind=[_TypeKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSamePrnt[_TypeUnion]:allItems.0[_UnionMember]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSamePrnt[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionSamePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSamePrnt[_TypeUnion]:allItems.1[_UnionMember]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSamePrnt[_TypeUnion]:allItems.1[_UnionMember]:union=UnionSamePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSamePrnt[_TypeUnion]:items.0[_Aliased]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSamePrnt[_TypeUnion]:name=UnionSamePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSamePrnt[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:name=PrntUnionSamePrnt
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSamePrnt[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSamePrnt[_TypeUnion]:typeKind=[_TypeKind]Union

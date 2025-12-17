@@ -1,55 +1,25 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltGnrcPrntDualPrntDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: AltGnrcPrntDualPrntDual
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: alt
-        object: AltGnrcPrntDualPrntDual
-        type: !_ObjBase
-          name: Number
-    alternates:
-      - !_Alternate
-        type: !_ObjBase
-          name: String
-    fields:
-      - !_DualField
-        name: alt
-        type: !_ObjBase
-          name: Number
-    name: AltGnrcPrntDualPrntDual
-    typeKind: !_TypeKind Dual
-  !_Identifier GnrcPrntDualPrntDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: AltGnrcPrntDualPrntDual
-        type: !_ObjBase
-          name: String
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: alt
-        object: AltGnrcPrntDualPrntDual
-        type: !_ObjBase
-          name: Number
-    name: GnrcPrntDualPrntDual
-    parent: !_ObjBase
-      name: RefGnrcPrntDualPrntDual
-      typeArgs:
-        - !_TypeArg
-          name: AltGnrcPrntDualPrntDual
-    typeKind: !_TypeKind Dual
-  !_Identifier RefGnrcPrntDualPrntDual: !_TypeDual
-    name: RefGnrcPrntDualPrntDual
-    parent: !_ObjBase
-      typeParam: ref
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: _Dual
-          typeKind: !_TypeKind Internal
-        name: ref
+﻿[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcPrntDualPrntDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltGnrcPrntDualPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcPrntDualPrntDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcPrntDualPrntDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcPrntDualPrntDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=AltGnrcPrntDualPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcPrntDualPrntDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcPrntDualPrntDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcPrntDualPrntDual[_TypeDual]:fields.0[_DualField]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcPrntDualPrntDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcPrntDualPrntDual[_TypeDual]:name=AltGnrcPrntDualPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]AltGnrcPrntDualPrntDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDualPrntDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltGnrcPrntDualPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDualPrntDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDualPrntDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=alt
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDualPrntDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=AltGnrcPrntDualPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDualPrntDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDualPrntDual[_TypeDual]:name=GnrcPrntDualPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDualPrntDual[_TypeDual]:parent[_ObjBase]:name=RefGnrcPrntDualPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDualPrntDual[_TypeDual]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=AltGnrcPrntDualPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDualPrntDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcPrntDualPrntDual[_TypeDual]:name=RefGnrcPrntDualPrntDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcPrntDualPrntDual[_TypeDual]:parent[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcPrntDualPrntDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcPrntDualPrntDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcPrntDualPrntDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Internal
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcPrntDualPrntDual[_TypeDual]:typeParams.0[_TypeParam]:name=ref

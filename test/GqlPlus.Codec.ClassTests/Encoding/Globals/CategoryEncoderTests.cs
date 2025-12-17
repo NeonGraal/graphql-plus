@@ -28,12 +28,11 @@ public class CategoryEncoderTests
     EncodeAndCheck(new(name, output, contents) {
       Modifiers = [modifier],
     }, [
-        "!_Category",
-        "description: " + contents.QuotedIdentifier(),
-        "modifiers: [List]",
-        "name: " + name,
-        "output: !Output " + outputName,
-        "resolution: !_Resolution Parallel"
+        "[_Category]:description=" + contents.QuotedIdentifier(),
+        "[_Category]:modifiers.0=List",
+        "[_Category]:name=" + name,
+        "[_Category]:output=[Output]" + outputName,
+        "[_Category]:resolution=[_Resolution]Parallel"
         ]);
   }
 }

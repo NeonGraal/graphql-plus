@@ -1,17 +1,8 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumDiff: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: EnumDiff
-        name: one
-      - !_EnumLabel
-        enum: EnumDiff
-        name: two
-    items:
-      - !_Aliased
-        name: one
-      - !_Aliased
-        name: two
-    name: EnumDiff
-    typeKind: !_TypeKind Enum
+﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDiff
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:allItems.0[_EnumLabel]:name=one
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDiff
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:allItems.1[_EnumLabel]:name=two
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:items.0[_Aliased]:name=one
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:items.1[_Aliased]:name=two
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:name=EnumDiff
+[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:typeKind=[_TypeKind]Enum

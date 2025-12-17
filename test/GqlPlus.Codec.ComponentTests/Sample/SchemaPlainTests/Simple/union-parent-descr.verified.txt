@@ -1,29 +1,15 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntUnionPrntDescr: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: Number
-        union: PrntUnionPrntDescr
-    items:
-      - !_Aliased
-        name: Number
-    name: PrntUnionPrntDescr
-    typeKind: !_TypeKind Union
-  !_Identifier UnionPrntDescr: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: Number
-        union: PrntUnionPrntDescr
-      - !_UnionMember
-        name: Number
-        union: UnionPrntDescr
-    items:
-      - !_Aliased
-        name: Number
-    name: UnionPrntDescr
-    parent: !_TypeRef(_SimpleKind)
-      description: 'Parent comment'
-      name: PrntUnionPrntDescr
-      typeKind: !_SimpleKind Union
-    typeKind: !_TypeKind Union
+﻿[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDescr[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDescr[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDescr[_TypeUnion]:items.0[_Aliased]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDescr[_TypeUnion]:name=PrntUnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]PrntUnionPrntDescr[_TypeUnion]:typeKind=[_TypeKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:allItems.0[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:allItems.0[_UnionMember]:union=PrntUnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:allItems.1[_UnionMember]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:allItems.1[_UnionMember]:union=UnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:items.0[_Aliased]:name=Number
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:name=UnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:description='Parent comment'
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:name=PrntUnionPrntDescr
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Union
+[_Schema]:types[_Map_Type]:[_Identifier]UnionPrntDescr[_TypeUnion]:typeKind=[_TypeKind]Union

@@ -9,9 +9,8 @@ public class UnionMemberEncoderTests
   [Theory, RepeatData]
   public void Encode_WithValidModel_ReturnsStructured(string name, string ofUnion, string contents)
     => EncodeAndCheck(new(name, ofUnion, contents), [
-      "!_UnionMember",
-      "description: " + contents.QuotedIdentifier(),
-      "name: " + name,
-      "union: " + ofUnion
+      "[_UnionMember]:description=" + contents.QuotedIdentifier(),
+      "[_UnionMember]:name=" + name,
+      "[_UnionMember]:union=" + ofUnion
       ]);
 }

@@ -7,10 +7,9 @@ public class DomainRegexEncoderTests
     = new DomainRegexEncoder();
 
   protected override string[] ItemExpected(string item, bool excluded)
-    => ["!_DomainRegex",
-        "exclude: " + excluded.TrueFalse(),
-        "pattern: " + item
-        ];
+    => TagAll("_DomainRegex",
+        ":exclude=" + excluded.TrueFalse(),
+        ":pattern=" + item);
   protected override DomainRegexModel NewItem(string item, bool excluded) => new(item, excluded, "");
 }
 

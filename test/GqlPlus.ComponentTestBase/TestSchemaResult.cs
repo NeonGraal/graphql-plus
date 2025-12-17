@@ -1,7 +1,6 @@
 ﻿using System.Reflection.Emit;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Result;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus;
 

@@ -1,6 +1,5 @@
 ﻿using GqlPlus;
 using GqlPlus.Convert;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 

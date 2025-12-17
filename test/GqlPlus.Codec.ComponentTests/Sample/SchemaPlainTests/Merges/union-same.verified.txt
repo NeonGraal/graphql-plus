@@ -1,12 +1,5 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier UnionSame: !_TypeUnion
-    allItems:
-      - !_UnionMember
-        name: Boolean
-        union: UnionSame
-    items:
-      - !_Aliased
-        name: Boolean
-    name: UnionSame
-    typeKind: !_TypeKind Union
+﻿[_Schema]:types[_Map_Type]:[_Identifier]UnionSame[_TypeUnion]:allItems.0[_UnionMember]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSame[_TypeUnion]:allItems.0[_UnionMember]:union=UnionSame
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSame[_TypeUnion]:items.0[_Aliased]:name=Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSame[_TypeUnion]:name=UnionSame
+[_Schema]:types[_Map_Type]:[_Identifier]UnionSame[_TypeUnion]:typeKind=[_TypeKind]Union

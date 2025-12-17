@@ -1,18 +1,19 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "directives": {
-    "$tag": "_Map_Directives",
+    "$mapTag": "_Map_Directives",
     "DrctParam": {
-      "$tag": "_Directive",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Directive",
       "locations": {
-        "$tag": "_Set(_Location)",
+        "$mapTag": "_Set(_Location)",
         "Fragment": "_",
         "Operation": "_"
       },
       "name": "DrctParam",
       "parameters": [
         {
-          "$tag": "_InputParam",
+          "$mapTag": "_InputParam",
           "name": "InDrctParam"
         }
       ],
@@ -20,13 +21,14 @@
     }
   },
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "InDrctParam": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "name": "InDrctParam",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     }
   }

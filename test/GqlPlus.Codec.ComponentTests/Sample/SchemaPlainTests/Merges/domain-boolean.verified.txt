@@ -1,22 +1,13 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnBool: !_DomainBoolean
-    allItems:
-      - !_DomainItem(_DomainTrueFalse)
-        domain: DmnBool
-        exclude: false
-        value: false
-      - !_DomainItem(_DomainTrueFalse)
-        domain: DmnBool
-        exclude: false
-        value: true
-    domainKind: !_DomainKind Boolean
-    items:
-      - !_DomainTrueFalse
-        exclude: false
-        value: false
-      - !_DomainTrueFalse
-        exclude: false
-        value: true
-    name: DmnBool
-    typeKind: !_TypeKind Domain
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:domain=DmnBool
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:allItems.0[_DomainItem(_DomainTrueFalse)]:value=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:domain=DmnBool
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:allItems.1[_DomainItem(_DomainTrueFalse)]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:domainKind=[_DomainKind]Boolean
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:items.0[_DomainTrueFalse]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:items.0[_DomainTrueFalse]:value=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:items.1[_DomainTrueFalse]:exclude=false
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:items.1[_DomainTrueFalse]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:name=DmnBool
+[_Schema]:types[_Map_Type]:[_Identifier]DmnBool[_DomainBoolean]:typeKind=[_TypeKind]Domain

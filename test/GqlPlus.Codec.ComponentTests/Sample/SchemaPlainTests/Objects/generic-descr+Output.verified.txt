@@ -1,23 +1,11 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcDescrOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: field
-        object: GnrcDescrOutp
-        type: !_ObjBase
-          typeParam: type
-    fields:
-      - !_OutputField
-        name: field
-        type: !_ObjBase
-          typeParam: type
-    name: GnrcDescrOutp
-    typeKind: !_TypeKind Output
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        description: 'Test Descr'
-        name: type
+﻿[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=GnrcDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrOutp[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:typeParam=type
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrOutp[_TypeOutput]:name=GnrcDescrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrOutp[_TypeOutput]:typeParams.0[_TypeParam]:description='Test Descr'
+[_Schema]:types[_Map_Type]:[_Identifier]GnrcDescrOutp[_TypeOutput]:typeParams.0[_TypeParam]:name=type

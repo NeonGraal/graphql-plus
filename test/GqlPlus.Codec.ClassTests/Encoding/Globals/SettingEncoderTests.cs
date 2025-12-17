@@ -22,10 +22,9 @@ public class SettingEncoderTests
     _constant.Encode(constant).Returns(new Structured(value));
 
     // Act
-    EncodeAndCheck(new(name, constant, ""), [
-        "!_Setting",
-        "name: " + name,
-        "value: " + value,
-        ]);
+    EncodeAndCheck(new(name, constant, ""),
+      TagAll("_Setting",
+        ":name=" + name,
+        ":value=" + value));
   }
 }

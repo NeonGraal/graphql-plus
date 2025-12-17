@@ -1,33 +1,35 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "categories": {
-    "$tag": "_Map_Categories",
+    "$mapTag": "_Map_Categories",
     "descrBtwn": {
-      "$tag": "_Category",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
       "name": "descrBtwn",
       "output": {
-        "$tag": "_TypeRef(_TypeKind)",
+        "$mapTag": "_TypeRef(_TypeKind)",
         "name": "DescrBtwn",
         "typeKind": {
-          "$tag": "_TypeKind",
-          "$value": "Output"
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
         }
       },
       "resolution": {
-        "$tag": "_Resolution",
-        "$value": "Parallel"
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
       }
     }
   },
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "DescrBtwn": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "description": "A description between",
       "name": "DescrBtwn",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     }
   }

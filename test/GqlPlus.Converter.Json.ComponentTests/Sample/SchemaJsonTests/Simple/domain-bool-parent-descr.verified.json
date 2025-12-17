@@ -1,74 +1,76 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "DmnBoolPrntDescr": {
-      "$tag": "_DomainBoolean",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainBoolean",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "PrntDmnBoolPrntDescr",
           "exclude": false,
           "value": true
         },
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "DmnBoolPrntDescr",
           "exclude": false,
           "value": false
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Boolean"
+        "$value": "Boolean",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": false
         }
       ],
       "name": "DmnBoolPrntDescr",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
+        "$mapTag": "_TypeRef(_SimpleKind)",
         "description": "Parent comment",
         "name": "PrntDmnBoolPrntDescr",
         "typeKind": {
-          "$tag": "_SimpleKind",
-          "$value": "Domain"
+          "$value": "Domain",
+          "$valueTag": "_SimpleKind"
         }
       },
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "PrntDmnBoolPrntDescr": {
-      "$tag": "_DomainBoolean",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainBoolean",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "$mapTag": "_DomainItem(_DomainTrueFalse)",
           "domain": "PrntDmnBoolPrntDescr",
           "exclude": false,
           "value": true
         }
       ],
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "Boolean"
+        "$value": "Boolean",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$mapTag": "_DomainTrueFalse",
           "exclude": false,
           "value": true
         }
       ],
       "name": "PrntDmnBoolPrntDescr",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     }
   }

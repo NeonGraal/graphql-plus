@@ -1,30 +1,14 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier RefGnrcAltModStrDual: !_TypeDual
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        collections:
-          - !_ModifierDictionary
-            by: '*'
-            modifierKind: !_ModifierKind Dict
-            typeKind: !_SimpleKind Basic
-        object: RefGnrcAltModStrDual
-        type: !_ObjBase
-          typeParam: ref
-    alternates:
-      - !_Alternate
-        collections:
-          - !_ModifierDictionary
-            by: '*'
-            modifierKind: !_ModifierKind Dict
-            typeKind: !_SimpleKind Basic
-        type: !_ObjBase
-          typeParam: ref
-    name: RefGnrcAltModStrDual
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: ref
+﻿[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_ModifierDictionary]:by='*'
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:collections.0[_ModifierDictionary]:typeKind=[_SimpleKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefGnrcAltModStrDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:alternates.0[_Alternate]:collections.0[_ModifierDictionary]:by='*'
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:alternates.0[_Alternate]:collections.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:alternates.0[_Alternate]:collections.0[_ModifierDictionary]:typeKind=[_SimpleKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:typeParam=ref
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:name=RefGnrcAltModStrDual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=String
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Basic
+[_Schema]:types[_Map_Type]:[_Identifier]RefGnrcAltModStrDual[_TypeDual]:typeParams.0[_TypeParam]:name=ref

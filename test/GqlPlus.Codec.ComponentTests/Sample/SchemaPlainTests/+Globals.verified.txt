@@ -1,159 +1,141 @@
-﻿!_Schema
-aliases: [Alias]
-categories: !_Map_Categories
-  !_Identifier ctgrDscrs: !_Category
-    description: 'A Category described'
-    name: ctgrDscrs
-    output: !_TypeRef(_TypeKind)
-      name: CtgrDscrs
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-  !_Identifier ctgrOutp: !_Category
-    name: ctgrOutp
-    output: !_TypeRef(_TypeKind)
-      name: CtgrOutp
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-  !_Identifier ctgrOutpDescr: !_Category
-    name: ctgrOutpDescr
-    output: !_TypeRef(_TypeKind)
-      description: 'Output comment'
-      name: CtgrOutpDescr
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-  !_Identifier ctgrOutpDict: !_Category
-    modifiers: [!_ModifierDictionary{by:'*',modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
-    name: ctgrOutpDict
-    output: !_TypeRef(_TypeKind)
-      name: CtgrOutpDict
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-  !_Identifier ctgrOutpList: !_Category
-    modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-    name: ctgrOutpList
-    output: !_TypeRef(_TypeKind)
-      name: CtgrOutpList
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-  !_Identifier ctgrOutpOptl: !_Category
-    modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-    name: ctgrOutpOptl
-    output: !_TypeRef(_TypeKind)
-      name: CtgrOutpOptl
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-  !_Identifier descrBtwn: !_Category
-    name: descrBtwn
-    output: !_TypeRef(_TypeKind)
-      name: DescrBtwn
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-directives: !_Map_Directives
-  !_Identifier DrctDescr: !_Directive
-    description: 'A directive described'
-    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
-    name: DrctDescr
-    repeatable: false
-  !_Identifier DrctNoParam: !_Directive
-    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
-    name: DrctNoParam
-    repeatable: false
-  !_Identifier DrctParamDict: !_Directive
-    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
-    name: DrctParamDict
-    parameters:
-      - !_InputParam
-        modifiers: [!_ModifierDictionary{by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
-        name: InDrctParamDict
-    repeatable: false
-  !_Identifier DrctParamIn: !_Directive
-    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
-    name: DrctParamIn
-    parameters:
-      - !_InputParam
-        name: InDrctParamIn
-    repeatable: false
-  !_Identifier DrctParamList: !_Directive
-    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
-    name: DrctParamList
-    parameters:
-      - !_InputParam
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: InDrctParamList
-    repeatable: false
-  !_Identifier DrctParamOpt: !_Directive
-    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
-    name: DrctParamOpt
-    parameters:
-      - !_InputParam
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: InDrctParamOpt
-    repeatable: false
-name: Schema
-settings: !_Map_Setting
-  !_Identifier descr: !_Setting
-    description: 'Option Descr'
-    name: descr
-    value: true
-  !_Identifier global: !_Setting
-    name: global
-    value: true
-types: !_Map_Type
-  !_Identifier CtgrDscrs: !_TypeOutput
-    name: CtgrDscrs
-    typeKind: !_TypeKind Output
-  !_Identifier CtgrOutp: !_TypeOutput
-    name: CtgrOutp
-    typeKind: !_TypeKind Output
-  !_Identifier CtgrOutpDescr: !_TypeOutput
-    name: CtgrOutpDescr
-    typeKind: !_TypeKind Output
-  !_Identifier CtgrOutpDict: !_TypeOutput
-    name: CtgrOutpDict
-    typeKind: !_TypeKind Output
-  !_Identifier CtgrOutpList: !_TypeOutput
-    name: CtgrOutpList
-    typeKind: !_TypeKind Output
-  !_Identifier CtgrOutpOptl: !_TypeOutput
-    name: CtgrOutpOptl
-    typeKind: !_TypeKind Output
-  !_Identifier Descr: !_TypeOutput
-    description: 'A simple description'
-    name: Descr
-    typeKind: !_TypeKind Output
-  !_Identifier DescrBcks: !_TypeOutput
-    description: 'A backslash ("\\") description'
-    name: DescrBcks
-    typeKind: !_TypeKind Output
-  !_Identifier DescrBtwn: !_TypeOutput
-    description: 'A description between'
-    name: DescrBtwn
-    typeKind: !_TypeKind Output
-  !_Identifier DescrCmpl: !_TypeOutput
-    description: "A \"more\" 'Complicated' \\ description"
-    name: DescrCmpl
-    typeKind: !_TypeKind Output
-  !_Identifier DescrDbl: !_TypeOutput
-    description: "A 'double-quoted' description"
-    name: DescrDbl
-    typeKind: !_TypeKind Output
-  !_Identifier DescrSngl: !_TypeOutput
-    description: 'A "single-quoted" description'
-    name: DescrSngl
-    typeKind: !_TypeKind Output
-  !_Identifier Dscrs: !_TypeOutput
-    description: 'A simple description With extra'
-    name: Dscrs
-    typeKind: !_TypeKind Output
-  !_Identifier InDrctParamDict: !_TypeInput
-    name: InDrctParamDict
-    typeKind: !_TypeKind Input
-  !_Identifier InDrctParamIn: !_TypeInput
-    name: InDrctParamIn
-    typeKind: !_TypeKind Input
-  !_Identifier InDrctParamList: !_TypeInput
-    name: InDrctParamList
-    typeKind: !_TypeKind Input
-  !_Identifier InDrctParamOpt: !_TypeInput
-    name: InDrctParamOpt
-    typeKind: !_TypeKind Input
+﻿[_Schema]:aliases.0=Alias
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:description='A Category described'
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:name=ctgrDscrs
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrDscrs
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutp[_Category]:name=ctgrOutp
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutp[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrOutp
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutp[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutp[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDescr[_Category]:name=ctgrOutpDescr
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDescr[_Category]:output[_TypeRef(_TypeKind)]:description='Output comment'
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDescr[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrOutpDescr
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDescr[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDescr[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:modifiers.0[_ModifierDictionary]:by='*'
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Basic
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:name=ctgrOutpDict
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrOutpDict
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpDict[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpList[_Category]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpList[_Category]:name=ctgrOutpList
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpList[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrOutpList
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpList[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpList[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpOptl[_Category]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpOptl[_Category]:name=ctgrOutpOptl
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpOptl[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrOutpOptl
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpOptl[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpOptl[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:categories[_Map_Categories]:[_Identifier]descrBtwn[_Category]:name=descrBtwn
+[_Schema]:categories[_Map_Categories]:[_Identifier]descrBtwn[_Category]:output[_TypeRef(_TypeKind)]:name=DescrBtwn
+[_Schema]:categories[_Map_Categories]:[_Identifier]descrBtwn[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map_Categories]:[_Identifier]descrBtwn[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:description='A directive described'
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Field=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Fragment=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Inline=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Operation=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Spread=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Variable=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:name=DrctDescr
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:repeatable=false
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Field=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Fragment=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Inline=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Operation=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Spread=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Variable=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:name=DrctNoParam
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:repeatable=false
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:locations[_Set(_Location)]:Field=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:locations[_Set(_Location)]:Fragment=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:locations[_Set(_Location)]:Inline=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:locations[_Set(_Location)]:Operation=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:locations[_Set(_Location)]:Spread=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:locations[_Set(_Location)]:Variable=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:name=DrctParamDict
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:parameters.0[_InputParam]:modifiers.0[_ModifierDictionary]:by=String
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:parameters.0[_InputParam]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:parameters.0[_InputParam]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Basic
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:parameters.0[_InputParam]:name=InDrctParamDict
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamDict[_Directive]:repeatable=false
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamIn[_Directive]:locations[_Set(_Location)]:Field=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamIn[_Directive]:locations[_Set(_Location)]:Fragment=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamIn[_Directive]:locations[_Set(_Location)]:Inline=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamIn[_Directive]:locations[_Set(_Location)]:Operation=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamIn[_Directive]:locations[_Set(_Location)]:Spread=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamIn[_Directive]:locations[_Set(_Location)]:Variable=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamIn[_Directive]:name=DrctParamIn
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamIn[_Directive]:parameters.0[_InputParam]:name=InDrctParamIn
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamIn[_Directive]:repeatable=false
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Field=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Fragment=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Inline=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Operation=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Spread=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:locations[_Set(_Location)]:Variable=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:name=DrctParamList
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:parameters.0[_InputParam]:name=InDrctParamList
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamList[_Directive]:repeatable=false
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:locations[_Set(_Location)]:Field=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:locations[_Set(_Location)]:Fragment=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:locations[_Set(_Location)]:Inline=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:locations[_Set(_Location)]:Operation=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:locations[_Set(_Location)]:Spread=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:locations[_Set(_Location)]:Variable=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:name=DrctParamOpt
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:parameters.0[_InputParam]:name=InDrctParamOpt
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParamOpt[_Directive]:repeatable=false
+[_Schema]:name=Schema
+[_Schema]:settings[_Map_Setting]:[_Identifier]descr[_Setting]:description='Option Descr'
+[_Schema]:settings[_Map_Setting]:[_Identifier]descr[_Setting]:name=descr
+[_Schema]:settings[_Map_Setting]:[_Identifier]descr[_Setting]:value=true
+[_Schema]:settings[_Map_Setting]:[_Identifier]global[_Setting]:name=global
+[_Schema]:settings[_Map_Setting]:[_Identifier]global[_Setting]:value=true
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrDscrs[_TypeOutput]:name=CtgrDscrs
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrDscrs[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutp[_TypeOutput]:name=CtgrOutp
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpDescr[_TypeOutput]:name=CtgrOutpDescr
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpDescr[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpDict[_TypeOutput]:name=CtgrOutpDict
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpDict[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpList[_TypeOutput]:name=CtgrOutpList
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpList[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpOptl[_TypeOutput]:name=CtgrOutpOptl
+[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpOptl[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]Descr[_TypeOutput]:description='A simple description'
+[_Schema]:types[_Map_Type]:[_Identifier]Descr[_TypeOutput]:name=Descr
+[_Schema]:types[_Map_Type]:[_Identifier]Descr[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]DescrBcks[_TypeOutput]:description='A backslash ("\\") description'
+[_Schema]:types[_Map_Type]:[_Identifier]DescrBcks[_TypeOutput]:name=DescrBcks
+[_Schema]:types[_Map_Type]:[_Identifier]DescrBcks[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]DescrBtwn[_TypeOutput]:description='A description between'
+[_Schema]:types[_Map_Type]:[_Identifier]DescrBtwn[_TypeOutput]:name=DescrBtwn
+[_Schema]:types[_Map_Type]:[_Identifier]DescrBtwn[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]DescrCmpl[_TypeOutput]:description="A \"more\" 'Complicated' \\ description"
+[_Schema]:types[_Map_Type]:[_Identifier]DescrCmpl[_TypeOutput]:name=DescrCmpl
+[_Schema]:types[_Map_Type]:[_Identifier]DescrCmpl[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]DescrDbl[_TypeOutput]:description="A 'double-quoted' description"
+[_Schema]:types[_Map_Type]:[_Identifier]DescrDbl[_TypeOutput]:name=DescrDbl
+[_Schema]:types[_Map_Type]:[_Identifier]DescrDbl[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]DescrSngl[_TypeOutput]:description='A "single-quoted" description'
+[_Schema]:types[_Map_Type]:[_Identifier]DescrSngl[_TypeOutput]:name=DescrSngl
+[_Schema]:types[_Map_Type]:[_Identifier]DescrSngl[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]Dscrs[_TypeOutput]:description='A simple description With extra'
+[_Schema]:types[_Map_Type]:[_Identifier]Dscrs[_TypeOutput]:name=Dscrs
+[_Schema]:types[_Map_Type]:[_Identifier]Dscrs[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map_Type]:[_Identifier]InDrctParamDict[_TypeInput]:name=InDrctParamDict
+[_Schema]:types[_Map_Type]:[_Identifier]InDrctParamDict[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]InDrctParamIn[_TypeInput]:name=InDrctParamIn
+[_Schema]:types[_Map_Type]:[_Identifier]InDrctParamIn[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]InDrctParamList[_TypeInput]:name=InDrctParamList
+[_Schema]:types[_Map_Type]:[_Identifier]InDrctParamList[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map_Type]:[_Identifier]InDrctParamOpt[_TypeInput]:name=InDrctParamOpt
+[_Schema]:types[_Map_Type]:[_Identifier]InDrctParamOpt[_TypeInput]:typeKind=[_TypeKind]Input

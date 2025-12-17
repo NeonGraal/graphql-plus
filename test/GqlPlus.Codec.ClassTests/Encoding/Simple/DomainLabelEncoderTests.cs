@@ -14,11 +14,9 @@ public class DomainLabelEncoderTests
   protected override IEncoder<DomainLabelModel> Encoder { get; }
 
   protected override string[] ItemExpected(EnumLabelInput item, bool excluded)
-    => ["!_DomainLabel",
-        "exclude: " + excluded.TrueFalse(),
-        "value:",
-        $"  value: !_EnumValue '{item}'",
-        ];
+    => TagAll("_DomainLabel",
+        ":exclude=" + excluded.TrueFalse(),
+        $":value:value=[_EnumValue]'{item}'");
   protected override DomainLabelModel NewItem(EnumLabelInput item, bool excluded)
   {
     EncodeReturnsMap(_enumValueEncoder, "_EnumValue", item);
@@ -30,10 +28,9 @@ public class DomainItemLabelEncoderTests
   : DomainAllEncoderTestBase<DomainLabelModel, EnumLabelInput>
 {
   protected override string[] AllExpected(string name, EnumLabelInput item)
-    => ["!_DomainItem(_DomainLabel)",
-        "domain: " + name,
-        $"value: !_ItemModel '{item}'",
-        ];
+    => TagAll("_DomainItem(_DomainLabel)",
+        ":domain=" + name,
+        $":value=[_ItemModel]'{item}'");
   protected override DomainLabelModel NewItem(EnumLabelInput item) => new(item.EnumType, item.Label, false, "");
 }
 

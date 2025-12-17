@@ -1,33 +1,35 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "categories": {
-    "$tag": "_Map_Categories",
+    "$mapTag": "_Map_Categories",
     "all": {
-      "$tag": "_Category",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Category",
       "description": "A Category",
       "name": "all",
       "output": {
-        "$tag": "_TypeRef(_TypeKind)",
+        "$mapTag": "_TypeRef(_TypeKind)",
         "description": "Category Result",
         "name": "All",
         "typeKind": {
-          "$tag": "_TypeKind",
-          "$value": "Output"
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
         }
       },
       "resolution": {
-        "$tag": "_Resolution",
-        "$value": "Parallel"
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
       }
     }
   },
   "directives": {
-    "$tag": "_Map_Directives",
+    "$mapTag": "_Map_Directives",
     "all": {
-      "$tag": "_Directive",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Directive",
       "description": "A Directive",
       "locations": {
-        "$tag": "_Set(_Location)",
+        "$mapTag": "_Set(_Location)",
         "Field": "_",
         "Fragment": "_",
         "Inline": "_",
@@ -41,24 +43,26 @@
   },
   "name": "Schema",
   "settings": {
-    "$tag": "_Map_Setting",
+    "$mapTag": "_Map_Setting",
     "all": {
-      "$tag": "_Setting",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_Setting",
       "description": "Schema Setting",
       "name": "all",
       "value": "test"
     }
   },
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "All": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "All",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "description": "Alternates",
             "name": "String"
           }
@@ -66,19 +70,19 @@
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "description": "Some items",
           "name": "items",
           "object": "All",
           "parameters": [
             {
-              "$tag": "_InputParam",
+              "$mapTag": "_InputParam",
               "modifiers": [
                 {
-                  "$tag": "_Modifier",
+                  "$mapTag": "_Modifier",
                   "modifierKind": {
-                    "$tag": "_ModifierKind",
-                    "$value": "Opt"
+                    "$value": "Opt",
+                    "$valueTag": "_ModifierKind"
                   }
                 }
               ],
@@ -86,16 +90,16 @@
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Field"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "description": "Alternates",
             "name": "String"
           }
@@ -104,18 +108,18 @@
       "description": "An Output",
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "description": "Some items",
           "name": "items",
           "parameters": [
             {
-              "$tag": "_InputParam",
+              "$mapTag": "_InputParam",
               "modifiers": [
                 {
-                  "$tag": "_Modifier",
+                  "$mapTag": "_Modifier",
                   "modifierKind": {
-                    "$tag": "_ModifierKind",
-                    "$value": "Opt"
+                    "$value": "Opt",
+                    "$valueTag": "_ModifierKind"
                   }
                 }
               ],
@@ -123,36 +127,37 @@
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Field"
           }
         }
       ],
       "name": "All",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "Field": {
-      "$tag": "_TypeDual",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$mapTag": "_ObjectFor(_DualField)",
           "description": "Some strings",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "strings",
           "object": "Field",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "description": "Strings array",
             "name": "String"
           }
@@ -161,20 +166,20 @@
       "description": "A Dual",
       "fields": [
         {
-          "$tag": "_DualField",
+          "$mapTag": "_DualField",
           "description": "Some strings",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "List"
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "strings",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "description": "Strings array",
             "name": "String"
           }
@@ -182,15 +187,16 @@
       ],
       "name": "Field",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Dual"
+        "$value": "Dual",
+        "$valueTag": "_TypeKind"
       }
     },
     "Guid": {
-      "$tag": "_DomainString",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainRegex)",
+          "$mapTag": "_DomainItem(_DomainRegex)",
           "description": "Guid Regex",
           "domain": "Guid",
           "exclude": false,
@@ -199,12 +205,12 @@
       ],
       "description": "A Domain",
       "domainKind": {
-        "$tag": "_DomainKind",
-        "$value": "String"
+        "$value": "String",
+        "$valueTag": "_DomainKind"
       },
       "items": [
         {
-          "$tag": "_DomainRegex",
+          "$mapTag": "_DomainRegex",
           "description": "Guid Regex",
           "exclude": false,
           "pattern": "[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}"
@@ -212,21 +218,22 @@
       ],
       "name": "Guid",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Domain"
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
       }
     },
     "Many": {
-      "$tag": "_TypeUnion",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeUnion",
       "allItems": [
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "description": "Guid Id",
           "name": "Guid",
           "union": "Many"
         },
         {
-          "$tag": "_UnionMember",
+          "$mapTag": "_UnionMember",
           "description": "Numeric Id",
           "name": "Number",
           "union": "Many"
@@ -235,33 +242,34 @@
       "description": "A Union",
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "description": "Guid Id",
           "name": "Guid"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "description": "Numeric Id",
           "name": "Number"
         }
       ],
       "name": "Many",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Union"
+        "$value": "Union",
+        "$valueTag": "_TypeKind"
       }
     },
     "One": {
-      "$tag": "_TypeEnum",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "description": "Label 2",
           "enum": "One",
           "name": "Two"
         },
         {
-          "$tag": "_EnumLabel",
+          "$mapTag": "_EnumLabel",
           "description": "Label 3",
           "enum": "One",
           "name": "Three"
@@ -270,30 +278,31 @@
       "description": "An Enum",
       "items": [
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "description": "Label 2",
           "name": "Two"
         },
         {
-          "$tag": "_Aliased",
+          "$mapTag": "_Aliased",
           "description": "Label 3",
           "name": "Three"
         }
       ],
       "name": "One",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Enum"
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
       }
     },
     "Param": {
-      "$tag": "_TypeInput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "Param",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "description": "Alternate parameter",
             "name": "String"
           }
@@ -301,32 +310,32 @@
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "description": "First Id",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "afterId",
           "object": "Param",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "description": "Guid or Int",
             "name": "Many"
           }
         },
         {
-          "$tag": "_ObjectFor(_InputField)",
+          "$mapTag": "_ObjectFor(_InputField)",
           "description": "Last Id",
           "name": "beforeId",
           "object": "Param",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "description": "Guid or Int",
             "name": "Many"
           }
@@ -334,9 +343,9 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "description": "Alternate parameter",
             "name": "String"
           }
@@ -345,30 +354,30 @@
       "description": "An Input",
       "fields": [
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "description": "First Id",
           "modifiers": [
             {
-              "$tag": "_Modifier",
+              "$mapTag": "_Modifier",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Opt"
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
               }
             }
           ],
           "name": "afterId",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "description": "Guid or Int",
             "name": "Many"
           }
         },
         {
-          "$tag": "_InputField",
+          "$mapTag": "_InputField",
           "description": "Last Id",
           "name": "beforeId",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "description": "Guid or Int",
             "name": "Many"
           }
@@ -376,8 +385,8 @@
       ],
       "name": "Param",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Input"
+        "$value": "Input",
+        "$valueTag": "_TypeKind"
       }
     }
   }

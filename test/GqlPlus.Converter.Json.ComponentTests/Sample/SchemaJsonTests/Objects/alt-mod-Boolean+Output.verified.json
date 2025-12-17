@@ -1,108 +1,110 @@
 ﻿{
-  "$tag": "_Schema",
+  "$mapTag": "_Schema",
   "types": {
-    "$tag": "_Map_Type",
+    "$mapTag": "_Map_Type",
     "AltAltModBoolOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "object": "AltAltModBoolOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "alt",
           "object": "AltAltModBoolOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$mapTag": "_OutputField",
           "name": "alt",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "AltAltModBoolOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     },
     "AltModBoolOutp": {
-      "$tag": "_TypeOutput",
+      "$keyTag": "_Identifier",
+      "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate)",
+          "$mapTag": "_ObjectFor(_Alternate)",
           "collections": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "^",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               },
               "typeKind": {
-                "$tag": "_SimpleKind",
-                "$value": "Basic"
+                "$value": "Basic",
+                "$valueTag": "_SimpleKind"
               }
             }
           ],
           "object": "AltModBoolOutp",
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "AltAltModBoolOutp"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate",
+          "$mapTag": "_Alternate",
           "collections": [
             {
-              "$tag": "_ModifierDictionary",
+              "$mapTag": "_ModifierDictionary",
               "by": "^",
               "modifierKind": {
-                "$tag": "_ModifierKind",
-                "$value": "Dict"
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
               },
               "typeKind": {
-                "$tag": "_SimpleKind",
-                "$value": "Basic"
+                "$value": "Basic",
+                "$valueTag": "_SimpleKind"
               }
             }
           ],
           "type": {
-            "$tag": "_ObjBase",
+            "$mapTag": "_ObjBase",
             "name": "AltAltModBoolOutp"
           }
         }
       ],
       "name": "AltModBoolOutp",
       "typeKind": {
-        "$tag": "_TypeKind",
-        "$value": "Output"
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
       }
     }
   }

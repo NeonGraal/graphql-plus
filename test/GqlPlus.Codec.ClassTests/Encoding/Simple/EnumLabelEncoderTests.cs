@@ -7,10 +7,9 @@ public class EnumLabelEncoderTests : EncoderClassTestBase<EnumLabelModel>
 
   [Theory, RepeatData]
   public void Encode_WithValidModel_ReturnsStructured(string name, string ofEnum, string contents)
-    => EncodeAndCheck(new(name, ofEnum, contents), [
-      "!_EnumLabel",
-      "description: " + contents.QuotedIdentifier(),
-      "enum: " + ofEnum,
-      "name: " + name
-      ]);
+    => EncodeAndCheck(new(name, ofEnum, contents),
+      TagAll("_EnumLabel",
+      ":description=" + contents.QuotedIdentifier(),
+      ":enum=" + ofEnum,
+      ":name=" + name));
 }

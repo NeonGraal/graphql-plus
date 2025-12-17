@@ -1,7 +1,9 @@
-﻿!_Schema
-directives: !_Map_Directives
-  !_Identifier DrctDescr: !_Directive
-    description: 'A directive described'
-    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
-    name: DrctDescr
-    repeatable: false
+﻿[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:description='A directive described'
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Field=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Fragment=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Inline=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Operation=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Spread=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:locations[_Set(_Location)]:Variable=_
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:name=DrctDescr
+[_Schema]:directives[_Map_Directives]:[_Identifier]DrctDescr[_Directive]:repeatable=false

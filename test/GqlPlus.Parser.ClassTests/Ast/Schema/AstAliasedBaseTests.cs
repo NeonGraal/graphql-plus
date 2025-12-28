@@ -33,7 +33,9 @@ public abstract class AstAliasedBaseTests<TInput>
 
   [Theory, RepeatData]
   public void Inequality_WithAlias(TInput input, string aliased)
-    => AliasedChecks.Inequality_WithAliases(input, aliased + "Z");
+    => AliasedChecks
+    .SkipEqual(aliased, aliased + "Z")
+    .Inequality_WithAliases(input, aliased + "Z");
 
   [Theory, RepeatData]
   public void Inequality_WithAliases(TInput input, string alias1, string alias2)

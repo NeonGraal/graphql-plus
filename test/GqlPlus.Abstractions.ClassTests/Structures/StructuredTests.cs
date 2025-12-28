@@ -30,14 +30,14 @@ public class StructuredTests
   [Fact]
   public void IsEmpty_New_IsTrue()
   {
-    Structured result = new((bool?)null);
+    Structured result = Structured.Empty();
 
     result.IsEmpty.ShouldBeTrue();
   }
   [Theory, RepeatData]
   public void IsEmpty_Tagged_IsTrue(string tag)
   {
-    Structured result = new((bool?)null, tag);
+    Structured result = Structured.Empty(tag);
 
     result.IsEmpty.ShouldBeTrue();
   }
@@ -230,16 +230,16 @@ public class StructuredTests
   [Fact]
   public void Equals_New_IsTrue()
   {
-    Structured result = new((bool?)null);
+    Structured result = Structured.Empty();
 
-    result.Equals(new((bool?)null)).ShouldBeTrue();
+    result.Equals(Structured.Empty()).ShouldBeTrue();
   }
   [Theory, RepeatData]
   public void Equals_Tagged_IsFalse(string tag)
   {
-    Structured result = new((bool?)null, tag);
+    Structured result = Structured.Empty(tag);
 
-    result.Equals(new((bool?)null)).ShouldBeFalse();
+    result.Equals(Structured.Empty()).ShouldBeFalse();
   }
 
   [Theory, RepeatData]
@@ -266,14 +266,14 @@ public class StructuredTests
   [Fact]
   public void GetHashCode_New_IsCorrect()
   {
-    Structured result = new((bool?)null);
+    Structured result = Structured.Empty();
 
     result.GetHashCode().ShouldNotBe(0);
   }
   [Theory, RepeatData]
   public void GetHashCode_Tagged_IsCorrect(string tag)
   {
-    Structured result = new((bool?)null, tag);
+    Structured result = Structured.Empty(tag);
 
     result.GetHashCode().ShouldNotBe(0);
   }

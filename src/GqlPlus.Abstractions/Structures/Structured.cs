@@ -13,6 +13,8 @@ public class Structured
 
   public bool Flow { get; }
 
+  public static Structured Empty(string? tag = null) => new(default(string), tag);
+
   public Structured(bool? value, string? tag = null)
     : base(new StructureValue(value, tag)) => Tag = tag.IfWhiteSpace();
   public Structured(string? value, string? tag = null)

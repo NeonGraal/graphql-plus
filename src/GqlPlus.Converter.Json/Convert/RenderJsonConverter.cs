@@ -3,16 +3,6 @@
 internal abstract class RenderJsonConverter<T>
   : JsonConverter<T>
 {
-  protected StructureValue? ReadValue(ref Utf8JsonReader reader)
-  => reader.TokenType switch {
-    JsonTokenType.Number => new(reader.GetDecimal()),
-    JsonTokenType.False or JsonTokenType.True => new(reader.GetBoolean()),
-    JsonTokenType.String or JsonTokenType.PropertyName => new(reader.GetString()),
-    JsonTokenType.Null => new((string?)null),
-    // JsonTokenType.Comment , 
-    _ => null,
-  };
-
   protected void WriteTag(Utf8JsonWriter writer, string tag, string tagName)
   {
     if (!string.IsNullOrWhiteSpace(tag)) {

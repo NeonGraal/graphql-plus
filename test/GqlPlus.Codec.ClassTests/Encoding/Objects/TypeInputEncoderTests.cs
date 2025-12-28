@@ -46,13 +46,13 @@ public class TypeInputEncoderTests
 
     EncodeAndCheck(model,
       TagAll("_TypeInput",
-      $":allAlternates.0:value=[_AlternateFor]" + alternateType.QuotedIdentifier(),
-      $":allFields.0:value=[_DualField]" + fieldName.QuotedIdentifier(),
-      $":alternates.0:value=[_Alternate]" + alternateType.QuotedIdentifier(),
-      $":fields.0:value=[_Field]" + fieldName.QuotedIdentifier(),
+      ":allAlternates.0:value=[_AlternateFor]" + alternateType.QuotedIdentifier(),
+      ":allFields.0:value=[_DualField]" + fieldName.QuotedIdentifier(),
+      ":alternates.0:value=[_Alternate]" + alternateType.QuotedIdentifier(),
+      ":fields.0:value=[_Field]" + fieldName.QuotedIdentifier(),
       ":name=" + name,
-      $":parent:value=[_Parent]" + parentType.QuotedIdentifier(),
+      ":parent:value=[_Parent]" + parentType.QuotedIdentifier(),
       ":typeKind=[_TypeKind]Input",
-      $":typeParams.0:value=[_TypeParam]" + paramName.QuotedIdentifier()));
+      ":typeParams.0:value=[_TypeParam]" + paramName.QuotedIdentifier()));
   }
 }

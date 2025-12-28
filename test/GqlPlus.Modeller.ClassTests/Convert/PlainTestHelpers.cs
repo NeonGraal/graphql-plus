@@ -1,15 +1,15 @@
-﻿using Xunit.Sdk;
-
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
 internal static class PlainTestHelpers
 {
   internal static IConvertTestsBase Converters { get; } = new PlainConverters();
 
   internal static Func<string?, string[]> Tagged(this string tag, string prefix = "=")
-    => value => [string.IsNullOrWhiteSpace(tag)
-      ? prefix + value.IfWhiteSpace()
-      : $"{prefix}[{tag}]{value}"];
+    => value => string.IsNullOrWhiteSpace(tag) ?
+      string.IsNullOrEmpty(value)
+        ? []
+        : [$"{prefix}{value}"]
+      : [$"{prefix}[{tag}]{value}"];
 
   internal static string[] BlockList<T>(this T[]? list, Func<T?, string[]> mapper, string listTag)
     => list is null ? []
@@ -30,7 +30,7 @@ internal static class PlainTestHelpers
     : IConvertTestsBase
   {
     public Structured ConvertFrom(string[] input)
-      => throw SkipException.ForSkip("Plain Deserialize not implemented (yet)");
+      => input.FromPlain();
     public string[] ConvertTo(Structured model)
       => model.ToPlain(false);
   }

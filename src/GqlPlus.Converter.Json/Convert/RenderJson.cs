@@ -8,10 +8,7 @@ public static class RenderJson
 
   private static JsonSerializerOptions JsonOptions(bool indented)
     => new() {
-      Converters = {
-      new RenderStructureJsonConverter(),
-        RenderStructureJsonConverter.ValueConverter,
-      },
+      Converters = { new RenderStructureJsonConverter(), },
       DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
       PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
       WriteIndented = indented,

@@ -12,6 +12,8 @@ public sealed class StructureValue
 
   public string? Identifier { get; private init; }
 
+  public static StructureValue Empty(string? tag = null) => new(default(string), tag);
+
   public StructureValue(bool? value, string? tag = null)
     : base(value, tag) { }
   public StructureValue(string? value, string? tag = null)

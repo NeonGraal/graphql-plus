@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DmnStrNonEmpty: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DmnStrNonEmpty
+      exclude: true
+      pattern: '\s*'
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: true
+      pattern: '\s*'
+    name: DmnStrNonEmpty
+    typeKind: !_TypeKind Domain

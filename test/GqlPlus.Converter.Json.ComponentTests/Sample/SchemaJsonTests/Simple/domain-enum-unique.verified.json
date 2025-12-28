@@ -2,6 +2,77 @@
   "$mapTag": "_Schema",
   "types": {
     "$mapTag": "_Map_Type",
+    "DmnEnumUnq": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnq",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "*",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnq",
+          "exclude": true,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnq",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "*",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": true,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnq",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "name": "DmnEnumUnq",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "EnumDmnEnumUnq": {
       "$keyTag": "_Identifier",
       "$mapTag": "_TypeEnum",

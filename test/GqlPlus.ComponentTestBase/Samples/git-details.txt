@@ -1,1 +1,1 @@
-64fb53f  (HEAD -> verify-constraint) 2025-11-07 Correct object parents in samples
+8b2f9dd  (HEAD -> excluded) 2025-12-29 Correct Domain singular errors

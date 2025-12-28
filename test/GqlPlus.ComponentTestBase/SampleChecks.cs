@@ -25,6 +25,7 @@ public class SampleChecks
     ["Optional"] = "Optl",
     ["Output"] = "Outp",
     ["Parent"] = "Prnt",
+    ["Positive"] = "Pstv",
     ["Schema"] = "Schm",
     ["Setting"] = "Stng",
     ["Simple"] = "Smpl",

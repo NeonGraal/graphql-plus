@@ -1,0 +1,34 @@
+﻿{
+  "$mapTag": "_Schema",
+  "types": {
+    "$mapTag": "_Map_Type",
+    "DmnNmbrPstv": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrPstv",
+          "exclude": true,
+          "to": 0
+        }
+      ],
+      "domainKind": {
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": true,
+          "to": 0
+        }
+      ],
+      "name": "DmnNmbrPstv",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    }
+  }
+}

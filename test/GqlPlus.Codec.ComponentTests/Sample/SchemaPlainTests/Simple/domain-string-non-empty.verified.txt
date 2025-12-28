@@ -1,0 +1,8 @@
+﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnStrNonEmpty[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=DmnStrNonEmpty
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrNonEmpty[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrNonEmpty[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='\\s*'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrNonEmpty[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrNonEmpty[_DomainString]:items.0[_DomainRegex]:exclude=true
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrNonEmpty[_DomainString]:items.0[_DomainRegex]:pattern='\\s*'
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrNonEmpty[_DomainString]:name=DmnStrNonEmpty
+[_Schema]:types[_Map_Type]:[_Identifier]DmnStrNonEmpty[_DomainString]:typeKind=[_TypeKind]Domain

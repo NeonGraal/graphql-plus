@@ -163,6 +163,20 @@ Success
   prnt_dmnEnumPrntDescr
 }
 {
+  !Do I@008/0033
+  DmnEnumUnq
+  Enum
+  !DE I@026/0033
+  EnumDmnEnumUnq
+  *
+  !DE P@043/0033
+  EnumDmnEnumUnq
+  !dmnEnumUnq
+  !DE I@070/0033
+  DupDmnEnumUnq
+  dmnEnumUnq
+}
+{
   !En I@006/0034
   EnumDmnEnumUnq
   !EL I@023/0034
@@ -177,6 +191,20 @@ Success
   dmnEnumUnq
   !EL I@030/0035
   dup_dmnEnumUnq
+}
+{
+  !Do I@008/0037
+  DmnEnumUnqPrnt
+  Enum
+  !DE I@030/0037
+  EnumDmnEnumUnqPrnt
+  *
+  !DE P@051/0037
+  PrntDmnEnumUnqPrnt
+  !dmnEnumUnqPrnt
+  !DE I@086/0037
+  DupDmnEnumUnqPrnt
+  dmnEnumUnqPrnt
 }
 {
   !En I@006/0038
@@ -241,190 +269,199 @@ Success
   DmnNmbrDescr
   Number
   !DN P@050/0049
-  <
-    2
-  }
-  {
-    !Do I@008/0051
-    DmnNmbrPrnt
-    Number
-    :( !Tr I@023/0051 PrntDmnNmbrPrnt )
-    !DN N@046/0051
-    2
-  >
+  <2
+}
+{
+  !Do I@008/0051
+  DmnNmbrPrnt
+  Number
+  :( !Tr I@023/0051 PrntDmnNmbrPrnt )
+  !DN N@046/0051
+  2>
 }
 {
   !Do I@008/0052
   PrntDmnNmbrPrnt
   Number
   !DN P@033/0052
-  <
-    2
-  }
-  {
-    !Do I@008/0054
-    DmnNmbrPrntDescr
-    Number
-    :( 'Parent comment' !Tr I@044/0054 PrntDmnNmbrPrntDescr )
-    !DN N@072/0054
-    2
-  >
+  <2
+}
+{
+  !Do I@008/0054
+  DmnNmbrPrntDescr
+  Number
+  :( 'Parent comment' !Tr I@044/0054 PrntDmnNmbrPrntDescr )
+  !DN N@072/0054
+  2>
 }
 {
   !Do I@008/0055
   PrntDmnNmbrPrntDescr
   Number
   !DN P@038/0055
-  <
-    2
-  }
-  {
-    !Do I@008/0057
-    DmnStrDescr
-    String
-    !DX R@049/0057
-    /a+/
-  }
-  {
-    !Do I@008/0059
-    DmnStrPrnt
-    String
-    :( !Tr I@022/0059 PrntDmnStrPrnt )
-    !DX R@044/0059
-    /a+/
-  }
-  {
-    !Do I@008/0060
-    PrntDmnStrPrnt
-    String
-    !DX R@032/0060
-    /b+/
-  }
-  {
-    !Do I@008/0062
-    DmnStrPrntDescr
-    String
-    :( 'Parent comment' !Tr I@043/0062 PrntDmnStrPrntDescr )
-    !DX R@070/0062
-    /a+/
-  }
-  {
-    !Do I@008/0063
-    PrntDmnStrPrntDescr
-    String
-    !DX R@037/0063
-    /b+/
-  }
-  {
-    !En I@006/0065
-    EnumDescr
-    'Enum Descr'
-    !EL I@033/0065
-    enumDescr
-  }
-  {
-    !En I@006/0067
-    EnumPrnt
-    :( !Tr I@018/0067 PrntEnumPrnt )
-    !EL I@031/0067
-    enumPrnt
-  }
-  {
-    !En I@006/0068
-    PrntEnumPrnt
-    !EL I@021/0068
-    prnt_enumPrnt
-  }
-  {
-    !En I@006/0070
-    EnumPrntAlias
-    :( !Tr I@023/0070 PrntEnumPrntAlias )
-    !EL I@041/0070
-    val_enumPrntAlias
-    !EL I@059/0070
-    prnt_enumPrntAlias
-    [
-      enumPrntAlias
-    ]
-  }
-  {
-    !En I@006/0071
-    PrntEnumPrntAlias
-    !EL I@026/0071
-    prnt_enumPrntAlias
-  }
-  {
-    !En I@006/0073
-    EnumPrntDescr
-    :( 'Parent comment' !Tr I@041/0073 PrntEnumPrntDescr )
-    !EL I@059/0073
-    enumPrntDescr
-  }
-  {
-    !En I@006/0074
-    PrntEnumPrntDescr
-    !EL I@026/0074
-    prnt_enumPrntDescr
-  }
-  {
-    !En I@006/0076
-    EnumPrntDup
-    :( !Tr I@021/0076 PrntEnumPrntDup )
-    !EL I@037/0076
+  <2
+}
+{
+  !Do I@008/0057
+  DmnNmbrPstv
+  Number
+  !DN P@029/0057
+  !<0
+}
+{
+  !Do I@008/0059
+  DmnStrDescr
+  String
+  !DX R@049/0059
+  /a+/
+}
+{
+  !Do I@008/0061
+  DmnStrNonEmpty
+  String
+  !DX P@032/0061
+  !/\\s*/
+}
+{
+  !Do I@008/0063
+  DmnStrPrnt
+  String
+  :( !Tr I@022/0063 PrntDmnStrPrnt )
+  !DX R@044/0063
+  /a+/
+}
+{
+  !Do I@008/0064
+  PrntDmnStrPrnt
+  String
+  !DX R@032/0064
+  /b+/
+}
+{
+  !Do I@008/0066
+  DmnStrPrntDescr
+  String
+  :( 'Parent comment' !Tr I@043/0066 PrntDmnStrPrntDescr )
+  !DX R@070/0066
+  /a+/
+}
+{
+  !Do I@008/0067
+  PrntDmnStrPrntDescr
+  String
+  !DX R@037/0067
+  /b+/
+}
+{
+  !En I@006/0069
+  EnumDescr
+  'Enum Descr'
+  !EL I@033/0069
+  enumDescr
+}
+{
+  !En I@006/0071
+  EnumPrnt
+  :( !Tr I@018/0071 PrntEnumPrnt )
+  !EL I@031/0071
+  enumPrnt
+}
+{
+  !En I@006/0072
+  PrntEnumPrnt
+  !EL I@021/0072
+  prnt_enumPrnt
+}
+{
+  !En I@006/0074
+  EnumPrntAlias
+  :( !Tr I@023/0074 PrntEnumPrntAlias )
+  !EL I@041/0074
+  val_enumPrntAlias
+  !EL I@059/0074
+  prnt_enumPrntAlias
+  [
+    enumPrntAlias
+  ]
+}
+{
+  !En I@006/0075
+  PrntEnumPrntAlias
+  !EL I@026/0075
+  prnt_enumPrntAlias
+}
+{
+  !En I@006/0077
+  EnumPrntDescr
+  :( 'Parent comment' !Tr I@041/0077 PrntEnumPrntDescr )
+  !EL I@059/0077
+  enumPrntDescr
+}
+{
+  !En I@006/0078
+  PrntEnumPrntDescr
+  !EL I@026/0078
+  prnt_enumPrntDescr
+}
+{
+  !En I@006/0080
+  EnumPrntDup
+  :( !Tr I@021/0080 PrntEnumPrntDup )
+  !EL I@037/0080
+  enumPrntDup
+}
+{
+  !En I@006/0081
+  PrntEnumPrntDup
+  !EL I@024/0081
+  prnt_enumPrntDup
+  [
     enumPrntDup
-  }
-  {
-    !En I@006/0077
-    PrntEnumPrntDup
-    !EL I@024/0077
-    prnt_enumPrntDup
-    [
-      enumPrntDup
-    ]
-  }
-  {
-    !Un I@007/0079
-    UnionDescr
-    'Union Descr'
-    !UM I@036/0079
-    Number
-  }
-  {
-    !Un I@007/0081
-    UnionPrnt
-    :( !Tr I@020/0081 PrntUnionPrnt )
-    !UM I@034/0081
-    String
-  }
-  {
-    !Un I@007/0082
-    PrntUnionPrnt
-    !UM I@023/0082
-    Number
-  }
-  {
-    !Un I@007/0084
-    UnionPrntDescr
-    :( 'Parent comment' !Tr I@041/0084 PrntUnionPrntDescr )
-    !UM I@060/0084
-    Number
-  }
-  {
-    !Un I@007/0085
-    PrntUnionPrntDescr
-    !UM I@028/0085
-    Number
-  }
-  {
-    !Un I@007/0087
-    UnionPrntDup
-    :( !Tr I@023/0087 PrntUnionPrntDup )
-    !UM I@040/0087
-    Number
-  }
-  {
-    !Un I@007/0088
-    PrntUnionPrntDup
-    !UM I@026/0088
-    Number
-  }
+  ]
+}
+{
+  !Un I@007/0083
+  UnionDescr
+  'Union Descr'
+  !UM I@036/0083
+  Number
+}
+{
+  !Un I@007/0085
+  UnionPrnt
+  :( !Tr I@020/0085 PrntUnionPrnt )
+  !UM I@034/0085
+  String
+}
+{
+  !Un I@007/0086
+  PrntUnionPrnt
+  !UM I@023/0086
+  Number
+}
+{
+  !Un I@007/0088
+  UnionPrntDescr
+  :( 'Parent comment' !Tr I@041/0088 PrntUnionPrntDescr )
+  !UM I@060/0088
+  Number
+}
+{
+  !Un I@007/0089
+  PrntUnionPrntDescr
+  !UM I@028/0089
+  Number
+}
+{
+  !Un I@007/0091
+  UnionPrntDup
+  :( !Tr I@023/0091 PrntUnionPrntDup )
+  !UM I@040/0091
+  Number
+}
+{
+  !Un I@007/0092
+  PrntUnionPrntDup
+  !UM I@026/0092
+  Number
+}

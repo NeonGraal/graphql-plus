@@ -474,6 +474,148 @@
         "$valueTag": "_TypeKind"
       }
     },
+    "DmnEnumUnq": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnq",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "*",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnq",
+          "exclude": true,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnq",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "*",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": true,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnq",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "name": "DmnEnumUnq",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "DmnEnumUnqPrnt": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainEnum",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnqPrnt",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "*",
+            "name": "EnumDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnqPrnt",
+          "exclude": true,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnqPrnt",
+            "name": "PrntDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "*",
+            "name": "EnumDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": true,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnqPrnt",
+            "name": "PrntDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "name": "DmnEnumUnqPrnt",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "DmnEnumValue": {
       "$keyTag": "_Identifier",
       "$mapTag": "_DomainEnum",
@@ -677,6 +819,34 @@
         "$valueTag": "_TypeKind"
       }
     },
+    "DmnNmbrPstv": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrPstv",
+          "exclude": true,
+          "to": 0
+        }
+      ],
+      "domainKind": {
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": true,
+          "to": 0
+        }
+      ],
+      "name": "DmnNmbrPstv",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "DmnStrDescr": {
       "$keyTag": "_Identifier",
       "$mapTag": "_DomainString",
@@ -702,6 +872,34 @@
         }
       ],
       "name": "DmnStrDescr",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "DmnStrNonEmpty": {
+      "$keyTag": "_Identifier",
+      "$mapTag": "_DomainString",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRegex)",
+          "domain": "DmnStrNonEmpty",
+          "exclude": true,
+          "pattern": "\\s*"
+        }
+      ],
+      "domainKind": {
+        "$value": "String",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRegex",
+          "exclude": true,
+          "pattern": "\\s*"
+        }
+      ],
+      "name": "DmnStrNonEmpty",
       "typeKind": {
         "$value": "Domain",
         "$valueTag": "_TypeKind"

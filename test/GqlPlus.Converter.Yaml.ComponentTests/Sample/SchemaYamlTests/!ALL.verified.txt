@@ -2830,6 +2830,70 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
     name: DmnEnumSame
     typeKind: !_TypeKind Domain
+  !_Identifier DmnEnumUnq: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: DmnEnumUnq
+      exclude: false
+      value: !_EnumValue
+        label: '*'
+        name: EnumDmnEnumUnq
+        typeKind: !_SimpleKind Enum
+    - !_DomainItem(_DomainLabel)
+      domain: DmnEnumUnq
+      exclude: true
+      value: !_EnumValue
+        label: dmnEnumUnq
+        name: EnumDmnEnumUnq
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: '*'
+        name: EnumDmnEnumUnq
+        typeKind: !_SimpleKind Enum
+    - !_DomainLabel
+      exclude: true
+      value: !_EnumValue
+        label: dmnEnumUnq
+        name: EnumDmnEnumUnq
+        typeKind: !_SimpleKind Enum
+    name: DmnEnumUnq
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnEnumUnqPrnt: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: DmnEnumUnqPrnt
+      exclude: false
+      value: !_EnumValue
+        label: '*'
+        name: EnumDmnEnumUnqPrnt
+        typeKind: !_SimpleKind Enum
+    - !_DomainItem(_DomainLabel)
+      domain: DmnEnumUnqPrnt
+      exclude: true
+      value: !_EnumValue
+        label: dmnEnumUnqPrnt
+        name: PrntDmnEnumUnqPrnt
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: '*'
+        name: EnumDmnEnumUnqPrnt
+        typeKind: !_SimpleKind Enum
+    - !_DomainLabel
+      exclude: true
+      value: !_EnumValue
+        label: dmnEnumUnqPrnt
+        name: PrntDmnEnumUnqPrnt
+        typeKind: !_SimpleKind Enum
+    name: DmnEnumUnqPrnt
+    typeKind: !_TypeKind Domain
   !_Identifier DmnEnumValue: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
@@ -2943,6 +3007,19 @@ types: !_Map_Type
       name: PrntDmnNmbrPrntDescr
       typeKind: !_SimpleKind Domain
     typeKind: !_TypeKind Domain
+  !_Identifier DmnNmbrPstv: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: DmnNmbrPstv
+      exclude: true
+      to: 0
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: true
+      to: 0
+    name: DmnNmbrPstv
+    typeKind: !_TypeKind Domain
   !_Identifier DmnNmbrSame: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
@@ -2989,6 +3066,19 @@ types: !_Map_Type
       exclude: false
       pattern: 'a+'
     name: DmnStrDiff
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnStrNonEmpty: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DmnStrNonEmpty
+      exclude: true
+      pattern: '\s*'
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: true
+      pattern: '\s*'
+    name: DmnStrNonEmpty
     typeKind: !_TypeKind Domain
   !_Identifier DmnStrPrnt: !_DomainString
     allItems:

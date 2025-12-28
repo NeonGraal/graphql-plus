@@ -1,6 +1,17 @@
 ﻿[  
-!Sc I@001/0002
+!Sc I@001/0001
 Success
+{
+  !Do I@008/0001
+  DmnEnumUnqPrnt
+  Enum
+  !DE I@030/0001
+  EnumDmnEnumUnqPrnt
+  *
+  !DE P@051/0001
+  PrntDmnEnumUnqPrnt
+  !dmnEnumUnqPrnt
+}
 {
   !En I@006/0002
   EnumDmnEnumUnqPrnt

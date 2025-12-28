@@ -1,0 +1,11 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnStrNonEmpty
+  String
+  !DX P@032/0001
+  !/\\s*/
+}
+]

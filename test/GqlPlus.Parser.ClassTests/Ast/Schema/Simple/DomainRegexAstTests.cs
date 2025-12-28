@@ -1,10 +1,16 @@
 ﻿namespace GqlPlus.Ast.Schema.Simple;
 
-public class DomainRegexAstTests
-  : AstAbbreviatedBaseTests
+public partial class DomainRegexAstTests
 {
-  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
+  [CheckTests(Inherited = true)]
+  private IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
     = new DomainRegexAstChecks();
+
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; }
+    = new CloneChecks<string, DomainRegexAst>(DomainRegexAstChecks.CreateRegex, CloneRegex);
+  private static DomainRegexAst CloneRegex(DomainRegexAst original, string input)
+    => original with { Pattern = input };
 }
 
 internal sealed class DomainRegexAstChecks()
@@ -13,8 +19,6 @@ internal sealed class DomainRegexAstChecks()
   protected override string AbbreviatedString(string input)
     => $"( !DX /{input}/ )";
 
-  private static DomainRegexAst CloneRegex(DomainRegexAst original, string input)
-    => original with { Pattern = input };
-  private static DomainRegexAst CreateRegex(string input)
+  internal static DomainRegexAst CreateRegex(string input)
     => new(AstNulls.At, "", false, input);
 }

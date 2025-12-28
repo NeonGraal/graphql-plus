@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DmnNmbrPstv: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: DmnNmbrPstv
+      exclude: true
+      to: 0
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: true
+      to: 0
+    name: DmnNmbrPstv
+    typeKind: !_TypeKind Domain

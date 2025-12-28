@@ -3,9 +3,9 @@
 Success
 {
   !Do I@008/0001
-  DmnNmbrDescr
+  DmnNmbrPstv
   Number
-  !DN P@050/0001
-  <2
+  !DN P@029/0001
+  !<0
 }
 ]

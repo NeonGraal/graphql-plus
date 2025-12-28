@@ -23,7 +23,7 @@ public class TypeParamEncoderTests
 
     EncodeAndCheck(new(input, contents, typeRef),
       TagAll("_TypeParam",
-        $":constraint:value=[_TypeRef]" + typeName.QuotedIdentifier(),
+        ":constraint:value=[_TypeRef]" + typeName.QuotedIdentifier(),
         ":description=" + contents.QuotedIdentifier(),
         ":name=" + input));
   }

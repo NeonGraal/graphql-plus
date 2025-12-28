@@ -3,8 +3,6 @@
 internal sealed class RenderStructureJsonConverter
   : RenderJsonConverter<Structured>
 {
-  internal static RenderValueJsonConverter ValueConverter { get; } = new();
-
   public override Structured? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     => new ReadJson().ReadStructured(ref reader).Result;
   public override void Write(Utf8JsonWriter writer, Structured value, JsonSerializerOptions options)

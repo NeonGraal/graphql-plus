@@ -22,6 +22,6 @@ public class ObjectForEncoderTests
     EncodeAndCheck(new(new(input, "", default!), name),
       TagAll("_ObjectFor(_TypeParam)",
         ":object=" + name,
-        $":value=[_TypeParam]" + input.QuotedIdentifier()));
+        ":value=[_TypeParam]" + input.QuotedIdentifier()));
   }
 }

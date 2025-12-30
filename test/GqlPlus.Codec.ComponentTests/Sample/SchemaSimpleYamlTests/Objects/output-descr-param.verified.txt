@@ -1,0 +1,50 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FldOutpDescrParam: !_TypeDual
+    name: FldOutpDescrParam
+    typeKind: !_TypeKind Dual
+  !_Identifier InOutpDescrParam: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: InOutpDescrParam
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: param
+        object: InOutpDescrParam
+        type: !_ObjBase
+          name: Number
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_InputField
+        name: param
+        type: !_ObjBase
+          name: Number
+    name: InOutpDescrParam
+    typeKind: !_TypeKind Input
+  !_Identifier OutpDescrParam: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        description: 'Test Descr'
+        name: field
+        object: OutpDescrParam
+        parameters:
+          - !_InputParam
+            name: InOutpDescrParam
+        type: !_ObjBase
+          name: FldOutpDescrParam
+    fields:
+      - !_OutputField
+        description: 'Test Descr'
+        name: field
+        parameters:
+          - !_InputParam
+            name: InOutpDescrParam
+        type: !_ObjBase
+          name: FldOutpDescrParam
+    name: OutpDescrParam
+    typeKind: !_TypeKind Output

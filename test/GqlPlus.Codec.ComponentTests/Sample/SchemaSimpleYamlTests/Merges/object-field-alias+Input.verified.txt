@@ -1,0 +1,21 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FldObjFieldAliasInp: !_TypeInput
+    name: FldObjFieldAliasInp
+    typeKind: !_TypeKind Input
+  !_Identifier ObjFieldAliasInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        aliases: [field1,field2]
+        name: field
+        object: ObjFieldAliasInp
+        type: !_ObjBase
+          name: FldObjFieldAliasInp
+    fields:
+      - !_InputField
+        aliases: [field1,field2]
+        name: field
+        type: !_ObjBase
+          name: FldObjFieldAliasInp
+    name: ObjFieldAliasInp
+    typeKind: !_TypeKind Input

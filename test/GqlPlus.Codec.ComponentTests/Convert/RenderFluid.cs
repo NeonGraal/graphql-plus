@@ -51,7 +51,7 @@ public static class RenderFluid
   {
     ArgumentNullException.ThrowIfNull(model);
 
-    model.Add("yaml", model.ToPlain(true).Joined(Environment.NewLine));
+    model.Add("yaml", model.ToSimpleYaml(true).Joined(Environment.NewLine));
     TemplateContext context = new(model, s_options);
     IFluidTemplate template = GetTemplate(initial);
     await template.RenderAsync(context).WriteHtmlFileAsync(dir, file);

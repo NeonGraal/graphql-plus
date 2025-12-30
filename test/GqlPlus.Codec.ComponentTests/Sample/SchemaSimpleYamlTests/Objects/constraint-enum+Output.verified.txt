@@ -1,0 +1,54 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier CnstEnumOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: CnstEnumOutp
+        type: !_ObjBase
+          name: RefCnstEnumOutp
+          typeArgs:
+            - !_EnumValue
+              label: cnstEnumOutp
+              name: EnumCnstEnumOutp
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefCnstEnumOutp
+          typeArgs:
+            - !_EnumValue
+              label: cnstEnumOutp
+              name: EnumCnstEnumOutp
+              typeKind: !_SimpleKind Enum
+    name: CnstEnumOutp
+    typeKind: !_TypeKind Output
+  !_Identifier EnumCnstEnumOutp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumCnstEnumOutp
+        name: cnstEnumOutp
+    items:
+      - !_Aliased
+        name: cnstEnumOutp
+    name: EnumCnstEnumOutp
+    typeKind: !_TypeKind Enum
+  !_Identifier RefCnstEnumOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: RefCnstEnumOutp
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_OutputField
+        name: field
+        type: !_ObjBase
+          typeParam: type
+    name: RefCnstEnumOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: EnumCnstEnumOutp
+          typeKind: !_TypeKind Enum
+        name: type

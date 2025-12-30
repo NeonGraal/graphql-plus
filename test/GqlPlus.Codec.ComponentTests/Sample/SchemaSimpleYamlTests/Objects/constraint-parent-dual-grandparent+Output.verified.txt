@@ -1,0 +1,69 @@
+﻿!_Schema
+errors:
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In AltCnstPrntDualGrndOutp can't get model for type 'PrntCnstPrntDualGrndOutp'"
+types: !_Map_Type
+  !_Identifier AltCnstPrntDualGrndOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: alt
+        object: AltCnstPrntDualGrndOutp
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_OutputField
+        name: alt
+        type: !_ObjBase
+          name: Number
+    name: AltCnstPrntDualGrndOutp
+    parent: !_ObjBase
+      name: PrntCnstPrntDualGrndOutp
+    typeKind: !_TypeKind Output
+  !_Identifier CnstPrntDualGrndOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: alt
+        object: AltCnstPrntDualGrndOutp
+        type: !_ObjBase
+          name: Number
+    name: CnstPrntDualGrndOutp
+    parent: !_ObjBase
+      name: RefCnstPrntDualGrndOutp
+      typeArgs:
+        - !_TypeArg
+          name: AltCnstPrntDualGrndOutp
+    typeKind: !_TypeKind Output
+  !_Identifier GrndCnstPrntDualGrndOutp: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GrndCnstPrntDualGrndOutp
+        type: !_ObjBase
+          name: String
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    name: GrndCnstPrntDualGrndOutp
+    typeKind: !_TypeKind Dual
+  !_Identifier PrntCnstPrntDualGrndOutp: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GrndCnstPrntDualGrndOutp
+        type: !_ObjBase
+          name: String
+    name: PrntCnstPrntDualGrndOutp
+    parent: !_ObjBase
+      name: GrndCnstPrntDualGrndOutp
+    typeKind: !_TypeKind Dual
+  !_Identifier RefCnstPrntDualGrndOutp: !_TypeOutput
+    name: RefCnstPrntDualGrndOutp
+    parent: !_ObjBase
+      typeParam: ref
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: GrndCnstPrntDualGrndOutp
+          typeKind: !_TypeKind Dual
+        name: ref

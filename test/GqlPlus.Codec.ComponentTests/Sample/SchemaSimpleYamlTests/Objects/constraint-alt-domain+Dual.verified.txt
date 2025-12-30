@@ -1,0 +1,51 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier CnstAltDmnDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: CnstAltDmnDual
+        type: !_ObjBase
+          name: RefCnstAltDmnDual
+          typeArgs:
+            - !_TypeArg
+              name: DomCnstAltDmnDual
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefCnstAltDmnDual
+          typeArgs:
+            - !_TypeArg
+              name: DomCnstAltDmnDual
+    name: CnstAltDmnDual
+    typeKind: !_TypeKind Dual
+  !_Identifier DomCnstAltDmnDual: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: DomCnstAltDmnDual
+        exclude: false
+        pattern: '\\w+'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: '\\w+'
+    name: DomCnstAltDmnDual
+    typeKind: !_TypeKind Domain
+  !_Identifier RefCnstAltDmnDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefCnstAltDmnDual
+        type: !_ObjBase
+          typeParam: ref
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: ref
+    name: RefCnstAltDmnDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: ref

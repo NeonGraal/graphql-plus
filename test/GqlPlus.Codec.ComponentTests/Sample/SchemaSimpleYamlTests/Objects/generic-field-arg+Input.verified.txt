@@ -1,0 +1,46 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier GnrcFieldArgInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: GnrcFieldArgInp
+        type: !_ObjBase
+          name: RefGnrcFieldArgInp
+          typeArgs:
+            - !_TypeArg
+              typeParam: type
+    fields:
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          name: RefGnrcFieldArgInp
+          typeArgs:
+            - !_TypeArg
+              typeParam: type
+    name: GnrcFieldArgInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: type
+  !_Identifier RefGnrcFieldArgInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefGnrcFieldArgInp
+        type: !_ObjBase
+          typeParam: ref
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: ref
+    name: RefGnrcFieldArgInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: ref

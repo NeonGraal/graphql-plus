@@ -1,0 +1,39 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier GnrcPrntArgInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefGnrcPrntArgInp
+        type: !_ObjBase
+          typeParam: ref
+    name: GnrcPrntArgInp
+    parent: !_ObjBase
+      name: RefGnrcPrntArgInp
+      typeArgs:
+        - !_TypeArg
+          typeParam: type
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: type
+  !_Identifier RefGnrcPrntArgInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefGnrcPrntArgInp
+        type: !_ObjBase
+          typeParam: ref
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: ref
+    name: RefGnrcPrntArgInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: ref

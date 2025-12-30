@@ -1,0 +1,177 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _Collections: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _Collections
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: List
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _Collections
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: Dictionary
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _Collections
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: TypeParam
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: List
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: Dictionary
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: TypeParam
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+    name: _Collections
+    typeKind: !_TypeKind Dual
+  !_Identifier _Modifier: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: modifierKind
+        object: _Modifier
+        type: !_ObjBase
+          typeParam: kind
+    fields:
+      - !_DualField
+        name: modifierKind
+        type: !_ObjBase
+          typeParam: kind
+    name: _Modifier
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ModifierKind
+          typeKind: !_TypeKind Enum
+        name: kind
+  !_Identifier _ModifierKeyed: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: modifierKind
+        object: _Modifier
+        type: !_ObjBase
+          typeParam: kind
+      - !_ObjectFor(_DualField)
+        name: by
+        object: _ModifierKeyed
+        type: !_ObjBase
+          name: _TypeSimple
+      - !_ObjectFor(_DualField)
+        name: optional
+        object: _ModifierKeyed
+        type: !_ObjBase
+          name: Boolean
+    fields:
+      - !_DualField
+        name: by
+        type: !_ObjBase
+          name: _TypeSimple
+      - !_DualField
+        name: optional
+        type: !_ObjBase
+          name: Boolean
+    name: _ModifierKeyed
+    parent: !_ObjBase
+      name: _Modifier
+      typeArgs:
+        - !_TypeArg
+          typeParam: kind
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ModifierKind
+          typeKind: !_TypeKind Enum
+        name: kind
+  !_Identifier _ModifierKind: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        aliases: [Optional]
+        enum: _ModifierKind
+        name: Opt
+      - !_EnumLabel
+        enum: _ModifierKind
+        name: List
+      - !_EnumLabel
+        aliases: [Dictionary]
+        enum: _ModifierKind
+        name: Dict
+      - !_EnumLabel
+        aliases: [TypeParam]
+        enum: _ModifierKind
+        name: Param
+    items:
+      - !_Aliased
+        aliases: [Optional]
+        name: Opt
+      - !_Aliased
+        name: List
+      - !_Aliased
+        aliases: [Dictionary]
+        name: Dict
+      - !_Aliased
+        aliases: [TypeParam]
+        name: Param
+    name: _ModifierKind
+    typeKind: !_TypeKind Enum
+  !_Identifier _Modifiers: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _Modifiers
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: Optional
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _Modifiers
+        type: !_ObjBase
+          name: _Collections
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: Optional
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _Collections
+    name: _Modifiers
+    typeKind: !_TypeKind Dual

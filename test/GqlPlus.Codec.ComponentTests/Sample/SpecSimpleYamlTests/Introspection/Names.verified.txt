@@ -1,0 +1,98 @@
+﻿!_Schema
+errors:
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _AndType can't get model for type '_Named'"
+types: !_Map_Type
+  !_Identifier _Aliased: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: name
+        object: _Named
+        type: !_ObjBase
+          name: _Identifier
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        object: _Aliased
+        type: !_ObjBase
+          name: _Identifier
+    fields:
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        type: !_ObjBase
+          name: _Identifier
+    name: _Aliased
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Dual
+  !_Identifier _AndType: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _AndType
+        type: !_ObjBase
+          name: _Type
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _AndType
+        type: !_ObjBase
+          name: _Type
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Type
+    fields:
+      - !_OutputField
+        name: type
+        type: !_ObjBase
+          name: _Type
+    name: _AndType
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Output
+  !_Identifier _Described: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        type: !_ObjBase
+          name: String
+    name: _Described
+    typeKind: !_TypeKind Dual
+  !_Identifier _Named: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: name
+        object: _Named
+        type: !_ObjBase
+          name: _Identifier
+    fields:
+      - !_DualField
+        name: name
+        type: !_ObjBase
+          name: _Identifier
+    name: _Named
+    parent: !_ObjBase
+      name: _Described
+    typeKind: !_TypeKind Dual

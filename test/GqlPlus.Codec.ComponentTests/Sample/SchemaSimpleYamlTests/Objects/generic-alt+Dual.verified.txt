@@ -1,0 +1,20 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier GnrcAltDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GnrcAltDual
+        type: !_ObjBase
+          typeParam: type
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: type
+    name: GnrcAltDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: type

@@ -1,0 +1,47 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FieldModParamOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
+        name: field
+        object: FieldModParamOutp
+        type: !_ObjBase
+          name: FldFieldModParamOutp
+    fields:
+      - !_OutputField
+        modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
+        name: field
+        type: !_ObjBase
+          name: FldFieldModParamOutp
+    name: FieldModParamOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: mod
+  !_Identifier FldFieldModParamOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: FldFieldModParamOutp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: FldFieldModParamOutp
+        type: !_ObjBase
+          name: Number
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: field
+        type: !_ObjBase
+          name: Number
+    name: FldFieldModParamOutp
+    typeKind: !_TypeKind Output

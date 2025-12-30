@@ -1,0 +1,69 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier AltCnstFieldObjInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstFieldObjInp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltCnstFieldObjInp
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_InputField
+        name: alt
+        type: !_ObjBase
+          name: Number
+    name: AltCnstFieldObjInp
+    parent: !_ObjBase
+      name: PrntCnstFieldObjInp
+    typeKind: !_TypeKind Input
+  !_Identifier CnstFieldObjInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: RefCnstFieldObjInp
+        type: !_ObjBase
+          name: AltCnstFieldObjInp
+    name: CnstFieldObjInp
+    parent: !_ObjBase
+      name: RefCnstFieldObjInp
+      typeArgs:
+        - !_TypeArg
+          name: AltCnstFieldObjInp
+    typeKind: !_TypeKind Input
+  !_Identifier PrntCnstFieldObjInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstFieldObjInp
+        type: !_ObjBase
+          name: String
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    name: PrntCnstFieldObjInp
+    typeKind: !_TypeKind Input
+  !_Identifier RefCnstFieldObjInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: RefCnstFieldObjInp
+        type: !_ObjBase
+          typeParam: ref
+    fields:
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          typeParam: ref
+    name: RefCnstFieldObjInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: PrntCnstFieldObjInp
+          typeKind: !_TypeKind Input
+        name: ref

@@ -1,0 +1,39 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FieldDualOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: FieldDualOutp
+        type: !_ObjBase
+          name: FldFieldDualOutp
+    fields:
+      - !_OutputField
+        name: field
+        type: !_ObjBase
+          name: FldFieldDualOutp
+    name: FieldDualOutp
+    typeKind: !_TypeKind Output
+  !_Identifier FldFieldDualOutp: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: FldFieldDualOutp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: FldFieldDualOutp
+        type: !_ObjBase
+          name: Number
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_DualField
+        name: field
+        type: !_ObjBase
+          name: Number
+    name: FldFieldDualOutp
+    typeKind: !_TypeKind Dual

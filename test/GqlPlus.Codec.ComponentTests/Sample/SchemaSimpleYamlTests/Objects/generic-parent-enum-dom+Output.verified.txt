@@ -1,0 +1,70 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomGnrcPrntEnumDomOutp: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: DomGnrcPrntEnumDomOutp
+        exclude: false
+        value: !_EnumValue
+          label: gnrcPrntEnumDomOutpLabel
+          name: EnumGnrcPrntEnumDomOutp
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: gnrcPrntEnumDomOutpLabel
+          name: EnumGnrcPrntEnumDomOutp
+          typeKind: !_SimpleKind Enum
+    name: DomGnrcPrntEnumDomOutp
+    typeKind: !_TypeKind Domain
+  !_Identifier EnumGnrcPrntEnumDomOutp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumGnrcPrntEnumDomOutp
+        name: gnrcPrntEnumDomOutpLabel
+      - !_EnumLabel
+        enum: EnumGnrcPrntEnumDomOutp
+        name: gnrcPrntEnumDomOutpOther
+    items:
+      - !_Aliased
+        name: gnrcPrntEnumDomOutpLabel
+      - !_Aliased
+        name: gnrcPrntEnumDomOutpOther
+    name: EnumGnrcPrntEnumDomOutp
+    typeKind: !_TypeKind Enum
+  !_Identifier FieldGnrcPrntEnumDomOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: FieldGnrcPrntEnumDomOutp
+        type: !_ObjBase
+          typeParam: ref
+    fields:
+      - !_OutputField
+        name: field
+        type: !_ObjBase
+          typeParam: ref
+    name: FieldGnrcPrntEnumDomOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: EnumGnrcPrntEnumDomOutp
+          typeKind: !_TypeKind Enum
+        name: ref
+  !_Identifier GnrcPrntEnumDomOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: FieldGnrcPrntEnumDomOutp
+        type: !_ObjBase
+          name: DomGnrcPrntEnumDomOutp
+    name: GnrcPrntEnumDomOutp
+    parent: !_ObjBase
+      name: FieldGnrcPrntEnumDomOutp
+      typeArgs:
+        - !_TypeArg
+          name: DomGnrcPrntEnumDomOutp
+    typeKind: !_TypeKind Output

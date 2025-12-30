@@ -1,0 +1,35 @@
+﻿!_Schema
+errors:
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _OutputField can't get model for type '_ObjField'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _OutputFieldType can't get model for type '_ObjFieldType'"
+types: !_Map_Type
+  !_Identifier _OutputField: !_TypeOutput
+    name: _OutputField
+    parent: !_ObjBase
+      name: _ObjField
+      typeArgs:
+        - !_TypeArg
+          name: _ObjFieldType
+    typeKind: !_TypeKind Output
+  !_Identifier _OutputFieldType: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: parameters
+        object: _OutputFieldType
+        type: !_ObjBase
+          name: _InputParam
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: parameters
+        type: !_ObjBase
+          name: _InputParam
+    name: _OutputFieldType
+    parent: !_ObjBase
+      name: _ObjFieldType
+    typeKind: !_TypeKind Output

@@ -1,0 +1,13 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier ctgrOutpDescr: !_Category
+    name: ctgrOutpDescr
+    output: !_TypeRef(_TypeKind)
+      description: 'Output comment'
+      name: CtgrOutpDescr
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+types: !_Map_Type
+  !_Identifier CtgrOutpDescr: !_TypeOutput
+    name: CtgrOutpDescr
+    typeKind: !_TypeKind Output

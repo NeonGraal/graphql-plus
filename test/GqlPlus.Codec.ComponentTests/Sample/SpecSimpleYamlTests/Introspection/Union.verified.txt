@@ -1,0 +1,30 @@
+﻿!_Schema
+errors:
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _UnionRef can't get model for type '_TypeRef'"
+types: !_Map_Type
+  !_Identifier _UnionMember: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: union
+        object: _UnionMember
+        type: !_ObjBase
+          name: _Identifier
+    fields:
+      - !_OutputField
+        name: union
+        type: !_ObjBase
+          name: _Identifier
+    name: _UnionMember
+    parent: !_ObjBase
+      name: _UnionRef
+    typeKind: !_TypeKind Output
+  !_Identifier _UnionRef: !_TypeOutput
+    name: _UnionRef
+    parent: !_ObjBase
+      name: _TypeRef
+      typeArgs:
+        - !_TypeArg
+          name: _SimpleKind
+    typeKind: !_TypeKind Output

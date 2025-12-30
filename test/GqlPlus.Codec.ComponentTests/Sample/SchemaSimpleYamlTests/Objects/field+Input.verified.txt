@@ -1,0 +1,16 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FieldInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FieldInp
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          name: String
+    name: FieldInp
+    typeKind: !_TypeKind Input

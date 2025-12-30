@@ -2,13 +2,14 @@
 
 namespace GqlPlus.Sample;
 
-[Trait("Generate", "Plain")]
-public class PlainSchemaTests(
+[Trait("Generate", "Yaml")]
+[Trait("Generate", "SimpleYaml")]
+public class SimpleYamlSchemaTests(
   ISchemaVerifyChecks checks
 ) : TestSchemaVerify(checks)
 {
   protected override Task VerifyResult(Structured result, string label, string test, string section)
-    => Verify(result.ToPlain(true).Joined(Environment.NewLine), CustomSettings(label, "Plain", test, section));
+    => Verify(result.ToSimpleYaml(true).Joined(Environment.NewLine), CustomSettings(label, "SimpleYaml", test, section));
 
   protected override Task CheckResultErrors(string[] dirs, string test, IMessages errors, bool includeVerify = false)
     => CheckErrors(dirs, test, errors, includeVerify);

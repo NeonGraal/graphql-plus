@@ -1,0 +1,41 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier PrntInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefPrntInp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: parent
+        object: RefPrntInp
+        type: !_ObjBase
+          name: Number
+    name: PrntInp
+    parent: !_ObjBase
+      name: RefPrntInp
+    typeKind: !_TypeKind Input
+  !_Identifier RefPrntInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefPrntInp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: parent
+        object: RefPrntInp
+        type: !_ObjBase
+          name: Number
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_InputField
+        name: parent
+        type: !_ObjBase
+          name: Number
+    name: RefPrntInp
+    typeKind: !_TypeKind Input

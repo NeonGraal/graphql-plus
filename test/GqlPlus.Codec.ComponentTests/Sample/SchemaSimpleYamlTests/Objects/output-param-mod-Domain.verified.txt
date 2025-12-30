@@ -1,0 +1,62 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomOutpParamModDmn: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: DomOutpParamModDmn
+        exclude: false
+        from: 1
+        to: 10
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 1
+        to: 10
+    name: DomOutpParamModDmn
+    typeKind: !_TypeKind Domain
+  !_Identifier InOutpParamModDmn: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: InOutpParamModDmn
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: param
+        object: InOutpParamModDmn
+        type: !_ObjBase
+          name: Number
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_InputField
+        name: param
+        type: !_ObjBase
+          name: Number
+    name: InOutpParamModDmn
+    typeKind: !_TypeKind Input
+  !_Identifier OutpParamModDmn: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpParamModDmn
+        parameters:
+          - !_InputParam
+            modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+            name: InOutpParamModDmn
+        type: !_ObjBase
+          name: DomOutpParamModDmn
+    fields:
+      - !_OutputField
+        name: field
+        parameters:
+          - !_InputParam
+            modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+            name: InOutpParamModDmn
+        type: !_ObjBase
+          name: DomOutpParamModDmn
+    name: OutpParamModDmn
+    typeKind: !_TypeKind Output

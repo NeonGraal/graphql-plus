@@ -90,6 +90,24 @@ public static class TestHelpers
       .SkipIf(string.Equals(input1, input3, StringComparison.Ordinal), input1Expression + " != " + input3Expression)
       .SkipIf(string.Equals(input2, input3, StringComparison.Ordinal), input2Expression + " != " + input3Expression);
 
+  public static TCheck SkipEqual4<TCheck>(
+    this TCheck check,
+    string? input1,
+    string? input2,
+    string? input3,
+    string? input4,
+    [CallerArgumentExpression(nameof(input1))] string? input1Expression = null,
+    [CallerArgumentExpression(nameof(input2))] string? input2Expression = null,
+    [CallerArgumentExpression(nameof(input3))] string? input3Expression = null,
+    [CallerArgumentExpression(nameof(input4))] string? input4Expression = null)
+    => check
+      .SkipIf(string.Equals(input1, input2, StringComparison.Ordinal), input1Expression + " != " + input2Expression)
+      .SkipIf(string.Equals(input1, input3, StringComparison.Ordinal), input1Expression + " != " + input3Expression)
+      .SkipIf(string.Equals(input1, input4, StringComparison.Ordinal), input1Expression + " != " + input4Expression)
+      .SkipIf(string.Equals(input2, input3, StringComparison.Ordinal), input2Expression + " != " + input3Expression)
+      .SkipIf(string.Equals(input2, input4, StringComparison.Ordinal), input2Expression + " != " + input4Expression)
+      .SkipIf(string.Equals(input3, input4, StringComparison.Ordinal), input3Expression + " != " + input4Expression);
+
   public static TCheck SkipNull<TCheck>(this TCheck check, [NotNull] object? obj, [CallerArgumentExpression(nameof(obj))] string? objExpression = null)
   {
     Assert.SkipWhen(obj is null, objExpression + " is null");

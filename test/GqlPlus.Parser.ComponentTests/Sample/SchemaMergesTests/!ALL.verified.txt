@@ -7292,6 +7292,9 @@ Success
   !DE P@043/0001
   EnumDmnEnumUnq
   !dmnEnumUnq
+  !DE I@070/0001
+  DupDmnEnumUnq
+  dmnEnumUnq
 }
 {
   !En I@006/0002
@@ -7303,10 +7306,10 @@ Success
 }
 {
   !En I@006/0003
-  EnumDomDup
-  !EL I@019/0003
+  DupDmnEnumUnq
+  !EL I@022/0003
   dmnEnumUnq
-  !EL I@030/0003
+  !EL I@033/0003
   dup_dmnEnumUnq
 }
 {
@@ -7319,6 +7322,9 @@ Success
   !DE P@051/0001
   PrntDmnEnumUnqPrnt
   !dmnEnumUnqPrnt
+  !DE I@086/0001
+  DupDmnEnumUnqPrnt
+  dmnEnumUnqPrnt
 }
 {
   !En I@006/0002

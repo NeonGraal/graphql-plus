@@ -7883,10 +7883,10 @@ Success
 }
 {
   !En I@006/1069
-  EnumDomDup
-  !EL I@019/1069
+  DupDmnEnumUnq
+  !EL I@022/1069
   dmnEnumUnq
-  !EL I@030/1069
+  !EL I@033/1069
   dup_dmnEnumUnq
 }
 {

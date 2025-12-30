@@ -186,10 +186,10 @@ Success
 }
 {
   !En I@006/0035
-  EnumDomDup
-  !EL I@019/0035
+  DupDmnEnumUnq
+  !EL I@022/0035
   dmnEnumUnq
-  !EL I@030/0035
+  !EL I@033/0035
   dup_dmnEnumUnq
 }
 {

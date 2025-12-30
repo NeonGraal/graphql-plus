@@ -16,6 +16,13 @@ types: !_Map_Type
         label: dmnEnumUnqPrnt
         name: PrntDmnEnumUnqPrnt
         typeKind: !_SimpleKind Enum
+    - !_DomainItem(_DomainLabel)
+      domain: DmnEnumUnqPrnt
+      exclude: false
+      value: !_EnumValue
+        label: dmnEnumUnqPrnt
+        name: DupDmnEnumUnqPrnt
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
@@ -29,6 +36,12 @@ types: !_Map_Type
       value: !_EnumValue
         label: dmnEnumUnqPrnt
         name: PrntDmnEnumUnqPrnt
+        typeKind: !_SimpleKind Enum
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: dmnEnumUnqPrnt
+        name: DupDmnEnumUnqPrnt
         typeKind: !_SimpleKind Enum
     name: DmnEnumUnqPrnt
     typeKind: !_TypeKind Domain

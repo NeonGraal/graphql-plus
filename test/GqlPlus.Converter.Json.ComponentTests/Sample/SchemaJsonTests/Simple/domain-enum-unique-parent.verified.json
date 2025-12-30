@@ -33,6 +33,20 @@
               "$valueTag": "_SimpleKind"
             }
           }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnqPrnt",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnqPrnt",
+            "name": "DupDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
         }
       ],
       "domainKind": {
@@ -60,6 +74,19 @@
             "$mapTag": "_EnumValue",
             "label": "dmnEnumUnqPrnt",
             "name": "PrntDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnqPrnt",
+            "name": "DupDmnEnumUnqPrnt",
             "typeKind": {
               "$value": "Enum",
               "$valueTag": "_SimpleKind"

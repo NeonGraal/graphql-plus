@@ -11,6 +11,9 @@ Success
   !DE P@051/0001
   PrntDmnEnumUnqPrnt
   !dmnEnumUnqPrnt
+  !DE I@086/0001
+  DupDmnEnumUnqPrnt
+  dmnEnumUnqPrnt
 }
 {
   !En I@006/0002

@@ -28,63 +28,7 @@ public static class RenderSimpleYaml
       result = [.. WriteMap(item.Tag, item.Map)];
     }
 
-    if (item.Flow) {
-      int maxLength = MaxLineLength * 3 / 2;
-      int totalLength = 0;
-      foreach (string line in result) {
-        totalLength += line.Length;
-        if (totalLength > maxLength) {
-          return result;
-        }
-      }
-
-      StringBuilder flow = new();
-      WriteFlowStructure(flow, item);
-
-      maxLength = MaxLineLength;
-      if (flow.Length > 0 && flow.Length < maxLength) {
-        result = [flow.ToString()];
-        flow.Clear();
-      }
-    }
-
     return result;
-  }
-
-  private static void WriteFlowStructure(StringBuilder flow, Structured item)
-  {
-    if (item.Value?.IsEmpty == false) {
-      WriteValue(flow, item.Value);
-      return;
-    }
-
-    if (item.List.Any()) {
-      WriteFlowBlock(flow, "[", "]", item.List, item => WriteFlowStructure(flow, item));
-      return;
-    }
-
-    if (item.Map.Any()) {
-      WriteFlowBlock(flow,
-        item.Tag.Prefixed("!") + "{", "}",
-        item.Map.OrderBy(kv => kv.Key.AsString, StringComparer.Ordinal),
-        item => {
-          WriteValue(flow, item.Key);
-          flow.Append(':');
-          WriteFlowStructure(flow, item.Value);
-        });
-    }
-  }
-
-  private static void WriteFlowBlock<T>(StringBuilder flow, string before, string after, IEnumerable<T> list, Action<T> action)
-  {
-    string prefix = before;
-    foreach (T item in list) {
-      flow.Append(prefix);
-      action(item);
-      prefix = ",";
-    }
-
-    flow.Append(after);
   }
 
   private static IEnumerable<string> WriteList(IList<Structured> list)

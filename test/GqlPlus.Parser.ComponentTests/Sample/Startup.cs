@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Parser;
+using GqlPlus.Parser.Schema;
 using GqlPlus.Parser.Schema.Globals;
 using GqlPlus.Parser.Schema.Objects;
 using GqlPlus.Parser.Schema.Simple;
@@ -7,7 +8,7 @@ using GqlPlus.Parsing.Operation;
 using GqlPlus.Parsing.Schema;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GqlPlus.Parser.Schema;
+namespace GqlPlus.Sample;
 
 public static class Startup
 {
@@ -41,5 +42,8 @@ public static class Startup
       .AddTransient<ICheckObjectField<IGqlpOutputField>, ParseOutputFieldChecks>()
       .AddTransient<ICheckObject<IGqlpOutputField>, ParseOutputChecks>()
 
-      .AddComponentParsers();
+      .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
+
+      .AddComponentParsers()
+      .AddOperationParsers();
 }

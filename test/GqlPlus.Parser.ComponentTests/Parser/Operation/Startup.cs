@@ -20,5 +20,6 @@ public static class Startup
       .AddOneChecks<IGqlpVariable>()
       .AddOneChecks<IParserVarType, string>()
 
-      .AddComponentTest();
+      .AddComponentTest()
+      .AddOperationParsers();
 }

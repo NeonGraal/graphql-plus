@@ -1,7 +1,6 @@
 ﻿using DiffEngine;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
-using GqlPlus.Parsing.Operation;
 using GqlPlus.Parsing.Schema;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -23,13 +22,16 @@ public static class ComponentTestStartup
           lb.AddFilter(l => l == LogLevel.Critical);
         }
       })
-      .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
       .AddFieldObjectKinds()
       .AddCommonParsers()
-      .AddOperationParsers()
-      .AddSchemaParsers()
-      .AddMergers()
       .AddSingleton(_ => services);
+
+  public static IServiceCollection AddComponentParsers(this IServiceCollection services, bool checkEnv = true)
+    => services
+      .AddComponentTest(checkEnv)
+      .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
+      .AddSchemaParsers()
+      .AddMergers();
 
   private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();
 

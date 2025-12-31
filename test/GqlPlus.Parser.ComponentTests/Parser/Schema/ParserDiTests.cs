@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace GqlPlus.Parser;
+namespace GqlPlus.Parser.Schema;
 
 public class ParserDiTests(IServiceCollection services)
   : DependencyInjectionChecks(services)
 {
-  protected override string Label => "CommonParser";
+  protected override string Label => "SchemaParser";
 }

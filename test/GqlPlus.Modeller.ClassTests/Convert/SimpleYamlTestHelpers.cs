@@ -71,7 +71,7 @@ internal static class SimpleYamlTestHelpers
     : IConvertTestsBase
   {
     public Structured ConvertFrom(string[] input)
-      => throw SkipException.ForSkip("SimpleYaml Deserialize not implemented (yet)");
+      => throw SkipException.ForSkip("SimpleYaml Deserialize not required");
     public string[] ConvertTo(Structured model)
       => model.ToSimpleYaml(false);
   }

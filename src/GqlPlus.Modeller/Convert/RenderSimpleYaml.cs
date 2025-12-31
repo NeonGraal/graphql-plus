@@ -8,7 +8,7 @@ public static class RenderSimpleYaml
 
   public static string[] ToSimpleYaml(this Structured model, bool _)
     => model is null || model.IsEmpty ? []
-      : [.. WriteStructure(model).Where(s => !string.IsNullOrWhiteSpace(s))];
+      : [.. WriteStructure(model).RemoveEmpty()];
 
   private static string[] WriteStructure(Structured item)
   {
@@ -21,23 +21,79 @@ public static class RenderSimpleYaml
     string[] result = [];
 
     if (item.List.Any()) {
-      result = [.. WriteList(item.List)];
+      result = [.. WriteList(item.Tag, item.List)];
     }
 
     if (item.Map.Any()) {
       result = [.. WriteMap(item.Tag, item.Map)];
     }
 
+    if (item.Flow) {
+      int maxLength = MaxLineLength * 3 / 2;
+      int totalLength = 0;
+      foreach (string line in result) {
+        totalLength += line.Length;
+        if (totalLength > maxLength) {
+          return result;
+        }
+      }
+
+      StringBuilder flow = new();
+      WriteFlowStructure(flow, item);
+
+      maxLength = MaxLineLength;
+      if (flow.Length > 0 && flow.Length < maxLength) {
+        result = [flow.ToString()];
+        flow.Clear();
+      }
+    }
+
     return result;
   }
 
-  private static IEnumerable<string> WriteList(IList<Structured> list)
+  private static void WriteFlowStructure(StringBuilder flow, Structured item)
+  {
+    if (item.Value?.IsEmpty == false) {
+      WriteValue(flow, item.Value);
+      return;
+    }
+
+    if (item.List.Any()) {
+      WriteFlowBlock(flow, item.Tag.Prefixed("!") + "[", "]", item.List, item => WriteFlowStructure(flow, item));
+      return;
+    }
+
+    if (item.Map.Any()) {
+      WriteFlowBlock(flow,
+        item.Tag.Prefixed("!") + "{", "}",
+        item.Map.OrderBy(kv => kv.Key.AsString, StringComparer.Ordinal),
+        item => {
+          WriteValue(flow, item.Key);
+          flow.Append(':');
+          WriteFlowStructure(flow, item.Value);
+        });
+    }
+  }
+
+  private static void WriteFlowBlock<T>(StringBuilder flow, string before, string after, IEnumerable<T> list, Action<T> action)
+  {
+    string prefix = before;
+    foreach (T item in list) {
+      flow.Append(prefix);
+      action(item);
+      prefix = ",";
+    }
+
+    flow.Append(after);
+  }
+
+  private static IEnumerable<string> WriteList(string tag, IList<Structured> list)
   {
     if (list.Count == 0) {
       yield break;
     }
 
-    yield return "";
+    yield return tag.Prefixed("!");
     foreach (Structured item in list) {
       foreach (string line in WriteItem(item, "-")) {
         yield return line;
@@ -74,12 +130,7 @@ public static class RenderSimpleYaml
       yield break;
     }
 
-    if (!string.IsNullOrWhiteSpace(tag)) {
-      yield return $"!{tag}";
-    } else {
-      yield return "";
-    }
-
+    yield return tag.Prefixed("!");
     foreach (KeyValuePair<StructureValue, Structured> item in map.OrderBy(kv => kv.Key.AsString, StringComparer.Ordinal)) {
       StringBuilder sb = new("");
       WriteValue(sb, item.Key);

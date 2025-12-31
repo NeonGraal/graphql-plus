@@ -1,5 +1,5 @@
 ﻿!_Schema
-_ctxErrors:
+_ctxErrors: !_Errors
   - !_Error
     _at: !_At{_col:17,_line:1}
     _kind: !_TokenKind Punctuation
@@ -12,7 +12,7 @@ _ctxErrors:
     _at: !_At{_col:17,_line:1}
     _kind: !_TokenKind Punctuation
     _message: 'Invalid Schema. Expected no more text.'
-_errors:
+_errors: !_Errors
   - !_Error
     _at: !_At{_col:17,_line:1}
     _kind: !_TokenKind Punctuation

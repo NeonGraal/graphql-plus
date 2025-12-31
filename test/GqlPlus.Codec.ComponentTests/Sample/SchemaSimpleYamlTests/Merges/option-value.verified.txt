@@ -3,6 +3,6 @@ name: Schema
 settings: !_Map_Setting
   !_Identifier merged: !_Setting
     name: merged
-    value:
+    value: !_ConstantList
       - true
       - 0

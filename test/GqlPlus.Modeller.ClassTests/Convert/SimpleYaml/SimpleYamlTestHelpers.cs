@@ -13,13 +13,13 @@ internal static class SimpleYamlTestHelpers
     return flow.Length < RenderSimpleYaml.MaxLineLength ? [flow] : isMap(list);
   }
 
-  internal static string[] FlowList(this string[] value, string valuePrefix = "", string indent = "")
-    => value.FlowList(v => [valuePrefix + v], indent);
+  internal static string[] FlowList(this string[] value, string valuePrefix = "", string listPrefix = "")
+    => value.FlowList(v => [valuePrefix + v], listPrefix);
 
-  internal static string[] FlowList<T>(this T[] value, Func<T?, string[]> mapper, string indent = "")
+  internal static string[] FlowList<T>(this T[] value, Func<T?, string[]> mapper, string listPrefix = "")
     => value.FlowOr(
-      f => f.Surround("[", "]", v => mapper(v).Joined(""), ","),
-      i => i.IsList(v => v.BlockFirst(mapper, indent + "-")));
+      f => f.Surround(listPrefix + "[", "]", v => mapper(v).Joined(""), ","),
+      i => i.IsList(v => v.BlockFirst(mapper, "-"), listPrefix));
 
   internal static string[] FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "", string indent = "")
     => list.FlowMap(v => [valuePrefix + v.QuotedIdentifier()], mapPrefix, indent);
@@ -29,11 +29,11 @@ internal static class SimpleYamlTestHelpers
       f => mapPrefix + f.Surround("{", "}", v => v.Key + ":" + mapper(v.Value).Joined(""), ","),
       i => i.IsMap(v => mapper(v), indent, mapPrefix));
 
-  internal static string[] BlockList(this string[] value, string prefix)
-    => value.IsList(v => [prefix + v]);
+  internal static string[] BlockList(this string[] value, string prefix, string listPrefix = "")
+    => value.IsList(v => [prefix + v], listPrefix);
 
-  internal static string[] BlockList<T>(this T[] value, Func<T?, string[]> mapper)
-    => value.IsList(mapper);
+  internal static string[] BlockList<T>(this T[] value, Func<T?, string[]> mapper, string listPrefix = "")
+    => value.IsList(mapper, listPrefix);
 
   internal static string[] BlockMap(this MapPair<string>[] list, string keyPrefix = "", string valuePrefix = "")
     => list.BlockMap(v => [valuePrefix + v], keyPrefix);
@@ -41,14 +41,17 @@ internal static class SimpleYamlTestHelpers
   internal static string[] BlockMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string keyPrefix = "")
     => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).IsMap(mapper, keyPrefix);
 
-  private static string[] IsList<T>(this IEnumerable<T> value, Func<T?, string[]> mapper)
-    => [.. value.SelectMany(mapper).Where(s => !string.IsNullOrWhiteSpace(s))];
+  private static string[] IsList<T>(this IEnumerable<T> value, Func<T?, string[]> mapper, string listPrefix = "")
+    => [.. value
+      .SelectMany(mapper)
+      .Prepend(listPrefix)
+      .RemoveEmpty()];
 
   private static string[] IsMap<T>(this IEnumerable<MapPair<T>> list, Func<T?, string[]> mapper, string keyPrefix = "", string mapPrefix = "")
     => [.. list
       .SelectMany(v => v.Value.BlockFirst(mapper,  keyPrefix + v.Key + ":"))
       .Prepend(mapPrefix)
-      .Where(s => !string.IsNullOrWhiteSpace(s))];
+      .RemoveEmpty()];
 
   private static string[] BlockFirst<T>(this T value, Func<T?, string[]> mapper, string prefix)
   {

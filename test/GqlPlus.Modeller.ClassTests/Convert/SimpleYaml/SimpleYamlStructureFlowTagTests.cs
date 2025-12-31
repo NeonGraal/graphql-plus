@@ -1,27 +1,28 @@
 ﻿namespace GqlPlus.Convert.SimpleYaml;
 
-public class SimpleYamlStructureTagTests()
+public class SimpleYamlStructureFlowTagTests()
   : StructureConvertToTestsBase(SimpleYamlTestHelpers.Converters)
 {
+  protected override bool Flow => true;
   protected override string ValueTag => "value";
   protected override string MapTag => "map";
   protected override string ListTag => "list";
 
   protected override string[] Expected_List(string[] value)
-  => value.BlockList("- !value ", "!list");
+  => value.FlowList("!value ", "!list");
 
   protected override string[] Expected_Map(MapPair<string>[] value)
-    => ["!map", .. value.BlockMap("", "!value ")];
+    => value.FlowMap("!map", "!value ");
 
   protected override string[] Expected_ListOfLists(string[][] value)
-    => value.BlockList(v => v!.BlockList("  - !value ", "- !list"), "!list");
+    => value.FlowList(v => v!.FlowList("!value ", "!list"), "!list");
 
   protected override string[] Expected_MapOfLists(MapPair<string[]>[] value)
-    => ["!map", .. value.BlockMap(v => v!.BlockList("  - !value ", "!list"))];
+    => value.FlowMap(v => v!.FlowList("!value ", "!list"), "!map");
 
   protected override string[] Expected_ListOfMaps(MapPair<string>[][] value)
-    => value.BlockList(v => ["- !map", .. v!.BlockMap("  ", "!value ")], "!list");
+    => value.FlowList(v => v!.FlowMap("!map", "!value "), "!list");
 
   protected override string[] Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => ["!map", .. value.BlockMap(v => ["!map", .. v!.BlockMap("  ", "!value ")])];
+    => value.FlowMap(v => v!.FlowMap("!map", "!value "), "!map");
 }

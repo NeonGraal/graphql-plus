@@ -1,16 +1,18 @@
 ﻿
 namespace GqlPlus.Ast.Schema.Simple;
 
-public class DomainRangeAstTests
-  : AstAbbreviatedBaseTests<DomainRangeInput>
+public partial class DomainRangeAstTests
 {
-  private readonly AstAbbreviatedChecks<DomainRangeInput, DomainRangeAst> _checks
-    = new(CreateRange);
+  [CheckTests(Inherited = true)]
+  private IAstAbbreviatedChecks<DomainRangeInput> AbbreviatedChecks { get; }
+    = new AstAbbreviatedChecks<DomainRangeInput, DomainRangeAst>(CreateRange);
+
+  [CheckTests]
+  internal ICloneChecks<DomainRangeInput> CloneChecks { get; }
+    = new CloneChecks<DomainRangeInput, DomainRangeAst>(CreateRange, CloneRange);
 
   private static DomainRangeAst CloneRange(DomainRangeAst original, DomainRangeInput input)
     => original with { Lower = input.Lower, Upper = input.Upper };
   private static DomainRangeAst CreateRange(DomainRangeInput input)
     => new(AstNulls.At, "", false, input.Lower, input.Upper);
-
-  internal override IAstAbbreviatedChecks<DomainRangeInput> AbbreviatedChecks => _checks;
 }

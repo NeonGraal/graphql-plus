@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name UnionDescr: !_TypeUnion
+    allItems:
+      - !_UnionMember
+        description: 'Union Descr'
+        name: Number
+        union: UnionDescr
+    items:
+      - !_Aliased
+        description: 'Union Descr'
+        name: Number
+    name: UnionDescr
+    typeKind: !_TypeKind Union

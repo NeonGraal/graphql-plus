@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltEnumDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name AltEnumDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: AltEnumDual
@@ -12,7 +12,7 @@ types: !_Map_Type
         name: EnumAltEnumDual
     name: AltEnumDual
     typeKind: !_TypeKind Dual
-  !_Identifier EnumAltEnumDual: !_TypeEnum
+  !_Name EnumAltEnumDual: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: EnumAltEnumDual

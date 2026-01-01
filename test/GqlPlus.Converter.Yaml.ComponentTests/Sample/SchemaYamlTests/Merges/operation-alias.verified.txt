@@ -1,18 +1,18 @@
 ﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier op: !_Category
+categories: !_Map(_Categories)
+  !_Name op: !_Category
     name: op
     output: !_TypeRef(_TypeKind)
       name: Op
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-operations: !_Map_Operations
-  !_Identifier Operation: !_Operation
+operations: !_Map(_Operations)
+  !_Name Operation: !_Operation
     aliases: [Op1, Op2]
     category: op
     name: Operation
     operation: TBC
-types: !_Map_Type
-  !_Identifier Op: !_TypeOutput
+types: !_Map(_Type)
+  !_Name Op: !_TypeOutput
     name: Op
     typeKind: !_TypeKind Output

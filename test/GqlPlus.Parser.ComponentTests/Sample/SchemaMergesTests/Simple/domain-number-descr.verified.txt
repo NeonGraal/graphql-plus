@@ -6,7 +6,6 @@ Success
   DmnNmbrDescr
   Number
   !DN P@050/0001
-  <
-    2
-  }
+  <2
+}
 ]

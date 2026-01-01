@@ -22,7 +22,7 @@
 [_Schema]:_errors[_Errors].2[_Error]:_at[_At]:_line=1
 [_Schema]:_errors[_Errors].2[_Error]:_kind=[_TokenKind]Punctuation
 [_Schema]:_errors[_Errors].2[_Error]:_message='Invalid Schema. Expected no more text.'
-[_Schema]:categories[_Map_Categories]:[_Identifier]query[_Category]:name=query
-[_Schema]:categories[_Map_Categories]:[_Identifier]query[_Category]:output[_TypeRef(_TypeKind)]:name=query
-[_Schema]:categories[_Map_Categories]:[_Identifier]query[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
-[_Schema]:categories[_Map_Categories]:[_Identifier]query[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:categories[_Map(_Categories)]:[_Name]query[_Category]:name=query
+[_Schema]:categories[_Map(_Categories)]:[_Name]query[_Category]:output[_TypeRef(_TypeKind)]:name=query
+[_Schema]:categories[_Map(_Categories)]:[_Name]query[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map(_Categories)]:[_Name]query[_Category]:resolution=[_Resolution]Parallel

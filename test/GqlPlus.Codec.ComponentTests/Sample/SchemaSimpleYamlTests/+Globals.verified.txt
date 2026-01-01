@@ -1,0 +1,173 @@
+﻿!_Schema
+aliases: [Alias]
+categories: !_Map(_Categories)
+  !_Name cat: !_Category
+    name: cat
+    output: !_TypeRef(_TypeKind)
+      name: Cat
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name ctgrDscrs: !_Category
+    description: 'A Category described'
+    name: ctgrDscrs
+    output: !_TypeRef(_TypeKind)
+      name: CtgrDscrs
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name ctgrOutp: !_Category
+    name: ctgrOutp
+    output: !_TypeRef(_TypeKind)
+      name: CtgrOutp
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name ctgrOutpDescr: !_Category
+    name: ctgrOutpDescr
+    output: !_TypeRef(_TypeKind)
+      description: 'Output comment'
+      name: CtgrOutpDescr
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name ctgrOutpDict: !_Category
+    modifiers: [!_ModifierDictionary{by:'*',modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
+    name: ctgrOutpDict
+    output: !_TypeRef(_TypeKind)
+      name: CtgrOutpDict
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name ctgrOutpList: !_Category
+    modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+    name: ctgrOutpList
+    output: !_TypeRef(_TypeKind)
+      name: CtgrOutpList
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name ctgrOutpOptl: !_Category
+    modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+    name: ctgrOutpOptl
+    output: !_TypeRef(_TypeKind)
+      name: CtgrOutpOptl
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name descrBtwn: !_Category
+    name: descrBtwn
+    output: !_TypeRef(_TypeKind)
+      name: DescrBtwn
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+directives: !_Map(_Directives)
+  !_Name DrctDescr: !_Directive
+    description: 'A directive described'
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    name: DrctDescr
+    repeatable: false
+  !_Name DrctNoParam: !_Directive
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    name: DrctNoParam
+    repeatable: false
+  !_Name DrctParamDict: !_Directive
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    name: DrctParamDict
+    parameters:
+      - !_InputParam
+        modifiers: [!_ModifierDictionary{by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
+        name: InDrctParamDict
+    repeatable: false
+  !_Name DrctParamIn: !_Directive
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    name: DrctParamIn
+    parameters:
+      - !_InputParam
+        name: InDrctParamIn
+    repeatable: false
+  !_Name DrctParamList: !_Directive
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    name: DrctParamList
+    parameters:
+      - !_InputParam
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: InDrctParamList
+    repeatable: false
+  !_Name DrctParamOpt: !_Directive
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    name: DrctParamOpt
+    parameters:
+      - !_InputParam
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: InDrctParamOpt
+    repeatable: false
+name: Schema
+operations: !_Map(_Operations)
+  !_Name Op: !_Operation
+    category: cat
+    name: Op
+    operation: TBC
+settings: !_Map(_Setting)
+  !_Name descr: !_Setting
+    description: 'Option Descr'
+    name: descr
+    value: true
+  !_Name global: !_Setting
+    name: global
+    value: true
+types: !_Map(_Type)
+  !_Name Cat: !_TypeOutput
+    name: Cat
+    typeKind: !_TypeKind Output
+  !_Name CtgrDscrs: !_TypeOutput
+    name: CtgrDscrs
+    typeKind: !_TypeKind Output
+  !_Name CtgrOutp: !_TypeOutput
+    name: CtgrOutp
+    typeKind: !_TypeKind Output
+  !_Name CtgrOutpDescr: !_TypeOutput
+    name: CtgrOutpDescr
+    typeKind: !_TypeKind Output
+  !_Name CtgrOutpDict: !_TypeOutput
+    name: CtgrOutpDict
+    typeKind: !_TypeKind Output
+  !_Name CtgrOutpList: !_TypeOutput
+    name: CtgrOutpList
+    typeKind: !_TypeKind Output
+  !_Name CtgrOutpOptl: !_TypeOutput
+    name: CtgrOutpOptl
+    typeKind: !_TypeKind Output
+  !_Name Descr: !_TypeOutput
+    description: 'A simple description'
+    name: Descr
+    typeKind: !_TypeKind Output
+  !_Name DescrBcks: !_TypeOutput
+    description: 'A backslash ("\\") description'
+    name: DescrBcks
+    typeKind: !_TypeKind Output
+  !_Name DescrBtwn: !_TypeOutput
+    description: 'A description between'
+    name: DescrBtwn
+    typeKind: !_TypeKind Output
+  !_Name DescrCmpl: !_TypeOutput
+    description: "A \"more\" 'Complicated' \\ description"
+    name: DescrCmpl
+    typeKind: !_TypeKind Output
+  !_Name DescrDbl: !_TypeOutput
+    description: "A 'double-quoted' description"
+    name: DescrDbl
+    typeKind: !_TypeKind Output
+  !_Name DescrSngl: !_TypeOutput
+    description: 'A "single-quoted" description'
+    name: DescrSngl
+    typeKind: !_TypeKind Output
+  !_Name Dscrs: !_TypeOutput
+    description: 'A simple description With extra'
+    name: Dscrs
+    typeKind: !_TypeKind Output
+  !_Name InDrctParamDict: !_TypeInput
+    name: InDrctParamDict
+    typeKind: !_TypeKind Input
+  !_Name InDrctParamIn: !_TypeInput
+    name: InDrctParamIn
+    typeKind: !_TypeKind Input
+  !_Name InDrctParamList: !_TypeInput
+    name: InDrctParamList
+    typeKind: !_TypeKind Input
+  !_Name InDrctParamOpt: !_TypeInput
+    name: InDrctParamOpt
+    typeKind: !_TypeKind Input

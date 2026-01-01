@@ -18,7 +18,7 @@ Success
     :
     I@039/0003
     _Categories
-    [_Identifier]
+    [_Name]
     !OF I@009/0004
     directives
     (
@@ -30,7 +30,7 @@ Success
     :
     I@031/0004
     _Directives
-    [_Identifier]
+    [_Name]
     !OF I@009/0005
     operations
     (
@@ -42,7 +42,7 @@ Success
     :
     I@031/0005
     _Operations
-    [_Identifier]
+    [_Name]
     !OF I@009/0006
     types
     (
@@ -54,7 +54,7 @@ Success
     :
     I@030/0006
     _Type
-    [_Identifier]
+    [_Name]
     !OF I@009/0007
     settings
     (
@@ -66,15 +66,15 @@ Success
     :
     I@029/0007
     _Setting
-    [_Identifier]
+    [_Name]
   }
 }
 {
   !Do I@008/0010
-  _Identifier
+  _Name
   String
-  !DX R@029/0010
-  /\\w[\\w\\d]*/
+  !DX R@023/0010
+  /[A-Za-z_][A-Za-z0-9_]*/
 }
 {
   !In I@007/0012
@@ -120,7 +120,7 @@ Success
   []
 }
 {
-  "_NameFilter is a simple match expression against _Identifier where '.' matches any single character and '*' matches zero or more of any character."
+  "_NameFilter is a simple match expression against _Name where '.' matches any single character and '*' matches zero or more of any character."
   !Do I@008/0023
   _NameFilter
   String
@@ -168,7 +168,7 @@ Success
     aliases
     :
     I@018/0037
-    _Identifier
+    _Name
     []
   }
 }
@@ -183,7 +183,7 @@ Success
     name
     :
     I@015/0042
-    _Identifier
+    _Name
   }
 }
 {
@@ -362,7 +362,7 @@ Success
     category
     :
     I@019/0095
-    _Identifier
+    _Name
     !OF I@009/0096
     variables
     :
@@ -474,7 +474,7 @@ Success
     variable
     :
     I@019/0128
-    _Identifier
+    _Name
   }
   |
   I@009/0129
@@ -501,7 +501,7 @@ Success
     byVariable
     :
     I@021/0138
-    _Identifier
+    _Name
   }
   |
   I@007/0139
@@ -1091,7 +1091,7 @@ Success
     domain
     :
     I@017/0267
-    _Identifier
+    _Name
   }
 }
 {
@@ -1254,7 +1254,7 @@ Success
     enum
     :
     I@015/0322
-    _Identifier
+    _Name
   }
 }
 {
@@ -1272,7 +1272,7 @@ Success
     label
     :
     I@016/0327
-    _Identifier
+    _Name
   }
 }
 {
@@ -1297,7 +1297,7 @@ Success
     union
     :
     I@016/0336
-    _Identifier
+    _Name
   }
 }
 {
@@ -1426,7 +1426,7 @@ Success
     label
     :
     I@016/0363
-    _Identifier
+    _Name
     ?
   }
   |
@@ -1444,7 +1444,7 @@ Success
     typeParam
     :
     I@020/0369
-    _Identifier
+    _Name
   }
 }
 {
@@ -1482,7 +1482,7 @@ Success
     label
     :
     I@016/0380
-    _Identifier
+    _Name
   }
 }
 {
@@ -1501,7 +1501,7 @@ Success
     object
     :
     I@017/0384
-    _Identifier
+    _Name
   }
 }
 {
@@ -1556,7 +1556,7 @@ Success
     label
     :
     I@016/0400
-    _Identifier
+    _Name
   }
 }
 {

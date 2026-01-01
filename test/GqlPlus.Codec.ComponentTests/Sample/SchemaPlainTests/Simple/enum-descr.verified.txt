@@ -1,7 +1,7 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:allItems.0[_EnumLabel]:description='Enum Descr'
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDescr
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:allItems.0[_EnumLabel]:name=enumDescr
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:items.0[_Aliased]:description='Enum Descr'
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:items.0[_Aliased]:name=enumDescr
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:name=EnumDescr
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDescr[_TypeEnum]:typeKind=[_TypeKind]Enum
+﻿[_Schema]:types[_Map(_Type)]:[_Name]EnumDescr[_TypeEnum]:allItems.0[_EnumLabel]:description='Enum Descr'
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDescr[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDescr
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDescr[_TypeEnum]:allItems.0[_EnumLabel]:name=enumDescr
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDescr[_TypeEnum]:items.0[_Aliased]:description='Enum Descr'
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDescr[_TypeEnum]:items.0[_Aliased]:name=enumDescr
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDescr[_TypeEnum]:name=EnumDescr
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDescr[_TypeEnum]:typeKind=[_TypeKind]Enum

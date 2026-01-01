@@ -1,8 +1,8 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDiff
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:allItems.0[_EnumLabel]:name=one
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDiff
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:allItems.1[_EnumLabel]:name=two
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:items.0[_Aliased]:name=one
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:items.1[_Aliased]:name=two
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:name=EnumDiff
-[_Schema]:types[_Map_Type]:[_Identifier]EnumDiff[_TypeEnum]:typeKind=[_TypeKind]Enum
+﻿[_Schema]:types[_Map(_Type)]:[_Name]EnumDiff[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumDiff
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDiff[_TypeEnum]:allItems.0[_EnumLabel]:name=one
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDiff[_TypeEnum]:allItems.1[_EnumLabel]:enum=EnumDiff
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDiff[_TypeEnum]:allItems.1[_EnumLabel]:name=two
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDiff[_TypeEnum]:items.0[_Aliased]:name=one
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDiff[_TypeEnum]:items.1[_Aliased]:name=two
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDiff[_TypeEnum]:name=EnumDiff
+[_Schema]:types[_Map(_Type)]:[_Name]EnumDiff[_TypeEnum]:typeKind=[_TypeKind]Enum

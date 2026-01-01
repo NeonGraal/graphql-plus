@@ -33,7 +33,7 @@ Success
     category
     :
     I@019/0010
-    _Identifier
+    _Name
     !OF I@009/0011
     variables
     :
@@ -145,7 +145,7 @@ Success
     variable
     :
     I@019/0043
-    _Identifier
+    _Name
   }
   |
   I@009/0044
@@ -172,7 +172,7 @@ Success
     byVariable
     :
     I@021/0053
-    _Identifier
+    _Name
   }
   |
   I@007/0054

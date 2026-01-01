@@ -1,7 +1,7 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjAltInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=ObjAltInp
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=ObjAltInpType
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=ObjAltInpType
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltInp[_TypeInput]:name=ObjAltInp
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltInp[_TypeInput]:typeKind=[_TypeKind]Input
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltInpType[_TypeInput]:name=ObjAltInpType
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltInpType[_TypeInput]:typeKind=[_TypeKind]Input
+﻿[_Schema]:types[_Map(_Type)]:[_Name]ObjAltInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=ObjAltInp
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=ObjAltInpType
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltInp[_TypeInput]:alternates.0[_Alternate]:type[_ObjBase]:name=ObjAltInpType
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltInp[_TypeInput]:name=ObjAltInp
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltInpType[_TypeInput]:name=ObjAltInpType
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltInpType[_TypeInput]:typeKind=[_TypeKind]Input

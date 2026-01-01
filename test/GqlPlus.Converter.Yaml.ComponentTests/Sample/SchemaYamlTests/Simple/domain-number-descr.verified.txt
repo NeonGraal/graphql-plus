@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnNmbrDescr: !_DomainNumber
+types: !_Map(_Type)
+  !_Name DmnNmbrDescr: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
       description: 'DomNumber Descr'

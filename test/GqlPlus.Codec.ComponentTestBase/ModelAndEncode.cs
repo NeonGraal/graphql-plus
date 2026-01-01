@@ -29,7 +29,6 @@ internal sealed class ModelAndEncode(
     SchemaModel model = modeller.ToModel(schema, context.TypeKinds);
     context.AddModels(model.Types.Values);
 
-    context.Errors.Clear();
     return resolver.Resolve(model, context);
   }
 

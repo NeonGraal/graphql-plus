@@ -1,0 +1,28 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name EnumSamePrnt: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: PrntEnumSamePrnt
+        name: prnt_enumSamePrnt
+      - !_EnumLabel
+        enum: EnumSamePrnt
+        name: enumSamePrnt
+    items:
+      - !_Aliased
+        name: enumSamePrnt
+    name: EnumSamePrnt
+    parent: !_TypeRef(_SimpleKind)
+      name: PrntEnumSamePrnt
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Name PrntEnumSamePrnt: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: PrntEnumSamePrnt
+        name: prnt_enumSamePrnt
+    items:
+      - !_Aliased
+        name: prnt_enumSamePrnt
+    name: PrntEnumSamePrnt
+    typeKind: !_TypeKind Enum

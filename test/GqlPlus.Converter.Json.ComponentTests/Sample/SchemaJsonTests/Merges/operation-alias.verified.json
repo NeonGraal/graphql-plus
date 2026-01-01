@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "categories": {
-    "$mapTag": "_Map_Categories",
+    "$mapTag": "_Map(_Categories)",
     "op": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_Category",
       "name": "op",
       "output": {
@@ -21,9 +21,9 @@
     }
   },
   "operations": {
-    "$mapTag": "_Map_Operations",
+    "$mapTag": "_Map(_Operations)",
     "Operation": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_Operation",
       "aliases": ["Op1", "Op2"],
       "category": "op",
@@ -32,9 +32,9 @@
     }
   },
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "Op": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "Op",
       "typeKind": {

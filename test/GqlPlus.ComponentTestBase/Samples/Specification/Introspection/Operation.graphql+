@@ -7,7 +7,7 @@ output _Operations {
 
 output _Operation {
     : _Aliased
-        category: _Identifier
+        category: _Name
         variables: _OpVariable[]
         directives: _OpDirective[]
         fragments: _OpFragment[]
@@ -40,7 +40,7 @@ dual _OpArgument {
     }
 
 dual _OpArgValue {
-        variable: _Identifier
+        variable: _Name
     |   Value
     }
 
@@ -50,7 +50,7 @@ dual _OpArgList {
 
 dual _OpArgMap {
         value: _OpArgValue
-        byVariable: _Identifier
+        byVariable: _Name
     | _OpArgValue[Scalar]
     }
 

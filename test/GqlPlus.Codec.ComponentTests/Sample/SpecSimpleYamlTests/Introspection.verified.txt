@@ -1,0 +1,3007 @@
+﻿!_Schema
+errors: !_Errors
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _AndType can't get model for type '_Named'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _BaseType can't get model for type '_Aliased'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _Category can't get model for type '_Aliased'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _Directive can't get model for type '_Aliased'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _DomainLabel can't get model for type '_BaseDomainItem'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _DomainItem can't get model for type '_DomainRange'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _DomainItem can't get model for type '_DomainRegex'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _DomainItem can't get model for type '_DomainTrueFalse'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _DomainRef can't get model for type '_TypeRef'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _ObjField can't get model for type '_Aliased'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _EnumValue can't get model for type '_TypeRef'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _ObjBase can't get model for type '_Named'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _ObjAlternateEnum can't get model for type '_TypeRef'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _ObjFieldEnum can't get model for type '_TypeRef'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _ObjTypeArg can't get model for type '_TypeRef'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _ObjTypeParam can't get model for type '_Named'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _Operation can't get model for type '_Aliased'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _OpFragment can't get model for type '_Named'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _OpVariable can't get model for type '_Named'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _Schema can't get model for type '_Named'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _Setting can't get model for type '_Named'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _TypeParam can't get model for type '_Described'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _UnionRef can't get model for type '_TypeRef'"
+types: !_Map(_Type)
+  !_Name _Aliased: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        name: name
+        object: _Named
+        type: !_ObjBase
+          name: _Name
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        object: _Aliased
+        type: !_ObjBase
+          name: _Name
+    fields:
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        type: !_ObjBase
+          name: _Name
+    name: _Aliased
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Dual
+  !_Name _AndType: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _AndType
+        type: !_ObjBase
+          name: _Type
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _AndType
+        type: !_ObjBase
+          name: _Type
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Type
+    fields:
+      - !_OutputField
+        name: type
+        type: !_ObjBase
+          name: _Type
+    name: _AndType
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Output
+  !_Name _BaseDomain: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: typeKind
+        object: _BaseType
+        type: !_ObjBase
+          name: _TypeKind
+      - !_ObjectFor(_OutputField)
+        name: parent
+        object: _ChildType
+        type: !_ObjBase
+          name: _Named
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: items
+        object: _ParentType
+        type: !_ObjBase
+          typeParam: item
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: allItems
+        object: _ParentType
+        type: !_ObjBase
+          typeParam: allItem
+      - !_ObjectFor(_OutputField)
+        name: domainKind
+        object: _BaseDomain
+        type: !_ObjBase
+          typeParam: domain
+    fields:
+      - !_OutputField
+        name: domainKind
+        type: !_ObjBase
+          typeParam: domain
+    name: _BaseDomain
+    parent: !_ObjBase
+      name: _ParentType
+      typeArgs:
+        - !_EnumValue
+          label: Domain
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+        - !_TypeArg
+          typeParam: item
+        - !_TypeArg
+          typeParam: domainItem
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _DomainKind
+          typeKind: !_TypeKind Enum
+        name: domain
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _BaseDomainItem
+          typeKind: !_TypeKind Dual
+        name: item
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _DomainItem
+          typeKind: !_TypeKind Output
+        name: domainItem
+  !_Name _BaseDomainItem: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        name: exclude
+        object: _BaseDomainItem
+        type: !_ObjBase
+          name: _DomainKind
+    fields:
+      - !_DualField
+        name: exclude
+        type: !_ObjBase
+          name: _DomainKind
+    name: _BaseDomainItem
+    parent: !_ObjBase
+      name: _Described
+    typeKind: !_TypeKind Dual
+  !_Name _BaseType: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: typeKind
+        object: _BaseType
+        type: !_ObjBase
+          typeParam: kind
+    fields:
+      - !_OutputField
+        name: typeKind
+        type: !_ObjBase
+          typeParam: kind
+    name: _BaseType
+    parent: !_ObjBase
+      name: _Aliased
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _TypeKind
+          typeKind: !_TypeKind Enum
+        name: kind
+  !_Name _BasicValue: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _BasicValue
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_Alternate)
+        object: _BasicValue
+        type: !_ObjBase
+          name: _EnumValue
+      - !_ObjectFor(_Alternate)
+        object: _BasicValue
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_Alternate)
+        object: _BasicValue
+        type: !_ObjBase
+          name: _DomainKind
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _DomainKind
+      - !_Alternate
+        type: !_ObjBase
+          name: _EnumValue
+      - !_Alternate
+        type: !_ObjBase
+          name: _DomainKind
+      - !_Alternate
+        type: !_ObjBase
+          name: _DomainKind
+    name: _BasicValue
+    typeKind: !_TypeKind Output
+  !_Name _Categories: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _AndType
+        type: !_ObjBase
+          name: _Type
+      - !_ObjectFor(_Alternate)
+        object: _Categories
+        type: !_ObjBase
+          name: _Category
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _AndType
+        type: !_ObjBase
+          name: _Type
+      - !_ObjectFor(_OutputField)
+        name: category
+        object: _Categories
+        type: !_ObjBase
+          name: _Category
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Category
+    fields:
+      - !_OutputField
+        name: category
+        type: !_ObjBase
+          name: _Category
+    name: _Categories
+    parent: !_ObjBase
+      name: _AndType
+    typeKind: !_TypeKind Output
+  !_Name _Category: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: resolution
+        object: _Category
+        type: !_ObjBase
+          name: _Resolution
+      - !_ObjectFor(_OutputField)
+        name: output
+        object: _Category
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Output
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _Category
+        type: !_ObjBase
+          name: _Modifiers
+    fields:
+      - !_OutputField
+        name: resolution
+        type: !_ObjBase
+          name: _Resolution
+      - !_OutputField
+        name: output
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Output
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        type: !_ObjBase
+          name: _Modifiers
+    name: _Category
+    parent: !_ObjBase
+      name: _Aliased
+    typeKind: !_TypeKind Output
+  !_Name _CategoryFilter: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        object: _Filter
+        type: !_ObjBase
+          name: _NameFilter
+    allFields:
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: names
+        object: _Filter
+        type: !_ObjBase
+          name: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: true
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: matchAliases
+        object: _Filter
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        object: _Filter
+        type: !_ObjBase
+          name: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnByAlias
+        object: _Filter
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnReferencedTypes
+        object: _Filter
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: resolutions
+        object: _CategoryFilter
+        type: !_ObjBase
+          name: _Resolution
+    fields:
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: resolutions
+        type: !_ObjBase
+          name: _Resolution
+    name: _CategoryFilter
+    parent: !_ObjBase
+      name: _Filter
+    typeKind: !_TypeKind Input
+  !_Name _ChildType: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: typeKind
+        object: _BaseType
+        type: !_ObjBase
+          typeParam: kind
+      - !_ObjectFor(_OutputField)
+        name: parent
+        object: _ChildType
+        type: !_ObjBase
+          typeParam: parent
+    fields:
+      - !_OutputField
+        name: parent
+        type: !_ObjBase
+          typeParam: parent
+    name: _ChildType
+    parent: !_ObjBase
+      name: _BaseType
+      typeArgs:
+        - !_TypeArg
+          typeParam: kind
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _TypeKind
+          typeKind: !_TypeKind Enum
+        name: kind
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _Described
+          typeKind: !_TypeKind Dual
+        name: parent
+  !_Name _Collections: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _Collections
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: List
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _Collections
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: Dictionary
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _Collections
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: TypeParam
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: List
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: Dictionary
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _ModifierKeyed
+          typeArgs:
+            - !_EnumValue
+              label: TypeParam
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+    name: _Collections
+    typeKind: !_TypeKind Dual
+  !_Name _Described: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: _DomainKind
+    fields:
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        type: !_ObjBase
+          name: _DomainKind
+    name: _Described
+    typeKind: !_TypeKind Dual
+  !_Name _Directive: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: parameters
+        object: _Directive
+        type: !_ObjBase
+          name: _InputParam
+      - !_ObjectFor(_OutputField)
+        field: repeatable
+        label: Boolean
+        name: _DomainKind
+        object: _Directive
+        typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_OutputField)
+        field: locations
+        label: _
+        name: Unit
+        object: _Directive
+        typeKind: !_SimpleKind Enum
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: parameters
+        type: !_ObjBase
+          name: _InputParam
+      - !_OutputEnum
+        field: repeatable
+        label: Boolean
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_OutputEnum
+        field: locations
+        label: _
+        name: Unit
+        typeKind: !_SimpleKind Enum
+    name: _Directive
+    parent: !_ObjBase
+      name: _Aliased
+    typeKind: !_TypeKind Output
+  !_Name _Directives: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _AndType
+        type: !_ObjBase
+          name: _Type
+      - !_ObjectFor(_Alternate)
+        object: _Directives
+        type: !_ObjBase
+          name: _Directive
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _AndType
+        type: !_ObjBase
+          name: _Type
+      - !_ObjectFor(_OutputField)
+        name: directive
+        object: _Directives
+        type: !_ObjBase
+          name: _Directive
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Directive
+    fields:
+      - !_OutputField
+        name: directive
+        type: !_ObjBase
+          name: _Directive
+    name: _Directives
+    parent: !_ObjBase
+      name: _AndType
+    typeKind: !_TypeKind Output
+  !_Name _DomainItem: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: domain
+        object: _DomainItem
+        type: !_ObjBase
+          name: _Name
+    fields:
+      - !_OutputField
+        name: domain
+        type: !_ObjBase
+          name: _Name
+    name: _DomainItem
+    parent: !_ObjBase
+      typeParam: item
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _BaseDomainItem
+          typeKind: !_TypeKind Dual
+        name: item
+  !_Name _DomainItemLabel: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: label
+        object: _DomainLabel
+        type: !_ObjBase
+          name: _EnumValue
+      - !_ObjectFor(_OutputField)
+        name: domain
+        object: _DomainItem
+        type: !_ObjBase
+          name: _Name
+    name: _DomainItemLabel
+    parent: !_ObjBase
+      name: _DomainItem
+      typeArgs:
+        - !_TypeArg
+          name: _DomainLabel
+    typeKind: !_TypeKind Output
+  !_Name _DomainItemRange: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: domain
+        object: _DomainItem
+        type: !_ObjBase
+          name: _Name
+    name: _DomainItemRange
+    parent: !_ObjBase
+      name: _DomainItem
+      typeArgs:
+        - !_TypeArg
+          name: _DomainRange
+    typeKind: !_TypeKind Output
+  !_Name _DomainItemRegex: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: domain
+        object: _DomainItem
+        type: !_ObjBase
+          name: _Name
+    name: _DomainItemRegex
+    parent: !_ObjBase
+      name: _DomainItem
+      typeArgs:
+        - !_TypeArg
+          name: _DomainRegex
+    typeKind: !_TypeKind Output
+  !_Name _DomainItemTrueFalse: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: domain
+        object: _DomainItem
+        type: !_ObjBase
+          name: _Name
+    name: _DomainItemTrueFalse
+    parent: !_ObjBase
+      name: _DomainItem
+      typeArgs:
+        - !_TypeArg
+          name: _DomainTrueFalse
+    typeKind: !_TypeKind Output
+  !_Name _DomainKind: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: _DomainKind
+        name: Boolean
+      - !_EnumLabel
+        enum: _DomainKind
+        name: Enum
+      - !_EnumLabel
+        enum: _DomainKind
+        name: Number
+      - !_EnumLabel
+        enum: _DomainKind
+        name: String
+    items:
+      - !_Aliased
+        name: Boolean
+      - !_Aliased
+        name: Enum
+      - !_Aliased
+        name: Number
+      - !_Aliased
+        name: String
+    name: _DomainKind
+    typeKind: !_TypeKind Enum
+  !_Name _DomainLabel: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: label
+        object: _DomainLabel
+        type: !_ObjBase
+          name: _EnumValue
+    fields:
+      - !_OutputField
+        name: label
+        type: !_ObjBase
+          name: _EnumValue
+    name: _DomainLabel
+    parent: !_ObjBase
+      name: _BaseDomainItem
+    typeKind: !_TypeKind Output
+  !_Name _DomainRange: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        name: exclude
+        object: _BaseDomainItem
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: lower
+        object: _DomainRange
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: upper
+        object: _DomainRange
+        type: !_ObjBase
+          name: _DomainKind
+    fields:
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: lower
+        type: !_ObjBase
+          name: _DomainKind
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: upper
+        type: !_ObjBase
+          name: _DomainKind
+    name: _DomainRange
+    parent: !_ObjBase
+      name: _BaseDomainItem
+    typeKind: !_TypeKind Dual
+  !_Name _DomainRef: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: domainKind
+        object: _DomainRef
+        type: !_ObjBase
+          typeParam: kind
+    fields:
+      - !_OutputField
+        name: domainKind
+        type: !_ObjBase
+          typeParam: kind
+    name: _DomainRef
+    parent: !_ObjBase
+      name: _TypeRef
+      typeArgs:
+        - !_EnumValue
+          label: Domain
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _DomainKind
+          typeKind: !_TypeKind Enum
+        name: kind
+  !_Name _DomainRegex: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        name: exclude
+        object: _BaseDomainItem
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        name: pattern
+        object: _DomainRegex
+        type: !_ObjBase
+          name: _DomainKind
+    fields:
+      - !_DualField
+        name: pattern
+        type: !_ObjBase
+          name: _DomainKind
+    name: _DomainRegex
+    parent: !_ObjBase
+      name: _BaseDomainItem
+    typeKind: !_TypeKind Dual
+  !_Name _DomainTrueFalse: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        name: exclude
+        object: _BaseDomainItem
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        name: value
+        object: _DomainTrueFalse
+        type: !_ObjBase
+          name: _DomainKind
+    fields:
+      - !_DualField
+        name: value
+        type: !_ObjBase
+          name: _DomainKind
+    name: _DomainTrueFalse
+    parent: !_ObjBase
+      name: _BaseDomainItem
+    typeKind: !_TypeKind Dual
+  !_Name _DomainValue: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _DomainValue
+        type: !_ObjBase
+          typeParam: value
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: domainKind
+        object: _DomainRef
+        type: !_ObjBase
+          typeParam: kind
+      - !_ObjectFor(_OutputField)
+        name: value
+        object: _DomainValue
+        type: !_ObjBase
+          typeParam: value
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: value
+    fields:
+      - !_OutputField
+        name: value
+        type: !_ObjBase
+          typeParam: value
+    name: _DomainValue
+    parent: !_ObjBase
+      name: _DomainRef
+      typeArgs:
+        - !_TypeArg
+          typeParam: kind
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _DomainKind
+          typeKind: !_TypeKind Enum
+        name: kind
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _BasicValue
+          typeKind: !_TypeKind Output
+        name: value
+  !_Name _DualField: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _ObjField
+        type: !_ObjBase
+          name: _ObjFieldType
+    name: _DualField
+    parent: !_ObjBase
+      name: _ObjField
+      typeArgs:
+        - !_TypeArg
+          name: _ObjFieldType
+    typeKind: !_TypeKind Output
+  !_Name _EnumLabel: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        name: name
+        object: _Named
+        type: !_ObjBase
+          name: _Name
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        object: _Aliased
+        type: !_ObjBase
+          name: _Name
+      - !_ObjectFor(_DualField)
+        name: enum
+        object: _EnumLabel
+        type: !_ObjBase
+          name: _Name
+    fields:
+      - !_DualField
+        name: enum
+        type: !_ObjBase
+          name: _Name
+    name: _EnumLabel
+    parent: !_ObjBase
+      name: _Aliased
+    typeKind: !_TypeKind Dual
+  !_Name _EnumValue: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: label
+        object: _EnumValue
+        type: !_ObjBase
+          name: _Name
+    fields:
+      - !_OutputField
+        name: label
+        type: !_ObjBase
+          name: _Name
+    name: _EnumValue
+    parent: !_ObjBase
+      name: _TypeRef
+      typeArgs:
+        - !_EnumValue
+          label: Enum
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Output
+  !_Name _Filter: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        object: _Filter
+        type: !_ObjBase
+          name: _NameFilter
+    allFields:
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: names
+        object: _Filter
+        type: !_ObjBase
+          name: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: true
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: matchAliases
+        object: _Filter
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        object: _Filter
+        type: !_ObjBase
+          name: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnByAlias
+        object: _Filter
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnReferencedTypes
+        object: _Filter
+        type: !_ObjBase
+          name: _DomainKind
+    alternates:
+      - !_Alternate
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        type: !_ObjBase
+          name: _NameFilter
+    fields:
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: names
+        type: !_ObjBase
+          name: _NameFilter
+      - !_InputField
+        default: true
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: matchAliases
+        type: !_ObjBase
+          name: _DomainKind
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        type: !_ObjBase
+          name: _NameFilter
+      - !_InputField
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnByAlias
+        type: !_ObjBase
+          name: _DomainKind
+      - !_InputField
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnReferencedTypes
+        type: !_ObjBase
+          name: _DomainKind
+    name: _Filter
+    typeKind: !_TypeKind Input
+  !_Name _ForParam: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _ForParam
+        type: !_ObjBase
+          name: _ObjAlternate
+      - !_ObjectFor(_Alternate)
+        object: _ForParam
+        type: !_ObjBase
+          name: _ObjField
+          typeArgs:
+            - !_TypeArg
+              typeParam: type
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _ObjAlternate
+      - !_Alternate
+        type: !_ObjBase
+          name: _ObjField
+          typeArgs:
+            - !_TypeArg
+              typeParam: type
+    name: _ForParam
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ObjFieldType
+          typeKind: !_TypeKind Output
+        name: type
+  !_Name _InputField: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _ObjField
+        type: !_ObjBase
+          name: _InputFieldType
+    name: _InputField
+    parent: !_ObjBase
+      name: _ObjField
+      typeArgs:
+        - !_TypeArg
+          name: _InputFieldType
+    typeKind: !_TypeKind Output
+  !_Name _InputFieldType: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _ObjBase
+        type: !_ObjBase
+          name: _TypeParam
+      - !_ObjectFor(_Alternate)
+        object: _ObjFieldType
+        type: !_ObjBase
+          name: _ObjFieldEnum
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeArgs
+        object: _ObjBase
+        type: !_ObjBase
+          name: _ObjTypeArg
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _ObjFieldType
+        type: !_ObjBase
+          name: _Modifiers
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: default
+        object: _InputFieldType
+        type: !_ObjBase
+          name: Value
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: default
+        type: !_ObjBase
+          name: Value
+    name: _InputFieldType
+    parent: !_ObjBase
+      name: _ObjFieldType
+    typeKind: !_TypeKind Output
+  !_Name _InputParam: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _ObjBase
+        type: !_ObjBase
+          name: _TypeParam
+      - !_ObjectFor(_Alternate)
+        object: _ObjFieldType
+        type: !_ObjBase
+          name: _ObjFieldEnum
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeArgs
+        object: _ObjBase
+        type: !_ObjBase
+          name: _ObjTypeArg
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _ObjFieldType
+        type: !_ObjBase
+          name: _Modifiers
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: default
+        object: _InputFieldType
+        type: !_ObjBase
+          name: Value
+    name: _InputParam
+    parent: !_ObjBase
+      name: _InputFieldType
+    typeKind: !_TypeKind Output
+  !_Name _Location: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: _Location
+        name: Operation
+      - !_EnumLabel
+        enum: _Location
+        name: Variable
+      - !_EnumLabel
+        enum: _Location
+        name: Field
+      - !_EnumLabel
+        enum: _Location
+        name: Inline
+      - !_EnumLabel
+        enum: _Location
+        name: Spread
+      - !_EnumLabel
+        enum: _Location
+        name: Fragment
+    items:
+      - !_Aliased
+        name: Operation
+      - !_Aliased
+        name: Variable
+      - !_Aliased
+        name: Field
+      - !_Aliased
+        name: Inline
+      - !_Aliased
+        name: Spread
+      - !_Aliased
+        name: Fragment
+    name: _Location
+    typeKind: !_TypeKind Enum
+  !_Name _Modifier: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: modifierKind
+        object: _Modifier
+        type: !_ObjBase
+          typeParam: kind
+    fields:
+      - !_DualField
+        name: modifierKind
+        type: !_ObjBase
+          typeParam: kind
+    name: _Modifier
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ModifierKind
+          typeKind: !_TypeKind Enum
+        name: kind
+  !_Name _ModifierKeyed: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: modifierKind
+        object: _Modifier
+        type: !_ObjBase
+          typeParam: kind
+      - !_ObjectFor(_DualField)
+        name: by
+        object: _ModifierKeyed
+        type: !_ObjBase
+          name: _TypeSimple
+      - !_ObjectFor(_DualField)
+        name: optional
+        object: _ModifierKeyed
+        type: !_ObjBase
+          name: _DomainKind
+    fields:
+      - !_DualField
+        name: by
+        type: !_ObjBase
+          name: _TypeSimple
+      - !_DualField
+        name: optional
+        type: !_ObjBase
+          name: _DomainKind
+    name: _ModifierKeyed
+    parent: !_ObjBase
+      name: _Modifier
+      typeArgs:
+        - !_TypeArg
+          typeParam: kind
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ModifierKind
+          typeKind: !_TypeKind Enum
+        name: kind
+  !_Name _ModifierKind: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        aliases: [Optional]
+        enum: _ModifierKind
+        name: Opt
+      - !_EnumLabel
+        enum: _ModifierKind
+        name: List
+      - !_EnumLabel
+        aliases: [Dictionary]
+        enum: _ModifierKind
+        name: Dict
+      - !_EnumLabel
+        aliases: [TypeParam]
+        enum: _ModifierKind
+        name: Param
+    items:
+      - !_Aliased
+        aliases: [Optional]
+        name: Opt
+      - !_Aliased
+        name: List
+      - !_Aliased
+        aliases: [Dictionary]
+        name: Dict
+      - !_Aliased
+        aliases: [TypeParam]
+        name: Param
+    name: _ModifierKind
+    typeKind: !_TypeKind Enum
+  !_Name _Modifiers: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _Modifiers
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: Optional
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _Modifiers
+        type: !_ObjBase
+          name: _Collections
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Modifier
+          typeArgs:
+            - !_EnumValue
+              label: Optional
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _Collections
+    name: _Modifiers
+    typeKind: !_TypeKind Dual
+  !_Name _Name: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: _Name
+        exclude: false
+        pattern: '[A-Za-z_][A-Za-z0-9_]*'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: '[A-Za-z_][A-Za-z0-9_]*'
+    name: _Name
+    typeKind: !_TypeKind Domain
+  !_Name _NameFilter: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: _NameFilter
+        exclude: false
+        pattern: '[\\w\\d.*]+'
+    description: "_NameFilter is a simple match expression against _Name where '.' matches any single character and '*' matches zero or more of any character."
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: '[\\w\\d.*]+'
+    name: _NameFilter
+    typeKind: !_TypeKind Domain
+  !_Name _Named: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        name: name
+        object: _Named
+        type: !_ObjBase
+          name: _Name
+    fields:
+      - !_DualField
+        name: name
+        type: !_ObjBase
+          name: _Name
+    name: _Named
+    parent: !_ObjBase
+      name: _Described
+    typeKind: !_TypeKind Dual
+  !_Name _ObjAlternate: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _ObjAlternate
+        type: !_ObjBase
+          name: _ObjAlternateEnum
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _ObjAlternate
+        type: !_ObjBase
+          name: _ObjBase
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: collections
+        object: _ObjAlternate
+        type: !_ObjBase
+          name: _Collections
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _ObjAlternateEnum
+    fields:
+      - !_OutputField
+        name: type
+        type: !_ObjBase
+          name: _ObjBase
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: collections
+        type: !_ObjBase
+          name: _Collections
+    name: _ObjAlternate
+    typeKind: !_TypeKind Output
+  !_Name _ObjAlternateEnum: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: label
+        object: _ObjAlternateEnum
+        type: !_ObjBase
+          name: _Name
+    fields:
+      - !_OutputField
+        name: label
+        type: !_ObjBase
+          name: _Name
+    name: _ObjAlternateEnum
+    parent: !_ObjBase
+      name: _TypeRef
+      typeArgs:
+        - !_EnumValue
+          label: Enum
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Output
+  !_Name _ObjBase: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _ObjBase
+        type: !_ObjBase
+          name: _TypeParam
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeArgs
+        object: _ObjBase
+        type: !_ObjBase
+          name: _ObjTypeArg
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeParam
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeArgs
+        type: !_ObjBase
+          name: _ObjTypeArg
+    name: _ObjBase
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Output
+  !_Name _ObjField: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _ObjField
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_OutputField
+        name: type
+        type: !_ObjBase
+          typeParam: type
+    name: _ObjField
+    parent: !_ObjBase
+      name: _Aliased
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ObjFieldType
+          typeKind: !_TypeKind Output
+        name: type
+  !_Name _ObjFieldEnum: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: label
+        object: _ObjFieldEnum
+        type: !_ObjBase
+          name: _Name
+    fields:
+      - !_OutputField
+        name: label
+        type: !_ObjBase
+          name: _Name
+    name: _ObjFieldEnum
+    parent: !_ObjBase
+      name: _TypeRef
+      typeArgs:
+        - !_EnumValue
+          label: Enum
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Output
+  !_Name _ObjFieldType: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _ObjBase
+        type: !_ObjBase
+          name: _TypeParam
+      - !_ObjectFor(_Alternate)
+        object: _ObjFieldType
+        type: !_ObjBase
+          name: _ObjFieldEnum
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeArgs
+        object: _ObjBase
+        type: !_ObjBase
+          name: _ObjTypeArg
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _ObjFieldType
+        type: !_ObjBase
+          name: _Modifiers
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _ObjFieldEnum
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        type: !_ObjBase
+          name: _Modifiers
+    name: _ObjFieldType
+    parent: !_ObjBase
+      name: _ObjBase
+    typeKind: !_TypeKind Output
+  !_Name _ObjTypeArg: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _ObjTypeArg
+        type: !_ObjBase
+          name: _TypeParam
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: label
+        object: _ObjTypeArg
+        type: !_ObjBase
+          name: _Name
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeParam
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: label
+        type: !_ObjBase
+          name: _Name
+    name: _ObjTypeArg
+    parent: !_ObjBase
+      name: _TypeRef
+      typeArgs:
+        - !_TypeArg
+          name: _TypeKind
+    typeKind: !_TypeKind Output
+  !_Name _ObjTypeParam: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: constraint
+        object: _ObjTypeParam
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_TypeArg
+              name: _TypeKind
+    fields:
+      - !_OutputField
+        name: constraint
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_TypeArg
+              name: _TypeKind
+    name: _ObjTypeParam
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Output
+  !_Name _ObjectFor: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: object
+        object: _ObjectFor
+        type: !_ObjBase
+          name: _Name
+    fields:
+      - !_OutputField
+        name: object
+        type: !_ObjBase
+          name: _Name
+    name: _ObjectFor
+    parent: !_ObjBase
+      typeParam: for
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ForParam
+          typeKind: !_TypeKind Output
+        name: for
+  !_Name _ObjectKind: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: _ObjectKind
+        exclude: false
+        value: !_EnumValue
+          label: Dual
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: _ObjectKind
+        exclude: false
+        value: !_EnumValue
+          label: Input
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: _ObjectKind
+        exclude: false
+        value: !_EnumValue
+          label: Output
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: Dual
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: Input
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: Output
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    name: _ObjectKind
+    typeKind: !_TypeKind Domain
+  !_Name _OpArgList: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        object: _OpArgList
+        type: !_ObjBase
+          name: _OpArgValue
+    alternates:
+      - !_Alternate
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        type: !_ObjBase
+          name: _OpArgValue
+    name: _OpArgList
+    typeKind: !_TypeKind Dual
+  !_Name _OpArgMap: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        collections:
+          - !_ModifierDictionary
+            by: Scalar
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Internal
+        object: _OpArgMap
+        type: !_ObjBase
+          name: _OpArgValue
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: value
+        object: _OpArgMap
+        type: !_ObjBase
+          name: _OpArgValue
+      - !_ObjectFor(_DualField)
+        name: byVariable
+        object: _OpArgMap
+        type: !_ObjBase
+          name: _Name
+    alternates:
+      - !_Alternate
+        collections:
+          - !_ModifierDictionary
+            by: Scalar
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Internal
+        type: !_ObjBase
+          name: _OpArgValue
+    fields:
+      - !_DualField
+        name: value
+        type: !_ObjBase
+          name: _OpArgValue
+      - !_DualField
+        name: byVariable
+        type: !_ObjBase
+          name: _Name
+    name: _OpArgMap
+    typeKind: !_TypeKind Dual
+  !_Name _OpArgValue: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _OpArgValue
+        type: !_ObjBase
+          name: Value
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: variable
+        object: _OpArgValue
+        type: !_ObjBase
+          name: _Name
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: Value
+    fields:
+      - !_DualField
+        name: variable
+        type: !_ObjBase
+          name: _Name
+    name: _OpArgValue
+    typeKind: !_TypeKind Dual
+  !_Name _OpArgument: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _OpArgument
+        type: !_ObjBase
+          name: _OpArgValue
+      - !_ObjectFor(_Alternate)
+        object: _OpArgument
+        type: !_ObjBase
+          name: _OpArgList
+      - !_ObjectFor(_Alternate)
+        object: _OpArgument
+        type: !_ObjBase
+          name: _OpArgMap
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpArgValue
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpArgList
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpArgMap
+    name: _OpArgument
+    typeKind: !_TypeKind Dual
+  !_Name _OpDirective: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        name: name
+        object: _Named
+        type: !_ObjBase
+          name: _Name
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        object: _OpDirective
+        type: !_ObjBase
+          name: _OpArgument
+    fields:
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        type: !_ObjBase
+          name: _OpArgument
+    name: _OpDirective
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Dual
+  !_Name _OpField: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        field: alias
+        label: String
+        name: _DomainKind
+        object: _OpField
+        typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_OutputField)
+        field: field
+        label: String
+        name: _DomainKind
+        object: _OpField
+        typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        object: _OpField
+        type: !_ObjBase
+          name: _OpArgument
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _OpField
+        type: !_ObjBase
+          name: _Modifiers
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpField
+        type: !_ObjBase
+          name: _OpDirective
+    fields:
+      - !_OutputEnum
+        field: alias
+        label: String
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_OutputEnum
+        field: field
+        label: String
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        type: !_ObjBase
+          name: _OpArgument
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        type: !_ObjBase
+          name: _Modifiers
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+    name: _OpField
+    typeKind: !_TypeKind Output
+  !_Name _OpFragment: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _OpFragment
+        type: !_ObjBase
+          name: _ObjBase
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpFragment
+        type: !_ObjBase
+          name: _OpDirective
+    fields:
+      - !_OutputField
+        name: type
+        type: !_ObjBase
+          name: _ObjBase
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+    name: _OpFragment
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Output
+  !_Name _OpInline: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: type
+        object: _OpInline
+        type: !_ObjBase
+          name: _ObjBase
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpInline
+        type: !_ObjBase
+          name: _OpDirective
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: type
+        type: !_ObjBase
+          name: _ObjBase
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+    name: _OpInline
+    typeKind: !_TypeKind Output
+  !_Name _OpObject: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _OpObject
+        type: !_ObjBase
+          name: _OpField
+      - !_ObjectFor(_Alternate)
+        object: _OpObject
+        type: !_ObjBase
+          name: _OpSpread
+      - !_ObjectFor(_Alternate)
+        object: _OpObject
+        type: !_ObjBase
+          name: _OpInline
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpField
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpSpread
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpInline
+    name: _OpObject
+    typeKind: !_TypeKind Output
+  !_Name _OpResult: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _OpResult
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_TypeArg
+              name: _SimpleKind
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierDictionary{by:_Path,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: selections
+        object: _OpResult
+        type: !_ObjBase
+          name: _OpObject
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        object: _OpResult
+        type: !_ObjBase
+          name: _OpArgument
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_TypeArg
+              name: _SimpleKind
+    fields:
+      - !_OutputField
+        modifiers: [!_ModifierDictionary{by:_Path,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: selections
+        type: !_ObjBase
+          name: _OpObject
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        type: !_ObjBase
+          name: _OpArgument
+    name: _OpResult
+    typeKind: !_TypeKind Output
+  !_Name _OpSpread: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        field: fragment
+        label: String
+        name: _DomainKind
+        object: _OpSpread
+        typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpSpread
+        type: !_ObjBase
+          name: _OpDirective
+    fields:
+      - !_OutputEnum
+        field: fragment
+        label: String
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+    name: _OpSpread
+    typeKind: !_TypeKind Output
+  !_Name _OpVariable: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _OpVariable
+        type: !_ObjBase
+          name: _ObjBase
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _OpVariable
+        type: !_ObjBase
+          name: _Modifiers
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: default
+        object: _OpVariable
+        type: !_ObjBase
+          name: Value
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpVariable
+        type: !_ObjBase
+          name: _OpDirective
+    fields:
+      - !_OutputField
+        name: type
+        type: !_ObjBase
+          name: _ObjBase
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        type: !_ObjBase
+          name: _Modifiers
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: default
+        type: !_ObjBase
+          name: Value
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+    name: _OpVariable
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Output
+  !_Name _Operation: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: category
+        object: _Operation
+        type: !_ObjBase
+          name: _Name
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: variables
+        object: _Operation
+        type: !_ObjBase
+          name: _OpVariable
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _Operation
+        type: !_ObjBase
+          name: _OpDirective
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: fragments
+        object: _Operation
+        type: !_ObjBase
+          name: _OpFragment
+      - !_ObjectFor(_OutputField)
+        name: result
+        object: _Operation
+        type: !_ObjBase
+          name: _OpResult
+    fields:
+      - !_OutputField
+        name: category
+        type: !_ObjBase
+          name: _Name
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: variables
+        type: !_ObjBase
+          name: _OpVariable
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: fragments
+        type: !_ObjBase
+          name: _OpFragment
+      - !_OutputField
+        name: result
+        type: !_ObjBase
+          name: _OpResult
+    name: _Operation
+    parent: !_ObjBase
+      name: _Aliased
+    typeKind: !_TypeKind Output
+  !_Name _Operations: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _Operations
+        type: !_ObjBase
+          name: _Operation
+      - !_ObjectFor(_Alternate)
+        object: _Operations
+        type: !_ObjBase
+          name: _Type
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: operation
+        object: _Operations
+        type: !_ObjBase
+          name: _Operation
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _Operations
+        type: !_ObjBase
+          name: _Type
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Operation
+      - !_Alternate
+        type: !_ObjBase
+          name: _Type
+    fields:
+      - !_OutputField
+        name: operation
+        type: !_ObjBase
+          name: _Operation
+      - !_OutputField
+        name: type
+        type: !_ObjBase
+          name: _Type
+    name: _Operations
+    typeKind: !_TypeKind Output
+  !_Name _OutputField: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _ObjField
+        type: !_ObjBase
+          name: _ObjFieldType
+    name: _OutputField
+    parent: !_ObjBase
+      name: _ObjField
+      typeArgs:
+        - !_TypeArg
+          name: _ObjFieldType
+    typeKind: !_TypeKind Output
+  !_Name _OutputFieldType: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _ObjBase
+        type: !_ObjBase
+          name: _TypeParam
+      - !_ObjectFor(_Alternate)
+        object: _ObjFieldType
+        type: !_ObjBase
+          name: _ObjFieldEnum
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeArgs
+        object: _ObjBase
+        type: !_ObjBase
+          name: _ObjTypeArg
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _ObjFieldType
+        type: !_ObjBase
+          name: _Modifiers
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: parameters
+        object: _OutputFieldType
+        type: !_ObjBase
+          name: _InputParam
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: parameters
+        type: !_ObjBase
+          name: _InputParam
+    name: _OutputFieldType
+    parent: !_ObjBase
+      name: _ObjFieldType
+    typeKind: !_TypeKind Output
+  !_Name _ParentType: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: typeKind
+        object: _BaseType
+        type: !_ObjBase
+          typeParam: kind
+      - !_ObjectFor(_OutputField)
+        name: parent
+        object: _ChildType
+        type: !_ObjBase
+          name: _Named
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: items
+        object: _ParentType
+        type: !_ObjBase
+          typeParam: item
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: allItems
+        object: _ParentType
+        type: !_ObjBase
+          typeParam: allItem
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: items
+        type: !_ObjBase
+          typeParam: item
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: allItems
+        type: !_ObjBase
+          typeParam: allItem
+    name: _ParentType
+    parent: !_ObjBase
+      name: _ChildType
+      typeArgs:
+        - !_TypeArg
+          typeParam: kind
+        - !_TypeArg
+          name: _Named
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _TypeKind
+          typeKind: !_TypeKind Enum
+        name: kind
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _Described
+          typeKind: !_TypeKind Dual
+        name: item
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _Described
+          typeKind: !_TypeKind Dual
+        name: allItem
+  !_Name _Path: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: _Path
+        exclude: false
+        pattern: '\\$?\\.*\\w[\\w\\d]*(\\.\\w[\\w\\d]*)*'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: '\\$?\\.*\\w[\\w\\d]*(\\.\\w[\\w\\d]*)*'
+    name: _Path
+    typeKind: !_TypeKind Domain
+  !_Name _Resolution: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: _Resolution
+        name: Parallel
+      - !_EnumLabel
+        enum: _Resolution
+        name: Sequential
+      - !_EnumLabel
+        enum: _Resolution
+        name: Single
+    items:
+      - !_Aliased
+        name: Parallel
+      - !_Aliased
+        name: Sequential
+      - !_Aliased
+        name: Single
+    name: _Resolution
+    typeKind: !_TypeKind Enum
+  !_Name _Schema: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: categories
+        object: _Schema
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _CategoryFilter
+        type: !_ObjBase
+          name: _Categories
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: directives
+        object: _Schema
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _Filter
+        type: !_ObjBase
+          name: _Directives
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: operations
+        object: _Schema
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _Filter
+        type: !_ObjBase
+          name: _Operations
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: types
+        object: _Schema
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _TypeFilter
+        type: !_ObjBase
+          name: _Type
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: settings
+        object: _Schema
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _Filter
+        type: !_ObjBase
+          name: _Setting
+    fields:
+      - !_OutputField
+        modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: categories
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _CategoryFilter
+        type: !_ObjBase
+          name: _Categories
+      - !_OutputField
+        modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: directives
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _Filter
+        type: !_ObjBase
+          name: _Directives
+      - !_OutputField
+        modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: operations
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _Filter
+        type: !_ObjBase
+          name: _Operations
+      - !_OutputField
+        modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: types
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _TypeFilter
+        type: !_ObjBase
+          name: _Type
+      - !_OutputField
+        modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: settings
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _Filter
+        type: !_ObjBase
+          name: _Setting
+    name: _Schema
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Output
+  !_Name _Setting: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: value
+        object: _Setting
+        type: !_ObjBase
+          name: Value
+    fields:
+      - !_OutputField
+        name: value
+        type: !_ObjBase
+          name: Value
+    name: _Setting
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Output
+  !_Name _SimpleKind: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Basic
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Enum
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Internal
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Domain
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Union
+    items:
+      - !_Aliased
+        name: Basic
+      - !_Aliased
+        name: Enum
+      - !_Aliased
+        name: Internal
+      - !_Aliased
+        name: Domain
+      - !_Aliased
+        name: Union
+    name: _SimpleKind
+    typeKind: !_TypeKind Enum
+  !_Name _Type: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _BaseType
+          typeArgs:
+            - !_EnumValue
+              label: Basic
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _BaseType
+          typeArgs:
+            - !_EnumValue
+              label: Internal
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Boolean
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainTrueFalse
+            - !_TypeArg
+              name: _DomainItemTrueFalse
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Enum
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainLabel
+            - !_TypeArg
+              name: _DomainItemLabel
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Number
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainRange
+            - !_TypeArg
+              name: _DomainItemRange
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: String
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainRegex
+            - !_TypeArg
+              name: _DomainItemRegex
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _ParentType
+          typeArgs:
+            - !_EnumValue
+              label: Enum
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _Aliased
+            - !_TypeArg
+              name: _EnumLabel
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _ParentType
+          typeArgs:
+            - !_EnumValue
+              label: Union
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _UnionRef
+            - !_TypeArg
+              name: _UnionMember
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Dual
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DualField
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Input
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _InputField
+      - !_ObjectFor(_Alternate)
+        object: _Type
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Output
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _OutputField
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _BaseType
+          typeArgs:
+            - !_EnumValue
+              label: Basic
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _BaseType
+          typeArgs:
+            - !_EnumValue
+              label: Internal
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Boolean
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainTrueFalse
+            - !_TypeArg
+              name: _DomainItemTrueFalse
+      - !_Alternate
+        type: !_ObjBase
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Enum
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainLabel
+            - !_TypeArg
+              name: _DomainItemLabel
+      - !_Alternate
+        type: !_ObjBase
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: Number
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainRange
+            - !_TypeArg
+              name: _DomainItemRange
+      - !_Alternate
+        type: !_ObjBase
+          name: _BaseDomain
+          typeArgs:
+            - !_EnumValue
+              label: String
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DomainRegex
+            - !_TypeArg
+              name: _DomainItemRegex
+      - !_Alternate
+        type: !_ObjBase
+          name: _ParentType
+          typeArgs:
+            - !_EnumValue
+              label: Enum
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _Aliased
+            - !_TypeArg
+              name: _EnumLabel
+      - !_Alternate
+        type: !_ObjBase
+          name: _ParentType
+          typeArgs:
+            - !_EnumValue
+              label: Union
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _UnionRef
+            - !_TypeArg
+              name: _UnionMember
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Dual
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _DualField
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Input
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _InputField
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeObject
+          typeArgs:
+            - !_EnumValue
+              label: Output
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+            - !_TypeArg
+              name: _OutputField
+    name: _Type
+    typeKind: !_TypeKind Output
+  !_Name _TypeFilter: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        object: _Filter
+        type: !_ObjBase
+          name: _NameFilter
+    allFields:
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: names
+        object: _Filter
+        type: !_ObjBase
+          name: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: true
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: matchAliases
+        object: _Filter
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        object: _Filter
+        type: !_ObjBase
+          name: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnByAlias
+        object: _Filter
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnReferencedTypes
+        object: _Filter
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: kinds
+        object: _TypeFilter
+        type: !_ObjBase
+          name: _TypeKind
+    fields:
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: kinds
+        type: !_ObjBase
+          name: _TypeKind
+    name: _TypeFilter
+    parent: !_ObjBase
+      name: _Filter
+    typeKind: !_TypeKind Input
+  !_Name _TypeKind: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Basic
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Enum
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Internal
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Domain
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Union
+      - !_EnumLabel
+        enum: _TypeKind
+        name: Dual
+      - !_EnumLabel
+        enum: _TypeKind
+        name: Input
+      - !_EnumLabel
+        enum: _TypeKind
+        name: Output
+    items:
+      - !_Aliased
+        name: Dual
+      - !_Aliased
+        name: Input
+      - !_Aliased
+        name: Output
+    name: _TypeKind
+    parent: !_TypeRef(_SimpleKind)
+      name: _SimpleKind
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Name _TypeObject: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: typeKind
+        object: _BaseType
+        type: !_ObjBase
+          typeParam: kind
+      - !_ObjectFor(_OutputField)
+        name: parent
+        object: _ChildType
+        type: !_ObjBase
+          name: _ObjBase
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeParams
+        object: _TypeObject
+        type: !_ObjBase
+          name: _ObjTypeParam
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: fields
+        object: _TypeObject
+        type: !_ObjBase
+          typeParam: field
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: alternates
+        object: _TypeObject
+        type: !_ObjBase
+          name: _ObjAlternate
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: allFields
+        object: _TypeObject
+        type: !_ObjBase
+          name: _ObjectFor
+          typeArgs:
+            - !_TypeArg
+              typeParam: field
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: allAlternates
+        object: _TypeObject
+        type: !_ObjBase
+          name: _ObjectFor
+          typeArgs:
+            - !_TypeArg
+              name: _ObjAlternate
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeParams
+        type: !_ObjBase
+          name: _ObjTypeParam
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: fields
+        type: !_ObjBase
+          typeParam: field
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: alternates
+        type: !_ObjBase
+          name: _ObjAlternate
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: allFields
+        type: !_ObjBase
+          name: _ObjectFor
+          typeArgs:
+            - !_TypeArg
+              typeParam: field
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: allAlternates
+        type: !_ObjBase
+          name: _ObjectFor
+          typeArgs:
+            - !_TypeArg
+              name: _ObjAlternate
+    name: _TypeObject
+    parent: !_ObjBase
+      name: _ChildType
+      typeArgs:
+        - !_TypeArg
+          typeParam: kind
+        - !_TypeArg
+          name: _ObjBase
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ObjectKind
+          typeKind: !_TypeKind Domain
+        name: kind
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ObjField
+          typeKind: !_TypeKind Output
+        name: field
+  !_Name _TypeParam: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: typeParam
+        object: _TypeParam
+        type: !_ObjBase
+          name: _Name
+    fields:
+      - !_OutputField
+        name: typeParam
+        type: !_ObjBase
+          name: _Name
+    name: _TypeParam
+    parent: !_ObjBase
+      name: _Described
+    typeKind: !_TypeKind Output
+  !_Name _TypeRef: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_ObjBase
+          name: _DomainKind
+      - !_ObjectFor(_DualField)
+        name: name
+        object: _Named
+        type: !_ObjBase
+          name: _Name
+      - !_ObjectFor(_DualField)
+        name: typeKind
+        object: _TypeRef
+        type: !_ObjBase
+          typeParam: kind
+    fields:
+      - !_DualField
+        name: typeKind
+        type: !_ObjBase
+          typeParam: kind
+    name: _TypeRef
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _TypeKind
+          typeKind: !_TypeKind Enum
+        name: kind
+  !_Name _TypeSimple: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _TypeSimple
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Basic
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _TypeSimple
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Enum
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _TypeSimple
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Domain
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_Alternate)
+        object: _TypeSimple
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Union
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Basic
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Enum
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Domain
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+      - !_Alternate
+        type: !_ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Union
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+    name: _TypeSimple
+    typeKind: !_TypeKind Dual
+  !_Name _UnionMember: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: union
+        object: _UnionMember
+        type: !_ObjBase
+          name: _Name
+    fields:
+      - !_OutputField
+        name: union
+        type: !_ObjBase
+          name: _Name
+    name: _UnionMember
+    parent: !_ObjBase
+      name: _UnionRef
+    typeKind: !_TypeKind Output
+  !_Name _UnionRef: !_TypeOutput
+    name: _UnionRef
+    parent: !_ObjBase
+      name: _TypeRef
+      typeArgs:
+        - !_TypeArg
+          name: _SimpleKind
+    typeKind: !_TypeKind Output

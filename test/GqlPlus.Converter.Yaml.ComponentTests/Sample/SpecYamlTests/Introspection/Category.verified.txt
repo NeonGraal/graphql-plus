@@ -6,8 +6,8 @@ errors: !_Errors
 - !_Error
   _kind: !_TokenKind End
   _message: "In _Category can't get model for type '_Aliased'"
-types: !_Map_Type
-  !_Identifier _Categories: !_TypeOutput
+types: !_Map(_Type)
+  !_Name _Categories: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _Categories
@@ -32,7 +32,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _AndType
     typeKind: !_TypeKind Output
-  !_Identifier _Category: !_TypeOutput
+  !_Name _Category: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: resolution
@@ -78,7 +78,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Aliased
     typeKind: !_TypeKind Output
-  !_Identifier _Resolution: !_TypeEnum
+  !_Name _Resolution: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: _Resolution

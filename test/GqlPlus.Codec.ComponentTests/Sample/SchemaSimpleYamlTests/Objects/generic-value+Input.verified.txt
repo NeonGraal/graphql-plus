@@ -1,0 +1,54 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name EnumGnrcValueInp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumGnrcValueInp
+        name: gnrcValueInp
+    items:
+      - !_Aliased
+        name: gnrcValueInp
+    name: EnumGnrcValueInp
+    typeKind: !_TypeKind Enum
+  !_Name GnrcValueInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GnrcValueInp
+        type: !_ObjBase
+          name: RefGnrcValueInp
+          typeArgs:
+            - !_EnumValue
+              label: gnrcValueInp
+              name: EnumGnrcValueInp
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefGnrcValueInp
+          typeArgs:
+            - !_EnumValue
+              label: gnrcValueInp
+              name: EnumGnrcValueInp
+              typeKind: !_SimpleKind Enum
+    name: GnrcValueInp
+    typeKind: !_TypeKind Input
+  !_Name RefGnrcValueInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: RefGnrcValueInp
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          typeParam: type
+    name: RefGnrcValueInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _Enum
+          typeKind: !_TypeKind Internal
+        name: type

@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "_Any": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "name": "_Any",
       "typeKind": {
@@ -12,7 +12,7 @@
       }
     },
     "_Array": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "aliases": ["Array"],
       "allAlternates": [
@@ -75,7 +75,7 @@
       ]
     },
     "_Dict": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "aliases": ["Dict"],
       "allAlternates": [
@@ -150,7 +150,7 @@
       ]
     },
     "_IfElse": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "aliases": ["IfElse"],
       "allAlternates": [
@@ -213,7 +213,7 @@
       ]
     },
     "_Key": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "name": "_Key",
       "typeKind": {
@@ -222,7 +222,7 @@
       }
     },
     "_List": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "aliases": ["List"],
       "allAlternates": [
@@ -283,7 +283,7 @@
       ]
     },
     "_Map": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "aliases": ["Map"],
       "allAlternates": [
@@ -346,7 +346,7 @@
       ]
     },
     "_Mask": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "aliases": ["Mask"],
       "allAlternates": [
@@ -409,7 +409,7 @@
       ]
     },
     "_Opt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "aliases": ["Opt"],
       "allAlternates": [
@@ -468,7 +468,7 @@
       ]
     },
     "_Set": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "aliases": ["Set"],
       "allAlternates": [

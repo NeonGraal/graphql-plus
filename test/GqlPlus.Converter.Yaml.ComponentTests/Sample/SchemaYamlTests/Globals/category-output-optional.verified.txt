@@ -1,13 +1,13 @@
 ﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier ctgrOutpOptl: !_Category
+categories: !_Map(_Categories)
+  !_Name ctgrOutpOptl: !_Category
     modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     name: ctgrOutpOptl
     output: !_TypeRef(_TypeKind)
       name: CtgrOutpOptl
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-types: !_Map_Type
-  !_Identifier CtgrOutpOptl: !_TypeOutput
+types: !_Map(_Type)
+  !_Name CtgrOutpOptl: !_TypeOutput
     name: CtgrOutpOptl
     typeKind: !_TypeKind Output

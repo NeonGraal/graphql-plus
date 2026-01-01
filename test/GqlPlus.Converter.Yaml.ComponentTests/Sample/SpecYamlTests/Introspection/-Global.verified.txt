@@ -24,8 +24,8 @@ errors: !_Errors
 - !_Error
   _kind: !_TokenKind End
   _message: "In _Setting can't get model for type '_Named'"
-types: !_Map_Type
-  !_Identifier _AndType: !_TypeOutput
+types: !_Map(_Type)
+  !_Name _AndType: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _AndType
@@ -50,7 +50,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Named
     typeKind: !_TypeKind Output
-  !_Identifier _Categories: !_TypeOutput
+  !_Name _Categories: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _AndType
@@ -84,7 +84,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _AndType
     typeKind: !_TypeKind Output
-  !_Identifier _Category: !_TypeOutput
+  !_Name _Category: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: resolution
@@ -130,7 +130,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Aliased
     typeKind: !_TypeKind Output
-  !_Identifier _Directive: !_TypeOutput
+  !_Name _Directive: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -168,7 +168,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Aliased
     typeKind: !_TypeKind Output
-  !_Identifier _Directives: !_TypeOutput
+  !_Name _Directives: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _AndType
@@ -202,7 +202,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _AndType
     typeKind: !_TypeKind Output
-  !_Identifier _Location: !_TypeEnum
+  !_Name _Location: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: _Location
@@ -237,7 +237,7 @@ types: !_Map_Type
       name: Fragment
     name: _Location
     typeKind: !_TypeKind Enum
-  !_Identifier _OpArgList: !_TypeDual
+  !_Name _OpArgList: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       collections:
@@ -255,7 +255,7 @@ types: !_Map_Type
         name: _OpArgValue
     name: _OpArgList
     typeKind: !_TypeKind Dual
-  !_Identifier _OpArgMap: !_TypeDual
+  !_Name _OpArgMap: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       collections:
@@ -276,7 +276,7 @@ types: !_Map_Type
       name: byVariable
       object: _OpArgMap
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     alternates:
     - !_Alternate
       collections:
@@ -294,10 +294,10 @@ types: !_Map_Type
     - !_DualField
       name: byVariable
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     name: _OpArgMap
     typeKind: !_TypeKind Dual
-  !_Identifier _OpArgValue: !_TypeDual
+  !_Name _OpArgValue: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _OpArgValue
@@ -308,7 +308,7 @@ types: !_Map_Type
       name: variable
       object: _OpArgValue
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     alternates:
     - !_Alternate
       type: !_ObjBase
@@ -317,10 +317,10 @@ types: !_Map_Type
     - !_DualField
       name: variable
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     name: _OpArgValue
     typeKind: !_TypeKind Dual
-  !_Identifier _OpArgument: !_TypeDual
+  !_Name _OpArgument: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _OpArgument
@@ -346,7 +346,7 @@ types: !_Map_Type
         name: _OpArgMap
     name: _OpArgument
     typeKind: !_TypeKind Dual
-  !_Identifier _OpDirective: !_TypeDual
+  !_Name _OpDirective: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
@@ -364,7 +364,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Named
     typeKind: !_TypeKind Dual
-  !_Identifier _OpField: !_TypeOutput
+  !_Name _OpField: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
@@ -422,7 +422,7 @@ types: !_Map_Type
         name: _OpDirective
     name: _OpField
     typeKind: !_TypeKind Output
-  !_Identifier _OpFragment: !_TypeOutput
+  !_Name _OpFragment: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: type
@@ -449,7 +449,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Named
     typeKind: !_TypeKind Output
-  !_Identifier _OpInline: !_TypeOutput
+  !_Name _OpInline: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
@@ -476,7 +476,7 @@ types: !_Map_Type
         name: _OpDirective
     name: _OpInline
     typeKind: !_TypeKind Output
-  !_Identifier _OpObject: !_TypeOutput
+  !_Name _OpObject: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _OpObject
@@ -502,7 +502,7 @@ types: !_Map_Type
         name: _OpInline
     name: _OpObject
     typeKind: !_TypeKind Output
-  !_Identifier _OpResult: !_TypeOutput
+  !_Name _OpResult: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _OpResult
@@ -544,7 +544,7 @@ types: !_Map_Type
         name: _OpArgument
     name: _OpResult
     typeKind: !_TypeKind Output
-  !_Identifier _OpSpread: !_TypeOutput
+  !_Name _OpSpread: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: fragment
@@ -569,7 +569,7 @@ types: !_Map_Type
         name: _OpDirective
     name: _OpSpread
     typeKind: !_TypeKind Output
-  !_Identifier _OpVariable: !_TypeOutput
+  !_Name _OpVariable: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: type
@@ -618,13 +618,13 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Named
     typeKind: !_TypeKind Output
-  !_Identifier _Operation: !_TypeOutput
+  !_Name _Operation: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: category
       object: _Operation
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: variables
@@ -652,7 +652,7 @@ types: !_Map_Type
     - !_OutputField
       name: category
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: variables
@@ -676,7 +676,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Aliased
     typeKind: !_TypeKind Output
-  !_Identifier _Operations: !_TypeOutput
+  !_Name _Operations: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _Operations
@@ -715,7 +715,7 @@ types: !_Map_Type
         name: _Type
     name: _Operations
     typeKind: !_TypeKind Output
-  !_Identifier _Path: !_DomainString
+  !_Name _Path: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
       domain: _Path
@@ -728,7 +728,7 @@ types: !_Map_Type
       pattern: '\$?\.*\w[\w\d]*(\.\w[\w\d]*)*'
     name: _Path
     typeKind: !_TypeKind Domain
-  !_Identifier _Resolution: !_TypeEnum
+  !_Name _Resolution: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: _Resolution
@@ -748,7 +748,7 @@ types: !_Map_Type
       name: Single
     name: _Resolution
     typeKind: !_TypeKind Enum
-  !_Identifier _Setting: !_TypeOutput
+  !_Name _Setting: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: value

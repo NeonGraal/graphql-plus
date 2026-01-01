@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name GnrcPrntDescrInp: !_TypeInput
+    name: GnrcPrntDescrInp
+    parent: !_ObjBase
+      description: 'Parent comment'
+      typeParam: type
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _Dual
+          typeKind: !_TypeKind Internal
+        name: type

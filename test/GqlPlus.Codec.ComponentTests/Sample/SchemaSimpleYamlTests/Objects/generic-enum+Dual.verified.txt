@@ -1,0 +1,54 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name EnumGnrcEnumDual: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumGnrcEnumDual
+        name: gnrcEnumDual
+    items:
+      - !_Aliased
+        name: gnrcEnumDual
+    name: EnumGnrcEnumDual
+    typeKind: !_TypeKind Enum
+  !_Name GnrcEnumDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GnrcEnumDual
+        type: !_ObjBase
+          name: RefGnrcEnumDual
+          typeArgs:
+            - !_EnumValue
+              label: gnrcEnumDual
+              name: EnumGnrcEnumDual
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefGnrcEnumDual
+          typeArgs:
+            - !_EnumValue
+              label: gnrcEnumDual
+              name: EnumGnrcEnumDual
+              typeKind: !_SimpleKind Enum
+    name: GnrcEnumDual
+    typeKind: !_TypeKind Dual
+  !_Name RefGnrcEnumDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: RefGnrcEnumDual
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_DualField
+        name: field
+        type: !_ObjBase
+          typeParam: type
+    name: RefGnrcEnumDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _Enum
+          typeKind: !_TypeKind Internal
+        name: type

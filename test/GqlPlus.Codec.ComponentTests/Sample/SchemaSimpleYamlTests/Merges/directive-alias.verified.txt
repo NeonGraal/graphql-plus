@@ -1,0 +1,7 @@
+﻿!_Schema
+directives: !_Map(_Directives)
+  !_Name DrctAlias: !_Directive
+    aliases: [DirA1,DirA2]
+    locations: !_Set(_Location){Field:_,Variable:_}
+    name: DrctAlias
+    repeatable: false

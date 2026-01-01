@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltCnstFieldObjInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name AltCnstFieldObjInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: PrntCnstFieldObjInp
@@ -21,7 +21,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: PrntCnstFieldObjInp
     typeKind: !_TypeKind Input
-  !_Identifier CnstFieldObjInp: !_TypeInput
+  !_Name CnstFieldObjInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -35,7 +35,7 @@ types: !_Map_Type
       - !_TypeArg
         name: AltCnstFieldObjInp
     typeKind: !_TypeKind Input
-  !_Identifier PrntCnstFieldObjInp: !_TypeInput
+  !_Name PrntCnstFieldObjInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: PrntCnstFieldObjInp
@@ -47,7 +47,7 @@ types: !_Map_Type
         name: String
     name: PrntCnstFieldObjInp
     typeKind: !_TypeKind Input
-  !_Identifier RefCnstFieldObjInp: !_TypeInput
+  !_Name RefCnstFieldObjInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field

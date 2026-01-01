@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntDescrOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name PrntDescrOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefPrntDescrOutp
@@ -17,7 +17,7 @@ types: !_Map_Type
       description: 'Test Descr'
       name: RefPrntDescrOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefPrntDescrOutp: !_TypeOutput
+  !_Name RefPrntDescrOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefPrntDescrOutp

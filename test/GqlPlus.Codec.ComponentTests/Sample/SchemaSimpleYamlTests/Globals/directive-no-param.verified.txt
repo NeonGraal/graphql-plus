@@ -1,0 +1,6 @@
+﻿!_Schema
+directives: !_Map(_Directives)
+  !_Name DrctNoParam: !_Directive
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    name: DrctNoParam
+    repeatable: false

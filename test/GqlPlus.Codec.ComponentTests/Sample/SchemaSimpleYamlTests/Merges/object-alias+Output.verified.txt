@@ -1,0 +1,6 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name ObjAliasOutp: !_TypeOutput
+    aliases: [Output1,Output2]
+    name: ObjAliasOutp
+    typeKind: !_TypeKind Output

@@ -1,0 +1,8 @@
+﻿!_Schema
+name: Schema
+settings: !_Map(_Setting)
+  !_Name merged: !_Setting
+    name: merged
+    value: !_ConstantList
+      - true
+      - 0

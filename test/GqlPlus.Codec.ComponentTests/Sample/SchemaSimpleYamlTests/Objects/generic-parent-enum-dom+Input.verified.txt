@@ -1,0 +1,70 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name DomGnrcPrntEnumDomInp: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: DomGnrcPrntEnumDomInp
+        exclude: false
+        value: !_EnumValue
+          label: gnrcPrntEnumDomInpLabel
+          name: EnumGnrcPrntEnumDomInp
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: gnrcPrntEnumDomInpLabel
+          name: EnumGnrcPrntEnumDomInp
+          typeKind: !_SimpleKind Enum
+    name: DomGnrcPrntEnumDomInp
+    typeKind: !_TypeKind Domain
+  !_Name EnumGnrcPrntEnumDomInp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumGnrcPrntEnumDomInp
+        name: gnrcPrntEnumDomInpLabel
+      - !_EnumLabel
+        enum: EnumGnrcPrntEnumDomInp
+        name: gnrcPrntEnumDomInpOther
+    items:
+      - !_Aliased
+        name: gnrcPrntEnumDomInpLabel
+      - !_Aliased
+        name: gnrcPrntEnumDomInpOther
+    name: EnumGnrcPrntEnumDomInp
+    typeKind: !_TypeKind Enum
+  !_Name FieldGnrcPrntEnumDomInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FieldGnrcPrntEnumDomInp
+        type: !_ObjBase
+          typeParam: ref
+    fields:
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          typeParam: ref
+    name: FieldGnrcPrntEnumDomInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: EnumGnrcPrntEnumDomInp
+          typeKind: !_TypeKind Enum
+        name: ref
+  !_Name GnrcPrntEnumDomInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FieldGnrcPrntEnumDomInp
+        type: !_ObjBase
+          name: DomGnrcPrntEnumDomInp
+    name: GnrcPrntEnumDomInp
+    parent: !_ObjBase
+      name: FieldGnrcPrntEnumDomInp
+      typeArgs:
+        - !_TypeArg
+          name: DomGnrcPrntEnumDomInp
+    typeKind: !_TypeKind Input

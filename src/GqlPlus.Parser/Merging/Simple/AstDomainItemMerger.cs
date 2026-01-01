@@ -7,6 +7,7 @@ internal abstract class AstDomainItemMerger<TItem>(
 ) : DistinctMerger<TItem>(logger)
   where TItem : IGqlpDomainItem
 {
+  protected override string ItemMatchName => "Excludes";
   protected override string ItemMatchKey(TItem item)
     => item.Excludes.ToString();
 

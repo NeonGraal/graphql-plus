@@ -1,0 +1,77 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name DmnEnumUnq: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumUnq
+        exclude: false
+        value: !_EnumValue
+          label: '*'
+          name: EnumDmnEnumUnq
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumUnq
+        exclude: true
+        value: !_EnumValue
+          label: dmnEnumUnq
+          name: EnumDmnEnumUnq
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumUnq
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumUnq
+          name: DupDmnEnumUnq
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: '*'
+          name: EnumDmnEnumUnq
+          typeKind: !_SimpleKind Enum
+      - !_DomainLabel
+        exclude: true
+        value: !_EnumValue
+          label: dmnEnumUnq
+          name: EnumDmnEnumUnq
+          typeKind: !_SimpleKind Enum
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumUnq
+          name: DupDmnEnumUnq
+          typeKind: !_SimpleKind Enum
+    name: DmnEnumUnq
+    typeKind: !_TypeKind Domain
+  !_Name DupDmnEnumUnq: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: DupDmnEnumUnq
+        name: dmnEnumUnq
+      - !_EnumLabel
+        enum: DupDmnEnumUnq
+        name: dup_dmnEnumUnq
+    items:
+      - !_Aliased
+        name: dmnEnumUnq
+      - !_Aliased
+        name: dup_dmnEnumUnq
+    name: DupDmnEnumUnq
+    typeKind: !_TypeKind Enum
+  !_Name EnumDmnEnumUnq: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumDmnEnumUnq
+        name: enum_dmnEnumUnq
+      - !_EnumLabel
+        enum: EnumDmnEnumUnq
+        name: dmnEnumUnq
+    items:
+      - !_Aliased
+        name: enum_dmnEnumUnq
+      - !_Aliased
+        name: dmnEnumUnq
+    name: EnumDmnEnumUnq
+    typeKind: !_TypeKind Enum

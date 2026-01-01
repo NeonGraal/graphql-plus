@@ -1,0 +1,59 @@
+﻿!_Schema
+errors: !_Errors
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In AltCnstPrntDualPrntInp can't get model for type 'PrntCnstPrntDualPrntInp'"
+types: !_Map(_Type)
+  !_Name AltCnstPrntDualPrntInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltCnstPrntDualPrntInp
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_InputField
+        name: alt
+        type: !_ObjBase
+          name: Number
+    name: AltCnstPrntDualPrntInp
+    parent: !_ObjBase
+      name: PrntCnstPrntDualPrntInp
+    typeKind: !_TypeKind Input
+  !_Name CnstPrntDualPrntInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltCnstPrntDualPrntInp
+        type: !_ObjBase
+          name: Number
+    name: CnstPrntDualPrntInp
+    parent: !_ObjBase
+      name: RefCnstPrntDualPrntInp
+      typeArgs:
+        - !_TypeArg
+          name: AltCnstPrntDualPrntInp
+    typeKind: !_TypeKind Input
+  !_Name PrntCnstPrntDualPrntInp: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstPrntDualPrntInp
+        type: !_ObjBase
+          name: String
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    name: PrntCnstPrntDualPrntInp
+    typeKind: !_TypeKind Dual
+  !_Name RefCnstPrntDualPrntInp: !_TypeInput
+    name: RefCnstPrntDualPrntInp
+    parent: !_ObjBase
+      typeParam: ref
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: PrntCnstPrntDualPrntInp
+          typeKind: !_TypeKind Dual
+        name: ref

@@ -11,44 +11,12 @@ internal class VerifyDomainEnum(
   {
     EnumLabels labels = new();
 
-    foreach (IGqlpDomainLabel label in domain.Items) {
-      if (string.IsNullOrWhiteSpace(label.EnumType)) {
-        if (context.GetEnumValue(label.EnumItem, out string? enumType)) {
-          label.SetEnumType(enumType);
-          if (context.GetTyped(label.EnumType, out IGqlpEnum? theType)) {
-            labels.Add(label.Excludes, theType, label.EnumItem);
-          }
-        } else {
-          context.AddError(label, "Domain Enum Item", $"Enum Label '{label.EnumItem}' not defined");
-        }
-      } else if (context.GetTyped(label.EnumType, out IGqlpEnum? theType)) {
-        if (label.EnumItem == "*") {
-          AddAllLabels(labels, context, label.Excludes, theType);
-        } else if (context.GetEnumValueType(theType, label.EnumItem, out IGqlpEnum? enumType)) {
-          labels.Add(label.Excludes, enumType, label.EnumItem);
-        } else {
-          context.AddError(label, "Domain Enum Label", $"'{label.EnumItem}' not a Label of '{label.EnumType}'");
-        }
-      } else {
-        context.AddError(label, "Domain Enum", $"'{label.EnumType}' not an Enum type");
-      }
-    }
+    labels.Add(domain, context);
 
     foreach (EnumLabel[] duplicate in labels.DuplicateLabels()) {
       string label = duplicate[0].Label;
       string enums = duplicate.Select(x => x.Enum.Name).Joined();
       context.AddError(domain, "Domain Enum", $"'{label}' duplicated from these Enums: {enums}");
-    }
-  }
-
-  private static void AddAllLabels(EnumLabels labels, EnumContext context, bool excludes, IGqlpEnum enumType)
-  {
-    foreach (IGqlpEnumLabel enumLabel in enumType.Items) {
-      labels.Add(excludes, enumType, enumLabel.Name);
-    }
-
-    if (context.GetTyped(enumType.Parent?.Name, out IGqlpEnum? parentType)) {
-      AddAllLabels(labels, context, excludes, parentType);
     }
   }
 }
@@ -59,6 +27,55 @@ internal class EnumLabels
 {
   private readonly List<EnumLabel> _includes = [];
   private readonly List<EnumLabel> _excludes = [];
+
+  internal void Add(IGqlpDomain<IGqlpDomainLabel> domain, EnumContext context)
+  {
+    if (context.GetTyped(domain.Parent?.Name, out IGqlpDomain<IGqlpDomainLabel>? domainParent)) {
+      Add(domainParent, context);
+    }
+
+    foreach (IGqlpDomainLabel label in domain.Items) {
+      if (string.IsNullOrWhiteSpace(label.EnumType)) {
+        AddUntypedLabel(context, label);
+      } else if (context.GetTyped(label.EnumType, out IGqlpEnum? theType)) {
+        AddTypedLabel(context, label, theType);
+      } else {
+        context.AddError(label, "Domain Enum", $"'{label.EnumType}' not an Enum type");
+      }
+    }
+  }
+
+  private void AddTypedLabel(EnumContext context, IGqlpDomainLabel label, IGqlpEnum theType)
+  {
+    if (label.EnumItem == "*") {
+      AddAllLabels(context, label.Excludes, theType);
+    } else if (context.GetEnumLabelType(theType, label.EnumItem, out IGqlpEnum? enumType)) {
+      Add(label.Excludes, enumType, label.EnumItem);
+    } else {
+      context.AddError(label, "Domain Enum Label", $"'{label.EnumItem}' not a Label of '{label.EnumType}'");
+    }
+  }
+
+  private void AddUntypedLabel(EnumContext context, IGqlpDomainLabel label)
+  {
+    if (context.GetEnumValueType(label.EnumItem, out IGqlpEnum? enumType)) {
+      label.SetEnumType(enumType.Name);
+      Add(label.Excludes, enumType, label.EnumItem);
+    } else {
+      context.AddError(label, "Domain Enum Item", $"Enum Label '{label.EnumItem}' not defined");
+    }
+  }
+
+  private void AddAllLabels(EnumContext context, bool excludes, IGqlpEnum enumType)
+  {
+    foreach (IGqlpEnumLabel enumLabel in enumType.Items) {
+      Add(excludes, enumType, enumLabel.Name);
+    }
+
+    if (context.GetTyped(enumType.Parent?.Name, out IGqlpEnum? parentType)) {
+      AddAllLabels(context, excludes, parentType);
+    }
+  }
 
   internal void Add(bool excluded, IGqlpEnum theEnum, string theLabel)
   {

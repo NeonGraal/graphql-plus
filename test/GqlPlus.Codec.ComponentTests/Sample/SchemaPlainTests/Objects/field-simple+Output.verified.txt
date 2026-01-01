@@ -1,7 +1,7 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=FieldSmplOutp
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Number
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplOutp[_TypeOutput]:fields.0[_OutputField]:name=field
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=Number
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplOutp[_TypeOutput]:name=FieldSmplOutp
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+﻿[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=FieldSmplOutp
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplOutp[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplOutp[_TypeOutput]:name=FieldSmplOutp
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplOutp[_TypeOutput]:typeKind=[_TypeKind]Output

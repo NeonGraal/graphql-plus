@@ -89,9 +89,9 @@
     "$listTag": "_Errors"
   },
   "categories": {
-    "$mapTag": "_Map_Categories",
+    "$mapTag": "_Map(_Categories)",
     "query": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_Category",
       "name": "query",
       "output": {

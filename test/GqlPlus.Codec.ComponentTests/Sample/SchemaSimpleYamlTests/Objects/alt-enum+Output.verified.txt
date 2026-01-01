@@ -1,0 +1,24 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name AltEnumOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: AltEnumOutp
+        type: !_ObjBase
+          name: EnumAltEnumOutp
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: EnumAltEnumOutp
+    name: AltEnumOutp
+    typeKind: !_TypeKind Output
+  !_Name EnumAltEnumOutp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumAltEnumOutp
+        name: altEnumOutp
+    items:
+      - !_Aliased
+        name: altEnumOutp
+    name: EnumAltEnumOutp
+    typeKind: !_TypeKind Enum

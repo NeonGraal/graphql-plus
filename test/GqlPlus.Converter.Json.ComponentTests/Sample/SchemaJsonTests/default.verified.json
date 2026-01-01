@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "categories": {
-    "$mapTag": "_Map_Categories",
+    "$mapTag": "_Map(_Categories)",
     "mutation": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_Category",
       "name": "mutation",
       "output": {
@@ -20,7 +20,7 @@
       }
     },
     "query": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_Category",
       "name": "query",
       "output": {
@@ -37,7 +37,7 @@
       }
     },
     "subscription": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_Category",
       "name": "subscription",
       "output": {
@@ -55,9 +55,9 @@
     }
   },
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "Mutation": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "Mutation",
       "typeKind": {
@@ -66,7 +66,7 @@
       }
     },
     "Query": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "Query",
       "typeKind": {
@@ -75,7 +75,7 @@
       }
     },
     "Subscription": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "Subscription",
       "typeKind": {
@@ -84,7 +84,7 @@
       }
     },
     "_Schema": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "_Schema",
       "typeKind": {

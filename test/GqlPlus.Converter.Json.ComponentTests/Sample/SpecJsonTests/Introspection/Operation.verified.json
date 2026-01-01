@@ -38,9 +38,9 @@
     "$listTag": "_Errors"
   },
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "_OpArgList": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allAlternates": [
         {
@@ -86,7 +86,7 @@
       }
     },
     "_OpArgMap": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allAlternates": [
         {
@@ -128,7 +128,7 @@
           "object": "_OpArgMap",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -169,7 +169,7 @@
           "name": "byVariable",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -180,7 +180,7 @@
       }
     },
     "_OpArgValue": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allAlternates": [
         {
@@ -199,7 +199,7 @@
           "object": "_OpArgValue",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -218,7 +218,7 @@
           "name": "variable",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -229,7 +229,7 @@
       }
     },
     "_OpArgument": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allAlternates": [
         {
@@ -287,7 +287,7 @@
       }
     },
     "_OpDirective": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -339,7 +339,7 @@
       }
     },
     "_OpField": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -509,7 +509,7 @@
       }
     },
     "_OpFragment": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -578,7 +578,7 @@
       }
     },
     "_OpInline": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -661,7 +661,7 @@
       }
     },
     "_OpObject": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
@@ -719,7 +719,7 @@
       }
     },
     "_OpResult": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
@@ -843,7 +843,7 @@
       }
     },
     "_OpSpread": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -908,7 +908,7 @@
       }
     },
     "_OpVariable": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -1047,7 +1047,7 @@
       }
     },
     "_Operation": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -1056,7 +1056,7 @@
           "object": "_Operation",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         },
         {
@@ -1129,7 +1129,7 @@
           "name": "category",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         },
         {
@@ -1203,7 +1203,7 @@
       }
     },
     "_Operations": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
@@ -1284,7 +1284,7 @@
       }
     },
     "_Path": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainString",
       "allItems": [
         {

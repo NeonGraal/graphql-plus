@@ -23,13 +23,17 @@ public static class ComponentTestStartup
           lb.AddFilter(l => l == LogLevel.Critical);
         }
       })
-      .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
       .AddFieldObjectKinds()
       .AddCommonParsers()
-      .AddOperationParsers()
-      .AddSchemaParsers()
-      .AddMergers()
       .AddSingleton(_ => services);
+
+  public static IServiceCollection AddComponentParsers(this IServiceCollection services, bool checkEnv = true)
+    => services
+      .AddComponentTest(checkEnv)
+      .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
+      .AddSchemaParsers()
+      .AddOperationParsers()
+      .AddMergers();
 
   private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();
 

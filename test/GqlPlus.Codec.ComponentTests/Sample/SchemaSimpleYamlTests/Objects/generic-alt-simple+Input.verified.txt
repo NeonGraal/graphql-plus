@@ -1,0 +1,38 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name GnrcAltSmplInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GnrcAltSmplInp
+        type: !_ObjBase
+          name: RefGnrcAltSmplInp
+          typeArgs:
+            - !_TypeArg
+              name: String
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefGnrcAltSmplInp
+          typeArgs:
+            - !_TypeArg
+              name: String
+    name: GnrcAltSmplInp
+    typeKind: !_TypeKind Input
+  !_Name RefGnrcAltSmplInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefGnrcAltSmplInp
+        type: !_ObjBase
+          typeParam: ref
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: ref
+    name: RefGnrcAltSmplInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: ref

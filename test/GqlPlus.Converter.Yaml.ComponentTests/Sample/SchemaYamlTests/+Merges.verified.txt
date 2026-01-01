@@ -1,27 +1,27 @@
 ﻿!_Schema
 aliases: [Opt1, Opt2]
-categories: !_Map_Categories
-  !_Identifier ctgr: !_Category
+categories: !_Map(_Categories)
+  !_Name ctgr: !_Category
     name: ctgr
     output: !_TypeRef(_TypeKind)
       name: Ctgr
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-  !_Identifier ctgrAlias: !_Category
+  !_Name ctgrAlias: !_Category
     aliases: [CatA1, CatA2]
     name: ctgrAlias
     output: !_TypeRef(_TypeKind)
       name: CtgrAlias
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-  !_Identifier ctgrDescr: !_Category
+  !_Name ctgrDescr: !_Category
     description: 'First category Second category'
     name: ctgrDescr
     output: !_TypeRef(_TypeKind)
       name: CtgrDescr
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-  !_Identifier ctgrMod: !_Category
+  !_Name ctgrMod: !_Category
     aliases: [CatM1, CatM2]
     modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     name: ctgrMod
@@ -29,23 +29,23 @@ categories: !_Map_Categories
       name: CtgrMod
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-  !_Identifier op: !_Category
+  !_Name op: !_Category
     name: op
     output: !_TypeRef(_TypeKind)
       name: Op
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-directives: !_Map_Directives
-  !_Identifier Drct: !_Directive
+directives: !_Map(_Directives)
+  !_Name Drct: !_Directive
     locations: !_Set(_Location) {Inline: _, Spread: _}
     name: Drct
     repeatable: false
-  !_Identifier DrctAlias: !_Directive
+  !_Name DrctAlias: !_Directive
     aliases: [DirA1, DirA2]
     locations: !_Set(_Location) {Field: _, Variable: _}
     name: DrctAlias
     repeatable: false
-  !_Identifier DrctParam: !_Directive
+  !_Name DrctParam: !_Directive
     locations: !_Set(_Location) {Fragment: _, Operation: _}
     name: DrctParam
     parameters:
@@ -53,37 +53,37 @@ directives: !_Map_Directives
       name: InDrctParam
     repeatable: false
 name: Schema
-operations: !_Map_Operations
-  !_Identifier Operation: !_Operation
+operations: !_Map(_Operations)
+  !_Name Operation: !_Operation
     aliases: [Op1, Op2]
     category: op
     name: Operation
     operation: TBC
-settings: !_Map_Setting
-  !_Identifier merged: !_Setting
+settings: !_Map(_Setting)
+  !_Name merged: !_Setting
     name: merged
     value: !_ConstantList
     - true
     - 0
-types: !_Map_Type
-  !_Identifier Ctgr: !_TypeOutput
+types: !_Map(_Type)
+  !_Name Ctgr: !_TypeOutput
     name: Ctgr
     typeKind: !_TypeKind Output
-  !_Identifier CtgrAlias: !_TypeOutput
+  !_Name CtgrAlias: !_TypeOutput
     name: CtgrAlias
     typeKind: !_TypeKind Output
-  !_Identifier CtgrDescr: !_TypeOutput
+  !_Name CtgrDescr: !_TypeOutput
     name: CtgrDescr
     typeKind: !_TypeKind Output
-  !_Identifier CtgrMod: !_TypeOutput
+  !_Name CtgrMod: !_TypeOutput
     name: CtgrMod
     typeKind: !_TypeKind Output
-  !_Identifier DmnAlias: !_DomainNumber
+  !_Name DmnAlias: !_DomainNumber
     aliases: [Num1, Num2]
     domainKind: !_DomainKind Number
     name: DmnAlias
     typeKind: !_TypeKind Domain
-  !_Identifier DmnBool: !_DomainBoolean
+  !_Name DmnBool: !_DomainBoolean
     allItems:
     - !_DomainItem(_DomainTrueFalse)
       domain: DmnBool
@@ -103,7 +103,7 @@ types: !_Map_Type
       value: true
     name: DmnBool
     typeKind: !_TypeKind Domain
-  !_Identifier DmnBoolDiff: !_DomainBoolean
+  !_Name DmnBoolDiff: !_DomainBoolean
     allItems:
     - !_DomainItem(_DomainTrueFalse)
       domain: DmnBoolDiff
@@ -123,7 +123,7 @@ types: !_Map_Type
       value: false
     name: DmnBoolDiff
     typeKind: !_TypeKind Domain
-  !_Identifier DmnBoolSame: !_DomainBoolean
+  !_Name DmnBoolSame: !_DomainBoolean
     allItems:
     - !_DomainItem(_DomainTrueFalse)
       domain: DmnBoolSame
@@ -136,7 +136,7 @@ types: !_Map_Type
       value: true
     name: DmnBoolSame
     typeKind: !_TypeKind Domain
-  !_Identifier DmnEnumDiff: !_DomainEnum
+  !_Name DmnEnumDiff: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
       domain: DmnEnumDiff
@@ -168,7 +168,7 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
     name: DmnEnumDiff
     typeKind: !_TypeKind Domain
-  !_Identifier DmnEnumSame: !_DomainEnum
+  !_Name DmnEnumSame: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
       domain: DmnEnumSame
@@ -187,11 +187,11 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
     name: DmnEnumSame
     typeKind: !_TypeKind Domain
-  !_Identifier DmnNmbr: !_DomainNumber
+  !_Name DmnNmbr: !_DomainNumber
     domainKind: !_DomainKind Number
     name: DmnNmbr
     typeKind: !_TypeKind Domain
-  !_Identifier DmnNmbrDiff: !_DomainNumber
+  !_Name DmnNmbrDiff: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
       domain: DmnNmbrDiff
@@ -206,7 +206,7 @@ types: !_Map_Type
       to: 9
     name: DmnNmbrDiff
     typeKind: !_TypeKind Domain
-  !_Identifier DmnNmbrSame: !_DomainNumber
+  !_Name DmnNmbrSame: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
       domain: DmnNmbrSame
@@ -221,11 +221,11 @@ types: !_Map_Type
       to: 9
     name: DmnNmbrSame
     typeKind: !_TypeKind Domain
-  !_Identifier DmnStr: !_DomainString
+  !_Name DmnStr: !_DomainString
     domainKind: !_DomainKind String
     name: DmnStr
     typeKind: !_TypeKind Domain
-  !_Identifier DmnStrDiff: !_DomainString
+  !_Name DmnStrDiff: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
       domain: DmnStrDiff
@@ -238,7 +238,7 @@ types: !_Map_Type
       pattern: 'a+'
     name: DmnStrDiff
     typeKind: !_TypeKind Domain
-  !_Identifier DmnStrSame: !_DomainString
+  !_Name DmnStrSame: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
       domain: DmnStrSame
@@ -251,7 +251,7 @@ types: !_Map_Type
       pattern: 'a+'
     name: DmnStrSame
     typeKind: !_TypeKind Domain
-  !_Identifier EnumAlias: !_TypeEnum
+  !_Name EnumAlias: !_TypeEnum
     aliases: [En1, En2]
     allItems:
     - !_EnumLabel
@@ -262,7 +262,7 @@ types: !_Map_Type
       name: enumAlias
     name: EnumAlias
     typeKind: !_TypeKind Enum
-  !_Identifier EnumDiff: !_TypeEnum
+  !_Name EnumDiff: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: EnumDiff
@@ -277,7 +277,7 @@ types: !_Map_Type
       name: two
     name: EnumDiff
     typeKind: !_TypeKind Enum
-  !_Identifier EnumSame: !_TypeEnum
+  !_Name EnumSame: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: EnumSame
@@ -287,7 +287,7 @@ types: !_Map_Type
       name: enumSame
     name: EnumSame
     typeKind: !_TypeKind Enum
-  !_Identifier EnumSamePrnt: !_TypeEnum
+  !_Name EnumSamePrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: PrntEnumSamePrnt
@@ -303,7 +303,7 @@ types: !_Map_Type
       name: PrntEnumSamePrnt
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier EnumValueAlias: !_TypeEnum
+  !_Name EnumValueAlias: !_TypeEnum
     allItems:
     - !_EnumLabel
       aliases: [val1, val2]
@@ -315,43 +315,43 @@ types: !_Map_Type
       name: enumValueAlias
     name: EnumValueAlias
     typeKind: !_TypeKind Enum
-  !_Identifier FldObjFieldAliasDual: !_TypeDual
+  !_Name FldObjFieldAliasDual: !_TypeDual
     name: FldObjFieldAliasDual
     typeKind: !_TypeKind Dual
-  !_Identifier FldObjFieldAliasInp: !_TypeInput
+  !_Name FldObjFieldAliasInp: !_TypeInput
     name: FldObjFieldAliasInp
     typeKind: !_TypeKind Input
-  !_Identifier FldObjFieldAliasOutp: !_TypeOutput
+  !_Name FldObjFieldAliasOutp: !_TypeOutput
     name: FldObjFieldAliasOutp
     typeKind: !_TypeKind Output
-  !_Identifier FldObjFieldDual: !_TypeDual
+  !_Name FldObjFieldDual: !_TypeDual
     name: FldObjFieldDual
     typeKind: !_TypeKind Dual
-  !_Identifier FldObjFieldInp: !_TypeInput
+  !_Name FldObjFieldInp: !_TypeInput
     name: FldObjFieldInp
     typeKind: !_TypeKind Input
-  !_Identifier FldObjFieldOutp: !_TypeOutput
+  !_Name FldObjFieldOutp: !_TypeOutput
     name: FldObjFieldOutp
     typeKind: !_TypeKind Output
-  !_Identifier FldOutpFieldParam: !_TypeDual
+  !_Name FldOutpFieldParam: !_TypeDual
     name: FldOutpFieldParam
     typeKind: !_TypeKind Dual
-  !_Identifier InDrctParam: !_TypeInput
+  !_Name InDrctParam: !_TypeInput
     name: InDrctParam
     typeKind: !_TypeKind Input
-  !_Identifier ObjAliasDual: !_TypeDual
+  !_Name ObjAliasDual: !_TypeDual
     aliases: [Dual1, Dual2]
     name: ObjAliasDual
     typeKind: !_TypeKind Dual
-  !_Identifier ObjAliasInp: !_TypeInput
+  !_Name ObjAliasInp: !_TypeInput
     aliases: [Input1, Input2]
     name: ObjAliasInp
     typeKind: !_TypeKind Input
-  !_Identifier ObjAliasOutp: !_TypeOutput
+  !_Name ObjAliasOutp: !_TypeOutput
     aliases: [Output1, Output2]
     name: ObjAliasOutp
     typeKind: !_TypeKind Output
-  !_Identifier ObjAltDual: !_TypeDual
+  !_Name ObjAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: ObjAltDual
@@ -363,10 +363,10 @@ types: !_Map_Type
         name: ObjAltDualType
     name: ObjAltDual
     typeKind: !_TypeKind Dual
-  !_Identifier ObjAltDualType: !_TypeDual
+  !_Name ObjAltDualType: !_TypeDual
     name: ObjAltDualType
     typeKind: !_TypeKind Dual
-  !_Identifier ObjAltEnumDual: !_TypeDual
+  !_Name ObjAltEnumDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: ObjAltEnumDual
@@ -385,7 +385,7 @@ types: !_Map_Type
         name: Boolean
     name: ObjAltEnumDual
     typeKind: !_TypeKind Dual
-  !_Identifier ObjAltEnumInp: !_TypeInput
+  !_Name ObjAltEnumInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: ObjAltEnumInp
@@ -404,7 +404,7 @@ types: !_Map_Type
         name: Boolean
     name: ObjAltEnumInp
     typeKind: !_TypeKind Input
-  !_Identifier ObjAltEnumOutp: !_TypeOutput
+  !_Name ObjAltEnumOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: ObjAltEnumOutp
@@ -423,7 +423,7 @@ types: !_Map_Type
         name: Boolean
     name: ObjAltEnumOutp
     typeKind: !_TypeKind Output
-  !_Identifier ObjAltInp: !_TypeInput
+  !_Name ObjAltInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: ObjAltInp
@@ -435,10 +435,10 @@ types: !_Map_Type
         name: ObjAltInpType
     name: ObjAltInp
     typeKind: !_TypeKind Input
-  !_Identifier ObjAltInpType: !_TypeInput
+  !_Name ObjAltInpType: !_TypeInput
     name: ObjAltInpType
     typeKind: !_TypeKind Input
-  !_Identifier ObjAltOutp: !_TypeOutput
+  !_Name ObjAltOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: ObjAltOutp
@@ -450,10 +450,10 @@ types: !_Map_Type
         name: ObjAltOutpType
     name: ObjAltOutp
     typeKind: !_TypeKind Output
-  !_Identifier ObjAltOutpType: !_TypeOutput
+  !_Name ObjAltOutpType: !_TypeOutput
     name: ObjAltOutpType
     typeKind: !_TypeKind Output
-  !_Identifier ObjCnstDual: !_TypeDual
+  !_Name ObjCnstDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
@@ -482,7 +482,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: type
-  !_Identifier ObjCnstInp: !_TypeInput
+  !_Name ObjCnstInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -511,7 +511,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: type
-  !_Identifier ObjCnstOutp: !_TypeOutput
+  !_Name ObjCnstOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
@@ -540,10 +540,10 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: type
-  !_Identifier ObjDual: !_TypeDual
+  !_Name ObjDual: !_TypeDual
     name: ObjDual
     typeKind: !_TypeKind Dual
-  !_Identifier ObjFieldAliasDual: !_TypeDual
+  !_Name ObjFieldAliasDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       aliases: [field1, field2]
@@ -559,7 +559,7 @@ types: !_Map_Type
         name: FldObjFieldAliasDual
     name: ObjFieldAliasDual
     typeKind: !_TypeKind Dual
-  !_Identifier ObjFieldAliasInp: !_TypeInput
+  !_Name ObjFieldAliasInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       aliases: [field1, field2]
@@ -575,7 +575,7 @@ types: !_Map_Type
         name: FldObjFieldAliasInp
     name: ObjFieldAliasInp
     typeKind: !_TypeKind Input
-  !_Identifier ObjFieldAliasOutp: !_TypeOutput
+  !_Name ObjFieldAliasOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       aliases: [field1, field2]
@@ -591,7 +591,7 @@ types: !_Map_Type
         name: FldObjFieldAliasOutp
     name: ObjFieldAliasOutp
     typeKind: !_TypeKind Output
-  !_Identifier ObjFieldDual: !_TypeDual
+  !_Name ObjFieldDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
@@ -605,7 +605,7 @@ types: !_Map_Type
         name: FldObjFieldDual
     name: ObjFieldDual
     typeKind: !_TypeKind Dual
-  !_Identifier ObjFieldEnumAliasDual: !_TypeDual
+  !_Name ObjFieldEnumAliasDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       aliases: [field1, field2]
@@ -621,7 +621,7 @@ types: !_Map_Type
         name: Boolean
     name: ObjFieldEnumAliasDual
     typeKind: !_TypeKind Dual
-  !_Identifier ObjFieldEnumAliasInp: !_TypeInput
+  !_Name ObjFieldEnumAliasInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       aliases: [field1, field2]
@@ -637,7 +637,7 @@ types: !_Map_Type
         name: Boolean
     name: ObjFieldEnumAliasInp
     typeKind: !_TypeKind Input
-  !_Identifier ObjFieldEnumAliasOutp: !_TypeOutput
+  !_Name ObjFieldEnumAliasOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
@@ -653,7 +653,7 @@ types: !_Map_Type
       typeKind: !_SimpleKind Enum
     name: ObjFieldEnumAliasOutp
     typeKind: !_TypeKind Output
-  !_Identifier ObjFieldEnumValueDual: !_TypeDual
+  !_Name ObjFieldEnumValueDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
@@ -667,7 +667,7 @@ types: !_Map_Type
         name: Boolean
     name: ObjFieldEnumValueDual
     typeKind: !_TypeKind Dual
-  !_Identifier ObjFieldEnumValueInp: !_TypeInput
+  !_Name ObjFieldEnumValueInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -681,7 +681,7 @@ types: !_Map_Type
         name: Boolean
     name: ObjFieldEnumValueInp
     typeKind: !_TypeKind Input
-  !_Identifier ObjFieldEnumValueOutp: !_TypeOutput
+  !_Name ObjFieldEnumValueOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
@@ -697,7 +697,7 @@ types: !_Map_Type
       typeKind: !_SimpleKind Enum
     name: ObjFieldEnumValueOutp
     typeKind: !_TypeKind Output
-  !_Identifier ObjFieldInp: !_TypeInput
+  !_Name ObjFieldInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -711,7 +711,7 @@ types: !_Map_Type
         name: FldObjFieldInp
     name: ObjFieldInp
     typeKind: !_TypeKind Input
-  !_Identifier ObjFieldOutp: !_TypeOutput
+  !_Name ObjFieldOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
@@ -725,7 +725,7 @@ types: !_Map_Type
         name: FldObjFieldOutp
     name: ObjFieldOutp
     typeKind: !_TypeKind Output
-  !_Identifier ObjFieldTypeAliasDual: !_TypeDual
+  !_Name ObjFieldTypeAliasDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
@@ -739,7 +739,7 @@ types: !_Map_Type
         name: String
     name: ObjFieldTypeAliasDual
     typeKind: !_TypeKind Dual
-  !_Identifier ObjFieldTypeAliasInp: !_TypeInput
+  !_Name ObjFieldTypeAliasInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -753,7 +753,7 @@ types: !_Map_Type
         name: String
     name: ObjFieldTypeAliasInp
     typeKind: !_TypeKind Input
-  !_Identifier ObjFieldTypeAliasOutp: !_TypeOutput
+  !_Name ObjFieldTypeAliasOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
@@ -767,13 +767,13 @@ types: !_Map_Type
         name: String
     name: ObjFieldTypeAliasOutp
     typeKind: !_TypeKind Output
-  !_Identifier ObjInp: !_TypeInput
+  !_Name ObjInp: !_TypeInput
     name: ObjInp
     typeKind: !_TypeKind Input
-  !_Identifier ObjOutp: !_TypeOutput
+  !_Name ObjOutp: !_TypeOutput
     name: ObjOutp
     typeKind: !_TypeKind Output
-  !_Identifier ObjParamDual: !_TypeDual
+  !_Name ObjParamDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: test
@@ -807,7 +807,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: type
-  !_Identifier ObjParamDupDual: !_TypeDual
+  !_Name ObjParamDupDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: test
@@ -836,7 +836,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: test
-  !_Identifier ObjParamDupInp: !_TypeInput
+  !_Name ObjParamDupInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: test
@@ -865,7 +865,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: test
-  !_Identifier ObjParamDupOutp: !_TypeOutput
+  !_Name ObjParamDupOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: test
@@ -894,7 +894,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: test
-  !_Identifier ObjParamInp: !_TypeInput
+  !_Name ObjParamInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: test
@@ -928,7 +928,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: type
-  !_Identifier ObjParamOutp: !_TypeOutput
+  !_Name ObjParamOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: test
@@ -962,25 +962,25 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: type
-  !_Identifier ObjPrntDual: !_TypeDual
+  !_Name ObjPrntDual: !_TypeDual
     name: ObjPrntDual
     parent: !_ObjBase
       name: RefObjPrntDual
     typeKind: !_TypeKind Dual
-  !_Identifier ObjPrntInp: !_TypeInput
+  !_Name ObjPrntInp: !_TypeInput
     name: ObjPrntInp
     parent: !_ObjBase
       name: RefObjPrntInp
     typeKind: !_TypeKind Input
-  !_Identifier ObjPrntOutp: !_TypeOutput
+  !_Name ObjPrntOutp: !_TypeOutput
     name: ObjPrntOutp
     parent: !_ObjBase
       name: RefObjPrntOutp
     typeKind: !_TypeKind Output
-  !_Identifier Op: !_TypeOutput
+  !_Name Op: !_TypeOutput
     name: Op
     typeKind: !_TypeKind Output
-  !_Identifier OutpFieldParam: !_TypeOutput
+  !_Name OutpFieldParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
@@ -1004,13 +1004,13 @@ types: !_Map_Type
         name: FldOutpFieldParam
     name: OutpFieldParam
     typeKind: !_TypeKind Output
-  !_Identifier OutpFieldParam1: !_TypeInput
+  !_Name OutpFieldParam1: !_TypeInput
     name: OutpFieldParam1
     typeKind: !_TypeKind Input
-  !_Identifier OutpFieldParam2: !_TypeInput
+  !_Name OutpFieldParam2: !_TypeInput
     name: OutpFieldParam2
     typeKind: !_TypeKind Input
-  !_Identifier PrntEnumSamePrnt: !_TypeEnum
+  !_Name PrntEnumSamePrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: PrntEnumSamePrnt
@@ -1020,7 +1020,7 @@ types: !_Map_Type
       name: prnt_enumSamePrnt
     name: PrntEnumSamePrnt
     typeKind: !_TypeKind Enum
-  !_Identifier PrntUnionSamePrnt: !_TypeUnion
+  !_Name PrntUnionSamePrnt: !_TypeUnion
     allItems:
     - !_UnionMember
       name: String
@@ -1030,16 +1030,16 @@ types: !_Map_Type
       name: String
     name: PrntUnionSamePrnt
     typeKind: !_TypeKind Union
-  !_Identifier RefObjPrntDual: !_TypeDual
+  !_Name RefObjPrntDual: !_TypeDual
     name: RefObjPrntDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefObjPrntInp: !_TypeInput
+  !_Name RefObjPrntInp: !_TypeInput
     name: RefObjPrntInp
     typeKind: !_TypeKind Input
-  !_Identifier RefObjPrntOutp: !_TypeOutput
+  !_Name RefObjPrntOutp: !_TypeOutput
     name: RefObjPrntOutp
     typeKind: !_TypeKind Output
-  !_Identifier UnionAlias: !_TypeUnion
+  !_Name UnionAlias: !_TypeUnion
     aliases: [UnA1, UnA2]
     allItems:
     - !_UnionMember
@@ -1055,7 +1055,7 @@ types: !_Map_Type
       name: Number
     name: UnionAlias
     typeKind: !_TypeKind Union
-  !_Identifier UnionDiff: !_TypeUnion
+  !_Name UnionDiff: !_TypeUnion
     allItems:
     - !_UnionMember
       name: Boolean
@@ -1070,7 +1070,7 @@ types: !_Map_Type
       name: Number
     name: UnionDiff
     typeKind: !_TypeKind Union
-  !_Identifier UnionSame: !_TypeUnion
+  !_Name UnionSame: !_TypeUnion
     allItems:
     - !_UnionMember
       name: Boolean
@@ -1080,7 +1080,7 @@ types: !_Map_Type
       name: Boolean
     name: UnionSame
     typeKind: !_TypeKind Union
-  !_Identifier UnionSamePrnt: !_TypeUnion
+  !_Name UnionSamePrnt: !_TypeUnion
     allItems:
     - !_UnionMember
       name: String

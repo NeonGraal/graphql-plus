@@ -1,0 +1,39 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name FieldObjInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FieldObjInp
+        type: !_ObjBase
+          name: FldFieldObjInp
+    fields:
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          name: FldFieldObjInp
+    name: FieldObjInp
+    typeKind: !_TypeKind Input
+  !_Name FldFieldObjInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: FldFieldObjInp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FldFieldObjInp
+        type: !_ObjBase
+          name: Number
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          name: Number
+    name: FldFieldObjInp
+    typeKind: !_TypeKind Input

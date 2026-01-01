@@ -7,15 +7,13 @@ Success
   Number
   :( 'Parent comment' !Tr I@044/0001 PrntDmnNmbrPrntDescr )
   !DN N@072/0001
-  2
->
+  2>
 }
 {
-!Do I@008/0002
-PrntDmnNmbrPrntDescr
-Number
-!DN P@038/0002
-<
-  2
+  !Do I@008/0002
+  PrntDmnNmbrPrntDescr
+  Number
+  !DN P@038/0002
+  <2
 }
 ]

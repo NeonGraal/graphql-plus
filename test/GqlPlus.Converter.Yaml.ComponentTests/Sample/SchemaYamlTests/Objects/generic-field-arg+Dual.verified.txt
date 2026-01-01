@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcFieldArgDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name GnrcFieldArgDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
@@ -26,7 +26,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: type
-  !_Identifier RefGnrcFieldArgDual: !_TypeDual
+  !_Name RefGnrcFieldArgDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefGnrcFieldArgDual

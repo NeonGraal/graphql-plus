@@ -1,0 +1,29 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name EnumPrntDescr: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: PrntEnumPrntDescr
+        name: prnt_enumPrntDescr
+      - !_EnumLabel
+        enum: EnumPrntDescr
+        name: enumPrntDescr
+    items:
+      - !_Aliased
+        name: enumPrntDescr
+    name: EnumPrntDescr
+    parent: !_TypeRef(_SimpleKind)
+      description: 'Parent comment'
+      name: PrntEnumPrntDescr
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Name PrntEnumPrntDescr: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: PrntEnumPrntDescr
+        name: prnt_enumPrntDescr
+    items:
+      - !_Aliased
+        name: prnt_enumPrntDescr
+    name: PrntEnumPrntDescr
+    typeKind: !_TypeKind Enum

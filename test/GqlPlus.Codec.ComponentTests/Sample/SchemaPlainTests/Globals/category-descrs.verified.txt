@@ -1,7 +1,7 @@
-﻿[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:description='A Category described'
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:name=ctgrDscrs
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrDscrs
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDscrs[_Category]:resolution=[_Resolution]Parallel
-[_Schema]:types[_Map_Type]:[_Identifier]CtgrDscrs[_TypeOutput]:name=CtgrDscrs
-[_Schema]:types[_Map_Type]:[_Identifier]CtgrDscrs[_TypeOutput]:typeKind=[_TypeKind]Output
+﻿[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrDscrs[_Category]:description='A Category described'
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrDscrs[_Category]:name=ctgrDscrs
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrDscrs[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrDscrs
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrDscrs[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrDscrs[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:types[_Map(_Type)]:[_Name]CtgrDscrs[_TypeOutput]:name=CtgrDscrs
+[_Schema]:types[_Map(_Type)]:[_Name]CtgrDscrs[_TypeOutput]:typeKind=[_TypeKind]Output

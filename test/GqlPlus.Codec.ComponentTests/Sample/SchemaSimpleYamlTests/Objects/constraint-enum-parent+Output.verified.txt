@@ -1,0 +1,70 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name CnstEnumPrntOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: CnstEnumPrntOutp
+        type: !_ObjBase
+          name: RefCnstEnumPrntOutp
+          typeArgs:
+            - !_EnumValue
+              label: cnstEnumPrntOutp
+              name: EnumCnstEnumPrntOutp
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefCnstEnumPrntOutp
+          typeArgs:
+            - !_EnumValue
+              label: cnstEnumPrntOutp
+              name: EnumCnstEnumPrntOutp
+              typeKind: !_SimpleKind Enum
+    name: CnstEnumPrntOutp
+    typeKind: !_TypeKind Output
+  !_Name EnumCnstEnumPrntOutp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: ParentCnstEnumPrntOutp
+        name: parentCnstEnumPrntOutp
+      - !_EnumLabel
+        enum: EnumCnstEnumPrntOutp
+        name: cnstEnumPrntOutp
+    items:
+      - !_Aliased
+        name: cnstEnumPrntOutp
+    name: EnumCnstEnumPrntOutp
+    parent: !_TypeRef(_SimpleKind)
+      name: ParentCnstEnumPrntOutp
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Name ParentCnstEnumPrntOutp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: ParentCnstEnumPrntOutp
+        name: parentCnstEnumPrntOutp
+    items:
+      - !_Aliased
+        name: parentCnstEnumPrntOutp
+    name: ParentCnstEnumPrntOutp
+    typeKind: !_TypeKind Enum
+  !_Name RefCnstEnumPrntOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: RefCnstEnumPrntOutp
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_OutputField
+        name: field
+        type: !_ObjBase
+          typeParam: type
+    name: RefCnstEnumPrntOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: ParentCnstEnumPrntOutp
+          typeKind: !_TypeKind Enum
+        name: type

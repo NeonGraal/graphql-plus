@@ -1,7 +1,7 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]FieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
-[_Schema]:types[_Map_Type]:[_Identifier]FieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=FieldDual
-[_Schema]:types[_Map_Type]:[_Identifier]FieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=String
-[_Schema]:types[_Map_Type]:[_Identifier]FieldDual[_TypeDual]:fields.0[_DualField]:name=field
-[_Schema]:types[_Map_Type]:[_Identifier]FieldDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=String
-[_Schema]:types[_Map_Type]:[_Identifier]FieldDual[_TypeDual]:name=FieldDual
-[_Schema]:types[_Map_Type]:[_Identifier]FieldDual[_TypeDual]:typeKind=[_TypeKind]Dual
+﻿[_Schema]:types[_Map(_Type)]:[_Name]FieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map(_Type)]:[_Name]FieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=FieldDual
+[_Schema]:types[_Map(_Type)]:[_Name]FieldDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map(_Type)]:[_Name]FieldDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map(_Type)]:[_Name]FieldDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=String
+[_Schema]:types[_Map(_Type)]:[_Name]FieldDual[_TypeDual]:name=FieldDual
+[_Schema]:types[_Map(_Type)]:[_Name]FieldDual[_TypeDual]:typeKind=[_TypeKind]Dual

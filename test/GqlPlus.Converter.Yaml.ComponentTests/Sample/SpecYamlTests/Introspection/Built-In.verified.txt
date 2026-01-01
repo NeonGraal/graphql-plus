@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier _Collections: !_TypeDual
+types: !_Map(_Type)
+  !_Name _Collections: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _Collections
@@ -56,7 +56,7 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
     name: _Collections
     typeKind: !_TypeKind Dual
-  !_Identifier _Modifier: !_TypeDual
+  !_Name _Modifier: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: modifierKind
@@ -76,7 +76,7 @@ types: !_Map_Type
         name: _ModifierKind
         typeKind: !_TypeKind Enum
       name: kind
-  !_Identifier _ModifierKeyed: !_TypeDual
+  !_Name _ModifierKeyed: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: modifierKind
@@ -115,7 +115,7 @@ types: !_Map_Type
         name: _ModifierKind
         typeKind: !_TypeKind Enum
       name: kind
-  !_Identifier _ModifierKind: !_TypeEnum
+  !_Name _ModifierKind: !_TypeEnum
     allItems:
     - !_EnumLabel
       aliases: [Optional]
@@ -146,7 +146,7 @@ types: !_Map_Type
       name: Param
     name: _ModifierKind
     typeKind: !_TypeKind Enum
-  !_Identifier _Modifiers: !_TypeDual
+  !_Name _Modifiers: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _Modifiers

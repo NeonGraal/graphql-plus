@@ -3,13 +3,13 @@ errors: !_Errors
 - !_Error
   _kind: !_TokenKind End
   _message: "In PrntDualInp can't get model for type 'RefPrntDualInp'"
-types: !_Map_Type
-  !_Identifier PrntDualInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name PrntDualInp: !_TypeInput
     name: PrntDualInp
     parent: !_ObjBase
       name: RefPrntDualInp
     typeKind: !_TypeKind Input
-  !_Identifier RefPrntDualInp: !_TypeDual
+  !_Name RefPrntDualInp: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefPrntDualInp

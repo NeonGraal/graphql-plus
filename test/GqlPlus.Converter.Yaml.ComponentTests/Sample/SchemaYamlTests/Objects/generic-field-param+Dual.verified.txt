@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltGnrcFieldParamDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name AltGnrcFieldParamDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: AltGnrcFieldParamDual
@@ -23,7 +23,7 @@ types: !_Map_Type
         name: Number
     name: AltGnrcFieldParamDual
     typeKind: !_TypeKind Dual
-  !_Identifier GnrcFieldParamDual: !_TypeDual
+  !_Name GnrcFieldParamDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
@@ -43,7 +43,7 @@ types: !_Map_Type
           name: AltGnrcFieldParamDual
     name: GnrcFieldParamDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefGnrcFieldParamDual: !_TypeDual
+  !_Name RefGnrcFieldParamDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefGnrcFieldParamDual

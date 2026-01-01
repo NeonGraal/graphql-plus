@@ -86,9 +86,9 @@
     "$listTag": "_Errors"
   },
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "_BaseDomain": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -179,7 +179,7 @@
       ]
     },
     "_BaseDomainItem": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -213,7 +213,7 @@
       }
     },
     "_BasicValue": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
@@ -286,7 +286,7 @@
       }
     },
     "_DomainItem": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -295,7 +295,7 @@
           "object": "_DomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -305,7 +305,7 @@
           "name": "domain",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -334,7 +334,7 @@
       ]
     },
     "_DomainItemLabel": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -352,7 +352,7 @@
           "object": "_DomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -373,7 +373,7 @@
       }
     },
     "_DomainItemRange": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -382,7 +382,7 @@
           "object": "_DomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -403,7 +403,7 @@
       }
     },
     "_DomainItemRegex": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -412,7 +412,7 @@
           "object": "_DomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -433,7 +433,7 @@
       }
     },
     "_DomainItemTrueFalse": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -442,7 +442,7 @@
           "object": "_DomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -463,7 +463,7 @@
       }
     },
     "_DomainKind": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -512,7 +512,7 @@
       }
     },
     "_DomainLabel": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -546,7 +546,7 @@
       }
     },
     "_DomainRange": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -642,7 +642,7 @@
       }
     },
     "_DomainRef": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -701,7 +701,7 @@
       ]
     },
     "_DomainRegex": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -744,7 +744,7 @@
       }
     },
     "_DomainTrueFalse": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -787,7 +787,7 @@
       }
     },
     "_DomainValue": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
@@ -881,7 +881,7 @@
       ]
     },
     "_EnumLabel": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -890,7 +890,7 @@
           "object": "_EnumLabel",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -900,7 +900,7 @@
           "name": "enum",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -915,7 +915,7 @@
       }
     },
     "_EnumValue": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -924,7 +924,7 @@
           "object": "_EnumValue",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -934,7 +934,7 @@
           "name": "label",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -960,7 +960,7 @@
       }
     },
     "_UnionMember": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -969,7 +969,7 @@
           "object": "_UnionMember",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -979,7 +979,7 @@
           "name": "union",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -994,7 +994,7 @@
       }
     },
     "_UnionRef": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "_UnionRef",
       "parent": {

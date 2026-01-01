@@ -1,7 +1,7 @@
-﻿[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpOptl[_Category]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpOptl[_Category]:name=ctgrOutpOptl
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpOptl[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrOutpOptl
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpOptl[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrOutpOptl[_Category]:resolution=[_Resolution]Parallel
-[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpOptl[_TypeOutput]:name=CtgrOutpOptl
-[_Schema]:types[_Map_Type]:[_Identifier]CtgrOutpOptl[_TypeOutput]:typeKind=[_TypeKind]Output
+﻿[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrOutpOptl[_Category]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrOutpOptl[_Category]:name=ctgrOutpOptl
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrOutpOptl[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrOutpOptl
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrOutpOptl[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrOutpOptl[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:types[_Map(_Type)]:[_Name]CtgrOutpOptl[_TypeOutput]:name=CtgrOutpOptl
+[_Schema]:types[_Map(_Type)]:[_Name]CtgrOutpOptl[_TypeOutput]:typeKind=[_TypeKind]Output

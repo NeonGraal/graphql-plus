@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumPrnt: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumPrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: PrntEnumPrnt
@@ -16,7 +16,7 @@ types: !_Map_Type
       name: PrntEnumPrnt
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier PrntEnumPrnt: !_TypeEnum
+  !_Name PrntEnumPrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: PrntEnumPrnt

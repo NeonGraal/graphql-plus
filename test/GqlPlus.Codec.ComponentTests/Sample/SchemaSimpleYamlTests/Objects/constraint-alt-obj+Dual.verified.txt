@@ -1,0 +1,71 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name AltCnstAltObjDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstAltObjDual
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: alt
+        object: AltCnstAltObjDual
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_DualField
+        name: alt
+        type: !_ObjBase
+          name: Number
+    name: AltCnstAltObjDual
+    parent: !_ObjBase
+      name: PrntCnstAltObjDual
+    typeKind: !_TypeKind Dual
+  !_Name CnstAltObjDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: CnstAltObjDual
+        type: !_ObjBase
+          name: RefCnstAltObjDual
+          typeArgs:
+            - !_TypeArg
+              name: AltCnstAltObjDual
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefCnstAltObjDual
+          typeArgs:
+            - !_TypeArg
+              name: AltCnstAltObjDual
+    name: CnstAltObjDual
+    typeKind: !_TypeKind Dual
+  !_Name PrntCnstAltObjDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstAltObjDual
+        type: !_ObjBase
+          name: String
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    name: PrntCnstAltObjDual
+    typeKind: !_TypeKind Dual
+  !_Name RefCnstAltObjDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefCnstAltObjDual
+        type: !_ObjBase
+          typeParam: ref
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: ref
+    name: RefCnstAltObjDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: PrntCnstAltObjDual
+          typeKind: !_TypeKind Dual
+        name: ref

@@ -3,9 +3,11 @@
 public interface IModeller<TAst>
   where TAst : IGqlpError
 {
+  /*
   T? TryModel<T>(TAst? ast, IMap<TypeKindModel> typeKinds);
-  T ToModel<T>(TAst? ast, IMap<TypeKindModel> typeKinds);
   IEnumerable<T?> TryModels<T>(IEnumerable<TAst>? asts, IMap<TypeKindModel> typeKinds);
+  */
+  T ToModel<T>(TAst? ast, IMap<TypeKindModel> typeKinds);
   T[] ToModels<T>(IEnumerable<TAst>? asts, IMap<TypeKindModel> typeKinds);
 }
 

@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "directives": {
-    "$mapTag": "_Map_Directives",
+    "$mapTag": "_Map(_Directives)",
     "DrctDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_Directive",
       "description": "A directive described",
       "locations": {

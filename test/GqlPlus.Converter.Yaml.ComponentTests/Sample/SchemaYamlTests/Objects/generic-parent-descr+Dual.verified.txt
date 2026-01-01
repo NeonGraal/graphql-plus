@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcPrntDescrDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name GnrcPrntDescrDual: !_TypeDual
     name: GnrcPrntDescrDual
     parent: !_ObjBase
       description: 'Parent comment'

@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "DmnBoolDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainBoolean",
       "allItems": [
         {
@@ -33,7 +33,7 @@
       }
     },
     "DmnBoolPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainBoolean",
       "allItems": [
         {
@@ -75,7 +75,7 @@
       }
     },
     "DmnBoolPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainBoolean",
       "allItems": [
         {
@@ -118,7 +118,7 @@
       }
     },
     "DmnEnumAll": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -162,7 +162,7 @@
       }
     },
     "DmnEnumAllDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -208,7 +208,7 @@
       }
     },
     "DmnEnumAllPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -252,7 +252,7 @@
       }
     },
     "DmnEnumDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -298,7 +298,7 @@
       }
     },
     "DmnEnumLabel": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -342,7 +342,7 @@
       }
     },
     "DmnEnumPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -408,7 +408,7 @@
       }
     },
     "DmnEnumPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -474,8 +474,204 @@
         "$valueTag": "_TypeKind"
       }
     },
+    "DmnEnumUnq": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainEnum",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnq",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "*",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnq",
+          "exclude": true,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnq",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnq",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnq",
+            "name": "DupDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "*",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": true,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnq",
+            "name": "EnumDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnq",
+            "name": "DupDmnEnumUnq",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "name": "DmnEnumUnq",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "DmnEnumUnqPrnt": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainEnum",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnqPrnt",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "*",
+            "name": "EnumDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnqPrnt",
+          "exclude": true,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnqPrnt",
+            "name": "PrntDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnqPrnt",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnqPrnt",
+            "name": "DupDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "*",
+            "name": "EnumDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": true,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnqPrnt",
+            "name": "PrntDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnqPrnt",
+            "name": "DupDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "name": "DmnEnumUnqPrnt",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "DmnEnumValue": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -519,7 +715,7 @@
       }
     },
     "DmnEnumValuePrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -563,7 +759,7 @@
       }
     },
     "DmnNmbrDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainNumber",
       "allItems": [
         {
@@ -593,7 +789,7 @@
       }
     },
     "DmnNmbrPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainNumber",
       "allItems": [
         {
@@ -635,7 +831,7 @@
       }
     },
     "DmnNmbrPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainNumber",
       "allItems": [
         {
@@ -677,8 +873,36 @@
         "$valueTag": "_TypeKind"
       }
     },
+    "DmnNmbrPstv": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrPstv",
+          "exclude": true,
+          "to": 0
+        }
+      ],
+      "domainKind": {
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": true,
+          "to": 0
+        }
+      ],
+      "name": "DmnNmbrPstv",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "DmnStrDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainString",
       "allItems": [
         {
@@ -707,8 +931,36 @@
         "$valueTag": "_TypeKind"
       }
     },
+    "DmnStrNonEmpty": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainString",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRegex)",
+          "domain": "DmnStrNonEmpty",
+          "exclude": true,
+          "pattern": "\\s*"
+        }
+      ],
+      "domainKind": {
+        "$value": "String",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRegex",
+          "exclude": true,
+          "pattern": "\\s*"
+        }
+      ],
+      "name": "DmnStrNonEmpty",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "DmnStrPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainString",
       "allItems": [
         {
@@ -750,7 +1002,7 @@
       }
     },
     "DmnStrPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainString",
       "allItems": [
         {
@@ -792,8 +1044,39 @@
         "$valueTag": "_TypeKind"
       }
     },
+    "DupDmnEnumUnq": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeEnum",
+      "allItems": [
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "DupDmnEnumUnq",
+          "name": "dmnEnumUnq"
+        },
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "DupDmnEnumUnq",
+          "name": "dup_dmnEnumUnq"
+        }
+      ],
+      "items": [
+        {
+          "$mapTag": "_Aliased",
+          "name": "dmnEnumUnq"
+        },
+        {
+          "$mapTag": "_Aliased",
+          "name": "dup_dmnEnumUnq"
+        }
+      ],
+      "name": "DupDmnEnumUnq",
+      "typeKind": {
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "DupDmnEnumUnqPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -824,7 +1107,7 @@
       }
     },
     "EnumDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -848,7 +1131,7 @@
       }
     },
     "EnumDmnEnumAll": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -879,7 +1162,7 @@
       }
     },
     "EnumDmnEnumAllDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -910,7 +1193,7 @@
       }
     },
     "EnumDmnEnumAllPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -945,7 +1228,7 @@
       }
     },
     "EnumDmnEnumDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -967,7 +1250,7 @@
       }
     },
     "EnumDmnEnumLabel": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -989,7 +1272,7 @@
       }
     },
     "EnumDmnEnumPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1020,7 +1303,7 @@
       }
     },
     "EnumDmnEnumPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1051,7 +1334,7 @@
       }
     },
     "EnumDmnEnumUnq": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1082,7 +1365,7 @@
       }
     },
     "EnumDmnEnumUnqPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1122,7 +1405,7 @@
       }
     },
     "EnumDmnEnumValue": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1144,7 +1427,7 @@
       }
     },
     "EnumDmnEnumValuePrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1178,39 +1461,8 @@
         "$valueTag": "_TypeKind"
       }
     },
-    "EnumDomDup": {
-      "$keyTag": "_Identifier",
-      "$mapTag": "_TypeEnum",
-      "allItems": [
-        {
-          "$mapTag": "_EnumLabel",
-          "enum": "EnumDomDup",
-          "name": "dmnEnumUnq"
-        },
-        {
-          "$mapTag": "_EnumLabel",
-          "enum": "EnumDomDup",
-          "name": "dup_dmnEnumUnq"
-        }
-      ],
-      "items": [
-        {
-          "$mapTag": "_Aliased",
-          "name": "dmnEnumUnq"
-        },
-        {
-          "$mapTag": "_Aliased",
-          "name": "dup_dmnEnumUnq"
-        }
-      ],
-      "name": "EnumDomDup",
-      "typeKind": {
-        "$value": "Enum",
-        "$valueTag": "_TypeKind"
-      }
-    },
     "EnumPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1245,7 +1497,7 @@
       }
     },
     "EnumPrntAlias": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1291,7 +1543,7 @@
       }
     },
     "EnumPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1327,7 +1579,7 @@
       }
     },
     "EnumPrntDup": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1363,7 +1615,7 @@
       }
     },
     "PrntDmnBoolPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainBoolean",
       "allItems": [
         {
@@ -1391,7 +1643,7 @@
       }
     },
     "PrntDmnBoolPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainBoolean",
       "allItems": [
         {
@@ -1419,7 +1671,7 @@
       }
     },
     "PrntDmnEnumAllPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1441,7 +1693,7 @@
       }
     },
     "PrntDmnEnumPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -1485,7 +1737,7 @@
       }
     },
     "PrntDmnEnumPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -1529,7 +1781,7 @@
       }
     },
     "PrntDmnEnumUnqPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1560,7 +1812,7 @@
       }
     },
     "PrntDmnEnumValuePrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1582,7 +1834,7 @@
       }
     },
     "PrntDmnNmbrPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainNumber",
       "allItems": [
         {
@@ -1610,7 +1862,7 @@
       }
     },
     "PrntDmnNmbrPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainNumber",
       "allItems": [
         {
@@ -1638,7 +1890,7 @@
       }
     },
     "PrntDmnStrPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainString",
       "allItems": [
         {
@@ -1666,7 +1918,7 @@
       }
     },
     "PrntDmnStrPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainString",
       "allItems": [
         {
@@ -1694,7 +1946,7 @@
       }
     },
     "PrntEnumPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1716,7 +1968,7 @@
       }
     },
     "PrntEnumPrntAlias": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1738,7 +1990,7 @@
       }
     },
     "PrntEnumPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1760,7 +2012,7 @@
       }
     },
     "PrntEnumPrntDup": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -1784,7 +2036,7 @@
       }
     },
     "PrntUnionPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "allItems": [
         {
@@ -1806,7 +2058,7 @@
       }
     },
     "PrntUnionPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "allItems": [
         {
@@ -1828,7 +2080,7 @@
       }
     },
     "PrntUnionPrntDup": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "allItems": [
         {
@@ -1850,7 +2102,7 @@
       }
     },
     "UnionDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "allItems": [
         {
@@ -1874,7 +2126,7 @@
       }
     },
     "UnionPrnt": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "allItems": [
         {
@@ -1909,7 +2161,7 @@
       }
     },
     "UnionPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "allItems": [
         {
@@ -1945,7 +2197,7 @@
       }
     },
     "UnionPrntDup": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "allItems": [
         {

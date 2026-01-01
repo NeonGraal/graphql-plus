@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltAltModParamDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name AltAltModParamDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: AltAltModParamDual
@@ -23,7 +23,7 @@ types: !_Map_Type
         name: Number
     name: AltAltModParamDual
     typeKind: !_TypeKind Dual
-  !_Identifier AltModParamDual: !_TypeDual
+  !_Name AltModParamDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       collections:

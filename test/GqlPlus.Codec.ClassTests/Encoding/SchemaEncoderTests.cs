@@ -60,10 +60,10 @@ public class SchemaEncoderTests
         ":_errors[_Errors].0[_Error]:_kind=[_TokenKind]Start",
         ":_errors[_Errors].0[_Error]:_message=" + errorMessage,
         .. taggedAliases,
-        $":categories[_Map_Categories]:[_Identifier]{categoryName}=[_Categories]{categoryName}",
-        $":directives[_Map_Directives]:[_Identifier]{directiveName}=[_Directives]{directiveName}",
+        $":categories[_Map(_Categories)]:[_Name]{categoryName}=[_Categories]{categoryName}",
+        $":directives[_Map(_Directives)]:[_Name]{directiveName}=[_Directives]{directiveName}",
         ":name=" + name,
-        $":settings[_Map_Setting]:[_Identifier]{settingName}=[_Setting]{settingName}",
-        $":types[_Map_Type]:[_Identifier]{typeName}=[_TypeOutput]{typeName}"]));
+        $":settings[_Map(_Setting)]:[_Name]{settingName}=[_Setting]{settingName}",
+        $":types[_Map(_Type)]:[_Name]{typeName}=[_TypeOutput]{typeName}"]));
   }
 }

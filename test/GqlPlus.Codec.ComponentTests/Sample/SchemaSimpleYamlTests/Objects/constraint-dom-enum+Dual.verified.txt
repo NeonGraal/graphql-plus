@@ -1,0 +1,78 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name CnstDomEnumDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: CnstDomEnumDual
+        type: !_ObjBase
+          name: RefCnstDomEnumDual
+          typeArgs:
+            - !_EnumValue
+              label: cnstDomEnumDual
+              name: EnumCnstDomEnumDual
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefCnstDomEnumDual
+          typeArgs:
+            - !_EnumValue
+              label: cnstDomEnumDual
+              name: EnumCnstDomEnumDual
+              typeKind: !_SimpleKind Enum
+    name: CnstDomEnumDual
+    typeKind: !_TypeKind Dual
+  !_Name EnumCnstDomEnumDual: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumCnstDomEnumDual
+        name: cnstDomEnumDual
+      - !_EnumLabel
+        enum: EnumCnstDomEnumDual
+        name: other
+    items:
+      - !_Aliased
+        name: cnstDomEnumDual
+      - !_Aliased
+        name: other
+    name: EnumCnstDomEnumDual
+    typeKind: !_TypeKind Enum
+  !_Name JustCnstDomEnumDual: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: JustCnstDomEnumDual
+        exclude: false
+        value: !_EnumValue
+          label: cnstDomEnumDual
+          name: EnumCnstDomEnumDual
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: cnstDomEnumDual
+          name: EnumCnstDomEnumDual
+          typeKind: !_SimpleKind Enum
+    name: JustCnstDomEnumDual
+    typeKind: !_TypeKind Domain
+  !_Name RefCnstDomEnumDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: RefCnstDomEnumDual
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_DualField
+        name: field
+        type: !_ObjBase
+          typeParam: type
+    name: RefCnstDomEnumDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: JustCnstDomEnumDual
+          typeKind: !_TypeKind Domain
+        name: type

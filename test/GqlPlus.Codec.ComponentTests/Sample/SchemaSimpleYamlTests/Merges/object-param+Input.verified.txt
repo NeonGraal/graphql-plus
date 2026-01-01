@@ -1,0 +1,36 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name ObjParamInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: test
+        object: ObjParamInp
+        type: !_ObjBase
+          typeParam: test
+      - !_ObjectFor(_InputField)
+        name: type
+        object: ObjParamInp
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_InputField
+        name: test
+        type: !_ObjBase
+          typeParam: test
+      - !_InputField
+        name: type
+        type: !_ObjBase
+          typeParam: type
+    name: ObjParamInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: test
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: type

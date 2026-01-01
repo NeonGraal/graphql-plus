@@ -1,5 +1,5 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntOutp[_TypeOutput]:name=ObjPrntOutp
-[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntOutp[_TypeOutput]:parent[_ObjBase]:name=RefObjPrntOutp
-[_Schema]:types[_Map_Type]:[_Identifier]ObjPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output
-[_Schema]:types[_Map_Type]:[_Identifier]RefObjPrntOutp[_TypeOutput]:name=RefObjPrntOutp
-[_Schema]:types[_Map_Type]:[_Identifier]RefObjPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+﻿[_Schema]:types[_Map(_Type)]:[_Name]ObjPrntOutp[_TypeOutput]:name=ObjPrntOutp
+[_Schema]:types[_Map(_Type)]:[_Name]ObjPrntOutp[_TypeOutput]:parent[_ObjBase]:name=RefObjPrntOutp
+[_Schema]:types[_Map(_Type)]:[_Name]ObjPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map(_Type)]:[_Name]RefObjPrntOutp[_TypeOutput]:name=RefObjPrntOutp
+[_Schema]:types[_Map(_Type)]:[_Name]RefObjPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output

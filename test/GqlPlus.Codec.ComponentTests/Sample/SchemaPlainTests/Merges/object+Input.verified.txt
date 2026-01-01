@@ -1,2 +1,2 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjInp[_TypeInput]:name=ObjInp
-[_Schema]:types[_Map_Type]:[_Identifier]ObjInp[_TypeInput]:typeKind=[_TypeKind]Input
+﻿[_Schema]:types[_Map(_Type)]:[_Name]ObjInp[_TypeInput]:name=ObjInp
+[_Schema]:types[_Map(_Type)]:[_Name]ObjInp[_TypeInput]:typeKind=[_TypeKind]Input

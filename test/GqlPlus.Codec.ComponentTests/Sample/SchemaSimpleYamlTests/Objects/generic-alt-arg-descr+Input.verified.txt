@@ -1,0 +1,46 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name GnrcAltArgDescrInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GnrcAltArgDescrInp
+        type: !_ObjBase
+          name: RefGnrcAltArgDescrInp
+          typeArgs:
+            - !_TypeArg
+              description: 'Test Descr'
+              typeParam: type
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefGnrcAltArgDescrInp
+          typeArgs:
+            - !_TypeArg
+              description: 'Test Descr'
+              typeParam: type
+    name: GnrcAltArgDescrInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: type
+  !_Name RefGnrcAltArgDescrInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefGnrcAltArgDescrInp
+        type: !_ObjBase
+          typeParam: ref
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: ref
+    name: RefGnrcAltArgDescrInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: ref

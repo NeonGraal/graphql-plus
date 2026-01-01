@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntParamDiffDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name PrntParamDiffDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefPrntParamDiffDual
@@ -30,7 +30,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: a
-  !_Identifier RefPrntParamDiffDual: !_TypeDual
+  !_Name RefPrntParamDiffDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefPrntParamDiffDual

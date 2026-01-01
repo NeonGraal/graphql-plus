@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier RefGnrcAltModStrInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name RefGnrcAltModStrInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       collections:

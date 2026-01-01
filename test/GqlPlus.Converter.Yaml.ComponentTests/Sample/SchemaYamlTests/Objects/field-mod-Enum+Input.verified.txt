@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumFieldModEnumInp: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumFieldModEnumInp: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: EnumFieldModEnumInp
@@ -10,7 +10,7 @@ types: !_Map_Type
       name: value
     name: EnumFieldModEnumInp
     typeKind: !_TypeKind Enum
-  !_Identifier FieldModEnumInp: !_TypeInput
+  !_Name FieldModEnumInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       modifiers: [!_ModifierDictionary {by: EnumFieldModEnumInp, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]

@@ -1,0 +1,20 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name CnstAltInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: CnstAltInp
+        type: !_ObjBase
+          typeParam: type
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: type
+    name: CnstAltInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: Number
+          typeKind: !_TypeKind Basic
+        name: type

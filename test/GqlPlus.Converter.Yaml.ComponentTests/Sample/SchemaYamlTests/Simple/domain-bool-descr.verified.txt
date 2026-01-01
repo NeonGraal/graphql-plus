@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnBoolDescr: !_DomainBoolean
+types: !_Map(_Type)
+  !_Name DmnBoolDescr: !_DomainBoolean
     allItems:
     - !_DomainItem(_DomainTrueFalse)
       description: 'DomBool Descr'

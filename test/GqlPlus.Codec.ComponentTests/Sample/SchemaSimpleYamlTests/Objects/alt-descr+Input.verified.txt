@@ -1,0 +1,16 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name AltDescrInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: AltDescrInp
+        type: !_ObjBase
+          description: 'Test Descr'
+          name: String
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          description: 'Test Descr'
+          name: String
+    name: AltDescrInp
+    typeKind: !_TypeKind Input

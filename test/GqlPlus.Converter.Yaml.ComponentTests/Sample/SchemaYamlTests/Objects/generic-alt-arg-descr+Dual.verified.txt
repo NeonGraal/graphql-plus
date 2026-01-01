@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcAltArgDescrDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name GnrcAltArgDescrDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: GnrcAltArgDescrDual
@@ -26,7 +26,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: type
-  !_Identifier RefGnrcAltArgDescrDual: !_TypeDual
+  !_Name RefGnrcAltArgDescrDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefGnrcAltArgDescrDual

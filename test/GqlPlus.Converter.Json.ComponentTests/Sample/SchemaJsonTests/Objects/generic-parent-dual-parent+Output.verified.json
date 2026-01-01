@@ -14,9 +14,9 @@
     "$listTag": "_Errors"
   },
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "AltGnrcPrntDualPrntOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allAlternates": [
         {
@@ -65,7 +65,7 @@
       }
     },
     "GnrcPrntDualPrntOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "GnrcPrntDualPrntOutp",
       "parent": {
@@ -84,7 +84,7 @@
       }
     },
     "RefGnrcPrntDualPrntOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "RefGnrcPrntDualPrntOutp",
       "parent": {

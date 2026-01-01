@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name AltSmplDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: AltSmplDual
+        type: !_ObjBase
+          name: String
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    name: AltSmplDual
+    typeKind: !_TypeKind Dual

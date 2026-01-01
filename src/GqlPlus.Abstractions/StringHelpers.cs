@@ -53,4 +53,7 @@ public static class StringHelpers
 
   public static string Suffixed(this string? text, string suffix)
     => text?.Length > 0 ? text + suffix : "";
+
+  public static string Surrounded(this string? text, string prefix, string suffix)
+    => text?.Length > 0 ? prefix + text + suffix : "";
 }

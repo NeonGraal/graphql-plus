@@ -1,7 +1,7 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=FieldSmplDual
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=Number
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:fields.0[_DualField]:name=field
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=Number
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:name=FieldSmplDual
-[_Schema]:types[_Map_Type]:[_Identifier]FieldSmplDual[_TypeDual]:typeKind=[_TypeKind]Dual
+﻿[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=field
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=FieldSmplDual
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplDual[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplDual[_TypeDual]:fields.0[_DualField]:name=field
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplDual[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=Number
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplDual[_TypeDual]:name=FieldSmplDual
+[_Schema]:types[_Map(_Type)]:[_Name]FieldSmplDual[_TypeDual]:typeKind=[_TypeKind]Dual

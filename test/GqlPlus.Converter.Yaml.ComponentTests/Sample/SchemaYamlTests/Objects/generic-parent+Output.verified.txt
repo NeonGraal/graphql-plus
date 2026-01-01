@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcPrntOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name GnrcPrntOutp: !_TypeOutput
     name: GnrcPrntOutp
     parent: !_ObjBase
       typeParam: type

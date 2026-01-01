@@ -6,8 +6,6 @@ Success
   DmnNmbrDiff
   Number
   !DN N@029/0001
-  1
-  ~
-  9
+  1~9
 }
 ]

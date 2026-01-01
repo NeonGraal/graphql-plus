@@ -12,7 +12,7 @@ Success
     enum
     :
     I@015/0003
-    _Identifier
+    _Name
   }
 }
 {
@@ -30,7 +30,7 @@ Success
     label
     :
     I@016/0008
-    _Identifier
+    _Name
   }
 }
 ]

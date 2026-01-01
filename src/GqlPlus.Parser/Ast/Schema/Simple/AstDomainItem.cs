@@ -17,7 +17,4 @@ internal abstract record class AstDomainItem(
     && Description.NullEqual(other.Description);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Excludes);
-  internal override IEnumerable<string?> GetFields()
-  => base.GetFields()
-      .Append(Excludes ? "!" : "");
 }

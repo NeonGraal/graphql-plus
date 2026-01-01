@@ -1,0 +1,44 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name GnrcAltArgDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GnrcAltArgDual
+        type: !_ObjBase
+          name: RefGnrcAltArgDual
+          typeArgs:
+            - !_TypeArg
+              typeParam: type
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefGnrcAltArgDual
+          typeArgs:
+            - !_TypeArg
+              typeParam: type
+    name: GnrcAltArgDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: type
+  !_Name RefGnrcAltArgDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefGnrcAltArgDual
+        type: !_ObjBase
+          typeParam: ref
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: ref
+    name: RefGnrcAltArgDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: ref

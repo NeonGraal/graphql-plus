@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntParamSameInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name PrntParamSameInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefPrntParamSameInp
@@ -30,7 +30,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: a
-  !_Identifier RefPrntParamSameInp: !_TypeInput
+  !_Name RefPrntParamSameInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefPrntParamSameInp

@@ -3,8 +3,8 @@ errors: !_Errors
 - !_Error
   _kind: !_TokenKind End
   _message: "In RefGnrcPrntDualPrntInp can't get model for type 'AltGnrcPrntDualPrntInp'"
-types: !_Map_Type
-  !_Identifier AltGnrcPrntDualPrntInp: !_TypeDual
+types: !_Map(_Type)
+  !_Name AltGnrcPrntDualPrntInp: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: AltGnrcPrntDualPrntInp
@@ -27,7 +27,7 @@ types: !_Map_Type
         name: Number
     name: AltGnrcPrntDualPrntInp
     typeKind: !_TypeKind Dual
-  !_Identifier GnrcPrntDualPrntInp: !_TypeInput
+  !_Name GnrcPrntDualPrntInp: !_TypeInput
     name: GnrcPrntDualPrntInp
     parent: !_ObjBase
       name: RefGnrcPrntDualPrntInp
@@ -35,7 +35,7 @@ types: !_Map_Type
       - !_TypeArg
         name: AltGnrcPrntDualPrntInp
     typeKind: !_TypeKind Input
-  !_Identifier RefGnrcPrntDualPrntInp: !_TypeInput
+  !_Name RefGnrcPrntDualPrntInp: !_TypeInput
     name: RefGnrcPrntDualPrntInp
     parent: !_ObjBase
       typeParam: ref

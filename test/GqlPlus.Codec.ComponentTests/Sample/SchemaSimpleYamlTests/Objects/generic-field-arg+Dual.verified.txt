@@ -1,0 +1,46 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name GnrcFieldArgDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: GnrcFieldArgDual
+        type: !_ObjBase
+          name: RefGnrcFieldArgDual
+          typeArgs:
+            - !_TypeArg
+              typeParam: type
+    fields:
+      - !_DualField
+        name: field
+        type: !_ObjBase
+          name: RefGnrcFieldArgDual
+          typeArgs:
+            - !_TypeArg
+              typeParam: type
+    name: GnrcFieldArgDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: type
+  !_Name RefGnrcFieldArgDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefGnrcFieldArgDual
+        type: !_ObjBase
+          typeParam: ref
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: ref
+    name: RefGnrcFieldArgDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: ref

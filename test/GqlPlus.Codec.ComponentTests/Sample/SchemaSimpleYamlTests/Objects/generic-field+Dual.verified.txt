@@ -1,0 +1,22 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name GnrcFieldDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: GnrcFieldDual
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_DualField
+        name: field
+        type: !_ObjBase
+          typeParam: type
+    name: GnrcFieldDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: type

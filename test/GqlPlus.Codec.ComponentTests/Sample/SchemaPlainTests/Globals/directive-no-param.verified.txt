@@ -1,8 +1,8 @@
-﻿[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Field=_
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Fragment=_
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Inline=_
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Operation=_
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Spread=_
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:locations[_Set(_Location)]:Variable=_
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:name=DrctNoParam
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctNoParam[_Directive]:repeatable=false
+﻿[_Schema]:directives[_Map(_Directives)]:[_Name]DrctNoParam[_Directive]:locations[_Set(_Location)]:Field=_
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctNoParam[_Directive]:locations[_Set(_Location)]:Fragment=_
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctNoParam[_Directive]:locations[_Set(_Location)]:Inline=_
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctNoParam[_Directive]:locations[_Set(_Location)]:Operation=_
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctNoParam[_Directive]:locations[_Set(_Location)]:Spread=_
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctNoParam[_Directive]:locations[_Set(_Location)]:Variable=_
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctNoParam[_Directive]:name=DrctNoParam
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctNoParam[_Directive]:repeatable=false

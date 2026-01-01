@@ -1,8 +1,8 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]UnionDiff[_TypeUnion]:allItems.0[_UnionMember]:name=Boolean
-[_Schema]:types[_Map_Type]:[_Identifier]UnionDiff[_TypeUnion]:allItems.0[_UnionMember]:union=UnionDiff
-[_Schema]:types[_Map_Type]:[_Identifier]UnionDiff[_TypeUnion]:allItems.1[_UnionMember]:name=Number
-[_Schema]:types[_Map_Type]:[_Identifier]UnionDiff[_TypeUnion]:allItems.1[_UnionMember]:union=UnionDiff
-[_Schema]:types[_Map_Type]:[_Identifier]UnionDiff[_TypeUnion]:items.0[_Aliased]:name=Boolean
-[_Schema]:types[_Map_Type]:[_Identifier]UnionDiff[_TypeUnion]:items.1[_Aliased]:name=Number
-[_Schema]:types[_Map_Type]:[_Identifier]UnionDiff[_TypeUnion]:name=UnionDiff
-[_Schema]:types[_Map_Type]:[_Identifier]UnionDiff[_TypeUnion]:typeKind=[_TypeKind]Union
+﻿[_Schema]:types[_Map(_Type)]:[_Name]UnionDiff[_TypeUnion]:allItems.0[_UnionMember]:name=Boolean
+[_Schema]:types[_Map(_Type)]:[_Name]UnionDiff[_TypeUnion]:allItems.0[_UnionMember]:union=UnionDiff
+[_Schema]:types[_Map(_Type)]:[_Name]UnionDiff[_TypeUnion]:allItems.1[_UnionMember]:name=Number
+[_Schema]:types[_Map(_Type)]:[_Name]UnionDiff[_TypeUnion]:allItems.1[_UnionMember]:union=UnionDiff
+[_Schema]:types[_Map(_Type)]:[_Name]UnionDiff[_TypeUnion]:items.0[_Aliased]:name=Boolean
+[_Schema]:types[_Map(_Type)]:[_Name]UnionDiff[_TypeUnion]:items.1[_Aliased]:name=Number
+[_Schema]:types[_Map(_Type)]:[_Name]UnionDiff[_TypeUnion]:name=UnionDiff
+[_Schema]:types[_Map(_Type)]:[_Name]UnionDiff[_TypeUnion]:typeKind=[_TypeKind]Union

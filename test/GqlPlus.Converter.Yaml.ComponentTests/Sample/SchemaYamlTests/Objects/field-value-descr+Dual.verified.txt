@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumFieldValueDescrDual: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumFieldValueDescrDual: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: EnumFieldValueDescrDual
@@ -10,7 +10,7 @@ types: !_Map_Type
       name: fieldValueDescrDual
     name: EnumFieldValueDescrDual
     typeKind: !_TypeKind Enum
-  !_Identifier FieldValueDescrDual: !_TypeDual
+  !_Name FieldValueDescrDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field

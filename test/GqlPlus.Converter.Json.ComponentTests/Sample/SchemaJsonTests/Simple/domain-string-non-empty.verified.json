@@ -1,0 +1,34 @@
+﻿{
+  "$mapTag": "_Schema",
+  "types": {
+    "$mapTag": "_Map(_Type)",
+    "DmnStrNonEmpty": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainString",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRegex)",
+          "domain": "DmnStrNonEmpty",
+          "exclude": true,
+          "pattern": "\\s*"
+        }
+      ],
+      "domainKind": {
+        "$value": "String",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRegex",
+          "exclude": true,
+          "pattern": "\\s*"
+        }
+      ],
+      "name": "DmnStrNonEmpty",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    }
+  }
+}

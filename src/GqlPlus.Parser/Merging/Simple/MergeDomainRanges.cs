@@ -7,7 +7,6 @@ internal class MergeDomainRanges(
   ILoggerFactory logger
 ) : AstDomainItemMerger<IGqlpDomainRange>(logger)
 {
-  protected override string ItemMatchName => "Range";
   protected override string ItemGroupKey(IGqlpDomainRange item)
-    => ((DomainRangeAst)item).GetFields().Skip(2).Joined();
+    => ((DomainRangeAst)item).AsString;
 }

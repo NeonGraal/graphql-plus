@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltAltModBoolDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name AltAltModBoolDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: AltAltModBoolDual
@@ -23,7 +23,7 @@ types: !_Map_Type
         name: Number
     name: AltAltModBoolDual
     typeKind: !_TypeKind Dual
-  !_Identifier AltModBoolDual: !_TypeDual
+  !_Name AltModBoolDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       collections:

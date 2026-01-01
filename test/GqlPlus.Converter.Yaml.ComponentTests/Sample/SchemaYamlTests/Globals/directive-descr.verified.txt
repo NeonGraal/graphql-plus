@@ -1,6 +1,6 @@
 ﻿!_Schema
-directives: !_Map_Directives
-  !_Identifier DrctDescr: !_Directive
+directives: !_Map(_Directives)
+  !_Name DrctDescr: !_Directive
     description: 'A directive described'
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _, Operation: _, Spread: _, Variable: _}
     name: DrctDescr

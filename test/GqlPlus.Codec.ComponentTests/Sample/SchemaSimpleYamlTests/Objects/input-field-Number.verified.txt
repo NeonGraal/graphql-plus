@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name InpFieldNmbr: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        default: 42
+        name: field
+        object: InpFieldNmbr
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_InputField
+        default: 42
+        name: field
+        type: !_ObjBase
+          name: Number
+    name: InpFieldNmbr
+    typeKind: !_TypeKind Input

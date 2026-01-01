@@ -1,0 +1,55 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name AltGnrcPrntDualPrntDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: AltGnrcPrntDualPrntDual
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: alt
+        object: AltGnrcPrntDualPrntDual
+        type: !_ObjBase
+          name: Number
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_DualField
+        name: alt
+        type: !_ObjBase
+          name: Number
+    name: AltGnrcPrntDualPrntDual
+    typeKind: !_TypeKind Dual
+  !_Name GnrcPrntDualPrntDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: AltGnrcPrntDualPrntDual
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: alt
+        object: AltGnrcPrntDualPrntDual
+        type: !_ObjBase
+          name: Number
+    name: GnrcPrntDualPrntDual
+    parent: !_ObjBase
+      name: RefGnrcPrntDualPrntDual
+      typeArgs:
+        - !_TypeArg
+          name: AltGnrcPrntDualPrntDual
+    typeKind: !_TypeKind Dual
+  !_Name RefGnrcPrntDualPrntDual: !_TypeDual
+    name: RefGnrcPrntDualPrntDual
+    parent: !_ObjBase
+      typeParam: ref
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _Dual
+          typeKind: !_TypeKind Internal
+        name: ref

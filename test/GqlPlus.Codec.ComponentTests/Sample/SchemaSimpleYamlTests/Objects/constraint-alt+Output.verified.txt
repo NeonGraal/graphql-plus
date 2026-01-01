@@ -1,0 +1,20 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name CnstAltOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: CnstAltOutp
+        type: !_ObjBase
+          typeParam: type
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: type
+    name: CnstAltOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: Number
+          typeKind: !_TypeKind Basic
+        name: type

@@ -1,0 +1,107 @@
+﻿!_Schema
+errors: !_Errors
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _Directive can't get model for type '_Aliased'"
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In _Directives can't get model for type '_AndType'"
+types: !_Map(_Type)
+  !_Name _Directive: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: parameters
+        object: _Directive
+        type: !_ObjBase
+          name: _InputParam
+      - !_ObjectFor(_OutputField)
+        name: repeatable
+        object: _Directive
+        type: !_ObjBase
+          name: Boolean
+      - !_ObjectFor(_OutputField)
+        field: locations
+        label: _
+        name: Unit
+        object: _Directive
+        typeKind: !_SimpleKind Enum
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: parameters
+        type: !_ObjBase
+          name: _InputParam
+      - !_OutputField
+        name: repeatable
+        type: !_ObjBase
+          name: Boolean
+      - !_OutputEnum
+        field: locations
+        label: _
+        name: Unit
+        typeKind: !_SimpleKind Enum
+    name: _Directive
+    parent: !_ObjBase
+      name: _Aliased
+    typeKind: !_TypeKind Output
+  !_Name _Directives: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _Directives
+        type: !_ObjBase
+          name: _Directive
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: directive
+        object: _Directives
+        type: !_ObjBase
+          name: _Directive
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _Directive
+    fields:
+      - !_OutputField
+        name: directive
+        type: !_ObjBase
+          name: _Directive
+    name: _Directives
+    parent: !_ObjBase
+      name: _AndType
+    typeKind: !_TypeKind Output
+  !_Name _Location: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: _Location
+        name: Operation
+      - !_EnumLabel
+        enum: _Location
+        name: Variable
+      - !_EnumLabel
+        enum: _Location
+        name: Field
+      - !_EnumLabel
+        enum: _Location
+        name: Inline
+      - !_EnumLabel
+        enum: _Location
+        name: Spread
+      - !_EnumLabel
+        enum: _Location
+        name: Fragment
+    items:
+      - !_Aliased
+        name: Operation
+      - !_Aliased
+        name: Variable
+      - !_Aliased
+        name: Field
+      - !_Aliased
+        name: Inline
+      - !_Aliased
+        name: Spread
+      - !_Aliased
+        name: Fragment
+    name: _Location
+    typeKind: !_TypeKind Enum

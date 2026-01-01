@@ -1,6 +1,6 @@
 ﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier all: !_Category
+categories: !_Map(_Categories)
+  !_Name all: !_Category
     description: 'A Category'
     name: all
     output: !_TypeRef(_TypeKind)
@@ -8,21 +8,21 @@ categories: !_Map_Categories
       name: All
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-directives: !_Map_Directives
-  !_Identifier all: !_Directive
+directives: !_Map(_Directives)
+  !_Name all: !_Directive
     description: 'A Directive'
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
       Operation: _, Spread: _, Variable: _}
     name: all
     repeatable: false
 name: Schema
-settings: !_Map_Setting
-  !_Identifier all: !_Setting
+settings: !_Map(_Setting)
+  !_Name all: !_Setting
     description: 'Schema Setting'
     name: all
     value: test
-types: !_Map_Type
-  !_Identifier All: !_TypeOutput
+types: !_Map(_Type)
+  !_Name All: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: All
@@ -58,7 +58,7 @@ types: !_Map_Type
         name: Field
     name: All
     typeKind: !_TypeKind Output
-  !_Identifier Field: !_TypeDual
+  !_Name Field: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       description: 'Some strings'
@@ -79,7 +79,7 @@ types: !_Map_Type
         name: String
     name: Field
     typeKind: !_TypeKind Dual
-  !_Identifier Guid: !_DomainString
+  !_Name Guid: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
       description: 'Guid Regex'
@@ -97,7 +97,7 @@ types: !_Map_Type
         [0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}
     name: Guid
     typeKind: !_TypeKind Domain
-  !_Identifier Many: !_TypeUnion
+  !_Name Many: !_TypeUnion
     allItems:
     - !_UnionMember
       description: 'Guid Id'
@@ -117,7 +117,7 @@ types: !_Map_Type
       name: Number
     name: Many
     typeKind: !_TypeKind Union
-  !_Identifier One: !_TypeEnum
+  !_Name One: !_TypeEnum
     allItems:
     - !_EnumLabel
       description: 'Label 2'
@@ -137,7 +137,7 @@ types: !_Map_Type
       name: Three
     name: One
     typeKind: !_TypeKind Enum
-  !_Identifier Param: !_TypeInput
+  !_Name Param: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: Param

@@ -2,8 +2,7 @@
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public class DomainLabelAstTests
-  : AstAbbreviatedBaseTests
+public partial class DomainLabelAstTests
 {
   [Theory, RepeatData]
   public void SetEnumType_WhenCurrentlyEmpty_SetsValue(string enumType, string enumLabel)
@@ -27,13 +26,16 @@ public class DomainLabelAstTests
     ast.EnumType.ShouldBe(enumType);
   }
 
-  private readonly AstAbbreviatedChecks<DomainLabelAst> _checks
-    = new(CreateLabel);
+  [CheckTests(Inherited = true)]
+  private IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
+    = new AstAbbreviatedChecks<DomainLabelAst>(CreateLabel);
+
+  [CheckTests]
+  internal ICloneChecks<string> CloneChecks { get; }
+    = new CloneChecks<string, DomainLabelAst>(CreateLabel, CloneLabel);
 
   private static DomainLabelAst CloneLabel(DomainLabelAst original, string input)
     => original with { EnumItem = input };
   private static DomainLabelAst CreateLabel(string input)
     => new(AstNulls.At, "", false, input);
-
-  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

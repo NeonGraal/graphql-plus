@@ -24,9 +24,8 @@ internal sealed record class DomainLabelAst(
     => HashCode.Combine(base.GetHashCode(), EnumItem, EnumType);
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
-      .Append(Excludes ? "!" : "")
       .Append(EnumType)
-      .Append(EnumItem);
+      .Append((Excludes ? "!" : "") + EnumItem);
 
   void IGqlpDomainLabel.SetEnumType(string enumType)
   {

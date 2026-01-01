@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "DmnEnumPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {
@@ -70,7 +70,7 @@
       }
     },
     "EnumDmnEnumPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -101,7 +101,7 @@
       }
     },
     "PrntDmnEnumPrntDescr": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainEnum",
       "allItems": [
         {

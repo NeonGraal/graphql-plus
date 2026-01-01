@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier FieldModParamDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name FieldModParamDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
@@ -22,7 +22,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: mod
-  !_Identifier FldFieldModParamDual: !_TypeDual
+  !_Name FldFieldModParamDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: FldFieldModParamDual

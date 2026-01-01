@@ -21,8 +21,8 @@ errors: !_Errors
 - !_Error
   _kind: !_TokenKind End
   _message: "In _DomainRef can't get model for type '_TypeRef'"
-types: !_Map_Type
-  !_Identifier _BaseDomain: !_TypeOutput
+types: !_Map(_Type)
+  !_Name _BaseDomain: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: domainKind
@@ -63,7 +63,7 @@ types: !_Map_Type
         name: _DomainItem
         typeKind: !_TypeKind Output
       name: domainItem
-  !_Identifier _BaseDomainItem: !_TypeDual
+  !_Name _BaseDomainItem: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: exclude
@@ -79,7 +79,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Described
     typeKind: !_TypeKind Dual
-  !_Identifier _BasicValue: !_TypeOutput
+  !_Name _BasicValue: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _BasicValue
@@ -112,18 +112,18 @@ types: !_Map_Type
         name: _DomainKind
     name: _BasicValue
     typeKind: !_TypeKind Output
-  !_Identifier _DomainItem: !_TypeOutput
+  !_Name _DomainItem: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     fields:
     - !_OutputField
       name: domain
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     name: _DomainItem
     parent: !_ObjBase
       typeParam: item
@@ -134,7 +134,7 @@ types: !_Map_Type
         name: _BaseDomainItem
         typeKind: !_TypeKind Dual
       name: item
-  !_Identifier _DomainItemLabel: !_TypeOutput
+  !_Name _DomainItemLabel: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: label
@@ -145,7 +145,7 @@ types: !_Map_Type
       name: domain
       object: _DomainItem
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     name: _DomainItemLabel
     parent: !_ObjBase
       name: _DomainItem
@@ -153,13 +153,13 @@ types: !_Map_Type
       - !_TypeArg
         name: _DomainLabel
     typeKind: !_TypeKind Output
-  !_Identifier _DomainItemRange: !_TypeOutput
+  !_Name _DomainItemRange: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     name: _DomainItemRange
     parent: !_ObjBase
       name: _DomainItem
@@ -167,13 +167,13 @@ types: !_Map_Type
       - !_TypeArg
         name: _DomainRange
     typeKind: !_TypeKind Output
-  !_Identifier _DomainItemRegex: !_TypeOutput
+  !_Name _DomainItemRegex: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     name: _DomainItemRegex
     parent: !_ObjBase
       name: _DomainItem
@@ -181,13 +181,13 @@ types: !_Map_Type
       - !_TypeArg
         name: _DomainRegex
     typeKind: !_TypeKind Output
-  !_Identifier _DomainItemTrueFalse: !_TypeOutput
+  !_Name _DomainItemTrueFalse: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     name: _DomainItemTrueFalse
     parent: !_ObjBase
       name: _DomainItem
@@ -195,7 +195,7 @@ types: !_Map_Type
       - !_TypeArg
         name: _DomainTrueFalse
     typeKind: !_TypeKind Output
-  !_Identifier _DomainKind: !_TypeEnum
+  !_Name _DomainKind: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: _DomainKind
@@ -220,7 +220,7 @@ types: !_Map_Type
       name: String
     name: _DomainKind
     typeKind: !_TypeKind Enum
-  !_Identifier _DomainLabel: !_TypeOutput
+  !_Name _DomainLabel: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: label
@@ -236,7 +236,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _BaseDomainItem
     typeKind: !_TypeKind Output
-  !_Identifier _DomainRange: !_TypeDual
+  !_Name _DomainRange: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: exclude
@@ -270,7 +270,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _BaseDomainItem
     typeKind: !_TypeKind Dual
-  !_Identifier _DomainRef: !_TypeOutput
+  !_Name _DomainRef: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: domainKind
@@ -297,7 +297,7 @@ types: !_Map_Type
         name: _DomainKind
         typeKind: !_TypeKind Enum
       name: kind
-  !_Identifier _DomainRegex: !_TypeDual
+  !_Name _DomainRegex: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: exclude
@@ -318,7 +318,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _BaseDomainItem
     typeKind: !_TypeKind Dual
-  !_Identifier _DomainTrueFalse: !_TypeDual
+  !_Name _DomainTrueFalse: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: exclude
@@ -339,7 +339,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _BaseDomainItem
     typeKind: !_TypeKind Dual
-  !_Identifier _DomainValue: !_TypeOutput
+  !_Name _DomainValue: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _DomainValue

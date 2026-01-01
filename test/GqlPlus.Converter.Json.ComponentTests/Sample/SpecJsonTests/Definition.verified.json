@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "Boolean": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "aliases": ["bool", "^"],
       "allItems": [
@@ -35,7 +35,7 @@
       }
     },
     "Null": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "aliases": ["null"],
       "allItems": [
@@ -58,7 +58,7 @@
       }
     },
     "Number": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainNumber",
       "aliases": ["int", "0"],
       "domainKind": {
@@ -72,7 +72,7 @@
       }
     },
     "String": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainString",
       "aliases": ["str", "*"],
       "domainKind": {
@@ -86,7 +86,7 @@
       }
     },
     "Unit": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "aliases": ["_"],
       "allItems": [
@@ -109,7 +109,7 @@
       }
     },
     "Void": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "description": "No valid value",
       "name": "Void",
@@ -119,7 +119,7 @@
       }
     },
     "_Basic": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "aliases": ["Basic"],
       "allItems": [
@@ -169,7 +169,7 @@
       }
     },
     "_Domain": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "aliases": ["Domain"],
       "description": "All user defined Domain types",
@@ -180,7 +180,7 @@
       }
     },
     "_Dual": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "aliases": ["Dual"],
       "description": "All user defined Dual types",
@@ -191,7 +191,7 @@
       }
     },
     "_Enum": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "aliases": ["Enum"],
       "description": "All user defined Enum types",
@@ -202,7 +202,7 @@
       }
     },
     "_Input": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
       "aliases": ["Input"],
       "description": "All user defined Input types",
@@ -213,7 +213,7 @@
       }
     },
     "_Internal": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "aliases": ["Internal"],
       "allItems": [
@@ -245,7 +245,7 @@
       }
     },
     "_Key": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "aliases": ["Key"],
       "allItems": [
@@ -286,7 +286,7 @@
       }
     },
     "_Object": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "aliases": ["Object", "obj", "%"],
       "description": "%",
@@ -297,7 +297,7 @@
       }
     },
     "_Output": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "aliases": ["Output"],
       "description": "All user defined Output types",
@@ -308,7 +308,7 @@
       }
     },
     "_Simple": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "aliases": ["Simple"],
       "allItems": [
@@ -349,7 +349,7 @@
       }
     },
     "_Union": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "aliases": ["Union"],
       "description": "All user defined Union types",

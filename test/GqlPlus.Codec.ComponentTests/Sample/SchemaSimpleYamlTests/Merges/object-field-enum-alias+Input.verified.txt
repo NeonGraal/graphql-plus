@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name ObjFieldEnumAliasInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        aliases: [field1,field2]
+        name: field
+        object: ObjFieldEnumAliasInp
+        type: !_ObjBase
+          name: Boolean
+    fields:
+      - !_InputField
+        aliases: [field1,field2]
+        name: field
+        type: !_ObjBase
+          name: Boolean
+    name: ObjFieldEnumAliasInp
+    typeKind: !_TypeKind Input

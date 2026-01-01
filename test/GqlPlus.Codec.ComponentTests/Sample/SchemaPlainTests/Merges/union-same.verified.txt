@@ -1,5 +1,5 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]UnionSame[_TypeUnion]:allItems.0[_UnionMember]:name=Boolean
-[_Schema]:types[_Map_Type]:[_Identifier]UnionSame[_TypeUnion]:allItems.0[_UnionMember]:union=UnionSame
-[_Schema]:types[_Map_Type]:[_Identifier]UnionSame[_TypeUnion]:items.0[_Aliased]:name=Boolean
-[_Schema]:types[_Map_Type]:[_Identifier]UnionSame[_TypeUnion]:name=UnionSame
-[_Schema]:types[_Map_Type]:[_Identifier]UnionSame[_TypeUnion]:typeKind=[_TypeKind]Union
+﻿[_Schema]:types[_Map(_Type)]:[_Name]UnionSame[_TypeUnion]:allItems.0[_UnionMember]:name=Boolean
+[_Schema]:types[_Map(_Type)]:[_Name]UnionSame[_TypeUnion]:allItems.0[_UnionMember]:union=UnionSame
+[_Schema]:types[_Map(_Type)]:[_Name]UnionSame[_TypeUnion]:items.0[_Aliased]:name=Boolean
+[_Schema]:types[_Map(_Type)]:[_Name]UnionSame[_TypeUnion]:name=UnionSame
+[_Schema]:types[_Map(_Type)]:[_Name]UnionSame[_TypeUnion]:typeKind=[_TypeKind]Union

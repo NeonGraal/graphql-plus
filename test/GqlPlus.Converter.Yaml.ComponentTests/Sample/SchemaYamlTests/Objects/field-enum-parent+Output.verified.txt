@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumFieldEnumPrntOutp: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumFieldEnumPrntOutp: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: PrntFieldEnumPrntOutp
@@ -16,7 +16,7 @@ types: !_Map_Type
       name: PrntFieldEnumPrntOutp
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier FieldEnumPrntOutp: !_TypeOutput
+  !_Name FieldEnumPrntOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
@@ -32,7 +32,7 @@ types: !_Map_Type
       typeKind: !_SimpleKind Enum
     name: FieldEnumPrntOutp
     typeKind: !_TypeKind Output
-  !_Identifier PrntFieldEnumPrntOutp: !_TypeEnum
+  !_Name PrntFieldEnumPrntOutp: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: PrntFieldEnumPrntOutp

@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltCnstFieldObjDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name AltCnstFieldObjDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: PrntCnstFieldObjDual
@@ -21,7 +21,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: PrntCnstFieldObjDual
     typeKind: !_TypeKind Dual
-  !_Identifier CnstFieldObjDual: !_TypeDual
+  !_Name CnstFieldObjDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
@@ -35,7 +35,7 @@ types: !_Map_Type
       - !_TypeArg
         name: AltCnstFieldObjDual
     typeKind: !_TypeKind Dual
-  !_Identifier PrntCnstFieldObjDual: !_TypeDual
+  !_Name PrntCnstFieldObjDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: PrntCnstFieldObjDual
@@ -47,7 +47,7 @@ types: !_Map_Type
         name: String
     name: PrntCnstFieldObjDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefCnstFieldObjDual: !_TypeDual
+  !_Name RefCnstFieldObjDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field

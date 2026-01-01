@@ -1,0 +1,17 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name DmnStrDescr: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        description: 'DomString Descr'
+        domain: DmnStrDescr
+        exclude: false
+        pattern: 'a+'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        description: 'DomString Descr'
+        exclude: false
+        pattern: 'a+'
+    name: DmnStrDescr
+    typeKind: !_TypeKind Domain

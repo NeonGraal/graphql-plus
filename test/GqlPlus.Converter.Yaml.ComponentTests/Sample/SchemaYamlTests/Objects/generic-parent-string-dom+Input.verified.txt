@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DomGnrcPrntStrDomInp: !_DomainString
+types: !_Map(_Type)
+  !_Name DomGnrcPrntStrDomInp: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
       domain: DomGnrcPrntStrDomInp
@@ -13,7 +13,7 @@ types: !_Map_Type
       pattern: '\w+'
     name: DomGnrcPrntStrDomInp
     typeKind: !_TypeKind Domain
-  !_Identifier FieldGnrcPrntStrDomInp: !_TypeInput
+  !_Name FieldGnrcPrntStrDomInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -33,7 +33,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: ref
-  !_Identifier GnrcPrntStrDomInp: !_TypeInput
+  !_Name GnrcPrntStrDomInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field

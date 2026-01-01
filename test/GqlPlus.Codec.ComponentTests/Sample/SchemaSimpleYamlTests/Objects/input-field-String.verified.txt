@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name InpFieldStr: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        default: default
+        name: field
+        object: InpFieldStr
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_InputField
+        default: default
+        name: field
+        type: !_ObjBase
+          name: String
+    name: InpFieldStr
+    typeKind: !_TypeKind Input

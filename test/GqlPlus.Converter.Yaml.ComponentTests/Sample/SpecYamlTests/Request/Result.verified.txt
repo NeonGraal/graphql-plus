@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier _OpField: !_TypeInput
+types: !_Map(_Type)
+  !_Name _OpField: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       default: !Null null
@@ -71,7 +71,7 @@ types: !_Map_Type
         name: String
     name: _OpField
     typeKind: !_TypeKind Input
-  !_Identifier _OpInline: !_TypeInput
+  !_Name _OpInline: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       default: !Null null
@@ -111,7 +111,7 @@ types: !_Map_Type
         name: String
     name: _OpInline
     typeKind: !_TypeKind Input
-  !_Identifier _OpObject: !_TypeInput
+  !_Name _OpObject: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _OpObject
@@ -137,7 +137,7 @@ types: !_Map_Type
         name: _OpInline
     name: _OpObject
     typeKind: !_TypeKind Input
-  !_Identifier _OpResult: !_TypeInput
+  !_Name _OpResult: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       default: !Null null
@@ -177,7 +177,7 @@ types: !_Map_Type
         name: _OpObject
     name: _OpResult
     typeKind: !_TypeKind Input
-  !_Identifier _OpSpread: !_TypeDual
+  !_Name _OpSpread: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: fragment

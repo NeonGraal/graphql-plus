@@ -1,0 +1,204 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name _OpField: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: alias
+        object: _OpField
+        type: !_ObjBase
+          name: _Identifier
+      - !_ObjectFor(_InputField)
+        name: field
+        object: _OpField
+        type: !_ObjBase
+          name: _Identifier
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        object: _OpField
+        type: !_ObjBase
+          name: _OpArgument
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _OpField
+        type: !_ObjBase
+          name: _Modifier
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpField
+        type: !_ObjBase
+          name: _OpDirective
+      - !_ObjectFor(_InputField)
+        description: "The body as a string as we can't have nested objects."
+        name: body
+        object: _OpField
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_InputField
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: alias
+        type: !_ObjBase
+          name: _Identifier
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          name: _Identifier
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        type: !_ObjBase
+          name: _OpArgument
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        type: !_ObjBase
+          name: _Modifier
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+      - !_InputField
+        description: "The body as a string as we can't have nested objects."
+        name: body
+        type: !_ObjBase
+          name: String
+    name: _OpField
+    typeKind: !_TypeKind Input
+  !_Name _OpInline: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: type
+        object: _OpInline
+        type: !_ObjBase
+          name: _Identifier
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpInline
+        type: !_ObjBase
+          name: _OpDirective
+      - !_ObjectFor(_InputField)
+        description: "The body as a string as we can't have nested objects."
+        name: body
+        object: _OpInline
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_InputField
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: type
+        type: !_ObjBase
+          name: _Identifier
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+      - !_InputField
+        description: "The body as a string as we can't have nested objects."
+        name: body
+        type: !_ObjBase
+          name: String
+    name: _OpInline
+    typeKind: !_TypeKind Input
+  !_Name _OpObject: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: _OpObject
+        type: !_ObjBase
+          name: _OpField
+      - !_ObjectFor(_Alternate)
+        object: _OpObject
+        type: !_ObjBase
+          name: _OpSpread
+      - !_ObjectFor(_Alternate)
+        object: _OpObject
+        type: !_ObjBase
+          name: _OpInline
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpField
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpSpread
+      - !_Alternate
+        type: !_ObjBase
+          name: _OpInline
+    name: _OpObject
+    typeKind: !_TypeKind Input
+  !_Name _OpResult: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: domain
+        object: _OpResult
+        type: !_ObjBase
+          name: _Identifier
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        object: _OpResult
+        type: !_ObjBase
+          name: _OpArgument
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: body
+        object: _OpResult
+        type: !_ObjBase
+          name: _OpObject
+    fields:
+      - !_InputField
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: domain
+        type: !_ObjBase
+          name: _Identifier
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        type: !_ObjBase
+          name: _OpArgument
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: body
+        type: !_ObjBase
+          name: _OpObject
+    name: _OpResult
+    typeKind: !_TypeKind Input
+  !_Name _OpSpread: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: fragment
+        object: _OpSpread
+        type: !_ObjBase
+          name: _Identifier
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpSpread
+        type: !_ObjBase
+          name: _OpDirective
+    fields:
+      - !_DualField
+        name: fragment
+        type: !_ObjBase
+          name: _Identifier
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+    name: _OpSpread
+    typeKind: !_TypeKind Dual

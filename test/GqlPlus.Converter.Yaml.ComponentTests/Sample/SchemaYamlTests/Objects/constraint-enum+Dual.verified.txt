@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier CnstEnumDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name CnstEnumDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: CnstEnumDual
@@ -22,7 +22,7 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
     name: CnstEnumDual
     typeKind: !_TypeKind Dual
-  !_Identifier EnumCnstEnumDual: !_TypeEnum
+  !_Name EnumCnstEnumDual: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: EnumCnstEnumDual
@@ -32,7 +32,7 @@ types: !_Map_Type
       name: cnstEnumDual
     name: EnumCnstEnumDual
     typeKind: !_TypeKind Enum
-  !_Identifier RefCnstEnumDual: !_TypeDual
+  !_Name RefCnstEnumDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field

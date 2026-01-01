@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcPrntDescrInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name GnrcPrntDescrInp: !_TypeInput
     name: GnrcPrntDescrInp
     parent: !_ObjBase
       description: 'Parent comment'

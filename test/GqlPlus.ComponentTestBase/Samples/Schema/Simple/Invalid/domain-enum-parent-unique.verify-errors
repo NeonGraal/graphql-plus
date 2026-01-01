@@ -1,2 +1,1 @@
-﻿Can't merge Test items into Parent Parent items
-Group of DomainLabel for 'value' not singular Excludes~EnumType['False~Dup', 'False~Enum']
+﻿'value' duplicated from these Enums: Dup Enum

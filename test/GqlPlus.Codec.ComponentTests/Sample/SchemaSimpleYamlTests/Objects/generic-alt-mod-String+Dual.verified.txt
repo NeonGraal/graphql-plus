@@ -1,0 +1,30 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name RefGnrcAltModStrDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        collections:
+          - !_ModifierDictionary
+            by: '*'
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Basic
+        object: RefGnrcAltModStrDual
+        type: !_ObjBase
+          typeParam: ref
+    alternates:
+      - !_Alternate
+        collections:
+          - !_ModifierDictionary
+            by: '*'
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Basic
+        type: !_ObjBase
+          typeParam: ref
+    name: RefGnrcAltModStrDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: ref

@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name PrntOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefPrntOutp
@@ -16,7 +16,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefPrntOutp: !_TypeOutput
+  !_Name RefPrntOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefPrntOutp

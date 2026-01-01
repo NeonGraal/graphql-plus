@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier _Identifier: !_DomainString
+types: !_Map(_Type)
+  !_Name _Identifier: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
       domain: _Identifier
@@ -13,7 +13,7 @@ types: !_Map_Type
       pattern: '[A-Za-z_][A-Za-z0-9_]*'
     name: _Identifier
     typeKind: !_TypeKind Domain
-  !_Identifier _Request: !_TypeInput
+  !_Name _Request: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _Request

@@ -1,0 +1,31 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name DmnEnumLabel: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumLabel
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumLabel
+          name: EnumDmnEnumLabel
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumLabel
+          name: EnumDmnEnumLabel
+          typeKind: !_SimpleKind Enum
+    name: DmnEnumLabel
+    typeKind: !_TypeKind Domain
+  !_Name EnumDmnEnumLabel: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumDmnEnumLabel
+        name: dmnEnumLabel
+    items:
+      - !_Aliased
+        name: dmnEnumLabel
+    name: EnumDmnEnumLabel
+    typeKind: !_TypeKind Enum

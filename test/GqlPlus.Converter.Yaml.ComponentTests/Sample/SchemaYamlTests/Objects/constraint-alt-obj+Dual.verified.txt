@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltCnstAltObjDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name AltCnstAltObjDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: PrntCnstAltObjDual
@@ -21,7 +21,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: PrntCnstAltObjDual
     typeKind: !_TypeKind Dual
-  !_Identifier CnstAltObjDual: !_TypeDual
+  !_Name CnstAltObjDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: CnstAltObjDual
@@ -39,7 +39,7 @@ types: !_Map_Type
           name: AltCnstAltObjDual
     name: CnstAltObjDual
     typeKind: !_TypeKind Dual
-  !_Identifier PrntCnstAltObjDual: !_TypeDual
+  !_Name PrntCnstAltObjDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: PrntCnstAltObjDual
@@ -51,7 +51,7 @@ types: !_Map_Type
         name: String
     name: PrntCnstAltObjDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefCnstAltObjDual: !_TypeDual
+  !_Name RefCnstAltObjDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefCnstAltObjDual

@@ -1,9 +1,9 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier FldInpFieldNull: !_TypeDual
+types: !_Map(_Type)
+  !_Name FldInpFieldNull: !_TypeDual
     name: FldInpFieldNull
     typeKind: !_TypeKind Dual
-  !_Identifier InpFieldNull: !_TypeInput
+  !_Name InpFieldNull: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       default: !Null null

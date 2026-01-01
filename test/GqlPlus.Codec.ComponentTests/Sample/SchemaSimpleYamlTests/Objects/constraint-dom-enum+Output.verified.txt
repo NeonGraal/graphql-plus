@@ -1,0 +1,78 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name CnstDomEnumOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: CnstDomEnumOutp
+        type: !_ObjBase
+          name: RefCnstDomEnumOutp
+          typeArgs:
+            - !_EnumValue
+              label: cnstDomEnumOutp
+              name: EnumCnstDomEnumOutp
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefCnstDomEnumOutp
+          typeArgs:
+            - !_EnumValue
+              label: cnstDomEnumOutp
+              name: EnumCnstDomEnumOutp
+              typeKind: !_SimpleKind Enum
+    name: CnstDomEnumOutp
+    typeKind: !_TypeKind Output
+  !_Name EnumCnstDomEnumOutp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumCnstDomEnumOutp
+        name: cnstDomEnumOutp
+      - !_EnumLabel
+        enum: EnumCnstDomEnumOutp
+        name: other
+    items:
+      - !_Aliased
+        name: cnstDomEnumOutp
+      - !_Aliased
+        name: other
+    name: EnumCnstDomEnumOutp
+    typeKind: !_TypeKind Enum
+  !_Name JustCnstDomEnumOutp: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: JustCnstDomEnumOutp
+        exclude: false
+        value: !_EnumValue
+          label: cnstDomEnumOutp
+          name: EnumCnstDomEnumOutp
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: cnstDomEnumOutp
+          name: EnumCnstDomEnumOutp
+          typeKind: !_SimpleKind Enum
+    name: JustCnstDomEnumOutp
+    typeKind: !_TypeKind Domain
+  !_Name RefCnstDomEnumOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: RefCnstDomEnumOutp
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_OutputField
+        name: field
+        type: !_ObjBase
+          typeParam: type
+    name: RefCnstDomEnumOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: JustCnstDomEnumOutp
+          typeKind: !_TypeKind Domain
+        name: type

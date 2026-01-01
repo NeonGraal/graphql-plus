@@ -5310,9 +5310,7 @@ Success
   DomOutpParamModDmn
   Number
   !DN N@036/0650
-  1
-  ~
-  10
+  1~10
 }
 {
   !Ou I@008/0652
@@ -5355,9 +5353,7 @@ Success
   DomOutpParamModParam
   Number
   !DN N@038/0654
-  1
-  ~
-  10
+  1~10
 }
 {
   !Ou I@008/0656

@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "categories": {
-    "$mapTag": "_Map_Categories",
+    "$mapTag": "_Map(_Categories)",
     "ctgrOutpOptl": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_Category",
       "modifiers": [
         {
@@ -30,9 +30,9 @@
     }
   },
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "CtgrOutpOptl": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "CtgrOutpOptl",
       "typeKind": {

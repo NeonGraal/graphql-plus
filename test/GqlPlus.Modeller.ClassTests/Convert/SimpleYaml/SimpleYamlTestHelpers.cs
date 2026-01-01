@@ -1,0 +1,81 @@
+﻿using Xunit.Sdk;
+
+namespace GqlPlus.Convert.SimpleYaml;
+
+internal static class SimpleYamlTestHelpers
+{
+  internal static IConvertTestsBase Converters { get; } = new SimpleYamlConverters();
+
+  internal static string[] FlowOr<T>(this IEnumerable<T> list, Func<IEnumerable<T>, string> flowMap, Func<IEnumerable<T>, string[]> isMap)
+  {
+    string flow = flowMap(list);
+
+    return flow.Length < RenderSimpleYaml.MaxLineLength ? [flow] : isMap(list);
+  }
+
+  internal static string[] FlowList(this string[] value, string valuePrefix = "", string listPrefix = "")
+    => value.FlowList(v => [valuePrefix + v], listPrefix);
+
+  internal static string[] FlowList<T>(this T[] value, Func<T?, string[]> mapper, string listPrefix = "")
+    => value.FlowOr(
+      f => f.Surround(listPrefix + "[", "]", v => mapper(v).Joined(""), ","),
+      i => i.IsList(v => v.BlockFirst(mapper, "-"), listPrefix));
+
+  internal static string[] FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "", string indent = "")
+    => list.FlowMap(v => [valuePrefix + v.QuotedIdentifier()], mapPrefix, indent);
+
+  internal static string[] FlowMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string mapPrefix = "", string indent = "")
+    => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).FlowOr(
+      f => mapPrefix + f.Surround("{", "}", v => v.Key + ":" + mapper(v.Value).Joined(""), ","),
+      i => i.IsMap(v => mapper(v), indent, mapPrefix));
+
+  internal static string[] BlockList(this string[] value, string prefix, string listPrefix = "")
+    => value.IsList(v => [prefix + v], listPrefix);
+
+  internal static string[] BlockList<T>(this T[] value, Func<T?, string[]> mapper, string listPrefix = "")
+    => value.IsList(mapper, listPrefix);
+
+  internal static string[] BlockMap(this MapPair<string>[] list, string keyPrefix = "", string valuePrefix = "")
+    => list.BlockMap(v => [valuePrefix + v], keyPrefix);
+
+  internal static string[] BlockMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string keyPrefix = "")
+    => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).IsMap(mapper, keyPrefix);
+
+  private static string[] IsList<T>(this IEnumerable<T> value, Func<T?, string[]> mapper, string listPrefix = "")
+    => [.. value
+      .SelectMany(mapper)
+      .Prepend(listPrefix)
+      .RemoveEmpty()];
+
+  private static string[] IsMap<T>(this IEnumerable<MapPair<T>> list, Func<T?, string[]> mapper, string keyPrefix = "", string mapPrefix = "")
+    => [.. list
+      .SelectMany(v => v.Value.BlockFirst(mapper,  keyPrefix + v.Key + ":"))
+      .Prepend(mapPrefix)
+      .RemoveEmpty()];
+
+  private static string[] BlockFirst<T>(this T value, Func<T?, string[]> mapper, string prefix)
+  {
+    string[] item = mapper(value);
+    if (item.Length == 0) {
+      return [];
+    }
+
+    string first = item[0];
+    if (item.Length == 1) {
+      return [prefix + " " + first];
+    } else if (first.StartsWith('!')) {
+      return [prefix + " " + first, .. item[1..]];
+    } else {
+      return [prefix, .. item];
+    }
+  }
+
+  private sealed class SimpleYamlConverters
+    : IConvertTestsBase
+  {
+    public Structured ConvertFrom(string[] input)
+      => throw SkipException.ForSkip("SimpleYaml Deserialize not required");
+    public string[] ConvertTo(Structured model)
+      => model.ToSimpleYaml(false);
+  }
+}

@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "categories": {
-    "$mapTag": "_Map_Categories",
+    "$mapTag": "_Map(_Categories)",
     "all": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_Category",
       "description": "A Category",
       "name": "all",
@@ -23,9 +23,9 @@
     }
   },
   "directives": {
-    "$mapTag": "_Map_Directives",
+    "$mapTag": "_Map(_Directives)",
     "all": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_Directive",
       "description": "A Directive",
       "locations": {
@@ -43,9 +43,9 @@
   },
   "name": "Schema",
   "settings": {
-    "$mapTag": "_Map_Setting",
+    "$mapTag": "_Map(_Setting)",
     "all": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_Setting",
       "description": "Schema Setting",
       "name": "all",
@@ -53,9 +53,9 @@
     }
   },
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "All": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
@@ -139,7 +139,7 @@
       }
     },
     "Field": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -192,7 +192,7 @@
       }
     },
     "Guid": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainString",
       "allItems": [
         {
@@ -223,7 +223,7 @@
       }
     },
     "Many": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeUnion",
       "allItems": [
         {
@@ -259,7 +259,7 @@
       }
     },
     "One": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -295,7 +295,7 @@
       }
     },
     "Param": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
       "allAlternates": [
         {

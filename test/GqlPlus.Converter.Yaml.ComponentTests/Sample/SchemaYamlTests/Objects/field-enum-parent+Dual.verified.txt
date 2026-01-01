@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumFieldEnumPrntDual: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumFieldEnumPrntDual: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: PrntFieldEnumPrntDual
@@ -16,7 +16,7 @@ types: !_Map_Type
       name: PrntFieldEnumPrntDual
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier FieldEnumPrntDual: !_TypeDual
+  !_Name FieldEnumPrntDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
@@ -30,7 +30,7 @@ types: !_Map_Type
         name: EnumFieldEnumPrntDual
     name: FieldEnumPrntDual
     typeKind: !_TypeKind Dual
-  !_Identifier PrntFieldEnumPrntDual: !_TypeEnum
+  !_Name PrntFieldEnumPrntDual: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: PrntFieldEnumPrntDual

@@ -100,7 +100,7 @@ Success
     domain
     :
     I@017/0020
-    _Identifier
+    _Name
   }
 }
 {
@@ -265,7 +265,7 @@ Success
     enum
     :
     I@015/0075
-    _Identifier
+    _Name
   }
 }
 {
@@ -283,7 +283,7 @@ Success
     label
     :
     I@016/0080
-    _Identifier
+    _Name
   }
 }
 {
@@ -308,7 +308,7 @@ Success
     union
     :
     I@016/0089
-    _Identifier
+    _Name
   }
 }
 ]

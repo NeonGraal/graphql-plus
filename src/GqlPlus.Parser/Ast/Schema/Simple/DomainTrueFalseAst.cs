@@ -16,5 +16,5 @@ internal sealed record class DomainTrueFalseAst(
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Append($"{Value}");
+      .Append(Excludes ? $"!{Value}" : $"{Value}");
 }

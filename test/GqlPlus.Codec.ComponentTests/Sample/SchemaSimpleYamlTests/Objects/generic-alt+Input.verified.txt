@@ -1,0 +1,20 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name GnrcAltInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GnrcAltInp
+        type: !_ObjBase
+          typeParam: type
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: type
+    name: GnrcAltInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: type

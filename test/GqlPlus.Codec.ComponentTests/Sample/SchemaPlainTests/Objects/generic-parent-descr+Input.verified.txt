@@ -1,7 +1,7 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDescrInp[_TypeInput]:name=GnrcPrntDescrInp
-[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDescrInp[_TypeInput]:parent[_ObjBase]:description='Parent comment'
-[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDescrInp[_TypeInput]:parent[_ObjBase]:typeParam=type
-[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDescrInp[_TypeInput]:typeKind=[_TypeKind]Input
-[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDescrInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_Dual
-[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDescrInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Internal
-[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntDescrInp[_TypeInput]:typeParams.0[_TypeParam]:name=type
+﻿[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDescrInp[_TypeInput]:name=GnrcPrntDescrInp
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDescrInp[_TypeInput]:parent[_ObjBase]:description='Parent comment'
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDescrInp[_TypeInput]:parent[_ObjBase]:typeParam=type
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDescrInp[_TypeInput]:typeKind=[_TypeKind]Input
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDescrInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_Dual
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDescrInp[_TypeInput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Internal
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDescrInp[_TypeInput]:typeParams.0[_TypeParam]:name=type

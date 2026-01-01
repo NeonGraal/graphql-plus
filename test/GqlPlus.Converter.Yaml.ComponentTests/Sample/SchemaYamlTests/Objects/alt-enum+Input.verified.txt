@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltEnumInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name AltEnumInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: AltEnumInp
@@ -12,7 +12,7 @@ types: !_Map_Type
         name: EnumAltEnumInp
     name: AltEnumInp
     typeKind: !_TypeKind Input
-  !_Identifier EnumAltEnumInp: !_TypeEnum
+  !_Name EnumAltEnumInp: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: EnumAltEnumInp

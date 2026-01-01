@@ -1,0 +1,50 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name PrntParamDiffInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefPrntParamDiffInp
+        type: !_ObjBase
+          typeParam: b
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: PrntParamDiffInp
+        type: !_ObjBase
+          typeParam: a
+    fields:
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          typeParam: a
+    name: PrntParamDiffInp
+    parent: !_ObjBase
+      name: RefPrntParamDiffInp
+      typeArgs:
+        - !_TypeArg
+          typeParam: a
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: a
+  !_Name RefPrntParamDiffInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefPrntParamDiffInp
+        type: !_ObjBase
+          typeParam: b
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: b
+    name: RefPrntParamDiffInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: b

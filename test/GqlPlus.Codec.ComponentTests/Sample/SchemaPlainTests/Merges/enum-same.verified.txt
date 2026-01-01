@@ -1,5 +1,5 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]EnumSame[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumSame
-[_Schema]:types[_Map_Type]:[_Identifier]EnumSame[_TypeEnum]:allItems.0[_EnumLabel]:name=enumSame
-[_Schema]:types[_Map_Type]:[_Identifier]EnumSame[_TypeEnum]:items.0[_Aliased]:name=enumSame
-[_Schema]:types[_Map_Type]:[_Identifier]EnumSame[_TypeEnum]:name=EnumSame
-[_Schema]:types[_Map_Type]:[_Identifier]EnumSame[_TypeEnum]:typeKind=[_TypeKind]Enum
+﻿[_Schema]:types[_Map(_Type)]:[_Name]EnumSame[_TypeEnum]:allItems.0[_EnumLabel]:enum=EnumSame
+[_Schema]:types[_Map(_Type)]:[_Name]EnumSame[_TypeEnum]:allItems.0[_EnumLabel]:name=enumSame
+[_Schema]:types[_Map(_Type)]:[_Name]EnumSame[_TypeEnum]:items.0[_Aliased]:name=enumSame
+[_Schema]:types[_Map(_Type)]:[_Name]EnumSame[_TypeEnum]:name=EnumSame
+[_Schema]:types[_Map(_Type)]:[_Name]EnumSame[_TypeEnum]:typeKind=[_TypeKind]Enum

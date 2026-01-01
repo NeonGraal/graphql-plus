@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier _Modifier: !_TypeInput
+types: !_Map(_Type)
+  !_Name _Modifier: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: modifierKind
@@ -36,7 +36,7 @@ types: !_Map_Type
         name: Boolean
     name: _Modifier
     typeKind: !_TypeKind Input
-  !_Identifier _ModifierKind: !_TypeEnum
+  !_Name _ModifierKind: !_TypeEnum
     allItems:
     - !_EnumLabel
       aliases: [Optional]
@@ -67,7 +67,7 @@ types: !_Map_Type
       name: Param
     name: _ModifierKind
     typeKind: !_TypeKind Enum
-  !_Identifier _OpArgList: !_TypeDual
+  !_Name _OpArgList: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       collections:
@@ -85,7 +85,7 @@ types: !_Map_Type
         name: _OpArgValue
     name: _OpArgList
     typeKind: !_TypeKind Dual
-  !_Identifier _OpArgMap: !_TypeDual
+  !_Name _OpArgMap: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       collections:
@@ -127,7 +127,7 @@ types: !_Map_Type
         name: _Identifier
     name: _OpArgMap
     typeKind: !_TypeKind Dual
-  !_Identifier _OpArgValue: !_TypeDual
+  !_Name _OpArgValue: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _OpArgValue
@@ -150,7 +150,7 @@ types: !_Map_Type
         name: _Identifier
     name: _OpArgValue
     typeKind: !_TypeKind Dual
-  !_Identifier _OpArgument: !_TypeDual
+  !_Name _OpArgument: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _OpArgument
@@ -176,7 +176,7 @@ types: !_Map_Type
         name: _OpArgMap
     name: _OpArgument
     typeKind: !_TypeKind Dual
-  !_Identifier _OpDirective: !_TypeDual
+  !_Name _OpDirective: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: name
@@ -201,7 +201,7 @@ types: !_Map_Type
         name: _OpArgument
     name: _OpDirective
     typeKind: !_TypeKind Dual
-  !_Identifier _OpFragment: !_TypeInput
+  !_Name _OpFragment: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: name
@@ -250,7 +250,7 @@ types: !_Map_Type
         name: _OpObject
     name: _OpFragment
     typeKind: !_TypeKind Input
-  !_Identifier _OpVariable: !_TypeInput
+  !_Name _OpVariable: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: name
@@ -310,7 +310,7 @@ types: !_Map_Type
         name: _OpDirective
     name: _OpVariable
     typeKind: !_TypeKind Input
-  !_Identifier _Operation: !_TypeInput
+  !_Name _Operation: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: _Operation

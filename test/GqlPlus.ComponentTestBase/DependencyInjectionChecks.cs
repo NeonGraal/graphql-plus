@@ -40,7 +40,7 @@ public abstract class DependencyInjectionChecks(IServiceCollection services)
   {
     if (!s_templates.TryGetValue(template, out IFluidTemplate? value)) {
       value = s_parser.Parse("{% render '" + template + "' %}");
-      s_templates.Add(template, value);
+      s_templates.TryAdd(template, value);
     }
 
     return value;

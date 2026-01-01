@@ -1,4 +1,4 @@
-# domain Name { enum EnumName.* !PrntName.name DupName.name }
+domain Name { enum EnumName.* !PrntName.name DupName.name }
 enum EnumName { :PrntName enum_name }
 enum PrntName { name prnt_name }
 enum DupName { name dup_name }

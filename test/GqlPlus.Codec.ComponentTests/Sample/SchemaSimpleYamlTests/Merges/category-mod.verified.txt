@@ -1,0 +1,14 @@
+﻿!_Schema
+categories: !_Map(_Categories)
+  !_Name ctgrMod: !_Category
+    aliases: [CatM1,CatM2]
+    modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+    name: ctgrMod
+    output: !_TypeRef(_TypeKind)
+      name: CtgrMod
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+types: !_Map(_Type)
+  !_Name CtgrMod: !_TypeOutput
+    name: CtgrMod
+    typeKind: !_TypeKind Output

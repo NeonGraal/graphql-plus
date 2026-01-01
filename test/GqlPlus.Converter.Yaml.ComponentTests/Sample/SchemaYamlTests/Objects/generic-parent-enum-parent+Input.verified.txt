@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumGnrcPrntEnumPrntInp: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumGnrcPrntEnumPrntInp: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: ParentGnrcPrntEnumPrntInp
@@ -16,7 +16,7 @@ types: !_Map_Type
       name: ParentGnrcPrntEnumPrntInp
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier FieldGnrcPrntEnumPrntInp: !_TypeInput
+  !_Name FieldGnrcPrntEnumPrntInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -36,7 +36,7 @@ types: !_Map_Type
         name: ParentGnrcPrntEnumPrntInp
         typeKind: !_TypeKind Enum
       name: ref
-  !_Identifier GnrcPrntEnumPrntInp: !_TypeInput
+  !_Name GnrcPrntEnumPrntInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -50,7 +50,7 @@ types: !_Map_Type
       - !_TypeArg
         name: EnumGnrcPrntEnumPrntInp
     typeKind: !_TypeKind Input
-  !_Identifier ParentGnrcPrntEnumPrntInp: !_TypeEnum
+  !_Name ParentGnrcPrntEnumPrntInp: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: ParentGnrcPrntEnumPrntInp

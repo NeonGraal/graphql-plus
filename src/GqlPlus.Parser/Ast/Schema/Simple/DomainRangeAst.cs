@@ -28,20 +28,17 @@ internal sealed record class DomainRangeAst(
       && Upper.NullEqual(other.Upper);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Lower, Upper);
+
+  public string LowerString => Lower is null ? string.Empty
+    : Lower.Value.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture);
+  public string UpperString => Upper is null ? string.Empty
+    : Upper.Value.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture);
+  public string AsString
+  => Lower is null ? UpperString.Prefixed("<")
+    : Upper is null ? LowerString.Suffixed(">")
+    : Lower.Equals(Upper) ? LowerString
+    : LowerString + "~" + UpperString;
   internal override IEnumerable<string?> GetFields()
-  => Lower is null
-    ? base.GetFields()
-      .Append("<")
-      .Append(Upper?.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture))
-    : Upper is null
-    ? base.GetFields()
-      .Append(Lower?.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture))
-      .Append(">")
-    : Lower.Equals(Upper)
-    ? base.GetFields()
-      .Append(Lower?.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture))
-    : base.GetFields()
-      .Append(Lower?.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture))
-      .Append("~")
-      .Append(Upper?.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture));
+  => base.GetFields()
+    .Append((Excludes ? "!" : "") + AsString);
 }

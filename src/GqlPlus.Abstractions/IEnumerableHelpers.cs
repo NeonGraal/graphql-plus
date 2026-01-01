@@ -68,7 +68,7 @@ public static class IEnumerableHelpers
     string before,
     string after,
     string by = " ")
-   => items.Joined(by).Prefixed(before).Suffixed(after);
+   => items.Joined(by).Surrounded(before, after);
 
   public static string Surround<T>(
     this IEnumerable<T>? items,
@@ -76,5 +76,5 @@ public static class IEnumerableHelpers
     string after,
     Func<T?, string> formatter,
     string by = " ")
-   => items.Joined(formatter, by).Prefixed(before).Suffixed(after);
+   => items.Joined(formatter, by).Surrounded(before, after);
 }

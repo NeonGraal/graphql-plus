@@ -1,0 +1,35 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name DmnStrPrnt: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: PrntDmnStrPrnt
+        exclude: false
+        pattern: 'b+'
+      - !_DomainItem(_DomainRegex)
+        domain: DmnStrPrnt
+        exclude: false
+        pattern: 'a+'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: 'a+'
+    name: DmnStrPrnt
+    parent: !_TypeRef(_SimpleKind)
+      name: PrntDmnStrPrnt
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
+  !_Name PrntDmnStrPrnt: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: PrntDmnStrPrnt
+        exclude: false
+        pattern: 'b+'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: 'b+'
+    name: PrntDmnStrPrnt
+    typeKind: !_TypeKind Domain

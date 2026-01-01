@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltCnstPrntObjPrntOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name AltCnstPrntObjPrntOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: PrntCnstPrntObjPrntOutp
@@ -21,7 +21,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: PrntCnstPrntObjPrntOutp
     typeKind: !_TypeKind Output
-  !_Identifier CnstPrntObjPrntOutp: !_TypeOutput
+  !_Name CnstPrntObjPrntOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: PrntCnstPrntObjPrntOutp
@@ -40,7 +40,7 @@ types: !_Map_Type
       - !_TypeArg
         name: AltCnstPrntObjPrntOutp
     typeKind: !_TypeKind Output
-  !_Identifier PrntCnstPrntObjPrntOutp: !_TypeOutput
+  !_Name PrntCnstPrntObjPrntOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: PrntCnstPrntObjPrntOutp
@@ -52,7 +52,7 @@ types: !_Map_Type
         name: String
     name: PrntCnstPrntObjPrntOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefCnstPrntObjPrntOutp: !_TypeOutput
+  !_Name RefCnstPrntObjPrntOutp: !_TypeOutput
     name: RefCnstPrntObjPrntOutp
     parent: !_ObjBase
       typeParam: ref

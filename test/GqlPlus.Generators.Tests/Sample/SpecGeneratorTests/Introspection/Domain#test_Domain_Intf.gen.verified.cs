@@ -50,7 +50,7 @@ public interface Itest_DomainItem<Titem>
 public interface Itest_DomainItemField<Titem>
   : ItestitemField
 {
-  public test_Identifier domain { get; set; }
+  public test_Name domain { get; set; }
 }
 
 public interface Itest_DomainValue<Tkind,Tvalue>

@@ -1,12 +1,12 @@
 ﻿/* Names
 dual _Aliased {
     : _Named
-        aliases: _Identifier[]
+        aliases: _Name[]
     }
 
 dual _Named {
     : _Described
-        name: _Identifier
+        name: _Name
     }
 
 dual _Described {
@@ -35,7 +35,7 @@ public interface ICmpt_Aliased
 public interface ICmpt_AliasedField
   : ICmpt_NamedField
 {
-  public ICollection<Cmpt_Identifier> aliases { get; set; }
+  public ICollection<Cmpt_Name> aliases { get; set; }
 }
 
 public interface ICmpt_Named
@@ -47,7 +47,7 @@ public interface ICmpt_Named
 public interface ICmpt_NamedField
   : ICmpt_DescribedField
 {
-  public Cmpt_Identifier name { get; set; }
+  public Cmpt_Name name { get; set; }
 }
 
 public interface ICmpt_Described

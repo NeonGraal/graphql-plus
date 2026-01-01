@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "ObjAliasOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "aliases": ["Output1", "Output2"],
       "name": "ObjAliasOutp",

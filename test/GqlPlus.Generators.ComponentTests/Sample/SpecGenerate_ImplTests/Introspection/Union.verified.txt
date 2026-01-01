@@ -5,7 +5,7 @@ output _UnionRef {
 
 output _UnionMember {
     : _UnionRef
-        union: _Identifier
+        union: _Name
     }
 */
 
@@ -26,6 +26,6 @@ public class Cmpt_UnionMember
   : Cmpt_UnionRef
   , ICmpt_UnionMember
 {
-  public Cmpt_Identifier union { get; set; }
+  public Cmpt_Name union { get; set; }
   public Cmpt_UnionMember _UnionMember { get; set; }
 }

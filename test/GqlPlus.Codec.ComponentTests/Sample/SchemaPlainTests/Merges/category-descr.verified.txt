@@ -1,7 +1,7 @@
-﻿[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDescr[_Category]:description='First category Second category'
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDescr[_Category]:name=ctgrDescr
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDescr[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrDescr
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDescr[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
-[_Schema]:categories[_Map_Categories]:[_Identifier]ctgrDescr[_Category]:resolution=[_Resolution]Parallel
-[_Schema]:types[_Map_Type]:[_Identifier]CtgrDescr[_TypeOutput]:name=CtgrDescr
-[_Schema]:types[_Map_Type]:[_Identifier]CtgrDescr[_TypeOutput]:typeKind=[_TypeKind]Output
+﻿[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrDescr[_Category]:description='First category Second category'
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrDescr[_Category]:name=ctgrDescr
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrDescr[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrDescr
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrDescr[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map(_Categories)]:[_Name]ctgrDescr[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:types[_Map(_Type)]:[_Name]CtgrDescr[_TypeOutput]:name=CtgrDescr
+[_Schema]:types[_Map(_Type)]:[_Name]CtgrDescr[_TypeOutput]:typeKind=[_TypeKind]Output

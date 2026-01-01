@@ -22,9 +22,9 @@
     "$listTag": "_Errors"
   },
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "_InputField": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "_InputField",
       "parent": {
@@ -43,7 +43,7 @@
       }
     },
     "_InputFieldType": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -95,7 +95,7 @@
       }
     },
     "_InputParam": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {

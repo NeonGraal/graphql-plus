@@ -3,24 +3,24 @@ errors: !_Errors
 - !_Error
   _kind: !_TokenKind End
   _message: "In _UnionRef can't get model for type '_TypeRef'"
-types: !_Map_Type
-  !_Identifier _UnionMember: !_TypeOutput
+types: !_Map(_Type)
+  !_Name _UnionMember: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: union
       object: _UnionMember
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     fields:
     - !_OutputField
       name: union
       type: !_ObjBase
-        name: _Identifier
+        name: _Name
     name: _UnionMember
     parent: !_ObjBase
       name: _UnionRef
     typeKind: !_TypeKind Output
-  !_Identifier _UnionRef: !_TypeOutput
+  !_Name _UnionRef: !_TypeOutput
     name: _UnionRef
     parent: !_ObjBase
       name: _TypeRef

@@ -1,0 +1,15 @@
+﻿/* domain-number-positive
+domain DmnNmbrPstv { Number !<0 }
+*/
+
+// Generated from Schema domain-number-positive for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_number_positive;
+
+public class CmptDmnNmbrPstv
+  : DomainNumber
+  , ICmptDmnNmbrPstv
+{
+}

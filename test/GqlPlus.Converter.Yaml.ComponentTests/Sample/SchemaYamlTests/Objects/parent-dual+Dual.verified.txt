@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntDualDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name PrntDualDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefPrntDualDual
@@ -16,7 +16,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntDualDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefPrntDualDual: !_TypeDual
+  !_Name RefPrntDualDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefPrntDualDual

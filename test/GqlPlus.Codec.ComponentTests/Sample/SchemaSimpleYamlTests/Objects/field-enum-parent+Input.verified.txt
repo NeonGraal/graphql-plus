@@ -1,0 +1,42 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name EnumFieldEnumPrntInp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: PrntFieldEnumPrntInp
+        name: prnt_fieldEnumPrntInp
+      - !_EnumLabel
+        enum: EnumFieldEnumPrntInp
+        name: fieldEnumPrntInp
+    items:
+      - !_Aliased
+        name: fieldEnumPrntInp
+    name: EnumFieldEnumPrntInp
+    parent: !_TypeRef(_SimpleKind)
+      name: PrntFieldEnumPrntInp
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Name FieldEnumPrntInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FieldEnumPrntInp
+        type: !_ObjBase
+          name: EnumFieldEnumPrntInp
+    fields:
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          name: EnumFieldEnumPrntInp
+    name: FieldEnumPrntInp
+    typeKind: !_TypeKind Input
+  !_Name PrntFieldEnumPrntInp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: PrntFieldEnumPrntInp
+        name: prnt_fieldEnumPrntInp
+    items:
+      - !_Aliased
+        name: prnt_fieldEnumPrntInp
+    name: PrntFieldEnumPrntInp
+    typeKind: !_TypeKind Enum

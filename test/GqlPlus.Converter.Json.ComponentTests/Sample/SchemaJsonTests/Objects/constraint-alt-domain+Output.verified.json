@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "CnstAltDmnOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
@@ -43,7 +43,7 @@
       }
     },
     "DomCnstAltDmnOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainString",
       "allItems": [
         {
@@ -71,7 +71,7 @@
       }
     },
     "RefCnstAltDmnOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allAlternates": [
         {

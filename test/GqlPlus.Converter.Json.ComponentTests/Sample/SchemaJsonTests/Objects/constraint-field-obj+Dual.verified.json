@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "AltCnstFieldObjDual": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allAlternates": [
         {
@@ -47,7 +47,7 @@
       }
     },
     "CnstFieldObjDual": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -77,7 +77,7 @@
       }
     },
     "PrntCnstFieldObjDual": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allAlternates": [
         {
@@ -105,7 +105,7 @@
       }
     },
     "RefCnstFieldObjDual": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {

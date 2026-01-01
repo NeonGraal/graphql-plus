@@ -1,12 +1,12 @@
 ﻿/* Enum
 dual _EnumLabel {
     : _Aliased
-        enum: _Identifier
+        enum: _Name
     }
 
 output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 */
 
@@ -25,7 +25,7 @@ public interface ICmpt_EnumLabel
 public interface ICmpt_EnumLabelField
   : ICmpt_AliasedField
 {
-  public Cmpt_Identifier enum { get; set; }
+  public Cmpt_Name enum { get; set; }
 }
 
 public interface ICmpt_EnumValue
@@ -37,5 +37,5 @@ public interface ICmpt_EnumValue
 public interface ICmpt_EnumValueField
   : ICmpt_TypeRefField
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
 }

@@ -1,0 +1,49 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name CnstFieldDmnDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: RefCnstFieldDmnDual
+        type: !_ObjBase
+          name: DomCnstFieldDmnDual
+    name: CnstFieldDmnDual
+    parent: !_ObjBase
+      name: RefCnstFieldDmnDual
+      typeArgs:
+        - !_TypeArg
+          name: DomCnstFieldDmnDual
+    typeKind: !_TypeKind Dual
+  !_Name DomCnstFieldDmnDual: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: DomCnstFieldDmnDual
+        exclude: false
+        pattern: '\\w+'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: '\\w+'
+    name: DomCnstFieldDmnDual
+    typeKind: !_TypeKind Domain
+  !_Name RefCnstFieldDmnDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: RefCnstFieldDmnDual
+        type: !_ObjBase
+          typeParam: ref
+    fields:
+      - !_DualField
+        name: field
+        type: !_ObjBase
+          typeParam: ref
+    name: RefCnstFieldDmnDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: ref

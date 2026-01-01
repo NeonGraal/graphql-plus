@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjAltEnumInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name ObjAltEnumInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: ObjAltEnumInp

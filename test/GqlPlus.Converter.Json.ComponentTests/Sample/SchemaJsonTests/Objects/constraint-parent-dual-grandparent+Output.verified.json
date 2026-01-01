@@ -14,9 +14,9 @@
     "$listTag": "_Errors"
   },
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "AltCnstPrntDualGrndOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -50,7 +50,7 @@
       }
     },
     "CnstPrntDualGrndOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -80,7 +80,7 @@
       }
     },
     "GrndCnstPrntDualGrndOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allAlternates": [
         {
@@ -108,7 +108,7 @@
       }
     },
     "PrntCnstPrntDualGrndOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allAlternates": [
         {
@@ -131,7 +131,7 @@
       }
     },
     "RefCnstPrntDualGrndOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "name": "RefCnstPrntDualGrndOutp",
       "parent": {

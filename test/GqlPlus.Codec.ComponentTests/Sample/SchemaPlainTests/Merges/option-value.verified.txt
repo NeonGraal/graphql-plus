@@ -1,4 +1,4 @@
 ﻿[_Schema]:name=Schema
-[_Schema]:settings[_Map_Setting]:[_Identifier]merged[_Setting]:name=merged
-[_Schema]:settings[_Map_Setting]:[_Identifier]merged[_Setting]:value[_ConstantList].0=true
-[_Schema]:settings[_Map_Setting]:[_Identifier]merged[_Setting]:value[_ConstantList].1=0
+[_Schema]:settings[_Map(_Setting)]:[_Name]merged[_Setting]:name=merged
+[_Schema]:settings[_Map(_Setting)]:[_Name]merged[_Setting]:value[_ConstantList].0=true
+[_Schema]:settings[_Map(_Setting)]:[_Name]merged[_Setting]:value[_ConstantList].1=0

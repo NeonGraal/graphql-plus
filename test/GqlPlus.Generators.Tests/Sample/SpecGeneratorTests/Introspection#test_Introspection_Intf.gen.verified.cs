@@ -14,13 +14,13 @@ public interface Itest_Schema
 public interface Itest_SchemaField
   : Itest_NamedField
 {
-  public IDictionary<test_Identifier, test_Categories> categories { get; set; }
-  public IDictionary<test_Identifier, test_Directives> directives { get; set; }
-  public IDictionary<test_Identifier, test_Type> types { get; set; }
-  public IDictionary<test_Identifier, test_Setting> settings { get; set; }
+  public IDictionary<test_Name, test_Categories> categories { get; set; }
+  public IDictionary<test_Name, test_Directives> directives { get; set; }
+  public IDictionary<test_Name, test_Type> types { get; set; }
+  public IDictionary<test_Name, test_Setting> settings { get; set; }
 }
 
-public interface Itest_Identifier
+public interface Itest_Name
   : IDomainString
 {
 }
@@ -78,7 +78,7 @@ public interface Itest_Aliased
 public interface Itest_AliasedField
   : Itest_NamedField
 {
-  public ICollection<test_Identifier> aliases { get; set; }
+  public ICollection<test_Name> aliases { get; set; }
 }
 
 public interface Itest_Named
@@ -90,7 +90,7 @@ public interface Itest_Named
 public interface Itest_NamedField
   : Itest_DescribedField
 {
-  public test_Identifier name { get; set; }
+  public test_Name name { get; set; }
 }
 
 public interface Itest_Described
@@ -355,7 +355,7 @@ public interface Itest_DomainItem<Titem>
 public interface Itest_DomainItemField<Titem>
   : ItestitemField
 {
-  public test_Identifier domain { get; set; }
+  public test_Name domain { get; set; }
 }
 
 public interface Itest_DomainValue<Tkind,Tvalue>
@@ -486,7 +486,7 @@ public interface Itest_EnumLabel
 public interface Itest_EnumLabelField
   : Itest_AliasedField
 {
-  public test_Identifier enum { get; set; }
+  public test_Name enum { get; set; }
 }
 
 public interface Itest_EnumValue
@@ -498,7 +498,7 @@ public interface Itest_EnumValue
 public interface Itest_EnumValueField
   : Itest_TypeRefField
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
 }
 
 public interface Itest_UnionRef
@@ -521,7 +521,7 @@ public interface Itest_UnionMember
 public interface Itest_UnionMemberField
   : Itest_UnionRefField
 {
-  public test_Identifier union { get; set; }
+  public test_Name union { get; set; }
 }
 
 public interface Itest_ObjectKind
@@ -580,7 +580,7 @@ public interface Itest_ObjTypeArg
 public interface Itest_ObjTypeArgField
   : Itest_TypeRefField
 {
-  public test_Identifier? label { get; set; }
+  public test_Name? label { get; set; }
 }
 
 public interface Itest_TypeParam
@@ -592,7 +592,7 @@ public interface Itest_TypeParam
 public interface Itest_TypeParamField
   : Itest_DescribedField
 {
-  public test_Identifier typeParam { get; set; }
+  public test_Name typeParam { get; set; }
 }
 
 public interface Itest_ObjAlternate
@@ -616,7 +616,7 @@ public interface Itest_ObjAlternateEnum
 public interface Itest_ObjAlternateEnumField
   : Itest_TypeRefField
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
 }
 
 public interface Itest_ObjectFor<Tfor>
@@ -628,7 +628,7 @@ public interface Itest_ObjectFor<Tfor>
 public interface Itest_ObjectForField<Tfor>
   : ItestforField
 {
-  public test_Identifier object { get; set; }
+  public test_Name object { get; set; }
 }
 
 public interface Itest_ObjField<Ttype>
@@ -665,7 +665,7 @@ public interface Itest_ObjFieldEnum
 public interface Itest_ObjFieldEnumField
   : Itest_TypeRefField
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
 }
 
 public interface Itest_ForParam<Ttype>

@@ -9,16 +9,16 @@ public class test_Schema
   : test_Named
   , Itest_Schema
 {
-  public IDictionary<test_Identifier, test_Categories> categories { get; set; }
-  public IDictionary<test_Identifier, test_Directives> directives { get; set; }
-  public IDictionary<test_Identifier, test_Type> types { get; set; }
-  public IDictionary<test_Identifier, test_Setting> settings { get; set; }
+  public IDictionary<test_Name, test_Categories> categories { get; set; }
+  public IDictionary<test_Name, test_Directives> directives { get; set; }
+  public IDictionary<test_Name, test_Type> types { get; set; }
+  public IDictionary<test_Name, test_Setting> settings { get; set; }
   public test_Schema _Schema { get; set; }
 }
 
-public class test_Identifier
+public class test_Name
   : DomainString
-  , Itest_Identifier
+  , Itest_Name
 {
 }
 
@@ -60,7 +60,7 @@ public class test_Aliased
   : test_Named
   , Itest_Aliased
 {
-  public ICollection<test_Identifier> aliases { get; set; }
+  public ICollection<test_Name> aliases { get; set; }
   public test_Aliased _Aliased { get; set; }
 }
 
@@ -68,7 +68,7 @@ public class test_Named
   : test_Described
   , Itest_Named
 {
-  public test_Identifier name { get; set; }
+  public test_Name name { get; set; }
   public test_Named _Named { get; set; }
 }
 
@@ -255,7 +255,7 @@ public class test_DomainItem<Titem>
   : testitem
   , Itest_DomainItem<Titem>
 {
-  public test_Identifier domain { get; set; }
+  public test_Name domain { get; set; }
   public test_DomainItem _DomainItem { get; set; }
 }
 
@@ -343,7 +343,7 @@ public class test_EnumLabel
   : test_Aliased
   , Itest_EnumLabel
 {
-  public test_Identifier enum { get; set; }
+  public test_Name enum { get; set; }
   public test_EnumLabel _EnumLabel { get; set; }
 }
 
@@ -351,7 +351,7 @@ public class test_EnumValue
   : test_TypeRef
   , Itest_EnumValue
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
   public test_EnumValue _EnumValue { get; set; }
 }
 
@@ -366,7 +366,7 @@ public class test_UnionMember
   : test_UnionRef
   , Itest_UnionMember
 {
-  public test_Identifier union { get; set; }
+  public test_Name union { get; set; }
   public test_UnionMember _UnionMember { get; set; }
 }
 
@@ -409,7 +409,7 @@ public class test_ObjTypeArg
   : test_TypeRef
   , Itest_ObjTypeArg
 {
-  public test_Identifier? label { get; set; }
+  public test_Name? label { get; set; }
   public test_TypeParam As_TypeParam { get; set; }
   public test_ObjTypeArg _ObjTypeArg { get; set; }
 }
@@ -418,7 +418,7 @@ public class test_TypeParam
   : test_Described
   , Itest_TypeParam
 {
-  public test_Identifier typeParam { get; set; }
+  public test_Name typeParam { get; set; }
   public test_TypeParam _TypeParam { get; set; }
 }
 
@@ -435,7 +435,7 @@ public class test_ObjAlternateEnum
   : test_TypeRef
   , Itest_ObjAlternateEnum
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
   public test_ObjAlternateEnum _ObjAlternateEnum { get; set; }
 }
 
@@ -443,7 +443,7 @@ public class test_ObjectFor<Tfor>
   : testfor
   , Itest_ObjectFor<Tfor>
 {
-  public test_Identifier object { get; set; }
+  public test_Name object { get; set; }
   public test_ObjectFor _ObjectFor { get; set; }
 }
 
@@ -468,7 +468,7 @@ public class test_ObjFieldEnum
   : test_TypeRef
   , Itest_ObjFieldEnum
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
   public test_ObjFieldEnum _ObjFieldEnum { get; set; }
 }
 

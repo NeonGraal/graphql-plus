@@ -55,7 +55,7 @@ public enum CmptEnumDmnEnumUnq
   dmnEnumUnq,
 }
 
-public enum CmptEnumDomDup
+public enum CmptDupDmnEnumUnq
 {
   dmnEnumUnq,
   dup_dmnEnumUnq,

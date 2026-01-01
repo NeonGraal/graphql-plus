@@ -44,7 +44,7 @@ public class test_ObjTypeArg
   : test_TypeRef
   , Itest_ObjTypeArg
 {
-  public test_Identifier? label { get; set; }
+  public test_Name? label { get; set; }
   public test_TypeParam As_TypeParam { get; set; }
   public test_ObjTypeArg _ObjTypeArg { get; set; }
 }
@@ -53,7 +53,7 @@ public class test_TypeParam
   : test_Described
   , Itest_TypeParam
 {
-  public test_Identifier typeParam { get; set; }
+  public test_Name typeParam { get; set; }
   public test_TypeParam _TypeParam { get; set; }
 }
 
@@ -70,7 +70,7 @@ public class test_ObjAlternateEnum
   : test_TypeRef
   , Itest_ObjAlternateEnum
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
   public test_ObjAlternateEnum _ObjAlternateEnum { get; set; }
 }
 
@@ -78,7 +78,7 @@ public class test_ObjectFor<Tfor>
   : testfor
   , Itest_ObjectFor<Tfor>
 {
-  public test_Identifier object { get; set; }
+  public test_Name object { get; set; }
   public test_ObjectFor _ObjectFor { get; set; }
 }
 
@@ -103,7 +103,7 @@ public class test_ObjFieldEnum
   : test_TypeRef
   , Itest_ObjFieldEnum
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
   public test_ObjFieldEnum _ObjFieldEnum { get; set; }
 }
 

@@ -2,7 +2,6 @@
 
 namespace GqlPlus.Sample;
 
-[Trait("Generate", "Yaml")]
 [Trait("Generate", "Plain")]
 public class PlainSchemaTests(
   ISchemaVerifyChecks checks

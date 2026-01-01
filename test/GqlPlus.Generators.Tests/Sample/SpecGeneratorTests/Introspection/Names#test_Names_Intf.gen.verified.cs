@@ -14,7 +14,7 @@ public interface Itest_Aliased
 public interface Itest_AliasedField
   : Itest_NamedField
 {
-  public ICollection<test_Identifier> aliases { get; set; }
+  public ICollection<test_Name> aliases { get; set; }
 }
 
 public interface Itest_Named
@@ -26,7 +26,7 @@ public interface Itest_Named
 public interface Itest_NamedField
   : Itest_DescribedField
 {
-  public test_Identifier name { get; set; }
+  public test_Name name { get; set; }
 }
 
 public interface Itest_Described

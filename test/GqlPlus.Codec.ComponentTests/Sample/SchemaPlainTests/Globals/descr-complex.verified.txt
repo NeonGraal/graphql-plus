@@ -1,3 +1,3 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]DescrCmpl[_TypeOutput]:description="A \"more\" 'Complicated' \\ description"
-[_Schema]:types[_Map_Type]:[_Identifier]DescrCmpl[_TypeOutput]:name=DescrCmpl
-[_Schema]:types[_Map_Type]:[_Identifier]DescrCmpl[_TypeOutput]:typeKind=[_TypeKind]Output
+﻿[_Schema]:types[_Map(_Type)]:[_Name]DescrCmpl[_TypeOutput]:description="A \"more\" 'Complicated' \\ description"
+[_Schema]:types[_Map(_Type)]:[_Name]DescrCmpl[_TypeOutput]:name=DescrCmpl
+[_Schema]:types[_Map(_Type)]:[_Name]DescrCmpl[_TypeOutput]:typeKind=[_TypeKind]Output

@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "ObjParamOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {

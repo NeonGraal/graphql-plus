@@ -5,7 +5,7 @@ output _UnionRef {
 
 output _UnionMember {
     : _UnionRef
-        union: _Identifier
+        union: _Name
     }
 */
 
@@ -35,5 +35,5 @@ public interface ICmpt_UnionMember
 public interface ICmpt_UnionMemberField
   : ICmpt_UnionRefField
 {
-  public Cmpt_Identifier union { get; set; }
+  public Cmpt_Name union { get; set; }
 }

@@ -88,6 +88,18 @@ public class CmptPrntDmnEnumPrntDescr
 {
 }
 
+public class CmptDmnEnumUnq
+  : DomainEnum
+  , ICmptDmnEnumUnq
+{
+}
+
+public class CmptDmnEnumUnqPrnt
+  : DomainEnum
+  , ICmptDmnEnumUnqPrnt
+{
+}
+
 public class CmptDmnEnumValue
   : DomainEnum
   , ICmptDmnEnumValue
@@ -130,9 +142,21 @@ public class CmptPrntDmnNmbrPrntDescr
 {
 }
 
+public class CmptDmnNmbrPstv
+  : DomainNumber
+  , ICmptDmnNmbrPstv
+{
+}
+
 public class CmptDmnStrDescr
   : DomainString
   , ICmptDmnStrDescr
+{
+}
+
+public class CmptDmnStrNonEmpty
+  : DomainString
+  , ICmptDmnStrNonEmpty
 {
 }
 

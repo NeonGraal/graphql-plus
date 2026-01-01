@@ -18,7 +18,7 @@ dual _BaseDomainItem {
 
 output _DomainItem<$item:_BaseDomainItem> {
     : $item
-        domain: _Identifier
+        domain: _Name
     }
 
 output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
@@ -73,12 +73,12 @@ output _DomainItemRegex {
 
 dual _EnumLabel {
     : _Aliased
-        enum: _Identifier
+        enum: _Name
     }
 
 output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 
 output _UnionRef {
@@ -87,7 +87,7 @@ output _UnionRef {
 
 output _UnionMember {
     : _UnionRef
-        union: _Identifier
+        union: _Name
     }
 */
 
@@ -125,7 +125,7 @@ public class Cmpt_DomainItem<Titem>
   : Cmptitem
   , ICmpt_DomainItem<Titem>
 {
-  public Cmpt_Identifier domain { get; set; }
+  public Cmpt_Name domain { get; set; }
   public Cmpt_DomainItem _DomainItem { get; set; }
 }
 
@@ -213,7 +213,7 @@ public class Cmpt_EnumLabel
   : Cmpt_Aliased
   , ICmpt_EnumLabel
 {
-  public Cmpt_Identifier enum { get; set; }
+  public Cmpt_Name enum { get; set; }
   public Cmpt_EnumLabel _EnumLabel { get; set; }
 }
 
@@ -221,7 +221,7 @@ public class Cmpt_EnumValue
   : Cmpt_TypeRef
   , ICmpt_EnumValue
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
   public Cmpt_EnumValue _EnumValue { get; set; }
 }
 
@@ -236,6 +236,6 @@ public class Cmpt_UnionMember
   : Cmpt_UnionRef
   , ICmpt_UnionMember
 {
-  public Cmpt_Identifier union { get; set; }
+  public Cmpt_Name union { get; set; }
   public Cmpt_UnionMember _UnionMember { get; set; }
 }

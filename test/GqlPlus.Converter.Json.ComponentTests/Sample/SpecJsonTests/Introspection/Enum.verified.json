@@ -22,9 +22,9 @@
     "$listTag": "_Errors"
   },
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "_EnumLabel": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -33,7 +33,7 @@
           "object": "_EnumLabel",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -43,7 +43,7 @@
           "name": "enum",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -58,7 +58,7 @@
       }
     },
     "_EnumValue": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -67,7 +67,7 @@
           "object": "_EnumValue",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -77,7 +77,7 @@
           "name": "label",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],

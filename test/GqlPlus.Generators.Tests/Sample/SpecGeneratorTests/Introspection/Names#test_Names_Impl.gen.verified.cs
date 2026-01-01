@@ -9,7 +9,7 @@ public class test_Aliased
   : test_Named
   , Itest_Aliased
 {
-  public ICollection<test_Identifier> aliases { get; set; }
+  public ICollection<test_Name> aliases { get; set; }
   public test_Aliased _Aliased { get; set; }
 }
 
@@ -17,7 +17,7 @@ public class test_Named
   : test_Described
   , Itest_Named
 {
-  public test_Identifier name { get; set; }
+  public test_Name name { get; set; }
   public test_Named _Named { get; set; }
 }
 

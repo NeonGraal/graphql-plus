@@ -74,6 +74,16 @@ public interface ICmptPrntDmnEnumPrntDescr
 {
 }
 
+public interface ICmptDmnEnumUnq
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumUnqPrnt
+  : IDomainEnum
+{
+}
+
 public interface ICmptDmnEnumValue
   : IDomainEnum
 {
@@ -109,7 +119,17 @@ public interface ICmptPrntDmnNmbrPrntDescr
 {
 }
 
+public interface ICmptDmnNmbrPstv
+  : IDomainNumber
+{
+}
+
 public interface ICmptDmnStrDescr
+  : IDomainString
+{
+}
+
+public interface ICmptDmnStrNonEmpty
   : IDomainString
 {
 }

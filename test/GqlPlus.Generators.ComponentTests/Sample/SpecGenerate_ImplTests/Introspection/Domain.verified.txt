@@ -18,7 +18,7 @@ dual _BaseDomainItem {
 
 output _DomainItem<$item:_BaseDomainItem> {
     : $item
-        domain: _Identifier
+        domain: _Name
     }
 
 output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
@@ -106,7 +106,7 @@ public class Cmpt_DomainItem<Titem>
   : Cmptitem
   , ICmpt_DomainItem<Titem>
 {
-  public Cmpt_Identifier domain { get; set; }
+  public Cmpt_Name domain { get; set; }
   public Cmpt_DomainItem _DomainItem { get; set; }
 }
 

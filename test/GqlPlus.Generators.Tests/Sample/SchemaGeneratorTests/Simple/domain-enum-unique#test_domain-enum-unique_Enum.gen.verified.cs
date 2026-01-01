@@ -11,7 +11,7 @@ public enum testEnumDmnEnumUnq
   dmnEnumUnq,
 }
 
-public enum testEnumDomDup
+public enum testDupDmnEnumUnq
 {
   dmnEnumUnq,
   dup_dmnEnumUnq,

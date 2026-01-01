@@ -1,0 +1,61 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name AltGnrcAltParamInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: AltGnrcAltParamInp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltGnrcAltParamInp
+        type: !_ObjBase
+          name: Number
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_InputField
+        name: alt
+        type: !_ObjBase
+          name: Number
+    name: AltGnrcAltParamInp
+    typeKind: !_TypeKind Input
+  !_Name GnrcAltParamInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GnrcAltParamInp
+        type: !_ObjBase
+          name: RefGnrcAltParamInp
+          typeArgs:
+            - !_TypeArg
+              name: AltGnrcAltParamInp
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: RefGnrcAltParamInp
+          typeArgs:
+            - !_TypeArg
+              name: AltGnrcAltParamInp
+    name: GnrcAltParamInp
+    typeKind: !_TypeKind Input
+  !_Name RefGnrcAltParamInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefGnrcAltParamInp
+        type: !_ObjBase
+          typeParam: ref
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          typeParam: ref
+    name: RefGnrcAltParamInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _Input
+          typeKind: !_TypeKind Internal
+        name: ref

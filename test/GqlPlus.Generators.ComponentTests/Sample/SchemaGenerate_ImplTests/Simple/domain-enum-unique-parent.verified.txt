@@ -1,0 +1,18 @@
+﻿/* domain-enum-unique-parent
+domain DmnEnumUnqPrnt { enum EnumDmnEnumUnqPrnt.* !PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt DupDmnEnumUnqPrnt.dmnEnumUnqPrnt }
+enum EnumDmnEnumUnqPrnt { :PrntDmnEnumUnqPrnt enum_dmnEnumUnqPrnt }
+enum PrntDmnEnumUnqPrnt { dmnEnumUnqPrnt prnt_dmnEnumUnqPrnt }
+enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt }
+*/
+
+// Generated from Schema domain-enum-unique-parent for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_unique_parent;
+
+public class CmptDmnEnumUnqPrnt
+  : DomainEnum
+  , ICmptDmnEnumUnqPrnt
+{
+}

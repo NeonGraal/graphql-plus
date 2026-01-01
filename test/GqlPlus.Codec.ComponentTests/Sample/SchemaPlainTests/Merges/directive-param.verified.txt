@@ -1,7 +1,7 @@
-﻿[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParam[_Directive]:locations[_Set(_Location)]:Fragment=_
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParam[_Directive]:locations[_Set(_Location)]:Operation=_
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParam[_Directive]:name=DrctParam
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParam[_Directive]:parameters.0[_InputParam]:name=InDrctParam
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctParam[_Directive]:repeatable=false
-[_Schema]:types[_Map_Type]:[_Identifier]InDrctParam[_TypeInput]:name=InDrctParam
-[_Schema]:types[_Map_Type]:[_Identifier]InDrctParam[_TypeInput]:typeKind=[_TypeKind]Input
+﻿[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParam[_Directive]:locations[_Set(_Location)]:Fragment=_
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParam[_Directive]:locations[_Set(_Location)]:Operation=_
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParam[_Directive]:name=DrctParam
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParam[_Directive]:parameters.0[_InputParam]:name=InDrctParam
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParam[_Directive]:repeatable=false
+[_Schema]:types[_Map(_Type)]:[_Name]InDrctParam[_TypeInput]:name=InDrctParam
+[_Schema]:types[_Map(_Type)]:[_Name]InDrctParam[_TypeInput]:typeKind=[_TypeKind]Input

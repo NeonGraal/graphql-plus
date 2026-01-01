@@ -1,0 +1,69 @@
+﻿!_Schema
+errors: !_Errors
+  - !_Error
+    _kind: !_TokenKind End
+    _message: "In AltCnstPrntDualGrndInp can't get model for type 'PrntCnstPrntDualGrndInp'"
+types: !_Map(_Type)
+  !_Name AltCnstPrntDualGrndInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltCnstPrntDualGrndInp
+        type: !_ObjBase
+          name: Number
+    fields:
+      - !_InputField
+        name: alt
+        type: !_ObjBase
+          name: Number
+    name: AltCnstPrntDualGrndInp
+    parent: !_ObjBase
+      name: PrntCnstPrntDualGrndInp
+    typeKind: !_TypeKind Input
+  !_Name CnstPrntDualGrndInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltCnstPrntDualGrndInp
+        type: !_ObjBase
+          name: Number
+    name: CnstPrntDualGrndInp
+    parent: !_ObjBase
+      name: RefCnstPrntDualGrndInp
+      typeArgs:
+        - !_TypeArg
+          name: AltCnstPrntDualGrndInp
+    typeKind: !_TypeKind Input
+  !_Name GrndCnstPrntDualGrndInp: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GrndCnstPrntDualGrndInp
+        type: !_ObjBase
+          name: String
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: String
+    name: GrndCnstPrntDualGrndInp
+    typeKind: !_TypeKind Dual
+  !_Name PrntCnstPrntDualGrndInp: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GrndCnstPrntDualGrndInp
+        type: !_ObjBase
+          name: String
+    name: PrntCnstPrntDualGrndInp
+    parent: !_ObjBase
+      name: GrndCnstPrntDualGrndInp
+    typeKind: !_TypeKind Dual
+  !_Name RefCnstPrntDualGrndInp: !_TypeInput
+    name: RefCnstPrntDualGrndInp
+    parent: !_ObjBase
+      typeParam: ref
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: GrndCnstPrntDualGrndInp
+          typeKind: !_TypeKind Dual
+        name: ref

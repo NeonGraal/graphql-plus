@@ -14,13 +14,13 @@ public interface Itest_Schema
 public interface Itest_SchemaField
   : Itest_NamedField
 {
-  public IDictionary<test_Identifier, test_Categories> categories { get; set; }
-  public IDictionary<test_Identifier, test_Directives> directives { get; set; }
-  public IDictionary<test_Identifier, test_Type> types { get; set; }
-  public IDictionary<test_Identifier, test_Setting> settings { get; set; }
+  public IDictionary<test_Name, test_Categories> categories { get; set; }
+  public IDictionary<test_Name, test_Directives> directives { get; set; }
+  public IDictionary<test_Name, test_Type> types { get; set; }
+  public IDictionary<test_Name, test_Setting> settings { get; set; }
 }
 
-public interface Itest_Identifier
+public interface Itest_Name
   : IDomainString
 {
 }
@@ -78,7 +78,7 @@ public interface Itest_Aliased
 public interface Itest_AliasedField
   : Itest_NamedField
 {
-  public ICollection<test_Identifier> aliases { get; set; }
+  public ICollection<test_Name> aliases { get; set; }
 }
 
 public interface Itest_Named
@@ -90,7 +90,7 @@ public interface Itest_Named
 public interface Itest_NamedField
   : Itest_DescribedField
 {
-  public test_Identifier name { get; set; }
+  public test_Name name { get; set; }
 }
 
 public interface Itest_Described

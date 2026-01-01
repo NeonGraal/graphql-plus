@@ -1,0 +1,15 @@
+﻿/* domain-string-non-empty
+domain DmnStrNonEmpty { String !/\s*/ }
+*/
+
+// Generated from Schema domain-string-non-empty for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_string_non_empty;
+
+public class CmptDmnStrNonEmpty
+  : DomainString
+  , ICmptDmnStrNonEmpty
+{
+}

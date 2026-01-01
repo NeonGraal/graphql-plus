@@ -18,7 +18,7 @@ dual _BaseDomainItem {
 
 output _DomainItem<$item:_BaseDomainItem> {
     : $item
-        domain: _Identifier
+        domain: _Name
     }
 
 output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
@@ -73,12 +73,12 @@ output _DomainItemRegex {
 
 dual _EnumLabel {
     : _Aliased
-        enum: _Identifier
+        enum: _Name
     }
 
 output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 
 output _UnionRef {
@@ -87,7 +87,7 @@ output _UnionRef {
 
 output _UnionMember {
     : _UnionRef
-        union: _Identifier
+        union: _Name
     }
 */
 

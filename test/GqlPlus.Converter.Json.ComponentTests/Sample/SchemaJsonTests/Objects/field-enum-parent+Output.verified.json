@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "EnumFieldEnumPrntOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -38,7 +38,7 @@
       }
     },
     "FieldEnumPrntOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -72,7 +72,7 @@
       }
     },
     "PrntFieldEnumPrntOutp": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {

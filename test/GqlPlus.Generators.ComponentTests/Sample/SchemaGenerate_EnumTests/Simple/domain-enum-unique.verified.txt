@@ -1,7 +1,7 @@
 ﻿/* domain-enum-unique
-# domain DmnEnumUnq { enum EnumDmnEnumUnq.* !EnumDmnEnumUnq.dmnEnumUnq DupDmnEnumUnq.dmnEnumUnq }
+domain DmnEnumUnq { enum EnumDmnEnumUnq.* !EnumDmnEnumUnq.dmnEnumUnq DupDmnEnumUnq.dmnEnumUnq }
 enum EnumDmnEnumUnq { enum_dmnEnumUnq dmnEnumUnq }
-enum EnumDomDup { dmnEnumUnq dup_dmnEnumUnq }
+enum DupDmnEnumUnq { dmnEnumUnq dup_dmnEnumUnq }
 */
 
 // Generated from Schema domain-enum-unique for Enum
@@ -16,7 +16,7 @@ public enum CmptEnumDmnEnumUnq
   dmnEnumUnq,
 }
 
-public enum CmptEnumDomDup
+public enum CmptDupDmnEnumUnq
 {
   dmnEnumUnq,
   dup_dmnEnumUnq,

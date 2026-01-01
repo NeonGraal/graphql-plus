@@ -7,15 +7,13 @@ Success
   Number
   :( !Tr I@023/0001 PrntDmnNmbrPrnt )
   !DN N@046/0001
-  2
->
+  2>
 }
 {
-!Do I@008/0002
-PrntDmnNmbrPrnt
-Number
-!DN P@033/0002
-<
-  2
+  !Do I@008/0002
+  PrntDmnNmbrPrnt
+  Number
+  !DN P@033/0002
+  <2
 }
 ]

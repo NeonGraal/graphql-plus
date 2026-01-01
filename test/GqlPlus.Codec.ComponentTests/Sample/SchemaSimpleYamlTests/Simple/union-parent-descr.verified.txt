@@ -1,0 +1,29 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name PrntUnionPrntDescr: !_TypeUnion
+    allItems:
+      - !_UnionMember
+        name: Number
+        union: PrntUnionPrntDescr
+    items:
+      - !_Aliased
+        name: Number
+    name: PrntUnionPrntDescr
+    typeKind: !_TypeKind Union
+  !_Name UnionPrntDescr: !_TypeUnion
+    allItems:
+      - !_UnionMember
+        name: Number
+        union: PrntUnionPrntDescr
+      - !_UnionMember
+        name: Number
+        union: UnionPrntDescr
+    items:
+      - !_Aliased
+        name: Number
+    name: UnionPrntDescr
+    parent: !_TypeRef(_SimpleKind)
+      description: 'Parent comment'
+      name: PrntUnionPrntDescr
+      typeKind: !_SimpleKind Union
+    typeKind: !_TypeKind Union

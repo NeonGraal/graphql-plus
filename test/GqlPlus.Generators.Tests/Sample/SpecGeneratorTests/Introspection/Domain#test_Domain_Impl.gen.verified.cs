@@ -33,7 +33,7 @@ public class test_DomainItem<Titem>
   : testitem
   , Itest_DomainItem<Titem>
 {
-  public test_Identifier domain { get; set; }
+  public test_Name domain { get; set; }
   public test_DomainItem _DomainItem { get; set; }
 }
 

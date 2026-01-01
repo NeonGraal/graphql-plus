@@ -51,7 +51,7 @@ public class HtmlSchemaTests(
   [Fact]
   public async Task Index_DI()
   {
-    string[] files = ["Codec", "Generator", "Modeller", "Parser", "Verifier"];
+    string[] files = ["Codec", "CommonParser", "Generator", "Modeller", "OperationParser", "SchemaParser", "Verifier"];
 
     Map<IEnumerable<string>> groups = new() {
       ["Table"] = files,

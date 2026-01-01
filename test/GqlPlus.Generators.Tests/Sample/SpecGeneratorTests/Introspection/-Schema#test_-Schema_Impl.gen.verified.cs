@@ -9,16 +9,16 @@ public class test_Schema
   : test_Named
   , Itest_Schema
 {
-  public IDictionary<test_Identifier, test_Categories> categories { get; set; }
-  public IDictionary<test_Identifier, test_Directives> directives { get; set; }
-  public IDictionary<test_Identifier, test_Type> types { get; set; }
-  public IDictionary<test_Identifier, test_Setting> settings { get; set; }
+  public IDictionary<test_Name, test_Categories> categories { get; set; }
+  public IDictionary<test_Name, test_Directives> directives { get; set; }
+  public IDictionary<test_Name, test_Type> types { get; set; }
+  public IDictionary<test_Name, test_Setting> settings { get; set; }
   public test_Schema _Schema { get; set; }
 }
 
-public class test_Identifier
+public class test_Name
   : DomainString
-  , Itest_Identifier
+  , Itest_Name
 {
 }
 
@@ -60,7 +60,7 @@ public class test_Aliased
   : test_Named
   , Itest_Aliased
 {
-  public ICollection<test_Identifier> aliases { get; set; }
+  public ICollection<test_Name> aliases { get; set; }
   public test_Aliased _Aliased { get; set; }
 }
 
@@ -68,7 +68,7 @@ public class test_Named
   : test_Described
   , Itest_Named
 {
-  public test_Identifier name { get; set; }
+  public test_Name name { get; set; }
   public test_Named _Named { get; set; }
 }
 

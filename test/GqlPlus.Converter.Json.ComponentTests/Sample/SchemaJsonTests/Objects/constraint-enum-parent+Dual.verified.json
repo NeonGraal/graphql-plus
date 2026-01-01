@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "CnstEnumPrntDual": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allAlternates": [
         {
@@ -53,7 +53,7 @@
       }
     },
     "EnumCnstEnumPrntDual": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -88,7 +88,7 @@
       }
     },
     "ParentCnstEnumPrntDual": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -110,7 +110,7 @@
       }
     },
     "RefCnstEnumPrntDual": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {

@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnAlias: !_DomainNumber
+types: !_Map(_Type)
+  !_Name DmnAlias: !_DomainNumber
     aliases: [Num1, Num2]
     domainKind: !_DomainKind Number
     name: DmnAlias

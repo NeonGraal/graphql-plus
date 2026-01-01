@@ -1,8 +1,8 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=ObjAltEnumDual
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=Boolean
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:object=ObjAltEnumDual
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:type[_ObjBase]:name=Boolean
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=Boolean
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:alternates.1[_Alternate]:type[_ObjBase]:name=Boolean
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:name=ObjAltEnumDual
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAltEnumDual[_TypeDual]:typeKind=[_TypeKind]Dual
+﻿[_Schema]:types[_Map(_Type)]:[_Name]ObjAltEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=ObjAltEnumDual
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltEnumDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltEnumDual[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:object=ObjAltEnumDual
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltEnumDual[_TypeDual]:allAlternates.1[_ObjectFor(_Alternate)]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltEnumDual[_TypeDual]:alternates.0[_Alternate]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltEnumDual[_TypeDual]:alternates.1[_Alternate]:type[_ObjBase]:name=Boolean
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltEnumDual[_TypeDual]:name=ObjAltEnumDual
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAltEnumDual[_TypeDual]:typeKind=[_TypeKind]Dual

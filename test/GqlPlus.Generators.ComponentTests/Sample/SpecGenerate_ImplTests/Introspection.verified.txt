@@ -1,13 +1,13 @@
 ﻿/* Introspection
 output _Schema {
     : _Named
-        categories(_CategoryFilter?): _Categories[_Identifier]
-        directives(_Filter?): _Directives[_Identifier]
-        types(_TypeFilter?): _Type[_Identifier]
-        settings(_Filter?): _Setting[_Identifier]
+        categories(_CategoryFilter?): _Categories[_Name]
+        directives(_Filter?): _Directives[_Name]
+        types(_TypeFilter?): _Type[_Name]
+        settings(_Filter?): _Setting[_Name]
     }
 
-domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
+domain _Name { String /[A-Za-z_][A-Za-z0-9_]*/ }
 
 input _Filter {
         names: _NameFilter[]
@@ -18,7 +18,7 @@ input _Filter {
     | _NameFilter[]
     }
 
-"_NameFilter is a simple match expression against _Identifier"
+"_NameFilter is a simple match expression against _Name"
 "where '.' matches any single character and '*' matches zero or more of any character."
 domain _NameFilter { String /[A-Za-z_.*]+/ }
 
@@ -34,12 +34,12 @@ input _TypeFilter {
 
 dual _Aliased {
     : _Named
-        aliases: _Identifier[]
+        aliases: _Name[]
     }
 
 dual _Named {
     : _Described
-        name: _Identifier
+        name: _Name
     }
 
 dual _Described {
@@ -176,7 +176,7 @@ dual _BaseDomainItem {
 
 output _DomainItem<$item:_BaseDomainItem> {
     : $item
-        domain: _Identifier
+        domain: _Name
     }
 
 output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
@@ -231,12 +231,12 @@ output _DomainItemRegex {
 
 dual _EnumLabel {
     : _Aliased
-        enum: _Identifier
+        enum: _Name
     }
 
 output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 
 output _UnionRef {
@@ -245,7 +245,7 @@ output _UnionRef {
 
 output _UnionMember {
     : _UnionRef
-        union: _Identifier
+        union: _Name
     }
 
 domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
@@ -272,13 +272,13 @@ output _ObjBase {
 
 output _ObjTypeArg {
     : _TypeRef<_TypeKind>
-        label: _Identifier?
+        label: _Name?
     | _TypeParam
     }
 
 output _TypeParam {
     : _Described
-        typeParam: _Identifier
+        typeParam: _Name
     }
 
 output _ObjAlternate {
@@ -289,11 +289,11 @@ output _ObjAlternate {
 
 output _ObjAlternateEnum {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 output _ObjectFor<$for:_ForParam> {
     : $for
-        object: _Identifier
+        object: _Name
     }
 
 output _ObjField<$type:_ObjFieldType> {
@@ -309,7 +309,7 @@ output _ObjFieldType {
 
 output _ObjFieldEnum {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 
 output _ForParam<$type:_ObjFieldType> {
@@ -354,16 +354,16 @@ public class Cmpt_Schema
   : Cmpt_Named
   , ICmpt_Schema
 {
-  public IDictionary<Cmpt_Identifier, Cmpt_Categories> categories { get; set; }
-  public IDictionary<Cmpt_Identifier, Cmpt_Directives> directives { get; set; }
-  public IDictionary<Cmpt_Identifier, Cmpt_Type> types { get; set; }
-  public IDictionary<Cmpt_Identifier, Cmpt_Setting> settings { get; set; }
+  public IDictionary<Cmpt_Name, Cmpt_Categories> categories { get; set; }
+  public IDictionary<Cmpt_Name, Cmpt_Directives> directives { get; set; }
+  public IDictionary<Cmpt_Name, Cmpt_Type> types { get; set; }
+  public IDictionary<Cmpt_Name, Cmpt_Setting> settings { get; set; }
   public Cmpt_Schema _Schema { get; set; }
 }
 
-public class Cmpt_Identifier
+public class Cmpt_Name
   : DomainString
-  , ICmpt_Identifier
+  , ICmpt_Name
 {
 }
 
@@ -405,7 +405,7 @@ public class Cmpt_Aliased
   : Cmpt_Named
   , ICmpt_Aliased
 {
-  public ICollection<Cmpt_Identifier> aliases { get; set; }
+  public ICollection<Cmpt_Name> aliases { get; set; }
   public Cmpt_Aliased _Aliased { get; set; }
 }
 
@@ -413,7 +413,7 @@ public class Cmpt_Named
   : Cmpt_Described
   , ICmpt_Named
 {
-  public Cmpt_Identifier name { get; set; }
+  public Cmpt_Name name { get; set; }
   public Cmpt_Named _Named { get; set; }
 }
 
@@ -600,7 +600,7 @@ public class Cmpt_DomainItem<Titem>
   : Cmptitem
   , ICmpt_DomainItem<Titem>
 {
-  public Cmpt_Identifier domain { get; set; }
+  public Cmpt_Name domain { get; set; }
   public Cmpt_DomainItem _DomainItem { get; set; }
 }
 
@@ -688,7 +688,7 @@ public class Cmpt_EnumLabel
   : Cmpt_Aliased
   , ICmpt_EnumLabel
 {
-  public Cmpt_Identifier enum { get; set; }
+  public Cmpt_Name enum { get; set; }
   public Cmpt_EnumLabel _EnumLabel { get; set; }
 }
 
@@ -696,7 +696,7 @@ public class Cmpt_EnumValue
   : Cmpt_TypeRef
   , ICmpt_EnumValue
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
   public Cmpt_EnumValue _EnumValue { get; set; }
 }
 
@@ -711,7 +711,7 @@ public class Cmpt_UnionMember
   : Cmpt_UnionRef
   , ICmpt_UnionMember
 {
-  public Cmpt_Identifier union { get; set; }
+  public Cmpt_Name union { get; set; }
   public Cmpt_UnionMember _UnionMember { get; set; }
 }
 
@@ -754,7 +754,7 @@ public class Cmpt_ObjTypeArg
   : Cmpt_TypeRef
   , ICmpt_ObjTypeArg
 {
-  public Cmpt_Identifier? label { get; set; }
+  public Cmpt_Name? label { get; set; }
   public Cmpt_TypeParam As_TypeParam { get; set; }
   public Cmpt_ObjTypeArg _ObjTypeArg { get; set; }
 }
@@ -763,7 +763,7 @@ public class Cmpt_TypeParam
   : Cmpt_Described
   , ICmpt_TypeParam
 {
-  public Cmpt_Identifier typeParam { get; set; }
+  public Cmpt_Name typeParam { get; set; }
   public Cmpt_TypeParam _TypeParam { get; set; }
 }
 
@@ -780,7 +780,7 @@ public class Cmpt_ObjAlternateEnum
   : Cmpt_TypeRef
   , ICmpt_ObjAlternateEnum
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
   public Cmpt_ObjAlternateEnum _ObjAlternateEnum { get; set; }
 }
 
@@ -788,7 +788,7 @@ public class Cmpt_ObjectFor<Tfor>
   : Cmptfor
   , ICmpt_ObjectFor<Tfor>
 {
-  public Cmpt_Identifier object { get; set; }
+  public Cmpt_Name object { get; set; }
   public Cmpt_ObjectFor _ObjectFor { get; set; }
 }
 
@@ -813,7 +813,7 @@ public class Cmpt_ObjFieldEnum
   : Cmpt_TypeRef
   , ICmpt_ObjFieldEnum
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
   public Cmpt_ObjFieldEnum _ObjFieldEnum { get; set; }
 }
 

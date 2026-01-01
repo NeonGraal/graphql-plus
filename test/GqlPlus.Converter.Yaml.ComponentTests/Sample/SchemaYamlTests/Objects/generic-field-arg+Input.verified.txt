@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcFieldArgInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name GnrcFieldArgInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -26,7 +26,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: type
-  !_Identifier RefGnrcFieldArgInp: !_TypeInput
+  !_Name RefGnrcFieldArgInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefGnrcFieldArgInp

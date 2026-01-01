@@ -1,0 +1,17 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name ObjAltOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: ObjAltOutp
+        type: !_ObjBase
+          name: ObjAltOutpType
+    alternates:
+      - !_Alternate
+        type: !_ObjBase
+          name: ObjAltOutpType
+    name: ObjAltOutp
+    typeKind: !_TypeKind Output
+  !_Name ObjAltOutpType: !_TypeOutput
+    name: ObjAltOutpType
+    typeKind: !_TypeKind Output

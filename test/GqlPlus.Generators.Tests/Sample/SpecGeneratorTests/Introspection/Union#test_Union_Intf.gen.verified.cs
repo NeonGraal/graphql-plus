@@ -25,5 +25,5 @@ public interface Itest_UnionMember
 public interface Itest_UnionMemberField
   : Itest_UnionRefField
 {
-  public test_Identifier union { get; set; }
+  public test_Name union { get; set; }
 }

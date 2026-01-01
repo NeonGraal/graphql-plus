@@ -1,9 +1,9 @@
 ﻿{
   "$mapTag": "_Schema",
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "EnumOutpPrntGnrc": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -38,7 +38,7 @@
       }
     },
     "OutpPrntGnrc": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allAlternates": [
         {
@@ -88,7 +88,7 @@
       }
     },
     "PrntOutpPrntGnrc": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
       "allItems": [
         {
@@ -110,7 +110,7 @@
       }
     },
     "RefOutpPrntGnrc": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {

@@ -16,6 +16,6 @@ public class test_UnionMember
   : test_UnionRef
   , Itest_UnionMember
 {
-  public test_Identifier union { get; set; }
+  public test_Name union { get; set; }
   public test_UnionMember _UnionMember { get; set; }
 }

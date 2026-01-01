@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name FieldDescrInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        description: 'Test Descr'
+        name: field
+        object: FieldDescrInp
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_InputField
+        description: 'Test Descr'
+        name: field
+        type: !_ObjBase
+          name: String
+    name: FieldDescrInp
+    typeKind: !_TypeKind Input

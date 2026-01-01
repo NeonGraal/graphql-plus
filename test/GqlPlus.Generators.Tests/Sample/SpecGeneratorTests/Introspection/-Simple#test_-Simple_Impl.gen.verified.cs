@@ -33,7 +33,7 @@ public class test_DomainItem<Titem>
   : testitem
   , Itest_DomainItem<Titem>
 {
-  public test_Identifier domain { get; set; }
+  public test_Name domain { get; set; }
   public test_DomainItem _DomainItem { get; set; }
 }
 
@@ -121,7 +121,7 @@ public class test_EnumLabel
   : test_Aliased
   , Itest_EnumLabel
 {
-  public test_Identifier enum { get; set; }
+  public test_Name enum { get; set; }
   public test_EnumLabel _EnumLabel { get; set; }
 }
 
@@ -129,7 +129,7 @@ public class test_EnumValue
   : test_TypeRef
   , Itest_EnumValue
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
   public test_EnumValue _EnumValue { get; set; }
 }
 
@@ -144,6 +144,6 @@ public class test_UnionMember
   : test_UnionRef
   , Itest_UnionMember
 {
-  public test_Identifier union { get; set; }
+  public test_Name union { get; set; }
   public test_UnionMember _UnionMember { get; set; }
 }

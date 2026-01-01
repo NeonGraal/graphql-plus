@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier RefGnrcAltModParamDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name RefGnrcAltModParamDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       collections:

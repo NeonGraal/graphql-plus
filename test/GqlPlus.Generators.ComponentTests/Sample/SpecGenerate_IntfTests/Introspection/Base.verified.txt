@@ -23,13 +23,13 @@ output _ObjBase {
 
 output _ObjTypeArg {
     : _TypeRef<_TypeKind>
-        label: _Identifier?
+        label: _Name?
     | _TypeParam
     }
 
 output _TypeParam {
     : _Described
-        typeParam: _Identifier
+        typeParam: _Name
     }
 
 output _ObjAlternate {
@@ -40,11 +40,11 @@ output _ObjAlternate {
 
 output _ObjAlternateEnum {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 output _ObjectFor<$for:_ForParam> {
     : $for
-        object: _Identifier
+        object: _Name
     }
 
 output _ObjField<$type:_ObjFieldType> {
@@ -60,7 +60,7 @@ output _ObjFieldType {
 
 output _ObjFieldEnum {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 
 output _ForParam<$type:_ObjFieldType> {
@@ -131,7 +131,7 @@ public interface ICmpt_ObjTypeArg
 public interface ICmpt_ObjTypeArgField
   : ICmpt_TypeRefField
 {
-  public Cmpt_Identifier? label { get; set; }
+  public Cmpt_Name? label { get; set; }
 }
 
 public interface ICmpt_TypeParam
@@ -143,7 +143,7 @@ public interface ICmpt_TypeParam
 public interface ICmpt_TypeParamField
   : ICmpt_DescribedField
 {
-  public Cmpt_Identifier typeParam { get; set; }
+  public Cmpt_Name typeParam { get; set; }
 }
 
 public interface ICmpt_ObjAlternate
@@ -167,7 +167,7 @@ public interface ICmpt_ObjAlternateEnum
 public interface ICmpt_ObjAlternateEnumField
   : ICmpt_TypeRefField
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
 }
 
 public interface ICmpt_ObjectFor<Tfor>
@@ -179,7 +179,7 @@ public interface ICmpt_ObjectFor<Tfor>
 public interface ICmpt_ObjectForField<Tfor>
   : ICmptforField
 {
-  public Cmpt_Identifier object { get; set; }
+  public Cmpt_Name object { get; set; }
 }
 
 public interface ICmpt_ObjField<Ttype>
@@ -216,7 +216,7 @@ public interface ICmpt_ObjFieldEnum
 public interface ICmpt_ObjFieldEnumField
   : ICmpt_TypeRefField
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
 }
 
 public interface ICmpt_ForParam<Ttype>

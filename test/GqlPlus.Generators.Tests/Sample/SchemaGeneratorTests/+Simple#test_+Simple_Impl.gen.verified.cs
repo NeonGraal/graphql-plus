@@ -89,6 +89,18 @@ public class testPrntDmnEnumPrntDescr
 {
 }
 
+public class testDmnEnumUnq
+  : DomainEnum
+  , ItestDmnEnumUnq
+{
+}
+
+public class testDmnEnumUnqPrnt
+  : DomainEnum
+  , ItestDmnEnumUnqPrnt
+{
+}
+
 public class testDmnEnumValue
   : DomainEnum
   , ItestDmnEnumValue
@@ -131,9 +143,21 @@ public class testPrntDmnNmbrPrntDescr
 {
 }
 
+public class testDmnNmbrPstv
+  : DomainNumber
+  , ItestDmnNmbrPstv
+{
+}
+
 public class testDmnStrDescr
   : DomainString
   , ItestDmnStrDescr
+{
+}
+
+public class testDmnStrNonEmpty
+  : DomainString
+  , ItestDmnStrNonEmpty
 {
 }
 

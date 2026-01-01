@@ -9,16 +9,16 @@ public class test_Schema
   : test_Named
   , Itest_Schema
 {
-  public IDictionary<test_Identifier, test_Categories> categories { get; set; }
-  public IDictionary<test_Identifier, test_Directives> directives { get; set; }
-  public IDictionary<test_Identifier, test_Type> types { get; set; }
-  public IDictionary<test_Identifier, test_Setting> settings { get; set; }
+  public IDictionary<test_Name, test_Categories> categories { get; set; }
+  public IDictionary<test_Name, test_Directives> directives { get; set; }
+  public IDictionary<test_Name, test_Type> types { get; set; }
+  public IDictionary<test_Name, test_Setting> settings { get; set; }
   public test_Schema _Schema { get; set; }
 }
 
-public class test_Identifier
+public class test_Name
   : DomainString
-  , Itest_Identifier
+  , Itest_Name
 {
 }
 

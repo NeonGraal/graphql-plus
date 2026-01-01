@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjAltDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name ObjAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: ObjAltDual
@@ -12,6 +12,6 @@ types: !_Map_Type
         name: ObjAltDualType
     name: ObjAltDual
     typeKind: !_TypeKind Dual
-  !_Identifier ObjAltDualType: !_TypeDual
+  !_Name ObjAltDualType: !_TypeDual
     name: ObjAltDualType
     typeKind: !_TypeKind Dual

@@ -1,0 +1,13 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name EnumAlias: !_TypeEnum
+    aliases: [En1,En2]
+    allItems:
+      - !_EnumLabel
+        enum: EnumAlias
+        name: enumAlias
+    items:
+      - !_Aliased
+        name: enumAlias
+    name: EnumAlias
+    typeKind: !_TypeKind Enum

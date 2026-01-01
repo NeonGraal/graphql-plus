@@ -11,11 +11,20 @@ public class EnumContext(
 {
   internal bool GetEnumValue(string value, [NotNullWhen(true)] out string? type)
     => enumValues.TryGetValue(value, out type);
+  internal bool GetEnumValueType(string value, [NotNullWhen(true)] out IGqlpEnum? type)
+  {
+    if (!enumValues.TryGetValue(value, out string? enumType)) {
+      type = null;
+      return false;
+    }
 
-  internal bool GetEnumValueType(IGqlpEnum enumType, string value, [NotNullWhen(true)] out IGqlpEnum? valueType)
+    return GetTyped(enumType, out type);
+  }
+
+  internal bool GetEnumLabelType(IGqlpEnum enumType, string label, [NotNullWhen(true)] out IGqlpEnum? valueType)
   {
     valueType = enumType;
-    while (!valueType.HasValue(value)) {
+    while (!valueType.HasValue(label)) {
       if (!GetTyped(valueType.Parent?.Name, out valueType)) {
         valueType = null;
         return false;
@@ -33,7 +42,7 @@ public class EnumContext(
 
     string enumType = output.EnumValue.EnumType;
     if (GetTyped(enumType, out IGqlpEnum? theType)) {
-      if (!GetEnumValueType(theType, output.EnumValue.EnumLabel, out IGqlpEnum? _)) {
+      if (!GetEnumLabelType(theType, output.EnumValue.EnumLabel, out IGqlpEnum? _)) {
         AddError(output, $"Output {label} Enum Label", $"'{output.EnumValue.EnumLabel}' not a Label of '{enumType}'");
       }
     } else {

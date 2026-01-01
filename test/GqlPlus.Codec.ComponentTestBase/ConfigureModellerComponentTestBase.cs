@@ -9,10 +9,12 @@ public static class ConfigureModellerComponentTestBase
 {
   public static void AddModellerComponentTestBase(this IServiceCollection services)
     => services
-      .AddComponentTest()
+      .AddComponentParsers()
+
       .AddModellers()
       .AddResolvers()
       .AddEncoders()
+
       // Test support
       .AddTransient<ISchemaVerifyChecks, SchemaVerifyChecks>()
       .AddSingleton<IModelAndEncode, ModelAndEncode>();

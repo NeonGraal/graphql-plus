@@ -50,7 +50,7 @@ public interface Itest_DomainItem<Titem>
 public interface Itest_DomainItemField<Titem>
   : ItestitemField
 {
-  public test_Identifier domain { get; set; }
+  public test_Name domain { get; set; }
 }
 
 public interface Itest_DomainValue<Tkind,Tvalue>
@@ -181,7 +181,7 @@ public interface Itest_EnumLabel
 public interface Itest_EnumLabelField
   : Itest_AliasedField
 {
-  public test_Identifier enum { get; set; }
+  public test_Name enum { get; set; }
 }
 
 public interface Itest_EnumValue
@@ -193,7 +193,7 @@ public interface Itest_EnumValue
 public interface Itest_EnumValueField
   : Itest_TypeRefField
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
 }
 
 public interface Itest_UnionRef
@@ -216,5 +216,5 @@ public interface Itest_UnionMember
 public interface Itest_UnionMemberField
   : Itest_UnionRefField
 {
-  public test_Identifier union { get; set; }
+  public test_Name union { get; set; }
 }

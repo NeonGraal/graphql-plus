@@ -1,0 +1,17 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name DmnNmbrSame: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: DmnNmbrSame
+        exclude: false
+        from: 1
+        to: 9
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 1
+        to: 9
+    name: DmnNmbrSame
+    typeKind: !_TypeKind Domain

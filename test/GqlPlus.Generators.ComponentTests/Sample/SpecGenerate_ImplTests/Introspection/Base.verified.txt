@@ -23,13 +23,13 @@ output _ObjBase {
 
 output _ObjTypeArg {
     : _TypeRef<_TypeKind>
-        label: _Identifier?
+        label: _Name?
     | _TypeParam
     }
 
 output _TypeParam {
     : _Described
-        typeParam: _Identifier
+        typeParam: _Name
     }
 
 output _ObjAlternate {
@@ -40,11 +40,11 @@ output _ObjAlternate {
 
 output _ObjAlternateEnum {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 output _ObjectFor<$for:_ForParam> {
     : $for
-        object: _Identifier
+        object: _Name
     }
 
 output _ObjField<$type:_ObjFieldType> {
@@ -60,7 +60,7 @@ output _ObjFieldType {
 
 output _ObjFieldEnum {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 
 output _ForParam<$type:_ObjFieldType> {
@@ -114,7 +114,7 @@ public class Cmpt_ObjTypeArg
   : Cmpt_TypeRef
   , ICmpt_ObjTypeArg
 {
-  public Cmpt_Identifier? label { get; set; }
+  public Cmpt_Name? label { get; set; }
   public Cmpt_TypeParam As_TypeParam { get; set; }
   public Cmpt_ObjTypeArg _ObjTypeArg { get; set; }
 }
@@ -123,7 +123,7 @@ public class Cmpt_TypeParam
   : Cmpt_Described
   , ICmpt_TypeParam
 {
-  public Cmpt_Identifier typeParam { get; set; }
+  public Cmpt_Name typeParam { get; set; }
   public Cmpt_TypeParam _TypeParam { get; set; }
 }
 
@@ -140,7 +140,7 @@ public class Cmpt_ObjAlternateEnum
   : Cmpt_TypeRef
   , ICmpt_ObjAlternateEnum
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
   public Cmpt_ObjAlternateEnum _ObjAlternateEnum { get; set; }
 }
 
@@ -148,7 +148,7 @@ public class Cmpt_ObjectFor<Tfor>
   : Cmptfor
   , ICmpt_ObjectFor<Tfor>
 {
-  public Cmpt_Identifier object { get; set; }
+  public Cmpt_Name object { get; set; }
   public Cmpt_ObjectFor _ObjectFor { get; set; }
 }
 
@@ -173,7 +173,7 @@ public class Cmpt_ObjFieldEnum
   : Cmpt_TypeRef
   , ICmpt_ObjFieldEnum
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
   public Cmpt_ObjFieldEnum _ObjFieldEnum { get; set; }
 }
 

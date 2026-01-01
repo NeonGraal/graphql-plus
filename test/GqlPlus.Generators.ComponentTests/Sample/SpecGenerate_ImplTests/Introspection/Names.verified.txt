@@ -1,12 +1,12 @@
 ﻿/* Names
 dual _Aliased {
     : _Named
-        aliases: _Identifier[]
+        aliases: _Name[]
     }
 
 dual _Named {
     : _Described
-        name: _Identifier
+        name: _Name
     }
 
 dual _Described {
@@ -30,7 +30,7 @@ public class Cmpt_Aliased
   : Cmpt_Named
   , ICmpt_Aliased
 {
-  public ICollection<Cmpt_Identifier> aliases { get; set; }
+  public ICollection<Cmpt_Name> aliases { get; set; }
   public Cmpt_Aliased _Aliased { get; set; }
 }
 
@@ -38,7 +38,7 @@ public class Cmpt_Named
   : Cmpt_Described
   , ICmpt_Named
 {
-  public Cmpt_Identifier name { get; set; }
+  public Cmpt_Name name { get; set; }
   public Cmpt_Named _Named { get; set; }
 }
 

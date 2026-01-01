@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumValueAlias: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumValueAlias: !_TypeEnum
     allItems:
     - !_EnumLabel
       aliases: [val1, val2]

@@ -5611,6 +5611,16 @@ public interface ItestPrntDmnEnumPrntDescr
 {
 }
 
+public interface ItestDmnEnumUnq
+  : IDomainEnum
+{
+}
+
+public interface ItestDmnEnumUnqPrnt
+  : IDomainEnum
+{
+}
+
 public interface ItestDmnEnumValue
   : IDomainEnum
 {
@@ -5646,7 +5656,17 @@ public interface ItestPrntDmnNmbrPrntDescr
 {
 }
 
+public interface ItestDmnNmbrPstv
+  : IDomainNumber
+{
+}
+
 public interface ItestDmnStrDescr
+  : IDomainString
+{
+}
+
+public interface ItestDmnStrNonEmpty
   : IDomainString
 {
 }

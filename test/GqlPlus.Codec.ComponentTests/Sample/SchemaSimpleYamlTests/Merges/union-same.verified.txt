@@ -1,0 +1,12 @@
+﻿!_Schema
+types: !_Map(_Type)
+  !_Name UnionSame: !_TypeUnion
+    allItems:
+      - !_UnionMember
+        name: Boolean
+        union: UnionSame
+    items:
+      - !_Aliased
+        name: Boolean
+    name: UnionSame
+    typeKind: !_TypeKind Union

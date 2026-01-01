@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier FieldTypeDescrOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name FieldTypeDescrOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field

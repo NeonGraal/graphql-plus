@@ -1,13 +1,13 @@
 ﻿/* Introspection
 output _Schema {
     : _Named
-        categories(_CategoryFilter?): _Categories[_Identifier]
-        directives(_Filter?): _Directives[_Identifier]
-        types(_TypeFilter?): _Type[_Identifier]
-        settings(_Filter?): _Setting[_Identifier]
+        categories(_CategoryFilter?): _Categories[_Name]
+        directives(_Filter?): _Directives[_Name]
+        types(_TypeFilter?): _Type[_Name]
+        settings(_Filter?): _Setting[_Name]
     }
 
-domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
+domain _Name { String /[A-Za-z_][A-Za-z0-9_]*/ }
 
 input _Filter {
         names: _NameFilter[]
@@ -18,7 +18,7 @@ input _Filter {
     | _NameFilter[]
     }
 
-"_NameFilter is a simple match expression against _Identifier"
+"_NameFilter is a simple match expression against _Name"
 "where '.' matches any single character and '*' matches zero or more of any character."
 domain _NameFilter { String /[A-Za-z_.*]+/ }
 
@@ -34,12 +34,12 @@ input _TypeFilter {
 
 dual _Aliased {
     : _Named
-        aliases: _Identifier[]
+        aliases: _Name[]
     }
 
 dual _Named {
     : _Described
-        name: _Identifier
+        name: _Name
     }
 
 dual _Described {
@@ -176,7 +176,7 @@ dual _BaseDomainItem {
 
 output _DomainItem<$item:_BaseDomainItem> {
     : $item
-        domain: _Identifier
+        domain: _Name
     }
 
 output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
@@ -231,12 +231,12 @@ output _DomainItemRegex {
 
 dual _EnumLabel {
     : _Aliased
-        enum: _Identifier
+        enum: _Name
     }
 
 output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 
 output _UnionRef {
@@ -245,7 +245,7 @@ output _UnionRef {
 
 output _UnionMember {
     : _UnionRef
-        union: _Identifier
+        union: _Name
     }
 
 domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
@@ -272,13 +272,13 @@ output _ObjBase {
 
 output _ObjTypeArg {
     : _TypeRef<_TypeKind>
-        label: _Identifier?
+        label: _Name?
     | _TypeParam
     }
 
 output _TypeParam {
     : _Described
-        typeParam: _Identifier
+        typeParam: _Name
     }
 
 output _ObjAlternate {
@@ -289,11 +289,11 @@ output _ObjAlternate {
 
 output _ObjAlternateEnum {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 output _ObjectFor<$for:_ForParam> {
     : $for
-        object: _Identifier
+        object: _Name
     }
 
 output _ObjField<$type:_ObjFieldType> {
@@ -309,7 +309,7 @@ output _ObjFieldType {
 
 output _ObjFieldEnum {
     : _TypeRef<_TypeKind.Enum>
-        label: _Identifier
+        label: _Name
     }
 
 output _ForParam<$type:_ObjFieldType> {
@@ -359,13 +359,13 @@ public interface ICmpt_Schema
 public interface ICmpt_SchemaField
   : ICmpt_NamedField
 {
-  public IDictionary<Cmpt_Identifier, Cmpt_Categories> categories { get; set; }
-  public IDictionary<Cmpt_Identifier, Cmpt_Directives> directives { get; set; }
-  public IDictionary<Cmpt_Identifier, Cmpt_Type> types { get; set; }
-  public IDictionary<Cmpt_Identifier, Cmpt_Setting> settings { get; set; }
+  public IDictionary<Cmpt_Name, Cmpt_Categories> categories { get; set; }
+  public IDictionary<Cmpt_Name, Cmpt_Directives> directives { get; set; }
+  public IDictionary<Cmpt_Name, Cmpt_Type> types { get; set; }
+  public IDictionary<Cmpt_Name, Cmpt_Setting> settings { get; set; }
 }
 
-public interface ICmpt_Identifier
+public interface ICmpt_Name
   : IDomainString
 {
 }
@@ -423,7 +423,7 @@ public interface ICmpt_Aliased
 public interface ICmpt_AliasedField
   : ICmpt_NamedField
 {
-  public ICollection<Cmpt_Identifier> aliases { get; set; }
+  public ICollection<Cmpt_Name> aliases { get; set; }
 }
 
 public interface ICmpt_Named
@@ -435,7 +435,7 @@ public interface ICmpt_Named
 public interface ICmpt_NamedField
   : ICmpt_DescribedField
 {
-  public Cmpt_Identifier name { get; set; }
+  public Cmpt_Name name { get; set; }
 }
 
 public interface ICmpt_Described
@@ -700,7 +700,7 @@ public interface ICmpt_DomainItem<Titem>
 public interface ICmpt_DomainItemField<Titem>
   : ICmptitemField
 {
-  public Cmpt_Identifier domain { get; set; }
+  public Cmpt_Name domain { get; set; }
 }
 
 public interface ICmpt_DomainValue<Tkind,Tvalue>
@@ -831,7 +831,7 @@ public interface ICmpt_EnumLabel
 public interface ICmpt_EnumLabelField
   : ICmpt_AliasedField
 {
-  public Cmpt_Identifier enum { get; set; }
+  public Cmpt_Name enum { get; set; }
 }
 
 public interface ICmpt_EnumValue
@@ -843,7 +843,7 @@ public interface ICmpt_EnumValue
 public interface ICmpt_EnumValueField
   : ICmpt_TypeRefField
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
 }
 
 public interface ICmpt_UnionRef
@@ -866,7 +866,7 @@ public interface ICmpt_UnionMember
 public interface ICmpt_UnionMemberField
   : ICmpt_UnionRefField
 {
-  public Cmpt_Identifier union { get; set; }
+  public Cmpt_Name union { get; set; }
 }
 
 public interface ICmpt_ObjectKind
@@ -925,7 +925,7 @@ public interface ICmpt_ObjTypeArg
 public interface ICmpt_ObjTypeArgField
   : ICmpt_TypeRefField
 {
-  public Cmpt_Identifier? label { get; set; }
+  public Cmpt_Name? label { get; set; }
 }
 
 public interface ICmpt_TypeParam
@@ -937,7 +937,7 @@ public interface ICmpt_TypeParam
 public interface ICmpt_TypeParamField
   : ICmpt_DescribedField
 {
-  public Cmpt_Identifier typeParam { get; set; }
+  public Cmpt_Name typeParam { get; set; }
 }
 
 public interface ICmpt_ObjAlternate
@@ -961,7 +961,7 @@ public interface ICmpt_ObjAlternateEnum
 public interface ICmpt_ObjAlternateEnumField
   : ICmpt_TypeRefField
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
 }
 
 public interface ICmpt_ObjectFor<Tfor>
@@ -973,7 +973,7 @@ public interface ICmpt_ObjectFor<Tfor>
 public interface ICmpt_ObjectForField<Tfor>
   : ICmptforField
 {
-  public Cmpt_Identifier object { get; set; }
+  public Cmpt_Name object { get; set; }
 }
 
 public interface ICmpt_ObjField<Ttype>
@@ -1010,7 +1010,7 @@ public interface ICmpt_ObjFieldEnum
 public interface ICmpt_ObjFieldEnumField
   : ICmpt_TypeRefField
 {
-  public Cmpt_Identifier label { get; set; }
+  public Cmpt_Name label { get; set; }
 }
 
 public interface ICmpt_ForParam<Ttype>

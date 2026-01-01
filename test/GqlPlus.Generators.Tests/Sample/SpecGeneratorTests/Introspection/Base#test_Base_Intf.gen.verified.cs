@@ -61,7 +61,7 @@ public interface Itest_ObjTypeArg
 public interface Itest_ObjTypeArgField
   : Itest_TypeRefField
 {
-  public test_Identifier? label { get; set; }
+  public test_Name? label { get; set; }
 }
 
 public interface Itest_TypeParam
@@ -73,7 +73,7 @@ public interface Itest_TypeParam
 public interface Itest_TypeParamField
   : Itest_DescribedField
 {
-  public test_Identifier typeParam { get; set; }
+  public test_Name typeParam { get; set; }
 }
 
 public interface Itest_ObjAlternate
@@ -97,7 +97,7 @@ public interface Itest_ObjAlternateEnum
 public interface Itest_ObjAlternateEnumField
   : Itest_TypeRefField
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
 }
 
 public interface Itest_ObjectFor<Tfor>
@@ -109,7 +109,7 @@ public interface Itest_ObjectFor<Tfor>
 public interface Itest_ObjectForField<Tfor>
   : ItestforField
 {
-  public test_Identifier object { get; set; }
+  public test_Name object { get; set; }
 }
 
 public interface Itest_ObjField<Ttype>
@@ -146,7 +146,7 @@ public interface Itest_ObjFieldEnum
 public interface Itest_ObjFieldEnumField
   : Itest_TypeRefField
 {
-  public test_Identifier label { get; set; }
+  public test_Name label { get; set; }
 }
 
 public interface Itest_ForParam<Ttype>

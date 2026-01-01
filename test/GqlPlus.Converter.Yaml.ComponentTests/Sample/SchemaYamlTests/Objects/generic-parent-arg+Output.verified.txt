@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcPrntArgOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name GnrcPrntArgOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefGnrcPrntArgOutp
@@ -19,7 +19,7 @@ types: !_Map_Type
         name: String
         typeKind: !_TypeKind Basic
       name: type
-  !_Identifier RefGnrcPrntArgOutp: !_TypeOutput
+  !_Name RefGnrcPrntArgOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: RefGnrcPrntArgOutp

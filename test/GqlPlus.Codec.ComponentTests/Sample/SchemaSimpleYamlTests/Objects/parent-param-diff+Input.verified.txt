@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntParamDiffInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name PrntParamDiffInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffInp
@@ -30,7 +30,7 @@ types: !_Map_Type
           name: String
           typeKind: !_TypeKind Basic
         name: a
-  !_Identifier RefPrntParamDiffInp: !_TypeInput
+  !_Name RefPrntParamDiffInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefPrntParamDiffInp

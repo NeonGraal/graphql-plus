@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjParamDupInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name ObjParamDupInp: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
         name: test

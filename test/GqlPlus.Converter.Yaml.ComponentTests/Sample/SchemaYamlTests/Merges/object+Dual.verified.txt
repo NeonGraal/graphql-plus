@@ -1,5 +1,5 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name ObjDual: !_TypeDual
     name: ObjDual
     typeKind: !_TypeKind Dual

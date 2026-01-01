@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltDescrInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name AltDescrInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltDescrInp

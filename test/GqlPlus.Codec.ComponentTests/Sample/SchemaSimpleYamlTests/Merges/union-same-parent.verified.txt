@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntUnionSamePrnt: !_TypeUnion
+types: !_Map(_Type)
+  !_Name PrntUnionSamePrnt: !_TypeUnion
     allItems:
       - !_UnionMember
         name: String
@@ -10,7 +10,7 @@ types: !_Map_Type
         name: String
     name: PrntUnionSamePrnt
     typeKind: !_TypeKind Union
-  !_Identifier UnionSamePrnt: !_TypeUnion
+  !_Name UnionSamePrnt: !_TypeUnion
     allItems:
       - !_UnionMember
         name: String

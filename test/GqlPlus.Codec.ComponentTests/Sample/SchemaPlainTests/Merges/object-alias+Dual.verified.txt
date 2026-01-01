@@ -1,4 +1,4 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjAliasDual[_TypeDual]:aliases.0=Dual1
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAliasDual[_TypeDual]:aliases.1=Dual2
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAliasDual[_TypeDual]:name=ObjAliasDual
-[_Schema]:types[_Map_Type]:[_Identifier]ObjAliasDual[_TypeDual]:typeKind=[_TypeKind]Dual
+﻿[_Schema]:types[_Map(_Type)]:[_Name]ObjAliasDual[_TypeDual]:aliases.0=Dual1
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAliasDual[_TypeDual]:aliases.1=Dual2
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAliasDual[_TypeDual]:name=ObjAliasDual
+[_Schema]:types[_Map(_Type)]:[_Name]ObjAliasDual[_TypeDual]:typeKind=[_TypeKind]Dual

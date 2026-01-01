@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier CnstPrntEnumInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name CnstPrntEnumInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: CnstPrntEnumInp
@@ -22,7 +22,7 @@ types: !_Map_Type
               typeKind: !_SimpleKind Enum
     name: CnstPrntEnumInp
     typeKind: !_TypeKind Input
-  !_Identifier EnumCnstPrntEnumInp: !_TypeEnum
+  !_Name EnumCnstPrntEnumInp: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: ParentCnstPrntEnumInp
@@ -38,7 +38,7 @@ types: !_Map_Type
       name: ParentCnstPrntEnumInp
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier ParentCnstPrntEnumInp: !_TypeEnum
+  !_Name ParentCnstPrntEnumInp: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: ParentCnstPrntEnumInp
@@ -48,7 +48,7 @@ types: !_Map_Type
         name: parentCnstPrntEnumInp
     name: ParentCnstPrntEnumInp
     typeKind: !_TypeKind Enum
-  !_Identifier RefCnstPrntEnumInp: !_TypeInput
+  !_Name RefCnstPrntEnumInp: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
         name: field

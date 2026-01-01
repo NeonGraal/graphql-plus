@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltGnrcPrntDualInp: !_TypeDual
+types: !_Map(_Type)
+  !_Name AltGnrcPrntDualInp: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltGnrcPrntDualInp
@@ -23,7 +23,7 @@ types: !_Map_Type
           name: Number
     name: AltGnrcPrntDualInp
     typeKind: !_TypeKind Dual
-  !_Identifier GnrcPrntDualInp: !_TypeInput
+  !_Name GnrcPrntDualInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefGnrcPrntDualInp
@@ -36,7 +36,7 @@ types: !_Map_Type
         - !_TypeArg
           name: AltGnrcPrntDualInp
     typeKind: !_TypeKind Input
-  !_Identifier RefGnrcPrntDualInp: !_TypeInput
+  !_Name RefGnrcPrntDualInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefGnrcPrntDualInp

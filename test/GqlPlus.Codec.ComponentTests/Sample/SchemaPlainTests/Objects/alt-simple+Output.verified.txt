@@ -1,5 +1,5 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]AltSmplOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltSmplOutp
-[_Schema]:types[_Map_Type]:[_Identifier]AltSmplOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
-[_Schema]:types[_Map_Type]:[_Identifier]AltSmplOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
-[_Schema]:types[_Map_Type]:[_Identifier]AltSmplOutp[_TypeOutput]:name=AltSmplOutp
-[_Schema]:types[_Map_Type]:[_Identifier]AltSmplOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+﻿[_Schema]:types[_Map(_Type)]:[_Name]AltSmplOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltSmplOutp
+[_Schema]:types[_Map(_Type)]:[_Name]AltSmplOutp[_TypeOutput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map(_Type)]:[_Name]AltSmplOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
+[_Schema]:types[_Map(_Type)]:[_Name]AltSmplOutp[_TypeOutput]:name=AltSmplOutp
+[_Schema]:types[_Map(_Type)]:[_Name]AltSmplOutp[_TypeOutput]:typeKind=[_TypeKind]Output

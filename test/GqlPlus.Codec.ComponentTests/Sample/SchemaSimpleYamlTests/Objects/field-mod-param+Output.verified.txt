@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier FieldModParamOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name FieldModParamOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
@@ -22,7 +22,7 @@ types: !_Map_Type
           name: String
           typeKind: !_TypeKind Basic
         name: mod
-  !_Identifier FldFieldModParamOutp: !_TypeOutput
+  !_Name FldFieldModParamOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: FldFieldModParamOutp

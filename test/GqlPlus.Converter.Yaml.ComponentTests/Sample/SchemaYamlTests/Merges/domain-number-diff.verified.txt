@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnNmbrDiff: !_DomainNumber
+types: !_Map(_Type)
+  !_Name DmnNmbrDiff: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
       domain: DmnNmbrDiff

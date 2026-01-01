@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier CnstAltDmnOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name CnstAltDmnOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: CnstAltDmnOutp
@@ -18,7 +18,7 @@ types: !_Map_Type
               name: DomCnstAltDmnOutp
     name: CnstAltDmnOutp
     typeKind: !_TypeKind Output
-  !_Identifier DomCnstAltDmnOutp: !_DomainString
+  !_Name DomCnstAltDmnOutp: !_DomainString
     allItems:
       - !_DomainItem(_DomainRegex)
         domain: DomCnstAltDmnOutp
@@ -31,7 +31,7 @@ types: !_Map_Type
         pattern: '\\w+'
     name: DomCnstAltDmnOutp
     typeKind: !_TypeKind Domain
-  !_Identifier RefCnstAltDmnOutp: !_TypeOutput
+  !_Name RefCnstAltDmnOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefCnstAltDmnOutp

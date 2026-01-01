@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnNmbrPrnt: !_DomainNumber
+types: !_Map(_Type)
+  !_Name DmnNmbrPrnt: !_DomainNumber
     allItems:
       - !_DomainItem(_DomainRange)
         domain: PrntDmnNmbrPrnt
@@ -20,7 +20,7 @@ types: !_Map_Type
       name: PrntDmnNmbrPrnt
       typeKind: !_SimpleKind Domain
     typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnNmbrPrnt: !_DomainNumber
+  !_Name PrntDmnNmbrPrnt: !_DomainNumber
     allItems:
       - !_DomainItem(_DomainRange)
         domain: PrntDmnNmbrPrnt

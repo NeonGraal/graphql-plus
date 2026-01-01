@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier CnstAltOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name CnstAltOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: CnstAltOutp

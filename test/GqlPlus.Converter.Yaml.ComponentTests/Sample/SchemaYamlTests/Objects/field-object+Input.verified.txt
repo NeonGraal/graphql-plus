@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier FieldObjInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name FieldObjInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -14,7 +14,7 @@ types: !_Map_Type
         name: FldFieldObjInp
     name: FieldObjInp
     typeKind: !_TypeKind Input
-  !_Identifier FldFieldObjInp: !_TypeInput
+  !_Name FldFieldObjInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: FldFieldObjInp

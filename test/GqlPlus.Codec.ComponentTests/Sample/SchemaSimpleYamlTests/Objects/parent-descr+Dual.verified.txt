@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntDescrDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name PrntDescrDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefPrntDescrDual
@@ -17,7 +17,7 @@ types: !_Map_Type
       description: 'Test Descr'
       name: RefPrntDescrDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefPrntDescrDual: !_TypeDual
+  !_Name RefPrntDescrDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefPrntDescrDual

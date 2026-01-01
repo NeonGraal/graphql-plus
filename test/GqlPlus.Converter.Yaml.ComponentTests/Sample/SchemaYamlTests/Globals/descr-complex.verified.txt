@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DescrCmpl: !_TypeOutput
+types: !_Map(_Type)
+  !_Name DescrCmpl: !_TypeOutput
     description: "A \"more\" 'Complicated' \\ description"
     name: DescrCmpl
     typeKind: !_TypeKind Output

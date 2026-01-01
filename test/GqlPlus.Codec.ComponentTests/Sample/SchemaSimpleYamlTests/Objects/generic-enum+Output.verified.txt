@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumGnrcEnumOutp: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumGnrcEnumOutp: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: EnumGnrcEnumOutp
@@ -10,7 +10,7 @@ types: !_Map_Type
         name: gnrcEnumOutp
     name: EnumGnrcEnumOutp
     typeKind: !_TypeKind Enum
-  !_Identifier GnrcEnumOutp: !_TypeOutput
+  !_Name GnrcEnumOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: GnrcEnumOutp
@@ -32,7 +32,7 @@ types: !_Map_Type
               typeKind: !_SimpleKind Enum
     name: GnrcEnumOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefGnrcEnumOutp: !_TypeOutput
+  !_Name RefGnrcEnumOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field

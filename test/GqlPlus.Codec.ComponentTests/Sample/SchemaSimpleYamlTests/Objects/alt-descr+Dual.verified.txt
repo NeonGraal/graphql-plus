@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltDescrDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name AltDescrDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltDescrDual

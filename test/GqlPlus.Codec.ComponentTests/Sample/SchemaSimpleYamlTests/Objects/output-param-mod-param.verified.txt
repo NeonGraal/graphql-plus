@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DomOutpParamModParam: !_DomainNumber
+types: !_Map(_Type)
+  !_Name DomOutpParamModParam: !_DomainNumber
     allItems:
       - !_DomainItem(_DomainRange)
         domain: DomOutpParamModParam
@@ -15,7 +15,7 @@ types: !_Map_Type
         to: 10
     name: DomOutpParamModParam
     typeKind: !_TypeKind Domain
-  !_Identifier InOutpParamModParam: !_TypeInput
+  !_Name InOutpParamModParam: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: InOutpParamModParam
@@ -38,7 +38,7 @@ types: !_Map_Type
           name: Number
     name: InOutpParamModParam
     typeKind: !_TypeKind Input
-  !_Identifier OutpParamModParam: !_TypeOutput
+  !_Name OutpParamModParam: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field

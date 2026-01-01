@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier UnionAlias: !_TypeUnion
+types: !_Map(_Type)
+  !_Name UnionAlias: !_TypeUnion
     aliases: [UnA1,UnA2]
     allItems:
       - !_UnionMember

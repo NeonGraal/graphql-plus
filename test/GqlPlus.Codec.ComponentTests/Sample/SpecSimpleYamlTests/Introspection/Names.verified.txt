@@ -3,8 +3,8 @@ errors: !_Errors
   - !_Error
     _kind: !_TokenKind End
     _message: "In _AndType can't get model for type '_Named'"
-types: !_Map_Type
-  !_Identifier _Aliased: !_TypeDual
+types: !_Map(_Type)
+  !_Name _Aliased: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -16,24 +16,24 @@ types: !_Map_Type
         name: name
         object: _Named
         type: !_ObjBase
-          name: _Identifier
+          name: _Name
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: aliases
         object: _Aliased
         type: !_ObjBase
-          name: _Identifier
+          name: _Name
     fields:
       - !_DualField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: aliases
         type: !_ObjBase
-          name: _Identifier
+          name: _Name
     name: _Aliased
     parent: !_ObjBase
       name: _Named
     typeKind: !_TypeKind Dual
-  !_Identifier _AndType: !_TypeOutput
+  !_Name _AndType: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: _AndType
@@ -58,7 +58,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Named
     typeKind: !_TypeKind Output
-  !_Identifier _Described: !_TypeDual
+  !_Name _Described: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -74,7 +74,7 @@ types: !_Map_Type
           name: String
     name: _Described
     typeKind: !_TypeKind Dual
-  !_Identifier _Named: !_TypeDual
+  !_Name _Named: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -86,12 +86,12 @@ types: !_Map_Type
         name: name
         object: _Named
         type: !_ObjBase
-          name: _Identifier
+          name: _Name
     fields:
       - !_DualField
         name: name
         type: !_ObjBase
-          name: _Identifier
+          name: _Name
     name: _Named
     parent: !_ObjBase
       name: _Described

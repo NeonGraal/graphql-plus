@@ -1,9 +1,9 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier FldObjFieldAliasOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name FldObjFieldAliasOutp: !_TypeOutput
     name: FldObjFieldAliasOutp
     typeKind: !_TypeKind Output
-  !_Identifier ObjFieldAliasOutp: !_TypeOutput
+  !_Name ObjFieldAliasOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         aliases: [field1,field2]

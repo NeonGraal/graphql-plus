@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltGnrcAltParamInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name AltGnrcAltParamInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltGnrcAltParamInp
@@ -23,7 +23,7 @@ types: !_Map_Type
           name: Number
     name: AltGnrcAltParamInp
     typeKind: !_TypeKind Input
-  !_Identifier GnrcAltParamInp: !_TypeInput
+  !_Name GnrcAltParamInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: GnrcAltParamInp
@@ -41,7 +41,7 @@ types: !_Map_Type
               name: AltGnrcAltParamInp
     name: GnrcAltParamInp
     typeKind: !_TypeKind Input
-  !_Identifier RefGnrcAltParamInp: !_TypeInput
+  !_Name RefGnrcAltParamInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefGnrcAltParamInp

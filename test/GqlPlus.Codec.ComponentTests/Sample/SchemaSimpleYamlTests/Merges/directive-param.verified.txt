@@ -1,13 +1,13 @@
 ﻿!_Schema
-directives: !_Map_Directives
-  !_Identifier DrctParam: !_Directive
+directives: !_Map(_Directives)
+  !_Name DrctParam: !_Directive
     locations: !_Set(_Location){Fragment:_,Operation:_}
     name: DrctParam
     parameters:
       - !_InputParam
         name: InDrctParam
     repeatable: false
-types: !_Map_Type
-  !_Identifier InDrctParam: !_TypeInput
+types: !_Map(_Type)
+  !_Name InDrctParam: !_TypeInput
     name: InDrctParam
     typeKind: !_TypeKind Input

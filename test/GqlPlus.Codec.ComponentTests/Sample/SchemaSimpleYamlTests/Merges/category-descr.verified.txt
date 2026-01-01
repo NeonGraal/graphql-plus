@@ -1,13 +1,13 @@
 ﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier ctgrDescr: !_Category
+categories: !_Map(_Categories)
+  !_Name ctgrDescr: !_Category
     description: 'First category Second category'
     name: ctgrDescr
     output: !_TypeRef(_TypeKind)
       name: CtgrDescr
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-types: !_Map_Type
-  !_Identifier CtgrDescr: !_TypeOutput
+types: !_Map(_Type)
+  !_Name CtgrDescr: !_TypeOutput
     name: CtgrDescr
     typeKind: !_TypeKind Output

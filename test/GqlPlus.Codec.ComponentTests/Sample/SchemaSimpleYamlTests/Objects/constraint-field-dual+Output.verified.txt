@@ -3,8 +3,8 @@ errors: !_Errors
   - !_Error
     _kind: !_TokenKind End
     _message: "In AltCnstFieldDualOutp can't get model for type 'PrntCnstFieldDualOutp'"
-types: !_Map_Type
-  !_Identifier AltCnstFieldDualOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name AltCnstFieldDualOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -20,7 +20,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: PrntCnstFieldDualOutp
     typeKind: !_TypeKind Output
-  !_Identifier CnstFieldDualOutp: !_TypeOutput
+  !_Name CnstFieldDualOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field
@@ -34,7 +34,7 @@ types: !_Map_Type
         - !_TypeArg
           name: AltCnstFieldDualOutp
     typeKind: !_TypeKind Output
-  !_Identifier PrntCnstFieldDualOutp: !_TypeDual
+  !_Name PrntCnstFieldDualOutp: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: PrntCnstFieldDualOutp
@@ -46,7 +46,7 @@ types: !_Map_Type
           name: String
     name: PrntCnstFieldDualOutp
     typeKind: !_TypeKind Dual
-  !_Identifier RefCnstFieldDualOutp: !_TypeOutput
+  !_Name RefCnstFieldDualOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field

@@ -3,8 +3,8 @@ errors: !_Errors
   - !_Error
     _kind: !_TokenKind End
     _message: "In AltCnstPrntDualGrndOutp can't get model for type 'PrntCnstPrntDualGrndOutp'"
-types: !_Map_Type
-  !_Identifier AltCnstPrntDualGrndOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name AltCnstPrntDualGrndOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -20,7 +20,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: PrntCnstPrntDualGrndOutp
     typeKind: !_TypeKind Output
-  !_Identifier CnstPrntDualGrndOutp: !_TypeOutput
+  !_Name CnstPrntDualGrndOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -34,7 +34,7 @@ types: !_Map_Type
         - !_TypeArg
           name: AltCnstPrntDualGrndOutp
     typeKind: !_TypeKind Output
-  !_Identifier GrndCnstPrntDualGrndOutp: !_TypeDual
+  !_Name GrndCnstPrntDualGrndOutp: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: GrndCnstPrntDualGrndOutp
@@ -46,7 +46,7 @@ types: !_Map_Type
           name: String
     name: GrndCnstPrntDualGrndOutp
     typeKind: !_TypeKind Dual
-  !_Identifier PrntCnstPrntDualGrndOutp: !_TypeDual
+  !_Name PrntCnstPrntDualGrndOutp: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: GrndCnstPrntDualGrndOutp
@@ -56,7 +56,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: GrndCnstPrntDualGrndOutp
     typeKind: !_TypeKind Dual
-  !_Identifier RefCnstPrntDualGrndOutp: !_TypeOutput
+  !_Name RefCnstPrntDualGrndOutp: !_TypeOutput
     name: RefCnstPrntDualGrndOutp
     parent: !_ObjBase
       typeParam: ref

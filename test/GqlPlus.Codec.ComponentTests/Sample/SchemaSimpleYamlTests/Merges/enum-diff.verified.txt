@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumDiff: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumDiff: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: EnumDiff

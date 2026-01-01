@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumGnrcPrntEnumChildDual: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumGnrcPrntEnumChildDual: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: ParentGnrcPrntEnumChildDual
@@ -16,7 +16,7 @@ types: !_Map_Type
       name: ParentGnrcPrntEnumChildDual
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier FieldGnrcPrntEnumChildDual: !_TypeDual
+  !_Name FieldGnrcPrntEnumChildDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
@@ -36,7 +36,7 @@ types: !_Map_Type
           name: EnumGnrcPrntEnumChildDual
           typeKind: !_TypeKind Enum
         name: ref
-  !_Identifier GnrcPrntEnumChildDual: !_TypeDual
+  !_Name GnrcPrntEnumChildDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
@@ -50,7 +50,7 @@ types: !_Map_Type
         - !_TypeArg
           name: ParentGnrcPrntEnumChildDual
     typeKind: !_TypeKind Dual
-  !_Identifier ParentGnrcPrntEnumChildDual: !_TypeEnum
+  !_Name ParentGnrcPrntEnumChildDual: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: ParentGnrcPrntEnumChildDual

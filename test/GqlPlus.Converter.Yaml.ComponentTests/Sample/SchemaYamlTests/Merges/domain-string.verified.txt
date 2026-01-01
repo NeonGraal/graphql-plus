@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnStr: !_DomainString
+types: !_Map(_Type)
+  !_Name DmnStr: !_DomainString
     domainKind: !_DomainKind String
     name: DmnStr
     typeKind: !_TypeKind Domain

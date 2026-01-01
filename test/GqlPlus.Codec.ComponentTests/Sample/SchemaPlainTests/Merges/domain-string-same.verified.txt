@@ -1,8 +1,8 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnStrSame[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=DmnStrSame
-[_Schema]:types[_Map_Type]:[_Identifier]DmnStrSame[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
-[_Schema]:types[_Map_Type]:[_Identifier]DmnStrSame[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='a+'
-[_Schema]:types[_Map_Type]:[_Identifier]DmnStrSame[_DomainString]:domainKind=[_DomainKind]String
-[_Schema]:types[_Map_Type]:[_Identifier]DmnStrSame[_DomainString]:items.0[_DomainRegex]:exclude=false
-[_Schema]:types[_Map_Type]:[_Identifier]DmnStrSame[_DomainString]:items.0[_DomainRegex]:pattern='a+'
-[_Schema]:types[_Map_Type]:[_Identifier]DmnStrSame[_DomainString]:name=DmnStrSame
-[_Schema]:types[_Map_Type]:[_Identifier]DmnStrSame[_DomainString]:typeKind=[_TypeKind]Domain
+﻿[_Schema]:types[_Map(_Type)]:[_Name]DmnStrSame[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:domain=DmnStrSame
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStrSame[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStrSame[_DomainString]:allItems.0[_DomainItem(_DomainRegex)]:pattern='a+'
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStrSame[_DomainString]:domainKind=[_DomainKind]String
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStrSame[_DomainString]:items.0[_DomainRegex]:exclude=false
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStrSame[_DomainString]:items.0[_DomainRegex]:pattern='a+'
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStrSame[_DomainString]:name=DmnStrSame
+[_Schema]:types[_Map(_Type)]:[_Name]DmnStrSame[_DomainString]:typeKind=[_TypeKind]Domain

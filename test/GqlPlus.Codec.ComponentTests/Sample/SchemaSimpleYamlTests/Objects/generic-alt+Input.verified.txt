@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcAltInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name GnrcAltInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: GnrcAltInp

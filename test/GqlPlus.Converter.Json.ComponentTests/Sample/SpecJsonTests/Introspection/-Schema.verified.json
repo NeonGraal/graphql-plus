@@ -14,9 +14,9 @@
     "$listTag": "_Errors"
   },
   "types": {
-    "$mapTag": "_Map_Type",
+    "$mapTag": "_Map(_Type)",
     "_Aliased": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -43,7 +43,7 @@
           "object": "_Named",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         },
         {
@@ -61,7 +61,7 @@
           "object": "_Aliased",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -80,7 +80,7 @@
           "name": "aliases",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -95,7 +95,7 @@
       }
     },
     "_CategoryFilter": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
       "allAlternates": [
         {
@@ -259,7 +259,7 @@
       }
     },
     "_Described": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -307,7 +307,7 @@
       }
     },
     "_Filter": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
       "allAlternates": [
         {
@@ -537,13 +537,13 @@
         "$valueTag": "_TypeKind"
       }
     },
-    "_Identifier": {
-      "$keyTag": "_Identifier",
+    "_Name": {
+      "$keyTag": "_Name",
       "$mapTag": "_DomainString",
       "allItems": [
         {
           "$mapTag": "_DomainItem(_DomainRegex)",
-          "domain": "_Identifier",
+          "domain": "_Name",
           "exclude": false,
           "pattern": "[A-Za-z_][A-Za-z0-9_]*"
         }
@@ -559,14 +559,14 @@
           "pattern": "[A-Za-z_][A-Za-z0-9_]*"
         }
       ],
-      "name": "_Identifier",
+      "name": "_Name",
       "typeKind": {
         "$value": "Domain",
         "$valueTag": "_TypeKind"
       }
     },
     "_NameFilter": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_DomainString",
       "allItems": [
         {
@@ -576,7 +576,7 @@
           "pattern": "[A-Za-z_.*]\u002B"
         }
       ],
-      "description": "_NameFilter is a simple match expression against _Identifier where \u0027.\u0027 matches any single character and \u0027*\u0027 matches zero or more of any character.",
+      "description": "_NameFilter is a simple match expression against _Name where \u0027.\u0027 matches any single character and \u0027*\u0027 matches zero or more of any character.",
       "domainKind": {
         "$value": "String",
         "$valueTag": "_DomainKind"
@@ -595,7 +595,7 @@
       }
     },
     "_Named": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
       "allFields": [
         {
@@ -622,7 +622,7 @@
           "object": "_Named",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -632,7 +632,7 @@
           "name": "name",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_Identifier"
+            "name": "_Name"
           }
         }
       ],
@@ -647,7 +647,7 @@
       }
     },
     "_Schema": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
@@ -655,7 +655,7 @@
           "modifiers": [
             {
               "$mapTag": "_ModifierDictionary",
-              "by": "_Identifier",
+              "by": "_Name",
               "modifierKind": {
                 "$value": "Dict",
                 "$valueTag": "_ModifierKind"
@@ -693,7 +693,7 @@
           "modifiers": [
             {
               "$mapTag": "_ModifierDictionary",
-              "by": "_Identifier",
+              "by": "_Name",
               "modifierKind": {
                 "$value": "Dict",
                 "$valueTag": "_ModifierKind"
@@ -731,7 +731,7 @@
           "modifiers": [
             {
               "$mapTag": "_ModifierDictionary",
-              "by": "_Identifier",
+              "by": "_Name",
               "modifierKind": {
                 "$value": "Dict",
                 "$valueTag": "_ModifierKind"
@@ -769,7 +769,7 @@
           "modifiers": [
             {
               "$mapTag": "_ModifierDictionary",
-              "by": "_Identifier",
+              "by": "_Name",
               "modifierKind": {
                 "$value": "Dict",
                 "$valueTag": "_ModifierKind"
@@ -809,7 +809,7 @@
           "modifiers": [
             {
               "$mapTag": "_ModifierDictionary",
-              "by": "_Identifier",
+              "by": "_Name",
               "modifierKind": {
                 "$value": "Dict",
                 "$valueTag": "_ModifierKind"
@@ -846,7 +846,7 @@
           "modifiers": [
             {
               "$mapTag": "_ModifierDictionary",
-              "by": "_Identifier",
+              "by": "_Name",
               "modifierKind": {
                 "$value": "Dict",
                 "$valueTag": "_ModifierKind"
@@ -883,7 +883,7 @@
           "modifiers": [
             {
               "$mapTag": "_ModifierDictionary",
-              "by": "_Identifier",
+              "by": "_Name",
               "modifierKind": {
                 "$value": "Dict",
                 "$valueTag": "_ModifierKind"
@@ -920,7 +920,7 @@
           "modifiers": [
             {
               "$mapTag": "_ModifierDictionary",
-              "by": "_Identifier",
+              "by": "_Name",
               "modifierKind": {
                 "$value": "Dict",
                 "$valueTag": "_ModifierKind"
@@ -964,7 +964,7 @@
       }
     },
     "_TypeFilter": {
-      "$keyTag": "_Identifier",
+      "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
       "allAlternates": [
         {

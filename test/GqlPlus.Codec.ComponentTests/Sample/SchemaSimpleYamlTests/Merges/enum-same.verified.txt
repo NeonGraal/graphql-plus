@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumSame: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumSame: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: EnumSame

@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumFieldModEnumDual: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumFieldModEnumDual: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: EnumFieldModEnumDual
@@ -10,7 +10,7 @@ types: !_Map_Type
         name: value
     name: EnumFieldModEnumDual
     typeKind: !_TypeKind Enum
-  !_Identifier FieldModEnumDual: !_TypeDual
+  !_Name FieldModEnumDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_ModifierDictionary{by:EnumFieldModEnumDual,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]

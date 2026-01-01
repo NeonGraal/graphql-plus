@@ -1,12 +1,12 @@
 ﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier ctgrOutp: !_Category
+categories: !_Map(_Categories)
+  !_Name ctgrOutp: !_Category
     name: ctgrOutp
     output: !_TypeRef(_TypeKind)
       name: CtgrOutp
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-types: !_Map_Type
-  !_Identifier CtgrOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name CtgrOutp: !_TypeOutput
     name: CtgrOutp
     typeKind: !_TypeKind Output

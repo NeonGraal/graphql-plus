@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltGnrcFieldParamOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name AltGnrcFieldParamOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltGnrcFieldParamOutp
@@ -23,7 +23,7 @@ types: !_Map_Type
           name: Number
     name: AltGnrcFieldParamOutp
     typeKind: !_TypeKind Output
-  !_Identifier GnrcFieldParamOutp: !_TypeOutput
+  !_Name GnrcFieldParamOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field
@@ -43,7 +43,7 @@ types: !_Map_Type
               name: AltGnrcFieldParamOutp
     name: GnrcFieldParamOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefGnrcFieldParamOutp: !_TypeOutput
+  !_Name RefGnrcFieldParamOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefGnrcFieldParamOutp

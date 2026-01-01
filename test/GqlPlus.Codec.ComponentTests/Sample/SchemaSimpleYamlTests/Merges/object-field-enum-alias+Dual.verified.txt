@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjFieldEnumAliasDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name ObjFieldEnumAliasDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         aliases: [field1,field2]

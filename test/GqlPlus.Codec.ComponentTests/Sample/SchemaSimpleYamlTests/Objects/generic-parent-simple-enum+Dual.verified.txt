@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumGnrcPrntSmplEnumDual: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumGnrcPrntSmplEnumDual: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: EnumGnrcPrntSmplEnumDual
@@ -10,7 +10,7 @@ types: !_Map_Type
         name: gnrcPrntSmplEnumDual
     name: EnumGnrcPrntSmplEnumDual
     typeKind: !_TypeKind Enum
-  !_Identifier FieldGnrcPrntSmplEnumDual: !_TypeDual
+  !_Name FieldGnrcPrntSmplEnumDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
@@ -30,7 +30,7 @@ types: !_Map_Type
           name: _Simple
           typeKind: !_TypeKind Internal
         name: ref
-  !_Identifier GnrcPrntSmplEnumDual: !_TypeDual
+  !_Name GnrcPrntSmplEnumDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field

@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltGnrcPrntParamPrntOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name AltGnrcPrntParamPrntOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamPrntOutp
@@ -23,7 +23,7 @@ types: !_Map_Type
           name: Number
     name: AltGnrcPrntParamPrntOutp
     typeKind: !_TypeKind Output
-  !_Identifier GnrcPrntParamPrntOutp: !_TypeOutput
+  !_Name GnrcPrntParamPrntOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltGnrcPrntParamPrntOutp
@@ -42,7 +42,7 @@ types: !_Map_Type
         - !_TypeArg
           name: AltGnrcPrntParamPrntOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefGnrcPrntParamPrntOutp: !_TypeOutput
+  !_Name RefGnrcPrntParamPrntOutp: !_TypeOutput
     name: RefGnrcPrntParamPrntOutp
     parent: !_ObjBase
       typeParam: ref

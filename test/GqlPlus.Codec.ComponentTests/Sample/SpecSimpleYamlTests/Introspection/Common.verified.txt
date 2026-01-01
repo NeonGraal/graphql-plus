@@ -6,8 +6,8 @@ errors: !_Errors
   - !_Error
     _kind: !_TokenKind End
     _message: "In _TypeRef can't get model for type '_Named'"
-types: !_Map_Type
-  !_Identifier _BaseType: !_TypeOutput
+types: !_Map(_Type)
+  !_Name _BaseType: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: typeKind
@@ -29,7 +29,7 @@ types: !_Map_Type
           name: _TypeKind
           typeKind: !_TypeKind Enum
         name: kind
-  !_Identifier _ChildType: !_TypeOutput
+  !_Name _ChildType: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: typeKind
@@ -64,7 +64,7 @@ types: !_Map_Type
           name: _Described
           typeKind: !_TypeKind Dual
         name: parent
-  !_Identifier _ParentType: !_TypeOutput
+  !_Name _ParentType: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: typeKind
@@ -124,7 +124,7 @@ types: !_Map_Type
           name: _Described
           typeKind: !_TypeKind Dual
         name: allItem
-  !_Identifier _SimpleKind: !_TypeEnum
+  !_Name _SimpleKind: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: _SimpleKind
@@ -154,7 +154,7 @@ types: !_Map_Type
         name: Union
     name: _SimpleKind
     typeKind: !_TypeKind Enum
-  !_Identifier _Type: !_TypeOutput
+  !_Name _Type: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: _Type
@@ -406,7 +406,7 @@ types: !_Map_Type
               name: _OutputField
     name: _Type
     typeKind: !_TypeKind Output
-  !_Identifier _TypeKind: !_TypeEnum
+  !_Name _TypeKind: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: _SimpleKind
@@ -444,7 +444,7 @@ types: !_Map_Type
       name: _SimpleKind
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier _TypeRef: !_TypeDual
+  !_Name _TypeRef: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: typeKind
@@ -466,7 +466,7 @@ types: !_Map_Type
           name: _TypeKind
           typeKind: !_TypeKind Enum
         name: kind
-  !_Identifier _TypeSimple: !_TypeDual
+  !_Name _TypeSimple: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: _TypeSimple

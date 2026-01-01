@@ -127,7 +127,7 @@ Success
     label
     :
     I@016/0025
-    _Identifier
+    _Name
     ?
   }
   |
@@ -145,7 +145,7 @@ Success
     typeParam
     :
     I@020/0031
-    _Identifier
+    _Name
   }
 }
 {
@@ -183,7 +183,7 @@ Success
     label
     :
     I@016/0042
-    _Identifier
+    _Name
   }
 }
 {
@@ -202,7 +202,7 @@ Success
     object
     :
     I@017/0046
-    _Identifier
+    _Name
   }
 }
 {
@@ -257,7 +257,7 @@ Success
     label
     :
     I@016/0062
-    _Identifier
+    _Name
   }
 }
 {

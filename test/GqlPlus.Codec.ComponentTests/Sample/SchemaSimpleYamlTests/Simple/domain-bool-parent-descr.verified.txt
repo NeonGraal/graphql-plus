@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnBoolPrntDescr: !_DomainBoolean
+types: !_Map(_Type)
+  !_Name DmnBoolPrntDescr: !_DomainBoolean
     allItems:
       - !_DomainItem(_DomainTrueFalse)
         domain: PrntDmnBoolPrntDescr
@@ -21,7 +21,7 @@ types: !_Map_Type
       name: PrntDmnBoolPrntDescr
       typeKind: !_SimpleKind Domain
     typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnBoolPrntDescr: !_DomainBoolean
+  !_Name PrntDmnBoolPrntDescr: !_DomainBoolean
     allItems:
       - !_DomainItem(_DomainTrueFalse)
         domain: PrntDmnBoolPrntDescr

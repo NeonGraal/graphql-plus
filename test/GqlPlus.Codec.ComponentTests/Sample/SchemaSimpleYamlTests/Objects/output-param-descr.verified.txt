@@ -1,9 +1,9 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier FldOutpParamDescr: !_TypeDual
+types: !_Map(_Type)
+  !_Name FldOutpParamDescr: !_TypeDual
     name: FldOutpParamDescr
     typeKind: !_TypeKind Dual
-  !_Identifier InOutpParamDescr: !_TypeInput
+  !_Name InOutpParamDescr: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: InOutpParamDescr
@@ -26,7 +26,7 @@ types: !_Map_Type
           name: Number
     name: InOutpParamDescr
     typeKind: !_TypeKind Input
-  !_Identifier OutpParamDescr: !_TypeOutput
+  !_Name OutpParamDescr: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field

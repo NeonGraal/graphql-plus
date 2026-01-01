@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnEnumAllDescr: !_DomainEnum
+types: !_Map(_Type)
+  !_Name DmnEnumAllDescr: !_DomainEnum
     allItems:
       - !_DomainItem(_DomainLabel)
         description: 'DomAll Descr'
@@ -21,7 +21,7 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
     name: DmnEnumAllDescr
     typeKind: !_TypeKind Domain
-  !_Identifier EnumDmnEnumAllDescr: !_TypeEnum
+  !_Name EnumDmnEnumAllDescr: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: EnumDmnEnumAllDescr

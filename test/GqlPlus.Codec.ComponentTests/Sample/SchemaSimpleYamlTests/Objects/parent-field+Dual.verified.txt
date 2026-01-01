@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier PrntFieldDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name PrntFieldDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefPrntFieldDual
@@ -26,7 +26,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: RefPrntFieldDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefPrntFieldDual: !_TypeDual
+  !_Name RefPrntFieldDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefPrntFieldDual

@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnEnumDiff: !_DomainEnum
+types: !_Map(_Type)
+  !_Name DmnEnumDiff: !_DomainEnum
     allItems:
       - !_DomainItem(_DomainLabel)
         domain: DmnEnumDiff

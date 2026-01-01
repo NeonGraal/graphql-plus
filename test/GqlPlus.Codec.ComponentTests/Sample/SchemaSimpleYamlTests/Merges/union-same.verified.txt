@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier UnionSame: !_TypeUnion
+types: !_Map(_Type)
+  !_Name UnionSame: !_TypeUnion
     allItems:
       - !_UnionMember
         name: Boolean

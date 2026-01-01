@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltAltOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name AltAltOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltAltOutp
@@ -23,7 +23,7 @@ types: !_Map_Type
           name: Number
     name: AltAltOutp
     typeKind: !_TypeKind Output
-  !_Identifier AltOutp: !_TypeOutput
+  !_Name AltOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltOutp

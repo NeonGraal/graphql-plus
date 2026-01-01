@@ -1,6 +1,6 @@
 ﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
 [_Schema]:errors[_Errors].0[_Error]:_message="In _DualField can't get model for type '_ObjField'"
-[_Schema]:types[_Map_Type]:[_Identifier]_DualField[_TypeOutput]:name=_DualField
-[_Schema]:types[_Map_Type]:[_Identifier]_DualField[_TypeOutput]:parent[_ObjBase]:name=_ObjField
-[_Schema]:types[_Map_Type]:[_Identifier]_DualField[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=_ObjFieldType
-[_Schema]:types[_Map_Type]:[_Identifier]_DualField[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map(_Type)]:[_Name]_DualField[_TypeOutput]:name=_DualField
+[_Schema]:types[_Map(_Type)]:[_Name]_DualField[_TypeOutput]:parent[_ObjBase]:name=_ObjField
+[_Schema]:types[_Map(_Type)]:[_Name]_DualField[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=_ObjFieldType
+[_Schema]:types[_Map(_Type)]:[_Name]_DualField[_TypeOutput]:typeKind=[_TypeKind]Output

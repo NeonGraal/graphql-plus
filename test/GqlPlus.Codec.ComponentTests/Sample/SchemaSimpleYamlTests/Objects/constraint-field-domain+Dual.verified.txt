@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier CnstFieldDmnDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name CnstFieldDmnDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
@@ -14,7 +14,7 @@ types: !_Map_Type
         - !_TypeArg
           name: DomCnstFieldDmnDual
     typeKind: !_TypeKind Dual
-  !_Identifier DomCnstFieldDmnDual: !_DomainString
+  !_Name DomCnstFieldDmnDual: !_DomainString
     allItems:
       - !_DomainItem(_DomainRegex)
         domain: DomCnstFieldDmnDual
@@ -27,7 +27,7 @@ types: !_Map_Type
         pattern: '\\w+'
     name: DomCnstFieldDmnDual
     typeKind: !_TypeKind Domain
-  !_Identifier RefCnstFieldDmnDual: !_TypeDual
+  !_Name RefCnstFieldDmnDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field

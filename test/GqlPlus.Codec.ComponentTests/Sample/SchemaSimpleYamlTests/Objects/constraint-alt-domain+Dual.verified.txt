@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier CnstAltDmnDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name CnstAltDmnDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: CnstAltDmnDual
@@ -18,7 +18,7 @@ types: !_Map_Type
               name: DomCnstAltDmnDual
     name: CnstAltDmnDual
     typeKind: !_TypeKind Dual
-  !_Identifier DomCnstAltDmnDual: !_DomainString
+  !_Name DomCnstAltDmnDual: !_DomainString
     allItems:
       - !_DomainItem(_DomainRegex)
         domain: DomCnstAltDmnDual
@@ -31,7 +31,7 @@ types: !_Map_Type
         pattern: '\\w+'
     name: DomCnstAltDmnDual
     typeKind: !_TypeKind Domain
-  !_Identifier RefCnstAltDmnDual: !_TypeDual
+  !_Name RefCnstAltDmnDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefCnstAltDmnDual

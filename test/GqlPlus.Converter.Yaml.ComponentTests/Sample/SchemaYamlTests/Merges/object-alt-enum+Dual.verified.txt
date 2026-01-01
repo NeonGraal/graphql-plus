@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier ObjAltEnumDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name ObjAltEnumDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: ObjAltEnumDual

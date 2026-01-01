@@ -6,8 +6,8 @@ errors: !_Errors
   - !_Error
     _kind: !_TokenKind End
     _message: "In _InputFieldType can't get model for type '_ObjFieldType'"
-types: !_Map_Type
-  !_Identifier _InputField: !_TypeOutput
+types: !_Map(_Type)
+  !_Name _InputField: !_TypeOutput
     name: _InputField
     parent: !_ObjBase
       name: _ObjField
@@ -15,7 +15,7 @@ types: !_Map_Type
         - !_TypeArg
           name: _InputFieldType
     typeKind: !_TypeKind Output
-  !_Identifier _InputFieldType: !_TypeOutput
+  !_Name _InputFieldType: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
@@ -33,7 +33,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _ObjFieldType
     typeKind: !_TypeKind Output
-  !_Identifier _InputParam: !_TypeOutput
+  !_Name _InputParam: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]

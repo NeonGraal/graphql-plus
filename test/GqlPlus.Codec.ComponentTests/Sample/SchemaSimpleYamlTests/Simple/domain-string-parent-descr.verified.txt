@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnStrPrntDescr: !_DomainString
+types: !_Map(_Type)
+  !_Name DmnStrPrntDescr: !_DomainString
     allItems:
       - !_DomainItem(_DomainRegex)
         domain: PrntDmnStrPrntDescr
@@ -21,7 +21,7 @@ types: !_Map_Type
       name: PrntDmnStrPrntDescr
       typeKind: !_SimpleKind Domain
     typeKind: !_TypeKind Domain
-  !_Identifier PrntDmnStrPrntDescr: !_DomainString
+  !_Name PrntDmnStrPrntDescr: !_DomainString
     allItems:
       - !_DomainItem(_DomainRegex)
         domain: PrntDmnStrPrntDescr

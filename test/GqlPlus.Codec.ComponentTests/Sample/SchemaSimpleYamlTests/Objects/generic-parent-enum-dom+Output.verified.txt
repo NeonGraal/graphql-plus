@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DomGnrcPrntEnumDomOutp: !_DomainEnum
+types: !_Map(_Type)
+  !_Name DomGnrcPrntEnumDomOutp: !_DomainEnum
     allItems:
       - !_DomainItem(_DomainLabel)
         domain: DomGnrcPrntEnumDomOutp
@@ -19,7 +19,7 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
     name: DomGnrcPrntEnumDomOutp
     typeKind: !_TypeKind Domain
-  !_Identifier EnumGnrcPrntEnumDomOutp: !_TypeEnum
+  !_Name EnumGnrcPrntEnumDomOutp: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: EnumGnrcPrntEnumDomOutp
@@ -34,7 +34,7 @@ types: !_Map_Type
         name: gnrcPrntEnumDomOutpOther
     name: EnumGnrcPrntEnumDomOutp
     typeKind: !_TypeKind Enum
-  !_Identifier FieldGnrcPrntEnumDomOutp: !_TypeOutput
+  !_Name FieldGnrcPrntEnumDomOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field
@@ -54,7 +54,7 @@ types: !_Map_Type
           name: EnumGnrcPrntEnumDomOutp
           typeKind: !_TypeKind Enum
         name: ref
-  !_Identifier GnrcPrntEnumDomOutp: !_TypeOutput
+  !_Name GnrcPrntEnumDomOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field

@@ -1,9 +1,9 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier FldOutpDescrParam: !_TypeDual
+types: !_Map(_Type)
+  !_Name FldOutpDescrParam: !_TypeDual
     name: FldOutpDescrParam
     typeKind: !_TypeKind Dual
-  !_Identifier InOutpDescrParam: !_TypeInput
+  !_Name InOutpDescrParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: InOutpDescrParam
@@ -26,7 +26,7 @@ types: !_Map_Type
         name: Number
     name: InOutpDescrParam
     typeKind: !_TypeKind Input
-  !_Identifier OutpDescrParam: !_TypeOutput
+  !_Name OutpDescrParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       description: 'Test Descr'

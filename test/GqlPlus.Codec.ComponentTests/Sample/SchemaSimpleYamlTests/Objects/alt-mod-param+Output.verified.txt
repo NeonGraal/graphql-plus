@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltAltModParamOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name AltAltModParamOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltAltModParamOutp
@@ -23,7 +23,7 @@ types: !_Map_Type
           name: Number
     name: AltAltModParamOutp
     typeKind: !_TypeKind Output
-  !_Identifier AltModParamOutp: !_TypeOutput
+  !_Name AltModParamOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         collections:

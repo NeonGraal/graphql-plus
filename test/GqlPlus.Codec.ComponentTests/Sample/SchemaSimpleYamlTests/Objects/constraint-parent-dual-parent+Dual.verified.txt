@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltCnstPrntDualPrntDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name AltCnstPrntDualPrntDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: PrntCnstPrntDualPrntDual
@@ -21,7 +21,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: PrntCnstPrntDualPrntDual
     typeKind: !_TypeKind Dual
-  !_Identifier CnstPrntDualPrntDual: !_TypeDual
+  !_Name CnstPrntDualPrntDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: PrntCnstPrntDualPrntDual
@@ -40,7 +40,7 @@ types: !_Map_Type
         - !_TypeArg
           name: AltCnstPrntDualPrntDual
     typeKind: !_TypeKind Dual
-  !_Identifier PrntCnstPrntDualPrntDual: !_TypeDual
+  !_Name PrntCnstPrntDualPrntDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: PrntCnstPrntDualPrntDual
@@ -52,7 +52,7 @@ types: !_Map_Type
           name: String
     name: PrntCnstPrntDualPrntDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefCnstPrntDualPrntDual: !_TypeDual
+  !_Name RefCnstPrntDualPrntDual: !_TypeDual
     name: RefCnstPrntDualPrntDual
     parent: !_ObjBase
       typeParam: ref

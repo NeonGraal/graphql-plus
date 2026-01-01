@@ -81,7 +81,7 @@ public static class RenderPlain
       return [prefix + sb.ToString()];
     }
 
-    prefix += item.Tag.Prefixed("[").Suffixed("]");
+    prefix += item.Tag.Surrounded("[", "]");
     string[] result = [];
 
     if (item.List.Any()) {

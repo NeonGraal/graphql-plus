@@ -1,8 +1,8 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPstv[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=DmnNmbrPstv
-[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPstv[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=true
-[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPstv[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=0
-[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPstv[_DomainNumber]:domainKind=[_DomainKind]Number
-[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPstv[_DomainNumber]:items.0[_DomainRange]:exclude=true
-[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPstv[_DomainNumber]:items.0[_DomainRange]:to=0
-[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPstv[_DomainNumber]:name=DmnNmbrPstv
-[_Schema]:types[_Map_Type]:[_Identifier]DmnNmbrPstv[_DomainNumber]:typeKind=[_TypeKind]Domain
+﻿[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPstv[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:domain=DmnNmbrPstv
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPstv[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:exclude=true
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPstv[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=0
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPstv[_DomainNumber]:domainKind=[_DomainKind]Number
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPstv[_DomainNumber]:items.0[_DomainRange]:exclude=true
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPstv[_DomainNumber]:items.0[_DomainRange]:to=0
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPstv[_DomainNumber]:name=DmnNmbrPstv
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPstv[_DomainNumber]:typeKind=[_TypeKind]Domain

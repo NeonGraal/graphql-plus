@@ -6,8 +6,8 @@ errors: !_Errors
   - !_Error
     _kind: !_TokenKind End
     _message: "In _OutputFieldType can't get model for type '_ObjFieldType'"
-types: !_Map_Type
-  !_Identifier _OutputField: !_TypeOutput
+types: !_Map(_Type)
+  !_Name _OutputField: !_TypeOutput
     name: _OutputField
     parent: !_ObjBase
       name: _ObjField
@@ -15,7 +15,7 @@ types: !_Map_Type
         - !_TypeArg
           name: _ObjFieldType
     typeKind: !_TypeKind Output
-  !_Identifier _OutputFieldType: !_TypeOutput
+  !_Name _OutputFieldType: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]

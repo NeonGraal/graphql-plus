@@ -1,7 +1,7 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]FieldOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
-[_Schema]:types[_Map_Type]:[_Identifier]FieldOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=FieldOutp
-[_Schema]:types[_Map_Type]:[_Identifier]FieldOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=String
-[_Schema]:types[_Map_Type]:[_Identifier]FieldOutp[_TypeOutput]:fields.0[_OutputField]:name=field
-[_Schema]:types[_Map_Type]:[_Identifier]FieldOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=String
-[_Schema]:types[_Map_Type]:[_Identifier]FieldOutp[_TypeOutput]:name=FieldOutp
-[_Schema]:types[_Map_Type]:[_Identifier]FieldOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+﻿[_Schema]:types[_Map(_Type)]:[_Name]FieldOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
+[_Schema]:types[_Map(_Type)]:[_Name]FieldOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=FieldOutp
+[_Schema]:types[_Map(_Type)]:[_Name]FieldOutp[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map(_Type)]:[_Name]FieldOutp[_TypeOutput]:fields.0[_OutputField]:name=field
+[_Schema]:types[_Map(_Type)]:[_Name]FieldOutp[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=String
+[_Schema]:types[_Map(_Type)]:[_Name]FieldOutp[_TypeOutput]:name=FieldOutp
+[_Schema]:types[_Map(_Type)]:[_Name]FieldOutp[_TypeOutput]:typeKind=[_TypeKind]Output

@@ -1,9 +1,9 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier FldOutpPrntParam: !_TypeDual
+types: !_Map(_Type)
+  !_Name FldOutpPrntParam: !_TypeDual
     name: FldOutpPrntParam
     typeKind: !_TypeKind Dual
-  !_Identifier InOutpPrntParam: !_TypeInput
+  !_Name InOutpPrntParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: InOutpPrntParam
@@ -26,7 +26,7 @@ types: !_Map_Type
         name: Number
     name: InOutpPrntParam
     typeKind: !_TypeKind Input
-  !_Identifier OutpPrntParam: !_TypeOutput
+  !_Name OutpPrntParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
@@ -56,7 +56,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: PrntOutpPrntParam
     typeKind: !_TypeKind Output
-  !_Identifier PrntOutpPrntParam: !_TypeOutput
+  !_Name PrntOutpPrntParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
@@ -76,7 +76,7 @@ types: !_Map_Type
         name: FldOutpPrntParam
     name: PrntOutpPrntParam
     typeKind: !_TypeKind Output
-  !_Identifier PrntOutpPrntParamIn: !_TypeInput
+  !_Name PrntOutpPrntParamIn: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate)
       object: PrntOutpPrntParamIn

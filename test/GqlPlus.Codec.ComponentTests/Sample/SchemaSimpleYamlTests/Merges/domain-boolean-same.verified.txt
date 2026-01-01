@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnBoolSame: !_DomainBoolean
+types: !_Map(_Type)
+  !_Name DmnBoolSame: !_DomainBoolean
     allItems:
       - !_DomainItem(_DomainTrueFalse)
         domain: DmnBoolSame

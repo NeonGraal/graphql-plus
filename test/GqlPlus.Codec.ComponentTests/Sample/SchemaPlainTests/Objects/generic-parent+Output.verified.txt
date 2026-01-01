@@ -1,6 +1,6 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntOutp[_TypeOutput]:name=GnrcPrntOutp
-[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntOutp[_TypeOutput]:parent[_ObjBase]:typeParam=type
-[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output
-[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_Dual
-[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Internal
-[_Schema]:types[_Map_Type]:[_Identifier]GnrcPrntOutp[_TypeOutput]:typeParams.0[_TypeParam]:name=type
+﻿[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntOutp[_TypeOutput]:name=GnrcPrntOutp
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntOutp[_TypeOutput]:parent[_ObjBase]:typeParam=type
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_Dual
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntOutp[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Internal
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntOutp[_TypeOutput]:typeParams.0[_TypeParam]:name=type

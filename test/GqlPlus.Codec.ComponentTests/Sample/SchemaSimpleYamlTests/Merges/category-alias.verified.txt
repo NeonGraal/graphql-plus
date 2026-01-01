@@ -1,13 +1,13 @@
 ﻿!_Schema
-categories: !_Map_Categories
-  !_Identifier ctgrAlias: !_Category
+categories: !_Map(_Categories)
+  !_Name ctgrAlias: !_Category
     aliases: [CatA1,CatA2]
     name: ctgrAlias
     output: !_TypeRef(_TypeKind)
       name: CtgrAlias
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-types: !_Map_Type
-  !_Identifier CtgrAlias: !_TypeOutput
+types: !_Map(_Type)
+  !_Name CtgrAlias: !_TypeOutput
     name: CtgrAlias
     typeKind: !_TypeKind Output

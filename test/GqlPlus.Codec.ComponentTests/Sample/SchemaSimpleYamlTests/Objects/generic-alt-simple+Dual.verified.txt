@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcAltSmplDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name GnrcAltSmplDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: GnrcAltSmplDual
@@ -18,7 +18,7 @@ types: !_Map_Type
               name: String
     name: GnrcAltSmplDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefGnrcAltSmplDual: !_TypeDual
+  !_Name RefGnrcAltSmplDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefGnrcAltSmplDual

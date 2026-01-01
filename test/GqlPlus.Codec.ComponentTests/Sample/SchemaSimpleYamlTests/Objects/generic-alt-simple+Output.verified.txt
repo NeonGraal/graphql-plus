@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier GnrcAltSmplOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name GnrcAltSmplOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: GnrcAltSmplOutp
@@ -18,7 +18,7 @@ types: !_Map_Type
               name: String
     name: GnrcAltSmplOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefGnrcAltSmplOutp: !_TypeOutput
+  !_Name RefGnrcAltSmplOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: RefGnrcAltSmplOutp

@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnEnumValue: !_DomainEnum
+types: !_Map(_Type)
+  !_Name DmnEnumValue: !_DomainEnum
     allItems:
       - !_DomainItem(_DomainLabel)
         domain: DmnEnumValue
@@ -19,7 +19,7 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
     name: DmnEnumValue
     typeKind: !_TypeKind Domain
-  !_Identifier EnumDmnEnumValue: !_TypeEnum
+  !_Name EnumDmnEnumValue: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: EnumDmnEnumValue

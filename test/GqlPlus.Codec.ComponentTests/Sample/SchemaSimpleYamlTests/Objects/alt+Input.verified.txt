@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltAltInp: !_TypeInput
+types: !_Map(_Type)
+  !_Name AltAltInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltAltInp
@@ -23,7 +23,7 @@ types: !_Map_Type
           name: Number
     name: AltAltInp
     typeKind: !_TypeKind Input
-  !_Identifier AltInp: !_TypeInput
+  !_Name AltInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltInp

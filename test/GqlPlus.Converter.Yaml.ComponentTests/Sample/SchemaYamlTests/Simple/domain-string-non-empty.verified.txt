@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnStrNonEmpty: !_DomainString
+types: !_Map(_Type)
+  !_Name DmnStrNonEmpty: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
       domain: DmnStrNonEmpty

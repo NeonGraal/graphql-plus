@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnEnumUnqPrnt: !_DomainEnum
+types: !_Map(_Type)
+  !_Name DmnEnumUnqPrnt: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
       domain: DmnEnumUnqPrnt
@@ -45,7 +45,7 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
     name: DmnEnumUnqPrnt
     typeKind: !_TypeKind Domain
-  !_Identifier DupDmnEnumUnqPrnt: !_TypeEnum
+  !_Name DupDmnEnumUnqPrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: DupDmnEnumUnqPrnt
@@ -60,7 +60,7 @@ types: !_Map_Type
       name: dup_dmnEnumUnqPrnt
     name: DupDmnEnumUnqPrnt
     typeKind: !_TypeKind Enum
-  !_Identifier EnumDmnEnumUnqPrnt: !_TypeEnum
+  !_Name EnumDmnEnumUnqPrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: PrntDmnEnumUnqPrnt
@@ -79,7 +79,7 @@ types: !_Map_Type
       name: PrntDmnEnumUnqPrnt
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier PrntDmnEnumUnqPrnt: !_TypeEnum
+  !_Name PrntDmnEnumUnqPrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: PrntDmnEnumUnqPrnt

@@ -1,6 +1,6 @@
-﻿[_Schema]:directives[_Map_Directives]:[_Identifier]DrctAlias[_Directive]:aliases.0=DirA1
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctAlias[_Directive]:aliases.1=DirA2
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctAlias[_Directive]:locations[_Set(_Location)]:Field=_
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctAlias[_Directive]:locations[_Set(_Location)]:Variable=_
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctAlias[_Directive]:name=DrctAlias
-[_Schema]:directives[_Map_Directives]:[_Identifier]DrctAlias[_Directive]:repeatable=false
+﻿[_Schema]:directives[_Map(_Directives)]:[_Name]DrctAlias[_Directive]:aliases.0=DirA1
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctAlias[_Directive]:aliases.1=DirA2
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctAlias[_Directive]:locations[_Set(_Location)]:Field=_
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctAlias[_Directive]:locations[_Set(_Location)]:Variable=_
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctAlias[_Directive]:name=DrctAlias
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctAlias[_Directive]:repeatable=false

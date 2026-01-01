@@ -1,2 +1,2 @@
-﻿[_Schema]:types[_Map_Type]:[_Identifier]ObjDual[_TypeDual]:name=ObjDual
-[_Schema]:types[_Map_Type]:[_Identifier]ObjDual[_TypeDual]:typeKind=[_TypeKind]Dual
+﻿[_Schema]:types[_Map(_Type)]:[_Name]ObjDual[_TypeDual]:name=ObjDual
+[_Schema]:types[_Map(_Type)]:[_Name]ObjDual[_TypeDual]:typeKind=[_TypeKind]Dual

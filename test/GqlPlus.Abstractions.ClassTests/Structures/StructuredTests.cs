@@ -423,7 +423,7 @@ public class StructuredTests
 
     result.AddMap(key, values.ToMap(k => k), new EncodeString(), "", keyTag: "");
 
-    CheckMap(result, key, values.ToMap(k => k, v => new Structured(v)).Encode("_Map"));
+    CheckMap(result, key, values.ToMap(k => k, v => new Structured(v)).Encode());
   }
 
   [Theory, RepeatData]

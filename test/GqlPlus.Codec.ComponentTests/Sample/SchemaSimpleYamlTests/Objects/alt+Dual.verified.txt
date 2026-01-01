@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier AltAltDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name AltAltDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltAltDual
@@ -23,7 +23,7 @@ types: !_Map_Type
           name: Number
     name: AltAltDual
     typeKind: !_TypeKind Dual
-  !_Identifier AltDual: !_TypeDual
+  !_Name AltDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: AltDual

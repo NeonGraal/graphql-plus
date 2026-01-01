@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier CnstFieldDmnOutp: !_TypeOutput
+types: !_Map(_Type)
+  !_Name CnstFieldDmnOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field
@@ -14,7 +14,7 @@ types: !_Map_Type
         - !_TypeArg
           name: DomCnstFieldDmnOutp
     typeKind: !_TypeKind Output
-  !_Identifier DomCnstFieldDmnOutp: !_DomainString
+  !_Name DomCnstFieldDmnOutp: !_DomainString
     allItems:
       - !_DomainItem(_DomainRegex)
         domain: DomCnstFieldDmnOutp
@@ -27,7 +27,7 @@ types: !_Map_Type
         pattern: '\\w+'
     name: DomCnstFieldDmnOutp
     typeKind: !_TypeKind Domain
-  !_Identifier RefCnstFieldDmnOutp: !_TypeOutput
+  !_Name RefCnstFieldDmnOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field

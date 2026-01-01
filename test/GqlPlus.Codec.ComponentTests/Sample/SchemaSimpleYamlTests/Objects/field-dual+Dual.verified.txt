@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier FieldDualDual: !_TypeDual
+types: !_Map(_Type)
+  !_Name FieldDualDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
@@ -14,7 +14,7 @@ types: !_Map_Type
           name: FldFieldDualDual
     name: FieldDualDual
     typeKind: !_TypeKind Dual
-  !_Identifier FldFieldDualDual: !_TypeDual
+  !_Name FldFieldDualDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
         object: FldFieldDualDual

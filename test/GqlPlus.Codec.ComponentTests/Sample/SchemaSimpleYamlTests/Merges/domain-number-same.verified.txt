@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier DmnNmbrSame: !_DomainNumber
+types: !_Map(_Type)
+  !_Name DmnNmbrSame: !_DomainNumber
     allItems:
       - !_DomainItem(_DomainRange)
         domain: DmnNmbrSame

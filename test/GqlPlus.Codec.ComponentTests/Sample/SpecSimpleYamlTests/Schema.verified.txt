@@ -1,9 +1,9 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier _Any: !_TypeDual
+types: !_Map(_Type)
+  !_Name _Any: !_TypeDual
     name: _Any
     typeKind: !_TypeKind Dual
-  !_Identifier _Array: !_TypeDual
+  !_Name _Array: !_TypeDual
     aliases: [Array]
     allAlternates:
       - !_ObjectFor(_Alternate)
@@ -30,7 +30,7 @@ types: !_Map_Type
           name: _Any
           typeKind: !_TypeKind Dual
         name: T
-  !_Identifier _Dict: !_TypeDual
+  !_Name _Dict: !_TypeDual
     aliases: [Dict]
     allAlternates:
       - !_ObjectFor(_Alternate)
@@ -62,7 +62,7 @@ types: !_Map_Type
           name: _Any
           typeKind: !_TypeKind Dual
         name: T
-  !_Identifier _IfElse: !_TypeDual
+  !_Name _IfElse: !_TypeDual
     aliases: [IfElse]
     allAlternates:
       - !_ObjectFor(_Alternate)
@@ -89,10 +89,10 @@ types: !_Map_Type
           name: _Any
           typeKind: !_TypeKind Dual
         name: T
-  !_Identifier _Key: !_TypeUnion
+  !_Name _Key: !_TypeUnion
     name: _Key
     typeKind: !_TypeKind Union
-  !_Identifier _List: !_TypeDual
+  !_Name _List: !_TypeDual
     aliases: [List]
     allAlternates:
       - !_ObjectFor(_Alternate)
@@ -117,7 +117,7 @@ types: !_Map_Type
           name: _Any
           typeKind: !_TypeKind Dual
         name: T
-  !_Identifier _Map: !_TypeDual
+  !_Name _Map: !_TypeDual
     aliases: [Map]
     allAlternates:
       - !_ObjectFor(_Alternate)
@@ -144,7 +144,7 @@ types: !_Map_Type
           name: _Any
           typeKind: !_TypeKind Dual
         name: T
-  !_Identifier _Mask: !_TypeDual
+  !_Name _Mask: !_TypeDual
     aliases: [Mask]
     allAlternates:
       - !_ObjectFor(_Alternate)
@@ -171,7 +171,7 @@ types: !_Map_Type
           name: _Key
           typeKind: !_TypeKind Union
         name: K
-  !_Identifier _Opt: !_TypeDual
+  !_Name _Opt: !_TypeDual
     aliases: [Opt]
     allAlternates:
       - !_ObjectFor(_Alternate)
@@ -198,7 +198,7 @@ types: !_Map_Type
           name: _Any
           typeKind: !_TypeKind Dual
         name: T
-  !_Identifier _Set: !_TypeDual
+  !_Name _Set: !_TypeDual
     aliases: [Set]
     allAlternates:
       - !_ObjectFor(_Alternate)

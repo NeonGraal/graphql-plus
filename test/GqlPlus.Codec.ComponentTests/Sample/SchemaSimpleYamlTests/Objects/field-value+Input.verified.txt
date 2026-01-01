@@ -1,6 +1,6 @@
 ﻿!_Schema
-types: !_Map_Type
-  !_Identifier EnumFieldValueInp: !_TypeEnum
+types: !_Map(_Type)
+  !_Name EnumFieldValueInp: !_TypeEnum
     allItems:
       - !_EnumLabel
         enum: EnumFieldValueInp
@@ -10,7 +10,7 @@ types: !_Map_Type
         name: fieldValueInp
     name: EnumFieldValueInp
     typeKind: !_TypeKind Enum
-  !_Identifier FieldValueInp: !_TypeInput
+  !_Name FieldValueInp: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
         name: field

@@ -1,8 +1,7 @@
-﻿
-namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving.Simple;
 
 public class TypeUnionResolverTests
-  : ResolverParentTypeTestBase<TypeUnionModel, NamedModel, UnionMemberModel>
+  : ResolverParentTypeTestBase<TypeUnionModel, string, NamedModel, UnionMemberModel>
 {
   protected override IResolver<TypeUnionModel> Resolver { get; }
     = new TypeUnionResolver();

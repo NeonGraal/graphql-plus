@@ -1,3 +1,3 @@
 domain Test { enum Enum.value Dup.* }
 enum Enum { value }
-enum Dup { value }
+enum Dup { value duplicate dupValue }

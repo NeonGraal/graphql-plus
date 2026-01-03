@@ -1,5 +1,4 @@
-﻿
-namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving.Simple;
 
 internal abstract class ResolverParentType<TModel, TItem, TAll>
   : ResolverChildType<TModel, TypeRefModel<SimpleKindModel>>

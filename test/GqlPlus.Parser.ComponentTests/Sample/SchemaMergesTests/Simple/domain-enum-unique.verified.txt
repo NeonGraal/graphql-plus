@@ -22,6 +22,8 @@ Success
   enum_dmnEnumUnq
   !EL I@039/0002
   dmnEnumUnq
+  !EL I@050/0002
+  dmnEnumUnqValue
 }
 {
   !En I@006/0003
@@ -30,5 +32,7 @@ Success
   dmnEnumUnq
   !EL I@033/0003
   dup_dmnEnumUnq
+  !EL I@048/0003
+  dmnEnumUnqDup
 }
 ]

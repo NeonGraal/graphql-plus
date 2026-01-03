@@ -1,1 +1,1 @@
-5b36919  (HEAD -> excluded) 2026-01-01 Rename domain _Identifier to _Name
+b13a533  (HEAD -> all-enum) 2026-01-03 Extend enums used for * tests

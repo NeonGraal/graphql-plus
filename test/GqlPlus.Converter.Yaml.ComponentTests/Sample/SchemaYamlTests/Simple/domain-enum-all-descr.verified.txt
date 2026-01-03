@@ -7,7 +7,23 @@ types: !_Map(_Type)
       domain: DmnEnumAllDescr
       exclude: false
       value: !_EnumValue
-        label: '*'
+        label: dmnEnumAllDescr
+        name: EnumDmnEnumAllDescr
+        typeKind: !_SimpleKind Enum
+    - !_DomainItem(_DomainLabel)
+      description: 'DomAll Descr'
+      domain: DmnEnumAllDescr
+      exclude: false
+      value: !_EnumValue
+        label: enum_dmnEnumAllDescr
+        name: EnumDmnEnumAllDescr
+        typeKind: !_SimpleKind Enum
+    - !_DomainItem(_DomainLabel)
+      description: 'DomAll Descr'
+      domain: DmnEnumAllDescr
+      exclude: false
+      value: !_EnumValue
+        label: dmnEnumAllDescrValue
         name: EnumDmnEnumAllDescr
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
@@ -29,10 +45,15 @@ types: !_Map(_Type)
     - !_EnumLabel
       enum: EnumDmnEnumAllDescr
       name: enum_dmnEnumAllDescr
+    - !_EnumLabel
+      enum: EnumDmnEnumAllDescr
+      name: dmnEnumAllDescrValue
     items:
     - !_Aliased
       name: dmnEnumAllDescr
     - !_Aliased
       name: enum_dmnEnumAllDescr
+    - !_Aliased
+      name: dmnEnumAllDescrValue
     name: EnumDmnEnumAllDescr
     typeKind: !_TypeKind Enum

@@ -2635,7 +2635,21 @@ types: !_Map(_Type)
         domain: DmnEnumAll
         exclude: false
         value: !_EnumValue
-          label: '*'
+          label: dmnEnumAll
+          name: EnumDmnEnumAll
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumAll
+        exclude: false
+        value: !_EnumValue
+          label: enum_dmnEnumAll
+          name: EnumDmnEnumAll
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumAll
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumAllValue
           name: EnumDmnEnumAll
           typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
@@ -2655,7 +2669,23 @@ types: !_Map(_Type)
         domain: DmnEnumAllDescr
         exclude: false
         value: !_EnumValue
-          label: '*'
+          label: dmnEnumAllDescr
+          name: EnumDmnEnumAllDescr
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        description: 'DomAll Descr'
+        domain: DmnEnumAllDescr
+        exclude: false
+        value: !_EnumValue
+          label: enum_dmnEnumAllDescr
+          name: EnumDmnEnumAllDescr
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        description: 'DomAll Descr'
+        domain: DmnEnumAllDescr
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumAllDescrValue
           name: EnumDmnEnumAllDescr
           typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
@@ -2675,7 +2705,28 @@ types: !_Map(_Type)
         domain: DmnEnumAllPrnt
         exclude: false
         value: !_EnumValue
-          label: '*'
+          label: prnt_dmnEnumAllPrnt
+          name: PrntDmnEnumAllPrnt
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumAllPrnt
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumAllPrntPrnt
+          name: PrntDmnEnumAllPrnt
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumAllPrnt
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumAllPrnt
+          name: EnumDmnEnumAllPrnt
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumAllPrnt
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumAllPrntValue
           name: EnumDmnEnumAllPrnt
           typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
@@ -2844,14 +2895,14 @@ types: !_Map(_Type)
         domain: DmnEnumUnq
         exclude: false
         value: !_EnumValue
-          label: '*'
+          label: enum_dmnEnumUnq
           name: EnumDmnEnumUnq
           typeKind: !_SimpleKind Enum
       - !_DomainItem(_DomainLabel)
         domain: DmnEnumUnq
-        exclude: true
+        exclude: false
         value: !_EnumValue
-          label: dmnEnumUnq
+          label: dmnEnumUnqValue
           name: EnumDmnEnumUnq
           typeKind: !_SimpleKind Enum
       - !_DomainItem(_DomainLabel)
@@ -2889,15 +2940,29 @@ types: !_Map(_Type)
         domain: DmnEnumUnqPrnt
         exclude: false
         value: !_EnumValue
-          label: '*'
+          label: prnt_dmnEnumUnqPrnt
+          name: PrntDmnEnumUnqPrnt
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumUnqPrnt
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumUnqPrntPrnt
+          name: PrntDmnEnumUnqPrnt
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumUnqPrnt
+        exclude: false
+        value: !_EnumValue
+          label: enum_dmnEnumUnqPrnt
           name: EnumDmnEnumUnqPrnt
           typeKind: !_SimpleKind Enum
       - !_DomainItem(_DomainLabel)
         domain: DmnEnumUnqPrnt
-        exclude: true
+        exclude: false
         value: !_EnumValue
-          label: dmnEnumUnqPrnt
-          name: PrntDmnEnumUnqPrnt
+          label: dmnEnumUnqPrntValue
+          name: EnumDmnEnumUnqPrnt
           typeKind: !_SimpleKind Enum
       - !_DomainItem(_DomainLabel)
         domain: DmnEnumUnqPrnt
@@ -3384,11 +3449,16 @@ types: !_Map(_Type)
       - !_EnumLabel
         enum: DupDmnEnumUnq
         name: dup_dmnEnumUnq
+      - !_EnumLabel
+        enum: DupDmnEnumUnq
+        name: dmnEnumUnqDup
     items:
       - !_Aliased
         name: dmnEnumUnq
       - !_Aliased
         name: dup_dmnEnumUnq
+      - !_Aliased
+        name: dmnEnumUnqDup
     name: DupDmnEnumUnq
     typeKind: !_TypeKind Enum
   !_Name DupDmnEnumUnqPrnt: !_TypeEnum
@@ -3399,11 +3469,16 @@ types: !_Map(_Type)
       - !_EnumLabel
         enum: DupDmnEnumUnqPrnt
         name: dup_dmnEnumUnqPrnt
+      - !_EnumLabel
+        enum: DupDmnEnumUnqPrnt
+        name: dmnEnumUnqPrntDup
     items:
       - !_Aliased
         name: dmnEnumUnqPrnt
       - !_Aliased
         name: dup_dmnEnumUnqPrnt
+      - !_Aliased
+        name: dmnEnumUnqPrntDup
     name: DupDmnEnumUnqPrnt
     typeKind: !_TypeKind Enum
   !_Name EnumAlias: !_TypeEnum
@@ -3653,11 +3728,16 @@ types: !_Map(_Type)
       - !_EnumLabel
         enum: EnumDmnEnumAll
         name: enum_dmnEnumAll
+      - !_EnumLabel
+        enum: EnumDmnEnumAll
+        name: dmnEnumAllValue
     items:
       - !_Aliased
         name: dmnEnumAll
       - !_Aliased
         name: enum_dmnEnumAll
+      - !_Aliased
+        name: dmnEnumAllValue
     name: EnumDmnEnumAll
     typeKind: !_TypeKind Enum
   !_Name EnumDmnEnumAllDescr: !_TypeEnum
@@ -3668,11 +3748,16 @@ types: !_Map(_Type)
       - !_EnumLabel
         enum: EnumDmnEnumAllDescr
         name: enum_dmnEnumAllDescr
+      - !_EnumLabel
+        enum: EnumDmnEnumAllDescr
+        name: dmnEnumAllDescrValue
     items:
       - !_Aliased
         name: dmnEnumAllDescr
       - !_Aliased
         name: enum_dmnEnumAllDescr
+      - !_Aliased
+        name: dmnEnumAllDescrValue
     name: EnumDmnEnumAllDescr
     typeKind: !_TypeKind Enum
   !_Name EnumDmnEnumAllPrnt: !_TypeEnum
@@ -3681,11 +3766,19 @@ types: !_Map(_Type)
         enum: PrntDmnEnumAllPrnt
         name: prnt_dmnEnumAllPrnt
       - !_EnumLabel
+        enum: PrntDmnEnumAllPrnt
+        name: dmnEnumAllPrntPrnt
+      - !_EnumLabel
         enum: EnumDmnEnumAllPrnt
         name: dmnEnumAllPrnt
+      - !_EnumLabel
+        enum: EnumDmnEnumAllPrnt
+        name: dmnEnumAllPrntValue
     items:
       - !_Aliased
         name: dmnEnumAllPrnt
+      - !_Aliased
+        name: dmnEnumAllPrntValue
     name: EnumDmnEnumAllPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntDmnEnumAllPrnt
@@ -3749,11 +3842,16 @@ types: !_Map(_Type)
       - !_EnumLabel
         enum: EnumDmnEnumUnq
         name: dmnEnumUnq
+      - !_EnumLabel
+        enum: EnumDmnEnumUnq
+        name: dmnEnumUnqValue
     items:
       - !_Aliased
         name: enum_dmnEnumUnq
       - !_Aliased
         name: dmnEnumUnq
+      - !_Aliased
+        name: dmnEnumUnqValue
     name: EnumDmnEnumUnq
     typeKind: !_TypeKind Enum
   !_Name EnumDmnEnumUnqPrnt: !_TypeEnum
@@ -3765,11 +3863,19 @@ types: !_Map(_Type)
         enum: PrntDmnEnumUnqPrnt
         name: prnt_dmnEnumUnqPrnt
       - !_EnumLabel
+        enum: PrntDmnEnumUnqPrnt
+        name: dmnEnumUnqPrntPrnt
+      - !_EnumLabel
         enum: EnumDmnEnumUnqPrnt
         name: enum_dmnEnumUnqPrnt
+      - !_EnumLabel
+        enum: EnumDmnEnumUnqPrnt
+        name: dmnEnumUnqPrntValue
     items:
       - !_Aliased
         name: enum_dmnEnumUnqPrnt
+      - !_Aliased
+        name: dmnEnumUnqPrntValue
     name: EnumDmnEnumUnqPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntDmnEnumUnqPrnt
@@ -8587,9 +8693,14 @@ types: !_Map(_Type)
       - !_EnumLabel
         enum: PrntDmnEnumAllPrnt
         name: prnt_dmnEnumAllPrnt
+      - !_EnumLabel
+        enum: PrntDmnEnumAllPrnt
+        name: dmnEnumAllPrntPrnt
     items:
       - !_Aliased
         name: prnt_dmnEnumAllPrnt
+      - !_Aliased
+        name: dmnEnumAllPrntPrnt
     name: PrntDmnEnumAllPrnt
     typeKind: !_TypeKind Enum
   !_Name PrntDmnEnumPrnt: !_DomainEnum
@@ -8638,11 +8749,16 @@ types: !_Map(_Type)
       - !_EnumLabel
         enum: PrntDmnEnumUnqPrnt
         name: prnt_dmnEnumUnqPrnt
+      - !_EnumLabel
+        enum: PrntDmnEnumUnqPrnt
+        name: dmnEnumUnqPrntPrnt
     items:
       - !_Aliased
         name: dmnEnumUnqPrnt
       - !_Aliased
         name: prnt_dmnEnumUnqPrnt
+      - !_Aliased
+        name: dmnEnumUnqPrntPrnt
     name: PrntDmnEnumUnqPrnt
     typeKind: !_TypeKind Enum
   !_Name PrntDmnEnumValuePrnt: !_TypeEnum

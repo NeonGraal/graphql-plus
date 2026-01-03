@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Globals;
-using GqlPlus.Parsing;
 
 namespace GqlPlus.Parser.Schema.Globals;
 

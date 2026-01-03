@@ -4,8 +4,6 @@ using GqlPlus.Parser.Schema;
 using GqlPlus.Parser.Schema.Globals;
 using GqlPlus.Parser.Schema.Objects;
 using GqlPlus.Parser.Schema.Simple;
-using GqlPlus.Parsing.Operation;
-using GqlPlus.Parsing.Schema;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Sample;

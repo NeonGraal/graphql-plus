@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GqlPlus.Resolving.Objects;
+using GqlPlus.Resolving.Simple;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Resolving;
 
@@ -10,7 +12,7 @@ public static class AllResolvers
       .AddResolver<SchemaModel, SchemaResolver>()
       .AddResolver<BaseTypeModel, AllTypesResolver>()
       // Simple
-      .AddDomainResolver<DomainLabelModel>()
+      .AddDomainResolver<DomainLabelModel, TypeDomainEnumResolver>()
       .AddDomainResolver<DomainRangeModel>()
       .AddDomainResolver<DomainRegexModel>()
       .AddDomainResolver<DomainTrueFalseModel>()
@@ -35,10 +37,16 @@ public static class AllResolvers
       .AddProvider<TResolver, IResolver<TModel>>()
       .AddProvider<TResolver, ITypeResolver>();
 
+  private static IServiceCollection AddDomainResolver<TDomain, TResolver>(this IServiceCollection services)
+    where TDomain : BaseDomainItemModel
+    where TResolver : ResolverType<BaseDomainModel<TDomain>>
+  => services
+      .AddSingleton<TResolver>()
+      .AddProvider<TResolver, IResolver<BaseDomainModel<TDomain>>>()
+      .AddProvider<TResolver, ITypeResolver>();
+
   private static IServiceCollection AddDomainResolver<TDomain>(this IServiceCollection services)
     where TDomain : BaseDomainItemModel
   => services
-      .AddSingleton<ResolverDomainType<TDomain>>()
-      .AddProvider<ResolverDomainType<TDomain>, IResolver<BaseDomainModel<TDomain>>>()
-      .AddProvider<ResolverDomainType<TDomain>, ITypeResolver>();
+      .AddDomainResolver<TDomain, ResolverDomainType<TDomain>>();
 }

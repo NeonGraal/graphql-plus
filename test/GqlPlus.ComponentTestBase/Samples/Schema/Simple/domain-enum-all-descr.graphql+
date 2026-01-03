@@ -1,2 +1,2 @@
 domain Name { enum "DomAll" "Descr" EnumName.* }
-enum EnumName { name enum_name }
+enum EnumName { name enum_name nameValue}

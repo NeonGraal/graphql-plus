@@ -16,5 +16,7 @@ Success
   dmnEnumAllDescr
   !EL I@044/0002
   enum_dmnEnumAllDescr
+  !EL I@065/0002
+  dmnEnumAllDescrValue
 }
 ]

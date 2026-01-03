@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Resolving;
+﻿using GqlPlus.Resolving.Simple;
+
+namespace GqlPlus.Resolving;
 
 public class TypeResolverTests
   : ResolverClassTestBase<TypeEnumModel>

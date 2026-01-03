@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving.Simple;
 
 internal class TypeEnumResolver
   : ResolverParentType<TypeEnumModel, AliasedModel, EnumLabelModel>

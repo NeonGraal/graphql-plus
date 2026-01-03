@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving.Simple;
 
 internal class TypeUnionResolver
   : ResolverParentType<TypeUnionModel, NamedModel, UnionMemberModel>

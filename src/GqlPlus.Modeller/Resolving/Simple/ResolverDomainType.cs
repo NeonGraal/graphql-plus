@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving.Simple;
 
 internal class ResolverDomainType<TDomain>
   : ResolverParentType<BaseDomainModel<TDomain>, TDomain, DomainItemModel<TDomain>>

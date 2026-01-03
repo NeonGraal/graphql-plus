@@ -1,6 +1,6 @@
 ﻿/* domain-enum-all
 domain DmnEnumAll { enum EnumDmnEnumAll.* }
-enum EnumDmnEnumAll { dmnEnumAll enum_dmnEnumAll }
+enum EnumDmnEnumAll { dmnEnumAll enum_dmnEnumAll dmnEnumAllValue }
 */
 
 // Generated from Schema domain-enum-all for Impl

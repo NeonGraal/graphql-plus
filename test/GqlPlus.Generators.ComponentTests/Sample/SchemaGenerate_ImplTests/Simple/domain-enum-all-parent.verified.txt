@@ -1,7 +1,7 @@
 ﻿/* domain-enum-all-parent
 domain DmnEnumAllPrnt { enum EnumDmnEnumAllPrnt.* }
-enum EnumDmnEnumAllPrnt { :PrntDmnEnumAllPrnt dmnEnumAllPrnt }
-enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt }
+enum EnumDmnEnumAllPrnt { :PrntDmnEnumAllPrnt dmnEnumAllPrnt dmnEnumAllPrntValue }
+enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt dmnEnumAllPrntPrnt }
 */
 
 // Generated from Schema domain-enum-all-parent for Impl

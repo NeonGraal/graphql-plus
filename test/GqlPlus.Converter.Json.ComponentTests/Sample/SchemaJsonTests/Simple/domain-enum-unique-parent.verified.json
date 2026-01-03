@@ -12,7 +12,35 @@
           "exclude": false,
           "value": {
             "$mapTag": "_EnumValue",
-            "label": "*",
+            "label": "prnt_dmnEnumUnqPrnt",
+            "name": "PrntDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnqPrnt",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumUnqPrntPrnt",
+            "name": "PrntDmnEnumUnqPrnt",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumUnqPrnt",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "enum_dmnEnumUnqPrnt",
             "name": "EnumDmnEnumUnqPrnt",
             "typeKind": {
               "$value": "Enum",
@@ -23,11 +51,11 @@
         {
           "$mapTag": "_DomainItem(_DomainLabel)",
           "domain": "DmnEnumUnqPrnt",
-          "exclude": true,
+          "exclude": false,
           "value": {
             "$mapTag": "_EnumValue",
-            "label": "dmnEnumUnqPrnt",
-            "name": "PrntDmnEnumUnqPrnt",
+            "label": "dmnEnumUnqPrntValue",
+            "name": "EnumDmnEnumUnqPrnt",
             "typeKind": {
               "$value": "Enum",
               "$valueTag": "_SimpleKind"
@@ -113,6 +141,11 @@
           "$mapTag": "_EnumLabel",
           "enum": "DupDmnEnumUnqPrnt",
           "name": "dup_dmnEnumUnqPrnt"
+        },
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "DupDmnEnumUnqPrnt",
+          "name": "dmnEnumUnqPrntDup"
         }
       ],
       "items": [
@@ -123,6 +156,10 @@
         {
           "$mapTag": "_Aliased",
           "name": "dup_dmnEnumUnqPrnt"
+        },
+        {
+          "$mapTag": "_Aliased",
+          "name": "dmnEnumUnqPrntDup"
         }
       ],
       "name": "DupDmnEnumUnqPrnt",
@@ -147,14 +184,28 @@
         },
         {
           "$mapTag": "_EnumLabel",
+          "enum": "PrntDmnEnumUnqPrnt",
+          "name": "dmnEnumUnqPrntPrnt"
+        },
+        {
+          "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumUnqPrnt",
           "name": "enum_dmnEnumUnqPrnt"
+        },
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "EnumDmnEnumUnqPrnt",
+          "name": "dmnEnumUnqPrntValue"
         }
       ],
       "items": [
         {
           "$mapTag": "_Aliased",
           "name": "enum_dmnEnumUnqPrnt"
+        },
+        {
+          "$mapTag": "_Aliased",
+          "name": "dmnEnumUnqPrntValue"
         }
       ],
       "name": "EnumDmnEnumUnqPrnt",
@@ -184,6 +235,11 @@
           "$mapTag": "_EnumLabel",
           "enum": "PrntDmnEnumUnqPrnt",
           "name": "prnt_dmnEnumUnqPrnt"
+        },
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "PrntDmnEnumUnqPrnt",
+          "name": "dmnEnumUnqPrntPrnt"
         }
       ],
       "items": [
@@ -194,6 +250,10 @@
         {
           "$mapTag": "_Aliased",
           "name": "prnt_dmnEnumUnqPrnt"
+        },
+        {
+          "$mapTag": "_Aliased",
+          "name": "dmnEnumUnqPrntPrnt"
         }
       ],
       "name": "PrntDmnEnumUnqPrnt",

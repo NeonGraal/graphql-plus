@@ -394,23 +394,28 @@ public enum CmptEnumDmnEnumAll
 {
   dmnEnumAll,
   enum_dmnEnumAll,
+  dmnEnumAllValue,
 }
 
 public enum CmptEnumDmnEnumAllDescr
 {
   dmnEnumAllDescr,
   enum_dmnEnumAllDescr,
+  dmnEnumAllDescrValue,
 }
 
 public enum CmptEnumDmnEnumAllPrnt
 {
   prnt_dmnEnumAllPrnt = PrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt = PrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
   dmnEnumAllPrnt,
+  dmnEnumAllPrntValue,
 }
 
 public enum CmptPrntDmnEnumAllPrnt
 {
   prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt,
 }
 
 public enum CmptEnumDmnEnumDescr
@@ -439,31 +444,37 @@ public enum CmptEnumDmnEnumUnq
 {
   enum_dmnEnumUnq,
   dmnEnumUnq,
+  dmnEnumUnqValue,
 }
 
 public enum CmptDupDmnEnumUnq
 {
   dmnEnumUnq,
   dup_dmnEnumUnq,
+  dmnEnumUnqDup,
 }
 
 public enum CmptEnumDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
   prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
   enum_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntValue,
 }
 
 public enum CmptPrntDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt,
   prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt,
 }
 
 public enum CmptDupDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt,
   dup_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntDup,
 }
 
 public enum CmptEnumDmnEnumValue

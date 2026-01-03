@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving.Objects;
 
 public abstract class ResolverTypeObjectAlternateTestBase<TModel, TField>
   : ResolverTypeObjectTypeTestBase<TModel, TField>

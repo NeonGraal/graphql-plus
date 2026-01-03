@@ -1,7 +1,7 @@
 ﻿/* domain-enum-unique
 domain DmnEnumUnq { enum EnumDmnEnumUnq.* !EnumDmnEnumUnq.dmnEnumUnq DupDmnEnumUnq.dmnEnumUnq }
-enum EnumDmnEnumUnq { enum_dmnEnumUnq dmnEnumUnq }
-enum DupDmnEnumUnq { dmnEnumUnq dup_dmnEnumUnq }
+enum EnumDmnEnumUnq { enum_dmnEnumUnq dmnEnumUnq dmnEnumUnqValue }
+enum DupDmnEnumUnq { dmnEnumUnq dup_dmnEnumUnq dmnEnumUnqDup }
 */
 
 // Generated from Schema domain-enum-unique for Intf

@@ -1,8 +1,8 @@
 ﻿/* domain-enum-unique-parent
 domain DmnEnumUnqPrnt { enum EnumDmnEnumUnqPrnt.* !PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt DupDmnEnumUnqPrnt.dmnEnumUnqPrnt }
-enum EnumDmnEnumUnqPrnt { :PrntDmnEnumUnqPrnt enum_dmnEnumUnqPrnt }
-enum PrntDmnEnumUnqPrnt { dmnEnumUnqPrnt prnt_dmnEnumUnqPrnt }
-enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt }
+enum EnumDmnEnumUnqPrnt { :PrntDmnEnumUnqPrnt enum_dmnEnumUnqPrnt dmnEnumUnqPrntValue }
+enum PrntDmnEnumUnqPrnt { dmnEnumUnqPrnt prnt_dmnEnumUnqPrnt dmnEnumUnqPrntPrnt }
+enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt dmnEnumUnqPrntDup }
 */
 
 // Generated from Schema domain-enum-unique-parent for Intf

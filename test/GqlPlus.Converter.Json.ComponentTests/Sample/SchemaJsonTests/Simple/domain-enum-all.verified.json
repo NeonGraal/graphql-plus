@@ -12,7 +12,35 @@
           "exclude": false,
           "value": {
             "$mapTag": "_EnumValue",
-            "label": "*",
+            "label": "dmnEnumAll",
+            "name": "EnumDmnEnumAll",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumAll",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "enum_dmnEnumAll",
+            "name": "EnumDmnEnumAll",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumAll",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumAllValue",
             "name": "EnumDmnEnumAll",
             "typeKind": {
               "$value": "Enum",
@@ -59,6 +87,11 @@
           "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumAll",
           "name": "enum_dmnEnumAll"
+        },
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "EnumDmnEnumAll",
+          "name": "dmnEnumAllValue"
         }
       ],
       "items": [
@@ -69,6 +102,10 @@
         {
           "$mapTag": "_Aliased",
           "name": "enum_dmnEnumAll"
+        },
+        {
+          "$mapTag": "_Aliased",
+          "name": "dmnEnumAllValue"
         }
       ],
       "name": "EnumDmnEnumAll",

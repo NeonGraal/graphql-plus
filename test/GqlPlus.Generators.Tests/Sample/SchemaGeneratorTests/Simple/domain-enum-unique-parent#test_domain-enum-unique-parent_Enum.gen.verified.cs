@@ -9,17 +9,21 @@ public enum testEnumDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
   prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
   enum_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntValue,
 }
 
 public enum testPrntDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt,
   prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt,
 }
 
 public enum testDupDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt,
   dup_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntDup,
 }

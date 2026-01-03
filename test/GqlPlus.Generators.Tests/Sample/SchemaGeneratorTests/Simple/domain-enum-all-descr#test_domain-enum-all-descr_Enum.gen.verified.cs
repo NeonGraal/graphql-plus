@@ -9,4 +9,5 @@ public enum testEnumDmnEnumAllDescr
 {
   dmnEnumAllDescr,
   enum_dmnEnumAllDescr,
+  dmnEnumAllDescrValue,
 }

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace GqlPlus.Resolving;
+namespace GqlPlus.Resolving.Objects;
 
 internal abstract class ResolverTypeObjectType<TModel, TObjField>
   : ResolverChildType<TModel, ObjBaseModel>

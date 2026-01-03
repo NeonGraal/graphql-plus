@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving.Simple;
 
 public class TypeEnumResolverTests
   : ResolverParentTypeTestBase<TypeEnumModel, EnumLabelModel>

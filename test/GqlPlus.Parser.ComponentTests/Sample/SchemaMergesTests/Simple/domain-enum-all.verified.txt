@@ -16,5 +16,7 @@ Success
   dmnEnumAll
   !EL I@034/0002
   enum_dmnEnumAll
+  !EL I@050/0002
+  dmnEnumAllValue
 }
 ]

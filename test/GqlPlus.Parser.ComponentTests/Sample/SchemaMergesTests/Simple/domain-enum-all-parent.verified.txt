@@ -15,11 +15,15 @@ Success
   :( !Tr I@028/0002 PrntDmnEnumAllPrnt )
   !EL I@047/0002
   dmnEnumAllPrnt
+  !EL I@062/0002
+  dmnEnumAllPrntValue
 }
 {
   !En I@006/0003
   PrntDmnEnumAllPrnt
   !EL I@027/0003
   prnt_dmnEnumAllPrnt
+  !EL I@047/0003
+  dmnEnumAllPrntPrnt
 }
 ]

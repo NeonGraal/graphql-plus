@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace GqlPlus.Resolving;
+namespace GqlPlus.Resolving.Objects;
 
 internal class TypeOutputResolver
   : ResolverTypeObjectType<TypeOutputModel, OutputFieldModel>
@@ -85,7 +85,7 @@ internal class TypeOutputResolver
     if (outputBase?.IsTypeParam == true) {
       if (arguments.TryGetArg(label, outputBase.Name, out TypeArgModel? outputArg)) {
         if (!arguments.TryGetType(label, outputArg.Name, out outBase, false)) {
-          outBase = new(outputArg.Name!, outputArg.Description) { IsTypeParam = outputArg.IsTypeParam };
+          outBase = new(outputArg.Name, outputArg.Description) { IsTypeParam = outputArg.IsTypeParam };
         }
 
         return true;

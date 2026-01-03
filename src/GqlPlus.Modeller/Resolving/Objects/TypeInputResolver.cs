@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace GqlPlus.Resolving;
+namespace GqlPlus.Resolving.Objects;
 
 internal class TypeInputResolver
   : ResolverTypeObjectType<TypeInputModel, InputFieldModel>

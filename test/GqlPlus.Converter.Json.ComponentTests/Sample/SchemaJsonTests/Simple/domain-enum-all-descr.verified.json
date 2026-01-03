@@ -13,7 +13,37 @@
           "exclude": false,
           "value": {
             "$mapTag": "_EnumValue",
-            "label": "*",
+            "label": "dmnEnumAllDescr",
+            "name": "EnumDmnEnumAllDescr",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "description": "DomAll Descr",
+          "domain": "DmnEnumAllDescr",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "enum_dmnEnumAllDescr",
+            "name": "EnumDmnEnumAllDescr",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "description": "DomAll Descr",
+          "domain": "DmnEnumAllDescr",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumAllDescrValue",
             "name": "EnumDmnEnumAllDescr",
             "typeKind": {
               "$value": "Enum",
@@ -61,6 +91,11 @@
           "$mapTag": "_EnumLabel",
           "enum": "EnumDmnEnumAllDescr",
           "name": "enum_dmnEnumAllDescr"
+        },
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "EnumDmnEnumAllDescr",
+          "name": "dmnEnumAllDescrValue"
         }
       ],
       "items": [
@@ -71,6 +106,10 @@
         {
           "$mapTag": "_Aliased",
           "name": "enum_dmnEnumAllDescr"
+        },
+        {
+          "$mapTag": "_Aliased",
+          "name": "dmnEnumAllDescrValue"
         }
       ],
       "name": "EnumDmnEnumAllDescr",

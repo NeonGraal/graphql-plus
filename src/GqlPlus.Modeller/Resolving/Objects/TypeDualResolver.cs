@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving.Objects;
 
 internal class TypeDualResolver
     : ResolverTypeObjectType<TypeDualModel, DualFieldModel>

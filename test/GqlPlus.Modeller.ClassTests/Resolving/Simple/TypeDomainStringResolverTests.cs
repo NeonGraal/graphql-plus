@@ -1,8 +1,7 @@
-﻿
-namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving.Simple;
 
 public class TypeDomainStringResolverTests
-  : ResolverParentTypeTestBase<BaseDomainModel<DomainRegexModel>, DomainRegexModel, DomainItemModel<DomainRegexModel>>
+  : ResolverParentTypeTestBase<BaseDomainModel<DomainRegexModel>, string, DomainRegexModel, DomainItemModel<DomainRegexModel>>
 {
   protected override IResolver<BaseDomainModel<DomainRegexModel>> Resolver { get; }
     = new ResolverDomainType<DomainRegexModel>();

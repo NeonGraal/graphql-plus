@@ -7749,6 +7749,8 @@ Success
   dmnEnumAll
   !EL I@034/1044
   enum_dmnEnumAll
+  !EL I@050/1044
+  dmnEnumAllValue
 }
 {
   !Do I@008/1046
@@ -7765,6 +7767,8 @@ Success
   dmnEnumAllDescr
   !EL I@044/1047
   enum_dmnEnumAllDescr
+  !EL I@065/1047
+  dmnEnumAllDescrValue
 }
 {
   !Do I@008/1049
@@ -7780,12 +7784,16 @@ Success
   :( !Tr I@028/1050 PrntDmnEnumAllPrnt )
   !EL I@047/1050
   dmnEnumAllPrnt
+  !EL I@062/1050
+  dmnEnumAllPrntValue
 }
 {
   !En I@006/1051
   PrntDmnEnumAllPrnt
   !EL I@027/1051
   prnt_dmnEnumAllPrnt
+  !EL I@047/1051
+  dmnEnumAllPrntPrnt
 }
 {
   !Do I@008/1053
@@ -7880,6 +7888,8 @@ Success
   enum_dmnEnumUnq
   !EL I@039/1068
   dmnEnumUnq
+  !EL I@050/1068
+  dmnEnumUnqValue
 }
 {
   !En I@006/1069
@@ -7888,6 +7898,8 @@ Success
   dmnEnumUnq
   !EL I@033/1069
   dup_dmnEnumUnq
+  !EL I@048/1069
+  dmnEnumUnqDup
 }
 {
   !Do I@008/1071
@@ -7909,6 +7921,8 @@ Success
   :( !Tr I@028/1072 PrntDmnEnumUnqPrnt )
   !EL I@047/1072
   enum_dmnEnumUnqPrnt
+  !EL I@067/1072
+  dmnEnumUnqPrntValue
 }
 {
   !En I@006/1073
@@ -7917,6 +7931,8 @@ Success
   dmnEnumUnqPrnt
   !EL I@042/1073
   prnt_dmnEnumUnqPrnt
+  !EL I@062/1073
+  dmnEnumUnqPrntPrnt
 }
 {
   !En I@006/1074
@@ -7925,6 +7941,8 @@ Success
   dmnEnumUnqPrnt
   !EL I@041/1074
   dup_dmnEnumUnqPrnt
+  !EL I@060/1074
+  dmnEnumUnqPrntDup
 }
 {
   !Do I@008/1076

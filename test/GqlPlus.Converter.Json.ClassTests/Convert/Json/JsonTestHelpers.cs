@@ -64,14 +64,14 @@ internal static class JsonTestHelpers
     .Surround("{", "}", ",");
 
   internal static string[] AsIndentedList<T>(this T[] values, Func<T?, string[]> mapper, string indent = "  ")
-    => values.Select(mapper).ToArray().Indent(indent).AddComma("[", "]");
+    => values.Select(mapper).Indent(indent).AddComma("[", "]");
   internal static string[] AsIndentedList<T>(this T[] values, Func<T?, string[]> mapper, string listTag, string keyTag = "")
     => new string[][] {
-    [.. values.Select(mapper).ToArray().Indent("  ").AddComma("\"$list\": [", "]")],
+    values.Select(mapper).Indent().AddComma("\"$list\": [", "]"),
     [listTag.Internal(": ")]
     }
     .PrependWith(keyTag, [keyTag.Internal(": ")])
-    .Indent("  ")
+    .Indent()
     .AddComma("{", "}");
 
   internal static string[] AsIndentedMap(this MapPair<string>[] values)
@@ -82,7 +82,7 @@ internal static class JsonTestHelpers
     .Select(v => mapper(v.Value).PrefixFirst(JsonValue(v.Key) + ": ").ToArray())
     .PrependWith(mapTag, [mapTag.Internal(": ")])
     .PrependWith(keyTag, [keyTag.Internal(": ")])
-    .Indent("  ")
+    .Indent()
     .AddComma("{", "}");
 
   internal static string[] AddComma(this IEnumerable<string[]> lines, string open, string close)

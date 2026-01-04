@@ -1,1 +1,1 @@
-b13a533  (HEAD -> all-enum) 2026-01-03 Extend enums used for * tests
+16703d4  (HEAD -> main, origin/main, origin/HEAD) 2026-01-04 Merge pull request #43 from graphql-plus/all-enum

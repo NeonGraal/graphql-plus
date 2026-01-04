@@ -1,0 +1,19 @@
+﻿/* object+Input
+input ObjInp { }
+input ObjInp { }
+*/
+
+// Generated from Schema object+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_Input;
+
+public interface ICmptObjInp
+{
+  public CmptObjInp ObjInp { get; set; }
+}
+
+public interface ICmptObjInpField
+{
+}

@@ -1,0 +1,43 @@
+﻿/* generic-parent-dual+Input
+input GnrcPrntDualInp { :RefGnrcPrntDualInp<AltGnrcPrntDualInp> }
+input RefGnrcPrntDualInp<$ref:_Dual> { | $ref }
+dual AltGnrcPrntDualInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-dual+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_dual_Input;
+
+public interface ICmptGnrcPrntDualInp
+  : ICmptRefGnrcPrntDualInp
+{
+  public CmptGnrcPrntDualInp GnrcPrntDualInp { get; set; }
+}
+
+public interface ICmptGnrcPrntDualInpField
+  : ICmptRefGnrcPrntDualInpField
+{
+}
+
+public interface ICmptRefGnrcPrntDualInp<Tref>
+{
+  public Tref Asref { get; set; }
+  public CmptRefGnrcPrntDualInp RefGnrcPrntDualInp { get; set; }
+}
+
+public interface ICmptRefGnrcPrntDualInpField<Tref>
+{
+}
+
+public interface ICmptAltGnrcPrntDualInp
+{
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcPrntDualInp AltGnrcPrntDualInp { get; set; }
+}
+
+public interface ICmptAltGnrcPrntDualInpField
+{
+  public CmptNumber alt { get; set; }
+}

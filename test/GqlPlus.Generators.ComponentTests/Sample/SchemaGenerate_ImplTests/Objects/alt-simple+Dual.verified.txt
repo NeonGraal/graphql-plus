@@ -1,0 +1,16 @@
+﻿/* alt-simple+Dual
+dual AltSmplDual { | String }
+*/
+
+// Generated from Schema alt-simple+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_simple_Dual;
+
+public class CmptAltSmplDual
+  : ICmptAltSmplDual
+{
+  public CmptString AsString { get; set; }
+  public CmptAltSmplDual AltSmplDual { get; set; }
+}

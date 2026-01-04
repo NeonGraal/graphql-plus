@@ -1,0 +1,20 @@
+﻿/* alt-enum+Dual
+dual AltEnumDual { ! EnumAltEnumDual.altEnumDual }
+enum EnumAltEnumDual { altEnumDual }
+*/
+
+// Generated from Schema alt-enum+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_enum_Dual;
+
+public interface ICmptAltEnumDual
+{
+  public CmptEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
+  public CmptAltEnumDual AltEnumDual { get; set; }
+}
+
+public interface ICmptAltEnumDualField
+{
+}

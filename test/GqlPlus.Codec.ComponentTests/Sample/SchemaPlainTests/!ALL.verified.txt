@@ -1,6 +1,10 @@
 ﻿[_Schema]:aliases.0=Alias
 [_Schema]:aliases.1=Opt1
 [_Schema]:aliases.2=Opt2
+[_Schema]:categories[_Map(_Categories)]:[_Name]cat[_Category]:name=cat
+[_Schema]:categories[_Map(_Categories)]:[_Name]cat[_Category]:output[_TypeRef(_TypeKind)]:name=Cat
+[_Schema]:categories[_Map(_Categories)]:[_Name]cat[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map(_Categories)]:[_Name]cat[_Category]:resolution=[_Resolution]Parallel
 [_Schema]:categories[_Map(_Categories)]:[_Name]ctgr[_Category]:name=ctgr
 [_Schema]:categories[_Map(_Categories)]:[_Name]ctgr[_Category]:output[_TypeRef(_TypeKind)]:name=Ctgr
 [_Schema]:categories[_Map(_Categories)]:[_Name]ctgr[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
@@ -58,6 +62,10 @@
 [_Schema]:categories[_Map(_Categories)]:[_Name]descrBtwn[_Category]:output[_TypeRef(_TypeKind)]:name=DescrBtwn
 [_Schema]:categories[_Map(_Categories)]:[_Name]descrBtwn[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
 [_Schema]:categories[_Map(_Categories)]:[_Name]descrBtwn[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:categories[_Map(_Categories)]:[_Name]op[_Category]:name=op
+[_Schema]:categories[_Map(_Categories)]:[_Name]op[_Category]:output[_TypeRef(_TypeKind)]:name=Op
+[_Schema]:categories[_Map(_Categories)]:[_Name]op[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map(_Categories)]:[_Name]op[_Category]:resolution=[_Resolution]Parallel
 [_Schema]:directives[_Map(_Directives)]:[_Name]Drct[_Directive]:locations[_Set(_Location)]:Inline=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]Drct[_Directive]:locations[_Set(_Location)]:Spread=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]Drct[_Directive]:name=Drct
@@ -156,6 +164,16 @@
 [_Schema]:errors[_Errors].11[_Error]:_kind=[_TokenKind]End
 [_Schema]:errors[_Errors].11[_Error]:_message="In PrntDualOutp can't get model for type 'RefPrntDualOutp'"
 [_Schema]:name=Schema
+[_Schema]:operations[_Map(_Operations)]:[_Name]Op[_Operations]:operation[_Operation]:category=cat
+[_Schema]:operations[_Map(_Operations)]:[_Name]Op[_Operations]:operation[_Operation]:name=Op
+[_Schema]:operations[_Map(_Operations)]:[_Name]Op[_Operations]:operation[_Operation]:operation=TBC
+[_Schema]:operations[_Map(_Operations)]:[_Name]Op[_Operations]:type[_TypeOutput]:name=Op
+[_Schema]:operations[_Map(_Operations)]:[_Name]Op[_Operations]:type[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:aliases.0=Op1
+[_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:aliases.1=Op2
+[_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:category=op
+[_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:name=Operation
+[_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:operation=TBC
 [_Schema]:settings[_Map(_Setting)]:[_Name]descr[_Setting]:description='Option Descr'
 [_Schema]:settings[_Map(_Setting)]:[_Name]descr[_Setting]:name=descr
 [_Schema]:settings[_Map(_Setting)]:[_Name]descr[_Setting]:value=true
@@ -838,6 +856,8 @@
 [_Schema]:types[_Map(_Type)]:[_Name]AltSmplOutp[_TypeOutput]:alternates.0[_Alternate]:type[_ObjBase]:name=String
 [_Schema]:types[_Map(_Type)]:[_Name]AltSmplOutp[_TypeOutput]:name=AltSmplOutp
 [_Schema]:types[_Map(_Type)]:[_Name]AltSmplOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map(_Type)]:[_Name]Cat[_TypeOutput]:name=Cat
+[_Schema]:types[_Map(_Type)]:[_Name]Cat[_TypeOutput]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map(_Type)]:[_Name]CnstAltDmnDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=CnstAltDmnDual
 [_Schema]:types[_Map(_Type)]:[_Name]CnstAltDmnDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=RefCnstAltDmnDual
 [_Schema]:types[_Map(_Type)]:[_Name]CnstAltDmnDual[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=DomCnstAltDmnDual
@@ -4166,6 +4186,8 @@
 [_Schema]:types[_Map(_Type)]:[_Name]ObjPrntOutp[_TypeOutput]:name=ObjPrntOutp
 [_Schema]:types[_Map(_Type)]:[_Name]ObjPrntOutp[_TypeOutput]:parent[_ObjBase]:name=RefObjPrntOutp
 [_Schema]:types[_Map(_Type)]:[_Name]ObjPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map(_Type)]:[_Name]Op[_TypeOutput]:name=Op
+[_Schema]:types[_Map(_Type)]:[_Name]Op[_TypeOutput]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map(_Type)]:[_Name]OutpDescrParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:description='Test Descr'
 [_Schema]:types[_Map(_Type)]:[_Name]OutpDescrParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
 [_Schema]:types[_Map(_Type)]:[_Name]OutpDescrParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=OutpDescrParam

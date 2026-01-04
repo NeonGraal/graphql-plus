@@ -1,1 +1,1 @@
-b13a533  (HEAD -> all-enum) 2026-01-03 Extend enums used for * tests
+544237b  (HEAD -> operation, origin/operation) 2026-01-04 Merge branch 'main' into operation

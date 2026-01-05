@@ -27,7 +27,7 @@ public partial class DataTests
       abbr = abbr[..AbbreviationLength];
     }
 
-    return $"{word} -> {abbr}";
+    return $" [\"{word}\"] = \"{abbr}\", ";
   }
 
   [Fact]

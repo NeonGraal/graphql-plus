@@ -13,10 +13,14 @@ internal class VerifyDomainEnum(
 
     labels.Add(domain, context);
 
-    foreach (EnumLabel[] duplicate in labels.DuplicateLabels()) {
-      string label = duplicate[0].Label;
-      string enums = duplicate.Select(x => x.Enum.Name).Joined();
-      context.AddError(domain, "Domain Enum", $"'{label}' duplicated from these Enums: {enums}");
+    if (labels.AllExcluded) {
+      context.AddError(domain, "Domain Enum", "All labels excluded");
+    } else {
+      foreach (EnumLabel[] duplicate in labels.DuplicateLabels) {
+        string label = duplicate[0].Label;
+        string enums = duplicate.Select(x => x.Enum.Name).Joined();
+        context.AddError(domain, "Domain Enum", $"'{label}' duplicated from these Enums: {enums}");
+      }
     }
   }
 }
@@ -87,14 +91,13 @@ internal class EnumLabels
     }
   }
 
-  internal EnumLabel[][] DuplicateLabels()
-  {
-    IEnumerable<IGrouping<string, EnumLabel>> allLabels = _includes
-      .Except(_excludes)
-      .GroupBy(m => m.Label);
+  internal bool AllExcluded
+    => _excludes.Count > 0 && !_includes.Except(_excludes).Any();
 
-    return [.. allLabels
+  internal EnumLabel[][] DuplicateLabels
+    => [.. _includes
+      .Except(_excludes)
+      .GroupBy(m => m.Label)
       .Where(g => g.Count() != 1)
       .Select(g => g.ToArray())];
-  }
 }

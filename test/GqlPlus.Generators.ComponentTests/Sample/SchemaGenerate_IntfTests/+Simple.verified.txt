@@ -49,6 +49,16 @@ public interface ICmptDmnEnumDescr
 {
 }
 
+public interface ICmptDmnEnumExcl
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumExclPrnt
+  : IDomainEnum
+{
+}
+
 public interface ICmptDmnEnumLabel
   : IDomainEnum
 {

@@ -3957,6 +3957,18 @@ public class testDmnEnumDescr
 {
 }
 
+public class testDmnEnumExcl
+  : DomainEnum
+  , ItestDmnEnumExcl
+{
+}
+
+public class testDmnEnumExclPrnt
+  : DomainEnum
+  , ItestDmnEnumExclPrnt
+{
+}
+
 public class testDmnEnumLabel
   : DomainEnum
   , ItestDmnEnumLabel

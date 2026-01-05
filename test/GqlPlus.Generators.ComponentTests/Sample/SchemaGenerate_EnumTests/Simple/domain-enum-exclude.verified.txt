@@ -1,0 +1,17 @@
+﻿/* domain-enum-exclude
+domain DmnEnumExcl { enum !dmnEnumExcl EnumDmnEnumExcl.* }
+enum EnumDmnEnumExcl { dmnEnumExcl enum_dmnEnumExcl dmnEnumExclValue }
+*/
+
+// Generated from Schema domain-enum-exclude for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_exclude;
+
+public enum CmptEnumDmnEnumExcl
+{
+  dmnEnumExcl,
+  enum_dmnEnumExcl,
+  dmnEnumExclValue,
+}

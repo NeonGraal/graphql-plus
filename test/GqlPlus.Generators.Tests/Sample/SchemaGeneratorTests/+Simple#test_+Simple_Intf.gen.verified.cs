@@ -50,6 +50,16 @@ public interface ItestDmnEnumDescr
 {
 }
 
+public interface ItestDmnEnumExcl
+  : IDomainEnum
+{
+}
+
+public interface ItestDmnEnumExclPrnt
+  : IDomainEnum
+{
+}
+
 public interface ItestDmnEnumLabel
   : IDomainEnum
 {

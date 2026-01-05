@@ -1,1 +1,1 @@
-16703d4  (HEAD -> main, origin/main, origin/HEAD) 2026-01-04 Merge pull request #43 from graphql-plus/all-enum
+295a935  (HEAD -> main, origin/main, origin/HEAD) 2026-01-06 Merge pull request #44 from graphql-plus/enum-domain

@@ -423,6 +423,27 @@ public enum CmptEnumDmnEnumDescr
   dmnEnumDescr,
 }
 
+public enum CmptEnumDmnEnumExcl
+{
+  dmnEnumExcl,
+  enum_dmnEnumExcl,
+  dmnEnumExclValue,
+}
+
+public enum CmptEnumDmnEnumExclPrnt
+{
+  prnt_dmnEnumExclPrnt = PrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
+  dmnEnumExclPrntPrnt = PrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
+  dmnEnumExclPrnt,
+  dmnEnumExclPrntValue,
+}
+
+public enum CmptPrntDmnEnumExclPrnt
+{
+  prnt_dmnEnumExclPrnt,
+  dmnEnumExclPrntPrnt,
+}
+
 public enum CmptEnumDmnEnumLabel
 {
   dmnEnumLabel,

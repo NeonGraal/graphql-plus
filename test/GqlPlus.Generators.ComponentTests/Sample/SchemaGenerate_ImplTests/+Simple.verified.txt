@@ -58,6 +58,18 @@ public class CmptDmnEnumDescr
 {
 }
 
+public class CmptDmnEnumExcl
+  : DomainEnum
+  , ICmptDmnEnumExcl
+{
+}
+
+public class CmptDmnEnumExclPrnt
+  : DomainEnum
+  , ICmptDmnEnumExclPrnt
+{
+}
+
 public class CmptDmnEnumLabel
   : DomainEnum
   , ICmptDmnEnumLabel

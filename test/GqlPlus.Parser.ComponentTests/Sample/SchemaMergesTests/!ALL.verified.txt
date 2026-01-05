@@ -7264,6 +7264,55 @@ Success
 }
 {
   !Do I@008/0001
+  DmnEnumExcl
+  Enum
+  !DE P@027/0001
+  EnumDmnEnumExcl
+  !dmnEnumExcl
+  !DE I@040/0001
+  EnumDmnEnumExcl
+  *
+}
+{
+  !En I@006/0002
+  EnumDmnEnumExcl
+  !EL I@024/0002
+  dmnEnumExcl
+  !EL I@036/0002
+  enum_dmnEnumExcl
+  !EL I@053/0002
+  dmnEnumExclValue
+}
+{
+  !Do I@008/0001
+  DmnEnumExclPrnt
+  Enum
+  !DE I@031/0001
+  EnumDmnEnumExclPrnt
+  *
+  !DE P@053/0001
+  PrntDmnEnumExclPrnt
+  !*
+}
+{
+  !En I@006/0002
+  EnumDmnEnumExclPrnt
+  :( !Tr I@029/0002 PrntDmnEnumExclPrnt )
+  !EL I@049/0002
+  dmnEnumExclPrnt
+  !EL I@065/0002
+  dmnEnumExclPrntValue
+}
+{
+  !En I@006/0003
+  PrntDmnEnumExclPrnt
+  !EL I@028/0003
+  prnt_dmnEnumExclPrnt
+  !EL I@049/0003
+  dmnEnumExclPrntPrnt
+}
+{
+  !Do I@008/0001
   DmnEnumLabel
   Enum
   !DE I@028/0001

@@ -11,6 +11,7 @@ public class VerifyDomainEnumTests
   private readonly DomainBuilder<IGqlpDomainLabel> _domain;
 
   public VerifyDomainEnumTests()
+    : base(DomainKind.Enum)
   {
     _verifier = new VerifyDomainEnum(ItemsMerger.Intf);
 
@@ -160,6 +161,46 @@ public class VerifyDomainEnumTests
     Errors.ShouldNotBeEmpty();
   }
 
+  [Theory, RepeatData]
+  public void Verify_Enum_WithExcludedAll_ReturnsError(string enumName, string enumLabel)
+  {
+    IGqlpEnum enumType = A.Enum(enumName, [enumLabel]);
+    AddTypes(enumType);
+
+    IGqlpDomainLabel label1 = A.DomainLabel(enumName, "*");
+    label1.Excludes.Returns(true);
+
+    _domain.WithItems(label1);
+
+    _verifier.Verify(_domain.AsDomain, _context);
+
+    Errors.ShouldNotBeEmpty();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_Enum_WithExcludedLabel_ReturnsError(string enumName, string enumLabel, string otherLabel)
+  {
+    IGqlpEnum enumType = A.Enum(enumName, [enumLabel, otherLabel]);
+    AddTypes(enumType);
+
+    IGqlpDomainLabel label1 = A.DomainLabel(enumName, "*");
+    label1.Excludes.Returns(true);
+    IGqlpDomainLabel label2 = A.DomainLabel(enumName, enumLabel);
+
+    _domain.WithItems(label1, label2);
+
+    _verifier.Verify(_domain.AsDomain, _context);
+
+    Errors.ShouldNotBeEmpty();
+  }
+
   internal override AstDomainVerifier<IGqlpDomainLabel> NewDomainVerifier()
     => _verifier;
+  internal override IGqlpDomainLabel NewItem()
+  {
+    IGqlpEnum enumType = A.Enum("enum", ["label"]);
+    AddTypes(enumType);
+
+    return A.DomainLabel("enum", "label");
+  }
 }

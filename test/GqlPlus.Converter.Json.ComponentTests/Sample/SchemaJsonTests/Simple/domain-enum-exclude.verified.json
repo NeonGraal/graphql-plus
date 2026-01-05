@@ -1,0 +1,117 @@
+﻿{
+  "$mapTag": "_Schema",
+  "types": {
+    "$mapTag": "_Map(_Type)",
+    "DmnEnumExcl": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainEnum",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumExcl",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "enum_dmnEnumExcl",
+            "name": "EnumDmnEnumExcl",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumExcl",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumExclValue",
+            "name": "EnumDmnEnumExcl",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$value": "Enum",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": true,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "dmnEnumExcl",
+            "name": "EnumDmnEnumExcl",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        },
+        {
+          "$mapTag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$mapTag": "_EnumValue",
+            "label": "*",
+            "name": "EnumDmnEnumExcl",
+            "typeKind": {
+              "$value": "Enum",
+              "$valueTag": "_SimpleKind"
+            }
+          }
+        }
+      ],
+      "name": "DmnEnumExcl",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "EnumDmnEnumExcl": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeEnum",
+      "allItems": [
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "EnumDmnEnumExcl",
+          "name": "dmnEnumExcl"
+        },
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "EnumDmnEnumExcl",
+          "name": "enum_dmnEnumExcl"
+        },
+        {
+          "$mapTag": "_EnumLabel",
+          "enum": "EnumDmnEnumExcl",
+          "name": "dmnEnumExclValue"
+        }
+      ],
+      "items": [
+        {
+          "$mapTag": "_Aliased",
+          "name": "dmnEnumExcl"
+        },
+        {
+          "$mapTag": "_Aliased",
+          "name": "enum_dmnEnumExcl"
+        },
+        {
+          "$mapTag": "_Aliased",
+          "name": "dmnEnumExclValue"
+        }
+      ],
+      "name": "EnumDmnEnumExcl",
+      "typeKind": {
+        "$value": "Enum",
+        "$valueTag": "_TypeKind"
+      }
+    }
+  }
+}

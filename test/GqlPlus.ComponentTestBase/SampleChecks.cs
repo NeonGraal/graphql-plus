@@ -16,6 +16,7 @@ public class SampleChecks
     ["Directive"] = "Drct",
     ["Domain"] = "Dmn",
     ["Double"] = "Dbl",
+    ["Exclude"] = "Excl",
     ["Generic"] = "Gnrc",
     ["Grandparent"] = "Grnd",
     ["Input"] = "Inp",

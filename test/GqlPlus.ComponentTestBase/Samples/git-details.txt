@@ -1,1 +1,1 @@
-b13a533  (HEAD -> all-enum) 2026-01-03 Extend enums used for * tests
+efacc50  (HEAD -> enum-domain) 2026-01-05 Improve Domain Enum specs and samples

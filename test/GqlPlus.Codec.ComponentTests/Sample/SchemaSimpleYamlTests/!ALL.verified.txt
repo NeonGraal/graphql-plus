@@ -1,6 +1,12 @@
 ﻿!_Schema
 aliases: [Alias,Opt1,Opt2]
 categories: !_Map(_Categories)
+  !_Name cat: !_Category
+    name: cat
+    output: !_TypeRef(_TypeKind)
+      name: Cat
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Name ctgr: !_Category
     name: ctgr
     output: !_TypeRef(_TypeKind)
@@ -74,6 +80,12 @@ categories: !_Map(_Categories)
     name: descrBtwn
     output: !_TypeRef(_TypeKind)
       name: DescrBtwn
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      name: Op
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 directives: !_Map(_Directives)
@@ -171,6 +183,20 @@ errors: !_Errors
     _kind: !_TokenKind End
     _message: "In PrntDualOutp can't get model for type 'RefPrntDualOutp'"
 name: Schema
+operations: !_Map(_Operations)
+  !_Name Op: !_Operations
+    operation: !_Operation
+      category: cat
+      name: Op
+      operation: TBC
+    type: !_TypeOutput
+      name: Op
+      typeKind: !_TypeKind Output
+  !_Name Operation: !_Operation
+    aliases: [Op1,Op2]
+    category: op
+    name: Operation
+    operation: TBC
 settings: !_Map(_Setting)
   !_Name descr: !_Setting
     description: 'Option Descr'
@@ -1674,6 +1700,9 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: String
     name: AltSmplOutp
+    typeKind: !_TypeKind Output
+  !_Name Cat: !_TypeOutput
+    name: Cat
     typeKind: !_TypeKind Output
   !_Name CnstAltDmnDual: !_TypeDual
     allAlternates:
@@ -8044,6 +8073,9 @@ types: !_Map(_Type)
     name: ObjPrntOutp
     parent: !_ObjBase
       name: RefObjPrntOutp
+    typeKind: !_TypeKind Output
+  !_Name Op: !_TypeOutput
+    name: Op
     typeKind: !_TypeKind Output
   !_Name OutpDescrParam: !_TypeOutput
     allFields:

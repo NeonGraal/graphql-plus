@@ -1,0 +1,2 @@
+domain Test { enum !Enum.* }
+enum Enum { value single enumValue }

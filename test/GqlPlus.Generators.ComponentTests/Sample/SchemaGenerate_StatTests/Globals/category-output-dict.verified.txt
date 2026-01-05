@@ -1,0 +1,12 @@
+﻿/* category-output-dict
+category { CtgrOutpDict[*] }
+output CtgrOutpDict { }
+*/
+
+// Generated from Schema category-output-dict for Stat
+/*
+
+Category ctgrOutpDict
+*/
+
+namespace Components.Gqlp_Schema_category_output_dict;

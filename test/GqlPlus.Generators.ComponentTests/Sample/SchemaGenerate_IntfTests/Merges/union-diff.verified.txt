@@ -1,0 +1,16 @@
+﻿/* union-diff
+union UnionDiff { Boolean }
+union UnionDiff { Number }
+*/
+
+// Generated from Schema union-diff for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_diff;
+
+public interface ICmptUnionDiff
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+}

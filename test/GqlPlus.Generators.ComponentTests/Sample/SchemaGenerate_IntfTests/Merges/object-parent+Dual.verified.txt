@@ -1,0 +1,31 @@
+﻿/* object-parent+Dual
+dual ObjPrntDual { :RefObjPrntDual }
+dual ObjPrntDual { :RefObjPrntDual }
+dual RefObjPrntDual { }
+*/
+
+// Generated from Schema object-parent+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_parent_Dual;
+
+public interface ICmptObjPrntDual
+  : ICmptRefObjPrntDual
+{
+  public CmptObjPrntDual ObjPrntDual { get; set; }
+}
+
+public interface ICmptObjPrntDualField
+  : ICmptRefObjPrntDualField
+{
+}
+
+public interface ICmptRefObjPrntDual
+{
+  public CmptRefObjPrntDual RefObjPrntDual { get; set; }
+}
+
+public interface ICmptRefObjPrntDualField
+{
+}

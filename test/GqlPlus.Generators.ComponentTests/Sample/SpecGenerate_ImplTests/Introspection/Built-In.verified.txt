@@ -1,0 +1,63 @@
+﻿/* Built-In
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$kind:_ModifierKind> {
+    : _Modifier<$kind>
+        by: _TypeSimple
+        optional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$kind:_ModifierKind> {
+        modifierKind: $kind
+    }
+*/
+
+// Generated from Spec Built-In for Impl
+/*
+*/
+
+namespace Components.Gqlp_Spec_Built_In;
+
+public class Cmpt_Collections
+  : ICmpt_Collections
+{
+  public Cmpt_Modifier<Cmpt_ModifierKind> As_Modifier { get; set; }
+  public Cmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKeyed { get; set; }
+  public Cmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKeyed { get; set; }
+  public Cmpt_Collections _Collections { get; set; }
+}
+
+public class Cmpt_ModifierKeyed<Tkind>
+  : Cmpt_Modifier
+  , ICmpt_ModifierKeyed<Tkind>
+{
+  public Cmpt_TypeSimple by { get; set; }
+  public CmptBoolean optional { get; set; }
+  public Cmpt_ModifierKeyed _ModifierKeyed { get; set; }
+}
+
+public class Cmpt_Modifiers
+  : ICmpt_Modifiers
+{
+  public Cmpt_Modifier<Cmpt_ModifierKind> As_Modifier { get; set; }
+  public Cmpt_Collections As_Collections { get; set; }
+  public Cmpt_Modifiers _Modifiers { get; set; }
+}
+
+public class Cmpt_Modifier<Tkind>
+  : ICmpt_Modifier<Tkind>
+{
+  public Tkind modifierKind { get; set; }
+  public Cmpt_Modifier _Modifier { get; set; }
+}

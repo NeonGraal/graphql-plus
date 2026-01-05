@@ -1,0 +1,25 @@
+﻿/* alt-mod-param+Input
+input AltModParamInp<$mod:String> { | AltAltModParamInp[$mod] }
+input AltAltModParamInp { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-param+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_param_Input;
+
+public class CmptAltModParamInp<Tmod>
+  : ICmptAltModParamInp<Tmod>
+{
+  public IDictionary<Tmod, CmptAltAltModParamInp> AsAltAltModParamInp { get; set; }
+  public CmptAltModParamInp AltModParamInp { get; set; }
+}
+
+public class CmptAltAltModParamInp
+  : ICmptAltAltModParamInp
+{
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltAltModParamInp AltAltModParamInp { get; set; }
+}

@@ -1,0 +1,33 @@
+﻿/* parent-alt+Input
+input PrntAltInp { :RefPrntAltInp | Number }
+input RefPrntAltInp {  parent: Number | String }
+*/
+
+// Generated from Schema parent-alt+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_alt_Input;
+
+public interface ICmptPrntAltInp
+  : ICmptRefPrntAltInp
+{
+  public CmptNumber AsNumber { get; set; }
+  public CmptPrntAltInp PrntAltInp { get; set; }
+}
+
+public interface ICmptPrntAltInpField
+  : ICmptRefPrntAltInpField
+{
+}
+
+public interface ICmptRefPrntAltInp
+{
+  public CmptString AsString { get; set; }
+  public CmptRefPrntAltInp RefPrntAltInp { get; set; }
+}
+
+public interface ICmptRefPrntAltInpField
+{
+  public CmptNumber parent { get; set; }
+}

@@ -1,0 +1,25 @@
+﻿/* alt-mod-Boolean+Output
+output AltModBoolOutp { | AltAltModBoolOutp[^] }
+output AltAltModBoolOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-Boolean+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Output;
+
+public class CmptAltModBoolOutp
+  : ICmptAltModBoolOutp
+{
+  public IDictionary<CmptBoolean, CmptAltAltModBoolOutp> AsAltAltModBoolOutp { get; set; }
+  public CmptAltModBoolOutp AltModBoolOutp { get; set; }
+}
+
+public class CmptAltAltModBoolOutp
+  : ICmptAltAltModBoolOutp
+{
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptAltAltModBoolOutp AltAltModBoolOutp { get; set; }
+}

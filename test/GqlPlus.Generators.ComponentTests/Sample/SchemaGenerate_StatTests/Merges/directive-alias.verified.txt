@@ -1,0 +1,12 @@
+﻿/* directive-alias
+directive @DrctAlias [DirA1] { variable }
+directive @DrctAlias [DirA2] { field }
+*/
+
+// Generated from Schema directive-alias for Stat
+/*
+
+Directive DrctAlias
+*/
+
+namespace Components.Gqlp_Schema_directive_alias;

@@ -1,1 +1,1 @@
-efacc50  (HEAD -> enum-domain) 2026-01-05 Improve Domain Enum specs and samples
+295a935  (HEAD -> main, origin/main, origin/HEAD) 2026-01-06 Merge pull request #44 from graphql-plus/enum-domain

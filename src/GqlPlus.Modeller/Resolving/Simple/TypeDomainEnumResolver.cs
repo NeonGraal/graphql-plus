@@ -29,38 +29,53 @@ internal class TypeDomainEnumResolver
       .Where(i => i.Exclude)
       .ToMap(k => k.EnumValue.Label, v => v.EnumValue.Name);
 
+    RemoveExcludesFromAllItems(allItems, excludes);
+
+    int index = allItems.Count > 0 ? allItems.Max(v => v.Value.Order) : -1;
+    foreach (DomainLabel label in model.Items
+        .Where(i => !i.Exclude)
+        .SelectMany(i => ItemLabels(i, model.Name, ref index, context))) {
+      AddItem(label, allItems, excludes);
+    }
+  }
+
+  private List<DomainLabel> ItemLabels(DomainLabelModel item, string domainName, ref int index, IResolveContext context)
+  {
+    List<DomainLabel> labels = [];
+    if (item.EnumValue.Label == "*") {
+      foreach (EnumValueModel enumLabel in AllLabels(item.EnumValue.Name, context)) {
+        labels.Add(DomainLabel.FromLabel(domainName, enumLabel, item, ++index));
+      }
+    } else {
+      labels.Add(DomainLabel.FromItem(domainName, item, ++index));
+    }
+
+    return labels;
+  }
+
+  private static void AddItem(DomainLabel newItem, Map<DomainLabel> allItems, Map<string> excludes)
+  {
+    if (allItems.ContainsKey(newItem.Label)) {
+      return;
+    }
+
+    if (excludes.TryGetValue(newItem.Label, out string? excludeEnumType)) {
+      if (string.IsNullOrWhiteSpace(excludeEnumType) || newItem.EnumType == excludeEnumType) {
+        return;
+      }
+    }
+
+    allItems.Add(newItem.Label, newItem);
+  }
+
+  private static void RemoveExcludesFromAllItems(Map<DomainLabel> allItems, Map<string> excludes)
+  {
     foreach (MapPair<string> exclude in excludes) {
       if (allItems.TryGetValue(exclude.Key, out DomainLabel existingItem)) {
         if (string.IsNullOrWhiteSpace(exclude.Value) || existingItem.EnumType == exclude.Value) {
           allItems.Remove(exclude.Key);
         }
       }
-    }
-
-    int index = allItems.Count > 0 ? allItems.Max(v => v.Value.Order) : -1;
-    foreach (DomainLabelModel item in model.Items.Where(i => !i.Exclude)) {
-      if (item.EnumValue.Label == "*") {
-        foreach (EnumValueModel enumLabel in AllLabels(item.EnumValue.Name, context)) {
-          AddItem(DomainLabel.FromLabel(model.Name, enumLabel, item, ++index));
-        }
-      } else if (!allItems.ContainsKey(item.EnumValue.Label)) {
-        AddItem(DomainLabel.FromItem(model.Name, item, ++index));
-      }
-    }
-
-    void AddItem(DomainLabel newItem)
-    {
-      if (allItems.ContainsKey(newItem.Label)) {
-        return;
-      }
-
-      if (excludes.TryGetValue(newItem.Label, out string? excludeEnumType)) {
-        if (string.IsNullOrWhiteSpace(excludeEnumType) || newItem.EnumType == excludeEnumType) {
-          return;
-        }
-      }
-
-      allItems.Add(newItem.Label, newItem);
     }
   }
 

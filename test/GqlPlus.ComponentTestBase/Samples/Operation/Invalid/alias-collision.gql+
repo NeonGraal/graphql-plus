@@ -1,0 +1,9 @@
+"""
+Invalid example: alias/response-name collision where the same response name is used for different field shapes.
+Validator should flag conflicting response names with incompatible selections.
+"""
+
+query AliasCollision {
+  person: user(id: "1") { id }
+  person: adminUser(id: "1") { id name }
+}

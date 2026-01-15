@@ -14,16 +14,18 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
 
   public void Verify(UsageIdentified<TUsage, TIdentified> item, IMessages errors)
   {
-    Dictionary<string, TUsage> used = item.Usages.ToDictionary(UsageKey);
+    Dictionary<string, TUsage[]> used = item.Usages.GroupBy(UsageKey).ToDictionary(g => g.Key, g => g.ToArray());
 
     Dictionary<string, TIdentified> defined = item.Definitions.ToDictionary(f => f.Identifier);
 
-    foreach (MapPair<TUsage> use in used) {
+    foreach (MapPair<TUsage[]> use in used) {
       if (!defined.ContainsKey(use.Key)) {
-        errors.Add(use.Value.MakeError($"Invalid {Label} usage. {Label} not defined."));
+        errors.Add(use.Value[0].MakeError($"Invalid {Label} usage. {Label} not defined."));
       }
 
-      usage?.Verify(use.Value, errors);
+      foreach (TUsage value in use.Value) {
+        usage?.Verify(value, errors);
+      }
     }
 
     foreach (MapPair<TIdentified> def in defined) {
@@ -33,7 +35,12 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
 
       definition?.Verify(def.Value, errors);
     }
+
+    VerifyDefinitions(defined, errors);
   }
+
+  protected virtual void VerifyDefinitions(Dictionary<string, TIdentified> defined, IMessages errors)
+  { }
 }
 
 public record class UsageIdentified<TUsage, TIdentified>(IEnumerable<TUsage> Usages, IEnumerable<TIdentified> Definitions)

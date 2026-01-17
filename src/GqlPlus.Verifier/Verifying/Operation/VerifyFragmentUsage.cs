@@ -10,7 +10,7 @@ internal class VerifyFragmentUsage(
   public override string Label => "Spread";
 
   public override string UsageKey(IGqlpSpread item) => item.Identifier;
-  protected override void VerifyDefinitions(Dictionary<string, IGqlpFragment> defined, IMessages errors)
+  protected override void VerifyDefinitions(Map<IGqlpFragment> defined, IMessages errors)
   {
     foreach (MapPair<IGqlpFragment> def in defined) {
       HashSet<string> visited = [];
@@ -20,7 +20,7 @@ internal class VerifyFragmentUsage(
     }
   }
 
-  private bool HasCycle(IGqlpFragment value, Dictionary<string, IGqlpFragment> defined, HashSet<string> visited)
+  private bool HasCycle(IGqlpFragment value, Map<IGqlpFragment> defined, HashSet<string> visited)
   {
     foreach (IGqlpSpread spread in value.Selections.OfType<IGqlpSpread>()) {
       if (visited.Contains(spread.Identifier)) {

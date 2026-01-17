@@ -95,7 +95,7 @@ public class StructureValueTests
 
     int result = value1.CompareTo(value2);
 
-    result.ShouldBe(string.Compare(identifier1, identifier2, StringComparison.Ordinal));
+    result.ShouldBe(identifier1.Compare(identifier2));
   }
 
   [Theory, RepeatData]
@@ -106,7 +106,7 @@ public class StructureValueTests
 
     int result = value1.CompareTo(value2);
 
-    result.ShouldBe(string.Compare(contents1, contents2, StringComparison.Ordinal));
+    result.ShouldBe(contents1.Compare(contents2));
   }
 
   [Theory, RepeatData]

@@ -27,9 +27,9 @@ public sealed class StructureValue
     => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
       ? Apply(
         b => b.CompareTo(other?.Boolean),
-        i => string.Compare(i, other?.Identifier, StringComparison.Ordinal),
+        i => i.Compare(other?.Identifier),
         n => n.CompareTo(other?.Number),
-        t => string.Compare(t, other?.Text, StringComparison.Ordinal),
+        t => t.Compare(other?.Text),
         other?.IsEmpty == true ? 0 : -1
         ) : -1;
 

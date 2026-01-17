@@ -38,7 +38,7 @@ internal sealed record class FieldKeyAst(
     => Apply(
       e => e.CompareTo(other?.EnumValue),
       n => decimal.Compare(n, other?.Number ?? 0),
-      t => string.Compare(t, other?.Text, StringComparison.Ordinal),
+      t => t.Compare(other?.Text),
       -1);
 
   internal override IEnumerable<string?> GetFields()

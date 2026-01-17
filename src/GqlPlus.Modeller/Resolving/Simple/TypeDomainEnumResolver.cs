@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Reflection;
+
 namespace GqlPlus.Resolving.Simple;
 
 internal class TypeDomainEnumResolver
@@ -25,19 +28,26 @@ internal class TypeDomainEnumResolver
       AllItems(allItems, parent, context);
     }
 
-    Map<string> excludes = model.Items
-      .Where(i => i.Exclude)
-      .ToMap(k => k.EnumValue.Label, v => v.EnumValue.Name);
-
+    Map<string> excludes = ExcludeItems(model);
     RemoveExcludesFromAllItems(allItems, excludes);
 
-    int index = allItems.Count > 0 ? allItems.Max(v => v.Value.Order) : -1;
-    foreach (DomainLabel label in model.Items
-        .Where(i => !i.Exclude)
-        .SelectMany(i => ItemLabels(i, model.Name, ref index, context))) {
+    foreach (DomainLabel label in AllLabels(allItems, model, context)) {
       AddItem(label, allItems, excludes);
     }
   }
+
+  private IEnumerable<DomainLabel> AllLabels(Map<DomainLabel> allItems, BaseDomainModel<DomainLabelModel> model, IResolveContext context)
+  {
+    int index = allItems.Count > 0 ? allItems.Max(v => v.Value.Order) : -1;
+    return model.Items
+        .Where(i => !i.Exclude)
+        .SelectMany(i => ItemLabels(i, model.Name, ref index, context));
+  }
+
+  private static Map<string> ExcludeItems(BaseDomainModel<DomainLabelModel> model)
+    => model.Items
+        .Where(i => i.Exclude)
+        .ToMap(k => k.EnumValue.Label, v => v.EnumValue.Name);
 
   private List<DomainLabel> ItemLabels(DomainLabelModel item, string domainName, ref int index, IResolveContext context)
   {

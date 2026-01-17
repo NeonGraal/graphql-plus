@@ -106,20 +106,11 @@ internal class EnumDecoder<T>
     }
 
     if (input.TryGetNumber(out decimal? numValue)) {
-      if (Enum.IsDefined(typeof(T), (int)numValue)) {
-        output = (T)(object)(int)numValue;
-      }
-
-      return Mapped(numValue, output);
+      return MapNumber(out output, numValue.Value);
     }
 
     if (input.TryGetText(out string? strValue)) {
-      if (Enum.TryParse(strValue, out T result)) {
-        output = result;
-        return messages;
-      }
-
-      return messages.Add(TagMsg($"Unable to parse {strValue}").Error());
+      return ParseString(out output, strValue);
     }
 
     if (input.TryGetList(out IEnumerable<IValue>? list)
@@ -128,6 +119,26 @@ internal class EnumDecoder<T>
     }
 
     return messages.Add(TagMsg($"Unable to decode {input}").Error());
+  }
+
+  private IMessages ParseString(out T? output, string strValue)
+  {
+    if (Enum.TryParse(strValue, out T result)) {
+      return Ok(output = result);
+    }
+
+    output = null;
+    return Parsed(strValue, result);
+  }
+
+  private IMessages MapNumber(out T? output, decimal numValue)
+  {
+    output = null;
+    if (Enum.IsDefined(typeof(T), (int)numValue)) {
+      output = (T)(object)(int)numValue;
+    }
+
+    return Mapped(numValue, output);
   }
 }
 

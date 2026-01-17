@@ -10,6 +10,19 @@ internal sealed class ReadJson
   internal Structured? _list;
   internal readonly Dictionary<StructureValue, Structured> Fields = [];
 
+  internal delegate void ReadAction(ref Utf8JsonReader reader);
+  internal Map<ReadAction> _tagActions;
+  public ReadJson()
+    => _tagActions = new()
+    {
+      { "$keyTag", (ref reader) => _keyTag = reader.GetString().IfWhiteSpace() },
+      { "$listTag", (ref reader) => _listTag = reader.GetString().IfWhiteSpace() },
+      { "$mapTag", (ref reader) => _mapTag = reader.GetString().IfWhiteSpace() },
+      { "$valueTag", (ref reader) => _valueTag = reader.GetString().IfWhiteSpace() },
+      { "$value", (ref reader) => _value = ReadValue(ref reader) },
+      { "$list", (ref reader) => _list = ReadList(ref reader) },
+    };
+
   private StructureValue? ReadValue(ref Utf8JsonReader reader)
   => reader.TokenType switch {
     JsonTokenType.Number => new(reader.GetDecimal()),
@@ -38,42 +51,14 @@ internal sealed class ReadJson
       string propertyName = reader.GetString().IfWhiteSpace();
       reader.Read(); // Move to the value
 
-      if (IsTag("keyTag")) {
-        _keyTag = reader.GetString().IfWhiteSpace();
-        continue;
-      }
-
-      if (IsTag("listTag")) {
-        _listTag = reader.GetString().IfWhiteSpace();
-        continue;
-      }
-
-      if (IsTag("mapTag")) {
-        _mapTag = reader.GetString().IfWhiteSpace();
-        continue;
-      }
-
-      if (IsTag("valueTag")) {
-        _valueTag = reader.GetString().IfWhiteSpace();
-        continue;
-      }
-
-      if (IsTag("value")) {
-        _value = ReadValue(ref reader);
-        continue;
-      }
-
-      if (IsTag("list")) {
-        _list = ReadList(ref reader);
+      if (_tagActions.TryGetValue(propertyName, out ReadAction? action)) {
+        action(ref reader);
         continue;
       }
 
       KeyTagResult field = new ReadJson().ReadStructured(ref reader);
 
       Fields.Add(new(propertyName, field.KeyTag), field.Result);
-
-      bool IsTag(string tagName)
-        => propertyName.Equals("$" + tagName, StringComparison.Ordinal);
     }
 
     return Result();

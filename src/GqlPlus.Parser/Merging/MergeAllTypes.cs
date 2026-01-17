@@ -39,6 +39,24 @@ internal class MergeAllTypes(
       .Concat(BuiltIn.Internal.OfType<EnumDeclAst>())
       .Concat(types.OfType<EnumDeclAst>()));
 
+    FixupObjects(types, typeNames, enumValues);
+    FixupEnumDomains(types, enumValues);
+  }
+
+  private static void FixupEnumDomains(IGqlpType[] types, Map<string> enumValues)
+  {
+    foreach (AstDomain<DomainLabelAst, IGqlpDomainLabel> domain in types.OfType<AstDomain<DomainLabelAst, IGqlpDomainLabel>>()) {
+      foreach (DomainLabelAst item in domain.Items.Cast<DomainLabelAst>()) {
+        if (string.IsNullOrEmpty(item.EnumType)
+          && enumValues.TryGetValue(item.EnumItem.IfWhiteSpace(), out string? enumType)) {
+          item.EnumType = enumType;
+        }
+      }
+    }
+  }
+
+  private static void FixupObjects(IGqlpType[] types, HashSet<string> typeNames, Map<string> enumValues)
+  {
     foreach (IGqlpObject output in types.OfType<IGqlpObject>()) {
       foreach (IGqlpAlternate alternate in output.Alternates) {
         FixupType(alternate, typeNames, enumValues);
@@ -53,15 +71,6 @@ internal class MergeAllTypes(
 
         foreach (IGqlpTypeArg argument in field.Type.Args) {
           FixupType(argument, typeNames, enumValues);
-        }
-      }
-    }
-
-    foreach (AstDomain<DomainLabelAst, IGqlpDomainLabel> domain in types.OfType<AstDomain<DomainLabelAst, IGqlpDomainLabel>>()) {
-      foreach (DomainLabelAst item in domain.Items.Cast<DomainLabelAst>()) {
-        if (string.IsNullOrEmpty(item.EnumType)
-          && enumValues.TryGetValue(item.EnumItem.IfWhiteSpace(), out string? enumType)) {
-          item.EnumType = enumType;
         }
       }
     }

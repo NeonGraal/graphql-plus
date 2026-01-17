@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param (
-  [int]$Threshold = 20,
+  [int]$Threshold = 15,
   [switch]$ClassTests = $false,
   $Framework = "10.0"
 )

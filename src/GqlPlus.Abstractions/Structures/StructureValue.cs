@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Structures;
+﻿using System.Xml.Xsl;
+
+namespace GqlPlus.Structures;
 
 #pragma warning disable CA1036 // Override methods on comparable types
 public sealed class StructureValue
@@ -23,12 +25,13 @@ public sealed class StructureValue
 
   public int CompareTo(StructureValue? other)
     => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
-      ? Boolean.BothValued(other?.Boolean) ? Boolean.Value.CompareTo(other.Boolean)
-      : Identifier.BothValued(other?.Identifier) ? string.Compare(Identifier, other.Identifier, StringComparison.Ordinal)
-      : Number.BothValued(other?.Number) ? Number.Value.CompareTo(other.Number)
-      : Text.BothValued(other?.Text) ? string.Compare(Text, other.Text, StringComparison.Ordinal)
-      : 0
-    : -1;
+      ? Apply(
+        b => b.CompareTo(other?.Boolean),
+        i => string.Compare(i, other?.Identifier, StringComparison.Ordinal),
+        n => n.CompareTo(other?.Number),
+        t => string.Compare(t, other?.Text, StringComparison.Ordinal),
+        other?.IsEmpty == true ? 0 : -1
+        ) : -1;
 
   public override bool Equals(object obj) => Equals(obj as StructureValue);
   public bool Equals(StructureValue? other)
@@ -38,21 +41,31 @@ public sealed class StructureValue
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Identifier);
 
-  public string AsString => this switch {
-    { Boolean: not null } => Boolean.Value.TrueFalse(),
-    { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => Identifier,
-    { Number: not null } => $"{Number:0.#####}",
-    { Text: not null } when !string.IsNullOrEmpty(Text) => Text,
-    _ => "",
-  };
+  public string AsString
+    => Apply(
+      b => b.TrueFalse(),
+      i => i,
+      n => $"{n:0.#####}",
+      t => t,
+      ""
+    );
 
   public override string ToString()
     => Tag.Suffixed("!")
-    + this switch {
-      { Boolean: not null } => "B:" + Boolean.Value.TrueFalse(),
-      { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => "I:" + Identifier,
-      { Number: not null } => $"N:{Number:0.#####}",
-      { Text: not null } when !string.IsNullOrEmpty(Text) => "T:" + Text,
-      _ => "E",
+    + Apply(
+      b => "B:" + b.TrueFalse(),
+      i => "I:" + i,
+      n => $"N:{n:0.#####}",
+      t => "T:" + t,
+      "E"
+    );
+
+  private T Apply<T>(Func<bool, T> boolFunc, Func<string, T> idFunc, Func<decimal, T> numFunc, Func<string, T> txtFunc, T empty)
+    => this switch {
+      { Boolean: not null } => boolFunc(Boolean.Value),
+      { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => idFunc(Identifier),
+      { Number: not null } => numFunc(Number.Value),
+      { Text: not null } when !string.IsNullOrEmpty(Text) => txtFunc(Text),
+      _ => empty,
     };
 }

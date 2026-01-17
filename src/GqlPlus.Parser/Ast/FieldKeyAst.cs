@@ -35,25 +35,29 @@ internal sealed record class FieldKeyAst(
   public bool Equals(IGqlpFieldKey? other)
     => CompareTo(other) == 0;
   public int CompareTo(IGqlpFieldKey? other)
-    => this switch {
-      { EnumValue: not null }
-        => EnumValue.CompareTo(other?.EnumValue),
-      { Number: not null }
-        => decimal.Compare(Number.Value, other?.Number ?? 0),
-      { Text: not null } when !string.IsNullOrEmpty(Text)
-        => string.Compare(Text, other?.Text, StringComparison.Ordinal),
-      _ => -1
-    };
+    => Apply(
+      e => e.CompareTo(other?.EnumValue),
+      n => decimal.Compare(n, other?.Number ?? 0),
+      t => string.Compare(t, other?.Text, StringComparison.Ordinal),
+      -1);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Append(this switch {
-        { Number: not null }
-          => Number?.ToString(CultureInfo.InvariantCulture),
-        { EnumValue: not null } when !string.IsNullOrWhiteSpace(EnumValue.EnumValue)
-          => EnumValue.EnumValue,
-        { Text: not null }
-          => $"'{Text}'",
-        _ => null
-      });
+      .Append(Apply(
+        e => e.EnumValue,
+        n => n.ToString(CultureInfo.InvariantCulture),
+        t => $"'{t}'",
+        null));
+
+  private T Apply<T>(
+    Func<IGqlpEnumValue, T> enumFunc,
+    Func<decimal, T> numberFunc,
+    Func<string, T> textFunc,
+    T empty)
+    => this switch {
+      { EnumValue: not null } when !string.IsNullOrWhiteSpace(EnumValue.EnumValue) => enumFunc(EnumValue),
+      { Number: not null } => numberFunc(Number.Value),
+      { Text: not null } when !string.IsNullOrEmpty(Text) => textFunc(Text),
+      _ => empty
+    };
 }

@@ -6,11 +6,6 @@ public class Structured
   : ComplexValue<StructureValue, Structured>
   , IEquatable<Structured>
 {
-  public bool IsEmpty
-    => List.Count == 0
-    && Map.Count == 0
-    && (Value?.IsEmpty ?? true);
-
   public bool Flow { get; }
 
   public static Structured Empty(string? tag = null) => new(default(string), tag);

@@ -41,15 +41,15 @@ internal sealed record class SchemaAst(
     public int Compare(IGqlpDeclaration? x, IGqlpDeclaration? y)
     {
       if (x is null || y is null) {
-        return -1;
+        return x is null ? y is null ? 0 : -1 : 1;
       }
 
-      int label = string.Compare(x.Label, y.Label, StringComparison.Ordinal);
+      int label = x.Label.Compare(y.Label);
       if (label != 0) {
         return label;
       }
 
-      return string.Compare(x.Name, y.Name, StringComparison.Ordinal);
+      return x.Name.Compare(y.Name);
     }
   }
 }

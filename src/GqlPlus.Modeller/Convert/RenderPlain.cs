@@ -26,27 +26,34 @@ public static class RenderPlain
     string tag = string.Empty;
 
     foreach (IGrouping<LineKey, string> group in groups) {
-      tag = group.Key.Tag;
-      if (group.Key.Type == ':') {
-        StructureValue key = ReadValue(group.Key.Key);
-        Structured value = ReadStructure(group);
-        fields[key] = value;
-      } else if (group.Key.Type == '.') {
-        Structured value = ReadStructure(group);
-        while (items.Count <= group.Key.Index) {
-          items.Add(Structured.Empty(tag));
-        }
-
-        items[group.Key.Index!.Value] = value;
-      } else if (group.Key.Type == '=') {
-        result = ReadValue(group.First());
-      }
+      tag = ReadLineGroup(ref result, items, fields, group);
     }
 
     return items.Count > 0 ? new(items) { Tag = tag }
     : fields.Count > 0 ? new(fields) { Tag = tag }
     : result is null ? Structured.Empty(tag)
     : new(result);
+  }
+
+  private static string ReadLineGroup(ref StructureValue? result, List<Structured> items, Dictionary<StructureValue, Structured> fields, IGrouping<LineKey, string> group)
+  {
+    string tag = group.Key.Tag;
+    if (group.Key.Type == ':') {
+      StructureValue key = ReadValue(group.Key.Key);
+      Structured value = ReadStructure(group);
+      fields[key] = value;
+    } else if (group.Key.Type == '.') {
+      Structured value = ReadStructure(group);
+      while (items.Count <= group.Key.Index) {
+        items.Add(Structured.Empty(tag));
+      }
+
+      items[group.Key.Index!.Value] = value;
+    } else if (group.Key.Type == '=') {
+      result = ReadValue(group.First());
+    }
+
+    return tag;
   }
 
   private static readonly Regex s_tag = new(@"^\[([^\]]+)\]", RegexOptions.Compiled);

@@ -9,9 +9,9 @@ public class JsonStructureIndentedTagTests()
   protected override string KeyTag => "key";
 
   protected override string[] Expected_List(string[] value)
-    => value.AsIndentedList(
-      ValueTag.AsIndentedValue(""),
-      listTag: ListTag.JsonValue());
+    => value.AsInnerList(
+      ValueTag.AsUnindentedValue("", ", "),
+      listTag: ListTag.JsonValue(), by: ", ");
 
   protected override string[] Expected_Map(MapPair<string>[] value)
     => value.AsIndentedMap(
@@ -20,17 +20,18 @@ public class JsonStructureIndentedTagTests()
 
   protected override string[] Expected_ListOfLists(string[][] value)
     => value.AsIndentedList(
-      v => v!.AsIndentedList(
-        ValueTag.AsIndentedValue(" "),
-        listTag: ListTag.JsonValue()),
+      v => v!.AsInnerList(
+        ValueTag.AsUnindentedValue("", ", "),
+        listTag: ListTag.JsonValue(), by: ", "),
       listTag: ListTag.JsonValue());
 
   protected override string[] Expected_MapOfLists(MapPair<string[]>[] value)
     => value.AsIndentedMap(
-      v => v!.AsIndentedList(
-        ValueTag.AsIndentedValue(" "),
+      v => v!.AsInnerList(
+      ValueTag.AsUnindentedValue("", ", "),
         listTag: ListTag.JsonValue(),
-        keyTag: KeyTag.JsonValue()),
+        keyTag: KeyTag.JsonValue(),
+        by: ", "),
       mapTag: MapTag.JsonValue());
 
   protected override string[] Expected_ListOfMaps(MapPair<string>[][] value)

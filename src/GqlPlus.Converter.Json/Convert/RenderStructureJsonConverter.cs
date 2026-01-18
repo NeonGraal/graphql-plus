@@ -62,6 +62,19 @@ internal sealed class RenderStructureJsonConverter
   private void WriteList(Utf8JsonWriter writer, IList<Structured> list, string listTag, string keyTag = "")
   {
     if (string.IsNullOrWhiteSpace(listTag) && string.IsNullOrWhiteSpace(keyTag)) {
+      WriteFlowList();
+      return;
+    }
+
+    writer.WriteStartObject();
+    WriteTag(writer, keyTag, "keyTag");
+    writer.WritePropertyName("$list");
+    WriteFlowList();
+    WriteTag(writer, listTag, "listTag");
+    writer.WriteEndObject();
+
+    void WriteFlowList()
+    {
       if (list.All(i => i.Value is not null)) {
         string result = JsonSerializer.Serialize(list, RenderJson.Unindented);
         writer.WriteRawValue(result.Replace(",", ", "));
@@ -69,15 +82,7 @@ internal sealed class RenderStructureJsonConverter
       }
 
       WriteList(writer, list);
-      return;
     }
-
-    writer.WriteStartObject();
-    WriteTag(writer, keyTag, "keyTag");
-    writer.WritePropertyName("$list");
-    WriteList(writer, list);
-    WriteTag(writer, listTag, "listTag");
-    writer.WriteEndObject();
   }
   private void WriteList(Utf8JsonWriter writer, IList<Structured> list)
   {

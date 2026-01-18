@@ -116,19 +116,7 @@ internal class AstObjectVerifier<TObjField>(
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     validKinds ??= context.FieldKinds;
     if (context.GetType(typeName, out IGqlpDescribed? definition)) {
-      if (definition is IGqlpTypeParam typeParam) {
-        if (!context.GetType(typeParam.Constraint, out definition)) {
-          error($"Invalid Constraint for {typeParam.Name} on", $"'{typeParam.Constraint}' not defined", check);
-        }
-      } else {
-        CheckTypeArgs(error, context, reference, definition);
-      }
-
-      if (definition is IGqlpTypeSpecial specialType) {
-        error("Invalid Kind for", $"{specialType.Name} not one of [{string.Join(",", validKinds)}]", !specialType.MatchesKindSpecial(validKinds));
-      } else if (definition is IGqlpType typeDef) {
-        error("Invalid Kind for", $"{typeDef.Kind}({typeDef.Name}) not one of [{string.Join(",", validKinds)}]", !validKinds.Contains(typeDef.Kind));
-      }
+      CheckTypeDefinition(error, context, reference, validKinds, check, definition);
     } else {
       error("Invalid reference on ", $"'{typeName}' not defined", check);
 
@@ -138,6 +126,23 @@ internal class AstObjectVerifier<TObjField>(
     }
 
     return context;
+  }
+
+  private void CheckTypeDefinition(CheckError error, ObjectContext context, IGqlpObjType reference, HashSet<TypeKind> validKinds, bool check, IGqlpDescribed? definition)
+  {
+    if (definition is IGqlpTypeParam typeParam) {
+      if (!context.GetType(typeParam.Constraint, out definition)) {
+        error($"Invalid Constraint for {typeParam.Name} on", $"'{typeParam.Constraint}' not defined", check);
+      }
+    } else {
+      CheckTypeArgs(error, context, reference, definition);
+    }
+
+    if (definition is IGqlpTypeSpecial specialType) {
+      error("Invalid Kind for", $"{specialType.Name} not one of [{string.Join(",", validKinds)}]", !specialType.MatchesKindSpecial(validKinds));
+    } else if (definition is IGqlpType typeDef) {
+      error("Invalid Kind for", $"{typeDef.Kind}({typeDef.Name}) not one of [{string.Join(",", validKinds)}]", !validKinds.Contains(typeDef.Kind));
+    }
   }
 
   private void CheckArgsTypes(CheckError error, ObjectContext context, IGqlpObjBase reference)

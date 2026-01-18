@@ -1,8 +1,4 @@
-﻿
-using System;
-using System.Reflection;
-
-namespace GqlPlus.Resolving.Simple;
+﻿namespace GqlPlus.Resolving.Simple;
 
 internal class TypeDomainEnumResolver
   : ResolverChildType<BaseDomainModel<DomainLabelModel>, TypeRefModel<SimpleKindModel>>
@@ -106,7 +102,7 @@ internal class TypeDomainEnumResolver
 
   private record struct DomainLabel(string Domain, string Label, int Order, bool Excluded, string EnumType, string LabelDescription, string ItemDescription)
   {
-    static internal DomainLabel FromLabel(string domain, EnumValueModel enumLabel, DomainLabelModel item, int index)
+    internal static DomainLabel FromLabel(string domain, EnumValueModel enumLabel, DomainLabelModel item, int index)
       => new(domain,
       enumLabel.Label,
       index,
@@ -114,7 +110,7 @@ internal class TypeDomainEnumResolver
       enumLabel.Name,
       enumLabel.Description,
       item.Description);
-    static internal DomainLabel FromItem(string domain, DomainLabelModel item, int index)
+    internal static DomainLabel FromItem(string domain, DomainLabelModel item, int index)
       => new(domain,
       item.EnumValue.Label,
       index,

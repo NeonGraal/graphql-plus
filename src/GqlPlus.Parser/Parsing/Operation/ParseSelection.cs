@@ -42,7 +42,7 @@ internal class ParseSelection(
         OnType = onType,
       };
       directives.Optional(directives => selection.Directives = [.. directives]);
-      return selection as IGqlpSelection;
+      return selection;
     };
 
   private IResult<IGqlpSelection>? ParseTypeOrSpread(ITokenizer tokens, TokenAt at, ref string? onType)

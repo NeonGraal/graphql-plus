@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-
-namespace GqlPlus.Convert.SimpleYaml;
+﻿namespace GqlPlus.Convert.SimpleYaml;
 
 public class SimpleYamlStructureFlowTagTests()
   : StructureConvertToTestsBase(SimpleYamlTestHelpers.Converters)

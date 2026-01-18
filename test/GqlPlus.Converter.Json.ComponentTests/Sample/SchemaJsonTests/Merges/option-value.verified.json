@@ -8,10 +8,7 @@
       "$mapTag": "_Setting",
       "name": "merged",
       "value": {
-        "$list": [
-          true,
-          0
-        ],
+        "$list": [true, 0],
         "$listTag": "_ConstantList"
       }
     }

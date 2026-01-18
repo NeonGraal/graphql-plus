@@ -68,11 +68,10 @@ internal class ParseTypeArgs
 
   private static string ParseArgName(ITokenizer tokens)
   {
-    bool hasName = tokens.Identifier(out string? name);
-    if (!hasName) {
-      if (hasName = tokens.TakeZero()) {
+    if (!tokens.Identifier(out string? name)) {
+      if (tokens.TakeZero()) {
         name = "0";
-      } else if (hasName = tokens.TakeAny(out char simple, '^', '*', '_')) {
+      } else if (tokens.TakeAny(out char simple, '^', '*', '_')) {
         name = $"{simple}";
       }
     }

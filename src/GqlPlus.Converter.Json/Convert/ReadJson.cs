@@ -11,9 +11,9 @@ internal sealed class ReadJson
   internal readonly Dictionary<StructureValue, Structured> Fields = [];
 
   internal delegate void ReadAction(ref Utf8JsonReader reader);
-  internal Map<ReadAction> _tagActions;
+  internal readonly Map<ReadAction> TagActions;
   public ReadJson()
-    => _tagActions = new()
+    => TagActions = new()
     {
       { "$keyTag", (ref reader) => _keyTag = reader.GetString().IfWhiteSpace() },
       { "$listTag", (ref reader) => _listTag = reader.GetString().IfWhiteSpace() },
@@ -51,7 +51,7 @@ internal sealed class ReadJson
       string propertyName = reader.GetString().IfWhiteSpace();
       reader.Read(); // Move to the value
 
-      if (_tagActions.TryGetValue(propertyName, out ReadAction? action)) {
+      if (TagActions.TryGetValue(propertyName, out ReadAction? action)) {
         action(ref reader);
         continue;
       }

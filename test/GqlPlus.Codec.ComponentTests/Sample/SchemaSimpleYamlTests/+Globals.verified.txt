@@ -1,6 +1,12 @@
 ﻿!_Schema
 aliases: [Alias]
 categories: !_Map(_Categories)
+  !_Name cat: !_Category
+    name: cat
+    output: !_TypeRef(_TypeKind)
+      name: Cat
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Name ctgrDscrs: !_Category
     description: 'A Category described'
     name: ctgrDscrs
@@ -90,6 +96,11 @@ directives: !_Map(_Directives)
         name: InDrctParamOpt
     repeatable: false
 name: Schema
+operations: !_Map(_Operations)
+  !_Name Op: !_Operation
+    category: cat
+    name: Op
+    operation: TBC
 settings: !_Map(_Setting)
   !_Name descr: !_Setting
     description: 'Option Descr'
@@ -99,6 +110,9 @@ settings: !_Map(_Setting)
     name: global
     value: true
 types: !_Map(_Type)
+  !_Name Cat: !_TypeOutput
+    name: Cat
+    typeKind: !_TypeKind Output
   !_Name CtgrDscrs: !_TypeOutput
     name: CtgrDscrs
     typeKind: !_TypeKind Output

@@ -70,7 +70,7 @@ public partial class EnumValueAstTests
   {
     EnumValueAst left = CreateEnumValue(label1);
     EnumValueAst right = CreateEnumValue(label2);
-    int expected = string.Compare(label1, label2, StringComparison.Ordinal);
+    int expected = label1.Compare(label2);
 
     left.CompareTo(right).ShouldBe(expected);
   }
@@ -80,7 +80,7 @@ public partial class EnumValueAstTests
   {
     EnumValueAst left = CreateEnumValue(type, label1);
     EnumValueAst right = CreateEnumValue(type, label2);
-    int expected = string.Compare(type + "." + label1, type + "." + label2, StringComparison.Ordinal);
+    int expected = (type + "." + label1).Compare(type + "." + label2);
 
     left.CompareTo(right).ShouldBe(expected);
   }
@@ -90,7 +90,7 @@ public partial class EnumValueAstTests
   {
     EnumValueAst left = CreateEnumValue(type1, label);
     EnumValueAst right = CreateEnumValue(type2, label);
-    int expected = string.Compare(type1 + "." + label, type2 + "." + label, StringComparison.Ordinal);
+    int expected = (type1 + "." + label).Compare(type2 + "." + label);
 
     left.CompareTo(right).ShouldBe(expected);
   }

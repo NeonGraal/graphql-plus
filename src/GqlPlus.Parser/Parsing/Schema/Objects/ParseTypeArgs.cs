@@ -36,29 +36,14 @@ internal class ParseTypeArgs
   private static IResult<TypeArgAst> ParseObjectArg(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
-    if (!tokens.Prefix('$', out string? param, out TokenAt at)) {
-      return tokens.Error<TypeArgAst>(label, "identifier after '$'");
+    IResult<TypeArgAst>? value = ParseParameterArg(tokens, label, description);
+    if (value is not null) {
+      return value;
     }
 
-    if (!string.IsNullOrWhiteSpace(param)) {
-      TypeArgAst objType = new(at, param!, description) {
-        IsTypeParam = true,
-      };
-      return objType.Ok();
-    }
-
-    at = tokens.At;
-
-    bool hasName = tokens.Identifier(out string? name);
-    if (!hasName) {
-      if (hasName = tokens.TakeZero()) {
-        name = "0";
-      } else if (hasName = tokens.TakeAny(out char simple, '^', '*', '_')) {
-        name = $"{simple}";
-      }
-    }
-
-    if (!hasName) {
+    TokenAt at = tokens.At;
+    string name = ParseArgName(tokens);
+    if (string.IsNullOrWhiteSpace(name)) {
       return default(TypeArgAst).Empty();
     }
 
@@ -79,5 +64,35 @@ internal class ParseTypeArgs
     }
 
     return argument.Ok();
+  }
+
+  private static string ParseArgName(ITokenizer tokens)
+  {
+    bool hasName = tokens.Identifier(out string? name);
+    if (!hasName) {
+      if (hasName = tokens.TakeZero()) {
+        name = "0";
+      } else if (hasName = tokens.TakeAny(out char simple, '^', '*', '_')) {
+        name = $"{simple}";
+      }
+    }
+
+    return name.IfWhiteSpace();
+  }
+
+  private static IResult<TypeArgAst>? ParseParameterArg(ITokenizer tokens, string label, string description)
+  {
+    if (!tokens.Prefix('$', out string? param, out TokenAt at)) {
+      return tokens.Error<TypeArgAst>(label, "identifier after '$'");
+    }
+
+    if (!string.IsNullOrWhiteSpace(param)) {
+      TypeArgAst objType = new(at, param!, description) {
+        IsTypeParam = true,
+      };
+      return objType.Ok();
+    }
+
+    return null;
   }
 }

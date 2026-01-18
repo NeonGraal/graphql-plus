@@ -28,6 +28,11 @@ public static class RenderSimpleYaml
       result = [.. WriteMap(item.Tag, item.Map)];
     }
 
+    return WriteStructureFlow(item, result);
+  }
+
+  private static string[] WriteStructureFlow(Structured item, string[] result)
+  {
     if (item.Flow) {
       int maxLength = MaxLineLength * 3 / 2;
       int totalLength = 0;
@@ -41,8 +46,7 @@ public static class RenderSimpleYaml
       StringBuilder flow = new();
       WriteFlowStructure(flow, item);
 
-      maxLength = MaxLineLength;
-      if (flow.Length > 0 && flow.Length < maxLength) {
+      if (flow.Length is > 0 and < MaxLineLength) {
         result = [flow.ToString()];
         flow.Clear();
       }

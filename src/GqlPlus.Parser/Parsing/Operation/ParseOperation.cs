@@ -37,55 +37,76 @@ internal class ParseOperation(
 
     OperationAst ast = ParseCategory(tokens);
 
-    IResultArray<IGqlpVariable> variables = _variables.Parse(tokens, label);
-    if (!variables.Optional(value => ast.Variables = [.. value])) {
-      return variables.AsPartial(Final());
+    IResult<IGqlpOperation>? value = ErrorParsingStart(tokens, label, ast);
+    if (value is not null) {
+      return value;
     }
 
-    _directives.Parse(tokens, label).Required(directives => ast.Directives = [.. directives]);
-
-    _startFragments.I.Parse(tokens, label).WithResult(value => ast.Fragments = [.. value]);
-    if (!tokens.Prefix(':', out string? result, out _)) {
-      return tokens.Partial(label, "identifier to follow ':'", Final);
+    value = ErrorParsingResult(tokens, label, ast);
+    if (value is not null) {
+      return value;
     }
 
-    if (!string.IsNullOrWhiteSpace(result)) {
-      ast.ResultType = result;
-      IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");
-      if (!argument.Optional(value => ast.Arg = value)) {
-        return argument.AsPartial(Final());
-      }
-    } else if (!_object.Parse(tokens, label).Required(selections => ast.ResultObject = [.. selections])) {
-      return tokens.Partial(label, "Object or Type", Final);
-    }
-
-    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
-
-    if (modifiers.IsError()) {
-      return modifiers.AsPartial(Final());
-    }
-
-    modifiers.WithResult(value => ast.Modifiers = [.. value]);
     _endFragments.I.Parse(tokens, label).WithResult(value =>
       ast.Fragments = [.. ast.Fragments.Concat(value)]);
 
     if (tokens.AtEnd) {
       ast.Result = ParseResultKind.Success;
     } else {
-      return tokens.Partial(label, "no more text", Final);
+      return tokens.Partial(label, "no more text", () => Final(tokens, ast));
     }
 
-    return Final().Ok();
-
-    IGqlpOperation Final()
-      => tokens is IOperationContext context
-          ? ast with {
-            Errors = tokens.Errors,
-            Usages = [.. context.Variables],
-            Spreads = [.. context.Spreads],
-          }
-          : ast with { Errors = tokens.Errors, };
+    return Final(tokens, ast).Ok();
   }
+
+  private IResult<IGqlpOperation>? ErrorParsingResult(ITokenizer tokens, string label, OperationAst ast)
+  {
+    if (!tokens.Prefix(':', out string? result, out _)) {
+      return tokens.Partial(label, "identifier to follow ':'", () => Final(tokens, ast));
+    }
+
+    if (!string.IsNullOrWhiteSpace(result)) {
+      ast.ResultType = result;
+      IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");
+      if (!argument.Optional(arg => ast.Arg = arg)) {
+        return argument.AsPartial(Final(tokens, ast));
+      }
+    } else if (!_object.Parse(tokens, label).Required(selections => ast.ResultObject = [.. selections])) {
+      return tokens.Partial(label, "Object or Type", () => Final(tokens, ast));
+    }
+
+    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
+
+    if (modifiers.IsError()) {
+      return modifiers.AsPartial(Final(tokens, ast));
+    }
+
+    modifiers.WithResult(mods => ast.Modifiers = [.. mods]);
+
+    return null;
+  }
+
+  private IResult<IGqlpOperation>? ErrorParsingStart(ITokenizer tokens, string label, OperationAst ast)
+  {
+    IResultArray<IGqlpVariable> variables = _variables.Parse(tokens, label);
+    if (!variables.Optional(vars => ast.Variables = [.. vars])) {
+      return variables.AsPartial(Final(tokens, ast));
+    }
+
+    _directives.Parse(tokens, label).Required(directives => ast.Directives = [.. directives]);
+
+    _startFragments.I.Parse(tokens, label).WithResult(frags => ast.Fragments = [.. frags]);
+    return null;
+  }
+
+  private static IGqlpOperation Final(ITokenizer tokens, OperationAst ast)
+    => tokens is IOperationContext context
+      ? ast with {
+        Errors = tokens.Errors,
+        Usages = [.. context.Variables],
+        Spreads = [.. context.Spreads],
+      }
+      : ast with { Errors = tokens.Errors, };
 
   private static OperationAst ParseCategory(ITokenizer tokens)
 

@@ -24,23 +24,17 @@ internal class ParseDomainRange(
 
     if (isUpper) {
       range = value with { Upper = min };
-      return hasLower
-        ? range.Ok()
-        : tokens.Error(label, "upper bound after '<'", range);
+      return LowerOr(() => tokens.Error(label, "upper bound after '<'", range));
     }
 
     range = value = value with { Lower = min };
     if (tokens.Take('>')) {
-      return hasLower
-        ? range.Ok()
-        : tokens.Error(label, "lower bound before '>'", range);
+      return LowerOr(() => tokens.Error(label, "lower bound before '>'", range));
     }
 
     if (!tokens.Take('~')) {
       range = value with { Upper = min };
-      return hasLower
-        ? range.Ok()
-        : range.Empty();
+      return LowerOr(() => range.Empty());
     }
 
     if (!hasLower) {
@@ -52,6 +46,11 @@ internal class ParseDomainRange(
     return hasUpper
       ? range.Ok()
       : tokens.Error(label, "upper bound after '~'", range);
+
+    IResult<IGqlpDomainRange> LowerOr(Func<IResult<IGqlpDomainRange>> error)
+      => hasLower
+        ? range.Ok()
+        : error();
   }
 
   protected override void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, IGqlpDomainRange[] items)

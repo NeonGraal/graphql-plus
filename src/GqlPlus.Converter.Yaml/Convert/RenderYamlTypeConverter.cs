@@ -52,14 +52,13 @@ internal class RenderYamlTypeConverter
         WriteList(emitter, type, model, plainImplicit, tag, serializer);
       } else if (model.Map.Count > 0) {
         WriteMap(emitter, model, plainImplicit, tag, serializer);
-      } else if (model.Value is not null) {
+      } else if (model.Value?.IsEmpty == false) {
         WriteValue(emitter, model.Value, model.Tag);
       } else {
-
         if (string.IsNullOrWhiteSpace(model.Tag)) {
           emitter.Emit(new Scalar(""));
         } else {
-          emitter.Emit(new Scalar(default, model.Tag, string.Empty, ScalarStyle.Any, false, false));
+          emitter.Emit(new Scalar(default, "!" + model.Tag, string.Empty, ScalarStyle.Any, false, false));
         }
       }
     }

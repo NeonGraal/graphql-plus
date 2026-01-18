@@ -30,7 +30,7 @@ internal sealed record class EnumValueAst(
       && Type.NullEqual(other.EnumType)
       && Label.Equals(other.EnumLabel, StringComparison.Ordinal);
   public int CompareTo(IGqlpEnumValue? other)
-    => string.Compare(EnumValue, other?.EnumValue, StringComparison.Ordinal);
+    => EnumValue.Compare(other?.EnumValue);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

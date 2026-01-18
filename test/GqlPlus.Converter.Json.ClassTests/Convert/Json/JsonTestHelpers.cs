@@ -19,18 +19,18 @@ internal static class JsonTestHelpers
       .JsonValue()
       .WithValue(value, ":")
       .Surround("{", "}", "");
-  internal static Func<string?, string> AsUnindentedValue(this string tag, string by = " ")
+  internal static Func<string?, string> AsUnindentedValue(this string tag, string by = " ", string suffix = ",")
     => value => tag
       .JsonValue()
-      .WithValue(value.JsonValue(), ":")
+      .WithValue(value.JsonValue(), ":", suffix)
       .Surround("{", "}", by);
   internal static Func<string?, string> AsKeyTaggedValue(this string tag, string keyTag)
     => value => tag
       .WithValue(value.JsonValue(), ":")
       .Prepend(keyTag.Internal(suffix: ","))
       .Surround("{", "}", "");
-  internal static string[] WithValue(this string valueTag, string? value, string sep)
-    => [value.Internal(sep, ","), valueTag.Internal(sep)];
+  internal static string[] WithValue(this string valueTag, string? value, string sep, string suffix = ",")
+    => [value.Internal(sep, suffix), valueTag.Internal(sep)];
   internal static string[] WithIndentedValue(this string tag, string? value)
     => ["{", .. tag.JsonValue().WithValue(value, ": ").Indent(), "}"];
   internal static Func<string?, string[]> AsIndentedValue(this string tag, string keyTag)
@@ -48,8 +48,8 @@ internal static class JsonTestHelpers
     => values.AsUnindentedList(JsonValue, ", ");
   internal static string AsUnindentedList<T>(this T[] values, Func<T?, string> mapper, string by = ",")
     => values.Surround("[", "]", mapper, by);
-  internal static string AsUnindentedList<T>(this T[] values, Func<T?, string> mapper, string listTag, string keyTag = "")
-    => new string[] { "\"$list\":" + values.AsUnindentedList(mapper), listTag.Internal() }
+  internal static string AsUnindentedList<T>(this T[] values, Func<T?, string> mapper, string listTag, string keyTag = "", string by = ",")
+    => new string[] { "\"$list\":" + values.AsUnindentedList(mapper, by), listTag.Internal() }
       .PrependWith(keyTag, keyTag.Internal())
       .RemoveEmpty().Surround("{", "}", ",");
 
@@ -70,6 +70,12 @@ internal static class JsonTestHelpers
     values.Select(mapper).Indent().AddComma("\"$list\": [", "]"),
     [listTag.Internal(": ")]
     }
+    .PrependWith(keyTag, [keyTag.Internal(": ")])
+    .Indent()
+    .AddComma("{", "}");
+
+  internal static string[] AsInnerList<T>(this T[] values, Func<T?, string> mapper, string listTag, string keyTag = "", string by = ",")
+    => new string[][] { ["\"$list\": " + values.AsUnindentedList(mapper, by)], [listTag.Internal(": ")] }
     .PrependWith(keyTag, [keyTag.Internal(": ")])
     .Indent()
     .AddComma("{", "}");

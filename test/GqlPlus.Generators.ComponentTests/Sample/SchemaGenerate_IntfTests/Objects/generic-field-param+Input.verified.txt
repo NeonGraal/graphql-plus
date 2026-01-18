@@ -1,0 +1,42 @@
+﻿/* generic-field-param+Input
+input GnrcFieldParamInp { field: RefGnrcFieldParamInp<AltGnrcFieldParamInp> }
+input RefGnrcFieldParamInp<$ref:_Input> { | $ref }
+input AltGnrcFieldParamInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-param+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_param_Input;
+
+public interface ICmptGnrcFieldParamInp
+{
+  public CmptGnrcFieldParamInp GnrcFieldParamInp { get; set; }
+}
+
+public interface ICmptGnrcFieldParamInpField
+{
+  public CmptRefGnrcFieldParamInp<CmptAltGnrcFieldParamInp> field { get; set; }
+}
+
+public interface ICmptRefGnrcFieldParamInp<Tref>
+{
+  public Tref Asref { get; set; }
+  public CmptRefGnrcFieldParamInp RefGnrcFieldParamInp { get; set; }
+}
+
+public interface ICmptRefGnrcFieldParamInpField<Tref>
+{
+}
+
+public interface ICmptAltGnrcFieldParamInp
+{
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcFieldParamInp AltGnrcFieldParamInp { get; set; }
+}
+
+public interface ICmptAltGnrcFieldParamInpField
+{
+  public CmptNumber alt { get; set; }
+}

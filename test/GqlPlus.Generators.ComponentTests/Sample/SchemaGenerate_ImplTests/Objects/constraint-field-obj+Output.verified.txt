@@ -1,0 +1,41 @@
+﻿/* constraint-field-obj+Output
+output CnstFieldObjOutp { :RefCnstFieldObjOutp<AltCnstFieldObjOutp> }
+output RefCnstFieldObjOutp<$ref:PrntCnstFieldObjOutp> { field: $ref }
+output PrntCnstFieldObjOutp { | String }
+output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_obj_Output;
+
+public class CmptCnstFieldObjOutp
+  : CmptRefCnstFieldObjOutp
+  , ICmptCnstFieldObjOutp
+{
+  public CmptCnstFieldObjOutp CnstFieldObjOutp { get; set; }
+}
+
+public class CmptRefCnstFieldObjOutp<Tref>
+  : ICmptRefCnstFieldObjOutp<Tref>
+{
+  public Tref field { get; set; }
+  public CmptRefCnstFieldObjOutp RefCnstFieldObjOutp { get; set; }
+}
+
+public class CmptPrntCnstFieldObjOutp
+  : ICmptPrntCnstFieldObjOutp
+{
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstFieldObjOutp PrntCnstFieldObjOutp { get; set; }
+}
+
+public class CmptAltCnstFieldObjOutp
+  : CmptPrntCnstFieldObjOutp
+  , ICmptAltCnstFieldObjOutp
+{
+  public CmptNumber alt { get; set; }
+  public CmptAltCnstFieldObjOutp AltCnstFieldObjOutp { get; set; }
+}

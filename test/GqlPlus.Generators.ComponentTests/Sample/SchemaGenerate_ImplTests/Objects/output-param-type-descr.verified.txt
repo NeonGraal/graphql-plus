@@ -1,0 +1,32 @@
+﻿/* output-param-type-descr
+output OutpParamTypeDescr { field(InOutpParamTypeDescr): "Test" "Descr" FldOutpParamTypeDescr }
+dual FldOutpParamTypeDescr { }
+input InOutpParamTypeDescr { param: Number | String }
+*/
+
+// Generated from Schema output-param-type-descr for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param_type_descr;
+
+public class CmptOutpParamTypeDescr
+  : ICmptOutpParamTypeDescr
+{
+  public CmptFldOutpParamTypeDescr field { get; set; }
+  public CmptOutpParamTypeDescr OutpParamTypeDescr { get; set; }
+}
+
+public class CmptFldOutpParamTypeDescr
+  : ICmptFldOutpParamTypeDescr
+{
+  public CmptFldOutpParamTypeDescr FldOutpParamTypeDescr { get; set; }
+}
+
+public class CmptInOutpParamTypeDescr
+  : ICmptInOutpParamTypeDescr
+{
+  public CmptNumber param { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptInOutpParamTypeDescr InOutpParamTypeDescr { get; set; }
+}

@@ -1,0 +1,28 @@
+﻿//HintName: test_generic-parent-dual-parent+Output_Impl.gen.cs
+// Generated from generic-parent-dual-parent+Output.graphql+ for Impl
+/*
+*/
+
+namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_parent_Output;
+
+public class testGnrcPrntDualPrntOutp
+  : testRefGnrcPrntDualPrntOutp
+  , ItestGnrcPrntDualPrntOutp
+{
+  public testGnrcPrntDualPrntOutp GnrcPrntDualPrntOutp { get; set; }
+}
+
+public class testRefGnrcPrntDualPrntOutp<Tref>
+  : testref
+  , ItestRefGnrcPrntDualPrntOutp<Tref>
+{
+  public testRefGnrcPrntDualPrntOutp RefGnrcPrntDualPrntOutp { get; set; }
+}
+
+public class testAltGnrcPrntDualPrntOutp
+  : ItestAltGnrcPrntDualPrntOutp
+{
+  public testNumber alt { get; set; }
+  public testString AsString { get; set; }
+  public testAltGnrcPrntDualPrntOutp AltGnrcPrntDualPrntOutp { get; set; }
+}

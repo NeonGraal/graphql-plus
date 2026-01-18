@@ -1,0 +1,19 @@
+﻿/* input-field-String
+input InpFieldStr { field: String = 'default' }
+*/
+
+// Generated from Schema input-field-String for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_String;
+
+public interface ICmptInpFieldStr
+{
+  public CmptInpFieldStr InpFieldStr { get; set; }
+}
+
+public interface ICmptInpFieldStrField
+{
+  public CmptString field { get; set; }
+}

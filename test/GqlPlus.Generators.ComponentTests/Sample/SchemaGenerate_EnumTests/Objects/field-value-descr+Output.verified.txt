@@ -1,0 +1,15 @@
+﻿/* field-value-descr+Output
+output FieldValueDescrOutp { field = "Test" "Descr" fieldValueDescrOutp }
+enum EnumFieldValueDescrOutp { fieldValueDescrOutp }
+*/
+
+// Generated from Schema field-value-descr+Output for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_value_descr_Output;
+
+public enum CmptEnumFieldValueDescrOutp
+{
+  fieldValueDescrOutp,
+}

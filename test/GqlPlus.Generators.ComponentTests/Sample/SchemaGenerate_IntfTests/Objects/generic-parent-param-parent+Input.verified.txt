@@ -1,0 +1,44 @@
+﻿/* generic-parent-param-parent+Input
+input GnrcPrntParamPrntInp { :RefGnrcPrntParamPrntInp<AltGnrcPrntParamPrntInp> }
+input RefGnrcPrntParamPrntInp<$ref:_Input> { :$ref }
+input AltGnrcPrntParamPrntInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-param-parent+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_param_parent_Input;
+
+public interface ICmptGnrcPrntParamPrntInp
+  : ICmptRefGnrcPrntParamPrntInp
+{
+  public CmptGnrcPrntParamPrntInp GnrcPrntParamPrntInp { get; set; }
+}
+
+public interface ICmptGnrcPrntParamPrntInpField
+  : ICmptRefGnrcPrntParamPrntInpField
+{
+}
+
+public interface ICmptRefGnrcPrntParamPrntInp<Tref>
+  : ICmptref
+{
+  public CmptRefGnrcPrntParamPrntInp RefGnrcPrntParamPrntInp { get; set; }
+}
+
+public interface ICmptRefGnrcPrntParamPrntInpField<Tref>
+  : ICmptrefField
+{
+}
+
+public interface ICmptAltGnrcPrntParamPrntInp
+{
+  public CmptString AsString { get; set; }
+  public CmptAltGnrcPrntParamPrntInp AltGnrcPrntParamPrntInp { get; set; }
+}
+
+public interface ICmptAltGnrcPrntParamPrntInpField
+{
+  public CmptNumber alt { get; set; }
+}

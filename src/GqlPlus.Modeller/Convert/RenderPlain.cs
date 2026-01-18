@@ -26,7 +26,7 @@ public static class RenderPlain
     string tag = string.Empty;
 
     foreach (IGrouping<LineKey, string> group in groups) {
-      tag = NewMethod(ref result, items, fields, group);
+      tag = ReadLineGroup(ref result, items, fields, group);
     }
 
     return items.Count > 0 ? new(items) { Tag = tag }
@@ -35,7 +35,7 @@ public static class RenderPlain
     : new(result);
   }
 
-  private static string NewMethod(ref StructureValue? result, List<Structured> items, Dictionary<StructureValue, Structured> fields, IGrouping<LineKey, string> group)
+  private static string ReadLineGroup(ref StructureValue? result, List<Structured> items, Dictionary<StructureValue, Structured> fields, IGrouping<LineKey, string> group)
   {
     string tag = group.Key.Tag;
     if (group.Key.Type == ':') {

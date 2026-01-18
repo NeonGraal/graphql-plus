@@ -65,10 +65,9 @@ internal class TypeDomainEnumResolver
       return;
     }
 
-    if (excludes.TryGetValue(newItem.Label, out string? excludeEnumType)) {
-      if (string.IsNullOrWhiteSpace(excludeEnumType) || newItem.EnumType == excludeEnumType) {
-        return;
-      }
+    if (excludes.TryGetValue(newItem.Label, out string? excludeEnumType)
+        && (string.IsNullOrWhiteSpace(excludeEnumType) || newItem.EnumType == excludeEnumType)) {
+      return;
     }
 
     allItems.Add(newItem.Label, newItem);
@@ -76,12 +75,11 @@ internal class TypeDomainEnumResolver
 
   private static void RemoveExcludesFromAllItems(Map<DomainLabel> allItems, Map<string> excludes)
   {
-    foreach (MapPair<string> exclude in excludes) {
-      if (allItems.TryGetValue(exclude.Key, out DomainLabel existingItem)) {
-        if (string.IsNullOrWhiteSpace(exclude.Value) || existingItem.EnumType == exclude.Value) {
-          allItems.Remove(exclude.Key);
-        }
-      }
+    foreach (MapPair<string> exclude in excludes
+        .Where(e =>
+          allItems.TryGetValue(e.Key, out DomainLabel existingItem) &&
+          (string.IsNullOrWhiteSpace(e.Value) || existingItem.EnumType == e.Value))) {
+      allItems.Remove(exclude.Key);
     }
   }
 

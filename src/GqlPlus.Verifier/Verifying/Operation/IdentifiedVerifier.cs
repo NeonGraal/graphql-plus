@@ -36,7 +36,7 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
   private void CheckContained<T>(Map<T> map, string key, IGqlpError value, IMessages errors, string error1, string error2)
   {
     if (!map.ContainsKey(key)) {
-      errors.Add(value.MakeError($"Invalid {Label} {error1}. {key} not {error2}."));
+      errors.Add(value.MakeError($"Invalid {Label} {error1}. '{key}' not {error2}."));
     }
   }
 

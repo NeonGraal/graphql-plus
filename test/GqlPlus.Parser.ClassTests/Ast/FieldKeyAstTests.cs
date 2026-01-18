@@ -64,7 +64,7 @@ public partial class FieldKeyAstTests
   {
     FieldKeyAst left = CreateFieldKey(contents1);
     FieldKeyAst right = CreateFieldKey(contents2);
-    int expected = string.Compare(contents1, contents2, StringComparison.Ordinal);
+    int expected = contents1.Compare(contents2);
 
     left.CompareTo(right).ShouldBe(expected);
   }
@@ -88,7 +88,7 @@ public partial class FieldKeyAstTests
   {
     FieldKeyAst left = CreateFieldKey(enumType, enumValue1);
     FieldKeyAst right = CreateFieldKey(enumType, enumValue2);
-    int expected = string.Compare(enumType + "." + enumValue1, enumType + "." + enumValue2, StringComparison.Ordinal);
+    int expected = (enumType + "." + enumValue1).Compare(enumType + "." + enumValue2);
 
     left.CompareTo(right).ShouldBe(expected);
   }
@@ -115,7 +115,7 @@ public partial class FieldKeyAstTests
   {
     IGqlpFieldKey left = enumValue1.FieldKey();
     IGqlpFieldKey right = enumValue2.FieldKey();
-    int expected = string.Compare(enumValue1, enumValue2, StringComparison.Ordinal);
+    int expected = enumValue1.Compare(enumValue2);
 
     left.CompareTo(right).ShouldBe(expected);
   }
@@ -139,7 +139,7 @@ public partial class FieldKeyAstTests
   {
     FieldKeyAst left = CreateFieldKey(enumType1, "enumValue");
     FieldKeyAst right = CreateFieldKey(enumType2, "enumValue");
-    int expected = string.Compare(enumType1 + ".enumValue", enumType2 + ".enumValue", StringComparison.Ordinal);
+    int expected = (enumType1 + ".enumValue").Compare(enumType2 + ".enumValue");
 
     left.CompareTo(right).ShouldBe(expected);
   }

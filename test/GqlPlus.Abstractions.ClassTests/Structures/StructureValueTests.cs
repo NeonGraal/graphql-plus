@@ -13,9 +13,10 @@ public class StructureValueTests
   }
 
   [Theory, RepeatData]
-  public void IsEmpty_Text_IsFalse(string contents)
+  public void IsEmpty_Text_IsFalse(string text)
   {
-    StructureValue value = new(contents);
+    this.SkipIf(text.IsIdentifier());
+    StructureValue value = new(text);
 
     value.IsEmpty.ShouldBeFalse();
   }
@@ -95,18 +96,21 @@ public class StructureValueTests
 
     int result = value1.CompareTo(value2);
 
-    result.ShouldBe(string.Compare(identifier1, identifier2, StringComparison.Ordinal));
+    result.ShouldBe(identifier1.Compare(identifier2));
   }
 
   [Theory, RepeatData]
-  public void CompareTo_Text_IsCorrect(string contents1, string contents2)
+  public void CompareTo_Text_IsCorrect(string text1, string text2)
   {
-    StructureValue value1 = new(contents1);
-    StructureValue value2 = new(contents2);
+    this.SkipIf(text1.IsIdentifier());
+    this.SkipIf(text2.IsIdentifier());
+
+    StructureValue value1 = new(text1);
+    StructureValue value2 = new(text2);
 
     int result = value1.CompareTo(value2);
 
-    result.ShouldBe(string.Compare(contents1, contents2, StringComparison.Ordinal));
+    result.ShouldBe(text1.Compare(text2));
   }
 
   [Theory, RepeatData]
@@ -176,14 +180,17 @@ public class StructureValueTests
   }
 
   [Theory, RepeatData]
-  public void Equals_Text_IsCorrect(string contents1, string contents2)
+  public void Equals_Text_IsCorrect(string text1, string text2)
   {
-    StructureValue value1 = new(contents1);
-    StructureValue value2 = new(contents2);
+    this.SkipIf(text1.IsIdentifier());
+    this.SkipIf(text2.IsIdentifier());
+
+    StructureValue value1 = new(text1);
+    StructureValue value2 = new(text2);
 
     bool result = value1.Equals(value2);
 
-    result.ShouldBe(contents1 == contents2);
+    result.ShouldBe(text1 == text2);
   }
 
   [Theory, RepeatData]

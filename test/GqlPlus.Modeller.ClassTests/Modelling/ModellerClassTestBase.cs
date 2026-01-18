@@ -59,18 +59,12 @@ public abstract class ModellerClassTestBase<TAst, TModel>
   internal void TryModelReturns<TA, TM>(IModeller<TA, TM> modeller, TM result)
     where TA : IGqlpError
     where TM : IModelBase
-  {
-    modeller.TryModel(default, TypeKinds).ReturnsForAnyArgs(result);
-    // modeller.TryModel<TM>(default, TypeKinds).ReturnsForAnyArgs(result);
-  }
+    => modeller.TryModel(default, TypeKinds).ReturnsForAnyArgs(result);
 
   internal void TryModelReturns<TA, TM>(IModeller<TA, TM> modeller, TA arg, TM result)
     where TA : IGqlpError
     where TM : IModelBase
-  {
-    modeller.TryModel(arg, TypeKinds).Returns(result);
-    // modeller.TryModel<TM>(arg, TypeKinds).Returns(result);
-  }
+    => modeller.TryModel(arg, TypeKinds).Returns(result);
 
   internal void TypeKindIs(string key, TypeKindModel typeKind)
   {

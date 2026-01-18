@@ -125,6 +125,8 @@ public class ComplexValue<TValue, TObject>
     => List = [.. values];
   public ComplexValue(IDictionary<TValue, TObject> values)
     => Map = new Dict(values);
+  public bool IsEmpty
+    => (Value?.IsEmpty ?? true) && List.Count == 0 && Map.Count == 0;
 
   public override bool TryGetBoolean([NotNullWhen(true)] out bool? value)
     => TryGet(out value, () => Value?.TryGetBoolean(out bool? val) == true ? val : null);
@@ -142,12 +144,11 @@ public class ComplexValue<TValue, TObject>
   public bool Equals(ComplexValue<TValue, TObject>? other)
     => other is not null
       && string.Equals(Tag, other.Tag, StringComparison.Ordinal)
-      && this switch {
-        { Value: not null } => Value.Equals(other.Value),
-        { List.Count: > 0 } => List.SequenceEqual(other.List),
-        { Map.Count: > 0 } => Map.Equals(other.Map),
-        _ => other.Value is null && other.List.Count == 0 && other.Map.Count == 0,
-      };
+      && Apply(
+        l => l.SequenceEqual(other.List),
+        m => m.Equals(other.Map),
+        v => v.Equals(other.Value),
+        other.IsEmpty);
   public override int GetHashCode()
     => HashCode.Combine(Tag,
       Value.NullHashCode(),
@@ -155,10 +156,17 @@ public class ComplexValue<TValue, TObject>
       Map.NullHashCode());
 
   public override string ToString()
+    => Apply(
+      l => Tag.Suffixed("!") + l.Surround("[ ", " ]", i => $"{i}", ", "),
+      m => Tag.Suffixed("!") + m.Surround("{ ", " }", i => $"{i.Key}: {i.Value}", ", "),
+      v => $"{v}",
+      Tag + "()");
+
+  private T Apply<T>(Func<IList<TObject>, T> listFunc, Func<IDict, T> mapFunc, Func<TValue, T> valueFunc, T empty)
     => this switch {
-      { List.Count: > 0 } => Tag.Suffixed("!") + List.Surround("[ ", " ]", i => $"{i}", ", "),
-      { Map.Count: > 0 } => Tag.Suffixed("!") + Map.Surround("{ ", " }", i => $"{i.Key}: {i.Value}", ", "),
-      { Value: not null } => $"{Value}",
-      _ => Tag + "()"
+      { List.Count: > 0 } => listFunc(List),
+      { Map.Count: > 0 } => mapFunc(Map),
+      { Value: not null } => valueFunc(Value),
+      _ => empty
     };
 }

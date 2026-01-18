@@ -6,6 +6,9 @@ namespace GqlPlus;
 
 public static class StringHelpers
 {
+  public static bool BothValued([NotNullWhen(true)] this string? left, [NotNullWhen(true)] string? right)
+    => !string.IsNullOrEmpty(left) && !string.IsNullOrEmpty(right);
+
   [return: NotNullIfNotNull(nameof(text))]
   public static string? Capitalize(this string? text)
   => text?.Length > 0
@@ -17,6 +20,12 @@ public static class StringHelpers
     => text?.Length > 0
       ? char.ToLower(text[0], CultureInfo.InvariantCulture) + text[1..]
       : text;
+
+  public static int Compare(this string? left, string? right)
+    => string.IsNullOrEmpty(left)
+    ? string.IsNullOrEmpty(right) ? 0 : -1
+    : string.IsNullOrEmpty(right) ? 1
+      : Math.Sign(string.Compare(left, right, StringComparison.Ordinal));
 
   public static string IfWhiteSpace(this string? text, string replacement = "")
     => string.IsNullOrWhiteSpace(text) ? replacement : text!;

@@ -1,5 +1,4 @@
-﻿
-namespace GqlPlus.Resolving.Simple;
+﻿namespace GqlPlus.Resolving.Simple;
 
 internal class TypeDomainEnumResolver
   : ResolverChildType<BaseDomainModel<DomainLabelModel>, TypeRefModel<SimpleKindModel>>
@@ -25,42 +24,62 @@ internal class TypeDomainEnumResolver
       AllItems(allItems, parent, context);
     }
 
-    Map<string> excludes = model.Items
-      .Where(i => i.Exclude)
-      .ToMap(k => k.EnumValue.Label, v => v.EnumValue.Name);
+    Map<string> excludes = ExcludeItems(model);
+    RemoveExcludesFromAllItems(allItems, excludes);
 
-    foreach (MapPair<string> exclude in excludes) {
-      if (allItems.TryGetValue(exclude.Key, out DomainLabel existingItem)) {
-        if (string.IsNullOrWhiteSpace(exclude.Value) || existingItem.EnumType == exclude.Value) {
-          allItems.Remove(exclude.Key);
-        }
-      }
+    foreach (DomainLabel label in AllLabels(allItems, model, context)) {
+      AddItem(label, allItems, excludes);
     }
+  }
 
+  private IEnumerable<DomainLabel> AllLabels(Map<DomainLabel> allItems, BaseDomainModel<DomainLabelModel> model, IResolveContext context)
+  {
     int index = allItems.Count > 0 ? allItems.Max(v => v.Value.Order) : -1;
-    foreach (DomainLabelModel item in model.Items.Where(i => !i.Exclude)) {
-      if (item.EnumValue.Label == "*") {
-        foreach (EnumValueModel enumLabel in AllLabels(item.EnumValue.Name, context)) {
-          AddItem(DomainLabel.FromLabel(model.Name, enumLabel, item, ++index));
-        }
-      } else if (!allItems.ContainsKey(item.EnumValue.Label)) {
-        AddItem(DomainLabel.FromItem(model.Name, item, ++index));
+    return model.Items
+        .Where(i => !i.Exclude)
+        .SelectMany(i => ItemLabels(i, model.Name, ref index, context));
+  }
+
+  private static Map<string> ExcludeItems(BaseDomainModel<DomainLabelModel> model)
+    => model.Items
+        .Where(i => i.Exclude)
+        .ToMap(k => k.EnumValue.Label, v => v.EnumValue.Name);
+
+  private List<DomainLabel> ItemLabels(DomainLabelModel item, string domainName, ref int index, IResolveContext context)
+  {
+    List<DomainLabel> labels = [];
+    if (item.EnumValue.Label == "*") {
+      foreach (EnumValueModel enumLabel in AllLabels(item.EnumValue.Name, context)) {
+        labels.Add(DomainLabel.FromLabel(domainName, enumLabel, item, ++index));
       }
+    } else {
+      labels.Add(DomainLabel.FromItem(domainName, item, ++index));
     }
 
-    void AddItem(DomainLabel newItem)
-    {
-      if (allItems.ContainsKey(newItem.Label)) {
-        return;
-      }
+    return labels;
+  }
 
-      if (excludes.TryGetValue(newItem.Label, out string? excludeEnumType)) {
-        if (string.IsNullOrWhiteSpace(excludeEnumType) || newItem.EnumType == excludeEnumType) {
-          return;
-        }
-      }
+  private static void AddItem(DomainLabel newItem, Map<DomainLabel> allItems, Map<string> excludes)
+  {
+    if (allItems.ContainsKey(newItem.Label)) {
+      return;
+    }
 
-      allItems.Add(newItem.Label, newItem);
+    if (excludes.TryGetValue(newItem.Label, out string? excludeEnumType)
+        && (string.IsNullOrWhiteSpace(excludeEnumType) || newItem.EnumType == excludeEnumType)) {
+      return;
+    }
+
+    allItems.Add(newItem.Label, newItem);
+  }
+
+  private static void RemoveExcludesFromAllItems(Map<DomainLabel> allItems, Map<string> excludes)
+  {
+    foreach (MapPair<string> exclude in excludes
+        .Where(e =>
+          allItems.TryGetValue(e.Key, out DomainLabel existingItem) &&
+          (string.IsNullOrWhiteSpace(e.Value) || existingItem.EnumType == e.Value))) {
+      allItems.Remove(exclude.Key);
     }
   }
 
@@ -81,7 +100,7 @@ internal class TypeDomainEnumResolver
 
   private record struct DomainLabel(string Domain, string Label, int Order, bool Excluded, string EnumType, string LabelDescription, string ItemDescription)
   {
-    static internal DomainLabel FromLabel(string domain, EnumValueModel enumLabel, DomainLabelModel item, int index)
+    internal static DomainLabel FromLabel(string domain, EnumValueModel enumLabel, DomainLabelModel item, int index)
       => new(domain,
       enumLabel.Label,
       index,
@@ -89,7 +108,7 @@ internal class TypeDomainEnumResolver
       enumLabel.Name,
       enumLabel.Description,
       item.Description);
-    static internal DomainLabel FromItem(string domain, DomainLabelModel item, int index)
+    internal static DomainLabel FromItem(string domain, DomainLabelModel item, int index)
       => new(domain,
       item.EnumValue.Label,
       index,

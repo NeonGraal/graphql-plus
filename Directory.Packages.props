@@ -11,20 +11,20 @@
   <!-- Source project packages -->
   <ItemGroup>
     <PackageVersion Include="Microsoft.Bcl.HashCode" Version="6.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.1" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.2" />
     <PackageVersion Include="PolySharp" Version="1.15.0" />
-    <PackageVersion Include="System.Collections.Immutable" Version="10.0.1" />
-    <PackageVersion Include="System.Text.Json" Version="10.0.1" />
+    <PackageVersion Include="System.Collections.Immutable" Version="10.0.2" />
+    <PackageVersion Include="System.Text.Json" Version="10.0.2" />
     <PackageVersion Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
   <!-- Test framework packages defined in test/Directory.Build.targets -->
   <ItemGroup>
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
-    <PackageVersion Include="xunit.v3" Version="3.2.1" />
-    <PackageVersion Include="xunit.v3.assert" Version="3.2.1" />
-    <PackageVersion Include="xunit.v3.common" Version="3.2.1" />
-    <PackageVersion Include="xunit.v3.extensibility.core" Version="3.2.1" />
+    <PackageVersion Include="xunit.v3" Version="3.2.2" />
+    <PackageVersion Include="xunit.v3.assert" Version="3.2.2" />
+    <PackageVersion Include="xunit.v3.common" Version="3.2.2" />
+    <PackageVersion Include="xunit.v3.extensibility.core" Version="3.2.2" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
   </ItemGroup>
   <!-- Test utility packages -->
@@ -39,7 +39,7 @@
     <PackageVersion Include="OpenTelemetry.Exporter.InMemory" Version="1.14.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="Verify.SourceGenerators" Version="2.5.0" />
-    <PackageVersion Include="Verify.XunitV3" Version="31.9.3" />
+    <PackageVersion Include="Verify.XunitV3" Version="31.9.4" />
     <PackageVersion Include="Xunit.Combinatorial" Version="2.0.24" />
     <PackageVersion Include="Xunit.DependencyInjection" Version="11.1.1" />
     <PackageVersion Include="Xunit.DependencyInjection.Logging" Version="11.0.0" />

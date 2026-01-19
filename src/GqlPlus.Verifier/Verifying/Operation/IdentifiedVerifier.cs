@@ -19,18 +19,28 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
     Map<TIdentified> defined = item.Definitions.ToMap(f => f.Identifier);
 
     foreach (MapPair<TUsage[]> use in used) {
-      CheckContained(defined, use.Key, use.Value[0], errors, "usage", "defined");
-      foreach (TUsage value in use.Value) {
-        usage?.Verify(value, errors);
-      }
+      CheckUse(errors, defined, use);
     }
 
     foreach (MapPair<TIdentified> def in defined) {
-      CheckContained(used, def.Key, def.Value, errors, "definition", "used");
-      definition?.Verify(def.Value, errors);
+      CheckDefinition(errors, used, def);
     }
 
     VerifyDefinitions(defined, errors);
+  }
+
+  private void CheckDefinition(IMessages errors, Map<TUsage[]> used, MapPair<TIdentified> def)
+  {
+    CheckContained(used, def.Key, def.Value, errors, "definition", "used");
+    definition?.Verify(def.Value, errors);
+  }
+
+  private void CheckUse(IMessages errors, Map<TIdentified> defined, MapPair<TUsage[]> use)
+  {
+    CheckContained(defined, use.Key, use.Value[0], errors, "usage", "defined");
+    foreach (TUsage value in use.Value) {
+      usage?.Verify(value, errors);
+    }
   }
 
   private void CheckContained<T>(Map<T> map, string key, IGqlpError value, IMessages errors, string error1, string error2)

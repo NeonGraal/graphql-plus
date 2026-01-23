@@ -14,6 +14,6 @@ public interface ICmptRefGnrcAltModParamDual<Tref,Tmod>
   public CmptRefGnrcAltModParamDual RefGnrcAltModParamDual { get; set; }
 }
 
-public interface ICmptRefGnrcAltModParamDualField<Tref,Tmod>
+public interface ICmptRefGnrcAltModParamDualObject<Tref,Tmod>
 {
 }

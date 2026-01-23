@@ -13,7 +13,7 @@ public interface ICmptGnrcDescrInp<Ttype>
   public CmptGnrcDescrInp GnrcDescrInp { get; set; }
 }
 
-public interface ICmptGnrcDescrInpField<Ttype>
+public interface ICmptGnrcDescrInpObject<Ttype>
 {
   public Ttype field { get; set; }
 }

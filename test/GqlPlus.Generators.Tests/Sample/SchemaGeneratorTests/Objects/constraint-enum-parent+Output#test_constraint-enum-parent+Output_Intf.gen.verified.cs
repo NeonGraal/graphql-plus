@@ -11,7 +11,7 @@ public interface ItestCnstEnumPrntOutp
   public testCnstEnumPrntOutp CnstEnumPrntOutp { get; set; }
 }
 
-public interface ItestCnstEnumPrntOutpField
+public interface ItestCnstEnumPrntOutpObject
 {
 }
 
@@ -20,7 +20,7 @@ public interface ItestRefCnstEnumPrntOutp<Ttype>
   public testRefCnstEnumPrntOutp RefCnstEnumPrntOutp { get; set; }
 }
 
-public interface ItestRefCnstEnumPrntOutpField<Ttype>
+public interface ItestRefCnstEnumPrntOutpObject<Ttype>
 {
   public Ttype field { get; set; }
 }

@@ -10,7 +10,7 @@ public interface ItestObjFieldAliasInp
   public testObjFieldAliasInp ObjFieldAliasInp { get; set; }
 }
 
-public interface ItestObjFieldAliasInpField
+public interface ItestObjFieldAliasInpObject
 {
   public testFldObjFieldAliasInp field { get; set; }
 }
@@ -20,6 +20,6 @@ public interface ItestFldObjFieldAliasInp
   public testFldObjFieldAliasInp FldObjFieldAliasInp { get; set; }
 }
 
-public interface ItestFldObjFieldAliasInpField
+public interface ItestFldObjFieldAliasInpObject
 {
 }

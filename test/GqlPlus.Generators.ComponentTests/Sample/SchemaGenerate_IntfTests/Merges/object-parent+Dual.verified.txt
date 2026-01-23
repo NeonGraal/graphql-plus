@@ -16,8 +16,8 @@ public interface ICmptObjPrntDual
   public CmptObjPrntDual ObjPrntDual { get; set; }
 }
 
-public interface ICmptObjPrntDualField
-  : ICmptRefObjPrntDualField
+public interface ICmptObjPrntDualObject
+  : ICmptRefObjPrntDualObject
 {
 }
 
@@ -26,6 +26,6 @@ public interface ICmptRefObjPrntDual
   public CmptRefObjPrntDual RefObjPrntDual { get; set; }
 }
 
-public interface ICmptRefObjPrntDualField
+public interface ICmptRefObjPrntDualObject
 {
 }

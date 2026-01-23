@@ -11,6 +11,6 @@ public interface ItestRefGnrcAltModParamInp<Tref,Tmod>
   public testRefGnrcAltModParamInp RefGnrcAltModParamInp { get; set; }
 }
 
-public interface ItestRefGnrcAltModParamInpField<Tref,Tmod>
+public interface ItestRefGnrcAltModParamInpObject<Tref,Tmod>
 {
 }

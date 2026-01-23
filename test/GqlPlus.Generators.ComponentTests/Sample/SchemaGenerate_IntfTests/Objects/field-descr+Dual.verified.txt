@@ -13,7 +13,7 @@ public interface ICmptFieldDescrDual
   public CmptFieldDescrDual FieldDescrDual { get; set; }
 }
 
-public interface ICmptFieldDescrDualField
+public interface ICmptFieldDescrDualObject
 {
   public CmptString field { get; set; }
 }

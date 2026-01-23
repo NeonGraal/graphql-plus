@@ -12,8 +12,8 @@ public interface Itest_Directives
   public test_Directives _Directives { get; set; }
 }
 
-public interface Itest_DirectivesField
-  : Itest_AndTypeField
+public interface Itest_DirectivesObject
+  : Itest_AndTypeObject
 {
   public test_Directive directive { get; set; }
 }
@@ -24,8 +24,8 @@ public interface Itest_Directive
   public test_Directive _Directive { get; set; }
 }
 
-public interface Itest_DirectiveField
-  : Itest_AliasedField
+public interface Itest_DirectiveObject
+  : Itest_AliasedObject
 {
   public ICollection<test_InputParam> parameters { get; set; }
   public testBoolean repeatable { get; set; }

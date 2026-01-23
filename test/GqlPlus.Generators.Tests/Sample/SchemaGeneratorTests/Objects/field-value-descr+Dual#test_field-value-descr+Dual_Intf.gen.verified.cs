@@ -10,7 +10,7 @@ public interface ItestFieldValueDescrDual
   public testFieldValueDescrDual FieldValueDescrDual { get; set; }
 }
 
-public interface ItestFieldValueDescrDualField
+public interface ItestFieldValueDescrDualObject
 {
   public testEnumFieldValueDescrDual field { get; set; }
 }

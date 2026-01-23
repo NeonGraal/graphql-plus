@@ -16,6 +16,6 @@ public interface ICmptCtgrDscrs
   public CmptCtgrDscrs CtgrDscrs { get; set; }
 }
 
-public interface ICmptCtgrDscrsField
+public interface ICmptCtgrDscrsObject
 {
 }

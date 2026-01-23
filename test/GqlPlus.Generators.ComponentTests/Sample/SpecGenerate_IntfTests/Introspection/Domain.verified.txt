@@ -84,8 +84,8 @@ public interface ICmpt_DomainRef<Tkind>
   public Cmpt_DomainRef _DomainRef { get; set; }
 }
 
-public interface ICmpt_DomainRefField<Tkind>
-  : ICmpt_TypeRefField
+public interface ICmpt_DomainRefObject<Tkind>
+  : ICmpt_TypeRefObject
 {
   public Tkind domainKind { get; set; }
 }
@@ -96,8 +96,8 @@ public interface ICmpt_BaseDomain<Tdomain,Titem,TdomainItem>
   public Cmpt_BaseDomain _BaseDomain { get; set; }
 }
 
-public interface ICmpt_BaseDomainField<Tdomain,Titem,TdomainItem>
-  : ICmpt_ParentTypeField
+public interface ICmpt_BaseDomainObject<Tdomain,Titem,TdomainItem>
+  : ICmpt_ParentTypeObject
 {
   public Tdomain domainKind { get; set; }
 }
@@ -108,8 +108,8 @@ public interface ICmpt_BaseDomainItem
   public Cmpt_BaseDomainItem _BaseDomainItem { get; set; }
 }
 
-public interface ICmpt_BaseDomainItemField
-  : ICmpt_DescribedField
+public interface ICmpt_BaseDomainItemObject
+  : ICmpt_DescribedObject
 {
   public Cmpt_DomainKind exclude { get; set; }
 }
@@ -120,8 +120,8 @@ public interface ICmpt_DomainItem<Titem>
   public Cmpt_DomainItem _DomainItem { get; set; }
 }
 
-public interface ICmpt_DomainItemField<Titem>
-  : ICmptitemField
+public interface ICmpt_DomainItemObject<Titem>
+  : ICmptitemObject
 {
   public Cmpt_Name domain { get; set; }
 }
@@ -133,8 +133,8 @@ public interface ICmpt_DomainValue<Tkind,Tvalue>
   public Cmpt_DomainValue _DomainValue { get; set; }
 }
 
-public interface ICmpt_DomainValueField<Tkind,Tvalue>
-  : ICmpt_DomainRefField
+public interface ICmpt_DomainValueObject<Tkind,Tvalue>
+  : ICmpt_DomainRefObject
 {
   public Tvalue value { get; set; }
 }
@@ -148,7 +148,7 @@ public interface ICmpt_BasicValue
   public Cmpt_BasicValue _BasicValue { get; set; }
 }
 
-public interface ICmpt_BasicValueField
+public interface ICmpt_BasicValueObject
 {
 }
 
@@ -158,8 +158,8 @@ public interface ICmpt_DomainTrueFalse
   public Cmpt_DomainTrueFalse _DomainTrueFalse { get; set; }
 }
 
-public interface ICmpt_DomainTrueFalseField
-  : ICmpt_BaseDomainItemField
+public interface ICmpt_DomainTrueFalseObject
+  : ICmpt_BaseDomainItemObject
 {
   public Cmpt_DomainKind value { get; set; }
 }
@@ -170,8 +170,8 @@ public interface ICmpt_DomainItemTrueFalse
   public Cmpt_DomainItemTrueFalse _DomainItemTrueFalse { get; set; }
 }
 
-public interface ICmpt_DomainItemTrueFalseField
-  : ICmpt_DomainItemField
+public interface ICmpt_DomainItemTrueFalseObject
+  : ICmpt_DomainItemObject
 {
 }
 
@@ -181,8 +181,8 @@ public interface ICmpt_DomainLabel
   public Cmpt_DomainLabel _DomainLabel { get; set; }
 }
 
-public interface ICmpt_DomainLabelField
-  : ICmpt_BaseDomainItemField
+public interface ICmpt_DomainLabelObject
+  : ICmpt_BaseDomainItemObject
 {
   public Cmpt_EnumValue label { get; set; }
 }
@@ -193,8 +193,8 @@ public interface ICmpt_DomainItemLabel
   public Cmpt_DomainItemLabel _DomainItemLabel { get; set; }
 }
 
-public interface ICmpt_DomainItemLabelField
-  : ICmpt_DomainItemField
+public interface ICmpt_DomainItemLabelObject
+  : ICmpt_DomainItemObject
 {
 }
 
@@ -204,8 +204,8 @@ public interface ICmpt_DomainRange
   public Cmpt_DomainRange _DomainRange { get; set; }
 }
 
-public interface ICmpt_DomainRangeField
-  : ICmpt_BaseDomainItemField
+public interface ICmpt_DomainRangeObject
+  : ICmpt_BaseDomainItemObject
 {
   public Cmpt_DomainKind? lower { get; set; }
   public Cmpt_DomainKind? upper { get; set; }
@@ -217,8 +217,8 @@ public interface ICmpt_DomainItemRange
   public Cmpt_DomainItemRange _DomainItemRange { get; set; }
 }
 
-public interface ICmpt_DomainItemRangeField
-  : ICmpt_DomainItemField
+public interface ICmpt_DomainItemRangeObject
+  : ICmpt_DomainItemObject
 {
 }
 
@@ -228,8 +228,8 @@ public interface ICmpt_DomainRegex
   public Cmpt_DomainRegex _DomainRegex { get; set; }
 }
 
-public interface ICmpt_DomainRegexField
-  : ICmpt_BaseDomainItemField
+public interface ICmpt_DomainRegexObject
+  : ICmpt_BaseDomainItemObject
 {
   public Cmpt_DomainKind pattern { get; set; }
 }
@@ -240,7 +240,7 @@ public interface ICmpt_DomainItemRegex
   public Cmpt_DomainItemRegex _DomainItemRegex { get; set; }
 }
 
-public interface ICmpt_DomainItemRegexField
-  : ICmpt_DomainItemField
+public interface ICmpt_DomainItemRegexObject
+  : ICmpt_DomainItemObject
 {
 }

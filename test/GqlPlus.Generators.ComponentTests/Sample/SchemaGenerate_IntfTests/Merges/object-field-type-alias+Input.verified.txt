@@ -14,7 +14,7 @@ public interface ICmptObjFieldTypeAliasInp
   public CmptObjFieldTypeAliasInp ObjFieldTypeAliasInp { get; set; }
 }
 
-public interface ICmptObjFieldTypeAliasInpField
+public interface ICmptObjFieldTypeAliasInpObject
 {
   public CmptString field { get; set; }
 }

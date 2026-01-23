@@ -14,7 +14,7 @@ public interface ICmptFieldDualOutp
   public CmptFieldDualOutp FieldDualOutp { get; set; }
 }
 
-public interface ICmptFieldDualOutpField
+public interface ICmptFieldDualOutpObject
 {
   public CmptFldFieldDualOutp field { get; set; }
 }
@@ -25,7 +25,7 @@ public interface ICmptFldFieldDualOutp
   public CmptFldFieldDualOutp FldFieldDualOutp { get; set; }
 }
 
-public interface ICmptFldFieldDualOutpField
+public interface ICmptFldFieldDualOutpObject
 {
   public CmptNumber field { get; set; }
 }

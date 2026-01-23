@@ -11,8 +11,8 @@ public interface Itest_DomainRef<Tkind>
   public test_DomainRef _DomainRef { get; set; }
 }
 
-public interface Itest_DomainRefField<Tkind>
-  : Itest_TypeRefField
+public interface Itest_DomainRefObject<Tkind>
+  : Itest_TypeRefObject
 {
   public Tkind domainKind { get; set; }
 }
@@ -23,8 +23,8 @@ public interface Itest_BaseDomain<Tdomain,Titem,TdomainItem>
   public test_BaseDomain _BaseDomain { get; set; }
 }
 
-public interface Itest_BaseDomainField<Tdomain,Titem,TdomainItem>
-  : Itest_ParentTypeField
+public interface Itest_BaseDomainObject<Tdomain,Titem,TdomainItem>
+  : Itest_ParentTypeObject
 {
   public Tdomain domainKind { get; set; }
 }
@@ -35,8 +35,8 @@ public interface Itest_BaseDomainItem
   public test_BaseDomainItem _BaseDomainItem { get; set; }
 }
 
-public interface Itest_BaseDomainItemField
-  : Itest_DescribedField
+public interface Itest_BaseDomainItemObject
+  : Itest_DescribedObject
 {
   public test_DomainKind exclude { get; set; }
 }
@@ -47,8 +47,8 @@ public interface Itest_DomainItem<Titem>
   public test_DomainItem _DomainItem { get; set; }
 }
 
-public interface Itest_DomainItemField<Titem>
-  : ItestitemField
+public interface Itest_DomainItemObject<Titem>
+  : ItestitemObject
 {
   public test_Name domain { get; set; }
 }
@@ -60,8 +60,8 @@ public interface Itest_DomainValue<Tkind,Tvalue>
   public test_DomainValue _DomainValue { get; set; }
 }
 
-public interface Itest_DomainValueField<Tkind,Tvalue>
-  : Itest_DomainRefField
+public interface Itest_DomainValueObject<Tkind,Tvalue>
+  : Itest_DomainRefObject
 {
   public Tvalue value { get; set; }
 }
@@ -75,7 +75,7 @@ public interface Itest_BasicValue
   public test_BasicValue _BasicValue { get; set; }
 }
 
-public interface Itest_BasicValueField
+public interface Itest_BasicValueObject
 {
 }
 
@@ -85,8 +85,8 @@ public interface Itest_DomainTrueFalse
   public test_DomainTrueFalse _DomainTrueFalse { get; set; }
 }
 
-public interface Itest_DomainTrueFalseField
-  : Itest_BaseDomainItemField
+public interface Itest_DomainTrueFalseObject
+  : Itest_BaseDomainItemObject
 {
   public test_DomainKind value { get; set; }
 }
@@ -97,8 +97,8 @@ public interface Itest_DomainItemTrueFalse
   public test_DomainItemTrueFalse _DomainItemTrueFalse { get; set; }
 }
 
-public interface Itest_DomainItemTrueFalseField
-  : Itest_DomainItemField
+public interface Itest_DomainItemTrueFalseObject
+  : Itest_DomainItemObject
 {
 }
 
@@ -108,8 +108,8 @@ public interface Itest_DomainLabel
   public test_DomainLabel _DomainLabel { get; set; }
 }
 
-public interface Itest_DomainLabelField
-  : Itest_BaseDomainItemField
+public interface Itest_DomainLabelObject
+  : Itest_BaseDomainItemObject
 {
   public test_EnumValue label { get; set; }
 }
@@ -120,8 +120,8 @@ public interface Itest_DomainItemLabel
   public test_DomainItemLabel _DomainItemLabel { get; set; }
 }
 
-public interface Itest_DomainItemLabelField
-  : Itest_DomainItemField
+public interface Itest_DomainItemLabelObject
+  : Itest_DomainItemObject
 {
 }
 
@@ -131,8 +131,8 @@ public interface Itest_DomainRange
   public test_DomainRange _DomainRange { get; set; }
 }
 
-public interface Itest_DomainRangeField
-  : Itest_BaseDomainItemField
+public interface Itest_DomainRangeObject
+  : Itest_BaseDomainItemObject
 {
   public test_DomainKind? lower { get; set; }
   public test_DomainKind? upper { get; set; }
@@ -144,8 +144,8 @@ public interface Itest_DomainItemRange
   public test_DomainItemRange _DomainItemRange { get; set; }
 }
 
-public interface Itest_DomainItemRangeField
-  : Itest_DomainItemField
+public interface Itest_DomainItemRangeObject
+  : Itest_DomainItemObject
 {
 }
 
@@ -155,8 +155,8 @@ public interface Itest_DomainRegex
   public test_DomainRegex _DomainRegex { get; set; }
 }
 
-public interface Itest_DomainRegexField
-  : Itest_BaseDomainItemField
+public interface Itest_DomainRegexObject
+  : Itest_BaseDomainItemObject
 {
   public test_DomainKind pattern { get; set; }
 }
@@ -167,8 +167,8 @@ public interface Itest_DomainItemRegex
   public test_DomainItemRegex _DomainItemRegex { get; set; }
 }
 
-public interface Itest_DomainItemRegexField
-  : Itest_DomainItemField
+public interface Itest_DomainItemRegexObject
+  : Itest_DomainItemObject
 {
 }
 
@@ -178,8 +178,8 @@ public interface Itest_EnumLabel
   public test_EnumLabel _EnumLabel { get; set; }
 }
 
-public interface Itest_EnumLabelField
-  : Itest_AliasedField
+public interface Itest_EnumLabelObject
+  : Itest_AliasedObject
 {
   public test_Name enum { get; set; }
 }
@@ -190,8 +190,8 @@ public interface Itest_EnumValue
   public test_EnumValue _EnumValue { get; set; }
 }
 
-public interface Itest_EnumValueField
-  : Itest_TypeRefField
+public interface Itest_EnumValueObject
+  : Itest_TypeRefObject
 {
   public test_Name label { get; set; }
 }
@@ -202,8 +202,8 @@ public interface Itest_UnionRef
   public test_UnionRef _UnionRef { get; set; }
 }
 
-public interface Itest_UnionRefField
-  : Itest_TypeRefField
+public interface Itest_UnionRefObject
+  : Itest_TypeRefObject
 {
 }
 
@@ -213,8 +213,8 @@ public interface Itest_UnionMember
   public test_UnionMember _UnionMember { get; set; }
 }
 
-public interface Itest_UnionMemberField
-  : Itest_UnionRefField
+public interface Itest_UnionMemberObject
+  : Itest_UnionRefObject
 {
   public test_Name union { get; set; }
 }

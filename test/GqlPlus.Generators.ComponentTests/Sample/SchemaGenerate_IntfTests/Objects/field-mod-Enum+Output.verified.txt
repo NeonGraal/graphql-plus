@@ -14,7 +14,7 @@ public interface ICmptFieldModEnumOutp
   public CmptFieldModEnumOutp FieldModEnumOutp { get; set; }
 }
 
-public interface ICmptFieldModEnumOutpField
+public interface ICmptFieldModEnumOutpObject
 {
   public IDictionary<CmptEnumFieldModEnumOutp, CmptString> field { get; set; }
 }

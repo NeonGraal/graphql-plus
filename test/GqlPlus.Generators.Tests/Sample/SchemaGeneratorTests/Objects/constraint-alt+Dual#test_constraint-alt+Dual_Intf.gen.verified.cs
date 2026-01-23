@@ -11,6 +11,6 @@ public interface ItestCnstAltDual<Ttype>
   public testCnstAltDual CnstAltDual { get; set; }
 }
 
-public interface ItestCnstAltDualField<Ttype>
+public interface ItestCnstAltDualObject<Ttype>
 {
 }

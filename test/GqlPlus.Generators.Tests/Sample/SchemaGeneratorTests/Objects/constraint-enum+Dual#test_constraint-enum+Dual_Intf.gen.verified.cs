@@ -11,7 +11,7 @@ public interface ItestCnstEnumDual
   public testCnstEnumDual CnstEnumDual { get; set; }
 }
 
-public interface ItestCnstEnumDualField
+public interface ItestCnstEnumDualObject
 {
 }
 
@@ -20,7 +20,7 @@ public interface ItestRefCnstEnumDual<Ttype>
   public testRefCnstEnumDual RefCnstEnumDual { get; set; }
 }
 
-public interface ItestRefCnstEnumDualField<Ttype>
+public interface ItestRefCnstEnumDualObject<Ttype>
 {
   public Ttype field { get; set; }
 }

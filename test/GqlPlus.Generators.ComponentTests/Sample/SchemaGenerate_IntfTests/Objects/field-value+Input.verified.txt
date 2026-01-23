@@ -14,7 +14,7 @@ public interface ICmptFieldValueInp
   public CmptFieldValueInp FieldValueInp { get; set; }
 }
 
-public interface ICmptFieldValueInpField
+public interface ICmptFieldValueInpObject
 {
   public CmptEnumFieldValueInp field { get; set; }
 }

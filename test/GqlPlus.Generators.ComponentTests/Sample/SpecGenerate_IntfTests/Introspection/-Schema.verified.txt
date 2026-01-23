@@ -59,8 +59,8 @@ public interface ICmpt_Schema
   public Cmpt_Schema _Schema { get; set; }
 }
 
-public interface ICmpt_SchemaField
-  : ICmpt_NamedField
+public interface ICmpt_SchemaObject
+  : ICmpt_NamedObject
 {
   public IDictionary<Cmpt_Name, Cmpt_Categories> categories { get; set; }
   public IDictionary<Cmpt_Name, Cmpt_Directives> directives { get; set; }
@@ -79,7 +79,7 @@ public interface ICmpt_Filter
   public Cmpt_Filter _Filter { get; set; }
 }
 
-public interface ICmpt_FilterField
+public interface ICmpt_FilterObject
 {
   public ICollection<Cmpt_NameFilter> names { get; set; }
   public CmptBoolean? matchAliases { get; set; }
@@ -99,8 +99,8 @@ public interface ICmpt_CategoryFilter
   public Cmpt_CategoryFilter _CategoryFilter { get; set; }
 }
 
-public interface ICmpt_CategoryFilterField
-  : ICmpt_FilterField
+public interface ICmpt_CategoryFilterObject
+  : ICmpt_FilterObject
 {
   public ICollection<Cmpt_Resolution> resolutions { get; set; }
 }
@@ -111,8 +111,8 @@ public interface ICmpt_TypeFilter
   public Cmpt_TypeFilter _TypeFilter { get; set; }
 }
 
-public interface ICmpt_TypeFilterField
-  : ICmpt_FilterField
+public interface ICmpt_TypeFilterObject
+  : ICmpt_FilterObject
 {
   public ICollection<Cmpt_TypeKind> kinds { get; set; }
 }
@@ -123,8 +123,8 @@ public interface ICmpt_Aliased
   public Cmpt_Aliased _Aliased { get; set; }
 }
 
-public interface ICmpt_AliasedField
-  : ICmpt_NamedField
+public interface ICmpt_AliasedObject
+  : ICmpt_NamedObject
 {
   public ICollection<Cmpt_Name> aliases { get; set; }
 }
@@ -135,8 +135,8 @@ public interface ICmpt_Named
   public Cmpt_Named _Named { get; set; }
 }
 
-public interface ICmpt_NamedField
-  : ICmpt_DescribedField
+public interface ICmpt_NamedObject
+  : ICmpt_DescribedObject
 {
   public Cmpt_Name name { get; set; }
 }
@@ -146,7 +146,7 @@ public interface ICmpt_Described
   public Cmpt_Described _Described { get; set; }
 }
 
-public interface ICmpt_DescribedField
+public interface ICmpt_DescribedObject
 {
   public ICollection<CmptString> description { get; set; }
 }

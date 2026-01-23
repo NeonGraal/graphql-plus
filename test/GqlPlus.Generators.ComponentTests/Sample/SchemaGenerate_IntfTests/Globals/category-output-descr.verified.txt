@@ -14,6 +14,6 @@ public interface ICmptCtgrOutpDescr
   public CmptCtgrOutpDescr CtgrOutpDescr { get; set; }
 }
 
-public interface ICmptCtgrOutpDescrField
+public interface ICmptCtgrOutpDescrObject
 {
 }

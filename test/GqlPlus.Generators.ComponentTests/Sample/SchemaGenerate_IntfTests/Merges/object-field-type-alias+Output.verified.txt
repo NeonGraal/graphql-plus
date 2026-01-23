@@ -14,7 +14,7 @@ public interface ICmptObjFieldTypeAliasOutp
   public CmptObjFieldTypeAliasOutp ObjFieldTypeAliasOutp { get; set; }
 }
 
-public interface ICmptObjFieldTypeAliasOutpField
+public interface ICmptObjFieldTypeAliasOutpObject
 {
   public CmptString field { get; set; }
 }

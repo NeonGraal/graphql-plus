@@ -17,7 +17,7 @@ public interface ICmptCnstAltObjOutp
   public CmptCnstAltObjOutp CnstAltObjOutp { get; set; }
 }
 
-public interface ICmptCnstAltObjOutpField
+public interface ICmptCnstAltObjOutpObject
 {
 }
 
@@ -27,7 +27,7 @@ public interface ICmptRefCnstAltObjOutp<Tref>
   public CmptRefCnstAltObjOutp RefCnstAltObjOutp { get; set; }
 }
 
-public interface ICmptRefCnstAltObjOutpField<Tref>
+public interface ICmptRefCnstAltObjOutpObject<Tref>
 {
 }
 
@@ -37,7 +37,7 @@ public interface ICmptPrntCnstAltObjOutp
   public CmptPrntCnstAltObjOutp PrntCnstAltObjOutp { get; set; }
 }
 
-public interface ICmptPrntCnstAltObjOutpField
+public interface ICmptPrntCnstAltObjOutpObject
 {
 }
 
@@ -47,8 +47,8 @@ public interface ICmptAltCnstAltObjOutp
   public CmptAltCnstAltObjOutp AltCnstAltObjOutp { get; set; }
 }
 
-public interface ICmptAltCnstAltObjOutpField
-  : ICmptPrntCnstAltObjOutpField
+public interface ICmptAltCnstAltObjOutpObject
+  : ICmptPrntCnstAltObjOutpObject
 {
   public CmptNumber alt { get; set; }
 }

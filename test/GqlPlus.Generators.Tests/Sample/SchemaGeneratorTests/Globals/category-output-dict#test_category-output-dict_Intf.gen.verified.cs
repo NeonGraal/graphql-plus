@@ -10,6 +10,6 @@ public interface ItestCtgrOutpDict
   public testCtgrOutpDict CtgrOutpDict { get; set; }
 }
 
-public interface ItestCtgrOutpDictField
+public interface ItestCtgrOutpDictObject
 {
 }

@@ -11,8 +11,8 @@ public interface ItestPrntParamSameInp<Ta>
   public testPrntParamSameInp PrntParamSameInp { get; set; }
 }
 
-public interface ItestPrntParamSameInpField<Ta>
-  : ItestRefPrntParamSameInpField
+public interface ItestPrntParamSameInpObject<Ta>
+  : ItestRefPrntParamSameInpObject
 {
   public Ta field { get; set; }
 }
@@ -23,6 +23,6 @@ public interface ItestRefPrntParamSameInp<Ta>
   public testRefPrntParamSameInp RefPrntParamSameInp { get; set; }
 }
 
-public interface ItestRefPrntParamSameInpField<Ta>
+public interface ItestRefPrntParamSameInpObject<Ta>
 {
 }

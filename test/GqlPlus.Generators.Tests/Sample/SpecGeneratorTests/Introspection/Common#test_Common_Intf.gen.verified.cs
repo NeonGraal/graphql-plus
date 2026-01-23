@@ -21,7 +21,7 @@ public interface Itest_Type
   public test_Type _Type { get; set; }
 }
 
-public interface Itest_TypeField
+public interface Itest_TypeObject
 {
 }
 
@@ -31,8 +31,8 @@ public interface Itest_BaseType<Tkind>
   public test_BaseType _BaseType { get; set; }
 }
 
-public interface Itest_BaseTypeField<Tkind>
-  : Itest_AliasedField
+public interface Itest_BaseTypeObject<Tkind>
+  : Itest_AliasedObject
 {
   public Tkind typeKind { get; set; }
 }
@@ -43,8 +43,8 @@ public interface Itest_ChildType<Tkind,Tparent>
   public test_ChildType _ChildType { get; set; }
 }
 
-public interface Itest_ChildTypeField<Tkind,Tparent>
-  : Itest_BaseTypeField
+public interface Itest_ChildTypeObject<Tkind,Tparent>
+  : Itest_BaseTypeObject
 {
   public Tparent parent { get; set; }
 }
@@ -55,8 +55,8 @@ public interface Itest_ParentType<Tkind,Titem,TallItem>
   public test_ParentType _ParentType { get; set; }
 }
 
-public interface Itest_ParentTypeField<Tkind,Titem,TallItem>
-  : Itest_ChildTypeField
+public interface Itest_ParentTypeObject<Tkind,Titem,TallItem>
+  : Itest_ChildTypeObject
 {
   public ICollection<Titem> items { get; set; }
   public ICollection<TallItem> allItems { get; set; }
@@ -68,8 +68,8 @@ public interface Itest_TypeRef<Tkind>
   public test_TypeRef _TypeRef { get; set; }
 }
 
-public interface Itest_TypeRefField<Tkind>
-  : Itest_NamedField
+public interface Itest_TypeRefObject<Tkind>
+  : Itest_NamedObject
 {
   public Tkind typeKind { get; set; }
 }
@@ -83,6 +83,6 @@ public interface Itest_TypeSimple
   public test_TypeSimple _TypeSimple { get; set; }
 }
 
-public interface Itest_TypeSimpleField
+public interface Itest_TypeSimpleObject
 {
 }

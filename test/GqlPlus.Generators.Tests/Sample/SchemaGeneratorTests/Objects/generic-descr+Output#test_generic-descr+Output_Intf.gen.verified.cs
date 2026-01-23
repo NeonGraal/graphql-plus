@@ -10,7 +10,7 @@ public interface ItestGnrcDescrOutp<Ttype>
   public testGnrcDescrOutp GnrcDescrOutp { get; set; }
 }
 
-public interface ItestGnrcDescrOutpField<Ttype>
+public interface ItestGnrcDescrOutpObject<Ttype>
 {
   public Ttype field { get; set; }
 }

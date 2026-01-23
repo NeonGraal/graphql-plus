@@ -10,7 +10,7 @@ public interface ItestGnrcDescrDual<Ttype>
   public testGnrcDescrDual GnrcDescrDual { get; set; }
 }
 
-public interface ItestGnrcDescrDualField<Ttype>
+public interface ItestGnrcDescrDualObject<Ttype>
 {
   public Ttype field { get; set; }
 }

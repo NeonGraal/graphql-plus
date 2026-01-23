@@ -11,8 +11,8 @@ public interface ItestGnrcPrntArgDual<Ttype>
   public testGnrcPrntArgDual GnrcPrntArgDual { get; set; }
 }
 
-public interface ItestGnrcPrntArgDualField<Ttype>
-  : ItestRefGnrcPrntArgDualField
+public interface ItestGnrcPrntArgDualObject<Ttype>
+  : ItestRefGnrcPrntArgDualObject
 {
 }
 
@@ -22,6 +22,6 @@ public interface ItestRefGnrcPrntArgDual<Tref>
   public testRefGnrcPrntArgDual RefGnrcPrntArgDual { get; set; }
 }
 
-public interface ItestRefGnrcPrntArgDualField<Tref>
+public interface ItestRefGnrcPrntArgDualObject<Tref>
 {
 }

@@ -11,7 +11,7 @@ public interface ItestGnrcAltSmplOutp
   public testGnrcAltSmplOutp GnrcAltSmplOutp { get; set; }
 }
 
-public interface ItestGnrcAltSmplOutpField
+public interface ItestGnrcAltSmplOutpObject
 {
 }
 
@@ -21,6 +21,6 @@ public interface ItestRefGnrcAltSmplOutp<Tref>
   public testRefGnrcAltSmplOutp RefGnrcAltSmplOutp { get; set; }
 }
 
-public interface ItestRefGnrcAltSmplOutpField<Tref>
+public interface ItestRefGnrcAltSmplOutpObject<Tref>
 {
 }

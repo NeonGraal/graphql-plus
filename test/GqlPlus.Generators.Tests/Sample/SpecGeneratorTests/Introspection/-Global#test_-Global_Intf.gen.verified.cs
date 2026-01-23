@@ -12,8 +12,8 @@ public interface Itest_AndType
   public test_AndType _AndType { get; set; }
 }
 
-public interface Itest_AndTypeField
-  : Itest_NamedField
+public interface Itest_AndTypeObject
+  : Itest_NamedObject
 {
   public test_Type type { get; set; }
 }
@@ -25,8 +25,8 @@ public interface Itest_Categories
   public test_Categories _Categories { get; set; }
 }
 
-public interface Itest_CategoriesField
-  : Itest_AndTypeField
+public interface Itest_CategoriesObject
+  : Itest_AndTypeObject
 {
   public test_Category category { get; set; }
 }
@@ -37,8 +37,8 @@ public interface Itest_Category
   public test_Category _Category { get; set; }
 }
 
-public interface Itest_CategoryField
-  : Itest_AliasedField
+public interface Itest_CategoryObject
+  : Itest_AliasedObject
 {
   public test_Resolution resolution { get; set; }
   public test_TypeRef<test_TypeKind> output { get; set; }
@@ -52,8 +52,8 @@ public interface Itest_Directives
   public test_Directives _Directives { get; set; }
 }
 
-public interface Itest_DirectivesField
-  : Itest_AndTypeField
+public interface Itest_DirectivesObject
+  : Itest_AndTypeObject
 {
   public test_Directive directive { get; set; }
 }
@@ -64,8 +64,8 @@ public interface Itest_Directive
   public test_Directive _Directive { get; set; }
 }
 
-public interface Itest_DirectiveField
-  : Itest_AliasedField
+public interface Itest_DirectiveObject
+  : Itest_AliasedObject
 {
   public ICollection<test_InputParam> parameters { get; set; }
   public testBoolean repeatable { get; set; }
@@ -78,8 +78,8 @@ public interface Itest_Setting
   public test_Setting _Setting { get; set; }
 }
 
-public interface Itest_SettingField
-  : Itest_NamedField
+public interface Itest_SettingObject
+  : Itest_NamedObject
 {
   public test_Value value { get; set; }
 }

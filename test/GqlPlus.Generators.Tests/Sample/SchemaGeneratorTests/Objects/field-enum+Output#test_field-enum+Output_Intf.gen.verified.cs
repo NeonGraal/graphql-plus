@@ -10,7 +10,7 @@ public interface ItestFieldEnumOutp
   public testFieldEnumOutp FieldEnumOutp { get; set; }
 }
 
-public interface ItestFieldEnumOutpField
+public interface ItestFieldEnumOutpObject
 {
   public testEnumFieldEnumOutp field { get; set; }
 }

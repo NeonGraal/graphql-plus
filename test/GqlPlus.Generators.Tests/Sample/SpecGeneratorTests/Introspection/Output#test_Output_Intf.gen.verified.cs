@@ -11,8 +11,8 @@ public interface Itest_OutputField
   public test_OutputField _OutputField { get; set; }
 }
 
-public interface Itest_OutputFieldField
-  : Itest_ObjFieldField
+public interface Itest_OutputFieldObject
+  : Itest_ObjFieldObject
 {
 }
 
@@ -22,8 +22,8 @@ public interface Itest_OutputFieldType
   public test_OutputFieldType _OutputFieldType { get; set; }
 }
 
-public interface Itest_OutputFieldTypeField
-  : Itest_ObjFieldTypeField
+public interface Itest_OutputFieldTypeObject
+  : Itest_ObjFieldTypeObject
 {
   public ICollection<test_InputParam> parameters { get; set; }
 }

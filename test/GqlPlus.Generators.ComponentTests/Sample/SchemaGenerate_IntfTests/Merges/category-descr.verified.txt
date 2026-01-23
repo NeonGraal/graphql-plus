@@ -17,6 +17,6 @@ public interface ICmptCtgrDescr
   public CmptCtgrDescr CtgrDescr { get; set; }
 }
 
-public interface ICmptCtgrDescrField
+public interface ICmptCtgrDescrObject
 {
 }

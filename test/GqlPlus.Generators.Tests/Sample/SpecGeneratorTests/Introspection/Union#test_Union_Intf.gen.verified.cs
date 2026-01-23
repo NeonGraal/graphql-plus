@@ -11,8 +11,8 @@ public interface Itest_UnionRef
   public test_UnionRef _UnionRef { get; set; }
 }
 
-public interface Itest_UnionRefField
-  : Itest_TypeRefField
+public interface Itest_UnionRefObject
+  : Itest_TypeRefObject
 {
 }
 
@@ -22,8 +22,8 @@ public interface Itest_UnionMember
   public test_UnionMember _UnionMember { get; set; }
 }
 
-public interface Itest_UnionMemberField
-  : Itest_UnionRefField
+public interface Itest_UnionMemberObject
+  : Itest_UnionRefObject
 {
   public test_Name union { get; set; }
 }

@@ -10,7 +10,7 @@ public interface ItestOutpParamModParam<Tmod>
   public testOutpParamModParam OutpParamModParam { get; set; }
 }
 
-public interface ItestOutpParamModParamField<Tmod>
+public interface ItestOutpParamModParamObject<Tmod>
 {
   public testDomOutpParamModParam field { get; set; }
 }
@@ -21,7 +21,7 @@ public interface ItestInOutpParamModParam
   public testInOutpParamModParam InOutpParamModParam { get; set; }
 }
 
-public interface ItestInOutpParamModParamField
+public interface ItestInOutpParamModParamObject
 {
   public testNumber param { get; set; }
 }

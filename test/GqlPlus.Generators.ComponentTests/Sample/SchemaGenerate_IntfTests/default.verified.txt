@@ -22,7 +22,7 @@ public interface ICmptQuery
   public CmptQuery Query { get; set; }
 }
 
-public interface ICmptQueryField
+public interface ICmptQueryObject
 {
 }
 
@@ -31,7 +31,7 @@ public interface ICmptMutation
   public CmptMutation Mutation { get; set; }
 }
 
-public interface ICmptMutationField
+public interface ICmptMutationObject
 {
 }
 
@@ -40,7 +40,7 @@ public interface ICmptSubscription
   public CmptSubscription Subscription { get; set; }
 }
 
-public interface ICmptSubscriptionField
+public interface ICmptSubscriptionObject
 {
 }
 
@@ -49,6 +49,6 @@ public interface ICmpt_Schema
   public Cmpt_Schema _Schema { get; set; }
 }
 
-public interface ICmpt_SchemaField
+public interface ICmpt_SchemaObject
 {
 }

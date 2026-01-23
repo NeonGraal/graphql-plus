@@ -10,6 +10,6 @@ public interface ItestObjAliasOutp
   public testObjAliasOutp ObjAliasOutp { get; set; }
 }
 
-public interface ItestObjAliasOutpField
+public interface ItestObjAliasOutpObject
 {
 }

@@ -10,6 +10,6 @@ public interface ItestCtgrAlias
   public testCtgrAlias CtgrAlias { get; set; }
 }
 
-public interface ItestCtgrAliasField
+public interface ItestCtgrAliasObject
 {
 }

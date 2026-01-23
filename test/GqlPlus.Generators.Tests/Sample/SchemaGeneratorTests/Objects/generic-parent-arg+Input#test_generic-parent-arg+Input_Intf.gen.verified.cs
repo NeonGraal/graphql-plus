@@ -11,8 +11,8 @@ public interface ItestGnrcPrntArgInp<Ttype>
   public testGnrcPrntArgInp GnrcPrntArgInp { get; set; }
 }
 
-public interface ItestGnrcPrntArgInpField<Ttype>
-  : ItestRefGnrcPrntArgInpField
+public interface ItestGnrcPrntArgInpObject<Ttype>
+  : ItestRefGnrcPrntArgInpObject
 {
 }
 
@@ -22,6 +22,6 @@ public interface ItestRefGnrcPrntArgInp<Tref>
   public testRefGnrcPrntArgInp RefGnrcPrntArgInp { get; set; }
 }
 
-public interface ItestRefGnrcPrntArgInpField<Tref>
+public interface ItestRefGnrcPrntArgInpObject<Tref>
 {
 }

@@ -15,7 +15,7 @@ public interface ICmptAltModParamDual<Tmod>
   public CmptAltModParamDual AltModParamDual { get; set; }
 }
 
-public interface ICmptAltModParamDualField<Tmod>
+public interface ICmptAltModParamDualObject<Tmod>
 {
 }
 
@@ -25,7 +25,7 @@ public interface ICmptAltAltModParamDual
   public CmptAltAltModParamDual AltAltModParamDual { get; set; }
 }
 
-public interface ICmptAltAltModParamDualField
+public interface ICmptAltAltModParamDualObject
 {
   public CmptNumber alt { get; set; }
 }

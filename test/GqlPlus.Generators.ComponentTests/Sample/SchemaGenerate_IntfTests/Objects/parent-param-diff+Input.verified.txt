@@ -15,8 +15,8 @@ public interface ICmptPrntParamDiffInp<Ta>
   public CmptPrntParamDiffInp PrntParamDiffInp { get; set; }
 }
 
-public interface ICmptPrntParamDiffInpField<Ta>
-  : ICmptRefPrntParamDiffInpField
+public interface ICmptPrntParamDiffInpObject<Ta>
+  : ICmptRefPrntParamDiffInpObject
 {
   public Ta field { get; set; }
 }
@@ -27,6 +27,6 @@ public interface ICmptRefPrntParamDiffInp<Tb>
   public CmptRefPrntParamDiffInp RefPrntParamDiffInp { get; set; }
 }
 
-public interface ICmptRefPrntParamDiffInpField<Tb>
+public interface ICmptRefPrntParamDiffInpObject<Tb>
 {
 }

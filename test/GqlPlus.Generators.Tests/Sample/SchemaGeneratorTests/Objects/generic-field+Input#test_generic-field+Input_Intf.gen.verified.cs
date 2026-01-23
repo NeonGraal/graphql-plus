@@ -10,7 +10,7 @@ public interface ItestGnrcFieldInp<Ttype>
   public testGnrcFieldInp GnrcFieldInp { get; set; }
 }
 
-public interface ItestGnrcFieldInpField<Ttype>
+public interface ItestGnrcFieldInpObject<Ttype>
 {
   public Ttype field { get; set; }
 }

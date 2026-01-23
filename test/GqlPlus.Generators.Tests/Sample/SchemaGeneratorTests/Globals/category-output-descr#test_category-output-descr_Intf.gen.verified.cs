@@ -10,6 +10,6 @@ public interface ItestCtgrOutpDescr
   public testCtgrOutpDescr CtgrOutpDescr { get; set; }
 }
 
-public interface ItestCtgrOutpDescrField
+public interface ItestCtgrOutpDescrObject
 {
 }

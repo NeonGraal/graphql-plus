@@ -9,7 +9,7 @@ public interface ICmptCtgr
   public CmptCtgr Ctgr { get; set; }
 }
 
-public interface ICmptCtgrField
+public interface ICmptCtgrObject
 {
 }
 
@@ -18,7 +18,7 @@ public interface ICmptCtgrAlias
   public CmptCtgrAlias CtgrAlias { get; set; }
 }
 
-public interface ICmptCtgrAliasField
+public interface ICmptCtgrAliasObject
 {
 }
 
@@ -27,7 +27,7 @@ public interface ICmptCtgrDescr
   public CmptCtgrDescr CtgrDescr { get; set; }
 }
 
-public interface ICmptCtgrDescrField
+public interface ICmptCtgrDescrObject
 {
 }
 
@@ -36,7 +36,7 @@ public interface ICmptCtgrMod
   public CmptCtgrMod CtgrMod { get; set; }
 }
 
-public interface ICmptCtgrModField
+public interface ICmptCtgrModObject
 {
 }
 
@@ -45,7 +45,7 @@ public interface ICmptInDrctParam
   public CmptInDrctParam InDrctParam { get; set; }
 }
 
-public interface ICmptInDrctParamField
+public interface ICmptInDrctParamObject
 {
 }
 
@@ -114,7 +114,7 @@ public interface ICmptObjDual
   public CmptObjDual ObjDual { get; set; }
 }
 
-public interface ICmptObjDualField
+public interface ICmptObjDualObject
 {
 }
 
@@ -123,7 +123,7 @@ public interface ICmptObjInp
   public CmptObjInp ObjInp { get; set; }
 }
 
-public interface ICmptObjInpField
+public interface ICmptObjInpObject
 {
 }
 
@@ -132,7 +132,7 @@ public interface ICmptObjOutp
   public CmptObjOutp ObjOutp { get; set; }
 }
 
-public interface ICmptObjOutpField
+public interface ICmptObjOutpObject
 {
 }
 
@@ -141,7 +141,7 @@ public interface ICmptObjAliasDual
   public CmptObjAliasDual ObjAliasDual { get; set; }
 }
 
-public interface ICmptObjAliasDualField
+public interface ICmptObjAliasDualObject
 {
 }
 
@@ -150,7 +150,7 @@ public interface ICmptObjAliasInp
   public CmptObjAliasInp ObjAliasInp { get; set; }
 }
 
-public interface ICmptObjAliasInpField
+public interface ICmptObjAliasInpObject
 {
 }
 
@@ -159,7 +159,7 @@ public interface ICmptObjAliasOutp
   public CmptObjAliasOutp ObjAliasOutp { get; set; }
 }
 
-public interface ICmptObjAliasOutpField
+public interface ICmptObjAliasOutpObject
 {
 }
 
@@ -169,7 +169,7 @@ public interface ICmptObjAltDual
   public CmptObjAltDual ObjAltDual { get; set; }
 }
 
-public interface ICmptObjAltDualField
+public interface ICmptObjAltDualObject
 {
 }
 
@@ -178,7 +178,7 @@ public interface ICmptObjAltDualType
   public CmptObjAltDualType ObjAltDualType { get; set; }
 }
 
-public interface ICmptObjAltDualTypeField
+public interface ICmptObjAltDualTypeObject
 {
 }
 
@@ -188,7 +188,7 @@ public interface ICmptObjAltInp
   public CmptObjAltInp ObjAltInp { get; set; }
 }
 
-public interface ICmptObjAltInpField
+public interface ICmptObjAltInpObject
 {
 }
 
@@ -197,7 +197,7 @@ public interface ICmptObjAltInpType
   public CmptObjAltInpType ObjAltInpType { get; set; }
 }
 
-public interface ICmptObjAltInpTypeField
+public interface ICmptObjAltInpTypeObject
 {
 }
 
@@ -207,7 +207,7 @@ public interface ICmptObjAltOutp
   public CmptObjAltOutp ObjAltOutp { get; set; }
 }
 
-public interface ICmptObjAltOutpField
+public interface ICmptObjAltOutpObject
 {
 }
 
@@ -216,7 +216,7 @@ public interface ICmptObjAltOutpType
   public CmptObjAltOutpType ObjAltOutpType { get; set; }
 }
 
-public interface ICmptObjAltOutpTypeField
+public interface ICmptObjAltOutpTypeObject
 {
 }
 
@@ -227,7 +227,7 @@ public interface ICmptObjAltEnumDual
   public CmptObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 
-public interface ICmptObjAltEnumDualField
+public interface ICmptObjAltEnumDualObject
 {
 }
 
@@ -238,7 +238,7 @@ public interface ICmptObjAltEnumInp
   public CmptObjAltEnumInp ObjAltEnumInp { get; set; }
 }
 
-public interface ICmptObjAltEnumInpField
+public interface ICmptObjAltEnumInpObject
 {
 }
 
@@ -249,7 +249,7 @@ public interface ICmptObjAltEnumOutp
   public CmptObjAltEnumOutp ObjAltEnumOutp { get; set; }
 }
 
-public interface ICmptObjAltEnumOutpField
+public interface ICmptObjAltEnumOutpObject
 {
 }
 
@@ -258,7 +258,7 @@ public interface ICmptObjCnstDual<Ttype>
   public CmptObjCnstDual ObjCnstDual { get; set; }
 }
 
-public interface ICmptObjCnstDualField<Ttype>
+public interface ICmptObjCnstDualObject<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
@@ -269,7 +269,7 @@ public interface ICmptObjCnstInp<Ttype>
   public CmptObjCnstInp ObjCnstInp { get; set; }
 }
 
-public interface ICmptObjCnstInpField<Ttype>
+public interface ICmptObjCnstInpObject<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
@@ -280,7 +280,7 @@ public interface ICmptObjCnstOutp<Ttype>
   public CmptObjCnstOutp ObjCnstOutp { get; set; }
 }
 
-public interface ICmptObjCnstOutpField<Ttype>
+public interface ICmptObjCnstOutpObject<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
@@ -291,7 +291,7 @@ public interface ICmptObjFieldDual
   public CmptObjFieldDual ObjFieldDual { get; set; }
 }
 
-public interface ICmptObjFieldDualField
+public interface ICmptObjFieldDualObject
 {
   public CmptFldObjFieldDual field { get; set; }
 }
@@ -301,7 +301,7 @@ public interface ICmptFldObjFieldDual
   public CmptFldObjFieldDual FldObjFieldDual { get; set; }
 }
 
-public interface ICmptFldObjFieldDualField
+public interface ICmptFldObjFieldDualObject
 {
 }
 
@@ -310,7 +310,7 @@ public interface ICmptObjFieldInp
   public CmptObjFieldInp ObjFieldInp { get; set; }
 }
 
-public interface ICmptObjFieldInpField
+public interface ICmptObjFieldInpObject
 {
   public CmptFldObjFieldInp field { get; set; }
 }
@@ -320,7 +320,7 @@ public interface ICmptFldObjFieldInp
   public CmptFldObjFieldInp FldObjFieldInp { get; set; }
 }
 
-public interface ICmptFldObjFieldInpField
+public interface ICmptFldObjFieldInpObject
 {
 }
 
@@ -329,7 +329,7 @@ public interface ICmptObjFieldOutp
   public CmptObjFieldOutp ObjFieldOutp { get; set; }
 }
 
-public interface ICmptObjFieldOutpField
+public interface ICmptObjFieldOutpObject
 {
   public CmptFldObjFieldOutp field { get; set; }
 }
@@ -339,7 +339,7 @@ public interface ICmptFldObjFieldOutp
   public CmptFldObjFieldOutp FldObjFieldOutp { get; set; }
 }
 
-public interface ICmptFldObjFieldOutpField
+public interface ICmptFldObjFieldOutpObject
 {
 }
 
@@ -348,7 +348,7 @@ public interface ICmptObjFieldAliasDual
   public CmptObjFieldAliasDual ObjFieldAliasDual { get; set; }
 }
 
-public interface ICmptObjFieldAliasDualField
+public interface ICmptObjFieldAliasDualObject
 {
   public CmptFldObjFieldAliasDual field { get; set; }
 }
@@ -358,7 +358,7 @@ public interface ICmptFldObjFieldAliasDual
   public CmptFldObjFieldAliasDual FldObjFieldAliasDual { get; set; }
 }
 
-public interface ICmptFldObjFieldAliasDualField
+public interface ICmptFldObjFieldAliasDualObject
 {
 }
 
@@ -367,7 +367,7 @@ public interface ICmptObjFieldAliasInp
   public CmptObjFieldAliasInp ObjFieldAliasInp { get; set; }
 }
 
-public interface ICmptObjFieldAliasInpField
+public interface ICmptObjFieldAliasInpObject
 {
   public CmptFldObjFieldAliasInp field { get; set; }
 }
@@ -377,7 +377,7 @@ public interface ICmptFldObjFieldAliasInp
   public CmptFldObjFieldAliasInp FldObjFieldAliasInp { get; set; }
 }
 
-public interface ICmptFldObjFieldAliasInpField
+public interface ICmptFldObjFieldAliasInpObject
 {
 }
 
@@ -386,7 +386,7 @@ public interface ICmptObjFieldAliasOutp
   public CmptObjFieldAliasOutp ObjFieldAliasOutp { get; set; }
 }
 
-public interface ICmptObjFieldAliasOutpField
+public interface ICmptObjFieldAliasOutpObject
 {
   public CmptFldObjFieldAliasOutp field { get; set; }
 }
@@ -396,7 +396,7 @@ public interface ICmptFldObjFieldAliasOutp
   public CmptFldObjFieldAliasOutp FldObjFieldAliasOutp { get; set; }
 }
 
-public interface ICmptFldObjFieldAliasOutpField
+public interface ICmptFldObjFieldAliasOutpObject
 {
 }
 
@@ -405,7 +405,7 @@ public interface ICmptObjFieldEnumAliasDual
   public CmptObjFieldEnumAliasDual ObjFieldEnumAliasDual { get; set; }
 }
 
-public interface ICmptObjFieldEnumAliasDualField
+public interface ICmptObjFieldEnumAliasDualObject
 {
   public CmptBoolean field { get; set; }
 }
@@ -415,7 +415,7 @@ public interface ICmptObjFieldEnumAliasInp
   public CmptObjFieldEnumAliasInp ObjFieldEnumAliasInp { get; set; }
 }
 
-public interface ICmptObjFieldEnumAliasInpField
+public interface ICmptObjFieldEnumAliasInpObject
 {
   public CmptBoolean field { get; set; }
 }
@@ -425,7 +425,7 @@ public interface ICmptObjFieldEnumAliasOutp
   public CmptObjFieldEnumAliasOutp ObjFieldEnumAliasOutp { get; set; }
 }
 
-public interface ICmptObjFieldEnumAliasOutpField
+public interface ICmptObjFieldEnumAliasOutpObject
 {
   public CmptBoolean field { get; set; }
 }
@@ -435,7 +435,7 @@ public interface ICmptObjFieldEnumValueDual
   public CmptObjFieldEnumValueDual ObjFieldEnumValueDual { get; set; }
 }
 
-public interface ICmptObjFieldEnumValueDualField
+public interface ICmptObjFieldEnumValueDualObject
 {
   public CmptBoolean field { get; set; }
 }
@@ -445,7 +445,7 @@ public interface ICmptObjFieldEnumValueInp
   public CmptObjFieldEnumValueInp ObjFieldEnumValueInp { get; set; }
 }
 
-public interface ICmptObjFieldEnumValueInpField
+public interface ICmptObjFieldEnumValueInpObject
 {
   public CmptBoolean field { get; set; }
 }
@@ -455,7 +455,7 @@ public interface ICmptObjFieldEnumValueOutp
   public CmptObjFieldEnumValueOutp ObjFieldEnumValueOutp { get; set; }
 }
 
-public interface ICmptObjFieldEnumValueOutpField
+public interface ICmptObjFieldEnumValueOutpObject
 {
   public CmptBoolean field { get; set; }
 }
@@ -465,7 +465,7 @@ public interface ICmptObjFieldTypeAliasDual
   public CmptObjFieldTypeAliasDual ObjFieldTypeAliasDual { get; set; }
 }
 
-public interface ICmptObjFieldTypeAliasDualField
+public interface ICmptObjFieldTypeAliasDualObject
 {
   public CmptString field { get; set; }
 }
@@ -475,7 +475,7 @@ public interface ICmptObjFieldTypeAliasInp
   public CmptObjFieldTypeAliasInp ObjFieldTypeAliasInp { get; set; }
 }
 
-public interface ICmptObjFieldTypeAliasInpField
+public interface ICmptObjFieldTypeAliasInpObject
 {
   public CmptString field { get; set; }
 }
@@ -485,7 +485,7 @@ public interface ICmptObjFieldTypeAliasOutp
   public CmptObjFieldTypeAliasOutp ObjFieldTypeAliasOutp { get; set; }
 }
 
-public interface ICmptObjFieldTypeAliasOutpField
+public interface ICmptObjFieldTypeAliasOutpObject
 {
   public CmptString field { get; set; }
 }
@@ -495,7 +495,7 @@ public interface ICmptObjParamDual<Ttest,Ttype>
   public CmptObjParamDual ObjParamDual { get; set; }
 }
 
-public interface ICmptObjParamDualField<Ttest,Ttype>
+public interface ICmptObjParamDualObject<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
@@ -506,7 +506,7 @@ public interface ICmptObjParamInp<Ttest,Ttype>
   public CmptObjParamInp ObjParamInp { get; set; }
 }
 
-public interface ICmptObjParamInpField<Ttest,Ttype>
+public interface ICmptObjParamInpObject<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
@@ -517,7 +517,7 @@ public interface ICmptObjParamOutp<Ttest,Ttype>
   public CmptObjParamOutp ObjParamOutp { get; set; }
 }
 
-public interface ICmptObjParamOutpField<Ttest,Ttype>
+public interface ICmptObjParamOutpObject<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
@@ -528,7 +528,7 @@ public interface ICmptObjParamDupDual<Ttest>
   public CmptObjParamDupDual ObjParamDupDual { get; set; }
 }
 
-public interface ICmptObjParamDupDualField<Ttest>
+public interface ICmptObjParamDupDualObject<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
@@ -539,7 +539,7 @@ public interface ICmptObjParamDupInp<Ttest>
   public CmptObjParamDupInp ObjParamDupInp { get; set; }
 }
 
-public interface ICmptObjParamDupInpField<Ttest>
+public interface ICmptObjParamDupInpObject<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
@@ -550,7 +550,7 @@ public interface ICmptObjParamDupOutp<Ttest>
   public CmptObjParamDupOutp ObjParamDupOutp { get; set; }
 }
 
-public interface ICmptObjParamDupOutpField<Ttest>
+public interface ICmptObjParamDupOutpObject<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
@@ -562,8 +562,8 @@ public interface ICmptObjPrntDual
   public CmptObjPrntDual ObjPrntDual { get; set; }
 }
 
-public interface ICmptObjPrntDualField
-  : ICmptRefObjPrntDualField
+public interface ICmptObjPrntDualObject
+  : ICmptRefObjPrntDualObject
 {
 }
 
@@ -572,7 +572,7 @@ public interface ICmptRefObjPrntDual
   public CmptRefObjPrntDual RefObjPrntDual { get; set; }
 }
 
-public interface ICmptRefObjPrntDualField
+public interface ICmptRefObjPrntDualObject
 {
 }
 
@@ -582,8 +582,8 @@ public interface ICmptObjPrntInp
   public CmptObjPrntInp ObjPrntInp { get; set; }
 }
 
-public interface ICmptObjPrntInpField
-  : ICmptRefObjPrntInpField
+public interface ICmptObjPrntInpObject
+  : ICmptRefObjPrntInpObject
 {
 }
 
@@ -592,7 +592,7 @@ public interface ICmptRefObjPrntInp
   public CmptRefObjPrntInp RefObjPrntInp { get; set; }
 }
 
-public interface ICmptRefObjPrntInpField
+public interface ICmptRefObjPrntInpObject
 {
 }
 
@@ -602,8 +602,8 @@ public interface ICmptObjPrntOutp
   public CmptObjPrntOutp ObjPrntOutp { get; set; }
 }
 
-public interface ICmptObjPrntOutpField
-  : ICmptRefObjPrntOutpField
+public interface ICmptObjPrntOutpObject
+  : ICmptRefObjPrntOutpObject
 {
 }
 
@@ -612,7 +612,7 @@ public interface ICmptRefObjPrntOutp
   public CmptRefObjPrntOutp RefObjPrntOutp { get; set; }
 }
 
-public interface ICmptRefObjPrntOutpField
+public interface ICmptRefObjPrntOutpObject
 {
 }
 
@@ -621,7 +621,7 @@ public interface ICmptOutpFieldParam
   public CmptOutpFieldParam OutpFieldParam { get; set; }
 }
 
-public interface ICmptOutpFieldParamField
+public interface ICmptOutpFieldParamObject
 {
   public CmptFldOutpFieldParam field { get; set; }
 }
@@ -631,7 +631,7 @@ public interface ICmptOutpFieldParam1
   public CmptOutpFieldParam1 OutpFieldParam1 { get; set; }
 }
 
-public interface ICmptOutpFieldParam1Field
+public interface ICmptOutpFieldParam1Object
 {
 }
 
@@ -640,7 +640,7 @@ public interface ICmptOutpFieldParam2
   public CmptOutpFieldParam2 OutpFieldParam2 { get; set; }
 }
 
-public interface ICmptOutpFieldParam2Field
+public interface ICmptOutpFieldParam2Object
 {
 }
 
@@ -649,7 +649,7 @@ public interface ICmptFldOutpFieldParam
   public CmptFldOutpFieldParam FldOutpFieldParam { get; set; }
 }
 
-public interface ICmptFldOutpFieldParamField
+public interface ICmptFldOutpFieldParamObject
 {
 }
 

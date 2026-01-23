@@ -10,7 +10,7 @@ public interface ItestFieldModEnumOutp
   public testFieldModEnumOutp FieldModEnumOutp { get; set; }
 }
 
-public interface ItestFieldModEnumOutpField
+public interface ItestFieldModEnumOutpObject
 {
   public IDictionary<testEnumFieldModEnumOutp, testString> field { get; set; }
 }

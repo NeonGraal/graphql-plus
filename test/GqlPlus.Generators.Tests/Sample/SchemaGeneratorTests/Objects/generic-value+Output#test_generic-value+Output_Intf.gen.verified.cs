@@ -11,7 +11,7 @@ public interface ItestGnrcValueOutp
   public testGnrcValueOutp GnrcValueOutp { get; set; }
 }
 
-public interface ItestGnrcValueOutpField
+public interface ItestGnrcValueOutpObject
 {
 }
 
@@ -20,7 +20,7 @@ public interface ItestRefGnrcValueOutp<Ttype>
   public testRefGnrcValueOutp RefGnrcValueOutp { get; set; }
 }
 
-public interface ItestRefGnrcValueOutpField<Ttype>
+public interface ItestRefGnrcValueOutpObject<Ttype>
 {
   public Ttype field { get; set; }
 }

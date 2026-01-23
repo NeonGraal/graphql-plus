@@ -14,7 +14,7 @@ public interface ICmptObjParamOutp<Ttest,Ttype>
   public CmptObjParamOutp ObjParamOutp { get; set; }
 }
 
-public interface ICmptObjParamOutpField<Ttest,Ttype>
+public interface ICmptObjParamOutpObject<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }

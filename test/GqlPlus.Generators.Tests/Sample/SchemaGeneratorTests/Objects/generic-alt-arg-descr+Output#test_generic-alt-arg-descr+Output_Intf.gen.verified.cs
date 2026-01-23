@@ -11,7 +11,7 @@ public interface ItestGnrcAltArgDescrOutp<Ttype>
   public testGnrcAltArgDescrOutp GnrcAltArgDescrOutp { get; set; }
 }
 
-public interface ItestGnrcAltArgDescrOutpField<Ttype>
+public interface ItestGnrcAltArgDescrOutpObject<Ttype>
 {
 }
 
@@ -21,6 +21,6 @@ public interface ItestRefGnrcAltArgDescrOutp<Tref>
   public testRefGnrcAltArgDescrOutp RefGnrcAltArgDescrOutp { get; set; }
 }
 
-public interface ItestRefGnrcAltArgDescrOutpField<Tref>
+public interface ItestRefGnrcAltArgDescrOutpObject<Tref>
 {
 }

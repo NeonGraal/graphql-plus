@@ -14,7 +14,7 @@ public interface ICmptObjCnstInp<Ttype>
   public CmptObjCnstInp ObjCnstInp { get; set; }
 }
 
-public interface ICmptObjCnstInpField<Ttype>
+public interface ICmptObjCnstInpObject<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }

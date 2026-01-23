@@ -10,7 +10,7 @@ public interface ItestObjFieldTypeAliasOutp
   public testObjFieldTypeAliasOutp ObjFieldTypeAliasOutp { get; set; }
 }
 
-public interface ItestObjFieldTypeAliasOutpField
+public interface ItestObjFieldTypeAliasOutpObject
 {
   public testString field { get; set; }
 }

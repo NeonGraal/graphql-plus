@@ -16,8 +16,8 @@ public interface ICmptGnrcPrntParamPrntInp
   public CmptGnrcPrntParamPrntInp GnrcPrntParamPrntInp { get; set; }
 }
 
-public interface ICmptGnrcPrntParamPrntInpField
-  : ICmptRefGnrcPrntParamPrntInpField
+public interface ICmptGnrcPrntParamPrntInpObject
+  : ICmptRefGnrcPrntParamPrntInpObject
 {
 }
 
@@ -27,8 +27,8 @@ public interface ICmptRefGnrcPrntParamPrntInp<Tref>
   public CmptRefGnrcPrntParamPrntInp RefGnrcPrntParamPrntInp { get; set; }
 }
 
-public interface ICmptRefGnrcPrntParamPrntInpField<Tref>
-  : ICmptrefField
+public interface ICmptRefGnrcPrntParamPrntInpObject<Tref>
+  : ICmptrefObject
 {
 }
 
@@ -38,7 +38,7 @@ public interface ICmptAltGnrcPrntParamPrntInp
   public CmptAltGnrcPrntParamPrntInp AltGnrcPrntParamPrntInp { get; set; }
 }
 
-public interface ICmptAltGnrcPrntParamPrntInpField
+public interface ICmptAltGnrcPrntParamPrntInpObject
 {
   public CmptNumber alt { get; set; }
 }

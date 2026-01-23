@@ -10,7 +10,7 @@ public interface ItestOutpParamModDmn
   public testOutpParamModDmn OutpParamModDmn { get; set; }
 }
 
-public interface ItestOutpParamModDmnField
+public interface ItestOutpParamModDmnObject
 {
   public testDomOutpParamModDmn field { get; set; }
 }
@@ -21,7 +21,7 @@ public interface ItestInOutpParamModDmn
   public testInOutpParamModDmn InOutpParamModDmn { get; set; }
 }
 
-public interface ItestInOutpParamModDmnField
+public interface ItestInOutpParamModDmnObject
 {
   public testNumber param { get; set; }
 }

@@ -9,7 +9,7 @@ public interface ICmptCtgrDscrs
   public CmptCtgrDscrs CtgrDscrs { get; set; }
 }
 
-public interface ICmptCtgrDscrsField
+public interface ICmptCtgrDscrsObject
 {
 }
 
@@ -18,7 +18,7 @@ public interface ICmptCtgrOutp
   public CmptCtgrOutp CtgrOutp { get; set; }
 }
 
-public interface ICmptCtgrOutpField
+public interface ICmptCtgrOutpObject
 {
 }
 
@@ -27,7 +27,7 @@ public interface ICmptCtgrOutpDescr
   public CmptCtgrOutpDescr CtgrOutpDescr { get; set; }
 }
 
-public interface ICmptCtgrOutpDescrField
+public interface ICmptCtgrOutpDescrObject
 {
 }
 
@@ -36,7 +36,7 @@ public interface ICmptCtgrOutpDict
   public CmptCtgrOutpDict CtgrOutpDict { get; set; }
 }
 
-public interface ICmptCtgrOutpDictField
+public interface ICmptCtgrOutpDictObject
 {
 }
 
@@ -45,7 +45,7 @@ public interface ICmptCtgrOutpList
   public CmptCtgrOutpList CtgrOutpList { get; set; }
 }
 
-public interface ICmptCtgrOutpListField
+public interface ICmptCtgrOutpListObject
 {
 }
 
@@ -54,7 +54,7 @@ public interface ICmptCtgrOutpOptl
   public CmptCtgrOutpOptl CtgrOutpOptl { get; set; }
 }
 
-public interface ICmptCtgrOutpOptlField
+public interface ICmptCtgrOutpOptlObject
 {
 }
 
@@ -63,7 +63,7 @@ public interface ICmptDescr
   public CmptDescr Descr { get; set; }
 }
 
-public interface ICmptDescrField
+public interface ICmptDescrObject
 {
 }
 
@@ -72,7 +72,7 @@ public interface ICmptDescrBcks
   public CmptDescrBcks DescrBcks { get; set; }
 }
 
-public interface ICmptDescrBcksField
+public interface ICmptDescrBcksObject
 {
 }
 
@@ -81,7 +81,7 @@ public interface ICmptDescrBtwn
   public CmptDescrBtwn DescrBtwn { get; set; }
 }
 
-public interface ICmptDescrBtwnField
+public interface ICmptDescrBtwnObject
 {
 }
 
@@ -90,7 +90,7 @@ public interface ICmptDescrCmpl
   public CmptDescrCmpl DescrCmpl { get; set; }
 }
 
-public interface ICmptDescrCmplField
+public interface ICmptDescrCmplObject
 {
 }
 
@@ -99,7 +99,7 @@ public interface ICmptDescrDbl
   public CmptDescrDbl DescrDbl { get; set; }
 }
 
-public interface ICmptDescrDblField
+public interface ICmptDescrDblObject
 {
 }
 
@@ -108,7 +108,7 @@ public interface ICmptDescrSngl
   public CmptDescrSngl DescrSngl { get; set; }
 }
 
-public interface ICmptDescrSnglField
+public interface ICmptDescrSnglObject
 {
 }
 
@@ -117,7 +117,7 @@ public interface ICmptDscrs
   public CmptDscrs Dscrs { get; set; }
 }
 
-public interface ICmptDscrsField
+public interface ICmptDscrsObject
 {
 }
 
@@ -126,7 +126,7 @@ public interface ICmptInDrctParamDict
   public CmptInDrctParamDict InDrctParamDict { get; set; }
 }
 
-public interface ICmptInDrctParamDictField
+public interface ICmptInDrctParamDictObject
 {
 }
 
@@ -135,7 +135,7 @@ public interface ICmptInDrctParamIn
   public CmptInDrctParamIn InDrctParamIn { get; set; }
 }
 
-public interface ICmptInDrctParamInField
+public interface ICmptInDrctParamInObject
 {
 }
 
@@ -144,7 +144,7 @@ public interface ICmptInDrctParamList
   public CmptInDrctParamList InDrctParamList { get; set; }
 }
 
-public interface ICmptInDrctParamListField
+public interface ICmptInDrctParamListObject
 {
 }
 
@@ -153,6 +153,6 @@ public interface ICmptInDrctParamOpt
   public CmptInDrctParamOpt InDrctParamOpt { get; set; }
 }
 
-public interface ICmptInDrctParamOptField
+public interface ICmptInDrctParamOptObject
 {
 }

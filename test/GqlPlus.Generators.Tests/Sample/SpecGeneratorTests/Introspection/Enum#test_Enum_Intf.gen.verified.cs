@@ -11,8 +11,8 @@ public interface Itest_EnumLabel
   public test_EnumLabel _EnumLabel { get; set; }
 }
 
-public interface Itest_EnumLabelField
-  : Itest_AliasedField
+public interface Itest_EnumLabelObject
+  : Itest_AliasedObject
 {
   public test_Name enum { get; set; }
 }
@@ -23,8 +23,8 @@ public interface Itest_EnumValue
   public test_EnumValue _EnumValue { get; set; }
 }
 
-public interface Itest_EnumValueField
-  : Itest_TypeRefField
+public interface Itest_EnumValueObject
+  : Itest_TypeRefObject
 {
   public test_Name label { get; set; }
 }

@@ -17,8 +17,8 @@ public interface ICmpt_Setting
   public Cmpt_Setting _Setting { get; set; }
 }
 
-public interface ICmpt_SettingField
-  : ICmpt_NamedField
+public interface ICmpt_SettingObject
+  : ICmpt_NamedObject
 {
   public Cmpt_Value value { get; set; }
 }

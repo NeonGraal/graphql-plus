@@ -13,7 +13,7 @@ public interface ICmptGnrcFieldDual<Ttype>
   public CmptGnrcFieldDual GnrcFieldDual { get; set; }
 }
 
-public interface ICmptGnrcFieldDualField<Ttype>
+public interface ICmptGnrcFieldDualObject<Ttype>
 {
   public Ttype field { get; set; }
 }

@@ -16,7 +16,7 @@ public interface ICmptCnstAltDmnOutp
   public CmptCnstAltDmnOutp CnstAltDmnOutp { get; set; }
 }
 
-public interface ICmptCnstAltDmnOutpField
+public interface ICmptCnstAltDmnOutpObject
 {
 }
 
@@ -26,7 +26,7 @@ public interface ICmptRefCnstAltDmnOutp<Tref>
   public CmptRefCnstAltDmnOutp RefCnstAltDmnOutp { get; set; }
 }
 
-public interface ICmptRefCnstAltDmnOutpField<Tref>
+public interface ICmptRefCnstAltDmnOutpObject<Tref>
 {
 }
 

@@ -11,8 +11,8 @@ public interface ItestGnrcPrntStrDomInp
   public testGnrcPrntStrDomInp GnrcPrntStrDomInp { get; set; }
 }
 
-public interface ItestGnrcPrntStrDomInpField
-  : ItestFieldGnrcPrntStrDomInpField
+public interface ItestGnrcPrntStrDomInpObject
+  : ItestFieldGnrcPrntStrDomInpObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestFieldGnrcPrntStrDomInp<Tref>
   public testFieldGnrcPrntStrDomInp FieldGnrcPrntStrDomInp { get; set; }
 }
 
-public interface ItestFieldGnrcPrntStrDomInpField<Tref>
+public interface ItestFieldGnrcPrntStrDomInpObject<Tref>
 {
   public Tref field { get; set; }
 }

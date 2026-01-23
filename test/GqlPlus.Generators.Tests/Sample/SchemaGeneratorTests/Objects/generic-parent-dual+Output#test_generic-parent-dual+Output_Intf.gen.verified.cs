@@ -11,8 +11,8 @@ public interface ItestGnrcPrntDualOutp
   public testGnrcPrntDualOutp GnrcPrntDualOutp { get; set; }
 }
 
-public interface ItestGnrcPrntDualOutpField
-  : ItestRefGnrcPrntDualOutpField
+public interface ItestGnrcPrntDualOutpObject
+  : ItestRefGnrcPrntDualOutpObject
 {
 }
 
@@ -22,7 +22,7 @@ public interface ItestRefGnrcPrntDualOutp<Tref>
   public testRefGnrcPrntDualOutp RefGnrcPrntDualOutp { get; set; }
 }
 
-public interface ItestRefGnrcPrntDualOutpField<Tref>
+public interface ItestRefGnrcPrntDualOutpObject<Tref>
 {
 }
 
@@ -32,7 +32,7 @@ public interface ItestAltGnrcPrntDualOutp
   public testAltGnrcPrntDualOutp AltGnrcPrntDualOutp { get; set; }
 }
 
-public interface ItestAltGnrcPrntDualOutpField
+public interface ItestAltGnrcPrntDualOutpObject
 {
   public testNumber alt { get; set; }
 }

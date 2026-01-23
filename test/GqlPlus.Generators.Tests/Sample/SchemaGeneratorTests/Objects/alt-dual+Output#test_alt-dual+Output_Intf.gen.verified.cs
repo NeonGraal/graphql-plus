@@ -11,7 +11,7 @@ public interface ItestAltDualOutp
   public testAltDualOutp AltDualOutp { get; set; }
 }
 
-public interface ItestAltDualOutpField
+public interface ItestAltDualOutpObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestObjDualAltDualOutp
   public testObjDualAltDualOutp ObjDualAltDualOutp { get; set; }
 }
 
-public interface ItestObjDualAltDualOutpField
+public interface ItestObjDualAltDualOutpObject
 {
   public testNumber alt { get; set; }
 }

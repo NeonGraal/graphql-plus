@@ -15,8 +15,8 @@ public interface ICmptPrntParamSameDual<Ta>
   public CmptPrntParamSameDual PrntParamSameDual { get; set; }
 }
 
-public interface ICmptPrntParamSameDualField<Ta>
-  : ICmptRefPrntParamSameDualField
+public interface ICmptPrntParamSameDualObject<Ta>
+  : ICmptRefPrntParamSameDualObject
 {
   public Ta field { get; set; }
 }
@@ -27,6 +27,6 @@ public interface ICmptRefPrntParamSameDual<Ta>
   public CmptRefPrntParamSameDual RefPrntParamSameDual { get; set; }
 }
 
-public interface ICmptRefPrntParamSameDualField<Ta>
+public interface ICmptRefPrntParamSameDualObject<Ta>
 {
 }

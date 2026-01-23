@@ -18,8 +18,8 @@ public interface ICmptCnstPrntDualGrndInp
   public CmptCnstPrntDualGrndInp CnstPrntDualGrndInp { get; set; }
 }
 
-public interface ICmptCnstPrntDualGrndInpField
-  : ICmptRefCnstPrntDualGrndInpField
+public interface ICmptCnstPrntDualGrndInpObject
+  : ICmptRefCnstPrntDualGrndInpObject
 {
 }
 
@@ -29,8 +29,8 @@ public interface ICmptRefCnstPrntDualGrndInp<Tref>
   public CmptRefCnstPrntDualGrndInp RefCnstPrntDualGrndInp { get; set; }
 }
 
-public interface ICmptRefCnstPrntDualGrndInpField<Tref>
-  : ICmptrefField
+public interface ICmptRefCnstPrntDualGrndInpObject<Tref>
+  : ICmptrefObject
 {
 }
 
@@ -40,7 +40,7 @@ public interface ICmptGrndCnstPrntDualGrndInp
   public CmptGrndCnstPrntDualGrndInp GrndCnstPrntDualGrndInp { get; set; }
 }
 
-public interface ICmptGrndCnstPrntDualGrndInpField
+public interface ICmptGrndCnstPrntDualGrndInpObject
 {
 }
 
@@ -50,8 +50,8 @@ public interface ICmptPrntCnstPrntDualGrndInp
   public CmptPrntCnstPrntDualGrndInp PrntCnstPrntDualGrndInp { get; set; }
 }
 
-public interface ICmptPrntCnstPrntDualGrndInpField
-  : ICmptGrndCnstPrntDualGrndInpField
+public interface ICmptPrntCnstPrntDualGrndInpObject
+  : ICmptGrndCnstPrntDualGrndInpObject
 {
 }
 
@@ -61,8 +61,8 @@ public interface ICmptAltCnstPrntDualGrndInp
   public CmptAltCnstPrntDualGrndInp AltCnstPrntDualGrndInp { get; set; }
 }
 
-public interface ICmptAltCnstPrntDualGrndInpField
-  : ICmptPrntCnstPrntDualGrndInpField
+public interface ICmptAltCnstPrntDualGrndInpObject
+  : ICmptPrntCnstPrntDualGrndInpObject
 {
   public CmptNumber alt { get; set; }
 }

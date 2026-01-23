@@ -14,7 +14,7 @@ public interface ICmptFieldModParamInp<Tmod>
   public CmptFieldModParamInp FieldModParamInp { get; set; }
 }
 
-public interface ICmptFieldModParamInpField<Tmod>
+public interface ICmptFieldModParamInpObject<Tmod>
 {
   public IDictionary<Tmod, CmptFldFieldModParamInp> field { get; set; }
 }
@@ -25,7 +25,7 @@ public interface ICmptFldFieldModParamInp
   public CmptFldFieldModParamInp FldFieldModParamInp { get; set; }
 }
 
-public interface ICmptFldFieldModParamInpField
+public interface ICmptFldFieldModParamInpObject
 {
   public CmptNumber field { get; set; }
 }

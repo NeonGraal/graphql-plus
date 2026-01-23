@@ -11,8 +11,8 @@ public interface Itest_Schema
   public test_Schema _Schema { get; set; }
 }
 
-public interface Itest_SchemaField
-  : Itest_NamedField
+public interface Itest_SchemaObject
+  : Itest_NamedObject
 {
   public IDictionary<test_Name, test_Categories> categories { get; set; }
   public IDictionary<test_Name, test_Directives> directives { get; set; }
@@ -31,7 +31,7 @@ public interface Itest_Filter
   public test_Filter _Filter { get; set; }
 }
 
-public interface Itest_FilterField
+public interface Itest_FilterObject
 {
   public ICollection<test_NameFilter> names { get; set; }
   public testBoolean? matchAliases { get; set; }
@@ -51,8 +51,8 @@ public interface Itest_CategoryFilter
   public test_CategoryFilter _CategoryFilter { get; set; }
 }
 
-public interface Itest_CategoryFilterField
-  : Itest_FilterField
+public interface Itest_CategoryFilterObject
+  : Itest_FilterObject
 {
   public ICollection<test_Resolution> resolutions { get; set; }
 }
@@ -63,8 +63,8 @@ public interface Itest_TypeFilter
   public test_TypeFilter _TypeFilter { get; set; }
 }
 
-public interface Itest_TypeFilterField
-  : Itest_FilterField
+public interface Itest_TypeFilterObject
+  : Itest_FilterObject
 {
   public ICollection<test_TypeKind> kinds { get; set; }
 }

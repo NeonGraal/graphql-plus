@@ -11,7 +11,7 @@ public interface ItestCnstPrntEnumDual
   public testCnstPrntEnumDual CnstPrntEnumDual { get; set; }
 }
 
-public interface ItestCnstPrntEnumDualField
+public interface ItestCnstPrntEnumDualObject
 {
 }
 
@@ -20,7 +20,7 @@ public interface ItestRefCnstPrntEnumDual<Ttype>
   public testRefCnstPrntEnumDual RefCnstPrntEnumDual { get; set; }
 }
 
-public interface ItestRefCnstPrntEnumDualField<Ttype>
+public interface ItestRefCnstPrntEnumDualObject<Ttype>
 {
   public Ttype field { get; set; }
 }

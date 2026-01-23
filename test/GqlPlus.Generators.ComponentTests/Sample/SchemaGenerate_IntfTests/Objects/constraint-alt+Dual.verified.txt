@@ -14,6 +14,6 @@ public interface ICmptCnstAltDual<Ttype>
   public CmptCnstAltDual CnstAltDual { get; set; }
 }
 
-public interface ICmptCnstAltDualField<Ttype>
+public interface ICmptCnstAltDualObject<Ttype>
 {
 }

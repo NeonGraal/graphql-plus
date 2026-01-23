@@ -11,8 +11,8 @@ public interface ItestGnrcPrntParamPrntOutp
   public testGnrcPrntParamPrntOutp GnrcPrntParamPrntOutp { get; set; }
 }
 
-public interface ItestGnrcPrntParamPrntOutpField
-  : ItestRefGnrcPrntParamPrntOutpField
+public interface ItestGnrcPrntParamPrntOutpObject
+  : ItestRefGnrcPrntParamPrntOutpObject
 {
 }
 
@@ -22,8 +22,8 @@ public interface ItestRefGnrcPrntParamPrntOutp<Tref>
   public testRefGnrcPrntParamPrntOutp RefGnrcPrntParamPrntOutp { get; set; }
 }
 
-public interface ItestRefGnrcPrntParamPrntOutpField<Tref>
-  : ItestrefField
+public interface ItestRefGnrcPrntParamPrntOutpObject<Tref>
+  : ItestrefObject
 {
 }
 
@@ -33,7 +33,7 @@ public interface ItestAltGnrcPrntParamPrntOutp
   public testAltGnrcPrntParamPrntOutp AltGnrcPrntParamPrntOutp { get; set; }
 }
 
-public interface ItestAltGnrcPrntParamPrntOutpField
+public interface ItestAltGnrcPrntParamPrntOutpObject
 {
   public testNumber alt { get; set; }
 }

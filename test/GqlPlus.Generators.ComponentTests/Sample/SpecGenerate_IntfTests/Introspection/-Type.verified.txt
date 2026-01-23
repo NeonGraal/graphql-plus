@@ -91,7 +91,7 @@ public interface ICmpt_Type
   public Cmpt_Type _Type { get; set; }
 }
 
-public interface ICmpt_TypeField
+public interface ICmpt_TypeObject
 {
 }
 
@@ -101,8 +101,8 @@ public interface ICmpt_BaseType<Tkind>
   public Cmpt_BaseType _BaseType { get; set; }
 }
 
-public interface ICmpt_BaseTypeField<Tkind>
-  : ICmpt_AliasedField
+public interface ICmpt_BaseTypeObject<Tkind>
+  : ICmpt_AliasedObject
 {
   public Tkind typeKind { get; set; }
 }
@@ -113,8 +113,8 @@ public interface ICmpt_ChildType<Tkind,Tparent>
   public Cmpt_ChildType _ChildType { get; set; }
 }
 
-public interface ICmpt_ChildTypeField<Tkind,Tparent>
-  : ICmpt_BaseTypeField
+public interface ICmpt_ChildTypeObject<Tkind,Tparent>
+  : ICmpt_BaseTypeObject
 {
   public Tparent parent { get; set; }
 }
@@ -125,8 +125,8 @@ public interface ICmpt_ParentType<Tkind,Titem,TallItem>
   public Cmpt_ParentType _ParentType { get; set; }
 }
 
-public interface ICmpt_ParentTypeField<Tkind,Titem,TallItem>
-  : ICmpt_ChildTypeField
+public interface ICmpt_ParentTypeObject<Tkind,Titem,TallItem>
+  : ICmpt_ChildTypeObject
 {
   public ICollection<Titem> items { get; set; }
   public ICollection<TallItem> allItems { get; set; }
@@ -138,8 +138,8 @@ public interface ICmpt_TypeRef<Tkind>
   public Cmpt_TypeRef _TypeRef { get; set; }
 }
 
-public interface ICmpt_TypeRefField<Tkind>
-  : ICmpt_NamedField
+public interface ICmpt_TypeRefObject<Tkind>
+  : ICmpt_NamedObject
 {
   public Tkind typeKind { get; set; }
 }
@@ -153,7 +153,7 @@ public interface ICmpt_TypeSimple
   public Cmpt_TypeSimple _TypeSimple { get; set; }
 }
 
-public interface ICmpt_TypeSimpleField
+public interface ICmpt_TypeSimpleObject
 {
 }
 
@@ -165,7 +165,7 @@ public interface ICmpt_Collections
   public Cmpt_Collections _Collections { get; set; }
 }
 
-public interface ICmpt_CollectionsField
+public interface ICmpt_CollectionsObject
 {
 }
 
@@ -175,8 +175,8 @@ public interface ICmpt_ModifierKeyed<Tkind>
   public Cmpt_ModifierKeyed _ModifierKeyed { get; set; }
 }
 
-public interface ICmpt_ModifierKeyedField<Tkind>
-  : ICmpt_ModifierField
+public interface ICmpt_ModifierKeyedObject<Tkind>
+  : ICmpt_ModifierObject
 {
   public Cmpt_TypeSimple by { get; set; }
   public CmptBoolean optional { get; set; }
@@ -189,7 +189,7 @@ public interface ICmpt_Modifiers
   public Cmpt_Modifiers _Modifiers { get; set; }
 }
 
-public interface ICmpt_ModifiersField
+public interface ICmpt_ModifiersObject
 {
 }
 
@@ -198,7 +198,7 @@ public interface ICmpt_Modifier<Tkind>
   public Cmpt_Modifier _Modifier { get; set; }
 }
 
-public interface ICmpt_ModifierField<Tkind>
+public interface ICmpt_ModifierObject<Tkind>
 {
   public Tkind modifierKind { get; set; }
 }

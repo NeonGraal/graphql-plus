@@ -10,7 +10,7 @@ public interface ItestOutpParam
   public testOutpParam OutpParam { get; set; }
 }
 
-public interface ItestOutpParamField
+public interface ItestOutpParamObject
 {
   public testFldOutpParam field { get; set; }
 }
@@ -20,7 +20,7 @@ public interface ItestFldOutpParam
   public testFldOutpParam FldOutpParam { get; set; }
 }
 
-public interface ItestFldOutpParamField
+public interface ItestFldOutpParamObject
 {
 }
 
@@ -30,7 +30,7 @@ public interface ItestInOutpParam
   public testInOutpParam InOutpParam { get; set; }
 }
 
-public interface ItestInOutpParamField
+public interface ItestInOutpParamObject
 {
   public testNumber param { get; set; }
 }

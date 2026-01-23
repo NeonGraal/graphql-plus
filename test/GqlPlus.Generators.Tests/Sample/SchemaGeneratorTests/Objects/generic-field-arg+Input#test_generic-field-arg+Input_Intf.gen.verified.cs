@@ -10,7 +10,7 @@ public interface ItestGnrcFieldArgInp<Ttype>
   public testGnrcFieldArgInp GnrcFieldArgInp { get; set; }
 }
 
-public interface ItestGnrcFieldArgInpField<Ttype>
+public interface ItestGnrcFieldArgInpObject<Ttype>
 {
   public testRefGnrcFieldArgInp<Ttype> field { get; set; }
 }
@@ -21,6 +21,6 @@ public interface ItestRefGnrcFieldArgInp<Tref>
   public testRefGnrcFieldArgInp RefGnrcFieldArgInp { get; set; }
 }
 
-public interface ItestRefGnrcFieldArgInpField<Tref>
+public interface ItestRefGnrcFieldArgInpObject<Tref>
 {
 }

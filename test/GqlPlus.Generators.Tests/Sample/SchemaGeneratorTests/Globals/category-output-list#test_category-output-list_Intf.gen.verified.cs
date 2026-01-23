@@ -10,6 +10,6 @@ public interface ItestCtgrOutpList
   public testCtgrOutpList CtgrOutpList { get; set; }
 }
 
-public interface ItestCtgrOutpListField
+public interface ItestCtgrOutpListObject
 {
 }

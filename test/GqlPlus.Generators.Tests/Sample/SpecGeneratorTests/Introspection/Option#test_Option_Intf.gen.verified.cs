@@ -11,8 +11,8 @@ public interface Itest_Setting
   public test_Setting _Setting { get; set; }
 }
 
-public interface Itest_SettingField
-  : Itest_NamedField
+public interface Itest_SettingObject
+  : Itest_NamedObject
 {
   public test_Value value { get; set; }
 }

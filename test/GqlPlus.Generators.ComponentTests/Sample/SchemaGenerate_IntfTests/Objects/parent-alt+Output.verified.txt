@@ -16,8 +16,8 @@ public interface ICmptPrntAltOutp
   public CmptPrntAltOutp PrntAltOutp { get; set; }
 }
 
-public interface ICmptPrntAltOutpField
-  : ICmptRefPrntAltOutpField
+public interface ICmptPrntAltOutpObject
+  : ICmptRefPrntAltOutpObject
 {
 }
 
@@ -27,7 +27,7 @@ public interface ICmptRefPrntAltOutp
   public CmptRefPrntAltOutp RefPrntAltOutp { get; set; }
 }
 
-public interface ICmptRefPrntAltOutpField
+public interface ICmptRefPrntAltOutpObject
 {
   public CmptNumber parent { get; set; }
 }

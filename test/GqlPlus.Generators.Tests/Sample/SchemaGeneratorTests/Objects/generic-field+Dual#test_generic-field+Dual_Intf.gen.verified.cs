@@ -10,7 +10,7 @@ public interface ItestGnrcFieldDual<Ttype>
   public testGnrcFieldDual GnrcFieldDual { get; set; }
 }
 
-public interface ItestGnrcFieldDualField<Ttype>
+public interface ItestGnrcFieldDualObject<Ttype>
 {
   public Ttype field { get; set; }
 }

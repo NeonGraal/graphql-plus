@@ -14,7 +14,7 @@ public interface ICmptFieldValueDescrDual
   public CmptFieldValueDescrDual FieldValueDescrDual { get; set; }
 }
 
-public interface ICmptFieldValueDescrDualField
+public interface ICmptFieldValueDescrDualObject
 {
   public CmptEnumFieldValueDescrDual field { get; set; }
 }

@@ -10,7 +10,7 @@ public interface ItestGnrcFieldArgDual<Ttype>
   public testGnrcFieldArgDual GnrcFieldArgDual { get; set; }
 }
 
-public interface ItestGnrcFieldArgDualField<Ttype>
+public interface ItestGnrcFieldArgDualObject<Ttype>
 {
   public testRefGnrcFieldArgDual<Ttype> field { get; set; }
 }
@@ -21,6 +21,6 @@ public interface ItestRefGnrcFieldArgDual<Tref>
   public testRefGnrcFieldArgDual RefGnrcFieldArgDual { get; set; }
 }
 
-public interface ItestRefGnrcFieldArgDualField<Tref>
+public interface ItestRefGnrcFieldArgDualObject<Tref>
 {
 }

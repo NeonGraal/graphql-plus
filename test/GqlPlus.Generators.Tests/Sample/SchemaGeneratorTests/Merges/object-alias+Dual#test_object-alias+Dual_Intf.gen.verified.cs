@@ -10,6 +10,6 @@ public interface ItestObjAliasDual
   public testObjAliasDual ObjAliasDual { get; set; }
 }
 
-public interface ItestObjAliasDualField
+public interface ItestObjAliasDualObject
 {
 }

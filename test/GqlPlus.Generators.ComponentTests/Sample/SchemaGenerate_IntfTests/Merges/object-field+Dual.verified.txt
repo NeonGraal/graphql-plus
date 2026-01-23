@@ -15,7 +15,7 @@ public interface ICmptObjFieldDual
   public CmptObjFieldDual ObjFieldDual { get; set; }
 }
 
-public interface ICmptObjFieldDualField
+public interface ICmptObjFieldDualObject
 {
   public CmptFldObjFieldDual field { get; set; }
 }
@@ -25,6 +25,6 @@ public interface ICmptFldObjFieldDual
   public CmptFldObjFieldDual FldObjFieldDual { get; set; }
 }
 
-public interface ICmptFldObjFieldDualField
+public interface ICmptFldObjFieldDualObject
 {
 }

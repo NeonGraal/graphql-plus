@@ -15,7 +15,7 @@ public interface ICmptGnrcAltArgDual<Ttype>
   public CmptGnrcAltArgDual GnrcAltArgDual { get; set; }
 }
 
-public interface ICmptGnrcAltArgDualField<Ttype>
+public interface ICmptGnrcAltArgDualObject<Ttype>
 {
 }
 
@@ -25,6 +25,6 @@ public interface ICmptRefGnrcAltArgDual<Tref>
   public CmptRefGnrcAltArgDual RefGnrcAltArgDual { get; set; }
 }
 
-public interface ICmptRefGnrcAltArgDualField<Tref>
+public interface ICmptRefGnrcAltArgDualObject<Tref>
 {
 }

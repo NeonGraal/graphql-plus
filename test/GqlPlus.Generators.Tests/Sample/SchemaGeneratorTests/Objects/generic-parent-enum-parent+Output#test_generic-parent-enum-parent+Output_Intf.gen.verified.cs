@@ -11,8 +11,8 @@ public interface ItestGnrcPrntEnumPrntOutp
   public testGnrcPrntEnumPrntOutp GnrcPrntEnumPrntOutp { get; set; }
 }
 
-public interface ItestGnrcPrntEnumPrntOutpField
-  : ItestFieldGnrcPrntEnumPrntOutpField
+public interface ItestGnrcPrntEnumPrntOutpObject
+  : ItestFieldGnrcPrntEnumPrntOutpObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestFieldGnrcPrntEnumPrntOutp<Tref>
   public testFieldGnrcPrntEnumPrntOutp FieldGnrcPrntEnumPrntOutp { get; set; }
 }
 
-public interface ItestFieldGnrcPrntEnumPrntOutpField<Tref>
+public interface ItestFieldGnrcPrntEnumPrntOutpObject<Tref>
 {
   public Tref field { get; set; }
 }

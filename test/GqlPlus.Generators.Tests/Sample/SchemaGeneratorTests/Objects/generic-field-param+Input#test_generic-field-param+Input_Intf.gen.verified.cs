@@ -10,7 +10,7 @@ public interface ItestGnrcFieldParamInp
   public testGnrcFieldParamInp GnrcFieldParamInp { get; set; }
 }
 
-public interface ItestGnrcFieldParamInpField
+public interface ItestGnrcFieldParamInpObject
 {
   public testRefGnrcFieldParamInp<testAltGnrcFieldParamInp> field { get; set; }
 }
@@ -21,7 +21,7 @@ public interface ItestRefGnrcFieldParamInp<Tref>
   public testRefGnrcFieldParamInp RefGnrcFieldParamInp { get; set; }
 }
 
-public interface ItestRefGnrcFieldParamInpField<Tref>
+public interface ItestRefGnrcFieldParamInpObject<Tref>
 {
 }
 
@@ -31,7 +31,7 @@ public interface ItestAltGnrcFieldParamInp
   public testAltGnrcFieldParamInp AltGnrcFieldParamInp { get; set; }
 }
 
-public interface ItestAltGnrcFieldParamInpField
+public interface ItestAltGnrcFieldParamInpObject
 {
   public testNumber alt { get; set; }
 }

@@ -10,6 +10,6 @@ public interface ItestInDrctParamOpt
   public testInDrctParamOpt InDrctParamOpt { get; set; }
 }
 
-public interface ItestInDrctParamOptField
+public interface ItestInDrctParamOptObject
 {
 }

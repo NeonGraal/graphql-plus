@@ -11,7 +11,7 @@ public interface ItestGnrcAltArgDescrDual<Ttype>
   public testGnrcAltArgDescrDual GnrcAltArgDescrDual { get; set; }
 }
 
-public interface ItestGnrcAltArgDescrDualField<Ttype>
+public interface ItestGnrcAltArgDescrDualObject<Ttype>
 {
 }
 
@@ -21,6 +21,6 @@ public interface ItestRefGnrcAltArgDescrDual<Tref>
   public testRefGnrcAltArgDescrDual RefGnrcAltArgDescrDual { get; set; }
 }
 
-public interface ItestRefGnrcAltArgDescrDualField<Tref>
+public interface ItestRefGnrcAltArgDescrDualObject<Tref>
 {
 }

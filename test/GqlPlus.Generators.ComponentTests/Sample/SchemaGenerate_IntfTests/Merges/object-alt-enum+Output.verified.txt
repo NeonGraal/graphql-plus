@@ -16,6 +16,6 @@ public interface ICmptObjAltEnumOutp
   public CmptObjAltEnumOutp ObjAltEnumOutp { get; set; }
 }
 
-public interface ICmptObjAltEnumOutpField
+public interface ICmptObjAltEnumOutpObject
 {
 }

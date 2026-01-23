@@ -10,7 +10,7 @@ public interface ItestFieldModEnumDual
   public testFieldModEnumDual FieldModEnumDual { get; set; }
 }
 
-public interface ItestFieldModEnumDualField
+public interface ItestFieldModEnumDualObject
 {
   public IDictionary<testEnumFieldModEnumDual, testString> field { get; set; }
 }

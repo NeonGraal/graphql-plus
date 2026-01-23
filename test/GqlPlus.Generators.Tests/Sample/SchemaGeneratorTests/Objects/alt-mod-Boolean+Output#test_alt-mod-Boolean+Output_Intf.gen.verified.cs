@@ -11,7 +11,7 @@ public interface ItestAltModBoolOutp
   public testAltModBoolOutp AltModBoolOutp { get; set; }
 }
 
-public interface ItestAltModBoolOutpField
+public interface ItestAltModBoolOutpObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestAltAltModBoolOutp
   public testAltAltModBoolOutp AltAltModBoolOutp { get; set; }
 }
 
-public interface ItestAltAltModBoolOutpField
+public interface ItestAltAltModBoolOutpObject
 {
   public testNumber alt { get; set; }
 }

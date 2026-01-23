@@ -16,7 +16,7 @@ public interface ICmptGnrcEnumDual
   public CmptGnrcEnumDual GnrcEnumDual { get; set; }
 }
 
-public interface ICmptGnrcEnumDualField
+public interface ICmptGnrcEnumDualObject
 {
 }
 
@@ -25,7 +25,7 @@ public interface ICmptRefGnrcEnumDual<Ttype>
   public CmptRefGnrcEnumDual RefGnrcEnumDual { get; set; }
 }
 
-public interface ICmptRefGnrcEnumDualField<Ttype>
+public interface ICmptRefGnrcEnumDualObject<Ttype>
 {
   public Ttype field { get; set; }
 }

@@ -14,6 +14,6 @@ public interface ICmptRefGnrcAltModParamInp<Tref,Tmod>
   public CmptRefGnrcAltModParamInp RefGnrcAltModParamInp { get; set; }
 }
 
-public interface ICmptRefGnrcAltModParamInpField<Tref,Tmod>
+public interface ICmptRefGnrcAltModParamInpObject<Tref,Tmod>
 {
 }

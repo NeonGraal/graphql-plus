@@ -10,7 +10,7 @@ public interface ItestObjParamDupInp<Ttest>
   public testObjParamDupInp ObjParamDupInp { get; set; }
 }
 
-public interface ItestObjParamDupInpField<Ttest>
+public interface ItestObjParamDupInpObject<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }

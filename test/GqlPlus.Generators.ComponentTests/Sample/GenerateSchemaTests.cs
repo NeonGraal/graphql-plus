@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-
-namespace GqlPlus.Sample;
+﻿namespace GqlPlus.Sample;
 
 public class GenerateSchemaStatTests(
   ISchemaGeneratorChecks checks

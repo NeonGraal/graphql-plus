@@ -15,8 +15,8 @@ public interface ICmptPrntFieldInp
   public CmptPrntFieldInp PrntFieldInp { get; set; }
 }
 
-public interface ICmptPrntFieldInpField
-  : ICmptRefPrntFieldInpField
+public interface ICmptPrntFieldInpObject
+  : ICmptRefPrntFieldInpObject
 {
   public CmptNumber field { get; set; }
 }
@@ -27,7 +27,7 @@ public interface ICmptRefPrntFieldInp
   public CmptRefPrntFieldInp RefPrntFieldInp { get; set; }
 }
 
-public interface ICmptRefPrntFieldInpField
+public interface ICmptRefPrntFieldInpObject
 {
   public CmptNumber parent { get; set; }
 }

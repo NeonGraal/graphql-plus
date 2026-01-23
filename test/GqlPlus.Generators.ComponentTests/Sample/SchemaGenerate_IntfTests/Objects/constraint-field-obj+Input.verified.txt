@@ -17,8 +17,8 @@ public interface ICmptCnstFieldObjInp
   public CmptCnstFieldObjInp CnstFieldObjInp { get; set; }
 }
 
-public interface ICmptCnstFieldObjInpField
-  : ICmptRefCnstFieldObjInpField
+public interface ICmptCnstFieldObjInpObject
+  : ICmptRefCnstFieldObjInpObject
 {
 }
 
@@ -27,7 +27,7 @@ public interface ICmptRefCnstFieldObjInp<Tref>
   public CmptRefCnstFieldObjInp RefCnstFieldObjInp { get; set; }
 }
 
-public interface ICmptRefCnstFieldObjInpField<Tref>
+public interface ICmptRefCnstFieldObjInpObject<Tref>
 {
   public Tref field { get; set; }
 }
@@ -38,7 +38,7 @@ public interface ICmptPrntCnstFieldObjInp
   public CmptPrntCnstFieldObjInp PrntCnstFieldObjInp { get; set; }
 }
 
-public interface ICmptPrntCnstFieldObjInpField
+public interface ICmptPrntCnstFieldObjInpObject
 {
 }
 
@@ -48,8 +48,8 @@ public interface ICmptAltCnstFieldObjInp
   public CmptAltCnstFieldObjInp AltCnstFieldObjInp { get; set; }
 }
 
-public interface ICmptAltCnstFieldObjInpField
-  : ICmptPrntCnstFieldObjInpField
+public interface ICmptAltCnstFieldObjInpObject
+  : ICmptPrntCnstFieldObjInpObject
 {
   public CmptNumber alt { get; set; }
 }

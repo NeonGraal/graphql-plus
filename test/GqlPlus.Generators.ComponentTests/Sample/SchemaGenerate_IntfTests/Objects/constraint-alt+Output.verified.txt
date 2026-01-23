@@ -14,6 +14,6 @@ public interface ICmptCnstAltOutp<Ttype>
   public CmptCnstAltOutp CnstAltOutp { get; set; }
 }
 
-public interface ICmptCnstAltOutpField<Ttype>
+public interface ICmptCnstAltOutpObject<Ttype>
 {
 }

@@ -11,7 +11,7 @@ public interface ItestGnrcAltDualOutp
   public testGnrcAltDualOutp GnrcAltDualOutp { get; set; }
 }
 
-public interface ItestGnrcAltDualOutpField
+public interface ItestGnrcAltDualOutpObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestRefGnrcAltDualOutp<Tref>
   public testRefGnrcAltDualOutp RefGnrcAltDualOutp { get; set; }
 }
 
-public interface ItestRefGnrcAltDualOutpField<Tref>
+public interface ItestRefGnrcAltDualOutpObject<Tref>
 {
 }
 
@@ -31,7 +31,7 @@ public interface ItestAltGnrcAltDualOutp
   public testAltGnrcAltDualOutp AltGnrcAltDualOutp { get; set; }
 }
 
-public interface ItestAltGnrcAltDualOutpField
+public interface ItestAltGnrcAltDualOutpObject
 {
   public testNumber alt { get; set; }
 }

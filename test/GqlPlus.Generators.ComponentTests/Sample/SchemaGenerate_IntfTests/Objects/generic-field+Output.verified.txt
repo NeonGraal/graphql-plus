@@ -13,7 +13,7 @@ public interface ICmptGnrcFieldOutp<Ttype>
   public CmptGnrcFieldOutp GnrcFieldOutp { get; set; }
 }
 
-public interface ICmptGnrcFieldOutpField<Ttype>
+public interface ICmptGnrcFieldOutpObject<Ttype>
 {
   public Ttype field { get; set; }
 }

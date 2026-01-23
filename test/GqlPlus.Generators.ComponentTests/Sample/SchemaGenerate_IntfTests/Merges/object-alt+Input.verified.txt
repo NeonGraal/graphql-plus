@@ -16,7 +16,7 @@ public interface ICmptObjAltInp
   public CmptObjAltInp ObjAltInp { get; set; }
 }
 
-public interface ICmptObjAltInpField
+public interface ICmptObjAltInpObject
 {
 }
 
@@ -25,6 +25,6 @@ public interface ICmptObjAltInpType
   public CmptObjAltInpType ObjAltInpType { get; set; }
 }
 
-public interface ICmptObjAltInpTypeField
+public interface ICmptObjAltInpTypeObject
 {
 }

@@ -11,7 +11,7 @@ public interface ItestGnrcEnumDual
   public testGnrcEnumDual GnrcEnumDual { get; set; }
 }
 
-public interface ItestGnrcEnumDualField
+public interface ItestGnrcEnumDualObject
 {
 }
 
@@ -20,7 +20,7 @@ public interface ItestRefGnrcEnumDual<Ttype>
   public testRefGnrcEnumDual RefGnrcEnumDual { get; set; }
 }
 
-public interface ItestRefGnrcEnumDualField<Ttype>
+public interface ItestRefGnrcEnumDualObject<Ttype>
 {
   public Ttype field { get; set; }
 }

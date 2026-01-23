@@ -15,7 +15,7 @@ public interface ICmptAltModBoolDual
   public CmptAltModBoolDual AltModBoolDual { get; set; }
 }
 
-public interface ICmptAltModBoolDualField
+public interface ICmptAltModBoolDualObject
 {
 }
 
@@ -25,7 +25,7 @@ public interface ICmptAltAltModBoolDual
   public CmptAltAltModBoolDual AltAltModBoolDual { get; set; }
 }
 
-public interface ICmptAltAltModBoolDualField
+public interface ICmptAltAltModBoolDualObject
 {
   public CmptNumber alt { get; set; }
 }

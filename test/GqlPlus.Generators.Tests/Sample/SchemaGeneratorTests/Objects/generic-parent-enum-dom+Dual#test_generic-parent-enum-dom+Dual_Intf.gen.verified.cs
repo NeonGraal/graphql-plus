@@ -11,8 +11,8 @@ public interface ItestGnrcPrntEnumDomDual
   public testGnrcPrntEnumDomDual GnrcPrntEnumDomDual { get; set; }
 }
 
-public interface ItestGnrcPrntEnumDomDualField
-  : ItestFieldGnrcPrntEnumDomDualField
+public interface ItestGnrcPrntEnumDomDualObject
+  : ItestFieldGnrcPrntEnumDomDualObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestFieldGnrcPrntEnumDomDual<Tref>
   public testFieldGnrcPrntEnumDomDual FieldGnrcPrntEnumDomDual { get; set; }
 }
 
-public interface ItestFieldGnrcPrntEnumDomDualField<Tref>
+public interface ItestFieldGnrcPrntEnumDomDualObject<Tref>
 {
   public Tref field { get; set; }
 }

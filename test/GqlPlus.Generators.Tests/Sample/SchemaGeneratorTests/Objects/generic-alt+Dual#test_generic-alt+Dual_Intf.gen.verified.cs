@@ -11,6 +11,6 @@ public interface ItestGnrcAltDual<Ttype>
   public testGnrcAltDual GnrcAltDual { get; set; }
 }
 
-public interface ItestGnrcAltDualField<Ttype>
+public interface ItestGnrcAltDualObject<Ttype>
 {
 }

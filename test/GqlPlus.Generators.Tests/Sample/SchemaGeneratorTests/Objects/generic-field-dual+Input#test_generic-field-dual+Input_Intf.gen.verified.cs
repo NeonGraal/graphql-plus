@@ -10,7 +10,7 @@ public interface ItestGnrcFieldDualInp
   public testGnrcFieldDualInp GnrcFieldDualInp { get; set; }
 }
 
-public interface ItestGnrcFieldDualInpField
+public interface ItestGnrcFieldDualInpObject
 {
   public testRefGnrcFieldDualInp<testAltGnrcFieldDualInp> field { get; set; }
 }
@@ -21,7 +21,7 @@ public interface ItestRefGnrcFieldDualInp<Tref>
   public testRefGnrcFieldDualInp RefGnrcFieldDualInp { get; set; }
 }
 
-public interface ItestRefGnrcFieldDualInpField<Tref>
+public interface ItestRefGnrcFieldDualInpObject<Tref>
 {
 }
 
@@ -31,7 +31,7 @@ public interface ItestAltGnrcFieldDualInp
   public testAltGnrcFieldDualInp AltGnrcFieldDualInp { get; set; }
 }
 
-public interface ItestAltGnrcFieldDualInpField
+public interface ItestAltGnrcFieldDualInpObject
 {
   public testNumber alt { get; set; }
 }

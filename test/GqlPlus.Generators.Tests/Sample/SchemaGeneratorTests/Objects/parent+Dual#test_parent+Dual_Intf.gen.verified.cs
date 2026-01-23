@@ -11,8 +11,8 @@ public interface ItestPrntDual
   public testPrntDual PrntDual { get; set; }
 }
 
-public interface ItestPrntDualField
-  : ItestRefPrntDualField
+public interface ItestPrntDualObject
+  : ItestRefPrntDualObject
 {
 }
 
@@ -22,7 +22,7 @@ public interface ItestRefPrntDual
   public testRefPrntDual RefPrntDual { get; set; }
 }
 
-public interface ItestRefPrntDualField
+public interface ItestRefPrntDualObject
 {
   public testNumber parent { get; set; }
 }

@@ -14,6 +14,6 @@ public interface ICmptObjAliasInp
   public CmptObjAliasInp ObjAliasInp { get; set; }
 }
 
-public interface ICmptObjAliasInpField
+public interface ICmptObjAliasInpObject
 {
 }

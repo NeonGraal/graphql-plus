@@ -11,7 +11,7 @@ public interface ItestCnstAltDmnDual
   public testCnstAltDmnDual CnstAltDmnDual { get; set; }
 }
 
-public interface ItestCnstAltDmnDualField
+public interface ItestCnstAltDmnDualObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestRefCnstAltDmnDual<Tref>
   public testRefCnstAltDmnDual RefCnstAltDmnDual { get; set; }
 }
 
-public interface ItestRefCnstAltDmnDualField<Tref>
+public interface ItestRefCnstAltDmnDualObject<Tref>
 {
 }
 

@@ -11,6 +11,6 @@ public interface ItestCnstAltInp<Ttype>
   public testCnstAltInp CnstAltInp { get; set; }
 }
 
-public interface ItestCnstAltInpField<Ttype>
+public interface ItestCnstAltInpObject<Ttype>
 {
 }

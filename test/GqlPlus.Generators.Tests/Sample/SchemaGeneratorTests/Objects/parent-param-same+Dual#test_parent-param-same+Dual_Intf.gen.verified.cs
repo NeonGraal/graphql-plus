@@ -11,8 +11,8 @@ public interface ItestPrntParamSameDual<Ta>
   public testPrntParamSameDual PrntParamSameDual { get; set; }
 }
 
-public interface ItestPrntParamSameDualField<Ta>
-  : ItestRefPrntParamSameDualField
+public interface ItestPrntParamSameDualObject<Ta>
+  : ItestRefPrntParamSameDualObject
 {
   public Ta field { get; set; }
 }
@@ -23,6 +23,6 @@ public interface ItestRefPrntParamSameDual<Ta>
   public testRefPrntParamSameDual RefPrntParamSameDual { get; set; }
 }
 
-public interface ItestRefPrntParamSameDualField<Ta>
+public interface ItestRefPrntParamSameDualObject<Ta>
 {
 }

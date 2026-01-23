@@ -11,7 +11,7 @@ public interface ItestGnrcValueDual
   public testGnrcValueDual GnrcValueDual { get; set; }
 }
 
-public interface ItestGnrcValueDualField
+public interface ItestGnrcValueDualObject
 {
 }
 
@@ -20,7 +20,7 @@ public interface ItestRefGnrcValueDual<Ttype>
   public testRefGnrcValueDual RefGnrcValueDual { get; set; }
 }
 
-public interface ItestRefGnrcValueDualField<Ttype>
+public interface ItestRefGnrcValueDualObject<Ttype>
 {
   public Ttype field { get; set; }
 }

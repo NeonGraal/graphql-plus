@@ -55,8 +55,8 @@ public interface ICmpt_AndType
   public Cmpt_AndType _AndType { get; set; }
 }
 
-public interface ICmpt_AndTypeField
-  : ICmpt_NamedField
+public interface ICmpt_AndTypeObject
+  : ICmpt_NamedObject
 {
   public Cmpt_Type type { get; set; }
 }
@@ -68,8 +68,8 @@ public interface ICmpt_Categories
   public Cmpt_Categories _Categories { get; set; }
 }
 
-public interface ICmpt_CategoriesField
-  : ICmpt_AndTypeField
+public interface ICmpt_CategoriesObject
+  : ICmpt_AndTypeObject
 {
   public Cmpt_Category category { get; set; }
 }
@@ -80,8 +80,8 @@ public interface ICmpt_Category
   public Cmpt_Category _Category { get; set; }
 }
 
-public interface ICmpt_CategoryField
-  : ICmpt_AliasedField
+public interface ICmpt_CategoryObject
+  : ICmpt_AliasedObject
 {
   public Cmpt_Resolution resolution { get; set; }
   public Cmpt_TypeRef<Cmpt_TypeKind> output { get; set; }
@@ -95,8 +95,8 @@ public interface ICmpt_Directives
   public Cmpt_Directives _Directives { get; set; }
 }
 
-public interface ICmpt_DirectivesField
-  : ICmpt_AndTypeField
+public interface ICmpt_DirectivesObject
+  : ICmpt_AndTypeObject
 {
   public Cmpt_Directive directive { get; set; }
 }
@@ -107,8 +107,8 @@ public interface ICmpt_Directive
   public Cmpt_Directive _Directive { get; set; }
 }
 
-public interface ICmpt_DirectiveField
-  : ICmpt_AliasedField
+public interface ICmpt_DirectiveObject
+  : ICmpt_AliasedObject
 {
   public ICollection<Cmpt_InputParam> parameters { get; set; }
   public CmptBoolean repeatable { get; set; }
@@ -121,8 +121,8 @@ public interface ICmpt_Setting
   public Cmpt_Setting _Setting { get; set; }
 }
 
-public interface ICmpt_SettingField
-  : ICmpt_NamedField
+public interface ICmpt_SettingObject
+  : ICmpt_NamedObject
 {
   public Cmpt_Value value { get; set; }
 }

@@ -11,6 +11,6 @@ public interface ItestAltDescrDual
   public testAltDescrDual AltDescrDual { get; set; }
 }
 
-public interface ItestAltDescrDualField
+public interface ItestAltDescrDualObject
 {
 }

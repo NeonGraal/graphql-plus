@@ -48,7 +48,7 @@ public interface ICmptField
   public CmptField Field { get; set; }
 }
 
-public interface ICmptFieldField
+public interface ICmptFieldObject
 {
   public ICollection<CmptString> strings { get; set; }
 }
@@ -59,7 +59,7 @@ public interface ICmptParam
   public CmptParam Param { get; set; }
 }
 
-public interface ICmptParamField
+public interface ICmptParamObject
 {
   public CmptMany? afterId { get; set; }
   public CmptMany beforeId { get; set; }
@@ -71,7 +71,7 @@ public interface ICmptAll
   public CmptAll All { get; set; }
 }
 
-public interface ICmptAllField
+public interface ICmptAllObject
 {
   public CmptField items { get; set; }
 }

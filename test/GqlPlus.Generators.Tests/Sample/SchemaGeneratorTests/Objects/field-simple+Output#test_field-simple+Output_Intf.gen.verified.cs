@@ -10,7 +10,7 @@ public interface ItestFieldSmplOutp
   public testFieldSmplOutp FieldSmplOutp { get; set; }
 }
 
-public interface ItestFieldSmplOutpField
+public interface ItestFieldSmplOutpObject
 {
   public testNumber field { get; set; }
 }

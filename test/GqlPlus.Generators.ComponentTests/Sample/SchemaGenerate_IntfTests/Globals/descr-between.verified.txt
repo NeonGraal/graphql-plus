@@ -15,6 +15,6 @@ public interface ICmptDescrBtwn
   public CmptDescrBtwn DescrBtwn { get; set; }
 }
 
-public interface ICmptDescrBtwnField
+public interface ICmptDescrBtwnObject
 {
 }

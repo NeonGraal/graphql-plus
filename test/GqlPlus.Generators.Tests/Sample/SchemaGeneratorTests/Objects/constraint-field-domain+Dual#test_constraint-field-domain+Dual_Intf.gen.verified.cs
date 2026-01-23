@@ -11,8 +11,8 @@ public interface ItestCnstFieldDmnDual
   public testCnstFieldDmnDual CnstFieldDmnDual { get; set; }
 }
 
-public interface ItestCnstFieldDmnDualField
-  : ItestRefCnstFieldDmnDualField
+public interface ItestCnstFieldDmnDualObject
+  : ItestRefCnstFieldDmnDualObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestRefCnstFieldDmnDual<Tref>
   public testRefCnstFieldDmnDual RefCnstFieldDmnDual { get; set; }
 }
 
-public interface ItestRefCnstFieldDmnDualField<Tref>
+public interface ItestRefCnstFieldDmnDualObject<Tref>
 {
   public Tref field { get; set; }
 }

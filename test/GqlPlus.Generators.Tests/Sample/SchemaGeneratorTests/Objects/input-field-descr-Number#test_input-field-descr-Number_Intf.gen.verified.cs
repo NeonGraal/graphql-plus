@@ -10,7 +10,7 @@ public interface ItestInpFieldDescrNmbr
   public testInpFieldDescrNmbr InpFieldDescrNmbr { get; set; }
 }
 
-public interface ItestInpFieldDescrNmbrField
+public interface ItestInpFieldDescrNmbrObject
 {
   public testNumber field { get; set; }
 }

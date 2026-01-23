@@ -15,7 +15,7 @@ public interface ICmptAltDualInp
   public CmptAltDualInp AltDualInp { get; set; }
 }
 
-public interface ICmptAltDualInpField
+public interface ICmptAltDualInpObject
 {
 }
 
@@ -25,7 +25,7 @@ public interface ICmptObjDualAltDualInp
   public CmptObjDualAltDualInp ObjDualAltDualInp { get; set; }
 }
 
-public interface ICmptObjDualAltDualInpField
+public interface ICmptObjDualAltDualInpObject
 {
   public CmptNumber alt { get; set; }
 }

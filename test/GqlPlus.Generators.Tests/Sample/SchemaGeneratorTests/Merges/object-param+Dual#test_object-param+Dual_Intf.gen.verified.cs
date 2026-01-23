@@ -10,7 +10,7 @@ public interface ItestObjParamDual<Ttest,Ttype>
   public testObjParamDual ObjParamDual { get; set; }
 }
 
-public interface ItestObjParamDualField<Ttest,Ttype>
+public interface ItestObjParamDualObject<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }

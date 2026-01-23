@@ -15,7 +15,7 @@ public interface ICmptGnrcFieldDualInp
   public CmptGnrcFieldDualInp GnrcFieldDualInp { get; set; }
 }
 
-public interface ICmptGnrcFieldDualInpField
+public interface ICmptGnrcFieldDualInpObject
 {
   public CmptRefGnrcFieldDualInp<CmptAltGnrcFieldDualInp> field { get; set; }
 }
@@ -26,7 +26,7 @@ public interface ICmptRefGnrcFieldDualInp<Tref>
   public CmptRefGnrcFieldDualInp RefGnrcFieldDualInp { get; set; }
 }
 
-public interface ICmptRefGnrcFieldDualInpField<Tref>
+public interface ICmptRefGnrcFieldDualInpObject<Tref>
 {
 }
 
@@ -36,7 +36,7 @@ public interface ICmptAltGnrcFieldDualInp
   public CmptAltGnrcFieldDualInp AltGnrcFieldDualInp { get; set; }
 }
 
-public interface ICmptAltGnrcFieldDualInpField
+public interface ICmptAltGnrcFieldDualInpObject
 {
   public CmptNumber alt { get; set; }
 }

@@ -14,6 +14,6 @@ public interface ICmptDescrCmpl
   public CmptDescrCmpl DescrCmpl { get; set; }
 }
 
-public interface ICmptDescrCmplField
+public interface ICmptDescrCmplObject
 {
 }

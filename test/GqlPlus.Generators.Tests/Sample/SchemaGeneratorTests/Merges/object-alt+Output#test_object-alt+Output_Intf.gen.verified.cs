@@ -11,7 +11,7 @@ public interface ItestObjAltOutp
   public testObjAltOutp ObjAltOutp { get; set; }
 }
 
-public interface ItestObjAltOutpField
+public interface ItestObjAltOutpObject
 {
 }
 
@@ -20,6 +20,6 @@ public interface ItestObjAltOutpType
   public testObjAltOutpType ObjAltOutpType { get; set; }
 }
 
-public interface ItestObjAltOutpTypeField
+public interface ItestObjAltOutpTypeObject
 {
 }

@@ -10,7 +10,7 @@ public interface ItestFieldModParamInp<Tmod>
   public testFieldModParamInp FieldModParamInp { get; set; }
 }
 
-public interface ItestFieldModParamInpField<Tmod>
+public interface ItestFieldModParamInpObject<Tmod>
 {
   public IDictionary<Tmod, testFldFieldModParamInp> field { get; set; }
 }
@@ -21,7 +21,7 @@ public interface ItestFldFieldModParamInp
   public testFldFieldModParamInp FldFieldModParamInp { get; set; }
 }
 
-public interface ItestFldFieldModParamInpField
+public interface ItestFldFieldModParamInpObject
 {
   public testNumber field { get; set; }
 }

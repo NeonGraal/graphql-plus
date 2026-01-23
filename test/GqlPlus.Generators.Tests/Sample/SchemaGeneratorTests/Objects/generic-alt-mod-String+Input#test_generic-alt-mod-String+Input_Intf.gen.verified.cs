@@ -11,6 +11,6 @@ public interface ItestRefGnrcAltModStrInp<Tref>
   public testRefGnrcAltModStrInp RefGnrcAltModStrInp { get; set; }
 }
 
-public interface ItestRefGnrcAltModStrInpField<Tref>
+public interface ItestRefGnrcAltModStrInpObject<Tref>
 {
 }

@@ -14,6 +14,6 @@ public interface ICmptDescrDbl
   public CmptDescrDbl DescrDbl { get; set; }
 }
 
-public interface ICmptDescrDblField
+public interface ICmptDescrDblObject
 {
 }

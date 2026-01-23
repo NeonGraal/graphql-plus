@@ -12,7 +12,7 @@ public interface Itest_Opt<TT>
   public test_Opt _Opt { get; set; }
 }
 
-public interface Itest_OptField<TT>
+public interface Itest_OptObject<TT>
 {
 }
 
@@ -22,7 +22,7 @@ public interface Itest_List<TT>
   public test_List _List { get; set; }
 }
 
-public interface Itest_ListField<TT>
+public interface Itest_ListObject<TT>
 {
 }
 
@@ -32,7 +32,7 @@ public interface Itest_Dict<TK,TT>
   public test_Dict _Dict { get; set; }
 }
 
-public interface Itest_DictField<TK,TT>
+public interface Itest_DictObject<TK,TT>
 {
 }
 
@@ -42,7 +42,7 @@ public interface Itest_Map<TT>
   public test_Map _Map { get; set; }
 }
 
-public interface Itest_MapField<TT>
+public interface Itest_MapObject<TT>
 {
 }
 
@@ -52,7 +52,7 @@ public interface Itest_Array<TT>
   public test_Array _Array { get; set; }
 }
 
-public interface Itest_ArrayField<TT>
+public interface Itest_ArrayObject<TT>
 {
 }
 
@@ -62,7 +62,7 @@ public interface Itest_IfElse<TT>
   public test_IfElse _IfElse { get; set; }
 }
 
-public interface Itest_IfElseField<TT>
+public interface Itest_IfElseObject<TT>
 {
 }
 
@@ -72,7 +72,7 @@ public interface Itest_Set<TK>
   public test_Set _Set { get; set; }
 }
 
-public interface Itest_SetField<TK>
+public interface Itest_SetObject<TK>
 {
 }
 
@@ -82,7 +82,7 @@ public interface Itest_Mask<TK>
   public test_Mask _Mask { get; set; }
 }
 
-public interface Itest_MaskField<TK>
+public interface Itest_MaskObject<TK>
 {
 }
 
@@ -95,6 +95,6 @@ public interface Itest_Any
   public test_Any _Any { get; set; }
 }
 
-public interface Itest_AnyField
+public interface Itest_AnyObject
 {
 }

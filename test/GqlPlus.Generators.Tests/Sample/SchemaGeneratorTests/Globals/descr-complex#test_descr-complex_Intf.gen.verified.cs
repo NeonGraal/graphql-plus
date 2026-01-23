@@ -10,6 +10,6 @@ public interface ItestDescrCmpl
   public testDescrCmpl DescrCmpl { get; set; }
 }
 
-public interface ItestDescrCmplField
+public interface ItestDescrCmplObject
 {
 }

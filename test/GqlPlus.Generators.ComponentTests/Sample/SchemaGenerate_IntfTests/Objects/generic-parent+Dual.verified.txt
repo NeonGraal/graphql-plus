@@ -14,7 +14,7 @@ public interface ICmptGnrcPrntDual<Ttype>
   public CmptGnrcPrntDual GnrcPrntDual { get; set; }
 }
 
-public interface ICmptGnrcPrntDualField<Ttype>
-  : ICmpttypeField
+public interface ICmptGnrcPrntDualObject<Ttype>
+  : ICmpttypeObject
 {
 }

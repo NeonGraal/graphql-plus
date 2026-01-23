@@ -16,7 +16,7 @@ public interface ICmptGnrcAltParamInp
   public CmptGnrcAltParamInp GnrcAltParamInp { get; set; }
 }
 
-public interface ICmptGnrcAltParamInpField
+public interface ICmptGnrcAltParamInpObject
 {
 }
 
@@ -26,7 +26,7 @@ public interface ICmptRefGnrcAltParamInp<Tref>
   public CmptRefGnrcAltParamInp RefGnrcAltParamInp { get; set; }
 }
 
-public interface ICmptRefGnrcAltParamInpField<Tref>
+public interface ICmptRefGnrcAltParamInpObject<Tref>
 {
 }
 
@@ -36,7 +36,7 @@ public interface ICmptAltGnrcAltParamInp
   public CmptAltGnrcAltParamInp AltGnrcAltParamInp { get; set; }
 }
 
-public interface ICmptAltGnrcAltParamInpField
+public interface ICmptAltGnrcAltParamInpObject
 {
   public CmptNumber alt { get; set; }
 }

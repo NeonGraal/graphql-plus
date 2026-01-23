@@ -11,6 +11,6 @@ public interface ItestGnrcAltOutp<Ttype>
   public testGnrcAltOutp GnrcAltOutp { get; set; }
 }
 
-public interface ItestGnrcAltOutpField<Ttype>
+public interface ItestGnrcAltOutpObject<Ttype>
 {
 }

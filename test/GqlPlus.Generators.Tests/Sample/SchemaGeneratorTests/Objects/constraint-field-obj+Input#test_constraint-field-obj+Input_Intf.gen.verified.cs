@@ -11,8 +11,8 @@ public interface ItestCnstFieldObjInp
   public testCnstFieldObjInp CnstFieldObjInp { get; set; }
 }
 
-public interface ItestCnstFieldObjInpField
-  : ItestRefCnstFieldObjInpField
+public interface ItestCnstFieldObjInpObject
+  : ItestRefCnstFieldObjInpObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestRefCnstFieldObjInp<Tref>
   public testRefCnstFieldObjInp RefCnstFieldObjInp { get; set; }
 }
 
-public interface ItestRefCnstFieldObjInpField<Tref>
+public interface ItestRefCnstFieldObjInpObject<Tref>
 {
   public Tref field { get; set; }
 }
@@ -32,7 +32,7 @@ public interface ItestPrntCnstFieldObjInp
   public testPrntCnstFieldObjInp PrntCnstFieldObjInp { get; set; }
 }
 
-public interface ItestPrntCnstFieldObjInpField
+public interface ItestPrntCnstFieldObjInpObject
 {
 }
 
@@ -42,8 +42,8 @@ public interface ItestAltCnstFieldObjInp
   public testAltCnstFieldObjInp AltCnstFieldObjInp { get; set; }
 }
 
-public interface ItestAltCnstFieldObjInpField
-  : ItestPrntCnstFieldObjInpField
+public interface ItestAltCnstFieldObjInpObject
+  : ItestPrntCnstFieldObjInpObject
 {
   public testNumber alt { get; set; }
 }

@@ -11,8 +11,8 @@ public interface ItestCnstFieldDmnOutp
   public testCnstFieldDmnOutp CnstFieldDmnOutp { get; set; }
 }
 
-public interface ItestCnstFieldDmnOutpField
-  : ItestRefCnstFieldDmnOutpField
+public interface ItestCnstFieldDmnOutpObject
+  : ItestRefCnstFieldDmnOutpObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestRefCnstFieldDmnOutp<Tref>
   public testRefCnstFieldDmnOutp RefCnstFieldDmnOutp { get; set; }
 }
 
-public interface ItestRefCnstFieldDmnOutpField<Tref>
+public interface ItestRefCnstFieldDmnOutpObject<Tref>
 {
   public Tref field { get; set; }
 }

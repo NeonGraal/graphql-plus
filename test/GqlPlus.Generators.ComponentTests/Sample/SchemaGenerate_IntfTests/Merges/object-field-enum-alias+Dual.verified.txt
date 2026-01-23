@@ -14,7 +14,7 @@ public interface ICmptObjFieldEnumAliasDual
   public CmptObjFieldEnumAliasDual ObjFieldEnumAliasDual { get; set; }
 }
 
-public interface ICmptObjFieldEnumAliasDualField
+public interface ICmptObjFieldEnumAliasDualObject
 {
   public CmptBoolean field { get; set; }
 }

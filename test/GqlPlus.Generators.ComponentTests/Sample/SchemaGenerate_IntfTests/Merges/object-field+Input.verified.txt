@@ -15,7 +15,7 @@ public interface ICmptObjFieldInp
   public CmptObjFieldInp ObjFieldInp { get; set; }
 }
 
-public interface ICmptObjFieldInpField
+public interface ICmptObjFieldInpObject
 {
   public CmptFldObjFieldInp field { get; set; }
 }
@@ -25,6 +25,6 @@ public interface ICmptFldObjFieldInp
   public CmptFldObjFieldInp FldObjFieldInp { get; set; }
 }
 
-public interface ICmptFldObjFieldInpField
+public interface ICmptFldObjFieldInpObject
 {
 }

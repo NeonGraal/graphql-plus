@@ -11,6 +11,6 @@ public interface ItestAltDescrInp
   public testAltDescrInp AltDescrInp { get; set; }
 }
 
-public interface ItestAltDescrInpField
+public interface ItestAltDescrInpObject
 {
 }

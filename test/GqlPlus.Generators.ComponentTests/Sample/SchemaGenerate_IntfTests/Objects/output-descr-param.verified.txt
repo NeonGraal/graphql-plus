@@ -15,7 +15,7 @@ public interface ICmptOutpDescrParam
   public CmptOutpDescrParam OutpDescrParam { get; set; }
 }
 
-public interface ICmptOutpDescrParamField
+public interface ICmptOutpDescrParamObject
 {
   public CmptFldOutpDescrParam field { get; set; }
 }
@@ -25,7 +25,7 @@ public interface ICmptFldOutpDescrParam
   public CmptFldOutpDescrParam FldOutpDescrParam { get; set; }
 }
 
-public interface ICmptFldOutpDescrParamField
+public interface ICmptFldOutpDescrParamObject
 {
 }
 
@@ -35,7 +35,7 @@ public interface ICmptInOutpDescrParam
   public CmptInOutpDescrParam InOutpDescrParam { get; set; }
 }
 
-public interface ICmptInOutpDescrParamField
+public interface ICmptInOutpDescrParamObject
 {
   public CmptNumber param { get; set; }
 }

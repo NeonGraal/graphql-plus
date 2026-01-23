@@ -10,7 +10,7 @@ public interface ItestObjCnstOutp<Ttype>
   public testObjCnstOutp ObjCnstOutp { get; set; }
 }
 
-public interface ItestObjCnstOutpField<Ttype>
+public interface ItestObjCnstOutpObject<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }

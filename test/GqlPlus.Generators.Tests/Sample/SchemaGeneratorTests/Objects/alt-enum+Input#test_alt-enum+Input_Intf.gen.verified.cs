@@ -11,6 +11,6 @@ public interface ItestAltEnumInp
   public testAltEnumInp AltEnumInp { get; set; }
 }
 
-public interface ItestAltEnumInpField
+public interface ItestAltEnumInpObject
 {
 }

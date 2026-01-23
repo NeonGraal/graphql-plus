@@ -16,7 +16,7 @@ public interface ICmptCnstEnumInp
   public CmptCnstEnumInp CnstEnumInp { get; set; }
 }
 
-public interface ICmptCnstEnumInpField
+public interface ICmptCnstEnumInpObject
 {
 }
 
@@ -25,7 +25,7 @@ public interface ICmptRefCnstEnumInp<Ttype>
   public CmptRefCnstEnumInp RefCnstEnumInp { get; set; }
 }
 
-public interface ICmptRefCnstEnumInpField<Ttype>
+public interface ICmptRefCnstEnumInpObject<Ttype>
 {
   public Ttype field { get; set; }
 }

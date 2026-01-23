@@ -17,8 +17,8 @@ public interface ICmptGnrcPrntEnumPrntDual
   public CmptGnrcPrntEnumPrntDual GnrcPrntEnumPrntDual { get; set; }
 }
 
-public interface ICmptGnrcPrntEnumPrntDualField
-  : ICmptFieldGnrcPrntEnumPrntDualField
+public interface ICmptGnrcPrntEnumPrntDualObject
+  : ICmptFieldGnrcPrntEnumPrntDualObject
 {
 }
 
@@ -27,7 +27,7 @@ public interface ICmptFieldGnrcPrntEnumPrntDual<Tref>
   public CmptFieldGnrcPrntEnumPrntDual FieldGnrcPrntEnumPrntDual { get; set; }
 }
 
-public interface ICmptFieldGnrcPrntEnumPrntDualField<Tref>
+public interface ICmptFieldGnrcPrntEnumPrntDualObject<Tref>
 {
   public Tref field { get; set; }
 }

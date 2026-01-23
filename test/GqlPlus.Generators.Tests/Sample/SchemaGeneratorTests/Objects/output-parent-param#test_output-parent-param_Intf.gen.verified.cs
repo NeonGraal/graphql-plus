@@ -11,8 +11,8 @@ public interface ItestOutpPrntParam
   public testOutpPrntParam OutpPrntParam { get; set; }
 }
 
-public interface ItestOutpPrntParamField
-  : ItestPrntOutpPrntParamField
+public interface ItestOutpPrntParamObject
+  : ItestPrntOutpPrntParamObject
 {
   public testFldOutpPrntParam field { get; set; }
 }
@@ -22,7 +22,7 @@ public interface ItestPrntOutpPrntParam
   public testPrntOutpPrntParam PrntOutpPrntParam { get; set; }
 }
 
-public interface ItestPrntOutpPrntParamField
+public interface ItestPrntOutpPrntParamObject
 {
   public testFldOutpPrntParam field { get; set; }
 }
@@ -32,7 +32,7 @@ public interface ItestFldOutpPrntParam
   public testFldOutpPrntParam FldOutpPrntParam { get; set; }
 }
 
-public interface ItestFldOutpPrntParamField
+public interface ItestFldOutpPrntParamObject
 {
 }
 
@@ -42,7 +42,7 @@ public interface ItestInOutpPrntParam
   public testInOutpPrntParam InOutpPrntParam { get; set; }
 }
 
-public interface ItestInOutpPrntParamField
+public interface ItestInOutpPrntParamObject
 {
   public testNumber param { get; set; }
 }
@@ -53,7 +53,7 @@ public interface ItestPrntOutpPrntParamIn
   public testPrntOutpPrntParamIn PrntOutpPrntParamIn { get; set; }
 }
 
-public interface ItestPrntOutpPrntParamInField
+public interface ItestPrntOutpPrntParamInObject
 {
   public testNumber parent { get; set; }
 }

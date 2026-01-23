@@ -15,7 +15,7 @@ public interface ICmptGnrcAltSmplOutp
   public CmptGnrcAltSmplOutp GnrcAltSmplOutp { get; set; }
 }
 
-public interface ICmptGnrcAltSmplOutpField
+public interface ICmptGnrcAltSmplOutpObject
 {
 }
 
@@ -25,6 +25,6 @@ public interface ICmptRefGnrcAltSmplOutp<Tref>
   public CmptRefGnrcAltSmplOutp RefGnrcAltSmplOutp { get; set; }
 }
 
-public interface ICmptRefGnrcAltSmplOutpField<Tref>
+public interface ICmptRefGnrcAltSmplOutpObject<Tref>
 {
 }

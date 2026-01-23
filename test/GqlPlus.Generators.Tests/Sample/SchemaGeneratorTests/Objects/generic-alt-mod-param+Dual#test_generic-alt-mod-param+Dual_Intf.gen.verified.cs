@@ -11,6 +11,6 @@ public interface ItestRefGnrcAltModParamDual<Tref,Tmod>
   public testRefGnrcAltModParamDual RefGnrcAltModParamDual { get; set; }
 }
 
-public interface ItestRefGnrcAltModParamDualField<Tref,Tmod>
+public interface ItestRefGnrcAltModParamDualObject<Tref,Tmod>
 {
 }

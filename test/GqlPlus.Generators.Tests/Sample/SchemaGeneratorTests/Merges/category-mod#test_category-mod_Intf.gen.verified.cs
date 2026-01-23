@@ -10,6 +10,6 @@ public interface ItestCtgrMod
   public testCtgrMod CtgrMod { get; set; }
 }
 
-public interface ItestCtgrModField
+public interface ItestCtgrModObject
 {
 }

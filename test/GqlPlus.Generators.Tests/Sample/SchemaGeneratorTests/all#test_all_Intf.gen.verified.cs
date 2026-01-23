@@ -21,7 +21,7 @@ public interface ItestField
   public testField Field { get; set; }
 }
 
-public interface ItestFieldField
+public interface ItestFieldObject
 {
   public ICollection<testString> strings { get; set; }
 }
@@ -32,7 +32,7 @@ public interface ItestParam
   public testParam Param { get; set; }
 }
 
-public interface ItestParamField
+public interface ItestParamObject
 {
   public testMany? afterId { get; set; }
   public testMany beforeId { get; set; }
@@ -44,7 +44,7 @@ public interface ItestAll
   public testAll All { get; set; }
 }
 
-public interface ItestAllField
+public interface ItestAllObject
 {
   public testField items { get; set; }
 }

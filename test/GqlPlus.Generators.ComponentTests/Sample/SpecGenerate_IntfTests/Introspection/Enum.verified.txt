@@ -22,8 +22,8 @@ public interface ICmpt_EnumLabel
   public Cmpt_EnumLabel _EnumLabel { get; set; }
 }
 
-public interface ICmpt_EnumLabelField
-  : ICmpt_AliasedField
+public interface ICmpt_EnumLabelObject
+  : ICmpt_AliasedObject
 {
   public Cmpt_Name enum { get; set; }
 }
@@ -34,8 +34,8 @@ public interface ICmpt_EnumValue
   public Cmpt_EnumValue _EnumValue { get; set; }
 }
 
-public interface ICmpt_EnumValueField
-  : ICmpt_TypeRefField
+public interface ICmpt_EnumValueObject
+  : ICmpt_TypeRefObject
 {
   public Cmpt_Name label { get; set; }
 }

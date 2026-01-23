@@ -14,7 +14,7 @@ public interface ICmptGnrcPrntDescrOutp<Ttype>
   public CmptGnrcPrntDescrOutp GnrcPrntDescrOutp { get; set; }
 }
 
-public interface ICmptGnrcPrntDescrOutpField<Ttype>
-  : ICmpttypeField
+public interface ICmptGnrcPrntDescrOutpObject<Ttype>
+  : ICmpttypeObject
 {
 }

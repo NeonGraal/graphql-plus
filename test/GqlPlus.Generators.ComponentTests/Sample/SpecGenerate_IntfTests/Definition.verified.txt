@@ -72,7 +72,7 @@ public interface ICmpt_Object
   public Cmpt_Object _Object { get; set; }
 }
 
-public interface ICmpt_ObjectField
+public interface ICmpt_ObjectObject
 {
 }
 
@@ -85,7 +85,7 @@ public interface ICmpt_Dual
   public Cmpt_Dual _Dual { get; set; }
 }
 
-public interface ICmpt_DualField
+public interface ICmpt_DualObject
 {
 }
 
@@ -98,7 +98,7 @@ public interface ICmpt_Input
   public Cmpt_Input _Input { get; set; }
 }
 
-public interface ICmpt_InputField
+public interface ICmpt_InputObject
 {
 }
 
@@ -107,7 +107,7 @@ public interface ICmpt_Output
   public Cmpt_Output _Output { get; set; }
 }
 
-public interface ICmpt_OutputField
+public interface ICmpt_OutputObject
 {
 }
 

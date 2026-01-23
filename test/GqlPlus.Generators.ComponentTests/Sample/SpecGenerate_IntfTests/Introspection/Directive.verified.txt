@@ -28,8 +28,8 @@ public interface ICmpt_Directives
   public Cmpt_Directives _Directives { get; set; }
 }
 
-public interface ICmpt_DirectivesField
-  : ICmpt_AndTypeField
+public interface ICmpt_DirectivesObject
+  : ICmpt_AndTypeObject
 {
   public Cmpt_Directive directive { get; set; }
 }
@@ -40,8 +40,8 @@ public interface ICmpt_Directive
   public Cmpt_Directive _Directive { get; set; }
 }
 
-public interface ICmpt_DirectiveField
-  : ICmpt_AliasedField
+public interface ICmpt_DirectiveObject
+  : ICmpt_AliasedObject
 {
   public ICollection<Cmpt_InputParam> parameters { get; set; }
   public CmptBoolean repeatable { get; set; }

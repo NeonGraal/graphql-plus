@@ -2,7 +2,6 @@
 using GqlPlus.Generating;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
@@ -15,6 +14,7 @@ public abstract class GenerateSchemaTestBase(
     string result = checks.Generate_ForAsts(BaseType, GeneratorType, asts, test, label, input);
 
     if (!string.IsNullOrWhiteSpace(result)) {
+      TestContext.Current.AddAttachment(result, $"{GeneratorType}_{test}.cs");
       await Verify(result, CustomSettings(label, $"Generate_{GeneratorType}", test, section, scrubEmptyLines: false));
     }
   }

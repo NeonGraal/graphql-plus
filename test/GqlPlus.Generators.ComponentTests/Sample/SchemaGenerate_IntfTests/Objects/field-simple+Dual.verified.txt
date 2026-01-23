@@ -13,7 +13,7 @@ public interface ICmptFieldSmplDual
   public CmptFieldSmplDual FieldSmplDual { get; set; }
 }
 
-public interface ICmptFieldSmplDualField
+public interface ICmptFieldSmplDualObject
 {
   public CmptNumber field { get; set; }
 }

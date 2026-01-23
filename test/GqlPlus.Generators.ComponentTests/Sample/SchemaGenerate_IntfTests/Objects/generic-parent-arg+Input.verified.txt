@@ -15,8 +15,8 @@ public interface ICmptGnrcPrntArgInp<Ttype>
   public CmptGnrcPrntArgInp GnrcPrntArgInp { get; set; }
 }
 
-public interface ICmptGnrcPrntArgInpField<Ttype>
-  : ICmptRefGnrcPrntArgInpField
+public interface ICmptGnrcPrntArgInpObject<Ttype>
+  : ICmptRefGnrcPrntArgInpObject
 {
 }
 
@@ -26,6 +26,6 @@ public interface ICmptRefGnrcPrntArgInp<Tref>
   public CmptRefGnrcPrntArgInp RefGnrcPrntArgInp { get; set; }
 }
 
-public interface ICmptRefGnrcPrntArgInpField<Tref>
+public interface ICmptRefGnrcPrntArgInpObject<Tref>
 {
 }

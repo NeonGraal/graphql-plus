@@ -10,7 +10,7 @@ public interface ItestFieldEnumPrntDual
   public testFieldEnumPrntDual FieldEnumPrntDual { get; set; }
 }
 
-public interface ItestFieldEnumPrntDualField
+public interface ItestFieldEnumPrntDualObject
 {
   public testEnumFieldEnumPrntDual field { get; set; }
 }

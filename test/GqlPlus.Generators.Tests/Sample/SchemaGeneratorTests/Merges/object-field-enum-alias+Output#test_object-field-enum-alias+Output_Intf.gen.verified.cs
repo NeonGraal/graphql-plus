@@ -10,7 +10,7 @@ public interface ItestObjFieldEnumAliasOutp
   public testObjFieldEnumAliasOutp ObjFieldEnumAliasOutp { get; set; }
 }
 
-public interface ItestObjFieldEnumAliasOutpField
+public interface ItestObjFieldEnumAliasOutpObject
 {
   public testBoolean field { get; set; }
 }

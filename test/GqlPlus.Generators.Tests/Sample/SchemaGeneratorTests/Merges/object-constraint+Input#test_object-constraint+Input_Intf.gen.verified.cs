@@ -10,7 +10,7 @@ public interface ItestObjCnstInp<Ttype>
   public testObjCnstInp ObjCnstInp { get; set; }
 }
 
-public interface ItestObjCnstInpField<Ttype>
+public interface ItestObjCnstInpObject<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }

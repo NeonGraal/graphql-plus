@@ -11,6 +11,6 @@ public interface ItestAltSmplInp
   public testAltSmplInp AltSmplInp { get; set; }
 }
 
-public interface ItestAltSmplInpField
+public interface ItestAltSmplInpObject
 {
 }

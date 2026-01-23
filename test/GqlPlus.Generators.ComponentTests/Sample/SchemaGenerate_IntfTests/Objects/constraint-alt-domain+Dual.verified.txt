@@ -16,7 +16,7 @@ public interface ICmptCnstAltDmnDual
   public CmptCnstAltDmnDual CnstAltDmnDual { get; set; }
 }
 
-public interface ICmptCnstAltDmnDualField
+public interface ICmptCnstAltDmnDualObject
 {
 }
 
@@ -26,7 +26,7 @@ public interface ICmptRefCnstAltDmnDual<Tref>
   public CmptRefCnstAltDmnDual RefCnstAltDmnDual { get; set; }
 }
 
-public interface ICmptRefCnstAltDmnDualField<Tref>
+public interface ICmptRefCnstAltDmnDualObject<Tref>
 {
 }
 

@@ -11,7 +11,7 @@ public interface ItestCnstAltDmnOutp
   public testCnstAltDmnOutp CnstAltDmnOutp { get; set; }
 }
 
-public interface ItestCnstAltDmnOutpField
+public interface ItestCnstAltDmnOutpObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestRefCnstAltDmnOutp<Tref>
   public testRefCnstAltDmnOutp RefCnstAltDmnOutp { get; set; }
 }
 
-public interface ItestRefCnstAltDmnOutpField<Tref>
+public interface ItestRefCnstAltDmnOutpObject<Tref>
 {
 }
 

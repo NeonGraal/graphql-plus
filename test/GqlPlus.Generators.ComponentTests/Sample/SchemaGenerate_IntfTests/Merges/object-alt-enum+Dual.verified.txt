@@ -16,6 +16,6 @@ public interface ICmptObjAltEnumDual
   public CmptObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 
-public interface ICmptObjAltEnumDualField
+public interface ICmptObjAltEnumDualObject
 {
 }

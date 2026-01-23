@@ -10,7 +10,7 @@ public interface ItestObjParamOutp<Ttest,Ttype>
   public testObjParamOutp ObjParamOutp { get; set; }
 }
 
-public interface ItestObjParamOutpField<Ttest,Ttype>
+public interface ItestObjParamOutpObject<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }

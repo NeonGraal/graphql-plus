@@ -16,8 +16,8 @@ public interface ICmptObjPrntInp
   public CmptObjPrntInp ObjPrntInp { get; set; }
 }
 
-public interface ICmptObjPrntInpField
-  : ICmptRefObjPrntInpField
+public interface ICmptObjPrntInpObject
+  : ICmptRefObjPrntInpObject
 {
 }
 
@@ -26,6 +26,6 @@ public interface ICmptRefObjPrntInp
   public CmptRefObjPrntInp RefObjPrntInp { get; set; }
 }
 
-public interface ICmptRefObjPrntInpField
+public interface ICmptRefObjPrntInpObject
 {
 }

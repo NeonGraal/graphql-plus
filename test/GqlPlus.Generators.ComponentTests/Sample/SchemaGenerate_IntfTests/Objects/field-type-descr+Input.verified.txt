@@ -13,7 +13,7 @@ public interface ICmptFieldTypeDescrInp
   public CmptFieldTypeDescrInp FieldTypeDescrInp { get; set; }
 }
 
-public interface ICmptFieldTypeDescrInpField
+public interface ICmptFieldTypeDescrInpObject
 {
   public CmptNumber field { get; set; }
 }

@@ -11,7 +11,7 @@ public interface ItestGnrcPrntDescrDual<Ttype>
   public testGnrcPrntDescrDual GnrcPrntDescrDual { get; set; }
 }
 
-public interface ItestGnrcPrntDescrDualField<Ttype>
-  : ItesttypeField
+public interface ItestGnrcPrntDescrDualObject<Ttype>
+  : ItesttypeObject
 {
 }

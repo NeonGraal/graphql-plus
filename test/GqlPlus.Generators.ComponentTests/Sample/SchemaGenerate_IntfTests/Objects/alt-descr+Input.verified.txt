@@ -14,6 +14,6 @@ public interface ICmptAltDescrInp
   public CmptAltDescrInp AltDescrInp { get; set; }
 }
 
-public interface ICmptAltDescrInpField
+public interface ICmptAltDescrInpObject
 {
 }

@@ -21,8 +21,8 @@ public interface ICmpt_OutputField
   public Cmpt_OutputField _OutputField { get; set; }
 }
 
-public interface ICmpt_OutputFieldField
-  : ICmpt_ObjFieldField
+public interface ICmpt_OutputFieldObject
+  : ICmpt_ObjFieldObject
 {
 }
 
@@ -32,8 +32,8 @@ public interface ICmpt_OutputFieldType
   public Cmpt_OutputFieldType _OutputFieldType { get; set; }
 }
 
-public interface ICmpt_OutputFieldTypeField
-  : ICmpt_ObjFieldTypeField
+public interface ICmpt_OutputFieldTypeObject
+  : ICmpt_ObjFieldTypeObject
 {
   public ICollection<Cmpt_InputParam> parameters { get; set; }
 }

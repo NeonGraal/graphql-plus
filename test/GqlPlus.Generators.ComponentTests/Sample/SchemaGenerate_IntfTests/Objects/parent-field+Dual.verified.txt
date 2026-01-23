@@ -15,8 +15,8 @@ public interface ICmptPrntFieldDual
   public CmptPrntFieldDual PrntFieldDual { get; set; }
 }
 
-public interface ICmptPrntFieldDualField
-  : ICmptRefPrntFieldDualField
+public interface ICmptPrntFieldDualObject
+  : ICmptRefPrntFieldDualObject
 {
   public CmptNumber field { get; set; }
 }
@@ -27,7 +27,7 @@ public interface ICmptRefPrntFieldDual
   public CmptRefPrntFieldDual RefPrntFieldDual { get; set; }
 }
 
-public interface ICmptRefPrntFieldDualField
+public interface ICmptRefPrntFieldDualObject
 {
   public CmptNumber parent { get; set; }
 }

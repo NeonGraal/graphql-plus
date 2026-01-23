@@ -14,6 +14,6 @@ public interface ICmptObjAliasDual
   public CmptObjAliasDual ObjAliasDual { get; set; }
 }
 
-public interface ICmptObjAliasDualField
+public interface ICmptObjAliasDualObject
 {
 }

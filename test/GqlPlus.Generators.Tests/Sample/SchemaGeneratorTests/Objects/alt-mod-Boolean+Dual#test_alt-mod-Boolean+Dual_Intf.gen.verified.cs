@@ -11,7 +11,7 @@ public interface ItestAltModBoolDual
   public testAltModBoolDual AltModBoolDual { get; set; }
 }
 
-public interface ItestAltModBoolDualField
+public interface ItestAltModBoolDualObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestAltAltModBoolDual
   public testAltAltModBoolDual AltAltModBoolDual { get; set; }
 }
 
-public interface ItestAltAltModBoolDualField
+public interface ItestAltAltModBoolDualObject
 {
   public testNumber alt { get; set; }
 }

@@ -14,6 +14,6 @@ public interface ICmptGnrcAltDual<Ttype>
   public CmptGnrcAltDual GnrcAltDual { get; set; }
 }
 
-public interface ICmptGnrcAltDualField<Ttype>
+public interface ICmptGnrcAltDualObject<Ttype>
 {
 }

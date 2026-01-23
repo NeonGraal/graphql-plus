@@ -14,6 +14,6 @@ public interface ICmptAltSmplDual
   public CmptAltSmplDual AltSmplDual { get; set; }
 }
 
-public interface ICmptAltSmplDualField
+public interface ICmptAltSmplDualObject
 {
 }

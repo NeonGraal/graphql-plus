@@ -12,6 +12,6 @@ public interface ItestObjAltEnumDual
   public testObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 
-public interface ItestObjAltEnumDualField
+public interface ItestObjAltEnumDualObject
 {
 }

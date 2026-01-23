@@ -17,7 +17,7 @@ public interface ICmptOutpFieldParam
   public CmptOutpFieldParam OutpFieldParam { get; set; }
 }
 
-public interface ICmptOutpFieldParamField
+public interface ICmptOutpFieldParamObject
 {
   public CmptFldOutpFieldParam field { get; set; }
 }
@@ -27,7 +27,7 @@ public interface ICmptOutpFieldParam1
   public CmptOutpFieldParam1 OutpFieldParam1 { get; set; }
 }
 
-public interface ICmptOutpFieldParam1Field
+public interface ICmptOutpFieldParam1Object
 {
 }
 
@@ -36,7 +36,7 @@ public interface ICmptOutpFieldParam2
   public CmptOutpFieldParam2 OutpFieldParam2 { get; set; }
 }
 
-public interface ICmptOutpFieldParam2Field
+public interface ICmptOutpFieldParam2Object
 {
 }
 
@@ -45,6 +45,6 @@ public interface ICmptFldOutpFieldParam
   public CmptFldOutpFieldParam FldOutpFieldParam { get; set; }
 }
 
-public interface ICmptFldOutpFieldParamField
+public interface ICmptFldOutpFieldParamObject
 {
 }

@@ -15,7 +15,7 @@ public interface ICmptGnrcAltArgDescrInp<Ttype>
   public CmptGnrcAltArgDescrInp GnrcAltArgDescrInp { get; set; }
 }
 
-public interface ICmptGnrcAltArgDescrInpField<Ttype>
+public interface ICmptGnrcAltArgDescrInpObject<Ttype>
 {
 }
 
@@ -25,6 +25,6 @@ public interface ICmptRefGnrcAltArgDescrInp<Tref>
   public CmptRefGnrcAltArgDescrInp RefGnrcAltArgDescrInp { get; set; }
 }
 
-public interface ICmptRefGnrcAltArgDescrInpField<Tref>
+public interface ICmptRefGnrcAltArgDescrInpObject<Tref>
 {
 }

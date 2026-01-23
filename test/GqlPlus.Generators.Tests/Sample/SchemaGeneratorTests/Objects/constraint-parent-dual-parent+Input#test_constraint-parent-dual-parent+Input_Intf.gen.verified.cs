@@ -11,8 +11,8 @@ public interface ItestCnstPrntDualPrntInp
   public testCnstPrntDualPrntInp CnstPrntDualPrntInp { get; set; }
 }
 
-public interface ItestCnstPrntDualPrntInpField
-  : ItestRefCnstPrntDualPrntInpField
+public interface ItestCnstPrntDualPrntInpObject
+  : ItestRefCnstPrntDualPrntInpObject
 {
 }
 
@@ -22,8 +22,8 @@ public interface ItestRefCnstPrntDualPrntInp<Tref>
   public testRefCnstPrntDualPrntInp RefCnstPrntDualPrntInp { get; set; }
 }
 
-public interface ItestRefCnstPrntDualPrntInpField<Tref>
-  : ItestrefField
+public interface ItestRefCnstPrntDualPrntInpObject<Tref>
+  : ItestrefObject
 {
 }
 
@@ -33,7 +33,7 @@ public interface ItestPrntCnstPrntDualPrntInp
   public testPrntCnstPrntDualPrntInp PrntCnstPrntDualPrntInp { get; set; }
 }
 
-public interface ItestPrntCnstPrntDualPrntInpField
+public interface ItestPrntCnstPrntDualPrntInpObject
 {
 }
 
@@ -43,8 +43,8 @@ public interface ItestAltCnstPrntDualPrntInp
   public testAltCnstPrntDualPrntInp AltCnstPrntDualPrntInp { get; set; }
 }
 
-public interface ItestAltCnstPrntDualPrntInpField
-  : ItestPrntCnstPrntDualPrntInpField
+public interface ItestAltCnstPrntDualPrntInpObject
+  : ItestPrntCnstPrntDualPrntInpObject
 {
   public testNumber alt { get; set; }
 }

@@ -10,7 +10,7 @@ public interface ItestFieldDual
   public testFieldDual FieldDual { get; set; }
 }
 
-public interface ItestFieldDualField
+public interface ItestFieldDualObject
 {
   public testString field { get; set; }
 }

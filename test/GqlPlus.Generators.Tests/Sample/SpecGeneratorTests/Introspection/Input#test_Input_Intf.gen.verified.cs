@@ -11,8 +11,8 @@ public interface Itest_InputField
   public test_InputField _InputField { get; set; }
 }
 
-public interface Itest_InputFieldField
-  : Itest_ObjFieldField
+public interface Itest_InputFieldObject
+  : Itest_ObjFieldObject
 {
 }
 
@@ -22,8 +22,8 @@ public interface Itest_InputFieldType
   public test_InputFieldType _InputFieldType { get; set; }
 }
 
-public interface Itest_InputFieldTypeField
-  : Itest_ObjFieldTypeField
+public interface Itest_InputFieldTypeObject
+  : Itest_ObjFieldTypeObject
 {
   public test_Value? default { get; set; }
 }
@@ -34,7 +34,7 @@ public interface Itest_InputParam
   public test_InputParam _InputParam { get; set; }
 }
 
-public interface Itest_InputParamField
-  : Itest_InputFieldTypeField
+public interface Itest_InputParamObject
+  : Itest_InputFieldTypeObject
 {
 }

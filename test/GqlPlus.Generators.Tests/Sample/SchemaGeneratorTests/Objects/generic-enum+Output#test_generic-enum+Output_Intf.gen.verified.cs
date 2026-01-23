@@ -11,7 +11,7 @@ public interface ItestGnrcEnumOutp
   public testGnrcEnumOutp GnrcEnumOutp { get; set; }
 }
 
-public interface ItestGnrcEnumOutpField
+public interface ItestGnrcEnumOutpObject
 {
 }
 
@@ -20,7 +20,7 @@ public interface ItestRefGnrcEnumOutp<Ttype>
   public testRefGnrcEnumOutp RefGnrcEnumOutp { get; set; }
 }
 
-public interface ItestRefGnrcEnumOutpField<Ttype>
+public interface ItestRefGnrcEnumOutpObject<Ttype>
 {
   public Ttype field { get; set; }
 }

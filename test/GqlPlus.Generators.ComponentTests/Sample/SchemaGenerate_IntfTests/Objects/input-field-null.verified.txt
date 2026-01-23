@@ -14,7 +14,7 @@ public interface ICmptInpFieldNull
   public CmptInpFieldNull InpFieldNull { get; set; }
 }
 
-public interface ICmptInpFieldNullField
+public interface ICmptInpFieldNullObject
 {
   public CmptFldInpFieldNull? field { get; set; }
 }
@@ -24,6 +24,6 @@ public interface ICmptFldInpFieldNull
   public CmptFldInpFieldNull FldInpFieldNull { get; set; }
 }
 
-public interface ICmptFldInpFieldNullField
+public interface ICmptFldInpFieldNullObject
 {
 }

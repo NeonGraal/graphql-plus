@@ -32,8 +32,8 @@ public interface ICmpt_Aliased
   public Cmpt_Aliased _Aliased { get; set; }
 }
 
-public interface ICmpt_AliasedField
-  : ICmpt_NamedField
+public interface ICmpt_AliasedObject
+  : ICmpt_NamedObject
 {
   public ICollection<Cmpt_Name> aliases { get; set; }
 }
@@ -44,8 +44,8 @@ public interface ICmpt_Named
   public Cmpt_Named _Named { get; set; }
 }
 
-public interface ICmpt_NamedField
-  : ICmpt_DescribedField
+public interface ICmpt_NamedObject
+  : ICmpt_DescribedObject
 {
   public Cmpt_Name name { get; set; }
 }
@@ -55,7 +55,7 @@ public interface ICmpt_Described
   public Cmpt_Described _Described { get; set; }
 }
 
-public interface ICmpt_DescribedField
+public interface ICmpt_DescribedObject
 {
   public ICollection<CmptString> description { get; set; }
 }
@@ -67,8 +67,8 @@ public interface ICmpt_AndType
   public Cmpt_AndType _AndType { get; set; }
 }
 
-public interface ICmpt_AndTypeField
-  : ICmpt_NamedField
+public interface ICmpt_AndTypeObject
+  : ICmpt_NamedObject
 {
   public Cmpt_Type type { get; set; }
 }

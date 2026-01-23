@@ -16,8 +16,8 @@ public interface ICmptGnrcPrntParamPrntDual
   public CmptGnrcPrntParamPrntDual GnrcPrntParamPrntDual { get; set; }
 }
 
-public interface ICmptGnrcPrntParamPrntDualField
-  : ICmptRefGnrcPrntParamPrntDualField
+public interface ICmptGnrcPrntParamPrntDualObject
+  : ICmptRefGnrcPrntParamPrntDualObject
 {
 }
 
@@ -27,8 +27,8 @@ public interface ICmptRefGnrcPrntParamPrntDual<Tref>
   public CmptRefGnrcPrntParamPrntDual RefGnrcPrntParamPrntDual { get; set; }
 }
 
-public interface ICmptRefGnrcPrntParamPrntDualField<Tref>
-  : ICmptrefField
+public interface ICmptRefGnrcPrntParamPrntDualObject<Tref>
+  : ICmptrefObject
 {
 }
 
@@ -38,7 +38,7 @@ public interface ICmptAltGnrcPrntParamPrntDual
   public CmptAltGnrcPrntParamPrntDual AltGnrcPrntParamPrntDual { get; set; }
 }
 
-public interface ICmptAltGnrcPrntParamPrntDualField
+public interface ICmptAltGnrcPrntParamPrntDualObject
 {
   public CmptNumber alt { get; set; }
 }

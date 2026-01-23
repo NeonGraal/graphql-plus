@@ -12,8 +12,8 @@ public interface ItestPrntAltOutp
   public testPrntAltOutp PrntAltOutp { get; set; }
 }
 
-public interface ItestPrntAltOutpField
-  : ItestRefPrntAltOutpField
+public interface ItestPrntAltOutpObject
+  : ItestRefPrntAltOutpObject
 {
 }
 
@@ -23,7 +23,7 @@ public interface ItestRefPrntAltOutp
   public testRefPrntAltOutp RefPrntAltOutp { get; set; }
 }
 
-public interface ItestRefPrntAltOutpField
+public interface ItestRefPrntAltOutpObject
 {
   public testNumber parent { get; set; }
 }

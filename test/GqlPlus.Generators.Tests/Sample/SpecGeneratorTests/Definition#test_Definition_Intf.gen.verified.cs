@@ -41,7 +41,7 @@ public interface Itest_Object
   public test_Object _Object { get; set; }
 }
 
-public interface Itest_ObjectField
+public interface Itest_ObjectObject
 {
 }
 
@@ -54,7 +54,7 @@ public interface Itest_Dual
   public test_Dual _Dual { get; set; }
 }
 
-public interface Itest_DualField
+public interface Itest_DualObject
 {
 }
 
@@ -67,7 +67,7 @@ public interface Itest_Input
   public test_Input _Input { get; set; }
 }
 
-public interface Itest_InputField
+public interface Itest_InputObject
 {
 }
 
@@ -76,7 +76,7 @@ public interface Itest_Output
   public test_Output _Output { get; set; }
 }
 
-public interface Itest_OutputField
+public interface Itest_OutputObject
 {
 }
 

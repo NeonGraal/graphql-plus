@@ -11,7 +11,7 @@ public interface ItestObjAltInp
   public testObjAltInp ObjAltInp { get; set; }
 }
 
-public interface ItestObjAltInpField
+public interface ItestObjAltInpObject
 {
 }
 
@@ -20,6 +20,6 @@ public interface ItestObjAltInpType
   public testObjAltInpType ObjAltInpType { get; set; }
 }
 
-public interface ItestObjAltInpTypeField
+public interface ItestObjAltInpTypeObject
 {
 }

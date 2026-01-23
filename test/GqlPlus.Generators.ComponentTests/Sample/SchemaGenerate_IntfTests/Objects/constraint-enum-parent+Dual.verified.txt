@@ -17,7 +17,7 @@ public interface ICmptCnstEnumPrntDual
   public CmptCnstEnumPrntDual CnstEnumPrntDual { get; set; }
 }
 
-public interface ICmptCnstEnumPrntDualField
+public interface ICmptCnstEnumPrntDualObject
 {
 }
 
@@ -26,7 +26,7 @@ public interface ICmptRefCnstEnumPrntDual<Ttype>
   public CmptRefCnstEnumPrntDual RefCnstEnumPrntDual { get; set; }
 }
 
-public interface ICmptRefCnstEnumPrntDualField<Ttype>
+public interface ICmptRefCnstEnumPrntDualObject<Ttype>
 {
   public Ttype field { get; set; }
 }

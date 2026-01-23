@@ -10,6 +10,6 @@ public interface ItestDescrBcks
   public testDescrBcks DescrBcks { get; set; }
 }
 
-public interface ItestDescrBcksField
+public interface ItestDescrBcksObject
 {
 }

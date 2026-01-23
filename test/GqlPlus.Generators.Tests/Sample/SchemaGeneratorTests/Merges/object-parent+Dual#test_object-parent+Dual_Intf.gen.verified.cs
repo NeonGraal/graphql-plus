@@ -11,8 +11,8 @@ public interface ItestObjPrntDual
   public testObjPrntDual ObjPrntDual { get; set; }
 }
 
-public interface ItestObjPrntDualField
-  : ItestRefObjPrntDualField
+public interface ItestObjPrntDualObject
+  : ItestRefObjPrntDualObject
 {
 }
 
@@ -21,6 +21,6 @@ public interface ItestRefObjPrntDual
   public testRefObjPrntDual RefObjPrntDual { get; set; }
 }
 
-public interface ItestRefObjPrntDualField
+public interface ItestRefObjPrntDualObject
 {
 }

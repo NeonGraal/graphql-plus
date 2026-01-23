@@ -10,6 +10,6 @@ public interface ItestObjInp
   public testObjInp ObjInp { get; set; }
 }
 
-public interface ItestObjInpField
+public interface ItestObjInpObject
 {
 }

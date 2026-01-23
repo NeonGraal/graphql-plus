@@ -10,7 +10,7 @@ public interface ItestFieldDualOutp
   public testFieldDualOutp FieldDualOutp { get; set; }
 }
 
-public interface ItestFieldDualOutpField
+public interface ItestFieldDualOutpObject
 {
   public testFldFieldDualOutp field { get; set; }
 }
@@ -21,7 +21,7 @@ public interface ItestFldFieldDualOutp
   public testFldFieldDualOutp FldFieldDualOutp { get; set; }
 }
 
-public interface ItestFldFieldDualOutpField
+public interface ItestFldFieldDualOutpObject
 {
   public testNumber field { get; set; }
 }

@@ -14,7 +14,7 @@ public interface ICmptObjParamDupDual<Ttest>
   public CmptObjParamDupDual ObjParamDupDual { get; set; }
 }
 
-public interface ICmptObjParamDupDualField<Ttest>
+public interface ICmptObjParamDupDualObject<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }

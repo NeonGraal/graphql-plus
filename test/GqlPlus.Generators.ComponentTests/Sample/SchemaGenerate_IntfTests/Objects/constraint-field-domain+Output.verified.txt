@@ -16,8 +16,8 @@ public interface ICmptCnstFieldDmnOutp
   public CmptCnstFieldDmnOutp CnstFieldDmnOutp { get; set; }
 }
 
-public interface ICmptCnstFieldDmnOutpField
-  : ICmptRefCnstFieldDmnOutpField
+public interface ICmptCnstFieldDmnOutpObject
+  : ICmptRefCnstFieldDmnOutpObject
 {
 }
 
@@ -26,7 +26,7 @@ public interface ICmptRefCnstFieldDmnOutp<Tref>
   public CmptRefCnstFieldDmnOutp RefCnstFieldDmnOutp { get; set; }
 }
 
-public interface ICmptRefCnstFieldDmnOutpField<Tref>
+public interface ICmptRefCnstFieldDmnOutpObject<Tref>
 {
   public Tref field { get; set; }
 }

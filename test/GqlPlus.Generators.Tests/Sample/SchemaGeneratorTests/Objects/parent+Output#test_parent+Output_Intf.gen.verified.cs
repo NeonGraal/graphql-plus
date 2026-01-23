@@ -11,8 +11,8 @@ public interface ItestPrntOutp
   public testPrntOutp PrntOutp { get; set; }
 }
 
-public interface ItestPrntOutpField
-  : ItestRefPrntOutpField
+public interface ItestPrntOutpObject
+  : ItestRefPrntOutpObject
 {
 }
 
@@ -22,7 +22,7 @@ public interface ItestRefPrntOutp
   public testRefPrntOutp RefPrntOutp { get; set; }
 }
 
-public interface ItestRefPrntOutpField
+public interface ItestRefPrntOutpObject
 {
   public testNumber parent { get; set; }
 }

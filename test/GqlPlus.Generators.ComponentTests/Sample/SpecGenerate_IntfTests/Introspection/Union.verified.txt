@@ -21,8 +21,8 @@ public interface ICmpt_UnionRef
   public Cmpt_UnionRef _UnionRef { get; set; }
 }
 
-public interface ICmpt_UnionRefField
-  : ICmpt_TypeRefField
+public interface ICmpt_UnionRefObject
+  : ICmpt_TypeRefObject
 {
 }
 
@@ -32,8 +32,8 @@ public interface ICmpt_UnionMember
   public Cmpt_UnionMember _UnionMember { get; set; }
 }
 
-public interface ICmpt_UnionMemberField
-  : ICmpt_UnionRefField
+public interface ICmpt_UnionMemberObject
+  : ICmpt_UnionRefObject
 {
   public Cmpt_Name union { get; set; }
 }

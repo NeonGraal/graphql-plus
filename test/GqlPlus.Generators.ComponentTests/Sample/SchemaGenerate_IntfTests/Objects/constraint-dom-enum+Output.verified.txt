@@ -17,7 +17,7 @@ public interface ICmptCnstDomEnumOutp
   public CmptCnstDomEnumOutp CnstDomEnumOutp { get; set; }
 }
 
-public interface ICmptCnstDomEnumOutpField
+public interface ICmptCnstDomEnumOutpObject
 {
 }
 
@@ -26,7 +26,7 @@ public interface ICmptRefCnstDomEnumOutp<Ttype>
   public CmptRefCnstDomEnumOutp RefCnstDomEnumOutp { get; set; }
 }
 
-public interface ICmptRefCnstDomEnumOutpField<Ttype>
+public interface ICmptRefCnstDomEnumOutpObject<Ttype>
 {
   public Ttype field { get; set; }
 }

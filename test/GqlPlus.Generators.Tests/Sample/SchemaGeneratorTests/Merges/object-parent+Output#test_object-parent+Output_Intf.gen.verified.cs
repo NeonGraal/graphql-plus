@@ -11,8 +11,8 @@ public interface ItestObjPrntOutp
   public testObjPrntOutp ObjPrntOutp { get; set; }
 }
 
-public interface ItestObjPrntOutpField
-  : ItestRefObjPrntOutpField
+public interface ItestObjPrntOutpObject
+  : ItestRefObjPrntOutpObject
 {
 }
 
@@ -21,6 +21,6 @@ public interface ItestRefObjPrntOutp
   public testRefObjPrntOutp RefObjPrntOutp { get; set; }
 }
 
-public interface ItestRefObjPrntOutpField
+public interface ItestRefObjPrntOutpObject
 {
 }

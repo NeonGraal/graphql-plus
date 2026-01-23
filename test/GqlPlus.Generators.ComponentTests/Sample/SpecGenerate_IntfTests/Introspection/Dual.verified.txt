@@ -16,7 +16,7 @@ public interface ICmpt_DualField
   public Cmpt_DualField _DualField { get; set; }
 }
 
-public interface ICmpt_DualFieldField
-  : ICmpt_ObjFieldField
+public interface ICmpt_DualFieldObject
+  : ICmpt_ObjFieldObject
 {
 }

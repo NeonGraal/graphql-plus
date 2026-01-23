@@ -14,7 +14,7 @@ public interface ICmptGnrcFieldArgInp<Ttype>
   public CmptGnrcFieldArgInp GnrcFieldArgInp { get; set; }
 }
 
-public interface ICmptGnrcFieldArgInpField<Ttype>
+public interface ICmptGnrcFieldArgInpObject<Ttype>
 {
   public CmptRefGnrcFieldArgInp<Ttype> field { get; set; }
 }
@@ -25,6 +25,6 @@ public interface ICmptRefGnrcFieldArgInp<Tref>
   public CmptRefGnrcFieldArgInp RefGnrcFieldArgInp { get; set; }
 }
 
-public interface ICmptRefGnrcFieldArgInpField<Tref>
+public interface ICmptRefGnrcFieldArgInpObject<Tref>
 {
 }

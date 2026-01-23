@@ -11,7 +11,7 @@ public interface ItestCnstAltObjDual
   public testCnstAltObjDual CnstAltObjDual { get; set; }
 }
 
-public interface ItestCnstAltObjDualField
+public interface ItestCnstAltObjDualObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestRefCnstAltObjDual<Tref>
   public testRefCnstAltObjDual RefCnstAltObjDual { get; set; }
 }
 
-public interface ItestRefCnstAltObjDualField<Tref>
+public interface ItestRefCnstAltObjDualObject<Tref>
 {
 }
 
@@ -31,7 +31,7 @@ public interface ItestPrntCnstAltObjDual
   public testPrntCnstAltObjDual PrntCnstAltObjDual { get; set; }
 }
 
-public interface ItestPrntCnstAltObjDualField
+public interface ItestPrntCnstAltObjDualObject
 {
 }
 
@@ -41,8 +41,8 @@ public interface ItestAltCnstAltObjDual
   public testAltCnstAltObjDual AltCnstAltObjDual { get; set; }
 }
 
-public interface ItestAltCnstAltObjDualField
-  : ItestPrntCnstAltObjDualField
+public interface ItestAltCnstAltObjDualObject
+  : ItestPrntCnstAltObjDualObject
 {
   public testNumber alt { get; set; }
 }

@@ -17,8 +17,8 @@ public interface ICmptCnstFieldObjDual
   public CmptCnstFieldObjDual CnstFieldObjDual { get; set; }
 }
 
-public interface ICmptCnstFieldObjDualField
-  : ICmptRefCnstFieldObjDualField
+public interface ICmptCnstFieldObjDualObject
+  : ICmptRefCnstFieldObjDualObject
 {
 }
 
@@ -27,7 +27,7 @@ public interface ICmptRefCnstFieldObjDual<Tref>
   public CmptRefCnstFieldObjDual RefCnstFieldObjDual { get; set; }
 }
 
-public interface ICmptRefCnstFieldObjDualField<Tref>
+public interface ICmptRefCnstFieldObjDualObject<Tref>
 {
   public Tref field { get; set; }
 }
@@ -38,7 +38,7 @@ public interface ICmptPrntCnstFieldObjDual
   public CmptPrntCnstFieldObjDual PrntCnstFieldObjDual { get; set; }
 }
 
-public interface ICmptPrntCnstFieldObjDualField
+public interface ICmptPrntCnstFieldObjDualObject
 {
 }
 
@@ -48,8 +48,8 @@ public interface ICmptAltCnstFieldObjDual
   public CmptAltCnstFieldObjDual AltCnstFieldObjDual { get; set; }
 }
 
-public interface ICmptAltCnstFieldObjDualField
-  : ICmptPrntCnstFieldObjDualField
+public interface ICmptAltCnstFieldObjDualObject
+  : ICmptPrntCnstFieldObjDualObject
 {
   public CmptNumber alt { get; set; }
 }

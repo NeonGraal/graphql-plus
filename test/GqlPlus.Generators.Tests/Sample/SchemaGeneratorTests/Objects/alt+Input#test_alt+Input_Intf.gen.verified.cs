@@ -11,7 +11,7 @@ public interface ItestAltInp
   public testAltInp AltInp { get; set; }
 }
 
-public interface ItestAltInpField
+public interface ItestAltInpObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestAltAltInp
   public testAltAltInp AltAltInp { get; set; }
 }
 
-public interface ItestAltAltInpField
+public interface ItestAltAltInpObject
 {
   public testNumber alt { get; set; }
 }

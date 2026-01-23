@@ -64,9 +64,9 @@ internal class GenerateForObject<TObjField>
   {
     string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
 
-    context.Write($"public interface I{context.TypeName(ast)}Field{typeParams}");
+    context.Write($"public interface I{context.TypeName(ast)}Object{typeParams}");
     if (ast.Parent is not null) {
-      context.Write("  : I" + context.TypeName(ast.Parent) + "Field");
+      context.Write("  : I" + context.TypeName(ast.Parent) + "Object");
     }
   }
 

@@ -10,7 +10,7 @@ public interface ItestFieldValueDescrOutp
   public testFieldValueDescrOutp FieldValueDescrOutp { get; set; }
 }
 
-public interface ItestFieldValueDescrOutpField
+public interface ItestFieldValueDescrOutpObject
 {
   public testEnumFieldValueDescrOutp field { get; set; }
 }

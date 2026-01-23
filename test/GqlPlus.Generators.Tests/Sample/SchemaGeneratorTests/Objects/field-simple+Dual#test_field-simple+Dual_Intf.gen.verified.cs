@@ -10,7 +10,7 @@ public interface ItestFieldSmplDual
   public testFieldSmplDual FieldSmplDual { get; set; }
 }
 
-public interface ItestFieldSmplDualField
+public interface ItestFieldSmplDualObject
 {
   public testNumber field { get; set; }
 }

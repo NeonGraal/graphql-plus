@@ -14,6 +14,6 @@ public interface ICmptInDrctParamList
   public CmptInDrctParamList InDrctParamList { get; set; }
 }
 
-public interface ICmptInDrctParamListField
+public interface ICmptInDrctParamListObject
 {
 }

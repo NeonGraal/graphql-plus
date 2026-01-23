@@ -15,7 +15,7 @@ public interface ICmptOutpParamModParam<Tmod>
   public CmptOutpParamModParam OutpParamModParam { get; set; }
 }
 
-public interface ICmptOutpParamModParamField<Tmod>
+public interface ICmptOutpParamModParamObject<Tmod>
 {
   public CmptDomOutpParamModParam field { get; set; }
 }
@@ -26,7 +26,7 @@ public interface ICmptInOutpParamModParam
   public CmptInOutpParamModParam InOutpParamModParam { get; set; }
 }
 
-public interface ICmptInOutpParamModParamField
+public interface ICmptInOutpParamModParamObject
 {
   public CmptNumber param { get; set; }
 }

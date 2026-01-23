@@ -12,8 +12,8 @@ public interface Itest_Categories
   public test_Categories _Categories { get; set; }
 }
 
-public interface Itest_CategoriesField
-  : Itest_AndTypeField
+public interface Itest_CategoriesObject
+  : Itest_AndTypeObject
 {
   public test_Category category { get; set; }
 }
@@ -24,8 +24,8 @@ public interface Itest_Category
   public test_Category _Category { get; set; }
 }
 
-public interface Itest_CategoryField
-  : Itest_AliasedField
+public interface Itest_CategoryObject
+  : Itest_AliasedObject
 {
   public test_Resolution resolution { get; set; }
   public test_TypeRef<test_TypeKind> output { get; set; }

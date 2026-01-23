@@ -14,6 +14,6 @@ public interface ICmptCtgrOutpOptl
   public CmptCtgrOutpOptl CtgrOutpOptl { get; set; }
 }
 
-public interface ICmptCtgrOutpOptlField
+public interface ICmptCtgrOutpOptlObject
 {
 }

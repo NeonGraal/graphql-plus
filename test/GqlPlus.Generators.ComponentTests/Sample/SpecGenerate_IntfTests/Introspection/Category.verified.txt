@@ -28,8 +28,8 @@ public interface ICmpt_Categories
   public Cmpt_Categories _Categories { get; set; }
 }
 
-public interface ICmpt_CategoriesField
-  : ICmpt_AndTypeField
+public interface ICmpt_CategoriesObject
+  : ICmpt_AndTypeObject
 {
   public Cmpt_Category category { get; set; }
 }
@@ -40,8 +40,8 @@ public interface ICmpt_Category
   public Cmpt_Category _Category { get; set; }
 }
 
-public interface ICmpt_CategoryField
-  : ICmpt_AliasedField
+public interface ICmpt_CategoryObject
+  : ICmpt_AliasedObject
 {
   public Cmpt_Resolution resolution { get; set; }
   public Cmpt_TypeRef<Cmpt_TypeKind> output { get; set; }

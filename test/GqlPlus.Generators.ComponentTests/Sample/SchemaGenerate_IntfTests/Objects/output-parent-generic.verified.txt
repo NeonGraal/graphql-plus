@@ -17,7 +17,7 @@ public interface ICmptOutpPrntGnrc
   public CmptOutpPrntGnrc OutpPrntGnrc { get; set; }
 }
 
-public interface ICmptOutpPrntGnrcField
+public interface ICmptOutpPrntGnrcObject
 {
 }
 
@@ -26,7 +26,7 @@ public interface ICmptRefOutpPrntGnrc<Ttype>
   public CmptRefOutpPrntGnrc RefOutpPrntGnrc { get; set; }
 }
 
-public interface ICmptRefOutpPrntGnrcField<Ttype>
+public interface ICmptRefOutpPrntGnrcObject<Ttype>
 {
   public Ttype field { get; set; }
 }

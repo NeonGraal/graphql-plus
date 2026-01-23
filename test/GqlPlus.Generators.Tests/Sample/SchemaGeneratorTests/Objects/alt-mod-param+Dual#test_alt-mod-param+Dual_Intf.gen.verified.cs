@@ -11,7 +11,7 @@ public interface ItestAltModParamDual<Tmod>
   public testAltModParamDual AltModParamDual { get; set; }
 }
 
-public interface ItestAltModParamDualField<Tmod>
+public interface ItestAltModParamDualObject<Tmod>
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestAltAltModParamDual
   public testAltAltModParamDual AltAltModParamDual { get; set; }
 }
 
-public interface ItestAltAltModParamDualField
+public interface ItestAltAltModParamDualObject
 {
   public testNumber alt { get; set; }
 }

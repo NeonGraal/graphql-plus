@@ -14,6 +14,6 @@ public interface ICmptAltSmplInp
   public CmptAltSmplInp AltSmplInp { get; set; }
 }
 
-public interface ICmptAltSmplInpField
+public interface ICmptAltSmplInpObject
 {
 }

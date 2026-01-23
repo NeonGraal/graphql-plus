@@ -33,7 +33,7 @@ public interface ICmpt_Opt<TT>
   public Cmpt_Opt _Opt { get; set; }
 }
 
-public interface ICmpt_OptField<TT>
+public interface ICmpt_OptObject<TT>
 {
 }
 
@@ -43,7 +43,7 @@ public interface ICmpt_List<TT>
   public Cmpt_List _List { get; set; }
 }
 
-public interface ICmpt_ListField<TT>
+public interface ICmpt_ListObject<TT>
 {
 }
 
@@ -53,7 +53,7 @@ public interface ICmpt_Dict<TK,TT>
   public Cmpt_Dict _Dict { get; set; }
 }
 
-public interface ICmpt_DictField<TK,TT>
+public interface ICmpt_DictObject<TK,TT>
 {
 }
 
@@ -63,7 +63,7 @@ public interface ICmpt_Map<TT>
   public Cmpt_Map _Map { get; set; }
 }
 
-public interface ICmpt_MapField<TT>
+public interface ICmpt_MapObject<TT>
 {
 }
 
@@ -73,7 +73,7 @@ public interface ICmpt_Array<TT>
   public Cmpt_Array _Array { get; set; }
 }
 
-public interface ICmpt_ArrayField<TT>
+public interface ICmpt_ArrayObject<TT>
 {
 }
 
@@ -83,7 +83,7 @@ public interface ICmpt_IfElse<TT>
   public Cmpt_IfElse _IfElse { get; set; }
 }
 
-public interface ICmpt_IfElseField<TT>
+public interface ICmpt_IfElseObject<TT>
 {
 }
 
@@ -93,7 +93,7 @@ public interface ICmpt_Set<TK>
   public Cmpt_Set _Set { get; set; }
 }
 
-public interface ICmpt_SetField<TK>
+public interface ICmpt_SetObject<TK>
 {
 }
 
@@ -103,7 +103,7 @@ public interface ICmpt_Mask<TK>
   public Cmpt_Mask _Mask { get; set; }
 }
 
-public interface ICmpt_MaskField<TK>
+public interface ICmpt_MaskObject<TK>
 {
 }
 
@@ -116,6 +116,6 @@ public interface ICmpt_Any
   public Cmpt_Any _Any { get; set; }
 }
 
-public interface ICmpt_AnyField
+public interface ICmpt_AnyObject
 {
 }

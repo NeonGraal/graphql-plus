@@ -15,7 +15,7 @@ public interface ICmptAltModBoolOutp
   public CmptAltModBoolOutp AltModBoolOutp { get; set; }
 }
 
-public interface ICmptAltModBoolOutpField
+public interface ICmptAltModBoolOutpObject
 {
 }
 
@@ -25,7 +25,7 @@ public interface ICmptAltAltModBoolOutp
   public CmptAltAltModBoolOutp AltAltModBoolOutp { get; set; }
 }
 
-public interface ICmptAltAltModBoolOutpField
+public interface ICmptAltAltModBoolOutpObject
 {
   public CmptNumber alt { get; set; }
 }

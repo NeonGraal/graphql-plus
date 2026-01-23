@@ -11,7 +11,7 @@ public interface Itest_DualField
   public test_DualField _DualField { get; set; }
 }
 
-public interface Itest_DualFieldField
-  : Itest_ObjFieldField
+public interface Itest_DualFieldObject
+  : Itest_ObjFieldObject
 {
 }

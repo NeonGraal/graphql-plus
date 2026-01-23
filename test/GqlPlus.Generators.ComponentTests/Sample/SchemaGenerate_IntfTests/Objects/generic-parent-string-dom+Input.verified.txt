@@ -16,8 +16,8 @@ public interface ICmptGnrcPrntStrDomInp
   public CmptGnrcPrntStrDomInp GnrcPrntStrDomInp { get; set; }
 }
 
-public interface ICmptGnrcPrntStrDomInpField
-  : ICmptFieldGnrcPrntStrDomInpField
+public interface ICmptGnrcPrntStrDomInpObject
+  : ICmptFieldGnrcPrntStrDomInpObject
 {
 }
 
@@ -26,7 +26,7 @@ public interface ICmptFieldGnrcPrntStrDomInp<Tref>
   public CmptFieldGnrcPrntStrDomInp FieldGnrcPrntStrDomInp { get; set; }
 }
 
-public interface ICmptFieldGnrcPrntStrDomInpField<Tref>
+public interface ICmptFieldGnrcPrntStrDomInpObject<Tref>
 {
   public Tref field { get; set; }
 }

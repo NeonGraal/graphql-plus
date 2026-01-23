@@ -11,8 +11,8 @@ public interface ItestGnrcPrntStrDomDual
   public testGnrcPrntStrDomDual GnrcPrntStrDomDual { get; set; }
 }
 
-public interface ItestGnrcPrntStrDomDualField
-  : ItestFieldGnrcPrntStrDomDualField
+public interface ItestGnrcPrntStrDomDualObject
+  : ItestFieldGnrcPrntStrDomDualObject
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestFieldGnrcPrntStrDomDual<Tref>
   public testFieldGnrcPrntStrDomDual FieldGnrcPrntStrDomDual { get; set; }
 }
 
-public interface ItestFieldGnrcPrntStrDomDualField<Tref>
+public interface ItestFieldGnrcPrntStrDomDualObject<Tref>
 {
   public Tref field { get; set; }
 }

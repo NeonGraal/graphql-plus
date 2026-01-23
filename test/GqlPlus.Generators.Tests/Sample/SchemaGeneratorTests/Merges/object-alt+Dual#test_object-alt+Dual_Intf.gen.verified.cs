@@ -11,7 +11,7 @@ public interface ItestObjAltDual
   public testObjAltDual ObjAltDual { get; set; }
 }
 
-public interface ItestObjAltDualField
+public interface ItestObjAltDualObject
 {
 }
 
@@ -20,6 +20,6 @@ public interface ItestObjAltDualType
   public testObjAltDualType ObjAltDualType { get; set; }
 }
 
-public interface ItestObjAltDualTypeField
+public interface ItestObjAltDualTypeObject
 {
 }

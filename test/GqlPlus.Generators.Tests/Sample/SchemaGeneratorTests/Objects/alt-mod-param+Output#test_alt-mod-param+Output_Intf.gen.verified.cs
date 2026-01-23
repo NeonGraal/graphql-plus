@@ -11,7 +11,7 @@ public interface ItestAltModParamOutp<Tmod>
   public testAltModParamOutp AltModParamOutp { get; set; }
 }
 
-public interface ItestAltModParamOutpField<Tmod>
+public interface ItestAltModParamOutpObject<Tmod>
 {
 }
 
@@ -21,7 +21,7 @@ public interface ItestAltAltModParamOutp
   public testAltAltModParamOutp AltAltModParamOutp { get; set; }
 }
 
-public interface ItestAltAltModParamOutpField
+public interface ItestAltAltModParamOutpObject
 {
   public testNumber alt { get; set; }
 }

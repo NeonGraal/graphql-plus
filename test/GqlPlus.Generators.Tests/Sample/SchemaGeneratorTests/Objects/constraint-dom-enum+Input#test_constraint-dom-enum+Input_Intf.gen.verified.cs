@@ -11,7 +11,7 @@ public interface ItestCnstDomEnumInp
   public testCnstDomEnumInp CnstDomEnumInp { get; set; }
 }
 
-public interface ItestCnstDomEnumInpField
+public interface ItestCnstDomEnumInpObject
 {
 }
 
@@ -20,7 +20,7 @@ public interface ItestRefCnstDomEnumInp<Ttype>
   public testRefCnstDomEnumInp RefCnstDomEnumInp { get; set; }
 }
 
-public interface ItestRefCnstDomEnumInpField<Ttype>
+public interface ItestRefCnstDomEnumInpObject<Ttype>
 {
   public Ttype field { get; set; }
 }

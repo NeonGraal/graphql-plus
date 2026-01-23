@@ -15,8 +15,8 @@ public interface ICmptPrntParamSameOutp<Ta>
   public CmptPrntParamSameOutp PrntParamSameOutp { get; set; }
 }
 
-public interface ICmptPrntParamSameOutpField<Ta>
-  : ICmptRefPrntParamSameOutpField
+public interface ICmptPrntParamSameOutpObject<Ta>
+  : ICmptRefPrntParamSameOutpObject
 {
   public Ta field { get; set; }
 }
@@ -27,6 +27,6 @@ public interface ICmptRefPrntParamSameOutp<Ta>
   public CmptRefPrntParamSameOutp RefPrntParamSameOutp { get; set; }
 }
 
-public interface ICmptRefPrntParamSameOutpField<Ta>
+public interface ICmptRefPrntParamSameOutpObject<Ta>
 {
 }

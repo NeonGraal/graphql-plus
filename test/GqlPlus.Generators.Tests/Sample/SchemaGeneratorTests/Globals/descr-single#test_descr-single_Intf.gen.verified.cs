@@ -10,6 +10,6 @@ public interface ItestDescrSngl
   public testDescrSngl DescrSngl { get; set; }
 }
 
-public interface ItestDescrSnglField
+public interface ItestDescrSnglObject
 {
 }

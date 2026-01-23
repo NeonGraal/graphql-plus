@@ -10,7 +10,7 @@ public interface ItestObjCnstDual<Ttype>
   public testObjCnstDual ObjCnstDual { get; set; }
 }
 
-public interface ItestObjCnstDualField<Ttype>
+public interface ItestObjCnstDualObject<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }

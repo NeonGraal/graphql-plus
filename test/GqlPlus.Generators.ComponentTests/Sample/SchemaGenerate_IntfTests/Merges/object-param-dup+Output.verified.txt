@@ -14,7 +14,7 @@ public interface ICmptObjParamDupOutp<Ttest>
   public CmptObjParamDupOutp ObjParamDupOutp { get; set; }
 }
 
-public interface ICmptObjParamDupOutpField<Ttest>
+public interface ICmptObjParamDupOutpObject<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }

@@ -15,6 +15,6 @@ public interface ICmptCtgrMod
   public CmptCtgrMod CtgrMod { get; set; }
 }
 
-public interface ICmptCtgrModField
+public interface ICmptCtgrModObject
 {
 }

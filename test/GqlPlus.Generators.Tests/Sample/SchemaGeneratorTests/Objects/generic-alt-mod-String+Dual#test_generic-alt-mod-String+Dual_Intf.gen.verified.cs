@@ -11,6 +11,6 @@ public interface ItestRefGnrcAltModStrDual<Tref>
   public testRefGnrcAltModStrDual RefGnrcAltModStrDual { get; set; }
 }
 
-public interface ItestRefGnrcAltModStrDualField<Tref>
+public interface ItestRefGnrcAltModStrDualObject<Tref>
 {
 }

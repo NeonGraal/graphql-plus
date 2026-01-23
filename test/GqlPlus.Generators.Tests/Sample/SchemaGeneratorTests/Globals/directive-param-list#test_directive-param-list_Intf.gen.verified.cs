@@ -10,6 +10,6 @@ public interface ItestInDrctParamList
   public testInDrctParamList InDrctParamList { get; set; }
 }
 
-public interface ItestInDrctParamListField
+public interface ItestInDrctParamListObject
 {
 }

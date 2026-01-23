@@ -18,8 +18,8 @@ public interface ICmptOutpPrntParam
   public CmptOutpPrntParam OutpPrntParam { get; set; }
 }
 
-public interface ICmptOutpPrntParamField
-  : ICmptPrntOutpPrntParamField
+public interface ICmptOutpPrntParamObject
+  : ICmptPrntOutpPrntParamObject
 {
   public CmptFldOutpPrntParam field { get; set; }
 }
@@ -29,7 +29,7 @@ public interface ICmptPrntOutpPrntParam
   public CmptPrntOutpPrntParam PrntOutpPrntParam { get; set; }
 }
 
-public interface ICmptPrntOutpPrntParamField
+public interface ICmptPrntOutpPrntParamObject
 {
   public CmptFldOutpPrntParam field { get; set; }
 }
@@ -39,7 +39,7 @@ public interface ICmptFldOutpPrntParam
   public CmptFldOutpPrntParam FldOutpPrntParam { get; set; }
 }
 
-public interface ICmptFldOutpPrntParamField
+public interface ICmptFldOutpPrntParamObject
 {
 }
 
@@ -49,7 +49,7 @@ public interface ICmptInOutpPrntParam
   public CmptInOutpPrntParam InOutpPrntParam { get; set; }
 }
 
-public interface ICmptInOutpPrntParamField
+public interface ICmptInOutpPrntParamObject
 {
   public CmptNumber param { get; set; }
 }
@@ -60,7 +60,7 @@ public interface ICmptPrntOutpPrntParamIn
   public CmptPrntOutpPrntParamIn PrntOutpPrntParamIn { get; set; }
 }
 
-public interface ICmptPrntOutpPrntParamInField
+public interface ICmptPrntOutpPrntParamInObject
 {
   public CmptNumber parent { get; set; }
 }

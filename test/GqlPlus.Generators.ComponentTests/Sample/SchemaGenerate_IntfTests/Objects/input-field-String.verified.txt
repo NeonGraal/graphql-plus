@@ -13,7 +13,7 @@ public interface ICmptInpFieldStr
   public CmptInpFieldStr InpFieldStr { get; set; }
 }
 
-public interface ICmptInpFieldStrField
+public interface ICmptInpFieldStrObject
 {
   public CmptString field { get; set; }
 }

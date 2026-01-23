@@ -11,8 +11,8 @@ public interface ItestPrntParamDiffOutp<Ta>
   public testPrntParamDiffOutp PrntParamDiffOutp { get; set; }
 }
 
-public interface ItestPrntParamDiffOutpField<Ta>
-  : ItestRefPrntParamDiffOutpField
+public interface ItestPrntParamDiffOutpObject<Ta>
+  : ItestRefPrntParamDiffOutpObject
 {
   public Ta field { get; set; }
 }
@@ -23,6 +23,6 @@ public interface ItestRefPrntParamDiffOutp<Tb>
   public testRefPrntParamDiffOutp RefPrntParamDiffOutp { get; set; }
 }
 
-public interface ItestRefPrntParamDiffOutpField<Tb>
+public interface ItestRefPrntParamDiffOutpObject<Tb>
 {
 }

@@ -10,7 +10,7 @@ public interface ItestCtgr
   public testCtgr Ctgr { get; set; }
 }
 
-public interface ItestCtgrField
+public interface ItestCtgrObject
 {
 }
 
@@ -19,7 +19,7 @@ public interface ItestCtgrAlias
   public testCtgrAlias CtgrAlias { get; set; }
 }
 
-public interface ItestCtgrAliasField
+public interface ItestCtgrAliasObject
 {
 }
 
@@ -28,7 +28,7 @@ public interface ItestCtgrDescr
   public testCtgrDescr CtgrDescr { get; set; }
 }
 
-public interface ItestCtgrDescrField
+public interface ItestCtgrDescrObject
 {
 }
 
@@ -37,7 +37,7 @@ public interface ItestCtgrMod
   public testCtgrMod CtgrMod { get; set; }
 }
 
-public interface ItestCtgrModField
+public interface ItestCtgrModObject
 {
 }
 
@@ -46,7 +46,7 @@ public interface ItestInDrctParam
   public testInDrctParam InDrctParam { get; set; }
 }
 
-public interface ItestInDrctParamField
+public interface ItestInDrctParamObject
 {
 }
 
@@ -115,7 +115,7 @@ public interface ItestObjDual
   public testObjDual ObjDual { get; set; }
 }
 
-public interface ItestObjDualField
+public interface ItestObjDualObject
 {
 }
 
@@ -124,7 +124,7 @@ public interface ItestObjInp
   public testObjInp ObjInp { get; set; }
 }
 
-public interface ItestObjInpField
+public interface ItestObjInpObject
 {
 }
 
@@ -133,7 +133,7 @@ public interface ItestObjOutp
   public testObjOutp ObjOutp { get; set; }
 }
 
-public interface ItestObjOutpField
+public interface ItestObjOutpObject
 {
 }
 
@@ -142,7 +142,7 @@ public interface ItestObjAliasDual
   public testObjAliasDual ObjAliasDual { get; set; }
 }
 
-public interface ItestObjAliasDualField
+public interface ItestObjAliasDualObject
 {
 }
 
@@ -151,7 +151,7 @@ public interface ItestObjAliasInp
   public testObjAliasInp ObjAliasInp { get; set; }
 }
 
-public interface ItestObjAliasInpField
+public interface ItestObjAliasInpObject
 {
 }
 
@@ -160,7 +160,7 @@ public interface ItestObjAliasOutp
   public testObjAliasOutp ObjAliasOutp { get; set; }
 }
 
-public interface ItestObjAliasOutpField
+public interface ItestObjAliasOutpObject
 {
 }
 
@@ -170,7 +170,7 @@ public interface ItestObjAltDual
   public testObjAltDual ObjAltDual { get; set; }
 }
 
-public interface ItestObjAltDualField
+public interface ItestObjAltDualObject
 {
 }
 
@@ -179,7 +179,7 @@ public interface ItestObjAltDualType
   public testObjAltDualType ObjAltDualType { get; set; }
 }
 
-public interface ItestObjAltDualTypeField
+public interface ItestObjAltDualTypeObject
 {
 }
 
@@ -189,7 +189,7 @@ public interface ItestObjAltInp
   public testObjAltInp ObjAltInp { get; set; }
 }
 
-public interface ItestObjAltInpField
+public interface ItestObjAltInpObject
 {
 }
 
@@ -198,7 +198,7 @@ public interface ItestObjAltInpType
   public testObjAltInpType ObjAltInpType { get; set; }
 }
 
-public interface ItestObjAltInpTypeField
+public interface ItestObjAltInpTypeObject
 {
 }
 
@@ -208,7 +208,7 @@ public interface ItestObjAltOutp
   public testObjAltOutp ObjAltOutp { get; set; }
 }
 
-public interface ItestObjAltOutpField
+public interface ItestObjAltOutpObject
 {
 }
 
@@ -217,7 +217,7 @@ public interface ItestObjAltOutpType
   public testObjAltOutpType ObjAltOutpType { get; set; }
 }
 
-public interface ItestObjAltOutpTypeField
+public interface ItestObjAltOutpTypeObject
 {
 }
 
@@ -228,7 +228,7 @@ public interface ItestObjAltEnumDual
   public testObjAltEnumDual ObjAltEnumDual { get; set; }
 }
 
-public interface ItestObjAltEnumDualField
+public interface ItestObjAltEnumDualObject
 {
 }
 
@@ -239,7 +239,7 @@ public interface ItestObjAltEnumInp
   public testObjAltEnumInp ObjAltEnumInp { get; set; }
 }
 
-public interface ItestObjAltEnumInpField
+public interface ItestObjAltEnumInpObject
 {
 }
 
@@ -250,7 +250,7 @@ public interface ItestObjAltEnumOutp
   public testObjAltEnumOutp ObjAltEnumOutp { get; set; }
 }
 
-public interface ItestObjAltEnumOutpField
+public interface ItestObjAltEnumOutpObject
 {
 }
 
@@ -259,7 +259,7 @@ public interface ItestObjCnstDual<Ttype>
   public testObjCnstDual ObjCnstDual { get; set; }
 }
 
-public interface ItestObjCnstDualField<Ttype>
+public interface ItestObjCnstDualObject<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
@@ -270,7 +270,7 @@ public interface ItestObjCnstInp<Ttype>
   public testObjCnstInp ObjCnstInp { get; set; }
 }
 
-public interface ItestObjCnstInpField<Ttype>
+public interface ItestObjCnstInpObject<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
@@ -281,7 +281,7 @@ public interface ItestObjCnstOutp<Ttype>
   public testObjCnstOutp ObjCnstOutp { get; set; }
 }
 
-public interface ItestObjCnstOutpField<Ttype>
+public interface ItestObjCnstOutpObject<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
@@ -292,7 +292,7 @@ public interface ItestObjFieldDual
   public testObjFieldDual ObjFieldDual { get; set; }
 }
 
-public interface ItestObjFieldDualField
+public interface ItestObjFieldDualObject
 {
   public testFldObjFieldDual field { get; set; }
 }
@@ -302,7 +302,7 @@ public interface ItestFldObjFieldDual
   public testFldObjFieldDual FldObjFieldDual { get; set; }
 }
 
-public interface ItestFldObjFieldDualField
+public interface ItestFldObjFieldDualObject
 {
 }
 
@@ -311,7 +311,7 @@ public interface ItestObjFieldInp
   public testObjFieldInp ObjFieldInp { get; set; }
 }
 
-public interface ItestObjFieldInpField
+public interface ItestObjFieldInpObject
 {
   public testFldObjFieldInp field { get; set; }
 }
@@ -321,7 +321,7 @@ public interface ItestFldObjFieldInp
   public testFldObjFieldInp FldObjFieldInp { get; set; }
 }
 
-public interface ItestFldObjFieldInpField
+public interface ItestFldObjFieldInpObject
 {
 }
 
@@ -330,7 +330,7 @@ public interface ItestObjFieldOutp
   public testObjFieldOutp ObjFieldOutp { get; set; }
 }
 
-public interface ItestObjFieldOutpField
+public interface ItestObjFieldOutpObject
 {
   public testFldObjFieldOutp field { get; set; }
 }
@@ -340,7 +340,7 @@ public interface ItestFldObjFieldOutp
   public testFldObjFieldOutp FldObjFieldOutp { get; set; }
 }
 
-public interface ItestFldObjFieldOutpField
+public interface ItestFldObjFieldOutpObject
 {
 }
 
@@ -349,7 +349,7 @@ public interface ItestObjFieldAliasDual
   public testObjFieldAliasDual ObjFieldAliasDual { get; set; }
 }
 
-public interface ItestObjFieldAliasDualField
+public interface ItestObjFieldAliasDualObject
 {
   public testFldObjFieldAliasDual field { get; set; }
 }
@@ -359,7 +359,7 @@ public interface ItestFldObjFieldAliasDual
   public testFldObjFieldAliasDual FldObjFieldAliasDual { get; set; }
 }
 
-public interface ItestFldObjFieldAliasDualField
+public interface ItestFldObjFieldAliasDualObject
 {
 }
 
@@ -368,7 +368,7 @@ public interface ItestObjFieldAliasInp
   public testObjFieldAliasInp ObjFieldAliasInp { get; set; }
 }
 
-public interface ItestObjFieldAliasInpField
+public interface ItestObjFieldAliasInpObject
 {
   public testFldObjFieldAliasInp field { get; set; }
 }
@@ -378,7 +378,7 @@ public interface ItestFldObjFieldAliasInp
   public testFldObjFieldAliasInp FldObjFieldAliasInp { get; set; }
 }
 
-public interface ItestFldObjFieldAliasInpField
+public interface ItestFldObjFieldAliasInpObject
 {
 }
 
@@ -387,7 +387,7 @@ public interface ItestObjFieldAliasOutp
   public testObjFieldAliasOutp ObjFieldAliasOutp { get; set; }
 }
 
-public interface ItestObjFieldAliasOutpField
+public interface ItestObjFieldAliasOutpObject
 {
   public testFldObjFieldAliasOutp field { get; set; }
 }
@@ -397,7 +397,7 @@ public interface ItestFldObjFieldAliasOutp
   public testFldObjFieldAliasOutp FldObjFieldAliasOutp { get; set; }
 }
 
-public interface ItestFldObjFieldAliasOutpField
+public interface ItestFldObjFieldAliasOutpObject
 {
 }
 
@@ -406,7 +406,7 @@ public interface ItestObjFieldEnumAliasDual
   public testObjFieldEnumAliasDual ObjFieldEnumAliasDual { get; set; }
 }
 
-public interface ItestObjFieldEnumAliasDualField
+public interface ItestObjFieldEnumAliasDualObject
 {
   public testBoolean field { get; set; }
 }
@@ -416,7 +416,7 @@ public interface ItestObjFieldEnumAliasInp
   public testObjFieldEnumAliasInp ObjFieldEnumAliasInp { get; set; }
 }
 
-public interface ItestObjFieldEnumAliasInpField
+public interface ItestObjFieldEnumAliasInpObject
 {
   public testBoolean field { get; set; }
 }
@@ -426,7 +426,7 @@ public interface ItestObjFieldEnumAliasOutp
   public testObjFieldEnumAliasOutp ObjFieldEnumAliasOutp { get; set; }
 }
 
-public interface ItestObjFieldEnumAliasOutpField
+public interface ItestObjFieldEnumAliasOutpObject
 {
   public testBoolean field { get; set; }
 }
@@ -436,7 +436,7 @@ public interface ItestObjFieldEnumValueDual
   public testObjFieldEnumValueDual ObjFieldEnumValueDual { get; set; }
 }
 
-public interface ItestObjFieldEnumValueDualField
+public interface ItestObjFieldEnumValueDualObject
 {
   public testBoolean field { get; set; }
 }
@@ -446,7 +446,7 @@ public interface ItestObjFieldEnumValueInp
   public testObjFieldEnumValueInp ObjFieldEnumValueInp { get; set; }
 }
 
-public interface ItestObjFieldEnumValueInpField
+public interface ItestObjFieldEnumValueInpObject
 {
   public testBoolean field { get; set; }
 }
@@ -456,7 +456,7 @@ public interface ItestObjFieldEnumValueOutp
   public testObjFieldEnumValueOutp ObjFieldEnumValueOutp { get; set; }
 }
 
-public interface ItestObjFieldEnumValueOutpField
+public interface ItestObjFieldEnumValueOutpObject
 {
   public testBoolean field { get; set; }
 }
@@ -466,7 +466,7 @@ public interface ItestObjFieldTypeAliasDual
   public testObjFieldTypeAliasDual ObjFieldTypeAliasDual { get; set; }
 }
 
-public interface ItestObjFieldTypeAliasDualField
+public interface ItestObjFieldTypeAliasDualObject
 {
   public testString field { get; set; }
 }
@@ -476,7 +476,7 @@ public interface ItestObjFieldTypeAliasInp
   public testObjFieldTypeAliasInp ObjFieldTypeAliasInp { get; set; }
 }
 
-public interface ItestObjFieldTypeAliasInpField
+public interface ItestObjFieldTypeAliasInpObject
 {
   public testString field { get; set; }
 }
@@ -486,7 +486,7 @@ public interface ItestObjFieldTypeAliasOutp
   public testObjFieldTypeAliasOutp ObjFieldTypeAliasOutp { get; set; }
 }
 
-public interface ItestObjFieldTypeAliasOutpField
+public interface ItestObjFieldTypeAliasOutpObject
 {
   public testString field { get; set; }
 }
@@ -496,7 +496,7 @@ public interface ItestObjParamDual<Ttest,Ttype>
   public testObjParamDual ObjParamDual { get; set; }
 }
 
-public interface ItestObjParamDualField<Ttest,Ttype>
+public interface ItestObjParamDualObject<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
@@ -507,7 +507,7 @@ public interface ItestObjParamInp<Ttest,Ttype>
   public testObjParamInp ObjParamInp { get; set; }
 }
 
-public interface ItestObjParamInpField<Ttest,Ttype>
+public interface ItestObjParamInpObject<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
@@ -518,7 +518,7 @@ public interface ItestObjParamOutp<Ttest,Ttype>
   public testObjParamOutp ObjParamOutp { get; set; }
 }
 
-public interface ItestObjParamOutpField<Ttest,Ttype>
+public interface ItestObjParamOutpObject<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
@@ -529,7 +529,7 @@ public interface ItestObjParamDupDual<Ttest>
   public testObjParamDupDual ObjParamDupDual { get; set; }
 }
 
-public interface ItestObjParamDupDualField<Ttest>
+public interface ItestObjParamDupDualObject<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
@@ -540,7 +540,7 @@ public interface ItestObjParamDupInp<Ttest>
   public testObjParamDupInp ObjParamDupInp { get; set; }
 }
 
-public interface ItestObjParamDupInpField<Ttest>
+public interface ItestObjParamDupInpObject<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
@@ -551,7 +551,7 @@ public interface ItestObjParamDupOutp<Ttest>
   public testObjParamDupOutp ObjParamDupOutp { get; set; }
 }
 
-public interface ItestObjParamDupOutpField<Ttest>
+public interface ItestObjParamDupOutpObject<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
@@ -563,8 +563,8 @@ public interface ItestObjPrntDual
   public testObjPrntDual ObjPrntDual { get; set; }
 }
 
-public interface ItestObjPrntDualField
-  : ItestRefObjPrntDualField
+public interface ItestObjPrntDualObject
+  : ItestRefObjPrntDualObject
 {
 }
 
@@ -573,7 +573,7 @@ public interface ItestRefObjPrntDual
   public testRefObjPrntDual RefObjPrntDual { get; set; }
 }
 
-public interface ItestRefObjPrntDualField
+public interface ItestRefObjPrntDualObject
 {
 }
 
@@ -583,8 +583,8 @@ public interface ItestObjPrntInp
   public testObjPrntInp ObjPrntInp { get; set; }
 }
 
-public interface ItestObjPrntInpField
-  : ItestRefObjPrntInpField
+public interface ItestObjPrntInpObject
+  : ItestRefObjPrntInpObject
 {
 }
 
@@ -593,7 +593,7 @@ public interface ItestRefObjPrntInp
   public testRefObjPrntInp RefObjPrntInp { get; set; }
 }
 
-public interface ItestRefObjPrntInpField
+public interface ItestRefObjPrntInpObject
 {
 }
 
@@ -603,8 +603,8 @@ public interface ItestObjPrntOutp
   public testObjPrntOutp ObjPrntOutp { get; set; }
 }
 
-public interface ItestObjPrntOutpField
-  : ItestRefObjPrntOutpField
+public interface ItestObjPrntOutpObject
+  : ItestRefObjPrntOutpObject
 {
 }
 
@@ -613,7 +613,7 @@ public interface ItestRefObjPrntOutp
   public testRefObjPrntOutp RefObjPrntOutp { get; set; }
 }
 
-public interface ItestRefObjPrntOutpField
+public interface ItestRefObjPrntOutpObject
 {
 }
 
@@ -622,7 +622,7 @@ public interface ItestOutpFieldParam
   public testOutpFieldParam OutpFieldParam { get; set; }
 }
 
-public interface ItestOutpFieldParamField
+public interface ItestOutpFieldParamObject
 {
   public testFldOutpFieldParam field { get; set; }
 }
@@ -632,7 +632,7 @@ public interface ItestOutpFieldParam1
   public testOutpFieldParam1 OutpFieldParam1 { get; set; }
 }
 
-public interface ItestOutpFieldParam1Field
+public interface ItestOutpFieldParam1Object
 {
 }
 
@@ -641,7 +641,7 @@ public interface ItestOutpFieldParam2
   public testOutpFieldParam2 OutpFieldParam2 { get; set; }
 }
 
-public interface ItestOutpFieldParam2Field
+public interface ItestOutpFieldParam2Object
 {
 }
 
@@ -650,7 +650,7 @@ public interface ItestFldOutpFieldParam
   public testFldOutpFieldParam FldOutpFieldParam { get; set; }
 }
 
-public interface ItestFldOutpFieldParamField
+public interface ItestFldOutpFieldParamObject
 {
 }
 

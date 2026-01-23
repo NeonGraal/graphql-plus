@@ -11,7 +11,7 @@ public interface ItestGnrcPrntInp<Ttype>
   public testGnrcPrntInp GnrcPrntInp { get; set; }
 }
 
-public interface ItestGnrcPrntInpField<Ttype>
-  : ItesttypeField
+public interface ItestGnrcPrntInpObject<Ttype>
+  : ItesttypeObject
 {
 }

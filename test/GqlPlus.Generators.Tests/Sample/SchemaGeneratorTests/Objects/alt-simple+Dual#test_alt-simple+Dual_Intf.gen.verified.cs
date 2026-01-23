@@ -11,6 +11,6 @@ public interface ItestAltSmplDual
   public testAltSmplDual AltSmplDual { get; set; }
 }
 
-public interface ItestAltSmplDualField
+public interface ItestAltSmplDualObject
 {
 }

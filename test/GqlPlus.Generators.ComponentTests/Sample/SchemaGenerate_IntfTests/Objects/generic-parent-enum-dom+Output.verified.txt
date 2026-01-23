@@ -17,8 +17,8 @@ public interface ICmptGnrcPrntEnumDomOutp
   public CmptGnrcPrntEnumDomOutp GnrcPrntEnumDomOutp { get; set; }
 }
 
-public interface ICmptGnrcPrntEnumDomOutpField
-  : ICmptFieldGnrcPrntEnumDomOutpField
+public interface ICmptGnrcPrntEnumDomOutpObject
+  : ICmptFieldGnrcPrntEnumDomOutpObject
 {
 }
 
@@ -27,7 +27,7 @@ public interface ICmptFieldGnrcPrntEnumDomOutp<Tref>
   public CmptFieldGnrcPrntEnumDomOutp FieldGnrcPrntEnumDomOutp { get; set; }
 }
 
-public interface ICmptFieldGnrcPrntEnumDomOutpField<Tref>
+public interface ICmptFieldGnrcPrntEnumDomOutpObject<Tref>
 {
   public Tref field { get; set; }
 }

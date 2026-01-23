@@ -10,6 +10,6 @@ public interface ItestInDrctParamIn
   public testInDrctParamIn InDrctParamIn { get; set; }
 }
 
-public interface ItestInDrctParamInField
+public interface ItestInDrctParamInObject
 {
 }

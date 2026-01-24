@@ -6,7 +6,9 @@ This document outlines the conventions and standards used in the GraphQL+ projec
 
 ### Test Method Naming
 
-All test methods must follow the **`MethodUnderTest_StateUnderTest_ExpectedResult`** naming convention.
+All new and updated test methods should follow the **`MethodUnderTest_StateUnderTest_ExpectedResult`** naming convention.
+
+**Note**: Tests using snapshot testing frameworks (e.g., Verify) typically don't follow this convention as their method names are used in snapshot file naming.
 
 **Format**: `{MethodName}_{Scenario}_{ExpectedBehavior}`
 

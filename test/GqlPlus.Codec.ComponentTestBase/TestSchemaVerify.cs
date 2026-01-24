@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Resolving;
+using VerifyTests;
+using Xunit;
 
 namespace GqlPlus;
 
@@ -20,12 +22,16 @@ public abstract class TestSchemaVerify(
   protected virtual async Task EncodeModel([NotNull] SchemaModel model, IModelsContext context, string test, string label, string[] dirs, string section)
   {
     Structured result = checks.Encode_Model(model, context);
-
-    await VerifyResult(result, label, test, section);
+    VerifySettings settings = CustomSettings(label, ResultGroup, test, section);
+    string target = EncodeResult(result, section);
+    TestContext.Current.AddAttachment("Output " + test, target);
+    await VerifyResult(target, settings);
   }
 
   protected virtual Task CheckResultErrors(string[] dirs, string test, IMessages errors, bool includeVerify = false)
     => Task.CompletedTask;
 
-  protected abstract Task VerifyResult(Structured result, string label, string test, string section);
+  protected abstract Task VerifyResult(string target, VerifySettings settings);
+  public abstract string ResultGroup { get; }
+  public abstract string EncodeResult(Structured result, string section);
 }

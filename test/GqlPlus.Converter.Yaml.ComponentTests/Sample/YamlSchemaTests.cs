@@ -7,6 +7,9 @@ public class YamlSchemaTests(
   ISchemaVerifyChecks checks
 ) : TestSchemaVerify(checks)
 {
-  protected override Task VerifyResult(Structured result, string label, string test, string section)
-    => Verify(result.ToYaml(string.IsNullOrWhiteSpace(section)), CustomSettings(label, "Yaml", test, section));
+  public override string ResultGroup => "Yaml";
+  public override string EncodeResult(Structured result, string section)
+    => result.ToYaml(string.IsNullOrWhiteSpace(section));
+  protected override Task VerifyResult(string target, VerifySettings settings)
+    => Verify(target, settings);
 }

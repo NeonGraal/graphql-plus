@@ -15,10 +15,8 @@ public class ParseOperationTests(
   public async Task ParseOperation(string sample)
   {
     IGqlpOperation? ast = await ParseSampleOperation("Operation", sample, "gql+");
-
     await CheckErrors(["Operation"], sample, ast!.Errors);
-
-    await Verify(ast?.Show(), CustomSettings("Operation", "Sample", sample));
+    await VerifyOperation(ast, "Sample", sample);
   }
 
   [Theory]
@@ -26,8 +24,7 @@ public class ParseOperationTests(
   public async Task ParseGraphQl(string example)
   {
     IGqlpOperation? ast = await ParseSampleOperation("GraphQl", example, "gql");
-
-    await Verify(ast?.Show(), CustomSettings("Operation", "GraphQl", example));
+    await VerifyOperation(ast, "GraphQl", example);
   }
 
   private async Task<IGqlpOperation?> ParseSampleOperation(string dir, string sample, string extn)
@@ -36,5 +33,16 @@ public class ParseOperationTests(
 
     OperationContext tokens = new(operation);
     return _operation.Parse(tokens, "Operation").Optional();
+  }
+
+  private async Task VerifyOperation(IGqlpOperation? ast, string label, string test)
+  {
+    string? target = ast?.Show();
+    if (string.IsNullOrEmpty(target)) {
+      return;
+    }
+
+    TestContext.Current.AddAttachment("Operation " + test, target);
+    await Verify(target, CustomSettings("Operation", label, test));
   }
 }

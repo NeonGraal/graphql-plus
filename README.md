@@ -28,6 +28,10 @@ Various scripts presume these dotnet tools are installed globally:
 
 - [Live Reload Server](https://github.com/RickStrahl/LiveReloadServer) [nuget](https://www.nuget.org/packages/LiveReloadServer)
 
+## Development
+
+For development conventions including testing standards, see [Conventions.md](Conventions.md).
+
 ### Other references
 
 - [Liquid](https://shopify.github.io/liquid/)

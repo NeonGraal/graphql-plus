@@ -12,21 +12,21 @@ public class BuiltInTests(
   private readonly VerifySettings _settings = new VerifySettings().CheckAutoVerify();
 
   [Fact]
-  public Task VerifyBasicTypes()
+  public Task VerifyBasicTypes_WhenCalled_ReturnsExpectedSnapshot()
     => Verify(BuiltIn.Basic.AsString(), _settings);
 
   [Fact]
-  public Task VerifyInternalTypes()
+  public Task VerifyInternalTypes_WhenCalled_ReturnsExpectedSnapshot()
     => Verify(BuiltIn.Internal.AsString(), _settings);
 
   [Theory]
   [ClassData(typeof(BuiltInBasicData))]
-  public void ValidBasicTypes(string type)
+  public void ValidBasicTypes_GivenType_VerifiesSuccessfully(string type)
     => Verify_Valid(BuiltInData.BasicMap[type]);
 
   [Theory]
   [ClassData(typeof(BuiltInInternalData))]
-  public void ValidInternalTypes(string type)
+  public void ValidInternalTypes_GivenType_VerifiesSuccessfully(string type)
     => this
       .SkipIf(type == "Void")
       .Verify_Valid(BuiltInData.InternalMap[type]);

@@ -7,7 +7,7 @@ public partial class DataTests
   : SampleChecks
 {
   [Fact]
-  public void EnsureSampleDataKeysUnique()
+  public void EnsureSampleDataKeysUnique_WhenChecked_NoDuplicatesFound()
   {
     IEnumerable<string> duplicateKeys = SchemaValidData.All
       .GroupBy(k => k)
@@ -31,7 +31,7 @@ public partial class DataTests
   }
 
   [Fact]
-  public void VerifySampleNameAbbreviations()
+  public void VerifySampleNameAbbreviations_WhenChecked_NoMissingOrExtraAbbreviations()
   {
     IEnumerable<string> longWords = SchemaValidData.All
       .SelectMany(TitleWords)

@@ -28,6 +28,43 @@ Various scripts presume these dotnet tools are installed globally:
 
 - [Live Reload Server](https://github.com/RickStrahl/LiveReloadServer) [nuget](https://www.nuget.org/packages/LiveReloadServer)
 
+## Testing Conventions
+
+### Test Method Naming
+
+All test methods must follow the **`MethodUnderTest_StateUnderTest_ExpectedResult`** naming convention.
+
+**Format**: `{MethodName}_{Scenario}_{ExpectedBehavior}`
+
+**Examples**:
+- `ArrayOf_NullInput_ReturnsEmptyArray()` - Tests the `ArrayOf` method with null input, expects empty array
+- `ThrowIfNull_NullValue_ThrowsArgumentNullException()` - Tests `ThrowIfNull` with null, expects exception
+- `Verify_UndefinedInput_ReturnsError()` - Tests `Verify` with undefined input, expects error result
+- `Parse_ValidSyntax_ReturnsAst()` - Tests `Parse` with valid syntax, expects AST returned
+
+**Guidelines**:
+- Use PascalCase for each segment
+- Separate segments with underscores (`_`)
+- Be descriptive but concise
+- Focus on the behavior being tested, not implementation details
+- For parameterized tests with `[Theory]`, follow the same pattern
+
+**Test Structure** (using xUnit, AutoFixture, NSubstitute, and Shouldly):
+```csharp
+[Fact]
+public void MethodName_Scenario_ExpectedBehavior()
+{
+    // Arrange
+    var input = /* setup test data */;
+    
+    // Act
+    var result = _systemUnderTest.MethodName(input);
+    
+    // Assert
+    result.ShouldBe(expectedValue);
+}
+```
+
 ### Other references
 
 - [Liquid](https://shopify.github.io/liquid/)

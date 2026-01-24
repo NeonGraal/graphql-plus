@@ -14,7 +14,7 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate(source);
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   private static readonly string[] s_additionalFilesWithIncorrectOne = [
@@ -30,7 +30,7 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate(source, s_additionalFilesWithIncorrectOne.AdditionalPaths(nameof(IgnoresIncorrectAdditionalFiles)));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   private static readonly string[] s_additionalSubdirectoryFiles = [
@@ -46,7 +46,7 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate(source, s_additionalSubdirectoryFiles.AdditionalPaths(nameof(SubDirectoryAdditionalFiles)));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   private static readonly string[] s_topDirs = ["Top", "Left", "Centre", "Right", "Bottom"];
@@ -71,6 +71,6 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate(source, manyFiles.AdditionalPaths(nameof(ManyFiles)));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 }

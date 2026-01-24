@@ -21,13 +21,13 @@ internal static class SimpleYamlTestHelpers
       f => f.Surround(listPrefix + "[", "]", v => mapper(v).Joined(""), ","),
       i => i.IsList(v => v.BlockFirst(mapper, "-", "  "), listPrefix));
 
-  internal static string[] FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "", string indent = "")
-    => list.FlowMap(v => [valuePrefix + v.QuotedIdentifier()], mapPrefix, indent);
+  internal static string[] FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "", string keyPrefix = "")
+    => list.FlowMap(v => [valuePrefix + v.QuotedIdentifier()], mapPrefix, keyPrefix);
 
-  internal static string[] FlowMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string mapPrefix = "", string indent = "")
+  internal static string[] FlowMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string mapPrefix = "", string keyPrefix = "", string indent = "")
     => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).FlowOr(
       f => mapPrefix + f.Surround("{", "}", v => v.Key + ":" + mapper(v.Value).Joined(""), ","),
-      i => i.IsMap(v => mapper(v), indent, mapPrefix));
+      i => i.IsMap(v => mapper(v), keyPrefix, mapPrefix, indent));
 
   internal static string[] BlockList(this string[] value, string prefix, string listPrefix = "")
     => value.IsList(v => [prefix + v], listPrefix);
@@ -47,9 +47,9 @@ internal static class SimpleYamlTestHelpers
       .Prepend(listPrefix)
       .RemoveEmpty()];
 
-  private static string[] IsMap<T>(this IEnumerable<MapPair<T>> list, Func<T?, string[]> mapper, string keyPrefix = "", string mapPrefix = "")
+  private static string[] IsMap<T>(this IEnumerable<MapPair<T>> list, Func<T?, string[]> mapper, string keyPrefix = "", string mapPrefix = "", string indent = "")
     => [.. list
-      .SelectMany(v => v.Value.BlockFirst(mapper,  keyPrefix + v.Key + ":"))
+      .SelectMany(v => v.Value.BlockFirst(mapper,  keyPrefix + v.Key + ":", indent))
       .Prepend(mapPrefix)
       .RemoveEmpty()];
 

@@ -7,7 +7,7 @@ public class ParseDomainRangeTests
   : ParseDomainClassTestBase<IGqlpDomainRange>
 {
   [Theory, RepeatData]
-  public void Parse_ValieSingleRange_ThenOk(decimal value)
+  public void Parse_ValidSingleRange_ReturnsCorrect(decimal value)
   {
     // Arrange
     NumberReturns(OutNumber(value));
@@ -24,7 +24,7 @@ public class ParseDomainRangeTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ValidLowerRange_ThenOk(decimal value)
+  public void Parse_ValidLowerRange_ReturnsCorrect(decimal value)
   {
     // Arrange
     NumberReturns(OutNumber(value));
@@ -41,8 +41,22 @@ public class ParseDomainRangeTests
         r => r.Excludes.ShouldBeFalse());
   }
 
+  [Fact]
+  public void Parse_InvalidLowerRange_ReturnsError()
+  {
+    // Arrange
+    TakeReturns('>', true);
+    SetupError<IGqlpDomainRange>();
+
+    // Act
+    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
   [Theory, RepeatData]
-  public void Parse_ValidUpperRange_ThenOk(decimal value)
+  public void Parse_ValidUpperRange_ReturnsCorrect(decimal value)
   {
     // Arrange
     NumberReturns(OutNumber(value));
@@ -60,21 +74,7 @@ public class ParseDomainRangeTests
   }
 
   [Fact]
-  public void Parse_InvalidLowerRange_ThenError()
-  {
-    // Arrange
-    TakeReturns('>', true);
-    SetupError<IGqlpDomainRange>();
-
-    // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
-
-    // Assert
-    result.ShouldBeAssignableTo<IResultError>();
-  }
-
-  [Fact]
-  public void Parse_InvalidUpperRange_ThenError()
+  public void Parse_InvalidUpperRange_ReturnsError()
   {
     // Arrange
     TakeReturns('<', true);
@@ -88,7 +88,7 @@ public class ParseDomainRangeTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ValidRange_ThenOk(decimal first, decimal second)
+  public void Parse_ValidRange_ReturnsCorrect(decimal first, decimal second)
   {
     // Arrange
     TakeReturns('~', true);

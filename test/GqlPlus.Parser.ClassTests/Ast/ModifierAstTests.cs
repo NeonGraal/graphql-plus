@@ -3,7 +3,7 @@
 public class ModifierAstTests
 {
   [Fact]
-  public void HashCode()
+  public void HashCode_Default_ReturnsExpectedValue()
     => _checks.HashCode(() => ModifierAst.Optional(AstNulls.At));
 
   [Theory, RepeatData]
@@ -15,7 +15,7 @@ public class ModifierAstTests
     => _checks.HashCode(() => ModifierAst.Param(AstNulls.At, key, optional));
 
   [Fact]
-  public void Text()
+  public void Text_Default_ReturnsExpectedStrings()
   {
     _checks.Text(() => ModifierAst.Optional(AstNulls.At), "?");
     _checks.Text(() => ModifierAst.List(AstNulls.At), "[]");
@@ -59,7 +59,7 @@ public class ModifierAstTests
     => _checks.Equality(() => ModifierAst.Param(AstNulls.At, key, optional));
 
   [Fact]
-  public void Inequality()
+  public void Inequality_DifferentModifiers_AreNotEqual()
     => _checks.Inequality(
       () => ModifierAst.Optional(AstNulls.At),
       () => ModifierAst.List(AstNulls.At));

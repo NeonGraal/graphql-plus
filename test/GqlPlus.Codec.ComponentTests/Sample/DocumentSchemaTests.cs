@@ -84,6 +84,8 @@ public class DocumentSchemaTests(
       => model.GetTypes(null).Values.Where(d => d is T).ToMap(d => d.Name);
   }
 
-  protected override Task VerifyResult(Structured result, string label, string test, string section)
+  protected override Task VerifyResult(string target, VerifySettings settings)
     => Task.CompletedTask;  // No verification needed for this test}
+  public override string ResultGroup => "Docs";
+  public override string EncodeResult(Structured result, string section) => "";
 }

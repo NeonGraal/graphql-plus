@@ -6,9 +6,6 @@ namespace GqlPlus;
 
 public static class StringHelpers
 {
-  public static bool BothValued([NotNullWhen(true)] this string? left, [NotNullWhen(true)] string? right)
-    => !string.IsNullOrEmpty(left) && !string.IsNullOrEmpty(right);
-
   [return: NotNullIfNotNull(nameof(text))]
   public static string? Capitalize(this string? text)
   => text?.Length > 0

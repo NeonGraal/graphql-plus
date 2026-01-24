@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
-using VerifyTests;
 
 namespace GqlPlus.Sample;
 

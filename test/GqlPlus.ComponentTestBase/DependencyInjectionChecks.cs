@@ -167,7 +167,7 @@ public abstract class DependencyInjectionChecks(IServiceCollection services)
           missing.ShouldBeEmpty("missing requirements for " + di.Service.Id);
         }));
 
-    TestContext.Current.AddAttachment(Label, sb.ToString());
+    TestContext.Current.AddAttachment("DI " + Label, sb.ToString());
   }
 
   [Fact]

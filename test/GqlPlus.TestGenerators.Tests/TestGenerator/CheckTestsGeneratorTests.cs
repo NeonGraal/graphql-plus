@@ -46,7 +46,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -64,7 +64,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -82,7 +82,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -100,7 +100,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -121,7 +121,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -141,7 +141,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -160,7 +160,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -179,7 +179,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -197,7 +197,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -215,7 +215,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -233,7 +233,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -251,7 +251,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -269,7 +269,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   [Fact]
@@ -287,6 +287,6 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 }

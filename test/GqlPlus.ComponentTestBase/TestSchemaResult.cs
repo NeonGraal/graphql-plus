@@ -30,7 +30,7 @@ public abstract class TestSchemaResult(
 
   protected virtual async Task SampleInvalid_Input(string input, string section, string test)
   {
-    TestContext.Current.AddAttachment(test, input);
+    TestContext.Current.AddAttachment("Input " + test, input);
 
     IResult<IGqlpSchema> parse = checks.Parse(input, "Schema");
     if (parse.Required(s => s.Errors.ShouldBeEmpty())) {
@@ -42,7 +42,7 @@ public abstract class TestSchemaResult(
 
   protected override async Task Label_Input(string label, string input, string[] dirs, string test, string section)
   {
-    TestContext.Current.AddAttachment(test, input);
+    TestContext.Current.AddAttachment("Input " + test, input);
 
     IResult<IGqlpSchema> result = checks.Parse(input, label);
 

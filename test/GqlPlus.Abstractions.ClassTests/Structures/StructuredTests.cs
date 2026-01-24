@@ -491,7 +491,7 @@ public class StructuredTests
   }
 
   [Fact]
-  public void IncludeEncodedNull_IsCorrect()
+  public void IncludeEncoded_WithNullMap_ResultRemainsEmpty()
   {
     Structured result = new Map<Structured>().Encode();
     Map<string>? map = null;

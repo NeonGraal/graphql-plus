@@ -7,6 +7,9 @@ public class JsonSchemaTests(
   ISchemaVerifyChecks checks
 ) : TestSchemaVerify(checks)
 {
-  protected override Task VerifyResult(Structured result, string label, string test, string section)
-    => Verify(result.ToJson() + Environment.NewLine, "json", CustomSettings(label, "Json", test, section));
+  public override string ResultGroup => "Json";
+  public override string EncodeResult(Structured result, string section)
+    => result.ToJson() + Environment.NewLine;
+  protected override Task VerifyResult(string target, VerifySettings settings)
+    => Verify(target, "json", settings);
 }

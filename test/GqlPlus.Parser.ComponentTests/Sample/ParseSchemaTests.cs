@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
+using VerifyTests;
 
 namespace GqlPlus.Sample;
 
@@ -15,7 +16,9 @@ public class ParseSchemaTests(
 
       await CheckErrors(dirs, test, ast.Errors);
 
-      await Verify(ast.Show(), CustomSettings(label, "Parse", test));
+      string target = ast.Show();
+      TestContext.Current.AddAttachment("Result " + test, target);
+      await Verify(target, CustomSettings(label, "Parse", test));
     } else {
       string testName = section + " " + test;
 

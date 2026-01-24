@@ -1,5 +1,7 @@
-﻿using GqlPlus;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus;
 using GqlPlus.Convert;
+using GqlPlus.Resolving;
 
 namespace GqlPlus.Sample;
 
@@ -67,6 +69,16 @@ public class HtmlSchemaTests(
     await result.WriteHtmlFileAsync("DI", "index", "index");
   }
 
-  protected override Task VerifyResult(Structured result, string label, string test, string section)
-    => result.ThrowIfNull().Add("title", new(label)).WriteHtmlFileAsync(new string[] { label, section }.Joined("/"), test);
+  protected override async Task EncodeModel([NotNull] SchemaModel model, IModelsContext context, string test, string label, string[] dirs, string section)
+  {
+    Structured result = checks.Encode_Model(model, context);
+    await result.ThrowIfNull()
+      .Add("title", new(label))
+      .WriteHtmlFileAsync(new string[] { label, section }.Joined("/"), test);
+  }
+  public override string ResultGroup => "Html";
+  protected override Task VerifyResult(string target, VerifySettings settings)
+    => throw new NotImplementedException();
+  public override string EncodeResult(Structured result, string section)
+    => throw new NotImplementedException();
 }

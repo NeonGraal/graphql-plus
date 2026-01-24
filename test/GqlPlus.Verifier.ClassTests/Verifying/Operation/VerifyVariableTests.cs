@@ -23,7 +23,7 @@ public class VerifyVariableTests
   }
 
   [Fact]
-  public void Verify_NoModifiersOrDefault()
+  public void Verify_WithNoModifiersOrDefault_ReturnsNoErrors()
   {
     _item.DefaultValue.ReturnsNull();
 
@@ -33,7 +33,7 @@ public class VerifyVariableTests
   }
 
   [Fact]
-  public void Verify_JustDefault()
+  public void Verify_WithJustDefault_ReturnsNoErrors()
   {
     _verifier.Verify(_item, Errors);
 

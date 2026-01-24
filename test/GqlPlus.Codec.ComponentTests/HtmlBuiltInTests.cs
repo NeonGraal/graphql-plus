@@ -51,16 +51,16 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
 
   [Theory]
   [ClassData(typeof(BuiltInBasicData))]
-  public void ModelBasicTypes(string type)
+  public void ModelBasicTypes_GivenType_SucceedsWithoutErrors(string type)
     => ModelType(BuiltInData.BasicMap[type], []);
 
   [Theory]
   [ClassData(typeof(BuiltInInternalData))]
-  public void ModelInternalTypes(string type)
+  public void ModelInternalTypes_GivenType_SucceedsWithoutErrors(string type)
     => ModelType(BuiltInData.InternalMap[type], BuiltIn.Internal);
 
   [Fact]
-  public void ModelAllBasicTypes()
+  public void ModelAllBasicTypes_Default_SucceedsWithoutErrors()
   {
     IModelsContext context = encoder.Context();
     Structured result = encoder.EncodeAst(_basicSchema, context);
@@ -69,7 +69,7 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
   }
 
   [Fact]
-  public void ModelAllInternalTypes()
+  public void ModelAllInternalTypes_Default_SucceedsWithoutErrors()
   {
     IModelsContext context = encoder.Context();
     Structured result = encoder.EncodeAst(_internalSchema, context, _basicSchema);
@@ -78,7 +78,7 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
   }
 
   [Fact]
-  public void ModelsFluidFiles()
+  public void ModelsFluidFiles_WhenChecked_AreValid()
     => RenderFluid.CheckFluidFiles();
 
   private void ModelType(IGqlpType type, IGqlpType[] extras)

@@ -4,7 +4,7 @@ public partial class FragmentAstTests
 {
   [Fact]
   public void HashCode_Null()
-    => _checks.HashCode(() => new FragmentAst(AstNulls.At, "", ""));
+    => _checks.HashCode(() => new FragmentAst(AstNulls.At, string.Empty, string.Empty));
 
   [Theory, RepeatData]
   public void Inequality_BetweenName(string name1, string name2, string onType, string[] fields)

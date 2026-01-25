@@ -12,7 +12,7 @@ internal class NameFilterModelDecoder
   internal static readonly Regex Valid = new(@"^[a-zA-Z_.*]+$");
 
   protected override IMessages DecodeBoolean(bool? boolValue, out string? output)
-    => Error($"A boolean ({boolValue.TrueFalse()}) is not a valid NameFilter value", output = null);
+    => Error($"A boolean ({boolValue?.TrueFalse()}) is not a valid NameFilter value", output = null);
   protected override IMessages DecodeNumber(decimal? numValue, out string? output)
     => Error($"A number ({numValue:0.#####}) is not a valid NameFilter value", output = null);
   protected override IMessages DecodeText(string strValue, out string? output)

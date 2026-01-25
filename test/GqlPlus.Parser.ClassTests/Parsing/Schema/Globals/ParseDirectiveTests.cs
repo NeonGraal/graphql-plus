@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Globals;
 public class ParseDirectiveTests
   : DeclarationClassTestBase
 {
+
   private readonly ParseDirective _parser;
   private readonly Parser<IGqlpInputParam>.IA _param;
   private readonly IOptionParser<DirectiveOption> _option;
@@ -30,7 +31,7 @@ public class ParseDirectiveTests
     ParseOk(_definition, DirectiveLocation.Operation);
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaDirective>>();
@@ -46,7 +47,7 @@ public class ParseDirectiveTests
     ParseOk(_definition, DirectiveLocation.Operation);
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaDirective>>();
@@ -65,7 +66,7 @@ public class ParseDirectiveTests
     SetupError<IGqlpSchemaDirective>();
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaDirective>>();
@@ -81,7 +82,7 @@ public class ParseDirectiveTests
     SetupError<IGqlpSchemaDirective>();
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaDirective>>();
@@ -96,7 +97,7 @@ public class ParseDirectiveTests
     SetupError<IGqlpSchemaDirective>();
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaDirective>>();

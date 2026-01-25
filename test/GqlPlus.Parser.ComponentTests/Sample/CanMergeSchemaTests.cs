@@ -9,6 +9,7 @@ public class CanMergeSchemaTests(
   IMerge<IGqlpSchema> schemaMerger
 ) : TestSchemaResult(checks)
 {
+
   protected override Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
     Check_CanMerge([result.Required()], test);

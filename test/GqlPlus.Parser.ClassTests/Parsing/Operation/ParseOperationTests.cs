@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseOperationTests
   : ModifiersClassTestBase
 {
+
   private readonly ParseOperation _parseOperation;
   private readonly IParserArg _argumentParser;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
@@ -53,7 +54,7 @@ public class ParseOperationTests
     IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpOperation>>()
@@ -87,7 +88,7 @@ public class ParseOperationTests
     IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpOperation>>()
@@ -119,7 +120,7 @@ public class ParseOperationTests
     IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
@@ -143,7 +144,7 @@ public class ParseOperationTests
     ParseModifiersError();
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
@@ -166,7 +167,7 @@ public class ParseOperationTests
     ParseError(_argumentParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
@@ -180,7 +181,7 @@ public class ParseOperationTests
     Tokenizer.Read().Returns(false);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -195,7 +196,7 @@ public class ParseOperationTests
     ParseErrorA(_variablesParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
@@ -211,7 +212,7 @@ public class ParseOperationTests
     PrefixReturns(':', OutFail);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
@@ -228,7 +229,7 @@ public class ParseOperationTests
     ParseErrorA(_objectParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
@@ -243,7 +244,7 @@ public class ParseOperationTests
     PrefixReturns(':', OutPass);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();

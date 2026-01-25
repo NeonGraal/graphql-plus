@@ -3,6 +3,7 @@
 public class ArrayParserTests
   : ParserClassTestBase
 {
+
   private readonly Parser<string>.I _itemParser;
   private readonly ArrayParser<string> _parser;
 
@@ -17,10 +18,10 @@ public class ArrayParserTests
   public void Parse_ShouldReturnArray_WhenValid()
   {
     // Arrange
-    Parse(_itemParser, "item1".Ok(), "item2".Ok(), "".Empty());
+    Parse(_itemParser, "item1".Ok(), "item2".Ok(), string.Empty.Empty());
 
     // Act
-    IResultArray<string> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<string> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<string>>()
@@ -34,7 +35,7 @@ public class ArrayParserTests
     ParseError(_itemParser);
 
     // Act
-    IResultArray<string> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<string> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<string>>();
@@ -47,7 +48,7 @@ public class ArrayParserTests
     ParseEmpty(_itemParser);
 
     // Act
-    IResultArray<string> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<string> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<string>>()

@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainDefinitionTests
   : SimpleParserClassTestBase
 {
+
   private readonly IEnumParser<DomainKind> _kindParser;
   private readonly IParseDomain _domainParser = Substitute.For<IParseDomain>();
   private readonly ParseDomainDefinition _parser;
@@ -23,10 +24,10 @@ public class ParseDomainDefinitionTests
     TakeReturns(':', true);
     ParseTypeRefOk(parentType);
     ParseOk(_kindParser, DomainKind.Enum);
-    _domainParser.Parser(Tokenizer, "testLabel", Arg.Any<DomainDefinition>()).Returns(c => new DomainDefinition().Ok());
+    _domainParser.Parser(Tokenizer, TestLabel, Arg.Any<DomainDefinition>()).Returns(c => new DomainDefinition().Ok());
 
     // Act
-    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<DomainDefinition>>();
@@ -42,7 +43,7 @@ public class ParseDomainDefinitionTests
     SetupPartial(new DomainDefinition());
 
     // Acts
-    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DomainDefinition>>();
@@ -57,7 +58,7 @@ public class ParseDomainDefinitionTests
     SetupError<DomainDefinition>();
 
     // Act
-    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError<DomainDefinition>>();
@@ -71,7 +72,7 @@ public class ParseDomainDefinitionTests
     SetupPartial(new DomainDefinition());
 
     // Act
-    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DomainDefinition>>();

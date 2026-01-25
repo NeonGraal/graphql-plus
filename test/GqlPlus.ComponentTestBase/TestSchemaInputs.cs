@@ -3,6 +3,7 @@
 public abstract class TestSchemaInputs
   : SampleChecks
 {
+
   [Fact]
   public async Task Test_All()
     => await Label_Inputs("Schema", await SchemaValidDataAll(), "!ALL");

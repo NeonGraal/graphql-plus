@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseArgValueTests
   : ParserClassTestBase
 {
+
   private readonly ParseArgValue _parseArgValue;
   private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
   private readonly Parser<KeyValue<IGqlpArg>>.I _keyValueParser;
@@ -34,7 +35,7 @@ public class ParseArgValueTests
     PrefixReturns('$', OutStringAt(variable));
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
@@ -48,7 +49,7 @@ public class ParseArgValueTests
     ParseOkA(_listParser);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
@@ -62,7 +63,7 @@ public class ParseArgValueTests
     ParseOkField(_objectParser, fieldName);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
@@ -76,7 +77,7 @@ public class ParseArgValueTests
     ParseOk(_constantParser);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
@@ -90,7 +91,7 @@ public class ParseArgValueTests
     PrefixReturns('$', OutFail);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -105,7 +106,7 @@ public class ParseArgValueTests
     ParseEmpty(_constantParser);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

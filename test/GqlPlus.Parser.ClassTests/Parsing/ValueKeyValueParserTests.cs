@@ -3,6 +3,7 @@
 public class ValueKeyValueParserTests
   : ParserClassTestBase
 {
+
   private readonly ValueKeyValueParser<IGqlpConstant> _parser;
   private readonly Parser<IGqlpFieldKey>.I _keyParser;
   private readonly Parser<IGqlpConstant>.I _valueParser;
@@ -26,7 +27,7 @@ public class ValueKeyValueParserTests
     ParseOk(_valueParser, AtFor<IGqlpConstant>());
 
     // Act
-    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<KeyValue<IGqlpConstant>>>();
@@ -40,24 +41,24 @@ public class ValueKeyValueParserTests
     TakeReturns(':', false);
 
     // Act
-    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenKeyParsingFails()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenKeyParsingFails(string error)
   {
     // Arrange
-    ParseError(_keyParser, "Key parsing error");
+    ParseError(_keyParser, error);
 
     // Act
-    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>()
-      .Message.Message.ShouldMatch("Key parsing error");
+      .Message.Message.ShouldMatch(error);
   }
 
   [Fact]
@@ -69,26 +70,26 @@ public class ValueKeyValueParserTests
     ParseEmpty(_valueParser);
 
     // Act
-    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>()
       .Message.Message.ShouldMatch("error for KeyValue");
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenValueParsingFails()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenValueParsingFails(string error)
   {
     // Arrange
     ParseOk(_keyParser, AtFor<IGqlpFieldKey>());
     TakeReturns(':', true);
-    ParseError(_valueParser, "Value parsing error");
+    ParseError(_valueParser, error);
 
     // Act
-    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>()
-      .Message.Message.ShouldMatch("Value parsing error");
+      .Message.Message.ShouldMatch(error);
   }
 }

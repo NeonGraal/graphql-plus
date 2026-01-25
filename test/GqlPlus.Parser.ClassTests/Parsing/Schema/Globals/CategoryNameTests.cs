@@ -32,6 +32,6 @@ public class CategoryNameTests
     // Assert
     name.ShouldSatisfyAllConditions(
       () => result.ShouldBeTrue(),
-      () => name.ShouldBe(""));
+      () => name.ShouldBe(string.Empty));
   }
 }

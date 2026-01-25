@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseObjectDefinitionTests
   : ParserClassTestBase
 {
+
   private readonly Parser<IGqlpAlternate>.IA _alternates;
   private readonly Parser<IGqlpObjField>.I _parseField;
   private readonly Parser<IGqlpObjBase>.I _parseBase;
@@ -29,7 +30,7 @@ public class ParseObjectDefinitionTests
     TakeReturns('}', true);
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<ObjectDefinition<IGqlpObjField>>>();
@@ -44,7 +45,7 @@ public class ParseObjectDefinitionTests
     TakeReturns('}', true);
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<ObjectDefinition<IGqlpObjField>>>();
@@ -59,7 +60,7 @@ public class ParseObjectDefinitionTests
     TakeReturns('}', true);
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<ObjectDefinition<IGqlpObjField>>>();
@@ -74,7 +75,7 @@ public class ParseObjectDefinitionTests
     TakeReturns('}', true);
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<ObjectDefinition<IGqlpObjField>>>();
@@ -89,7 +90,7 @@ public class ParseObjectDefinitionTests
     SetupError<ObjectDefinition<IGqlpObjField>>();
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -105,7 +106,7 @@ public class ParseObjectDefinitionTests
     SetupPartial(new ObjectDefinition<IGqlpObjField>());
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<ObjectDefinition<IGqlpObjField>>>();
@@ -121,7 +122,7 @@ public class ParseObjectDefinitionTests
     SetupPartial(new ObjectDefinition<IGqlpObjField>());
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<ObjectDefinition<IGqlpObjField>>>();
@@ -137,7 +138,7 @@ public class ParseObjectDefinitionTests
     SetupPartial(new ObjectDefinition<IGqlpObjField>());
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<ObjectDefinition<IGqlpObjField>>>();

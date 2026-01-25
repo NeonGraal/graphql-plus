@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 public class ParseDirectiveDefinitionTests : ParserClassTestBase
 {
+
   private readonly IEnumParser<DirectiveLocation> _locationParser;
   private readonly ParseDirectiveDefinition _parser;
 
@@ -23,7 +24,7 @@ public class ParseDirectiveDefinitionTests : ParserClassTestBase
     ParseOk(_locationParser, DirectiveLocation.Operation);
 
     // Act
-    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<DirectiveLocation>>();
@@ -36,7 +37,7 @@ public class ParseDirectiveDefinitionTests : ParserClassTestBase
     ParseOk(_locationParser, DirectiveLocation.None);
 
     // Act
-    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DirectiveLocation>>();
@@ -49,7 +50,7 @@ public class ParseDirectiveDefinitionTests : ParserClassTestBase
     ParseError(_locationParser);
 
     // Act
-    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DirectiveLocation>>();

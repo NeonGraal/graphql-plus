@@ -130,25 +130,25 @@ public partial class FieldKeyAstTests
   }
 
   [Theory, RepeatData]
-  public void Equality_WithEnumType(string enumType)
+  public void Equality_WithEnumType(string enumType, string enumValue)
     => _checks.Equality(
-      () => CreateFieldKey(enumType, "enumValue"));
+      () => CreateFieldKey(enumType, enumValue));
 
   [Theory, RepeatData]
-  public void Compare_WithEnumType(string enumType1, string enumType2)
+  public void Compare_WithEnumType(string enumType1, string enumType2, string enumValue)
   {
-    FieldKeyAst left = CreateFieldKey(enumType1, "enumValue");
-    FieldKeyAst right = CreateFieldKey(enumType2, "enumValue");
-    int expected = (enumType1 + ".enumValue").Compare(enumType2 + ".enumValue");
+    FieldKeyAst left = CreateFieldKey(enumType1, enumValue);
+    FieldKeyAst right = CreateFieldKey(enumType2, enumValue);
+    int expected = (enumType1 + "." + enumValue).Compare(enumType2 + "." + enumValue);
 
     left.CompareTo(right).ShouldBe(expected);
   }
 
   [Theory, RepeatData]
-  public void Inequality_WithEnumType(string enumType)
+  public void Inequality_WithEnumType(string enumType, string enumValue)
   {
-    FieldKeyAst left = CreateFieldKey(enumType, "enumValue");
-    FieldKeyAst right = CreateFieldKey(enumType, enumType + "enumValue");
+    FieldKeyAst left = CreateFieldKey(enumType, enumValue);
+    FieldKeyAst right = CreateFieldKey(enumType, enumType + enumValue);
 
     (left != right).ShouldBeTrue();
   }

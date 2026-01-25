@@ -12,6 +12,7 @@ public class VerifySchemaTests(
 ) : TestSchemaResult(checks)
 
 {
+
   protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
     this.SkipIf(SchemaValidData.ExcludeSpecsForBuiltIn(test));

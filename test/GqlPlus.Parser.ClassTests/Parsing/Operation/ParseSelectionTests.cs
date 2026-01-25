@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseSelectionTests
   : ParserClassTestBase
 {
+
   private readonly ParseSelection _parseSelection;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
   private readonly Parser<IGqlpSelection>.IA _objectParser;
@@ -30,7 +31,7 @@ public class ParseSelectionTests
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSelection>>()
@@ -53,7 +54,7 @@ public class ParseSelectionTests
     IGqlpSelection[] selections = ParseOkA(_objectParser);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSelection>>()
@@ -74,7 +75,7 @@ public class ParseSelectionTests
     Tokenizer.Identifier(out string? type).Returns(false);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -90,7 +91,7 @@ public class ParseSelectionTests
     ParseErrorA(_objectParser);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -104,7 +105,7 @@ public class ParseSelectionTests
     TakeReturns('|', false);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

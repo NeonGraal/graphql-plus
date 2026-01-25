@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseVariablesTests
   : ParserClassTestBase
 {
+
   private readonly ParseVariables _parseVariables;
   private readonly Parser<IGqlpVariable>.I _variableParser;
 
@@ -30,7 +31,7 @@ public class ParseVariablesTests
     ParseOk(_variableParser, variable);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpVariable>>()
@@ -45,7 +46,7 @@ public class ParseVariablesTests
     ParseError(_variableParser);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpVariable>>();
@@ -61,7 +62,7 @@ public class ParseVariablesTests
     Parse(_variableParser, variable.Ok(), variable.Empty());
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpVariable>>();
@@ -74,7 +75,7 @@ public class ParseVariablesTests
     TakeReturns('(', false);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayEmpty<IGqlpVariable>>();
@@ -89,7 +90,7 @@ public class ParseVariablesTests
     ParseEmpty(_variableParser);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayError<IGqlpVariable>>();

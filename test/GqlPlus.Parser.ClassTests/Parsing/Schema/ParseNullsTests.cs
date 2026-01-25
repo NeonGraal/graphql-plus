@@ -3,12 +3,13 @@
 public class ParseNullsTests
   : ParserClassTestBase
 {
+
   [Fact]
   public void ParseNulls_ReturnsExpected()
   {
     ParseNulls parser = new();
 
-    IResultArray<NullAst> result = parser.Parse(Tokenizer, "testLabel");
+    IResultArray<NullAst> result = parser.Parse(Tokenizer, TestLabel);
 
     result.ShouldBeAssignableTo<IResultEmpty>();
   }
@@ -18,7 +19,7 @@ public class ParseNullsTests
   {
     ParseNullOption parser = new();
 
-    IResult<NullOption> result = parser.Parse(Tokenizer, "testLabel");
+    IResult<NullOption> result = parser.Parse(Tokenizer, TestLabel);
 
     result.ShouldBeAssignableTo<IResultEmpty>();
   }

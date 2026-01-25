@@ -6,6 +6,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainLabelTests
   : ParseDomainClassTestBase<IGqlpDomainLabel>
 {
+
   [Theory, RepeatData]
   public void Parse_ShouldReturnDomainLabel_WhenValidJustLabel(string enumLabel)
   {
@@ -13,7 +14,7 @@ public class ParseDomainLabelTests
     IdentifierReturns(OutString(enumLabel));
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainLabel>>();
@@ -27,7 +28,7 @@ public class ParseDomainLabelTests
     TakeReturns('.', true);
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainLabel>>();
@@ -42,7 +43,7 @@ public class ParseDomainLabelTests
     TakeReturns('*', true);
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainLabel>>();
@@ -57,7 +58,7 @@ public class ParseDomainLabelTests
     SetupPartial<IGqlpDomainLabel>();
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpDomainLabel>>();
@@ -72,7 +73,7 @@ public class ParseDomainLabelTests
     SetupPartial<IGqlpDomainLabel>();
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpDomainLabel>>();
@@ -86,8 +87,10 @@ public class ParseDomainLabelTests
     => new ParseDomainLabel(itemsParser);
 
   protected override IGqlpDomainLabel NewItem()
-    => new DomainLabelAst(AstNulls.At, "", false, "label");
+    => new DomainLabelAst(AstNulls.At, string.Empty, false, itemLabel);
 
   protected override void ArrangeValidItem()
-    => IdentifierReturns(OutString("label"));
+    => IdentifierReturns(OutString(itemLabel));
+
+  private readonly string itemLabel = TestLabel;
 }

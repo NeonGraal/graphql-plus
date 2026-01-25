@@ -8,16 +8,30 @@ namespace GqlPlus;
 
 public static class BuiltIn
 {
-  public static IGqlpType[] Basic { get; } = [
-    Enum("Boolean", ["^", "_Boolean"], "false", "true"),
-    Enum("Unit", ["_", "_Unit"], "_"),
+  public const string BooleanType = "Boolean";
+  public const string BooleanAlias = "^";
+  public const string BooleanFalse = GqlpStrings.BoolFalse;
+  public const string BooleanTrue = GqlpStrings.BoolTrue;
+  public const string NullType = "Null";
+  public const string NullValue = "null";
+  public const string NumberType = "Number";
+  public const string NumberAlias = "0";
+  public const string StringType = "String";
+  public const string StringAlias = "*";
+  public const string UnitType = "Unit";
+  public const string UnitValue = "_";
+  public const string VoidType = "Void";
 
-    Domain<DomainRangeAst, IGqlpDomainRange>("Number", DomainKind.Number, "0", "_Number"),
-    Domain<DomainRegexAst, IGqlpDomainRegex>("String", DomainKind.String, "*", "_String"),
+  public static IGqlpType[] Basic { get; } = [
+    Enum(BooleanType, [BooleanAlias, "_Boolean"], BooleanFalse, BooleanTrue),
+    Enum(UnitType, [UnitValue, "_Unit"], UnitValue),
+
+    Domain<DomainRangeAst, IGqlpDomainRange>(NumberType, DomainKind.Number, NumberAlias, "_Number"),
+    Domain<DomainRegexAst, IGqlpDomainRegex>(StringType, DomainKind.String, StringAlias, "_String"),
   ];
 
-  private static readonly string[] s_basicMembers = ["Boolean", "Number", "String", "Unit"];
-  private static readonly string[] s_internalMembers = ["Null", "Void"];
+  private static readonly string[] s_basicMembers = [BooleanType, NumberType, StringType, UnitType];
+  private static readonly string[] s_internalMembers = [NullType, VoidType];
   private static readonly string[] s_simpleMembers = ["_Union", "_Domain", "_Enum"];
   private static readonly string[] s_keyMembers = ["_Basic", "_Internal", "_Simple"];
 
@@ -44,8 +58,8 @@ public static class BuiltIn
   public static IGqlpType[] Internal { get; }
 
   internal static IGqlpType[] InternalSimple { get; } = [
-    Enum("Void", ["_Void"]),
-    Enum("Null", ["null", "_Null"], "null"),
+    Enum(VoidType, ["_Void"]),
+    Enum(NullType, [NullValue, "_Null"], NullValue),
     new UnionDeclAst(AstNulls.At, "_Basic", s_basicMembers.UnionMembers()) { Aliases = ["Basic"]},
     new UnionDeclAst(AstNulls.At, "_Internal", s_internalMembers.UnionMembers()) { Aliases = ["Internal"]},
     new UnionDeclAst(AstNulls.At, "_Simple", s_simpleMembers.UnionMembers()) { Aliases = ["Simple"]},
@@ -55,14 +69,14 @@ public static class BuiltIn
   internal static IGqlpType[] InternalObject { get; } = [
     DualObj("Object", DualRef("_Map", DualArg("_Any")), ["%", "_Object"]),
 
-    DualObj("Opt", null, [TypeParam()], DualAlt(null), DualType("Null")),
+    DualObj("Opt", null, [TypeParam()], DualAlt(null), DualType(NullType)),
     DualObj("List", null, [TypeParam()], DualAlt("")),
     DualObj("Dict", null, [KeyParam(), TypeParam()], DualAltParam("K")),
-    DualObj("Map", DualDict("String"), [TypeParam()]),
-    DualObj("Array", DualDict("Number"), [TypeParam()]),
-    DualObj("IfElse", DualDict("Boolean"), [TypeParam()]),
-    DualObj("Set", DualDict("Unit", true), [KeyParam()]),
-    DualObj("Mask", DualDict("Boolean", true), [KeyParam()]),
+    DualObj("Map", DualDict(StringType), [TypeParam()]),
+    DualObj("Array", DualDict(NumberType), [TypeParam()]),
+    DualObj("IfElse", DualDict(BooleanType), [TypeParam()]),
+    DualObj("Set", DualDict(UnitType, true), [KeyParam()]),
+    DualObj("Mask", DualDict(BooleanType, true), [KeyParam()]),
 
     DualObj("Most", null, [TypeParam()],
       DualAlt(null), DualType("_Object"), DualMost("", true), DualType("_MostList", DualArgParam("T")), DualType("_MostDictionary", DualArgParam("T"))),
@@ -76,10 +90,10 @@ public static class BuiltIn
   internal static IGqlpTypeSpecial[] Special { get; }
 
   internal static Map<string> EnumValues = new() {
-    ["_"] = "Unit",
-    ["null"] = "Null",
-    ["true"] = "Boolean",
-    ["false"] = "Boolean",
+    [UnitValue] = UnitType,
+    [NullValue] = NullType,
+    [BooleanTrue] = BooleanType,
+    [BooleanFalse] = BooleanType,
   };
 
   private static AstObject<IGqlpDualField> DualObj(string label, ObjBaseAst parent, params string[] aliases)

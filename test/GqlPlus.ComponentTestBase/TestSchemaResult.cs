@@ -8,6 +8,7 @@ public abstract class TestSchemaResult(
   ISchemaParseChecks checks
 ) : TestSchemaInputs
 {
+
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesInvalidData))]
   public async Task Test_MergesInvalid(string model)

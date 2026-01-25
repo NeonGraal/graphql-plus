@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseDualTests
   : DeclarationClassTestBase
 {
+
   private readonly Parser<IGqlpTypeParam>.IA _param;
   private readonly Parser<ObjectDefinition<IGqlpDualField>>.I _definition;
   private readonly ObjectParser<IGqlpDualField> _parser;
@@ -25,7 +26,7 @@ public class ParseDualTests
     ParseOk(_definition, new ObjectDefinition<IGqlpDualField>());
 
     // Act
-    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpObject<IGqlpDualField>>>();
@@ -39,7 +40,7 @@ public class ParseDualTests
     SetupError<IGqlpObject<IGqlpDualField>>();
 
     // Act
-    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

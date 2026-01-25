@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseTypeParamsTests
   : ParserClassTestBase
 {
+
   private readonly ParseTypeParams _parser;
 
   public ParseTypeParamsTests()
@@ -25,7 +26,7 @@ public class ParseTypeParamsTests
     TakeReturns('>', false, true);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeParam>>()
@@ -49,7 +50,7 @@ public class ParseTypeParamsTests
     TakeReturns('>', false, true);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeParam>>()
@@ -70,7 +71,7 @@ public class ParseTypeParamsTests
     TakeReturns('>', false, true);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeParam>>()
@@ -90,14 +91,14 @@ public class ParseTypeParamsTests
     TakeReturns('>', false, true);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpTypeParam>>()
       .Optional().ShouldHaveSingleItem()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(paramName),
-        r => r.Constraint.ShouldBe(""));
+        r => r.Constraint.ShouldBe(string.Empty));
   }
 
   [Theory, RepeatData]
@@ -109,14 +110,14 @@ public class ParseTypeParamsTests
     TakeReturns('>', false, true);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpTypeParam>>()
       .Optional().ShouldHaveSingleItem()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(paramName),
-        r => r.Constraint.ShouldBe(""));
+        r => r.Constraint.ShouldBe(string.Empty));
   }
 
   [Fact]
@@ -127,7 +128,7 @@ public class ParseTypeParamsTests
     PrefixReturns('$', OutFail);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpTypeParam>>();

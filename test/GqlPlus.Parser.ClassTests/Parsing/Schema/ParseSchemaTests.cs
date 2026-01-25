@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema;
 public class ParseSchemaTests
   : ParserClassTestBase
 {
+
   private readonly IParseDeclaration _declarationParser = A.Of<IParseDeclaration>();
   private readonly ParseSchema _parser;
 
@@ -26,7 +27,7 @@ public class ParseSchemaTests
     Tokenizer.AtEnd.Returns(true);
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchema>>()
@@ -44,7 +45,7 @@ public class ParseSchemaTests
     SetupError<IGqlpSchema>();
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchema>>()
@@ -61,7 +62,7 @@ public class ParseSchemaTests
     SetupError<IGqlpSchema>();
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchema>>()
@@ -78,7 +79,7 @@ public class ParseSchemaTests
     SetupError<IGqlpSchema>();
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

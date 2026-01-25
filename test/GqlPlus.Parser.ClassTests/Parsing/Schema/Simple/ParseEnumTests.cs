@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseEnumTests
   : DeclarationClassTestBase
 {
+
   private readonly Parser<EnumDefinition>.I _definition;
   private readonly ParseEnum _parser;
 
@@ -22,7 +23,7 @@ public class ParseEnumTests
     ParseOk(_definition, new EnumDefinition());
 
     // Act
-    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpEnum>>();
@@ -41,7 +42,7 @@ public class ParseEnumTests
     SetupError<IGqlpEnum>();
 
     // Act
-    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpEnum>>();

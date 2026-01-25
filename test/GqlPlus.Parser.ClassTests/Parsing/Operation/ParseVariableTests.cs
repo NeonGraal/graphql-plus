@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseVariableTests
   : ModifiersClassTestBase
 {
+
   private readonly ParseVariable _parseVariable;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
   private readonly IParserDefault _defaultParser;
@@ -36,7 +37,7 @@ public class ParseVariableTests
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpVariable>>()
@@ -61,7 +62,7 @@ public class ParseVariableTests
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpVariable>>()
@@ -81,7 +82,7 @@ public class ParseVariableTests
     PrefixReturns('$', OutFail);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpVariable>>();
@@ -96,7 +97,7 @@ public class ParseVariableTests
     ParseEmpty(_varTypeParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpVariable>>();
@@ -110,7 +111,7 @@ public class ParseVariableTests
     ParseModifiersError();
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -126,7 +127,7 @@ public class ParseVariableTests
     ParseError(_defaultParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -139,7 +140,7 @@ public class ParseVariableTests
     PrefixReturns('$', OutPass);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

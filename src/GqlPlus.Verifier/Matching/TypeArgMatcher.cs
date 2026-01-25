@@ -47,7 +47,7 @@ internal class TypeArgMatcher(
 
   private IGqlpDomainLabel? DomainHasLabel(UsageContext context, IGqlpDomain<IGqlpDomainLabel> domType, string label)
   {
-    foreach (IGqlpDomainLabel item in domType.Items.Where(i => i.EnumItem == label || i.EnumItem == "*")) {
+    foreach (IGqlpDomainLabel item in domType.Items.Where(i => i.EnumItem == label || i.EnumItem == GqlpDomainLabelConstants.All)) {
       if (context.GetTyped(item.EnumType, out IGqlpEnum? enumType)) {
         if (EnumHasLabel(context, enumType, label)) {
           return item;

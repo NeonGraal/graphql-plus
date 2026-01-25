@@ -3,6 +3,7 @@
 public class ParseAliasesTests
   : ParserClassTestBase
 {
+
   private readonly ParseAliases _parser = new();
 
   [Theory, RepeatData]
@@ -14,7 +15,7 @@ public class ParseAliasesTests
     IdentifierReturns(OutString(alias1), OutString(alias2));
 
     // Act
-    IResultArray<string> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<string> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldSatisfyAllConditions(
@@ -31,10 +32,10 @@ public class ParseAliasesTests
     TakeReturns('[', true);
     TakeReturns(']', false);
     IdentifierReturns(OutString(alias1), OutString(alias2));
-    SetupPartial("");
+    SetupPartial(string.Empty);
 
     // Act
-    IResultArray<string> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<string> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<string>>();

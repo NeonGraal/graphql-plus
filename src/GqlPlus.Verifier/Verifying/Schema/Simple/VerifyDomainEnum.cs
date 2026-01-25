@@ -51,7 +51,7 @@ internal class EnumLabels
 
   private void AddTypedLabel(EnumContext context, IGqlpDomainLabel label, IGqlpEnum theType)
   {
-    if (label.EnumItem == "*") {
+    if (label.EnumItem == GqlpDomainLabelConstants.All) {
       AddAllLabels(context, label.Excludes, theType);
     } else if (context.GetEnumLabelType(theType, label.EnumItem, out IGqlpEnum? enumType)) {
       Add(label.Excludes, enumType, label.EnumItem);

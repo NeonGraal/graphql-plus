@@ -6,6 +6,7 @@ namespace GqlPlus.Parsing.Schema;
 public class OptionParserTests
   : ParserClassTestBase
 {
+
   private readonly IEnumParser<DomainKind> _domainParser;
   private readonly OptionParser<DomainKind> _parser;
 
@@ -25,7 +26,7 @@ public class OptionParserTests
     TakeReturns(')', true);
 
     // Act
-    IResult<DomainKind> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainKind> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<DomainKind>>()
@@ -41,7 +42,7 @@ public class OptionParserTests
     TakeReturns(')', false);
 
     // Act
-    IResult<DomainKind> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainKind> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DomainKind>>();
@@ -54,7 +55,7 @@ public class OptionParserTests
     TakeReturns('(', false);
 
     // Act
-    IResult<DomainKind> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainKind> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

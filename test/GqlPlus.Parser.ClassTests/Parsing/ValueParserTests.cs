@@ -3,6 +3,7 @@
 public class ValueParserTests
   : ParserClassTestBase
 {
+
   private readonly ValueParser<IGqlpConstant> _valueParser;
   private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
   private readonly Parser<KeyValue<IGqlpConstant>>.I _keyValueParser;
@@ -29,7 +30,7 @@ public class ValueParserTests
     ParseOkA(_listParser);
 
     // Act
-    IResult<IGqlpConstant> result = _valueParser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpConstant> result = _valueParser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>();
@@ -42,7 +43,7 @@ public class ValueParserTests
     ParseErrorA(_listParser);
 
     // Act
-    IResult<IGqlpConstant> result = _valueParser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpConstant> result = _valueParser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -58,20 +59,20 @@ public class ValueParserTests
     TakeReturns('}', false, true);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _valueParser.ParseFieldValues(Tokenizer, "testLabel", '}', fields);
+    IResult<IGqlpFields<IGqlpConstant>> result = _valueParser.ParseFieldValues(Tokenizer, TestLabel, '}', fields);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFields<IGqlpConstant>>>();
   }
 
-  [Fact]
-  public void ParseFieldValues_ShouldReturnError_WhenFieldParsingFails()
+  [Theory, RepeatData]
+  public void ParseFieldValues_ShouldReturnError_WhenFieldParsingFails(string error)
   {
     // Arrange
-    ParseError(_keyValueParser, "Field parsing error");
+    ParseError(_keyValueParser, error);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _valueParser.ParseFieldValues(Tokenizer, "testLabel", '}', new FieldsAst<IGqlpConstant>());
+    IResult<IGqlpFields<IGqlpConstant>> result = _valueParser.ParseFieldValues(Tokenizer, TestLabel, '}', new FieldsAst<IGqlpConstant>());
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

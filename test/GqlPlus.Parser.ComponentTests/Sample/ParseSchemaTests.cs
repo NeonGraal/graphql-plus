@@ -8,6 +8,7 @@ public class ParseSchemaTests(
   ISchemaParseChecks checks
 ) : TestSchemaResult(checks)
 {
+
   protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
     if (string.IsNullOrWhiteSpace(section)) {

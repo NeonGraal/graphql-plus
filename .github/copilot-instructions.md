@@ -7,12 +7,14 @@ GraphQL+ is a successor to GraphQL, implementing a parser, merging verifier, and
 ## Tech Stack
 
 **Language & Framework:**
+
 - C# with .NET 10.0, 9.0, and 8.0 (multi-targeted)
 - Latest C# language features enabled
 - Nullable reference types enabled
 - File-scoped namespaces preferred
 
 **Testing Frameworks:**
+
 - XUnit v3 for test framework
 - AutoFixture with AutoData for test data generation
 - NSubstitute for mocking
@@ -20,11 +22,13 @@ GraphQL+ is a successor to GraphQL, implementing a parser, merging verifier, and
 - Verify for snapshot testing
 
 **Other Key Dependencies:**
+
 - YamlDotNet for YAML processing
 - Fluid for templating
 - System.Text.Json for JSON processing
 
 **Build & Development Tools:**
+
 - dotnet CLI for build, test, and restore
 - Prettier for non-C# formatting (via `format.ps1`)
 - dotnet format for C# code formatting
@@ -34,42 +38,50 @@ GraphQL+ is a successor to GraphQL, implementing a parser, merging verifier, and
 ## Build, Test, and Validation
 
 **Install Dependencies:**
+
 ```powershell
 dotnet restore
 ```
 
 **Build:**
+
 ```powershell
 dotnet build
 ```
 
 **Run All Tests:**
+
 ```powershell
 ./test.ps1
 ```
 
 **Run Class Tests Only:**
+
 ```powershell
 ./test.ps1 -ClassTests
 ```
 
 **Run Tests for Specific Framework:**
+
 ```powershell
 ./test.ps1 -Framework "10.0"
 ```
 
 **Format Code:**
+
 ```powershell
 ./format.ps1
 ```
 
 This runs:
+
 - Prettier for markdown, JSON, YAML, and other non-C# files
 - `dotnet format whitespace` for whitespace formatting
 - `dotnet format style` for code style
 - `dotnet format analyzers` for analyzer fixes
 
 **Coverage:**
+
 ```powershell
 ./coverage.ps1
 ```
@@ -79,6 +91,7 @@ This runs:
 **Follow the development conventions documented in [Conventions.md](../Conventions.md).**
 
 ### Code Style
+
 - Use file-scoped namespaces (enforced via `.editorconfig`)
 - Maximum line length: 150 characters
 - Indent with 2 spaces (not tabs)
@@ -92,6 +105,7 @@ This runs:
 **When writing tests use XUnit and AutoData.**
 
 **Class tests** use NSubstitute and Shouldly:
+
 - Use fields or properties for the instance being tested
 - Store any constructor parameters of the instance being tested in private fields
 - NSubstitute Returns should always use a local variable
@@ -101,6 +115,7 @@ This runs:
 **Component tests** use Shouldly or Verify.
 
 **Renderer class tests:**
+
 - Should inherit from RendererClassTestBase
 - Use its Renderer property for the instance being tested
 - Check the Structured output using `.ToLines(false)`
@@ -108,6 +123,7 @@ This runs:
 **Test naming convention:** Follow the `MethodUnderTest_StateUnderTest_ExpectedResult` pattern as documented in Conventions.md.
 
 ### Important Restrictions
+
 - Do not use `any` type in TypeScript (not applicable for this C# project, but avoid dynamic types)
 - All code must build without warnings (TreatWarningsAsErrors is enabled)
 - Follow the existing test structure and patterns

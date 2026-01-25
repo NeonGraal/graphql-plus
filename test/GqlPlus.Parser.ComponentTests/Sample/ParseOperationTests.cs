@@ -8,6 +8,7 @@ public class ParseOperationTests(
     Parser<IGqlpOperation>.D operationParser
 ) : SampleChecks
 {
+
   private readonly Parser<IGqlpOperation>.L _operation = operationParser;
 
   [Theory]
@@ -43,6 +44,6 @@ public class ParseOperationTests(
     }
 
     TestContext.Current.AddAttachment("Operation " + test, target);
-    await Verify(target, CustomSettings("Operation", label, test));
+    await Verify(target, CustomSettings("Operation", TestLabel, test));
   }
 }

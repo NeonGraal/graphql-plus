@@ -19,8 +19,8 @@ public class DirectivesEncoderTests
   public void Encode_WithValidDirectivesModel_ReturnsStructured(string name)
   {
     // Arrange
-    BaseTypeModel type = new TypeInputModel(name, "");
-    DirectiveModel directive = new(name, "");
+    BaseTypeModel type = new TypeInputModel(name, string.Empty);
+    DirectiveModel directive = new(name, string.Empty);
     _baseType.Encode(type).Returns(new Structured(name, "Input"));
     _directive.Encode(directive).Returns(new Structured(name, "Directive"));
 

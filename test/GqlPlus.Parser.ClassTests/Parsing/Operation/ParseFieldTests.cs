@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseFieldTests
   : ModifiersClassTestBase
 {
+
   private readonly ParseField _parseField;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
   private readonly IParserArg _argumentParser;
@@ -35,7 +36,7 @@ public class ParseFieldTests
     IGqlpSelection[] selections = ParseOkA(_objectParser);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpField>>()
@@ -56,7 +57,7 @@ public class ParseFieldTests
     IdentifierReturns(OutFail);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -70,7 +71,7 @@ public class ParseFieldTests
     TakeReturns(':', true);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -84,7 +85,7 @@ public class ParseFieldTests
     ParseModifiersError();
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpField>>();
@@ -98,7 +99,7 @@ public class ParseFieldTests
     ParseErrorA(_objectParser);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpField>>();
@@ -112,7 +113,7 @@ public class ParseFieldTests
     ParseErrorA(_directivesParser);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpField>>();

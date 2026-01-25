@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Globals;
 public class ParseCategoryDefinitionTests
   : ModifiersClassTestBase
 {
+
   private readonly Parser<IGqlpTypeRef>.I _typeRefParser;
   private readonly ParseCategoryDefinition _parser;
 
@@ -27,7 +28,7 @@ public class ParseCategoryDefinitionTests
     TakeReturns('}', true);
 
     // Act
-    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<CategoryOutput>>();
@@ -40,7 +41,7 @@ public class ParseCategoryDefinitionTests
     ParseError(_typeRefParser);
 
     // Act
-    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -54,7 +55,7 @@ public class ParseCategoryDefinitionTests
     ParseModifiersError();
 
     // Act
-    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<CategoryOutput>>();

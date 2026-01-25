@@ -3,13 +3,14 @@
 public class ParseVarTypeTests
   : ParserClassTestBase
 {
+
   private readonly ParseVarType _parseVarType;
 
   public ParseVarTypeTests()
   {
     _parseVarType = new ParseVarType();
 
-    SetupPartial("");
+    SetupPartial(string.Empty);
     SetupError<string>();
   }
 
@@ -20,7 +21,7 @@ public class ParseVarTypeTests
     IdentifierReturns(OutString(identifier));
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<string>>()
@@ -35,7 +36,7 @@ public class ParseVarTypeTests
     TakeReturns('!', true);
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<string>>()
@@ -51,7 +52,7 @@ public class ParseVarTypeTests
     TakeReturns(']', true);
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<string>>()
@@ -66,7 +67,7 @@ public class ParseVarTypeTests
     IdentifierReturns(OutFail);
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -81,7 +82,7 @@ public class ParseVarTypeTests
     TakeReturns(']', false);
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<string>>();
@@ -95,7 +96,7 @@ public class ParseVarTypeTests
     TakeReturns('[', false);
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

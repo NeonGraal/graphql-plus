@@ -6,6 +6,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainTrueFalseTests
   : ParseDomainClassTestBase<IGqlpDomainTrueFalse>
 {
+
   [Fact]
   public void Parse_ShouldReturnPartial_WhenNotBoolean()
   {
@@ -14,7 +15,7 @@ public class ParseDomainTrueFalseTests
     SetupPartial<IGqlpDomainTrueFalse>();
 
     // Act
-    IResult<IGqlpDomainTrueFalse> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainTrueFalse> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpDomainTrueFalse>>();
@@ -29,7 +30,7 @@ public class ParseDomainTrueFalseTests
     SetupPartial<IGqlpDomainTrueFalse>();
 
     // Act
-    IResult<IGqlpDomainTrueFalse> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainTrueFalse> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpDomainTrueFalse>>();
@@ -44,7 +45,7 @@ public class ParseDomainTrueFalseTests
     ParseOkA(ItemsParser, []);
 
     // Act
-    IResult<DomainDefinition> result = Parser.Parser(Tokenizer, "testLabel", initial);
+    IResult<DomainDefinition> result = Parser.Parser(Tokenizer, TestLabel, initial);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<DomainDefinition>>();
@@ -57,7 +58,7 @@ public class ParseDomainTrueFalseTests
   internal override ParseDomainItem<IGqlpDomainTrueFalse> MakeParser(Parser<IGqlpDomainTrueFalse>.DA itemsParser)
     => new ParseDomainTrueFalse(itemsParser);
   protected override IGqlpDomainTrueFalse NewItem()
-    => new DomainTrueFalseAst(AstNulls.At, "", false, false);
+    => new DomainTrueFalseAst(AstNulls.At, string.Empty, false, false);
 
   protected override void ArrangeValidItem()
     => IdentifierReturns(OutString(BuiltIn.BooleanTrue));

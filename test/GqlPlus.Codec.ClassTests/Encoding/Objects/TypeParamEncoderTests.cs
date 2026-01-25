@@ -17,7 +17,7 @@ public class TypeParamEncoderTests
   [Theory, RepeatData]
   public void Encode_WithValidModel_ReturnsStructured(string input, string contents, string typeName)
   {
-    TypeRefModel<TypeKindModel> typeRef = new(TypeKindModel.Special, typeName, "");
+    TypeRefModel<TypeKindModel> typeRef = new(TypeKindModel.Special, typeName, string.Empty);
 
     EncodeReturnsMap(_typeKind, "_TypeRef", typeName);
 

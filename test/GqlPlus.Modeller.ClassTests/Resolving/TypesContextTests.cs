@@ -17,7 +17,7 @@ public class TypesContextTests
   [Fact]
   public void TypesContext_DefinesString_TypeKindAndModel()
   {
-    BaseTypeModel model = new SpecialTypeModel("special", "");
+    BaseTypeModel model = new SpecialTypeModel("special", string.Empty);
     TryModelReturns(Modeller, model);
 
     TypesContext result = TypesContext.WithBuiltins(Modeller);

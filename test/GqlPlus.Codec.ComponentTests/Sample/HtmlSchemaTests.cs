@@ -10,6 +10,7 @@ public class HtmlSchemaTests(
   ISchemaVerifyChecks checks
 ) : TestSchemaVerify(checks)
 {
+
   [Fact]
   public async Task Index_Schema()
   {
@@ -73,8 +74,8 @@ public class HtmlSchemaTests(
   {
     Structured result = checks.Encode_Model(model, context);
     await result.ThrowIfNull()
-      .Add("title", new(label))
-      .WriteHtmlFileAsync(new string[] { label, section }.Joined("/"), test);
+      .Add("title", new(TestLabel))
+      .WriteHtmlFileAsync(new string[] { TestLabel, section }.Joined("/"), test);
   }
   public override string ResultGroup => "Html";
   protected override Task VerifyResult(string target, VerifySettings settings)

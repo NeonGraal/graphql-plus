@@ -3,6 +3,7 @@
 public abstract class TestSchemaInputs
   : SampleChecks
 {
+
   [Fact]
   public async Task Test_All()
     => await Label_Inputs("Schema", await SchemaValidDataAll(), "!ALL");
@@ -65,7 +66,7 @@ public abstract class TestSchemaInputs
   {
     string schema = inputs.Joined(Environment.NewLine);
 
-    await Label_Input(label, schema, [label], test);
+    await Label_Input(TestLabel, schema, [TestLabel], test);
   }
 
   protected virtual Task Sample_Input(string input, string section, string test)

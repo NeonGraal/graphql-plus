@@ -3,6 +3,7 @@
 public class ParseConstantTests
   : ParserClassTestBase
 {
+
   private readonly ParseConstant _parseConstant;
 
   private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
@@ -27,7 +28,7 @@ public class ParseConstantTests
     ParseOk(_fieldKeyParser);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()
@@ -45,7 +46,7 @@ public class ParseConstantTests
     ParseOkA(_listParser);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()
@@ -64,7 +65,7 @@ public class ParseConstantTests
     ParseOkField(_objectParser, fieldName);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()

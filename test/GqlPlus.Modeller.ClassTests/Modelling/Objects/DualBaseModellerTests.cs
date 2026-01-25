@@ -37,7 +37,7 @@ public class ObjBaseModellerTests
     IGqlpTypeArg arg = A.Named<IGqlpTypeArg>(argName);
     ast.Args.Returns([arg]);
 
-    TypeArgModel argModel = new(TypeKindModel.Dual, argName, "");
+    TypeArgModel argModel = new(TypeKindModel.Dual, argName, string.Empty);
     ToModelReturns(_objArg, argModel);
 
     // Act

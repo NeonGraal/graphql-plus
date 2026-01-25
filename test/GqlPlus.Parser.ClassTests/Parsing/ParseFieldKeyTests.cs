@@ -3,6 +3,7 @@
 public class ParseFieldKeyTests
   : ParserClassTestBase
 {
+
   private readonly ParseFieldKey _parseFieldKey;
 
   private readonly Parser<IGqlpEnumValue>.I _parseEnumValue;
@@ -21,7 +22,7 @@ public class ParseFieldKeyTests
     Tokenizer.Number(out decimal _).Returns(OutNumber(value));
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
@@ -35,7 +36,7 @@ public class ParseFieldKeyTests
     Tokenizer.String(out string? _).Returns(OutString(contents));
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
@@ -46,14 +47,14 @@ public class ParseFieldKeyTests
   public void Parse_ShouldReturnFieldKeyResult_WhenEmptyStringTokenIsParsed()
   {
     // Arrange
-    Tokenizer.String(out string? _).Returns(OutString(""));
+    Tokenizer.String(out string? _).Returns(OutString(string.Empty));
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
-      .Required().Text.ShouldBe("");
+      .Required().Text.ShouldBe(string.Empty);
   }
 
   [Fact]
@@ -65,7 +66,7 @@ public class ParseFieldKeyTests
     ParseOk(_parseEnumValue);
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
@@ -81,7 +82,7 @@ public class ParseFieldKeyTests
     ParseError(_parseEnumValue);
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -96,7 +97,7 @@ public class ParseFieldKeyTests
     ParseEmpty(_parseEnumValue);
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

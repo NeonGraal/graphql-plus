@@ -12,7 +12,7 @@ public class ConstantAstTests
   [Theory, RepeatData]
   public void HashCode_WithValue(string value)
     => _checks.HashCode(
-      () => new ConstantAst(new FieldKeyAst(AstNulls.At, "", value)));
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, string.Empty, value)));
 
   [Theory, RepeatData]
   public void HashCode_WithEnumTypeAndValue(string enumType, string value)
@@ -20,9 +20,9 @@ public class ConstantAstTests
       () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, value)));
 
   [Theory, RepeatData]
-  public void HashCode_WithEnumType(string enumType)
+  public void HashCode_WithEnumType(string enumType, string value)
     => _checks.HashCode(
-      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, "value")));
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, value)));
 
   [Theory, RepeatData]
   public void HashCode_WithValues(string value)
@@ -47,10 +47,10 @@ public class ConstantAstTests
       $"( !k {enumType}.{value} )");
 
   [Theory, RepeatData]
-  public void Text_WithEnumType(string enumType)
+  public void Text_WithEnumType(string enumType, string value)
     => _checks.Text(
-      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, "value")),
-      $"( !k {enumType}.value )");
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, value)),
+      $"( !k {enumType}.{value} )");
 
   [Theory, RepeatData]
   public void Text_WithValues(string value)
@@ -76,9 +76,9 @@ public class ConstantAstTests
       () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, value)));
 
   [Theory, RepeatData]
-  public void Equality_WithEnumType(string enumType)
+  public void Equality_WithEnumType(string enumType, string value)
     => _checks.Equality(
-      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, "value")));
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, value)));
 
   [Theory, RepeatData]
   public void Inequality_WithValue(string value)
@@ -93,9 +93,9 @@ public class ConstantAstTests
       enumType == value);
 
   [Theory, RepeatData]
-  public void Inequality_WithEnumType(string enumType)
+  public void Inequality_WithEnumType(string enumType, string value)
     => _checks.InequalityBetween(enumType, enumType + "a",
-      e => new ConstantAst(new FieldKeyAst(AstNulls.At, e, "value")));
+      e => new ConstantAst(new FieldKeyAst(AstNulls.At, e, value)));
 
   [Theory, RepeatData]
   public void Equality_WithValues(string value)

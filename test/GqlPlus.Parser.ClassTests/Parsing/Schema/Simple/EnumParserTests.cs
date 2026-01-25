@@ -4,6 +4,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 public class EnumParserTests : ParserClassTestBase
 {
+
   private readonly EnumParser<CategoryOption> _parser;
 
   public EnumParserTests()
@@ -16,7 +17,7 @@ public class EnumParserTests : ParserClassTestBase
     IdentifierReturns(OutString("Parallel"));
 
     // Act
-    IResult<CategoryOption> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOption> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<CategoryOption>>()
@@ -31,7 +32,7 @@ public class EnumParserTests : ParserClassTestBase
     SetupError<CategoryOption>();
 
     // Act
-    IResult<CategoryOption> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOption> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -44,7 +45,7 @@ public class EnumParserTests : ParserClassTestBase
     IdentifierReturns(OutFail);
 
     // Act
-    IResult<CategoryOption> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOption> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

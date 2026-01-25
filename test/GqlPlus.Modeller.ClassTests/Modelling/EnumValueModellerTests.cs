@@ -3,15 +3,16 @@
 public class EnumValueModellerTests
   : ModellerClassTestBase<IGqlpEnumValue, EnumValueModel>
 {
+
   private readonly EnumValueModeller _modeller = new();
 
   protected override IModeller<IGqlpEnumValue, EnumValueModel> Modeller => _modeller;
 
   [Theory, RepeatData]
-  public void ToModel_WithTypeAndLabel_ReturnsExpected(string type, string label)
+  public void ToModel_WithTypeAndLabel_ReturnsExpected(string type)
   {
     // Arrange
-    IGqlpEnumValue ast = A.EnumValue(type, label);
+    IGqlpEnumValue ast = A.EnumValue(type, TestLabel);
 
     // Act
     EnumValueModel result = Modeller.ToModel(ast, TypeKinds);
@@ -20,6 +21,6 @@ public class EnumValueModellerTests
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(type),
-        r => r.Label.ShouldBe(label));
+        r => r.Label.ShouldBe(TestLabel));
   }
 }

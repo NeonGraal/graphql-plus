@@ -10,13 +10,14 @@ public class SchemaParseChecks(
 ) : SampleChecks
   , ISchemaParseChecks
 {
+
   private readonly Parser<IGqlpSchema>.L _schemaParser = schemaParser;
 
   public IResult<IGqlpSchema> Parse(string schema, string label)
-    => _schemaParser.Parse(new Tokenizer(schema), label);
+    => _schemaParser.Parse(new Tokenizer(schema), TestLabel);
 
   public IGqlpSchema ParseInput(string schema, string label)
-    => Parse(schema, label).Required();
+    => Parse(schema, TestLabel).Required();
 }
 
 public interface ISchemaParseChecks

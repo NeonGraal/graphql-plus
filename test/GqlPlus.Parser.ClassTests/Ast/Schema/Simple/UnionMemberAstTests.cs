@@ -12,5 +12,5 @@ public partial class UnionMemberAstTests
      (original, input) => original with { Name = input });
 
   private static UnionMemberAst CreateMember(string input)
-    => new(AstNulls.At, input, "");
+    => new(AstNulls.At, input, string.Empty);
 }

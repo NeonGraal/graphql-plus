@@ -1,5 +1,4 @@
-﻿
-namespace GqlPlus.Ast.Schema.Simple;
+﻿namespace GqlPlus.Ast.Schema.Simple;
 
 public partial class DomainRangeAstTests
 {
@@ -14,5 +13,5 @@ public partial class DomainRangeAstTests
   private static DomainRangeAst CloneRange(DomainRangeAst original, DomainRangeInput input)
     => original with { Lower = input.Lower, Upper = input.Upper };
   private static DomainRangeAst CreateRange(DomainRangeInput input)
-    => new(AstNulls.At, "", false, input.Lower, input.Upper);
+    => new(AstNulls.At, string.Empty, false, input.Lower, input.Upper);
 }

@@ -12,9 +12,9 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   [Theory, RepeatData]
   public void Verify_WithField_ReturnsNoErrors(string fieldName)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    ObjectField(TheBuilder, fieldName, "String");
+    ObjectField(TheBuilder, fieldName, BuiltIn.StringType);
 
     Verify_NoErrors();
   }
@@ -31,9 +31,9 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
 
   public void Verify_WithFieldSameModifier_ReturnsErrors(ModifierKind kind, string name, string fieldName)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    ObjectField(TheBuilder, fieldName, name, f => f.WithModifier(kind, "String"));
+    ObjectField(TheBuilder, fieldName, name, f => f.WithModifier(kind, BuiltIn.StringType));
 
     Verify_Errors("cannot be a field of itself", name);
   }
@@ -56,11 +56,11 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   {
     this.SkipEqual(typeName, name);
 
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
     DefineObject(typeName, o =>
       ObjectField(o, fieldName, name, f => f
-        .WithModifier(kind, "String")));
+        .WithModifier(kind, BuiltIn.StringType)));
 
     ObjectField(TheBuilder, fieldName, typeName);
 
@@ -85,11 +85,11 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   {
     this.SkipEqual(typeName, name);
 
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
     DefineObject(typeName, o => o.WithParent(name));
 
-    ObjectField(TheBuilder, fieldName, typeName, f => f.WithModifier(kind, "String"));
+    ObjectField(TheBuilder, fieldName, typeName, f => f.WithModifier(kind, BuiltIn.StringType));
 
     Verify_Errors("cannot be a field of itself", name);
   }
@@ -109,11 +109,11 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   [Theory, RepeatData]
   public void Verify_WithFieldKeyParam_ReturnsNoErrors(string fieldName, string paramName)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    TheBuilder.WithTypeParam(paramName, "String");
+    TheBuilder.WithTypeParam(paramName, BuiltIn.StringType);
 
-    ObjectField(TheBuilder, fieldName, "String", f => f.WithModifier(ModifierKind.Param, paramName));
+    ObjectField(TheBuilder, fieldName, BuiltIn.StringType, f => f.WithModifier(ModifierKind.Param, paramName));
 
     Verify_NoErrors();
   }
@@ -121,9 +121,9 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   [Theory, RepeatData]
   public void Verify_WithFieldDict_ReturnsNoErrors(string fieldName, string key)
   {
-    Define(A.DomainString("String"), A.DomainString(key));
+    Define(A.DomainString(BuiltIn.StringType), A.DomainString(key));
 
-    ObjectField(TheBuilder, fieldName, "String", f => f.WithModifier(ModifierKind.Dict, key));
+    ObjectField(TheBuilder, fieldName, BuiltIn.StringType, f => f.WithModifier(ModifierKind.Dict, key));
 
     Verify_NoErrors();
   }
@@ -131,9 +131,9 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   [Theory, RepeatData]
   public void Verify_WithFieldDictUndefined_ReturnsError(string fieldName, string key)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    ObjectField(TheBuilder, fieldName, "String", f => f.WithModifier(ModifierKind.Dict, key));
+    ObjectField(TheBuilder, fieldName, BuiltIn.StringType, f => f.WithModifier(ModifierKind.Dict, key));
 
     Verify_Errors("not defined");
   }
@@ -141,11 +141,11 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   [Theory, RepeatData]
   public void Verify_WithFieldDictParam_ReturnsNoErrors(string fieldName, string paramName, string constraint)
   {
-    Define(A.DomainString("String"), A.DomainString(constraint));
+    Define(A.DomainString(BuiltIn.StringType), A.DomainString(constraint));
 
     TheBuilder.WithTypeParam(paramName, constraint);
 
-    ObjectField(TheBuilder, fieldName, "String", f => f.WithModifier(ModifierKind.Param, paramName));
+    ObjectField(TheBuilder, fieldName, BuiltIn.StringType, f => f.WithModifier(ModifierKind.Param, paramName));
 
     Verify_NoErrors();
   }
@@ -153,9 +153,9 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   [Theory, RepeatData]
   public void Verify_WithFieldDictParamUndefined_ReturnsNoErrors(string fieldName, string paramName)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    ObjectField(TheBuilder, fieldName, "String", f => f.WithModifier(ModifierKind.Param, paramName));
+    ObjectField(TheBuilder, fieldName, BuiltIn.StringType, f => f.WithModifier(ModifierKind.Param, paramName));
 
     Verify_Errors("not defined");
   }
@@ -163,9 +163,9 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   [Theory, RepeatData]
   public void Verify_WithParentField_ReturnsNoErrors(string fieldName, string parentName)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    DefineObject(parentName, o => ObjectField(o, fieldName, "String"));
+    DefineObject(parentName, o => ObjectField(o, fieldName, BuiltIn.StringType));
 
     TheBuilder.WithParent(parentName);
 

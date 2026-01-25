@@ -20,5 +20,5 @@ internal sealed class DomainRegexAstChecks()
     => $"( !DX /{input}/ )";
 
   internal static DomainRegexAst CreateRegex(string input)
-    => new(AstNulls.At, "", false, input);
+    => new(AstNulls.At, string.Empty, false, input);
 }

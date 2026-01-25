@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Structures;
+﻿using GqlPlus.Abstractions.Schema;
+
+namespace GqlPlus.Structures;
 
 public class StructuredTests
 {
@@ -461,7 +463,7 @@ public class StructuredTests
   public void AddSet_WithFlags_IsCorrect(string key, FlagsForTesting check)
   {
     Structured value = new Map<Structured>().Encode();
-    Map<string> flags = check.FlagNames().ToMap(k => k, v => "_");
+    Map<string> flags = check.FlagNames().ToMap(k => k, v => BuiltIn.UnitValue);
 
     value.AddSet(key, check);
 
@@ -472,7 +474,7 @@ public class StructuredTests
   public void AddSet_WithTagFlags_IsCorrect(string key, FlagsForTesting check, string tag)
   {
     Structured value = new Map<Structured>().Encode();
-    Map<string> flags = check.FlagNames().ToMap(k => k, v => "_");
+    Map<string> flags = check.FlagNames().ToMap(k => k, v => BuiltIn.UnitValue);
 
     value.AddSet(key, check, tag);
 

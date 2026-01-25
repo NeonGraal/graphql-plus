@@ -68,7 +68,7 @@ internal sealed class ObjBaseAstChecks()
   private static ObjBaseAst CloneBase(ObjBaseAst original, string input)
     => original with { Name = input };
   internal static ObjBaseAst CreateBase(string input)
-    => new(AstNulls.At, input, "");
+    => new(AstNulls.At, input, string.Empty);
 
   public void HashCode_WithIsTypeParam(string input)
       => HashCode(() => CreateBase(input) with { IsTypeParam = true });

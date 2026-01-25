@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseUnionTests
   : DeclarationClassTestBase
 {
+
   private readonly Parser<UnionDefinition>.I _definition;
   private readonly ParseUnion _parser;
 
@@ -22,7 +23,7 @@ public class ParseUnionTests
     ParseOk(_definition, new UnionDefinition());
 
     // Act
-    IResult<IGqlpUnion> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpUnion> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpUnion>>();
@@ -36,7 +37,7 @@ public class ParseUnionTests
     SetupError<IGqlpUnion>();
 
     // Act
-    IResult<IGqlpUnion> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpUnion> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

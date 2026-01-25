@@ -6,6 +6,7 @@ namespace GqlPlus;
 [TracePerTest]
 public class TokenizerTests
 {
+
   [SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance")]
   private static ITokenizer PrepareTokens(string input)
   {
@@ -426,59 +427,59 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData]
-  public void Error_LabelAndExpected_ReturnsCorrect(string label, string expected)
+  public void Error_LabelAndExpected_ReturnsCorrect(string expected)
   {
     Tokenizer tokens = new("");
-    string message = $"Invalid {label}. Expected {expected}.";
+    string message = $"Invalid {TestLabel}. Expected {expected}.";
 
-    TokenMessage result = tokens.Error(label, expected);
+    TokenMessage result = tokens.Error(TestLabel, expected);
 
     CheckParseError(result, TokenKind.Start, "<END>", message, 0, 0);
   }
 
   [Theory, RepeatData]
-  public void Error_Result_ReturnsCorrect(string data, string label, string expected)
+  public void Error_Result_ReturnsCorrect(string data, string expected)
   {
     Tokenizer tokens = new("");
-    string message = $"Invalid {label}. Expected {expected}.";
+    string message = $"Invalid {TestLabel}. Expected {expected}.";
 
-    IResult<string> result = tokens.Error(label, expected, data);
+    IResult<string> result = tokens.Error(TestLabel, expected, data);
 
     result.ShouldBeAssignableTo<IResultError<string>>()
       .Message.Message.ShouldBe(message);
   }
 
   [Theory, RepeatData]
-  public void ErrorArray_Result_ReturnsCorrect(string data, string label, string expected)
+  public void ErrorArray_Result_ReturnsCorrect(string data, string expected)
   {
     Tokenizer tokens = new("");
-    string message = $"Invalid {label}. Expected {expected}.";
+    string message = $"Invalid {TestLabel}. Expected {expected}.";
 
-    IResultArray<string> result = tokens.ErrorArray(label, expected, [data]);
+    IResultArray<string> result = tokens.ErrorArray(TestLabel, expected, [data]);
 
     result.ShouldBeAssignableTo<IResultArrayError<string>>()
       .Message.Message.ShouldBe(message);
   }
 
   [Theory, RepeatData]
-  public void Partial_Result_ReturnsCorrect(string data, string label, string expected)
+  public void Partial_Result_ReturnsCorrect(string data, string expected)
   {
     Tokenizer tokens = new("");
-    string message = $"Invalid {label}. Expected {expected}.";
+    string message = $"Invalid {TestLabel}. Expected {expected}.";
 
-    IResult<string> result = tokens.Partial(label, expected, () => data);
+    IResult<string> result = tokens.Partial(TestLabel, expected, () => data);
 
     result.ShouldBeAssignableTo<IResultPartial<string>>()
       .Message.Message.ShouldBe(message);
   }
 
   [Theory, RepeatData]
-  public void PartialArray_Result_ReturnsCorrect(string data, string label, string expected)
+  public void PartialArray_Result_ReturnsCorrect(string data, string expected)
   {
     Tokenizer tokens = new("");
-    string message = $"Invalid {label}. Expected {expected}.";
+    string message = $"Invalid {TestLabel}. Expected {expected}.";
 
-    IResultArray<string> result = tokens.PartialArray<string>(label, expected, () => [data]);
+    IResultArray<string> result = tokens.PartialArray<string>(TestLabel, expected, () => [data]);
 
     result.ShouldBeAssignableTo<IResultArrayPartial<string>>()
       .Message.Message.ShouldBe(message);

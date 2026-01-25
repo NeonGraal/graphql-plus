@@ -8,6 +8,7 @@ public class ParseOperationTests(
     Parser<IGqlpOperation>.D operationParser
 ) : SampleChecks
 {
+
   private readonly Parser<IGqlpOperation>.L _operation = operationParser;
 
   [Theory]

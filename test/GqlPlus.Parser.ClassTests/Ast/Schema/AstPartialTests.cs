@@ -16,7 +16,7 @@ public partial class AstPartialTests
       (original, input) => original with { Name = input });
 
   internal static AstPartial<NullAst, NullOption> CreatePartial(string input)
-    => new(AstNulls.At, input, "");
+    => new(AstNulls.At, input, string.Empty);
 }
 
 internal sealed class AstPartialChecks()

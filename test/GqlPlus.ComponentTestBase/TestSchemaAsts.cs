@@ -6,6 +6,7 @@ public abstract class TestSchemaAsts(
   ISchemaParseChecks checks
 ) : TestSchemaInputs
 {
+
   protected override async Task Label_Input(string label, string input, string[] dirs, string test, string section)
   {
     TestContext.Current.AddAttachment("Input " + test, input);

@@ -4,6 +4,7 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 public class ParseOptionSettingTests : ParserClassTestBase
 {
+
   private readonly IParserDefault _defaultParser;
   private readonly ParseOptionSetting _parser;
 
@@ -22,7 +23,7 @@ public class ParseOptionSettingTests : ParserClassTestBase
     ParseOk(_defaultParser);
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaSetting>>();
@@ -37,7 +38,7 @@ public class ParseOptionSettingTests : ParserClassTestBase
     SetupError<IGqlpSchemaSetting>();
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -52,7 +53,7 @@ public class ParseOptionSettingTests : ParserClassTestBase
     SetupError<IGqlpSchemaSetting>();
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -65,7 +66,7 @@ public class ParseOptionSettingTests : ParserClassTestBase
     IdentifierReturns(OutFail);
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

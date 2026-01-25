@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema;
 public class ParseDeclarationTests
   : ParserClassTestBase
 {
+
   private readonly DeclarationSelector<IGqlpDeclaration> _selector = new("category");
   private readonly Parser<IGqlpDeclaration>.I _declaration;
   private readonly Parser<IGqlpDeclaration>.D _declarationFactory;
@@ -23,7 +24,7 @@ public class ParseDeclarationTests
     ParseOk(_declaration);
 
     // Act
-    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, "testLabel");
+    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDeclaration>>();
@@ -37,7 +38,7 @@ public class ParseDeclarationTests
     SetupError<IGqlpDeclaration>();
 
     // Act
-    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, "testLabel");
+    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError<IGqlpDeclaration>>();

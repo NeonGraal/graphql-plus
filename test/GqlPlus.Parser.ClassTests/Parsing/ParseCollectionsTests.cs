@@ -3,6 +3,7 @@
 public class ParseCollectionsTests
   : ParserClassTestBase
 {
+
   private readonly ParseCollections _parseCollections = new();
 
   [Fact]
@@ -12,7 +13,7 @@ public class ParseCollectionsTests
     TakeReturns('[', false);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
@@ -27,7 +28,7 @@ public class ParseCollectionsTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
@@ -45,7 +46,7 @@ public class ParseCollectionsTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
@@ -58,7 +59,10 @@ public class ParseCollectionsTests
       );
   }
 
-  [Theory, InlineData('^'), InlineData('_'), InlineData('*')]
+  [Theory]
+  [RepeatInlineData('^')]
+  [RepeatInlineData('_')]
+  [RepeatInlineData('*')]
   public void Parse_ShouldReturnDictModifier_WhenCharKeyProvided(char key)
   {
     // Arrange
@@ -67,7 +71,7 @@ public class ParseCollectionsTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
@@ -90,7 +94,7 @@ public class ParseCollectionsTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
@@ -113,7 +117,7 @@ public class ParseCollectionsTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
@@ -136,7 +140,7 @@ public class ParseCollectionsTests
     SetupPartial<IGqlpModifier>();
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpModifier>>()
@@ -151,7 +155,7 @@ public class ParseCollectionsTests
     SetupPartial<IGqlpModifier>();
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeOfType<ResultArrayPartial<IGqlpModifier>>();

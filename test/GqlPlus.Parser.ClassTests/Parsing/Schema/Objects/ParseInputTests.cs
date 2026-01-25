@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseInputTests
   : DeclarationClassTestBase
 {
+
   private readonly Parser<IGqlpTypeParam>.IA _param;
   private readonly Parser<ObjectDefinition<IGqlpInputField>>.I _definition;
   private readonly ObjectParser<IGqlpInputField> _parser;
@@ -25,7 +26,7 @@ public class ParseInputTests
     ParseOk(_definition, new ObjectDefinition<IGqlpInputField>());
 
     // Act
-    IResult<IGqlpObject<IGqlpInputField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpObject<IGqlpInputField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpObject<IGqlpInputField>>>();
@@ -39,7 +40,7 @@ public class ParseInputTests
     SetupError<IGqlpObject<IGqlpInputField>>();
 
     // Act
-    IResult<IGqlpObject<IGqlpInputField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpObject<IGqlpInputField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

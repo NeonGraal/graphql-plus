@@ -14,7 +14,7 @@ public partial class AlternateAstTests
     (original, input) => original with { Name = input.Type });
 
   internal static AlternateAst CreateAlternate(TypeInput input)
-    => new(AstNulls.At, input.Type, "");
+    => new(AstNulls.At, input.Type, input.Type);
 }
 
 internal sealed class AlternateEnumChecks()

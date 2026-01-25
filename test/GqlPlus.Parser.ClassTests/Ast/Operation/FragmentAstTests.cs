@@ -2,9 +2,9 @@
 
 public partial class FragmentAstTests
 {
-  [Fact]
-  public void HashCode_Null()
-    => _checks.HashCode(() => new FragmentAst(AstNulls.At, "", ""));
+  [Theory, RepeatData]
+  public void HashCode_Null(string name, string onType)
+    => _checks.HashCode(() => new FragmentAst(AstNulls.At, name, onType));
 
   [Theory, RepeatData]
   public void Inequality_BetweenName(string name1, string name2, string onType, string[] fields)

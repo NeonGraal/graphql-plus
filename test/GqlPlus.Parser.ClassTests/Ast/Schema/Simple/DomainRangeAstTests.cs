@@ -1,4 +1,5 @@
-﻿
+﻿using System.Globalization;
+
 namespace GqlPlus.Ast.Schema.Simple;
 
 public partial class DomainRangeAstTests
@@ -14,5 +15,5 @@ public partial class DomainRangeAstTests
   private static DomainRangeAst CloneRange(DomainRangeAst original, DomainRangeInput input)
     => original with { Lower = input.Lower, Upper = input.Upper };
   private static DomainRangeAst CreateRange(DomainRangeInput input)
-    => new(AstNulls.At, "", false, input.Lower, input.Upper);
+    => new(AstNulls.At, (input.Lower ?? input.Upper ?? 0m).ToString(CultureInfo.InvariantCulture), false, input.Lower, input.Upper);
 }

@@ -14,7 +14,7 @@ internal sealed class OutputDeclAstChecks
   : AstObjectChecks<IGqlpOutputField>
 {
   public OutputDeclAstChecks()
-    : base(TypeKind.Output, parent => new ObjBaseAst(AstNulls.At, parent, ""))
+    : base(TypeKind.Output, parent => new ObjBaseAst(AstNulls.At, parent, parent))
   { }
 
   protected override IGqlpOutputField[] CreateFields(IEnumerable<FieldInput> fields)

@@ -1,14 +1,113 @@
-Follow the development conventions documented in [Conventions.md](../Conventions.md).
+# Copilot Instructions for GraphQL+
 
-When writing tests use Xunit and AutoData.
+## Project Overview
 
-Class tests use NSubstitute and Shouldly and should use fields or properties for the instance being tested.
-Any constructor parameters of the instance being tested should be stored in private fields.
-NSubstitute Returns should always use a local variable.
-String and other primitive constants should be specified via test parameters.
-Tests with parameters should have Theory and RepeatData attributes.
+GraphQL+ is a successor to GraphQL, implementing a parser, merging verifier, and modeller in C# .NET. The project provides tools for parsing, verifying, and modeling GraphQL+ schemas and queries.
 
-Component tests use Shouldly or Verify.
+## Tech Stack
 
-Renderer class tests should inherit from RendererClassTestBase and it's Renderer property for the instance being tested.
-Renderer class tests should check the Structured output using `.ToLines(false)`
+**Language & Framework:**
+- C# with .NET 10.0, 9.0, and 8.0 (multi-targeted)
+- Latest C# language features enabled
+- Nullable reference types enabled
+- File-scoped namespaces preferred
+
+**Testing Frameworks:**
+- XUnit v3 for test framework
+- AutoFixture with AutoData for test data generation
+- NSubstitute for mocking
+- Shouldly for assertions
+- Verify for snapshot testing
+
+**Other Key Dependencies:**
+- YamlDotNet for YAML processing
+- Fluid for templating
+- System.Text.Json for JSON processing
+
+**Build & Development Tools:**
+- dotnet CLI for build, test, and restore
+- Prettier for non-C# formatting (via `format.ps1`)
+- dotnet format for C# code formatting
+- PowerShell scripts for automation
+- dprint for additional formatting
+
+## Build, Test, and Validation
+
+**Install Dependencies:**
+```powershell
+dotnet restore
+```
+
+**Build:**
+```powershell
+dotnet build
+```
+
+**Run All Tests:**
+```powershell
+./test.ps1
+```
+
+**Run Class Tests Only:**
+```powershell
+./test.ps1 -ClassTests
+```
+
+**Run Tests for Specific Framework:**
+```powershell
+./test.ps1 -Framework "10.0"
+```
+
+**Format Code:**
+```powershell
+./format.ps1
+```
+
+This runs:
+- Prettier for markdown, JSON, YAML, and other non-C# files
+- `dotnet format whitespace` for whitespace formatting
+- `dotnet format style` for code style
+- `dotnet format analyzers` for analyzer fixes
+
+**Coverage:**
+```powershell
+./coverage.ps1
+```
+
+## Coding Standards and Conventions
+
+**Follow the development conventions documented in [Conventions.md](../Conventions.md).**
+
+### Code Style
+- Use file-scoped namespaces (enforced via `.editorconfig`)
+- Maximum line length: 150 characters
+- Indent with 2 spaces (not tabs)
+- Use `using` directives outside namespace
+- Prefer expression-bodied members when on a single line
+- Prefer primary constructors
+- TreatWarningsAsErrors is enabled
+
+### Testing Standards
+
+**When writing tests use XUnit and AutoData.**
+
+**Class tests** use NSubstitute and Shouldly:
+- Use fields or properties for the instance being tested
+- Store any constructor parameters of the instance being tested in private fields
+- NSubstitute Returns should always use a local variable
+- String and other primitive constants should be specified via test parameters
+- Tests with parameters should have Theory and RepeatData attributes
+
+**Component tests** use Shouldly or Verify.
+
+**Renderer class tests:**
+- Should inherit from RendererClassTestBase
+- Use its Renderer property for the instance being tested
+- Check the Structured output using `.ToLines(false)`
+
+**Test naming convention:** Follow the `MethodUnderTest_StateUnderTest_ExpectedResult` pattern as documented in Conventions.md.
+
+### Important Restrictions
+- Do not use `any` type in TypeScript (not applicable for this C# project, but avoid dynamic types)
+- All code must build without warnings (TreatWarningsAsErrors is enabled)
+- Follow the existing test structure and patterns

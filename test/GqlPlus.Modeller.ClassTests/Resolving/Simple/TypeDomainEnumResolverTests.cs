@@ -15,7 +15,7 @@ public class TypeDomainEnumResolverTests
     };
     Context.AddModels([enumModel]);
 
-    DomainLabelModel itemModel = NewItem(new(enumType, "*"));
+    DomainLabelModel itemModel = NewItem(new(enumType, GqlpDomainLabelConstants.All));
     BaseDomainModel<DomainLabelModel> model = NewModel(name, "") with {
       Items = [itemModel],
     };
@@ -43,7 +43,7 @@ public class TypeDomainEnumResolverTests
     };
     Context.AddModels([enumModel]);
 
-    DomainLabelModel itemModel = NewItem(new(enumType, "*"));
+    DomainLabelModel itemModel = NewItem(new(enumType, GqlpDomainLabelConstants.All));
     DomainLabelModel excludeModel = new(enumType, labels.First(), true, "");
     BaseDomainModel<DomainLabelModel> model = NewModel(name, "") with {
       Items = [excludeModel, itemModel],
@@ -74,7 +74,7 @@ public class TypeDomainEnumResolverTests
     };
     Context.AddModels([enumModel, parentModel]);
 
-    DomainLabelModel itemModel = NewItem(new(enumType, "*"));
+    DomainLabelModel itemModel = NewItem(new(enumType, GqlpDomainLabelConstants.All));
     BaseDomainModel<DomainLabelModel> model = NewModel(name, "") with {
       Items = [itemModel],
     };
@@ -100,7 +100,7 @@ public class TypeDomainEnumResolverTests
       Items = [.. labels.Select(label => new AliasedModel(label, ""))],
       AllItems = [.. labels.Select(e => new EnumLabelModel(e, enumType, ""))]
     };
-    DomainLabelModel itemModel = NewItem(new(enumType, "*"));
+    DomainLabelModel itemModel = NewItem(new(enumType, GqlpDomainLabelConstants.All));
     BaseDomainModel<DomainLabelModel> parentModel = NewModel(parentName, "") with {
       Items = [itemModel],
     };

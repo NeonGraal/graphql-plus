@@ -23,8 +23,8 @@ public class TypesContextTests
     TypesContext result = TypesContext.WithBuiltins(Modeller);
 
     result.ShouldSatisfyAllConditions(
-      r => r["*"].ShouldBe(TypeKindModel.Basic),
-      r => r.TryGetType("", "*", out BaseTypeModel? _).ShouldBeTrue()
+      r => r[BuiltIn.StringAlias].ShouldBe(TypeKindModel.Basic),
+      r => r.TryGetType("", BuiltIn.StringAlias, out BaseTypeModel? _).ShouldBeTrue()
       );
   }
 }

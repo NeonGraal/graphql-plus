@@ -48,7 +48,7 @@ internal class TypeDomainEnumResolver
   private List<DomainLabel> ItemLabels(DomainLabelModel item, string domainName, ref int index, IResolveContext context)
   {
     List<DomainLabel> labels = [];
-    if (item.EnumValue.Label == "*") {
+    if (item.EnumValue.Label == GqlpDomainLabelConstants.All) {
       foreach (EnumValueModel enumLabel in AllLabels(item.EnumValue.Name, context)) {
         labels.Add(DomainLabel.FromLabel(domainName, enumLabel, item, ++index));
       }

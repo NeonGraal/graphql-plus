@@ -60,6 +60,11 @@ public interface IGqlpDomainLabel
   void SetEnumType(string enumType);
 }
 
+public static class GqlpDomainLabelConstants
+{
+  public static readonly string All = "*";
+}
+
 public interface IGqlpDomainRange
   : IGqlpDomainItem
   , IEquatable<IGqlpDomainRange>

@@ -20,14 +20,14 @@ public class ParseConstantTests
     _parseConstant = new ParseConstant(fieldKeyParser, keyValueParser, listParser, objectParser);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnFieldKeyResult_WhenFieldKeyHasValue()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnFieldKeyResult_WhenFieldKeyHasValue(string label)
   {
     // Arrange
     ParseOk(_fieldKeyParser);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()
@@ -38,14 +38,14 @@ public class ParseConstantTests
       );
   }
 
-  [Fact]
-  public void Parse_ShouldReturnListResult_WhenListParserSucceeds()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnListResult_WhenListParserSucceeds(string label)
   {
     // Arrange
     ParseOkA(_listParser);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()
@@ -57,14 +57,14 @@ public class ParseConstantTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnObjectResult_WhenListParserFailsAndObjectParserSucceeds(string fieldName)
+  public void Parse_ShouldReturnObjectResult_WhenListParserFailsAndObjectParserSucceeds(string fieldName, string label)
   {
     // Arrange
     ParseEmptyA(_listParser);
     ParseOkField(_objectParser, fieldName);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()

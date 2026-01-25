@@ -15,21 +15,21 @@ public class ParseOptionSettingTests : ParserClassTestBase
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOk_WhenValid(string setting)
+  public void Parse_ShouldReturnOk_WhenValid(string setting, string label)
   {
     // Arrange
     IdentifierReturns(OutString(setting));
     ParseOk(_defaultParser);
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaSetting>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenDefaultEmpty(string setting)
+  public void Parse_ShouldReturnError_WhenDefaultEmpty(string setting, string label)
   {
     // Arrange
     IdentifierReturns(OutString(setting));
@@ -37,14 +37,14 @@ public class ParseOptionSettingTests : ParserClassTestBase
     SetupError<IGqlpSchemaSetting>();
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenDefaultErrors(string setting)
+  public void Parse_ShouldReturnError_WhenDefaultErrors(string setting, string label)
   {
     // Arrange
     IdentifierReturns(OutString(setting));
@@ -52,20 +52,20 @@ public class ParseOptionSettingTests : ParserClassTestBase
     SetupError<IGqlpSchemaSetting>();
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnEmpty_WhenInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEmpty_WhenInvalid(string label)
   {
     // Arrange
     IdentifierReturns(OutFail);
 
     // Act
-    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

@@ -103,21 +103,21 @@ public class ParseVariableTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenModifiersParsingFails(string variableName)
+  public void Parse_ShouldReturnError_WhenModifiersParsingFails(string variableName, string label)
   {
     // Arrange
     PrefixReturns('$', OutStringAt(variableName));
     ParseModifiersError();
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenDefaultParsingFails(string variableName)
+  public void Parse_ShouldReturnError_WhenDefaultParsingFails(string variableName, string label)
   {
     // Arrange
     PrefixReturns('$', OutStringAt(variableName));
@@ -126,20 +126,20 @@ public class ParseVariableTests
     ParseError(_defaultParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokensAreParsed()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokensAreParsed(string label)
   {
     // Arrange
     PrefixReturns('$', OutPass);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

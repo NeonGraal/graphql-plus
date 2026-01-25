@@ -16,28 +16,28 @@ public class ParseDeclarationTests
     _parser = new ParseDeclaration<IGqlpDeclaration>(_selector, _declarationFactory);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnDeclaration_WhenValid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnDeclaration_WhenValid(string label)
   {
     // Arrange
     ParseOk(_declaration);
 
     // Act
-    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, "testLabel");
+    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDeclaration>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenInvalid(string label)
   {
     // Arrange
     ParseError(_declaration);
     SetupError<IGqlpDeclaration>();
 
     // Act
-    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, "testLabel");
+    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError<IGqlpDeclaration>>();

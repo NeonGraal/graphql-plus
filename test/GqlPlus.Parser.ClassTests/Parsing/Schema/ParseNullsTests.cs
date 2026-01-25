@@ -3,22 +3,22 @@
 public class ParseNullsTests
   : ParserClassTestBase
 {
-  [Fact]
-  public void ParseNulls_ReturnsExpected()
+  [Theory, RepeatData]
+  public void ParseNulls_ReturnsExpected(string label)
   {
     ParseNulls parser = new();
 
-    IResultArray<NullAst> result = parser.Parse(Tokenizer, "testLabel");
+    IResultArray<NullAst> result = parser.Parse(Tokenizer, label);
 
     result.ShouldBeAssignableTo<IResultEmpty>();
   }
 
-  [Fact]
-  public void ParseNullOption_ReturnsExpected()
+  [Theory, RepeatData]
+  public void ParseNullOption_ReturnsExpected(string label)
   {
     ParseNullOption parser = new();
 
-    IResult<NullOption> result = parser.Parse(Tokenizer, "testLabel");
+    IResult<NullOption> result = parser.Parse(Tokenizer, label);
 
     result.ShouldBeAssignableTo<IResultEmpty>();
   }

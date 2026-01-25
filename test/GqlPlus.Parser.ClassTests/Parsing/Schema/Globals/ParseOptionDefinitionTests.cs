@@ -16,27 +16,27 @@ public class ParseOptionDefinitionTests
     TakeReturns('}', false, true);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnOptionDefinition_WhenValid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnOptionDefinition_WhenValid(string label)
   {
     // Arrange
     ParseOk(_settingParser);
 
     // Act
-    IResult<OptionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<OptionDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<OptionDefinition>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenSettingsFail()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenSettingsFail(string label)
   {
     // Arrange
     ParseError(_settingParser);
 
     // Act
-    IResult<OptionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<OptionDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<OptionDefinition>>();

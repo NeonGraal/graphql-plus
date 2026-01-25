@@ -8,13 +8,13 @@ public class ParseTypeRefTests
   private readonly ParseTypeRef _parser = new();
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnTypeRef_WhenIdentifierIsValid(string typeName)
+  public void Parse_ShouldReturnTypeRef_WhenIdentifierIsValid(string typeName, string label)
   {
     // Arrange
     IdentifierReturns(OutString(typeName));
 
     // Act
-    IResult<IGqlpTypeRef> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpTypeRef> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldSatisfyAllConditions(
@@ -24,14 +24,14 @@ public class ParseTypeRefTests
         .Name.ShouldBe(typeName));
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenIdentifierIsInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenIdentifierIsInvalid(string label)
   {
     // Arrange
     SetupError<IGqlpTypeRef>();
 
     // Act
-    IResult<IGqlpTypeRef> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpTypeRef> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

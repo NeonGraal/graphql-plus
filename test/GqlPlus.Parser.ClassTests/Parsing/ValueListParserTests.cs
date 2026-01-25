@@ -14,8 +14,8 @@ public class ValueListParserTests
     SetupError<IGqlpConstant>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnList_WhenSuccessful()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnList_WhenSuccessful(string label)
   {
     // Arrange
     TakeReturns('[', true);
@@ -23,41 +23,41 @@ public class ValueListParserTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpConstant>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnEmptyList_WhenBracketsAreMissing()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEmptyList_WhenBracketsAreMissing(string label)
   {
     // Arrange
     TakeReturns('[', false);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayEmpty<IGqlpConstant>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenValueParsingFails()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenValueParsingFails(string label, string error)
   {
     // Arrange
     TakeReturns('[', true);
-    ParseError(_valueParser, "Value parsing error");
+    ParseError(_valueParser, error);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenClosingBracketIsMissing()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenClosingBracketIsMissing(string label)
   {
     // Arrange
     TakeReturns('[', true);
@@ -65,7 +65,7 @@ public class ValueListParserTests
     TakeReturns(']', false);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayError<IGqlpConstant>>();

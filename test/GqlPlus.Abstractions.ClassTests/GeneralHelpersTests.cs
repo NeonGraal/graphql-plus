@@ -58,22 +58,22 @@ public class GeneralHelpersTests
     result.ShouldThrow<ArgumentNullException>();
   }
 
-  [Fact]
-  public void Prefixed_NullInput_ReturnsEmptyString()
+  [Theory, RepeatData]
+  public void Prefixed_NullInput_ReturnsEmptyString(string prefix)
   {
     string? input = null;
 
-    string result = input.Prefixed("prefix");
+    string result = input.Prefixed(prefix);
 
     result.ShouldBe("");
   }
 
-  [Fact]
-  public void Suffixed_NullInput_ReturnsEmptyString()
+  [Theory, RepeatData]
+  public void Suffixed_NullInput_ReturnsEmptyString(string suffix)
   {
     string? input = null;
 
-    string result = input.Suffixed("suffix");
+    string result = input.Suffixed(suffix);
 
     result.ShouldBe("");
   }
@@ -98,33 +98,33 @@ public class GeneralHelpersTests
     result.ShouldBe("");
   }
 
-  [Fact]
-  public void Show_Various_ReturnsCorrect()
+  [Theory, RepeatData]
+  public void Show_Various_ReturnsCorrect(string field1, string field2, string field3)
   {
     IGqlpAbbreviated input = Substitute.For<IGqlpAbbreviated>();
-    input.GetFields().Returns(["field1", "(", "field2", ")", "", "field3"]);
+    input.GetFields().Returns([field1, "(", field2, ")", "", field3]);
 
     string result = input.Show();
 
-    result.ToLines().ShouldBe(["field1", "(", "  field2", ")", "field3"]);
+    result.ToLines().ShouldBe([field1, "(", "  " + field2, ")", field3]);
   }
 
-  [Fact]
-  public void Surround_NullInput_ReturnsEmptyString()
+  [Theory, RepeatData]
+  public void Surround_NullInput_ReturnsEmptyString(string start, string end)
   {
     IEnumerable<string>? input = null;
 
-    string result = input.Surround("[", "]");
+    string result = input.Surround(start, end);
 
     result.ShouldBe("");
   }
 
-  [Fact]
-  public void Surround_WithMapping_NullInput_ReturnsEmptyString()
+  [Theory, RepeatData]
+  public void Surround_WithMapping_NullInput_ReturnsEmptyString(string start, string end)
   {
     IEnumerable<int>? input = null;
 
-    string result = input.Surround("[", "]", i => $"{i}");
+    string result = input.Surround(start, end, i => $"{i}");
 
     result.ShouldBe("");
   }

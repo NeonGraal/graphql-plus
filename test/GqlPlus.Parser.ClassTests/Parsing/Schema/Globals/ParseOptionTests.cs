@@ -16,28 +16,28 @@ public class ParseOptionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOption_WhenValid(string option)
+  public void Parse_ShouldReturnOption_WhenValid(string option, string label)
   {
     // Arrange
     NameReturns(option);
     ParseOk(_definition, new OptionDefinition());
 
     // Act
-    IResult<IGqlpSchemaOption> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaOption> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaOption>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenInvalid(string option)
+  public void Parse_ShouldReturnPartial_WhenInvalid(string option, string label)
   {
     // Arrange
     NameReturns(option);
     SetupError<IGqlpSchemaOption>();
 
     // Act
-    IResult<IGqlpSchemaOption> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaOption> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaOption>>();

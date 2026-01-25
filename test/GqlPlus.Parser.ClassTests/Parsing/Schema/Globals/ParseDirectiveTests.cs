@@ -23,21 +23,21 @@ public class ParseDirectiveTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOk_WhenSimple(string directive)
+  public void Parse_ShouldReturnOk_WhenSimple(string directive, string label)
   {
     // Arrange
     NameReturns(directive);
     ParseOk(_definition, DirectiveLocation.Operation);
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaDirective>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOk_WhenAll(string directive)
+  public void Parse_ShouldReturnOk_WhenAll(string directive, string label)
   {
     // Arrange
     NameReturns(directive);
@@ -46,7 +46,7 @@ public class ParseDirectiveTests
     ParseOk(_definition, DirectiveLocation.Operation);
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaDirective>>();
@@ -57,7 +57,7 @@ public class ParseDirectiveTests
     => Check_ShouldReturnError_WhenNoName(_parser);
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenParamErrors(string directive)
+  public void Parse_ShouldReturnPartial_WhenParamErrors(string directive, string label)
   {
     // Arrange
     NameReturns(directive);
@@ -65,14 +65,14 @@ public class ParseDirectiveTests
     SetupError<IGqlpSchemaDirective>();
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaDirective>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenNoBrace(string directive)
+  public void Parse_ShouldReturnPartial_WhenNoBrace(string directive, string label)
   {
     // Arrange
     NameReturns(directive);
@@ -81,14 +81,14 @@ public class ParseDirectiveTests
     SetupError<IGqlpSchemaDirective>();
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaDirective>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenInvalid(string directive)
+  public void Parse_ShouldReturnPartial_WhenInvalid(string directive, string label)
   {
     // Arrange
     NameReturns(directive);
@@ -96,7 +96,7 @@ public class ParseDirectiveTests
     SetupError<IGqlpSchemaDirective>();
 
     // Act
-    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaDirective> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaDirective>>();

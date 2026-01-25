@@ -28,27 +28,27 @@ public class ParseArgValueTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnVariableArgument_WhenVariableIsParsed(string variable)
+  public void Parse_ShouldReturnVariableArgument_WhenVariableIsParsed(string variable, string label)
   {
     // Arrange
     PrefixReturns('$', OutStringAt(variable));
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
       .Required().Variable.ShouldBe(variable);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnListArgument_WhenListParserSucceeds()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnListArgument_WhenListParserSucceeds(string label)
   {
     // Arrange
     ParseOkA(_listParser);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
@@ -56,48 +56,48 @@ public class ParseArgValueTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnObjectArgument_WhenObjectParserSucceeds(string fieldName)
+  public void Parse_ShouldReturnObjectArgument_WhenObjectParserSucceeds(string fieldName, string label)
   {
     // Arrange
     ParseOkField(_objectParser, fieldName);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
       .Required().Fields.ShouldNotBeEmpty();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnConstantArgument_WhenConstantParserSucceeds()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnConstantArgument_WhenConstantParserSucceeds(string label)
   {
     // Arrange
     ParseOk(_constantParser);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpArg>>()
       .Required().Constant.ShouldNotBeNull();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenVariableIsMissingAfterDollarSign()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenVariableIsMissingAfterDollarSign(string label)
   {
     // Arrange
     PrefixReturns('$', OutFail);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokenIsParsed()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokenIsParsed(string label)
   {
     // Arrange
     ParseEmptyA(_listParser);
@@ -105,7 +105,7 @@ public class ParseArgValueTests
     ParseEmpty(_constantParser);
 
     // Act
-    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

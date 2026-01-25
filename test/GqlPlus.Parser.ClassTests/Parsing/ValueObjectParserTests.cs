@@ -14,8 +14,8 @@ public class ValueObjectParserTests
     SetupError<IGqlpFields<IGqlpConstant>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnObject_WhenSuccessful()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnObject_WhenSuccessful(string label)
   {
     // Arrange
     TakeReturns('{', true);
@@ -23,41 +23,41 @@ public class ValueObjectParserTests
     TakeReturns('}', true);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFields<IGqlpConstant>>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnEmptyObject_WhenBracesAreMissing()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEmptyObject_WhenBracesAreMissing(string label)
   {
     // Arrange
     TakeReturns('{', false);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenFieldParsingFails()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenFieldParsingFails(string label, string error)
   {
     // Arrange
     TakeReturns('{', true);
-    ParseError(_fieldParser, "Field parsing error");
+    ParseError(_fieldParser, error);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenClosingBraceIsMissing()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenClosingBraceIsMissing(string label)
   {
     // Arrange
     TakeReturns('{', true);
@@ -65,7 +65,7 @@ public class ValueObjectParserTests
     TakeReturns('}', false);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

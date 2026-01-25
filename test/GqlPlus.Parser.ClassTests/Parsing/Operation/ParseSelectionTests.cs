@@ -21,7 +21,7 @@ public class ParseSelectionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnSpreadSelection_WhenSpreadIsParsed(string spreadName)
+  public void Parse_ShouldReturnSpreadSelection_WhenSpreadIsParsed(string spreadName, string label)
   {
     // Arrange
     TakeReturns("...", true);
@@ -30,7 +30,7 @@ public class ParseSelectionTests
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSelection>>()
@@ -42,7 +42,7 @@ public class ParseSelectionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnInlineSelection_WhenInlineFragmentIsParsed(string onType)
+  public void Parse_ShouldReturnInlineSelection_WhenInlineFragmentIsParsed(string onType, string label)
   {
     // Arrange
     TakeReturns("...", true);
@@ -53,7 +53,7 @@ public class ParseSelectionTests
     IGqlpSelection[] selections = ParseOkA(_objectParser);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSelection>>()
@@ -65,8 +65,8 @@ public class ParseSelectionTests
       );
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenTypeIsMissingAfterOn()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenTypeIsMissingAfterOn(string label)
   {
     // Arrange
     TakeReturns("...", true);
@@ -74,14 +74,14 @@ public class ParseSelectionTests
     Tokenizer.Identifier(out string? type).Returns(false);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenObjectParsingFails(string testType)
+  public void Parse_ShouldReturnError_WhenObjectParsingFails(string testType, string label)
   {
     // Arrange
     TakeReturns("...", true);
@@ -90,21 +90,21 @@ public class ParseSelectionTests
     ParseErrorA(_objectParser);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokensAreParsed()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokensAreParsed(string label)
   {
     // Arrange
     TakeReturns("...", false);
     TakeReturns('|', false);
 
     // Act
-    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

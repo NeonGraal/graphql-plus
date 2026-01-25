@@ -23,7 +23,7 @@ public class ParseCategoryTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnCategory_WhenValid(string category)
+  public void Parse_ShouldReturnCategory_WhenValid(string category, string label)
   {
     // Arrange
     IdentifierReturns(OutString(category));
@@ -31,21 +31,21 @@ public class ParseCategoryTests
     ParseOk(_definition, new CategoryOutput(typeRef));
 
     // Act
-    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaCategory>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenInvalid(string label)
   {
     // Arrange
     IdentifierReturns(OutFail);
     ParseEmpty(_definition);
 
     // Act
-    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaCategory>>();

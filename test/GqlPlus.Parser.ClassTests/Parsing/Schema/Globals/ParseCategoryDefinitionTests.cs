@@ -18,8 +18,8 @@ public class ParseCategoryDefinitionTests
     SetupPartial<CategoryOutput>(new(default!));
   }
 
-  [Fact]
-  public void Parse_ShouldReturnCategoryOutput_WhenValid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnCategoryOutput_WhenValid(string label)
   {
     // Arrange
     ParseOk(_typeRefParser);
@@ -27,34 +27,34 @@ public class ParseCategoryDefinitionTests
     TakeReturns('}', true);
 
     // Act
-    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<CategoryOutput>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenTypeRefFails()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenTypeRefFails(string label)
   {
     // Arrange
     ParseError(_typeRefParser);
 
     // Act
-    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenModifiersFail()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenModifiersFail(string label)
   {
     // Arrange
     ParseOk(_typeRefParser);
     ParseModifiersError();
 
     // Act
-    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<CategoryOutput>>();

@@ -19,7 +19,7 @@ public class ParseVariablesTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnVariablesArray_WhenVariablesAreParsed(string name)
+  public void Parse_ShouldReturnVariablesArray_WhenVariablesAreParsed(string name, string label)
   {
     // Arrange
     TakeReturns('(', true);
@@ -30,29 +30,29 @@ public class ParseVariablesTests
     ParseOk(_variableParser, variable);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpVariable>>()
       .Required().ShouldContain(variable);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenVariableParsingFails()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenVariableParsingFails(string label)
   {
     // Arrange
     TakeReturns('(', true);
     ParseError(_variableParser);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpVariable>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartialResult_WhenClosingParenthesisIsMissing(string name)
+  public void Parse_ShouldReturnPartialResult_WhenClosingParenthesisIsMissing(string name, string label)
   {
     // Arrange
     TakeReturns('(', true);
@@ -61,27 +61,27 @@ public class ParseVariablesTests
     Parse(_variableParser, variable.Ok(), variable.Empty());
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpVariable>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnEmptyResult_WhenOpeningParenthesisIsMissing()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEmptyResult_WhenOpeningParenthesisIsMissing(string label)
   {
     // Arrange
     TakeReturns('(', false);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayEmpty<IGqlpVariable>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenNoVariablesAreParsed()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenNoVariablesAreParsed(string label)
   {
     // Arrange
     TakeReturns('(', true);
@@ -89,7 +89,7 @@ public class ParseVariablesTests
     ParseEmpty(_variableParser);
 
     // Act
-    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayError<IGqlpVariable>>();

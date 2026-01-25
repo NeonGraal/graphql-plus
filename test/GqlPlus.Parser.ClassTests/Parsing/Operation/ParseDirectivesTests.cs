@@ -19,14 +19,14 @@ public class ParseDirectivesTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnDirectivesArray_WhenDirectivesAreParsed(string directiveName)
+  public void Parse_ShouldReturnDirectivesArray_WhenDirectivesAreParsed(string directiveName, string label)
   {
     // Arrange
     PrefixReturns('@', OutStringAt(directiveName), OutStringAt(null));
     IGqlpArg argument = ParseOk(_argumentParser);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpDirective>>()
@@ -38,41 +38,41 @@ public class ParseDirectivesTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenSecondDirectiveNameFails(string directiveName)
+  public void Parse_ShouldReturnPartial_WhenSecondDirectiveNameFails(string directiveName, string label)
   {
     // Arrange
     PrefixReturns('@', OutStringAt(directiveName), OutFail);
     IGqlpArg argument = ParseOk(_argumentParser);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpDirective>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenDirectiveNameIsMissing()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenDirectiveNameIsMissing(string label)
   {
     // Arrange
     PrefixReturns('@', OutFail);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartialResult_WhenArgumentParsingFails(string directiveName)
+  public void Parse_ShouldReturnPartialResult_WhenArgumentParsingFails(string directiveName, string label, string error)
   {
     // Arrange
     PrefixReturns('@', OutStringAt(directiveName));
-    ParseError(_argumentParser, "argument error");
+    ParseError(_argumentParser, error);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpDirective>>()
@@ -80,14 +80,14 @@ public class ParseDirectivesTests
       .Identifier.ShouldBe(directiveName);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnEmptyArrayResult_WhenNoDirectivesAreParsed()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEmptyArrayResult_WhenNoDirectivesAreParsed(string label)
   {
     // Arrange
     PrefixReturns('@', OutStringAt(null));
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpDirective>>()

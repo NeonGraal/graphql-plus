@@ -16,40 +16,40 @@ public class ParseDirectiveDefinitionTests : ParserClassTestBase
     TakeReturns('}', false, true);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnDirectiveLocation_WhenValid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnDirectiveLocation_WhenValid(string label)
   {
     // Arrange
     ParseOk(_locationParser, DirectiveLocation.Operation);
 
     // Act
-    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<DirectiveLocation>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenNoLocations()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenNoLocations(string label)
   {
     // Arrange
     ParseOk(_locationParser, DirectiveLocation.None);
 
     // Act
-    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DirectiveLocation>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenLocationParsingFails()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenLocationParsingFails(string label)
   {
     // Arrange
     ParseError(_locationParser);
 
     // Act
-    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DirectiveLocation>>();

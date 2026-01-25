@@ -139,9 +139,9 @@ public class ParseEnumValueTests
       ("_", "Unit")
     ];
 
-    foreach ((string enumLabel, string expectedType) in builtInValues) {
+    foreach ((string builtInLabel, string expectedType) in builtInValues) {
       // Arrange
-      IdentifierReturns(OutString(enumLabel));
+      IdentifierReturns(OutString(builtInLabel));
 
       // Act
       IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, label);
@@ -150,8 +150,8 @@ public class ParseEnumValueTests
       result.ShouldBeAssignableTo<IResultOk<IGqlpEnumValue>>()
         .Required().ShouldSatisfyAllConditions(
           e => e.EnumType.ShouldBe(expectedType),
-          e => e.EnumLabel.ShouldBe(enumLabel),
-          e => e.EnumValue.ShouldBe($"{expectedType}.{enumLabel}")
+          e => e.EnumLabel.ShouldBe(builtInLabel),
+          e => e.EnumValue.ShouldBe($"{expectedType}.{builtInLabel}")
         );
     }
   }

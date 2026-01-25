@@ -1,0 +1,19 @@
+﻿/* descr-backslash
+'A backslash ("\\") description'
+output DescrBcks { }
+*/
+
+// Generated from Schema descr-backslash for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr_backslash;
+
+public interface ICmptDescrBcks
+{
+  public CmptDescrBcks DescrBcks { get; set; }
+}
+
+public interface ICmptDescrBcksObject
+{
+}

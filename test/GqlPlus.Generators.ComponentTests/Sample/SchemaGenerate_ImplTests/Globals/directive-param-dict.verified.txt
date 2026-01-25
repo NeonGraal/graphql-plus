@@ -1,0 +1,16 @@
+﻿/* directive-param-dict
+directive @DrctParamDict(InDrctParamDict[String]) { all }
+input InDrctParamDict { }
+*/
+
+// Generated from Schema directive-param-dict for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param_dict;
+
+public class CmptInDrctParamDict
+  : ICmptInDrctParamDict
+{
+  public CmptInDrctParamDict InDrctParamDict { get; set; }
+}

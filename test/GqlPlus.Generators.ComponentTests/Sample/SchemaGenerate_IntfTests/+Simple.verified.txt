@@ -1,0 +1,203 @@
+﻿// Generated from Schema +Simple for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_Simple;
+
+public interface ICmptDmnBoolDescr
+  : IDomainBoolean
+{
+}
+
+public interface ICmptDmnBoolPrnt
+  : ICmptPrntDmnBoolPrnt
+{
+}
+
+public interface ICmptPrntDmnBoolPrnt
+  : IDomainBoolean
+{
+}
+
+public interface ICmptDmnBoolPrntDescr
+  : ICmptPrntDmnBoolPrntDescr
+{
+}
+
+public interface ICmptPrntDmnBoolPrntDescr
+  : IDomainBoolean
+{
+}
+
+public interface ICmptDmnEnumAll
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumAllDescr
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumAllPrnt
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumDescr
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumExcl
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumExclPrnt
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumLabel
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumPrnt
+  : ICmptPrntDmnEnumPrnt
+{
+}
+
+public interface ICmptPrntDmnEnumPrnt
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumPrntDescr
+  : ICmptPrntDmnEnumPrntDescr
+{
+}
+
+public interface ICmptPrntDmnEnumPrntDescr
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumUnq
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumUnqPrnt
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumValue
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnEnumValuePrnt
+  : IDomainEnum
+{
+}
+
+public interface ICmptDmnNmbrDescr
+  : IDomainNumber
+{
+}
+
+public interface ICmptDmnNmbrPrnt
+  : ICmptPrntDmnNmbrPrnt
+{
+}
+
+public interface ICmptPrntDmnNmbrPrnt
+  : IDomainNumber
+{
+}
+
+public interface ICmptDmnNmbrPrntDescr
+  : ICmptPrntDmnNmbrPrntDescr
+{
+}
+
+public interface ICmptPrntDmnNmbrPrntDescr
+  : IDomainNumber
+{
+}
+
+public interface ICmptDmnNmbrPstv
+  : IDomainNumber
+{
+}
+
+public interface ICmptDmnStrDescr
+  : IDomainString
+{
+}
+
+public interface ICmptDmnStrNonEmpty
+  : IDomainString
+{
+}
+
+public interface ICmptDmnStrPrnt
+  : ICmptPrntDmnStrPrnt
+{
+}
+
+public interface ICmptPrntDmnStrPrnt
+  : IDomainString
+{
+}
+
+public interface ICmptDmnStrPrntDescr
+  : ICmptPrntDmnStrPrntDescr
+{
+}
+
+public interface ICmptPrntDmnStrPrntDescr
+  : IDomainString
+{
+}
+
+public interface ICmptUnionDescr
+{
+  Number AsNumber { get; }
+}
+
+public interface ICmptUnionPrnt
+  : ICmptPrntUnionPrnt
+{
+  String AsString { get; }
+}
+
+public interface ICmptPrntUnionPrnt
+{
+  Number AsNumber { get; }
+}
+
+public interface ICmptUnionPrntDescr
+  : ICmptPrntUnionPrntDescr
+{
+  Number AsNumber { get; }
+}
+
+public interface ICmptPrntUnionPrntDescr
+{
+  Number AsNumber { get; }
+}
+
+public interface ICmptUnionPrntDup
+  : ICmptPrntUnionPrntDup
+{
+  Number AsNumber { get; }
+}
+
+public interface ICmptPrntUnionPrntDup
+{
+  Number AsNumber { get; }
+}

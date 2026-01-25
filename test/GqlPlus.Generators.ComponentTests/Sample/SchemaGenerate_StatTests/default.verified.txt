@@ -1,0 +1,22 @@
+﻿/* default
+category { Query }
+output Query { }
+
+category { (sequential) Mutation }
+output Mutation { }
+
+category { (single) Subscription }
+output Subscription { }
+
+output _Schema { }
+*/
+
+// Generated from Schema default for Stat
+/*
+
+Category query
+Category mutation
+Category subscription
+*/
+
+namespace Components.Gqlp_Schema_default;

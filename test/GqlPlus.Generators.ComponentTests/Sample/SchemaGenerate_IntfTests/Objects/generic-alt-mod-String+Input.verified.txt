@@ -1,0 +1,19 @@
+﻿/* generic-alt-mod-String+Input
+input RefGnrcAltModStrInp<$ref:String> { | $ref[*] }
+*/
+
+// Generated from Schema generic-alt-mod-String+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_mod_String_Input;
+
+public interface ICmptRefGnrcAltModStrInp<Tref>
+{
+  public IDictionary<CmptString, Tref> Asref { get; set; }
+  public CmptRefGnrcAltModStrInp RefGnrcAltModStrInp { get; set; }
+}
+
+public interface ICmptRefGnrcAltModStrInpObject<Tref>
+{
+}

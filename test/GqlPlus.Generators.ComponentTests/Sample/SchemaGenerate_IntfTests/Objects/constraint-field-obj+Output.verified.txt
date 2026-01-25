@@ -1,0 +1,55 @@
+﻿/* constraint-field-obj+Output
+output CnstFieldObjOutp { :RefCnstFieldObjOutp<AltCnstFieldObjOutp> }
+output RefCnstFieldObjOutp<$ref:PrntCnstFieldObjOutp> { field: $ref }
+output PrntCnstFieldObjOutp { | String }
+output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_obj_Output;
+
+public interface ICmptCnstFieldObjOutp
+  : ICmptRefCnstFieldObjOutp
+{
+  public CmptCnstFieldObjOutp CnstFieldObjOutp { get; set; }
+}
+
+public interface ICmptCnstFieldObjOutpObject
+  : ICmptRefCnstFieldObjOutpObject
+{
+}
+
+public interface ICmptRefCnstFieldObjOutp<Tref>
+{
+  public CmptRefCnstFieldObjOutp RefCnstFieldObjOutp { get; set; }
+}
+
+public interface ICmptRefCnstFieldObjOutpObject<Tref>
+{
+  public Tref field { get; set; }
+}
+
+public interface ICmptPrntCnstFieldObjOutp
+{
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstFieldObjOutp PrntCnstFieldObjOutp { get; set; }
+}
+
+public interface ICmptPrntCnstFieldObjOutpObject
+{
+}
+
+public interface ICmptAltCnstFieldObjOutp
+  : ICmptPrntCnstFieldObjOutp
+{
+  public CmptAltCnstFieldObjOutp AltCnstFieldObjOutp { get; set; }
+}
+
+public interface ICmptAltCnstFieldObjOutpObject
+  : ICmptPrntCnstFieldObjOutpObject
+{
+  public CmptNumber alt { get; set; }
+}

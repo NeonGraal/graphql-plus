@@ -1,0 +1,20 @@
+﻿/* field-value+Dual
+dual FieldValueDual { field = fieldValueDual }
+enum EnumFieldValueDual { fieldValueDual }
+*/
+
+// Generated from Schema field-value+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_value_Dual;
+
+public interface ICmptFieldValueDual
+{
+  public CmptFieldValueDual FieldValueDual { get; set; }
+}
+
+public interface ICmptFieldValueDualObject
+{
+  public CmptEnumFieldValueDual field { get; set; }
+}

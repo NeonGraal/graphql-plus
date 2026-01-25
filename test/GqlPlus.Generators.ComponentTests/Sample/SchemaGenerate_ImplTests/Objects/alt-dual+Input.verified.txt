@@ -1,0 +1,25 @@
+﻿/* alt-dual+Input
+input AltDualInp { | ObjDualAltDualInp }
+dual ObjDualAltDualInp { alt: Number | String }
+*/
+
+// Generated from Schema alt-dual+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_dual_Input;
+
+public class CmptAltDualInp
+  : ICmptAltDualInp
+{
+  public CmptObjDualAltDualInp AsObjDualAltDualInp { get; set; }
+  public CmptAltDualInp AltDualInp { get; set; }
+}
+
+public class CmptObjDualAltDualInp
+  : ICmptObjDualAltDualInp
+{
+  public CmptNumber alt { get; set; }
+  public CmptString AsString { get; set; }
+  public CmptObjDualAltDualInp ObjDualAltDualInp { get; set; }
+}

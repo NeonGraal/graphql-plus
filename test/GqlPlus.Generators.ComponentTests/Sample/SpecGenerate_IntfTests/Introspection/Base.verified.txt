@@ -1,0 +1,231 @@
+﻿/* Base
+domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
+
+output _TypeObject<$kind:_ObjectKind $field:_ObjField> {
+    : _ChildType<$kind _ObjBase>
+        typeParams: _ObjTypeParam[]
+        fields: $field[]
+        alternates: _ObjAlternate[]
+        allFields: _ObjectFor<$field>[]
+        allAlternates: _ObjectFor<_ObjAlternate>[]
+    }
+
+output _ObjTypeParam {
+    : _Named
+        constraint: _TypeRef<_TypeKind>
+    }
+
+output _ObjBase {
+    : _Named
+        typeArgs: _ObjTypeArg[]
+    | _TypeParam
+    }
+
+output _ObjTypeArg {
+    : _TypeRef<_TypeKind>
+        label: _Name?
+    | _TypeParam
+    }
+
+output _TypeParam {
+    : _Described
+        typeParam: _Name
+    }
+
+output _ObjAlternate {
+      type: _ObjBase
+      collections: _Collections[]
+    | _ObjAlternateEnum
+    }
+
+output _ObjAlternateEnum {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Name
+    }
+output _ObjectFor<$for:_ForParam> {
+    : $for
+        object: _Name
+    }
+
+output _ObjField<$type:_ObjFieldType> {
+    : _Aliased
+      type: $type
+    }
+
+output _ObjFieldType {
+    : _ObjBase
+        modifiers: _Modifiers[]
+    | _ObjFieldEnum
+    }
+
+output _ObjFieldEnum {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Name
+    }
+
+output _ForParam<$type:_ObjFieldType> {
+    | _ObjAlternate
+    | _ObjField<$type>
+    }
+*/
+
+// Generated from Spec Base for Intf
+/*
+*/
+
+namespace Components.Gqlp_Spec_Base;
+
+public interface ICmpt_ObjectKind
+  : IDomainEnum
+{
+}
+
+public interface ICmpt_TypeObject<Tkind,Tfield>
+  : ICmpt_ChildType
+{
+  public Cmpt_TypeObject _TypeObject { get; set; }
+}
+
+public interface ICmpt_TypeObjectObject<Tkind,Tfield>
+  : ICmpt_ChildTypeObject
+{
+  public ICollection<Cmpt_ObjTypeParam> typeParams { get; set; }
+  public ICollection<Tfield> fields { get; set; }
+  public ICollection<Cmpt_ObjAlternate> alternates { get; set; }
+  public ICollection<Cmpt_ObjectFor<Tfield>> allFields { get; set; }
+  public ICollection<Cmpt_ObjectFor<Cmpt_ObjAlternate>> allAlternates { get; set; }
+}
+
+public interface ICmpt_ObjTypeParam
+  : ICmpt_Named
+{
+  public Cmpt_ObjTypeParam _ObjTypeParam { get; set; }
+}
+
+public interface ICmpt_ObjTypeParamObject
+  : ICmpt_NamedObject
+{
+  public Cmpt_TypeRef<Cmpt_TypeKind> constraint { get; set; }
+}
+
+public interface ICmpt_ObjBase
+  : ICmpt_Named
+{
+  public Cmpt_TypeParam As_TypeParam { get; set; }
+  public Cmpt_ObjBase _ObjBase { get; set; }
+}
+
+public interface ICmpt_ObjBaseObject
+  : ICmpt_NamedObject
+{
+  public ICollection<Cmpt_ObjTypeArg> typeArgs { get; set; }
+}
+
+public interface ICmpt_ObjTypeArg
+  : ICmpt_TypeRef
+{
+  public Cmpt_TypeParam As_TypeParam { get; set; }
+  public Cmpt_ObjTypeArg _ObjTypeArg { get; set; }
+}
+
+public interface ICmpt_ObjTypeArgObject
+  : ICmpt_TypeRefObject
+{
+  public Cmpt_Name? label { get; set; }
+}
+
+public interface ICmpt_TypeParam
+  : ICmpt_Described
+{
+  public Cmpt_TypeParam _TypeParam { get; set; }
+}
+
+public interface ICmpt_TypeParamObject
+  : ICmpt_DescribedObject
+{
+  public Cmpt_Name typeParam { get; set; }
+}
+
+public interface ICmpt_ObjAlternate
+{
+  public Cmpt_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
+  public Cmpt_ObjAlternate _ObjAlternate { get; set; }
+}
+
+public interface ICmpt_ObjAlternateObject
+{
+  public Cmpt_ObjBase type { get; set; }
+  public ICollection<Cmpt_Collections> collections { get; set; }
+}
+
+public interface ICmpt_ObjAlternateEnum
+  : ICmpt_TypeRef
+{
+  public Cmpt_ObjAlternateEnum _ObjAlternateEnum { get; set; }
+}
+
+public interface ICmpt_ObjAlternateEnumObject
+  : ICmpt_TypeRefObject
+{
+  public Cmpt_Name label { get; set; }
+}
+
+public interface ICmpt_ObjectFor<Tfor>
+  : ICmptfor
+{
+  public Cmpt_ObjectFor _ObjectFor { get; set; }
+}
+
+public interface ICmpt_ObjectForObject<Tfor>
+  : ICmptforObject
+{
+  public Cmpt_Name object { get; set; }
+}
+
+public interface ICmpt_ObjField<Ttype>
+  : ICmpt_Aliased
+{
+  public Cmpt_ObjField _ObjField { get; set; }
+}
+
+public interface ICmpt_ObjFieldObject<Ttype>
+  : ICmpt_AliasedObject
+{
+  public Ttype type { get; set; }
+}
+
+public interface ICmpt_ObjFieldType
+  : ICmpt_ObjBase
+{
+  public Cmpt_ObjFieldEnum As_ObjFieldEnum { get; set; }
+  public Cmpt_ObjFieldType _ObjFieldType { get; set; }
+}
+
+public interface ICmpt_ObjFieldTypeObject
+  : ICmpt_ObjBaseObject
+{
+  public ICollection<Cmpt_Modifiers> modifiers { get; set; }
+}
+
+public interface ICmpt_ObjFieldEnum
+  : ICmpt_TypeRef
+{
+  public Cmpt_ObjFieldEnum _ObjFieldEnum { get; set; }
+}
+
+public interface ICmpt_ObjFieldEnumObject
+  : ICmpt_TypeRefObject
+{
+  public Cmpt_Name label { get; set; }
+}
+
+public interface ICmpt_ForParam<Ttype>
+{
+  public Cmpt_ObjAlternate As_ObjAlternate { get; set; }
+  public Cmpt_ObjField<Ttype> As_ObjField { get; set; }
+  public Cmpt_ForParam _ForParam { get; set; }
+}
+
+public interface ICmpt_ForParamObject<Ttype>
+{
+}

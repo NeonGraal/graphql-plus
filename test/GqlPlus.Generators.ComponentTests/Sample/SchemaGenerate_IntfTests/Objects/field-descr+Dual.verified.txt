@@ -1,0 +1,19 @@
+﻿/* field-descr+Dual
+dual FieldDescrDual { "Test" "Descr" field: String }
+*/
+
+// Generated from Schema field-descr+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_descr_Dual;
+
+public interface ICmptFieldDescrDual
+{
+  public CmptFieldDescrDual FieldDescrDual { get; set; }
+}
+
+public interface ICmptFieldDescrDualObject
+{
+  public CmptString field { get; set; }
+}

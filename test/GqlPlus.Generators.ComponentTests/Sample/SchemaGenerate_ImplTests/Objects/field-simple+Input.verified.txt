@@ -1,0 +1,16 @@
+﻿/* field-simple+Input
+input FieldSmplInp { field: Number }
+*/
+
+// Generated from Schema field-simple+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_simple_Input;
+
+public class CmptFieldSmplInp
+  : ICmptFieldSmplInp
+{
+  public CmptNumber field { get; set; }
+  public CmptFieldSmplInp FieldSmplInp { get; set; }
+}

@@ -14,10 +14,10 @@ public class TypesContextTests
     Modeller.ToModel(null, TypeKinds).Throws<ModelTypeException<IGqlpType>>();
   }
 
-  [Theory, RepeatData]
-  public void TypesContext_DefinesString_TypeKindAndModel(string description)
+  [Fact]
+  public void TypesContext_DefinesString_TypeKindAndModel()
   {
-    BaseTypeModel model = new SpecialTypeModel("special", description);
+    BaseTypeModel model = new SpecialTypeModel("special", string.Empty);
     TryModelReturns(Modeller, model);
 
     TypesContext result = TypesContext.WithBuiltins(Modeller);

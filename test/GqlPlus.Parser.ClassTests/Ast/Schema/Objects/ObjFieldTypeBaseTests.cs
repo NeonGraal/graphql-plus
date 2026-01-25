@@ -58,7 +58,7 @@ internal abstract class ObjFieldTypeChecks<TInput, TObjType>(
     => input => createType(input, CreateBase(input));
 
   internal static ObjBaseAst CreateBase(TInput input)
-     => new(AstNulls.At, input.Type, input.Type);
+     => new(AstNulls.At, input.Type, string.Empty);
 
   protected override string EnumString(TInput input, string enumLabel)
     => InputString(input)

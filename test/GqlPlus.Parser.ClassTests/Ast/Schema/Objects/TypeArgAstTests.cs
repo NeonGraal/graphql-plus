@@ -14,7 +14,7 @@ public partial class TypeArgAstTests
       (original, input) => original with { Name = input });
 
   internal static TypeArgAst CreateTypeArg(string input)
-    => new(AstNulls.At, input, input);
+    => new(AstNulls.At, input, string.Empty);
 }
 
 internal sealed class TypeArgAstChecks()

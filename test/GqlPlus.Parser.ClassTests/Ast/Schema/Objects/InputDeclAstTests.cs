@@ -14,7 +14,7 @@ internal sealed class InputDeclAstChecks
   : AstObjectChecks<IGqlpInputField>
 {
   public InputDeclAstChecks()
-    : base(TypeKind.Input, parent => new ObjBaseAst(AstNulls.At, parent, parent))
+    : base(TypeKind.Input, parent => new ObjBaseAst(AstNulls.At, parent, string.Empty))
   { }
 
   protected override IGqlpInputField[] CreateFields(IEnumerable<FieldInput> fields)

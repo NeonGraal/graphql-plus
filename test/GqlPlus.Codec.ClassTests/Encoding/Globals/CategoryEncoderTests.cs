@@ -16,10 +16,10 @@ public class CategoryEncoderTests
   protected override IEncoder<CategoryModel> Encoder { get; }
 
   [Theory, RepeatData]
-  public void Encode_WithValidCategoryModel_ReturnsStructured(string name, string outputName, string contents, string description)
+  public void Encode_WithValidCategoryModel_ReturnsStructured(string name, string outputName, string contents)
   {
     // Arrange
-    TypeRefModel<TypeKindModel> output = new(TypeKindModel.Output, outputName, description);
+    TypeRefModel<TypeKindModel> output = new(TypeKindModel.Output, outputName, string.Empty);
     ModifierModel modifier = new(ModifierKind.List);
     _output.Encode(output).Returns(new Structured(outputName, "Output"));
     _modifiers.Encode(modifier).Returns(new Structured("List"));

@@ -43,17 +43,17 @@ public class ParseFieldKeyTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnFieldKeyResult_WhenEmptyStringTokenIsParsed(string contents, string label)
+  public void Parse_ShouldReturnFieldKeyResult_WhenEmptyStringTokenIsParsed(string label)
   {
     // Arrange
-    Tokenizer.String(out string? _).Returns(OutString(contents));
+    Tokenizer.String(out string? _).Returns(OutString(string.Empty));
 
     // Act
     IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
-      .Required().Text.ShouldBe(contents);
+      .Required().Text.ShouldBe(string.Empty);
   }
 
   [Theory, RepeatData]

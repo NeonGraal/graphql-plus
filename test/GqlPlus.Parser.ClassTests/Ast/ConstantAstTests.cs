@@ -10,9 +10,9 @@ public class ConstantAstTests
       () => new ConstantAst(AstNulls.At) with { At = AstNulls.At });
 
   [Theory, RepeatData]
-  public void HashCode_WithValue(string value, string enumType)
+  public void HashCode_WithValue(string value)
     => _checks.HashCode(
-      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, value)));
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, string.Empty, value)));
 
   [Theory, RepeatData]
   public void HashCode_WithEnumTypeAndValue(string enumType, string value)

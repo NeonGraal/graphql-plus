@@ -50,7 +50,7 @@ public class ParamAstTests : AstAbbreviatedBaseTests
     = new(CreateInputParam);
 
   private static InputParamAst CloneInputParam(InputParamAst original, string input)
-    => original with { Type = new ObjBaseAst(AstNulls.At, input, input) };
+    => original with { Type = new ObjBaseAst(AstNulls.At, input, string.Empty) };
   private static InputParamAst CreateInputParam(string input)
     => new(AstNulls.At, input);
 

@@ -17,16 +17,16 @@ public class TypeDualEncoderTests
       ":typeKind=[_TypeKind]Dual"));
 
   [Theory, RepeatData]
-  public void Encode_WithAllModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName, string description)
+  public void Encode_WithAllModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName)
   {
-    ObjBaseModel parent = new(parentType, description);
-    AlternateModel alternate = new(new ObjBaseModel(alternateType, description));
+    ObjBaseModel parent = new(parentType, string.Empty);
+    AlternateModel alternate = new(new ObjBaseModel(alternateType, string.Empty));
     ObjectForModel<AlternateModel> alternateFor = new(alternate, name);
-    DualFieldModel field = new(fieldName, null, description);
+    DualFieldModel field = new(fieldName, null, string.Empty);
     ObjectForModel<DualFieldModel> fieldFor = new(field, name);
-    TypeParamModel typeParam = new(paramName, description, default!);
+    TypeParamModel typeParam = new(paramName, string.Empty, default!);
 
-    TypeDualModel model = new(name, description) {
+    TypeDualModel model = new(name, string.Empty) {
       Parent = parent,
       Alternates = [alternate],
       AllAlternates = [alternateFor],
@@ -57,10 +57,10 @@ public class TypeDualEncoderTests
   [Theory, RepeatData]
   public void Encode_WithInvalidFieldModel_ThrowsInValidCastException(string name, string fieldName)
   {
-    DualFieldModel field = new(fieldName, null, "");
-    ObjectForModel<InputFieldModel> fieldFor = new(new(fieldName, null, ""), name);
+    DualFieldModel field = new(fieldName, null, string.Empty);
+    ObjectForModel<InputFieldModel> fieldFor = new(new(fieldName, null, string.Empty), name);
 
-    TypeDualModel model = new(name, "") {
+    TypeDualModel model = new(name, string.Empty) {
       Fields = [field],
       AllFields = [fieldFor],
     };

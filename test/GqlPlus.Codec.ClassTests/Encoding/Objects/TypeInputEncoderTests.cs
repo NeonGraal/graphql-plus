@@ -17,20 +17,20 @@ public class TypeInputEncoderTests
       ":typeKind=[_TypeKind]Input"));
 
   [Theory, RepeatData]
-  public void Encode_WithDualModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName, string description)
+  public void Encode_WithDualModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName)
   {
-    ObjBaseModel parent = new(parentType, description);
-    AlternateModel alternate = new(new ObjBaseModel(alternateType, description));
+    ObjBaseModel parent = new(parentType, string.Empty);
+    AlternateModel alternate = new(new ObjBaseModel(alternateType, string.Empty));
     ObjectForModel<AlternateModel> alternateFor = new(alternate, name);
-    DualFieldModel field = new(fieldName, new(description, description), description);
+    DualFieldModel field = new(fieldName, new(string.Empty, string.Empty), string.Empty);
     ObjectForModel<DualFieldModel> fieldFor = new(field, name);
-    TypeParamModel typeParam = new(paramName, description, default!);
+    TypeParamModel typeParam = new(paramName, string.Empty, default!);
 
-    TypeInputModel model = new(name, description) {
-      Parent = new(description, description),
+    TypeInputModel model = new(name, string.Empty) {
+      Parent = new(string.Empty, string.Empty),
       Alternates = [new(null!)],
       AllAlternates = [alternateFor],
-      Fields = [new(description, new(description, description), description)],
+      Fields = [new(string.Empty, new(string.Empty, string.Empty), string.Empty)],
       AllFields = [fieldFor],
       TypeParams = [typeParam],
     };

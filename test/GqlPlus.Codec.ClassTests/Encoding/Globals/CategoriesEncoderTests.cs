@@ -16,11 +16,11 @@ public class CategoriesEncoderTests
   protected override IEncoder<CategoriesModel> Encoder { get; }
 
   [Theory, RepeatData]
-  public void Encode_WithValidCategoriesModel_ReturnsStructured(string name, string description)
+  public void Encode_WithValidCategoriesModel_ReturnsStructured(string name)
   {
     // Arrange
-    BaseTypeModel type = new TypeInputModel(name, description);
-    CategoryModel category = new(name, new(TypeKindModel.Output, name, description), description);
+    BaseTypeModel type = new TypeInputModel(name, string.Empty);
+    CategoryModel category = new(name, new(TypeKindModel.Output, name, string.Empty), string.Empty);
     _baseType.Encode(type).Returns(new Structured(name, "Input"));
     _category.Encode(category).Returns(new Structured(name, "Category"));
 

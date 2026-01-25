@@ -7,23 +7,23 @@ public partial class OutputFieldAstTests
   [Theory, RepeatData]
   public void HashCode_WithParam(FieldInput input, string[] parameters)
       => _checks.HashCode(
-        () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, input.Type)) { Params = parameters.Params() });
+        () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Params = parameters.Params() });
 
   [Theory, RepeatData]
   public void Text_WithParams(FieldInput input, string[] parameters)
     => _checks.Text(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, input.Type)) { Params = parameters.Params() },
+      () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Params = parameters.Params() },
       $"( !OF {input.Name} ( {parameters.Joined(s => "!Pa " + s)} ) : {input.Type} )");
 
   [Theory, RepeatData]
   public void Equality_WithParam(FieldInput input, string[] parameters)
     => _checks.Equality(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, input.Type)) { Params = parameters.Params() });
+      () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Params = parameters.Params() });
 
   [Theory, RepeatData]
   public void Inequality_BetweenParams(FieldInput input, string[] parameters1, string[] parameters2)
     => _checks.InequalityBetween(parameters1, parameters2,
-      parameters => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, input.Type)) { Params = parameters.Params() },
+      parameters => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Params = parameters.Params() },
       parameters1.SequenceEqual(parameters2));
 
   private readonly OutputFieldAstChecks _checks = new();

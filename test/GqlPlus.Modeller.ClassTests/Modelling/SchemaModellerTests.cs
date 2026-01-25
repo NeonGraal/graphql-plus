@@ -27,21 +27,21 @@ public class SchemaModellerTests
     string typeName)
   {
     // Arrange
-    IGqlpSchemaCategory category = A.Named<IGqlpSchemaCategory>(categoryName, "");
-    IGqlpSchemaDirective directive = A.Named<IGqlpSchemaDirective>(directiveName, "");
+    IGqlpSchemaCategory category = A.Named<IGqlpSchemaCategory>(categoryName, string.Empty);
+    IGqlpSchemaDirective directive = A.Named<IGqlpSchemaDirective>(directiveName, string.Empty);
     IGqlpSchemaOption option = A.Aliased<IGqlpSchemaOption>(name, aliases, contents);
-    IGqlpSchemaSetting setting = A.Named<IGqlpSchemaSetting>(settingName, "");
+    IGqlpSchemaSetting setting = A.Named<IGqlpSchemaSetting>(settingName, string.Empty);
     option.Settings.Returns([setting]);
-    IGqlpType type = A.Named<IGqlpType>(typeName, "");
+    IGqlpType type = A.Named<IGqlpType>(typeName, string.Empty);
 
     IGqlpSchema ast = A.Error<IGqlpSchema>();
     ast.Declarations.Returns([category, directive, option, type]);
 
-    CategoryModel categoryModel = new(categoryName, new(TypeKindModel.Output, typeName, ""), "");
+    CategoryModel categoryModel = new(categoryName, new(TypeKindModel.Output, typeName, string.Empty), string.Empty);
     ToModelReturns(_category, categoryModel);
-    DirectiveModel directiveModel = new(directiveName, "");
+    DirectiveModel directiveModel = new(directiveName, string.Empty);
     ToModelReturns(_directive, directiveModel);
-    SettingModel settingModel = new(settingName, new(SimpleModel.Str("value")), "");
+    SettingModel settingModel = new(settingName, new(SimpleModel.Str("value")), string.Empty);
     ToModelsReturns(_setting, [settingModel]);
     SpecialTypeModel typeModel = new(typeName, contents);
     ToModelReturns(_types, typeModel);

@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseUnionDefinitionTests
   : SimpleParserClassTestBase
 {
+
   private readonly Parser<IGqlpUnionMember>.I _unionMemberParser;
   private readonly ParseUnionDefinition _parser;
 
@@ -24,7 +25,7 @@ public class ParseUnionDefinitionTests
     TakeReturns('}', false, true);
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<UnionDefinition>>();
@@ -39,7 +40,7 @@ public class ParseUnionDefinitionTests
     SetupError<UnionDefinition>();
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -54,7 +55,7 @@ public class ParseUnionDefinitionTests
     SetupPartial(new UnionDefinition());
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<UnionDefinition>>();
@@ -69,7 +70,7 @@ public class ParseUnionDefinitionTests
     SetupPartial(new UnionDefinition());
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<UnionDefinition>>();

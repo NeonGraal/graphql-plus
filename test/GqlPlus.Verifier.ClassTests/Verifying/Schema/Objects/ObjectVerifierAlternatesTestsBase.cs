@@ -11,9 +11,9 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   [Fact]
   public void Verify_WithAlternate_ReturnsNoErrors()
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    TheBuilder.WithAlternate("String");
+    TheBuilder.WithAlternate(BuiltIn.StringType);
 
     Verify_NoErrors();
   }
@@ -21,9 +21,9 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   [Theory, RepeatClassData<CollectionsTestData>]
   public void Verify_WithAlternateModifier_ReturnsNoErrors(ModifierKind kind)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    TheBuilder.WithAlternate("String", a => a.WithModifier(kind, "String"));
+    TheBuilder.WithAlternate(BuiltIn.StringType, a => a.WithModifier(kind, BuiltIn.StringType));
 
     Verify_NoErrors();
   }
@@ -39,9 +39,9 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   [Theory, RepeatClassData<CollectionsTestData>]
   public void Verify_WithAlternateSameModifier_ReturnsErrors(ModifierKind kind, string name)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    TheBuilder.WithAlternate(name, a => a.WithModifier(kind, "String"));
+    TheBuilder.WithAlternate(name, a => a.WithModifier(kind, BuiltIn.StringType));
 
     Verify_Errors("cannot be an alternate of itself", name);
   }
@@ -49,9 +49,9 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   [Theory, RepeatData]
   public void Verify_WithAlternateRecurse_ReturnsNoErrors(string altType)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    DefineObject(altType, o => o.WithAlternate("String"));
+    DefineObject(altType, o => o.WithAlternate(BuiltIn.StringType));
 
     TheBuilder.WithAlternate(altType);
 
@@ -72,9 +72,9 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
 
   public void Verify_WithAlternateSameRecurseModifier_ReturnsErrors(ModifierKind kind, string name, string altType)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    DefineObject(altType, o => o.WithAlternate(name, a => a.WithModifier(kind, "String")));
+    DefineObject(altType, o => o.WithAlternate(name, a => a.WithModifier(kind, BuiltIn.StringType)));
 
     TheBuilder.WithAlternate(altType);
 
@@ -94,11 +94,11 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   [Theory, RepeatClassData<CollectionsTestData>]
   public void Verify_WithAlternateParentSameModifier_ReturnsErrors(ModifierKind kind, string name, string altType)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
     DefineObject(altType, o => o.WithParent(name));
 
-    TheBuilder.WithAlternate(altType, a => a.WithModifier(kind, "String"));
+    TheBuilder.WithAlternate(altType, a => a.WithModifier(kind, BuiltIn.StringType));
 
     Verify_Errors("cannot be an alternate of itself", name);
   }
@@ -106,9 +106,9 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   [Theory, RepeatData]
   public void Verify_WithAlternateSimpleArg_ReturnsErrors(string argType)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    TheBuilder.WithAlternate("String", a => a.WithArg(argType));
+    TheBuilder.WithAlternate(BuiltIn.StringType, a => a.WithArg(argType));
 
     Verify_Errors("Expected none, given 1");
   }
@@ -134,9 +134,9 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   {
     this.SkipEqual(parentName, altType);
 
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    DefineObject(parentName, o => o.WithAlternate("String"));
+    DefineObject(parentName, o => o.WithAlternate(BuiltIn.StringType));
 
     DefineObject(altType, o => o.WithParent(parentName));
 
@@ -150,9 +150,9 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   {
     this.SkipEqual(parentName, altType);
 
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    DefineObject(parentName, o => o.WithAlternate("String"));
+    DefineObject(parentName, o => o.WithAlternate(BuiltIn.StringType));
 
     DefineObject(altType, o => o.WithParent(parentName));
 
@@ -166,9 +166,9 @@ public abstract class ObjectVerifierAlternatesTestsBase<TObjField>(
   [Theory, RepeatData]
   public void Verify_WithParentAlternate_ReturnsNoErrors(string parentName)
   {
-    Define(A.DomainString("String"));
+    Define(A.DomainString(BuiltIn.StringType));
 
-    DefineObject(parentName, o => o.WithAlternate("String"));
+    DefineObject(parentName, o => o.WithAlternate(BuiltIn.StringType));
     // AddTypes(parent);
 
     TheBuilder.WithParent(parentName);

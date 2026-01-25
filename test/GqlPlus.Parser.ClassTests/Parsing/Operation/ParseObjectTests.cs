@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseObjectTests
   : ParserClassTestBase
 {
+
   private readonly ParseObject _parseObject;
   private readonly Parser<IGqlpField>.I _fieldParser;
   private readonly Parser<IGqlpSelection>.I _selectionParser;
@@ -31,7 +32,7 @@ public class ParseObjectTests
     IGqlpField field = ParseOk(_fieldParser);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpSelection>>()
@@ -51,7 +52,7 @@ public class ParseObjectTests
     IGqlpField field = ParseOk(_fieldParser);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpSelection>>()
@@ -70,7 +71,7 @@ public class ParseObjectTests
     IGqlpSelection selection = ParseOk(_selectionParser);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpSelection>>()
@@ -89,7 +90,7 @@ public class ParseObjectTests
     ParseError(_selectionParser);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpSelection>>();
@@ -106,7 +107,7 @@ public class ParseObjectTests
     ParseError(_fieldParser);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpSelection>>();
@@ -120,7 +121,7 @@ public class ParseObjectTests
     TakeReturns('}', true);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpSelection>>();
@@ -133,7 +134,7 @@ public class ParseObjectTests
     Tokenizer.Take('{').Returns(false);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayEmpty<IGqlpSelection>>();

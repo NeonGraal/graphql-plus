@@ -28,7 +28,7 @@ internal class ParseDomainLabel(
       if (tokens.Identifier(out string? enumItem)) {
         result = new DomainLabelAst(at, description, excluded, enumItem) { EnumType = enumType! };
       } else if (tokens.Take('*')) {
-        result = new DomainLabelAst(at, description, excluded, "*") { EnumType = enumType! };
+        result = new DomainLabelAst(at, description, excluded, GqlpDomainLabelConstants.All) { EnumType = enumType! };
       } else {
         return tokens.Partial(label, "identifier or '*' after '.'", () => result);
       }

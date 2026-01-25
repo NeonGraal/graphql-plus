@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseDirectivesTests
   : ParserClassTestBase
 {
+
   private readonly ParseDirectives _parseDirectives;
   private readonly IParserArg _argumentParser;
 
@@ -26,7 +27,7 @@ public class ParseDirectivesTests
     IGqlpArg argument = ParseOk(_argumentParser);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpDirective>>()
@@ -45,7 +46,7 @@ public class ParseDirectivesTests
     IGqlpArg argument = ParseOk(_argumentParser);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpDirective>>();
@@ -58,21 +59,21 @@ public class ParseDirectivesTests
     PrefixReturns('@', OutFail);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartialResult_WhenArgumentParsingFails(string directiveName)
+  public void Parse_ShouldReturnPartialResult_WhenArgumentParsingFails(string directiveName, string error)
   {
     // Arrange
     PrefixReturns('@', OutStringAt(directiveName));
-    ParseError(_argumentParser, "argument error");
+    ParseError(_argumentParser, error);
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpDirective>>()
@@ -87,7 +88,7 @@ public class ParseDirectivesTests
     PrefixReturns('@', OutStringAt(null));
 
     // Act
-    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpDirective>>()

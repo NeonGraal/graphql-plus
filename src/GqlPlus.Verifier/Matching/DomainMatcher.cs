@@ -17,10 +17,10 @@ internal class DomainMatcher(
     TryingMatch(type, constraint);
 
     return type.DomainKind switch {
-      DomainKind.Boolean => constraint.Equals("Boolean", StringComparison.Ordinal),
+      DomainKind.Boolean => constraint.Equals(BuiltIn.BooleanType, StringComparison.Ordinal),
       DomainKind.Enum => MatchDomainLabels(type, constraint, context),
-      DomainKind.Number => constraint.Equals("Number", StringComparison.Ordinal),
-      DomainKind.String => constraint.Equals("String", StringComparison.Ordinal),
+      DomainKind.Number => constraint.Equals(BuiltIn.NumberType, StringComparison.Ordinal),
+      DomainKind.String => constraint.Equals(BuiltIn.StringType, StringComparison.Ordinal),
       _ => false,
     };
   }

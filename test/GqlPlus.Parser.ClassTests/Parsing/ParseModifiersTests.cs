@@ -3,6 +3,7 @@
 public class ParseModifiersTests
   : ModifiersClassTestBase
 {
+
   private readonly ParseModifiers _parseModifiers;
 
   public ParseModifiersTests()
@@ -15,7 +16,7 @@ public class ParseModifiersTests
     IGqlpModifier[] modifiers = ParseAModifier();
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
@@ -29,7 +30,7 @@ public class ParseModifiersTests
     TakeReturns('?', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
@@ -44,7 +45,7 @@ public class ParseModifiersTests
     ParseModifiersError();
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -58,7 +59,7 @@ public class ParseModifiersTests
     TakeReturns('?', false);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()

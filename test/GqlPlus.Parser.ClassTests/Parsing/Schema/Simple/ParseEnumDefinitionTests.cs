@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseEnumDefinitionTests
   : SimpleParserClassTestBase
 {
+
   private readonly Parser<IGqlpEnumLabel>.I _enumLabelParser;
   private readonly ParseEnumDefinition _parser;
 
@@ -24,7 +25,7 @@ public class ParseEnumDefinitionTests
     TakeReturns('}', false, true);
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<EnumDefinition>>();
@@ -39,7 +40,7 @@ public class ParseEnumDefinitionTests
     SetupError<EnumDefinition>();
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -54,7 +55,7 @@ public class ParseEnumDefinitionTests
     SetupPartial(new EnumDefinition());
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<EnumDefinition>>();
@@ -69,7 +70,7 @@ public class ParseEnumDefinitionTests
     SetupPartial(new EnumDefinition());
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<EnumDefinition>>();

@@ -2,6 +2,7 @@
 
 public partial class EnumValueAstTests
 {
+
   [Theory, RepeatData]
   public void HashCode_WithLabel(string enumLabel)
     => _checks.HashCode(() => CreateEnumValue(enumLabel));
@@ -86,11 +87,11 @@ public partial class EnumValueAstTests
   }
 
   [Theory, RepeatData]
-  public void Compare_WithTypes(string label, string type1, string type2)
+  public void Compare_WithTypes(string type1, string type2)
   {
-    EnumValueAst left = CreateEnumValue(type1, label);
-    EnumValueAst right = CreateEnumValue(type2, label);
-    int expected = (type1 + "." + label).Compare(type2 + "." + label);
+    EnumValueAst left = CreateEnumValue(type1, TestLabel);
+    EnumValueAst right = CreateEnumValue(type2, TestLabel);
+    int expected = (type1 + "." + TestLabel).Compare(type2 + "." + TestLabel);
 
     left.CompareTo(right).ShouldBe(expected);
   }

@@ -62,7 +62,7 @@ public interface IGqlpDomainLabel
 
 public static class GqlpDomainLabelConstants
 {
-  public static readonly string All = "*";
+  public const string All = "*";
 }
 
 public interface IGqlpDomainRange

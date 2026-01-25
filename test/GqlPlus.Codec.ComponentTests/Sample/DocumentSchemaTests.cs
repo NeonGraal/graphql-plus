@@ -11,6 +11,8 @@ public class DocumentSchemaTests(
   IEncoder<BaseTypeModel> types
 ) : TestSchemaVerify(checks)
 {
+  private const string TestLabel = "testLabel";
+
   [Fact]
   public async Task Index_Schema()
   {
@@ -77,7 +79,7 @@ public class DocumentSchemaTests(
       .Add("groups", groups)
       .Add("title", new(test));
 
-    await result.WriteHtmlFileAsync(new string[] { "Doc", label, section }.Joined("/"), test);
+    await result.WriteHtmlFileAsync(new string[] { "Doc", TestLabel, section }.Joined("/"), test);
 
     IMap<BaseTypeModel> Just<T>()
       => model.GetTypes(null).Values.Where(d => d is T).ToMap(d => d.Name);

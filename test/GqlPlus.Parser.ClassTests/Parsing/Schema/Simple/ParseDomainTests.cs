@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainTests
   : DeclarationClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly Parser<DomainDefinition>.I _definition;
   private readonly ParseDomain _parser;
 
@@ -21,7 +23,7 @@ public class ParseDomainTests
   [RepeatInlineData(DomainKind.Number)]
   [RepeatInlineData(DomainKind.String)]
   [RepeatInlineData((DomainKind)99)]
-  public void Parse_ShouldReturnDomain_WhenValid(DomainKind domainKind, string domainName, string label, string enumType, string enumLabel)
+  public void Parse_ShouldReturnDomain_WhenValid(DomainKind domainKind, string domainName, string enumType, string enumLabel)
   {
     // Arrange
     NameReturns(domainName);
@@ -30,21 +32,21 @@ public class ParseDomainTests
     ParseOk(_definition, definition);
 
     // Act
-    IResult<IGqlpDomain> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpDomain> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomain>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenInvalid(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenInvalid()
   {
     // Arrange
     NameFails();
     SetupError<IGqlpDomain>();
 
     // Act
-    IResult<IGqlpDomain> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpDomain> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

@@ -6,14 +6,16 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainRangeTests
   : ParseDomainClassTestBase<IGqlpDomainRange>
 {
+  private const string TestLabel = "testLabel";
+
   [Theory, RepeatData]
-  public void Parse_ValidSingleRange_ReturnsCorrect(decimal value, string label)
+  public void Parse_ValidSingleRange_ReturnsCorrect(decimal value)
   {
     // Arrange
     NumberReturns(OutNumber(value));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, label);
+    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
@@ -24,14 +26,14 @@ public class ParseDomainRangeTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ValidLowerRange_ReturnsCorrect(decimal value, string label)
+  public void Parse_ValidLowerRange_ReturnsCorrect(decimal value)
   {
     // Arrange
     NumberReturns(OutNumber(value));
     TakeReturns('>', true);
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, label);
+    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
@@ -56,14 +58,14 @@ public class ParseDomainRangeTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ValidUpperRange_ReturnsCorrect(decimal value, string label)
+  public void Parse_ValidUpperRange_ReturnsCorrect(decimal value)
   {
     // Arrange
     NumberReturns(OutNumber(value));
     TakeReturns('<', true);
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, label);
+    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
@@ -88,7 +90,7 @@ public class ParseDomainRangeTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ValidRange_ReturnsCorrect(decimal first, decimal second, string label)
+  public void Parse_ValidRange_ReturnsCorrect(decimal first, decimal second)
   {
     // Arrange
     TakeReturns('~', true);
@@ -102,7 +104,7 @@ public class ParseDomainRangeTests
     NumberReturns(OutNumber(lower), OutNumber(upper));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, label);
+    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()

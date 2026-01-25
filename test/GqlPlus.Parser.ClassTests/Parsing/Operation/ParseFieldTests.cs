@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseFieldTests
   : ModifiersClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ParseField _parseField;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
   private readonly IParserArg _argumentParser;
@@ -23,7 +25,7 @@ public class ParseFieldTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnField_WhenAliasAndNameAreParsed(string name, string alias, string label)
+  public void Parse_ShouldReturnField_WhenAliasAndNameAreParsed(string name, string alias)
   {
     // Arrange
     IdentifierReturns(OutString(alias), OutString(name));
@@ -35,7 +37,7 @@ public class ParseFieldTests
     IGqlpSelection[] selections = ParseOkA(_objectParser);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, label);
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpField>>()
@@ -49,70 +51,70 @@ public class ParseFieldTests
       );
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenAliasIsMissing(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenAliasIsMissing()
   {
     // Arrange
     IdentifierReturns(OutFail);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, label);
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenNameIsMissingAfterAlias(string alias, string label)
+  public void Parse_ShouldReturnError_WhenNameIsMissingAfterAlias(string alias)
   {
     // Arrange
     IdentifierReturns(OutString(alias));
     TakeReturns(':', true);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, label);
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartialResult_WhenModifiersParsingFails(string alias, string label)
+  public void Parse_ShouldReturnPartialResult_WhenModifiersParsingFails(string alias)
   {
     // Arrange
     IdentifierReturns(OutString(alias));
     ParseModifiersError();
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, label);
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpField>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartialResult_WhenSelectionsParsingFails(string alias, string label)
+  public void Parse_ShouldReturnPartialResult_WhenSelectionsParsingFails(string alias)
   {
     // Arrange
     IdentifierReturns(OutString(alias));
     ParseErrorA(_objectParser);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, label);
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpField>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartialResult_WhenDirectivesParsingFails(string alias, string label)
+  public void Parse_ShouldReturnPartialResult_WhenDirectivesParsingFails(string alias)
   {
     // Arrange
     IdentifierReturns(OutString(alias));
     ParseErrorA(_directivesParser);
 
     // Act
-    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, label);
+    IResult<IGqlpField> result = _parseField.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpField>>();

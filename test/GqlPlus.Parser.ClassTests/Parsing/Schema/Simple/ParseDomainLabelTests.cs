@@ -6,35 +6,37 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainLabelTests
   : ParseDomainClassTestBase<IGqlpDomainLabel>
 {
+  private const string TestLabel = "testLabel";
+
   [Theory, RepeatData]
-  public void Parse_ShouldReturnDomainLabel_WhenValidJustLabel(string enumLabel, string label)
+  public void Parse_ShouldReturnDomainLabel_WhenValidJustLabel(string enumLabel)
   {
     // Arrange
     IdentifierReturns(OutString(enumLabel));
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, label);
+    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainLabel>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnDomainLabel_WhenValidTypeAndLabel(string enumType, string enumLabel, string label)
+  public void Parse_ShouldReturnDomainLabel_WhenValidTypeAndLabel(string enumType, string enumLabel)
   {
     // Arrange
     IdentifierReturns(OutString(enumType), OutString(enumLabel));
     TakeReturns('.', true);
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, label);
+    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainLabel>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnDomainLabel_WhenValidTypeAndAsterisk(string enumType, string label)
+  public void Parse_ShouldReturnDomainLabel_WhenValidTypeAndAsterisk(string enumType)
   {
     // Arrange
     IdentifierReturns(OutString(enumType));
@@ -42,14 +44,14 @@ public class ParseDomainLabelTests
     TakeReturns('*', true);
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, label);
+    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainLabel>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldPartial_WhenInvalidTypeAndOther(string enumType, string label)
+  public void Parse_ShouldPartial_WhenInvalidTypeAndOther(string enumType)
   {
     // Arrange
     IdentifierReturns(OutString(enumType));
@@ -57,14 +59,14 @@ public class ParseDomainLabelTests
     SetupPartial<IGqlpDomainLabel>();
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, label);
+    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpDomainLabel>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenNothingAfterExclamation(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenNothingAfterExclamation()
   {
     // Arrange
     TakeReturns('!', true);
@@ -72,7 +74,7 @@ public class ParseDomainLabelTests
     SetupPartial<IGqlpDomainLabel>();
 
     // Act
-    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, label);
+    IResult<IGqlpDomainLabel> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpDomainLabel>>();
@@ -86,10 +88,10 @@ public class ParseDomainLabelTests
     => new ParseDomainLabel(itemsParser);
 
   protected override IGqlpDomainLabel NewItem()
-    => new DomainLabelAst(AstNulls.At, string.Empty, false, "label");
+    => new DomainLabelAst(AstNulls.At, string.Empty, false, "TestLabel");
 
   protected override void ArrangeValidItem()
     => IdentifierReturns(OutString(itemLabel));
 
-  private readonly string itemLabel = "label";
+  private readonly string itemLabel = "TestLabel";
 }

@@ -3,6 +3,8 @@
 public class ParseDefaultTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ParseDefault _parser;
   private readonly Parser<IGqlpConstant>.I _constantParser;
 
@@ -12,49 +14,49 @@ public class ParseDefaultTests
     _parser = new ParseDefault(constantParser);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnParsedResult_WhenEqualsSignIsPresent(string label)
+  [Fact]
+  public void Parse_ShouldReturnParsedResult_WhenEqualsSignIsPresent()
   {
     // Arrange
     TakeReturns('=', true);
     ParseOk(_constantParser);
 
     // Act
-    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnEmptyResult_WhenEqualsSignIsNotPresent(string label)
+  [Fact]
+  public void Parse_ShouldReturnEmptyResult_WhenEqualsSignIsNotPresent()
   {
     // Arrange
     TakeReturns('=', false);
 
     // Act
-    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenConstantParserFails(string label, string error)
+  public void Parse_ShouldReturnError_WhenConstantParserFails(string error)
   {
     // Arrange
     TakeReturns('=', true);
     ParseError(_constantParser, error);
 
     // Act
-    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenConstantParserEmpty(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenConstantParserEmpty()
   {
     // Arrange
     TakeReturns('=', true);
@@ -62,7 +64,7 @@ public class ParseDefaultTests
     SetupError<IGqlpConstant>();
 
     // Act
-    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

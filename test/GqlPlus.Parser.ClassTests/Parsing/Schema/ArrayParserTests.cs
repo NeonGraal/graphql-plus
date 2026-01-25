@@ -3,6 +3,8 @@
 public class ArrayParserTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly Parser<string>.I _itemParser;
   private readonly ArrayParser<string> _parser;
 
@@ -13,41 +15,41 @@ public class ArrayParserTests
     _parser = new ArrayParser<string>(itemParser);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnArray_WhenValid(string label)
+  [Fact]
+  public void Parse_ShouldReturnArray_WhenValid()
   {
     // Arrange
     Parse(_itemParser, "item1".Ok(), "item2".Ok(), string.Empty.Empty());
 
     // Act
-    IResultArray<string> result = _parser.Parse(Tokenizer, label);
+    IResultArray<string> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<string>>()
       .Required().ShouldBe(["item1", "item2"]);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenItemParsingFails(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenItemParsingFails()
   {
     // Arrange
     ParseError(_itemParser);
 
     // Act
-    IResultArray<string> result = _parser.Parse(Tokenizer, label);
+    IResultArray<string> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<string>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnEmptyArray_WhenNoItems(string label)
+  [Fact]
+  public void Parse_ShouldReturnEmptyArray_WhenNoItems()
   {
     // Arrange
     ParseEmpty(_itemParser);
 
     // Act
-    IResultArray<string> result = _parser.Parse(Tokenizer, label);
+    IResultArray<string> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<string>>()

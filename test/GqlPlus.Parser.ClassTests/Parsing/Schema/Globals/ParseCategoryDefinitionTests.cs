@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Schema.Globals;
 public class ParseCategoryDefinitionTests
   : ModifiersClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly Parser<IGqlpTypeRef>.I _typeRefParser;
   private readonly ParseCategoryDefinition _parser;
 
@@ -18,8 +20,8 @@ public class ParseCategoryDefinitionTests
     SetupPartial<CategoryOutput>(new(default!));
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnCategoryOutput_WhenValid(string label)
+  [Fact]
+  public void Parse_ShouldReturnCategoryOutput_WhenValid()
   {
     // Arrange
     ParseOk(_typeRefParser);
@@ -27,34 +29,34 @@ public class ParseCategoryDefinitionTests
     TakeReturns('}', true);
 
     // Act
-    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, label);
+    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<CategoryOutput>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenTypeRefFails(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenTypeRefFails()
   {
     // Arrange
     ParseError(_typeRefParser);
 
     // Act
-    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, label);
+    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenModifiersFail(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenModifiersFail()
   {
     // Arrange
     ParseOk(_typeRefParser);
     ParseModifiersError();
 
     // Act
-    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, label);
+    IResult<CategoryOutput> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<CategoryOutput>>();

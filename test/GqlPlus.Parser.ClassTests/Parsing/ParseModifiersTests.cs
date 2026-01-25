@@ -3,33 +3,35 @@
 public class ParseModifiersTests
   : ModifiersClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ParseModifiers _parseModifiers;
 
   public ParseModifiersTests()
     => _parseModifiers = new ParseModifiers(Collections);
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnModifiersArray_WhenCollectionsParserSucceeds(string label)
+  [Fact]
+  public void Parse_ShouldReturnModifiersArray_WhenCollectionsParserSucceeds()
   {
     // Arrange
     IGqlpModifier[] modifiers = ParseAModifier();
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, label);
+    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
       .Required().ShouldBe(modifiers);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnOptionalModifier_WhenQuestionMarkIsPresent(string label)
+  [Fact]
+  public void Parse_ShouldReturnOptionalModifier_WhenQuestionMarkIsPresent()
   {
     // Arrange
     TakeReturns('?', true);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, label);
+    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
@@ -37,28 +39,28 @@ public class ParseModifiersTests
       .ModifierKind.ShouldBe(ModifierKind.Opt);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenCollectionsParserFails(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenCollectionsParserFails()
   {
     // Arrange
     ParseModifiersError();
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, label);
+    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnEmptyResult_WhenNoModifiersAreParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnEmptyResult_WhenNoModifiersAreParsed()
   {
     // Arrange
     ParseModifiersEmpty();
     TakeReturns('?', false);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, label);
+    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()

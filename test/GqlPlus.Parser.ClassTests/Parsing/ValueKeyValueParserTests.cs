@@ -3,6 +3,8 @@
 public class ValueKeyValueParserTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ValueKeyValueParser<IGqlpConstant> _parser;
   private readonly Parser<IGqlpFieldKey>.I _keyParser;
   private readonly Parser<IGqlpConstant>.I _valueParser;
@@ -17,8 +19,8 @@ public class ValueKeyValueParserTests
     SetupError<KeyValue<IGqlpConstant>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnKeyValue_WhenSuccessful(string label)
+  [Fact]
+  public void Parse_ShouldReturnKeyValue_WhenSuccessful()
   {
     // Arrange
     ParseOk(_keyParser, AtFor<IGqlpFieldKey>());
@@ -26,42 +28,42 @@ public class ValueKeyValueParserTests
     ParseOk(_valueParser, AtFor<IGqlpConstant>());
 
     // Act
-    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
+    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<KeyValue<IGqlpConstant>>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenColonIsMissing(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenColonIsMissing()
   {
     // Arrange
     ParseOk(_keyParser, AtFor<IGqlpFieldKey>());
     TakeReturns(':', false);
 
     // Act
-    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
+    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenKeyParsingFails(string label, string error)
+  public void Parse_ShouldReturnError_WhenKeyParsingFails(string error)
   {
     // Arrange
     ParseError(_keyParser, error);
 
     // Act
-    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
+    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>()
       .Message.Message.ShouldMatch(error);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenValueParsingEmpty(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenValueParsingEmpty()
   {
     // Arrange
     ParseOk(_keyParser, AtFor<IGqlpFieldKey>());
@@ -69,7 +71,7 @@ public class ValueKeyValueParserTests
     ParseEmpty(_valueParser);
 
     // Act
-    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
+    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>()
@@ -77,7 +79,7 @@ public class ValueKeyValueParserTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenValueParsingFails(string label, string error)
+  public void Parse_ShouldReturnError_WhenValueParsingFails(string error)
   {
     // Arrange
     ParseOk(_keyParser, AtFor<IGqlpFieldKey>());
@@ -85,7 +87,7 @@ public class ValueKeyValueParserTests
     ParseError(_valueParser, error);
 
     // Act
-    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
+    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>()

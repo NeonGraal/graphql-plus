@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Schema.Globals;
 public class ParseCategoryTests
   : DeclarationClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly IOptionParser<CategoryOption> _option;
   private readonly Parser<CategoryOutput>.I _definition;
   private readonly ParseCategory _parser;
@@ -23,7 +25,7 @@ public class ParseCategoryTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnCategory_WhenValid(string category, string label)
+  public void Parse_ShouldReturnCategory_WhenValid(string category)
   {
     // Arrange
     IdentifierReturns(OutString(category));
@@ -31,21 +33,21 @@ public class ParseCategoryTests
     ParseOk(_definition, new CategoryOutput(typeRef));
 
     // Act
-    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaCategory>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenInvalid(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenInvalid()
   {
     // Arrange
     IdentifierReturns(OutFail);
     ParseEmpty(_definition);
 
     // Act
-    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpSchemaCategory> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpSchemaCategory>>();

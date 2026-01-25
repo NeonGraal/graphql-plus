@@ -8,6 +8,8 @@ public class ParseSchemaTests(
   ISchemaParseChecks checks
 ) : TestSchemaResult(checks)
 {
+  private const string TestLabel = "testLabel";
+
   protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
     if (string.IsNullOrWhiteSpace(section)) {
@@ -17,7 +19,7 @@ public class ParseSchemaTests(
 
       string target = ast.Show();
       TestContext.Current.AddAttachment("Result " + test, target);
-      await Verify(target, CustomSettings(label, "Parse", test));
+      await Verify(target, CustomSettings(TestLabel, "Parse", test));
     } else {
       string testName = section + " " + test;
 

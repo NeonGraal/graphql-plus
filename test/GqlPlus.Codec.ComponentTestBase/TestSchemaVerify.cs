@@ -10,11 +10,13 @@ public abstract class TestSchemaVerify(
   ISchemaVerifyChecks checks
 ) : TestSchemaAsts(checks)
 {
+  private const string TestLabel = "testLabel";
+
   protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "")
   {
     (SchemaModel model, IModelsContext context) = checks.Model_Asts(asts, !SchemaValidData.ExcludeSpecsForBuiltIn(test));
 
-    await EncodeModel(model, context, test, label, dirs, section);
+    await EncodeModel(model, context, test, TestLabel, dirs, section);
 
     await CheckResultErrors(dirs, test, context.Errors);
   }
@@ -22,7 +24,7 @@ public abstract class TestSchemaVerify(
   protected virtual async Task EncodeModel([NotNull] SchemaModel model, IModelsContext context, string test, string label, string[] dirs, string section)
   {
     Structured result = checks.Encode_Model(model, context);
-    VerifySettings settings = CustomSettings(label, ResultGroup, test, section);
+    VerifySettings settings = CustomSettings(TestLabel, ResultGroup, test, section);
     string target = EncodeResult(result, section);
     TestContext.Current.AddAttachment("Output " + test, target);
     await VerifyResult(target, settings);

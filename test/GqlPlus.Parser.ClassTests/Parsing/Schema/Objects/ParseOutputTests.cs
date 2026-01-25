@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseOutputTests
   : DeclarationClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly Parser<IGqlpTypeParam>.IA _param;
   private readonly Parser<ObjectDefinition<IGqlpOutputField>>.I _definition;
   private readonly ObjectParser<IGqlpOutputField> _parser;
@@ -18,28 +20,28 @@ public class ParseOutputTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOutputObject_WhenValid(string outputName, string label)
+  public void Parse_ShouldReturnOutputObject_WhenValid(string outputName)
   {
     // Arrange
     NameReturns(outputName);
     ParseOk(_definition, new ObjectDefinition<IGqlpOutputField>());
 
     // Act
-    IResult<IGqlpObject<IGqlpOutputField>> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpObject<IGqlpOutputField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpObject<IGqlpOutputField>>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenInvalid(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenInvalid()
   {
     // Arrange
     Tokenizer.Identifier(out _).Returns(false);
     SetupError<IGqlpObject<IGqlpOutputField>>();
 
     // Act
-    IResult<IGqlpObject<IGqlpOutputField>> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpObject<IGqlpOutputField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

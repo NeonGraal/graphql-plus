@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseOperationTests
   : ModifiersClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ParseOperation _parseOperation;
   private readonly IParserArg _argumentParser;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
@@ -35,7 +37,7 @@ public class ParseOperationTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOperation_WhenResultAndOtherComponentsAreParsed(string resultType, string label)
+  public void Parse_ShouldReturnOperation_WhenResultAndOtherComponentsAreParsed(string resultType)
   {
     // Arrange
     Tokenizer.AtStart.Returns(true);
@@ -53,7 +55,7 @@ public class ParseOperationTests
     IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, label);
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpOperation>>()
@@ -67,8 +69,8 @@ public class ParseOperationTests
       );
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnOperation_WhenObjectAndOtherComponentsAreParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnOperation_WhenObjectAndOtherComponentsAreParsed()
   {
     // Arrange
     Tokenizer.AtStart.Returns(true);
@@ -87,7 +89,7 @@ public class ParseOperationTests
     IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, label);
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpOperation>>()
@@ -101,7 +103,7 @@ public class ParseOperationTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenExtraText(string resultType, string label)
+  public void Parse_ShouldReturnPartial_WhenExtraText(string resultType)
   {
     // Arrange
     Tokenizer.AtStart.Returns(true);
@@ -119,14 +121,14 @@ public class ParseOperationTests
     IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, label);
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenModifersErrors(string resultType, string label)
+  public void Parse_ShouldReturnPartial_WhenModifersErrors(string resultType)
   {
     // Arrange
     Tokenizer.AtStart.Returns(true);
@@ -143,14 +145,14 @@ public class ParseOperationTests
     ParseModifiersError();
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, label);
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenArgumentErrors(string resultType, string label)
+  public void Parse_ShouldReturnPartial_WhenArgumentErrors(string resultType)
   {
     // Arrange
     Tokenizer.AtStart.Returns(true);
@@ -166,28 +168,28 @@ public class ParseOperationTests
     ParseError(_argumentParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, label);
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenNoTextToParse(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenNoTextToParse()
   {
     // Arrange
     Tokenizer.AtStart.Returns(true);
     Tokenizer.Read().Returns(false);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, label);
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenVariablesParsingFails(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenVariablesParsingFails()
   {
     // Arrange
     Tokenizer.AtStart.Returns(true);
@@ -195,14 +197,14 @@ public class ParseOperationTests
     ParseErrorA(_variablesParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, label);
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartialResult_WhenResultTypeIsMissing(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartialResult_WhenResultTypeIsMissing()
   {
     // Arrange
     Tokenizer.AtStart.Returns(true);
@@ -211,14 +213,14 @@ public class ParseOperationTests
     PrefixReturns(':', OutFail);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, label);
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenObjectParsingFails(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenObjectParsingFails()
   {
     // Arrange
     Tokenizer.AtStart.Returns(true);
@@ -228,14 +230,14 @@ public class ParseOperationTests
     ParseErrorA(_objectParser);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, label);
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartialResult_WhenNoValidTokensAreParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartialResult_WhenNoValidTokensAreParsed()
   {
     // Arrange
     Tokenizer.AtStart.Returns(false);
@@ -243,7 +245,7 @@ public class ParseOperationTests
     PrefixReturns(':', OutPass);
 
     // Act
-    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, label);
+    IResult<IGqlpOperation> result = _parseOperation.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpOperation>>();

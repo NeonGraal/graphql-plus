@@ -3,6 +3,8 @@
 public class ParseFieldKeyTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ParseFieldKey _parseFieldKey;
 
   private readonly Parser<IGqlpEnumValue>.I _parseEnumValue;
@@ -15,13 +17,13 @@ public class ParseFieldKeyTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnFieldKeyResult_WhenNumberTokenIsParsed(decimal value, string label)
+  public void Parse_ShouldReturnFieldKeyResult_WhenNumberTokenIsParsed(decimal value)
   {
     // Arrange
     Tokenizer.Number(out decimal _).Returns(OutNumber(value));
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, label);
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
@@ -29,35 +31,35 @@ public class ParseFieldKeyTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnFieldKeyResult_WhenStringTokenIsParsed(string contents, string label)
+  public void Parse_ShouldReturnFieldKeyResult_WhenStringTokenIsParsed(string contents)
   {
     // Arrange
     Tokenizer.String(out string? _).Returns(OutString(contents));
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, label);
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
       .Required().Text.ShouldBe(contents);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnFieldKeyResult_WhenEmptyStringTokenIsParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnFieldKeyResult_WhenEmptyStringTokenIsParsed()
   {
     // Arrange
     Tokenizer.String(out string? _).Returns(OutString(string.Empty));
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, label);
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
       .Required().Text.ShouldBe(string.Empty);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnFieldKeyResult_WhenEnumValueParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnFieldKeyResult_WhenEnumValueParsed()
   {
     // Arrange
     Tokenizer.Number(out decimal _).Returns(false);
@@ -65,15 +67,15 @@ public class ParseFieldKeyTests
     ParseOk(_parseEnumValue);
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, label);
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
       .Required().EnumValue.ShouldNotBeNull();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenInvalidEnumValue(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenInvalidEnumValue()
   {
     // Arrange
     Tokenizer.Number(out decimal _).Returns(false);
@@ -81,14 +83,14 @@ public class ParseFieldKeyTests
     ParseError(_parseEnumValue);
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, label);
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokenIsParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokenIsParsed()
   {
     // Arrange
     Tokenizer.Number(out decimal _).Returns(false);
@@ -96,7 +98,7 @@ public class ParseFieldKeyTests
     ParseEmpty(_parseEnumValue);
 
     // Act
-    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, label);
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

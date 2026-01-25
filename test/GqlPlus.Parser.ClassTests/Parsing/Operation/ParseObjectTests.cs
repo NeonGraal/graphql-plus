@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseObjectTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ParseObject _parseObject;
   private readonly Parser<IGqlpField>.I _fieldParser;
   private readonly Parser<IGqlpSelection>.I _selectionParser;
@@ -19,8 +21,8 @@ public class ParseObjectTests
     SetupPartial<IGqlpSelection>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnSelectionsArray_WhenFieldsĀndSelectionsAreParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnSelectionsArray_WhenFieldsĀndSelectionsAreParsed()
   {
     // Arrange
     TakeReturns('{', true);
@@ -31,7 +33,7 @@ public class ParseObjectTests
     IGqlpField field = ParseOk(_fieldParser);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, label);
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpSelection>>()
@@ -41,8 +43,8 @@ public class ParseObjectTests
       );
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnSelectionsArray_WhenFieldsAreParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnSelectionsArray_WhenFieldsAreParsed()
   {
     // Arrange
     TakeReturns('{', true);
@@ -51,7 +53,7 @@ public class ParseObjectTests
     IGqlpField field = ParseOk(_fieldParser);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, label);
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpSelection>>()
@@ -60,8 +62,8 @@ public class ParseObjectTests
       );
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnSelectionsArray_WhenSelectionsAreParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnSelectionsArray_WhenSelectionsAreParsed()
   {
     // Arrange
     TakeReturns('{', true);
@@ -70,7 +72,7 @@ public class ParseObjectTests
     IGqlpSelection selection = ParseOk(_selectionParser);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, label);
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpSelection>>()
@@ -79,8 +81,8 @@ public class ParseObjectTests
       );
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenSelectionParsingFails(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenSelectionParsingFails()
   {
     // Arrange
     TakeReturns('{', true);
@@ -89,14 +91,14 @@ public class ParseObjectTests
     ParseError(_selectionParser);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, label);
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpSelection>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenFieldParsingFails(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenFieldParsingFails()
   {
     // Arrange
     TakeReturns('{', true);
@@ -106,34 +108,34 @@ public class ParseObjectTests
     ParseError(_fieldParser);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, label);
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpSelection>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartialResult_WhenNoFieldsOrSelectionsAreParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartialResult_WhenNoFieldsOrSelectionsAreParsed()
   {
     // Arrange
     TakeReturns('{', true);
     TakeReturns('}', true);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, label);
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpSelection>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnEmptyResult_WhenOpeningBraceIsMissing(string label)
+  [Fact]
+  public void Parse_ShouldReturnEmptyResult_WhenOpeningBraceIsMissing()
   {
     // Arrange
     Tokenizer.Take('{').Returns(false);
 
     // Act
-    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, label);
+    IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayEmpty<IGqlpSelection>>();

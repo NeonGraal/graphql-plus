@@ -6,6 +6,8 @@ public abstract class ObjectFieldParseTestBase<TField>
   : AliasesClassTestBase
   where TField : class, IGqlpObjField
 {
+  private const string TestLabel = "testLabel";
+
   private readonly Parser<IGqlpObjBase>.I _parseBase;
   protected Parser<IGqlpObjBase>.D ParseBase { get; }
   protected abstract Parser<TField>.I Parser { get; }
@@ -123,10 +125,10 @@ public abstract class ObjectFieldParseTestBase<TField>
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnEnumField_WhenValidLabel(string fieldName, string[] aliases, string label)
+  public void Parse_ShouldReturnEnumField_WhenValidLabel(string fieldName, string[] aliases)
   {
     // Arrange
-    IdentifierReturns(OutString(fieldName), OutString(label));
+    IdentifierReturns(OutString(fieldName), OutString(TestLabel));
     TakeReturns('=', true);
     ParseAliasesOk(aliases);
 
@@ -138,10 +140,10 @@ public abstract class ObjectFieldParseTestBase<TField>
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnEnumField_WhenValidEnum(string fieldName, string[] aliases, string type, string label)
+  public void Parse_ShouldReturnEnumField_WhenValidEnum(string fieldName, string[] aliases, string type)
   {
     // Arrange
-    IdentifierReturns(OutString(fieldName), OutString(type), OutString(label));
+    IdentifierReturns(OutString(fieldName), OutString(type), OutString(TestLabel));
     TakeReturns('=', true);
     ParseAliasesOk(aliases);
     TakeReturns('.', true);

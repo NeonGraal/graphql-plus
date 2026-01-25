@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Schema.Globals;
 public class ParseOptionDefinitionTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly Parser<IGqlpSchemaSetting>.I _settingParser;
   private readonly ParseOptionDefinition _parser;
 
@@ -16,27 +18,27 @@ public class ParseOptionDefinitionTests
     TakeReturns('}', false, true);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnOptionDefinition_WhenValid(string label)
+  [Fact]
+  public void Parse_ShouldReturnOptionDefinition_WhenValid()
   {
     // Arrange
     ParseOk(_settingParser);
 
     // Act
-    IResult<OptionDefinition> result = _parser.Parse(Tokenizer, label);
+    IResult<OptionDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<OptionDefinition>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenSettingsFail(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenSettingsFail()
   {
     // Arrange
     ParseError(_settingParser);
 
     // Act
-    IResult<OptionDefinition> result = _parser.Parse(Tokenizer, label);
+    IResult<OptionDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<OptionDefinition>>();

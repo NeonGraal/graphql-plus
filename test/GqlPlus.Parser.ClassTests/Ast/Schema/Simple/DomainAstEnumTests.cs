@@ -5,9 +5,11 @@ namespace GqlPlus.Ast.Schema.Simple;
 public class DomainAstEnumTests
   : AstDomainBaseTests<DomainLabelInput>
 {
+  private const string TestLabel = "testLabel";
+
   [Theory, RepeatData]
-  public void Inequality_BetweenSpecifcItems(string name, string type1, string type2, string label)
-    => Checks.Inequality_BetweenItems(name, new(type1, label), new(type2, label));
+  public void Inequality_BetweenSpecifcItems(string name, string type1, string type2)
+    => Checks.Inequality_BetweenItems(name, new(type1, TestLabel), new(type2, TestLabel));
 
   internal override IAstDomainChecks<DomainLabelInput> Checks => _checks;
 

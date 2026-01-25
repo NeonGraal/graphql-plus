@@ -3,6 +3,8 @@
 public class ValueObjectParserTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ValueObjectParser<IGqlpConstant> _parser;
   private readonly Parser<KeyValue<IGqlpConstant>>.I _fieldParser;
 
@@ -14,8 +16,8 @@ public class ValueObjectParserTests
     SetupError<IGqlpFields<IGqlpConstant>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnObject_WhenSuccessful(string label)
+  [Fact]
+  public void Parse_ShouldReturnObject_WhenSuccessful()
   {
     // Arrange
     TakeReturns('{', true);
@@ -23,41 +25,41 @@ public class ValueObjectParserTests
     TakeReturns('}', true);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFields<IGqlpConstant>>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnEmptyObject_WhenBracesAreMissing(string label)
+  [Fact]
+  public void Parse_ShouldReturnEmptyObject_WhenBracesAreMissing()
   {
     // Arrange
     TakeReturns('{', false);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenFieldParsingFails(string label, string error)
+  public void Parse_ShouldReturnError_WhenFieldParsingFails(string error)
   {
     // Arrange
     TakeReturns('{', true);
     ParseError(_fieldParser, error);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenClosingBraceIsMissing(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenClosingBraceIsMissing()
   {
     // Arrange
     TakeReturns('{', true);
@@ -65,7 +67,7 @@ public class ValueObjectParserTests
     TakeReturns('}', false);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

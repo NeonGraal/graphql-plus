@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseUnionDefinitionTests
   : SimpleParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly Parser<IGqlpUnionMember>.I _unionMemberParser;
   private readonly ParseUnionDefinition _parser;
 
@@ -15,7 +17,7 @@ public class ParseUnionDefinitionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOk_WhenValid(string parentType, string label)
+  public void Parse_ShouldReturnOk_WhenValid(string parentType)
   {
     // Arrange
     TakeReturns(':', true);
@@ -24,14 +26,14 @@ public class ParseUnionDefinitionTests
     TakeReturns('}', false, true);
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, label);
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<UnionDefinition>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenParentTypeInvalid(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenParentTypeInvalid()
   {
     // Arrange
     TakeReturns(':', true);
@@ -39,14 +41,14 @@ public class ParseUnionDefinitionTests
     SetupError<UnionDefinition>();
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, label);
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenMemberErrors(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenMemberErrors()
   {
     // Arrange
     TakeReturns(':', false);
@@ -54,14 +56,14 @@ public class ParseUnionDefinitionTests
     SetupPartial(new UnionDefinition());
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, label);
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<UnionDefinition>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnOk_WhenNoMembers(string label)
+  [Fact]
+  public void Parse_ShouldReturnOk_WhenNoMembers()
   {
     // Arrange
     TakeReturns(':', false);
@@ -69,7 +71,7 @@ public class ParseUnionDefinitionTests
     SetupPartial(new UnionDefinition());
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, label);
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<UnionDefinition>>();

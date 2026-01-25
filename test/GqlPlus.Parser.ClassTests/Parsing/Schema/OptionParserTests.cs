@@ -6,6 +6,8 @@ namespace GqlPlus.Parsing.Schema;
 public class OptionParserTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly IEnumParser<DomainKind> _domainParser;
   private readonly OptionParser<DomainKind> _parser;
 
@@ -16,8 +18,8 @@ public class OptionParserTests
     SetupPartial(DomainKind.Number);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnOption_WhenValid(string label)
+  [Fact]
+  public void Parse_ShouldReturnOption_WhenValid()
   {
     // Arrange
     TakeReturns('(', true);
@@ -25,15 +27,15 @@ public class OptionParserTests
     TakeReturns(')', true);
 
     // Act
-    IResult<DomainKind> result = _parser.Parse(Tokenizer, label);
+    IResult<DomainKind> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<DomainKind>>()
       .Required().ShouldBe(DomainKind.Number);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenClosingParenthesisIsMissing(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenClosingParenthesisIsMissing()
   {
     // Arrange
     TakeReturns('(', true);
@@ -41,20 +43,20 @@ public class OptionParserTests
     TakeReturns(')', false);
 
     // Act
-    IResult<DomainKind> result = _parser.Parse(Tokenizer, label);
+    IResult<DomainKind> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DomainKind>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnEmpty_WhenNoOpeningParenthesis(string label)
+  [Fact]
+  public void Parse_ShouldReturnEmpty_WhenNoOpeningParenthesis()
   {
     // Arrange
     TakeReturns('(', false);
 
     // Act
-    IResult<DomainKind> result = _parser.Parse(Tokenizer, label);
+    IResult<DomainKind> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

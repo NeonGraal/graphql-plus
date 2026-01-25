@@ -3,6 +3,8 @@
 public class ParseConstantTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ParseConstant _parseConstant;
 
   private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
@@ -20,14 +22,14 @@ public class ParseConstantTests
     _parseConstant = new ParseConstant(fieldKeyParser, keyValueParser, listParser, objectParser);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnFieldKeyResult_WhenFieldKeyHasValue(string label)
+  [Fact]
+  public void Parse_ShouldReturnFieldKeyResult_WhenFieldKeyHasValue()
   {
     // Arrange
     ParseOk(_fieldKeyParser);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, label);
+    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()
@@ -38,14 +40,14 @@ public class ParseConstantTests
       );
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnListResult_WhenListParserSucceeds(string label)
+  [Fact]
+  public void Parse_ShouldReturnListResult_WhenListParserSucceeds()
   {
     // Arrange
     ParseOkA(_listParser);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, label);
+    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()
@@ -57,14 +59,14 @@ public class ParseConstantTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnObjectResult_WhenListParserFailsAndObjectParserSucceeds(string fieldName, string label)
+  public void Parse_ShouldReturnObjectResult_WhenListParserFailsAndObjectParserSucceeds(string fieldName)
   {
     // Arrange
     ParseEmptyA(_listParser);
     ParseOkField(_objectParser, fieldName);
 
     // Act
-    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, label);
+    IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpConstant>>()

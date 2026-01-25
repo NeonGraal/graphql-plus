@@ -3,6 +3,8 @@
 public class ParseVarTypeTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ParseVarType _parseVarType;
 
   public ParseVarTypeTests()
@@ -14,13 +16,13 @@ public class ParseVarTypeTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnVariableType_WhenIdentifierIsParsed(string identifier, string label)
+  public void Parse_ShouldReturnVariableType_WhenIdentifierIsParsed(string identifier)
   {
     // Arrange
     IdentifierReturns(OutString(identifier));
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, label);
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<string>>()
@@ -28,14 +30,14 @@ public class ParseVarTypeTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnVariableTypeWithExclamationMark_WhenExclamationMarkIsPresent(string identifier, string label)
+  public void Parse_ShouldReturnVariableTypeWithExclamationMark_WhenExclamationMarkIsPresent(string identifier)
   {
     // Arrange
     IdentifierReturns(OutString(identifier));
     TakeReturns('!', true);
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, label);
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<string>>()
@@ -43,7 +45,7 @@ public class ParseVarTypeTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnArrayVariableType_WhenBracketsArePresent(string innerType, string label)
+  public void Parse_ShouldReturnArrayVariableType_WhenBracketsArePresent(string innerType)
   {
     // Arrange
     TakeReturns('[', true);
@@ -51,29 +53,29 @@ public class ParseVarTypeTests
     TakeReturns(']', true);
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, label);
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<string>>()
       .Required().ShouldBe($"[{innerType}]");
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenInnerTypeIsMissing(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenInnerTypeIsMissing()
   {
     // Arrange
     TakeReturns('[', true);
     IdentifierReturns(OutFail);
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, label);
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenClosingBracketIsMissing(string innerType, string label)
+  public void Parse_ShouldReturnPartial_WhenClosingBracketIsMissing(string innerType)
   {
     // Arrange
     TakeReturns('[', true);
@@ -81,21 +83,21 @@ public class ParseVarTypeTests
     TakeReturns(']', false);
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, label);
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<string>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokenIsParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokenIsParsed()
   {
     // Arrange
     IdentifierReturns(OutFail);
     TakeReturns('[', false);
 
     // Act
-    IResult<string> result = _parseVarType.Parse(Tokenizer, label);
+    IResult<string> result = _parseVarType.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

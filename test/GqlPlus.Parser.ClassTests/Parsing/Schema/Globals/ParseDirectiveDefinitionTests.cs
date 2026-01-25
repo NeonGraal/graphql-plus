@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 public class ParseDirectiveDefinitionTests : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly IEnumParser<DirectiveLocation> _locationParser;
   private readonly ParseDirectiveDefinition _parser;
 
@@ -16,40 +18,40 @@ public class ParseDirectiveDefinitionTests : ParserClassTestBase
     TakeReturns('}', false, true);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnDirectiveLocation_WhenValid(string label)
+  [Fact]
+  public void Parse_ShouldReturnDirectiveLocation_WhenValid()
   {
     // Arrange
     ParseOk(_locationParser, DirectiveLocation.Operation);
 
     // Act
-    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, label);
+    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<DirectiveLocation>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenNoLocations(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenNoLocations()
   {
     // Arrange
     ParseOk(_locationParser, DirectiveLocation.None);
 
     // Act
-    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, label);
+    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DirectiveLocation>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenLocationParsingFails(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenLocationParsingFails()
   {
     // Arrange
     ParseError(_locationParser);
 
     // Act
-    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, label);
+    IResult<DirectiveLocation> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DirectiveLocation>>();

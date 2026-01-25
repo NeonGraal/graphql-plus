@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Schema;
 public class ParseDeclarationTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly DeclarationSelector<IGqlpDeclaration> _selector = new("category");
   private readonly Parser<IGqlpDeclaration>.I _declaration;
   private readonly Parser<IGqlpDeclaration>.D _declarationFactory;
@@ -16,28 +18,28 @@ public class ParseDeclarationTests
     _parser = new ParseDeclaration<IGqlpDeclaration>(_selector, _declarationFactory);
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnDeclaration_WhenValid(string label)
+  [Fact]
+  public void Parse_ShouldReturnDeclaration_WhenValid()
   {
     // Arrange
     ParseOk(_declaration);
 
     // Act
-    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, label);
+    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDeclaration>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenInvalid(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenInvalid()
   {
     // Arrange
     ParseError(_declaration);
     SetupError<IGqlpDeclaration>();
 
     // Act
-    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, label);
+    IResult<IGqlpDeclaration> result = _parser.Parser(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError<IGqlpDeclaration>>();

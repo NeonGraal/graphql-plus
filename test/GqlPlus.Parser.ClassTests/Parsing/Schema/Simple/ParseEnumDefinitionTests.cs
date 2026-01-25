@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseEnumDefinitionTests
   : SimpleParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly Parser<IGqlpEnumLabel>.I _enumLabelParser;
   private readonly ParseEnumDefinition _parser;
 
@@ -15,7 +17,7 @@ public class ParseEnumDefinitionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOk_WhenValid(string parentType, string label)
+  public void Parse_ShouldReturnOk_WhenValid(string parentType)
   {
     // Arrange
     TakeReturns(':', true);
@@ -24,14 +26,14 @@ public class ParseEnumDefinitionTests
     TakeReturns('}', false, true);
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, label);
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<EnumDefinition>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenParentTypeInvalid(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenParentTypeInvalid()
   {
     // Arrange
     TakeReturns(':', true);
@@ -39,14 +41,14 @@ public class ParseEnumDefinitionTests
     SetupError<EnumDefinition>();
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, label);
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenLabelErrors(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenLabelErrors()
   {
     // Arrange
     TakeReturns(':', false);
@@ -54,14 +56,14 @@ public class ParseEnumDefinitionTests
     SetupPartial(new EnumDefinition());
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, label);
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<EnumDefinition>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenNoLabels(string label)
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenNoLabels()
   {
     // Arrange
     TakeReturns(':', false);
@@ -69,7 +71,7 @@ public class ParseEnumDefinitionTests
     SetupPartial(new EnumDefinition());
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, label);
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<EnumDefinition>>();

@@ -3,6 +3,8 @@
 public class ParseEnumValueTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ParseEnumValue _parseEnumValue;
 
   public ParseEnumValueTests()
@@ -13,14 +15,14 @@ public class ParseEnumValueTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnEnumValueResult_WhenEnumTypeAndLabelAreParsed(string enumType, string enumLabel, string label)
+  public void Parse_ShouldReturnEnumValueResult_WhenEnumTypeAndLabelAreParsed(string enumType, string enumLabel)
   {
     // Arrange
     TakeReturns('.', true);
     IdentifierReturns(OutString(enumType), OutString(enumLabel));
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, label);
+    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpEnumValue>>()
@@ -32,13 +34,13 @@ public class ParseEnumValueTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnEnumValueResult_WhenEnumLabelAreParsed(string enumLabel, string label)
+  public void Parse_ShouldReturnEnumValueResult_WhenEnumLabelAreParsed(string enumLabel)
   {
     // Arrange
     IdentifierReturns(OutString(enumLabel));
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, label);
+    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpEnumValue>>()
@@ -54,13 +56,13 @@ public class ParseEnumValueTests
   [RepeatInlineData("false", "Boolean")]
   [RepeatInlineData("null", "Null")]
   [RepeatInlineData("_", "Unit")]
-  public void Parse_ShouldReturnEnumValueResult_WhenBuiltInEnumLabelAreParsed(string enumLabel, string expectedType, string label)
+  public void Parse_ShouldReturnEnumValueResult_WhenBuiltInEnumLabelAreParsed(string enumLabel, string expectedType)
   {
     // Arrange
     IdentifierReturns(OutString(enumLabel));
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, label);
+    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpEnumValue>>()
@@ -72,52 +74,52 @@ public class ParseEnumValueTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenInvalidEnumValue(string enumType, string label)
+  public void Parse_ShouldReturnError_WhenInvalidEnumValue(string enumType)
   {
     // Arrange
     IdentifierReturns(OutString(enumType));
     TakeReturns('.', true);
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, label);
+    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokenIsParsed(string label)
+  [Fact]
+  public void Parse_ShouldReturnEmptyResult_WhenNoValidTokenIsParsed()
   {
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, label);
+    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenDotWithoutSecondIdentifier(string enumType, string label)
+  public void Parse_ShouldReturnError_WhenDotWithoutSecondIdentifier(string enumType)
   {
     // Arrange
     IdentifierReturns(OutString(enumType));
     TakeReturns('.', true);
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, label);
+    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnEnumValueResult_WhenNoDotAfterFirstIdentifier(string enumLabel, string label)
+  public void Parse_ShouldReturnEnumValueResult_WhenNoDotAfterFirstIdentifier(string enumLabel)
   {
     // Arrange
     IdentifierReturns(OutString(enumLabel));
     TakeReturns('.', false);
 
     // Act
-    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, label);
+    IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpEnumValue>>()
@@ -128,8 +130,8 @@ public class ParseEnumValueTests
       );
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldHandleBuiltInValues_Correctly(string label)
+  [Fact]
+  public void Parse_ShouldHandleBuiltInValues_Correctly()
   {
     (string, string)[] builtInValues =
     [
@@ -144,7 +146,7 @@ public class ParseEnumValueTests
       IdentifierReturns(OutString(builtInLabel));
 
       // Act
-      IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, label);
+      IResult<IGqlpEnumValue> result = _parseEnumValue.Parse(Tokenizer, TestLabel);
 
       // Assert
       result.ShouldBeAssignableTo<IResultOk<IGqlpEnumValue>>()

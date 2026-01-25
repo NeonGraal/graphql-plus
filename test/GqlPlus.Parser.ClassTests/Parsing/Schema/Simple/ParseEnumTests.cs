@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseEnumTests
   : DeclarationClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly Parser<EnumDefinition>.I _definition;
   private readonly ParseEnum _parser;
 
@@ -15,14 +17,14 @@ public class ParseEnumTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnEnum_WhenValid(string enumName, string label)
+  public void Parse_ShouldReturnEnum_WhenValid(string enumName)
   {
     // Arrange
     NameReturns(enumName);
     ParseOk(_definition, new EnumDefinition());
 
     // Act
-    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpEnum>>();
@@ -33,7 +35,7 @@ public class ParseEnumTests
     => Check_ShouldReturnError_WhenNoName(_parser);
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenInvalid(string enumName, string label)
+  public void Parse_ShouldReturnPartial_WhenInvalid(string enumName)
   {
     // Arrange
     NameReturns(enumName);
@@ -41,7 +43,7 @@ public class ParseEnumTests
     SetupError<IGqlpEnum>();
 
     // Act
-    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpEnum>>();

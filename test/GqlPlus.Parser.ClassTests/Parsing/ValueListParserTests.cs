@@ -3,6 +3,8 @@
 public class ValueListParserTests
   : ParserClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly ValueListParser<IGqlpConstant> _parser;
   private readonly Parser<IGqlpConstant>.I _valueParser;
 
@@ -14,8 +16,8 @@ public class ValueListParserTests
     SetupError<IGqlpConstant>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnList_WhenSuccessful(string label)
+  [Fact]
+  public void Parse_ShouldReturnList_WhenSuccessful()
   {
     // Arrange
     TakeReturns('[', true);
@@ -23,41 +25,41 @@ public class ValueListParserTests
     TakeReturns(']', true);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
+    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpConstant>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnEmptyList_WhenBracketsAreMissing(string label)
+  [Fact]
+  public void Parse_ShouldReturnEmptyList_WhenBracketsAreMissing()
   {
     // Arrange
     TakeReturns('[', false);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
+    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayEmpty<IGqlpConstant>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenValueParsingFails(string label, string error)
+  public void Parse_ShouldReturnError_WhenValueParsingFails(string error)
   {
     // Arrange
     TakeReturns('[', true);
     ParseError(_valueParser, error);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
+    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenClosingBracketIsMissing(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenClosingBracketIsMissing()
   {
     // Arrange
     TakeReturns('[', true);
@@ -65,7 +67,7 @@ public class ValueListParserTests
     TakeReturns(']', false);
 
     // Act
-    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, label);
+    IResultArray<IGqlpConstant> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayError<IGqlpConstant>>();

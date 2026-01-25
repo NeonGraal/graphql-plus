@@ -5,6 +5,8 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseDualTests
   : DeclarationClassTestBase
 {
+  private const string TestLabel = "testLabel";
+
   private readonly Parser<IGqlpTypeParam>.IA _param;
   private readonly Parser<ObjectDefinition<IGqlpDualField>>.I _definition;
   private readonly ObjectParser<IGqlpDualField> _parser;
@@ -18,28 +20,28 @@ public class ParseDualTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnDualObject_WhenValid(string dualName, string label)
+  public void Parse_ShouldReturnDualObject_WhenValid(string dualName)
   {
     // Arrange
     NameReturns(dualName);
     ParseOk(_definition, new ObjectDefinition<IGqlpDualField>());
 
     // Act
-    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpObject<IGqlpDualField>>>();
   }
 
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenInvalid(string label)
+  [Fact]
+  public void Parse_ShouldReturnError_WhenInvalid()
   {
     // Arrange
     Tokenizer.Identifier(out _).Returns(false);
     SetupError<IGqlpObject<IGqlpDualField>>();
 
     // Act
-    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, label);
+    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

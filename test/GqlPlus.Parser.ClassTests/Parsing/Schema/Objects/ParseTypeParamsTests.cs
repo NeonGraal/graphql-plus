@@ -15,7 +15,7 @@ public class ParseTypeParamsTests
   }
 
   [Theory, RepeatData]
-  public void Parse_WithConstraint_ShouldReturnCorrect(string paramName, string constraint)
+  public void Parse_WithConstraint_ShouldReturnCorrect(string paramName, string constraint, string label)
   {
     // Arrange
     TakeReturns('<', true);
@@ -25,7 +25,7 @@ public class ParseTypeParamsTests
     TakeReturns('>', false, true);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeParam>>()
@@ -39,7 +39,7 @@ public class ParseTypeParamsTests
   [RepeatInlineData('^')]
   [RepeatInlineData('_')]
   [RepeatInlineData('*')]
-  public void Parse_WithConstraintChar_ShouldReturnCorrect(char typeChar, string paramName)
+  public void Parse_WithConstraintChar_ShouldReturnCorrect(char typeChar, string paramName, string label)
   {
     // Arrange
     TakeReturns('<', true);
@@ -49,7 +49,7 @@ public class ParseTypeParamsTests
     TakeReturns('>', false, true);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeParam>>()
@@ -60,7 +60,7 @@ public class ParseTypeParamsTests
   }
 
   [Theory, RepeatData]
-  public void Parse_WithConstraintZero_ShouldReturnCorrect(string paramName)
+  public void Parse_WithConstraintZero_ShouldReturnCorrect(string paramName, string label)
   {
     // Arrange
     TakeReturns('<', true);
@@ -70,7 +70,7 @@ public class ParseTypeParamsTests
     TakeReturns('>', false, true);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeParam>>()
@@ -81,7 +81,7 @@ public class ParseTypeParamsTests
   }
 
   [Theory, RepeatData]
-  public void Parse_WithMissingConstraintType_ShouldReturnPartial(string paramName)
+  public void Parse_WithMissingConstraintType_ShouldReturnPartial(string paramName, string label)
   {
     // Arrange
     TakeReturns('<', true);
@@ -90,7 +90,7 @@ public class ParseTypeParamsTests
     TakeReturns('>', false, true);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpTypeParam>>()
@@ -101,7 +101,7 @@ public class ParseTypeParamsTests
   }
 
   [Theory, RepeatData]
-  public void Parse_WithMissingConstraint_ShouldReturnPartial(string paramName)
+  public void Parse_WithMissingConstraint_ShouldReturnPartial(string paramName, string label)
   {
     // Arrange
     TakeReturns('<', true);
@@ -109,7 +109,7 @@ public class ParseTypeParamsTests
     TakeReturns('>', false, true);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpTypeParam>>()
@@ -119,15 +119,15 @@ public class ParseTypeParamsTests
         r => r.Constraint.ShouldBe(""));
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenNoTypeParams()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenNoTypeParams(string label)
   {
     // Arrange
     TakeReturns('<', true);
     PrefixReturns('$', OutFail);
 
     // Act
-    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpTypeParam>>();

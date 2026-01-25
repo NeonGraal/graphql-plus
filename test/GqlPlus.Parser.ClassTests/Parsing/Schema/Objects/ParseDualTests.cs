@@ -18,28 +18,28 @@ public class ParseDualTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnDualObject_WhenValid(string dualName)
+  public void Parse_ShouldReturnDualObject_WhenValid(string dualName, string label)
   {
     // Arrange
     NameReturns(dualName);
     ParseOk(_definition, new ObjectDefinition<IGqlpDualField>());
 
     // Act
-    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpObject<IGqlpDualField>>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenInvalid(string label)
   {
     // Arrange
     Tokenizer.Identifier(out _).Returns(false);
     SetupError<IGqlpObject<IGqlpDualField>>();
 
     // Act
-    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpObject<IGqlpDualField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

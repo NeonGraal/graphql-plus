@@ -18,28 +18,28 @@ public class ParseInputTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnInputObject_WhenValid(string inputName)
+  public void Parse_ShouldReturnInputObject_WhenValid(string inputName, string label)
   {
     // Arrange
     NameReturns(inputName);
     ParseOk(_definition, new ObjectDefinition<IGqlpInputField>());
 
     // Act
-    IResult<IGqlpObject<IGqlpInputField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpObject<IGqlpInputField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpObject<IGqlpInputField>>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenInvalid(string label)
   {
     // Arrange
     Tokenizer.Identifier(out _).Returns(false);
     SetupError<IGqlpObject<IGqlpInputField>>();
 
     // Act
-    IResult<IGqlpObject<IGqlpInputField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpObject<IGqlpInputField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

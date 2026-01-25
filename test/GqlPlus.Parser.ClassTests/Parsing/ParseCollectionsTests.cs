@@ -58,7 +58,10 @@ public class ParseCollectionsTests
       );
   }
 
-  [Theory, InlineData('^', "testLabel"), InlineData('_', "testLabel"), InlineData('*', "testLabel")]
+  [Theory]
+  [RepeatInlineData('^')]
+  [RepeatInlineData('_')]
+  [RepeatInlineData('*')]
   public void Parse_ShouldReturnDictModifier_WhenCharKeyProvided(char key, string label)
   {
     // Arrange

@@ -23,7 +23,7 @@ public class ParseVariableTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnVariableAndType_WhenValidVariableWithTypeIsParsed(string variableName, string varType)
+  public void Parse_ShouldReturnVariableAndType_WhenValidVariableWithTypeIsParsed(string variableName, string varType, string label)
   {
     // Arrange
     PrefixReturns('$', OutStringAt(variableName));
@@ -36,7 +36,7 @@ public class ParseVariableTests
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpVariable>>()
@@ -50,7 +50,7 @@ public class ParseVariableTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnVariable_WhenValidVariableIsParsed(string variableName)
+  public void Parse_ShouldReturnVariable_WhenValidVariableIsParsed(string variableName, string label)
   {
     // Arrange
     PrefixReturns('$', OutStringAt(variableName));
@@ -61,7 +61,7 @@ public class ParseVariableTests
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpVariable>>()
@@ -74,21 +74,21 @@ public class ParseVariableTests
       );
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartialResult_WhenVariableNameIsMissing()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartialResult_WhenVariableNameIsMissing(string label)
   {
     // Arrange
     PrefixReturns('$', OutFail);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpVariable>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartialResult_WhenTypeIsMissingAfterColon(string variableName)
+  public void Parse_ShouldReturnPartialResult_WhenTypeIsMissingAfterColon(string variableName, string label)
   {
     // Arrange
     PrefixReturns('$', OutStringAt(variableName));
@@ -96,7 +96,7 @@ public class ParseVariableTests
     ParseEmpty(_varTypeParser);
 
     // Act
-    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpVariable>>();

@@ -18,8 +18,8 @@ public class ParseObjectDefinitionTests
     _parser = new ParseObjectDefinition<IGqlpObjField>(alternates, parseField, parseBase);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnOk_WhenAll()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnOk_WhenAll(string label)
   {
     // Arrange
     TakeReturns(':', true);
@@ -29,14 +29,14 @@ public class ParseObjectDefinitionTests
     TakeReturns('}', true);
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<ObjectDefinition<IGqlpObjField>>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnOk_WhenJustAlternate()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnOk_WhenJustAlternate(string label)
   {
     // Arrange
     ParseEmpty(_parseField);
@@ -44,14 +44,14 @@ public class ParseObjectDefinitionTests
     TakeReturns('}', true);
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<ObjectDefinition<IGqlpObjField>>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnOk_WhenJustField()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnOk_WhenJustField(string label)
   {
     // Arrange
     ParseOk(_parseField);
@@ -59,14 +59,14 @@ public class ParseObjectDefinitionTests
     TakeReturns('}', true);
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<ObjectDefinition<IGqlpObjField>>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnOk_WhenManyFields()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnOk_WhenManyFields(string label)
   {
     // Arrange
     ParseOk(_parseField, 3);
@@ -74,14 +74,14 @@ public class ParseObjectDefinitionTests
     TakeReturns('}', true);
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<ObjectDefinition<IGqlpObjField>>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenParentErrors()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenParentErrors(string label)
   {
     // Arrange
     TakeReturns(':', true);
@@ -89,14 +89,14 @@ public class ParseObjectDefinitionTests
     SetupError<ObjectDefinition<IGqlpObjField>>();
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenFieldErrors()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenFieldErrors(string label)
   {
     // Arrange
     TakeReturns(':', true);
@@ -105,14 +105,14 @@ public class ParseObjectDefinitionTests
     SetupPartial(new ObjectDefinition<IGqlpObjField>());
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<ObjectDefinition<IGqlpObjField>>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenAlternatesError()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenAlternatesError(string label)
   {
     // Arrange
     TakeReturns(':', true);
@@ -121,14 +121,14 @@ public class ParseObjectDefinitionTests
     SetupPartial(new ObjectDefinition<IGqlpObjField>());
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<ObjectDefinition<IGqlpObjField>>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenThirdFieldErrors()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenThirdFieldErrors(string label)
   {
     // Arrange
     TakeReturns(':', true);
@@ -137,7 +137,7 @@ public class ParseObjectDefinitionTests
     SetupPartial(new ObjectDefinition<IGqlpObjField>());
 
     // Act
-    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<ObjectDefinition<IGqlpObjField>> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<ObjectDefinition<IGqlpObjField>>>();

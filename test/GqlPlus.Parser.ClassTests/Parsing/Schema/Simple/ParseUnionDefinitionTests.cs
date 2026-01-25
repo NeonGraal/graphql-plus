@@ -15,7 +15,7 @@ public class ParseUnionDefinitionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOk_WhenValid(string parentType)
+  public void Parse_ShouldReturnOk_WhenValid(string parentType, string label)
   {
     // Arrange
     TakeReturns(':', true);
@@ -24,14 +24,14 @@ public class ParseUnionDefinitionTests
     TakeReturns('}', false, true);
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<UnionDefinition>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenParentTypeInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenParentTypeInvalid(string label)
   {
     // Arrange
     TakeReturns(':', true);
@@ -39,14 +39,14 @@ public class ParseUnionDefinitionTests
     SetupError<UnionDefinition>();
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenMemberErrors()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenMemberErrors(string label)
   {
     // Arrange
     TakeReturns(':', false);
@@ -54,14 +54,14 @@ public class ParseUnionDefinitionTests
     SetupPartial(new UnionDefinition());
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<UnionDefinition>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnOk_WhenNoMembers()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnOk_WhenNoMembers(string label)
   {
     // Arrange
     TakeReturns(':', false);
@@ -69,7 +69,7 @@ public class ParseUnionDefinitionTests
     SetupPartial(new UnionDefinition());
 
     // Act
-    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<UnionDefinition>>();

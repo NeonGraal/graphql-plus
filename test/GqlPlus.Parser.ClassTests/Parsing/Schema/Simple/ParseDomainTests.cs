@@ -21,30 +21,30 @@ public class ParseDomainTests
   [RepeatInlineData(DomainKind.Number)]
   [RepeatInlineData(DomainKind.String)]
   [RepeatInlineData((DomainKind)99)]
-  public void Parse_ShouldReturnDomain_WhenValid(DomainKind domainKind, string domainName)
+  public void Parse_ShouldReturnDomain_WhenValid(DomainKind domainKind, string domainName, string label, string enumType, string enumLabel)
   {
     // Arrange
     NameReturns(domainName);
-    IGqlpDomainLabel label = A.DomainLabel("enumType", "enumLabel");
-    DomainDefinition definition = new() { Kind = domainKind, Labels = [label] };
+    IGqlpDomainLabel domainLabel = A.DomainLabel(enumType, enumLabel);
+    DomainDefinition definition = new() { Kind = domainKind, Labels = [domainLabel] };
     ParseOk(_definition, definition);
 
     // Act
-    IResult<IGqlpDomain> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomain> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomain>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenInvalid(string label)
   {
     // Arrange
     NameFails();
     SetupError<IGqlpDomain>();
 
     // Act
-    IResult<IGqlpDomain> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomain> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

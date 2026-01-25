@@ -15,28 +15,28 @@ public class ParseUnionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnUnion_WhenValid(string unionName)
+  public void Parse_ShouldReturnUnion_WhenValid(string unionName, string label)
   {
     // Arrange
     NameReturns(unionName);
     ParseOk(_definition, new UnionDefinition());
 
     // Act
-    IResult<IGqlpUnion> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpUnion> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpUnion>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenInvalid(string label)
   {
     // Arrange
     NameFails();
     SetupError<IGqlpUnion>();
 
     // Act
-    IResult<IGqlpUnion> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpUnion> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

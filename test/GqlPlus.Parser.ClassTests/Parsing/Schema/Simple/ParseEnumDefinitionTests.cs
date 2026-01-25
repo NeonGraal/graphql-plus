@@ -15,7 +15,7 @@ public class ParseEnumDefinitionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOk_WhenValid(string parentType)
+  public void Parse_ShouldReturnOk_WhenValid(string parentType, string label)
   {
     // Arrange
     TakeReturns(':', true);
@@ -24,14 +24,14 @@ public class ParseEnumDefinitionTests
     TakeReturns('}', false, true);
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<EnumDefinition>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenParentTypeInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenParentTypeInvalid(string label)
   {
     // Arrange
     TakeReturns(':', true);
@@ -39,14 +39,14 @@ public class ParseEnumDefinitionTests
     SetupError<EnumDefinition>();
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenLabelErrors()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenLabelErrors(string label)
   {
     // Arrange
     TakeReturns(':', false);
@@ -54,14 +54,14 @@ public class ParseEnumDefinitionTests
     SetupPartial(new EnumDefinition());
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<EnumDefinition>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenNoLabels()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenNoLabels(string label)
   {
     // Arrange
     TakeReturns(':', false);
@@ -69,7 +69,7 @@ public class ParseEnumDefinitionTests
     SetupPartial(new EnumDefinition());
 
     // Act
-    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<EnumDefinition>>();

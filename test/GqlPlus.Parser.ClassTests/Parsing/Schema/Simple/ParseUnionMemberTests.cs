@@ -11,27 +11,27 @@ public class ParseUnionMemberTests
     => _parser = new ParseUnionMember();
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnUnionMember_WhenValid(string memberValue)
+  public void Parse_ShouldReturnUnionMember_WhenValid(string memberValue, string label)
   {
     // Arrange
     IdentifierReturns(OutString(memberValue));
 
     // Act
-    IResult<IGqlpUnionMember> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpUnionMember> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpUnionMember>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenInvalid(string label)
   {
     // Arrange
     IdentifierReturns(OutFail);
     SetupError<IGqlpUnionMember>();
 
     // Act
-    IResult<IGqlpUnionMember> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpUnionMember> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

@@ -17,23 +17,23 @@ public class ParseDomainDefinitionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnDomainDefinition_WhenValid(string parentType)
+  public void Parse_ShouldReturnDomainDefinition_WhenValid(string parentType, string label)
   {
     // Arrange
     TakeReturns(':', true);
     ParseTypeRefOk(parentType);
     ParseOk(_kindParser, DomainKind.Enum);
-    _domainParser.Parser(Tokenizer, "testLabel", Arg.Any<DomainDefinition>()).Returns(c => new DomainDefinition().Ok());
+    _domainParser.Parser(Tokenizer, label, Arg.Any<DomainDefinition>()).Returns(c => new DomainDefinition().Ok());
 
     // Act
-    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<DomainDefinition>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartialDomainDefinition_WhenKindInvalid(string parentType)
+  public void Parse_ShouldReturnPartialDomainDefinition_WhenKindInvalid(string parentType, string label)
   {
     // Arrange
     TakeReturns(':', true);
@@ -42,14 +42,14 @@ public class ParseDomainDefinitionTests
     SetupPartial(new DomainDefinition());
 
     // Acts
-    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DomainDefinition>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenParentTypeInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenParentTypeInvalid(string label)
   {
     // Arrange
     TakeReturns(':', true);
@@ -57,21 +57,21 @@ public class ParseDomainDefinitionTests
     SetupError<DomainDefinition>();
 
     // Act
-    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError<DomainDefinition>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenKindParsingFails()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenKindParsingFails(string label)
   {
     // Arrange
     ParseError(_kindParser);
     SetupPartial(new DomainDefinition());
 
     // Act
-    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainDefinition> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DomainDefinition>>();

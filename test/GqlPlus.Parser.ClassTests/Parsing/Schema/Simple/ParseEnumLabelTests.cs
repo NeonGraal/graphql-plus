@@ -11,35 +11,35 @@ public class ParseEnumLabelTests
     => _parser = new ParseEnumLabel(Aliases);
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnEnumLabel_WhenValid(string label, string[] aliases)
+  public void Parse_ShouldReturnEnumLabel_WhenValid(string label, string[] aliases, string parseLabel)
   {
     // Arrange
     IdentifierReturns(OutString(label));
     ParseAliasesOk(aliases);
 
     // Act
-    IResult<IGqlpEnumLabel> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpEnumLabel> result = _parser.Parse(Tokenizer, parseLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpEnumLabel>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenLabelInvalid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenLabelInvalid(string parseLabel)
   {
     // Arrange
     IdentifierReturns(OutFail);
     SetupError<IGqlpEnumLabel>();
 
     // Act
-    IResult<IGqlpEnumLabel> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpEnumLabel> result = _parser.Parse(Tokenizer, parseLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenAliasesFail(string label)
+  public void Parse_ShouldReturnPartial_WhenAliasesFail(string label, string parseLabel)
   {
     // Arrange
     IdentifierReturns(OutString(label));
@@ -47,7 +47,7 @@ public class ParseEnumLabelTests
     SetupPartial<IGqlpEnumLabel>();
 
     // Act
-    IResult<IGqlpEnumLabel> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpEnumLabel> result = _parser.Parse(Tokenizer, parseLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpEnumLabel>>();

@@ -15,14 +15,14 @@ public class ParseEnumTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnEnum_WhenValid(string enumName)
+  public void Parse_ShouldReturnEnum_WhenValid(string enumName, string label)
   {
     // Arrange
     NameReturns(enumName);
     ParseOk(_definition, new EnumDefinition());
 
     // Act
-    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpEnum>>();
@@ -33,7 +33,7 @@ public class ParseEnumTests
     => Check_ShouldReturnError_WhenNoName(_parser);
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnPartial_WhenInvalid(string enumName)
+  public void Parse_ShouldReturnPartial_WhenInvalid(string enumName, string label)
   {
     // Arrange
     NameReturns(enumName);
@@ -41,7 +41,7 @@ public class ParseEnumTests
     SetupError<IGqlpEnum>();
 
     // Act
-    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpEnum> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpEnum>>();

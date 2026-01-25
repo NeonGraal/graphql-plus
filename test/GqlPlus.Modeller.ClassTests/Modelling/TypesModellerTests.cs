@@ -6,14 +6,14 @@ public class TypesModellerTests
   : SubstituteBase
 {
   [Theory, RepeatData]
-  public void ToModel_ForType_CallsToTypeModel(string name)
+  public void ToModel_ForType_CallsToTypeModel(string name, string description)
   {
     IGqlpType ast = A.Of<IGqlpType>();
     Map<TypeKindModel> typeKinds = [];
 
     ITypeModeller modeller = A.Of<ITypeModeller>();
     modeller.ForType(ast).Returns(true);
-    modeller.ToTypeModel(ast, typeKinds).Returns(new SpecialTypeModel(name, ""));
+    modeller.ToTypeModel(ast, typeKinds).Returns(new SpecialTypeModel(name, description));
 
     TypesModeller sut = new([modeller]);
 
@@ -25,9 +25,9 @@ public class TypesModellerTests
   }
 
   [Theory, RepeatData]
-  public void AddTypeKind_ForType_CallsToTypeModel(string name)
+  public void AddTypeKind_ForType_CallsToTypeModel(string name, string description)
   {
-    IGqlpType ast = A.Named<IGqlpType>(name, "");
+    IGqlpType ast = A.Named<IGqlpType>(name, description);
     Map<TypeKindModel> typeKinds = [];
 
     ITypeModeller modeller = A.Of<ITypeModeller>();

@@ -17,16 +17,16 @@ public class TypeDualEncoderTests
       ":typeKind=[_TypeKind]Dual"));
 
   [Theory, RepeatData]
-  public void Encode_WithAllModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName)
+  public void Encode_WithAllModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName, string description)
   {
-    ObjBaseModel parent = new(parentType, "");
-    AlternateModel alternate = new(new ObjBaseModel(alternateType, ""));
+    ObjBaseModel parent = new(parentType, description);
+    AlternateModel alternate = new(new ObjBaseModel(alternateType, description));
     ObjectForModel<AlternateModel> alternateFor = new(alternate, name);
-    DualFieldModel field = new(fieldName, null, "");
+    DualFieldModel field = new(fieldName, null, description);
     ObjectForModel<DualFieldModel> fieldFor = new(field, name);
-    TypeParamModel typeParam = new(paramName, "", default!);
+    TypeParamModel typeParam = new(paramName, description, default!);
 
-    TypeDualModel model = new(name, "") {
+    TypeDualModel model = new(name, description) {
       Parent = parent,
       Alternates = [alternate],
       AllAlternates = [alternateFor],

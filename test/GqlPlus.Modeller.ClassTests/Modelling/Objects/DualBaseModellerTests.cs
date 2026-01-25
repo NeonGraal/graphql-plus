@@ -30,14 +30,14 @@ public class ObjBaseModellerTests
   }
 
   [Theory, RepeatData]
-  public void ToModel_WithArgs_ReturnsExpectedObjBaseModel(string name, string argName)
+  public void ToModel_WithArgs_ReturnsExpectedObjBaseModel(string name, string argName, string description)
   {
     // Arrange
     IGqlpObjBase ast = A.Named<IGqlpObjBase>(name);
     IGqlpTypeArg arg = A.Named<IGqlpTypeArg>(argName);
     ast.Args.Returns([arg]);
 
-    TypeArgModel argModel = new(TypeKindModel.Dual, argName, "");
+    TypeArgModel argModel = new(TypeKindModel.Dual, argName, description);
     ToModelReturns(_objArg, argModel);
 
     // Act

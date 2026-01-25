@@ -16,11 +16,11 @@ public class DirectivesEncoderTests
   protected override IEncoder<DirectivesModel> Encoder { get; }
 
   [Theory, RepeatData]
-  public void Encode_WithValidDirectivesModel_ReturnsStructured(string name)
+  public void Encode_WithValidDirectivesModel_ReturnsStructured(string name, string description)
   {
     // Arrange
-    BaseTypeModel type = new TypeInputModel(name, "");
-    DirectiveModel directive = new(name, "");
+    BaseTypeModel type = new TypeInputModel(name, description);
+    DirectiveModel directive = new(name, description);
     _baseType.Encode(type).Returns(new Structured(name, "Input"));
     _directive.Encode(directive).Returns(new Structured(name, "Directive"));
 

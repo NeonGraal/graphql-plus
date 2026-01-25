@@ -15,9 +15,9 @@ public class TypeParamEncoderTests
   protected override IEncoder<TypeParamModel> Encoder { get; }
 
   [Theory, RepeatData]
-  public void Encode_WithValidModel_ReturnsStructured(string input, string contents, string typeName)
+  public void Encode_WithValidModel_ReturnsStructured(string input, string contents, string typeName, string description)
   {
-    TypeRefModel<TypeKindModel> typeRef = new(TypeKindModel.Special, typeName, "");
+    TypeRefModel<TypeKindModel> typeRef = new(TypeKindModel.Special, typeName, description);
 
     EncodeReturnsMap(_typeKind, "_TypeRef", typeName);
 

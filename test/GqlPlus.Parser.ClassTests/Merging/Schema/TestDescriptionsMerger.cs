@@ -5,7 +5,10 @@ namespace GqlPlus.Merging.Schema;
 public abstract class TestDescriptionsMerger<TAst>
   : TestDescriptionsMerger<TAst, string>
   where TAst : IGqlpError, IGqlpDescribed
-{ }
+{
+  protected override bool InputEquals(string? input1, string? input2)
+    => string.Equals(input1, input2, StringComparison.Ordinal);
+}
 
 public abstract class TestDescriptionsMerger<TAst, TInput>
   : TestGroupsMerger<TAst, TInput>

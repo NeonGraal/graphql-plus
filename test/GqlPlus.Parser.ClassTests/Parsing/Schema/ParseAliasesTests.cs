@@ -31,7 +31,7 @@ public class ParseAliasesTests
     TakeReturns('[', true);
     TakeReturns(']', false);
     IdentifierReturns(OutString(alias1), OutString(alias2));
-    SetupPartial("");
+    SetupPartial(string.Empty);
 
     // Act
     IResultArray<string> result = _parser.Parse(Tokenizer, label);

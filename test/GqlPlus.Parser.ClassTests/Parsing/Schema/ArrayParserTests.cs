@@ -17,7 +17,7 @@ public class ArrayParserTests
   public void Parse_ShouldReturnArray_WhenValid(string label)
   {
     // Arrange
-    Parse(_itemParser, "item1".Ok(), "item2".Ok(), "".Empty());
+    Parse(_itemParser, "item1".Ok(), "item2".Ok(), string.Empty.Empty());
 
     // Act
     IResultArray<string> result = _parser.Parse(Tokenizer, label);

@@ -97,7 +97,7 @@ public class ParseTypeParamsTests
       .Optional().ShouldHaveSingleItem()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(paramName),
-        r => r.Constraint.ShouldBe(""));
+        r => r.Constraint.ShouldBe(string.Empty));
   }
 
   [Theory, RepeatData]
@@ -116,7 +116,7 @@ public class ParseTypeParamsTests
       .Optional().ShouldHaveSingleItem()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(paramName),
-        r => r.Constraint.ShouldBe(""));
+        r => r.Constraint.ShouldBe(string.Empty));
   }
 
   [Theory, RepeatData]

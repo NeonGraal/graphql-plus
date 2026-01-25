@@ -18,7 +18,7 @@ internal sealed class DomainAstEnumChecks()
  : AstDomainChecks<DomainLabelInput, DomainLabelAst, IGqlpDomainLabel>(DomainKind.Enum)
 {
   protected override DomainLabelAst[] DomainItems(DomainLabelInput input)
-    => [new(AstNulls.At, input.EnumType, false, input.EnumLabel)];
+    => [new(AstNulls.At, string.Empty, false, input.EnumLabel)];
 
   protected override string ItemsString(string name, DomainLabelInput input)
     => $"( !Do {name} Enum !DE {input.EnumLabel} )";

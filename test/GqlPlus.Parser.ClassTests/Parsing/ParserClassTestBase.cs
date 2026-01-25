@@ -58,10 +58,10 @@ public class ParserClassTestBase
     ResultArrayError<T> errorA = new(errMsg);
     _errors.Add(errMsg);
 
-    Tokenizer.Error<T>("", "").ReturnsForAnyArgs(error);
-    Tokenizer.Error<T>("", "", default).ReturnsForAnyArgs(error);
-    Tokenizer.ErrorArray<T>("", "").ReturnsForAnyArgs(errorA);
-    Tokenizer.ErrorArray<T>("", "", null).ReturnsForAnyArgs(errorA);
+    Tokenizer.Error<T>(string.Empty, string.Empty).ReturnsForAnyArgs(error);
+    Tokenizer.Error<T>(string.Empty, string.Empty, default).ReturnsForAnyArgs(error);
+    Tokenizer.ErrorArray<T>(string.Empty, string.Empty).ReturnsForAnyArgs(errorA);
+    Tokenizer.ErrorArray<T>(string.Empty, string.Empty, null).ReturnsForAnyArgs(errorA);
   }
 
   protected void SetupPartial<T>()
@@ -74,8 +74,8 @@ public class ParserClassTestBase
     ResultPartial<T> Partial(CallInfo c) => new(c.Arg<Func<T>>().Invoke(), errMsg);
     ResultArrayPartial<T> PartialA(CallInfo c) => new(c.Arg<Func<IEnumerable<T>>>().Invoke(), errMsg);
 
-    Tokenizer.Partial("", "", () => result).ReturnsForAnyArgs(c => Partial(c));
-    Tokenizer.PartialArray<T>("", "", () => [result]).ReturnsForAnyArgs(c => PartialA(c));
+    Tokenizer.Partial(string.Empty, string.Empty, () => result).ReturnsForAnyArgs(c => Partial(c));
+    Tokenizer.PartialArray<T>(string.Empty, string.Empty, () => [result]).ReturnsForAnyArgs(c => PartialA(c));
   }
 
   protected void Parse<T>([NotNull] Parser<T>.I parser, IResult<T> first, params IResult<T>[] rest)

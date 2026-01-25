@@ -23,7 +23,7 @@ public class GeneralHelpersTests
 
     string result = input.Joined();
 
-    result.ShouldBe("");
+    result.ShouldBe(string.Empty);
   }
 
   [Fact]
@@ -33,7 +33,7 @@ public class GeneralHelpersTests
 
     string result = input.Joined(i => $"{i}");
 
-    result.ShouldBe("");
+    result.ShouldBe(string.Empty);
   }
 
   [Fact]
@@ -65,7 +65,7 @@ public class GeneralHelpersTests
 
     string result = input.Prefixed(prefix);
 
-    result.ShouldBe("");
+    result.ShouldBe(string.Empty);
   }
 
   [Theory, RepeatData]
@@ -75,7 +75,7 @@ public class GeneralHelpersTests
 
     string result = input.Suffixed(suffix);
 
-    result.ShouldBe("");
+    result.ShouldBe(string.Empty);
   }
 
   [Fact]
@@ -85,7 +85,7 @@ public class GeneralHelpersTests
 
     string result = input.Quoted('"');
 
-    result.ShouldBe("");
+    result.ShouldBe(string.Empty);
   }
 
   [Fact]
@@ -95,14 +95,14 @@ public class GeneralHelpersTests
 
     string result = input.Show();
 
-    result.ShouldBe("");
+    result.ShouldBe(string.Empty);
   }
 
   [Theory, RepeatData]
   public void Show_Various_ReturnsCorrect(string field1, string field2, string field3)
   {
     IGqlpAbbreviated input = Substitute.For<IGqlpAbbreviated>();
-    input.GetFields().Returns([field1, "(", field2, ")", "", field3]);
+    input.GetFields().Returns([field1, "(", field2, ")", string.Empty, field3]);
 
     string result = input.Show();
 
@@ -116,7 +116,7 @@ public class GeneralHelpersTests
 
     string result = input.Surround(start, end);
 
-    result.ShouldBe("");
+    result.ShouldBe(string.Empty);
   }
 
   [Theory, RepeatData]
@@ -126,6 +126,6 @@ public class GeneralHelpersTests
 
     string result = input.Surround(start, end, i => $"{i}");
 
-    result.ShouldBe("");
+    result.ShouldBe(string.Empty);
   }
 }

@@ -14,5 +14,5 @@ public partial class DomainTrueFalseAstTests
   private static DomainTrueFalseAst CloneTrueFalse(DomainTrueFalseAst original, bool input)
     => original with { Value = input };
   private static DomainTrueFalseAst CreateTrueFalse(bool input)
-    => new(AstNulls.At, input.ToString(), false, input);
+    => new(AstNulls.At, string.Empty, false, input);
 }

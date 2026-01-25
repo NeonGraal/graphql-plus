@@ -5,9 +5,9 @@ namespace GqlPlus.Ast.Schema.Simple;
 public partial class DomainLabelAstTests
 {
   [Theory, RepeatData]
-  public void SetEnumType_WhenCurrentlyEmpty_SetsValue(string enumType, string enumLabel, string type)
+  public void SetEnumType_WhenCurrentlyEmpty_SetsValue(string enumType, string enumLabel)
   {
-    IGqlpDomainLabel ast = new DomainLabelAst(AstNulls.At, type, false, enumLabel);
+    IGqlpDomainLabel ast = new DomainLabelAst(AstNulls.At, string.Empty, false, enumLabel);
 
     ast.SetEnumType(enumType);
 
@@ -15,11 +15,11 @@ public partial class DomainLabelAstTests
   }
 
   [Theory, RepeatData]
-  public void SetEnumType_WhenCurrentlySet_SetsIsIgnored(string enumType, string enumLabel, string newType, string type)
+  public void SetEnumType_WhenCurrentlySet_SetsIsIgnored(string enumType, string enumLabel, string newType)
   {
     this.SkipEqual(enumType, newType);
 
-    IGqlpDomainLabel ast = new DomainLabelAst(AstNulls.At, type, false, enumLabel) { EnumType = enumType };
+    IGqlpDomainLabel ast = new DomainLabelAst(AstNulls.At, string.Empty, false, enumLabel) { EnumType = enumType };
 
     ast.SetEnumType(newType);
 
@@ -37,5 +37,5 @@ public partial class DomainLabelAstTests
   private static DomainLabelAst CloneLabel(DomainLabelAst original, string input)
     => original with { EnumItem = input };
   private static DomainLabelAst CreateLabel(string input)
-    => new(AstNulls.At, input, false, input);
+    => new(AstNulls.At, string.Empty, false, input);
 }

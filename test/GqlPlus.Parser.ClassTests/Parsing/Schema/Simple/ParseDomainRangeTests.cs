@@ -120,7 +120,7 @@ public class ParseDomainRangeTests
     => new ParseDomainRange(itemsParser);
 
   protected override IGqlpDomainRange NewItem()
-    => new DomainRangeAst(AstNulls.At, "", false);
+    => new DomainRangeAst(AstNulls.At, string.Empty, false);
 
   protected override void ArrangeValidItem()
     => NumberReturns(OutNumber(42));

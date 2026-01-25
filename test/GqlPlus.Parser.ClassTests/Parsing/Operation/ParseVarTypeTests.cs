@@ -9,7 +9,7 @@ public class ParseVarTypeTests
   {
     _parseVarType = new ParseVarType();
 
-    SetupPartial("");
+    SetupPartial(string.Empty);
     SetupError<string>();
   }
 

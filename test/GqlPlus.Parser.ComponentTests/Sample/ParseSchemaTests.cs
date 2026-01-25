@@ -18,7 +18,7 @@ public class ParseSchemaTests(
 
       string target = ast.Show();
       TestContext.Current.AddAttachment("Result " + test, target);
-      await Verify(target, CustomSettings(TestLabel, "Parse", test));
+      await Verify(target, CustomSettings(label, "Parse", test));
     } else {
       string testName = section + " " + test;
 

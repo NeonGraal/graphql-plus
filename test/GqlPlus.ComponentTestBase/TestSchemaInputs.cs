@@ -66,7 +66,7 @@ public abstract class TestSchemaInputs
   {
     string schema = inputs.Joined(Environment.NewLine);
 
-    await Label_Input(TestLabel, schema, [TestLabel], test);
+    await Label_Input(label, schema, [label], test);
   }
 
   protected virtual Task Sample_Input(string input, string section, string test)

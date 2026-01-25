@@ -3,5 +3,4 @@ global using GqlPlus.Ast;
 global using GqlPlus.Parsing;
 global using Shouldly;
 global using static GqlPlus.CommonTestHelpers;
-global using static GqlPlus.TestConstants;
 global using static GqlPlus.TestHelpers;

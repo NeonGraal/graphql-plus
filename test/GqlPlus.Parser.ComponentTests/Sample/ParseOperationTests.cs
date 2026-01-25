@@ -44,6 +44,6 @@ public class ParseOperationTests(
     }
 
     TestContext.Current.AddAttachment("Operation " + test, target);
-    await Verify(target, CustomSettings("Operation", TestLabel, test));
+    await Verify(target, CustomSettings("Operation", label, test));
   }
 }

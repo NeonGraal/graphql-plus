@@ -11,18 +11,18 @@ public abstract class TestSchemaAsts(
   {
     TestContext.Current.AddAttachment("Input " + test, input);
 
-    IGqlpSchema asts = checks.ParseInput(input, TestLabel);
+    IGqlpSchema asts = checks.ParseInput(input, label);
 
-    await Test_Asts([asts], test, TestLabel, dirs, section, input);
+    await Test_Asts([asts], test, label, dirs, section, input);
   }
 
   protected override async Task Label_Inputs(string label, IEnumerable<string> inputs, string test)
   {
     TestContext.Current.AddAttachment("Inputs " + test, inputs.Joined(Environment.NewLine));
 
-    IEnumerable<IGqlpSchema> asts = inputs.Select(input => checks.ParseInput(input, TestLabel));
+    IEnumerable<IGqlpSchema> asts = inputs.Select(input => checks.ParseInput(input, label));
 
-    await Test_Asts(asts, test, TestLabel, [TestLabel], "");
+    await Test_Asts(asts, test, label, [label], "");
   }
 
   protected abstract Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "");

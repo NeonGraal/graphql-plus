@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainTests
   : DeclarationClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<DomainDefinition>.I _definition;
   private readonly ParseDomain _parser;

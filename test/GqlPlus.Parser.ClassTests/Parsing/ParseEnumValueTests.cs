@@ -3,7 +3,6 @@
 public class ParseEnumValueTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseEnumValue _parseEnumValue;
 

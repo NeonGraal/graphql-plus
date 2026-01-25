@@ -9,7 +9,6 @@ public class MergeSchemaTests(
   IMerge<IGqlpSchema> schemaMerger
 ) : TestSchemaResult(checks)
 {
-  private const string TestLabel = "testLabel";
 
   protected override Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
     => Check_Merges([result.Required()], test, TestLabel, section);

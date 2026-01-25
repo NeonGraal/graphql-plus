@@ -3,7 +3,6 @@
 public class ParseAliasesTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseAliases _parser = new();
 

@@ -11,7 +11,6 @@ public class DocumentSchemaTests(
   IEncoder<BaseTypeModel> types
 ) : TestSchemaVerify(checks)
 {
-  private const string TestLabel = "testLabel";
 
   [Fact]
   public async Task Index_Schema()

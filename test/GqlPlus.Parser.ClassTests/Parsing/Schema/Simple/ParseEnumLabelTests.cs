@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseEnumLabelTests
   : AliasesClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseEnumLabel _parser;
 

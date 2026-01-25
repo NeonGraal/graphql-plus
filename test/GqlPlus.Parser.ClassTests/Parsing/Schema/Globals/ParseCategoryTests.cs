@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Globals;
 public class ParseCategoryTests
   : DeclarationClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly IOptionParser<CategoryOption> _option;
   private readonly Parser<CategoryOutput>.I _definition;

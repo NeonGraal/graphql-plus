@@ -3,7 +3,6 @@
 public class ParseModifiersTests
   : ModifiersClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseModifiers _parseModifiers;
 

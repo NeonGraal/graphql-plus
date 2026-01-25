@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 public class ParseDirectiveDefinitionTests : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly IEnumParser<DirectiveLocation> _locationParser;
   private readonly ParseDirectiveDefinition _parser;

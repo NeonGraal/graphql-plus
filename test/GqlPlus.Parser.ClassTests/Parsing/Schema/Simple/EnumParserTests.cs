@@ -4,7 +4,6 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 public class EnumParserTests : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly EnumParser<CategoryOption> _parser;
 

@@ -8,4 +8,5 @@ global using NSubstitute;
 global using Shouldly;
 global using Xunit;
 global using static GqlPlus.CommonTestHelpers;
+global using static GqlPlus.TestConstants;
 global using static GqlPlus.TestHelpers;

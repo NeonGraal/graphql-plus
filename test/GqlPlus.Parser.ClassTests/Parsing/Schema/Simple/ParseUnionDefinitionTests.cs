@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseUnionDefinitionTests
   : SimpleParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<IGqlpUnionMember>.I _unionMemberParser;
   private readonly ParseUnionDefinition _parser;

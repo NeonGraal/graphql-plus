@@ -10,7 +10,6 @@ public abstract class TestSchemaVerify(
   ISchemaVerifyChecks checks
 ) : TestSchemaAsts(checks)
 {
-  private const string TestLabel = "testLabel";
 
   protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "")
   {

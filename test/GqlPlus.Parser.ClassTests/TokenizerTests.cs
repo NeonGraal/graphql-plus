@@ -6,7 +6,6 @@ namespace GqlPlus;
 [TracePerTest]
 public class TokenizerTests
 {
-  private const string TestLabel = "testLabel";
 
   [SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance")]
   private static ITokenizer PrepareTokens(string input)

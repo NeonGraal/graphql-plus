@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Globals;
 public class ParseCategoryDefinitionTests
   : ModifiersClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<IGqlpTypeRef>.I _typeRefParser;
   private readonly ParseCategoryDefinition _parser;

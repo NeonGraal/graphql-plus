@@ -7,7 +7,6 @@ public sealed class ParseDomainEnumTests(
   IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>> checks
 ) : BaseDomainTests<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>>(checks)
 {
-  private const string TestLabel = "testLabel";
 
   [Theory, RepeatData]
   public void WithEnumType_ReturnsCorrectAst(DomainEnumInput input, string enumType)

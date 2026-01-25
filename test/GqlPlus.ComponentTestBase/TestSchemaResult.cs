@@ -7,7 +7,6 @@ public abstract class TestSchemaResult(
   ISchemaParseChecks checks
 ) : TestSchemaInputs
 {
-  private const string TestLabel = "testLabel";
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesInvalidData))]

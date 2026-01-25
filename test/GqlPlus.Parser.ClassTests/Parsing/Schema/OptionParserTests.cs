@@ -6,7 +6,6 @@ namespace GqlPlus.Parsing.Schema;
 public class OptionParserTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly IEnumParser<DomainKind> _domainParser;
   private readonly OptionParser<DomainKind> _parser;

@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseOutputFieldTests
   : ObjectFieldParseTestBase<IGqlpOutputField>
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<IGqlpInputParam>.IA _parameter;
 

@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainDefinitionTests
   : SimpleParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly IEnumParser<DomainKind> _kindParser;
   private readonly IParseDomain _domainParser = Substitute.For<IParseDomain>();

@@ -8,7 +8,6 @@ public class ParseOperationTests(
     Parser<IGqlpOperation>.D operationParser
 ) : SampleChecks
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<IGqlpOperation>.L _operation = operationParser;
 

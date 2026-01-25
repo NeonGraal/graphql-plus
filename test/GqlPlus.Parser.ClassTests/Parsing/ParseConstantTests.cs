@@ -3,7 +3,6 @@
 public class ParseConstantTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseConstant _parseConstant;
 

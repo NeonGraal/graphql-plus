@@ -10,7 +10,6 @@ public class SchemaParseChecks(
 ) : SampleChecks
   , ISchemaParseChecks
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<IGqlpSchema>.L _schemaParser = schemaParser;
 

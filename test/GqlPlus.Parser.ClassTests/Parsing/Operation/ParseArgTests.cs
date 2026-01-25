@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseArgTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseArg _parseArg;
   private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;

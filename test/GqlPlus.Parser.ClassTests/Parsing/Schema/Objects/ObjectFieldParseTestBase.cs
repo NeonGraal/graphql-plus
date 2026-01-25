@@ -6,7 +6,6 @@ public abstract class ObjectFieldParseTestBase<TField>
   : AliasesClassTestBase
   where TField : class, IGqlpObjField
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<IGqlpObjBase>.I _parseBase;
   protected Parser<IGqlpObjBase>.D ParseBase { get; }

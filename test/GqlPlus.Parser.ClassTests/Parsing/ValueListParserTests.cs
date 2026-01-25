@@ -3,7 +3,6 @@
 public class ValueListParserTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ValueListParser<IGqlpConstant> _parser;
   private readonly Parser<IGqlpConstant>.I _valueParser;

@@ -3,7 +3,6 @@
 public class ParseCollectionsTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseCollections _parseCollections = new();
 

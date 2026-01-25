@@ -6,7 +6,6 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainLabelTests
   : ParseDomainClassTestBase<IGqlpDomainLabel>
 {
-  private const string TestLabel = "testLabel";
 
   [Theory, RepeatData]
   public void Parse_ShouldReturnDomainLabel_WhenValidJustLabel(string enumLabel)

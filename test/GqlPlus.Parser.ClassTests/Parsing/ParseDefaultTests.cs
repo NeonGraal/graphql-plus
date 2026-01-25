@@ -3,7 +3,6 @@
 public class ParseDefaultTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseDefault _parser;
   private readonly Parser<IGqlpConstant>.I _constantParser;

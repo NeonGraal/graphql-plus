@@ -3,7 +3,6 @@
 public class ParseNullsTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   [Fact]
   public void ParseNulls_ReturnsExpected()

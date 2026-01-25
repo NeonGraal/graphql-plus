@@ -3,7 +3,6 @@
 public abstract class TestSchemaInputs
   : SampleChecks
 {
-  private const string TestLabel = "testLabel";
 
   [Fact]
   public async Task Test_All()

@@ -3,7 +3,6 @@
 public class EnumValueModellerTests
   : ModellerClassTestBase<IGqlpEnumValue, EnumValueModel>
 {
-  private const string TestLabel = "testLabel";
 
   private readonly EnumValueModeller _modeller = new();
 

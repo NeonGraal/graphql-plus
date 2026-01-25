@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseSelectionTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseSelection _parseSelection;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;

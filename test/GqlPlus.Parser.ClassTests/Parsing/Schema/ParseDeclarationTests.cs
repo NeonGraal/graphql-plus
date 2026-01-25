@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema;
 public class ParseDeclarationTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly DeclarationSelector<IGqlpDeclaration> _selector = new("category");
   private readonly Parser<IGqlpDeclaration>.I _declaration;

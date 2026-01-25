@@ -8,7 +8,6 @@ public class MergeAlternatesTests(
   ITestOutputHelper outputHelper
 ) : TestDescriptionsMerger<IGqlpAlternate>
 {
-  private const string TestLabel = "testLabel";
 
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)

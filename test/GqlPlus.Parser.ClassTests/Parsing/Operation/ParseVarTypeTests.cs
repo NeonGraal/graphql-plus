@@ -3,7 +3,6 @@
 public class ParseVarTypeTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseVarType _parseVarType;
 

@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseDirectivesTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseDirectives _parseDirectives;
   private readonly IParserArg _argumentParser;

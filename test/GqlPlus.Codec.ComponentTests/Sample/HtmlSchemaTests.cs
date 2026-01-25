@@ -10,7 +10,6 @@ public class HtmlSchemaTests(
   ISchemaVerifyChecks checks
 ) : TestSchemaVerify(checks)
 {
-  private const string TestLabel = "testLabel";
 
   [Fact]
   public async Task Index_Schema()

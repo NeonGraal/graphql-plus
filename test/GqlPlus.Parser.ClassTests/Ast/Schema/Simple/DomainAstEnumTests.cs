@@ -5,7 +5,6 @@ namespace GqlPlus.Ast.Schema.Simple;
 public class DomainAstEnumTests
   : AstDomainBaseTests<DomainLabelInput>
 {
-  private const string TestLabel = "testLabel";
 
   [Theory, RepeatData]
   public void Inequality_BetweenSpecifcItems(string name, string type1, string type2)

@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseFieldTests
   : ModifiersClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseField _parseField;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;

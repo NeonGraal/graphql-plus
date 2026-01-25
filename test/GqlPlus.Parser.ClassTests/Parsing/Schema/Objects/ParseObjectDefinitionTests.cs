@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseObjectDefinitionTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<IGqlpAlternate>.IA _alternates;
   private readonly Parser<IGqlpObjField>.I _parseField;

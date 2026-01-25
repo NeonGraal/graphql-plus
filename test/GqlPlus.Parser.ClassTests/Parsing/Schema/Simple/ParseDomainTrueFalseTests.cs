@@ -6,7 +6,6 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainTrueFalseTests
   : ParseDomainClassTestBase<IGqlpDomainTrueFalse>
 {
-  private const string TestLabel = "testLabel";
 
   [Fact]
   public void Parse_ShouldReturnPartial_WhenNotBoolean()

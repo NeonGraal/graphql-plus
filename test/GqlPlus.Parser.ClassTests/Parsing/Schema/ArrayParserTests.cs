@@ -3,7 +3,6 @@
 public class ArrayParserTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<string>.I _itemParser;
   private readonly ArrayParser<string> _parser;

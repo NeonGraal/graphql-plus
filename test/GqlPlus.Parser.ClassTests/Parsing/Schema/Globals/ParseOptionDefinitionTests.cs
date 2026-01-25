@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Globals;
 public class ParseOptionDefinitionTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<IGqlpSchemaSetting>.I _settingParser;
   private readonly ParseOptionDefinition _parser;

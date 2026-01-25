@@ -6,7 +6,6 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainRangeTests
   : ParseDomainClassTestBase<IGqlpDomainRange>
 {
-  private const string TestLabel = "testLabel";
 
   [Theory, RepeatData]
   public void Parse_ValidSingleRange_ReturnsCorrect(decimal value)

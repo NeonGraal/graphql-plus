@@ -3,7 +3,6 @@
 public class ParseFieldKeyTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseFieldKey _parseFieldKey;
 

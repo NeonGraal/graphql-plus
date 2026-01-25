@@ -2,7 +2,6 @@
 
 public partial class EnumValueAstTests
 {
-  private const string TestLabel = "testLabel";
 
   [Theory, RepeatData]
   public void HashCode_WithLabel(string enumLabel)

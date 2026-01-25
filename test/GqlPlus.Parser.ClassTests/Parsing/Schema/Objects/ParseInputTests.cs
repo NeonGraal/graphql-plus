@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseInputTests
   : DeclarationClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<IGqlpTypeParam>.IA _param;
   private readonly Parser<ObjectDefinition<IGqlpInputField>>.I _definition;

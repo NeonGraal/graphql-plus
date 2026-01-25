@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema;
 public class ParseTypeRefTests
   : ParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseTypeRef _parser = new();
 

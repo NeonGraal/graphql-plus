@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseEnumDefinitionTests
   : SimpleParserClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly Parser<IGqlpEnumLabel>.I _enumLabelParser;
   private readonly ParseEnumDefinition _parser;

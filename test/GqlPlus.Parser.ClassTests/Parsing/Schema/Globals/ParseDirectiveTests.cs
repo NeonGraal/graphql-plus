@@ -5,7 +5,6 @@ namespace GqlPlus.Parsing.Schema.Globals;
 public class ParseDirectiveTests
   : DeclarationClassTestBase
 {
-  private const string TestLabel = "testLabel";
 
   private readonly ParseDirective _parser;
   private readonly Parser<IGqlpInputParam>.IA _param;

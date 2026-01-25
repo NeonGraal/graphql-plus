@@ -124,6 +124,6 @@ This runs:
 
 ### Important Restrictions
 
-- Do not use `any` type in TypeScript (not applicable for this C# project, but avoid dynamic types)
+- Avoid using `dynamic` keyword unless absolutely necessary
 - All code must build without warnings (TreatWarningsAsErrors is enabled)
 - Follow the existing test structure and patterns

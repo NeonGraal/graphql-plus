@@ -24,8 +24,8 @@ public class BooleanDecoderTests
     };
   protected override bool? ExpectedText(string value)
     => value switch {
-      "true" => true,
-      "false" => false,
+      BuiltIn.BooleanTrue => true,
+      BuiltIn.BooleanFalse => false,
       _ => null
     };
   protected override bool? ExpectedList(bool value) => value;

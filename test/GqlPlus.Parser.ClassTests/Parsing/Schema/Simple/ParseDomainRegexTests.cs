@@ -14,7 +14,7 @@ public class ParseDomainRegexTests
     => Tokenizer.Regex(out _).Returns(OutString(".*"));
 
   protected override IGqlpDomainRegex NewItem()
-    => new DomainRegexAst(AstNulls.At, "", false, "*");
+    => new DomainRegexAst(AstNulls.At, string.Empty, false, "*");
 
   internal override ParseDomainItem<IGqlpDomainRegex> MakeParser(Parser<IGqlpDomainRegex>.DA itemsParser)
     => new ParseDomainRegex(itemsParser);

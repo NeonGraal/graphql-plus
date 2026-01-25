@@ -6,6 +6,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainRangeTests
   : ParseDomainClassTestBase<IGqlpDomainRange>
 {
+
   [Theory, RepeatData]
   public void Parse_ValidSingleRange_ReturnsCorrect(decimal value)
   {
@@ -13,7 +14,7 @@ public class ParseDomainRangeTests
     NumberReturns(OutNumber(value));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
@@ -31,7 +32,7 @@ public class ParseDomainRangeTests
     TakeReturns('>', true);
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
@@ -63,7 +64,7 @@ public class ParseDomainRangeTests
     TakeReturns('<', true);
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
@@ -102,7 +103,7 @@ public class ParseDomainRangeTests
     NumberReturns(OutNumber(lower), OutNumber(upper));
 
     // Act
-    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
@@ -120,7 +121,7 @@ public class ParseDomainRangeTests
     => new ParseDomainRange(itemsParser);
 
   protected override IGqlpDomainRange NewItem()
-    => new DomainRangeAst(AstNulls.At, "", false);
+    => new DomainRangeAst(AstNulls.At, string.Empty, false);
 
   protected override void ArrangeValidItem()
     => NumberReturns(OutNumber(42));

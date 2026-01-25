@@ -21,12 +21,12 @@ public class VerifyDomainEnumTests
   }
 
   [Theory, RepeatData]
-  public void Verify_Enum_WithDefinedLabels_ReturnsNoErrrors(string enumName, string enumLabel1, string enumLabel2)
+  public void Verify_Enum_WithDefinedLabels_ReturnsNoErrrors(string enumName, string enumLabel1, string enumLabel2, string alias1, string alias2)
   {
-    this.SkipEqual(enumLabel1, enumLabel2);
+    this.SkipEqual4(enumLabel1, enumLabel2, alias1, alias2);
 
     IGqlpEnum enumType = A.Enum(enumName)
-      .WithLabels(A.Aliased<IGqlpEnumLabel>(enumLabel1, ["i1"]), A.Aliased<IGqlpEnumLabel>(enumLabel2, ["i2"]))
+      .WithLabels(A.Aliased<IGqlpEnumLabel>(enumLabel1, [alias1]), A.Aliased<IGqlpEnumLabel>(enumLabel2, [alias2]))
       .AsEnum;
     AddTypes(enumType);
     EnumValues[enumLabel1] = enumName;
@@ -72,7 +72,7 @@ public class VerifyDomainEnumTests
   [Theory, RepeatData]
   public void Verify_Enum_WithUndefinedEnum_ReturnsError(string enumName, string enumLabel)
   {
-    IGqlpDomainLabel label1 = A.DomainLabel(enumName, " * ");
+    IGqlpDomainLabel label1 = A.DomainLabel(enumName, GqlpDomainLabelConstants.All);
     IGqlpDomainLabel label2 = A.DomainLabel(enumName, enumLabel);
     label2.Excludes.Returns(true);
 
@@ -109,8 +109,8 @@ public class VerifyDomainEnumTests
     IGqlpEnum enum2 = A.Enum(enumName2, [enumLabel]);
     AddTypes(enum1, enum2);
 
-    IGqlpDomainLabel label1 = A.DomainLabel(enumName1, "*");
-    IGqlpDomainLabel label2 = A.DomainLabel(enumName2, "*");
+    IGqlpDomainLabel label1 = A.DomainLabel(enumName1, GqlpDomainLabelConstants.All);
+    IGqlpDomainLabel label2 = A.DomainLabel(enumName2, GqlpDomainLabelConstants.All);
 
     _domain.WithItems(label1, label2);
 
@@ -130,8 +130,8 @@ public class VerifyDomainEnumTests
     IGqlpEnum enum2 = A.Enum(enumName2).WithLabels([parentLabel1]).AsEnum;
     AddTypes(enum1, parent, enum2);
 
-    IGqlpDomainLabel label1 = A.DomainLabel(enumName1, "*");
-    IGqlpDomainLabel label2 = A.DomainLabel(enumName2, "*");
+    IGqlpDomainLabel label1 = A.DomainLabel(enumName1, GqlpDomainLabelConstants.All);
+    IGqlpDomainLabel label2 = A.DomainLabel(enumName2, GqlpDomainLabelConstants.All);
 
     _domain.WithItems(label1, label2);
 
@@ -167,7 +167,7 @@ public class VerifyDomainEnumTests
     IGqlpEnum enumType = A.Enum(enumName, [enumLabel]);
     AddTypes(enumType);
 
-    IGqlpDomainLabel label1 = A.DomainLabel(enumName, "*");
+    IGqlpDomainLabel label1 = A.DomainLabel(enumName, GqlpDomainLabelConstants.All);
     label1.Excludes.Returns(true);
 
     _domain.WithItems(label1);
@@ -183,7 +183,7 @@ public class VerifyDomainEnumTests
     IGqlpEnum enumType = A.Enum(enumName, [enumLabel, otherLabel]);
     AddTypes(enumType);
 
-    IGqlpDomainLabel label1 = A.DomainLabel(enumName, "*");
+    IGqlpDomainLabel label1 = A.DomainLabel(enumName, GqlpDomainLabelConstants.All);
     label1.Excludes.Returns(true);
     IGqlpDomainLabel label2 = A.DomainLabel(enumName, enumLabel);
 

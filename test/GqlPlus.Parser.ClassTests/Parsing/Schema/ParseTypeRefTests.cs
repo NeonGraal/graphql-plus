@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Schema;
 public class ParseTypeRefTests
   : ParserClassTestBase
 {
+
   private readonly ParseTypeRef _parser = new();
 
   [Theory, RepeatData]
@@ -14,7 +15,7 @@ public class ParseTypeRefTests
     IdentifierReturns(OutString(typeName));
 
     // Act
-    IResult<IGqlpTypeRef> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpTypeRef> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldSatisfyAllConditions(
@@ -31,7 +32,7 @@ public class ParseTypeRefTests
     SetupError<IGqlpTypeRef>();
 
     // Act
-    IResult<IGqlpTypeRef> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpTypeRef> result = _parser.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

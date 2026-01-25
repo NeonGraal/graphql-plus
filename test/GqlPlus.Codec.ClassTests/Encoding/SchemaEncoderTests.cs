@@ -40,10 +40,10 @@ public class SchemaEncoderTests
     string typeName,
     string errorMessage)
   {
-    IEnumerable<CategoryModel> categories = [new(categoryName, new(TypeKindModel.Output, typeName, ""), "")];
-    IEnumerable<DirectiveModel> directives = [new(directiveName, "")];
-    IEnumerable<SettingModel> settings = [new(settingName, null!, "")];
-    IEnumerable<TypeOutputModel> types = [new(typeName, "")];
+    IEnumerable<CategoryModel> categories = [new(categoryName, new(TypeKindModel.Output, typeName, string.Empty), string.Empty)];
+    IEnumerable<DirectiveModel> directives = [new(directiveName, string.Empty)];
+    IEnumerable<SettingModel> settings = [new(settingName, null!, string.Empty)];
+    IEnumerable<TypeOutputModel> types = [new(typeName, string.Empty)];
     IMessages? errors = new Messages(new TokenMessage(AstNulls.At, errorMessage));
     SchemaModel model = new(name, categories, directives, settings, types, errors) {
       Aliases = aliases

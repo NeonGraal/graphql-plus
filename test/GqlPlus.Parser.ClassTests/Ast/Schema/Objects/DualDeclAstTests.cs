@@ -14,7 +14,7 @@ internal sealed class DualDeclAstChecks
   : AstObjectChecks<IGqlpDualField>
 {
   public DualDeclAstChecks()
-    : base(TypeKind.Dual, parent => new ObjBaseAst(AstNulls.At, parent, ""))
+    : base(TypeKind.Dual, parent => new ObjBaseAst(AstNulls.At, parent, string.Empty))
   { }
 
   protected override IGqlpDualField[] CreateFields(IEnumerable<FieldInput> fields)

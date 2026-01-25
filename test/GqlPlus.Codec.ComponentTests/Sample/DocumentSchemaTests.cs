@@ -11,6 +11,7 @@ public class DocumentSchemaTests(
   IEncoder<BaseTypeModel> types
 ) : TestSchemaVerify(checks)
 {
+
   [Fact]
   public async Task Index_Schema()
   {

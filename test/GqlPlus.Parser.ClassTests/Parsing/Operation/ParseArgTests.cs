@@ -5,6 +5,7 @@ namespace GqlPlus.Parsing.Operation;
 public class ParseArgTests
   : ParserClassTestBase
 {
+
   private readonly ParseArg _parseArg;
   private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
   private readonly IValueParser<IGqlpArg> _argumentParser;
@@ -12,15 +13,15 @@ public class ParseArgTests
   private readonly IGqlpFieldKey _fieldKey = AtFor<IGqlpFieldKey>();
   private readonly IGqlpArg _arg = AtFor<IGqlpArg>();
 
-  public ParseArgTests()
+  public ParseArgTests(string fieldKey = "fieldKey", string arg = "arg")
   {
     Parser<IGqlpFieldKey>.D fieldKeyParser = ParserFor(out _fieldKeyParser);
     Parser<IValueParser<IGqlpArg>, IGqlpArg>.D argumentParser = ParserFor<IValueParser<IGqlpArg>, IGqlpArg>(out _argumentParser);
 
     _parseArg = new ParseArg(fieldKeyParser, argumentParser);
 
-    _fieldKey.Text.Returns("fieldKey");
-    _arg.Variable.Returns("arg");
+    _fieldKey.Text.Returns(fieldKey);
+    _arg.Variable.Returns(arg);
   }
 
   [Fact]
@@ -30,7 +31,7 @@ public class ParseArgTests
     TakeReturns('(', false);
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();
@@ -48,14 +49,14 @@ public class ParseArgTests
     ParseOk(_argumentParser, _arg);
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnFieldListResult_WhenFieldValueIsParsed()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnFieldListResult_WhenFieldValueIsParsed(string argLabel)
   {
     // Arrange
     TakeReturns('(', true);
@@ -66,10 +67,10 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseOk(_argumentParser, _arg);
     IGqlpFields<IGqlpArg> keyValuePairs = A.Of<IGqlpFields<IGqlpArg>>();
-    _argumentParser.ParseFieldValues(Tokenizer, "Arg", ')', default!).ReturnsForAnyArgs(keyValuePairs.Ok());
+    _argumentParser.ParseFieldValues(Tokenizer, argLabel, ')', default!).ReturnsForAnyArgs(keyValuePairs.Ok());
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
@@ -91,7 +92,7 @@ public class ParseArgTests
     ParseOk(keyValueParser, new KeyValue<IGqlpArg>(_fieldKey, _arg));
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
@@ -114,7 +115,7 @@ public class ParseArgTests
     ParseOk(keyValueParser, new KeyValue<IGqlpArg>(_fieldKey, _arg));
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
@@ -136,7 +137,7 @@ public class ParseArgTests
     ParseError(keyValueParser);
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -156,7 +157,7 @@ public class ParseArgTests
     SetupError<IGqlpArg>();
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -172,7 +173,7 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
@@ -189,7 +190,7 @@ public class ParseArgTests
     ParseOk(_argumentParser, _arg);
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk>();
@@ -208,7 +209,7 @@ public class ParseArgTests
     SetupError<IGqlpArg>();
 
     // Act
-    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, TestLabel);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

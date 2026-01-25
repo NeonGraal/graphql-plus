@@ -44,19 +44,19 @@ public class SimpleEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithLabel_ReturnsStructuredString(string value)
-    => EncodeAndCheck(SimpleModel.Enum(new EnumValueModel("", value, "")), [
+    => EncodeAndCheck(SimpleModel.Enum(new EnumValueModel(string.Empty, value, string.Empty)), [
         "=" + value
         ]);
 
   [Theory, RepeatData]
   public void Encode_WithTypedLabel_ReturnsStructuredString(string type, string value)
-    => EncodeAndCheck(SimpleModel.Enum(new EnumValueModel(type, value, "")), [
+    => EncodeAndCheck(SimpleModel.Enum(new EnumValueModel(type, value, string.Empty)), [
         $"=[{type}]{value}"
         ]);
 
   [Theory, RepeatData]
   public void Encode_WithDomainLabel_ReturnsStructuredString(string domain, string value)
-    => EncodeAndCheck(SimpleModel.EnumDom(domain, "", value), [
+    => EncodeAndCheck(SimpleModel.EnumDom(domain, string.Empty, value), [
         $"=[{domain}]{value}"
         ]);
 

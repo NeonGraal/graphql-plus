@@ -8,6 +8,7 @@ public class MergeAlternatesTests(
   ITestOutputHelper outputHelper
 ) : TestDescriptionsMerger<IGqlpAlternate>
 {
+
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
     => CanMerge_Good([
@@ -27,15 +28,15 @@ public class MergeAlternatesTests(
       CheckAlternates.MakeAlternate(input, true));
 
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsSameEnums_ReturnsGood(string type, string label)
+  public void CanMerge_TwoAstsSameEnums_ReturnsGood(string type)
     => CanMerge_Good([
-      CheckAlternates.MakeAltEnum(type, label),
-      CheckAlternates.MakeAltEnum(type, label)]);
+      CheckAlternates.MakeAltEnum(type, TestLabel),
+      CheckAlternates.MakeAltEnum(type, TestLabel)]);
 
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsDifferentEnums_ReturnsGood(string type, string label)
+  public void CanMerge_TwoAstsDifferentEnums_ReturnsGood(string type)
     => CanMerge_Good([
-      CheckAlternates.MakeAltEnum(type, label),
+      CheckAlternates.MakeAltEnum(type, TestLabel),
       MakeDescribed(type)]);
 
   [Theory, RepeatData]
@@ -47,10 +48,10 @@ public class MergeAlternatesTests(
       CheckAlternates.MakeAltEnum(type, label2)]);
 
   [Theory, RepeatData]
-  public void Merge_TwoAstsSameEnum_ReturnsExpected(string type, string label)
+  public void Merge_TwoAstsSameEnum_ReturnsExpected(string type)
     => Merge_Expected(
-      [CheckAlternates.MakeAltEnum(type, label), CheckAlternates.MakeAltEnum(type, label)],
-      CheckAlternates.MakeAltEnum(type, label));
+      [CheckAlternates.MakeAltEnum(type, TestLabel), CheckAlternates.MakeAltEnum(type, TestLabel)],
+      CheckAlternates.MakeAltEnum(type, TestLabel));
 
   [Theory, RepeatData]
   public void Merge_TwoAstsDifferentLabels_ReturnsExpected(string type, string label1, string label2)

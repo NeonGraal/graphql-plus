@@ -15,8 +15,8 @@ internal class BooleanDecoder
 
   protected override IMessages DecodeText(string strValue, out bool? output)
     => Parsed(strValue, output = strValue switch {
-      "true" => true,
-      "false" => false,
+      BuiltIn.BooleanTrue => true,
+      BuiltIn.BooleanFalse => false,
       _ => null
     });
 }
@@ -112,7 +112,7 @@ internal class StringDecoder
   : ScalarDecoder<string>
 {
   protected override IMessages DecodeBoolean(bool? boolValue, out string? output)
-    => Ok(output = boolValue.TrueFalse());
+    => Ok(output = boolValue?.TrueFalse());
   protected override IMessages DecodeNumber(decimal? numValue, out string? output)
     => Ok(output = $"{numValue:0.#####}");
   protected override IMessages DecodeText(string strValue, out string? output)

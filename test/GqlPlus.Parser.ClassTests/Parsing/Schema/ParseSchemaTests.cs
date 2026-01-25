@@ -18,15 +18,15 @@ public class ParseSchemaTests
     Tokenizer.Read().Returns(true);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnSchema_WhenValid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnSchema_WhenValid(string label)
   {
     // Arrange
     IdentifierReturns(OutString("category"));
     Tokenizer.AtEnd.Returns(true);
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchema>>()
@@ -34,8 +34,8 @@ public class ParseSchemaTests
       .Result.ShouldBe(ParseResultKind.Success);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenUnknownSelector()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenUnknownSelector(string label)
   {
     // Arrange
     IdentifierReturns(OutString("unknown"));
@@ -44,7 +44,7 @@ public class ParseSchemaTests
     SetupError<IGqlpSchema>();
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchema>>()
@@ -52,8 +52,8 @@ public class ParseSchemaTests
       .Result.ShouldBe(ParseResultKind.Failure);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenToMuchText()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenToMuchText(string label)
   {
     // Arrange
     IdentifierReturns(OutString("category"));
@@ -61,7 +61,7 @@ public class ParseSchemaTests
     SetupError<IGqlpSchema>();
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchema>>()
@@ -69,8 +69,8 @@ public class ParseSchemaTests
       .Result.ShouldBe(ParseResultKind.Failure);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenNoText()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenNoText(string label)
   {
     // Arrange
     Tokenizer.Read().Returns(false);
@@ -78,7 +78,7 @@ public class ParseSchemaTests
     SetupError<IGqlpSchema>();
 
     // Act
-    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

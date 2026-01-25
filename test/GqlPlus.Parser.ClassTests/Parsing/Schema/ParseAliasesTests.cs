@@ -6,7 +6,7 @@ public class ParseAliasesTests
   private readonly ParseAliases _parser = new();
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnAliases_WhenValid(string alias1, string alias2)
+  public void Parse_ShouldReturnAliases_WhenValid(string alias1, string alias2, string label)
   {
     // Arrange
     TakeReturns('[', true);
@@ -14,7 +14,7 @@ public class ParseAliasesTests
     IdentifierReturns(OutString(alias1), OutString(alias2));
 
     // Act
-    IResultArray<string> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<string> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldSatisfyAllConditions(
@@ -25,7 +25,7 @@ public class ParseAliasesTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenClosingBracketIsMissing(string alias1, string alias2)
+  public void Parse_ShouldReturnError_WhenClosingBracketIsMissing(string alias1, string alias2, string label)
   {
     // Arrange
     TakeReturns('[', true);
@@ -34,7 +34,7 @@ public class ParseAliasesTests
     SetupPartial("");
 
     // Act
-    IResultArray<string> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<string> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<string>>();

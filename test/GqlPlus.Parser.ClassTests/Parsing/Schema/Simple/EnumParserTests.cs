@@ -9,42 +9,42 @@ public class EnumParserTests : ParserClassTestBase
   public EnumParserTests()
     => _parser = new EnumParser<CategoryOption>();
 
-  [Fact]
-  public void Parse_ShouldReturnEnum_WhenValid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEnum_WhenValid(string label)
   {
     // Arrange
     IdentifierReturns(OutString("Parallel"));
 
     // Act
-    IResult<CategoryOption> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOption> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<CategoryOption>>()
       .Required().ShouldBe(CategoryOption.Parallel);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenInvalidEnumValue()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenInvalidEnumValue(string label)
   {
     // Arrange
     IdentifierReturns(OutString("InvalidValue"));
     SetupError<CategoryOption>();
 
     // Act
-    IResult<CategoryOption> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOption> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnEmpty_WhenNoIdentifier()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEmpty_WhenNoIdentifier(string label)
   {
     // Arrange
     IdentifierReturns(OutFail);
 
     // Act
-    IResult<CategoryOption> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<CategoryOption> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

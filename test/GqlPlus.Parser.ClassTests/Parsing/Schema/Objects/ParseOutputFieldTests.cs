@@ -18,7 +18,7 @@ public class ParseOutputFieldTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnParams_WhenValid(string fieldName)
+  public void Parse_ShouldReturnParams_WhenValid(string fieldName, string label)
   {
     // Arrange
     IdentifierReturns(OutString(fieldName));
@@ -27,21 +27,21 @@ public class ParseOutputFieldTests
     ParseOkA(_parameter);
 
     // Act
-    IResult<IGqlpOutputField> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOutputField> result = Parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpOutputField>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenParamsError(string fieldName)
+  public void Parse_ShouldReturnError_WhenParamsError(string fieldName, string label)
   {
     // Arrange
     IdentifierReturns(OutString(fieldName));
     ParseErrorA(_parameter);
 
     // Act
-    IResult<IGqlpOutputField> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOutputField> result = Parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

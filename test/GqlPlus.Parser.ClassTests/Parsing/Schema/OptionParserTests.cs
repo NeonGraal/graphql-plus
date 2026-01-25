@@ -16,8 +16,8 @@ public class OptionParserTests
     SetupPartial(DomainKind.Number);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnOption_WhenValid()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnOption_WhenValid(string label)
   {
     // Arrange
     TakeReturns('(', true);
@@ -25,15 +25,15 @@ public class OptionParserTests
     TakeReturns(')', true);
 
     // Act
-    IResult<DomainKind> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainKind> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<DomainKind>>()
       .Required().ShouldBe(DomainKind.Number);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenClosingParenthesisIsMissing()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenClosingParenthesisIsMissing(string label)
   {
     // Arrange
     TakeReturns('(', true);
@@ -41,20 +41,20 @@ public class OptionParserTests
     TakeReturns(')', false);
 
     // Act
-    IResult<DomainKind> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainKind> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<DomainKind>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnEmpty_WhenNoOpeningParenthesis()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEmpty_WhenNoOpeningParenthesis(string label)
   {
     // Arrange
     TakeReturns('(', false);
 
     // Act
-    IResult<DomainKind> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<DomainKind> result = _parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();

@@ -6,22 +6,22 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainTrueFalseTests
   : ParseDomainClassTestBase<IGqlpDomainTrueFalse>
 {
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenNotBoolean()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenNotBoolean(string label)
   {
     // Arrange
     IdentifierReturns(OutString("phish"));
     SetupPartial<IGqlpDomainTrueFalse>();
 
     // Act
-    IResult<IGqlpDomainTrueFalse> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainTrueFalse> result = Parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpDomainTrueFalse>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartial_WhenNothingAfterExclamation()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenNothingAfterExclamation(string label)
   {
     // Arrange
     TakeReturns('!', true);
@@ -29,14 +29,14 @@ public class ParseDomainTrueFalseTests
     SetupPartial<IGqlpDomainTrueFalse>();
 
     // Act
-    IResult<IGqlpDomainTrueFalse> result = Parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpDomainTrueFalse> result = Parser.Parse(Tokenizer, label);
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpDomainTrueFalse>>();
   }
 
-  [Fact]
-  public void ParseItems_ShouldReturnDefault_WhenEmpty()
+  [Theory, RepeatData]
+  public void ParseItems_ShouldReturnDefault_WhenEmpty(string label)
   {
     // Arrange
     TakeReturns('}', true);
@@ -44,7 +44,7 @@ public class ParseDomainTrueFalseTests
     ParseOkA(ItemsParser, []);
 
     // Act
-    IResult<DomainDefinition> result = Parser.Parser(Tokenizer, "testLabel", initial);
+    IResult<DomainDefinition> result = Parser.Parser(Tokenizer, label, initial);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<DomainDefinition>>();

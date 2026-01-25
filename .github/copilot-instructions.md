@@ -8,8 +8,9 @@ GraphQL+ is a successor to GraphQL, implementing a parser, merging verifier, and
 
 **Language & Framework:**
 
-- C# with .NET 10.0, 9.0, and 8.0 (multi-targeted)
-- Latest C# language features enabled
+- C# with latest language features enabled
+- Source projects target .NET Standard 2.0
+- Test projects multi-target .NET 10.0, 9.0, and 8.0
 - Nullable reference types enabled
 - File-scoped namespaces preferred
 

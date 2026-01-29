@@ -30,8 +30,12 @@ internal class VerifyUnionTypes(
         type is not IGqlpSimple);
   }
 
-  private bool CheckMember(string name, IGqlpUnionMember member, UsageContext context, Action<string, IGqlpType>? checkType = null)
-  {
+  private bool CheckMember(
+    string name,
+    IGqlpUnionMember member,
+    UsageContext context,
+    Action<string, IGqlpType>? checkType = null
+  ) {
     if (member.Name == name) {
       context.AddError(member, "Union Member", $"'{name}' cannot refer to " + (checkType is null ? "self, even recursively" : "self"));
       return false;

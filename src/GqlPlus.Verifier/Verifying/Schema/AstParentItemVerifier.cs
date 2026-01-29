@@ -25,8 +25,12 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
     }
   }
 
-  protected IEnumerable<T> GetParentItems<T>(SelfUsage<TAst> input, TAst child, TContext context, Func<TAst, IEnumerable<T>> getItems)
-  {
+  protected IEnumerable<T> GetParentItems<T>(
+    SelfUsage<TAst> input,
+    TAst child,
+    TContext context,
+    Func<TAst, IEnumerable<T>> getItems
+  ) {
     IEnumerable<T> items = getItems(child);
     if (input.DifferentName) {
       CheckParentType(input, context, false,

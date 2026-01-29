@@ -48,8 +48,13 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Current}' {outcome}", top);
   }
 
-  private void CheckTypedParentType(SelfUsage<TAst> input, TContext context, bool top, Action<TAst>? onParent, IGqlpType astType)
-  {
+  private void CheckTypedParentType(
+    SelfUsage<TAst> input,
+    TContext context,
+    bool top,
+    Action<TAst>? onParent,
+    IGqlpType astType
+  ) {
     if (CheckAstParentType(input, astType)) {
       if (astType is TAst parentType) {
         if (CheckAstParent(input.Usage, parentType, context)) {
@@ -69,8 +74,12 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   protected virtual bool CheckAstParent(TAst usage, [NotNullWhen(true)] TAst? parent, TContext context)
     => parent is not null;
 
-  protected void CheckParent(SelfUsage<TAst> input, IGqlpType<TParent> child, TContext context, bool top)
-  {
+  protected void CheckParent(
+    SelfUsage<TAst> input,
+    IGqlpType<TParent> child,
+    TContext context,
+    bool top
+  ) {
     string parent = GetParent(child);
     if (string.IsNullOrWhiteSpace(parent)) {
       return;
@@ -85,8 +94,12 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     }
   }
 
-  protected virtual void OnParentType(SelfUsage<TAst> input, TContext context, TAst parentType, bool top)
-  {
+  protected virtual void OnParentType(
+    SelfUsage<TAst> input,
+    TContext context,
+    TAst parentType,
+    bool top
+  ) {
     context.AddError(
         input.Usage,
         input.UsageLabel + " Parent",

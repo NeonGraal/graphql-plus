@@ -1,7 +1,4 @@
-﻿using Microsoft.Win32.SafeHandles;
-
-namespace GqlPlus;
-
+﻿namespace GqlPlus;
 public abstract class TestSchemaInputs
   : SampleChecks
 {

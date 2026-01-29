@@ -41,8 +41,13 @@ internal abstract class ObjectDecoder<TModel>
     return new Messages(TagMsg($"Unable to decode {input}").Error());
   }
 
-  protected void DecodeScalarField<T>(IMessages messages, IDecoder<T> decoder, IMap<IValue> map, out T? value, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
-  {
+  protected void DecodeScalarField<T>(
+    IMessages messages,
+    IDecoder<T> decoder,
+    IMap<IValue> map,
+    out T? value,
+    [CallerArgumentExpression(nameof(value))] string valueExpr = ""
+  ) {
     string fieldName = valueExpr.Split()[1];
     if (map.TryGetValue(fieldName, out IValue? fieldValue)) {
       messages.Add(decoder.Decode(fieldValue, out value));
@@ -51,7 +56,13 @@ internal abstract class ObjectDecoder<TModel>
     }
   }
 
-  protected void DecodeClassListField<T>(IMessages messages, IDecoder<T> decoder, IMap<IValue> map, out IEnumerable<T> value, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
+  protected void DecodeClassListField<T>(
+    IMessages messages,
+    IDecoder<T> decoder,
+    IMap<IValue> map,
+    out IEnumerable<T> value,
+    [CallerArgumentExpression(nameof(value))] string valueExpr = ""
+  )
     where T : class
   {
     value = [];
@@ -69,7 +80,13 @@ internal abstract class ObjectDecoder<TModel>
     }
   }
 
-  protected void DecodeStructListField<T>(IMessages messages, IDecoder<T?> decoder, IMap<IValue> map, out IEnumerable<T> value, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
+  protected void DecodeStructListField<T>(
+    IMessages messages,
+    IDecoder<T?> decoder,
+    IMap<IValue> map,
+    out IEnumerable<T> value,
+    [CallerArgumentExpression(nameof(value))] string valueExpr = ""
+  )
     where T : struct
   {
     value = [];

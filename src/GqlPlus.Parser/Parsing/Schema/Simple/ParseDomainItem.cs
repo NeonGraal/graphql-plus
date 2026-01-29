@@ -21,7 +21,12 @@ internal abstract class ParseDomainItem<TItem>(
       : items.AsResult(result);
   }
 
-  protected abstract void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, TItem[] items);
+  protected abstract void ApplyItems(
+    ITokenizer tokens,
+    string label,
+    DomainDefinition result,
+    TItem[] items
+  );
 
   public abstract IResult<TItem> Parse(ITokenizer tokens, string label);
 }

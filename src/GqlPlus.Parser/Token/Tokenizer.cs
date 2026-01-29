@@ -406,7 +406,11 @@ public class Tokenizer
     return true;
   }
 
-  public bool Prefix(char one, out string? identifier, out TokenAt at)
+  public bool Prefix(
+    char one,
+    out string? identifier,
+    out TokenAt at
+  )
   {
     identifier = null;
     if (_kind == TokenKind.Punctuation
@@ -459,19 +463,35 @@ public class Tokenizer
   public TokenMessage Error(string label, string expected)
     => Error($"Invalid {label}. Expected {expected}.");
 
-  public IResult<T> Error<T>(string label, string expected, T? result = default)
+  public IResult<T> Error<T>(
+    string label,
+    string expected,
+    T? result = default
+  )
     => result.Error(Error(label, expected));
 
-  public IResultArray<T> ErrorArray<T>(string label, string expected, IEnumerable<T>? _ = default)
+  public IResultArray<T> ErrorArray<T>(
+    string label,
+    string expected,
+    IEnumerable<T>? _ = default
+  )
     => Error(label, expected).ErrorArray<T>();
 
-  public IResult<T> Partial<T>(string label, string expected, Func<T> result)
+  public IResult<T> Partial<T>(
+    string label,
+    string expected,
+    Func<T> result
+  )
   {
     TokenMessage error = Error(label, expected);
     return result.ThrowIfNull().Invoke().Partial(error);
   }
 
-  public IResultArray<T> PartialArray<T>(string label, string expected, Func<IEnumerable<T>> result)
+  public IResultArray<T> PartialArray<T>(
+    string label,
+    string expected,
+    Func<IEnumerable<T>> result
+  )
   {
     TokenMessage error = Error(label, expected);
     return result.ThrowIfNull().Invoke().PartialArray(error);

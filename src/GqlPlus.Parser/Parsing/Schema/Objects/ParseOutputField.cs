@@ -17,8 +17,12 @@ internal class ParseOutputField(
   protected override void ApplyFieldParams(OutputFieldAst field, IGqlpInputParam[] parameters)
     => field.Params = parameters;
 
-  protected override OutputFieldAst ObjField(TokenAt at, string name, string description, IGqlpObjBase typeBase)
-    => new(at, name, description, typeBase);
+  protected override OutputFieldAst ObjField(
+    TokenAt at,
+    string name,
+    string description,
+    IGqlpObjBase typeBase
+  ) => new(at, name, description, typeBase);
 
   protected override IResult<IGqlpOutputField> FieldDefault(ITokenizer tokens, OutputFieldAst field)
     => field.Ok<IGqlpOutputField>();

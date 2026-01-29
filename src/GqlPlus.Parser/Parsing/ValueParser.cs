@@ -45,8 +45,12 @@ public abstract class ValueParser<TValue>(
   protected abstract Func<IEnumerable<TValue>, TValue> NewList(ITokenAt at);
   protected abstract Func<IGqlpFields<TValue>, TValue> NewFields(ITokenAt at);
 
-  public IResult<IGqlpFields<TValue>> ParseFieldValues(ITokenizer tokens, string label, char last, IGqlpFields<TValue> fields)
-  {
+  public IResult<IGqlpFields<TValue>> ParseFieldValues(
+    ITokenizer tokens,
+    string label,
+    char last,
+    IGqlpFields<TValue> fields
+  ) {
     tokens.ThrowIfNull();
 
     FieldsAst<TValue> result = new(fields.ToDictionary(p => p.Key, p => p.Value));

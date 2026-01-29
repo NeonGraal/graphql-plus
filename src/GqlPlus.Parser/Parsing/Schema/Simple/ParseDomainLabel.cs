@@ -37,8 +37,12 @@ internal class ParseDomainLabel(
     return result.Ok();
   }
 
-  protected override void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, IGqlpDomainLabel[] items)
-  {
+  protected override void ApplyItems(
+    ITokenizer tokens,
+    string label,
+    DomainDefinition result,
+    IGqlpDomainLabel[] items
+  ) {
     if (items.Length == 0) {
       tokens.Error<IGqlpDomainLabel>(label, "enum Labels");
     }

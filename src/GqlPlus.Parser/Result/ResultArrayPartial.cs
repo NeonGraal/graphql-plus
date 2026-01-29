@@ -11,7 +11,11 @@ public readonly struct ResultArrayPartial<TValue>
   public ResultArrayPartial(IEnumerable<TValue> result, TokenMessage message)
     => (Result, Message) = (result, message);
 
-  public IResult<TResult> AsPartial<TResult>(TResult result, Action<IEnumerable<TValue>>? withValue = null, Action? action = null)
+  public IResult<TResult> AsPartial<TResult>(
+    TResult result,
+    Action<IEnumerable<TValue>>? withValue = null,
+    Action? action = null
+  )
   {
     withValue?.Invoke(Result);
     action?.Invoke();
@@ -34,6 +38,9 @@ public readonly struct ResultArrayPartial<TValue>
           ? newResult.PartialArray(Message)
           : Message.ErrorArray<TResult>();
 
-  public IResult<TResult> Map<TResult>(SelectResult<IEnumerable<TValue>, TResult> onValue, OnResult<TResult>? otherwise = null)
+  public IResult<TResult> Map<TResult>(
+    SelectResult<IEnumerable<TValue>, TResult> onValue,
+    OnResult<TResult>? otherwise = null
+  )
     => onValue?.Invoke(Result) ?? default(TResult).Empty();
 }

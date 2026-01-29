@@ -120,8 +120,15 @@ public class VerifyDomainEnumTests
   }
 
   [Theory, RepeatData]
-  public void Verify_Enum_WithDuplicateParentLabel_ReturnsError(string enumName1, string enumLabel1, string enumLabel2, string parentName, string parentLabel1, string parentLabel2, string enumName2)
-  {
+  public void Verify_Enum_WithDuplicateParentLabel_ReturnsError(
+    string enumName1,
+    string enumLabel1,
+    string enumLabel2,
+    string parentName,
+    string parentLabel1,
+    string parentLabel2,
+    string enumName2
+  ) {
     this.SkipEqual3(enumName1, enumName2, parentName);
     this.SkipEqual4(enumLabel1, enumLabel2, parentLabel1, parentLabel2);
 

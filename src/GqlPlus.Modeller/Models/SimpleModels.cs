@@ -39,7 +39,12 @@ public record class DomainLabelModel(
   string Description
 ) : BaseDomainItemModel(Exclude, Description)
 {
-  public DomainLabelModel(string name, string label, bool exclude, string description)
+  public DomainLabelModel(
+    string name,
+    string label,
+    bool exclude,
+    string description
+  )
     : this(new(name, label, ""), exclude, description)
   { }
 }

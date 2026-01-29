@@ -27,8 +27,12 @@ internal sealed class RenderStructureJsonConverter
     }
   }
 
-  private void WriteMap(Utf8JsonWriter writer, Structured value, string keyTag, bool plain)
-  {
+  private void WriteMap(
+    Utf8JsonWriter writer,
+    Structured value,
+    string keyTag,
+    bool plain
+  ) {
     KeyValuePair<StructureValue, Structured> first = value.Map.First();
     if (value.Map.Count == 1 && !plain && string.IsNullOrWhiteSpace(first.Value.Tag) && first.Value.Value is not null) {
       writer.WriteStartObject();
@@ -42,8 +46,12 @@ internal sealed class RenderStructureJsonConverter
     }
   }
 
-  private void WriteFullMap(Utf8JsonWriter writer, ComplexValue<StructureValue, Structured>.IDict map, string mapTag, string keyTag)
-  {
+  private void WriteFullMap(
+    Utf8JsonWriter writer,
+    ComplexValue<StructureValue, Structured>.IDict map,
+    string mapTag,
+    string keyTag
+  ) {
     writer.WriteStartObject();
     WriteTag(writer, keyTag, "keyTag");
     WriteTag(writer, mapTag, "mapTag");
@@ -59,8 +67,12 @@ internal sealed class RenderStructureJsonConverter
     writer.WriteEndObject();
   }
 
-  private void WriteList(Utf8JsonWriter writer, IList<Structured> list, string listTag, string keyTag = "")
-  {
+  private void WriteList(
+    Utf8JsonWriter writer,
+    IList<Structured> list,
+    string listTag,
+    string keyTag = ""
+  ) {
     if (string.IsNullOrWhiteSpace(listTag) && string.IsNullOrWhiteSpace(keyTag)) {
       WriteFlowList();
       return;

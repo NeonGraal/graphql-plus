@@ -1,4 +1,6 @@
-﻿namespace GqlPlus;
+﻿using Microsoft.Win32.SafeHandles;
+
+namespace GqlPlus;
 
 public abstract class TestSchemaInputs
   : SampleChecks
@@ -39,7 +41,7 @@ public abstract class TestSchemaInputs
   {
     string schema = await ReadSchema(sample);
 
-    await Label_Input("Schema", schema, ["Schema"], sample);
+    await Test_Input("Schema", schema, ["Schema"], sample);
   }
 
   [Theory]
@@ -48,7 +50,7 @@ public abstract class TestSchemaInputs
   {
     string spec = await ReadSpecification(sample);
 
-    await Label_Input("Spec", spec, ["Specification"], sample);
+    await Test_Input("Spec", spec, ["Specification"], sample);
   }
 
   [Theory]
@@ -57,7 +59,7 @@ public abstract class TestSchemaInputs
   {
     string spec = await ReadSpecification(sample, "Introspection");
 
-    await Label_Input("Spec", spec, ["Specification", "Introspection"], sample, "Introspection");
+    await Test_Input("Spec", spec, ["Specification", "Introspection"], sample, "Introspection");
   }
 
   protected abstract Task Label_Input(string label, string input, string[] dirs, string test, string section = "");
@@ -66,9 +68,16 @@ public abstract class TestSchemaInputs
   {
     string schema = inputs.Joined(Environment.NewLine);
 
-    await Label_Input(label, schema, [label], test);
+    await Test_Input(label, schema, [label], test);
   }
 
   protected virtual Task Sample_Input(string input, string section, string test)
-    => Label_Input("Schema", input, [section], test, section);
+    => Test_Input("Schema", input, [section], test, section);
+
+  protected async Task Test_Input(string label, string input, string[] dirs, string test, string section = "")
+  {
+    TestContext.Current.AddAttachment("Input " + test, input);
+
+    await Label_Input(label, input, dirs, test, section);
+  }
 }

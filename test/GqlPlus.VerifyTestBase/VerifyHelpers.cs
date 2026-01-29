@@ -31,5 +31,9 @@ public static class VerifyHelpers
       string name,
       VerifySettings settings,
       [CallerFilePath] string sourceFile = "")
-    => AttachAndVerify(string.Join(Environment.NewLine, result), name, settings, sourceFile);
+  {
+    TestContext.Current.AddAttachment(name, string.Join(Environment.NewLine, result));
+
+    return Verify(result, settings, sourceFile);
+  }
 }

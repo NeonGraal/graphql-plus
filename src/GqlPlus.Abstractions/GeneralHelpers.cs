@@ -46,8 +46,10 @@ public static class GeneralHelpers
     || left is not null && right is not null && left.Equals(right);
 
   [return: NotNull]
-  public static T ThrowIfNull<T>([NotNull] this T? value, [CallerArgumentExpression(nameof(value))] string? expression = default)
-  {
+  public static T ThrowIfNull<T>(
+    [NotNull] this T? value,
+    [CallerArgumentExpression(nameof(value))] string? expression = default
+  ) {
     if (value is null) {
       throw new ArgumentNullException(expression);
     }

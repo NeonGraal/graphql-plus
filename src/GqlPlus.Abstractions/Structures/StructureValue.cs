@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Structures;
+namespace GqlPlus.Structures;
 
 #pragma warning disable CA1036 // Override methods on comparable types
 public sealed class StructureValue
@@ -58,8 +58,13 @@ public sealed class StructureValue
       "E"
     );
 
-  private T Apply<T>(Func<bool, T> boolFunc, Func<string, T> idFunc, Func<decimal, T> numFunc, Func<string, T> txtFunc, T empty)
-    => this switch {
+  private T Apply<T>(
+    Func<bool, T> boolFunc,
+    Func<string, T> idFunc,
+    Func<decimal, T> numFunc,
+    Func<string, T> txtFunc,
+    T empty
+  ) => this switch {
       { Boolean: not null } => boolFunc(Boolean.Value),
       { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => idFunc(Identifier),
       { Number: not null } => numFunc(Number.Value),
@@ -67,3 +72,5 @@ public sealed class StructureValue
       _ => empty,
     };
 }
+
+

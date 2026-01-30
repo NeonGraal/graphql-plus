@@ -17,7 +17,12 @@ internal abstract class MatchLogger
     where TType : class, IGqlpNamed
     where TContext : UsageContext;
 
-  protected bool MatchArgOrType<TType, TContext>(string type, string constraint, TContext context, MatchAction<TType, TContext> action)
+  protected bool MatchArgOrType<TType, TContext>(
+    string type,
+    string constraint,
+    TContext context,
+    MatchAction<TType, TContext> action
+  )
     where TType : class, IGqlpNamed
     where TContext : UsageContext
   {

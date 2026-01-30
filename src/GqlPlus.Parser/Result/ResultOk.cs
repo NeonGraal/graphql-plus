@@ -11,7 +11,11 @@ public readonly struct ResultOk<TValue>
     Result = result;
   }
 
-  public IResult<TResult> AsPartial<TResult>(TResult result, Action<TValue>? withValue = null, Action? action = null)
+  public IResult<TResult> AsPartial<TResult>(
+    TResult result,
+    Action<TValue>? withValue = null,
+    Action? action = null
+  )
   {
     withValue?.Invoke(Result);
     action?.Invoke();
@@ -23,7 +27,10 @@ public readonly struct ResultOk<TValue>
       ? newResult.Ok()
       : _.Empty();
 
-  public IResult<TResult> Map<TResult>(SelectResult<TValue, TResult> onValue, OnResult<TResult>? otherwise = null)
+  public IResult<TResult> Map<TResult>(
+    SelectResult<TValue, TResult> onValue,
+    OnResult<TResult>? otherwise = null
+  )
   {
     onValue.ThrowIfNull();
 

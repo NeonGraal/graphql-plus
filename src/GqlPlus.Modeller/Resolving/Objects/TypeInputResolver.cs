@@ -79,7 +79,12 @@ internal class TypeInputResolver
       return alternate;
     };
 
-  private bool GetInputArgument(string label, ObjBaseModel inputBase, ArgumentsContext arguments, [NotNullWhen(true)] out ObjBaseModel? outBase)
+  private bool GetInputArgument(
+    string label,
+    ObjBaseModel inputBase,
+    ArgumentsContext arguments,
+    [NotNullWhen(true)] out ObjBaseModel? outBase
+  )
   {
     outBase = null;
     if (inputBase?.IsTypeParam == true) {

@@ -43,7 +43,6 @@ public class ParseOperationTests(
       return;
     }
 
-    TestContext.Current.AddAttachment("Operation " + test, target);
-    await Verify(target, CustomSettings("Operation", label, test));
+    await target.AttachAndVerify("Operation " + test, CustomSettings("Operation", label, test));
   }
 }

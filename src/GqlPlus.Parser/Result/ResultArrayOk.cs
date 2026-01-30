@@ -6,7 +6,11 @@ public readonly struct ResultArrayOk<TValue>(
 {
   public IEnumerable<TValue> Result { get; } = result;
 
-  public IResult<TResult> AsPartial<TResult>(TResult result, Action<IEnumerable<TValue>>? withValue = null, Action? action = null)
+  public IResult<TResult> AsPartial<TResult>(
+    TResult result,
+    Action<IEnumerable<TValue>>? withValue = null,
+    Action? action = null
+  )
   {
     withValue?.Invoke(Result);
     action?.Invoke();
@@ -29,7 +33,10 @@ public readonly struct ResultArrayOk<TValue>(
       ? newResult.OkArray()
       : 0.EmptyArray<TResult>();
 
-  public IResult<TResult> Map<TResult>(SelectResult<IEnumerable<TValue>, TResult> onValue, OnResult<TResult>? otherwise = null)
+  public IResult<TResult> Map<TResult>(
+    SelectResult<IEnumerable<TValue>, TResult> onValue,
+    OnResult<TResult>? otherwise = null
+  )
   {
     onValue.ThrowIfNull();
 

@@ -6,8 +6,12 @@ namespace GqlPlus.Structures;
 
 public static class StructureHelper
 {
-  public static Structured Encode<T>(this IEnumerable<T> list, Func<T, Structured> mapper, string? tag = null, bool flow = false)
-    => new(list.Select(mapper), tag, flow);
+  public static Structured Encode<T>(
+    this IEnumerable<T> list,
+    Func<T, Structured> mapper,
+    string? tag = null,
+    bool flow = false
+  ) => new(list.Select(mapper), tag, flow);
 
   public static Structured Encode<T>(this IEnumerable<T> list, string? tag = null, bool flow = false)
     where T : Enum
@@ -16,13 +20,22 @@ public static class StructureHelper
   public static Structured Encode(this IEnumerable<string> list, string? tag = null, bool flow = false)
     => list.Encode(i => new(i), tag, flow);
 
-  public static Structured Encode<T>(this IMap<T> groups, Func<T, Structured> mapper, string? mapTag = null, string? keyTag = null, bool flow = false)
-    => new(groups
+  public static Structured Encode<T>(
+    this IMap<T> groups,
+    Func<T, Structured> mapper,
+    string? mapTag = null,
+    string? keyTag = null,
+    bool flow = false
+  ) => new(groups
         .OrderBy(p => p.Key)
         .ToDictionary(k => new StructureValue(k.Key, keyTag), v => mapper(v.Value)), mapTag, flow);
 
-  public static Structured Encode(this IMap<Structured> groups, string? mapTag = null, string? keyTag = null, bool flow = false)
-    => groups.Encode(v => v, mapTag, keyTag, flow);
+  public static Structured Encode(
+    this IMap<Structured> groups,
+    string? mapTag = null,
+    string? keyTag = null,
+    bool flow = false
+  ) => groups.Encode(v => v, mapTag, keyTag, flow);
 
   public static Structured Encode(this IMessages errors)
     => new(errors.Select(Encode), "_Errors");

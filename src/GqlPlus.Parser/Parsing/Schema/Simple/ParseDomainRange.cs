@@ -53,6 +53,10 @@ internal class ParseDomainRange(
         : error();
   }
 
-  protected override void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, IGqlpDomainRange[] items)
-    => result.Numbers = items.ArrayOf<DomainRangeAst>();
+  protected override void ApplyItems(
+    ITokenizer tokens,
+    string label,
+    DomainDefinition result,
+    IGqlpDomainRange[] items
+  ) => result.Numbers = items.ArrayOf<DomainRangeAst>();
 }

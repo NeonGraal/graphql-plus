@@ -17,8 +17,11 @@ internal sealed record class SpecialTypeAst
     : base(AstNulls.At, "_" + label, "")
     => (_abbr, Aliases, _label, _typeMatcher, _kindsMatcher) = ("TZ", [label], label, t => true, h => true);
 
-  public SpecialTypeAst(string label, TypeKind kind, Func<IGqlpType, bool> typeMatcher)
-    : this(label)
+  public SpecialTypeAst(
+    string label,
+    TypeKind kind,
+    Func<IGqlpType, bool> typeMatcher
+  ) : this(label)
     => (_typeMatcher, _kindsMatcher) = (typeMatcher, h => h.Contains(kind));
 
   public bool Equals(SpecialTypeAst? other)

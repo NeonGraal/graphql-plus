@@ -30,6 +30,11 @@ internal class ParseDomainRegex(
       : tokens.Error(label, "Closing '/'", result);
   }
 
-  protected override void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, IGqlpDomainRegex[] items)
+  protected override void ApplyItems(
+    ITokenizer tokens,
+    string label,
+    DomainDefinition result,
+    IGqlpDomainRegex[] items
+  )
     => result.Regexes = items.ArrayOf<DomainRegexAst>();
 }

@@ -24,7 +24,7 @@ public class MergeSchemaTests(
   {
     IEnumerable<IGqlpSchema> result = schemaMerger.SkipIf(test == SchemaValidData.SpecDefinition).Merge(schemas);
 
-    await Verify(result.Select(s => s.Show()), CustomSettings(label, "Merges", test, section));
+    await result.Select(s => s.Show()).AttachAndVerify("Output " + test, CustomSettings(label, "Merges", test, section));
   }
 
   // Todo: Add error checking for invalid schemas

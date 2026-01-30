@@ -43,7 +43,11 @@ internal class RenderYamlTypeConverter
   public object? ReadYaml(IParser parser, Type type, ObjectDeserializer rootDeserializer)
     => ReadYaml(parser, type);
 
-  public void WriteYaml(IEmitter emitter, object? value, Type type, ObjectSerializer serializer)
+  public void WriteYaml(
+    IEmitter emitter,
+    object? value,
+    Type type,
+    ObjectSerializer serializer)
   {
     if (value is Structured model) {
       bool plainImplicit = string.IsNullOrWhiteSpace(model.Tag);
@@ -79,7 +83,12 @@ internal class RenderYamlTypeConverter
     parser.Consume<MappingEnd>().ThrowIfNull();
     return new(items, tag, flow: start.Style == MappingStyle.Flow);
   }
-  private void WriteMap(IEmitter emitter, Structured model, bool plainImplicit, TagName tag, ObjectSerializer serializer)
+  private void WriteMap(
+    IEmitter emitter,
+    Structured model,
+    bool plainImplicit,
+    TagName tag,
+    ObjectSerializer serializer)
   {
     MappingStyle flow = model.Flow ? MappingStyle.Flow : MappingStyle.Any;
     emitter.Emit(new MappingStart(default, tag, plainImplicit, flow));
@@ -105,7 +114,13 @@ internal class RenderYamlTypeConverter
     parser.Consume<SequenceEnd>().ThrowIfNull();
     return new(items, tag, flow: start.Style == SequenceStyle.Flow);
   }
-  private void WriteList(IEmitter emitter, Type type, Structured model, bool plainImplicit, TagName tag, ObjectSerializer serializer)
+  private void WriteList(
+    IEmitter emitter,
+    Type type,
+    Structured model,
+    bool plainImplicit,
+    TagName tag,
+    ObjectSerializer serializer)
   {
     SequenceStyle flow = model.Flow ? SequenceStyle.Flow : SequenceStyle.Any;
     emitter.Emit(new SequenceStart(default, tag, plainImplicit, flow));

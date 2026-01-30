@@ -17,8 +17,12 @@ internal record class AstDomain<TItemAst, TItem>(
 
   IEnumerable<TItem> IGqlpSimple<TItem>.Items => Items;
 
-  public AstDomain(ITokenAt at, string name, DomainKind kind, TItem[] items)
-    : this(at, name, "", kind)
+  public AstDomain(
+    ITokenAt at,
+    string name,
+    DomainKind kind,
+    TItem[] items
+  ) : this(at, name, "", kind)
     => Items = items;
 
   public virtual bool Equals(AstDomain<TItemAst, TItem>? other)

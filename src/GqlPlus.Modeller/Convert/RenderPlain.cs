@@ -35,7 +35,12 @@ public static class RenderPlain
     : new(result);
   }
 
-  private static string ReadLineGroup(ref StructureValue? result, List<Structured> items, Dictionary<StructureValue, Structured> fields, IGrouping<LineKey, string> group)
+  private static string ReadLineGroup(
+    ref StructureValue? result,
+    List<Structured> items,
+    Dictionary<StructureValue, Structured> fields,
+    IGrouping<LineKey, string> group
+  )
   {
     string tag = group.Key.Tag;
     if (group.Key.Type == ':') {

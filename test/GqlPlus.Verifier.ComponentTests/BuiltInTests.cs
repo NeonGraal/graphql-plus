@@ -13,11 +13,11 @@ public class BuiltInTests(
 
   [Fact]
   public Task VerifyBasicTypes()
-    => Verify(BuiltIn.Basic.AsString(), _settings);
+    => BuiltIn.Basic.AsString().AttachAndVerify("Basic", _settings);
 
   [Fact]
   public Task VerifyInternalTypes()
-    => Verify(BuiltIn.Internal.AsString(), _settings);
+    => BuiltIn.Internal.AsString().AttachAndVerify("Internal", _settings);
 
   [Theory]
   [ClassData(typeof(BuiltInBasicData))]

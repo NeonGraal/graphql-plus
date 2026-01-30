@@ -16,7 +16,11 @@ internal sealed record class EnumValueAst(
   string IGqlpEnumValue.EnumType => Type;
   string IGqlpEnumValue.EnumLabel => Label;
 
-  internal EnumValueAst(ITokenAt at, string enumType, string enumLabel)
+  internal EnumValueAst(
+    ITokenAt at,
+    string enumType,
+    string enumLabel
+  )
     : this(at, enumLabel)
     => Type = enumType;
 

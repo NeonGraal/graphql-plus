@@ -32,8 +32,18 @@ internal static partial class DistinctMergerLogging
 {
 
   [LoggerMessage(LogLevel.Warning, Message = "Group of {Type} for '{Key}' not singular {ItemMatchName}[{Values}]")]
-  internal static partial void GroupNotSingular(this ILogger logger, string type, string key, string itemMatchName, string values);
+  internal static partial void GroupNotSingular(
+    this ILogger logger,
+    string type,
+    string key,
+    string itemMatchName,
+    string values);
 
   [LoggerMessage(LogLevel.Warning, Message = "Aliases of {Type} for '{Key}' not singular {ItemMatchName}[{Values}]")]
-  internal static partial void AliasesNotSingular(this ILogger logger, string type, string key, string itemMatchName, string values);
+  internal static partial void AliasesNotSingular(
+    this ILogger logger,
+    string type,
+    string key,
+    string itemMatchName,
+    string values);
 }

@@ -35,7 +35,11 @@ internal class SchemaModeller(
         ) { Aliases = [.. aliases] };
   }
 
-  private IEnumerable<TModel> DeclarationModel<TAst, TModel>(IGqlpSchema ast, IModeller<TAst, TModel> modeller, IMap<TypeKindModel> typeKinds)
+  private IEnumerable<TModel> DeclarationModel<TAst, TModel>(
+    IGqlpSchema ast,
+    IModeller<TAst, TModel> modeller,
+    IMap<TypeKindModel> typeKinds
+  )
     where TAst : IGqlpError
     where TModel : IModelBase
     => ast.Declarations.OfType<TAst>().Select(m => modeller.ToModel(m, typeKinds));

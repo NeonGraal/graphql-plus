@@ -42,8 +42,7 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
 
     if (tokens.Take(':')) {
       if (_parseBase.Parse(tokens, label).Required(fieldType
-        => field = ObjField(at, name, description, fieldType))
-        ) {
+          => field = ObjField(at, name, description, fieldType))) {
         hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
         hasParam.WithResult(parameter => ApplyFieldParams(field, [.. parameter]));
         IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
@@ -91,7 +90,12 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
   }
 
   protected abstract void ApplyFieldParams(TObjFieldAst field, IGqlpInputParam[] parameters);
-  protected abstract TObjFieldAst ObjField(TokenAt at, string name, string description, IGqlpObjBase typeBase);
+  protected abstract TObjFieldAst ObjField(
+    TokenAt at,
+    string name,
+    string description,
+    IGqlpObjBase typeBase
+  );
   protected abstract IResult<TObjField> FieldDefault(ITokenizer tokens, TObjFieldAst field);
   protected abstract IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens);
 }

@@ -8,8 +8,12 @@ internal record class AstObject<TObjField>
   , IGqlpObject<TObjField>
   where TObjField : IGqlpObjField
 {
-  internal AstObject(TypeKind kind, ITokenAt at, string name, string description)
-    : base(at, name, description)
+  internal AstObject(
+    TypeKind kind,
+    ITokenAt at,
+    string name,
+    string description
+  ) : base(at, name, description)
     => Kind = kind;
 
   public IGqlpTypeParam[] TypeParams { get; set; } = [];

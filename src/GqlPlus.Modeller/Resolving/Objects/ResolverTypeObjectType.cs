@@ -77,7 +77,11 @@ internal abstract class ResolverTypeObjectType<TModel, TObjField>
   protected abstract IEnumerable<ObjectForModel> ParentAlternatives(IModelBase? parent);
   protected abstract IEnumerable<ObjectForModel> ParentFields(IModelBase? parent);
 
-  protected void ApplyArray<TItem>(TItem[] list, Func<TItem, TItem> update, Action<TItem[]> apply)
+  protected void ApplyArray<TItem>(
+    TItem[] list,
+    Func<TItem, TItem> update,
+    Action<TItem[]> apply
+  )
   {
     TItem[] items = [.. list.Select(update)];
 
@@ -106,7 +110,12 @@ internal abstract class ResolverTypeObjectType<TModel, TObjField>
       return modifier;
     };
 
-  protected bool GetDualArgument(string label, IObjBaseModel dualBase, ArgumentsContext arguments, [NotNullWhen(true)] out ObjBaseModel? outBase)
+  protected bool GetDualArgument(
+    string label,
+    IObjBaseModel dualBase,
+    ArgumentsContext arguments,
+    [NotNullWhen(true)] out ObjBaseModel? outBase
+  )
   {
     outBase = null;
     if (dualBase?.IsTypeParam == true) {

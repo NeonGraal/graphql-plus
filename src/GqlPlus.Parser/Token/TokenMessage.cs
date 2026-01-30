@@ -9,7 +9,8 @@ public record class TokenMessage(
   int Line,
   string After,
   string Message
-) : TokenAt(Kind, Column, Line, After)
+)
+  : TokenAt(Kind, Column, Line, After)
   , ITokenMessage
 {
   public TokenMessage(ITokenAt at, string message)

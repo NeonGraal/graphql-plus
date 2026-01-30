@@ -161,7 +161,11 @@ public static class MergeExtensions
     return result.OrderBy(i => i.Index).Select(i => i.Item);
   }
 
-  public static IEnumerable<TItem> GroupMerger<TItem>(this IEnumerable<TItem> items, Func<TItem, string> key, Func<TItem[], TItem> merger)
+  public static IEnumerable<TItem> GroupMerger<TItem>(
+    this IEnumerable<TItem> items,
+    Func<TItem, string> key,
+    Func<TItem[], TItem> merger
+  )
   {
     merger.ThrowIfNull();
 
@@ -190,7 +194,11 @@ public static class MergeExtensions
     return descr;
   }
 
-  public static TObjField Combine<TItem, TObjField>(this IEnumerable<TItem> items, Func<TItem, TObjField> field, IMerge<TObjField> merger)
+  public static TObjField Combine<TItem, TObjField>(
+    this IEnumerable<TItem> items,
+    Func<TItem, TObjField> field,
+    IMerge<TObjField> merger
+  )
     where TObjField : IGqlpError
   {
     merger.ThrowIfNull();

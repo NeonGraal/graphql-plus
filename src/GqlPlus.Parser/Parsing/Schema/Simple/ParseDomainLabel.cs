@@ -41,8 +41,8 @@ internal class ParseDomainLabel(
     ITokenizer tokens,
     string label,
     DomainDefinition result,
-    IGqlpDomainLabel[] items
-  ) {
+    IGqlpDomainLabel[] items)
+  {
     if (items.Length == 0) {
       tokens.Error<IGqlpDomainLabel>(label, "enum Labels");
     }

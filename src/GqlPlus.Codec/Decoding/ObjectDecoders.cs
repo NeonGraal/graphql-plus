@@ -46,8 +46,8 @@ internal abstract class ObjectDecoder<TModel>
     IDecoder<T> decoder,
     IMap<IValue> map,
     out T? value,
-    [CallerArgumentExpression(nameof(value))] string valueExpr = ""
-  ) {
+    [CallerArgumentExpression(nameof(value))] string valueExpr = "")
+  {
     string fieldName = valueExpr.Split()[1];
     if (map.TryGetValue(fieldName, out IValue? fieldValue)) {
       messages.Add(decoder.Decode(fieldValue, out value));

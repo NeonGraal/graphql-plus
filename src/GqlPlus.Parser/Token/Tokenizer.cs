@@ -395,8 +395,7 @@ public class Tokenizer
   public bool Take(string text)
   {
     if (text is null || _pos + text.Length > _len
-      || !_operation.Slice(_pos, text.Length).ToString().Equals(text, StringComparison.Ordinal)
-    ) {
+        || !_operation.Slice(_pos, text.Length).ToString().Equals(text, StringComparison.Ordinal)) {
       return false;
     }
 
@@ -414,17 +413,15 @@ public class Tokenizer
   {
     identifier = null;
     if (_kind == TokenKind.Punctuation
-      && _operation.Span[_pos] == one
-    ) {
+        && _operation.Span[_pos] == one) {
       int next = _pos + 1;
 
       at = At;
       if (next < _len) {
         int code = _operation.Span[next] - ' ';
         if (code > 0
-          && code < 95
-          && _kinds[code] == TokenKind.Identifer
-        ) {
+            && code < 95
+            && _kinds[code] == TokenKind.Identifer) {
           _pos += 1;
           _kind = TokenKind.Identifer;
           at = At;

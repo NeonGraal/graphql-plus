@@ -65,12 +65,12 @@ public sealed class StructureValue
     Func<string, T> txtFunc,
     T empty
   ) => this switch {
-      { Boolean: not null } => boolFunc(Boolean.Value),
-      { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => idFunc(Identifier),
-      { Number: not null } => numFunc(Number.Value),
-      { Text: not null } when !string.IsNullOrEmpty(Text) => txtFunc(Text),
-      _ => empty,
-    };
+    { Boolean: not null } => boolFunc(Boolean.Value),
+    { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => idFunc(Identifier),
+    { Number: not null } => numFunc(Number.Value),
+    { Text: not null } when !string.IsNullOrEmpty(Text) => txtFunc(Text),
+    _ => empty,
+  };
 }
 
 

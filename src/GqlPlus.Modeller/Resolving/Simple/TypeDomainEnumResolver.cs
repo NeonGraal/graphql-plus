@@ -49,8 +49,8 @@ internal class TypeDomainEnumResolver
     DomainLabelModel item,
     string domainName,
     ref int index,
-    IResolveContext context
-  ) {
+    IResolveContext context)
+  {
     List<DomainLabel> labels = [];
     if (item.EnumValue.Label == GqlpDomainLabelConstants.All) {
       foreach (EnumValueModel enumLabel in AllLabels(item.EnumValue.Name, context)) {

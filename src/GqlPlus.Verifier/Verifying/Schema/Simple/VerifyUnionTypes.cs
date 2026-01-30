@@ -34,8 +34,8 @@ internal class VerifyUnionTypes(
     string name,
     IGqlpUnionMember member,
     UsageContext context,
-    Action<string, IGqlpType>? checkType = null
-  ) {
+    Action<string, IGqlpType>? checkType = null)
+  {
     if (member.Name == name) {
       context.AddError(member, "Union Member", $"'{name}' cannot refer to " + (checkType is null ? "self, even recursively" : "self"));
       return false;

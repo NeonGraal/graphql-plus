@@ -42,8 +42,7 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
 
     if (tokens.Take(':')) {
       if (_parseBase.Parse(tokens, label).Required(fieldType
-        => field = ObjField(at, name, description, fieldType))
-        ) {
+          => field = ObjField(at, name, description, fieldType))) {
         hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
         hasParam.WithResult(parameter => ApplyFieldParams(field, [.. parameter]));
         IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);

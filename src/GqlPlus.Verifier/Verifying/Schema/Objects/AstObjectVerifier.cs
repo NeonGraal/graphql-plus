@@ -101,8 +101,8 @@ internal class AstObjectVerifier<TObjField>(
     IGqlpObjType reference,
     string label,
     HashSet<TypeKind>? validKinds = null,
-    bool check = true
-  ) {
+    bool check = true)
+  {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     CheckTypeRef(AddCheckError, context, reference, validKinds, check);
 
@@ -121,8 +121,8 @@ internal class AstObjectVerifier<TObjField>(
     ObjectContext context,
     IGqlpObjType reference,
     HashSet<TypeKind>? validKinds = null,
-    bool check = true
-  ) {
+    bool check = true)
+  {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     validKinds ??= context.FieldKinds;
     if (context.GetType(typeName, out IGqlpDescribed? definition)) {
@@ -144,8 +144,8 @@ internal class AstObjectVerifier<TObjField>(
     IGqlpObjType reference,
     HashSet<TypeKind> validKinds,
     bool check,
-    IGqlpDescribed? definition
-  ) {
+    IGqlpDescribed? definition)
+  {
     if (definition is IGqlpTypeParam typeParam) {
       if (!context.GetType(typeParam.Constraint, out definition)) {
         error($"Invalid Constraint for {typeParam.Name} on", $"'{typeParam.Constraint}' not defined", check);
@@ -212,8 +212,8 @@ internal class AstObjectVerifier<TObjField>(
     CheckError error,
     ObjectContext context,
     IGqlpObjType reference,
-    IGqlpDescribed? definition
-  ) {
+    IGqlpDescribed? definition)
+  {
     int numArgs = reference is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
     if (definition is IGqlpObject objectDef) {
       CheckTypeArgsDefBase(error, context, reference, numArgs, objectDef, objectDef.TypeParams.Count());
@@ -228,8 +228,8 @@ internal class AstObjectVerifier<TObjField>(
     IGqlpObjType reference,
     int numArgs,
     IGqlpObject definition,
-    int numParams
-  ) {
+    int numParams)
+  {
     if (reference is IGqlpObjBase baseRef) {
       if (numParams == numArgs) {
         CheckParamsArgs(error, context, definition, baseRef);
@@ -284,8 +284,8 @@ internal class AstObjectVerifier<TObjField>(
     SelfUsage<IGqlpObject<TObjField>> input,
     ObjectContext context,
     IGqlpObject<TObjField> parentType,
-    bool top
-  ) {
+    bool top)
+  {
     if (top && parentType.Kind != TypeKind.Dual) {
       base.OnParentType(input, context, parentType, top);
     }

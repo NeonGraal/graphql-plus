@@ -49,8 +49,8 @@ public abstract class ValueParser<TValue>(
     ITokenizer tokens,
     string label,
     char last,
-    IGqlpFields<TValue> fields
-  ) {
+    IGqlpFields<TValue> fields)
+  {
     tokens.ThrowIfNull();
 
     FieldsAst<TValue> result = new(fields.ToDictionary(p => p.Key, p => p.Value));

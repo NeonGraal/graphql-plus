@@ -127,8 +127,8 @@ public class VerifyDomainEnumTests
     string parentName,
     string parentLabel1,
     string parentLabel2,
-    string enumName2
-  ) {
+    string enumName2)
+  {
     this.SkipEqual3(enumName1, enumName2, parentName);
     this.SkipEqual4(enumLabel1, enumLabel2, parentLabel1, parentLabel2);
 

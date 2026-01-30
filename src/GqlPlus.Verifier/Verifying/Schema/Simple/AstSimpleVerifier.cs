@@ -36,8 +36,8 @@ internal abstract class AstSimpleVerifier<TAst, TContext, TItem>(
     string name,
     TAst usage,
     UsageContext context,
-    [NotNullWhen(true)] out TAst? parent
-  ) {
+    [NotNullWhen(true)] out TAst? parent)
+  {
     parent = default;
 
     return usage.Parent?.Name != name && context.GetTyped(usage.Parent?.Name, out parent);

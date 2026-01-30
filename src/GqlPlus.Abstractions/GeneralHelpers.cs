@@ -48,8 +48,8 @@ public static class GeneralHelpers
   [return: NotNull]
   public static T ThrowIfNull<T>(
     [NotNull] this T? value,
-    [CallerArgumentExpression(nameof(value))] string? expression = default
-  ) {
+    [CallerArgumentExpression(nameof(value))] string? expression = default)
+  {
     if (value is null) {
       throw new ArgumentNullException(expression);
     }

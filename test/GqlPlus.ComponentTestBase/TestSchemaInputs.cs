@@ -1,4 +1,5 @@
 ﻿namespace GqlPlus;
+
 public abstract class TestSchemaInputs
   : SampleChecks
 {

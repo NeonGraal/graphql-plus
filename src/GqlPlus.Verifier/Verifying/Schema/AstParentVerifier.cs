@@ -53,8 +53,8 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     TContext context,
     bool top,
     Action<TAst>? onParent,
-    IGqlpType astType
-  ) {
+    IGqlpType astType)
+  {
     if (CheckAstParentType(input, astType)) {
       if (astType is TAst parentType) {
         if (CheckAstParent(input.Usage, parentType, context)) {
@@ -78,8 +78,8 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     SelfUsage<TAst> input,
     IGqlpType<TParent> child,
     TContext context,
-    bool top
-  ) {
+    bool top)
+  {
     string parent = GetParent(child);
     if (string.IsNullOrWhiteSpace(parent)) {
       return;
@@ -98,8 +98,8 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     SelfUsage<TAst> input,
     TContext context,
     TAst parentType,
-    bool top
-  ) {
+    bool top)
+  {
     context.AddError(
         input.Usage,
         input.UsageLabel + " Parent",

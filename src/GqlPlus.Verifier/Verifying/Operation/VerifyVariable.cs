@@ -28,8 +28,8 @@ internal class VerifyVariable
     string label,
     IGqlpModifier? lastModifier,
     IGqlpConstant def,
-    IMessages errors
-  ) {
+    IMessages errors)
+  {
     if (lastModifier?.ModifierKind == ModifierKind.Dict && (def.Values.Any() || def.Value is not null)) {
       errors.Add(def.MakeError($"Invalid Variable definition. {label}Dictionary Type must have Object default."));
     }

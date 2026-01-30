@@ -47,8 +47,8 @@ internal class RenderYamlTypeConverter
     IEmitter emitter,
     object? value,
     Type type,
-    ObjectSerializer serializer
-  ) {
+    ObjectSerializer serializer)
+  {
     if (value is Structured model) {
       bool plainImplicit = string.IsNullOrWhiteSpace(model.Tag);
       TagName tag = plainImplicit ? new TagName() : new TagName("!" + model.Tag);
@@ -88,8 +88,8 @@ internal class RenderYamlTypeConverter
     Structured model,
     bool plainImplicit,
     TagName tag,
-    ObjectSerializer serializer
-  ) {
+    ObjectSerializer serializer)
+  {
     MappingStyle flow = model.Flow ? MappingStyle.Flow : MappingStyle.Any;
     emitter.Emit(new MappingStart(default, tag, plainImplicit, flow));
     foreach (KeyValuePair<StructureValue, Structured> kv in model.Map.OrderBy(kv => kv.Key)) {
@@ -120,8 +120,8 @@ internal class RenderYamlTypeConverter
     Structured model,
     bool plainImplicit,
     TagName tag,
-    ObjectSerializer serializer
-  ) {
+    ObjectSerializer serializer)
+  {
     SequenceStyle flow = model.Flow ? SequenceStyle.Flow : SequenceStyle.Any;
     emitter.Emit(new SequenceStart(default, tag, plainImplicit, flow));
     foreach (Structured item in model.List) {

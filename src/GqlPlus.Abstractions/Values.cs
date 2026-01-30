@@ -168,9 +168,9 @@ public class ComplexValue<TValue, TObject>
     Func<TValue, T> valueFunc,
     T empty
   ) => this switch {
-      { List.Count: > 0 } => listFunc(List),
-      { Map.Count: > 0 } => mapFunc(Map),
-      { Value: not null } => valueFunc(Value),
-      _ => empty
-    };
+    { List.Count: > 0 } => listFunc(List),
+    { Map.Count: > 0 } => mapFunc(Map),
+    { Value: not null } => valueFunc(Value),
+    _ => empty
+  };
 }

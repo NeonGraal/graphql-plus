@@ -1,0 +1,19 @@
+﻿/* field+Output
+output FieldOutp { field: String }
+*/
+
+// Generated from Schema field+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_Output;
+
+public interface ICmptFieldOutp
+{
+  public CmptFieldOutp FieldOutp { get; set; }
+}
+
+public interface ICmptFieldOutpObject
+{
+  public CmptString field { get; set; }
+}

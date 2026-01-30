@@ -1,0 +1,31 @@
+﻿/* constraint-enum+Input
+input CnstEnumInp { | RefCnstEnumInp<cnstEnumInp> }
+input RefCnstEnumInp<$type:EnumCnstEnumInp> { field: $type }
+enum EnumCnstEnumInp { cnstEnumInp }
+*/
+
+// Generated from Schema constraint-enum+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_enum_Input;
+
+public interface ICmptCnstEnumInp
+{
+  public CmptRefCnstEnumInp<CmptEnumCnstEnumInp> AsRefCnstEnumInp { get; set; }
+  public CmptCnstEnumInp CnstEnumInp { get; set; }
+}
+
+public interface ICmptCnstEnumInpObject
+{
+}
+
+public interface ICmptRefCnstEnumInp<Ttype>
+{
+  public CmptRefCnstEnumInp RefCnstEnumInp { get; set; }
+}
+
+public interface ICmptRefCnstEnumInpObject<Ttype>
+{
+  public Ttype field { get; set; }
+}

@@ -1,0 +1,13 @@
+﻿/* category-mod
+category [CatM1] { CtgrMod? }
+category [CatM2] { CtgrMod? }
+output CtgrMod { }
+*/
+
+// Generated from Schema category-mod for Stat
+/*
+
+Category ctgrMod
+*/
+
+namespace Components.Gqlp_Schema_category_mod;

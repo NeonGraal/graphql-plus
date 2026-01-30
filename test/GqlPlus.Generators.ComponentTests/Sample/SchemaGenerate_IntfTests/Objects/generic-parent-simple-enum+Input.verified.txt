@@ -1,0 +1,32 @@
+﻿/* generic-parent-simple-enum+Input
+input GnrcPrntSmplEnumInp { :FieldGnrcPrntSmplEnumInp<EnumGnrcPrntSmplEnumInp> }
+input FieldGnrcPrntSmplEnumInp<$ref:_Simple> { field: $ref }
+enum EnumGnrcPrntSmplEnumInp { gnrcPrntSmplEnumInp }
+*/
+
+// Generated from Schema generic-parent-simple-enum+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_simple_enum_Input;
+
+public interface ICmptGnrcPrntSmplEnumInp
+  : ICmptFieldGnrcPrntSmplEnumInp
+{
+  public CmptGnrcPrntSmplEnumInp GnrcPrntSmplEnumInp { get; set; }
+}
+
+public interface ICmptGnrcPrntSmplEnumInpObject
+  : ICmptFieldGnrcPrntSmplEnumInpObject
+{
+}
+
+public interface ICmptFieldGnrcPrntSmplEnumInp<Tref>
+{
+  public CmptFieldGnrcPrntSmplEnumInp FieldGnrcPrntSmplEnumInp { get; set; }
+}
+
+public interface ICmptFieldGnrcPrntSmplEnumInpObject<Tref>
+{
+  public Tref field { get; set; }
+}

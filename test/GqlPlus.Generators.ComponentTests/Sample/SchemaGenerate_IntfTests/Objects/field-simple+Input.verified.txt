@@ -1,0 +1,19 @@
+﻿/* field-simple+Input
+input FieldSmplInp { field: Number }
+*/
+
+// Generated from Schema field-simple+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_simple_Input;
+
+public interface ICmptFieldSmplInp
+{
+  public CmptFieldSmplInp FieldSmplInp { get; set; }
+}
+
+public interface ICmptFieldSmplInpObject
+{
+  public CmptNumber field { get; set; }
+}

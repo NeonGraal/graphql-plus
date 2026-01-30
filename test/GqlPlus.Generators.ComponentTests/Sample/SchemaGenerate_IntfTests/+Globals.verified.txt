@@ -1,0 +1,158 @@
+﻿// Generated from Schema +Globals for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_Globals;
+
+public interface ICmptCtgrDscrs
+{
+  public CmptCtgrDscrs CtgrDscrs { get; set; }
+}
+
+public interface ICmptCtgrDscrsObject
+{
+}
+
+public interface ICmptCtgrOutp
+{
+  public CmptCtgrOutp CtgrOutp { get; set; }
+}
+
+public interface ICmptCtgrOutpObject
+{
+}
+
+public interface ICmptCtgrOutpDescr
+{
+  public CmptCtgrOutpDescr CtgrOutpDescr { get; set; }
+}
+
+public interface ICmptCtgrOutpDescrObject
+{
+}
+
+public interface ICmptCtgrOutpDict
+{
+  public CmptCtgrOutpDict CtgrOutpDict { get; set; }
+}
+
+public interface ICmptCtgrOutpDictObject
+{
+}
+
+public interface ICmptCtgrOutpList
+{
+  public CmptCtgrOutpList CtgrOutpList { get; set; }
+}
+
+public interface ICmptCtgrOutpListObject
+{
+}
+
+public interface ICmptCtgrOutpOptl
+{
+  public CmptCtgrOutpOptl CtgrOutpOptl { get; set; }
+}
+
+public interface ICmptCtgrOutpOptlObject
+{
+}
+
+public interface ICmptDescr
+{
+  public CmptDescr Descr { get; set; }
+}
+
+public interface ICmptDescrObject
+{
+}
+
+public interface ICmptDescrBcks
+{
+  public CmptDescrBcks DescrBcks { get; set; }
+}
+
+public interface ICmptDescrBcksObject
+{
+}
+
+public interface ICmptDescrBtwn
+{
+  public CmptDescrBtwn DescrBtwn { get; set; }
+}
+
+public interface ICmptDescrBtwnObject
+{
+}
+
+public interface ICmptDescrCmpl
+{
+  public CmptDescrCmpl DescrCmpl { get; set; }
+}
+
+public interface ICmptDescrCmplObject
+{
+}
+
+public interface ICmptDescrDbl
+{
+  public CmptDescrDbl DescrDbl { get; set; }
+}
+
+public interface ICmptDescrDblObject
+{
+}
+
+public interface ICmptDescrSngl
+{
+  public CmptDescrSngl DescrSngl { get; set; }
+}
+
+public interface ICmptDescrSnglObject
+{
+}
+
+public interface ICmptDscrs
+{
+  public CmptDscrs Dscrs { get; set; }
+}
+
+public interface ICmptDscrsObject
+{
+}
+
+public interface ICmptInDrctParamDict
+{
+  public CmptInDrctParamDict InDrctParamDict { get; set; }
+}
+
+public interface ICmptInDrctParamDictObject
+{
+}
+
+public interface ICmptInDrctParamIn
+{
+  public CmptInDrctParamIn InDrctParamIn { get; set; }
+}
+
+public interface ICmptInDrctParamInObject
+{
+}
+
+public interface ICmptInDrctParamList
+{
+  public CmptInDrctParamList InDrctParamList { get; set; }
+}
+
+public interface ICmptInDrctParamListObject
+{
+}
+
+public interface ICmptInDrctParamOpt
+{
+  public CmptInDrctParamOpt InDrctParamOpt { get; set; }
+}
+
+public interface ICmptInDrctParamOptObject
+{
+}

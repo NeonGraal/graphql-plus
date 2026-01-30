@@ -1,0 +1,56 @@
+﻿/* constraint-parent-dual-parent+Dual
+dual CnstPrntDualPrntDual { :RefCnstPrntDualPrntDual<AltCnstPrntDualPrntDual> }
+dual RefCnstPrntDualPrntDual<$ref:PrntCnstPrntDualPrntDual> { :$ref }
+dual PrntCnstPrntDualPrntDual { | String }
+dual AltCnstPrntDualPrntDual { :PrntCnstPrntDualPrntDual alt: Number }
+*/
+
+// Generated from Schema constraint-parent-dual-parent+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Dual;
+
+public interface ICmptCnstPrntDualPrntDual
+  : ICmptRefCnstPrntDualPrntDual
+{
+  public CmptCnstPrntDualPrntDual CnstPrntDualPrntDual { get; set; }
+}
+
+public interface ICmptCnstPrntDualPrntDualObject
+  : ICmptRefCnstPrntDualPrntDualObject
+{
+}
+
+public interface ICmptRefCnstPrntDualPrntDual<Tref>
+  : ICmptref
+{
+  public CmptRefCnstPrntDualPrntDual RefCnstPrntDualPrntDual { get; set; }
+}
+
+public interface ICmptRefCnstPrntDualPrntDualObject<Tref>
+  : ICmptrefObject
+{
+}
+
+public interface ICmptPrntCnstPrntDualPrntDual
+{
+  public CmptString AsString { get; set; }
+  public CmptPrntCnstPrntDualPrntDual PrntCnstPrntDualPrntDual { get; set; }
+}
+
+public interface ICmptPrntCnstPrntDualPrntDualObject
+{
+}
+
+public interface ICmptAltCnstPrntDualPrntDual
+  : ICmptPrntCnstPrntDualPrntDual
+{
+  public CmptAltCnstPrntDualPrntDual AltCnstPrntDualPrntDual { get; set; }
+}
+
+public interface ICmptAltCnstPrntDualPrntDualObject
+  : ICmptPrntCnstPrntDualPrntDualObject
+{
+  public CmptNumber alt { get; set; }
+}

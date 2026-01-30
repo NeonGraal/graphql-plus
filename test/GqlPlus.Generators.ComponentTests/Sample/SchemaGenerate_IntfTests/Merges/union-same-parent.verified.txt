@@ -1,0 +1,22 @@
+﻿/* union-same-parent
+union UnionSamePrnt { :PrntUnionSamePrnt Boolean }
+union UnionSamePrnt { :PrntUnionSamePrnt Boolean }
+union PrntUnionSamePrnt { String }
+*/
+
+// Generated from Schema union-same-parent for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_same_parent;
+
+public interface ICmptUnionSamePrnt
+  : ICmptPrntUnionSamePrnt
+{
+  Boolean AsBoolean { get; }
+}
+
+public interface ICmptPrntUnionSamePrnt
+{
+  String AsString { get; }
+}

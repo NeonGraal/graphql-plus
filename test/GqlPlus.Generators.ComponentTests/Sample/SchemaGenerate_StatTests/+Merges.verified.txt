@@ -1,0 +1,14 @@
+﻿// Generated from Schema +Merges for Stat
+/*
+
+Category ctgr
+Category ctgrAlias
+Category ctgrDescr
+Category ctgrMod
+Directive Drct
+Directive DrctAlias
+Directive DrctParam
+Option Schema
+*/
+
+namespace Components.Gqlp_Schema_Merges;

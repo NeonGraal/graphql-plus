@@ -1,0 +1,11 @@
+﻿/* option-setting
+option Schema { global=true }
+*/
+
+// Generated from Schema option-setting for Stat
+/*
+
+Option Schema
+*/
+
+namespace Components.Gqlp_Schema_option_setting;

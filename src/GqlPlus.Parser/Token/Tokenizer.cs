@@ -395,8 +395,7 @@ public class Tokenizer
   public bool Take(string text)
   {
     if (text is null || _pos + text.Length > _len
-      || !_operation.Slice(_pos, text.Length).ToString().Equals(text, StringComparison.Ordinal)
-    ) {
+        || !_operation.Slice(_pos, text.Length).ToString().Equals(text, StringComparison.Ordinal)) {
       return false;
     }
 
@@ -406,21 +405,23 @@ public class Tokenizer
     return true;
   }
 
-  public bool Prefix(char one, out string? identifier, out TokenAt at)
+  public bool Prefix(
+    char one,
+    out string? identifier,
+    out TokenAt at
+  )
   {
     identifier = null;
     if (_kind == TokenKind.Punctuation
-      && _operation.Span[_pos] == one
-    ) {
+        && _operation.Span[_pos] == one) {
       int next = _pos + 1;
 
       at = At;
       if (next < _len) {
         int code = _operation.Span[next] - ' ';
         if (code > 0
-          && code < 95
-          && _kinds[code] == TokenKind.Identifer
-        ) {
+            && code < 95
+            && _kinds[code] == TokenKind.Identifer) {
           _pos += 1;
           _kind = TokenKind.Identifer;
           at = At;
@@ -459,19 +460,35 @@ public class Tokenizer
   public TokenMessage Error(string label, string expected)
     => Error($"Invalid {label}. Expected {expected}.");
 
-  public IResult<T> Error<T>(string label, string expected, T? result = default)
+  public IResult<T> Error<T>(
+    string label,
+    string expected,
+    T? result = default
+  )
     => result.Error(Error(label, expected));
 
-  public IResultArray<T> ErrorArray<T>(string label, string expected, IEnumerable<T>? _ = default)
+  public IResultArray<T> ErrorArray<T>(
+    string label,
+    string expected,
+    IEnumerable<T>? _ = default
+  )
     => Error(label, expected).ErrorArray<T>();
 
-  public IResult<T> Partial<T>(string label, string expected, Func<T> result)
+  public IResult<T> Partial<T>(
+    string label,
+    string expected,
+    Func<T> result
+  )
   {
     TokenMessage error = Error(label, expected);
     return result.ThrowIfNull().Invoke().Partial(error);
   }
 
-  public IResultArray<T> PartialArray<T>(string label, string expected, Func<IEnumerable<T>> result)
+  public IResultArray<T> PartialArray<T>(
+    string label,
+    string expected,
+    Func<IEnumerable<T>> result
+  )
   {
     TokenMessage error = Error(label, expected);
     return result.ThrowIfNull().Invoke().PartialArray(error);

@@ -4,7 +4,11 @@ namespace GqlPlus.Result;
 
 public static class ResultExtensions
 {
-  public static IResultArray<TResult> AsPartialArray<TValue, TResult>(this IResult<TValue> old, IEnumerable<TResult> result, Action<TValue>? withValue = null)
+  public static IResultArray<TResult> AsPartialArray<TValue, TResult>(
+    this IResult<TValue> old,
+    IEnumerable<TResult> result,
+    Action<TValue>? withValue = null
+  )
   {
     if (old is IResultValue<TValue> value) {
       withValue?.Invoke(value.Result);
@@ -64,7 +68,11 @@ public static class ResultExtensions
 #pragma warning restore CA1062 // Validate arguments of public methods
   }
 
-  public static IResult<TResult> MapOk<TValue, TResult>(this IResult<TValue> old, SelectResult<TValue, TResult> onValue, OnResult<TResult> otherwise)
+  public static IResult<TResult> MapOk<TValue, TResult>(
+    this IResult<TValue> old,
+    SelectResult<TValue, TResult> onValue,
+    OnResult<TResult> otherwise
+  )
   {
     onValue.ThrowIfNull();
     otherwise.ThrowIfNull();
@@ -138,7 +146,11 @@ public static class ResultExtensions
       _ => throw new InvalidOperationException("Result for " + typeof(TValue).Name + " is empty"),
     };
 
-  public static IResult<TResult> Select<TValue, TResult>(this IResult<TValue> old, Func<TValue, TResult?> selector, OnResult<TResult>? onEmpty = null)
+  public static IResult<TResult> Select<TValue, TResult>(
+    this IResult<TValue> old,
+    Func<TValue, TResult?> selector,
+    OnResult<TResult>? onEmpty = null
+  )
   {
     selector.ThrowIfNull();
 
@@ -160,7 +172,11 @@ public static class ResultExtensions
     };
   }
 
-  public static IResult<TResult> SelectOk<TValue, TResult>(this IResult<TValue> old, Func<TValue, TResult?> selector, OnResult<TResult>? onEmpty = null)
+  public static IResult<TResult> SelectOk<TValue, TResult>(
+    this IResult<TValue> old,
+    Func<TValue, TResult?> selector,
+    OnResult<TResult>? onEmpty = null
+  )
   {
     selector.ThrowIfNull();
 

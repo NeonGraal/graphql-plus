@@ -16,8 +16,13 @@ internal sealed record class DomainRangeAst(
 
   internal override string Abbr => "DN";
 
-  public DomainRangeAst(TokenAt at, string description, bool excludes, decimal? lower, decimal? upper)
-    : this(at, description, excludes)
+  public DomainRangeAst(
+    TokenAt at,
+    string description,
+    bool excludes,
+    decimal? lower,
+    decimal? upper
+  ) : this(at, description, excludes)
     => (Lower, Upper) = (lower, upper);
 
   public bool Equals(DomainRangeAst? other)

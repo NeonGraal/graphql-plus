@@ -79,7 +79,12 @@ internal class TypeOutputResolver
       return alternate;
     };
 
-  private bool GetOutputArgument(string label, ObjBaseModel outputBase, ArgumentsContext arguments, [NotNullWhen(true)] out ObjBaseModel? outBase)
+  private bool GetOutputArgument(
+    string label,
+    ObjBaseModel outputBase,
+    ArgumentsContext arguments,
+    [NotNullWhen(true)] out ObjBaseModel? outBase
+  )
   {
     outBase = null;
     if (outputBase?.IsTypeParam == true) {

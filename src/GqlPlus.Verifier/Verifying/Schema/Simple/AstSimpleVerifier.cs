@@ -36,7 +36,11 @@ internal abstract class AstSimpleVerifier<TAst, TContext, TItem>(
     }
   }
 
-  private static bool GetParentType(string name, TAst usage, UsageContext context, [NotNullWhen(true)] out TAst? parent)
+  private static bool GetParentType(
+    string name,
+    TAst usage,
+    UsageContext context,
+    [NotNullWhen(true)] out TAst? parent)
   {
     parent = default;
 

@@ -17,7 +17,12 @@ public class UsageContext(
       where TAst : IGqlpError
     => errors.Add(item.MakeError($"Invalid {label}. {message}."));
 
-  internal void AddError<TAst>(TAst item, string label, FormattableString message, bool addError)
+  internal void AddError<TAst>(
+    TAst item,
+    string label,
+    FormattableString message,
+    bool addError
+  )
       where TAst : IGqlpError
   {
     if (addError) {

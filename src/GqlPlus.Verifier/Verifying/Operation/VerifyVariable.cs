@@ -24,7 +24,11 @@ internal class VerifyVariable
     VerifyVariableDefault("", lastModifier, def, errors);
   }
 
-  private static void VerifyVariableDefault(string label, IGqlpModifier? lastModifier, IGqlpConstant def, IMessages errors)
+  private static void VerifyVariableDefault(
+    string label,
+    IGqlpModifier? lastModifier,
+    IGqlpConstant def,
+    IMessages errors)
   {
     if (lastModifier?.ModifierKind == ModifierKind.Dict && (def.Values.Any() || def.Value is not null)) {
       errors.Add(def.MakeError($"Invalid Variable definition. {label}Dictionary Type must have Object default."));

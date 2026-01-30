@@ -68,16 +68,30 @@ public class Structured
     => value is null ? this
     : Add(key, encoder.ThrowIfNull().Encode(value));
 
-  public Structured AddList<TValue>(string key, IEnumerable<TValue> values, IEncoder<TValue> encoder, string? tag = null, bool flow = false)
-    => Add(key, new(values.Select(encoder.ThrowIfNull().Encode), tag, flow));
+  public Structured AddList<TValue>(
+    string key,
+    IEnumerable<TValue> values,
+    IEncoder<TValue> encoder,
+    string? tag = null,
+    bool flow = false
+  ) => Add(key, new(values.Select(encoder.ThrowIfNull().Encode), tag, flow));
 
-  public Structured AddMap<TValue>(string key, IMap<TValue> values, IEncoder<TValue> encoder, string dictTag, bool flow = false, string keyTag = "_Name")
-    => Add(key, new(values.ToDictionary(
+  public Structured AddMap<TValue>(
+    string key,
+    IMap<TValue> values,
+    IEncoder<TValue> encoder,
+    string dictTag,
+    bool flow = false,
+    string keyTag = "_Name"
+  ) => Add(key, new(values.ToDictionary(
         p => new StructureValue(p.Key, keyTag),
         p => encoder.Encode(p.Value)), dictTag.Surrounded("_Map(", ")"), flow));
 
-  public Structured AddIf(bool optional, Func<Structured, Structured>? onTrue = null, Func<Structured, Structured>? onFalse = null)
-    => optional
+  public Structured AddIf(
+    bool optional,
+    Func<Structured, Structured>? onTrue = null,
+    Func<Structured, Structured>? onFalse = null
+  ) => optional
       ? onTrue is not null ? onTrue(this) : this
       : onFalse is not null ? onFalse(this) : this;
 

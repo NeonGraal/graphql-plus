@@ -8,7 +8,11 @@ public readonly struct ResultArrayError<TValue>(
 {
   public TokenMessage Message { get; } = message;
 
-  public IResult<TResult> AsPartial<TResult>(TResult result, Action<IEnumerable<TValue>>? withValue = null, Action? action = null)
+  public IResult<TResult> AsPartial<TResult>(
+    TResult result,
+    Action<IEnumerable<TValue>>? withValue = null,
+    Action? action = null
+  )
   {
     action?.Invoke();
     return result.Partial(Message);
@@ -23,6 +27,9 @@ public readonly struct ResultArrayError<TValue>(
   public IResultArray<TResult> AsResultArray<TResult>(IEnumerable<TValue>? _ = default)
     => Message.ErrorArray<TResult>();
 
-  public IResult<TResult> Map<TResult>(SelectResult<IEnumerable<TValue>, TResult> onValue, OnResult<TResult>? otherwise = null)
+  public IResult<TResult> Map<TResult>(
+    SelectResult<IEnumerable<TValue>, TResult> onValue,
+    OnResult<TResult>? otherwise = null
+  )
     => otherwise?.Invoke() ?? AsResult<TResult>();
 }

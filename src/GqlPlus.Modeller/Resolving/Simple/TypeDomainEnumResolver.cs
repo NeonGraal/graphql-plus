@@ -45,7 +45,11 @@ internal class TypeDomainEnumResolver
         .Where(i => i.Exclude)
         .ToMap(k => k.EnumValue.Label, v => v.EnumValue.Name);
 
-  private List<DomainLabel> ItemLabels(DomainLabelModel item, string domainName, ref int index, IResolveContext context)
+  private List<DomainLabel> ItemLabels(
+    DomainLabelModel item,
+    string domainName,
+    ref int index,
+    IResolveContext context)
   {
     List<DomainLabel> labels = [];
     if (item.EnumValue.Label == GqlpDomainLabelConstants.All) {
@@ -98,10 +102,22 @@ internal class TypeDomainEnumResolver
     return [.. labels];
   }
 
-  private record struct DomainLabel(string Domain, string Label, int Order, bool Excluded, string EnumType, string LabelDescription, string ItemDescription)
+  private record struct DomainLabel(
+    string Domain,
+    string Label,
+    int Order,
+    bool Excluded,
+    string EnumType,
+    string LabelDescription,
+    string ItemDescription
+  )
   {
-    internal static DomainLabel FromLabel(string domain, EnumValueModel enumLabel, DomainLabelModel item, int index)
-      => new(domain,
+    internal static DomainLabel FromLabel(
+      string domain,
+      EnumValueModel enumLabel,
+      DomainLabelModel item,
+      int index
+    ) => new(domain,
       enumLabel.Label,
       index,
       item.Exclude,

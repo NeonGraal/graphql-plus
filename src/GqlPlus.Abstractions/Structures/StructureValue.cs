@@ -58,12 +58,17 @@ public sealed class StructureValue
       "E"
     );
 
-  private T Apply<T>(Func<bool, T> boolFunc, Func<string, T> idFunc, Func<decimal, T> numFunc, Func<string, T> txtFunc, T empty)
-    => this switch {
-      { Boolean: not null } => boolFunc(Boolean.Value),
-      { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => idFunc(Identifier),
-      { Number: not null } => numFunc(Number.Value),
-      { Text: not null } when !string.IsNullOrEmpty(Text) => txtFunc(Text),
-      _ => empty,
-    };
+  private T Apply<T>(
+    Func<bool, T> boolFunc,
+    Func<string, T> idFunc,
+    Func<decimal, T> numFunc,
+    Func<string, T> txtFunc,
+    T empty
+  ) => this switch {
+    { Boolean: not null } => boolFunc(Boolean.Value),
+    { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => idFunc(Identifier),
+    { Number: not null } => numFunc(Number.Value),
+    { Text: not null } when !string.IsNullOrEmpty(Text) => txtFunc(Text),
+    _ => empty,
+  };
 }

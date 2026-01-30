@@ -15,8 +15,12 @@ internal class ParseDualField(
   protected override void ApplyFieldParams(DualFieldAst field, IGqlpInputParam[] parameters)
     => throw new InvalidOperationException();
 
-  protected override DualFieldAst ObjField(TokenAt at, string name, string description, IGqlpObjBase typeBase)
-    => new(at, name, description, typeBase);
+  protected override DualFieldAst ObjField(
+    TokenAt at,
+    string name,
+    string description,
+    IGqlpObjBase typeBase
+  ) => new(at, name, description, typeBase);
 
   protected override IResult<IGqlpDualField> FieldDefault(ITokenizer tokens, DualFieldAst field)
     => field.Ok<IGqlpDualField>();

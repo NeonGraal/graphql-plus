@@ -4,7 +4,11 @@ namespace GqlPlus.Ast;
 
 public static class AstExtensions
 {
-  public static IGqlpFields<TValue> ToObject<TItem, TValue>(this IEnumerable<TItem> items, Func<TItem, IGqlpFieldKey> key, Func<TItem, TValue> value)
+  public static IGqlpFields<TValue> ToObject<TItem, TValue>(
+    this IEnumerable<TItem> items,
+    Func<TItem, IGqlpFieldKey> key,
+    Func<TItem, TValue> value
+  )
     where TValue : IGqlpValue<TValue>
     => new FieldsAst<TValue>(items.Distinct().ToImmutableDictionary(key, value));
 }

@@ -21,7 +21,12 @@ internal class ModelsContext
     }
   }
 
-  public bool TryGetType<TModel>(string label, string? name, [NotNullWhen(true)] out TModel? model, bool canError = true)
+  public bool TryGetType<TModel>(
+    string label,
+    string? name,
+    [NotNullWhen(true)] out TModel? model,
+    bool canError = true
+  )
     where TModel : IModelBase
   {
     if (!string.IsNullOrWhiteSpace(name)) {

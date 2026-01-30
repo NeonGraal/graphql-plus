@@ -79,7 +79,13 @@ public static class RenderSimpleYaml
     }
   }
 
-  private static void WriteFlowBlock<T>(StringBuilder flow, string before, string after, IEnumerable<T> list, Action<T> action)
+  private static void WriteFlowBlock<T>(
+    StringBuilder flow,
+    string before,
+    string after,
+    IEnumerable<T> list,
+    Action<T> action
+  )
   {
     string prefix = before;
     foreach (T item in list) {

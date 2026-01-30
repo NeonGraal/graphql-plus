@@ -162,11 +162,15 @@ public class ComplexValue<TValue, TObject>
       v => $"{v}",
       Tag + "()");
 
-  private T Apply<T>(Func<IList<TObject>, T> listFunc, Func<IDict, T> mapFunc, Func<TValue, T> valueFunc, T empty)
-    => this switch {
-      { List.Count: > 0 } => listFunc(List),
-      { Map.Count: > 0 } => mapFunc(Map),
-      { Value: not null } => valueFunc(Value),
-      _ => empty
-    };
+  private T Apply<T>(
+    Func<IList<TObject>, T> listFunc,
+    Func<IDict, T> mapFunc,
+    Func<TValue, T> valueFunc,
+    T empty
+  ) => this switch {
+    { List.Count: > 0 } => listFunc(List),
+    { Map.Count: > 0 } => mapFunc(Map),
+    { Value: not null } => valueFunc(Value),
+    _ => empty
+  };
 }

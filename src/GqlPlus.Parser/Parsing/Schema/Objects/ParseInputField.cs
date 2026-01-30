@@ -18,8 +18,12 @@ internal class ParseInputField(
   protected override void ApplyFieldParams(InputFieldAst field, IGqlpInputParam[] parameters)
     => throw new InvalidOperationException();
 
-  protected override InputFieldAst ObjField(TokenAt at, string name, string description, IGqlpObjBase typeBase)
-    => new(at, name, description, typeBase);
+  protected override InputFieldAst ObjField(
+    TokenAt at,
+    string name,
+    string description,
+    IGqlpObjBase typeBase
+  ) => new(at, name, description, typeBase);
 
   protected override IResult<IGqlpInputField> FieldDefault(ITokenizer tokens, InputFieldAst field)
     => _default.I

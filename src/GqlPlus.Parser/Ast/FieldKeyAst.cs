@@ -20,7 +20,11 @@ internal sealed record class FieldKeyAst(
   internal FieldKeyAst(TokenAt at, string content)
     : this(at)
     => Text = content;
-  internal FieldKeyAst(TokenAt at, string enumType, string enumLabel)
+  internal FieldKeyAst(
+    TokenAt at,
+    string enumType,
+    string enumLabel
+  )
     : this(at)
     => EnumValue = new EnumValueAst(at, enumType, enumLabel);
   internal FieldKeyAst(IGqlpEnumValue enumValue)

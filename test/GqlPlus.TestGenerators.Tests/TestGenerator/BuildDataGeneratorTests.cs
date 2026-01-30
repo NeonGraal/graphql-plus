@@ -3,16 +3,15 @@
 namespace GqlPlus.TestGenerator;
 
 public class BuildDataGeneratorTests
+  : GeneratorTestsBase
 {
-  private readonly VerifySettings _settings = new VerifySettings().CheckAutoVerify();
-
   [Fact]
   public Task NoAdditionalFiles()
   {
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate("", []);
 
-    return Verify(driver, _settings);
+    return AttachAndVerify(driver);
   }
 
   private static readonly string[] s_additionalFilesWithIncorrectOne = [
@@ -20,13 +19,14 @@ public class BuildDataGeneratorTests
     "b/Samples/Files/file2.graphql+",
     "c/Samples/Files/file1.txt",
     "git-details.txt"];
+
   [Fact]
-  public async Task IgnoresIncorrectAdditionalFiles()
+  public Task IgnoresIncorrectAdditionalFiles()
   {
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate("", s_additionalFilesWithIncorrectOne.AdditionalPaths(nameof(IgnoresIncorrectAdditionalFiles)));
 
-    await Verify(driver, _settings);
+    return AttachAndVerify(driver);
   }
 
   private static readonly string[] s_additionalSubdirectoryFiles = [
@@ -34,21 +34,23 @@ public class BuildDataGeneratorTests
     "f/Samples/More/file2.graphql+",
     "g/Samples/Files/Deeper/file1.gql+",
     "git-details.txt"];
+
   [Fact]
-  public async Task SubDirectoryAdditionalFiles()
+  public Task SubDirectoryAdditionalFiles()
   {
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate("", s_additionalSubdirectoryFiles.AdditionalPaths(nameof(SubDirectoryAdditionalFiles)));
 
-    await Verify(driver, _settings);
+    return AttachAndVerify(driver);
   }
 
   private static readonly string[] s_topDirs = ["Top", "Left", "Centre", "Right", "Bottom"];
   private static readonly string[] s_middleDirs = ["", "Red", "Orange", "Yellow", "Green", "Blue", "Purple"];
   private static readonly string[] s_bottomDirs = ["", "Valid", "InValid"];
   private static readonly string[] s_fileExtensions = ["gql", "graphql+"];
+
   [Fact]
-  public async Task ManyFiles()
+  public Task ManyFiles()
   {
     List<string> manyFiles = ["git-details.txt"];
 
@@ -63,6 +65,6 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate("", manyFiles.AdditionalPaths(nameof(ManyFiles)));
 
-    await Verify(driver, _settings);
+    return AttachAndVerify(driver);
   }
 }

@@ -15,7 +15,11 @@ public readonly struct ResultPartial<TValue>
     (Result, Message) = (result, message);
   }
 
-  public IResult<TResult> AsPartial<TResult>(TResult result, Action<TValue>? withValue = null, Action? action = null)
+  public IResult<TResult> AsPartial<TResult>(
+    TResult result,
+    Action<TValue>? withValue = null,
+    Action? action = null
+  )
   {
     withValue?.Invoke(Result);
     action?.Invoke();
@@ -27,7 +31,10 @@ public readonly struct ResultPartial<TValue>
           ? newResult.Partial(Message)
           : _.Error(Message);
 
-  public IResult<TResult> Map<TResult>(SelectResult<TValue, TResult> onValue, OnResult<TResult>? otherwise = null)
+  public IResult<TResult> Map<TResult>(
+    SelectResult<TValue, TResult> onValue,
+    OnResult<TResult>? otherwise = null
+  )
   {
     onValue.ThrowIfNull();
 #pragma warning disable CA1062 // Validate arguments of public methods

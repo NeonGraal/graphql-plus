@@ -96,7 +96,12 @@ internal class AstObjectVerifier<TObjField>(
     }
   }
 
-  protected void CheckTypeRef(ObjectContext context, IGqlpObjType reference, string label, HashSet<TypeKind>? validKinds = null, bool check = true)
+  protected void CheckTypeRef(
+    ObjectContext context,
+    IGqlpObjType reference,
+    string label,
+    HashSet<TypeKind>? validKinds = null,
+    bool check = true)
   {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     CheckTypeRef(AddCheckError, context, reference, validKinds, check);
@@ -111,7 +116,12 @@ internal class AstObjectVerifier<TObjField>(
     }
   }
 
-  protected ObjectContext CheckTypeRef(CheckError error, ObjectContext context, IGqlpObjType reference, HashSet<TypeKind>? validKinds = null, bool check = true)
+  protected ObjectContext CheckTypeRef(
+    CheckError error,
+    ObjectContext context,
+    IGqlpObjType reference,
+    HashSet<TypeKind>? validKinds = null,
+    bool check = true)
   {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     validKinds ??= context.FieldKinds;
@@ -128,7 +138,13 @@ internal class AstObjectVerifier<TObjField>(
     return context;
   }
 
-  private void CheckTypeDefinition(CheckError error, ObjectContext context, IGqlpObjType reference, HashSet<TypeKind> validKinds, bool check, IGqlpDescribed? definition)
+  private void CheckTypeDefinition(
+    CheckError error,
+    ObjectContext context,
+    IGqlpObjType reference,
+    HashSet<TypeKind> validKinds,
+    bool check,
+    IGqlpDescribed? definition)
   {
     if (definition is IGqlpTypeParam typeParam) {
       if (!context.GetType(typeParam.Constraint, out definition)) {
@@ -168,7 +184,12 @@ internal class AstObjectVerifier<TObjField>(
     context.CheckEnumValue("Arg", arg);
   }
 
-  private void CheckParamsArgs(CheckError error, ObjectContext context, IGqlpObject definition, IGqlpObjBase reference)
+  private void CheckParamsArgs(
+    CheckError error,
+    ObjectContext context,
+    IGqlpObject definition,
+    IGqlpObjBase reference
+  )
   {
     IEnumerable<(IGqlpTypeArg, IGqlpTypeParam)> argAndParams = reference.Args
       .Zip(definition.TypeParams, static (a, p) => (a, p));
@@ -187,7 +208,11 @@ internal class AstObjectVerifier<TObjField>(
     }
   }
 
-  internal void CheckTypeArgs(CheckError error, ObjectContext context, IGqlpObjType reference, IGqlpDescribed? definition)
+  internal void CheckTypeArgs(
+    CheckError error,
+    ObjectContext context,
+    IGqlpObjType reference,
+    IGqlpDescribed? definition)
   {
     int numArgs = reference is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
     if (definition is IGqlpObject objectDef) {
@@ -197,7 +222,13 @@ internal class AstObjectVerifier<TObjField>(
     }
   }
 
-  private void CheckTypeArgsDefBase(CheckError error, ObjectContext context, IGqlpObjType reference, int numArgs, IGqlpObject definition, int numParams)
+  private void CheckTypeArgsDefBase(
+    CheckError error,
+    ObjectContext context,
+    IGqlpObjType reference,
+    int numArgs,
+    IGqlpObject definition,
+    int numParams)
   {
     if (reference is IGqlpObjBase baseRef) {
       if (numParams == numArgs) {
@@ -249,7 +280,11 @@ internal class AstObjectVerifier<TObjField>(
   protected override IEnumerable<TObjField> GetItems(IGqlpObject<TObjField> usage)
     => usage.ObjFields;
 
-  protected override void OnParentType(SelfUsage<IGqlpObject<TObjField>> input, ObjectContext context, IGqlpObject<TObjField> parentType, bool top)
+  protected override void OnParentType(
+    SelfUsage<IGqlpObject<TObjField>> input,
+    ObjectContext context,
+    IGqlpObject<TObjField> parentType,
+    bool top)
   {
     if (top && parentType.Kind != TypeKind.Dual) {
       base.OnParentType(input, context, parentType, top);

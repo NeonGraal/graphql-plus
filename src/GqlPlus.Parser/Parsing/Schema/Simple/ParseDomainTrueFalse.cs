@@ -28,7 +28,12 @@ internal class ParseDomainTrueFalse(
           : result.Empty();
   }
 
-  protected override void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, IGqlpDomainTrueFalse[] items)
+  protected override void ApplyItems(
+    ITokenizer tokens,
+    string label,
+    DomainDefinition result,
+    IGqlpDomainTrueFalse[] items
+  )
     => result.Values = items.Length > 0 ? items.ArrayOf<DomainTrueFalseAst>()
     : [DefaultTrueFalse(tokens, false), DefaultTrueFalse(tokens, true)];
 

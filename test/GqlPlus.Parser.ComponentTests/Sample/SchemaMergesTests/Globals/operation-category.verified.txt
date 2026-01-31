@@ -3,18 +3,18 @@
 Success
 {
   !Ca P@010/0002
-  cat
+  catOprCtgr
   (Parallel)
   !Tr I@012/0002
-  Cat
+  CatOprCtgr
 }
 {
   !SO I@011/0001
-  Op
-  cat
+  OprCtgr
+  catOprCtgr
 }
 {
   !Ou I@008/0003
-  Cat
+  CatOprCtgr
 }
 ]

@@ -39,7 +39,7 @@ Success
     :
     I@020/0011
     _OpVariable
-    []
+    [_Name]
     !OF I@009/0012
     directives
     :
@@ -51,169 +51,170 @@ Success
     :
     I@020/0013
     _OpFragment
-    []
+    [_Name]
     !OF I@009/0014
     result
     :
     I@017/0014
     _OpResult
+    !OF I@009/0015
+    selections
+    :
+    I@021/0015
+    _OpSelection
+    []
+    [_Path]
   }
 }
 {
-  !Ou I@008/0017
+  !Ou I@008/0018
   _OpVariable
   :
-  I@007/0018
+  I@007/0019
   _Named
   {
-    !OF I@009/0019
+    !OF I@009/0020
     type
     :
-    I@015/0019
+    I@015/0020
     _ObjBase
-    !OF I@009/0020
+    !OF I@009/0021
     modifiers
     :
-    I@020/0020
+    I@020/0021
     _Modifiers
     []
-    !OF I@009/0021
+    !OF I@009/0022
     default
     :
-    I@018/0021
+    I@018/0022
     Value
     ?
-    !OF I@009/0022
+    !OF I@009/0023
     directives
     :
-    I@021/0022
+    I@021/0023
     _OpDirective
     []
   }
 }
 {
-  !Du I@006/0025
+  !Du I@006/0026
   _OpDirective
   :
-  I@007/0026
+  I@007/0027
   _Named
   {
-    !DF I@009/0027
+    !DF I@009/0028
     argument
     :
-    I@019/0027
+    I@019/0028
     _OpArgument
     ?
   }
 }
 {
-  !Ou I@008/0030
+  !Ou I@008/0031
   _OpFragment
   :
-  I@007/0031
+  I@007/0032
   _Named
   {
-    !OF I@009/0032
+    !OF I@009/0033
     type
     :
-    I@015/0032
+    I@015/0033
     _ObjBase
-    !OF I@009/0033
+    !OF I@009/0034
     directives
     :
-    I@021/0033
+    I@021/0034
     _OpDirective
     []
   }
 }
 {
-  !Du I@006/0036
+  !Du I@006/0037
   _OpArgument
   |
-  I@009/0037
-  _OpArgValue
   I@009/0038
-  _OpArgList
+  _OpArgValue
   I@009/0039
+  _OpArgList
+  I@009/0040
   _OpArgMap
 }
 {
-  !Du I@006/0042
+  !Du I@006/0043
   _OpArgValue
   {
-    !DF I@009/0043
+    !DF I@009/0044
     variable
     :
-    I@019/0043
+    I@019/0044
     _Name
   }
   |
-  I@009/0044
+  I@009/0045
   Value
 }
 {
-  !Du I@006/0047
+  !Du I@006/0048
   _OpArgList
   |
-  I@007/0048
+  I@007/0049
   _OpArgValue
   []
 }
 {
-  !Du I@006/0051
+  !Du I@006/0052
   _OpArgMap
   {
-    !DF I@009/0052
+    !DF I@009/0053
     value
     :
-    I@016/0052
+    I@016/0053
     _OpArgValue
-    !DF I@009/0053
+    !DF I@009/0054
     byVariable
     :
-    I@021/0053
+    I@021/0054
     _Name
   }
   |
-  I@007/0054
+  I@007/0055
   _OpArgValue
   [Scalar]
 }
 {
-  !Do I@008/0057
-  _Path
-  String
-  !DX R@023/0057
-  /\\$?\\.*\\w[\\w\\d]*(\\.\\w[\\w\\d]*)*/
-}
-{
-  !Ou I@008/0059
+  !Ou I@008/0058
   _OpResult
   {
-    !OF I@009/0060
-    selections
-    :
-    I@021/0060
-    _OpObject
-    [_Path]
-    !OF I@009/0061
+    !OF I@009/0059
     argument
     :
-    I@019/0061
+    I@019/0059
     _OpArgument
     ?
   }
   |
-  I@007/0062
+  I@007/0060
   _TypeRef
   <
-    I@016/0062
+    I@016/0060
     _SimpleKind
   >
 }
 {
+  !Do I@008/0063
+  _Path
+  String
+  !DX R@023/0063
+  /(\\$([A-Za-z]\\w*)?|\\.+)?\\d+(\\.\\d+)*/
+}
+{
   !Ou I@008/0065
-  _OpObject
+  _OpSelection
   |
   I@009/0066
   _OpField

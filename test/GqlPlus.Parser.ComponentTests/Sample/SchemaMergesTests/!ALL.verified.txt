@@ -57,10 +57,17 @@ Success
 }
 {
   !Ca P@010/0002
-  cat
+  catOprCtgr
   (Parallel)
   !Tr I@012/0002
-  Cat
+  CatOprCtgr
+}
+{
+  !Ca P@010/0002
+  catOprType
+  (Parallel)
+  !Tr I@012/0002
+  CatOprType
 }
 {
   !Ca P@010/0001
@@ -196,8 +203,13 @@ Success
 }
 {
   !SO I@011/0001
-  Op
-  cat
+  OprCtgr
+  catOprCtgr
+}
+{
+  !SO I@011/0001
+  OprType
+  catOprType
 }
 {
   !SO I@011/0001
@@ -306,7 +318,49 @@ Success
 }
 {
   !Ou I@008/0003
-  Cat
+  CatOprCtgr
+}
+{
+  !Ou I@008/0003
+  CatOprType
+  {
+    !OF I@005/0004
+    first
+    :
+    I@012/0004
+    String
+    !OF I@005/0005
+    last
+    :
+    I@011/0005
+    String
+    !OF I@005/0006
+    address
+    :
+    I@014/0006
+    AddrOprType
+  }
+}
+{
+  !Ou I@008/0008
+  AddrOprType
+  {
+    !OF I@005/0009
+    street
+    :
+    I@013/0009
+    String
+    !OF I@005/0010
+    city
+    :
+    I@011/0010
+    String
+    !OF I@005/0011
+    country
+    :
+    I@014/0011
+    String
+  }
 }
 {
   !Du I@006/0001

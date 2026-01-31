@@ -2,13 +2,13 @@
   "$mapTag": "_Schema",
   "categories": {
     "$mapTag": "_Map(_Categories)",
-    "cat": {
+    "catOprCtgr": {
       "$keyTag": "_Name",
       "$mapTag": "_Category",
-      "name": "cat",
+      "name": "catOprCtgr",
       "output": {
         "$mapTag": "_TypeRef(_TypeKind)",
-        "name": "Cat",
+        "name": "CatOprCtgr",
         "typeKind": {
           "$value": "Output",
           "$valueTag": "_TypeKind"
@@ -22,20 +22,20 @@
   },
   "operations": {
     "$mapTag": "_Map(_Operations)",
-    "Op": {
+    "OprCtgr": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
-      "category": "cat",
-      "name": "Op",
+      "category": "catOprCtgr",
+      "name": "OprCtgr",
       "operation": "TBC"
     }
   },
   "types": {
     "$mapTag": "_Map(_Type)",
-    "Cat": {
+    "CatOprCtgr": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
-      "name": "Cat",
+      "name": "CatOprCtgr",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"

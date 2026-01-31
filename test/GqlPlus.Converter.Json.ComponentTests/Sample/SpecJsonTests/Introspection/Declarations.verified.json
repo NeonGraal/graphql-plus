@@ -418,7 +418,7 @@
           "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "_Name",
           "exclude": false,
-          "pattern": "[A-Za-z_][A-Za-z0-9_]*"
+          "pattern": "[A-Za-z_]\\w*"
         }
       ],
       "domainKind": {
@@ -429,7 +429,7 @@
         {
           "$mapTag": "_DomainRegex",
           "exclude": false,
-          "pattern": "[A-Za-z_][A-Za-z0-9_]*"
+          "pattern": "[A-Za-z_]\\w*"
         }
       ],
       "name": "_Name",
@@ -446,7 +446,7 @@
           "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "_NameFilter",
           "exclude": false,
-          "pattern": "[\\w\\d.*]\u002B"
+          "pattern": "[\\w.*]\u002B"
         }
       ],
       "description": "_NameFilter is a simple match expression against _Name where \u0027.\u0027 matches any single character and \u0027*\u0027 matches zero or more of any character.",
@@ -458,7 +458,7 @@
         {
           "$mapTag": "_DomainRegex",
           "exclude": false,
-          "pattern": "[\\w\\d.*]\u002B"
+          "pattern": "[\\w.*]\u002B"
         }
       ],
       "name": "_NameFilter",

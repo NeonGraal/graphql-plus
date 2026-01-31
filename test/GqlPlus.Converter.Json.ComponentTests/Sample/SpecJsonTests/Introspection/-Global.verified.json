@@ -1150,64 +1150,6 @@
         "$valueTag": "_TypeKind"
       }
     },
-    "_OpObject": {
-      "$keyTag": "_Name",
-      "$mapTag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$mapTag": "_ObjectFor(_Alternate)",
-          "object": "_OpObject",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpField"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_Alternate)",
-          "object": "_OpObject",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpSpread"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_Alternate)",
-          "object": "_OpObject",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpInline"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$mapTag": "_Alternate",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpField"
-          }
-        },
-        {
-          "$mapTag": "_Alternate",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpSpread"
-          }
-        },
-        {
-          "$mapTag": "_Alternate",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpInline"
-          }
-        }
-      ],
-      "name": "_OpObject",
-      "typeKind": {
-        "$value": "Output",
-        "$valueTag": "_TypeKind"
-      }
-    },
     "_OpResult": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
@@ -1228,29 +1170,6 @@
         }
       ],
       "allFields": [
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$mapTag": "_ModifierDictionary",
-              "by": "_Path",
-              "modifierKind": {
-                "$value": "Dict",
-                "$valueTag": "_ModifierKind"
-              },
-              "typeKind": {
-                "$value": "Domain",
-                "$valueTag": "_SimpleKind"
-              }
-            }
-          ],
-          "name": "selections",
-          "object": "_OpResult",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpObject"
-          }
-        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -1290,28 +1209,6 @@
           "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$mapTag": "_ModifierDictionary",
-              "by": "_Path",
-              "modifierKind": {
-                "$value": "Dict",
-                "$valueTag": "_ModifierKind"
-              },
-              "typeKind": {
-                "$value": "Domain",
-                "$valueTag": "_SimpleKind"
-              }
-            }
-          ],
-          "name": "selections",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpObject"
-          }
-        },
-        {
-          "$mapTag": "_OutputField",
-          "modifiers": [
-            {
               "$mapTag": "_Modifier",
               "modifierKind": {
                 "$value": "Opt",
@@ -1327,6 +1224,64 @@
         }
       ],
       "name": "_OpResult",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "_OpSelection": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpSelection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpField"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpSelection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpSpread"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "_OpSelection",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpInline"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpField"
+          }
+        },
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpSpread"
+          }
+        },
+        {
+          "$mapTag": "_Alternate",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpInline"
+          }
+        }
+      ],
+      "name": "_OpSelection",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"
@@ -1553,9 +1508,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$mapTag": "_Modifier",
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Name",
               "modifierKind": {
-                "$value": "List",
+                "$value": "Dict",
                 "$valueTag": "_ModifierKind"
               }
             }
@@ -1589,9 +1545,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$mapTag": "_Modifier",
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Name",
               "modifierKind": {
-                "$value": "List",
+                "$value": "Dict",
                 "$valueTag": "_ModifierKind"
               }
             }
@@ -1610,6 +1567,36 @@
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_OpResult"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            },
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Path",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "name": "selections",
+          "object": "_Operation",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpSelection"
           }
         }
       ],
@@ -1626,9 +1613,10 @@
           "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$mapTag": "_Modifier",
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Name",
               "modifierKind": {
-                "$value": "List",
+                "$value": "Dict",
                 "$valueTag": "_ModifierKind"
               }
             }
@@ -1660,9 +1648,10 @@
           "$mapTag": "_OutputField",
           "modifiers": [
             {
-              "$mapTag": "_Modifier",
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Name",
               "modifierKind": {
-                "$value": "List",
+                "$value": "Dict",
                 "$valueTag": "_ModifierKind"
               }
             }
@@ -1679,6 +1668,35 @@
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_OpResult"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            },
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Path",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Domain",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "name": "selections",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpSelection"
           }
         }
       ],
@@ -1781,7 +1799,7 @@
           "$mapTag": "_DomainItem(_DomainRegex)",
           "domain": "_Path",
           "exclude": false,
-          "pattern": "\\$?\\.*\\w[\\w\\d]*(\\.\\w[\\w\\d]*)*"
+          "pattern": "(\\$([A-Za-z]\\w*)?|\\.\u002B)?\\d\u002B(\\.\\d\u002B)*"
         }
       ],
       "domainKind": {
@@ -1792,7 +1810,7 @@
         {
           "$mapTag": "_DomainRegex",
           "exclude": false,
-          "pattern": "\\$?\\.*\\w[\\w\\d]*(\\.\\w[\\w\\d]*)*"
+          "pattern": "(\\$([A-Za-z]\\w*)?|\\.\u002B)?\\d\u002B(\\.\\d\u002B)*"
         }
       ],
       "name": "_Path",

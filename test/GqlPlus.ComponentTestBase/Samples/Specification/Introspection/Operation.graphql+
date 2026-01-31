@@ -8,10 +8,11 @@ output _Operations {
 output _Operation {
     : _Aliased
         category: _Name
-        variables: _OpVariable[]
+        variables: _OpVariable[_Name]
         directives: _OpDirective[]
-        fragments: _OpFragment[]
+        fragments: _OpFragment[_Name]
         result: _OpResult
+        selections: _OpSelection[][_Path]
 }
 
 output _OpVariable {
@@ -54,15 +55,14 @@ dual _OpArgMap {
     | _OpArgValue[Scalar]
     }
 
-domain _Path { String /\$?\.*\w[\w\d]*(\.\w[\w\d]*)*/ }
-
 output _OpResult {
-        selections: _OpObject[_Path]
         argument: _OpArgument?
     | _TypeRef<_SimpleKind>
 }
 
-output _OpObject {
+domain _Path { String /(\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*/ }
+
+output _OpSelection {
     |   _OpField
     |   _OpSpread
     |   _OpInline

@@ -1,1 +1,1 @@
-5f12bf6  (HEAD -> operation) 2026-01-06 Merge branch 'main' into operation
+3795799  (HEAD -> operation) 2026-01-31 Improve operation definition, introspection and samples

@@ -1,17 +1,17 @@
 ﻿!_Schema
 categories: !_Map(_Categories)
-  !_Name cat: !_Category
-    name: cat
+  !_Name catOprCtgr: !_Category
+    name: catOprCtgr
     output: !_TypeRef(_TypeKind)
-      name: Cat
+      name: CatOprCtgr
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 operations: !_Map(_Operations)
-  !_Name Op: !_Operation
-    category: cat
-    name: Op
+  !_Name OprCtgr: !_Operation
+    category: catOprCtgr
+    name: OprCtgr
     operation: TBC
 types: !_Map(_Type)
-  !_Name Cat: !_TypeOutput
-    name: Cat
+  !_Name CatOprCtgr: !_TypeOutput
+    name: CatOprCtgr
     typeKind: !_TypeKind Output

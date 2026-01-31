@@ -58,7 +58,6 @@ operations: !_Map(_Operations)
     aliases: [Op1, Op2]
     category: op
     name: Operation
-    operation: TBC
 settings: !_Map(_Setting)
   !_Name merged: !_Setting
     name: merged

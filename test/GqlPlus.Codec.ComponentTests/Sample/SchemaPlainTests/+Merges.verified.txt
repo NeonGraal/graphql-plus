@@ -46,7 +46,6 @@
 [_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:aliases.1=Op2
 [_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:category=op
 [_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:name=Operation
-[_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:operation=TBC
 [_Schema]:settings[_Map(_Setting)]:[_Name]merged[_Setting]:name=merged
 [_Schema]:settings[_Map(_Setting)]:[_Name]merged[_Setting]:value[_ConstantList].0=true
 [_Schema]:settings[_Map(_Setting)]:[_Name]merged[_Setting]:value[_ConstantList].1=0

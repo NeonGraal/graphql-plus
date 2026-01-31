@@ -26,8 +26,7 @@
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
       "category": "catOprCtgr",
-      "name": "OprCtgr",
-      "operation": "TBC"
+      "name": "OprCtgr"
     }
   },
   "types": {

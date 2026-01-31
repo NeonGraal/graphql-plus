@@ -22,10 +22,17 @@ public static class AllEncoders
       .AddEncoder<DirectivesModel, DirectivesEncoder>()
       .AddEncoder<DirectiveModel, DirectiveEncoder>()
       .AddSingleton<AndBaseTypeEncoders<DirectiveModel>>()
+      .AddEncoder<SettingModel, SettingEncoder>()
+      // Operation
       .AddEncoder<OperationsModel, OperationsEncoder>()
       .AddEncoder<OperationModel, OperationEncoder>()
       .AddSingleton<AndBaseTypeEncoders<OperationModel>>()
-      .AddEncoder<SettingModel, SettingEncoder>()
+      .AddEncoder<OpDirectiveModel, OpDirectiveEncoder>()
+      .AddEncoder<OpFragmentModel, OpFragmentEncoder>()
+      .AddEncoder<OpResultModel, OpResultEncoder>()
+      .AddEncoder<OpSelectionModel, OpSelectionEncoder>()
+      .AddSingleton<IEncoder<OpSelectionModel[]>, OpSelectionsEncoder>()
+      .AddEncoder<OpVariableModel, OpVariableEncoder>()
       // Types
       .AddEncoder<BaseTypeModel, AllTypesEncoder>()
       .AddEncoder<DomainRefModel, DomainRefEncoder>()

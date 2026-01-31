@@ -103,10 +103,8 @@
 [_Schema]:name=Schema
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprCtgr[_Operation]:category=catOprCtgr
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprCtgr[_Operation]:name=OprCtgr
-[_Schema]:operations[_Map(_Operations)]:[_Name]OprCtgr[_Operation]:operation=TBC
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprType[_Operation]:category=catOprType
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprType[_Operation]:name=OprType
-[_Schema]:operations[_Map(_Operations)]:[_Name]OprType[_Operation]:operation=TBC
 [_Schema]:settings[_Map(_Setting)]:[_Name]descr[_Setting]:description='Option Descr'
 [_Schema]:settings[_Map(_Setting)]:[_Name]descr[_Setting]:name=descr
 [_Schema]:settings[_Map(_Setting)]:[_Name]descr[_Setting]:value=true

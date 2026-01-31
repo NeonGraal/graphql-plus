@@ -26,8 +26,7 @@
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
       "category": "op",
-      "name": "Operation",
-      "operation": "TBC"
+      "name": "Operation"
     }
   },
   "types": {

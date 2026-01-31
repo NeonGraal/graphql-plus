@@ -4,7 +4,6 @@
 [_Schema]:categories[_Map(_Categories)]:[_Name]catOprType[_Category]:resolution=[_Resolution]Parallel
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprType[_Operation]:category=catOprType
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprType[_Operation]:name=OprType
-[_Schema]:operations[_Map(_Operations)]:[_Name]OprType[_Operation]:operation=TBC
 [_Schema]:types[_Map(_Type)]:[_Name]AddrOprType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=street
 [_Schema]:types[_Map(_Type)]:[_Name]AddrOprType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=AddrOprType
 [_Schema]:types[_Map(_Type)]:[_Name]AddrOprType[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=String

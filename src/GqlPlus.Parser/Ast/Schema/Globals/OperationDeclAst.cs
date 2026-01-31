@@ -19,7 +19,7 @@ internal sealed record class OperationDeclAst(
   public string Category { get; } = Category;
   public IEnumerable<IGqlpVariable> Variables { get; } = [];
   public IGqlpArg? Arg { get; }
-  public IEnumerable<IGqlpSelection>? ResultObject { get; } = [];
+  public IEnumerable<IGqlpSelection>? Selections { get; } = [];
   public IEnumerable<IGqlpFragment> Fragments { get; } = [];
   public IEnumerable<IGqlpDirective> Directives { get; init; } = [];
   public IEnumerable<IGqlpModifier> Modifiers { get; } = [];

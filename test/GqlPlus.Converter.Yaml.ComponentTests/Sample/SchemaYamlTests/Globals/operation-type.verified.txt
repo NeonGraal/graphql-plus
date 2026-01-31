@@ -10,7 +10,6 @@ operations: !_Map(_Operations)
   !_Name OprType: !_Operation
     category: catOprType
     name: OprType
-    operation: TBC
 types: !_Map(_Type)
   !_Name AddrOprType: !_TypeOutput
     allFields:

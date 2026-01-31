@@ -194,15 +194,12 @@ operations: !_Map(_Operations)
     aliases: [Op1,Op2]
     category: op
     name: Operation
-    operation: TBC
   !_Name OprCtgr: !_Operation
     category: catOprCtgr
     name: OprCtgr
-    operation: TBC
   !_Name OprType: !_Operation
     category: catOprType
     name: OprType
-    operation: TBC
 settings: !_Map(_Setting)
   !_Name descr: !_Setting
     description: 'Option Descr'

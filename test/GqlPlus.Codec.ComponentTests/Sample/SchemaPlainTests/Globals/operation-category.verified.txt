@@ -4,6 +4,5 @@
 [_Schema]:categories[_Map(_Categories)]:[_Name]catOprCtgr[_Category]:resolution=[_Resolution]Parallel
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprCtgr[_Operation]:category=catOprCtgr
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprCtgr[_Operation]:name=OprCtgr
-[_Schema]:operations[_Map(_Operations)]:[_Name]OprCtgr[_Operation]:operation=TBC
 [_Schema]:types[_Map(_Type)]:[_Name]CatOprCtgr[_TypeOutput]:name=CatOprCtgr
 [_Schema]:types[_Map(_Type)]:[_Name]CatOprCtgr[_TypeOutput]:typeKind=[_TypeKind]Output

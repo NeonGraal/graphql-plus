@@ -54,7 +54,7 @@ public interface IGqlpSchemaOperation
 
   IEnumerable<IGqlpVariable> Variables { get; }
   IGqlpArg? Arg { get; }
-  IEnumerable<IGqlpSelection>? ResultObject { get; }
+  IEnumerable<IGqlpSelection>? Selections { get; }
 
   IEnumerable<IGqlpFragment> Fragments { get; }
 }

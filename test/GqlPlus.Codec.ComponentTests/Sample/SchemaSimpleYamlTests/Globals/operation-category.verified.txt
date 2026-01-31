@@ -10,7 +10,6 @@ operations: !_Map(_Operations)
   !_Name OprCtgr: !_Operation
     category: catOprCtgr
     name: OprCtgr
-    operation: TBC
 types: !_Map(_Type)
   !_Name CatOprCtgr: !_TypeOutput
     name: CatOprCtgr

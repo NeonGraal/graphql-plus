@@ -6,6 +6,5 @@
 [_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:aliases.1=Op2
 [_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:category=op
 [_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:name=Operation
-[_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:operation=TBC
 [_Schema]:types[_Map(_Type)]:[_Name]Op[_TypeOutput]:name=Op
 [_Schema]:types[_Map(_Type)]:[_Name]Op[_TypeOutput]:typeKind=[_TypeKind]Output

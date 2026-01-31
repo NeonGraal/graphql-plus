@@ -10,7 +10,6 @@ operations: !_Map(_Operations)
   !_Name Operation: !_Operation
     category: op
     name: Operation
-    operation: TBC
 types: !_Map(_Type)
   !_Name Op: !_TypeOutput
     name: Op

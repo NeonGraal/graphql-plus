@@ -587,22 +587,19 @@
       "$mapTag": "_Operation",
       "aliases": ["Op1", "Op2"],
       "category": "op",
-      "name": "Operation",
-      "operation": "TBC"
+      "name": "Operation"
     },
     "OprCtgr": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
       "category": "catOprCtgr",
-      "name": "OprCtgr",
-      "operation": "TBC"
+      "name": "OprCtgr"
     },
     "OprType": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
       "category": "catOprType",
-      "name": "OprType",
-      "operation": "TBC"
+      "name": "OprType"
     }
   },
   "settings": {

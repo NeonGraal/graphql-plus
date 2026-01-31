@@ -348,15 +348,13 @@
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
       "category": "catOprCtgr",
-      "name": "OprCtgr",
-      "operation": "TBC"
+      "name": "OprCtgr"
     },
     "OprType": {
       "$keyTag": "_Name",
       "$mapTag": "_Operation",
       "category": "catOprType",
-      "name": "OprType",
-      "operation": "TBC"
+      "name": "OprType"
     }
   },
   "settings": {

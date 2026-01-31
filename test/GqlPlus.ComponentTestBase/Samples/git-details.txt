@@ -1,1 +1,1 @@
-efacc50  (HEAD -> enum-domain) 2026-01-05 Improve Domain Enum specs and samples
+3795799  (HEAD -> operation) 2026-01-31 Improve operation definition, introspection and samples

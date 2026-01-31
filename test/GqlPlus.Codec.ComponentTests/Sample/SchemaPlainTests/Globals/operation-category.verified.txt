@@ -1,0 +1,8 @@
+﻿[_Schema]:categories[_Map(_Categories)]:[_Name]catOprCtgr[_Category]:name=catOprCtgr
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprCtgr[_Category]:output[_TypeRef(_TypeKind)]:name=CatOprCtgr
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprCtgr[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map(_Categories)]:[_Name]catOprCtgr[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprCtgr[_Operation]:category=catOprCtgr
+[_Schema]:operations[_Map(_Operations)]:[_Name]OprCtgr[_Operation]:name=OprCtgr
+[_Schema]:types[_Map(_Type)]:[_Name]CatOprCtgr[_TypeOutput]:name=CatOprCtgr
+[_Schema]:types[_Map(_Type)]:[_Name]CatOprCtgr[_TypeOutput]:typeKind=[_TypeKind]Output

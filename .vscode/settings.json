@@ -1,4 +1,12 @@
 {
   "liveServer.settings.port": 5661,
-  "cSpell.words": ["Descr", "gqlp", "Intf", "Shouldly"]
+  "cSpell.words": [
+    "Descr",
+    "gqlp",
+    "Intf",
+    "Shouldly"
+  ],
+  "chat.tools.terminal.autoApprove": {
+    "dotnet build": true
+  }
 }

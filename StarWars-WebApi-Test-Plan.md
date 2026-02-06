@@ -21,16 +21,14 @@ Add a self-contained, test-only Web API SUT under `test/` and a matching contain
       - **Verification:** Added `test/GqlPlus.StarWars.Api` with `GqlPlus.StarWars.Api.csproj`, `Program.cs`, `Controllers/StarWarsController.cs`, and `Controllers/HealthController.cs`.
 
 2. Add container test project
-   - Add `test/GqlPlus.StarWars.ContainerTests/`.
-   - Create `GqlPlus.StarWars.ContainerTests.csproj` modeled on [test/GqlPlus.Generators.ContainerTests/GqlPlus.Generators.ContainerTests.csproj](test/GqlPlus.Generators.ContainerTests/GqlPlus.Generators.ContainerTests.csproj#L1):
-     - `<IsTestProject>true</IsTestProject>`
-     - `ProjectReference` to `..\GqlPlus.StarWars.Api\GqlPlus.StarWars.Api.csproj`
-     - `ProjectReference` to `..\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj`
-     - `ProjectReference` to `..\GqlPlus.TestBase\GqlPlus.TestBase.csproj`
-   - Add `PackageReference`s (no versions — centralized):
-     - `Microsoft.AspNetCore.Mvc.Testing`
-     - `Microsoft.AspNetCore.TestHost` (if needed)
-     - `Verify.XunitV3` / `Verify.SourceGenerators` (optional, conform to repo usage)
+    - ✅ Add `test/GqlPlus.StarWars.ContainerTests/` and `GqlPlus.StarWars.ContainerTests.csproj`.
+       - `<IsTestProject>true</IsTestProject>`
+       - `ProjectReference` to `..\GqlPlus.StarWars.Api\GqlPlus.StarWars.Api.csproj`
+       - `ProjectReference` to `..\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj`
+       - `ProjectReference` to `..\GqlPlus.TestBase\GqlPlus.TestBase.csproj`
+    - **PackageReferences:** `Microsoft.AspNetCore.Mvc.Testing`, `Microsoft.AspNetCore.TestHost`, `Verify.SourceGenerators` (no explicit versions).
+    - **Verification:** Project added to solution and builds.
+       - `dotnet build GqlPlus.sln` completed successfully locally on 2026-02-06; multi-targeted `GqlPlus.StarWars.Api` and `GqlPlus.StarWars.ContainerTests` built for `net10.0;net9.0;net8.0`.
 
 3. Implement test fixture
    - Add `StarWarsApiFactory : WebApplicationFactory<Program>` and a fixture exposing `HttpClient`.

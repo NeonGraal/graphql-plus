@@ -30,16 +30,14 @@ Add a self-contained, test-only Web API SUT under `test/` and a matching contain
     - **Verification:** Project added to solution and builds.
        - `dotnet build GqlPlus.sln` completed successfully locally on 2026-02-06; multi-targeted `GqlPlus.StarWars.Api` and `GqlPlus.StarWars.ContainerTests` built for `net10.0;net9.0;net8.0`.
 
-3. Implement test fixture
-   - Add `StarWarsApiFactory : WebApplicationFactory<Program>` and a fixture exposing `HttpClient`.
-   - Ensure `Program` is discoverable by `WebApplicationFactory` (typical top-level host pattern or explicit `Program` class).
+3. ✅ Implement test fixture
+   - Added `StarWarsApiFactory : WebApplicationFactory<Program>` exposing `HttpClient`.
+   - `Program` is already defined as `public partial class Program` in `test/GqlPlus.StarWars.Api/Program.cs` so `WebApplicationFactory` can discover it.
+   - **Verification:** `StarWarsApiFactory` placed in `test/GqlPlus.StarWars.ContainerTests/StarWarsApiFactory.cs`.
 
-4. Write tests
-   - Add `StarWarsApiTests.cs`:
-     - Use fixture to get `HttpClient`.
-     - Send HTTP requests; assert status and JSON shape using `Shouldly` or xUnit assertions.
-     - Optionally use `Verify` snapshots for response bodies.
-   - Add `GlobalUsings.cs` and `xunit.runner.json` if needed (mirror `GqlPlus.ComponentTestBase`).
+4. ✅ Write tests (basic)
+   - Added `StarWarsApiTests.cs` with two basic tests for `/api/health` and `/api/starwars/films` using `Shouldly`.
+   - **Verification:** Tests compile (build) and exercise endpoints via `WebApplicationFactory`.
 
 5. Solution integration
    - Add both new projects to `GqlPlus.sln` so repo scripts pick them up.

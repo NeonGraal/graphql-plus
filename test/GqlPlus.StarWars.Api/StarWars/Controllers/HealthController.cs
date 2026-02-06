@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace GqlPlus.StarWars.Api.Controllers;
+namespace GqlPlus.StarWars.Controllers;
 
 [ApiController]
 [Route("api")]

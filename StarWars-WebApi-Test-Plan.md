@@ -4,6 +4,7 @@
 - 2026-02-06 — Step 1 implemented (test SUT added) — PR: N/A — Author: GitHub Copilot
 - 2026-02-06 — Draft created — PR: N/A — Author: GitHub Copilot
 - 2026-02-06 — Require solution integration and build verification at every step — PR: N/A — Author: GitHub Copilot
+- 2026-02-07 — Step 5 implemented (solution integration & build verification) — PR: N/A — Author: GitHub Copilot
 
 Owner: @your-github-username
 
@@ -39,9 +40,16 @@ Add a self-contained, test-only Web API SUT under `test/` and a matching contain
    - Added `StarWarsApiTests.cs` with two basic tests for `/api/health` and `/api/starwars/films` using `Shouldly`.
    - **Verification:** Tests compile (build) and exercise endpoints via `WebApplicationFactory`.
 
-5. Solution integration
-   - Add both new projects to `GqlPlus.sln` so repo scripts pick them up.
-   - Ensure the solution builds successfully after adding projects; perform `dotnet build GqlPlus.sln` and include results in the Verification subsection for the PR.
+5. ✅ Solution integration
+   - Added both new projects to `GqlPlus.sln` so repo scripts pick them up.
+   - Verified the solution builds successfully after adding projects; see Verification subsection below.
+   - **Verification:** Projects present in solution and local build successful:
+
+```powershell
+dotnet build GqlPlus.sln
+```
+
+Build verification notes: `test/GqlPlus.StarWars.Api` and `test/GqlPlus.StarWars.ContainerTests` are listed in `GqlPlus.sln` and the solution builds for the configured target frameworks without analyzer errors on the local machine used for these changes.
 
 6. Code quality & conventions
    - Rely on root `Directory.Build.props` and `test/Directory.Build.props` for languages and target frameworks.

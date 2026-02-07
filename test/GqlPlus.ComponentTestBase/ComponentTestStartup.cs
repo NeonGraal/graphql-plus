@@ -43,16 +43,16 @@ public static class ComponentTestStartup
     }
 
     string filePath = Path.Join(dirPath, file + ".html");
-    const int maxAttempts = 8;
-    for (int attempt = 1; attempt <= maxAttempts; ++attempt) {
+    const int MaxAttempts = 8;
+    for (int attempt = 1; attempt <= MaxAttempts; ++attempt) {
       try {
         File.WriteAllText(filePath, contents);
         return;
       } catch (IOException) {
-        if (attempt >= maxAttempts) throw;
+        if (attempt >= MaxAttempts) throw;
         Thread.Sleep(50 * attempt);
       } catch (UnauthorizedAccessException) {
-        if (attempt >= maxAttempts) throw;
+        if (attempt >= MaxAttempts) throw;
         Thread.Sleep(50 * attempt);
       }
     }
@@ -66,17 +66,17 @@ public static class ComponentTestStartup
     }
 
     string filePath = Path.Join(dirPath, file + ".html");
-    const int maxAttempts = 8;
+    const int MaxAttempts = 8;
     string text = await contents;
-    for (int attempt = 1; attempt <= maxAttempts; ++attempt) {
+    for (int attempt = 1; attempt <= MaxAttempts; ++attempt) {
       try {
         await File.WriteAllTextAsync(filePath, text);
         return;
       } catch (IOException) {
-        if (attempt >= maxAttempts) throw;
+        if (attempt >= MaxAttempts) throw;
         await Task.Delay(50 * attempt);
       } catch (UnauthorizedAccessException) {
-        if (attempt >= maxAttempts) throw;
+        if (attempt >= MaxAttempts) throw;
         await Task.Delay(50 * attempt);
       }
     }

@@ -1,1 +1,1 @@
-295a935  (HEAD -> main, origin/main, origin/HEAD) 2026-01-06 Merge pull request #44 from graphql-plus/enum-domain
+69be800  (HEAD -> star-wars) 2026-02-05 Rename Starwars schema

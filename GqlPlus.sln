@@ -134,6 +134,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.Attribut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.GeneratorsTestBase", "test\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj", "{17C63E58-68E8-47BC-1FFE-497979A3ACDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.StarWars.Gqlp", "test\GqlPlus.StarWars.Gqlp\GqlPlus.StarWars.Gqlp.csproj", "{BDE665BC-9003-91CF-3B20-3D2B5E009B82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -288,6 +290,10 @@ Global
 		{17C63E58-68E8-47BC-1FFE-497979A3ACDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17C63E58-68E8-47BC-1FFE-497979A3ACDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17C63E58-68E8-47BC-1FFE-497979A3ACDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE665BC-9003-91CF-3B20-3D2B5E009B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE665BC-9003-91CF-3B20-3D2B5E009B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE665BC-9003-91CF-3B20-3D2B5E009B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE665BC-9003-91CF-3B20-3D2B5E009B82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -332,6 +338,7 @@ Global
 		{D4DC52CA-26B4-408C-A965-BF026787ADB8} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{7ECF075F-05FD-4A9E-8C72-C909E80BCB3F} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
 		{17C63E58-68E8-47BC-1FFE-497979A3ACDD} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{BDE665BC-9003-91CF-3B20-3D2B5E009B82} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}

@@ -13,6 +13,7 @@ public interface ICmptObjAltEnumOutp
 {
   public ICmptBoolean AsBooleantrue { get; set; }
   public ICmptBoolean AsBooleanfalse { get; set; }
+  public ICmptObjAltEnumOutpObject AsObjAltEnumOutp { get; set; }
 }
 
 public interface ICmptObjAltEnumOutpObject

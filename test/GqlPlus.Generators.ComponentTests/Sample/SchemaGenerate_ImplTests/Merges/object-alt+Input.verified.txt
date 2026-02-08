@@ -14,9 +14,11 @@ public class CmptObjAltInp
   : ICmptObjAltInp
 {
   public ICmptObjAltInpType AsObjAltInpType { get; set; }
+  public ICmptObjAltInpObject AsObjAltInp { get; set; }
 }
 
 public class CmptObjAltInpType
   : ICmptObjAltInpType
 {
+  public ICmptObjAltInpTypeObject AsObjAltInpType { get; set; }
 }

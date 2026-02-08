@@ -24,7 +24,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     // Assert
     context.CheckForRequired(
       GeneratedCodeName(generatorType, name),
-      GeneratedCodeParent(generatorType, "test" + parent));
+      GeneratedCodeParent(generatorType, TestPrefix + parent));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -150,16 +150,16 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     };
 
   protected virtual Action<string> CheckGeneratedCodeField(GqlpGeneratorType generatorType, string fieldName, string fieldType)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, "Itest" + fieldType + " " + fieldName + " { get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, "I" + TestPrefix + fieldType + " " + fieldName + " { get;");
 
   protected virtual Action<string> CheckGeneratedCodeAlternate(GqlpGeneratorType generatorType, string alternateType)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"Itest{alternateType} As{alternateType} {{ get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"I{TestPrefix}{alternateType} As{alternateType} {{ get;");
 
   protected virtual Action<string> CheckGeneratedCodeAlternateArg(GqlpGeneratorType generatorType, string alternateType, string argName)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"Itest{alternateType}<Itest{argName}> As{alternateType} {{ get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"I{TestPrefix}{alternateType}<I{TestPrefix}{argName}> As{alternateType} {{ get;");
 
   protected virtual Action<string> CheckGeneratedCodeAlternateEnum(GqlpGeneratorType generatorType, string enumType, string enumLabel)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"test{enumType} As{enumType}{enumLabel} {{ get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{TestPrefix}{enumType} As{enumType}{enumLabel} {{ get;");
 
   internal override GenerateForType<IGqlpObject<TObjField>> TypeGenerator { get; }
     = new GenerateForObject<TObjField>();

@@ -14,6 +14,7 @@ public class CmptPrntFieldOutp
   , ICmptPrntFieldOutp
 {
   public ICmptNumber Field { get; set; }
+  public ICmptPrntFieldOutpObject AsPrntFieldOutp { get; set; }
 }
 
 public class CmptRefPrntFieldOutp
@@ -21,4 +22,5 @@ public class CmptRefPrntFieldOutp
 {
   public ICmptNumber Parent { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptRefPrntFieldOutpObject AsRefPrntFieldOutp { get; set; }
 }

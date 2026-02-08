@@ -9,6 +9,7 @@ public interface ItestPrntAltDual
   : ItestRefPrntAltDual
 {
   public ItestNumber AsNumber { get; set; }
+  public ItestPrntAltDualObject AsPrntAltDual { get; set; }
 }
 
 public interface ItestPrntAltDualObject
@@ -19,6 +20,7 @@ public interface ItestPrntAltDualObject
 public interface ItestRefPrntAltDual
 {
   public ItestString AsString { get; set; }
+  public ItestRefPrntAltDualObject AsRefPrntAltDual { get; set; }
 }
 
 public interface ItestRefPrntAltDualObject

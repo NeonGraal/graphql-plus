@@ -9,11 +9,13 @@ public class testOutpDescrParam
   : ItestOutpDescrParam
 {
   public ItestFldOutpDescrParam Field { get; set; }
+  public ItestOutpDescrParamObject AsOutpDescrParam { get; set; }
 }
 
 public class testFldOutpDescrParam
   : ItestFldOutpDescrParam
 {
+  public ItestFldOutpDescrParamObject AsFldOutpDescrParam { get; set; }
 }
 
 public class testInOutpDescrParam
@@ -21,4 +23,5 @@ public class testInOutpDescrParam
 {
   public ItestNumber Param { get; set; }
   public ItestString AsString { get; set; }
+  public ItestInOutpDescrParamObject AsInOutpDescrParam { get; set; }
 }

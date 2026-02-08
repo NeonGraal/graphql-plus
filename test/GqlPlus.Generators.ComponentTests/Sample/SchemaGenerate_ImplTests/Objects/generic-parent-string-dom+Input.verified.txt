@@ -14,12 +14,14 @@ public class CmptGnrcPrntStrDomInp
   : CmptFieldGnrcPrntStrDomInp
   , ICmptGnrcPrntStrDomInp
 {
+  public ICmptGnrcPrntStrDomInpObject AsGnrcPrntStrDomInp { get; set; }
 }
 
 public class CmptFieldGnrcPrntStrDomInp<Tref>
   : ICmptFieldGnrcPrntStrDomInp<Tref>
 {
   public Tref Field { get; set; }
+  public ICmptFieldGnrcPrntStrDomInpObject AsFieldGnrcPrntStrDomInp { get; set; }
 }
 
 public class CmptDomGnrcPrntStrDomInp

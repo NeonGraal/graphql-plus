@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_alt_dual_Dual;
 public interface ICmptAltDualDual
 {
   public ICmptObjDualAltDualDual AsObjDualAltDualDual { get; set; }
+  public ICmptAltDualDualObject AsAltDualDual { get; set; }
 }
 
 public interface ICmptAltDualDualObject
@@ -21,6 +22,7 @@ public interface ICmptAltDualDualObject
 public interface ICmptObjDualAltDualDual
 {
   public ICmptString AsString { get; set; }
+  public ICmptObjDualAltDualDualObject AsObjDualAltDualDual { get; set; }
 }
 
 public interface ICmptObjDualAltDualDualObject

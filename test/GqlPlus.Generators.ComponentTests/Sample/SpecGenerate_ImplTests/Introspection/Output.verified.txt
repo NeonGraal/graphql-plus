@@ -19,6 +19,7 @@ public class Cmpt_OutputField
   : Cmpt_ObjField
   , ICmpt_OutputField
 {
+  public ICmpt_OutputFieldObject As_OutputField { get; set; }
 }
 
 public class Cmpt_OutputFieldType
@@ -26,4 +27,5 @@ public class Cmpt_OutputFieldType
   , ICmpt_OutputFieldType
 {
   public ICollection<ICmpt_InputParam> Parameters { get; set; }
+  public ICmpt_OutputFieldTypeObject As_OutputFieldType { get; set; }
 }

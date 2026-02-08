@@ -13,6 +13,7 @@ public class CmptAltModBoolDual
   : ICmptAltModBoolDual
 {
   public IDictionary<CmptBoolean, ICmptAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
+  public ICmptAltModBoolDualObject AsAltModBoolDual { get; set; }
 }
 
 public class CmptAltAltModBoolDual
@@ -20,4 +21,5 @@ public class CmptAltAltModBoolDual
 {
   public ICmptNumber Alt { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptAltAltModBoolDualObject AsAltAltModBoolDual { get; set; }
 }

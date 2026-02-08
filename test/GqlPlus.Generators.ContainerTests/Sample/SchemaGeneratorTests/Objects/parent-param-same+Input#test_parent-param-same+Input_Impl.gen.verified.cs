@@ -10,10 +10,12 @@ public class testPrntParamSameInp<Ta>
   , ItestPrntParamSameInp<Ta>
 {
   public Ta Field { get; set; }
+  public ItestPrntParamSameInpObject AsPrntParamSameInp { get; set; }
 }
 
 public class testRefPrntParamSameInp<Ta>
   : ItestRefPrntParamSameInp<Ta>
 {
   public Ta Asa { get; set; }
+  public ItestRefPrntParamSameInpObject AsRefPrntParamSameInp { get; set; }
 }

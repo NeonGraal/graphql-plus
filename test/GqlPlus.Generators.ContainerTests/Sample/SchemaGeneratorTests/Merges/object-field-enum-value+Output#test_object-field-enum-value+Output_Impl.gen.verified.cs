@@ -9,4 +9,5 @@ public class testObjFieldEnumValueOutp
   : ItestObjFieldEnumValueOutp
 {
   public ItestBoolean Field { get; set; }
+  public ItestObjFieldEnumValueOutpObject AsObjFieldEnumValueOutp { get; set; }
 }

@@ -9,6 +9,7 @@ public class testAltModBoolInp
   : ItestAltModBoolInp
 {
   public IDictionary<testBoolean, ItestAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
+  public ItestAltModBoolInpObject AsAltModBoolInp { get; set; }
 }
 
 public class testAltAltModBoolInp
@@ -16,4 +17,5 @@ public class testAltAltModBoolInp
 {
   public ItestNumber Alt { get; set; }
   public ItestString AsString { get; set; }
+  public ItestAltAltModBoolInpObject AsAltAltModBoolInp { get; set; }
 }

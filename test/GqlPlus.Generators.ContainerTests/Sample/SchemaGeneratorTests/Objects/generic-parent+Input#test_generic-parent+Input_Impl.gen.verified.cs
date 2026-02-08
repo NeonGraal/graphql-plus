@@ -9,4 +9,5 @@ public class testGnrcPrntInp<Ttype>
   : testtype
   , ItestGnrcPrntInp<Ttype>
 {
+  public ItestGnrcPrntInpObject AsGnrcPrntInp { get; set; }
 }

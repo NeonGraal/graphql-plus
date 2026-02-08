@@ -10,17 +10,20 @@ public class testOutpPrntParam
   , ItestOutpPrntParam
 {
   public ItestFldOutpPrntParam Field { get; set; }
+  public ItestOutpPrntParamObject AsOutpPrntParam { get; set; }
 }
 
 public class testPrntOutpPrntParam
   : ItestPrntOutpPrntParam
 {
   public ItestFldOutpPrntParam Field { get; set; }
+  public ItestPrntOutpPrntParamObject AsPrntOutpPrntParam { get; set; }
 }
 
 public class testFldOutpPrntParam
   : ItestFldOutpPrntParam
 {
+  public ItestFldOutpPrntParamObject AsFldOutpPrntParam { get; set; }
 }
 
 public class testInOutpPrntParam
@@ -28,6 +31,7 @@ public class testInOutpPrntParam
 {
   public ItestNumber Param { get; set; }
   public ItestString AsString { get; set; }
+  public ItestInOutpPrntParamObject AsInOutpPrntParam { get; set; }
 }
 
 public class testPrntOutpPrntParamIn
@@ -35,4 +39,5 @@ public class testPrntOutpPrntParamIn
 {
   public ItestNumber Parent { get; set; }
   public ItestString AsString { get; set; }
+  public ItestPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; set; }
 }

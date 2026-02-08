@@ -14,10 +14,12 @@ public class CmptCnstEnumInp
   : ICmptCnstEnumInp
 {
   public ICmptRefCnstEnumInp<ICmptEnumCnstEnumInp> AsRefCnstEnumInp { get; set; }
+  public ICmptCnstEnumInpObject AsCnstEnumInp { get; set; }
 }
 
 public class CmptRefCnstEnumInp<Ttype>
   : ICmptRefCnstEnumInp<Ttype>
 {
   public Ttype Field { get; set; }
+  public ICmptRefCnstEnumInpObject AsRefCnstEnumInp { get; set; }
 }

@@ -9,18 +9,21 @@ public class testCnstFieldDualDual
   : testRefCnstFieldDualDual
   , ItestCnstFieldDualDual
 {
+  public ItestCnstFieldDualDualObject AsCnstFieldDualDual { get; set; }
 }
 
 public class testRefCnstFieldDualDual<Tref>
   : ItestRefCnstFieldDualDual<Tref>
 {
   public Tref Field { get; set; }
+  public ItestRefCnstFieldDualDualObject AsRefCnstFieldDualDual { get; set; }
 }
 
 public class testPrntCnstFieldDualDual
   : ItestPrntCnstFieldDualDual
 {
   public ItestString AsString { get; set; }
+  public ItestPrntCnstFieldDualDualObject AsPrntCnstFieldDualDual { get; set; }
 }
 
 public class testAltCnstFieldDualDual
@@ -28,4 +31,5 @@ public class testAltCnstFieldDualDual
   , ItestAltCnstFieldDualDual
 {
   public ItestNumber Alt { get; set; }
+  public ItestAltCnstFieldDualDualObject AsAltCnstFieldDualDual { get; set; }
 }

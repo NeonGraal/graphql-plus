@@ -13,6 +13,7 @@ public class test_Schema
   public IDictionary<test_Name, Itest_Directives> Directives { get; set; }
   public IDictionary<test_Name, Itest_Type> Types { get; set; }
   public IDictionary<test_Name, Itest_Setting> Settings { get; set; }
+  public Itest_SchemaObject As_Schema { get; set; }
 }
 
 public class test_Name
@@ -30,6 +31,7 @@ public class test_Filter
   public Itest_DomainKind? ReturnByAlias { get; set; }
   public Itest_DomainKind? ReturnReferencedTypes { get; set; }
   public ICollection<Itest_NameFilter> As_NameFilter { get; set; }
+  public Itest_FilterObject As_Filter { get; set; }
 }
 
 public class test_NameFilter
@@ -43,6 +45,7 @@ public class test_CategoryFilter
   , Itest_CategoryFilter
 {
   public ICollection<Itest_Resolution> Resolutions { get; set; }
+  public Itest_CategoryFilterObject As_CategoryFilter { get; set; }
 }
 
 public class test_TypeFilter
@@ -50,6 +53,7 @@ public class test_TypeFilter
   , Itest_TypeFilter
 {
   public ICollection<Itest_TypeKind> Kinds { get; set; }
+  public Itest_TypeFilterObject As_TypeFilter { get; set; }
 }
 
 public class test_Aliased
@@ -57,6 +61,7 @@ public class test_Aliased
   , Itest_Aliased
 {
   public ICollection<Itest_Name> Aliases { get; set; }
+  public Itest_AliasedObject As_Aliased { get; set; }
 }
 
 public class test_Named
@@ -64,12 +69,14 @@ public class test_Named
   , Itest_Named
 {
   public Itest_Name Name { get; set; }
+  public Itest_NamedObject As_Named { get; set; }
 }
 
 public class test_Described
   : Itest_Described
 {
   public ICollection<Itest_DomainKind> Description { get; set; }
+  public Itest_DescribedObject As_Described { get; set; }
 }
 
 public class test_AndType
@@ -78,6 +85,7 @@ public class test_AndType
 {
   public Itest_Type Type { get; set; }
   public Itest_Type As_Type { get; set; }
+  public Itest_AndTypeObject As_AndType { get; set; }
 }
 
 public class test_Categories
@@ -86,6 +94,7 @@ public class test_Categories
 {
   public Itest_Category Category { get; set; }
   public Itest_Category As_Category { get; set; }
+  public Itest_CategoriesObject As_Categories { get; set; }
 }
 
 public class test_Category
@@ -95,6 +104,7 @@ public class test_Category
   public Itest_Resolution Resolution { get; set; }
   public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  public Itest_CategoryObject As_Category { get; set; }
 }
 
 public class test_Directives
@@ -103,6 +113,7 @@ public class test_Directives
 {
   public Itest_Directive Directive { get; set; }
   public Itest_Directive As_Directive { get; set; }
+  public Itest_DirectivesObject As_Directives { get; set; }
 }
 
 public class test_Directive
@@ -112,6 +123,7 @@ public class test_Directive
   public ICollection<Itest_InputParam> Parameters { get; set; }
   public Itest_DomainKind Repeatable { get; set; }
   public IDictionary<test_Location, ItestUnit> Locations { get; set; }
+  public Itest_DirectiveObject As_Directive { get; set; }
 }
 
 public class test_Setting
@@ -119,6 +131,7 @@ public class test_Setting
   , Itest_Setting
 {
   public Itest_Value Value { get; set; }
+  public Itest_SettingObject As_Setting { get; set; }
 }
 
 public class test_Type
@@ -135,6 +148,7 @@ public class test_Type
   public Itest_TypeObject<Itest_TypeKind, Itest_DualField> As_TypeObject { get; set; }
   public Itest_TypeObject<Itest_TypeKind, Itest_InputField> As_TypeObject { get; set; }
   public Itest_TypeObject<Itest_TypeKind, Itest_OutputField> As_TypeObject { get; set; }
+  public Itest_TypeObject As_Type { get; set; }
 }
 
 public class test_BaseType<Tkind>
@@ -142,6 +156,7 @@ public class test_BaseType<Tkind>
   , Itest_BaseType<Tkind>
 {
   public Tkind TypeKind { get; set; }
+  public Itest_BaseTypeObject As_BaseType { get; set; }
 }
 
 public class test_ChildType<Tkind,Tparent>
@@ -149,6 +164,7 @@ public class test_ChildType<Tkind,Tparent>
   , Itest_ChildType<Tkind,Tparent>
 {
   public Tparent Parent { get; set; }
+  public Itest_ChildTypeObject As_ChildType { get; set; }
 }
 
 public class test_ParentType<Tkind,Titem,TallItem>
@@ -157,6 +173,7 @@ public class test_ParentType<Tkind,Titem,TallItem>
 {
   public ICollection<Titem> Items { get; set; }
   public ICollection<TallItem> AllItems { get; set; }
+  public Itest_ParentTypeObject As_ParentType { get; set; }
 }
 
 public class test_TypeRef<Tkind>
@@ -164,6 +181,7 @@ public class test_TypeRef<Tkind>
   , Itest_TypeRef<Tkind>
 {
   public Tkind TypeKind { get; set; }
+  public Itest_TypeRefObject As_TypeRef { get; set; }
 }
 
 public class test_TypeSimple
@@ -173,6 +191,7 @@ public class test_TypeSimple
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeSimpleObject As_TypeSimple { get; set; }
 }
 
 public class test_Collections
@@ -181,6 +200,7 @@ public class test_Collections
   public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
   public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
   public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
+  public Itest_CollectionsObject As_Collections { get; set; }
 }
 
 public class test_ModifierKeyed<Tkind>
@@ -189,6 +209,7 @@ public class test_ModifierKeyed<Tkind>
 {
   public Itest_TypeSimple By { get; set; }
   public Itest_DomainKind Optional { get; set; }
+  public Itest_ModifierKeyedObject As_ModifierKeyed { get; set; }
 }
 
 public class test_Modifiers
@@ -196,12 +217,14 @@ public class test_Modifiers
 {
   public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
   public Itest_Collections As_Collections { get; set; }
+  public Itest_ModifiersObject As_Modifiers { get; set; }
 }
 
 public class test_Modifier<Tkind>
   : Itest_Modifier<Tkind>
 {
   public Tkind ModifierKind { get; set; }
+  public Itest_ModifierObject As_Modifier { get; set; }
 }
 
 public class test_DomainRef<Tkind>
@@ -209,6 +232,7 @@ public class test_DomainRef<Tkind>
   , Itest_DomainRef<Tkind>
 {
   public Tkind DomainKind { get; set; }
+  public Itest_DomainRefObject As_DomainRef { get; set; }
 }
 
 public class test_BaseDomain<Tdomain,Titem,TdomainItem>
@@ -216,6 +240,7 @@ public class test_BaseDomain<Tdomain,Titem,TdomainItem>
   , Itest_BaseDomain<Tdomain,Titem,TdomainItem>
 {
   public Tdomain DomainKind { get; set; }
+  public Itest_BaseDomainObject As_BaseDomain { get; set; }
 }
 
 public class test_BaseDomainItem
@@ -223,6 +248,7 @@ public class test_BaseDomainItem
   , Itest_BaseDomainItem
 {
   public Itest_DomainKind Exclude { get; set; }
+  public Itest_BaseDomainItemObject As_BaseDomainItem { get; set; }
 }
 
 public class test_DomainItem<Titem>
@@ -230,6 +256,7 @@ public class test_DomainItem<Titem>
   , Itest_DomainItem<Titem>
 {
   public Itest_Name Domain { get; set; }
+  public Itest_DomainItemObject As_DomainItem { get; set; }
 }
 
 public class test_DomainValue<Tkind,Tvalue>
@@ -238,6 +265,7 @@ public class test_DomainValue<Tkind,Tvalue>
 {
   public Tvalue Value { get; set; }
   public Tvalue Asvalue { get; set; }
+  public Itest_DomainValueObject As_DomainValue { get; set; }
 }
 
 public class test_BasicValue
@@ -247,6 +275,7 @@ public class test_BasicValue
   public Itest_EnumValue As_EnumValue { get; set; }
   public Itest_DomainKind As_DomainKindNumber { get; set; }
   public Itest_DomainKind As_DomainKindString { get; set; }
+  public Itest_BasicValueObject As_BasicValue { get; set; }
 }
 
 public class test_DomainTrueFalse
@@ -254,12 +283,14 @@ public class test_DomainTrueFalse
   , Itest_DomainTrueFalse
 {
   public Itest_DomainKind Value { get; set; }
+  public Itest_DomainTrueFalseObject As_DomainTrueFalse { get; set; }
 }
 
 public class test_DomainItemTrueFalse
   : test_DomainItem
   , Itest_DomainItemTrueFalse
 {
+  public Itest_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; set; }
 }
 
 public class test_DomainLabel
@@ -267,12 +298,14 @@ public class test_DomainLabel
   , Itest_DomainLabel
 {
   public Itest_EnumValue Label { get; set; }
+  public Itest_DomainLabelObject As_DomainLabel { get; set; }
 }
 
 public class test_DomainItemLabel
   : test_DomainItem
   , Itest_DomainItemLabel
 {
+  public Itest_DomainItemLabelObject As_DomainItemLabel { get; set; }
 }
 
 public class test_DomainRange
@@ -281,12 +314,14 @@ public class test_DomainRange
 {
   public Itest_DomainKind? Lower { get; set; }
   public Itest_DomainKind? Upper { get; set; }
+  public Itest_DomainRangeObject As_DomainRange { get; set; }
 }
 
 public class test_DomainItemRange
   : test_DomainItem
   , Itest_DomainItemRange
 {
+  public Itest_DomainItemRangeObject As_DomainItemRange { get; set; }
 }
 
 public class test_DomainRegex
@@ -294,12 +329,14 @@ public class test_DomainRegex
   , Itest_DomainRegex
 {
   public Itest_DomainKind Pattern { get; set; }
+  public Itest_DomainRegexObject As_DomainRegex { get; set; }
 }
 
 public class test_DomainItemRegex
   : test_DomainItem
   , Itest_DomainItemRegex
 {
+  public Itest_DomainItemRegexObject As_DomainItemRegex { get; set; }
 }
 
 public class test_EnumLabel
@@ -307,6 +344,7 @@ public class test_EnumLabel
   , Itest_EnumLabel
 {
   public Itest_Name Enum { get; set; }
+  public Itest_EnumLabelObject As_EnumLabel { get; set; }
 }
 
 public class test_EnumValue
@@ -314,12 +352,14 @@ public class test_EnumValue
   , Itest_EnumValue
 {
   public Itest_Name Label { get; set; }
+  public Itest_EnumValueObject As_EnumValue { get; set; }
 }
 
 public class test_UnionRef
   : test_TypeRef
   , Itest_UnionRef
 {
+  public Itest_UnionRefObject As_UnionRef { get; set; }
 }
 
 public class test_UnionMember
@@ -327,6 +367,7 @@ public class test_UnionMember
   , Itest_UnionMember
 {
   public Itest_Name Union { get; set; }
+  public Itest_UnionMemberObject As_UnionMember { get; set; }
 }
 
 public class test_ObjectKind
@@ -344,6 +385,7 @@ public class test_TypeObject<Tkind,Tfield>
   public ICollection<Itest_ObjAlternate> Alternates { get; set; }
   public ICollection<Itest_ObjectFor<Tfield>> AllFields { get; set; }
   public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
+  public Itest_TypeObjectObject As_TypeObject { get; set; }
 }
 
 public class test_ObjTypeParam
@@ -351,6 +393,7 @@ public class test_ObjTypeParam
   , Itest_ObjTypeParam
 {
   public Itest_TypeRef<Itest_TypeKind> Constraint { get; set; }
+  public Itest_ObjTypeParamObject As_ObjTypeParam { get; set; }
 }
 
 public class test_ObjBase
@@ -359,6 +402,7 @@ public class test_ObjBase
 {
   public ICollection<Itest_ObjTypeArg> TypeArgs { get; set; }
   public Itest_TypeParam As_TypeParam { get; set; }
+  public Itest_ObjBaseObject As_ObjBase { get; set; }
 }
 
 public class test_ObjTypeArg
@@ -367,6 +411,7 @@ public class test_ObjTypeArg
 {
   public Itest_Name? Label { get; set; }
   public Itest_TypeParam As_TypeParam { get; set; }
+  public Itest_ObjTypeArgObject As_ObjTypeArg { get; set; }
 }
 
 public class test_TypeParam
@@ -374,6 +419,7 @@ public class test_TypeParam
   , Itest_TypeParam
 {
   public Itest_Name TypeParam { get; set; }
+  public Itest_TypeParamObject As_TypeParam { get; set; }
 }
 
 public class test_ObjAlternate
@@ -382,6 +428,7 @@ public class test_ObjAlternate
   public Itest_ObjBase Type { get; set; }
   public ICollection<Itest_Collections> Collections { get; set; }
   public Itest_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
+  public Itest_ObjAlternateObject As_ObjAlternate { get; set; }
 }
 
 public class test_ObjAlternateEnum
@@ -389,6 +436,7 @@ public class test_ObjAlternateEnum
   , Itest_ObjAlternateEnum
 {
   public Itest_Name Label { get; set; }
+  public Itest_ObjAlternateEnumObject As_ObjAlternateEnum { get; set; }
 }
 
 public class test_ObjectFor<Tfor>
@@ -396,6 +444,7 @@ public class test_ObjectFor<Tfor>
   , Itest_ObjectFor<Tfor>
 {
   public Itest_Name Object { get; set; }
+  public Itest_ObjectForObject As_ObjectFor { get; set; }
 }
 
 public class test_ObjField<Ttype>
@@ -403,6 +452,7 @@ public class test_ObjField<Ttype>
   , Itest_ObjField<Ttype>
 {
   public Ttype Type { get; set; }
+  public Itest_ObjFieldObject As_ObjField { get; set; }
 }
 
 public class test_ObjFieldType
@@ -411,6 +461,7 @@ public class test_ObjFieldType
 {
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
   public Itest_ObjFieldEnum As_ObjFieldEnum { get; set; }
+  public Itest_ObjFieldTypeObject As_ObjFieldType { get; set; }
 }
 
 public class test_ObjFieldEnum
@@ -418,6 +469,7 @@ public class test_ObjFieldEnum
   , Itest_ObjFieldEnum
 {
   public Itest_Name Label { get; set; }
+  public Itest_ObjFieldEnumObject As_ObjFieldEnum { get; set; }
 }
 
 public class test_ForParam<Ttype>
@@ -425,18 +477,21 @@ public class test_ForParam<Ttype>
 {
   public Itest_ObjAlternate As_ObjAlternate { get; set; }
   public Itest_ObjField<Ttype> As_ObjField { get; set; }
+  public Itest_ForParamObject As_ForParam { get; set; }
 }
 
 public class test_DualField
   : test_ObjField
   , Itest_DualField
 {
+  public Itest_DualFieldObject As_DualField { get; set; }
 }
 
 public class test_InputField
   : test_ObjField
   , Itest_InputField
 {
+  public Itest_InputFieldObject As_InputField { get; set; }
 }
 
 public class test_InputFieldType
@@ -444,18 +499,21 @@ public class test_InputFieldType
   , Itest_InputFieldType
 {
   public Itest_Value? Default { get; set; }
+  public Itest_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 
 public class test_InputParam
   : test_InputFieldType
   , Itest_InputParam
 {
+  public Itest_InputParamObject As_InputParam { get; set; }
 }
 
 public class test_OutputField
   : test_ObjField
   , Itest_OutputField
 {
+  public Itest_OutputFieldObject As_OutputField { get; set; }
 }
 
 public class test_OutputFieldType
@@ -463,4 +521,5 @@ public class test_OutputFieldType
   , Itest_OutputFieldType
 {
   public ICollection<Itest_InputParam> Parameters { get; set; }
+  public Itest_OutputFieldTypeObject As_OutputFieldType { get; set; }
 }

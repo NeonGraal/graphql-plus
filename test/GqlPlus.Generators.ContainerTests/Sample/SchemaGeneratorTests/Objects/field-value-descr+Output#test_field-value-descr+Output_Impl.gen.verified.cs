@@ -9,4 +9,5 @@ public class testFieldValueDescrOutp
   : ItestFieldValueDescrOutp
 {
   public ItestEnumFieldValueDescrOutp Field { get; set; }
+  public ItestFieldValueDescrOutpObject AsFieldValueDescrOutp { get; set; }
 }

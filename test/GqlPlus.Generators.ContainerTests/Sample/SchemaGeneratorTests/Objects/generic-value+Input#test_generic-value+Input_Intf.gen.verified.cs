@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Input;
 public interface ItestGnrcValueInp
 {
   public ItestRefGnrcValueInp<ItestEnumGnrcValueInp> AsRefGnrcValueInp { get; set; }
+  public ItestGnrcValueInpObject AsGnrcValueInp { get; set; }
 }
 
 public interface ItestGnrcValueInpObject
@@ -16,6 +17,7 @@ public interface ItestGnrcValueInpObject
 
 public interface ItestRefGnrcValueInp<Ttype>
 {
+  public ItestRefGnrcValueInpObject AsRefGnrcValueInp { get; set; }
 }
 
 public interface ItestRefGnrcValueInpObject<Ttype>

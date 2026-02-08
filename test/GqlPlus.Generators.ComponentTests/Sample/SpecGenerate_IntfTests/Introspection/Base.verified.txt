@@ -83,6 +83,7 @@ public interface ICmpt_ObjectKind
 public interface ICmpt_TypeObject<Tkind,Tfield>
   : ICmpt_ChildType
 {
+  public ICmpt_TypeObjectObject As_TypeObject { get; set; }
 }
 
 public interface ICmpt_TypeObjectObject<Tkind,Tfield>
@@ -98,6 +99,7 @@ public interface ICmpt_TypeObjectObject<Tkind,Tfield>
 public interface ICmpt_ObjTypeParam
   : ICmpt_Named
 {
+  public ICmpt_ObjTypeParamObject As_ObjTypeParam { get; set; }
 }
 
 public interface ICmpt_ObjTypeParamObject
@@ -110,6 +112,7 @@ public interface ICmpt_ObjBase
   : ICmpt_Named
 {
   public ICmpt_TypeParam As_TypeParam { get; set; }
+  public ICmpt_ObjBaseObject As_ObjBase { get; set; }
 }
 
 public interface ICmpt_ObjBaseObject
@@ -122,6 +125,7 @@ public interface ICmpt_ObjTypeArg
   : ICmpt_TypeRef
 {
   public ICmpt_TypeParam As_TypeParam { get; set; }
+  public ICmpt_ObjTypeArgObject As_ObjTypeArg { get; set; }
 }
 
 public interface ICmpt_ObjTypeArgObject
@@ -133,6 +137,7 @@ public interface ICmpt_ObjTypeArgObject
 public interface ICmpt_TypeParam
   : ICmpt_Described
 {
+  public ICmpt_TypeParamObject As_TypeParam { get; set; }
 }
 
 public interface ICmpt_TypeParamObject
@@ -144,6 +149,7 @@ public interface ICmpt_TypeParamObject
 public interface ICmpt_ObjAlternate
 {
   public ICmpt_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
+  public ICmpt_ObjAlternateObject As_ObjAlternate { get; set; }
 }
 
 public interface ICmpt_ObjAlternateObject
@@ -155,6 +161,7 @@ public interface ICmpt_ObjAlternateObject
 public interface ICmpt_ObjAlternateEnum
   : ICmpt_TypeRef
 {
+  public ICmpt_ObjAlternateEnumObject As_ObjAlternateEnum { get; set; }
 }
 
 public interface ICmpt_ObjAlternateEnumObject
@@ -166,6 +173,7 @@ public interface ICmpt_ObjAlternateEnumObject
 public interface ICmpt_ObjectFor<Tfor>
   : ICmptfor
 {
+  public ICmpt_ObjectForObject As_ObjectFor { get; set; }
 }
 
 public interface ICmpt_ObjectForObject<Tfor>
@@ -177,6 +185,7 @@ public interface ICmpt_ObjectForObject<Tfor>
 public interface ICmpt_ObjField<Ttype>
   : ICmpt_Aliased
 {
+  public ICmpt_ObjFieldObject As_ObjField { get; set; }
 }
 
 public interface ICmpt_ObjFieldObject<Ttype>
@@ -189,6 +198,7 @@ public interface ICmpt_ObjFieldType
   : ICmpt_ObjBase
 {
   public ICmpt_ObjFieldEnum As_ObjFieldEnum { get; set; }
+  public ICmpt_ObjFieldTypeObject As_ObjFieldType { get; set; }
 }
 
 public interface ICmpt_ObjFieldTypeObject
@@ -200,6 +210,7 @@ public interface ICmpt_ObjFieldTypeObject
 public interface ICmpt_ObjFieldEnum
   : ICmpt_TypeRef
 {
+  public ICmpt_ObjFieldEnumObject As_ObjFieldEnum { get; set; }
 }
 
 public interface ICmpt_ObjFieldEnumObject
@@ -212,6 +223,7 @@ public interface ICmpt_ForParam<Ttype>
 {
   public ICmpt_ObjAlternate As_ObjAlternate { get; set; }
   public ICmpt_ObjField<Ttype> As_ObjField { get; set; }
+  public ICmpt_ForParamObject As_ForParam { get; set; }
 }
 
 public interface ICmpt_ForParamObject<Ttype>

@@ -13,4 +13,5 @@ public class CmptObjFieldEnumValueDual
   : ICmptObjFieldEnumValueDual
 {
   public ICmptBoolean Field { get; set; }
+  public ICmptObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; set; }
 }

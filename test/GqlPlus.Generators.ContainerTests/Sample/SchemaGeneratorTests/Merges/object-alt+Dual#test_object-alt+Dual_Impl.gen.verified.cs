@@ -9,9 +9,11 @@ public class testObjAltDual
   : ItestObjAltDual
 {
   public ItestObjAltDualType AsObjAltDualType { get; set; }
+  public ItestObjAltDualObject AsObjAltDual { get; set; }
 }
 
 public class testObjAltDualType
   : ItestObjAltDualType
 {
+  public ItestObjAltDualTypeObject AsObjAltDualType { get; set; }
 }

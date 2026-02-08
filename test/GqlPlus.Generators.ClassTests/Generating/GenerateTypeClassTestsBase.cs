@@ -54,17 +54,17 @@ public abstract class GenerateTypeClassTestsBase
   protected virtual string GeneratedCodeName(GqlpGeneratorType generatorType, string name)
     => generatorType switch {
       GqlpGeneratorType.Interface
-        => "public interface Itest" + name,
+        => "public interface I" + TestPrefix + name,
       GqlpGeneratorType.Implementation
-        => "public class test" + name,
+        => "public class " + TestPrefix + name,
       _ => ""
     };
 
   protected virtual Action<string> CheckGeneratedCodeName(GqlpGeneratorType generatorType, string name)
     => result => {
       switch (generatorType) {
-        case GqlpGeneratorType.Interface: result.ShouldContain("public interface Itest" + name); break;
-        case GqlpGeneratorType.Implementation: result.ShouldContain("public class test" + name); break;
+        case GqlpGeneratorType.Interface: result.ShouldContain("public interface I" + TestPrefix + name); break;
+        case GqlpGeneratorType.Implementation: result.ShouldContain("public class " + TestPrefix + name); break;
         default: result.ShouldBeEmpty(); break;
       }
     };

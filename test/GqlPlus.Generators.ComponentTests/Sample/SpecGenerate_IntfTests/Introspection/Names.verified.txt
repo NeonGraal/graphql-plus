@@ -29,6 +29,7 @@ namespace Components.Gqlp_Spec_Names;
 public interface ICmpt_Aliased
   : ICmpt_Named
 {
+  public ICmpt_AliasedObject As_Aliased { get; set; }
 }
 
 public interface ICmpt_AliasedObject
@@ -40,6 +41,7 @@ public interface ICmpt_AliasedObject
 public interface ICmpt_Named
   : ICmpt_Described
 {
+  public ICmpt_NamedObject As_Named { get; set; }
 }
 
 public interface ICmpt_NamedObject
@@ -50,6 +52,7 @@ public interface ICmpt_NamedObject
 
 public interface ICmpt_Described
 {
+  public ICmpt_DescribedObject As_Described { get; set; }
 }
 
 public interface ICmpt_DescribedObject
@@ -61,6 +64,7 @@ public interface ICmpt_AndType
   : ICmpt_Named
 {
   public ICmpt_Type As_Type { get; set; }
+  public ICmpt_AndTypeObject As_AndType { get; set; }
 }
 
 public interface ICmpt_AndTypeObject

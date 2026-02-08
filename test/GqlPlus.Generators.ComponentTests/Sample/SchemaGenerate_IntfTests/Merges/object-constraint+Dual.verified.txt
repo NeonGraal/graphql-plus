@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_object_constraint_Dual;
 
 public interface ICmptObjCnstDual<Ttype>
 {
+  public ICmptObjCnstDualObject AsObjCnstDual { get; set; }
 }
 
 public interface ICmptObjCnstDualObject<Ttype>

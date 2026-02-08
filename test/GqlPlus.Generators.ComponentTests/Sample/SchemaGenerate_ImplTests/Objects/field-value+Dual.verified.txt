@@ -13,4 +13,5 @@ public class CmptFieldValueDual
   : ICmptFieldValueDual
 {
   public ICmptEnumFieldValueDual Field { get; set; }
+  public ICmptFieldValueDualObject AsFieldValueDual { get; set; }
 }

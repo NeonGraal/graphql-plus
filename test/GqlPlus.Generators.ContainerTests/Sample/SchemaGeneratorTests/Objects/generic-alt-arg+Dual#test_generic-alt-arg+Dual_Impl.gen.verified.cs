@@ -9,10 +9,12 @@ public class testGnrcAltArgDual<Ttype>
   : ItestGnrcAltArgDual<Ttype>
 {
   public ItestRefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; set; }
+  public ItestGnrcAltArgDualObject AsGnrcAltArgDual { get; set; }
 }
 
 public class testRefGnrcAltArgDual<Tref>
   : ItestRefGnrcAltArgDual<Tref>
 {
   public Tref Asref { get; set; }
+  public ItestRefGnrcAltArgDualObject AsRefGnrcAltArgDual { get; set; }
 }

@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_object_Output;
 
 public interface ICmptObjOutp
 {
+  public ICmptObjOutpObject AsObjOutp { get; set; }
 }
 
 public interface ICmptObjOutpObject

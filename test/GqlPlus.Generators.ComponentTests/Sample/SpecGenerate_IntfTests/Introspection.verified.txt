@@ -353,6 +353,7 @@ namespace Components.Gqlp_Spec_Introspection;
 public interface ICmpt_Schema
   : ICmpt_Named
 {
+  public ICmpt_SchemaObject As_Schema { get; set; }
 }
 
 public interface ICmpt_SchemaObject
@@ -372,6 +373,7 @@ public interface ICmpt_Name
 public interface ICmpt_Filter
 {
   public ICollection<ICmpt_NameFilter> As_NameFilter { get; set; }
+  public ICmpt_FilterObject As_Filter { get; set; }
 }
 
 public interface ICmpt_FilterObject
@@ -391,6 +393,7 @@ public interface ICmpt_NameFilter
 public interface ICmpt_CategoryFilter
   : ICmpt_Filter
 {
+  public ICmpt_CategoryFilterObject As_CategoryFilter { get; set; }
 }
 
 public interface ICmpt_CategoryFilterObject
@@ -402,6 +405,7 @@ public interface ICmpt_CategoryFilterObject
 public interface ICmpt_TypeFilter
   : ICmpt_Filter
 {
+  public ICmpt_TypeFilterObject As_TypeFilter { get; set; }
 }
 
 public interface ICmpt_TypeFilterObject
@@ -413,6 +417,7 @@ public interface ICmpt_TypeFilterObject
 public interface ICmpt_Aliased
   : ICmpt_Named
 {
+  public ICmpt_AliasedObject As_Aliased { get; set; }
 }
 
 public interface ICmpt_AliasedObject
@@ -424,6 +429,7 @@ public interface ICmpt_AliasedObject
 public interface ICmpt_Named
   : ICmpt_Described
 {
+  public ICmpt_NamedObject As_Named { get; set; }
 }
 
 public interface ICmpt_NamedObject
@@ -434,6 +440,7 @@ public interface ICmpt_NamedObject
 
 public interface ICmpt_Described
 {
+  public ICmpt_DescribedObject As_Described { get; set; }
 }
 
 public interface ICmpt_DescribedObject
@@ -445,6 +452,7 @@ public interface ICmpt_AndType
   : ICmpt_Named
 {
   public ICmpt_Type As_Type { get; set; }
+  public ICmpt_AndTypeObject As_AndType { get; set; }
 }
 
 public interface ICmpt_AndTypeObject
@@ -457,6 +465,7 @@ public interface ICmpt_Categories
   : ICmpt_AndType
 {
   public ICmpt_Category As_Category { get; set; }
+  public ICmpt_CategoriesObject As_Categories { get; set; }
 }
 
 public interface ICmpt_CategoriesObject
@@ -468,6 +477,7 @@ public interface ICmpt_CategoriesObject
 public interface ICmpt_Category
   : ICmpt_Aliased
 {
+  public ICmpt_CategoryObject As_Category { get; set; }
 }
 
 public interface ICmpt_CategoryObject
@@ -482,6 +492,7 @@ public interface ICmpt_Directives
   : ICmpt_AndType
 {
   public ICmpt_Directive As_Directive { get; set; }
+  public ICmpt_DirectivesObject As_Directives { get; set; }
 }
 
 public interface ICmpt_DirectivesObject
@@ -493,6 +504,7 @@ public interface ICmpt_DirectivesObject
 public interface ICmpt_Directive
   : ICmpt_Aliased
 {
+  public ICmpt_DirectiveObject As_Directive { get; set; }
 }
 
 public interface ICmpt_DirectiveObject
@@ -506,6 +518,7 @@ public interface ICmpt_DirectiveObject
 public interface ICmpt_Setting
   : ICmpt_Named
 {
+  public ICmpt_SettingObject As_Setting { get; set; }
 }
 
 public interface ICmpt_SettingObject
@@ -527,6 +540,7 @@ public interface ICmpt_Type
   public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_DualField> As_TypeObject { get; set; }
   public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_InputField> As_TypeObject { get; set; }
   public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_OutputField> As_TypeObject { get; set; }
+  public ICmpt_TypeObject As_Type { get; set; }
 }
 
 public interface ICmpt_TypeObject
@@ -536,6 +550,7 @@ public interface ICmpt_TypeObject
 public interface ICmpt_BaseType<Tkind>
   : ICmpt_Aliased
 {
+  public ICmpt_BaseTypeObject As_BaseType { get; set; }
 }
 
 public interface ICmpt_BaseTypeObject<Tkind>
@@ -547,6 +562,7 @@ public interface ICmpt_BaseTypeObject<Tkind>
 public interface ICmpt_ChildType<Tkind,Tparent>
   : ICmpt_BaseType
 {
+  public ICmpt_ChildTypeObject As_ChildType { get; set; }
 }
 
 public interface ICmpt_ChildTypeObject<Tkind,Tparent>
@@ -558,6 +574,7 @@ public interface ICmpt_ChildTypeObject<Tkind,Tparent>
 public interface ICmpt_ParentType<Tkind,Titem,TallItem>
   : ICmpt_ChildType
 {
+  public ICmpt_ParentTypeObject As_ParentType { get; set; }
 }
 
 public interface ICmpt_ParentTypeObject<Tkind,Titem,TallItem>
@@ -570,6 +587,7 @@ public interface ICmpt_ParentTypeObject<Tkind,Titem,TallItem>
 public interface ICmpt_TypeRef<Tkind>
   : ICmpt_Named
 {
+  public ICmpt_TypeRefObject As_TypeRef { get; set; }
 }
 
 public interface ICmpt_TypeRefObject<Tkind>
@@ -584,6 +602,7 @@ public interface ICmpt_TypeSimple
   public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
+  public ICmpt_TypeSimpleObject As_TypeSimple { get; set; }
 }
 
 public interface ICmpt_TypeSimpleObject
@@ -595,6 +614,7 @@ public interface ICmpt_Collections
   public ICmpt_Modifier<ICmpt_ModifierKind> As_Modifier { get; set; }
   public ICmpt_ModifierKeyed<ICmpt_ModifierKind> As_ModifierKeyed { get; set; }
   public ICmpt_ModifierKeyed<ICmpt_ModifierKind> As_ModifierKeyed { get; set; }
+  public ICmpt_CollectionsObject As_Collections { get; set; }
 }
 
 public interface ICmpt_CollectionsObject
@@ -604,6 +624,7 @@ public interface ICmpt_CollectionsObject
 public interface ICmpt_ModifierKeyed<Tkind>
   : ICmpt_Modifier
 {
+  public ICmpt_ModifierKeyedObject As_ModifierKeyed { get; set; }
 }
 
 public interface ICmpt_ModifierKeyedObject<Tkind>
@@ -617,6 +638,7 @@ public interface ICmpt_Modifiers
 {
   public ICmpt_Modifier<ICmpt_ModifierKind> As_Modifier { get; set; }
   public ICmpt_Collections As_Collections { get; set; }
+  public ICmpt_ModifiersObject As_Modifiers { get; set; }
 }
 
 public interface ICmpt_ModifiersObject
@@ -625,6 +647,7 @@ public interface ICmpt_ModifiersObject
 
 public interface ICmpt_Modifier<Tkind>
 {
+  public ICmpt_ModifierObject As_Modifier { get; set; }
 }
 
 public interface ICmpt_ModifierObject<Tkind>
@@ -635,6 +658,7 @@ public interface ICmpt_ModifierObject<Tkind>
 public interface ICmpt_DomainRef<Tkind>
   : ICmpt_TypeRef
 {
+  public ICmpt_DomainRefObject As_DomainRef { get; set; }
 }
 
 public interface ICmpt_DomainRefObject<Tkind>
@@ -646,6 +670,7 @@ public interface ICmpt_DomainRefObject<Tkind>
 public interface ICmpt_BaseDomain<Tdomain,Titem,TdomainItem>
   : ICmpt_ParentType
 {
+  public ICmpt_BaseDomainObject As_BaseDomain { get; set; }
 }
 
 public interface ICmpt_BaseDomainObject<Tdomain,Titem,TdomainItem>
@@ -657,6 +682,7 @@ public interface ICmpt_BaseDomainObject<Tdomain,Titem,TdomainItem>
 public interface ICmpt_BaseDomainItem
   : ICmpt_Described
 {
+  public ICmpt_BaseDomainItemObject As_BaseDomainItem { get; set; }
 }
 
 public interface ICmpt_BaseDomainItemObject
@@ -668,6 +694,7 @@ public interface ICmpt_BaseDomainItemObject
 public interface ICmpt_DomainItem<Titem>
   : ICmptitem
 {
+  public ICmpt_DomainItemObject As_DomainItem { get; set; }
 }
 
 public interface ICmpt_DomainItemObject<Titem>
@@ -680,6 +707,7 @@ public interface ICmpt_DomainValue<Tkind,Tvalue>
   : ICmpt_DomainRef
 {
   public Tvalue Asvalue { get; set; }
+  public ICmpt_DomainValueObject As_DomainValue { get; set; }
 }
 
 public interface ICmpt_DomainValueObject<Tkind,Tvalue>
@@ -694,6 +722,7 @@ public interface ICmpt_BasicValue
   public ICmpt_EnumValue As_EnumValue { get; set; }
   public ICmpt_DomainKind As_DomainKindNumber { get; set; }
   public ICmpt_DomainKind As_DomainKindString { get; set; }
+  public ICmpt_BasicValueObject As_BasicValue { get; set; }
 }
 
 public interface ICmpt_BasicValueObject
@@ -703,6 +732,7 @@ public interface ICmpt_BasicValueObject
 public interface ICmpt_DomainTrueFalse
   : ICmpt_BaseDomainItem
 {
+  public ICmpt_DomainTrueFalseObject As_DomainTrueFalse { get; set; }
 }
 
 public interface ICmpt_DomainTrueFalseObject
@@ -714,6 +744,7 @@ public interface ICmpt_DomainTrueFalseObject
 public interface ICmpt_DomainItemTrueFalse
   : ICmpt_DomainItem
 {
+  public ICmpt_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; set; }
 }
 
 public interface ICmpt_DomainItemTrueFalseObject
@@ -724,6 +755,7 @@ public interface ICmpt_DomainItemTrueFalseObject
 public interface ICmpt_DomainLabel
   : ICmpt_BaseDomainItem
 {
+  public ICmpt_DomainLabelObject As_DomainLabel { get; set; }
 }
 
 public interface ICmpt_DomainLabelObject
@@ -735,6 +767,7 @@ public interface ICmpt_DomainLabelObject
 public interface ICmpt_DomainItemLabel
   : ICmpt_DomainItem
 {
+  public ICmpt_DomainItemLabelObject As_DomainItemLabel { get; set; }
 }
 
 public interface ICmpt_DomainItemLabelObject
@@ -745,6 +778,7 @@ public interface ICmpt_DomainItemLabelObject
 public interface ICmpt_DomainRange
   : ICmpt_BaseDomainItem
 {
+  public ICmpt_DomainRangeObject As_DomainRange { get; set; }
 }
 
 public interface ICmpt_DomainRangeObject
@@ -757,6 +791,7 @@ public interface ICmpt_DomainRangeObject
 public interface ICmpt_DomainItemRange
   : ICmpt_DomainItem
 {
+  public ICmpt_DomainItemRangeObject As_DomainItemRange { get; set; }
 }
 
 public interface ICmpt_DomainItemRangeObject
@@ -767,6 +802,7 @@ public interface ICmpt_DomainItemRangeObject
 public interface ICmpt_DomainRegex
   : ICmpt_BaseDomainItem
 {
+  public ICmpt_DomainRegexObject As_DomainRegex { get; set; }
 }
 
 public interface ICmpt_DomainRegexObject
@@ -778,6 +814,7 @@ public interface ICmpt_DomainRegexObject
 public interface ICmpt_DomainItemRegex
   : ICmpt_DomainItem
 {
+  public ICmpt_DomainItemRegexObject As_DomainItemRegex { get; set; }
 }
 
 public interface ICmpt_DomainItemRegexObject
@@ -788,6 +825,7 @@ public interface ICmpt_DomainItemRegexObject
 public interface ICmpt_EnumLabel
   : ICmpt_Aliased
 {
+  public ICmpt_EnumLabelObject As_EnumLabel { get; set; }
 }
 
 public interface ICmpt_EnumLabelObject
@@ -799,6 +837,7 @@ public interface ICmpt_EnumLabelObject
 public interface ICmpt_EnumValue
   : ICmpt_TypeRef
 {
+  public ICmpt_EnumValueObject As_EnumValue { get; set; }
 }
 
 public interface ICmpt_EnumValueObject
@@ -810,6 +849,7 @@ public interface ICmpt_EnumValueObject
 public interface ICmpt_UnionRef
   : ICmpt_TypeRef
 {
+  public ICmpt_UnionRefObject As_UnionRef { get; set; }
 }
 
 public interface ICmpt_UnionRefObject
@@ -820,6 +860,7 @@ public interface ICmpt_UnionRefObject
 public interface ICmpt_UnionMember
   : ICmpt_UnionRef
 {
+  public ICmpt_UnionMemberObject As_UnionMember { get; set; }
 }
 
 public interface ICmpt_UnionMemberObject
@@ -836,6 +877,7 @@ public interface ICmpt_ObjectKind
 public interface ICmpt_TypeObject<Tkind,Tfield>
   : ICmpt_ChildType
 {
+  public ICmpt_TypeObjectObject As_TypeObject { get; set; }
 }
 
 public interface ICmpt_TypeObjectObject<Tkind,Tfield>
@@ -851,6 +893,7 @@ public interface ICmpt_TypeObjectObject<Tkind,Tfield>
 public interface ICmpt_ObjTypeParam
   : ICmpt_Named
 {
+  public ICmpt_ObjTypeParamObject As_ObjTypeParam { get; set; }
 }
 
 public interface ICmpt_ObjTypeParamObject
@@ -863,6 +906,7 @@ public interface ICmpt_ObjBase
   : ICmpt_Named
 {
   public ICmpt_TypeParam As_TypeParam { get; set; }
+  public ICmpt_ObjBaseObject As_ObjBase { get; set; }
 }
 
 public interface ICmpt_ObjBaseObject
@@ -875,6 +919,7 @@ public interface ICmpt_ObjTypeArg
   : ICmpt_TypeRef
 {
   public ICmpt_TypeParam As_TypeParam { get; set; }
+  public ICmpt_ObjTypeArgObject As_ObjTypeArg { get; set; }
 }
 
 public interface ICmpt_ObjTypeArgObject
@@ -886,6 +931,7 @@ public interface ICmpt_ObjTypeArgObject
 public interface ICmpt_TypeParam
   : ICmpt_Described
 {
+  public ICmpt_TypeParamObject As_TypeParam { get; set; }
 }
 
 public interface ICmpt_TypeParamObject
@@ -897,6 +943,7 @@ public interface ICmpt_TypeParamObject
 public interface ICmpt_ObjAlternate
 {
   public ICmpt_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
+  public ICmpt_ObjAlternateObject As_ObjAlternate { get; set; }
 }
 
 public interface ICmpt_ObjAlternateObject
@@ -908,6 +955,7 @@ public interface ICmpt_ObjAlternateObject
 public interface ICmpt_ObjAlternateEnum
   : ICmpt_TypeRef
 {
+  public ICmpt_ObjAlternateEnumObject As_ObjAlternateEnum { get; set; }
 }
 
 public interface ICmpt_ObjAlternateEnumObject
@@ -919,6 +967,7 @@ public interface ICmpt_ObjAlternateEnumObject
 public interface ICmpt_ObjectFor<Tfor>
   : ICmptfor
 {
+  public ICmpt_ObjectForObject As_ObjectFor { get; set; }
 }
 
 public interface ICmpt_ObjectForObject<Tfor>
@@ -930,6 +979,7 @@ public interface ICmpt_ObjectForObject<Tfor>
 public interface ICmpt_ObjField<Ttype>
   : ICmpt_Aliased
 {
+  public ICmpt_ObjFieldObject As_ObjField { get; set; }
 }
 
 public interface ICmpt_ObjFieldObject<Ttype>
@@ -942,6 +992,7 @@ public interface ICmpt_ObjFieldType
   : ICmpt_ObjBase
 {
   public ICmpt_ObjFieldEnum As_ObjFieldEnum { get; set; }
+  public ICmpt_ObjFieldTypeObject As_ObjFieldType { get; set; }
 }
 
 public interface ICmpt_ObjFieldTypeObject
@@ -953,6 +1004,7 @@ public interface ICmpt_ObjFieldTypeObject
 public interface ICmpt_ObjFieldEnum
   : ICmpt_TypeRef
 {
+  public ICmpt_ObjFieldEnumObject As_ObjFieldEnum { get; set; }
 }
 
 public interface ICmpt_ObjFieldEnumObject
@@ -965,6 +1017,7 @@ public interface ICmpt_ForParam<Ttype>
 {
   public ICmpt_ObjAlternate As_ObjAlternate { get; set; }
   public ICmpt_ObjField<Ttype> As_ObjField { get; set; }
+  public ICmpt_ForParamObject As_ForParam { get; set; }
 }
 
 public interface ICmpt_ForParamObject<Ttype>
@@ -974,6 +1027,7 @@ public interface ICmpt_ForParamObject<Ttype>
 public interface ICmpt_DualField
   : ICmpt_ObjField
 {
+  public ICmpt_DualFieldObject As_DualField { get; set; }
 }
 
 public interface ICmpt_DualFieldObject
@@ -984,6 +1038,7 @@ public interface ICmpt_DualFieldObject
 public interface ICmpt_InputField
   : ICmpt_ObjField
 {
+  public ICmpt_InputFieldObject As_InputField { get; set; }
 }
 
 public interface ICmpt_InputFieldObject
@@ -994,6 +1049,7 @@ public interface ICmpt_InputFieldObject
 public interface ICmpt_InputFieldType
   : ICmpt_ObjFieldType
 {
+  public ICmpt_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 
 public interface ICmpt_InputFieldTypeObject
@@ -1005,6 +1061,7 @@ public interface ICmpt_InputFieldTypeObject
 public interface ICmpt_InputParam
   : ICmpt_InputFieldType
 {
+  public ICmpt_InputParamObject As_InputParam { get; set; }
 }
 
 public interface ICmpt_InputParamObject
@@ -1015,6 +1072,7 @@ public interface ICmpt_InputParamObject
 public interface ICmpt_OutputField
   : ICmpt_ObjField
 {
+  public ICmpt_OutputFieldObject As_OutputField { get; set; }
 }
 
 public interface ICmpt_OutputFieldObject
@@ -1025,6 +1083,7 @@ public interface ICmpt_OutputFieldObject
 public interface ICmpt_OutputFieldType
   : ICmpt_ObjFieldType
 {
+  public ICmpt_OutputFieldTypeObject As_OutputFieldType { get; set; }
 }
 
 public interface ICmpt_OutputFieldTypeObject

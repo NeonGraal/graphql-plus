@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_descr_Output;
 public interface ItestPrntDescrOutp
   : ItestRefPrntDescrOutp
 {
+  public ItestPrntDescrOutpObject AsPrntDescrOutp { get; set; }
 }
 
 public interface ItestPrntDescrOutpObject
@@ -18,6 +19,7 @@ public interface ItestPrntDescrOutpObject
 public interface ItestRefPrntDescrOutp
 {
   public ItestString AsString { get; set; }
+  public ItestRefPrntDescrOutpObject AsRefPrntDescrOutp { get; set; }
 }
 
 public interface ItestRefPrntDescrOutpObject

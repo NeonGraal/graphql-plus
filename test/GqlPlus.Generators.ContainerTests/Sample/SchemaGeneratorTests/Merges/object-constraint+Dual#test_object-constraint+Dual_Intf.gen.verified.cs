@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Dual;
 
 public interface ItestObjCnstDual<Ttype>
 {
+  public ItestObjCnstDualObject AsObjCnstDual { get; set; }
 }
 
 public interface ItestObjCnstDualObject<Ttype>

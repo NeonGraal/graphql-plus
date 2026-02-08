@@ -15,12 +15,14 @@ public class CmptCnstDomEnumInp
   : ICmptCnstDomEnumInp
 {
   public ICmptRefCnstDomEnumInp<ICmptEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public ICmptCnstDomEnumInpObject AsCnstDomEnumInp { get; set; }
 }
 
 public class CmptRefCnstDomEnumInp<Ttype>
   : ICmptRefCnstDomEnumInp<Ttype>
 {
   public Ttype Field { get; set; }
+  public ICmptRefCnstDomEnumInpObject AsRefCnstDomEnumInp { get; set; }
 }
 
 public class CmptJustCnstDomEnumInp

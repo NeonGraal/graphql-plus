@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Dual;
 public interface ItestGnrcPrntStrDomDual
   : ItestFieldGnrcPrntStrDomDual
 {
+  public ItestGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; set; }
 }
 
 public interface ItestGnrcPrntStrDomDualObject
@@ -17,6 +18,7 @@ public interface ItestGnrcPrntStrDomDualObject
 
 public interface ItestFieldGnrcPrntStrDomDual<Tref>
 {
+  public ItestFieldGnrcPrntStrDomDualObject AsFieldGnrcPrntStrDomDual { get; set; }
 }
 
 public interface ItestFieldGnrcPrntStrDomDualObject<Tref>

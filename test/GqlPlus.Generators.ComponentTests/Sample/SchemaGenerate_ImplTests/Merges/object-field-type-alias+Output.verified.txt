@@ -13,4 +13,5 @@ public class CmptObjFieldTypeAliasOutp
   : ICmptObjFieldTypeAliasOutp
 {
   public ICmptString Field { get; set; }
+  public ICmptObjFieldTypeAliasOutpObject AsObjFieldTypeAliasOutp { get; set; }
 }

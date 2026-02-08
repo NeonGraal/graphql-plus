@@ -9,6 +9,7 @@ public class testOutpParamModDmn
   : ItestOutpParamModDmn
 {
   public ItestDomOutpParamModDmn Field { get; set; }
+  public ItestOutpParamModDmnObject AsOutpParamModDmn { get; set; }
 }
 
 public class testInOutpParamModDmn
@@ -16,6 +17,7 @@ public class testInOutpParamModDmn
 {
   public ItestNumber Param { get; set; }
   public ItestString AsString { get; set; }
+  public ItestInOutpParamModDmnObject AsInOutpParamModDmn { get; set; }
 }
 
 public class testDomOutpParamModDmn

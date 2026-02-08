@@ -16,24 +16,28 @@ public class CmptCnstPrntDualGrndDual
   : CmptRefCnstPrntDualGrndDual
   , ICmptCnstPrntDualGrndDual
 {
+  public ICmptCnstPrntDualGrndDualObject AsCnstPrntDualGrndDual { get; set; }
 }
 
 public class CmptRefCnstPrntDualGrndDual<Tref>
   : Cmptref
   , ICmptRefCnstPrntDualGrndDual<Tref>
 {
+  public ICmptRefCnstPrntDualGrndDualObject AsRefCnstPrntDualGrndDual { get; set; }
 }
 
 public class CmptGrndCnstPrntDualGrndDual
   : ICmptGrndCnstPrntDualGrndDual
 {
   public ICmptString AsString { get; set; }
+  public ICmptGrndCnstPrntDualGrndDualObject AsGrndCnstPrntDualGrndDual { get; set; }
 }
 
 public class CmptPrntCnstPrntDualGrndDual
   : CmptGrndCnstPrntDualGrndDual
   , ICmptPrntCnstPrntDualGrndDual
 {
+  public ICmptPrntCnstPrntDualGrndDualObject AsPrntCnstPrntDualGrndDual { get; set; }
 }
 
 public class CmptAltCnstPrntDualGrndDual
@@ -41,4 +45,5 @@ public class CmptAltCnstPrntDualGrndDual
   , ICmptAltCnstPrntDualGrndDual
 {
   public ICmptNumber Alt { get; set; }
+  public ICmptAltCnstPrntDualGrndDualObject AsAltCnstPrntDualGrndDual { get; set; }
 }

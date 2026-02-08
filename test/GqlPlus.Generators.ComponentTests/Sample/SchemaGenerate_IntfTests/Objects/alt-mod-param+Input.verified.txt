@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_alt_mod_param_Input;
 public interface ICmptAltModParamInp<Tmod>
 {
   public IDictionary<Tmod, ICmptAltAltModParamInp> AsAltAltModParamInp { get; set; }
+  public ICmptAltModParamInpObject AsAltModParamInp { get; set; }
 }
 
 public interface ICmptAltModParamInpObject<Tmod>
@@ -21,6 +22,7 @@ public interface ICmptAltModParamInpObject<Tmod>
 public interface ICmptAltAltModParamInp
 {
   public ICmptString AsString { get; set; }
+  public ICmptAltAltModParamInpObject AsAltAltModParamInp { get; set; }
 }
 
 public interface ICmptAltAltModParamInpObject

@@ -9,4 +9,5 @@ public class testObjFieldTypeAliasDual
   : ItestObjFieldTypeAliasDual
 {
   public ItestString Field { get; set; }
+  public ItestObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; set; }
 }

@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_Input;
 
 public interface ItestObjInp
 {
+  public ItestObjInpObject AsObjInp { get; set; }
 }
 
 public interface ItestObjInpObject

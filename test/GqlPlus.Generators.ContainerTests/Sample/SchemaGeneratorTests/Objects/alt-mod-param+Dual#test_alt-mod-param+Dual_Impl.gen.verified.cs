@@ -9,6 +9,7 @@ public class testAltModParamDual<Tmod>
   : ItestAltModParamDual<Tmod>
 {
   public IDictionary<Tmod, ItestAltAltModParamDual> AsAltAltModParamDual { get; set; }
+  public ItestAltModParamDualObject AsAltModParamDual { get; set; }
 }
 
 public class testAltAltModParamDual
@@ -16,4 +17,5 @@ public class testAltAltModParamDual
 {
   public ItestNumber Alt { get; set; }
   public ItestString AsString { get; set; }
+  public ItestAltAltModParamDualObject AsAltAltModParamDual { get; set; }
 }

@@ -9,4 +9,5 @@ public class testAltEnumInp
   : ItestAltEnumInp
 {
   public ItestEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
+  public ItestAltEnumInpObject AsAltEnumInp { get; set; }
 }

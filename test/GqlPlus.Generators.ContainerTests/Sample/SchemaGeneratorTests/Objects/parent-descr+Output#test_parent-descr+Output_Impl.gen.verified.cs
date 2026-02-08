@@ -9,6 +9,7 @@ public class testPrntDescrOutp
   : testRefPrntDescrOutp
   , ItestPrntDescrOutp
 {
+  public ItestPrntDescrOutpObject AsPrntDescrOutp { get; set; }
 }
 
 public class testRefPrntDescrOutp
@@ -16,4 +17,5 @@ public class testRefPrntDescrOutp
 {
   public ItestNumber Parent { get; set; }
   public ItestString AsString { get; set; }
+  public ItestRefPrntDescrOutpObject AsRefPrntDescrOutp { get; set; }
 }

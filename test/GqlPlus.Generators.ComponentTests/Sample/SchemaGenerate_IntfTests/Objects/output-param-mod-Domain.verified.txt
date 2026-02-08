@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_output_param_mod_Domain;
 
 public interface ICmptOutpParamModDmn
 {
+  public ICmptOutpParamModDmnObject AsOutpParamModDmn { get; set; }
 }
 
 public interface ICmptOutpParamModDmnObject
@@ -22,6 +23,7 @@ public interface ICmptOutpParamModDmnObject
 public interface ICmptInOutpParamModDmn
 {
   public ICmptString AsString { get; set; }
+  public ICmptInOutpParamModDmnObject AsInOutpParamModDmn { get; set; }
 }
 
 public interface ICmptInOutpParamModDmnObject

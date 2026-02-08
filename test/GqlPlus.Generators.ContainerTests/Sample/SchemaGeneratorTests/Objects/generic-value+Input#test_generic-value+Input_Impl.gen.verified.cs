@@ -9,10 +9,12 @@ public class testGnrcValueInp
   : ItestGnrcValueInp
 {
   public ItestRefGnrcValueInp<ItestEnumGnrcValueInp> AsRefGnrcValueInp { get; set; }
+  public ItestGnrcValueInpObject AsGnrcValueInp { get; set; }
 }
 
 public class testRefGnrcValueInp<Ttype>
   : ItestRefGnrcValueInp<Ttype>
 {
   public Ttype Field { get; set; }
+  public ItestRefGnrcValueInpObject AsRefGnrcValueInp { get; set; }
 }

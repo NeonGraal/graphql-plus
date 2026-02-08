@@ -12,4 +12,5 @@ public class CmptInpFieldDescrNmbr
   : ICmptInpFieldDescrNmbr
 {
   public ICmptNumber Field { get; set; }
+  public ICmptInpFieldDescrNmbrObject AsInpFieldDescrNmbr { get; set; }
 }

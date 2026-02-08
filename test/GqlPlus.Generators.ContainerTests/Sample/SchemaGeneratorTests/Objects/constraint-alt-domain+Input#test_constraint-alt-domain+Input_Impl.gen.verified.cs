@@ -9,12 +9,14 @@ public class testCnstAltDmnInp
   : ItestCnstAltDmnInp
 {
   public ItestRefCnstAltDmnInp<ItestDomCnstAltDmnInp> AsRefCnstAltDmnInp { get; set; }
+  public ItestCnstAltDmnInpObject AsCnstAltDmnInp { get; set; }
 }
 
 public class testRefCnstAltDmnInp<Tref>
   : ItestRefCnstAltDmnInp<Tref>
 {
   public Tref Asref { get; set; }
+  public ItestRefCnstAltDmnInpObject AsRefCnstAltDmnInp { get; set; }
 }
 
 public class testDomCnstAltDmnInp

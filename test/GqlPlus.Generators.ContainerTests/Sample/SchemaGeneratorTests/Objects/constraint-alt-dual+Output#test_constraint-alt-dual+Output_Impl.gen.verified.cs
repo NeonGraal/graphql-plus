@@ -9,18 +9,21 @@ public class testCnstAltDualOutp
   : ItestCnstAltDualOutp
 {
   public ItestRefCnstAltDualOutp<ItestAltCnstAltDualOutp> AsRefCnstAltDualOutp { get; set; }
+  public ItestCnstAltDualOutpObject AsCnstAltDualOutp { get; set; }
 }
 
 public class testRefCnstAltDualOutp<Tref>
   : ItestRefCnstAltDualOutp<Tref>
 {
   public Tref Asref { get; set; }
+  public ItestRefCnstAltDualOutpObject AsRefCnstAltDualOutp { get; set; }
 }
 
 public class testPrntCnstAltDualOutp
   : ItestPrntCnstAltDualOutp
 {
   public ItestString AsString { get; set; }
+  public ItestPrntCnstAltDualOutpObject AsPrntCnstAltDualOutp { get; set; }
 }
 
 public class testAltCnstAltDualOutp
@@ -28,4 +31,5 @@ public class testAltCnstAltDualOutp
   , ItestAltCnstAltDualOutp
 {
   public ItestNumber Alt { get; set; }
+  public ItestAltCnstAltDualOutpObject AsAltCnstAltDualOutp { get; set; }
 }

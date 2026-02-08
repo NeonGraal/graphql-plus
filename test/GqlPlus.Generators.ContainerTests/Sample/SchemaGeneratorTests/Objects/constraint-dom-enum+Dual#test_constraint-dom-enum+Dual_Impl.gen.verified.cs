@@ -9,12 +9,14 @@ public class testCnstDomEnumDual
   : ItestCnstDomEnumDual
 {
   public ItestRefCnstDomEnumDual<ItestEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
+  public ItestCnstDomEnumDualObject AsCnstDomEnumDual { get; set; }
 }
 
 public class testRefCnstDomEnumDual<Ttype>
   : ItestRefCnstDomEnumDual<Ttype>
 {
   public Ttype Field { get; set; }
+  public ItestRefCnstDomEnumDualObject AsRefCnstDomEnumDual { get; set; }
 }
 
 public class testJustCnstDomEnumDual

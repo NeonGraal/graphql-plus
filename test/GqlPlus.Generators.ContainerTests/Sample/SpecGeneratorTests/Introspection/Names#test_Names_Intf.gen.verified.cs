@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Names;
 public interface Itest_Aliased
   : Itest_Named
 {
+  public Itest_AliasedObject As_Aliased { get; set; }
 }
 
 public interface Itest_AliasedObject
@@ -19,6 +20,7 @@ public interface Itest_AliasedObject
 public interface Itest_Named
   : Itest_Described
 {
+  public Itest_NamedObject As_Named { get; set; }
 }
 
 public interface Itest_NamedObject
@@ -29,6 +31,7 @@ public interface Itest_NamedObject
 
 public interface Itest_Described
 {
+  public Itest_DescribedObject As_Described { get; set; }
 }
 
 public interface Itest_DescribedObject
@@ -40,6 +43,7 @@ public interface Itest_AndType
   : Itest_Named
 {
   public Itest_Type As_Type { get; set; }
+  public Itest_AndTypeObject As_AndType { get; set; }
 }
 
 public interface Itest_AndTypeObject

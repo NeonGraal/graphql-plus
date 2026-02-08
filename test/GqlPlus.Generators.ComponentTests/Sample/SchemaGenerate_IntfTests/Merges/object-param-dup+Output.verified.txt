@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_object_param_dup_Output;
 
 public interface ICmptObjParamDupOutp<Ttest>
 {
+  public ICmptObjParamDupOutpObject AsObjParamDupOutp { get; set; }
 }
 
 public interface ICmptObjParamDupOutpObject<Ttest>

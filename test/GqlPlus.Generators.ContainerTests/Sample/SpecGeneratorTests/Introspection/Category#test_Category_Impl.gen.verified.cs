@@ -11,6 +11,7 @@ public class test_Categories
 {
   public Itest_Category Category { get; set; }
   public Itest_Category As_Category { get; set; }
+  public Itest_CategoriesObject As_Categories { get; set; }
 }
 
 public class test_Category
@@ -20,4 +21,5 @@ public class test_Category
   public Itest_Resolution Resolution { get; set; }
   public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  public Itest_CategoryObject As_Category { get; set; }
 }

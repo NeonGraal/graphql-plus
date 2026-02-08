@@ -9,10 +9,12 @@ public class testGnrcFieldArgOutp<Ttype>
   : ItestGnrcFieldArgOutp<Ttype>
 {
   public ItestRefGnrcFieldArgOutp<Ttype> Field { get; set; }
+  public ItestGnrcFieldArgOutpObject AsGnrcFieldArgOutp { get; set; }
 }
 
 public class testRefGnrcFieldArgOutp<Tref>
   : ItestRefGnrcFieldArgOutp<Tref>
 {
   public Tref Asref { get; set; }
+  public ItestRefGnrcFieldArgOutpObject AsRefGnrcFieldArgOutp { get; set; }
 }

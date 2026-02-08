@@ -9,6 +9,7 @@ public class testAltDualOutp
   : ItestAltDualOutp
 {
   public ItestObjDualAltDualOutp AsObjDualAltDualOutp { get; set; }
+  public ItestAltDualOutpObject AsAltDualOutp { get; set; }
 }
 
 public class testObjDualAltDualOutp
@@ -16,4 +17,5 @@ public class testObjDualAltDualOutp
 {
   public ItestNumber Alt { get; set; }
   public ItestString AsString { get; set; }
+  public ItestObjDualAltDualOutpObject AsObjDualAltDualOutp { get; set; }
 }

@@ -19,6 +19,7 @@ public class test_Type
   public Itest_TypeObject<Itest_TypeKind, Itest_DualField> As_TypeObject { get; set; }
   public Itest_TypeObject<Itest_TypeKind, Itest_InputField> As_TypeObject { get; set; }
   public Itest_TypeObject<Itest_TypeKind, Itest_OutputField> As_TypeObject { get; set; }
+  public Itest_TypeObject As_Type { get; set; }
 }
 
 public class test_BaseType<Tkind>
@@ -26,6 +27,7 @@ public class test_BaseType<Tkind>
   , Itest_BaseType<Tkind>
 {
   public Tkind TypeKind { get; set; }
+  public Itest_BaseTypeObject As_BaseType { get; set; }
 }
 
 public class test_ChildType<Tkind,Tparent>
@@ -33,6 +35,7 @@ public class test_ChildType<Tkind,Tparent>
   , Itest_ChildType<Tkind,Tparent>
 {
   public Tparent Parent { get; set; }
+  public Itest_ChildTypeObject As_ChildType { get; set; }
 }
 
 public class test_ParentType<Tkind,Titem,TallItem>
@@ -41,6 +44,7 @@ public class test_ParentType<Tkind,Titem,TallItem>
 {
   public ICollection<Titem> Items { get; set; }
   public ICollection<TallItem> AllItems { get; set; }
+  public Itest_ParentTypeObject As_ParentType { get; set; }
 }
 
 public class test_TypeRef<Tkind>
@@ -48,6 +52,7 @@ public class test_TypeRef<Tkind>
   , Itest_TypeRef<Tkind>
 {
   public Tkind TypeKind { get; set; }
+  public Itest_TypeRefObject As_TypeRef { get; set; }
 }
 
 public class test_TypeSimple
@@ -57,4 +62,5 @@ public class test_TypeSimple
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeSimpleObject As_TypeSimple { get; set; }
 }

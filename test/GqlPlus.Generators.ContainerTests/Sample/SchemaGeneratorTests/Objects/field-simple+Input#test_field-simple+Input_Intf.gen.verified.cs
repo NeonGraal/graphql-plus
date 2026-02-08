@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Input;
 
 public interface ItestFieldSmplInp
 {
+  public ItestFieldSmplInpObject AsFieldSmplInp { get; set; }
 }
 
 public interface ItestFieldSmplInpObject

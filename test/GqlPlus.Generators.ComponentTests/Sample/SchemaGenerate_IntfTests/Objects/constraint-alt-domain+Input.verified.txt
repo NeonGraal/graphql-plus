@@ -13,6 +13,7 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
 public interface ICmptCnstAltDmnInp
 {
   public ICmptRefCnstAltDmnInp<ICmptDomCnstAltDmnInp> AsRefCnstAltDmnInp { get; set; }
+  public ICmptCnstAltDmnInpObject AsCnstAltDmnInp { get; set; }
 }
 
 public interface ICmptCnstAltDmnInpObject
@@ -22,6 +23,7 @@ public interface ICmptCnstAltDmnInpObject
 public interface ICmptRefCnstAltDmnInp<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefCnstAltDmnInpObject AsRefCnstAltDmnInp { get; set; }
 }
 
 public interface ICmptRefCnstAltDmnInpObject<Tref>

@@ -10,6 +10,7 @@ public class test_EnumLabel
   , Itest_EnumLabel
 {
   public Itest_Name Enum { get; set; }
+  public Itest_EnumLabelObject As_EnumLabel { get; set; }
 }
 
 public class test_EnumValue
@@ -17,4 +18,5 @@ public class test_EnumValue
   , Itest_EnumValue
 {
   public Itest_Name Label { get; set; }
+  public Itest_EnumValueObject As_EnumValue { get; set; }
 }

@@ -25,6 +25,7 @@ public interface ICmpt_Categories
   : ICmpt_AndType
 {
   public ICmpt_Category As_Category { get; set; }
+  public ICmpt_CategoriesObject As_Categories { get; set; }
 }
 
 public interface ICmpt_CategoriesObject
@@ -36,6 +37,7 @@ public interface ICmpt_CategoriesObject
 public interface ICmpt_Category
   : ICmpt_Aliased
 {
+  public ICmpt_CategoryObject As_Category { get; set; }
 }
 
 public interface ICmpt_CategoryObject

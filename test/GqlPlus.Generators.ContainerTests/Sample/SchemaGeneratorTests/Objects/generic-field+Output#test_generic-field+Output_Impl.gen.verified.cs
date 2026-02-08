@@ -9,4 +9,5 @@ public class testGnrcFieldOutp<Ttype>
   : ItestGnrcFieldOutp<Ttype>
 {
   public Ttype Field { get; set; }
+  public ItestGnrcFieldOutpObject AsGnrcFieldOutp { get; set; }
 }

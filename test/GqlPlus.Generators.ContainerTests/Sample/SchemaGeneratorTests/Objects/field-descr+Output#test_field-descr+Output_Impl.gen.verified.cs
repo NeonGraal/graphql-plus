@@ -9,4 +9,5 @@ public class testFieldDescrOutp
   : ItestFieldDescrOutp
 {
   public ItestString Field { get; set; }
+  public ItestFieldDescrOutpObject AsFieldDescrOutp { get; set; }
 }

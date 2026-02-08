@@ -14,10 +14,12 @@ public class CmptPrntParamDiffOutp<Ta>
   , ICmptPrntParamDiffOutp<Ta>
 {
   public Ta Field { get; set; }
+  public ICmptPrntParamDiffOutpObject AsPrntParamDiffOutp { get; set; }
 }
 
 public class CmptRefPrntParamDiffOutp<Tb>
   : ICmptRefPrntParamDiffOutp<Tb>
 {
   public Tb Asb { get; set; }
+  public ICmptRefPrntParamDiffOutpObject AsRefPrntParamDiffOutp { get; set; }
 }

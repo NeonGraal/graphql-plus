@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Dual;
 public interface ItestAltDescrDual
 {
   public ItestString AsString { get; set; }
+  public ItestAltDescrDualObject AsAltDescrDual { get; set; }
 }
 
 public interface ItestAltDescrDualObject

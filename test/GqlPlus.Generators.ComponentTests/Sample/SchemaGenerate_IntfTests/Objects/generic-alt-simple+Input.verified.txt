@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_generic_alt_simple_Input;
 public interface ICmptGnrcAltSmplInp
 {
   public ICmptRefGnrcAltSmplInp<ICmptString> AsRefGnrcAltSmplInp { get; set; }
+  public ICmptGnrcAltSmplInpObject AsGnrcAltSmplInp { get; set; }
 }
 
 public interface ICmptGnrcAltSmplInpObject
@@ -21,6 +22,7 @@ public interface ICmptGnrcAltSmplInpObject
 public interface ICmptRefGnrcAltSmplInp<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcAltSmplInpObject AsRefGnrcAltSmplInp { get; set; }
 }
 
 public interface ICmptRefGnrcAltSmplInpObject<Tref>

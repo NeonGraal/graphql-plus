@@ -10,10 +10,12 @@ public class testPrntParamSameDual<Ta>
   , ItestPrntParamSameDual<Ta>
 {
   public Ta Field { get; set; }
+  public ItestPrntParamSameDualObject AsPrntParamSameDual { get; set; }
 }
 
 public class testRefPrntParamSameDual<Ta>
   : ItestRefPrntParamSameDual<Ta>
 {
   public Ta Asa { get; set; }
+  public ItestRefPrntParamSameDualObject AsRefPrntParamSameDual { get; set; }
 }

@@ -9,6 +9,7 @@ public interface Itest_Categories
   : Itest_AndType
 {
   public Itest_Category As_Category { get; set; }
+  public Itest_CategoriesObject As_Categories { get; set; }
 }
 
 public interface Itest_CategoriesObject
@@ -20,6 +21,7 @@ public interface Itest_CategoriesObject
 public interface Itest_Category
   : Itest_Aliased
 {
+  public Itest_CategoryObject As_Category { get; set; }
 }
 
 public interface Itest_CategoryObject

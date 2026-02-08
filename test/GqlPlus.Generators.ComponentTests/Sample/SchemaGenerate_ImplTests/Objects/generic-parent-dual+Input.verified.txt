@@ -14,12 +14,14 @@ public class CmptGnrcPrntDualInp
   : CmptRefGnrcPrntDualInp
   , ICmptGnrcPrntDualInp
 {
+  public ICmptGnrcPrntDualInpObject AsGnrcPrntDualInp { get; set; }
 }
 
 public class CmptRefGnrcPrntDualInp<Tref>
   : ICmptRefGnrcPrntDualInp<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcPrntDualInpObject AsRefGnrcPrntDualInp { get; set; }
 }
 
 public class CmptAltGnrcPrntDualInp
@@ -27,4 +29,5 @@ public class CmptAltGnrcPrntDualInp
 {
   public ICmptNumber Alt { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptAltGnrcPrntDualInpObject AsAltGnrcPrntDualInp { get; set; }
 }

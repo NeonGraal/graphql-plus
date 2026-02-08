@@ -14,6 +14,7 @@ namespace Components.Gqlp_Schema_constraint_alt_obj_Dual;
 public interface ICmptCnstAltObjDual
 {
   public ICmptRefCnstAltObjDual<ICmptAltCnstAltObjDual> AsRefCnstAltObjDual { get; set; }
+  public ICmptCnstAltObjDualObject AsCnstAltObjDual { get; set; }
 }
 
 public interface ICmptCnstAltObjDualObject
@@ -23,6 +24,7 @@ public interface ICmptCnstAltObjDualObject
 public interface ICmptRefCnstAltObjDual<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefCnstAltObjDualObject AsRefCnstAltObjDual { get; set; }
 }
 
 public interface ICmptRefCnstAltObjDualObject<Tref>
@@ -32,6 +34,7 @@ public interface ICmptRefCnstAltObjDualObject<Tref>
 public interface ICmptPrntCnstAltObjDual
 {
   public ICmptString AsString { get; set; }
+  public ICmptPrntCnstAltObjDualObject AsPrntCnstAltObjDual { get; set; }
 }
 
 public interface ICmptPrntCnstAltObjDualObject
@@ -41,6 +44,7 @@ public interface ICmptPrntCnstAltObjDualObject
 public interface ICmptAltCnstAltObjDual
   : ICmptPrntCnstAltObjDual
 {
+  public ICmptAltCnstAltObjDualObject AsAltCnstAltObjDual { get; set; }
 }
 
 public interface ICmptAltCnstAltObjDualObject

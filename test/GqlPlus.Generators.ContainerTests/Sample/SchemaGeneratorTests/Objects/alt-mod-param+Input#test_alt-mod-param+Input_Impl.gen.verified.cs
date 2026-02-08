@@ -9,6 +9,7 @@ public class testAltModParamInp<Tmod>
   : ItestAltModParamInp<Tmod>
 {
   public IDictionary<Tmod, ItestAltAltModParamInp> AsAltAltModParamInp { get; set; }
+  public ItestAltModParamInpObject AsAltModParamInp { get; set; }
 }
 
 public class testAltAltModParamInp
@@ -16,4 +17,5 @@ public class testAltAltModParamInp
 {
   public ItestNumber Alt { get; set; }
   public ItestString AsString { get; set; }
+  public ItestAltAltModParamInpObject AsAltAltModParamInp { get; set; }
 }

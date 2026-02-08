@@ -13,6 +13,7 @@ public class CmptFieldDualOutp
   : ICmptFieldDualOutp
 {
   public ICmptFldFieldDualOutp Field { get; set; }
+  public ICmptFieldDualOutpObject AsFieldDualOutp { get; set; }
 }
 
 public class CmptFldFieldDualOutp
@@ -20,4 +21,5 @@ public class CmptFldFieldDualOutp
 {
   public ICmptNumber Field { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptFldFieldDualOutpObject AsFldFieldDualOutp { get; set; }
 }

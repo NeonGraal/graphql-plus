@@ -116,6 +116,7 @@ public class Cmpt_TypeObject<Tkind,Tfield>
   public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
   public ICollection<ICmpt_ObjectFor<Tfield>> AllFields { get; set; }
   public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
+  public ICmpt_TypeObjectObject As_TypeObject { get; set; }
 }
 
 public class Cmpt_ObjTypeParam
@@ -123,6 +124,7 @@ public class Cmpt_ObjTypeParam
   , ICmpt_ObjTypeParam
 {
   public ICmpt_TypeRef<ICmpt_TypeKind> Constraint { get; set; }
+  public ICmpt_ObjTypeParamObject As_ObjTypeParam { get; set; }
 }
 
 public class Cmpt_ObjBase
@@ -131,6 +133,7 @@ public class Cmpt_ObjBase
 {
   public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
   public ICmpt_TypeParam As_TypeParam { get; set; }
+  public ICmpt_ObjBaseObject As_ObjBase { get; set; }
 }
 
 public class Cmpt_ObjTypeArg
@@ -139,6 +142,7 @@ public class Cmpt_ObjTypeArg
 {
   public ICmpt_Name? Label { get; set; }
   public ICmpt_TypeParam As_TypeParam { get; set; }
+  public ICmpt_ObjTypeArgObject As_ObjTypeArg { get; set; }
 }
 
 public class Cmpt_TypeParam
@@ -146,6 +150,7 @@ public class Cmpt_TypeParam
   , ICmpt_TypeParam
 {
   public ICmpt_Name TypeParam { get; set; }
+  public ICmpt_TypeParamObject As_TypeParam { get; set; }
 }
 
 public class Cmpt_ObjAlternate
@@ -154,6 +159,7 @@ public class Cmpt_ObjAlternate
   public ICmpt_ObjBase Type { get; set; }
   public ICollection<ICmpt_Collections> Collections { get; set; }
   public ICmpt_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
+  public ICmpt_ObjAlternateObject As_ObjAlternate { get; set; }
 }
 
 public class Cmpt_ObjAlternateEnum
@@ -161,6 +167,7 @@ public class Cmpt_ObjAlternateEnum
   , ICmpt_ObjAlternateEnum
 {
   public ICmpt_Name Label { get; set; }
+  public ICmpt_ObjAlternateEnumObject As_ObjAlternateEnum { get; set; }
 }
 
 public class Cmpt_ObjectFor<Tfor>
@@ -168,6 +175,7 @@ public class Cmpt_ObjectFor<Tfor>
   , ICmpt_ObjectFor<Tfor>
 {
   public ICmpt_Name Object { get; set; }
+  public ICmpt_ObjectForObject As_ObjectFor { get; set; }
 }
 
 public class Cmpt_ObjField<Ttype>
@@ -175,6 +183,7 @@ public class Cmpt_ObjField<Ttype>
   , ICmpt_ObjField<Ttype>
 {
   public Ttype Type { get; set; }
+  public ICmpt_ObjFieldObject As_ObjField { get; set; }
 }
 
 public class Cmpt_ObjFieldType
@@ -183,6 +192,7 @@ public class Cmpt_ObjFieldType
 {
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
   public ICmpt_ObjFieldEnum As_ObjFieldEnum { get; set; }
+  public ICmpt_ObjFieldTypeObject As_ObjFieldType { get; set; }
 }
 
 public class Cmpt_ObjFieldEnum
@@ -190,6 +200,7 @@ public class Cmpt_ObjFieldEnum
   , ICmpt_ObjFieldEnum
 {
   public ICmpt_Name Label { get; set; }
+  public ICmpt_ObjFieldEnumObject As_ObjFieldEnum { get; set; }
 }
 
 public class Cmpt_ForParam<Ttype>
@@ -197,18 +208,21 @@ public class Cmpt_ForParam<Ttype>
 {
   public ICmpt_ObjAlternate As_ObjAlternate { get; set; }
   public ICmpt_ObjField<Ttype> As_ObjField { get; set; }
+  public ICmpt_ForParamObject As_ForParam { get; set; }
 }
 
 public class Cmpt_DualField
   : Cmpt_ObjField
   , ICmpt_DualField
 {
+  public ICmpt_DualFieldObject As_DualField { get; set; }
 }
 
 public class Cmpt_InputField
   : Cmpt_ObjField
   , ICmpt_InputField
 {
+  public ICmpt_InputFieldObject As_InputField { get; set; }
 }
 
 public class Cmpt_InputFieldType
@@ -216,18 +230,21 @@ public class Cmpt_InputFieldType
   , ICmpt_InputFieldType
 {
   public ICmpt_Value? Default { get; set; }
+  public ICmpt_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 
 public class Cmpt_InputParam
   : Cmpt_InputFieldType
   , ICmpt_InputParam
 {
+  public ICmpt_InputParamObject As_InputParam { get; set; }
 }
 
 public class Cmpt_OutputField
   : Cmpt_ObjField
   , ICmpt_OutputField
 {
+  public ICmpt_OutputFieldObject As_OutputField { get; set; }
 }
 
 public class Cmpt_OutputFieldType
@@ -235,4 +252,5 @@ public class Cmpt_OutputFieldType
   , ICmpt_OutputFieldType
 {
   public ICollection<ICmpt_InputParam> Parameters { get; set; }
+  public ICmpt_OutputFieldTypeObject As_OutputFieldType { get; set; }
 }

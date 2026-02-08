@@ -10,6 +10,7 @@ namespace Components.Gqlp_Schema_field_simple_Output;
 
 public interface ICmptFieldSmplOutp
 {
+  public ICmptFieldSmplOutpObject AsFieldSmplOutp { get; set; }
 }
 
 public interface ICmptFieldSmplOutpObject

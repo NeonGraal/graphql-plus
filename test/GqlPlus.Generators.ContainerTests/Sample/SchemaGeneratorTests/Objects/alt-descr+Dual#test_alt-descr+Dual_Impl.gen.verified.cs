@@ -9,4 +9,5 @@ public class testAltDescrDual
   : ItestAltDescrDual
 {
   public ItestString AsString { get; set; }
+  public ItestAltDescrDualObject AsAltDescrDual { get; set; }
 }

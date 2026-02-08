@@ -25,6 +25,7 @@ public interface ICmpt_Directives
   : ICmpt_AndType
 {
   public ICmpt_Directive As_Directive { get; set; }
+  public ICmpt_DirectivesObject As_Directives { get; set; }
 }
 
 public interface ICmpt_DirectivesObject
@@ -36,6 +37,7 @@ public interface ICmpt_DirectivesObject
 public interface ICmpt_Directive
   : ICmpt_Aliased
 {
+  public ICmpt_DirectiveObject As_Directive { get; set; }
 }
 
 public interface ICmpt_DirectiveObject

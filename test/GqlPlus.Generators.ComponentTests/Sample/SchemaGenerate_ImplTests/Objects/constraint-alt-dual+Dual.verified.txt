@@ -15,18 +15,21 @@ public class CmptCnstAltDualDual
   : ICmptCnstAltDualDual
 {
   public ICmptRefCnstAltDualDual<ICmptAltCnstAltDualDual> AsRefCnstAltDualDual { get; set; }
+  public ICmptCnstAltDualDualObject AsCnstAltDualDual { get; set; }
 }
 
 public class CmptRefCnstAltDualDual<Tref>
   : ICmptRefCnstAltDualDual<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefCnstAltDualDualObject AsRefCnstAltDualDual { get; set; }
 }
 
 public class CmptPrntCnstAltDualDual
   : ICmptPrntCnstAltDualDual
 {
   public ICmptString AsString { get; set; }
+  public ICmptPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; set; }
 }
 
 public class CmptAltCnstAltDualDual
@@ -34,4 +37,5 @@ public class CmptAltCnstAltDualDual
   , ICmptAltCnstAltDualDual
 {
   public ICmptNumber Alt { get; set; }
+  public ICmptAltCnstAltDualDualObject AsAltCnstAltDualDual { get; set; }
 }

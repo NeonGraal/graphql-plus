@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_Input;
 public interface ItestGnrcPrntInp<Ttype>
   : Itesttype
 {
+  public ItestGnrcPrntInpObject AsGnrcPrntInp { get; set; }
 }
 
 public interface ItestGnrcPrntInpObject<Ttype>

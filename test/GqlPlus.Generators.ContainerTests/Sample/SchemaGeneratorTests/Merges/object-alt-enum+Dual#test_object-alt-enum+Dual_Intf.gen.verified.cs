@@ -9,6 +9,7 @@ public interface ItestObjAltEnumDual
 {
   public ItestBoolean AsBooleantrue { get; set; }
   public ItestBoolean AsBooleanfalse { get; set; }
+  public ItestObjAltEnumDualObject AsObjAltEnumDual { get; set; }
 }
 
 public interface ItestObjAltEnumDualObject

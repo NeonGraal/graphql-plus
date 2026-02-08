@@ -13,6 +13,7 @@ namespace Components.Gqlp_Spec_Dual;
 public interface ICmpt_DualField
   : ICmpt_ObjField
 {
+  public ICmpt_DualFieldObject As_DualField { get; set; }
 }
 
 public interface ICmpt_DualFieldObject

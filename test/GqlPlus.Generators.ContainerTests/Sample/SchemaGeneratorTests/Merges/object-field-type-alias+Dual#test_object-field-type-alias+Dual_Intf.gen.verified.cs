@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_type_alias_Dual;
 
 public interface ItestObjFieldTypeAliasDual
 {
+  public ItestObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; set; }
 }
 
 public interface ItestObjFieldTypeAliasDualObject

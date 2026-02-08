@@ -13,6 +13,7 @@ namespace Components.Gqlp_Schema_object_parent_Dual;
 public interface ICmptObjPrntDual
   : ICmptRefObjPrntDual
 {
+  public ICmptObjPrntDualObject AsObjPrntDual { get; set; }
 }
 
 public interface ICmptObjPrntDualObject
@@ -22,6 +23,7 @@ public interface ICmptObjPrntDualObject
 
 public interface ICmptRefObjPrntDual
 {
+  public ICmptRefObjPrntDualObject AsRefObjPrntDual { get; set; }
 }
 
 public interface ICmptRefObjPrntDualObject

@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_simple_enum_Dual;
 public interface ItestGnrcPrntSmplEnumDual
   : ItestFieldGnrcPrntSmplEnumDual
 {
+  public ItestGnrcPrntSmplEnumDualObject AsGnrcPrntSmplEnumDual { get; set; }
 }
 
 public interface ItestGnrcPrntSmplEnumDualObject
@@ -17,6 +18,7 @@ public interface ItestGnrcPrntSmplEnumDualObject
 
 public interface ItestFieldGnrcPrntSmplEnumDual<Tref>
 {
+  public ItestFieldGnrcPrntSmplEnumDualObject AsFieldGnrcPrntSmplEnumDual { get; set; }
 }
 
 public interface ItestFieldGnrcPrntSmplEnumDualObject<Tref>

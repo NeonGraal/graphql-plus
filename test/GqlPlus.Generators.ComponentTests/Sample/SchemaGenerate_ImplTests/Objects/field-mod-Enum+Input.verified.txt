@@ -13,4 +13,5 @@ public class CmptFieldModEnumInp
   : ICmptFieldModEnumInp
 {
   public IDictionary<CmptEnumFieldModEnumInp, ICmptString> Field { get; set; }
+  public ICmptFieldModEnumInpObject AsFieldModEnumInp { get; set; }
 }

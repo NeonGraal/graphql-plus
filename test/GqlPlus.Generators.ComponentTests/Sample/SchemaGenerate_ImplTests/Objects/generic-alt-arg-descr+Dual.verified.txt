@@ -13,10 +13,12 @@ public class CmptGnrcAltArgDescrDual<Ttype>
   : ICmptGnrcAltArgDescrDual<Ttype>
 {
   public ICmptRefGnrcAltArgDescrDual<Ttype> AsRefGnrcAltArgDescrDual { get; set; }
+  public ICmptGnrcAltArgDescrDualObject AsGnrcAltArgDescrDual { get; set; }
 }
 
 public class CmptRefGnrcAltArgDescrDual<Tref>
   : ICmptRefGnrcAltArgDescrDual<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcAltArgDescrDualObject AsRefGnrcAltArgDescrDual { get; set; }
 }

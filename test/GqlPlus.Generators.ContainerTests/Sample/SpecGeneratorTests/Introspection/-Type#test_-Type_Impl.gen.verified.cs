@@ -19,6 +19,7 @@ public class test_Type
   public Itest_TypeObject<Itest_TypeKind, Itest_DualField> As_TypeObject { get; set; }
   public Itest_TypeObject<Itest_TypeKind, Itest_InputField> As_TypeObject { get; set; }
   public Itest_TypeObject<Itest_TypeKind, Itest_OutputField> As_TypeObject { get; set; }
+  public Itest_TypeObject As_Type { get; set; }
 }
 
 public class test_BaseType<Tkind>
@@ -26,6 +27,7 @@ public class test_BaseType<Tkind>
   , Itest_BaseType<Tkind>
 {
   public Tkind TypeKind { get; set; }
+  public Itest_BaseTypeObject As_BaseType { get; set; }
 }
 
 public class test_ChildType<Tkind,Tparent>
@@ -33,6 +35,7 @@ public class test_ChildType<Tkind,Tparent>
   , Itest_ChildType<Tkind,Tparent>
 {
   public Tparent Parent { get; set; }
+  public Itest_ChildTypeObject As_ChildType { get; set; }
 }
 
 public class test_ParentType<Tkind,Titem,TallItem>
@@ -41,6 +44,7 @@ public class test_ParentType<Tkind,Titem,TallItem>
 {
   public ICollection<Titem> Items { get; set; }
   public ICollection<TallItem> AllItems { get; set; }
+  public Itest_ParentTypeObject As_ParentType { get; set; }
 }
 
 public class test_TypeRef<Tkind>
@@ -48,6 +52,7 @@ public class test_TypeRef<Tkind>
   , Itest_TypeRef<Tkind>
 {
   public Tkind TypeKind { get; set; }
+  public Itest_TypeRefObject As_TypeRef { get; set; }
 }
 
 public class test_TypeSimple
@@ -57,6 +62,7 @@ public class test_TypeSimple
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeSimpleObject As_TypeSimple { get; set; }
 }
 
 public class test_Collections
@@ -65,6 +71,7 @@ public class test_Collections
   public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
   public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
   public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
+  public Itest_CollectionsObject As_Collections { get; set; }
 }
 
 public class test_ModifierKeyed<Tkind>
@@ -73,6 +80,7 @@ public class test_ModifierKeyed<Tkind>
 {
   public Itest_TypeSimple By { get; set; }
   public ItestBoolean Optional { get; set; }
+  public Itest_ModifierKeyedObject As_ModifierKeyed { get; set; }
 }
 
 public class test_Modifiers
@@ -80,10 +88,12 @@ public class test_Modifiers
 {
   public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
   public Itest_Collections As_Collections { get; set; }
+  public Itest_ModifiersObject As_Modifiers { get; set; }
 }
 
 public class test_Modifier<Tkind>
   : Itest_Modifier<Tkind>
 {
   public Tkind ModifierKind { get; set; }
+  public Itest_ModifierObject As_Modifier { get; set; }
 }

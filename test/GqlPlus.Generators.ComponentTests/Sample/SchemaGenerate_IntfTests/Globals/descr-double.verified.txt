@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_descr_double;
 
 public interface ICmptDescrDbl
 {
+  public ICmptDescrDblObject AsDescrDbl { get; set; }
 }
 
 public interface ICmptDescrDblObject

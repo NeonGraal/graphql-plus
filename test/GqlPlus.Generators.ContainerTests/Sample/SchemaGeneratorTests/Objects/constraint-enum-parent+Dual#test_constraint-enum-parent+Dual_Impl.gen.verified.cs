@@ -9,10 +9,12 @@ public class testCnstEnumPrntDual
   : ItestCnstEnumPrntDual
 {
   public ItestRefCnstEnumPrntDual<ItestEnumCnstEnumPrntDual> AsRefCnstEnumPrntDual { get; set; }
+  public ItestCnstEnumPrntDualObject AsCnstEnumPrntDual { get; set; }
 }
 
 public class testRefCnstEnumPrntDual<Ttype>
   : ItestRefCnstEnumPrntDual<Ttype>
 {
   public Ttype Field { get; set; }
+  public ItestRefCnstEnumPrntDualObject AsRefCnstEnumPrntDual { get; set; }
 }

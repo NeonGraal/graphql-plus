@@ -13,6 +13,7 @@ public class CmptAltModParamInp<Tmod>
   : ICmptAltModParamInp<Tmod>
 {
   public IDictionary<Tmod, ICmptAltAltModParamInp> AsAltAltModParamInp { get; set; }
+  public ICmptAltModParamInpObject AsAltModParamInp { get; set; }
 }
 
 public class CmptAltAltModParamInp
@@ -20,4 +21,5 @@ public class CmptAltAltModParamInp
 {
   public ICmptNumber Alt { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptAltAltModParamInpObject AsAltAltModParamInp { get; set; }
 }

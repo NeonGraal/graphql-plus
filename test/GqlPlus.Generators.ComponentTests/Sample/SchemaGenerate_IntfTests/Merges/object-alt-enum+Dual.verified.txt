@@ -13,6 +13,7 @@ public interface ICmptObjAltEnumDual
 {
   public ICmptBoolean AsBooleantrue { get; set; }
   public ICmptBoolean AsBooleanfalse { get; set; }
+  public ICmptObjAltEnumDualObject AsObjAltEnumDual { get; set; }
 }
 
 public interface ICmptObjAltEnumDualObject

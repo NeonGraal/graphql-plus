@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_parent_param_diff_Input;
 public interface ICmptPrntParamDiffInp<Ta>
   : ICmptRefPrntParamDiffInp
 {
+  public ICmptPrntParamDiffInpObject AsPrntParamDiffInp { get; set; }
 }
 
 public interface ICmptPrntParamDiffInpObject<Ta>
@@ -23,6 +24,7 @@ public interface ICmptPrntParamDiffInpObject<Ta>
 public interface ICmptRefPrntParamDiffInp<Tb>
 {
   public Tb Asb { get; set; }
+  public ICmptRefPrntParamDiffInpObject AsRefPrntParamDiffInp { get; set; }
 }
 
 public interface ICmptRefPrntParamDiffInpObject<Tb>

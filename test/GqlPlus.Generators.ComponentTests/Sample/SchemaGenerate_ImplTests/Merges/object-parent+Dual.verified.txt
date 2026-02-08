@@ -14,9 +14,11 @@ public class CmptObjPrntDual
   : CmptRefObjPrntDual
   , ICmptObjPrntDual
 {
+  public ICmptObjPrntDualObject AsObjPrntDual { get; set; }
 }
 
 public class CmptRefObjPrntDual
   : ICmptRefObjPrntDual
 {
+  public ICmptRefObjPrntDualObject AsRefObjPrntDual { get; set; }
 }

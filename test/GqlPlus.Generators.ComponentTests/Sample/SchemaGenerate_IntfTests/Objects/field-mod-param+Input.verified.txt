@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_field_mod_param_Input;
 
 public interface ICmptFieldModParamInp<Tmod>
 {
+  public ICmptFieldModParamInpObject AsFieldModParamInp { get; set; }
 }
 
 public interface ICmptFieldModParamInpObject<Tmod>
@@ -21,6 +22,7 @@ public interface ICmptFieldModParamInpObject<Tmod>
 public interface ICmptFldFieldModParamInp
 {
   public ICmptString AsString { get; set; }
+  public ICmptFldFieldModParamInpObject AsFldFieldModParamInp { get; set; }
 }
 
 public interface ICmptFldFieldModParamInpObject

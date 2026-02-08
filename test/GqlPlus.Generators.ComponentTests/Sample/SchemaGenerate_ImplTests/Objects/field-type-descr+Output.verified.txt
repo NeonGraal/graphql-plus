@@ -12,4 +12,5 @@ public class CmptFieldTypeDescrOutp
   : ICmptFieldTypeDescrOutp
 {
   public ICmptNumber Field { get; set; }
+  public ICmptFieldTypeDescrOutpObject AsFieldTypeDescrOutp { get; set; }
 }

@@ -14,6 +14,7 @@ public class CmptPrntAltDual
   , ICmptPrntAltDual
 {
   public ICmptNumber AsNumber { get; set; }
+  public ICmptPrntAltDualObject AsPrntAltDual { get; set; }
 }
 
 public class CmptRefPrntAltDual
@@ -21,4 +22,5 @@ public class CmptRefPrntAltDual
 {
   public ICmptNumber Parent { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptRefPrntAltDualObject AsRefPrntAltDual { get; set; }
 }

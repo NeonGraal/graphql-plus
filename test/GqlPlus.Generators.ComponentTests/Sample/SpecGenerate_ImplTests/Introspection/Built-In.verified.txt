@@ -35,6 +35,7 @@ public class Cmpt_Collections
   public ICmpt_Modifier<ICmpt_ModifierKind> As_Modifier { get; set; }
   public ICmpt_ModifierKeyed<ICmpt_ModifierKind> As_ModifierKeyed { get; set; }
   public ICmpt_ModifierKeyed<ICmpt_ModifierKind> As_ModifierKeyed { get; set; }
+  public ICmpt_CollectionsObject As_Collections { get; set; }
 }
 
 public class Cmpt_ModifierKeyed<Tkind>
@@ -43,6 +44,7 @@ public class Cmpt_ModifierKeyed<Tkind>
 {
   public ICmpt_TypeSimple By { get; set; }
   public ICmptBoolean Optional { get; set; }
+  public ICmpt_ModifierKeyedObject As_ModifierKeyed { get; set; }
 }
 
 public class Cmpt_Modifiers
@@ -50,10 +52,12 @@ public class Cmpt_Modifiers
 {
   public ICmpt_Modifier<ICmpt_ModifierKind> As_Modifier { get; set; }
   public ICmpt_Collections As_Collections { get; set; }
+  public ICmpt_ModifiersObject As_Modifiers { get; set; }
 }
 
 public class Cmpt_Modifier<Tkind>
   : ICmpt_Modifier<Tkind>
 {
   public Tkind ModifierKind { get; set; }
+  public ICmpt_ModifierObject As_Modifier { get; set; }
 }

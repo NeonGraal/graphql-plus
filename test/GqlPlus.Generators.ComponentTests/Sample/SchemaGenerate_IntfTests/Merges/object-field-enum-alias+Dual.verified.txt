@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_object_field_enum_alias_Dual;
 
 public interface ICmptObjFieldEnumAliasDual
 {
+  public ICmptObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; set; }
 }
 
 public interface ICmptObjFieldEnumAliasDualObject

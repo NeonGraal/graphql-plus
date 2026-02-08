@@ -9,12 +9,14 @@ public class testGnrcFieldDualInp
   : ItestGnrcFieldDualInp
 {
   public ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> Field { get; set; }
+  public ItestGnrcFieldDualInpObject AsGnrcFieldDualInp { get; set; }
 }
 
 public class testRefGnrcFieldDualInp<Tref>
   : ItestRefGnrcFieldDualInp<Tref>
 {
   public Tref Asref { get; set; }
+  public ItestRefGnrcFieldDualInpObject AsRefGnrcFieldDualInp { get; set; }
 }
 
 public class testAltGnrcFieldDualInp
@@ -22,4 +24,5 @@ public class testAltGnrcFieldDualInp
 {
   public ItestNumber Alt { get; set; }
   public ItestString AsString { get; set; }
+  public ItestAltGnrcFieldDualInpObject AsAltGnrcFieldDualInp { get; set; }
 }

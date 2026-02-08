@@ -13,4 +13,5 @@ public class CmptAltEnumInp
   : ICmptAltEnumInp
 {
   public ICmptEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
+  public ICmptAltEnumInpObject AsAltEnumInp { get; set; }
 }

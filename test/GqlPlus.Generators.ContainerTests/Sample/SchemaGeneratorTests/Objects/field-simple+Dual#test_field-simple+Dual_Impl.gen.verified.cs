@@ -9,4 +9,5 @@ public class testFieldSmplDual
   : ItestFieldSmplDual
 {
   public ItestNumber Field { get; set; }
+  public ItestFieldSmplDualObject AsFieldSmplDual { get; set; }
 }

@@ -9,6 +9,7 @@ public class testFieldModParamOutp<Tmod>
   : ItestFieldModParamOutp<Tmod>
 {
   public IDictionary<Tmod, ItestFldFieldModParamOutp> Field { get; set; }
+  public ItestFieldModParamOutpObject AsFieldModParamOutp { get; set; }
 }
 
 public class testFldFieldModParamOutp
@@ -16,4 +17,5 @@ public class testFldFieldModParamOutp
 {
   public ItestNumber Field { get; set; }
   public ItestString AsString { get; set; }
+  public ItestFldFieldModParamOutpObject AsFldFieldModParamOutp { get; set; }
 }

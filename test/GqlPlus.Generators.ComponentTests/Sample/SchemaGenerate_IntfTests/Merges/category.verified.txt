@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_category;
 
 public interface ICmptCtgr
 {
+  public ICmptCtgrObject AsCtgr { get; set; }
 }
 
 public interface ICmptCtgrObject

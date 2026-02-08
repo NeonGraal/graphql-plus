@@ -13,6 +13,7 @@ public class test_Schema
   public IDictionary<test_Name, Itest_Directives> Directives { get; set; }
   public IDictionary<test_Name, Itest_Type> Types { get; set; }
   public IDictionary<test_Name, Itest_Setting> Settings { get; set; }
+  public Itest_SchemaObject As_Schema { get; set; }
 }
 
 public class test_Name
@@ -30,6 +31,7 @@ public class test_Filter
   public ItestBoolean? ReturnByAlias { get; set; }
   public ItestBoolean? ReturnReferencedTypes { get; set; }
   public ICollection<Itest_NameFilter> As_NameFilter { get; set; }
+  public Itest_FilterObject As_Filter { get; set; }
 }
 
 public class test_NameFilter
@@ -43,6 +45,7 @@ public class test_CategoryFilter
   , Itest_CategoryFilter
 {
   public ICollection<Itest_Resolution> Resolutions { get; set; }
+  public Itest_CategoryFilterObject As_CategoryFilter { get; set; }
 }
 
 public class test_TypeFilter
@@ -50,4 +53,5 @@ public class test_TypeFilter
   , Itest_TypeFilter
 {
   public ICollection<Itest_TypeKind> Kinds { get; set; }
+  public Itest_TypeFilterObject As_TypeFilter { get; set; }
 }

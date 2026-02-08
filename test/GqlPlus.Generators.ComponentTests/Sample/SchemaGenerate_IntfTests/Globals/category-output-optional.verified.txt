@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_category_output_optional;
 
 public interface ICmptCtgrOutpOptl
 {
+  public ICmptCtgrOutpOptlObject AsCtgrOutpOptl { get; set; }
 }
 
 public interface ICmptCtgrOutpOptlObject

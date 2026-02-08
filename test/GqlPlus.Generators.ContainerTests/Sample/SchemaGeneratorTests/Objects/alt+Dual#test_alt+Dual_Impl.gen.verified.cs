@@ -9,6 +9,7 @@ public class testAltDual
   : ItestAltDual
 {
   public ItestAltAltDual AsAltAltDual { get; set; }
+  public ItestAltDualObject AsAltDual { get; set; }
 }
 
 public class testAltAltDual
@@ -16,4 +17,5 @@ public class testAltAltDual
 {
   public ItestNumber Alt { get; set; }
   public ItestString AsString { get; set; }
+  public ItestAltAltDualObject AsAltAltDual { get; set; }
 }

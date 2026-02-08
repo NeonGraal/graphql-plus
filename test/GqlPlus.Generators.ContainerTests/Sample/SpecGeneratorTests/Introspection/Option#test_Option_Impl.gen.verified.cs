@@ -10,4 +10,5 @@ public class test_Setting
   , Itest_Setting
 {
   public Itest_Value Value { get; set; }
+  public Itest_SettingObject As_Setting { get; set; }
 }

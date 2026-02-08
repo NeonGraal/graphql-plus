@@ -13,10 +13,12 @@ public class CmptGnrcPrntArgOutp<Ttype>
   : CmptRefGnrcPrntArgOutp
   , ICmptGnrcPrntArgOutp<Ttype>
 {
+  public ICmptGnrcPrntArgOutpObject AsGnrcPrntArgOutp { get; set; }
 }
 
 public class CmptRefGnrcPrntArgOutp<Tref>
   : ICmptRefGnrcPrntArgOutp<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcPrntArgOutpObject AsRefGnrcPrntArgOutp { get; set; }
 }

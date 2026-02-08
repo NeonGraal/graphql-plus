@@ -14,9 +14,11 @@ public class CmptObjAltDual
   : ICmptObjAltDual
 {
   public ICmptObjAltDualType AsObjAltDualType { get; set; }
+  public ICmptObjAltDualObject AsObjAltDual { get; set; }
 }
 
 public class CmptObjAltDualType
   : ICmptObjAltDualType
 {
+  public ICmptObjAltDualTypeObject AsObjAltDualType { get; set; }
 }

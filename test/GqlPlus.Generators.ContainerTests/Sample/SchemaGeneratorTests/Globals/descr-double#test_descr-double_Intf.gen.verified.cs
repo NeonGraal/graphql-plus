@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_double;
 
 public interface ItestDescrDbl
 {
+  public ItestDescrDblObject AsDescrDbl { get; set; }
 }
 
 public interface ItestDescrDblObject

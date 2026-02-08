@@ -13,4 +13,5 @@ public class CmptAltEnumDual
   : ICmptAltEnumDual
 {
   public ICmptEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
+  public ICmptAltEnumDualObject AsAltEnumDual { get; set; }
 }

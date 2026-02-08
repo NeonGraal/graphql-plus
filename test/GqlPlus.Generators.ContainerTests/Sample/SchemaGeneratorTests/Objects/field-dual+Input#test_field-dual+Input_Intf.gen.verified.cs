@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Input;
 
 public interface ItestFieldDualInp
 {
+  public ItestFieldDualInpObject AsFieldDualInp { get; set; }
 }
 
 public interface ItestFieldDualInpObject
@@ -17,6 +18,7 @@ public interface ItestFieldDualInpObject
 public interface ItestFldFieldDualInp
 {
   public ItestString AsString { get; set; }
+  public ItestFldFieldDualInpObject AsFldFieldDualInp { get; set; }
 }
 
 public interface ItestFldFieldDualInpObject

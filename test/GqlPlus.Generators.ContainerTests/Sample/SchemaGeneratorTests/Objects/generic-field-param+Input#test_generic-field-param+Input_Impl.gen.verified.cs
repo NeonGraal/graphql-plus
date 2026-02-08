@@ -9,12 +9,14 @@ public class testGnrcFieldParamInp
   : ItestGnrcFieldParamInp
 {
   public ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> Field { get; set; }
+  public ItestGnrcFieldParamInpObject AsGnrcFieldParamInp { get; set; }
 }
 
 public class testRefGnrcFieldParamInp<Tref>
   : ItestRefGnrcFieldParamInp<Tref>
 {
   public Tref Asref { get; set; }
+  public ItestRefGnrcFieldParamInpObject AsRefGnrcFieldParamInp { get; set; }
 }
 
 public class testAltGnrcFieldParamInp
@@ -22,4 +24,5 @@ public class testAltGnrcFieldParamInp
 {
   public ItestNumber Alt { get; set; }
   public ItestString AsString { get; set; }
+  public ItestAltGnrcFieldParamInpObject AsAltGnrcFieldParamInp { get; set; }
 }

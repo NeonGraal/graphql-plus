@@ -14,6 +14,7 @@ namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Dual;
 public interface ICmptCnstPrntObjPrntDual
   : ICmptRefCnstPrntObjPrntDual
 {
+  public ICmptCnstPrntObjPrntDualObject AsCnstPrntObjPrntDual { get; set; }
 }
 
 public interface ICmptCnstPrntObjPrntDualObject
@@ -24,6 +25,7 @@ public interface ICmptCnstPrntObjPrntDualObject
 public interface ICmptRefCnstPrntObjPrntDual<Tref>
   : ICmptref
 {
+  public ICmptRefCnstPrntObjPrntDualObject AsRefCnstPrntObjPrntDual { get; set; }
 }
 
 public interface ICmptRefCnstPrntObjPrntDualObject<Tref>
@@ -34,6 +36,7 @@ public interface ICmptRefCnstPrntObjPrntDualObject<Tref>
 public interface ICmptPrntCnstPrntObjPrntDual
 {
   public ICmptString AsString { get; set; }
+  public ICmptPrntCnstPrntObjPrntDualObject AsPrntCnstPrntObjPrntDual { get; set; }
 }
 
 public interface ICmptPrntCnstPrntObjPrntDualObject
@@ -43,6 +46,7 @@ public interface ICmptPrntCnstPrntObjPrntDualObject
 public interface ICmptAltCnstPrntObjPrntDual
   : ICmptPrntCnstPrntObjPrntDual
 {
+  public ICmptAltCnstPrntObjPrntDualObject AsAltCnstPrntObjPrntDual { get; set; }
 }
 
 public interface ICmptAltCnstPrntObjPrntDualObject

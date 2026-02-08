@@ -9,6 +9,7 @@ public interface ItestObjAltEnumOutp
 {
   public ItestBoolean AsBooleantrue { get; set; }
   public ItestBoolean AsBooleanfalse { get; set; }
+  public ItestObjAltEnumOutpObject AsObjAltEnumOutp { get; set; }
 }
 
 public interface ItestObjAltEnumOutpObject

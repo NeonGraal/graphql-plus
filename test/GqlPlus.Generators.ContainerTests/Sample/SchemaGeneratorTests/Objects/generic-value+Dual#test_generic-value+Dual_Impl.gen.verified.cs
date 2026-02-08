@@ -9,10 +9,12 @@ public class testGnrcValueDual
   : ItestGnrcValueDual
 {
   public ItestRefGnrcValueDual<ItestEnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
+  public ItestGnrcValueDualObject AsGnrcValueDual { get; set; }
 }
 
 public class testRefGnrcValueDual<Ttype>
   : ItestRefGnrcValueDual<Ttype>
 {
   public Ttype Field { get; set; }
+  public ItestRefGnrcValueDualObject AsRefGnrcValueDual { get; set; }
 }

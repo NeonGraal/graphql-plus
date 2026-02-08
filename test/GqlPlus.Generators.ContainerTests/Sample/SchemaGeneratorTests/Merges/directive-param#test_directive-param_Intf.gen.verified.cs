@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_directive_param;
 
 public interface ItestInDrctParam
 {
+  public ItestInDrctParamObject AsInDrctParam { get; set; }
 }
 
 public interface ItestInDrctParamObject

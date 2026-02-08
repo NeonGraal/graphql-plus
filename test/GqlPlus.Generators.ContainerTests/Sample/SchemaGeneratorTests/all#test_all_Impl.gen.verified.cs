@@ -22,6 +22,7 @@ public class testField
   : ItestField
 {
   public ICollection<ItestString> Strings { get; set; }
+  public ItestFieldObject AsField { get; set; }
 }
 
 public class testParam
@@ -30,6 +31,7 @@ public class testParam
   public ItestMany? AfterId { get; set; }
   public ItestMany BeforeId { get; set; }
   public ItestString AsString { get; set; }
+  public ItestParamObject AsParam { get; set; }
 }
 
 public class testAll
@@ -37,4 +39,5 @@ public class testAll
 {
   public ItestField Items { get; set; }
   public ItestString AsString { get; set; }
+  public ItestAllObject AsAll { get; set; }
 }

@@ -18,6 +18,7 @@ public interface Itest_Type
   public Itest_TypeObject<Itest_TypeKind, Itest_DualField> As_TypeObject { get; set; }
   public Itest_TypeObject<Itest_TypeKind, Itest_InputField> As_TypeObject { get; set; }
   public Itest_TypeObject<Itest_TypeKind, Itest_OutputField> As_TypeObject { get; set; }
+  public Itest_TypeObject As_Type { get; set; }
 }
 
 public interface Itest_TypeObject
@@ -27,6 +28,7 @@ public interface Itest_TypeObject
 public interface Itest_BaseType<Tkind>
   : Itest_Aliased
 {
+  public Itest_BaseTypeObject As_BaseType { get; set; }
 }
 
 public interface Itest_BaseTypeObject<Tkind>
@@ -38,6 +40,7 @@ public interface Itest_BaseTypeObject<Tkind>
 public interface Itest_ChildType<Tkind,Tparent>
   : Itest_BaseType
 {
+  public Itest_ChildTypeObject As_ChildType { get; set; }
 }
 
 public interface Itest_ChildTypeObject<Tkind,Tparent>
@@ -49,6 +52,7 @@ public interface Itest_ChildTypeObject<Tkind,Tparent>
 public interface Itest_ParentType<Tkind,Titem,TallItem>
   : Itest_ChildType
 {
+  public Itest_ParentTypeObject As_ParentType { get; set; }
 }
 
 public interface Itest_ParentTypeObject<Tkind,Titem,TallItem>
@@ -61,6 +65,7 @@ public interface Itest_ParentTypeObject<Tkind,Titem,TallItem>
 public interface Itest_TypeRef<Tkind>
   : Itest_Named
 {
+  public Itest_TypeRefObject As_TypeRef { get; set; }
 }
 
 public interface Itest_TypeRefObject<Tkind>
@@ -75,6 +80,7 @@ public interface Itest_TypeSimple
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
   public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeSimpleObject As_TypeSimple { get; set; }
 }
 
 public interface Itest_TypeSimpleObject

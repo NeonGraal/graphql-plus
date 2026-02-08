@@ -14,6 +14,7 @@ public class CmptPrntFieldDual
   , ICmptPrntFieldDual
 {
   public ICmptNumber Field { get; set; }
+  public ICmptPrntFieldDualObject AsPrntFieldDual { get; set; }
 }
 
 public class CmptRefPrntFieldDual
@@ -21,4 +22,5 @@ public class CmptRefPrntFieldDual
 {
   public ICmptNumber Parent { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptRefPrntFieldDualObject AsRefPrntFieldDual { get; set; }
 }

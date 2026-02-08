@@ -12,4 +12,5 @@ public class CmptGnrcPrntOutp<Ttype>
   : Cmpttype
   , ICmptGnrcPrntOutp<Ttype>
 {
+  public ICmptGnrcPrntOutpObject AsGnrcPrntOutp { get; set; }
 }

@@ -9,9 +9,11 @@ public class testInpFieldNull
   : ItestInpFieldNull
 {
   public ItestFldInpFieldNull? Field { get; set; }
+  public ItestInpFieldNullObject AsInpFieldNull { get; set; }
 }
 
 public class testFldInpFieldNull
   : ItestFldInpFieldNull
 {
+  public ItestFldInpFieldNullObject AsFldInpFieldNull { get; set; }
 }

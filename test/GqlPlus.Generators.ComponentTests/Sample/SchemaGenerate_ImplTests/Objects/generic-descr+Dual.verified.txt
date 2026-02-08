@@ -12,4 +12,5 @@ public class CmptGnrcDescrDual<Ttype>
   : ICmptGnrcDescrDual<Ttype>
 {
   public Ttype Field { get; set; }
+  public ICmptGnrcDescrDualObject AsGnrcDescrDual { get; set; }
 }

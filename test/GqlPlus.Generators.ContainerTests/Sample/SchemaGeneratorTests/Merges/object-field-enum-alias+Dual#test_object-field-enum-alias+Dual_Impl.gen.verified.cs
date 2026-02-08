@@ -9,4 +9,5 @@ public class testObjFieldEnumAliasDual
   : ItestObjFieldEnumAliasDual
 {
   public ItestBoolean Field { get; set; }
+  public ItestObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; set; }
 }

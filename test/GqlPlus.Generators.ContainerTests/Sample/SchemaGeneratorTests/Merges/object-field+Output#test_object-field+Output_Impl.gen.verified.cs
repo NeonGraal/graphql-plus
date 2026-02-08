@@ -9,9 +9,11 @@ public class testObjFieldOutp
   : ItestObjFieldOutp
 {
   public ItestFldObjFieldOutp Field { get; set; }
+  public ItestObjFieldOutpObject AsObjFieldOutp { get; set; }
 }
 
 public class testFldObjFieldOutp
   : ItestFldObjFieldOutp
 {
+  public ItestFldObjFieldOutpObject AsFldObjFieldOutp { get; set; }
 }

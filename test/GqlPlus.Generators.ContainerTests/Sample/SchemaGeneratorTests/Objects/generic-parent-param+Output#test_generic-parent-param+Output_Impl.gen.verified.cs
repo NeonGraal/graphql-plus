@@ -9,12 +9,14 @@ public class testGnrcPrntParamOutp
   : testRefGnrcPrntParamOutp
   , ItestGnrcPrntParamOutp
 {
+  public ItestGnrcPrntParamOutpObject AsGnrcPrntParamOutp { get; set; }
 }
 
 public class testRefGnrcPrntParamOutp<Tref>
   : ItestRefGnrcPrntParamOutp<Tref>
 {
   public Tref Asref { get; set; }
+  public ItestRefGnrcPrntParamOutpObject AsRefGnrcPrntParamOutp { get; set; }
 }
 
 public class testAltGnrcPrntParamOutp
@@ -22,4 +24,5 @@ public class testAltGnrcPrntParamOutp
 {
   public ItestNumber Alt { get; set; }
   public ItestString AsString { get; set; }
+  public ItestAltGnrcPrntParamOutpObject AsAltGnrcPrntParamOutp { get; set; }
 }

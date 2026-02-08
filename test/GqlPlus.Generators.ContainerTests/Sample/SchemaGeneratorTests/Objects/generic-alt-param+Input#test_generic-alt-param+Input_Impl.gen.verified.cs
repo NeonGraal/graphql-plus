@@ -9,12 +9,14 @@ public class testGnrcAltParamInp
   : ItestGnrcAltParamInp
 {
   public ItestRefGnrcAltParamInp<ItestAltGnrcAltParamInp> AsRefGnrcAltParamInp { get; set; }
+  public ItestGnrcAltParamInpObject AsGnrcAltParamInp { get; set; }
 }
 
 public class testRefGnrcAltParamInp<Tref>
   : ItestRefGnrcAltParamInp<Tref>
 {
   public Tref Asref { get; set; }
+  public ItestRefGnrcAltParamInpObject AsRefGnrcAltParamInp { get; set; }
 }
 
 public class testAltGnrcAltParamInp
@@ -22,4 +24,5 @@ public class testAltGnrcAltParamInp
 {
   public ItestNumber Alt { get; set; }
   public ItestString AsString { get; set; }
+  public ItestAltGnrcAltParamInpObject AsAltGnrcAltParamInp { get; set; }
 }

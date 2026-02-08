@@ -9,10 +9,12 @@ public class testGnrcAltSmplInp
   : ItestGnrcAltSmplInp
 {
   public ItestRefGnrcAltSmplInp<ItestString> AsRefGnrcAltSmplInp { get; set; }
+  public ItestGnrcAltSmplInpObject AsGnrcAltSmplInp { get; set; }
 }
 
 public class testRefGnrcAltSmplInp<Tref>
   : ItestRefGnrcAltSmplInp<Tref>
 {
   public Tref Asref { get; set; }
+  public ItestRefGnrcAltSmplInpObject AsRefGnrcAltSmplInp { get; set; }
 }

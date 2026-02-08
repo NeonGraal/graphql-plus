@@ -9,6 +9,7 @@ public class testFieldModParamDual<Tmod>
   : ItestFieldModParamDual<Tmod>
 {
   public IDictionary<Tmod, ItestFldFieldModParamDual> Field { get; set; }
+  public ItestFieldModParamDualObject AsFieldModParamDual { get; set; }
 }
 
 public class testFldFieldModParamDual
@@ -16,4 +17,5 @@ public class testFldFieldModParamDual
 {
   public ItestNumber Field { get; set; }
   public ItestString AsString { get; set; }
+  public ItestFldFieldModParamDualObject AsFldFieldModParamDual { get; set; }
 }

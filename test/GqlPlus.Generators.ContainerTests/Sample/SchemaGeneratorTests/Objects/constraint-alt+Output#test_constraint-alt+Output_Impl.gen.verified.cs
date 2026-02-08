@@ -9,5 +9,4 @@ public class testCnstAltOutp<Ttype>
   : ItestCnstAltOutp<Ttype>
 {
   public Ttype Astype { get; set; }
-  public testCnstAltOutp CnstAltOutp { get; set; }
 }

@@ -12,5 +12,4 @@ namespace Components.Gqlp_Schema_descr_backslash;
 public class CmptDescrBcks
   : ICmptDescrBcks
 {
-  public CmptDescrBcks DescrBcks { get; set; }
 }

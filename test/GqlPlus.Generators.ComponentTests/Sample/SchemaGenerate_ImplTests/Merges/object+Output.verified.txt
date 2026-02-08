@@ -12,5 +12,4 @@ namespace Components.Gqlp_Schema_object_Output;
 public class CmptObjOutp
   : ICmptObjOutp
 {
-  public CmptObjOutp ObjOutp { get; set; }
 }

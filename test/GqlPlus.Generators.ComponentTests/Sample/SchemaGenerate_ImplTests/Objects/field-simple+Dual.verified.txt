@@ -11,6 +11,5 @@ namespace Components.Gqlp_Schema_field_simple_Dual;
 public class CmptFieldSmplDual
   : ICmptFieldSmplDual
 {
-  public CmptNumber field { get; set; }
-  public CmptFieldSmplDual FieldSmplDual { get; set; }
+  public ICmptNumber Field { get; set; }
 }

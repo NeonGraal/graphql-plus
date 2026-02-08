@@ -18,33 +18,30 @@ public interface ItestMany
 
 public interface ItestField
 {
-  public testField Field { get; set; }
 }
 
 public interface ItestFieldObject
 {
-  public ICollection<testString> strings { get; set; }
+  public ICollection<ItestString> Strings { get; set; }
 }
 
 public interface ItestParam
 {
-  public testString AsString { get; set; }
-  public testParam Param { get; set; }
+  public ItestString AsString { get; set; }
 }
 
 public interface ItestParamObject
 {
-  public testMany? afterId { get; set; }
-  public testMany beforeId { get; set; }
+  public ItestMany? AfterId { get; set; }
+  public ItestMany BeforeId { get; set; }
 }
 
 public interface ItestAll
 {
-  public testString AsString { get; set; }
-  public testAll All { get; set; }
+  public ItestString AsString { get; set; }
 }
 
 public interface ItestAllObject
 {
-  public testField items { get; set; }
+  public ItestField Items { get; set; }
 }

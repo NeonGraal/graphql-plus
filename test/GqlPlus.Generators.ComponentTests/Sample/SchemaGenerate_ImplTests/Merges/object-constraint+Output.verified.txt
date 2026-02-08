@@ -12,7 +12,6 @@ namespace Components.Gqlp_Schema_object_constraint_Output;
 public class CmptObjCnstOutp<Ttype>
   : ICmptObjCnstOutp<Ttype>
 {
-  public Ttype field { get; set; }
-  public Ttype str { get; set; }
-  public CmptObjCnstOutp ObjCnstOutp { get; set; }
+  public Ttype Field { get; set; }
+  public Ttype Str { get; set; }
 }

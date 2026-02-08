@@ -9,27 +9,23 @@ public class testCnstPrntObjPrntOutp
   : testRefCnstPrntObjPrntOutp
   , ItestCnstPrntObjPrntOutp
 {
-  public testCnstPrntObjPrntOutp CnstPrntObjPrntOutp { get; set; }
 }
 
 public class testRefCnstPrntObjPrntOutp<Tref>
   : testref
   , ItestRefCnstPrntObjPrntOutp<Tref>
 {
-  public testRefCnstPrntObjPrntOutp RefCnstPrntObjPrntOutp { get; set; }
 }
 
 public class testPrntCnstPrntObjPrntOutp
   : ItestPrntCnstPrntObjPrntOutp
 {
-  public testString AsString { get; set; }
-  public testPrntCnstPrntObjPrntOutp PrntCnstPrntObjPrntOutp { get; set; }
+  public ItestString AsString { get; set; }
 }
 
 public class testAltCnstPrntObjPrntOutp
   : testPrntCnstPrntObjPrntOutp
   , ItestAltCnstPrntObjPrntOutp
 {
-  public testNumber alt { get; set; }
-  public testAltCnstPrntObjPrntOutp AltCnstPrntObjPrntOutp { get; set; }
+  public ItestNumber Alt { get; set; }
 }

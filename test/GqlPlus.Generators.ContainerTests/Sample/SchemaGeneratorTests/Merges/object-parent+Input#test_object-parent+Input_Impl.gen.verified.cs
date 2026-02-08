@@ -9,11 +9,9 @@ public class testObjPrntInp
   : testRefObjPrntInp
   , ItestObjPrntInp
 {
-  public testObjPrntInp ObjPrntInp { get; set; }
 }
 
 public class testRefObjPrntInp
   : ItestRefObjPrntInp
 {
-  public testRefObjPrntInp RefObjPrntInp { get; set; }
 }

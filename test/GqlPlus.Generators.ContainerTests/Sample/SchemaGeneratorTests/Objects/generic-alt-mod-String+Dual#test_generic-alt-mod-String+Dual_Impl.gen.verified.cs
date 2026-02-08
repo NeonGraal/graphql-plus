@@ -9,5 +9,4 @@ public class testRefGnrcAltModStrDual<Tref>
   : ItestRefGnrcAltModStrDual<Tref>
 {
   public IDictionary<testString, Tref> Asref { get; set; }
-  public testRefGnrcAltModStrDual RefGnrcAltModStrDual { get; set; }
 }

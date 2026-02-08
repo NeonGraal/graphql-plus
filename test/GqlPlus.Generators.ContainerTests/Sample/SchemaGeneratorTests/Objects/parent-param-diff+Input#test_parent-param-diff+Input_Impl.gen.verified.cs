@@ -9,13 +9,11 @@ public class testPrntParamDiffInp<Ta>
   : testRefPrntParamDiffInp
   , ItestPrntParamDiffInp<Ta>
 {
-  public Ta field { get; set; }
-  public testPrntParamDiffInp PrntParamDiffInp { get; set; }
+  public Ta Field { get; set; }
 }
 
 public class testRefPrntParamDiffInp<Tb>
   : ItestRefPrntParamDiffInp<Tb>
 {
   public Tb Asb { get; set; }
-  public testRefPrntParamDiffInp RefPrntParamDiffInp { get; set; }
 }

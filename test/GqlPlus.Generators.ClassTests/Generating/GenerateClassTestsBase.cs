@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating;
+﻿using System.Xml.Linq;
+
+namespace GqlPlus.Generating;
 
 public class GenerateClassTestsBase
   : SubstituteBase
@@ -11,4 +13,11 @@ public class GenerateClassTestsBase
   internal static IGenerator<T> GFor<T>()
     where T : IGqlpError
     => A.Of<IGenerator<T>>();
+
+  internal static void CheckContext(GqlpGeneratorContext context, params Action<string>[] checks)
+  {
+    string result = context.ToString();
+    TestContext.Current.AddAttachment("Generated code", result);
+    result.ShouldSatisfyAllConditions(checks);
+  }
 }

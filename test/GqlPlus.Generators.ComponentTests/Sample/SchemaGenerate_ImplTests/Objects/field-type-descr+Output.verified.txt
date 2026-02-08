@@ -11,6 +11,5 @@ namespace Components.Gqlp_Schema_field_type_descr_Output;
 public class CmptFieldTypeDescrOutp
   : ICmptFieldTypeDescrOutp
 {
-  public CmptNumber field { get; set; }
-  public CmptFieldTypeDescrOutp FieldTypeDescrOutp { get; set; }
+  public ICmptNumber Field { get; set; }
 }

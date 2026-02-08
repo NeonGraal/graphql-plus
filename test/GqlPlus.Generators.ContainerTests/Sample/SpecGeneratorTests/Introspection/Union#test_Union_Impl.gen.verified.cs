@@ -9,13 +9,11 @@ public class test_UnionRef
   : test_TypeRef
   , Itest_UnionRef
 {
-  public test_UnionRef _UnionRef { get; set; }
 }
 
 public class test_UnionMember
   : test_UnionRef
   , Itest_UnionMember
 {
-  public test_Name union { get; set; }
-  public test_UnionMember _UnionMember { get; set; }
+  public Itest_Name Union { get; set; }
 }

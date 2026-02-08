@@ -14,7 +14,6 @@ namespace Components.Gqlp_Schema_constraint_field_dual_Output;
 public interface ICmptCnstFieldDualOutp
   : ICmptRefCnstFieldDualOutp
 {
-  public CmptCnstFieldDualOutp CnstFieldDualOutp { get; set; }
 }
 
 public interface ICmptCnstFieldDualOutpObject
@@ -24,18 +23,16 @@ public interface ICmptCnstFieldDualOutpObject
 
 public interface ICmptRefCnstFieldDualOutp<Tref>
 {
-  public CmptRefCnstFieldDualOutp RefCnstFieldDualOutp { get; set; }
 }
 
 public interface ICmptRefCnstFieldDualOutpObject<Tref>
 {
-  public Tref field { get; set; }
+  public Tref Field { get; set; }
 }
 
 public interface ICmptPrntCnstFieldDualOutp
 {
-  public CmptString AsString { get; set; }
-  public CmptPrntCnstFieldDualOutp PrntCnstFieldDualOutp { get; set; }
+  public ICmptString AsString { get; set; }
 }
 
 public interface ICmptPrntCnstFieldDualOutpObject
@@ -45,11 +42,10 @@ public interface ICmptPrntCnstFieldDualOutpObject
 public interface ICmptAltCnstFieldDualOutp
   : ICmptPrntCnstFieldDualOutp
 {
-  public CmptAltCnstFieldDualOutp AltCnstFieldDualOutp { get; set; }
 }
 
 public interface ICmptAltCnstFieldDualOutpObject
   : ICmptPrntCnstFieldDualOutpObject
 {
-  public CmptNumber alt { get; set; }
+  public ICmptNumber Alt { get; set; }
 }

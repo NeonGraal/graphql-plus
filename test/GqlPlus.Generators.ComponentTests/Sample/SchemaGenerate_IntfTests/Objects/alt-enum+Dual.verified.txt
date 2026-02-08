@@ -11,8 +11,7 @@ namespace Components.Gqlp_Schema_alt_enum_Dual;
 
 public interface ICmptAltEnumDual
 {
-  public CmptEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
-  public CmptAltEnumDual AltEnumDual { get; set; }
+  public ICmptEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
 }
 
 public interface ICmptAltEnumDualObject

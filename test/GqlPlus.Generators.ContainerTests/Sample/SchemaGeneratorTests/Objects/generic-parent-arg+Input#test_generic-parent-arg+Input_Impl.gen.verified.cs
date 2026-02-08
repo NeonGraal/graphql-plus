@@ -9,12 +9,10 @@ public class testGnrcPrntArgInp<Ttype>
   : testRefGnrcPrntArgInp
   , ItestGnrcPrntArgInp<Ttype>
 {
-  public testGnrcPrntArgInp GnrcPrntArgInp { get; set; }
 }
 
 public class testRefGnrcPrntArgInp<Tref>
   : ItestRefGnrcPrntArgInp<Tref>
 {
   public Tref Asref { get; set; }
-  public testRefGnrcPrntArgInp RefGnrcPrntArgInp { get; set; }
 }

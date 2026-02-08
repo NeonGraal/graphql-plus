@@ -19,13 +19,11 @@ public class Cmpt_UnionRef
   : Cmpt_TypeRef
   , ICmpt_UnionRef
 {
-  public Cmpt_UnionRef _UnionRef { get; set; }
 }
 
 public class Cmpt_UnionMember
   : Cmpt_UnionRef
   , ICmpt_UnionMember
 {
-  public Cmpt_Name union { get; set; }
-  public Cmpt_UnionMember _UnionMember { get; set; }
+  public ICmpt_Name Union { get; set; }
 }

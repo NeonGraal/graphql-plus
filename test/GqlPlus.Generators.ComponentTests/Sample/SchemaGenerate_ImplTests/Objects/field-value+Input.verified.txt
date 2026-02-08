@@ -12,6 +12,5 @@ namespace Components.Gqlp_Schema_field_value_Input;
 public class CmptFieldValueInp
   : ICmptFieldValueInp
 {
-  public CmptEnumFieldValueInp field { get; set; }
-  public CmptFieldValueInp FieldValueInp { get; set; }
+  public ICmptEnumFieldValueInp Field { get; set; }
 }

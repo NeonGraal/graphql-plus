@@ -13,21 +13,18 @@ namespace Components.Gqlp_Schema_generic_alt_dual_Input;
 public class CmptGnrcAltDualInp
   : ICmptGnrcAltDualInp
 {
-  public CmptRefGnrcAltDualInp<CmptAltGnrcAltDualInp> AsRefGnrcAltDualInp { get; set; }
-  public CmptGnrcAltDualInp GnrcAltDualInp { get; set; }
+  public ICmptRefGnrcAltDualInp<ICmptAltGnrcAltDualInp> AsRefGnrcAltDualInp { get; set; }
 }
 
 public class CmptRefGnrcAltDualInp<Tref>
   : ICmptRefGnrcAltDualInp<Tref>
 {
   public Tref Asref { get; set; }
-  public CmptRefGnrcAltDualInp RefGnrcAltDualInp { get; set; }
 }
 
 public class CmptAltGnrcAltDualInp
   : ICmptAltGnrcAltDualInp
 {
-  public CmptNumber alt { get; set; }
-  public CmptString AsString { get; set; }
-  public CmptAltGnrcAltDualInp AltGnrcAltDualInp { get; set; }
+  public ICmptNumber Alt { get; set; }
+  public ICmptString AsString { get; set; }
 }

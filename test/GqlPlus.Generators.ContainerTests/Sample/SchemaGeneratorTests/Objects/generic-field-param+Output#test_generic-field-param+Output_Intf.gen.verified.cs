@@ -7,18 +7,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_param_Output;
 
 public interface ItestGnrcFieldParamOutp
 {
-  public testGnrcFieldParamOutp GnrcFieldParamOutp { get; set; }
 }
 
 public interface ItestGnrcFieldParamOutpObject
 {
-  public testRefGnrcFieldParamOutp<testAltGnrcFieldParamOutp> field { get; set; }
+  public ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; set; }
 }
 
 public interface ItestRefGnrcFieldParamOutp<Tref>
 {
   public Tref Asref { get; set; }
-  public testRefGnrcFieldParamOutp RefGnrcFieldParamOutp { get; set; }
 }
 
 public interface ItestRefGnrcFieldParamOutpObject<Tref>
@@ -27,11 +25,10 @@ public interface ItestRefGnrcFieldParamOutpObject<Tref>
 
 public interface ItestAltGnrcFieldParamOutp
 {
-  public testString AsString { get; set; }
-  public testAltGnrcFieldParamOutp AltGnrcFieldParamOutp { get; set; }
+  public ItestString AsString { get; set; }
 }
 
 public interface ItestAltGnrcFieldParamOutpObject
 {
-  public testNumber alt { get; set; }
+  public ItestNumber Alt { get; set; }
 }

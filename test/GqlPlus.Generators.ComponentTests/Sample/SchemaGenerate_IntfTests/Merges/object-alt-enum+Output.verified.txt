@@ -11,9 +11,8 @@ namespace Components.Gqlp_Schema_object_alt_enum_Output;
 
 public interface ICmptObjAltEnumOutp
 {
-  public CmptBoolean AsBooleantrue { get; set; }
-  public CmptBoolean AsBooleanfalse { get; set; }
-  public CmptObjAltEnumOutp ObjAltEnumOutp { get; set; }
+  public ICmptBoolean AsBooleantrue { get; set; }
+  public ICmptBoolean AsBooleanfalse { get; set; }
 }
 
 public interface ICmptObjAltEnumOutpObject

@@ -13,12 +13,10 @@ namespace Components.Gqlp_Schema_object_field_Output;
 public class CmptObjFieldOutp
   : ICmptObjFieldOutp
 {
-  public CmptFldObjFieldOutp field { get; set; }
-  public CmptObjFieldOutp ObjFieldOutp { get; set; }
+  public ICmptFldObjFieldOutp Field { get; set; }
 }
 
 public class CmptFldObjFieldOutp
   : ICmptFldObjFieldOutp
 {
-  public CmptFldObjFieldOutp FldObjFieldOutp { get; set; }
 }

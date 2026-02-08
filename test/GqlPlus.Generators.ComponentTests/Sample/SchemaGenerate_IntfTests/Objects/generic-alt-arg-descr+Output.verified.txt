@@ -11,8 +11,7 @@ namespace Components.Gqlp_Schema_generic_alt_arg_descr_Output;
 
 public interface ICmptGnrcAltArgDescrOutp<Ttype>
 {
-  public CmptRefGnrcAltArgDescrOutp<Ttype> AsRefGnrcAltArgDescrOutp { get; set; }
-  public CmptGnrcAltArgDescrOutp GnrcAltArgDescrOutp { get; set; }
+  public ICmptRefGnrcAltArgDescrOutp<Ttype> AsRefGnrcAltArgDescrOutp { get; set; }
 }
 
 public interface ICmptGnrcAltArgDescrOutpObject<Ttype>
@@ -22,7 +21,6 @@ public interface ICmptGnrcAltArgDescrOutpObject<Ttype>
 public interface ICmptRefGnrcAltArgDescrOutp<Tref>
 {
   public Tref Asref { get; set; }
-  public CmptRefGnrcAltArgDescrOutp RefGnrcAltArgDescrOutp { get; set; }
 }
 
 public interface ICmptRefGnrcAltArgDescrOutpObject<Tref>

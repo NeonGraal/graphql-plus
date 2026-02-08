@@ -13,12 +13,10 @@ public class CmptGnrcPrntArgInp<Ttype>
   : CmptRefGnrcPrntArgInp
   , ICmptGnrcPrntArgInp<Ttype>
 {
-  public CmptGnrcPrntArgInp GnrcPrntArgInp { get; set; }
 }
 
 public class CmptRefGnrcPrntArgInp<Tref>
   : ICmptRefGnrcPrntArgInp<Tref>
 {
   public Tref Asref { get; set; }
-  public CmptRefGnrcPrntArgInp RefGnrcPrntArgInp { get; set; }
 }

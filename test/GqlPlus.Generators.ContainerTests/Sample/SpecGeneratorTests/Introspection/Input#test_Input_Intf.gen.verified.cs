@@ -8,7 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_Input;
 public interface Itest_InputField
   : Itest_ObjField
 {
-  public test_InputField _InputField { get; set; }
 }
 
 public interface Itest_InputFieldObject
@@ -19,19 +18,17 @@ public interface Itest_InputFieldObject
 public interface Itest_InputFieldType
   : Itest_ObjFieldType
 {
-  public test_InputFieldType _InputFieldType { get; set; }
 }
 
 public interface Itest_InputFieldTypeObject
   : Itest_ObjFieldTypeObject
 {
-  public test_Value? default { get; set; }
+  public Itest_Value? Default { get; set; }
 }
 
 public interface Itest_InputParam
   : Itest_InputFieldType
 {
-  public test_InputParam _InputParam { get; set; }
 }
 
 public interface Itest_InputParamObject

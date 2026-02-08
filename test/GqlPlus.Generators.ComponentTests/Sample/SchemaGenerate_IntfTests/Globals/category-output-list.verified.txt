@@ -11,7 +11,6 @@ namespace Components.Gqlp_Schema_category_output_list;
 
 public interface ICmptCtgrOutpList
 {
-  public CmptCtgrOutpList CtgrOutpList { get; set; }
 }
 
 public interface ICmptCtgrOutpListObject

@@ -7,10 +7,9 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_Output;
 
 public interface ItestFieldOutp
 {
-  public testFieldOutp FieldOutp { get; set; }
 }
 
 public interface ItestFieldOutpObject
 {
-  public testString field { get; set; }
+  public ItestString Field { get; set; }
 }

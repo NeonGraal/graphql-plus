@@ -13,13 +13,11 @@ public class CmptPrntParamSameDual<Ta>
   : CmptRefPrntParamSameDual
   , ICmptPrntParamSameDual<Ta>
 {
-  public Ta field { get; set; }
-  public CmptPrntParamSameDual PrntParamSameDual { get; set; }
+  public Ta Field { get; set; }
 }
 
 public class CmptRefPrntParamSameDual<Ta>
   : ICmptRefPrntParamSameDual<Ta>
 {
   public Ta Asa { get; set; }
-  public CmptRefPrntParamSameDual RefPrntParamSameDual { get; set; }
 }

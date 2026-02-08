@@ -11,7 +11,6 @@ namespace Components.Gqlp_Schema_generic_alt_Output;
 public interface ICmptGnrcAltOutp<Ttype>
 {
   public Ttype Astype { get; set; }
-  public CmptGnrcAltOutp GnrcAltOutp { get; set; }
 }
 
 public interface ICmptGnrcAltOutpObject<Ttype>

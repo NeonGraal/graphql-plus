@@ -9,5 +9,4 @@ public class testRefGnrcAltModParamOutp<Tref,Tmod>
   : ItestRefGnrcAltModParamOutp<Tref,Tmod>
 {
   public IDictionary<Tmod, Tref> Asref { get; set; }
-  public testRefGnrcAltModParamOutp RefGnrcAltModParamOutp { get; set; }
 }

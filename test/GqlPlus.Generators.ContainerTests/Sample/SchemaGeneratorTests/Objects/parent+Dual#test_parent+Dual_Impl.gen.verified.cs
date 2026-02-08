@@ -9,13 +9,11 @@ public class testPrntDual
   : testRefPrntDual
   , ItestPrntDual
 {
-  public testPrntDual PrntDual { get; set; }
 }
 
 public class testRefPrntDual
   : ItestRefPrntDual
 {
-  public testNumber parent { get; set; }
-  public testString AsString { get; set; }
-  public testRefPrntDual RefPrntDual { get; set; }
+  public ItestNumber Parent { get; set; }
+  public ItestString AsString { get; set; }
 }

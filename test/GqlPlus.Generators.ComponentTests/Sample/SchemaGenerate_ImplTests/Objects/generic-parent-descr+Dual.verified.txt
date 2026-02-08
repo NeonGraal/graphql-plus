@@ -12,5 +12,4 @@ public class CmptGnrcPrntDescrDual<Ttype>
   : Cmpttype
   , ICmptGnrcPrntDescrDual<Ttype>
 {
-  public CmptGnrcPrntDescrDual GnrcPrntDescrDual { get; set; }
 }

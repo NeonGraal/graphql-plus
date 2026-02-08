@@ -56,16 +56,15 @@ namespace Components.Gqlp_Spec_Schema;
 public interface ICmpt_Schema
   : ICmpt_Named
 {
-  public Cmpt_Schema _Schema { get; set; }
 }
 
 public interface ICmpt_SchemaObject
   : ICmpt_NamedObject
 {
-  public IDictionary<Cmpt_Name, Cmpt_Categories> categories { get; set; }
-  public IDictionary<Cmpt_Name, Cmpt_Directives> directives { get; set; }
-  public IDictionary<Cmpt_Name, Cmpt_Type> types { get; set; }
-  public IDictionary<Cmpt_Name, Cmpt_Setting> settings { get; set; }
+  public IDictionary<Cmpt_Name, ICmpt_Categories> Categories { get; set; }
+  public IDictionary<Cmpt_Name, ICmpt_Directives> Directives { get; set; }
+  public IDictionary<Cmpt_Name, ICmpt_Type> Types { get; set; }
+  public IDictionary<Cmpt_Name, ICmpt_Setting> Settings { get; set; }
 }
 
 public interface ICmpt_Name
@@ -75,17 +74,16 @@ public interface ICmpt_Name
 
 public interface ICmpt_Filter
 {
-  public ICollection<Cmpt_NameFilter> As_NameFilter { get; set; }
-  public Cmpt_Filter _Filter { get; set; }
+  public ICollection<ICmpt_NameFilter> As_NameFilter { get; set; }
 }
 
 public interface ICmpt_FilterObject
 {
-  public ICollection<Cmpt_NameFilter> names { get; set; }
-  public CmptBoolean? matchAliases { get; set; }
-  public ICollection<Cmpt_NameFilter> aliases { get; set; }
-  public CmptBoolean? returnByAlias { get; set; }
-  public CmptBoolean? returnReferencedTypes { get; set; }
+  public ICollection<ICmpt_NameFilter> Names { get; set; }
+  public ICmptBoolean? MatchAliases { get; set; }
+  public ICollection<ICmpt_NameFilter> Aliases { get; set; }
+  public ICmptBoolean? ReturnByAlias { get; set; }
+  public ICmptBoolean? ReturnReferencedTypes { get; set; }
 }
 
 public interface ICmpt_NameFilter
@@ -96,57 +94,52 @@ public interface ICmpt_NameFilter
 public interface ICmpt_CategoryFilter
   : ICmpt_Filter
 {
-  public Cmpt_CategoryFilter _CategoryFilter { get; set; }
 }
 
 public interface ICmpt_CategoryFilterObject
   : ICmpt_FilterObject
 {
-  public ICollection<Cmpt_Resolution> resolutions { get; set; }
+  public ICollection<ICmpt_Resolution> Resolutions { get; set; }
 }
 
 public interface ICmpt_TypeFilter
   : ICmpt_Filter
 {
-  public Cmpt_TypeFilter _TypeFilter { get; set; }
 }
 
 public interface ICmpt_TypeFilterObject
   : ICmpt_FilterObject
 {
-  public ICollection<Cmpt_TypeKind> kinds { get; set; }
+  public ICollection<ICmpt_TypeKind> Kinds { get; set; }
 }
 
 public interface ICmpt_Aliased
   : ICmpt_Named
 {
-  public Cmpt_Aliased _Aliased { get; set; }
 }
 
 public interface ICmpt_AliasedObject
   : ICmpt_NamedObject
 {
-  public ICollection<Cmpt_Name> aliases { get; set; }
+  public ICollection<ICmpt_Name> Aliases { get; set; }
 }
 
 public interface ICmpt_Named
   : ICmpt_Described
 {
-  public Cmpt_Named _Named { get; set; }
 }
 
 public interface ICmpt_NamedObject
   : ICmpt_DescribedObject
 {
-  public Cmpt_Name name { get; set; }
+  public ICmpt_Name Name { get; set; }
 }
 
 public interface ICmpt_Described
 {
-  public Cmpt_Described _Described { get; set; }
 }
 
 public interface ICmpt_DescribedObject
 {
-  public ICollection<CmptString> description { get; set; }
+  public ICollection<ICmptString> Description { get; set; }
 }

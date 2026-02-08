@@ -12,10 +12,9 @@ namespace Components.Gqlp_Schema_field_enum_parent_Output;
 
 public interface ICmptFieldEnumPrntOutp
 {
-  public CmptFieldEnumPrntOutp FieldEnumPrntOutp { get; set; }
 }
 
 public interface ICmptFieldEnumPrntOutpObject
 {
-  public CmptEnumFieldEnumPrntOutp field { get; set; }
+  public ICmptEnumFieldEnumPrntOutp Field { get; set; }
 }

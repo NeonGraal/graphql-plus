@@ -12,17 +12,15 @@ namespace Components.Gqlp_Schema_object_field_alias_Input;
 
 public interface ICmptObjFieldAliasInp
 {
-  public CmptObjFieldAliasInp ObjFieldAliasInp { get; set; }
 }
 
 public interface ICmptObjFieldAliasInpObject
 {
-  public CmptFldObjFieldAliasInp field { get; set; }
+  public ICmptFldObjFieldAliasInp Field { get; set; }
 }
 
 public interface ICmptFldObjFieldAliasInp
 {
-  public CmptFldObjFieldAliasInp FldObjFieldAliasInp { get; set; }
 }
 
 public interface ICmptFldObjFieldAliasInpObject

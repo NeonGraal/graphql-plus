@@ -14,17 +14,15 @@ namespace Components.Gqlp_Schema_output_field_param;
 
 public interface ICmptOutpFieldParam
 {
-  public CmptOutpFieldParam OutpFieldParam { get; set; }
 }
 
 public interface ICmptOutpFieldParamObject
 {
-  public CmptFldOutpFieldParam field { get; set; }
+  public ICmptFldOutpFieldParam Field { get; set; }
 }
 
 public interface ICmptOutpFieldParam1
 {
-  public CmptOutpFieldParam1 OutpFieldParam1 { get; set; }
 }
 
 public interface ICmptOutpFieldParam1Object
@@ -33,7 +31,6 @@ public interface ICmptOutpFieldParam1Object
 
 public interface ICmptOutpFieldParam2
 {
-  public CmptOutpFieldParam2 OutpFieldParam2 { get; set; }
 }
 
 public interface ICmptOutpFieldParam2Object
@@ -42,7 +39,6 @@ public interface ICmptOutpFieldParam2Object
 
 public interface ICmptFldOutpFieldParam
 {
-  public CmptFldOutpFieldParam FldOutpFieldParam { get; set; }
 }
 
 public interface ICmptFldOutpFieldParamObject

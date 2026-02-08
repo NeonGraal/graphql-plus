@@ -12,13 +12,11 @@ namespace Components.Gqlp_Schema_generic_field_arg_Input;
 public class CmptGnrcFieldArgInp<Ttype>
   : ICmptGnrcFieldArgInp<Ttype>
 {
-  public CmptRefGnrcFieldArgInp<Ttype> field { get; set; }
-  public CmptGnrcFieldArgInp GnrcFieldArgInp { get; set; }
+  public ICmptRefGnrcFieldArgInp<Ttype> Field { get; set; }
 }
 
 public class CmptRefGnrcFieldArgInp<Tref>
   : ICmptRefGnrcFieldArgInp<Tref>
 {
   public Tref Asref { get; set; }
-  public CmptRefGnrcFieldArgInp RefGnrcFieldArgInp { get; set; }
 }

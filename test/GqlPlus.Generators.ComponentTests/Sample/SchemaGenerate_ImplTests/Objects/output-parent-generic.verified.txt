@@ -14,13 +14,11 @@ namespace Components.Gqlp_Schema_output_parent_generic;
 public class CmptOutpPrntGnrc
   : ICmptOutpPrntGnrc
 {
-  public CmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
-  public CmptOutpPrntGnrc OutpPrntGnrc { get; set; }
+  public ICmptRefOutpPrntGnrc<ICmptEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
 }
 
 public class CmptRefOutpPrntGnrc<Ttype>
   : ICmptRefOutpPrntGnrc<Ttype>
 {
-  public Ttype field { get; set; }
-  public CmptRefOutpPrntGnrc RefOutpPrntGnrc { get; set; }
+  public Ttype Field { get; set; }
 }

@@ -13,5 +13,4 @@ namespace Components.Gqlp_Schema_directive_param;
 public class CmptInDrctParam
   : ICmptInDrctParam
 {
-  public CmptInDrctParam InDrctParam { get; set; }
 }

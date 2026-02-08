@@ -12,22 +12,20 @@ namespace Components.Gqlp_Schema_parent_field_Dual;
 public interface ICmptPrntFieldDual
   : ICmptRefPrntFieldDual
 {
-  public CmptPrntFieldDual PrntFieldDual { get; set; }
 }
 
 public interface ICmptPrntFieldDualObject
   : ICmptRefPrntFieldDualObject
 {
-  public CmptNumber field { get; set; }
+  public ICmptNumber Field { get; set; }
 }
 
 public interface ICmptRefPrntFieldDual
 {
-  public CmptString AsString { get; set; }
-  public CmptRefPrntFieldDual RefPrntFieldDual { get; set; }
+  public ICmptString AsString { get; set; }
 }
 
 public interface ICmptRefPrntFieldDualObject
 {
-  public CmptNumber parent { get; set; }
+  public ICmptNumber Parent { get; set; }
 }

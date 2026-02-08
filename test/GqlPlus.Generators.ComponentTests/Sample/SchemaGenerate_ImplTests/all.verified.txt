@@ -48,23 +48,20 @@ public class CmptMany
 public class CmptField
   : ICmptField
 {
-  public ICollection<CmptString> strings { get; set; }
-  public CmptField Field { get; set; }
+  public ICollection<ICmptString> Strings { get; set; }
 }
 
 public class CmptParam
   : ICmptParam
 {
-  public CmptMany? afterId { get; set; }
-  public CmptMany beforeId { get; set; }
-  public CmptString AsString { get; set; }
-  public CmptParam Param { get; set; }
+  public ICmptMany? AfterId { get; set; }
+  public ICmptMany BeforeId { get; set; }
+  public ICmptString AsString { get; set; }
 }
 
 public class CmptAll
   : ICmptAll
 {
-  public CmptField items { get; set; }
-  public CmptString AsString { get; set; }
-  public CmptAll All { get; set; }
+  public ICmptField Items { get; set; }
+  public ICmptString AsString { get; set; }
 }

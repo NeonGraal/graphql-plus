@@ -12,5 +12,4 @@ public class CmptRefGnrcAltModParamDual<Tref,Tmod>
   : ICmptRefGnrcAltModParamDual<Tref,Tmod>
 {
   public IDictionary<Tmod, Tref> Asref { get; set; }
-  public CmptRefGnrcAltModParamDual RefGnrcAltModParamDual { get; set; }
 }

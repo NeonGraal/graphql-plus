@@ -7,7 +7,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_descr;
 
 public interface ItestCtgrDescr
 {
-  public testCtgrDescr CtgrDescr { get; set; }
 }
 
 public interface ItestCtgrDescrObject

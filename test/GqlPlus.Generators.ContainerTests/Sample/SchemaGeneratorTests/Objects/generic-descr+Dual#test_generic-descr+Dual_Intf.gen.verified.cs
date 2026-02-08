@@ -7,10 +7,9 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Dual;
 
 public interface ItestGnrcDescrDual<Ttype>
 {
-  public testGnrcDescrDual GnrcDescrDual { get; set; }
 }
 
 public interface ItestGnrcDescrDualObject<Ttype>
 {
-  public Ttype field { get; set; }
+  public Ttype Field { get; set; }
 }

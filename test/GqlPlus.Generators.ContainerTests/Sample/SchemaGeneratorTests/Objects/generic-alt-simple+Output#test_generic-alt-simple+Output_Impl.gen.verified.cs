@@ -8,13 +8,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Output;
 public class testGnrcAltSmplOutp
   : ItestGnrcAltSmplOutp
 {
-  public testRefGnrcAltSmplOutp<testString> AsRefGnrcAltSmplOutp { get; set; }
-  public testGnrcAltSmplOutp GnrcAltSmplOutp { get; set; }
+  public ItestRefGnrcAltSmplOutp<ItestString> AsRefGnrcAltSmplOutp { get; set; }
 }
 
 public class testRefGnrcAltSmplOutp<Tref>
   : ItestRefGnrcAltSmplOutp<Tref>
 {
   public Tref Asref { get; set; }
-  public testRefGnrcAltSmplOutp RefGnrcAltSmplOutp { get; set; }
 }

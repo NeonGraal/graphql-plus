@@ -11,6 +11,5 @@ namespace Components.Gqlp_Schema_field_type_descr_Input;
 public class CmptFieldTypeDescrInp
   : ICmptFieldTypeDescrInp
 {
-  public CmptNumber field { get; set; }
-  public CmptFieldTypeDescrInp FieldTypeDescrInp { get; set; }
+  public ICmptNumber Field { get; set; }
 }

@@ -11,7 +11,6 @@ namespace Components.Gqlp_Schema_generic_parent_descr_Output;
 public interface ICmptGnrcPrntDescrOutp<Ttype>
   : ICmpttype
 {
-  public CmptGnrcPrntDescrOutp GnrcPrntDescrOutp { get; set; }
 }
 
 public interface ICmptGnrcPrntDescrOutpObject<Ttype>

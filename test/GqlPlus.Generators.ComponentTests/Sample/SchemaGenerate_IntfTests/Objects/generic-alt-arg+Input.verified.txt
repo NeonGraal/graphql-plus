@@ -11,8 +11,7 @@ namespace Components.Gqlp_Schema_generic_alt_arg_Input;
 
 public interface ICmptGnrcAltArgInp<Ttype>
 {
-  public CmptRefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; set; }
-  public CmptGnrcAltArgInp GnrcAltArgInp { get; set; }
+  public ICmptRefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; set; }
 }
 
 public interface ICmptGnrcAltArgInpObject<Ttype>
@@ -22,7 +21,6 @@ public interface ICmptGnrcAltArgInpObject<Ttype>
 public interface ICmptRefGnrcAltArgInp<Tref>
 {
   public Tref Asref { get; set; }
-  public CmptRefGnrcAltArgInp RefGnrcAltArgInp { get; set; }
 }
 
 public interface ICmptRefGnrcAltArgInpObject<Tref>

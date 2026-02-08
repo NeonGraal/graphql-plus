@@ -12,13 +12,11 @@ namespace Components.Gqlp_Schema_generic_field_arg_Dual;
 public class CmptGnrcFieldArgDual<Ttype>
   : ICmptGnrcFieldArgDual<Ttype>
 {
-  public CmptRefGnrcFieldArgDual<Ttype> field { get; set; }
-  public CmptGnrcFieldArgDual GnrcFieldArgDual { get; set; }
+  public ICmptRefGnrcFieldArgDual<Ttype> Field { get; set; }
 }
 
 public class CmptRefGnrcFieldArgDual<Tref>
   : ICmptRefGnrcFieldArgDual<Tref>
 {
   public Tref Asref { get; set; }
-  public CmptRefGnrcFieldArgDual RefGnrcFieldArgDual { get; set; }
 }

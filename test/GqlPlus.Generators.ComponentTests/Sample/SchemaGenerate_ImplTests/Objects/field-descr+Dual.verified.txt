@@ -11,6 +11,5 @@ namespace Components.Gqlp_Schema_field_descr_Dual;
 public class CmptFieldDescrDual
   : ICmptFieldDescrDual
 {
-  public CmptString field { get; set; }
-  public CmptFieldDescrDual FieldDescrDual { get; set; }
+  public ICmptString Field { get; set; }
 }

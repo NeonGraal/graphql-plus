@@ -8,7 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Input;
 public class testObjCnstInp<Ttype>
   : ItestObjCnstInp<Ttype>
 {
-  public Ttype field { get; set; }
-  public Ttype str { get; set; }
-  public testObjCnstInp ObjCnstInp { get; set; }
+  public Ttype Field { get; set; }
+  public Ttype Str { get; set; }
 }

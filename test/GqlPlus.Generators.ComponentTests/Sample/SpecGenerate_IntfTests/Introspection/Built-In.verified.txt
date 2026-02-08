@@ -31,10 +31,9 @@ namespace Components.Gqlp_Spec_Built_In;
 
 public interface ICmpt_Collections
 {
-  public Cmpt_Modifier<Cmpt_ModifierKind> As_Modifier { get; set; }
-  public Cmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKeyed { get; set; }
-  public Cmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKeyed { get; set; }
-  public Cmpt_Collections _Collections { get; set; }
+  public ICmpt_Modifier<ICmpt_ModifierKind> As_Modifier { get; set; }
+  public ICmpt_ModifierKeyed<ICmpt_ModifierKind> As_ModifierKeyed { get; set; }
+  public ICmpt_ModifierKeyed<ICmpt_ModifierKind> As_ModifierKeyed { get; set; }
 }
 
 public interface ICmpt_CollectionsObject
@@ -44,21 +43,19 @@ public interface ICmpt_CollectionsObject
 public interface ICmpt_ModifierKeyed<Tkind>
   : ICmpt_Modifier
 {
-  public Cmpt_ModifierKeyed _ModifierKeyed { get; set; }
 }
 
 public interface ICmpt_ModifierKeyedObject<Tkind>
   : ICmpt_ModifierObject
 {
-  public Cmpt_TypeSimple by { get; set; }
-  public CmptBoolean optional { get; set; }
+  public ICmpt_TypeSimple By { get; set; }
+  public ICmptBoolean Optional { get; set; }
 }
 
 public interface ICmpt_Modifiers
 {
-  public Cmpt_Modifier<Cmpt_ModifierKind> As_Modifier { get; set; }
-  public Cmpt_Collections As_Collections { get; set; }
-  public Cmpt_Modifiers _Modifiers { get; set; }
+  public ICmpt_Modifier<ICmpt_ModifierKind> As_Modifier { get; set; }
+  public ICmpt_Collections As_Collections { get; set; }
 }
 
 public interface ICmpt_ModifiersObject
@@ -67,10 +64,9 @@ public interface ICmpt_ModifiersObject
 
 public interface ICmpt_Modifier<Tkind>
 {
-  public Cmpt_Modifier _Modifier { get; set; }
 }
 
 public interface ICmpt_ModifierObject<Tkind>
 {
-  public Tkind modifierKind { get; set; }
+  public Tkind ModifierKind { get; set; }
 }

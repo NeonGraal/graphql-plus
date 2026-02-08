@@ -7,8 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Dual;
 
 public interface ItestCnstDomEnumDual
 {
-  public testRefCnstDomEnumDual<testEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
-  public testCnstDomEnumDual CnstDomEnumDual { get; set; }
+  public ItestRefCnstDomEnumDual<ItestEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
 }
 
 public interface ItestCnstDomEnumDualObject
@@ -17,12 +16,11 @@ public interface ItestCnstDomEnumDualObject
 
 public interface ItestRefCnstDomEnumDual<Ttype>
 {
-  public testRefCnstDomEnumDual RefCnstDomEnumDual { get; set; }
 }
 
 public interface ItestRefCnstDomEnumDualObject<Ttype>
 {
-  public Ttype field { get; set; }
+  public Ttype Field { get; set; }
 }
 
 public interface ItestJustCnstDomEnumDual

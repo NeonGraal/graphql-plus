@@ -8,7 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_Output;
 public interface ItestPrntOutp
   : ItestRefPrntOutp
 {
-  public testPrntOutp PrntOutp { get; set; }
 }
 
 public interface ItestPrntOutpObject
@@ -18,11 +17,10 @@ public interface ItestPrntOutpObject
 
 public interface ItestRefPrntOutp
 {
-  public testString AsString { get; set; }
-  public testRefPrntOutp RefPrntOutp { get; set; }
+  public ItestString AsString { get; set; }
 }
 
 public interface ItestRefPrntOutpObject
 {
-  public testNumber parent { get; set; }
+  public ItestNumber Parent { get; set; }
 }

@@ -12,19 +12,17 @@ namespace Components.Gqlp_Schema_parent_param_same_Output;
 public interface ICmptPrntParamSameOutp<Ta>
   : ICmptRefPrntParamSameOutp
 {
-  public CmptPrntParamSameOutp PrntParamSameOutp { get; set; }
 }
 
 public interface ICmptPrntParamSameOutpObject<Ta>
   : ICmptRefPrntParamSameOutpObject
 {
-  public Ta field { get; set; }
+  public Ta Field { get; set; }
 }
 
 public interface ICmptRefPrntParamSameOutp<Ta>
 {
   public Ta Asa { get; set; }
-  public CmptRefPrntParamSameOutp RefPrntParamSameOutp { get; set; }
 }
 
 public interface ICmptRefPrntParamSameOutpObject<Ta>

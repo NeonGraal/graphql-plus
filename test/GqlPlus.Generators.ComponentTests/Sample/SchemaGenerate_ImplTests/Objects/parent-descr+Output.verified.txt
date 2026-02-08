@@ -13,13 +13,11 @@ public class CmptPrntDescrOutp
   : CmptRefPrntDescrOutp
   , ICmptPrntDescrOutp
 {
-  public CmptPrntDescrOutp PrntDescrOutp { get; set; }
 }
 
 public class CmptRefPrntDescrOutp
   : ICmptRefPrntDescrOutp
 {
-  public CmptNumber parent { get; set; }
-  public CmptString AsString { get; set; }
-  public CmptRefPrntDescrOutp RefPrntDescrOutp { get; set; }
+  public ICmptNumber Parent { get; set; }
+  public ICmptString AsString { get; set; }
 }

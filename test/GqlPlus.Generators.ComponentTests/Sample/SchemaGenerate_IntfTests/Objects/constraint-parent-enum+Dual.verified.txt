@@ -13,8 +13,7 @@ namespace Components.Gqlp_Schema_constraint_parent_enum_Dual;
 
 public interface ICmptCnstPrntEnumDual
 {
-  public CmptRefCnstPrntEnumDual<CmptParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; set; }
-  public CmptCnstPrntEnumDual CnstPrntEnumDual { get; set; }
+  public ICmptRefCnstPrntEnumDual<ICmptParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; set; }
 }
 
 public interface ICmptCnstPrntEnumDualObject
@@ -23,10 +22,9 @@ public interface ICmptCnstPrntEnumDualObject
 
 public interface ICmptRefCnstPrntEnumDual<Ttype>
 {
-  public CmptRefCnstPrntEnumDual RefCnstPrntEnumDual { get; set; }
 }
 
 public interface ICmptRefCnstPrntEnumDualObject<Ttype>
 {
-  public Ttype field { get; set; }
+  public Ttype Field { get; set; }
 }

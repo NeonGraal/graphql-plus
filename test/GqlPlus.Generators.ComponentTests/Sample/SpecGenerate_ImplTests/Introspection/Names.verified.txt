@@ -30,30 +30,26 @@ public class Cmpt_Aliased
   : Cmpt_Named
   , ICmpt_Aliased
 {
-  public ICollection<Cmpt_Name> aliases { get; set; }
-  public Cmpt_Aliased _Aliased { get; set; }
+  public ICollection<ICmpt_Name> Aliases { get; set; }
 }
 
 public class Cmpt_Named
   : Cmpt_Described
   , ICmpt_Named
 {
-  public Cmpt_Name name { get; set; }
-  public Cmpt_Named _Named { get; set; }
+  public ICmpt_Name Name { get; set; }
 }
 
 public class Cmpt_Described
   : ICmpt_Described
 {
-  public ICollection<CmptString> description { get; set; }
-  public Cmpt_Described _Described { get; set; }
+  public ICollection<ICmptString> Description { get; set; }
 }
 
 public class Cmpt_AndType
   : Cmpt_Named
   , ICmpt_AndType
 {
-  public Cmpt_Type type { get; set; }
-  public Cmpt_Type As_Type { get; set; }
-  public Cmpt_AndType _AndType { get; set; }
+  public ICmpt_Type Type { get; set; }
+  public ICmpt_Type As_Type { get; set; }
 }

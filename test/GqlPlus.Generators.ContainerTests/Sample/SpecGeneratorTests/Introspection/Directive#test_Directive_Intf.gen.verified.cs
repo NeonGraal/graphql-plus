@@ -8,26 +8,24 @@ namespace GqlPlus.GeneratorTests.Gqlp_Directive;
 public interface Itest_Directives
   : Itest_AndType
 {
-  public test_Directive As_Directive { get; set; }
-  public test_Directives _Directives { get; set; }
+  public Itest_Directive As_Directive { get; set; }
 }
 
 public interface Itest_DirectivesObject
   : Itest_AndTypeObject
 {
-  public test_Directive directive { get; set; }
+  public Itest_Directive Directive { get; set; }
 }
 
 public interface Itest_Directive
   : Itest_Aliased
 {
-  public test_Directive _Directive { get; set; }
 }
 
 public interface Itest_DirectiveObject
   : Itest_AliasedObject
 {
-  public ICollection<test_InputParam> parameters { get; set; }
-  public testBoolean repeatable { get; set; }
-  public IDictionary<test_Location, testUnit> locations { get; set; }
+  public ICollection<Itest_InputParam> Parameters { get; set; }
+  public ItestBoolean Repeatable { get; set; }
+  public IDictionary<test_Location, ItestUnit> Locations { get; set; }
 }

@@ -52,53 +52,47 @@ public class Cmpt_AndType
   : Cmpt_Named
   , ICmpt_AndType
 {
-  public Cmpt_Type type { get; set; }
-  public Cmpt_Type As_Type { get; set; }
-  public Cmpt_AndType _AndType { get; set; }
+  public ICmpt_Type Type { get; set; }
+  public ICmpt_Type As_Type { get; set; }
 }
 
 public class Cmpt_Categories
   : Cmpt_AndType
   , ICmpt_Categories
 {
-  public Cmpt_Category category { get; set; }
-  public Cmpt_Category As_Category { get; set; }
-  public Cmpt_Categories _Categories { get; set; }
+  public ICmpt_Category Category { get; set; }
+  public ICmpt_Category As_Category { get; set; }
 }
 
 public class Cmpt_Category
   : Cmpt_Aliased
   , ICmpt_Category
 {
-  public Cmpt_Resolution resolution { get; set; }
-  public Cmpt_TypeRef<Cmpt_TypeKind> output { get; set; }
-  public ICollection<Cmpt_Modifiers> modifiers { get; set; }
-  public Cmpt_Category _Category { get; set; }
+  public ICmpt_Resolution Resolution { get; set; }
+  public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 }
 
 public class Cmpt_Directives
   : Cmpt_AndType
   , ICmpt_Directives
 {
-  public Cmpt_Directive directive { get; set; }
-  public Cmpt_Directive As_Directive { get; set; }
-  public Cmpt_Directives _Directives { get; set; }
+  public ICmpt_Directive Directive { get; set; }
+  public ICmpt_Directive As_Directive { get; set; }
 }
 
 public class Cmpt_Directive
   : Cmpt_Aliased
   , ICmpt_Directive
 {
-  public ICollection<Cmpt_InputParam> parameters { get; set; }
-  public CmptBoolean repeatable { get; set; }
-  public IDictionary<Cmpt_Location, CmptUnit> locations { get; set; }
-  public Cmpt_Directive _Directive { get; set; }
+  public ICollection<ICmpt_InputParam> Parameters { get; set; }
+  public ICmptBoolean Repeatable { get; set; }
+  public IDictionary<Cmpt_Location, ICmptUnit> Locations { get; set; }
 }
 
 public class Cmpt_Setting
   : Cmpt_Named
   , ICmpt_Setting
 {
-  public Cmpt_Value value { get; set; }
-  public Cmpt_Setting _Setting { get; set; }
+  public ICmpt_Value Value { get; set; }
 }

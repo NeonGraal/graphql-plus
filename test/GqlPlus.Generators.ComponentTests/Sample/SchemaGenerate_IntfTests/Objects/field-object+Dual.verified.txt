@@ -11,21 +11,19 @@ namespace Components.Gqlp_Schema_field_object_Dual;
 
 public interface ICmptFieldObjDual
 {
-  public CmptFieldObjDual FieldObjDual { get; set; }
 }
 
 public interface ICmptFieldObjDualObject
 {
-  public CmptFldFieldObjDual field { get; set; }
+  public ICmptFldFieldObjDual Field { get; set; }
 }
 
 public interface ICmptFldFieldObjDual
 {
-  public CmptString AsString { get; set; }
-  public CmptFldFieldObjDual FldFieldObjDual { get; set; }
+  public ICmptString AsString { get; set; }
 }
 
 public interface ICmptFldFieldObjDualObject
 {
-  public CmptNumber field { get; set; }
+  public ICmptNumber Field { get; set; }
 }

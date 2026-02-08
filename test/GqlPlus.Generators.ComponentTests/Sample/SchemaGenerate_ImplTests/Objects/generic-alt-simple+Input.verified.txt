@@ -12,13 +12,11 @@ namespace Components.Gqlp_Schema_generic_alt_simple_Input;
 public class CmptGnrcAltSmplInp
   : ICmptGnrcAltSmplInp
 {
-  public CmptRefGnrcAltSmplInp<CmptString> AsRefGnrcAltSmplInp { get; set; }
-  public CmptGnrcAltSmplInp GnrcAltSmplInp { get; set; }
+  public ICmptRefGnrcAltSmplInp<ICmptString> AsRefGnrcAltSmplInp { get; set; }
 }
 
 public class CmptRefGnrcAltSmplInp<Tref>
   : ICmptRefGnrcAltSmplInp<Tref>
 {
   public Tref Asref { get; set; }
-  public CmptRefGnrcAltSmplInp RefGnrcAltSmplInp { get; set; }
 }

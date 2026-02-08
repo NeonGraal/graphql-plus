@@ -12,7 +12,6 @@ namespace Components.Gqlp_Schema_object_alt_enum_Dual;
 public class CmptObjAltEnumDual
   : ICmptObjAltEnumDual
 {
-  public CmptBoolean AsBooleantrue { get; set; }
-  public CmptBoolean AsBooleanfalse { get; set; }
-  public CmptObjAltEnumDual ObjAltEnumDual { get; set; }
+  public ICmptBoolean AsBooleantrue { get; set; }
+  public ICmptBoolean AsBooleanfalse { get; set; }
 }

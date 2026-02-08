@@ -29,8 +29,7 @@ namespace Components.Gqlp_Spec_Schema;
 public interface ICmpt_Opt<TT>
 {
   public TT AsT { get; set; }
-  public CmptNull AsNull { get; set; }
-  public Cmpt_Opt _Opt { get; set; }
+  public ICmptNull AsNull { get; set; }
 }
 
 public interface ICmpt_OptObject<TT>
@@ -40,7 +39,6 @@ public interface ICmpt_OptObject<TT>
 public interface ICmpt_List<TT>
 {
   public ICollection<TT> AsT { get; set; }
-  public Cmpt_List _List { get; set; }
 }
 
 public interface ICmpt_ListObject<TT>
@@ -50,7 +48,6 @@ public interface ICmpt_ListObject<TT>
 public interface ICmpt_Dict<TK,TT>
 {
   public IDictionary<TK, TT> AsT { get; set; }
-  public Cmpt_Dict _Dict { get; set; }
 }
 
 public interface ICmpt_DictObject<TK,TT>
@@ -60,7 +57,6 @@ public interface ICmpt_DictObject<TK,TT>
 public interface ICmpt_Map<TT>
 {
   public IDictionary<CmptString, TT> AsT { get; set; }
-  public Cmpt_Map _Map { get; set; }
 }
 
 public interface ICmpt_MapObject<TT>
@@ -70,7 +66,6 @@ public interface ICmpt_MapObject<TT>
 public interface ICmpt_Array<TT>
 {
   public IDictionary<CmptNumber, TT> AsT { get; set; }
-  public Cmpt_Array _Array { get; set; }
 }
 
 public interface ICmpt_ArrayObject<TT>
@@ -80,7 +75,6 @@ public interface ICmpt_ArrayObject<TT>
 public interface ICmpt_IfElse<TT>
 {
   public IDictionary<CmptBoolean, TT> AsT { get; set; }
-  public Cmpt_IfElse _IfElse { get; set; }
 }
 
 public interface ICmpt_IfElseObject<TT>
@@ -89,8 +83,7 @@ public interface ICmpt_IfElseObject<TT>
 
 public interface ICmpt_Set<TK>
 {
-  public IDictionary<TK, CmptUnit> AsUnit_ { get; set; }
-  public Cmpt_Set _Set { get; set; }
+  public IDictionary<TK, ICmptUnit> AsUnit_ { get; set; }
 }
 
 public interface ICmpt_SetObject<TK>
@@ -99,8 +92,7 @@ public interface ICmpt_SetObject<TK>
 
 public interface ICmpt_Mask<TK>
 {
-  public IDictionary<TK, CmptBoolean> As^ { get; set; }
-  public Cmpt_Mask _Mask { get; set; }
+  public IDictionary<TK, ICmptBoolean> As^ { get; set; }
 }
 
 public interface ICmpt_MaskObject<TK>
@@ -113,7 +105,6 @@ public interface ICmpt_Key
 
 public interface ICmpt_Any
 {
-  public Cmpt_Any _Any { get; set; }
 }
 
 public interface ICmpt_AnyObject

@@ -12,5 +12,4 @@ namespace Components.Gqlp_Schema_category_output_optional;
 public class CmptCtgrOutpOptl
   : ICmptCtgrOutpOptl
 {
-  public CmptCtgrOutpOptl CtgrOutpOptl { get; set; }
 }

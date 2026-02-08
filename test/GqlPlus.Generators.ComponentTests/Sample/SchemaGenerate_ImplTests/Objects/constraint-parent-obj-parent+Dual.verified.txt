@@ -15,27 +15,23 @@ public class CmptCnstPrntObjPrntDual
   : CmptRefCnstPrntObjPrntDual
   , ICmptCnstPrntObjPrntDual
 {
-  public CmptCnstPrntObjPrntDual CnstPrntObjPrntDual { get; set; }
 }
 
 public class CmptRefCnstPrntObjPrntDual<Tref>
   : Cmptref
   , ICmptRefCnstPrntObjPrntDual<Tref>
 {
-  public CmptRefCnstPrntObjPrntDual RefCnstPrntObjPrntDual { get; set; }
 }
 
 public class CmptPrntCnstPrntObjPrntDual
   : ICmptPrntCnstPrntObjPrntDual
 {
-  public CmptString AsString { get; set; }
-  public CmptPrntCnstPrntObjPrntDual PrntCnstPrntObjPrntDual { get; set; }
+  public ICmptString AsString { get; set; }
 }
 
 public class CmptAltCnstPrntObjPrntDual
   : CmptPrntCnstPrntObjPrntDual
   , ICmptAltCnstPrntObjPrntDual
 {
-  public CmptNumber alt { get; set; }
-  public CmptAltCnstPrntObjPrntDual AltCnstPrntObjPrntDual { get; set; }
+  public ICmptNumber Alt { get; set; }
 }

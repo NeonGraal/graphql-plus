@@ -10,8 +10,7 @@ namespace Components.Gqlp_Schema_alt_simple_Dual;
 
 public interface ICmptAltSmplDual
 {
-  public CmptString AsString { get; set; }
-  public CmptAltSmplDual AltSmplDual { get; set; }
+  public ICmptString AsString { get; set; }
 }
 
 public interface ICmptAltSmplDualObject

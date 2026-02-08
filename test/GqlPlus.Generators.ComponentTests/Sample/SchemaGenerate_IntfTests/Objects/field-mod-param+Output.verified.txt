@@ -11,21 +11,19 @@ namespace Components.Gqlp_Schema_field_mod_param_Output;
 
 public interface ICmptFieldModParamOutp<Tmod>
 {
-  public CmptFieldModParamOutp FieldModParamOutp { get; set; }
 }
 
 public interface ICmptFieldModParamOutpObject<Tmod>
 {
-  public IDictionary<Tmod, CmptFldFieldModParamOutp> field { get; set; }
+  public IDictionary<Tmod, ICmptFldFieldModParamOutp> Field { get; set; }
 }
 
 public interface ICmptFldFieldModParamOutp
 {
-  public CmptString AsString { get; set; }
-  public CmptFldFieldModParamOutp FldFieldModParamOutp { get; set; }
+  public ICmptString AsString { get; set; }
 }
 
 public interface ICmptFldFieldModParamOutpObject
 {
-  public CmptNumber field { get; set; }
+  public ICmptNumber Field { get; set; }
 }

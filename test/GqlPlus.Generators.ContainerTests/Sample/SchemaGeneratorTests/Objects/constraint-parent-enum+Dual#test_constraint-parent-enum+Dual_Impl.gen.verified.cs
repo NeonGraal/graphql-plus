@@ -8,13 +8,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_enum_Dual;
 public class testCnstPrntEnumDual
   : ItestCnstPrntEnumDual
 {
-  public testRefCnstPrntEnumDual<testParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; set; }
-  public testCnstPrntEnumDual CnstPrntEnumDual { get; set; }
+  public ItestRefCnstPrntEnumDual<ItestParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; set; }
 }
 
 public class testRefCnstPrntEnumDual<Ttype>
   : ItestRefCnstPrntEnumDual<Ttype>
 {
-  public Ttype field { get; set; }
-  public testRefCnstPrntEnumDual RefCnstPrntEnumDual { get; set; }
+  public Ttype Field { get; set; }
 }

@@ -15,27 +15,23 @@ public class CmptCnstFieldDualDual
   : CmptRefCnstFieldDualDual
   , ICmptCnstFieldDualDual
 {
-  public CmptCnstFieldDualDual CnstFieldDualDual { get; set; }
 }
 
 public class CmptRefCnstFieldDualDual<Tref>
   : ICmptRefCnstFieldDualDual<Tref>
 {
-  public Tref field { get; set; }
-  public CmptRefCnstFieldDualDual RefCnstFieldDualDual { get; set; }
+  public Tref Field { get; set; }
 }
 
 public class CmptPrntCnstFieldDualDual
   : ICmptPrntCnstFieldDualDual
 {
-  public CmptString AsString { get; set; }
-  public CmptPrntCnstFieldDualDual PrntCnstFieldDualDual { get; set; }
+  public ICmptString AsString { get; set; }
 }
 
 public class CmptAltCnstFieldDualDual
   : CmptPrntCnstFieldDualDual
   , ICmptAltCnstFieldDualDual
 {
-  public CmptNumber alt { get; set; }
-  public CmptAltCnstFieldDualDual AltCnstFieldDualDual { get; set; }
+  public ICmptNumber Alt { get; set; }
 }

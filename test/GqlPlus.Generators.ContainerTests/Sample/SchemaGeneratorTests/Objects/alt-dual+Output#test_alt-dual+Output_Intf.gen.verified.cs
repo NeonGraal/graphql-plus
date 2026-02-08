@@ -7,8 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_dual_Output;
 
 public interface ItestAltDualOutp
 {
-  public testObjDualAltDualOutp AsObjDualAltDualOutp { get; set; }
-  public testAltDualOutp AltDualOutp { get; set; }
+  public ItestObjDualAltDualOutp AsObjDualAltDualOutp { get; set; }
 }
 
 public interface ItestAltDualOutpObject
@@ -17,11 +16,10 @@ public interface ItestAltDualOutpObject
 
 public interface ItestObjDualAltDualOutp
 {
-  public testString AsString { get; set; }
-  public testObjDualAltDualOutp ObjDualAltDualOutp { get; set; }
+  public ItestString AsString { get; set; }
 }
 
 public interface ItestObjDualAltDualOutpObject
 {
-  public testNumber alt { get; set; }
+  public ItestNumber Alt { get; set; }
 }

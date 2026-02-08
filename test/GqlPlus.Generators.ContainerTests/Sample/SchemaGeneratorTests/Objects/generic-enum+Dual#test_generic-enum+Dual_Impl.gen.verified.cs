@@ -8,13 +8,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Dual;
 public class testGnrcEnumDual
   : ItestGnrcEnumDual
 {
-  public testRefGnrcEnumDual<testEnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
-  public testGnrcEnumDual GnrcEnumDual { get; set; }
+  public ItestRefGnrcEnumDual<ItestEnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
 }
 
 public class testRefGnrcEnumDual<Ttype>
   : ItestRefGnrcEnumDual<Ttype>
 {
-  public Ttype field { get; set; }
-  public testRefGnrcEnumDual RefGnrcEnumDual { get; set; }
+  public Ttype Field { get; set; }
 }

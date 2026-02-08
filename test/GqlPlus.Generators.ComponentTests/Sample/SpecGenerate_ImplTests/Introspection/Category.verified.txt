@@ -25,17 +25,15 @@ public class Cmpt_Categories
   : Cmpt_AndType
   , ICmpt_Categories
 {
-  public Cmpt_Category category { get; set; }
-  public Cmpt_Category As_Category { get; set; }
-  public Cmpt_Categories _Categories { get; set; }
+  public ICmpt_Category Category { get; set; }
+  public ICmpt_Category As_Category { get; set; }
 }
 
 public class Cmpt_Category
   : Cmpt_Aliased
   , ICmpt_Category
 {
-  public Cmpt_Resolution resolution { get; set; }
-  public Cmpt_TypeRef<Cmpt_TypeKind> output { get; set; }
-  public ICollection<Cmpt_Modifiers> modifiers { get; set; }
-  public Cmpt_Category _Category { get; set; }
+  public ICmpt_Resolution Resolution { get; set; }
+  public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 }

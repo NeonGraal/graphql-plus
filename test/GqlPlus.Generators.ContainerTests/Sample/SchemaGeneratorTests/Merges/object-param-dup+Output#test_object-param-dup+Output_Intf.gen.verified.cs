@@ -7,11 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_param_dup_Output;
 
 public interface ItestObjParamDupOutp<Ttest>
 {
-  public testObjParamDupOutp ObjParamDupOutp { get; set; }
 }
 
 public interface ItestObjParamDupOutpObject<Ttest>
 {
-  public Ttest test { get; set; }
-  public Ttest type { get; set; }
+  public Ttest Test { get; set; }
+  public Ttest Type { get; set; }
 }

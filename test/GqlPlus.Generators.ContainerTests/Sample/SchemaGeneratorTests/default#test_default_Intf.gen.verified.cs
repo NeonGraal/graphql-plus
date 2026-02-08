@@ -7,7 +7,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_default;
 
 public interface ItestQuery
 {
-  public testQuery Query { get; set; }
 }
 
 public interface ItestQueryObject
@@ -16,7 +15,6 @@ public interface ItestQueryObject
 
 public interface ItestMutation
 {
-  public testMutation Mutation { get; set; }
 }
 
 public interface ItestMutationObject
@@ -25,7 +23,6 @@ public interface ItestMutationObject
 
 public interface ItestSubscription
 {
-  public testSubscription Subscription { get; set; }
 }
 
 public interface ItestSubscriptionObject
@@ -34,7 +31,6 @@ public interface ItestSubscriptionObject
 
 public interface Itest_Schema
 {
-  public test_Schema _Schema { get; set; }
 }
 
 public interface Itest_SchemaObject

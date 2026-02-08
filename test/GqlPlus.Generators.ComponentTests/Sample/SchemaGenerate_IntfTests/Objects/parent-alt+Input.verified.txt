@@ -12,8 +12,7 @@ namespace Components.Gqlp_Schema_parent_alt_Input;
 public interface ICmptPrntAltInp
   : ICmptRefPrntAltInp
 {
-  public CmptNumber AsNumber { get; set; }
-  public CmptPrntAltInp PrntAltInp { get; set; }
+  public ICmptNumber AsNumber { get; set; }
 }
 
 public interface ICmptPrntAltInpObject
@@ -23,11 +22,10 @@ public interface ICmptPrntAltInpObject
 
 public interface ICmptRefPrntAltInp
 {
-  public CmptString AsString { get; set; }
-  public CmptRefPrntAltInp RefPrntAltInp { get; set; }
+  public ICmptString AsString { get; set; }
 }
 
 public interface ICmptRefPrntAltInpObject
 {
-  public CmptNumber parent { get; set; }
+  public ICmptNumber Parent { get; set; }
 }

@@ -13,7 +13,6 @@ namespace Components.Gqlp_Schema_category_descrs;
 
 public interface ICmptCtgrDscrs
 {
-  public CmptCtgrDscrs CtgrDscrs { get; set; }
 }
 
 public interface ICmptCtgrDscrsObject

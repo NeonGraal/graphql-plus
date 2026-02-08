@@ -44,7 +44,6 @@ public class test_Key
 public class test_Object
   : Itest_Object
 {
-  public test_Object _Object { get; set; }
 }
 
 public class test_Domain
@@ -55,7 +54,6 @@ public class test_Domain
 public class test_Dual
   : Itest_Dual
 {
-  public test_Dual _Dual { get; set; }
 }
 
 public class test_Enum
@@ -66,13 +64,11 @@ public class test_Enum
 public class test_Input
   : Itest_Input
 {
-  public test_Input _Input { get; set; }
 }
 
 public class test_Output
   : Itest_Output
 {
-  public test_Output _Output { get; set; }
 }
 
 public class test_Union

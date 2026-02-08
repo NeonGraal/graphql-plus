@@ -12,19 +12,17 @@ namespace Components.Gqlp_Schema_parent_param_diff_Dual;
 public interface ICmptPrntParamDiffDual<Ta>
   : ICmptRefPrntParamDiffDual
 {
-  public CmptPrntParamDiffDual PrntParamDiffDual { get; set; }
 }
 
 public interface ICmptPrntParamDiffDualObject<Ta>
   : ICmptRefPrntParamDiffDualObject
 {
-  public Ta field { get; set; }
+  public Ta Field { get; set; }
 }
 
 public interface ICmptRefPrntParamDiffDual<Tb>
 {
   public Tb Asb { get; set; }
-  public CmptRefPrntParamDiffDual RefPrntParamDiffDual { get; set; }
 }
 
 public interface ICmptRefPrntParamDiffDualObject<Tb>

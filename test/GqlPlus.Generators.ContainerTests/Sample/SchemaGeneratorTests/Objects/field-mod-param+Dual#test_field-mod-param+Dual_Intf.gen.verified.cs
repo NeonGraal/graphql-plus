@@ -7,21 +7,19 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Dual;
 
 public interface ItestFieldModParamDual<Tmod>
 {
-  public testFieldModParamDual FieldModParamDual { get; set; }
 }
 
 public interface ItestFieldModParamDualObject<Tmod>
 {
-  public IDictionary<Tmod, testFldFieldModParamDual> field { get; set; }
+  public IDictionary<Tmod, ItestFldFieldModParamDual> Field { get; set; }
 }
 
 public interface ItestFldFieldModParamDual
 {
-  public testString AsString { get; set; }
-  public testFldFieldModParamDual FldFieldModParamDual { get; set; }
+  public ItestString AsString { get; set; }
 }
 
 public interface ItestFldFieldModParamDualObject
 {
-  public testNumber field { get; set; }
+  public ItestNumber Field { get; set; }
 }

@@ -12,5 +12,4 @@ namespace Components.Gqlp_Schema_object_Input;
 public class CmptObjInp
   : ICmptObjInp
 {
-  public CmptObjInp ObjInp { get; set; }
 }

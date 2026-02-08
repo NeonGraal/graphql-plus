@@ -13,7 +13,6 @@ namespace Components.Gqlp_Schema_generic_parent_string_dom_Output;
 public interface ICmptGnrcPrntStrDomOutp
   : ICmptFieldGnrcPrntStrDomOutp
 {
-  public CmptGnrcPrntStrDomOutp GnrcPrntStrDomOutp { get; set; }
 }
 
 public interface ICmptGnrcPrntStrDomOutpObject
@@ -23,12 +22,11 @@ public interface ICmptGnrcPrntStrDomOutpObject
 
 public interface ICmptFieldGnrcPrntStrDomOutp<Tref>
 {
-  public CmptFieldGnrcPrntStrDomOutp FieldGnrcPrntStrDomOutp { get; set; }
 }
 
 public interface ICmptFieldGnrcPrntStrDomOutpObject<Tref>
 {
-  public Tref field { get; set; }
+  public Tref Field { get; set; }
 }
 
 public interface ICmptDomGnrcPrntStrDomOutp

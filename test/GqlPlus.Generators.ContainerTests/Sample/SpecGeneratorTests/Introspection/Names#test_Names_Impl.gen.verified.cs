@@ -9,30 +9,26 @@ public class test_Aliased
   : test_Named
   , Itest_Aliased
 {
-  public ICollection<test_Name> aliases { get; set; }
-  public test_Aliased _Aliased { get; set; }
+  public ICollection<Itest_Name> Aliases { get; set; }
 }
 
 public class test_Named
   : test_Described
   , Itest_Named
 {
-  public test_Name name { get; set; }
-  public test_Named _Named { get; set; }
+  public Itest_Name Name { get; set; }
 }
 
 public class test_Described
   : Itest_Described
 {
-  public ICollection<testString> description { get; set; }
-  public test_Described _Described { get; set; }
+  public ICollection<ItestString> Description { get; set; }
 }
 
 public class test_AndType
   : test_Named
   , Itest_AndType
 {
-  public test_Type type { get; set; }
-  public test_Type As_Type { get; set; }
-  public test_AndType _AndType { get; set; }
+  public Itest_Type Type { get; set; }
+  public Itest_Type As_Type { get; set; }
 }

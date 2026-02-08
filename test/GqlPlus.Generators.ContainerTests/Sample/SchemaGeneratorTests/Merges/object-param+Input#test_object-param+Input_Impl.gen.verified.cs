@@ -8,7 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_param_Input;
 public class testObjParamInp<Ttest,Ttype>
   : ItestObjParamInp<Ttest,Ttype>
 {
-  public Ttest test { get; set; }
-  public Ttype type { get; set; }
-  public testObjParamInp ObjParamInp { get; set; }
+  public Ttest Test { get; set; }
+  public Ttype Type { get; set; }
 }

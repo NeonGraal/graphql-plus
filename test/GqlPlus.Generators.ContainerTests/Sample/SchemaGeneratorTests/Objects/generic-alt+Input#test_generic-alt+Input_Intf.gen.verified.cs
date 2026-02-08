@@ -8,7 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_Input;
 public interface ItestGnrcAltInp<Ttype>
 {
   public Ttype Astype { get; set; }
-  public testGnrcAltInp GnrcAltInp { get; set; }
 }
 
 public interface ItestGnrcAltInpObject<Ttype>

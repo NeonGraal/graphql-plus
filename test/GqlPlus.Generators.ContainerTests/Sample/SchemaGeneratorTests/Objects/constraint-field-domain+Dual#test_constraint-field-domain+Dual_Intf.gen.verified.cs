@@ -8,7 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Dual;
 public interface ItestCnstFieldDmnDual
   : ItestRefCnstFieldDmnDual
 {
-  public testCnstFieldDmnDual CnstFieldDmnDual { get; set; }
 }
 
 public interface ItestCnstFieldDmnDualObject
@@ -18,12 +17,11 @@ public interface ItestCnstFieldDmnDualObject
 
 public interface ItestRefCnstFieldDmnDual<Tref>
 {
-  public testRefCnstFieldDmnDual RefCnstFieldDmnDual { get; set; }
 }
 
 public interface ItestRefCnstFieldDmnDualObject<Tref>
 {
-  public Tref field { get; set; }
+  public Tref Field { get; set; }
 }
 
 public interface ItestDomCnstFieldDmnDual

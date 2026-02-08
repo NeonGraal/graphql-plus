@@ -7,21 +7,19 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_object_Output;
 
 public interface ItestFieldObjOutp
 {
-  public testFieldObjOutp FieldObjOutp { get; set; }
 }
 
 public interface ItestFieldObjOutpObject
 {
-  public testFldFieldObjOutp field { get; set; }
+  public ItestFldFieldObjOutp Field { get; set; }
 }
 
 public interface ItestFldFieldObjOutp
 {
-  public testString AsString { get; set; }
-  public testFldFieldObjOutp FldFieldObjOutp { get; set; }
+  public ItestString AsString { get; set; }
 }
 
 public interface ItestFldFieldObjOutpObject
 {
-  public testNumber field { get; set; }
+  public ItestNumber Field { get; set; }
 }

@@ -9,17 +9,15 @@ public class test_Directives
   : test_AndType
   , Itest_Directives
 {
-  public test_Directive directive { get; set; }
-  public test_Directive As_Directive { get; set; }
-  public test_Directives _Directives { get; set; }
+  public Itest_Directive Directive { get; set; }
+  public Itest_Directive As_Directive { get; set; }
 }
 
 public class test_Directive
   : test_Aliased
   , Itest_Directive
 {
-  public ICollection<test_InputParam> parameters { get; set; }
-  public testBoolean repeatable { get; set; }
-  public IDictionary<test_Location, testUnit> locations { get; set; }
-  public test_Directive _Directive { get; set; }
+  public ICollection<Itest_InputParam> Parameters { get; set; }
+  public ItestBoolean Repeatable { get; set; }
+  public IDictionary<test_Location, ItestUnit> Locations { get; set; }
 }

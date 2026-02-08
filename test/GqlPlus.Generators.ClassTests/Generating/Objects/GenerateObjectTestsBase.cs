@@ -40,8 +40,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldSatisfyAllConditions(
+    CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
       CheckGeneratedCodeField(generatorType, fieldName, fieldType));
   }
@@ -59,8 +58,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldSatisfyAllConditions(
+    CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
       CheckGeneratedCodeAlternate(generatorType, alternateType));
   }
@@ -78,8 +76,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldSatisfyAllConditions(
+    CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
       CheckGeneratedCodeAlternateEnum(generatorType, enumType, enumLabel));
   }
@@ -97,8 +94,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldSatisfyAllConditions(
+    CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
       CheckGeneratedCodeAlternateArg(generatorType, alternateType, argName));
   }
@@ -117,8 +113,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldSatisfyAllConditions(
+    CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
       CheckGeneratedCodeField(generatorType, fieldName, fieldType),
       CheckGeneratedCodeAlternate(generatorType, alternateType));
@@ -155,16 +150,16 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     };
 
   protected virtual Action<string> CheckGeneratedCodeField(GqlpGeneratorType generatorType, string fieldName, string fieldType)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, fieldType + " " + fieldName + " { get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, "Itest" + fieldType + " " + fieldName + " { get;");
 
   protected virtual Action<string> CheckGeneratedCodeAlternate(GqlpGeneratorType generatorType, string alternateType)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{alternateType} As{alternateType} {{ get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"Itest{alternateType} As{alternateType} {{ get;");
 
   protected virtual Action<string> CheckGeneratedCodeAlternateArg(GqlpGeneratorType generatorType, string alternateType, string argName)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{alternateType}<test{argName}> As{alternateType} {{ get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"Itest{alternateType}<Itest{argName}> As{alternateType} {{ get;");
 
   protected virtual Action<string> CheckGeneratedCodeAlternateEnum(GqlpGeneratorType generatorType, string enumType, string enumLabel)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{enumType} As{enumType}{enumLabel} {{ get;");
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"test{enumType} As{enumType}{enumLabel} {{ get;");
 
   internal override GenerateForType<IGqlpObject<TObjField>> TypeGenerator { get; }
     = new GenerateForObject<TObjField>();

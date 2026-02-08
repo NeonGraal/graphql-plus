@@ -9,12 +9,10 @@ public class testGnrcPrntArgDual<Ttype>
   : testRefGnrcPrntArgDual
   , ItestGnrcPrntArgDual<Ttype>
 {
-  public testGnrcPrntArgDual GnrcPrntArgDual { get; set; }
 }
 
 public class testRefGnrcPrntArgDual<Tref>
   : ItestRefGnrcPrntArgDual<Tref>
 {
   public Tref Asref { get; set; }
-  public testRefGnrcPrntArgDual RefGnrcPrntArgDual { get; set; }
 }

@@ -12,5 +12,4 @@ public class CmptGnrcPrntDescrOutp<Ttype>
   : Cmpttype
   , ICmptGnrcPrntDescrOutp<Ttype>
 {
-  public CmptGnrcPrntDescrOutp GnrcPrntDescrOutp { get; set; }
 }

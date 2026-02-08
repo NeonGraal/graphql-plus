@@ -12,7 +12,6 @@ namespace Components.Gqlp_Schema_object_param_dup_Input;
 public class CmptObjParamDupInp<Ttest>
   : ICmptObjParamDupInp<Ttest>
 {
-  public Ttest test { get; set; }
-  public Ttest type { get; set; }
-  public CmptObjParamDupInp ObjParamDupInp { get; set; }
+  public Ttest Test { get; set; }
+  public Ttest Type { get; set; }
 }

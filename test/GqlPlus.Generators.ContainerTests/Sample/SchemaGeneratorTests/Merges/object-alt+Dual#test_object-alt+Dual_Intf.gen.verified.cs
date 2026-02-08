@@ -7,8 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Dual;
 
 public interface ItestObjAltDual
 {
-  public testObjAltDualType AsObjAltDualType { get; set; }
-  public testObjAltDual ObjAltDual { get; set; }
+  public ItestObjAltDualType AsObjAltDualType { get; set; }
 }
 
 public interface ItestObjAltDualObject
@@ -17,7 +16,6 @@ public interface ItestObjAltDualObject
 
 public interface ItestObjAltDualType
 {
-  public testObjAltDualType ObjAltDualType { get; set; }
 }
 
 public interface ItestObjAltDualTypeObject

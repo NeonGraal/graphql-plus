@@ -8,78 +8,72 @@ namespace GqlPlus.GeneratorTests.Gqlp__Global;
 public interface Itest_AndType
   : Itest_Named
 {
-  public test_Type As_Type { get; set; }
-  public test_AndType _AndType { get; set; }
+  public Itest_Type As_Type { get; set; }
 }
 
 public interface Itest_AndTypeObject
   : Itest_NamedObject
 {
-  public test_Type type { get; set; }
+  public Itest_Type Type { get; set; }
 }
 
 public interface Itest_Categories
   : Itest_AndType
 {
-  public test_Category As_Category { get; set; }
-  public test_Categories _Categories { get; set; }
+  public Itest_Category As_Category { get; set; }
 }
 
 public interface Itest_CategoriesObject
   : Itest_AndTypeObject
 {
-  public test_Category category { get; set; }
+  public Itest_Category Category { get; set; }
 }
 
 public interface Itest_Category
   : Itest_Aliased
 {
-  public test_Category _Category { get; set; }
 }
 
 public interface Itest_CategoryObject
   : Itest_AliasedObject
 {
-  public test_Resolution resolution { get; set; }
-  public test_TypeRef<test_TypeKind> output { get; set; }
-  public ICollection<test_Modifiers> modifiers { get; set; }
+  public Itest_Resolution Resolution { get; set; }
+  public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
 }
 
 public interface Itest_Directives
   : Itest_AndType
 {
-  public test_Directive As_Directive { get; set; }
-  public test_Directives _Directives { get; set; }
+  public Itest_Directive As_Directive { get; set; }
 }
 
 public interface Itest_DirectivesObject
   : Itest_AndTypeObject
 {
-  public test_Directive directive { get; set; }
+  public Itest_Directive Directive { get; set; }
 }
 
 public interface Itest_Directive
   : Itest_Aliased
 {
-  public test_Directive _Directive { get; set; }
 }
 
 public interface Itest_DirectiveObject
   : Itest_AliasedObject
 {
-  public ICollection<test_InputParam> parameters { get; set; }
-  public testBoolean repeatable { get; set; }
-  public IDictionary<test_Location, testUnit> locations { get; set; }
+  public ICollection<Itest_InputParam> Parameters { get; set; }
+  public ItestBoolean Repeatable { get; set; }
+  public IDictionary<test_Location, ItestUnit> Locations { get; set; }
 }
 
 public interface Itest_Setting
   : Itest_Named
 {
-  public test_Setting _Setting { get; set; }
 }
 
 public interface Itest_SettingObject
   : Itest_NamedObject
 {
-  public test_Value value { get; set; }
+  public Itest_Value Value { get; set; }
 }

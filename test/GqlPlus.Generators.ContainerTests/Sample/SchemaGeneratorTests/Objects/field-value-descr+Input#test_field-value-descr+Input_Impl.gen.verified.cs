@@ -8,6 +8,5 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Input;
 public class testFieldValueDescrInp
   : ItestFieldValueDescrInp
 {
-  public testEnumFieldValueDescrInp field { get; set; }
-  public testFieldValueDescrInp FieldValueDescrInp { get; set; }
+  public ItestEnumFieldValueDescrInp Field { get; set; }
 }

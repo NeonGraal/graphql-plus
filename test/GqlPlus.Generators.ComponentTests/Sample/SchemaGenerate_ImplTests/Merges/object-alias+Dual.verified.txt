@@ -12,5 +12,4 @@ namespace Components.Gqlp_Schema_object_alias_Dual;
 public class CmptObjAliasDual
   : ICmptObjAliasDual
 {
-  public CmptObjAliasDual ObjAliasDual { get; set; }
 }

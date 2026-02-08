@@ -9,13 +9,11 @@ public class testPrntParamSameDual<Ta>
   : testRefPrntParamSameDual
   , ItestPrntParamSameDual<Ta>
 {
-  public Ta field { get; set; }
-  public testPrntParamSameDual PrntParamSameDual { get; set; }
+  public Ta Field { get; set; }
 }
 
 public class testRefPrntParamSameDual<Ta>
   : ItestRefPrntParamSameDual<Ta>
 {
   public Ta Asa { get; set; }
-  public testRefPrntParamSameDual RefPrntParamSameDual { get; set; }
 }

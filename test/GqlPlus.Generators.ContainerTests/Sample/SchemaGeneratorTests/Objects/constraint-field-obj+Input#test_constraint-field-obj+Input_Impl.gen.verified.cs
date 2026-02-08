@@ -9,27 +9,23 @@ public class testCnstFieldObjInp
   : testRefCnstFieldObjInp
   , ItestCnstFieldObjInp
 {
-  public testCnstFieldObjInp CnstFieldObjInp { get; set; }
 }
 
 public class testRefCnstFieldObjInp<Tref>
   : ItestRefCnstFieldObjInp<Tref>
 {
-  public Tref field { get; set; }
-  public testRefCnstFieldObjInp RefCnstFieldObjInp { get; set; }
+  public Tref Field { get; set; }
 }
 
 public class testPrntCnstFieldObjInp
   : ItestPrntCnstFieldObjInp
 {
-  public testString AsString { get; set; }
-  public testPrntCnstFieldObjInp PrntCnstFieldObjInp { get; set; }
+  public ItestString AsString { get; set; }
 }
 
 public class testAltCnstFieldObjInp
   : testPrntCnstFieldObjInp
   , ItestAltCnstFieldObjInp
 {
-  public testNumber alt { get; set; }
-  public testAltCnstFieldObjInp AltCnstFieldObjInp { get; set; }
+  public ItestNumber Alt { get; set; }
 }

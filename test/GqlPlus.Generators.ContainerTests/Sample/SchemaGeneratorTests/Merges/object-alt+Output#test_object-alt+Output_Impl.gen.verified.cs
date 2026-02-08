@@ -8,12 +8,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Output;
 public class testObjAltOutp
   : ItestObjAltOutp
 {
-  public testObjAltOutpType AsObjAltOutpType { get; set; }
-  public testObjAltOutp ObjAltOutp { get; set; }
+  public ItestObjAltOutpType AsObjAltOutpType { get; set; }
 }
 
 public class testObjAltOutpType
   : ItestObjAltOutpType
 {
-  public testObjAltOutpType ObjAltOutpType { get; set; }
 }

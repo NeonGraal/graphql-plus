@@ -7,10 +7,9 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Dual;
 
 public interface ItestFieldSmplDual
 {
-  public testFieldSmplDual FieldSmplDual { get; set; }
 }
 
 public interface ItestFieldSmplDualObject
 {
-  public testNumber field { get; set; }
+  public ItestNumber Field { get; set; }
 }

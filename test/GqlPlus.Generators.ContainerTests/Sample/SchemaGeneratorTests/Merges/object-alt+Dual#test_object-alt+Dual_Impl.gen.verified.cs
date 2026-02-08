@@ -8,12 +8,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Dual;
 public class testObjAltDual
   : ItestObjAltDual
 {
-  public testObjAltDualType AsObjAltDualType { get; set; }
-  public testObjAltDual ObjAltDual { get; set; }
+  public ItestObjAltDualType AsObjAltDualType { get; set; }
 }
 
 public class testObjAltDualType
   : ItestObjAltDualType
 {
-  public testObjAltDualType ObjAltDualType { get; set; }
 }

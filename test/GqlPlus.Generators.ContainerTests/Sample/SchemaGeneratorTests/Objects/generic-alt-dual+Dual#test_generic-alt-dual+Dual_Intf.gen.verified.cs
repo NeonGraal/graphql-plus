@@ -7,8 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_dual_Dual;
 
 public interface ItestGnrcAltDualDual
 {
-  public testRefGnrcAltDualDual<testAltGnrcAltDualDual> AsRefGnrcAltDualDual { get; set; }
-  public testGnrcAltDualDual GnrcAltDualDual { get; set; }
+  public ItestRefGnrcAltDualDual<ItestAltGnrcAltDualDual> AsRefGnrcAltDualDual { get; set; }
 }
 
 public interface ItestGnrcAltDualDualObject
@@ -18,7 +17,6 @@ public interface ItestGnrcAltDualDualObject
 public interface ItestRefGnrcAltDualDual<Tref>
 {
   public Tref Asref { get; set; }
-  public testRefGnrcAltDualDual RefGnrcAltDualDual { get; set; }
 }
 
 public interface ItestRefGnrcAltDualDualObject<Tref>
@@ -27,11 +25,10 @@ public interface ItestRefGnrcAltDualDualObject<Tref>
 
 public interface ItestAltGnrcAltDualDual
 {
-  public testString AsString { get; set; }
-  public testAltGnrcAltDualDual AltGnrcAltDualDual { get; set; }
+  public ItestString AsString { get; set; }
 }
 
 public interface ItestAltGnrcAltDualDualObject
 {
-  public testNumber alt { get; set; }
+  public ItestNumber Alt { get; set; }
 }

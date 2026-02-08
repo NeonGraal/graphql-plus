@@ -19,7 +19,6 @@ namespace Components.Gqlp_Schema_default;
 
 public interface ICmptQuery
 {
-  public CmptQuery Query { get; set; }
 }
 
 public interface ICmptQueryObject
@@ -28,7 +27,6 @@ public interface ICmptQueryObject
 
 public interface ICmptMutation
 {
-  public CmptMutation Mutation { get; set; }
 }
 
 public interface ICmptMutationObject
@@ -37,7 +35,6 @@ public interface ICmptMutationObject
 
 public interface ICmptSubscription
 {
-  public CmptSubscription Subscription { get; set; }
 }
 
 public interface ICmptSubscriptionObject
@@ -46,7 +43,6 @@ public interface ICmptSubscriptionObject
 
 public interface ICmpt_Schema
 {
-  public Cmpt_Schema _Schema { get; set; }
 }
 
 public interface ICmpt_SchemaObject

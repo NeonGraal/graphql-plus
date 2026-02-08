@@ -8,5 +8,4 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr;
 public class testDescr
   : ItestDescr
 {
-  public testDescr Descr { get; set; }
 }

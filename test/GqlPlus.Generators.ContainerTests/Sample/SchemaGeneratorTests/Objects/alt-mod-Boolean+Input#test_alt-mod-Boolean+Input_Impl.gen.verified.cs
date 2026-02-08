@@ -8,14 +8,12 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Input;
 public class testAltModBoolInp
   : ItestAltModBoolInp
 {
-  public IDictionary<testBoolean, testAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
-  public testAltModBoolInp AltModBoolInp { get; set; }
+  public IDictionary<testBoolean, ItestAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
 }
 
 public class testAltAltModBoolInp
   : ItestAltAltModBoolInp
 {
-  public testNumber alt { get; set; }
-  public testString AsString { get; set; }
-  public testAltAltModBoolInp AltAltModBoolInp { get; set; }
+  public ItestNumber Alt { get; set; }
+  public ItestString AsString { get; set; }
 }

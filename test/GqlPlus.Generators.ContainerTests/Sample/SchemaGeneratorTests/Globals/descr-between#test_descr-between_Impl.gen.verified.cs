@@ -8,5 +8,4 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_between;
 public class testDescrBtwn
   : ItestDescrBtwn
 {
-  public testDescrBtwn DescrBtwn { get; set; }
 }

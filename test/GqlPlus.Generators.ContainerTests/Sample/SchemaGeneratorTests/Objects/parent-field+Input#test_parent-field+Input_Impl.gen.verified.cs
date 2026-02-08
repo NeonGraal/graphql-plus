@@ -9,14 +9,12 @@ public class testPrntFieldInp
   : testRefPrntFieldInp
   , ItestPrntFieldInp
 {
-  public testNumber field { get; set; }
-  public testPrntFieldInp PrntFieldInp { get; set; }
+  public ItestNumber Field { get; set; }
 }
 
 public class testRefPrntFieldInp
   : ItestRefPrntFieldInp
 {
-  public testNumber parent { get; set; }
-  public testString AsString { get; set; }
-  public testRefPrntFieldInp RefPrntFieldInp { get; set; }
+  public ItestNumber Parent { get; set; }
+  public ItestString AsString { get; set; }
 }

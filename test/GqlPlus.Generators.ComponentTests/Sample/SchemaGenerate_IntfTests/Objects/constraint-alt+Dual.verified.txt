@@ -11,7 +11,6 @@ namespace Components.Gqlp_Schema_constraint_alt_Dual;
 public interface ICmptCnstAltDual<Ttype>
 {
   public Ttype Astype { get; set; }
-  public CmptCnstAltDual CnstAltDual { get; set; }
 }
 
 public interface ICmptCnstAltDualObject<Ttype>

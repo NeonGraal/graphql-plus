@@ -8,7 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_parent_Output;
 public interface ItestGnrcPrntEnumPrntOutp
   : ItestFieldGnrcPrntEnumPrntOutp
 {
-  public testGnrcPrntEnumPrntOutp GnrcPrntEnumPrntOutp { get; set; }
 }
 
 public interface ItestGnrcPrntEnumPrntOutpObject
@@ -18,10 +17,9 @@ public interface ItestGnrcPrntEnumPrntOutpObject
 
 public interface ItestFieldGnrcPrntEnumPrntOutp<Tref>
 {
-  public testFieldGnrcPrntEnumPrntOutp FieldGnrcPrntEnumPrntOutp { get; set; }
 }
 
 public interface ItestFieldGnrcPrntEnumPrntOutpObject<Tref>
 {
-  public Tref field { get; set; }
+  public Tref Field { get; set; }
 }

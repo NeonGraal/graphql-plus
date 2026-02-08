@@ -9,34 +9,29 @@ public class testCnstPrntDualGrndDual
   : testRefCnstPrntDualGrndDual
   , ItestCnstPrntDualGrndDual
 {
-  public testCnstPrntDualGrndDual CnstPrntDualGrndDual { get; set; }
 }
 
 public class testRefCnstPrntDualGrndDual<Tref>
   : testref
   , ItestRefCnstPrntDualGrndDual<Tref>
 {
-  public testRefCnstPrntDualGrndDual RefCnstPrntDualGrndDual { get; set; }
 }
 
 public class testGrndCnstPrntDualGrndDual
   : ItestGrndCnstPrntDualGrndDual
 {
-  public testString AsString { get; set; }
-  public testGrndCnstPrntDualGrndDual GrndCnstPrntDualGrndDual { get; set; }
+  public ItestString AsString { get; set; }
 }
 
 public class testPrntCnstPrntDualGrndDual
   : testGrndCnstPrntDualGrndDual
   , ItestPrntCnstPrntDualGrndDual
 {
-  public testPrntCnstPrntDualGrndDual PrntCnstPrntDualGrndDual { get; set; }
 }
 
 public class testAltCnstPrntDualGrndDual
   : testPrntCnstPrntDualGrndDual
   , ItestAltCnstPrntDualGrndDual
 {
-  public testNumber alt { get; set; }
-  public testAltCnstPrntDualGrndDual AltCnstPrntDualGrndDual { get; set; }
+  public ItestNumber Alt { get; set; }
 }

@@ -9,13 +9,11 @@ public class testPrntDescrInp
   : testRefPrntDescrInp
   , ItestPrntDescrInp
 {
-  public testPrntDescrInp PrntDescrInp { get; set; }
 }
 
 public class testRefPrntDescrInp
   : ItestRefPrntDescrInp
 {
-  public testNumber parent { get; set; }
-  public testString AsString { get; set; }
-  public testRefPrntDescrInp RefPrntDescrInp { get; set; }
+  public ItestNumber Parent { get; set; }
+  public ItestString AsString { get; set; }
 }

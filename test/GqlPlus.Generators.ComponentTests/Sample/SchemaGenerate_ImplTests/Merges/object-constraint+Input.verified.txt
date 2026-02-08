@@ -12,7 +12,6 @@ namespace Components.Gqlp_Schema_object_constraint_Input;
 public class CmptObjCnstInp<Ttype>
   : ICmptObjCnstInp<Ttype>
 {
-  public Ttype field { get; set; }
-  public Ttype str { get; set; }
-  public CmptObjCnstInp ObjCnstInp { get; set; }
+  public Ttype Field { get; set; }
+  public Ttype Str { get; set; }
 }

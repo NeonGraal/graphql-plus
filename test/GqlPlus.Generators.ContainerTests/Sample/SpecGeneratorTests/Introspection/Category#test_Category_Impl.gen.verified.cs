@@ -9,17 +9,15 @@ public class test_Categories
   : test_AndType
   , Itest_Categories
 {
-  public test_Category category { get; set; }
-  public test_Category As_Category { get; set; }
-  public test_Categories _Categories { get; set; }
+  public Itest_Category Category { get; set; }
+  public Itest_Category As_Category { get; set; }
 }
 
 public class test_Category
   : test_Aliased
   , Itest_Category
 {
-  public test_Resolution resolution { get; set; }
-  public test_TypeRef<test_TypeKind> output { get; set; }
-  public ICollection<test_Modifiers> modifiers { get; set; }
-  public test_Category _Category { get; set; }
+  public Itest_Resolution Resolution { get; set; }
+  public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
+  public ICollection<Itest_Modifiers> Modifiers { get; set; }
 }

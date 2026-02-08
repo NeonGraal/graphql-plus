@@ -8,14 +8,12 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Output;
 public class testFieldModParamOutp<Tmod>
   : ItestFieldModParamOutp<Tmod>
 {
-  public IDictionary<Tmod, testFldFieldModParamOutp> field { get; set; }
-  public testFieldModParamOutp FieldModParamOutp { get; set; }
+  public IDictionary<Tmod, ItestFldFieldModParamOutp> Field { get; set; }
 }
 
 public class testFldFieldModParamOutp
   : ItestFldFieldModParamOutp
 {
-  public testNumber field { get; set; }
-  public testString AsString { get; set; }
-  public testFldFieldModParamOutp FldFieldModParamOutp { get; set; }
+  public ItestNumber Field { get; set; }
+  public ItestString AsString { get; set; }
 }

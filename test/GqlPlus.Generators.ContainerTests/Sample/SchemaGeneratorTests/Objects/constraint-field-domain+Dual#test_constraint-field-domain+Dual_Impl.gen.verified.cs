@@ -9,14 +9,12 @@ public class testCnstFieldDmnDual
   : testRefCnstFieldDmnDual
   , ItestCnstFieldDmnDual
 {
-  public testCnstFieldDmnDual CnstFieldDmnDual { get; set; }
 }
 
 public class testRefCnstFieldDmnDual<Tref>
   : ItestRefCnstFieldDmnDual<Tref>
 {
-  public Tref field { get; set; }
-  public testRefCnstFieldDmnDual RefCnstFieldDmnDual { get; set; }
+  public Tref Field { get; set; }
 }
 
 public class testDomCnstFieldDmnDual

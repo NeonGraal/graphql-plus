@@ -13,13 +13,11 @@ namespace Components.Gqlp_Schema_generic_value_Dual;
 public class CmptGnrcValueDual
   : ICmptGnrcValueDual
 {
-  public CmptRefGnrcValueDual<CmptEnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
-  public CmptGnrcValueDual GnrcValueDual { get; set; }
+  public ICmptRefGnrcValueDual<ICmptEnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
 }
 
 public class CmptRefGnrcValueDual<Ttype>
   : ICmptRefGnrcValueDual<Ttype>
 {
-  public Ttype field { get; set; }
-  public CmptRefGnrcValueDual RefGnrcValueDual { get; set; }
+  public Ttype Field { get; set; }
 }

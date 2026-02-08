@@ -24,26 +24,24 @@ namespace Components.Gqlp_Spec_Category;
 public interface ICmpt_Categories
   : ICmpt_AndType
 {
-  public Cmpt_Category As_Category { get; set; }
-  public Cmpt_Categories _Categories { get; set; }
+  public ICmpt_Category As_Category { get; set; }
 }
 
 public interface ICmpt_CategoriesObject
   : ICmpt_AndTypeObject
 {
-  public Cmpt_Category category { get; set; }
+  public ICmpt_Category Category { get; set; }
 }
 
 public interface ICmpt_Category
   : ICmpt_Aliased
 {
-  public Cmpt_Category _Category { get; set; }
 }
 
 public interface ICmpt_CategoryObject
   : ICmpt_AliasedObject
 {
-  public Cmpt_Resolution resolution { get; set; }
-  public Cmpt_TypeRef<Cmpt_TypeKind> output { get; set; }
-  public ICollection<Cmpt_Modifiers> modifiers { get; set; }
+  public ICmpt_Resolution Resolution { get; set; }
+  public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 }

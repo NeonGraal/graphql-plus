@@ -12,6 +12,5 @@ namespace Components.Gqlp_Schema_field_mod_Enum_Dual;
 public class CmptFieldModEnumDual
   : ICmptFieldModEnumDual
 {
-  public IDictionary<CmptEnumFieldModEnumDual, CmptString> field { get; set; }
-  public CmptFieldModEnumDual FieldModEnumDual { get; set; }
+  public IDictionary<CmptEnumFieldModEnumDual, ICmptString> Field { get; set; }
 }

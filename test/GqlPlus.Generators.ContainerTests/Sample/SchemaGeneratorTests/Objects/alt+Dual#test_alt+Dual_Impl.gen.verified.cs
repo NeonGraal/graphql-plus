@@ -8,14 +8,12 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_Dual;
 public class testAltDual
   : ItestAltDual
 {
-  public testAltAltDual AsAltAltDual { get; set; }
-  public testAltDual AltDual { get; set; }
+  public ItestAltAltDual AsAltAltDual { get; set; }
 }
 
 public class testAltAltDual
   : ItestAltAltDual
 {
-  public testNumber alt { get; set; }
-  public testString AsString { get; set; }
-  public testAltAltDual AltAltDual { get; set; }
+  public ItestNumber Alt { get; set; }
+  public ItestString AsString { get; set; }
 }

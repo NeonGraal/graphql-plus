@@ -8,5 +8,4 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_descrs;
 public class testCtgrDscrs
   : ItestCtgrDscrs
 {
-  public testCtgrDscrs CtgrDscrs { get; set; }
 }

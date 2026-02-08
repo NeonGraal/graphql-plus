@@ -7,8 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Input;
 
 public interface ItestObjAltInp
 {
-  public testObjAltInpType AsObjAltInpType { get; set; }
-  public testObjAltInp ObjAltInp { get; set; }
+  public ItestObjAltInpType AsObjAltInpType { get; set; }
 }
 
 public interface ItestObjAltInpObject
@@ -17,7 +16,6 @@ public interface ItestObjAltInpObject
 
 public interface ItestObjAltInpType
 {
-  public testObjAltInpType ObjAltInpType { get; set; }
 }
 
 public interface ItestObjAltInpTypeObject

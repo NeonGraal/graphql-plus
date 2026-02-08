@@ -11,10 +11,9 @@ namespace Components.Gqlp_Schema_object_field_enum_alias_Dual;
 
 public interface ICmptObjFieldEnumAliasDual
 {
-  public CmptObjFieldEnumAliasDual ObjFieldEnumAliasDual { get; set; }
 }
 
 public interface ICmptObjFieldEnumAliasDualObject
 {
-  public CmptBoolean field { get; set; }
+  public ICmptBoolean Field { get; set; }
 }

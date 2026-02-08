@@ -8,14 +8,12 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Dual;
 public class testAltModParamDual<Tmod>
   : ItestAltModParamDual<Tmod>
 {
-  public IDictionary<Tmod, testAltAltModParamDual> AsAltAltModParamDual { get; set; }
-  public testAltModParamDual AltModParamDual { get; set; }
+  public IDictionary<Tmod, ItestAltAltModParamDual> AsAltAltModParamDual { get; set; }
 }
 
 public class testAltAltModParamDual
   : ItestAltAltModParamDual
 {
-  public testNumber alt { get; set; }
-  public testString AsString { get; set; }
-  public testAltAltModParamDual AltAltModParamDual { get; set; }
+  public ItestNumber Alt { get; set; }
+  public ItestString AsString { get; set; }
 }

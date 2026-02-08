@@ -11,11 +11,10 @@ namespace Components.Gqlp_Schema_object_param_dup_Input;
 
 public interface ICmptObjParamDupInp<Ttest>
 {
-  public CmptObjParamDupInp ObjParamDupInp { get; set; }
 }
 
 public interface ICmptObjParamDupInpObject<Ttest>
 {
-  public Ttest test { get; set; }
-  public Ttest type { get; set; }
+  public Ttest Test { get; set; }
+  public Ttest Type { get; set; }
 }

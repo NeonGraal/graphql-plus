@@ -19,15 +19,14 @@ internal class GenerateForObject<TObjField>
     => [.. FieldMembers(ast, context), .. AlternateMembers(ast, context)];
 
   private IEnumerable<MapPair<string>> FieldMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
-    => ast.Fields.Select(f => ModifiedTypeString(f.Type, f, context).ToPair(f.Name));
+    => ast.Fields.Select(f => ModifiedTypeString(f.Type, f, context).ToPair(f.Name.Capitalize()));
 
   private IEnumerable<MapPair<string>> AlternateMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
     => ast.Alternates
-      .Select(a => ModifiedTypeString(a, a, context).ToPair("As" + (a.EnumValue is not null ? a.Name + a.EnumValue.EnumLabel : a.Name)))
-      .Append(context.TypeName(ast).ToPair(ast.Name));
+      .Select(a => ModifiedTypeString(a, a, context).ToPair("As" + (a.EnumValue is not null ? a.Name + a.EnumValue.EnumLabel : a.Name)));
 
   protected string ModifiedTypeString(IGqlpObjType type, IGqlpModifiers modifiers, GqlpGeneratorContext context)
-    => modifiers.Modifiers.Aggregate(TypeString(type, context), (s, m) => ModifyTypeString(s, m, context));
+    => modifiers.Modifiers.Aggregate(TypeString(type, context, "I"), (s, m) => ModifyTypeString(s, m, context));
 
   protected virtual string ModifyTypeString(string typeStr, IGqlpModifier modifier, GqlpGeneratorContext context)
   {
@@ -49,15 +48,15 @@ internal class GenerateForObject<TObjField>
     return $"IDictionary<{keyTypeStr}, {typeStr}>";
   }
 
-  protected virtual string TypeString(IGqlpObjType type, GqlpGeneratorContext context)
+  protected virtual string TypeString(IGqlpObjType type, GqlpGeneratorContext context, string prefix = "")
   {
     if (type.IsTypeParam) {
       return "T" + type.Name;
     }
 
-    string args = type is IGqlpObjBase baseAst ? baseAst.Args.Surround("<", ">", a => TypeString(a!, context), ", ") : "";
+    string args = type is IGqlpObjBase baseAst ? baseAst.Args.Surround("<", ">", a => TypeString(a!, context, prefix), ", ") : "";
 
-    return context.TypeName(type) + args;
+    return prefix + context.TypeName(type) + args;
   }
 
   private void InterfaceFieldsHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)

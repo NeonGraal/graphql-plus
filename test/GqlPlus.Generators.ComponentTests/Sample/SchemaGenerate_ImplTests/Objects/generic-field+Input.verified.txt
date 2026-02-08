@@ -11,6 +11,5 @@ namespace Components.Gqlp_Schema_generic_field_Input;
 public class CmptGnrcFieldInp<Ttype>
   : ICmptGnrcFieldInp<Ttype>
 {
-  public Ttype field { get; set; }
-  public CmptGnrcFieldInp GnrcFieldInp { get; set; }
+  public Ttype Field { get; set; }
 }

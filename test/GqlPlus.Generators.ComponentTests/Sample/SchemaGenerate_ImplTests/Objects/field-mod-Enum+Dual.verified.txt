@@ -13,4 +13,5 @@ public class CmptFieldModEnumDual
   : ICmptFieldModEnumDual
 {
   public IDictionary<CmptEnumFieldModEnumDual, ICmptString> Field { get; set; }
+  public ICmptFieldModEnumDualObject AsFieldModEnumDual { get; set; }
 }

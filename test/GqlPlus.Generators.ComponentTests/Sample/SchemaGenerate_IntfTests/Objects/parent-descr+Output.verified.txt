@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_parent_descr_Output;
 public interface ICmptPrntDescrOutp
   : ICmptRefPrntDescrOutp
 {
+  public ICmptPrntDescrOutpObject AsPrntDescrOutp { get; set; }
 }
 
 public interface ICmptPrntDescrOutpObject
@@ -22,6 +23,7 @@ public interface ICmptPrntDescrOutpObject
 public interface ICmptRefPrntDescrOutp
 {
   public ICmptString AsString { get; set; }
+  public ICmptRefPrntDescrOutpObject AsRefPrntDescrOutp { get; set; }
 }
 
 public interface ICmptRefPrntDescrOutpObject

@@ -13,10 +13,12 @@ public class CmptGnrcFieldArgDual<Ttype>
   : ICmptGnrcFieldArgDual<Ttype>
 {
   public ICmptRefGnrcFieldArgDual<Ttype> Field { get; set; }
+  public ICmptGnrcFieldArgDualObject AsGnrcFieldArgDual { get; set; }
 }
 
 public class CmptRefGnrcFieldArgDual<Tref>
   : ICmptRefGnrcFieldArgDual<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcFieldArgDualObject AsRefGnrcFieldArgDual { get; set; }
 }

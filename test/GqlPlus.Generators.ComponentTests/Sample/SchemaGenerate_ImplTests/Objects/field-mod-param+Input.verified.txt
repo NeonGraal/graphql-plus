@@ -13,6 +13,7 @@ public class CmptFieldModParamInp<Tmod>
   : ICmptFieldModParamInp<Tmod>
 {
   public IDictionary<Tmod, ICmptFldFieldModParamInp> Field { get; set; }
+  public ICmptFieldModParamInpObject AsFieldModParamInp { get; set; }
 }
 
 public class CmptFldFieldModParamInp
@@ -20,4 +21,5 @@ public class CmptFldFieldModParamInp
 {
   public ICmptNumber Field { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptFldFieldModParamInpObject AsFldFieldModParamInp { get; set; }
 }

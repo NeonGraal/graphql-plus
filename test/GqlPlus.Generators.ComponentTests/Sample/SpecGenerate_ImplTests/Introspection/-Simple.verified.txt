@@ -102,6 +102,7 @@ public class Cmpt_DomainRef<Tkind>
   , ICmpt_DomainRef<Tkind>
 {
   public Tkind DomainKind { get; set; }
+  public ICmpt_DomainRefObject As_DomainRef { get; set; }
 }
 
 public class Cmpt_BaseDomain<Tdomain,Titem,TdomainItem>
@@ -109,6 +110,7 @@ public class Cmpt_BaseDomain<Tdomain,Titem,TdomainItem>
   , ICmpt_BaseDomain<Tdomain,Titem,TdomainItem>
 {
   public Tdomain DomainKind { get; set; }
+  public ICmpt_BaseDomainObject As_BaseDomain { get; set; }
 }
 
 public class Cmpt_BaseDomainItem
@@ -116,6 +118,7 @@ public class Cmpt_BaseDomainItem
   , ICmpt_BaseDomainItem
 {
   public ICmpt_DomainKind Exclude { get; set; }
+  public ICmpt_BaseDomainItemObject As_BaseDomainItem { get; set; }
 }
 
 public class Cmpt_DomainItem<Titem>
@@ -123,6 +126,7 @@ public class Cmpt_DomainItem<Titem>
   , ICmpt_DomainItem<Titem>
 {
   public ICmpt_Name Domain { get; set; }
+  public ICmpt_DomainItemObject As_DomainItem { get; set; }
 }
 
 public class Cmpt_DomainValue<Tkind,Tvalue>
@@ -131,6 +135,7 @@ public class Cmpt_DomainValue<Tkind,Tvalue>
 {
   public Tvalue Value { get; set; }
   public Tvalue Asvalue { get; set; }
+  public ICmpt_DomainValueObject As_DomainValue { get; set; }
 }
 
 public class Cmpt_BasicValue
@@ -140,6 +145,7 @@ public class Cmpt_BasicValue
   public ICmpt_EnumValue As_EnumValue { get; set; }
   public ICmpt_DomainKind As_DomainKindNumber { get; set; }
   public ICmpt_DomainKind As_DomainKindString { get; set; }
+  public ICmpt_BasicValueObject As_BasicValue { get; set; }
 }
 
 public class Cmpt_DomainTrueFalse
@@ -147,12 +153,14 @@ public class Cmpt_DomainTrueFalse
   , ICmpt_DomainTrueFalse
 {
   public ICmpt_DomainKind Value { get; set; }
+  public ICmpt_DomainTrueFalseObject As_DomainTrueFalse { get; set; }
 }
 
 public class Cmpt_DomainItemTrueFalse
   : Cmpt_DomainItem
   , ICmpt_DomainItemTrueFalse
 {
+  public ICmpt_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; set; }
 }
 
 public class Cmpt_DomainLabel
@@ -160,12 +168,14 @@ public class Cmpt_DomainLabel
   , ICmpt_DomainLabel
 {
   public ICmpt_EnumValue Label { get; set; }
+  public ICmpt_DomainLabelObject As_DomainLabel { get; set; }
 }
 
 public class Cmpt_DomainItemLabel
   : Cmpt_DomainItem
   , ICmpt_DomainItemLabel
 {
+  public ICmpt_DomainItemLabelObject As_DomainItemLabel { get; set; }
 }
 
 public class Cmpt_DomainRange
@@ -174,12 +184,14 @@ public class Cmpt_DomainRange
 {
   public ICmpt_DomainKind? Lower { get; set; }
   public ICmpt_DomainKind? Upper { get; set; }
+  public ICmpt_DomainRangeObject As_DomainRange { get; set; }
 }
 
 public class Cmpt_DomainItemRange
   : Cmpt_DomainItem
   , ICmpt_DomainItemRange
 {
+  public ICmpt_DomainItemRangeObject As_DomainItemRange { get; set; }
 }
 
 public class Cmpt_DomainRegex
@@ -187,12 +199,14 @@ public class Cmpt_DomainRegex
   , ICmpt_DomainRegex
 {
   public ICmpt_DomainKind Pattern { get; set; }
+  public ICmpt_DomainRegexObject As_DomainRegex { get; set; }
 }
 
 public class Cmpt_DomainItemRegex
   : Cmpt_DomainItem
   , ICmpt_DomainItemRegex
 {
+  public ICmpt_DomainItemRegexObject As_DomainItemRegex { get; set; }
 }
 
 public class Cmpt_EnumLabel
@@ -200,6 +214,7 @@ public class Cmpt_EnumLabel
   , ICmpt_EnumLabel
 {
   public ICmpt_Name Enum { get; set; }
+  public ICmpt_EnumLabelObject As_EnumLabel { get; set; }
 }
 
 public class Cmpt_EnumValue
@@ -207,12 +222,14 @@ public class Cmpt_EnumValue
   , ICmpt_EnumValue
 {
   public ICmpt_Name Label { get; set; }
+  public ICmpt_EnumValueObject As_EnumValue { get; set; }
 }
 
 public class Cmpt_UnionRef
   : Cmpt_TypeRef
   , ICmpt_UnionRef
 {
+  public ICmpt_UnionRefObject As_UnionRef { get; set; }
 }
 
 public class Cmpt_UnionMember
@@ -220,4 +237,5 @@ public class Cmpt_UnionMember
   , ICmpt_UnionMember
 {
   public ICmpt_Name Union { get; set; }
+  public ICmpt_UnionMemberObject As_UnionMember { get; set; }
 }

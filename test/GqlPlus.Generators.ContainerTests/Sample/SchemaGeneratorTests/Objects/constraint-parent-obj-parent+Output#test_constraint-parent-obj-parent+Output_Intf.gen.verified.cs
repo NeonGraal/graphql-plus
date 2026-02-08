@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_obj_parent_Output;
 public interface ItestCnstPrntObjPrntOutp
   : ItestRefCnstPrntObjPrntOutp
 {
+  public ItestCnstPrntObjPrntOutpObject AsCnstPrntObjPrntOutp { get; set; }
 }
 
 public interface ItestCnstPrntObjPrntOutpObject
@@ -18,6 +19,7 @@ public interface ItestCnstPrntObjPrntOutpObject
 public interface ItestRefCnstPrntObjPrntOutp<Tref>
   : Itestref
 {
+  public ItestRefCnstPrntObjPrntOutpObject AsRefCnstPrntObjPrntOutp { get; set; }
 }
 
 public interface ItestRefCnstPrntObjPrntOutpObject<Tref>
@@ -28,6 +30,7 @@ public interface ItestRefCnstPrntObjPrntOutpObject<Tref>
 public interface ItestPrntCnstPrntObjPrntOutp
 {
   public ItestString AsString { get; set; }
+  public ItestPrntCnstPrntObjPrntOutpObject AsPrntCnstPrntObjPrntOutp { get; set; }
 }
 
 public interface ItestPrntCnstPrntObjPrntOutpObject
@@ -37,6 +40,7 @@ public interface ItestPrntCnstPrntObjPrntOutpObject
 public interface ItestAltCnstPrntObjPrntOutp
   : ItestPrntCnstPrntObjPrntOutp
 {
+  public ItestAltCnstPrntObjPrntOutpObject AsAltCnstPrntObjPrntOutp { get; set; }
 }
 
 public interface ItestAltCnstPrntObjPrntOutpObject

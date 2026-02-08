@@ -10,10 +10,12 @@ public class testPrntParamDiffInp<Ta>
   , ItestPrntParamDiffInp<Ta>
 {
   public Ta Field { get; set; }
+  public ItestPrntParamDiffInpObject AsPrntParamDiffInp { get; set; }
 }
 
 public class testRefPrntParamDiffInp<Tb>
   : ItestRefPrntParamDiffInp<Tb>
 {
   public Tb Asb { get; set; }
+  public ItestRefPrntParamDiffInpObject AsRefPrntParamDiffInp { get; set; }
 }

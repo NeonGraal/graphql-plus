@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Output;
 
 public interface ItestGnrcDescrOutp<Ttype>
 {
+  public ItestGnrcDescrOutpObject AsGnrcDescrOutp { get; set; }
 }
 
 public interface ItestGnrcDescrOutpObject<Ttype>

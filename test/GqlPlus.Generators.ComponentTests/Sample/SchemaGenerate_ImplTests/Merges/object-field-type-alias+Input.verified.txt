@@ -13,4 +13,5 @@ public class CmptObjFieldTypeAliasInp
   : ICmptObjFieldTypeAliasInp
 {
   public ICmptString Field { get; set; }
+  public ICmptObjFieldTypeAliasInpObject AsObjFieldTypeAliasInp { get; set; }
 }

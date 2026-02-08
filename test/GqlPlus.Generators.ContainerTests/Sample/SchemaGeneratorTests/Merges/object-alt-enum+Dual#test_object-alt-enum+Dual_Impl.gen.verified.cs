@@ -10,4 +10,5 @@ public class testObjAltEnumDual
 {
   public ItestBoolean AsBooleantrue { get; set; }
   public ItestBoolean AsBooleanfalse { get; set; }
+  public ItestObjAltEnumDualObject AsObjAltEnumDual { get; set; }
 }

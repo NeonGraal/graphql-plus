@@ -65,6 +65,7 @@ public interface ICmpt_Type
   public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_DualField> As_TypeObject { get; set; }
   public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_InputField> As_TypeObject { get; set; }
   public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_OutputField> As_TypeObject { get; set; }
+  public ICmpt_TypeObject As_Type { get; set; }
 }
 
 public interface ICmpt_TypeObject
@@ -74,6 +75,7 @@ public interface ICmpt_TypeObject
 public interface ICmpt_BaseType<Tkind>
   : ICmpt_Aliased
 {
+  public ICmpt_BaseTypeObject As_BaseType { get; set; }
 }
 
 public interface ICmpt_BaseTypeObject<Tkind>
@@ -85,6 +87,7 @@ public interface ICmpt_BaseTypeObject<Tkind>
 public interface ICmpt_ChildType<Tkind,Tparent>
   : ICmpt_BaseType
 {
+  public ICmpt_ChildTypeObject As_ChildType { get; set; }
 }
 
 public interface ICmpt_ChildTypeObject<Tkind,Tparent>
@@ -96,6 +99,7 @@ public interface ICmpt_ChildTypeObject<Tkind,Tparent>
 public interface ICmpt_ParentType<Tkind,Titem,TallItem>
   : ICmpt_ChildType
 {
+  public ICmpt_ParentTypeObject As_ParentType { get; set; }
 }
 
 public interface ICmpt_ParentTypeObject<Tkind,Titem,TallItem>
@@ -108,6 +112,7 @@ public interface ICmpt_ParentTypeObject<Tkind,Titem,TallItem>
 public interface ICmpt_TypeRef<Tkind>
   : ICmpt_Named
 {
+  public ICmpt_TypeRefObject As_TypeRef { get; set; }
 }
 
 public interface ICmpt_TypeRefObject<Tkind>
@@ -122,6 +127,7 @@ public interface ICmpt_TypeSimple
   public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
+  public ICmpt_TypeSimpleObject As_TypeSimple { get; set; }
 }
 
 public interface ICmpt_TypeSimpleObject

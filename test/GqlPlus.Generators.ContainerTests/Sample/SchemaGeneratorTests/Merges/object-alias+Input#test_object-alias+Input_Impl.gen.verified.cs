@@ -8,4 +8,5 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Input;
 public class testObjAliasInp
   : ItestObjAliasInp
 {
+  public ItestObjAliasInpObject AsObjAliasInp { get; set; }
 }

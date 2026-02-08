@@ -12,4 +12,5 @@ public class CmptRefGnrcAltModStrDual<Tref>
   : ICmptRefGnrcAltModStrDual<Tref>
 {
   public IDictionary<CmptString, Tref> Asref { get; set; }
+  public ICmptRefGnrcAltModStrDualObject AsRefGnrcAltModStrDual { get; set; }
 }

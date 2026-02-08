@@ -9,6 +9,7 @@ public class test_OutputField
   : test_ObjField
   , Itest_OutputField
 {
+  public Itest_OutputFieldObject As_OutputField { get; set; }
 }
 
 public class test_OutputFieldType
@@ -16,4 +17,5 @@ public class test_OutputFieldType
   , Itest_OutputFieldType
 {
   public ICollection<Itest_InputParam> Parameters { get; set; }
+  public Itest_OutputFieldTypeObject As_OutputFieldType { get; set; }
 }

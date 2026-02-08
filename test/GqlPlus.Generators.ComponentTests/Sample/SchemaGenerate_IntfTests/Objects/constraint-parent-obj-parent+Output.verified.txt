@@ -14,6 +14,7 @@ namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Output;
 public interface ICmptCnstPrntObjPrntOutp
   : ICmptRefCnstPrntObjPrntOutp
 {
+  public ICmptCnstPrntObjPrntOutpObject AsCnstPrntObjPrntOutp { get; set; }
 }
 
 public interface ICmptCnstPrntObjPrntOutpObject
@@ -24,6 +25,7 @@ public interface ICmptCnstPrntObjPrntOutpObject
 public interface ICmptRefCnstPrntObjPrntOutp<Tref>
   : ICmptref
 {
+  public ICmptRefCnstPrntObjPrntOutpObject AsRefCnstPrntObjPrntOutp { get; set; }
 }
 
 public interface ICmptRefCnstPrntObjPrntOutpObject<Tref>
@@ -34,6 +36,7 @@ public interface ICmptRefCnstPrntObjPrntOutpObject<Tref>
 public interface ICmptPrntCnstPrntObjPrntOutp
 {
   public ICmptString AsString { get; set; }
+  public ICmptPrntCnstPrntObjPrntOutpObject AsPrntCnstPrntObjPrntOutp { get; set; }
 }
 
 public interface ICmptPrntCnstPrntObjPrntOutpObject
@@ -43,6 +46,7 @@ public interface ICmptPrntCnstPrntObjPrntOutpObject
 public interface ICmptAltCnstPrntObjPrntOutp
   : ICmptPrntCnstPrntObjPrntOutp
 {
+  public ICmptAltCnstPrntObjPrntOutpObject AsAltCnstPrntObjPrntOutp { get; set; }
 }
 
 public interface ICmptAltCnstPrntObjPrntOutpObject

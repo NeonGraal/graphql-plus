@@ -14,6 +14,7 @@ public class CmptOutpParamModDmn
   : ICmptOutpParamModDmn
 {
   public ICmptDomOutpParamModDmn Field { get; set; }
+  public ICmptOutpParamModDmnObject AsOutpParamModDmn { get; set; }
 }
 
 public class CmptInOutpParamModDmn
@@ -21,6 +22,7 @@ public class CmptInOutpParamModDmn
 {
   public ICmptNumber Param { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptInOutpParamModDmnObject AsInOutpParamModDmn { get; set; }
 }
 
 public class CmptDomOutpParamModDmn

@@ -15,10 +15,12 @@ public class CmptCnstPrntEnumInp
   : ICmptCnstPrntEnumInp
 {
   public ICmptRefCnstPrntEnumInp<ICmptParentCnstPrntEnumInp> AsRefCnstPrntEnumInp { get; set; }
+  public ICmptCnstPrntEnumInpObject AsCnstPrntEnumInp { get; set; }
 }
 
 public class CmptRefCnstPrntEnumInp<Ttype>
   : ICmptRefCnstPrntEnumInp<Ttype>
 {
   public Ttype Field { get; set; }
+  public ICmptRefCnstPrntEnumInpObject AsRefCnstPrntEnumInp { get; set; }
 }

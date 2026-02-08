@@ -10,6 +10,7 @@ public class testPrntFieldOutp
   , ItestPrntFieldOutp
 {
   public ItestNumber Field { get; set; }
+  public ItestPrntFieldOutpObject AsPrntFieldOutp { get; set; }
 }
 
 public class testRefPrntFieldOutp
@@ -17,4 +18,5 @@ public class testRefPrntFieldOutp
 {
   public ItestNumber Parent { get; set; }
   public ItestString AsString { get; set; }
+  public ItestRefPrntFieldOutpObject AsRefPrntFieldOutp { get; set; }
 }

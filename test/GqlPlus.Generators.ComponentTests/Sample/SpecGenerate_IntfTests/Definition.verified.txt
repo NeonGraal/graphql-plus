@@ -69,6 +69,7 @@ public interface ICmpt_Key
 
 public interface ICmpt_Object
 {
+  public ICmpt_ObjectObject As_Object { get; set; }
 }
 
 public interface ICmpt_ObjectObject
@@ -81,6 +82,7 @@ public interface ICmpt_Domain
 
 public interface ICmpt_Dual
 {
+  public ICmpt_DualObject As_Dual { get; set; }
 }
 
 public interface ICmpt_DualObject
@@ -93,6 +95,7 @@ public interface ICmpt_Enum
 
 public interface ICmpt_Input
 {
+  public ICmpt_InputObject As_Input { get; set; }
 }
 
 public interface ICmpt_InputObject
@@ -101,6 +104,7 @@ public interface ICmpt_InputObject
 
 public interface ICmpt_Output
 {
+  public ICmpt_OutputObject As_Output { get; set; }
 }
 
 public interface ICmpt_OutputObject

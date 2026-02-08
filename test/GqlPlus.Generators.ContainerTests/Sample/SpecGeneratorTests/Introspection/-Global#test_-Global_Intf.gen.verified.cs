@@ -9,6 +9,7 @@ public interface Itest_AndType
   : Itest_Named
 {
   public Itest_Type As_Type { get; set; }
+  public Itest_AndTypeObject As_AndType { get; set; }
 }
 
 public interface Itest_AndTypeObject
@@ -21,6 +22,7 @@ public interface Itest_Categories
   : Itest_AndType
 {
   public Itest_Category As_Category { get; set; }
+  public Itest_CategoriesObject As_Categories { get; set; }
 }
 
 public interface Itest_CategoriesObject
@@ -32,6 +34,7 @@ public interface Itest_CategoriesObject
 public interface Itest_Category
   : Itest_Aliased
 {
+  public Itest_CategoryObject As_Category { get; set; }
 }
 
 public interface Itest_CategoryObject
@@ -46,6 +49,7 @@ public interface Itest_Directives
   : Itest_AndType
 {
   public Itest_Directive As_Directive { get; set; }
+  public Itest_DirectivesObject As_Directives { get; set; }
 }
 
 public interface Itest_DirectivesObject
@@ -57,6 +61,7 @@ public interface Itest_DirectivesObject
 public interface Itest_Directive
   : Itest_Aliased
 {
+  public Itest_DirectiveObject As_Directive { get; set; }
 }
 
 public interface Itest_DirectiveObject
@@ -70,6 +75,7 @@ public interface Itest_DirectiveObject
 public interface Itest_Setting
   : Itest_Named
 {
+  public Itest_SettingObject As_Setting { get; set; }
 }
 
 public interface Itest_SettingObject

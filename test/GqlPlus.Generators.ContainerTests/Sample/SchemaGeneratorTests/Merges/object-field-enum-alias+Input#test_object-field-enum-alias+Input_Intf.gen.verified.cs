@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_alias_Input;
 
 public interface ItestObjFieldEnumAliasInp
 {
+  public ItestObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; set; }
 }
 
 public interface ItestObjFieldEnumAliasInpObject

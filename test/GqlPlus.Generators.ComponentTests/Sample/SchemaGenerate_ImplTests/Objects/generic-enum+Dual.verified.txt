@@ -14,10 +14,12 @@ public class CmptGnrcEnumDual
   : ICmptGnrcEnumDual
 {
   public ICmptRefGnrcEnumDual<ICmptEnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
+  public ICmptGnrcEnumDualObject AsGnrcEnumDual { get; set; }
 }
 
 public class CmptRefGnrcEnumDual<Ttype>
   : ICmptRefGnrcEnumDual<Ttype>
 {
   public Ttype Field { get; set; }
+  public ICmptRefGnrcEnumDualObject AsRefGnrcEnumDual { get; set; }
 }

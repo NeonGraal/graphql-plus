@@ -10,4 +10,5 @@ public class testObjAltEnumOutp
 {
   public ItestBoolean AsBooleantrue { get; set; }
   public ItestBoolean AsBooleanfalse { get; set; }
+  public ItestObjAltEnumOutpObject AsObjAltEnumOutp { get; set; }
 }

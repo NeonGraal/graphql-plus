@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_object_field_type_alias_Input;
 
 public interface ICmptObjFieldTypeAliasInp
 {
+  public ICmptObjFieldTypeAliasInpObject AsObjFieldTypeAliasInp { get; set; }
 }
 
 public interface ICmptObjFieldTypeAliasInpObject

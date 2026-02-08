@@ -13,6 +13,7 @@ namespace Components.Gqlp_Schema_generic_parent_string_dom_Input;
 public interface ICmptGnrcPrntStrDomInp
   : ICmptFieldGnrcPrntStrDomInp
 {
+  public ICmptGnrcPrntStrDomInpObject AsGnrcPrntStrDomInp { get; set; }
 }
 
 public interface ICmptGnrcPrntStrDomInpObject
@@ -22,6 +23,7 @@ public interface ICmptGnrcPrntStrDomInpObject
 
 public interface ICmptFieldGnrcPrntStrDomInp<Tref>
 {
+  public ICmptFieldGnrcPrntStrDomInpObject AsFieldGnrcPrntStrDomInp { get; set; }
 }
 
 public interface ICmptFieldGnrcPrntStrDomInpObject<Tref>

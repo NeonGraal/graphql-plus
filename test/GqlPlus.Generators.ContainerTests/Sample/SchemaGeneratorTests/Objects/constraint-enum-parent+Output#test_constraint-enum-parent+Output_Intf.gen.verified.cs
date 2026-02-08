@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_parent_Output;
 public interface ItestCnstEnumPrntOutp
 {
   public ItestRefCnstEnumPrntOutp<ItestEnumCnstEnumPrntOutp> AsRefCnstEnumPrntOutp { get; set; }
+  public ItestCnstEnumPrntOutpObject AsCnstEnumPrntOutp { get; set; }
 }
 
 public interface ItestCnstEnumPrntOutpObject
@@ -16,6 +17,7 @@ public interface ItestCnstEnumPrntOutpObject
 
 public interface ItestRefCnstEnumPrntOutp<Ttype>
 {
+  public ItestRefCnstEnumPrntOutpObject AsRefCnstEnumPrntOutp { get; set; }
 }
 
 public interface ItestRefCnstEnumPrntOutpObject<Ttype>

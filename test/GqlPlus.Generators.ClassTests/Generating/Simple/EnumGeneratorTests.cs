@@ -147,13 +147,13 @@ public class EnumGeneratorTests
     => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain($"{name} = {parent}.{name},"));
 
   protected override string GeneratedCodeName(GqlpGeneratorType generatorType, string name)
-    => generatorType == GqlpGeneratorType.Enum ? "public enum test" + name : "";
+    => generatorType == GqlpGeneratorType.Enum ? "public enum " + TestPrefix + name : "";
 
   protected override string GeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
     => "";
 
   protected override Action<string> CheckGeneratedCodeName(GqlpGeneratorType generatorType, string name)
-    => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain("public enum test" + name));
+    => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain("public enum " + TestPrefix + name));
 
   private static Action<string> ResultEmptyUnlessEnum(GqlpGeneratorType generatorType, Action<string> check)
     => generatorType == GqlpGeneratorType.Enum ? check

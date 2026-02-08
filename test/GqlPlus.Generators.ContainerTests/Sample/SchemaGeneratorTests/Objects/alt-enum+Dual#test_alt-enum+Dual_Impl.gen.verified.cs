@@ -9,4 +9,5 @@ public class testAltEnumDual
   : ItestAltEnumDual
 {
   public ItestEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
+  public ItestAltEnumDualObject AsAltEnumDual { get; set; }
 }

@@ -13,6 +13,7 @@ public class CmptAltDualInp
   : ICmptAltDualInp
 {
   public ICmptObjDualAltDualInp AsObjDualAltDualInp { get; set; }
+  public ICmptAltDualInpObject AsAltDualInp { get; set; }
 }
 
 public class CmptObjDualAltDualInp
@@ -20,4 +21,5 @@ public class CmptObjDualAltDualInp
 {
   public ICmptNumber Alt { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptObjDualAltDualInpObject AsObjDualAltDualInp { get; set; }
 }

@@ -9,9 +9,11 @@ public class testObjFieldAliasInp
   : ItestObjFieldAliasInp
 {
   public ItestFldObjFieldAliasInp Field { get; set; }
+  public ItestObjFieldAliasInpObject AsObjFieldAliasInp { get; set; }
 }
 
 public class testFldObjFieldAliasInp
   : ItestFldObjFieldAliasInp
 {
+  public ItestFldObjFieldAliasInpObject AsFldObjFieldAliasInp { get; set; }
 }

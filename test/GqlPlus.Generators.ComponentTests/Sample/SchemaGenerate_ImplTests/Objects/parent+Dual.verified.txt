@@ -13,6 +13,7 @@ public class CmptPrntDual
   : CmptRefPrntDual
   , ICmptPrntDual
 {
+  public ICmptPrntDualObject AsPrntDual { get; set; }
 }
 
 public class CmptRefPrntDual
@@ -20,4 +21,5 @@ public class CmptRefPrntDual
 {
   public ICmptNumber Parent { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptRefPrntDualObject AsRefPrntDual { get; set; }
 }

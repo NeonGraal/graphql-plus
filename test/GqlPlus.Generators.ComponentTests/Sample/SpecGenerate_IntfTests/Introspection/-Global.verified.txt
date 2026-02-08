@@ -52,6 +52,7 @@ public interface ICmpt_AndType
   : ICmpt_Named
 {
   public ICmpt_Type As_Type { get; set; }
+  public ICmpt_AndTypeObject As_AndType { get; set; }
 }
 
 public interface ICmpt_AndTypeObject
@@ -64,6 +65,7 @@ public interface ICmpt_Categories
   : ICmpt_AndType
 {
   public ICmpt_Category As_Category { get; set; }
+  public ICmpt_CategoriesObject As_Categories { get; set; }
 }
 
 public interface ICmpt_CategoriesObject
@@ -75,6 +77,7 @@ public interface ICmpt_CategoriesObject
 public interface ICmpt_Category
   : ICmpt_Aliased
 {
+  public ICmpt_CategoryObject As_Category { get; set; }
 }
 
 public interface ICmpt_CategoryObject
@@ -89,6 +92,7 @@ public interface ICmpt_Directives
   : ICmpt_AndType
 {
   public ICmpt_Directive As_Directive { get; set; }
+  public ICmpt_DirectivesObject As_Directives { get; set; }
 }
 
 public interface ICmpt_DirectivesObject
@@ -100,6 +104,7 @@ public interface ICmpt_DirectivesObject
 public interface ICmpt_Directive
   : ICmpt_Aliased
 {
+  public ICmpt_DirectiveObject As_Directive { get; set; }
 }
 
 public interface ICmpt_DirectiveObject
@@ -113,6 +118,7 @@ public interface ICmpt_DirectiveObject
 public interface ICmpt_Setting
   : ICmpt_Named
 {
+  public ICmpt_SettingObject As_Setting { get; set; }
 }
 
 public interface ICmpt_SettingObject

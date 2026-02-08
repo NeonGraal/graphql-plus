@@ -9,4 +9,5 @@ public class testInpFieldDescrNmbr
   : ItestInpFieldDescrNmbr
 {
   public ItestNumber Field { get; set; }
+  public ItestInpFieldDescrNmbrObject AsInpFieldDescrNmbr { get; set; }
 }

@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_generic_parent_arg_Dual;
 public interface ICmptGnrcPrntArgDual<Ttype>
   : ICmptRefGnrcPrntArgDual
 {
+  public ICmptGnrcPrntArgDualObject AsGnrcPrntArgDual { get; set; }
 }
 
 public interface ICmptGnrcPrntArgDualObject<Ttype>
@@ -22,6 +23,7 @@ public interface ICmptGnrcPrntArgDualObject<Ttype>
 public interface ICmptRefGnrcPrntArgDual<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcPrntArgDualObject AsRefGnrcPrntArgDual { get; set; }
 }
 
 public interface ICmptRefGnrcPrntArgDualObject<Tref>

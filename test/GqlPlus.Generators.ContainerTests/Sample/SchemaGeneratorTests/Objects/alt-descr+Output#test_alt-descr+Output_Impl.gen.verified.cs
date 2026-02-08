@@ -9,4 +9,5 @@ public class testAltDescrOutp
   : ItestAltDescrOutp
 {
   public ItestString AsString { get; set; }
+  public ItestAltDescrOutpObject AsAltDescrOutp { get; set; }
 }

@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_descr_Output;
 
 public interface ItestFieldDescrOutp
 {
+  public ItestFieldDescrOutpObject AsFieldDescrOutp { get; set; }
 }
 
 public interface ItestFieldDescrOutpObject

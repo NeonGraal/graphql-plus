@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_constraint_alt_Input;
 public interface ICmptCnstAltInp<Ttype>
 {
   public Ttype Astype { get; set; }
+  public ICmptCnstAltInpObject AsCnstAltInp { get; set; }
 }
 
 public interface ICmptCnstAltInpObject<Ttype>

@@ -13,6 +13,7 @@ namespace Components.Gqlp_Schema_generic_parent_dual_Output;
 public interface ICmptGnrcPrntDualOutp
   : ICmptRefGnrcPrntDualOutp
 {
+  public ICmptGnrcPrntDualOutpObject AsGnrcPrntDualOutp { get; set; }
 }
 
 public interface ICmptGnrcPrntDualOutpObject
@@ -23,6 +24,7 @@ public interface ICmptGnrcPrntDualOutpObject
 public interface ICmptRefGnrcPrntDualOutp<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcPrntDualOutpObject AsRefGnrcPrntDualOutp { get; set; }
 }
 
 public interface ICmptRefGnrcPrntDualOutpObject<Tref>
@@ -32,6 +34,7 @@ public interface ICmptRefGnrcPrntDualOutpObject<Tref>
 public interface ICmptAltGnrcPrntDualOutp
 {
   public ICmptString AsString { get; set; }
+  public ICmptAltGnrcPrntDualOutpObject AsAltGnrcPrntDualOutp { get; set; }
 }
 
 public interface ICmptAltGnrcPrntDualOutpObject

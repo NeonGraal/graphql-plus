@@ -15,12 +15,14 @@ public class CmptCnstDomEnumDual
   : ICmptCnstDomEnumDual
 {
   public ICmptRefCnstDomEnumDual<ICmptEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
+  public ICmptCnstDomEnumDualObject AsCnstDomEnumDual { get; set; }
 }
 
 public class CmptRefCnstDomEnumDual<Ttype>
   : ICmptRefCnstDomEnumDual<Ttype>
 {
   public Ttype Field { get; set; }
+  public ICmptRefCnstDomEnumDualObject AsRefCnstDomEnumDual { get; set; }
 }
 
 public class CmptJustCnstDomEnumDual

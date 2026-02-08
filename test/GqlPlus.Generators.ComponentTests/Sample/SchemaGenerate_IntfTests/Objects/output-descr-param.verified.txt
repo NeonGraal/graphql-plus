@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_output_descr_param;
 
 public interface ICmptOutpDescrParam
 {
+  public ICmptOutpDescrParamObject AsOutpDescrParam { get; set; }
 }
 
 public interface ICmptOutpDescrParamObject
@@ -21,6 +22,7 @@ public interface ICmptOutpDescrParamObject
 
 public interface ICmptFldOutpDescrParam
 {
+  public ICmptFldOutpDescrParamObject AsFldOutpDescrParam { get; set; }
 }
 
 public interface ICmptFldOutpDescrParamObject
@@ -30,6 +32,7 @@ public interface ICmptFldOutpDescrParamObject
 public interface ICmptInOutpDescrParam
 {
   public ICmptString AsString { get; set; }
+  public ICmptInOutpDescrParamObject AsInOutpDescrParam { get; set; }
 }
 
 public interface ICmptInOutpDescrParamObject

@@ -14,9 +14,11 @@ public class CmptObjAltOutp
   : ICmptObjAltOutp
 {
   public ICmptObjAltOutpType AsObjAltOutpType { get; set; }
+  public ICmptObjAltOutpObject AsObjAltOutp { get; set; }
 }
 
 public class CmptObjAltOutpType
   : ICmptObjAltOutpType
 {
+  public ICmptObjAltOutpTypeObject AsObjAltOutpType { get; set; }
 }

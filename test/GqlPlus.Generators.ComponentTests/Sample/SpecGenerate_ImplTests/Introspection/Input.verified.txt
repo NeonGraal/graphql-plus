@@ -23,6 +23,7 @@ public class Cmpt_InputField
   : Cmpt_ObjField
   , ICmpt_InputField
 {
+  public ICmpt_InputFieldObject As_InputField { get; set; }
 }
 
 public class Cmpt_InputFieldType
@@ -30,10 +31,12 @@ public class Cmpt_InputFieldType
   , ICmpt_InputFieldType
 {
   public ICmpt_Value? Default { get; set; }
+  public ICmpt_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 
 public class Cmpt_InputParam
   : Cmpt_InputFieldType
   , ICmpt_InputParam
 {
+  public ICmpt_InputParamObject As_InputParam { get; set; }
 }

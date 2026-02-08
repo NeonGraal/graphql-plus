@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_alias_Output;
 
 public interface ItestObjFieldAliasOutp
 {
+  public ItestObjFieldAliasOutpObject AsObjFieldAliasOutp { get; set; }
 }
 
 public interface ItestObjFieldAliasOutpObject
@@ -16,6 +17,7 @@ public interface ItestObjFieldAliasOutpObject
 
 public interface ItestFldObjFieldAliasOutp
 {
+  public ItestFldObjFieldAliasOutpObject AsFldObjFieldAliasOutp { get; set; }
 }
 
 public interface ItestFldObjFieldAliasOutpObject

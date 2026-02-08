@@ -9,4 +9,5 @@ public class testGnrcPrntDual<Ttype>
   : testtype
   , ItestGnrcPrntDual<Ttype>
 {
+  public ItestGnrcPrntDualObject AsGnrcPrntDual { get; set; }
 }

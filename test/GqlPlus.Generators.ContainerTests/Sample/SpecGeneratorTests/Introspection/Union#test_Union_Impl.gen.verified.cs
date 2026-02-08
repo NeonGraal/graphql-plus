@@ -9,6 +9,7 @@ public class test_UnionRef
   : test_TypeRef
   , Itest_UnionRef
 {
+  public Itest_UnionRefObject As_UnionRef { get; set; }
 }
 
 public class test_UnionMember
@@ -16,4 +17,5 @@ public class test_UnionMember
   , Itest_UnionMember
 {
   public Itest_Name Union { get; set; }
+  public Itest_UnionMemberObject As_UnionMember { get; set; }
 }

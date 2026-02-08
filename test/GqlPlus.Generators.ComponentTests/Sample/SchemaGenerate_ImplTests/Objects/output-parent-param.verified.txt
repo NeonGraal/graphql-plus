@@ -17,17 +17,20 @@ public class CmptOutpPrntParam
   , ICmptOutpPrntParam
 {
   public ICmptFldOutpPrntParam Field { get; set; }
+  public ICmptOutpPrntParamObject AsOutpPrntParam { get; set; }
 }
 
 public class CmptPrntOutpPrntParam
   : ICmptPrntOutpPrntParam
 {
   public ICmptFldOutpPrntParam Field { get; set; }
+  public ICmptPrntOutpPrntParamObject AsPrntOutpPrntParam { get; set; }
 }
 
 public class CmptFldOutpPrntParam
   : ICmptFldOutpPrntParam
 {
+  public ICmptFldOutpPrntParamObject AsFldOutpPrntParam { get; set; }
 }
 
 public class CmptInOutpPrntParam
@@ -35,6 +38,7 @@ public class CmptInOutpPrntParam
 {
   public ICmptNumber Param { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptInOutpPrntParamObject AsInOutpPrntParam { get; set; }
 }
 
 public class CmptPrntOutpPrntParamIn
@@ -42,4 +46,5 @@ public class CmptPrntOutpPrntParamIn
 {
   public ICmptNumber Parent { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; set; }
 }

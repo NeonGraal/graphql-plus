@@ -18,6 +18,7 @@ public interface ItestMany
 
 public interface ItestField
 {
+  public ItestFieldObject AsField { get; set; }
 }
 
 public interface ItestFieldObject
@@ -28,6 +29,7 @@ public interface ItestFieldObject
 public interface ItestParam
 {
   public ItestString AsString { get; set; }
+  public ItestParamObject AsParam { get; set; }
 }
 
 public interface ItestParamObject
@@ -39,6 +41,7 @@ public interface ItestParamObject
 public interface ItestAll
 {
   public ItestString AsString { get; set; }
+  public ItestAllObject AsAll { get; set; }
 }
 
 public interface ItestAllObject

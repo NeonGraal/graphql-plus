@@ -15,18 +15,21 @@ public class CmptCnstFieldObjOutp
   : CmptRefCnstFieldObjOutp
   , ICmptCnstFieldObjOutp
 {
+  public ICmptCnstFieldObjOutpObject AsCnstFieldObjOutp { get; set; }
 }
 
 public class CmptRefCnstFieldObjOutp<Tref>
   : ICmptRefCnstFieldObjOutp<Tref>
 {
   public Tref Field { get; set; }
+  public ICmptRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; set; }
 }
 
 public class CmptPrntCnstFieldObjOutp
   : ICmptPrntCnstFieldObjOutp
 {
   public ICmptString AsString { get; set; }
+  public ICmptPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; set; }
 }
 
 public class CmptAltCnstFieldObjOutp
@@ -34,4 +37,5 @@ public class CmptAltCnstFieldObjOutp
   , ICmptAltCnstFieldObjOutp
 {
   public ICmptNumber Alt { get; set; }
+  public ICmptAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; set; }
 }

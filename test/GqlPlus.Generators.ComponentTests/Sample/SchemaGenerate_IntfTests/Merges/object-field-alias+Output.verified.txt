@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_object_field_alias_Output;
 
 public interface ICmptObjFieldAliasOutp
 {
+  public ICmptObjFieldAliasOutpObject AsObjFieldAliasOutp { get; set; }
 }
 
 public interface ICmptObjFieldAliasOutpObject
@@ -21,6 +22,7 @@ public interface ICmptObjFieldAliasOutpObject
 
 public interface ICmptFldObjFieldAliasOutp
 {
+  public ICmptFldObjFieldAliasOutpObject AsFldObjFieldAliasOutp { get; set; }
 }
 
 public interface ICmptFldObjFieldAliasOutpObject

@@ -13,6 +13,7 @@ namespace Components.Gqlp_Schema_object_alt_Output;
 public interface ICmptObjAltOutp
 {
   public ICmptObjAltOutpType AsObjAltOutpType { get; set; }
+  public ICmptObjAltOutpObject AsObjAltOutp { get; set; }
 }
 
 public interface ICmptObjAltOutpObject
@@ -21,6 +22,7 @@ public interface ICmptObjAltOutpObject
 
 public interface ICmptObjAltOutpType
 {
+  public ICmptObjAltOutpTypeObject AsObjAltOutpType { get; set; }
 }
 
 public interface ICmptObjAltOutpTypeObject

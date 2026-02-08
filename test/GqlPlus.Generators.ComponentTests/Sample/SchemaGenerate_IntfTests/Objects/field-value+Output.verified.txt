@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_field_value_Output;
 
 public interface ICmptFieldValueOutp
 {
+  public ICmptFieldValueOutpObject AsFieldValueOutp { get; set; }
 }
 
 public interface ICmptFieldValueOutpObject

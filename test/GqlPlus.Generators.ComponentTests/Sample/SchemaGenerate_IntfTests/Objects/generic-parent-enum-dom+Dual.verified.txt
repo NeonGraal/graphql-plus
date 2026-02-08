@@ -14,6 +14,7 @@ namespace Components.Gqlp_Schema_generic_parent_enum_dom_Dual;
 public interface ICmptGnrcPrntEnumDomDual
   : ICmptFieldGnrcPrntEnumDomDual
 {
+  public ICmptGnrcPrntEnumDomDualObject AsGnrcPrntEnumDomDual { get; set; }
 }
 
 public interface ICmptGnrcPrntEnumDomDualObject
@@ -23,6 +24,7 @@ public interface ICmptGnrcPrntEnumDomDualObject
 
 public interface ICmptFieldGnrcPrntEnumDomDual<Tref>
 {
+  public ICmptFieldGnrcPrntEnumDomDualObject AsFieldGnrcPrntEnumDomDual { get; set; }
 }
 
 public interface ICmptFieldGnrcPrntEnumDomDualObject<Tref>

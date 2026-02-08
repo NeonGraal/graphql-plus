@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_alt_dual_Input;
 public interface ICmptAltDualInp
 {
   public ICmptObjDualAltDualInp AsObjDualAltDualInp { get; set; }
+  public ICmptAltDualInpObject AsAltDualInp { get; set; }
 }
 
 public interface ICmptAltDualInpObject
@@ -21,6 +22,7 @@ public interface ICmptAltDualInpObject
 public interface ICmptObjDualAltDualInp
 {
   public ICmptString AsString { get; set; }
+  public ICmptObjDualAltDualInpObject AsObjDualAltDualInp { get; set; }
 }
 
 public interface ICmptObjDualAltDualInpObject

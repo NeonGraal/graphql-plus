@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_generic_field_param_Dual;
 
 public interface ICmptGnrcFieldParamDual
 {
+  public ICmptGnrcFieldParamDualObject AsGnrcFieldParamDual { get; set; }
 }
 
 public interface ICmptGnrcFieldParamDualObject
@@ -22,6 +23,7 @@ public interface ICmptGnrcFieldParamDualObject
 public interface ICmptRefGnrcFieldParamDual<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcFieldParamDualObject AsRefGnrcFieldParamDual { get; set; }
 }
 
 public interface ICmptRefGnrcFieldParamDualObject<Tref>
@@ -31,6 +33,7 @@ public interface ICmptRefGnrcFieldParamDualObject<Tref>
 public interface ICmptAltGnrcFieldParamDual
 {
   public ICmptString AsString { get; set; }
+  public ICmptAltGnrcFieldParamDualObject AsAltGnrcFieldParamDual { get; set; }
 }
 
 public interface ICmptAltGnrcFieldParamDualObject

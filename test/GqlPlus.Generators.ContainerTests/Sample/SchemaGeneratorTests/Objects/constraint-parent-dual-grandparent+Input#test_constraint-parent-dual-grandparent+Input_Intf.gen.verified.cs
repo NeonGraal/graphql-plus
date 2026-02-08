@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_grandparent_Input;
 public interface ItestCnstPrntDualGrndInp
   : ItestRefCnstPrntDualGrndInp
 {
+  public ItestCnstPrntDualGrndInpObject AsCnstPrntDualGrndInp { get; set; }
 }
 
 public interface ItestCnstPrntDualGrndInpObject
@@ -18,6 +19,7 @@ public interface ItestCnstPrntDualGrndInpObject
 public interface ItestRefCnstPrntDualGrndInp<Tref>
   : Itestref
 {
+  public ItestRefCnstPrntDualGrndInpObject AsRefCnstPrntDualGrndInp { get; set; }
 }
 
 public interface ItestRefCnstPrntDualGrndInpObject<Tref>
@@ -28,6 +30,7 @@ public interface ItestRefCnstPrntDualGrndInpObject<Tref>
 public interface ItestGrndCnstPrntDualGrndInp
 {
   public ItestString AsString { get; set; }
+  public ItestGrndCnstPrntDualGrndInpObject AsGrndCnstPrntDualGrndInp { get; set; }
 }
 
 public interface ItestGrndCnstPrntDualGrndInpObject
@@ -37,6 +40,7 @@ public interface ItestGrndCnstPrntDualGrndInpObject
 public interface ItestPrntCnstPrntDualGrndInp
   : ItestGrndCnstPrntDualGrndInp
 {
+  public ItestPrntCnstPrntDualGrndInpObject AsPrntCnstPrntDualGrndInp { get; set; }
 }
 
 public interface ItestPrntCnstPrntDualGrndInpObject
@@ -47,6 +51,7 @@ public interface ItestPrntCnstPrntDualGrndInpObject
 public interface ItestAltCnstPrntDualGrndInp
   : ItestPrntCnstPrntDualGrndInp
 {
+  public ItestAltCnstPrntDualGrndInpObject AsAltCnstPrntDualGrndInp { get; set; }
 }
 
 public interface ItestAltCnstPrntDualGrndInpObject

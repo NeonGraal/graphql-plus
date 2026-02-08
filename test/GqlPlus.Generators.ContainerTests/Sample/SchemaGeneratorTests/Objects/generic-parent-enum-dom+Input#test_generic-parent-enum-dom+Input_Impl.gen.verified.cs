@@ -9,12 +9,14 @@ public class testGnrcPrntEnumDomInp
   : testFieldGnrcPrntEnumDomInp
   , ItestGnrcPrntEnumDomInp
 {
+  public ItestGnrcPrntEnumDomInpObject AsGnrcPrntEnumDomInp { get; set; }
 }
 
 public class testFieldGnrcPrntEnumDomInp<Tref>
   : ItestFieldGnrcPrntEnumDomInp<Tref>
 {
   public Tref Field { get; set; }
+  public ItestFieldGnrcPrntEnumDomInpObject AsFieldGnrcPrntEnumDomInp { get; set; }
 }
 
 public class testDomGnrcPrntEnumDomInp

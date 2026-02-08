@@ -15,18 +15,21 @@ public class CmptCnstFieldDualOutp
   : CmptRefCnstFieldDualOutp
   , ICmptCnstFieldDualOutp
 {
+  public ICmptCnstFieldDualOutpObject AsCnstFieldDualOutp { get; set; }
 }
 
 public class CmptRefCnstFieldDualOutp<Tref>
   : ICmptRefCnstFieldDualOutp<Tref>
 {
   public Tref Field { get; set; }
+  public ICmptRefCnstFieldDualOutpObject AsRefCnstFieldDualOutp { get; set; }
 }
 
 public class CmptPrntCnstFieldDualOutp
   : ICmptPrntCnstFieldDualOutp
 {
   public ICmptString AsString { get; set; }
+  public ICmptPrntCnstFieldDualOutpObject AsPrntCnstFieldDualOutp { get; set; }
 }
 
 public class CmptAltCnstFieldDualOutp
@@ -34,4 +37,5 @@ public class CmptAltCnstFieldDualOutp
   , ICmptAltCnstFieldDualOutp
 {
   public ICmptNumber Alt { get; set; }
+  public ICmptAltCnstFieldDualOutpObject AsAltCnstFieldDualOutp { get; set; }
 }

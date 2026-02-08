@@ -13,6 +13,7 @@ public interface ICmptPrntAltInp
   : ICmptRefPrntAltInp
 {
   public ICmptNumber AsNumber { get; set; }
+  public ICmptPrntAltInpObject AsPrntAltInp { get; set; }
 }
 
 public interface ICmptPrntAltInpObject
@@ -23,6 +24,7 @@ public interface ICmptPrntAltInpObject
 public interface ICmptRefPrntAltInp
 {
   public ICmptString AsString { get; set; }
+  public ICmptRefPrntAltInpObject AsRefPrntAltInp { get; set; }
 }
 
 public interface ICmptRefPrntAltInpObject

@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_generic_alt_Dual;
 public interface ICmptGnrcAltDual<Ttype>
 {
   public Ttype Astype { get; set; }
+  public ICmptGnrcAltDualObject AsGnrcAltDual { get; set; }
 }
 
 public interface ICmptGnrcAltDualObject<Ttype>

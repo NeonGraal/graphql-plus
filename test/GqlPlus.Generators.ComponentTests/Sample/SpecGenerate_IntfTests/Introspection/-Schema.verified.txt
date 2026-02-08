@@ -56,6 +56,7 @@ namespace Components.Gqlp_Spec_Schema;
 public interface ICmpt_Schema
   : ICmpt_Named
 {
+  public ICmpt_SchemaObject As_Schema { get; set; }
 }
 
 public interface ICmpt_SchemaObject
@@ -75,6 +76,7 @@ public interface ICmpt_Name
 public interface ICmpt_Filter
 {
   public ICollection<ICmpt_NameFilter> As_NameFilter { get; set; }
+  public ICmpt_FilterObject As_Filter { get; set; }
 }
 
 public interface ICmpt_FilterObject
@@ -94,6 +96,7 @@ public interface ICmpt_NameFilter
 public interface ICmpt_CategoryFilter
   : ICmpt_Filter
 {
+  public ICmpt_CategoryFilterObject As_CategoryFilter { get; set; }
 }
 
 public interface ICmpt_CategoryFilterObject
@@ -105,6 +108,7 @@ public interface ICmpt_CategoryFilterObject
 public interface ICmpt_TypeFilter
   : ICmpt_Filter
 {
+  public ICmpt_TypeFilterObject As_TypeFilter { get; set; }
 }
 
 public interface ICmpt_TypeFilterObject
@@ -116,6 +120,7 @@ public interface ICmpt_TypeFilterObject
 public interface ICmpt_Aliased
   : ICmpt_Named
 {
+  public ICmpt_AliasedObject As_Aliased { get; set; }
 }
 
 public interface ICmpt_AliasedObject
@@ -127,6 +132,7 @@ public interface ICmpt_AliasedObject
 public interface ICmpt_Named
   : ICmpt_Described
 {
+  public ICmpt_NamedObject As_Named { get; set; }
 }
 
 public interface ICmpt_NamedObject
@@ -137,6 +143,7 @@ public interface ICmpt_NamedObject
 
 public interface ICmpt_Described
 {
+  public ICmpt_DescribedObject As_Described { get; set; }
 }
 
 public interface ICmpt_DescribedObject

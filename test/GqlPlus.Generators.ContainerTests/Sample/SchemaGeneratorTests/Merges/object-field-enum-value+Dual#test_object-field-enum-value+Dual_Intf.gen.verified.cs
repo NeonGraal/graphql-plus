@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_value_Dual;
 
 public interface ItestObjFieldEnumValueDual
 {
+  public ItestObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; set; }
 }
 
 public interface ItestObjFieldEnumValueDualObject

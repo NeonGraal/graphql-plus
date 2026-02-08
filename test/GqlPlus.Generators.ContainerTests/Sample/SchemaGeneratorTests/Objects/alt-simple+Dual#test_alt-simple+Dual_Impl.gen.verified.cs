@@ -9,4 +9,5 @@ public class testAltSmplDual
   : ItestAltSmplDual
 {
   public ItestString AsString { get; set; }
+  public ItestAltSmplDualObject AsAltSmplDual { get; set; }
 }

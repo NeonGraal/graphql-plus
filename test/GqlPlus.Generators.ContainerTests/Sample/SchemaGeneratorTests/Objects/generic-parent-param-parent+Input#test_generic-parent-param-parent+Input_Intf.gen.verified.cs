@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_param_parent_Input;
 public interface ItestGnrcPrntParamPrntInp
   : ItestRefGnrcPrntParamPrntInp
 {
+  public ItestGnrcPrntParamPrntInpObject AsGnrcPrntParamPrntInp { get; set; }
 }
 
 public interface ItestGnrcPrntParamPrntInpObject
@@ -18,6 +19,7 @@ public interface ItestGnrcPrntParamPrntInpObject
 public interface ItestRefGnrcPrntParamPrntInp<Tref>
   : Itestref
 {
+  public ItestRefGnrcPrntParamPrntInpObject AsRefGnrcPrntParamPrntInp { get; set; }
 }
 
 public interface ItestRefGnrcPrntParamPrntInpObject<Tref>
@@ -28,6 +30,7 @@ public interface ItestRefGnrcPrntParamPrntInpObject<Tref>
 public interface ItestAltGnrcPrntParamPrntInp
 {
   public ItestString AsString { get; set; }
+  public ItestAltGnrcPrntParamPrntInpObject AsAltGnrcPrntParamPrntInp { get; set; }
 }
 
 public interface ItestAltGnrcPrntParamPrntInpObject

@@ -27,6 +27,7 @@ public class Cmpt_Categories
 {
   public ICmpt_Category Category { get; set; }
   public ICmpt_Category As_Category { get; set; }
+  public ICmpt_CategoriesObject As_Categories { get; set; }
 }
 
 public class Cmpt_Category
@@ -36,4 +37,5 @@ public class Cmpt_Category
   public ICmpt_Resolution Resolution { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+  public ICmpt_CategoryObject As_Category { get; set; }
 }

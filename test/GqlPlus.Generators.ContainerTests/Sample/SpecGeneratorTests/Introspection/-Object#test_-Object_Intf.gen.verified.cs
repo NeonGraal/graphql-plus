@@ -13,6 +13,7 @@ public interface Itest_ObjectKind
 public interface Itest_TypeObject<Tkind,Tfield>
   : Itest_ChildType
 {
+  public Itest_TypeObjectObject As_TypeObject { get; set; }
 }
 
 public interface Itest_TypeObjectObject<Tkind,Tfield>
@@ -28,6 +29,7 @@ public interface Itest_TypeObjectObject<Tkind,Tfield>
 public interface Itest_ObjTypeParam
   : Itest_Named
 {
+  public Itest_ObjTypeParamObject As_ObjTypeParam { get; set; }
 }
 
 public interface Itest_ObjTypeParamObject
@@ -40,6 +42,7 @@ public interface Itest_ObjBase
   : Itest_Named
 {
   public Itest_TypeParam As_TypeParam { get; set; }
+  public Itest_ObjBaseObject As_ObjBase { get; set; }
 }
 
 public interface Itest_ObjBaseObject
@@ -52,6 +55,7 @@ public interface Itest_ObjTypeArg
   : Itest_TypeRef
 {
   public Itest_TypeParam As_TypeParam { get; set; }
+  public Itest_ObjTypeArgObject As_ObjTypeArg { get; set; }
 }
 
 public interface Itest_ObjTypeArgObject
@@ -63,6 +67,7 @@ public interface Itest_ObjTypeArgObject
 public interface Itest_TypeParam
   : Itest_Described
 {
+  public Itest_TypeParamObject As_TypeParam { get; set; }
 }
 
 public interface Itest_TypeParamObject
@@ -74,6 +79,7 @@ public interface Itest_TypeParamObject
 public interface Itest_ObjAlternate
 {
   public Itest_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
+  public Itest_ObjAlternateObject As_ObjAlternate { get; set; }
 }
 
 public interface Itest_ObjAlternateObject
@@ -85,6 +91,7 @@ public interface Itest_ObjAlternateObject
 public interface Itest_ObjAlternateEnum
   : Itest_TypeRef
 {
+  public Itest_ObjAlternateEnumObject As_ObjAlternateEnum { get; set; }
 }
 
 public interface Itest_ObjAlternateEnumObject
@@ -96,6 +103,7 @@ public interface Itest_ObjAlternateEnumObject
 public interface Itest_ObjectFor<Tfor>
   : Itestfor
 {
+  public Itest_ObjectForObject As_ObjectFor { get; set; }
 }
 
 public interface Itest_ObjectForObject<Tfor>
@@ -107,6 +115,7 @@ public interface Itest_ObjectForObject<Tfor>
 public interface Itest_ObjField<Ttype>
   : Itest_Aliased
 {
+  public Itest_ObjFieldObject As_ObjField { get; set; }
 }
 
 public interface Itest_ObjFieldObject<Ttype>
@@ -119,6 +128,7 @@ public interface Itest_ObjFieldType
   : Itest_ObjBase
 {
   public Itest_ObjFieldEnum As_ObjFieldEnum { get; set; }
+  public Itest_ObjFieldTypeObject As_ObjFieldType { get; set; }
 }
 
 public interface Itest_ObjFieldTypeObject
@@ -130,6 +140,7 @@ public interface Itest_ObjFieldTypeObject
 public interface Itest_ObjFieldEnum
   : Itest_TypeRef
 {
+  public Itest_ObjFieldEnumObject As_ObjFieldEnum { get; set; }
 }
 
 public interface Itest_ObjFieldEnumObject
@@ -142,6 +153,7 @@ public interface Itest_ForParam<Ttype>
 {
   public Itest_ObjAlternate As_ObjAlternate { get; set; }
   public Itest_ObjField<Ttype> As_ObjField { get; set; }
+  public Itest_ForParamObject As_ForParam { get; set; }
 }
 
 public interface Itest_ForParamObject<Ttype>
@@ -151,6 +163,7 @@ public interface Itest_ForParamObject<Ttype>
 public interface Itest_DualField
   : Itest_ObjField
 {
+  public Itest_DualFieldObject As_DualField { get; set; }
 }
 
 public interface Itest_DualFieldObject
@@ -161,6 +174,7 @@ public interface Itest_DualFieldObject
 public interface Itest_InputField
   : Itest_ObjField
 {
+  public Itest_InputFieldObject As_InputField { get; set; }
 }
 
 public interface Itest_InputFieldObject
@@ -171,6 +185,7 @@ public interface Itest_InputFieldObject
 public interface Itest_InputFieldType
   : Itest_ObjFieldType
 {
+  public Itest_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 
 public interface Itest_InputFieldTypeObject
@@ -182,6 +197,7 @@ public interface Itest_InputFieldTypeObject
 public interface Itest_InputParam
   : Itest_InputFieldType
 {
+  public Itest_InputParamObject As_InputParam { get; set; }
 }
 
 public interface Itest_InputParamObject
@@ -192,6 +208,7 @@ public interface Itest_InputParamObject
 public interface Itest_OutputField
   : Itest_ObjField
 {
+  public Itest_OutputFieldObject As_OutputField { get; set; }
 }
 
 public interface Itest_OutputFieldObject
@@ -202,6 +219,7 @@ public interface Itest_OutputFieldObject
 public interface Itest_OutputFieldType
   : Itest_ObjFieldType
 {
+  public Itest_OutputFieldTypeObject As_OutputFieldType { get; set; }
 }
 
 public interface Itest_OutputFieldTypeObject

@@ -14,10 +14,12 @@ public class CmptGnrcValueOutp
   : ICmptGnrcValueOutp
 {
   public ICmptRefGnrcValueOutp<ICmptEnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
+  public ICmptGnrcValueOutpObject AsGnrcValueOutp { get; set; }
 }
 
 public class CmptRefGnrcValueOutp<Ttype>
   : ICmptRefGnrcValueOutp<Ttype>
 {
   public Ttype Field { get; set; }
+  public ICmptRefGnrcValueOutpObject AsRefGnrcValueOutp { get; set; }
 }

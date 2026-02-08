@@ -14,12 +14,14 @@ public class CmptCnstAltDmnOutp
   : ICmptCnstAltDmnOutp
 {
   public ICmptRefCnstAltDmnOutp<ICmptDomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; set; }
+  public ICmptCnstAltDmnOutpObject AsCnstAltDmnOutp { get; set; }
 }
 
 public class CmptRefCnstAltDmnOutp<Tref>
   : ICmptRefCnstAltDmnOutp<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefCnstAltDmnOutpObject AsRefCnstAltDmnOutp { get; set; }
 }
 
 public class CmptDomCnstAltDmnOutp

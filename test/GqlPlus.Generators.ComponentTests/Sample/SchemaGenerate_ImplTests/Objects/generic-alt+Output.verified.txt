@@ -12,4 +12,5 @@ public class CmptGnrcAltOutp<Ttype>
   : ICmptGnrcAltOutp<Ttype>
 {
   public Ttype Astype { get; set; }
+  public ICmptGnrcAltOutpObject AsGnrcAltOutp { get; set; }
 }

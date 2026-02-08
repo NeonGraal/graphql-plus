@@ -13,6 +13,7 @@ namespace Components.Gqlp_Schema_generic_enum_Dual;
 public interface ICmptGnrcEnumDual
 {
   public ICmptRefGnrcEnumDual<ICmptEnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
+  public ICmptGnrcEnumDualObject AsGnrcEnumDual { get; set; }
 }
 
 public interface ICmptGnrcEnumDualObject
@@ -21,6 +22,7 @@ public interface ICmptGnrcEnumDualObject
 
 public interface ICmptRefGnrcEnumDual<Ttype>
 {
+  public ICmptRefGnrcEnumDualObject AsRefGnrcEnumDual { get; set; }
 }
 
 public interface ICmptRefGnrcEnumDualObject<Ttype>

@@ -30,6 +30,7 @@ public interface ICmpt_Opt<TT>
 {
   public TT AsT { get; set; }
   public ICmptNull AsNull { get; set; }
+  public ICmpt_OptObject As_Opt { get; set; }
 }
 
 public interface ICmpt_OptObject<TT>
@@ -39,6 +40,7 @@ public interface ICmpt_OptObject<TT>
 public interface ICmpt_List<TT>
 {
   public ICollection<TT> AsT { get; set; }
+  public ICmpt_ListObject As_List { get; set; }
 }
 
 public interface ICmpt_ListObject<TT>
@@ -48,6 +50,7 @@ public interface ICmpt_ListObject<TT>
 public interface ICmpt_Dict<TK,TT>
 {
   public IDictionary<TK, TT> AsT { get; set; }
+  public ICmpt_DictObject As_Dict { get; set; }
 }
 
 public interface ICmpt_DictObject<TK,TT>
@@ -57,6 +60,7 @@ public interface ICmpt_DictObject<TK,TT>
 public interface ICmpt_Map<TT>
 {
   public IDictionary<CmptString, TT> AsT { get; set; }
+  public ICmpt_MapObject As_Map { get; set; }
 }
 
 public interface ICmpt_MapObject<TT>
@@ -66,6 +70,7 @@ public interface ICmpt_MapObject<TT>
 public interface ICmpt_Array<TT>
 {
   public IDictionary<CmptNumber, TT> AsT { get; set; }
+  public ICmpt_ArrayObject As_Array { get; set; }
 }
 
 public interface ICmpt_ArrayObject<TT>
@@ -75,6 +80,7 @@ public interface ICmpt_ArrayObject<TT>
 public interface ICmpt_IfElse<TT>
 {
   public IDictionary<CmptBoolean, TT> AsT { get; set; }
+  public ICmpt_IfElseObject As_IfElse { get; set; }
 }
 
 public interface ICmpt_IfElseObject<TT>
@@ -84,6 +90,7 @@ public interface ICmpt_IfElseObject<TT>
 public interface ICmpt_Set<TK>
 {
   public IDictionary<TK, ICmptUnit> AsUnit_ { get; set; }
+  public ICmpt_SetObject As_Set { get; set; }
 }
 
 public interface ICmpt_SetObject<TK>
@@ -93,6 +100,7 @@ public interface ICmpt_SetObject<TK>
 public interface ICmpt_Mask<TK>
 {
   public IDictionary<TK, ICmptBoolean> As^ { get; set; }
+  public ICmpt_MaskObject As_Mask { get; set; }
 }
 
 public interface ICmpt_MaskObject<TK>
@@ -105,6 +113,7 @@ public interface ICmpt_Key
 
 public interface ICmpt_Any
 {
+  public ICmpt_AnyObject As_Any { get; set; }
 }
 
 public interface ICmpt_AnyObject

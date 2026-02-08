@@ -10,6 +10,7 @@ namespace Components.Gqlp_Schema_generic_descr_Dual;
 
 public interface ICmptGnrcDescrDual<Ttype>
 {
+  public ICmptGnrcDescrDualObject AsGnrcDescrDual { get; set; }
 }
 
 public interface ICmptGnrcDescrDualObject<Ttype>

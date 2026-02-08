@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_dual_Input;
 public interface ItestPrntDualInp
   : ItestRefPrntDualInp
 {
+  public ItestPrntDualInpObject AsPrntDualInp { get; set; }
 }
 
 public interface ItestPrntDualInpObject
@@ -18,6 +19,7 @@ public interface ItestPrntDualInpObject
 public interface ItestRefPrntDualInp
 {
   public ItestString AsString { get; set; }
+  public ItestRefPrntDualInpObject AsRefPrntDualInp { get; set; }
 }
 
 public interface ItestRefPrntDualInpObject

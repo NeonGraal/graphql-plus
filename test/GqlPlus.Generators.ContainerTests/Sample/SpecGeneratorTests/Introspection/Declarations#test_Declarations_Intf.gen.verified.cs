@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Declarations;
 public interface Itest_Schema
   : Itest_Named
 {
+  public Itest_SchemaObject As_Schema { get; set; }
 }
 
 public interface Itest_SchemaObject
@@ -27,6 +28,7 @@ public interface Itest_Name
 public interface Itest_Filter
 {
   public ICollection<Itest_NameFilter> As_NameFilter { get; set; }
+  public Itest_FilterObject As_Filter { get; set; }
 }
 
 public interface Itest_FilterObject
@@ -46,6 +48,7 @@ public interface Itest_NameFilter
 public interface Itest_CategoryFilter
   : Itest_Filter
 {
+  public Itest_CategoryFilterObject As_CategoryFilter { get; set; }
 }
 
 public interface Itest_CategoryFilterObject
@@ -57,6 +60,7 @@ public interface Itest_CategoryFilterObject
 public interface Itest_TypeFilter
   : Itest_Filter
 {
+  public Itest_TypeFilterObject As_TypeFilter { get; set; }
 }
 
 public interface Itest_TypeFilterObject

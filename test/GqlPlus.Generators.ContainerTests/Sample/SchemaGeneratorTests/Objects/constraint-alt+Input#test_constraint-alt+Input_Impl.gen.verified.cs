@@ -9,4 +9,5 @@ public class testCnstAltInp<Ttype>
   : ItestCnstAltInp<Ttype>
 {
   public Ttype Astype { get; set; }
+  public ItestCnstAltInpObject AsCnstAltInp { get; set; }
 }

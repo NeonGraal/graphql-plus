@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_parent_param;
 public interface ItestOutpPrntParam
   : ItestPrntOutpPrntParam
 {
+  public ItestOutpPrntParamObject AsOutpPrntParam { get; set; }
 }
 
 public interface ItestOutpPrntParamObject
@@ -18,6 +19,7 @@ public interface ItestOutpPrntParamObject
 
 public interface ItestPrntOutpPrntParam
 {
+  public ItestPrntOutpPrntParamObject AsPrntOutpPrntParam { get; set; }
 }
 
 public interface ItestPrntOutpPrntParamObject
@@ -27,6 +29,7 @@ public interface ItestPrntOutpPrntParamObject
 
 public interface ItestFldOutpPrntParam
 {
+  public ItestFldOutpPrntParamObject AsFldOutpPrntParam { get; set; }
 }
 
 public interface ItestFldOutpPrntParamObject
@@ -36,6 +39,7 @@ public interface ItestFldOutpPrntParamObject
 public interface ItestInOutpPrntParam
 {
   public ItestString AsString { get; set; }
+  public ItestInOutpPrntParamObject AsInOutpPrntParam { get; set; }
 }
 
 public interface ItestInOutpPrntParamObject
@@ -46,6 +50,7 @@ public interface ItestInOutpPrntParamObject
 public interface ItestPrntOutpPrntParamIn
 {
   public ItestString AsString { get; set; }
+  public ItestPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; set; }
 }
 
 public interface ItestPrntOutpPrntParamInObject

@@ -13,4 +13,5 @@ public class CmptObjFieldTypeAliasDual
   : ICmptObjFieldTypeAliasDual
 {
   public ICmptString Field { get; set; }
+  public ICmptObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; set; }
 }

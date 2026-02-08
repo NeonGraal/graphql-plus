@@ -10,4 +10,5 @@ public class testObjParamDupDual<Ttest>
 {
   public Ttest Test { get; set; }
   public Ttest Type { get; set; }
+  public ItestObjParamDupDualObject AsObjParamDupDual { get; set; }
 }

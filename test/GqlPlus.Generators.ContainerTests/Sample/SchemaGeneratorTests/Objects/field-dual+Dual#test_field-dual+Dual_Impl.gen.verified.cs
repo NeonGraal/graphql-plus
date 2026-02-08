@@ -9,6 +9,7 @@ public class testFieldDualDual
   : ItestFieldDualDual
 {
   public ItestFldFieldDualDual Field { get; set; }
+  public ItestFieldDualDualObject AsFieldDualDual { get; set; }
 }
 
 public class testFldFieldDualDual
@@ -16,4 +17,5 @@ public class testFldFieldDualDual
 {
   public ItestNumber Field { get; set; }
   public ItestString AsString { get; set; }
+  public ItestFldFieldDualDualObject AsFldFieldDualDual { get; set; }
 }

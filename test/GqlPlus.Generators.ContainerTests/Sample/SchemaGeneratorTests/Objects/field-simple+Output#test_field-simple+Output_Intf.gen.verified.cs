@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Output;
 
 public interface ItestFieldSmplOutp
 {
+  public ItestFieldSmplOutpObject AsFieldSmplOutp { get; set; }
 }
 
 public interface ItestFieldSmplOutpObject

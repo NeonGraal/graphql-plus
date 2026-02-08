@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_field_mod_Enum_Input;
 
 public interface ICmptFieldModEnumInp
 {
+  public ICmptFieldModEnumInpObject AsFieldModEnumInp { get; set; }
 }
 
 public interface ICmptFieldModEnumInpObject

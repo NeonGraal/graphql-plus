@@ -14,12 +14,14 @@ public class CmptCnstAltDmnDual
   : ICmptCnstAltDmnDual
 {
   public ICmptRefCnstAltDmnDual<ICmptDomCnstAltDmnDual> AsRefCnstAltDmnDual { get; set; }
+  public ICmptCnstAltDmnDualObject AsCnstAltDmnDual { get; set; }
 }
 
 public class CmptRefCnstAltDmnDual<Tref>
   : ICmptRefCnstAltDmnDual<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefCnstAltDmnDualObject AsRefCnstAltDmnDual { get; set; }
 }
 
 public class CmptDomCnstAltDmnDual

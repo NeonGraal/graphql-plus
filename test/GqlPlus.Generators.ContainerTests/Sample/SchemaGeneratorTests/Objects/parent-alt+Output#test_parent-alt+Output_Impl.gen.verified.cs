@@ -10,6 +10,7 @@ public class testPrntAltOutp
   , ItestPrntAltOutp
 {
   public ItestNumber AsNumber { get; set; }
+  public ItestPrntAltOutpObject AsPrntAltOutp { get; set; }
 }
 
 public class testRefPrntAltOutp
@@ -17,4 +18,5 @@ public class testRefPrntAltOutp
 {
   public ItestNumber Parent { get; set; }
   public ItestString AsString { get; set; }
+  public ItestRefPrntAltOutpObject AsRefPrntAltOutp { get; set; }
 }

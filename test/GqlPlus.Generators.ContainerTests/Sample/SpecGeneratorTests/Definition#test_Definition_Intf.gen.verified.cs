@@ -38,6 +38,7 @@ public interface Itest_Key
 
 public interface Itest_Object
 {
+  public Itest_ObjectObject As_Object { get; set; }
 }
 
 public interface Itest_ObjectObject
@@ -50,6 +51,7 @@ public interface Itest_Domain
 
 public interface Itest_Dual
 {
+  public Itest_DualObject As_Dual { get; set; }
 }
 
 public interface Itest_DualObject
@@ -62,6 +64,7 @@ public interface Itest_Enum
 
 public interface Itest_Input
 {
+  public Itest_InputObject As_Input { get; set; }
 }
 
 public interface Itest_InputObject
@@ -70,6 +73,7 @@ public interface Itest_InputObject
 
 public interface Itest_Output
 {
+  public Itest_OutputObject As_Output { get; set; }
 }
 
 public interface Itest_OutputObject

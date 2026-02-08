@@ -13,4 +13,5 @@ namespace Components.Gqlp_Schema_descr_between;
 public class CmptDescrBtwn
   : ICmptDescrBtwn
 {
+  public ICmptDescrBtwnObject AsDescrBtwn { get; set; }
 }

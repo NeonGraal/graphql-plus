@@ -9,12 +9,14 @@ public class testCnstFieldDmnInp
   : testRefCnstFieldDmnInp
   , ItestCnstFieldDmnInp
 {
+  public ItestCnstFieldDmnInpObject AsCnstFieldDmnInp { get; set; }
 }
 
 public class testRefCnstFieldDmnInp<Tref>
   : ItestRefCnstFieldDmnInp<Tref>
 {
   public Tref Field { get; set; }
+  public ItestRefCnstFieldDmnInpObject AsRefCnstFieldDmnInp { get; set; }
 }
 
 public class testDomCnstFieldDmnInp

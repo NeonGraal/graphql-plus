@@ -66,6 +66,7 @@ public class Cmpt_Type
   public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_DualField> As_TypeObject { get; set; }
   public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_InputField> As_TypeObject { get; set; }
   public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_OutputField> As_TypeObject { get; set; }
+  public ICmpt_TypeObject As_Type { get; set; }
 }
 
 public class Cmpt_BaseType<Tkind>
@@ -73,6 +74,7 @@ public class Cmpt_BaseType<Tkind>
   , ICmpt_BaseType<Tkind>
 {
   public Tkind TypeKind { get; set; }
+  public ICmpt_BaseTypeObject As_BaseType { get; set; }
 }
 
 public class Cmpt_ChildType<Tkind,Tparent>
@@ -80,6 +82,7 @@ public class Cmpt_ChildType<Tkind,Tparent>
   , ICmpt_ChildType<Tkind,Tparent>
 {
   public Tparent Parent { get; set; }
+  public ICmpt_ChildTypeObject As_ChildType { get; set; }
 }
 
 public class Cmpt_ParentType<Tkind,Titem,TallItem>
@@ -88,6 +91,7 @@ public class Cmpt_ParentType<Tkind,Titem,TallItem>
 {
   public ICollection<Titem> Items { get; set; }
   public ICollection<TallItem> AllItems { get; set; }
+  public ICmpt_ParentTypeObject As_ParentType { get; set; }
 }
 
 public class Cmpt_TypeRef<Tkind>
@@ -95,6 +99,7 @@ public class Cmpt_TypeRef<Tkind>
   , ICmpt_TypeRef<Tkind>
 {
   public Tkind TypeKind { get; set; }
+  public ICmpt_TypeRefObject As_TypeRef { get; set; }
 }
 
 public class Cmpt_TypeSimple
@@ -104,4 +109,5 @@ public class Cmpt_TypeSimple
   public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
+  public ICmpt_TypeSimpleObject As_TypeSimple { get; set; }
 }

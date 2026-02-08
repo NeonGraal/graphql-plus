@@ -12,4 +12,5 @@ public class CmptRefGnrcAltModParamOutp<Tref,Tmod>
   : ICmptRefGnrcAltModParamOutp<Tref,Tmod>
 {
   public IDictionary<Tmod, Tref> Asref { get; set; }
+  public ICmptRefGnrcAltModParamOutpObject AsRefGnrcAltModParamOutp { get; set; }
 }

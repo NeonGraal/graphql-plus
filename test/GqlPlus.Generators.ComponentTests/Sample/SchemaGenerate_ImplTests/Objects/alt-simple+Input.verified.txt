@@ -12,4 +12,5 @@ public class CmptAltSmplInp
   : ICmptAltSmplInp
 {
   public ICmptString AsString { get; set; }
+  public ICmptAltSmplInpObject AsAltSmplInp { get; set; }
 }

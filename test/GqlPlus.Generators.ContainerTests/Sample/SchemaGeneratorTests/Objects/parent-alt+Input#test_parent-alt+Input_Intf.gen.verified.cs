@@ -9,6 +9,7 @@ public interface ItestPrntAltInp
   : ItestRefPrntAltInp
 {
   public ItestNumber AsNumber { get; set; }
+  public ItestPrntAltInpObject AsPrntAltInp { get; set; }
 }
 
 public interface ItestPrntAltInpObject
@@ -19,6 +20,7 @@ public interface ItestPrntAltInpObject
 public interface ItestRefPrntAltInp
 {
   public ItestString AsString { get; set; }
+  public ItestRefPrntAltInpObject AsRefPrntAltInp { get; set; }
 }
 
 public interface ItestRefPrntAltInpObject

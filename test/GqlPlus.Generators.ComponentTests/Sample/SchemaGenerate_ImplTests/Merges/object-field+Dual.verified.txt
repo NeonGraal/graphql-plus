@@ -14,9 +14,11 @@ public class CmptObjFieldDual
   : ICmptObjFieldDual
 {
   public ICmptFldObjFieldDual Field { get; set; }
+  public ICmptObjFieldDualObject AsObjFieldDual { get; set; }
 }
 
 public class CmptFldObjFieldDual
   : ICmptFldObjFieldDual
 {
+  public ICmptFldObjFieldDualObject AsFldObjFieldDual { get; set; }
 }

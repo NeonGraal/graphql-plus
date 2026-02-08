@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_generic_parent_arg_Input;
 public interface ICmptGnrcPrntArgInp<Ttype>
   : ICmptRefGnrcPrntArgInp
 {
+  public ICmptGnrcPrntArgInpObject AsGnrcPrntArgInp { get; set; }
 }
 
 public interface ICmptGnrcPrntArgInpObject<Ttype>
@@ -22,6 +23,7 @@ public interface ICmptGnrcPrntArgInpObject<Ttype>
 public interface ICmptRefGnrcPrntArgInp<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcPrntArgInpObject AsRefGnrcPrntArgInp { get; set; }
 }
 
 public interface ICmptRefGnrcPrntArgInpObject<Tref>

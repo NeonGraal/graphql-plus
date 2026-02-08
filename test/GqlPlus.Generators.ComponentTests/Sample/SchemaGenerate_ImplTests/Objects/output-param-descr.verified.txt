@@ -14,11 +14,13 @@ public class CmptOutpParamDescr
   : ICmptOutpParamDescr
 {
   public ICmptFldOutpParamDescr Field { get; set; }
+  public ICmptOutpParamDescrObject AsOutpParamDescr { get; set; }
 }
 
 public class CmptFldOutpParamDescr
   : ICmptFldOutpParamDescr
 {
+  public ICmptFldOutpParamDescrObject AsFldOutpParamDescr { get; set; }
 }
 
 public class CmptInOutpParamDescr
@@ -26,4 +28,5 @@ public class CmptInOutpParamDescr
 {
   public ICmptNumber Param { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptInOutpParamDescrObject AsInOutpParamDescr { get; set; }
 }

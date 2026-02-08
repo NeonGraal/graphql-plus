@@ -9,6 +9,7 @@ public interface Itest_Directives
   : Itest_AndType
 {
   public Itest_Directive As_Directive { get; set; }
+  public Itest_DirectivesObject As_Directives { get; set; }
 }
 
 public interface Itest_DirectivesObject
@@ -20,6 +21,7 @@ public interface Itest_DirectivesObject
 public interface Itest_Directive
   : Itest_Aliased
 {
+  public Itest_DirectiveObject As_Directive { get; set; }
 }
 
 public interface Itest_DirectiveObject

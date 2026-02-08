@@ -13,6 +13,7 @@ namespace Components.Gqlp_Schema_object_alt_Input;
 public interface ICmptObjAltInp
 {
   public ICmptObjAltInpType AsObjAltInpType { get; set; }
+  public ICmptObjAltInpObject AsObjAltInp { get; set; }
 }
 
 public interface ICmptObjAltInpObject
@@ -21,6 +22,7 @@ public interface ICmptObjAltInpObject
 
 public interface ICmptObjAltInpType
 {
+  public ICmptObjAltInpTypeObject AsObjAltInpType { get; set; }
 }
 
 public interface ICmptObjAltInpTypeObject

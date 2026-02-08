@@ -12,4 +12,5 @@ namespace Components.Gqlp_Schema_category_output_list;
 public class CmptCtgrOutpList
   : ICmptCtgrOutpList
 {
+  public ICmptCtgrOutpListObject AsCtgrOutpList { get; set; }
 }

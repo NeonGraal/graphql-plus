@@ -13,10 +13,12 @@ public class CmptGnrcAltSmplDual
   : ICmptGnrcAltSmplDual
 {
   public ICmptRefGnrcAltSmplDual<ICmptString> AsRefGnrcAltSmplDual { get; set; }
+  public ICmptGnrcAltSmplDualObject AsGnrcAltSmplDual { get; set; }
 }
 
 public class CmptRefGnrcAltSmplDual<Tref>
   : ICmptRefGnrcAltSmplDual<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcAltSmplDualObject AsRefGnrcAltSmplDual { get; set; }
 }

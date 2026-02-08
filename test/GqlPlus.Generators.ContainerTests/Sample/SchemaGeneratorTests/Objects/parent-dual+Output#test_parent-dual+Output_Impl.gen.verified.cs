@@ -9,6 +9,7 @@ public class testPrntDualOutp
   : testRefPrntDualOutp
   , ItestPrntDualOutp
 {
+  public ItestPrntDualOutpObject AsPrntDualOutp { get; set; }
 }
 
 public class testRefPrntDualOutp
@@ -16,4 +17,5 @@ public class testRefPrntDualOutp
 {
   public ItestNumber Parent { get; set; }
   public ItestString AsString { get; set; }
+  public ItestRefPrntDualOutpObject AsRefPrntDualOutp { get; set; }
 }

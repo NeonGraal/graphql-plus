@@ -10,6 +10,7 @@ namespace Components.Gqlp_Schema_field_descr_Dual;
 
 public interface ICmptFieldDescrDual
 {
+  public ICmptFieldDescrDualObject AsFieldDescrDual { get; set; }
 }
 
 public interface ICmptFieldDescrDualObject

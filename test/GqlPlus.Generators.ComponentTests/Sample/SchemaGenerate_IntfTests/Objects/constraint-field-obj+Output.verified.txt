@@ -14,6 +14,7 @@ namespace Components.Gqlp_Schema_constraint_field_obj_Output;
 public interface ICmptCnstFieldObjOutp
   : ICmptRefCnstFieldObjOutp
 {
+  public ICmptCnstFieldObjOutpObject AsCnstFieldObjOutp { get; set; }
 }
 
 public interface ICmptCnstFieldObjOutpObject
@@ -23,6 +24,7 @@ public interface ICmptCnstFieldObjOutpObject
 
 public interface ICmptRefCnstFieldObjOutp<Tref>
 {
+  public ICmptRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; set; }
 }
 
 public interface ICmptRefCnstFieldObjOutpObject<Tref>
@@ -33,6 +35,7 @@ public interface ICmptRefCnstFieldObjOutpObject<Tref>
 public interface ICmptPrntCnstFieldObjOutp
 {
   public ICmptString AsString { get; set; }
+  public ICmptPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; set; }
 }
 
 public interface ICmptPrntCnstFieldObjOutpObject
@@ -42,6 +45,7 @@ public interface ICmptPrntCnstFieldObjOutpObject
 public interface ICmptAltCnstFieldObjOutp
   : ICmptPrntCnstFieldObjOutp
 {
+  public ICmptAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; set; }
 }
 
 public interface ICmptAltCnstFieldObjOutpObject

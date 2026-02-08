@@ -9,9 +9,11 @@ public class testObjFieldDual
   : ItestObjFieldDual
 {
   public ItestFldObjFieldDual Field { get; set; }
+  public ItestObjFieldDualObject AsObjFieldDual { get; set; }
 }
 
 public class testFldObjFieldDual
   : ItestFldObjFieldDual
 {
+  public ItestFldObjFieldDualObject AsFldObjFieldDual { get; set; }
 }

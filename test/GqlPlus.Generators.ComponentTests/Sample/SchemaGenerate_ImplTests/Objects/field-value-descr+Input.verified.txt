@@ -13,4 +13,5 @@ public class CmptFieldValueDescrInp
   : ICmptFieldValueDescrInp
 {
   public ICmptEnumFieldValueDescrInp Field { get; set; }
+  public ICmptFieldValueDescrInpObject AsFieldValueDescrInp { get; set; }
 }

@@ -12,4 +12,5 @@ public class CmptRefGnrcAltModStrInp<Tref>
   : ICmptRefGnrcAltModStrInp<Tref>
 {
   public IDictionary<CmptString, Tref> Asref { get; set; }
+  public ICmptRefGnrcAltModStrInpObject AsRefGnrcAltModStrInp { get; set; }
 }

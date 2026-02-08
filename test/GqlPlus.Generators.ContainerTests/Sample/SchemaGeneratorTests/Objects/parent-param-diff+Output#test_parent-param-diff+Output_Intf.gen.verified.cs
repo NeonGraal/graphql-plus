@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_param_diff_Output;
 public interface ItestPrntParamDiffOutp<Ta>
   : ItestRefPrntParamDiffOutp
 {
+  public ItestPrntParamDiffOutpObject AsPrntParamDiffOutp { get; set; }
 }
 
 public interface ItestPrntParamDiffOutpObject<Ta>
@@ -19,6 +20,7 @@ public interface ItestPrntParamDiffOutpObject<Ta>
 public interface ItestRefPrntParamDiffOutp<Tb>
 {
   public Tb Asb { get; set; }
+  public ItestRefPrntParamDiffOutpObject AsRefPrntParamDiffOutp { get; set; }
 }
 
 public interface ItestRefPrntParamDiffOutpObject<Tb>

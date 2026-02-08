@@ -13,6 +13,7 @@ public class CmptAltDual
   : ICmptAltDual
 {
   public ICmptAltAltDual AsAltAltDual { get; set; }
+  public ICmptAltDualObject AsAltDual { get; set; }
 }
 
 public class CmptAltAltDual
@@ -20,4 +21,5 @@ public class CmptAltAltDual
 {
   public ICmptNumber Alt { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptAltAltDualObject AsAltAltDual { get; set; }
 }

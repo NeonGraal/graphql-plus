@@ -9,4 +9,5 @@ public class testGnrcFieldDual<Ttype>
   : ItestGnrcFieldDual<Ttype>
 {
   public Ttype Field { get; set; }
+  public ItestGnrcFieldDualObject AsGnrcFieldDual { get; set; }
 }

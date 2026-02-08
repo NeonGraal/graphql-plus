@@ -13,6 +13,7 @@ public class CmptFieldObjInp
   : ICmptFieldObjInp
 {
   public ICmptFldFieldObjInp Field { get; set; }
+  public ICmptFieldObjInpObject AsFieldObjInp { get; set; }
 }
 
 public class CmptFldFieldObjInp
@@ -20,4 +21,5 @@ public class CmptFldFieldObjInp
 {
   public ICmptNumber Field { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptFldFieldObjInpObject AsFldFieldObjInp { get; set; }
 }

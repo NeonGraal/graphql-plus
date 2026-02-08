@@ -15,10 +15,12 @@ public class CmptGnrcPrntEnumChildDual
   : CmptFieldGnrcPrntEnumChildDual
   , ICmptGnrcPrntEnumChildDual
 {
+  public ICmptGnrcPrntEnumChildDualObject AsGnrcPrntEnumChildDual { get; set; }
 }
 
 public class CmptFieldGnrcPrntEnumChildDual<Tref>
   : ICmptFieldGnrcPrntEnumChildDual<Tref>
 {
   public Tref Field { get; set; }
+  public ICmptFieldGnrcPrntEnumChildDualObject AsFieldGnrcPrntEnumChildDual { get; set; }
 }

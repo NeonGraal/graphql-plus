@@ -14,10 +14,12 @@ public class CmptPrntParamSameDual<Ta>
   , ICmptPrntParamSameDual<Ta>
 {
   public Ta Field { get; set; }
+  public ICmptPrntParamSameDualObject AsPrntParamSameDual { get; set; }
 }
 
 public class CmptRefPrntParamSameDual<Ta>
   : ICmptRefPrntParamSameDual<Ta>
 {
   public Ta Asa { get; set; }
+  public ICmptRefPrntParamSameDualObject AsRefPrntParamSameDual { get; set; }
 }

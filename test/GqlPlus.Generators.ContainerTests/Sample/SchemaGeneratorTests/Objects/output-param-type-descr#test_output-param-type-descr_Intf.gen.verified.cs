@@ -7,6 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_param_type_descr;
 
 public interface ItestOutpParamTypeDescr
 {
+  public ItestOutpParamTypeDescrObject AsOutpParamTypeDescr { get; set; }
 }
 
 public interface ItestOutpParamTypeDescrObject
@@ -16,6 +17,7 @@ public interface ItestOutpParamTypeDescrObject
 
 public interface ItestFldOutpParamTypeDescr
 {
+  public ItestFldOutpParamTypeDescrObject AsFldOutpParamTypeDescr { get; set; }
 }
 
 public interface ItestFldOutpParamTypeDescrObject
@@ -25,6 +27,7 @@ public interface ItestFldOutpParamTypeDescrObject
 public interface ItestInOutpParamTypeDescr
 {
   public ItestString AsString { get; set; }
+  public ItestInOutpParamTypeDescrObject AsInOutpParamTypeDescr { get; set; }
 }
 
 public interface ItestInOutpParamTypeDescrObject

@@ -9,18 +9,21 @@ public class testCnstFieldObjOutp
   : testRefCnstFieldObjOutp
   , ItestCnstFieldObjOutp
 {
+  public ItestCnstFieldObjOutpObject AsCnstFieldObjOutp { get; set; }
 }
 
 public class testRefCnstFieldObjOutp<Tref>
   : ItestRefCnstFieldObjOutp<Tref>
 {
   public Tref Field { get; set; }
+  public ItestRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; set; }
 }
 
 public class testPrntCnstFieldObjOutp
   : ItestPrntCnstFieldObjOutp
 {
   public ItestString AsString { get; set; }
+  public ItestPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; set; }
 }
 
 public class testAltCnstFieldObjOutp
@@ -28,4 +31,5 @@ public class testAltCnstFieldObjOutp
   , ItestAltCnstFieldObjOutp
 {
   public ItestNumber Alt { get; set; }
+  public ItestAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; set; }
 }

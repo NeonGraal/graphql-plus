@@ -9,6 +9,7 @@ public class testFieldObjInp
   : ItestFieldObjInp
 {
   public ItestFldFieldObjInp Field { get; set; }
+  public ItestFieldObjInpObject AsFieldObjInp { get; set; }
 }
 
 public class testFldFieldObjInp
@@ -16,4 +17,5 @@ public class testFldFieldObjInp
 {
   public ItestNumber Field { get; set; }
   public ItestString AsString { get; set; }
+  public ItestFldFieldObjInpObject AsFldFieldObjInp { get; set; }
 }

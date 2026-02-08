@@ -8,6 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Enum;
 public interface Itest_EnumLabel
   : Itest_Aliased
 {
+  public Itest_EnumLabelObject As_EnumLabel { get; set; }
 }
 
 public interface Itest_EnumLabelObject
@@ -19,6 +20,7 @@ public interface Itest_EnumLabelObject
 public interface Itest_EnumValue
   : Itest_TypeRef
 {
+  public Itest_EnumValueObject As_EnumValue { get; set; }
 }
 
 public interface Itest_EnumValueObject

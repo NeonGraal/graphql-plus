@@ -14,6 +14,7 @@ public class CmptPrntAltOutp
   , ICmptPrntAltOutp
 {
   public ICmptNumber AsNumber { get; set; }
+  public ICmptPrntAltOutpObject AsPrntAltOutp { get; set; }
 }
 
 public class CmptRefPrntAltOutp
@@ -21,4 +22,5 @@ public class CmptRefPrntAltOutp
 {
   public ICmptNumber Parent { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptRefPrntAltOutpObject AsRefPrntAltOutp { get; set; }
 }

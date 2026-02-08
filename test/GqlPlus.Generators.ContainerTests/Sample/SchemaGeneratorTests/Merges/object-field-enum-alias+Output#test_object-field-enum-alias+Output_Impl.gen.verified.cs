@@ -9,4 +9,5 @@ public class testObjFieldEnumAliasOutp
   : ItestObjFieldEnumAliasOutp
 {
   public ItestBoolean Field { get; set; }
+  public ItestObjFieldEnumAliasOutpObject AsObjFieldEnumAliasOutp { get; set; }
 }

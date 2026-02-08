@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_category_output_dict;
 
 public interface ICmptCtgrOutpDict
 {
+  public ICmptCtgrOutpDictObject AsCtgrOutpDict { get; set; }
 }
 
 public interface ICmptCtgrOutpDictObject

@@ -10,6 +10,7 @@ namespace Components.Gqlp_Schema_field_Input;
 
 public interface ICmptFieldInp
 {
+  public ICmptFieldInpObject AsFieldInp { get; set; }
 }
 
 public interface ICmptFieldInpObject

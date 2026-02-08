@@ -9,12 +9,14 @@ public class testCnstDomEnumOutp
   : ItestCnstDomEnumOutp
 {
   public ItestRefCnstDomEnumOutp<ItestEnumCnstDomEnumOutp> AsRefCnstDomEnumOutp { get; set; }
+  public ItestCnstDomEnumOutpObject AsCnstDomEnumOutp { get; set; }
 }
 
 public class testRefCnstDomEnumOutp<Ttype>
   : ItestRefCnstDomEnumOutp<Ttype>
 {
   public Ttype Field { get; set; }
+  public ItestRefCnstDomEnumOutpObject AsRefCnstDomEnumOutp { get; set; }
 }
 
 public class testJustCnstDomEnumOutp

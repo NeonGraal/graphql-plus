@@ -9,4 +9,5 @@ public class testFieldEnumInp
   : ItestFieldEnumInp
 {
   public ItestEnumFieldEnumInp Field { get; set; }
+  public ItestFieldEnumInpObject AsFieldEnumInp { get; set; }
 }

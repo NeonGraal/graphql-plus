@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_field_value_Dual;
 
 public interface ICmptFieldValueDual
 {
+  public ICmptFieldValueDualObject AsFieldValueDual { get; set; }
 }
 
 public interface ICmptFieldValueDualObject

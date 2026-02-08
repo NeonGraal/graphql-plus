@@ -10,4 +10,5 @@ public class testObjCnstDual<Ttype>
 {
   public Ttype Field { get; set; }
   public Ttype Str { get; set; }
+  public ItestObjCnstDualObject AsObjCnstDual { get; set; }
 }

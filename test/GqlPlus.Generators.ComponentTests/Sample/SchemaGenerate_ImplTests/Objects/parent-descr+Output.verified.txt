@@ -13,6 +13,7 @@ public class CmptPrntDescrOutp
   : CmptRefPrntDescrOutp
   , ICmptPrntDescrOutp
 {
+  public ICmptPrntDescrOutpObject AsPrntDescrOutp { get; set; }
 }
 
 public class CmptRefPrntDescrOutp
@@ -20,4 +21,5 @@ public class CmptRefPrntDescrOutp
 {
   public ICmptNumber Parent { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptRefPrntDescrOutpObject AsRefPrntDescrOutp { get; set; }
 }

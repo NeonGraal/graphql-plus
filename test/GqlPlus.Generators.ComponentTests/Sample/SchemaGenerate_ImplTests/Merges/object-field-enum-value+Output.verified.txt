@@ -13,4 +13,5 @@ public class CmptObjFieldEnumValueOutp
   : ICmptObjFieldEnumValueOutp
 {
   public ICmptBoolean Field { get; set; }
+  public ICmptObjFieldEnumValueOutpObject AsObjFieldEnumValueOutp { get; set; }
 }

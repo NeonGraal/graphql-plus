@@ -10,6 +10,7 @@ public class test_DomainRef<Tkind>
   , Itest_DomainRef<Tkind>
 {
   public Tkind DomainKind { get; set; }
+  public Itest_DomainRefObject As_DomainRef { get; set; }
 }
 
 public class test_BaseDomain<Tdomain,Titem,TdomainItem>
@@ -17,6 +18,7 @@ public class test_BaseDomain<Tdomain,Titem,TdomainItem>
   , Itest_BaseDomain<Tdomain,Titem,TdomainItem>
 {
   public Tdomain DomainKind { get; set; }
+  public Itest_BaseDomainObject As_BaseDomain { get; set; }
 }
 
 public class test_BaseDomainItem
@@ -24,6 +26,7 @@ public class test_BaseDomainItem
   , Itest_BaseDomainItem
 {
   public Itest_DomainKind Exclude { get; set; }
+  public Itest_BaseDomainItemObject As_BaseDomainItem { get; set; }
 }
 
 public class test_DomainItem<Titem>
@@ -31,6 +34,7 @@ public class test_DomainItem<Titem>
   , Itest_DomainItem<Titem>
 {
   public Itest_Name Domain { get; set; }
+  public Itest_DomainItemObject As_DomainItem { get; set; }
 }
 
 public class test_DomainValue<Tkind,Tvalue>
@@ -39,6 +43,7 @@ public class test_DomainValue<Tkind,Tvalue>
 {
   public Tvalue Value { get; set; }
   public Tvalue Asvalue { get; set; }
+  public Itest_DomainValueObject As_DomainValue { get; set; }
 }
 
 public class test_BasicValue
@@ -48,6 +53,7 @@ public class test_BasicValue
   public Itest_EnumValue As_EnumValue { get; set; }
   public Itest_DomainKind As_DomainKindNumber { get; set; }
   public Itest_DomainKind As_DomainKindString { get; set; }
+  public Itest_BasicValueObject As_BasicValue { get; set; }
 }
 
 public class test_DomainTrueFalse
@@ -55,12 +61,14 @@ public class test_DomainTrueFalse
   , Itest_DomainTrueFalse
 {
   public Itest_DomainKind Value { get; set; }
+  public Itest_DomainTrueFalseObject As_DomainTrueFalse { get; set; }
 }
 
 public class test_DomainItemTrueFalse
   : test_DomainItem
   , Itest_DomainItemTrueFalse
 {
+  public Itest_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; set; }
 }
 
 public class test_DomainLabel
@@ -68,12 +76,14 @@ public class test_DomainLabel
   , Itest_DomainLabel
 {
   public Itest_EnumValue Label { get; set; }
+  public Itest_DomainLabelObject As_DomainLabel { get; set; }
 }
 
 public class test_DomainItemLabel
   : test_DomainItem
   , Itest_DomainItemLabel
 {
+  public Itest_DomainItemLabelObject As_DomainItemLabel { get; set; }
 }
 
 public class test_DomainRange
@@ -82,12 +92,14 @@ public class test_DomainRange
 {
   public Itest_DomainKind? Lower { get; set; }
   public Itest_DomainKind? Upper { get; set; }
+  public Itest_DomainRangeObject As_DomainRange { get; set; }
 }
 
 public class test_DomainItemRange
   : test_DomainItem
   , Itest_DomainItemRange
 {
+  public Itest_DomainItemRangeObject As_DomainItemRange { get; set; }
 }
 
 public class test_DomainRegex
@@ -95,12 +107,14 @@ public class test_DomainRegex
   , Itest_DomainRegex
 {
   public Itest_DomainKind Pattern { get; set; }
+  public Itest_DomainRegexObject As_DomainRegex { get; set; }
 }
 
 public class test_DomainItemRegex
   : test_DomainItem
   , Itest_DomainItemRegex
 {
+  public Itest_DomainItemRegexObject As_DomainItemRegex { get; set; }
 }
 
 public class test_EnumLabel
@@ -108,6 +122,7 @@ public class test_EnumLabel
   , Itest_EnumLabel
 {
   public Itest_Name Enum { get; set; }
+  public Itest_EnumLabelObject As_EnumLabel { get; set; }
 }
 
 public class test_EnumValue
@@ -115,12 +130,14 @@ public class test_EnumValue
   , Itest_EnumValue
 {
   public Itest_Name Label { get; set; }
+  public Itest_EnumValueObject As_EnumValue { get; set; }
 }
 
 public class test_UnionRef
   : test_TypeRef
   , Itest_UnionRef
 {
+  public Itest_UnionRefObject As_UnionRef { get; set; }
 }
 
 public class test_UnionMember
@@ -128,4 +145,5 @@ public class test_UnionMember
   , Itest_UnionMember
 {
   public Itest_Name Union { get; set; }
+  public Itest_UnionMemberObject As_UnionMember { get; set; }
 }

@@ -14,4 +14,5 @@ public class CmptObjParamInp<Ttest,Ttype>
 {
   public Ttest Test { get; set; }
   public Ttype Type { get; set; }
+  public ICmptObjParamInpObject AsObjParamInp { get; set; }
 }

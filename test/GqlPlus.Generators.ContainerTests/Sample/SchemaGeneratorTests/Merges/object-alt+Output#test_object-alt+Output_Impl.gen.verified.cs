@@ -9,9 +9,11 @@ public class testObjAltOutp
   : ItestObjAltOutp
 {
   public ItestObjAltOutpType AsObjAltOutpType { get; set; }
+  public ItestObjAltOutpObject AsObjAltOutp { get; set; }
 }
 
 public class testObjAltOutpType
   : ItestObjAltOutpType
 {
+  public ItestObjAltOutpTypeObject AsObjAltOutpType { get; set; }
 }

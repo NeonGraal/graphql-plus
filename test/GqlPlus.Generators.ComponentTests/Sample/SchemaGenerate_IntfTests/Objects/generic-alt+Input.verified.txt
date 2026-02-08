@@ -11,6 +11,7 @@ namespace Components.Gqlp_Schema_generic_alt_Input;
 public interface ICmptGnrcAltInp<Ttype>
 {
   public Ttype Astype { get; set; }
+  public ICmptGnrcAltInpObject AsGnrcAltInp { get; set; }
 }
 
 public interface ICmptGnrcAltInpObject<Ttype>

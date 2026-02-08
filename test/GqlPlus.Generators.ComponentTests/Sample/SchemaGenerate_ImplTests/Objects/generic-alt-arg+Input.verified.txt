@@ -13,10 +13,12 @@ public class CmptGnrcAltArgInp<Ttype>
   : ICmptGnrcAltArgInp<Ttype>
 {
   public ICmptRefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; set; }
+  public ICmptGnrcAltArgInpObject AsGnrcAltArgInp { get; set; }
 }
 
 public class CmptRefGnrcAltArgInp<Tref>
   : ICmptRefGnrcAltArgInp<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcAltArgInpObject AsRefGnrcAltArgInp { get; set; }
 }

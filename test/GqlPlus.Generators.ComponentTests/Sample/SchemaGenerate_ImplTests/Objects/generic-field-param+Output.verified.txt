@@ -14,12 +14,14 @@ public class CmptGnrcFieldParamOutp
   : ICmptGnrcFieldParamOutp
 {
   public ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; set; }
+  public ICmptGnrcFieldParamOutpObject AsGnrcFieldParamOutp { get; set; }
 }
 
 public class CmptRefGnrcFieldParamOutp<Tref>
   : ICmptRefGnrcFieldParamOutp<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcFieldParamOutpObject AsRefGnrcFieldParamOutp { get; set; }
 }
 
 public class CmptAltGnrcFieldParamOutp
@@ -27,4 +29,5 @@ public class CmptAltGnrcFieldParamOutp
 {
   public ICmptNumber Alt { get; set; }
   public ICmptString AsString { get; set; }
+  public ICmptAltGnrcFieldParamOutpObject AsAltGnrcFieldParamOutp { get; set; }
 }

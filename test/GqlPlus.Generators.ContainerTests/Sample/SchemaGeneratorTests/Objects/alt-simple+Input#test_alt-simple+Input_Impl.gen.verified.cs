@@ -9,4 +9,5 @@ public class testAltSmplInp
   : ItestAltSmplInp
 {
   public ItestString AsString { get; set; }
+  public ItestAltSmplInpObject AsAltSmplInp { get; set; }
 }

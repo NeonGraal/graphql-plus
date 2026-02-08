@@ -12,4 +12,5 @@ public class CmptFieldSmplInp
   : ICmptFieldSmplInp
 {
   public ICmptNumber Field { get; set; }
+  public ICmptFieldSmplInpObject AsFieldSmplInp { get; set; }
 }

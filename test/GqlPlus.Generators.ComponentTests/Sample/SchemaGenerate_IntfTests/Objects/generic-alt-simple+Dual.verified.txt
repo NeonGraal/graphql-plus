@@ -12,6 +12,7 @@ namespace Components.Gqlp_Schema_generic_alt_simple_Dual;
 public interface ICmptGnrcAltSmplDual
 {
   public ICmptRefGnrcAltSmplDual<ICmptString> AsRefGnrcAltSmplDual { get; set; }
+  public ICmptGnrcAltSmplDualObject AsGnrcAltSmplDual { get; set; }
 }
 
 public interface ICmptGnrcAltSmplDualObject
@@ -21,6 +22,7 @@ public interface ICmptGnrcAltSmplDualObject
 public interface ICmptRefGnrcAltSmplDual<Tref>
 {
   public Tref Asref { get; set; }
+  public ICmptRefGnrcAltSmplDualObject AsRefGnrcAltSmplDual { get; set; }
 }
 
 public interface ICmptRefGnrcAltSmplDualObject<Tref>

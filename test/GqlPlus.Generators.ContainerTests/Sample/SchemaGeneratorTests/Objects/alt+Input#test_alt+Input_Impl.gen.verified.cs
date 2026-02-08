@@ -9,6 +9,7 @@ public class testAltInp
   : ItestAltInp
 {
   public ItestAltAltInp AsAltAltInp { get; set; }
+  public ItestAltInpObject AsAltInp { get; set; }
 }
 
 public class testAltAltInp
@@ -16,4 +17,5 @@ public class testAltAltInp
 {
   public ItestNumber Alt { get; set; }
   public ItestString AsString { get; set; }
+  public ItestAltAltInpObject AsAltAltInp { get; set; }
 }

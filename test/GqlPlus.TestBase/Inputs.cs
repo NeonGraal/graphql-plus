@@ -32,9 +32,9 @@ public record struct DomainRangeInput(decimal? Min, decimal? Max)
     string result = $"{Lower:0.#####}";
 
     if (Upper is null) {
-      result += ">";
+      result += "<";
     } else if (Upper != Lower) {
-      result += $"~{Upper:0.#####}";
+      result += $"<{Upper:0.#####}";
     }
 
     return result;

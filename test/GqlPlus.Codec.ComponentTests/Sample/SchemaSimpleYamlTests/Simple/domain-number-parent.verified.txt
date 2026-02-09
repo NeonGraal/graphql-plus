@@ -9,12 +9,12 @@ types: !_Map(_Type)
       - !_DomainItem(_DomainRange)
         domain: DmnNmbrPrnt
         exclude: false
-        from: 2
+        to: 2
     domainKind: !_DomainKind Number
     items:
       - !_DomainRange
         exclude: false
-        from: 2
+        to: 2
     name: DmnNmbrPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntDmnNmbrPrnt

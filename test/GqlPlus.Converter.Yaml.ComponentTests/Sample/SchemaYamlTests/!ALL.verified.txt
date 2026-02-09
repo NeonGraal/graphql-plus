@@ -3144,12 +3144,12 @@ types: !_Map(_Type)
     - !_DomainItem(_DomainRange)
       domain: DmnNmbrPrnt
       exclude: false
-      from: 2
+      to: 2
     domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
-      from: 2
+      to: 2
     name: DmnNmbrPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntDmnNmbrPrnt
@@ -3189,19 +3189,43 @@ types: !_Map(_Type)
       to: 0
     name: DmnNmbrPstv
     typeKind: !_TypeKind Domain
-  !_Name DmnNmbrSame: !_DomainNumber
+  !_Name DmnNmbrRange: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
-      domain: DmnNmbrSame
+      domain: DmnNmbrRange
       exclude: false
       from: 1
       to: 9
+    - !_DomainItem(_DomainRange)
+      domain: DmnNmbrRange
+      exclude: false
+      from: 12
+      to: 21
     domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
       from: 1
       to: 9
+    - !_DomainRange
+      exclude: false
+      from: 12
+      to: 21
+    name: DmnNmbrRange
+    typeKind: !_TypeKind Domain
+  !_Name DmnNmbrSame: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: DmnNmbrSame
+      exclude: false
+      from: 9
+      to: 1
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      from: 9
+      to: 1
     name: DmnNmbrSame
     typeKind: !_TypeKind Domain
   !_Name DmnStr: !_DomainString
@@ -3497,14 +3521,14 @@ types: !_Map(_Type)
     - !_DomainItem(_DomainRange)
       domain: DomOutpParamModParam
       exclude: false
-      from: 1
-      to: 10
+      from: 10
+      to: 1
     domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
-      from: 1
-      to: 10
+      from: 10
+      to: 1
     name: DomOutpParamModParam
     typeKind: !_TypeKind Domain
   !_Name Dscrs: !_TypeOutput

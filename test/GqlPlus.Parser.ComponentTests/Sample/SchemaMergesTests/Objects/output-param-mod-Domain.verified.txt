@@ -37,6 +37,6 @@ Success
   DomOutpParamModDmn
   Number
   !DN N@036/0003
-  1~10
+  1<10
 }
 ]

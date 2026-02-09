@@ -40,9 +40,9 @@ internal sealed record class DomainRangeAst(
     : Upper.Value.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture);
   public string AsString
   => Lower is null ? UpperString.Prefixed("<")
-    : Upper is null ? LowerString.Suffixed(">")
+    : Upper is null ? LowerString.Suffixed("<")
     : Lower.Equals(Upper) ? LowerString
-    : LowerString + "~" + UpperString;
+    : LowerString + "<" + UpperString;
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
     .Append((Excludes ? "!" : "") + AsString);

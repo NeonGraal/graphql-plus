@@ -5,13 +5,13 @@ types: !_Map(_Type)
     - !_DomainItem(_DomainRange)
       domain: DmnNmbrSame
       exclude: false
-      from: 1
-      to: 9
+      from: 9
+      to: 1
     domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
-      from: 1
-      to: 9
+      from: 9
+      to: 1
     name: DmnNmbrSame
     typeKind: !_TypeKind Domain

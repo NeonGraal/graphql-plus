@@ -3,10 +3,10 @@
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:allItems.0[_DomainItem(_DomainRange)]:to=2
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:domain=DmnNmbrPrnt
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:exclude=false
-[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:from=2
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:allItems.1[_DomainItem(_DomainRange)]:to=2
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:domainKind=[_DomainKind]Number
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:exclude=false
-[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:from=2
+[_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:items.0[_DomainRange]:to=2
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:name=DmnNmbrPrnt
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:parent[_TypeRef(_SimpleKind)]:name=PrntDmnNmbrPrnt
 [_Schema]:types[_Map(_Type)]:[_Name]DmnNmbrPrnt[_DomainNumber]:parent[_TypeRef(_SimpleKind)]:typeKind=[_SimpleKind]Domain

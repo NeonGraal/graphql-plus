@@ -19,7 +19,7 @@ internal sealed class DomainAstNumberChecks()
     new(AstNulls.At, string.Empty, false, input.Upper, null)];
 
   protected override string ItemsString(string name, DomainRangeInput input)
-    => $"( !Do {name} Number !DN <{input.Lower:0.#####} !DN !{input.Lower:0.#####}~{input.Upper:0.#####} !DN {input.Upper:0.#####}> )";
+    => $"( !Do {name} Number !DN <{input.Lower:0.#####} !DN !{input.Lower:0.#####}<{input.Upper:0.#####} !DN {input.Upper:0.#####}< )";
 
   protected override AstDomain<DomainRangeAst, IGqlpDomainRange> NewDomain(string name, DomainRangeAst[] list)
     => new(AstNulls.At, name, Kind, list);

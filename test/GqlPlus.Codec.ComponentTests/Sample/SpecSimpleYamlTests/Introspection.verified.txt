@@ -50,13 +50,10 @@ errors: !_Errors
     _message: "In _ObjTypeParam can't get model for type '_Named'"
   - !_Error
     _kind: !_TokenKind End
+    _message: "In _OpDirectives can't get model for type '_Named'"
+  - !_Error
+    _kind: !_TokenKind End
     _message: "In _Operation can't get model for type '_Aliased'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In _OpFragment can't get model for type '_Named'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In _OpVariable can't get model for type '_Named'"
   - !_Error
     _kind: !_TokenKind End
     _message: "In _Schema can't get model for type '_Named'"
@@ -1761,16 +1758,34 @@ types: !_Map(_Type)
     parent: !_ObjBase
       name: _Named
     typeKind: !_TypeKind Dual
+  !_Name _OpDirectives: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpDirectives
+        type: !_ObjBase
+          name: _OpDirective
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_ObjBase
+          name: _OpDirective
+    name: _OpDirectives
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Output
   !_Name _OpField: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        field: alias
-        label: String
-        name: _DomainKind
-        object: _OpField
-        typeKind: !_SimpleKind Enum
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpDirectives
+        type: !_ObjBase
+          name: _OpDirective
       - !_ObjectFor(_OutputField)
-        field: field
+        field: alias
         label: String
         name: _DomainKind
         object: _OpField
@@ -1787,23 +1802,12 @@ types: !_Map(_Type)
         object: _OpField
         type: !_ObjBase
           name: _Modifiers
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        object: _OpField
-        type: !_ObjBase
-          name: _OpDirective
     fields:
       - !_OutputEnum
         field: alias
         label: String
         name: _DomainKind
         typeKind: !_SimpleKind Enum
-      - !_OutputEnum
-        field: field
-        label: String
-        name: _DomainKind
-        typeKind: !_SimpleKind Enum
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: argument
@@ -1814,39 +1818,41 @@ types: !_Map(_Type)
         name: modifiers
         type: !_ObjBase
           name: _Modifiers
-      - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        type: !_ObjBase
-          name: _OpDirective
     name: _OpField
+    parent: !_ObjBase
+      name: _OpDirectives
     typeKind: !_TypeKind Output
   !_Name _OpFragment: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpDirectives
+        type: !_ObjBase
+          name: _OpDirective
+      - !_ObjectFor(_OutputField)
         name: type
         object: _OpFragment
         type: !_ObjBase
-          name: _ObjBase
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        object: _OpFragment
-        type: !_ObjBase
-          name: _OpDirective
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Output
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
     fields:
       - !_OutputField
         name: type
         type: !_ObjBase
-          name: _ObjBase
-      - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        type: !_ObjBase
-          name: _OpDirective
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Output
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
     name: _OpFragment
     parent: !_ObjBase
-      name: _Named
+      name: _OpDirectives
     typeKind: !_TypeKind Output
   !_Name _OpInline: !_TypeOutput
     allFields:
@@ -1855,7 +1861,12 @@ types: !_Map(_Type)
         name: type
         object: _OpInline
         type: !_ObjBase
-          name: _ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Output
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: directives
@@ -1867,7 +1878,12 @@ types: !_Map(_Type)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: type
         type: !_ObjBase
-          name: _ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Output
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: directives
@@ -1962,10 +1978,21 @@ types: !_Map(_Type)
   !_Name _OpVariable: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpDirectives
+        type: !_ObjBase
+          name: _OpDirective
+      - !_ObjectFor(_OutputField)
         name: type
         object: _OpVariable
         type: !_ObjBase
-          name: _ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Input
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
@@ -1978,17 +2005,16 @@ types: !_Map(_Type)
         object: _OpVariable
         type: !_ObjBase
           name: Value
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        object: _OpVariable
-        type: !_ObjBase
-          name: _OpDirective
     fields:
       - !_OutputField
         name: type
         type: !_ObjBase
-          name: _ObjBase
+          name: _TypeRef
+          typeArgs:
+            - !_EnumValue
+              label: Input
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
@@ -1999,14 +2025,9 @@ types: !_Map(_Type)
         name: default
         type: !_ObjBase
           name: Value
-      - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: directives
-        type: !_ObjBase
-          name: _OpDirective
     name: _OpVariable
     parent: !_ObjBase
-      name: _Named
+      name: _OpDirectives
     typeKind: !_TypeKind Output
   !_Name _Operation: !_TypeOutput
     allFields:

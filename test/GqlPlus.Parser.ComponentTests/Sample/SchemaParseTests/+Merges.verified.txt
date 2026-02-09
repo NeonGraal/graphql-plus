@@ -244,7 +244,7 @@ Success
   DmnNmbrDiff
   Number
   !DN N@029/0049
-  1~9
+  1<9
 }
 {
   !Do I@008/0050
@@ -256,14 +256,14 @@ Success
   DmnNmbrSame
   Number
   !DN N@029/0052
-  1~9
+  9<1
 }
 {
   !Do I@008/0053
   DmnNmbrSame
   Number
   !DN N@029/0053
-  1~9
+  9<1
 }
 {
   !Do I@008/0055

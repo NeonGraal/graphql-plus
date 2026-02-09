@@ -40,23 +40,15 @@
           "$value": "End",
           "$valueTag": "_TokenKind"
         },
+        "_message": "In _OpDirectives can\u0027t get model for type \u0027_Named\u0027"
+      },
+      {
+        "$mapTag": "_Error",
+        "_kind": {
+          "$value": "End",
+          "$valueTag": "_TokenKind"
+        },
         "_message": "In _Operation can\u0027t get model for type \u0027_Aliased\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _OpFragment can\u0027t get model for type \u0027_Named\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _OpVariable can\u0027t get model for type \u0027_Named\u0027"
       },
       {
         "$mapTag": "_Error",
@@ -828,10 +820,80 @@
         "$valueTag": "_TypeKind"
       }
     },
+    "_OpDirectives": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "_OpDirectives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        }
+      ],
+      "name": "_OpDirectives",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "_Named"
+      },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "_OpField": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "_OpDirectives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -844,15 +906,6 @@
             }
           ],
           "name": "alias",
-          "object": "_OpField",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "String"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "name": "field",
           "object": "_OpField",
           "type": {
             "$mapTag": "_ObjBase",
@@ -893,24 +946,6 @@
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Modifiers"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "directives",
-          "object": "_OpField",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpDirective"
           }
         }
       ],
@@ -934,14 +969,6 @@
         },
         {
           "$mapTag": "_OutputField",
-          "name": "field",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "String"
-          }
-        },
-        {
-          "$mapTag": "_OutputField",
           "modifiers": [
             {
               "$mapTag": "_Modifier",
@@ -973,26 +1000,13 @@
             "$mapTag": "_ObjBase",
             "name": "_Modifiers"
           }
-        },
-        {
-          "$mapTag": "_OutputField",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "directives",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpDirective"
-          }
         }
       ],
       "name": "_OpField",
+      "parent": {
+        "$mapTag": "_ObjBase",
+        "name": "_OpDirectives"
+      },
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"
@@ -1004,15 +1018,6 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "_OpFragment",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_ObjBase"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
               "$mapTag": "_Modifier",
@@ -1023,10 +1028,30 @@
             }
           ],
           "name": "directives",
-          "object": "_OpFragment",
+          "object": "_OpDirectives",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_OpFragment",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "Output",
+                "name": "_TypeKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
           }
         }
       ],
@@ -1036,31 +1061,25 @@
           "name": "type",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_ObjBase"
-          }
-        },
-        {
-          "$mapTag": "_OutputField",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "Output",
+                "name": "_TypeKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
               }
-            }
-          ],
-          "name": "directives",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpDirective"
+            ]
           }
         }
       ],
       "name": "_OpFragment",
       "parent": {
         "$mapTag": "_ObjBase",
-        "name": "_Named"
+        "name": "_OpDirectives"
       },
       "typeKind": {
         "$value": "Output",
@@ -1086,7 +1105,18 @@
           "object": "_OpInline",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_ObjBase"
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "Output",
+                "name": "_TypeKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
           }
         },
         {
@@ -1123,7 +1153,18 @@
           "name": "type",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_ObjBase"
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "Output",
+                "name": "_TypeKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
           }
         },
         {
@@ -1358,11 +1399,40 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "directives",
+          "object": "_OpDirectives",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_OpDirective"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_OpVariable",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_ObjBase"
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "Input",
+                "name": "_TypeKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
           }
         },
         {
@@ -1399,24 +1469,6 @@
           "type": {
             "$mapTag": "_ObjBase",
             "name": "Value"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "directives",
-          "object": "_OpVariable",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpDirective"
           }
         }
       ],
@@ -1426,7 +1478,18 @@
           "name": "type",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_ObjBase"
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$mapTag": "_EnumValue",
+                "label": "Input",
+                "name": "_TypeKind",
+                "typeKind": {
+                  "$value": "Enum",
+                  "$valueTag": "_SimpleKind"
+                }
+              }
+            ]
           }
         },
         {
@@ -1462,29 +1525,12 @@
             "$mapTag": "_ObjBase",
             "name": "Value"
           }
-        },
-        {
-          "$mapTag": "_OutputField",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "directives",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_OpDirective"
-          }
         }
       ],
       "name": "_OpVariable",
       "parent": {
         "$mapTag": "_ObjBase",
-        "name": "_Named"
+        "name": "_OpDirectives"
       },
       "typeKind": {
         "$value": "Output",

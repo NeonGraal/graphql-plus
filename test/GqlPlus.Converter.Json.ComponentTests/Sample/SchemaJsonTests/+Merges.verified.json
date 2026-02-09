@@ -491,8 +491,8 @@
           "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "DmnNmbrSame",
           "exclude": false,
-          "from": 1,
-          "to": 9
+          "from": 9,
+          "to": 1
         }
       ],
       "domainKind": {
@@ -503,8 +503,8 @@
         {
           "$mapTag": "_DomainRange",
           "exclude": false,
-          "from": 1,
-          "to": 9
+          "from": 9,
+          "to": 1
         }
       ],
       "name": "DmnNmbrSame",

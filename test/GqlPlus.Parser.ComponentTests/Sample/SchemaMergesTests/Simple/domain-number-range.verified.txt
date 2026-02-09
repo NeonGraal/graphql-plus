@@ -3,9 +3,11 @@
 Success
 {
   !Do I@008/0001
-  DmnNmbrDiff
+  DmnNmbrRange
   Number
-  !DN N@029/0001
+  !DN N@030/0001
   1<9
+  !DN N@034/0001
+  12<21
 }
 ]

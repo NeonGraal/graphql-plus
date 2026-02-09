@@ -162,14 +162,14 @@ Success
   DmnNmbrDiff
   Number
   !DN N@029/0001
-  1~9
+  1<9
 }
 {
   !Do I@008/0001
   DmnNmbrSame
   Number
   !DN N@029/0001
-  1~9
+  9<1
 }
 {
   !Do I@008/0001

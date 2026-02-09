@@ -5442,8 +5442,8 @@
           "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "DomOutpParamModParam",
           "exclude": false,
-          "from": 1,
-          "to": 10
+          "from": 10,
+          "to": 1
         }
       ],
       "domainKind": {
@@ -5454,8 +5454,8 @@
         {
           "$mapTag": "_DomainRange",
           "exclude": false,
-          "from": 1,
-          "to": 10
+          "from": 10,
+          "to": 1
         }
       ],
       "name": "DomOutpParamModParam",

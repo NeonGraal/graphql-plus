@@ -1100,7 +1100,7 @@
           "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "DmnNmbrPrnt",
           "exclude": false,
-          "from": 2
+          "to": 2
         }
       ],
       "domainKind": {
@@ -1111,7 +1111,7 @@
         {
           "$mapTag": "_DomainRange",
           "exclude": false,
-          "from": 2
+          "to": 2
         }
       ],
       "name": "DmnNmbrPrnt",
@@ -1194,6 +1194,49 @@
         }
       ],
       "name": "DmnNmbrPstv",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "DmnNmbrRange": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrRange",
+          "exclude": false,
+          "from": 1,
+          "to": 9
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrRange",
+          "exclude": false,
+          "from": 12,
+          "to": 21
+        }
+      ],
+      "domainKind": {
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "from": 1,
+          "to": 9
+        },
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "from": 12,
+          "to": 21
+        }
+      ],
+      "name": "DmnNmbrRange",
       "typeKind": {
         "$value": "Domain",
         "$valueTag": "_TypeKind"

@@ -29,16 +29,16 @@ internal class ParseDomainRange(
         range = value with { Lower = first };
       }
 
-      return FirstOr(() => tokens.Error(label, "bound after '<' or '>'", range));
+      return FirstOr(() => RangeError("bound after '<' or '>'"));
     }
 
     if (!tokens.TakeAny(out char secondChar, '<', '>')) {
       range = value with { Lower = first, Upper = first };
-      return FirstOr(() => range.Empty());
+      return FirstOr(() => excludes ? RangeError("Expected range after '!'") : range.Empty());
     }
 
     if (!hasFirst) {
-      return tokens.Error(label, "value or first bound", range);
+      return RangeError("value or first bound");
     }
 
     bool hasSecond = tokens.Number(out decimal second);
@@ -55,6 +55,9 @@ internal class ParseDomainRange(
     }
 
     return range.Ok();
+
+    IResult<IGqlpDomainRange> RangeError(string message)
+      => tokens.Error(label, message, range);
 
     IResult<IGqlpDomainRange> FirstOr(Func<IResult<IGqlpDomainRange>> error)
       => hasFirst

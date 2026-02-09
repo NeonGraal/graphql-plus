@@ -124,7 +124,7 @@ public class ParseDomainRangeTests
   {
     // Arrange
     NumberReturns(OutNumber(value));
-    TakeAnyReturns(OutFail, OutChar('<'));
+    TakeAnyReturns(OutFail, OutChar('>'));
 
     // Act
     IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
@@ -132,8 +132,8 @@ public class ParseDomainRangeTests
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
       .Required().ShouldSatisfyAllConditions(
-        r => r.Lower.ShouldBe(value),
-        r => r.Upper.ShouldBeNull(),
+        r => r.Lower.ShouldBeNull(),
+        r => r.Upper.ShouldBe(value),
         r => r.Excludes.ShouldBeFalse());
   }
 
@@ -199,6 +199,38 @@ public class ParseDomainRangeTests
         r => r.Lower.ShouldBe(upper),
         r => r.Upper.ShouldBe(lower),
         r => r.Excludes.ShouldBeFalse());
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ValidExclusionRange_ReturnsCorrect(decimal value)
+  {
+    // Arrange
+    TakeReturns('!', true);
+    NumberReturns(OutNumber(value));
+
+    // Act
+    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<IGqlpDomainRange>>()
+      .Required().ShouldSatisfyAllConditions(
+        r => r.Lower.ShouldBe(value),
+        r => r.Upper.ShouldBe(value),
+        r => r.Excludes.ShouldBeTrue());
+  }
+
+  [Fact]
+  public void Parse_InvalidExclusionRange_ReturnsError()
+  {
+    // Arrange
+    TakeReturns('!', true);
+    SetupError<IGqlpDomainRange>();
+
+    // Act
+    IResult<IGqlpDomainRange> result = Parser.Parse(Tokenizer, TestLabel);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
   }
 
   public ParseDomainRangeTests()

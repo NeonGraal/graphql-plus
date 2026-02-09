@@ -42,6 +42,6 @@ Success
   DomOutpParamModParam
   Number
   !DN N@038/0003
-  1~10
+  10<1
 }
 ]

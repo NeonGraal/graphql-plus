@@ -1,2 +1,2 @@
-domain Name { :"Parent comment"PrntName Number 2>}
+domain Name { :"Parent comment"PrntName Number 2<}
 domain PrntName { Number <2 }

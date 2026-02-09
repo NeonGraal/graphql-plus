@@ -509,12 +509,12 @@ types: !_Map(_Type)
       - !_DomainItem(_DomainRange)
         domain: DmnNmbrPrnt
         exclude: false
-        from: 2
+        to: 2
     domainKind: !_DomainKind Number
     items:
       - !_DomainRange
         exclude: false
-        from: 2
+        to: 2
     name: DmnNmbrPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntDmnNmbrPrnt
@@ -553,6 +553,30 @@ types: !_Map(_Type)
         exclude: true
         to: 0
     name: DmnNmbrPstv
+    typeKind: !_TypeKind Domain
+  !_Name DmnNmbrRange: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: DmnNmbrRange
+        exclude: false
+        from: 1
+        to: 9
+      - !_DomainItem(_DomainRange)
+        domain: DmnNmbrRange
+        exclude: false
+        from: 12
+        to: 21
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 1
+        to: 9
+      - !_DomainRange
+        exclude: false
+        from: 12
+        to: 21
+    name: DmnNmbrRange
     typeKind: !_TypeKind Domain
   !_Name DmnStrDescr: !_DomainString
     allItems:

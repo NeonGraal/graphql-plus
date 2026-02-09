@@ -8,7 +8,7 @@ internal sealed class ReadJson
   private string _valueTag = "";
   private StructureValue? _value;
   private Structured? _list;
-  private readonly Dictionary<StructureValue, Structured> Fields = [];
+  private readonly Dictionary<StructureValue, Structured> _fields = [];
 
   private delegate void ReadAction(ref Utf8JsonReader reader);
   private readonly Map<ReadAction> _tagActions;
@@ -58,7 +58,7 @@ internal sealed class ReadJson
 
       KeyTagResult field = new ReadJson().ReadStructured(ref reader);
 
-      Fields.Add(new(propertyName, field.KeyTag), field.Result);
+      _fields.Add(new(propertyName, field.KeyTag), field.Result);
     }
 
     return Result();
@@ -76,7 +76,7 @@ internal sealed class ReadJson
       return new(_keyTag, _list);
     }
 
-    return new(_keyTag, new(Fields, _mapTag));
+    return new(_keyTag, new(_fields, _mapTag));
   }
 
   private Structured ReadList(ref Utf8JsonReader reader)

@@ -87,10 +87,10 @@ public class ParseDomainLabelTests
     => new ParseDomainLabel(itemsParser);
 
   protected override IGqlpDomainLabel NewItem()
-    => new DomainLabelAst(AstNulls.At, string.Empty, false, itemLabel);
+    => new DomainLabelAst(AstNulls.At, string.Empty, false, _itemLabel);
 
   protected override void ArrangeValidItem()
-    => IdentifierReturns(OutString(itemLabel));
+    => IdentifierReturns(OutString(_itemLabel));
 
-  private readonly string itemLabel = TestLabel;
+  private readonly string _itemLabel = TestLabel;
 }

@@ -1,2 +1,2 @@
 domain Test { :Parent number 1> }
-domain Parent { number !1> }
+domain Parent { number !<1 }

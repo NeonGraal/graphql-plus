@@ -6,6 +6,6 @@ Success
   DmnNmbrSame
   Number
   !DN N@029/0001
-  1~9
+  9<1
 }
 ]

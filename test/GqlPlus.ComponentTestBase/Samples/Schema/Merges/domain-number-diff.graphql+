@@ -1,2 +1,2 @@
-domain Name { number 1~9 }
+domain Name { number 1<9 }
 domain Name { number }

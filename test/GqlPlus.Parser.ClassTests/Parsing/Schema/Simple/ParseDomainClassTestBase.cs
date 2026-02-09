@@ -60,6 +60,7 @@ public abstract class ParseDomainClassTestBase<TItem>
     result.ShouldBeAssignableTo<IResultOk<TItem>>();
   }
 
+
   [Fact]
   public void Parse_ShouldReturnEmpty_WhenInvalid()
   {

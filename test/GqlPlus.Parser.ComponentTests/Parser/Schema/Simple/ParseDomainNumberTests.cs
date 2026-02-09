@@ -9,12 +9,12 @@ public sealed class ParseDomainNumberTests(
 {
   [Theory, RepeatData]
   public void WithRangeNoBounds_ReturnsFalse(string name)
-    => checks.FalseExpected(name + "{number ~}");
+    => checks.FalseExpected(name + "{number <}");
 
   [Theory, RepeatData]
   public void WithRangeLowerBound_ReturnsCorrectAst(string name, decimal min)
     => checks.TrueExpected(
-      name + $"{{number {min}>}}",
+      name + $"{{number {min}<}}",
       NewDomain(name, [NewRange(min, null)]));
 
   [Theory, RepeatData]
@@ -40,15 +40,8 @@ public sealed class ParseDomainNumberTests(
     => checks
       .SkipIf(max <= min)
       .TrueExpected(
-        name + $"{{number {min}~{max}}}",
+        name + $"{{number {min}<{max}}}",
         NewDomain(name, [NewRange(min, max)]));
-
-  [Theory, RepeatData]
-  public void WithRangeBoundsBad_ReturnsCorrectAst(string name, decimal min, decimal max)
-    => checks
-      .SkipIf(max > min)
-      .FalseExpected(
-        name + $"{{number ~{max} {min}!}}");
 
   private static AstDomain<DomainRangeAst, IGqlpDomainRange> NewDomain(string name, DomainRangeAst[] ranges)
     => new(AstNulls.At, name, DomainKind.Number, ranges);

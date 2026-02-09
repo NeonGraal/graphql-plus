@@ -6999,7 +6999,7 @@
           "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "DmnNmbrPrnt",
           "exclude": false,
-          "from": 2
+          "to": 2
         }
       ],
       "domainKind": {
@@ -7010,7 +7010,7 @@
         {
           "$mapTag": "_DomainRange",
           "exclude": false,
-          "from": 2
+          "to": 2
         }
       ],
       "name": "DmnNmbrPrnt",
@@ -7098,16 +7098,23 @@
         "$valueTag": "_TypeKind"
       }
     },
-    "DmnNmbrSame": {
+    "DmnNmbrRange": {
       "$keyTag": "_Name",
       "$mapTag": "_DomainNumber",
       "allItems": [
         {
           "$mapTag": "_DomainItem(_DomainRange)",
-          "domain": "DmnNmbrSame",
+          "domain": "DmnNmbrRange",
           "exclude": false,
           "from": 1,
           "to": 9
+        },
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrRange",
+          "exclude": false,
+          "from": 12,
+          "to": 21
         }
       ],
       "domainKind": {
@@ -7120,6 +7127,42 @@
           "exclude": false,
           "from": 1,
           "to": 9
+        },
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "from": 12,
+          "to": 21
+        }
+      ],
+      "name": "DmnNmbrRange",
+      "typeKind": {
+        "$value": "Domain",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "DmnNmbrSame": {
+      "$keyTag": "_Name",
+      "$mapTag": "_DomainNumber",
+      "allItems": [
+        {
+          "$mapTag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrSame",
+          "exclude": false,
+          "from": 9,
+          "to": 1
+        }
+      ],
+      "domainKind": {
+        "$value": "Number",
+        "$valueTag": "_DomainKind"
+      },
+      "items": [
+        {
+          "$mapTag": "_DomainRange",
+          "exclude": false,
+          "from": 9,
+          "to": 1
         }
       ],
       "name": "DmnNmbrSame",
@@ -7762,8 +7805,8 @@
           "$mapTag": "_DomainItem(_DomainRange)",
           "domain": "DomOutpParamModParam",
           "exclude": false,
-          "from": 1,
-          "to": 10
+          "from": 10,
+          "to": 1
         }
       ],
       "domainKind": {
@@ -7774,8 +7817,8 @@
         {
           "$mapTag": "_DomainRange",
           "exclude": false,
-          "from": 1,
-          "to": 10
+          "from": 10,
+          "to": 1
         }
       ],
       "name": "DomOutpParamModParam",

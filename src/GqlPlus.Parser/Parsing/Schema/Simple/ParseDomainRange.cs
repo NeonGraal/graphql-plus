@@ -19,36 +19,45 @@ internal class ParseDomainRange(
 
     DomainRangeAst value = new(at, description, excludes);
     IGqlpDomainRange range = value;
-    bool isUpper = tokens.Take('<');
-    bool hasLower = tokens.Number(out decimal min);
+    bool hasFirstChar = tokens.TakeAny(out char firstChar, '<', '>');
+    bool hasFirst = tokens.Number(out decimal first);
 
-    if (isUpper) {
-      range = value with { Upper = min };
-      return LowerOr(() => tokens.Error(label, "upper bound after '<'", range));
+    if (hasFirstChar) {
+      if (firstChar == '<') {
+        range = value with { Upper = first };
+      } else {
+        range = value with { Lower = first };
+      }
+
+      return FirstOr(() => tokens.Error(label, "bound after '<' or '>'", range));
     }
 
-    range = value = value with { Lower = min };
-    if (tokens.Take('>')) {
-      return LowerOr(() => tokens.Error(label, "lower bound before '>'", range));
+    if (!tokens.TakeAny(out char secondChar, '<', '>')) {
+      range = value with { Lower = first, Upper = first };
+      return FirstOr(() => range.Empty());
     }
 
-    if (!tokens.Take('~')) {
-      range = value with { Upper = min };
-      return LowerOr(() => range.Empty());
+    if (!hasFirst) {
+      return tokens.Error(label, "value or first bound", range);
     }
 
-    if (!hasLower) {
-      return tokens.Error(label, "lower bound before '~'", range);
+    bool hasSecond = tokens.Number(out decimal second);
+    if (secondChar == '<') {
+      range = value = value with { Lower = first };
+      if (hasSecond) {
+        range = value with { Upper = second };
+      }
+    } else {
+      range = value = value with { Upper = first };
+      if (hasSecond) {
+        range = value with { Lower = second };
+      }
     }
 
-    bool hasUpper = tokens.Number(out decimal max);
-    range = value with { Upper = max };
-    return hasUpper
-      ? range.Ok()
-      : tokens.Error(label, "upper bound after '~'", range);
+    return range.Ok();
 
-    IResult<IGqlpDomainRange> LowerOr(Func<IResult<IGqlpDomainRange>> error)
-      => hasLower
+    IResult<IGqlpDomainRange> FirstOr(Func<IResult<IGqlpDomainRange>> error)
+      => hasFirst
         ? range.Ok()
         : error();
   }

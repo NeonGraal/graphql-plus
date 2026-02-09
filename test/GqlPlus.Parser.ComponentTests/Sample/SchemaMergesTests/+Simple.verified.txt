@@ -351,7 +351,7 @@ Success
   Number
   :( !Tr I@023/0001 PrntDmnNmbrPrnt )
   !DN N@046/0001
-  2>
+  <2
 }
 {
   !Do I@008/0002
@@ -366,7 +366,7 @@ Success
   Number
   :( 'Parent comment' !Tr I@044/0001 PrntDmnNmbrPrntDescr )
   !DN N@072/0001
-  2>
+  2<
 }
 {
   !Do I@008/0002
@@ -381,6 +381,15 @@ Success
   Number
   !DN P@029/0001
   !<0
+}
+{
+  !Do I@008/0001
+  DmnNmbrRange
+  Number
+  !DN N@030/0001
+  1<9
+  !DN N@034/0001
+  12<21
 }
 {
   !Do I@008/0001

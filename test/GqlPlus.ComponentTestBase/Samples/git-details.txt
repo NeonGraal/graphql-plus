@@ -1,1 +1,1 @@
-efacc50  (HEAD -> enum-domain) 2026-01-05 Improve Domain Enum specs and samples
+e43cfd9  (HEAD -> num-domain) 2026-02-09 Improve Number Domain range specification

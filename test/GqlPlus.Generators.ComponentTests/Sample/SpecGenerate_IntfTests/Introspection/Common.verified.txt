@@ -54,17 +54,17 @@ namespace Components.Gqlp_Spec_Common;
 
 public interface ICmpt_Type
 {
-  public ICmpt_BaseType<ICmpt_TypeKind> As_BaseType { get; set; }
-  public ICmpt_BaseType<ICmpt_TypeKind> As_BaseType { get; set; }
+  public ICmpt_BaseType<Cmpt_TypeKind> As_BaseType { get; set; }
+  public ICmpt_BaseType<Cmpt_TypeKind> As_BaseType { get; set; }
   public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainTrueFalse, ICmpt_DomainItemTrueFalse> As_BaseDomain { get; set; }
   public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainLabel, ICmpt_DomainItemLabel> As_BaseDomain { get; set; }
   public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRange, ICmpt_DomainItemRange> As_BaseDomain { get; set; }
   public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRegex, ICmpt_DomainItemRegex> As_BaseDomain { get; set; }
-  public ICmpt_ParentType<ICmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel> As_ParentType { get; set; }
-  public ICmpt_ParentType<ICmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember> As_ParentType { get; set; }
-  public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_DualField> As_TypeObject { get; set; }
-  public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_InputField> As_TypeObject { get; set; }
-  public ICmpt_TypeObject<ICmpt_TypeKind, ICmpt_OutputField> As_TypeObject { get; set; }
+  public ICmpt_ParentType<Cmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel> As_ParentType { get; set; }
+  public ICmpt_ParentType<Cmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember> As_ParentType { get; set; }
+  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_DualField> As_TypeObject { get; set; }
+  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_InputField> As_TypeObject { get; set; }
+  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_OutputField> As_TypeObject { get; set; }
   public ICmpt_TypeObject As_Type { get; set; }
 }
 
@@ -123,10 +123,10 @@ public interface ICmpt_TypeRefObject<Tkind>
 
 public interface ICmpt_TypeSimple
 {
-  public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
-  public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
-  public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
-  public ICmpt_TypeRef<ICmpt_TypeKind> As_TypeRef { get; set; }
+  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; set; }
+  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; set; }
+  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; set; }
+  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; set; }
   public ICmpt_TypeSimpleObject As_TypeSimple { get; set; }
 }
 

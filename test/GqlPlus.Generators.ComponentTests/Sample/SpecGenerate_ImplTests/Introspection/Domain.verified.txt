@@ -98,7 +98,7 @@ public class Cmpt_BaseDomainItem
   : Cmpt_Described
   , ICmpt_BaseDomainItem
 {
-  public ICmpt_DomainKind Exclude { get; set; }
+  public Cmpt_DomainKind Exclude { get; set; }
   public ICmpt_BaseDomainItemObject As_BaseDomainItem { get; set; }
 }
 
@@ -122,10 +122,10 @@ public class Cmpt_DomainValue<Tkind,Tvalue>
 public class Cmpt_BasicValue
   : ICmpt_BasicValue
 {
-  public ICmpt_DomainKind As_DomainKindBoolean { get; set; }
+  public Cmpt_DomainKind As_DomainKindBoolean { get; set; }
   public ICmpt_EnumValue As_EnumValue { get; set; }
-  public ICmpt_DomainKind As_DomainKindNumber { get; set; }
-  public ICmpt_DomainKind As_DomainKindString { get; set; }
+  public Cmpt_DomainKind As_DomainKindNumber { get; set; }
+  public Cmpt_DomainKind As_DomainKindString { get; set; }
   public ICmpt_BasicValueObject As_BasicValue { get; set; }
 }
 
@@ -133,7 +133,7 @@ public class Cmpt_DomainTrueFalse
   : Cmpt_BaseDomainItem
   , ICmpt_DomainTrueFalse
 {
-  public ICmpt_DomainKind Value { get; set; }
+  public Cmpt_DomainKind Value { get; set; }
   public ICmpt_DomainTrueFalseObject As_DomainTrueFalse { get; set; }
 }
 
@@ -163,8 +163,8 @@ public class Cmpt_DomainRange
   : Cmpt_BaseDomainItem
   , ICmpt_DomainRange
 {
-  public ICmpt_DomainKind? Lower { get; set; }
-  public ICmpt_DomainKind? Upper { get; set; }
+  public Cmpt_DomainKind? Lower { get; set; }
+  public Cmpt_DomainKind? Upper { get; set; }
   public ICmpt_DomainRangeObject As_DomainRange { get; set; }
 }
 
@@ -179,7 +179,7 @@ public class Cmpt_DomainRegex
   : Cmpt_BaseDomainItem
   , ICmpt_DomainRegex
 {
-  public ICmpt_DomainKind Pattern { get; set; }
+  public Cmpt_DomainKind Pattern { get; set; }
   public ICmpt_DomainRegexObject As_DomainRegex { get; set; }
 }
 

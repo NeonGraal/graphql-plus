@@ -25,7 +25,7 @@ public class test_BaseDomainItem
   : test_Described
   , Itest_BaseDomainItem
 {
-  public Itest_DomainKind Exclude { get; set; }
+  public test_DomainKind Exclude { get; set; }
   public Itest_BaseDomainItemObject As_BaseDomainItem { get; set; }
 }
 
@@ -49,10 +49,10 @@ public class test_DomainValue<Tkind,Tvalue>
 public class test_BasicValue
   : Itest_BasicValue
 {
-  public Itest_DomainKind As_DomainKindBoolean { get; set; }
+  public test_DomainKind As_DomainKindBoolean { get; set; }
   public Itest_EnumValue As_EnumValue { get; set; }
-  public Itest_DomainKind As_DomainKindNumber { get; set; }
-  public Itest_DomainKind As_DomainKindString { get; set; }
+  public test_DomainKind As_DomainKindNumber { get; set; }
+  public test_DomainKind As_DomainKindString { get; set; }
   public Itest_BasicValueObject As_BasicValue { get; set; }
 }
 
@@ -60,7 +60,7 @@ public class test_DomainTrueFalse
   : test_BaseDomainItem
   , Itest_DomainTrueFalse
 {
-  public Itest_DomainKind Value { get; set; }
+  public test_DomainKind Value { get; set; }
   public Itest_DomainTrueFalseObject As_DomainTrueFalse { get; set; }
 }
 
@@ -90,8 +90,8 @@ public class test_DomainRange
   : test_BaseDomainItem
   , Itest_DomainRange
 {
-  public Itest_DomainKind? Lower { get; set; }
-  public Itest_DomainKind? Upper { get; set; }
+  public test_DomainKind? Lower { get; set; }
+  public test_DomainKind? Upper { get; set; }
   public Itest_DomainRangeObject As_DomainRange { get; set; }
 }
 
@@ -106,7 +106,7 @@ public class test_DomainRegex
   : test_BaseDomainItem
   , Itest_DomainRegex
 {
-  public Itest_DomainKind Pattern { get; set; }
+  public test_DomainKind Pattern { get; set; }
   public Itest_DomainRegexObject As_DomainRegex { get; set; }
 }
 

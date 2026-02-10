@@ -40,7 +40,7 @@ public interface Itest_Category
 public interface Itest_CategoryObject
   : Itest_AliasedObject
 {
-  public Itest_Resolution Resolution { get; set; }
+  public test_Resolution Resolution { get; set; }
   public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
 }
@@ -69,7 +69,7 @@ public interface Itest_DirectiveObject
 {
   public ICollection<Itest_InputParam> Parameters { get; set; }
   public bool Repeatable { get; set; }
-  public IDictionary<test_Location, ItestUnit> Locations { get; set; }
+  public IDictionary<test_Location, testUnit> Locations { get; set; }
 }
 
 public interface Itest_Setting

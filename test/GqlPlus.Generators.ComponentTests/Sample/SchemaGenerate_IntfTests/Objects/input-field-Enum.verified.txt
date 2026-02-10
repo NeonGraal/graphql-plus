@@ -16,5 +16,5 @@ public interface ICmptInpFieldEnum
 
 public interface ICmptInpFieldEnumObject
 {
-  public ICmptEnumInpFieldEnum Field { get; set; }
+  public CmptEnumInpFieldEnum Field { get; set; }
 }

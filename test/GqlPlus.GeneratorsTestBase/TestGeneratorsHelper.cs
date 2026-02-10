@@ -1,4 +1,6 @@
 ﻿using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using Basic.Reference.Assemblies;
 using DiffEngine;
 using Microsoft.CodeAnalysis;
@@ -82,4 +84,26 @@ public static class TestGeneratorsHelper
     public override SourceText? GetText(CancellationToken cancellationToken = default)
       => SourceText.From(contents + Environment.NewLine);
   }
+
+  private static readonly VerifySettings s_settings = new VerifySettings().CheckAutoVerify();
+
+  public static Task AttachAndVerify(
+    [NotNull] this GeneratorDriver driver,
+    VerifySettings? settings = null,
+    [CallerFilePath] string sourceFile = "")
+  {
+    GeneratorDriverRunResult runResult = driver.GetRunResult();
+
+    IEnumerable<GeneratedText> results = runResult.Results
+      .SelectMany(r => r.GeneratedSources
+        .Select(t => new GeneratedText(t.HintName, t.SourceText)));
+
+    foreach (GeneratedText result in results) {
+      TestContext.Current.AddAttachment(result.Name, result.Text.ToString());
+    }
+
+    return Verify(driver, settings ?? s_settings, sourceFile);
+  }
+
+  private record struct GeneratedText(string Name, SourceText Text);
 }

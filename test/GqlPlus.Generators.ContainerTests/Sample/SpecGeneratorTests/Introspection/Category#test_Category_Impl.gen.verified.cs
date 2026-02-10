@@ -18,7 +18,7 @@ public class test_Category
   : test_Aliased
   , Itest_Category
 {
-  public Itest_Resolution Resolution { get; set; }
+  public test_Resolution Resolution { get; set; }
   public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
   public Itest_CategoryObject As_Category { get; set; }

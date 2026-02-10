@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 public class CmptCnstDomEnumDual
   : ICmptCnstDomEnumDual
 {
-  public ICmptRefCnstDomEnumDual<ICmptEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
+  public ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
   public ICmptCnstDomEnumDualObject AsCnstDomEnumDual { get; set; }
 }
 

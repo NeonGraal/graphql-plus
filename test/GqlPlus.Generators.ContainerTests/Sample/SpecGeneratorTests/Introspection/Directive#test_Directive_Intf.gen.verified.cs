@@ -29,5 +29,5 @@ public interface Itest_DirectiveObject
 {
   public ICollection<Itest_InputParam> Parameters { get; set; }
   public bool Repeatable { get; set; }
-  public IDictionary<test_Location, ItestUnit> Locations { get; set; }
+  public IDictionary<test_Location, testUnit> Locations { get; set; }
 }

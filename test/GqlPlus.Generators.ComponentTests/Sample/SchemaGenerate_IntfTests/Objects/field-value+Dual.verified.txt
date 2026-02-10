@@ -16,5 +16,5 @@ public interface ICmptFieldValueDual
 
 public interface ICmptFieldValueDualObject
 {
-  public ICmptEnumFieldValueDual Field { get; set; }
+  public CmptEnumFieldValueDual Field { get; set; }
 }

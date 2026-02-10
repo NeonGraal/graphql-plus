@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_generic_enum_Input;
 public class CmptGnrcEnumInp
   : ICmptGnrcEnumInp
 {
-  public ICmptRefGnrcEnumInp<ICmptEnumGnrcEnumInp> AsRefGnrcEnumInp { get; set; }
+  public ICmptRefGnrcEnumInp<CmptEnumGnrcEnumInp> AsRefGnrcEnumInp { get; set; }
   public ICmptGnrcEnumInpObject AsGnrcEnumInp { get; set; }
 }
 

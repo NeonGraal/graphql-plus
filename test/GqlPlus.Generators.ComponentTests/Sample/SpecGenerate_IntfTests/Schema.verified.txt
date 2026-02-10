@@ -29,7 +29,7 @@ namespace Components.Gqlp_Spec_Schema;
 public interface ICmpt_Opt<TT>
 {
   public TT AsT { get; set; }
-  public ICmptNull AsNull { get; set; }
+  public CmptNull AsNull { get; set; }
   public ICmpt_OptObject As_Opt { get; set; }
 }
 
@@ -89,7 +89,7 @@ public interface ICmpt_IfElseObject<TT>
 
 public interface ICmpt_Set<TK>
 {
-  public IDictionary<TK, ICmptUnit> AsUnit_ { get; set; }
+  public IDictionary<TK, CmptUnit> AsUnit_ { get; set; }
   public ICmpt_SetObject As_Set { get; set; }
 }
 
@@ -99,7 +99,7 @@ public interface ICmpt_SetObject<TK>
 
 public interface ICmpt_Mask<TK>
 {
-  public IDictionary<TK, ICmptBoolean> As^ { get; set; }
+  public IDictionary<TK, CmptBoolean> AsBoolean { get; set; }
   public ICmpt_MaskObject As_Mask { get; set; }
 }
 

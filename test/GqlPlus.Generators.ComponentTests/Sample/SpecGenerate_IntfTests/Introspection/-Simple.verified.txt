@@ -130,7 +130,7 @@ public interface ICmpt_BaseDomainItem
 public interface ICmpt_BaseDomainItemObject
   : ICmpt_DescribedObject
 {
-  public ICmpt_DomainKind Exclude { get; set; }
+  public Cmpt_DomainKind Exclude { get; set; }
 }
 
 public interface ICmpt_DomainItem<Titem>
@@ -160,10 +160,10 @@ public interface ICmpt_DomainValueObject<Tkind,Tvalue>
 
 public interface ICmpt_BasicValue
 {
-  public ICmpt_DomainKind As_DomainKindBoolean { get; set; }
+  public Cmpt_DomainKind As_DomainKindBoolean { get; set; }
   public ICmpt_EnumValue As_EnumValue { get; set; }
-  public ICmpt_DomainKind As_DomainKindNumber { get; set; }
-  public ICmpt_DomainKind As_DomainKindString { get; set; }
+  public Cmpt_DomainKind As_DomainKindNumber { get; set; }
+  public Cmpt_DomainKind As_DomainKindString { get; set; }
   public ICmpt_BasicValueObject As_BasicValue { get; set; }
 }
 
@@ -180,7 +180,7 @@ public interface ICmpt_DomainTrueFalse
 public interface ICmpt_DomainTrueFalseObject
   : ICmpt_BaseDomainItemObject
 {
-  public ICmpt_DomainKind Value { get; set; }
+  public Cmpt_DomainKind Value { get; set; }
 }
 
 public interface ICmpt_DomainItemTrueFalse
@@ -226,8 +226,8 @@ public interface ICmpt_DomainRange
 public interface ICmpt_DomainRangeObject
   : ICmpt_BaseDomainItemObject
 {
-  public ICmpt_DomainKind? Lower { get; set; }
-  public ICmpt_DomainKind? Upper { get; set; }
+  public Cmpt_DomainKind? Lower { get; set; }
+  public Cmpt_DomainKind? Upper { get; set; }
 }
 
 public interface ICmpt_DomainItemRange
@@ -250,7 +250,7 @@ public interface ICmpt_DomainRegex
 public interface ICmpt_DomainRegexObject
   : ICmpt_BaseDomainItemObject
 {
-  public ICmpt_DomainKind Pattern { get; set; }
+  public Cmpt_DomainKind Pattern { get; set; }
 }
 
 public interface ICmpt_DomainItemRegex

@@ -12,5 +12,5 @@ public interface ItestFieldValueDual
 
 public interface ItestFieldValueDualObject
 {
-  public ItestEnumFieldValueDual Field { get; set; }
+  public testEnumFieldValueDual Field { get; set; }
 }

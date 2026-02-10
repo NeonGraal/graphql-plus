@@ -83,7 +83,7 @@ public interface ICmpt_Category
 public interface ICmpt_CategoryObject
   : ICmpt_AliasedObject
 {
-  public ICmpt_Resolution Resolution { get; set; }
+  public Cmpt_Resolution Resolution { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 }
@@ -112,7 +112,7 @@ public interface ICmpt_DirectiveObject
 {
   public ICollection<ICmpt_InputParam> Parameters { get; set; }
   public bool Repeatable { get; set; }
-  public IDictionary<Cmpt_Location, ICmptUnit> Locations { get; set; }
+  public IDictionary<Cmpt_Location, CmptUnit> Locations { get; set; }
 }
 
 public interface ICmpt_Setting

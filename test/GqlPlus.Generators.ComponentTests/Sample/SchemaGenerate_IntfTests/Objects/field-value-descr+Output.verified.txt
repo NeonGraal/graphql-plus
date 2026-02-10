@@ -16,5 +16,5 @@ public interface ICmptFieldValueDescrOutp
 
 public interface ICmptFieldValueDescrOutpObject
 {
-  public ICmptEnumFieldValueDescrOutp Field { get; set; }
+  public CmptEnumFieldValueDescrOutp Field { get; set; }
 }

@@ -119,21 +119,21 @@ public class testObjDualAltDualOutp
 public class testAltEnumDual
   : ItestAltEnumDual
 {
-  public ItestEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
+  public testEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
   public ItestAltEnumDualObject AsAltEnumDual { get; set; }
 }
 
 public class testAltEnumInp
   : ItestAltEnumInp
 {
-  public ItestEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
+  public testEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
   public ItestAltEnumInpObject AsAltEnumInp { get; set; }
 }
 
 public class testAltEnumOutp
   : ItestAltEnumOutp
 {
-  public ItestEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
+  public testEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
   public ItestAltEnumOutpObject AsAltEnumOutp { get; set; }
 }
 
@@ -506,7 +506,7 @@ public class testAltCnstAltObjOutp
 public class testCnstDomEnumDual
   : ItestCnstDomEnumDual
 {
-  public ItestRefCnstDomEnumDual<ItestEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
+  public ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
   public ItestCnstDomEnumDualObject AsCnstDomEnumDual { get; set; }
 }
 
@@ -526,7 +526,7 @@ public class testJustCnstDomEnumDual
 public class testCnstDomEnumInp
   : ItestCnstDomEnumInp
 {
-  public ItestRefCnstDomEnumInp<ItestEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
   public ItestCnstDomEnumInpObject AsCnstDomEnumInp { get; set; }
 }
 
@@ -546,7 +546,7 @@ public class testJustCnstDomEnumInp
 public class testCnstDomEnumOutp
   : ItestCnstDomEnumOutp
 {
-  public ItestRefCnstDomEnumOutp<ItestEnumCnstDomEnumOutp> AsRefCnstDomEnumOutp { get; set; }
+  public ItestRefCnstDomEnumOutp<testEnumCnstDomEnumOutp> AsRefCnstDomEnumOutp { get; set; }
   public ItestCnstDomEnumOutpObject AsCnstDomEnumOutp { get; set; }
 }
 
@@ -566,7 +566,7 @@ public class testJustCnstDomEnumOutp
 public class testCnstEnumDual
   : ItestCnstEnumDual
 {
-  public ItestRefCnstEnumDual<ItestEnumCnstEnumDual> AsRefCnstEnumDual { get; set; }
+  public ItestRefCnstEnumDual<testEnumCnstEnumDual> AsRefCnstEnumDual { get; set; }
   public ItestCnstEnumDualObject AsCnstEnumDual { get; set; }
 }
 
@@ -580,7 +580,7 @@ public class testRefCnstEnumDual<Ttype>
 public class testCnstEnumInp
   : ItestCnstEnumInp
 {
-  public ItestRefCnstEnumInp<ItestEnumCnstEnumInp> AsRefCnstEnumInp { get; set; }
+  public ItestRefCnstEnumInp<testEnumCnstEnumInp> AsRefCnstEnumInp { get; set; }
   public ItestCnstEnumInpObject AsCnstEnumInp { get; set; }
 }
 
@@ -594,7 +594,7 @@ public class testRefCnstEnumInp<Ttype>
 public class testCnstEnumOutp
   : ItestCnstEnumOutp
 {
-  public ItestRefCnstEnumOutp<ItestEnumCnstEnumOutp> AsRefCnstEnumOutp { get; set; }
+  public ItestRefCnstEnumOutp<testEnumCnstEnumOutp> AsRefCnstEnumOutp { get; set; }
   public ItestCnstEnumOutpObject AsCnstEnumOutp { get; set; }
 }
 
@@ -608,7 +608,7 @@ public class testRefCnstEnumOutp<Ttype>
 public class testCnstEnumPrntDual
   : ItestCnstEnumPrntDual
 {
-  public ItestRefCnstEnumPrntDual<ItestEnumCnstEnumPrntDual> AsRefCnstEnumPrntDual { get; set; }
+  public ItestRefCnstEnumPrntDual<testEnumCnstEnumPrntDual> AsRefCnstEnumPrntDual { get; set; }
   public ItestCnstEnumPrntDualObject AsCnstEnumPrntDual { get; set; }
 }
 
@@ -622,7 +622,7 @@ public class testRefCnstEnumPrntDual<Ttype>
 public class testCnstEnumPrntInp
   : ItestCnstEnumPrntInp
 {
-  public ItestRefCnstEnumPrntInp<ItestEnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; set; }
+  public ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; set; }
   public ItestCnstEnumPrntInpObject AsCnstEnumPrntInp { get; set; }
 }
 
@@ -636,7 +636,7 @@ public class testRefCnstEnumPrntInp<Ttype>
 public class testCnstEnumPrntOutp
   : ItestCnstEnumPrntOutp
 {
-  public ItestRefCnstEnumPrntOutp<ItestEnumCnstEnumPrntOutp> AsRefCnstEnumPrntOutp { get; set; }
+  public ItestRefCnstEnumPrntOutp<testEnumCnstEnumPrntOutp> AsRefCnstEnumPrntOutp { get; set; }
   public ItestCnstEnumPrntOutpObject AsCnstEnumPrntOutp { get; set; }
 }
 
@@ -1079,7 +1079,7 @@ public class testAltCnstPrntDualPrntOutp
 public class testCnstPrntEnumDual
   : ItestCnstPrntEnumDual
 {
-  public ItestRefCnstPrntEnumDual<ItestParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; set; }
+  public ItestRefCnstPrntEnumDual<testParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; set; }
   public ItestCnstPrntEnumDualObject AsCnstPrntEnumDual { get; set; }
 }
 
@@ -1093,7 +1093,7 @@ public class testRefCnstPrntEnumDual<Ttype>
 public class testCnstPrntEnumInp
   : ItestCnstPrntEnumInp
 {
-  public ItestRefCnstPrntEnumInp<ItestParentCnstPrntEnumInp> AsRefCnstPrntEnumInp { get; set; }
+  public ItestRefCnstPrntEnumInp<testParentCnstPrntEnumInp> AsRefCnstPrntEnumInp { get; set; }
   public ItestCnstPrntEnumInpObject AsCnstPrntEnumInp { get; set; }
 }
 
@@ -1107,7 +1107,7 @@ public class testRefCnstPrntEnumInp<Ttype>
 public class testCnstPrntEnumOutp
   : ItestCnstPrntEnumOutp
 {
-  public ItestRefCnstPrntEnumOutp<ItestParentCnstPrntEnumOutp> AsRefCnstPrntEnumOutp { get; set; }
+  public ItestRefCnstPrntEnumOutp<testParentCnstPrntEnumOutp> AsRefCnstPrntEnumOutp { get; set; }
   public ItestCnstPrntEnumOutpObject AsCnstPrntEnumOutp { get; set; }
 }
 
@@ -1295,42 +1295,42 @@ public class testFldFieldDualOutp
 public class testFieldEnumDual
   : ItestFieldEnumDual
 {
-  public ItestEnumFieldEnumDual Field { get; set; }
+  public testEnumFieldEnumDual Field { get; set; }
   public ItestFieldEnumDualObject AsFieldEnumDual { get; set; }
 }
 
 public class testFieldEnumInp
   : ItestFieldEnumInp
 {
-  public ItestEnumFieldEnumInp Field { get; set; }
+  public testEnumFieldEnumInp Field { get; set; }
   public ItestFieldEnumInpObject AsFieldEnumInp { get; set; }
 }
 
 public class testFieldEnumOutp
   : ItestFieldEnumOutp
 {
-  public ItestEnumFieldEnumOutp Field { get; set; }
+  public testEnumFieldEnumOutp Field { get; set; }
   public ItestFieldEnumOutpObject AsFieldEnumOutp { get; set; }
 }
 
 public class testFieldEnumPrntDual
   : ItestFieldEnumPrntDual
 {
-  public ItestEnumFieldEnumPrntDual Field { get; set; }
+  public testEnumFieldEnumPrntDual Field { get; set; }
   public ItestFieldEnumPrntDualObject AsFieldEnumPrntDual { get; set; }
 }
 
 public class testFieldEnumPrntInp
   : ItestFieldEnumPrntInp
 {
-  public ItestEnumFieldEnumPrntInp Field { get; set; }
+  public testEnumFieldEnumPrntInp Field { get; set; }
   public ItestFieldEnumPrntInpObject AsFieldEnumPrntInp { get; set; }
 }
 
 public class testFieldEnumPrntOutp
   : ItestFieldEnumPrntOutp
 {
-  public ItestEnumFieldEnumPrntOutp Field { get; set; }
+  public testEnumFieldEnumPrntOutp Field { get; set; }
   public ItestFieldEnumPrntOutpObject AsFieldEnumPrntOutp { get; set; }
 }
 
@@ -1490,42 +1490,42 @@ public class testFieldTypeDescrOutp
 public class testFieldValueDual
   : ItestFieldValueDual
 {
-  public ItestEnumFieldValueDual Field { get; set; }
+  public testEnumFieldValueDual Field { get; set; }
   public ItestFieldValueDualObject AsFieldValueDual { get; set; }
 }
 
 public class testFieldValueInp
   : ItestFieldValueInp
 {
-  public ItestEnumFieldValueInp Field { get; set; }
+  public testEnumFieldValueInp Field { get; set; }
   public ItestFieldValueInpObject AsFieldValueInp { get; set; }
 }
 
 public class testFieldValueOutp
   : ItestFieldValueOutp
 {
-  public ItestEnumFieldValueOutp Field { get; set; }
+  public testEnumFieldValueOutp Field { get; set; }
   public ItestFieldValueOutpObject AsFieldValueOutp { get; set; }
 }
 
 public class testFieldValueDescrDual
   : ItestFieldValueDescrDual
 {
-  public ItestEnumFieldValueDescrDual Field { get; set; }
+  public testEnumFieldValueDescrDual Field { get; set; }
   public ItestFieldValueDescrDualObject AsFieldValueDescrDual { get; set; }
 }
 
 public class testFieldValueDescrInp
   : ItestFieldValueDescrInp
 {
-  public ItestEnumFieldValueDescrInp Field { get; set; }
+  public testEnumFieldValueDescrInp Field { get; set; }
   public ItestFieldValueDescrInpObject AsFieldValueDescrInp { get; set; }
 }
 
 public class testFieldValueDescrOutp
   : ItestFieldValueDescrOutp
 {
-  public ItestEnumFieldValueDescrOutp Field { get; set; }
+  public testEnumFieldValueDescrOutp Field { get; set; }
   public ItestFieldValueDescrOutpObject AsFieldValueDescrOutp { get; set; }
 }
 
@@ -1874,7 +1874,7 @@ public class testGnrcDescrOutp<Ttype>
 public class testGnrcEnumDual
   : ItestGnrcEnumDual
 {
-  public ItestRefGnrcEnumDual<ItestEnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
+  public ItestRefGnrcEnumDual<testEnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
   public ItestGnrcEnumDualObject AsGnrcEnumDual { get; set; }
 }
 
@@ -1888,7 +1888,7 @@ public class testRefGnrcEnumDual<Ttype>
 public class testGnrcEnumInp
   : ItestGnrcEnumInp
 {
-  public ItestRefGnrcEnumInp<ItestEnumGnrcEnumInp> AsRefGnrcEnumInp { get; set; }
+  public ItestRefGnrcEnumInp<testEnumGnrcEnumInp> AsRefGnrcEnumInp { get; set; }
   public ItestGnrcEnumInpObject AsGnrcEnumInp { get; set; }
 }
 
@@ -1902,7 +1902,7 @@ public class testRefGnrcEnumInp<Ttype>
 public class testGnrcEnumOutp
   : ItestGnrcEnumOutp
 {
-  public ItestRefGnrcEnumOutp<ItestEnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; set; }
+  public ItestRefGnrcEnumOutp<testEnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; set; }
   public ItestGnrcEnumOutpObject AsGnrcEnumOutp { get; set; }
 }
 
@@ -2705,7 +2705,7 @@ public class testDomGnrcPrntStrDomOutp
 public class testGnrcValueDual
   : ItestGnrcValueDual
 {
-  public ItestRefGnrcValueDual<ItestEnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
+  public ItestRefGnrcValueDual<testEnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
   public ItestGnrcValueDualObject AsGnrcValueDual { get; set; }
 }
 
@@ -2719,7 +2719,7 @@ public class testRefGnrcValueDual<Ttype>
 public class testGnrcValueInp
   : ItestGnrcValueInp
 {
-  public ItestRefGnrcValueInp<ItestEnumGnrcValueInp> AsRefGnrcValueInp { get; set; }
+  public ItestRefGnrcValueInp<testEnumGnrcValueInp> AsRefGnrcValueInp { get; set; }
   public ItestGnrcValueInpObject AsGnrcValueInp { get; set; }
 }
 
@@ -2733,7 +2733,7 @@ public class testRefGnrcValueInp<Ttype>
 public class testGnrcValueOutp
   : ItestGnrcValueOutp
 {
-  public ItestRefGnrcValueOutp<ItestEnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
+  public ItestRefGnrcValueOutp<testEnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
   public ItestGnrcValueOutpObject AsGnrcValueOutp { get; set; }
 }
 
@@ -2754,7 +2754,7 @@ public class testInpFieldDescrNmbr
 public class testInpFieldEnum
   : ItestInpFieldEnum
 {
-  public ItestEnumInpFieldEnum Field { get; set; }
+  public testEnumInpFieldEnum Field { get; set; }
   public ItestInpFieldEnumObject AsInpFieldEnum { get; set; }
 }
 
@@ -2921,7 +2921,7 @@ public class testInOutpParamTypeDescr
 public class testOutpPrntGnrc
   : ItestOutpPrntGnrc
 {
-  public ItestRefOutpPrntGnrc<ItestEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
+  public ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
   public ItestOutpPrntGnrcObject AsOutpPrntGnrc { get; set; }
 }
 

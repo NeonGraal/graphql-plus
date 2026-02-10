@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Schema;
 public interface Itest_Opt<TT>
 {
   public TT AsT { get; set; }
-  public ItestNull AsNull { get; set; }
+  public testNull AsNull { get; set; }
   public Itest_OptObject As_Opt { get; set; }
 }
 
@@ -68,7 +68,7 @@ public interface Itest_IfElseObject<TT>
 
 public interface Itest_Set<TK>
 {
-  public IDictionary<TK, ItestUnit> AsUnit_ { get; set; }
+  public IDictionary<TK, testUnit> AsUnit_ { get; set; }
   public Itest_SetObject As_Set { get; set; }
 }
 
@@ -78,7 +78,7 @@ public interface Itest_SetObject<TK>
 
 public interface Itest_Mask<TK>
 {
-  public IDictionary<TK, ItestBoolean> As^ { get; set; }
+  public IDictionary<TK, testBoolean> AsBoolean { get; set; }
   public Itest_MaskObject As_Mask { get; set; }
 }
 

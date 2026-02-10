@@ -8,6 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_value_Dual;
 public class testFieldValueDual
   : ItestFieldValueDual
 {
-  public ItestEnumFieldValueDual Field { get; set; }
+  public testEnumFieldValueDual Field { get; set; }
   public ItestFieldValueDualObject AsFieldValueDual { get; set; }
 }

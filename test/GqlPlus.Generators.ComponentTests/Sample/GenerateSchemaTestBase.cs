@@ -13,10 +13,7 @@ public abstract class GenerateSchemaTestBase(
   {
     string result = checks.Generate_ForAsts(BaseType, GeneratorType, asts, test, label, input);
 
-    if (!string.IsNullOrWhiteSpace(result)) {
-      TestContext.Current.AddAttachment(result, $"{GeneratorType}_{test}.cs");
-      await Verify(result, CustomSettings(label, $"Generate_{GeneratorType}", test, section, scrubEmptyLines: false));
-    }
+    await result.AttachAndVerify($"{GeneratorType}_{test}.cs", CustomSettings(label, $"Generate_{GeneratorType}", test, section, scrubEmptyLines: false));
   }
 
   public virtual GqlpBaseType BaseType => GqlpBaseType.Other;

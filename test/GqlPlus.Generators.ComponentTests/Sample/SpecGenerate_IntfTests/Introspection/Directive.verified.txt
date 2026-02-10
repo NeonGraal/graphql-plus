@@ -45,5 +45,5 @@ public interface ICmpt_DirectiveObject
 {
   public ICollection<ICmpt_InputParam> Parameters { get; set; }
   public bool Repeatable { get; set; }
-  public IDictionary<Cmpt_Location, ICmptUnit> Locations { get; set; }
+  public IDictionary<Cmpt_Location, CmptUnit> Locations { get; set; }
 }

@@ -26,10 +26,10 @@ public class test_Filter
   : Itest_Filter
 {
   public ICollection<Itest_NameFilter> Names { get; set; }
-  public Itest_DomainKind? MatchAliases { get; set; }
+  public test_DomainKind? MatchAliases { get; set; }
   public ICollection<Itest_NameFilter> Aliases { get; set; }
-  public Itest_DomainKind? ReturnByAlias { get; set; }
-  public Itest_DomainKind? ReturnReferencedTypes { get; set; }
+  public test_DomainKind? ReturnByAlias { get; set; }
+  public test_DomainKind? ReturnReferencedTypes { get; set; }
   public ICollection<Itest_NameFilter> As_NameFilter { get; set; }
   public Itest_FilterObject As_Filter { get; set; }
 }
@@ -44,7 +44,7 @@ public class test_CategoryFilter
   : test_Filter
   , Itest_CategoryFilter
 {
-  public ICollection<Itest_Resolution> Resolutions { get; set; }
+  public ICollection<test_Resolution> Resolutions { get; set; }
   public Itest_CategoryFilterObject As_CategoryFilter { get; set; }
 }
 
@@ -52,7 +52,7 @@ public class test_TypeFilter
   : test_Filter
   , Itest_TypeFilter
 {
-  public ICollection<Itest_TypeKind> Kinds { get; set; }
+  public ICollection<test_TypeKind> Kinds { get; set; }
   public Itest_TypeFilterObject As_TypeFilter { get; set; }
 }
 
@@ -75,7 +75,7 @@ public class test_Named
 public class test_Described
   : Itest_Described
 {
-  public ICollection<Itest_DomainKind> Description { get; set; }
+  public ICollection<test_DomainKind> Description { get; set; }
   public Itest_DescribedObject As_Described { get; set; }
 }
 
@@ -101,8 +101,8 @@ public class test_Category
   : test_Aliased
   , Itest_Category
 {
-  public Itest_Resolution Resolution { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
+  public test_Resolution Resolution { get; set; }
+  public Itest_TypeRef<test_TypeKind> Output { get; set; }
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
   public Itest_CategoryObject As_Category { get; set; }
 }
@@ -121,8 +121,8 @@ public class test_Directive
   , Itest_Directive
 {
   public ICollection<Itest_InputParam> Parameters { get; set; }
-  public Itest_DomainKind Repeatable { get; set; }
-  public IDictionary<test_Location, ItestUnit> Locations { get; set; }
+  public test_DomainKind Repeatable { get; set; }
+  public IDictionary<test_Location, testUnit> Locations { get; set; }
   public Itest_DirectiveObject As_Directive { get; set; }
 }
 
@@ -137,17 +137,17 @@ public class test_Setting
 public class test_Type
   : Itest_Type
 {
-  public Itest_BaseType<Itest_TypeKind> As_BaseType { get; set; }
-  public Itest_BaseType<Itest_TypeKind> As_BaseType { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse> As_BaseDomain { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel> As_BaseDomain { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainRange, Itest_DomainItemRange> As_BaseDomain { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex> As_BaseDomain { get; set; }
-  public Itest_ParentType<Itest_TypeKind, Itest_Aliased, Itest_EnumLabel> As_ParentType { get; set; }
-  public Itest_ParentType<Itest_TypeKind, Itest_UnionRef, Itest_UnionMember> As_ParentType { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_DualField> As_TypeObject { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_InputField> As_TypeObject { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_OutputField> As_TypeObject { get; set; }
+  public Itest_BaseType<test_TypeKind> As_BaseType { get; set; }
+  public Itest_BaseType<test_TypeKind> As_BaseType { get; set; }
+  public Itest_BaseDomain<test_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse> As_BaseDomain { get; set; }
+  public Itest_BaseDomain<test_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel> As_BaseDomain { get; set; }
+  public Itest_BaseDomain<test_DomainKind, Itest_DomainRange, Itest_DomainItemRange> As_BaseDomain { get; set; }
+  public Itest_BaseDomain<test_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex> As_BaseDomain { get; set; }
+  public Itest_ParentType<test_TypeKind, Itest_Aliased, Itest_EnumLabel> As_ParentType { get; set; }
+  public Itest_ParentType<test_TypeKind, Itest_UnionRef, Itest_UnionMember> As_ParentType { get; set; }
+  public Itest_TypeObject<test_TypeKind, Itest_DualField> As_TypeObject { get; set; }
+  public Itest_TypeObject<test_TypeKind, Itest_InputField> As_TypeObject { get; set; }
+  public Itest_TypeObject<test_TypeKind, Itest_OutputField> As_TypeObject { get; set; }
   public Itest_TypeObject As_Type { get; set; }
 }
 
@@ -187,19 +187,19 @@ public class test_TypeRef<Tkind>
 public class test_TypeSimple
   : Itest_TypeSimple
 {
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
   public Itest_TypeSimpleObject As_TypeSimple { get; set; }
 }
 
 public class test_Collections
   : Itest_Collections
 {
-  public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
-  public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
-  public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
+  public Itest_Modifier<test_ModifierKind> As_Modifier { get; set; }
+  public Itest_ModifierKeyed<test_ModifierKind> As_ModifierKeyed { get; set; }
+  public Itest_ModifierKeyed<test_ModifierKind> As_ModifierKeyed { get; set; }
   public Itest_CollectionsObject As_Collections { get; set; }
 }
 
@@ -208,14 +208,14 @@ public class test_ModifierKeyed<Tkind>
   , Itest_ModifierKeyed<Tkind>
 {
   public Itest_TypeSimple By { get; set; }
-  public Itest_DomainKind Optional { get; set; }
+  public test_DomainKind Optional { get; set; }
   public Itest_ModifierKeyedObject As_ModifierKeyed { get; set; }
 }
 
 public class test_Modifiers
   : Itest_Modifiers
 {
-  public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
+  public Itest_Modifier<test_ModifierKind> As_Modifier { get; set; }
   public Itest_Collections As_Collections { get; set; }
   public Itest_ModifiersObject As_Modifiers { get; set; }
 }
@@ -247,7 +247,7 @@ public class test_BaseDomainItem
   : test_Described
   , Itest_BaseDomainItem
 {
-  public Itest_DomainKind Exclude { get; set; }
+  public test_DomainKind Exclude { get; set; }
   public Itest_BaseDomainItemObject As_BaseDomainItem { get; set; }
 }
 
@@ -271,10 +271,10 @@ public class test_DomainValue<Tkind,Tvalue>
 public class test_BasicValue
   : Itest_BasicValue
 {
-  public Itest_DomainKind As_DomainKindBoolean { get; set; }
+  public test_DomainKind As_DomainKindBoolean { get; set; }
   public Itest_EnumValue As_EnumValue { get; set; }
-  public Itest_DomainKind As_DomainKindNumber { get; set; }
-  public Itest_DomainKind As_DomainKindString { get; set; }
+  public test_DomainKind As_DomainKindNumber { get; set; }
+  public test_DomainKind As_DomainKindString { get; set; }
   public Itest_BasicValueObject As_BasicValue { get; set; }
 }
 
@@ -282,7 +282,7 @@ public class test_DomainTrueFalse
   : test_BaseDomainItem
   , Itest_DomainTrueFalse
 {
-  public Itest_DomainKind Value { get; set; }
+  public test_DomainKind Value { get; set; }
   public Itest_DomainTrueFalseObject As_DomainTrueFalse { get; set; }
 }
 
@@ -312,8 +312,8 @@ public class test_DomainRange
   : test_BaseDomainItem
   , Itest_DomainRange
 {
-  public Itest_DomainKind? Lower { get; set; }
-  public Itest_DomainKind? Upper { get; set; }
+  public test_DomainKind? Lower { get; set; }
+  public test_DomainKind? Upper { get; set; }
   public Itest_DomainRangeObject As_DomainRange { get; set; }
 }
 
@@ -328,7 +328,7 @@ public class test_DomainRegex
   : test_BaseDomainItem
   , Itest_DomainRegex
 {
-  public Itest_DomainKind Pattern { get; set; }
+  public test_DomainKind Pattern { get; set; }
   public Itest_DomainRegexObject As_DomainRegex { get; set; }
 }
 
@@ -392,7 +392,7 @@ public class test_ObjTypeParam
   : test_Named
   , Itest_ObjTypeParam
 {
-  public Itest_TypeRef<Itest_TypeKind> Constraint { get; set; }
+  public Itest_TypeRef<test_TypeKind> Constraint { get; set; }
   public Itest_ObjTypeParamObject As_ObjTypeParam { get; set; }
 }
 

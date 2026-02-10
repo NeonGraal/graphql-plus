@@ -30,7 +30,7 @@ public class Cmpt_Opt<TT>
   : ICmpt_Opt<TT>
 {
   public TT AsT { get; set; }
-  public ICmptNull AsNull { get; set; }
+  public CmptNull AsNull { get; set; }
   public ICmpt_OptObject As_Opt { get; set; }
 }
 
@@ -72,14 +72,14 @@ public class Cmpt_IfElse<TT>
 public class Cmpt_Set<TK>
   : ICmpt_Set<TK>
 {
-  public IDictionary<TK, ICmptUnit> AsUnit_ { get; set; }
+  public IDictionary<TK, CmptUnit> AsUnit_ { get; set; }
   public ICmpt_SetObject As_Set { get; set; }
 }
 
 public class Cmpt_Mask<TK>
   : ICmpt_Mask<TK>
 {
-  public IDictionary<TK, ICmptBoolean> As^ { get; set; }
+  public IDictionary<TK, CmptBoolean> AsBoolean { get; set; }
   public ICmpt_MaskObject As_Mask { get; set; }
 }
 

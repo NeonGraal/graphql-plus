@@ -3,7 +3,6 @@
 namespace GqlPlus.TestGenerator;
 
 public class CheckTestsGeneratorTests
-  : GeneratorTestsBase
 {
   private const string Checks = """
     internal class TestChecks : ITestChecks {
@@ -45,7 +44,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -63,7 +62,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -81,7 +80,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -99,7 +98,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -120,7 +119,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -140,7 +139,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -159,7 +158,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -178,7 +177,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -196,7 +195,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -214,7 +213,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -232,7 +231,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -250,7 +249,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -268,7 +267,7 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   [Fact]
@@ -286,6 +285,6 @@ public class CheckTestsGeneratorTests
     GeneratorDriver driver = new CheckTestsGenerator()
       .Generate(source, typeof(CheckTestsAttribute));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 }

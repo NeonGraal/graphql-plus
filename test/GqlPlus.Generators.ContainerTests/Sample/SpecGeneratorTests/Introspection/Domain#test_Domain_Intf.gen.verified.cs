@@ -38,7 +38,7 @@ public interface Itest_BaseDomainItem
 public interface Itest_BaseDomainItemObject
   : Itest_DescribedObject
 {
-  public Itest_DomainKind Exclude { get; set; }
+  public test_DomainKind Exclude { get; set; }
 }
 
 public interface Itest_DomainItem<Titem>
@@ -68,10 +68,10 @@ public interface Itest_DomainValueObject<Tkind,Tvalue>
 
 public interface Itest_BasicValue
 {
-  public Itest_DomainKind As_DomainKindBoolean { get; set; }
+  public test_DomainKind As_DomainKindBoolean { get; set; }
   public Itest_EnumValue As_EnumValue { get; set; }
-  public Itest_DomainKind As_DomainKindNumber { get; set; }
-  public Itest_DomainKind As_DomainKindString { get; set; }
+  public test_DomainKind As_DomainKindNumber { get; set; }
+  public test_DomainKind As_DomainKindString { get; set; }
   public Itest_BasicValueObject As_BasicValue { get; set; }
 }
 
@@ -88,7 +88,7 @@ public interface Itest_DomainTrueFalse
 public interface Itest_DomainTrueFalseObject
   : Itest_BaseDomainItemObject
 {
-  public Itest_DomainKind Value { get; set; }
+  public test_DomainKind Value { get; set; }
 }
 
 public interface Itest_DomainItemTrueFalse
@@ -134,8 +134,8 @@ public interface Itest_DomainRange
 public interface Itest_DomainRangeObject
   : Itest_BaseDomainItemObject
 {
-  public Itest_DomainKind? Lower { get; set; }
-  public Itest_DomainKind? Upper { get; set; }
+  public test_DomainKind? Lower { get; set; }
+  public test_DomainKind? Upper { get; set; }
 }
 
 public interface Itest_DomainItemRange
@@ -158,7 +158,7 @@ public interface Itest_DomainRegex
 public interface Itest_DomainRegexObject
   : Itest_BaseDomainItemObject
 {
-  public Itest_DomainKind Pattern { get; set; }
+  public test_DomainKind Pattern { get; set; }
 }
 
 public interface Itest_DomainItemRegex

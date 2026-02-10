@@ -101,8 +101,10 @@ internal sealed class GqlpGeneratorContext
       return dotNetType;
     }
 
-    return prefix + ModelOptions.TypePrefix +
-      (_types.TryGetValue(typeName, out IGqlpType theType)
-      ? theType.Name : typeName);
+    if (_types.TryGetValue(typeName, out IGqlpType theType)) {
+      return (theType is IGqlpEnum ? "" : prefix) + ModelOptions.TypePrefix + theType.Name;
+    } else {
+      return prefix + ModelOptions.TypePrefix + typeName;
+    }
   }
 }

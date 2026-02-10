@@ -22,9 +22,25 @@ internal class GenerateForObject<TObjField>
     => ast.Fields.Select(f => ModifiedTypeString(f.Type, f, context).ToPair(f.Name.Capitalize()));
 
   private IEnumerable<MapPair<string>> AlternateMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
-    => ast.Alternates
-      .Select(a => ModifiedTypeString(a, a, context).ToPair("As" + (a.EnumValue is not null ? a.Name + a.EnumValue.EnumLabel : a.Name)))
-      .Append((context.TypeName(ast, "I") + "Object").ToPair("As" + ast.Name));
+  {
+    IEnumerable<MapPair<string>> alternates = ast.Alternates
+        .Select(a => ModifiedTypeString(a, a, context).ToPair(AlternameName(a)));
+    string objectName = context.TypeName(ast, "I") + "Object";
+
+    return alternates.Append(objectName.ToPair("As" + ast.Name));
+
+    string AlternameName(IGqlpAlternate alt)
+    {
+      IGqlpType? type = context.GetTypeAst<IGqlpType>(alt.Name);
+      string name = (type?.Name).IfWhiteSpace(alt.Name);
+
+      if (alt.EnumValue is not null) {
+        name += alt.EnumValue.EnumLabel;
+      }
+
+      return "As" + name;
+    }
+  }
 
   protected string ModifiedTypeString(IGqlpObjType type, IGqlpModifiers modifiers, GqlpGeneratorContext context)
     => modifiers.Modifiers.Aggregate(TypeString(type, context, "I"), (s, m) => ModifyTypeString(s, m, context));

@@ -34,10 +34,10 @@ public interface Itest_Filter
 public interface Itest_FilterObject
 {
   public ICollection<Itest_NameFilter> Names { get; set; }
-  public Itest_DomainKind? MatchAliases { get; set; }
+  public test_DomainKind? MatchAliases { get; set; }
   public ICollection<Itest_NameFilter> Aliases { get; set; }
-  public Itest_DomainKind? ReturnByAlias { get; set; }
-  public Itest_DomainKind? ReturnReferencedTypes { get; set; }
+  public test_DomainKind? ReturnByAlias { get; set; }
+  public test_DomainKind? ReturnReferencedTypes { get; set; }
 }
 
 public interface Itest_NameFilter
@@ -54,7 +54,7 @@ public interface Itest_CategoryFilter
 public interface Itest_CategoryFilterObject
   : Itest_FilterObject
 {
-  public ICollection<Itest_Resolution> Resolutions { get; set; }
+  public ICollection<test_Resolution> Resolutions { get; set; }
 }
 
 public interface Itest_TypeFilter
@@ -66,7 +66,7 @@ public interface Itest_TypeFilter
 public interface Itest_TypeFilterObject
   : Itest_FilterObject
 {
-  public ICollection<Itest_TypeKind> Kinds { get; set; }
+  public ICollection<test_TypeKind> Kinds { get; set; }
 }
 
 public interface Itest_Aliased
@@ -100,7 +100,7 @@ public interface Itest_Described
 
 public interface Itest_DescribedObject
 {
-  public ICollection<Itest_DomainKind> Description { get; set; }
+  public ICollection<test_DomainKind> Description { get; set; }
 }
 
 public interface Itest_AndType
@@ -138,8 +138,8 @@ public interface Itest_Category
 public interface Itest_CategoryObject
   : Itest_AliasedObject
 {
-  public Itest_Resolution Resolution { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
+  public test_Resolution Resolution { get; set; }
+  public Itest_TypeRef<test_TypeKind> Output { get; set; }
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
 }
 
@@ -166,8 +166,8 @@ public interface Itest_DirectiveObject
   : Itest_AliasedObject
 {
   public ICollection<Itest_InputParam> Parameters { get; set; }
-  public Itest_DomainKind Repeatable { get; set; }
-  public IDictionary<test_Location, ItestUnit> Locations { get; set; }
+  public test_DomainKind Repeatable { get; set; }
+  public IDictionary<test_Location, testUnit> Locations { get; set; }
 }
 
 public interface Itest_Setting
@@ -184,17 +184,17 @@ public interface Itest_SettingObject
 
 public interface Itest_Type
 {
-  public Itest_BaseType<Itest_TypeKind> As_BaseType { get; set; }
-  public Itest_BaseType<Itest_TypeKind> As_BaseType { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse> As_BaseDomain { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel> As_BaseDomain { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainRange, Itest_DomainItemRange> As_BaseDomain { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex> As_BaseDomain { get; set; }
-  public Itest_ParentType<Itest_TypeKind, Itest_Aliased, Itest_EnumLabel> As_ParentType { get; set; }
-  public Itest_ParentType<Itest_TypeKind, Itest_UnionRef, Itest_UnionMember> As_ParentType { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_DualField> As_TypeObject { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_InputField> As_TypeObject { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_OutputField> As_TypeObject { get; set; }
+  public Itest_BaseType<test_TypeKind> As_BaseType { get; set; }
+  public Itest_BaseType<test_TypeKind> As_BaseType { get; set; }
+  public Itest_BaseDomain<test_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse> As_BaseDomain { get; set; }
+  public Itest_BaseDomain<test_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel> As_BaseDomain { get; set; }
+  public Itest_BaseDomain<test_DomainKind, Itest_DomainRange, Itest_DomainItemRange> As_BaseDomain { get; set; }
+  public Itest_BaseDomain<test_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex> As_BaseDomain { get; set; }
+  public Itest_ParentType<test_TypeKind, Itest_Aliased, Itest_EnumLabel> As_ParentType { get; set; }
+  public Itest_ParentType<test_TypeKind, Itest_UnionRef, Itest_UnionMember> As_ParentType { get; set; }
+  public Itest_TypeObject<test_TypeKind, Itest_DualField> As_TypeObject { get; set; }
+  public Itest_TypeObject<test_TypeKind, Itest_InputField> As_TypeObject { get; set; }
+  public Itest_TypeObject<test_TypeKind, Itest_OutputField> As_TypeObject { get; set; }
   public Itest_TypeObject As_Type { get; set; }
 }
 
@@ -253,10 +253,10 @@ public interface Itest_TypeRefObject<Tkind>
 
 public interface Itest_TypeSimple
 {
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
   public Itest_TypeSimpleObject As_TypeSimple { get; set; }
 }
 
@@ -266,9 +266,9 @@ public interface Itest_TypeSimpleObject
 
 public interface Itest_Collections
 {
-  public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
-  public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
-  public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
+  public Itest_Modifier<test_ModifierKind> As_Modifier { get; set; }
+  public Itest_ModifierKeyed<test_ModifierKind> As_ModifierKeyed { get; set; }
+  public Itest_ModifierKeyed<test_ModifierKind> As_ModifierKeyed { get; set; }
   public Itest_CollectionsObject As_Collections { get; set; }
 }
 
@@ -286,12 +286,12 @@ public interface Itest_ModifierKeyedObject<Tkind>
   : Itest_ModifierObject
 {
   public Itest_TypeSimple By { get; set; }
-  public Itest_DomainKind Optional { get; set; }
+  public test_DomainKind Optional { get; set; }
 }
 
 public interface Itest_Modifiers
 {
-  public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
+  public Itest_Modifier<test_ModifierKind> As_Modifier { get; set; }
   public Itest_Collections As_Collections { get; set; }
   public Itest_ModifiersObject As_Modifiers { get; set; }
 }
@@ -343,7 +343,7 @@ public interface Itest_BaseDomainItem
 public interface Itest_BaseDomainItemObject
   : Itest_DescribedObject
 {
-  public Itest_DomainKind Exclude { get; set; }
+  public test_DomainKind Exclude { get; set; }
 }
 
 public interface Itest_DomainItem<Titem>
@@ -373,10 +373,10 @@ public interface Itest_DomainValueObject<Tkind,Tvalue>
 
 public interface Itest_BasicValue
 {
-  public Itest_DomainKind As_DomainKindBoolean { get; set; }
+  public test_DomainKind As_DomainKindBoolean { get; set; }
   public Itest_EnumValue As_EnumValue { get; set; }
-  public Itest_DomainKind As_DomainKindNumber { get; set; }
-  public Itest_DomainKind As_DomainKindString { get; set; }
+  public test_DomainKind As_DomainKindNumber { get; set; }
+  public test_DomainKind As_DomainKindString { get; set; }
   public Itest_BasicValueObject As_BasicValue { get; set; }
 }
 
@@ -393,7 +393,7 @@ public interface Itest_DomainTrueFalse
 public interface Itest_DomainTrueFalseObject
   : Itest_BaseDomainItemObject
 {
-  public Itest_DomainKind Value { get; set; }
+  public test_DomainKind Value { get; set; }
 }
 
 public interface Itest_DomainItemTrueFalse
@@ -439,8 +439,8 @@ public interface Itest_DomainRange
 public interface Itest_DomainRangeObject
   : Itest_BaseDomainItemObject
 {
-  public Itest_DomainKind? Lower { get; set; }
-  public Itest_DomainKind? Upper { get; set; }
+  public test_DomainKind? Lower { get; set; }
+  public test_DomainKind? Upper { get; set; }
 }
 
 public interface Itest_DomainItemRange
@@ -463,7 +463,7 @@ public interface Itest_DomainRegex
 public interface Itest_DomainRegexObject
   : Itest_BaseDomainItemObject
 {
-  public Itest_DomainKind Pattern { get; set; }
+  public test_DomainKind Pattern { get; set; }
 }
 
 public interface Itest_DomainItemRegex
@@ -554,7 +554,7 @@ public interface Itest_ObjTypeParam
 public interface Itest_ObjTypeParamObject
   : Itest_NamedObject
 {
-  public Itest_TypeRef<Itest_TypeKind> Constraint { get; set; }
+  public Itest_TypeRef<test_TypeKind> Constraint { get; set; }
 }
 
 public interface Itest_ObjBase

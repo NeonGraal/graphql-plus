@@ -7,17 +7,17 @@ namespace GqlPlus.GeneratorTests.Gqlp_Common;
 
 public interface Itest_Type
 {
-  public Itest_BaseType<Itest_TypeKind> As_BaseType { get; set; }
-  public Itest_BaseType<Itest_TypeKind> As_BaseType { get; set; }
+  public Itest_BaseType<test_TypeKind> As_BaseType { get; set; }
+  public Itest_BaseType<test_TypeKind> As_BaseType { get; set; }
   public Itest_BaseDomain<Itest_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse> As_BaseDomain { get; set; }
   public Itest_BaseDomain<Itest_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel> As_BaseDomain { get; set; }
   public Itest_BaseDomain<Itest_DomainKind, Itest_DomainRange, Itest_DomainItemRange> As_BaseDomain { get; set; }
   public Itest_BaseDomain<Itest_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex> As_BaseDomain { get; set; }
-  public Itest_ParentType<Itest_TypeKind, Itest_Aliased, Itest_EnumLabel> As_ParentType { get; set; }
-  public Itest_ParentType<Itest_TypeKind, Itest_UnionRef, Itest_UnionMember> As_ParentType { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_DualField> As_TypeObject { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_InputField> As_TypeObject { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_OutputField> As_TypeObject { get; set; }
+  public Itest_ParentType<test_TypeKind, Itest_Aliased, Itest_EnumLabel> As_ParentType { get; set; }
+  public Itest_ParentType<test_TypeKind, Itest_UnionRef, Itest_UnionMember> As_ParentType { get; set; }
+  public Itest_TypeObject<test_TypeKind, Itest_DualField> As_TypeObject { get; set; }
+  public Itest_TypeObject<test_TypeKind, Itest_InputField> As_TypeObject { get; set; }
+  public Itest_TypeObject<test_TypeKind, Itest_OutputField> As_TypeObject { get; set; }
   public Itest_TypeObject As_Type { get; set; }
 }
 
@@ -76,10 +76,10 @@ public interface Itest_TypeRefObject<Tkind>
 
 public interface Itest_TypeSimple
 {
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
+  public Itest_TypeRef<test_TypeKind> As_TypeRef { get; set; }
   public Itest_TypeSimpleObject As_TypeSimple { get; set; }
 }
 

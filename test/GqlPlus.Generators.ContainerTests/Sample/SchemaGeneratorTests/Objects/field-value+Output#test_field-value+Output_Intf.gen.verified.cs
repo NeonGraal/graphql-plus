@@ -12,5 +12,5 @@ public interface ItestFieldValueOutp
 
 public interface ItestFieldValueOutpObject
 {
-  public ItestEnumFieldValueOutp Field { get; set; }
+  public testEnumFieldValueOutp Field { get; set; }
 }

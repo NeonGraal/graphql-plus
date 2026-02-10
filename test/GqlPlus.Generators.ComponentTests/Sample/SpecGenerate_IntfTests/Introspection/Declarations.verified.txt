@@ -68,10 +68,10 @@ public interface ICmpt_Filter
 public interface ICmpt_FilterObject
 {
   public ICollection<ICmpt_NameFilter> Names { get; set; }
-  public ICmptBoolean? MatchAliases { get; set; }
+  public bool? MatchAliases { get; set; }
   public ICollection<ICmpt_NameFilter> Aliases { get; set; }
-  public ICmptBoolean? ReturnByAlias { get; set; }
-  public ICmptBoolean? ReturnReferencedTypes { get; set; }
+  public bool? ReturnByAlias { get; set; }
+  public bool? ReturnReferencedTypes { get; set; }
 }
 
 public interface ICmpt_NameFilter

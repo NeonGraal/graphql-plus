@@ -27,11 +27,11 @@ public interface ItestRefGnrcFieldDualDualObject<Tref>
 
 public interface ItestAltGnrcFieldDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldDualDualObject AsAltGnrcFieldDualDual { get; set; }
 }
 
 public interface ItestAltGnrcFieldDualDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

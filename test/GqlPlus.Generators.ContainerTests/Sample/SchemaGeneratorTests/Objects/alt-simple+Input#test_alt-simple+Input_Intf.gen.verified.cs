@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Input;
 
 public interface ItestAltSmplInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltSmplInpObject AsAltSmplInp { get; set; }
 }
 

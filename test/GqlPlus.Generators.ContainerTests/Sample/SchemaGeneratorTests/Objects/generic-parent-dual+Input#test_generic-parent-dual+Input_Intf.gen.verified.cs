@@ -28,11 +28,11 @@ public interface ItestRefGnrcPrntDualInpObject<Tref>
 
 public interface ItestAltGnrcPrntDualInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualInpObject AsAltGnrcPrntDualInp { get; set; }
 }
 
 public interface ItestAltGnrcPrntDualInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

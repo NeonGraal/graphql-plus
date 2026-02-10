@@ -1,0 +1,15 @@
+﻿/* domain-number-range
+domain DmnNmbrRange { Number 1<9 21>12 }
+*/
+
+// Generated from Schema domain-number-range for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_number_range;
+
+public class CmptDmnNmbrRange
+  : DomainNumber
+  , ICmptDmnNmbrRange
+{
+}

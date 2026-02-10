@@ -15,7 +15,7 @@ public class testAltInp
 public class testAltAltInp
   : ItestAltAltInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltInpObject AsAltAltInp { get; set; }
 }

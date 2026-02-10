@@ -15,5 +15,5 @@ public interface ICmptFieldTypeDescrDual
 
 public interface ICmptFieldTypeDescrDualObject
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
 }

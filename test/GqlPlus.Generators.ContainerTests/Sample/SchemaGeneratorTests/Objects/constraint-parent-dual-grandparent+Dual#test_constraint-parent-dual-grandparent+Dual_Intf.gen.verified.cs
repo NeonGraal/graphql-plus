@@ -29,7 +29,7 @@ public interface ItestRefCnstPrntDualGrndDualObject<Tref>
 
 public interface ItestGrndCnstPrntDualGrndDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestGrndCnstPrntDualGrndDualObject AsGrndCnstPrntDualGrndDual { get; set; }
 }
 
@@ -57,5 +57,5 @@ public interface ItestAltCnstPrntDualGrndDual
 public interface ItestAltCnstPrntDualGrndDualObject
   : ItestPrntCnstPrntDualGrndDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

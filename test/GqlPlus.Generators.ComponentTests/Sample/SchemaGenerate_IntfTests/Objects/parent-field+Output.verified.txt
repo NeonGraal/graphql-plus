@@ -18,16 +18,16 @@ public interface ICmptPrntFieldOutp
 public interface ICmptPrntFieldOutpObject
   : ICmptRefPrntFieldOutpObject
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ICmptRefPrntFieldOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntFieldOutpObject AsRefPrntFieldOutp { get; set; }
 }
 
 public interface ICmptRefPrntFieldOutpObject
 {
-  public ICmptNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }

@@ -1,5 +1,5 @@
 ﻿/* domain-number-diff
-domain DmnNmbrDiff { number 1~9 }
+domain DmnNmbrDiff { number 1<9 }
 domain DmnNmbrDiff { number }
 */
 

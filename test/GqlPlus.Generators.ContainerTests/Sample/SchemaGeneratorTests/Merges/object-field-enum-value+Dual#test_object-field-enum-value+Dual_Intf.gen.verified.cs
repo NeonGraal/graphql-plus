@@ -12,5 +12,5 @@ public interface ItestObjFieldEnumValueDual
 
 public interface ItestObjFieldEnumValueDualObject
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
 }

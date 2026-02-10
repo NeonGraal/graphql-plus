@@ -19,7 +19,7 @@ public class CmptFieldObjDual
 public class CmptFldFieldObjDual
   : ICmptFldFieldObjDual
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldObjDualObject AsFldFieldObjDual { get; set; }
 }

@@ -111,7 +111,7 @@ public interface ICmpt_DirectiveObject
   : ICmpt_AliasedObject
 {
   public ICollection<ICmpt_InputParam> Parameters { get; set; }
-  public ICmptBoolean Repeatable { get; set; }
+  public bool Repeatable { get; set; }
   public IDictionary<Cmpt_Location, ICmptUnit> Locations { get; set; }
 }
 

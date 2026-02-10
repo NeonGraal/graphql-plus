@@ -12,14 +12,14 @@ internal abstract class GenerateForSimple<T>
     string interfaceSep = ":";
 
     if (ast.Parent is not null) {
-      context.Write("  : " + context.TypeName(ast.Parent));
+      context.Write("  : " + context.TypeName(ast.Parent, ""));
       interfaceSep = ",";
     } else if (HasDefaultParent(out string? defaultParent)) {
       context.Write("  : " + defaultParent);
       interfaceSep = ",";
     }
 
-    context.Write("  " + interfaceSep + " I" + context.TypeName(ast));
+    context.Write("  " + interfaceSep + " " + context.TypeName(ast, "I"));
   }
 
   protected override void InterfaceHeader(T ast, GqlpGeneratorContext context)
@@ -27,7 +27,7 @@ internal abstract class GenerateForSimple<T>
     base.InterfaceHeader(ast, context);
 
     if (ast.Parent is not null) {
-      context.Write("  : I" + context.TypeName(ast.Parent));
+      context.Write("  : " + context.TypeName(ast.Parent, "I"));
     } else if (HasDefaultParent(out string? defaultParent)) {
       context.Write("  : I" + defaultParent);
     }

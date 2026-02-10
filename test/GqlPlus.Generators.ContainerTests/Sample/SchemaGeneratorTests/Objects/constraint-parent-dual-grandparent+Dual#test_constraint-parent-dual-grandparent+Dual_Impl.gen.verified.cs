@@ -22,7 +22,7 @@ public class testRefCnstPrntDualGrndDual<Tref>
 public class testGrndCnstPrntDualGrndDual
   : ItestGrndCnstPrntDualGrndDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestGrndCnstPrntDualGrndDualObject AsGrndCnstPrntDualGrndDual { get; set; }
 }
 
@@ -37,6 +37,6 @@ public class testAltCnstPrntDualGrndDual
   : testPrntCnstPrntDualGrndDual
   , ItestAltCnstPrntDualGrndDual
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntDualGrndDualObject AsAltCnstPrntDualGrndDual { get; set; }
 }

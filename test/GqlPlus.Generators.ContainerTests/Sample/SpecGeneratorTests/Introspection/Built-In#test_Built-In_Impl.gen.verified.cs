@@ -19,7 +19,7 @@ public class test_ModifierKeyed<Tkind>
   , Itest_ModifierKeyed<Tkind>
 {
   public Itest_TypeSimple By { get; set; }
-  public ItestBoolean Optional { get; set; }
+  public bool Optional { get; set; }
   public Itest_ModifierKeyedObject As_ModifierKeyed { get; set; }
 }
 

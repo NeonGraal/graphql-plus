@@ -12,5 +12,5 @@ public interface ItestFieldDual
 
 public interface ItestFieldDualObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }

@@ -21,11 +21,11 @@ public interface ICmptAltModParamInpObject<Tmod>
 
 public interface ICmptAltAltModParamInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltModParamInpObject AsAltAltModParamInp { get; set; }
 }
 
 public interface ICmptAltAltModParamInpObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

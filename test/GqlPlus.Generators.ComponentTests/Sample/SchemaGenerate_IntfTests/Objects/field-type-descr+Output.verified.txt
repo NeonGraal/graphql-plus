@@ -15,5 +15,5 @@ public interface ICmptFieldTypeDescrOutp
 
 public interface ICmptFieldTypeDescrOutpObject
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
 }

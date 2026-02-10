@@ -32,11 +32,11 @@ public interface ICmptRefGnrcAltDualInpObject<Tref>
 
 public interface ICmptAltGnrcAltDualInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcAltDualInpObject AsAltGnrcAltDualInp { get; set; }
 }
 
 public interface ICmptAltGnrcAltDualInpObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

@@ -15,5 +15,5 @@ public interface ICmptInpFieldDescrNmbr
 
 public interface ICmptInpFieldDescrNmbrObject
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
 }

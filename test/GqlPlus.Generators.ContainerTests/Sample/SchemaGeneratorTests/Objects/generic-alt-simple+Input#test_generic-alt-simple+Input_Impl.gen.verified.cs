@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Input;
 public class testGnrcAltSmplInp
   : ItestGnrcAltSmplInp
 {
-  public ItestRefGnrcAltSmplInp<ItestString> AsRefGnrcAltSmplInp { get; set; }
+  public ItestRefGnrcAltSmplInp<string> AsRefGnrcAltSmplInp { get; set; }
   public ItestGnrcAltSmplInpObject AsGnrcAltSmplInp { get; set; }
 }
 

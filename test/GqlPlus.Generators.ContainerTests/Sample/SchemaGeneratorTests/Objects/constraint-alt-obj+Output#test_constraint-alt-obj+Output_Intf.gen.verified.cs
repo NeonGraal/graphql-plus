@@ -27,7 +27,7 @@ public interface ItestRefCnstAltObjOutpObject<Tref>
 
 public interface ItestPrntCnstAltObjOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltObjOutpObject AsPrntCnstAltObjOutp { get; set; }
 }
 
@@ -44,5 +44,5 @@ public interface ItestAltCnstAltObjOutp
 public interface ItestAltCnstAltObjOutpObject
   : ItestPrntCnstAltObjOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

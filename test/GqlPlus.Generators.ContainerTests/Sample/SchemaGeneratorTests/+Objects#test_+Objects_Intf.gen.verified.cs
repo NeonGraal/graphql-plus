@@ -17,13 +17,13 @@ public interface ItestAltDualObject
 
 public interface ItestAltAltDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltDualObject AsAltAltDual { get; set; }
 }
 
 public interface ItestAltAltDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltInp
@@ -38,13 +38,13 @@ public interface ItestAltInpObject
 
 public interface ItestAltAltInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltInpObject AsAltAltInp { get; set; }
 }
 
 public interface ItestAltAltInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltOutp
@@ -59,18 +59,18 @@ public interface ItestAltOutpObject
 
 public interface ItestAltAltOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltOutpObject AsAltAltOutp { get; set; }
 }
 
 public interface ItestAltAltOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltDescrDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltDescrDualObject AsAltDescrDual { get; set; }
 }
 
@@ -80,7 +80,7 @@ public interface ItestAltDescrDualObject
 
 public interface ItestAltDescrInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltDescrInpObject AsAltDescrInp { get; set; }
 }
 
@@ -90,7 +90,7 @@ public interface ItestAltDescrInpObject
 
 public interface ItestAltDescrOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltDescrOutpObject AsAltDescrOutp { get; set; }
 }
 
@@ -110,13 +110,13 @@ public interface ItestAltDualDualObject
 
 public interface ItestObjDualAltDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestObjDualAltDualDualObject AsObjDualAltDualDual { get; set; }
 }
 
 public interface ItestObjDualAltDualDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltDualInp
@@ -131,13 +131,13 @@ public interface ItestAltDualInpObject
 
 public interface ItestObjDualAltDualInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestObjDualAltDualInpObject AsObjDualAltDualInp { get; set; }
 }
 
 public interface ItestObjDualAltDualInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltDualOutp
@@ -152,13 +152,13 @@ public interface ItestAltDualOutpObject
 
 public interface ItestObjDualAltDualOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestObjDualAltDualOutpObject AsObjDualAltDualOutp { get; set; }
 }
 
 public interface ItestObjDualAltDualOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltEnumDual
@@ -203,13 +203,13 @@ public interface ItestAltModBoolDualObject
 
 public interface ItestAltAltModBoolDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModBoolDualObject AsAltAltModBoolDual { get; set; }
 }
 
 public interface ItestAltAltModBoolDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltModBoolInp
@@ -224,13 +224,13 @@ public interface ItestAltModBoolInpObject
 
 public interface ItestAltAltModBoolInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModBoolInpObject AsAltAltModBoolInp { get; set; }
 }
 
 public interface ItestAltAltModBoolInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltModBoolOutp
@@ -245,13 +245,13 @@ public interface ItestAltModBoolOutpObject
 
 public interface ItestAltAltModBoolOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModBoolOutpObject AsAltAltModBoolOutp { get; set; }
 }
 
 public interface ItestAltAltModBoolOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltModParamDual<Tmod>
@@ -266,13 +266,13 @@ public interface ItestAltModParamDualObject<Tmod>
 
 public interface ItestAltAltModParamDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModParamDualObject AsAltAltModParamDual { get; set; }
 }
 
 public interface ItestAltAltModParamDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltModParamInp<Tmod>
@@ -287,13 +287,13 @@ public interface ItestAltModParamInpObject<Tmod>
 
 public interface ItestAltAltModParamInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModParamInpObject AsAltAltModParamInp { get; set; }
 }
 
 public interface ItestAltAltModParamInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltModParamOutp<Tmod>
@@ -308,18 +308,18 @@ public interface ItestAltModParamOutpObject<Tmod>
 
 public interface ItestAltAltModParamOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModParamOutpObject AsAltAltModParamOutp { get; set; }
 }
 
 public interface ItestAltAltModParamOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestAltSmplDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltSmplDualObject AsAltSmplDual { get; set; }
 }
 
@@ -329,7 +329,7 @@ public interface ItestAltSmplDualObject
 
 public interface ItestAltSmplInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltSmplInpObject AsAltSmplInp { get; set; }
 }
 
@@ -339,7 +339,7 @@ public interface ItestAltSmplInpObject
 
 public interface ItestAltSmplOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltSmplOutpObject AsAltSmplOutp { get; set; }
 }
 
@@ -474,7 +474,7 @@ public interface ItestRefCnstAltDualDualObject<Tref>
 
 public interface ItestPrntCnstAltDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; set; }
 }
 
@@ -491,7 +491,7 @@ public interface ItestAltCnstAltDualDual
 public interface ItestAltCnstAltDualDualObject
   : ItestPrntCnstAltDualDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstAltDualInp
@@ -516,7 +516,7 @@ public interface ItestRefCnstAltDualInpObject<Tref>
 
 public interface ItestPrntCnstAltDualInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltDualInpObject AsPrntCnstAltDualInp { get; set; }
 }
 
@@ -533,7 +533,7 @@ public interface ItestAltCnstAltDualInp
 public interface ItestAltCnstAltDualInpObject
   : ItestPrntCnstAltDualInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstAltDualOutp
@@ -558,7 +558,7 @@ public interface ItestRefCnstAltDualOutpObject<Tref>
 
 public interface ItestPrntCnstAltDualOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltDualOutpObject AsPrntCnstAltDualOutp { get; set; }
 }
 
@@ -575,7 +575,7 @@ public interface ItestAltCnstAltDualOutp
 public interface ItestAltCnstAltDualOutpObject
   : ItestPrntCnstAltDualOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstAltObjDual
@@ -600,7 +600,7 @@ public interface ItestRefCnstAltObjDualObject<Tref>
 
 public interface ItestPrntCnstAltObjDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltObjDualObject AsPrntCnstAltObjDual { get; set; }
 }
 
@@ -617,7 +617,7 @@ public interface ItestAltCnstAltObjDual
 public interface ItestAltCnstAltObjDualObject
   : ItestPrntCnstAltObjDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstAltObjInp
@@ -642,7 +642,7 @@ public interface ItestRefCnstAltObjInpObject<Tref>
 
 public interface ItestPrntCnstAltObjInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltObjInpObject AsPrntCnstAltObjInp { get; set; }
 }
 
@@ -659,7 +659,7 @@ public interface ItestAltCnstAltObjInp
 public interface ItestAltCnstAltObjInpObject
   : ItestPrntCnstAltObjInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstAltObjOutp
@@ -684,7 +684,7 @@ public interface ItestRefCnstAltObjOutpObject<Tref>
 
 public interface ItestPrntCnstAltObjOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltObjOutpObject AsPrntCnstAltObjOutp { get; set; }
 }
 
@@ -701,7 +701,7 @@ public interface ItestAltCnstAltObjOutp
 public interface ItestAltCnstAltObjOutpObject
   : ItestPrntCnstAltObjOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstDomEnumDual
@@ -1000,7 +1000,7 @@ public interface ItestRefCnstFieldDualDualObject<Tref>
 
 public interface ItestPrntCnstFieldDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldDualDualObject AsPrntCnstFieldDualDual { get; set; }
 }
 
@@ -1017,7 +1017,7 @@ public interface ItestAltCnstFieldDualDual
 public interface ItestAltCnstFieldDualDualObject
   : ItestPrntCnstFieldDualDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstFieldDualInp
@@ -1043,7 +1043,7 @@ public interface ItestRefCnstFieldDualInpObject<Tref>
 
 public interface ItestPrntCnstFieldDualInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldDualInpObject AsPrntCnstFieldDualInp { get; set; }
 }
 
@@ -1060,7 +1060,7 @@ public interface ItestAltCnstFieldDualInp
 public interface ItestAltCnstFieldDualInpObject
   : ItestPrntCnstFieldDualInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstFieldDualOutp
@@ -1086,7 +1086,7 @@ public interface ItestRefCnstFieldDualOutpObject<Tref>
 
 public interface ItestPrntCnstFieldDualOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldDualOutpObject AsPrntCnstFieldDualOutp { get; set; }
 }
 
@@ -1103,7 +1103,7 @@ public interface ItestAltCnstFieldDualOutp
 public interface ItestAltCnstFieldDualOutpObject
   : ItestPrntCnstFieldDualOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstFieldObjDual
@@ -1129,7 +1129,7 @@ public interface ItestRefCnstFieldObjDualObject<Tref>
 
 public interface ItestPrntCnstFieldObjDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldObjDualObject AsPrntCnstFieldObjDual { get; set; }
 }
 
@@ -1146,7 +1146,7 @@ public interface ItestAltCnstFieldObjDual
 public interface ItestAltCnstFieldObjDualObject
   : ItestPrntCnstFieldObjDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstFieldObjInp
@@ -1172,7 +1172,7 @@ public interface ItestRefCnstFieldObjInpObject<Tref>
 
 public interface ItestPrntCnstFieldObjInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldObjInpObject AsPrntCnstFieldObjInp { get; set; }
 }
 
@@ -1189,7 +1189,7 @@ public interface ItestAltCnstFieldObjInp
 public interface ItestAltCnstFieldObjInpObject
   : ItestPrntCnstFieldObjInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstFieldObjOutp
@@ -1215,7 +1215,7 @@ public interface ItestRefCnstFieldObjOutpObject<Tref>
 
 public interface ItestPrntCnstFieldObjOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; set; }
 }
 
@@ -1232,7 +1232,7 @@ public interface ItestAltCnstFieldObjOutp
 public interface ItestAltCnstFieldObjOutpObject
   : ItestPrntCnstFieldObjOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstPrntDualGrndDual
@@ -1259,7 +1259,7 @@ public interface ItestRefCnstPrntDualGrndDualObject<Tref>
 
 public interface ItestGrndCnstPrntDualGrndDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestGrndCnstPrntDualGrndDualObject AsGrndCnstPrntDualGrndDual { get; set; }
 }
 
@@ -1287,7 +1287,7 @@ public interface ItestAltCnstPrntDualGrndDual
 public interface ItestAltCnstPrntDualGrndDualObject
   : ItestPrntCnstPrntDualGrndDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstPrntDualGrndInp
@@ -1314,7 +1314,7 @@ public interface ItestRefCnstPrntDualGrndInpObject<Tref>
 
 public interface ItestGrndCnstPrntDualGrndInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestGrndCnstPrntDualGrndInpObject AsGrndCnstPrntDualGrndInp { get; set; }
 }
 
@@ -1342,7 +1342,7 @@ public interface ItestAltCnstPrntDualGrndInp
 public interface ItestAltCnstPrntDualGrndInpObject
   : ItestPrntCnstPrntDualGrndInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstPrntDualGrndOutp
@@ -1369,7 +1369,7 @@ public interface ItestRefCnstPrntDualGrndOutpObject<Tref>
 
 public interface ItestGrndCnstPrntDualGrndOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestGrndCnstPrntDualGrndOutpObject AsGrndCnstPrntDualGrndOutp { get; set; }
 }
 
@@ -1397,7 +1397,7 @@ public interface ItestAltCnstPrntDualGrndOutp
 public interface ItestAltCnstPrntDualGrndOutpObject
   : ItestPrntCnstPrntDualGrndOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstPrntDualPrntDual
@@ -1424,7 +1424,7 @@ public interface ItestRefCnstPrntDualPrntDualObject<Tref>
 
 public interface ItestPrntCnstPrntDualPrntDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntDualPrntDualObject AsPrntCnstPrntDualPrntDual { get; set; }
 }
 
@@ -1441,7 +1441,7 @@ public interface ItestAltCnstPrntDualPrntDual
 public interface ItestAltCnstPrntDualPrntDualObject
   : ItestPrntCnstPrntDualPrntDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstPrntDualPrntInp
@@ -1468,7 +1468,7 @@ public interface ItestRefCnstPrntDualPrntInpObject<Tref>
 
 public interface ItestPrntCnstPrntDualPrntInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntDualPrntInpObject AsPrntCnstPrntDualPrntInp { get; set; }
 }
 
@@ -1485,7 +1485,7 @@ public interface ItestAltCnstPrntDualPrntInp
 public interface ItestAltCnstPrntDualPrntInpObject
   : ItestPrntCnstPrntDualPrntInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstPrntDualPrntOutp
@@ -1512,7 +1512,7 @@ public interface ItestRefCnstPrntDualPrntOutpObject<Tref>
 
 public interface ItestPrntCnstPrntDualPrntOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntDualPrntOutpObject AsPrntCnstPrntDualPrntOutp { get; set; }
 }
 
@@ -1529,7 +1529,7 @@ public interface ItestAltCnstPrntDualPrntOutp
 public interface ItestAltCnstPrntDualPrntOutpObject
   : ItestPrntCnstPrntDualPrntOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstPrntEnumDual
@@ -1616,7 +1616,7 @@ public interface ItestRefCnstPrntObjPrntDualObject<Tref>
 
 public interface ItestPrntCnstPrntObjPrntDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntObjPrntDualObject AsPrntCnstPrntObjPrntDual { get; set; }
 }
 
@@ -1633,7 +1633,7 @@ public interface ItestAltCnstPrntObjPrntDual
 public interface ItestAltCnstPrntObjPrntDualObject
   : ItestPrntCnstPrntObjPrntDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstPrntObjPrntInp
@@ -1660,7 +1660,7 @@ public interface ItestRefCnstPrntObjPrntInpObject<Tref>
 
 public interface ItestPrntCnstPrntObjPrntInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntObjPrntInpObject AsPrntCnstPrntObjPrntInp { get; set; }
 }
 
@@ -1677,7 +1677,7 @@ public interface ItestAltCnstPrntObjPrntInp
 public interface ItestAltCnstPrntObjPrntInpObject
   : ItestPrntCnstPrntObjPrntInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestCnstPrntObjPrntOutp
@@ -1704,7 +1704,7 @@ public interface ItestRefCnstPrntObjPrntOutpObject<Tref>
 
 public interface ItestPrntCnstPrntObjPrntOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntObjPrntOutpObject AsPrntCnstPrntObjPrntOutp { get; set; }
 }
 
@@ -1721,7 +1721,7 @@ public interface ItestAltCnstPrntObjPrntOutp
 public interface ItestAltCnstPrntObjPrntOutpObject
   : ItestPrntCnstPrntObjPrntOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestFieldDual
@@ -1731,7 +1731,7 @@ public interface ItestFieldDual
 
 public interface ItestFieldDualObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }
 
 public interface ItestFieldInp
@@ -1741,7 +1741,7 @@ public interface ItestFieldInp
 
 public interface ItestFieldInpObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }
 
 public interface ItestFieldOutp
@@ -1751,7 +1751,7 @@ public interface ItestFieldOutp
 
 public interface ItestFieldOutpObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }
 
 public interface ItestFieldDescrDual
@@ -1761,7 +1761,7 @@ public interface ItestFieldDescrDual
 
 public interface ItestFieldDescrDualObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }
 
 public interface ItestFieldDescrInp
@@ -1771,7 +1771,7 @@ public interface ItestFieldDescrInp
 
 public interface ItestFieldDescrInpObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }
 
 public interface ItestFieldDescrOutp
@@ -1781,7 +1781,7 @@ public interface ItestFieldDescrOutp
 
 public interface ItestFieldDescrOutpObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }
 
 public interface ItestFieldDualDual
@@ -1796,13 +1796,13 @@ public interface ItestFieldDualDualObject
 
 public interface ItestFldFieldDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldDualDualObject AsFldFieldDualDual { get; set; }
 }
 
 public interface ItestFldFieldDualDualObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldDualInp
@@ -1817,13 +1817,13 @@ public interface ItestFieldDualInpObject
 
 public interface ItestFldFieldDualInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldDualInpObject AsFldFieldDualInp { get; set; }
 }
 
 public interface ItestFldFieldDualInpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldDualOutp
@@ -1838,13 +1838,13 @@ public interface ItestFieldDualOutpObject
 
 public interface ItestFldFieldDualOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldDualOutpObject AsFldFieldDualOutp { get; set; }
 }
 
 public interface ItestFldFieldDualOutpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldEnumDual
@@ -1914,7 +1914,7 @@ public interface ItestFieldModEnumDual
 
 public interface ItestFieldModEnumDualObject
 {
-  public IDictionary<testEnumFieldModEnumDual, ItestString> Field { get; set; }
+  public IDictionary<testEnumFieldModEnumDual, string> Field { get; set; }
 }
 
 public interface ItestFieldModEnumInp
@@ -1924,7 +1924,7 @@ public interface ItestFieldModEnumInp
 
 public interface ItestFieldModEnumInpObject
 {
-  public IDictionary<testEnumFieldModEnumInp, ItestString> Field { get; set; }
+  public IDictionary<testEnumFieldModEnumInp, string> Field { get; set; }
 }
 
 public interface ItestFieldModEnumOutp
@@ -1934,7 +1934,7 @@ public interface ItestFieldModEnumOutp
 
 public interface ItestFieldModEnumOutpObject
 {
-  public IDictionary<testEnumFieldModEnumOutp, ItestString> Field { get; set; }
+  public IDictionary<testEnumFieldModEnumOutp, string> Field { get; set; }
 }
 
 public interface ItestFieldModParamDual<Tmod>
@@ -1949,13 +1949,13 @@ public interface ItestFieldModParamDualObject<Tmod>
 
 public interface ItestFldFieldModParamDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldModParamDualObject AsFldFieldModParamDual { get; set; }
 }
 
 public interface ItestFldFieldModParamDualObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldModParamInp<Tmod>
@@ -1970,13 +1970,13 @@ public interface ItestFieldModParamInpObject<Tmod>
 
 public interface ItestFldFieldModParamInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldModParamInpObject AsFldFieldModParamInp { get; set; }
 }
 
 public interface ItestFldFieldModParamInpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldModParamOutp<Tmod>
@@ -1991,13 +1991,13 @@ public interface ItestFieldModParamOutpObject<Tmod>
 
 public interface ItestFldFieldModParamOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldModParamOutpObject AsFldFieldModParamOutp { get; set; }
 }
 
 public interface ItestFldFieldModParamOutpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldObjDual
@@ -2012,13 +2012,13 @@ public interface ItestFieldObjDualObject
 
 public interface ItestFldFieldObjDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldObjDualObject AsFldFieldObjDual { get; set; }
 }
 
 public interface ItestFldFieldObjDualObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldObjInp
@@ -2033,13 +2033,13 @@ public interface ItestFieldObjInpObject
 
 public interface ItestFldFieldObjInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldObjInpObject AsFldFieldObjInp { get; set; }
 }
 
 public interface ItestFldFieldObjInpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldObjOutp
@@ -2054,13 +2054,13 @@ public interface ItestFieldObjOutpObject
 
 public interface ItestFldFieldObjOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldObjOutpObject AsFldFieldObjOutp { get; set; }
 }
 
 public interface ItestFldFieldObjOutpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldSmplDual
@@ -2070,7 +2070,7 @@ public interface ItestFieldSmplDual
 
 public interface ItestFieldSmplDualObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldSmplInp
@@ -2080,7 +2080,7 @@ public interface ItestFieldSmplInp
 
 public interface ItestFieldSmplInpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldSmplOutp
@@ -2090,7 +2090,7 @@ public interface ItestFieldSmplOutp
 
 public interface ItestFieldSmplOutpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldTypeDescrDual
@@ -2100,7 +2100,7 @@ public interface ItestFieldTypeDescrDual
 
 public interface ItestFieldTypeDescrDualObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldTypeDescrInp
@@ -2110,7 +2110,7 @@ public interface ItestFieldTypeDescrInp
 
 public interface ItestFieldTypeDescrInpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldTypeDescrOutp
@@ -2120,7 +2120,7 @@ public interface ItestFieldTypeDescrOutp
 
 public interface ItestFieldTypeDescrOutpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestFieldValueDual
@@ -2355,13 +2355,13 @@ public interface ItestRefGnrcAltDualDualObject<Tref>
 
 public interface ItestAltGnrcAltDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltDualDualObject AsAltGnrcAltDualDual { get; set; }
 }
 
 public interface ItestAltGnrcAltDualDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcAltDualInp
@@ -2386,13 +2386,13 @@ public interface ItestRefGnrcAltDualInpObject<Tref>
 
 public interface ItestAltGnrcAltDualInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltDualInpObject AsAltGnrcAltDualInp { get; set; }
 }
 
 public interface ItestAltGnrcAltDualInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcAltDualOutp
@@ -2417,13 +2417,13 @@ public interface ItestRefGnrcAltDualOutpObject<Tref>
 
 public interface ItestAltGnrcAltDualOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltDualOutpObject AsAltGnrcAltDualOutp { get; set; }
 }
 
 public interface ItestAltGnrcAltDualOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestRefGnrcAltModParamDual<Tref,Tmod>
@@ -2508,13 +2508,13 @@ public interface ItestRefGnrcAltParamDualObject<Tref>
 
 public interface ItestAltGnrcAltParamDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltParamDualObject AsAltGnrcAltParamDual { get; set; }
 }
 
 public interface ItestAltGnrcAltParamDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcAltParamInp
@@ -2539,13 +2539,13 @@ public interface ItestRefGnrcAltParamInpObject<Tref>
 
 public interface ItestAltGnrcAltParamInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltParamInpObject AsAltGnrcAltParamInp { get; set; }
 }
 
 public interface ItestAltGnrcAltParamInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcAltParamOutp
@@ -2570,18 +2570,18 @@ public interface ItestRefGnrcAltParamOutpObject<Tref>
 
 public interface ItestAltGnrcAltParamOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltParamOutpObject AsAltGnrcAltParamOutp { get; set; }
 }
 
 public interface ItestAltGnrcAltParamOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcAltSmplDual
 {
-  public ItestRefGnrcAltSmplDual<ItestString> AsRefGnrcAltSmplDual { get; set; }
+  public ItestRefGnrcAltSmplDual<string> AsRefGnrcAltSmplDual { get; set; }
   public ItestGnrcAltSmplDualObject AsGnrcAltSmplDual { get; set; }
 }
 
@@ -2601,7 +2601,7 @@ public interface ItestRefGnrcAltSmplDualObject<Tref>
 
 public interface ItestGnrcAltSmplInp
 {
-  public ItestRefGnrcAltSmplInp<ItestString> AsRefGnrcAltSmplInp { get; set; }
+  public ItestRefGnrcAltSmplInp<string> AsRefGnrcAltSmplInp { get; set; }
   public ItestGnrcAltSmplInpObject AsGnrcAltSmplInp { get; set; }
 }
 
@@ -2621,7 +2621,7 @@ public interface ItestRefGnrcAltSmplInpObject<Tref>
 
 public interface ItestGnrcAltSmplOutp
 {
-  public ItestRefGnrcAltSmplOutp<ItestString> AsRefGnrcAltSmplOutp { get; set; }
+  public ItestRefGnrcAltSmplOutp<string> AsRefGnrcAltSmplOutp { get; set; }
   public ItestGnrcAltSmplOutpObject AsGnrcAltSmplOutp { get; set; }
 }
 
@@ -2841,13 +2841,13 @@ public interface ItestRefGnrcFieldDualDualObject<Tref>
 
 public interface ItestAltGnrcFieldDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldDualDualObject AsAltGnrcFieldDualDual { get; set; }
 }
 
 public interface ItestAltGnrcFieldDualDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcFieldDualInp
@@ -2872,13 +2872,13 @@ public interface ItestRefGnrcFieldDualInpObject<Tref>
 
 public interface ItestAltGnrcFieldDualInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldDualInpObject AsAltGnrcFieldDualInp { get; set; }
 }
 
 public interface ItestAltGnrcFieldDualInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcFieldDualOutp
@@ -2903,13 +2903,13 @@ public interface ItestRefGnrcFieldDualOutpObject<Tref>
 
 public interface ItestAltGnrcFieldDualOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldDualOutpObject AsAltGnrcFieldDualOutp { get; set; }
 }
 
 public interface ItestAltGnrcFieldDualOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcFieldParamDual
@@ -2934,13 +2934,13 @@ public interface ItestRefGnrcFieldParamDualObject<Tref>
 
 public interface ItestAltGnrcFieldParamDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldParamDualObject AsAltGnrcFieldParamDual { get; set; }
 }
 
 public interface ItestAltGnrcFieldParamDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcFieldParamInp
@@ -2965,13 +2965,13 @@ public interface ItestRefGnrcFieldParamInpObject<Tref>
 
 public interface ItestAltGnrcFieldParamInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldParamInpObject AsAltGnrcFieldParamInp { get; set; }
 }
 
 public interface ItestAltGnrcFieldParamInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcFieldParamOutp
@@ -2996,13 +2996,13 @@ public interface ItestRefGnrcFieldParamOutpObject<Tref>
 
 public interface ItestAltGnrcFieldParamOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldParamOutpObject AsAltGnrcFieldParamOutp { get; set; }
 }
 
 public interface ItestAltGnrcFieldParamOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntDual<Ttype>
@@ -3157,13 +3157,13 @@ public interface ItestRefGnrcPrntDualDualObject<Tref>
 
 public interface ItestAltGnrcPrntDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualDualObject AsAltGnrcPrntDualDual { get; set; }
 }
 
 public interface ItestAltGnrcPrntDualDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntDualInp
@@ -3189,13 +3189,13 @@ public interface ItestRefGnrcPrntDualInpObject<Tref>
 
 public interface ItestAltGnrcPrntDualInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualInpObject AsAltGnrcPrntDualInp { get; set; }
 }
 
 public interface ItestAltGnrcPrntDualInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntDualOutp
@@ -3221,13 +3221,13 @@ public interface ItestRefGnrcPrntDualOutpObject<Tref>
 
 public interface ItestAltGnrcPrntDualOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualOutpObject AsAltGnrcPrntDualOutp { get; set; }
 }
 
 public interface ItestAltGnrcPrntDualOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntDualPrntDual
@@ -3254,13 +3254,13 @@ public interface ItestRefGnrcPrntDualPrntDualObject<Tref>
 
 public interface ItestAltGnrcPrntDualPrntDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualPrntDualObject AsAltGnrcPrntDualPrntDual { get; set; }
 }
 
 public interface ItestAltGnrcPrntDualPrntDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntDualPrntInp
@@ -3287,13 +3287,13 @@ public interface ItestRefGnrcPrntDualPrntInpObject<Tref>
 
 public interface ItestAltGnrcPrntDualPrntInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualPrntInpObject AsAltGnrcPrntDualPrntInp { get; set; }
 }
 
 public interface ItestAltGnrcPrntDualPrntInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntDualPrntOutp
@@ -3320,13 +3320,13 @@ public interface ItestRefGnrcPrntDualPrntOutpObject<Tref>
 
 public interface ItestAltGnrcPrntDualPrntOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualPrntOutpObject AsAltGnrcPrntDualPrntOutp { get; set; }
 }
 
 public interface ItestAltGnrcPrntDualPrntOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntEnumChildDual
@@ -3556,13 +3556,13 @@ public interface ItestRefGnrcPrntParamDualObject<Tref>
 
 public interface ItestAltGnrcPrntParamDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamDualObject AsAltGnrcPrntParamDual { get; set; }
 }
 
 public interface ItestAltGnrcPrntParamDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntParamInp
@@ -3588,13 +3588,13 @@ public interface ItestRefGnrcPrntParamInpObject<Tref>
 
 public interface ItestAltGnrcPrntParamInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamInpObject AsAltGnrcPrntParamInp { get; set; }
 }
 
 public interface ItestAltGnrcPrntParamInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntParamOutp
@@ -3620,13 +3620,13 @@ public interface ItestRefGnrcPrntParamOutpObject<Tref>
 
 public interface ItestAltGnrcPrntParamOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamOutpObject AsAltGnrcPrntParamOutp { get; set; }
 }
 
 public interface ItestAltGnrcPrntParamOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntParamPrntDual
@@ -3653,13 +3653,13 @@ public interface ItestRefGnrcPrntParamPrntDualObject<Tref>
 
 public interface ItestAltGnrcPrntParamPrntDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamPrntDualObject AsAltGnrcPrntParamPrntDual { get; set; }
 }
 
 public interface ItestAltGnrcPrntParamPrntDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntParamPrntInp
@@ -3686,13 +3686,13 @@ public interface ItestRefGnrcPrntParamPrntInpObject<Tref>
 
 public interface ItestAltGnrcPrntParamPrntInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamPrntInpObject AsAltGnrcPrntParamPrntInp { get; set; }
 }
 
 public interface ItestAltGnrcPrntParamPrntInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntParamPrntOutp
@@ -3719,13 +3719,13 @@ public interface ItestRefGnrcPrntParamPrntOutpObject<Tref>
 
 public interface ItestAltGnrcPrntParamPrntOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamPrntOutpObject AsAltGnrcPrntParamPrntOutp { get; set; }
 }
 
 public interface ItestAltGnrcPrntParamPrntOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public interface ItestGnrcPrntSmplEnumDual
@@ -3936,7 +3936,7 @@ public interface ItestInpFieldDescrNmbr
 
 public interface ItestInpFieldDescrNmbrObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestInpFieldEnum
@@ -3975,7 +3975,7 @@ public interface ItestInpFieldNmbr
 
 public interface ItestInpFieldNmbrObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestInpFieldNmbrDescr
@@ -3985,7 +3985,7 @@ public interface ItestInpFieldNmbrDescr
 
 public interface ItestInpFieldNmbrDescrObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestInpFieldStr
@@ -3995,7 +3995,7 @@ public interface ItestInpFieldStr
 
 public interface ItestInpFieldStrObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }
 
 public interface ItestOutpDescrParam
@@ -4019,13 +4019,13 @@ public interface ItestFldOutpDescrParamObject
 
 public interface ItestInOutpDescrParam
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpDescrParamObject AsInOutpDescrParam { get; set; }
 }
 
 public interface ItestInOutpDescrParamObject
 {
-  public ItestNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ItestOutpParam
@@ -4049,13 +4049,13 @@ public interface ItestFldOutpParamObject
 
 public interface ItestInOutpParam
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamObject AsInOutpParam { get; set; }
 }
 
 public interface ItestInOutpParamObject
 {
-  public ItestNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ItestOutpParamDescr
@@ -4079,13 +4079,13 @@ public interface ItestFldOutpParamDescrObject
 
 public interface ItestInOutpParamDescr
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamDescrObject AsInOutpParamDescr { get; set; }
 }
 
 public interface ItestInOutpParamDescrObject
 {
-  public ItestNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ItestOutpParamModDmn
@@ -4100,13 +4100,13 @@ public interface ItestOutpParamModDmnObject
 
 public interface ItestInOutpParamModDmn
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamModDmnObject AsInOutpParamModDmn { get; set; }
 }
 
 public interface ItestInOutpParamModDmnObject
 {
-  public ItestNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ItestDomOutpParamModDmn
@@ -4126,13 +4126,13 @@ public interface ItestOutpParamModParamObject<Tmod>
 
 public interface ItestInOutpParamModParam
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamModParamObject AsInOutpParamModParam { get; set; }
 }
 
 public interface ItestInOutpParamModParamObject
 {
-  public ItestNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ItestDomOutpParamModParam
@@ -4161,13 +4161,13 @@ public interface ItestFldOutpParamTypeDescrObject
 
 public interface ItestInOutpParamTypeDescr
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamTypeDescrObject AsInOutpParamTypeDescr { get; set; }
 }
 
 public interface ItestInOutpParamTypeDescrObject
 {
-  public ItestNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ItestOutpPrntGnrc
@@ -4223,24 +4223,24 @@ public interface ItestFldOutpPrntParamObject
 
 public interface ItestInOutpPrntParam
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpPrntParamObject AsInOutpPrntParam { get; set; }
 }
 
 public interface ItestInOutpPrntParamObject
 {
-  public ItestNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ItestPrntOutpPrntParamIn
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; set; }
 }
 
 public interface ItestPrntOutpPrntParamInObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntDual
@@ -4256,13 +4256,13 @@ public interface ItestPrntDualObject
 
 public interface ItestRefPrntDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDualObject AsRefPrntDual { get; set; }
 }
 
 public interface ItestRefPrntDualObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntInp
@@ -4278,13 +4278,13 @@ public interface ItestPrntInpObject
 
 public interface ItestRefPrntInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntInpObject AsRefPrntInp { get; set; }
 }
 
 public interface ItestRefPrntInpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntOutp
@@ -4300,19 +4300,19 @@ public interface ItestPrntOutpObject
 
 public interface ItestRefPrntOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntOutpObject AsRefPrntOutp { get; set; }
 }
 
 public interface ItestRefPrntOutpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntAltDual
   : ItestRefPrntAltDual
 {
-  public ItestNumber AsNumber { get; set; }
+  public decimal AsNumber { get; set; }
   public ItestPrntAltDualObject AsPrntAltDual { get; set; }
 }
 
@@ -4323,19 +4323,19 @@ public interface ItestPrntAltDualObject
 
 public interface ItestRefPrntAltDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntAltDualObject AsRefPrntAltDual { get; set; }
 }
 
 public interface ItestRefPrntAltDualObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntAltInp
   : ItestRefPrntAltInp
 {
-  public ItestNumber AsNumber { get; set; }
+  public decimal AsNumber { get; set; }
   public ItestPrntAltInpObject AsPrntAltInp { get; set; }
 }
 
@@ -4346,19 +4346,19 @@ public interface ItestPrntAltInpObject
 
 public interface ItestRefPrntAltInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntAltInpObject AsRefPrntAltInp { get; set; }
 }
 
 public interface ItestRefPrntAltInpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntAltOutp
   : ItestRefPrntAltOutp
 {
-  public ItestNumber AsNumber { get; set; }
+  public decimal AsNumber { get; set; }
   public ItestPrntAltOutpObject AsPrntAltOutp { get; set; }
 }
 
@@ -4369,13 +4369,13 @@ public interface ItestPrntAltOutpObject
 
 public interface ItestRefPrntAltOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntAltOutpObject AsRefPrntAltOutp { get; set; }
 }
 
 public interface ItestRefPrntAltOutpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntDescrDual
@@ -4391,13 +4391,13 @@ public interface ItestPrntDescrDualObject
 
 public interface ItestRefPrntDescrDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDescrDualObject AsRefPrntDescrDual { get; set; }
 }
 
 public interface ItestRefPrntDescrDualObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntDescrInp
@@ -4413,13 +4413,13 @@ public interface ItestPrntDescrInpObject
 
 public interface ItestRefPrntDescrInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDescrInpObject AsRefPrntDescrInp { get; set; }
 }
 
 public interface ItestRefPrntDescrInpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntDescrOutp
@@ -4435,13 +4435,13 @@ public interface ItestPrntDescrOutpObject
 
 public interface ItestRefPrntDescrOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDescrOutpObject AsRefPrntDescrOutp { get; set; }
 }
 
 public interface ItestRefPrntDescrOutpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntDualDual
@@ -4457,13 +4457,13 @@ public interface ItestPrntDualDualObject
 
 public interface ItestRefPrntDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDualDualObject AsRefPrntDualDual { get; set; }
 }
 
 public interface ItestRefPrntDualDualObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntDualInp
@@ -4479,13 +4479,13 @@ public interface ItestPrntDualInpObject
 
 public interface ItestRefPrntDualInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDualInpObject AsRefPrntDualInp { get; set; }
 }
 
 public interface ItestRefPrntDualInpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntDualOutp
@@ -4501,13 +4501,13 @@ public interface ItestPrntDualOutpObject
 
 public interface ItestRefPrntDualOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDualOutpObject AsRefPrntDualOutp { get; set; }
 }
 
 public interface ItestRefPrntDualOutpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntFieldDual
@@ -4519,18 +4519,18 @@ public interface ItestPrntFieldDual
 public interface ItestPrntFieldDualObject
   : ItestRefPrntFieldDualObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestRefPrntFieldDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntFieldDualObject AsRefPrntFieldDual { get; set; }
 }
 
 public interface ItestRefPrntFieldDualObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntFieldInp
@@ -4542,18 +4542,18 @@ public interface ItestPrntFieldInp
 public interface ItestPrntFieldInpObject
   : ItestRefPrntFieldInpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestRefPrntFieldInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntFieldInpObject AsRefPrntFieldInp { get; set; }
 }
 
 public interface ItestRefPrntFieldInpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntFieldOutp
@@ -4565,18 +4565,18 @@ public interface ItestPrntFieldOutp
 public interface ItestPrntFieldOutpObject
   : ItestRefPrntFieldOutpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestRefPrntFieldOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntFieldOutpObject AsRefPrntFieldOutp { get; set; }
 }
 
 public interface ItestRefPrntFieldOutpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public interface ItestPrntParamDiffDual<Ta>

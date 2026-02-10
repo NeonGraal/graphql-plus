@@ -19,7 +19,7 @@ public class CmptAltModBoolDual
 public class CmptAltAltModBoolDual
   : ICmptAltAltModBoolDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltModBoolDualObject AsAltAltModBoolDual { get; set; }
 }

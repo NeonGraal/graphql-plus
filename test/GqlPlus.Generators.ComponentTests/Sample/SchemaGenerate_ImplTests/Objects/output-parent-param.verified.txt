@@ -36,15 +36,15 @@ public class CmptFldOutpPrntParam
 public class CmptInOutpPrntParam
   : ICmptInOutpPrntParam
 {
-  public ICmptNumber Param { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpPrntParamObject AsInOutpPrntParam { get; set; }
 }
 
 public class CmptPrntOutpPrntParamIn
   : ICmptPrntOutpPrntParamIn
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; set; }
 }

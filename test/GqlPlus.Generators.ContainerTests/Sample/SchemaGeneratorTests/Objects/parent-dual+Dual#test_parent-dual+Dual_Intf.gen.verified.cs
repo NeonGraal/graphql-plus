@@ -18,11 +18,11 @@ public interface ItestPrntDualDualObject
 
 public interface ItestRefPrntDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDualDualObject AsRefPrntDualDual { get; set; }
 }
 
 public interface ItestRefPrntDualDualObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }

@@ -34,11 +34,11 @@ public interface ICmptRefGnrcPrntParamPrntInpObject<Tref>
 
 public interface ICmptAltGnrcPrntParamPrntInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntParamPrntInpObject AsAltGnrcPrntParamPrntInp { get; set; }
 }
 
 public interface ICmptAltGnrcPrntParamPrntInpObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

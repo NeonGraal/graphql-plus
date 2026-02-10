@@ -22,7 +22,7 @@ public class testRefGnrcFieldParamOutp<Tref>
 public class testAltGnrcFieldParamOutp
   : ItestAltGnrcFieldParamOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldParamOutpObject AsAltGnrcFieldParamOutp { get; set; }
 }

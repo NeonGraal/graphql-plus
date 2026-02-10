@@ -36,7 +36,7 @@ public interface ICmptRefCnstPrntDualGrndOutpObject<Tref>
 
 public interface ICmptGrndCnstPrntDualGrndOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptGrndCnstPrntDualGrndOutpObject AsGrndCnstPrntDualGrndOutp { get; set; }
 }
 
@@ -64,5 +64,5 @@ public interface ICmptAltCnstPrntDualGrndOutp
 public interface ICmptAltCnstPrntDualGrndOutpObject
   : ICmptPrntCnstPrntDualGrndOutpObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

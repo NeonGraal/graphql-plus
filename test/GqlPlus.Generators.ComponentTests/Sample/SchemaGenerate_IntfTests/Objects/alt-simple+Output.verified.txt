@@ -10,7 +10,7 @@ namespace Components.Gqlp_Schema_alt_simple_Output;
 
 public interface ICmptAltSmplOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltSmplOutpObject AsAltSmplOutp { get; set; }
 }
 

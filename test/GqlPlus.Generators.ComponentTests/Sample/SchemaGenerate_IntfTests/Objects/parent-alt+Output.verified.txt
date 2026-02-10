@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_parent_alt_Output;
 public interface ICmptPrntAltOutp
   : ICmptRefPrntAltOutp
 {
-  public ICmptNumber AsNumber { get; set; }
+  public decimal AsNumber { get; set; }
   public ICmptPrntAltOutpObject AsPrntAltOutp { get; set; }
 }
 
@@ -23,11 +23,11 @@ public interface ICmptPrntAltOutpObject
 
 public interface ICmptRefPrntAltOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntAltOutpObject AsRefPrntAltOutp { get; set; }
 }
 
 public interface ICmptRefPrntAltOutpObject
 {
-  public ICmptNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }

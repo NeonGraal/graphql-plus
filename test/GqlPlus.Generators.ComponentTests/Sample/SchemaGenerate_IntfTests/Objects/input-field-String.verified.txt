@@ -15,5 +15,5 @@ public interface ICmptInpFieldStr
 
 public interface ICmptInpFieldStrObject
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
 }

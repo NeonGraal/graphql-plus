@@ -15,7 +15,7 @@ public class testFieldDualOutp
 public class testFldFieldDualOutp
   : ItestFldFieldDualOutp
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldDualOutpObject AsFldFieldDualOutp { get; set; }
 }

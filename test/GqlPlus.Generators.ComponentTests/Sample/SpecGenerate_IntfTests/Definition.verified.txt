@@ -36,12 +36,12 @@ union _Simple [Simple] { _Enum _Domain _Union }
 
 namespace Components.Gqlp_Spec_Definition;
 
-public interface ICmptNumber
+public interface decimal
   : IDomainNumber
 {
 }
 
-public interface ICmptString
+public interface string
   : IDomainString
 {
 }

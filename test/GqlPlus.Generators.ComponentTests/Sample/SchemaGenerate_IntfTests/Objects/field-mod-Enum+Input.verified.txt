@@ -16,5 +16,5 @@ public interface ICmptFieldModEnumInp
 
 public interface ICmptFieldModEnumInpObject
 {
-  public IDictionary<CmptEnumFieldModEnumInp, ICmptString> Field { get; set; }
+  public IDictionary<CmptEnumFieldModEnumInp, string> Field { get; set; }
 }

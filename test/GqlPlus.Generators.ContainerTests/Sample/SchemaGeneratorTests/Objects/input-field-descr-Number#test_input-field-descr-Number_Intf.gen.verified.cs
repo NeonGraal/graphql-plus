@@ -12,5 +12,5 @@ public interface ItestInpFieldDescrNmbr
 
 public interface ItestInpFieldDescrNmbrObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }

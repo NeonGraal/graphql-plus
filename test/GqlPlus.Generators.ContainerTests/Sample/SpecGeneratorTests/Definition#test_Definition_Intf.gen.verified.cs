@@ -5,12 +5,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
-public interface ItestNumber
+public interface decimal
   : IDomainNumber
 {
 }
 
-public interface ItestString
+public interface string
   : IDomainString
 {
 }

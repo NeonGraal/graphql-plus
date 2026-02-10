@@ -17,11 +17,11 @@ public interface ItestFieldObjDualObject
 
 public interface ItestFldFieldObjDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldObjDualObject AsFldFieldObjDual { get; set; }
 }
 
 public interface ItestFldFieldObjDualObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }

@@ -19,7 +19,7 @@ public class CmptPrntDescrDual
 public class CmptRefPrntDescrDual
   : ICmptRefPrntDescrDual
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntDescrDualObject AsRefPrntDescrDual { get; set; }
 }

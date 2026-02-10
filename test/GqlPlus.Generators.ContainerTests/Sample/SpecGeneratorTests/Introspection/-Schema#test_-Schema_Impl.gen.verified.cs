@@ -26,10 +26,10 @@ public class test_Filter
   : Itest_Filter
 {
   public ICollection<Itest_NameFilter> Names { get; set; }
-  public ItestBoolean? MatchAliases { get; set; }
+  public bool? MatchAliases { get; set; }
   public ICollection<Itest_NameFilter> Aliases { get; set; }
-  public ItestBoolean? ReturnByAlias { get; set; }
-  public ItestBoolean? ReturnReferencedTypes { get; set; }
+  public bool? ReturnByAlias { get; set; }
+  public bool? ReturnReferencedTypes { get; set; }
   public ICollection<Itest_NameFilter> As_NameFilter { get; set; }
   public Itest_FilterObject As_Filter { get; set; }
 }
@@ -75,6 +75,6 @@ public class test_Named
 public class test_Described
   : Itest_Described
 {
-  public ICollection<ItestString> Description { get; set; }
+  public ICollection<string> Description { get; set; }
   public Itest_DescribedObject As_Described { get; set; }
 }

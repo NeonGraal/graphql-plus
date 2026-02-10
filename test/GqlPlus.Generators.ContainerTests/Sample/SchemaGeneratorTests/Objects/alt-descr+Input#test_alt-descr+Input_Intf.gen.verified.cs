@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Input;
 
 public interface ItestAltDescrInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltDescrInpObject AsAltDescrInp { get; set; }
 }
 

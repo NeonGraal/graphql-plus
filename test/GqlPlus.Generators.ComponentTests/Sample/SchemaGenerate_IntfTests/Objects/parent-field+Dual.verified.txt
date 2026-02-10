@@ -18,16 +18,16 @@ public interface ICmptPrntFieldDual
 public interface ICmptPrntFieldDualObject
   : ICmptRefPrntFieldDualObject
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ICmptRefPrntFieldDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntFieldDualObject AsRefPrntFieldDual { get; set; }
 }
 
 public interface ICmptRefPrntFieldDualObject
 {
-  public ICmptNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }

@@ -28,7 +28,7 @@ public class CmptRefCnstAltObjInp<Tref>
 public class CmptPrntCnstAltObjInp
   : ICmptPrntCnstAltObjInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstAltObjInpObject AsPrntCnstAltObjInp { get; set; }
 }
 
@@ -36,6 +36,6 @@ public class CmptAltCnstAltObjInp
   : CmptPrntCnstAltObjInp
   , ICmptAltCnstAltObjInp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstAltObjInpObject AsAltCnstAltObjInp { get; set; }
 }

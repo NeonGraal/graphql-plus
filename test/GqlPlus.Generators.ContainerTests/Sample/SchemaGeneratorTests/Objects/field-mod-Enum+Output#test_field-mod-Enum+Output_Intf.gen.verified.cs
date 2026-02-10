@@ -12,5 +12,5 @@ public interface ItestFieldModEnumOutp
 
 public interface ItestFieldModEnumOutpObject
 {
-  public IDictionary<testEnumFieldModEnumOutp, ItestString> Field { get; set; }
+  public IDictionary<testEnumFieldModEnumOutp, string> Field { get; set; }
 }

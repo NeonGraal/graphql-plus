@@ -16,5 +16,5 @@ public interface ICmptFieldModEnumDual
 
 public interface ICmptFieldModEnumDualObject
 {
-  public IDictionary<CmptEnumFieldModEnumDual, ICmptString> Field { get; set; }
+  public IDictionary<CmptEnumFieldModEnumDual, string> Field { get; set; }
 }

@@ -36,7 +36,7 @@ public interface Itest_Described
 
 public interface Itest_DescribedObject
 {
-  public ICollection<ItestString> Description { get; set; }
+  public ICollection<string> Description { get; set; }
 }
 
 public interface Itest_AndType

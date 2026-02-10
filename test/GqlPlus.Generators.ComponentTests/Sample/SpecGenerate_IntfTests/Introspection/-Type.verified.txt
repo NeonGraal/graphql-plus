@@ -179,7 +179,7 @@ public interface ICmpt_ModifierKeyedObject<Tkind>
   : ICmpt_ModifierObject
 {
   public ICmpt_TypeSimple By { get; set; }
-  public ICmptBoolean Optional { get; set; }
+  public bool Optional { get; set; }
 }
 
 public interface ICmpt_Modifiers

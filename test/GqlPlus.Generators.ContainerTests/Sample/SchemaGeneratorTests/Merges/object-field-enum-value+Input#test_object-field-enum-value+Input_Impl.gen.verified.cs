@@ -8,6 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_value_Input;
 public class testObjFieldEnumValueInp
   : ItestObjFieldEnumValueInp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumValueInpObject AsObjFieldEnumValueInp { get; set; }
 }

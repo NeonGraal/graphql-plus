@@ -19,7 +19,7 @@ public class CmptAltOutp
 public class CmptAltAltOutp
   : ICmptAltAltOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltOutpObject AsAltAltOutp { get; set; }
 }

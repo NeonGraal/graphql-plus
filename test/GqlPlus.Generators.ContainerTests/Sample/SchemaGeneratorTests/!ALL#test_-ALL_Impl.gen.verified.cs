@@ -117,8 +117,8 @@ public class testAltDual
 public class testAltAltDual
   : ItestAltAltDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltDualObject AsAltAltDual { get; set; }
 }
 
@@ -132,8 +132,8 @@ public class testAltInp
 public class testAltAltInp
   : ItestAltAltInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltInpObject AsAltAltInp { get; set; }
 }
 
@@ -147,29 +147,29 @@ public class testAltOutp
 public class testAltAltOutp
   : ItestAltAltOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltOutpObject AsAltAltOutp { get; set; }
 }
 
 public class testAltDescrDual
   : ItestAltDescrDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltDescrDualObject AsAltDescrDual { get; set; }
 }
 
 public class testAltDescrInp
   : ItestAltDescrInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltDescrInpObject AsAltDescrInp { get; set; }
 }
 
 public class testAltDescrOutp
   : ItestAltDescrOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltDescrOutpObject AsAltDescrOutp { get; set; }
 }
 
@@ -183,8 +183,8 @@ public class testAltDualDual
 public class testObjDualAltDualDual
   : ItestObjDualAltDualDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestObjDualAltDualDualObject AsObjDualAltDualDual { get; set; }
 }
 
@@ -198,8 +198,8 @@ public class testAltDualInp
 public class testObjDualAltDualInp
   : ItestObjDualAltDualInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestObjDualAltDualInpObject AsObjDualAltDualInp { get; set; }
 }
 
@@ -213,8 +213,8 @@ public class testAltDualOutp
 public class testObjDualAltDualOutp
   : ItestObjDualAltDualOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestObjDualAltDualOutpObject AsObjDualAltDualOutp { get; set; }
 }
 
@@ -249,8 +249,8 @@ public class testAltModBoolDual
 public class testAltAltModBoolDual
   : ItestAltAltModBoolDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModBoolDualObject AsAltAltModBoolDual { get; set; }
 }
 
@@ -264,8 +264,8 @@ public class testAltModBoolInp
 public class testAltAltModBoolInp
   : ItestAltAltModBoolInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModBoolInpObject AsAltAltModBoolInp { get; set; }
 }
 
@@ -279,8 +279,8 @@ public class testAltModBoolOutp
 public class testAltAltModBoolOutp
   : ItestAltAltModBoolOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModBoolOutpObject AsAltAltModBoolOutp { get; set; }
 }
 
@@ -294,8 +294,8 @@ public class testAltModParamDual<Tmod>
 public class testAltAltModParamDual
   : ItestAltAltModParamDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModParamDualObject AsAltAltModParamDual { get; set; }
 }
 
@@ -309,8 +309,8 @@ public class testAltModParamInp<Tmod>
 public class testAltAltModParamInp
   : ItestAltAltModParamInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModParamInpObject AsAltAltModParamInp { get; set; }
 }
 
@@ -324,29 +324,29 @@ public class testAltModParamOutp<Tmod>
 public class testAltAltModParamOutp
   : ItestAltAltModParamOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModParamOutpObject AsAltAltModParamOutp { get; set; }
 }
 
 public class testAltSmplDual
   : ItestAltSmplDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltSmplDualObject AsAltSmplDual { get; set; }
 }
 
 public class testAltSmplInp
   : ItestAltSmplInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltSmplInpObject AsAltSmplInp { get; set; }
 }
 
 public class testAltSmplOutp
   : ItestAltSmplOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltSmplOutpObject AsAltSmplOutp { get; set; }
 }
 
@@ -448,7 +448,7 @@ public class testRefCnstAltDualDual<Tref>
 public class testPrntCnstAltDualDual
   : ItestPrntCnstAltDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; set; }
 }
 
@@ -456,7 +456,7 @@ public class testAltCnstAltDualDual
   : testPrntCnstAltDualDual
   , ItestAltCnstAltDualDual
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstAltDualDualObject AsAltCnstAltDualDual { get; set; }
 }
 
@@ -477,7 +477,7 @@ public class testRefCnstAltDualInp<Tref>
 public class testPrntCnstAltDualInp
   : ItestPrntCnstAltDualInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltDualInpObject AsPrntCnstAltDualInp { get; set; }
 }
 
@@ -485,7 +485,7 @@ public class testAltCnstAltDualInp
   : testPrntCnstAltDualInp
   , ItestAltCnstAltDualInp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstAltDualInpObject AsAltCnstAltDualInp { get; set; }
 }
 
@@ -506,7 +506,7 @@ public class testRefCnstAltDualOutp<Tref>
 public class testPrntCnstAltDualOutp
   : ItestPrntCnstAltDualOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltDualOutpObject AsPrntCnstAltDualOutp { get; set; }
 }
 
@@ -514,7 +514,7 @@ public class testAltCnstAltDualOutp
   : testPrntCnstAltDualOutp
   , ItestAltCnstAltDualOutp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstAltDualOutpObject AsAltCnstAltDualOutp { get; set; }
 }
 
@@ -535,7 +535,7 @@ public class testRefCnstAltObjDual<Tref>
 public class testPrntCnstAltObjDual
   : ItestPrntCnstAltObjDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltObjDualObject AsPrntCnstAltObjDual { get; set; }
 }
 
@@ -543,7 +543,7 @@ public class testAltCnstAltObjDual
   : testPrntCnstAltObjDual
   , ItestAltCnstAltObjDual
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstAltObjDualObject AsAltCnstAltObjDual { get; set; }
 }
 
@@ -564,7 +564,7 @@ public class testRefCnstAltObjInp<Tref>
 public class testPrntCnstAltObjInp
   : ItestPrntCnstAltObjInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltObjInpObject AsPrntCnstAltObjInp { get; set; }
 }
 
@@ -572,7 +572,7 @@ public class testAltCnstAltObjInp
   : testPrntCnstAltObjInp
   , ItestAltCnstAltObjInp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstAltObjInpObject AsAltCnstAltObjInp { get; set; }
 }
 
@@ -593,7 +593,7 @@ public class testRefCnstAltObjOutp<Tref>
 public class testPrntCnstAltObjOutp
   : ItestPrntCnstAltObjOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltObjOutpObject AsPrntCnstAltObjOutp { get; set; }
 }
 
@@ -601,7 +601,7 @@ public class testAltCnstAltObjOutp
   : testPrntCnstAltObjOutp
   , ItestAltCnstAltObjOutp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstAltObjOutpObject AsAltCnstAltObjOutp { get; set; }
 }
 
@@ -826,7 +826,7 @@ public class testRefCnstFieldDualDual<Tref>
 public class testPrntCnstFieldDualDual
   : ItestPrntCnstFieldDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldDualDualObject AsPrntCnstFieldDualDual { get; set; }
 }
 
@@ -834,7 +834,7 @@ public class testAltCnstFieldDualDual
   : testPrntCnstFieldDualDual
   , ItestAltCnstFieldDualDual
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstFieldDualDualObject AsAltCnstFieldDualDual { get; set; }
 }
 
@@ -855,7 +855,7 @@ public class testRefCnstFieldDualInp<Tref>
 public class testPrntCnstFieldDualInp
   : ItestPrntCnstFieldDualInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldDualInpObject AsPrntCnstFieldDualInp { get; set; }
 }
 
@@ -863,7 +863,7 @@ public class testAltCnstFieldDualInp
   : testPrntCnstFieldDualInp
   , ItestAltCnstFieldDualInp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstFieldDualInpObject AsAltCnstFieldDualInp { get; set; }
 }
 
@@ -884,7 +884,7 @@ public class testRefCnstFieldDualOutp<Tref>
 public class testPrntCnstFieldDualOutp
   : ItestPrntCnstFieldDualOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldDualOutpObject AsPrntCnstFieldDualOutp { get; set; }
 }
 
@@ -892,7 +892,7 @@ public class testAltCnstFieldDualOutp
   : testPrntCnstFieldDualOutp
   , ItestAltCnstFieldDualOutp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstFieldDualOutpObject AsAltCnstFieldDualOutp { get; set; }
 }
 
@@ -913,7 +913,7 @@ public class testRefCnstFieldObjDual<Tref>
 public class testPrntCnstFieldObjDual
   : ItestPrntCnstFieldObjDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldObjDualObject AsPrntCnstFieldObjDual { get; set; }
 }
 
@@ -921,7 +921,7 @@ public class testAltCnstFieldObjDual
   : testPrntCnstFieldObjDual
   , ItestAltCnstFieldObjDual
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstFieldObjDualObject AsAltCnstFieldObjDual { get; set; }
 }
 
@@ -942,7 +942,7 @@ public class testRefCnstFieldObjInp<Tref>
 public class testPrntCnstFieldObjInp
   : ItestPrntCnstFieldObjInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldObjInpObject AsPrntCnstFieldObjInp { get; set; }
 }
 
@@ -950,7 +950,7 @@ public class testAltCnstFieldObjInp
   : testPrntCnstFieldObjInp
   , ItestAltCnstFieldObjInp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstFieldObjInpObject AsAltCnstFieldObjInp { get; set; }
 }
 
@@ -971,7 +971,7 @@ public class testRefCnstFieldObjOutp<Tref>
 public class testPrntCnstFieldObjOutp
   : ItestPrntCnstFieldObjOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; set; }
 }
 
@@ -979,7 +979,7 @@ public class testAltCnstFieldObjOutp
   : testPrntCnstFieldObjOutp
   , ItestAltCnstFieldObjOutp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; set; }
 }
 
@@ -1000,7 +1000,7 @@ public class testRefCnstPrntDualGrndDual<Tref>
 public class testGrndCnstPrntDualGrndDual
   : ItestGrndCnstPrntDualGrndDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestGrndCnstPrntDualGrndDualObject AsGrndCnstPrntDualGrndDual { get; set; }
 }
 
@@ -1015,7 +1015,7 @@ public class testAltCnstPrntDualGrndDual
   : testPrntCnstPrntDualGrndDual
   , ItestAltCnstPrntDualGrndDual
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntDualGrndDualObject AsAltCnstPrntDualGrndDual { get; set; }
 }
 
@@ -1036,7 +1036,7 @@ public class testRefCnstPrntDualGrndInp<Tref>
 public class testGrndCnstPrntDualGrndInp
   : ItestGrndCnstPrntDualGrndInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestGrndCnstPrntDualGrndInpObject AsGrndCnstPrntDualGrndInp { get; set; }
 }
 
@@ -1051,7 +1051,7 @@ public class testAltCnstPrntDualGrndInp
   : testPrntCnstPrntDualGrndInp
   , ItestAltCnstPrntDualGrndInp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntDualGrndInpObject AsAltCnstPrntDualGrndInp { get; set; }
 }
 
@@ -1072,7 +1072,7 @@ public class testRefCnstPrntDualGrndOutp<Tref>
 public class testGrndCnstPrntDualGrndOutp
   : ItestGrndCnstPrntDualGrndOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestGrndCnstPrntDualGrndOutpObject AsGrndCnstPrntDualGrndOutp { get; set; }
 }
 
@@ -1087,7 +1087,7 @@ public class testAltCnstPrntDualGrndOutp
   : testPrntCnstPrntDualGrndOutp
   , ItestAltCnstPrntDualGrndOutp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntDualGrndOutpObject AsAltCnstPrntDualGrndOutp { get; set; }
 }
 
@@ -1108,7 +1108,7 @@ public class testRefCnstPrntDualPrntDual<Tref>
 public class testPrntCnstPrntDualPrntDual
   : ItestPrntCnstPrntDualPrntDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntDualPrntDualObject AsPrntCnstPrntDualPrntDual { get; set; }
 }
 
@@ -1116,7 +1116,7 @@ public class testAltCnstPrntDualPrntDual
   : testPrntCnstPrntDualPrntDual
   , ItestAltCnstPrntDualPrntDual
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntDualPrntDualObject AsAltCnstPrntDualPrntDual { get; set; }
 }
 
@@ -1137,7 +1137,7 @@ public class testRefCnstPrntDualPrntInp<Tref>
 public class testPrntCnstPrntDualPrntInp
   : ItestPrntCnstPrntDualPrntInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntDualPrntInpObject AsPrntCnstPrntDualPrntInp { get; set; }
 }
 
@@ -1145,7 +1145,7 @@ public class testAltCnstPrntDualPrntInp
   : testPrntCnstPrntDualPrntInp
   , ItestAltCnstPrntDualPrntInp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntDualPrntInpObject AsAltCnstPrntDualPrntInp { get; set; }
 }
 
@@ -1166,7 +1166,7 @@ public class testRefCnstPrntDualPrntOutp<Tref>
 public class testPrntCnstPrntDualPrntOutp
   : ItestPrntCnstPrntDualPrntOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntDualPrntOutpObject AsPrntCnstPrntDualPrntOutp { get; set; }
 }
 
@@ -1174,7 +1174,7 @@ public class testAltCnstPrntDualPrntOutp
   : testPrntCnstPrntDualPrntOutp
   , ItestAltCnstPrntDualPrntOutp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntDualPrntOutpObject AsAltCnstPrntDualPrntOutp { get; set; }
 }
 
@@ -1237,7 +1237,7 @@ public class testRefCnstPrntObjPrntDual<Tref>
 public class testPrntCnstPrntObjPrntDual
   : ItestPrntCnstPrntObjPrntDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntObjPrntDualObject AsPrntCnstPrntObjPrntDual { get; set; }
 }
 
@@ -1245,7 +1245,7 @@ public class testAltCnstPrntObjPrntDual
   : testPrntCnstPrntObjPrntDual
   , ItestAltCnstPrntObjPrntDual
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntObjPrntDualObject AsAltCnstPrntObjPrntDual { get; set; }
 }
 
@@ -1266,7 +1266,7 @@ public class testRefCnstPrntObjPrntInp<Tref>
 public class testPrntCnstPrntObjPrntInp
   : ItestPrntCnstPrntObjPrntInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntObjPrntInpObject AsPrntCnstPrntObjPrntInp { get; set; }
 }
 
@@ -1274,7 +1274,7 @@ public class testAltCnstPrntObjPrntInp
   : testPrntCnstPrntObjPrntInp
   , ItestAltCnstPrntObjPrntInp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntObjPrntInpObject AsAltCnstPrntObjPrntInp { get; set; }
 }
 
@@ -1295,7 +1295,7 @@ public class testRefCnstPrntObjPrntOutp<Tref>
 public class testPrntCnstPrntObjPrntOutp
   : ItestPrntCnstPrntObjPrntOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntObjPrntOutpObject AsPrntCnstPrntObjPrntOutp { get; set; }
 }
 
@@ -1303,49 +1303,49 @@ public class testAltCnstPrntObjPrntOutp
   : testPrntCnstPrntObjPrntOutp
   , ItestAltCnstPrntObjPrntOutp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntObjPrntOutpObject AsAltCnstPrntObjPrntOutp { get; set; }
 }
 
 public class testFieldDual
   : ItestFieldDual
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestFieldDualObject AsFieldDual { get; set; }
 }
 
 public class testFieldInp
   : ItestFieldInp
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestFieldInpObject AsFieldInp { get; set; }
 }
 
 public class testFieldOutp
   : ItestFieldOutp
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestFieldOutpObject AsFieldOutp { get; set; }
 }
 
 public class testFieldDescrDual
   : ItestFieldDescrDual
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestFieldDescrDualObject AsFieldDescrDual { get; set; }
 }
 
 public class testFieldDescrInp
   : ItestFieldDescrInp
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestFieldDescrInpObject AsFieldDescrInp { get; set; }
 }
 
 public class testFieldDescrOutp
   : ItestFieldDescrOutp
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestFieldDescrOutpObject AsFieldDescrOutp { get; set; }
 }
 
@@ -1359,8 +1359,8 @@ public class testFieldDualDual
 public class testFldFieldDualDual
   : ItestFldFieldDualDual
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldDualDualObject AsFldFieldDualDual { get; set; }
 }
 
@@ -1374,8 +1374,8 @@ public class testFieldDualInp
 public class testFldFieldDualInp
   : ItestFldFieldDualInp
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldDualInpObject AsFldFieldDualInp { get; set; }
 }
 
@@ -1389,8 +1389,8 @@ public class testFieldDualOutp
 public class testFldFieldDualOutp
   : ItestFldFieldDualOutp
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldDualOutpObject AsFldFieldDualOutp { get; set; }
 }
 
@@ -1439,21 +1439,21 @@ public class testFieldEnumPrntOutp
 public class testFieldModEnumDual
   : ItestFieldModEnumDual
 {
-  public IDictionary<testEnumFieldModEnumDual, ItestString> Field { get; set; }
+  public IDictionary<testEnumFieldModEnumDual, string> Field { get; set; }
   public ItestFieldModEnumDualObject AsFieldModEnumDual { get; set; }
 }
 
 public class testFieldModEnumInp
   : ItestFieldModEnumInp
 {
-  public IDictionary<testEnumFieldModEnumInp, ItestString> Field { get; set; }
+  public IDictionary<testEnumFieldModEnumInp, string> Field { get; set; }
   public ItestFieldModEnumInpObject AsFieldModEnumInp { get; set; }
 }
 
 public class testFieldModEnumOutp
   : ItestFieldModEnumOutp
 {
-  public IDictionary<testEnumFieldModEnumOutp, ItestString> Field { get; set; }
+  public IDictionary<testEnumFieldModEnumOutp, string> Field { get; set; }
   public ItestFieldModEnumOutpObject AsFieldModEnumOutp { get; set; }
 }
 
@@ -1467,8 +1467,8 @@ public class testFieldModParamDual<Tmod>
 public class testFldFieldModParamDual
   : ItestFldFieldModParamDual
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldModParamDualObject AsFldFieldModParamDual { get; set; }
 }
 
@@ -1482,8 +1482,8 @@ public class testFieldModParamInp<Tmod>
 public class testFldFieldModParamInp
   : ItestFldFieldModParamInp
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldModParamInpObject AsFldFieldModParamInp { get; set; }
 }
 
@@ -1497,8 +1497,8 @@ public class testFieldModParamOutp<Tmod>
 public class testFldFieldModParamOutp
   : ItestFldFieldModParamOutp
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldModParamOutpObject AsFldFieldModParamOutp { get; set; }
 }
 
@@ -1512,8 +1512,8 @@ public class testFieldObjDual
 public class testFldFieldObjDual
   : ItestFldFieldObjDual
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldObjDualObject AsFldFieldObjDual { get; set; }
 }
 
@@ -1527,8 +1527,8 @@ public class testFieldObjInp
 public class testFldFieldObjInp
   : ItestFldFieldObjInp
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldObjInpObject AsFldFieldObjInp { get; set; }
 }
 
@@ -1542,50 +1542,50 @@ public class testFieldObjOutp
 public class testFldFieldObjOutp
   : ItestFldFieldObjOutp
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldObjOutpObject AsFldFieldObjOutp { get; set; }
 }
 
 public class testFieldSmplDual
   : ItestFieldSmplDual
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestFieldSmplDualObject AsFieldSmplDual { get; set; }
 }
 
 public class testFieldSmplInp
   : ItestFieldSmplInp
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestFieldSmplInpObject AsFieldSmplInp { get; set; }
 }
 
 public class testFieldSmplOutp
   : ItestFieldSmplOutp
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestFieldSmplOutpObject AsFieldSmplOutp { get; set; }
 }
 
 public class testFieldTypeDescrDual
   : ItestFieldTypeDescrDual
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestFieldTypeDescrDualObject AsFieldTypeDescrDual { get; set; }
 }
 
 public class testFieldTypeDescrInp
   : ItestFieldTypeDescrInp
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestFieldTypeDescrInpObject AsFieldTypeDescrInp { get; set; }
 }
 
 public class testFieldTypeDescrOutp
   : ItestFieldTypeDescrOutp
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestFieldTypeDescrOutpObject AsFieldTypeDescrOutp { get; set; }
 }
 
@@ -1753,8 +1753,8 @@ public class testRefGnrcAltDualDual<Tref>
 public class testAltGnrcAltDualDual
   : ItestAltGnrcAltDualDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltDualDualObject AsAltGnrcAltDualDual { get; set; }
 }
 
@@ -1775,8 +1775,8 @@ public class testRefGnrcAltDualInp<Tref>
 public class testAltGnrcAltDualInp
   : ItestAltGnrcAltDualInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltDualInpObject AsAltGnrcAltDualInp { get; set; }
 }
 
@@ -1797,8 +1797,8 @@ public class testRefGnrcAltDualOutp<Tref>
 public class testAltGnrcAltDualOutp
   : ItestAltGnrcAltDualOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltDualOutpObject AsAltGnrcAltDualOutp { get; set; }
 }
 
@@ -1861,8 +1861,8 @@ public class testRefGnrcAltParamDual<Tref>
 public class testAltGnrcAltParamDual
   : ItestAltGnrcAltParamDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltParamDualObject AsAltGnrcAltParamDual { get; set; }
 }
 
@@ -1883,8 +1883,8 @@ public class testRefGnrcAltParamInp<Tref>
 public class testAltGnrcAltParamInp
   : ItestAltGnrcAltParamInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltParamInpObject AsAltGnrcAltParamInp { get; set; }
 }
 
@@ -1905,15 +1905,15 @@ public class testRefGnrcAltParamOutp<Tref>
 public class testAltGnrcAltParamOutp
   : ItestAltGnrcAltParamOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltParamOutpObject AsAltGnrcAltParamOutp { get; set; }
 }
 
 public class testGnrcAltSmplDual
   : ItestGnrcAltSmplDual
 {
-  public ItestRefGnrcAltSmplDual<ItestString> AsRefGnrcAltSmplDual { get; set; }
+  public ItestRefGnrcAltSmplDual<string> AsRefGnrcAltSmplDual { get; set; }
   public ItestGnrcAltSmplDualObject AsGnrcAltSmplDual { get; set; }
 }
 
@@ -1927,7 +1927,7 @@ public class testRefGnrcAltSmplDual<Tref>
 public class testGnrcAltSmplInp
   : ItestGnrcAltSmplInp
 {
-  public ItestRefGnrcAltSmplInp<ItestString> AsRefGnrcAltSmplInp { get; set; }
+  public ItestRefGnrcAltSmplInp<string> AsRefGnrcAltSmplInp { get; set; }
   public ItestGnrcAltSmplInpObject AsGnrcAltSmplInp { get; set; }
 }
 
@@ -1941,7 +1941,7 @@ public class testRefGnrcAltSmplInp<Tref>
 public class testGnrcAltSmplOutp
   : ItestGnrcAltSmplOutp
 {
-  public ItestRefGnrcAltSmplOutp<ItestString> AsRefGnrcAltSmplOutp { get; set; }
+  public ItestRefGnrcAltSmplOutp<string> AsRefGnrcAltSmplOutp { get; set; }
   public ItestGnrcAltSmplOutpObject AsGnrcAltSmplOutp { get; set; }
 }
 
@@ -2095,8 +2095,8 @@ public class testRefGnrcFieldDualDual<Tref>
 public class testAltGnrcFieldDualDual
   : ItestAltGnrcFieldDualDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldDualDualObject AsAltGnrcFieldDualDual { get; set; }
 }
 
@@ -2117,8 +2117,8 @@ public class testRefGnrcFieldDualInp<Tref>
 public class testAltGnrcFieldDualInp
   : ItestAltGnrcFieldDualInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldDualInpObject AsAltGnrcFieldDualInp { get; set; }
 }
 
@@ -2139,8 +2139,8 @@ public class testRefGnrcFieldDualOutp<Tref>
 public class testAltGnrcFieldDualOutp
   : ItestAltGnrcFieldDualOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldDualOutpObject AsAltGnrcFieldDualOutp { get; set; }
 }
 
@@ -2161,8 +2161,8 @@ public class testRefGnrcFieldParamDual<Tref>
 public class testAltGnrcFieldParamDual
   : ItestAltGnrcFieldParamDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldParamDualObject AsAltGnrcFieldParamDual { get; set; }
 }
 
@@ -2183,8 +2183,8 @@ public class testRefGnrcFieldParamInp<Tref>
 public class testAltGnrcFieldParamInp
   : ItestAltGnrcFieldParamInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldParamInpObject AsAltGnrcFieldParamInp { get; set; }
 }
 
@@ -2205,8 +2205,8 @@ public class testRefGnrcFieldParamOutp<Tref>
 public class testAltGnrcFieldParamOutp
   : ItestAltGnrcFieldParamOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldParamOutpObject AsAltGnrcFieldParamOutp { get; set; }
 }
 
@@ -2311,8 +2311,8 @@ public class testRefGnrcPrntDualDual<Tref>
 public class testAltGnrcPrntDualDual
   : ItestAltGnrcPrntDualDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualDualObject AsAltGnrcPrntDualDual { get; set; }
 }
 
@@ -2333,8 +2333,8 @@ public class testRefGnrcPrntDualInp<Tref>
 public class testAltGnrcPrntDualInp
   : ItestAltGnrcPrntDualInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualInpObject AsAltGnrcPrntDualInp { get; set; }
 }
 
@@ -2355,8 +2355,8 @@ public class testRefGnrcPrntDualOutp<Tref>
 public class testAltGnrcPrntDualOutp
   : ItestAltGnrcPrntDualOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualOutpObject AsAltGnrcPrntDualOutp { get; set; }
 }
 
@@ -2377,8 +2377,8 @@ public class testRefGnrcPrntDualPrntDual<Tref>
 public class testAltGnrcPrntDualPrntDual
   : ItestAltGnrcPrntDualPrntDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualPrntDualObject AsAltGnrcPrntDualPrntDual { get; set; }
 }
 
@@ -2399,8 +2399,8 @@ public class testRefGnrcPrntDualPrntInp<Tref>
 public class testAltGnrcPrntDualPrntInp
   : ItestAltGnrcPrntDualPrntInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualPrntInpObject AsAltGnrcPrntDualPrntInp { get; set; }
 }
 
@@ -2421,8 +2421,8 @@ public class testRefGnrcPrntDualPrntOutp<Tref>
 public class testAltGnrcPrntDualPrntOutp
   : ItestAltGnrcPrntDualPrntOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualPrntOutpObject AsAltGnrcPrntDualPrntOutp { get; set; }
 }
 
@@ -2587,8 +2587,8 @@ public class testRefGnrcPrntParamDual<Tref>
 public class testAltGnrcPrntParamDual
   : ItestAltGnrcPrntParamDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamDualObject AsAltGnrcPrntParamDual { get; set; }
 }
 
@@ -2609,8 +2609,8 @@ public class testRefGnrcPrntParamInp<Tref>
 public class testAltGnrcPrntParamInp
   : ItestAltGnrcPrntParamInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamInpObject AsAltGnrcPrntParamInp { get; set; }
 }
 
@@ -2631,8 +2631,8 @@ public class testRefGnrcPrntParamOutp<Tref>
 public class testAltGnrcPrntParamOutp
   : ItestAltGnrcPrntParamOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamOutpObject AsAltGnrcPrntParamOutp { get; set; }
 }
 
@@ -2653,8 +2653,8 @@ public class testRefGnrcPrntParamPrntDual<Tref>
 public class testAltGnrcPrntParamPrntDual
   : ItestAltGnrcPrntParamPrntDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamPrntDualObject AsAltGnrcPrntParamPrntDual { get; set; }
 }
 
@@ -2675,8 +2675,8 @@ public class testRefGnrcPrntParamPrntInp<Tref>
 public class testAltGnrcPrntParamPrntInp
   : ItestAltGnrcPrntParamPrntInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamPrntInpObject AsAltGnrcPrntParamPrntInp { get; set; }
 }
 
@@ -2697,8 +2697,8 @@ public class testRefGnrcPrntParamPrntOutp<Tref>
 public class testAltGnrcPrntParamPrntOutp
   : ItestAltGnrcPrntParamPrntOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamPrntOutpObject AsAltGnrcPrntParamPrntOutp { get; set; }
 }
 
@@ -2849,7 +2849,7 @@ public class testRefGnrcValueOutp<Ttype>
 public class testInpFieldDescrNmbr
   : ItestInpFieldDescrNmbr
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestInpFieldDescrNmbrObject AsInpFieldDescrNmbr { get; set; }
 }
 
@@ -2876,21 +2876,21 @@ public class testFldInpFieldNull
 public class testInpFieldNmbr
   : ItestInpFieldNmbr
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestInpFieldNmbrObject AsInpFieldNmbr { get; set; }
 }
 
 public class testInpFieldNmbrDescr
   : ItestInpFieldNmbrDescr
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestInpFieldNmbrDescrObject AsInpFieldNmbrDescr { get; set; }
 }
 
 public class testInpFieldStr
   : ItestInpFieldStr
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestInpFieldStrObject AsInpFieldStr { get; set; }
 }
 
@@ -2910,8 +2910,8 @@ public class testFldOutpDescrParam
 public class testInOutpDescrParam
   : ItestInOutpDescrParam
 {
-  public ItestNumber Param { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpDescrParamObject AsInOutpDescrParam { get; set; }
 }
 
@@ -2931,8 +2931,8 @@ public class testFldOutpParam
 public class testInOutpParam
   : ItestInOutpParam
 {
-  public ItestNumber Param { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamObject AsInOutpParam { get; set; }
 }
 
@@ -2952,8 +2952,8 @@ public class testFldOutpParamDescr
 public class testInOutpParamDescr
   : ItestInOutpParamDescr
 {
-  public ItestNumber Param { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamDescrObject AsInOutpParamDescr { get; set; }
 }
 
@@ -2967,8 +2967,8 @@ public class testOutpParamModDmn
 public class testInOutpParamModDmn
   : ItestInOutpParamModDmn
 {
-  public ItestNumber Param { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamModDmnObject AsInOutpParamModDmn { get; set; }
 }
 
@@ -2988,8 +2988,8 @@ public class testOutpParamModParam<Tmod>
 public class testInOutpParamModParam
   : ItestInOutpParamModParam
 {
-  public ItestNumber Param { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamModParamObject AsInOutpParamModParam { get; set; }
 }
 
@@ -3015,8 +3015,8 @@ public class testFldOutpParamTypeDescr
 public class testInOutpParamTypeDescr
   : ItestInOutpParamTypeDescr
 {
-  public ItestNumber Param { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamTypeDescrObject AsInOutpParamTypeDescr { get; set; }
 }
 
@@ -3058,16 +3058,16 @@ public class testFldOutpPrntParam
 public class testInOutpPrntParam
   : ItestInOutpPrntParam
 {
-  public ItestNumber Param { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpPrntParamObject AsInOutpPrntParam { get; set; }
 }
 
 public class testPrntOutpPrntParamIn
   : ItestPrntOutpPrntParamIn
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; set; }
 }
 
@@ -3081,8 +3081,8 @@ public class testPrntDual
 public class testRefPrntDual
   : ItestRefPrntDual
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDualObject AsRefPrntDual { get; set; }
 }
 
@@ -3096,8 +3096,8 @@ public class testPrntInp
 public class testRefPrntInp
   : ItestRefPrntInp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntInpObject AsRefPrntInp { get; set; }
 }
 
@@ -3111,8 +3111,8 @@ public class testPrntOutp
 public class testRefPrntOutp
   : ItestRefPrntOutp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntOutpObject AsRefPrntOutp { get; set; }
 }
 
@@ -3120,15 +3120,15 @@ public class testPrntAltDual
   : testRefPrntAltDual
   , ItestPrntAltDual
 {
-  public ItestNumber AsNumber { get; set; }
+  public decimal AsNumber { get; set; }
   public ItestPrntAltDualObject AsPrntAltDual { get; set; }
 }
 
 public class testRefPrntAltDual
   : ItestRefPrntAltDual
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntAltDualObject AsRefPrntAltDual { get; set; }
 }
 
@@ -3136,15 +3136,15 @@ public class testPrntAltInp
   : testRefPrntAltInp
   , ItestPrntAltInp
 {
-  public ItestNumber AsNumber { get; set; }
+  public decimal AsNumber { get; set; }
   public ItestPrntAltInpObject AsPrntAltInp { get; set; }
 }
 
 public class testRefPrntAltInp
   : ItestRefPrntAltInp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntAltInpObject AsRefPrntAltInp { get; set; }
 }
 
@@ -3152,15 +3152,15 @@ public class testPrntAltOutp
   : testRefPrntAltOutp
   , ItestPrntAltOutp
 {
-  public ItestNumber AsNumber { get; set; }
+  public decimal AsNumber { get; set; }
   public ItestPrntAltOutpObject AsPrntAltOutp { get; set; }
 }
 
 public class testRefPrntAltOutp
   : ItestRefPrntAltOutp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntAltOutpObject AsRefPrntAltOutp { get; set; }
 }
 
@@ -3174,8 +3174,8 @@ public class testPrntDescrDual
 public class testRefPrntDescrDual
   : ItestRefPrntDescrDual
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDescrDualObject AsRefPrntDescrDual { get; set; }
 }
 
@@ -3189,8 +3189,8 @@ public class testPrntDescrInp
 public class testRefPrntDescrInp
   : ItestRefPrntDescrInp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDescrInpObject AsRefPrntDescrInp { get; set; }
 }
 
@@ -3204,8 +3204,8 @@ public class testPrntDescrOutp
 public class testRefPrntDescrOutp
   : ItestRefPrntDescrOutp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDescrOutpObject AsRefPrntDescrOutp { get; set; }
 }
 
@@ -3219,8 +3219,8 @@ public class testPrntDualDual
 public class testRefPrntDualDual
   : ItestRefPrntDualDual
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDualDualObject AsRefPrntDualDual { get; set; }
 }
 
@@ -3234,8 +3234,8 @@ public class testPrntDualInp
 public class testRefPrntDualInp
   : ItestRefPrntDualInp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDualInpObject AsRefPrntDualInp { get; set; }
 }
 
@@ -3249,8 +3249,8 @@ public class testPrntDualOutp
 public class testRefPrntDualOutp
   : ItestRefPrntDualOutp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDualOutpObject AsRefPrntDualOutp { get; set; }
 }
 
@@ -3258,15 +3258,15 @@ public class testPrntFieldDual
   : testRefPrntFieldDual
   , ItestPrntFieldDual
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestPrntFieldDualObject AsPrntFieldDual { get; set; }
 }
 
 public class testRefPrntFieldDual
   : ItestRefPrntFieldDual
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntFieldDualObject AsRefPrntFieldDual { get; set; }
 }
 
@@ -3274,15 +3274,15 @@ public class testPrntFieldInp
   : testRefPrntFieldInp
   , ItestPrntFieldInp
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestPrntFieldInpObject AsPrntFieldInp { get; set; }
 }
 
 public class testRefPrntFieldInp
   : ItestRefPrntFieldInp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntFieldInpObject AsRefPrntFieldInp { get; set; }
 }
 
@@ -3290,15 +3290,15 @@ public class testPrntFieldOutp
   : testRefPrntFieldOutp
   , ItestPrntFieldOutp
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestPrntFieldOutpObject AsPrntFieldOutp { get; set; }
 }
 
 public class testRefPrntFieldOutp
   : ItestRefPrntFieldOutp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntFieldOutpObject AsRefPrntFieldOutp { get; set; }
 }
 
@@ -3572,24 +3572,24 @@ public class testObjAltOutpType
 public class testObjAltEnumDual
   : ItestObjAltEnumDual
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumDualObject AsObjAltEnumDual { get; set; }
 }
 
 public class testObjAltEnumInp
   : ItestObjAltEnumInp
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumInpObject AsObjAltEnumInp { get; set; }
 }
 
 public class testObjAltEnumOutp
   : ItestObjAltEnumOutp
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumOutpObject AsObjAltEnumOutp { get; set; }
 }
 
@@ -3698,63 +3698,63 @@ public class testFldObjFieldAliasOutp
 public class testObjFieldEnumAliasDual
   : ItestObjFieldEnumAliasDual
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; set; }
 }
 
 public class testObjFieldEnumAliasInp
   : ItestObjFieldEnumAliasInp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; set; }
 }
 
 public class testObjFieldEnumAliasOutp
   : ItestObjFieldEnumAliasOutp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumAliasOutpObject AsObjFieldEnumAliasOutp { get; set; }
 }
 
 public class testObjFieldEnumValueDual
   : ItestObjFieldEnumValueDual
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; set; }
 }
 
 public class testObjFieldEnumValueInp
   : ItestObjFieldEnumValueInp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumValueInpObject AsObjFieldEnumValueInp { get; set; }
 }
 
 public class testObjFieldEnumValueOutp
   : ItestObjFieldEnumValueOutp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumValueOutpObject AsObjFieldEnumValueOutp { get; set; }
 }
 
 public class testObjFieldTypeAliasDual
   : ItestObjFieldTypeAliasDual
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; set; }
 }
 
 public class testObjFieldTypeAliasInp
   : ItestObjFieldTypeAliasInp
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestObjFieldTypeAliasInpObject AsObjFieldTypeAliasInp { get; set; }
 }
 
 public class testObjFieldTypeAliasOutp
   : ItestObjFieldTypeAliasOutp
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestObjFieldTypeAliasOutpObject AsObjFieldTypeAliasOutp { get; set; }
 }
 
@@ -4056,6 +4056,12 @@ public class testPrntDmnNmbrPrntDescr
 public class testDmnNmbrPstv
   : DomainNumber
   , ItestDmnNmbrPstv
+{
+}
+
+public class testDmnNmbrRange
+  : DomainNumber
+  , ItestDmnNmbrRange
 {
 }
 

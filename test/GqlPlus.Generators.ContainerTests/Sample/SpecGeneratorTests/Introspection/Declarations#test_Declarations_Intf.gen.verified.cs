@@ -34,10 +34,10 @@ public interface Itest_Filter
 public interface Itest_FilterObject
 {
   public ICollection<Itest_NameFilter> Names { get; set; }
-  public ItestBoolean? MatchAliases { get; set; }
+  public bool? MatchAliases { get; set; }
   public ICollection<Itest_NameFilter> Aliases { get; set; }
-  public ItestBoolean? ReturnByAlias { get; set; }
-  public ItestBoolean? ReturnReferencedTypes { get; set; }
+  public bool? ReturnByAlias { get; set; }
+  public bool? ReturnReferencedTypes { get; set; }
 }
 
 public interface Itest_NameFilter

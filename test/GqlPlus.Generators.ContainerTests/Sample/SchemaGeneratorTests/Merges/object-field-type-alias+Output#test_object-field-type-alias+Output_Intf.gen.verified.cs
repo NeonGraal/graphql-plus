@@ -12,5 +12,5 @@ public interface ItestObjFieldTypeAliasOutp
 
 public interface ItestObjFieldTypeAliasOutpObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }

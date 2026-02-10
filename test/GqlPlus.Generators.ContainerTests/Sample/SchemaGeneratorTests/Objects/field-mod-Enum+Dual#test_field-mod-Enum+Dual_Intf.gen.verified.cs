@@ -12,5 +12,5 @@ public interface ItestFieldModEnumDual
 
 public interface ItestFieldModEnumDualObject
 {
-  public IDictionary<testEnumFieldModEnumDual, ItestString> Field { get; set; }
+  public IDictionary<testEnumFieldModEnumDual, string> Field { get; set; }
 }

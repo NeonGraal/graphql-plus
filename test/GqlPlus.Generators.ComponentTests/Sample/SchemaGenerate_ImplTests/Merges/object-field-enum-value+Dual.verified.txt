@@ -12,6 +12,6 @@ namespace Components.Gqlp_Schema_object_field_enum_value_Dual;
 public class CmptObjFieldEnumValueDual
   : ICmptObjFieldEnumValueDual
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; set; }
 }

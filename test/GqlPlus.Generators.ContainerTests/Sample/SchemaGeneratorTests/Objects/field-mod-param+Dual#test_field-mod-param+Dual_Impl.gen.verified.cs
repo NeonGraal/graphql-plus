@@ -15,7 +15,7 @@ public class testFieldModParamDual<Tmod>
 public class testFldFieldModParamDual
   : ItestFldFieldModParamDual
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldModParamDualObject AsFldFieldModParamDual { get; set; }
 }

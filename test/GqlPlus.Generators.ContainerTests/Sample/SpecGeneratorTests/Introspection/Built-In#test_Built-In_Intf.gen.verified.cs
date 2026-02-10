@@ -27,7 +27,7 @@ public interface Itest_ModifierKeyedObject<Tkind>
   : Itest_ModifierObject
 {
   public Itest_TypeSimple By { get; set; }
-  public ItestBoolean Optional { get; set; }
+  public bool Optional { get; set; }
 }
 
 public interface Itest_Modifiers

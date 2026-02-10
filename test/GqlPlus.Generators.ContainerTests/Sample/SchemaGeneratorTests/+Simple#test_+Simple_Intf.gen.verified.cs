@@ -135,6 +135,11 @@ public interface ItestDmnNmbrPstv
 {
 }
 
+public interface ItestDmnNmbrRange
+  : IDomainNumber
+{
+}
+
 public interface ItestDmnStrDescr
   : IDomainString
 {

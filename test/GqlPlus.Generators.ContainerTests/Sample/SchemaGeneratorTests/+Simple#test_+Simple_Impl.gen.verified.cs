@@ -161,6 +161,12 @@ public class testDmnNmbrPstv
 {
 }
 
+public class testDmnNmbrRange
+  : DomainNumber
+  , ItestDmnNmbrRange
+{
+}
+
 public class testDmnStrDescr
   : DomainString
   , ItestDmnStrDescr

@@ -21,11 +21,11 @@ public interface ICmptAltDualObject
 
 public interface ICmptAltAltDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltDualObject AsAltAltDual { get; set; }
 }
 
 public interface ICmptAltAltDualObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

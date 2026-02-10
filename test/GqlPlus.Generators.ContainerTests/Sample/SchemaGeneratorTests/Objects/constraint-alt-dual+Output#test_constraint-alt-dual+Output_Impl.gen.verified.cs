@@ -22,7 +22,7 @@ public class testRefCnstAltDualOutp<Tref>
 public class testPrntCnstAltDualOutp
   : ItestPrntCnstAltDualOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltDualOutpObject AsPrntCnstAltDualOutp { get; set; }
 }
 
@@ -30,6 +30,6 @@ public class testAltCnstAltDualOutp
   : testPrntCnstAltDualOutp
   , ItestAltCnstAltDualOutp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstAltDualOutpObject AsAltCnstAltDualOutp { get; set; }
 }

@@ -15,7 +15,7 @@ public class testFieldObjOutp
 public class testFldFieldObjOutp
   : ItestFldFieldObjOutp
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldObjOutpObject AsFldFieldObjOutp { get; set; }
 }

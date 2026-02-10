@@ -17,13 +17,13 @@ public interface ItestOutpParamModDmnObject
 
 public interface ItestInOutpParamModDmn
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamModDmnObject AsInOutpParamModDmn { get; set; }
 }
 
 public interface ItestInOutpParamModDmnObject
 {
-  public ItestNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ItestDomOutpParamModDmn

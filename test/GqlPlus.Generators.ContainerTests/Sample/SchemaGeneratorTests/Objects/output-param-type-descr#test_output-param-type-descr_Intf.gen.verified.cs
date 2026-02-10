@@ -26,11 +26,11 @@ public interface ItestFldOutpParamTypeDescrObject
 
 public interface ItestInOutpParamTypeDescr
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamTypeDescrObject AsInOutpParamTypeDescr { get; set; }
 }
 
 public interface ItestInOutpParamTypeDescrObject
 {
-  public ItestNumber Param { get; set; }
+  public decimal Param { get; set; }
 }

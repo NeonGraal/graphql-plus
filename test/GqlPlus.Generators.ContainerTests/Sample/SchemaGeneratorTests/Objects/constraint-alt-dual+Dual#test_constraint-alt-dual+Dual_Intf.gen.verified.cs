@@ -27,7 +27,7 @@ public interface ItestRefCnstAltDualDualObject<Tref>
 
 public interface ItestPrntCnstAltDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; set; }
 }
 
@@ -44,5 +44,5 @@ public interface ItestAltCnstAltDualDual
 public interface ItestAltCnstAltDualDualObject
   : ItestPrntCnstAltDualDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

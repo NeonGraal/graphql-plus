@@ -15,7 +15,7 @@ public class testFieldModParamOutp<Tmod>
 public class testFldFieldModParamOutp
   : ItestFldFieldModParamOutp
 {
-  public ItestNumber Field { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldModParamOutpObject AsFldFieldModParamOutp { get; set; }
 }

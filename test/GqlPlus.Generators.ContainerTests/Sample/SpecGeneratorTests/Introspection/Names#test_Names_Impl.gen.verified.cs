@@ -24,7 +24,7 @@ public class test_Named
 public class test_Described
   : Itest_Described
 {
-  public ICollection<ItestString> Description { get; set; }
+  public ICollection<string> Description { get; set; }
   public Itest_DescribedObject As_Described { get; set; }
 }
 

@@ -36,7 +36,7 @@ union _Simple [Simple] { _Enum _Domain _Union }
 
 namespace Components.Gqlp_Spec_Definition;
 
-public enum CmptBoolean
+public enum bool
 {
   false,
   true,

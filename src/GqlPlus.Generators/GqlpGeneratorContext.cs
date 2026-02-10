@@ -24,6 +24,12 @@ internal sealed class GqlpGeneratorContext
     AddTypes(BuiltIn.Basic);
   }
 
+  public static readonly Map<string> DotNetTypes = new() {
+    [BuiltIn.StringType] = "string",
+    [BuiltIn.NumberType] = "decimal",
+    [BuiltIn.BooleanType] = "bool",
+  };
+
   public string File { get; }
   public GqlpGeneratorOptions GeneratorOptions { get; }
   public GqlpModelOptions ModelOptions { get; }
@@ -86,11 +92,17 @@ internal sealed class GqlpGeneratorContext
     return null;
   }
 
-  internal string TypeName(IGqlpNamed type)
-    => TypeName(type.Name);
+  internal string TypeName(IGqlpNamed type, string prefix)
+    => TypeName(type.Name, prefix);
 
-  internal string TypeName(string typeName)
-    => ModelOptions.TypePrefix +
+  internal string TypeName(string typeName, string prefix)
+  {
+    if (DotNetTypes.TryGetValue(typeName, out string dotNetType)) {
+      return dotNetType;
+    }
+
+    return prefix + ModelOptions.TypePrefix +
       (_types.TryGetValue(typeName, out IGqlpType theType)
       ? theType.Name : typeName);
+  }
 }

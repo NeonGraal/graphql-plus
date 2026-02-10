@@ -21,11 +21,11 @@ public interface ICmptFieldDualDualObject
 
 public interface ICmptFldFieldDualDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldDualDualObject AsFldFieldDualDual { get; set; }
 }
 
 public interface ICmptFldFieldDualDualObject
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
 }

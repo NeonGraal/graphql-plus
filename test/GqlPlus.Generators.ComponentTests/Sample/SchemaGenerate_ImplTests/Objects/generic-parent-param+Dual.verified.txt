@@ -27,7 +27,7 @@ public class CmptRefGnrcPrntParamDual<Tref>
 public class CmptAltGnrcPrntParamDual
   : ICmptAltGnrcPrntParamDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntParamDualObject AsAltGnrcPrntParamDual { get; set; }
 }

@@ -19,7 +19,7 @@ public class CmptFieldObjOutp
 public class CmptFldFieldObjOutp
   : ICmptFldFieldObjOutp
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldObjOutpObject AsFldFieldObjOutp { get; set; }
 }

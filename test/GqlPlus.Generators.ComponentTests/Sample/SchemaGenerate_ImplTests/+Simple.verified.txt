@@ -160,6 +160,12 @@ public class CmptDmnNmbrPstv
 {
 }
 
+public class CmptDmnNmbrRange
+  : DomainNumber
+  , ICmptDmnNmbrRange
+{
+}
+
 public class CmptDmnStrDescr
   : DomainString
   , ICmptDmnStrDescr

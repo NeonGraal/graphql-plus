@@ -19,7 +19,7 @@ public class CmptAltDualOutp
 public class CmptObjDualAltDualOutp
   : ICmptObjDualAltDualOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptObjDualAltDualOutpObject AsObjDualAltDualOutp { get; set; }
 }

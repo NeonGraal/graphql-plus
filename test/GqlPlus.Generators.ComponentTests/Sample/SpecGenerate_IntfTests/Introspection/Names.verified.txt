@@ -57,7 +57,7 @@ public interface ICmpt_Described
 
 public interface ICmpt_DescribedObject
 {
-  public ICollection<ICmptString> Description { get; set; }
+  public ICollection<string> Description { get; set; }
 }
 
 public interface ICmpt_AndType

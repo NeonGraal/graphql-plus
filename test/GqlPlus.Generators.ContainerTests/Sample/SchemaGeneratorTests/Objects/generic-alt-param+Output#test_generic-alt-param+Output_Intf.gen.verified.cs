@@ -27,11 +27,11 @@ public interface ItestRefGnrcAltParamOutpObject<Tref>
 
 public interface ItestAltGnrcAltParamOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltParamOutpObject AsAltGnrcAltParamOutp { get; set; }
 }
 
 public interface ItestAltGnrcAltParamOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

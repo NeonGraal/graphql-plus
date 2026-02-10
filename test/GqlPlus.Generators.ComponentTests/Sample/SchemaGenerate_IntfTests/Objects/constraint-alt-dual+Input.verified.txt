@@ -33,7 +33,7 @@ public interface ICmptRefCnstAltDualInpObject<Tref>
 
 public interface ICmptPrntCnstAltDualInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstAltDualInpObject AsPrntCnstAltDualInp { get; set; }
 }
 
@@ -50,5 +50,5 @@ public interface ICmptAltCnstAltDualInp
 public interface ICmptAltCnstAltDualInpObject
   : ICmptPrntCnstAltDualInpObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

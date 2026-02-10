@@ -15,8 +15,8 @@ public class testOutpParamModParam<Tmod>
 public class testInOutpParamModParam
   : ItestInOutpParamModParam
 {
-  public ItestNumber Param { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamModParamObject AsInOutpParamModParam { get; set; }
 }
 

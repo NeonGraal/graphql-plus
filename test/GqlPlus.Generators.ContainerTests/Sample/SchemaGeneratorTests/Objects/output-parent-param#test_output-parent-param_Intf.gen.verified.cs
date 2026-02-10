@@ -38,22 +38,22 @@ public interface ItestFldOutpPrntParamObject
 
 public interface ItestInOutpPrntParam
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpPrntParamObject AsInOutpPrntParam { get; set; }
 }
 
 public interface ItestInOutpPrntParamObject
 {
-  public ItestNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ItestPrntOutpPrntParamIn
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; set; }
 }
 
 public interface ItestPrntOutpPrntParamInObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }

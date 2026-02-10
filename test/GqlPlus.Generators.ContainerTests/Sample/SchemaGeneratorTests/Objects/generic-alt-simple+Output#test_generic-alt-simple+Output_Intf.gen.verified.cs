@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Output;
 
 public interface ItestGnrcAltSmplOutp
 {
-  public ItestRefGnrcAltSmplOutp<ItestString> AsRefGnrcAltSmplOutp { get; set; }
+  public ItestRefGnrcAltSmplOutp<string> AsRefGnrcAltSmplOutp { get; set; }
   public ItestGnrcAltSmplOutpObject AsGnrcAltSmplOutp { get; set; }
 }
 

@@ -27,7 +27,7 @@ public class CmptRefGnrcAltParamInp<Tref>
 public class CmptAltGnrcAltParamInp
   : ICmptAltGnrcAltParamInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcAltParamInpObject AsAltGnrcAltParamInp { get; set; }
 }

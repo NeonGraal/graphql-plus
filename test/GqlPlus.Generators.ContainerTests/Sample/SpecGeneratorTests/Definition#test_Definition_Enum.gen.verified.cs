@@ -5,7 +5,7 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
-public enum testBoolean
+public enum bool
 {
   false,
   true,

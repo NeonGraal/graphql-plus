@@ -14,16 +14,16 @@ public interface ItestPrntFieldInp
 public interface ItestPrntFieldInpObject
   : ItestRefPrntFieldInpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public interface ItestRefPrntFieldInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntFieldInpObject AsRefPrntFieldInp { get; set; }
 }
 
 public interface ItestRefPrntFieldInpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }

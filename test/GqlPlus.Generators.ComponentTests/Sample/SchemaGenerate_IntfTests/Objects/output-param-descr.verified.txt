@@ -31,11 +31,11 @@ public interface ICmptFldOutpParamDescrObject
 
 public interface ICmptInOutpParamDescr
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpParamDescrObject AsInOutpParamDescr { get; set; }
 }
 
 public interface ICmptInOutpParamDescrObject
 {
-  public ICmptNumber Param { get; set; }
+  public decimal Param { get; set; }
 }

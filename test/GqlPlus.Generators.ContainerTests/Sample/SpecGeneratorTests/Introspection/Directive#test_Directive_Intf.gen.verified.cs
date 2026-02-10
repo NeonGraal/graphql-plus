@@ -28,6 +28,6 @@ public interface Itest_DirectiveObject
   : Itest_AliasedObject
 {
   public ICollection<Itest_InputParam> Parameters { get; set; }
-  public ItestBoolean Repeatable { get; set; }
+  public bool Repeatable { get; set; }
   public IDictionary<test_Location, ItestUnit> Locations { get; set; }
 }

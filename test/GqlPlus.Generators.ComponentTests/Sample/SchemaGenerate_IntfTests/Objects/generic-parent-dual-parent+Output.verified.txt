@@ -34,11 +34,11 @@ public interface ICmptRefGnrcPrntDualPrntOutpObject<Tref>
 
 public interface ICmptAltGnrcPrntDualPrntOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntDualPrntOutpObject AsAltGnrcPrntDualPrntOutp { get; set; }
 }
 
 public interface ICmptAltGnrcPrntDualPrntOutpObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

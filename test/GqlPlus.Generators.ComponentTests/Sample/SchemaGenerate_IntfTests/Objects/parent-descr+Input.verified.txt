@@ -22,11 +22,11 @@ public interface ICmptPrntDescrInpObject
 
 public interface ICmptRefPrntDescrInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntDescrInpObject AsRefPrntDescrInp { get; set; }
 }
 
 public interface ICmptRefPrntDescrInpObject
 {
-  public ICmptNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }

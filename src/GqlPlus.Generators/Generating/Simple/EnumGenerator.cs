@@ -11,7 +11,7 @@ internal sealed class EnumGenerator
   }
 
   private void EnumHeader(IGqlpEnum ast, GqlpGeneratorContext context)
-    => context.Write($"public enum " + context.TypeName(ast));
+    => context.Write($"public enum " + context.TypeName(ast, ""));
 
   private void EnumMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write("  " + item.Key + item.Value + ",");

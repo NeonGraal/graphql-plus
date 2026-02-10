@@ -17,13 +17,13 @@ public interface ItestOutpParamModParamObject<Tmod>
 
 public interface ItestInOutpParamModParam
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamModParamObject AsInOutpParamModParam { get; set; }
 }
 
 public interface ItestInOutpParamModParamObject
 {
-  public ItestNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ItestDomOutpParamModParam

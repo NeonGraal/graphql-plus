@@ -45,22 +45,22 @@ public interface ICmptFldOutpPrntParamObject
 
 public interface ICmptInOutpPrntParam
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpPrntParamObject AsInOutpPrntParam { get; set; }
 }
 
 public interface ICmptInOutpPrntParamObject
 {
-  public ICmptNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ICmptPrntOutpPrntParamIn
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; set; }
 }
 
 public interface ICmptPrntOutpPrntParamInObject
 {
-  public ICmptNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }

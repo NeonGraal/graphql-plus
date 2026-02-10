@@ -8,6 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_Input;
 public class testFieldInp
   : ItestFieldInp
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestFieldInpObject AsFieldInp { get; set; }
 }

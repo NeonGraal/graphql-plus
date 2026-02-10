@@ -21,7 +21,7 @@ public class testFldOutpParamDescr
 public class testInOutpParamDescr
   : ItestInOutpParamDescr
 {
-  public ItestNumber Param { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpParamDescrObject AsInOutpParamDescr { get; set; }
 }

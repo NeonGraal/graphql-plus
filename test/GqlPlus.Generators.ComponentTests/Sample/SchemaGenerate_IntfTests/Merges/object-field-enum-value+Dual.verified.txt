@@ -16,5 +16,5 @@ public interface ICmptObjFieldEnumValueDual
 
 public interface ICmptObjFieldEnumValueDualObject
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
 }

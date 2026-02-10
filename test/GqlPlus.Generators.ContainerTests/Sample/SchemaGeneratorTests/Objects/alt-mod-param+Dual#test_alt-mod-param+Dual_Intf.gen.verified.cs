@@ -17,11 +17,11 @@ public interface ItestAltModParamDualObject<Tmod>
 
 public interface ItestAltAltModParamDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModParamDualObject AsAltAltModParamDual { get; set; }
 }
 
 public interface ItestAltAltModParamDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

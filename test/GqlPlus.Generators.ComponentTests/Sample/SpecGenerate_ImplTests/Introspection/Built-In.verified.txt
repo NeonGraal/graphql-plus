@@ -43,7 +43,7 @@ public class Cmpt_ModifierKeyed<Tkind>
   , ICmpt_ModifierKeyed<Tkind>
 {
   public ICmpt_TypeSimple By { get; set; }
-  public ICmptBoolean Optional { get; set; }
+  public bool Optional { get; set; }
   public ICmpt_ModifierKeyedObject As_ModifierKeyed { get; set; }
 }
 

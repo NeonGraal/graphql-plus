@@ -223,8 +223,8 @@ public interface ItestObjAltOutpTypeObject
 
 public interface ItestObjAltEnumDual
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumDualObject AsObjAltEnumDual { get; set; }
 }
 
@@ -234,8 +234,8 @@ public interface ItestObjAltEnumDualObject
 
 public interface ItestObjAltEnumInp
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumInpObject AsObjAltEnumInp { get; set; }
 }
 
@@ -245,8 +245,8 @@ public interface ItestObjAltEnumInpObject
 
 public interface ItestObjAltEnumOutp
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumOutpObject AsObjAltEnumOutp { get; set; }
 }
 
@@ -408,7 +408,7 @@ public interface ItestObjFieldEnumAliasDual
 
 public interface ItestObjFieldEnumAliasDualObject
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
 }
 
 public interface ItestObjFieldEnumAliasInp
@@ -418,7 +418,7 @@ public interface ItestObjFieldEnumAliasInp
 
 public interface ItestObjFieldEnumAliasInpObject
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
 }
 
 public interface ItestObjFieldEnumAliasOutp
@@ -428,7 +428,7 @@ public interface ItestObjFieldEnumAliasOutp
 
 public interface ItestObjFieldEnumAliasOutpObject
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
 }
 
 public interface ItestObjFieldEnumValueDual
@@ -438,7 +438,7 @@ public interface ItestObjFieldEnumValueDual
 
 public interface ItestObjFieldEnumValueDualObject
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
 }
 
 public interface ItestObjFieldEnumValueInp
@@ -448,7 +448,7 @@ public interface ItestObjFieldEnumValueInp
 
 public interface ItestObjFieldEnumValueInpObject
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
 }
 
 public interface ItestObjFieldEnumValueOutp
@@ -458,7 +458,7 @@ public interface ItestObjFieldEnumValueOutp
 
 public interface ItestObjFieldEnumValueOutpObject
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
 }
 
 public interface ItestObjFieldTypeAliasDual
@@ -468,7 +468,7 @@ public interface ItestObjFieldTypeAliasDual
 
 public interface ItestObjFieldTypeAliasDualObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }
 
 public interface ItestObjFieldTypeAliasInp
@@ -478,7 +478,7 @@ public interface ItestObjFieldTypeAliasInp
 
 public interface ItestObjFieldTypeAliasInpObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }
 
 public interface ItestObjFieldTypeAliasOutp
@@ -488,7 +488,7 @@ public interface ItestObjFieldTypeAliasOutp
 
 public interface ItestObjFieldTypeAliasOutpObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }
 
 public interface ItestObjParamDual<Ttest,Ttype>

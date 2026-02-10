@@ -19,7 +19,7 @@ public class CmptAltModParamDual<Tmod>
 public class CmptAltAltModParamDual
   : ICmptAltAltModParamDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltModParamDualObject AsAltAltModParamDual { get; set; }
 }

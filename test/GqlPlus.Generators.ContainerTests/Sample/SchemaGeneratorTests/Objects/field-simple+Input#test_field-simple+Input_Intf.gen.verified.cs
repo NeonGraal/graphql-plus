@@ -12,5 +12,5 @@ public interface ItestFieldSmplInp
 
 public interface ItestFieldSmplInpObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }

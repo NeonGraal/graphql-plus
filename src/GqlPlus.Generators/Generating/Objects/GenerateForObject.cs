@@ -24,7 +24,7 @@ internal class GenerateForObject<TObjField>
   private IEnumerable<MapPair<string>> AlternateMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
     => ast.Alternates
       .Select(a => ModifiedTypeString(a, a, context).ToPair("As" + (a.EnumValue is not null ? a.Name + a.EnumValue.EnumLabel : a.Name)))
-      .Append(("I" + context.TypeName(ast) + "Object").ToPair("As" + ast.Name));
+      .Append((context.TypeName(ast, "I") + "Object").ToPair("As" + ast.Name));
 
   protected string ModifiedTypeString(IGqlpObjType type, IGqlpModifiers modifiers, GqlpGeneratorContext context)
     => modifiers.Modifiers.Aggregate(TypeString(type, context, "I"), (s, m) => ModifyTypeString(s, m, context));
@@ -43,7 +43,7 @@ internal class GenerateForObject<TObjField>
     if (modifier.ModifierKind == ModifierKind.Param) {
       keyTypeStr = "T" + modifier.Key;
     } else {
-      keyTypeStr = context.TypeName(modifier.Key);
+      keyTypeStr = context.TypeName(modifier.Key, "");
     }
 
     return $"IDictionary<{keyTypeStr}, {typeStr}>";
@@ -57,16 +57,16 @@ internal class GenerateForObject<TObjField>
 
     string args = type is IGqlpObjBase baseAst ? baseAst.Args.Surround("<", ">", a => TypeString(a!, context, prefix), ", ") : "";
 
-    return prefix + context.TypeName(type) + args;
+    return context.TypeName(type, prefix) + args;
   }
 
   private void InterfaceFieldsHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
 
-    context.Write($"public interface I{context.TypeName(ast)}Object{typeParams}");
+    context.Write($"public interface {context.TypeName(ast, "I")}Object{typeParams}");
     if (ast.Parent is not null) {
-      context.Write("  : I" + context.TypeName(ast.Parent) + "Object");
+      context.Write("  : " + context.TypeName(ast.Parent, "I") + "Object");
     }
   }
 
@@ -74,9 +74,9 @@ internal class GenerateForObject<TObjField>
   {
     string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
 
-    context.Write($"public interface I{context.TypeName(ast)}{typeParams}");
+    context.Write($"public interface {context.TypeName(ast, "I")}{typeParams}");
     if (ast.Parent is not null) {
-      context.Write("  : I" + context.TypeName(ast.Parent));
+      context.Write("  : " + context.TypeName(ast.Parent, "I"));
     }
   }
 
@@ -84,13 +84,13 @@ internal class GenerateForObject<TObjField>
   {
     string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
 
-    context.Write($"public class {context.TypeName(ast)}{typeParams}");
+    context.Write($"public class {context.TypeName(ast, "")}{typeParams}");
 
     if (ast.Parent is not null) {
-      context.Write("  : " + context.TypeName(ast.Parent));
-      context.Write("  , I" + context.TypeName(ast) + typeParams);
+      context.Write("  : " + context.TypeName(ast.Parent, ""));
+      context.Write("  , " + context.TypeName(ast, "I") + typeParams);
     } else {
-      context.Write("  : I" + context.TypeName(ast) + typeParams);
+      context.Write("  : " + context.TypeName(ast, "I") + typeParams);
     }
   }
 }

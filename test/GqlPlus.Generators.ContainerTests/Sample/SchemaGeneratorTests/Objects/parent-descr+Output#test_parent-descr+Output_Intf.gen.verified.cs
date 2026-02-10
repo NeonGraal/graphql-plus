@@ -18,11 +18,11 @@ public interface ItestPrntDescrOutpObject
 
 public interface ItestRefPrntDescrOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDescrOutpObject AsRefPrntDescrOutp { get; set; }
 }
 
 public interface ItestRefPrntDescrOutpObject
 {
-  public ItestNumber Parent { get; set; }
+  public decimal Parent { get; set; }
 }

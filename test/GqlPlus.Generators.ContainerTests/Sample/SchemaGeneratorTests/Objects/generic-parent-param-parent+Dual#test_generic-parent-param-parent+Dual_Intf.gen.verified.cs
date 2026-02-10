@@ -29,11 +29,11 @@ public interface ItestRefGnrcPrntParamPrntDualObject<Tref>
 
 public interface ItestAltGnrcPrntParamPrntDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntParamPrntDualObject AsAltGnrcPrntParamPrntDual { get; set; }
 }
 
 public interface ItestAltGnrcPrntParamPrntDualObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

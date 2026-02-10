@@ -12,5 +12,5 @@ public interface ItestFieldOutp
 
 public interface ItestFieldOutpObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }

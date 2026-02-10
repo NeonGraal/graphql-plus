@@ -36,15 +36,15 @@ union _Simple [Simple] { _Enum _Domain _Union }
 
 namespace Components.Gqlp_Spec_Definition;
 
-public class CmptNumber
+public class decimal
   : DomainNumber
-  , ICmptNumber
+  , decimal
 {
 }
 
-public class CmptString
+public class string
   : DomainString
-  , ICmptString
+  , string
 {
 }
 

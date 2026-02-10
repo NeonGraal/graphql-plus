@@ -28,7 +28,7 @@ public interface ItestRefCnstFieldObjInpObject<Tref>
 
 public interface ItestPrntCnstFieldObjInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldObjInpObject AsPrntCnstFieldObjInp { get; set; }
 }
 
@@ -45,5 +45,5 @@ public interface ItestAltCnstFieldObjInp
 public interface ItestAltCnstFieldObjInpObject
   : ItestPrntCnstFieldObjInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

@@ -34,7 +34,7 @@ public interface ICmptRefCnstFieldObjDualObject<Tref>
 
 public interface ICmptPrntCnstFieldObjDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstFieldObjDualObject AsPrntCnstFieldObjDual { get; set; }
 }
 
@@ -51,5 +51,5 @@ public interface ICmptAltCnstFieldObjDual
 public interface ICmptAltCnstFieldObjDualObject
   : ICmptPrntCnstFieldObjDualObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

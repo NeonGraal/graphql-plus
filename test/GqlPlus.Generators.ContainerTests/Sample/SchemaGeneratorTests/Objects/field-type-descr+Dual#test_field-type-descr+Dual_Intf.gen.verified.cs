@@ -12,5 +12,5 @@ public interface ItestFieldTypeDescrDual
 
 public interface ItestFieldTypeDescrDualObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }

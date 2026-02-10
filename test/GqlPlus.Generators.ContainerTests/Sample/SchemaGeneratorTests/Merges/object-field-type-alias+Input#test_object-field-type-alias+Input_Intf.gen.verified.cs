@@ -12,5 +12,5 @@ public interface ItestObjFieldTypeAliasInp
 
 public interface ItestObjFieldTypeAliasInpObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }

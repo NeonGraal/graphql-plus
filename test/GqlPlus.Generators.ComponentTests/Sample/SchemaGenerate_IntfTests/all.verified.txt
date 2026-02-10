@@ -50,12 +50,12 @@ public interface ICmptField
 
 public interface ICmptFieldObject
 {
-  public ICollection<ICmptString> Strings { get; set; }
+  public ICollection<string> Strings { get; set; }
 }
 
 public interface ICmptParam
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptParamObject AsParam { get; set; }
 }
 
@@ -67,7 +67,7 @@ public interface ICmptParamObject
 
 public interface ICmptAll
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAllObject AsAll { get; set; }
 }
 

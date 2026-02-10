@@ -16,5 +16,5 @@ public interface ICmptObjFieldEnumAliasInp
 
 public interface ICmptObjFieldEnumAliasInpObject
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
 }

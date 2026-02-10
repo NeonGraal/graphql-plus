@@ -21,11 +21,11 @@ public interface ICmptFieldObjOutpObject
 
 public interface ICmptFldFieldObjOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldObjOutpObject AsFldFieldObjOutp { get; set; }
 }
 
 public interface ICmptFldFieldObjOutpObject
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
 }

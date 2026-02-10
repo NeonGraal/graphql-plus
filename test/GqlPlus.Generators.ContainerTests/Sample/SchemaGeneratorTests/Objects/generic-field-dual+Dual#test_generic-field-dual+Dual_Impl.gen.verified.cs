@@ -22,7 +22,7 @@ public class testRefGnrcFieldDualDual<Tref>
 public class testAltGnrcFieldDualDual
   : ItestAltGnrcFieldDualDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldDualDualObject AsAltGnrcFieldDualDual { get; set; }
 }

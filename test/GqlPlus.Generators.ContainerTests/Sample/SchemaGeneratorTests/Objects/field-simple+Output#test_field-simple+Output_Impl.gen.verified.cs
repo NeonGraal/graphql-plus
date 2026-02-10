@@ -8,6 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Output;
 public class testFieldSmplOutp
   : ItestFieldSmplOutp
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestFieldSmplOutpObject AsFieldSmplOutp { get; set; }
 }

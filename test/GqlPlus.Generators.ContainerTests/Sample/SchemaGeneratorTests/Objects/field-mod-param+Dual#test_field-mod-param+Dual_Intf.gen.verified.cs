@@ -17,11 +17,11 @@ public interface ItestFieldModParamDualObject<Tmod>
 
 public interface ItestFldFieldModParamDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestFldFieldModParamDualObject AsFldFieldModParamDual { get; set; }
 }
 
 public interface ItestFldFieldModParamDualObject
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
 }

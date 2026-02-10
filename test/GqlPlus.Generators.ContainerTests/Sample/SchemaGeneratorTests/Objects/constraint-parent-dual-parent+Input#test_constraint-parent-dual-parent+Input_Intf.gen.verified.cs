@@ -29,7 +29,7 @@ public interface ItestRefCnstPrntDualPrntInpObject<Tref>
 
 public interface ItestPrntCnstPrntDualPrntInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntDualPrntInpObject AsPrntCnstPrntDualPrntInp { get; set; }
 }
 
@@ -46,5 +46,5 @@ public interface ItestAltCnstPrntDualPrntInp
 public interface ItestAltCnstPrntDualPrntInpObject
   : ItestPrntCnstPrntDualPrntInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

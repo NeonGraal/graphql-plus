@@ -12,5 +12,5 @@ public interface ItestObjFieldTypeAliasDual
 
 public interface ItestObjFieldTypeAliasDualObject
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
 }

@@ -34,7 +34,7 @@ public interface ICmptRefCnstFieldObjInpObject<Tref>
 
 public interface ICmptPrntCnstFieldObjInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstFieldObjInpObject AsPrntCnstFieldObjInp { get; set; }
 }
 
@@ -51,5 +51,5 @@ public interface ICmptAltCnstFieldObjInp
 public interface ICmptAltCnstFieldObjInpObject
   : ICmptPrntCnstFieldObjInpObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

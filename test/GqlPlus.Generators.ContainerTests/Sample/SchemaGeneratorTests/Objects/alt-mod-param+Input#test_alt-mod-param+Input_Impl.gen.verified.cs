@@ -15,7 +15,7 @@ public class testAltModParamInp<Tmod>
 public class testAltAltModParamInp
   : ItestAltAltModParamInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModParamInpObject AsAltAltModParamInp { get; set; }
 }

@@ -27,7 +27,7 @@ public class CmptRefGnrcFieldDualDual<Tref>
 public class CmptAltGnrcFieldDualDual
   : ICmptAltGnrcFieldDualDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcFieldDualDualObject AsAltGnrcFieldDualDual { get; set; }
 }

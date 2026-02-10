@@ -184,24 +184,24 @@ public class CmptObjAltOutpType
 public class CmptObjAltEnumDual
   : ICmptObjAltEnumDual
 {
-  public ICmptBoolean AsBooleantrue { get; set; }
-  public ICmptBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ICmptObjAltEnumDualObject AsObjAltEnumDual { get; set; }
 }
 
 public class CmptObjAltEnumInp
   : ICmptObjAltEnumInp
 {
-  public ICmptBoolean AsBooleantrue { get; set; }
-  public ICmptBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ICmptObjAltEnumInpObject AsObjAltEnumInp { get; set; }
 }
 
 public class CmptObjAltEnumOutp
   : ICmptObjAltEnumOutp
 {
-  public ICmptBoolean AsBooleantrue { get; set; }
-  public ICmptBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ICmptObjAltEnumOutpObject AsObjAltEnumOutp { get; set; }
 }
 
@@ -310,63 +310,63 @@ public class CmptFldObjFieldAliasOutp
 public class CmptObjFieldEnumAliasDual
   : ICmptObjFieldEnumAliasDual
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; set; }
 }
 
 public class CmptObjFieldEnumAliasInp
   : ICmptObjFieldEnumAliasInp
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; set; }
 }
 
 public class CmptObjFieldEnumAliasOutp
   : ICmptObjFieldEnumAliasOutp
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumAliasOutpObject AsObjFieldEnumAliasOutp { get; set; }
 }
 
 public class CmptObjFieldEnumValueDual
   : ICmptObjFieldEnumValueDual
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; set; }
 }
 
 public class CmptObjFieldEnumValueInp
   : ICmptObjFieldEnumValueInp
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumValueInpObject AsObjFieldEnumValueInp { get; set; }
 }
 
 public class CmptObjFieldEnumValueOutp
   : ICmptObjFieldEnumValueOutp
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumValueOutpObject AsObjFieldEnumValueOutp { get; set; }
 }
 
 public class CmptObjFieldTypeAliasDual
   : ICmptObjFieldTypeAliasDual
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; set; }
 }
 
 public class CmptObjFieldTypeAliasInp
   : ICmptObjFieldTypeAliasInp
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptObjFieldTypeAliasInpObject AsObjFieldTypeAliasInp { get; set; }
 }
 
 public class CmptObjFieldTypeAliasOutp
   : ICmptObjFieldTypeAliasOutp
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptObjFieldTypeAliasOutpObject AsObjFieldTypeAliasOutp { get; set; }
 }
 

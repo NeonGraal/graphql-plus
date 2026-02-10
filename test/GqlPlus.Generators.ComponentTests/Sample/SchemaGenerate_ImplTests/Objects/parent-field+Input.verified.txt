@@ -13,14 +13,14 @@ public class CmptPrntFieldInp
   : CmptRefPrntFieldInp
   , ICmptPrntFieldInp
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptPrntFieldInpObject AsPrntFieldInp { get; set; }
 }
 
 public class CmptRefPrntFieldInp
   : ICmptRefPrntFieldInp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntFieldInpObject AsRefPrntFieldInp { get; set; }
 }

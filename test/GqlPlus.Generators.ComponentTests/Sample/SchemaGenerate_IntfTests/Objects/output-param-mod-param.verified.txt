@@ -1,7 +1,7 @@
 ﻿/* output-param-mod-param
 output OutpParamModParam<$mod:String> { field(InOutpParamModParam[$mod]): DomOutpParamModParam }
 input InOutpParamModParam { param: Number | String }
-domain DomOutpParamModParam { number 1 ~ 10 }
+domain DomOutpParamModParam { number 1 > 10 }
 */
 
 // Generated from Schema output-param-mod-param for Intf
@@ -22,13 +22,13 @@ public interface ICmptOutpParamModParamObject<Tmod>
 
 public interface ICmptInOutpParamModParam
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpParamModParamObject AsInOutpParamModParam { get; set; }
 }
 
 public interface ICmptInOutpParamModParamObject
 {
-  public ICmptNumber Param { get; set; }
+  public decimal Param { get; set; }
 }
 
 public interface ICmptDomOutpParamModParam

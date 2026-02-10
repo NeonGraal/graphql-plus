@@ -35,7 +35,7 @@ public interface ICmptRefCnstPrntObjPrntDualObject<Tref>
 
 public interface ICmptPrntCnstPrntObjPrntDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstPrntObjPrntDualObject AsPrntCnstPrntObjPrntDual { get; set; }
 }
 
@@ -52,5 +52,5 @@ public interface ICmptAltCnstPrntObjPrntDual
 public interface ICmptAltCnstPrntObjPrntDualObject
   : ICmptPrntCnstPrntObjPrntDualObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

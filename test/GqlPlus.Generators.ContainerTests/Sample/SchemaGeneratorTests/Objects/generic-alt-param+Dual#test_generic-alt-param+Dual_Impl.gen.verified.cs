@@ -22,7 +22,7 @@ public class testRefGnrcAltParamDual<Tref>
 public class testAltGnrcAltParamDual
   : ItestAltGnrcAltParamDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltParamDualObject AsAltGnrcAltParamDual { get; set; }
 }

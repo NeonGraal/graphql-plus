@@ -21,11 +21,11 @@ public interface ICmptFieldModParamDualObject<Tmod>
 
 public interface ICmptFldFieldModParamDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldModParamDualObject AsFldFieldModParamDual { get; set; }
 }
 
 public interface ICmptFldFieldModParamDualObject
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
 }

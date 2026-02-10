@@ -185,24 +185,24 @@ public class testObjAltOutpType
 public class testObjAltEnumDual
   : ItestObjAltEnumDual
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumDualObject AsObjAltEnumDual { get; set; }
 }
 
 public class testObjAltEnumInp
   : ItestObjAltEnumInp
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumInpObject AsObjAltEnumInp { get; set; }
 }
 
 public class testObjAltEnumOutp
   : ItestObjAltEnumOutp
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumOutpObject AsObjAltEnumOutp { get; set; }
 }
 
@@ -311,63 +311,63 @@ public class testFldObjFieldAliasOutp
 public class testObjFieldEnumAliasDual
   : ItestObjFieldEnumAliasDual
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; set; }
 }
 
 public class testObjFieldEnumAliasInp
   : ItestObjFieldEnumAliasInp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; set; }
 }
 
 public class testObjFieldEnumAliasOutp
   : ItestObjFieldEnumAliasOutp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumAliasOutpObject AsObjFieldEnumAliasOutp { get; set; }
 }
 
 public class testObjFieldEnumValueDual
   : ItestObjFieldEnumValueDual
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; set; }
 }
 
 public class testObjFieldEnumValueInp
   : ItestObjFieldEnumValueInp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumValueInpObject AsObjFieldEnumValueInp { get; set; }
 }
 
 public class testObjFieldEnumValueOutp
   : ItestObjFieldEnumValueOutp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumValueOutpObject AsObjFieldEnumValueOutp { get; set; }
 }
 
 public class testObjFieldTypeAliasDual
   : ItestObjFieldTypeAliasDual
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; set; }
 }
 
 public class testObjFieldTypeAliasInp
   : ItestObjFieldTypeAliasInp
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestObjFieldTypeAliasInpObject AsObjFieldTypeAliasInp { get; set; }
 }
 
 public class testObjFieldTypeAliasOutp
   : ItestObjFieldTypeAliasOutp
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestObjFieldTypeAliasOutpObject AsObjFieldTypeAliasOutp { get; set; }
 }
 

@@ -32,11 +32,11 @@ public interface ICmptRefGnrcFieldParamOutpObject<Tref>
 
 public interface ICmptAltGnrcFieldParamOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcFieldParamOutpObject AsAltGnrcFieldParamOutp { get; set; }
 }
 
 public interface ICmptAltGnrcFieldParamOutpObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

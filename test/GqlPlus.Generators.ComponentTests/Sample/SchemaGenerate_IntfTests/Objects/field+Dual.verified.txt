@@ -15,5 +15,5 @@ public interface ICmptFieldDual
 
 public interface ICmptFieldDualObject
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
 }

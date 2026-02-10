@@ -17,11 +17,11 @@ public interface ItestAltInpObject
 
 public interface ItestAltAltInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltInpObject AsAltAltInp { get; set; }
 }
 
 public interface ItestAltAltInpObject
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

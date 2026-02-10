@@ -23,12 +23,12 @@ public interface ItestField
 
 public interface ItestFieldObject
 {
-  public ICollection<ItestString> Strings { get; set; }
+  public ICollection<string> Strings { get; set; }
 }
 
 public interface ItestParam
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestParamObject AsParam { get; set; }
 }
 
@@ -40,7 +40,7 @@ public interface ItestParamObject
 
 public interface ItestAll
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAllObject AsAll { get; set; }
 }
 

@@ -16,5 +16,5 @@ public interface ICmptObjFieldTypeAliasInp
 
 public interface ICmptObjFieldTypeAliasInpObject
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
 }

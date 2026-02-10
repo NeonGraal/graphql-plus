@@ -22,7 +22,7 @@ public class testRefCnstAltObjOutp<Tref>
 public class testPrntCnstAltObjOutp
   : ItestPrntCnstAltObjOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltObjOutpObject AsPrntCnstAltObjOutp { get; set; }
 }
 
@@ -30,6 +30,6 @@ public class testAltCnstAltObjOutp
   : testPrntCnstAltObjOutp
   , ItestAltCnstAltObjOutp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstAltObjOutpObject AsAltCnstAltObjOutp { get; set; }
 }

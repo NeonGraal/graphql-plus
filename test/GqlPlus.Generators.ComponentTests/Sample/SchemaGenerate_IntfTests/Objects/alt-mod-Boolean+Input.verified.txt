@@ -21,11 +21,11 @@ public interface ICmptAltModBoolInpObject
 
 public interface ICmptAltAltModBoolInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltModBoolInpObject AsAltAltModBoolInp { get; set; }
 }
 
 public interface ICmptAltAltModBoolInpObject
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
 }

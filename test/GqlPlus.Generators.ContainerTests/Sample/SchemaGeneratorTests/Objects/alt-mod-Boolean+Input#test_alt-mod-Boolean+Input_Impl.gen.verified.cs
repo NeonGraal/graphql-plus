@@ -15,7 +15,7 @@ public class testAltModBoolInp
 public class testAltAltModBoolInp
   : ItestAltAltModBoolInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltModBoolInpObject AsAltAltModBoolInp { get; set; }
 }

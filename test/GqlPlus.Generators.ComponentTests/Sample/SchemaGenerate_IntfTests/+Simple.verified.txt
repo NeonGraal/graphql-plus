@@ -134,6 +134,11 @@ public interface ICmptDmnNmbrPstv
 {
 }
 
+public interface ICmptDmnNmbrRange
+  : IDomainNumber
+{
+}
+
 public interface ICmptDmnStrDescr
   : IDomainString
 {

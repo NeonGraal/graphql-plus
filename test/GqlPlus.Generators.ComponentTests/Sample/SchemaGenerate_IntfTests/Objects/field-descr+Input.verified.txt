@@ -15,5 +15,5 @@ public interface ICmptFieldDescrInp
 
 public interface ICmptFieldDescrInpObject
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
 }

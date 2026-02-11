@@ -41,7 +41,7 @@ public class EnumGeneratorTests
     IGqlpEnum parentType = A.Enum(parentName, [labelName]);
     context.AddTypes([parentType]);
 
-    MapPair<string> expected = new(labelName, $" = {parentName}.{labelName}");
+    MapPair<string> expected = new(labelName, $" = {TestPrefix}{parentName}.{labelName}");
 
     // Act
     MapPair<string>[] result = [.. _generator.TypeMembers(enumType, context)];
@@ -131,7 +131,7 @@ public class EnumGeneratorTests
     result.ShouldSatisfyAllConditions(
       CheckGeneratedCodeName(generatorType, enumName),
       CheckGeneratedCodeParentLabel(generatorType, parentName, labelName),
-      CheckGeneratedCodeLabel(generatorType, $"{alias} = {parentName}.{labelName}"));
+      CheckGeneratedCodeLabel(generatorType, $"{alias} = {TestPrefix}{parentName}.{labelName}"));
   }
 
   private static string GeneratedCodeLabel(GqlpGeneratorType generatorType, string label)
@@ -141,10 +141,10 @@ public class EnumGeneratorTests
     => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain(label + ","));
 
   private static string GeneratedCodeParentLabel(GqlpGeneratorType generatorType, string parent, string name)
-    => generatorType == GqlpGeneratorType.Enum ? $"{name} = {parent}.{name}," : "";
+    => generatorType == GqlpGeneratorType.Enum ? $"{name} = {TestPrefix}{parent}.{name}," : "";
 
   private static Action<string> CheckGeneratedCodeParentLabel(GqlpGeneratorType generatorType, string parent, string name)
-    => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain($"{name} = {parent}.{name},"));
+    => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain($"{name} = {TestPrefix}{parent}.{name},"));
 
   protected override string GeneratedCodeName(GqlpGeneratorType generatorType, string name)
     => generatorType == GqlpGeneratorType.Enum ? "public enum " + TestPrefix + name : "";

@@ -11,7 +11,7 @@ namespace Components.Gqlp_Schema_enum_parent;
 
 public enum CmptEnumPrnt
 {
-  prnt_enumPrnt = PrntEnumPrnt.prnt_enumPrnt,
+  prnt_enumPrnt = CmptPrntEnumPrnt.prnt_enumPrnt,
   enumPrnt,
 }
 

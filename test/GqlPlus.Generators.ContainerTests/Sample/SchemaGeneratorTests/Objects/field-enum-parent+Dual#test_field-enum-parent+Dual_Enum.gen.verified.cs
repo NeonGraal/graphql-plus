@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Dual;
 
 public enum testEnumFieldEnumPrntDual
 {
-  prnt_fieldEnumPrntDual = PrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
+  prnt_fieldEnumPrntDual = testPrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
   fieldEnumPrntDual,
 }
 

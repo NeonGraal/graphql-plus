@@ -13,9 +13,9 @@ namespace Components.Gqlp_Schema_domain_enum_unique_parent;
 
 public enum CmptEnumDmnEnumUnqPrnt
 {
-  dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
+  dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
   enum_dmnEnumUnqPrnt,
   dmnEnumUnqPrntValue,
 }

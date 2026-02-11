@@ -7,8 +7,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_enum_parent_dup;
 
 public enum testEnumPrntDup
 {
-  prnt_enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
+  prnt_enumPrntDup = testPrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup = testPrntEnumPrntDup.prnt_enumPrntDup,
   enumPrntDup,
 }
 

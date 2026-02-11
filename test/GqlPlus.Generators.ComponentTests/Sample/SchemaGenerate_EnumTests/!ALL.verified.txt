@@ -54,7 +54,7 @@ public enum CmptEnumCnstEnumOutp
 
 public enum CmptEnumCnstEnumPrntDual
 {
-  parentCnstEnumPrntDual = ParentCnstEnumPrntDual.parentCnstEnumPrntDual,
+  parentCnstEnumPrntDual = CmptParentCnstEnumPrntDual.parentCnstEnumPrntDual,
   cnstEnumPrntDual,
 }
 
@@ -65,7 +65,7 @@ public enum CmptParentCnstEnumPrntDual
 
 public enum CmptEnumCnstEnumPrntInp
 {
-  parentCnstEnumPrntInp = ParentCnstEnumPrntInp.parentCnstEnumPrntInp,
+  parentCnstEnumPrntInp = CmptParentCnstEnumPrntInp.parentCnstEnumPrntInp,
   cnstEnumPrntInp,
 }
 
@@ -76,7 +76,7 @@ public enum CmptParentCnstEnumPrntInp
 
 public enum CmptEnumCnstEnumPrntOutp
 {
-  parentCnstEnumPrntOutp = ParentCnstEnumPrntOutp.parentCnstEnumPrntOutp,
+  parentCnstEnumPrntOutp = CmptParentCnstEnumPrntOutp.parentCnstEnumPrntOutp,
   cnstEnumPrntOutp,
 }
 
@@ -87,7 +87,7 @@ public enum CmptParentCnstEnumPrntOutp
 
 public enum CmptEnumCnstPrntEnumDual
 {
-  parentCnstPrntEnumDual = ParentCnstPrntEnumDual.parentCnstPrntEnumDual,
+  parentCnstPrntEnumDual = CmptParentCnstPrntEnumDual.parentCnstPrntEnumDual,
   cnstPrntEnumDual,
 }
 
@@ -98,7 +98,7 @@ public enum CmptParentCnstPrntEnumDual
 
 public enum CmptEnumCnstPrntEnumInp
 {
-  parentCnstPrntEnumInp = ParentCnstPrntEnumInp.parentCnstPrntEnumInp,
+  parentCnstPrntEnumInp = CmptParentCnstPrntEnumInp.parentCnstPrntEnumInp,
   cnstPrntEnumInp,
 }
 
@@ -109,7 +109,7 @@ public enum CmptParentCnstPrntEnumInp
 
 public enum CmptEnumCnstPrntEnumOutp
 {
-  parentCnstPrntEnumOutp = ParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
+  parentCnstPrntEnumOutp = CmptParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
   cnstPrntEnumOutp,
 }
 
@@ -135,7 +135,7 @@ public enum CmptEnumFieldEnumOutp
 
 public enum CmptEnumFieldEnumPrntDual
 {
-  prnt_fieldEnumPrntDual = PrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
+  prnt_fieldEnumPrntDual = CmptPrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
   fieldEnumPrntDual,
 }
 
@@ -146,7 +146,7 @@ public enum CmptPrntFieldEnumPrntDual
 
 public enum CmptEnumFieldEnumPrntInp
 {
-  prnt_fieldEnumPrntInp = PrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
+  prnt_fieldEnumPrntInp = CmptPrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
   fieldEnumPrntInp,
 }
 
@@ -157,7 +157,7 @@ public enum CmptPrntFieldEnumPrntInp
 
 public enum CmptEnumFieldEnumPrntOutp
 {
-  prnt_fieldEnumPrntOutp = PrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
+  prnt_fieldEnumPrntOutp = CmptPrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
   fieldEnumPrntOutp,
 }
 
@@ -228,7 +228,7 @@ public enum CmptEnumGnrcEnumOutp
 
 public enum CmptEnumGnrcPrntEnumChildDual
 {
-  gnrcPrntEnumChildDualParent = ParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
+  gnrcPrntEnumChildDualParent = CmptParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
   gnrcPrntEnumChildDualLabel,
 }
 
@@ -239,7 +239,7 @@ public enum CmptParentGnrcPrntEnumChildDual
 
 public enum CmptEnumGnrcPrntEnumChildInp
 {
-  gnrcPrntEnumChildInpParent = ParentGnrcPrntEnumChildInp.gnrcPrntEnumChildInpParent,
+  gnrcPrntEnumChildInpParent = CmptParentGnrcPrntEnumChildInp.gnrcPrntEnumChildInpParent,
   gnrcPrntEnumChildInpLabel,
 }
 
@@ -250,7 +250,7 @@ public enum CmptParentGnrcPrntEnumChildInp
 
 public enum CmptEnumGnrcPrntEnumChildOutp
 {
-  gnrcPrntEnumChildOutpParent = ParentGnrcPrntEnumChildOutp.gnrcPrntEnumChildOutpParent,
+  gnrcPrntEnumChildOutpParent = CmptParentGnrcPrntEnumChildOutp.gnrcPrntEnumChildOutpParent,
   gnrcPrntEnumChildOutpLabel,
 }
 
@@ -279,7 +279,7 @@ public enum CmptEnumGnrcPrntEnumDomOutp
 
 public enum CmptEnumGnrcPrntEnumPrntDual
 {
-  gnrcPrntEnumPrntDualParent = ParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
+  gnrcPrntEnumPrntDualParent = CmptParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
   gnrcPrntEnumPrntDualLabel,
 }
 
@@ -290,7 +290,7 @@ public enum CmptParentGnrcPrntEnumPrntDual
 
 public enum CmptEnumGnrcPrntEnumPrntInp
 {
-  gnrcPrntEnumPrntInpParent = ParentGnrcPrntEnumPrntInp.gnrcPrntEnumPrntInpParent,
+  gnrcPrntEnumPrntInpParent = CmptParentGnrcPrntEnumPrntInp.gnrcPrntEnumPrntInpParent,
   gnrcPrntEnumPrntInpLabel,
 }
 
@@ -301,7 +301,7 @@ public enum CmptParentGnrcPrntEnumPrntInp
 
 public enum CmptEnumGnrcPrntEnumPrntOutp
 {
-  gnrcPrntEnumPrntOutpParent = ParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
+  gnrcPrntEnumPrntOutpParent = CmptParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
   gnrcPrntEnumPrntOutpLabel,
 }
 
@@ -347,7 +347,7 @@ public enum CmptEnumInpFieldEnum
 
 public enum CmptEnumOutpPrntGnrc
 {
-  prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,
+  prnt_outpPrntGnrc = CmptPrntOutpPrntGnrc.prnt_outpPrntGnrc,
   outpPrntGnrc,
 }
 
@@ -374,7 +374,7 @@ public enum CmptEnumSame
 
 public enum CmptEnumSamePrnt
 {
-  prnt_enumSamePrnt = PrntEnumSamePrnt.prnt_enumSamePrnt,
+  prnt_enumSamePrnt = CmptPrntEnumSamePrnt.prnt_enumSamePrnt,
   enumSamePrnt,
 }
 
@@ -406,8 +406,8 @@ public enum CmptEnumDmnEnumAllDescr
 
 public enum CmptEnumDmnEnumAllPrnt
 {
-  prnt_dmnEnumAllPrnt = PrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
-  dmnEnumAllPrntPrnt = PrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
+  prnt_dmnEnumAllPrnt = CmptPrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt = CmptPrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
   dmnEnumAllPrnt,
   dmnEnumAllPrntValue,
 }
@@ -432,8 +432,8 @@ public enum CmptEnumDmnEnumExcl
 
 public enum CmptEnumDmnEnumExclPrnt
 {
-  prnt_dmnEnumExclPrnt = PrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
-  dmnEnumExclPrntPrnt = PrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
+  prnt_dmnEnumExclPrnt = CmptPrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
+  dmnEnumExclPrntPrnt = CmptPrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
   dmnEnumExclPrnt,
   dmnEnumExclPrntValue,
 }
@@ -477,9 +477,9 @@ public enum CmptDupDmnEnumUnq
 
 public enum CmptEnumDmnEnumUnqPrnt
 {
-  dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
+  dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
   enum_dmnEnumUnqPrnt,
   dmnEnumUnqPrntValue,
 }
@@ -505,7 +505,7 @@ public enum CmptEnumDmnEnumValue
 
 public enum CmptEnumDmnEnumValuePrnt
 {
-  prnt_dmnEnumValuePrnt = PrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
+  prnt_dmnEnumValuePrnt = CmptPrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
   dmnEnumValuePrnt,
 }
 
@@ -521,7 +521,7 @@ public enum CmptEnumDescr
 
 public enum CmptEnumPrnt
 {
-  prnt_enumPrnt = PrntEnumPrnt.prnt_enumPrnt,
+  prnt_enumPrnt = CmptPrntEnumPrnt.prnt_enumPrnt,
   enumPrnt,
 }
 
@@ -532,7 +532,7 @@ public enum CmptPrntEnumPrnt
 
 public enum CmptEnumPrntAlias
 {
-  prnt_enumPrntAlias = PrntEnumPrntAlias.prnt_enumPrntAlias,
+  prnt_enumPrntAlias = CmptPrntEnumPrntAlias.prnt_enumPrntAlias,
   val_enumPrntAlias,
   prnt_enumPrntAlias,
   enumPrntAlias = prnt_enumPrntAlias,
@@ -545,7 +545,7 @@ public enum CmptPrntEnumPrntAlias
 
 public enum CmptEnumPrntDescr
 {
-  prnt_enumPrntDescr = PrntEnumPrntDescr.prnt_enumPrntDescr,
+  prnt_enumPrntDescr = CmptPrntEnumPrntDescr.prnt_enumPrntDescr,
   enumPrntDescr,
 }
 
@@ -556,8 +556,8 @@ public enum CmptPrntEnumPrntDescr
 
 public enum CmptEnumPrntDup
 {
-  prnt_enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
+  prnt_enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
   enumPrntDup,
 }
 

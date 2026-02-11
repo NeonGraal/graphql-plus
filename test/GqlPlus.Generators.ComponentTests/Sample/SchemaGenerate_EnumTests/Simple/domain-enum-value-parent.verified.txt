@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_domain_enum_value_parent;
 
 public enum CmptEnumDmnEnumValuePrnt
 {
-  prnt_dmnEnumValuePrnt = PrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
+  prnt_dmnEnumValuePrnt = CmptPrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
   dmnEnumValuePrnt,
 }
 

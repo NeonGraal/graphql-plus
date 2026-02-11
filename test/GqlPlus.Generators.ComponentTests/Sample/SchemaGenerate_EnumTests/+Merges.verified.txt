@@ -22,7 +22,7 @@ public enum CmptEnumSame
 
 public enum CmptEnumSamePrnt
 {
-  prnt_enumSamePrnt = PrntEnumSamePrnt.prnt_enumSamePrnt,
+  prnt_enumSamePrnt = CmptPrntEnumSamePrnt.prnt_enumSamePrnt,
   enumSamePrnt,
 }
 

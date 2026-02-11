@@ -55,7 +55,7 @@ public enum testEnumCnstEnumOutp
 
 public enum testEnumCnstEnumPrntDual
 {
-  parentCnstEnumPrntDual = ParentCnstEnumPrntDual.parentCnstEnumPrntDual,
+  parentCnstEnumPrntDual = testParentCnstEnumPrntDual.parentCnstEnumPrntDual,
   cnstEnumPrntDual,
 }
 
@@ -66,7 +66,7 @@ public enum testParentCnstEnumPrntDual
 
 public enum testEnumCnstEnumPrntInp
 {
-  parentCnstEnumPrntInp = ParentCnstEnumPrntInp.parentCnstEnumPrntInp,
+  parentCnstEnumPrntInp = testParentCnstEnumPrntInp.parentCnstEnumPrntInp,
   cnstEnumPrntInp,
 }
 
@@ -77,7 +77,7 @@ public enum testParentCnstEnumPrntInp
 
 public enum testEnumCnstEnumPrntOutp
 {
-  parentCnstEnumPrntOutp = ParentCnstEnumPrntOutp.parentCnstEnumPrntOutp,
+  parentCnstEnumPrntOutp = testParentCnstEnumPrntOutp.parentCnstEnumPrntOutp,
   cnstEnumPrntOutp,
 }
 
@@ -88,7 +88,7 @@ public enum testParentCnstEnumPrntOutp
 
 public enum testEnumCnstPrntEnumDual
 {
-  parentCnstPrntEnumDual = ParentCnstPrntEnumDual.parentCnstPrntEnumDual,
+  parentCnstPrntEnumDual = testParentCnstPrntEnumDual.parentCnstPrntEnumDual,
   cnstPrntEnumDual,
 }
 
@@ -99,7 +99,7 @@ public enum testParentCnstPrntEnumDual
 
 public enum testEnumCnstPrntEnumInp
 {
-  parentCnstPrntEnumInp = ParentCnstPrntEnumInp.parentCnstPrntEnumInp,
+  parentCnstPrntEnumInp = testParentCnstPrntEnumInp.parentCnstPrntEnumInp,
   cnstPrntEnumInp,
 }
 
@@ -110,7 +110,7 @@ public enum testParentCnstPrntEnumInp
 
 public enum testEnumCnstPrntEnumOutp
 {
-  parentCnstPrntEnumOutp = ParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
+  parentCnstPrntEnumOutp = testParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
   cnstPrntEnumOutp,
 }
 
@@ -136,7 +136,7 @@ public enum testEnumFieldEnumOutp
 
 public enum testEnumFieldEnumPrntDual
 {
-  prnt_fieldEnumPrntDual = PrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
+  prnt_fieldEnumPrntDual = testPrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
   fieldEnumPrntDual,
 }
 
@@ -147,7 +147,7 @@ public enum testPrntFieldEnumPrntDual
 
 public enum testEnumFieldEnumPrntInp
 {
-  prnt_fieldEnumPrntInp = PrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
+  prnt_fieldEnumPrntInp = testPrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
   fieldEnumPrntInp,
 }
 
@@ -158,7 +158,7 @@ public enum testPrntFieldEnumPrntInp
 
 public enum testEnumFieldEnumPrntOutp
 {
-  prnt_fieldEnumPrntOutp = PrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
+  prnt_fieldEnumPrntOutp = testPrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
   fieldEnumPrntOutp,
 }
 
@@ -229,7 +229,7 @@ public enum testEnumGnrcEnumOutp
 
 public enum testEnumGnrcPrntEnumChildDual
 {
-  gnrcPrntEnumChildDualParent = ParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
+  gnrcPrntEnumChildDualParent = testParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
   gnrcPrntEnumChildDualLabel,
 }
 
@@ -240,7 +240,7 @@ public enum testParentGnrcPrntEnumChildDual
 
 public enum testEnumGnrcPrntEnumChildInp
 {
-  gnrcPrntEnumChildInpParent = ParentGnrcPrntEnumChildInp.gnrcPrntEnumChildInpParent,
+  gnrcPrntEnumChildInpParent = testParentGnrcPrntEnumChildInp.gnrcPrntEnumChildInpParent,
   gnrcPrntEnumChildInpLabel,
 }
 
@@ -251,7 +251,7 @@ public enum testParentGnrcPrntEnumChildInp
 
 public enum testEnumGnrcPrntEnumChildOutp
 {
-  gnrcPrntEnumChildOutpParent = ParentGnrcPrntEnumChildOutp.gnrcPrntEnumChildOutpParent,
+  gnrcPrntEnumChildOutpParent = testParentGnrcPrntEnumChildOutp.gnrcPrntEnumChildOutpParent,
   gnrcPrntEnumChildOutpLabel,
 }
 
@@ -280,7 +280,7 @@ public enum testEnumGnrcPrntEnumDomOutp
 
 public enum testEnumGnrcPrntEnumPrntDual
 {
-  gnrcPrntEnumPrntDualParent = ParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
+  gnrcPrntEnumPrntDualParent = testParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
   gnrcPrntEnumPrntDualLabel,
 }
 
@@ -291,7 +291,7 @@ public enum testParentGnrcPrntEnumPrntDual
 
 public enum testEnumGnrcPrntEnumPrntInp
 {
-  gnrcPrntEnumPrntInpParent = ParentGnrcPrntEnumPrntInp.gnrcPrntEnumPrntInpParent,
+  gnrcPrntEnumPrntInpParent = testParentGnrcPrntEnumPrntInp.gnrcPrntEnumPrntInpParent,
   gnrcPrntEnumPrntInpLabel,
 }
 
@@ -302,7 +302,7 @@ public enum testParentGnrcPrntEnumPrntInp
 
 public enum testEnumGnrcPrntEnumPrntOutp
 {
-  gnrcPrntEnumPrntOutpParent = ParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
+  gnrcPrntEnumPrntOutpParent = testParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
   gnrcPrntEnumPrntOutpLabel,
 }
 
@@ -348,7 +348,7 @@ public enum testEnumInpFieldEnum
 
 public enum testEnumOutpPrntGnrc
 {
-  prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,
+  prnt_outpPrntGnrc = testPrntOutpPrntGnrc.prnt_outpPrntGnrc,
   outpPrntGnrc,
 }
 

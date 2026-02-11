@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_child_Dual;
 
 public enum testEnumGnrcPrntEnumChildDual
 {
-  gnrcPrntEnumChildDualParent = ParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
+  gnrcPrntEnumChildDualParent = testParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
   gnrcPrntEnumChildDualLabel,
 }
 

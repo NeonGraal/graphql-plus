@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_constraint_parent_enum_Output;
 
 public enum CmptEnumCnstPrntEnumOutp
 {
-  parentCnstPrntEnumOutp = ParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
+  parentCnstPrntEnumOutp = CmptParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
   cnstPrntEnumOutp,
 }
 

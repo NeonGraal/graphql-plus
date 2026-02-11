@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_child_Input;
 
 public enum testEnumGnrcPrntEnumChildInp
 {
-  gnrcPrntEnumChildInpParent = ParentGnrcPrntEnumChildInp.gnrcPrntEnumChildInpParent,
+  gnrcPrntEnumChildInpParent = testParentGnrcPrntEnumChildInp.gnrcPrntEnumChildInpParent,
   gnrcPrntEnumChildInpLabel,
 }
 

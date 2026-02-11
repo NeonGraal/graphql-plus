@@ -11,7 +11,7 @@ namespace Components.Gqlp_Schema_enum_parent_alias;
 
 public enum CmptEnumPrntAlias
 {
-  prnt_enumPrntAlias = PrntEnumPrntAlias.prnt_enumPrntAlias,
+  prnt_enumPrntAlias = CmptPrntEnumPrntAlias.prnt_enumPrntAlias,
   val_enumPrntAlias,
   prnt_enumPrntAlias,
   enumPrntAlias = prnt_enumPrntAlias,

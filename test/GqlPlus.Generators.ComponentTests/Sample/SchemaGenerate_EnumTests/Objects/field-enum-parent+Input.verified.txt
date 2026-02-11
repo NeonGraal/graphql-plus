@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_field_enum_parent_Input;
 
 public enum CmptEnumFieldEnumPrntInp
 {
-  prnt_fieldEnumPrntInp = PrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
+  prnt_fieldEnumPrntInp = CmptPrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
   fieldEnumPrntInp,
 }
 

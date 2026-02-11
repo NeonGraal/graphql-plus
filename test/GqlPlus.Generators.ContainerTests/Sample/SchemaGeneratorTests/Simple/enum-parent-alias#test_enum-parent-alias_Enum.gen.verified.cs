@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_enum_parent_alias;
 
 public enum testEnumPrntAlias
 {
-  prnt_enumPrntAlias = PrntEnumPrntAlias.prnt_enumPrntAlias,
+  prnt_enumPrntAlias = testPrntEnumPrntAlias.prnt_enumPrntAlias,
   val_enumPrntAlias,
   prnt_enumPrntAlias,
   enumPrntAlias = prnt_enumPrntAlias,

@@ -11,7 +11,7 @@ namespace Components.Gqlp_Schema_enum_parent_descr;
 
 public enum CmptEnumPrntDescr
 {
-  prnt_enumPrntDescr = PrntEnumPrntDescr.prnt_enumPrntDescr,
+  prnt_enumPrntDescr = CmptPrntEnumPrntDescr.prnt_enumPrntDescr,
   enumPrntDescr,
 }
 

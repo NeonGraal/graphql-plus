@@ -34,7 +34,9 @@ internal abstract class GroupedVerifier<TAliased> : IVerifyAliased<TAliased>
   }
 
   private void GroupVerifying(Type type)
+#pragma warning disable CA1873 // Avoid potentially expensive logging
     => _logger.GroupVerifying(type.GetElementType()?.TidyTypeName());
+#pragma warning restore CA1873 // Avoid potentially expensive logging
 
   private void VerifyDefinitions(Map<TAliased[]> byName, IMessages errors)
   {

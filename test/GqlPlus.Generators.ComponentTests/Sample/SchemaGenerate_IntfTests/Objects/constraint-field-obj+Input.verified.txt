@@ -12,24 +12,24 @@ input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
 namespace Components.Gqlp_Schema_constraint_field_obj_Input;
 
 public interface ICmptCnstFieldObjInp
-  : ICmptRefCnstFieldObjInp
+  : ICmptRefCnstFieldObjInp<ICmptAltCnstFieldObjInp>
 {
   ICmptCnstFieldObjInpObject AsCnstFieldObjInp { get; }
 }
 
 public interface ICmptCnstFieldObjInpObject
-  : ICmptRefCnstFieldObjInpObject
+  : ICmptRefCnstFieldObjInpObject<ICmptAltCnstFieldObjInp>
 {
 }
 
-public interface ICmptRefCnstFieldObjInp<Tref>
+public interface ICmptRefCnstFieldObjInp<TRef>
 {
   ICmptRefCnstFieldObjInpObject AsRefCnstFieldObjInp { get; }
 }
 
-public interface ICmptRefCnstFieldObjInpObject<Tref>
+public interface ICmptRefCnstFieldObjInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldObjInp

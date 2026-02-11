@@ -20,13 +20,13 @@ output _InputParam {
 namespace Components.Gqlp_Spec_Input;
 
 public interface ICmpt_InputField
-  : ICmpt_ObjField
+  : ICmpt_ObjField<ICmpt_InputFieldType>
 {
   ICmpt_InputFieldObject As_InputField { get; }
 }
 
 public interface ICmpt_InputFieldObject
-  : ICmpt_ObjFieldObject
+  : ICmpt_ObjFieldObject<ICmpt_InputFieldType>
 {
 }
 

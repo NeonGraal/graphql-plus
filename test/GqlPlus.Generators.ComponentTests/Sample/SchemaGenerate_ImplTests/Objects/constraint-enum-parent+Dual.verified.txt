@@ -18,9 +18,9 @@ public class CmptCnstEnumPrntDual
   public ICmptCnstEnumPrntDualObject AsCnstEnumPrntDual { get; set; }
 }
 
-public class CmptRefCnstEnumPrntDual<Ttype>
-  : ICmptRefCnstEnumPrntDual<Ttype>
+public class CmptRefCnstEnumPrntDual<TType>
+  : ICmptRefCnstEnumPrntDual<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ICmptRefCnstEnumPrntDualObject AsRefCnstEnumPrntDual { get; set; }
 }

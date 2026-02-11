@@ -21,14 +21,14 @@ public interface ICmptCnstDomEnumInpObject
 {
 }
 
-public interface ICmptRefCnstDomEnumInp<Ttype>
+public interface ICmptRefCnstDomEnumInp<TType>
 {
   ICmptRefCnstDomEnumInpObject AsRefCnstDomEnumInp { get; }
 }
 
-public interface ICmptRefCnstDomEnumInpObject<Ttype>
+public interface ICmptRefCnstDomEnumInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptJustCnstDomEnumInp

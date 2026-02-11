@@ -72,53 +72,53 @@ public interface ICmpt_TypeObject
 {
 }
 
-public interface ICmpt_BaseType<Tkind>
+public interface ICmpt_BaseType<TKind>
   : ICmpt_Aliased
 {
   ICmpt_BaseTypeObject As_BaseType { get; }
 }
 
-public interface ICmpt_BaseTypeObject<Tkind>
+public interface ICmpt_BaseTypeObject<TKind>
   : ICmpt_AliasedObject
 {
-  Tkind TypeKind { get; }
+  TKind TypeKind { get; }
 }
 
-public interface ICmpt_ChildType<Tkind,Tparent>
-  : ICmpt_BaseType
+public interface ICmpt_ChildType<TKind,TParent>
+  : ICmpt_BaseType<TKind>
 {
   ICmpt_ChildTypeObject As_ChildType { get; }
 }
 
-public interface ICmpt_ChildTypeObject<Tkind,Tparent>
-  : ICmpt_BaseTypeObject
+public interface ICmpt_ChildTypeObject<TKind,TParent>
+  : ICmpt_BaseTypeObject<TKind>
 {
-  Tparent Parent { get; }
+  TParent Parent { get; }
 }
 
-public interface ICmpt_ParentType<Tkind,Titem,TallItem>
-  : ICmpt_ChildType
+public interface ICmpt_ParentType<TKind,TItem,TAllItem>
+  : ICmpt_ChildType<TKind, ICmpt_Named>
 {
   ICmpt_ParentTypeObject As_ParentType { get; }
 }
 
-public interface ICmpt_ParentTypeObject<Tkind,Titem,TallItem>
-  : ICmpt_ChildTypeObject
+public interface ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
+  : ICmpt_ChildTypeObject<TKind, ICmpt_Named>
 {
-  ICollection<Titem> Items { get; }
-  ICollection<TallItem> AllItems { get; }
+  ICollection<TItem> Items { get; }
+  ICollection<TAllItem> AllItems { get; }
 }
 
-public interface ICmpt_TypeRef<Tkind>
+public interface ICmpt_TypeRef<TKind>
   : ICmpt_Named
 {
   ICmpt_TypeRefObject As_TypeRef { get; }
 }
 
-public interface ICmpt_TypeRefObject<Tkind>
+public interface ICmpt_TypeRefObject<TKind>
   : ICmpt_NamedObject
 {
-  Tkind TypeKind { get; }
+  TKind TypeKind { get; }
 }
 
 public interface ICmpt_TypeSimple

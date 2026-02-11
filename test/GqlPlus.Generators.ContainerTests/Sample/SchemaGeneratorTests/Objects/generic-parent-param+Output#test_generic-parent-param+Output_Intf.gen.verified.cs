@@ -6,23 +6,23 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_param_Output;
 
 public interface ItestGnrcPrntParamOutp
-  : ItestRefGnrcPrntParamOutp
+  : ItestRefGnrcPrntParamOutp<ItestAltGnrcPrntParamOutp>
 {
   ItestGnrcPrntParamOutpObject AsGnrcPrntParamOutp { get; }
 }
 
 public interface ItestGnrcPrntParamOutpObject
-  : ItestRefGnrcPrntParamOutpObject
+  : ItestRefGnrcPrntParamOutpObject<ItestAltGnrcPrntParamOutp>
 {
 }
 
-public interface ItestRefGnrcPrntParamOutp<Tref>
+public interface ItestRefGnrcPrntParamOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcPrntParamOutpObject AsRefGnrcPrntParamOutp { get; }
 }
 
-public interface ItestRefGnrcPrntParamOutpObject<Tref>
+public interface ItestRefGnrcPrntParamOutpObject<TRef>
 {
 }
 

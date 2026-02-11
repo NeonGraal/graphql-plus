@@ -78,19 +78,19 @@ output _DomainItemRegex {
 
 namespace Components.Gqlp_Spec_Domain;
 
-public class Cmpt_DomainRef<Tkind>
-  : Cmpt_TypeRef
-  , ICmpt_DomainRef<Tkind>
+public class Cmpt_DomainRef<TKind>
+  : Cmpt_TypeRef<ICmpt_TypeKind>
+  , ICmpt_DomainRef<TKind>
 {
-  public Tkind DomainKind { get; set; }
+  public TKind DomainKind { get; set; }
   public ICmpt_DomainRefObject As_DomainRef { get; set; }
 }
 
-public class Cmpt_BaseDomain<Tdomain,Titem,TdomainItem>
-  : Cmpt_ParentType
-  , ICmpt_BaseDomain<Tdomain,Titem,TdomainItem>
+public class Cmpt_BaseDomain<TDomain,TItem,TDomainItem>
+  : Cmpt_ParentType<ICmpt_TypeKind, TItem, TDomainItem>
+  , ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
 {
-  public Tdomain DomainKind { get; set; }
+  public TDomain DomainKind { get; set; }
   public ICmpt_BaseDomainObject As_BaseDomain { get; set; }
 }
 
@@ -102,20 +102,20 @@ public class Cmpt_BaseDomainItem
   public ICmpt_BaseDomainItemObject As_BaseDomainItem { get; set; }
 }
 
-public class Cmpt_DomainItem<Titem>
+public class Cmpt_DomainItem<TItem>
   : Cmptitem
-  , ICmpt_DomainItem<Titem>
+  , ICmpt_DomainItem<TItem>
 {
   public ICmpt_Name Domain { get; set; }
   public ICmpt_DomainItemObject As_DomainItem { get; set; }
 }
 
-public class Cmpt_DomainValue<Tkind,Tvalue>
-  : Cmpt_DomainRef
-  , ICmpt_DomainValue<Tkind,Tvalue>
+public class Cmpt_DomainValue<TKind,TValue>
+  : Cmpt_DomainRef<TKind>
+  , ICmpt_DomainValue<TKind,TValue>
 {
-  public Tvalue Value { get; set; }
-  public Tvalue Asvalue { get; set; }
+  public TValue Value { get; set; }
+  public TValue Asvalue { get; set; }
   public ICmpt_DomainValueObject As_DomainValue { get; set; }
 }
 
@@ -138,7 +138,7 @@ public class Cmpt_DomainTrueFalse
 }
 
 public class Cmpt_DomainItemTrueFalse
-  : Cmpt_DomainItem
+  : Cmpt_DomainItem<ICmpt_DomainTrueFalse>
   , ICmpt_DomainItemTrueFalse
 {
   public ICmpt_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; set; }
@@ -153,7 +153,7 @@ public class Cmpt_DomainLabel
 }
 
 public class Cmpt_DomainItemLabel
-  : Cmpt_DomainItem
+  : Cmpt_DomainItem<ICmpt_DomainLabel>
   , ICmpt_DomainItemLabel
 {
   public ICmpt_DomainItemLabelObject As_DomainItemLabel { get; set; }
@@ -169,7 +169,7 @@ public class Cmpt_DomainRange
 }
 
 public class Cmpt_DomainItemRange
-  : Cmpt_DomainItem
+  : Cmpt_DomainItem<ICmpt_DomainRange>
   , ICmpt_DomainItemRange
 {
   public ICmpt_DomainItemRangeObject As_DomainItemRange { get; set; }
@@ -184,7 +184,7 @@ public class Cmpt_DomainRegex
 }
 
 public class Cmpt_DomainItemRegex
-  : Cmpt_DomainItem
+  : Cmpt_DomainItem<ICmpt_DomainRegex>
   , ICmpt_DomainItemRegex
 {
   public ICmpt_DomainItemRegexObject As_DomainItemRegex { get; set; }

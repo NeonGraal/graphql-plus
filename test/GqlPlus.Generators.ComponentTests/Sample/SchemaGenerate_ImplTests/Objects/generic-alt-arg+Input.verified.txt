@@ -9,16 +9,16 @@ input RefGnrcAltArgInp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_arg_Input;
 
-public class CmptGnrcAltArgInp<Ttype>
-  : ICmptGnrcAltArgInp<Ttype>
+public class CmptGnrcAltArgInp<TType>
+  : ICmptGnrcAltArgInp<TType>
 {
-  public ICmptRefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; set; }
+  public ICmptRefGnrcAltArgInp<TType> AsRefGnrcAltArgInp { get; set; }
   public ICmptGnrcAltArgInpObject AsGnrcAltArgInp { get; set; }
 }
 
-public class CmptRefGnrcAltArgInp<Tref>
-  : ICmptRefGnrcAltArgInp<Tref>
+public class CmptRefGnrcAltArgInp<TRef>
+  : ICmptRefGnrcAltArgInp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefGnrcAltArgInpObject AsRefGnrcAltArgInp { get; set; }
 }

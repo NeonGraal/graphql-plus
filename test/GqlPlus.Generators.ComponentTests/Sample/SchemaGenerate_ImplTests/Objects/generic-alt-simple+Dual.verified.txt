@@ -16,9 +16,9 @@ public class CmptGnrcAltSmplDual
   public ICmptGnrcAltSmplDualObject AsGnrcAltSmplDual { get; set; }
 }
 
-public class CmptRefGnrcAltSmplDual<Tref>
-  : ICmptRefGnrcAltSmplDual<Tref>
+public class CmptRefGnrcAltSmplDual<TRef>
+  : ICmptRefGnrcAltSmplDual<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefGnrcAltSmplDualObject AsRefGnrcAltSmplDual { get; set; }
 }

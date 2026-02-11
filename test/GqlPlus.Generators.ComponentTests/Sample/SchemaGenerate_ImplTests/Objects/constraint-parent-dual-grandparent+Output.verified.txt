@@ -13,15 +13,15 @@ output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
 namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
 
 public class CmptCnstPrntDualGrndOutp
-  : CmptRefCnstPrntDualGrndOutp
+  : CmptRefCnstPrntDualGrndOutp<ICmptAltCnstPrntDualGrndOutp>
   , ICmptCnstPrntDualGrndOutp
 {
   public ICmptCnstPrntDualGrndOutpObject AsCnstPrntDualGrndOutp { get; set; }
 }
 
-public class CmptRefCnstPrntDualGrndOutp<Tref>
+public class CmptRefCnstPrntDualGrndOutp<TRef>
   : Cmptref
-  , ICmptRefCnstPrntDualGrndOutp<Tref>
+  , ICmptRefCnstPrntDualGrndOutp<TRef>
 {
   public ICmptRefCnstPrntDualGrndOutpObject AsRefCnstPrntDualGrndOutp { get; set; }
 }

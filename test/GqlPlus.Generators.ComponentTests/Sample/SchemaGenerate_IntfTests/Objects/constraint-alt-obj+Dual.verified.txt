@@ -21,13 +21,13 @@ public interface ICmptCnstAltObjDualObject
 {
 }
 
-public interface ICmptRefCnstAltObjDual<Tref>
+public interface ICmptRefCnstAltObjDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefCnstAltObjDualObject AsRefCnstAltObjDual { get; }
 }
 
-public interface ICmptRefCnstAltObjDualObject<Tref>
+public interface ICmptRefCnstAltObjDualObject<TRef>
 {
 }
 

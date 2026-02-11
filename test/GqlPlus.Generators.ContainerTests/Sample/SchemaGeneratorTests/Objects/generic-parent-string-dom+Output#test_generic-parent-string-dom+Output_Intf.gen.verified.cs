@@ -6,24 +6,24 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Output;
 
 public interface ItestGnrcPrntStrDomOutp
-  : ItestFieldGnrcPrntStrDomOutp
+  : ItestFieldGnrcPrntStrDomOutp<ItestDomGnrcPrntStrDomOutp>
 {
   ItestGnrcPrntStrDomOutpObject AsGnrcPrntStrDomOutp { get; }
 }
 
 public interface ItestGnrcPrntStrDomOutpObject
-  : ItestFieldGnrcPrntStrDomOutpObject
+  : ItestFieldGnrcPrntStrDomOutpObject<ItestDomGnrcPrntStrDomOutp>
 {
 }
 
-public interface ItestFieldGnrcPrntStrDomOutp<Tref>
+public interface ItestFieldGnrcPrntStrDomOutp<TRef>
 {
   ItestFieldGnrcPrntStrDomOutpObject AsFieldGnrcPrntStrDomOutp { get; }
 }
 
-public interface ItestFieldGnrcPrntStrDomOutpObject<Tref>
+public interface ItestFieldGnrcPrntStrDomOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestDomGnrcPrntStrDomOutp

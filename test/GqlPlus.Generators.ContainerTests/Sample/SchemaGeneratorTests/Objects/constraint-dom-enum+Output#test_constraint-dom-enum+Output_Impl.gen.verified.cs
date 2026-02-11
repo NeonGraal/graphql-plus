@@ -12,10 +12,10 @@ public class testCnstDomEnumOutp
   public ItestCnstDomEnumOutpObject AsCnstDomEnumOutp { get; set; }
 }
 
-public class testRefCnstDomEnumOutp<Ttype>
-  : ItestRefCnstDomEnumOutp<Ttype>
+public class testRefCnstDomEnumOutp<TType>
+  : ItestRefCnstDomEnumOutp<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ItestRefCnstDomEnumOutpObject AsRefCnstDomEnumOutp { get; set; }
 }
 

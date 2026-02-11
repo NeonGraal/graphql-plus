@@ -9,13 +9,13 @@ output ObjParamDupOutp<$test:String> { type: $test }
 
 namespace Components.Gqlp_Schema_object_param_dup_Output;
 
-public interface ICmptObjParamDupOutp<Ttest>
+public interface ICmptObjParamDupOutp<TTest>
 {
   ICmptObjParamDupOutpObject AsObjParamDupOutp { get; }
 }
 
-public interface ICmptObjParamDupOutpObject<Ttest>
+public interface ICmptObjParamDupOutpObject<TTest>
 {
-  Ttest Test { get; }
-  Ttest Type { get; }
+  TTest Test { get; }
+  TTest Type { get; }
 }

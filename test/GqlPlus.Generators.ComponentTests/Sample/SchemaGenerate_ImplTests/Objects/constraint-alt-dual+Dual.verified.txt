@@ -18,10 +18,10 @@ public class CmptCnstAltDualDual
   public ICmptCnstAltDualDualObject AsCnstAltDualDual { get; set; }
 }
 
-public class CmptRefCnstAltDualDual<Tref>
-  : ICmptRefCnstAltDualDual<Tref>
+public class CmptRefCnstAltDualDual<TRef>
+  : ICmptRefCnstAltDualDual<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefCnstAltDualDualObject AsRefCnstAltDualDual { get; set; }
 }
 

@@ -15,13 +15,13 @@ public interface ItestGnrcAltParamInpObject
 {
 }
 
-public interface ItestRefGnrcAltParamInp<Tref>
+public interface ItestRefGnrcAltParamInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltParamInpObject AsRefGnrcAltParamInp { get; }
 }
 
-public interface ItestRefGnrcAltParamInpObject<Tref>
+public interface ItestRefGnrcAltParamInpObject<TRef>
 {
 }
 

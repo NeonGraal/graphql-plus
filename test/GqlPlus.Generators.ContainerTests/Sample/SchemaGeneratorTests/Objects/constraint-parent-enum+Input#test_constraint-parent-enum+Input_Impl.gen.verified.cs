@@ -12,9 +12,9 @@ public class testCnstPrntEnumInp
   public ItestCnstPrntEnumInpObject AsCnstPrntEnumInp { get; set; }
 }
 
-public class testRefCnstPrntEnumInp<Ttype>
-  : ItestRefCnstPrntEnumInp<Ttype>
+public class testRefCnstPrntEnumInp<TType>
+  : ItestRefCnstPrntEnumInp<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ItestRefCnstPrntEnumInpObject AsRefCnstPrntEnumInp { get; set; }
 }

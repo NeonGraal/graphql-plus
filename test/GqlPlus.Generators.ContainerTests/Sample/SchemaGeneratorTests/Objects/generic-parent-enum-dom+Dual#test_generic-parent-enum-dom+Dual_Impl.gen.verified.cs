@@ -6,16 +6,16 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_dom_Dual;
 
 public class testGnrcPrntEnumDomDual
-  : testFieldGnrcPrntEnumDomDual
+  : testFieldGnrcPrntEnumDomDual<ItestDomGnrcPrntEnumDomDual>
   , ItestGnrcPrntEnumDomDual
 {
   public ItestGnrcPrntEnumDomDualObject AsGnrcPrntEnumDomDual { get; set; }
 }
 
-public class testFieldGnrcPrntEnumDomDual<Tref>
-  : ItestFieldGnrcPrntEnumDomDual<Tref>
+public class testFieldGnrcPrntEnumDomDual<TRef>
+  : ItestFieldGnrcPrntEnumDomDual<TRef>
 {
-  public Tref Field { get; set; }
+  public TRef Field { get; set; }
   public ItestFieldGnrcPrntEnumDomDualObject AsFieldGnrcPrntEnumDomDual { get; set; }
 }
 

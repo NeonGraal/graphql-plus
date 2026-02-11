@@ -12,15 +12,15 @@ input AltCnstPrntObjPrntInp { :PrntCnstPrntObjPrntInp alt: Number }
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Input;
 
 public class CmptCnstPrntObjPrntInp
-  : CmptRefCnstPrntObjPrntInp
+  : CmptRefCnstPrntObjPrntInp<ICmptAltCnstPrntObjPrntInp>
   , ICmptCnstPrntObjPrntInp
 {
   public ICmptCnstPrntObjPrntInpObject AsCnstPrntObjPrntInp { get; set; }
 }
 
-public class CmptRefCnstPrntObjPrntInp<Tref>
+public class CmptRefCnstPrntObjPrntInp<TRef>
   : Cmptref
-  , ICmptRefCnstPrntObjPrntInp<Tref>
+  , ICmptRefCnstPrntObjPrntInp<TRef>
 {
   public ICmptRefCnstPrntObjPrntInpObject AsRefCnstPrntObjPrntInp { get; set; }
 }

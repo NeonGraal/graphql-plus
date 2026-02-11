@@ -5,9 +5,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Output;
 
-public class testCnstAltOutp<Ttype>
-  : ItestCnstAltOutp<Ttype>
+public class testCnstAltOutp<TType>
+  : ItestCnstAltOutp<TType>
 {
-  public Ttype Astype { get; set; }
+  public TType Astype { get; set; }
   public ItestCnstAltOutpObject AsCnstAltOutp { get; set; }
 }

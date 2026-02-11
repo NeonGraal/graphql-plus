@@ -11,15 +11,15 @@ output AltGnrcPrntParamPrntOutp { alt: Number | String }
 namespace Components.Gqlp_Schema_generic_parent_param_parent_Output;
 
 public class CmptGnrcPrntParamPrntOutp
-  : CmptRefGnrcPrntParamPrntOutp
+  : CmptRefGnrcPrntParamPrntOutp<ICmptAltGnrcPrntParamPrntOutp>
   , ICmptGnrcPrntParamPrntOutp
 {
   public ICmptGnrcPrntParamPrntOutpObject AsGnrcPrntParamPrntOutp { get; set; }
 }
 
-public class CmptRefGnrcPrntParamPrntOutp<Tref>
+public class CmptRefGnrcPrntParamPrntOutp<TRef>
   : Cmptref
-  , ICmptRefGnrcPrntParamPrntOutp<Tref>
+  , ICmptRefGnrcPrntParamPrntOutp<TRef>
 {
   public ICmptRefGnrcPrntParamPrntOutpObject AsRefGnrcPrntParamPrntOutp { get; set; }
 }

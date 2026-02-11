@@ -9,10 +9,10 @@ output FldFieldModParamOutp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Output;
 
-public class CmptFieldModParamOutp<Tmod>
-  : ICmptFieldModParamOutp<Tmod>
+public class CmptFieldModParamOutp<TMod>
+  : ICmptFieldModParamOutp<TMod>
 {
-  public IDictionary<Tmod, ICmptFldFieldModParamOutp> Field { get; set; }
+  public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
   public ICmptFieldModParamOutpObject AsFieldModParamOutp { get; set; }
 }
 

@@ -12,10 +12,10 @@ public class testGnrcAltParamInp
   public ItestGnrcAltParamInpObject AsGnrcAltParamInp { get; set; }
 }
 
-public class testRefGnrcAltParamInp<Tref>
-  : ItestRefGnrcAltParamInp<Tref>
+public class testRefGnrcAltParamInp<TRef>
+  : ItestRefGnrcAltParamInp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ItestRefGnrcAltParamInpObject AsRefGnrcAltParamInp { get; set; }
 }
 

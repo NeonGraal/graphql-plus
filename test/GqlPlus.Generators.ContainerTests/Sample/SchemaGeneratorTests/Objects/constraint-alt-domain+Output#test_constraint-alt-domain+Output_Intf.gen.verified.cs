@@ -15,13 +15,13 @@ public interface ItestCnstAltDmnOutpObject
 {
 }
 
-public interface ItestRefCnstAltDmnOutp<Tref>
+public interface ItestRefCnstAltDmnOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefCnstAltDmnOutpObject AsRefCnstAltDmnOutp { get; }
 }
 
-public interface ItestRefCnstAltDmnOutpObject<Tref>
+public interface ItestRefCnstAltDmnOutpObject<TRef>
 {
 }
 

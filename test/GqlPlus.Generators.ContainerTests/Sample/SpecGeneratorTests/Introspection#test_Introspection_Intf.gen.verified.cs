@@ -202,53 +202,53 @@ public interface Itest_TypeObject
 {
 }
 
-public interface Itest_BaseType<Tkind>
+public interface Itest_BaseType<TKind>
   : Itest_Aliased
 {
   Itest_BaseTypeObject As_BaseType { get; }
 }
 
-public interface Itest_BaseTypeObject<Tkind>
+public interface Itest_BaseTypeObject<TKind>
   : Itest_AliasedObject
 {
-  Tkind TypeKind { get; }
+  TKind TypeKind { get; }
 }
 
-public interface Itest_ChildType<Tkind,Tparent>
-  : Itest_BaseType
+public interface Itest_ChildType<TKind,TParent>
+  : Itest_BaseType<TKind>
 {
   Itest_ChildTypeObject As_ChildType { get; }
 }
 
-public interface Itest_ChildTypeObject<Tkind,Tparent>
-  : Itest_BaseTypeObject
+public interface Itest_ChildTypeObject<TKind,TParent>
+  : Itest_BaseTypeObject<TKind>
 {
-  Tparent Parent { get; }
+  TParent Parent { get; }
 }
 
-public interface Itest_ParentType<Tkind,Titem,TallItem>
-  : Itest_ChildType
+public interface Itest_ParentType<TKind,TItem,TAllItem>
+  : Itest_ChildType<TKind, Itest_Named>
 {
   Itest_ParentTypeObject As_ParentType { get; }
 }
 
-public interface Itest_ParentTypeObject<Tkind,Titem,TallItem>
-  : Itest_ChildTypeObject
+public interface Itest_ParentTypeObject<TKind,TItem,TAllItem>
+  : Itest_ChildTypeObject<TKind, Itest_Named>
 {
-  ICollection<Titem> Items { get; }
-  ICollection<TallItem> AllItems { get; }
+  ICollection<TItem> Items { get; }
+  ICollection<TAllItem> AllItems { get; }
 }
 
-public interface Itest_TypeRef<Tkind>
+public interface Itest_TypeRef<TKind>
   : Itest_Named
 {
   Itest_TypeRefObject As_TypeRef { get; }
 }
 
-public interface Itest_TypeRefObject<Tkind>
+public interface Itest_TypeRefObject<TKind>
   : Itest_NamedObject
 {
-  Tkind TypeKind { get; }
+  TKind TypeKind { get; }
 }
 
 public interface Itest_TypeSimple
@@ -276,14 +276,14 @@ public interface Itest_CollectionsObject
 {
 }
 
-public interface Itest_ModifierKeyed<Tkind>
-  : Itest_Modifier
+public interface Itest_ModifierKeyed<TKind>
+  : Itest_Modifier<TKind>
 {
   Itest_ModifierKeyedObject As_ModifierKeyed { get; }
 }
 
-public interface Itest_ModifierKeyedObject<Tkind>
-  : Itest_ModifierObject
+public interface Itest_ModifierKeyedObject<TKind>
+  : Itest_ModifierObject<TKind>
 {
   Itest_TypeSimple By { get; }
   test_DomainKind Optional { get; }
@@ -300,38 +300,38 @@ public interface Itest_ModifiersObject
 {
 }
 
-public interface Itest_Modifier<Tkind>
+public interface Itest_Modifier<TKind>
 {
   Itest_ModifierObject As_Modifier { get; }
 }
 
-public interface Itest_ModifierObject<Tkind>
+public interface Itest_ModifierObject<TKind>
 {
-  Tkind ModifierKind { get; }
+  TKind ModifierKind { get; }
 }
 
-public interface Itest_DomainRef<Tkind>
-  : Itest_TypeRef
+public interface Itest_DomainRef<TKind>
+  : Itest_TypeRef<test_TypeKind>
 {
   Itest_DomainRefObject As_DomainRef { get; }
 }
 
-public interface Itest_DomainRefObject<Tkind>
-  : Itest_TypeRefObject
+public interface Itest_DomainRefObject<TKind>
+  : Itest_TypeRefObject<test_TypeKind>
 {
-  Tkind DomainKind { get; }
+  TKind DomainKind { get; }
 }
 
-public interface Itest_BaseDomain<Tdomain,Titem,TdomainItem>
-  : Itest_ParentType
+public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
+  : Itest_ParentType<test_TypeKind, TItem, TDomainItem>
 {
   Itest_BaseDomainObject As_BaseDomain { get; }
 }
 
-public interface Itest_BaseDomainObject<Tdomain,Titem,TdomainItem>
-  : Itest_ParentTypeObject
+public interface Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
+  : Itest_ParentTypeObject<test_TypeKind, TItem, TDomainItem>
 {
-  Tdomain DomainKind { get; }
+  TDomain DomainKind { get; }
 }
 
 public interface Itest_BaseDomainItem
@@ -346,29 +346,29 @@ public interface Itest_BaseDomainItemObject
   test_DomainKind Exclude { get; }
 }
 
-public interface Itest_DomainItem<Titem>
+public interface Itest_DomainItem<TItem>
   : Itestitem
 {
   Itest_DomainItemObject As_DomainItem { get; }
 }
 
-public interface Itest_DomainItemObject<Titem>
+public interface Itest_DomainItemObject<TItem>
   : ItestitemObject
 {
   Itest_Name Domain { get; }
 }
 
-public interface Itest_DomainValue<Tkind,Tvalue>
-  : Itest_DomainRef
+public interface Itest_DomainValue<TKind,TValue>
+  : Itest_DomainRef<TKind>
 {
-  Tvalue Asvalue { get; }
+  TValue Asvalue { get; }
   Itest_DomainValueObject As_DomainValue { get; }
 }
 
-public interface Itest_DomainValueObject<Tkind,Tvalue>
-  : Itest_DomainRefObject
+public interface Itest_DomainValueObject<TKind,TValue>
+  : Itest_DomainRefObject<TKind>
 {
-  Tvalue Value { get; }
+  TValue Value { get; }
 }
 
 public interface Itest_BasicValue
@@ -397,13 +397,13 @@ public interface Itest_DomainTrueFalseObject
 }
 
 public interface Itest_DomainItemTrueFalse
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainTrueFalse>
 {
   Itest_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; }
 }
 
 public interface Itest_DomainItemTrueFalseObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainTrueFalse>
 {
 }
 
@@ -420,13 +420,13 @@ public interface Itest_DomainLabelObject
 }
 
 public interface Itest_DomainItemLabel
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainLabel>
 {
   Itest_DomainItemLabelObject As_DomainItemLabel { get; }
 }
 
 public interface Itest_DomainItemLabelObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainLabel>
 {
 }
 
@@ -444,13 +444,13 @@ public interface Itest_DomainRangeObject
 }
 
 public interface Itest_DomainItemRange
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainRange>
 {
   Itest_DomainItemRangeObject As_DomainItemRange { get; }
 }
 
 public interface Itest_DomainItemRangeObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainRange>
 {
 }
 
@@ -467,13 +467,13 @@ public interface Itest_DomainRegexObject
 }
 
 public interface Itest_DomainItemRegex
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainRegex>
 {
   Itest_DomainItemRegexObject As_DomainItemRegex { get; }
 }
 
 public interface Itest_DomainItemRegexObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainRegex>
 {
 }
 
@@ -490,25 +490,25 @@ public interface Itest_EnumLabelObject
 }
 
 public interface Itest_EnumValue
-  : Itest_TypeRef
+  : Itest_TypeRef<test_TypeKind>
 {
   Itest_EnumValueObject As_EnumValue { get; }
 }
 
 public interface Itest_EnumValueObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<test_TypeKind>
 {
   Itest_Name Label { get; }
 }
 
 public interface Itest_UnionRef
-  : Itest_TypeRef
+  : Itest_TypeRef<test_SimpleKind>
 {
   Itest_UnionRefObject As_UnionRef { get; }
 }
 
 public interface Itest_UnionRefObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<test_SimpleKind>
 {
 }
 
@@ -529,19 +529,19 @@ public interface Itest_ObjectKind
 {
 }
 
-public interface Itest_TypeObject<Tkind,Tfield>
-  : Itest_ChildType
+public interface Itest_TypeObject<TKind,TField>
+  : Itest_ChildType<TKind, Itest_ObjBase>
 {
   Itest_TypeObjectObject As_TypeObject { get; }
 }
 
-public interface Itest_TypeObjectObject<Tkind,Tfield>
-  : Itest_ChildTypeObject
+public interface Itest_TypeObjectObject<TKind,TField>
+  : Itest_ChildTypeObject<TKind, Itest_ObjBase>
 {
   ICollection<Itest_ObjTypeParam> TypeParams { get; }
-  ICollection<Tfield> Fields { get; }
+  ICollection<TField> Fields { get; }
   ICollection<Itest_ObjAlternate> Alternates { get; }
-  ICollection<Itest_ObjectFor<Tfield>> AllFields { get; }
+  ICollection<Itest_ObjectFor<TField>> AllFields { get; }
   ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; }
 }
 
@@ -571,14 +571,14 @@ public interface Itest_ObjBaseObject
 }
 
 public interface Itest_ObjTypeArg
-  : Itest_TypeRef
+  : Itest_TypeRef<test_TypeKind>
 {
   Itest_TypeParam As_TypeParam { get; }
   Itest_ObjTypeArgObject As_ObjTypeArg { get; }
 }
 
 public interface Itest_ObjTypeArgObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<test_TypeKind>
 {
   Itest_Name? Label { get; }
 }
@@ -608,39 +608,39 @@ public interface Itest_ObjAlternateObject
 }
 
 public interface Itest_ObjAlternateEnum
-  : Itest_TypeRef
+  : Itest_TypeRef<test_TypeKind>
 {
   Itest_ObjAlternateEnumObject As_ObjAlternateEnum { get; }
 }
 
 public interface Itest_ObjAlternateEnumObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<test_TypeKind>
 {
   Itest_Name Label { get; }
 }
 
-public interface Itest_ObjectFor<Tfor>
+public interface Itest_ObjectFor<TFor>
   : Itestfor
 {
   Itest_ObjectForObject As_ObjectFor { get; }
 }
 
-public interface Itest_ObjectForObject<Tfor>
+public interface Itest_ObjectForObject<TFor>
   : ItestforObject
 {
   Itest_Name Object { get; }
 }
 
-public interface Itest_ObjField<Ttype>
+public interface Itest_ObjField<TType>
   : Itest_Aliased
 {
   Itest_ObjFieldObject As_ObjField { get; }
 }
 
-public interface Itest_ObjFieldObject<Ttype>
+public interface Itest_ObjFieldObject<TType>
   : Itest_AliasedObject
 {
-  Ttype Type { get; }
+  TType Type { get; }
 }
 
 public interface Itest_ObjFieldType
@@ -657,47 +657,47 @@ public interface Itest_ObjFieldTypeObject
 }
 
 public interface Itest_ObjFieldEnum
-  : Itest_TypeRef
+  : Itest_TypeRef<test_TypeKind>
 {
   Itest_ObjFieldEnumObject As_ObjFieldEnum { get; }
 }
 
 public interface Itest_ObjFieldEnumObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<test_TypeKind>
 {
   Itest_Name Label { get; }
 }
 
-public interface Itest_ForParam<Ttype>
+public interface Itest_ForParam<TType>
 {
   Itest_ObjAlternate As_ObjAlternate { get; }
-  Itest_ObjField<Ttype> As_ObjField { get; }
+  Itest_ObjField<TType> As_ObjField { get; }
   Itest_ForParamObject As_ForParam { get; }
 }
 
-public interface Itest_ForParamObject<Ttype>
+public interface Itest_ForParamObject<TType>
 {
 }
 
 public interface Itest_DualField
-  : Itest_ObjField
+  : Itest_ObjField<Itest_ObjFieldType>
 {
   Itest_DualFieldObject As_DualField { get; }
 }
 
 public interface Itest_DualFieldObject
-  : Itest_ObjFieldObject
+  : Itest_ObjFieldObject<Itest_ObjFieldType>
 {
 }
 
 public interface Itest_InputField
-  : Itest_ObjField
+  : Itest_ObjField<Itest_InputFieldType>
 {
   Itest_InputFieldObject As_InputField { get; }
 }
 
 public interface Itest_InputFieldObject
-  : Itest_ObjFieldObject
+  : Itest_ObjFieldObject<Itest_InputFieldType>
 {
 }
 
@@ -725,13 +725,13 @@ public interface Itest_InputParamObject
 }
 
 public interface Itest_OutputField
-  : Itest_ObjField
+  : Itest_ObjField<Itest_ObjFieldType>
 {
   Itest_OutputFieldObject As_OutputField { get; }
 }
 
 public interface Itest_OutputFieldObject
-  : Itest_ObjFieldObject
+  : Itest_ObjFieldObject<Itest_ObjFieldType>
 {
 }
 

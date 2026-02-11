@@ -11,14 +11,14 @@ public class test_ObjectKind
 {
 }
 
-public class test_TypeObject<Tkind,Tfield>
-  : test_ChildType
-  , Itest_TypeObject<Tkind,Tfield>
+public class test_TypeObject<TKind,TField>
+  : test_ChildType<TKind, Itest_ObjBase>
+  , Itest_TypeObject<TKind,TField>
 {
   public ICollection<Itest_ObjTypeParam> TypeParams { get; set; }
-  public ICollection<Tfield> Fields { get; set; }
+  public ICollection<TField> Fields { get; set; }
   public ICollection<Itest_ObjAlternate> Alternates { get; set; }
-  public ICollection<Itest_ObjectFor<Tfield>> AllFields { get; set; }
+  public ICollection<Itest_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
   public Itest_TypeObjectObject As_TypeObject { get; set; }
 }
@@ -41,7 +41,7 @@ public class test_ObjBase
 }
 
 public class test_ObjTypeArg
-  : test_TypeRef
+  : test_TypeRef<Itest_TypeKind>
   , Itest_ObjTypeArg
 {
   public Itest_Name? Label { get; set; }
@@ -67,26 +67,26 @@ public class test_ObjAlternate
 }
 
 public class test_ObjAlternateEnum
-  : test_TypeRef
+  : test_TypeRef<Itest_TypeKind>
   , Itest_ObjAlternateEnum
 {
   public Itest_Name Label { get; set; }
   public Itest_ObjAlternateEnumObject As_ObjAlternateEnum { get; set; }
 }
 
-public class test_ObjectFor<Tfor>
+public class test_ObjectFor<TFor>
   : testfor
-  , Itest_ObjectFor<Tfor>
+  , Itest_ObjectFor<TFor>
 {
   public Itest_Name Object { get; set; }
   public Itest_ObjectForObject As_ObjectFor { get; set; }
 }
 
-public class test_ObjField<Ttype>
+public class test_ObjField<TType>
   : test_Aliased
-  , Itest_ObjField<Ttype>
+  , Itest_ObjField<TType>
 {
-  public Ttype Type { get; set; }
+  public TType Type { get; set; }
   public Itest_ObjFieldObject As_ObjField { get; set; }
 }
 
@@ -100,17 +100,17 @@ public class test_ObjFieldType
 }
 
 public class test_ObjFieldEnum
-  : test_TypeRef
+  : test_TypeRef<Itest_TypeKind>
   , Itest_ObjFieldEnum
 {
   public Itest_Name Label { get; set; }
   public Itest_ObjFieldEnumObject As_ObjFieldEnum { get; set; }
 }
 
-public class test_ForParam<Ttype>
-  : Itest_ForParam<Ttype>
+public class test_ForParam<TType>
+  : Itest_ForParam<TType>
 {
   public Itest_ObjAlternate As_ObjAlternate { get; set; }
-  public Itest_ObjField<Ttype> As_ObjField { get; set; }
+  public Itest_ObjField<TType> As_ObjField { get; set; }
   public Itest_ForParamObject As_ForParam { get; set; }
 }

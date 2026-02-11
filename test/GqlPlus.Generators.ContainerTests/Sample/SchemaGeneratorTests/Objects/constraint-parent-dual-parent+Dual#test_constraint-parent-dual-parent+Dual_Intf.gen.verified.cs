@@ -6,23 +6,23 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_parent_Dual;
 
 public interface ItestCnstPrntDualPrntDual
-  : ItestRefCnstPrntDualPrntDual
+  : ItestRefCnstPrntDualPrntDual<ItestAltCnstPrntDualPrntDual>
 {
   ItestCnstPrntDualPrntDualObject AsCnstPrntDualPrntDual { get; }
 }
 
 public interface ItestCnstPrntDualPrntDualObject
-  : ItestRefCnstPrntDualPrntDualObject
+  : ItestRefCnstPrntDualPrntDualObject<ItestAltCnstPrntDualPrntDual>
 {
 }
 
-public interface ItestRefCnstPrntDualPrntDual<Tref>
+public interface ItestRefCnstPrntDualPrntDual<TRef>
   : Itestref
 {
   ItestRefCnstPrntDualPrntDualObject AsRefCnstPrntDualPrntDual { get; }
 }
 
-public interface ItestRefCnstPrntDualPrntDualObject<Tref>
+public interface ItestRefCnstPrntDualPrntDualObject<TRef>
   : ItestrefObject
 {
 }

@@ -9,13 +9,13 @@ output ObjParamOutp<$type:String> { type: $type }
 
 namespace Components.Gqlp_Schema_object_param_Output;
 
-public interface ICmptObjParamOutp<Ttest,Ttype>
+public interface ICmptObjParamOutp<TTest,TType>
 {
   ICmptObjParamOutpObject AsObjParamOutp { get; }
 }
 
-public interface ICmptObjParamOutpObject<Ttest,Ttype>
+public interface ICmptObjParamOutpObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }

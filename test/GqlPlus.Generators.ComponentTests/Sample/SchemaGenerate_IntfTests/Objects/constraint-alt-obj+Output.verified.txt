@@ -21,13 +21,13 @@ public interface ICmptCnstAltObjOutpObject
 {
 }
 
-public interface ICmptRefCnstAltObjOutp<Tref>
+public interface ICmptRefCnstAltObjOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefCnstAltObjOutpObject AsRefCnstAltObjOutp { get; }
 }
 
-public interface ICmptRefCnstAltObjOutpObject<Tref>
+public interface ICmptRefCnstAltObjOutpObject<TRef>
 {
 }
 

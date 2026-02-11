@@ -13,15 +13,15 @@ dual AltCnstPrntDualGrndDual { :PrntCnstPrntDualGrndDual alt: Number }
 namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Dual;
 
 public class CmptCnstPrntDualGrndDual
-  : CmptRefCnstPrntDualGrndDual
+  : CmptRefCnstPrntDualGrndDual<ICmptAltCnstPrntDualGrndDual>
   , ICmptCnstPrntDualGrndDual
 {
   public ICmptCnstPrntDualGrndDualObject AsCnstPrntDualGrndDual { get; set; }
 }
 
-public class CmptRefCnstPrntDualGrndDual<Tref>
+public class CmptRefCnstPrntDualGrndDual<TRef>
   : Cmptref
-  , ICmptRefCnstPrntDualGrndDual<Tref>
+  , ICmptRefCnstPrntDualGrndDual<TRef>
 {
   public ICmptRefCnstPrntDualGrndDualObject AsRefCnstPrntDualGrndDual { get; set; }
 }

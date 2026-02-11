@@ -20,12 +20,12 @@ public interface ICmptCnstEnumDualObject
 {
 }
 
-public interface ICmptRefCnstEnumDual<Ttype>
+public interface ICmptRefCnstEnumDual<TType>
 {
   ICmptRefCnstEnumDualObject AsRefCnstEnumDual { get; }
 }
 
-public interface ICmptRefCnstEnumDualObject<Ttype>
+public interface ICmptRefCnstEnumDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

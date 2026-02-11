@@ -5,10 +5,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Input;
 
-public class testFieldModParamInp<Tmod>
-  : ItestFieldModParamInp<Tmod>
+public class testFieldModParamInp<TMod>
+  : ItestFieldModParamInp<TMod>
 {
-  public IDictionary<Tmod, ItestFldFieldModParamInp> Field { get; set; }
+  public IDictionary<TMod, ItestFldFieldModParamInp> Field { get; set; }
   public ItestFieldModParamInpObject AsFieldModParamInp { get; set; }
 }
 

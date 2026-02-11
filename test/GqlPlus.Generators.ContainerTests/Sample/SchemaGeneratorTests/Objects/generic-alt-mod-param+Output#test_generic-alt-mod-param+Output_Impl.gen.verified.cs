@@ -5,9 +5,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_param_Output;
 
-public class testRefGnrcAltModParamOutp<Tref,Tmod>
-  : ItestRefGnrcAltModParamOutp<Tref,Tmod>
+public class testRefGnrcAltModParamOutp<TRef,TMod>
+  : ItestRefGnrcAltModParamOutp<TRef,TMod>
 {
-  public IDictionary<Tmod, Tref> Asref { get; set; }
+  public IDictionary<TMod, TRef> Asref { get; set; }
   public ItestRefGnrcAltModParamOutpObject AsRefGnrcAltModParamOutp { get; set; }
 }

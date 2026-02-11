@@ -12,15 +12,15 @@ output AltCnstPrntDualPrntOutp { :PrntCnstPrntDualPrntOutp alt: Number }
 namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Output;
 
 public class CmptCnstPrntDualPrntOutp
-  : CmptRefCnstPrntDualPrntOutp
+  : CmptRefCnstPrntDualPrntOutp<ICmptAltCnstPrntDualPrntOutp>
   , ICmptCnstPrntDualPrntOutp
 {
   public ICmptCnstPrntDualPrntOutpObject AsCnstPrntDualPrntOutp { get; set; }
 }
 
-public class CmptRefCnstPrntDualPrntOutp<Tref>
+public class CmptRefCnstPrntDualPrntOutp<TRef>
   : Cmptref
-  , ICmptRefCnstPrntDualPrntOutp<Tref>
+  , ICmptRefCnstPrntDualPrntOutp<TRef>
 {
   public ICmptRefCnstPrntDualPrntOutpObject AsRefCnstPrntDualPrntOutp { get; set; }
 }

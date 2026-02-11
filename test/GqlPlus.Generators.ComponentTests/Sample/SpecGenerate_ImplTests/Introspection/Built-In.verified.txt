@@ -38,9 +38,9 @@ public class Cmpt_Collections
   public ICmpt_CollectionsObject As_Collections { get; set; }
 }
 
-public class Cmpt_ModifierKeyed<Tkind>
-  : Cmpt_Modifier
-  , ICmpt_ModifierKeyed<Tkind>
+public class Cmpt_ModifierKeyed<TKind>
+  : Cmpt_Modifier<TKind>
+  , ICmpt_ModifierKeyed<TKind>
 {
   public ICmpt_TypeSimple By { get; set; }
   public bool Optional { get; set; }
@@ -55,9 +55,9 @@ public class Cmpt_Modifiers
   public ICmpt_ModifiersObject As_Modifiers { get; set; }
 }
 
-public class Cmpt_Modifier<Tkind>
-  : ICmpt_Modifier<Tkind>
+public class Cmpt_Modifier<TKind>
+  : ICmpt_Modifier<TKind>
 {
-  public Tkind ModifierKind { get; set; }
+  public TKind ModifierKind { get; set; }
   public ICmpt_ModifierObject As_Modifier { get; set; }
 }

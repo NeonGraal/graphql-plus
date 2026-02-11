@@ -11,16 +11,16 @@ domain DomGnrcPrntStrDomOutp { string /\w+/ }
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Output;
 
 public class CmptGnrcPrntStrDomOutp
-  : CmptFieldGnrcPrntStrDomOutp
+  : CmptFieldGnrcPrntStrDomOutp<ICmptDomGnrcPrntStrDomOutp>
   , ICmptGnrcPrntStrDomOutp
 {
   public ICmptGnrcPrntStrDomOutpObject AsGnrcPrntStrDomOutp { get; set; }
 }
 
-public class CmptFieldGnrcPrntStrDomOutp<Tref>
-  : ICmptFieldGnrcPrntStrDomOutp<Tref>
+public class CmptFieldGnrcPrntStrDomOutp<TRef>
+  : ICmptFieldGnrcPrntStrDomOutp<TRef>
 {
-  public Tref Field { get; set; }
+  public TRef Field { get; set; }
   public ICmptFieldGnrcPrntStrDomOutpObject AsFieldGnrcPrntStrDomOutp { get; set; }
 }
 

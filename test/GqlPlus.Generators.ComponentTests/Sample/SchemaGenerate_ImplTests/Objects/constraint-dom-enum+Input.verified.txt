@@ -18,10 +18,10 @@ public class CmptCnstDomEnumInp
   public ICmptCnstDomEnumInpObject AsCnstDomEnumInp { get; set; }
 }
 
-public class CmptRefCnstDomEnumInp<Ttype>
-  : ICmptRefCnstDomEnumInp<Ttype>
+public class CmptRefCnstDomEnumInp<TType>
+  : ICmptRefCnstDomEnumInp<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ICmptRefCnstDomEnumInpObject AsRefCnstDomEnumInp { get; set; }
 }
 

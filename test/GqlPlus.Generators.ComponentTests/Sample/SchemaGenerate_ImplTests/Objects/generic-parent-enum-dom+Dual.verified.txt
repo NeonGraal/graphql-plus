@@ -12,16 +12,16 @@ domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Dual;
 
 public class CmptGnrcPrntEnumDomDual
-  : CmptFieldGnrcPrntEnumDomDual
+  : CmptFieldGnrcPrntEnumDomDual<ICmptDomGnrcPrntEnumDomDual>
   , ICmptGnrcPrntEnumDomDual
 {
   public ICmptGnrcPrntEnumDomDualObject AsGnrcPrntEnumDomDual { get; set; }
 }
 
-public class CmptFieldGnrcPrntEnumDomDual<Tref>
-  : ICmptFieldGnrcPrntEnumDomDual<Tref>
+public class CmptFieldGnrcPrntEnumDomDual<TRef>
+  : ICmptFieldGnrcPrntEnumDomDual<TRef>
 {
-  public Tref Field { get; set; }
+  public TRef Field { get; set; }
   public ICmptFieldGnrcPrntEnumDomDualObject AsFieldGnrcPrntEnumDomDual { get; set; }
 }
 

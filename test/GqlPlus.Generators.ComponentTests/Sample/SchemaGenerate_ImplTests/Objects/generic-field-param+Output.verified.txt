@@ -17,10 +17,10 @@ public class CmptGnrcFieldParamOutp
   public ICmptGnrcFieldParamOutpObject AsGnrcFieldParamOutp { get; set; }
 }
 
-public class CmptRefGnrcFieldParamOutp<Tref>
-  : ICmptRefGnrcFieldParamOutp<Tref>
+public class CmptRefGnrcFieldParamOutp<TRef>
+  : ICmptRefGnrcFieldParamOutp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefGnrcFieldParamOutpObject AsRefGnrcFieldParamOutp { get; set; }
 }
 

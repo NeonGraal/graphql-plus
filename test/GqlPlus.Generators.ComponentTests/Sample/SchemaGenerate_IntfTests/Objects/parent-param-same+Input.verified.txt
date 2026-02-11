@@ -9,24 +9,24 @@ input RefPrntParamSameInp<$a:String> { | $a }
 
 namespace Components.Gqlp_Schema_parent_param_same_Input;
 
-public interface ICmptPrntParamSameInp<Ta>
-  : ICmptRefPrntParamSameInp
+public interface ICmptPrntParamSameInp<TA>
+  : ICmptRefPrntParamSameInp<TA>
 {
   ICmptPrntParamSameInpObject AsPrntParamSameInp { get; }
 }
 
-public interface ICmptPrntParamSameInpObject<Ta>
-  : ICmptRefPrntParamSameInpObject
+public interface ICmptPrntParamSameInpObject<TA>
+  : ICmptRefPrntParamSameInpObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ICmptRefPrntParamSameInp<Ta>
+public interface ICmptRefPrntParamSameInp<TA>
 {
-  Ta Asa { get; }
+  TA Asa { get; }
   ICmptRefPrntParamSameInpObject AsRefPrntParamSameInp { get; }
 }
 
-public interface ICmptRefPrntParamSameInpObject<Ta>
+public interface ICmptRefPrntParamSameInpObject<TA>
 {
 }

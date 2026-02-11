@@ -9,13 +9,13 @@ dual ObjCnstDual<$type:String> { str: $type }
 
 namespace Components.Gqlp_Schema_object_constraint_Dual;
 
-public interface ICmptObjCnstDual<Ttype>
+public interface ICmptObjCnstDual<TType>
 {
   ICmptObjCnstDualObject AsObjCnstDual { get; }
 }
 
-public interface ICmptObjCnstDualObject<Ttype>
+public interface ICmptObjCnstDualObject<TType>
 {
-  Ttype Field { get; }
-  Ttype Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }

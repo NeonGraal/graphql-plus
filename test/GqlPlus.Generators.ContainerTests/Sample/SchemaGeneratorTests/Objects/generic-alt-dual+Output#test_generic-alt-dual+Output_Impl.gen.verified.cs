@@ -12,10 +12,10 @@ public class testGnrcAltDualOutp
   public ItestGnrcAltDualOutpObject AsGnrcAltDualOutp { get; set; }
 }
 
-public class testRefGnrcAltDualOutp<Tref>
-  : ItestRefGnrcAltDualOutp<Tref>
+public class testRefGnrcAltDualOutp<TRef>
+  : ItestRefGnrcAltDualOutp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ItestRefGnrcAltDualOutpObject AsRefGnrcAltDualOutp { get; set; }
 }
 

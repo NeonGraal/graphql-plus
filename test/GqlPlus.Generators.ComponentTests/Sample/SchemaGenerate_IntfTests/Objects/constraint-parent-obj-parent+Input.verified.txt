@@ -12,23 +12,23 @@ input AltCnstPrntObjPrntInp { :PrntCnstPrntObjPrntInp alt: Number }
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Input;
 
 public interface ICmptCnstPrntObjPrntInp
-  : ICmptRefCnstPrntObjPrntInp
+  : ICmptRefCnstPrntObjPrntInp<ICmptAltCnstPrntObjPrntInp>
 {
   ICmptCnstPrntObjPrntInpObject AsCnstPrntObjPrntInp { get; }
 }
 
 public interface ICmptCnstPrntObjPrntInpObject
-  : ICmptRefCnstPrntObjPrntInpObject
+  : ICmptRefCnstPrntObjPrntInpObject<ICmptAltCnstPrntObjPrntInp>
 {
 }
 
-public interface ICmptRefCnstPrntObjPrntInp<Tref>
+public interface ICmptRefCnstPrntObjPrntInp<TRef>
   : ICmptref
 {
   ICmptRefCnstPrntObjPrntInpObject AsRefCnstPrntObjPrntInp { get; }
 }
 
-public interface ICmptRefCnstPrntObjPrntInpObject<Tref>
+public interface ICmptRefCnstPrntObjPrntInpObject<TRef>
   : ICmptrefObject
 {
 }

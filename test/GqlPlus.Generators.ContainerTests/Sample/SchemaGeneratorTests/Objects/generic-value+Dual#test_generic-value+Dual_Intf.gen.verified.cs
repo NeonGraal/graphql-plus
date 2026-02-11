@@ -15,12 +15,12 @@ public interface ItestGnrcValueDualObject
 {
 }
 
-public interface ItestRefGnrcValueDual<Ttype>
+public interface ItestRefGnrcValueDual<TType>
 {
   ItestRefGnrcValueDualObject AsRefGnrcValueDual { get; }
 }
 
-public interface ItestRefGnrcValueDualObject<Ttype>
+public interface ItestRefGnrcValueDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

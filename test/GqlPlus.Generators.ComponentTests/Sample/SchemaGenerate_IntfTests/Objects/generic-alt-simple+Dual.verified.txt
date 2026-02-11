@@ -19,12 +19,12 @@ public interface ICmptGnrcAltSmplDualObject
 {
 }
 
-public interface ICmptRefGnrcAltSmplDual<Tref>
+public interface ICmptRefGnrcAltSmplDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltSmplDualObject AsRefGnrcAltSmplDual { get; }
 }
 
-public interface ICmptRefGnrcAltSmplDualObject<Tref>
+public interface ICmptRefGnrcAltSmplDualObject<TRef>
 {
 }

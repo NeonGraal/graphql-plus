@@ -20,12 +20,12 @@ public interface ICmptGnrcValueOutpObject
 {
 }
 
-public interface ICmptRefGnrcValueOutp<Ttype>
+public interface ICmptRefGnrcValueOutp<TType>
 {
   ICmptRefGnrcValueOutpObject AsRefGnrcValueOutp { get; }
 }
 
-public interface ICmptRefGnrcValueOutpObject<Ttype>
+public interface ICmptRefGnrcValueOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

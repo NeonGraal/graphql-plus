@@ -21,14 +21,14 @@ public interface ICmptCnstDomEnumDualObject
 {
 }
 
-public interface ICmptRefCnstDomEnumDual<Ttype>
+public interface ICmptRefCnstDomEnumDual<TType>
 {
   ICmptRefCnstDomEnumDualObject AsRefCnstDomEnumDual { get; }
 }
 
-public interface ICmptRefCnstDomEnumDualObject<Ttype>
+public interface ICmptRefCnstDomEnumDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptJustCnstDomEnumDual

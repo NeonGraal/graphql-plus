@@ -15,14 +15,14 @@ public interface ItestCnstDomEnumOutpObject
 {
 }
 
-public interface ItestRefCnstDomEnumOutp<Ttype>
+public interface ItestRefCnstDomEnumOutp<TType>
 {
   ItestRefCnstDomEnumOutpObject AsRefCnstDomEnumOutp { get; }
 }
 
-public interface ItestRefCnstDomEnumOutpObject<Ttype>
+public interface ItestRefCnstDomEnumOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestJustCnstDomEnumOutp

@@ -253,37 +253,37 @@ public interface ICmptObjAltEnumOutpObject
 {
 }
 
-public interface ICmptObjCnstDual<Ttype>
+public interface ICmptObjCnstDual<TType>
 {
   ICmptObjCnstDualObject AsObjCnstDual { get; }
 }
 
-public interface ICmptObjCnstDualObject<Ttype>
+public interface ICmptObjCnstDualObject<TType>
 {
-  Ttype Field { get; }
-  Ttype Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }
 
-public interface ICmptObjCnstInp<Ttype>
+public interface ICmptObjCnstInp<TType>
 {
   ICmptObjCnstInpObject AsObjCnstInp { get; }
 }
 
-public interface ICmptObjCnstInpObject<Ttype>
+public interface ICmptObjCnstInpObject<TType>
 {
-  Ttype Field { get; }
-  Ttype Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }
 
-public interface ICmptObjCnstOutp<Ttype>
+public interface ICmptObjCnstOutp<TType>
 {
   ICmptObjCnstOutpObject AsObjCnstOutp { get; }
 }
 
-public interface ICmptObjCnstOutpObject<Ttype>
+public interface ICmptObjCnstOutpObject<TType>
 {
-  Ttype Field { get; }
-  Ttype Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }
 
 public interface ICmptObjFieldDual
@@ -490,70 +490,70 @@ public interface ICmptObjFieldTypeAliasOutpObject
   string Field { get; }
 }
 
-public interface ICmptObjParamDual<Ttest,Ttype>
+public interface ICmptObjParamDual<TTest,TType>
 {
   ICmptObjParamDualObject AsObjParamDual { get; }
 }
 
-public interface ICmptObjParamDualObject<Ttest,Ttype>
+public interface ICmptObjParamDualObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }
 
-public interface ICmptObjParamInp<Ttest,Ttype>
+public interface ICmptObjParamInp<TTest,TType>
 {
   ICmptObjParamInpObject AsObjParamInp { get; }
 }
 
-public interface ICmptObjParamInpObject<Ttest,Ttype>
+public interface ICmptObjParamInpObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }
 
-public interface ICmptObjParamOutp<Ttest,Ttype>
+public interface ICmptObjParamOutp<TTest,TType>
 {
   ICmptObjParamOutpObject AsObjParamOutp { get; }
 }
 
-public interface ICmptObjParamOutpObject<Ttest,Ttype>
+public interface ICmptObjParamOutpObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }
 
-public interface ICmptObjParamDupDual<Ttest>
+public interface ICmptObjParamDupDual<TTest>
 {
   ICmptObjParamDupDualObject AsObjParamDupDual { get; }
 }
 
-public interface ICmptObjParamDupDualObject<Ttest>
+public interface ICmptObjParamDupDualObject<TTest>
 {
-  Ttest Test { get; }
-  Ttest Type { get; }
+  TTest Test { get; }
+  TTest Type { get; }
 }
 
-public interface ICmptObjParamDupInp<Ttest>
+public interface ICmptObjParamDupInp<TTest>
 {
   ICmptObjParamDupInpObject AsObjParamDupInp { get; }
 }
 
-public interface ICmptObjParamDupInpObject<Ttest>
+public interface ICmptObjParamDupInpObject<TTest>
 {
-  Ttest Test { get; }
-  Ttest Type { get; }
+  TTest Test { get; }
+  TTest Type { get; }
 }
 
-public interface ICmptObjParamDupOutp<Ttest>
+public interface ICmptObjParamDupOutp<TTest>
 {
   ICmptObjParamDupOutpObject AsObjParamDupOutp { get; }
 }
 
-public interface ICmptObjParamDupOutpObject<Ttest>
+public interface ICmptObjParamDupOutpObject<TTest>
 {
-  Ttest Test { get; }
-  Ttest Type { get; }
+  TTest Test { get; }
+  TTest Type { get; }
 }
 
 public interface ICmptObjPrntDual

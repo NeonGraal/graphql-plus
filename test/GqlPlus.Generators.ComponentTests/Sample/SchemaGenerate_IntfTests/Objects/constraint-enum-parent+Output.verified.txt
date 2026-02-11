@@ -21,12 +21,12 @@ public interface ICmptCnstEnumPrntOutpObject
 {
 }
 
-public interface ICmptRefCnstEnumPrntOutp<Ttype>
+public interface ICmptRefCnstEnumPrntOutp<TType>
 {
   ICmptRefCnstEnumPrntOutpObject AsRefCnstEnumPrntOutp { get; }
 }
 
-public interface ICmptRefCnstEnumPrntOutpObject<Ttype>
+public interface ICmptRefCnstEnumPrntOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

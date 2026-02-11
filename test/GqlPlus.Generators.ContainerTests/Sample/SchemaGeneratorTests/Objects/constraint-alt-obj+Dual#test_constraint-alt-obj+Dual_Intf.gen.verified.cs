@@ -15,13 +15,13 @@ public interface ItestCnstAltObjDualObject
 {
 }
 
-public interface ItestRefCnstAltObjDual<Tref>
+public interface ItestRefCnstAltObjDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefCnstAltObjDualObject AsRefCnstAltObjDual { get; }
 }
 
-public interface ItestRefCnstAltObjDualObject<Tref>
+public interface ItestRefCnstAltObjDualObject<TRef>
 {
 }
 

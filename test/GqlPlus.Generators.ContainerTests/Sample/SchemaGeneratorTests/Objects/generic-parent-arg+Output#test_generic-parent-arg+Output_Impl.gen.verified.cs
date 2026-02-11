@@ -5,16 +5,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_arg_Output;
 
-public class testGnrcPrntArgOutp<Ttype>
-  : testRefGnrcPrntArgOutp
-  , ItestGnrcPrntArgOutp<Ttype>
+public class testGnrcPrntArgOutp<TType>
+  : testRefGnrcPrntArgOutp<TType>
+  , ItestGnrcPrntArgOutp<TType>
 {
   public ItestGnrcPrntArgOutpObject AsGnrcPrntArgOutp { get; set; }
 }
 
-public class testRefGnrcPrntArgOutp<Tref>
-  : ItestRefGnrcPrntArgOutp<Tref>
+public class testRefGnrcPrntArgOutp<TRef>
+  : ItestRefGnrcPrntArgOutp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ItestRefGnrcPrntArgOutpObject AsRefGnrcPrntArgOutp { get; set; }
 }

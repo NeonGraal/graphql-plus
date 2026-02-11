@@ -5,12 +5,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_String_Output;
 
-public interface ItestRefGnrcAltModStrOutp<Tref>
+public interface ItestRefGnrcAltModStrOutp<TRef>
 {
-  IDictionary<testString, Tref> Asref { get; }
+  IDictionary<testString, TRef> Asref { get; }
   ItestRefGnrcAltModStrOutpObject AsRefGnrcAltModStrOutp { get; }
 }
 
-public interface ItestRefGnrcAltModStrOutpObject<Tref>
+public interface ItestRefGnrcAltModStrOutpObject<TRef>
 {
 }

@@ -12,9 +12,9 @@ public class testGnrcValueOutp
   public ItestGnrcValueOutpObject AsGnrcValueOutp { get; set; }
 }
 
-public class testRefGnrcValueOutp<Ttype>
-  : ItestRefGnrcValueOutp<Ttype>
+public class testRefGnrcValueOutp<TType>
+  : ItestRefGnrcValueOutp<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ItestRefGnrcValueOutpObject AsRefGnrcValueOutp { get; set; }
 }

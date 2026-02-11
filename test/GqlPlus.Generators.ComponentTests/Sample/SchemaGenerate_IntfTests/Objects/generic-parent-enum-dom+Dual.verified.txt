@@ -12,24 +12,24 @@ domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Dual;
 
 public interface ICmptGnrcPrntEnumDomDual
-  : ICmptFieldGnrcPrntEnumDomDual
+  : ICmptFieldGnrcPrntEnumDomDual<ICmptDomGnrcPrntEnumDomDual>
 {
   ICmptGnrcPrntEnumDomDualObject AsGnrcPrntEnumDomDual { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomDualObject
-  : ICmptFieldGnrcPrntEnumDomDualObject
+  : ICmptFieldGnrcPrntEnumDomDualObject<ICmptDomGnrcPrntEnumDomDual>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumDomDual<Tref>
+public interface ICmptFieldGnrcPrntEnumDomDual<TRef>
 {
   ICmptFieldGnrcPrntEnumDomDualObject AsFieldGnrcPrntEnumDomDual { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumDomDualObject<Tref>
+public interface ICmptFieldGnrcPrntEnumDomDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntEnumDomDual

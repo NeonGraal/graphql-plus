@@ -12,16 +12,16 @@ input AltCnstFieldDualInp { :PrntCnstFieldDualInp alt: Number }
 namespace Components.Gqlp_Schema_constraint_field_dual_Input;
 
 public class CmptCnstFieldDualInp
-  : CmptRefCnstFieldDualInp
+  : CmptRefCnstFieldDualInp<ICmptAltCnstFieldDualInp>
   , ICmptCnstFieldDualInp
 {
   public ICmptCnstFieldDualInpObject AsCnstFieldDualInp { get; set; }
 }
 
-public class CmptRefCnstFieldDualInp<Tref>
-  : ICmptRefCnstFieldDualInp<Tref>
+public class CmptRefCnstFieldDualInp<TRef>
+  : ICmptRefCnstFieldDualInp<TRef>
 {
-  public Tref Field { get; set; }
+  public TRef Field { get; set; }
   public ICmptRefCnstFieldDualInpObject AsRefCnstFieldDualInp { get; set; }
 }
 

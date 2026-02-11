@@ -15,12 +15,12 @@ public interface ItestCnstPrntEnumOutpObject
 {
 }
 
-public interface ItestRefCnstPrntEnumOutp<Ttype>
+public interface ItestRefCnstPrntEnumOutp<TType>
 {
   ItestRefCnstPrntEnumOutpObject AsRefCnstPrntEnumOutp { get; }
 }
 
-public interface ItestRefCnstPrntEnumOutpObject<Ttype>
+public interface ItestRefCnstPrntEnumOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

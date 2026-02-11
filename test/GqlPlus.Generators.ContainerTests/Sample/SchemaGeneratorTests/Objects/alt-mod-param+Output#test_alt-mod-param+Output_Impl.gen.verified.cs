@@ -5,10 +5,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Output;
 
-public class testAltModParamOutp<Tmod>
-  : ItestAltModParamOutp<Tmod>
+public class testAltModParamOutp<TMod>
+  : ItestAltModParamOutp<TMod>
 {
-  public IDictionary<Tmod, ItestAltAltModParamOutp> AsAltAltModParamOutp { get; set; }
+  public IDictionary<TMod, ItestAltAltModParamOutp> AsAltAltModParamOutp { get; set; }
   public ItestAltModParamOutpObject AsAltModParamOutp { get; set; }
 }
 

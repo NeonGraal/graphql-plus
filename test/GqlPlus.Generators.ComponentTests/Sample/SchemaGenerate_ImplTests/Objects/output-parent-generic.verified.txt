@@ -18,9 +18,9 @@ public class CmptOutpPrntGnrc
   public ICmptOutpPrntGnrcObject AsOutpPrntGnrc { get; set; }
 }
 
-public class CmptRefOutpPrntGnrc<Ttype>
-  : ICmptRefOutpPrntGnrc<Ttype>
+public class CmptRefOutpPrntGnrc<TType>
+  : ICmptRefOutpPrntGnrc<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ICmptRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; set; }
 }

@@ -9,10 +9,10 @@ output ObjParamOutp<$type:String> { type: $type }
 
 namespace Components.Gqlp_Schema_object_param_Output;
 
-public class CmptObjParamOutp<Ttest,Ttype>
-  : ICmptObjParamOutp<Ttest,Ttype>
+public class CmptObjParamOutp<TTest,TType>
+  : ICmptObjParamOutp<TTest,TType>
 {
-  public Ttest Test { get; set; }
-  public Ttype Type { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
   public ICmptObjParamOutpObject AsObjParamOutp { get; set; }
 }

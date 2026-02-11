@@ -9,13 +9,13 @@ dual ObjParamDual<$type:String> { type: $type }
 
 namespace Components.Gqlp_Schema_object_param_Dual;
 
-public interface ICmptObjParamDual<Ttest,Ttype>
+public interface ICmptObjParamDual<TTest,TType>
 {
   ICmptObjParamDualObject AsObjParamDual { get; }
 }
 
-public interface ICmptObjParamDualObject<Ttest,Ttype>
+public interface ICmptObjParamDualObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }

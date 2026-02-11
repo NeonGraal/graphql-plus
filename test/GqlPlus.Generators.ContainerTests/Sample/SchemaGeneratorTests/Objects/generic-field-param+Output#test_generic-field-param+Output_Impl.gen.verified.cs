@@ -12,10 +12,10 @@ public class testGnrcFieldParamOutp
   public ItestGnrcFieldParamOutpObject AsGnrcFieldParamOutp { get; set; }
 }
 
-public class testRefGnrcFieldParamOutp<Tref>
-  : ItestRefGnrcFieldParamOutp<Tref>
+public class testRefGnrcFieldParamOutp<TRef>
+  : ItestRefGnrcFieldParamOutp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ItestRefGnrcFieldParamOutpObject AsRefGnrcFieldParamOutp { get; set; }
 }
 

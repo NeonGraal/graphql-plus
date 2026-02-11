@@ -17,10 +17,10 @@ public class CmptGnrcAltParamOutp
   public ICmptGnrcAltParamOutpObject AsGnrcAltParamOutp { get; set; }
 }
 
-public class CmptRefGnrcAltParamOutp<Tref>
-  : ICmptRefGnrcAltParamOutp<Tref>
+public class CmptRefGnrcAltParamOutp<TRef>
+  : ICmptRefGnrcAltParamOutp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefGnrcAltParamOutpObject AsRefGnrcAltParamOutp { get; set; }
 }
 

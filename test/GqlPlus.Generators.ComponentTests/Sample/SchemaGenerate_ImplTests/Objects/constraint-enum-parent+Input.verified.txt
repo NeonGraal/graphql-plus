@@ -18,9 +18,9 @@ public class CmptCnstEnumPrntInp
   public ICmptCnstEnumPrntInpObject AsCnstEnumPrntInp { get; set; }
 }
 
-public class CmptRefCnstEnumPrntInp<Ttype>
-  : ICmptRefCnstEnumPrntInp<Ttype>
+public class CmptRefCnstEnumPrntInp<TType>
+  : ICmptRefCnstEnumPrntInp<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ICmptRefCnstEnumPrntInpObject AsRefCnstEnumPrntInp { get; set; }
 }

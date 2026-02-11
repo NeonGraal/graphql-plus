@@ -5,14 +5,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Dual;
 
-public interface ItestFieldModParamDual<Tmod>
+public interface ItestFieldModParamDual<TMod>
 {
   ItestFieldModParamDualObject AsFieldModParamDual { get; }
 }
 
-public interface ItestFieldModParamDualObject<Tmod>
+public interface ItestFieldModParamDualObject<TMod>
 {
-  IDictionary<Tmod, ItestFldFieldModParamDual> Field { get; }
+  IDictionary<TMod, ItestFldFieldModParamDual> Field { get; }
 }
 
 public interface ItestFldFieldModParamDual

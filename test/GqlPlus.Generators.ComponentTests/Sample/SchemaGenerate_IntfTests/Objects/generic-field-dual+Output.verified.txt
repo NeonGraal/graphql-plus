@@ -20,13 +20,13 @@ public interface ICmptGnrcFieldDualOutpObject
   ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldDualOutp<Tref>
+public interface ICmptRefGnrcFieldDualOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldDualOutpObject AsRefGnrcFieldDualOutp { get; }
 }
 
-public interface ICmptRefGnrcFieldDualOutpObject<Tref>
+public interface ICmptRefGnrcFieldDualOutpObject<TRef>
 {
 }
 

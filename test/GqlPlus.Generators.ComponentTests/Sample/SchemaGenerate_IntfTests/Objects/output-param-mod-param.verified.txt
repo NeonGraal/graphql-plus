@@ -10,12 +10,12 @@ domain DomOutpParamModParam { number 1 > 10 }
 
 namespace Components.Gqlp_Schema_output_param_mod_param;
 
-public interface ICmptOutpParamModParam<Tmod>
+public interface ICmptOutpParamModParam<TMod>
 {
   ICmptOutpParamModParamObject AsOutpParamModParam { get; }
 }
 
-public interface ICmptOutpParamModParamObject<Tmod>
+public interface ICmptOutpParamModParamObject<TMod>
 {
   ICmptDomOutpParamModParam Field { get; }
 }

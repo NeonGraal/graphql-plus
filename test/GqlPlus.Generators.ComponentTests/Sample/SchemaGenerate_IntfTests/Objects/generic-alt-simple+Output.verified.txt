@@ -19,12 +19,12 @@ public interface ICmptGnrcAltSmplOutpObject
 {
 }
 
-public interface ICmptRefGnrcAltSmplOutp<Tref>
+public interface ICmptRefGnrcAltSmplOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltSmplOutpObject AsRefGnrcAltSmplOutp { get; }
 }
 
-public interface ICmptRefGnrcAltSmplOutpObject<Tref>
+public interface ICmptRefGnrcAltSmplOutpObject<TRef>
 {
 }

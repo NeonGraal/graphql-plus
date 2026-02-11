@@ -6,23 +6,23 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_obj_parent_Input;
 
 public interface ItestCnstPrntObjPrntInp
-  : ItestRefCnstPrntObjPrntInp
+  : ItestRefCnstPrntObjPrntInp<ItestAltCnstPrntObjPrntInp>
 {
   ItestCnstPrntObjPrntInpObject AsCnstPrntObjPrntInp { get; }
 }
 
 public interface ItestCnstPrntObjPrntInpObject
-  : ItestRefCnstPrntObjPrntInpObject
+  : ItestRefCnstPrntObjPrntInpObject<ItestAltCnstPrntObjPrntInp>
 {
 }
 
-public interface ItestRefCnstPrntObjPrntInp<Tref>
+public interface ItestRefCnstPrntObjPrntInp<TRef>
   : Itestref
 {
   ItestRefCnstPrntObjPrntInpObject AsRefCnstPrntObjPrntInp { get; }
 }
 
-public interface ItestRefCnstPrntObjPrntInpObject<Tref>
+public interface ItestRefCnstPrntObjPrntInpObject<TRef>
   : ItestrefObject
 {
 }

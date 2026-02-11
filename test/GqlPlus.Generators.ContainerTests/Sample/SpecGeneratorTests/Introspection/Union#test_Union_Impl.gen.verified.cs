@@ -6,7 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Union;
 
 public class test_UnionRef
-  : test_TypeRef
+  : test_TypeRef<Itest_SimpleKind>
   , Itest_UnionRef
 {
   public Itest_UnionRefObject As_UnionRef { get; set; }

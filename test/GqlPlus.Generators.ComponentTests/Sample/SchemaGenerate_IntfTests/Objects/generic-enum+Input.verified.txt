@@ -20,12 +20,12 @@ public interface ICmptGnrcEnumInpObject
 {
 }
 
-public interface ICmptRefGnrcEnumInp<Ttype>
+public interface ICmptRefGnrcEnumInp<TType>
 {
   ICmptRefGnrcEnumInpObject AsRefGnrcEnumInp { get; }
 }
 
-public interface ICmptRefGnrcEnumInpObject<Ttype>
+public interface ICmptRefGnrcEnumInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

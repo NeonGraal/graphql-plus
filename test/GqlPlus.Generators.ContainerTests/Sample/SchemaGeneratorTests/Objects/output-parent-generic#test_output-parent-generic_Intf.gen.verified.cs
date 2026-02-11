@@ -15,12 +15,12 @@ public interface ItestOutpPrntGnrcObject
 {
 }
 
-public interface ItestRefOutpPrntGnrc<Ttype>
+public interface ItestRefOutpPrntGnrc<TType>
 {
   ItestRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; }
 }
 
-public interface ItestRefOutpPrntGnrcObject<Ttype>
+public interface ItestRefOutpPrntGnrcObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

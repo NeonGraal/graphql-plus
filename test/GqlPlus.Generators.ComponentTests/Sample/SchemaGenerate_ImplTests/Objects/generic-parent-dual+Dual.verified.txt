@@ -11,16 +11,16 @@ dual AltGnrcPrntDualDual { alt: Number | String }
 namespace Components.Gqlp_Schema_generic_parent_dual_Dual;
 
 public class CmptGnrcPrntDualDual
-  : CmptRefGnrcPrntDualDual
+  : CmptRefGnrcPrntDualDual<ICmptAltGnrcPrntDualDual>
   , ICmptGnrcPrntDualDual
 {
   public ICmptGnrcPrntDualDualObject AsGnrcPrntDualDual { get; set; }
 }
 
-public class CmptRefGnrcPrntDualDual<Tref>
-  : ICmptRefGnrcPrntDualDual<Tref>
+public class CmptRefGnrcPrntDualDual<TRef>
+  : ICmptRefGnrcPrntDualDual<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefGnrcPrntDualDualObject AsRefGnrcPrntDualDual { get; set; }
 }
 

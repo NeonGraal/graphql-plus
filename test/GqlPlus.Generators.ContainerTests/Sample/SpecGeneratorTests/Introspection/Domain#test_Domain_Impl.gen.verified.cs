@@ -5,19 +5,19 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Domain;
 
-public class test_DomainRef<Tkind>
-  : test_TypeRef
-  , Itest_DomainRef<Tkind>
+public class test_DomainRef<TKind>
+  : test_TypeRef<Itest_TypeKind>
+  , Itest_DomainRef<TKind>
 {
-  public Tkind DomainKind { get; set; }
+  public TKind DomainKind { get; set; }
   public Itest_DomainRefObject As_DomainRef { get; set; }
 }
 
-public class test_BaseDomain<Tdomain,Titem,TdomainItem>
-  : test_ParentType
-  , Itest_BaseDomain<Tdomain,Titem,TdomainItem>
+public class test_BaseDomain<TDomain,TItem,TDomainItem>
+  : test_ParentType<Itest_TypeKind, TItem, TDomainItem>
+  , Itest_BaseDomain<TDomain,TItem,TDomainItem>
 {
-  public Tdomain DomainKind { get; set; }
+  public TDomain DomainKind { get; set; }
   public Itest_BaseDomainObject As_BaseDomain { get; set; }
 }
 
@@ -29,20 +29,20 @@ public class test_BaseDomainItem
   public Itest_BaseDomainItemObject As_BaseDomainItem { get; set; }
 }
 
-public class test_DomainItem<Titem>
+public class test_DomainItem<TItem>
   : testitem
-  , Itest_DomainItem<Titem>
+  , Itest_DomainItem<TItem>
 {
   public Itest_Name Domain { get; set; }
   public Itest_DomainItemObject As_DomainItem { get; set; }
 }
 
-public class test_DomainValue<Tkind,Tvalue>
-  : test_DomainRef
-  , Itest_DomainValue<Tkind,Tvalue>
+public class test_DomainValue<TKind,TValue>
+  : test_DomainRef<TKind>
+  , Itest_DomainValue<TKind,TValue>
 {
-  public Tvalue Value { get; set; }
-  public Tvalue Asvalue { get; set; }
+  public TValue Value { get; set; }
+  public TValue Asvalue { get; set; }
   public Itest_DomainValueObject As_DomainValue { get; set; }
 }
 
@@ -65,7 +65,7 @@ public class test_DomainTrueFalse
 }
 
 public class test_DomainItemTrueFalse
-  : test_DomainItem
+  : test_DomainItem<Itest_DomainTrueFalse>
   , Itest_DomainItemTrueFalse
 {
   public Itest_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; set; }
@@ -80,7 +80,7 @@ public class test_DomainLabel
 }
 
 public class test_DomainItemLabel
-  : test_DomainItem
+  : test_DomainItem<Itest_DomainLabel>
   , Itest_DomainItemLabel
 {
   public Itest_DomainItemLabelObject As_DomainItemLabel { get; set; }
@@ -96,7 +96,7 @@ public class test_DomainRange
 }
 
 public class test_DomainItemRange
-  : test_DomainItem
+  : test_DomainItem<Itest_DomainRange>
   , Itest_DomainItemRange
 {
   public Itest_DomainItemRangeObject As_DomainItemRange { get; set; }
@@ -111,7 +111,7 @@ public class test_DomainRegex
 }
 
 public class test_DomainItemRegex
-  : test_DomainItem
+  : test_DomainItem<Itest_DomainRegex>
   , Itest_DomainItemRegex
 {
   public Itest_DomainItemRegexObject As_DomainItemRegex { get; set; }

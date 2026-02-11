@@ -12,10 +12,10 @@ public class testCnstAltDmnOutp
   public ItestCnstAltDmnOutpObject AsCnstAltDmnOutp { get; set; }
 }
 
-public class testRefCnstAltDmnOutp<Tref>
-  : ItestRefCnstAltDmnOutp<Tref>
+public class testRefCnstAltDmnOutp<TRef>
+  : ItestRefCnstAltDmnOutp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ItestRefCnstAltDmnOutpObject AsRefCnstAltDmnOutp { get; set; }
 }
 

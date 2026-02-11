@@ -5,24 +5,24 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_param_same_Dual;
 
-public interface ItestPrntParamSameDual<Ta>
-  : ItestRefPrntParamSameDual
+public interface ItestPrntParamSameDual<TA>
+  : ItestRefPrntParamSameDual<TA>
 {
   ItestPrntParamSameDualObject AsPrntParamSameDual { get; }
 }
 
-public interface ItestPrntParamSameDualObject<Ta>
-  : ItestRefPrntParamSameDualObject
+public interface ItestPrntParamSameDualObject<TA>
+  : ItestRefPrntParamSameDualObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ItestRefPrntParamSameDual<Ta>
+public interface ItestRefPrntParamSameDual<TA>
 {
-  Ta Asa { get; }
+  TA Asa { get; }
   ItestRefPrntParamSameDualObject AsRefPrntParamSameDual { get; }
 }
 
-public interface ItestRefPrntParamSameDualObject<Ta>
+public interface ItestRefPrntParamSameDualObject<TA>
 {
 }

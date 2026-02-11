@@ -12,15 +12,15 @@ input AltCnstPrntDualPrntInp { :PrntCnstPrntDualPrntInp alt: Number }
 namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Input;
 
 public class CmptCnstPrntDualPrntInp
-  : CmptRefCnstPrntDualPrntInp
+  : CmptRefCnstPrntDualPrntInp<ICmptAltCnstPrntDualPrntInp>
   , ICmptCnstPrntDualPrntInp
 {
   public ICmptCnstPrntDualPrntInpObject AsCnstPrntDualPrntInp { get; set; }
 }
 
-public class CmptRefCnstPrntDualPrntInp<Tref>
+public class CmptRefCnstPrntDualPrntInp<TRef>
   : Cmptref
-  , ICmptRefCnstPrntDualPrntInp<Tref>
+  , ICmptRefCnstPrntDualPrntInp<TRef>
 {
   public ICmptRefCnstPrntDualPrntInpObject AsRefCnstPrntDualPrntInp { get; set; }
 }

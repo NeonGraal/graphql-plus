@@ -20,12 +20,12 @@ public interface ICmptGnrcValueDualObject
 {
 }
 
-public interface ICmptRefGnrcValueDual<Ttype>
+public interface ICmptRefGnrcValueDual<TType>
 {
   ICmptRefGnrcValueDualObject AsRefGnrcValueDual { get; }
 }
 
-public interface ICmptRefGnrcValueDualObject<Ttype>
+public interface ICmptRefGnrcValueDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

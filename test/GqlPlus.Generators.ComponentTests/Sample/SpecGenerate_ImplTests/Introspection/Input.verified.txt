@@ -20,7 +20,7 @@ output _InputParam {
 namespace Components.Gqlp_Spec_Input;
 
 public class Cmpt_InputField
-  : Cmpt_ObjField
+  : Cmpt_ObjField<ICmpt_InputFieldType>
   , ICmpt_InputField
 {
   public ICmpt_InputFieldObject As_InputField { get; set; }

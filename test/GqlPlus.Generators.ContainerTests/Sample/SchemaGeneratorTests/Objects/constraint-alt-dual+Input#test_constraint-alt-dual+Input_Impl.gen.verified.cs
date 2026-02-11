@@ -12,10 +12,10 @@ public class testCnstAltDualInp
   public ItestCnstAltDualInpObject AsCnstAltDualInp { get; set; }
 }
 
-public class testRefCnstAltDualInp<Tref>
-  : ItestRefCnstAltDualInp<Tref>
+public class testRefCnstAltDualInp<TRef>
+  : ItestRefCnstAltDualInp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ItestRefCnstAltDualInpObject AsRefCnstAltDualInp { get; set; }
 }
 

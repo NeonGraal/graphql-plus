@@ -12,9 +12,9 @@ public class testOutpPrntGnrc
   public ItestOutpPrntGnrcObject AsOutpPrntGnrc { get; set; }
 }
 
-public class testRefOutpPrntGnrc<Ttype>
-  : ItestRefOutpPrntGnrc<Ttype>
+public class testRefOutpPrntGnrc<TType>
+  : ItestRefOutpPrntGnrc<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ItestRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; set; }
 }

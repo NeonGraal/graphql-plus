@@ -9,16 +9,16 @@ dual RefGnrcPrntArgDual<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_parent_arg_Dual;
 
-public class CmptGnrcPrntArgDual<Ttype>
-  : CmptRefGnrcPrntArgDual
-  , ICmptGnrcPrntArgDual<Ttype>
+public class CmptGnrcPrntArgDual<TType>
+  : CmptRefGnrcPrntArgDual<TType>
+  , ICmptGnrcPrntArgDual<TType>
 {
   public ICmptGnrcPrntArgDualObject AsGnrcPrntArgDual { get; set; }
 }
 
-public class CmptRefGnrcPrntArgDual<Tref>
-  : ICmptRefGnrcPrntArgDual<Tref>
+public class CmptRefGnrcPrntArgDual<TRef>
+  : ICmptRefGnrcPrntArgDual<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefGnrcPrntArgDualObject AsRefGnrcPrntArgDual { get; set; }
 }

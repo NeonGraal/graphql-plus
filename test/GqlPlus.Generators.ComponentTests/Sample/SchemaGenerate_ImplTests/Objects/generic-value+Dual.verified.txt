@@ -17,9 +17,9 @@ public class CmptGnrcValueDual
   public ICmptGnrcValueDualObject AsGnrcValueDual { get; set; }
 }
 
-public class CmptRefGnrcValueDual<Ttype>
-  : ICmptRefGnrcValueDual<Ttype>
+public class CmptRefGnrcValueDual<TType>
+  : ICmptRefGnrcValueDual<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ICmptRefGnrcValueDualObject AsRefGnrcValueDual { get; set; }
 }

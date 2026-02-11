@@ -22,36 +22,36 @@ public class test_Type
   public Itest_TypeObject As_Type { get; set; }
 }
 
-public class test_BaseType<Tkind>
+public class test_BaseType<TKind>
   : test_Aliased
-  , Itest_BaseType<Tkind>
+  , Itest_BaseType<TKind>
 {
-  public Tkind TypeKind { get; set; }
+  public TKind TypeKind { get; set; }
   public Itest_BaseTypeObject As_BaseType { get; set; }
 }
 
-public class test_ChildType<Tkind,Tparent>
-  : test_BaseType
-  , Itest_ChildType<Tkind,Tparent>
+public class test_ChildType<TKind,TParent>
+  : test_BaseType<TKind>
+  , Itest_ChildType<TKind,TParent>
 {
-  public Tparent Parent { get; set; }
+  public TParent Parent { get; set; }
   public Itest_ChildTypeObject As_ChildType { get; set; }
 }
 
-public class test_ParentType<Tkind,Titem,TallItem>
-  : test_ChildType
-  , Itest_ParentType<Tkind,Titem,TallItem>
+public class test_ParentType<TKind,TItem,TAllItem>
+  : test_ChildType<TKind, Itest_Named>
+  , Itest_ParentType<TKind,TItem,TAllItem>
 {
-  public ICollection<Titem> Items { get; set; }
-  public ICollection<TallItem> AllItems { get; set; }
+  public ICollection<TItem> Items { get; set; }
+  public ICollection<TAllItem> AllItems { get; set; }
   public Itest_ParentTypeObject As_ParentType { get; set; }
 }
 
-public class test_TypeRef<Tkind>
+public class test_TypeRef<TKind>
   : test_Named
-  , Itest_TypeRef<Tkind>
+  , Itest_TypeRef<TKind>
 {
-  public Tkind TypeKind { get; set; }
+  public TKind TypeKind { get; set; }
   public Itest_TypeRefObject As_TypeRef { get; set; }
 }
 
@@ -74,9 +74,9 @@ public class test_Collections
   public Itest_CollectionsObject As_Collections { get; set; }
 }
 
-public class test_ModifierKeyed<Tkind>
-  : test_Modifier
-  , Itest_ModifierKeyed<Tkind>
+public class test_ModifierKeyed<TKind>
+  : test_Modifier<TKind>
+  , Itest_ModifierKeyed<TKind>
 {
   public Itest_TypeSimple By { get; set; }
   public bool Optional { get; set; }
@@ -91,9 +91,9 @@ public class test_Modifiers
   public Itest_ModifiersObject As_Modifiers { get; set; }
 }
 
-public class test_Modifier<Tkind>
-  : Itest_Modifier<Tkind>
+public class test_Modifier<TKind>
+  : Itest_Modifier<TKind>
 {
-  public Tkind ModifierKind { get; set; }
+  public TKind ModifierKind { get; set; }
   public Itest_ModifierObject As_Modifier { get; set; }
 }

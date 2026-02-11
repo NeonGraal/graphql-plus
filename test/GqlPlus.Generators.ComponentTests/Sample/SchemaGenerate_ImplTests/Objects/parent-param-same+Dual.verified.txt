@@ -9,17 +9,17 @@ dual RefPrntParamSameDual<$a:String> { | $a }
 
 namespace Components.Gqlp_Schema_parent_param_same_Dual;
 
-public class CmptPrntParamSameDual<Ta>
-  : CmptRefPrntParamSameDual
-  , ICmptPrntParamSameDual<Ta>
+public class CmptPrntParamSameDual<TA>
+  : CmptRefPrntParamSameDual<TA>
+  , ICmptPrntParamSameDual<TA>
 {
-  public Ta Field { get; set; }
+  public TA Field { get; set; }
   public ICmptPrntParamSameDualObject AsPrntParamSameDual { get; set; }
 }
 
-public class CmptRefPrntParamSameDual<Ta>
-  : ICmptRefPrntParamSameDual<Ta>
+public class CmptRefPrntParamSameDual<TA>
+  : ICmptRefPrntParamSameDual<TA>
 {
-  public Ta Asa { get; set; }
+  public TA Asa { get; set; }
   public ICmptRefPrntParamSameDualObject AsRefPrntParamSameDual { get; set; }
 }

@@ -17,14 +17,14 @@ public interface Itest_CollectionsObject
 {
 }
 
-public interface Itest_ModifierKeyed<Tkind>
-  : Itest_Modifier
+public interface Itest_ModifierKeyed<TKind>
+  : Itest_Modifier<TKind>
 {
   Itest_ModifierKeyedObject As_ModifierKeyed { get; }
 }
 
-public interface Itest_ModifierKeyedObject<Tkind>
-  : Itest_ModifierObject
+public interface Itest_ModifierKeyedObject<TKind>
+  : Itest_ModifierObject<TKind>
 {
   Itest_TypeSimple By { get; }
   bool Optional { get; }
@@ -41,12 +41,12 @@ public interface Itest_ModifiersObject
 {
 }
 
-public interface Itest_Modifier<Tkind>
+public interface Itest_Modifier<TKind>
 {
   Itest_ModifierObject As_Modifier { get; }
 }
 
-public interface Itest_ModifierObject<Tkind>
+public interface Itest_ModifierObject<TKind>
 {
-  Tkind ModifierKind { get; }
+  TKind ModifierKind { get; }
 }

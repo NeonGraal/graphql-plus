@@ -406,13 +406,13 @@ public interface ICmptAltAltModBoolOutpObject
   decimal Alt { get; }
 }
 
-public interface ICmptAltModParamDual<Tmod>
+public interface ICmptAltModParamDual<TMod>
 {
-  IDictionary<Tmod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; }
+  IDictionary<TMod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; }
   ICmptAltModParamDualObject AsAltModParamDual { get; }
 }
 
-public interface ICmptAltModParamDualObject<Tmod>
+public interface ICmptAltModParamDualObject<TMod>
 {
 }
 
@@ -427,13 +427,13 @@ public interface ICmptAltAltModParamDualObject
   decimal Alt { get; }
 }
 
-public interface ICmptAltModParamInp<Tmod>
+public interface ICmptAltModParamInp<TMod>
 {
-  IDictionary<Tmod, ICmptAltAltModParamInp> AsAltAltModParamInp { get; }
+  IDictionary<TMod, ICmptAltAltModParamInp> AsAltAltModParamInp { get; }
   ICmptAltModParamInpObject AsAltModParamInp { get; }
 }
 
-public interface ICmptAltModParamInpObject<Tmod>
+public interface ICmptAltModParamInpObject<TMod>
 {
 }
 
@@ -448,13 +448,13 @@ public interface ICmptAltAltModParamInpObject
   decimal Alt { get; }
 }
 
-public interface ICmptAltModParamOutp<Tmod>
+public interface ICmptAltModParamOutp<TMod>
 {
-  IDictionary<Tmod, ICmptAltAltModParamOutp> AsAltAltModParamOutp { get; }
+  IDictionary<TMod, ICmptAltAltModParamOutp> AsAltAltModParamOutp { get; }
   ICmptAltModParamOutpObject AsAltModParamOutp { get; }
 }
 
-public interface ICmptAltModParamOutpObject<Tmod>
+public interface ICmptAltModParamOutpObject<TMod>
 {
 }
 
@@ -499,33 +499,33 @@ public interface ICmptAltSmplOutpObject
 {
 }
 
-public interface ICmptCnstAltDual<Ttype>
+public interface ICmptCnstAltDual<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ICmptCnstAltDualObject AsCnstAltDual { get; }
 }
 
-public interface ICmptCnstAltDualObject<Ttype>
+public interface ICmptCnstAltDualObject<TType>
 {
 }
 
-public interface ICmptCnstAltInp<Ttype>
+public interface ICmptCnstAltInp<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ICmptCnstAltInpObject AsCnstAltInp { get; }
 }
 
-public interface ICmptCnstAltInpObject<Ttype>
+public interface ICmptCnstAltInpObject<TType>
 {
 }
 
-public interface ICmptCnstAltOutp<Ttype>
+public interface ICmptCnstAltOutp<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ICmptCnstAltOutpObject AsCnstAltOutp { get; }
 }
 
-public interface ICmptCnstAltOutpObject<Ttype>
+public interface ICmptCnstAltOutpObject<TType>
 {
 }
 
@@ -539,13 +539,13 @@ public interface ICmptCnstAltDmnDualObject
 {
 }
 
-public interface ICmptRefCnstAltDmnDual<Tref>
+public interface ICmptRefCnstAltDmnDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefCnstAltDmnDualObject AsRefCnstAltDmnDual { get; }
 }
 
-public interface ICmptRefCnstAltDmnDualObject<Tref>
+public interface ICmptRefCnstAltDmnDualObject<TRef>
 {
 }
 
@@ -564,13 +564,13 @@ public interface ICmptCnstAltDmnInpObject
 {
 }
 
-public interface ICmptRefCnstAltDmnInp<Tref>
+public interface ICmptRefCnstAltDmnInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefCnstAltDmnInpObject AsRefCnstAltDmnInp { get; }
 }
 
-public interface ICmptRefCnstAltDmnInpObject<Tref>
+public interface ICmptRefCnstAltDmnInpObject<TRef>
 {
 }
 
@@ -589,13 +589,13 @@ public interface ICmptCnstAltDmnOutpObject
 {
 }
 
-public interface ICmptRefCnstAltDmnOutp<Tref>
+public interface ICmptRefCnstAltDmnOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefCnstAltDmnOutpObject AsRefCnstAltDmnOutp { get; }
 }
 
-public interface ICmptRefCnstAltDmnOutpObject<Tref>
+public interface ICmptRefCnstAltDmnOutpObject<TRef>
 {
 }
 
@@ -614,13 +614,13 @@ public interface ICmptCnstAltDualDualObject
 {
 }
 
-public interface ICmptRefCnstAltDualDual<Tref>
+public interface ICmptRefCnstAltDualDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefCnstAltDualDualObject AsRefCnstAltDualDual { get; }
 }
 
-public interface ICmptRefCnstAltDualDualObject<Tref>
+public interface ICmptRefCnstAltDualDualObject<TRef>
 {
 }
 
@@ -656,13 +656,13 @@ public interface ICmptCnstAltDualInpObject
 {
 }
 
-public interface ICmptRefCnstAltDualInp<Tref>
+public interface ICmptRefCnstAltDualInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefCnstAltDualInpObject AsRefCnstAltDualInp { get; }
 }
 
-public interface ICmptRefCnstAltDualInpObject<Tref>
+public interface ICmptRefCnstAltDualInpObject<TRef>
 {
 }
 
@@ -698,13 +698,13 @@ public interface ICmptCnstAltDualOutpObject
 {
 }
 
-public interface ICmptRefCnstAltDualOutp<Tref>
+public interface ICmptRefCnstAltDualOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefCnstAltDualOutpObject AsRefCnstAltDualOutp { get; }
 }
 
-public interface ICmptRefCnstAltDualOutpObject<Tref>
+public interface ICmptRefCnstAltDualOutpObject<TRef>
 {
 }
 
@@ -740,13 +740,13 @@ public interface ICmptCnstAltObjDualObject
 {
 }
 
-public interface ICmptRefCnstAltObjDual<Tref>
+public interface ICmptRefCnstAltObjDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefCnstAltObjDualObject AsRefCnstAltObjDual { get; }
 }
 
-public interface ICmptRefCnstAltObjDualObject<Tref>
+public interface ICmptRefCnstAltObjDualObject<TRef>
 {
 }
 
@@ -782,13 +782,13 @@ public interface ICmptCnstAltObjInpObject
 {
 }
 
-public interface ICmptRefCnstAltObjInp<Tref>
+public interface ICmptRefCnstAltObjInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefCnstAltObjInpObject AsRefCnstAltObjInp { get; }
 }
 
-public interface ICmptRefCnstAltObjInpObject<Tref>
+public interface ICmptRefCnstAltObjInpObject<TRef>
 {
 }
 
@@ -824,13 +824,13 @@ public interface ICmptCnstAltObjOutpObject
 {
 }
 
-public interface ICmptRefCnstAltObjOutp<Tref>
+public interface ICmptRefCnstAltObjOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefCnstAltObjOutpObject AsRefCnstAltObjOutp { get; }
 }
 
-public interface ICmptRefCnstAltObjOutpObject<Tref>
+public interface ICmptRefCnstAltObjOutpObject<TRef>
 {
 }
 
@@ -866,14 +866,14 @@ public interface ICmptCnstDomEnumDualObject
 {
 }
 
-public interface ICmptRefCnstDomEnumDual<Ttype>
+public interface ICmptRefCnstDomEnumDual<TType>
 {
   ICmptRefCnstDomEnumDualObject AsRefCnstDomEnumDual { get; }
 }
 
-public interface ICmptRefCnstDomEnumDualObject<Ttype>
+public interface ICmptRefCnstDomEnumDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptJustCnstDomEnumDual
@@ -891,14 +891,14 @@ public interface ICmptCnstDomEnumInpObject
 {
 }
 
-public interface ICmptRefCnstDomEnumInp<Ttype>
+public interface ICmptRefCnstDomEnumInp<TType>
 {
   ICmptRefCnstDomEnumInpObject AsRefCnstDomEnumInp { get; }
 }
 
-public interface ICmptRefCnstDomEnumInpObject<Ttype>
+public interface ICmptRefCnstDomEnumInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptJustCnstDomEnumInp
@@ -916,14 +916,14 @@ public interface ICmptCnstDomEnumOutpObject
 {
 }
 
-public interface ICmptRefCnstDomEnumOutp<Ttype>
+public interface ICmptRefCnstDomEnumOutp<TType>
 {
   ICmptRefCnstDomEnumOutpObject AsRefCnstDomEnumOutp { get; }
 }
 
-public interface ICmptRefCnstDomEnumOutpObject<Ttype>
+public interface ICmptRefCnstDomEnumOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptJustCnstDomEnumOutp
@@ -941,14 +941,14 @@ public interface ICmptCnstEnumDualObject
 {
 }
 
-public interface ICmptRefCnstEnumDual<Ttype>
+public interface ICmptRefCnstEnumDual<TType>
 {
   ICmptRefCnstEnumDualObject AsRefCnstEnumDual { get; }
 }
 
-public interface ICmptRefCnstEnumDualObject<Ttype>
+public interface ICmptRefCnstEnumDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptCnstEnumInp
@@ -961,14 +961,14 @@ public interface ICmptCnstEnumInpObject
 {
 }
 
-public interface ICmptRefCnstEnumInp<Ttype>
+public interface ICmptRefCnstEnumInp<TType>
 {
   ICmptRefCnstEnumInpObject AsRefCnstEnumInp { get; }
 }
 
-public interface ICmptRefCnstEnumInpObject<Ttype>
+public interface ICmptRefCnstEnumInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptCnstEnumOutp
@@ -981,14 +981,14 @@ public interface ICmptCnstEnumOutpObject
 {
 }
 
-public interface ICmptRefCnstEnumOutp<Ttype>
+public interface ICmptRefCnstEnumOutp<TType>
 {
   ICmptRefCnstEnumOutpObject AsRefCnstEnumOutp { get; }
 }
 
-public interface ICmptRefCnstEnumOutpObject<Ttype>
+public interface ICmptRefCnstEnumOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptCnstEnumPrntDual
@@ -1001,14 +1001,14 @@ public interface ICmptCnstEnumPrntDualObject
 {
 }
 
-public interface ICmptRefCnstEnumPrntDual<Ttype>
+public interface ICmptRefCnstEnumPrntDual<TType>
 {
   ICmptRefCnstEnumPrntDualObject AsRefCnstEnumPrntDual { get; }
 }
 
-public interface ICmptRefCnstEnumPrntDualObject<Ttype>
+public interface ICmptRefCnstEnumPrntDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptCnstEnumPrntInp
@@ -1021,14 +1021,14 @@ public interface ICmptCnstEnumPrntInpObject
 {
 }
 
-public interface ICmptRefCnstEnumPrntInp<Ttype>
+public interface ICmptRefCnstEnumPrntInp<TType>
 {
   ICmptRefCnstEnumPrntInpObject AsRefCnstEnumPrntInp { get; }
 }
 
-public interface ICmptRefCnstEnumPrntInpObject<Ttype>
+public interface ICmptRefCnstEnumPrntInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptCnstEnumPrntOutp
@@ -1041,35 +1041,35 @@ public interface ICmptCnstEnumPrntOutpObject
 {
 }
 
-public interface ICmptRefCnstEnumPrntOutp<Ttype>
+public interface ICmptRefCnstEnumPrntOutp<TType>
 {
   ICmptRefCnstEnumPrntOutpObject AsRefCnstEnumPrntOutp { get; }
 }
 
-public interface ICmptRefCnstEnumPrntOutpObject<Ttype>
+public interface ICmptRefCnstEnumPrntOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptCnstFieldDmnDual
-  : ICmptRefCnstFieldDmnDual
+  : ICmptRefCnstFieldDmnDual<ICmptDomCnstFieldDmnDual>
 {
   ICmptCnstFieldDmnDualObject AsCnstFieldDmnDual { get; }
 }
 
 public interface ICmptCnstFieldDmnDualObject
-  : ICmptRefCnstFieldDmnDualObject
+  : ICmptRefCnstFieldDmnDualObject<ICmptDomCnstFieldDmnDual>
 {
 }
 
-public interface ICmptRefCnstFieldDmnDual<Tref>
+public interface ICmptRefCnstFieldDmnDual<TRef>
 {
   ICmptRefCnstFieldDmnDualObject AsRefCnstFieldDmnDual { get; }
 }
 
-public interface ICmptRefCnstFieldDmnDualObject<Tref>
+public interface ICmptRefCnstFieldDmnDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomCnstFieldDmnDual
@@ -1078,24 +1078,24 @@ public interface ICmptDomCnstFieldDmnDual
 }
 
 public interface ICmptCnstFieldDmnInp
-  : ICmptRefCnstFieldDmnInp
+  : ICmptRefCnstFieldDmnInp<ICmptDomCnstFieldDmnInp>
 {
   ICmptCnstFieldDmnInpObject AsCnstFieldDmnInp { get; }
 }
 
 public interface ICmptCnstFieldDmnInpObject
-  : ICmptRefCnstFieldDmnInpObject
+  : ICmptRefCnstFieldDmnInpObject<ICmptDomCnstFieldDmnInp>
 {
 }
 
-public interface ICmptRefCnstFieldDmnInp<Tref>
+public interface ICmptRefCnstFieldDmnInp<TRef>
 {
   ICmptRefCnstFieldDmnInpObject AsRefCnstFieldDmnInp { get; }
 }
 
-public interface ICmptRefCnstFieldDmnInpObject<Tref>
+public interface ICmptRefCnstFieldDmnInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomCnstFieldDmnInp
@@ -1104,24 +1104,24 @@ public interface ICmptDomCnstFieldDmnInp
 }
 
 public interface ICmptCnstFieldDmnOutp
-  : ICmptRefCnstFieldDmnOutp
+  : ICmptRefCnstFieldDmnOutp<ICmptDomCnstFieldDmnOutp>
 {
   ICmptCnstFieldDmnOutpObject AsCnstFieldDmnOutp { get; }
 }
 
 public interface ICmptCnstFieldDmnOutpObject
-  : ICmptRefCnstFieldDmnOutpObject
+  : ICmptRefCnstFieldDmnOutpObject<ICmptDomCnstFieldDmnOutp>
 {
 }
 
-public interface ICmptRefCnstFieldDmnOutp<Tref>
+public interface ICmptRefCnstFieldDmnOutp<TRef>
 {
   ICmptRefCnstFieldDmnOutpObject AsRefCnstFieldDmnOutp { get; }
 }
 
-public interface ICmptRefCnstFieldDmnOutpObject<Tref>
+public interface ICmptRefCnstFieldDmnOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomCnstFieldDmnOutp
@@ -1130,24 +1130,24 @@ public interface ICmptDomCnstFieldDmnOutp
 }
 
 public interface ICmptCnstFieldDualDual
-  : ICmptRefCnstFieldDualDual
+  : ICmptRefCnstFieldDualDual<ICmptAltCnstFieldDualDual>
 {
   ICmptCnstFieldDualDualObject AsCnstFieldDualDual { get; }
 }
 
 public interface ICmptCnstFieldDualDualObject
-  : ICmptRefCnstFieldDualDualObject
+  : ICmptRefCnstFieldDualDualObject<ICmptAltCnstFieldDualDual>
 {
 }
 
-public interface ICmptRefCnstFieldDualDual<Tref>
+public interface ICmptRefCnstFieldDualDual<TRef>
 {
   ICmptRefCnstFieldDualDualObject AsRefCnstFieldDualDual { get; }
 }
 
-public interface ICmptRefCnstFieldDualDualObject<Tref>
+public interface ICmptRefCnstFieldDualDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldDualDual
@@ -1173,24 +1173,24 @@ public interface ICmptAltCnstFieldDualDualObject
 }
 
 public interface ICmptCnstFieldDualInp
-  : ICmptRefCnstFieldDualInp
+  : ICmptRefCnstFieldDualInp<ICmptAltCnstFieldDualInp>
 {
   ICmptCnstFieldDualInpObject AsCnstFieldDualInp { get; }
 }
 
 public interface ICmptCnstFieldDualInpObject
-  : ICmptRefCnstFieldDualInpObject
+  : ICmptRefCnstFieldDualInpObject<ICmptAltCnstFieldDualInp>
 {
 }
 
-public interface ICmptRefCnstFieldDualInp<Tref>
+public interface ICmptRefCnstFieldDualInp<TRef>
 {
   ICmptRefCnstFieldDualInpObject AsRefCnstFieldDualInp { get; }
 }
 
-public interface ICmptRefCnstFieldDualInpObject<Tref>
+public interface ICmptRefCnstFieldDualInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldDualInp
@@ -1216,24 +1216,24 @@ public interface ICmptAltCnstFieldDualInpObject
 }
 
 public interface ICmptCnstFieldDualOutp
-  : ICmptRefCnstFieldDualOutp
+  : ICmptRefCnstFieldDualOutp<ICmptAltCnstFieldDualOutp>
 {
   ICmptCnstFieldDualOutpObject AsCnstFieldDualOutp { get; }
 }
 
 public interface ICmptCnstFieldDualOutpObject
-  : ICmptRefCnstFieldDualOutpObject
+  : ICmptRefCnstFieldDualOutpObject<ICmptAltCnstFieldDualOutp>
 {
 }
 
-public interface ICmptRefCnstFieldDualOutp<Tref>
+public interface ICmptRefCnstFieldDualOutp<TRef>
 {
   ICmptRefCnstFieldDualOutpObject AsRefCnstFieldDualOutp { get; }
 }
 
-public interface ICmptRefCnstFieldDualOutpObject<Tref>
+public interface ICmptRefCnstFieldDualOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldDualOutp
@@ -1259,24 +1259,24 @@ public interface ICmptAltCnstFieldDualOutpObject
 }
 
 public interface ICmptCnstFieldObjDual
-  : ICmptRefCnstFieldObjDual
+  : ICmptRefCnstFieldObjDual<ICmptAltCnstFieldObjDual>
 {
   ICmptCnstFieldObjDualObject AsCnstFieldObjDual { get; }
 }
 
 public interface ICmptCnstFieldObjDualObject
-  : ICmptRefCnstFieldObjDualObject
+  : ICmptRefCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>
 {
 }
 
-public interface ICmptRefCnstFieldObjDual<Tref>
+public interface ICmptRefCnstFieldObjDual<TRef>
 {
   ICmptRefCnstFieldObjDualObject AsRefCnstFieldObjDual { get; }
 }
 
-public interface ICmptRefCnstFieldObjDualObject<Tref>
+public interface ICmptRefCnstFieldObjDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldObjDual
@@ -1302,24 +1302,24 @@ public interface ICmptAltCnstFieldObjDualObject
 }
 
 public interface ICmptCnstFieldObjInp
-  : ICmptRefCnstFieldObjInp
+  : ICmptRefCnstFieldObjInp<ICmptAltCnstFieldObjInp>
 {
   ICmptCnstFieldObjInpObject AsCnstFieldObjInp { get; }
 }
 
 public interface ICmptCnstFieldObjInpObject
-  : ICmptRefCnstFieldObjInpObject
+  : ICmptRefCnstFieldObjInpObject<ICmptAltCnstFieldObjInp>
 {
 }
 
-public interface ICmptRefCnstFieldObjInp<Tref>
+public interface ICmptRefCnstFieldObjInp<TRef>
 {
   ICmptRefCnstFieldObjInpObject AsRefCnstFieldObjInp { get; }
 }
 
-public interface ICmptRefCnstFieldObjInpObject<Tref>
+public interface ICmptRefCnstFieldObjInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldObjInp
@@ -1345,24 +1345,24 @@ public interface ICmptAltCnstFieldObjInpObject
 }
 
 public interface ICmptCnstFieldObjOutp
-  : ICmptRefCnstFieldObjOutp
+  : ICmptRefCnstFieldObjOutp<ICmptAltCnstFieldObjOutp>
 {
   ICmptCnstFieldObjOutpObject AsCnstFieldObjOutp { get; }
 }
 
 public interface ICmptCnstFieldObjOutpObject
-  : ICmptRefCnstFieldObjOutpObject
+  : ICmptRefCnstFieldObjOutpObject<ICmptAltCnstFieldObjOutp>
 {
 }
 
-public interface ICmptRefCnstFieldObjOutp<Tref>
+public interface ICmptRefCnstFieldObjOutp<TRef>
 {
   ICmptRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; }
 }
 
-public interface ICmptRefCnstFieldObjOutpObject<Tref>
+public interface ICmptRefCnstFieldObjOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldObjOutp
@@ -1388,23 +1388,23 @@ public interface ICmptAltCnstFieldObjOutpObject
 }
 
 public interface ICmptCnstPrntDualGrndDual
-  : ICmptRefCnstPrntDualGrndDual
+  : ICmptRefCnstPrntDualGrndDual<ICmptAltCnstPrntDualGrndDual>
 {
   ICmptCnstPrntDualGrndDualObject AsCnstPrntDualGrndDual { get; }
 }
 
 public interface ICmptCnstPrntDualGrndDualObject
-  : ICmptRefCnstPrntDualGrndDualObject
+  : ICmptRefCnstPrntDualGrndDualObject<ICmptAltCnstPrntDualGrndDual>
 {
 }
 
-public interface ICmptRefCnstPrntDualGrndDual<Tref>
+public interface ICmptRefCnstPrntDualGrndDual<TRef>
   : ICmptref
 {
   ICmptRefCnstPrntDualGrndDualObject AsRefCnstPrntDualGrndDual { get; }
 }
 
-public interface ICmptRefCnstPrntDualGrndDualObject<Tref>
+public interface ICmptRefCnstPrntDualGrndDualObject<TRef>
   : ICmptrefObject
 {
 }
@@ -1443,23 +1443,23 @@ public interface ICmptAltCnstPrntDualGrndDualObject
 }
 
 public interface ICmptCnstPrntDualGrndInp
-  : ICmptRefCnstPrntDualGrndInp
+  : ICmptRefCnstPrntDualGrndInp<ICmptAltCnstPrntDualGrndInp>
 {
   ICmptCnstPrntDualGrndInpObject AsCnstPrntDualGrndInp { get; }
 }
 
 public interface ICmptCnstPrntDualGrndInpObject
-  : ICmptRefCnstPrntDualGrndInpObject
+  : ICmptRefCnstPrntDualGrndInpObject<ICmptAltCnstPrntDualGrndInp>
 {
 }
 
-public interface ICmptRefCnstPrntDualGrndInp<Tref>
+public interface ICmptRefCnstPrntDualGrndInp<TRef>
   : ICmptref
 {
   ICmptRefCnstPrntDualGrndInpObject AsRefCnstPrntDualGrndInp { get; }
 }
 
-public interface ICmptRefCnstPrntDualGrndInpObject<Tref>
+public interface ICmptRefCnstPrntDualGrndInpObject<TRef>
   : ICmptrefObject
 {
 }
@@ -1498,23 +1498,23 @@ public interface ICmptAltCnstPrntDualGrndInpObject
 }
 
 public interface ICmptCnstPrntDualGrndOutp
-  : ICmptRefCnstPrntDualGrndOutp
+  : ICmptRefCnstPrntDualGrndOutp<ICmptAltCnstPrntDualGrndOutp>
 {
   ICmptCnstPrntDualGrndOutpObject AsCnstPrntDualGrndOutp { get; }
 }
 
 public interface ICmptCnstPrntDualGrndOutpObject
-  : ICmptRefCnstPrntDualGrndOutpObject
+  : ICmptRefCnstPrntDualGrndOutpObject<ICmptAltCnstPrntDualGrndOutp>
 {
 }
 
-public interface ICmptRefCnstPrntDualGrndOutp<Tref>
+public interface ICmptRefCnstPrntDualGrndOutp<TRef>
   : ICmptref
 {
   ICmptRefCnstPrntDualGrndOutpObject AsRefCnstPrntDualGrndOutp { get; }
 }
 
-public interface ICmptRefCnstPrntDualGrndOutpObject<Tref>
+public interface ICmptRefCnstPrntDualGrndOutpObject<TRef>
   : ICmptrefObject
 {
 }
@@ -1553,23 +1553,23 @@ public interface ICmptAltCnstPrntDualGrndOutpObject
 }
 
 public interface ICmptCnstPrntDualPrntDual
-  : ICmptRefCnstPrntDualPrntDual
+  : ICmptRefCnstPrntDualPrntDual<ICmptAltCnstPrntDualPrntDual>
 {
   ICmptCnstPrntDualPrntDualObject AsCnstPrntDualPrntDual { get; }
 }
 
 public interface ICmptCnstPrntDualPrntDualObject
-  : ICmptRefCnstPrntDualPrntDualObject
+  : ICmptRefCnstPrntDualPrntDualObject<ICmptAltCnstPrntDualPrntDual>
 {
 }
 
-public interface ICmptRefCnstPrntDualPrntDual<Tref>
+public interface ICmptRefCnstPrntDualPrntDual<TRef>
   : ICmptref
 {
   ICmptRefCnstPrntDualPrntDualObject AsRefCnstPrntDualPrntDual { get; }
 }
 
-public interface ICmptRefCnstPrntDualPrntDualObject<Tref>
+public interface ICmptRefCnstPrntDualPrntDualObject<TRef>
   : ICmptrefObject
 {
 }
@@ -1597,23 +1597,23 @@ public interface ICmptAltCnstPrntDualPrntDualObject
 }
 
 public interface ICmptCnstPrntDualPrntInp
-  : ICmptRefCnstPrntDualPrntInp
+  : ICmptRefCnstPrntDualPrntInp<ICmptAltCnstPrntDualPrntInp>
 {
   ICmptCnstPrntDualPrntInpObject AsCnstPrntDualPrntInp { get; }
 }
 
 public interface ICmptCnstPrntDualPrntInpObject
-  : ICmptRefCnstPrntDualPrntInpObject
+  : ICmptRefCnstPrntDualPrntInpObject<ICmptAltCnstPrntDualPrntInp>
 {
 }
 
-public interface ICmptRefCnstPrntDualPrntInp<Tref>
+public interface ICmptRefCnstPrntDualPrntInp<TRef>
   : ICmptref
 {
   ICmptRefCnstPrntDualPrntInpObject AsRefCnstPrntDualPrntInp { get; }
 }
 
-public interface ICmptRefCnstPrntDualPrntInpObject<Tref>
+public interface ICmptRefCnstPrntDualPrntInpObject<TRef>
   : ICmptrefObject
 {
 }
@@ -1641,23 +1641,23 @@ public interface ICmptAltCnstPrntDualPrntInpObject
 }
 
 public interface ICmptCnstPrntDualPrntOutp
-  : ICmptRefCnstPrntDualPrntOutp
+  : ICmptRefCnstPrntDualPrntOutp<ICmptAltCnstPrntDualPrntOutp>
 {
   ICmptCnstPrntDualPrntOutpObject AsCnstPrntDualPrntOutp { get; }
 }
 
 public interface ICmptCnstPrntDualPrntOutpObject
-  : ICmptRefCnstPrntDualPrntOutpObject
+  : ICmptRefCnstPrntDualPrntOutpObject<ICmptAltCnstPrntDualPrntOutp>
 {
 }
 
-public interface ICmptRefCnstPrntDualPrntOutp<Tref>
+public interface ICmptRefCnstPrntDualPrntOutp<TRef>
   : ICmptref
 {
   ICmptRefCnstPrntDualPrntOutpObject AsRefCnstPrntDualPrntOutp { get; }
 }
 
-public interface ICmptRefCnstPrntDualPrntOutpObject<Tref>
+public interface ICmptRefCnstPrntDualPrntOutpObject<TRef>
   : ICmptrefObject
 {
 }
@@ -1694,14 +1694,14 @@ public interface ICmptCnstPrntEnumDualObject
 {
 }
 
-public interface ICmptRefCnstPrntEnumDual<Ttype>
+public interface ICmptRefCnstPrntEnumDual<TType>
 {
   ICmptRefCnstPrntEnumDualObject AsRefCnstPrntEnumDual { get; }
 }
 
-public interface ICmptRefCnstPrntEnumDualObject<Ttype>
+public interface ICmptRefCnstPrntEnumDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptCnstPrntEnumInp
@@ -1714,14 +1714,14 @@ public interface ICmptCnstPrntEnumInpObject
 {
 }
 
-public interface ICmptRefCnstPrntEnumInp<Ttype>
+public interface ICmptRefCnstPrntEnumInp<TType>
 {
   ICmptRefCnstPrntEnumInpObject AsRefCnstPrntEnumInp { get; }
 }
 
-public interface ICmptRefCnstPrntEnumInpObject<Ttype>
+public interface ICmptRefCnstPrntEnumInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptCnstPrntEnumOutp
@@ -1734,34 +1734,34 @@ public interface ICmptCnstPrntEnumOutpObject
 {
 }
 
-public interface ICmptRefCnstPrntEnumOutp<Ttype>
+public interface ICmptRefCnstPrntEnumOutp<TType>
 {
   ICmptRefCnstPrntEnumOutpObject AsRefCnstPrntEnumOutp { get; }
 }
 
-public interface ICmptRefCnstPrntEnumOutpObject<Ttype>
+public interface ICmptRefCnstPrntEnumOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptCnstPrntObjPrntDual
-  : ICmptRefCnstPrntObjPrntDual
+  : ICmptRefCnstPrntObjPrntDual<ICmptAltCnstPrntObjPrntDual>
 {
   ICmptCnstPrntObjPrntDualObject AsCnstPrntObjPrntDual { get; }
 }
 
 public interface ICmptCnstPrntObjPrntDualObject
-  : ICmptRefCnstPrntObjPrntDualObject
+  : ICmptRefCnstPrntObjPrntDualObject<ICmptAltCnstPrntObjPrntDual>
 {
 }
 
-public interface ICmptRefCnstPrntObjPrntDual<Tref>
+public interface ICmptRefCnstPrntObjPrntDual<TRef>
   : ICmptref
 {
   ICmptRefCnstPrntObjPrntDualObject AsRefCnstPrntObjPrntDual { get; }
 }
 
-public interface ICmptRefCnstPrntObjPrntDualObject<Tref>
+public interface ICmptRefCnstPrntObjPrntDualObject<TRef>
   : ICmptrefObject
 {
 }
@@ -1789,23 +1789,23 @@ public interface ICmptAltCnstPrntObjPrntDualObject
 }
 
 public interface ICmptCnstPrntObjPrntInp
-  : ICmptRefCnstPrntObjPrntInp
+  : ICmptRefCnstPrntObjPrntInp<ICmptAltCnstPrntObjPrntInp>
 {
   ICmptCnstPrntObjPrntInpObject AsCnstPrntObjPrntInp { get; }
 }
 
 public interface ICmptCnstPrntObjPrntInpObject
-  : ICmptRefCnstPrntObjPrntInpObject
+  : ICmptRefCnstPrntObjPrntInpObject<ICmptAltCnstPrntObjPrntInp>
 {
 }
 
-public interface ICmptRefCnstPrntObjPrntInp<Tref>
+public interface ICmptRefCnstPrntObjPrntInp<TRef>
   : ICmptref
 {
   ICmptRefCnstPrntObjPrntInpObject AsRefCnstPrntObjPrntInp { get; }
 }
 
-public interface ICmptRefCnstPrntObjPrntInpObject<Tref>
+public interface ICmptRefCnstPrntObjPrntInpObject<TRef>
   : ICmptrefObject
 {
 }
@@ -1833,23 +1833,23 @@ public interface ICmptAltCnstPrntObjPrntInpObject
 }
 
 public interface ICmptCnstPrntObjPrntOutp
-  : ICmptRefCnstPrntObjPrntOutp
+  : ICmptRefCnstPrntObjPrntOutp<ICmptAltCnstPrntObjPrntOutp>
 {
   ICmptCnstPrntObjPrntOutpObject AsCnstPrntObjPrntOutp { get; }
 }
 
 public interface ICmptCnstPrntObjPrntOutpObject
-  : ICmptRefCnstPrntObjPrntOutpObject
+  : ICmptRefCnstPrntObjPrntOutpObject<ICmptAltCnstPrntObjPrntOutp>
 {
 }
 
-public interface ICmptRefCnstPrntObjPrntOutp<Tref>
+public interface ICmptRefCnstPrntObjPrntOutp<TRef>
   : ICmptref
 {
   ICmptRefCnstPrntObjPrntOutpObject AsRefCnstPrntObjPrntOutp { get; }
 }
 
-public interface ICmptRefCnstPrntObjPrntOutpObject<Tref>
+public interface ICmptRefCnstPrntObjPrntOutpObject<TRef>
   : ICmptrefObject
 {
 }
@@ -2089,14 +2089,14 @@ public interface ICmptFieldModEnumOutpObject
   IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; }
 }
 
-public interface ICmptFieldModParamDual<Tmod>
+public interface ICmptFieldModParamDual<TMod>
 {
   ICmptFieldModParamDualObject AsFieldModParamDual { get; }
 }
 
-public interface ICmptFieldModParamDualObject<Tmod>
+public interface ICmptFieldModParamDualObject<TMod>
 {
-  IDictionary<Tmod, ICmptFldFieldModParamDual> Field { get; }
+  IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; }
 }
 
 public interface ICmptFldFieldModParamDual
@@ -2110,14 +2110,14 @@ public interface ICmptFldFieldModParamDualObject
   decimal Field { get; }
 }
 
-public interface ICmptFieldModParamInp<Tmod>
+public interface ICmptFieldModParamInp<TMod>
 {
   ICmptFieldModParamInpObject AsFieldModParamInp { get; }
 }
 
-public interface ICmptFieldModParamInpObject<Tmod>
+public interface ICmptFieldModParamInpObject<TMod>
 {
-  IDictionary<Tmod, ICmptFldFieldModParamInp> Field { get; }
+  IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; }
 }
 
 public interface ICmptFldFieldModParamInp
@@ -2131,14 +2131,14 @@ public interface ICmptFldFieldModParamInpObject
   decimal Field { get; }
 }
 
-public interface ICmptFieldModParamOutp<Tmod>
+public interface ICmptFieldModParamOutp<TMod>
 {
   ICmptFieldModParamOutpObject AsFieldModParamOutp { get; }
 }
 
-public interface ICmptFieldModParamOutpObject<Tmod>
+public interface ICmptFieldModParamOutpObject<TMod>
 {
-  IDictionary<Tmod, ICmptFldFieldModParamOutp> Field { get; }
+  IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; }
 }
 
 public interface ICmptFldFieldModParamOutp
@@ -2335,153 +2335,153 @@ public interface ICmptFieldValueDescrOutpObject
   CmptEnumFieldValueDescrOutp Field { get; }
 }
 
-public interface ICmptGnrcAltDual<Ttype>
+public interface ICmptGnrcAltDual<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ICmptGnrcAltDualObject AsGnrcAltDual { get; }
 }
 
-public interface ICmptGnrcAltDualObject<Ttype>
+public interface ICmptGnrcAltDualObject<TType>
 {
 }
 
-public interface ICmptGnrcAltInp<Ttype>
+public interface ICmptGnrcAltInp<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ICmptGnrcAltInpObject AsGnrcAltInp { get; }
 }
 
-public interface ICmptGnrcAltInpObject<Ttype>
+public interface ICmptGnrcAltInpObject<TType>
 {
 }
 
-public interface ICmptGnrcAltOutp<Ttype>
+public interface ICmptGnrcAltOutp<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ICmptGnrcAltOutpObject AsGnrcAltOutp { get; }
 }
 
-public interface ICmptGnrcAltOutpObject<Ttype>
+public interface ICmptGnrcAltOutpObject<TType>
 {
 }
 
-public interface ICmptGnrcAltArgDual<Ttype>
+public interface ICmptGnrcAltArgDual<TType>
 {
-  ICmptRefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; }
+  ICmptRefGnrcAltArgDual<TType> AsRefGnrcAltArgDual { get; }
   ICmptGnrcAltArgDualObject AsGnrcAltArgDual { get; }
 }
 
-public interface ICmptGnrcAltArgDualObject<Ttype>
+public interface ICmptGnrcAltArgDualObject<TType>
 {
 }
 
-public interface ICmptRefGnrcAltArgDual<Tref>
+public interface ICmptRefGnrcAltArgDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltArgDualObject AsRefGnrcAltArgDual { get; }
 }
 
-public interface ICmptRefGnrcAltArgDualObject<Tref>
+public interface ICmptRefGnrcAltArgDualObject<TRef>
 {
 }
 
-public interface ICmptGnrcAltArgInp<Ttype>
+public interface ICmptGnrcAltArgInp<TType>
 {
-  ICmptRefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; }
+  ICmptRefGnrcAltArgInp<TType> AsRefGnrcAltArgInp { get; }
   ICmptGnrcAltArgInpObject AsGnrcAltArgInp { get; }
 }
 
-public interface ICmptGnrcAltArgInpObject<Ttype>
+public interface ICmptGnrcAltArgInpObject<TType>
 {
 }
 
-public interface ICmptRefGnrcAltArgInp<Tref>
+public interface ICmptRefGnrcAltArgInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltArgInpObject AsRefGnrcAltArgInp { get; }
 }
 
-public interface ICmptRefGnrcAltArgInpObject<Tref>
+public interface ICmptRefGnrcAltArgInpObject<TRef>
 {
 }
 
-public interface ICmptGnrcAltArgOutp<Ttype>
+public interface ICmptGnrcAltArgOutp<TType>
 {
-  ICmptRefGnrcAltArgOutp<Ttype> AsRefGnrcAltArgOutp { get; }
+  ICmptRefGnrcAltArgOutp<TType> AsRefGnrcAltArgOutp { get; }
   ICmptGnrcAltArgOutpObject AsGnrcAltArgOutp { get; }
 }
 
-public interface ICmptGnrcAltArgOutpObject<Ttype>
+public interface ICmptGnrcAltArgOutpObject<TType>
 {
 }
 
-public interface ICmptRefGnrcAltArgOutp<Tref>
+public interface ICmptRefGnrcAltArgOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltArgOutpObject AsRefGnrcAltArgOutp { get; }
 }
 
-public interface ICmptRefGnrcAltArgOutpObject<Tref>
+public interface ICmptRefGnrcAltArgOutpObject<TRef>
 {
 }
 
-public interface ICmptGnrcAltArgDescrDual<Ttype>
+public interface ICmptGnrcAltArgDescrDual<TType>
 {
-  ICmptRefGnrcAltArgDescrDual<Ttype> AsRefGnrcAltArgDescrDual { get; }
+  ICmptRefGnrcAltArgDescrDual<TType> AsRefGnrcAltArgDescrDual { get; }
   ICmptGnrcAltArgDescrDualObject AsGnrcAltArgDescrDual { get; }
 }
 
-public interface ICmptGnrcAltArgDescrDualObject<Ttype>
+public interface ICmptGnrcAltArgDescrDualObject<TType>
 {
 }
 
-public interface ICmptRefGnrcAltArgDescrDual<Tref>
+public interface ICmptRefGnrcAltArgDescrDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltArgDescrDualObject AsRefGnrcAltArgDescrDual { get; }
 }
 
-public interface ICmptRefGnrcAltArgDescrDualObject<Tref>
+public interface ICmptRefGnrcAltArgDescrDualObject<TRef>
 {
 }
 
-public interface ICmptGnrcAltArgDescrInp<Ttype>
+public interface ICmptGnrcAltArgDescrInp<TType>
 {
-  ICmptRefGnrcAltArgDescrInp<Ttype> AsRefGnrcAltArgDescrInp { get; }
+  ICmptRefGnrcAltArgDescrInp<TType> AsRefGnrcAltArgDescrInp { get; }
   ICmptGnrcAltArgDescrInpObject AsGnrcAltArgDescrInp { get; }
 }
 
-public interface ICmptGnrcAltArgDescrInpObject<Ttype>
+public interface ICmptGnrcAltArgDescrInpObject<TType>
 {
 }
 
-public interface ICmptRefGnrcAltArgDescrInp<Tref>
+public interface ICmptRefGnrcAltArgDescrInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltArgDescrInpObject AsRefGnrcAltArgDescrInp { get; }
 }
 
-public interface ICmptRefGnrcAltArgDescrInpObject<Tref>
+public interface ICmptRefGnrcAltArgDescrInpObject<TRef>
 {
 }
 
-public interface ICmptGnrcAltArgDescrOutp<Ttype>
+public interface ICmptGnrcAltArgDescrOutp<TType>
 {
-  ICmptRefGnrcAltArgDescrOutp<Ttype> AsRefGnrcAltArgDescrOutp { get; }
+  ICmptRefGnrcAltArgDescrOutp<TType> AsRefGnrcAltArgDescrOutp { get; }
   ICmptGnrcAltArgDescrOutpObject AsGnrcAltArgDescrOutp { get; }
 }
 
-public interface ICmptGnrcAltArgDescrOutpObject<Ttype>
+public interface ICmptGnrcAltArgDescrOutpObject<TType>
 {
 }
 
-public interface ICmptRefGnrcAltArgDescrOutp<Tref>
+public interface ICmptRefGnrcAltArgDescrOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltArgDescrOutpObject AsRefGnrcAltArgDescrOutp { get; }
 }
 
-public interface ICmptRefGnrcAltArgDescrOutpObject<Tref>
+public interface ICmptRefGnrcAltArgDescrOutpObject<TRef>
 {
 }
 
@@ -2495,13 +2495,13 @@ public interface ICmptGnrcAltDualDualObject
 {
 }
 
-public interface ICmptRefGnrcAltDualDual<Tref>
+public interface ICmptRefGnrcAltDualDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltDualDualObject AsRefGnrcAltDualDual { get; }
 }
 
-public interface ICmptRefGnrcAltDualDualObject<Tref>
+public interface ICmptRefGnrcAltDualDualObject<TRef>
 {
 }
 
@@ -2526,13 +2526,13 @@ public interface ICmptGnrcAltDualInpObject
 {
 }
 
-public interface ICmptRefGnrcAltDualInp<Tref>
+public interface ICmptRefGnrcAltDualInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltDualInpObject AsRefGnrcAltDualInp { get; }
 }
 
-public interface ICmptRefGnrcAltDualInpObject<Tref>
+public interface ICmptRefGnrcAltDualInpObject<TRef>
 {
 }
 
@@ -2557,13 +2557,13 @@ public interface ICmptGnrcAltDualOutpObject
 {
 }
 
-public interface ICmptRefGnrcAltDualOutp<Tref>
+public interface ICmptRefGnrcAltDualOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltDualOutpObject AsRefGnrcAltDualOutp { get; }
 }
 
-public interface ICmptRefGnrcAltDualOutpObject<Tref>
+public interface ICmptRefGnrcAltDualOutpObject<TRef>
 {
 }
 
@@ -2578,63 +2578,63 @@ public interface ICmptAltGnrcAltDualOutpObject
   decimal Alt { get; }
 }
 
-public interface ICmptRefGnrcAltModParamDual<Tref,Tmod>
+public interface ICmptRefGnrcAltModParamDual<TRef,TMod>
 {
-  IDictionary<Tmod, Tref> Asref { get; }
+  IDictionary<TMod, TRef> Asref { get; }
   ICmptRefGnrcAltModParamDualObject AsRefGnrcAltModParamDual { get; }
 }
 
-public interface ICmptRefGnrcAltModParamDualObject<Tref,Tmod>
+public interface ICmptRefGnrcAltModParamDualObject<TRef,TMod>
 {
 }
 
-public interface ICmptRefGnrcAltModParamInp<Tref,Tmod>
+public interface ICmptRefGnrcAltModParamInp<TRef,TMod>
 {
-  IDictionary<Tmod, Tref> Asref { get; }
+  IDictionary<TMod, TRef> Asref { get; }
   ICmptRefGnrcAltModParamInpObject AsRefGnrcAltModParamInp { get; }
 }
 
-public interface ICmptRefGnrcAltModParamInpObject<Tref,Tmod>
+public interface ICmptRefGnrcAltModParamInpObject<TRef,TMod>
 {
 }
 
-public interface ICmptRefGnrcAltModParamOutp<Tref,Tmod>
+public interface ICmptRefGnrcAltModParamOutp<TRef,TMod>
 {
-  IDictionary<Tmod, Tref> Asref { get; }
+  IDictionary<TMod, TRef> Asref { get; }
   ICmptRefGnrcAltModParamOutpObject AsRefGnrcAltModParamOutp { get; }
 }
 
-public interface ICmptRefGnrcAltModParamOutpObject<Tref,Tmod>
+public interface ICmptRefGnrcAltModParamOutpObject<TRef,TMod>
 {
 }
 
-public interface ICmptRefGnrcAltModStrDual<Tref>
+public interface ICmptRefGnrcAltModStrDual<TRef>
 {
-  IDictionary<CmptString, Tref> Asref { get; }
+  IDictionary<CmptString, TRef> Asref { get; }
   ICmptRefGnrcAltModStrDualObject AsRefGnrcAltModStrDual { get; }
 }
 
-public interface ICmptRefGnrcAltModStrDualObject<Tref>
+public interface ICmptRefGnrcAltModStrDualObject<TRef>
 {
 }
 
-public interface ICmptRefGnrcAltModStrInp<Tref>
+public interface ICmptRefGnrcAltModStrInp<TRef>
 {
-  IDictionary<CmptString, Tref> Asref { get; }
+  IDictionary<CmptString, TRef> Asref { get; }
   ICmptRefGnrcAltModStrInpObject AsRefGnrcAltModStrInp { get; }
 }
 
-public interface ICmptRefGnrcAltModStrInpObject<Tref>
+public interface ICmptRefGnrcAltModStrInpObject<TRef>
 {
 }
 
-public interface ICmptRefGnrcAltModStrOutp<Tref>
+public interface ICmptRefGnrcAltModStrOutp<TRef>
 {
-  IDictionary<CmptString, Tref> Asref { get; }
+  IDictionary<CmptString, TRef> Asref { get; }
   ICmptRefGnrcAltModStrOutpObject AsRefGnrcAltModStrOutp { get; }
 }
 
-public interface ICmptRefGnrcAltModStrOutpObject<Tref>
+public interface ICmptRefGnrcAltModStrOutpObject<TRef>
 {
 }
 
@@ -2648,13 +2648,13 @@ public interface ICmptGnrcAltParamDualObject
 {
 }
 
-public interface ICmptRefGnrcAltParamDual<Tref>
+public interface ICmptRefGnrcAltParamDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltParamDualObject AsRefGnrcAltParamDual { get; }
 }
 
-public interface ICmptRefGnrcAltParamDualObject<Tref>
+public interface ICmptRefGnrcAltParamDualObject<TRef>
 {
 }
 
@@ -2679,13 +2679,13 @@ public interface ICmptGnrcAltParamInpObject
 {
 }
 
-public interface ICmptRefGnrcAltParamInp<Tref>
+public interface ICmptRefGnrcAltParamInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltParamInpObject AsRefGnrcAltParamInp { get; }
 }
 
-public interface ICmptRefGnrcAltParamInpObject<Tref>
+public interface ICmptRefGnrcAltParamInpObject<TRef>
 {
 }
 
@@ -2710,13 +2710,13 @@ public interface ICmptGnrcAltParamOutpObject
 {
 }
 
-public interface ICmptRefGnrcAltParamOutp<Tref>
+public interface ICmptRefGnrcAltParamOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltParamOutpObject AsRefGnrcAltParamOutp { get; }
 }
 
-public interface ICmptRefGnrcAltParamOutpObject<Tref>
+public interface ICmptRefGnrcAltParamOutpObject<TRef>
 {
 }
 
@@ -2741,13 +2741,13 @@ public interface ICmptGnrcAltSmplDualObject
 {
 }
 
-public interface ICmptRefGnrcAltSmplDual<Tref>
+public interface ICmptRefGnrcAltSmplDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltSmplDualObject AsRefGnrcAltSmplDual { get; }
 }
 
-public interface ICmptRefGnrcAltSmplDualObject<Tref>
+public interface ICmptRefGnrcAltSmplDualObject<TRef>
 {
 }
 
@@ -2761,13 +2761,13 @@ public interface ICmptGnrcAltSmplInpObject
 {
 }
 
-public interface ICmptRefGnrcAltSmplInp<Tref>
+public interface ICmptRefGnrcAltSmplInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltSmplInpObject AsRefGnrcAltSmplInp { get; }
 }
 
-public interface ICmptRefGnrcAltSmplInpObject<Tref>
+public interface ICmptRefGnrcAltSmplInpObject<TRef>
 {
 }
 
@@ -2781,44 +2781,44 @@ public interface ICmptGnrcAltSmplOutpObject
 {
 }
 
-public interface ICmptRefGnrcAltSmplOutp<Tref>
+public interface ICmptRefGnrcAltSmplOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltSmplOutpObject AsRefGnrcAltSmplOutp { get; }
 }
 
-public interface ICmptRefGnrcAltSmplOutpObject<Tref>
+public interface ICmptRefGnrcAltSmplOutpObject<TRef>
 {
 }
 
-public interface ICmptGnrcDescrDual<Ttype>
+public interface ICmptGnrcDescrDual<TType>
 {
   ICmptGnrcDescrDualObject AsGnrcDescrDual { get; }
 }
 
-public interface ICmptGnrcDescrDualObject<Ttype>
+public interface ICmptGnrcDescrDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ICmptGnrcDescrInp<Ttype>
+public interface ICmptGnrcDescrInp<TType>
 {
   ICmptGnrcDescrInpObject AsGnrcDescrInp { get; }
 }
 
-public interface ICmptGnrcDescrInpObject<Ttype>
+public interface ICmptGnrcDescrInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ICmptGnrcDescrOutp<Ttype>
+public interface ICmptGnrcDescrOutp<TType>
 {
   ICmptGnrcDescrOutpObject AsGnrcDescrOutp { get; }
 }
 
-public interface ICmptGnrcDescrOutpObject<Ttype>
+public interface ICmptGnrcDescrOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptGnrcEnumDual
@@ -2831,14 +2831,14 @@ public interface ICmptGnrcEnumDualObject
 {
 }
 
-public interface ICmptRefGnrcEnumDual<Ttype>
+public interface ICmptRefGnrcEnumDual<TType>
 {
   ICmptRefGnrcEnumDualObject AsRefGnrcEnumDual { get; }
 }
 
-public interface ICmptRefGnrcEnumDualObject<Ttype>
+public interface ICmptRefGnrcEnumDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptGnrcEnumInp
@@ -2851,14 +2851,14 @@ public interface ICmptGnrcEnumInpObject
 {
 }
 
-public interface ICmptRefGnrcEnumInp<Ttype>
+public interface ICmptRefGnrcEnumInp<TType>
 {
   ICmptRefGnrcEnumInpObject AsRefGnrcEnumInp { get; }
 }
 
-public interface ICmptRefGnrcEnumInpObject<Ttype>
+public interface ICmptRefGnrcEnumInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptGnrcEnumOutp
@@ -2871,103 +2871,103 @@ public interface ICmptGnrcEnumOutpObject
 {
 }
 
-public interface ICmptRefGnrcEnumOutp<Ttype>
+public interface ICmptRefGnrcEnumOutp<TType>
 {
   ICmptRefGnrcEnumOutpObject AsRefGnrcEnumOutp { get; }
 }
 
-public interface ICmptRefGnrcEnumOutpObject<Ttype>
+public interface ICmptRefGnrcEnumOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ICmptGnrcFieldDual<Ttype>
+public interface ICmptGnrcFieldDual<TType>
 {
   ICmptGnrcFieldDualObject AsGnrcFieldDual { get; }
 }
 
-public interface ICmptGnrcFieldDualObject<Ttype>
+public interface ICmptGnrcFieldDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ICmptGnrcFieldInp<Ttype>
+public interface ICmptGnrcFieldInp<TType>
 {
   ICmptGnrcFieldInpObject AsGnrcFieldInp { get; }
 }
 
-public interface ICmptGnrcFieldInpObject<Ttype>
+public interface ICmptGnrcFieldInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ICmptGnrcFieldOutp<Ttype>
+public interface ICmptGnrcFieldOutp<TType>
 {
   ICmptGnrcFieldOutpObject AsGnrcFieldOutp { get; }
 }
 
-public interface ICmptGnrcFieldOutpObject<Ttype>
+public interface ICmptGnrcFieldOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ICmptGnrcFieldArgDual<Ttype>
+public interface ICmptGnrcFieldArgDual<TType>
 {
   ICmptGnrcFieldArgDualObject AsGnrcFieldArgDual { get; }
 }
 
-public interface ICmptGnrcFieldArgDualObject<Ttype>
+public interface ICmptGnrcFieldArgDualObject<TType>
 {
-  ICmptRefGnrcFieldArgDual<Ttype> Field { get; }
+  ICmptRefGnrcFieldArgDual<TType> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldArgDual<Tref>
+public interface ICmptRefGnrcFieldArgDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldArgDualObject AsRefGnrcFieldArgDual { get; }
 }
 
-public interface ICmptRefGnrcFieldArgDualObject<Tref>
+public interface ICmptRefGnrcFieldArgDualObject<TRef>
 {
 }
 
-public interface ICmptGnrcFieldArgInp<Ttype>
+public interface ICmptGnrcFieldArgInp<TType>
 {
   ICmptGnrcFieldArgInpObject AsGnrcFieldArgInp { get; }
 }
 
-public interface ICmptGnrcFieldArgInpObject<Ttype>
+public interface ICmptGnrcFieldArgInpObject<TType>
 {
-  ICmptRefGnrcFieldArgInp<Ttype> Field { get; }
+  ICmptRefGnrcFieldArgInp<TType> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldArgInp<Tref>
+public interface ICmptRefGnrcFieldArgInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldArgInpObject AsRefGnrcFieldArgInp { get; }
 }
 
-public interface ICmptRefGnrcFieldArgInpObject<Tref>
+public interface ICmptRefGnrcFieldArgInpObject<TRef>
 {
 }
 
-public interface ICmptGnrcFieldArgOutp<Ttype>
+public interface ICmptGnrcFieldArgOutp<TType>
 {
   ICmptGnrcFieldArgOutpObject AsGnrcFieldArgOutp { get; }
 }
 
-public interface ICmptGnrcFieldArgOutpObject<Ttype>
+public interface ICmptGnrcFieldArgOutpObject<TType>
 {
-  ICmptRefGnrcFieldArgOutp<Ttype> Field { get; }
+  ICmptRefGnrcFieldArgOutp<TType> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldArgOutp<Tref>
+public interface ICmptRefGnrcFieldArgOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldArgOutpObject AsRefGnrcFieldArgOutp { get; }
 }
 
-public interface ICmptRefGnrcFieldArgOutpObject<Tref>
+public interface ICmptRefGnrcFieldArgOutpObject<TRef>
 {
 }
 
@@ -2981,13 +2981,13 @@ public interface ICmptGnrcFieldDualDualObject
   ICmptRefGnrcFieldDualDual<ICmptAltGnrcFieldDualDual> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldDualDual<Tref>
+public interface ICmptRefGnrcFieldDualDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldDualDualObject AsRefGnrcFieldDualDual { get; }
 }
 
-public interface ICmptRefGnrcFieldDualDualObject<Tref>
+public interface ICmptRefGnrcFieldDualDualObject<TRef>
 {
 }
 
@@ -3012,13 +3012,13 @@ public interface ICmptGnrcFieldDualInpObject
   ICmptRefGnrcFieldDualInp<ICmptAltGnrcFieldDualInp> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldDualInp<Tref>
+public interface ICmptRefGnrcFieldDualInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldDualInpObject AsRefGnrcFieldDualInp { get; }
 }
 
-public interface ICmptRefGnrcFieldDualInpObject<Tref>
+public interface ICmptRefGnrcFieldDualInpObject<TRef>
 {
 }
 
@@ -3043,13 +3043,13 @@ public interface ICmptGnrcFieldDualOutpObject
   ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldDualOutp<Tref>
+public interface ICmptRefGnrcFieldDualOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldDualOutpObject AsRefGnrcFieldDualOutp { get; }
 }
 
-public interface ICmptRefGnrcFieldDualOutpObject<Tref>
+public interface ICmptRefGnrcFieldDualOutpObject<TRef>
 {
 }
 
@@ -3074,13 +3074,13 @@ public interface ICmptGnrcFieldParamDualObject
   ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldParamDual<Tref>
+public interface ICmptRefGnrcFieldParamDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldParamDualObject AsRefGnrcFieldParamDual { get; }
 }
 
-public interface ICmptRefGnrcFieldParamDualObject<Tref>
+public interface ICmptRefGnrcFieldParamDualObject<TRef>
 {
 }
 
@@ -3105,13 +3105,13 @@ public interface ICmptGnrcFieldParamInpObject
   ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldParamInp<Tref>
+public interface ICmptRefGnrcFieldParamInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldParamInpObject AsRefGnrcFieldParamInp { get; }
 }
 
-public interface ICmptRefGnrcFieldParamInpObject<Tref>
+public interface ICmptRefGnrcFieldParamInpObject<TRef>
 {
 }
 
@@ -3136,13 +3136,13 @@ public interface ICmptGnrcFieldParamOutpObject
   ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldParamOutp<Tref>
+public interface ICmptRefGnrcFieldParamOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldParamOutpObject AsRefGnrcFieldParamOutp { get; }
 }
 
-public interface ICmptRefGnrcFieldParamOutpObject<Tref>
+public interface ICmptRefGnrcFieldParamOutpObject<TRef>
 {
 }
 
@@ -3157,153 +3157,153 @@ public interface ICmptAltGnrcFieldParamOutpObject
   decimal Alt { get; }
 }
 
-public interface ICmptGnrcPrntDual<Ttype>
+public interface ICmptGnrcPrntDual<TType>
   : ICmpttype
 {
   ICmptGnrcPrntDualObject AsGnrcPrntDual { get; }
 }
 
-public interface ICmptGnrcPrntDualObject<Ttype>
+public interface ICmptGnrcPrntDualObject<TType>
   : ICmpttypeObject
 {
 }
 
-public interface ICmptGnrcPrntInp<Ttype>
+public interface ICmptGnrcPrntInp<TType>
   : ICmpttype
 {
   ICmptGnrcPrntInpObject AsGnrcPrntInp { get; }
 }
 
-public interface ICmptGnrcPrntInpObject<Ttype>
+public interface ICmptGnrcPrntInpObject<TType>
   : ICmpttypeObject
 {
 }
 
-public interface ICmptGnrcPrntOutp<Ttype>
+public interface ICmptGnrcPrntOutp<TType>
   : ICmpttype
 {
   ICmptGnrcPrntOutpObject AsGnrcPrntOutp { get; }
 }
 
-public interface ICmptGnrcPrntOutpObject<Ttype>
+public interface ICmptGnrcPrntOutpObject<TType>
   : ICmpttypeObject
 {
 }
 
-public interface ICmptGnrcPrntArgDual<Ttype>
-  : ICmptRefGnrcPrntArgDual
+public interface ICmptGnrcPrntArgDual<TType>
+  : ICmptRefGnrcPrntArgDual<TType>
 {
   ICmptGnrcPrntArgDualObject AsGnrcPrntArgDual { get; }
 }
 
-public interface ICmptGnrcPrntArgDualObject<Ttype>
-  : ICmptRefGnrcPrntArgDualObject
+public interface ICmptGnrcPrntArgDualObject<TType>
+  : ICmptRefGnrcPrntArgDualObject<TType>
 {
 }
 
-public interface ICmptRefGnrcPrntArgDual<Tref>
+public interface ICmptRefGnrcPrntArgDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcPrntArgDualObject AsRefGnrcPrntArgDual { get; }
 }
 
-public interface ICmptRefGnrcPrntArgDualObject<Tref>
+public interface ICmptRefGnrcPrntArgDualObject<TRef>
 {
 }
 
-public interface ICmptGnrcPrntArgInp<Ttype>
-  : ICmptRefGnrcPrntArgInp
+public interface ICmptGnrcPrntArgInp<TType>
+  : ICmptRefGnrcPrntArgInp<TType>
 {
   ICmptGnrcPrntArgInpObject AsGnrcPrntArgInp { get; }
 }
 
-public interface ICmptGnrcPrntArgInpObject<Ttype>
-  : ICmptRefGnrcPrntArgInpObject
+public interface ICmptGnrcPrntArgInpObject<TType>
+  : ICmptRefGnrcPrntArgInpObject<TType>
 {
 }
 
-public interface ICmptRefGnrcPrntArgInp<Tref>
+public interface ICmptRefGnrcPrntArgInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcPrntArgInpObject AsRefGnrcPrntArgInp { get; }
 }
 
-public interface ICmptRefGnrcPrntArgInpObject<Tref>
+public interface ICmptRefGnrcPrntArgInpObject<TRef>
 {
 }
 
-public interface ICmptGnrcPrntArgOutp<Ttype>
-  : ICmptRefGnrcPrntArgOutp
+public interface ICmptGnrcPrntArgOutp<TType>
+  : ICmptRefGnrcPrntArgOutp<TType>
 {
   ICmptGnrcPrntArgOutpObject AsGnrcPrntArgOutp { get; }
 }
 
-public interface ICmptGnrcPrntArgOutpObject<Ttype>
-  : ICmptRefGnrcPrntArgOutpObject
+public interface ICmptGnrcPrntArgOutpObject<TType>
+  : ICmptRefGnrcPrntArgOutpObject<TType>
 {
 }
 
-public interface ICmptRefGnrcPrntArgOutp<Tref>
+public interface ICmptRefGnrcPrntArgOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcPrntArgOutpObject AsRefGnrcPrntArgOutp { get; }
 }
 
-public interface ICmptRefGnrcPrntArgOutpObject<Tref>
+public interface ICmptRefGnrcPrntArgOutpObject<TRef>
 {
 }
 
-public interface ICmptGnrcPrntDescrDual<Ttype>
+public interface ICmptGnrcPrntDescrDual<TType>
   : ICmpttype
 {
   ICmptGnrcPrntDescrDualObject AsGnrcPrntDescrDual { get; }
 }
 
-public interface ICmptGnrcPrntDescrDualObject<Ttype>
+public interface ICmptGnrcPrntDescrDualObject<TType>
   : ICmpttypeObject
 {
 }
 
-public interface ICmptGnrcPrntDescrInp<Ttype>
+public interface ICmptGnrcPrntDescrInp<TType>
   : ICmpttype
 {
   ICmptGnrcPrntDescrInpObject AsGnrcPrntDescrInp { get; }
 }
 
-public interface ICmptGnrcPrntDescrInpObject<Ttype>
+public interface ICmptGnrcPrntDescrInpObject<TType>
   : ICmpttypeObject
 {
 }
 
-public interface ICmptGnrcPrntDescrOutp<Ttype>
+public interface ICmptGnrcPrntDescrOutp<TType>
   : ICmpttype
 {
   ICmptGnrcPrntDescrOutpObject AsGnrcPrntDescrOutp { get; }
 }
 
-public interface ICmptGnrcPrntDescrOutpObject<Ttype>
+public interface ICmptGnrcPrntDescrOutpObject<TType>
   : ICmpttypeObject
 {
 }
 
 public interface ICmptGnrcPrntDualDual
-  : ICmptRefGnrcPrntDualDual
+  : ICmptRefGnrcPrntDualDual<ICmptAltGnrcPrntDualDual>
 {
   ICmptGnrcPrntDualDualObject AsGnrcPrntDualDual { get; }
 }
 
 public interface ICmptGnrcPrntDualDualObject
-  : ICmptRefGnrcPrntDualDualObject
+  : ICmptRefGnrcPrntDualDualObject<ICmptAltGnrcPrntDualDual>
 {
 }
 
-public interface ICmptRefGnrcPrntDualDual<Tref>
+public interface ICmptRefGnrcPrntDualDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcPrntDualDualObject AsRefGnrcPrntDualDual { get; }
 }
 
-public interface ICmptRefGnrcPrntDualDualObject<Tref>
+public interface ICmptRefGnrcPrntDualDualObject<TRef>
 {
 }
 
@@ -3319,23 +3319,23 @@ public interface ICmptAltGnrcPrntDualDualObject
 }
 
 public interface ICmptGnrcPrntDualInp
-  : ICmptRefGnrcPrntDualInp
+  : ICmptRefGnrcPrntDualInp<ICmptAltGnrcPrntDualInp>
 {
   ICmptGnrcPrntDualInpObject AsGnrcPrntDualInp { get; }
 }
 
 public interface ICmptGnrcPrntDualInpObject
-  : ICmptRefGnrcPrntDualInpObject
+  : ICmptRefGnrcPrntDualInpObject<ICmptAltGnrcPrntDualInp>
 {
 }
 
-public interface ICmptRefGnrcPrntDualInp<Tref>
+public interface ICmptRefGnrcPrntDualInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcPrntDualInpObject AsRefGnrcPrntDualInp { get; }
 }
 
-public interface ICmptRefGnrcPrntDualInpObject<Tref>
+public interface ICmptRefGnrcPrntDualInpObject<TRef>
 {
 }
 
@@ -3351,23 +3351,23 @@ public interface ICmptAltGnrcPrntDualInpObject
 }
 
 public interface ICmptGnrcPrntDualOutp
-  : ICmptRefGnrcPrntDualOutp
+  : ICmptRefGnrcPrntDualOutp<ICmptAltGnrcPrntDualOutp>
 {
   ICmptGnrcPrntDualOutpObject AsGnrcPrntDualOutp { get; }
 }
 
 public interface ICmptGnrcPrntDualOutpObject
-  : ICmptRefGnrcPrntDualOutpObject
+  : ICmptRefGnrcPrntDualOutpObject<ICmptAltGnrcPrntDualOutp>
 {
 }
 
-public interface ICmptRefGnrcPrntDualOutp<Tref>
+public interface ICmptRefGnrcPrntDualOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcPrntDualOutpObject AsRefGnrcPrntDualOutp { get; }
 }
 
-public interface ICmptRefGnrcPrntDualOutpObject<Tref>
+public interface ICmptRefGnrcPrntDualOutpObject<TRef>
 {
 }
 
@@ -3383,23 +3383,23 @@ public interface ICmptAltGnrcPrntDualOutpObject
 }
 
 public interface ICmptGnrcPrntDualPrntDual
-  : ICmptRefGnrcPrntDualPrntDual
+  : ICmptRefGnrcPrntDualPrntDual<ICmptAltGnrcPrntDualPrntDual>
 {
   ICmptGnrcPrntDualPrntDualObject AsGnrcPrntDualPrntDual { get; }
 }
 
 public interface ICmptGnrcPrntDualPrntDualObject
-  : ICmptRefGnrcPrntDualPrntDualObject
+  : ICmptRefGnrcPrntDualPrntDualObject<ICmptAltGnrcPrntDualPrntDual>
 {
 }
 
-public interface ICmptRefGnrcPrntDualPrntDual<Tref>
+public interface ICmptRefGnrcPrntDualPrntDual<TRef>
   : ICmptref
 {
   ICmptRefGnrcPrntDualPrntDualObject AsRefGnrcPrntDualPrntDual { get; }
 }
 
-public interface ICmptRefGnrcPrntDualPrntDualObject<Tref>
+public interface ICmptRefGnrcPrntDualPrntDualObject<TRef>
   : ICmptrefObject
 {
 }
@@ -3416,23 +3416,23 @@ public interface ICmptAltGnrcPrntDualPrntDualObject
 }
 
 public interface ICmptGnrcPrntDualPrntInp
-  : ICmptRefGnrcPrntDualPrntInp
+  : ICmptRefGnrcPrntDualPrntInp<ICmptAltGnrcPrntDualPrntInp>
 {
   ICmptGnrcPrntDualPrntInpObject AsGnrcPrntDualPrntInp { get; }
 }
 
 public interface ICmptGnrcPrntDualPrntInpObject
-  : ICmptRefGnrcPrntDualPrntInpObject
+  : ICmptRefGnrcPrntDualPrntInpObject<ICmptAltGnrcPrntDualPrntInp>
 {
 }
 
-public interface ICmptRefGnrcPrntDualPrntInp<Tref>
+public interface ICmptRefGnrcPrntDualPrntInp<TRef>
   : ICmptref
 {
   ICmptRefGnrcPrntDualPrntInpObject AsRefGnrcPrntDualPrntInp { get; }
 }
 
-public interface ICmptRefGnrcPrntDualPrntInpObject<Tref>
+public interface ICmptRefGnrcPrntDualPrntInpObject<TRef>
   : ICmptrefObject
 {
 }
@@ -3449,23 +3449,23 @@ public interface ICmptAltGnrcPrntDualPrntInpObject
 }
 
 public interface ICmptGnrcPrntDualPrntOutp
-  : ICmptRefGnrcPrntDualPrntOutp
+  : ICmptRefGnrcPrntDualPrntOutp<ICmptAltGnrcPrntDualPrntOutp>
 {
   ICmptGnrcPrntDualPrntOutpObject AsGnrcPrntDualPrntOutp { get; }
 }
 
 public interface ICmptGnrcPrntDualPrntOutpObject
-  : ICmptRefGnrcPrntDualPrntOutpObject
+  : ICmptRefGnrcPrntDualPrntOutpObject<ICmptAltGnrcPrntDualPrntOutp>
 {
 }
 
-public interface ICmptRefGnrcPrntDualPrntOutp<Tref>
+public interface ICmptRefGnrcPrntDualPrntOutp<TRef>
   : ICmptref
 {
   ICmptRefGnrcPrntDualPrntOutpObject AsRefGnrcPrntDualPrntOutp { get; }
 }
 
-public interface ICmptRefGnrcPrntDualPrntOutpObject<Tref>
+public interface ICmptRefGnrcPrntDualPrntOutpObject<TRef>
   : ICmptrefObject
 {
 }
@@ -3482,87 +3482,87 @@ public interface ICmptAltGnrcPrntDualPrntOutpObject
 }
 
 public interface ICmptGnrcPrntEnumChildDual
-  : ICmptFieldGnrcPrntEnumChildDual
+  : ICmptFieldGnrcPrntEnumChildDual<CmptParentGnrcPrntEnumChildDual>
 {
   ICmptGnrcPrntEnumChildDualObject AsGnrcPrntEnumChildDual { get; }
 }
 
 public interface ICmptGnrcPrntEnumChildDualObject
-  : ICmptFieldGnrcPrntEnumChildDualObject
+  : ICmptFieldGnrcPrntEnumChildDualObject<CmptParentGnrcPrntEnumChildDual>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumChildDual<Tref>
+public interface ICmptFieldGnrcPrntEnumChildDual<TRef>
 {
   ICmptFieldGnrcPrntEnumChildDualObject AsFieldGnrcPrntEnumChildDual { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumChildDualObject<Tref>
+public interface ICmptFieldGnrcPrntEnumChildDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntEnumChildInp
-  : ICmptFieldGnrcPrntEnumChildInp
+  : ICmptFieldGnrcPrntEnumChildInp<CmptParentGnrcPrntEnumChildInp>
 {
   ICmptGnrcPrntEnumChildInpObject AsGnrcPrntEnumChildInp { get; }
 }
 
 public interface ICmptGnrcPrntEnumChildInpObject
-  : ICmptFieldGnrcPrntEnumChildInpObject
+  : ICmptFieldGnrcPrntEnumChildInpObject<CmptParentGnrcPrntEnumChildInp>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumChildInp<Tref>
+public interface ICmptFieldGnrcPrntEnumChildInp<TRef>
 {
   ICmptFieldGnrcPrntEnumChildInpObject AsFieldGnrcPrntEnumChildInp { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumChildInpObject<Tref>
+public interface ICmptFieldGnrcPrntEnumChildInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntEnumChildOutp
-  : ICmptFieldGnrcPrntEnumChildOutp
+  : ICmptFieldGnrcPrntEnumChildOutp<CmptParentGnrcPrntEnumChildOutp>
 {
   ICmptGnrcPrntEnumChildOutpObject AsGnrcPrntEnumChildOutp { get; }
 }
 
 public interface ICmptGnrcPrntEnumChildOutpObject
-  : ICmptFieldGnrcPrntEnumChildOutpObject
+  : ICmptFieldGnrcPrntEnumChildOutpObject<CmptParentGnrcPrntEnumChildOutp>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumChildOutp<Tref>
+public interface ICmptFieldGnrcPrntEnumChildOutp<TRef>
 {
   ICmptFieldGnrcPrntEnumChildOutpObject AsFieldGnrcPrntEnumChildOutp { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumChildOutpObject<Tref>
+public interface ICmptFieldGnrcPrntEnumChildOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomDual
-  : ICmptFieldGnrcPrntEnumDomDual
+  : ICmptFieldGnrcPrntEnumDomDual<ICmptDomGnrcPrntEnumDomDual>
 {
   ICmptGnrcPrntEnumDomDualObject AsGnrcPrntEnumDomDual { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomDualObject
-  : ICmptFieldGnrcPrntEnumDomDualObject
+  : ICmptFieldGnrcPrntEnumDomDualObject<ICmptDomGnrcPrntEnumDomDual>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumDomDual<Tref>
+public interface ICmptFieldGnrcPrntEnumDomDual<TRef>
 {
   ICmptFieldGnrcPrntEnumDomDualObject AsFieldGnrcPrntEnumDomDual { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumDomDualObject<Tref>
+public interface ICmptFieldGnrcPrntEnumDomDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntEnumDomDual
@@ -3571,24 +3571,24 @@ public interface ICmptDomGnrcPrntEnumDomDual
 }
 
 public interface ICmptGnrcPrntEnumDomInp
-  : ICmptFieldGnrcPrntEnumDomInp
+  : ICmptFieldGnrcPrntEnumDomInp<ICmptDomGnrcPrntEnumDomInp>
 {
   ICmptGnrcPrntEnumDomInpObject AsGnrcPrntEnumDomInp { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomInpObject
-  : ICmptFieldGnrcPrntEnumDomInpObject
+  : ICmptFieldGnrcPrntEnumDomInpObject<ICmptDomGnrcPrntEnumDomInp>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumDomInp<Tref>
+public interface ICmptFieldGnrcPrntEnumDomInp<TRef>
 {
   ICmptFieldGnrcPrntEnumDomInpObject AsFieldGnrcPrntEnumDomInp { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumDomInpObject<Tref>
+public interface ICmptFieldGnrcPrntEnumDomInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntEnumDomInp
@@ -3597,24 +3597,24 @@ public interface ICmptDomGnrcPrntEnumDomInp
 }
 
 public interface ICmptGnrcPrntEnumDomOutp
-  : ICmptFieldGnrcPrntEnumDomOutp
+  : ICmptFieldGnrcPrntEnumDomOutp<ICmptDomGnrcPrntEnumDomOutp>
 {
   ICmptGnrcPrntEnumDomOutpObject AsGnrcPrntEnumDomOutp { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomOutpObject
-  : ICmptFieldGnrcPrntEnumDomOutpObject
+  : ICmptFieldGnrcPrntEnumDomOutpObject<ICmptDomGnrcPrntEnumDomOutp>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumDomOutp<Tref>
+public interface ICmptFieldGnrcPrntEnumDomOutp<TRef>
 {
   ICmptFieldGnrcPrntEnumDomOutpObject AsFieldGnrcPrntEnumDomOutp { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumDomOutpObject<Tref>
+public interface ICmptFieldGnrcPrntEnumDomOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntEnumDomOutp
@@ -3623,86 +3623,86 @@ public interface ICmptDomGnrcPrntEnumDomOutp
 }
 
 public interface ICmptGnrcPrntEnumPrntDual
-  : ICmptFieldGnrcPrntEnumPrntDual
+  : ICmptFieldGnrcPrntEnumPrntDual<CmptEnumGnrcPrntEnumPrntDual>
 {
   ICmptGnrcPrntEnumPrntDualObject AsGnrcPrntEnumPrntDual { get; }
 }
 
 public interface ICmptGnrcPrntEnumPrntDualObject
-  : ICmptFieldGnrcPrntEnumPrntDualObject
+  : ICmptFieldGnrcPrntEnumPrntDualObject<CmptEnumGnrcPrntEnumPrntDual>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumPrntDual<Tref>
+public interface ICmptFieldGnrcPrntEnumPrntDual<TRef>
 {
   ICmptFieldGnrcPrntEnumPrntDualObject AsFieldGnrcPrntEnumPrntDual { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumPrntDualObject<Tref>
+public interface ICmptFieldGnrcPrntEnumPrntDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntEnumPrntInp
-  : ICmptFieldGnrcPrntEnumPrntInp
+  : ICmptFieldGnrcPrntEnumPrntInp<CmptEnumGnrcPrntEnumPrntInp>
 {
   ICmptGnrcPrntEnumPrntInpObject AsGnrcPrntEnumPrntInp { get; }
 }
 
 public interface ICmptGnrcPrntEnumPrntInpObject
-  : ICmptFieldGnrcPrntEnumPrntInpObject
+  : ICmptFieldGnrcPrntEnumPrntInpObject<CmptEnumGnrcPrntEnumPrntInp>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumPrntInp<Tref>
+public interface ICmptFieldGnrcPrntEnumPrntInp<TRef>
 {
   ICmptFieldGnrcPrntEnumPrntInpObject AsFieldGnrcPrntEnumPrntInp { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumPrntInpObject<Tref>
+public interface ICmptFieldGnrcPrntEnumPrntInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntEnumPrntOutp
-  : ICmptFieldGnrcPrntEnumPrntOutp
+  : ICmptFieldGnrcPrntEnumPrntOutp<CmptEnumGnrcPrntEnumPrntOutp>
 {
   ICmptGnrcPrntEnumPrntOutpObject AsGnrcPrntEnumPrntOutp { get; }
 }
 
 public interface ICmptGnrcPrntEnumPrntOutpObject
-  : ICmptFieldGnrcPrntEnumPrntOutpObject
+  : ICmptFieldGnrcPrntEnumPrntOutpObject<CmptEnumGnrcPrntEnumPrntOutp>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumPrntOutp<Tref>
+public interface ICmptFieldGnrcPrntEnumPrntOutp<TRef>
 {
   ICmptFieldGnrcPrntEnumPrntOutpObject AsFieldGnrcPrntEnumPrntOutp { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumPrntOutpObject<Tref>
+public interface ICmptFieldGnrcPrntEnumPrntOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntParamDual
-  : ICmptRefGnrcPrntParamDual
+  : ICmptRefGnrcPrntParamDual<ICmptAltGnrcPrntParamDual>
 {
   ICmptGnrcPrntParamDualObject AsGnrcPrntParamDual { get; }
 }
 
 public interface ICmptGnrcPrntParamDualObject
-  : ICmptRefGnrcPrntParamDualObject
+  : ICmptRefGnrcPrntParamDualObject<ICmptAltGnrcPrntParamDual>
 {
 }
 
-public interface ICmptRefGnrcPrntParamDual<Tref>
+public interface ICmptRefGnrcPrntParamDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcPrntParamDualObject AsRefGnrcPrntParamDual { get; }
 }
 
-public interface ICmptRefGnrcPrntParamDualObject<Tref>
+public interface ICmptRefGnrcPrntParamDualObject<TRef>
 {
 }
 
@@ -3718,23 +3718,23 @@ public interface ICmptAltGnrcPrntParamDualObject
 }
 
 public interface ICmptGnrcPrntParamInp
-  : ICmptRefGnrcPrntParamInp
+  : ICmptRefGnrcPrntParamInp<ICmptAltGnrcPrntParamInp>
 {
   ICmptGnrcPrntParamInpObject AsGnrcPrntParamInp { get; }
 }
 
 public interface ICmptGnrcPrntParamInpObject
-  : ICmptRefGnrcPrntParamInpObject
+  : ICmptRefGnrcPrntParamInpObject<ICmptAltGnrcPrntParamInp>
 {
 }
 
-public interface ICmptRefGnrcPrntParamInp<Tref>
+public interface ICmptRefGnrcPrntParamInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcPrntParamInpObject AsRefGnrcPrntParamInp { get; }
 }
 
-public interface ICmptRefGnrcPrntParamInpObject<Tref>
+public interface ICmptRefGnrcPrntParamInpObject<TRef>
 {
 }
 
@@ -3750,23 +3750,23 @@ public interface ICmptAltGnrcPrntParamInpObject
 }
 
 public interface ICmptGnrcPrntParamOutp
-  : ICmptRefGnrcPrntParamOutp
+  : ICmptRefGnrcPrntParamOutp<ICmptAltGnrcPrntParamOutp>
 {
   ICmptGnrcPrntParamOutpObject AsGnrcPrntParamOutp { get; }
 }
 
 public interface ICmptGnrcPrntParamOutpObject
-  : ICmptRefGnrcPrntParamOutpObject
+  : ICmptRefGnrcPrntParamOutpObject<ICmptAltGnrcPrntParamOutp>
 {
 }
 
-public interface ICmptRefGnrcPrntParamOutp<Tref>
+public interface ICmptRefGnrcPrntParamOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcPrntParamOutpObject AsRefGnrcPrntParamOutp { get; }
 }
 
-public interface ICmptRefGnrcPrntParamOutpObject<Tref>
+public interface ICmptRefGnrcPrntParamOutpObject<TRef>
 {
 }
 
@@ -3782,23 +3782,23 @@ public interface ICmptAltGnrcPrntParamOutpObject
 }
 
 public interface ICmptGnrcPrntParamPrntDual
-  : ICmptRefGnrcPrntParamPrntDual
+  : ICmptRefGnrcPrntParamPrntDual<ICmptAltGnrcPrntParamPrntDual>
 {
   ICmptGnrcPrntParamPrntDualObject AsGnrcPrntParamPrntDual { get; }
 }
 
 public interface ICmptGnrcPrntParamPrntDualObject
-  : ICmptRefGnrcPrntParamPrntDualObject
+  : ICmptRefGnrcPrntParamPrntDualObject<ICmptAltGnrcPrntParamPrntDual>
 {
 }
 
-public interface ICmptRefGnrcPrntParamPrntDual<Tref>
+public interface ICmptRefGnrcPrntParamPrntDual<TRef>
   : ICmptref
 {
   ICmptRefGnrcPrntParamPrntDualObject AsRefGnrcPrntParamPrntDual { get; }
 }
 
-public interface ICmptRefGnrcPrntParamPrntDualObject<Tref>
+public interface ICmptRefGnrcPrntParamPrntDualObject<TRef>
   : ICmptrefObject
 {
 }
@@ -3815,23 +3815,23 @@ public interface ICmptAltGnrcPrntParamPrntDualObject
 }
 
 public interface ICmptGnrcPrntParamPrntInp
-  : ICmptRefGnrcPrntParamPrntInp
+  : ICmptRefGnrcPrntParamPrntInp<ICmptAltGnrcPrntParamPrntInp>
 {
   ICmptGnrcPrntParamPrntInpObject AsGnrcPrntParamPrntInp { get; }
 }
 
 public interface ICmptGnrcPrntParamPrntInpObject
-  : ICmptRefGnrcPrntParamPrntInpObject
+  : ICmptRefGnrcPrntParamPrntInpObject<ICmptAltGnrcPrntParamPrntInp>
 {
 }
 
-public interface ICmptRefGnrcPrntParamPrntInp<Tref>
+public interface ICmptRefGnrcPrntParamPrntInp<TRef>
   : ICmptref
 {
   ICmptRefGnrcPrntParamPrntInpObject AsRefGnrcPrntParamPrntInp { get; }
 }
 
-public interface ICmptRefGnrcPrntParamPrntInpObject<Tref>
+public interface ICmptRefGnrcPrntParamPrntInpObject<TRef>
   : ICmptrefObject
 {
 }
@@ -3848,23 +3848,23 @@ public interface ICmptAltGnrcPrntParamPrntInpObject
 }
 
 public interface ICmptGnrcPrntParamPrntOutp
-  : ICmptRefGnrcPrntParamPrntOutp
+  : ICmptRefGnrcPrntParamPrntOutp<ICmptAltGnrcPrntParamPrntOutp>
 {
   ICmptGnrcPrntParamPrntOutpObject AsGnrcPrntParamPrntOutp { get; }
 }
 
 public interface ICmptGnrcPrntParamPrntOutpObject
-  : ICmptRefGnrcPrntParamPrntOutpObject
+  : ICmptRefGnrcPrntParamPrntOutpObject<ICmptAltGnrcPrntParamPrntOutp>
 {
 }
 
-public interface ICmptRefGnrcPrntParamPrntOutp<Tref>
+public interface ICmptRefGnrcPrntParamPrntOutp<TRef>
   : ICmptref
 {
   ICmptRefGnrcPrntParamPrntOutpObject AsRefGnrcPrntParamPrntOutp { get; }
 }
 
-public interface ICmptRefGnrcPrntParamPrntOutpObject<Tref>
+public interface ICmptRefGnrcPrntParamPrntOutpObject<TRef>
   : ICmptrefObject
 {
 }
@@ -3881,87 +3881,87 @@ public interface ICmptAltGnrcPrntParamPrntOutpObject
 }
 
 public interface ICmptGnrcPrntSmplEnumDual
-  : ICmptFieldGnrcPrntSmplEnumDual
+  : ICmptFieldGnrcPrntSmplEnumDual<CmptEnumGnrcPrntSmplEnumDual>
 {
   ICmptGnrcPrntSmplEnumDualObject AsGnrcPrntSmplEnumDual { get; }
 }
 
 public interface ICmptGnrcPrntSmplEnumDualObject
-  : ICmptFieldGnrcPrntSmplEnumDualObject
+  : ICmptFieldGnrcPrntSmplEnumDualObject<CmptEnumGnrcPrntSmplEnumDual>
 {
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumDual<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumDual<TRef>
 {
   ICmptFieldGnrcPrntSmplEnumDualObject AsFieldGnrcPrntSmplEnumDual { get; }
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumDualObject<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntSmplEnumInp
-  : ICmptFieldGnrcPrntSmplEnumInp
+  : ICmptFieldGnrcPrntSmplEnumInp<CmptEnumGnrcPrntSmplEnumInp>
 {
   ICmptGnrcPrntSmplEnumInpObject AsGnrcPrntSmplEnumInp { get; }
 }
 
 public interface ICmptGnrcPrntSmplEnumInpObject
-  : ICmptFieldGnrcPrntSmplEnumInpObject
+  : ICmptFieldGnrcPrntSmplEnumInpObject<CmptEnumGnrcPrntSmplEnumInp>
 {
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumInp<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumInp<TRef>
 {
   ICmptFieldGnrcPrntSmplEnumInpObject AsFieldGnrcPrntSmplEnumInp { get; }
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumInpObject<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntSmplEnumOutp
-  : ICmptFieldGnrcPrntSmplEnumOutp
+  : ICmptFieldGnrcPrntSmplEnumOutp<CmptEnumGnrcPrntSmplEnumOutp>
 {
   ICmptGnrcPrntSmplEnumOutpObject AsGnrcPrntSmplEnumOutp { get; }
 }
 
 public interface ICmptGnrcPrntSmplEnumOutpObject
-  : ICmptFieldGnrcPrntSmplEnumOutpObject
+  : ICmptFieldGnrcPrntSmplEnumOutpObject<CmptEnumGnrcPrntSmplEnumOutp>
 {
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumOutp<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumOutp<TRef>
 {
   ICmptFieldGnrcPrntSmplEnumOutpObject AsFieldGnrcPrntSmplEnumOutp { get; }
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumOutpObject<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntStrDomDual
-  : ICmptFieldGnrcPrntStrDomDual
+  : ICmptFieldGnrcPrntStrDomDual<ICmptDomGnrcPrntStrDomDual>
 {
   ICmptGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; }
 }
 
 public interface ICmptGnrcPrntStrDomDualObject
-  : ICmptFieldGnrcPrntStrDomDualObject
+  : ICmptFieldGnrcPrntStrDomDualObject<ICmptDomGnrcPrntStrDomDual>
 {
 }
 
-public interface ICmptFieldGnrcPrntStrDomDual<Tref>
+public interface ICmptFieldGnrcPrntStrDomDual<TRef>
 {
   ICmptFieldGnrcPrntStrDomDualObject AsFieldGnrcPrntStrDomDual { get; }
 }
 
-public interface ICmptFieldGnrcPrntStrDomDualObject<Tref>
+public interface ICmptFieldGnrcPrntStrDomDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntStrDomDual
@@ -3970,24 +3970,24 @@ public interface ICmptDomGnrcPrntStrDomDual
 }
 
 public interface ICmptGnrcPrntStrDomInp
-  : ICmptFieldGnrcPrntStrDomInp
+  : ICmptFieldGnrcPrntStrDomInp<ICmptDomGnrcPrntStrDomInp>
 {
   ICmptGnrcPrntStrDomInpObject AsGnrcPrntStrDomInp { get; }
 }
 
 public interface ICmptGnrcPrntStrDomInpObject
-  : ICmptFieldGnrcPrntStrDomInpObject
+  : ICmptFieldGnrcPrntStrDomInpObject<ICmptDomGnrcPrntStrDomInp>
 {
 }
 
-public interface ICmptFieldGnrcPrntStrDomInp<Tref>
+public interface ICmptFieldGnrcPrntStrDomInp<TRef>
 {
   ICmptFieldGnrcPrntStrDomInpObject AsFieldGnrcPrntStrDomInp { get; }
 }
 
-public interface ICmptFieldGnrcPrntStrDomInpObject<Tref>
+public interface ICmptFieldGnrcPrntStrDomInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntStrDomInp
@@ -3996,24 +3996,24 @@ public interface ICmptDomGnrcPrntStrDomInp
 }
 
 public interface ICmptGnrcPrntStrDomOutp
-  : ICmptFieldGnrcPrntStrDomOutp
+  : ICmptFieldGnrcPrntStrDomOutp<ICmptDomGnrcPrntStrDomOutp>
 {
   ICmptGnrcPrntStrDomOutpObject AsGnrcPrntStrDomOutp { get; }
 }
 
 public interface ICmptGnrcPrntStrDomOutpObject
-  : ICmptFieldGnrcPrntStrDomOutpObject
+  : ICmptFieldGnrcPrntStrDomOutpObject<ICmptDomGnrcPrntStrDomOutp>
 {
 }
 
-public interface ICmptFieldGnrcPrntStrDomOutp<Tref>
+public interface ICmptFieldGnrcPrntStrDomOutp<TRef>
 {
   ICmptFieldGnrcPrntStrDomOutpObject AsFieldGnrcPrntStrDomOutp { get; }
 }
 
-public interface ICmptFieldGnrcPrntStrDomOutpObject<Tref>
+public interface ICmptFieldGnrcPrntStrDomOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntStrDomOutp
@@ -4031,14 +4031,14 @@ public interface ICmptGnrcValueDualObject
 {
 }
 
-public interface ICmptRefGnrcValueDual<Ttype>
+public interface ICmptRefGnrcValueDual<TType>
 {
   ICmptRefGnrcValueDualObject AsRefGnrcValueDual { get; }
 }
 
-public interface ICmptRefGnrcValueDualObject<Ttype>
+public interface ICmptRefGnrcValueDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptGnrcValueInp
@@ -4051,14 +4051,14 @@ public interface ICmptGnrcValueInpObject
 {
 }
 
-public interface ICmptRefGnrcValueInp<Ttype>
+public interface ICmptRefGnrcValueInp<TType>
 {
   ICmptRefGnrcValueInpObject AsRefGnrcValueInp { get; }
 }
 
-public interface ICmptRefGnrcValueInpObject<Ttype>
+public interface ICmptRefGnrcValueInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptGnrcValueOutp
@@ -4071,14 +4071,14 @@ public interface ICmptGnrcValueOutpObject
 {
 }
 
-public interface ICmptRefGnrcValueOutp<Ttype>
+public interface ICmptRefGnrcValueOutp<TType>
 {
   ICmptRefGnrcValueOutpObject AsRefGnrcValueOutp { get; }
 }
 
-public interface ICmptRefGnrcValueOutpObject<Ttype>
+public interface ICmptRefGnrcValueOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptInpFieldDescrNmbr
@@ -4266,12 +4266,12 @@ public interface ICmptDomOutpParamModDmn
 {
 }
 
-public interface ICmptOutpParamModParam<Tmod>
+public interface ICmptOutpParamModParam<TMod>
 {
   ICmptOutpParamModParamObject AsOutpParamModParam { get; }
 }
 
-public interface ICmptOutpParamModParamObject<Tmod>
+public interface ICmptOutpParamModParamObject<TMod>
 {
   ICmptDomOutpParamModParam Field { get; }
 }
@@ -4332,14 +4332,14 @@ public interface ICmptOutpPrntGnrcObject
 {
 }
 
-public interface ICmptRefOutpPrntGnrc<Ttype>
+public interface ICmptRefOutpPrntGnrc<TType>
 {
   ICmptRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; }
 }
 
-public interface ICmptRefOutpPrntGnrcObject<Ttype>
+public interface ICmptRefOutpPrntGnrcObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptOutpPrntParam
@@ -4731,135 +4731,135 @@ public interface ICmptRefPrntFieldOutpObject
   decimal Parent { get; }
 }
 
-public interface ICmptPrntParamDiffDual<Ta>
-  : ICmptRefPrntParamDiffDual
+public interface ICmptPrntParamDiffDual<TA>
+  : ICmptRefPrntParamDiffDual<TA>
 {
   ICmptPrntParamDiffDualObject AsPrntParamDiffDual { get; }
 }
 
-public interface ICmptPrntParamDiffDualObject<Ta>
-  : ICmptRefPrntParamDiffDualObject
+public interface ICmptPrntParamDiffDualObject<TA>
+  : ICmptRefPrntParamDiffDualObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ICmptRefPrntParamDiffDual<Tb>
+public interface ICmptRefPrntParamDiffDual<TB>
 {
-  Tb Asb { get; }
+  TB Asb { get; }
   ICmptRefPrntParamDiffDualObject AsRefPrntParamDiffDual { get; }
 }
 
-public interface ICmptRefPrntParamDiffDualObject<Tb>
+public interface ICmptRefPrntParamDiffDualObject<TB>
 {
 }
 
-public interface ICmptPrntParamDiffInp<Ta>
-  : ICmptRefPrntParamDiffInp
+public interface ICmptPrntParamDiffInp<TA>
+  : ICmptRefPrntParamDiffInp<TA>
 {
   ICmptPrntParamDiffInpObject AsPrntParamDiffInp { get; }
 }
 
-public interface ICmptPrntParamDiffInpObject<Ta>
-  : ICmptRefPrntParamDiffInpObject
+public interface ICmptPrntParamDiffInpObject<TA>
+  : ICmptRefPrntParamDiffInpObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ICmptRefPrntParamDiffInp<Tb>
+public interface ICmptRefPrntParamDiffInp<TB>
 {
-  Tb Asb { get; }
+  TB Asb { get; }
   ICmptRefPrntParamDiffInpObject AsRefPrntParamDiffInp { get; }
 }
 
-public interface ICmptRefPrntParamDiffInpObject<Tb>
+public interface ICmptRefPrntParamDiffInpObject<TB>
 {
 }
 
-public interface ICmptPrntParamDiffOutp<Ta>
-  : ICmptRefPrntParamDiffOutp
+public interface ICmptPrntParamDiffOutp<TA>
+  : ICmptRefPrntParamDiffOutp<TA>
 {
   ICmptPrntParamDiffOutpObject AsPrntParamDiffOutp { get; }
 }
 
-public interface ICmptPrntParamDiffOutpObject<Ta>
-  : ICmptRefPrntParamDiffOutpObject
+public interface ICmptPrntParamDiffOutpObject<TA>
+  : ICmptRefPrntParamDiffOutpObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ICmptRefPrntParamDiffOutp<Tb>
+public interface ICmptRefPrntParamDiffOutp<TB>
 {
-  Tb Asb { get; }
+  TB Asb { get; }
   ICmptRefPrntParamDiffOutpObject AsRefPrntParamDiffOutp { get; }
 }
 
-public interface ICmptRefPrntParamDiffOutpObject<Tb>
+public interface ICmptRefPrntParamDiffOutpObject<TB>
 {
 }
 
-public interface ICmptPrntParamSameDual<Ta>
-  : ICmptRefPrntParamSameDual
+public interface ICmptPrntParamSameDual<TA>
+  : ICmptRefPrntParamSameDual<TA>
 {
   ICmptPrntParamSameDualObject AsPrntParamSameDual { get; }
 }
 
-public interface ICmptPrntParamSameDualObject<Ta>
-  : ICmptRefPrntParamSameDualObject
+public interface ICmptPrntParamSameDualObject<TA>
+  : ICmptRefPrntParamSameDualObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ICmptRefPrntParamSameDual<Ta>
+public interface ICmptRefPrntParamSameDual<TA>
 {
-  Ta Asa { get; }
+  TA Asa { get; }
   ICmptRefPrntParamSameDualObject AsRefPrntParamSameDual { get; }
 }
 
-public interface ICmptRefPrntParamSameDualObject<Ta>
+public interface ICmptRefPrntParamSameDualObject<TA>
 {
 }
 
-public interface ICmptPrntParamSameInp<Ta>
-  : ICmptRefPrntParamSameInp
+public interface ICmptPrntParamSameInp<TA>
+  : ICmptRefPrntParamSameInp<TA>
 {
   ICmptPrntParamSameInpObject AsPrntParamSameInp { get; }
 }
 
-public interface ICmptPrntParamSameInpObject<Ta>
-  : ICmptRefPrntParamSameInpObject
+public interface ICmptPrntParamSameInpObject<TA>
+  : ICmptRefPrntParamSameInpObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ICmptRefPrntParamSameInp<Ta>
+public interface ICmptRefPrntParamSameInp<TA>
 {
-  Ta Asa { get; }
+  TA Asa { get; }
   ICmptRefPrntParamSameInpObject AsRefPrntParamSameInp { get; }
 }
 
-public interface ICmptRefPrntParamSameInpObject<Ta>
+public interface ICmptRefPrntParamSameInpObject<TA>
 {
 }
 
-public interface ICmptPrntParamSameOutp<Ta>
-  : ICmptRefPrntParamSameOutp
+public interface ICmptPrntParamSameOutp<TA>
+  : ICmptRefPrntParamSameOutp<TA>
 {
   ICmptPrntParamSameOutpObject AsPrntParamSameOutp { get; }
 }
 
-public interface ICmptPrntParamSameOutpObject<Ta>
-  : ICmptRefPrntParamSameOutpObject
+public interface ICmptPrntParamSameOutpObject<TA>
+  : ICmptRefPrntParamSameOutpObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ICmptRefPrntParamSameOutp<Ta>
+public interface ICmptRefPrntParamSameOutp<TA>
 {
-  Ta Asa { get; }
+  TA Asa { get; }
   ICmptRefPrntParamSameOutpObject AsRefPrntParamSameOutp { get; }
 }
 
-public interface ICmptRefPrntParamSameOutpObject<Ta>
+public interface ICmptRefPrntParamSameOutpObject<TA>
 {
 }
 
@@ -5112,37 +5112,37 @@ public interface ICmptObjAltEnumOutpObject
 {
 }
 
-public interface ICmptObjCnstDual<Ttype>
+public interface ICmptObjCnstDual<TType>
 {
   ICmptObjCnstDualObject AsObjCnstDual { get; }
 }
 
-public interface ICmptObjCnstDualObject<Ttype>
+public interface ICmptObjCnstDualObject<TType>
 {
-  Ttype Field { get; }
-  Ttype Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }
 
-public interface ICmptObjCnstInp<Ttype>
+public interface ICmptObjCnstInp<TType>
 {
   ICmptObjCnstInpObject AsObjCnstInp { get; }
 }
 
-public interface ICmptObjCnstInpObject<Ttype>
+public interface ICmptObjCnstInpObject<TType>
 {
-  Ttype Field { get; }
-  Ttype Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }
 
-public interface ICmptObjCnstOutp<Ttype>
+public interface ICmptObjCnstOutp<TType>
 {
   ICmptObjCnstOutpObject AsObjCnstOutp { get; }
 }
 
-public interface ICmptObjCnstOutpObject<Ttype>
+public interface ICmptObjCnstOutpObject<TType>
 {
-  Ttype Field { get; }
-  Ttype Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }
 
 public interface ICmptObjFieldDual
@@ -5349,70 +5349,70 @@ public interface ICmptObjFieldTypeAliasOutpObject
   string Field { get; }
 }
 
-public interface ICmptObjParamDual<Ttest,Ttype>
+public interface ICmptObjParamDual<TTest,TType>
 {
   ICmptObjParamDualObject AsObjParamDual { get; }
 }
 
-public interface ICmptObjParamDualObject<Ttest,Ttype>
+public interface ICmptObjParamDualObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }
 
-public interface ICmptObjParamInp<Ttest,Ttype>
+public interface ICmptObjParamInp<TTest,TType>
 {
   ICmptObjParamInpObject AsObjParamInp { get; }
 }
 
-public interface ICmptObjParamInpObject<Ttest,Ttype>
+public interface ICmptObjParamInpObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }
 
-public interface ICmptObjParamOutp<Ttest,Ttype>
+public interface ICmptObjParamOutp<TTest,TType>
 {
   ICmptObjParamOutpObject AsObjParamOutp { get; }
 }
 
-public interface ICmptObjParamOutpObject<Ttest,Ttype>
+public interface ICmptObjParamOutpObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }
 
-public interface ICmptObjParamDupDual<Ttest>
+public interface ICmptObjParamDupDual<TTest>
 {
   ICmptObjParamDupDualObject AsObjParamDupDual { get; }
 }
 
-public interface ICmptObjParamDupDualObject<Ttest>
+public interface ICmptObjParamDupDualObject<TTest>
 {
-  Ttest Test { get; }
-  Ttest Type { get; }
+  TTest Test { get; }
+  TTest Type { get; }
 }
 
-public interface ICmptObjParamDupInp<Ttest>
+public interface ICmptObjParamDupInp<TTest>
 {
   ICmptObjParamDupInpObject AsObjParamDupInp { get; }
 }
 
-public interface ICmptObjParamDupInpObject<Ttest>
+public interface ICmptObjParamDupInpObject<TTest>
 {
-  Ttest Test { get; }
-  Ttest Type { get; }
+  TTest Test { get; }
+  TTest Type { get; }
 }
 
-public interface ICmptObjParamDupOutp<Ttest>
+public interface ICmptObjParamDupOutp<TTest>
 {
   ICmptObjParamDupOutpObject AsObjParamDupOutp { get; }
 }
 
-public interface ICmptObjParamDupOutpObject<Ttest>
+public interface ICmptObjParamDupOutpObject<TTest>
 {
-  Ttest Test { get; }
-  Ttest Type { get; }
+  TTest Test { get; }
+  TTest Type { get; }
 }
 
 public interface ICmptObjPrntDual

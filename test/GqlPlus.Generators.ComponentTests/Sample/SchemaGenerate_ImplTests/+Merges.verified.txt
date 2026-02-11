@@ -205,27 +205,27 @@ public class CmptObjAltEnumOutp
   public ICmptObjAltEnumOutpObject AsObjAltEnumOutp { get; set; }
 }
 
-public class CmptObjCnstDual<Ttype>
-  : ICmptObjCnstDual<Ttype>
+public class CmptObjCnstDual<TType>
+  : ICmptObjCnstDual<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
   public ICmptObjCnstDualObject AsObjCnstDual { get; set; }
 }
 
-public class CmptObjCnstInp<Ttype>
-  : ICmptObjCnstInp<Ttype>
+public class CmptObjCnstInp<TType>
+  : ICmptObjCnstInp<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
   public ICmptObjCnstInpObject AsObjCnstInp { get; set; }
 }
 
-public class CmptObjCnstOutp<Ttype>
-  : ICmptObjCnstOutp<Ttype>
+public class CmptObjCnstOutp<TType>
+  : ICmptObjCnstOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
   public ICmptObjCnstOutpObject AsObjCnstOutp { get; set; }
 }
 
@@ -370,51 +370,51 @@ public class CmptObjFieldTypeAliasOutp
   public ICmptObjFieldTypeAliasOutpObject AsObjFieldTypeAliasOutp { get; set; }
 }
 
-public class CmptObjParamDual<Ttest,Ttype>
-  : ICmptObjParamDual<Ttest,Ttype>
+public class CmptObjParamDual<TTest,TType>
+  : ICmptObjParamDual<TTest,TType>
 {
-  public Ttest Test { get; set; }
-  public Ttype Type { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
   public ICmptObjParamDualObject AsObjParamDual { get; set; }
 }
 
-public class CmptObjParamInp<Ttest,Ttype>
-  : ICmptObjParamInp<Ttest,Ttype>
+public class CmptObjParamInp<TTest,TType>
+  : ICmptObjParamInp<TTest,TType>
 {
-  public Ttest Test { get; set; }
-  public Ttype Type { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
   public ICmptObjParamInpObject AsObjParamInp { get; set; }
 }
 
-public class CmptObjParamOutp<Ttest,Ttype>
-  : ICmptObjParamOutp<Ttest,Ttype>
+public class CmptObjParamOutp<TTest,TType>
+  : ICmptObjParamOutp<TTest,TType>
 {
-  public Ttest Test { get; set; }
-  public Ttype Type { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
   public ICmptObjParamOutpObject AsObjParamOutp { get; set; }
 }
 
-public class CmptObjParamDupDual<Ttest>
-  : ICmptObjParamDupDual<Ttest>
+public class CmptObjParamDupDual<TTest>
+  : ICmptObjParamDupDual<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
   public ICmptObjParamDupDualObject AsObjParamDupDual { get; set; }
 }
 
-public class CmptObjParamDupInp<Ttest>
-  : ICmptObjParamDupInp<Ttest>
+public class CmptObjParamDupInp<TTest>
+  : ICmptObjParamDupInp<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
   public ICmptObjParamDupInpObject AsObjParamDupInp { get; set; }
 }
 
-public class CmptObjParamDupOutp<Ttest>
-  : ICmptObjParamDupOutp<Ttest>
+public class CmptObjParamDupOutp<TTest>
+  : ICmptObjParamDupOutp<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
   public ICmptObjParamDupOutpObject AsObjParamDupOutp { get; set; }
 }
 

@@ -9,10 +9,10 @@ output ObjCnstOutp<$type:String> { str: $type }
 
 namespace Components.Gqlp_Schema_object_constraint_Output;
 
-public class CmptObjCnstOutp<Ttype>
-  : ICmptObjCnstOutp<Ttype>
+public class CmptObjCnstOutp<TType>
+  : ICmptObjCnstOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
   public ICmptObjCnstOutpObject AsObjCnstOutp { get; set; }
 }

@@ -11,24 +11,24 @@ domain DomCnstFieldDmnDual { String /\w+/ }
 namespace Components.Gqlp_Schema_constraint_field_domain_Dual;
 
 public interface ICmptCnstFieldDmnDual
-  : ICmptRefCnstFieldDmnDual
+  : ICmptRefCnstFieldDmnDual<ICmptDomCnstFieldDmnDual>
 {
   ICmptCnstFieldDmnDualObject AsCnstFieldDmnDual { get; }
 }
 
 public interface ICmptCnstFieldDmnDualObject
-  : ICmptRefCnstFieldDmnDualObject
+  : ICmptRefCnstFieldDmnDualObject<ICmptDomCnstFieldDmnDual>
 {
 }
 
-public interface ICmptRefCnstFieldDmnDual<Tref>
+public interface ICmptRefCnstFieldDmnDual<TRef>
 {
   ICmptRefCnstFieldDmnDualObject AsRefCnstFieldDmnDual { get; }
 }
 
-public interface ICmptRefCnstFieldDmnDualObject<Tref>
+public interface ICmptRefCnstFieldDmnDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomCnstFieldDmnDual

@@ -5,24 +5,24 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_parent_param_diff_Dual;
 
-public interface ItestPrntParamDiffDual<Ta>
-  : ItestRefPrntParamDiffDual
+public interface ItestPrntParamDiffDual<TA>
+  : ItestRefPrntParamDiffDual<TA>
 {
   ItestPrntParamDiffDualObject AsPrntParamDiffDual { get; }
 }
 
-public interface ItestPrntParamDiffDualObject<Ta>
-  : ItestRefPrntParamDiffDualObject
+public interface ItestPrntParamDiffDualObject<TA>
+  : ItestRefPrntParamDiffDualObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ItestRefPrntParamDiffDual<Tb>
+public interface ItestRefPrntParamDiffDual<TB>
 {
-  Tb Asb { get; }
+  TB Asb { get; }
   ItestRefPrntParamDiffDualObject AsRefPrntParamDiffDual { get; }
 }
 
-public interface ItestRefPrntParamDiffDualObject<Tb>
+public interface ItestRefPrntParamDiffDualObject<TB>
 {
 }

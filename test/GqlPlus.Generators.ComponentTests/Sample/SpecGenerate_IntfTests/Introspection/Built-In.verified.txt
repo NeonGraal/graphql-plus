@@ -41,14 +41,14 @@ public interface ICmpt_CollectionsObject
 {
 }
 
-public interface ICmpt_ModifierKeyed<Tkind>
-  : ICmpt_Modifier
+public interface ICmpt_ModifierKeyed<TKind>
+  : ICmpt_Modifier<TKind>
 {
   ICmpt_ModifierKeyedObject As_ModifierKeyed { get; }
 }
 
-public interface ICmpt_ModifierKeyedObject<Tkind>
-  : ICmpt_ModifierObject
+public interface ICmpt_ModifierKeyedObject<TKind>
+  : ICmpt_ModifierObject<TKind>
 {
   ICmpt_TypeSimple By { get; }
   bool Optional { get; }
@@ -65,12 +65,12 @@ public interface ICmpt_ModifiersObject
 {
 }
 
-public interface ICmpt_Modifier<Tkind>
+public interface ICmpt_Modifier<TKind>
 {
   ICmpt_ModifierObject As_Modifier { get; }
 }
 
-public interface ICmpt_ModifierObject<Tkind>
+public interface ICmpt_ModifierObject<TKind>
 {
-  Tkind ModifierKind { get; }
+  TKind ModifierKind { get; }
 }

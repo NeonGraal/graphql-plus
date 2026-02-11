@@ -6,22 +6,22 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_simple_enum_Input;
 
 public interface ItestGnrcPrntSmplEnumInp
-  : ItestFieldGnrcPrntSmplEnumInp
+  : ItestFieldGnrcPrntSmplEnumInp<testEnumGnrcPrntSmplEnumInp>
 {
   ItestGnrcPrntSmplEnumInpObject AsGnrcPrntSmplEnumInp { get; }
 }
 
 public interface ItestGnrcPrntSmplEnumInpObject
-  : ItestFieldGnrcPrntSmplEnumInpObject
+  : ItestFieldGnrcPrntSmplEnumInpObject<testEnumGnrcPrntSmplEnumInp>
 {
 }
 
-public interface ItestFieldGnrcPrntSmplEnumInp<Tref>
+public interface ItestFieldGnrcPrntSmplEnumInp<TRef>
 {
   ItestFieldGnrcPrntSmplEnumInpObject AsFieldGnrcPrntSmplEnumInp { get; }
 }
 
-public interface ItestFieldGnrcPrntSmplEnumInpObject<Tref>
+public interface ItestFieldGnrcPrntSmplEnumInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }

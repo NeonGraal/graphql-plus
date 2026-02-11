@@ -5,9 +5,9 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_descr_Output;
 
-public class testGnrcPrntDescrOutp<Ttype>
+public class testGnrcPrntDescrOutp<TType>
   : testtype
-  , ItestGnrcPrntDescrOutp<Ttype>
+  , ItestGnrcPrntDescrOutp<TType>
 {
   public ItestGnrcPrntDescrOutpObject AsGnrcPrntDescrOutp { get; set; }
 }

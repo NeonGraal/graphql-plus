@@ -6,13 +6,13 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Union;
 
 public interface Itest_UnionRef
-  : Itest_TypeRef
+  : Itest_TypeRef<Itest_SimpleKind>
 {
   Itest_UnionRefObject As_UnionRef { get; }
 }
 
 public interface Itest_UnionRefObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<Itest_SimpleKind>
 {
 }
 

@@ -9,13 +9,13 @@ input ObjParamInp<$type:String> { type: $type }
 
 namespace Components.Gqlp_Schema_object_param_Input;
 
-public interface ICmptObjParamInp<Ttest,Ttype>
+public interface ICmptObjParamInp<TTest,TType>
 {
   ICmptObjParamInpObject AsObjParamInp { get; }
 }
 
-public interface ICmptObjParamInpObject<Ttest,Ttype>
+public interface ICmptObjParamInpObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }

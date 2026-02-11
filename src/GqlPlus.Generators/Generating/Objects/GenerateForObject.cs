@@ -57,7 +57,7 @@ internal class GenerateForObject<TObjField>
 
     string keyTypeStr = modifier.Key;
     if (modifier.ModifierKind == ModifierKind.Param) {
-      keyTypeStr = "T" + modifier.Key;
+      keyTypeStr = "T" + modifier.Key.Capitalize();
     } else {
       keyTypeStr = context.TypeName(modifier.Key, "");
     }
@@ -68,7 +68,7 @@ internal class GenerateForObject<TObjField>
   protected virtual string TypeString(IGqlpObjType type, GqlpGeneratorContext context, string prefix = "")
   {
     if (type.IsTypeParam) {
-      return "T" + type.Name;
+      return "T" + type.Name.Capitalize();
     }
 
     string args = type is IGqlpObjBase baseAst ? baseAst.Args.Surround("<", ">", a => TypeString(a!, context, prefix), ", ") : "";
@@ -78,32 +78,34 @@ internal class GenerateForObject<TObjField>
 
   private void InterfaceFieldsHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
-    string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
-
-    context.Write($"public interface {context.TypeName(ast, "I")}Object{typeParams}");
+    context.Write($"public interface {context.TypeName(ast, "I")}Object{TypeParamsString(ast)}");
     if (ast.Parent is not null) {
-      context.Write("  : " + context.TypeName(ast.Parent, "I") + "Object");
+      string parentArgs = ast.Parent.Args.Surround("<", ">", a => TypeString(a!, context, "I"), ", ");
+      context.Write("  : " + context.TypeName(ast.Parent, "I") + "Object" + parentArgs);
     }
   }
 
+  private static string TypeParamsString(IGqlpObject<TObjField> ast)
+    => ast.TypeParams.Surround("<", ">", p => "T" + p!.Name.Capitalize(), ",");
+
   protected override void InterfaceHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
-    string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
-
-    context.Write($"public interface {context.TypeName(ast, "I")}{typeParams}");
+    context.Write($"public interface {context.TypeName(ast, "I")}{TypeParamsString(ast)}");
     if (ast.Parent is not null) {
-      context.Write("  : " + context.TypeName(ast.Parent, "I"));
+      string parentArgs = ast.Parent.Args.Surround("<", ">", a => TypeString(a!, context, "I"), ", ");
+      context.Write("  : " + context.TypeName(ast.Parent, "I") + parentArgs);
     }
   }
 
   protected override void ClassHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
-    string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
+    string typeParams = TypeParamsString(ast);
 
     context.Write($"public class {context.TypeName(ast, "")}{typeParams}");
 
     if (ast.Parent is not null) {
-      context.Write("  : " + context.TypeName(ast.Parent, ""));
+      string parentArgs = ast.Parent.Args.Surround("<", ">", a => TypeString(a!, context, "I"), ", ");
+      context.Write("  : " + context.TypeName(ast.Parent, "") + parentArgs);
       context.Write("  , " + context.TypeName(ast, "I") + typeParams);
     } else {
       context.Write("  : " + context.TypeName(ast, "I") + typeParams);

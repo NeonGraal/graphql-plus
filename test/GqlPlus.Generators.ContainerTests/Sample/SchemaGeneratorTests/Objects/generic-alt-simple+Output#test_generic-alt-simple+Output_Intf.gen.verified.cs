@@ -15,12 +15,12 @@ public interface ItestGnrcAltSmplOutpObject
 {
 }
 
-public interface ItestRefGnrcAltSmplOutp<Tref>
+public interface ItestRefGnrcAltSmplOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltSmplOutpObject AsRefGnrcAltSmplOutp { get; }
 }
 
-public interface ItestRefGnrcAltSmplOutpObject<Tref>
+public interface ItestRefGnrcAltSmplOutpObject<TRef>
 {
 }

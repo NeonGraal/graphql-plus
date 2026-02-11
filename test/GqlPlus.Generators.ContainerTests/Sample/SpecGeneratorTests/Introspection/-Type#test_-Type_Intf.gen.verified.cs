@@ -25,53 +25,53 @@ public interface Itest_TypeObject
 {
 }
 
-public interface Itest_BaseType<Tkind>
+public interface Itest_BaseType<TKind>
   : Itest_Aliased
 {
   Itest_BaseTypeObject As_BaseType { get; }
 }
 
-public interface Itest_BaseTypeObject<Tkind>
+public interface Itest_BaseTypeObject<TKind>
   : Itest_AliasedObject
 {
-  Tkind TypeKind { get; }
+  TKind TypeKind { get; }
 }
 
-public interface Itest_ChildType<Tkind,Tparent>
-  : Itest_BaseType
+public interface Itest_ChildType<TKind,TParent>
+  : Itest_BaseType<TKind>
 {
   Itest_ChildTypeObject As_ChildType { get; }
 }
 
-public interface Itest_ChildTypeObject<Tkind,Tparent>
-  : Itest_BaseTypeObject
+public interface Itest_ChildTypeObject<TKind,TParent>
+  : Itest_BaseTypeObject<TKind>
 {
-  Tparent Parent { get; }
+  TParent Parent { get; }
 }
 
-public interface Itest_ParentType<Tkind,Titem,TallItem>
-  : Itest_ChildType
+public interface Itest_ParentType<TKind,TItem,TAllItem>
+  : Itest_ChildType<TKind, Itest_Named>
 {
   Itest_ParentTypeObject As_ParentType { get; }
 }
 
-public interface Itest_ParentTypeObject<Tkind,Titem,TallItem>
-  : Itest_ChildTypeObject
+public interface Itest_ParentTypeObject<TKind,TItem,TAllItem>
+  : Itest_ChildTypeObject<TKind, Itest_Named>
 {
-  ICollection<Titem> Items { get; }
-  ICollection<TallItem> AllItems { get; }
+  ICollection<TItem> Items { get; }
+  ICollection<TAllItem> AllItems { get; }
 }
 
-public interface Itest_TypeRef<Tkind>
+public interface Itest_TypeRef<TKind>
   : Itest_Named
 {
   Itest_TypeRefObject As_TypeRef { get; }
 }
 
-public interface Itest_TypeRefObject<Tkind>
+public interface Itest_TypeRefObject<TKind>
   : Itest_NamedObject
 {
-  Tkind TypeKind { get; }
+  TKind TypeKind { get; }
 }
 
 public interface Itest_TypeSimple
@@ -99,14 +99,14 @@ public interface Itest_CollectionsObject
 {
 }
 
-public interface Itest_ModifierKeyed<Tkind>
-  : Itest_Modifier
+public interface Itest_ModifierKeyed<TKind>
+  : Itest_Modifier<TKind>
 {
   Itest_ModifierKeyedObject As_ModifierKeyed { get; }
 }
 
-public interface Itest_ModifierKeyedObject<Tkind>
-  : Itest_ModifierObject
+public interface Itest_ModifierKeyedObject<TKind>
+  : Itest_ModifierObject<TKind>
 {
   Itest_TypeSimple By { get; }
   bool Optional { get; }
@@ -123,12 +123,12 @@ public interface Itest_ModifiersObject
 {
 }
 
-public interface Itest_Modifier<Tkind>
+public interface Itest_Modifier<TKind>
 {
   Itest_ModifierObject As_Modifier { get; }
 }
 
-public interface Itest_ModifierObject<Tkind>
+public interface Itest_ModifierObject<TKind>
 {
-  Tkind ModifierKind { get; }
+  TKind ModifierKind { get; }
 }

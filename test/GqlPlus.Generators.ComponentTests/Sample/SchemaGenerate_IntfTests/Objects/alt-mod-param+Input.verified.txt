@@ -9,13 +9,13 @@ input AltAltModParamInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_param_Input;
 
-public interface ICmptAltModParamInp<Tmod>
+public interface ICmptAltModParamInp<TMod>
 {
-  IDictionary<Tmod, ICmptAltAltModParamInp> AsAltAltModParamInp { get; }
+  IDictionary<TMod, ICmptAltAltModParamInp> AsAltAltModParamInp { get; }
   ICmptAltModParamInpObject AsAltModParamInp { get; }
 }
 
-public interface ICmptAltModParamInpObject<Tmod>
+public interface ICmptAltModParamInpObject<TMod>
 {
 }
 

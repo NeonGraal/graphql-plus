@@ -20,13 +20,13 @@ public interface ICmptGnrcAltParamDualObject
 {
 }
 
-public interface ICmptRefGnrcAltParamDual<Tref>
+public interface ICmptRefGnrcAltParamDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltParamDualObject AsRefGnrcAltParamDual { get; }
 }
 
-public interface ICmptRefGnrcAltParamDualObject<Tref>
+public interface ICmptRefGnrcAltParamDualObject<TRef>
 {
 }
 

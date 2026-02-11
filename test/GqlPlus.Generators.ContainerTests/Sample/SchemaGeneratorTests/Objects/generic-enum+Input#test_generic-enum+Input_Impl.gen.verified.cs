@@ -12,9 +12,9 @@ public class testGnrcEnumInp
   public ItestGnrcEnumInpObject AsGnrcEnumInp { get; set; }
 }
 
-public class testRefGnrcEnumInp<Ttype>
-  : ItestRefGnrcEnumInp<Ttype>
+public class testRefGnrcEnumInp<TType>
+  : ItestRefGnrcEnumInp<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ItestRefGnrcEnumInpObject AsRefGnrcEnumInp { get; set; }
 }

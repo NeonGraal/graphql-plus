@@ -18,13 +18,13 @@ public interface Itest_EnumLabelObject
 }
 
 public interface Itest_EnumValue
-  : Itest_TypeRef
+  : Itest_TypeRef<Itest_TypeKind>
 {
   Itest_EnumValueObject As_EnumValue { get; }
 }
 
 public interface Itest_EnumValueObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<Itest_TypeKind>
 {
   Itest_Name Label { get; }
 }

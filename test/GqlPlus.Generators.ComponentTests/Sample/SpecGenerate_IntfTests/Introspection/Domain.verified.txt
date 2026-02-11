@@ -78,28 +78,28 @@ output _DomainItemRegex {
 
 namespace Components.Gqlp_Spec_Domain;
 
-public interface ICmpt_DomainRef<Tkind>
-  : ICmpt_TypeRef
+public interface ICmpt_DomainRef<TKind>
+  : ICmpt_TypeRef<ICmpt_TypeKind>
 {
   ICmpt_DomainRefObject As_DomainRef { get; }
 }
 
-public interface ICmpt_DomainRefObject<Tkind>
-  : ICmpt_TypeRefObject
+public interface ICmpt_DomainRefObject<TKind>
+  : ICmpt_TypeRefObject<ICmpt_TypeKind>
 {
-  Tkind DomainKind { get; }
+  TKind DomainKind { get; }
 }
 
-public interface ICmpt_BaseDomain<Tdomain,Titem,TdomainItem>
-  : ICmpt_ParentType
+public interface ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
+  : ICmpt_ParentType<ICmpt_TypeKind, TItem, TDomainItem>
 {
   ICmpt_BaseDomainObject As_BaseDomain { get; }
 }
 
-public interface ICmpt_BaseDomainObject<Tdomain,Titem,TdomainItem>
-  : ICmpt_ParentTypeObject
+public interface ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
+  : ICmpt_ParentTypeObject<ICmpt_TypeKind, TItem, TDomainItem>
 {
-  Tdomain DomainKind { get; }
+  TDomain DomainKind { get; }
 }
 
 public interface ICmpt_BaseDomainItem
@@ -114,29 +114,29 @@ public interface ICmpt_BaseDomainItemObject
   Cmpt_DomainKind Exclude { get; }
 }
 
-public interface ICmpt_DomainItem<Titem>
+public interface ICmpt_DomainItem<TItem>
   : ICmptitem
 {
   ICmpt_DomainItemObject As_DomainItem { get; }
 }
 
-public interface ICmpt_DomainItemObject<Titem>
+public interface ICmpt_DomainItemObject<TItem>
   : ICmptitemObject
 {
   ICmpt_Name Domain { get; }
 }
 
-public interface ICmpt_DomainValue<Tkind,Tvalue>
-  : ICmpt_DomainRef
+public interface ICmpt_DomainValue<TKind,TValue>
+  : ICmpt_DomainRef<TKind>
 {
-  Tvalue Asvalue { get; }
+  TValue Asvalue { get; }
   ICmpt_DomainValueObject As_DomainValue { get; }
 }
 
-public interface ICmpt_DomainValueObject<Tkind,Tvalue>
-  : ICmpt_DomainRefObject
+public interface ICmpt_DomainValueObject<TKind,TValue>
+  : ICmpt_DomainRefObject<TKind>
 {
-  Tvalue Value { get; }
+  TValue Value { get; }
 }
 
 public interface ICmpt_BasicValue
@@ -165,13 +165,13 @@ public interface ICmpt_DomainTrueFalseObject
 }
 
 public interface ICmpt_DomainItemTrueFalse
-  : ICmpt_DomainItem
+  : ICmpt_DomainItem<ICmpt_DomainTrueFalse>
 {
   ICmpt_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; }
 }
 
 public interface ICmpt_DomainItemTrueFalseObject
-  : ICmpt_DomainItemObject
+  : ICmpt_DomainItemObject<ICmpt_DomainTrueFalse>
 {
 }
 
@@ -188,13 +188,13 @@ public interface ICmpt_DomainLabelObject
 }
 
 public interface ICmpt_DomainItemLabel
-  : ICmpt_DomainItem
+  : ICmpt_DomainItem<ICmpt_DomainLabel>
 {
   ICmpt_DomainItemLabelObject As_DomainItemLabel { get; }
 }
 
 public interface ICmpt_DomainItemLabelObject
-  : ICmpt_DomainItemObject
+  : ICmpt_DomainItemObject<ICmpt_DomainLabel>
 {
 }
 
@@ -212,13 +212,13 @@ public interface ICmpt_DomainRangeObject
 }
 
 public interface ICmpt_DomainItemRange
-  : ICmpt_DomainItem
+  : ICmpt_DomainItem<ICmpt_DomainRange>
 {
   ICmpt_DomainItemRangeObject As_DomainItemRange { get; }
 }
 
 public interface ICmpt_DomainItemRangeObject
-  : ICmpt_DomainItemObject
+  : ICmpt_DomainItemObject<ICmpt_DomainRange>
 {
 }
 
@@ -235,12 +235,12 @@ public interface ICmpt_DomainRegexObject
 }
 
 public interface ICmpt_DomainItemRegex
-  : ICmpt_DomainItem
+  : ICmpt_DomainItem<ICmpt_DomainRegex>
 {
   ICmpt_DomainItemRegexObject As_DomainItemRegex { get; }
 }
 
 public interface ICmpt_DomainItemRegexObject
-  : ICmpt_DomainItemObject
+  : ICmpt_DomainItemObject<ICmpt_DomainRegex>
 {
 }

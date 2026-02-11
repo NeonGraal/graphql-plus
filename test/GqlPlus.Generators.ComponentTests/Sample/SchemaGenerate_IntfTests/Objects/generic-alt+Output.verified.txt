@@ -8,12 +8,12 @@ output GnrcAltOutp<$type:String> { | $type }
 
 namespace Components.Gqlp_Schema_generic_alt_Output;
 
-public interface ICmptGnrcAltOutp<Ttype>
+public interface ICmptGnrcAltOutp<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ICmptGnrcAltOutpObject AsGnrcAltOutp { get; }
 }
 
-public interface ICmptGnrcAltOutpObject<Ttype>
+public interface ICmptGnrcAltOutpObject<TType>
 {
 }

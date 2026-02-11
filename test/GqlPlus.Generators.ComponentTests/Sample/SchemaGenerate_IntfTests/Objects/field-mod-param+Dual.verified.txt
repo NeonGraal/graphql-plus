@@ -9,14 +9,14 @@ dual FldFieldModParamDual { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
-public interface ICmptFieldModParamDual<Tmod>
+public interface ICmptFieldModParamDual<TMod>
 {
   ICmptFieldModParamDualObject AsFieldModParamDual { get; }
 }
 
-public interface ICmptFieldModParamDualObject<Tmod>
+public interface ICmptFieldModParamDualObject<TMod>
 {
-  IDictionary<Tmod, ICmptFldFieldModParamDual> Field { get; }
+  IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; }
 }
 
 public interface ICmptFldFieldModParamDual

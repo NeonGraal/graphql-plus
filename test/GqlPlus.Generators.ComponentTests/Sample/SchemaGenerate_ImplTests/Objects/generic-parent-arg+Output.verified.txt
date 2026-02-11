@@ -9,16 +9,16 @@ output RefGnrcPrntArgOutp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_parent_arg_Output;
 
-public class CmptGnrcPrntArgOutp<Ttype>
-  : CmptRefGnrcPrntArgOutp
-  , ICmptGnrcPrntArgOutp<Ttype>
+public class CmptGnrcPrntArgOutp<TType>
+  : CmptRefGnrcPrntArgOutp<TType>
+  , ICmptGnrcPrntArgOutp<TType>
 {
   public ICmptGnrcPrntArgOutpObject AsGnrcPrntArgOutp { get; set; }
 }
 
-public class CmptRefGnrcPrntArgOutp<Tref>
-  : ICmptRefGnrcPrntArgOutp<Tref>
+public class CmptRefGnrcPrntArgOutp<TRef>
+  : ICmptRefGnrcPrntArgOutp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefGnrcPrntArgOutpObject AsRefGnrcPrntArgOutp { get; set; }
 }

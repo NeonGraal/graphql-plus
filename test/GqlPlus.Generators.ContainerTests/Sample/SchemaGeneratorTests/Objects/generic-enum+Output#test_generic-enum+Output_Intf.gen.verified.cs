@@ -15,12 +15,12 @@ public interface ItestGnrcEnumOutpObject
 {
 }
 
-public interface ItestRefGnrcEnumOutp<Ttype>
+public interface ItestRefGnrcEnumOutp<TType>
 {
   ItestRefGnrcEnumOutpObject AsRefGnrcEnumOutp { get; }
 }
 
-public interface ItestRefGnrcEnumOutpObject<Ttype>
+public interface ItestRefGnrcEnumOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

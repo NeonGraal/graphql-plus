@@ -21,12 +21,12 @@ public interface ICmptOutpPrntGnrcObject
 {
 }
 
-public interface ICmptRefOutpPrntGnrc<Ttype>
+public interface ICmptRefOutpPrntGnrc<TType>
 {
   ICmptRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; }
 }
 
-public interface ICmptRefOutpPrntGnrcObject<Ttype>
+public interface ICmptRefOutpPrntGnrcObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

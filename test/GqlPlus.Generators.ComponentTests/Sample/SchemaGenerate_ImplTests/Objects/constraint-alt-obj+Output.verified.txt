@@ -18,10 +18,10 @@ public class CmptCnstAltObjOutp
   public ICmptCnstAltObjOutpObject AsCnstAltObjOutp { get; set; }
 }
 
-public class CmptRefCnstAltObjOutp<Tref>
-  : ICmptRefCnstAltObjOutp<Tref>
+public class CmptRefCnstAltObjOutp<TRef>
+  : ICmptRefCnstAltObjOutp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefCnstAltObjOutpObject AsRefCnstAltObjOutp { get; set; }
 }
 

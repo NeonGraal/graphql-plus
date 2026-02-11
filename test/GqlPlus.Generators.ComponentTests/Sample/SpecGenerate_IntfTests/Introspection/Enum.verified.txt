@@ -29,13 +29,13 @@ public interface ICmpt_EnumLabelObject
 }
 
 public interface ICmpt_EnumValue
-  : ICmpt_TypeRef
+  : ICmpt_TypeRef<ICmpt_TypeKind>
 {
   ICmpt_EnumValueObject As_EnumValue { get; }
 }
 
 public interface ICmpt_EnumValueObject
-  : ICmpt_TypeRefObject
+  : ICmpt_TypeRefObject<ICmpt_TypeKind>
 {
   ICmpt_Name Label { get; }
 }

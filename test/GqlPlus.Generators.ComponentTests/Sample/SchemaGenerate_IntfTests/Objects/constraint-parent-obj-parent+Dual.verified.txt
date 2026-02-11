@@ -12,23 +12,23 @@ dual AltCnstPrntObjPrntDual { :PrntCnstPrntObjPrntDual alt: Number }
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Dual;
 
 public interface ICmptCnstPrntObjPrntDual
-  : ICmptRefCnstPrntObjPrntDual
+  : ICmptRefCnstPrntObjPrntDual<ICmptAltCnstPrntObjPrntDual>
 {
   ICmptCnstPrntObjPrntDualObject AsCnstPrntObjPrntDual { get; }
 }
 
 public interface ICmptCnstPrntObjPrntDualObject
-  : ICmptRefCnstPrntObjPrntDualObject
+  : ICmptRefCnstPrntObjPrntDualObject<ICmptAltCnstPrntObjPrntDual>
 {
 }
 
-public interface ICmptRefCnstPrntObjPrntDual<Tref>
+public interface ICmptRefCnstPrntObjPrntDual<TRef>
   : ICmptref
 {
   ICmptRefCnstPrntObjPrntDualObject AsRefCnstPrntObjPrntDual { get; }
 }
 
-public interface ICmptRefCnstPrntObjPrntDualObject<Tref>
+public interface ICmptRefCnstPrntObjPrntDualObject<TRef>
   : ICmptrefObject
 {
 }

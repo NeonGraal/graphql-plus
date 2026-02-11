@@ -9,14 +9,14 @@ input FldFieldModParamInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Input;
 
-public interface ICmptFieldModParamInp<Tmod>
+public interface ICmptFieldModParamInp<TMod>
 {
   ICmptFieldModParamInpObject AsFieldModParamInp { get; }
 }
 
-public interface ICmptFieldModParamInpObject<Tmod>
+public interface ICmptFieldModParamInpObject<TMod>
 {
-  IDictionary<Tmod, ICmptFldFieldModParamInp> Field { get; }
+  IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; }
 }
 
 public interface ICmptFldFieldModParamInp

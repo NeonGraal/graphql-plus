@@ -17,9 +17,9 @@ public class CmptGnrcEnumOutp
   public ICmptGnrcEnumOutpObject AsGnrcEnumOutp { get; set; }
 }
 
-public class CmptRefGnrcEnumOutp<Ttype>
-  : ICmptRefGnrcEnumOutp<Ttype>
+public class CmptRefGnrcEnumOutp<TType>
+  : ICmptRefGnrcEnumOutp<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ICmptRefGnrcEnumOutpObject AsRefGnrcEnumOutp { get; set; }
 }

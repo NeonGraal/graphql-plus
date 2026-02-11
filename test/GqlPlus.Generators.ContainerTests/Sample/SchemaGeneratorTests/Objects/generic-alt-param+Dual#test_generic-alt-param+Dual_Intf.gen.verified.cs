@@ -15,13 +15,13 @@ public interface ItestGnrcAltParamDualObject
 {
 }
 
-public interface ItestRefGnrcAltParamDual<Tref>
+public interface ItestRefGnrcAltParamDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltParamDualObject AsRefGnrcAltParamDual { get; }
 }
 
-public interface ItestRefGnrcAltParamDualObject<Tref>
+public interface ItestRefGnrcAltParamDualObject<TRef>
 {
 }
 

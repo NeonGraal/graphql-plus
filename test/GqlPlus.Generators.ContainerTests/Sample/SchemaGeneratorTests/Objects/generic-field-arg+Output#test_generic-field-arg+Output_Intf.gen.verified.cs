@@ -5,22 +5,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Output;
 
-public interface ItestGnrcFieldArgOutp<Ttype>
+public interface ItestGnrcFieldArgOutp<TType>
 {
   ItestGnrcFieldArgOutpObject AsGnrcFieldArgOutp { get; }
 }
 
-public interface ItestGnrcFieldArgOutpObject<Ttype>
+public interface ItestGnrcFieldArgOutpObject<TType>
 {
-  ItestRefGnrcFieldArgOutp<Ttype> Field { get; }
+  ItestRefGnrcFieldArgOutp<TType> Field { get; }
 }
 
-public interface ItestRefGnrcFieldArgOutp<Tref>
+public interface ItestRefGnrcFieldArgOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldArgOutpObject AsRefGnrcFieldArgOutp { get; }
 }
 
-public interface ItestRefGnrcFieldArgOutpObject<Tref>
+public interface ItestRefGnrcFieldArgOutpObject<TRef>
 {
 }

@@ -5,12 +5,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_param_Dual;
 
-public interface ItestRefGnrcAltModParamDual<Tref,Tmod>
+public interface ItestRefGnrcAltModParamDual<TRef,TMod>
 {
-  IDictionary<Tmod, Tref> Asref { get; }
+  IDictionary<TMod, TRef> Asref { get; }
   ItestRefGnrcAltModParamDualObject AsRefGnrcAltModParamDual { get; }
 }
 
-public interface ItestRefGnrcAltModParamDualObject<Tref,Tmod>
+public interface ItestRefGnrcAltModParamDualObject<TRef,TMod>
 {
 }

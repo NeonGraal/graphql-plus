@@ -12,16 +12,16 @@ dual AltCnstFieldObjDual { :PrntCnstFieldObjDual alt: Number }
 namespace Components.Gqlp_Schema_constraint_field_obj_Dual;
 
 public class CmptCnstFieldObjDual
-  : CmptRefCnstFieldObjDual
+  : CmptRefCnstFieldObjDual<ICmptAltCnstFieldObjDual>
   , ICmptCnstFieldObjDual
 {
   public ICmptCnstFieldObjDualObject AsCnstFieldObjDual { get; set; }
 }
 
-public class CmptRefCnstFieldObjDual<Tref>
-  : ICmptRefCnstFieldObjDual<Tref>
+public class CmptRefCnstFieldObjDual<TRef>
+  : ICmptRefCnstFieldObjDual<TRef>
 {
-  public Tref Field { get; set; }
+  public TRef Field { get; set; }
   public ICmptRefCnstFieldObjDualObject AsRefCnstFieldObjDual { get; set; }
 }
 

@@ -17,10 +17,10 @@ public class CmptGnrcFieldDualInp
   public ICmptGnrcFieldDualInpObject AsGnrcFieldDualInp { get; set; }
 }
 
-public class CmptRefGnrcFieldDualInp<Tref>
-  : ICmptRefGnrcFieldDualInp<Tref>
+public class CmptRefGnrcFieldDualInp<TRef>
+  : ICmptRefGnrcFieldDualInp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefGnrcFieldDualInpObject AsRefGnrcFieldDualInp { get; set; }
 }
 

@@ -5,28 +5,28 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Domain;
 
-public interface Itest_DomainRef<Tkind>
-  : Itest_TypeRef
+public interface Itest_DomainRef<TKind>
+  : Itest_TypeRef<Itest_TypeKind>
 {
   Itest_DomainRefObject As_DomainRef { get; }
 }
 
-public interface Itest_DomainRefObject<Tkind>
-  : Itest_TypeRefObject
+public interface Itest_DomainRefObject<TKind>
+  : Itest_TypeRefObject<Itest_TypeKind>
 {
-  Tkind DomainKind { get; }
+  TKind DomainKind { get; }
 }
 
-public interface Itest_BaseDomain<Tdomain,Titem,TdomainItem>
-  : Itest_ParentType
+public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
+  : Itest_ParentType<Itest_TypeKind, TItem, TDomainItem>
 {
   Itest_BaseDomainObject As_BaseDomain { get; }
 }
 
-public interface Itest_BaseDomainObject<Tdomain,Titem,TdomainItem>
-  : Itest_ParentTypeObject
+public interface Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
+  : Itest_ParentTypeObject<Itest_TypeKind, TItem, TDomainItem>
 {
-  Tdomain DomainKind { get; }
+  TDomain DomainKind { get; }
 }
 
 public interface Itest_BaseDomainItem
@@ -41,29 +41,29 @@ public interface Itest_BaseDomainItemObject
   test_DomainKind Exclude { get; }
 }
 
-public interface Itest_DomainItem<Titem>
+public interface Itest_DomainItem<TItem>
   : Itestitem
 {
   Itest_DomainItemObject As_DomainItem { get; }
 }
 
-public interface Itest_DomainItemObject<Titem>
+public interface Itest_DomainItemObject<TItem>
   : ItestitemObject
 {
   Itest_Name Domain { get; }
 }
 
-public interface Itest_DomainValue<Tkind,Tvalue>
-  : Itest_DomainRef
+public interface Itest_DomainValue<TKind,TValue>
+  : Itest_DomainRef<TKind>
 {
-  Tvalue Asvalue { get; }
+  TValue Asvalue { get; }
   Itest_DomainValueObject As_DomainValue { get; }
 }
 
-public interface Itest_DomainValueObject<Tkind,Tvalue>
-  : Itest_DomainRefObject
+public interface Itest_DomainValueObject<TKind,TValue>
+  : Itest_DomainRefObject<TKind>
 {
-  Tvalue Value { get; }
+  TValue Value { get; }
 }
 
 public interface Itest_BasicValue
@@ -92,13 +92,13 @@ public interface Itest_DomainTrueFalseObject
 }
 
 public interface Itest_DomainItemTrueFalse
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainTrueFalse>
 {
   Itest_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; }
 }
 
 public interface Itest_DomainItemTrueFalseObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainTrueFalse>
 {
 }
 
@@ -115,13 +115,13 @@ public interface Itest_DomainLabelObject
 }
 
 public interface Itest_DomainItemLabel
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainLabel>
 {
   Itest_DomainItemLabelObject As_DomainItemLabel { get; }
 }
 
 public interface Itest_DomainItemLabelObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainLabel>
 {
 }
 
@@ -139,13 +139,13 @@ public interface Itest_DomainRangeObject
 }
 
 public interface Itest_DomainItemRange
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainRange>
 {
   Itest_DomainItemRangeObject As_DomainItemRange { get; }
 }
 
 public interface Itest_DomainItemRangeObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainRange>
 {
 }
 
@@ -162,12 +162,12 @@ public interface Itest_DomainRegexObject
 }
 
 public interface Itest_DomainItemRegex
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainRegex>
 {
   Itest_DomainItemRegexObject As_DomainItemRegex { get; }
 }
 
 public interface Itest_DomainItemRegexObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainRegex>
 {
 }

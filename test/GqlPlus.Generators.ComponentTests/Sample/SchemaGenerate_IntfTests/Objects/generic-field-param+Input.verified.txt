@@ -20,13 +20,13 @@ public interface ICmptGnrcFieldParamInpObject
   ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldParamInp<Tref>
+public interface ICmptRefGnrcFieldParamInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldParamInpObject AsRefGnrcFieldParamInp { get; }
 }
 
-public interface ICmptRefGnrcFieldParamInpObject<Tref>
+public interface ICmptRefGnrcFieldParamInpObject<TRef>
 {
 }
 

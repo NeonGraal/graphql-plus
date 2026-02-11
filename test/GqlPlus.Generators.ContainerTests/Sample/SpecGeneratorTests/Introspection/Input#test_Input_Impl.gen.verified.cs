@@ -6,7 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Input;
 
 public class test_InputField
-  : test_ObjField
+  : test_ObjField<Itest_InputFieldType>
   , Itest_InputField
 {
   public Itest_InputFieldObject As_InputField { get; set; }

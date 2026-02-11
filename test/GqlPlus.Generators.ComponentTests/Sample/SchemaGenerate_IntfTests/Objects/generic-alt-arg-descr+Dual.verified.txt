@@ -9,22 +9,22 @@ dual RefGnrcAltArgDescrDual<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_arg_descr_Dual;
 
-public interface ICmptGnrcAltArgDescrDual<Ttype>
+public interface ICmptGnrcAltArgDescrDual<TType>
 {
-  ICmptRefGnrcAltArgDescrDual<Ttype> AsRefGnrcAltArgDescrDual { get; }
+  ICmptRefGnrcAltArgDescrDual<TType> AsRefGnrcAltArgDescrDual { get; }
   ICmptGnrcAltArgDescrDualObject AsGnrcAltArgDescrDual { get; }
 }
 
-public interface ICmptGnrcAltArgDescrDualObject<Ttype>
+public interface ICmptGnrcAltArgDescrDualObject<TType>
 {
 }
 
-public interface ICmptRefGnrcAltArgDescrDual<Tref>
+public interface ICmptRefGnrcAltArgDescrDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltArgDescrDualObject AsRefGnrcAltArgDescrDual { get; }
 }
 
-public interface ICmptRefGnrcAltArgDescrDualObject<Tref>
+public interface ICmptRefGnrcAltArgDescrDualObject<TRef>
 {
 }

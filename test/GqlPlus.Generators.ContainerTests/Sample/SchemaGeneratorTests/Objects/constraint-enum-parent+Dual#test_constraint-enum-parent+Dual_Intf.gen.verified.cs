@@ -15,12 +15,12 @@ public interface ItestCnstEnumPrntDualObject
 {
 }
 
-public interface ItestRefCnstEnumPrntDual<Ttype>
+public interface ItestRefCnstEnumPrntDual<TType>
 {
   ItestRefCnstEnumPrntDualObject AsRefCnstEnumPrntDual { get; }
 }
 
-public interface ItestRefCnstEnumPrntDualObject<Ttype>
+public interface ItestRefCnstEnumPrntDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

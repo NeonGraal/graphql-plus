@@ -6,16 +6,16 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Dual;
 
 public class testCnstFieldObjDual
-  : testRefCnstFieldObjDual
+  : testRefCnstFieldObjDual<ItestAltCnstFieldObjDual>
   , ItestCnstFieldObjDual
 {
   public ItestCnstFieldObjDualObject AsCnstFieldObjDual { get; set; }
 }
 
-public class testRefCnstFieldObjDual<Tref>
-  : ItestRefCnstFieldObjDual<Tref>
+public class testRefCnstFieldObjDual<TRef>
+  : ItestRefCnstFieldObjDual<TRef>
 {
-  public Tref Field { get; set; }
+  public TRef Field { get; set; }
   public ItestRefCnstFieldObjDualObject AsRefCnstFieldObjDual { get; set; }
 }
 

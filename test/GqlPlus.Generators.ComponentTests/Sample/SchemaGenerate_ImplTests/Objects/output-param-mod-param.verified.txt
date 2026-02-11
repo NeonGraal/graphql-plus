@@ -10,8 +10,8 @@ domain DomOutpParamModParam { number 1 > 10 }
 
 namespace Components.Gqlp_Schema_output_param_mod_param;
 
-public class CmptOutpParamModParam<Tmod>
-  : ICmptOutpParamModParam<Tmod>
+public class CmptOutpParamModParam<TMod>
+  : ICmptOutpParamModParam<TMod>
 {
   public ICmptDomOutpParamModParam Field { get; set; }
   public ICmptOutpParamModParamObject AsOutpParamModParam { get; set; }

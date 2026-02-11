@@ -9,22 +9,22 @@ dual RefGnrcFieldArgDual<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_field_arg_Dual;
 
-public interface ICmptGnrcFieldArgDual<Ttype>
+public interface ICmptGnrcFieldArgDual<TType>
 {
   ICmptGnrcFieldArgDualObject AsGnrcFieldArgDual { get; }
 }
 
-public interface ICmptGnrcFieldArgDualObject<Ttype>
+public interface ICmptGnrcFieldArgDualObject<TType>
 {
-  ICmptRefGnrcFieldArgDual<Ttype> Field { get; }
+  ICmptRefGnrcFieldArgDual<TType> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldArgDual<Tref>
+public interface ICmptRefGnrcFieldArgDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcFieldArgDualObject AsRefGnrcFieldArgDual { get; }
 }
 
-public interface ICmptRefGnrcFieldArgDualObject<Tref>
+public interface ICmptRefGnrcFieldArgDualObject<TRef>
 {
 }

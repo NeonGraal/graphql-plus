@@ -8,12 +8,12 @@ dual GnrcFieldDual<$type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_field_Dual;
 
-public interface ICmptGnrcFieldDual<Ttype>
+public interface ICmptGnrcFieldDual<TType>
 {
   ICmptGnrcFieldDualObject AsGnrcFieldDual { get; }
 }
 
-public interface ICmptGnrcFieldDualObject<Ttype>
+public interface ICmptGnrcFieldDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

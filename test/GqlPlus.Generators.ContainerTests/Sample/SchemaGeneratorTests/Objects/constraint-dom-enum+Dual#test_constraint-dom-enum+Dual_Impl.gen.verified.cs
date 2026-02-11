@@ -12,10 +12,10 @@ public class testCnstDomEnumDual
   public ItestCnstDomEnumDualObject AsCnstDomEnumDual { get; set; }
 }
 
-public class testRefCnstDomEnumDual<Ttype>
-  : ItestRefCnstDomEnumDual<Ttype>
+public class testRefCnstDomEnumDual<TType>
+  : ItestRefCnstDomEnumDual<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ItestRefCnstDomEnumDualObject AsRefCnstDomEnumDual { get; set; }
 }
 

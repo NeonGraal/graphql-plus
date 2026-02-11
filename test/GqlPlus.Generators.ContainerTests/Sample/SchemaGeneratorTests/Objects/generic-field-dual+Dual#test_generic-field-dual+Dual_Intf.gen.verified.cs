@@ -15,13 +15,13 @@ public interface ItestGnrcFieldDualDualObject
   ItestRefGnrcFieldDualDual<ItestAltGnrcFieldDualDual> Field { get; }
 }
 
-public interface ItestRefGnrcFieldDualDual<Tref>
+public interface ItestRefGnrcFieldDualDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldDualDualObject AsRefGnrcFieldDualDual { get; }
 }
 
-public interface ItestRefGnrcFieldDualDualObject<Tref>
+public interface ItestRefGnrcFieldDualDualObject<TRef>
 {
 }
 

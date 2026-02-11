@@ -12,10 +12,10 @@ public class testCnstDomEnumInp
   public ItestCnstDomEnumInpObject AsCnstDomEnumInp { get; set; }
 }
 
-public class testRefCnstDomEnumInp<Ttype>
-  : ItestRefCnstDomEnumInp<Ttype>
+public class testRefCnstDomEnumInp<TType>
+  : ItestRefCnstDomEnumInp<TType>
 {
-  public Ttype Field { get; set; }
+  public TType Field { get; set; }
   public ItestRefCnstDomEnumInpObject AsRefCnstDomEnumInp { get; set; }
 }
 

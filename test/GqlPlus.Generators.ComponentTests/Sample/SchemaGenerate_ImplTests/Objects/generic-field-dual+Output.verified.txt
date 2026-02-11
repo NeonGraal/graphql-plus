@@ -17,10 +17,10 @@ public class CmptGnrcFieldDualOutp
   public ICmptGnrcFieldDualOutpObject AsGnrcFieldDualOutp { get; set; }
 }
 
-public class CmptRefGnrcFieldDualOutp<Tref>
-  : ICmptRefGnrcFieldDualOutp<Tref>
+public class CmptRefGnrcFieldDualOutp<TRef>
+  : ICmptRefGnrcFieldDualOutp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefGnrcFieldDualOutpObject AsRefGnrcFieldDualOutp { get; set; }
 }
 

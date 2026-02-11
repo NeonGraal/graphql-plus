@@ -11,23 +11,23 @@ input AltGnrcPrntParamPrntInp { alt: Number | String }
 namespace Components.Gqlp_Schema_generic_parent_param_parent_Input;
 
 public interface ICmptGnrcPrntParamPrntInp
-  : ICmptRefGnrcPrntParamPrntInp
+  : ICmptRefGnrcPrntParamPrntInp<ICmptAltGnrcPrntParamPrntInp>
 {
   ICmptGnrcPrntParamPrntInpObject AsGnrcPrntParamPrntInp { get; }
 }
 
 public interface ICmptGnrcPrntParamPrntInpObject
-  : ICmptRefGnrcPrntParamPrntInpObject
+  : ICmptRefGnrcPrntParamPrntInpObject<ICmptAltGnrcPrntParamPrntInp>
 {
 }
 
-public interface ICmptRefGnrcPrntParamPrntInp<Tref>
+public interface ICmptRefGnrcPrntParamPrntInp<TRef>
   : ICmptref
 {
   ICmptRefGnrcPrntParamPrntInpObject AsRefGnrcPrntParamPrntInp { get; }
 }
 
-public interface ICmptRefGnrcPrntParamPrntInpObject<Tref>
+public interface ICmptRefGnrcPrntParamPrntInpObject<TRef>
   : ICmptrefObject
 {
 }

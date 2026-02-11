@@ -9,22 +9,22 @@ input RefGnrcAltArgDescrInp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_alt_arg_descr_Input;
 
-public interface ICmptGnrcAltArgDescrInp<Ttype>
+public interface ICmptGnrcAltArgDescrInp<TType>
 {
-  ICmptRefGnrcAltArgDescrInp<Ttype> AsRefGnrcAltArgDescrInp { get; }
+  ICmptRefGnrcAltArgDescrInp<TType> AsRefGnrcAltArgDescrInp { get; }
   ICmptGnrcAltArgDescrInpObject AsGnrcAltArgDescrInp { get; }
 }
 
-public interface ICmptGnrcAltArgDescrInpObject<Ttype>
+public interface ICmptGnrcAltArgDescrInpObject<TType>
 {
 }
 
-public interface ICmptRefGnrcAltArgDescrInp<Tref>
+public interface ICmptRefGnrcAltArgDescrInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ICmptRefGnrcAltArgDescrInpObject AsRefGnrcAltArgDescrInp { get; }
 }
 
-public interface ICmptRefGnrcAltArgDescrInpObject<Tref>
+public interface ICmptRefGnrcAltArgDescrInpObject<TRef>
 {
 }

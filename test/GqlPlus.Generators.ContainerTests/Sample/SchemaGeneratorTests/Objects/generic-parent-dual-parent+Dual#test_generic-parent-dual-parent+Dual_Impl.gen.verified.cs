@@ -6,15 +6,15 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_parent_Dual;
 
 public class testGnrcPrntDualPrntDual
-  : testRefGnrcPrntDualPrntDual
+  : testRefGnrcPrntDualPrntDual<ItestAltGnrcPrntDualPrntDual>
   , ItestGnrcPrntDualPrntDual
 {
   public ItestGnrcPrntDualPrntDualObject AsGnrcPrntDualPrntDual { get; set; }
 }
 
-public class testRefGnrcPrntDualPrntDual<Tref>
+public class testRefGnrcPrntDualPrntDual<TRef>
   : testref
-  , ItestRefGnrcPrntDualPrntDual<Tref>
+  , ItestRefGnrcPrntDualPrntDual<TRef>
 {
   public ItestRefGnrcPrntDualPrntDualObject AsRefGnrcPrntDualPrntDual { get; set; }
 }

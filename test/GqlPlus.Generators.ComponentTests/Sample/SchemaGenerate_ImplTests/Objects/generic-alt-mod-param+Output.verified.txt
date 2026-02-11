@@ -8,9 +8,9 @@ output RefGnrcAltModParamOutp<$ref:String $mod:String> { | $ref[$mod] }
 
 namespace Components.Gqlp_Schema_generic_alt_mod_param_Output;
 
-public class CmptRefGnrcAltModParamOutp<Tref,Tmod>
-  : ICmptRefGnrcAltModParamOutp<Tref,Tmod>
+public class CmptRefGnrcAltModParamOutp<TRef,TMod>
+  : ICmptRefGnrcAltModParamOutp<TRef,TMod>
 {
-  public IDictionary<Tmod, Tref> Asref { get; set; }
+  public IDictionary<TMod, TRef> Asref { get; set; }
   public ICmptRefGnrcAltModParamOutpObject AsRefGnrcAltModParamOutp { get; set; }
 }

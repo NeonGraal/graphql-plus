@@ -14,9 +14,9 @@ public class test_Collections
   public Itest_CollectionsObject As_Collections { get; set; }
 }
 
-public class test_ModifierKeyed<Tkind>
-  : test_Modifier
-  , Itest_ModifierKeyed<Tkind>
+public class test_ModifierKeyed<TKind>
+  : test_Modifier<TKind>
+  , Itest_ModifierKeyed<TKind>
 {
   public Itest_TypeSimple By { get; set; }
   public bool Optional { get; set; }
@@ -31,9 +31,9 @@ public class test_Modifiers
   public Itest_ModifiersObject As_Modifiers { get; set; }
 }
 
-public class test_Modifier<Tkind>
-  : Itest_Modifier<Tkind>
+public class test_Modifier<TKind>
+  : Itest_Modifier<TKind>
 {
-  public Tkind ModifierKind { get; set; }
+  public TKind ModifierKind { get; set; }
   public Itest_ModifierObject As_Modifier { get; set; }
 }

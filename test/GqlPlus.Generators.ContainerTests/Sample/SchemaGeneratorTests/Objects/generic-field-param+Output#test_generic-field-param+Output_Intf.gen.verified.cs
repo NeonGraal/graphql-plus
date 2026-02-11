@@ -15,13 +15,13 @@ public interface ItestGnrcFieldParamOutpObject
   ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; }
 }
 
-public interface ItestRefGnrcFieldParamOutp<Tref>
+public interface ItestRefGnrcFieldParamOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldParamOutpObject AsRefGnrcFieldParamOutp { get; }
 }
 
-public interface ItestRefGnrcFieldParamOutpObject<Tref>
+public interface ItestRefGnrcFieldParamOutpObject<TRef>
 {
 }
 

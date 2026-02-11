@@ -8,9 +8,9 @@ dual RefGnrcAltModParamDual<$ref:String $mod:String> { | $ref[$mod] }
 
 namespace Components.Gqlp_Schema_generic_alt_mod_param_Dual;
 
-public class CmptRefGnrcAltModParamDual<Tref,Tmod>
-  : ICmptRefGnrcAltModParamDual<Tref,Tmod>
+public class CmptRefGnrcAltModParamDual<TRef,TMod>
+  : ICmptRefGnrcAltModParamDual<TRef,TMod>
 {
-  public IDictionary<Tmod, Tref> Asref { get; set; }
+  public IDictionary<TMod, TRef> Asref { get; set; }
   public ICmptRefGnrcAltModParamDualObject AsRefGnrcAltModParamDual { get; set; }
 }

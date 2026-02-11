@@ -12,24 +12,24 @@ dual AltCnstFieldDualDual { :PrntCnstFieldDualDual alt: Number }
 namespace Components.Gqlp_Schema_constraint_field_dual_Dual;
 
 public interface ICmptCnstFieldDualDual
-  : ICmptRefCnstFieldDualDual
+  : ICmptRefCnstFieldDualDual<ICmptAltCnstFieldDualDual>
 {
   ICmptCnstFieldDualDualObject AsCnstFieldDualDual { get; }
 }
 
 public interface ICmptCnstFieldDualDualObject
-  : ICmptRefCnstFieldDualDualObject
+  : ICmptRefCnstFieldDualDualObject<ICmptAltCnstFieldDualDual>
 {
 }
 
-public interface ICmptRefCnstFieldDualDual<Tref>
+public interface ICmptRefCnstFieldDualDual<TRef>
 {
   ICmptRefCnstFieldDualDualObject AsRefCnstFieldDualDual { get; }
 }
 
-public interface ICmptRefCnstFieldDualDualObject<Tref>
+public interface ICmptRefCnstFieldDualDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldDualDual

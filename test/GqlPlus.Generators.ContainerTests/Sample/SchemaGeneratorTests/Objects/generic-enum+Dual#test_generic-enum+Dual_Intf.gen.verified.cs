@@ -15,12 +15,12 @@ public interface ItestGnrcEnumDualObject
 {
 }
 
-public interface ItestRefGnrcEnumDual<Ttype>
+public interface ItestRefGnrcEnumDual<TType>
 {
   ItestRefGnrcEnumDualObject AsRefGnrcEnumDual { get; }
 }
 
-public interface ItestRefGnrcEnumDualObject<Ttype>
+public interface ItestRefGnrcEnumDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }

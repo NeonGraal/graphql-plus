@@ -9,13 +9,13 @@ input ObjCnstInp<$type:String> { str: $type }
 
 namespace Components.Gqlp_Schema_object_constraint_Input;
 
-public interface ICmptObjCnstInp<Ttype>
+public interface ICmptObjCnstInp<TType>
 {
   ICmptObjCnstInpObject AsObjCnstInp { get; }
 }
 
-public interface ICmptObjCnstInpObject<Ttype>
+public interface ICmptObjCnstInpObject<TType>
 {
-  Ttype Field { get; }
-  Ttype Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }

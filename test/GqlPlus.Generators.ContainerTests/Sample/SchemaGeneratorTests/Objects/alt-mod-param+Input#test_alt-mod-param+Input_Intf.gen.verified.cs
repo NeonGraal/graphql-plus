@@ -5,13 +5,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Input;
 
-public interface ItestAltModParamInp<Tmod>
+public interface ItestAltModParamInp<TMod>
 {
-  IDictionary<Tmod, ItestAltAltModParamInp> AsAltAltModParamInp { get; }
+  IDictionary<TMod, ItestAltAltModParamInp> AsAltAltModParamInp { get; }
   ItestAltModParamInpObject AsAltModParamInp { get; }
 }
 
-public interface ItestAltModParamInpObject<Tmod>
+public interface ItestAltModParamInpObject<TMod>
 {
 }
 

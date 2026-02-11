@@ -12,24 +12,24 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
 public interface ICmptGnrcPrntEnumDomOutp
-  : ICmptFieldGnrcPrntEnumDomOutp
+  : ICmptFieldGnrcPrntEnumDomOutp<ICmptDomGnrcPrntEnumDomOutp>
 {
   ICmptGnrcPrntEnumDomOutpObject AsGnrcPrntEnumDomOutp { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomOutpObject
-  : ICmptFieldGnrcPrntEnumDomOutpObject
+  : ICmptFieldGnrcPrntEnumDomOutpObject<ICmptDomGnrcPrntEnumDomOutp>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumDomOutp<Tref>
+public interface ICmptFieldGnrcPrntEnumDomOutp<TRef>
 {
   ICmptFieldGnrcPrntEnumDomOutpObject AsFieldGnrcPrntEnumDomOutp { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumDomOutpObject<Tref>
+public interface ICmptFieldGnrcPrntEnumDomOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntEnumDomOutp

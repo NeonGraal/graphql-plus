@@ -5,12 +5,12 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_Output;
 
-public interface ItestGnrcAltOutp<Ttype>
+public interface ItestGnrcAltOutp<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ItestGnrcAltOutpObject AsGnrcAltOutp { get; }
 }
 
-public interface ItestGnrcAltOutpObject<Ttype>
+public interface ItestGnrcAltOutpObject<TType>
 {
 }

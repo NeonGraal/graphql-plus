@@ -15,13 +15,13 @@ public interface ItestGnrcFieldParamDualObject
   ItestRefGnrcFieldParamDual<ItestAltGnrcFieldParamDual> Field { get; }
 }
 
-public interface ItestRefGnrcFieldParamDual<Tref>
+public interface ItestRefGnrcFieldParamDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldParamDualObject AsRefGnrcFieldParamDual { get; }
 }
 
-public interface ItestRefGnrcFieldParamDualObject<Tref>
+public interface ItestRefGnrcFieldParamDualObject<TRef>
 {
 }
 

@@ -12,10 +12,10 @@ public class testGnrcFieldDualInp
   public ItestGnrcFieldDualInpObject AsGnrcFieldDualInp { get; set; }
 }
 
-public class testRefGnrcFieldDualInp<Tref>
-  : ItestRefGnrcFieldDualInp<Tref>
+public class testRefGnrcFieldDualInp<TRef>
+  : ItestRefGnrcFieldDualInp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ItestRefGnrcFieldDualInpObject AsRefGnrcFieldDualInp { get; set; }
 }
 

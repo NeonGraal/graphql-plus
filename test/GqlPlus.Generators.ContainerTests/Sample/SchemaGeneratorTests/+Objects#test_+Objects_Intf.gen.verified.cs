@@ -254,13 +254,13 @@ public interface ItestAltAltModBoolOutpObject
   decimal Alt { get; }
 }
 
-public interface ItestAltModParamDual<Tmod>
+public interface ItestAltModParamDual<TMod>
 {
-  IDictionary<Tmod, ItestAltAltModParamDual> AsAltAltModParamDual { get; }
+  IDictionary<TMod, ItestAltAltModParamDual> AsAltAltModParamDual { get; }
   ItestAltModParamDualObject AsAltModParamDual { get; }
 }
 
-public interface ItestAltModParamDualObject<Tmod>
+public interface ItestAltModParamDualObject<TMod>
 {
 }
 
@@ -275,13 +275,13 @@ public interface ItestAltAltModParamDualObject
   decimal Alt { get; }
 }
 
-public interface ItestAltModParamInp<Tmod>
+public interface ItestAltModParamInp<TMod>
 {
-  IDictionary<Tmod, ItestAltAltModParamInp> AsAltAltModParamInp { get; }
+  IDictionary<TMod, ItestAltAltModParamInp> AsAltAltModParamInp { get; }
   ItestAltModParamInpObject AsAltModParamInp { get; }
 }
 
-public interface ItestAltModParamInpObject<Tmod>
+public interface ItestAltModParamInpObject<TMod>
 {
 }
 
@@ -296,13 +296,13 @@ public interface ItestAltAltModParamInpObject
   decimal Alt { get; }
 }
 
-public interface ItestAltModParamOutp<Tmod>
+public interface ItestAltModParamOutp<TMod>
 {
-  IDictionary<Tmod, ItestAltAltModParamOutp> AsAltAltModParamOutp { get; }
+  IDictionary<TMod, ItestAltAltModParamOutp> AsAltAltModParamOutp { get; }
   ItestAltModParamOutpObject AsAltModParamOutp { get; }
 }
 
-public interface ItestAltModParamOutpObject<Tmod>
+public interface ItestAltModParamOutpObject<TMod>
 {
 }
 
@@ -347,33 +347,33 @@ public interface ItestAltSmplOutpObject
 {
 }
 
-public interface ItestCnstAltDual<Ttype>
+public interface ItestCnstAltDual<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ItestCnstAltDualObject AsCnstAltDual { get; }
 }
 
-public interface ItestCnstAltDualObject<Ttype>
+public interface ItestCnstAltDualObject<TType>
 {
 }
 
-public interface ItestCnstAltInp<Ttype>
+public interface ItestCnstAltInp<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ItestCnstAltInpObject AsCnstAltInp { get; }
 }
 
-public interface ItestCnstAltInpObject<Ttype>
+public interface ItestCnstAltInpObject<TType>
 {
 }
 
-public interface ItestCnstAltOutp<Ttype>
+public interface ItestCnstAltOutp<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ItestCnstAltOutpObject AsCnstAltOutp { get; }
 }
 
-public interface ItestCnstAltOutpObject<Ttype>
+public interface ItestCnstAltOutpObject<TType>
 {
 }
 
@@ -387,13 +387,13 @@ public interface ItestCnstAltDmnDualObject
 {
 }
 
-public interface ItestRefCnstAltDmnDual<Tref>
+public interface ItestRefCnstAltDmnDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefCnstAltDmnDualObject AsRefCnstAltDmnDual { get; }
 }
 
-public interface ItestRefCnstAltDmnDualObject<Tref>
+public interface ItestRefCnstAltDmnDualObject<TRef>
 {
 }
 
@@ -412,13 +412,13 @@ public interface ItestCnstAltDmnInpObject
 {
 }
 
-public interface ItestRefCnstAltDmnInp<Tref>
+public interface ItestRefCnstAltDmnInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefCnstAltDmnInpObject AsRefCnstAltDmnInp { get; }
 }
 
-public interface ItestRefCnstAltDmnInpObject<Tref>
+public interface ItestRefCnstAltDmnInpObject<TRef>
 {
 }
 
@@ -437,13 +437,13 @@ public interface ItestCnstAltDmnOutpObject
 {
 }
 
-public interface ItestRefCnstAltDmnOutp<Tref>
+public interface ItestRefCnstAltDmnOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefCnstAltDmnOutpObject AsRefCnstAltDmnOutp { get; }
 }
 
-public interface ItestRefCnstAltDmnOutpObject<Tref>
+public interface ItestRefCnstAltDmnOutpObject<TRef>
 {
 }
 
@@ -462,13 +462,13 @@ public interface ItestCnstAltDualDualObject
 {
 }
 
-public interface ItestRefCnstAltDualDual<Tref>
+public interface ItestRefCnstAltDualDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefCnstAltDualDualObject AsRefCnstAltDualDual { get; }
 }
 
-public interface ItestRefCnstAltDualDualObject<Tref>
+public interface ItestRefCnstAltDualDualObject<TRef>
 {
 }
 
@@ -504,13 +504,13 @@ public interface ItestCnstAltDualInpObject
 {
 }
 
-public interface ItestRefCnstAltDualInp<Tref>
+public interface ItestRefCnstAltDualInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefCnstAltDualInpObject AsRefCnstAltDualInp { get; }
 }
 
-public interface ItestRefCnstAltDualInpObject<Tref>
+public interface ItestRefCnstAltDualInpObject<TRef>
 {
 }
 
@@ -546,13 +546,13 @@ public interface ItestCnstAltDualOutpObject
 {
 }
 
-public interface ItestRefCnstAltDualOutp<Tref>
+public interface ItestRefCnstAltDualOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefCnstAltDualOutpObject AsRefCnstAltDualOutp { get; }
 }
 
-public interface ItestRefCnstAltDualOutpObject<Tref>
+public interface ItestRefCnstAltDualOutpObject<TRef>
 {
 }
 
@@ -588,13 +588,13 @@ public interface ItestCnstAltObjDualObject
 {
 }
 
-public interface ItestRefCnstAltObjDual<Tref>
+public interface ItestRefCnstAltObjDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefCnstAltObjDualObject AsRefCnstAltObjDual { get; }
 }
 
-public interface ItestRefCnstAltObjDualObject<Tref>
+public interface ItestRefCnstAltObjDualObject<TRef>
 {
 }
 
@@ -630,13 +630,13 @@ public interface ItestCnstAltObjInpObject
 {
 }
 
-public interface ItestRefCnstAltObjInp<Tref>
+public interface ItestRefCnstAltObjInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefCnstAltObjInpObject AsRefCnstAltObjInp { get; }
 }
 
-public interface ItestRefCnstAltObjInpObject<Tref>
+public interface ItestRefCnstAltObjInpObject<TRef>
 {
 }
 
@@ -672,13 +672,13 @@ public interface ItestCnstAltObjOutpObject
 {
 }
 
-public interface ItestRefCnstAltObjOutp<Tref>
+public interface ItestRefCnstAltObjOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefCnstAltObjOutpObject AsRefCnstAltObjOutp { get; }
 }
 
-public interface ItestRefCnstAltObjOutpObject<Tref>
+public interface ItestRefCnstAltObjOutpObject<TRef>
 {
 }
 
@@ -714,14 +714,14 @@ public interface ItestCnstDomEnumDualObject
 {
 }
 
-public interface ItestRefCnstDomEnumDual<Ttype>
+public interface ItestRefCnstDomEnumDual<TType>
 {
   ItestRefCnstDomEnumDualObject AsRefCnstDomEnumDual { get; }
 }
 
-public interface ItestRefCnstDomEnumDualObject<Ttype>
+public interface ItestRefCnstDomEnumDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestJustCnstDomEnumDual
@@ -739,14 +739,14 @@ public interface ItestCnstDomEnumInpObject
 {
 }
 
-public interface ItestRefCnstDomEnumInp<Ttype>
+public interface ItestRefCnstDomEnumInp<TType>
 {
   ItestRefCnstDomEnumInpObject AsRefCnstDomEnumInp { get; }
 }
 
-public interface ItestRefCnstDomEnumInpObject<Ttype>
+public interface ItestRefCnstDomEnumInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestJustCnstDomEnumInp
@@ -764,14 +764,14 @@ public interface ItestCnstDomEnumOutpObject
 {
 }
 
-public interface ItestRefCnstDomEnumOutp<Ttype>
+public interface ItestRefCnstDomEnumOutp<TType>
 {
   ItestRefCnstDomEnumOutpObject AsRefCnstDomEnumOutp { get; }
 }
 
-public interface ItestRefCnstDomEnumOutpObject<Ttype>
+public interface ItestRefCnstDomEnumOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestJustCnstDomEnumOutp
@@ -789,14 +789,14 @@ public interface ItestCnstEnumDualObject
 {
 }
 
-public interface ItestRefCnstEnumDual<Ttype>
+public interface ItestRefCnstEnumDual<TType>
 {
   ItestRefCnstEnumDualObject AsRefCnstEnumDual { get; }
 }
 
-public interface ItestRefCnstEnumDualObject<Ttype>
+public interface ItestRefCnstEnumDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestCnstEnumInp
@@ -809,14 +809,14 @@ public interface ItestCnstEnumInpObject
 {
 }
 
-public interface ItestRefCnstEnumInp<Ttype>
+public interface ItestRefCnstEnumInp<TType>
 {
   ItestRefCnstEnumInpObject AsRefCnstEnumInp { get; }
 }
 
-public interface ItestRefCnstEnumInpObject<Ttype>
+public interface ItestRefCnstEnumInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestCnstEnumOutp
@@ -829,14 +829,14 @@ public interface ItestCnstEnumOutpObject
 {
 }
 
-public interface ItestRefCnstEnumOutp<Ttype>
+public interface ItestRefCnstEnumOutp<TType>
 {
   ItestRefCnstEnumOutpObject AsRefCnstEnumOutp { get; }
 }
 
-public interface ItestRefCnstEnumOutpObject<Ttype>
+public interface ItestRefCnstEnumOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestCnstEnumPrntDual
@@ -849,14 +849,14 @@ public interface ItestCnstEnumPrntDualObject
 {
 }
 
-public interface ItestRefCnstEnumPrntDual<Ttype>
+public interface ItestRefCnstEnumPrntDual<TType>
 {
   ItestRefCnstEnumPrntDualObject AsRefCnstEnumPrntDual { get; }
 }
 
-public interface ItestRefCnstEnumPrntDualObject<Ttype>
+public interface ItestRefCnstEnumPrntDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestCnstEnumPrntInp
@@ -869,14 +869,14 @@ public interface ItestCnstEnumPrntInpObject
 {
 }
 
-public interface ItestRefCnstEnumPrntInp<Ttype>
+public interface ItestRefCnstEnumPrntInp<TType>
 {
   ItestRefCnstEnumPrntInpObject AsRefCnstEnumPrntInp { get; }
 }
 
-public interface ItestRefCnstEnumPrntInpObject<Ttype>
+public interface ItestRefCnstEnumPrntInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestCnstEnumPrntOutp
@@ -889,35 +889,35 @@ public interface ItestCnstEnumPrntOutpObject
 {
 }
 
-public interface ItestRefCnstEnumPrntOutp<Ttype>
+public interface ItestRefCnstEnumPrntOutp<TType>
 {
   ItestRefCnstEnumPrntOutpObject AsRefCnstEnumPrntOutp { get; }
 }
 
-public interface ItestRefCnstEnumPrntOutpObject<Ttype>
+public interface ItestRefCnstEnumPrntOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestCnstFieldDmnDual
-  : ItestRefCnstFieldDmnDual
+  : ItestRefCnstFieldDmnDual<ItestDomCnstFieldDmnDual>
 {
   ItestCnstFieldDmnDualObject AsCnstFieldDmnDual { get; }
 }
 
 public interface ItestCnstFieldDmnDualObject
-  : ItestRefCnstFieldDmnDualObject
+  : ItestRefCnstFieldDmnDualObject<ItestDomCnstFieldDmnDual>
 {
 }
 
-public interface ItestRefCnstFieldDmnDual<Tref>
+public interface ItestRefCnstFieldDmnDual<TRef>
 {
   ItestRefCnstFieldDmnDualObject AsRefCnstFieldDmnDual { get; }
 }
 
-public interface ItestRefCnstFieldDmnDualObject<Tref>
+public interface ItestRefCnstFieldDmnDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestDomCnstFieldDmnDual
@@ -926,24 +926,24 @@ public interface ItestDomCnstFieldDmnDual
 }
 
 public interface ItestCnstFieldDmnInp
-  : ItestRefCnstFieldDmnInp
+  : ItestRefCnstFieldDmnInp<ItestDomCnstFieldDmnInp>
 {
   ItestCnstFieldDmnInpObject AsCnstFieldDmnInp { get; }
 }
 
 public interface ItestCnstFieldDmnInpObject
-  : ItestRefCnstFieldDmnInpObject
+  : ItestRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>
 {
 }
 
-public interface ItestRefCnstFieldDmnInp<Tref>
+public interface ItestRefCnstFieldDmnInp<TRef>
 {
   ItestRefCnstFieldDmnInpObject AsRefCnstFieldDmnInp { get; }
 }
 
-public interface ItestRefCnstFieldDmnInpObject<Tref>
+public interface ItestRefCnstFieldDmnInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestDomCnstFieldDmnInp
@@ -952,24 +952,24 @@ public interface ItestDomCnstFieldDmnInp
 }
 
 public interface ItestCnstFieldDmnOutp
-  : ItestRefCnstFieldDmnOutp
+  : ItestRefCnstFieldDmnOutp<ItestDomCnstFieldDmnOutp>
 {
   ItestCnstFieldDmnOutpObject AsCnstFieldDmnOutp { get; }
 }
 
 public interface ItestCnstFieldDmnOutpObject
-  : ItestRefCnstFieldDmnOutpObject
+  : ItestRefCnstFieldDmnOutpObject<ItestDomCnstFieldDmnOutp>
 {
 }
 
-public interface ItestRefCnstFieldDmnOutp<Tref>
+public interface ItestRefCnstFieldDmnOutp<TRef>
 {
   ItestRefCnstFieldDmnOutpObject AsRefCnstFieldDmnOutp { get; }
 }
 
-public interface ItestRefCnstFieldDmnOutpObject<Tref>
+public interface ItestRefCnstFieldDmnOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestDomCnstFieldDmnOutp
@@ -978,24 +978,24 @@ public interface ItestDomCnstFieldDmnOutp
 }
 
 public interface ItestCnstFieldDualDual
-  : ItestRefCnstFieldDualDual
+  : ItestRefCnstFieldDualDual<ItestAltCnstFieldDualDual>
 {
   ItestCnstFieldDualDualObject AsCnstFieldDualDual { get; }
 }
 
 public interface ItestCnstFieldDualDualObject
-  : ItestRefCnstFieldDualDualObject
+  : ItestRefCnstFieldDualDualObject<ItestAltCnstFieldDualDual>
 {
 }
 
-public interface ItestRefCnstFieldDualDual<Tref>
+public interface ItestRefCnstFieldDualDual<TRef>
 {
   ItestRefCnstFieldDualDualObject AsRefCnstFieldDualDual { get; }
 }
 
-public interface ItestRefCnstFieldDualDualObject<Tref>
+public interface ItestRefCnstFieldDualDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestPrntCnstFieldDualDual
@@ -1021,24 +1021,24 @@ public interface ItestAltCnstFieldDualDualObject
 }
 
 public interface ItestCnstFieldDualInp
-  : ItestRefCnstFieldDualInp
+  : ItestRefCnstFieldDualInp<ItestAltCnstFieldDualInp>
 {
   ItestCnstFieldDualInpObject AsCnstFieldDualInp { get; }
 }
 
 public interface ItestCnstFieldDualInpObject
-  : ItestRefCnstFieldDualInpObject
+  : ItestRefCnstFieldDualInpObject<ItestAltCnstFieldDualInp>
 {
 }
 
-public interface ItestRefCnstFieldDualInp<Tref>
+public interface ItestRefCnstFieldDualInp<TRef>
 {
   ItestRefCnstFieldDualInpObject AsRefCnstFieldDualInp { get; }
 }
 
-public interface ItestRefCnstFieldDualInpObject<Tref>
+public interface ItestRefCnstFieldDualInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestPrntCnstFieldDualInp
@@ -1064,24 +1064,24 @@ public interface ItestAltCnstFieldDualInpObject
 }
 
 public interface ItestCnstFieldDualOutp
-  : ItestRefCnstFieldDualOutp
+  : ItestRefCnstFieldDualOutp<ItestAltCnstFieldDualOutp>
 {
   ItestCnstFieldDualOutpObject AsCnstFieldDualOutp { get; }
 }
 
 public interface ItestCnstFieldDualOutpObject
-  : ItestRefCnstFieldDualOutpObject
+  : ItestRefCnstFieldDualOutpObject<ItestAltCnstFieldDualOutp>
 {
 }
 
-public interface ItestRefCnstFieldDualOutp<Tref>
+public interface ItestRefCnstFieldDualOutp<TRef>
 {
   ItestRefCnstFieldDualOutpObject AsRefCnstFieldDualOutp { get; }
 }
 
-public interface ItestRefCnstFieldDualOutpObject<Tref>
+public interface ItestRefCnstFieldDualOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestPrntCnstFieldDualOutp
@@ -1107,24 +1107,24 @@ public interface ItestAltCnstFieldDualOutpObject
 }
 
 public interface ItestCnstFieldObjDual
-  : ItestRefCnstFieldObjDual
+  : ItestRefCnstFieldObjDual<ItestAltCnstFieldObjDual>
 {
   ItestCnstFieldObjDualObject AsCnstFieldObjDual { get; }
 }
 
 public interface ItestCnstFieldObjDualObject
-  : ItestRefCnstFieldObjDualObject
+  : ItestRefCnstFieldObjDualObject<ItestAltCnstFieldObjDual>
 {
 }
 
-public interface ItestRefCnstFieldObjDual<Tref>
+public interface ItestRefCnstFieldObjDual<TRef>
 {
   ItestRefCnstFieldObjDualObject AsRefCnstFieldObjDual { get; }
 }
 
-public interface ItestRefCnstFieldObjDualObject<Tref>
+public interface ItestRefCnstFieldObjDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestPrntCnstFieldObjDual
@@ -1150,24 +1150,24 @@ public interface ItestAltCnstFieldObjDualObject
 }
 
 public interface ItestCnstFieldObjInp
-  : ItestRefCnstFieldObjInp
+  : ItestRefCnstFieldObjInp<ItestAltCnstFieldObjInp>
 {
   ItestCnstFieldObjInpObject AsCnstFieldObjInp { get; }
 }
 
 public interface ItestCnstFieldObjInpObject
-  : ItestRefCnstFieldObjInpObject
+  : ItestRefCnstFieldObjInpObject<ItestAltCnstFieldObjInp>
 {
 }
 
-public interface ItestRefCnstFieldObjInp<Tref>
+public interface ItestRefCnstFieldObjInp<TRef>
 {
   ItestRefCnstFieldObjInpObject AsRefCnstFieldObjInp { get; }
 }
 
-public interface ItestRefCnstFieldObjInpObject<Tref>
+public interface ItestRefCnstFieldObjInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestPrntCnstFieldObjInp
@@ -1193,24 +1193,24 @@ public interface ItestAltCnstFieldObjInpObject
 }
 
 public interface ItestCnstFieldObjOutp
-  : ItestRefCnstFieldObjOutp
+  : ItestRefCnstFieldObjOutp<ItestAltCnstFieldObjOutp>
 {
   ItestCnstFieldObjOutpObject AsCnstFieldObjOutp { get; }
 }
 
 public interface ItestCnstFieldObjOutpObject
-  : ItestRefCnstFieldObjOutpObject
+  : ItestRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>
 {
 }
 
-public interface ItestRefCnstFieldObjOutp<Tref>
+public interface ItestRefCnstFieldObjOutp<TRef>
 {
   ItestRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; }
 }
 
-public interface ItestRefCnstFieldObjOutpObject<Tref>
+public interface ItestRefCnstFieldObjOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestPrntCnstFieldObjOutp
@@ -1236,23 +1236,23 @@ public interface ItestAltCnstFieldObjOutpObject
 }
 
 public interface ItestCnstPrntDualGrndDual
-  : ItestRefCnstPrntDualGrndDual
+  : ItestRefCnstPrntDualGrndDual<ItestAltCnstPrntDualGrndDual>
 {
   ItestCnstPrntDualGrndDualObject AsCnstPrntDualGrndDual { get; }
 }
 
 public interface ItestCnstPrntDualGrndDualObject
-  : ItestRefCnstPrntDualGrndDualObject
+  : ItestRefCnstPrntDualGrndDualObject<ItestAltCnstPrntDualGrndDual>
 {
 }
 
-public interface ItestRefCnstPrntDualGrndDual<Tref>
+public interface ItestRefCnstPrntDualGrndDual<TRef>
   : Itestref
 {
   ItestRefCnstPrntDualGrndDualObject AsRefCnstPrntDualGrndDual { get; }
 }
 
-public interface ItestRefCnstPrntDualGrndDualObject<Tref>
+public interface ItestRefCnstPrntDualGrndDualObject<TRef>
   : ItestrefObject
 {
 }
@@ -1291,23 +1291,23 @@ public interface ItestAltCnstPrntDualGrndDualObject
 }
 
 public interface ItestCnstPrntDualGrndInp
-  : ItestRefCnstPrntDualGrndInp
+  : ItestRefCnstPrntDualGrndInp<ItestAltCnstPrntDualGrndInp>
 {
   ItestCnstPrntDualGrndInpObject AsCnstPrntDualGrndInp { get; }
 }
 
 public interface ItestCnstPrntDualGrndInpObject
-  : ItestRefCnstPrntDualGrndInpObject
+  : ItestRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>
 {
 }
 
-public interface ItestRefCnstPrntDualGrndInp<Tref>
+public interface ItestRefCnstPrntDualGrndInp<TRef>
   : Itestref
 {
   ItestRefCnstPrntDualGrndInpObject AsRefCnstPrntDualGrndInp { get; }
 }
 
-public interface ItestRefCnstPrntDualGrndInpObject<Tref>
+public interface ItestRefCnstPrntDualGrndInpObject<TRef>
   : ItestrefObject
 {
 }
@@ -1346,23 +1346,23 @@ public interface ItestAltCnstPrntDualGrndInpObject
 }
 
 public interface ItestCnstPrntDualGrndOutp
-  : ItestRefCnstPrntDualGrndOutp
+  : ItestRefCnstPrntDualGrndOutp<ItestAltCnstPrntDualGrndOutp>
 {
   ItestCnstPrntDualGrndOutpObject AsCnstPrntDualGrndOutp { get; }
 }
 
 public interface ItestCnstPrntDualGrndOutpObject
-  : ItestRefCnstPrntDualGrndOutpObject
+  : ItestRefCnstPrntDualGrndOutpObject<ItestAltCnstPrntDualGrndOutp>
 {
 }
 
-public interface ItestRefCnstPrntDualGrndOutp<Tref>
+public interface ItestRefCnstPrntDualGrndOutp<TRef>
   : Itestref
 {
   ItestRefCnstPrntDualGrndOutpObject AsRefCnstPrntDualGrndOutp { get; }
 }
 
-public interface ItestRefCnstPrntDualGrndOutpObject<Tref>
+public interface ItestRefCnstPrntDualGrndOutpObject<TRef>
   : ItestrefObject
 {
 }
@@ -1401,23 +1401,23 @@ public interface ItestAltCnstPrntDualGrndOutpObject
 }
 
 public interface ItestCnstPrntDualPrntDual
-  : ItestRefCnstPrntDualPrntDual
+  : ItestRefCnstPrntDualPrntDual<ItestAltCnstPrntDualPrntDual>
 {
   ItestCnstPrntDualPrntDualObject AsCnstPrntDualPrntDual { get; }
 }
 
 public interface ItestCnstPrntDualPrntDualObject
-  : ItestRefCnstPrntDualPrntDualObject
+  : ItestRefCnstPrntDualPrntDualObject<ItestAltCnstPrntDualPrntDual>
 {
 }
 
-public interface ItestRefCnstPrntDualPrntDual<Tref>
+public interface ItestRefCnstPrntDualPrntDual<TRef>
   : Itestref
 {
   ItestRefCnstPrntDualPrntDualObject AsRefCnstPrntDualPrntDual { get; }
 }
 
-public interface ItestRefCnstPrntDualPrntDualObject<Tref>
+public interface ItestRefCnstPrntDualPrntDualObject<TRef>
   : ItestrefObject
 {
 }
@@ -1445,23 +1445,23 @@ public interface ItestAltCnstPrntDualPrntDualObject
 }
 
 public interface ItestCnstPrntDualPrntInp
-  : ItestRefCnstPrntDualPrntInp
+  : ItestRefCnstPrntDualPrntInp<ItestAltCnstPrntDualPrntInp>
 {
   ItestCnstPrntDualPrntInpObject AsCnstPrntDualPrntInp { get; }
 }
 
 public interface ItestCnstPrntDualPrntInpObject
-  : ItestRefCnstPrntDualPrntInpObject
+  : ItestRefCnstPrntDualPrntInpObject<ItestAltCnstPrntDualPrntInp>
 {
 }
 
-public interface ItestRefCnstPrntDualPrntInp<Tref>
+public interface ItestRefCnstPrntDualPrntInp<TRef>
   : Itestref
 {
   ItestRefCnstPrntDualPrntInpObject AsRefCnstPrntDualPrntInp { get; }
 }
 
-public interface ItestRefCnstPrntDualPrntInpObject<Tref>
+public interface ItestRefCnstPrntDualPrntInpObject<TRef>
   : ItestrefObject
 {
 }
@@ -1489,23 +1489,23 @@ public interface ItestAltCnstPrntDualPrntInpObject
 }
 
 public interface ItestCnstPrntDualPrntOutp
-  : ItestRefCnstPrntDualPrntOutp
+  : ItestRefCnstPrntDualPrntOutp<ItestAltCnstPrntDualPrntOutp>
 {
   ItestCnstPrntDualPrntOutpObject AsCnstPrntDualPrntOutp { get; }
 }
 
 public interface ItestCnstPrntDualPrntOutpObject
-  : ItestRefCnstPrntDualPrntOutpObject
+  : ItestRefCnstPrntDualPrntOutpObject<ItestAltCnstPrntDualPrntOutp>
 {
 }
 
-public interface ItestRefCnstPrntDualPrntOutp<Tref>
+public interface ItestRefCnstPrntDualPrntOutp<TRef>
   : Itestref
 {
   ItestRefCnstPrntDualPrntOutpObject AsRefCnstPrntDualPrntOutp { get; }
 }
 
-public interface ItestRefCnstPrntDualPrntOutpObject<Tref>
+public interface ItestRefCnstPrntDualPrntOutpObject<TRef>
   : ItestrefObject
 {
 }
@@ -1542,14 +1542,14 @@ public interface ItestCnstPrntEnumDualObject
 {
 }
 
-public interface ItestRefCnstPrntEnumDual<Ttype>
+public interface ItestRefCnstPrntEnumDual<TType>
 {
   ItestRefCnstPrntEnumDualObject AsRefCnstPrntEnumDual { get; }
 }
 
-public interface ItestRefCnstPrntEnumDualObject<Ttype>
+public interface ItestRefCnstPrntEnumDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestCnstPrntEnumInp
@@ -1562,14 +1562,14 @@ public interface ItestCnstPrntEnumInpObject
 {
 }
 
-public interface ItestRefCnstPrntEnumInp<Ttype>
+public interface ItestRefCnstPrntEnumInp<TType>
 {
   ItestRefCnstPrntEnumInpObject AsRefCnstPrntEnumInp { get; }
 }
 
-public interface ItestRefCnstPrntEnumInpObject<Ttype>
+public interface ItestRefCnstPrntEnumInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestCnstPrntEnumOutp
@@ -1582,34 +1582,34 @@ public interface ItestCnstPrntEnumOutpObject
 {
 }
 
-public interface ItestRefCnstPrntEnumOutp<Ttype>
+public interface ItestRefCnstPrntEnumOutp<TType>
 {
   ItestRefCnstPrntEnumOutpObject AsRefCnstPrntEnumOutp { get; }
 }
 
-public interface ItestRefCnstPrntEnumOutpObject<Ttype>
+public interface ItestRefCnstPrntEnumOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestCnstPrntObjPrntDual
-  : ItestRefCnstPrntObjPrntDual
+  : ItestRefCnstPrntObjPrntDual<ItestAltCnstPrntObjPrntDual>
 {
   ItestCnstPrntObjPrntDualObject AsCnstPrntObjPrntDual { get; }
 }
 
 public interface ItestCnstPrntObjPrntDualObject
-  : ItestRefCnstPrntObjPrntDualObject
+  : ItestRefCnstPrntObjPrntDualObject<ItestAltCnstPrntObjPrntDual>
 {
 }
 
-public interface ItestRefCnstPrntObjPrntDual<Tref>
+public interface ItestRefCnstPrntObjPrntDual<TRef>
   : Itestref
 {
   ItestRefCnstPrntObjPrntDualObject AsRefCnstPrntObjPrntDual { get; }
 }
 
-public interface ItestRefCnstPrntObjPrntDualObject<Tref>
+public interface ItestRefCnstPrntObjPrntDualObject<TRef>
   : ItestrefObject
 {
 }
@@ -1637,23 +1637,23 @@ public interface ItestAltCnstPrntObjPrntDualObject
 }
 
 public interface ItestCnstPrntObjPrntInp
-  : ItestRefCnstPrntObjPrntInp
+  : ItestRefCnstPrntObjPrntInp<ItestAltCnstPrntObjPrntInp>
 {
   ItestCnstPrntObjPrntInpObject AsCnstPrntObjPrntInp { get; }
 }
 
 public interface ItestCnstPrntObjPrntInpObject
-  : ItestRefCnstPrntObjPrntInpObject
+  : ItestRefCnstPrntObjPrntInpObject<ItestAltCnstPrntObjPrntInp>
 {
 }
 
-public interface ItestRefCnstPrntObjPrntInp<Tref>
+public interface ItestRefCnstPrntObjPrntInp<TRef>
   : Itestref
 {
   ItestRefCnstPrntObjPrntInpObject AsRefCnstPrntObjPrntInp { get; }
 }
 
-public interface ItestRefCnstPrntObjPrntInpObject<Tref>
+public interface ItestRefCnstPrntObjPrntInpObject<TRef>
   : ItestrefObject
 {
 }
@@ -1681,23 +1681,23 @@ public interface ItestAltCnstPrntObjPrntInpObject
 }
 
 public interface ItestCnstPrntObjPrntOutp
-  : ItestRefCnstPrntObjPrntOutp
+  : ItestRefCnstPrntObjPrntOutp<ItestAltCnstPrntObjPrntOutp>
 {
   ItestCnstPrntObjPrntOutpObject AsCnstPrntObjPrntOutp { get; }
 }
 
 public interface ItestCnstPrntObjPrntOutpObject
-  : ItestRefCnstPrntObjPrntOutpObject
+  : ItestRefCnstPrntObjPrntOutpObject<ItestAltCnstPrntObjPrntOutp>
 {
 }
 
-public interface ItestRefCnstPrntObjPrntOutp<Tref>
+public interface ItestRefCnstPrntObjPrntOutp<TRef>
   : Itestref
 {
   ItestRefCnstPrntObjPrntOutpObject AsRefCnstPrntObjPrntOutp { get; }
 }
 
-public interface ItestRefCnstPrntObjPrntOutpObject<Tref>
+public interface ItestRefCnstPrntObjPrntOutpObject<TRef>
   : ItestrefObject
 {
 }
@@ -1937,14 +1937,14 @@ public interface ItestFieldModEnumOutpObject
   IDictionary<testEnumFieldModEnumOutp, string> Field { get; }
 }
 
-public interface ItestFieldModParamDual<Tmod>
+public interface ItestFieldModParamDual<TMod>
 {
   ItestFieldModParamDualObject AsFieldModParamDual { get; }
 }
 
-public interface ItestFieldModParamDualObject<Tmod>
+public interface ItestFieldModParamDualObject<TMod>
 {
-  IDictionary<Tmod, ItestFldFieldModParamDual> Field { get; }
+  IDictionary<TMod, ItestFldFieldModParamDual> Field { get; }
 }
 
 public interface ItestFldFieldModParamDual
@@ -1958,14 +1958,14 @@ public interface ItestFldFieldModParamDualObject
   decimal Field { get; }
 }
 
-public interface ItestFieldModParamInp<Tmod>
+public interface ItestFieldModParamInp<TMod>
 {
   ItestFieldModParamInpObject AsFieldModParamInp { get; }
 }
 
-public interface ItestFieldModParamInpObject<Tmod>
+public interface ItestFieldModParamInpObject<TMod>
 {
-  IDictionary<Tmod, ItestFldFieldModParamInp> Field { get; }
+  IDictionary<TMod, ItestFldFieldModParamInp> Field { get; }
 }
 
 public interface ItestFldFieldModParamInp
@@ -1979,14 +1979,14 @@ public interface ItestFldFieldModParamInpObject
   decimal Field { get; }
 }
 
-public interface ItestFieldModParamOutp<Tmod>
+public interface ItestFieldModParamOutp<TMod>
 {
   ItestFieldModParamOutpObject AsFieldModParamOutp { get; }
 }
 
-public interface ItestFieldModParamOutpObject<Tmod>
+public interface ItestFieldModParamOutpObject<TMod>
 {
-  IDictionary<Tmod, ItestFldFieldModParamOutp> Field { get; }
+  IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; }
 }
 
 public interface ItestFldFieldModParamOutp
@@ -2183,153 +2183,153 @@ public interface ItestFieldValueDescrOutpObject
   testEnumFieldValueDescrOutp Field { get; }
 }
 
-public interface ItestGnrcAltDual<Ttype>
+public interface ItestGnrcAltDual<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ItestGnrcAltDualObject AsGnrcAltDual { get; }
 }
 
-public interface ItestGnrcAltDualObject<Ttype>
+public interface ItestGnrcAltDualObject<TType>
 {
 }
 
-public interface ItestGnrcAltInp<Ttype>
+public interface ItestGnrcAltInp<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ItestGnrcAltInpObject AsGnrcAltInp { get; }
 }
 
-public interface ItestGnrcAltInpObject<Ttype>
+public interface ItestGnrcAltInpObject<TType>
 {
 }
 
-public interface ItestGnrcAltOutp<Ttype>
+public interface ItestGnrcAltOutp<TType>
 {
-  Ttype Astype { get; }
+  TType Astype { get; }
   ItestGnrcAltOutpObject AsGnrcAltOutp { get; }
 }
 
-public interface ItestGnrcAltOutpObject<Ttype>
+public interface ItestGnrcAltOutpObject<TType>
 {
 }
 
-public interface ItestGnrcAltArgDual<Ttype>
+public interface ItestGnrcAltArgDual<TType>
 {
-  ItestRefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; }
+  ItestRefGnrcAltArgDual<TType> AsRefGnrcAltArgDual { get; }
   ItestGnrcAltArgDualObject AsGnrcAltArgDual { get; }
 }
 
-public interface ItestGnrcAltArgDualObject<Ttype>
+public interface ItestGnrcAltArgDualObject<TType>
 {
 }
 
-public interface ItestRefGnrcAltArgDual<Tref>
+public interface ItestRefGnrcAltArgDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltArgDualObject AsRefGnrcAltArgDual { get; }
 }
 
-public interface ItestRefGnrcAltArgDualObject<Tref>
+public interface ItestRefGnrcAltArgDualObject<TRef>
 {
 }
 
-public interface ItestGnrcAltArgInp<Ttype>
+public interface ItestGnrcAltArgInp<TType>
 {
-  ItestRefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; }
+  ItestRefGnrcAltArgInp<TType> AsRefGnrcAltArgInp { get; }
   ItestGnrcAltArgInpObject AsGnrcAltArgInp { get; }
 }
 
-public interface ItestGnrcAltArgInpObject<Ttype>
+public interface ItestGnrcAltArgInpObject<TType>
 {
 }
 
-public interface ItestRefGnrcAltArgInp<Tref>
+public interface ItestRefGnrcAltArgInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltArgInpObject AsRefGnrcAltArgInp { get; }
 }
 
-public interface ItestRefGnrcAltArgInpObject<Tref>
+public interface ItestRefGnrcAltArgInpObject<TRef>
 {
 }
 
-public interface ItestGnrcAltArgOutp<Ttype>
+public interface ItestGnrcAltArgOutp<TType>
 {
-  ItestRefGnrcAltArgOutp<Ttype> AsRefGnrcAltArgOutp { get; }
+  ItestRefGnrcAltArgOutp<TType> AsRefGnrcAltArgOutp { get; }
   ItestGnrcAltArgOutpObject AsGnrcAltArgOutp { get; }
 }
 
-public interface ItestGnrcAltArgOutpObject<Ttype>
+public interface ItestGnrcAltArgOutpObject<TType>
 {
 }
 
-public interface ItestRefGnrcAltArgOutp<Tref>
+public interface ItestRefGnrcAltArgOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltArgOutpObject AsRefGnrcAltArgOutp { get; }
 }
 
-public interface ItestRefGnrcAltArgOutpObject<Tref>
+public interface ItestRefGnrcAltArgOutpObject<TRef>
 {
 }
 
-public interface ItestGnrcAltArgDescrDual<Ttype>
+public interface ItestGnrcAltArgDescrDual<TType>
 {
-  ItestRefGnrcAltArgDescrDual<Ttype> AsRefGnrcAltArgDescrDual { get; }
+  ItestRefGnrcAltArgDescrDual<TType> AsRefGnrcAltArgDescrDual { get; }
   ItestGnrcAltArgDescrDualObject AsGnrcAltArgDescrDual { get; }
 }
 
-public interface ItestGnrcAltArgDescrDualObject<Ttype>
+public interface ItestGnrcAltArgDescrDualObject<TType>
 {
 }
 
-public interface ItestRefGnrcAltArgDescrDual<Tref>
+public interface ItestRefGnrcAltArgDescrDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltArgDescrDualObject AsRefGnrcAltArgDescrDual { get; }
 }
 
-public interface ItestRefGnrcAltArgDescrDualObject<Tref>
+public interface ItestRefGnrcAltArgDescrDualObject<TRef>
 {
 }
 
-public interface ItestGnrcAltArgDescrInp<Ttype>
+public interface ItestGnrcAltArgDescrInp<TType>
 {
-  ItestRefGnrcAltArgDescrInp<Ttype> AsRefGnrcAltArgDescrInp { get; }
+  ItestRefGnrcAltArgDescrInp<TType> AsRefGnrcAltArgDescrInp { get; }
   ItestGnrcAltArgDescrInpObject AsGnrcAltArgDescrInp { get; }
 }
 
-public interface ItestGnrcAltArgDescrInpObject<Ttype>
+public interface ItestGnrcAltArgDescrInpObject<TType>
 {
 }
 
-public interface ItestRefGnrcAltArgDescrInp<Tref>
+public interface ItestRefGnrcAltArgDescrInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltArgDescrInpObject AsRefGnrcAltArgDescrInp { get; }
 }
 
-public interface ItestRefGnrcAltArgDescrInpObject<Tref>
+public interface ItestRefGnrcAltArgDescrInpObject<TRef>
 {
 }
 
-public interface ItestGnrcAltArgDescrOutp<Ttype>
+public interface ItestGnrcAltArgDescrOutp<TType>
 {
-  ItestRefGnrcAltArgDescrOutp<Ttype> AsRefGnrcAltArgDescrOutp { get; }
+  ItestRefGnrcAltArgDescrOutp<TType> AsRefGnrcAltArgDescrOutp { get; }
   ItestGnrcAltArgDescrOutpObject AsGnrcAltArgDescrOutp { get; }
 }
 
-public interface ItestGnrcAltArgDescrOutpObject<Ttype>
+public interface ItestGnrcAltArgDescrOutpObject<TType>
 {
 }
 
-public interface ItestRefGnrcAltArgDescrOutp<Tref>
+public interface ItestRefGnrcAltArgDescrOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltArgDescrOutpObject AsRefGnrcAltArgDescrOutp { get; }
 }
 
-public interface ItestRefGnrcAltArgDescrOutpObject<Tref>
+public interface ItestRefGnrcAltArgDescrOutpObject<TRef>
 {
 }
 
@@ -2343,13 +2343,13 @@ public interface ItestGnrcAltDualDualObject
 {
 }
 
-public interface ItestRefGnrcAltDualDual<Tref>
+public interface ItestRefGnrcAltDualDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltDualDualObject AsRefGnrcAltDualDual { get; }
 }
 
-public interface ItestRefGnrcAltDualDualObject<Tref>
+public interface ItestRefGnrcAltDualDualObject<TRef>
 {
 }
 
@@ -2374,13 +2374,13 @@ public interface ItestGnrcAltDualInpObject
 {
 }
 
-public interface ItestRefGnrcAltDualInp<Tref>
+public interface ItestRefGnrcAltDualInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltDualInpObject AsRefGnrcAltDualInp { get; }
 }
 
-public interface ItestRefGnrcAltDualInpObject<Tref>
+public interface ItestRefGnrcAltDualInpObject<TRef>
 {
 }
 
@@ -2405,13 +2405,13 @@ public interface ItestGnrcAltDualOutpObject
 {
 }
 
-public interface ItestRefGnrcAltDualOutp<Tref>
+public interface ItestRefGnrcAltDualOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltDualOutpObject AsRefGnrcAltDualOutp { get; }
 }
 
-public interface ItestRefGnrcAltDualOutpObject<Tref>
+public interface ItestRefGnrcAltDualOutpObject<TRef>
 {
 }
 
@@ -2426,63 +2426,63 @@ public interface ItestAltGnrcAltDualOutpObject
   decimal Alt { get; }
 }
 
-public interface ItestRefGnrcAltModParamDual<Tref,Tmod>
+public interface ItestRefGnrcAltModParamDual<TRef,TMod>
 {
-  IDictionary<Tmod, Tref> Asref { get; }
+  IDictionary<TMod, TRef> Asref { get; }
   ItestRefGnrcAltModParamDualObject AsRefGnrcAltModParamDual { get; }
 }
 
-public interface ItestRefGnrcAltModParamDualObject<Tref,Tmod>
+public interface ItestRefGnrcAltModParamDualObject<TRef,TMod>
 {
 }
 
-public interface ItestRefGnrcAltModParamInp<Tref,Tmod>
+public interface ItestRefGnrcAltModParamInp<TRef,TMod>
 {
-  IDictionary<Tmod, Tref> Asref { get; }
+  IDictionary<TMod, TRef> Asref { get; }
   ItestRefGnrcAltModParamInpObject AsRefGnrcAltModParamInp { get; }
 }
 
-public interface ItestRefGnrcAltModParamInpObject<Tref,Tmod>
+public interface ItestRefGnrcAltModParamInpObject<TRef,TMod>
 {
 }
 
-public interface ItestRefGnrcAltModParamOutp<Tref,Tmod>
+public interface ItestRefGnrcAltModParamOutp<TRef,TMod>
 {
-  IDictionary<Tmod, Tref> Asref { get; }
+  IDictionary<TMod, TRef> Asref { get; }
   ItestRefGnrcAltModParamOutpObject AsRefGnrcAltModParamOutp { get; }
 }
 
-public interface ItestRefGnrcAltModParamOutpObject<Tref,Tmod>
+public interface ItestRefGnrcAltModParamOutpObject<TRef,TMod>
 {
 }
 
-public interface ItestRefGnrcAltModStrDual<Tref>
+public interface ItestRefGnrcAltModStrDual<TRef>
 {
-  IDictionary<testString, Tref> Asref { get; }
+  IDictionary<testString, TRef> Asref { get; }
   ItestRefGnrcAltModStrDualObject AsRefGnrcAltModStrDual { get; }
 }
 
-public interface ItestRefGnrcAltModStrDualObject<Tref>
+public interface ItestRefGnrcAltModStrDualObject<TRef>
 {
 }
 
-public interface ItestRefGnrcAltModStrInp<Tref>
+public interface ItestRefGnrcAltModStrInp<TRef>
 {
-  IDictionary<testString, Tref> Asref { get; }
+  IDictionary<testString, TRef> Asref { get; }
   ItestRefGnrcAltModStrInpObject AsRefGnrcAltModStrInp { get; }
 }
 
-public interface ItestRefGnrcAltModStrInpObject<Tref>
+public interface ItestRefGnrcAltModStrInpObject<TRef>
 {
 }
 
-public interface ItestRefGnrcAltModStrOutp<Tref>
+public interface ItestRefGnrcAltModStrOutp<TRef>
 {
-  IDictionary<testString, Tref> Asref { get; }
+  IDictionary<testString, TRef> Asref { get; }
   ItestRefGnrcAltModStrOutpObject AsRefGnrcAltModStrOutp { get; }
 }
 
-public interface ItestRefGnrcAltModStrOutpObject<Tref>
+public interface ItestRefGnrcAltModStrOutpObject<TRef>
 {
 }
 
@@ -2496,13 +2496,13 @@ public interface ItestGnrcAltParamDualObject
 {
 }
 
-public interface ItestRefGnrcAltParamDual<Tref>
+public interface ItestRefGnrcAltParamDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltParamDualObject AsRefGnrcAltParamDual { get; }
 }
 
-public interface ItestRefGnrcAltParamDualObject<Tref>
+public interface ItestRefGnrcAltParamDualObject<TRef>
 {
 }
 
@@ -2527,13 +2527,13 @@ public interface ItestGnrcAltParamInpObject
 {
 }
 
-public interface ItestRefGnrcAltParamInp<Tref>
+public interface ItestRefGnrcAltParamInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltParamInpObject AsRefGnrcAltParamInp { get; }
 }
 
-public interface ItestRefGnrcAltParamInpObject<Tref>
+public interface ItestRefGnrcAltParamInpObject<TRef>
 {
 }
 
@@ -2558,13 +2558,13 @@ public interface ItestGnrcAltParamOutpObject
 {
 }
 
-public interface ItestRefGnrcAltParamOutp<Tref>
+public interface ItestRefGnrcAltParamOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltParamOutpObject AsRefGnrcAltParamOutp { get; }
 }
 
-public interface ItestRefGnrcAltParamOutpObject<Tref>
+public interface ItestRefGnrcAltParamOutpObject<TRef>
 {
 }
 
@@ -2589,13 +2589,13 @@ public interface ItestGnrcAltSmplDualObject
 {
 }
 
-public interface ItestRefGnrcAltSmplDual<Tref>
+public interface ItestRefGnrcAltSmplDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltSmplDualObject AsRefGnrcAltSmplDual { get; }
 }
 
-public interface ItestRefGnrcAltSmplDualObject<Tref>
+public interface ItestRefGnrcAltSmplDualObject<TRef>
 {
 }
 
@@ -2609,13 +2609,13 @@ public interface ItestGnrcAltSmplInpObject
 {
 }
 
-public interface ItestRefGnrcAltSmplInp<Tref>
+public interface ItestRefGnrcAltSmplInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltSmplInpObject AsRefGnrcAltSmplInp { get; }
 }
 
-public interface ItestRefGnrcAltSmplInpObject<Tref>
+public interface ItestRefGnrcAltSmplInpObject<TRef>
 {
 }
 
@@ -2629,44 +2629,44 @@ public interface ItestGnrcAltSmplOutpObject
 {
 }
 
-public interface ItestRefGnrcAltSmplOutp<Tref>
+public interface ItestRefGnrcAltSmplOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcAltSmplOutpObject AsRefGnrcAltSmplOutp { get; }
 }
 
-public interface ItestRefGnrcAltSmplOutpObject<Tref>
+public interface ItestRefGnrcAltSmplOutpObject<TRef>
 {
 }
 
-public interface ItestGnrcDescrDual<Ttype>
+public interface ItestGnrcDescrDual<TType>
 {
   ItestGnrcDescrDualObject AsGnrcDescrDual { get; }
 }
 
-public interface ItestGnrcDescrDualObject<Ttype>
+public interface ItestGnrcDescrDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ItestGnrcDescrInp<Ttype>
+public interface ItestGnrcDescrInp<TType>
 {
   ItestGnrcDescrInpObject AsGnrcDescrInp { get; }
 }
 
-public interface ItestGnrcDescrInpObject<Ttype>
+public interface ItestGnrcDescrInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ItestGnrcDescrOutp<Ttype>
+public interface ItestGnrcDescrOutp<TType>
 {
   ItestGnrcDescrOutpObject AsGnrcDescrOutp { get; }
 }
 
-public interface ItestGnrcDescrOutpObject<Ttype>
+public interface ItestGnrcDescrOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestGnrcEnumDual
@@ -2679,14 +2679,14 @@ public interface ItestGnrcEnumDualObject
 {
 }
 
-public interface ItestRefGnrcEnumDual<Ttype>
+public interface ItestRefGnrcEnumDual<TType>
 {
   ItestRefGnrcEnumDualObject AsRefGnrcEnumDual { get; }
 }
 
-public interface ItestRefGnrcEnumDualObject<Ttype>
+public interface ItestRefGnrcEnumDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestGnrcEnumInp
@@ -2699,14 +2699,14 @@ public interface ItestGnrcEnumInpObject
 {
 }
 
-public interface ItestRefGnrcEnumInp<Ttype>
+public interface ItestRefGnrcEnumInp<TType>
 {
   ItestRefGnrcEnumInpObject AsRefGnrcEnumInp { get; }
 }
 
-public interface ItestRefGnrcEnumInpObject<Ttype>
+public interface ItestRefGnrcEnumInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestGnrcEnumOutp
@@ -2719,103 +2719,103 @@ public interface ItestGnrcEnumOutpObject
 {
 }
 
-public interface ItestRefGnrcEnumOutp<Ttype>
+public interface ItestRefGnrcEnumOutp<TType>
 {
   ItestRefGnrcEnumOutpObject AsRefGnrcEnumOutp { get; }
 }
 
-public interface ItestRefGnrcEnumOutpObject<Ttype>
+public interface ItestRefGnrcEnumOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ItestGnrcFieldDual<Ttype>
+public interface ItestGnrcFieldDual<TType>
 {
   ItestGnrcFieldDualObject AsGnrcFieldDual { get; }
 }
 
-public interface ItestGnrcFieldDualObject<Ttype>
+public interface ItestGnrcFieldDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ItestGnrcFieldInp<Ttype>
+public interface ItestGnrcFieldInp<TType>
 {
   ItestGnrcFieldInpObject AsGnrcFieldInp { get; }
 }
 
-public interface ItestGnrcFieldInpObject<Ttype>
+public interface ItestGnrcFieldInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ItestGnrcFieldOutp<Ttype>
+public interface ItestGnrcFieldOutp<TType>
 {
   ItestGnrcFieldOutpObject AsGnrcFieldOutp { get; }
 }
 
-public interface ItestGnrcFieldOutpObject<Ttype>
+public interface ItestGnrcFieldOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
-public interface ItestGnrcFieldArgDual<Ttype>
+public interface ItestGnrcFieldArgDual<TType>
 {
   ItestGnrcFieldArgDualObject AsGnrcFieldArgDual { get; }
 }
 
-public interface ItestGnrcFieldArgDualObject<Ttype>
+public interface ItestGnrcFieldArgDualObject<TType>
 {
-  ItestRefGnrcFieldArgDual<Ttype> Field { get; }
+  ItestRefGnrcFieldArgDual<TType> Field { get; }
 }
 
-public interface ItestRefGnrcFieldArgDual<Tref>
+public interface ItestRefGnrcFieldArgDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldArgDualObject AsRefGnrcFieldArgDual { get; }
 }
 
-public interface ItestRefGnrcFieldArgDualObject<Tref>
+public interface ItestRefGnrcFieldArgDualObject<TRef>
 {
 }
 
-public interface ItestGnrcFieldArgInp<Ttype>
+public interface ItestGnrcFieldArgInp<TType>
 {
   ItestGnrcFieldArgInpObject AsGnrcFieldArgInp { get; }
 }
 
-public interface ItestGnrcFieldArgInpObject<Ttype>
+public interface ItestGnrcFieldArgInpObject<TType>
 {
-  ItestRefGnrcFieldArgInp<Ttype> Field { get; }
+  ItestRefGnrcFieldArgInp<TType> Field { get; }
 }
 
-public interface ItestRefGnrcFieldArgInp<Tref>
+public interface ItestRefGnrcFieldArgInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldArgInpObject AsRefGnrcFieldArgInp { get; }
 }
 
-public interface ItestRefGnrcFieldArgInpObject<Tref>
+public interface ItestRefGnrcFieldArgInpObject<TRef>
 {
 }
 
-public interface ItestGnrcFieldArgOutp<Ttype>
+public interface ItestGnrcFieldArgOutp<TType>
 {
   ItestGnrcFieldArgOutpObject AsGnrcFieldArgOutp { get; }
 }
 
-public interface ItestGnrcFieldArgOutpObject<Ttype>
+public interface ItestGnrcFieldArgOutpObject<TType>
 {
-  ItestRefGnrcFieldArgOutp<Ttype> Field { get; }
+  ItestRefGnrcFieldArgOutp<TType> Field { get; }
 }
 
-public interface ItestRefGnrcFieldArgOutp<Tref>
+public interface ItestRefGnrcFieldArgOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldArgOutpObject AsRefGnrcFieldArgOutp { get; }
 }
 
-public interface ItestRefGnrcFieldArgOutpObject<Tref>
+public interface ItestRefGnrcFieldArgOutpObject<TRef>
 {
 }
 
@@ -2829,13 +2829,13 @@ public interface ItestGnrcFieldDualDualObject
   ItestRefGnrcFieldDualDual<ItestAltGnrcFieldDualDual> Field { get; }
 }
 
-public interface ItestRefGnrcFieldDualDual<Tref>
+public interface ItestRefGnrcFieldDualDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldDualDualObject AsRefGnrcFieldDualDual { get; }
 }
 
-public interface ItestRefGnrcFieldDualDualObject<Tref>
+public interface ItestRefGnrcFieldDualDualObject<TRef>
 {
 }
 
@@ -2860,13 +2860,13 @@ public interface ItestGnrcFieldDualInpObject
   ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> Field { get; }
 }
 
-public interface ItestRefGnrcFieldDualInp<Tref>
+public interface ItestRefGnrcFieldDualInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldDualInpObject AsRefGnrcFieldDualInp { get; }
 }
 
-public interface ItestRefGnrcFieldDualInpObject<Tref>
+public interface ItestRefGnrcFieldDualInpObject<TRef>
 {
 }
 
@@ -2891,13 +2891,13 @@ public interface ItestGnrcFieldDualOutpObject
   ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; }
 }
 
-public interface ItestRefGnrcFieldDualOutp<Tref>
+public interface ItestRefGnrcFieldDualOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldDualOutpObject AsRefGnrcFieldDualOutp { get; }
 }
 
-public interface ItestRefGnrcFieldDualOutpObject<Tref>
+public interface ItestRefGnrcFieldDualOutpObject<TRef>
 {
 }
 
@@ -2922,13 +2922,13 @@ public interface ItestGnrcFieldParamDualObject
   ItestRefGnrcFieldParamDual<ItestAltGnrcFieldParamDual> Field { get; }
 }
 
-public interface ItestRefGnrcFieldParamDual<Tref>
+public interface ItestRefGnrcFieldParamDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldParamDualObject AsRefGnrcFieldParamDual { get; }
 }
 
-public interface ItestRefGnrcFieldParamDualObject<Tref>
+public interface ItestRefGnrcFieldParamDualObject<TRef>
 {
 }
 
@@ -2953,13 +2953,13 @@ public interface ItestGnrcFieldParamInpObject
   ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> Field { get; }
 }
 
-public interface ItestRefGnrcFieldParamInp<Tref>
+public interface ItestRefGnrcFieldParamInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldParamInpObject AsRefGnrcFieldParamInp { get; }
 }
 
-public interface ItestRefGnrcFieldParamInpObject<Tref>
+public interface ItestRefGnrcFieldParamInpObject<TRef>
 {
 }
 
@@ -2984,13 +2984,13 @@ public interface ItestGnrcFieldParamOutpObject
   ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; }
 }
 
-public interface ItestRefGnrcFieldParamOutp<Tref>
+public interface ItestRefGnrcFieldParamOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcFieldParamOutpObject AsRefGnrcFieldParamOutp { get; }
 }
 
-public interface ItestRefGnrcFieldParamOutpObject<Tref>
+public interface ItestRefGnrcFieldParamOutpObject<TRef>
 {
 }
 
@@ -3005,153 +3005,153 @@ public interface ItestAltGnrcFieldParamOutpObject
   decimal Alt { get; }
 }
 
-public interface ItestGnrcPrntDual<Ttype>
+public interface ItestGnrcPrntDual<TType>
   : Itesttype
 {
   ItestGnrcPrntDualObject AsGnrcPrntDual { get; }
 }
 
-public interface ItestGnrcPrntDualObject<Ttype>
+public interface ItestGnrcPrntDualObject<TType>
   : ItesttypeObject
 {
 }
 
-public interface ItestGnrcPrntInp<Ttype>
+public interface ItestGnrcPrntInp<TType>
   : Itesttype
 {
   ItestGnrcPrntInpObject AsGnrcPrntInp { get; }
 }
 
-public interface ItestGnrcPrntInpObject<Ttype>
+public interface ItestGnrcPrntInpObject<TType>
   : ItesttypeObject
 {
 }
 
-public interface ItestGnrcPrntOutp<Ttype>
+public interface ItestGnrcPrntOutp<TType>
   : Itesttype
 {
   ItestGnrcPrntOutpObject AsGnrcPrntOutp { get; }
 }
 
-public interface ItestGnrcPrntOutpObject<Ttype>
+public interface ItestGnrcPrntOutpObject<TType>
   : ItesttypeObject
 {
 }
 
-public interface ItestGnrcPrntArgDual<Ttype>
-  : ItestRefGnrcPrntArgDual
+public interface ItestGnrcPrntArgDual<TType>
+  : ItestRefGnrcPrntArgDual<TType>
 {
   ItestGnrcPrntArgDualObject AsGnrcPrntArgDual { get; }
 }
 
-public interface ItestGnrcPrntArgDualObject<Ttype>
-  : ItestRefGnrcPrntArgDualObject
+public interface ItestGnrcPrntArgDualObject<TType>
+  : ItestRefGnrcPrntArgDualObject<TType>
 {
 }
 
-public interface ItestRefGnrcPrntArgDual<Tref>
+public interface ItestRefGnrcPrntArgDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcPrntArgDualObject AsRefGnrcPrntArgDual { get; }
 }
 
-public interface ItestRefGnrcPrntArgDualObject<Tref>
+public interface ItestRefGnrcPrntArgDualObject<TRef>
 {
 }
 
-public interface ItestGnrcPrntArgInp<Ttype>
-  : ItestRefGnrcPrntArgInp
+public interface ItestGnrcPrntArgInp<TType>
+  : ItestRefGnrcPrntArgInp<TType>
 {
   ItestGnrcPrntArgInpObject AsGnrcPrntArgInp { get; }
 }
 
-public interface ItestGnrcPrntArgInpObject<Ttype>
-  : ItestRefGnrcPrntArgInpObject
+public interface ItestGnrcPrntArgInpObject<TType>
+  : ItestRefGnrcPrntArgInpObject<TType>
 {
 }
 
-public interface ItestRefGnrcPrntArgInp<Tref>
+public interface ItestRefGnrcPrntArgInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcPrntArgInpObject AsRefGnrcPrntArgInp { get; }
 }
 
-public interface ItestRefGnrcPrntArgInpObject<Tref>
+public interface ItestRefGnrcPrntArgInpObject<TRef>
 {
 }
 
-public interface ItestGnrcPrntArgOutp<Ttype>
-  : ItestRefGnrcPrntArgOutp
+public interface ItestGnrcPrntArgOutp<TType>
+  : ItestRefGnrcPrntArgOutp<TType>
 {
   ItestGnrcPrntArgOutpObject AsGnrcPrntArgOutp { get; }
 }
 
-public interface ItestGnrcPrntArgOutpObject<Ttype>
-  : ItestRefGnrcPrntArgOutpObject
+public interface ItestGnrcPrntArgOutpObject<TType>
+  : ItestRefGnrcPrntArgOutpObject<TType>
 {
 }
 
-public interface ItestRefGnrcPrntArgOutp<Tref>
+public interface ItestRefGnrcPrntArgOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcPrntArgOutpObject AsRefGnrcPrntArgOutp { get; }
 }
 
-public interface ItestRefGnrcPrntArgOutpObject<Tref>
+public interface ItestRefGnrcPrntArgOutpObject<TRef>
 {
 }
 
-public interface ItestGnrcPrntDescrDual<Ttype>
+public interface ItestGnrcPrntDescrDual<TType>
   : Itesttype
 {
   ItestGnrcPrntDescrDualObject AsGnrcPrntDescrDual { get; }
 }
 
-public interface ItestGnrcPrntDescrDualObject<Ttype>
+public interface ItestGnrcPrntDescrDualObject<TType>
   : ItesttypeObject
 {
 }
 
-public interface ItestGnrcPrntDescrInp<Ttype>
+public interface ItestGnrcPrntDescrInp<TType>
   : Itesttype
 {
   ItestGnrcPrntDescrInpObject AsGnrcPrntDescrInp { get; }
 }
 
-public interface ItestGnrcPrntDescrInpObject<Ttype>
+public interface ItestGnrcPrntDescrInpObject<TType>
   : ItesttypeObject
 {
 }
 
-public interface ItestGnrcPrntDescrOutp<Ttype>
+public interface ItestGnrcPrntDescrOutp<TType>
   : Itesttype
 {
   ItestGnrcPrntDescrOutpObject AsGnrcPrntDescrOutp { get; }
 }
 
-public interface ItestGnrcPrntDescrOutpObject<Ttype>
+public interface ItestGnrcPrntDescrOutpObject<TType>
   : ItesttypeObject
 {
 }
 
 public interface ItestGnrcPrntDualDual
-  : ItestRefGnrcPrntDualDual
+  : ItestRefGnrcPrntDualDual<ItestAltGnrcPrntDualDual>
 {
   ItestGnrcPrntDualDualObject AsGnrcPrntDualDual { get; }
 }
 
 public interface ItestGnrcPrntDualDualObject
-  : ItestRefGnrcPrntDualDualObject
+  : ItestRefGnrcPrntDualDualObject<ItestAltGnrcPrntDualDual>
 {
 }
 
-public interface ItestRefGnrcPrntDualDual<Tref>
+public interface ItestRefGnrcPrntDualDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcPrntDualDualObject AsRefGnrcPrntDualDual { get; }
 }
 
-public interface ItestRefGnrcPrntDualDualObject<Tref>
+public interface ItestRefGnrcPrntDualDualObject<TRef>
 {
 }
 
@@ -3167,23 +3167,23 @@ public interface ItestAltGnrcPrntDualDualObject
 }
 
 public interface ItestGnrcPrntDualInp
-  : ItestRefGnrcPrntDualInp
+  : ItestRefGnrcPrntDualInp<ItestAltGnrcPrntDualInp>
 {
   ItestGnrcPrntDualInpObject AsGnrcPrntDualInp { get; }
 }
 
 public interface ItestGnrcPrntDualInpObject
-  : ItestRefGnrcPrntDualInpObject
+  : ItestRefGnrcPrntDualInpObject<ItestAltGnrcPrntDualInp>
 {
 }
 
-public interface ItestRefGnrcPrntDualInp<Tref>
+public interface ItestRefGnrcPrntDualInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcPrntDualInpObject AsRefGnrcPrntDualInp { get; }
 }
 
-public interface ItestRefGnrcPrntDualInpObject<Tref>
+public interface ItestRefGnrcPrntDualInpObject<TRef>
 {
 }
 
@@ -3199,23 +3199,23 @@ public interface ItestAltGnrcPrntDualInpObject
 }
 
 public interface ItestGnrcPrntDualOutp
-  : ItestRefGnrcPrntDualOutp
+  : ItestRefGnrcPrntDualOutp<ItestAltGnrcPrntDualOutp>
 {
   ItestGnrcPrntDualOutpObject AsGnrcPrntDualOutp { get; }
 }
 
 public interface ItestGnrcPrntDualOutpObject
-  : ItestRefGnrcPrntDualOutpObject
+  : ItestRefGnrcPrntDualOutpObject<ItestAltGnrcPrntDualOutp>
 {
 }
 
-public interface ItestRefGnrcPrntDualOutp<Tref>
+public interface ItestRefGnrcPrntDualOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcPrntDualOutpObject AsRefGnrcPrntDualOutp { get; }
 }
 
-public interface ItestRefGnrcPrntDualOutpObject<Tref>
+public interface ItestRefGnrcPrntDualOutpObject<TRef>
 {
 }
 
@@ -3231,23 +3231,23 @@ public interface ItestAltGnrcPrntDualOutpObject
 }
 
 public interface ItestGnrcPrntDualPrntDual
-  : ItestRefGnrcPrntDualPrntDual
+  : ItestRefGnrcPrntDualPrntDual<ItestAltGnrcPrntDualPrntDual>
 {
   ItestGnrcPrntDualPrntDualObject AsGnrcPrntDualPrntDual { get; }
 }
 
 public interface ItestGnrcPrntDualPrntDualObject
-  : ItestRefGnrcPrntDualPrntDualObject
+  : ItestRefGnrcPrntDualPrntDualObject<ItestAltGnrcPrntDualPrntDual>
 {
 }
 
-public interface ItestRefGnrcPrntDualPrntDual<Tref>
+public interface ItestRefGnrcPrntDualPrntDual<TRef>
   : Itestref
 {
   ItestRefGnrcPrntDualPrntDualObject AsRefGnrcPrntDualPrntDual { get; }
 }
 
-public interface ItestRefGnrcPrntDualPrntDualObject<Tref>
+public interface ItestRefGnrcPrntDualPrntDualObject<TRef>
   : ItestrefObject
 {
 }
@@ -3264,23 +3264,23 @@ public interface ItestAltGnrcPrntDualPrntDualObject
 }
 
 public interface ItestGnrcPrntDualPrntInp
-  : ItestRefGnrcPrntDualPrntInp
+  : ItestRefGnrcPrntDualPrntInp<ItestAltGnrcPrntDualPrntInp>
 {
   ItestGnrcPrntDualPrntInpObject AsGnrcPrntDualPrntInp { get; }
 }
 
 public interface ItestGnrcPrntDualPrntInpObject
-  : ItestRefGnrcPrntDualPrntInpObject
+  : ItestRefGnrcPrntDualPrntInpObject<ItestAltGnrcPrntDualPrntInp>
 {
 }
 
-public interface ItestRefGnrcPrntDualPrntInp<Tref>
+public interface ItestRefGnrcPrntDualPrntInp<TRef>
   : Itestref
 {
   ItestRefGnrcPrntDualPrntInpObject AsRefGnrcPrntDualPrntInp { get; }
 }
 
-public interface ItestRefGnrcPrntDualPrntInpObject<Tref>
+public interface ItestRefGnrcPrntDualPrntInpObject<TRef>
   : ItestrefObject
 {
 }
@@ -3297,23 +3297,23 @@ public interface ItestAltGnrcPrntDualPrntInpObject
 }
 
 public interface ItestGnrcPrntDualPrntOutp
-  : ItestRefGnrcPrntDualPrntOutp
+  : ItestRefGnrcPrntDualPrntOutp<ItestAltGnrcPrntDualPrntOutp>
 {
   ItestGnrcPrntDualPrntOutpObject AsGnrcPrntDualPrntOutp { get; }
 }
 
 public interface ItestGnrcPrntDualPrntOutpObject
-  : ItestRefGnrcPrntDualPrntOutpObject
+  : ItestRefGnrcPrntDualPrntOutpObject<ItestAltGnrcPrntDualPrntOutp>
 {
 }
 
-public interface ItestRefGnrcPrntDualPrntOutp<Tref>
+public interface ItestRefGnrcPrntDualPrntOutp<TRef>
   : Itestref
 {
   ItestRefGnrcPrntDualPrntOutpObject AsRefGnrcPrntDualPrntOutp { get; }
 }
 
-public interface ItestRefGnrcPrntDualPrntOutpObject<Tref>
+public interface ItestRefGnrcPrntDualPrntOutpObject<TRef>
   : ItestrefObject
 {
 }
@@ -3330,87 +3330,87 @@ public interface ItestAltGnrcPrntDualPrntOutpObject
 }
 
 public interface ItestGnrcPrntEnumChildDual
-  : ItestFieldGnrcPrntEnumChildDual
+  : ItestFieldGnrcPrntEnumChildDual<testParentGnrcPrntEnumChildDual>
 {
   ItestGnrcPrntEnumChildDualObject AsGnrcPrntEnumChildDual { get; }
 }
 
 public interface ItestGnrcPrntEnumChildDualObject
-  : ItestFieldGnrcPrntEnumChildDualObject
+  : ItestFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>
 {
 }
 
-public interface ItestFieldGnrcPrntEnumChildDual<Tref>
+public interface ItestFieldGnrcPrntEnumChildDual<TRef>
 {
   ItestFieldGnrcPrntEnumChildDualObject AsFieldGnrcPrntEnumChildDual { get; }
 }
 
-public interface ItestFieldGnrcPrntEnumChildDualObject<Tref>
+public interface ItestFieldGnrcPrntEnumChildDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestGnrcPrntEnumChildInp
-  : ItestFieldGnrcPrntEnumChildInp
+  : ItestFieldGnrcPrntEnumChildInp<testParentGnrcPrntEnumChildInp>
 {
   ItestGnrcPrntEnumChildInpObject AsGnrcPrntEnumChildInp { get; }
 }
 
 public interface ItestGnrcPrntEnumChildInpObject
-  : ItestFieldGnrcPrntEnumChildInpObject
+  : ItestFieldGnrcPrntEnumChildInpObject<testParentGnrcPrntEnumChildInp>
 {
 }
 
-public interface ItestFieldGnrcPrntEnumChildInp<Tref>
+public interface ItestFieldGnrcPrntEnumChildInp<TRef>
 {
   ItestFieldGnrcPrntEnumChildInpObject AsFieldGnrcPrntEnumChildInp { get; }
 }
 
-public interface ItestFieldGnrcPrntEnumChildInpObject<Tref>
+public interface ItestFieldGnrcPrntEnumChildInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestGnrcPrntEnumChildOutp
-  : ItestFieldGnrcPrntEnumChildOutp
+  : ItestFieldGnrcPrntEnumChildOutp<testParentGnrcPrntEnumChildOutp>
 {
   ItestGnrcPrntEnumChildOutpObject AsGnrcPrntEnumChildOutp { get; }
 }
 
 public interface ItestGnrcPrntEnumChildOutpObject
-  : ItestFieldGnrcPrntEnumChildOutpObject
+  : ItestFieldGnrcPrntEnumChildOutpObject<testParentGnrcPrntEnumChildOutp>
 {
 }
 
-public interface ItestFieldGnrcPrntEnumChildOutp<Tref>
+public interface ItestFieldGnrcPrntEnumChildOutp<TRef>
 {
   ItestFieldGnrcPrntEnumChildOutpObject AsFieldGnrcPrntEnumChildOutp { get; }
 }
 
-public interface ItestFieldGnrcPrntEnumChildOutpObject<Tref>
+public interface ItestFieldGnrcPrntEnumChildOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestGnrcPrntEnumDomDual
-  : ItestFieldGnrcPrntEnumDomDual
+  : ItestFieldGnrcPrntEnumDomDual<ItestDomGnrcPrntEnumDomDual>
 {
   ItestGnrcPrntEnumDomDualObject AsGnrcPrntEnumDomDual { get; }
 }
 
 public interface ItestGnrcPrntEnumDomDualObject
-  : ItestFieldGnrcPrntEnumDomDualObject
+  : ItestFieldGnrcPrntEnumDomDualObject<ItestDomGnrcPrntEnumDomDual>
 {
 }
 
-public interface ItestFieldGnrcPrntEnumDomDual<Tref>
+public interface ItestFieldGnrcPrntEnumDomDual<TRef>
 {
   ItestFieldGnrcPrntEnumDomDualObject AsFieldGnrcPrntEnumDomDual { get; }
 }
 
-public interface ItestFieldGnrcPrntEnumDomDualObject<Tref>
+public interface ItestFieldGnrcPrntEnumDomDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestDomGnrcPrntEnumDomDual
@@ -3419,24 +3419,24 @@ public interface ItestDomGnrcPrntEnumDomDual
 }
 
 public interface ItestGnrcPrntEnumDomInp
-  : ItestFieldGnrcPrntEnumDomInp
+  : ItestFieldGnrcPrntEnumDomInp<ItestDomGnrcPrntEnumDomInp>
 {
   ItestGnrcPrntEnumDomInpObject AsGnrcPrntEnumDomInp { get; }
 }
 
 public interface ItestGnrcPrntEnumDomInpObject
-  : ItestFieldGnrcPrntEnumDomInpObject
+  : ItestFieldGnrcPrntEnumDomInpObject<ItestDomGnrcPrntEnumDomInp>
 {
 }
 
-public interface ItestFieldGnrcPrntEnumDomInp<Tref>
+public interface ItestFieldGnrcPrntEnumDomInp<TRef>
 {
   ItestFieldGnrcPrntEnumDomInpObject AsFieldGnrcPrntEnumDomInp { get; }
 }
 
-public interface ItestFieldGnrcPrntEnumDomInpObject<Tref>
+public interface ItestFieldGnrcPrntEnumDomInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestDomGnrcPrntEnumDomInp
@@ -3445,24 +3445,24 @@ public interface ItestDomGnrcPrntEnumDomInp
 }
 
 public interface ItestGnrcPrntEnumDomOutp
-  : ItestFieldGnrcPrntEnumDomOutp
+  : ItestFieldGnrcPrntEnumDomOutp<ItestDomGnrcPrntEnumDomOutp>
 {
   ItestGnrcPrntEnumDomOutpObject AsGnrcPrntEnumDomOutp { get; }
 }
 
 public interface ItestGnrcPrntEnumDomOutpObject
-  : ItestFieldGnrcPrntEnumDomOutpObject
+  : ItestFieldGnrcPrntEnumDomOutpObject<ItestDomGnrcPrntEnumDomOutp>
 {
 }
 
-public interface ItestFieldGnrcPrntEnumDomOutp<Tref>
+public interface ItestFieldGnrcPrntEnumDomOutp<TRef>
 {
   ItestFieldGnrcPrntEnumDomOutpObject AsFieldGnrcPrntEnumDomOutp { get; }
 }
 
-public interface ItestFieldGnrcPrntEnumDomOutpObject<Tref>
+public interface ItestFieldGnrcPrntEnumDomOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestDomGnrcPrntEnumDomOutp
@@ -3471,86 +3471,86 @@ public interface ItestDomGnrcPrntEnumDomOutp
 }
 
 public interface ItestGnrcPrntEnumPrntDual
-  : ItestFieldGnrcPrntEnumPrntDual
+  : ItestFieldGnrcPrntEnumPrntDual<testEnumGnrcPrntEnumPrntDual>
 {
   ItestGnrcPrntEnumPrntDualObject AsGnrcPrntEnumPrntDual { get; }
 }
 
 public interface ItestGnrcPrntEnumPrntDualObject
-  : ItestFieldGnrcPrntEnumPrntDualObject
+  : ItestFieldGnrcPrntEnumPrntDualObject<testEnumGnrcPrntEnumPrntDual>
 {
 }
 
-public interface ItestFieldGnrcPrntEnumPrntDual<Tref>
+public interface ItestFieldGnrcPrntEnumPrntDual<TRef>
 {
   ItestFieldGnrcPrntEnumPrntDualObject AsFieldGnrcPrntEnumPrntDual { get; }
 }
 
-public interface ItestFieldGnrcPrntEnumPrntDualObject<Tref>
+public interface ItestFieldGnrcPrntEnumPrntDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestGnrcPrntEnumPrntInp
-  : ItestFieldGnrcPrntEnumPrntInp
+  : ItestFieldGnrcPrntEnumPrntInp<testEnumGnrcPrntEnumPrntInp>
 {
   ItestGnrcPrntEnumPrntInpObject AsGnrcPrntEnumPrntInp { get; }
 }
 
 public interface ItestGnrcPrntEnumPrntInpObject
-  : ItestFieldGnrcPrntEnumPrntInpObject
+  : ItestFieldGnrcPrntEnumPrntInpObject<testEnumGnrcPrntEnumPrntInp>
 {
 }
 
-public interface ItestFieldGnrcPrntEnumPrntInp<Tref>
+public interface ItestFieldGnrcPrntEnumPrntInp<TRef>
 {
   ItestFieldGnrcPrntEnumPrntInpObject AsFieldGnrcPrntEnumPrntInp { get; }
 }
 
-public interface ItestFieldGnrcPrntEnumPrntInpObject<Tref>
+public interface ItestFieldGnrcPrntEnumPrntInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestGnrcPrntEnumPrntOutp
-  : ItestFieldGnrcPrntEnumPrntOutp
+  : ItestFieldGnrcPrntEnumPrntOutp<testEnumGnrcPrntEnumPrntOutp>
 {
   ItestGnrcPrntEnumPrntOutpObject AsGnrcPrntEnumPrntOutp { get; }
 }
 
 public interface ItestGnrcPrntEnumPrntOutpObject
-  : ItestFieldGnrcPrntEnumPrntOutpObject
+  : ItestFieldGnrcPrntEnumPrntOutpObject<testEnumGnrcPrntEnumPrntOutp>
 {
 }
 
-public interface ItestFieldGnrcPrntEnumPrntOutp<Tref>
+public interface ItestFieldGnrcPrntEnumPrntOutp<TRef>
 {
   ItestFieldGnrcPrntEnumPrntOutpObject AsFieldGnrcPrntEnumPrntOutp { get; }
 }
 
-public interface ItestFieldGnrcPrntEnumPrntOutpObject<Tref>
+public interface ItestFieldGnrcPrntEnumPrntOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestGnrcPrntParamDual
-  : ItestRefGnrcPrntParamDual
+  : ItestRefGnrcPrntParamDual<ItestAltGnrcPrntParamDual>
 {
   ItestGnrcPrntParamDualObject AsGnrcPrntParamDual { get; }
 }
 
 public interface ItestGnrcPrntParamDualObject
-  : ItestRefGnrcPrntParamDualObject
+  : ItestRefGnrcPrntParamDualObject<ItestAltGnrcPrntParamDual>
 {
 }
 
-public interface ItestRefGnrcPrntParamDual<Tref>
+public interface ItestRefGnrcPrntParamDual<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcPrntParamDualObject AsRefGnrcPrntParamDual { get; }
 }
 
-public interface ItestRefGnrcPrntParamDualObject<Tref>
+public interface ItestRefGnrcPrntParamDualObject<TRef>
 {
 }
 
@@ -3566,23 +3566,23 @@ public interface ItestAltGnrcPrntParamDualObject
 }
 
 public interface ItestGnrcPrntParamInp
-  : ItestRefGnrcPrntParamInp
+  : ItestRefGnrcPrntParamInp<ItestAltGnrcPrntParamInp>
 {
   ItestGnrcPrntParamInpObject AsGnrcPrntParamInp { get; }
 }
 
 public interface ItestGnrcPrntParamInpObject
-  : ItestRefGnrcPrntParamInpObject
+  : ItestRefGnrcPrntParamInpObject<ItestAltGnrcPrntParamInp>
 {
 }
 
-public interface ItestRefGnrcPrntParamInp<Tref>
+public interface ItestRefGnrcPrntParamInp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcPrntParamInpObject AsRefGnrcPrntParamInp { get; }
 }
 
-public interface ItestRefGnrcPrntParamInpObject<Tref>
+public interface ItestRefGnrcPrntParamInpObject<TRef>
 {
 }
 
@@ -3598,23 +3598,23 @@ public interface ItestAltGnrcPrntParamInpObject
 }
 
 public interface ItestGnrcPrntParamOutp
-  : ItestRefGnrcPrntParamOutp
+  : ItestRefGnrcPrntParamOutp<ItestAltGnrcPrntParamOutp>
 {
   ItestGnrcPrntParamOutpObject AsGnrcPrntParamOutp { get; }
 }
 
 public interface ItestGnrcPrntParamOutpObject
-  : ItestRefGnrcPrntParamOutpObject
+  : ItestRefGnrcPrntParamOutpObject<ItestAltGnrcPrntParamOutp>
 {
 }
 
-public interface ItestRefGnrcPrntParamOutp<Tref>
+public interface ItestRefGnrcPrntParamOutp<TRef>
 {
-  Tref Asref { get; }
+  TRef Asref { get; }
   ItestRefGnrcPrntParamOutpObject AsRefGnrcPrntParamOutp { get; }
 }
 
-public interface ItestRefGnrcPrntParamOutpObject<Tref>
+public interface ItestRefGnrcPrntParamOutpObject<TRef>
 {
 }
 
@@ -3630,23 +3630,23 @@ public interface ItestAltGnrcPrntParamOutpObject
 }
 
 public interface ItestGnrcPrntParamPrntDual
-  : ItestRefGnrcPrntParamPrntDual
+  : ItestRefGnrcPrntParamPrntDual<ItestAltGnrcPrntParamPrntDual>
 {
   ItestGnrcPrntParamPrntDualObject AsGnrcPrntParamPrntDual { get; }
 }
 
 public interface ItestGnrcPrntParamPrntDualObject
-  : ItestRefGnrcPrntParamPrntDualObject
+  : ItestRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual>
 {
 }
 
-public interface ItestRefGnrcPrntParamPrntDual<Tref>
+public interface ItestRefGnrcPrntParamPrntDual<TRef>
   : Itestref
 {
   ItestRefGnrcPrntParamPrntDualObject AsRefGnrcPrntParamPrntDual { get; }
 }
 
-public interface ItestRefGnrcPrntParamPrntDualObject<Tref>
+public interface ItestRefGnrcPrntParamPrntDualObject<TRef>
   : ItestrefObject
 {
 }
@@ -3663,23 +3663,23 @@ public interface ItestAltGnrcPrntParamPrntDualObject
 }
 
 public interface ItestGnrcPrntParamPrntInp
-  : ItestRefGnrcPrntParamPrntInp
+  : ItestRefGnrcPrntParamPrntInp<ItestAltGnrcPrntParamPrntInp>
 {
   ItestGnrcPrntParamPrntInpObject AsGnrcPrntParamPrntInp { get; }
 }
 
 public interface ItestGnrcPrntParamPrntInpObject
-  : ItestRefGnrcPrntParamPrntInpObject
+  : ItestRefGnrcPrntParamPrntInpObject<ItestAltGnrcPrntParamPrntInp>
 {
 }
 
-public interface ItestRefGnrcPrntParamPrntInp<Tref>
+public interface ItestRefGnrcPrntParamPrntInp<TRef>
   : Itestref
 {
   ItestRefGnrcPrntParamPrntInpObject AsRefGnrcPrntParamPrntInp { get; }
 }
 
-public interface ItestRefGnrcPrntParamPrntInpObject<Tref>
+public interface ItestRefGnrcPrntParamPrntInpObject<TRef>
   : ItestrefObject
 {
 }
@@ -3696,23 +3696,23 @@ public interface ItestAltGnrcPrntParamPrntInpObject
 }
 
 public interface ItestGnrcPrntParamPrntOutp
-  : ItestRefGnrcPrntParamPrntOutp
+  : ItestRefGnrcPrntParamPrntOutp<ItestAltGnrcPrntParamPrntOutp>
 {
   ItestGnrcPrntParamPrntOutpObject AsGnrcPrntParamPrntOutp { get; }
 }
 
 public interface ItestGnrcPrntParamPrntOutpObject
-  : ItestRefGnrcPrntParamPrntOutpObject
+  : ItestRefGnrcPrntParamPrntOutpObject<ItestAltGnrcPrntParamPrntOutp>
 {
 }
 
-public interface ItestRefGnrcPrntParamPrntOutp<Tref>
+public interface ItestRefGnrcPrntParamPrntOutp<TRef>
   : Itestref
 {
   ItestRefGnrcPrntParamPrntOutpObject AsRefGnrcPrntParamPrntOutp { get; }
 }
 
-public interface ItestRefGnrcPrntParamPrntOutpObject<Tref>
+public interface ItestRefGnrcPrntParamPrntOutpObject<TRef>
   : ItestrefObject
 {
 }
@@ -3729,87 +3729,87 @@ public interface ItestAltGnrcPrntParamPrntOutpObject
 }
 
 public interface ItestGnrcPrntSmplEnumDual
-  : ItestFieldGnrcPrntSmplEnumDual
+  : ItestFieldGnrcPrntSmplEnumDual<testEnumGnrcPrntSmplEnumDual>
 {
   ItestGnrcPrntSmplEnumDualObject AsGnrcPrntSmplEnumDual { get; }
 }
 
 public interface ItestGnrcPrntSmplEnumDualObject
-  : ItestFieldGnrcPrntSmplEnumDualObject
+  : ItestFieldGnrcPrntSmplEnumDualObject<testEnumGnrcPrntSmplEnumDual>
 {
 }
 
-public interface ItestFieldGnrcPrntSmplEnumDual<Tref>
+public interface ItestFieldGnrcPrntSmplEnumDual<TRef>
 {
   ItestFieldGnrcPrntSmplEnumDualObject AsFieldGnrcPrntSmplEnumDual { get; }
 }
 
-public interface ItestFieldGnrcPrntSmplEnumDualObject<Tref>
+public interface ItestFieldGnrcPrntSmplEnumDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestGnrcPrntSmplEnumInp
-  : ItestFieldGnrcPrntSmplEnumInp
+  : ItestFieldGnrcPrntSmplEnumInp<testEnumGnrcPrntSmplEnumInp>
 {
   ItestGnrcPrntSmplEnumInpObject AsGnrcPrntSmplEnumInp { get; }
 }
 
 public interface ItestGnrcPrntSmplEnumInpObject
-  : ItestFieldGnrcPrntSmplEnumInpObject
+  : ItestFieldGnrcPrntSmplEnumInpObject<testEnumGnrcPrntSmplEnumInp>
 {
 }
 
-public interface ItestFieldGnrcPrntSmplEnumInp<Tref>
+public interface ItestFieldGnrcPrntSmplEnumInp<TRef>
 {
   ItestFieldGnrcPrntSmplEnumInpObject AsFieldGnrcPrntSmplEnumInp { get; }
 }
 
-public interface ItestFieldGnrcPrntSmplEnumInpObject<Tref>
+public interface ItestFieldGnrcPrntSmplEnumInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestGnrcPrntSmplEnumOutp
-  : ItestFieldGnrcPrntSmplEnumOutp
+  : ItestFieldGnrcPrntSmplEnumOutp<testEnumGnrcPrntSmplEnumOutp>
 {
   ItestGnrcPrntSmplEnumOutpObject AsGnrcPrntSmplEnumOutp { get; }
 }
 
 public interface ItestGnrcPrntSmplEnumOutpObject
-  : ItestFieldGnrcPrntSmplEnumOutpObject
+  : ItestFieldGnrcPrntSmplEnumOutpObject<testEnumGnrcPrntSmplEnumOutp>
 {
 }
 
-public interface ItestFieldGnrcPrntSmplEnumOutp<Tref>
+public interface ItestFieldGnrcPrntSmplEnumOutp<TRef>
 {
   ItestFieldGnrcPrntSmplEnumOutpObject AsFieldGnrcPrntSmplEnumOutp { get; }
 }
 
-public interface ItestFieldGnrcPrntSmplEnumOutpObject<Tref>
+public interface ItestFieldGnrcPrntSmplEnumOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestGnrcPrntStrDomDual
-  : ItestFieldGnrcPrntStrDomDual
+  : ItestFieldGnrcPrntStrDomDual<ItestDomGnrcPrntStrDomDual>
 {
   ItestGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; }
 }
 
 public interface ItestGnrcPrntStrDomDualObject
-  : ItestFieldGnrcPrntStrDomDualObject
+  : ItestFieldGnrcPrntStrDomDualObject<ItestDomGnrcPrntStrDomDual>
 {
 }
 
-public interface ItestFieldGnrcPrntStrDomDual<Tref>
+public interface ItestFieldGnrcPrntStrDomDual<TRef>
 {
   ItestFieldGnrcPrntStrDomDualObject AsFieldGnrcPrntStrDomDual { get; }
 }
 
-public interface ItestFieldGnrcPrntStrDomDualObject<Tref>
+public interface ItestFieldGnrcPrntStrDomDualObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestDomGnrcPrntStrDomDual
@@ -3818,24 +3818,24 @@ public interface ItestDomGnrcPrntStrDomDual
 }
 
 public interface ItestGnrcPrntStrDomInp
-  : ItestFieldGnrcPrntStrDomInp
+  : ItestFieldGnrcPrntStrDomInp<ItestDomGnrcPrntStrDomInp>
 {
   ItestGnrcPrntStrDomInpObject AsGnrcPrntStrDomInp { get; }
 }
 
 public interface ItestGnrcPrntStrDomInpObject
-  : ItestFieldGnrcPrntStrDomInpObject
+  : ItestFieldGnrcPrntStrDomInpObject<ItestDomGnrcPrntStrDomInp>
 {
 }
 
-public interface ItestFieldGnrcPrntStrDomInp<Tref>
+public interface ItestFieldGnrcPrntStrDomInp<TRef>
 {
   ItestFieldGnrcPrntStrDomInpObject AsFieldGnrcPrntStrDomInp { get; }
 }
 
-public interface ItestFieldGnrcPrntStrDomInpObject<Tref>
+public interface ItestFieldGnrcPrntStrDomInpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestDomGnrcPrntStrDomInp
@@ -3844,24 +3844,24 @@ public interface ItestDomGnrcPrntStrDomInp
 }
 
 public interface ItestGnrcPrntStrDomOutp
-  : ItestFieldGnrcPrntStrDomOutp
+  : ItestFieldGnrcPrntStrDomOutp<ItestDomGnrcPrntStrDomOutp>
 {
   ItestGnrcPrntStrDomOutpObject AsGnrcPrntStrDomOutp { get; }
 }
 
 public interface ItestGnrcPrntStrDomOutpObject
-  : ItestFieldGnrcPrntStrDomOutpObject
+  : ItestFieldGnrcPrntStrDomOutpObject<ItestDomGnrcPrntStrDomOutp>
 {
 }
 
-public interface ItestFieldGnrcPrntStrDomOutp<Tref>
+public interface ItestFieldGnrcPrntStrDomOutp<TRef>
 {
   ItestFieldGnrcPrntStrDomOutpObject AsFieldGnrcPrntStrDomOutp { get; }
 }
 
-public interface ItestFieldGnrcPrntStrDomOutpObject<Tref>
+public interface ItestFieldGnrcPrntStrDomOutpObject<TRef>
 {
-  Tref Field { get; }
+  TRef Field { get; }
 }
 
 public interface ItestDomGnrcPrntStrDomOutp
@@ -3879,14 +3879,14 @@ public interface ItestGnrcValueDualObject
 {
 }
 
-public interface ItestRefGnrcValueDual<Ttype>
+public interface ItestRefGnrcValueDual<TType>
 {
   ItestRefGnrcValueDualObject AsRefGnrcValueDual { get; }
 }
 
-public interface ItestRefGnrcValueDualObject<Ttype>
+public interface ItestRefGnrcValueDualObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestGnrcValueInp
@@ -3899,14 +3899,14 @@ public interface ItestGnrcValueInpObject
 {
 }
 
-public interface ItestRefGnrcValueInp<Ttype>
+public interface ItestRefGnrcValueInp<TType>
 {
   ItestRefGnrcValueInpObject AsRefGnrcValueInp { get; }
 }
 
-public interface ItestRefGnrcValueInpObject<Ttype>
+public interface ItestRefGnrcValueInpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestGnrcValueOutp
@@ -3919,14 +3919,14 @@ public interface ItestGnrcValueOutpObject
 {
 }
 
-public interface ItestRefGnrcValueOutp<Ttype>
+public interface ItestRefGnrcValueOutp<TType>
 {
   ItestRefGnrcValueOutpObject AsRefGnrcValueOutp { get; }
 }
 
-public interface ItestRefGnrcValueOutpObject<Ttype>
+public interface ItestRefGnrcValueOutpObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestInpFieldDescrNmbr
@@ -4114,12 +4114,12 @@ public interface ItestDomOutpParamModDmn
 {
 }
 
-public interface ItestOutpParamModParam<Tmod>
+public interface ItestOutpParamModParam<TMod>
 {
   ItestOutpParamModParamObject AsOutpParamModParam { get; }
 }
 
-public interface ItestOutpParamModParamObject<Tmod>
+public interface ItestOutpParamModParamObject<TMod>
 {
   ItestDomOutpParamModParam Field { get; }
 }
@@ -4180,14 +4180,14 @@ public interface ItestOutpPrntGnrcObject
 {
 }
 
-public interface ItestRefOutpPrntGnrc<Ttype>
+public interface ItestRefOutpPrntGnrc<TType>
 {
   ItestRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; }
 }
 
-public interface ItestRefOutpPrntGnrcObject<Ttype>
+public interface ItestRefOutpPrntGnrcObject<TType>
 {
-  Ttype Field { get; }
+  TType Field { get; }
 }
 
 public interface ItestOutpPrntParam
@@ -4579,134 +4579,134 @@ public interface ItestRefPrntFieldOutpObject
   decimal Parent { get; }
 }
 
-public interface ItestPrntParamDiffDual<Ta>
-  : ItestRefPrntParamDiffDual
+public interface ItestPrntParamDiffDual<TA>
+  : ItestRefPrntParamDiffDual<TA>
 {
   ItestPrntParamDiffDualObject AsPrntParamDiffDual { get; }
 }
 
-public interface ItestPrntParamDiffDualObject<Ta>
-  : ItestRefPrntParamDiffDualObject
+public interface ItestPrntParamDiffDualObject<TA>
+  : ItestRefPrntParamDiffDualObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ItestRefPrntParamDiffDual<Tb>
+public interface ItestRefPrntParamDiffDual<TB>
 {
-  Tb Asb { get; }
+  TB Asb { get; }
   ItestRefPrntParamDiffDualObject AsRefPrntParamDiffDual { get; }
 }
 
-public interface ItestRefPrntParamDiffDualObject<Tb>
+public interface ItestRefPrntParamDiffDualObject<TB>
 {
 }
 
-public interface ItestPrntParamDiffInp<Ta>
-  : ItestRefPrntParamDiffInp
+public interface ItestPrntParamDiffInp<TA>
+  : ItestRefPrntParamDiffInp<TA>
 {
   ItestPrntParamDiffInpObject AsPrntParamDiffInp { get; }
 }
 
-public interface ItestPrntParamDiffInpObject<Ta>
-  : ItestRefPrntParamDiffInpObject
+public interface ItestPrntParamDiffInpObject<TA>
+  : ItestRefPrntParamDiffInpObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ItestRefPrntParamDiffInp<Tb>
+public interface ItestRefPrntParamDiffInp<TB>
 {
-  Tb Asb { get; }
+  TB Asb { get; }
   ItestRefPrntParamDiffInpObject AsRefPrntParamDiffInp { get; }
 }
 
-public interface ItestRefPrntParamDiffInpObject<Tb>
+public interface ItestRefPrntParamDiffInpObject<TB>
 {
 }
 
-public interface ItestPrntParamDiffOutp<Ta>
-  : ItestRefPrntParamDiffOutp
+public interface ItestPrntParamDiffOutp<TA>
+  : ItestRefPrntParamDiffOutp<TA>
 {
   ItestPrntParamDiffOutpObject AsPrntParamDiffOutp { get; }
 }
 
-public interface ItestPrntParamDiffOutpObject<Ta>
-  : ItestRefPrntParamDiffOutpObject
+public interface ItestPrntParamDiffOutpObject<TA>
+  : ItestRefPrntParamDiffOutpObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ItestRefPrntParamDiffOutp<Tb>
+public interface ItestRefPrntParamDiffOutp<TB>
 {
-  Tb Asb { get; }
+  TB Asb { get; }
   ItestRefPrntParamDiffOutpObject AsRefPrntParamDiffOutp { get; }
 }
 
-public interface ItestRefPrntParamDiffOutpObject<Tb>
+public interface ItestRefPrntParamDiffOutpObject<TB>
 {
 }
 
-public interface ItestPrntParamSameDual<Ta>
-  : ItestRefPrntParamSameDual
+public interface ItestPrntParamSameDual<TA>
+  : ItestRefPrntParamSameDual<TA>
 {
   ItestPrntParamSameDualObject AsPrntParamSameDual { get; }
 }
 
-public interface ItestPrntParamSameDualObject<Ta>
-  : ItestRefPrntParamSameDualObject
+public interface ItestPrntParamSameDualObject<TA>
+  : ItestRefPrntParamSameDualObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ItestRefPrntParamSameDual<Ta>
+public interface ItestRefPrntParamSameDual<TA>
 {
-  Ta Asa { get; }
+  TA Asa { get; }
   ItestRefPrntParamSameDualObject AsRefPrntParamSameDual { get; }
 }
 
-public interface ItestRefPrntParamSameDualObject<Ta>
+public interface ItestRefPrntParamSameDualObject<TA>
 {
 }
 
-public interface ItestPrntParamSameInp<Ta>
-  : ItestRefPrntParamSameInp
+public interface ItestPrntParamSameInp<TA>
+  : ItestRefPrntParamSameInp<TA>
 {
   ItestPrntParamSameInpObject AsPrntParamSameInp { get; }
 }
 
-public interface ItestPrntParamSameInpObject<Ta>
-  : ItestRefPrntParamSameInpObject
+public interface ItestPrntParamSameInpObject<TA>
+  : ItestRefPrntParamSameInpObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ItestRefPrntParamSameInp<Ta>
+public interface ItestRefPrntParamSameInp<TA>
 {
-  Ta Asa { get; }
+  TA Asa { get; }
   ItestRefPrntParamSameInpObject AsRefPrntParamSameInp { get; }
 }
 
-public interface ItestRefPrntParamSameInpObject<Ta>
+public interface ItestRefPrntParamSameInpObject<TA>
 {
 }
 
-public interface ItestPrntParamSameOutp<Ta>
-  : ItestRefPrntParamSameOutp
+public interface ItestPrntParamSameOutp<TA>
+  : ItestRefPrntParamSameOutp<TA>
 {
   ItestPrntParamSameOutpObject AsPrntParamSameOutp { get; }
 }
 
-public interface ItestPrntParamSameOutpObject<Ta>
-  : ItestRefPrntParamSameOutpObject
+public interface ItestPrntParamSameOutpObject<TA>
+  : ItestRefPrntParamSameOutpObject<TA>
 {
-  Ta Field { get; }
+  TA Field { get; }
 }
 
-public interface ItestRefPrntParamSameOutp<Ta>
+public interface ItestRefPrntParamSameOutp<TA>
 {
-  Ta Asa { get; }
+  TA Asa { get; }
   ItestRefPrntParamSameOutpObject AsRefPrntParamSameOutp { get; }
 }
 
-public interface ItestRefPrntParamSameOutpObject<Ta>
+public interface ItestRefPrntParamSameOutpObject<TA>
 {
 }

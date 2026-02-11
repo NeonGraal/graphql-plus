@@ -6,13 +6,13 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Output;
 
 public interface Itest_OutputField
-  : Itest_ObjField
+  : Itest_ObjField<Itest_ObjFieldType>
 {
   Itest_OutputFieldObject As_OutputField { get; }
 }
 
 public interface Itest_OutputFieldObject
-  : Itest_ObjFieldObject
+  : Itest_ObjFieldObject<Itest_ObjFieldType>
 {
 }
 

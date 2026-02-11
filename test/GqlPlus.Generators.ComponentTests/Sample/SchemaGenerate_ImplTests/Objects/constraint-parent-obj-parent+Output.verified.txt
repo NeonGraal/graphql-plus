@@ -12,15 +12,15 @@ output AltCnstPrntObjPrntOutp { :PrntCnstPrntObjPrntOutp alt: Number }
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Output;
 
 public class CmptCnstPrntObjPrntOutp
-  : CmptRefCnstPrntObjPrntOutp
+  : CmptRefCnstPrntObjPrntOutp<ICmptAltCnstPrntObjPrntOutp>
   , ICmptCnstPrntObjPrntOutp
 {
   public ICmptCnstPrntObjPrntOutpObject AsCnstPrntObjPrntOutp { get; set; }
 }
 
-public class CmptRefCnstPrntObjPrntOutp<Tref>
+public class CmptRefCnstPrntObjPrntOutp<TRef>
   : Cmptref
-  , ICmptRefCnstPrntObjPrntOutp<Tref>
+  , ICmptRefCnstPrntObjPrntOutp<TRef>
 {
   public ICmptRefCnstPrntObjPrntOutpObject AsRefCnstPrntObjPrntOutp { get; set; }
 }

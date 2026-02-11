@@ -10,19 +10,19 @@ public interface Itest_ObjectKind
 {
 }
 
-public interface Itest_TypeObject<Tkind,Tfield>
-  : Itest_ChildType
+public interface Itest_TypeObject<TKind,TField>
+  : Itest_ChildType<TKind, Itest_ObjBase>
 {
   Itest_TypeObjectObject As_TypeObject { get; }
 }
 
-public interface Itest_TypeObjectObject<Tkind,Tfield>
-  : Itest_ChildTypeObject
+public interface Itest_TypeObjectObject<TKind,TField>
+  : Itest_ChildTypeObject<TKind, Itest_ObjBase>
 {
   ICollection<Itest_ObjTypeParam> TypeParams { get; }
-  ICollection<Tfield> Fields { get; }
+  ICollection<TField> Fields { get; }
   ICollection<Itest_ObjAlternate> Alternates { get; }
-  ICollection<Itest_ObjectFor<Tfield>> AllFields { get; }
+  ICollection<Itest_ObjectFor<TField>> AllFields { get; }
   ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; }
 }
 
@@ -52,14 +52,14 @@ public interface Itest_ObjBaseObject
 }
 
 public interface Itest_ObjTypeArg
-  : Itest_TypeRef
+  : Itest_TypeRef<Itest_TypeKind>
 {
   Itest_TypeParam As_TypeParam { get; }
   Itest_ObjTypeArgObject As_ObjTypeArg { get; }
 }
 
 public interface Itest_ObjTypeArgObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<Itest_TypeKind>
 {
   Itest_Name? Label { get; }
 }
@@ -89,39 +89,39 @@ public interface Itest_ObjAlternateObject
 }
 
 public interface Itest_ObjAlternateEnum
-  : Itest_TypeRef
+  : Itest_TypeRef<Itest_TypeKind>
 {
   Itest_ObjAlternateEnumObject As_ObjAlternateEnum { get; }
 }
 
 public interface Itest_ObjAlternateEnumObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<Itest_TypeKind>
 {
   Itest_Name Label { get; }
 }
 
-public interface Itest_ObjectFor<Tfor>
+public interface Itest_ObjectFor<TFor>
   : Itestfor
 {
   Itest_ObjectForObject As_ObjectFor { get; }
 }
 
-public interface Itest_ObjectForObject<Tfor>
+public interface Itest_ObjectForObject<TFor>
   : ItestforObject
 {
   Itest_Name Object { get; }
 }
 
-public interface Itest_ObjField<Ttype>
+public interface Itest_ObjField<TType>
   : Itest_Aliased
 {
   Itest_ObjFieldObject As_ObjField { get; }
 }
 
-public interface Itest_ObjFieldObject<Ttype>
+public interface Itest_ObjFieldObject<TType>
   : Itest_AliasedObject
 {
-  Ttype Type { get; }
+  TType Type { get; }
 }
 
 public interface Itest_ObjFieldType
@@ -138,24 +138,24 @@ public interface Itest_ObjFieldTypeObject
 }
 
 public interface Itest_ObjFieldEnum
-  : Itest_TypeRef
+  : Itest_TypeRef<Itest_TypeKind>
 {
   Itest_ObjFieldEnumObject As_ObjFieldEnum { get; }
 }
 
 public interface Itest_ObjFieldEnumObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<Itest_TypeKind>
 {
   Itest_Name Label { get; }
 }
 
-public interface Itest_ForParam<Ttype>
+public interface Itest_ForParam<TType>
 {
   Itest_ObjAlternate As_ObjAlternate { get; }
-  Itest_ObjField<Ttype> As_ObjField { get; }
+  Itest_ObjField<TType> As_ObjField { get; }
   Itest_ForParamObject As_ForParam { get; }
 }
 
-public interface Itest_ForParamObject<Ttype>
+public interface Itest_ForParamObject<TType>
 {
 }

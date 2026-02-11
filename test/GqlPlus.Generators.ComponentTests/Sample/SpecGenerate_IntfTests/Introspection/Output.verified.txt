@@ -16,13 +16,13 @@ output _OutputFieldType {
 namespace Components.Gqlp_Spec_Output;
 
 public interface ICmpt_OutputField
-  : ICmpt_ObjField
+  : ICmpt_ObjField<ICmpt_ObjFieldType>
 {
   ICmpt_OutputFieldObject As_OutputField { get; }
 }
 
 public interface ICmpt_OutputFieldObject
-  : ICmpt_ObjFieldObject
+  : ICmpt_ObjFieldObject<ICmpt_ObjFieldType>
 {
 }
 

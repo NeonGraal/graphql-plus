@@ -254,37 +254,37 @@ public interface ItestObjAltEnumOutpObject
 {
 }
 
-public interface ItestObjCnstDual<Ttype>
+public interface ItestObjCnstDual<TType>
 {
   ItestObjCnstDualObject AsObjCnstDual { get; }
 }
 
-public interface ItestObjCnstDualObject<Ttype>
+public interface ItestObjCnstDualObject<TType>
 {
-  Ttype Field { get; }
-  Ttype Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }
 
-public interface ItestObjCnstInp<Ttype>
+public interface ItestObjCnstInp<TType>
 {
   ItestObjCnstInpObject AsObjCnstInp { get; }
 }
 
-public interface ItestObjCnstInpObject<Ttype>
+public interface ItestObjCnstInpObject<TType>
 {
-  Ttype Field { get; }
-  Ttype Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }
 
-public interface ItestObjCnstOutp<Ttype>
+public interface ItestObjCnstOutp<TType>
 {
   ItestObjCnstOutpObject AsObjCnstOutp { get; }
 }
 
-public interface ItestObjCnstOutpObject<Ttype>
+public interface ItestObjCnstOutpObject<TType>
 {
-  Ttype Field { get; }
-  Ttype Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }
 
 public interface ItestObjFieldDual
@@ -491,70 +491,70 @@ public interface ItestObjFieldTypeAliasOutpObject
   string Field { get; }
 }
 
-public interface ItestObjParamDual<Ttest,Ttype>
+public interface ItestObjParamDual<TTest,TType>
 {
   ItestObjParamDualObject AsObjParamDual { get; }
 }
 
-public interface ItestObjParamDualObject<Ttest,Ttype>
+public interface ItestObjParamDualObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }
 
-public interface ItestObjParamInp<Ttest,Ttype>
+public interface ItestObjParamInp<TTest,TType>
 {
   ItestObjParamInpObject AsObjParamInp { get; }
 }
 
-public interface ItestObjParamInpObject<Ttest,Ttype>
+public interface ItestObjParamInpObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }
 
-public interface ItestObjParamOutp<Ttest,Ttype>
+public interface ItestObjParamOutp<TTest,TType>
 {
   ItestObjParamOutpObject AsObjParamOutp { get; }
 }
 
-public interface ItestObjParamOutpObject<Ttest,Ttype>
+public interface ItestObjParamOutpObject<TTest,TType>
 {
-  Ttest Test { get; }
-  Ttype Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }
 
-public interface ItestObjParamDupDual<Ttest>
+public interface ItestObjParamDupDual<TTest>
 {
   ItestObjParamDupDualObject AsObjParamDupDual { get; }
 }
 
-public interface ItestObjParamDupDualObject<Ttest>
+public interface ItestObjParamDupDualObject<TTest>
 {
-  Ttest Test { get; }
-  Ttest Type { get; }
+  TTest Test { get; }
+  TTest Type { get; }
 }
 
-public interface ItestObjParamDupInp<Ttest>
+public interface ItestObjParamDupInp<TTest>
 {
   ItestObjParamDupInpObject AsObjParamDupInp { get; }
 }
 
-public interface ItestObjParamDupInpObject<Ttest>
+public interface ItestObjParamDupInpObject<TTest>
 {
-  Ttest Test { get; }
-  Ttest Type { get; }
+  TTest Test { get; }
+  TTest Type { get; }
 }
 
-public interface ItestObjParamDupOutp<Ttest>
+public interface ItestObjParamDupOutp<TTest>
 {
   ItestObjParamDupOutpObject AsObjParamDupOutp { get; }
 }
 
-public interface ItestObjParamDupOutpObject<Ttest>
+public interface ItestObjParamDupOutpObject<TTest>
 {
-  Ttest Test { get; }
-  Ttest Type { get; }
+  TTest Test { get; }
+  TTest Type { get; }
 }
 
 public interface ItestObjPrntDual

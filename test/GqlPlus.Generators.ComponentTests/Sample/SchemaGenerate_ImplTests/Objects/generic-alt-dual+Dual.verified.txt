@@ -17,10 +17,10 @@ public class CmptGnrcAltDualDual
   public ICmptGnrcAltDualDualObject AsGnrcAltDualDual { get; set; }
 }
 
-public class CmptRefGnrcAltDualDual<Tref>
-  : ICmptRefGnrcAltDualDual<Tref>
+public class CmptRefGnrcAltDualDual<TRef>
+  : ICmptRefGnrcAltDualDual<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefGnrcAltDualDualObject AsRefGnrcAltDualDual { get; set; }
 }
 

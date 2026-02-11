@@ -17,10 +17,10 @@ public class CmptCnstAltDmnInp
   public ICmptCnstAltDmnInpObject AsCnstAltDmnInp { get; set; }
 }
 
-public class CmptRefCnstAltDmnInp<Tref>
-  : ICmptRefCnstAltDmnInp<Tref>
+public class CmptRefCnstAltDmnInp<TRef>
+  : ICmptRefCnstAltDmnInp<TRef>
 {
-  public Tref Asref { get; set; }
+  public TRef Asref { get; set; }
   public ICmptRefCnstAltDmnInpObject AsRefCnstAltDmnInp { get; set; }
 }
 

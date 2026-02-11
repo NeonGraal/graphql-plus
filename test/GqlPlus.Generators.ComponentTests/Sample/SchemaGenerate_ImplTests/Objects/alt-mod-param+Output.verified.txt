@@ -9,10 +9,10 @@ output AltAltModParamOutp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_param_Output;
 
-public class CmptAltModParamOutp<Tmod>
-  : ICmptAltModParamOutp<Tmod>
+public class CmptAltModParamOutp<TMod>
+  : ICmptAltModParamOutp<TMod>
 {
-  public IDictionary<Tmod, ICmptAltAltModParamOutp> AsAltAltModParamOutp { get; set; }
+  public IDictionary<TMod, ICmptAltAltModParamOutp> AsAltAltModParamOutp { get; set; }
   public ICmptAltModParamOutpObject AsAltModParamOutp { get; set; }
 }
 

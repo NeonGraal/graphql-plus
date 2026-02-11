@@ -12,7 +12,6 @@
   <ItemGroup>
     <AdditionalFiles Include="..\GqlPlus.ComponentTestBase\Samples\StarWars\StarWars.graphql+" />
 
-    <CompilerVisibleProperty Include="GqlPlus_BaseNamespace" />
     <CompilerVisibleProperty Include="GqlPlus_TypePrefix" />
   </ItemGroup>
 

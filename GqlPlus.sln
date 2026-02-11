@@ -134,7 +134,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.Attribut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.GeneratorsTestBase", "test\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj", "{17C63E58-68E8-47BC-1FFE-497979A3ACDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.StarWars.Gqlp", "test\GqlPlus.StarWars.Gqlp\GqlPlus.StarWars.Gqlp.csproj", "{BDE665BC-9003-91CF-3B20-3D2B5E009B82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.StarWars.GraphQlPlus", "test\GqlPlus.StarWars.GraphQlPlus\GqlPlus.StarWars.GraphQlPlus.csproj", "{BDE665BC-9003-91CF-3B20-3D2B5E009B82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

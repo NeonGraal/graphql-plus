@@ -12,8 +12,8 @@ namespace Components.Gqlp_Schema_generic_alt_param_Input;
 
 public interface ICmptGnrcAltParamInp
 {
-  public ICmptRefGnrcAltParamInp<ICmptAltGnrcAltParamInp> AsRefGnrcAltParamInp { get; set; }
-  public ICmptGnrcAltParamInpObject AsGnrcAltParamInp { get; set; }
+  ICmptRefGnrcAltParamInp<ICmptAltGnrcAltParamInp> AsRefGnrcAltParamInp { get; }
+  ICmptGnrcAltParamInpObject AsGnrcAltParamInp { get; }
 }
 
 public interface ICmptGnrcAltParamInpObject
@@ -22,8 +22,8 @@ public interface ICmptGnrcAltParamInpObject
 
 public interface ICmptRefGnrcAltParamInp<Tref>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltParamInpObject AsRefGnrcAltParamInp { get; set; }
+  Tref Asref { get; }
+  ICmptRefGnrcAltParamInpObject AsRefGnrcAltParamInp { get; }
 }
 
 public interface ICmptRefGnrcAltParamInpObject<Tref>
@@ -32,11 +32,11 @@ public interface ICmptRefGnrcAltParamInpObject<Tref>
 
 public interface ICmptAltGnrcAltParamInp
 {
-  public string AsString { get; set; }
-  public ICmptAltGnrcAltParamInpObject AsAltGnrcAltParamInp { get; set; }
+  string AsString { get; }
+  ICmptAltGnrcAltParamInpObject AsAltGnrcAltParamInp { get; }
 }
 
 public interface ICmptAltGnrcAltParamInpObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

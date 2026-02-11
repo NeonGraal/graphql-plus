@@ -7,18 +7,18 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_dual_Dual;
 
 public interface ItestGnrcFieldDualDual
 {
-  public ItestGnrcFieldDualDualObject AsGnrcFieldDualDual { get; set; }
+  ItestGnrcFieldDualDualObject AsGnrcFieldDualDual { get; }
 }
 
 public interface ItestGnrcFieldDualDualObject
 {
-  public ItestRefGnrcFieldDualDual<ItestAltGnrcFieldDualDual> Field { get; set; }
+  ItestRefGnrcFieldDualDual<ItestAltGnrcFieldDualDual> Field { get; }
 }
 
 public interface ItestRefGnrcFieldDualDual<Tref>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcFieldDualDualObject AsRefGnrcFieldDualDual { get; set; }
+  Tref Asref { get; }
+  ItestRefGnrcFieldDualDualObject AsRefGnrcFieldDualDual { get; }
 }
 
 public interface ItestRefGnrcFieldDualDualObject<Tref>
@@ -27,11 +27,11 @@ public interface ItestRefGnrcFieldDualDualObject<Tref>
 
 public interface ItestAltGnrcFieldDualDual
 {
-  public string AsString { get; set; }
-  public ItestAltGnrcFieldDualDualObject AsAltGnrcFieldDualDual { get; set; }
+  string AsString { get; }
+  ItestAltGnrcFieldDualDualObject AsAltGnrcFieldDualDual { get; }
 }
 
 public interface ItestAltGnrcFieldDualDualObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

@@ -11,10 +11,10 @@ namespace Components.Gqlp_Schema_object_field_type_alias_Dual;
 
 public interface ICmptObjFieldTypeAliasDual
 {
-  public ICmptObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; set; }
+  ICmptObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; }
 }
 
 public interface ICmptObjFieldTypeAliasDualObject
 {
-  public string Field { get; set; }
+  string Field { get; }
 }

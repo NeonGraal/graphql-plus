@@ -77,18 +77,18 @@ namespace Components.Gqlp_Spec_Type;
 
 public interface ICmpt_Type
 {
-  public ICmpt_BaseType<Cmpt_TypeKind> As_BaseType { get; set; }
-  public ICmpt_BaseType<Cmpt_TypeKind> As_BaseType { get; set; }
-  public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainTrueFalse, ICmpt_DomainItemTrueFalse> As_BaseDomain { get; set; }
-  public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainLabel, ICmpt_DomainItemLabel> As_BaseDomain { get; set; }
-  public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRange, ICmpt_DomainItemRange> As_BaseDomain { get; set; }
-  public ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRegex, ICmpt_DomainItemRegex> As_BaseDomain { get; set; }
-  public ICmpt_ParentType<Cmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel> As_ParentType { get; set; }
-  public ICmpt_ParentType<Cmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember> As_ParentType { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_DualField> As_TypeObject { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_InputField> As_TypeObject { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_OutputField> As_TypeObject { get; set; }
-  public ICmpt_TypeObject As_Type { get; set; }
+  ICmpt_BaseType<Cmpt_TypeKind> As_BaseType { get; }
+  ICmpt_BaseType<Cmpt_TypeKind> As_BaseType { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainTrueFalse, ICmpt_DomainItemTrueFalse> As_BaseDomain { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainLabel, ICmpt_DomainItemLabel> As_BaseDomain { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRange, ICmpt_DomainItemRange> As_BaseDomain { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRegex, ICmpt_DomainItemRegex> As_BaseDomain { get; }
+  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel> As_ParentType { get; }
+  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember> As_ParentType { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_DualField> As_TypeObject { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_InputField> As_TypeObject { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_OutputField> As_TypeObject { get; }
+  ICmpt_TypeObject As_Type { get; }
 }
 
 public interface ICmpt_TypeObject
@@ -98,59 +98,59 @@ public interface ICmpt_TypeObject
 public interface ICmpt_BaseType<Tkind>
   : ICmpt_Aliased
 {
-  public ICmpt_BaseTypeObject As_BaseType { get; set; }
+  ICmpt_BaseTypeObject As_BaseType { get; }
 }
 
 public interface ICmpt_BaseTypeObject<Tkind>
   : ICmpt_AliasedObject
 {
-  public Tkind TypeKind { get; set; }
+  Tkind TypeKind { get; }
 }
 
 public interface ICmpt_ChildType<Tkind,Tparent>
   : ICmpt_BaseType
 {
-  public ICmpt_ChildTypeObject As_ChildType { get; set; }
+  ICmpt_ChildTypeObject As_ChildType { get; }
 }
 
 public interface ICmpt_ChildTypeObject<Tkind,Tparent>
   : ICmpt_BaseTypeObject
 {
-  public Tparent Parent { get; set; }
+  Tparent Parent { get; }
 }
 
 public interface ICmpt_ParentType<Tkind,Titem,TallItem>
   : ICmpt_ChildType
 {
-  public ICmpt_ParentTypeObject As_ParentType { get; set; }
+  ICmpt_ParentTypeObject As_ParentType { get; }
 }
 
 public interface ICmpt_ParentTypeObject<Tkind,Titem,TallItem>
   : ICmpt_ChildTypeObject
 {
-  public ICollection<Titem> Items { get; set; }
-  public ICollection<TallItem> AllItems { get; set; }
+  ICollection<Titem> Items { get; }
+  ICollection<TallItem> AllItems { get; }
 }
 
 public interface ICmpt_TypeRef<Tkind>
   : ICmpt_Named
 {
-  public ICmpt_TypeRefObject As_TypeRef { get; set; }
+  ICmpt_TypeRefObject As_TypeRef { get; }
 }
 
 public interface ICmpt_TypeRefObject<Tkind>
   : ICmpt_NamedObject
 {
-  public Tkind TypeKind { get; set; }
+  Tkind TypeKind { get; }
 }
 
 public interface ICmpt_TypeSimple
 {
-  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; set; }
-  public ICmpt_TypeSimpleObject As_TypeSimple { get; set; }
+  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeRef { get; }
+  ICmpt_TypeSimpleObject As_TypeSimple { get; }
 }
 
 public interface ICmpt_TypeSimpleObject
@@ -159,10 +159,10 @@ public interface ICmpt_TypeSimpleObject
 
 public interface ICmpt_Collections
 {
-  public ICmpt_Modifier<Cmpt_ModifierKind> As_Modifier { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKeyed { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKeyed { get; set; }
-  public ICmpt_CollectionsObject As_Collections { get; set; }
+  ICmpt_Modifier<Cmpt_ModifierKind> As_Modifier { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKeyed { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKeyed { get; }
+  ICmpt_CollectionsObject As_Collections { get; }
 }
 
 public interface ICmpt_CollectionsObject
@@ -172,21 +172,21 @@ public interface ICmpt_CollectionsObject
 public interface ICmpt_ModifierKeyed<Tkind>
   : ICmpt_Modifier
 {
-  public ICmpt_ModifierKeyedObject As_ModifierKeyed { get; set; }
+  ICmpt_ModifierKeyedObject As_ModifierKeyed { get; }
 }
 
 public interface ICmpt_ModifierKeyedObject<Tkind>
   : ICmpt_ModifierObject
 {
-  public ICmpt_TypeSimple By { get; set; }
-  public bool Optional { get; set; }
+  ICmpt_TypeSimple By { get; }
+  bool Optional { get; }
 }
 
 public interface ICmpt_Modifiers
 {
-  public ICmpt_Modifier<Cmpt_ModifierKind> As_Modifier { get; set; }
-  public ICmpt_Collections As_Collections { get; set; }
-  public ICmpt_ModifiersObject As_Modifiers { get; set; }
+  ICmpt_Modifier<Cmpt_ModifierKind> As_Modifier { get; }
+  ICmpt_Collections As_Collections { get; }
+  ICmpt_ModifiersObject As_Modifiers { get; }
 }
 
 public interface ICmpt_ModifiersObject
@@ -195,10 +195,10 @@ public interface ICmpt_ModifiersObject
 
 public interface ICmpt_Modifier<Tkind>
 {
-  public ICmpt_ModifierObject As_Modifier { get; set; }
+  ICmpt_ModifierObject As_Modifier { get; }
 }
 
 public interface ICmpt_ModifierObject<Tkind>
 {
-  public Tkind ModifierKind { get; set; }
+  Tkind ModifierKind { get; }
 }

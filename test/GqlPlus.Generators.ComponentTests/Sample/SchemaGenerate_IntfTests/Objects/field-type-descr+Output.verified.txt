@@ -10,10 +10,10 @@ namespace Components.Gqlp_Schema_field_type_descr_Output;
 
 public interface ICmptFieldTypeDescrOutp
 {
-  public ICmptFieldTypeDescrOutpObject AsFieldTypeDescrOutp { get; set; }
+  ICmptFieldTypeDescrOutpObject AsFieldTypeDescrOutp { get; }
 }
 
 public interface ICmptFieldTypeDescrOutpObject
 {
-  public decimal Field { get; set; }
+  decimal Field { get; }
 }

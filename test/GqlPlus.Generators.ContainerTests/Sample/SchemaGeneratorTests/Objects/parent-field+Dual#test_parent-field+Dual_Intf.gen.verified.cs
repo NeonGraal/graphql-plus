@@ -8,22 +8,22 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_field_Dual;
 public interface ItestPrntFieldDual
   : ItestRefPrntFieldDual
 {
-  public ItestPrntFieldDualObject AsPrntFieldDual { get; set; }
+  ItestPrntFieldDualObject AsPrntFieldDual { get; }
 }
 
 public interface ItestPrntFieldDualObject
   : ItestRefPrntFieldDualObject
 {
-  public decimal Field { get; set; }
+  decimal Field { get; }
 }
 
 public interface ItestRefPrntFieldDual
 {
-  public string AsString { get; set; }
-  public ItestRefPrntFieldDualObject AsRefPrntFieldDual { get; set; }
+  string AsString { get; }
+  ItestRefPrntFieldDualObject AsRefPrntFieldDual { get; }
 }
 
 public interface ItestRefPrntFieldDualObject
 {
-  public decimal Parent { get; set; }
+  decimal Parent { get; }
 }

@@ -10,8 +10,8 @@ namespace Components.Gqlp_Schema_generic_alt_mod_param_Dual;
 
 public interface ICmptRefGnrcAltModParamDual<Tref,Tmod>
 {
-  public IDictionary<Tmod, Tref> Asref { get; set; }
-  public ICmptRefGnrcAltModParamDualObject AsRefGnrcAltModParamDual { get; set; }
+  IDictionary<Tmod, Tref> Asref { get; }
+  ICmptRefGnrcAltModParamDualObject AsRefGnrcAltModParamDual { get; }
 }
 
 public interface ICmptRefGnrcAltModParamDualObject<Tref,Tmod>

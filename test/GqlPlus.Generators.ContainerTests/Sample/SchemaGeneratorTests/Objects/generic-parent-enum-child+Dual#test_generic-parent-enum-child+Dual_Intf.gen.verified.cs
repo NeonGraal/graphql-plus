@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_child_Dual;
 public interface ItestGnrcPrntEnumChildDual
   : ItestFieldGnrcPrntEnumChildDual
 {
-  public ItestGnrcPrntEnumChildDualObject AsGnrcPrntEnumChildDual { get; set; }
+  ItestGnrcPrntEnumChildDualObject AsGnrcPrntEnumChildDual { get; }
 }
 
 public interface ItestGnrcPrntEnumChildDualObject
@@ -18,10 +18,10 @@ public interface ItestGnrcPrntEnumChildDualObject
 
 public interface ItestFieldGnrcPrntEnumChildDual<Tref>
 {
-  public ItestFieldGnrcPrntEnumChildDualObject AsFieldGnrcPrntEnumChildDual { get; set; }
+  ItestFieldGnrcPrntEnumChildDualObject AsFieldGnrcPrntEnumChildDual { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumChildDualObject<Tref>
 {
-  public Tref Field { get; set; }
+  Tref Field { get; }
 }

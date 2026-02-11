@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_generic_parent_dual_parent_Input;
 public interface ICmptGnrcPrntDualPrntInp
   : ICmptRefGnrcPrntDualPrntInp
 {
-  public ICmptGnrcPrntDualPrntInpObject AsGnrcPrntDualPrntInp { get; set; }
+  ICmptGnrcPrntDualPrntInpObject AsGnrcPrntDualPrntInp { get; }
 }
 
 public interface ICmptGnrcPrntDualPrntInpObject
@@ -24,7 +24,7 @@ public interface ICmptGnrcPrntDualPrntInpObject
 public interface ICmptRefGnrcPrntDualPrntInp<Tref>
   : ICmptref
 {
-  public ICmptRefGnrcPrntDualPrntInpObject AsRefGnrcPrntDualPrntInp { get; set; }
+  ICmptRefGnrcPrntDualPrntInpObject AsRefGnrcPrntDualPrntInp { get; }
 }
 
 public interface ICmptRefGnrcPrntDualPrntInpObject<Tref>
@@ -34,11 +34,11 @@ public interface ICmptRefGnrcPrntDualPrntInpObject<Tref>
 
 public interface ICmptAltGnrcPrntDualPrntInp
 {
-  public string AsString { get; set; }
-  public ICmptAltGnrcPrntDualPrntInpObject AsAltGnrcPrntDualPrntInp { get; set; }
+  string AsString { get; }
+  ICmptAltGnrcPrntDualPrntInpObject AsAltGnrcPrntDualPrntInp { get; }
 }
 
 public interface ICmptAltGnrcPrntDualPrntInpObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

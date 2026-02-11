@@ -11,8 +11,8 @@ namespace Components.Gqlp_Schema_generic_alt_simple_Output;
 
 public interface ICmptGnrcAltSmplOutp
 {
-  public ICmptRefGnrcAltSmplOutp<string> AsRefGnrcAltSmplOutp { get; set; }
-  public ICmptGnrcAltSmplOutpObject AsGnrcAltSmplOutp { get; set; }
+  ICmptRefGnrcAltSmplOutp<string> AsRefGnrcAltSmplOutp { get; }
+  ICmptGnrcAltSmplOutpObject AsGnrcAltSmplOutp { get; }
 }
 
 public interface ICmptGnrcAltSmplOutpObject
@@ -21,8 +21,8 @@ public interface ICmptGnrcAltSmplOutpObject
 
 public interface ICmptRefGnrcAltSmplOutp<Tref>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltSmplOutpObject AsRefGnrcAltSmplOutp { get; set; }
+  Tref Asref { get; }
+  ICmptRefGnrcAltSmplOutpObject AsRefGnrcAltSmplOutp { get; }
 }
 
 public interface ICmptRefGnrcAltSmplOutpObject<Tref>

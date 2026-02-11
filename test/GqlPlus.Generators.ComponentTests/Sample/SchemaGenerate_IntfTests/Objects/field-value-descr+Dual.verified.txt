@@ -11,10 +11,10 @@ namespace Components.Gqlp_Schema_field_value_descr_Dual;
 
 public interface ICmptFieldValueDescrDual
 {
-  public ICmptFieldValueDescrDualObject AsFieldValueDescrDual { get; set; }
+  ICmptFieldValueDescrDualObject AsFieldValueDescrDual { get; }
 }
 
 public interface ICmptFieldValueDescrDualObject
 {
-  public CmptEnumFieldValueDescrDual Field { get; set; }
+  CmptEnumFieldValueDescrDual Field { get; }
 }

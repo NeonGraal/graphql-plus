@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_generic_parent_simple_enum_Dual;
 public interface ICmptGnrcPrntSmplEnumDual
   : ICmptFieldGnrcPrntSmplEnumDual
 {
-  public ICmptGnrcPrntSmplEnumDualObject AsGnrcPrntSmplEnumDual { get; set; }
+  ICmptGnrcPrntSmplEnumDualObject AsGnrcPrntSmplEnumDual { get; }
 }
 
 public interface ICmptGnrcPrntSmplEnumDualObject
@@ -23,10 +23,10 @@ public interface ICmptGnrcPrntSmplEnumDualObject
 
 public interface ICmptFieldGnrcPrntSmplEnumDual<Tref>
 {
-  public ICmptFieldGnrcPrntSmplEnumDualObject AsFieldGnrcPrntSmplEnumDual { get; set; }
+  ICmptFieldGnrcPrntSmplEnumDualObject AsFieldGnrcPrntSmplEnumDual { get; }
 }
 
 public interface ICmptFieldGnrcPrntSmplEnumDualObject<Tref>
 {
-  public Tref Field { get; set; }
+  Tref Field { get; }
 }

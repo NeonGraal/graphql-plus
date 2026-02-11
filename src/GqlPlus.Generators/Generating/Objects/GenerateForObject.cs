@@ -11,8 +11,8 @@ internal class GenerateForObject<TObjField>
 
   private void GenerateObjectInterfaces(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
-    GenerateBlock(ast, context, InterfaceHeader, AlternateMembers, ClassMember);
-    GenerateBlock(ast, context, InterfaceFieldsHeader, FieldMembers, ClassMember);
+    GenerateBlock(ast, context, InterfaceHeader, AlternateMembers, InterfaceMember);
+    GenerateBlock(ast, context, InterfaceFieldsHeader, FieldMembers, InterfaceMember);
   }
 
   internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)

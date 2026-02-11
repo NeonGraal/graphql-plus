@@ -11,21 +11,21 @@ namespace Components.Gqlp_Schema_field_object_Output;
 
 public interface ICmptFieldObjOutp
 {
-  public ICmptFieldObjOutpObject AsFieldObjOutp { get; set; }
+  ICmptFieldObjOutpObject AsFieldObjOutp { get; }
 }
 
 public interface ICmptFieldObjOutpObject
 {
-  public ICmptFldFieldObjOutp Field { get; set; }
+  ICmptFldFieldObjOutp Field { get; }
 }
 
 public interface ICmptFldFieldObjOutp
 {
-  public string AsString { get; set; }
-  public ICmptFldFieldObjOutpObject AsFldFieldObjOutp { get; set; }
+  string AsString { get; }
+  ICmptFldFieldObjOutpObject AsFldFieldObjOutp { get; }
 }
 
 public interface ICmptFldFieldObjOutpObject
 {
-  public decimal Field { get; set; }
+  decimal Field { get; }
 }

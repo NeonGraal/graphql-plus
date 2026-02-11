@@ -11,10 +11,10 @@ namespace Components.Gqlp_Schema_object_field_enum_alias_Input;
 
 public interface ICmptObjFieldEnumAliasInp
 {
-  public ICmptObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; set; }
+  ICmptObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; }
 }
 
 public interface ICmptObjFieldEnumAliasInpObject
 {
-  public bool Field { get; set; }
+  bool Field { get; }
 }

@@ -8,28 +8,28 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_parent_param;
 public interface ItestOutpPrntParam
   : ItestPrntOutpPrntParam
 {
-  public ItestOutpPrntParamObject AsOutpPrntParam { get; set; }
+  ItestOutpPrntParamObject AsOutpPrntParam { get; }
 }
 
 public interface ItestOutpPrntParamObject
   : ItestPrntOutpPrntParamObject
 {
-  public ItestFldOutpPrntParam Field { get; set; }
+  ItestFldOutpPrntParam Field { get; }
 }
 
 public interface ItestPrntOutpPrntParam
 {
-  public ItestPrntOutpPrntParamObject AsPrntOutpPrntParam { get; set; }
+  ItestPrntOutpPrntParamObject AsPrntOutpPrntParam { get; }
 }
 
 public interface ItestPrntOutpPrntParamObject
 {
-  public ItestFldOutpPrntParam Field { get; set; }
+  ItestFldOutpPrntParam Field { get; }
 }
 
 public interface ItestFldOutpPrntParam
 {
-  public ItestFldOutpPrntParamObject AsFldOutpPrntParam { get; set; }
+  ItestFldOutpPrntParamObject AsFldOutpPrntParam { get; }
 }
 
 public interface ItestFldOutpPrntParamObject
@@ -38,22 +38,22 @@ public interface ItestFldOutpPrntParamObject
 
 public interface ItestInOutpPrntParam
 {
-  public string AsString { get; set; }
-  public ItestInOutpPrntParamObject AsInOutpPrntParam { get; set; }
+  string AsString { get; }
+  ItestInOutpPrntParamObject AsInOutpPrntParam { get; }
 }
 
 public interface ItestInOutpPrntParamObject
 {
-  public decimal Param { get; set; }
+  decimal Param { get; }
 }
 
 public interface ItestPrntOutpPrntParamIn
 {
-  public string AsString { get; set; }
-  public ItestPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; set; }
+  string AsString { get; }
+  ItestPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; }
 }
 
 public interface ItestPrntOutpPrntParamInObject
 {
-  public decimal Parent { get; set; }
+  decimal Parent { get; }
 }

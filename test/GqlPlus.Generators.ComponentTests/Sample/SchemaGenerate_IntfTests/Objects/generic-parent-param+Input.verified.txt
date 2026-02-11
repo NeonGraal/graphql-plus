@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_generic_parent_param_Input;
 public interface ICmptGnrcPrntParamInp
   : ICmptRefGnrcPrntParamInp
 {
-  public ICmptGnrcPrntParamInpObject AsGnrcPrntParamInp { get; set; }
+  ICmptGnrcPrntParamInpObject AsGnrcPrntParamInp { get; }
 }
 
 public interface ICmptGnrcPrntParamInpObject
@@ -23,8 +23,8 @@ public interface ICmptGnrcPrntParamInpObject
 
 public interface ICmptRefGnrcPrntParamInp<Tref>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntParamInpObject AsRefGnrcPrntParamInp { get; set; }
+  Tref Asref { get; }
+  ICmptRefGnrcPrntParamInpObject AsRefGnrcPrntParamInp { get; }
 }
 
 public interface ICmptRefGnrcPrntParamInpObject<Tref>
@@ -33,11 +33,11 @@ public interface ICmptRefGnrcPrntParamInpObject<Tref>
 
 public interface ICmptAltGnrcPrntParamInp
 {
-  public string AsString { get; set; }
-  public ICmptAltGnrcPrntParamInpObject AsAltGnrcPrntParamInp { get; set; }
+  string AsString { get; }
+  ICmptAltGnrcPrntParamInpObject AsAltGnrcPrntParamInp { get; }
 }
 
 public interface ICmptAltGnrcPrntParamInpObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

@@ -15,7 +15,7 @@ namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
 public interface ICmptCnstPrntDualGrndOutp
   : ICmptRefCnstPrntDualGrndOutp
 {
-  public ICmptCnstPrntDualGrndOutpObject AsCnstPrntDualGrndOutp { get; set; }
+  ICmptCnstPrntDualGrndOutpObject AsCnstPrntDualGrndOutp { get; }
 }
 
 public interface ICmptCnstPrntDualGrndOutpObject
@@ -26,7 +26,7 @@ public interface ICmptCnstPrntDualGrndOutpObject
 public interface ICmptRefCnstPrntDualGrndOutp<Tref>
   : ICmptref
 {
-  public ICmptRefCnstPrntDualGrndOutpObject AsRefCnstPrntDualGrndOutp { get; set; }
+  ICmptRefCnstPrntDualGrndOutpObject AsRefCnstPrntDualGrndOutp { get; }
 }
 
 public interface ICmptRefCnstPrntDualGrndOutpObject<Tref>
@@ -36,8 +36,8 @@ public interface ICmptRefCnstPrntDualGrndOutpObject<Tref>
 
 public interface ICmptGrndCnstPrntDualGrndOutp
 {
-  public string AsString { get; set; }
-  public ICmptGrndCnstPrntDualGrndOutpObject AsGrndCnstPrntDualGrndOutp { get; set; }
+  string AsString { get; }
+  ICmptGrndCnstPrntDualGrndOutpObject AsGrndCnstPrntDualGrndOutp { get; }
 }
 
 public interface ICmptGrndCnstPrntDualGrndOutpObject
@@ -47,7 +47,7 @@ public interface ICmptGrndCnstPrntDualGrndOutpObject
 public interface ICmptPrntCnstPrntDualGrndOutp
   : ICmptGrndCnstPrntDualGrndOutp
 {
-  public ICmptPrntCnstPrntDualGrndOutpObject AsPrntCnstPrntDualGrndOutp { get; set; }
+  ICmptPrntCnstPrntDualGrndOutpObject AsPrntCnstPrntDualGrndOutp { get; }
 }
 
 public interface ICmptPrntCnstPrntDualGrndOutpObject
@@ -58,11 +58,11 @@ public interface ICmptPrntCnstPrntDualGrndOutpObject
 public interface ICmptAltCnstPrntDualGrndOutp
   : ICmptPrntCnstPrntDualGrndOutp
 {
-  public ICmptAltCnstPrntDualGrndOutpObject AsAltCnstPrntDualGrndOutp { get; set; }
+  ICmptAltCnstPrntDualGrndOutpObject AsAltCnstPrntDualGrndOutp { get; }
 }
 
 public interface ICmptAltCnstPrntDualGrndOutpObject
   : ICmptPrntCnstPrntDualGrndOutpObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

@@ -12,8 +12,8 @@ namespace Components.Gqlp_Schema_generic_alt_param_Dual;
 
 public interface ICmptGnrcAltParamDual
 {
-  public ICmptRefGnrcAltParamDual<ICmptAltGnrcAltParamDual> AsRefGnrcAltParamDual { get; set; }
-  public ICmptGnrcAltParamDualObject AsGnrcAltParamDual { get; set; }
+  ICmptRefGnrcAltParamDual<ICmptAltGnrcAltParamDual> AsRefGnrcAltParamDual { get; }
+  ICmptGnrcAltParamDualObject AsGnrcAltParamDual { get; }
 }
 
 public interface ICmptGnrcAltParamDualObject
@@ -22,8 +22,8 @@ public interface ICmptGnrcAltParamDualObject
 
 public interface ICmptRefGnrcAltParamDual<Tref>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltParamDualObject AsRefGnrcAltParamDual { get; set; }
+  Tref Asref { get; }
+  ICmptRefGnrcAltParamDualObject AsRefGnrcAltParamDual { get; }
 }
 
 public interface ICmptRefGnrcAltParamDualObject<Tref>
@@ -32,11 +32,11 @@ public interface ICmptRefGnrcAltParamDualObject<Tref>
 
 public interface ICmptAltGnrcAltParamDual
 {
-  public string AsString { get; set; }
-  public ICmptAltGnrcAltParamDualObject AsAltGnrcAltParamDual { get; set; }
+  string AsString { get; }
+  ICmptAltGnrcAltParamDualObject AsAltGnrcAltParamDual { get; }
 }
 
 public interface ICmptAltGnrcAltParamDualObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

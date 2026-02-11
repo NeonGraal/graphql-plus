@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Union;
 public interface Itest_UnionRef
   : Itest_TypeRef
 {
-  public Itest_UnionRefObject As_UnionRef { get; set; }
+  Itest_UnionRefObject As_UnionRef { get; }
 }
 
 public interface Itest_UnionRefObject
@@ -19,11 +19,11 @@ public interface Itest_UnionRefObject
 public interface Itest_UnionMember
   : Itest_UnionRef
 {
-  public Itest_UnionMemberObject As_UnionMember { get; set; }
+  Itest_UnionMemberObject As_UnionMember { get; }
 }
 
 public interface Itest_UnionMemberObject
   : Itest_UnionRefObject
 {
-  public Itest_Name Union { get; set; }
+  Itest_Name Union { get; }
 }

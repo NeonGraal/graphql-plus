@@ -11,18 +11,18 @@ namespace Components.Gqlp_Schema_generic_field_arg_Dual;
 
 public interface ICmptGnrcFieldArgDual<Ttype>
 {
-  public ICmptGnrcFieldArgDualObject AsGnrcFieldArgDual { get; set; }
+  ICmptGnrcFieldArgDualObject AsGnrcFieldArgDual { get; }
 }
 
 public interface ICmptGnrcFieldArgDualObject<Ttype>
 {
-  public ICmptRefGnrcFieldArgDual<Ttype> Field { get; set; }
+  ICmptRefGnrcFieldArgDual<Ttype> Field { get; }
 }
 
 public interface ICmptRefGnrcFieldArgDual<Tref>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldArgDualObject AsRefGnrcFieldArgDual { get; set; }
+  Tref Asref { get; }
+  ICmptRefGnrcFieldArgDualObject AsRefGnrcFieldArgDual { get; }
 }
 
 public interface ICmptRefGnrcFieldArgDualObject<Tref>

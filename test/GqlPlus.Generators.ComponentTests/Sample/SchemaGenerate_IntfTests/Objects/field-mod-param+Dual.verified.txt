@@ -11,21 +11,21 @@ namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
 public interface ICmptFieldModParamDual<Tmod>
 {
-  public ICmptFieldModParamDualObject AsFieldModParamDual { get; set; }
+  ICmptFieldModParamDualObject AsFieldModParamDual { get; }
 }
 
 public interface ICmptFieldModParamDualObject<Tmod>
 {
-  public IDictionary<Tmod, ICmptFldFieldModParamDual> Field { get; set; }
+  IDictionary<Tmod, ICmptFldFieldModParamDual> Field { get; }
 }
 
 public interface ICmptFldFieldModParamDual
 {
-  public string AsString { get; set; }
-  public ICmptFldFieldModParamDualObject AsFldFieldModParamDual { get; set; }
+  string AsString { get; }
+  ICmptFldFieldModParamDualObject AsFldFieldModParamDual { get; }
 }
 
 public interface ICmptFldFieldModParamDualObject
 {
-  public decimal Field { get; set; }
+  decimal Field { get; }
 }

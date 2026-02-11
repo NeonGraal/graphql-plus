@@ -12,8 +12,8 @@ namespace Components.Gqlp_Schema_generic_enum_Input;
 
 public interface ICmptGnrcEnumInp
 {
-  public ICmptRefGnrcEnumInp<CmptEnumGnrcEnumInp> AsRefGnrcEnumInp { get; set; }
-  public ICmptGnrcEnumInpObject AsGnrcEnumInp { get; set; }
+  ICmptRefGnrcEnumInp<CmptEnumGnrcEnumInp> AsRefGnrcEnumInp { get; }
+  ICmptGnrcEnumInpObject AsGnrcEnumInp { get; }
 }
 
 public interface ICmptGnrcEnumInpObject
@@ -22,10 +22,10 @@ public interface ICmptGnrcEnumInpObject
 
 public interface ICmptRefGnrcEnumInp<Ttype>
 {
-  public ICmptRefGnrcEnumInpObject AsRefGnrcEnumInp { get; set; }
+  ICmptRefGnrcEnumInpObject AsRefGnrcEnumInp { get; }
 }
 
 public interface ICmptRefGnrcEnumInpObject<Ttype>
 {
-  public Ttype Field { get; set; }
+  Ttype Field { get; }
 }

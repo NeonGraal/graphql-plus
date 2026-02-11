@@ -7,18 +7,18 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Dual;
 
 public interface ItestGnrcFieldArgDual<Ttype>
 {
-  public ItestGnrcFieldArgDualObject AsGnrcFieldArgDual { get; set; }
+  ItestGnrcFieldArgDualObject AsGnrcFieldArgDual { get; }
 }
 
 public interface ItestGnrcFieldArgDualObject<Ttype>
 {
-  public ItestRefGnrcFieldArgDual<Ttype> Field { get; set; }
+  ItestRefGnrcFieldArgDual<Ttype> Field { get; }
 }
 
 public interface ItestRefGnrcFieldArgDual<Tref>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcFieldArgDualObject AsRefGnrcFieldArgDual { get; set; }
+  Tref Asref { get; }
+  ItestRefGnrcFieldArgDualObject AsRefGnrcFieldArgDual { get; }
 }
 
 public interface ItestRefGnrcFieldArgDualObject<Tref>

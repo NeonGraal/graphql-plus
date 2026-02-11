@@ -7,8 +7,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_Output;
 
 public interface ItestAltOutp
 {
-  public ItestAltAltOutp AsAltAltOutp { get; set; }
-  public ItestAltOutpObject AsAltOutp { get; set; }
+  ItestAltAltOutp AsAltAltOutp { get; }
+  ItestAltOutpObject AsAltOutp { get; }
 }
 
 public interface ItestAltOutpObject
@@ -17,11 +17,11 @@ public interface ItestAltOutpObject
 
 public interface ItestAltAltOutp
 {
-  public string AsString { get; set; }
-  public ItestAltAltOutpObject AsAltAltOutp { get; set; }
+  string AsString { get; }
+  ItestAltAltOutpObject AsAltAltOutp { get; }
 }
 
 public interface ItestAltAltOutpObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

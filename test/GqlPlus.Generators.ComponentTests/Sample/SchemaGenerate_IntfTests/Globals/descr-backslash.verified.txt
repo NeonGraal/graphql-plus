@@ -11,7 +11,7 @@ namespace Components.Gqlp_Schema_descr_backslash;
 
 public interface ICmptDescrBcks
 {
-  public ICmptDescrBcksObject AsDescrBcks { get; set; }
+  ICmptDescrBcksObject AsDescrBcks { get; }
 }
 
 public interface ICmptDescrBcksObject

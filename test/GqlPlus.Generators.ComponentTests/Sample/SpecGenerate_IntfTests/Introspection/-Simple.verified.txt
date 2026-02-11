@@ -100,71 +100,71 @@ namespace Components.Gqlp_Spec_Simple;
 public interface ICmpt_DomainRef<Tkind>
   : ICmpt_TypeRef
 {
-  public ICmpt_DomainRefObject As_DomainRef { get; set; }
+  ICmpt_DomainRefObject As_DomainRef { get; }
 }
 
 public interface ICmpt_DomainRefObject<Tkind>
   : ICmpt_TypeRefObject
 {
-  public Tkind DomainKind { get; set; }
+  Tkind DomainKind { get; }
 }
 
 public interface ICmpt_BaseDomain<Tdomain,Titem,TdomainItem>
   : ICmpt_ParentType
 {
-  public ICmpt_BaseDomainObject As_BaseDomain { get; set; }
+  ICmpt_BaseDomainObject As_BaseDomain { get; }
 }
 
 public interface ICmpt_BaseDomainObject<Tdomain,Titem,TdomainItem>
   : ICmpt_ParentTypeObject
 {
-  public Tdomain DomainKind { get; set; }
+  Tdomain DomainKind { get; }
 }
 
 public interface ICmpt_BaseDomainItem
   : ICmpt_Described
 {
-  public ICmpt_BaseDomainItemObject As_BaseDomainItem { get; set; }
+  ICmpt_BaseDomainItemObject As_BaseDomainItem { get; }
 }
 
 public interface ICmpt_BaseDomainItemObject
   : ICmpt_DescribedObject
 {
-  public Cmpt_DomainKind Exclude { get; set; }
+  Cmpt_DomainKind Exclude { get; }
 }
 
 public interface ICmpt_DomainItem<Titem>
   : ICmptitem
 {
-  public ICmpt_DomainItemObject As_DomainItem { get; set; }
+  ICmpt_DomainItemObject As_DomainItem { get; }
 }
 
 public interface ICmpt_DomainItemObject<Titem>
   : ICmptitemObject
 {
-  public ICmpt_Name Domain { get; set; }
+  ICmpt_Name Domain { get; }
 }
 
 public interface ICmpt_DomainValue<Tkind,Tvalue>
   : ICmpt_DomainRef
 {
-  public Tvalue Asvalue { get; set; }
-  public ICmpt_DomainValueObject As_DomainValue { get; set; }
+  Tvalue Asvalue { get; }
+  ICmpt_DomainValueObject As_DomainValue { get; }
 }
 
 public interface ICmpt_DomainValueObject<Tkind,Tvalue>
   : ICmpt_DomainRefObject
 {
-  public Tvalue Value { get; set; }
+  Tvalue Value { get; }
 }
 
 public interface ICmpt_BasicValue
 {
-  public Cmpt_DomainKind As_DomainKindBoolean { get; set; }
-  public ICmpt_EnumValue As_EnumValue { get; set; }
-  public Cmpt_DomainKind As_DomainKindNumber { get; set; }
-  public Cmpt_DomainKind As_DomainKindString { get; set; }
-  public ICmpt_BasicValueObject As_BasicValue { get; set; }
+  Cmpt_DomainKind As_DomainKindBoolean { get; }
+  ICmpt_EnumValue As_EnumValue { get; }
+  Cmpt_DomainKind As_DomainKindNumber { get; }
+  Cmpt_DomainKind As_DomainKindString { get; }
+  ICmpt_BasicValueObject As_BasicValue { get; }
 }
 
 public interface ICmpt_BasicValueObject
@@ -174,19 +174,19 @@ public interface ICmpt_BasicValueObject
 public interface ICmpt_DomainTrueFalse
   : ICmpt_BaseDomainItem
 {
-  public ICmpt_DomainTrueFalseObject As_DomainTrueFalse { get; set; }
+  ICmpt_DomainTrueFalseObject As_DomainTrueFalse { get; }
 }
 
 public interface ICmpt_DomainTrueFalseObject
   : ICmpt_BaseDomainItemObject
 {
-  public Cmpt_DomainKind Value { get; set; }
+  Cmpt_DomainKind Value { get; }
 }
 
 public interface ICmpt_DomainItemTrueFalse
   : ICmpt_DomainItem
 {
-  public ICmpt_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; set; }
+  ICmpt_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; }
 }
 
 public interface ICmpt_DomainItemTrueFalseObject
@@ -197,19 +197,19 @@ public interface ICmpt_DomainItemTrueFalseObject
 public interface ICmpt_DomainLabel
   : ICmpt_BaseDomainItem
 {
-  public ICmpt_DomainLabelObject As_DomainLabel { get; set; }
+  ICmpt_DomainLabelObject As_DomainLabel { get; }
 }
 
 public interface ICmpt_DomainLabelObject
   : ICmpt_BaseDomainItemObject
 {
-  public ICmpt_EnumValue Label { get; set; }
+  ICmpt_EnumValue Label { get; }
 }
 
 public interface ICmpt_DomainItemLabel
   : ICmpt_DomainItem
 {
-  public ICmpt_DomainItemLabelObject As_DomainItemLabel { get; set; }
+  ICmpt_DomainItemLabelObject As_DomainItemLabel { get; }
 }
 
 public interface ICmpt_DomainItemLabelObject
@@ -220,20 +220,20 @@ public interface ICmpt_DomainItemLabelObject
 public interface ICmpt_DomainRange
   : ICmpt_BaseDomainItem
 {
-  public ICmpt_DomainRangeObject As_DomainRange { get; set; }
+  ICmpt_DomainRangeObject As_DomainRange { get; }
 }
 
 public interface ICmpt_DomainRangeObject
   : ICmpt_BaseDomainItemObject
 {
-  public Cmpt_DomainKind? Lower { get; set; }
-  public Cmpt_DomainKind? Upper { get; set; }
+  Cmpt_DomainKind? Lower { get; }
+  Cmpt_DomainKind? Upper { get; }
 }
 
 public interface ICmpt_DomainItemRange
   : ICmpt_DomainItem
 {
-  public ICmpt_DomainItemRangeObject As_DomainItemRange { get; set; }
+  ICmpt_DomainItemRangeObject As_DomainItemRange { get; }
 }
 
 public interface ICmpt_DomainItemRangeObject
@@ -244,19 +244,19 @@ public interface ICmpt_DomainItemRangeObject
 public interface ICmpt_DomainRegex
   : ICmpt_BaseDomainItem
 {
-  public ICmpt_DomainRegexObject As_DomainRegex { get; set; }
+  ICmpt_DomainRegexObject As_DomainRegex { get; }
 }
 
 public interface ICmpt_DomainRegexObject
   : ICmpt_BaseDomainItemObject
 {
-  public Cmpt_DomainKind Pattern { get; set; }
+  Cmpt_DomainKind Pattern { get; }
 }
 
 public interface ICmpt_DomainItemRegex
   : ICmpt_DomainItem
 {
-  public ICmpt_DomainItemRegexObject As_DomainItemRegex { get; set; }
+  ICmpt_DomainItemRegexObject As_DomainItemRegex { get; }
 }
 
 public interface ICmpt_DomainItemRegexObject
@@ -267,31 +267,31 @@ public interface ICmpt_DomainItemRegexObject
 public interface ICmpt_EnumLabel
   : ICmpt_Aliased
 {
-  public ICmpt_EnumLabelObject As_EnumLabel { get; set; }
+  ICmpt_EnumLabelObject As_EnumLabel { get; }
 }
 
 public interface ICmpt_EnumLabelObject
   : ICmpt_AliasedObject
 {
-  public ICmpt_Name Enum { get; set; }
+  ICmpt_Name Enum { get; }
 }
 
 public interface ICmpt_EnumValue
   : ICmpt_TypeRef
 {
-  public ICmpt_EnumValueObject As_EnumValue { get; set; }
+  ICmpt_EnumValueObject As_EnumValue { get; }
 }
 
 public interface ICmpt_EnumValueObject
   : ICmpt_TypeRefObject
 {
-  public ICmpt_Name Label { get; set; }
+  ICmpt_Name Label { get; }
 }
 
 public interface ICmpt_UnionRef
   : ICmpt_TypeRef
 {
-  public ICmpt_UnionRefObject As_UnionRef { get; set; }
+  ICmpt_UnionRefObject As_UnionRef { get; }
 }
 
 public interface ICmpt_UnionRefObject
@@ -302,11 +302,11 @@ public interface ICmpt_UnionRefObject
 public interface ICmpt_UnionMember
   : ICmpt_UnionRef
 {
-  public ICmpt_UnionMemberObject As_UnionMember { get; set; }
+  ICmpt_UnionMemberObject As_UnionMember { get; }
 }
 
 public interface ICmpt_UnionMemberObject
   : ICmpt_UnionRefObject
 {
-  public ICmpt_Name Union { get; set; }
+  ICmpt_Name Union { get; }
 }

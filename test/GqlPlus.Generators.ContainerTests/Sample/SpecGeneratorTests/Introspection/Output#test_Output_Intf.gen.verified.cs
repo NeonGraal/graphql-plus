@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Output;
 public interface Itest_OutputField
   : Itest_ObjField
 {
-  public Itest_OutputFieldObject As_OutputField { get; set; }
+  Itest_OutputFieldObject As_OutputField { get; }
 }
 
 public interface Itest_OutputFieldObject
@@ -19,11 +19,11 @@ public interface Itest_OutputFieldObject
 public interface Itest_OutputFieldType
   : Itest_ObjFieldType
 {
-  public Itest_OutputFieldTypeObject As_OutputFieldType { get; set; }
+  Itest_OutputFieldTypeObject As_OutputFieldType { get; }
 }
 
 public interface Itest_OutputFieldTypeObject
   : Itest_ObjFieldTypeObject
 {
-  public ICollection<Itest_InputParam> Parameters { get; set; }
+  ICollection<Itest_InputParam> Parameters { get; }
 }

@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Output;
 public interface ItestCnstFieldObjOutp
   : ItestRefCnstFieldObjOutp
 {
-  public ItestCnstFieldObjOutpObject AsCnstFieldObjOutp { get; set; }
+  ItestCnstFieldObjOutpObject AsCnstFieldObjOutp { get; }
 }
 
 public interface ItestCnstFieldObjOutpObject
@@ -18,18 +18,18 @@ public interface ItestCnstFieldObjOutpObject
 
 public interface ItestRefCnstFieldObjOutp<Tref>
 {
-  public ItestRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; set; }
+  ItestRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; }
 }
 
 public interface ItestRefCnstFieldObjOutpObject<Tref>
 {
-  public Tref Field { get; set; }
+  Tref Field { get; }
 }
 
 public interface ItestPrntCnstFieldObjOutp
 {
-  public string AsString { get; set; }
-  public ItestPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; set; }
+  string AsString { get; }
+  ItestPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; }
 }
 
 public interface ItestPrntCnstFieldObjOutpObject
@@ -39,11 +39,11 @@ public interface ItestPrntCnstFieldObjOutpObject
 public interface ItestAltCnstFieldObjOutp
   : ItestPrntCnstFieldObjOutp
 {
-  public ItestAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; set; }
+  ItestAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; }
 }
 
 public interface ItestAltCnstFieldObjOutpObject
   : ItestPrntCnstFieldObjOutpObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_parent_Output;
 public interface ItestGnrcPrntDualPrntOutp
   : ItestRefGnrcPrntDualPrntOutp
 {
-  public ItestGnrcPrntDualPrntOutpObject AsGnrcPrntDualPrntOutp { get; set; }
+  ItestGnrcPrntDualPrntOutpObject AsGnrcPrntDualPrntOutp { get; }
 }
 
 public interface ItestGnrcPrntDualPrntOutpObject
@@ -19,7 +19,7 @@ public interface ItestGnrcPrntDualPrntOutpObject
 public interface ItestRefGnrcPrntDualPrntOutp<Tref>
   : Itestref
 {
-  public ItestRefGnrcPrntDualPrntOutpObject AsRefGnrcPrntDualPrntOutp { get; set; }
+  ItestRefGnrcPrntDualPrntOutpObject AsRefGnrcPrntDualPrntOutp { get; }
 }
 
 public interface ItestRefGnrcPrntDualPrntOutpObject<Tref>
@@ -29,11 +29,11 @@ public interface ItestRefGnrcPrntDualPrntOutpObject<Tref>
 
 public interface ItestAltGnrcPrntDualPrntOutp
 {
-  public string AsString { get; set; }
-  public ItestAltGnrcPrntDualPrntOutpObject AsAltGnrcPrntDualPrntOutp { get; set; }
+  string AsString { get; }
+  ItestAltGnrcPrntDualPrntOutpObject AsAltGnrcPrntDualPrntOutp { get; }
 }
 
 public interface ItestAltGnrcPrntDualPrntOutpObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

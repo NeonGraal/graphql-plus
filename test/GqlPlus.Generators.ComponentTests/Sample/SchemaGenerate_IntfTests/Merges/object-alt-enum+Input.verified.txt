@@ -11,9 +11,9 @@ namespace Components.Gqlp_Schema_object_alt_enum_Input;
 
 public interface ICmptObjAltEnumInp
 {
-  public bool AsBooleantrue { get; set; }
-  public bool AsBooleanfalse { get; set; }
-  public ICmptObjAltEnumInpObject AsObjAltEnumInp { get; set; }
+  bool AsBooleantrue { get; }
+  bool AsBooleanfalse { get; }
+  ICmptObjAltEnumInpObject AsObjAltEnumInp { get; }
 }
 
 public interface ICmptObjAltEnumInpObject

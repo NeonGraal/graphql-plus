@@ -10,10 +10,10 @@ namespace Components.Gqlp_Schema_input_field_String;
 
 public interface ICmptInpFieldStr
 {
-  public ICmptInpFieldStrObject AsInpFieldStr { get; set; }
+  ICmptInpFieldStrObject AsInpFieldStr { get; }
 }
 
 public interface ICmptInpFieldStrObject
 {
-  public string Field { get; set; }
+  string Field { get; }
 }

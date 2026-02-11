@@ -7,8 +7,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_param_Input;
 
 public interface ItestRefGnrcAltModParamInp<Tref,Tmod>
 {
-  public IDictionary<Tmod, Tref> Asref { get; set; }
-  public ItestRefGnrcAltModParamInpObject AsRefGnrcAltModParamInp { get; set; }
+  IDictionary<Tmod, Tref> Asref { get; }
+  ItestRefGnrcAltModParamInpObject AsRefGnrcAltModParamInp { get; }
 }
 
 public interface ItestRefGnrcAltModParamInpObject<Tref,Tmod>

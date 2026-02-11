@@ -10,10 +10,10 @@ namespace Components.Gqlp_Schema_field_simple_Input;
 
 public interface ICmptFieldSmplInp
 {
-  public ICmptFieldSmplInpObject AsFieldSmplInp { get; set; }
+  ICmptFieldSmplInpObject AsFieldSmplInp { get; }
 }
 
 public interface ICmptFieldSmplInpObject
 {
-  public decimal Field { get; set; }
+  decimal Field { get; }
 }

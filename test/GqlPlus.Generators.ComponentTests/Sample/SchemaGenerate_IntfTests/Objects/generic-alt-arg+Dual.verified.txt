@@ -11,8 +11,8 @@ namespace Components.Gqlp_Schema_generic_alt_arg_Dual;
 
 public interface ICmptGnrcAltArgDual<Ttype>
 {
-  public ICmptRefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; set; }
-  public ICmptGnrcAltArgDualObject AsGnrcAltArgDual { get; set; }
+  ICmptRefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; }
+  ICmptGnrcAltArgDualObject AsGnrcAltArgDual { get; }
 }
 
 public interface ICmptGnrcAltArgDualObject<Ttype>
@@ -21,8 +21,8 @@ public interface ICmptGnrcAltArgDualObject<Ttype>
 
 public interface ICmptRefGnrcAltArgDual<Tref>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltArgDualObject AsRefGnrcAltArgDual { get; set; }
+  Tref Asref { get; }
+  ICmptRefGnrcAltArgDualObject AsRefGnrcAltArgDual { get; }
 }
 
 public interface ICmptRefGnrcAltArgDualObject<Tref>

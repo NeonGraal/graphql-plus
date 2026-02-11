@@ -14,11 +14,11 @@ namespace Components.Gqlp_Spec_Option;
 public interface ICmpt_Setting
   : ICmpt_Named
 {
-  public ICmpt_SettingObject As_Setting { get; set; }
+  ICmpt_SettingObject As_Setting { get; }
 }
 
 public interface ICmpt_SettingObject
   : ICmpt_NamedObject
 {
-  public ICmpt_Value Value { get; set; }
+  ICmpt_Value Value { get; }
 }

@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_generic_parent_dual_Dual;
 public interface ICmptGnrcPrntDualDual
   : ICmptRefGnrcPrntDualDual
 {
-  public ICmptGnrcPrntDualDualObject AsGnrcPrntDualDual { get; set; }
+  ICmptGnrcPrntDualDualObject AsGnrcPrntDualDual { get; }
 }
 
 public interface ICmptGnrcPrntDualDualObject
@@ -23,8 +23,8 @@ public interface ICmptGnrcPrntDualDualObject
 
 public interface ICmptRefGnrcPrntDualDual<Tref>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntDualDualObject AsRefGnrcPrntDualDual { get; set; }
+  Tref Asref { get; }
+  ICmptRefGnrcPrntDualDualObject AsRefGnrcPrntDualDual { get; }
 }
 
 public interface ICmptRefGnrcPrntDualDualObject<Tref>
@@ -33,11 +33,11 @@ public interface ICmptRefGnrcPrntDualDualObject<Tref>
 
 public interface ICmptAltGnrcPrntDualDual
 {
-  public string AsString { get; set; }
-  public ICmptAltGnrcPrntDualDualObject AsAltGnrcPrntDualDual { get; set; }
+  string AsString { get; }
+  ICmptAltGnrcPrntDualDualObject AsAltGnrcPrntDualDual { get; }
 }
 
 public interface ICmptAltGnrcPrntDualDualObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

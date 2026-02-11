@@ -7,8 +7,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Input;
 
 public interface ItestCnstAltDmnInp
 {
-  public ItestRefCnstAltDmnInp<ItestDomCnstAltDmnInp> AsRefCnstAltDmnInp { get; set; }
-  public ItestCnstAltDmnInpObject AsCnstAltDmnInp { get; set; }
+  ItestRefCnstAltDmnInp<ItestDomCnstAltDmnInp> AsRefCnstAltDmnInp { get; }
+  ItestCnstAltDmnInpObject AsCnstAltDmnInp { get; }
 }
 
 public interface ItestCnstAltDmnInpObject
@@ -17,8 +17,8 @@ public interface ItestCnstAltDmnInpObject
 
 public interface ItestRefCnstAltDmnInp<Tref>
 {
-  public Tref Asref { get; set; }
-  public ItestRefCnstAltDmnInpObject AsRefCnstAltDmnInp { get; set; }
+  Tref Asref { get; }
+  ItestRefCnstAltDmnInpObject AsRefCnstAltDmnInp { get; }
 }
 
 public interface ItestRefCnstAltDmnInpObject<Tref>

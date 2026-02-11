@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_constraint_alt_dual_Dual;
 
 public interface ICmptCnstAltDualDual
 {
-  public ICmptRefCnstAltDualDual<ICmptAltCnstAltDualDual> AsRefCnstAltDualDual { get; set; }
-  public ICmptCnstAltDualDualObject AsCnstAltDualDual { get; set; }
+  ICmptRefCnstAltDualDual<ICmptAltCnstAltDualDual> AsRefCnstAltDualDual { get; }
+  ICmptCnstAltDualDualObject AsCnstAltDualDual { get; }
 }
 
 public interface ICmptCnstAltDualDualObject
@@ -23,8 +23,8 @@ public interface ICmptCnstAltDualDualObject
 
 public interface ICmptRefCnstAltDualDual<Tref>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltDualDualObject AsRefCnstAltDualDual { get; set; }
+  Tref Asref { get; }
+  ICmptRefCnstAltDualDualObject AsRefCnstAltDualDual { get; }
 }
 
 public interface ICmptRefCnstAltDualDualObject<Tref>
@@ -33,8 +33,8 @@ public interface ICmptRefCnstAltDualDualObject<Tref>
 
 public interface ICmptPrntCnstAltDualDual
 {
-  public string AsString { get; set; }
-  public ICmptPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; set; }
+  string AsString { get; }
+  ICmptPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; }
 }
 
 public interface ICmptPrntCnstAltDualDualObject
@@ -44,11 +44,11 @@ public interface ICmptPrntCnstAltDualDualObject
 public interface ICmptAltCnstAltDualDual
   : ICmptPrntCnstAltDualDual
 {
-  public ICmptAltCnstAltDualDualObject AsAltCnstAltDualDual { get; set; }
+  ICmptAltCnstAltDualDualObject AsAltCnstAltDualDual { get; }
 }
 
 public interface ICmptAltCnstAltDualDualObject
   : ICmptPrntCnstAltDualDualObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

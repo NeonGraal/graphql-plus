@@ -12,23 +12,23 @@ namespace Components.Gqlp_Schema_output_param_mod_Domain;
 
 public interface ICmptOutpParamModDmn
 {
-  public ICmptOutpParamModDmnObject AsOutpParamModDmn { get; set; }
+  ICmptOutpParamModDmnObject AsOutpParamModDmn { get; }
 }
 
 public interface ICmptOutpParamModDmnObject
 {
-  public ICmptDomOutpParamModDmn Field { get; set; }
+  ICmptDomOutpParamModDmn Field { get; }
 }
 
 public interface ICmptInOutpParamModDmn
 {
-  public string AsString { get; set; }
-  public ICmptInOutpParamModDmnObject AsInOutpParamModDmn { get; set; }
+  string AsString { get; }
+  ICmptInOutpParamModDmnObject AsInOutpParamModDmn { get; }
 }
 
 public interface ICmptInOutpParamModDmnObject
 {
-  public decimal Param { get; set; }
+  decimal Param { get; }
 }
 
 public interface ICmptDomOutpParamModDmn

@@ -10,8 +10,8 @@ namespace Components.Gqlp_Schema_alt_descr_Output;
 
 public interface ICmptAltDescrOutp
 {
-  public string AsString { get; set; }
-  public ICmptAltDescrOutpObject AsAltDescrOutp { get; set; }
+  string AsString { get; }
+  ICmptAltDescrOutpObject AsAltDescrOutp { get; }
 }
 
 public interface ICmptAltDescrOutpObject

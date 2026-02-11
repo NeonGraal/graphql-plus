@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_object_parent_Input;
 public interface ICmptObjPrntInp
   : ICmptRefObjPrntInp
 {
-  public ICmptObjPrntInpObject AsObjPrntInp { get; set; }
+  ICmptObjPrntInpObject AsObjPrntInp { get; }
 }
 
 public interface ICmptObjPrntInpObject
@@ -23,7 +23,7 @@ public interface ICmptObjPrntInpObject
 
 public interface ICmptRefObjPrntInp
 {
-  public ICmptRefObjPrntInpObject AsRefObjPrntInp { get; set; }
+  ICmptRefObjPrntInpObject AsRefObjPrntInp { get; }
 }
 
 public interface ICmptRefObjPrntInpObject

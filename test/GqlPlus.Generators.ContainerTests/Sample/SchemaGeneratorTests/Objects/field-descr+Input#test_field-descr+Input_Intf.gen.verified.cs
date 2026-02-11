@@ -7,10 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_descr_Input;
 
 public interface ItestFieldDescrInp
 {
-  public ItestFieldDescrInpObject AsFieldDescrInp { get; set; }
+  ItestFieldDescrInpObject AsFieldDescrInp { get; }
 }
 
 public interface ItestFieldDescrInpObject
 {
-  public string Field { get; set; }
+  string Field { get; }
 }

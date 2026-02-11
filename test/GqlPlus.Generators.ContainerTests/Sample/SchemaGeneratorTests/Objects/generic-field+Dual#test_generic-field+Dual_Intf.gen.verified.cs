@@ -7,10 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_Dual;
 
 public interface ItestGnrcFieldDual<Ttype>
 {
-  public ItestGnrcFieldDualObject AsGnrcFieldDual { get; set; }
+  ItestGnrcFieldDualObject AsGnrcFieldDual { get; }
 }
 
 public interface ItestGnrcFieldDualObject<Ttype>
 {
-  public Ttype Field { get; set; }
+  Ttype Field { get; }
 }

@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_output_optional;
 
 public interface ItestCtgrOutpOptl
 {
-  public ItestCtgrOutpOptlObject AsCtgrOutpOptl { get; set; }
+  ItestCtgrOutpOptlObject AsCtgrOutpOptl { get; }
 }
 
 public interface ItestCtgrOutpOptlObject

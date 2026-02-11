@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_constraint_field_domain_Output;
 public interface ICmptCnstFieldDmnOutp
   : ICmptRefCnstFieldDmnOutp
 {
-  public ICmptCnstFieldDmnOutpObject AsCnstFieldDmnOutp { get; set; }
+  ICmptCnstFieldDmnOutpObject AsCnstFieldDmnOutp { get; }
 }
 
 public interface ICmptCnstFieldDmnOutpObject
@@ -23,12 +23,12 @@ public interface ICmptCnstFieldDmnOutpObject
 
 public interface ICmptRefCnstFieldDmnOutp<Tref>
 {
-  public ICmptRefCnstFieldDmnOutpObject AsRefCnstFieldDmnOutp { get; set; }
+  ICmptRefCnstFieldDmnOutpObject AsRefCnstFieldDmnOutp { get; }
 }
 
 public interface ICmptRefCnstFieldDmnOutpObject<Tref>
 {
-  public Tref Field { get; set; }
+  Tref Field { get; }
 }
 
 public interface ICmptDomCnstFieldDmnOutp

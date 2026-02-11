@@ -10,10 +10,10 @@ namespace Components.Gqlp_Schema_input_field_Number;
 
 public interface ICmptInpFieldNmbr
 {
-  public ICmptInpFieldNmbrObject AsInpFieldNmbr { get; set; }
+  ICmptInpFieldNmbrObject AsInpFieldNmbr { get; }
 }
 
 public interface ICmptInpFieldNmbrObject
 {
-  public decimal Field { get; set; }
+  decimal Field { get; }
 }

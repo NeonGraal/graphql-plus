@@ -12,19 +12,19 @@ namespace Components.Gqlp_Schema_parent_param_same_Dual;
 public interface ICmptPrntParamSameDual<Ta>
   : ICmptRefPrntParamSameDual
 {
-  public ICmptPrntParamSameDualObject AsPrntParamSameDual { get; set; }
+  ICmptPrntParamSameDualObject AsPrntParamSameDual { get; }
 }
 
 public interface ICmptPrntParamSameDualObject<Ta>
   : ICmptRefPrntParamSameDualObject
 {
-  public Ta Field { get; set; }
+  Ta Field { get; }
 }
 
 public interface ICmptRefPrntParamSameDual<Ta>
 {
-  public Ta Asa { get; set; }
-  public ICmptRefPrntParamSameDualObject AsRefPrntParamSameDual { get; set; }
+  Ta Asa { get; }
+  ICmptRefPrntParamSameDualObject AsRefPrntParamSameDual { get; }
 }
 
 public interface ICmptRefPrntParamSameDualObject<Ta>

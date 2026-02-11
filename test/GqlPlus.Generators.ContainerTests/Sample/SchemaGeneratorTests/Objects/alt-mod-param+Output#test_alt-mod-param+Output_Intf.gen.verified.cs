@@ -7,8 +7,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Output;
 
 public interface ItestAltModParamOutp<Tmod>
 {
-  public IDictionary<Tmod, ItestAltAltModParamOutp> AsAltAltModParamOutp { get; set; }
-  public ItestAltModParamOutpObject AsAltModParamOutp { get; set; }
+  IDictionary<Tmod, ItestAltAltModParamOutp> AsAltAltModParamOutp { get; }
+  ItestAltModParamOutpObject AsAltModParamOutp { get; }
 }
 
 public interface ItestAltModParamOutpObject<Tmod>
@@ -17,11 +17,11 @@ public interface ItestAltModParamOutpObject<Tmod>
 
 public interface ItestAltAltModParamOutp
 {
-  public string AsString { get; set; }
-  public ItestAltAltModParamOutpObject AsAltAltModParamOutp { get; set; }
+  string AsString { get; }
+  ItestAltAltModParamOutpObject AsAltAltModParamOutp { get; }
 }
 
 public interface ItestAltAltModParamOutpObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

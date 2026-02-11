@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_parent_Input;
 public interface ICmptPrntInp
   : ICmptRefPrntInp
 {
-  public ICmptPrntInpObject AsPrntInp { get; set; }
+  ICmptPrntInpObject AsPrntInp { get; }
 }
 
 public interface ICmptPrntInpObject
@@ -22,11 +22,11 @@ public interface ICmptPrntInpObject
 
 public interface ICmptRefPrntInp
 {
-  public string AsString { get; set; }
-  public ICmptRefPrntInpObject AsRefPrntInp { get; set; }
+  string AsString { get; }
+  ICmptRefPrntInpObject AsRefPrntInp { get; }
 }
 
 public interface ICmptRefPrntInpObject
 {
-  public decimal Parent { get; set; }
+  decimal Parent { get; }
 }

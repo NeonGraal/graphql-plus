@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp__Globals;
 
 public interface ItestCtgrDscrs
 {
-  public ItestCtgrDscrsObject AsCtgrDscrs { get; set; }
+  ItestCtgrDscrsObject AsCtgrDscrs { get; }
 }
 
 public interface ItestCtgrDscrsObject
@@ -16,7 +16,7 @@ public interface ItestCtgrDscrsObject
 
 public interface ItestCtgrOutp
 {
-  public ItestCtgrOutpObject AsCtgrOutp { get; set; }
+  ItestCtgrOutpObject AsCtgrOutp { get; }
 }
 
 public interface ItestCtgrOutpObject
@@ -25,7 +25,7 @@ public interface ItestCtgrOutpObject
 
 public interface ItestCtgrOutpDescr
 {
-  public ItestCtgrOutpDescrObject AsCtgrOutpDescr { get; set; }
+  ItestCtgrOutpDescrObject AsCtgrOutpDescr { get; }
 }
 
 public interface ItestCtgrOutpDescrObject
@@ -34,7 +34,7 @@ public interface ItestCtgrOutpDescrObject
 
 public interface ItestCtgrOutpDict
 {
-  public ItestCtgrOutpDictObject AsCtgrOutpDict { get; set; }
+  ItestCtgrOutpDictObject AsCtgrOutpDict { get; }
 }
 
 public interface ItestCtgrOutpDictObject
@@ -43,7 +43,7 @@ public interface ItestCtgrOutpDictObject
 
 public interface ItestCtgrOutpList
 {
-  public ItestCtgrOutpListObject AsCtgrOutpList { get; set; }
+  ItestCtgrOutpListObject AsCtgrOutpList { get; }
 }
 
 public interface ItestCtgrOutpListObject
@@ -52,7 +52,7 @@ public interface ItestCtgrOutpListObject
 
 public interface ItestCtgrOutpOptl
 {
-  public ItestCtgrOutpOptlObject AsCtgrOutpOptl { get; set; }
+  ItestCtgrOutpOptlObject AsCtgrOutpOptl { get; }
 }
 
 public interface ItestCtgrOutpOptlObject
@@ -61,7 +61,7 @@ public interface ItestCtgrOutpOptlObject
 
 public interface ItestDescr
 {
-  public ItestDescrObject AsDescr { get; set; }
+  ItestDescrObject AsDescr { get; }
 }
 
 public interface ItestDescrObject
@@ -70,7 +70,7 @@ public interface ItestDescrObject
 
 public interface ItestDescrBcks
 {
-  public ItestDescrBcksObject AsDescrBcks { get; set; }
+  ItestDescrBcksObject AsDescrBcks { get; }
 }
 
 public interface ItestDescrBcksObject
@@ -79,7 +79,7 @@ public interface ItestDescrBcksObject
 
 public interface ItestDescrBtwn
 {
-  public ItestDescrBtwnObject AsDescrBtwn { get; set; }
+  ItestDescrBtwnObject AsDescrBtwn { get; }
 }
 
 public interface ItestDescrBtwnObject
@@ -88,7 +88,7 @@ public interface ItestDescrBtwnObject
 
 public interface ItestDescrCmpl
 {
-  public ItestDescrCmplObject AsDescrCmpl { get; set; }
+  ItestDescrCmplObject AsDescrCmpl { get; }
 }
 
 public interface ItestDescrCmplObject
@@ -97,7 +97,7 @@ public interface ItestDescrCmplObject
 
 public interface ItestDescrDbl
 {
-  public ItestDescrDblObject AsDescrDbl { get; set; }
+  ItestDescrDblObject AsDescrDbl { get; }
 }
 
 public interface ItestDescrDblObject
@@ -106,7 +106,7 @@ public interface ItestDescrDblObject
 
 public interface ItestDescrSngl
 {
-  public ItestDescrSnglObject AsDescrSngl { get; set; }
+  ItestDescrSnglObject AsDescrSngl { get; }
 }
 
 public interface ItestDescrSnglObject
@@ -115,7 +115,7 @@ public interface ItestDescrSnglObject
 
 public interface ItestDscrs
 {
-  public ItestDscrsObject AsDscrs { get; set; }
+  ItestDscrsObject AsDscrs { get; }
 }
 
 public interface ItestDscrsObject
@@ -124,7 +124,7 @@ public interface ItestDscrsObject
 
 public interface ItestInDrctParamDict
 {
-  public ItestInDrctParamDictObject AsInDrctParamDict { get; set; }
+  ItestInDrctParamDictObject AsInDrctParamDict { get; }
 }
 
 public interface ItestInDrctParamDictObject
@@ -133,7 +133,7 @@ public interface ItestInDrctParamDictObject
 
 public interface ItestInDrctParamIn
 {
-  public ItestInDrctParamInObject AsInDrctParamIn { get; set; }
+  ItestInDrctParamInObject AsInDrctParamIn { get; }
 }
 
 public interface ItestInDrctParamInObject
@@ -142,7 +142,7 @@ public interface ItestInDrctParamInObject
 
 public interface ItestInDrctParamList
 {
-  public ItestInDrctParamListObject AsInDrctParamList { get; set; }
+  ItestInDrctParamListObject AsInDrctParamList { get; }
 }
 
 public interface ItestInDrctParamListObject
@@ -151,7 +151,7 @@ public interface ItestInDrctParamListObject
 
 public interface ItestInDrctParamOpt
 {
-  public ItestInDrctParamOptObject AsInDrctParamOpt { get; set; }
+  ItestInDrctParamOptObject AsInDrctParamOpt { get; }
 }
 
 public interface ItestInDrctParamOptObject

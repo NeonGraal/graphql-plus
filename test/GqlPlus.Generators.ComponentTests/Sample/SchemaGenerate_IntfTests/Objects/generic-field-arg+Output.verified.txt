@@ -11,18 +11,18 @@ namespace Components.Gqlp_Schema_generic_field_arg_Output;
 
 public interface ICmptGnrcFieldArgOutp<Ttype>
 {
-  public ICmptGnrcFieldArgOutpObject AsGnrcFieldArgOutp { get; set; }
+  ICmptGnrcFieldArgOutpObject AsGnrcFieldArgOutp { get; }
 }
 
 public interface ICmptGnrcFieldArgOutpObject<Ttype>
 {
-  public ICmptRefGnrcFieldArgOutp<Ttype> Field { get; set; }
+  ICmptRefGnrcFieldArgOutp<Ttype> Field { get; }
 }
 
 public interface ICmptRefGnrcFieldArgOutp<Tref>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldArgOutpObject AsRefGnrcFieldArgOutp { get; set; }
+  Tref Asref { get; }
+  ICmptRefGnrcFieldArgOutpObject AsRefGnrcFieldArgOutp { get; }
 }
 
 public interface ICmptRefGnrcFieldArgOutpObject<Tref>

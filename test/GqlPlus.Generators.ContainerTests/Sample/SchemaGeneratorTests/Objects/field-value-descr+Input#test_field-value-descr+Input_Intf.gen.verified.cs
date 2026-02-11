@@ -7,10 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Input;
 
 public interface ItestFieldValueDescrInp
 {
-  public ItestFieldValueDescrInpObject AsFieldValueDescrInp { get; set; }
+  ItestFieldValueDescrInpObject AsFieldValueDescrInp { get; }
 }
 
 public interface ItestFieldValueDescrInpObject
 {
-  public testEnumFieldValueDescrInp Field { get; set; }
+  testEnumFieldValueDescrInp Field { get; }
 }

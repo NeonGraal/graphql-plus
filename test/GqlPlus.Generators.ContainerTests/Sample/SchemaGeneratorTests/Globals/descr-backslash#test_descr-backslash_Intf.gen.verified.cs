@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_backslash;
 
 public interface ItestDescrBcks
 {
-  public ItestDescrBcksObject AsDescrBcks { get; set; }
+  ItestDescrBcksObject AsDescrBcks { get; }
 }
 
 public interface ItestDescrBcksObject

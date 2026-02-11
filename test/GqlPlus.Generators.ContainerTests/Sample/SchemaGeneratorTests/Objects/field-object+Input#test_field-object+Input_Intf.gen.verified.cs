@@ -7,21 +7,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_object_Input;
 
 public interface ItestFieldObjInp
 {
-  public ItestFieldObjInpObject AsFieldObjInp { get; set; }
+  ItestFieldObjInpObject AsFieldObjInp { get; }
 }
 
 public interface ItestFieldObjInpObject
 {
-  public ItestFldFieldObjInp Field { get; set; }
+  ItestFldFieldObjInp Field { get; }
 }
 
 public interface ItestFldFieldObjInp
 {
-  public string AsString { get; set; }
-  public ItestFldFieldObjInpObject AsFldFieldObjInp { get; set; }
+  string AsString { get; }
+  ItestFldFieldObjInpObject AsFldFieldObjInp { get; }
 }
 
 public interface ItestFldFieldObjInpObject
 {
-  public decimal Field { get; set; }
+  decimal Field { get; }
 }

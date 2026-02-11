@@ -28,9 +28,9 @@ namespace Components.Gqlp_Spec_Schema;
 
 public interface ICmpt_Opt<TT>
 {
-  public TT AsT { get; set; }
-  public CmptNull AsNull { get; set; }
-  public ICmpt_OptObject As_Opt { get; set; }
+  TT AsT { get; }
+  CmptNull AsNull { get; }
+  ICmpt_OptObject As_Opt { get; }
 }
 
 public interface ICmpt_OptObject<TT>
@@ -39,8 +39,8 @@ public interface ICmpt_OptObject<TT>
 
 public interface ICmpt_List<TT>
 {
-  public ICollection<TT> AsT { get; set; }
-  public ICmpt_ListObject As_List { get; set; }
+  ICollection<TT> AsT { get; }
+  ICmpt_ListObject As_List { get; }
 }
 
 public interface ICmpt_ListObject<TT>
@@ -49,8 +49,8 @@ public interface ICmpt_ListObject<TT>
 
 public interface ICmpt_Dict<TK,TT>
 {
-  public IDictionary<TK, TT> AsT { get; set; }
-  public ICmpt_DictObject As_Dict { get; set; }
+  IDictionary<TK, TT> AsT { get; }
+  ICmpt_DictObject As_Dict { get; }
 }
 
 public interface ICmpt_DictObject<TK,TT>
@@ -59,8 +59,8 @@ public interface ICmpt_DictObject<TK,TT>
 
 public interface ICmpt_Map<TT>
 {
-  public IDictionary<CmptString, TT> AsT { get; set; }
-  public ICmpt_MapObject As_Map { get; set; }
+  IDictionary<CmptString, TT> AsT { get; }
+  ICmpt_MapObject As_Map { get; }
 }
 
 public interface ICmpt_MapObject<TT>
@@ -69,8 +69,8 @@ public interface ICmpt_MapObject<TT>
 
 public interface ICmpt_Array<TT>
 {
-  public IDictionary<CmptNumber, TT> AsT { get; set; }
-  public ICmpt_ArrayObject As_Array { get; set; }
+  IDictionary<CmptNumber, TT> AsT { get; }
+  ICmpt_ArrayObject As_Array { get; }
 }
 
 public interface ICmpt_ArrayObject<TT>
@@ -79,8 +79,8 @@ public interface ICmpt_ArrayObject<TT>
 
 public interface ICmpt_IfElse<TT>
 {
-  public IDictionary<CmptBoolean, TT> AsT { get; set; }
-  public ICmpt_IfElseObject As_IfElse { get; set; }
+  IDictionary<CmptBoolean, TT> AsT { get; }
+  ICmpt_IfElseObject As_IfElse { get; }
 }
 
 public interface ICmpt_IfElseObject<TT>
@@ -89,8 +89,8 @@ public interface ICmpt_IfElseObject<TT>
 
 public interface ICmpt_Set<TK>
 {
-  public IDictionary<TK, CmptUnit> AsUnit_ { get; set; }
-  public ICmpt_SetObject As_Set { get; set; }
+  IDictionary<TK, CmptUnit> AsUnit_ { get; }
+  ICmpt_SetObject As_Set { get; }
 }
 
 public interface ICmpt_SetObject<TK>
@@ -99,8 +99,8 @@ public interface ICmpt_SetObject<TK>
 
 public interface ICmpt_Mask<TK>
 {
-  public IDictionary<TK, CmptBoolean> AsBoolean { get; set; }
-  public ICmpt_MaskObject As_Mask { get; set; }
+  IDictionary<TK, CmptBoolean> AsBoolean { get; }
+  ICmpt_MaskObject As_Mask { get; }
 }
 
 public interface ICmpt_MaskObject<TK>
@@ -113,7 +113,7 @@ public interface ICmpt_Key
 
 public interface ICmpt_Any
 {
-  public ICmpt_AnyObject As_Any { get; set; }
+  ICmpt_AnyObject As_Any { get; }
 }
 
 public interface ICmpt_AnyObject

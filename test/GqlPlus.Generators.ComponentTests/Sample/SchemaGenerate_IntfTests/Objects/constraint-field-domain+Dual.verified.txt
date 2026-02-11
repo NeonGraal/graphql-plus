@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_constraint_field_domain_Dual;
 public interface ICmptCnstFieldDmnDual
   : ICmptRefCnstFieldDmnDual
 {
-  public ICmptCnstFieldDmnDualObject AsCnstFieldDmnDual { get; set; }
+  ICmptCnstFieldDmnDualObject AsCnstFieldDmnDual { get; }
 }
 
 public interface ICmptCnstFieldDmnDualObject
@@ -23,12 +23,12 @@ public interface ICmptCnstFieldDmnDualObject
 
 public interface ICmptRefCnstFieldDmnDual<Tref>
 {
-  public ICmptRefCnstFieldDmnDualObject AsRefCnstFieldDmnDual { get; set; }
+  ICmptRefCnstFieldDmnDualObject AsRefCnstFieldDmnDual { get; }
 }
 
 public interface ICmptRefCnstFieldDmnDualObject<Tref>
 {
-  public Tref Field { get; set; }
+  Tref Field { get; }
 }
 
 public interface ICmptDomCnstFieldDmnDual

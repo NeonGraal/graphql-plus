@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_constraint_field_dual_Output;
 public interface ICmptCnstFieldDualOutp
   : ICmptRefCnstFieldDualOutp
 {
-  public ICmptCnstFieldDualOutpObject AsCnstFieldDualOutp { get; set; }
+  ICmptCnstFieldDualOutpObject AsCnstFieldDualOutp { get; }
 }
 
 public interface ICmptCnstFieldDualOutpObject
@@ -24,18 +24,18 @@ public interface ICmptCnstFieldDualOutpObject
 
 public interface ICmptRefCnstFieldDualOutp<Tref>
 {
-  public ICmptRefCnstFieldDualOutpObject AsRefCnstFieldDualOutp { get; set; }
+  ICmptRefCnstFieldDualOutpObject AsRefCnstFieldDualOutp { get; }
 }
 
 public interface ICmptRefCnstFieldDualOutpObject<Tref>
 {
-  public Tref Field { get; set; }
+  Tref Field { get; }
 }
 
 public interface ICmptPrntCnstFieldDualOutp
 {
-  public string AsString { get; set; }
-  public ICmptPrntCnstFieldDualOutpObject AsPrntCnstFieldDualOutp { get; set; }
+  string AsString { get; }
+  ICmptPrntCnstFieldDualOutpObject AsPrntCnstFieldDualOutp { get; }
 }
 
 public interface ICmptPrntCnstFieldDualOutpObject
@@ -45,11 +45,11 @@ public interface ICmptPrntCnstFieldDualOutpObject
 public interface ICmptAltCnstFieldDualOutp
   : ICmptPrntCnstFieldDualOutp
 {
-  public ICmptAltCnstFieldDualOutpObject AsAltCnstFieldDualOutp { get; set; }
+  ICmptAltCnstFieldDualOutpObject AsAltCnstFieldDualOutp { get; }
 }
 
 public interface ICmptAltCnstFieldDualOutpObject
   : ICmptPrntCnstFieldDualOutpObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

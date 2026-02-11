@@ -7,17 +7,17 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_Dual;
 
 public interface ItestObjFieldDual
 {
-  public ItestObjFieldDualObject AsObjFieldDual { get; set; }
+  ItestObjFieldDualObject AsObjFieldDual { get; }
 }
 
 public interface ItestObjFieldDualObject
 {
-  public ItestFldObjFieldDual Field { get; set; }
+  ItestFldObjFieldDual Field { get; }
 }
 
 public interface ItestFldObjFieldDual
 {
-  public ItestFldObjFieldDualObject AsFldObjFieldDual { get; set; }
+  ItestFldObjFieldDualObject AsFldObjFieldDual { get; }
 }
 
 public interface ItestFldObjFieldDualObject

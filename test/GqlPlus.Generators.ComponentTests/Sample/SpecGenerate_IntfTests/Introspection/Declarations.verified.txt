@@ -42,16 +42,16 @@ namespace Components.Gqlp_Spec_Declarations;
 public interface ICmpt_Schema
   : ICmpt_Named
 {
-  public ICmpt_SchemaObject As_Schema { get; set; }
+  ICmpt_SchemaObject As_Schema { get; }
 }
 
 public interface ICmpt_SchemaObject
   : ICmpt_NamedObject
 {
-  public IDictionary<Cmpt_Name, ICmpt_Categories> Categories { get; set; }
-  public IDictionary<Cmpt_Name, ICmpt_Directives> Directives { get; set; }
-  public IDictionary<Cmpt_Name, ICmpt_Type> Types { get; set; }
-  public IDictionary<Cmpt_Name, ICmpt_Setting> Settings { get; set; }
+  IDictionary<Cmpt_Name, ICmpt_Categories> Categories { get; }
+  IDictionary<Cmpt_Name, ICmpt_Directives> Directives { get; }
+  IDictionary<Cmpt_Name, ICmpt_Type> Types { get; }
+  IDictionary<Cmpt_Name, ICmpt_Setting> Settings { get; }
 }
 
 public interface ICmpt_Name
@@ -61,17 +61,17 @@ public interface ICmpt_Name
 
 public interface ICmpt_Filter
 {
-  public ICollection<ICmpt_NameFilter> As_NameFilter { get; set; }
-  public ICmpt_FilterObject As_Filter { get; set; }
+  ICollection<ICmpt_NameFilter> As_NameFilter { get; }
+  ICmpt_FilterObject As_Filter { get; }
 }
 
 public interface ICmpt_FilterObject
 {
-  public ICollection<ICmpt_NameFilter> Names { get; set; }
-  public bool? MatchAliases { get; set; }
-  public ICollection<ICmpt_NameFilter> Aliases { get; set; }
-  public bool? ReturnByAlias { get; set; }
-  public bool? ReturnReferencedTypes { get; set; }
+  ICollection<ICmpt_NameFilter> Names { get; }
+  bool? MatchAliases { get; }
+  ICollection<ICmpt_NameFilter> Aliases { get; }
+  bool? ReturnByAlias { get; }
+  bool? ReturnReferencedTypes { get; }
 }
 
 public interface ICmpt_NameFilter
@@ -82,23 +82,23 @@ public interface ICmpt_NameFilter
 public interface ICmpt_CategoryFilter
   : ICmpt_Filter
 {
-  public ICmpt_CategoryFilterObject As_CategoryFilter { get; set; }
+  ICmpt_CategoryFilterObject As_CategoryFilter { get; }
 }
 
 public interface ICmpt_CategoryFilterObject
   : ICmpt_FilterObject
 {
-  public ICollection<ICmpt_Resolution> Resolutions { get; set; }
+  ICollection<ICmpt_Resolution> Resolutions { get; }
 }
 
 public interface ICmpt_TypeFilter
   : ICmpt_Filter
 {
-  public ICmpt_TypeFilterObject As_TypeFilter { get; set; }
+  ICmpt_TypeFilterObject As_TypeFilter { get; }
 }
 
 public interface ICmpt_TypeFilterObject
   : ICmpt_FilterObject
 {
-  public ICollection<ICmpt_TypeKind> Kinds { get; set; }
+  ICollection<ICmpt_TypeKind> Kinds { get; }
 }

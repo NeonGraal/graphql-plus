@@ -11,8 +11,8 @@ namespace Components.Gqlp_Schema_alt_dual_Dual;
 
 public interface ICmptAltDualDual
 {
-  public ICmptObjDualAltDualDual AsObjDualAltDualDual { get; set; }
-  public ICmptAltDualDualObject AsAltDualDual { get; set; }
+  ICmptObjDualAltDualDual AsObjDualAltDualDual { get; }
+  ICmptAltDualDualObject AsAltDualDual { get; }
 }
 
 public interface ICmptAltDualDualObject
@@ -21,11 +21,11 @@ public interface ICmptAltDualDualObject
 
 public interface ICmptObjDualAltDualDual
 {
-  public string AsString { get; set; }
-  public ICmptObjDualAltDualDualObject AsObjDualAltDualDual { get; set; }
+  string AsString { get; }
+  ICmptObjDualAltDualDualObject AsObjDualAltDualDual { get; }
 }
 
 public interface ICmptObjDualAltDualDualObject
 {
-  public decimal Alt { get; set; }
+  decimal Alt { get; }
 }

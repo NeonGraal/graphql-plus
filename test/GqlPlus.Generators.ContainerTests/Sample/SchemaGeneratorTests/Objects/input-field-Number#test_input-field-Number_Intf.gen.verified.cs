@@ -7,10 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_input_field_Number;
 
 public interface ItestInpFieldNmbr
 {
-  public ItestInpFieldNmbrObject AsInpFieldNmbr { get; set; }
+  ItestInpFieldNmbrObject AsInpFieldNmbr { get; }
 }
 
 public interface ItestInpFieldNmbrObject
 {
-  public decimal Field { get; set; }
+  decimal Field { get; }
 }

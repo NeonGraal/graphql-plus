@@ -13,8 +13,8 @@ namespace Components.Gqlp_Schema_output_parent_generic;
 
 public interface ICmptOutpPrntGnrc
 {
-  public ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
-  public ICmptOutpPrntGnrcObject AsOutpPrntGnrc { get; set; }
+  ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; }
+  ICmptOutpPrntGnrcObject AsOutpPrntGnrc { get; }
 }
 
 public interface ICmptOutpPrntGnrcObject
@@ -23,10 +23,10 @@ public interface ICmptOutpPrntGnrcObject
 
 public interface ICmptRefOutpPrntGnrc<Ttype>
 {
-  public ICmptRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; set; }
+  ICmptRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; }
 }
 
 public interface ICmptRefOutpPrntGnrcObject<Ttype>
 {
-  public Ttype Field { get; set; }
+  Ttype Field { get; }
 }

@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_constraint_parent_enum_Output;
 
 public interface ICmptCnstPrntEnumOutp
 {
-  ICmptRefCnstPrntEnumOutp<CmptParentCnstPrntEnumOutp> AsRefCnstPrntEnumOutp { get; }
+  ICmptRefCnstPrntEnumOutp<CmptParentCnstPrntEnumOutp> AsParentCnstPrntEnumOutpparentCnstPrntEnumOutp { get; }
   ICmptCnstPrntEnumOutpObject AsCnstPrntEnumOutp { get; }
 }
 

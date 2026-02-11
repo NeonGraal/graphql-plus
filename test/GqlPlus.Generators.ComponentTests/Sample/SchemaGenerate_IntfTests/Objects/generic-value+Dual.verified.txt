@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_generic_value_Dual;
 
 public interface ICmptGnrcValueDual
 {
-  ICmptRefGnrcValueDual<CmptEnumGnrcValueDual> AsRefGnrcValueDual { get; }
+  ICmptRefGnrcValueDual<CmptEnumGnrcValueDual> AsEnumGnrcValueDualgnrcValueDual { get; }
   ICmptGnrcValueDualObject AsGnrcValueDual { get; }
 }
 

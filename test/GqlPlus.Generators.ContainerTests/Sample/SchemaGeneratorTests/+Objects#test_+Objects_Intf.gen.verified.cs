@@ -706,7 +706,7 @@ public interface ItestAltCnstAltObjOutpObject
 
 public interface ItestCnstDomEnumDual
 {
-  ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; }
+  ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual> AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
   ItestCnstDomEnumDualObject AsCnstDomEnumDual { get; }
 }
 
@@ -731,7 +731,7 @@ public interface ItestJustCnstDomEnumDual
 
 public interface ItestCnstDomEnumInp
 {
-  ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; }
+  ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp> AsEnumCnstDomEnumInpcnstDomEnumInp { get; }
   ItestCnstDomEnumInpObject AsCnstDomEnumInp { get; }
 }
 
@@ -756,7 +756,7 @@ public interface ItestJustCnstDomEnumInp
 
 public interface ItestCnstDomEnumOutp
 {
-  ItestRefCnstDomEnumOutp<testEnumCnstDomEnumOutp> AsRefCnstDomEnumOutp { get; }
+  ItestRefCnstDomEnumOutp<testEnumCnstDomEnumOutp> AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; }
   ItestCnstDomEnumOutpObject AsCnstDomEnumOutp { get; }
 }
 
@@ -781,7 +781,7 @@ public interface ItestJustCnstDomEnumOutp
 
 public interface ItestCnstEnumDual
 {
-  ItestRefCnstEnumDual<testEnumCnstEnumDual> AsRefCnstEnumDual { get; }
+  ItestRefCnstEnumDual<testEnumCnstEnumDual> AsEnumCnstEnumDualcnstEnumDual { get; }
   ItestCnstEnumDualObject AsCnstEnumDual { get; }
 }
 
@@ -801,7 +801,7 @@ public interface ItestRefCnstEnumDualObject<TType>
 
 public interface ItestCnstEnumInp
 {
-  ItestRefCnstEnumInp<testEnumCnstEnumInp> AsRefCnstEnumInp { get; }
+  ItestRefCnstEnumInp<testEnumCnstEnumInp> AsEnumCnstEnumInpcnstEnumInp { get; }
   ItestCnstEnumInpObject AsCnstEnumInp { get; }
 }
 
@@ -821,7 +821,7 @@ public interface ItestRefCnstEnumInpObject<TType>
 
 public interface ItestCnstEnumOutp
 {
-  ItestRefCnstEnumOutp<testEnumCnstEnumOutp> AsRefCnstEnumOutp { get; }
+  ItestRefCnstEnumOutp<testEnumCnstEnumOutp> AsEnumCnstEnumOutpcnstEnumOutp { get; }
   ItestCnstEnumOutpObject AsCnstEnumOutp { get; }
 }
 
@@ -841,7 +841,7 @@ public interface ItestRefCnstEnumOutpObject<TType>
 
 public interface ItestCnstEnumPrntDual
 {
-  ItestRefCnstEnumPrntDual<testEnumCnstEnumPrntDual> AsRefCnstEnumPrntDual { get; }
+  ItestRefCnstEnumPrntDual<testEnumCnstEnumPrntDual> AsEnumCnstEnumPrntDualcnstEnumPrntDual { get; }
   ItestCnstEnumPrntDualObject AsCnstEnumPrntDual { get; }
 }
 
@@ -861,7 +861,7 @@ public interface ItestRefCnstEnumPrntDualObject<TType>
 
 public interface ItestCnstEnumPrntInp
 {
-  ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; }
+  ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp> AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; }
   ItestCnstEnumPrntInpObject AsCnstEnumPrntInp { get; }
 }
 
@@ -881,7 +881,7 @@ public interface ItestRefCnstEnumPrntInpObject<TType>
 
 public interface ItestCnstEnumPrntOutp
 {
-  ItestRefCnstEnumPrntOutp<testEnumCnstEnumPrntOutp> AsRefCnstEnumPrntOutp { get; }
+  ItestRefCnstEnumPrntOutp<testEnumCnstEnumPrntOutp> AsEnumCnstEnumPrntOutpcnstEnumPrntOutp { get; }
   ItestCnstEnumPrntOutpObject AsCnstEnumPrntOutp { get; }
 }
 
@@ -1534,7 +1534,7 @@ public interface ItestAltCnstPrntDualPrntOutpObject
 
 public interface ItestCnstPrntEnumDual
 {
-  ItestRefCnstPrntEnumDual<testParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; }
+  ItestRefCnstPrntEnumDual<testParentCnstPrntEnumDual> AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; }
   ItestCnstPrntEnumDualObject AsCnstPrntEnumDual { get; }
 }
 
@@ -1554,7 +1554,7 @@ public interface ItestRefCnstPrntEnumDualObject<TType>
 
 public interface ItestCnstPrntEnumInp
 {
-  ItestRefCnstPrntEnumInp<testParentCnstPrntEnumInp> AsRefCnstPrntEnumInp { get; }
+  ItestRefCnstPrntEnumInp<testParentCnstPrntEnumInp> AsParentCnstPrntEnumInpparentCnstPrntEnumInp { get; }
   ItestCnstPrntEnumInpObject AsCnstPrntEnumInp { get; }
 }
 
@@ -1574,7 +1574,7 @@ public interface ItestRefCnstPrntEnumInpObject<TType>
 
 public interface ItestCnstPrntEnumOutp
 {
-  ItestRefCnstPrntEnumOutp<testParentCnstPrntEnumOutp> AsRefCnstPrntEnumOutp { get; }
+  ItestRefCnstPrntEnumOutp<testParentCnstPrntEnumOutp> AsParentCnstPrntEnumOutpparentCnstPrntEnumOutp { get; }
   ItestCnstPrntEnumOutpObject AsCnstPrntEnumOutp { get; }
 }
 
@@ -2671,7 +2671,7 @@ public interface ItestGnrcDescrOutpObject<TType>
 
 public interface ItestGnrcEnumDual
 {
-  ItestRefGnrcEnumDual<testEnumGnrcEnumDual> AsRefGnrcEnumDual { get; }
+  ItestRefGnrcEnumDual<testEnumGnrcEnumDual> AsEnumGnrcEnumDualgnrcEnumDual { get; }
   ItestGnrcEnumDualObject AsGnrcEnumDual { get; }
 }
 
@@ -2691,7 +2691,7 @@ public interface ItestRefGnrcEnumDualObject<TType>
 
 public interface ItestGnrcEnumInp
 {
-  ItestRefGnrcEnumInp<testEnumGnrcEnumInp> AsRefGnrcEnumInp { get; }
+  ItestRefGnrcEnumInp<testEnumGnrcEnumInp> AsEnumGnrcEnumInpgnrcEnumInp { get; }
   ItestGnrcEnumInpObject AsGnrcEnumInp { get; }
 }
 
@@ -2711,7 +2711,7 @@ public interface ItestRefGnrcEnumInpObject<TType>
 
 public interface ItestGnrcEnumOutp
 {
-  ItestRefGnrcEnumOutp<testEnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; }
+  ItestRefGnrcEnumOutp<testEnumGnrcEnumOutp> AsEnumGnrcEnumOutpgnrcEnumOutp { get; }
   ItestGnrcEnumOutpObject AsGnrcEnumOutp { get; }
 }
 
@@ -3871,7 +3871,7 @@ public interface ItestDomGnrcPrntStrDomOutp
 
 public interface ItestGnrcValueDual
 {
-  ItestRefGnrcValueDual<testEnumGnrcValueDual> AsRefGnrcValueDual { get; }
+  ItestRefGnrcValueDual<testEnumGnrcValueDual> AsEnumGnrcValueDualgnrcValueDual { get; }
   ItestGnrcValueDualObject AsGnrcValueDual { get; }
 }
 
@@ -3891,7 +3891,7 @@ public interface ItestRefGnrcValueDualObject<TType>
 
 public interface ItestGnrcValueInp
 {
-  ItestRefGnrcValueInp<testEnumGnrcValueInp> AsRefGnrcValueInp { get; }
+  ItestRefGnrcValueInp<testEnumGnrcValueInp> AsEnumGnrcValueInpgnrcValueInp { get; }
   ItestGnrcValueInpObject AsGnrcValueInp { get; }
 }
 
@@ -3911,7 +3911,7 @@ public interface ItestRefGnrcValueInpObject<TType>
 
 public interface ItestGnrcValueOutp
 {
-  ItestRefGnrcValueOutp<testEnumGnrcValueOutp> AsRefGnrcValueOutp { get; }
+  ItestRefGnrcValueOutp<testEnumGnrcValueOutp> AsEnumGnrcValueOutpgnrcValueOutp { get; }
   ItestGnrcValueOutpObject AsGnrcValueOutp { get; }
 }
 
@@ -4172,7 +4172,7 @@ public interface ItestInOutpParamTypeDescrObject
 
 public interface ItestOutpPrntGnrc
 {
-  ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; }
+  ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc> AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
   ItestOutpPrntGnrcObject AsOutpPrntGnrc { get; }
 }
 

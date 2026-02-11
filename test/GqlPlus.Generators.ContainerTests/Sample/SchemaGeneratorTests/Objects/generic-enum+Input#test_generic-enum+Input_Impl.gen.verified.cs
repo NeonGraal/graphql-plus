@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Input;
 public class testGnrcEnumInp
   : ItestGnrcEnumInp
 {
-  public ItestRefGnrcEnumInp<testEnumGnrcEnumInp> AsRefGnrcEnumInp { get; set; }
+  public ItestRefGnrcEnumInp<testEnumGnrcEnumInp> AsEnumGnrcEnumInpgnrcEnumInp { get; set; }
   public ItestGnrcEnumInpObject AsGnrcEnumInp { get; set; }
 }
 

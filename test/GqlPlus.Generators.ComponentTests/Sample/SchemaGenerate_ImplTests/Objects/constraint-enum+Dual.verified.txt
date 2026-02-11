@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_constraint_enum_Dual;
 public class CmptCnstEnumDual
   : ICmptCnstEnumDual
 {
-  public ICmptRefCnstEnumDual<CmptEnumCnstEnumDual> AsRefCnstEnumDual { get; set; }
+  public ICmptRefCnstEnumDual<CmptEnumCnstEnumDual> AsEnumCnstEnumDualcnstEnumDual { get; set; }
   public ICmptCnstEnumDualObject AsCnstEnumDual { get; set; }
 }
 

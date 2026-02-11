@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_output_parent_generic;
 public class CmptOutpPrntGnrc
   : ICmptOutpPrntGnrc
 {
-  public ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
+  public ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; set; }
   public ICmptOutpPrntGnrcObject AsOutpPrntGnrc { get; set; }
 }
 

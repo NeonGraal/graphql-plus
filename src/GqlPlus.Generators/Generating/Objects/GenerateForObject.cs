@@ -38,6 +38,10 @@ internal class GenerateForObject<TObjField>
         name += alt.EnumValue.EnumLabel;
       }
 
+      if (alt.Args.Any(a => a.EnumValue is not null)) {
+        name = alt.Args.Select(a => a.EnumValue?.EnumValue.Replace(".", "")).Joined();
+      }
+
       return "As" + name;
     }
   }

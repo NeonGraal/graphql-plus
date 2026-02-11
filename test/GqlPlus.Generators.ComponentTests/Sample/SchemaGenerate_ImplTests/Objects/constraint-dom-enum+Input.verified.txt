@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
 public class CmptCnstDomEnumInp
   : ICmptCnstDomEnumInp
 {
-  public ICmptRefCnstDomEnumInp<CmptEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public ICmptRefCnstDomEnumInp<CmptEnumCnstDomEnumInp> AsEnumCnstDomEnumInpcnstDomEnumInp { get; set; }
   public ICmptCnstDomEnumInpObject AsCnstDomEnumInp { get; set; }
 }
 

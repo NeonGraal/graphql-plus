@@ -607,7 +607,7 @@ public class CmptAltCnstAltObjOutp
 public class CmptCnstDomEnumDual
   : ICmptCnstDomEnumDual
 {
-  public ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
+  public ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual> AsEnumCnstDomEnumDualcnstDomEnumDual { get; set; }
   public ICmptCnstDomEnumDualObject AsCnstDomEnumDual { get; set; }
 }
 
@@ -627,7 +627,7 @@ public class CmptJustCnstDomEnumDual
 public class CmptCnstDomEnumInp
   : ICmptCnstDomEnumInp
 {
-  public ICmptRefCnstDomEnumInp<CmptEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public ICmptRefCnstDomEnumInp<CmptEnumCnstDomEnumInp> AsEnumCnstDomEnumInpcnstDomEnumInp { get; set; }
   public ICmptCnstDomEnumInpObject AsCnstDomEnumInp { get; set; }
 }
 
@@ -647,7 +647,7 @@ public class CmptJustCnstDomEnumInp
 public class CmptCnstDomEnumOutp
   : ICmptCnstDomEnumOutp
 {
-  public ICmptRefCnstDomEnumOutp<CmptEnumCnstDomEnumOutp> AsRefCnstDomEnumOutp { get; set; }
+  public ICmptRefCnstDomEnumOutp<CmptEnumCnstDomEnumOutp> AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; set; }
   public ICmptCnstDomEnumOutpObject AsCnstDomEnumOutp { get; set; }
 }
 
@@ -667,7 +667,7 @@ public class CmptJustCnstDomEnumOutp
 public class CmptCnstEnumDual
   : ICmptCnstEnumDual
 {
-  public ICmptRefCnstEnumDual<CmptEnumCnstEnumDual> AsRefCnstEnumDual { get; set; }
+  public ICmptRefCnstEnumDual<CmptEnumCnstEnumDual> AsEnumCnstEnumDualcnstEnumDual { get; set; }
   public ICmptCnstEnumDualObject AsCnstEnumDual { get; set; }
 }
 
@@ -681,7 +681,7 @@ public class CmptRefCnstEnumDual<TType>
 public class CmptCnstEnumInp
   : ICmptCnstEnumInp
 {
-  public ICmptRefCnstEnumInp<CmptEnumCnstEnumInp> AsRefCnstEnumInp { get; set; }
+  public ICmptRefCnstEnumInp<CmptEnumCnstEnumInp> AsEnumCnstEnumInpcnstEnumInp { get; set; }
   public ICmptCnstEnumInpObject AsCnstEnumInp { get; set; }
 }
 
@@ -695,7 +695,7 @@ public class CmptRefCnstEnumInp<TType>
 public class CmptCnstEnumOutp
   : ICmptCnstEnumOutp
 {
-  public ICmptRefCnstEnumOutp<CmptEnumCnstEnumOutp> AsRefCnstEnumOutp { get; set; }
+  public ICmptRefCnstEnumOutp<CmptEnumCnstEnumOutp> AsEnumCnstEnumOutpcnstEnumOutp { get; set; }
   public ICmptCnstEnumOutpObject AsCnstEnumOutp { get; set; }
 }
 
@@ -709,7 +709,7 @@ public class CmptRefCnstEnumOutp<TType>
 public class CmptCnstEnumPrntDual
   : ICmptCnstEnumPrntDual
 {
-  public ICmptRefCnstEnumPrntDual<CmptEnumCnstEnumPrntDual> AsRefCnstEnumPrntDual { get; set; }
+  public ICmptRefCnstEnumPrntDual<CmptEnumCnstEnumPrntDual> AsEnumCnstEnumPrntDualcnstEnumPrntDual { get; set; }
   public ICmptCnstEnumPrntDualObject AsCnstEnumPrntDual { get; set; }
 }
 
@@ -723,7 +723,7 @@ public class CmptRefCnstEnumPrntDual<TType>
 public class CmptCnstEnumPrntInp
   : ICmptCnstEnumPrntInp
 {
-  public ICmptRefCnstEnumPrntInp<CmptEnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; set; }
+  public ICmptRefCnstEnumPrntInp<CmptEnumCnstEnumPrntInp> AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; set; }
   public ICmptCnstEnumPrntInpObject AsCnstEnumPrntInp { get; set; }
 }
 
@@ -737,7 +737,7 @@ public class CmptRefCnstEnumPrntInp<TType>
 public class CmptCnstEnumPrntOutp
   : ICmptCnstEnumPrntOutp
 {
-  public ICmptRefCnstEnumPrntOutp<CmptEnumCnstEnumPrntOutp> AsRefCnstEnumPrntOutp { get; set; }
+  public ICmptRefCnstEnumPrntOutp<CmptEnumCnstEnumPrntOutp> AsEnumCnstEnumPrntOutpcnstEnumPrntOutp { get; set; }
   public ICmptCnstEnumPrntOutpObject AsCnstEnumPrntOutp { get; set; }
 }
 
@@ -1180,7 +1180,7 @@ public class CmptAltCnstPrntDualPrntOutp
 public class CmptCnstPrntEnumDual
   : ICmptCnstPrntEnumDual
 {
-  public ICmptRefCnstPrntEnumDual<CmptParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; set; }
+  public ICmptRefCnstPrntEnumDual<CmptParentCnstPrntEnumDual> AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; set; }
   public ICmptCnstPrntEnumDualObject AsCnstPrntEnumDual { get; set; }
 }
 
@@ -1194,7 +1194,7 @@ public class CmptRefCnstPrntEnumDual<TType>
 public class CmptCnstPrntEnumInp
   : ICmptCnstPrntEnumInp
 {
-  public ICmptRefCnstPrntEnumInp<CmptParentCnstPrntEnumInp> AsRefCnstPrntEnumInp { get; set; }
+  public ICmptRefCnstPrntEnumInp<CmptParentCnstPrntEnumInp> AsParentCnstPrntEnumInpparentCnstPrntEnumInp { get; set; }
   public ICmptCnstPrntEnumInpObject AsCnstPrntEnumInp { get; set; }
 }
 
@@ -1208,7 +1208,7 @@ public class CmptRefCnstPrntEnumInp<TType>
 public class CmptCnstPrntEnumOutp
   : ICmptCnstPrntEnumOutp
 {
-  public ICmptRefCnstPrntEnumOutp<CmptParentCnstPrntEnumOutp> AsRefCnstPrntEnumOutp { get; set; }
+  public ICmptRefCnstPrntEnumOutp<CmptParentCnstPrntEnumOutp> AsParentCnstPrntEnumOutpparentCnstPrntEnumOutp { get; set; }
   public ICmptCnstPrntEnumOutpObject AsCnstPrntEnumOutp { get; set; }
 }
 
@@ -1975,7 +1975,7 @@ public class CmptGnrcDescrOutp<TType>
 public class CmptGnrcEnumDual
   : ICmptGnrcEnumDual
 {
-  public ICmptRefGnrcEnumDual<CmptEnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
+  public ICmptRefGnrcEnumDual<CmptEnumGnrcEnumDual> AsEnumGnrcEnumDualgnrcEnumDual { get; set; }
   public ICmptGnrcEnumDualObject AsGnrcEnumDual { get; set; }
 }
 
@@ -1989,7 +1989,7 @@ public class CmptRefGnrcEnumDual<TType>
 public class CmptGnrcEnumInp
   : ICmptGnrcEnumInp
 {
-  public ICmptRefGnrcEnumInp<CmptEnumGnrcEnumInp> AsRefGnrcEnumInp { get; set; }
+  public ICmptRefGnrcEnumInp<CmptEnumGnrcEnumInp> AsEnumGnrcEnumInpgnrcEnumInp { get; set; }
   public ICmptGnrcEnumInpObject AsGnrcEnumInp { get; set; }
 }
 
@@ -2003,7 +2003,7 @@ public class CmptRefGnrcEnumInp<TType>
 public class CmptGnrcEnumOutp
   : ICmptGnrcEnumOutp
 {
-  public ICmptRefGnrcEnumOutp<CmptEnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; set; }
+  public ICmptRefGnrcEnumOutp<CmptEnumGnrcEnumOutp> AsEnumGnrcEnumOutpgnrcEnumOutp { get; set; }
   public ICmptGnrcEnumOutpObject AsGnrcEnumOutp { get; set; }
 }
 
@@ -2806,7 +2806,7 @@ public class CmptDomGnrcPrntStrDomOutp
 public class CmptGnrcValueDual
   : ICmptGnrcValueDual
 {
-  public ICmptRefGnrcValueDual<CmptEnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
+  public ICmptRefGnrcValueDual<CmptEnumGnrcValueDual> AsEnumGnrcValueDualgnrcValueDual { get; set; }
   public ICmptGnrcValueDualObject AsGnrcValueDual { get; set; }
 }
 
@@ -2820,7 +2820,7 @@ public class CmptRefGnrcValueDual<TType>
 public class CmptGnrcValueInp
   : ICmptGnrcValueInp
 {
-  public ICmptRefGnrcValueInp<CmptEnumGnrcValueInp> AsRefGnrcValueInp { get; set; }
+  public ICmptRefGnrcValueInp<CmptEnumGnrcValueInp> AsEnumGnrcValueInpgnrcValueInp { get; set; }
   public ICmptGnrcValueInpObject AsGnrcValueInp { get; set; }
 }
 
@@ -2834,7 +2834,7 @@ public class CmptRefGnrcValueInp<TType>
 public class CmptGnrcValueOutp
   : ICmptGnrcValueOutp
 {
-  public ICmptRefGnrcValueOutp<CmptEnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
+  public ICmptRefGnrcValueOutp<CmptEnumGnrcValueOutp> AsEnumGnrcValueOutpgnrcValueOutp { get; set; }
   public ICmptGnrcValueOutpObject AsGnrcValueOutp { get; set; }
 }
 
@@ -3022,7 +3022,7 @@ public class CmptInOutpParamTypeDescr
 public class CmptOutpPrntGnrc
   : ICmptOutpPrntGnrc
 {
-  public ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
+  public ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; set; }
   public ICmptOutpPrntGnrcObject AsOutpPrntGnrc { get; set; }
 }
 

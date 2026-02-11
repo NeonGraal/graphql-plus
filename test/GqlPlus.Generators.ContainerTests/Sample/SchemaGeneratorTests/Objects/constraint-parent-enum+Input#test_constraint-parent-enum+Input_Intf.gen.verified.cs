@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_enum_Input;
 
 public interface ItestCnstPrntEnumInp
 {
-  ItestRefCnstPrntEnumInp<testParentCnstPrntEnumInp> AsRefCnstPrntEnumInp { get; }
+  ItestRefCnstPrntEnumInp<testParentCnstPrntEnumInp> AsParentCnstPrntEnumInpparentCnstPrntEnumInp { get; }
   ItestCnstPrntEnumInpObject AsCnstPrntEnumInp { get; }
 }
 

@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_parent_generic;
 
 public interface ItestOutpPrntGnrc
 {
-  ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; }
+  ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc> AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
   ItestOutpPrntGnrcObject AsOutpPrntGnrc { get; }
 }
 

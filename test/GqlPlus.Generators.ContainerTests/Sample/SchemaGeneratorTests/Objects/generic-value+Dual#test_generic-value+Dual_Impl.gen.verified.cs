@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Dual;
 public class testGnrcValueDual
   : ItestGnrcValueDual
 {
-  public ItestRefGnrcValueDual<testEnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
+  public ItestRefGnrcValueDual<testEnumGnrcValueDual> AsEnumGnrcValueDualgnrcValueDual { get; set; }
   public ItestGnrcValueDualObject AsGnrcValueDual { get; set; }
 }
 

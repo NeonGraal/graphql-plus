@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 
 public interface ICmptCnstDomEnumDual
 {
-  ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; }
+  ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual> AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
   ICmptCnstDomEnumDualObject AsCnstDomEnumDual { get; }
 }
 

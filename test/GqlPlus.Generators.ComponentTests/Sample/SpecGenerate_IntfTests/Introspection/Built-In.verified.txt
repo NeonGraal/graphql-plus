@@ -31,9 +31,9 @@ namespace Components.Gqlp_Spec_Built_In;
 
 public interface ICmpt_Collections
 {
-  ICmpt_Modifier<Cmpt_ModifierKind> As_Modifier { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKeyed { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKeyed { get; }
+  ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindList { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindDictionary { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindTypeParam { get; }
   ICmpt_CollectionsObject As_Collections { get; }
 }
 
@@ -56,7 +56,7 @@ public interface ICmpt_ModifierKeyedObject<TKind>
 
 public interface ICmpt_Modifiers
 {
-  ICmpt_Modifier<Cmpt_ModifierKind> As_Modifier { get; }
+  ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindOptional { get; }
   ICmpt_Collections As_Collections { get; }
   ICmpt_ModifiersObject As_Modifiers { get; }
 }

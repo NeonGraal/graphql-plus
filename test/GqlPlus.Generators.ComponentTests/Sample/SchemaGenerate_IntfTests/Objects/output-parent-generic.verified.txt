@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_output_parent_generic;
 
 public interface ICmptOutpPrntGnrc
 {
-  ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; }
+  ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
   ICmptOutpPrntGnrcObject AsOutpPrntGnrc { get; }
 }
 

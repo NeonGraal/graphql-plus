@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_parent_Input;
 public class testCnstEnumPrntInp
   : ItestCnstEnumPrntInp
 {
-  public ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; set; }
+  public ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp> AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; set; }
   public ItestCnstEnumPrntInpObject AsCnstEnumPrntInp { get; set; }
 }
 

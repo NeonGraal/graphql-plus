@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_constraint_enum_Output;
 public class CmptCnstEnumOutp
   : ICmptCnstEnumOutp
 {
-  public ICmptRefCnstEnumOutp<CmptEnumCnstEnumOutp> AsRefCnstEnumOutp { get; set; }
+  public ICmptRefCnstEnumOutp<CmptEnumCnstEnumOutp> AsEnumCnstEnumOutpcnstEnumOutp { get; set; }
   public ICmptCnstEnumOutpObject AsCnstEnumOutp { get; set; }
 }
 

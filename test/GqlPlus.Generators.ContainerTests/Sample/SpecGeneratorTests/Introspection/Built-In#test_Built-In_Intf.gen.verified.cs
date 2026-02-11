@@ -7,9 +7,9 @@ namespace GqlPlus.GeneratorTests.Gqlp_Built_In;
 
 public interface Itest_Collections
 {
-  Itest_Modifier<test_ModifierKind> As_Modifier { get; }
-  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKeyed { get; }
-  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKeyed { get; }
+  Itest_Modifier<test_ModifierKind> As_ModifierKindList { get; }
+  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindDictionary { get; }
+  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindTypeParam { get; }
   Itest_CollectionsObject As_Collections { get; }
 }
 
@@ -32,7 +32,7 @@ public interface Itest_ModifierKeyedObject<TKind>
 
 public interface Itest_Modifiers
 {
-  Itest_Modifier<test_ModifierKind> As_Modifier { get; }
+  Itest_Modifier<test_ModifierKind> As_ModifierKindOptional { get; }
   Itest_Collections As_Collections { get; }
   Itest_ModifiersObject As_Modifiers { get; }
 }

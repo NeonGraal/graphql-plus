@@ -7,17 +7,17 @@ namespace GqlPlus.GeneratorTests.Gqlp__Type;
 
 public interface Itest_Type
 {
-  Itest_BaseType<test_TypeKind> As_BaseType { get; }
-  Itest_BaseType<test_TypeKind> As_BaseType { get; }
-  Itest_BaseDomain<Itest_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse> As_BaseDomain { get; }
-  Itest_BaseDomain<Itest_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel> As_BaseDomain { get; }
-  Itest_BaseDomain<Itest_DomainKind, Itest_DomainRange, Itest_DomainItemRange> As_BaseDomain { get; }
-  Itest_BaseDomain<Itest_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex> As_BaseDomain { get; }
-  Itest_ParentType<test_TypeKind, Itest_Aliased, Itest_EnumLabel> As_ParentType { get; }
-  Itest_ParentType<test_TypeKind, Itest_UnionRef, Itest_UnionMember> As_ParentType { get; }
-  Itest_TypeObject<test_TypeKind, Itest_DualField> As_TypeObject { get; }
-  Itest_TypeObject<test_TypeKind, Itest_InputField> As_TypeObject { get; }
-  Itest_TypeObject<test_TypeKind, Itest_OutputField> As_TypeObject { get; }
+  Itest_BaseType<test_TypeKind> As_TypeKindBasic { get; }
+  Itest_BaseType<test_TypeKind> As_TypeKindInternal { get; }
+  Itest_BaseDomain<Itest_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse> As_DomainKindBoolean { get; }
+  Itest_BaseDomain<Itest_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel> As_DomainKindEnum { get; }
+  Itest_BaseDomain<Itest_DomainKind, Itest_DomainRange, Itest_DomainItemRange> As_DomainKindNumber { get; }
+  Itest_BaseDomain<Itest_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex> As_DomainKindString { get; }
+  Itest_ParentType<test_TypeKind, Itest_Aliased, Itest_EnumLabel> As_TypeKindEnum { get; }
+  Itest_ParentType<test_TypeKind, Itest_UnionRef, Itest_UnionMember> As_TypeKindUnion { get; }
+  Itest_TypeObject<test_TypeKind, Itest_DualField> As_TypeKindDual { get; }
+  Itest_TypeObject<test_TypeKind, Itest_InputField> As_TypeKindInput { get; }
+  Itest_TypeObject<test_TypeKind, Itest_OutputField> As_TypeKindOutput { get; }
   Itest_TypeObject As_Type { get; }
 }
 
@@ -76,10 +76,10 @@ public interface Itest_TypeRefObject<TKind>
 
 public interface Itest_TypeSimple
 {
-  Itest_TypeRef<test_TypeKind> As_TypeRef { get; }
-  Itest_TypeRef<test_TypeKind> As_TypeRef { get; }
-  Itest_TypeRef<test_TypeKind> As_TypeRef { get; }
-  Itest_TypeRef<test_TypeKind> As_TypeRef { get; }
+  Itest_TypeRef<test_TypeKind> As_TypeKindBasic { get; }
+  Itest_TypeRef<test_TypeKind> As_TypeKindEnum { get; }
+  Itest_TypeRef<test_TypeKind> As_TypeKindDomain { get; }
+  Itest_TypeRef<test_TypeKind> As_TypeKindUnion { get; }
   Itest_TypeSimpleObject As_TypeSimple { get; }
 }
 
@@ -89,9 +89,9 @@ public interface Itest_TypeSimpleObject
 
 public interface Itest_Collections
 {
-  Itest_Modifier<test_ModifierKind> As_Modifier { get; }
-  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKeyed { get; }
-  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKeyed { get; }
+  Itest_Modifier<test_ModifierKind> As_ModifierKindList { get; }
+  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindDictionary { get; }
+  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindTypeParam { get; }
   Itest_CollectionsObject As_Collections { get; }
 }
 
@@ -114,7 +114,7 @@ public interface Itest_ModifierKeyedObject<TKind>
 
 public interface Itest_Modifiers
 {
-  Itest_Modifier<test_ModifierKind> As_Modifier { get; }
+  Itest_Modifier<test_ModifierKind> As_ModifierKindOptional { get; }
   Itest_Collections As_Collections { get; }
   Itest_ModifiersObject As_Modifiers { get; }
 }

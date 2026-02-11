@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_Dual;
 public class testCnstEnumDual
   : ItestCnstEnumDual
 {
-  public ItestRefCnstEnumDual<testEnumCnstEnumDual> AsRefCnstEnumDual { get; set; }
+  public ItestRefCnstEnumDual<testEnumCnstEnumDual> AsEnumCnstEnumDualcnstEnumDual { get; set; }
   public ItestCnstEnumDualObject AsCnstEnumDual { get; set; }
 }
 

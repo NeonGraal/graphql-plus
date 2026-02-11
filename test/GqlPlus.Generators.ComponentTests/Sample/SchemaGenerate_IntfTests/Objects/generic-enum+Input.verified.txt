@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_generic_enum_Input;
 
 public interface ICmptGnrcEnumInp
 {
-  ICmptRefGnrcEnumInp<CmptEnumGnrcEnumInp> AsRefGnrcEnumInp { get; }
+  ICmptRefGnrcEnumInp<CmptEnumGnrcEnumInp> AsEnumGnrcEnumInpgnrcEnumInp { get; }
   ICmptGnrcEnumInpObject AsGnrcEnumInp { get; }
 }
 

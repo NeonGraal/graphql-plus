@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Input;
 public class testCnstDomEnumInp
   : ItestCnstDomEnumInp
 {
-  public ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp> AsEnumCnstDomEnumInpcnstDomEnumInp { get; set; }
   public ItestCnstDomEnumInpObject AsCnstDomEnumInp { get; set; }
 }
 

@@ -100,6 +100,31 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
+  public void GenerateType_WithAlternateEnumArg_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string alternateType, string enumType, string enumLabel1, string enumLabel2)
+  {
+    this.SkipEqual4(name, enumType, enumLabel1, enumLabel2);
+
+    // Arrange
+    GqlpGeneratorContext context = Context(baseType, generatorType);
+    IGqlpEnum theEnum = A.Enum(enumType, [enumLabel1, enumLabel2]);
+    context.AddTypes([theEnum]);
+    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+      .WithAlternates(
+      A.Alternate(alternateType).WithArg(enumType, e => e.WithObjEnum(enumLabel1)),
+      A.Alternate(alternateType).WithArg(enumType, e => e.WithObjEnum(enumLabel2))
+      ).AsObject;
+
+    // Act
+    TypeGenerator.GenerateType(obj, context);
+
+    // Assert
+    CheckContext(context,
+      CheckGeneratedCodeName(generatorType, name),
+      CheckGeneratedCodeAlternateEnumArg(generatorType, alternateType, enumType, enumLabel1),
+      CheckGeneratedCodeAlternateEnumArg(generatorType, alternateType, enumType, enumLabel2));
+  }
+
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithFieldAndAlternate_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string fieldName, string fieldType, string alternateType)
   {
     // Arrange
@@ -157,6 +182,9 @@ public abstract class GenerateObjectTestsBase<TObjField>(
 
   protected virtual Action<string> CheckGeneratedCodeAlternateArg(GqlpGeneratorType generatorType, string alternateType, string argName)
     => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"I{TestPrefix}{alternateType}<I{TestPrefix}{argName}> As{alternateType} {{ get;");
+
+  protected virtual Action<string> CheckGeneratedCodeAlternateEnumArg(GqlpGeneratorType generatorType, string alternateType, string enumType, string enumLabel)
+    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"I{TestPrefix}{alternateType}<{TestPrefix}{enumType}> As{enumType}{enumLabel} {{ get;");
 
   protected virtual Action<string> CheckGeneratedCodeAlternateEnum(GqlpGeneratorType generatorType, string enumType, string enumLabel)
     => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, $"{TestPrefix}{enumType} As{enumType}{enumLabel} {{ get;");

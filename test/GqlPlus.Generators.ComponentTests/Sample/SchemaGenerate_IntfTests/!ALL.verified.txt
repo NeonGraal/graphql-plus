@@ -345,7 +345,7 @@ public interface ICmptAltEnumOutpObject
 
 public interface ICmptAltModBoolDual
 {
-  IDictionary<CmptBoolean, ICmptAltAltModBoolDual> AsAltAltModBoolDual { get; }
+  IDictionary<bool, ICmptAltAltModBoolDual> AsAltAltModBoolDual { get; }
   ICmptAltModBoolDualObject AsAltModBoolDual { get; }
 }
 
@@ -366,7 +366,7 @@ public interface ICmptAltAltModBoolDualObject
 
 public interface ICmptAltModBoolInp
 {
-  IDictionary<CmptBoolean, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; }
+  IDictionary<bool, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; }
   ICmptAltModBoolInpObject AsAltModBoolInp { get; }
 }
 
@@ -387,7 +387,7 @@ public interface ICmptAltAltModBoolInpObject
 
 public interface ICmptAltModBoolOutp
 {
-  IDictionary<CmptBoolean, ICmptAltAltModBoolOutp> AsAltAltModBoolOutp { get; }
+  IDictionary<bool, ICmptAltAltModBoolOutp> AsAltAltModBoolOutp { get; }
   ICmptAltModBoolOutpObject AsAltModBoolOutp { get; }
 }
 
@@ -2610,7 +2610,7 @@ public interface ICmptRefGnrcAltModParamOutpObject<TRef,TMod>
 
 public interface ICmptRefGnrcAltModStrDual<TRef>
 {
-  IDictionary<CmptString, TRef> Asref { get; }
+  IDictionary<string, TRef> Asref { get; }
   ICmptRefGnrcAltModStrDualObject AsRefGnrcAltModStrDual { get; }
 }
 
@@ -2620,7 +2620,7 @@ public interface ICmptRefGnrcAltModStrDualObject<TRef>
 
 public interface ICmptRefGnrcAltModStrInp<TRef>
 {
-  IDictionary<CmptString, TRef> Asref { get; }
+  IDictionary<string, TRef> Asref { get; }
   ICmptRefGnrcAltModStrInpObject AsRefGnrcAltModStrInp { get; }
 }
 
@@ -2630,7 +2630,7 @@ public interface ICmptRefGnrcAltModStrInpObject<TRef>
 
 public interface ICmptRefGnrcAltModStrOutp<TRef>
 {
-  IDictionary<CmptString, TRef> Asref { get; }
+  IDictionary<string, TRef> Asref { get; }
   ICmptRefGnrcAltModStrOutpObject AsRefGnrcAltModStrOutp { get; }
 }
 

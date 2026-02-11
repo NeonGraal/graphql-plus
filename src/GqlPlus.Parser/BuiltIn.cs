@@ -23,11 +23,11 @@ public static class BuiltIn
   public const string VoidType = "Void";
 
   public static IGqlpType[] Basic { get; } = [
-    Enum(BooleanType, [BooleanAlias, "_Boolean"], BooleanFalse, BooleanTrue),
-    Enum(UnitType, [UnitValue, "_Unit"], UnitValue),
+    Enum(BooleanType, [BooleanAlias, "_" + BooleanType], BooleanFalse, BooleanTrue),
+    Enum(UnitType, [UnitValue, "_" + UnitType], UnitValue),
 
-    Domain<DomainRangeAst, IGqlpDomainRange>(NumberType, DomainKind.Number, NumberAlias, "_Number"),
-    Domain<DomainRegexAst, IGqlpDomainRegex>(StringType, DomainKind.String, StringAlias, "_String"),
+    Domain<DomainRangeAst, IGqlpDomainRange>(NumberType, DomainKind.Number, NumberAlias, "_" + NumberType),
+    Domain<DomainRegexAst, IGqlpDomainRegex>(StringType, DomainKind.String, StringAlias, "_" + StringType),
   ];
 
   private static readonly string[] s_basicMembers = [BooleanType, NumberType, StringType, UnitType];

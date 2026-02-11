@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Output;
 
 public interface ItestAltModBoolOutp
 {
-  IDictionary<testBoolean, ItestAltAltModBoolOutp> AsAltAltModBoolOutp { get; }
+  IDictionary<bool, ItestAltAltModBoolOutp> AsAltAltModBoolOutp { get; }
   ItestAltModBoolOutpObject AsAltModBoolOutp { get; }
 }
 

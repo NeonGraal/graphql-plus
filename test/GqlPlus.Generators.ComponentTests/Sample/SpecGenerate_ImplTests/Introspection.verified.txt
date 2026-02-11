@@ -354,10 +354,10 @@ public class Cmpt_Schema
   : Cmpt_Named
   , ICmpt_Schema
 {
-  public IDictionary<Cmpt_Name, ICmpt_Categories> Categories { get; set; }
-  public IDictionary<Cmpt_Name, ICmpt_Directives> Directives { get; set; }
-  public IDictionary<Cmpt_Name, ICmpt_Type> Types { get; set; }
-  public IDictionary<Cmpt_Name, ICmpt_Setting> Settings { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Categories> Categories { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Directives> Directives { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Type> Types { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Setting> Settings { get; set; }
   public ICmpt_SchemaObject As_Schema { get; set; }
 }
 

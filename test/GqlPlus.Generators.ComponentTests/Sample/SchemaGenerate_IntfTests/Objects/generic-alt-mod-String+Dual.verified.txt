@@ -10,7 +10,7 @@ namespace Components.Gqlp_Schema_generic_alt_mod_String_Dual;
 
 public interface ICmptRefGnrcAltModStrDual<TRef>
 {
-  IDictionary<CmptString, TRef> Asref { get; }
+  IDictionary<string, TRef> Asref { get; }
   ICmptRefGnrcAltModStrDualObject AsRefGnrcAltModStrDual { get; }
 }
 

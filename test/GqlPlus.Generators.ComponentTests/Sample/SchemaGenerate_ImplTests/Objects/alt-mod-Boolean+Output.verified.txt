@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_alt_mod_Boolean_Output;
 public class CmptAltModBoolOutp
   : ICmptAltModBoolOutp
 {
-  public IDictionary<CmptBoolean, ICmptAltAltModBoolOutp> AsAltAltModBoolOutp { get; set; }
+  public IDictionary<bool, ICmptAltAltModBoolOutp> AsAltAltModBoolOutp { get; set; }
   public ICmptAltModBoolOutpObject AsAltModBoolOutp { get; set; }
 }
 

@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_String_Input;
 
 public interface ItestRefGnrcAltModStrInp<TRef>
 {
-  IDictionary<testString, TRef> Asref { get; }
+  IDictionary<string, TRef> Asref { get; }
   ItestRefGnrcAltModStrInpObject AsRefGnrcAltModStrInp { get; }
 }
 

@@ -30,21 +30,21 @@ public class test_Dict<TK,TT>
 public class test_Map<TT>
   : Itest_Map<TT>
 {
-  public IDictionary<testString, TT> AsT { get; set; }
+  public IDictionary<string, TT> AsT { get; set; }
   public Itest_MapObject As_Map { get; set; }
 }
 
 public class test_Array<TT>
   : Itest_Array<TT>
 {
-  public IDictionary<testNumber, TT> AsT { get; set; }
+  public IDictionary<decimal, TT> AsT { get; set; }
   public Itest_ArrayObject As_Array { get; set; }
 }
 
 public class test_IfElse<TT>
   : Itest_IfElse<TT>
 {
-  public IDictionary<testBoolean, TT> AsT { get; set; }
+  public IDictionary<bool, TT> AsT { get; set; }
   public Itest_IfElseObject As_IfElse { get; set; }
 }
 
@@ -58,7 +58,7 @@ public class test_Set<TK>
 public class test_Mask<TK>
   : Itest_Mask<TK>
 {
-  public IDictionary<TK, testBoolean> AsBoolean { get; set; }
+  public IDictionary<TK, bool> AsBoolean { get; set; }
   public Itest_MaskObject As_Mask { get; set; }
 }
 

@@ -51,21 +51,21 @@ public class Cmpt_Dict<TK,TT>
 public class Cmpt_Map<TT>
   : ICmpt_Map<TT>
 {
-  public IDictionary<CmptString, TT> AsT { get; set; }
+  public IDictionary<string, TT> AsT { get; set; }
   public ICmpt_MapObject As_Map { get; set; }
 }
 
 public class Cmpt_Array<TT>
   : ICmpt_Array<TT>
 {
-  public IDictionary<CmptNumber, TT> AsT { get; set; }
+  public IDictionary<decimal, TT> AsT { get; set; }
   public ICmpt_ArrayObject As_Array { get; set; }
 }
 
 public class Cmpt_IfElse<TT>
   : ICmpt_IfElse<TT>
 {
-  public IDictionary<CmptBoolean, TT> AsT { get; set; }
+  public IDictionary<bool, TT> AsT { get; set; }
   public ICmpt_IfElseObject As_IfElse { get; set; }
 }
 
@@ -79,7 +79,7 @@ public class Cmpt_Set<TK>
 public class Cmpt_Mask<TK>
   : ICmpt_Mask<TK>
 {
-  public IDictionary<TK, CmptBoolean> AsBoolean { get; set; }
+  public IDictionary<TK, bool> AsBoolean { get; set; }
   public ICmpt_MaskObject As_Mask { get; set; }
 }
 

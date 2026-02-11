@@ -139,7 +139,7 @@ public class CmptAltEnumOutp
 public class CmptAltModBoolDual
   : ICmptAltModBoolDual
 {
-  public IDictionary<CmptBoolean, ICmptAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
+  public IDictionary<bool, ICmptAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
   public ICmptAltModBoolDualObject AsAltModBoolDual { get; set; }
 }
 
@@ -154,7 +154,7 @@ public class CmptAltAltModBoolDual
 public class CmptAltModBoolInp
   : ICmptAltModBoolInp
 {
-  public IDictionary<CmptBoolean, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
+  public IDictionary<bool, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
   public ICmptAltModBoolInpObject AsAltModBoolInp { get; set; }
 }
 
@@ -169,7 +169,7 @@ public class CmptAltAltModBoolInp
 public class CmptAltModBoolOutp
   : ICmptAltModBoolOutp
 {
-  public IDictionary<CmptBoolean, ICmptAltAltModBoolOutp> AsAltAltModBoolOutp { get; set; }
+  public IDictionary<bool, ICmptAltAltModBoolOutp> AsAltAltModBoolOutp { get; set; }
   public ICmptAltModBoolOutpObject AsAltModBoolOutp { get; set; }
 }
 
@@ -1723,21 +1723,21 @@ public class CmptRefGnrcAltModParamOutp<TRef,TMod>
 public class CmptRefGnrcAltModStrDual<TRef>
   : ICmptRefGnrcAltModStrDual<TRef>
 {
-  public IDictionary<CmptString, TRef> Asref { get; set; }
+  public IDictionary<string, TRef> Asref { get; set; }
   public ICmptRefGnrcAltModStrDualObject AsRefGnrcAltModStrDual { get; set; }
 }
 
 public class CmptRefGnrcAltModStrInp<TRef>
   : ICmptRefGnrcAltModStrInp<TRef>
 {
-  public IDictionary<CmptString, TRef> Asref { get; set; }
+  public IDictionary<string, TRef> Asref { get; set; }
   public ICmptRefGnrcAltModStrInpObject AsRefGnrcAltModStrInp { get; set; }
 }
 
 public class CmptRefGnrcAltModStrOutp<TRef>
   : ICmptRefGnrcAltModStrOutp<TRef>
 {
-  public IDictionary<CmptString, TRef> Asref { get; set; }
+  public IDictionary<string, TRef> Asref { get; set; }
   public ICmptRefGnrcAltModStrOutpObject AsRefGnrcAltModStrOutp { get; set; }
 }
 

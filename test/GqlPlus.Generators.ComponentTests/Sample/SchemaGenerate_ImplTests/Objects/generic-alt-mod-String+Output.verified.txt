@@ -11,6 +11,6 @@ namespace Components.Gqlp_Schema_generic_alt_mod_String_Output;
 public class CmptRefGnrcAltModStrOutp<TRef>
   : ICmptRefGnrcAltModStrOutp<TRef>
 {
-  public IDictionary<CmptString, TRef> Asref { get; set; }
+  public IDictionary<string, TRef> Asref { get; set; }
   public ICmptRefGnrcAltModStrOutpObject AsRefGnrcAltModStrOutp { get; set; }
 }

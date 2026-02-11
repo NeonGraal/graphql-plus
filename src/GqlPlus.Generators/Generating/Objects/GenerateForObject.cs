@@ -63,7 +63,7 @@ internal class GenerateForObject<TObjField>
     if (modifier.ModifierKind == ModifierKind.Param) {
       keyTypeStr = "T" + modifier.Key.Capitalize();
     } else {
-      keyTypeStr = context.TypeName(modifier.Key, "");
+      keyTypeStr = context.TypeName(modifier.Key, "I");
     }
 
     return $"IDictionary<{keyTypeStr}, {typeStr}>";

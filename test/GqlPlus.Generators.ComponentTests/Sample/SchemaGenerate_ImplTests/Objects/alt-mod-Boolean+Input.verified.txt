@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 public class CmptAltModBoolInp
   : ICmptAltModBoolInp
 {
-  public IDictionary<CmptBoolean, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
+  public IDictionary<bool, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
   public ICmptAltModBoolInpObject AsAltModBoolInp { get; set; }
 }
 

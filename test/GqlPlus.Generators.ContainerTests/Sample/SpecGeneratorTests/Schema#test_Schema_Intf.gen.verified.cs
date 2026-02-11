@@ -38,7 +38,7 @@ public interface Itest_DictObject<TK,TT>
 
 public interface Itest_Map<TT>
 {
-  IDictionary<testString, TT> AsT { get; }
+  IDictionary<string, TT> AsT { get; }
   Itest_MapObject As_Map { get; }
 }
 
@@ -48,7 +48,7 @@ public interface Itest_MapObject<TT>
 
 public interface Itest_Array<TT>
 {
-  IDictionary<testNumber, TT> AsT { get; }
+  IDictionary<decimal, TT> AsT { get; }
   Itest_ArrayObject As_Array { get; }
 }
 
@@ -58,7 +58,7 @@ public interface Itest_ArrayObject<TT>
 
 public interface Itest_IfElse<TT>
 {
-  IDictionary<testBoolean, TT> AsT { get; }
+  IDictionary<bool, TT> AsT { get; }
   Itest_IfElseObject As_IfElse { get; }
 }
 
@@ -78,7 +78,7 @@ public interface Itest_SetObject<TK>
 
 public interface Itest_Mask<TK>
 {
-  IDictionary<TK, testBoolean> AsBoolean { get; }
+  IDictionary<TK, bool> AsBoolean { get; }
   Itest_MaskObject As_Mask { get; }
 }
 

@@ -14,10 +14,10 @@ public interface Itest_Schema
 public interface Itest_SchemaObject
   : Itest_NamedObject
 {
-  IDictionary<test_Name, Itest_Categories> Categories { get; }
-  IDictionary<test_Name, Itest_Directives> Directives { get; }
-  IDictionary<test_Name, Itest_Type> Types { get; }
-  IDictionary<test_Name, Itest_Setting> Settings { get; }
+  IDictionary<Itest_Name, Itest_Categories> Categories { get; }
+  IDictionary<Itest_Name, Itest_Directives> Directives { get; }
+  IDictionary<Itest_Name, Itest_Type> Types { get; }
+  IDictionary<Itest_Name, Itest_Setting> Settings { get; }
 }
 
 public interface Itest_Name

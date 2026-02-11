@@ -242,7 +242,7 @@ public class testAltEnumOutp
 public class testAltModBoolDual
   : ItestAltModBoolDual
 {
-  public IDictionary<testBoolean, ItestAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
+  public IDictionary<bool, ItestAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
   public ItestAltModBoolDualObject AsAltModBoolDual { get; set; }
 }
 
@@ -257,7 +257,7 @@ public class testAltAltModBoolDual
 public class testAltModBoolInp
   : ItestAltModBoolInp
 {
-  public IDictionary<testBoolean, ItestAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
+  public IDictionary<bool, ItestAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
   public ItestAltModBoolInpObject AsAltModBoolInp { get; set; }
 }
 
@@ -272,7 +272,7 @@ public class testAltAltModBoolInp
 public class testAltModBoolOutp
   : ItestAltModBoolOutp
 {
-  public IDictionary<testBoolean, ItestAltAltModBoolOutp> AsAltAltModBoolOutp { get; set; }
+  public IDictionary<bool, ItestAltAltModBoolOutp> AsAltAltModBoolOutp { get; set; }
   public ItestAltModBoolOutpObject AsAltModBoolOutp { get; set; }
 }
 
@@ -1826,21 +1826,21 @@ public class testRefGnrcAltModParamOutp<TRef,TMod>
 public class testRefGnrcAltModStrDual<TRef>
   : ItestRefGnrcAltModStrDual<TRef>
 {
-  public IDictionary<testString, TRef> Asref { get; set; }
+  public IDictionary<string, TRef> Asref { get; set; }
   public ItestRefGnrcAltModStrDualObject AsRefGnrcAltModStrDual { get; set; }
 }
 
 public class testRefGnrcAltModStrInp<TRef>
   : ItestRefGnrcAltModStrInp<TRef>
 {
-  public IDictionary<testString, TRef> Asref { get; set; }
+  public IDictionary<string, TRef> Asref { get; set; }
   public ItestRefGnrcAltModStrInpObject AsRefGnrcAltModStrInp { get; set; }
 }
 
 public class testRefGnrcAltModStrOutp<TRef>
   : ItestRefGnrcAltModStrOutp<TRef>
 {
-  public IDictionary<testString, TRef> Asref { get; set; }
+  public IDictionary<string, TRef> Asref { get; set; }
   public ItestRefGnrcAltModStrOutpObject AsRefGnrcAltModStrOutp { get; set; }
 }
 

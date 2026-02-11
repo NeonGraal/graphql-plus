@@ -59,7 +59,7 @@ public interface ICmpt_DictObject<TK,TT>
 
 public interface ICmpt_Map<TT>
 {
-  IDictionary<CmptString, TT> AsT { get; }
+  IDictionary<string, TT> AsT { get; }
   ICmpt_MapObject As_Map { get; }
 }
 
@@ -69,7 +69,7 @@ public interface ICmpt_MapObject<TT>
 
 public interface ICmpt_Array<TT>
 {
-  IDictionary<CmptNumber, TT> AsT { get; }
+  IDictionary<decimal, TT> AsT { get; }
   ICmpt_ArrayObject As_Array { get; }
 }
 
@@ -79,7 +79,7 @@ public interface ICmpt_ArrayObject<TT>
 
 public interface ICmpt_IfElse<TT>
 {
-  IDictionary<CmptBoolean, TT> AsT { get; }
+  IDictionary<bool, TT> AsT { get; }
   ICmpt_IfElseObject As_IfElse { get; }
 }
 
@@ -99,7 +99,7 @@ public interface ICmpt_SetObject<TK>
 
 public interface ICmpt_Mask<TK>
 {
-  IDictionary<TK, CmptBoolean> AsBoolean { get; }
+  IDictionary<TK, bool> AsBoolean { get; }
   ICmpt_MaskObject As_Mask { get; }
 }
 

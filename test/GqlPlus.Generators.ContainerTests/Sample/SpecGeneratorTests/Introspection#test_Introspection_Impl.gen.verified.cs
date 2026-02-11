@@ -9,10 +9,10 @@ public class test_Schema
   : test_Named
   , Itest_Schema
 {
-  public IDictionary<test_Name, Itest_Categories> Categories { get; set; }
-  public IDictionary<test_Name, Itest_Directives> Directives { get; set; }
-  public IDictionary<test_Name, Itest_Type> Types { get; set; }
-  public IDictionary<test_Name, Itest_Setting> Settings { get; set; }
+  public IDictionary<Itest_Name, Itest_Categories> Categories { get; set; }
+  public IDictionary<Itest_Name, Itest_Directives> Directives { get; set; }
+  public IDictionary<Itest_Name, Itest_Type> Types { get; set; }
+  public IDictionary<Itest_Name, Itest_Setting> Settings { get; set; }
   public Itest_SchemaObject As_Schema { get; set; }
 }
 

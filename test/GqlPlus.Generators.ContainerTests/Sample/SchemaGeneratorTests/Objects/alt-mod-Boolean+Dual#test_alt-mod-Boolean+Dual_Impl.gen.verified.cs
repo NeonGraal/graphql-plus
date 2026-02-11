@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Dual;
 public class testAltModBoolDual
   : ItestAltModBoolDual
 {
-  public IDictionary<testBoolean, ItestAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
+  public IDictionary<bool, ItestAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
   public ItestAltModBoolDualObject AsAltModBoolDual { get; set; }
 }
 

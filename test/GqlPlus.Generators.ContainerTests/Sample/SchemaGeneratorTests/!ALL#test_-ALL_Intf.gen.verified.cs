@@ -346,7 +346,7 @@ public interface ItestAltEnumOutpObject
 
 public interface ItestAltModBoolDual
 {
-  IDictionary<testBoolean, ItestAltAltModBoolDual> AsAltAltModBoolDual { get; }
+  IDictionary<bool, ItestAltAltModBoolDual> AsAltAltModBoolDual { get; }
   ItestAltModBoolDualObject AsAltModBoolDual { get; }
 }
 
@@ -367,7 +367,7 @@ public interface ItestAltAltModBoolDualObject
 
 public interface ItestAltModBoolInp
 {
-  IDictionary<testBoolean, ItestAltAltModBoolInp> AsAltAltModBoolInp { get; }
+  IDictionary<bool, ItestAltAltModBoolInp> AsAltAltModBoolInp { get; }
   ItestAltModBoolInpObject AsAltModBoolInp { get; }
 }
 
@@ -388,7 +388,7 @@ public interface ItestAltAltModBoolInpObject
 
 public interface ItestAltModBoolOutp
 {
-  IDictionary<testBoolean, ItestAltAltModBoolOutp> AsAltAltModBoolOutp { get; }
+  IDictionary<bool, ItestAltAltModBoolOutp> AsAltAltModBoolOutp { get; }
   ItestAltModBoolOutpObject AsAltModBoolOutp { get; }
 }
 
@@ -2611,7 +2611,7 @@ public interface ItestRefGnrcAltModParamOutpObject<TRef,TMod>
 
 public interface ItestRefGnrcAltModStrDual<TRef>
 {
-  IDictionary<testString, TRef> Asref { get; }
+  IDictionary<string, TRef> Asref { get; }
   ItestRefGnrcAltModStrDualObject AsRefGnrcAltModStrDual { get; }
 }
 
@@ -2621,7 +2621,7 @@ public interface ItestRefGnrcAltModStrDualObject<TRef>
 
 public interface ItestRefGnrcAltModStrInp<TRef>
 {
-  IDictionary<testString, TRef> Asref { get; }
+  IDictionary<string, TRef> Asref { get; }
   ItestRefGnrcAltModStrInpObject AsRefGnrcAltModStrInp { get; }
 }
 
@@ -2631,7 +2631,7 @@ public interface ItestRefGnrcAltModStrInpObject<TRef>
 
 public interface ItestRefGnrcAltModStrOutp<TRef>
 {
-  IDictionary<testString, TRef> Asref { get; }
+  IDictionary<string, TRef> Asref { get; }
   ItestRefGnrcAltModStrOutpObject AsRefGnrcAltModStrOutp { get; }
 }
 

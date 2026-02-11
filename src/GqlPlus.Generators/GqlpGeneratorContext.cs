@@ -25,9 +25,15 @@ internal sealed class GqlpGeneratorContext
   }
 
   public static readonly Map<string> DotNetTypes = new() {
+    ["_" + BuiltIn.StringType] = "string",
     [BuiltIn.StringType] = "string",
+    [BuiltIn.StringAlias] = "string",
+    ["_" + BuiltIn.NumberType] = "decimal",
     [BuiltIn.NumberType] = "decimal",
+    [BuiltIn.NumberAlias] = "decimal",
+    ["_" + BuiltIn.BooleanType] = "bool",
     [BuiltIn.BooleanType] = "bool",
+    [BuiltIn.BooleanAlias] = "bool",
   };
 
   public string File { get; }

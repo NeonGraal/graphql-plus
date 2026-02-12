@@ -76,7 +76,7 @@ output _ForParam<$type:_ObjFieldType> {
 namespace Components.Gqlp_Spec_Base;
 
 public class Cmpt_ObjectKind
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmpt_ObjectKind
 {
 }

@@ -55,7 +55,7 @@ public interface ICmpt_SchemaObject
 }
 
 public interface ICmpt_Name
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -75,7 +75,7 @@ public interface ICmpt_FilterObject
 }
 
 public interface ICmpt_NameFilter
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 

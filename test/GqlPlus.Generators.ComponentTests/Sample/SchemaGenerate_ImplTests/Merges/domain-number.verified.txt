@@ -10,7 +10,7 @@ domain DmnNmbr { number }
 namespace Components.Gqlp_Schema_domain_number;
 
 public class CmptDmnNmbr
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnNmbr
 {
 }

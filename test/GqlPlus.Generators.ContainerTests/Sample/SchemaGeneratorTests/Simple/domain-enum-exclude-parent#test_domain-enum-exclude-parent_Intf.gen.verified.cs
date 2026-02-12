@@ -6,6 +6,6 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_exclude_parent;
 
 public interface ItestDmnEnumExclPrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

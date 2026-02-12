@@ -12,7 +12,7 @@ public class testDmnStrPrntDescr
 }
 
 public class testPrntDmnStrPrntDescr
-  : DomainString
+  : GqlpDomainString
   , ItestPrntDmnStrPrntDescr
 {
 }

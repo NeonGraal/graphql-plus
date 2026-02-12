@@ -26,6 +26,6 @@ public interface ItestRefCnstDomEnumInpObject<TType>
 }
 
 public interface ItestJustCnstDomEnumInp
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

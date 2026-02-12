@@ -33,6 +33,6 @@ public interface ICmptFieldGnrcPrntEnumDomOutpObject<TRef>
 }
 
 public interface ICmptDomGnrcPrntEnumDomOutp
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

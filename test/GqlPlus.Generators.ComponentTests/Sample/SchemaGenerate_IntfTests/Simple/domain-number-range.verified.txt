@@ -9,6 +9,6 @@ domain DmnNmbrRange { Number 1<9 21>12 }
 namespace Components.Gqlp_Schema_domain_number_range;
 
 public interface ICmptDmnNmbrRange
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }

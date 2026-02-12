@@ -26,7 +26,7 @@ public class CmptRefCnstDomEnumDual<TType>
 }
 
 public class CmptJustCnstDomEnumDual
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptJustCnstDomEnumDual
 {
 }

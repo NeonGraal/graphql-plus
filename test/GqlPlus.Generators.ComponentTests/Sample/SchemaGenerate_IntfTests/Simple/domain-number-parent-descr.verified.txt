@@ -15,6 +15,6 @@ public interface ICmptDmnNmbrPrntDescr
 }
 
 public interface ICmptPrntDmnNmbrPrntDescr
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }

@@ -26,6 +26,6 @@ public interface ItestRefCnstAltDmnInpObject<TRef>
 }
 
 public interface ItestDomCnstAltDmnInp
-  : IDomainString
+  : IGqlpDomainString
 {
 }

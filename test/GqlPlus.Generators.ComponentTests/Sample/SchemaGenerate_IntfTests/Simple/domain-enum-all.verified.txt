@@ -10,6 +10,6 @@ enum EnumDmnEnumAll { dmnEnumAll enum_dmnEnumAll dmnEnumAllValue }
 namespace Components.Gqlp_Schema_domain_enum_all;
 
 public interface ICmptDmnEnumAll
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

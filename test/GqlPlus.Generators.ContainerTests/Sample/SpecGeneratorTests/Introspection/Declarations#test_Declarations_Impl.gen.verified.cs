@@ -17,7 +17,7 @@ public class test_Schema
 }
 
 public class test_Name
-  : DomainString
+  : GqlpDomainString
   , Itest_Name
 {
 }
@@ -35,7 +35,7 @@ public class test_Filter
 }
 
 public class test_NameFilter
-  : DomainString
+  : GqlpDomainString
   , Itest_NameFilter
 {
 }

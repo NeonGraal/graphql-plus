@@ -65,7 +65,7 @@ public class Cmpt_Schema
 }
 
 public class Cmpt_Name
-  : DomainString
+  : GqlpDomainString
   , ICmpt_Name
 {
 }
@@ -83,7 +83,7 @@ public class Cmpt_Filter
 }
 
 public class Cmpt_NameFilter
-  : DomainString
+  : GqlpDomainString
   , ICmpt_NameFilter
 {
 }

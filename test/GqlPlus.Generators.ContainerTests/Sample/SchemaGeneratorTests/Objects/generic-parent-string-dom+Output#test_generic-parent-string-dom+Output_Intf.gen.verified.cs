@@ -27,6 +27,6 @@ public interface ItestFieldGnrcPrntStrDomOutpObject<TRef>
 }
 
 public interface ItestDomGnrcPrntStrDomOutp
-  : IDomainString
+  : IGqlpDomainString
 {
 }

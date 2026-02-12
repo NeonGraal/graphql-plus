@@ -25,7 +25,7 @@ public class CmptRefCnstFieldDmnOutp<TRef>
 }
 
 public class CmptDomCnstFieldDmnOutp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstFieldDmnOutp
 {
 }

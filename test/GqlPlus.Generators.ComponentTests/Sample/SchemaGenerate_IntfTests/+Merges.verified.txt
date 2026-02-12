@@ -50,62 +50,62 @@ public interface ICmptInDrctParamObject
 }
 
 public interface ICmptDmnAlias
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ICmptDmnBool
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
 public interface ICmptDmnBoolDiff
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
 public interface ICmptDmnBoolSame
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
 public interface ICmptDmnEnumDiff
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ICmptDmnEnumSame
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ICmptDmnNmbr
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ICmptDmnNmbrDiff
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ICmptDmnNmbrSame
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ICmptDmnStr
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface ICmptDmnStrDiff
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface ICmptDmnStrSame
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 

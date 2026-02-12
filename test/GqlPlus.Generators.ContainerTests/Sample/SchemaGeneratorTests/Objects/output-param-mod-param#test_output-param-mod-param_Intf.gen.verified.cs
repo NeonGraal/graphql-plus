@@ -27,6 +27,6 @@ public interface ItestInOutpParamModParamObject
 }
 
 public interface ItestDomOutpParamModParam
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }

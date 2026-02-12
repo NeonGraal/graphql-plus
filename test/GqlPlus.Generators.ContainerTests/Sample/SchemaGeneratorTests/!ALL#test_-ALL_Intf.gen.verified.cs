@@ -551,7 +551,7 @@ public interface ItestRefCnstAltDmnDualObject<TRef>
 }
 
 public interface ItestDomCnstAltDmnDual
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -576,7 +576,7 @@ public interface ItestRefCnstAltDmnInpObject<TRef>
 }
 
 public interface ItestDomCnstAltDmnInp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -601,7 +601,7 @@ public interface ItestRefCnstAltDmnOutpObject<TRef>
 }
 
 public interface ItestDomCnstAltDmnOutp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -878,7 +878,7 @@ public interface ItestRefCnstDomEnumDualObject<TType>
 }
 
 public interface ItestJustCnstDomEnumDual
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -903,7 +903,7 @@ public interface ItestRefCnstDomEnumInpObject<TType>
 }
 
 public interface ItestJustCnstDomEnumInp
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -928,7 +928,7 @@ public interface ItestRefCnstDomEnumOutpObject<TType>
 }
 
 public interface ItestJustCnstDomEnumOutp
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -1074,7 +1074,7 @@ public interface ItestRefCnstFieldDmnDualObject<TRef>
 }
 
 public interface ItestDomCnstFieldDmnDual
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -1100,7 +1100,7 @@ public interface ItestRefCnstFieldDmnInpObject<TRef>
 }
 
 public interface ItestDomCnstFieldDmnInp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -1126,7 +1126,7 @@ public interface ItestRefCnstFieldDmnOutpObject<TRef>
 }
 
 public interface ItestDomCnstFieldDmnOutp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -3549,7 +3549,7 @@ public interface ItestFieldGnrcPrntEnumDomDualObject<TRef>
 }
 
 public interface ItestDomGnrcPrntEnumDomDual
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -3575,7 +3575,7 @@ public interface ItestFieldGnrcPrntEnumDomInpObject<TRef>
 }
 
 public interface ItestDomGnrcPrntEnumDomInp
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -3601,7 +3601,7 @@ public interface ItestFieldGnrcPrntEnumDomOutpObject<TRef>
 }
 
 public interface ItestDomGnrcPrntEnumDomOutp
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -3945,7 +3945,7 @@ public interface ItestFieldGnrcPrntStrDomDualObject<TRef>
 }
 
 public interface ItestDomGnrcPrntStrDomDual
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -3971,7 +3971,7 @@ public interface ItestFieldGnrcPrntStrDomInpObject<TRef>
 }
 
 public interface ItestDomGnrcPrntStrDomInp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -3997,7 +3997,7 @@ public interface ItestFieldGnrcPrntStrDomOutpObject<TRef>
 }
 
 public interface ItestDomGnrcPrntStrDomOutp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -4242,7 +4242,7 @@ public interface ItestInOutpParamModDmnObject
 }
 
 public interface ItestDomOutpParamModDmn
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
@@ -4268,7 +4268,7 @@ public interface ItestInOutpParamModParamObject
 }
 
 public interface ItestDomOutpParamModParam
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
@@ -4889,62 +4889,62 @@ public interface ItestInDrctParamObject
 }
 
 public interface ItestDmnAlias
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnBool
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
 public interface ItestDmnBoolDiff
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
 public interface ItestDmnBoolSame
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
 public interface ItestDmnEnumDiff
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumSame
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnNmbr
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnNmbrDiff
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnNmbrSame
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnStr
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface ItestDmnStrDiff
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface ItestDmnStrSame
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -5521,7 +5521,7 @@ public interface ItestPrntUnionSamePrnt
 }
 
 public interface ItestDmnBoolDescr
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
@@ -5531,7 +5531,7 @@ public interface ItestDmnBoolPrnt
 }
 
 public interface ItestPrntDmnBoolPrnt
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
@@ -5541,42 +5541,42 @@ public interface ItestDmnBoolPrntDescr
 }
 
 public interface ItestPrntDmnBoolPrntDescr
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
 public interface ItestDmnEnumAll
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumAllDescr
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumAllPrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumDescr
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumExcl
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumExclPrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumLabel
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -5586,7 +5586,7 @@ public interface ItestDmnEnumPrnt
 }
 
 public interface ItestPrntDmnEnumPrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -5596,32 +5596,32 @@ public interface ItestDmnEnumPrntDescr
 }
 
 public interface ItestPrntDmnEnumPrntDescr
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumUnq
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumUnqPrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumValue
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumValuePrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnNmbrDescr
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
@@ -5631,7 +5631,7 @@ public interface ItestDmnNmbrPrnt
 }
 
 public interface ItestPrntDmnNmbrPrnt
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
@@ -5641,27 +5641,27 @@ public interface ItestDmnNmbrPrntDescr
 }
 
 public interface ItestPrntDmnNmbrPrntDescr
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnNmbrPstv
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnNmbrRange
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnStrDescr
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface ItestDmnStrNonEmpty
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -5671,7 +5671,7 @@ public interface ItestDmnStrPrnt
 }
 
 public interface ItestPrntDmnStrPrnt
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -5681,7 +5681,7 @@ public interface ItestDmnStrPrntDescr
 }
 
 public interface ItestPrntDmnStrPrntDescr
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 

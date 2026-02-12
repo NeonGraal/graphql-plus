@@ -20,7 +20,7 @@ public class testRefCnstFieldDmnDual<TRef>
 }
 
 public class testDomCnstFieldDmnDual
-  : DomainString
+  : GqlpDomainString
   , ItestDomCnstFieldDmnDual
 {
 }

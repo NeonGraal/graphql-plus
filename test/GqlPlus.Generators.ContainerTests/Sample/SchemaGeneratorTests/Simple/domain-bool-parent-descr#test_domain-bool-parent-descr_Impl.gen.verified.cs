@@ -12,7 +12,7 @@ public class testDmnBoolPrntDescr
 }
 
 public class testPrntDmnBoolPrntDescr
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ItestPrntDmnBoolPrntDescr
 {
 }

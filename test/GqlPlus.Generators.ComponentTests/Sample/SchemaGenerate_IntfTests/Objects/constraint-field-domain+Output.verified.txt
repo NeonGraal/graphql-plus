@@ -32,6 +32,6 @@ public interface ICmptRefCnstFieldDmnOutpObject<TRef>
 }
 
 public interface ICmptDomCnstFieldDmnOutp
-  : IDomainString
+  : IGqlpDomainString
 {
 }

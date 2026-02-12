@@ -20,7 +20,7 @@ public class testRefCnstAltDmnDual<TRef>
 }
 
 public class testDomCnstAltDmnDual
-  : DomainString
+  : GqlpDomainString
   , ItestDomCnstAltDmnDual
 {
 }

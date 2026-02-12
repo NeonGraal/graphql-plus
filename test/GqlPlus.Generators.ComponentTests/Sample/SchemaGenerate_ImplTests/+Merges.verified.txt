@@ -35,73 +35,73 @@ public class CmptInDrctParam
 }
 
 public class CmptDmnAlias
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnAlias
 {
 }
 
 public class CmptDmnBool
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ICmptDmnBool
 {
 }
 
 public class CmptDmnBoolDiff
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ICmptDmnBoolDiff
 {
 }
 
 public class CmptDmnBoolSame
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ICmptDmnBoolSame
 {
 }
 
 public class CmptDmnEnumDiff
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumDiff
 {
 }
 
 public class CmptDmnEnumSame
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumSame
 {
 }
 
 public class CmptDmnNmbr
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnNmbr
 {
 }
 
 public class CmptDmnNmbrDiff
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnNmbrDiff
 {
 }
 
 public class CmptDmnNmbrSame
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnNmbrSame
 {
 }
 
 public class CmptDmnStr
-  : DomainString
+  : GqlpDomainString
   , ICmptDmnStr
 {
 }
 
 public class CmptDmnStrDiff
-  : DomainString
+  : GqlpDomainString
   , ICmptDmnStrDiff
 {
 }
 
 public class CmptDmnStrSame
-  : DomainString
+  : GqlpDomainString
   , ICmptDmnStrSame
 {
 }

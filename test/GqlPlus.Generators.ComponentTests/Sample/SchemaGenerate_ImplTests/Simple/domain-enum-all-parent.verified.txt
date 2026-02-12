@@ -11,7 +11,7 @@ enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt dmnEnumAllPrntPrnt }
 namespace Components.Gqlp_Schema_domain_enum_all_parent;
 
 public class CmptDmnEnumAllPrnt
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumAllPrnt
 {
 }

@@ -16,7 +16,7 @@ public class test_InputFieldType
   : test_ObjFieldType
   , Itest_InputFieldType
 {
-  public Itest_Value? Default { get; set; }
+  public GqlpValue? Default { get; set; }
   public Itest_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 

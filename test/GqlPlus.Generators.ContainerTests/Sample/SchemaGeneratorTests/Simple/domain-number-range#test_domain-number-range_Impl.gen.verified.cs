@@ -6,7 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_range;
 
 public class testDmnNmbrRange
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDmnNmbrRange
 {
 }

@@ -398,7 +398,7 @@ public interface ItestRefCnstAltDmnDualObject<TRef>
 }
 
 public interface ItestDomCnstAltDmnDual
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -423,7 +423,7 @@ public interface ItestRefCnstAltDmnInpObject<TRef>
 }
 
 public interface ItestDomCnstAltDmnInp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -448,7 +448,7 @@ public interface ItestRefCnstAltDmnOutpObject<TRef>
 }
 
 public interface ItestDomCnstAltDmnOutp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -725,7 +725,7 @@ public interface ItestRefCnstDomEnumDualObject<TType>
 }
 
 public interface ItestJustCnstDomEnumDual
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -750,7 +750,7 @@ public interface ItestRefCnstDomEnumInpObject<TType>
 }
 
 public interface ItestJustCnstDomEnumInp
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -775,7 +775,7 @@ public interface ItestRefCnstDomEnumOutpObject<TType>
 }
 
 public interface ItestJustCnstDomEnumOutp
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -921,7 +921,7 @@ public interface ItestRefCnstFieldDmnDualObject<TRef>
 }
 
 public interface ItestDomCnstFieldDmnDual
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -947,7 +947,7 @@ public interface ItestRefCnstFieldDmnInpObject<TRef>
 }
 
 public interface ItestDomCnstFieldDmnInp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -973,7 +973,7 @@ public interface ItestRefCnstFieldDmnOutpObject<TRef>
 }
 
 public interface ItestDomCnstFieldDmnOutp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -3396,7 +3396,7 @@ public interface ItestFieldGnrcPrntEnumDomDualObject<TRef>
 }
 
 public interface ItestDomGnrcPrntEnumDomDual
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -3422,7 +3422,7 @@ public interface ItestFieldGnrcPrntEnumDomInpObject<TRef>
 }
 
 public interface ItestDomGnrcPrntEnumDomInp
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -3448,7 +3448,7 @@ public interface ItestFieldGnrcPrntEnumDomOutpObject<TRef>
 }
 
 public interface ItestDomGnrcPrntEnumDomOutp
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -3792,7 +3792,7 @@ public interface ItestFieldGnrcPrntStrDomDualObject<TRef>
 }
 
 public interface ItestDomGnrcPrntStrDomDual
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -3818,7 +3818,7 @@ public interface ItestFieldGnrcPrntStrDomInpObject<TRef>
 }
 
 public interface ItestDomGnrcPrntStrDomInp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -3844,7 +3844,7 @@ public interface ItestFieldGnrcPrntStrDomOutpObject<TRef>
 }
 
 public interface ItestDomGnrcPrntStrDomOutp
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -4089,7 +4089,7 @@ public interface ItestInOutpParamModDmnObject
 }
 
 public interface ItestDomOutpParamModDmn
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
@@ -4115,7 +4115,7 @@ public interface ItestInOutpParamModParamObject
 }
 
 public interface ItestDomOutpParamModParam
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 

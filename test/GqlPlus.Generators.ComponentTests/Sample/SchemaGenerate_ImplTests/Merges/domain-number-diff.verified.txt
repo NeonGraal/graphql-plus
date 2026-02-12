@@ -10,7 +10,7 @@ domain DmnNmbrDiff { number }
 namespace Components.Gqlp_Schema_domain_number_diff;
 
 public class CmptDmnNmbrDiff
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnNmbrDiff
 {
 }

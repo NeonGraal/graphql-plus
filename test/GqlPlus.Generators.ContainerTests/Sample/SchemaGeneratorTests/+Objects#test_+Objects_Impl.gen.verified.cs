@@ -284,7 +284,7 @@ public class testRefCnstAltDmnDual<TRef>
 }
 
 public class testDomCnstAltDmnDual
-  : DomainString
+  : GqlpDomainString
   , ItestDomCnstAltDmnDual
 {
 }
@@ -304,7 +304,7 @@ public class testRefCnstAltDmnInp<TRef>
 }
 
 public class testDomCnstAltDmnInp
-  : DomainString
+  : GqlpDomainString
   , ItestDomCnstAltDmnInp
 {
 }
@@ -324,7 +324,7 @@ public class testRefCnstAltDmnOutp<TRef>
 }
 
 public class testDomCnstAltDmnOutp
-  : DomainString
+  : GqlpDomainString
   , ItestDomCnstAltDmnOutp
 {
 }
@@ -518,7 +518,7 @@ public class testRefCnstDomEnumDual<TType>
 }
 
 public class testJustCnstDomEnumDual
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestJustCnstDomEnumDual
 {
 }
@@ -538,7 +538,7 @@ public class testRefCnstDomEnumInp<TType>
 }
 
 public class testJustCnstDomEnumInp
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestJustCnstDomEnumInp
 {
 }
@@ -558,7 +558,7 @@ public class testRefCnstDomEnumOutp<TType>
 }
 
 public class testJustCnstDomEnumOutp
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestJustCnstDomEnumOutp
 {
 }
@@ -662,7 +662,7 @@ public class testRefCnstFieldDmnDual<TRef>
 }
 
 public class testDomCnstFieldDmnDual
-  : DomainString
+  : GqlpDomainString
   , ItestDomCnstFieldDmnDual
 {
 }
@@ -682,7 +682,7 @@ public class testRefCnstFieldDmnInp<TRef>
 }
 
 public class testDomCnstFieldDmnInp
-  : DomainString
+  : GqlpDomainString
   , ItestDomCnstFieldDmnInp
 {
 }
@@ -702,7 +702,7 @@ public class testRefCnstFieldDmnOutp<TRef>
 }
 
 public class testDomCnstFieldDmnOutp
-  : DomainString
+  : GqlpDomainString
   , ItestDomCnstFieldDmnOutp
 {
 }
@@ -2381,7 +2381,7 @@ public class testFieldGnrcPrntEnumDomDual<TRef>
 }
 
 public class testDomGnrcPrntEnumDomDual
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomDual
 {
 }
@@ -2401,7 +2401,7 @@ public class testFieldGnrcPrntEnumDomInp<TRef>
 }
 
 public class testDomGnrcPrntEnumDomInp
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomInp
 {
 }
@@ -2421,7 +2421,7 @@ public class testFieldGnrcPrntEnumDomOutp<TRef>
 }
 
 public class testDomGnrcPrntEnumDomOutp
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomOutp
 {
 }
@@ -2657,7 +2657,7 @@ public class testFieldGnrcPrntStrDomDual<TRef>
 }
 
 public class testDomGnrcPrntStrDomDual
-  : DomainString
+  : GqlpDomainString
   , ItestDomGnrcPrntStrDomDual
 {
 }
@@ -2677,7 +2677,7 @@ public class testFieldGnrcPrntStrDomInp<TRef>
 }
 
 public class testDomGnrcPrntStrDomInp
-  : DomainString
+  : GqlpDomainString
   , ItestDomGnrcPrntStrDomInp
 {
 }
@@ -2697,7 +2697,7 @@ public class testFieldGnrcPrntStrDomOutp<TRef>
 }
 
 public class testDomGnrcPrntStrDomOutp
-  : DomainString
+  : GqlpDomainString
   , ItestDomGnrcPrntStrDomOutp
 {
 }
@@ -2871,7 +2871,7 @@ public class testInOutpParamModDmn
 }
 
 public class testDomOutpParamModDmn
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDomOutpParamModDmn
 {
 }
@@ -2892,7 +2892,7 @@ public class testInOutpParamModParam
 }
 
 public class testDomOutpParamModParam
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDomOutpParamModParam
 {
 }

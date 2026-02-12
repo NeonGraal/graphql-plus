@@ -20,7 +20,7 @@ public class testRefCnstDomEnumDual<TType>
 }
 
 public class testJustCnstDomEnumDual
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestJustCnstDomEnumDual
 {
 }

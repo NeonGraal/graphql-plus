@@ -102,7 +102,7 @@ output _OutputFieldType {
 namespace Components.Gqlp_Spec_Object;
 
 public interface ICmpt_ObjectKind
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -286,7 +286,7 @@ public interface ICmpt_InputFieldType
 public interface ICmpt_InputFieldTypeObject
   : ICmpt_ObjFieldTypeObject
 {
-  ICmpt_Value? Default { get; }
+  GqlpValue? Default { get; }
 }
 
 public interface ICmpt_InputParam

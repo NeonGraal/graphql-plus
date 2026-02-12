@@ -366,7 +366,7 @@ public interface ICmpt_SchemaObject
 }
 
 public interface ICmpt_Name
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -386,7 +386,7 @@ public interface ICmpt_FilterObject
 }
 
 public interface ICmpt_NameFilter
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -524,7 +524,7 @@ public interface ICmpt_Setting
 public interface ICmpt_SettingObject
   : ICmpt_NamedObject
 {
-  ICmpt_Value Value { get; }
+  GqlpValue Value { get; }
 }
 
 public interface ICmpt_Type
@@ -869,7 +869,7 @@ public interface ICmpt_UnionMemberObject
 }
 
 public interface ICmpt_ObjectKind
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -1053,7 +1053,7 @@ public interface ICmpt_InputFieldType
 public interface ICmpt_InputFieldTypeObject
   : ICmpt_ObjFieldTypeObject
 {
-  ICmpt_Value? Default { get; }
+  GqlpValue? Default { get; }
 }
 
 public interface ICmpt_InputParam

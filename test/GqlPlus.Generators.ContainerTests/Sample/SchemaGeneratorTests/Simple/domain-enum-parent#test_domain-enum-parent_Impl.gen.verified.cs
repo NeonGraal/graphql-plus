@@ -12,7 +12,7 @@ public class testDmnEnumPrnt
 }
 
 public class testPrntDmnEnumPrnt
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestPrntDmnEnumPrnt
 {
 }

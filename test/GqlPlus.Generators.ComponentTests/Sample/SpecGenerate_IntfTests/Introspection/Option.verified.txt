@@ -20,5 +20,5 @@ public interface ICmpt_Setting
 public interface ICmpt_SettingObject
   : ICmpt_NamedObject
 {
-  ICmpt_Value Value { get; }
+  GqlpValue Value { get; }
 }

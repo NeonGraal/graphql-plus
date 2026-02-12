@@ -10,7 +10,7 @@ domain DmnEnumSame { enum true }
 namespace Components.Gqlp_Schema_domain_enum_same;
 
 public class CmptDmnEnumSame
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumSame
 {
 }

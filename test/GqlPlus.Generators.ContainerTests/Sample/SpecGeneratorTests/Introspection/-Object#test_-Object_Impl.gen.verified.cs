@@ -6,7 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp__Object;
 
 public class test_ObjectKind
-  : DomainEnum
+  : GqlpDomainEnum
   , Itest_ObjectKind
 {
 }
@@ -133,7 +133,7 @@ public class test_InputFieldType
   : test_ObjFieldType
   , Itest_InputFieldType
 {
-  public Itest_Value? Default { get; set; }
+  public GqlpValue? Default { get; set; }
   public Itest_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 

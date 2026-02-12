@@ -11,6 +11,6 @@ enum DupDmnEnumUnq { dmnEnumUnq dup_dmnEnumUnq dmnEnumUnqDup }
 namespace Components.Gqlp_Schema_domain_enum_unique;
 
 public interface ICmptDmnEnumUnq
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

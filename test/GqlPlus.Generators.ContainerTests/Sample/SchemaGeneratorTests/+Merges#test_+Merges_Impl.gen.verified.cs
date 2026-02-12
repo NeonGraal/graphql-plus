@@ -36,73 +36,73 @@ public class testInDrctParam
 }
 
 public class testDmnAlias
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDmnAlias
 {
 }
 
 public class testDmnBool
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ItestDmnBool
 {
 }
 
 public class testDmnBoolDiff
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ItestDmnBoolDiff
 {
 }
 
 public class testDmnBoolSame
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ItestDmnBoolSame
 {
 }
 
 public class testDmnEnumDiff
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestDmnEnumDiff
 {
 }
 
 public class testDmnEnumSame
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestDmnEnumSame
 {
 }
 
 public class testDmnNmbr
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDmnNmbr
 {
 }
 
 public class testDmnNmbrDiff
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDmnNmbrDiff
 {
 }
 
 public class testDmnNmbrSame
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDmnNmbrSame
 {
 }
 
 public class testDmnStr
-  : DomainString
+  : GqlpDomainString
   , ItestDmnStr
 {
 }
 
 public class testDmnStrDiff
-  : DomainString
+  : GqlpDomainString
   , ItestDmnStrDiff
 {
 }
 
 public class testDmnStrSame
-  : DomainString
+  : GqlpDomainString
   , ItestDmnStrSame
 {
 }

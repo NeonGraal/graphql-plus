@@ -21,7 +21,7 @@ public interface Itest_SchemaObject
 }
 
 public interface Itest_Name
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -41,7 +41,7 @@ public interface Itest_FilterObject
 }
 
 public interface Itest_NameFilter
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 

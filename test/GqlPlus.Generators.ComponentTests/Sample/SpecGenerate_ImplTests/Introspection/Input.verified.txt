@@ -30,7 +30,7 @@ public class Cmpt_InputFieldType
   : Cmpt_ObjFieldType
   , ICmpt_InputFieldType
 {
-  public ICmpt_Value? Default { get; set; }
+  public GqlpValue? Default { get; set; }
   public ICmpt_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 

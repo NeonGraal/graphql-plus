@@ -20,7 +20,7 @@ public class testFieldGnrcPrntEnumDomOutp<TRef>
 }
 
 public class testDomGnrcPrntEnumDomOutp
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomOutp
 {
 }

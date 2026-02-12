@@ -10,7 +10,7 @@ domain DmnNmbrSame { number 9<1 }
 namespace Components.Gqlp_Schema_domain_number_same;
 
 public class CmptDmnNmbrSame
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnNmbrSame
 {
 }

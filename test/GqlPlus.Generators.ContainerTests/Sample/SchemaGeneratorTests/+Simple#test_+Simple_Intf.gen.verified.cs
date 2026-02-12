@@ -6,7 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
 public interface ItestDmnBoolDescr
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
@@ -16,7 +16,7 @@ public interface ItestDmnBoolPrnt
 }
 
 public interface ItestPrntDmnBoolPrnt
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
@@ -26,42 +26,42 @@ public interface ItestDmnBoolPrntDescr
 }
 
 public interface ItestPrntDmnBoolPrntDescr
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
 public interface ItestDmnEnumAll
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumAllDescr
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumAllPrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumDescr
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumExcl
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumExclPrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumLabel
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -71,7 +71,7 @@ public interface ItestDmnEnumPrnt
 }
 
 public interface ItestPrntDmnEnumPrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -81,32 +81,32 @@ public interface ItestDmnEnumPrntDescr
 }
 
 public interface ItestPrntDmnEnumPrntDescr
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumUnq
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumUnqPrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumValue
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumValuePrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnNmbrDescr
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
@@ -116,7 +116,7 @@ public interface ItestDmnNmbrPrnt
 }
 
 public interface ItestPrntDmnNmbrPrnt
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
@@ -126,27 +126,27 @@ public interface ItestDmnNmbrPrntDescr
 }
 
 public interface ItestPrntDmnNmbrPrntDescr
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnNmbrPstv
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnNmbrRange
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnStrDescr
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface ItestDmnStrNonEmpty
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -156,7 +156,7 @@ public interface ItestDmnStrPrnt
 }
 
 public interface ItestPrntDmnStrPrnt
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -166,7 +166,7 @@ public interface ItestDmnStrPrntDescr
 }
 
 public interface ItestPrntDmnStrPrntDescr
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 

@@ -6,7 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_exclude;
 
 public class testDmnEnumExcl
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestDmnEnumExcl
 {
 }

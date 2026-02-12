@@ -51,62 +51,62 @@ public interface ItestInDrctParamObject
 }
 
 public interface ItestDmnAlias
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnBool
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
 public interface ItestDmnBoolDiff
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
 public interface ItestDmnBoolSame
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }
 
 public interface ItestDmnEnumDiff
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnEnumSame
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
 public interface ItestDmnNmbr
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnNmbrDiff
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnNmbrSame
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface ItestDmnStr
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface ItestDmnStrDiff
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface ItestDmnStrSame
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 

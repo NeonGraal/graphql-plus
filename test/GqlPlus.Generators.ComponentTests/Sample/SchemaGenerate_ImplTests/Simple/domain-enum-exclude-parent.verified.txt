@@ -11,7 +11,7 @@ enum PrntDmnEnumExclPrnt { prnt_dmnEnumExclPrnt dmnEnumExclPrntPrnt }
 namespace Components.Gqlp_Schema_domain_enum_exclude_parent;
 
 public class CmptDmnEnumExclPrnt
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumExclPrnt
 {
 }

@@ -10,7 +10,7 @@ enum EnumDmnEnumValue { dmnEnumValue }
 namespace Components.Gqlp_Schema_domain_enum_value;
 
 public class CmptDmnEnumValue
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumValue
 {
 }

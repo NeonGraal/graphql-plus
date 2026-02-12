@@ -10,7 +10,7 @@ enum EnumDmnEnumExcl { dmnEnumExcl enum_dmnEnumExcl dmnEnumExclValue }
 namespace Components.Gqlp_Schema_domain_enum_exclude;
 
 public class CmptDmnEnumExcl
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumExcl
 {
 }

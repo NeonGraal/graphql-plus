@@ -283,7 +283,7 @@ public class CmptRefCnstAltDmnDual<TRef>
 }
 
 public class CmptDomCnstAltDmnDual
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstAltDmnDual
 {
 }
@@ -303,7 +303,7 @@ public class CmptRefCnstAltDmnInp<TRef>
 }
 
 public class CmptDomCnstAltDmnInp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstAltDmnInp
 {
 }
@@ -323,7 +323,7 @@ public class CmptRefCnstAltDmnOutp<TRef>
 }
 
 public class CmptDomCnstAltDmnOutp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstAltDmnOutp
 {
 }
@@ -517,7 +517,7 @@ public class CmptRefCnstDomEnumDual<TType>
 }
 
 public class CmptJustCnstDomEnumDual
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptJustCnstDomEnumDual
 {
 }
@@ -537,7 +537,7 @@ public class CmptRefCnstDomEnumInp<TType>
 }
 
 public class CmptJustCnstDomEnumInp
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptJustCnstDomEnumInp
 {
 }
@@ -557,7 +557,7 @@ public class CmptRefCnstDomEnumOutp<TType>
 }
 
 public class CmptJustCnstDomEnumOutp
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptJustCnstDomEnumOutp
 {
 }
@@ -661,7 +661,7 @@ public class CmptRefCnstFieldDmnDual<TRef>
 }
 
 public class CmptDomCnstFieldDmnDual
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstFieldDmnDual
 {
 }
@@ -681,7 +681,7 @@ public class CmptRefCnstFieldDmnInp<TRef>
 }
 
 public class CmptDomCnstFieldDmnInp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstFieldDmnInp
 {
 }
@@ -701,7 +701,7 @@ public class CmptRefCnstFieldDmnOutp<TRef>
 }
 
 public class CmptDomCnstFieldDmnOutp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstFieldDmnOutp
 {
 }
@@ -2380,7 +2380,7 @@ public class CmptFieldGnrcPrntEnumDomDual<TRef>
 }
 
 public class CmptDomGnrcPrntEnumDomDual
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomDual
 {
 }
@@ -2400,7 +2400,7 @@ public class CmptFieldGnrcPrntEnumDomInp<TRef>
 }
 
 public class CmptDomGnrcPrntEnumDomInp
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomInp
 {
 }
@@ -2420,7 +2420,7 @@ public class CmptFieldGnrcPrntEnumDomOutp<TRef>
 }
 
 public class CmptDomGnrcPrntEnumDomOutp
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomOutp
 {
 }
@@ -2656,7 +2656,7 @@ public class CmptFieldGnrcPrntStrDomDual<TRef>
 }
 
 public class CmptDomGnrcPrntStrDomDual
-  : DomainString
+  : GqlpDomainString
   , ICmptDomGnrcPrntStrDomDual
 {
 }
@@ -2676,7 +2676,7 @@ public class CmptFieldGnrcPrntStrDomInp<TRef>
 }
 
 public class CmptDomGnrcPrntStrDomInp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomGnrcPrntStrDomInp
 {
 }
@@ -2696,7 +2696,7 @@ public class CmptFieldGnrcPrntStrDomOutp<TRef>
 }
 
 public class CmptDomGnrcPrntStrDomOutp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomGnrcPrntStrDomOutp
 {
 }
@@ -2870,7 +2870,7 @@ public class CmptInOutpParamModDmn
 }
 
 public class CmptDomOutpParamModDmn
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDomOutpParamModDmn
 {
 }
@@ -2891,7 +2891,7 @@ public class CmptInOutpParamModParam
 }
 
 public class CmptDomOutpParamModParam
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDomOutpParamModParam
 {
 }

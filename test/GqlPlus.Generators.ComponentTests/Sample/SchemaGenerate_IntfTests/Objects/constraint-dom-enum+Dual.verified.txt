@@ -32,6 +32,6 @@ public interface ICmptRefCnstDomEnumDualObject<TType>
 }
 
 public interface ICmptJustCnstDomEnumDual
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

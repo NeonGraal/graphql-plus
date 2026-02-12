@@ -6,7 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_value_parent;
 
 public class testDmnEnumValuePrnt
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestDmnEnumValuePrnt
 {
 }

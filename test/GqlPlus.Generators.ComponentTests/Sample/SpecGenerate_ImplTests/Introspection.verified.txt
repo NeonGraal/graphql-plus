@@ -362,7 +362,7 @@ public class Cmpt_Schema
 }
 
 public class Cmpt_Name
-  : DomainString
+  : GqlpDomainString
   , ICmpt_Name
 {
 }
@@ -380,7 +380,7 @@ public class Cmpt_Filter
 }
 
 public class Cmpt_NameFilter
-  : DomainString
+  : GqlpDomainString
   , ICmpt_NameFilter
 {
 }
@@ -475,7 +475,7 @@ public class Cmpt_Setting
   : Cmpt_Named
   , ICmpt_Setting
 {
-  public ICmpt_Value Value { get; set; }
+  public GqlpValue Value { get; set; }
   public ICmpt_SettingObject As_Setting { get; set; }
 }
 
@@ -716,7 +716,7 @@ public class Cmpt_UnionMember
 }
 
 public class Cmpt_ObjectKind
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmpt_ObjectKind
 {
 }
@@ -843,7 +843,7 @@ public class Cmpt_InputFieldType
   : Cmpt_ObjFieldType
   , ICmpt_InputFieldType
 {
-  public ICmpt_Value? Default { get; set; }
+  public GqlpValue? Default { get; set; }
   public ICmpt_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 

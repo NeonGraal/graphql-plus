@@ -31,6 +31,6 @@ public interface ICmptRefCnstAltDmnInpObject<TRef>
 }
 
 public interface ICmptDomCnstAltDmnInp
-  : IDomainString
+  : IGqlpDomainString
 {
 }

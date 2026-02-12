@@ -17,7 +17,7 @@ public class test_Schema
 }
 
 public class test_Name
-  : DomainString
+  : GqlpDomainString
   , Itest_Name
 {
 }
@@ -35,7 +35,7 @@ public class test_Filter
 }
 
 public class test_NameFilter
-  : DomainString
+  : GqlpDomainString
   , Itest_NameFilter
 {
 }
@@ -130,7 +130,7 @@ public class test_Setting
   : test_Named
   , Itest_Setting
 {
-  public Itest_Value Value { get; set; }
+  public GqlpValue Value { get; set; }
   public Itest_SettingObject As_Setting { get; set; }
 }
 
@@ -371,7 +371,7 @@ public class test_UnionMember
 }
 
 public class test_ObjectKind
-  : DomainEnum
+  : GqlpDomainEnum
   , Itest_ObjectKind
 {
 }
@@ -498,7 +498,7 @@ public class test_InputFieldType
   : test_ObjFieldType
   , Itest_InputFieldType
 {
-  public Itest_Value? Default { get; set; }
+  public GqlpValue? Default { get; set; }
   public Itest_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 

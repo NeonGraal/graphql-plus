@@ -21,7 +21,7 @@ public class testInOutpParamModParam
 }
 
 public class testDomOutpParamModParam
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDomOutpParamModParam
 {
 }

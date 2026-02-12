@@ -6,13 +6,13 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
 public class decimal
-  : DomainNumber
+  : GqlpDomainNumber
   , decimal
 {
 }
 
 public class string
-  : DomainString
+  : GqlpDomainString
   , string
 {
 }

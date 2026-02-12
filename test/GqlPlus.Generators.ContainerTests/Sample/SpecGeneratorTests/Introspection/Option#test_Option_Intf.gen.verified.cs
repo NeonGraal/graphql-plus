@@ -14,5 +14,5 @@ public interface Itest_Setting
 public interface Itest_SettingObject
   : Itest_NamedObject
 {
-  Itest_Value Value { get; }
+  GqlpValue Value { get; }
 }

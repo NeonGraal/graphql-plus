@@ -6,12 +6,12 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
 public interface decimal
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }
 
 public interface string
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 

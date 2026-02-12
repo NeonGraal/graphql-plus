@@ -16,6 +16,6 @@ public interface ICmptDmnEnumPrntDescr
 }
 
 public interface ICmptPrntDmnEnumPrntDescr
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

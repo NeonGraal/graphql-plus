@@ -6,7 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Base;
 
 public class test_ObjectKind
-  : DomainEnum
+  : GqlpDomainEnum
   , Itest_ObjectKind
 {
 }

@@ -21,7 +21,7 @@ public interface Itest_SchemaObject
 }
 
 public interface Itest_Name
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -41,7 +41,7 @@ public interface Itest_FilterObject
 }
 
 public interface Itest_NameFilter
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
@@ -179,7 +179,7 @@ public interface Itest_Setting
 public interface Itest_SettingObject
   : Itest_NamedObject
 {
-  Itest_Value Value { get; }
+  GqlpValue Value { get; }
 }
 
 public interface Itest_Type
@@ -524,7 +524,7 @@ public interface Itest_UnionMemberObject
 }
 
 public interface Itest_ObjectKind
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
@@ -708,7 +708,7 @@ public interface Itest_InputFieldType
 public interface Itest_InputFieldTypeObject
   : Itest_ObjFieldTypeObject
 {
-  Itest_Value? Default { get; }
+  GqlpValue? Default { get; }
 }
 
 public interface Itest_InputParam

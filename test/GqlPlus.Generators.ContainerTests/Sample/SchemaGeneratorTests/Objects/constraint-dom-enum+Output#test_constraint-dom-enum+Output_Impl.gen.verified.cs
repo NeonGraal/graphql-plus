@@ -20,7 +20,7 @@ public class testRefCnstDomEnumOutp<TType>
 }
 
 public class testJustCnstDomEnumOutp
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestJustCnstDomEnumOutp
 {
 }

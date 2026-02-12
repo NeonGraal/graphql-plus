@@ -32,6 +32,6 @@ public interface ICmptFieldGnrcPrntStrDomInpObject<TRef>
 }
 
 public interface ICmptDomGnrcPrntStrDomInp
-  : IDomainString
+  : IGqlpDomainString
 {
 }

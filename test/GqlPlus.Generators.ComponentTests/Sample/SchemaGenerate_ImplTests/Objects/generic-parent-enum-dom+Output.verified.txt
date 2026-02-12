@@ -26,7 +26,7 @@ public class CmptFieldGnrcPrntEnumDomOutp<TRef>
 }
 
 public class CmptDomGnrcPrntEnumDomOutp
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomOutp
 {
 }

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Generating.Simple;
+﻿using GqlPlus.Building.Schema.Simple;
+
+namespace GqlPlus.Generating.Simple;
 
 public class UnionGeneratorTests
   : GenerateSimpleTestsBase<IGqlpUnion>
@@ -15,9 +17,8 @@ public class UnionGeneratorTests
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    IGqlpUnion unionType = A.Named<IGqlpUnion>(unionName);
-    IGqlpUnionMember item = A.Named<IGqlpUnionMember>(memberName);
-    unionType.Items.Returns([item]);
+    IGqlpUnionMember member = A.Named<IGqlpUnionMember>(memberName);
+    IGqlpUnion unionType = A.Union(unionName).WithMembers(member).AsUnion;
 
     // Act
     MapPair<string>[] result = [.. _generator.TypeMembers(unionType, context)];

@@ -56,9 +56,6 @@ internal sealed class GqlpGeneratorContext
   public string Safe(string unsafeName)
     => _unsafeRegex.Replace(unsafeName, "_");
 
-  public void WritePrefix(string text)
-    => (_prefixWritten ? _builder : _prefix).Append(text);
-
   public void WritePrefixLine(string text)
     => (_prefixWritten ? _builder : _prefix).AppendLine(text);
 

@@ -28,7 +28,7 @@ public abstract class GenerateDomainTestsBase<TItem>
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithoutParent_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
+  public void GenerateType_WithoutParent_GeneratesDefaultParent(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);

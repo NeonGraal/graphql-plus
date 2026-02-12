@@ -33,9 +33,5 @@ internal abstract class GenerateForSimple<T>
     }
   }
 
-  protected virtual bool HasDefaultParent(out string? defaultParent)
-  {
-    defaultParent = null;
-    return false;
-  }
+  protected abstract bool HasDefaultParent(out string? defaultParent);
 }

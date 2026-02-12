@@ -54,24 +54,13 @@ internal class GenerateForObject<TObjField>
     => modifiers.Modifiers.Aggregate(TypeString(type, context, "I"), (s, m) => ModifyTypeString(s, m, context));
 
   protected virtual string ModifyTypeString(string typeStr, IGqlpModifier modifier, GqlpGeneratorContext context)
-  {
-    if (modifier.ModifierKind == ModifierKind.Optional) {
-      return typeStr + "?";
-    }
-
-    if (modifier.ModifierKind == ModifierKind.List) {
-      return $"ICollection<{typeStr}>";
-    }
-
-    string keyTypeStr = modifier.Key;
-    if (modifier.ModifierKind == ModifierKind.Param) {
-      keyTypeStr = "T" + modifier.Key.Capitalize();
-    } else {
-      keyTypeStr = context.TypeName(modifier.Key, "I");
-    }
-
-    return $"IDictionary<{keyTypeStr}, {typeStr}>";
-  }
+    => modifier.ModifierKind switch {
+      ModifierKind.Optional => typeStr + "?",
+      ModifierKind.List => $"ICollection<{typeStr}>",
+      ModifierKind.Param => $"IDictionary<T{modifier.Key.Capitalize()}, {typeStr}>",
+      ModifierKind.Dictionary => $"IDictionary<{context.TypeName(modifier.Key, "I")}, {typeStr}>",
+      _ => typeStr
+    };
 
   protected virtual string TypeString(IGqlpObjType type, GqlpGeneratorContext context, string prefix = "")
   {
@@ -79,17 +68,23 @@ internal class GenerateForObject<TObjField>
       return "T" + type.Name.Capitalize();
     }
 
-    string args = type is IGqlpObjBase baseAst ? baseAst.Args.Surround("<", ">", a => TypeString(a!, context, prefix), ", ") : "";
+    return context.TypeName(type, prefix) + TypeArgsString((type as IGqlpObjBase)?.Args, context);
+  }
 
-    return context.TypeName(type, prefix) + args;
+  private string TypeArgsString(IEnumerable<IGqlpTypeArg>? args, GqlpGeneratorContext context)
+  {
+    if (args?.Any() == true) {
+      return args.Surround("<", ">", a => TypeString(a!, context, "I"), ", ");
+    }
+
+    return "";
   }
 
   private void InterfaceFieldsHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     context.Write($"public interface {context.TypeName(ast, "I")}Object{TypeParamsString(ast)}");
     if (ast.Parent is not null && !ast.Parent.IsTypeParam) {
-      string parentArgs = ast.Parent.Args.Surround("<", ">", a => TypeString(a!, context, "I"), ", ");
-      context.Write("  : " + context.TypeName(ast.Parent, "I") + "Object" + parentArgs);
+      context.Write("  : " + context.TypeName(ast.Parent, "I") + "Object" + TypeArgsString(ast.Parent.Args, context));
     }
   }
 
@@ -100,8 +95,7 @@ internal class GenerateForObject<TObjField>
   {
     context.Write($"public interface {context.TypeName(ast, "I")}{TypeParamsString(ast)}");
     if (ast.Parent is not null && !ast.Parent.IsTypeParam) {
-      string parentArgs = ast.Parent.Args.Surround("<", ">", a => TypeString(a!, context, "I"), ", ");
-      context.Write("  : " + context.TypeName(ast.Parent, "I") + parentArgs);
+      context.Write("  : " + context.TypeName(ast.Parent, "I") + TypeArgsString(ast.Parent.Args, context));
     }
   }
 
@@ -112,8 +106,7 @@ internal class GenerateForObject<TObjField>
     context.Write($"public class {context.TypeName(ast, "")}{typeParams}");
 
     if (ast.Parent is not null && !ast.Parent.IsTypeParam) {
-      string parentArgs = ast.Parent.Args.Surround("<", ">", a => TypeString(a!, context, "I"), ", ");
-      context.Write("  : " + context.TypeName(ast.Parent, "") + parentArgs);
+      context.Write("  : " + context.TypeName(ast.Parent, "") + TypeArgsString(ast.Parent.Args, context));
       context.Write("  , " + context.TypeName(ast, "I") + typeParams);
     } else {
       context.Write("  : " + context.TypeName(ast, "I") + typeParams);

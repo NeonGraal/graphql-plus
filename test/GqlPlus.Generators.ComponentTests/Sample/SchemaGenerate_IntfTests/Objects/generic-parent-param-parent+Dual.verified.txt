@@ -22,13 +22,12 @@ public interface ICmptGnrcPrntParamPrntDualObject
 }
 
 public interface ICmptRefGnrcPrntParamPrntDual<TRef>
-  : ICmptref
 {
+  TRef AsParent { get; }
   ICmptRefGnrcPrntParamPrntDualObject<TRef> AsRefGnrcPrntParamPrntDual { get; }
 }
 
 public interface ICmptRefGnrcPrntParamPrntDualObject<TRef>
-  : ICmptrefObject
 {
 }
 

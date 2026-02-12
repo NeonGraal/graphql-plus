@@ -42,13 +42,12 @@ public interface Itest_BaseDomainItemObject
 }
 
 public interface Itest_DomainItem<TItem>
-  : Itestitem
 {
+  TItem AsParent { get; }
   Itest_DomainItemObject<TItem> As_DomainItem { get; }
 }
 
 public interface Itest_DomainItemObject<TItem>
-  : ItestitemObject
 {
   Itest_Name Domain { get; }
 }

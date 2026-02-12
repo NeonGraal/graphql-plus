@@ -145,10 +145,10 @@ public class Cmpt_ObjAlternateEnum
 }
 
 public class Cmpt_ObjectFor<TFor>
-  : Cmptfor
-  , ICmpt_ObjectFor<TFor>
+  : ICmpt_ObjectFor<TFor>
 {
   public ICmpt_Name Object { get; set; }
+  public TFor AsParent { get; set; }
   public ICmpt_ObjectForObject<TFor> As_ObjectFor { get; set; }
 }
 

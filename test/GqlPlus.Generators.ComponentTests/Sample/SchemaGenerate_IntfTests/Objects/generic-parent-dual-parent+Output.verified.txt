@@ -22,13 +22,12 @@ public interface ICmptGnrcPrntDualPrntOutpObject
 }
 
 public interface ICmptRefGnrcPrntDualPrntOutp<TRef>
-  : ICmptref
 {
+  TRef AsParent { get; }
   ICmptRefGnrcPrntDualPrntOutpObject<TRef> AsRefGnrcPrntDualPrntOutp { get; }
 }
 
 public interface ICmptRefGnrcPrntDualPrntOutpObject<TRef>
-  : ICmptrefObject
 {
 }
 

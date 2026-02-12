@@ -889,9 +889,9 @@ public class testCnstPrntDualGrndDual
 }
 
 public class testRefCnstPrntDualGrndDual<TRef>
-  : testref
-  , ItestRefCnstPrntDualGrndDual<TRef>
+  : ItestRefCnstPrntDualGrndDual<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefCnstPrntDualGrndDualObject<TRef> AsRefCnstPrntDualGrndDual { get; set; }
 }
 
@@ -925,9 +925,9 @@ public class testCnstPrntDualGrndInp
 }
 
 public class testRefCnstPrntDualGrndInp<TRef>
-  : testref
-  , ItestRefCnstPrntDualGrndInp<TRef>
+  : ItestRefCnstPrntDualGrndInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefCnstPrntDualGrndInpObject<TRef> AsRefCnstPrntDualGrndInp { get; set; }
 }
 
@@ -961,9 +961,9 @@ public class testCnstPrntDualGrndOutp
 }
 
 public class testRefCnstPrntDualGrndOutp<TRef>
-  : testref
-  , ItestRefCnstPrntDualGrndOutp<TRef>
+  : ItestRefCnstPrntDualGrndOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefCnstPrntDualGrndOutpObject<TRef> AsRefCnstPrntDualGrndOutp { get; set; }
 }
 
@@ -997,9 +997,9 @@ public class testCnstPrntDualPrntDual
 }
 
 public class testRefCnstPrntDualPrntDual<TRef>
-  : testref
-  , ItestRefCnstPrntDualPrntDual<TRef>
+  : ItestRefCnstPrntDualPrntDual<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefCnstPrntDualPrntDualObject<TRef> AsRefCnstPrntDualPrntDual { get; set; }
 }
 
@@ -1026,9 +1026,9 @@ public class testCnstPrntDualPrntInp
 }
 
 public class testRefCnstPrntDualPrntInp<TRef>
-  : testref
-  , ItestRefCnstPrntDualPrntInp<TRef>
+  : ItestRefCnstPrntDualPrntInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefCnstPrntDualPrntInpObject<TRef> AsRefCnstPrntDualPrntInp { get; set; }
 }
 
@@ -1055,9 +1055,9 @@ public class testCnstPrntDualPrntOutp
 }
 
 public class testRefCnstPrntDualPrntOutp<TRef>
-  : testref
-  , ItestRefCnstPrntDualPrntOutp<TRef>
+  : ItestRefCnstPrntDualPrntOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefCnstPrntDualPrntOutpObject<TRef> AsRefCnstPrntDualPrntOutp { get; set; }
 }
 
@@ -1126,9 +1126,9 @@ public class testCnstPrntObjPrntDual
 }
 
 public class testRefCnstPrntObjPrntDual<TRef>
-  : testref
-  , ItestRefCnstPrntObjPrntDual<TRef>
+  : ItestRefCnstPrntObjPrntDual<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefCnstPrntObjPrntDualObject<TRef> AsRefCnstPrntObjPrntDual { get; set; }
 }
 
@@ -1155,9 +1155,9 @@ public class testCnstPrntObjPrntInp
 }
 
 public class testRefCnstPrntObjPrntInp<TRef>
-  : testref
-  , ItestRefCnstPrntObjPrntInp<TRef>
+  : ItestRefCnstPrntObjPrntInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefCnstPrntObjPrntInpObject<TRef> AsRefCnstPrntObjPrntInp { get; set; }
 }
 
@@ -1184,9 +1184,9 @@ public class testCnstPrntObjPrntOutp
 }
 
 public class testRefCnstPrntObjPrntOutp<TRef>
-  : testref
-  , ItestRefCnstPrntObjPrntOutp<TRef>
+  : ItestRefCnstPrntObjPrntOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefCnstPrntObjPrntOutpObject<TRef> AsRefCnstPrntObjPrntOutp { get; set; }
 }
 
@@ -2109,23 +2109,23 @@ public class testAltGnrcFieldParamOutp
 }
 
 public class testGnrcPrntDual<TType>
-  : testtype
-  , ItestGnrcPrntDual<TType>
+  : ItestGnrcPrntDual<TType>
 {
+  public TType AsParent { get; set; }
   public ItestGnrcPrntDualObject<TType> AsGnrcPrntDual { get; set; }
 }
 
 public class testGnrcPrntInp<TType>
-  : testtype
-  , ItestGnrcPrntInp<TType>
+  : ItestGnrcPrntInp<TType>
 {
+  public TType AsParent { get; set; }
   public ItestGnrcPrntInpObject<TType> AsGnrcPrntInp { get; set; }
 }
 
 public class testGnrcPrntOutp<TType>
-  : testtype
-  , ItestGnrcPrntOutp<TType>
+  : ItestGnrcPrntOutp<TType>
 {
+  public TType AsParent { get; set; }
   public ItestGnrcPrntOutpObject<TType> AsGnrcPrntOutp { get; set; }
 }
 
@@ -2172,23 +2172,23 @@ public class testRefGnrcPrntArgOutp<TRef>
 }
 
 public class testGnrcPrntDescrDual<TType>
-  : testtype
-  , ItestGnrcPrntDescrDual<TType>
+  : ItestGnrcPrntDescrDual<TType>
 {
+  public TType AsParent { get; set; }
   public ItestGnrcPrntDescrDualObject<TType> AsGnrcPrntDescrDual { get; set; }
 }
 
 public class testGnrcPrntDescrInp<TType>
-  : testtype
-  , ItestGnrcPrntDescrInp<TType>
+  : ItestGnrcPrntDescrInp<TType>
 {
+  public TType AsParent { get; set; }
   public ItestGnrcPrntDescrInpObject<TType> AsGnrcPrntDescrInp { get; set; }
 }
 
 public class testGnrcPrntDescrOutp<TType>
-  : testtype
-  , ItestGnrcPrntDescrOutp<TType>
+  : ItestGnrcPrntDescrOutp<TType>
 {
+  public TType AsParent { get; set; }
   public ItestGnrcPrntDescrOutpObject<TType> AsGnrcPrntDescrOutp { get; set; }
 }
 
@@ -2266,9 +2266,9 @@ public class testGnrcPrntDualPrntDual
 }
 
 public class testRefGnrcPrntDualPrntDual<TRef>
-  : testref
-  , ItestRefGnrcPrntDualPrntDual<TRef>
+  : ItestRefGnrcPrntDualPrntDual<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefGnrcPrntDualPrntDualObject<TRef> AsRefGnrcPrntDualPrntDual { get; set; }
 }
 
@@ -2288,9 +2288,9 @@ public class testGnrcPrntDualPrntInp
 }
 
 public class testRefGnrcPrntDualPrntInp<TRef>
-  : testref
-  , ItestRefGnrcPrntDualPrntInp<TRef>
+  : ItestRefGnrcPrntDualPrntInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefGnrcPrntDualPrntInpObject<TRef> AsRefGnrcPrntDualPrntInp { get; set; }
 }
 
@@ -2310,9 +2310,9 @@ public class testGnrcPrntDualPrntOutp
 }
 
 public class testRefGnrcPrntDualPrntOutp<TRef>
-  : testref
-  , ItestRefGnrcPrntDualPrntOutp<TRef>
+  : ItestRefGnrcPrntDualPrntOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefGnrcPrntDualPrntOutpObject<TRef> AsRefGnrcPrntDualPrntOutp { get; set; }
 }
 
@@ -2542,9 +2542,9 @@ public class testGnrcPrntParamPrntDual
 }
 
 public class testRefGnrcPrntParamPrntDual<TRef>
-  : testref
-  , ItestRefGnrcPrntParamPrntDual<TRef>
+  : ItestRefGnrcPrntParamPrntDual<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefGnrcPrntParamPrntDualObject<TRef> AsRefGnrcPrntParamPrntDual { get; set; }
 }
 
@@ -2564,9 +2564,9 @@ public class testGnrcPrntParamPrntInp
 }
 
 public class testRefGnrcPrntParamPrntInp<TRef>
-  : testref
-  , ItestRefGnrcPrntParamPrntInp<TRef>
+  : ItestRefGnrcPrntParamPrntInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefGnrcPrntParamPrntInpObject<TRef> AsRefGnrcPrntParamPrntInp { get; set; }
 }
 
@@ -2586,9 +2586,9 @@ public class testGnrcPrntParamPrntOutp
 }
 
 public class testRefGnrcPrntParamPrntOutp<TRef>
-  : testref
-  , ItestRefGnrcPrntParamPrntOutp<TRef>
+  : ItestRefGnrcPrntParamPrntOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefGnrcPrntParamPrntOutpObject<TRef> AsRefGnrcPrntParamPrntOutp { get; set; }
 }
 

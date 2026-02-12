@@ -17,13 +17,12 @@ public interface ItestGnrcPrntDualPrntDualObject
 }
 
 public interface ItestRefGnrcPrntDualPrntDual<TRef>
-  : Itestref
 {
+  TRef AsParent { get; }
   ItestRefGnrcPrntDualPrntDualObject<TRef> AsRefGnrcPrntDualPrntDual { get; }
 }
 
 public interface ItestRefGnrcPrntDualPrntDualObject<TRef>
-  : ItestrefObject
 {
 }
 

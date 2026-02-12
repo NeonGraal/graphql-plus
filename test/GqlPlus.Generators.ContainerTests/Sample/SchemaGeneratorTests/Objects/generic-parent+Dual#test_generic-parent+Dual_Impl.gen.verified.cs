@@ -6,8 +6,8 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_Dual;
 
 public class testGnrcPrntDual<TType>
-  : testtype
-  , ItestGnrcPrntDual<TType>
+  : ItestGnrcPrntDual<TType>
 {
+  public TType AsParent { get; set; }
   public ItestGnrcPrntDualObject<TType> AsGnrcPrntDual { get; set; }
 }

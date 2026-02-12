@@ -9,8 +9,8 @@ dual GnrcPrntDual<$type:_Dual> { :$type }
 namespace Components.Gqlp_Schema_generic_parent_Dual;
 
 public class CmptGnrcPrntDual<TType>
-  : Cmpttype
-  , ICmptGnrcPrntDual<TType>
+  : ICmptGnrcPrntDual<TType>
 {
+  public TType AsParent { get; set; }
   public ICmptGnrcPrntDualObject<TType> AsGnrcPrntDual { get; set; }
 }

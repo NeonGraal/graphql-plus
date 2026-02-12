@@ -134,13 +134,12 @@ public interface ICmpt_BaseDomainItemObject
 }
 
 public interface ICmpt_DomainItem<TItem>
-  : ICmptitem
 {
+  TItem AsParent { get; }
   ICmpt_DomainItemObject<TItem> As_DomainItem { get; }
 }
 
 public interface ICmpt_DomainItemObject<TItem>
-  : ICmptitemObject
 {
   ICmpt_Name Domain { get; }
 }

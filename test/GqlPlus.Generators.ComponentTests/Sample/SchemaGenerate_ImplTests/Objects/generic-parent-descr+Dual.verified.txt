@@ -9,8 +9,8 @@ dual GnrcPrntDescrDual<$type:_Dual> { :"Parent comment"$type }
 namespace Components.Gqlp_Schema_generic_parent_descr_Dual;
 
 public class CmptGnrcPrntDescrDual<TType>
-  : Cmpttype
-  , ICmptGnrcPrntDescrDual<TType>
+  : ICmptGnrcPrntDescrDual<TType>
 {
+  public TType AsParent { get; set; }
   public ICmptGnrcPrntDescrDualObject<TType> AsGnrcPrntDescrDual { get; set; }
 }

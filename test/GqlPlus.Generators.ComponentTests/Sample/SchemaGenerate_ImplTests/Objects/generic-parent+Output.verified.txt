@@ -9,8 +9,8 @@ output GnrcPrntOutp<$type:_Dual> { :$type }
 namespace Components.Gqlp_Schema_generic_parent_Output;
 
 public class CmptGnrcPrntOutp<TType>
-  : Cmpttype
-  , ICmptGnrcPrntOutp<TType>
+  : ICmptGnrcPrntOutp<TType>
 {
+  public TType AsParent { get; set; }
   public ICmptGnrcPrntOutpObject<TType> AsGnrcPrntOutp { get; set; }
 }

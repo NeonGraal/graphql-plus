@@ -13,9 +13,9 @@ public class testCnstPrntObjPrntOutp
 }
 
 public class testRefCnstPrntObjPrntOutp<TRef>
-  : testref
-  , ItestRefCnstPrntObjPrntOutp<TRef>
+  : ItestRefCnstPrntObjPrntOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefCnstPrntObjPrntOutpObject<TRef> AsRefCnstPrntObjPrntOutp { get; set; }
 }
 

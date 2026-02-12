@@ -197,13 +197,12 @@ public interface ICmpt_ObjAlternateEnumObject
 }
 
 public interface ICmpt_ObjectFor<TFor>
-  : ICmptfor
 {
+  TFor AsParent { get; }
   ICmpt_ObjectForObject<TFor> As_ObjectFor { get; }
 }
 
 public interface ICmpt_ObjectForObject<TFor>
-  : ICmptforObject
 {
   ICmpt_Name Object { get; }
 }

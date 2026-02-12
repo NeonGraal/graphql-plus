@@ -122,10 +122,10 @@ public class Cmpt_BaseDomainItem
 }
 
 public class Cmpt_DomainItem<TItem>
-  : Cmptitem
-  , ICmpt_DomainItem<TItem>
+  : ICmpt_DomainItem<TItem>
 {
   public ICmpt_Name Domain { get; set; }
+  public TItem AsParent { get; set; }
   public ICmpt_DomainItemObject<TItem> As_DomainItem { get; set; }
 }
 

@@ -252,10 +252,10 @@ public class test_BaseDomainItem
 }
 
 public class test_DomainItem<TItem>
-  : testitem
-  , Itest_DomainItem<TItem>
+  : Itest_DomainItem<TItem>
 {
   public Itest_Name Domain { get; set; }
+  public TItem AsParent { get; set; }
   public Itest_DomainItemObject<TItem> As_DomainItem { get; set; }
 }
 
@@ -440,10 +440,10 @@ public class test_ObjAlternateEnum
 }
 
 public class test_ObjectFor<TFor>
-  : testfor
-  , Itest_ObjectFor<TFor>
+  : Itest_ObjectFor<TFor>
 {
   public Itest_Name Object { get; set; }
+  public TFor AsParent { get; set; }
   public Itest_ObjectForObject<TFor> As_ObjectFor { get; set; }
 }
 

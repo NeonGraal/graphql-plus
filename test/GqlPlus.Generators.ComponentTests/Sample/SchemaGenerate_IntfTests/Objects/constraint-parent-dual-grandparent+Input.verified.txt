@@ -24,13 +24,12 @@ public interface ICmptCnstPrntDualGrndInpObject
 }
 
 public interface ICmptRefCnstPrntDualGrndInp<TRef>
-  : ICmptref
 {
+  TRef AsParent { get; }
   ICmptRefCnstPrntDualGrndInpObject<TRef> AsRefCnstPrntDualGrndInp { get; }
 }
 
 public interface ICmptRefCnstPrntDualGrndInpObject<TRef>
-  : ICmptrefObject
 {
 }
 

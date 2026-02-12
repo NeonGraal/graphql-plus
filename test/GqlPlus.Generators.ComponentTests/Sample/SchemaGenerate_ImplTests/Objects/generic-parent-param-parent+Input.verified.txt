@@ -18,9 +18,9 @@ public class CmptGnrcPrntParamPrntInp
 }
 
 public class CmptRefGnrcPrntParamPrntInp<TRef>
-  : Cmptref
-  , ICmptRefGnrcPrntParamPrntInp<TRef>
+  : ICmptRefGnrcPrntParamPrntInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefGnrcPrntParamPrntInpObject<TRef> AsRefGnrcPrntParamPrntInp { get; set; }
 }
 

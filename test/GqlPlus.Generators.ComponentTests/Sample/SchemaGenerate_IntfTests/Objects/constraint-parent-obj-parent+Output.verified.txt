@@ -23,13 +23,12 @@ public interface ICmptCnstPrntObjPrntOutpObject
 }
 
 public interface ICmptRefCnstPrntObjPrntOutp<TRef>
-  : ICmptref
 {
+  TRef AsParent { get; }
   ICmptRefCnstPrntObjPrntOutpObject<TRef> AsRefCnstPrntObjPrntOutp { get; }
 }
 
 public interface ICmptRefCnstPrntObjPrntOutpObject<TRef>
-  : ICmptrefObject
 {
 }
 

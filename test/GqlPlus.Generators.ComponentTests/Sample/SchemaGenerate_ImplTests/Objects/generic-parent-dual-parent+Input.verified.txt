@@ -18,9 +18,9 @@ public class CmptGnrcPrntDualPrntInp
 }
 
 public class CmptRefGnrcPrntDualPrntInp<TRef>
-  : Cmptref
-  , ICmptRefGnrcPrntDualPrntInp<TRef>
+  : ICmptRefGnrcPrntDualPrntInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefGnrcPrntDualPrntInpObject<TRef> AsRefGnrcPrntDualPrntInp { get; set; }
 }
 

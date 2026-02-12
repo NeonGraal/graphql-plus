@@ -22,13 +22,12 @@ public interface ICmptGnrcPrntParamPrntInpObject
 }
 
 public interface ICmptRefGnrcPrntParamPrntInp<TRef>
-  : ICmptref
 {
+  TRef AsParent { get; }
   ICmptRefGnrcPrntParamPrntInpObject<TRef> AsRefGnrcPrntParamPrntInp { get; }
 }
 
 public interface ICmptRefGnrcPrntParamPrntInpObject<TRef>
-  : ICmptrefObject
 {
 }
 

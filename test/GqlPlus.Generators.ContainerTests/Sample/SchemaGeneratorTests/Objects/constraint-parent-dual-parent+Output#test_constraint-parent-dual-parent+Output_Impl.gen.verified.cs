@@ -13,9 +13,9 @@ public class testCnstPrntDualPrntOutp
 }
 
 public class testRefCnstPrntDualPrntOutp<TRef>
-  : testref
-  , ItestRefCnstPrntDualPrntOutp<TRef>
+  : ItestRefCnstPrntDualPrntOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefCnstPrntDualPrntOutpObject<TRef> AsRefCnstPrntDualPrntOutp { get; set; }
 }
 

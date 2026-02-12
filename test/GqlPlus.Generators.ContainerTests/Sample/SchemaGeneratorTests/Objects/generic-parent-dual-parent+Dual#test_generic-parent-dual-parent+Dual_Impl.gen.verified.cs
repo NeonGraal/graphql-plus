@@ -13,9 +13,9 @@ public class testGnrcPrntDualPrntDual
 }
 
 public class testRefGnrcPrntDualPrntDual<TRef>
-  : testref
-  , ItestRefGnrcPrntDualPrntDual<TRef>
+  : ItestRefGnrcPrntDualPrntDual<TRef>
 {
+  public TRef AsParent { get; set; }
   public ItestRefGnrcPrntDualPrntDualObject<TRef> AsRefGnrcPrntDualPrntDual { get; set; }
 }
 

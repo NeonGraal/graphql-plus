@@ -30,10 +30,10 @@ public class test_BaseDomainItem
 }
 
 public class test_DomainItem<TItem>
-  : testitem
-  , Itest_DomainItem<TItem>
+  : Itest_DomainItem<TItem>
 {
   public Itest_Name Domain { get; set; }
+  public TItem AsParent { get; set; }
   public Itest_DomainItemObject<TItem> As_DomainItem { get; set; }
 }
 

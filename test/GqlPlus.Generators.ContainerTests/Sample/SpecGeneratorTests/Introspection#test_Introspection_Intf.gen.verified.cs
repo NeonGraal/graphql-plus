@@ -347,13 +347,12 @@ public interface Itest_BaseDomainItemObject
 }
 
 public interface Itest_DomainItem<TItem>
-  : Itestitem
 {
+  TItem AsParent { get; }
   Itest_DomainItemObject<TItem> As_DomainItem { get; }
 }
 
 public interface Itest_DomainItemObject<TItem>
-  : ItestitemObject
 {
   Itest_Name Domain { get; }
 }
@@ -620,13 +619,12 @@ public interface Itest_ObjAlternateEnumObject
 }
 
 public interface Itest_ObjectFor<TFor>
-  : Itestfor
 {
+  TFor AsParent { get; }
   Itest_ObjectForObject<TFor> As_ObjectFor { get; }
 }
 
 public interface Itest_ObjectForObject<TFor>
-  : ItestforObject
 {
   Itest_Name Object { get; }
 }

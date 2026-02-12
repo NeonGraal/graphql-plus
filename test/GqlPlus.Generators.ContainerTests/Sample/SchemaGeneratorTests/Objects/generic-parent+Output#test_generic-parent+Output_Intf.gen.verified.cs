@@ -6,12 +6,11 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_Output;
 
 public interface ItestGnrcPrntOutp<TType>
-  : Itesttype
 {
+  TType AsParent { get; }
   ItestGnrcPrntOutpObject<TType> AsGnrcPrntOutp { get; }
 }
 
 public interface ItestGnrcPrntOutpObject<TType>
-  : ItesttypeObject
 {
 }

@@ -19,9 +19,9 @@ public class CmptCnstPrntObjPrntOutp
 }
 
 public class CmptRefCnstPrntObjPrntOutp<TRef>
-  : Cmptref
-  , ICmptRefCnstPrntObjPrntOutp<TRef>
+  : ICmptRefCnstPrntObjPrntOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefCnstPrntObjPrntOutpObject<TRef> AsRefCnstPrntObjPrntOutp { get; set; }
 }
 

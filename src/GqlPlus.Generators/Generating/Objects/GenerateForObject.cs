@@ -25,8 +25,12 @@ internal class GenerateForObject<TObjField>
   {
     IEnumerable<MapPair<string>> alternates = ast.Alternates
         .Select(a => ModifiedTypeString(a, a, context).ToPair(AlternameName(a)));
-    string objectName = context.TypeName(ast, "I") + "Object" + TypeParamsString(ast);
+    if (ast.Parent?.IsTypeParam == true) {
+      string parentTypeParam = "T" + ast.Parent.Name.Capitalize();
+      alternates = alternates.Append(parentTypeParam.ToPair("AsParent"));
+    }
 
+    string objectName = context.TypeName(ast, "I") + "Object" + TypeParamsString(ast);
     return alternates.Append(objectName.ToPair("As" + ast.Name));
 
     string AlternameName(IGqlpAlternate alt)
@@ -83,7 +87,7 @@ internal class GenerateForObject<TObjField>
   private void InterfaceFieldsHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     context.Write($"public interface {context.TypeName(ast, "I")}Object{TypeParamsString(ast)}");
-    if (ast.Parent is not null) {
+    if (ast.Parent is not null && !ast.Parent.IsTypeParam) {
       string parentArgs = ast.Parent.Args.Surround("<", ">", a => TypeString(a!, context, "I"), ", ");
       context.Write("  : " + context.TypeName(ast.Parent, "I") + "Object" + parentArgs);
     }
@@ -95,7 +99,7 @@ internal class GenerateForObject<TObjField>
   protected override void InterfaceHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     context.Write($"public interface {context.TypeName(ast, "I")}{TypeParamsString(ast)}");
-    if (ast.Parent is not null) {
+    if (ast.Parent is not null && !ast.Parent.IsTypeParam) {
       string parentArgs = ast.Parent.Args.Surround("<", ">", a => TypeString(a!, context, "I"), ", ");
       context.Write("  : " + context.TypeName(ast.Parent, "I") + parentArgs);
     }
@@ -107,7 +111,7 @@ internal class GenerateForObject<TObjField>
 
     context.Write($"public class {context.TypeName(ast, "")}{typeParams}");
 
-    if (ast.Parent is not null) {
+    if (ast.Parent is not null && !ast.Parent.IsTypeParam) {
       string parentArgs = ast.Parent.Args.Surround("<", ">", a => TypeString(a!, context, "I"), ", ");
       context.Write("  : " + context.TypeName(ast.Parent, "") + parentArgs);
       context.Write("  , " + context.TypeName(ast, "I") + typeParams);

@@ -990,9 +990,9 @@ public class CmptCnstPrntDualGrndDual
 }
 
 public class CmptRefCnstPrntDualGrndDual<TRef>
-  : Cmptref
-  , ICmptRefCnstPrntDualGrndDual<TRef>
+  : ICmptRefCnstPrntDualGrndDual<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefCnstPrntDualGrndDualObject<TRef> AsRefCnstPrntDualGrndDual { get; set; }
 }
 
@@ -1026,9 +1026,9 @@ public class CmptCnstPrntDualGrndInp
 }
 
 public class CmptRefCnstPrntDualGrndInp<TRef>
-  : Cmptref
-  , ICmptRefCnstPrntDualGrndInp<TRef>
+  : ICmptRefCnstPrntDualGrndInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefCnstPrntDualGrndInpObject<TRef> AsRefCnstPrntDualGrndInp { get; set; }
 }
 
@@ -1062,9 +1062,9 @@ public class CmptCnstPrntDualGrndOutp
 }
 
 public class CmptRefCnstPrntDualGrndOutp<TRef>
-  : Cmptref
-  , ICmptRefCnstPrntDualGrndOutp<TRef>
+  : ICmptRefCnstPrntDualGrndOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefCnstPrntDualGrndOutpObject<TRef> AsRefCnstPrntDualGrndOutp { get; set; }
 }
 
@@ -1098,9 +1098,9 @@ public class CmptCnstPrntDualPrntDual
 }
 
 public class CmptRefCnstPrntDualPrntDual<TRef>
-  : Cmptref
-  , ICmptRefCnstPrntDualPrntDual<TRef>
+  : ICmptRefCnstPrntDualPrntDual<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefCnstPrntDualPrntDualObject<TRef> AsRefCnstPrntDualPrntDual { get; set; }
 }
 
@@ -1127,9 +1127,9 @@ public class CmptCnstPrntDualPrntInp
 }
 
 public class CmptRefCnstPrntDualPrntInp<TRef>
-  : Cmptref
-  , ICmptRefCnstPrntDualPrntInp<TRef>
+  : ICmptRefCnstPrntDualPrntInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefCnstPrntDualPrntInpObject<TRef> AsRefCnstPrntDualPrntInp { get; set; }
 }
 
@@ -1156,9 +1156,9 @@ public class CmptCnstPrntDualPrntOutp
 }
 
 public class CmptRefCnstPrntDualPrntOutp<TRef>
-  : Cmptref
-  , ICmptRefCnstPrntDualPrntOutp<TRef>
+  : ICmptRefCnstPrntDualPrntOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefCnstPrntDualPrntOutpObject<TRef> AsRefCnstPrntDualPrntOutp { get; set; }
 }
 
@@ -1227,9 +1227,9 @@ public class CmptCnstPrntObjPrntDual
 }
 
 public class CmptRefCnstPrntObjPrntDual<TRef>
-  : Cmptref
-  , ICmptRefCnstPrntObjPrntDual<TRef>
+  : ICmptRefCnstPrntObjPrntDual<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefCnstPrntObjPrntDualObject<TRef> AsRefCnstPrntObjPrntDual { get; set; }
 }
 
@@ -1256,9 +1256,9 @@ public class CmptCnstPrntObjPrntInp
 }
 
 public class CmptRefCnstPrntObjPrntInp<TRef>
-  : Cmptref
-  , ICmptRefCnstPrntObjPrntInp<TRef>
+  : ICmptRefCnstPrntObjPrntInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefCnstPrntObjPrntInpObject<TRef> AsRefCnstPrntObjPrntInp { get; set; }
 }
 
@@ -1285,9 +1285,9 @@ public class CmptCnstPrntObjPrntOutp
 }
 
 public class CmptRefCnstPrntObjPrntOutp<TRef>
-  : Cmptref
-  , ICmptRefCnstPrntObjPrntOutp<TRef>
+  : ICmptRefCnstPrntObjPrntOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefCnstPrntObjPrntOutpObject<TRef> AsRefCnstPrntObjPrntOutp { get; set; }
 }
 
@@ -2210,23 +2210,23 @@ public class CmptAltGnrcFieldParamOutp
 }
 
 public class CmptGnrcPrntDual<TType>
-  : Cmpttype
-  , ICmptGnrcPrntDual<TType>
+  : ICmptGnrcPrntDual<TType>
 {
+  public TType AsParent { get; set; }
   public ICmptGnrcPrntDualObject<TType> AsGnrcPrntDual { get; set; }
 }
 
 public class CmptGnrcPrntInp<TType>
-  : Cmpttype
-  , ICmptGnrcPrntInp<TType>
+  : ICmptGnrcPrntInp<TType>
 {
+  public TType AsParent { get; set; }
   public ICmptGnrcPrntInpObject<TType> AsGnrcPrntInp { get; set; }
 }
 
 public class CmptGnrcPrntOutp<TType>
-  : Cmpttype
-  , ICmptGnrcPrntOutp<TType>
+  : ICmptGnrcPrntOutp<TType>
 {
+  public TType AsParent { get; set; }
   public ICmptGnrcPrntOutpObject<TType> AsGnrcPrntOutp { get; set; }
 }
 
@@ -2273,23 +2273,23 @@ public class CmptRefGnrcPrntArgOutp<TRef>
 }
 
 public class CmptGnrcPrntDescrDual<TType>
-  : Cmpttype
-  , ICmptGnrcPrntDescrDual<TType>
+  : ICmptGnrcPrntDescrDual<TType>
 {
+  public TType AsParent { get; set; }
   public ICmptGnrcPrntDescrDualObject<TType> AsGnrcPrntDescrDual { get; set; }
 }
 
 public class CmptGnrcPrntDescrInp<TType>
-  : Cmpttype
-  , ICmptGnrcPrntDescrInp<TType>
+  : ICmptGnrcPrntDescrInp<TType>
 {
+  public TType AsParent { get; set; }
   public ICmptGnrcPrntDescrInpObject<TType> AsGnrcPrntDescrInp { get; set; }
 }
 
 public class CmptGnrcPrntDescrOutp<TType>
-  : Cmpttype
-  , ICmptGnrcPrntDescrOutp<TType>
+  : ICmptGnrcPrntDescrOutp<TType>
 {
+  public TType AsParent { get; set; }
   public ICmptGnrcPrntDescrOutpObject<TType> AsGnrcPrntDescrOutp { get; set; }
 }
 
@@ -2367,9 +2367,9 @@ public class CmptGnrcPrntDualPrntDual
 }
 
 public class CmptRefGnrcPrntDualPrntDual<TRef>
-  : Cmptref
-  , ICmptRefGnrcPrntDualPrntDual<TRef>
+  : ICmptRefGnrcPrntDualPrntDual<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefGnrcPrntDualPrntDualObject<TRef> AsRefGnrcPrntDualPrntDual { get; set; }
 }
 
@@ -2389,9 +2389,9 @@ public class CmptGnrcPrntDualPrntInp
 }
 
 public class CmptRefGnrcPrntDualPrntInp<TRef>
-  : Cmptref
-  , ICmptRefGnrcPrntDualPrntInp<TRef>
+  : ICmptRefGnrcPrntDualPrntInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefGnrcPrntDualPrntInpObject<TRef> AsRefGnrcPrntDualPrntInp { get; set; }
 }
 
@@ -2411,9 +2411,9 @@ public class CmptGnrcPrntDualPrntOutp
 }
 
 public class CmptRefGnrcPrntDualPrntOutp<TRef>
-  : Cmptref
-  , ICmptRefGnrcPrntDualPrntOutp<TRef>
+  : ICmptRefGnrcPrntDualPrntOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefGnrcPrntDualPrntOutpObject<TRef> AsRefGnrcPrntDualPrntOutp { get; set; }
 }
 
@@ -2643,9 +2643,9 @@ public class CmptGnrcPrntParamPrntDual
 }
 
 public class CmptRefGnrcPrntParamPrntDual<TRef>
-  : Cmptref
-  , ICmptRefGnrcPrntParamPrntDual<TRef>
+  : ICmptRefGnrcPrntParamPrntDual<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefGnrcPrntParamPrntDualObject<TRef> AsRefGnrcPrntParamPrntDual { get; set; }
 }
 
@@ -2665,9 +2665,9 @@ public class CmptGnrcPrntParamPrntInp
 }
 
 public class CmptRefGnrcPrntParamPrntInp<TRef>
-  : Cmptref
-  , ICmptRefGnrcPrntParamPrntInp<TRef>
+  : ICmptRefGnrcPrntParamPrntInp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefGnrcPrntParamPrntInpObject<TRef> AsRefGnrcPrntParamPrntInp { get; set; }
 }
 
@@ -2687,9 +2687,9 @@ public class CmptGnrcPrntParamPrntOutp
 }
 
 public class CmptRefGnrcPrntParamPrntOutp<TRef>
-  : Cmptref
-  , ICmptRefGnrcPrntParamPrntOutp<TRef>
+  : ICmptRefGnrcPrntParamPrntOutp<TRef>
 {
+  public TRef AsParent { get; set; }
   public ICmptRefGnrcPrntParamPrntOutpObject<TRef> AsRefGnrcPrntParamPrntOutp { get; set; }
 }
 

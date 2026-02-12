@@ -101,13 +101,12 @@ public interface Itest_ObjAlternateEnumObject
 }
 
 public interface Itest_ObjectFor<TFor>
-  : Itestfor
 {
+  TFor AsParent { get; }
   Itest_ObjectForObject<TFor> As_ObjectFor { get; }
 }
 
 public interface Itest_ObjectForObject<TFor>
-  : ItestforObject
 {
   Itest_Name Object { get; }
 }

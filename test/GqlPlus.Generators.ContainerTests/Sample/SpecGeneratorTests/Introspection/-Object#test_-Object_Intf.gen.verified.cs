@@ -13,7 +13,7 @@ public interface Itest_ObjectKind
 public interface Itest_TypeObject<TKind,TField>
   : Itest_ChildType<TKind, Itest_ObjBase>
 {
-  Itest_TypeObjectObject As_TypeObject { get; }
+  Itest_TypeObjectObject<TKind,TField> As_TypeObject { get; }
 }
 
 public interface Itest_TypeObjectObject<TKind,TField>
@@ -103,7 +103,7 @@ public interface Itest_ObjAlternateEnumObject
 public interface Itest_ObjectFor<TFor>
   : Itestfor
 {
-  Itest_ObjectForObject As_ObjectFor { get; }
+  Itest_ObjectForObject<TFor> As_ObjectFor { get; }
 }
 
 public interface Itest_ObjectForObject<TFor>
@@ -115,7 +115,7 @@ public interface Itest_ObjectForObject<TFor>
 public interface Itest_ObjField<TType>
   : Itest_Aliased
 {
-  Itest_ObjFieldObject As_ObjField { get; }
+  Itest_ObjFieldObject<TType> As_ObjField { get; }
 }
 
 public interface Itest_ObjFieldObject<TType>
@@ -153,7 +153,7 @@ public interface Itest_ForParam<TType>
 {
   Itest_ObjAlternate As_ObjAlternate { get; }
   Itest_ObjField<TType> As_ObjField { get; }
-  Itest_ForParamObject As_ForParam { get; }
+  Itest_ForParamObject<TType> As_ForParam { get; }
 }
 
 public interface Itest_ForParamObject<TType>

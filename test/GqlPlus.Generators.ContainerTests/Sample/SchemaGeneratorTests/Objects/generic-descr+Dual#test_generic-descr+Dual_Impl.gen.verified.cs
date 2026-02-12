@@ -9,5 +9,5 @@ public class testGnrcDescrDual<TType>
   : ItestGnrcDescrDual<TType>
 {
   public TType Field { get; set; }
-  public ItestGnrcDescrDualObject AsGnrcDescrDual { get; set; }
+  public ItestGnrcDescrDualObject<TType> AsGnrcDescrDual { get; set; }
 }

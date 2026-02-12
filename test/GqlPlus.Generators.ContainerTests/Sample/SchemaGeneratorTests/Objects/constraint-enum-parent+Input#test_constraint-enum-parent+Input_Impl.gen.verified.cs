@@ -16,5 +16,5 @@ public class testRefCnstEnumPrntInp<TType>
   : ItestRefCnstEnumPrntInp<TType>
 {
   public TType Field { get; set; }
-  public ItestRefCnstEnumPrntInpObject AsRefCnstEnumPrntInp { get; set; }
+  public ItestRefCnstEnumPrntInpObject<TType> AsRefCnstEnumPrntInp { get; set; }
 }

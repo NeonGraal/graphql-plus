@@ -19,7 +19,7 @@ public interface ItestCnstPrntDualGrndInpObject
 public interface ItestRefCnstPrntDualGrndInp<TRef>
   : Itestref
 {
-  ItestRefCnstPrntDualGrndInpObject AsRefCnstPrntDualGrndInp { get; }
+  ItestRefCnstPrntDualGrndInpObject<TRef> AsRefCnstPrntDualGrndInp { get; }
 }
 
 public interface ItestRefCnstPrntDualGrndInpObject<TRef>

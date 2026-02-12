@@ -16,7 +16,7 @@ public class testRefGnrcPrntParamPrntOutp<TRef>
   : testref
   , ItestRefGnrcPrntParamPrntOutp<TRef>
 {
-  public ItestRefGnrcPrntParamPrntOutpObject AsRefGnrcPrntParamPrntOutp { get; set; }
+  public ItestRefGnrcPrntParamPrntOutpObject<TRef> AsRefGnrcPrntParamPrntOutp { get; set; }
 }
 
 public class testAltGnrcPrntParamPrntOutp

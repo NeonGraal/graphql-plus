@@ -18,7 +18,7 @@ public interface ItestGnrcFieldParamOutpObject
 public interface ItestRefGnrcFieldParamOutp<TRef>
 {
   TRef Asref { get; }
-  ItestRefGnrcFieldParamOutpObject AsRefGnrcFieldParamOutp { get; }
+  ItestRefGnrcFieldParamOutpObject<TRef> AsRefGnrcFieldParamOutp { get; }
 }
 
 public interface ItestRefGnrcFieldParamOutpObject<TRef>

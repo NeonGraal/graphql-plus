@@ -16,5 +16,5 @@ public class testRefGnrcEnumOutp<TType>
   : ItestRefGnrcEnumOutp<TType>
 {
   public TType Field { get; set; }
-  public ItestRefGnrcEnumOutpObject AsRefGnrcEnumOutp { get; set; }
+  public ItestRefGnrcEnumOutpObject<TType> AsRefGnrcEnumOutp { get; set; }
 }

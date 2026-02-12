@@ -10,7 +10,7 @@ namespace Components.Gqlp_Schema_generic_field_Dual;
 
 public interface ICmptGnrcFieldDual<TType>
 {
-  ICmptGnrcFieldDualObject AsGnrcFieldDual { get; }
+  ICmptGnrcFieldDualObject<TType> AsGnrcFieldDual { get; }
 }
 
 public interface ICmptGnrcFieldDualObject<TType>

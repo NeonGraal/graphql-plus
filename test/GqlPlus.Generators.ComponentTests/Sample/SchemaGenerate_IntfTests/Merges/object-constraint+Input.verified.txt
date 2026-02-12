@@ -11,7 +11,7 @@ namespace Components.Gqlp_Schema_object_constraint_Input;
 
 public interface ICmptObjCnstInp<TType>
 {
-  ICmptObjCnstInpObject AsObjCnstInp { get; }
+  ICmptObjCnstInpObject<TType> AsObjCnstInp { get; }
 }
 
 public interface ICmptObjCnstInpObject<TType>

@@ -24,7 +24,7 @@ public interface ICmptGnrcPrntEnumPrntDualObject
 
 public interface ICmptFieldGnrcPrntEnumPrntDual<TRef>
 {
-  ICmptFieldGnrcPrntEnumPrntDualObject AsFieldGnrcPrntEnumPrntDual { get; }
+  ICmptFieldGnrcPrntEnumPrntDualObject<TRef> AsFieldGnrcPrntEnumPrntDual { get; }
 }
 
 public interface ICmptFieldGnrcPrntEnumPrntDualObject<TRef>

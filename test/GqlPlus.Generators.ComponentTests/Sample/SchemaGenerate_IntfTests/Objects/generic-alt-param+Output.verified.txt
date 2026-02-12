@@ -23,7 +23,7 @@ public interface ICmptGnrcAltParamOutpObject
 public interface ICmptRefGnrcAltParamOutp<TRef>
 {
   TRef Asref { get; }
-  ICmptRefGnrcAltParamOutpObject AsRefGnrcAltParamOutp { get; }
+  ICmptRefGnrcAltParamOutpObject<TRef> AsRefGnrcAltParamOutp { get; }
 }
 
 public interface ICmptRefGnrcAltParamOutpObject<TRef>

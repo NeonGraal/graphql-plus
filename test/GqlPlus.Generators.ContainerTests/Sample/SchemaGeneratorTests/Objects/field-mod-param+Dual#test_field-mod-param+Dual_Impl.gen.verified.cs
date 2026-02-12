@@ -9,7 +9,7 @@ public class testFieldModParamDual<TMod>
   : ItestFieldModParamDual<TMod>
 {
   public IDictionary<TMod, ItestFldFieldModParamDual> Field { get; set; }
-  public ItestFieldModParamDualObject AsFieldModParamDual { get; set; }
+  public ItestFieldModParamDualObject<TMod> AsFieldModParamDual { get; set; }
 }
 
 public class testFldFieldModParamDual

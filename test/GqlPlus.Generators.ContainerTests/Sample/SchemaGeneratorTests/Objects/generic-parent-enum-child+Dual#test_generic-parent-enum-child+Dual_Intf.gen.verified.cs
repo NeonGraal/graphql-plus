@@ -18,7 +18,7 @@ public interface ItestGnrcPrntEnumChildDualObject
 
 public interface ItestFieldGnrcPrntEnumChildDual<TRef>
 {
-  ItestFieldGnrcPrntEnumChildDualObject AsFieldGnrcPrntEnumChildDual { get; }
+  ItestFieldGnrcPrntEnumChildDualObject<TRef> AsFieldGnrcPrntEnumChildDual { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumChildDualObject<TRef>

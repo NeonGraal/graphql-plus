@@ -27,7 +27,7 @@ public class test_BaseType<TKind>
   , Itest_BaseType<TKind>
 {
   public TKind TypeKind { get; set; }
-  public Itest_BaseTypeObject As_BaseType { get; set; }
+  public Itest_BaseTypeObject<TKind> As_BaseType { get; set; }
 }
 
 public class test_ChildType<TKind,TParent>
@@ -35,7 +35,7 @@ public class test_ChildType<TKind,TParent>
   , Itest_ChildType<TKind,TParent>
 {
   public TParent Parent { get; set; }
-  public Itest_ChildTypeObject As_ChildType { get; set; }
+  public Itest_ChildTypeObject<TKind,TParent> As_ChildType { get; set; }
 }
 
 public class test_ParentType<TKind,TItem,TAllItem>
@@ -44,7 +44,7 @@ public class test_ParentType<TKind,TItem,TAllItem>
 {
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
-  public Itest_ParentTypeObject As_ParentType { get; set; }
+  public Itest_ParentTypeObject<TKind,TItem,TAllItem> As_ParentType { get; set; }
 }
 
 public class test_TypeRef<TKind>
@@ -52,7 +52,7 @@ public class test_TypeRef<TKind>
   , Itest_TypeRef<TKind>
 {
   public TKind TypeKind { get; set; }
-  public Itest_TypeRefObject As_TypeRef { get; set; }
+  public Itest_TypeRefObject<TKind> As_TypeRef { get; set; }
 }
 
 public class test_TypeSimple

@@ -21,7 +21,7 @@ public class CmptRefGnrcFieldParamOutp<TRef>
   : ICmptRefGnrcFieldParamOutp<TRef>
 {
   public TRef Asref { get; set; }
-  public ICmptRefGnrcFieldParamOutpObject AsRefGnrcFieldParamOutp { get; set; }
+  public ICmptRefGnrcFieldParamOutpObject<TRef> AsRefGnrcFieldParamOutp { get; set; }
 }
 
 public class CmptAltGnrcFieldParamOutp

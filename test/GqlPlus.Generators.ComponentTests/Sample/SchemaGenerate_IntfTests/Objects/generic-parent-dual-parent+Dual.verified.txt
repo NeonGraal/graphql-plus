@@ -24,7 +24,7 @@ public interface ICmptGnrcPrntDualPrntDualObject
 public interface ICmptRefGnrcPrntDualPrntDual<TRef>
   : ICmptref
 {
-  ICmptRefGnrcPrntDualPrntDualObject AsRefGnrcPrntDualPrntDual { get; }
+  ICmptRefGnrcPrntDualPrntDualObject<TRef> AsRefGnrcPrntDualPrntDual { get; }
 }
 
 public interface ICmptRefGnrcPrntDualPrntDualObject<TRef>

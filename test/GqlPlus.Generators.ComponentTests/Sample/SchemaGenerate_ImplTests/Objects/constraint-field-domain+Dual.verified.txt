@@ -21,7 +21,7 @@ public class CmptRefCnstFieldDmnDual<TRef>
   : ICmptRefCnstFieldDmnDual<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptRefCnstFieldDmnDualObject AsRefCnstFieldDmnDual { get; set; }
+  public ICmptRefCnstFieldDmnDualObject<TRef> AsRefCnstFieldDmnDual { get; set; }
 }
 
 public class CmptDomCnstFieldDmnDual

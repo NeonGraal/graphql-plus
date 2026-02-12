@@ -9,5 +9,5 @@ public class testCnstAltDual<TType>
   : ItestCnstAltDual<TType>
 {
   public TType Astype { get; set; }
-  public ItestCnstAltDualObject AsCnstAltDual { get; set; }
+  public ItestCnstAltDualObject<TType> AsCnstAltDual { get; set; }
 }

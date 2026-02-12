@@ -9,12 +9,12 @@ public class testGnrcAltArgOutp<TType>
   : ItestGnrcAltArgOutp<TType>
 {
   public ItestRefGnrcAltArgOutp<TType> AsRefGnrcAltArgOutp { get; set; }
-  public ItestGnrcAltArgOutpObject AsGnrcAltArgOutp { get; set; }
+  public ItestGnrcAltArgOutpObject<TType> AsGnrcAltArgOutp { get; set; }
 }
 
 public class testRefGnrcAltArgOutp<TRef>
   : ItestRefGnrcAltArgOutp<TRef>
 {
   public TRef Asref { get; set; }
-  public ItestRefGnrcAltArgOutpObject AsRefGnrcAltArgOutp { get; set; }
+  public ItestRefGnrcAltArgOutpObject<TRef> AsRefGnrcAltArgOutp { get; set; }
 }

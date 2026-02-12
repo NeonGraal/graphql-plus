@@ -22,7 +22,7 @@ public class CmptRefCnstDomEnumDual<TType>
   : ICmptRefCnstDomEnumDual<TType>
 {
   public TType Field { get; set; }
-  public ICmptRefCnstDomEnumDualObject AsRefCnstDomEnumDual { get; set; }
+  public ICmptRefCnstDomEnumDualObject<TType> AsRefCnstDomEnumDual { get; set; }
 }
 
 public class CmptJustCnstDomEnumDual

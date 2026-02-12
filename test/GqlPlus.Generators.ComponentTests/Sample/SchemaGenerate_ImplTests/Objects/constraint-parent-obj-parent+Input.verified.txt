@@ -22,7 +22,7 @@ public class CmptRefCnstPrntObjPrntInp<TRef>
   : Cmptref
   , ICmptRefCnstPrntObjPrntInp<TRef>
 {
-  public ICmptRefCnstPrntObjPrntInpObject AsRefCnstPrntObjPrntInp { get; set; }
+  public ICmptRefCnstPrntObjPrntInpObject<TRef> AsRefCnstPrntObjPrntInp { get; set; }
 }
 
 public class CmptPrntCnstPrntObjPrntInp

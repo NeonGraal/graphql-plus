@@ -22,7 +22,7 @@ public class CmptRefCnstFieldDualDual<TRef>
   : ICmptRefCnstFieldDualDual<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptRefCnstFieldDualDualObject AsRefCnstFieldDualDual { get; set; }
+  public ICmptRefCnstFieldDualDualObject<TRef> AsRefCnstFieldDualDual { get; set; }
 }
 
 public class CmptPrntCnstFieldDualDual

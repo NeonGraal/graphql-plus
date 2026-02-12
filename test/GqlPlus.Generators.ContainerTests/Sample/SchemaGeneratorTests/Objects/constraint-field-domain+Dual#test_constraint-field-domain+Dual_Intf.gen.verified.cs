@@ -18,7 +18,7 @@ public interface ItestCnstFieldDmnDualObject
 
 public interface ItestRefCnstFieldDmnDual<TRef>
 {
-  ItestRefCnstFieldDmnDualObject AsRefCnstFieldDmnDual { get; }
+  ItestRefCnstFieldDmnDualObject<TRef> AsRefCnstFieldDmnDual { get; }
 }
 
 public interface ItestRefCnstFieldDmnDualObject<TRef>

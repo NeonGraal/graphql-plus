@@ -12,5 +12,5 @@ public class CmptGnrcPrntDescrDual<TType>
   : Cmpttype
   , ICmptGnrcPrntDescrDual<TType>
 {
-  public ICmptGnrcPrntDescrDualObject AsGnrcPrntDescrDual { get; set; }
+  public ICmptGnrcPrntDescrDualObject<TType> AsGnrcPrntDescrDual { get; set; }
 }

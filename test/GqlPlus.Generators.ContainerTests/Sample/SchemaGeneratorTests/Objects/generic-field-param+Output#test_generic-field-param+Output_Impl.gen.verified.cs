@@ -16,7 +16,7 @@ public class testRefGnrcFieldParamOutp<TRef>
   : ItestRefGnrcFieldParamOutp<TRef>
 {
   public TRef Asref { get; set; }
-  public ItestRefGnrcFieldParamOutpObject AsRefGnrcFieldParamOutp { get; set; }
+  public ItestRefGnrcFieldParamOutpObject<TRef> AsRefGnrcFieldParamOutp { get; set; }
 }
 
 public class testAltGnrcFieldParamOutp

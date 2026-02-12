@@ -22,5 +22,5 @@ public class CmptRefCnstPrntEnumDual<TType>
   : ICmptRefCnstPrntEnumDual<TType>
 {
   public TType Field { get; set; }
-  public ICmptRefCnstPrntEnumDualObject AsRefCnstPrntEnumDual { get; set; }
+  public ICmptRefCnstPrntEnumDualObject<TType> AsRefCnstPrntEnumDual { get; set; }
 }

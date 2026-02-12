@@ -23,7 +23,7 @@ public interface ICmptGnrcPrntSmplEnumOutpObject
 
 public interface ICmptFieldGnrcPrntSmplEnumOutp<TRef>
 {
-  ICmptFieldGnrcPrntSmplEnumOutpObject AsFieldGnrcPrntSmplEnumOutp { get; }
+  ICmptFieldGnrcPrntSmplEnumOutpObject<TRef> AsFieldGnrcPrntSmplEnumOutp { get; }
 }
 
 public interface ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>

@@ -109,7 +109,7 @@ public interface ICmpt_ObjectKind
 public interface ICmpt_TypeObject<TKind,TField>
   : ICmpt_ChildType<TKind, ICmpt_ObjBase>
 {
-  ICmpt_TypeObjectObject As_TypeObject { get; }
+  ICmpt_TypeObjectObject<TKind,TField> As_TypeObject { get; }
 }
 
 public interface ICmpt_TypeObjectObject<TKind,TField>
@@ -199,7 +199,7 @@ public interface ICmpt_ObjAlternateEnumObject
 public interface ICmpt_ObjectFor<TFor>
   : ICmptfor
 {
-  ICmpt_ObjectForObject As_ObjectFor { get; }
+  ICmpt_ObjectForObject<TFor> As_ObjectFor { get; }
 }
 
 public interface ICmpt_ObjectForObject<TFor>
@@ -211,7 +211,7 @@ public interface ICmpt_ObjectForObject<TFor>
 public interface ICmpt_ObjField<TType>
   : ICmpt_Aliased
 {
-  ICmpt_ObjFieldObject As_ObjField { get; }
+  ICmpt_ObjFieldObject<TType> As_ObjField { get; }
 }
 
 public interface ICmpt_ObjFieldObject<TType>
@@ -249,7 +249,7 @@ public interface ICmpt_ForParam<TType>
 {
   ICmpt_ObjAlternate As_ObjAlternate { get; }
   ICmpt_ObjField<TType> As_ObjField { get; }
-  ICmpt_ForParamObject As_ForParam { get; }
+  ICmpt_ForParamObject<TType> As_ForParam { get; }
 }
 
 public interface ICmpt_ForParamObject<TType>

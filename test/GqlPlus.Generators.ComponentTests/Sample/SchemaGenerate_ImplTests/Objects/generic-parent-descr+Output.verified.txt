@@ -12,5 +12,5 @@ public class CmptGnrcPrntDescrOutp<TType>
   : Cmpttype
   , ICmptGnrcPrntDescrOutp<TType>
 {
-  public ICmptGnrcPrntDescrOutpObject AsGnrcPrntDescrOutp { get; set; }
+  public ICmptGnrcPrntDescrOutpObject<TType> AsGnrcPrntDescrOutp { get; set; }
 }

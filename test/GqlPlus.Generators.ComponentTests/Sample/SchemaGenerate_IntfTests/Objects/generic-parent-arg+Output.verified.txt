@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_generic_parent_arg_Output;
 public interface ICmptGnrcPrntArgOutp<TType>
   : ICmptRefGnrcPrntArgOutp<TType>
 {
-  ICmptGnrcPrntArgOutpObject AsGnrcPrntArgOutp { get; }
+  ICmptGnrcPrntArgOutpObject<TType> AsGnrcPrntArgOutp { get; }
 }
 
 public interface ICmptGnrcPrntArgOutpObject<TType>
@@ -23,7 +23,7 @@ public interface ICmptGnrcPrntArgOutpObject<TType>
 public interface ICmptRefGnrcPrntArgOutp<TRef>
 {
   TRef Asref { get; }
-  ICmptRefGnrcPrntArgOutpObject AsRefGnrcPrntArgOutp { get; }
+  ICmptRefGnrcPrntArgOutpObject<TRef> AsRefGnrcPrntArgOutp { get; }
 }
 
 public interface ICmptRefGnrcPrntArgOutpObject<TRef>

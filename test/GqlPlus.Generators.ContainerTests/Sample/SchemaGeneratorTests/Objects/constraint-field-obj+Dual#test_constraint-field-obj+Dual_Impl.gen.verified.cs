@@ -16,7 +16,7 @@ public class testRefCnstFieldObjDual<TRef>
   : ItestRefCnstFieldObjDual<TRef>
 {
   public TRef Field { get; set; }
-  public ItestRefCnstFieldObjDualObject AsRefCnstFieldObjDual { get; set; }
+  public ItestRefCnstFieldObjDualObject<TRef> AsRefCnstFieldObjDual { get; set; }
 }
 
 public class testPrntCnstFieldObjDual

@@ -16,7 +16,7 @@ public class testRefGnrcPrntDualOutp<TRef>
   : ItestRefGnrcPrntDualOutp<TRef>
 {
   public TRef Asref { get; set; }
-  public ItestRefGnrcPrntDualOutpObject AsRefGnrcPrntDualOutp { get; set; }
+  public ItestRefGnrcPrntDualOutpObject<TRef> AsRefGnrcPrntDualOutp { get; set; }
 }
 
 public class testAltGnrcPrntDualOutp

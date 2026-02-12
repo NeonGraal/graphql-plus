@@ -25,7 +25,7 @@ internal class GenerateForObject<TObjField>
   {
     IEnumerable<MapPair<string>> alternates = ast.Alternates
         .Select(a => ModifiedTypeString(a, a, context).ToPair(AlternameName(a)));
-    string objectName = context.TypeName(ast, "I") + "Object";
+    string objectName = context.TypeName(ast, "I") + "Object" + TypeParamsString(ast);
 
     return alternates.Append(objectName.ToPair("As" + ast.Name));
 

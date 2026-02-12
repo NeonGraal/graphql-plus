@@ -21,7 +21,7 @@ public class CmptRefGnrcPrntDualPrntOutp<TRef>
   : Cmptref
   , ICmptRefGnrcPrntDualPrntOutp<TRef>
 {
-  public ICmptRefGnrcPrntDualPrntOutpObject AsRefGnrcPrntDualPrntOutp { get; set; }
+  public ICmptRefGnrcPrntDualPrntOutpObject<TRef> AsRefGnrcPrntDualPrntOutp { get; set; }
 }
 
 public class CmptAltGnrcPrntDualPrntOutp

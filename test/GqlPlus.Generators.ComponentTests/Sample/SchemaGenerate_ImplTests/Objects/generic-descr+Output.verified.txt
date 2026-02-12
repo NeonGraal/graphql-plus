@@ -12,5 +12,5 @@ public class CmptGnrcDescrOutp<TType>
   : ICmptGnrcDescrOutp<TType>
 {
   public TType Field { get; set; }
-  public ICmptGnrcDescrOutpObject AsGnrcDescrOutp { get; set; }
+  public ICmptGnrcDescrOutpObject<TType> AsGnrcDescrOutp { get; set; }
 }

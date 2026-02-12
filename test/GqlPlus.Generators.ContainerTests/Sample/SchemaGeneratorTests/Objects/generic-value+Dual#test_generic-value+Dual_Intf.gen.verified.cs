@@ -17,7 +17,7 @@ public interface ItestGnrcValueDualObject
 
 public interface ItestRefGnrcValueDual<TType>
 {
-  ItestRefGnrcValueDualObject AsRefGnrcValueDual { get; }
+  ItestRefGnrcValueDualObject<TType> AsRefGnrcValueDual { get; }
 }
 
 public interface ItestRefGnrcValueDualObject<TType>

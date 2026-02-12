@@ -16,7 +16,7 @@ public class testRefGnrcFieldDualOutp<TRef>
   : ItestRefGnrcFieldDualOutp<TRef>
 {
   public TRef Asref { get; set; }
-  public ItestRefGnrcFieldDualOutpObject AsRefGnrcFieldDualOutp { get; set; }
+  public ItestRefGnrcFieldDualOutpObject<TRef> AsRefGnrcFieldDualOutp { get; set; }
 }
 
 public class testAltGnrcFieldDualOutp

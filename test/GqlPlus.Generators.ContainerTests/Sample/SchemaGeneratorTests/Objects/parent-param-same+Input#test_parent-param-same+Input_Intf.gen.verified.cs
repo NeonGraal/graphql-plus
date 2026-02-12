@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_param_same_Input;
 public interface ItestPrntParamSameInp<TA>
   : ItestRefPrntParamSameInp<TA>
 {
-  ItestPrntParamSameInpObject AsPrntParamSameInp { get; }
+  ItestPrntParamSameInpObject<TA> AsPrntParamSameInp { get; }
 }
 
 public interface ItestPrntParamSameInpObject<TA>
@@ -20,7 +20,7 @@ public interface ItestPrntParamSameInpObject<TA>
 public interface ItestRefPrntParamSameInp<TA>
 {
   TA Asa { get; }
-  ItestRefPrntParamSameInpObject AsRefPrntParamSameInp { get; }
+  ItestRefPrntParamSameInpObject<TA> AsRefPrntParamSameInp { get; }
 }
 
 public interface ItestRefPrntParamSameInpObject<TA>

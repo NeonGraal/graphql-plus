@@ -20,7 +20,7 @@ public class test_TypeObject<TKind,TField>
   public ICollection<Itest_ObjAlternate> Alternates { get; set; }
   public ICollection<Itest_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
-  public Itest_TypeObjectObject As_TypeObject { get; set; }
+  public Itest_TypeObjectObject<TKind,TField> As_TypeObject { get; set; }
 }
 
 public class test_ObjTypeParam
@@ -79,7 +79,7 @@ public class test_ObjectFor<TFor>
   , Itest_ObjectFor<TFor>
 {
   public Itest_Name Object { get; set; }
-  public Itest_ObjectForObject As_ObjectFor { get; set; }
+  public Itest_ObjectForObject<TFor> As_ObjectFor { get; set; }
 }
 
 public class test_ObjField<TType>
@@ -87,7 +87,7 @@ public class test_ObjField<TType>
   , Itest_ObjField<TType>
 {
   public TType Type { get; set; }
-  public Itest_ObjFieldObject As_ObjField { get; set; }
+  public Itest_ObjFieldObject<TType> As_ObjField { get; set; }
 }
 
 public class test_ObjFieldType
@@ -112,5 +112,5 @@ public class test_ForParam<TType>
 {
   public Itest_ObjAlternate As_ObjAlternate { get; set; }
   public Itest_ObjField<TType> As_ObjField { get; set; }
-  public Itest_ForParamObject As_ForParam { get; set; }
+  public Itest_ForParamObject<TType> As_ForParam { get; set; }
 }

@@ -16,7 +16,7 @@ public class testRefCnstDomEnumDual<TType>
   : ItestRefCnstDomEnumDual<TType>
 {
   public TType Field { get; set; }
-  public ItestRefCnstDomEnumDualObject AsRefCnstDomEnumDual { get; set; }
+  public ItestRefCnstDomEnumDualObject<TType> AsRefCnstDomEnumDual { get; set; }
 }
 
 public class testJustCnstDomEnumDual

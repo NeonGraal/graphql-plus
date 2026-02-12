@@ -22,7 +22,7 @@ public class CmptRefCnstDomEnumInp<TType>
   : ICmptRefCnstDomEnumInp<TType>
 {
   public TType Field { get; set; }
-  public ICmptRefCnstDomEnumInpObject AsRefCnstDomEnumInp { get; set; }
+  public ICmptRefCnstDomEnumInpObject<TType> AsRefCnstDomEnumInp { get; set; }
 }
 
 public class CmptJustCnstDomEnumInp

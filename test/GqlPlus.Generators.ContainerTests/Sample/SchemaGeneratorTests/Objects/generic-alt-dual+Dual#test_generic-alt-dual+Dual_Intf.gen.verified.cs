@@ -18,7 +18,7 @@ public interface ItestGnrcAltDualDualObject
 public interface ItestRefGnrcAltDualDual<TRef>
 {
   TRef Asref { get; }
-  ItestRefGnrcAltDualDualObject AsRefGnrcAltDualDual { get; }
+  ItestRefGnrcAltDualDualObject<TRef> AsRefGnrcAltDualDual { get; }
 }
 
 public interface ItestRefGnrcAltDualDualObject<TRef>

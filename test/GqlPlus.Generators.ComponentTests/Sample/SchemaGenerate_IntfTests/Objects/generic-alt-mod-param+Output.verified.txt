@@ -11,7 +11,7 @@ namespace Components.Gqlp_Schema_generic_alt_mod_param_Output;
 public interface ICmptRefGnrcAltModParamOutp<TRef,TMod>
 {
   IDictionary<TMod, TRef> Asref { get; }
-  ICmptRefGnrcAltModParamOutpObject AsRefGnrcAltModParamOutp { get; }
+  ICmptRefGnrcAltModParamOutpObject<TRef,TMod> AsRefGnrcAltModParamOutp { get; }
 }
 
 public interface ICmptRefGnrcAltModParamOutpObject<TRef,TMod>

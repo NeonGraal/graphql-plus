@@ -14,5 +14,5 @@ public class CmptObjCnstInp<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
-  public ICmptObjCnstInpObject AsObjCnstInp { get; set; }
+  public ICmptObjCnstInpObject<TType> AsObjCnstInp { get; set; }
 }

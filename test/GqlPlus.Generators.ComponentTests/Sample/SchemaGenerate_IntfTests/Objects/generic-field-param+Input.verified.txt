@@ -23,7 +23,7 @@ public interface ICmptGnrcFieldParamInpObject
 public interface ICmptRefGnrcFieldParamInp<TRef>
 {
   TRef Asref { get; }
-  ICmptRefGnrcFieldParamInpObject AsRefGnrcFieldParamInp { get; }
+  ICmptRefGnrcFieldParamInpObject<TRef> AsRefGnrcFieldParamInp { get; }
 }
 
 public interface ICmptRefGnrcFieldParamInpObject<TRef>

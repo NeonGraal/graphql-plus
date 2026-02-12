@@ -21,5 +21,5 @@ public class CmptRefGnrcEnumDual<TType>
   : ICmptRefGnrcEnumDual<TType>
 {
   public TType Field { get; set; }
-  public ICmptRefGnrcEnumDualObject AsRefGnrcEnumDual { get; set; }
+  public ICmptRefGnrcEnumDualObject<TType> AsRefGnrcEnumDual { get; set; }
 }

@@ -11,7 +11,7 @@ namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
 public interface ICmptFieldModParamDual<TMod>
 {
-  ICmptFieldModParamDualObject AsFieldModParamDual { get; }
+  ICmptFieldModParamDualObject<TMod> AsFieldModParamDual { get; }
 }
 
 public interface ICmptFieldModParamDualObject<TMod>

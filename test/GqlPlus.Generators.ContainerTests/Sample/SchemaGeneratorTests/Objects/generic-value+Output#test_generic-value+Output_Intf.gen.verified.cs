@@ -17,7 +17,7 @@ public interface ItestGnrcValueOutpObject
 
 public interface ItestRefGnrcValueOutp<TType>
 {
-  ItestRefGnrcValueOutpObject AsRefGnrcValueOutp { get; }
+  ItestRefGnrcValueOutpObject<TType> AsRefGnrcValueOutp { get; }
 }
 
 public interface ItestRefGnrcValueOutpObject<TType>

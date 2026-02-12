@@ -10,5 +10,5 @@ public class testObjParamOutp<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-  public ItestObjParamOutpObject AsObjParamOutp { get; set; }
+  public ItestObjParamOutpObject<TTest,TType> AsObjParamOutp { get; set; }
 }

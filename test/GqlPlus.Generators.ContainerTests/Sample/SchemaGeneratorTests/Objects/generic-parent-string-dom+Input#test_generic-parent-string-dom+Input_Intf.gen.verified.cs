@@ -18,7 +18,7 @@ public interface ItestGnrcPrntStrDomInpObject
 
 public interface ItestFieldGnrcPrntStrDomInp<TRef>
 {
-  ItestFieldGnrcPrntStrDomInpObject AsFieldGnrcPrntStrDomInp { get; }
+  ItestFieldGnrcPrntStrDomInpObject<TRef> AsFieldGnrcPrntStrDomInp { get; }
 }
 
 public interface ItestFieldGnrcPrntStrDomInpObject<TRef>

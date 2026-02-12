@@ -23,7 +23,7 @@ public interface ICmptCnstPrntEnumDualObject
 
 public interface ICmptRefCnstPrntEnumDual<TType>
 {
-  ICmptRefCnstPrntEnumDualObject AsRefCnstPrntEnumDual { get; }
+  ICmptRefCnstPrntEnumDualObject<TType> AsRefCnstPrntEnumDual { get; }
 }
 
 public interface ICmptRefCnstPrntEnumDualObject<TType>

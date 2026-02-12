@@ -14,12 +14,12 @@ public class CmptPrntParamSameOutp<TA>
   , ICmptPrntParamSameOutp<TA>
 {
   public TA Field { get; set; }
-  public ICmptPrntParamSameOutpObject AsPrntParamSameOutp { get; set; }
+  public ICmptPrntParamSameOutpObject<TA> AsPrntParamSameOutp { get; set; }
 }
 
 public class CmptRefPrntParamSameOutp<TA>
   : ICmptRefPrntParamSameOutp<TA>
 {
   public TA Asa { get; set; }
-  public ICmptRefPrntParamSameOutpObject AsRefPrntParamSameOutp { get; set; }
+  public ICmptRefPrntParamSameOutpObject<TA> AsRefPrntParamSameOutp { get; set; }
 }

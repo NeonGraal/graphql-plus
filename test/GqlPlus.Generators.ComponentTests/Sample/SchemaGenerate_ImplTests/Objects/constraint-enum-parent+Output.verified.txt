@@ -22,5 +22,5 @@ public class CmptRefCnstEnumPrntOutp<TType>
   : ICmptRefCnstEnumPrntOutp<TType>
 {
   public TType Field { get; set; }
-  public ICmptRefCnstEnumPrntOutpObject AsRefCnstEnumPrntOutp { get; set; }
+  public ICmptRefCnstEnumPrntOutpObject<TType> AsRefCnstEnumPrntOutp { get; set; }
 }

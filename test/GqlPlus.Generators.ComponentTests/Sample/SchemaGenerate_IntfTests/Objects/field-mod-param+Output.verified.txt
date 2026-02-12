@@ -11,7 +11,7 @@ namespace Components.Gqlp_Schema_field_mod_param_Output;
 
 public interface ICmptFieldModParamOutp<TMod>
 {
-  ICmptFieldModParamOutpObject AsFieldModParamOutp { get; }
+  ICmptFieldModParamOutpObject<TMod> AsFieldModParamOutp { get; }
 }
 
 public interface ICmptFieldModParamOutpObject<TMod>

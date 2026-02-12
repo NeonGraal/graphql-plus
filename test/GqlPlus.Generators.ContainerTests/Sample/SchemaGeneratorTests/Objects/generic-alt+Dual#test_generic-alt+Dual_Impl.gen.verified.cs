@@ -9,5 +9,5 @@ public class testGnrcAltDual<TType>
   : ItestGnrcAltDual<TType>
 {
   public TType Astype { get; set; }
-  public ItestGnrcAltDualObject AsGnrcAltDual { get; set; }
+  public ItestGnrcAltDualObject<TType> AsGnrcAltDual { get; set; }
 }

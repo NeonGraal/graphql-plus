@@ -20,7 +20,7 @@ public interface Itest_CollectionsObject
 public interface Itest_ModifierKeyed<TKind>
   : Itest_Modifier<TKind>
 {
-  Itest_ModifierKeyedObject As_ModifierKeyed { get; }
+  Itest_ModifierKeyedObject<TKind> As_ModifierKeyed { get; }
 }
 
 public interface Itest_ModifierKeyedObject<TKind>
@@ -43,7 +43,7 @@ public interface Itest_ModifiersObject
 
 public interface Itest_Modifier<TKind>
 {
-  Itest_ModifierObject As_Modifier { get; }
+  Itest_ModifierObject<TKind> As_Modifier { get; }
 }
 
 public interface Itest_ModifierObject<TKind>

@@ -19,7 +19,7 @@ public interface ItestGnrcPrntDualOutpObject
 public interface ItestRefGnrcPrntDualOutp<TRef>
 {
   TRef Asref { get; }
-  ItestRefGnrcPrntDualOutpObject AsRefGnrcPrntDualOutp { get; }
+  ItestRefGnrcPrntDualOutpObject<TRef> AsRefGnrcPrntDualOutp { get; }
 }
 
 public interface ItestRefGnrcPrntDualOutpObject<TRef>

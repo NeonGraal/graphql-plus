@@ -24,7 +24,7 @@ public interface ICmptGnrcPrntEnumPrntInpObject
 
 public interface ICmptFieldGnrcPrntEnumPrntInp<TRef>
 {
-  ICmptFieldGnrcPrntEnumPrntInpObject AsFieldGnrcPrntEnumPrntInp { get; }
+  ICmptFieldGnrcPrntEnumPrntInpObject<TRef> AsFieldGnrcPrntEnumPrntInp { get; }
 }
 
 public interface ICmptFieldGnrcPrntEnumPrntInpObject<TRef>

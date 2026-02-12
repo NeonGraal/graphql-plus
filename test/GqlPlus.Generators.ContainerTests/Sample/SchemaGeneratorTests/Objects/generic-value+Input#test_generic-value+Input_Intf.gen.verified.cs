@@ -17,7 +17,7 @@ public interface ItestGnrcValueInpObject
 
 public interface ItestRefGnrcValueInp<TType>
 {
-  ItestRefGnrcValueInpObject AsRefGnrcValueInp { get; }
+  ItestRefGnrcValueInpObject<TType> AsRefGnrcValueInp { get; }
 }
 
 public interface ItestRefGnrcValueInpObject<TType>

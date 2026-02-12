@@ -13,7 +13,7 @@ public class CmptFieldModParamOutp<TMod>
   : ICmptFieldModParamOutp<TMod>
 {
   public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
-  public ICmptFieldModParamOutpObject AsFieldModParamOutp { get; set; }
+  public ICmptFieldModParamOutpObject<TMod> AsFieldModParamOutp { get; set; }
 }
 
 public class CmptFldFieldModParamOutp

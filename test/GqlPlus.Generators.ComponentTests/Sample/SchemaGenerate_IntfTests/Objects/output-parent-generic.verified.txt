@@ -23,7 +23,7 @@ public interface ICmptOutpPrntGnrcObject
 
 public interface ICmptRefOutpPrntGnrc<TType>
 {
-  ICmptRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; }
+  ICmptRefOutpPrntGnrcObject<TType> AsRefOutpPrntGnrc { get; }
 }
 
 public interface ICmptRefOutpPrntGnrcObject<TType>

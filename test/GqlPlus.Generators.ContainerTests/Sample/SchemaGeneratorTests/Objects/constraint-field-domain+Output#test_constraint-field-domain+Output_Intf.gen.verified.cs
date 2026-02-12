@@ -18,7 +18,7 @@ public interface ItestCnstFieldDmnOutpObject
 
 public interface ItestRefCnstFieldDmnOutp<TRef>
 {
-  ItestRefCnstFieldDmnOutpObject AsRefCnstFieldDmnOutp { get; }
+  ItestRefCnstFieldDmnOutpObject<TRef> AsRefCnstFieldDmnOutp { get; }
 }
 
 public interface ItestRefCnstFieldDmnOutpObject<TRef>

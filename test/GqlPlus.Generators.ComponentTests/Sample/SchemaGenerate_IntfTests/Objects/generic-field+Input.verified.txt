@@ -10,7 +10,7 @@ namespace Components.Gqlp_Schema_generic_field_Input;
 
 public interface ICmptGnrcFieldInp<TType>
 {
-  ICmptGnrcFieldInpObject AsGnrcFieldInp { get; }
+  ICmptGnrcFieldInpObject<TType> AsGnrcFieldInp { get; }
 }
 
 public interface ICmptGnrcFieldInpObject<TType>

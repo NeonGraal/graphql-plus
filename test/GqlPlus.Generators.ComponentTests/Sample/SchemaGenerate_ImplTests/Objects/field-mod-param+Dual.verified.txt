@@ -13,7 +13,7 @@ public class CmptFieldModParamDual<TMod>
   : ICmptFieldModParamDual<TMod>
 {
   public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
-  public ICmptFieldModParamDualObject AsFieldModParamDual { get; set; }
+  public ICmptFieldModParamDualObject<TMod> AsFieldModParamDual { get; set; }
 }
 
 public class CmptFldFieldModParamDual

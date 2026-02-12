@@ -22,5 +22,5 @@ public class CmptFieldGnrcPrntEnumChildDual<TRef>
   : ICmptFieldGnrcPrntEnumChildDual<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptFieldGnrcPrntEnumChildDualObject AsFieldGnrcPrntEnumChildDual { get; set; }
+  public ICmptFieldGnrcPrntEnumChildDualObject<TRef> AsFieldGnrcPrntEnumChildDual { get; set; }
 }

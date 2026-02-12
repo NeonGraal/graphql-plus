@@ -22,5 +22,5 @@ public class CmptFieldGnrcPrntEnumChildInp<TRef>
   : ICmptFieldGnrcPrntEnumChildInp<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptFieldGnrcPrntEnumChildInpObject AsFieldGnrcPrntEnumChildInp { get; set; }
+  public ICmptFieldGnrcPrntEnumChildInpObject<TRef> AsFieldGnrcPrntEnumChildInp { get; set; }
 }

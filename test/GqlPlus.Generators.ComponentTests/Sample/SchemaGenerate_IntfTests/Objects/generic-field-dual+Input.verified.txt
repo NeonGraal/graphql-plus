@@ -23,7 +23,7 @@ public interface ICmptGnrcFieldDualInpObject
 public interface ICmptRefGnrcFieldDualInp<TRef>
 {
   TRef Asref { get; }
-  ICmptRefGnrcFieldDualInpObject AsRefGnrcFieldDualInp { get; }
+  ICmptRefGnrcFieldDualInpObject<TRef> AsRefGnrcFieldDualInp { get; }
 }
 
 public interface ICmptRefGnrcFieldDualInpObject<TRef>

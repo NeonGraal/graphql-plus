@@ -23,7 +23,7 @@ public interface ICmptCnstDomEnumOutpObject
 
 public interface ICmptRefCnstDomEnumOutp<TType>
 {
-  ICmptRefCnstDomEnumOutpObject AsRefCnstDomEnumOutp { get; }
+  ICmptRefCnstDomEnumOutpObject<TType> AsRefCnstDomEnumOutp { get; }
 }
 
 public interface ICmptRefCnstDomEnumOutpObject<TType>

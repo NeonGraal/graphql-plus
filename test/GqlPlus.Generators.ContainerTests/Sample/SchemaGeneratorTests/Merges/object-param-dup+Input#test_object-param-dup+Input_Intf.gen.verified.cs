@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_param_dup_Input;
 
 public interface ItestObjParamDupInp<TTest>
 {
-  ItestObjParamDupInpObject AsObjParamDupInp { get; }
+  ItestObjParamDupInpObject<TTest> AsObjParamDupInp { get; }
 }
 
 public interface ItestObjParamDupInpObject<TTest>

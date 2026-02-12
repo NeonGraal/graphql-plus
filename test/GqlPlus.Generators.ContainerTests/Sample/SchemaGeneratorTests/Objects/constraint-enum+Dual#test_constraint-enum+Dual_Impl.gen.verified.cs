@@ -16,5 +16,5 @@ public class testRefCnstEnumDual<TType>
   : ItestRefCnstEnumDual<TType>
 {
   public TType Field { get; set; }
-  public ItestRefCnstEnumDualObject AsRefCnstEnumDual { get; set; }
+  public ItestRefCnstEnumDualObject<TType> AsRefCnstEnumDual { get; set; }
 }

@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Domain;
 public interface Itest_DomainRef<TKind>
   : Itest_TypeRef<Itest_TypeKind>
 {
-  Itest_DomainRefObject As_DomainRef { get; }
+  Itest_DomainRefObject<TKind> As_DomainRef { get; }
 }
 
 public interface Itest_DomainRefObject<TKind>
@@ -20,7 +20,7 @@ public interface Itest_DomainRefObject<TKind>
 public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
   : Itest_ParentType<Itest_TypeKind, TItem, TDomainItem>
 {
-  Itest_BaseDomainObject As_BaseDomain { get; }
+  Itest_BaseDomainObject<TDomain,TItem,TDomainItem> As_BaseDomain { get; }
 }
 
 public interface Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
@@ -44,7 +44,7 @@ public interface Itest_BaseDomainItemObject
 public interface Itest_DomainItem<TItem>
   : Itestitem
 {
-  Itest_DomainItemObject As_DomainItem { get; }
+  Itest_DomainItemObject<TItem> As_DomainItem { get; }
 }
 
 public interface Itest_DomainItemObject<TItem>
@@ -57,7 +57,7 @@ public interface Itest_DomainValue<TKind,TValue>
   : Itest_DomainRef<TKind>
 {
   TValue Asvalue { get; }
-  Itest_DomainValueObject As_DomainValue { get; }
+  Itest_DomainValueObject<TKind,TValue> As_DomainValue { get; }
 }
 
 public interface Itest_DomainValueObject<TKind,TValue>

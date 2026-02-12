@@ -16,7 +16,7 @@ public class testRefCnstDomEnumInp<TType>
   : ItestRefCnstDomEnumInp<TType>
 {
   public TType Field { get; set; }
-  public ItestRefCnstDomEnumInpObject AsRefCnstDomEnumInp { get; set; }
+  public ItestRefCnstDomEnumInpObject<TType> AsRefCnstDomEnumInp { get; set; }
 }
 
 public class testJustCnstDomEnumInp

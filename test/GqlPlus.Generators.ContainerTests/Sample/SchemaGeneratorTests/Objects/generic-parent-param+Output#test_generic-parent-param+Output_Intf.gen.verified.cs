@@ -19,7 +19,7 @@ public interface ItestGnrcPrntParamOutpObject
 public interface ItestRefGnrcPrntParamOutp<TRef>
 {
   TRef Asref { get; }
-  ItestRefGnrcPrntParamOutpObject AsRefGnrcPrntParamOutp { get; }
+  ItestRefGnrcPrntParamOutpObject<TRef> AsRefGnrcPrntParamOutp { get; }
 }
 
 public interface ItestRefGnrcPrntParamOutpObject<TRef>

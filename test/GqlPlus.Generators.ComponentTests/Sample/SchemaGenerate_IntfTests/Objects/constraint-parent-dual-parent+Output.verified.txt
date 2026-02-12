@@ -25,7 +25,7 @@ public interface ICmptCnstPrntDualPrntOutpObject
 public interface ICmptRefCnstPrntDualPrntOutp<TRef>
   : ICmptref
 {
-  ICmptRefCnstPrntDualPrntOutpObject AsRefCnstPrntDualPrntOutp { get; }
+  ICmptRefCnstPrntDualPrntOutpObject<TRef> AsRefCnstPrntDualPrntOutp { get; }
 }
 
 public interface ICmptRefCnstPrntDualPrntOutpObject<TRef>

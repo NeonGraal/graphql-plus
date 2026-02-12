@@ -16,7 +16,7 @@ public class testRefCnstAltObjOutp<TRef>
   : ItestRefCnstAltObjOutp<TRef>
 {
   public TRef Asref { get; set; }
-  public ItestRefCnstAltObjOutpObject AsRefCnstAltObjOutp { get; set; }
+  public ItestRefCnstAltObjOutpObject<TRef> AsRefCnstAltObjOutp { get; set; }
 }
 
 public class testPrntCnstAltObjOutp

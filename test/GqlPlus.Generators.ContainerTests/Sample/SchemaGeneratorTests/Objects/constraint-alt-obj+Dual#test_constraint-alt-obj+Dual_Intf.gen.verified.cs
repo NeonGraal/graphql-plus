@@ -18,7 +18,7 @@ public interface ItestCnstAltObjDualObject
 public interface ItestRefCnstAltObjDual<TRef>
 {
   TRef Asref { get; }
-  ItestRefCnstAltObjDualObject AsRefCnstAltObjDual { get; }
+  ItestRefCnstAltObjDualObject<TRef> AsRefCnstAltObjDual { get; }
 }
 
 public interface ItestRefCnstAltObjDualObject<TRef>

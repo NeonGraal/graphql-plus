@@ -21,7 +21,7 @@ public class CmptRefCnstAltDmnInp<TRef>
   : ICmptRefCnstAltDmnInp<TRef>
 {
   public TRef Asref { get; set; }
-  public ICmptRefCnstAltDmnInpObject AsRefCnstAltDmnInp { get; set; }
+  public ICmptRefCnstAltDmnInpObject<TRef> AsRefCnstAltDmnInp { get; set; }
 }
 
 public class CmptDomCnstAltDmnInp

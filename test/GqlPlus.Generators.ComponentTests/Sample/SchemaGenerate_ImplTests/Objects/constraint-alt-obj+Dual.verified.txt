@@ -22,7 +22,7 @@ public class CmptRefCnstAltObjDual<TRef>
   : ICmptRefCnstAltObjDual<TRef>
 {
   public TRef Asref { get; set; }
-  public ICmptRefCnstAltObjDualObject AsRefCnstAltObjDual { get; set; }
+  public ICmptRefCnstAltObjDualObject<TRef> AsRefCnstAltObjDual { get; set; }
 }
 
 public class CmptPrntCnstAltObjDual

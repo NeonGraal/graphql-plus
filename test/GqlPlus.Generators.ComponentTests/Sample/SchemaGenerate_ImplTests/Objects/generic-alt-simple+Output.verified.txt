@@ -20,5 +20,5 @@ public class CmptRefGnrcAltSmplOutp<TRef>
   : ICmptRefGnrcAltSmplOutp<TRef>
 {
   public TRef Asref { get; set; }
-  public ICmptRefGnrcAltSmplOutpObject AsRefGnrcAltSmplOutp { get; set; }
+  public ICmptRefGnrcAltSmplOutpObject<TRef> AsRefGnrcAltSmplOutp { get; set; }
 }

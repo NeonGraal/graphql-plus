@@ -16,7 +16,7 @@ public class testRefCnstAltDualInp<TRef>
   : ItestRefCnstAltDualInp<TRef>
 {
   public TRef Asref { get; set; }
-  public ItestRefCnstAltDualInpObject AsRefCnstAltDualInp { get; set; }
+  public ItestRefCnstAltDualInpObject<TRef> AsRefCnstAltDualInp { get; set; }
 }
 
 public class testPrntCnstAltDualInp

@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_output_param_mod_param;
 
 public interface ICmptOutpParamModParam<TMod>
 {
-  ICmptOutpParamModParamObject AsOutpParamModParam { get; }
+  ICmptOutpParamModParamObject<TMod> AsOutpParamModParam { get; }
 }
 
 public interface ICmptOutpParamModParamObject<TMod>

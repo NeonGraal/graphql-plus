@@ -24,7 +24,7 @@ public interface ICmptCnstAltDualInpObject
 public interface ICmptRefCnstAltDualInp<TRef>
 {
   TRef Asref { get; }
-  ICmptRefCnstAltDualInpObject AsRefCnstAltDualInp { get; }
+  ICmptRefCnstAltDualInpObject<TRef> AsRefCnstAltDualInp { get; }
 }
 
 public interface ICmptRefCnstAltDualInpObject<TRef>

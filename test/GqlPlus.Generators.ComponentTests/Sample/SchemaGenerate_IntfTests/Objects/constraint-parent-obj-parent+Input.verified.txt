@@ -25,7 +25,7 @@ public interface ICmptCnstPrntObjPrntInpObject
 public interface ICmptRefCnstPrntObjPrntInp<TRef>
   : ICmptref
 {
-  ICmptRefCnstPrntObjPrntInpObject AsRefCnstPrntObjPrntInp { get; }
+  ICmptRefCnstPrntObjPrntInpObject<TRef> AsRefCnstPrntObjPrntInp { get; }
 }
 
 public interface ICmptRefCnstPrntObjPrntInpObject<TRef>

@@ -13,7 +13,7 @@ public class CmptAltModParamOutp<TMod>
   : ICmptAltModParamOutp<TMod>
 {
   public IDictionary<TMod, ICmptAltAltModParamOutp> AsAltAltModParamOutp { get; set; }
-  public ICmptAltModParamOutpObject AsAltModParamOutp { get; set; }
+  public ICmptAltModParamOutpObject<TMod> AsAltModParamOutp { get; set; }
 }
 
 public class CmptAltAltModParamOutp

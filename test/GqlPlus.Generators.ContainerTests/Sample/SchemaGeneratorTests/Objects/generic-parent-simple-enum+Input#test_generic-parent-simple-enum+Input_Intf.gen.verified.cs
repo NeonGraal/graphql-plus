@@ -18,7 +18,7 @@ public interface ItestGnrcPrntSmplEnumInpObject
 
 public interface ItestFieldGnrcPrntSmplEnumInp<TRef>
 {
-  ItestFieldGnrcPrntSmplEnumInpObject AsFieldGnrcPrntSmplEnumInp { get; }
+  ItestFieldGnrcPrntSmplEnumInpObject<TRef> AsFieldGnrcPrntSmplEnumInp { get; }
 }
 
 public interface ItestFieldGnrcPrntSmplEnumInpObject<TRef>

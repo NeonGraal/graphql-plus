@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Dual;
 public interface ItestCnstAltDual<TType>
 {
   TType Astype { get; }
-  ItestCnstAltDualObject AsCnstAltDual { get; }
+  ItestCnstAltDualObject<TType> AsCnstAltDual { get; }
 }
 
 public interface ItestCnstAltDualObject<TType>

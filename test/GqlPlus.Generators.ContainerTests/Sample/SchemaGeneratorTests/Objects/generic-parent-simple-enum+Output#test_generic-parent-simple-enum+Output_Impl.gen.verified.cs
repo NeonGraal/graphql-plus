@@ -16,5 +16,5 @@ public class testFieldGnrcPrntSmplEnumOutp<TRef>
   : ItestFieldGnrcPrntSmplEnumOutp<TRef>
 {
   public TRef Field { get; set; }
-  public ItestFieldGnrcPrntSmplEnumOutpObject AsFieldGnrcPrntSmplEnumOutp { get; set; }
+  public ItestFieldGnrcPrntSmplEnumOutpObject<TRef> AsFieldGnrcPrntSmplEnumOutp { get; set; }
 }

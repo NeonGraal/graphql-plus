@@ -10,5 +10,5 @@ public class testObjParamDupDual<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
-  public ItestObjParamDupDualObject AsObjParamDupDual { get; set; }
+  public ItestObjParamDupDualObject<TTest> AsObjParamDupDual { get; set; }
 }

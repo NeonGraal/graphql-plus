@@ -19,7 +19,7 @@ public interface ItestCnstPrntObjPrntInpObject
 public interface ItestRefCnstPrntObjPrntInp<TRef>
   : Itestref
 {
-  ItestRefCnstPrntObjPrntInpObject AsRefCnstPrntObjPrntInp { get; }
+  ItestRefCnstPrntObjPrntInpObject<TRef> AsRefCnstPrntObjPrntInp { get; }
 }
 
 public interface ItestRefCnstPrntObjPrntInpObject<TRef>

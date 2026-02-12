@@ -23,7 +23,7 @@ public interface ICmptGnrcPrntStrDomInpObject
 
 public interface ICmptFieldGnrcPrntStrDomInp<TRef>
 {
-  ICmptFieldGnrcPrntStrDomInpObject AsFieldGnrcPrntStrDomInp { get; }
+  ICmptFieldGnrcPrntStrDomInpObject<TRef> AsFieldGnrcPrntStrDomInp { get; }
 }
 
 public interface ICmptFieldGnrcPrntStrDomInpObject<TRef>

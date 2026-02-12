@@ -21,5 +21,5 @@ public class CmptRefGnrcValueOutp<TType>
   : ICmptRefGnrcValueOutp<TType>
 {
   public TType Field { get; set; }
-  public ICmptRefGnrcValueOutpObject AsRefGnrcValueOutp { get; set; }
+  public ICmptRefGnrcValueOutpObject<TType> AsRefGnrcValueOutp { get; set; }
 }

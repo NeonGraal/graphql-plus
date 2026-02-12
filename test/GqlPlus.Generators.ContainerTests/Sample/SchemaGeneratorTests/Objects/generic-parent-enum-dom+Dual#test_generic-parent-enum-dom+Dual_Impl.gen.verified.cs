@@ -16,7 +16,7 @@ public class testFieldGnrcPrntEnumDomDual<TRef>
   : ItestFieldGnrcPrntEnumDomDual<TRef>
 {
   public TRef Field { get; set; }
-  public ItestFieldGnrcPrntEnumDomDualObject AsFieldGnrcPrntEnumDomDual { get; set; }
+  public ItestFieldGnrcPrntEnumDomDualObject<TRef> AsFieldGnrcPrntEnumDomDual { get; set; }
 }
 
 public class testDomGnrcPrntEnumDomDual

@@ -17,7 +17,7 @@ public interface ItestCnstDomEnumInpObject
 
 public interface ItestRefCnstDomEnumInp<TType>
 {
-  ItestRefCnstDomEnumInpObject AsRefCnstDomEnumInp { get; }
+  ItestRefCnstDomEnumInpObject<TType> AsRefCnstDomEnumInp { get; }
 }
 
 public interface ItestRefCnstDomEnumInpObject<TType>

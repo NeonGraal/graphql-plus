@@ -16,7 +16,7 @@ public class testFieldGnrcPrntStrDomDual<TRef>
   : ItestFieldGnrcPrntStrDomDual<TRef>
 {
   public TRef Field { get; set; }
-  public ItestFieldGnrcPrntStrDomDualObject AsFieldGnrcPrntStrDomDual { get; set; }
+  public ItestFieldGnrcPrntStrDomDualObject<TRef> AsFieldGnrcPrntStrDomDual { get; set; }
 }
 
 public class testDomGnrcPrntStrDomDual

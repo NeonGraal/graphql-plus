@@ -16,5 +16,5 @@ public class testRefGnrcValueDual<TType>
   : ItestRefGnrcValueDual<TType>
 {
   public TType Field { get; set; }
-  public ItestRefGnrcValueDualObject AsRefGnrcValueDual { get; set; }
+  public ItestRefGnrcValueDualObject<TType> AsRefGnrcValueDual { get; set; }
 }

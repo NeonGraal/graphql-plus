@@ -18,7 +18,7 @@ public interface ItestCnstFieldDualOutpObject
 
 public interface ItestRefCnstFieldDualOutp<TRef>
 {
-  ItestRefCnstFieldDualOutpObject AsRefCnstFieldDualOutp { get; }
+  ItestRefCnstFieldDualOutpObject<TRef> AsRefCnstFieldDualOutp { get; }
 }
 
 public interface ItestRefCnstFieldDualOutpObject<TRef>

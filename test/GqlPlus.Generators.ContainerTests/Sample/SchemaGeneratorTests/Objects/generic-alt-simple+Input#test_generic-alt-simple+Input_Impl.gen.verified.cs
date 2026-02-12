@@ -16,5 +16,5 @@ public class testRefGnrcAltSmplInp<TRef>
   : ItestRefGnrcAltSmplInp<TRef>
 {
   public TRef Asref { get; set; }
-  public ItestRefGnrcAltSmplInpObject AsRefGnrcAltSmplInp { get; set; }
+  public ItestRefGnrcAltSmplInpObject<TRef> AsRefGnrcAltSmplInp { get; set; }
 }

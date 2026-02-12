@@ -24,7 +24,7 @@ public interface ICmptCnstFieldDualInpObject
 
 public interface ICmptRefCnstFieldDualInp<TRef>
 {
-  ICmptRefCnstFieldDualInpObject AsRefCnstFieldDualInp { get; }
+  ICmptRefCnstFieldDualInpObject<TRef> AsRefCnstFieldDualInp { get; }
 }
 
 public interface ICmptRefCnstFieldDualInpObject<TRef>

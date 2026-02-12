@@ -17,7 +17,7 @@ public interface ItestCnstEnumPrntDualObject
 
 public interface ItestRefCnstEnumPrntDual<TType>
 {
-  ItestRefCnstEnumPrntDualObject AsRefCnstEnumPrntDual { get; }
+  ItestRefCnstEnumPrntDualObject<TType> AsRefCnstEnumPrntDual { get; }
 }
 
 public interface ItestRefCnstEnumPrntDualObject<TType>

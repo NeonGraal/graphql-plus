@@ -21,7 +21,7 @@ public class CmptRefGnrcFieldDualDual<TRef>
   : ICmptRefGnrcFieldDualDual<TRef>
 {
   public TRef Asref { get; set; }
-  public ICmptRefGnrcFieldDualDualObject AsRefGnrcFieldDualDual { get; set; }
+  public ICmptRefGnrcFieldDualDualObject<TRef> AsRefGnrcFieldDualDual { get; set; }
 }
 
 public class CmptAltGnrcFieldDualDual

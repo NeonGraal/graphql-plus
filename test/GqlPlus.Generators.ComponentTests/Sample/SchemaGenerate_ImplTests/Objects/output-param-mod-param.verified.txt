@@ -14,7 +14,7 @@ public class CmptOutpParamModParam<TMod>
   : ICmptOutpParamModParam<TMod>
 {
   public ICmptDomOutpParamModParam Field { get; set; }
-  public ICmptOutpParamModParamObject AsOutpParamModParam { get; set; }
+  public ICmptOutpParamModParamObject<TMod> AsOutpParamModParam { get; set; }
 }
 
 public class CmptInOutpParamModParam

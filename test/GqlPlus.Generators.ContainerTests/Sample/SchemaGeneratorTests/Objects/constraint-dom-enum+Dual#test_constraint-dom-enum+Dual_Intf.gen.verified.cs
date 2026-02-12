@@ -17,7 +17,7 @@ public interface ItestCnstDomEnumDualObject
 
 public interface ItestRefCnstDomEnumDual<TType>
 {
-  ItestRefCnstDomEnumDualObject AsRefCnstDomEnumDual { get; }
+  ItestRefCnstDomEnumDualObject<TType> AsRefCnstDomEnumDual { get; }
 }
 
 public interface ItestRefCnstDomEnumDualObject<TType>

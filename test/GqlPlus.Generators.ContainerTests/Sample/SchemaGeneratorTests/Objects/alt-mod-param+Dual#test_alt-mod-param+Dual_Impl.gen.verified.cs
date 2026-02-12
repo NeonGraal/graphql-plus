@@ -9,7 +9,7 @@ public class testAltModParamDual<TMod>
   : ItestAltModParamDual<TMod>
 {
   public IDictionary<TMod, ItestAltAltModParamDual> AsAltAltModParamDual { get; set; }
-  public ItestAltModParamDualObject AsAltModParamDual { get; set; }
+  public ItestAltModParamDualObject<TMod> AsAltModParamDual { get; set; }
 }
 
 public class testAltAltModParamDual

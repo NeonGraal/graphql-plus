@@ -14,5 +14,5 @@ public class CmptObjParamDupDual<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
-  public ICmptObjParamDupDualObject AsObjParamDupDual { get; set; }
+  public ICmptObjParamDupDualObject<TTest> AsObjParamDupDual { get; set; }
 }

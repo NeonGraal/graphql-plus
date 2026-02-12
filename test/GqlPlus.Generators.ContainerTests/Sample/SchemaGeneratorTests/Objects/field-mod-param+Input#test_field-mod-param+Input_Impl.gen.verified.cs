@@ -9,7 +9,7 @@ public class testFieldModParamInp<TMod>
   : ItestFieldModParamInp<TMod>
 {
   public IDictionary<TMod, ItestFldFieldModParamInp> Field { get; set; }
-  public ItestFieldModParamInpObject AsFieldModParamInp { get; set; }
+  public ItestFieldModParamInpObject<TMod> AsFieldModParamInp { get; set; }
 }
 
 public class testFldFieldModParamInp

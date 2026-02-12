@@ -10,7 +10,7 @@ namespace Components.Gqlp_Schema_generic_descr_Output;
 
 public interface ICmptGnrcDescrOutp<TType>
 {
-  ICmptGnrcDescrOutpObject AsGnrcDescrOutp { get; }
+  ICmptGnrcDescrOutpObject<TType> AsGnrcDescrOutp { get; }
 }
 
 public interface ICmptGnrcDescrOutpObject<TType>

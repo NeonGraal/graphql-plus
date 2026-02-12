@@ -16,7 +16,7 @@ public class testRefGnrcAltDualDual<TRef>
   : ItestRefGnrcAltDualDual<TRef>
 {
   public TRef Asref { get; set; }
-  public ItestRefGnrcAltDualDualObject AsRefGnrcAltDualDual { get; set; }
+  public ItestRefGnrcAltDualDualObject<TRef> AsRefGnrcAltDualDual { get; set; }
 }
 
 public class testAltGnrcAltDualDual

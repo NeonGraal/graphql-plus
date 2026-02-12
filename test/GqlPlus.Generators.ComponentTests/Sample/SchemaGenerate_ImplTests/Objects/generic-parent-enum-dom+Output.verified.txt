@@ -22,7 +22,7 @@ public class CmptFieldGnrcPrntEnumDomOutp<TRef>
   : ICmptFieldGnrcPrntEnumDomOutp<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptFieldGnrcPrntEnumDomOutpObject AsFieldGnrcPrntEnumDomOutp { get; set; }
+  public ICmptFieldGnrcPrntEnumDomOutpObject<TRef> AsFieldGnrcPrntEnumDomOutp { get; set; }
 }
 
 public class CmptDomGnrcPrntEnumDomOutp

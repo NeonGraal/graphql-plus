@@ -12,5 +12,5 @@ public class CmptGnrcAltDual<TType>
   : ICmptGnrcAltDual<TType>
 {
   public TType Astype { get; set; }
-  public ICmptGnrcAltDualObject AsGnrcAltDual { get; set; }
+  public ICmptGnrcAltDualObject<TType> AsGnrcAltDual { get; set; }
 }

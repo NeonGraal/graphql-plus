@@ -16,7 +16,7 @@ public class testRefGnrcAltParamOutp<TRef>
   : ItestRefGnrcAltParamOutp<TRef>
 {
   public TRef Asref { get; set; }
-  public ItestRefGnrcAltParamOutpObject AsRefGnrcAltParamOutp { get; set; }
+  public ItestRefGnrcAltParamOutpObject<TRef> AsRefGnrcAltParamOutp { get; set; }
 }
 
 public class testAltGnrcAltParamOutp

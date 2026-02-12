@@ -16,5 +16,5 @@ public class testRefOutpPrntGnrc<TType>
   : ItestRefOutpPrntGnrc<TType>
 {
   public TType Field { get; set; }
-  public ItestRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; set; }
+  public ItestRefOutpPrntGnrcObject<TType> AsRefOutpPrntGnrc { get; set; }
 }

@@ -16,7 +16,7 @@ public class testRefCnstPrntDualGrndInp<TRef>
   : testref
   , ItestRefCnstPrntDualGrndInp<TRef>
 {
-  public ItestRefCnstPrntDualGrndInpObject AsRefCnstPrntDualGrndInp { get; set; }
+  public ItestRefCnstPrntDualGrndInpObject<TRef> AsRefCnstPrntDualGrndInp { get; set; }
 }
 
 public class testGrndCnstPrntDualGrndInp

@@ -98,7 +98,7 @@ public interface ICmpt_TypeObject
 public interface ICmpt_BaseType<TKind>
   : ICmpt_Aliased
 {
-  ICmpt_BaseTypeObject As_BaseType { get; }
+  ICmpt_BaseTypeObject<TKind> As_BaseType { get; }
 }
 
 public interface ICmpt_BaseTypeObject<TKind>
@@ -110,7 +110,7 @@ public interface ICmpt_BaseTypeObject<TKind>
 public interface ICmpt_ChildType<TKind,TParent>
   : ICmpt_BaseType<TKind>
 {
-  ICmpt_ChildTypeObject As_ChildType { get; }
+  ICmpt_ChildTypeObject<TKind,TParent> As_ChildType { get; }
 }
 
 public interface ICmpt_ChildTypeObject<TKind,TParent>
@@ -122,7 +122,7 @@ public interface ICmpt_ChildTypeObject<TKind,TParent>
 public interface ICmpt_ParentType<TKind,TItem,TAllItem>
   : ICmpt_ChildType<TKind, ICmpt_Named>
 {
-  ICmpt_ParentTypeObject As_ParentType { get; }
+  ICmpt_ParentTypeObject<TKind,TItem,TAllItem> As_ParentType { get; }
 }
 
 public interface ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
@@ -135,7 +135,7 @@ public interface ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
 public interface ICmpt_TypeRef<TKind>
   : ICmpt_Named
 {
-  ICmpt_TypeRefObject As_TypeRef { get; }
+  ICmpt_TypeRefObject<TKind> As_TypeRef { get; }
 }
 
 public interface ICmpt_TypeRefObject<TKind>
@@ -172,7 +172,7 @@ public interface ICmpt_CollectionsObject
 public interface ICmpt_ModifierKeyed<TKind>
   : ICmpt_Modifier<TKind>
 {
-  ICmpt_ModifierKeyedObject As_ModifierKeyed { get; }
+  ICmpt_ModifierKeyedObject<TKind> As_ModifierKeyed { get; }
 }
 
 public interface ICmpt_ModifierKeyedObject<TKind>
@@ -195,7 +195,7 @@ public interface ICmpt_ModifiersObject
 
 public interface ICmpt_Modifier<TKind>
 {
-  ICmpt_ModifierObject As_Modifier { get; }
+  ICmpt_ModifierObject<TKind> As_Modifier { get; }
 }
 
 public interface ICmpt_ModifierObject<TKind>

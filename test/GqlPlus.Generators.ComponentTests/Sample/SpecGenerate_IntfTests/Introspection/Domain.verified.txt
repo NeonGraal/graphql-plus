@@ -81,7 +81,7 @@ namespace Components.Gqlp_Spec_Domain;
 public interface ICmpt_DomainRef<TKind>
   : ICmpt_TypeRef<ICmpt_TypeKind>
 {
-  ICmpt_DomainRefObject As_DomainRef { get; }
+  ICmpt_DomainRefObject<TKind> As_DomainRef { get; }
 }
 
 public interface ICmpt_DomainRefObject<TKind>
@@ -93,7 +93,7 @@ public interface ICmpt_DomainRefObject<TKind>
 public interface ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
   : ICmpt_ParentType<ICmpt_TypeKind, TItem, TDomainItem>
 {
-  ICmpt_BaseDomainObject As_BaseDomain { get; }
+  ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem> As_BaseDomain { get; }
 }
 
 public interface ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
@@ -117,7 +117,7 @@ public interface ICmpt_BaseDomainItemObject
 public interface ICmpt_DomainItem<TItem>
   : ICmptitem
 {
-  ICmpt_DomainItemObject As_DomainItem { get; }
+  ICmpt_DomainItemObject<TItem> As_DomainItem { get; }
 }
 
 public interface ICmpt_DomainItemObject<TItem>
@@ -130,7 +130,7 @@ public interface ICmpt_DomainValue<TKind,TValue>
   : ICmpt_DomainRef<TKind>
 {
   TValue Asvalue { get; }
-  ICmpt_DomainValueObject As_DomainValue { get; }
+  ICmpt_DomainValueObject<TKind,TValue> As_DomainValue { get; }
 }
 
 public interface ICmpt_DomainValueObject<TKind,TValue>

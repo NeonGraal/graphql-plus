@@ -11,7 +11,7 @@ namespace Components.Gqlp_Schema_object_param_Input;
 
 public interface ICmptObjParamInp<TTest,TType>
 {
-  ICmptObjParamInpObject AsObjParamInp { get; }
+  ICmptObjParamInpObject<TTest,TType> AsObjParamInp { get; }
 }
 
 public interface ICmptObjParamInpObject<TTest,TType>

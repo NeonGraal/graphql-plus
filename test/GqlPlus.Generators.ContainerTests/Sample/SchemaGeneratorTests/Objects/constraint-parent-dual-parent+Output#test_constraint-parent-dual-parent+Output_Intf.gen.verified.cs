@@ -19,7 +19,7 @@ public interface ItestCnstPrntDualPrntOutpObject
 public interface ItestRefCnstPrntDualPrntOutp<TRef>
   : Itestref
 {
-  ItestRefCnstPrntDualPrntOutpObject AsRefCnstPrntDualPrntOutp { get; }
+  ItestRefCnstPrntDualPrntOutpObject<TRef> AsRefCnstPrntDualPrntOutp { get; }
 }
 
 public interface ItestRefCnstPrntDualPrntOutpObject<TRef>

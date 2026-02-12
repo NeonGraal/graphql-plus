@@ -21,7 +21,7 @@ public class CmptFieldGnrcPrntStrDomInp<TRef>
   : ICmptFieldGnrcPrntStrDomInp<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptFieldGnrcPrntStrDomInpObject AsFieldGnrcPrntStrDomInp { get; set; }
+  public ICmptFieldGnrcPrntStrDomInpObject<TRef> AsFieldGnrcPrntStrDomInp { get; set; }
 }
 
 public class CmptDomGnrcPrntStrDomInp

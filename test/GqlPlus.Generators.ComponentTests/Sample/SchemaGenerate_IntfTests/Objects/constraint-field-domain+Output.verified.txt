@@ -23,7 +23,7 @@ public interface ICmptCnstFieldDmnOutpObject
 
 public interface ICmptRefCnstFieldDmnOutp<TRef>
 {
-  ICmptRefCnstFieldDmnOutpObject AsRefCnstFieldDmnOutp { get; }
+  ICmptRefCnstFieldDmnOutpObject<TRef> AsRefCnstFieldDmnOutp { get; }
 }
 
 public interface ICmptRefCnstFieldDmnOutpObject<TRef>

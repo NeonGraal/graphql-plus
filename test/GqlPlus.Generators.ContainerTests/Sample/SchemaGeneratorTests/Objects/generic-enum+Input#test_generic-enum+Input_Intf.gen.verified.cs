@@ -17,7 +17,7 @@ public interface ItestGnrcEnumInpObject
 
 public interface ItestRefGnrcEnumInp<TType>
 {
-  ItestRefGnrcEnumInpObject AsRefGnrcEnumInp { get; }
+  ItestRefGnrcEnumInpObject<TType> AsRefGnrcEnumInp { get; }
 }
 
 public interface ItestRefGnrcEnumInpObject<TType>

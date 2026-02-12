@@ -19,7 +19,7 @@ public interface ItestGnrcPrntParamPrntInpObject
 public interface ItestRefGnrcPrntParamPrntInp<TRef>
   : Itestref
 {
-  ItestRefGnrcPrntParamPrntInpObject AsRefGnrcPrntParamPrntInp { get; }
+  ItestRefGnrcPrntParamPrntInpObject<TRef> AsRefGnrcPrntParamPrntInp { get; }
 }
 
 public interface ItestRefGnrcPrntParamPrntInpObject<TRef>

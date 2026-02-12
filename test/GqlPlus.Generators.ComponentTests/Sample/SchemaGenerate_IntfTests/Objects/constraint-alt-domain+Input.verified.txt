@@ -23,7 +23,7 @@ public interface ICmptCnstAltDmnInpObject
 public interface ICmptRefCnstAltDmnInp<TRef>
 {
   TRef Asref { get; }
-  ICmptRefCnstAltDmnInpObject AsRefCnstAltDmnInp { get; }
+  ICmptRefCnstAltDmnInpObject<TRef> AsRefCnstAltDmnInp { get; }
 }
 
 public interface ICmptRefCnstAltDmnInpObject<TRef>

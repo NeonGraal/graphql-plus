@@ -10,7 +10,7 @@ public class test_DomainRef<TKind>
   , Itest_DomainRef<TKind>
 {
   public TKind DomainKind { get; set; }
-  public Itest_DomainRefObject As_DomainRef { get; set; }
+  public Itest_DomainRefObject<TKind> As_DomainRef { get; set; }
 }
 
 public class test_BaseDomain<TDomain,TItem,TDomainItem>
@@ -18,7 +18,7 @@ public class test_BaseDomain<TDomain,TItem,TDomainItem>
   , Itest_BaseDomain<TDomain,TItem,TDomainItem>
 {
   public TDomain DomainKind { get; set; }
-  public Itest_BaseDomainObject As_BaseDomain { get; set; }
+  public Itest_BaseDomainObject<TDomain,TItem,TDomainItem> As_BaseDomain { get; set; }
 }
 
 public class test_BaseDomainItem
@@ -34,7 +34,7 @@ public class test_DomainItem<TItem>
   , Itest_DomainItem<TItem>
 {
   public Itest_Name Domain { get; set; }
-  public Itest_DomainItemObject As_DomainItem { get; set; }
+  public Itest_DomainItemObject<TItem> As_DomainItem { get; set; }
 }
 
 public class test_DomainValue<TKind,TValue>
@@ -43,7 +43,7 @@ public class test_DomainValue<TKind,TValue>
 {
   public TValue Value { get; set; }
   public TValue Asvalue { get; set; }
-  public Itest_DomainValueObject As_DomainValue { get; set; }
+  public Itest_DomainValueObject<TKind,TValue> As_DomainValue { get; set; }
 }
 
 public class test_BasicValue

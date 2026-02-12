@@ -24,7 +24,7 @@ public interface ICmptCnstFieldObjInpObject
 
 public interface ICmptRefCnstFieldObjInp<TRef>
 {
-  ICmptRefCnstFieldObjInpObject AsRefCnstFieldObjInp { get; }
+  ICmptRefCnstFieldObjInpObject<TRef> AsRefCnstFieldObjInp { get; }
 }
 
 public interface ICmptRefCnstFieldObjInpObject<TRef>

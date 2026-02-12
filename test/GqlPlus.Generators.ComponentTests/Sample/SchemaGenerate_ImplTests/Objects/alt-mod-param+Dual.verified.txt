@@ -13,7 +13,7 @@ public class CmptAltModParamDual<TMod>
   : ICmptAltModParamDual<TMod>
 {
   public IDictionary<TMod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; set; }
-  public ICmptAltModParamDualObject AsAltModParamDual { get; set; }
+  public ICmptAltModParamDualObject<TMod> AsAltModParamDual { get; set; }
 }
 
 public class CmptAltAltModParamDual

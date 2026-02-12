@@ -256,7 +256,7 @@ public interface ItestObjAltEnumOutpObject
 
 public interface ItestObjCnstDual<TType>
 {
-  ItestObjCnstDualObject AsObjCnstDual { get; }
+  ItestObjCnstDualObject<TType> AsObjCnstDual { get; }
 }
 
 public interface ItestObjCnstDualObject<TType>
@@ -267,7 +267,7 @@ public interface ItestObjCnstDualObject<TType>
 
 public interface ItestObjCnstInp<TType>
 {
-  ItestObjCnstInpObject AsObjCnstInp { get; }
+  ItestObjCnstInpObject<TType> AsObjCnstInp { get; }
 }
 
 public interface ItestObjCnstInpObject<TType>
@@ -278,7 +278,7 @@ public interface ItestObjCnstInpObject<TType>
 
 public interface ItestObjCnstOutp<TType>
 {
-  ItestObjCnstOutpObject AsObjCnstOutp { get; }
+  ItestObjCnstOutpObject<TType> AsObjCnstOutp { get; }
 }
 
 public interface ItestObjCnstOutpObject<TType>
@@ -493,7 +493,7 @@ public interface ItestObjFieldTypeAliasOutpObject
 
 public interface ItestObjParamDual<TTest,TType>
 {
-  ItestObjParamDualObject AsObjParamDual { get; }
+  ItestObjParamDualObject<TTest,TType> AsObjParamDual { get; }
 }
 
 public interface ItestObjParamDualObject<TTest,TType>
@@ -504,7 +504,7 @@ public interface ItestObjParamDualObject<TTest,TType>
 
 public interface ItestObjParamInp<TTest,TType>
 {
-  ItestObjParamInpObject AsObjParamInp { get; }
+  ItestObjParamInpObject<TTest,TType> AsObjParamInp { get; }
 }
 
 public interface ItestObjParamInpObject<TTest,TType>
@@ -515,7 +515,7 @@ public interface ItestObjParamInpObject<TTest,TType>
 
 public interface ItestObjParamOutp<TTest,TType>
 {
-  ItestObjParamOutpObject AsObjParamOutp { get; }
+  ItestObjParamOutpObject<TTest,TType> AsObjParamOutp { get; }
 }
 
 public interface ItestObjParamOutpObject<TTest,TType>
@@ -526,7 +526,7 @@ public interface ItestObjParamOutpObject<TTest,TType>
 
 public interface ItestObjParamDupDual<TTest>
 {
-  ItestObjParamDupDualObject AsObjParamDupDual { get; }
+  ItestObjParamDupDualObject<TTest> AsObjParamDupDual { get; }
 }
 
 public interface ItestObjParamDupDualObject<TTest>
@@ -537,7 +537,7 @@ public interface ItestObjParamDupDualObject<TTest>
 
 public interface ItestObjParamDupInp<TTest>
 {
-  ItestObjParamDupInpObject AsObjParamDupInp { get; }
+  ItestObjParamDupInpObject<TTest> AsObjParamDupInp { get; }
 }
 
 public interface ItestObjParamDupInpObject<TTest>
@@ -548,7 +548,7 @@ public interface ItestObjParamDupInpObject<TTest>
 
 public interface ItestObjParamDupOutp<TTest>
 {
-  ItestObjParamDupOutpObject AsObjParamDupOutp { get; }
+  ItestObjParamDupOutpObject<TTest> AsObjParamDupOutp { get; }
 }
 
 public interface ItestObjParamDupOutpObject<TTest>

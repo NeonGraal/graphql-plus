@@ -12,5 +12,5 @@ public class CmptGnrcFieldInp<TType>
   : ICmptGnrcFieldInp<TType>
 {
   public TType Field { get; set; }
-  public ICmptGnrcFieldInpObject AsGnrcFieldInp { get; set; }
+  public ICmptGnrcFieldInpObject<TType> AsGnrcFieldInp { get; set; }
 }

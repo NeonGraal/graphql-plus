@@ -18,7 +18,7 @@ public interface ItestCnstFieldObjInpObject
 
 public interface ItestRefCnstFieldObjInp<TRef>
 {
-  ItestRefCnstFieldObjInpObject AsRefCnstFieldObjInp { get; }
+  ItestRefCnstFieldObjInpObject<TRef> AsRefCnstFieldObjInp { get; }
 }
 
 public interface ItestRefCnstFieldObjInpObject<TRef>

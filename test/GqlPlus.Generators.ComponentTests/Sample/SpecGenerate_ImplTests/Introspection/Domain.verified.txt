@@ -83,7 +83,7 @@ public class Cmpt_DomainRef<TKind>
   , ICmpt_DomainRef<TKind>
 {
   public TKind DomainKind { get; set; }
-  public ICmpt_DomainRefObject As_DomainRef { get; set; }
+  public ICmpt_DomainRefObject<TKind> As_DomainRef { get; set; }
 }
 
 public class Cmpt_BaseDomain<TDomain,TItem,TDomainItem>
@@ -91,7 +91,7 @@ public class Cmpt_BaseDomain<TDomain,TItem,TDomainItem>
   , ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
 {
   public TDomain DomainKind { get; set; }
-  public ICmpt_BaseDomainObject As_BaseDomain { get; set; }
+  public ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem> As_BaseDomain { get; set; }
 }
 
 public class Cmpt_BaseDomainItem
@@ -107,7 +107,7 @@ public class Cmpt_DomainItem<TItem>
   , ICmpt_DomainItem<TItem>
 {
   public ICmpt_Name Domain { get; set; }
-  public ICmpt_DomainItemObject As_DomainItem { get; set; }
+  public ICmpt_DomainItemObject<TItem> As_DomainItem { get; set; }
 }
 
 public class Cmpt_DomainValue<TKind,TValue>
@@ -116,7 +116,7 @@ public class Cmpt_DomainValue<TKind,TValue>
 {
   public TValue Value { get; set; }
   public TValue Asvalue { get; set; }
-  public ICmpt_DomainValueObject As_DomainValue { get; set; }
+  public ICmpt_DomainValueObject<TKind,TValue> As_DomainValue { get; set; }
 }
 
 public class Cmpt_BasicValue

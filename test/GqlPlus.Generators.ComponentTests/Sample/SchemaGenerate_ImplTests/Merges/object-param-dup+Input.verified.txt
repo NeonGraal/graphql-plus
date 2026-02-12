@@ -14,5 +14,5 @@ public class CmptObjParamDupInp<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
-  public ICmptObjParamDupInpObject AsObjParamDupInp { get; set; }
+  public ICmptObjParamDupInpObject<TTest> AsObjParamDupInp { get; set; }
 }

@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 public interface ICmptAltModParamDual<TMod>
 {
   IDictionary<TMod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; }
-  ICmptAltModParamDualObject AsAltModParamDual { get; }
+  ICmptAltModParamDualObject<TMod> AsAltModParamDual { get; }
 }
 
 public interface ICmptAltModParamDualObject<TMod>

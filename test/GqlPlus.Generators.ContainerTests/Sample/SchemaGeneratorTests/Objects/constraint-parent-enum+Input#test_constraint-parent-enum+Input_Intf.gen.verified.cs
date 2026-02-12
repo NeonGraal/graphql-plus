@@ -17,7 +17,7 @@ public interface ItestCnstPrntEnumInpObject
 
 public interface ItestRefCnstPrntEnumInp<TType>
 {
-  ItestRefCnstPrntEnumInpObject AsRefCnstPrntEnumInp { get; }
+  ItestRefCnstPrntEnumInpObject<TType> AsRefCnstPrntEnumInp { get; }
 }
 
 public interface ItestRefCnstPrntEnumInpObject<TType>

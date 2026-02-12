@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_descr_Input;
 public interface ItestGnrcAltArgDescrInp<TType>
 {
   ItestRefGnrcAltArgDescrInp<TType> AsRefGnrcAltArgDescrInp { get; }
-  ItestGnrcAltArgDescrInpObject AsGnrcAltArgDescrInp { get; }
+  ItestGnrcAltArgDescrInpObject<TType> AsGnrcAltArgDescrInp { get; }
 }
 
 public interface ItestGnrcAltArgDescrInpObject<TType>
@@ -18,7 +18,7 @@ public interface ItestGnrcAltArgDescrInpObject<TType>
 public interface ItestRefGnrcAltArgDescrInp<TRef>
 {
   TRef Asref { get; }
-  ItestRefGnrcAltArgDescrInpObject AsRefGnrcAltArgDescrInp { get; }
+  ItestRefGnrcAltArgDescrInpObject<TRef> AsRefGnrcAltArgDescrInp { get; }
 }
 
 public interface ItestRefGnrcAltArgDescrInpObject<TRef>

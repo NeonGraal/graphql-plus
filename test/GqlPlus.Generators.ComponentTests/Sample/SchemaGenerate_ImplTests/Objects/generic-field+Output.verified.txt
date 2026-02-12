@@ -12,5 +12,5 @@ public class CmptGnrcFieldOutp<TType>
   : ICmptGnrcFieldOutp<TType>
 {
   public TType Field { get; set; }
-  public ICmptGnrcFieldOutpObject AsGnrcFieldOutp { get; set; }
+  public ICmptGnrcFieldOutpObject<TType> AsGnrcFieldOutp { get; set; }
 }

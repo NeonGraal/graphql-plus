@@ -20,7 +20,7 @@ public class test_ModifierKeyed<TKind>
 {
   public Itest_TypeSimple By { get; set; }
   public bool Optional { get; set; }
-  public Itest_ModifierKeyedObject As_ModifierKeyed { get; set; }
+  public Itest_ModifierKeyedObject<TKind> As_ModifierKeyed { get; set; }
 }
 
 public class test_Modifiers
@@ -35,5 +35,5 @@ public class test_Modifier<TKind>
   : Itest_Modifier<TKind>
 {
   public TKind ModifierKind { get; set; }
-  public Itest_ModifierObject As_Modifier { get; set; }
+  public Itest_ModifierObject<TKind> As_Modifier { get; set; }
 }

@@ -12,5 +12,5 @@ public class CmptCnstAltInp<TType>
   : ICmptCnstAltInp<TType>
 {
   public TType Astype { get; set; }
-  public ICmptCnstAltInpObject AsCnstAltInp { get; set; }
+  public ICmptCnstAltInpObject<TType> AsCnstAltInp { get; set; }
 }

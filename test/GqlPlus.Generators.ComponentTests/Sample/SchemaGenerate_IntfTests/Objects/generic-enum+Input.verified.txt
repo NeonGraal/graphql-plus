@@ -22,7 +22,7 @@ public interface ICmptGnrcEnumInpObject
 
 public interface ICmptRefGnrcEnumInp<TType>
 {
-  ICmptRefGnrcEnumInpObject AsRefGnrcEnumInp { get; }
+  ICmptRefGnrcEnumInpObject<TType> AsRefGnrcEnumInp { get; }
 }
 
 public interface ICmptRefGnrcEnumInpObject<TType>

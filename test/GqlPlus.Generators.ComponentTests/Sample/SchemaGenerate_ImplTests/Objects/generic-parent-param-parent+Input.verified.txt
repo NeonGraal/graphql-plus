@@ -21,7 +21,7 @@ public class CmptRefGnrcPrntParamPrntInp<TRef>
   : Cmptref
   , ICmptRefGnrcPrntParamPrntInp<TRef>
 {
-  public ICmptRefGnrcPrntParamPrntInpObject AsRefGnrcPrntParamPrntInp { get; set; }
+  public ICmptRefGnrcPrntParamPrntInpObject<TRef> AsRefGnrcPrntParamPrntInp { get; set; }
 }
 
 public class CmptAltGnrcPrntParamPrntInp

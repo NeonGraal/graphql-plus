@@ -18,7 +18,7 @@ public interface ItestGnrcFieldDualOutpObject
 public interface ItestRefGnrcFieldDualOutp<TRef>
 {
   TRef Asref { get; }
-  ItestRefGnrcFieldDualOutpObject AsRefGnrcFieldDualOutp { get; }
+  ItestRefGnrcFieldDualOutpObject<TRef> AsRefGnrcFieldDualOutp { get; }
 }
 
 public interface ItestRefGnrcFieldDualOutpObject<TRef>

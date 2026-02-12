@@ -210,7 +210,7 @@ public class CmptObjCnstDual<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
-  public ICmptObjCnstDualObject AsObjCnstDual { get; set; }
+  public ICmptObjCnstDualObject<TType> AsObjCnstDual { get; set; }
 }
 
 public class CmptObjCnstInp<TType>
@@ -218,7 +218,7 @@ public class CmptObjCnstInp<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
-  public ICmptObjCnstInpObject AsObjCnstInp { get; set; }
+  public ICmptObjCnstInpObject<TType> AsObjCnstInp { get; set; }
 }
 
 public class CmptObjCnstOutp<TType>
@@ -226,7 +226,7 @@ public class CmptObjCnstOutp<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
-  public ICmptObjCnstOutpObject AsObjCnstOutp { get; set; }
+  public ICmptObjCnstOutpObject<TType> AsObjCnstOutp { get; set; }
 }
 
 public class CmptObjFieldDual
@@ -375,7 +375,7 @@ public class CmptObjParamDual<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-  public ICmptObjParamDualObject AsObjParamDual { get; set; }
+  public ICmptObjParamDualObject<TTest,TType> AsObjParamDual { get; set; }
 }
 
 public class CmptObjParamInp<TTest,TType>
@@ -383,7 +383,7 @@ public class CmptObjParamInp<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-  public ICmptObjParamInpObject AsObjParamInp { get; set; }
+  public ICmptObjParamInpObject<TTest,TType> AsObjParamInp { get; set; }
 }
 
 public class CmptObjParamOutp<TTest,TType>
@@ -391,7 +391,7 @@ public class CmptObjParamOutp<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-  public ICmptObjParamOutpObject AsObjParamOutp { get; set; }
+  public ICmptObjParamOutpObject<TTest,TType> AsObjParamOutp { get; set; }
 }
 
 public class CmptObjParamDupDual<TTest>
@@ -399,7 +399,7 @@ public class CmptObjParamDupDual<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
-  public ICmptObjParamDupDualObject AsObjParamDupDual { get; set; }
+  public ICmptObjParamDupDualObject<TTest> AsObjParamDupDual { get; set; }
 }
 
 public class CmptObjParamDupInp<TTest>
@@ -407,7 +407,7 @@ public class CmptObjParamDupInp<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
-  public ICmptObjParamDupInpObject AsObjParamDupInp { get; set; }
+  public ICmptObjParamDupInpObject<TTest> AsObjParamDupInp { get; set; }
 }
 
 public class CmptObjParamDupOutp<TTest>
@@ -415,7 +415,7 @@ public class CmptObjParamDupOutp<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
-  public ICmptObjParamDupOutpObject AsObjParamDupOutp { get; set; }
+  public ICmptObjParamDupOutpObject<TTest> AsObjParamDupOutp { get; set; }
 }
 
 public class CmptObjPrntDual

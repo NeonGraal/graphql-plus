@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_parent_param_same_Input;
 public interface ICmptPrntParamSameInp<TA>
   : ICmptRefPrntParamSameInp<TA>
 {
-  ICmptPrntParamSameInpObject AsPrntParamSameInp { get; }
+  ICmptPrntParamSameInpObject<TA> AsPrntParamSameInp { get; }
 }
 
 public interface ICmptPrntParamSameInpObject<TA>
@@ -24,7 +24,7 @@ public interface ICmptPrntParamSameInpObject<TA>
 public interface ICmptRefPrntParamSameInp<TA>
 {
   TA Asa { get; }
-  ICmptRefPrntParamSameInpObject AsRefPrntParamSameInp { get; }
+  ICmptRefPrntParamSameInpObject<TA> AsRefPrntParamSameInp { get; }
 }
 
 public interface ICmptRefPrntParamSameInpObject<TA>

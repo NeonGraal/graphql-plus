@@ -24,7 +24,7 @@ public interface ICmptGnrcPrntParamOutpObject
 public interface ICmptRefGnrcPrntParamOutp<TRef>
 {
   TRef Asref { get; }
-  ICmptRefGnrcPrntParamOutpObject AsRefGnrcPrntParamOutp { get; }
+  ICmptRefGnrcPrntParamOutpObject<TRef> AsRefGnrcPrntParamOutp { get; }
 }
 
 public interface ICmptRefGnrcPrntParamOutpObject<TRef>

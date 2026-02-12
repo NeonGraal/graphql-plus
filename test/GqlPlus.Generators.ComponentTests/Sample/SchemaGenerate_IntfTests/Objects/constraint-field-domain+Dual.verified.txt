@@ -23,7 +23,7 @@ public interface ICmptCnstFieldDmnDualObject
 
 public interface ICmptRefCnstFieldDmnDual<TRef>
 {
-  ICmptRefCnstFieldDmnDualObject AsRefCnstFieldDmnDual { get; }
+  ICmptRefCnstFieldDmnDualObject<TRef> AsRefCnstFieldDmnDual { get; }
 }
 
 public interface ICmptRefCnstFieldDmnDualObject<TRef>

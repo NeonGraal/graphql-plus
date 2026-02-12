@@ -24,7 +24,7 @@ public interface ICmptCnstFieldDualOutpObject
 
 public interface ICmptRefCnstFieldDualOutp<TRef>
 {
-  ICmptRefCnstFieldDualOutpObject AsRefCnstFieldDualOutp { get; }
+  ICmptRefCnstFieldDualOutpObject<TRef> AsRefCnstFieldDualOutp { get; }
 }
 
 public interface ICmptRefCnstFieldDualOutpObject<TRef>

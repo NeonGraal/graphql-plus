@@ -22,7 +22,7 @@ public interface ICmptGnrcAltSmplInpObject
 public interface ICmptRefGnrcAltSmplInp<TRef>
 {
   TRef Asref { get; }
-  ICmptRefGnrcAltSmplInpObject AsRefGnrcAltSmplInp { get; }
+  ICmptRefGnrcAltSmplInpObject<TRef> AsRefGnrcAltSmplInp { get; }
 }
 
 public interface ICmptRefGnrcAltSmplInpObject<TRef>

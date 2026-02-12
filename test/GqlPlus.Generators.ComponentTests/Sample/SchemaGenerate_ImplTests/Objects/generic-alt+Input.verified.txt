@@ -12,5 +12,5 @@ public class CmptGnrcAltInp<TType>
   : ICmptGnrcAltInp<TType>
 {
   public TType Astype { get; set; }
-  public ICmptGnrcAltInpObject AsGnrcAltInp { get; set; }
+  public ICmptGnrcAltInpObject<TType> AsGnrcAltInp { get; set; }
 }

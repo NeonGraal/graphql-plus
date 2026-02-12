@@ -17,7 +17,7 @@ public interface ItestGnrcEnumDualObject
 
 public interface ItestRefGnrcEnumDual<TType>
 {
-  ItestRefGnrcEnumDualObject AsRefGnrcEnumDual { get; }
+  ItestRefGnrcEnumDualObject<TType> AsRefGnrcEnumDual { get; }
 }
 
 public interface ItestRefGnrcEnumDualObject<TType>

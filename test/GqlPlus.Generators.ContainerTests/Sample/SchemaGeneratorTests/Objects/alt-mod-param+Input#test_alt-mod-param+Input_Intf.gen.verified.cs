@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Input;
 public interface ItestAltModParamInp<TMod>
 {
   IDictionary<TMod, ItestAltAltModParamInp> AsAltAltModParamInp { get; }
-  ItestAltModParamInpObject AsAltModParamInp { get; }
+  ItestAltModParamInpObject<TMod> AsAltModParamInp { get; }
 }
 
 public interface ItestAltModParamInpObject<TMod>

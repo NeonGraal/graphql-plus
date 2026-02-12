@@ -16,7 +16,7 @@ public class testRefGnrcFieldParamDual<TRef>
   : ItestRefGnrcFieldParamDual<TRef>
 {
   public TRef Asref { get; set; }
-  public ItestRefGnrcFieldParamDualObject AsRefGnrcFieldParamDual { get; set; }
+  public ItestRefGnrcFieldParamDualObject<TRef> AsRefGnrcFieldParamDual { get; set; }
 }
 
 public class testAltGnrcFieldParamDual

@@ -22,7 +22,7 @@ public class CmptRefCnstPrntDualPrntInp<TRef>
   : Cmptref
   , ICmptRefCnstPrntDualPrntInp<TRef>
 {
-  public ICmptRefCnstPrntDualPrntInpObject AsRefCnstPrntDualPrntInp { get; set; }
+  public ICmptRefCnstPrntDualPrntInpObject<TRef> AsRefCnstPrntDualPrntInp { get; set; }
 }
 
 public class CmptPrntCnstPrntDualPrntInp

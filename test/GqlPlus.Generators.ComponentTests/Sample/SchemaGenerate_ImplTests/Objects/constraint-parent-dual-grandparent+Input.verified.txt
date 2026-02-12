@@ -23,7 +23,7 @@ public class CmptRefCnstPrntDualGrndInp<TRef>
   : Cmptref
   , ICmptRefCnstPrntDualGrndInp<TRef>
 {
-  public ICmptRefCnstPrntDualGrndInpObject AsRefCnstPrntDualGrndInp { get; set; }
+  public ICmptRefCnstPrntDualGrndInpObject<TRef> AsRefCnstPrntDualGrndInp { get; set; }
 }
 
 public class CmptGrndCnstPrntDualGrndInp

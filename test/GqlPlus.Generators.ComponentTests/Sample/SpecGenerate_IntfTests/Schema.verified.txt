@@ -30,7 +30,7 @@ public interface ICmpt_Opt<TT>
 {
   TT AsT { get; }
   CmptNull AsNull { get; }
-  ICmpt_OptObject As_Opt { get; }
+  ICmpt_OptObject<TT> As_Opt { get; }
 }
 
 public interface ICmpt_OptObject<TT>
@@ -40,7 +40,7 @@ public interface ICmpt_OptObject<TT>
 public interface ICmpt_List<TT>
 {
   ICollection<TT> AsT { get; }
-  ICmpt_ListObject As_List { get; }
+  ICmpt_ListObject<TT> As_List { get; }
 }
 
 public interface ICmpt_ListObject<TT>
@@ -50,7 +50,7 @@ public interface ICmpt_ListObject<TT>
 public interface ICmpt_Dict<TK,TT>
 {
   IDictionary<TK, TT> AsT { get; }
-  ICmpt_DictObject As_Dict { get; }
+  ICmpt_DictObject<TK,TT> As_Dict { get; }
 }
 
 public interface ICmpt_DictObject<TK,TT>
@@ -60,7 +60,7 @@ public interface ICmpt_DictObject<TK,TT>
 public interface ICmpt_Map<TT>
 {
   IDictionary<string, TT> AsT { get; }
-  ICmpt_MapObject As_Map { get; }
+  ICmpt_MapObject<TT> As_Map { get; }
 }
 
 public interface ICmpt_MapObject<TT>
@@ -70,7 +70,7 @@ public interface ICmpt_MapObject<TT>
 public interface ICmpt_Array<TT>
 {
   IDictionary<decimal, TT> AsT { get; }
-  ICmpt_ArrayObject As_Array { get; }
+  ICmpt_ArrayObject<TT> As_Array { get; }
 }
 
 public interface ICmpt_ArrayObject<TT>
@@ -80,7 +80,7 @@ public interface ICmpt_ArrayObject<TT>
 public interface ICmpt_IfElse<TT>
 {
   IDictionary<bool, TT> AsT { get; }
-  ICmpt_IfElseObject As_IfElse { get; }
+  ICmpt_IfElseObject<TT> As_IfElse { get; }
 }
 
 public interface ICmpt_IfElseObject<TT>
@@ -90,7 +90,7 @@ public interface ICmpt_IfElseObject<TT>
 public interface ICmpt_Set<TK>
 {
   IDictionary<TK, CmptUnit> AsUnit_ { get; }
-  ICmpt_SetObject As_Set { get; }
+  ICmpt_SetObject<TK> As_Set { get; }
 }
 
 public interface ICmpt_SetObject<TK>
@@ -100,7 +100,7 @@ public interface ICmpt_SetObject<TK>
 public interface ICmpt_Mask<TK>
 {
   IDictionary<TK, bool> AsBoolean { get; }
-  ICmpt_MaskObject As_Mask { get; }
+  ICmpt_MaskObject<TK> As_Mask { get; }
 }
 
 public interface ICmpt_MaskObject<TK>

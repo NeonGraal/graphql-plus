@@ -550,7 +550,7 @@ public interface ICmpt_TypeObject
 public interface ICmpt_BaseType<TKind>
   : ICmpt_Aliased
 {
-  ICmpt_BaseTypeObject As_BaseType { get; }
+  ICmpt_BaseTypeObject<TKind> As_BaseType { get; }
 }
 
 public interface ICmpt_BaseTypeObject<TKind>
@@ -562,7 +562,7 @@ public interface ICmpt_BaseTypeObject<TKind>
 public interface ICmpt_ChildType<TKind,TParent>
   : ICmpt_BaseType<TKind>
 {
-  ICmpt_ChildTypeObject As_ChildType { get; }
+  ICmpt_ChildTypeObject<TKind,TParent> As_ChildType { get; }
 }
 
 public interface ICmpt_ChildTypeObject<TKind,TParent>
@@ -574,7 +574,7 @@ public interface ICmpt_ChildTypeObject<TKind,TParent>
 public interface ICmpt_ParentType<TKind,TItem,TAllItem>
   : ICmpt_ChildType<TKind, ICmpt_Named>
 {
-  ICmpt_ParentTypeObject As_ParentType { get; }
+  ICmpt_ParentTypeObject<TKind,TItem,TAllItem> As_ParentType { get; }
 }
 
 public interface ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
@@ -587,7 +587,7 @@ public interface ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
 public interface ICmpt_TypeRef<TKind>
   : ICmpt_Named
 {
-  ICmpt_TypeRefObject As_TypeRef { get; }
+  ICmpt_TypeRefObject<TKind> As_TypeRef { get; }
 }
 
 public interface ICmpt_TypeRefObject<TKind>
@@ -624,7 +624,7 @@ public interface ICmpt_CollectionsObject
 public interface ICmpt_ModifierKeyed<TKind>
   : ICmpt_Modifier<TKind>
 {
-  ICmpt_ModifierKeyedObject As_ModifierKeyed { get; }
+  ICmpt_ModifierKeyedObject<TKind> As_ModifierKeyed { get; }
 }
 
 public interface ICmpt_ModifierKeyedObject<TKind>
@@ -647,7 +647,7 @@ public interface ICmpt_ModifiersObject
 
 public interface ICmpt_Modifier<TKind>
 {
-  ICmpt_ModifierObject As_Modifier { get; }
+  ICmpt_ModifierObject<TKind> As_Modifier { get; }
 }
 
 public interface ICmpt_ModifierObject<TKind>
@@ -658,7 +658,7 @@ public interface ICmpt_ModifierObject<TKind>
 public interface ICmpt_DomainRef<TKind>
   : ICmpt_TypeRef<Cmpt_TypeKind>
 {
-  ICmpt_DomainRefObject As_DomainRef { get; }
+  ICmpt_DomainRefObject<TKind> As_DomainRef { get; }
 }
 
 public interface ICmpt_DomainRefObject<TKind>
@@ -670,7 +670,7 @@ public interface ICmpt_DomainRefObject<TKind>
 public interface ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
   : ICmpt_ParentType<Cmpt_TypeKind, TItem, TDomainItem>
 {
-  ICmpt_BaseDomainObject As_BaseDomain { get; }
+  ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem> As_BaseDomain { get; }
 }
 
 public interface ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
@@ -694,7 +694,7 @@ public interface ICmpt_BaseDomainItemObject
 public interface ICmpt_DomainItem<TItem>
   : ICmptitem
 {
-  ICmpt_DomainItemObject As_DomainItem { get; }
+  ICmpt_DomainItemObject<TItem> As_DomainItem { get; }
 }
 
 public interface ICmpt_DomainItemObject<TItem>
@@ -707,7 +707,7 @@ public interface ICmpt_DomainValue<TKind,TValue>
   : ICmpt_DomainRef<TKind>
 {
   TValue Asvalue { get; }
-  ICmpt_DomainValueObject As_DomainValue { get; }
+  ICmpt_DomainValueObject<TKind,TValue> As_DomainValue { get; }
 }
 
 public interface ICmpt_DomainValueObject<TKind,TValue>
@@ -877,7 +877,7 @@ public interface ICmpt_ObjectKind
 public interface ICmpt_TypeObject<TKind,TField>
   : ICmpt_ChildType<TKind, ICmpt_ObjBase>
 {
-  ICmpt_TypeObjectObject As_TypeObject { get; }
+  ICmpt_TypeObjectObject<TKind,TField> As_TypeObject { get; }
 }
 
 public interface ICmpt_TypeObjectObject<TKind,TField>
@@ -967,7 +967,7 @@ public interface ICmpt_ObjAlternateEnumObject
 public interface ICmpt_ObjectFor<TFor>
   : ICmptfor
 {
-  ICmpt_ObjectForObject As_ObjectFor { get; }
+  ICmpt_ObjectForObject<TFor> As_ObjectFor { get; }
 }
 
 public interface ICmpt_ObjectForObject<TFor>
@@ -979,7 +979,7 @@ public interface ICmpt_ObjectForObject<TFor>
 public interface ICmpt_ObjField<TType>
   : ICmpt_Aliased
 {
-  ICmpt_ObjFieldObject As_ObjField { get; }
+  ICmpt_ObjFieldObject<TType> As_ObjField { get; }
 }
 
 public interface ICmpt_ObjFieldObject<TType>
@@ -1017,7 +1017,7 @@ public interface ICmpt_ForParam<TType>
 {
   ICmpt_ObjAlternate As_ObjAlternate { get; }
   ICmpt_ObjField<TType> As_ObjField { get; }
-  ICmpt_ForParamObject As_ForParam { get; }
+  ICmpt_ForParamObject<TType> As_ForParam { get; }
 }
 
 public interface ICmpt_ForParamObject<TType>

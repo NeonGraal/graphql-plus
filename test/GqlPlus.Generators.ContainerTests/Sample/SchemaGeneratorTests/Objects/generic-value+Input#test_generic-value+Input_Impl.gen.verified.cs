@@ -16,5 +16,5 @@ public class testRefGnrcValueInp<TType>
   : ItestRefGnrcValueInp<TType>
 {
   public TType Field { get; set; }
-  public ItestRefGnrcValueInpObject AsRefGnrcValueInp { get; set; }
+  public ItestRefGnrcValueInpObject<TType> AsRefGnrcValueInp { get; set; }
 }

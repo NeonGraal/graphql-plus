@@ -97,7 +97,7 @@ public class Cmpt_BaseType<TKind>
   , ICmpt_BaseType<TKind>
 {
   public TKind TypeKind { get; set; }
-  public ICmpt_BaseTypeObject As_BaseType { get; set; }
+  public ICmpt_BaseTypeObject<TKind> As_BaseType { get; set; }
 }
 
 public class Cmpt_ChildType<TKind,TParent>
@@ -105,7 +105,7 @@ public class Cmpt_ChildType<TKind,TParent>
   , ICmpt_ChildType<TKind,TParent>
 {
   public TParent Parent { get; set; }
-  public ICmpt_ChildTypeObject As_ChildType { get; set; }
+  public ICmpt_ChildTypeObject<TKind,TParent> As_ChildType { get; set; }
 }
 
 public class Cmpt_ParentType<TKind,TItem,TAllItem>
@@ -114,7 +114,7 @@ public class Cmpt_ParentType<TKind,TItem,TAllItem>
 {
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
-  public ICmpt_ParentTypeObject As_ParentType { get; set; }
+  public ICmpt_ParentTypeObject<TKind,TItem,TAllItem> As_ParentType { get; set; }
 }
 
 public class Cmpt_TypeRef<TKind>
@@ -122,7 +122,7 @@ public class Cmpt_TypeRef<TKind>
   , ICmpt_TypeRef<TKind>
 {
   public TKind TypeKind { get; set; }
-  public ICmpt_TypeRefObject As_TypeRef { get; set; }
+  public ICmpt_TypeRefObject<TKind> As_TypeRef { get; set; }
 }
 
 public class Cmpt_TypeSimple
@@ -150,7 +150,7 @@ public class Cmpt_ModifierKeyed<TKind>
 {
   public ICmpt_TypeSimple By { get; set; }
   public bool Optional { get; set; }
-  public ICmpt_ModifierKeyedObject As_ModifierKeyed { get; set; }
+  public ICmpt_ModifierKeyedObject<TKind> As_ModifierKeyed { get; set; }
 }
 
 public class Cmpt_Modifiers
@@ -165,5 +165,5 @@ public class Cmpt_Modifier<TKind>
   : ICmpt_Modifier<TKind>
 {
   public TKind ModifierKind { get; set; }
-  public ICmpt_ModifierObject As_Modifier { get; set; }
+  public ICmpt_ModifierObject<TKind> As_Modifier { get; set; }
 }

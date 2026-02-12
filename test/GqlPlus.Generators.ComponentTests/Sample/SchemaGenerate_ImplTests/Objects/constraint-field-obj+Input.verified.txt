@@ -22,7 +22,7 @@ public class CmptRefCnstFieldObjInp<TRef>
   : ICmptRefCnstFieldObjInp<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptRefCnstFieldObjInpObject AsRefCnstFieldObjInp { get; set; }
+  public ICmptRefCnstFieldObjInpObject<TRef> AsRefCnstFieldObjInp { get; set; }
 }
 
 public class CmptPrntCnstFieldObjInp

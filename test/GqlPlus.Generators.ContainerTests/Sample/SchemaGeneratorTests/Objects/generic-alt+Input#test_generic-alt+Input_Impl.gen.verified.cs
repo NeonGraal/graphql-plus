@@ -9,5 +9,5 @@ public class testGnrcAltInp<TType>
   : ItestGnrcAltInp<TType>
 {
   public TType Astype { get; set; }
-  public ItestGnrcAltInpObject AsGnrcAltInp { get; set; }
+  public ItestGnrcAltInpObject<TType> AsGnrcAltInp { get; set; }
 }

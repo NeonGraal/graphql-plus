@@ -16,7 +16,7 @@ public class testRefCnstFieldObjOutp<TRef>
   : ItestRefCnstFieldObjOutp<TRef>
 {
   public TRef Field { get; set; }
-  public ItestRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; set; }
+  public ItestRefCnstFieldObjOutpObject<TRef> AsRefCnstFieldObjOutp { get; set; }
 }
 
 public class testPrntCnstFieldObjOutp

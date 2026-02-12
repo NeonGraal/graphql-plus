@@ -28,7 +28,7 @@ public interface Itest_TypeObject
 public interface Itest_BaseType<TKind>
   : Itest_Aliased
 {
-  Itest_BaseTypeObject As_BaseType { get; }
+  Itest_BaseTypeObject<TKind> As_BaseType { get; }
 }
 
 public interface Itest_BaseTypeObject<TKind>
@@ -40,7 +40,7 @@ public interface Itest_BaseTypeObject<TKind>
 public interface Itest_ChildType<TKind,TParent>
   : Itest_BaseType<TKind>
 {
-  Itest_ChildTypeObject As_ChildType { get; }
+  Itest_ChildTypeObject<TKind,TParent> As_ChildType { get; }
 }
 
 public interface Itest_ChildTypeObject<TKind,TParent>
@@ -52,7 +52,7 @@ public interface Itest_ChildTypeObject<TKind,TParent>
 public interface Itest_ParentType<TKind,TItem,TAllItem>
   : Itest_ChildType<TKind, Itest_Named>
 {
-  Itest_ParentTypeObject As_ParentType { get; }
+  Itest_ParentTypeObject<TKind,TItem,TAllItem> As_ParentType { get; }
 }
 
 public interface Itest_ParentTypeObject<TKind,TItem,TAllItem>
@@ -65,7 +65,7 @@ public interface Itest_ParentTypeObject<TKind,TItem,TAllItem>
 public interface Itest_TypeRef<TKind>
   : Itest_Named
 {
-  Itest_TypeRefObject As_TypeRef { get; }
+  Itest_TypeRefObject<TKind> As_TypeRef { get; }
 }
 
 public interface Itest_TypeRefObject<TKind>
@@ -102,7 +102,7 @@ public interface Itest_CollectionsObject
 public interface Itest_ModifierKeyed<TKind>
   : Itest_Modifier<TKind>
 {
-  Itest_ModifierKeyedObject As_ModifierKeyed { get; }
+  Itest_ModifierKeyedObject<TKind> As_ModifierKeyed { get; }
 }
 
 public interface Itest_ModifierKeyedObject<TKind>
@@ -125,7 +125,7 @@ public interface Itest_ModifiersObject
 
 public interface Itest_Modifier<TKind>
 {
-  Itest_ModifierObject As_Modifier { get; }
+  Itest_ModifierObject<TKind> As_Modifier { get; }
 }
 
 public interface Itest_ModifierObject<TKind>

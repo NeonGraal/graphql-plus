@@ -16,7 +16,7 @@ public class testRefCnstFieldDmnInp<TRef>
   : ItestRefCnstFieldDmnInp<TRef>
 {
   public TRef Field { get; set; }
-  public ItestRefCnstFieldDmnInpObject AsRefCnstFieldDmnInp { get; set; }
+  public ItestRefCnstFieldDmnInpObject<TRef> AsRefCnstFieldDmnInp { get; set; }
 }
 
 public class testDomCnstFieldDmnInp

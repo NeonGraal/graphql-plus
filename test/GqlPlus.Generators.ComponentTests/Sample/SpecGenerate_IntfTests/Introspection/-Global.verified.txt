@@ -112,7 +112,7 @@ public interface ICmpt_DirectiveObject
 {
   ICollection<ICmpt_InputParam> Parameters { get; }
   bool Repeatable { get; }
-  IDictionary<Cmpt_Location, CmptUnit> Locations { get; }
+  IDictionary<Cmpt_Location, GqlpUnit> Locations { get; }
 }
 
 public interface ICmpt_Setting

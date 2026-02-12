@@ -89,7 +89,7 @@ public interface ICmpt_IfElseObject<TT>
 
 public interface ICmpt_Set<TK>
 {
-  IDictionary<TK, CmptUnit> AsUnit_ { get; }
+  IDictionary<TK, GqlpUnit> AsUnit_ { get; }
   ICmpt_SetObject<TK> As_Set { get; }
 }
 

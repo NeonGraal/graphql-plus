@@ -16,7 +16,6 @@ public class BuiltInGeneratorTests
     typeName.ShouldBe(GqlpGeneratorContext.DotNetTypes[basic]);
   }
 
-
   [Theory, ClassData(typeof(EnumTypesData))]
   public void TypeName_WithEnumType_ReturnsWithoutPrefix(string enumType)
   {
@@ -32,7 +31,7 @@ public class BuiltInGeneratorTests
 }
 
 public class EnumTypesData()
-  : TheoryData<string>(BuiltIn.NullType, BuiltIn.UnitType, BuiltIn.VoidType);
+  : TheoryData<string>(BuiltIn.NullType);
 
 public class DotnetTypesData()
   : TheoryData<string>(GqlpGeneratorContext.DotNetTypes.Keys);

@@ -25,8 +25,12 @@ internal sealed class GqlpGeneratorContext
   }
 
   public static readonly Map<string> DotNetTypes = new() {
+    ["_" + BuiltIn.VoidType] = "void",
+    [BuiltIn.VoidType] = "void",
     ["_" + BuiltIn.ValueType] = "GqlpValue",
     [BuiltIn.ValueType] = "GqlpValue",
+    ["_" + BuiltIn.UnitType] = "GqlpUnit",
+    [BuiltIn.UnitType] = "GqlpUnit",
     ["_" + BuiltIn.StringType] = "string",
     [BuiltIn.StringType] = "string",
     [BuiltIn.StringAlias] = "string",

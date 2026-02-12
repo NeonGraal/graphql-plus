@@ -69,7 +69,7 @@ public interface Itest_DirectiveObject
 {
   ICollection<Itest_InputParam> Parameters { get; }
   bool Repeatable { get; }
-  IDictionary<test_Location, testUnit> Locations { get; }
+  IDictionary<test_Location, GqlpUnit> Locations { get; }
 }
 
 public interface Itest_Setting

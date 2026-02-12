@@ -51,7 +51,7 @@ public class test_IfElse<TT>
 public class test_Set<TK>
   : Itest_Set<TK>
 {
-  public IDictionary<TK, testUnit> AsUnit_ { get; set; }
+  public IDictionary<TK, GqlpUnit> AsUnit_ { get; set; }
   public Itest_SetObject<TK> As_Set { get; set; }
 }
 

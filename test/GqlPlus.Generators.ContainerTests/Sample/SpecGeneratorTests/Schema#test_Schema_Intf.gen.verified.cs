@@ -68,7 +68,7 @@ public interface Itest_IfElseObject<TT>
 
 public interface Itest_Set<TK>
 {
-  IDictionary<TK, testUnit> AsUnit_ { get; }
+  IDictionary<TK, GqlpUnit> AsUnit_ { get; }
   Itest_SetObject<TK> As_Set { get; }
 }
 

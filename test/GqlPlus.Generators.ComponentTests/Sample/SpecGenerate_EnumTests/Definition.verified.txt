@@ -47,11 +47,11 @@ public enum CmptNull
   null,
 }
 
-public enum CmptUnit
+public enum GqlpUnit
 {
   _,
 }
 
-public enum CmptVoid
+public enum void
 {
 }

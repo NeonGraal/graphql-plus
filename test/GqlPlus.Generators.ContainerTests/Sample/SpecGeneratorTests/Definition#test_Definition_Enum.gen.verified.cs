@@ -16,11 +16,11 @@ public enum testNull
   null,
 }
 
-public enum testUnit
+public enum GqlpUnit
 {
   _,
 }
 
-public enum testVoid
+public enum void
 {
 }

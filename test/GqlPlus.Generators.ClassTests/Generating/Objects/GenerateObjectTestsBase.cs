@@ -121,7 +121,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithAlternateEnumArg_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string alternateType, string enumType, string enumLabel1, string enumLabel2)
   {
-    this.SkipEqual4(name, enumType, enumLabel1, enumLabel2);
+    this.SkipEqual5(name, alternateType, enumType, enumLabel1, enumLabel2);
 
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);

@@ -6,7 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B834B2ED-0D27-4281-8523-B706B42DCC15}"
 	ProjectSection(SolutionItems) = preProject
 		src\Directory.Build.props = src\Directory.Build.props
-		src\GlobalSuppressions.cs = src\GlobalSuppressions.cs
+		src\SourceSuppressions.cs = src\SourceSuppressions.cs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.StarWars.Api", "test\GqlPlus.StarWars.Api\GqlPlus.StarWars.Api.csproj", "{B0E3F1C4-5D6A-4B2E-9F1A-3C2D1E0F4A55}"
@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3B90AC37-1
 	ProjectSection(SolutionItems) = preProject
 		test\Directory.Build.props = test\Directory.Build.props
 		test\Directory.Build.targets = test\Directory.Build.targets
-		test\GlobalSuppressions.cs = test\GlobalSuppressions.cs
+		test\TestSuppressions.cs = test\TestSuppressions.cs
 		test\Html\index.html = test\Html\index.html
 	EndProjectSection
 EndProject
@@ -121,7 +121,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Codec.ComponentTest
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
-		common\GlobalSuppressions.cs = common\GlobalSuppressions.cs
+		common\SolutionSuppressions.cs = common\SolutionSuppressions.cs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.TestGeneratorsBase", "test\GqlPlus.TestGeneratorsBase\GqlPlus.TestGeneratorsBase.csproj", "{E2E7AFA8-CE14-4384-ACC3-2C4F48B8D656}"

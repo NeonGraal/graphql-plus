@@ -19,8 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3B90AC37-1
 	ProjectSection(SolutionItems) = preProject
 		test\Directory.Build.props = test\Directory.Build.props
 		test\Directory.Build.targets = test\Directory.Build.targets
-		test\TestSuppressions.cs = test\TestSuppressions.cs
 		test\Html\index.html = test\Html\index.html
+		test\TestSuppressions.cs = test\TestSuppressions.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E1645F9-6194-4B1F-B93D-5B2CDDE5E6DE}"
@@ -135,6 +135,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.GeneratorsTestBase", "test\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj", "{17C63E58-68E8-47BC-1FFE-497979A3ACDD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.StarWars.GraphQlPlus", "test\GqlPlus.StarWars.GraphQlPlus\GqlPlus.StarWars.GraphQlPlus.csproj", "{BDE665BC-9003-91CF-3B20-3D2B5E009B82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Schema.GraphQlPlus", "test\GqlPlus.Schema.GraphQlPlus\GqlPlus.Schema.GraphQlPlus.csproj", "{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -294,6 +296,10 @@ Global
 		{BDE665BC-9003-91CF-3B20-3D2B5E009B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDE665BC-9003-91CF-3B20-3D2B5E009B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDE665BC-9003-91CF-3B20-3D2B5E009B82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -339,6 +345,7 @@ Global
 		{7ECF075F-05FD-4A9E-8C72-C909E80BCB3F} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
 		{17C63E58-68E8-47BC-1FFE-497979A3ACDD} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{BDE665BC-9003-91CF-3B20-3D2B5E009B82} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{1B3878FD-C19B-FCC9-CEB6-93F81C64EF53} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}

@@ -5,7 +5,7 @@
       Message: Invalid Category Output. Expected type name.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Category Output. Expected type name.,
         MessageFormat: Invalid Category Output. Expected type name.,
         Category: GraphQl+,
@@ -18,7 +18,7 @@
       Message: Invalid Category. Expected output type.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Category. Expected output type.,
         MessageFormat: Invalid Category. Expected output type.,
         Category: GraphQl+,
@@ -31,7 +31,7 @@
       Message: Invalid Schema. Expected no more text.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Schema. Expected no more text.,
         MessageFormat: Invalid Schema. Expected no more text.,
         Category: GraphQl+,
@@ -44,7 +44,7 @@
       Message: Invalid Category Output. Expected type name.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Category Output. Expected type name.,
         MessageFormat: Invalid Category Output. Expected type name.,
         Category: GraphQl+,
@@ -57,7 +57,7 @@
       Message: Invalid Category. Expected output type.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Category. Expected output type.,
         MessageFormat: Invalid Category. Expected output type.,
         Category: GraphQl+,
@@ -70,7 +70,7 @@
       Message: Invalid Schema. Expected no more text.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Schema. Expected no more text.,
         MessageFormat: Invalid Schema. Expected no more text.,
         Category: GraphQl+,
@@ -83,7 +83,7 @@
       Message: Invalid Category Output. Expected type name.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Category Output. Expected type name.,
         MessageFormat: Invalid Category Output. Expected type name.,
         Category: GraphQl+,
@@ -96,7 +96,7 @@
       Message: Invalid Category. Expected output type.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Category. Expected output type.,
         MessageFormat: Invalid Category. Expected output type.,
         Category: GraphQl+,
@@ -109,7 +109,7 @@
       Message: Invalid Schema. Expected no more text.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Schema. Expected no more text.,
         MessageFormat: Invalid Schema. Expected no more text.,
         Category: GraphQl+,
@@ -122,7 +122,7 @@
       Message: Invalid Category Output. Expected type name.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Category Output. Expected type name.,
         MessageFormat: Invalid Category Output. Expected type name.,
         Category: GraphQl+,
@@ -135,7 +135,7 @@
       Message: Invalid Category. Expected output type.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Category. Expected output type.,
         MessageFormat: Invalid Category. Expected output type.,
         Category: GraphQl+,
@@ -148,7 +148,7 @@
       Message: Invalid Schema. Expected no more text.,
       Severity: Error,
       Descriptor: {
-        Id: GQLP001,
+        Id: GQLP002,
         Title: Invalid Schema. Expected no more text.,
         MessageFormat: Invalid Schema. Expected no more text.,
         Category: GraphQl+,

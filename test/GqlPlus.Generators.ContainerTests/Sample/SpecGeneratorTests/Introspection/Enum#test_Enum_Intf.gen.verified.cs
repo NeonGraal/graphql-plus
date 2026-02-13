@@ -14,7 +14,7 @@ public interface Itest_EnumLabel
 public interface Itest_EnumLabelObject
   : Itest_AliasedObject
 {
-  Itest_Name Enum { get; }
+  Itest_Name EnumType { get; }
 }
 
 public interface Itest_EnumValue

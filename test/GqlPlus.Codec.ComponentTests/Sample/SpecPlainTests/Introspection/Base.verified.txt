@@ -133,10 +133,10 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjTypeParam[_TypeOutput]:name=_ObjTypeParam
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjTypeParam[_TypeOutput]:parent[_ObjBase]:name=_Named
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjTypeParam[_TypeOutput]:typeKind=[_TypeKind]Output
-[_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=object
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=objectType
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=_ObjectFor
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Name
-[_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:fields.0[_OutputField]:name=object
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:fields.0[_OutputField]:name=objectType
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_Name
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:name=_ObjectFor
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:parent[_ObjBase]:typeParam=for

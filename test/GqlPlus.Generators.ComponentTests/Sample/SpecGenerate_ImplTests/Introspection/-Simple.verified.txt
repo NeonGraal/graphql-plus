@@ -73,7 +73,7 @@ output _DomainItemRegex {
 
 dual _EnumLabel {
     : _Aliased
-        enum: _Name
+        enumType: _Name
     }
 
 output _EnumValue {
@@ -213,7 +213,7 @@ public class Cmpt_EnumLabel
   : Cmpt_Aliased
   , ICmpt_EnumLabel
 {
-  public ICmpt_Name Enum { get; set; }
+  public ICmpt_Name EnumType { get; set; }
   public ICmpt_EnumLabelObject As_EnumLabel { get; set; }
 }
 

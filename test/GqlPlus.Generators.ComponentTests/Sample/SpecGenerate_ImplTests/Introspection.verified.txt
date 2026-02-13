@@ -143,7 +143,7 @@ dual _Collections {
 dual _ModifierKeyed<$kind:_ModifierKind> {
     : _Modifier<$kind>
         by: _TypeSimple
-        optional: Boolean
+        isOptional: Boolean
     }
 
 dual _Modifiers {
@@ -231,7 +231,7 @@ output _DomainItemRegex {
 
 dual _EnumLabel {
     : _Aliased
-        enum: _Name
+        enumType: _Name
     }
 
 output _EnumValue {
@@ -293,7 +293,7 @@ output _ObjAlternateEnum {
     }
 output _ObjectFor<$for:_ForParam> {
     : $for
-        object: _Name
+        objectType: _Name
     }
 
 output _ObjField<$type:_ObjFieldType> {
@@ -327,7 +327,7 @@ output _InputField {
 
 output _InputFieldType {
     : _ObjFieldType
-        default: Value?
+        defaultValue: Value?
     }
 
 output _InputParam {
@@ -553,7 +553,7 @@ public class Cmpt_ModifierKeyed<TKind>
   , ICmpt_ModifierKeyed<TKind>
 {
   public ICmpt_TypeSimple By { get; set; }
-  public Cmpt_DomainKind Optional { get; set; }
+  public Cmpt_DomainKind IsOptional { get; set; }
   public ICmpt_ModifierKeyedObject<TKind> As_ModifierKeyed { get; set; }
 }
 
@@ -688,7 +688,7 @@ public class Cmpt_EnumLabel
   : Cmpt_Aliased
   , ICmpt_EnumLabel
 {
-  public ICmpt_Name Enum { get; set; }
+  public ICmpt_Name EnumType { get; set; }
   public ICmpt_EnumLabelObject As_EnumLabel { get; set; }
 }
 
@@ -787,7 +787,7 @@ public class Cmpt_ObjAlternateEnum
 public class Cmpt_ObjectFor<TFor>
   : ICmpt_ObjectFor<TFor>
 {
-  public ICmpt_Name Object { get; set; }
+  public ICmpt_Name ObjectType { get; set; }
   public TFor AsParent { get; set; }
   public ICmpt_ObjectForObject<TFor> As_ObjectFor { get; set; }
 }
@@ -843,7 +843,7 @@ public class Cmpt_InputFieldType
   : Cmpt_ObjFieldType
   , ICmpt_InputFieldType
 {
-  public GqlpValue? Default { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
   public ICmpt_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 

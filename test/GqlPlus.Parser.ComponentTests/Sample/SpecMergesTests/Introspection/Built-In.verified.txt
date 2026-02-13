@@ -46,9 +46,9 @@ Success
     I@013/0009
     _TypeSimple
     !DF I@009/0010
-    optional
+    isOptional
     :
-    I@019/0010
+    I@021/0010
     Boolean
   }
 }

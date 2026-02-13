@@ -79,7 +79,7 @@ public class test_ModifierKeyed<TKind>
   , Itest_ModifierKeyed<TKind>
 {
   public Itest_TypeSimple By { get; set; }
-  public bool Optional { get; set; }
+  public bool IsOptional { get; set; }
   public Itest_ModifierKeyedObject<TKind> As_ModifierKeyed { get; set; }
 }
 

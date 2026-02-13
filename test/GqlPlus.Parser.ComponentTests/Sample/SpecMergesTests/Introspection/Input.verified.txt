@@ -20,9 +20,9 @@ Success
   _ObjFieldType
   {
     !OF I@009/0007
-    default
+    defaultValue
     :
-    I@018/0007
+    I@023/0007
     Value
     ?
   }

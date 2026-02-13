@@ -109,7 +109,7 @@ public interface Itest_ModifierKeyedObject<TKind>
   : Itest_ModifierObject<TKind>
 {
   Itest_TypeSimple By { get; }
-  bool Optional { get; }
+  bool IsOptional { get; }
 }
 
 public interface Itest_Modifiers

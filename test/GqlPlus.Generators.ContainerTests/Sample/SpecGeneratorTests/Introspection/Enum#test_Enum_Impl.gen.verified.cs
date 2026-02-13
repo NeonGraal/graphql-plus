@@ -9,7 +9,7 @@ public class test_EnumLabel
   : test_Aliased
   , Itest_EnumLabel
 {
-  public Itest_Name Enum { get; set; }
+  public Itest_Name EnumType { get; set; }
   public Itest_EnumLabelObject As_EnumLabel { get; set; }
 }
 

@@ -23,7 +23,7 @@ public class GqlpGenerator : IIncrementalGenerator
   public void Initialize(IncrementalGeneratorInitializationContext context)
   {
     IncrementalValuesProvider<GqlpGeneratorOptions> generatorOptions = context.SyntaxProvider
-             .ForAttributeWithMetadataName(typeof(GqlpGeneratorAttribute).FullName,
+             .ForAttributeWithMetadataName("GqlPlus.GqlpGeneratorAttribute",
                  predicate: static (s, _) => true,
                  transform: static (ctx, _) => GetGeneratorOptions(ctx.SemanticModel, ctx.TargetNode, ctx.Attributes))
              .SelectMany((m, _) => m);
@@ -51,6 +51,7 @@ public class GqlpGenerator : IIncrementalGenerator
     };
 
     GqlpGeneratorType type = GqlpGeneratorType.None;
+    string warning = string.Empty;
     foreach (AttributeData attribute in attributes) {
       foreach (TypedConstant argument in attribute.ConstructorArguments) {
         if (argument is {
@@ -89,6 +90,28 @@ public class GqlpGenerator : IIncrementalGenerator
     (GqlpGeneratorOptions? generatorOptions, (ImmutableArray<AdditionalText> array, GqlpModelOptions? modelOptions)) = tuple;
 
     if (generatorOptions is null || modelOptions is null || array.IsDefaultOrEmpty) {
+      string message = "Nothing to generate because:";
+      if (generatorOptions is null) {
+        message += " No generator options found.";
+      }
+
+      if (modelOptions is null) {
+        message += " No model options found.";
+      }
+
+      if (array.IsDefaultOrEmpty) {
+        message += " No .graphql+ files found.";
+      }
+
+      Diagnostic diagnostic = Diagnostic.Create(
+                     new DiagnosticDescriptor(
+                         "GQLP001",
+                         "Nothing to generate",
+                         message,
+                         "GraphQl+",
+                         DiagnosticSeverity.Info,
+                         isEnabledByDefault: true), null);
+      sourceContext.ReportDiagnostic(diagnostic);
       return;
     }
 
@@ -128,7 +151,7 @@ public class GqlpGenerator : IIncrementalGenerator
         Location location = Location.Create(text.Path, default, new(at, at));
         Diagnostic diagnostic = Diagnostic.Create(
                        new DiagnosticDescriptor(
-                           "GQLP001",
+                           "GQLP002",
                            error.Message,
                            error.Message,
                            "GraphQl+",

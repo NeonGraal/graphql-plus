@@ -108,7 +108,7 @@ public interface Itest_ObjectFor<TFor>
 
 public interface Itest_ObjectForObject<TFor>
 {
-  Itest_Name Object { get; }
+  Itest_Name ObjectType { get; }
 }
 
 public interface Itest_ObjField<TType>

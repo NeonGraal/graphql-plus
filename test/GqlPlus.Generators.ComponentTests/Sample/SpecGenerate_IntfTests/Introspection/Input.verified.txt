@@ -5,7 +5,7 @@ output _InputField {
 
 output _InputFieldType {
     : _ObjFieldType
-        default: Value?
+        defaultValue: Value?
     }
 
 output _InputParam {
@@ -39,7 +39,7 @@ public interface ICmpt_InputFieldType
 public interface ICmpt_InputFieldTypeObject
   : ICmpt_ObjFieldTypeObject
 {
-  GqlpValue? Default { get; }
+  GqlpValue? DefaultValue { get; }
 }
 
 public interface ICmpt_InputParam

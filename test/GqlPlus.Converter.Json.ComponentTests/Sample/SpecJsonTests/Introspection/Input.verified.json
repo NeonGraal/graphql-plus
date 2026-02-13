@@ -57,7 +57,7 @@
               }
             }
           ],
-          "name": "default",
+          "name": "defaultValue",
           "object": "_InputFieldType",
           "type": {
             "$mapTag": "_ObjBase",
@@ -77,7 +77,7 @@
               }
             }
           ],
-          "name": "default",
+          "name": "defaultValue",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "Value"
@@ -109,7 +109,7 @@
               }
             }
           ],
-          "name": "default",
+          "name": "defaultValue",
           "object": "_InputFieldType",
           "type": {
             "$mapTag": "_ObjBase",

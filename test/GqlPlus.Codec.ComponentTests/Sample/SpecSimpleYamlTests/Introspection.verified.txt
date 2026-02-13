@@ -898,13 +898,13 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _Name
       - !_ObjectFor(_DualField)
-        name: enum
+        name: enumType
         object: _EnumLabel
         type: !_ObjBase
           name: _Name
     fields:
       - !_DualField
-        name: enum
+        name: enumType
         type: !_ObjBase
           name: _Name
     name: _EnumLabel
@@ -1083,14 +1083,14 @@ types: !_Map(_Type)
           name: _Modifiers
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: default
+        name: defaultValue
         object: _InputFieldType
         type: !_ObjBase
           name: Value
     fields:
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: default
+        name: defaultValue
         type: !_ObjBase
           name: Value
     name: _InputFieldType
@@ -1122,7 +1122,7 @@ types: !_Map(_Type)
           name: _Modifiers
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: default
+        name: defaultValue
         object: _InputFieldType
         type: !_ObjBase
           name: Value
@@ -1198,7 +1198,7 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _TypeSimple
       - !_ObjectFor(_DualField)
-        name: optional
+        name: isOptional
         object: _ModifierKeyed
         type: !_ObjBase
           name: _DomainKind
@@ -1208,7 +1208,7 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _TypeSimple
       - !_DualField
-        name: optional
+        name: isOptional
         type: !_ObjBase
           name: _DomainKind
     name: _ModifierKeyed
@@ -1550,13 +1550,13 @@ types: !_Map(_Type)
   !_Name _ObjectFor: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        name: object
+        name: objectType
         object: _ObjectFor
         type: !_ObjBase
           name: _Name
     fields:
       - !_OutputField
-        name: object
+        name: objectType
         type: !_ObjBase
           name: _Name
     name: _ObjectFor

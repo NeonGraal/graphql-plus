@@ -286,7 +286,7 @@ public interface Itest_ModifierKeyedObject<TKind>
   : Itest_ModifierObject<TKind>
 {
   Itest_TypeSimple By { get; }
-  test_DomainKind Optional { get; }
+  test_DomainKind IsOptional { get; }
 }
 
 public interface Itest_Modifiers
@@ -485,7 +485,7 @@ public interface Itest_EnumLabel
 public interface Itest_EnumLabelObject
   : Itest_AliasedObject
 {
-  Itest_Name Enum { get; }
+  Itest_Name EnumType { get; }
 }
 
 public interface Itest_EnumValue
@@ -626,7 +626,7 @@ public interface Itest_ObjectFor<TFor>
 
 public interface Itest_ObjectForObject<TFor>
 {
-  Itest_Name Object { get; }
+  Itest_Name ObjectType { get; }
 }
 
 public interface Itest_ObjField<TType>
@@ -708,7 +708,7 @@ public interface Itest_InputFieldType
 public interface Itest_InputFieldTypeObject
   : Itest_ObjFieldTypeObject
 {
-  GqlpValue? Default { get; }
+  GqlpValue? DefaultValue { get; }
 }
 
 public interface Itest_InputParam

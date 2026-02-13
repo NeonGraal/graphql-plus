@@ -199,9 +199,9 @@ Success
   $for
   {
     !OF I@009/0046
-    object
+    objectType
     :
-    I@017/0046
+    I@021/0046
     _Name
   }
 }
@@ -308,9 +308,9 @@ Success
   _ObjFieldType
   {
     !OF I@009/0080
-    default
+    defaultValue
     :
-    I@018/0080
+    I@023/0080
     Value
     ?
   }

@@ -44,7 +44,7 @@ output _ObjAlternateEnum {
     }
 output _ObjectFor<$for:_ForParam> {
     : $for
-        object: _Name
+        objectType: _Name
     }
 
 output _ObjField<$type:_ObjFieldType> {
@@ -78,7 +78,7 @@ output _InputField {
 
 output _InputFieldType {
     : _ObjFieldType
-        default: Value?
+        defaultValue: Value?
     }
 
 output _InputParam {
@@ -173,7 +173,7 @@ public class Cmpt_ObjAlternateEnum
 public class Cmpt_ObjectFor<TFor>
   : ICmpt_ObjectFor<TFor>
 {
-  public ICmpt_Name Object { get; set; }
+  public ICmpt_Name ObjectType { get; set; }
   public TFor AsParent { get; set; }
   public ICmpt_ObjectForObject<TFor> As_ObjectFor { get; set; }
 }
@@ -229,7 +229,7 @@ public class Cmpt_InputFieldType
   : Cmpt_ObjFieldType
   , ICmpt_InputFieldType
 {
-  public GqlpValue? Default { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
   public ICmpt_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 

@@ -395,13 +395,13 @@ types: !_Map(_Type)
   !_Name _EnumLabel: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
-      name: enum
+      name: enumType
       object: _EnumLabel
       type: !_ObjBase
         name: _Name
     fields:
     - !_DualField
-      name: enum
+      name: enumType
       type: !_ObjBase
         name: _Name
     name: _EnumLabel

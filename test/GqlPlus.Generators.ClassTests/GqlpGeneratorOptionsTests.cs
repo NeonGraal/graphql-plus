@@ -16,7 +16,8 @@ public class GqlpGeneratorOptionsTests
       o => o.NameSpace.ShouldBe(nameSpace),
       o => o.BaseName.ShouldBe(className),
       o => o.BaseType.ShouldBe(baseType),
-      o => o.GeneratorType.ShouldBe(generatorType));
+      o => o.GeneratorType.ShouldBe(generatorType),
+      o => o.Warning.ShouldBeEmpty());
   }
 
   [Theory, RepeatData]
@@ -30,6 +31,22 @@ public class GqlpGeneratorOptionsTests
       o => o.NameSpace.ShouldBeEmpty(),
       o => o.BaseName.ShouldBe(className),
       o => o.BaseType.ShouldBe(baseType),
-      o => o.GeneratorType.ShouldBe(generatorType));
+      o => o.GeneratorType.ShouldBe(generatorType),
+      o => o.Warning.ShouldBeEmpty());
+  }
+
+  [Theory, RepeatData]
+  public void Constructor_GivenWarning_ShouldSetPropertiesCorrectly(string warning)
+  {
+    // Act
+    GqlpGeneratorOptions options = new(warning);
+
+    // Assert
+    options.ShouldSatisfyAllConditions(
+      o => o.NameSpace.ShouldBeEmpty(),
+      o => o.BaseName.ShouldBeEmpty(),
+      o => o.BaseType.ShouldBe(GqlpBaseType.Other),
+      o => o.GeneratorType.ShouldBe(GqlpGeneratorType.None),
+      o => o.Warning.ShouldBe(warning));
   }
 }

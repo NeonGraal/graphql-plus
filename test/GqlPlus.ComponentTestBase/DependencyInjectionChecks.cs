@@ -8,8 +8,6 @@ using Fluid;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
-
-using Xunit.DependencyInjection;
 using Xunit.Internal;
 
 namespace GqlPlus;

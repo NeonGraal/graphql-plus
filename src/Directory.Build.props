@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)GlobalSuppressions.cs" Link="GlobalSuppressions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SourceSuppressions.cs" Link="SourceSuppressions.cs" />
   </ItemGroup>
 
 </Project>

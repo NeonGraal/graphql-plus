@@ -886,7 +886,7 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_DualField)",
-          "name": "enum",
+          "name": "enumType",
           "object": "_EnumLabel",
           "type": {
             "$mapTag": "_ObjBase",
@@ -897,7 +897,7 @@
       "fields": [
         {
           "$mapTag": "_DualField",
-          "name": "enum",
+          "name": "enumType",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Name"

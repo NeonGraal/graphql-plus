@@ -273,13 +273,13 @@ types: !_Map(_Type)
   !_Name _ObjectFor: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        name: object
+        name: objectType
         object: _ObjectFor
         type: !_ObjBase
           name: _Name
     fields:
       - !_OutputField
-        name: object
+        name: objectType
         type: !_ObjBase
           name: _Name
     name: _ObjectFor

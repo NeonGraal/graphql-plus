@@ -19,14 +19,14 @@ types: !_Map(_Type)
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: default
+      name: defaultValue
       object: _InputFieldType
       type: !_ObjBase
         name: Value
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: default
+      name: defaultValue
       type: !_ObjBase
         name: Value
     name: _InputFieldType
@@ -37,7 +37,7 @@ types: !_Map(_Type)
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: default
+      name: defaultValue
       object: _InputFieldType
       type: !_ObjBase
         name: Value

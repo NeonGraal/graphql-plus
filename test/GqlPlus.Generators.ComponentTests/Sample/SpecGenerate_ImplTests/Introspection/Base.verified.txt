@@ -44,7 +44,7 @@ output _ObjAlternateEnum {
     }
 output _ObjectFor<$for:_ForParam> {
     : $for
-        object: _Name
+        objectType: _Name
     }
 
 output _ObjField<$type:_ObjFieldType> {
@@ -147,7 +147,7 @@ public class Cmpt_ObjAlternateEnum
 public class Cmpt_ObjectFor<TFor>
   : ICmpt_ObjectFor<TFor>
 {
-  public ICmpt_Name Object { get; set; }
+  public ICmpt_Name ObjectType { get; set; }
   public TFor AsParent { get; set; }
   public ICmpt_ObjectForObject<TFor> As_ObjectFor { get; set; }
 }

@@ -44,7 +44,7 @@ output _ObjAlternateEnum {
     }
 output _ObjectFor<$for:_ForParam> {
     : $for
-        object: _Name
+        objectType: _Name
     }
 
 output _ObjField<$type:_ObjFieldType> {
@@ -178,7 +178,7 @@ public interface ICmpt_ObjectFor<TFor>
 
 public interface ICmpt_ObjectForObject<TFor>
 {
-  ICmpt_Name Object { get; }
+  ICmpt_Name ObjectType { get; }
 }
 
 public interface ICmpt_ObjField<TType>

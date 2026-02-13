@@ -54,7 +54,7 @@ dual _Collections {
 dual _ModifierKeyed<$kind:_ModifierKind> {
     : _Modifier<$kind>
         by: _TypeSimple
-        optional: Boolean
+        isOptional: Boolean
     }
 
 dual _Modifiers {
@@ -149,7 +149,7 @@ public class Cmpt_ModifierKeyed<TKind>
   , ICmpt_ModifierKeyed<TKind>
 {
   public ICmpt_TypeSimple By { get; set; }
-  public bool Optional { get; set; }
+  public bool IsOptional { get; set; }
   public ICmpt_ModifierKeyedObject<TKind> As_ModifierKeyed { get; set; }
 }
 

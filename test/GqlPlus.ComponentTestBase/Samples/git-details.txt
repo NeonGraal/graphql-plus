@@ -1,1 +1,1 @@
-ef23a94  (HEAD -> star-wars, origin/star-wars) 2026-02-10 Merge branch 'main' into star-wars
+3e97c69  (HEAD -> star-wars, origin/star-wars) 2026-02-13 Make field name not collide with dotNet names

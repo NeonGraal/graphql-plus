@@ -77,7 +77,7 @@ public class test_ObjAlternateEnum
 public class test_ObjectFor<TFor>
   : Itest_ObjectFor<TFor>
 {
-  public Itest_Name Object { get; set; }
+  public Itest_Name ObjectType { get; set; }
   public TFor AsParent { get; set; }
   public Itest_ObjectForObject<TFor> As_ObjectFor { get; set; }
 }

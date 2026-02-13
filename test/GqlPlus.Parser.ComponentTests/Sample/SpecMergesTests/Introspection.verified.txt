@@ -633,9 +633,9 @@ Success
     I@013/0144
     _TypeSimple
     !DF I@009/0145
-    optional
+    isOptional
     =
-    I@019/0145
+    I@021/0145
     _DomainKind
     .Boolean
   }
@@ -951,9 +951,9 @@ Success
   _Aliased
   {
     !DF I@009/0233
-    enum
+    enumType
     :
-    I@015/0233
+    I@019/0233
     _Name
   }
 }
@@ -1198,9 +1198,9 @@ Success
   $for
   {
     !OF I@009/0295
-    object
+    objectType
     :
-    I@017/0295
+    I@021/0295
     _Name
   }
 }
@@ -1307,9 +1307,9 @@ Success
   _ObjFieldType
   {
     !OF I@009/0329
-    default
+    defaultValue
     :
-    I@018/0329
+    I@023/0329
     Value
     ?
   }

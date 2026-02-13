@@ -25,7 +25,7 @@ public interface Itest_InputFieldType
 public interface Itest_InputFieldTypeObject
   : Itest_ObjFieldTypeObject
 {
-  GqlpValue? Default { get; }
+  GqlpValue? DefaultValue { get; }
 }
 
 public interface Itest_InputParam

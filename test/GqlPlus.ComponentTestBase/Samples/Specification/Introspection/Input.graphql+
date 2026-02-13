@@ -4,7 +4,7 @@ output _InputField {
 
 output _InputFieldType {
     : _ObjFieldType
-        default: Value?
+        defaultValue: Value?
     }
 
 output _InputParam {

@@ -153,7 +153,7 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _TypeSimple
       - !_ObjectFor(_DualField)
-        name: optional
+        name: isOptional
         object: _ModifierKeyed
         type: !_ObjBase
           name: Boolean
@@ -163,7 +163,7 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _TypeSimple
       - !_DualField
-        name: optional
+        name: isOptional
         type: !_ObjBase
           name: Boolean
     name: _ModifierKeyed

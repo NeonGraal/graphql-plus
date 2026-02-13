@@ -945,9 +945,9 @@ Success
     I@013/0234
     _TypeSimple
     !DF I@009/0235
-    optional
+    isOptional
     :
-    I@019/0235
+    I@021/0235
     Boolean
   }
 }
@@ -1259,9 +1259,9 @@ Success
   _Aliased
   {
     !DF I@009/0323
-    enum
+    enumType
     :
-    I@015/0323
+    I@019/0323
     _Name
   }
 }
@@ -1506,9 +1506,9 @@ Success
   $for
   {
     !OF I@009/0385
-    object
+    objectType
     :
-    I@017/0385
+    I@021/0385
     _Name
   }
 }
@@ -1615,9 +1615,9 @@ Success
   _ObjFieldType
   {
     !OF I@009/0419
-    default
+    defaultValue
     :
-    I@018/0419
+    I@023/0419
     Value
     ?
   }

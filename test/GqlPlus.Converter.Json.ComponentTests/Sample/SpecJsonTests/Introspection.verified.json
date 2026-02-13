@@ -2116,7 +2116,7 @@
         },
         {
           "$mapTag": "_ObjectFor(_DualField)",
-          "name": "enum",
+          "name": "enumType",
           "object": "_EnumLabel",
           "type": {
             "$mapTag": "_ObjBase",
@@ -2127,7 +2127,7 @@
       "fields": [
         {
           "$mapTag": "_DualField",
-          "name": "enum",
+          "name": "enumType",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Name"
@@ -2588,7 +2588,7 @@
               }
             }
           ],
-          "name": "default",
+          "name": "defaultValue",
           "object": "_InputFieldType",
           "type": {
             "$mapTag": "_ObjBase",
@@ -2608,7 +2608,7 @@
               }
             }
           ],
-          "name": "default",
+          "name": "defaultValue",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "Value"
@@ -2694,7 +2694,7 @@
               }
             }
           ],
-          "name": "default",
+          "name": "defaultValue",
           "object": "_InputFieldType",
           "type": {
             "$mapTag": "_ObjBase",
@@ -2847,7 +2847,7 @@
         },
         {
           "$mapTag": "_ObjectFor(_DualField)",
-          "name": "optional",
+          "name": "isOptional",
           "object": "_ModifierKeyed",
           "type": {
             "$mapTag": "_ObjBase",
@@ -2866,7 +2866,7 @@
         },
         {
           "$mapTag": "_DualField",
-          "name": "optional",
+          "name": "isOptional",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_DomainKind"
@@ -3651,7 +3651,7 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "name": "object",
+          "name": "objectType",
           "object": "_ObjectFor",
           "type": {
             "$mapTag": "_ObjBase",
@@ -3662,7 +3662,7 @@
       "fields": [
         {
           "$mapTag": "_OutputField",
-          "name": "object",
+          "name": "objectType",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Name"

@@ -43,7 +43,7 @@ output _ObjAlternateEnum {
     }
 output _ObjectFor<$for:_ForParam> {
     : $for
-        object: _Name
+        objectType: _Name
     }
 
 output _ObjField<$type:_ObjFieldType> {
@@ -77,7 +77,7 @@ output _InputField {
 
 output _InputFieldType {
     : _ObjFieldType
-        default: Value?
+        defaultValue: Value?
     }
 
 output _InputParam {

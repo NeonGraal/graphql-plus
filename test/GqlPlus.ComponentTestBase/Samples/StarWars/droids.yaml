@@ -1,0 +1,13 @@
+2000:
+  id: 2000
+  name: C-3PO
+  friends: [1000, 1002, 1003, 2001]
+  appearsIn: [NewHope, Empire, Jedi]
+  primaryFunction: Protocol
+
+2001:
+  id: 2001
+  name: R2-D2
+  friends: [1000, 1002, 1003]
+  appearsIn: [NewHope, Empire, Jedi]
+  primaryFunction: Astromech

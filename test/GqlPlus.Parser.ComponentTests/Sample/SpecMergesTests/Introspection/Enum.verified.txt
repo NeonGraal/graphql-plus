@@ -9,9 +9,9 @@ Success
   _Aliased
   {
     !DF I@009/0003
-    enum
+    enumType
     :
-    I@015/0003
+    I@019/0003
     _Name
   }
 }

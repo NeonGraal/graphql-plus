@@ -54,11 +54,11 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:object=_ObjFieldType
 [_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
-[_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:name=default
+[_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:name=defaultValue
 [_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:object=_InputFieldType
 [_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Value
 [_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
-[_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:fields.0[_OutputField]:name=default
+[_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:fields.0[_OutputField]:name=defaultValue
 [_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=Value
 [_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:name=_InputFieldType
 [_Schema]:types[_Map(_Type)]:[_Name]_InputFieldType[_TypeOutput]:parent[_ObjBase]:name=_ObjFieldType
@@ -76,7 +76,7 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_InputParam[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:object=_ObjFieldType
 [_Schema]:types[_Map(_Type)]:[_Name]_InputParam[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_InputParam[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
-[_Schema]:types[_Map(_Type)]:[_Name]_InputParam[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:name=default
+[_Schema]:types[_Map(_Type)]:[_Name]_InputParam[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:name=defaultValue
 [_Schema]:types[_Map(_Type)]:[_Name]_InputParam[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:object=_InputFieldType
 [_Schema]:types[_Map(_Type)]:[_Name]_InputParam[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Value
 [_Schema]:types[_Map(_Type)]:[_Name]_InputParam[_TypeOutput]:name=_InputParam
@@ -188,10 +188,10 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjTypeParam[_TypeOutput]:name=_ObjTypeParam
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjTypeParam[_TypeOutput]:parent[_ObjBase]:name=_Named
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjTypeParam[_TypeOutput]:typeKind=[_TypeKind]Output
-[_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=object
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=objectType
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=_ObjectFor
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Name
-[_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:fields.0[_OutputField]:name=object
+[_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:fields.0[_OutputField]:name=objectType
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_Name
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:name=_ObjectFor
 [_Schema]:types[_Map(_Type)]:[_Name]_ObjectFor[_TypeOutput]:parent[_ObjBase]:typeParam=for

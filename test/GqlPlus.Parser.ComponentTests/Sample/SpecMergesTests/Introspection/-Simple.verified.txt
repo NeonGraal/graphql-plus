@@ -262,9 +262,9 @@ Success
   _Aliased
   {
     !DF I@009/0075
-    enum
+    enumType
     :
-    I@015/0075
+    I@019/0075
     _Name
   }
 }

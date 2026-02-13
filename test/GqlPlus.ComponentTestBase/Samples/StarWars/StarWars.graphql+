@@ -1,0 +1,30 @@
+output Query {
+    hero(Episode?): Character
+    human(String): Human
+    droid(Id): Droid
+}
+
+enum Episode {
+    NewHope
+    Empire
+    Jedi
+}
+
+output Character {
+    id: Id
+    name: String
+    friends: Character[]?
+    appearsIn: Episode[]
+}
+
+domain Id { Number > 1000 }
+
+output Human {
+    :  Character
+    homePlanet: String
+}
+
+output Droid {
+    :  Character
+    primaryFunction: String
+}

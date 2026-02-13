@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Resolving;
-using VerifyTests;
-using Xunit;
 
 namespace GqlPlus;
 

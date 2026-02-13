@@ -659,7 +659,7 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "name": "object",
+          "name": "objectType",
           "object": "_ObjectFor",
           "type": {
             "$mapTag": "_ObjBase",
@@ -670,7 +670,7 @@
       "fields": [
         {
           "$mapTag": "_OutputField",
-          "name": "object",
+          "name": "objectType",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Name"

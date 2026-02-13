@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Structures;
+﻿namespace GqlPlus.Structures;
 
 public class StructuredTests
 {

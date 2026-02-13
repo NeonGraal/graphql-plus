@@ -338,7 +338,7 @@
         },
         {
           "$mapTag": "_ObjectFor(_DualField)",
-          "name": "optional",
+          "name": "isOptional",
           "object": "_ModifierKeyed",
           "type": {
             "$mapTag": "_ObjBase",
@@ -357,7 +357,7 @@
         },
         {
           "$mapTag": "_DualField",
-          "name": "optional",
+          "name": "isOptional",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "Boolean"

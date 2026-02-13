@@ -269,7 +269,7 @@
               }
             }
           ],
-          "name": "default",
+          "name": "defaultValue",
           "object": "_InputFieldType",
           "type": {
             "$mapTag": "_ObjBase",
@@ -289,7 +289,7 @@
               }
             }
           ],
-          "name": "default",
+          "name": "defaultValue",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "Value"
@@ -375,7 +375,7 @@
               }
             }
           ],
-          "name": "default",
+          "name": "defaultValue",
           "object": "_InputFieldType",
           "type": {
             "$mapTag": "_ObjBase",
@@ -912,7 +912,7 @@
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "name": "object",
+          "name": "objectType",
           "object": "_ObjectFor",
           "type": {
             "$mapTag": "_ObjBase",
@@ -923,7 +923,7 @@
       "fields": [
         {
           "$mapTag": "_OutputField",
-          "name": "object",
+          "name": "objectType",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Name"

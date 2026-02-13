@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)common\GlobalSuppressions.cs" Link="GlobalSuppressions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)common\SolutionSuppressions.cs" Link="SolutionSuppressions.cs" />
   </ItemGroup>
 
 </Project>

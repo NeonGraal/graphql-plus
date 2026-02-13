@@ -76,12 +76,12 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:name=by
 [_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:object=_ModifierKeyed
 [_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:allFields.1[_ObjectFor(_DualField)]:type[_ObjBase]:name=_TypeSimple
-[_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:name=optional
+[_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:name=isOptional
 [_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:object=_ModifierKeyed
 [_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:allFields.2[_ObjectFor(_DualField)]:type[_ObjBase]:name=Boolean
 [_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:fields.0[_DualField]:name=by
 [_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_TypeSimple
-[_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:fields.1[_DualField]:name=optional
+[_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:fields.1[_DualField]:name=isOptional
 [_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:fields.1[_DualField]:type[_ObjBase]:name=Boolean
 [_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:name=_ModifierKeyed
 [_Schema]:types[_Map(_Type)]:[_Name]_ModifierKeyed[_TypeDual]:parent[_ObjBase]:name=_Modifier

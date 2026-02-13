@@ -7,7 +7,7 @@ dual _Collections {
 dual _ModifierKeyed<$kind:_ModifierKind> {
     : _Modifier<$kind>
         by: _TypeSimple
-        optional: Boolean
+        isOptional: Boolean
     }
 
 dual _Modifiers {

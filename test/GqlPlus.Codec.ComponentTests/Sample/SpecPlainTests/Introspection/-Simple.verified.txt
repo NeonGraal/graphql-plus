@@ -203,10 +203,10 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_DomainValue[_TypeOutput]:typeParams.1[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_BasicValue
 [_Schema]:types[_Map(_Type)]:[_Name]_DomainValue[_TypeOutput]:typeParams.1[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map(_Type)]:[_Name]_DomainValue[_TypeOutput]:typeParams.1[_TypeParam]:name=value
-[_Schema]:types[_Map(_Type)]:[_Name]_EnumLabel[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=enum
+[_Schema]:types[_Map(_Type)]:[_Name]_EnumLabel[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=enumType
 [_Schema]:types[_Map(_Type)]:[_Name]_EnumLabel[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=_EnumLabel
 [_Schema]:types[_Map(_Type)]:[_Name]_EnumLabel[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=_Name
-[_Schema]:types[_Map(_Type)]:[_Name]_EnumLabel[_TypeDual]:fields.0[_DualField]:name=enum
+[_Schema]:types[_Map(_Type)]:[_Name]_EnumLabel[_TypeDual]:fields.0[_DualField]:name=enumType
 [_Schema]:types[_Map(_Type)]:[_Name]_EnumLabel[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=_Name
 [_Schema]:types[_Map(_Type)]:[_Name]_EnumLabel[_TypeDual]:name=_EnumLabel
 [_Schema]:types[_Map(_Type)]:[_Name]_EnumLabel[_TypeDual]:parent[_ObjBase]:name=_Aliased

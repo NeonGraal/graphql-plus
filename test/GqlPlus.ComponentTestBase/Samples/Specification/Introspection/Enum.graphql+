@@ -1,6 +1,6 @@
 dual _EnumLabel {
     : _Aliased
-        enum: _Name
+        enumType: _Name
     }
 
 output _EnumValue {

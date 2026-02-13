@@ -6,27 +6,27 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_dom_Dual;
 
 public interface ItestGnrcPrntEnumDomDual
-  : ItestFieldGnrcPrntEnumDomDual
+  : ItestFieldGnrcPrntEnumDomDual<ItestDomGnrcPrntEnumDomDual>
 {
-  public ItestGnrcPrntEnumDomDualObject AsGnrcPrntEnumDomDual { get; set; }
+  ItestGnrcPrntEnumDomDualObject AsGnrcPrntEnumDomDual { get; }
 }
 
 public interface ItestGnrcPrntEnumDomDualObject
-  : ItestFieldGnrcPrntEnumDomDualObject
+  : ItestFieldGnrcPrntEnumDomDualObject<ItestDomGnrcPrntEnumDomDual>
 {
 }
 
-public interface ItestFieldGnrcPrntEnumDomDual<Tref>
+public interface ItestFieldGnrcPrntEnumDomDual<TRef>
 {
-  public ItestFieldGnrcPrntEnumDomDualObject AsFieldGnrcPrntEnumDomDual { get; set; }
+  ItestFieldGnrcPrntEnumDomDualObject<TRef> AsFieldGnrcPrntEnumDomDual { get; }
 }
 
-public interface ItestFieldGnrcPrntEnumDomDualObject<Tref>
+public interface ItestFieldGnrcPrntEnumDomDualObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }
 
 public interface ItestDomGnrcPrntEnumDomDual
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

@@ -12,25 +12,25 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
 
 public interface ICmptCnstAltDmnDual
 {
-  public ICmptRefCnstAltDmnDual<ICmptDomCnstAltDmnDual> AsRefCnstAltDmnDual { get; set; }
-  public ICmptCnstAltDmnDualObject AsCnstAltDmnDual { get; set; }
+  ICmptRefCnstAltDmnDual<ICmptDomCnstAltDmnDual> AsRefCnstAltDmnDual { get; }
+  ICmptCnstAltDmnDualObject AsCnstAltDmnDual { get; }
 }
 
 public interface ICmptCnstAltDmnDualObject
 {
 }
 
-public interface ICmptRefCnstAltDmnDual<Tref>
+public interface ICmptRefCnstAltDmnDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltDmnDualObject AsRefCnstAltDmnDual { get; set; }
+  TRef Asref { get; }
+  ICmptRefCnstAltDmnDualObject<TRef> AsRefCnstAltDmnDual { get; }
 }
 
-public interface ICmptRefCnstAltDmnDualObject<Tref>
+public interface ICmptRefCnstAltDmnDualObject<TRef>
 {
 }
 
 public interface ICmptDomCnstAltDmnDual
-  : IDomainString
+  : IGqlpDomainString
 {
 }

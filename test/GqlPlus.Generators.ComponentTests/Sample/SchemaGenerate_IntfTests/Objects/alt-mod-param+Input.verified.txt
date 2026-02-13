@@ -9,23 +9,23 @@ input AltAltModParamInp { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_param_Input;
 
-public interface ICmptAltModParamInp<Tmod>
+public interface ICmptAltModParamInp<TMod>
 {
-  public IDictionary<Tmod, ICmptAltAltModParamInp> AsAltAltModParamInp { get; set; }
-  public ICmptAltModParamInpObject AsAltModParamInp { get; set; }
+  IDictionary<TMod, ICmptAltAltModParamInp> AsAltAltModParamInp { get; }
+  ICmptAltModParamInpObject<TMod> AsAltModParamInp { get; }
 }
 
-public interface ICmptAltModParamInpObject<Tmod>
+public interface ICmptAltModParamInpObject<TMod>
 {
 }
 
 public interface ICmptAltAltModParamInp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptAltAltModParamInpObject AsAltAltModParamInp { get; set; }
+  string AsString { get; }
+  ICmptAltAltModParamInpObject AsAltAltModParamInp { get; }
 }
 
 public interface ICmptAltAltModParamInpObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

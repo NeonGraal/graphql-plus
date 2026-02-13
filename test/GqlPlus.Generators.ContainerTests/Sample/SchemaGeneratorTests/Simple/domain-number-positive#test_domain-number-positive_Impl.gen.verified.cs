@@ -6,7 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_positive;
 
 public class testDmnNmbrPstv
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDmnNmbrPstv
 {
 }

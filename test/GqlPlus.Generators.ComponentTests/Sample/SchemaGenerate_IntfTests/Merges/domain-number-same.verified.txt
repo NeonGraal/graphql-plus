@@ -1,6 +1,6 @@
 ﻿/* domain-number-same
-domain DmnNmbrSame { number 1~9 }
-domain DmnNmbrSame { number 1~9 }
+domain DmnNmbrSame { number 1>9 }
+domain DmnNmbrSame { number 9<1 }
 */
 
 // Generated from Schema domain-number-same for Intf
@@ -10,6 +10,6 @@ domain DmnNmbrSame { number 1~9 }
 namespace Components.Gqlp_Schema_domain_number_same;
 
 public interface ICmptDmnNmbrSame
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }

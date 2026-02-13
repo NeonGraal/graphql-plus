@@ -6,23 +6,23 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Output;
 
 public class testCnstFieldObjOutp
-  : testRefCnstFieldObjOutp
+  : testRefCnstFieldObjOutp<ItestAltCnstFieldObjOutp>
   , ItestCnstFieldObjOutp
 {
   public ItestCnstFieldObjOutpObject AsCnstFieldObjOutp { get; set; }
 }
 
-public class testRefCnstFieldObjOutp<Tref>
-  : ItestRefCnstFieldObjOutp<Tref>
+public class testRefCnstFieldObjOutp<TRef>
+  : ItestRefCnstFieldObjOutp<TRef>
 {
-  public Tref Field { get; set; }
-  public ItestRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; set; }
+  public TRef Field { get; set; }
+  public ItestRefCnstFieldObjOutpObject<TRef> AsRefCnstFieldObjOutp { get; set; }
 }
 
 public class testPrntCnstFieldObjOutp
   : ItestPrntCnstFieldObjOutp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; set; }
 }
 
@@ -30,6 +30,6 @@ public class testAltCnstFieldObjOutp
   : testPrntCnstFieldObjOutp
   , ItestAltCnstFieldObjOutp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; set; }
 }

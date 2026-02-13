@@ -20,32 +20,32 @@ output _InputParam {
 namespace Components.Gqlp_Spec_Input;
 
 public interface ICmpt_InputField
-  : ICmpt_ObjField
+  : ICmpt_ObjField<ICmpt_InputFieldType>
 {
-  public ICmpt_InputFieldObject As_InputField { get; set; }
+  ICmpt_InputFieldObject As_InputField { get; }
 }
 
 public interface ICmpt_InputFieldObject
-  : ICmpt_ObjFieldObject
+  : ICmpt_ObjFieldObject<ICmpt_InputFieldType>
 {
 }
 
 public interface ICmpt_InputFieldType
   : ICmpt_ObjFieldType
 {
-  public ICmpt_InputFieldTypeObject As_InputFieldType { get; set; }
+  ICmpt_InputFieldTypeObject As_InputFieldType { get; }
 }
 
 public interface ICmpt_InputFieldTypeObject
   : ICmpt_ObjFieldTypeObject
 {
-  public ICmpt_Value? Default { get; set; }
+  GqlpValue? Default { get; }
 }
 
 public interface ICmpt_InputParam
   : ICmpt_InputFieldType
 {
-  public ICmpt_InputParamObject As_InputParam { get; set; }
+  ICmpt_InputParamObject As_InputParam { get; }
 }
 
 public interface ICmpt_InputParamObject

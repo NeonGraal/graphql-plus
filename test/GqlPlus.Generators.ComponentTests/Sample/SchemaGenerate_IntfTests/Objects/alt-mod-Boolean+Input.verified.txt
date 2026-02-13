@@ -11,8 +11,8 @@ namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 
 public interface ICmptAltModBoolInp
 {
-  public IDictionary<CmptBoolean, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
-  public ICmptAltModBoolInpObject AsAltModBoolInp { get; set; }
+  IDictionary<bool, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; }
+  ICmptAltModBoolInpObject AsAltModBoolInp { get; }
 }
 
 public interface ICmptAltModBoolInpObject
@@ -21,11 +21,11 @@ public interface ICmptAltModBoolInpObject
 
 public interface ICmptAltAltModBoolInp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptAltAltModBoolInpObject AsAltAltModBoolInp { get; set; }
+  string AsString { get; }
+  ICmptAltAltModBoolInpObject AsAltAltModBoolInp { get; }
 }
 
 public interface ICmptAltAltModBoolInpObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

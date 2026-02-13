@@ -12,25 +12,25 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 
 public interface ICmptCnstAltDmnOutp
 {
-  public ICmptRefCnstAltDmnOutp<ICmptDomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; set; }
-  public ICmptCnstAltDmnOutpObject AsCnstAltDmnOutp { get; set; }
+  ICmptRefCnstAltDmnOutp<ICmptDomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; }
+  ICmptCnstAltDmnOutpObject AsCnstAltDmnOutp { get; }
 }
 
 public interface ICmptCnstAltDmnOutpObject
 {
 }
 
-public interface ICmptRefCnstAltDmnOutp<Tref>
+public interface ICmptRefCnstAltDmnOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltDmnOutpObject AsRefCnstAltDmnOutp { get; set; }
+  TRef Asref { get; }
+  ICmptRefCnstAltDmnOutpObject<TRef> AsRefCnstAltDmnOutp { get; }
 }
 
-public interface ICmptRefCnstAltDmnOutpObject<Tref>
+public interface ICmptRefCnstAltDmnOutpObject<TRef>
 {
 }
 
 public interface ICmptDomCnstAltDmnOutp
-  : IDomainString
+  : IGqlpDomainString
 {
 }

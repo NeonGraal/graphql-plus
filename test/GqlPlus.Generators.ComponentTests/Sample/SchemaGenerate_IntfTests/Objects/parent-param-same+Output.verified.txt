@@ -9,24 +9,24 @@ output RefPrntParamSameOutp<$a:String> { | $a }
 
 namespace Components.Gqlp_Schema_parent_param_same_Output;
 
-public interface ICmptPrntParamSameOutp<Ta>
-  : ICmptRefPrntParamSameOutp
+public interface ICmptPrntParamSameOutp<TA>
+  : ICmptRefPrntParamSameOutp<TA>
 {
-  public ICmptPrntParamSameOutpObject AsPrntParamSameOutp { get; set; }
+  ICmptPrntParamSameOutpObject<TA> AsPrntParamSameOutp { get; }
 }
 
-public interface ICmptPrntParamSameOutpObject<Ta>
-  : ICmptRefPrntParamSameOutpObject
+public interface ICmptPrntParamSameOutpObject<TA>
+  : ICmptRefPrntParamSameOutpObject<TA>
 {
-  public Ta Field { get; set; }
+  TA Field { get; }
 }
 
-public interface ICmptRefPrntParamSameOutp<Ta>
+public interface ICmptRefPrntParamSameOutp<TA>
 {
-  public Ta Asa { get; set; }
-  public ICmptRefPrntParamSameOutpObject AsRefPrntParamSameOutp { get; set; }
+  TA Asa { get; }
+  ICmptRefPrntParamSameOutpObject<TA> AsRefPrntParamSameOutp { get; }
 }
 
-public interface ICmptRefPrntParamSameOutpObject<Ta>
+public interface ICmptRefPrntParamSameOutpObject<TA>
 {
 }

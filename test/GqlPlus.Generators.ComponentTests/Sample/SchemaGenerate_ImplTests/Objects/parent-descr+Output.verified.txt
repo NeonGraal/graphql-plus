@@ -19,7 +19,7 @@ public class CmptPrntDescrOutp
 public class CmptRefPrntDescrOutp
   : ICmptRefPrntDescrOutp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntDescrOutpObject AsRefPrntDescrOutp { get; set; }
 }

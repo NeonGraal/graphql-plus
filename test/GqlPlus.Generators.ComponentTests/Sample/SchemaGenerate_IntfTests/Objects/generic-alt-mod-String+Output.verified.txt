@@ -8,12 +8,12 @@ output RefGnrcAltModStrOutp<$ref:String> { | $ref[*] }
 
 namespace Components.Gqlp_Schema_generic_alt_mod_String_Output;
 
-public interface ICmptRefGnrcAltModStrOutp<Tref>
+public interface ICmptRefGnrcAltModStrOutp<TRef>
 {
-  public IDictionary<CmptString, Tref> Asref { get; set; }
-  public ICmptRefGnrcAltModStrOutpObject AsRefGnrcAltModStrOutp { get; set; }
+  IDictionary<string, TRef> Asref { get; }
+  ICmptRefGnrcAltModStrOutpObject<TRef> AsRefGnrcAltModStrOutp { get; }
 }
 
-public interface ICmptRefGnrcAltModStrOutpObject<Tref>
+public interface ICmptRefGnrcAltModStrOutpObject<TRef>
 {
 }

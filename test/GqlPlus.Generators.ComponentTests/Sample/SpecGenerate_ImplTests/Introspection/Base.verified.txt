@@ -76,21 +76,21 @@ output _ForParam<$type:_ObjFieldType> {
 namespace Components.Gqlp_Spec_Base;
 
 public class Cmpt_ObjectKind
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmpt_ObjectKind
 {
 }
 
-public class Cmpt_TypeObject<Tkind,Tfield>
-  : Cmpt_ChildType
-  , ICmpt_TypeObject<Tkind,Tfield>
+public class Cmpt_TypeObject<TKind,TField>
+  : Cmpt_ChildType<TKind, ICmpt_ObjBase>
+  , ICmpt_TypeObject<TKind,TField>
 {
   public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
-  public ICollection<Tfield> Fields { get; set; }
+  public ICollection<TField> Fields { get; set; }
   public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
-  public ICollection<ICmpt_ObjectFor<Tfield>> AllFields { get; set; }
+  public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
-  public ICmpt_TypeObjectObject As_TypeObject { get; set; }
+  public ICmpt_TypeObjectObject<TKind,TField> As_TypeObject { get; set; }
 }
 
 public class Cmpt_ObjTypeParam
@@ -111,7 +111,7 @@ public class Cmpt_ObjBase
 }
 
 public class Cmpt_ObjTypeArg
-  : Cmpt_TypeRef
+  : Cmpt_TypeRef<ICmpt_TypeKind>
   , ICmpt_ObjTypeArg
 {
   public ICmpt_Name? Label { get; set; }
@@ -137,27 +137,27 @@ public class Cmpt_ObjAlternate
 }
 
 public class Cmpt_ObjAlternateEnum
-  : Cmpt_TypeRef
+  : Cmpt_TypeRef<ICmpt_TypeKind>
   , ICmpt_ObjAlternateEnum
 {
   public ICmpt_Name Label { get; set; }
   public ICmpt_ObjAlternateEnumObject As_ObjAlternateEnum { get; set; }
 }
 
-public class Cmpt_ObjectFor<Tfor>
-  : Cmptfor
-  , ICmpt_ObjectFor<Tfor>
+public class Cmpt_ObjectFor<TFor>
+  : ICmpt_ObjectFor<TFor>
 {
   public ICmpt_Name Object { get; set; }
-  public ICmpt_ObjectForObject As_ObjectFor { get; set; }
+  public TFor AsParent { get; set; }
+  public ICmpt_ObjectForObject<TFor> As_ObjectFor { get; set; }
 }
 
-public class Cmpt_ObjField<Ttype>
+public class Cmpt_ObjField<TType>
   : Cmpt_Aliased
-  , ICmpt_ObjField<Ttype>
+  , ICmpt_ObjField<TType>
 {
-  public Ttype Type { get; set; }
-  public ICmpt_ObjFieldObject As_ObjField { get; set; }
+  public TType Type { get; set; }
+  public ICmpt_ObjFieldObject<TType> As_ObjField { get; set; }
 }
 
 public class Cmpt_ObjFieldType
@@ -170,17 +170,17 @@ public class Cmpt_ObjFieldType
 }
 
 public class Cmpt_ObjFieldEnum
-  : Cmpt_TypeRef
+  : Cmpt_TypeRef<ICmpt_TypeKind>
   , ICmpt_ObjFieldEnum
 {
   public ICmpt_Name Label { get; set; }
   public ICmpt_ObjFieldEnumObject As_ObjFieldEnum { get; set; }
 }
 
-public class Cmpt_ForParam<Ttype>
-  : ICmpt_ForParam<Ttype>
+public class Cmpt_ForParam<TType>
+  : ICmpt_ForParam<TType>
 {
   public ICmpt_ObjAlternate As_ObjAlternate { get; set; }
-  public ICmpt_ObjField<Ttype> As_ObjField { get; set; }
-  public ICmpt_ForParamObject As_ForParam { get; set; }
+  public ICmpt_ObjField<TType> As_ObjField { get; set; }
+  public ICmpt_ForParamObject<TType> As_ForParam { get; set; }
 }

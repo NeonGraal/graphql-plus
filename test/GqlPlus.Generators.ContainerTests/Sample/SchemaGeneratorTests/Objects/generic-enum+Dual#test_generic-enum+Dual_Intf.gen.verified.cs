@@ -7,20 +7,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Dual;
 
 public interface ItestGnrcEnumDual
 {
-  public ItestRefGnrcEnumDual<ItestEnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
-  public ItestGnrcEnumDualObject AsGnrcEnumDual { get; set; }
+  ItestRefGnrcEnumDual<testEnumGnrcEnumDual> AsEnumGnrcEnumDualgnrcEnumDual { get; }
+  ItestGnrcEnumDualObject AsGnrcEnumDual { get; }
 }
 
 public interface ItestGnrcEnumDualObject
 {
 }
 
-public interface ItestRefGnrcEnumDual<Ttype>
+public interface ItestRefGnrcEnumDual<TType>
 {
-  public ItestRefGnrcEnumDualObject AsRefGnrcEnumDual { get; set; }
+  ItestRefGnrcEnumDualObject<TType> AsRefGnrcEnumDual { get; }
 }
 
-public interface ItestRefGnrcEnumDualObject<Ttype>
+public interface ItestRefGnrcEnumDualObject<TType>
 {
-  public Ttype Field { get; set; }
+  TType Field { get; }
 }

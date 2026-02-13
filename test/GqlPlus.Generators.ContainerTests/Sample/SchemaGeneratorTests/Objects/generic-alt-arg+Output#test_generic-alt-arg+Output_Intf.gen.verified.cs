@@ -5,22 +5,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_Output;
 
-public interface ItestGnrcAltArgOutp<Ttype>
+public interface ItestGnrcAltArgOutp<TType>
 {
-  public ItestRefGnrcAltArgOutp<Ttype> AsRefGnrcAltArgOutp { get; set; }
-  public ItestGnrcAltArgOutpObject AsGnrcAltArgOutp { get; set; }
+  ItestRefGnrcAltArgOutp<TType> AsRefGnrcAltArgOutp { get; }
+  ItestGnrcAltArgOutpObject<TType> AsGnrcAltArgOutp { get; }
 }
 
-public interface ItestGnrcAltArgOutpObject<Ttype>
+public interface ItestGnrcAltArgOutpObject<TType>
 {
 }
 
-public interface ItestRefGnrcAltArgOutp<Tref>
+public interface ItestRefGnrcAltArgOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcAltArgOutpObject AsRefGnrcAltArgOutp { get; set; }
+  TRef Asref { get; }
+  ItestRefGnrcAltArgOutpObject<TRef> AsRefGnrcAltArgOutp { get; }
 }
 
-public interface ItestRefGnrcAltArgOutpObject<Tref>
+public interface ItestRefGnrcAltArgOutpObject<TRef>
 {
 }

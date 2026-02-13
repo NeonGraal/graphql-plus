@@ -6,6 +6,6 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_unique;
 
 public interface ItestDmnEnumUnq
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

@@ -11,22 +11,22 @@ enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
 namespace Components.Gqlp_Schema_generic_parent_simple_enum_Dual;
 
 public interface ICmptGnrcPrntSmplEnumDual
-  : ICmptFieldGnrcPrntSmplEnumDual
+  : ICmptFieldGnrcPrntSmplEnumDual<CmptEnumGnrcPrntSmplEnumDual>
 {
-  public ICmptGnrcPrntSmplEnumDualObject AsGnrcPrntSmplEnumDual { get; set; }
+  ICmptGnrcPrntSmplEnumDualObject AsGnrcPrntSmplEnumDual { get; }
 }
 
 public interface ICmptGnrcPrntSmplEnumDualObject
-  : ICmptFieldGnrcPrntSmplEnumDualObject
+  : ICmptFieldGnrcPrntSmplEnumDualObject<CmptEnumGnrcPrntSmplEnumDual>
 {
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumDual<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumDual<TRef>
 {
-  public ICmptFieldGnrcPrntSmplEnumDualObject AsFieldGnrcPrntSmplEnumDual { get; set; }
+  ICmptFieldGnrcPrntSmplEnumDualObject<TRef> AsFieldGnrcPrntSmplEnumDual { get; }
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumDualObject<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumDualObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }

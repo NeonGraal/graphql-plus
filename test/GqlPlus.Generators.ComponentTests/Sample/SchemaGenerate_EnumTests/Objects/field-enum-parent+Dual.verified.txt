@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_field_enum_parent_Dual;
 
 public enum CmptEnumFieldEnumPrntDual
 {
-  prnt_fieldEnumPrntDual = PrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
+  prnt_fieldEnumPrntDual = CmptPrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
   fieldEnumPrntDual,
 }
 

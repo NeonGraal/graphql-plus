@@ -11,27 +11,27 @@ domain DomGnrcPrntStrDomDual { string /\w+/ }
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
 
 public interface ICmptGnrcPrntStrDomDual
-  : ICmptFieldGnrcPrntStrDomDual
+  : ICmptFieldGnrcPrntStrDomDual<ICmptDomGnrcPrntStrDomDual>
 {
-  public ICmptGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; set; }
+  ICmptGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; }
 }
 
 public interface ICmptGnrcPrntStrDomDualObject
-  : ICmptFieldGnrcPrntStrDomDualObject
+  : ICmptFieldGnrcPrntStrDomDualObject<ICmptDomGnrcPrntStrDomDual>
 {
 }
 
-public interface ICmptFieldGnrcPrntStrDomDual<Tref>
+public interface ICmptFieldGnrcPrntStrDomDual<TRef>
 {
-  public ICmptFieldGnrcPrntStrDomDualObject AsFieldGnrcPrntStrDomDual { get; set; }
+  ICmptFieldGnrcPrntStrDomDualObject<TRef> AsFieldGnrcPrntStrDomDual { get; }
 }
 
-public interface ICmptFieldGnrcPrntStrDomDualObject<Tref>
+public interface ICmptFieldGnrcPrntStrDomDualObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntStrDomDual
-  : IDomainString
+  : IGqlpDomainString
 {
 }

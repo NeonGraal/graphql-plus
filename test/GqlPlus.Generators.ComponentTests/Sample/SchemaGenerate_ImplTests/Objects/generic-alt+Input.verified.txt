@@ -8,9 +8,9 @@ input GnrcAltInp<$type:String> { | $type }
 
 namespace Components.Gqlp_Schema_generic_alt_Input;
 
-public class CmptGnrcAltInp<Ttype>
-  : ICmptGnrcAltInp<Ttype>
+public class CmptGnrcAltInp<TType>
+  : ICmptGnrcAltInp<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptGnrcAltInpObject AsGnrcAltInp { get; set; }
+  public TType Astype { get; set; }
+  public ICmptGnrcAltInpObject<TType> AsGnrcAltInp { get; set; }
 }

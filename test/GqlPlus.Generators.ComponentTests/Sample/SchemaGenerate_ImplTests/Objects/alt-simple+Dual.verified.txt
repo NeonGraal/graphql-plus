@@ -11,6 +11,6 @@ namespace Components.Gqlp_Schema_alt_simple_Dual;
 public class CmptAltSmplDual
   : ICmptAltSmplDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltSmplDualObject AsAltSmplDual { get; set; }
 }

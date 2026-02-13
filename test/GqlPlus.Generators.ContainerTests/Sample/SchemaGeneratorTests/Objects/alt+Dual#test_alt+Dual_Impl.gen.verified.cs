@@ -15,7 +15,7 @@ public class testAltDual
 public class testAltAltDual
   : ItestAltAltDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltAltDualObject AsAltAltDual { get; set; }
 }

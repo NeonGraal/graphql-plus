@@ -9,22 +9,22 @@ output RefGnrcFieldArgOutp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_field_arg_Output;
 
-public interface ICmptGnrcFieldArgOutp<Ttype>
+public interface ICmptGnrcFieldArgOutp<TType>
 {
-  public ICmptGnrcFieldArgOutpObject AsGnrcFieldArgOutp { get; set; }
+  ICmptGnrcFieldArgOutpObject<TType> AsGnrcFieldArgOutp { get; }
 }
 
-public interface ICmptGnrcFieldArgOutpObject<Ttype>
+public interface ICmptGnrcFieldArgOutpObject<TType>
 {
-  public ICmptRefGnrcFieldArgOutp<Ttype> Field { get; set; }
+  ICmptRefGnrcFieldArgOutp<TType> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldArgOutp<Tref>
+public interface ICmptRefGnrcFieldArgOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldArgOutpObject AsRefGnrcFieldArgOutp { get; set; }
+  TRef Asref { get; }
+  ICmptRefGnrcFieldArgOutpObject<TRef> AsRefGnrcFieldArgOutp { get; }
 }
 
-public interface ICmptRefGnrcFieldArgOutpObject<Tref>
+public interface ICmptRefGnrcFieldArgOutpObject<TRef>
 {
 }

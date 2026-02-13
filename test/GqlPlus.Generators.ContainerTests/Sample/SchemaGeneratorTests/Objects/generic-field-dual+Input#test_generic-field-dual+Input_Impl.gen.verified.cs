@@ -12,17 +12,17 @@ public class testGnrcFieldDualInp
   public ItestGnrcFieldDualInpObject AsGnrcFieldDualInp { get; set; }
 }
 
-public class testRefGnrcFieldDualInp<Tref>
-  : ItestRefGnrcFieldDualInp<Tref>
+public class testRefGnrcFieldDualInp<TRef>
+  : ItestRefGnrcFieldDualInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcFieldDualInpObject AsRefGnrcFieldDualInp { get; set; }
+  public TRef Asref { get; set; }
+  public ItestRefGnrcFieldDualInpObject<TRef> AsRefGnrcFieldDualInp { get; set; }
 }
 
 public class testAltGnrcFieldDualInp
   : ItestAltGnrcFieldDualInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldDualInpObject AsAltGnrcFieldDualInp { get; set; }
 }

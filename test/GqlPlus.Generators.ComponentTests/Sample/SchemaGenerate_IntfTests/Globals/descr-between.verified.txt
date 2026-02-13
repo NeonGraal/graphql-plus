@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_descr_between;
 
 public interface ICmptDescrBtwn
 {
-  public ICmptDescrBtwnObject AsDescrBtwn { get; set; }
+  ICmptDescrBtwnObject AsDescrBtwn { get; }
 }
 
 public interface ICmptDescrBtwnObject

@@ -8,9 +8,9 @@ input CnstAltInp<$type:Number> { | $type }
 
 namespace Components.Gqlp_Schema_constraint_alt_Input;
 
-public class CmptCnstAltInp<Ttype>
-  : ICmptCnstAltInp<Ttype>
+public class CmptCnstAltInp<TType>
+  : ICmptCnstAltInp<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptCnstAltInpObject AsCnstAltInp { get; set; }
+  public TType Astype { get; set; }
+  public ICmptCnstAltInpObject<TType> AsCnstAltInp { get; set; }
 }

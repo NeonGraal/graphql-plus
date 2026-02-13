@@ -12,31 +12,31 @@ namespace Components.Gqlp_Schema_generic_alt_dual_Output;
 
 public interface ICmptGnrcAltDualOutp
 {
-  public ICmptRefGnrcAltDualOutp<ICmptAltGnrcAltDualOutp> AsRefGnrcAltDualOutp { get; set; }
-  public ICmptGnrcAltDualOutpObject AsGnrcAltDualOutp { get; set; }
+  ICmptRefGnrcAltDualOutp<ICmptAltGnrcAltDualOutp> AsRefGnrcAltDualOutp { get; }
+  ICmptGnrcAltDualOutpObject AsGnrcAltDualOutp { get; }
 }
 
 public interface ICmptGnrcAltDualOutpObject
 {
 }
 
-public interface ICmptRefGnrcAltDualOutp<Tref>
+public interface ICmptRefGnrcAltDualOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltDualOutpObject AsRefGnrcAltDualOutp { get; set; }
+  TRef Asref { get; }
+  ICmptRefGnrcAltDualOutpObject<TRef> AsRefGnrcAltDualOutp { get; }
 }
 
-public interface ICmptRefGnrcAltDualOutpObject<Tref>
+public interface ICmptRefGnrcAltDualOutpObject<TRef>
 {
 }
 
 public interface ICmptAltGnrcAltDualOutp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptAltGnrcAltDualOutpObject AsAltGnrcAltDualOutp { get; set; }
+  string AsString { get; }
+  ICmptAltGnrcAltDualOutpObject AsAltGnrcAltDualOutp { get; }
 }
 
 public interface ICmptAltGnrcAltDualOutpObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

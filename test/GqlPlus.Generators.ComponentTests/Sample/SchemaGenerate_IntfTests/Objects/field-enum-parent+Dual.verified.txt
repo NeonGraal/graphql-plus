@@ -12,10 +12,10 @@ namespace Components.Gqlp_Schema_field_enum_parent_Dual;
 
 public interface ICmptFieldEnumPrntDual
 {
-  public ICmptFieldEnumPrntDualObject AsFieldEnumPrntDual { get; set; }
+  ICmptFieldEnumPrntDualObject AsFieldEnumPrntDual { get; }
 }
 
 public interface ICmptFieldEnumPrntDualObject
 {
-  public ICmptEnumFieldEnumPrntDual Field { get; set; }
+  CmptEnumFieldEnumPrntDual Field { get; }
 }

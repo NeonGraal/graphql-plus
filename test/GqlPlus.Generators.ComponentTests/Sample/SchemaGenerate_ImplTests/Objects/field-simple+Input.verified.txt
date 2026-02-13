@@ -11,6 +11,6 @@ namespace Components.Gqlp_Schema_field_simple_Input;
 public class CmptFieldSmplInp
   : ICmptFieldSmplInp
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptFieldSmplInpObject AsFieldSmplInp { get; set; }
 }

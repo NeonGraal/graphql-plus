@@ -11,22 +11,22 @@ enum EnumGnrcPrntSmplEnumInp { gnrcPrntSmplEnumInp }
 namespace Components.Gqlp_Schema_generic_parent_simple_enum_Input;
 
 public interface ICmptGnrcPrntSmplEnumInp
-  : ICmptFieldGnrcPrntSmplEnumInp
+  : ICmptFieldGnrcPrntSmplEnumInp<CmptEnumGnrcPrntSmplEnumInp>
 {
-  public ICmptGnrcPrntSmplEnumInpObject AsGnrcPrntSmplEnumInp { get; set; }
+  ICmptGnrcPrntSmplEnumInpObject AsGnrcPrntSmplEnumInp { get; }
 }
 
 public interface ICmptGnrcPrntSmplEnumInpObject
-  : ICmptFieldGnrcPrntSmplEnumInpObject
+  : ICmptFieldGnrcPrntSmplEnumInpObject<CmptEnumGnrcPrntSmplEnumInp>
 {
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumInp<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumInp<TRef>
 {
-  public ICmptFieldGnrcPrntSmplEnumInpObject AsFieldGnrcPrntSmplEnumInp { get; set; }
+  ICmptFieldGnrcPrntSmplEnumInpObject<TRef> AsFieldGnrcPrntSmplEnumInp { get; }
 }
 
-public interface ICmptFieldGnrcPrntSmplEnumInpObject<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumInpObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }

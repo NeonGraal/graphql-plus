@@ -11,6 +11,6 @@ namespace Components.Gqlp_Schema_field_type_descr_Dual;
 public class CmptFieldTypeDescrDual
   : ICmptFieldTypeDescrDual
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptFieldTypeDescrDualObject AsFieldTypeDescrDual { get; set; }
 }

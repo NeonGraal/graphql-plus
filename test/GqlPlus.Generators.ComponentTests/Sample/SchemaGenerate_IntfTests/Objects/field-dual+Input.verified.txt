@@ -11,21 +11,21 @@ namespace Components.Gqlp_Schema_field_dual_Input;
 
 public interface ICmptFieldDualInp
 {
-  public ICmptFieldDualInpObject AsFieldDualInp { get; set; }
+  ICmptFieldDualInpObject AsFieldDualInp { get; }
 }
 
 public interface ICmptFieldDualInpObject
 {
-  public ICmptFldFieldDualInp Field { get; set; }
+  ICmptFldFieldDualInp Field { get; }
 }
 
 public interface ICmptFldFieldDualInp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptFldFieldDualInpObject AsFldFieldDualInp { get; set; }
+  string AsString { get; }
+  ICmptFldFieldDualInpObject AsFldFieldDualInp { get; }
 }
 
 public interface ICmptFldFieldDualInpObject
 {
-  public ICmptNumber Field { get; set; }
+  decimal Field { get; }
 }

@@ -12,8 +12,8 @@ namespace Components.Gqlp_Schema_parent_alt_Dual;
 public interface ICmptPrntAltDual
   : ICmptRefPrntAltDual
 {
-  public ICmptNumber AsNumber { get; set; }
-  public ICmptPrntAltDualObject AsPrntAltDual { get; set; }
+  decimal AsNumber { get; }
+  ICmptPrntAltDualObject AsPrntAltDual { get; }
 }
 
 public interface ICmptPrntAltDualObject
@@ -23,11 +23,11 @@ public interface ICmptPrntAltDualObject
 
 public interface ICmptRefPrntAltDual
 {
-  public ICmptString AsString { get; set; }
-  public ICmptRefPrntAltDualObject AsRefPrntAltDual { get; set; }
+  string AsString { get; }
+  ICmptRefPrntAltDualObject AsRefPrntAltDual { get; }
 }
 
 public interface ICmptRefPrntAltDualObject
 {
-  public ICmptNumber Parent { get; set; }
+  decimal Parent { get; }
 }

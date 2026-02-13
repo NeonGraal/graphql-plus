@@ -9,17 +9,17 @@ output RefPrntParamSameOutp<$a:String> { | $a }
 
 namespace Components.Gqlp_Schema_parent_param_same_Output;
 
-public class CmptPrntParamSameOutp<Ta>
-  : CmptRefPrntParamSameOutp
-  , ICmptPrntParamSameOutp<Ta>
+public class CmptPrntParamSameOutp<TA>
+  : CmptRefPrntParamSameOutp<TA>
+  , ICmptPrntParamSameOutp<TA>
 {
-  public Ta Field { get; set; }
-  public ICmptPrntParamSameOutpObject AsPrntParamSameOutp { get; set; }
+  public TA Field { get; set; }
+  public ICmptPrntParamSameOutpObject<TA> AsPrntParamSameOutp { get; set; }
 }
 
-public class CmptRefPrntParamSameOutp<Ta>
-  : ICmptRefPrntParamSameOutp<Ta>
+public class CmptRefPrntParamSameOutp<TA>
+  : ICmptRefPrntParamSameOutp<TA>
 {
-  public Ta Asa { get; set; }
-  public ICmptRefPrntParamSameOutpObject AsRefPrntParamSameOutp { get; set; }
+  public TA Asa { get; set; }
+  public ICmptRefPrntParamSameOutpObject<TA> AsRefPrntParamSameOutp { get; set; }
 }

@@ -99,6 +99,7 @@ This runs:
 - Use `using` directives outside namespace
 - Prefer expression-bodied members when on a single line
 - Prefer primary constructors
+- Prefer explicit variable types and using target-typed 'new' (compact constructor) in generated code
 - TreatWarningsAsErrors is enabled
 
 ### Testing Standards

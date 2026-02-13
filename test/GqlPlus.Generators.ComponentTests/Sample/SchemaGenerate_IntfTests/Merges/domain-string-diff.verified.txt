@@ -10,6 +10,6 @@ domain DmnStrDiff { string }
 namespace Components.Gqlp_Schema_domain_string_diff;
 
 public interface ICmptDmnStrDiff
-  : IDomainString
+  : IGqlpDomainString
 {
 }

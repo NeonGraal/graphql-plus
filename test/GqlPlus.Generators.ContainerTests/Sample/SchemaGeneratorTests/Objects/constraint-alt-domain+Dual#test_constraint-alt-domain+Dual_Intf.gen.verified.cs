@@ -7,25 +7,25 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Dual;
 
 public interface ItestCnstAltDmnDual
 {
-  public ItestRefCnstAltDmnDual<ItestDomCnstAltDmnDual> AsRefCnstAltDmnDual { get; set; }
-  public ItestCnstAltDmnDualObject AsCnstAltDmnDual { get; set; }
+  ItestRefCnstAltDmnDual<ItestDomCnstAltDmnDual> AsRefCnstAltDmnDual { get; }
+  ItestCnstAltDmnDualObject AsCnstAltDmnDual { get; }
 }
 
 public interface ItestCnstAltDmnDualObject
 {
 }
 
-public interface ItestRefCnstAltDmnDual<Tref>
+public interface ItestRefCnstAltDmnDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefCnstAltDmnDualObject AsRefCnstAltDmnDual { get; set; }
+  TRef Asref { get; }
+  ItestRefCnstAltDmnDualObject<TRef> AsRefCnstAltDmnDual { get; }
 }
 
-public interface ItestRefCnstAltDmnDualObject<Tref>
+public interface ItestRefCnstAltDmnDualObject<TRef>
 {
 }
 
 public interface ItestDomCnstAltDmnDual
-  : IDomainString
+  : IGqlpDomainString
 {
 }

@@ -7,26 +7,26 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_Domain;
 
 public interface ItestOutpParamModDmn
 {
-  public ItestOutpParamModDmnObject AsOutpParamModDmn { get; set; }
+  ItestOutpParamModDmnObject AsOutpParamModDmn { get; }
 }
 
 public interface ItestOutpParamModDmnObject
 {
-  public ItestDomOutpParamModDmn Field { get; set; }
+  ItestDomOutpParamModDmn Field { get; }
 }
 
 public interface ItestInOutpParamModDmn
 {
-  public ItestString AsString { get; set; }
-  public ItestInOutpParamModDmnObject AsInOutpParamModDmn { get; set; }
+  string AsString { get; }
+  ItestInOutpParamModDmnObject AsInOutpParamModDmn { get; }
 }
 
 public interface ItestInOutpParamModDmnObject
 {
-  public ItestNumber Param { get; set; }
+  decimal Param { get; }
 }
 
 public interface ItestDomOutpParamModDmn
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }

@@ -11,23 +11,23 @@ dual AltGnrcPrntDualOutp { alt: Number | String }
 namespace Components.Gqlp_Schema_generic_parent_dual_Output;
 
 public class CmptGnrcPrntDualOutp
-  : CmptRefGnrcPrntDualOutp
+  : CmptRefGnrcPrntDualOutp<ICmptAltGnrcPrntDualOutp>
   , ICmptGnrcPrntDualOutp
 {
   public ICmptGnrcPrntDualOutpObject AsGnrcPrntDualOutp { get; set; }
 }
 
-public class CmptRefGnrcPrntDualOutp<Tref>
-  : ICmptRefGnrcPrntDualOutp<Tref>
+public class CmptRefGnrcPrntDualOutp<TRef>
+  : ICmptRefGnrcPrntDualOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntDualOutpObject AsRefGnrcPrntDualOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcPrntDualOutpObject<TRef> AsRefGnrcPrntDualOutp { get; set; }
 }
 
 public class CmptAltGnrcPrntDualOutp
   : ICmptAltGnrcPrntDualOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntDualOutpObject AsAltGnrcPrntDualOutp { get; set; }
 }

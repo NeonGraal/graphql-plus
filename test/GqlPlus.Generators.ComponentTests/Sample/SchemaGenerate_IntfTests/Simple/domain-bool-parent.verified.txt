@@ -15,6 +15,6 @@ public interface ICmptDmnBoolPrnt
 }
 
 public interface ICmptPrntDmnBoolPrnt
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }

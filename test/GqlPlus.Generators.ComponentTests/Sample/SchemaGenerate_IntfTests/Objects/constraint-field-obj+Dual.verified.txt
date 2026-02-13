@@ -12,30 +12,30 @@ dual AltCnstFieldObjDual { :PrntCnstFieldObjDual alt: Number }
 namespace Components.Gqlp_Schema_constraint_field_obj_Dual;
 
 public interface ICmptCnstFieldObjDual
-  : ICmptRefCnstFieldObjDual
+  : ICmptRefCnstFieldObjDual<ICmptAltCnstFieldObjDual>
 {
-  public ICmptCnstFieldObjDualObject AsCnstFieldObjDual { get; set; }
+  ICmptCnstFieldObjDualObject AsCnstFieldObjDual { get; }
 }
 
 public interface ICmptCnstFieldObjDualObject
-  : ICmptRefCnstFieldObjDualObject
+  : ICmptRefCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>
 {
 }
 
-public interface ICmptRefCnstFieldObjDual<Tref>
+public interface ICmptRefCnstFieldObjDual<TRef>
 {
-  public ICmptRefCnstFieldObjDualObject AsRefCnstFieldObjDual { get; set; }
+  ICmptRefCnstFieldObjDualObject<TRef> AsRefCnstFieldObjDual { get; }
 }
 
-public interface ICmptRefCnstFieldObjDualObject<Tref>
+public interface ICmptRefCnstFieldObjDualObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldObjDual
 {
-  public ICmptString AsString { get; set; }
-  public ICmptPrntCnstFieldObjDualObject AsPrntCnstFieldObjDual { get; set; }
+  string AsString { get; }
+  ICmptPrntCnstFieldObjDualObject AsPrntCnstFieldObjDual { get; }
 }
 
 public interface ICmptPrntCnstFieldObjDualObject
@@ -45,11 +45,11 @@ public interface ICmptPrntCnstFieldObjDualObject
 public interface ICmptAltCnstFieldObjDual
   : ICmptPrntCnstFieldObjDual
 {
-  public ICmptAltCnstFieldObjDualObject AsAltCnstFieldObjDual { get; set; }
+  ICmptAltCnstFieldObjDualObject AsAltCnstFieldObjDual { get; }
 }
 
 public interface ICmptAltCnstFieldObjDualObject
   : ICmptPrntCnstFieldObjDualObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

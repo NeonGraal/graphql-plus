@@ -12,15 +12,15 @@ public class testCnstAltDmnInp
   public ItestCnstAltDmnInpObject AsCnstAltDmnInp { get; set; }
 }
 
-public class testRefCnstAltDmnInp<Tref>
-  : ItestRefCnstAltDmnInp<Tref>
+public class testRefCnstAltDmnInp<TRef>
+  : ItestRefCnstAltDmnInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefCnstAltDmnInpObject AsRefCnstAltDmnInp { get; set; }
+  public TRef Asref { get; set; }
+  public ItestRefCnstAltDmnInpObject<TRef> AsRefCnstAltDmnInp { get; set; }
 }
 
 public class testDomCnstAltDmnInp
-  : DomainString
+  : GqlpDomainString
   , ItestDomCnstAltDmnInp
 {
 }

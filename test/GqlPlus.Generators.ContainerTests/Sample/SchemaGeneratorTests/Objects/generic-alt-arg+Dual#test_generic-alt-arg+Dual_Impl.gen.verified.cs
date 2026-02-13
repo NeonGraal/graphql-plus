@@ -5,16 +5,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_Dual;
 
-public class testGnrcAltArgDual<Ttype>
-  : ItestGnrcAltArgDual<Ttype>
+public class testGnrcAltArgDual<TType>
+  : ItestGnrcAltArgDual<TType>
 {
-  public ItestRefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; set; }
-  public ItestGnrcAltArgDualObject AsGnrcAltArgDual { get; set; }
+  public ItestRefGnrcAltArgDual<TType> AsRefGnrcAltArgDual { get; set; }
+  public ItestGnrcAltArgDualObject<TType> AsGnrcAltArgDual { get; set; }
 }
 
-public class testRefGnrcAltArgDual<Tref>
-  : ItestRefGnrcAltArgDual<Tref>
+public class testRefGnrcAltArgDual<TRef>
+  : ItestRefGnrcAltArgDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcAltArgDualObject AsRefGnrcAltArgDual { get; set; }
+  public TRef Asref { get; set; }
+  public ItestRefGnrcAltArgDualObject<TRef> AsRefGnrcAltArgDual { get; set; }
 }

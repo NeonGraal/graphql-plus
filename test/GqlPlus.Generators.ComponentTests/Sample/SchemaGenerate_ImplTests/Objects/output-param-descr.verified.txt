@@ -26,7 +26,7 @@ public class CmptFldOutpParamDescr
 public class CmptInOutpParamDescr
   : ICmptInOutpParamDescr
 {
-  public ICmptNumber Param { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpParamDescrObject AsInOutpParamDescr { get; set; }
 }

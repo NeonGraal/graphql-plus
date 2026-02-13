@@ -12,20 +12,20 @@ namespace Components.Gqlp_Schema_generic_enum_Input;
 
 public interface ICmptGnrcEnumInp
 {
-  public ICmptRefGnrcEnumInp<ICmptEnumGnrcEnumInp> AsRefGnrcEnumInp { get; set; }
-  public ICmptGnrcEnumInpObject AsGnrcEnumInp { get; set; }
+  ICmptRefGnrcEnumInp<CmptEnumGnrcEnumInp> AsEnumGnrcEnumInpgnrcEnumInp { get; }
+  ICmptGnrcEnumInpObject AsGnrcEnumInp { get; }
 }
 
 public interface ICmptGnrcEnumInpObject
 {
 }
 
-public interface ICmptRefGnrcEnumInp<Ttype>
+public interface ICmptRefGnrcEnumInp<TType>
 {
-  public ICmptRefGnrcEnumInpObject AsRefGnrcEnumInp { get; set; }
+  ICmptRefGnrcEnumInpObject<TType> AsRefGnrcEnumInp { get; }
 }
 
-public interface ICmptRefGnrcEnumInpObject<Ttype>
+public interface ICmptRefGnrcEnumInpObject<TType>
 {
-  public Ttype Field { get; set; }
+  TType Field { get; }
 }

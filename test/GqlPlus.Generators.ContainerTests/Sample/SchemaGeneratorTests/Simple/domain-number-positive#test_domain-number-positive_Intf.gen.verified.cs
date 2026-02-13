@@ -6,6 +6,6 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_positive;
 
 public interface ItestDmnNmbrPstv
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }

@@ -7,20 +7,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Output;
 
 public interface ItestGnrcEnumOutp
 {
-  public ItestRefGnrcEnumOutp<ItestEnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; set; }
-  public ItestGnrcEnumOutpObject AsGnrcEnumOutp { get; set; }
+  ItestRefGnrcEnumOutp<testEnumGnrcEnumOutp> AsEnumGnrcEnumOutpgnrcEnumOutp { get; }
+  ItestGnrcEnumOutpObject AsGnrcEnumOutp { get; }
 }
 
 public interface ItestGnrcEnumOutpObject
 {
 }
 
-public interface ItestRefGnrcEnumOutp<Ttype>
+public interface ItestRefGnrcEnumOutp<TType>
 {
-  public ItestRefGnrcEnumOutpObject AsRefGnrcEnumOutp { get; set; }
+  ItestRefGnrcEnumOutpObject<TType> AsRefGnrcEnumOutp { get; }
 }
 
-public interface ItestRefGnrcEnumOutpObject<Ttype>
+public interface ItestRefGnrcEnumOutpObject<TType>
 {
-  public Ttype Field { get; set; }
+  TType Field { get; }
 }

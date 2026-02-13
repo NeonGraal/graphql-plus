@@ -9,22 +9,22 @@ input RefGnrcFieldArgInp<$ref:String> { | $ref }
 
 namespace Components.Gqlp_Schema_generic_field_arg_Input;
 
-public interface ICmptGnrcFieldArgInp<Ttype>
+public interface ICmptGnrcFieldArgInp<TType>
 {
-  public ICmptGnrcFieldArgInpObject AsGnrcFieldArgInp { get; set; }
+  ICmptGnrcFieldArgInpObject<TType> AsGnrcFieldArgInp { get; }
 }
 
-public interface ICmptGnrcFieldArgInpObject<Ttype>
+public interface ICmptGnrcFieldArgInpObject<TType>
 {
-  public ICmptRefGnrcFieldArgInp<Ttype> Field { get; set; }
+  ICmptRefGnrcFieldArgInp<TType> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldArgInp<Tref>
+public interface ICmptRefGnrcFieldArgInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldArgInpObject AsRefGnrcFieldArgInp { get; set; }
+  TRef Asref { get; }
+  ICmptRefGnrcFieldArgInpObject<TRef> AsRefGnrcFieldArgInp { get; }
 }
 
-public interface ICmptRefGnrcFieldArgInpObject<Tref>
+public interface ICmptRefGnrcFieldArgInpObject<TRef>
 {
 }

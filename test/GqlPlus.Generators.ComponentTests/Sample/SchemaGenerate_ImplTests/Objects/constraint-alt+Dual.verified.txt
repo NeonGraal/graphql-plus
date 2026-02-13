@@ -8,9 +8,9 @@ dual CnstAltDual<$type:Number> { | $type }
 
 namespace Components.Gqlp_Schema_constraint_alt_Dual;
 
-public class CmptCnstAltDual<Ttype>
-  : ICmptCnstAltDual<Ttype>
+public class CmptCnstAltDual<TType>
+  : ICmptCnstAltDual<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptCnstAltDualObject AsCnstAltDual { get; set; }
+  public TType Astype { get; set; }
+  public ICmptCnstAltDualObject<TType> AsCnstAltDual { get; set; }
 }

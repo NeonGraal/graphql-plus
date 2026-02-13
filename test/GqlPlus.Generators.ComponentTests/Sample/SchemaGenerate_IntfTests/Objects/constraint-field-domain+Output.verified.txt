@@ -11,27 +11,27 @@ domain DomCnstFieldDmnOutp { String /\w+/ }
 namespace Components.Gqlp_Schema_constraint_field_domain_Output;
 
 public interface ICmptCnstFieldDmnOutp
-  : ICmptRefCnstFieldDmnOutp
+  : ICmptRefCnstFieldDmnOutp<ICmptDomCnstFieldDmnOutp>
 {
-  public ICmptCnstFieldDmnOutpObject AsCnstFieldDmnOutp { get; set; }
+  ICmptCnstFieldDmnOutpObject AsCnstFieldDmnOutp { get; }
 }
 
 public interface ICmptCnstFieldDmnOutpObject
-  : ICmptRefCnstFieldDmnOutpObject
+  : ICmptRefCnstFieldDmnOutpObject<ICmptDomCnstFieldDmnOutp>
 {
 }
 
-public interface ICmptRefCnstFieldDmnOutp<Tref>
+public interface ICmptRefCnstFieldDmnOutp<TRef>
 {
-  public ICmptRefCnstFieldDmnOutpObject AsRefCnstFieldDmnOutp { get; set; }
+  ICmptRefCnstFieldDmnOutpObject<TRef> AsRefCnstFieldDmnOutp { get; }
 }
 
-public interface ICmptRefCnstFieldDmnOutpObject<Tref>
+public interface ICmptRefCnstFieldDmnOutpObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomCnstFieldDmnOutp
-  : IDomainString
+  : IGqlpDomainString
 {
 }

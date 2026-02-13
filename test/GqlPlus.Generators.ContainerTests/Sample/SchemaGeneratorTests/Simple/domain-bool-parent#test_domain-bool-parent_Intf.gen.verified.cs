@@ -11,6 +11,6 @@ public interface ItestDmnBoolPrnt
 }
 
 public interface ItestPrntDmnBoolPrnt
-  : IDomainBoolean
+  : IGqlpDomainBoolean
 {
 }

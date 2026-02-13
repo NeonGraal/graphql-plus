@@ -12,17 +12,17 @@ public class testGnrcAltParamOutp
   public ItestGnrcAltParamOutpObject AsGnrcAltParamOutp { get; set; }
 }
 
-public class testRefGnrcAltParamOutp<Tref>
-  : ItestRefGnrcAltParamOutp<Tref>
+public class testRefGnrcAltParamOutp<TRef>
+  : ItestRefGnrcAltParamOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcAltParamOutpObject AsRefGnrcAltParamOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ItestRefGnrcAltParamOutpObject<TRef> AsRefGnrcAltParamOutp { get; set; }
 }
 
 public class testAltGnrcAltParamOutp
   : ItestAltGnrcAltParamOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltParamOutpObject AsAltGnrcAltParamOutp { get; set; }
 }

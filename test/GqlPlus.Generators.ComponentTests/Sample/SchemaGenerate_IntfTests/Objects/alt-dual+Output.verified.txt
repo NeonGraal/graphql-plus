@@ -11,8 +11,8 @@ namespace Components.Gqlp_Schema_alt_dual_Output;
 
 public interface ICmptAltDualOutp
 {
-  public ICmptObjDualAltDualOutp AsObjDualAltDualOutp { get; set; }
-  public ICmptAltDualOutpObject AsAltDualOutp { get; set; }
+  ICmptObjDualAltDualOutp AsObjDualAltDualOutp { get; }
+  ICmptAltDualOutpObject AsAltDualOutp { get; }
 }
 
 public interface ICmptAltDualOutpObject
@@ -21,11 +21,11 @@ public interface ICmptAltDualOutpObject
 
 public interface ICmptObjDualAltDualOutp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptObjDualAltDualOutpObject AsObjDualAltDualOutp { get; set; }
+  string AsString { get; }
+  ICmptObjDualAltDualOutpObject AsObjDualAltDualOutp { get; }
 }
 
 public interface ICmptObjDualAltDualOutpObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

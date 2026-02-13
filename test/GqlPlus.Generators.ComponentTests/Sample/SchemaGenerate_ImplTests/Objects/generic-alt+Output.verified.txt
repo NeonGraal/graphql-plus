@@ -8,9 +8,9 @@ output GnrcAltOutp<$type:String> { | $type }
 
 namespace Components.Gqlp_Schema_generic_alt_Output;
 
-public class CmptGnrcAltOutp<Ttype>
-  : ICmptGnrcAltOutp<Ttype>
+public class CmptGnrcAltOutp<TType>
+  : ICmptGnrcAltOutp<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptGnrcAltOutpObject AsGnrcAltOutp { get; set; }
+  public TType Astype { get; set; }
+  public ICmptGnrcAltOutpObject<TType> AsGnrcAltOutp { get; set; }
 }

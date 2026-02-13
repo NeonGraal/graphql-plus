@@ -7,8 +7,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Dual;
 
 public interface ItestAltModBoolDual
 {
-  public IDictionary<testBoolean, ItestAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
-  public ItestAltModBoolDualObject AsAltModBoolDual { get; set; }
+  IDictionary<bool, ItestAltAltModBoolDual> AsAltAltModBoolDual { get; }
+  ItestAltModBoolDualObject AsAltModBoolDual { get; }
 }
 
 public interface ItestAltModBoolDualObject
@@ -17,11 +17,11 @@ public interface ItestAltModBoolDualObject
 
 public interface ItestAltAltModBoolDual
 {
-  public ItestString AsString { get; set; }
-  public ItestAltAltModBoolDualObject AsAltAltModBoolDual { get; set; }
+  string AsString { get; }
+  ItestAltAltModBoolDualObject AsAltAltModBoolDual { get; }
 }
 
 public interface ItestAltAltModBoolDualObject
 {
-  public ItestNumber Alt { get; set; }
+  decimal Alt { get; }
 }

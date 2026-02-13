@@ -6,7 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Output;
 
 public class test_OutputField
-  : test_ObjField
+  : test_ObjField<Itest_ObjFieldType>
   , Itest_OutputField
 {
   public Itest_OutputFieldObject As_OutputField { get; set; }

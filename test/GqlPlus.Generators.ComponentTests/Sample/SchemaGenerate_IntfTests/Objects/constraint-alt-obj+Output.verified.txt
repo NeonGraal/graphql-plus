@@ -13,28 +13,28 @@ namespace Components.Gqlp_Schema_constraint_alt_obj_Output;
 
 public interface ICmptCnstAltObjOutp
 {
-  public ICmptRefCnstAltObjOutp<ICmptAltCnstAltObjOutp> AsRefCnstAltObjOutp { get; set; }
-  public ICmptCnstAltObjOutpObject AsCnstAltObjOutp { get; set; }
+  ICmptRefCnstAltObjOutp<ICmptAltCnstAltObjOutp> AsRefCnstAltObjOutp { get; }
+  ICmptCnstAltObjOutpObject AsCnstAltObjOutp { get; }
 }
 
 public interface ICmptCnstAltObjOutpObject
 {
 }
 
-public interface ICmptRefCnstAltObjOutp<Tref>
+public interface ICmptRefCnstAltObjOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltObjOutpObject AsRefCnstAltObjOutp { get; set; }
+  TRef Asref { get; }
+  ICmptRefCnstAltObjOutpObject<TRef> AsRefCnstAltObjOutp { get; }
 }
 
-public interface ICmptRefCnstAltObjOutpObject<Tref>
+public interface ICmptRefCnstAltObjOutpObject<TRef>
 {
 }
 
 public interface ICmptPrntCnstAltObjOutp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptPrntCnstAltObjOutpObject AsPrntCnstAltObjOutp { get; set; }
+  string AsString { get; }
+  ICmptPrntCnstAltObjOutpObject AsPrntCnstAltObjOutp { get; }
 }
 
 public interface ICmptPrntCnstAltObjOutpObject
@@ -44,11 +44,11 @@ public interface ICmptPrntCnstAltObjOutpObject
 public interface ICmptAltCnstAltObjOutp
   : ICmptPrntCnstAltObjOutp
 {
-  public ICmptAltCnstAltObjOutpObject AsAltCnstAltObjOutp { get; set; }
+  ICmptAltCnstAltObjOutpObject AsAltCnstAltObjOutp { get; }
 }
 
 public interface ICmptAltCnstAltObjOutpObject
   : ICmptPrntCnstAltObjOutpObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

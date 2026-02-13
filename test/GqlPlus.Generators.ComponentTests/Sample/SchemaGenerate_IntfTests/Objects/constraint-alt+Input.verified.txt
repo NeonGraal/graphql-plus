@@ -8,12 +8,12 @@ input CnstAltInp<$type:Number> { | $type }
 
 namespace Components.Gqlp_Schema_constraint_alt_Input;
 
-public interface ICmptCnstAltInp<Ttype>
+public interface ICmptCnstAltInp<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptCnstAltInpObject AsCnstAltInp { get; set; }
+  TType Astype { get; }
+  ICmptCnstAltInpObject<TType> AsCnstAltInp { get; }
 }
 
-public interface ICmptCnstAltInpObject<Ttype>
+public interface ICmptCnstAltInpObject<TType>
 {
 }

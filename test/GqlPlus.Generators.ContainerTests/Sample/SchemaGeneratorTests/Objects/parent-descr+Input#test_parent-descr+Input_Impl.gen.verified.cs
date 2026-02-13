@@ -15,7 +15,7 @@ public class testPrntDescrInp
 public class testRefPrntDescrInp
   : ItestRefPrntDescrInp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDescrInpObject AsRefPrntDescrInp { get; set; }
 }

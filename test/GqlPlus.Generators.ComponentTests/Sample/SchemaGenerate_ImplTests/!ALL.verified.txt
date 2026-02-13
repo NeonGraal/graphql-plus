@@ -116,8 +116,8 @@ public class CmptAltDual
 public class CmptAltAltDual
   : ICmptAltAltDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltDualObject AsAltAltDual { get; set; }
 }
 
@@ -131,8 +131,8 @@ public class CmptAltInp
 public class CmptAltAltInp
   : ICmptAltAltInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltInpObject AsAltAltInp { get; set; }
 }
 
@@ -146,29 +146,29 @@ public class CmptAltOutp
 public class CmptAltAltOutp
   : ICmptAltAltOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltOutpObject AsAltAltOutp { get; set; }
 }
 
 public class CmptAltDescrDual
   : ICmptAltDescrDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltDescrDualObject AsAltDescrDual { get; set; }
 }
 
 public class CmptAltDescrInp
   : ICmptAltDescrInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltDescrInpObject AsAltDescrInp { get; set; }
 }
 
 public class CmptAltDescrOutp
   : ICmptAltDescrOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltDescrOutpObject AsAltDescrOutp { get; set; }
 }
 
@@ -182,8 +182,8 @@ public class CmptAltDualDual
 public class CmptObjDualAltDualDual
   : ICmptObjDualAltDualDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptObjDualAltDualDualObject AsObjDualAltDualDual { get; set; }
 }
 
@@ -197,8 +197,8 @@ public class CmptAltDualInp
 public class CmptObjDualAltDualInp
   : ICmptObjDualAltDualInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptObjDualAltDualInpObject AsObjDualAltDualInp { get; set; }
 }
 
@@ -212,162 +212,162 @@ public class CmptAltDualOutp
 public class CmptObjDualAltDualOutp
   : ICmptObjDualAltDualOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptObjDualAltDualOutpObject AsObjDualAltDualOutp { get; set; }
 }
 
 public class CmptAltEnumDual
   : ICmptAltEnumDual
 {
-  public ICmptEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
+  public CmptEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; set; }
   public ICmptAltEnumDualObject AsAltEnumDual { get; set; }
 }
 
 public class CmptAltEnumInp
   : ICmptAltEnumInp
 {
-  public ICmptEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
+  public CmptEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; set; }
   public ICmptAltEnumInpObject AsAltEnumInp { get; set; }
 }
 
 public class CmptAltEnumOutp
   : ICmptAltEnumOutp
 {
-  public ICmptEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
+  public CmptEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
   public ICmptAltEnumOutpObject AsAltEnumOutp { get; set; }
 }
 
 public class CmptAltModBoolDual
   : ICmptAltModBoolDual
 {
-  public IDictionary<CmptBoolean, ICmptAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
+  public IDictionary<bool, ICmptAltAltModBoolDual> AsAltAltModBoolDual { get; set; }
   public ICmptAltModBoolDualObject AsAltModBoolDual { get; set; }
 }
 
 public class CmptAltAltModBoolDual
   : ICmptAltAltModBoolDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltModBoolDualObject AsAltAltModBoolDual { get; set; }
 }
 
 public class CmptAltModBoolInp
   : ICmptAltModBoolInp
 {
-  public IDictionary<CmptBoolean, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
+  public IDictionary<bool, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
   public ICmptAltModBoolInpObject AsAltModBoolInp { get; set; }
 }
 
 public class CmptAltAltModBoolInp
   : ICmptAltAltModBoolInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltModBoolInpObject AsAltAltModBoolInp { get; set; }
 }
 
 public class CmptAltModBoolOutp
   : ICmptAltModBoolOutp
 {
-  public IDictionary<CmptBoolean, ICmptAltAltModBoolOutp> AsAltAltModBoolOutp { get; set; }
+  public IDictionary<bool, ICmptAltAltModBoolOutp> AsAltAltModBoolOutp { get; set; }
   public ICmptAltModBoolOutpObject AsAltModBoolOutp { get; set; }
 }
 
 public class CmptAltAltModBoolOutp
   : ICmptAltAltModBoolOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltModBoolOutpObject AsAltAltModBoolOutp { get; set; }
 }
 
-public class CmptAltModParamDual<Tmod>
-  : ICmptAltModParamDual<Tmod>
+public class CmptAltModParamDual<TMod>
+  : ICmptAltModParamDual<TMod>
 {
-  public IDictionary<Tmod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; set; }
-  public ICmptAltModParamDualObject AsAltModParamDual { get; set; }
+  public IDictionary<TMod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; set; }
+  public ICmptAltModParamDualObject<TMod> AsAltModParamDual { get; set; }
 }
 
 public class CmptAltAltModParamDual
   : ICmptAltAltModParamDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltModParamDualObject AsAltAltModParamDual { get; set; }
 }
 
-public class CmptAltModParamInp<Tmod>
-  : ICmptAltModParamInp<Tmod>
+public class CmptAltModParamInp<TMod>
+  : ICmptAltModParamInp<TMod>
 {
-  public IDictionary<Tmod, ICmptAltAltModParamInp> AsAltAltModParamInp { get; set; }
-  public ICmptAltModParamInpObject AsAltModParamInp { get; set; }
+  public IDictionary<TMod, ICmptAltAltModParamInp> AsAltAltModParamInp { get; set; }
+  public ICmptAltModParamInpObject<TMod> AsAltModParamInp { get; set; }
 }
 
 public class CmptAltAltModParamInp
   : ICmptAltAltModParamInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltModParamInpObject AsAltAltModParamInp { get; set; }
 }
 
-public class CmptAltModParamOutp<Tmod>
-  : ICmptAltModParamOutp<Tmod>
+public class CmptAltModParamOutp<TMod>
+  : ICmptAltModParamOutp<TMod>
 {
-  public IDictionary<Tmod, ICmptAltAltModParamOutp> AsAltAltModParamOutp { get; set; }
-  public ICmptAltModParamOutpObject AsAltModParamOutp { get; set; }
+  public IDictionary<TMod, ICmptAltAltModParamOutp> AsAltAltModParamOutp { get; set; }
+  public ICmptAltModParamOutpObject<TMod> AsAltModParamOutp { get; set; }
 }
 
 public class CmptAltAltModParamOutp
   : ICmptAltAltModParamOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltModParamOutpObject AsAltAltModParamOutp { get; set; }
 }
 
 public class CmptAltSmplDual
   : ICmptAltSmplDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltSmplDualObject AsAltSmplDual { get; set; }
 }
 
 public class CmptAltSmplInp
   : ICmptAltSmplInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltSmplInpObject AsAltSmplInp { get; set; }
 }
 
 public class CmptAltSmplOutp
   : ICmptAltSmplOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAltSmplOutpObject AsAltSmplOutp { get; set; }
 }
 
-public class CmptCnstAltDual<Ttype>
-  : ICmptCnstAltDual<Ttype>
+public class CmptCnstAltDual<TType>
+  : ICmptCnstAltDual<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptCnstAltDualObject AsCnstAltDual { get; set; }
+  public TType Astype { get; set; }
+  public ICmptCnstAltDualObject<TType> AsCnstAltDual { get; set; }
 }
 
-public class CmptCnstAltInp<Ttype>
-  : ICmptCnstAltInp<Ttype>
+public class CmptCnstAltInp<TType>
+  : ICmptCnstAltInp<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptCnstAltInpObject AsCnstAltInp { get; set; }
+  public TType Astype { get; set; }
+  public ICmptCnstAltInpObject<TType> AsCnstAltInp { get; set; }
 }
 
-public class CmptCnstAltOutp<Ttype>
-  : ICmptCnstAltOutp<Ttype>
+public class CmptCnstAltOutp<TType>
+  : ICmptCnstAltOutp<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptCnstAltOutpObject AsCnstAltOutp { get; set; }
+  public TType Astype { get; set; }
+  public ICmptCnstAltOutpObject<TType> AsCnstAltOutp { get; set; }
 }
 
 public class CmptCnstAltDmnDual
@@ -377,15 +377,15 @@ public class CmptCnstAltDmnDual
   public ICmptCnstAltDmnDualObject AsCnstAltDmnDual { get; set; }
 }
 
-public class CmptRefCnstAltDmnDual<Tref>
-  : ICmptRefCnstAltDmnDual<Tref>
+public class CmptRefCnstAltDmnDual<TRef>
+  : ICmptRefCnstAltDmnDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltDmnDualObject AsRefCnstAltDmnDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltDmnDualObject<TRef> AsRefCnstAltDmnDual { get; set; }
 }
 
 public class CmptDomCnstAltDmnDual
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstAltDmnDual
 {
 }
@@ -397,15 +397,15 @@ public class CmptCnstAltDmnInp
   public ICmptCnstAltDmnInpObject AsCnstAltDmnInp { get; set; }
 }
 
-public class CmptRefCnstAltDmnInp<Tref>
-  : ICmptRefCnstAltDmnInp<Tref>
+public class CmptRefCnstAltDmnInp<TRef>
+  : ICmptRefCnstAltDmnInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltDmnInpObject AsRefCnstAltDmnInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltDmnInpObject<TRef> AsRefCnstAltDmnInp { get; set; }
 }
 
 public class CmptDomCnstAltDmnInp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstAltDmnInp
 {
 }
@@ -417,15 +417,15 @@ public class CmptCnstAltDmnOutp
   public ICmptCnstAltDmnOutpObject AsCnstAltDmnOutp { get; set; }
 }
 
-public class CmptRefCnstAltDmnOutp<Tref>
-  : ICmptRefCnstAltDmnOutp<Tref>
+public class CmptRefCnstAltDmnOutp<TRef>
+  : ICmptRefCnstAltDmnOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltDmnOutpObject AsRefCnstAltDmnOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltDmnOutpObject<TRef> AsRefCnstAltDmnOutp { get; set; }
 }
 
 public class CmptDomCnstAltDmnOutp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstAltDmnOutp
 {
 }
@@ -437,17 +437,17 @@ public class CmptCnstAltDualDual
   public ICmptCnstAltDualDualObject AsCnstAltDualDual { get; set; }
 }
 
-public class CmptRefCnstAltDualDual<Tref>
-  : ICmptRefCnstAltDualDual<Tref>
+public class CmptRefCnstAltDualDual<TRef>
+  : ICmptRefCnstAltDualDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltDualDualObject AsRefCnstAltDualDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltDualDualObject<TRef> AsRefCnstAltDualDual { get; set; }
 }
 
 public class CmptPrntCnstAltDualDual
   : ICmptPrntCnstAltDualDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; set; }
 }
 
@@ -455,7 +455,7 @@ public class CmptAltCnstAltDualDual
   : CmptPrntCnstAltDualDual
   , ICmptAltCnstAltDualDual
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstAltDualDualObject AsAltCnstAltDualDual { get; set; }
 }
 
@@ -466,17 +466,17 @@ public class CmptCnstAltDualInp
   public ICmptCnstAltDualInpObject AsCnstAltDualInp { get; set; }
 }
 
-public class CmptRefCnstAltDualInp<Tref>
-  : ICmptRefCnstAltDualInp<Tref>
+public class CmptRefCnstAltDualInp<TRef>
+  : ICmptRefCnstAltDualInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltDualInpObject AsRefCnstAltDualInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltDualInpObject<TRef> AsRefCnstAltDualInp { get; set; }
 }
 
 public class CmptPrntCnstAltDualInp
   : ICmptPrntCnstAltDualInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstAltDualInpObject AsPrntCnstAltDualInp { get; set; }
 }
 
@@ -484,7 +484,7 @@ public class CmptAltCnstAltDualInp
   : CmptPrntCnstAltDualInp
   , ICmptAltCnstAltDualInp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstAltDualInpObject AsAltCnstAltDualInp { get; set; }
 }
 
@@ -495,17 +495,17 @@ public class CmptCnstAltDualOutp
   public ICmptCnstAltDualOutpObject AsCnstAltDualOutp { get; set; }
 }
 
-public class CmptRefCnstAltDualOutp<Tref>
-  : ICmptRefCnstAltDualOutp<Tref>
+public class CmptRefCnstAltDualOutp<TRef>
+  : ICmptRefCnstAltDualOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltDualOutpObject AsRefCnstAltDualOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltDualOutpObject<TRef> AsRefCnstAltDualOutp { get; set; }
 }
 
 public class CmptPrntCnstAltDualOutp
   : ICmptPrntCnstAltDualOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstAltDualOutpObject AsPrntCnstAltDualOutp { get; set; }
 }
 
@@ -513,7 +513,7 @@ public class CmptAltCnstAltDualOutp
   : CmptPrntCnstAltDualOutp
   , ICmptAltCnstAltDualOutp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstAltDualOutpObject AsAltCnstAltDualOutp { get; set; }
 }
 
@@ -524,17 +524,17 @@ public class CmptCnstAltObjDual
   public ICmptCnstAltObjDualObject AsCnstAltObjDual { get; set; }
 }
 
-public class CmptRefCnstAltObjDual<Tref>
-  : ICmptRefCnstAltObjDual<Tref>
+public class CmptRefCnstAltObjDual<TRef>
+  : ICmptRefCnstAltObjDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltObjDualObject AsRefCnstAltObjDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltObjDualObject<TRef> AsRefCnstAltObjDual { get; set; }
 }
 
 public class CmptPrntCnstAltObjDual
   : ICmptPrntCnstAltObjDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstAltObjDualObject AsPrntCnstAltObjDual { get; set; }
 }
 
@@ -542,7 +542,7 @@ public class CmptAltCnstAltObjDual
   : CmptPrntCnstAltObjDual
   , ICmptAltCnstAltObjDual
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstAltObjDualObject AsAltCnstAltObjDual { get; set; }
 }
 
@@ -553,17 +553,17 @@ public class CmptCnstAltObjInp
   public ICmptCnstAltObjInpObject AsCnstAltObjInp { get; set; }
 }
 
-public class CmptRefCnstAltObjInp<Tref>
-  : ICmptRefCnstAltObjInp<Tref>
+public class CmptRefCnstAltObjInp<TRef>
+  : ICmptRefCnstAltObjInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltObjInpObject AsRefCnstAltObjInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltObjInpObject<TRef> AsRefCnstAltObjInp { get; set; }
 }
 
 public class CmptPrntCnstAltObjInp
   : ICmptPrntCnstAltObjInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstAltObjInpObject AsPrntCnstAltObjInp { get; set; }
 }
 
@@ -571,7 +571,7 @@ public class CmptAltCnstAltObjInp
   : CmptPrntCnstAltObjInp
   , ICmptAltCnstAltObjInp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstAltObjInpObject AsAltCnstAltObjInp { get; set; }
 }
 
@@ -582,17 +582,17 @@ public class CmptCnstAltObjOutp
   public ICmptCnstAltObjOutpObject AsCnstAltObjOutp { get; set; }
 }
 
-public class CmptRefCnstAltObjOutp<Tref>
-  : ICmptRefCnstAltObjOutp<Tref>
+public class CmptRefCnstAltObjOutp<TRef>
+  : ICmptRefCnstAltObjOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltObjOutpObject AsRefCnstAltObjOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltObjOutpObject<TRef> AsRefCnstAltObjOutp { get; set; }
 }
 
 public class CmptPrntCnstAltObjOutp
   : ICmptPrntCnstAltObjOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstAltObjOutpObject AsPrntCnstAltObjOutp { get; set; }
 }
 
@@ -600,26 +600,26 @@ public class CmptAltCnstAltObjOutp
   : CmptPrntCnstAltObjOutp
   , ICmptAltCnstAltObjOutp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstAltObjOutpObject AsAltCnstAltObjOutp { get; set; }
 }
 
 public class CmptCnstDomEnumDual
   : ICmptCnstDomEnumDual
 {
-  public ICmptRefCnstDomEnumDual<ICmptEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
+  public ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual> AsEnumCnstDomEnumDualcnstDomEnumDual { get; set; }
   public ICmptCnstDomEnumDualObject AsCnstDomEnumDual { get; set; }
 }
 
-public class CmptRefCnstDomEnumDual<Ttype>
-  : ICmptRefCnstDomEnumDual<Ttype>
+public class CmptRefCnstDomEnumDual<TType>
+  : ICmptRefCnstDomEnumDual<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstDomEnumDualObject AsRefCnstDomEnumDual { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstDomEnumDualObject<TType> AsRefCnstDomEnumDual { get; set; }
 }
 
 public class CmptJustCnstDomEnumDual
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptJustCnstDomEnumDual
 {
 }
@@ -627,19 +627,19 @@ public class CmptJustCnstDomEnumDual
 public class CmptCnstDomEnumInp
   : ICmptCnstDomEnumInp
 {
-  public ICmptRefCnstDomEnumInp<ICmptEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public ICmptRefCnstDomEnumInp<CmptEnumCnstDomEnumInp> AsEnumCnstDomEnumInpcnstDomEnumInp { get; set; }
   public ICmptCnstDomEnumInpObject AsCnstDomEnumInp { get; set; }
 }
 
-public class CmptRefCnstDomEnumInp<Ttype>
-  : ICmptRefCnstDomEnumInp<Ttype>
+public class CmptRefCnstDomEnumInp<TType>
+  : ICmptRefCnstDomEnumInp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstDomEnumInpObject AsRefCnstDomEnumInp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstDomEnumInpObject<TType> AsRefCnstDomEnumInp { get; set; }
 }
 
 public class CmptJustCnstDomEnumInp
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptJustCnstDomEnumInp
 {
 }
@@ -647,19 +647,19 @@ public class CmptJustCnstDomEnumInp
 public class CmptCnstDomEnumOutp
   : ICmptCnstDomEnumOutp
 {
-  public ICmptRefCnstDomEnumOutp<ICmptEnumCnstDomEnumOutp> AsRefCnstDomEnumOutp { get; set; }
+  public ICmptRefCnstDomEnumOutp<CmptEnumCnstDomEnumOutp> AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; set; }
   public ICmptCnstDomEnumOutpObject AsCnstDomEnumOutp { get; set; }
 }
 
-public class CmptRefCnstDomEnumOutp<Ttype>
-  : ICmptRefCnstDomEnumOutp<Ttype>
+public class CmptRefCnstDomEnumOutp<TType>
+  : ICmptRefCnstDomEnumOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstDomEnumOutpObject AsRefCnstDomEnumOutp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstDomEnumOutpObject<TType> AsRefCnstDomEnumOutp { get; set; }
 }
 
 public class CmptJustCnstDomEnumOutp
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptJustCnstDomEnumOutp
 {
 }
@@ -667,165 +667,165 @@ public class CmptJustCnstDomEnumOutp
 public class CmptCnstEnumDual
   : ICmptCnstEnumDual
 {
-  public ICmptRefCnstEnumDual<ICmptEnumCnstEnumDual> AsRefCnstEnumDual { get; set; }
+  public ICmptRefCnstEnumDual<CmptEnumCnstEnumDual> AsEnumCnstEnumDualcnstEnumDual { get; set; }
   public ICmptCnstEnumDualObject AsCnstEnumDual { get; set; }
 }
 
-public class CmptRefCnstEnumDual<Ttype>
-  : ICmptRefCnstEnumDual<Ttype>
+public class CmptRefCnstEnumDual<TType>
+  : ICmptRefCnstEnumDual<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstEnumDualObject AsRefCnstEnumDual { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstEnumDualObject<TType> AsRefCnstEnumDual { get; set; }
 }
 
 public class CmptCnstEnumInp
   : ICmptCnstEnumInp
 {
-  public ICmptRefCnstEnumInp<ICmptEnumCnstEnumInp> AsRefCnstEnumInp { get; set; }
+  public ICmptRefCnstEnumInp<CmptEnumCnstEnumInp> AsEnumCnstEnumInpcnstEnumInp { get; set; }
   public ICmptCnstEnumInpObject AsCnstEnumInp { get; set; }
 }
 
-public class CmptRefCnstEnumInp<Ttype>
-  : ICmptRefCnstEnumInp<Ttype>
+public class CmptRefCnstEnumInp<TType>
+  : ICmptRefCnstEnumInp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstEnumInpObject AsRefCnstEnumInp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstEnumInpObject<TType> AsRefCnstEnumInp { get; set; }
 }
 
 public class CmptCnstEnumOutp
   : ICmptCnstEnumOutp
 {
-  public ICmptRefCnstEnumOutp<ICmptEnumCnstEnumOutp> AsRefCnstEnumOutp { get; set; }
+  public ICmptRefCnstEnumOutp<CmptEnumCnstEnumOutp> AsEnumCnstEnumOutpcnstEnumOutp { get; set; }
   public ICmptCnstEnumOutpObject AsCnstEnumOutp { get; set; }
 }
 
-public class CmptRefCnstEnumOutp<Ttype>
-  : ICmptRefCnstEnumOutp<Ttype>
+public class CmptRefCnstEnumOutp<TType>
+  : ICmptRefCnstEnumOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstEnumOutpObject AsRefCnstEnumOutp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstEnumOutpObject<TType> AsRefCnstEnumOutp { get; set; }
 }
 
 public class CmptCnstEnumPrntDual
   : ICmptCnstEnumPrntDual
 {
-  public ICmptRefCnstEnumPrntDual<ICmptEnumCnstEnumPrntDual> AsRefCnstEnumPrntDual { get; set; }
+  public ICmptRefCnstEnumPrntDual<CmptEnumCnstEnumPrntDual> AsEnumCnstEnumPrntDualcnstEnumPrntDual { get; set; }
   public ICmptCnstEnumPrntDualObject AsCnstEnumPrntDual { get; set; }
 }
 
-public class CmptRefCnstEnumPrntDual<Ttype>
-  : ICmptRefCnstEnumPrntDual<Ttype>
+public class CmptRefCnstEnumPrntDual<TType>
+  : ICmptRefCnstEnumPrntDual<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstEnumPrntDualObject AsRefCnstEnumPrntDual { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstEnumPrntDualObject<TType> AsRefCnstEnumPrntDual { get; set; }
 }
 
 public class CmptCnstEnumPrntInp
   : ICmptCnstEnumPrntInp
 {
-  public ICmptRefCnstEnumPrntInp<ICmptEnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; set; }
+  public ICmptRefCnstEnumPrntInp<CmptEnumCnstEnumPrntInp> AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; set; }
   public ICmptCnstEnumPrntInpObject AsCnstEnumPrntInp { get; set; }
 }
 
-public class CmptRefCnstEnumPrntInp<Ttype>
-  : ICmptRefCnstEnumPrntInp<Ttype>
+public class CmptRefCnstEnumPrntInp<TType>
+  : ICmptRefCnstEnumPrntInp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstEnumPrntInpObject AsRefCnstEnumPrntInp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstEnumPrntInpObject<TType> AsRefCnstEnumPrntInp { get; set; }
 }
 
 public class CmptCnstEnumPrntOutp
   : ICmptCnstEnumPrntOutp
 {
-  public ICmptRefCnstEnumPrntOutp<ICmptEnumCnstEnumPrntOutp> AsRefCnstEnumPrntOutp { get; set; }
+  public ICmptRefCnstEnumPrntOutp<CmptEnumCnstEnumPrntOutp> AsEnumCnstEnumPrntOutpcnstEnumPrntOutp { get; set; }
   public ICmptCnstEnumPrntOutpObject AsCnstEnumPrntOutp { get; set; }
 }
 
-public class CmptRefCnstEnumPrntOutp<Ttype>
-  : ICmptRefCnstEnumPrntOutp<Ttype>
+public class CmptRefCnstEnumPrntOutp<TType>
+  : ICmptRefCnstEnumPrntOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstEnumPrntOutpObject AsRefCnstEnumPrntOutp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstEnumPrntOutpObject<TType> AsRefCnstEnumPrntOutp { get; set; }
 }
 
 public class CmptCnstFieldDmnDual
-  : CmptRefCnstFieldDmnDual
+  : CmptRefCnstFieldDmnDual<ICmptDomCnstFieldDmnDual>
   , ICmptCnstFieldDmnDual
 {
   public ICmptCnstFieldDmnDualObject AsCnstFieldDmnDual { get; set; }
 }
 
-public class CmptRefCnstFieldDmnDual<Tref>
-  : ICmptRefCnstFieldDmnDual<Tref>
+public class CmptRefCnstFieldDmnDual<TRef>
+  : ICmptRefCnstFieldDmnDual<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldDmnDualObject AsRefCnstFieldDmnDual { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldDmnDualObject<TRef> AsRefCnstFieldDmnDual { get; set; }
 }
 
 public class CmptDomCnstFieldDmnDual
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstFieldDmnDual
 {
 }
 
 public class CmptCnstFieldDmnInp
-  : CmptRefCnstFieldDmnInp
+  : CmptRefCnstFieldDmnInp<ICmptDomCnstFieldDmnInp>
   , ICmptCnstFieldDmnInp
 {
   public ICmptCnstFieldDmnInpObject AsCnstFieldDmnInp { get; set; }
 }
 
-public class CmptRefCnstFieldDmnInp<Tref>
-  : ICmptRefCnstFieldDmnInp<Tref>
+public class CmptRefCnstFieldDmnInp<TRef>
+  : ICmptRefCnstFieldDmnInp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldDmnInpObject AsRefCnstFieldDmnInp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldDmnInpObject<TRef> AsRefCnstFieldDmnInp { get; set; }
 }
 
 public class CmptDomCnstFieldDmnInp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstFieldDmnInp
 {
 }
 
 public class CmptCnstFieldDmnOutp
-  : CmptRefCnstFieldDmnOutp
+  : CmptRefCnstFieldDmnOutp<ICmptDomCnstFieldDmnOutp>
   , ICmptCnstFieldDmnOutp
 {
   public ICmptCnstFieldDmnOutpObject AsCnstFieldDmnOutp { get; set; }
 }
 
-public class CmptRefCnstFieldDmnOutp<Tref>
-  : ICmptRefCnstFieldDmnOutp<Tref>
+public class CmptRefCnstFieldDmnOutp<TRef>
+  : ICmptRefCnstFieldDmnOutp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldDmnOutpObject AsRefCnstFieldDmnOutp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldDmnOutpObject<TRef> AsRefCnstFieldDmnOutp { get; set; }
 }
 
 public class CmptDomCnstFieldDmnOutp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstFieldDmnOutp
 {
 }
 
 public class CmptCnstFieldDualDual
-  : CmptRefCnstFieldDualDual
+  : CmptRefCnstFieldDualDual<ICmptAltCnstFieldDualDual>
   , ICmptCnstFieldDualDual
 {
   public ICmptCnstFieldDualDualObject AsCnstFieldDualDual { get; set; }
 }
 
-public class CmptRefCnstFieldDualDual<Tref>
-  : ICmptRefCnstFieldDualDual<Tref>
+public class CmptRefCnstFieldDualDual<TRef>
+  : ICmptRefCnstFieldDualDual<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldDualDualObject AsRefCnstFieldDualDual { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldDualDualObject<TRef> AsRefCnstFieldDualDual { get; set; }
 }
 
 public class CmptPrntCnstFieldDualDual
   : ICmptPrntCnstFieldDualDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstFieldDualDualObject AsPrntCnstFieldDualDual { get; set; }
 }
 
@@ -833,28 +833,28 @@ public class CmptAltCnstFieldDualDual
   : CmptPrntCnstFieldDualDual
   , ICmptAltCnstFieldDualDual
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstFieldDualDualObject AsAltCnstFieldDualDual { get; set; }
 }
 
 public class CmptCnstFieldDualInp
-  : CmptRefCnstFieldDualInp
+  : CmptRefCnstFieldDualInp<ICmptAltCnstFieldDualInp>
   , ICmptCnstFieldDualInp
 {
   public ICmptCnstFieldDualInpObject AsCnstFieldDualInp { get; set; }
 }
 
-public class CmptRefCnstFieldDualInp<Tref>
-  : ICmptRefCnstFieldDualInp<Tref>
+public class CmptRefCnstFieldDualInp<TRef>
+  : ICmptRefCnstFieldDualInp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldDualInpObject AsRefCnstFieldDualInp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldDualInpObject<TRef> AsRefCnstFieldDualInp { get; set; }
 }
 
 public class CmptPrntCnstFieldDualInp
   : ICmptPrntCnstFieldDualInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstFieldDualInpObject AsPrntCnstFieldDualInp { get; set; }
 }
 
@@ -862,28 +862,28 @@ public class CmptAltCnstFieldDualInp
   : CmptPrntCnstFieldDualInp
   , ICmptAltCnstFieldDualInp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstFieldDualInpObject AsAltCnstFieldDualInp { get; set; }
 }
 
 public class CmptCnstFieldDualOutp
-  : CmptRefCnstFieldDualOutp
+  : CmptRefCnstFieldDualOutp<ICmptAltCnstFieldDualOutp>
   , ICmptCnstFieldDualOutp
 {
   public ICmptCnstFieldDualOutpObject AsCnstFieldDualOutp { get; set; }
 }
 
-public class CmptRefCnstFieldDualOutp<Tref>
-  : ICmptRefCnstFieldDualOutp<Tref>
+public class CmptRefCnstFieldDualOutp<TRef>
+  : ICmptRefCnstFieldDualOutp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldDualOutpObject AsRefCnstFieldDualOutp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldDualOutpObject<TRef> AsRefCnstFieldDualOutp { get; set; }
 }
 
 public class CmptPrntCnstFieldDualOutp
   : ICmptPrntCnstFieldDualOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstFieldDualOutpObject AsPrntCnstFieldDualOutp { get; set; }
 }
 
@@ -891,28 +891,28 @@ public class CmptAltCnstFieldDualOutp
   : CmptPrntCnstFieldDualOutp
   , ICmptAltCnstFieldDualOutp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstFieldDualOutpObject AsAltCnstFieldDualOutp { get; set; }
 }
 
 public class CmptCnstFieldObjDual
-  : CmptRefCnstFieldObjDual
+  : CmptRefCnstFieldObjDual<ICmptAltCnstFieldObjDual>
   , ICmptCnstFieldObjDual
 {
   public ICmptCnstFieldObjDualObject AsCnstFieldObjDual { get; set; }
 }
 
-public class CmptRefCnstFieldObjDual<Tref>
-  : ICmptRefCnstFieldObjDual<Tref>
+public class CmptRefCnstFieldObjDual<TRef>
+  : ICmptRefCnstFieldObjDual<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldObjDualObject AsRefCnstFieldObjDual { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldObjDualObject<TRef> AsRefCnstFieldObjDual { get; set; }
 }
 
 public class CmptPrntCnstFieldObjDual
   : ICmptPrntCnstFieldObjDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstFieldObjDualObject AsPrntCnstFieldObjDual { get; set; }
 }
 
@@ -920,28 +920,28 @@ public class CmptAltCnstFieldObjDual
   : CmptPrntCnstFieldObjDual
   , ICmptAltCnstFieldObjDual
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstFieldObjDualObject AsAltCnstFieldObjDual { get; set; }
 }
 
 public class CmptCnstFieldObjInp
-  : CmptRefCnstFieldObjInp
+  : CmptRefCnstFieldObjInp<ICmptAltCnstFieldObjInp>
   , ICmptCnstFieldObjInp
 {
   public ICmptCnstFieldObjInpObject AsCnstFieldObjInp { get; set; }
 }
 
-public class CmptRefCnstFieldObjInp<Tref>
-  : ICmptRefCnstFieldObjInp<Tref>
+public class CmptRefCnstFieldObjInp<TRef>
+  : ICmptRefCnstFieldObjInp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldObjInpObject AsRefCnstFieldObjInp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldObjInpObject<TRef> AsRefCnstFieldObjInp { get; set; }
 }
 
 public class CmptPrntCnstFieldObjInp
   : ICmptPrntCnstFieldObjInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstFieldObjInpObject AsPrntCnstFieldObjInp { get; set; }
 }
 
@@ -949,28 +949,28 @@ public class CmptAltCnstFieldObjInp
   : CmptPrntCnstFieldObjInp
   , ICmptAltCnstFieldObjInp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstFieldObjInpObject AsAltCnstFieldObjInp { get; set; }
 }
 
 public class CmptCnstFieldObjOutp
-  : CmptRefCnstFieldObjOutp
+  : CmptRefCnstFieldObjOutp<ICmptAltCnstFieldObjOutp>
   , ICmptCnstFieldObjOutp
 {
   public ICmptCnstFieldObjOutpObject AsCnstFieldObjOutp { get; set; }
 }
 
-public class CmptRefCnstFieldObjOutp<Tref>
-  : ICmptRefCnstFieldObjOutp<Tref>
+public class CmptRefCnstFieldObjOutp<TRef>
+  : ICmptRefCnstFieldObjOutp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldObjOutpObject<TRef> AsRefCnstFieldObjOutp { get; set; }
 }
 
 public class CmptPrntCnstFieldObjOutp
   : ICmptPrntCnstFieldObjOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; set; }
 }
 
@@ -978,28 +978,28 @@ public class CmptAltCnstFieldObjOutp
   : CmptPrntCnstFieldObjOutp
   , ICmptAltCnstFieldObjOutp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; set; }
 }
 
 public class CmptCnstPrntDualGrndDual
-  : CmptRefCnstPrntDualGrndDual
+  : CmptRefCnstPrntDualGrndDual<ICmptAltCnstPrntDualGrndDual>
   , ICmptCnstPrntDualGrndDual
 {
   public ICmptCnstPrntDualGrndDualObject AsCnstPrntDualGrndDual { get; set; }
 }
 
-public class CmptRefCnstPrntDualGrndDual<Tref>
-  : Cmptref
-  , ICmptRefCnstPrntDualGrndDual<Tref>
+public class CmptRefCnstPrntDualGrndDual<TRef>
+  : ICmptRefCnstPrntDualGrndDual<TRef>
 {
-  public ICmptRefCnstPrntDualGrndDualObject AsRefCnstPrntDualGrndDual { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefCnstPrntDualGrndDualObject<TRef> AsRefCnstPrntDualGrndDual { get; set; }
 }
 
 public class CmptGrndCnstPrntDualGrndDual
   : ICmptGrndCnstPrntDualGrndDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptGrndCnstPrntDualGrndDualObject AsGrndCnstPrntDualGrndDual { get; set; }
 }
 
@@ -1014,28 +1014,28 @@ public class CmptAltCnstPrntDualGrndDual
   : CmptPrntCnstPrntDualGrndDual
   , ICmptAltCnstPrntDualGrndDual
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstPrntDualGrndDualObject AsAltCnstPrntDualGrndDual { get; set; }
 }
 
 public class CmptCnstPrntDualGrndInp
-  : CmptRefCnstPrntDualGrndInp
+  : CmptRefCnstPrntDualGrndInp<ICmptAltCnstPrntDualGrndInp>
   , ICmptCnstPrntDualGrndInp
 {
   public ICmptCnstPrntDualGrndInpObject AsCnstPrntDualGrndInp { get; set; }
 }
 
-public class CmptRefCnstPrntDualGrndInp<Tref>
-  : Cmptref
-  , ICmptRefCnstPrntDualGrndInp<Tref>
+public class CmptRefCnstPrntDualGrndInp<TRef>
+  : ICmptRefCnstPrntDualGrndInp<TRef>
 {
-  public ICmptRefCnstPrntDualGrndInpObject AsRefCnstPrntDualGrndInp { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefCnstPrntDualGrndInpObject<TRef> AsRefCnstPrntDualGrndInp { get; set; }
 }
 
 public class CmptGrndCnstPrntDualGrndInp
   : ICmptGrndCnstPrntDualGrndInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptGrndCnstPrntDualGrndInpObject AsGrndCnstPrntDualGrndInp { get; set; }
 }
 
@@ -1050,28 +1050,28 @@ public class CmptAltCnstPrntDualGrndInp
   : CmptPrntCnstPrntDualGrndInp
   , ICmptAltCnstPrntDualGrndInp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstPrntDualGrndInpObject AsAltCnstPrntDualGrndInp { get; set; }
 }
 
 public class CmptCnstPrntDualGrndOutp
-  : CmptRefCnstPrntDualGrndOutp
+  : CmptRefCnstPrntDualGrndOutp<ICmptAltCnstPrntDualGrndOutp>
   , ICmptCnstPrntDualGrndOutp
 {
   public ICmptCnstPrntDualGrndOutpObject AsCnstPrntDualGrndOutp { get; set; }
 }
 
-public class CmptRefCnstPrntDualGrndOutp<Tref>
-  : Cmptref
-  , ICmptRefCnstPrntDualGrndOutp<Tref>
+public class CmptRefCnstPrntDualGrndOutp<TRef>
+  : ICmptRefCnstPrntDualGrndOutp<TRef>
 {
-  public ICmptRefCnstPrntDualGrndOutpObject AsRefCnstPrntDualGrndOutp { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefCnstPrntDualGrndOutpObject<TRef> AsRefCnstPrntDualGrndOutp { get; set; }
 }
 
 public class CmptGrndCnstPrntDualGrndOutp
   : ICmptGrndCnstPrntDualGrndOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptGrndCnstPrntDualGrndOutpObject AsGrndCnstPrntDualGrndOutp { get; set; }
 }
 
@@ -1086,28 +1086,28 @@ public class CmptAltCnstPrntDualGrndOutp
   : CmptPrntCnstPrntDualGrndOutp
   , ICmptAltCnstPrntDualGrndOutp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstPrntDualGrndOutpObject AsAltCnstPrntDualGrndOutp { get; set; }
 }
 
 public class CmptCnstPrntDualPrntDual
-  : CmptRefCnstPrntDualPrntDual
+  : CmptRefCnstPrntDualPrntDual<ICmptAltCnstPrntDualPrntDual>
   , ICmptCnstPrntDualPrntDual
 {
   public ICmptCnstPrntDualPrntDualObject AsCnstPrntDualPrntDual { get; set; }
 }
 
-public class CmptRefCnstPrntDualPrntDual<Tref>
-  : Cmptref
-  , ICmptRefCnstPrntDualPrntDual<Tref>
+public class CmptRefCnstPrntDualPrntDual<TRef>
+  : ICmptRefCnstPrntDualPrntDual<TRef>
 {
-  public ICmptRefCnstPrntDualPrntDualObject AsRefCnstPrntDualPrntDual { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefCnstPrntDualPrntDualObject<TRef> AsRefCnstPrntDualPrntDual { get; set; }
 }
 
 public class CmptPrntCnstPrntDualPrntDual
   : ICmptPrntCnstPrntDualPrntDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstPrntDualPrntDualObject AsPrntCnstPrntDualPrntDual { get; set; }
 }
 
@@ -1115,28 +1115,28 @@ public class CmptAltCnstPrntDualPrntDual
   : CmptPrntCnstPrntDualPrntDual
   , ICmptAltCnstPrntDualPrntDual
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstPrntDualPrntDualObject AsAltCnstPrntDualPrntDual { get; set; }
 }
 
 public class CmptCnstPrntDualPrntInp
-  : CmptRefCnstPrntDualPrntInp
+  : CmptRefCnstPrntDualPrntInp<ICmptAltCnstPrntDualPrntInp>
   , ICmptCnstPrntDualPrntInp
 {
   public ICmptCnstPrntDualPrntInpObject AsCnstPrntDualPrntInp { get; set; }
 }
 
-public class CmptRefCnstPrntDualPrntInp<Tref>
-  : Cmptref
-  , ICmptRefCnstPrntDualPrntInp<Tref>
+public class CmptRefCnstPrntDualPrntInp<TRef>
+  : ICmptRefCnstPrntDualPrntInp<TRef>
 {
-  public ICmptRefCnstPrntDualPrntInpObject AsRefCnstPrntDualPrntInp { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefCnstPrntDualPrntInpObject<TRef> AsRefCnstPrntDualPrntInp { get; set; }
 }
 
 public class CmptPrntCnstPrntDualPrntInp
   : ICmptPrntCnstPrntDualPrntInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstPrntDualPrntInpObject AsPrntCnstPrntDualPrntInp { get; set; }
 }
 
@@ -1144,28 +1144,28 @@ public class CmptAltCnstPrntDualPrntInp
   : CmptPrntCnstPrntDualPrntInp
   , ICmptAltCnstPrntDualPrntInp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstPrntDualPrntInpObject AsAltCnstPrntDualPrntInp { get; set; }
 }
 
 public class CmptCnstPrntDualPrntOutp
-  : CmptRefCnstPrntDualPrntOutp
+  : CmptRefCnstPrntDualPrntOutp<ICmptAltCnstPrntDualPrntOutp>
   , ICmptCnstPrntDualPrntOutp
 {
   public ICmptCnstPrntDualPrntOutpObject AsCnstPrntDualPrntOutp { get; set; }
 }
 
-public class CmptRefCnstPrntDualPrntOutp<Tref>
-  : Cmptref
-  , ICmptRefCnstPrntDualPrntOutp<Tref>
+public class CmptRefCnstPrntDualPrntOutp<TRef>
+  : ICmptRefCnstPrntDualPrntOutp<TRef>
 {
-  public ICmptRefCnstPrntDualPrntOutpObject AsRefCnstPrntDualPrntOutp { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefCnstPrntDualPrntOutpObject<TRef> AsRefCnstPrntDualPrntOutp { get; set; }
 }
 
 public class CmptPrntCnstPrntDualPrntOutp
   : ICmptPrntCnstPrntDualPrntOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstPrntDualPrntOutpObject AsPrntCnstPrntDualPrntOutp { get; set; }
 }
 
@@ -1173,70 +1173,70 @@ public class CmptAltCnstPrntDualPrntOutp
   : CmptPrntCnstPrntDualPrntOutp
   , ICmptAltCnstPrntDualPrntOutp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstPrntDualPrntOutpObject AsAltCnstPrntDualPrntOutp { get; set; }
 }
 
 public class CmptCnstPrntEnumDual
   : ICmptCnstPrntEnumDual
 {
-  public ICmptRefCnstPrntEnumDual<ICmptParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; set; }
+  public ICmptRefCnstPrntEnumDual<CmptParentCnstPrntEnumDual> AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; set; }
   public ICmptCnstPrntEnumDualObject AsCnstPrntEnumDual { get; set; }
 }
 
-public class CmptRefCnstPrntEnumDual<Ttype>
-  : ICmptRefCnstPrntEnumDual<Ttype>
+public class CmptRefCnstPrntEnumDual<TType>
+  : ICmptRefCnstPrntEnumDual<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstPrntEnumDualObject AsRefCnstPrntEnumDual { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstPrntEnumDualObject<TType> AsRefCnstPrntEnumDual { get; set; }
 }
 
 public class CmptCnstPrntEnumInp
   : ICmptCnstPrntEnumInp
 {
-  public ICmptRefCnstPrntEnumInp<ICmptParentCnstPrntEnumInp> AsRefCnstPrntEnumInp { get; set; }
+  public ICmptRefCnstPrntEnumInp<CmptParentCnstPrntEnumInp> AsParentCnstPrntEnumInpparentCnstPrntEnumInp { get; set; }
   public ICmptCnstPrntEnumInpObject AsCnstPrntEnumInp { get; set; }
 }
 
-public class CmptRefCnstPrntEnumInp<Ttype>
-  : ICmptRefCnstPrntEnumInp<Ttype>
+public class CmptRefCnstPrntEnumInp<TType>
+  : ICmptRefCnstPrntEnumInp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstPrntEnumInpObject AsRefCnstPrntEnumInp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstPrntEnumInpObject<TType> AsRefCnstPrntEnumInp { get; set; }
 }
 
 public class CmptCnstPrntEnumOutp
   : ICmptCnstPrntEnumOutp
 {
-  public ICmptRefCnstPrntEnumOutp<ICmptParentCnstPrntEnumOutp> AsRefCnstPrntEnumOutp { get; set; }
+  public ICmptRefCnstPrntEnumOutp<CmptParentCnstPrntEnumOutp> AsParentCnstPrntEnumOutpparentCnstPrntEnumOutp { get; set; }
   public ICmptCnstPrntEnumOutpObject AsCnstPrntEnumOutp { get; set; }
 }
 
-public class CmptRefCnstPrntEnumOutp<Ttype>
-  : ICmptRefCnstPrntEnumOutp<Ttype>
+public class CmptRefCnstPrntEnumOutp<TType>
+  : ICmptRefCnstPrntEnumOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstPrntEnumOutpObject AsRefCnstPrntEnumOutp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstPrntEnumOutpObject<TType> AsRefCnstPrntEnumOutp { get; set; }
 }
 
 public class CmptCnstPrntObjPrntDual
-  : CmptRefCnstPrntObjPrntDual
+  : CmptRefCnstPrntObjPrntDual<ICmptAltCnstPrntObjPrntDual>
   , ICmptCnstPrntObjPrntDual
 {
   public ICmptCnstPrntObjPrntDualObject AsCnstPrntObjPrntDual { get; set; }
 }
 
-public class CmptRefCnstPrntObjPrntDual<Tref>
-  : Cmptref
-  , ICmptRefCnstPrntObjPrntDual<Tref>
+public class CmptRefCnstPrntObjPrntDual<TRef>
+  : ICmptRefCnstPrntObjPrntDual<TRef>
 {
-  public ICmptRefCnstPrntObjPrntDualObject AsRefCnstPrntObjPrntDual { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefCnstPrntObjPrntDualObject<TRef> AsRefCnstPrntObjPrntDual { get; set; }
 }
 
 public class CmptPrntCnstPrntObjPrntDual
   : ICmptPrntCnstPrntObjPrntDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstPrntObjPrntDualObject AsPrntCnstPrntObjPrntDual { get; set; }
 }
 
@@ -1244,28 +1244,28 @@ public class CmptAltCnstPrntObjPrntDual
   : CmptPrntCnstPrntObjPrntDual
   , ICmptAltCnstPrntObjPrntDual
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstPrntObjPrntDualObject AsAltCnstPrntObjPrntDual { get; set; }
 }
 
 public class CmptCnstPrntObjPrntInp
-  : CmptRefCnstPrntObjPrntInp
+  : CmptRefCnstPrntObjPrntInp<ICmptAltCnstPrntObjPrntInp>
   , ICmptCnstPrntObjPrntInp
 {
   public ICmptCnstPrntObjPrntInpObject AsCnstPrntObjPrntInp { get; set; }
 }
 
-public class CmptRefCnstPrntObjPrntInp<Tref>
-  : Cmptref
-  , ICmptRefCnstPrntObjPrntInp<Tref>
+public class CmptRefCnstPrntObjPrntInp<TRef>
+  : ICmptRefCnstPrntObjPrntInp<TRef>
 {
-  public ICmptRefCnstPrntObjPrntInpObject AsRefCnstPrntObjPrntInp { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefCnstPrntObjPrntInpObject<TRef> AsRefCnstPrntObjPrntInp { get; set; }
 }
 
 public class CmptPrntCnstPrntObjPrntInp
   : ICmptPrntCnstPrntObjPrntInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstPrntObjPrntInpObject AsPrntCnstPrntObjPrntInp { get; set; }
 }
 
@@ -1273,28 +1273,28 @@ public class CmptAltCnstPrntObjPrntInp
   : CmptPrntCnstPrntObjPrntInp
   , ICmptAltCnstPrntObjPrntInp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstPrntObjPrntInpObject AsAltCnstPrntObjPrntInp { get; set; }
 }
 
 public class CmptCnstPrntObjPrntOutp
-  : CmptRefCnstPrntObjPrntOutp
+  : CmptRefCnstPrntObjPrntOutp<ICmptAltCnstPrntObjPrntOutp>
   , ICmptCnstPrntObjPrntOutp
 {
   public ICmptCnstPrntObjPrntOutpObject AsCnstPrntObjPrntOutp { get; set; }
 }
 
-public class CmptRefCnstPrntObjPrntOutp<Tref>
-  : Cmptref
-  , ICmptRefCnstPrntObjPrntOutp<Tref>
+public class CmptRefCnstPrntObjPrntOutp<TRef>
+  : ICmptRefCnstPrntObjPrntOutp<TRef>
 {
-  public ICmptRefCnstPrntObjPrntOutpObject AsRefCnstPrntObjPrntOutp { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefCnstPrntObjPrntOutpObject<TRef> AsRefCnstPrntObjPrntOutp { get; set; }
 }
 
 public class CmptPrntCnstPrntObjPrntOutp
   : ICmptPrntCnstPrntObjPrntOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstPrntObjPrntOutpObject AsPrntCnstPrntObjPrntOutp { get; set; }
 }
 
@@ -1302,49 +1302,49 @@ public class CmptAltCnstPrntObjPrntOutp
   : CmptPrntCnstPrntObjPrntOutp
   , ICmptAltCnstPrntObjPrntOutp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstPrntObjPrntOutpObject AsAltCnstPrntObjPrntOutp { get; set; }
 }
 
 public class CmptFieldDual
   : ICmptFieldDual
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptFieldDualObject AsFieldDual { get; set; }
 }
 
 public class CmptFieldInp
   : ICmptFieldInp
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptFieldInpObject AsFieldInp { get; set; }
 }
 
 public class CmptFieldOutp
   : ICmptFieldOutp
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptFieldOutpObject AsFieldOutp { get; set; }
 }
 
 public class CmptFieldDescrDual
   : ICmptFieldDescrDual
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptFieldDescrDualObject AsFieldDescrDual { get; set; }
 }
 
 public class CmptFieldDescrInp
   : ICmptFieldDescrInp
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptFieldDescrInpObject AsFieldDescrInp { get; set; }
 }
 
 public class CmptFieldDescrOutp
   : ICmptFieldDescrOutp
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptFieldDescrOutpObject AsFieldDescrOutp { get; set; }
 }
 
@@ -1358,8 +1358,8 @@ public class CmptFieldDualDual
 public class CmptFldFieldDualDual
   : ICmptFldFieldDualDual
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldDualDualObject AsFldFieldDualDual { get; set; }
 }
 
@@ -1373,8 +1373,8 @@ public class CmptFieldDualInp
 public class CmptFldFieldDualInp
   : ICmptFldFieldDualInp
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldDualInpObject AsFldFieldDualInp { get; set; }
 }
 
@@ -1388,116 +1388,116 @@ public class CmptFieldDualOutp
 public class CmptFldFieldDualOutp
   : ICmptFldFieldDualOutp
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldDualOutpObject AsFldFieldDualOutp { get; set; }
 }
 
 public class CmptFieldEnumDual
   : ICmptFieldEnumDual
 {
-  public ICmptEnumFieldEnumDual Field { get; set; }
+  public CmptEnumFieldEnumDual Field { get; set; }
   public ICmptFieldEnumDualObject AsFieldEnumDual { get; set; }
 }
 
 public class CmptFieldEnumInp
   : ICmptFieldEnumInp
 {
-  public ICmptEnumFieldEnumInp Field { get; set; }
+  public CmptEnumFieldEnumInp Field { get; set; }
   public ICmptFieldEnumInpObject AsFieldEnumInp { get; set; }
 }
 
 public class CmptFieldEnumOutp
   : ICmptFieldEnumOutp
 {
-  public ICmptEnumFieldEnumOutp Field { get; set; }
+  public CmptEnumFieldEnumOutp Field { get; set; }
   public ICmptFieldEnumOutpObject AsFieldEnumOutp { get; set; }
 }
 
 public class CmptFieldEnumPrntDual
   : ICmptFieldEnumPrntDual
 {
-  public ICmptEnumFieldEnumPrntDual Field { get; set; }
+  public CmptEnumFieldEnumPrntDual Field { get; set; }
   public ICmptFieldEnumPrntDualObject AsFieldEnumPrntDual { get; set; }
 }
 
 public class CmptFieldEnumPrntInp
   : ICmptFieldEnumPrntInp
 {
-  public ICmptEnumFieldEnumPrntInp Field { get; set; }
+  public CmptEnumFieldEnumPrntInp Field { get; set; }
   public ICmptFieldEnumPrntInpObject AsFieldEnumPrntInp { get; set; }
 }
 
 public class CmptFieldEnumPrntOutp
   : ICmptFieldEnumPrntOutp
 {
-  public ICmptEnumFieldEnumPrntOutp Field { get; set; }
+  public CmptEnumFieldEnumPrntOutp Field { get; set; }
   public ICmptFieldEnumPrntOutpObject AsFieldEnumPrntOutp { get; set; }
 }
 
 public class CmptFieldModEnumDual
   : ICmptFieldModEnumDual
 {
-  public IDictionary<CmptEnumFieldModEnumDual, ICmptString> Field { get; set; }
+  public IDictionary<CmptEnumFieldModEnumDual, string> Field { get; set; }
   public ICmptFieldModEnumDualObject AsFieldModEnumDual { get; set; }
 }
 
 public class CmptFieldModEnumInp
   : ICmptFieldModEnumInp
 {
-  public IDictionary<CmptEnumFieldModEnumInp, ICmptString> Field { get; set; }
+  public IDictionary<CmptEnumFieldModEnumInp, string> Field { get; set; }
   public ICmptFieldModEnumInpObject AsFieldModEnumInp { get; set; }
 }
 
 public class CmptFieldModEnumOutp
   : ICmptFieldModEnumOutp
 {
-  public IDictionary<CmptEnumFieldModEnumOutp, ICmptString> Field { get; set; }
+  public IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; set; }
   public ICmptFieldModEnumOutpObject AsFieldModEnumOutp { get; set; }
 }
 
-public class CmptFieldModParamDual<Tmod>
-  : ICmptFieldModParamDual<Tmod>
+public class CmptFieldModParamDual<TMod>
+  : ICmptFieldModParamDual<TMod>
 {
-  public IDictionary<Tmod, ICmptFldFieldModParamDual> Field { get; set; }
-  public ICmptFieldModParamDualObject AsFieldModParamDual { get; set; }
+  public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
+  public ICmptFieldModParamDualObject<TMod> AsFieldModParamDual { get; set; }
 }
 
 public class CmptFldFieldModParamDual
   : ICmptFldFieldModParamDual
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldModParamDualObject AsFldFieldModParamDual { get; set; }
 }
 
-public class CmptFieldModParamInp<Tmod>
-  : ICmptFieldModParamInp<Tmod>
+public class CmptFieldModParamInp<TMod>
+  : ICmptFieldModParamInp<TMod>
 {
-  public IDictionary<Tmod, ICmptFldFieldModParamInp> Field { get; set; }
-  public ICmptFieldModParamInpObject AsFieldModParamInp { get; set; }
+  public IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; set; }
+  public ICmptFieldModParamInpObject<TMod> AsFieldModParamInp { get; set; }
 }
 
 public class CmptFldFieldModParamInp
   : ICmptFldFieldModParamInp
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldModParamInpObject AsFldFieldModParamInp { get; set; }
 }
 
-public class CmptFieldModParamOutp<Tmod>
-  : ICmptFieldModParamOutp<Tmod>
+public class CmptFieldModParamOutp<TMod>
+  : ICmptFieldModParamOutp<TMod>
 {
-  public IDictionary<Tmod, ICmptFldFieldModParamOutp> Field { get; set; }
-  public ICmptFieldModParamOutpObject AsFieldModParamOutp { get; set; }
+  public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
+  public ICmptFieldModParamOutpObject<TMod> AsFieldModParamOutp { get; set; }
 }
 
 public class CmptFldFieldModParamOutp
   : ICmptFldFieldModParamOutp
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldModParamOutpObject AsFldFieldModParamOutp { get; set; }
 }
 
@@ -1511,8 +1511,8 @@ public class CmptFieldObjDual
 public class CmptFldFieldObjDual
   : ICmptFldFieldObjDual
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldObjDualObject AsFldFieldObjDual { get; set; }
 }
 
@@ -1526,8 +1526,8 @@ public class CmptFieldObjInp
 public class CmptFldFieldObjInp
   : ICmptFldFieldObjInp
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldObjInpObject AsFldFieldObjInp { get; set; }
 }
 
@@ -1541,198 +1541,198 @@ public class CmptFieldObjOutp
 public class CmptFldFieldObjOutp
   : ICmptFldFieldObjOutp
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldObjOutpObject AsFldFieldObjOutp { get; set; }
 }
 
 public class CmptFieldSmplDual
   : ICmptFieldSmplDual
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptFieldSmplDualObject AsFieldSmplDual { get; set; }
 }
 
 public class CmptFieldSmplInp
   : ICmptFieldSmplInp
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptFieldSmplInpObject AsFieldSmplInp { get; set; }
 }
 
 public class CmptFieldSmplOutp
   : ICmptFieldSmplOutp
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptFieldSmplOutpObject AsFieldSmplOutp { get; set; }
 }
 
 public class CmptFieldTypeDescrDual
   : ICmptFieldTypeDescrDual
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptFieldTypeDescrDualObject AsFieldTypeDescrDual { get; set; }
 }
 
 public class CmptFieldTypeDescrInp
   : ICmptFieldTypeDescrInp
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptFieldTypeDescrInpObject AsFieldTypeDescrInp { get; set; }
 }
 
 public class CmptFieldTypeDescrOutp
   : ICmptFieldTypeDescrOutp
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptFieldTypeDescrOutpObject AsFieldTypeDescrOutp { get; set; }
 }
 
 public class CmptFieldValueDual
   : ICmptFieldValueDual
 {
-  public ICmptEnumFieldValueDual Field { get; set; }
+  public CmptEnumFieldValueDual Field { get; set; }
   public ICmptFieldValueDualObject AsFieldValueDual { get; set; }
 }
 
 public class CmptFieldValueInp
   : ICmptFieldValueInp
 {
-  public ICmptEnumFieldValueInp Field { get; set; }
+  public CmptEnumFieldValueInp Field { get; set; }
   public ICmptFieldValueInpObject AsFieldValueInp { get; set; }
 }
 
 public class CmptFieldValueOutp
   : ICmptFieldValueOutp
 {
-  public ICmptEnumFieldValueOutp Field { get; set; }
+  public CmptEnumFieldValueOutp Field { get; set; }
   public ICmptFieldValueOutpObject AsFieldValueOutp { get; set; }
 }
 
 public class CmptFieldValueDescrDual
   : ICmptFieldValueDescrDual
 {
-  public ICmptEnumFieldValueDescrDual Field { get; set; }
+  public CmptEnumFieldValueDescrDual Field { get; set; }
   public ICmptFieldValueDescrDualObject AsFieldValueDescrDual { get; set; }
 }
 
 public class CmptFieldValueDescrInp
   : ICmptFieldValueDescrInp
 {
-  public ICmptEnumFieldValueDescrInp Field { get; set; }
+  public CmptEnumFieldValueDescrInp Field { get; set; }
   public ICmptFieldValueDescrInpObject AsFieldValueDescrInp { get; set; }
 }
 
 public class CmptFieldValueDescrOutp
   : ICmptFieldValueDescrOutp
 {
-  public ICmptEnumFieldValueDescrOutp Field { get; set; }
+  public CmptEnumFieldValueDescrOutp Field { get; set; }
   public ICmptFieldValueDescrOutpObject AsFieldValueDescrOutp { get; set; }
 }
 
-public class CmptGnrcAltDual<Ttype>
-  : ICmptGnrcAltDual<Ttype>
+public class CmptGnrcAltDual<TType>
+  : ICmptGnrcAltDual<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptGnrcAltDualObject AsGnrcAltDual { get; set; }
+  public TType Astype { get; set; }
+  public ICmptGnrcAltDualObject<TType> AsGnrcAltDual { get; set; }
 }
 
-public class CmptGnrcAltInp<Ttype>
-  : ICmptGnrcAltInp<Ttype>
+public class CmptGnrcAltInp<TType>
+  : ICmptGnrcAltInp<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptGnrcAltInpObject AsGnrcAltInp { get; set; }
+  public TType Astype { get; set; }
+  public ICmptGnrcAltInpObject<TType> AsGnrcAltInp { get; set; }
 }
 
-public class CmptGnrcAltOutp<Ttype>
-  : ICmptGnrcAltOutp<Ttype>
+public class CmptGnrcAltOutp<TType>
+  : ICmptGnrcAltOutp<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptGnrcAltOutpObject AsGnrcAltOutp { get; set; }
+  public TType Astype { get; set; }
+  public ICmptGnrcAltOutpObject<TType> AsGnrcAltOutp { get; set; }
 }
 
-public class CmptGnrcAltArgDual<Ttype>
-  : ICmptGnrcAltArgDual<Ttype>
+public class CmptGnrcAltArgDual<TType>
+  : ICmptGnrcAltArgDual<TType>
 {
-  public ICmptRefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; set; }
-  public ICmptGnrcAltArgDualObject AsGnrcAltArgDual { get; set; }
+  public ICmptRefGnrcAltArgDual<TType> AsRefGnrcAltArgDual { get; set; }
+  public ICmptGnrcAltArgDualObject<TType> AsGnrcAltArgDual { get; set; }
 }
 
-public class CmptRefGnrcAltArgDual<Tref>
-  : ICmptRefGnrcAltArgDual<Tref>
+public class CmptRefGnrcAltArgDual<TRef>
+  : ICmptRefGnrcAltArgDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltArgDualObject AsRefGnrcAltArgDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltArgDualObject<TRef> AsRefGnrcAltArgDual { get; set; }
 }
 
-public class CmptGnrcAltArgInp<Ttype>
-  : ICmptGnrcAltArgInp<Ttype>
+public class CmptGnrcAltArgInp<TType>
+  : ICmptGnrcAltArgInp<TType>
 {
-  public ICmptRefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; set; }
-  public ICmptGnrcAltArgInpObject AsGnrcAltArgInp { get; set; }
+  public ICmptRefGnrcAltArgInp<TType> AsRefGnrcAltArgInp { get; set; }
+  public ICmptGnrcAltArgInpObject<TType> AsGnrcAltArgInp { get; set; }
 }
 
-public class CmptRefGnrcAltArgInp<Tref>
-  : ICmptRefGnrcAltArgInp<Tref>
+public class CmptRefGnrcAltArgInp<TRef>
+  : ICmptRefGnrcAltArgInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltArgInpObject AsRefGnrcAltArgInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltArgInpObject<TRef> AsRefGnrcAltArgInp { get; set; }
 }
 
-public class CmptGnrcAltArgOutp<Ttype>
-  : ICmptGnrcAltArgOutp<Ttype>
+public class CmptGnrcAltArgOutp<TType>
+  : ICmptGnrcAltArgOutp<TType>
 {
-  public ICmptRefGnrcAltArgOutp<Ttype> AsRefGnrcAltArgOutp { get; set; }
-  public ICmptGnrcAltArgOutpObject AsGnrcAltArgOutp { get; set; }
+  public ICmptRefGnrcAltArgOutp<TType> AsRefGnrcAltArgOutp { get; set; }
+  public ICmptGnrcAltArgOutpObject<TType> AsGnrcAltArgOutp { get; set; }
 }
 
-public class CmptRefGnrcAltArgOutp<Tref>
-  : ICmptRefGnrcAltArgOutp<Tref>
+public class CmptRefGnrcAltArgOutp<TRef>
+  : ICmptRefGnrcAltArgOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltArgOutpObject AsRefGnrcAltArgOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltArgOutpObject<TRef> AsRefGnrcAltArgOutp { get; set; }
 }
 
-public class CmptGnrcAltArgDescrDual<Ttype>
-  : ICmptGnrcAltArgDescrDual<Ttype>
+public class CmptGnrcAltArgDescrDual<TType>
+  : ICmptGnrcAltArgDescrDual<TType>
 {
-  public ICmptRefGnrcAltArgDescrDual<Ttype> AsRefGnrcAltArgDescrDual { get; set; }
-  public ICmptGnrcAltArgDescrDualObject AsGnrcAltArgDescrDual { get; set; }
+  public ICmptRefGnrcAltArgDescrDual<TType> AsRefGnrcAltArgDescrDual { get; set; }
+  public ICmptGnrcAltArgDescrDualObject<TType> AsGnrcAltArgDescrDual { get; set; }
 }
 
-public class CmptRefGnrcAltArgDescrDual<Tref>
-  : ICmptRefGnrcAltArgDescrDual<Tref>
+public class CmptRefGnrcAltArgDescrDual<TRef>
+  : ICmptRefGnrcAltArgDescrDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltArgDescrDualObject AsRefGnrcAltArgDescrDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltArgDescrDualObject<TRef> AsRefGnrcAltArgDescrDual { get; set; }
 }
 
-public class CmptGnrcAltArgDescrInp<Ttype>
-  : ICmptGnrcAltArgDescrInp<Ttype>
+public class CmptGnrcAltArgDescrInp<TType>
+  : ICmptGnrcAltArgDescrInp<TType>
 {
-  public ICmptRefGnrcAltArgDescrInp<Ttype> AsRefGnrcAltArgDescrInp { get; set; }
-  public ICmptGnrcAltArgDescrInpObject AsGnrcAltArgDescrInp { get; set; }
+  public ICmptRefGnrcAltArgDescrInp<TType> AsRefGnrcAltArgDescrInp { get; set; }
+  public ICmptGnrcAltArgDescrInpObject<TType> AsGnrcAltArgDescrInp { get; set; }
 }
 
-public class CmptRefGnrcAltArgDescrInp<Tref>
-  : ICmptRefGnrcAltArgDescrInp<Tref>
+public class CmptRefGnrcAltArgDescrInp<TRef>
+  : ICmptRefGnrcAltArgDescrInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltArgDescrInpObject AsRefGnrcAltArgDescrInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltArgDescrInpObject<TRef> AsRefGnrcAltArgDescrInp { get; set; }
 }
 
-public class CmptGnrcAltArgDescrOutp<Ttype>
-  : ICmptGnrcAltArgDescrOutp<Ttype>
+public class CmptGnrcAltArgDescrOutp<TType>
+  : ICmptGnrcAltArgDescrOutp<TType>
 {
-  public ICmptRefGnrcAltArgDescrOutp<Ttype> AsRefGnrcAltArgDescrOutp { get; set; }
-  public ICmptGnrcAltArgDescrOutpObject AsGnrcAltArgDescrOutp { get; set; }
+  public ICmptRefGnrcAltArgDescrOutp<TType> AsRefGnrcAltArgDescrOutp { get; set; }
+  public ICmptGnrcAltArgDescrOutpObject<TType> AsGnrcAltArgDescrOutp { get; set; }
 }
 
-public class CmptRefGnrcAltArgDescrOutp<Tref>
-  : ICmptRefGnrcAltArgDescrOutp<Tref>
+public class CmptRefGnrcAltArgDescrOutp<TRef>
+  : ICmptRefGnrcAltArgDescrOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltArgDescrOutpObject AsRefGnrcAltArgDescrOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltArgDescrOutpObject<TRef> AsRefGnrcAltArgDescrOutp { get; set; }
 }
 
 public class CmptGnrcAltDualDual
@@ -1742,18 +1742,18 @@ public class CmptGnrcAltDualDual
   public ICmptGnrcAltDualDualObject AsGnrcAltDualDual { get; set; }
 }
 
-public class CmptRefGnrcAltDualDual<Tref>
-  : ICmptRefGnrcAltDualDual<Tref>
+public class CmptRefGnrcAltDualDual<TRef>
+  : ICmptRefGnrcAltDualDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltDualDualObject AsRefGnrcAltDualDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltDualDualObject<TRef> AsRefGnrcAltDualDual { get; set; }
 }
 
 public class CmptAltGnrcAltDualDual
   : ICmptAltGnrcAltDualDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcAltDualDualObject AsAltGnrcAltDualDual { get; set; }
 }
 
@@ -1764,18 +1764,18 @@ public class CmptGnrcAltDualInp
   public ICmptGnrcAltDualInpObject AsGnrcAltDualInp { get; set; }
 }
 
-public class CmptRefGnrcAltDualInp<Tref>
-  : ICmptRefGnrcAltDualInp<Tref>
+public class CmptRefGnrcAltDualInp<TRef>
+  : ICmptRefGnrcAltDualInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltDualInpObject AsRefGnrcAltDualInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltDualInpObject<TRef> AsRefGnrcAltDualInp { get; set; }
 }
 
 public class CmptAltGnrcAltDualInp
   : ICmptAltGnrcAltDualInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcAltDualInpObject AsAltGnrcAltDualInp { get; set; }
 }
 
@@ -1786,61 +1786,61 @@ public class CmptGnrcAltDualOutp
   public ICmptGnrcAltDualOutpObject AsGnrcAltDualOutp { get; set; }
 }
 
-public class CmptRefGnrcAltDualOutp<Tref>
-  : ICmptRefGnrcAltDualOutp<Tref>
+public class CmptRefGnrcAltDualOutp<TRef>
+  : ICmptRefGnrcAltDualOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltDualOutpObject AsRefGnrcAltDualOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltDualOutpObject<TRef> AsRefGnrcAltDualOutp { get; set; }
 }
 
 public class CmptAltGnrcAltDualOutp
   : ICmptAltGnrcAltDualOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcAltDualOutpObject AsAltGnrcAltDualOutp { get; set; }
 }
 
-public class CmptRefGnrcAltModParamDual<Tref,Tmod>
-  : ICmptRefGnrcAltModParamDual<Tref,Tmod>
+public class CmptRefGnrcAltModParamDual<TRef,TMod>
+  : ICmptRefGnrcAltModParamDual<TRef,TMod>
 {
-  public IDictionary<Tmod, Tref> Asref { get; set; }
-  public ICmptRefGnrcAltModParamDualObject AsRefGnrcAltModParamDual { get; set; }
+  public IDictionary<TMod, TRef> Asref { get; set; }
+  public ICmptRefGnrcAltModParamDualObject<TRef,TMod> AsRefGnrcAltModParamDual { get; set; }
 }
 
-public class CmptRefGnrcAltModParamInp<Tref,Tmod>
-  : ICmptRefGnrcAltModParamInp<Tref,Tmod>
+public class CmptRefGnrcAltModParamInp<TRef,TMod>
+  : ICmptRefGnrcAltModParamInp<TRef,TMod>
 {
-  public IDictionary<Tmod, Tref> Asref { get; set; }
-  public ICmptRefGnrcAltModParamInpObject AsRefGnrcAltModParamInp { get; set; }
+  public IDictionary<TMod, TRef> Asref { get; set; }
+  public ICmptRefGnrcAltModParamInpObject<TRef,TMod> AsRefGnrcAltModParamInp { get; set; }
 }
 
-public class CmptRefGnrcAltModParamOutp<Tref,Tmod>
-  : ICmptRefGnrcAltModParamOutp<Tref,Tmod>
+public class CmptRefGnrcAltModParamOutp<TRef,TMod>
+  : ICmptRefGnrcAltModParamOutp<TRef,TMod>
 {
-  public IDictionary<Tmod, Tref> Asref { get; set; }
-  public ICmptRefGnrcAltModParamOutpObject AsRefGnrcAltModParamOutp { get; set; }
+  public IDictionary<TMod, TRef> Asref { get; set; }
+  public ICmptRefGnrcAltModParamOutpObject<TRef,TMod> AsRefGnrcAltModParamOutp { get; set; }
 }
 
-public class CmptRefGnrcAltModStrDual<Tref>
-  : ICmptRefGnrcAltModStrDual<Tref>
+public class CmptRefGnrcAltModStrDual<TRef>
+  : ICmptRefGnrcAltModStrDual<TRef>
 {
-  public IDictionary<CmptString, Tref> Asref { get; set; }
-  public ICmptRefGnrcAltModStrDualObject AsRefGnrcAltModStrDual { get; set; }
+  public IDictionary<string, TRef> Asref { get; set; }
+  public ICmptRefGnrcAltModStrDualObject<TRef> AsRefGnrcAltModStrDual { get; set; }
 }
 
-public class CmptRefGnrcAltModStrInp<Tref>
-  : ICmptRefGnrcAltModStrInp<Tref>
+public class CmptRefGnrcAltModStrInp<TRef>
+  : ICmptRefGnrcAltModStrInp<TRef>
 {
-  public IDictionary<CmptString, Tref> Asref { get; set; }
-  public ICmptRefGnrcAltModStrInpObject AsRefGnrcAltModStrInp { get; set; }
+  public IDictionary<string, TRef> Asref { get; set; }
+  public ICmptRefGnrcAltModStrInpObject<TRef> AsRefGnrcAltModStrInp { get; set; }
 }
 
-public class CmptRefGnrcAltModStrOutp<Tref>
-  : ICmptRefGnrcAltModStrOutp<Tref>
+public class CmptRefGnrcAltModStrOutp<TRef>
+  : ICmptRefGnrcAltModStrOutp<TRef>
 {
-  public IDictionary<CmptString, Tref> Asref { get; set; }
-  public ICmptRefGnrcAltModStrOutpObject AsRefGnrcAltModStrOutp { get; set; }
+  public IDictionary<string, TRef> Asref { get; set; }
+  public ICmptRefGnrcAltModStrOutpObject<TRef> AsRefGnrcAltModStrOutp { get; set; }
 }
 
 public class CmptGnrcAltParamDual
@@ -1850,18 +1850,18 @@ public class CmptGnrcAltParamDual
   public ICmptGnrcAltParamDualObject AsGnrcAltParamDual { get; set; }
 }
 
-public class CmptRefGnrcAltParamDual<Tref>
-  : ICmptRefGnrcAltParamDual<Tref>
+public class CmptRefGnrcAltParamDual<TRef>
+  : ICmptRefGnrcAltParamDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltParamDualObject AsRefGnrcAltParamDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltParamDualObject<TRef> AsRefGnrcAltParamDual { get; set; }
 }
 
 public class CmptAltGnrcAltParamDual
   : ICmptAltGnrcAltParamDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcAltParamDualObject AsAltGnrcAltParamDual { get; set; }
 }
 
@@ -1872,18 +1872,18 @@ public class CmptGnrcAltParamInp
   public ICmptGnrcAltParamInpObject AsGnrcAltParamInp { get; set; }
 }
 
-public class CmptRefGnrcAltParamInp<Tref>
-  : ICmptRefGnrcAltParamInp<Tref>
+public class CmptRefGnrcAltParamInp<TRef>
+  : ICmptRefGnrcAltParamInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltParamInpObject AsRefGnrcAltParamInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltParamInpObject<TRef> AsRefGnrcAltParamInp { get; set; }
 }
 
 public class CmptAltGnrcAltParamInp
   : ICmptAltGnrcAltParamInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcAltParamInpObject AsAltGnrcAltParamInp { get; set; }
 }
 
@@ -1894,187 +1894,187 @@ public class CmptGnrcAltParamOutp
   public ICmptGnrcAltParamOutpObject AsGnrcAltParamOutp { get; set; }
 }
 
-public class CmptRefGnrcAltParamOutp<Tref>
-  : ICmptRefGnrcAltParamOutp<Tref>
+public class CmptRefGnrcAltParamOutp<TRef>
+  : ICmptRefGnrcAltParamOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltParamOutpObject AsRefGnrcAltParamOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltParamOutpObject<TRef> AsRefGnrcAltParamOutp { get; set; }
 }
 
 public class CmptAltGnrcAltParamOutp
   : ICmptAltGnrcAltParamOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcAltParamOutpObject AsAltGnrcAltParamOutp { get; set; }
 }
 
 public class CmptGnrcAltSmplDual
   : ICmptGnrcAltSmplDual
 {
-  public ICmptRefGnrcAltSmplDual<ICmptString> AsRefGnrcAltSmplDual { get; set; }
+  public ICmptRefGnrcAltSmplDual<string> AsRefGnrcAltSmplDual { get; set; }
   public ICmptGnrcAltSmplDualObject AsGnrcAltSmplDual { get; set; }
 }
 
-public class CmptRefGnrcAltSmplDual<Tref>
-  : ICmptRefGnrcAltSmplDual<Tref>
+public class CmptRefGnrcAltSmplDual<TRef>
+  : ICmptRefGnrcAltSmplDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltSmplDualObject AsRefGnrcAltSmplDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltSmplDualObject<TRef> AsRefGnrcAltSmplDual { get; set; }
 }
 
 public class CmptGnrcAltSmplInp
   : ICmptGnrcAltSmplInp
 {
-  public ICmptRefGnrcAltSmplInp<ICmptString> AsRefGnrcAltSmplInp { get; set; }
+  public ICmptRefGnrcAltSmplInp<string> AsRefGnrcAltSmplInp { get; set; }
   public ICmptGnrcAltSmplInpObject AsGnrcAltSmplInp { get; set; }
 }
 
-public class CmptRefGnrcAltSmplInp<Tref>
-  : ICmptRefGnrcAltSmplInp<Tref>
+public class CmptRefGnrcAltSmplInp<TRef>
+  : ICmptRefGnrcAltSmplInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltSmplInpObject AsRefGnrcAltSmplInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltSmplInpObject<TRef> AsRefGnrcAltSmplInp { get; set; }
 }
 
 public class CmptGnrcAltSmplOutp
   : ICmptGnrcAltSmplOutp
 {
-  public ICmptRefGnrcAltSmplOutp<ICmptString> AsRefGnrcAltSmplOutp { get; set; }
+  public ICmptRefGnrcAltSmplOutp<string> AsRefGnrcAltSmplOutp { get; set; }
   public ICmptGnrcAltSmplOutpObject AsGnrcAltSmplOutp { get; set; }
 }
 
-public class CmptRefGnrcAltSmplOutp<Tref>
-  : ICmptRefGnrcAltSmplOutp<Tref>
+public class CmptRefGnrcAltSmplOutp<TRef>
+  : ICmptRefGnrcAltSmplOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltSmplOutpObject AsRefGnrcAltSmplOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltSmplOutpObject<TRef> AsRefGnrcAltSmplOutp { get; set; }
 }
 
-public class CmptGnrcDescrDual<Ttype>
-  : ICmptGnrcDescrDual<Ttype>
+public class CmptGnrcDescrDual<TType>
+  : ICmptGnrcDescrDual<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptGnrcDescrDualObject AsGnrcDescrDual { get; set; }
+  public TType Field { get; set; }
+  public ICmptGnrcDescrDualObject<TType> AsGnrcDescrDual { get; set; }
 }
 
-public class CmptGnrcDescrInp<Ttype>
-  : ICmptGnrcDescrInp<Ttype>
+public class CmptGnrcDescrInp<TType>
+  : ICmptGnrcDescrInp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptGnrcDescrInpObject AsGnrcDescrInp { get; set; }
+  public TType Field { get; set; }
+  public ICmptGnrcDescrInpObject<TType> AsGnrcDescrInp { get; set; }
 }
 
-public class CmptGnrcDescrOutp<Ttype>
-  : ICmptGnrcDescrOutp<Ttype>
+public class CmptGnrcDescrOutp<TType>
+  : ICmptGnrcDescrOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptGnrcDescrOutpObject AsGnrcDescrOutp { get; set; }
+  public TType Field { get; set; }
+  public ICmptGnrcDescrOutpObject<TType> AsGnrcDescrOutp { get; set; }
 }
 
 public class CmptGnrcEnumDual
   : ICmptGnrcEnumDual
 {
-  public ICmptRefGnrcEnumDual<ICmptEnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
+  public ICmptRefGnrcEnumDual<CmptEnumGnrcEnumDual> AsEnumGnrcEnumDualgnrcEnumDual { get; set; }
   public ICmptGnrcEnumDualObject AsGnrcEnumDual { get; set; }
 }
 
-public class CmptRefGnrcEnumDual<Ttype>
-  : ICmptRefGnrcEnumDual<Ttype>
+public class CmptRefGnrcEnumDual<TType>
+  : ICmptRefGnrcEnumDual<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefGnrcEnumDualObject AsRefGnrcEnumDual { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefGnrcEnumDualObject<TType> AsRefGnrcEnumDual { get; set; }
 }
 
 public class CmptGnrcEnumInp
   : ICmptGnrcEnumInp
 {
-  public ICmptRefGnrcEnumInp<ICmptEnumGnrcEnumInp> AsRefGnrcEnumInp { get; set; }
+  public ICmptRefGnrcEnumInp<CmptEnumGnrcEnumInp> AsEnumGnrcEnumInpgnrcEnumInp { get; set; }
   public ICmptGnrcEnumInpObject AsGnrcEnumInp { get; set; }
 }
 
-public class CmptRefGnrcEnumInp<Ttype>
-  : ICmptRefGnrcEnumInp<Ttype>
+public class CmptRefGnrcEnumInp<TType>
+  : ICmptRefGnrcEnumInp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefGnrcEnumInpObject AsRefGnrcEnumInp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefGnrcEnumInpObject<TType> AsRefGnrcEnumInp { get; set; }
 }
 
 public class CmptGnrcEnumOutp
   : ICmptGnrcEnumOutp
 {
-  public ICmptRefGnrcEnumOutp<ICmptEnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; set; }
+  public ICmptRefGnrcEnumOutp<CmptEnumGnrcEnumOutp> AsEnumGnrcEnumOutpgnrcEnumOutp { get; set; }
   public ICmptGnrcEnumOutpObject AsGnrcEnumOutp { get; set; }
 }
 
-public class CmptRefGnrcEnumOutp<Ttype>
-  : ICmptRefGnrcEnumOutp<Ttype>
+public class CmptRefGnrcEnumOutp<TType>
+  : ICmptRefGnrcEnumOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefGnrcEnumOutpObject AsRefGnrcEnumOutp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefGnrcEnumOutpObject<TType> AsRefGnrcEnumOutp { get; set; }
 }
 
-public class CmptGnrcFieldDual<Ttype>
-  : ICmptGnrcFieldDual<Ttype>
+public class CmptGnrcFieldDual<TType>
+  : ICmptGnrcFieldDual<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptGnrcFieldDualObject AsGnrcFieldDual { get; set; }
+  public TType Field { get; set; }
+  public ICmptGnrcFieldDualObject<TType> AsGnrcFieldDual { get; set; }
 }
 
-public class CmptGnrcFieldInp<Ttype>
-  : ICmptGnrcFieldInp<Ttype>
+public class CmptGnrcFieldInp<TType>
+  : ICmptGnrcFieldInp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptGnrcFieldInpObject AsGnrcFieldInp { get; set; }
+  public TType Field { get; set; }
+  public ICmptGnrcFieldInpObject<TType> AsGnrcFieldInp { get; set; }
 }
 
-public class CmptGnrcFieldOutp<Ttype>
-  : ICmptGnrcFieldOutp<Ttype>
+public class CmptGnrcFieldOutp<TType>
+  : ICmptGnrcFieldOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptGnrcFieldOutpObject AsGnrcFieldOutp { get; set; }
+  public TType Field { get; set; }
+  public ICmptGnrcFieldOutpObject<TType> AsGnrcFieldOutp { get; set; }
 }
 
-public class CmptGnrcFieldArgDual<Ttype>
-  : ICmptGnrcFieldArgDual<Ttype>
+public class CmptGnrcFieldArgDual<TType>
+  : ICmptGnrcFieldArgDual<TType>
 {
-  public ICmptRefGnrcFieldArgDual<Ttype> Field { get; set; }
-  public ICmptGnrcFieldArgDualObject AsGnrcFieldArgDual { get; set; }
+  public ICmptRefGnrcFieldArgDual<TType> Field { get; set; }
+  public ICmptGnrcFieldArgDualObject<TType> AsGnrcFieldArgDual { get; set; }
 }
 
-public class CmptRefGnrcFieldArgDual<Tref>
-  : ICmptRefGnrcFieldArgDual<Tref>
+public class CmptRefGnrcFieldArgDual<TRef>
+  : ICmptRefGnrcFieldArgDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldArgDualObject AsRefGnrcFieldArgDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcFieldArgDualObject<TRef> AsRefGnrcFieldArgDual { get; set; }
 }
 
-public class CmptGnrcFieldArgInp<Ttype>
-  : ICmptGnrcFieldArgInp<Ttype>
+public class CmptGnrcFieldArgInp<TType>
+  : ICmptGnrcFieldArgInp<TType>
 {
-  public ICmptRefGnrcFieldArgInp<Ttype> Field { get; set; }
-  public ICmptGnrcFieldArgInpObject AsGnrcFieldArgInp { get; set; }
+  public ICmptRefGnrcFieldArgInp<TType> Field { get; set; }
+  public ICmptGnrcFieldArgInpObject<TType> AsGnrcFieldArgInp { get; set; }
 }
 
-public class CmptRefGnrcFieldArgInp<Tref>
-  : ICmptRefGnrcFieldArgInp<Tref>
+public class CmptRefGnrcFieldArgInp<TRef>
+  : ICmptRefGnrcFieldArgInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldArgInpObject AsRefGnrcFieldArgInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcFieldArgInpObject<TRef> AsRefGnrcFieldArgInp { get; set; }
 }
 
-public class CmptGnrcFieldArgOutp<Ttype>
-  : ICmptGnrcFieldArgOutp<Ttype>
+public class CmptGnrcFieldArgOutp<TType>
+  : ICmptGnrcFieldArgOutp<TType>
 {
-  public ICmptRefGnrcFieldArgOutp<Ttype> Field { get; set; }
-  public ICmptGnrcFieldArgOutpObject AsGnrcFieldArgOutp { get; set; }
+  public ICmptRefGnrcFieldArgOutp<TType> Field { get; set; }
+  public ICmptGnrcFieldArgOutpObject<TType> AsGnrcFieldArgOutp { get; set; }
 }
 
-public class CmptRefGnrcFieldArgOutp<Tref>
-  : ICmptRefGnrcFieldArgOutp<Tref>
+public class CmptRefGnrcFieldArgOutp<TRef>
+  : ICmptRefGnrcFieldArgOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldArgOutpObject AsRefGnrcFieldArgOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcFieldArgOutpObject<TRef> AsRefGnrcFieldArgOutp { get; set; }
 }
 
 public class CmptGnrcFieldDualDual
@@ -2084,18 +2084,18 @@ public class CmptGnrcFieldDualDual
   public ICmptGnrcFieldDualDualObject AsGnrcFieldDualDual { get; set; }
 }
 
-public class CmptRefGnrcFieldDualDual<Tref>
-  : ICmptRefGnrcFieldDualDual<Tref>
+public class CmptRefGnrcFieldDualDual<TRef>
+  : ICmptRefGnrcFieldDualDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldDualDualObject AsRefGnrcFieldDualDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcFieldDualDualObject<TRef> AsRefGnrcFieldDualDual { get; set; }
 }
 
 public class CmptAltGnrcFieldDualDual
   : ICmptAltGnrcFieldDualDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcFieldDualDualObject AsAltGnrcFieldDualDual { get; set; }
 }
 
@@ -2106,18 +2106,18 @@ public class CmptGnrcFieldDualInp
   public ICmptGnrcFieldDualInpObject AsGnrcFieldDualInp { get; set; }
 }
 
-public class CmptRefGnrcFieldDualInp<Tref>
-  : ICmptRefGnrcFieldDualInp<Tref>
+public class CmptRefGnrcFieldDualInp<TRef>
+  : ICmptRefGnrcFieldDualInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldDualInpObject AsRefGnrcFieldDualInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcFieldDualInpObject<TRef> AsRefGnrcFieldDualInp { get; set; }
 }
 
 public class CmptAltGnrcFieldDualInp
   : ICmptAltGnrcFieldDualInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcFieldDualInpObject AsAltGnrcFieldDualInp { get; set; }
 }
 
@@ -2128,18 +2128,18 @@ public class CmptGnrcFieldDualOutp
   public ICmptGnrcFieldDualOutpObject AsGnrcFieldDualOutp { get; set; }
 }
 
-public class CmptRefGnrcFieldDualOutp<Tref>
-  : ICmptRefGnrcFieldDualOutp<Tref>
+public class CmptRefGnrcFieldDualOutp<TRef>
+  : ICmptRefGnrcFieldDualOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldDualOutpObject AsRefGnrcFieldDualOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcFieldDualOutpObject<TRef> AsRefGnrcFieldDualOutp { get; set; }
 }
 
 public class CmptAltGnrcFieldDualOutp
   : ICmptAltGnrcFieldDualOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcFieldDualOutpObject AsAltGnrcFieldDualOutp { get; set; }
 }
 
@@ -2150,18 +2150,18 @@ public class CmptGnrcFieldParamDual
   public ICmptGnrcFieldParamDualObject AsGnrcFieldParamDual { get; set; }
 }
 
-public class CmptRefGnrcFieldParamDual<Tref>
-  : ICmptRefGnrcFieldParamDual<Tref>
+public class CmptRefGnrcFieldParamDual<TRef>
+  : ICmptRefGnrcFieldParamDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldParamDualObject AsRefGnrcFieldParamDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcFieldParamDualObject<TRef> AsRefGnrcFieldParamDual { get; set; }
 }
 
 public class CmptAltGnrcFieldParamDual
   : ICmptAltGnrcFieldParamDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcFieldParamDualObject AsAltGnrcFieldParamDual { get; set; }
 }
 
@@ -2172,18 +2172,18 @@ public class CmptGnrcFieldParamInp
   public ICmptGnrcFieldParamInpObject AsGnrcFieldParamInp { get; set; }
 }
 
-public class CmptRefGnrcFieldParamInp<Tref>
-  : ICmptRefGnrcFieldParamInp<Tref>
+public class CmptRefGnrcFieldParamInp<TRef>
+  : ICmptRefGnrcFieldParamInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldParamInpObject AsRefGnrcFieldParamInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcFieldParamInpObject<TRef> AsRefGnrcFieldParamInp { get; set; }
 }
 
 public class CmptAltGnrcFieldParamInp
   : ICmptAltGnrcFieldParamInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcFieldParamInpObject AsAltGnrcFieldParamInp { get; set; }
 }
 
@@ -2194,611 +2194,611 @@ public class CmptGnrcFieldParamOutp
   public ICmptGnrcFieldParamOutpObject AsGnrcFieldParamOutp { get; set; }
 }
 
-public class CmptRefGnrcFieldParamOutp<Tref>
-  : ICmptRefGnrcFieldParamOutp<Tref>
+public class CmptRefGnrcFieldParamOutp<TRef>
+  : ICmptRefGnrcFieldParamOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldParamOutpObject AsRefGnrcFieldParamOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcFieldParamOutpObject<TRef> AsRefGnrcFieldParamOutp { get; set; }
 }
 
 public class CmptAltGnrcFieldParamOutp
   : ICmptAltGnrcFieldParamOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcFieldParamOutpObject AsAltGnrcFieldParamOutp { get; set; }
 }
 
-public class CmptGnrcPrntDual<Ttype>
-  : Cmpttype
-  , ICmptGnrcPrntDual<Ttype>
+public class CmptGnrcPrntDual<TType>
+  : ICmptGnrcPrntDual<TType>
 {
-  public ICmptGnrcPrntDualObject AsGnrcPrntDual { get; set; }
+  public TType AsParent { get; set; }
+  public ICmptGnrcPrntDualObject<TType> AsGnrcPrntDual { get; set; }
 }
 
-public class CmptGnrcPrntInp<Ttype>
-  : Cmpttype
-  , ICmptGnrcPrntInp<Ttype>
+public class CmptGnrcPrntInp<TType>
+  : ICmptGnrcPrntInp<TType>
 {
-  public ICmptGnrcPrntInpObject AsGnrcPrntInp { get; set; }
+  public TType AsParent { get; set; }
+  public ICmptGnrcPrntInpObject<TType> AsGnrcPrntInp { get; set; }
 }
 
-public class CmptGnrcPrntOutp<Ttype>
-  : Cmpttype
-  , ICmptGnrcPrntOutp<Ttype>
+public class CmptGnrcPrntOutp<TType>
+  : ICmptGnrcPrntOutp<TType>
 {
-  public ICmptGnrcPrntOutpObject AsGnrcPrntOutp { get; set; }
+  public TType AsParent { get; set; }
+  public ICmptGnrcPrntOutpObject<TType> AsGnrcPrntOutp { get; set; }
 }
 
-public class CmptGnrcPrntArgDual<Ttype>
-  : CmptRefGnrcPrntArgDual
-  , ICmptGnrcPrntArgDual<Ttype>
+public class CmptGnrcPrntArgDual<TType>
+  : CmptRefGnrcPrntArgDual<TType>
+  , ICmptGnrcPrntArgDual<TType>
 {
-  public ICmptGnrcPrntArgDualObject AsGnrcPrntArgDual { get; set; }
+  public ICmptGnrcPrntArgDualObject<TType> AsGnrcPrntArgDual { get; set; }
 }
 
-public class CmptRefGnrcPrntArgDual<Tref>
-  : ICmptRefGnrcPrntArgDual<Tref>
+public class CmptRefGnrcPrntArgDual<TRef>
+  : ICmptRefGnrcPrntArgDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntArgDualObject AsRefGnrcPrntArgDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcPrntArgDualObject<TRef> AsRefGnrcPrntArgDual { get; set; }
 }
 
-public class CmptGnrcPrntArgInp<Ttype>
-  : CmptRefGnrcPrntArgInp
-  , ICmptGnrcPrntArgInp<Ttype>
+public class CmptGnrcPrntArgInp<TType>
+  : CmptRefGnrcPrntArgInp<TType>
+  , ICmptGnrcPrntArgInp<TType>
 {
-  public ICmptGnrcPrntArgInpObject AsGnrcPrntArgInp { get; set; }
+  public ICmptGnrcPrntArgInpObject<TType> AsGnrcPrntArgInp { get; set; }
 }
 
-public class CmptRefGnrcPrntArgInp<Tref>
-  : ICmptRefGnrcPrntArgInp<Tref>
+public class CmptRefGnrcPrntArgInp<TRef>
+  : ICmptRefGnrcPrntArgInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntArgInpObject AsRefGnrcPrntArgInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcPrntArgInpObject<TRef> AsRefGnrcPrntArgInp { get; set; }
 }
 
-public class CmptGnrcPrntArgOutp<Ttype>
-  : CmptRefGnrcPrntArgOutp
-  , ICmptGnrcPrntArgOutp<Ttype>
+public class CmptGnrcPrntArgOutp<TType>
+  : CmptRefGnrcPrntArgOutp<TType>
+  , ICmptGnrcPrntArgOutp<TType>
 {
-  public ICmptGnrcPrntArgOutpObject AsGnrcPrntArgOutp { get; set; }
+  public ICmptGnrcPrntArgOutpObject<TType> AsGnrcPrntArgOutp { get; set; }
 }
 
-public class CmptRefGnrcPrntArgOutp<Tref>
-  : ICmptRefGnrcPrntArgOutp<Tref>
+public class CmptRefGnrcPrntArgOutp<TRef>
+  : ICmptRefGnrcPrntArgOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntArgOutpObject AsRefGnrcPrntArgOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcPrntArgOutpObject<TRef> AsRefGnrcPrntArgOutp { get; set; }
 }
 
-public class CmptGnrcPrntDescrDual<Ttype>
-  : Cmpttype
-  , ICmptGnrcPrntDescrDual<Ttype>
+public class CmptGnrcPrntDescrDual<TType>
+  : ICmptGnrcPrntDescrDual<TType>
 {
-  public ICmptGnrcPrntDescrDualObject AsGnrcPrntDescrDual { get; set; }
+  public TType AsParent { get; set; }
+  public ICmptGnrcPrntDescrDualObject<TType> AsGnrcPrntDescrDual { get; set; }
 }
 
-public class CmptGnrcPrntDescrInp<Ttype>
-  : Cmpttype
-  , ICmptGnrcPrntDescrInp<Ttype>
+public class CmptGnrcPrntDescrInp<TType>
+  : ICmptGnrcPrntDescrInp<TType>
 {
-  public ICmptGnrcPrntDescrInpObject AsGnrcPrntDescrInp { get; set; }
+  public TType AsParent { get; set; }
+  public ICmptGnrcPrntDescrInpObject<TType> AsGnrcPrntDescrInp { get; set; }
 }
 
-public class CmptGnrcPrntDescrOutp<Ttype>
-  : Cmpttype
-  , ICmptGnrcPrntDescrOutp<Ttype>
+public class CmptGnrcPrntDescrOutp<TType>
+  : ICmptGnrcPrntDescrOutp<TType>
 {
-  public ICmptGnrcPrntDescrOutpObject AsGnrcPrntDescrOutp { get; set; }
+  public TType AsParent { get; set; }
+  public ICmptGnrcPrntDescrOutpObject<TType> AsGnrcPrntDescrOutp { get; set; }
 }
 
 public class CmptGnrcPrntDualDual
-  : CmptRefGnrcPrntDualDual
+  : CmptRefGnrcPrntDualDual<ICmptAltGnrcPrntDualDual>
   , ICmptGnrcPrntDualDual
 {
   public ICmptGnrcPrntDualDualObject AsGnrcPrntDualDual { get; set; }
 }
 
-public class CmptRefGnrcPrntDualDual<Tref>
-  : ICmptRefGnrcPrntDualDual<Tref>
+public class CmptRefGnrcPrntDualDual<TRef>
+  : ICmptRefGnrcPrntDualDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntDualDualObject AsRefGnrcPrntDualDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcPrntDualDualObject<TRef> AsRefGnrcPrntDualDual { get; set; }
 }
 
 public class CmptAltGnrcPrntDualDual
   : ICmptAltGnrcPrntDualDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntDualDualObject AsAltGnrcPrntDualDual { get; set; }
 }
 
 public class CmptGnrcPrntDualInp
-  : CmptRefGnrcPrntDualInp
+  : CmptRefGnrcPrntDualInp<ICmptAltGnrcPrntDualInp>
   , ICmptGnrcPrntDualInp
 {
   public ICmptGnrcPrntDualInpObject AsGnrcPrntDualInp { get; set; }
 }
 
-public class CmptRefGnrcPrntDualInp<Tref>
-  : ICmptRefGnrcPrntDualInp<Tref>
+public class CmptRefGnrcPrntDualInp<TRef>
+  : ICmptRefGnrcPrntDualInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntDualInpObject AsRefGnrcPrntDualInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcPrntDualInpObject<TRef> AsRefGnrcPrntDualInp { get; set; }
 }
 
 public class CmptAltGnrcPrntDualInp
   : ICmptAltGnrcPrntDualInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntDualInpObject AsAltGnrcPrntDualInp { get; set; }
 }
 
 public class CmptGnrcPrntDualOutp
-  : CmptRefGnrcPrntDualOutp
+  : CmptRefGnrcPrntDualOutp<ICmptAltGnrcPrntDualOutp>
   , ICmptGnrcPrntDualOutp
 {
   public ICmptGnrcPrntDualOutpObject AsGnrcPrntDualOutp { get; set; }
 }
 
-public class CmptRefGnrcPrntDualOutp<Tref>
-  : ICmptRefGnrcPrntDualOutp<Tref>
+public class CmptRefGnrcPrntDualOutp<TRef>
+  : ICmptRefGnrcPrntDualOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntDualOutpObject AsRefGnrcPrntDualOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcPrntDualOutpObject<TRef> AsRefGnrcPrntDualOutp { get; set; }
 }
 
 public class CmptAltGnrcPrntDualOutp
   : ICmptAltGnrcPrntDualOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntDualOutpObject AsAltGnrcPrntDualOutp { get; set; }
 }
 
 public class CmptGnrcPrntDualPrntDual
-  : CmptRefGnrcPrntDualPrntDual
+  : CmptRefGnrcPrntDualPrntDual<ICmptAltGnrcPrntDualPrntDual>
   , ICmptGnrcPrntDualPrntDual
 {
   public ICmptGnrcPrntDualPrntDualObject AsGnrcPrntDualPrntDual { get; set; }
 }
 
-public class CmptRefGnrcPrntDualPrntDual<Tref>
-  : Cmptref
-  , ICmptRefGnrcPrntDualPrntDual<Tref>
+public class CmptRefGnrcPrntDualPrntDual<TRef>
+  : ICmptRefGnrcPrntDualPrntDual<TRef>
 {
-  public ICmptRefGnrcPrntDualPrntDualObject AsRefGnrcPrntDualPrntDual { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefGnrcPrntDualPrntDualObject<TRef> AsRefGnrcPrntDualPrntDual { get; set; }
 }
 
 public class CmptAltGnrcPrntDualPrntDual
   : ICmptAltGnrcPrntDualPrntDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntDualPrntDualObject AsAltGnrcPrntDualPrntDual { get; set; }
 }
 
 public class CmptGnrcPrntDualPrntInp
-  : CmptRefGnrcPrntDualPrntInp
+  : CmptRefGnrcPrntDualPrntInp<ICmptAltGnrcPrntDualPrntInp>
   , ICmptGnrcPrntDualPrntInp
 {
   public ICmptGnrcPrntDualPrntInpObject AsGnrcPrntDualPrntInp { get; set; }
 }
 
-public class CmptRefGnrcPrntDualPrntInp<Tref>
-  : Cmptref
-  , ICmptRefGnrcPrntDualPrntInp<Tref>
+public class CmptRefGnrcPrntDualPrntInp<TRef>
+  : ICmptRefGnrcPrntDualPrntInp<TRef>
 {
-  public ICmptRefGnrcPrntDualPrntInpObject AsRefGnrcPrntDualPrntInp { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefGnrcPrntDualPrntInpObject<TRef> AsRefGnrcPrntDualPrntInp { get; set; }
 }
 
 public class CmptAltGnrcPrntDualPrntInp
   : ICmptAltGnrcPrntDualPrntInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntDualPrntInpObject AsAltGnrcPrntDualPrntInp { get; set; }
 }
 
 public class CmptGnrcPrntDualPrntOutp
-  : CmptRefGnrcPrntDualPrntOutp
+  : CmptRefGnrcPrntDualPrntOutp<ICmptAltGnrcPrntDualPrntOutp>
   , ICmptGnrcPrntDualPrntOutp
 {
   public ICmptGnrcPrntDualPrntOutpObject AsGnrcPrntDualPrntOutp { get; set; }
 }
 
-public class CmptRefGnrcPrntDualPrntOutp<Tref>
-  : Cmptref
-  , ICmptRefGnrcPrntDualPrntOutp<Tref>
+public class CmptRefGnrcPrntDualPrntOutp<TRef>
+  : ICmptRefGnrcPrntDualPrntOutp<TRef>
 {
-  public ICmptRefGnrcPrntDualPrntOutpObject AsRefGnrcPrntDualPrntOutp { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefGnrcPrntDualPrntOutpObject<TRef> AsRefGnrcPrntDualPrntOutp { get; set; }
 }
 
 public class CmptAltGnrcPrntDualPrntOutp
   : ICmptAltGnrcPrntDualPrntOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntDualPrntOutpObject AsAltGnrcPrntDualPrntOutp { get; set; }
 }
 
 public class CmptGnrcPrntEnumChildDual
-  : CmptFieldGnrcPrntEnumChildDual
+  : CmptFieldGnrcPrntEnumChildDual<CmptParentGnrcPrntEnumChildDual>
   , ICmptGnrcPrntEnumChildDual
 {
   public ICmptGnrcPrntEnumChildDualObject AsGnrcPrntEnumChildDual { get; set; }
 }
 
-public class CmptFieldGnrcPrntEnumChildDual<Tref>
-  : ICmptFieldGnrcPrntEnumChildDual<Tref>
+public class CmptFieldGnrcPrntEnumChildDual<TRef>
+  : ICmptFieldGnrcPrntEnumChildDual<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntEnumChildDualObject AsFieldGnrcPrntEnumChildDual { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntEnumChildDualObject<TRef> AsFieldGnrcPrntEnumChildDual { get; set; }
 }
 
 public class CmptGnrcPrntEnumChildInp
-  : CmptFieldGnrcPrntEnumChildInp
+  : CmptFieldGnrcPrntEnumChildInp<CmptParentGnrcPrntEnumChildInp>
   , ICmptGnrcPrntEnumChildInp
 {
   public ICmptGnrcPrntEnumChildInpObject AsGnrcPrntEnumChildInp { get; set; }
 }
 
-public class CmptFieldGnrcPrntEnumChildInp<Tref>
-  : ICmptFieldGnrcPrntEnumChildInp<Tref>
+public class CmptFieldGnrcPrntEnumChildInp<TRef>
+  : ICmptFieldGnrcPrntEnumChildInp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntEnumChildInpObject AsFieldGnrcPrntEnumChildInp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntEnumChildInpObject<TRef> AsFieldGnrcPrntEnumChildInp { get; set; }
 }
 
 public class CmptGnrcPrntEnumChildOutp
-  : CmptFieldGnrcPrntEnumChildOutp
+  : CmptFieldGnrcPrntEnumChildOutp<CmptParentGnrcPrntEnumChildOutp>
   , ICmptGnrcPrntEnumChildOutp
 {
   public ICmptGnrcPrntEnumChildOutpObject AsGnrcPrntEnumChildOutp { get; set; }
 }
 
-public class CmptFieldGnrcPrntEnumChildOutp<Tref>
-  : ICmptFieldGnrcPrntEnumChildOutp<Tref>
+public class CmptFieldGnrcPrntEnumChildOutp<TRef>
+  : ICmptFieldGnrcPrntEnumChildOutp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntEnumChildOutpObject AsFieldGnrcPrntEnumChildOutp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntEnumChildOutpObject<TRef> AsFieldGnrcPrntEnumChildOutp { get; set; }
 }
 
 public class CmptGnrcPrntEnumDomDual
-  : CmptFieldGnrcPrntEnumDomDual
+  : CmptFieldGnrcPrntEnumDomDual<ICmptDomGnrcPrntEnumDomDual>
   , ICmptGnrcPrntEnumDomDual
 {
   public ICmptGnrcPrntEnumDomDualObject AsGnrcPrntEnumDomDual { get; set; }
 }
 
-public class CmptFieldGnrcPrntEnumDomDual<Tref>
-  : ICmptFieldGnrcPrntEnumDomDual<Tref>
+public class CmptFieldGnrcPrntEnumDomDual<TRef>
+  : ICmptFieldGnrcPrntEnumDomDual<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntEnumDomDualObject AsFieldGnrcPrntEnumDomDual { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntEnumDomDualObject<TRef> AsFieldGnrcPrntEnumDomDual { get; set; }
 }
 
 public class CmptDomGnrcPrntEnumDomDual
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomDual
 {
 }
 
 public class CmptGnrcPrntEnumDomInp
-  : CmptFieldGnrcPrntEnumDomInp
+  : CmptFieldGnrcPrntEnumDomInp<ICmptDomGnrcPrntEnumDomInp>
   , ICmptGnrcPrntEnumDomInp
 {
   public ICmptGnrcPrntEnumDomInpObject AsGnrcPrntEnumDomInp { get; set; }
 }
 
-public class CmptFieldGnrcPrntEnumDomInp<Tref>
-  : ICmptFieldGnrcPrntEnumDomInp<Tref>
+public class CmptFieldGnrcPrntEnumDomInp<TRef>
+  : ICmptFieldGnrcPrntEnumDomInp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntEnumDomInpObject AsFieldGnrcPrntEnumDomInp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntEnumDomInpObject<TRef> AsFieldGnrcPrntEnumDomInp { get; set; }
 }
 
 public class CmptDomGnrcPrntEnumDomInp
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomInp
 {
 }
 
 public class CmptGnrcPrntEnumDomOutp
-  : CmptFieldGnrcPrntEnumDomOutp
+  : CmptFieldGnrcPrntEnumDomOutp<ICmptDomGnrcPrntEnumDomOutp>
   , ICmptGnrcPrntEnumDomOutp
 {
   public ICmptGnrcPrntEnumDomOutpObject AsGnrcPrntEnumDomOutp { get; set; }
 }
 
-public class CmptFieldGnrcPrntEnumDomOutp<Tref>
-  : ICmptFieldGnrcPrntEnumDomOutp<Tref>
+public class CmptFieldGnrcPrntEnumDomOutp<TRef>
+  : ICmptFieldGnrcPrntEnumDomOutp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntEnumDomOutpObject AsFieldGnrcPrntEnumDomOutp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntEnumDomOutpObject<TRef> AsFieldGnrcPrntEnumDomOutp { get; set; }
 }
 
 public class CmptDomGnrcPrntEnumDomOutp
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomOutp
 {
 }
 
 public class CmptGnrcPrntEnumPrntDual
-  : CmptFieldGnrcPrntEnumPrntDual
+  : CmptFieldGnrcPrntEnumPrntDual<CmptEnumGnrcPrntEnumPrntDual>
   , ICmptGnrcPrntEnumPrntDual
 {
   public ICmptGnrcPrntEnumPrntDualObject AsGnrcPrntEnumPrntDual { get; set; }
 }
 
-public class CmptFieldGnrcPrntEnumPrntDual<Tref>
-  : ICmptFieldGnrcPrntEnumPrntDual<Tref>
+public class CmptFieldGnrcPrntEnumPrntDual<TRef>
+  : ICmptFieldGnrcPrntEnumPrntDual<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntEnumPrntDualObject AsFieldGnrcPrntEnumPrntDual { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntEnumPrntDualObject<TRef> AsFieldGnrcPrntEnumPrntDual { get; set; }
 }
 
 public class CmptGnrcPrntEnumPrntInp
-  : CmptFieldGnrcPrntEnumPrntInp
+  : CmptFieldGnrcPrntEnumPrntInp<CmptEnumGnrcPrntEnumPrntInp>
   , ICmptGnrcPrntEnumPrntInp
 {
   public ICmptGnrcPrntEnumPrntInpObject AsGnrcPrntEnumPrntInp { get; set; }
 }
 
-public class CmptFieldGnrcPrntEnumPrntInp<Tref>
-  : ICmptFieldGnrcPrntEnumPrntInp<Tref>
+public class CmptFieldGnrcPrntEnumPrntInp<TRef>
+  : ICmptFieldGnrcPrntEnumPrntInp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntEnumPrntInpObject AsFieldGnrcPrntEnumPrntInp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntEnumPrntInpObject<TRef> AsFieldGnrcPrntEnumPrntInp { get; set; }
 }
 
 public class CmptGnrcPrntEnumPrntOutp
-  : CmptFieldGnrcPrntEnumPrntOutp
+  : CmptFieldGnrcPrntEnumPrntOutp<CmptEnumGnrcPrntEnumPrntOutp>
   , ICmptGnrcPrntEnumPrntOutp
 {
   public ICmptGnrcPrntEnumPrntOutpObject AsGnrcPrntEnumPrntOutp { get; set; }
 }
 
-public class CmptFieldGnrcPrntEnumPrntOutp<Tref>
-  : ICmptFieldGnrcPrntEnumPrntOutp<Tref>
+public class CmptFieldGnrcPrntEnumPrntOutp<TRef>
+  : ICmptFieldGnrcPrntEnumPrntOutp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntEnumPrntOutpObject AsFieldGnrcPrntEnumPrntOutp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntEnumPrntOutpObject<TRef> AsFieldGnrcPrntEnumPrntOutp { get; set; }
 }
 
 public class CmptGnrcPrntParamDual
-  : CmptRefGnrcPrntParamDual
+  : CmptRefGnrcPrntParamDual<ICmptAltGnrcPrntParamDual>
   , ICmptGnrcPrntParamDual
 {
   public ICmptGnrcPrntParamDualObject AsGnrcPrntParamDual { get; set; }
 }
 
-public class CmptRefGnrcPrntParamDual<Tref>
-  : ICmptRefGnrcPrntParamDual<Tref>
+public class CmptRefGnrcPrntParamDual<TRef>
+  : ICmptRefGnrcPrntParamDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntParamDualObject AsRefGnrcPrntParamDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcPrntParamDualObject<TRef> AsRefGnrcPrntParamDual { get; set; }
 }
 
 public class CmptAltGnrcPrntParamDual
   : ICmptAltGnrcPrntParamDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntParamDualObject AsAltGnrcPrntParamDual { get; set; }
 }
 
 public class CmptGnrcPrntParamInp
-  : CmptRefGnrcPrntParamInp
+  : CmptRefGnrcPrntParamInp<ICmptAltGnrcPrntParamInp>
   , ICmptGnrcPrntParamInp
 {
   public ICmptGnrcPrntParamInpObject AsGnrcPrntParamInp { get; set; }
 }
 
-public class CmptRefGnrcPrntParamInp<Tref>
-  : ICmptRefGnrcPrntParamInp<Tref>
+public class CmptRefGnrcPrntParamInp<TRef>
+  : ICmptRefGnrcPrntParamInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntParamInpObject AsRefGnrcPrntParamInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcPrntParamInpObject<TRef> AsRefGnrcPrntParamInp { get; set; }
 }
 
 public class CmptAltGnrcPrntParamInp
   : ICmptAltGnrcPrntParamInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntParamInpObject AsAltGnrcPrntParamInp { get; set; }
 }
 
 public class CmptGnrcPrntParamOutp
-  : CmptRefGnrcPrntParamOutp
+  : CmptRefGnrcPrntParamOutp<ICmptAltGnrcPrntParamOutp>
   , ICmptGnrcPrntParamOutp
 {
   public ICmptGnrcPrntParamOutpObject AsGnrcPrntParamOutp { get; set; }
 }
 
-public class CmptRefGnrcPrntParamOutp<Tref>
-  : ICmptRefGnrcPrntParamOutp<Tref>
+public class CmptRefGnrcPrntParamOutp<TRef>
+  : ICmptRefGnrcPrntParamOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntParamOutpObject AsRefGnrcPrntParamOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcPrntParamOutpObject<TRef> AsRefGnrcPrntParamOutp { get; set; }
 }
 
 public class CmptAltGnrcPrntParamOutp
   : ICmptAltGnrcPrntParamOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntParamOutpObject AsAltGnrcPrntParamOutp { get; set; }
 }
 
 public class CmptGnrcPrntParamPrntDual
-  : CmptRefGnrcPrntParamPrntDual
+  : CmptRefGnrcPrntParamPrntDual<ICmptAltGnrcPrntParamPrntDual>
   , ICmptGnrcPrntParamPrntDual
 {
   public ICmptGnrcPrntParamPrntDualObject AsGnrcPrntParamPrntDual { get; set; }
 }
 
-public class CmptRefGnrcPrntParamPrntDual<Tref>
-  : Cmptref
-  , ICmptRefGnrcPrntParamPrntDual<Tref>
+public class CmptRefGnrcPrntParamPrntDual<TRef>
+  : ICmptRefGnrcPrntParamPrntDual<TRef>
 {
-  public ICmptRefGnrcPrntParamPrntDualObject AsRefGnrcPrntParamPrntDual { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefGnrcPrntParamPrntDualObject<TRef> AsRefGnrcPrntParamPrntDual { get; set; }
 }
 
 public class CmptAltGnrcPrntParamPrntDual
   : ICmptAltGnrcPrntParamPrntDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntParamPrntDualObject AsAltGnrcPrntParamPrntDual { get; set; }
 }
 
 public class CmptGnrcPrntParamPrntInp
-  : CmptRefGnrcPrntParamPrntInp
+  : CmptRefGnrcPrntParamPrntInp<ICmptAltGnrcPrntParamPrntInp>
   , ICmptGnrcPrntParamPrntInp
 {
   public ICmptGnrcPrntParamPrntInpObject AsGnrcPrntParamPrntInp { get; set; }
 }
 
-public class CmptRefGnrcPrntParamPrntInp<Tref>
-  : Cmptref
-  , ICmptRefGnrcPrntParamPrntInp<Tref>
+public class CmptRefGnrcPrntParamPrntInp<TRef>
+  : ICmptRefGnrcPrntParamPrntInp<TRef>
 {
-  public ICmptRefGnrcPrntParamPrntInpObject AsRefGnrcPrntParamPrntInp { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefGnrcPrntParamPrntInpObject<TRef> AsRefGnrcPrntParamPrntInp { get; set; }
 }
 
 public class CmptAltGnrcPrntParamPrntInp
   : ICmptAltGnrcPrntParamPrntInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntParamPrntInpObject AsAltGnrcPrntParamPrntInp { get; set; }
 }
 
 public class CmptGnrcPrntParamPrntOutp
-  : CmptRefGnrcPrntParamPrntOutp
+  : CmptRefGnrcPrntParamPrntOutp<ICmptAltGnrcPrntParamPrntOutp>
   , ICmptGnrcPrntParamPrntOutp
 {
   public ICmptGnrcPrntParamPrntOutpObject AsGnrcPrntParamPrntOutp { get; set; }
 }
 
-public class CmptRefGnrcPrntParamPrntOutp<Tref>
-  : Cmptref
-  , ICmptRefGnrcPrntParamPrntOutp<Tref>
+public class CmptRefGnrcPrntParamPrntOutp<TRef>
+  : ICmptRefGnrcPrntParamPrntOutp<TRef>
 {
-  public ICmptRefGnrcPrntParamPrntOutpObject AsRefGnrcPrntParamPrntOutp { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefGnrcPrntParamPrntOutpObject<TRef> AsRefGnrcPrntParamPrntOutp { get; set; }
 }
 
 public class CmptAltGnrcPrntParamPrntOutp
   : ICmptAltGnrcPrntParamPrntOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcPrntParamPrntOutpObject AsAltGnrcPrntParamPrntOutp { get; set; }
 }
 
 public class CmptGnrcPrntSmplEnumDual
-  : CmptFieldGnrcPrntSmplEnumDual
+  : CmptFieldGnrcPrntSmplEnumDual<CmptEnumGnrcPrntSmplEnumDual>
   , ICmptGnrcPrntSmplEnumDual
 {
   public ICmptGnrcPrntSmplEnumDualObject AsGnrcPrntSmplEnumDual { get; set; }
 }
 
-public class CmptFieldGnrcPrntSmplEnumDual<Tref>
-  : ICmptFieldGnrcPrntSmplEnumDual<Tref>
+public class CmptFieldGnrcPrntSmplEnumDual<TRef>
+  : ICmptFieldGnrcPrntSmplEnumDual<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntSmplEnumDualObject AsFieldGnrcPrntSmplEnumDual { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntSmplEnumDualObject<TRef> AsFieldGnrcPrntSmplEnumDual { get; set; }
 }
 
 public class CmptGnrcPrntSmplEnumInp
-  : CmptFieldGnrcPrntSmplEnumInp
+  : CmptFieldGnrcPrntSmplEnumInp<CmptEnumGnrcPrntSmplEnumInp>
   , ICmptGnrcPrntSmplEnumInp
 {
   public ICmptGnrcPrntSmplEnumInpObject AsGnrcPrntSmplEnumInp { get; set; }
 }
 
-public class CmptFieldGnrcPrntSmplEnumInp<Tref>
-  : ICmptFieldGnrcPrntSmplEnumInp<Tref>
+public class CmptFieldGnrcPrntSmplEnumInp<TRef>
+  : ICmptFieldGnrcPrntSmplEnumInp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntSmplEnumInpObject AsFieldGnrcPrntSmplEnumInp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntSmplEnumInpObject<TRef> AsFieldGnrcPrntSmplEnumInp { get; set; }
 }
 
 public class CmptGnrcPrntSmplEnumOutp
-  : CmptFieldGnrcPrntSmplEnumOutp
+  : CmptFieldGnrcPrntSmplEnumOutp<CmptEnumGnrcPrntSmplEnumOutp>
   , ICmptGnrcPrntSmplEnumOutp
 {
   public ICmptGnrcPrntSmplEnumOutpObject AsGnrcPrntSmplEnumOutp { get; set; }
 }
 
-public class CmptFieldGnrcPrntSmplEnumOutp<Tref>
-  : ICmptFieldGnrcPrntSmplEnumOutp<Tref>
+public class CmptFieldGnrcPrntSmplEnumOutp<TRef>
+  : ICmptFieldGnrcPrntSmplEnumOutp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntSmplEnumOutpObject AsFieldGnrcPrntSmplEnumOutp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntSmplEnumOutpObject<TRef> AsFieldGnrcPrntSmplEnumOutp { get; set; }
 }
 
 public class CmptGnrcPrntStrDomDual
-  : CmptFieldGnrcPrntStrDomDual
+  : CmptFieldGnrcPrntStrDomDual<ICmptDomGnrcPrntStrDomDual>
   , ICmptGnrcPrntStrDomDual
 {
   public ICmptGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; set; }
 }
 
-public class CmptFieldGnrcPrntStrDomDual<Tref>
-  : ICmptFieldGnrcPrntStrDomDual<Tref>
+public class CmptFieldGnrcPrntStrDomDual<TRef>
+  : ICmptFieldGnrcPrntStrDomDual<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntStrDomDualObject AsFieldGnrcPrntStrDomDual { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntStrDomDualObject<TRef> AsFieldGnrcPrntStrDomDual { get; set; }
 }
 
 public class CmptDomGnrcPrntStrDomDual
-  : DomainString
+  : GqlpDomainString
   , ICmptDomGnrcPrntStrDomDual
 {
 }
 
 public class CmptGnrcPrntStrDomInp
-  : CmptFieldGnrcPrntStrDomInp
+  : CmptFieldGnrcPrntStrDomInp<ICmptDomGnrcPrntStrDomInp>
   , ICmptGnrcPrntStrDomInp
 {
   public ICmptGnrcPrntStrDomInpObject AsGnrcPrntStrDomInp { get; set; }
 }
 
-public class CmptFieldGnrcPrntStrDomInp<Tref>
-  : ICmptFieldGnrcPrntStrDomInp<Tref>
+public class CmptFieldGnrcPrntStrDomInp<TRef>
+  : ICmptFieldGnrcPrntStrDomInp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntStrDomInpObject AsFieldGnrcPrntStrDomInp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntStrDomInpObject<TRef> AsFieldGnrcPrntStrDomInp { get; set; }
 }
 
 public class CmptDomGnrcPrntStrDomInp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomGnrcPrntStrDomInp
 {
 }
 
 public class CmptGnrcPrntStrDomOutp
-  : CmptFieldGnrcPrntStrDomOutp
+  : CmptFieldGnrcPrntStrDomOutp<ICmptDomGnrcPrntStrDomOutp>
   , ICmptGnrcPrntStrDomOutp
 {
   public ICmptGnrcPrntStrDomOutpObject AsGnrcPrntStrDomOutp { get; set; }
 }
 
-public class CmptFieldGnrcPrntStrDomOutp<Tref>
-  : ICmptFieldGnrcPrntStrDomOutp<Tref>
+public class CmptFieldGnrcPrntStrDomOutp<TRef>
+  : ICmptFieldGnrcPrntStrDomOutp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntStrDomOutpObject AsFieldGnrcPrntStrDomOutp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntStrDomOutpObject<TRef> AsFieldGnrcPrntStrDomOutp { get; set; }
 }
 
 public class CmptDomGnrcPrntStrDomOutp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomGnrcPrntStrDomOutp
 {
 }
@@ -2806,56 +2806,56 @@ public class CmptDomGnrcPrntStrDomOutp
 public class CmptGnrcValueDual
   : ICmptGnrcValueDual
 {
-  public ICmptRefGnrcValueDual<ICmptEnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
+  public ICmptRefGnrcValueDual<CmptEnumGnrcValueDual> AsEnumGnrcValueDualgnrcValueDual { get; set; }
   public ICmptGnrcValueDualObject AsGnrcValueDual { get; set; }
 }
 
-public class CmptRefGnrcValueDual<Ttype>
-  : ICmptRefGnrcValueDual<Ttype>
+public class CmptRefGnrcValueDual<TType>
+  : ICmptRefGnrcValueDual<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefGnrcValueDualObject AsRefGnrcValueDual { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefGnrcValueDualObject<TType> AsRefGnrcValueDual { get; set; }
 }
 
 public class CmptGnrcValueInp
   : ICmptGnrcValueInp
 {
-  public ICmptRefGnrcValueInp<ICmptEnumGnrcValueInp> AsRefGnrcValueInp { get; set; }
+  public ICmptRefGnrcValueInp<CmptEnumGnrcValueInp> AsEnumGnrcValueInpgnrcValueInp { get; set; }
   public ICmptGnrcValueInpObject AsGnrcValueInp { get; set; }
 }
 
-public class CmptRefGnrcValueInp<Ttype>
-  : ICmptRefGnrcValueInp<Ttype>
+public class CmptRefGnrcValueInp<TType>
+  : ICmptRefGnrcValueInp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefGnrcValueInpObject AsRefGnrcValueInp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefGnrcValueInpObject<TType> AsRefGnrcValueInp { get; set; }
 }
 
 public class CmptGnrcValueOutp
   : ICmptGnrcValueOutp
 {
-  public ICmptRefGnrcValueOutp<ICmptEnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
+  public ICmptRefGnrcValueOutp<CmptEnumGnrcValueOutp> AsEnumGnrcValueOutpgnrcValueOutp { get; set; }
   public ICmptGnrcValueOutpObject AsGnrcValueOutp { get; set; }
 }
 
-public class CmptRefGnrcValueOutp<Ttype>
-  : ICmptRefGnrcValueOutp<Ttype>
+public class CmptRefGnrcValueOutp<TType>
+  : ICmptRefGnrcValueOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefGnrcValueOutpObject AsRefGnrcValueOutp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefGnrcValueOutpObject<TType> AsRefGnrcValueOutp { get; set; }
 }
 
 public class CmptInpFieldDescrNmbr
   : ICmptInpFieldDescrNmbr
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptInpFieldDescrNmbrObject AsInpFieldDescrNmbr { get; set; }
 }
 
 public class CmptInpFieldEnum
   : ICmptInpFieldEnum
 {
-  public ICmptEnumInpFieldEnum Field { get; set; }
+  public CmptEnumInpFieldEnum Field { get; set; }
   public ICmptInpFieldEnumObject AsInpFieldEnum { get; set; }
 }
 
@@ -2875,21 +2875,21 @@ public class CmptFldInpFieldNull
 public class CmptInpFieldNmbr
   : ICmptInpFieldNmbr
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptInpFieldNmbrObject AsInpFieldNmbr { get; set; }
 }
 
 public class CmptInpFieldNmbrDescr
   : ICmptInpFieldNmbrDescr
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptInpFieldNmbrDescrObject AsInpFieldNmbrDescr { get; set; }
 }
 
 public class CmptInpFieldStr
   : ICmptInpFieldStr
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptInpFieldStrObject AsInpFieldStr { get; set; }
 }
 
@@ -2909,8 +2909,8 @@ public class CmptFldOutpDescrParam
 public class CmptInOutpDescrParam
   : ICmptInOutpDescrParam
 {
-  public ICmptNumber Param { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpDescrParamObject AsInOutpDescrParam { get; set; }
 }
 
@@ -2930,8 +2930,8 @@ public class CmptFldOutpParam
 public class CmptInOutpParam
   : ICmptInOutpParam
 {
-  public ICmptNumber Param { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpParamObject AsInOutpParam { get; set; }
 }
 
@@ -2951,8 +2951,8 @@ public class CmptFldOutpParamDescr
 public class CmptInOutpParamDescr
   : ICmptInOutpParamDescr
 {
-  public ICmptNumber Param { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpParamDescrObject AsInOutpParamDescr { get; set; }
 }
 
@@ -2966,34 +2966,34 @@ public class CmptOutpParamModDmn
 public class CmptInOutpParamModDmn
   : ICmptInOutpParamModDmn
 {
-  public ICmptNumber Param { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpParamModDmnObject AsInOutpParamModDmn { get; set; }
 }
 
 public class CmptDomOutpParamModDmn
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDomOutpParamModDmn
 {
 }
 
-public class CmptOutpParamModParam<Tmod>
-  : ICmptOutpParamModParam<Tmod>
+public class CmptOutpParamModParam<TMod>
+  : ICmptOutpParamModParam<TMod>
 {
   public ICmptDomOutpParamModParam Field { get; set; }
-  public ICmptOutpParamModParamObject AsOutpParamModParam { get; set; }
+  public ICmptOutpParamModParamObject<TMod> AsOutpParamModParam { get; set; }
 }
 
 public class CmptInOutpParamModParam
   : ICmptInOutpParamModParam
 {
-  public ICmptNumber Param { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpParamModParamObject AsInOutpParamModParam { get; set; }
 }
 
 public class CmptDomOutpParamModParam
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDomOutpParamModParam
 {
 }
@@ -3014,23 +3014,23 @@ public class CmptFldOutpParamTypeDescr
 public class CmptInOutpParamTypeDescr
   : ICmptInOutpParamTypeDescr
 {
-  public ICmptNumber Param { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpParamTypeDescrObject AsInOutpParamTypeDescr { get; set; }
 }
 
 public class CmptOutpPrntGnrc
   : ICmptOutpPrntGnrc
 {
-  public ICmptRefOutpPrntGnrc<ICmptEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
+  public ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; set; }
   public ICmptOutpPrntGnrcObject AsOutpPrntGnrc { get; set; }
 }
 
-public class CmptRefOutpPrntGnrc<Ttype>
-  : ICmptRefOutpPrntGnrc<Ttype>
+public class CmptRefOutpPrntGnrc<TType>
+  : ICmptRefOutpPrntGnrc<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefOutpPrntGnrcObject<TType> AsRefOutpPrntGnrc { get; set; }
 }
 
 public class CmptOutpPrntParam
@@ -3057,16 +3057,16 @@ public class CmptFldOutpPrntParam
 public class CmptInOutpPrntParam
   : ICmptInOutpPrntParam
 {
-  public ICmptNumber Param { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpPrntParamObject AsInOutpPrntParam { get; set; }
 }
 
 public class CmptPrntOutpPrntParamIn
   : ICmptPrntOutpPrntParamIn
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; set; }
 }
 
@@ -3080,8 +3080,8 @@ public class CmptPrntDual
 public class CmptRefPrntDual
   : ICmptRefPrntDual
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntDualObject AsRefPrntDual { get; set; }
 }
 
@@ -3095,8 +3095,8 @@ public class CmptPrntInp
 public class CmptRefPrntInp
   : ICmptRefPrntInp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntInpObject AsRefPrntInp { get; set; }
 }
 
@@ -3110,8 +3110,8 @@ public class CmptPrntOutp
 public class CmptRefPrntOutp
   : ICmptRefPrntOutp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntOutpObject AsRefPrntOutp { get; set; }
 }
 
@@ -3119,15 +3119,15 @@ public class CmptPrntAltDual
   : CmptRefPrntAltDual
   , ICmptPrntAltDual
 {
-  public ICmptNumber AsNumber { get; set; }
+  public decimal AsNumber { get; set; }
   public ICmptPrntAltDualObject AsPrntAltDual { get; set; }
 }
 
 public class CmptRefPrntAltDual
   : ICmptRefPrntAltDual
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntAltDualObject AsRefPrntAltDual { get; set; }
 }
 
@@ -3135,15 +3135,15 @@ public class CmptPrntAltInp
   : CmptRefPrntAltInp
   , ICmptPrntAltInp
 {
-  public ICmptNumber AsNumber { get; set; }
+  public decimal AsNumber { get; set; }
   public ICmptPrntAltInpObject AsPrntAltInp { get; set; }
 }
 
 public class CmptRefPrntAltInp
   : ICmptRefPrntAltInp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntAltInpObject AsRefPrntAltInp { get; set; }
 }
 
@@ -3151,15 +3151,15 @@ public class CmptPrntAltOutp
   : CmptRefPrntAltOutp
   , ICmptPrntAltOutp
 {
-  public ICmptNumber AsNumber { get; set; }
+  public decimal AsNumber { get; set; }
   public ICmptPrntAltOutpObject AsPrntAltOutp { get; set; }
 }
 
 public class CmptRefPrntAltOutp
   : ICmptRefPrntAltOutp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntAltOutpObject AsRefPrntAltOutp { get; set; }
 }
 
@@ -3173,8 +3173,8 @@ public class CmptPrntDescrDual
 public class CmptRefPrntDescrDual
   : ICmptRefPrntDescrDual
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntDescrDualObject AsRefPrntDescrDual { get; set; }
 }
 
@@ -3188,8 +3188,8 @@ public class CmptPrntDescrInp
 public class CmptRefPrntDescrInp
   : ICmptRefPrntDescrInp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntDescrInpObject AsRefPrntDescrInp { get; set; }
 }
 
@@ -3203,8 +3203,8 @@ public class CmptPrntDescrOutp
 public class CmptRefPrntDescrOutp
   : ICmptRefPrntDescrOutp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntDescrOutpObject AsRefPrntDescrOutp { get; set; }
 }
 
@@ -3218,8 +3218,8 @@ public class CmptPrntDualDual
 public class CmptRefPrntDualDual
   : ICmptRefPrntDualDual
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntDualDualObject AsRefPrntDualDual { get; set; }
 }
 
@@ -3233,8 +3233,8 @@ public class CmptPrntDualInp
 public class CmptRefPrntDualInp
   : ICmptRefPrntDualInp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntDualInpObject AsRefPrntDualInp { get; set; }
 }
 
@@ -3248,8 +3248,8 @@ public class CmptPrntDualOutp
 public class CmptRefPrntDualOutp
   : ICmptRefPrntDualOutp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntDualOutpObject AsRefPrntDualOutp { get; set; }
 }
 
@@ -3257,15 +3257,15 @@ public class CmptPrntFieldDual
   : CmptRefPrntFieldDual
   , ICmptPrntFieldDual
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptPrntFieldDualObject AsPrntFieldDual { get; set; }
 }
 
 public class CmptRefPrntFieldDual
   : ICmptRefPrntFieldDual
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntFieldDualObject AsRefPrntFieldDual { get; set; }
 }
 
@@ -3273,15 +3273,15 @@ public class CmptPrntFieldInp
   : CmptRefPrntFieldInp
   , ICmptPrntFieldInp
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptPrntFieldInpObject AsPrntFieldInp { get; set; }
 }
 
 public class CmptRefPrntFieldInp
   : ICmptRefPrntFieldInp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntFieldInpObject AsRefPrntFieldInp { get; set; }
 }
 
@@ -3289,106 +3289,106 @@ public class CmptPrntFieldOutp
   : CmptRefPrntFieldOutp
   , ICmptPrntFieldOutp
 {
-  public ICmptNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ICmptPrntFieldOutpObject AsPrntFieldOutp { get; set; }
 }
 
 public class CmptRefPrntFieldOutp
   : ICmptRefPrntFieldOutp
 {
-  public ICmptNumber Parent { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ICmptRefPrntFieldOutpObject AsRefPrntFieldOutp { get; set; }
 }
 
-public class CmptPrntParamDiffDual<Ta>
-  : CmptRefPrntParamDiffDual
-  , ICmptPrntParamDiffDual<Ta>
+public class CmptPrntParamDiffDual<TA>
+  : CmptRefPrntParamDiffDual<TA>
+  , ICmptPrntParamDiffDual<TA>
 {
-  public Ta Field { get; set; }
-  public ICmptPrntParamDiffDualObject AsPrntParamDiffDual { get; set; }
+  public TA Field { get; set; }
+  public ICmptPrntParamDiffDualObject<TA> AsPrntParamDiffDual { get; set; }
 }
 
-public class CmptRefPrntParamDiffDual<Tb>
-  : ICmptRefPrntParamDiffDual<Tb>
+public class CmptRefPrntParamDiffDual<TB>
+  : ICmptRefPrntParamDiffDual<TB>
 {
-  public Tb Asb { get; set; }
-  public ICmptRefPrntParamDiffDualObject AsRefPrntParamDiffDual { get; set; }
+  public TB Asb { get; set; }
+  public ICmptRefPrntParamDiffDualObject<TB> AsRefPrntParamDiffDual { get; set; }
 }
 
-public class CmptPrntParamDiffInp<Ta>
-  : CmptRefPrntParamDiffInp
-  , ICmptPrntParamDiffInp<Ta>
+public class CmptPrntParamDiffInp<TA>
+  : CmptRefPrntParamDiffInp<TA>
+  , ICmptPrntParamDiffInp<TA>
 {
-  public Ta Field { get; set; }
-  public ICmptPrntParamDiffInpObject AsPrntParamDiffInp { get; set; }
+  public TA Field { get; set; }
+  public ICmptPrntParamDiffInpObject<TA> AsPrntParamDiffInp { get; set; }
 }
 
-public class CmptRefPrntParamDiffInp<Tb>
-  : ICmptRefPrntParamDiffInp<Tb>
+public class CmptRefPrntParamDiffInp<TB>
+  : ICmptRefPrntParamDiffInp<TB>
 {
-  public Tb Asb { get; set; }
-  public ICmptRefPrntParamDiffInpObject AsRefPrntParamDiffInp { get; set; }
+  public TB Asb { get; set; }
+  public ICmptRefPrntParamDiffInpObject<TB> AsRefPrntParamDiffInp { get; set; }
 }
 
-public class CmptPrntParamDiffOutp<Ta>
-  : CmptRefPrntParamDiffOutp
-  , ICmptPrntParamDiffOutp<Ta>
+public class CmptPrntParamDiffOutp<TA>
+  : CmptRefPrntParamDiffOutp<TA>
+  , ICmptPrntParamDiffOutp<TA>
 {
-  public Ta Field { get; set; }
-  public ICmptPrntParamDiffOutpObject AsPrntParamDiffOutp { get; set; }
+  public TA Field { get; set; }
+  public ICmptPrntParamDiffOutpObject<TA> AsPrntParamDiffOutp { get; set; }
 }
 
-public class CmptRefPrntParamDiffOutp<Tb>
-  : ICmptRefPrntParamDiffOutp<Tb>
+public class CmptRefPrntParamDiffOutp<TB>
+  : ICmptRefPrntParamDiffOutp<TB>
 {
-  public Tb Asb { get; set; }
-  public ICmptRefPrntParamDiffOutpObject AsRefPrntParamDiffOutp { get; set; }
+  public TB Asb { get; set; }
+  public ICmptRefPrntParamDiffOutpObject<TB> AsRefPrntParamDiffOutp { get; set; }
 }
 
-public class CmptPrntParamSameDual<Ta>
-  : CmptRefPrntParamSameDual
-  , ICmptPrntParamSameDual<Ta>
+public class CmptPrntParamSameDual<TA>
+  : CmptRefPrntParamSameDual<TA>
+  , ICmptPrntParamSameDual<TA>
 {
-  public Ta Field { get; set; }
-  public ICmptPrntParamSameDualObject AsPrntParamSameDual { get; set; }
+  public TA Field { get; set; }
+  public ICmptPrntParamSameDualObject<TA> AsPrntParamSameDual { get; set; }
 }
 
-public class CmptRefPrntParamSameDual<Ta>
-  : ICmptRefPrntParamSameDual<Ta>
+public class CmptRefPrntParamSameDual<TA>
+  : ICmptRefPrntParamSameDual<TA>
 {
-  public Ta Asa { get; set; }
-  public ICmptRefPrntParamSameDualObject AsRefPrntParamSameDual { get; set; }
+  public TA Asa { get; set; }
+  public ICmptRefPrntParamSameDualObject<TA> AsRefPrntParamSameDual { get; set; }
 }
 
-public class CmptPrntParamSameInp<Ta>
-  : CmptRefPrntParamSameInp
-  , ICmptPrntParamSameInp<Ta>
+public class CmptPrntParamSameInp<TA>
+  : CmptRefPrntParamSameInp<TA>
+  , ICmptPrntParamSameInp<TA>
 {
-  public Ta Field { get; set; }
-  public ICmptPrntParamSameInpObject AsPrntParamSameInp { get; set; }
+  public TA Field { get; set; }
+  public ICmptPrntParamSameInpObject<TA> AsPrntParamSameInp { get; set; }
 }
 
-public class CmptRefPrntParamSameInp<Ta>
-  : ICmptRefPrntParamSameInp<Ta>
+public class CmptRefPrntParamSameInp<TA>
+  : ICmptRefPrntParamSameInp<TA>
 {
-  public Ta Asa { get; set; }
-  public ICmptRefPrntParamSameInpObject AsRefPrntParamSameInp { get; set; }
+  public TA Asa { get; set; }
+  public ICmptRefPrntParamSameInpObject<TA> AsRefPrntParamSameInp { get; set; }
 }
 
-public class CmptPrntParamSameOutp<Ta>
-  : CmptRefPrntParamSameOutp
-  , ICmptPrntParamSameOutp<Ta>
+public class CmptPrntParamSameOutp<TA>
+  : CmptRefPrntParamSameOutp<TA>
+  , ICmptPrntParamSameOutp<TA>
 {
-  public Ta Field { get; set; }
-  public ICmptPrntParamSameOutpObject AsPrntParamSameOutp { get; set; }
+  public TA Field { get; set; }
+  public ICmptPrntParamSameOutpObject<TA> AsPrntParamSameOutp { get; set; }
 }
 
-public class CmptRefPrntParamSameOutp<Ta>
-  : ICmptRefPrntParamSameOutp<Ta>
+public class CmptRefPrntParamSameOutp<TA>
+  : ICmptRefPrntParamSameOutp<TA>
 {
-  public Ta Asa { get; set; }
-  public ICmptRefPrntParamSameOutpObject AsRefPrntParamSameOutp { get; set; }
+  public TA Asa { get; set; }
+  public ICmptRefPrntParamSameOutpObject<TA> AsRefPrntParamSameOutp { get; set; }
 }
 
 public class CmptCtgr
@@ -3422,73 +3422,73 @@ public class CmptInDrctParam
 }
 
 public class CmptDmnAlias
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnAlias
 {
 }
 
 public class CmptDmnBool
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ICmptDmnBool
 {
 }
 
 public class CmptDmnBoolDiff
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ICmptDmnBoolDiff
 {
 }
 
 public class CmptDmnBoolSame
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ICmptDmnBoolSame
 {
 }
 
 public class CmptDmnEnumDiff
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumDiff
 {
 }
 
 public class CmptDmnEnumSame
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumSame
 {
 }
 
 public class CmptDmnNmbr
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnNmbr
 {
 }
 
 public class CmptDmnNmbrDiff
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnNmbrDiff
 {
 }
 
 public class CmptDmnNmbrSame
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnNmbrSame
 {
 }
 
 public class CmptDmnStr
-  : DomainString
+  : GqlpDomainString
   , ICmptDmnStr
 {
 }
 
 public class CmptDmnStrDiff
-  : DomainString
+  : GqlpDomainString
   , ICmptDmnStrDiff
 {
 }
 
 public class CmptDmnStrSame
-  : DomainString
+  : GqlpDomainString
   , ICmptDmnStrSame
 {
 }
@@ -3571,49 +3571,49 @@ public class CmptObjAltOutpType
 public class CmptObjAltEnumDual
   : ICmptObjAltEnumDual
 {
-  public ICmptBoolean AsBooleantrue { get; set; }
-  public ICmptBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ICmptObjAltEnumDualObject AsObjAltEnumDual { get; set; }
 }
 
 public class CmptObjAltEnumInp
   : ICmptObjAltEnumInp
 {
-  public ICmptBoolean AsBooleantrue { get; set; }
-  public ICmptBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ICmptObjAltEnumInpObject AsObjAltEnumInp { get; set; }
 }
 
 public class CmptObjAltEnumOutp
   : ICmptObjAltEnumOutp
 {
-  public ICmptBoolean AsBooleantrue { get; set; }
-  public ICmptBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ICmptObjAltEnumOutpObject AsObjAltEnumOutp { get; set; }
 }
 
-public class CmptObjCnstDual<Ttype>
-  : ICmptObjCnstDual<Ttype>
+public class CmptObjCnstDual<TType>
+  : ICmptObjCnstDual<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
-  public ICmptObjCnstDualObject AsObjCnstDual { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+  public ICmptObjCnstDualObject<TType> AsObjCnstDual { get; set; }
 }
 
-public class CmptObjCnstInp<Ttype>
-  : ICmptObjCnstInp<Ttype>
+public class CmptObjCnstInp<TType>
+  : ICmptObjCnstInp<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
-  public ICmptObjCnstInpObject AsObjCnstInp { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+  public ICmptObjCnstInpObject<TType> AsObjCnstInp { get; set; }
 }
 
-public class CmptObjCnstOutp<Ttype>
-  : ICmptObjCnstOutp<Ttype>
+public class CmptObjCnstOutp<TType>
+  : ICmptObjCnstOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
-  public ICmptObjCnstOutpObject AsObjCnstOutp { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+  public ICmptObjCnstOutpObject<TType> AsObjCnstOutp { get; set; }
 }
 
 public class CmptObjFieldDual
@@ -3697,112 +3697,112 @@ public class CmptFldObjFieldAliasOutp
 public class CmptObjFieldEnumAliasDual
   : ICmptObjFieldEnumAliasDual
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; set; }
 }
 
 public class CmptObjFieldEnumAliasInp
   : ICmptObjFieldEnumAliasInp
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; set; }
 }
 
 public class CmptObjFieldEnumAliasOutp
   : ICmptObjFieldEnumAliasOutp
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumAliasOutpObject AsObjFieldEnumAliasOutp { get; set; }
 }
 
 public class CmptObjFieldEnumValueDual
   : ICmptObjFieldEnumValueDual
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; set; }
 }
 
 public class CmptObjFieldEnumValueInp
   : ICmptObjFieldEnumValueInp
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumValueInpObject AsObjFieldEnumValueInp { get; set; }
 }
 
 public class CmptObjFieldEnumValueOutp
   : ICmptObjFieldEnumValueOutp
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumValueOutpObject AsObjFieldEnumValueOutp { get; set; }
 }
 
 public class CmptObjFieldTypeAliasDual
   : ICmptObjFieldTypeAliasDual
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; set; }
 }
 
 public class CmptObjFieldTypeAliasInp
   : ICmptObjFieldTypeAliasInp
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptObjFieldTypeAliasInpObject AsObjFieldTypeAliasInp { get; set; }
 }
 
 public class CmptObjFieldTypeAliasOutp
   : ICmptObjFieldTypeAliasOutp
 {
-  public ICmptString Field { get; set; }
+  public string Field { get; set; }
   public ICmptObjFieldTypeAliasOutpObject AsObjFieldTypeAliasOutp { get; set; }
 }
 
-public class CmptObjParamDual<Ttest,Ttype>
-  : ICmptObjParamDual<Ttest,Ttype>
+public class CmptObjParamDual<TTest,TType>
+  : ICmptObjParamDual<TTest,TType>
 {
-  public Ttest Test { get; set; }
-  public Ttype Type { get; set; }
-  public ICmptObjParamDualObject AsObjParamDual { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+  public ICmptObjParamDualObject<TTest,TType> AsObjParamDual { get; set; }
 }
 
-public class CmptObjParamInp<Ttest,Ttype>
-  : ICmptObjParamInp<Ttest,Ttype>
+public class CmptObjParamInp<TTest,TType>
+  : ICmptObjParamInp<TTest,TType>
 {
-  public Ttest Test { get; set; }
-  public Ttype Type { get; set; }
-  public ICmptObjParamInpObject AsObjParamInp { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+  public ICmptObjParamInpObject<TTest,TType> AsObjParamInp { get; set; }
 }
 
-public class CmptObjParamOutp<Ttest,Ttype>
-  : ICmptObjParamOutp<Ttest,Ttype>
+public class CmptObjParamOutp<TTest,TType>
+  : ICmptObjParamOutp<TTest,TType>
 {
-  public Ttest Test { get; set; }
-  public Ttype Type { get; set; }
-  public ICmptObjParamOutpObject AsObjParamOutp { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+  public ICmptObjParamOutpObject<TTest,TType> AsObjParamOutp { get; set; }
 }
 
-public class CmptObjParamDupDual<Ttest>
-  : ICmptObjParamDupDual<Ttest>
+public class CmptObjParamDupDual<TTest>
+  : ICmptObjParamDupDual<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
-  public ICmptObjParamDupDualObject AsObjParamDupDual { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+  public ICmptObjParamDupDualObject<TTest> AsObjParamDupDual { get; set; }
 }
 
-public class CmptObjParamDupInp<Ttest>
-  : ICmptObjParamDupInp<Ttest>
+public class CmptObjParamDupInp<TTest>
+  : ICmptObjParamDupInp<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
-  public ICmptObjParamDupInpObject AsObjParamDupInp { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+  public ICmptObjParamDupInpObject<TTest> AsObjParamDupInp { get; set; }
 }
 
-public class CmptObjParamDupOutp<Ttest>
-  : ICmptObjParamDupOutp<Ttest>
+public class CmptObjParamDupOutp<TTest>
+  : ICmptObjParamDupOutp<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
-  public ICmptObjParamDupOutpObject AsObjParamDupOutp { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+  public ICmptObjParamDupOutpObject<TTest> AsObjParamDupOutp { get; set; }
 }
 
 public class CmptObjPrntDual
@@ -3903,7 +3903,7 @@ public class CmptPrntUnionSamePrnt
 }
 
 public class CmptDmnBoolDescr
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ICmptDmnBoolDescr
 {
 }
@@ -3915,7 +3915,7 @@ public class CmptDmnBoolPrnt
 }
 
 public class CmptPrntDmnBoolPrnt
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ICmptPrntDmnBoolPrnt
 {
 }
@@ -3927,49 +3927,49 @@ public class CmptDmnBoolPrntDescr
 }
 
 public class CmptPrntDmnBoolPrntDescr
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ICmptPrntDmnBoolPrntDescr
 {
 }
 
 public class CmptDmnEnumAll
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumAll
 {
 }
 
 public class CmptDmnEnumAllDescr
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumAllDescr
 {
 }
 
 public class CmptDmnEnumAllPrnt
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumAllPrnt
 {
 }
 
 public class CmptDmnEnumDescr
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumDescr
 {
 }
 
 public class CmptDmnEnumExcl
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumExcl
 {
 }
 
 public class CmptDmnEnumExclPrnt
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumExclPrnt
 {
 }
 
 public class CmptDmnEnumLabel
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumLabel
 {
 }
@@ -3981,7 +3981,7 @@ public class CmptDmnEnumPrnt
 }
 
 public class CmptPrntDmnEnumPrnt
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptPrntDmnEnumPrnt
 {
 }
@@ -3993,37 +3993,37 @@ public class CmptDmnEnumPrntDescr
 }
 
 public class CmptPrntDmnEnumPrntDescr
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptPrntDmnEnumPrntDescr
 {
 }
 
 public class CmptDmnEnumUnq
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumUnq
 {
 }
 
 public class CmptDmnEnumUnqPrnt
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumUnqPrnt
 {
 }
 
 public class CmptDmnEnumValue
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumValue
 {
 }
 
 public class CmptDmnEnumValuePrnt
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDmnEnumValuePrnt
 {
 }
 
 public class CmptDmnNmbrDescr
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnNmbrDescr
 {
 }
@@ -4035,7 +4035,7 @@ public class CmptDmnNmbrPrnt
 }
 
 public class CmptPrntDmnNmbrPrnt
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptPrntDmnNmbrPrnt
 {
 }
@@ -4047,25 +4047,31 @@ public class CmptDmnNmbrPrntDescr
 }
 
 public class CmptPrntDmnNmbrPrntDescr
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptPrntDmnNmbrPrntDescr
 {
 }
 
 public class CmptDmnNmbrPstv
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDmnNmbrPstv
 {
 }
 
+public class CmptDmnNmbrRange
+  : GqlpDomainNumber
+  , ICmptDmnNmbrRange
+{
+}
+
 public class CmptDmnStrDescr
-  : DomainString
+  : GqlpDomainString
   , ICmptDmnStrDescr
 {
 }
 
 public class CmptDmnStrNonEmpty
-  : DomainString
+  : GqlpDomainString
   , ICmptDmnStrNonEmpty
 {
 }
@@ -4077,7 +4083,7 @@ public class CmptDmnStrPrnt
 }
 
 public class CmptPrntDmnStrPrnt
-  : DomainString
+  : GqlpDomainString
   , ICmptPrntDmnStrPrnt
 {
 }
@@ -4089,7 +4095,7 @@ public class CmptDmnStrPrntDescr
 }
 
 public class CmptPrntDmnStrPrntDescr
-  : DomainString
+  : GqlpDomainString
   , ICmptPrntDmnStrPrntDescr
 {
 }

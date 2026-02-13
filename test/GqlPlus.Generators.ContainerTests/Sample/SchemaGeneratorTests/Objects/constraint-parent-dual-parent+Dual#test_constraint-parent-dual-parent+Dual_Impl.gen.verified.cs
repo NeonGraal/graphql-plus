@@ -6,23 +6,23 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_parent_Dual;
 
 public class testCnstPrntDualPrntDual
-  : testRefCnstPrntDualPrntDual
+  : testRefCnstPrntDualPrntDual<ItestAltCnstPrntDualPrntDual>
   , ItestCnstPrntDualPrntDual
 {
   public ItestCnstPrntDualPrntDualObject AsCnstPrntDualPrntDual { get; set; }
 }
 
-public class testRefCnstPrntDualPrntDual<Tref>
-  : testref
-  , ItestRefCnstPrntDualPrntDual<Tref>
+public class testRefCnstPrntDualPrntDual<TRef>
+  : ItestRefCnstPrntDualPrntDual<TRef>
 {
-  public ItestRefCnstPrntDualPrntDualObject AsRefCnstPrntDualPrntDual { get; set; }
+  public TRef AsParent { get; set; }
+  public ItestRefCnstPrntDualPrntDualObject<TRef> AsRefCnstPrntDualPrntDual { get; set; }
 }
 
 public class testPrntCnstPrntDualPrntDual
   : ItestPrntCnstPrntDualPrntDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstPrntDualPrntDualObject AsPrntCnstPrntDualPrntDual { get; set; }
 }
 
@@ -30,6 +30,6 @@ public class testAltCnstPrntDualPrntDual
   : testPrntCnstPrntDualPrntDual
   , ItestAltCnstPrntDualPrntDual
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntDualPrntDualObject AsAltCnstPrntDualPrntDual { get; set; }
 }

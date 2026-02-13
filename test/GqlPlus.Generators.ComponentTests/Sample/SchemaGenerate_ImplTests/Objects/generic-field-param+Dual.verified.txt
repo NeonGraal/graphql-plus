@@ -17,17 +17,17 @@ public class CmptGnrcFieldParamDual
   public ICmptGnrcFieldParamDualObject AsGnrcFieldParamDual { get; set; }
 }
 
-public class CmptRefGnrcFieldParamDual<Tref>
-  : ICmptRefGnrcFieldParamDual<Tref>
+public class CmptRefGnrcFieldParamDual<TRef>
+  : ICmptRefGnrcFieldParamDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldParamDualObject AsRefGnrcFieldParamDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcFieldParamDualObject<TRef> AsRefGnrcFieldParamDual { get; set; }
 }
 
 public class CmptAltGnrcFieldParamDual
   : ICmptAltGnrcFieldParamDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcFieldParamDualObject AsAltGnrcFieldParamDual { get; set; }
 }

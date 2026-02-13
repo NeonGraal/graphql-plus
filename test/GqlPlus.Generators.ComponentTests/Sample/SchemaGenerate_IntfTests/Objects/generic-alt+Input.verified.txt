@@ -8,12 +8,12 @@ input GnrcAltInp<$type:String> { | $type }
 
 namespace Components.Gqlp_Schema_generic_alt_Input;
 
-public interface ICmptGnrcAltInp<Ttype>
+public interface ICmptGnrcAltInp<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptGnrcAltInpObject AsGnrcAltInp { get; set; }
+  TType Astype { get; }
+  ICmptGnrcAltInpObject<TType> AsGnrcAltInp { get; }
 }
 
-public interface ICmptGnrcAltInpObject<Ttype>
+public interface ICmptGnrcAltInpObject<TType>
 {
 }

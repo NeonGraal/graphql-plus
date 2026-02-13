@@ -9,7 +9,7 @@ domain DmnStrDescr { String "DomString" "Descr" /a+/ }
 namespace Components.Gqlp_Schema_domain_string_descr;
 
 public class CmptDmnStrDescr
-  : DomainString
+  : GqlpDomainString
   , ICmptDmnStrDescr
 {
 }

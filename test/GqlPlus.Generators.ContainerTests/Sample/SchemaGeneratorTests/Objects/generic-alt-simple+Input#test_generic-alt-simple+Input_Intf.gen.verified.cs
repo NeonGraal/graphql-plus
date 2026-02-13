@@ -7,20 +7,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Input;
 
 public interface ItestGnrcAltSmplInp
 {
-  public ItestRefGnrcAltSmplInp<ItestString> AsRefGnrcAltSmplInp { get; set; }
-  public ItestGnrcAltSmplInpObject AsGnrcAltSmplInp { get; set; }
+  ItestRefGnrcAltSmplInp<string> AsRefGnrcAltSmplInp { get; }
+  ItestGnrcAltSmplInpObject AsGnrcAltSmplInp { get; }
 }
 
 public interface ItestGnrcAltSmplInpObject
 {
 }
 
-public interface ItestRefGnrcAltSmplInp<Tref>
+public interface ItestRefGnrcAltSmplInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcAltSmplInpObject AsRefGnrcAltSmplInp { get; set; }
+  TRef Asref { get; }
+  ItestRefGnrcAltSmplInpObject<TRef> AsRefGnrcAltSmplInp { get; }
 }
 
-public interface ItestRefGnrcAltSmplInpObject<Tref>
+public interface ItestRefGnrcAltSmplInpObject<TRef>
 {
 }

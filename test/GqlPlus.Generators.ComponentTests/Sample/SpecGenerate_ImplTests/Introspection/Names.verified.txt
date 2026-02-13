@@ -45,7 +45,7 @@ public class Cmpt_Named
 public class Cmpt_Described
   : ICmpt_Described
 {
-  public ICollection<ICmptString> Description { get; set; }
+  public ICollection<string> Description { get; set; }
   public ICmpt_DescribedObject As_Described { get; set; }
 }
 

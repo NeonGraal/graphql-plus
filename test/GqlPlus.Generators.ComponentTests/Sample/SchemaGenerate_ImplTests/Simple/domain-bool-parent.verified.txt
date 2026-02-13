@@ -16,7 +16,7 @@ public class CmptDmnBoolPrnt
 }
 
 public class CmptPrntDmnBoolPrnt
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ICmptPrntDmnBoolPrnt
 {
 }

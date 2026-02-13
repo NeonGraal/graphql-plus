@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_enum_same_parent;
 
 public enum testEnumSamePrnt
 {
-  prnt_enumSamePrnt = PrntEnumSamePrnt.prnt_enumSamePrnt,
+  prnt_enumSamePrnt = testPrntEnumSamePrnt.prnt_enumSamePrnt,
   enumSamePrnt,
 }
 

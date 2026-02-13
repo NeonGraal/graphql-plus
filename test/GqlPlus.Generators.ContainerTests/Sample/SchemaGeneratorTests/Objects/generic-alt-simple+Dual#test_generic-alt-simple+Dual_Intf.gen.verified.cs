@@ -7,20 +7,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Dual;
 
 public interface ItestGnrcAltSmplDual
 {
-  public ItestRefGnrcAltSmplDual<ItestString> AsRefGnrcAltSmplDual { get; set; }
-  public ItestGnrcAltSmplDualObject AsGnrcAltSmplDual { get; set; }
+  ItestRefGnrcAltSmplDual<string> AsRefGnrcAltSmplDual { get; }
+  ItestGnrcAltSmplDualObject AsGnrcAltSmplDual { get; }
 }
 
 public interface ItestGnrcAltSmplDualObject
 {
 }
 
-public interface ItestRefGnrcAltSmplDual<Tref>
+public interface ItestRefGnrcAltSmplDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcAltSmplDualObject AsRefGnrcAltSmplDual { get; set; }
+  TRef Asref { get; }
+  ItestRefGnrcAltSmplDualObject<TRef> AsRefGnrcAltSmplDual { get; }
 }
 
-public interface ItestRefGnrcAltSmplDualObject<Tref>
+public interface ItestRefGnrcAltSmplDualObject<TRef>
 {
 }

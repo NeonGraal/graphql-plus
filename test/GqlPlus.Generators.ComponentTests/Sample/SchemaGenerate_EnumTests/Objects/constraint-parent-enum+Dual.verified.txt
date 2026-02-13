@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_constraint_parent_enum_Dual;
 
 public enum CmptEnumCnstPrntEnumDual
 {
-  parentCnstPrntEnumDual = ParentCnstPrntEnumDual.parentCnstPrntEnumDual,
+  parentCnstPrntEnumDual = CmptParentCnstPrntEnumDual.parentCnstPrntEnumDual,
   cnstPrntEnumDual,
 }
 

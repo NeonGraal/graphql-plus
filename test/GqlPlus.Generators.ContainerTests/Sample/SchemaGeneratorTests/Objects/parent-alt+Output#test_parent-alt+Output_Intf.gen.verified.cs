@@ -8,8 +8,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_alt_Output;
 public interface ItestPrntAltOutp
   : ItestRefPrntAltOutp
 {
-  public ItestNumber AsNumber { get; set; }
-  public ItestPrntAltOutpObject AsPrntAltOutp { get; set; }
+  decimal AsNumber { get; }
+  ItestPrntAltOutpObject AsPrntAltOutp { get; }
 }
 
 public interface ItestPrntAltOutpObject
@@ -19,11 +19,11 @@ public interface ItestPrntAltOutpObject
 
 public interface ItestRefPrntAltOutp
 {
-  public ItestString AsString { get; set; }
-  public ItestRefPrntAltOutpObject AsRefPrntAltOutp { get; set; }
+  string AsString { get; }
+  ItestRefPrntAltOutpObject AsRefPrntAltOutp { get; }
 }
 
 public interface ItestRefPrntAltOutpObject
 {
-  public ItestNumber Parent { get; set; }
+  decimal Parent { get; }
 }

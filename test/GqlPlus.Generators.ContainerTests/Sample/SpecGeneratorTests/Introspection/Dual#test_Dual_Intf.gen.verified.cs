@@ -6,12 +6,12 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Dual;
 
 public interface Itest_DualField
-  : Itest_ObjField
+  : Itest_ObjField<Itest_ObjFieldType>
 {
-  public Itest_DualFieldObject As_DualField { get; set; }
+  Itest_DualFieldObject As_DualField { get; }
 }
 
 public interface Itest_DualFieldObject
-  : Itest_ObjFieldObject
+  : Itest_ObjFieldObject<Itest_ObjFieldType>
 {
 }

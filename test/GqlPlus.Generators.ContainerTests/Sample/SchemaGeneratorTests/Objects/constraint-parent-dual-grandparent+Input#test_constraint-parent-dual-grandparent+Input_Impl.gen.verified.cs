@@ -6,23 +6,23 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_grandparent_Input;
 
 public class testCnstPrntDualGrndInp
-  : testRefCnstPrntDualGrndInp
+  : testRefCnstPrntDualGrndInp<ItestAltCnstPrntDualGrndInp>
   , ItestCnstPrntDualGrndInp
 {
   public ItestCnstPrntDualGrndInpObject AsCnstPrntDualGrndInp { get; set; }
 }
 
-public class testRefCnstPrntDualGrndInp<Tref>
-  : testref
-  , ItestRefCnstPrntDualGrndInp<Tref>
+public class testRefCnstPrntDualGrndInp<TRef>
+  : ItestRefCnstPrntDualGrndInp<TRef>
 {
-  public ItestRefCnstPrntDualGrndInpObject AsRefCnstPrntDualGrndInp { get; set; }
+  public TRef AsParent { get; set; }
+  public ItestRefCnstPrntDualGrndInpObject<TRef> AsRefCnstPrntDualGrndInp { get; set; }
 }
 
 public class testGrndCnstPrntDualGrndInp
   : ItestGrndCnstPrntDualGrndInp
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestGrndCnstPrntDualGrndInpObject AsGrndCnstPrntDualGrndInp { get; set; }
 }
 
@@ -37,6 +37,6 @@ public class testAltCnstPrntDualGrndInp
   : testPrntCnstPrntDualGrndInp
   , ItestAltCnstPrntDualGrndInp
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstPrntDualGrndInpObject AsAltCnstPrntDualGrndInp { get; set; }
 }

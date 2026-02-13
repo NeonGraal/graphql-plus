@@ -23,7 +23,7 @@ public enum testEnumSame
 
 public enum testEnumSamePrnt
 {
-  prnt_enumSamePrnt = PrntEnumSamePrnt.prnt_enumSamePrnt,
+  prnt_enumSamePrnt = testPrntEnumSamePrnt.prnt_enumSamePrnt,
   enumSamePrnt,
 }
 

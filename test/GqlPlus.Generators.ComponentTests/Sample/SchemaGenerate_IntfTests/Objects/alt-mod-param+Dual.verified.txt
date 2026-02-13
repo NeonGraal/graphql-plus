@@ -9,23 +9,23 @@ dual AltAltModParamDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 
-public interface ICmptAltModParamDual<Tmod>
+public interface ICmptAltModParamDual<TMod>
 {
-  public IDictionary<Tmod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; set; }
-  public ICmptAltModParamDualObject AsAltModParamDual { get; set; }
+  IDictionary<TMod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; }
+  ICmptAltModParamDualObject<TMod> AsAltModParamDual { get; }
 }
 
-public interface ICmptAltModParamDualObject<Tmod>
+public interface ICmptAltModParamDualObject<TMod>
 {
 }
 
 public interface ICmptAltAltModParamDual
 {
-  public ICmptString AsString { get; set; }
-  public ICmptAltAltModParamDualObject AsAltAltModParamDual { get; set; }
+  string AsString { get; }
+  ICmptAltAltModParamDualObject AsAltAltModParamDual { get; }
 }
 
 public interface ICmptAltAltModParamDualObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

@@ -6,7 +6,7 @@ namespace Components.Gqlp_Schema_Globals;
 
 public interface ICmptCtgrDscrs
 {
-  public ICmptCtgrDscrsObject AsCtgrDscrs { get; set; }
+  ICmptCtgrDscrsObject AsCtgrDscrs { get; }
 }
 
 public interface ICmptCtgrDscrsObject
@@ -15,7 +15,7 @@ public interface ICmptCtgrDscrsObject
 
 public interface ICmptCtgrOutp
 {
-  public ICmptCtgrOutpObject AsCtgrOutp { get; set; }
+  ICmptCtgrOutpObject AsCtgrOutp { get; }
 }
 
 public interface ICmptCtgrOutpObject
@@ -24,7 +24,7 @@ public interface ICmptCtgrOutpObject
 
 public interface ICmptCtgrOutpDescr
 {
-  public ICmptCtgrOutpDescrObject AsCtgrOutpDescr { get; set; }
+  ICmptCtgrOutpDescrObject AsCtgrOutpDescr { get; }
 }
 
 public interface ICmptCtgrOutpDescrObject
@@ -33,7 +33,7 @@ public interface ICmptCtgrOutpDescrObject
 
 public interface ICmptCtgrOutpDict
 {
-  public ICmptCtgrOutpDictObject AsCtgrOutpDict { get; set; }
+  ICmptCtgrOutpDictObject AsCtgrOutpDict { get; }
 }
 
 public interface ICmptCtgrOutpDictObject
@@ -42,7 +42,7 @@ public interface ICmptCtgrOutpDictObject
 
 public interface ICmptCtgrOutpList
 {
-  public ICmptCtgrOutpListObject AsCtgrOutpList { get; set; }
+  ICmptCtgrOutpListObject AsCtgrOutpList { get; }
 }
 
 public interface ICmptCtgrOutpListObject
@@ -51,7 +51,7 @@ public interface ICmptCtgrOutpListObject
 
 public interface ICmptCtgrOutpOptl
 {
-  public ICmptCtgrOutpOptlObject AsCtgrOutpOptl { get; set; }
+  ICmptCtgrOutpOptlObject AsCtgrOutpOptl { get; }
 }
 
 public interface ICmptCtgrOutpOptlObject
@@ -60,7 +60,7 @@ public interface ICmptCtgrOutpOptlObject
 
 public interface ICmptDescr
 {
-  public ICmptDescrObject AsDescr { get; set; }
+  ICmptDescrObject AsDescr { get; }
 }
 
 public interface ICmptDescrObject
@@ -69,7 +69,7 @@ public interface ICmptDescrObject
 
 public interface ICmptDescrBcks
 {
-  public ICmptDescrBcksObject AsDescrBcks { get; set; }
+  ICmptDescrBcksObject AsDescrBcks { get; }
 }
 
 public interface ICmptDescrBcksObject
@@ -78,7 +78,7 @@ public interface ICmptDescrBcksObject
 
 public interface ICmptDescrBtwn
 {
-  public ICmptDescrBtwnObject AsDescrBtwn { get; set; }
+  ICmptDescrBtwnObject AsDescrBtwn { get; }
 }
 
 public interface ICmptDescrBtwnObject
@@ -87,7 +87,7 @@ public interface ICmptDescrBtwnObject
 
 public interface ICmptDescrCmpl
 {
-  public ICmptDescrCmplObject AsDescrCmpl { get; set; }
+  ICmptDescrCmplObject AsDescrCmpl { get; }
 }
 
 public interface ICmptDescrCmplObject
@@ -96,7 +96,7 @@ public interface ICmptDescrCmplObject
 
 public interface ICmptDescrDbl
 {
-  public ICmptDescrDblObject AsDescrDbl { get; set; }
+  ICmptDescrDblObject AsDescrDbl { get; }
 }
 
 public interface ICmptDescrDblObject
@@ -105,7 +105,7 @@ public interface ICmptDescrDblObject
 
 public interface ICmptDescrSngl
 {
-  public ICmptDescrSnglObject AsDescrSngl { get; set; }
+  ICmptDescrSnglObject AsDescrSngl { get; }
 }
 
 public interface ICmptDescrSnglObject
@@ -114,7 +114,7 @@ public interface ICmptDescrSnglObject
 
 public interface ICmptDscrs
 {
-  public ICmptDscrsObject AsDscrs { get; set; }
+  ICmptDscrsObject AsDscrs { get; }
 }
 
 public interface ICmptDscrsObject
@@ -123,7 +123,7 @@ public interface ICmptDscrsObject
 
 public interface ICmptInDrctParamDict
 {
-  public ICmptInDrctParamDictObject AsInDrctParamDict { get; set; }
+  ICmptInDrctParamDictObject AsInDrctParamDict { get; }
 }
 
 public interface ICmptInDrctParamDictObject
@@ -132,7 +132,7 @@ public interface ICmptInDrctParamDictObject
 
 public interface ICmptInDrctParamIn
 {
-  public ICmptInDrctParamInObject AsInDrctParamIn { get; set; }
+  ICmptInDrctParamInObject AsInDrctParamIn { get; }
 }
 
 public interface ICmptInDrctParamInObject
@@ -141,7 +141,7 @@ public interface ICmptInDrctParamInObject
 
 public interface ICmptInDrctParamList
 {
-  public ICmptInDrctParamListObject AsInDrctParamList { get; set; }
+  ICmptInDrctParamListObject AsInDrctParamList { get; }
 }
 
 public interface ICmptInDrctParamListObject
@@ -150,7 +150,7 @@ public interface ICmptInDrctParamListObject
 
 public interface ICmptInDrctParamOpt
 {
-  public ICmptInDrctParamOptObject AsInDrctParamOpt { get; set; }
+  ICmptInDrctParamOptObject AsInDrctParamOpt { get; }
 }
 
 public interface ICmptInDrctParamOptObject

@@ -11,21 +11,21 @@ domain DomGnrcPrntStrDomInp { string /\w+/ }
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Input;
 
 public class CmptGnrcPrntStrDomInp
-  : CmptFieldGnrcPrntStrDomInp
+  : CmptFieldGnrcPrntStrDomInp<ICmptDomGnrcPrntStrDomInp>
   , ICmptGnrcPrntStrDomInp
 {
   public ICmptGnrcPrntStrDomInpObject AsGnrcPrntStrDomInp { get; set; }
 }
 
-public class CmptFieldGnrcPrntStrDomInp<Tref>
-  : ICmptFieldGnrcPrntStrDomInp<Tref>
+public class CmptFieldGnrcPrntStrDomInp<TRef>
+  : ICmptFieldGnrcPrntStrDomInp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntStrDomInpObject AsFieldGnrcPrntStrDomInp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntStrDomInpObject<TRef> AsFieldGnrcPrntStrDomInp { get; set; }
 }
 
 public class CmptDomGnrcPrntStrDomInp
-  : DomainString
+  : GqlpDomainString
   , ICmptDomGnrcPrntStrDomInp
 {
 }

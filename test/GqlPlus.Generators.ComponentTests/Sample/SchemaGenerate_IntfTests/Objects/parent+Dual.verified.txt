@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_parent_Dual;
 public interface ICmptPrntDual
   : ICmptRefPrntDual
 {
-  public ICmptPrntDualObject AsPrntDual { get; set; }
+  ICmptPrntDualObject AsPrntDual { get; }
 }
 
 public interface ICmptPrntDualObject
@@ -22,11 +22,11 @@ public interface ICmptPrntDualObject
 
 public interface ICmptRefPrntDual
 {
-  public ICmptString AsString { get; set; }
-  public ICmptRefPrntDualObject AsRefPrntDual { get; set; }
+  string AsString { get; }
+  ICmptRefPrntDualObject AsRefPrntDual { get; }
 }
 
 public interface ICmptRefPrntDualObject
 {
-  public ICmptNumber Parent { get; set; }
+  decimal Parent { get; }
 }

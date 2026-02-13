@@ -33,7 +33,7 @@ output All {
 namespace Components.Gqlp_Schema_all;
 
 public class CmptGuid
-  : DomainString
+  : GqlpDomainString
   , ICmptGuid
 {
 }
@@ -48,7 +48,7 @@ public class CmptMany
 public class CmptField
   : ICmptField
 {
-  public ICollection<ICmptString> Strings { get; set; }
+  public ICollection<string> Strings { get; set; }
   public ICmptFieldObject AsField { get; set; }
 }
 
@@ -57,7 +57,7 @@ public class CmptParam
 {
   public ICmptMany? AfterId { get; set; }
   public ICmptMany BeforeId { get; set; }
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptParamObject AsParam { get; set; }
 }
 
@@ -65,6 +65,6 @@ public class CmptAll
   : ICmptAll
 {
   public ICmptField Items { get; set; }
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptAllObject AsAll { get; set; }
 }

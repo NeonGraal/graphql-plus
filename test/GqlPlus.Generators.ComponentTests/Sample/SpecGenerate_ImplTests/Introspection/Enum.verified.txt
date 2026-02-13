@@ -25,7 +25,7 @@ public class Cmpt_EnumLabel
 }
 
 public class Cmpt_EnumValue
-  : Cmpt_TypeRef
+  : Cmpt_TypeRef<ICmpt_TypeKind>
   , ICmpt_EnumValue
 {
   public ICmpt_Name Label { get; set; }

@@ -9,24 +9,24 @@ input RefPrntParamDiffInp<$b:String> { | $b }
 
 namespace Components.Gqlp_Schema_parent_param_diff_Input;
 
-public interface ICmptPrntParamDiffInp<Ta>
-  : ICmptRefPrntParamDiffInp
+public interface ICmptPrntParamDiffInp<TA>
+  : ICmptRefPrntParamDiffInp<TA>
 {
-  public ICmptPrntParamDiffInpObject AsPrntParamDiffInp { get; set; }
+  ICmptPrntParamDiffInpObject<TA> AsPrntParamDiffInp { get; }
 }
 
-public interface ICmptPrntParamDiffInpObject<Ta>
-  : ICmptRefPrntParamDiffInpObject
+public interface ICmptPrntParamDiffInpObject<TA>
+  : ICmptRefPrntParamDiffInpObject<TA>
 {
-  public Ta Field { get; set; }
+  TA Field { get; }
 }
 
-public interface ICmptRefPrntParamDiffInp<Tb>
+public interface ICmptRefPrntParamDiffInp<TB>
 {
-  public Tb Asb { get; set; }
-  public ICmptRefPrntParamDiffInpObject AsRefPrntParamDiffInp { get; set; }
+  TB Asb { get; }
+  ICmptRefPrntParamDiffInpObject<TB> AsRefPrntParamDiffInp { get; }
 }
 
-public interface ICmptRefPrntParamDiffInpObject<Tb>
+public interface ICmptRefPrntParamDiffInpObject<TB>
 {
 }

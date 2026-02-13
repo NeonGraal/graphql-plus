@@ -1,0 +1,14 @@
+﻿/* domain-number-range
+domain DmnNmbrRange { Number 1<9 21>12 }
+*/
+
+// Generated from Schema domain-number-range for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_number_range;
+
+public interface ICmptDmnNmbrRange
+  : IGqlpDomainNumber
+{
+}

@@ -12,13 +12,13 @@ namespace Components.Gqlp_Schema_generic_alt_simple_Output;
 public class CmptGnrcAltSmplOutp
   : ICmptGnrcAltSmplOutp
 {
-  public ICmptRefGnrcAltSmplOutp<ICmptString> AsRefGnrcAltSmplOutp { get; set; }
+  public ICmptRefGnrcAltSmplOutp<string> AsRefGnrcAltSmplOutp { get; set; }
   public ICmptGnrcAltSmplOutpObject AsGnrcAltSmplOutp { get; set; }
 }
 
-public class CmptRefGnrcAltSmplOutp<Tref>
-  : ICmptRefGnrcAltSmplOutp<Tref>
+public class CmptRefGnrcAltSmplOutp<TRef>
+  : ICmptRefGnrcAltSmplOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltSmplOutpObject AsRefGnrcAltSmplOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltSmplOutpObject<TRef> AsRefGnrcAltSmplOutp { get; set; }
 }

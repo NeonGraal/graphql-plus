@@ -6,33 +6,33 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_param_Output;
 
 public interface ItestGnrcPrntParamOutp
-  : ItestRefGnrcPrntParamOutp
+  : ItestRefGnrcPrntParamOutp<ItestAltGnrcPrntParamOutp>
 {
-  public ItestGnrcPrntParamOutpObject AsGnrcPrntParamOutp { get; set; }
+  ItestGnrcPrntParamOutpObject AsGnrcPrntParamOutp { get; }
 }
 
 public interface ItestGnrcPrntParamOutpObject
-  : ItestRefGnrcPrntParamOutpObject
+  : ItestRefGnrcPrntParamOutpObject<ItestAltGnrcPrntParamOutp>
 {
 }
 
-public interface ItestRefGnrcPrntParamOutp<Tref>
+public interface ItestRefGnrcPrntParamOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcPrntParamOutpObject AsRefGnrcPrntParamOutp { get; set; }
+  TRef Asref { get; }
+  ItestRefGnrcPrntParamOutpObject<TRef> AsRefGnrcPrntParamOutp { get; }
 }
 
-public interface ItestRefGnrcPrntParamOutpObject<Tref>
+public interface ItestRefGnrcPrntParamOutpObject<TRef>
 {
 }
 
 public interface ItestAltGnrcPrntParamOutp
 {
-  public ItestString AsString { get; set; }
-  public ItestAltGnrcPrntParamOutpObject AsAltGnrcPrntParamOutp { get; set; }
+  string AsString { get; }
+  ItestAltGnrcPrntParamOutpObject AsAltGnrcPrntParamOutp { get; }
 }
 
 public interface ItestAltGnrcPrntParamOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  decimal Alt { get; }
 }

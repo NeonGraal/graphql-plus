@@ -61,13 +61,26 @@ public class MapTests
   {
     // Arrange
     Map<int> map = [];
-    MapPair<int> pair = new(key, 1);
+    MapPair<int> pair = 1.ToPair(key);
 
     // Act
     map.Add(pair);
 
     // Assert
     map[key].ShouldBe(1);
+  }
+
+  [Theory, RepeatData]
+  public void AddRange_AddsMapPairs(string[] keys)
+  {
+    // Arrange
+    Map<int> map = [];
+
+    // Act
+    map.AddRange(keys.Select(k => 1.ToPair(k)));
+
+    // Assert
+    map.Keys.Order().ShouldBe(keys.Distinct().Order());
   }
 
   [Theory, RepeatData]

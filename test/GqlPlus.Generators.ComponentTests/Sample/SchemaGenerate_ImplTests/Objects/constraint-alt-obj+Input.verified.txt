@@ -18,17 +18,17 @@ public class CmptCnstAltObjInp
   public ICmptCnstAltObjInpObject AsCnstAltObjInp { get; set; }
 }
 
-public class CmptRefCnstAltObjInp<Tref>
-  : ICmptRefCnstAltObjInp<Tref>
+public class CmptRefCnstAltObjInp<TRef>
+  : ICmptRefCnstAltObjInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltObjInpObject AsRefCnstAltObjInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltObjInpObject<TRef> AsRefCnstAltObjInp { get; set; }
 }
 
 public class CmptPrntCnstAltObjInp
   : ICmptPrntCnstAltObjInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstAltObjInpObject AsPrntCnstAltObjInp { get; set; }
 }
 
@@ -36,6 +36,6 @@ public class CmptAltCnstAltObjInp
   : CmptPrntCnstAltObjInp
   , ICmptAltCnstAltObjInp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstAltObjInpObject AsAltCnstAltObjInp { get; set; }
 }

@@ -24,6 +24,6 @@
   ( !TZ _Dual [ Dual ] ),
   ( !TZ _Input [ Input ] ),
   ( !TZ _Output [ Output ] ),
-  ( !TZ _Scalar [ Scalar ] ),
-  ( !TZ _Value [ Value ] )
+  ( !TZ Scalar [ _Scalar ] ),
+  ( !TZ Value [ _Value ] )
 ]

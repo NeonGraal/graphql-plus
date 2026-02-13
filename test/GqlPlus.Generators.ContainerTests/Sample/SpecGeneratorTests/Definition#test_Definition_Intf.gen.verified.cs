@@ -5,13 +5,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
-public interface ItestNumber
-  : IDomainNumber
+public interface decimal
+  : IGqlpDomainNumber
 {
 }
 
-public interface ItestString
-  : IDomainString
+public interface string
+  : IGqlpDomainString
 {
 }
 
@@ -38,7 +38,7 @@ public interface Itest_Key
 
 public interface Itest_Object
 {
-  public Itest_ObjectObject As_Object { get; set; }
+  Itest_ObjectObject As_Object { get; }
 }
 
 public interface Itest_ObjectObject
@@ -51,7 +51,7 @@ public interface Itest_Domain
 
 public interface Itest_Dual
 {
-  public Itest_DualObject As_Dual { get; set; }
+  Itest_DualObject As_Dual { get; }
 }
 
 public interface Itest_DualObject
@@ -64,7 +64,7 @@ public interface Itest_Enum
 
 public interface Itest_Input
 {
-  public Itest_InputObject As_Input { get; set; }
+  Itest_InputObject As_Input { get; }
 }
 
 public interface Itest_InputObject
@@ -73,7 +73,7 @@ public interface Itest_InputObject
 
 public interface Itest_Output
 {
-  public Itest_OutputObject As_Output { get; set; }
+  Itest_OutputObject As_Output { get; }
 }
 
 public interface Itest_OutputObject

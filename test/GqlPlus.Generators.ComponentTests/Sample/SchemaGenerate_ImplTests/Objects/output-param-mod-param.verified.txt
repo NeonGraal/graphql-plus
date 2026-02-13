@@ -1,7 +1,7 @@
 ﻿/* output-param-mod-param
 output OutpParamModParam<$mod:String> { field(InOutpParamModParam[$mod]): DomOutpParamModParam }
 input InOutpParamModParam { param: Number | String }
-domain DomOutpParamModParam { number 1 ~ 10 }
+domain DomOutpParamModParam { number 1 > 10 }
 */
 
 // Generated from Schema output-param-mod-param for Impl
@@ -10,23 +10,23 @@ domain DomOutpParamModParam { number 1 ~ 10 }
 
 namespace Components.Gqlp_Schema_output_param_mod_param;
 
-public class CmptOutpParamModParam<Tmod>
-  : ICmptOutpParamModParam<Tmod>
+public class CmptOutpParamModParam<TMod>
+  : ICmptOutpParamModParam<TMod>
 {
   public ICmptDomOutpParamModParam Field { get; set; }
-  public ICmptOutpParamModParamObject AsOutpParamModParam { get; set; }
+  public ICmptOutpParamModParamObject<TMod> AsOutpParamModParam { get; set; }
 }
 
 public class CmptInOutpParamModParam
   : ICmptInOutpParamModParam
 {
-  public ICmptNumber Param { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ICmptInOutpParamModParamObject AsInOutpParamModParam { get; set; }
 }
 
 public class CmptDomOutpParamModParam
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptDomOutpParamModParam
 {
 }

@@ -9,17 +9,17 @@ dual FldFieldModParamDual { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
-public class CmptFieldModParamDual<Tmod>
-  : ICmptFieldModParamDual<Tmod>
+public class CmptFieldModParamDual<TMod>
+  : ICmptFieldModParamDual<TMod>
 {
-  public IDictionary<Tmod, ICmptFldFieldModParamDual> Field { get; set; }
-  public ICmptFieldModParamDualObject AsFieldModParamDual { get; set; }
+  public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
+  public ICmptFieldModParamDualObject<TMod> AsFieldModParamDual { get; set; }
 }
 
 public class CmptFldFieldModParamDual
   : ICmptFldFieldModParamDual
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldModParamDualObject AsFldFieldModParamDual { get; set; }
 }

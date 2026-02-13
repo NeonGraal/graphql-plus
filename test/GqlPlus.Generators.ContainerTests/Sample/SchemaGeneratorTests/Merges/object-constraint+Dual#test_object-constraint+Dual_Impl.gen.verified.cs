@@ -5,10 +5,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Dual;
 
-public class testObjCnstDual<Ttype>
-  : ItestObjCnstDual<Ttype>
+public class testObjCnstDual<TType>
+  : ItestObjCnstDual<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
-  public ItestObjCnstDualObject AsObjCnstDual { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+  public ItestObjCnstDualObject<TType> AsObjCnstDual { get; set; }
 }

@@ -6,6 +6,6 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string_non_empty;
 
 public interface ItestDmnStrNonEmpty
-  : IDomainString
+  : IGqlpDomainString
 {
 }

@@ -12,17 +12,17 @@ namespace Components.Gqlp_Schema_output_param;
 
 public interface ICmptOutpParam
 {
-  public ICmptOutpParamObject AsOutpParam { get; set; }
+  ICmptOutpParamObject AsOutpParam { get; }
 }
 
 public interface ICmptOutpParamObject
 {
-  public ICmptFldOutpParam Field { get; set; }
+  ICmptFldOutpParam Field { get; }
 }
 
 public interface ICmptFldOutpParam
 {
-  public ICmptFldOutpParamObject AsFldOutpParam { get; set; }
+  ICmptFldOutpParamObject AsFldOutpParam { get; }
 }
 
 public interface ICmptFldOutpParamObject
@@ -31,11 +31,11 @@ public interface ICmptFldOutpParamObject
 
 public interface ICmptInOutpParam
 {
-  public ICmptString AsString { get; set; }
-  public ICmptInOutpParamObject AsInOutpParam { get; set; }
+  string AsString { get; }
+  ICmptInOutpParamObject AsInOutpParam { get; }
 }
 
 public interface ICmptInOutpParamObject
 {
-  public ICmptNumber Param { get; set; }
+  decimal Param { get; }
 }

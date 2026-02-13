@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_enum_parent_descr;
 
 public enum testEnumPrntDescr
 {
-  prnt_enumPrntDescr = PrntEnumPrntDescr.prnt_enumPrntDescr,
+  prnt_enumPrntDescr = testPrntEnumPrntDescr.prnt_enumPrntDescr,
   enumPrntDescr,
 }
 

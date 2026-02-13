@@ -12,6 +12,6 @@ namespace Components.Gqlp_Schema_object_field_enum_value_Input;
 public class CmptObjFieldEnumValueInp
   : ICmptObjFieldEnumValueInp
 {
-  public ICmptBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ICmptObjFieldEnumValueInpObject AsObjFieldEnumValueInp { get; set; }
 }

@@ -8,19 +8,19 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Input;
 public class testCnstDomEnumInp
   : ItestCnstDomEnumInp
 {
-  public ItestRefCnstDomEnumInp<ItestEnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+  public ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp> AsEnumCnstDomEnumInpcnstDomEnumInp { get; set; }
   public ItestCnstDomEnumInpObject AsCnstDomEnumInp { get; set; }
 }
 
-public class testRefCnstDomEnumInp<Ttype>
-  : ItestRefCnstDomEnumInp<Ttype>
+public class testRefCnstDomEnumInp<TType>
+  : ItestRefCnstDomEnumInp<TType>
 {
-  public Ttype Field { get; set; }
-  public ItestRefCnstDomEnumInpObject AsRefCnstDomEnumInp { get; set; }
+  public TType Field { get; set; }
+  public ItestRefCnstDomEnumInpObject<TType> AsRefCnstDomEnumInp { get; set; }
 }
 
 public class testJustCnstDomEnumInp
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestJustCnstDomEnumInp
 {
 }

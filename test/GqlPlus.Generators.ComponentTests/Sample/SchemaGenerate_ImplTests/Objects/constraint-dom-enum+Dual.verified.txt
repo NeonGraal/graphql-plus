@@ -14,19 +14,19 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 public class CmptCnstDomEnumDual
   : ICmptCnstDomEnumDual
 {
-  public ICmptRefCnstDomEnumDual<ICmptEnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
+  public ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual> AsEnumCnstDomEnumDualcnstDomEnumDual { get; set; }
   public ICmptCnstDomEnumDualObject AsCnstDomEnumDual { get; set; }
 }
 
-public class CmptRefCnstDomEnumDual<Ttype>
-  : ICmptRefCnstDomEnumDual<Ttype>
+public class CmptRefCnstDomEnumDual<TType>
+  : ICmptRefCnstDomEnumDual<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefCnstDomEnumDualObject AsRefCnstDomEnumDual { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefCnstDomEnumDualObject<TType> AsRefCnstDomEnumDual { get; set; }
 }
 
 public class CmptJustCnstDomEnumDual
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptJustCnstDomEnumDual
 {
 }

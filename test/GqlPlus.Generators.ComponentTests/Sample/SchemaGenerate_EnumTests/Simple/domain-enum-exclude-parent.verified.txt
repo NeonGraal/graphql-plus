@@ -12,8 +12,8 @@ namespace Components.Gqlp_Schema_domain_enum_exclude_parent;
 
 public enum CmptEnumDmnEnumExclPrnt
 {
-  prnt_dmnEnumExclPrnt = PrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
-  dmnEnumExclPrntPrnt = PrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
+  prnt_dmnEnumExclPrnt = CmptPrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
+  dmnEnumExclPrntPrnt = CmptPrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
   dmnEnumExclPrnt,
   dmnEnumExclPrntValue,
 }

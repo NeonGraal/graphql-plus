@@ -11,8 +11,8 @@ namespace Components.Gqlp_Schema_enum_parent_dup;
 
 public enum CmptEnumPrntDup
 {
-  prnt_enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
+  prnt_enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
   enumPrntDup,
 }
 

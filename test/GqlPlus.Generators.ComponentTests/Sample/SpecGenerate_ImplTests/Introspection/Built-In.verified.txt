@@ -32,32 +32,32 @@ namespace Components.Gqlp_Spec_Built_In;
 public class Cmpt_Collections
   : ICmpt_Collections
 {
-  public ICmpt_Modifier<ICmpt_ModifierKind> As_Modifier { get; set; }
-  public ICmpt_ModifierKeyed<ICmpt_ModifierKind> As_ModifierKeyed { get; set; }
-  public ICmpt_ModifierKeyed<ICmpt_ModifierKind> As_ModifierKeyed { get; set; }
+  public ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindList { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindDictionary { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindTypeParam { get; set; }
   public ICmpt_CollectionsObject As_Collections { get; set; }
 }
 
-public class Cmpt_ModifierKeyed<Tkind>
-  : Cmpt_Modifier
-  , ICmpt_ModifierKeyed<Tkind>
+public class Cmpt_ModifierKeyed<TKind>
+  : Cmpt_Modifier<TKind>
+  , ICmpt_ModifierKeyed<TKind>
 {
   public ICmpt_TypeSimple By { get; set; }
-  public ICmptBoolean Optional { get; set; }
-  public ICmpt_ModifierKeyedObject As_ModifierKeyed { get; set; }
+  public bool Optional { get; set; }
+  public ICmpt_ModifierKeyedObject<TKind> As_ModifierKeyed { get; set; }
 }
 
 public class Cmpt_Modifiers
   : ICmpt_Modifiers
 {
-  public ICmpt_Modifier<ICmpt_ModifierKind> As_Modifier { get; set; }
+  public ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindOptional { get; set; }
   public ICmpt_Collections As_Collections { get; set; }
   public ICmpt_ModifiersObject As_Modifiers { get; set; }
 }
 
-public class Cmpt_Modifier<Tkind>
-  : ICmpt_Modifier<Tkind>
+public class Cmpt_Modifier<TKind>
+  : ICmpt_Modifier<TKind>
 {
-  public Tkind ModifierKind { get; set; }
-  public ICmpt_ModifierObject As_Modifier { get; set; }
+  public TKind ModifierKind { get; set; }
+  public ICmpt_ModifierObject<TKind> As_Modifier { get; set; }
 }

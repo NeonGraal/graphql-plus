@@ -12,30 +12,30 @@ input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
 namespace Components.Gqlp_Schema_constraint_field_obj_Input;
 
 public interface ICmptCnstFieldObjInp
-  : ICmptRefCnstFieldObjInp
+  : ICmptRefCnstFieldObjInp<ICmptAltCnstFieldObjInp>
 {
-  public ICmptCnstFieldObjInpObject AsCnstFieldObjInp { get; set; }
+  ICmptCnstFieldObjInpObject AsCnstFieldObjInp { get; }
 }
 
 public interface ICmptCnstFieldObjInpObject
-  : ICmptRefCnstFieldObjInpObject
+  : ICmptRefCnstFieldObjInpObject<ICmptAltCnstFieldObjInp>
 {
 }
 
-public interface ICmptRefCnstFieldObjInp<Tref>
+public interface ICmptRefCnstFieldObjInp<TRef>
 {
-  public ICmptRefCnstFieldObjInpObject AsRefCnstFieldObjInp { get; set; }
+  ICmptRefCnstFieldObjInpObject<TRef> AsRefCnstFieldObjInp { get; }
 }
 
-public interface ICmptRefCnstFieldObjInpObject<Tref>
+public interface ICmptRefCnstFieldObjInpObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldObjInp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptPrntCnstFieldObjInpObject AsPrntCnstFieldObjInp { get; set; }
+  string AsString { get; }
+  ICmptPrntCnstFieldObjInpObject AsPrntCnstFieldObjInp { get; }
 }
 
 public interface ICmptPrntCnstFieldObjInpObject
@@ -45,11 +45,11 @@ public interface ICmptPrntCnstFieldObjInpObject
 public interface ICmptAltCnstFieldObjInp
   : ICmptPrntCnstFieldObjInp
 {
-  public ICmptAltCnstFieldObjInpObject AsAltCnstFieldObjInp { get; set; }
+  ICmptAltCnstFieldObjInpObject AsAltCnstFieldObjInp { get; }
 }
 
 public interface ICmptAltCnstFieldObjInpObject
   : ICmptPrntCnstFieldObjInpObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

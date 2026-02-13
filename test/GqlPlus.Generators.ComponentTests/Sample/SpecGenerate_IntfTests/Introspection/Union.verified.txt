@@ -16,24 +16,24 @@ output _UnionMember {
 namespace Components.Gqlp_Spec_Union;
 
 public interface ICmpt_UnionRef
-  : ICmpt_TypeRef
+  : ICmpt_TypeRef<ICmpt_SimpleKind>
 {
-  public ICmpt_UnionRefObject As_UnionRef { get; set; }
+  ICmpt_UnionRefObject As_UnionRef { get; }
 }
 
 public interface ICmpt_UnionRefObject
-  : ICmpt_TypeRefObject
+  : ICmpt_TypeRefObject<ICmpt_SimpleKind>
 {
 }
 
 public interface ICmpt_UnionMember
   : ICmpt_UnionRef
 {
-  public ICmpt_UnionMemberObject As_UnionMember { get; set; }
+  ICmpt_UnionMemberObject As_UnionMember { get; }
 }
 
 public interface ICmpt_UnionMemberObject
   : ICmpt_UnionRefObject
 {
-  public ICmpt_Name Union { get; set; }
+  ICmpt_Name Union { get; }
 }

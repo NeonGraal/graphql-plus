@@ -21,8 +21,8 @@ public enum testEnumDmnEnumAllDescr
 
 public enum testEnumDmnEnumAllPrnt
 {
-  prnt_dmnEnumAllPrnt = PrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
-  dmnEnumAllPrntPrnt = PrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
+  prnt_dmnEnumAllPrnt = testPrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt = testPrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
   dmnEnumAllPrnt,
   dmnEnumAllPrntValue,
 }
@@ -47,8 +47,8 @@ public enum testEnumDmnEnumExcl
 
 public enum testEnumDmnEnumExclPrnt
 {
-  prnt_dmnEnumExclPrnt = PrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
-  dmnEnumExclPrntPrnt = PrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
+  prnt_dmnEnumExclPrnt = testPrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
+  dmnEnumExclPrntPrnt = testPrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
   dmnEnumExclPrnt,
   dmnEnumExclPrntValue,
 }
@@ -92,9 +92,9 @@ public enum testDupDmnEnumUnq
 
 public enum testEnumDmnEnumUnqPrnt
 {
-  dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
-  dmnEnumUnqPrntPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
+  dmnEnumUnqPrnt = testPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt = testPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt = testPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
   enum_dmnEnumUnqPrnt,
   dmnEnumUnqPrntValue,
 }
@@ -120,7 +120,7 @@ public enum testEnumDmnEnumValue
 
 public enum testEnumDmnEnumValuePrnt
 {
-  prnt_dmnEnumValuePrnt = PrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
+  prnt_dmnEnumValuePrnt = testPrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
   dmnEnumValuePrnt,
 }
 
@@ -136,7 +136,7 @@ public enum testEnumDescr
 
 public enum testEnumPrnt
 {
-  prnt_enumPrnt = PrntEnumPrnt.prnt_enumPrnt,
+  prnt_enumPrnt = testPrntEnumPrnt.prnt_enumPrnt,
   enumPrnt,
 }
 
@@ -147,7 +147,7 @@ public enum testPrntEnumPrnt
 
 public enum testEnumPrntAlias
 {
-  prnt_enumPrntAlias = PrntEnumPrntAlias.prnt_enumPrntAlias,
+  prnt_enumPrntAlias = testPrntEnumPrntAlias.prnt_enumPrntAlias,
   val_enumPrntAlias,
   prnt_enumPrntAlias,
   enumPrntAlias = prnt_enumPrntAlias,
@@ -160,7 +160,7 @@ public enum testPrntEnumPrntAlias
 
 public enum testEnumPrntDescr
 {
-  prnt_enumPrntDescr = PrntEnumPrntDescr.prnt_enumPrntDescr,
+  prnt_enumPrntDescr = testPrntEnumPrntDescr.prnt_enumPrntDescr,
   enumPrntDescr,
 }
 
@@ -171,8 +171,8 @@ public enum testPrntEnumPrntDescr
 
 public enum testEnumPrntDup
 {
-  prnt_enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
+  prnt_enumPrntDup = testPrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup = testPrntEnumPrntDup.prnt_enumPrntDup,
   enumPrntDup,
 }
 

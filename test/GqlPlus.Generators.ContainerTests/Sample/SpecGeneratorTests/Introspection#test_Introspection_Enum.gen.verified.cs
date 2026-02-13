@@ -33,11 +33,11 @@ public enum test_SimpleKind
 
 public enum test_TypeKind
 {
-  Basic = _SimpleKind.Basic,
-  Enum = _SimpleKind.Enum,
-  Internal = _SimpleKind.Internal,
-  Domain = _SimpleKind.Domain,
-  Union = _SimpleKind.Union,
+  Basic = test_SimpleKind.Basic,
+  Enum = test_SimpleKind.Enum,
+  Internal = test_SimpleKind.Internal,
+  Domain = test_SimpleKind.Domain,
+  Union = test_SimpleKind.Union,
   Dual,
   Input,
   Output,

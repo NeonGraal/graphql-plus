@@ -12,17 +12,17 @@ public class testGnrcAltDualDual
   public ItestGnrcAltDualDualObject AsGnrcAltDualDual { get; set; }
 }
 
-public class testRefGnrcAltDualDual<Tref>
-  : ItestRefGnrcAltDualDual<Tref>
+public class testRefGnrcAltDualDual<TRef>
+  : ItestRefGnrcAltDualDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcAltDualDualObject AsRefGnrcAltDualDual { get; set; }
+  public TRef Asref { get; set; }
+  public ItestRefGnrcAltDualDualObject<TRef> AsRefGnrcAltDualDual { get; set; }
 }
 
 public class testAltGnrcAltDualDual
   : ItestAltGnrcAltDualDual
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcAltDualDualObject AsAltGnrcAltDualDual { get; set; }
 }

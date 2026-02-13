@@ -8,9 +8,9 @@ output CnstAltOutp<$type:Number> { | $type }
 
 namespace Components.Gqlp_Schema_constraint_alt_Output;
 
-public class CmptCnstAltOutp<Ttype>
-  : ICmptCnstAltOutp<Ttype>
+public class CmptCnstAltOutp<TType>
+  : ICmptCnstAltOutp<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptCnstAltOutpObject AsCnstAltOutp { get; set; }
+  public TType Astype { get; set; }
+  public ICmptCnstAltOutpObject<TType> AsCnstAltOutp { get; set; }
 }

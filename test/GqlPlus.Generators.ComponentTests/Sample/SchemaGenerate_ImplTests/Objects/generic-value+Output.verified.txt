@@ -13,13 +13,13 @@ namespace Components.Gqlp_Schema_generic_value_Output;
 public class CmptGnrcValueOutp
   : ICmptGnrcValueOutp
 {
-  public ICmptRefGnrcValueOutp<ICmptEnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
+  public ICmptRefGnrcValueOutp<CmptEnumGnrcValueOutp> AsEnumGnrcValueOutpgnrcValueOutp { get; set; }
   public ICmptGnrcValueOutpObject AsGnrcValueOutp { get; set; }
 }
 
-public class CmptRefGnrcValueOutp<Ttype>
-  : ICmptRefGnrcValueOutp<Ttype>
+public class CmptRefGnrcValueOutp<TType>
+  : ICmptRefGnrcValueOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public ICmptRefGnrcValueOutpObject AsRefGnrcValueOutp { get; set; }
+  public TType Field { get; set; }
+  public ICmptRefGnrcValueOutpObject<TType> AsRefGnrcValueOutp { get; set; }
 }

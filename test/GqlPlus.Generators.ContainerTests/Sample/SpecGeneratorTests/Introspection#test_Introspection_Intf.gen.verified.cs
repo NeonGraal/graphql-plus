@@ -8,256 +8,256 @@ namespace GqlPlus.GeneratorTests.Gqlp_Introspection;
 public interface Itest_Schema
   : Itest_Named
 {
-  public Itest_SchemaObject As_Schema { get; set; }
+  Itest_SchemaObject As_Schema { get; }
 }
 
 public interface Itest_SchemaObject
   : Itest_NamedObject
 {
-  public IDictionary<test_Name, Itest_Categories> Categories { get; set; }
-  public IDictionary<test_Name, Itest_Directives> Directives { get; set; }
-  public IDictionary<test_Name, Itest_Type> Types { get; set; }
-  public IDictionary<test_Name, Itest_Setting> Settings { get; set; }
+  IDictionary<Itest_Name, Itest_Categories> Categories { get; }
+  IDictionary<Itest_Name, Itest_Directives> Directives { get; }
+  IDictionary<Itest_Name, Itest_Type> Types { get; }
+  IDictionary<Itest_Name, Itest_Setting> Settings { get; }
 }
 
 public interface Itest_Name
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface Itest_Filter
 {
-  public ICollection<Itest_NameFilter> As_NameFilter { get; set; }
-  public Itest_FilterObject As_Filter { get; set; }
+  ICollection<Itest_NameFilter> As_NameFilter { get; }
+  Itest_FilterObject As_Filter { get; }
 }
 
 public interface Itest_FilterObject
 {
-  public ICollection<Itest_NameFilter> Names { get; set; }
-  public Itest_DomainKind? MatchAliases { get; set; }
-  public ICollection<Itest_NameFilter> Aliases { get; set; }
-  public Itest_DomainKind? ReturnByAlias { get; set; }
-  public Itest_DomainKind? ReturnReferencedTypes { get; set; }
+  ICollection<Itest_NameFilter> Names { get; }
+  test_DomainKind? MatchAliases { get; }
+  ICollection<Itest_NameFilter> Aliases { get; }
+  test_DomainKind? ReturnByAlias { get; }
+  test_DomainKind? ReturnReferencedTypes { get; }
 }
 
 public interface Itest_NameFilter
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface Itest_CategoryFilter
   : Itest_Filter
 {
-  public Itest_CategoryFilterObject As_CategoryFilter { get; set; }
+  Itest_CategoryFilterObject As_CategoryFilter { get; }
 }
 
 public interface Itest_CategoryFilterObject
   : Itest_FilterObject
 {
-  public ICollection<Itest_Resolution> Resolutions { get; set; }
+  ICollection<test_Resolution> Resolutions { get; }
 }
 
 public interface Itest_TypeFilter
   : Itest_Filter
 {
-  public Itest_TypeFilterObject As_TypeFilter { get; set; }
+  Itest_TypeFilterObject As_TypeFilter { get; }
 }
 
 public interface Itest_TypeFilterObject
   : Itest_FilterObject
 {
-  public ICollection<Itest_TypeKind> Kinds { get; set; }
+  ICollection<test_TypeKind> Kinds { get; }
 }
 
 public interface Itest_Aliased
   : Itest_Named
 {
-  public Itest_AliasedObject As_Aliased { get; set; }
+  Itest_AliasedObject As_Aliased { get; }
 }
 
 public interface Itest_AliasedObject
   : Itest_NamedObject
 {
-  public ICollection<Itest_Name> Aliases { get; set; }
+  ICollection<Itest_Name> Aliases { get; }
 }
 
 public interface Itest_Named
   : Itest_Described
 {
-  public Itest_NamedObject As_Named { get; set; }
+  Itest_NamedObject As_Named { get; }
 }
 
 public interface Itest_NamedObject
   : Itest_DescribedObject
 {
-  public Itest_Name Name { get; set; }
+  Itest_Name Name { get; }
 }
 
 public interface Itest_Described
 {
-  public Itest_DescribedObject As_Described { get; set; }
+  Itest_DescribedObject As_Described { get; }
 }
 
 public interface Itest_DescribedObject
 {
-  public ICollection<Itest_DomainKind> Description { get; set; }
+  ICollection<test_DomainKind> Description { get; }
 }
 
 public interface Itest_AndType
   : Itest_Named
 {
-  public Itest_Type As_Type { get; set; }
-  public Itest_AndTypeObject As_AndType { get; set; }
+  Itest_Type As_Type { get; }
+  Itest_AndTypeObject As_AndType { get; }
 }
 
 public interface Itest_AndTypeObject
   : Itest_NamedObject
 {
-  public Itest_Type Type { get; set; }
+  Itest_Type Type { get; }
 }
 
 public interface Itest_Categories
   : Itest_AndType
 {
-  public Itest_Category As_Category { get; set; }
-  public Itest_CategoriesObject As_Categories { get; set; }
+  Itest_Category As_Category { get; }
+  Itest_CategoriesObject As_Categories { get; }
 }
 
 public interface Itest_CategoriesObject
   : Itest_AndTypeObject
 {
-  public Itest_Category Category { get; set; }
+  Itest_Category Category { get; }
 }
 
 public interface Itest_Category
   : Itest_Aliased
 {
-  public Itest_CategoryObject As_Category { get; set; }
+  Itest_CategoryObject As_Category { get; }
 }
 
 public interface Itest_CategoryObject
   : Itest_AliasedObject
 {
-  public Itest_Resolution Resolution { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  test_Resolution Resolution { get; }
+  Itest_TypeRef<test_TypeKind> Output { get; }
+  ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
 public interface Itest_Directives
   : Itest_AndType
 {
-  public Itest_Directive As_Directive { get; set; }
-  public Itest_DirectivesObject As_Directives { get; set; }
+  Itest_Directive As_Directive { get; }
+  Itest_DirectivesObject As_Directives { get; }
 }
 
 public interface Itest_DirectivesObject
   : Itest_AndTypeObject
 {
-  public Itest_Directive Directive { get; set; }
+  Itest_Directive Directive { get; }
 }
 
 public interface Itest_Directive
   : Itest_Aliased
 {
-  public Itest_DirectiveObject As_Directive { get; set; }
+  Itest_DirectiveObject As_Directive { get; }
 }
 
 public interface Itest_DirectiveObject
   : Itest_AliasedObject
 {
-  public ICollection<Itest_InputParam> Parameters { get; set; }
-  public Itest_DomainKind Repeatable { get; set; }
-  public IDictionary<test_Location, ItestUnit> Locations { get; set; }
+  ICollection<Itest_InputParam> Parameters { get; }
+  test_DomainKind Repeatable { get; }
+  IDictionary<test_Location, GqlpUnit> Locations { get; }
 }
 
 public interface Itest_Setting
   : Itest_Named
 {
-  public Itest_SettingObject As_Setting { get; set; }
+  Itest_SettingObject As_Setting { get; }
 }
 
 public interface Itest_SettingObject
   : Itest_NamedObject
 {
-  public Itest_Value Value { get; set; }
+  GqlpValue Value { get; }
 }
 
 public interface Itest_Type
 {
-  public Itest_BaseType<Itest_TypeKind> As_BaseType { get; set; }
-  public Itest_BaseType<Itest_TypeKind> As_BaseType { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse> As_BaseDomain { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel> As_BaseDomain { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainRange, Itest_DomainItemRange> As_BaseDomain { get; set; }
-  public Itest_BaseDomain<Itest_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex> As_BaseDomain { get; set; }
-  public Itest_ParentType<Itest_TypeKind, Itest_Aliased, Itest_EnumLabel> As_ParentType { get; set; }
-  public Itest_ParentType<Itest_TypeKind, Itest_UnionRef, Itest_UnionMember> As_ParentType { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_DualField> As_TypeObject { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_InputField> As_TypeObject { get; set; }
-  public Itest_TypeObject<Itest_TypeKind, Itest_OutputField> As_TypeObject { get; set; }
-  public Itest_TypeObject As_Type { get; set; }
+  Itest_BaseType<test_TypeKind> As_TypeKindBasic { get; }
+  Itest_BaseType<test_TypeKind> As_TypeKindInternal { get; }
+  Itest_BaseDomain<test_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse> As_DomainKindBoolean { get; }
+  Itest_BaseDomain<test_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel> As_DomainKindEnum { get; }
+  Itest_BaseDomain<test_DomainKind, Itest_DomainRange, Itest_DomainItemRange> As_DomainKindNumber { get; }
+  Itest_BaseDomain<test_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex> As_DomainKindString { get; }
+  Itest_ParentType<test_TypeKind, Itest_Aliased, Itest_EnumLabel> As_TypeKindEnum { get; }
+  Itest_ParentType<test_TypeKind, Itest_UnionRef, Itest_UnionMember> As_TypeKindUnion { get; }
+  Itest_TypeObject<test_TypeKind, Itest_DualField> As_TypeKindDual { get; }
+  Itest_TypeObject<test_TypeKind, Itest_InputField> As_TypeKindInput { get; }
+  Itest_TypeObject<test_TypeKind, Itest_OutputField> As_TypeKindOutput { get; }
+  Itest_TypeObject As_Type { get; }
 }
 
 public interface Itest_TypeObject
 {
 }
 
-public interface Itest_BaseType<Tkind>
+public interface Itest_BaseType<TKind>
   : Itest_Aliased
 {
-  public Itest_BaseTypeObject As_BaseType { get; set; }
+  Itest_BaseTypeObject<TKind> As_BaseType { get; }
 }
 
-public interface Itest_BaseTypeObject<Tkind>
+public interface Itest_BaseTypeObject<TKind>
   : Itest_AliasedObject
 {
-  public Tkind TypeKind { get; set; }
+  TKind TypeKind { get; }
 }
 
-public interface Itest_ChildType<Tkind,Tparent>
-  : Itest_BaseType
+public interface Itest_ChildType<TKind,TParent>
+  : Itest_BaseType<TKind>
 {
-  public Itest_ChildTypeObject As_ChildType { get; set; }
+  Itest_ChildTypeObject<TKind,TParent> As_ChildType { get; }
 }
 
-public interface Itest_ChildTypeObject<Tkind,Tparent>
-  : Itest_BaseTypeObject
+public interface Itest_ChildTypeObject<TKind,TParent>
+  : Itest_BaseTypeObject<TKind>
 {
-  public Tparent Parent { get; set; }
+  TParent Parent { get; }
 }
 
-public interface Itest_ParentType<Tkind,Titem,TallItem>
-  : Itest_ChildType
+public interface Itest_ParentType<TKind,TItem,TAllItem>
+  : Itest_ChildType<TKind, Itest_Named>
 {
-  public Itest_ParentTypeObject As_ParentType { get; set; }
+  Itest_ParentTypeObject<TKind,TItem,TAllItem> As_ParentType { get; }
 }
 
-public interface Itest_ParentTypeObject<Tkind,Titem,TallItem>
-  : Itest_ChildTypeObject
+public interface Itest_ParentTypeObject<TKind,TItem,TAllItem>
+  : Itest_ChildTypeObject<TKind, Itest_Named>
 {
-  public ICollection<Titem> Items { get; set; }
-  public ICollection<TallItem> AllItems { get; set; }
+  ICollection<TItem> Items { get; }
+  ICollection<TAllItem> AllItems { get; }
 }
 
-public interface Itest_TypeRef<Tkind>
+public interface Itest_TypeRef<TKind>
   : Itest_Named
 {
-  public Itest_TypeRefObject As_TypeRef { get; set; }
+  Itest_TypeRefObject<TKind> As_TypeRef { get; }
 }
 
-public interface Itest_TypeRefObject<Tkind>
+public interface Itest_TypeRefObject<TKind>
   : Itest_NamedObject
 {
-  public Tkind TypeKind { get; set; }
+  TKind TypeKind { get; }
 }
 
 public interface Itest_TypeSimple
 {
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> As_TypeRef { get; set; }
-  public Itest_TypeSimpleObject As_TypeSimple { get; set; }
+  Itest_TypeRef<test_TypeKind> As_TypeKindBasic { get; }
+  Itest_TypeRef<test_TypeKind> As_TypeKindEnum { get; }
+  Itest_TypeRef<test_TypeKind> As_TypeKindDomain { get; }
+  Itest_TypeRef<test_TypeKind> As_TypeKindUnion { get; }
+  Itest_TypeSimpleObject As_TypeSimple { get; }
 }
 
 public interface Itest_TypeSimpleObject
@@ -266,118 +266,117 @@ public interface Itest_TypeSimpleObject
 
 public interface Itest_Collections
 {
-  public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
-  public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
-  public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
-  public Itest_CollectionsObject As_Collections { get; set; }
+  Itest_Modifier<test_ModifierKind> As_ModifierKindList { get; }
+  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindDictionary { get; }
+  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindTypeParam { get; }
+  Itest_CollectionsObject As_Collections { get; }
 }
 
 public interface Itest_CollectionsObject
 {
 }
 
-public interface Itest_ModifierKeyed<Tkind>
-  : Itest_Modifier
+public interface Itest_ModifierKeyed<TKind>
+  : Itest_Modifier<TKind>
 {
-  public Itest_ModifierKeyedObject As_ModifierKeyed { get; set; }
+  Itest_ModifierKeyedObject<TKind> As_ModifierKeyed { get; }
 }
 
-public interface Itest_ModifierKeyedObject<Tkind>
-  : Itest_ModifierObject
+public interface Itest_ModifierKeyedObject<TKind>
+  : Itest_ModifierObject<TKind>
 {
-  public Itest_TypeSimple By { get; set; }
-  public Itest_DomainKind Optional { get; set; }
+  Itest_TypeSimple By { get; }
+  test_DomainKind Optional { get; }
 }
 
 public interface Itest_Modifiers
 {
-  public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
-  public Itest_Collections As_Collections { get; set; }
-  public Itest_ModifiersObject As_Modifiers { get; set; }
+  Itest_Modifier<test_ModifierKind> As_ModifierKindOptional { get; }
+  Itest_Collections As_Collections { get; }
+  Itest_ModifiersObject As_Modifiers { get; }
 }
 
 public interface Itest_ModifiersObject
 {
 }
 
-public interface Itest_Modifier<Tkind>
+public interface Itest_Modifier<TKind>
 {
-  public Itest_ModifierObject As_Modifier { get; set; }
+  Itest_ModifierObject<TKind> As_Modifier { get; }
 }
 
-public interface Itest_ModifierObject<Tkind>
+public interface Itest_ModifierObject<TKind>
 {
-  public Tkind ModifierKind { get; set; }
+  TKind ModifierKind { get; }
 }
 
-public interface Itest_DomainRef<Tkind>
-  : Itest_TypeRef
+public interface Itest_DomainRef<TKind>
+  : Itest_TypeRef<test_TypeKind>
 {
-  public Itest_DomainRefObject As_DomainRef { get; set; }
+  Itest_DomainRefObject<TKind> As_DomainRef { get; }
 }
 
-public interface Itest_DomainRefObject<Tkind>
-  : Itest_TypeRefObject
+public interface Itest_DomainRefObject<TKind>
+  : Itest_TypeRefObject<test_TypeKind>
 {
-  public Tkind DomainKind { get; set; }
+  TKind DomainKind { get; }
 }
 
-public interface Itest_BaseDomain<Tdomain,Titem,TdomainItem>
-  : Itest_ParentType
+public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
+  : Itest_ParentType<test_TypeKind, TItem, TDomainItem>
 {
-  public Itest_BaseDomainObject As_BaseDomain { get; set; }
+  Itest_BaseDomainObject<TDomain,TItem,TDomainItem> As_BaseDomain { get; }
 }
 
-public interface Itest_BaseDomainObject<Tdomain,Titem,TdomainItem>
-  : Itest_ParentTypeObject
+public interface Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
+  : Itest_ParentTypeObject<test_TypeKind, TItem, TDomainItem>
 {
-  public Tdomain DomainKind { get; set; }
+  TDomain DomainKind { get; }
 }
 
 public interface Itest_BaseDomainItem
   : Itest_Described
 {
-  public Itest_BaseDomainItemObject As_BaseDomainItem { get; set; }
+  Itest_BaseDomainItemObject As_BaseDomainItem { get; }
 }
 
 public interface Itest_BaseDomainItemObject
   : Itest_DescribedObject
 {
-  public Itest_DomainKind Exclude { get; set; }
+  test_DomainKind Exclude { get; }
 }
 
-public interface Itest_DomainItem<Titem>
-  : Itestitem
+public interface Itest_DomainItem<TItem>
 {
-  public Itest_DomainItemObject As_DomainItem { get; set; }
+  TItem AsParent { get; }
+  Itest_DomainItemObject<TItem> As_DomainItem { get; }
 }
 
-public interface Itest_DomainItemObject<Titem>
-  : ItestitemObject
+public interface Itest_DomainItemObject<TItem>
 {
-  public Itest_Name Domain { get; set; }
+  Itest_Name Domain { get; }
 }
 
-public interface Itest_DomainValue<Tkind,Tvalue>
-  : Itest_DomainRef
+public interface Itest_DomainValue<TKind,TValue>
+  : Itest_DomainRef<TKind>
 {
-  public Tvalue Asvalue { get; set; }
-  public Itest_DomainValueObject As_DomainValue { get; set; }
+  TValue Asvalue { get; }
+  Itest_DomainValueObject<TKind,TValue> As_DomainValue { get; }
 }
 
-public interface Itest_DomainValueObject<Tkind,Tvalue>
-  : Itest_DomainRefObject
+public interface Itest_DomainValueObject<TKind,TValue>
+  : Itest_DomainRefObject<TKind>
 {
-  public Tvalue Value { get; set; }
+  TValue Value { get; }
 }
 
 public interface Itest_BasicValue
 {
-  public Itest_DomainKind As_DomainKindBoolean { get; set; }
-  public Itest_EnumValue As_EnumValue { get; set; }
-  public Itest_DomainKind As_DomainKindNumber { get; set; }
-  public Itest_DomainKind As_DomainKindString { get; set; }
-  public Itest_BasicValueObject As_BasicValue { get; set; }
+  test_DomainKind As_DomainKindBoolean { get; }
+  Itest_EnumValue As_EnumValue { get; }
+  test_DomainKind As_DomainKindNumber { get; }
+  test_DomainKind As_DomainKindString { get; }
+  Itest_BasicValueObject As_BasicValue { get; }
 }
 
 public interface Itest_BasicValueObject
@@ -387,336 +386,335 @@ public interface Itest_BasicValueObject
 public interface Itest_DomainTrueFalse
   : Itest_BaseDomainItem
 {
-  public Itest_DomainTrueFalseObject As_DomainTrueFalse { get; set; }
+  Itest_DomainTrueFalseObject As_DomainTrueFalse { get; }
 }
 
 public interface Itest_DomainTrueFalseObject
   : Itest_BaseDomainItemObject
 {
-  public Itest_DomainKind Value { get; set; }
+  test_DomainKind Value { get; }
 }
 
 public interface Itest_DomainItemTrueFalse
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainTrueFalse>
 {
-  public Itest_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; set; }
+  Itest_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; }
 }
 
 public interface Itest_DomainItemTrueFalseObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainTrueFalse>
 {
 }
 
 public interface Itest_DomainLabel
   : Itest_BaseDomainItem
 {
-  public Itest_DomainLabelObject As_DomainLabel { get; set; }
+  Itest_DomainLabelObject As_DomainLabel { get; }
 }
 
 public interface Itest_DomainLabelObject
   : Itest_BaseDomainItemObject
 {
-  public Itest_EnumValue Label { get; set; }
+  Itest_EnumValue Label { get; }
 }
 
 public interface Itest_DomainItemLabel
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainLabel>
 {
-  public Itest_DomainItemLabelObject As_DomainItemLabel { get; set; }
+  Itest_DomainItemLabelObject As_DomainItemLabel { get; }
 }
 
 public interface Itest_DomainItemLabelObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainLabel>
 {
 }
 
 public interface Itest_DomainRange
   : Itest_BaseDomainItem
 {
-  public Itest_DomainRangeObject As_DomainRange { get; set; }
+  Itest_DomainRangeObject As_DomainRange { get; }
 }
 
 public interface Itest_DomainRangeObject
   : Itest_BaseDomainItemObject
 {
-  public Itest_DomainKind? Lower { get; set; }
-  public Itest_DomainKind? Upper { get; set; }
+  test_DomainKind? Lower { get; }
+  test_DomainKind? Upper { get; }
 }
 
 public interface Itest_DomainItemRange
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainRange>
 {
-  public Itest_DomainItemRangeObject As_DomainItemRange { get; set; }
+  Itest_DomainItemRangeObject As_DomainItemRange { get; }
 }
 
 public interface Itest_DomainItemRangeObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainRange>
 {
 }
 
 public interface Itest_DomainRegex
   : Itest_BaseDomainItem
 {
-  public Itest_DomainRegexObject As_DomainRegex { get; set; }
+  Itest_DomainRegexObject As_DomainRegex { get; }
 }
 
 public interface Itest_DomainRegexObject
   : Itest_BaseDomainItemObject
 {
-  public Itest_DomainKind Pattern { get; set; }
+  test_DomainKind Pattern { get; }
 }
 
 public interface Itest_DomainItemRegex
-  : Itest_DomainItem
+  : Itest_DomainItem<Itest_DomainRegex>
 {
-  public Itest_DomainItemRegexObject As_DomainItemRegex { get; set; }
+  Itest_DomainItemRegexObject As_DomainItemRegex { get; }
 }
 
 public interface Itest_DomainItemRegexObject
-  : Itest_DomainItemObject
+  : Itest_DomainItemObject<Itest_DomainRegex>
 {
 }
 
 public interface Itest_EnumLabel
   : Itest_Aliased
 {
-  public Itest_EnumLabelObject As_EnumLabel { get; set; }
+  Itest_EnumLabelObject As_EnumLabel { get; }
 }
 
 public interface Itest_EnumLabelObject
   : Itest_AliasedObject
 {
-  public Itest_Name Enum { get; set; }
+  Itest_Name Enum { get; }
 }
 
 public interface Itest_EnumValue
-  : Itest_TypeRef
+  : Itest_TypeRef<test_TypeKind>
 {
-  public Itest_EnumValueObject As_EnumValue { get; set; }
+  Itest_EnumValueObject As_EnumValue { get; }
 }
 
 public interface Itest_EnumValueObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<test_TypeKind>
 {
-  public Itest_Name Label { get; set; }
+  Itest_Name Label { get; }
 }
 
 public interface Itest_UnionRef
-  : Itest_TypeRef
+  : Itest_TypeRef<test_SimpleKind>
 {
-  public Itest_UnionRefObject As_UnionRef { get; set; }
+  Itest_UnionRefObject As_UnionRef { get; }
 }
 
 public interface Itest_UnionRefObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<test_SimpleKind>
 {
 }
 
 public interface Itest_UnionMember
   : Itest_UnionRef
 {
-  public Itest_UnionMemberObject As_UnionMember { get; set; }
+  Itest_UnionMemberObject As_UnionMember { get; }
 }
 
 public interface Itest_UnionMemberObject
   : Itest_UnionRefObject
 {
-  public Itest_Name Union { get; set; }
+  Itest_Name Union { get; }
 }
 
 public interface Itest_ObjectKind
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }
 
-public interface Itest_TypeObject<Tkind,Tfield>
-  : Itest_ChildType
+public interface Itest_TypeObject<TKind,TField>
+  : Itest_ChildType<TKind, Itest_ObjBase>
 {
-  public Itest_TypeObjectObject As_TypeObject { get; set; }
+  Itest_TypeObjectObject<TKind,TField> As_TypeObject { get; }
 }
 
-public interface Itest_TypeObjectObject<Tkind,Tfield>
-  : Itest_ChildTypeObject
+public interface Itest_TypeObjectObject<TKind,TField>
+  : Itest_ChildTypeObject<TKind, Itest_ObjBase>
 {
-  public ICollection<Itest_ObjTypeParam> TypeParams { get; set; }
-  public ICollection<Tfield> Fields { get; set; }
-  public ICollection<Itest_ObjAlternate> Alternates { get; set; }
-  public ICollection<Itest_ObjectFor<Tfield>> AllFields { get; set; }
-  public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
+  ICollection<Itest_ObjTypeParam> TypeParams { get; }
+  ICollection<TField> Fields { get; }
+  ICollection<Itest_ObjAlternate> Alternates { get; }
+  ICollection<Itest_ObjectFor<TField>> AllFields { get; }
+  ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; }
 }
 
 public interface Itest_ObjTypeParam
   : Itest_Named
 {
-  public Itest_ObjTypeParamObject As_ObjTypeParam { get; set; }
+  Itest_ObjTypeParamObject As_ObjTypeParam { get; }
 }
 
 public interface Itest_ObjTypeParamObject
   : Itest_NamedObject
 {
-  public Itest_TypeRef<Itest_TypeKind> Constraint { get; set; }
+  Itest_TypeRef<test_TypeKind> Constraint { get; }
 }
 
 public interface Itest_ObjBase
   : Itest_Named
 {
-  public Itest_TypeParam As_TypeParam { get; set; }
-  public Itest_ObjBaseObject As_ObjBase { get; set; }
+  Itest_TypeParam As_TypeParam { get; }
+  Itest_ObjBaseObject As_ObjBase { get; }
 }
 
 public interface Itest_ObjBaseObject
   : Itest_NamedObject
 {
-  public ICollection<Itest_ObjTypeArg> TypeArgs { get; set; }
+  ICollection<Itest_ObjTypeArg> TypeArgs { get; }
 }
 
 public interface Itest_ObjTypeArg
-  : Itest_TypeRef
+  : Itest_TypeRef<test_TypeKind>
 {
-  public Itest_TypeParam As_TypeParam { get; set; }
-  public Itest_ObjTypeArgObject As_ObjTypeArg { get; set; }
+  Itest_TypeParam As_TypeParam { get; }
+  Itest_ObjTypeArgObject As_ObjTypeArg { get; }
 }
 
 public interface Itest_ObjTypeArgObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<test_TypeKind>
 {
-  public Itest_Name? Label { get; set; }
+  Itest_Name? Label { get; }
 }
 
 public interface Itest_TypeParam
   : Itest_Described
 {
-  public Itest_TypeParamObject As_TypeParam { get; set; }
+  Itest_TypeParamObject As_TypeParam { get; }
 }
 
 public interface Itest_TypeParamObject
   : Itest_DescribedObject
 {
-  public Itest_Name TypeParam { get; set; }
+  Itest_Name TypeParam { get; }
 }
 
 public interface Itest_ObjAlternate
 {
-  public Itest_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
-  public Itest_ObjAlternateObject As_ObjAlternate { get; set; }
+  Itest_ObjAlternateEnum As_ObjAlternateEnum { get; }
+  Itest_ObjAlternateObject As_ObjAlternate { get; }
 }
 
 public interface Itest_ObjAlternateObject
 {
-  public Itest_ObjBase Type { get; set; }
-  public ICollection<Itest_Collections> Collections { get; set; }
+  Itest_ObjBase Type { get; }
+  ICollection<Itest_Collections> Collections { get; }
 }
 
 public interface Itest_ObjAlternateEnum
-  : Itest_TypeRef
+  : Itest_TypeRef<test_TypeKind>
 {
-  public Itest_ObjAlternateEnumObject As_ObjAlternateEnum { get; set; }
+  Itest_ObjAlternateEnumObject As_ObjAlternateEnum { get; }
 }
 
 public interface Itest_ObjAlternateEnumObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<test_TypeKind>
 {
-  public Itest_Name Label { get; set; }
+  Itest_Name Label { get; }
 }
 
-public interface Itest_ObjectFor<Tfor>
-  : Itestfor
+public interface Itest_ObjectFor<TFor>
 {
-  public Itest_ObjectForObject As_ObjectFor { get; set; }
+  TFor AsParent { get; }
+  Itest_ObjectForObject<TFor> As_ObjectFor { get; }
 }
 
-public interface Itest_ObjectForObject<Tfor>
-  : ItestforObject
+public interface Itest_ObjectForObject<TFor>
 {
-  public Itest_Name Object { get; set; }
+  Itest_Name Object { get; }
 }
 
-public interface Itest_ObjField<Ttype>
+public interface Itest_ObjField<TType>
   : Itest_Aliased
 {
-  public Itest_ObjFieldObject As_ObjField { get; set; }
+  Itest_ObjFieldObject<TType> As_ObjField { get; }
 }
 
-public interface Itest_ObjFieldObject<Ttype>
+public interface Itest_ObjFieldObject<TType>
   : Itest_AliasedObject
 {
-  public Ttype Type { get; set; }
+  TType Type { get; }
 }
 
 public interface Itest_ObjFieldType
   : Itest_ObjBase
 {
-  public Itest_ObjFieldEnum As_ObjFieldEnum { get; set; }
-  public Itest_ObjFieldTypeObject As_ObjFieldType { get; set; }
+  Itest_ObjFieldEnum As_ObjFieldEnum { get; }
+  Itest_ObjFieldTypeObject As_ObjFieldType { get; }
 }
 
 public interface Itest_ObjFieldTypeObject
   : Itest_ObjBaseObject
 {
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
 public interface Itest_ObjFieldEnum
-  : Itest_TypeRef
+  : Itest_TypeRef<test_TypeKind>
 {
-  public Itest_ObjFieldEnumObject As_ObjFieldEnum { get; set; }
+  Itest_ObjFieldEnumObject As_ObjFieldEnum { get; }
 }
 
 public interface Itest_ObjFieldEnumObject
-  : Itest_TypeRefObject
+  : Itest_TypeRefObject<test_TypeKind>
 {
-  public Itest_Name Label { get; set; }
+  Itest_Name Label { get; }
 }
 
-public interface Itest_ForParam<Ttype>
+public interface Itest_ForParam<TType>
 {
-  public Itest_ObjAlternate As_ObjAlternate { get; set; }
-  public Itest_ObjField<Ttype> As_ObjField { get; set; }
-  public Itest_ForParamObject As_ForParam { get; set; }
+  Itest_ObjAlternate As_ObjAlternate { get; }
+  Itest_ObjField<TType> As_ObjField { get; }
+  Itest_ForParamObject<TType> As_ForParam { get; }
 }
 
-public interface Itest_ForParamObject<Ttype>
+public interface Itest_ForParamObject<TType>
 {
 }
 
 public interface Itest_DualField
-  : Itest_ObjField
+  : Itest_ObjField<Itest_ObjFieldType>
 {
-  public Itest_DualFieldObject As_DualField { get; set; }
+  Itest_DualFieldObject As_DualField { get; }
 }
 
 public interface Itest_DualFieldObject
-  : Itest_ObjFieldObject
+  : Itest_ObjFieldObject<Itest_ObjFieldType>
 {
 }
 
 public interface Itest_InputField
-  : Itest_ObjField
+  : Itest_ObjField<Itest_InputFieldType>
 {
-  public Itest_InputFieldObject As_InputField { get; set; }
+  Itest_InputFieldObject As_InputField { get; }
 }
 
 public interface Itest_InputFieldObject
-  : Itest_ObjFieldObject
+  : Itest_ObjFieldObject<Itest_InputFieldType>
 {
 }
 
 public interface Itest_InputFieldType
   : Itest_ObjFieldType
 {
-  public Itest_InputFieldTypeObject As_InputFieldType { get; set; }
+  Itest_InputFieldTypeObject As_InputFieldType { get; }
 }
 
 public interface Itest_InputFieldTypeObject
   : Itest_ObjFieldTypeObject
 {
-  public Itest_Value? Default { get; set; }
+  GqlpValue? Default { get; }
 }
 
 public interface Itest_InputParam
   : Itest_InputFieldType
 {
-  public Itest_InputParamObject As_InputParam { get; set; }
+  Itest_InputParamObject As_InputParam { get; }
 }
 
 public interface Itest_InputParamObject
@@ -725,24 +723,24 @@ public interface Itest_InputParamObject
 }
 
 public interface Itest_OutputField
-  : Itest_ObjField
+  : Itest_ObjField<Itest_ObjFieldType>
 {
-  public Itest_OutputFieldObject As_OutputField { get; set; }
+  Itest_OutputFieldObject As_OutputField { get; }
 }
 
 public interface Itest_OutputFieldObject
-  : Itest_ObjFieldObject
+  : Itest_ObjFieldObject<Itest_ObjFieldType>
 {
 }
 
 public interface Itest_OutputFieldType
   : Itest_ObjFieldType
 {
-  public Itest_OutputFieldTypeObject As_OutputFieldType { get; set; }
+  Itest_OutputFieldTypeObject As_OutputFieldType { get; }
 }
 
 public interface Itest_OutputFieldTypeObject
   : Itest_ObjFieldTypeObject
 {
-  public ICollection<Itest_InputParam> Parameters { get; set; }
+  ICollection<Itest_InputParam> Parameters { get; }
 }

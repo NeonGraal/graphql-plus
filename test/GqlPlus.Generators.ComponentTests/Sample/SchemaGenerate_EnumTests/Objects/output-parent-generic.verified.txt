@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_output_parent_generic;
 
 public enum CmptEnumOutpPrntGnrc
 {
-  prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,
+  prnt_outpPrntGnrc = CmptPrntOutpPrntGnrc.prnt_outpPrntGnrc,
   outpPrntGnrc,
 }
 

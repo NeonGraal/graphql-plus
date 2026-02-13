@@ -12,31 +12,31 @@ namespace Components.Gqlp_Schema_generic_field_dual_Dual;
 
 public interface ICmptGnrcFieldDualDual
 {
-  public ICmptGnrcFieldDualDualObject AsGnrcFieldDualDual { get; set; }
+  ICmptGnrcFieldDualDualObject AsGnrcFieldDualDual { get; }
 }
 
 public interface ICmptGnrcFieldDualDualObject
 {
-  public ICmptRefGnrcFieldDualDual<ICmptAltGnrcFieldDualDual> Field { get; set; }
+  ICmptRefGnrcFieldDualDual<ICmptAltGnrcFieldDualDual> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldDualDual<Tref>
+public interface ICmptRefGnrcFieldDualDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldDualDualObject AsRefGnrcFieldDualDual { get; set; }
+  TRef Asref { get; }
+  ICmptRefGnrcFieldDualDualObject<TRef> AsRefGnrcFieldDualDual { get; }
 }
 
-public interface ICmptRefGnrcFieldDualDualObject<Tref>
+public interface ICmptRefGnrcFieldDualDualObject<TRef>
 {
 }
 
 public interface ICmptAltGnrcFieldDualDual
 {
-  public ICmptString AsString { get; set; }
-  public ICmptAltGnrcFieldDualDualObject AsAltGnrcFieldDualDual { get; set; }
+  string AsString { get; }
+  ICmptAltGnrcFieldDualDualObject AsAltGnrcFieldDualDual { get; }
 }
 
 public interface ICmptAltGnrcFieldDualDualObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

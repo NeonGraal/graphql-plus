@@ -17,17 +17,17 @@ public class CmptGnrcAltParamInp
   public ICmptGnrcAltParamInpObject AsGnrcAltParamInp { get; set; }
 }
 
-public class CmptRefGnrcAltParamInp<Tref>
-  : ICmptRefGnrcAltParamInp<Tref>
+public class CmptRefGnrcAltParamInp<TRef>
+  : ICmptRefGnrcAltParamInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltParamInpObject AsRefGnrcAltParamInp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltParamInpObject<TRef> AsRefGnrcAltParamInp { get; set; }
 }
 
 public class CmptAltGnrcAltParamInp
   : ICmptAltGnrcAltParamInp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcAltParamInpObject AsAltGnrcAltParamInp { get; set; }
 }

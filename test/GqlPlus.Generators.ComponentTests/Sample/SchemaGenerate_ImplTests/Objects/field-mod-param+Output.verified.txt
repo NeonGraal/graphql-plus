@@ -9,17 +9,17 @@ output FldFieldModParamOutp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Output;
 
-public class CmptFieldModParamOutp<Tmod>
-  : ICmptFieldModParamOutp<Tmod>
+public class CmptFieldModParamOutp<TMod>
+  : ICmptFieldModParamOutp<TMod>
 {
-  public IDictionary<Tmod, ICmptFldFieldModParamOutp> Field { get; set; }
-  public ICmptFieldModParamOutpObject AsFieldModParamOutp { get; set; }
+  public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
+  public ICmptFieldModParamOutpObject<TMod> AsFieldModParamOutp { get; set; }
 }
 
 public class CmptFldFieldModParamOutp
   : ICmptFldFieldModParamOutp
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldModParamOutpObject AsFldFieldModParamOutp { get; set; }
 }

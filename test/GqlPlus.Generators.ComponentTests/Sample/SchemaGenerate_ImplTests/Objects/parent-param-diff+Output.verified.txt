@@ -9,17 +9,17 @@ output RefPrntParamDiffOutp<$b:String> { | $b }
 
 namespace Components.Gqlp_Schema_parent_param_diff_Output;
 
-public class CmptPrntParamDiffOutp<Ta>
-  : CmptRefPrntParamDiffOutp
-  , ICmptPrntParamDiffOutp<Ta>
+public class CmptPrntParamDiffOutp<TA>
+  : CmptRefPrntParamDiffOutp<TA>
+  , ICmptPrntParamDiffOutp<TA>
 {
-  public Ta Field { get; set; }
-  public ICmptPrntParamDiffOutpObject AsPrntParamDiffOutp { get; set; }
+  public TA Field { get; set; }
+  public ICmptPrntParamDiffOutpObject<TA> AsPrntParamDiffOutp { get; set; }
 }
 
-public class CmptRefPrntParamDiffOutp<Tb>
-  : ICmptRefPrntParamDiffOutp<Tb>
+public class CmptRefPrntParamDiffOutp<TB>
+  : ICmptRefPrntParamDiffOutp<TB>
 {
-  public Tb Asb { get; set; }
-  public ICmptRefPrntParamDiffOutpObject AsRefPrntParamDiffOutp { get; set; }
+  public TB Asb { get; set; }
+  public ICmptRefPrntParamDiffOutpObject<TB> AsRefPrntParamDiffOutp { get; set; }
 }

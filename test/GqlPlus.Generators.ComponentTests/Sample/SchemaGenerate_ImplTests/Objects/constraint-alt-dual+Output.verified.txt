@@ -18,17 +18,17 @@ public class CmptCnstAltDualOutp
   public ICmptCnstAltDualOutpObject AsCnstAltDualOutp { get; set; }
 }
 
-public class CmptRefCnstAltDualOutp<Tref>
-  : ICmptRefCnstAltDualOutp<Tref>
+public class CmptRefCnstAltDualOutp<TRef>
+  : ICmptRefCnstAltDualOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltDualOutpObject AsRefCnstAltDualOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltDualOutpObject<TRef> AsRefCnstAltDualOutp { get; set; }
 }
 
 public class CmptPrntCnstAltDualOutp
   : ICmptPrntCnstAltDualOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstAltDualOutpObject AsPrntCnstAltDualOutp { get; set; }
 }
 
@@ -36,6 +36,6 @@ public class CmptAltCnstAltDualOutp
   : CmptPrntCnstAltDualOutp
   , ICmptAltCnstAltDualOutp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstAltDualOutpObject AsAltCnstAltDualOutp { get; set; }
 }

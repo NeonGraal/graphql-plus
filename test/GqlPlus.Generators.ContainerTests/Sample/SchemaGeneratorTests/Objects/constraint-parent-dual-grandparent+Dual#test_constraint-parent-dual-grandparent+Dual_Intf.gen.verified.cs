@@ -6,31 +6,30 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_grandparent_Dual;
 
 public interface ItestCnstPrntDualGrndDual
-  : ItestRefCnstPrntDualGrndDual
+  : ItestRefCnstPrntDualGrndDual<ItestAltCnstPrntDualGrndDual>
 {
-  public ItestCnstPrntDualGrndDualObject AsCnstPrntDualGrndDual { get; set; }
+  ItestCnstPrntDualGrndDualObject AsCnstPrntDualGrndDual { get; }
 }
 
 public interface ItestCnstPrntDualGrndDualObject
-  : ItestRefCnstPrntDualGrndDualObject
+  : ItestRefCnstPrntDualGrndDualObject<ItestAltCnstPrntDualGrndDual>
 {
 }
 
-public interface ItestRefCnstPrntDualGrndDual<Tref>
-  : Itestref
+public interface ItestRefCnstPrntDualGrndDual<TRef>
 {
-  public ItestRefCnstPrntDualGrndDualObject AsRefCnstPrntDualGrndDual { get; set; }
+  TRef AsParent { get; }
+  ItestRefCnstPrntDualGrndDualObject<TRef> AsRefCnstPrntDualGrndDual { get; }
 }
 
-public interface ItestRefCnstPrntDualGrndDualObject<Tref>
-  : ItestrefObject
+public interface ItestRefCnstPrntDualGrndDualObject<TRef>
 {
 }
 
 public interface ItestGrndCnstPrntDualGrndDual
 {
-  public ItestString AsString { get; set; }
-  public ItestGrndCnstPrntDualGrndDualObject AsGrndCnstPrntDualGrndDual { get; set; }
+  string AsString { get; }
+  ItestGrndCnstPrntDualGrndDualObject AsGrndCnstPrntDualGrndDual { get; }
 }
 
 public interface ItestGrndCnstPrntDualGrndDualObject
@@ -40,7 +39,7 @@ public interface ItestGrndCnstPrntDualGrndDualObject
 public interface ItestPrntCnstPrntDualGrndDual
   : ItestGrndCnstPrntDualGrndDual
 {
-  public ItestPrntCnstPrntDualGrndDualObject AsPrntCnstPrntDualGrndDual { get; set; }
+  ItestPrntCnstPrntDualGrndDualObject AsPrntCnstPrntDualGrndDual { get; }
 }
 
 public interface ItestPrntCnstPrntDualGrndDualObject
@@ -51,11 +50,11 @@ public interface ItestPrntCnstPrntDualGrndDualObject
 public interface ItestAltCnstPrntDualGrndDual
   : ItestPrntCnstPrntDualGrndDual
 {
-  public ItestAltCnstPrntDualGrndDualObject AsAltCnstPrntDualGrndDual { get; set; }
+  ItestAltCnstPrntDualGrndDualObject AsAltCnstPrntDualGrndDual { get; }
 }
 
 public interface ItestAltCnstPrntDualGrndDualObject
   : ItestPrntCnstPrntDualGrndDualObject
 {
-  public ItestNumber Alt { get; set; }
+  decimal Alt { get; }
 }

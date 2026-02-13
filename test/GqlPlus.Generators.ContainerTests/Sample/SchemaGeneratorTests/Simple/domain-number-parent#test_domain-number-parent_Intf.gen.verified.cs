@@ -11,6 +11,6 @@ public interface ItestDmnNmbrPrnt
 }
 
 public interface ItestPrntDmnNmbrPrnt
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }

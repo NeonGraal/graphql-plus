@@ -17,7 +17,7 @@ public class CmptDmnEnumPrntDescr
 }
 
 public class CmptPrntDmnEnumPrntDescr
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptPrntDmnEnumPrntDescr
 {
 }

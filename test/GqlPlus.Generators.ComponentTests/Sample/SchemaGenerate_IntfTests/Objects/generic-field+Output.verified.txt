@@ -8,12 +8,12 @@ output GnrcFieldOutp<$type:String> { field: $type }
 
 namespace Components.Gqlp_Schema_generic_field_Output;
 
-public interface ICmptGnrcFieldOutp<Ttype>
+public interface ICmptGnrcFieldOutp<TType>
 {
-  public ICmptGnrcFieldOutpObject AsGnrcFieldOutp { get; set; }
+  ICmptGnrcFieldOutpObject<TType> AsGnrcFieldOutp { get; }
 }
 
-public interface ICmptGnrcFieldOutpObject<Ttype>
+public interface ICmptGnrcFieldOutpObject<TType>
 {
-  public Ttype Field { get; set; }
+  TType Field { get; }
 }

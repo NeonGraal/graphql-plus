@@ -5,23 +5,23 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Input;
 
-public interface ItestAltModParamInp<Tmod>
+public interface ItestAltModParamInp<TMod>
 {
-  public IDictionary<Tmod, ItestAltAltModParamInp> AsAltAltModParamInp { get; set; }
-  public ItestAltModParamInpObject AsAltModParamInp { get; set; }
+  IDictionary<TMod, ItestAltAltModParamInp> AsAltAltModParamInp { get; }
+  ItestAltModParamInpObject<TMod> AsAltModParamInp { get; }
 }
 
-public interface ItestAltModParamInpObject<Tmod>
+public interface ItestAltModParamInpObject<TMod>
 {
 }
 
 public interface ItestAltAltModParamInp
 {
-  public ItestString AsString { get; set; }
-  public ItestAltAltModParamInpObject AsAltAltModParamInp { get; set; }
+  string AsString { get; }
+  ItestAltAltModParamInpObject AsAltAltModParamInp { get; }
 }
 
 public interface ItestAltAltModParamInpObject
 {
-  public ItestNumber Alt { get; set; }
+  decimal Alt { get; }
 }

@@ -9,6 +9,6 @@ domain DmnNmbrPstv { Number !<0 }
 namespace Components.Gqlp_Schema_domain_number_positive;
 
 public interface ICmptDmnNmbrPstv
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }

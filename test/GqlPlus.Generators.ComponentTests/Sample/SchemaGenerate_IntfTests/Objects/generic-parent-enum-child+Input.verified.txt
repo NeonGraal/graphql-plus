@@ -12,22 +12,22 @@ enum ParentGnrcPrntEnumChildInp { gnrcPrntEnumChildInpParent }
 namespace Components.Gqlp_Schema_generic_parent_enum_child_Input;
 
 public interface ICmptGnrcPrntEnumChildInp
-  : ICmptFieldGnrcPrntEnumChildInp
+  : ICmptFieldGnrcPrntEnumChildInp<CmptParentGnrcPrntEnumChildInp>
 {
-  public ICmptGnrcPrntEnumChildInpObject AsGnrcPrntEnumChildInp { get; set; }
+  ICmptGnrcPrntEnumChildInpObject AsGnrcPrntEnumChildInp { get; }
 }
 
 public interface ICmptGnrcPrntEnumChildInpObject
-  : ICmptFieldGnrcPrntEnumChildInpObject
+  : ICmptFieldGnrcPrntEnumChildInpObject<CmptParentGnrcPrntEnumChildInp>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumChildInp<Tref>
+public interface ICmptFieldGnrcPrntEnumChildInp<TRef>
 {
-  public ICmptFieldGnrcPrntEnumChildInpObject AsFieldGnrcPrntEnumChildInp { get; set; }
+  ICmptFieldGnrcPrntEnumChildInpObject<TRef> AsFieldGnrcPrntEnumChildInp { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumChildInpObject<Tref>
+public interface ICmptFieldGnrcPrntEnumChildInpObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }

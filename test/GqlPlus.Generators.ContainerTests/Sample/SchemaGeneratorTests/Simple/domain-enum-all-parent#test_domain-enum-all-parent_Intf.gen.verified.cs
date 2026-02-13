@@ -6,6 +6,6 @@
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all_parent;
 
 public interface ItestDmnEnumAllPrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

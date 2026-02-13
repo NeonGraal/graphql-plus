@@ -34,7 +34,7 @@ public class Cmpt_Category
   : Cmpt_Aliased
   , ICmpt_Category
 {
-  public ICmpt_Resolution Resolution { get; set; }
+  public Cmpt_Resolution Resolution { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
   public ICmpt_CategoryObject As_Category { get; set; }

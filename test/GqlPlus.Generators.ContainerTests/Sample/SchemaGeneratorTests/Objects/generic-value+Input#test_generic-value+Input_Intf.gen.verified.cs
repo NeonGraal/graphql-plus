@@ -7,20 +7,20 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Input;
 
 public interface ItestGnrcValueInp
 {
-  public ItestRefGnrcValueInp<ItestEnumGnrcValueInp> AsRefGnrcValueInp { get; set; }
-  public ItestGnrcValueInpObject AsGnrcValueInp { get; set; }
+  ItestRefGnrcValueInp<testEnumGnrcValueInp> AsEnumGnrcValueInpgnrcValueInp { get; }
+  ItestGnrcValueInpObject AsGnrcValueInp { get; }
 }
 
 public interface ItestGnrcValueInpObject
 {
 }
 
-public interface ItestRefGnrcValueInp<Ttype>
+public interface ItestRefGnrcValueInp<TType>
 {
-  public ItestRefGnrcValueInpObject AsRefGnrcValueInp { get; set; }
+  ItestRefGnrcValueInpObject<TType> AsRefGnrcValueInp { get; }
 }
 
-public interface ItestRefGnrcValueInpObject<Ttype>
+public interface ItestRefGnrcValueInpObject<TType>
 {
-  public Ttype Field { get; set; }
+  TType Field { get; }
 }

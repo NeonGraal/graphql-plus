@@ -29,15 +29,15 @@ public class testFldOutpPrntParam
 public class testInOutpPrntParam
   : ItestInOutpPrntParam
 {
-  public ItestNumber Param { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Param { get; set; }
+  public string AsString { get; set; }
   public ItestInOutpPrntParamObject AsInOutpPrntParam { get; set; }
 }
 
 public class testPrntOutpPrntParamIn
   : ItestPrntOutpPrntParamIn
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; set; }
 }

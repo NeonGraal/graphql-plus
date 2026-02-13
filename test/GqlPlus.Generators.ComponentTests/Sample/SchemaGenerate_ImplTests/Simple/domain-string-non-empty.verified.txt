@@ -9,7 +9,7 @@ domain DmnStrNonEmpty { String !/\s*/ }
 namespace Components.Gqlp_Schema_domain_string_non_empty;
 
 public class CmptDmnStrNonEmpty
-  : DomainString
+  : GqlpDomainString
   , ICmptDmnStrNonEmpty
 {
 }

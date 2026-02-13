@@ -15,7 +15,7 @@ public class testPrntDual
 public class testRefPrntDual
   : ItestRefPrntDual
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntDualObject AsRefPrntDual { get; set; }
 }

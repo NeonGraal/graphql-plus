@@ -9,24 +9,24 @@ dual RefPrntParamDiffDual<$b:String> { | $b }
 
 namespace Components.Gqlp_Schema_parent_param_diff_Dual;
 
-public interface ICmptPrntParamDiffDual<Ta>
-  : ICmptRefPrntParamDiffDual
+public interface ICmptPrntParamDiffDual<TA>
+  : ICmptRefPrntParamDiffDual<TA>
 {
-  public ICmptPrntParamDiffDualObject AsPrntParamDiffDual { get; set; }
+  ICmptPrntParamDiffDualObject<TA> AsPrntParamDiffDual { get; }
 }
 
-public interface ICmptPrntParamDiffDualObject<Ta>
-  : ICmptRefPrntParamDiffDualObject
+public interface ICmptPrntParamDiffDualObject<TA>
+  : ICmptRefPrntParamDiffDualObject<TA>
 {
-  public Ta Field { get; set; }
+  TA Field { get; }
 }
 
-public interface ICmptRefPrntParamDiffDual<Tb>
+public interface ICmptRefPrntParamDiffDual<TB>
 {
-  public Tb Asb { get; set; }
-  public ICmptRefPrntParamDiffDualObject AsRefPrntParamDiffDual { get; set; }
+  TB Asb { get; }
+  ICmptRefPrntParamDiffDualObject<TB> AsRefPrntParamDiffDual { get; }
 }
 
-public interface ICmptRefPrntParamDiffDualObject<Tb>
+public interface ICmptRefPrntParamDiffDualObject<TB>
 {
 }

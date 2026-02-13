@@ -16,24 +16,24 @@ output _OutputFieldType {
 namespace Components.Gqlp_Spec_Output;
 
 public interface ICmpt_OutputField
-  : ICmpt_ObjField
+  : ICmpt_ObjField<ICmpt_ObjFieldType>
 {
-  public ICmpt_OutputFieldObject As_OutputField { get; set; }
+  ICmpt_OutputFieldObject As_OutputField { get; }
 }
 
 public interface ICmpt_OutputFieldObject
-  : ICmpt_ObjFieldObject
+  : ICmpt_ObjFieldObject<ICmpt_ObjFieldType>
 {
 }
 
 public interface ICmpt_OutputFieldType
   : ICmpt_ObjFieldType
 {
-  public ICmpt_OutputFieldTypeObject As_OutputFieldType { get; set; }
+  ICmpt_OutputFieldTypeObject As_OutputFieldType { get; }
 }
 
 public interface ICmpt_OutputFieldTypeObject
   : ICmpt_ObjFieldTypeObject
 {
-  public ICollection<ICmpt_InputParam> Parameters { get; set; }
+  ICollection<ICmpt_InputParam> Parameters { get; }
 }

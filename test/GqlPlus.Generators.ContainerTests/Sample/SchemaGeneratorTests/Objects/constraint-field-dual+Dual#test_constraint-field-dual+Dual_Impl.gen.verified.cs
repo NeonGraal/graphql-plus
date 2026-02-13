@@ -6,23 +6,23 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_dual_Dual;
 
 public class testCnstFieldDualDual
-  : testRefCnstFieldDualDual
+  : testRefCnstFieldDualDual<ItestAltCnstFieldDualDual>
   , ItestCnstFieldDualDual
 {
   public ItestCnstFieldDualDualObject AsCnstFieldDualDual { get; set; }
 }
 
-public class testRefCnstFieldDualDual<Tref>
-  : ItestRefCnstFieldDualDual<Tref>
+public class testRefCnstFieldDualDual<TRef>
+  : ItestRefCnstFieldDualDual<TRef>
 {
-  public Tref Field { get; set; }
-  public ItestRefCnstFieldDualDualObject AsRefCnstFieldDualDual { get; set; }
+  public TRef Field { get; set; }
+  public ItestRefCnstFieldDualDualObject<TRef> AsRefCnstFieldDualDual { get; set; }
 }
 
 public class testPrntCnstFieldDualDual
   : ItestPrntCnstFieldDualDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstFieldDualDualObject AsPrntCnstFieldDualDual { get; set; }
 }
 
@@ -30,6 +30,6 @@ public class testAltCnstFieldDualDual
   : testPrntCnstFieldDualDual
   , ItestAltCnstFieldDualDual
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstFieldDualDualObject AsAltCnstFieldDualDual { get; set; }
 }

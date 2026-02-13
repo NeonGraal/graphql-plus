@@ -8,6 +8,6 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Input;
 public class testFieldModEnumInp
   : ItestFieldModEnumInp
 {
-  public IDictionary<testEnumFieldModEnumInp, ItestString> Field { get; set; }
+  public IDictionary<testEnumFieldModEnumInp, string> Field { get; set; }
   public ItestFieldModEnumInpObject AsFieldModEnumInp { get; set; }
 }

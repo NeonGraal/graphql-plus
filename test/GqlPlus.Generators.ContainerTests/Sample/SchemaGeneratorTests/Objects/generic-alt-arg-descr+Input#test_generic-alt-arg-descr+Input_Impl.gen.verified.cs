@@ -5,16 +5,16 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_descr_Input;
 
-public class testGnrcAltArgDescrInp<Ttype>
-  : ItestGnrcAltArgDescrInp<Ttype>
+public class testGnrcAltArgDescrInp<TType>
+  : ItestGnrcAltArgDescrInp<TType>
 {
-  public ItestRefGnrcAltArgDescrInp<Ttype> AsRefGnrcAltArgDescrInp { get; set; }
-  public ItestGnrcAltArgDescrInpObject AsGnrcAltArgDescrInp { get; set; }
+  public ItestRefGnrcAltArgDescrInp<TType> AsRefGnrcAltArgDescrInp { get; set; }
+  public ItestGnrcAltArgDescrInpObject<TType> AsGnrcAltArgDescrInp { get; set; }
 }
 
-public class testRefGnrcAltArgDescrInp<Tref>
-  : ItestRefGnrcAltArgDescrInp<Tref>
+public class testRefGnrcAltArgDescrInp<TRef>
+  : ItestRefGnrcAltArgDescrInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcAltArgDescrInpObject AsRefGnrcAltArgDescrInp { get; set; }
+  public TRef Asref { get; set; }
+  public ItestRefGnrcAltArgDescrInpObject<TRef> AsRefGnrcAltArgDescrInp { get; set; }
 }

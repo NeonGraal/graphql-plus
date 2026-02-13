@@ -7,8 +7,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all_parent;
 
 public enum testEnumDmnEnumAllPrnt
 {
-  prnt_dmnEnumAllPrnt = PrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
-  dmnEnumAllPrntPrnt = PrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
+  prnt_dmnEnumAllPrnt = testPrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt = testPrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
   dmnEnumAllPrnt,
   dmnEnumAllPrntValue,
 }

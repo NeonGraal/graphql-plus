@@ -9,13 +9,13 @@ input ObjParamDupInp<$test:String> { type: $test }
 
 namespace Components.Gqlp_Schema_object_param_dup_Input;
 
-public interface ICmptObjParamDupInp<Ttest>
+public interface ICmptObjParamDupInp<TTest>
 {
-  public ICmptObjParamDupInpObject AsObjParamDupInp { get; set; }
+  ICmptObjParamDupInpObject<TTest> AsObjParamDupInp { get; }
 }
 
-public interface ICmptObjParamDupInpObject<Ttest>
+public interface ICmptObjParamDupInpObject<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
+  TTest Test { get; }
+  TTest Type { get; }
 }

@@ -12,17 +12,17 @@ public class testCnstAltObjDual
   public ItestCnstAltObjDualObject AsCnstAltObjDual { get; set; }
 }
 
-public class testRefCnstAltObjDual<Tref>
-  : ItestRefCnstAltObjDual<Tref>
+public class testRefCnstAltObjDual<TRef>
+  : ItestRefCnstAltObjDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefCnstAltObjDualObject AsRefCnstAltObjDual { get; set; }
+  public TRef Asref { get; set; }
+  public ItestRefCnstAltObjDualObject<TRef> AsRefCnstAltObjDual { get; set; }
 }
 
 public class testPrntCnstAltObjDual
   : ItestPrntCnstAltObjDual
 {
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestPrntCnstAltObjDualObject AsPrntCnstAltObjDual { get; set; }
 }
 
@@ -30,6 +30,6 @@ public class testAltCnstAltObjDual
   : testPrntCnstAltObjDual
   , ItestAltCnstAltObjDual
 {
-  public ItestNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ItestAltCnstAltObjDualObject AsAltCnstAltObjDual { get; set; }
 }

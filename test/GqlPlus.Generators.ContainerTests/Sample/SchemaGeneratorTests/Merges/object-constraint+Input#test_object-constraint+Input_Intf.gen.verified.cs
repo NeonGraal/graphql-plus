@@ -5,13 +5,13 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Input;
 
-public interface ItestObjCnstInp<Ttype>
+public interface ItestObjCnstInp<TType>
 {
-  public ItestObjCnstInpObject AsObjCnstInp { get; set; }
+  ItestObjCnstInpObject<TType> AsObjCnstInp { get; }
 }
 
-public interface ItestObjCnstInpObject<Ttype>
+public interface ItestObjCnstInpObject<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
+  TType Field { get; }
+  TType Str { get; }
 }

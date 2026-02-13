@@ -8,9 +8,9 @@ input GnrcPrntDescrInp<$type:_Dual> { :"Parent comment"$type }
 
 namespace Components.Gqlp_Schema_generic_parent_descr_Input;
 
-public class CmptGnrcPrntDescrInp<Ttype>
-  : Cmpttype
-  , ICmptGnrcPrntDescrInp<Ttype>
+public class CmptGnrcPrntDescrInp<TType>
+  : ICmptGnrcPrntDescrInp<TType>
 {
-  public ICmptGnrcPrntDescrInpObject AsGnrcPrntDescrInp { get; set; }
+  public TType AsParent { get; set; }
+  public ICmptGnrcPrntDescrInpObject<TType> AsGnrcPrntDescrInp { get; set; }
 }

@@ -6,34 +6,33 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_parent_Input;
 
 public interface ItestGnrcPrntDualPrntInp
-  : ItestRefGnrcPrntDualPrntInp
+  : ItestRefGnrcPrntDualPrntInp<ItestAltGnrcPrntDualPrntInp>
 {
-  public ItestGnrcPrntDualPrntInpObject AsGnrcPrntDualPrntInp { get; set; }
+  ItestGnrcPrntDualPrntInpObject AsGnrcPrntDualPrntInp { get; }
 }
 
 public interface ItestGnrcPrntDualPrntInpObject
-  : ItestRefGnrcPrntDualPrntInpObject
+  : ItestRefGnrcPrntDualPrntInpObject<ItestAltGnrcPrntDualPrntInp>
 {
 }
 
-public interface ItestRefGnrcPrntDualPrntInp<Tref>
-  : Itestref
+public interface ItestRefGnrcPrntDualPrntInp<TRef>
 {
-  public ItestRefGnrcPrntDualPrntInpObject AsRefGnrcPrntDualPrntInp { get; set; }
+  TRef AsParent { get; }
+  ItestRefGnrcPrntDualPrntInpObject<TRef> AsRefGnrcPrntDualPrntInp { get; }
 }
 
-public interface ItestRefGnrcPrntDualPrntInpObject<Tref>
-  : ItestrefObject
+public interface ItestRefGnrcPrntDualPrntInpObject<TRef>
 {
 }
 
 public interface ItestAltGnrcPrntDualPrntInp
 {
-  public ItestString AsString { get; set; }
-  public ItestAltGnrcPrntDualPrntInpObject AsAltGnrcPrntDualPrntInp { get; set; }
+  string AsString { get; }
+  ItestAltGnrcPrntDualPrntInpObject AsAltGnrcPrntDualPrntInp { get; }
 }
 
 public interface ItestAltGnrcPrntDualPrntInpObject
 {
-  public ItestNumber Alt { get; set; }
+  decimal Alt { get; }
 }

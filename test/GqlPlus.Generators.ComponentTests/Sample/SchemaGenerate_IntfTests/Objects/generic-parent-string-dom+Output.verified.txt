@@ -11,27 +11,27 @@ domain DomGnrcPrntStrDomOutp { string /\w+/ }
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Output;
 
 public interface ICmptGnrcPrntStrDomOutp
-  : ICmptFieldGnrcPrntStrDomOutp
+  : ICmptFieldGnrcPrntStrDomOutp<ICmptDomGnrcPrntStrDomOutp>
 {
-  public ICmptGnrcPrntStrDomOutpObject AsGnrcPrntStrDomOutp { get; set; }
+  ICmptGnrcPrntStrDomOutpObject AsGnrcPrntStrDomOutp { get; }
 }
 
 public interface ICmptGnrcPrntStrDomOutpObject
-  : ICmptFieldGnrcPrntStrDomOutpObject
+  : ICmptFieldGnrcPrntStrDomOutpObject<ICmptDomGnrcPrntStrDomOutp>
 {
 }
 
-public interface ICmptFieldGnrcPrntStrDomOutp<Tref>
+public interface ICmptFieldGnrcPrntStrDomOutp<TRef>
 {
-  public ICmptFieldGnrcPrntStrDomOutpObject AsFieldGnrcPrntStrDomOutp { get; set; }
+  ICmptFieldGnrcPrntStrDomOutpObject<TRef> AsFieldGnrcPrntStrDomOutp { get; }
 }
 
-public interface ICmptFieldGnrcPrntStrDomOutpObject<Tref>
+public interface ICmptFieldGnrcPrntStrDomOutpObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntStrDomOutp
-  : IDomainString
+  : IGqlpDomainString
 {
 }

@@ -57,15 +57,15 @@ public class Cmpt_Schema
   : Cmpt_Named
   , ICmpt_Schema
 {
-  public IDictionary<Cmpt_Name, ICmpt_Categories> Categories { get; set; }
-  public IDictionary<Cmpt_Name, ICmpt_Directives> Directives { get; set; }
-  public IDictionary<Cmpt_Name, ICmpt_Type> Types { get; set; }
-  public IDictionary<Cmpt_Name, ICmpt_Setting> Settings { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Categories> Categories { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Directives> Directives { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Type> Types { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Setting> Settings { get; set; }
   public ICmpt_SchemaObject As_Schema { get; set; }
 }
 
 public class Cmpt_Name
-  : DomainString
+  : GqlpDomainString
   , ICmpt_Name
 {
 }
@@ -74,16 +74,16 @@ public class Cmpt_Filter
   : ICmpt_Filter
 {
   public ICollection<ICmpt_NameFilter> Names { get; set; }
-  public ICmptBoolean? MatchAliases { get; set; }
+  public bool? MatchAliases { get; set; }
   public ICollection<ICmpt_NameFilter> Aliases { get; set; }
-  public ICmptBoolean? ReturnByAlias { get; set; }
-  public ICmptBoolean? ReturnReferencedTypes { get; set; }
+  public bool? ReturnByAlias { get; set; }
+  public bool? ReturnReferencedTypes { get; set; }
   public ICollection<ICmpt_NameFilter> As_NameFilter { get; set; }
   public ICmpt_FilterObject As_Filter { get; set; }
 }
 
 public class Cmpt_NameFilter
-  : DomainString
+  : GqlpDomainString
   , ICmpt_NameFilter
 {
 }
@@ -123,6 +123,6 @@ public class Cmpt_Named
 public class Cmpt_Described
   : ICmpt_Described
 {
-  public ICollection<ICmptString> Description { get; set; }
+  public ICollection<string> Description { get; set; }
   public ICmpt_DescribedObject As_Described { get; set; }
 }

@@ -12,6 +12,6 @@ namespace Components.Gqlp_Schema_alt_enum_Output;
 public class CmptAltEnumOutp
   : ICmptAltEnumOutp
 {
-  public ICmptEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
+  public CmptEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; set; }
   public ICmptAltEnumOutpObject AsAltEnumOutp { get; set; }
 }

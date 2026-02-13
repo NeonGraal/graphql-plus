@@ -10,10 +10,10 @@ namespace Components.Gqlp_Schema_field_simple_Dual;
 
 public interface ICmptFieldSmplDual
 {
-  public ICmptFieldSmplDualObject AsFieldSmplDual { get; set; }
+  ICmptFieldSmplDualObject AsFieldSmplDual { get; }
 }
 
 public interface ICmptFieldSmplDualObject
 {
-  public ICmptNumber Field { get; set; }
+  decimal Field { get; }
 }

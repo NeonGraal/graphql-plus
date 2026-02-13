@@ -9,10 +9,10 @@ output ObjParamDupOutp<$test:String> { type: $test }
 
 namespace Components.Gqlp_Schema_object_param_dup_Output;
 
-public class CmptObjParamDupOutp<Ttest>
-  : ICmptObjParamDupOutp<Ttest>
+public class CmptObjParamDupOutp<TTest>
+  : ICmptObjParamDupOutp<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
-  public ICmptObjParamDupOutpObject AsObjParamDupOutp { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+  public ICmptObjParamDupOutpObject<TTest> AsObjParamDupOutp { get; set; }
 }

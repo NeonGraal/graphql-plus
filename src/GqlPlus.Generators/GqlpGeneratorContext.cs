@@ -24,6 +24,26 @@ internal sealed class GqlpGeneratorContext
     AddTypes(BuiltIn.Basic);
   }
 
+  public static readonly Map<string> DotNetTypes = new() {
+    ["_" + BuiltIn.VoidType] = "void",
+    [BuiltIn.VoidType] = "void",
+    ["_" + BuiltIn.ValueType] = "GqlpValue",
+    [BuiltIn.ValueType] = "GqlpValue",
+    ["_" + BuiltIn.UnitType] = "GqlpUnit",
+    [BuiltIn.UnitType] = "GqlpUnit",
+    ["_" + BuiltIn.StringType] = "string",
+    [BuiltIn.StringType] = "string",
+    [BuiltIn.StringAlias] = "string",
+    ["_" + BuiltIn.ScalarType] = "GqlpScalar",
+    [BuiltIn.ScalarType] = "GqlpScalar",
+    ["_" + BuiltIn.NumberType] = "decimal",
+    [BuiltIn.NumberType] = "decimal",
+    [BuiltIn.NumberAlias] = "decimal",
+    ["_" + BuiltIn.BooleanType] = "bool",
+    [BuiltIn.BooleanType] = "bool",
+    [BuiltIn.BooleanAlias] = "bool",
+  };
+
   public string File { get; }
   public GqlpGeneratorOptions GeneratorOptions { get; }
   public GqlpModelOptions ModelOptions { get; }
@@ -35,9 +55,6 @@ internal sealed class GqlpGeneratorContext
 
   public string Safe(string unsafeName)
     => _unsafeRegex.Replace(unsafeName, "_");
-
-  public void WritePrefix(string text)
-    => (_prefixWritten ? _builder : _prefix).Append(text);
 
   public void WritePrefixLine(string text)
     => (_prefixWritten ? _builder : _prefix).AppendLine(text);
@@ -86,11 +103,19 @@ internal sealed class GqlpGeneratorContext
     return null;
   }
 
-  internal string TypeName(IGqlpNamed type)
-    => TypeName(type.Name);
+  internal string TypeName(IGqlpNamed type, string prefix)
+    => TypeName(type.Name, prefix);
 
-  internal string TypeName(string typeName)
-    => ModelOptions.TypePrefix +
-      (_types.TryGetValue(typeName, out IGqlpType theType)
-      ? theType.Name : typeName);
+  internal string TypeName(string typeName, string prefix)
+  {
+    if (DotNetTypes.TryGetValue(typeName, out string dotNetType)) {
+      return dotNetType;
+    }
+
+    if (_types.TryGetValue(typeName, out IGqlpType theType)) {
+      return (theType is IGqlpEnum ? "" : prefix) + ModelOptions.TypePrefix + theType.Name;
+    } else {
+      return prefix + ModelOptions.TypePrefix + typeName;
+    }
+  }
 }

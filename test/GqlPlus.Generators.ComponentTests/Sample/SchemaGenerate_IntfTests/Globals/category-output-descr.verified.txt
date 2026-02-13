@@ -11,7 +11,7 @@ namespace Components.Gqlp_Schema_category_output_descr;
 
 public interface ICmptCtgrOutpDescr
 {
-  public ICmptCtgrOutpDescrObject AsCtgrOutpDescr { get; set; }
+  ICmptCtgrOutpDescrObject AsCtgrOutpDescr { get; }
 }
 
 public interface ICmptCtgrOutpDescrObject

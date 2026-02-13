@@ -5,10 +5,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Output;
 
-public class testObjCnstOutp<Ttype>
-  : ItestObjCnstOutp<Ttype>
+public class testObjCnstOutp<TType>
+  : ItestObjCnstOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
-  public ItestObjCnstOutpObject AsObjCnstOutp { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+  public ItestObjCnstOutpObject<TType> AsObjCnstOutp { get; set; }
 }

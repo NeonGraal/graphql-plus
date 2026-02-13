@@ -7,31 +7,31 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_dual_Output;
 
 public interface ItestGnrcAltDualOutp
 {
-  public ItestRefGnrcAltDualOutp<ItestAltGnrcAltDualOutp> AsRefGnrcAltDualOutp { get; set; }
-  public ItestGnrcAltDualOutpObject AsGnrcAltDualOutp { get; set; }
+  ItestRefGnrcAltDualOutp<ItestAltGnrcAltDualOutp> AsRefGnrcAltDualOutp { get; }
+  ItestGnrcAltDualOutpObject AsGnrcAltDualOutp { get; }
 }
 
 public interface ItestGnrcAltDualOutpObject
 {
 }
 
-public interface ItestRefGnrcAltDualOutp<Tref>
+public interface ItestRefGnrcAltDualOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcAltDualOutpObject AsRefGnrcAltDualOutp { get; set; }
+  TRef Asref { get; }
+  ItestRefGnrcAltDualOutpObject<TRef> AsRefGnrcAltDualOutp { get; }
 }
 
-public interface ItestRefGnrcAltDualOutpObject<Tref>
+public interface ItestRefGnrcAltDualOutpObject<TRef>
 {
 }
 
 public interface ItestAltGnrcAltDualOutp
 {
-  public ItestString AsString { get; set; }
-  public ItestAltGnrcAltDualOutpObject AsAltGnrcAltDualOutp { get; set; }
+  string AsString { get; }
+  ItestAltGnrcAltDualOutpObject AsAltGnrcAltDualOutp { get; }
 }
 
 public interface ItestAltGnrcAltDualOutpObject
 {
-  public ItestNumber Alt { get; set; }
+  decimal Alt { get; }
 }

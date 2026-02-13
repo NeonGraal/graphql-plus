@@ -8,9 +8,9 @@ dual GnrcAltDual<$type:String> { | $type }
 
 namespace Components.Gqlp_Schema_generic_alt_Dual;
 
-public class CmptGnrcAltDual<Ttype>
-  : ICmptGnrcAltDual<Ttype>
+public class CmptGnrcAltDual<TType>
+  : ICmptGnrcAltDual<TType>
 {
-  public Ttype Astype { get; set; }
-  public ICmptGnrcAltDualObject AsGnrcAltDual { get; set; }
+  public TType Astype { get; set; }
+  public ICmptGnrcAltDualObject<TType> AsGnrcAltDual { get; set; }
 }

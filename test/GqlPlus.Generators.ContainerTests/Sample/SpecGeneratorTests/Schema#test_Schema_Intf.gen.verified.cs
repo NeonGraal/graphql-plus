@@ -7,9 +7,9 @@ namespace GqlPlus.GeneratorTests.Gqlp_Schema;
 
 public interface Itest_Opt<TT>
 {
-  public TT AsT { get; set; }
-  public ItestNull AsNull { get; set; }
-  public Itest_OptObject As_Opt { get; set; }
+  TT AsT { get; }
+  testNull AsNull { get; }
+  Itest_OptObject<TT> As_Opt { get; }
 }
 
 public interface Itest_OptObject<TT>
@@ -18,8 +18,8 @@ public interface Itest_OptObject<TT>
 
 public interface Itest_List<TT>
 {
-  public ICollection<TT> AsT { get; set; }
-  public Itest_ListObject As_List { get; set; }
+  ICollection<TT> AsT { get; }
+  Itest_ListObject<TT> As_List { get; }
 }
 
 public interface Itest_ListObject<TT>
@@ -28,8 +28,8 @@ public interface Itest_ListObject<TT>
 
 public interface Itest_Dict<TK,TT>
 {
-  public IDictionary<TK, TT> AsT { get; set; }
-  public Itest_DictObject As_Dict { get; set; }
+  IDictionary<TK, TT> AsT { get; }
+  Itest_DictObject<TK,TT> As_Dict { get; }
 }
 
 public interface Itest_DictObject<TK,TT>
@@ -38,8 +38,8 @@ public interface Itest_DictObject<TK,TT>
 
 public interface Itest_Map<TT>
 {
-  public IDictionary<testString, TT> AsT { get; set; }
-  public Itest_MapObject As_Map { get; set; }
+  IDictionary<string, TT> AsT { get; }
+  Itest_MapObject<TT> As_Map { get; }
 }
 
 public interface Itest_MapObject<TT>
@@ -48,8 +48,8 @@ public interface Itest_MapObject<TT>
 
 public interface Itest_Array<TT>
 {
-  public IDictionary<testNumber, TT> AsT { get; set; }
-  public Itest_ArrayObject As_Array { get; set; }
+  IDictionary<decimal, TT> AsT { get; }
+  Itest_ArrayObject<TT> As_Array { get; }
 }
 
 public interface Itest_ArrayObject<TT>
@@ -58,8 +58,8 @@ public interface Itest_ArrayObject<TT>
 
 public interface Itest_IfElse<TT>
 {
-  public IDictionary<testBoolean, TT> AsT { get; set; }
-  public Itest_IfElseObject As_IfElse { get; set; }
+  IDictionary<bool, TT> AsT { get; }
+  Itest_IfElseObject<TT> As_IfElse { get; }
 }
 
 public interface Itest_IfElseObject<TT>
@@ -68,8 +68,8 @@ public interface Itest_IfElseObject<TT>
 
 public interface Itest_Set<TK>
 {
-  public IDictionary<TK, ItestUnit> AsUnit_ { get; set; }
-  public Itest_SetObject As_Set { get; set; }
+  IDictionary<TK, GqlpUnit> AsUnit_ { get; }
+  Itest_SetObject<TK> As_Set { get; }
 }
 
 public interface Itest_SetObject<TK>
@@ -78,8 +78,8 @@ public interface Itest_SetObject<TK>
 
 public interface Itest_Mask<TK>
 {
-  public IDictionary<TK, ItestBoolean> As^ { get; set; }
-  public Itest_MaskObject As_Mask { get; set; }
+  IDictionary<TK, bool> AsBoolean { get; }
+  Itest_MaskObject<TK> As_Mask { get; }
 }
 
 public interface Itest_MaskObject<TK>
@@ -92,7 +92,7 @@ public interface Itest_Key
 
 public interface Itest_Any
 {
-  public Itest_AnyObject As_Any { get; set; }
+  Itest_AnyObject As_Any { get; }
 }
 
 public interface Itest_AnyObject

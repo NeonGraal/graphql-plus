@@ -25,7 +25,7 @@ public class GeneratorSchemaTests
     GeneratorDriver driver = new GqlpGenerator()
       .Generate(GeneratorSource, testFile.AdditionalString(input), [typeof(GqlpGeneratorType)], options, true);
 
-    await Verify(driver, CustomSettings(label, "Generator", test, section, scrubEmptyLines: false));
+    await driver.AttachAndVerify(CustomSettings(label, "Generator", test, section, scrubEmptyLines: false));
   }
 
   private const string GeneratorSource = @"

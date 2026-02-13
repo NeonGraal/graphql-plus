@@ -12,7 +12,7 @@ namespace Components.Gqlp_Schema_category_mod;
 
 public interface ICmptCtgrMod
 {
-  public ICmptCtgrModObject AsCtgrMod { get; set; }
+  ICmptCtgrModObject AsCtgrMod { get; }
 }
 
 public interface ICmptCtgrModObject

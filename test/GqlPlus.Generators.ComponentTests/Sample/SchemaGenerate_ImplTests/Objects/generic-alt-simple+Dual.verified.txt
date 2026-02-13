@@ -12,13 +12,13 @@ namespace Components.Gqlp_Schema_generic_alt_simple_Dual;
 public class CmptGnrcAltSmplDual
   : ICmptGnrcAltSmplDual
 {
-  public ICmptRefGnrcAltSmplDual<ICmptString> AsRefGnrcAltSmplDual { get; set; }
+  public ICmptRefGnrcAltSmplDual<string> AsRefGnrcAltSmplDual { get; set; }
   public ICmptGnrcAltSmplDualObject AsGnrcAltSmplDual { get; set; }
 }
 
-public class CmptRefGnrcAltSmplDual<Tref>
-  : ICmptRefGnrcAltSmplDual<Tref>
+public class CmptRefGnrcAltSmplDual<TRef>
+  : ICmptRefGnrcAltSmplDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltSmplDualObject AsRefGnrcAltSmplDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltSmplDualObject<TRef> AsRefGnrcAltSmplDual { get; set; }
 }

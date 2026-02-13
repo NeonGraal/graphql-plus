@@ -7,28 +7,28 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_obj_Input;
 
 public interface ItestCnstAltObjInp
 {
-  public ItestRefCnstAltObjInp<ItestAltCnstAltObjInp> AsRefCnstAltObjInp { get; set; }
-  public ItestCnstAltObjInpObject AsCnstAltObjInp { get; set; }
+  ItestRefCnstAltObjInp<ItestAltCnstAltObjInp> AsRefCnstAltObjInp { get; }
+  ItestCnstAltObjInpObject AsCnstAltObjInp { get; }
 }
 
 public interface ItestCnstAltObjInpObject
 {
 }
 
-public interface ItestRefCnstAltObjInp<Tref>
+public interface ItestRefCnstAltObjInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefCnstAltObjInpObject AsRefCnstAltObjInp { get; set; }
+  TRef Asref { get; }
+  ItestRefCnstAltObjInpObject<TRef> AsRefCnstAltObjInp { get; }
 }
 
-public interface ItestRefCnstAltObjInpObject<Tref>
+public interface ItestRefCnstAltObjInpObject<TRef>
 {
 }
 
 public interface ItestPrntCnstAltObjInp
 {
-  public ItestString AsString { get; set; }
-  public ItestPrntCnstAltObjInpObject AsPrntCnstAltObjInp { get; set; }
+  string AsString { get; }
+  ItestPrntCnstAltObjInpObject AsPrntCnstAltObjInp { get; }
 }
 
 public interface ItestPrntCnstAltObjInpObject
@@ -38,11 +38,11 @@ public interface ItestPrntCnstAltObjInpObject
 public interface ItestAltCnstAltObjInp
   : ItestPrntCnstAltObjInp
 {
-  public ItestAltCnstAltObjInpObject AsAltCnstAltObjInp { get; set; }
+  ItestAltCnstAltObjInpObject AsAltCnstAltObjInp { get; }
 }
 
 public interface ItestAltCnstAltObjInpObject
   : ItestPrntCnstAltObjInpObject
 {
-  public ItestNumber Alt { get; set; }
+  decimal Alt { get; }
 }

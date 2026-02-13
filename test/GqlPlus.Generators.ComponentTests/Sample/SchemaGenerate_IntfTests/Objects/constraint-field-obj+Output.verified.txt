@@ -12,30 +12,30 @@ output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
 namespace Components.Gqlp_Schema_constraint_field_obj_Output;
 
 public interface ICmptCnstFieldObjOutp
-  : ICmptRefCnstFieldObjOutp
+  : ICmptRefCnstFieldObjOutp<ICmptAltCnstFieldObjOutp>
 {
-  public ICmptCnstFieldObjOutpObject AsCnstFieldObjOutp { get; set; }
+  ICmptCnstFieldObjOutpObject AsCnstFieldObjOutp { get; }
 }
 
 public interface ICmptCnstFieldObjOutpObject
-  : ICmptRefCnstFieldObjOutpObject
+  : ICmptRefCnstFieldObjOutpObject<ICmptAltCnstFieldObjOutp>
 {
 }
 
-public interface ICmptRefCnstFieldObjOutp<Tref>
+public interface ICmptRefCnstFieldObjOutp<TRef>
 {
-  public ICmptRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; set; }
+  ICmptRefCnstFieldObjOutpObject<TRef> AsRefCnstFieldObjOutp { get; }
 }
 
-public interface ICmptRefCnstFieldObjOutpObject<Tref>
+public interface ICmptRefCnstFieldObjOutpObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldObjOutp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; set; }
+  string AsString { get; }
+  ICmptPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; }
 }
 
 public interface ICmptPrntCnstFieldObjOutpObject
@@ -45,11 +45,11 @@ public interface ICmptPrntCnstFieldObjOutpObject
 public interface ICmptAltCnstFieldObjOutp
   : ICmptPrntCnstFieldObjOutp
 {
-  public ICmptAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; set; }
+  ICmptAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; }
 }
 
 public interface ICmptAltCnstFieldObjOutpObject
   : ICmptPrntCnstFieldObjOutpObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

@@ -6,7 +6,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_all;
 
 public class testGuid
-  : DomainString
+  : GqlpDomainString
   , ItestGuid
 {
 }
@@ -21,7 +21,7 @@ public class testMany
 public class testField
   : ItestField
 {
-  public ICollection<ItestString> Strings { get; set; }
+  public ICollection<string> Strings { get; set; }
   public ItestFieldObject AsField { get; set; }
 }
 
@@ -30,7 +30,7 @@ public class testParam
 {
   public ItestMany? AfterId { get; set; }
   public ItestMany BeforeId { get; set; }
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestParamObject AsParam { get; set; }
 }
 
@@ -38,6 +38,6 @@ public class testAll
   : ItestAll
 {
   public ItestField Items { get; set; }
-  public ItestString AsString { get; set; }
+  public string AsString { get; set; }
   public ItestAllObject AsAll { get; set; }
 }

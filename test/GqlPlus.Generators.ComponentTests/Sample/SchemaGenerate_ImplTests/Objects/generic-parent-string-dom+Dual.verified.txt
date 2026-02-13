@@ -11,21 +11,21 @@ domain DomGnrcPrntStrDomDual { string /\w+/ }
 namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
 
 public class CmptGnrcPrntStrDomDual
-  : CmptFieldGnrcPrntStrDomDual
+  : CmptFieldGnrcPrntStrDomDual<ICmptDomGnrcPrntStrDomDual>
   , ICmptGnrcPrntStrDomDual
 {
   public ICmptGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; set; }
 }
 
-public class CmptFieldGnrcPrntStrDomDual<Tref>
-  : ICmptFieldGnrcPrntStrDomDual<Tref>
+public class CmptFieldGnrcPrntStrDomDual<TRef>
+  : ICmptFieldGnrcPrntStrDomDual<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntStrDomDualObject AsFieldGnrcPrntStrDomDual { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntStrDomDualObject<TRef> AsFieldGnrcPrntStrDomDual { get; set; }
 }
 
 public class CmptDomGnrcPrntStrDomDual
-  : DomainString
+  : GqlpDomainString
   , ICmptDomGnrcPrntStrDomDual
 {
 }

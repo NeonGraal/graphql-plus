@@ -5,23 +5,23 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_arg_Input;
 
-public interface ItestGnrcPrntArgInp<Ttype>
-  : ItestRefGnrcPrntArgInp
+public interface ItestGnrcPrntArgInp<TType>
+  : ItestRefGnrcPrntArgInp<TType>
 {
-  public ItestGnrcPrntArgInpObject AsGnrcPrntArgInp { get; set; }
+  ItestGnrcPrntArgInpObject<TType> AsGnrcPrntArgInp { get; }
 }
 
-public interface ItestGnrcPrntArgInpObject<Ttype>
-  : ItestRefGnrcPrntArgInpObject
+public interface ItestGnrcPrntArgInpObject<TType>
+  : ItestRefGnrcPrntArgInpObject<TType>
 {
 }
 
-public interface ItestRefGnrcPrntArgInp<Tref>
+public interface ItestRefGnrcPrntArgInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcPrntArgInpObject AsRefGnrcPrntArgInp { get; set; }
+  TRef Asref { get; }
+  ItestRefGnrcPrntArgInpObject<TRef> AsRefGnrcPrntArgInp { get; }
 }
 
-public interface ItestRefGnrcPrntArgInpObject<Tref>
+public interface ItestRefGnrcPrntArgInpObject<TRef>
 {
 }

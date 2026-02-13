@@ -11,34 +11,33 @@ input AltGnrcPrntParamPrntInp { alt: Number | String }
 namespace Components.Gqlp_Schema_generic_parent_param_parent_Input;
 
 public interface ICmptGnrcPrntParamPrntInp
-  : ICmptRefGnrcPrntParamPrntInp
+  : ICmptRefGnrcPrntParamPrntInp<ICmptAltGnrcPrntParamPrntInp>
 {
-  public ICmptGnrcPrntParamPrntInpObject AsGnrcPrntParamPrntInp { get; set; }
+  ICmptGnrcPrntParamPrntInpObject AsGnrcPrntParamPrntInp { get; }
 }
 
 public interface ICmptGnrcPrntParamPrntInpObject
-  : ICmptRefGnrcPrntParamPrntInpObject
+  : ICmptRefGnrcPrntParamPrntInpObject<ICmptAltGnrcPrntParamPrntInp>
 {
 }
 
-public interface ICmptRefGnrcPrntParamPrntInp<Tref>
-  : ICmptref
+public interface ICmptRefGnrcPrntParamPrntInp<TRef>
 {
-  public ICmptRefGnrcPrntParamPrntInpObject AsRefGnrcPrntParamPrntInp { get; set; }
+  TRef AsParent { get; }
+  ICmptRefGnrcPrntParamPrntInpObject<TRef> AsRefGnrcPrntParamPrntInp { get; }
 }
 
-public interface ICmptRefGnrcPrntParamPrntInpObject<Tref>
-  : ICmptrefObject
+public interface ICmptRefGnrcPrntParamPrntInpObject<TRef>
 {
 }
 
 public interface ICmptAltGnrcPrntParamPrntInp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptAltGnrcPrntParamPrntInpObject AsAltGnrcPrntParamPrntInp { get; set; }
+  string AsString { get; }
+  ICmptAltGnrcPrntParamPrntInpObject AsAltGnrcPrntParamPrntInp { get; }
 }
 
 public interface ICmptAltGnrcPrntParamPrntInpObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

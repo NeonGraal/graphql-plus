@@ -12,7 +12,7 @@ public class testDmnNmbrPrntDescr
 }
 
 public class testPrntDmnNmbrPrntDescr
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestPrntDmnNmbrPrntDescr
 {
 }

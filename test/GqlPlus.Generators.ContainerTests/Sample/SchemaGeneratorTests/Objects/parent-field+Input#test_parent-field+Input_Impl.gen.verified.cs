@@ -9,14 +9,14 @@ public class testPrntFieldInp
   : testRefPrntFieldInp
   , ItestPrntFieldInp
 {
-  public ItestNumber Field { get; set; }
+  public decimal Field { get; set; }
   public ItestPrntFieldInpObject AsPrntFieldInp { get; set; }
 }
 
 public class testRefPrntFieldInp
   : ItestRefPrntFieldInp
 {
-  public ItestNumber Parent { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Parent { get; set; }
+  public string AsString { get; set; }
   public ItestRefPrntFieldInpObject AsRefPrntFieldInp { get; set; }
 }

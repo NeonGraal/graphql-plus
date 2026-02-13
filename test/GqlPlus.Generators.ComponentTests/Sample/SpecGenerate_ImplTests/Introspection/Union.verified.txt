@@ -16,7 +16,7 @@ output _UnionMember {
 namespace Components.Gqlp_Spec_Union;
 
 public class Cmpt_UnionRef
-  : Cmpt_TypeRef
+  : Cmpt_TypeRef<ICmpt_SimpleKind>
   , ICmpt_UnionRef
 {
   public ICmpt_UnionRefObject As_UnionRef { get; set; }

@@ -9,17 +9,17 @@ input FldFieldModParamInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Input;
 
-public class CmptFieldModParamInp<Tmod>
-  : ICmptFieldModParamInp<Tmod>
+public class CmptFieldModParamInp<TMod>
+  : ICmptFieldModParamInp<TMod>
 {
-  public IDictionary<Tmod, ICmptFldFieldModParamInp> Field { get; set; }
-  public ICmptFieldModParamInpObject AsFieldModParamInp { get; set; }
+  public IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; set; }
+  public ICmptFieldModParamInpObject<TMod> AsFieldModParamInp { get; set; }
 }
 
 public class CmptFldFieldModParamInp
   : ICmptFldFieldModParamInp
 {
-  public ICmptNumber Field { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Field { get; set; }
+  public string AsString { get; set; }
   public ICmptFldFieldModParamInpObject AsFldFieldModParamInp { get; set; }
 }

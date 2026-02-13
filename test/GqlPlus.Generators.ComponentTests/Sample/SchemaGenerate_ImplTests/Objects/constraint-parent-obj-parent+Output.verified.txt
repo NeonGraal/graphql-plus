@@ -12,23 +12,23 @@ output AltCnstPrntObjPrntOutp { :PrntCnstPrntObjPrntOutp alt: Number }
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Output;
 
 public class CmptCnstPrntObjPrntOutp
-  : CmptRefCnstPrntObjPrntOutp
+  : CmptRefCnstPrntObjPrntOutp<ICmptAltCnstPrntObjPrntOutp>
   , ICmptCnstPrntObjPrntOutp
 {
   public ICmptCnstPrntObjPrntOutpObject AsCnstPrntObjPrntOutp { get; set; }
 }
 
-public class CmptRefCnstPrntObjPrntOutp<Tref>
-  : Cmptref
-  , ICmptRefCnstPrntObjPrntOutp<Tref>
+public class CmptRefCnstPrntObjPrntOutp<TRef>
+  : ICmptRefCnstPrntObjPrntOutp<TRef>
 {
-  public ICmptRefCnstPrntObjPrntOutpObject AsRefCnstPrntObjPrntOutp { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefCnstPrntObjPrntOutpObject<TRef> AsRefCnstPrntObjPrntOutp { get; set; }
 }
 
 public class CmptPrntCnstPrntObjPrntOutp
   : ICmptPrntCnstPrntObjPrntOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstPrntObjPrntOutpObject AsPrntCnstPrntObjPrntOutp { get; set; }
 }
 
@@ -36,6 +36,6 @@ public class CmptAltCnstPrntObjPrntOutp
   : CmptPrntCnstPrntObjPrntOutp
   , ICmptAltCnstPrntObjPrntOutp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstPrntObjPrntOutpObject AsAltCnstPrntObjPrntOutp { get; set; }
 }

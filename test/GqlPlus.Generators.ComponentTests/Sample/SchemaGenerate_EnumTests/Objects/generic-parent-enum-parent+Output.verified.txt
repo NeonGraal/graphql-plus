@@ -13,7 +13,7 @@ namespace Components.Gqlp_Schema_generic_parent_enum_parent_Output;
 
 public enum CmptEnumGnrcPrntEnumPrntOutp
 {
-  gnrcPrntEnumPrntOutpParent = ParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
+  gnrcPrntEnumPrntOutpParent = CmptParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
   gnrcPrntEnumPrntOutpLabel,
 }
 

@@ -12,6 +12,6 @@ namespace Components.Gqlp_Schema_input_field_Enum;
 public class CmptInpFieldEnum
   : ICmptInpFieldEnum
 {
-  public ICmptEnumInpFieldEnum Field { get; set; }
+  public CmptEnumInpFieldEnum Field { get; set; }
   public ICmptInpFieldEnumObject AsInpFieldEnum { get; set; }
 }

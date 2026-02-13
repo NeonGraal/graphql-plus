@@ -8,26 +8,26 @@ namespace GqlPlus.GeneratorTests.Gqlp_Category;
 public interface Itest_Categories
   : Itest_AndType
 {
-  public Itest_Category As_Category { get; set; }
-  public Itest_CategoriesObject As_Categories { get; set; }
+  Itest_Category As_Category { get; }
+  Itest_CategoriesObject As_Categories { get; }
 }
 
 public interface Itest_CategoriesObject
   : Itest_AndTypeObject
 {
-  public Itest_Category Category { get; set; }
+  Itest_Category Category { get; }
 }
 
 public interface Itest_Category
   : Itest_Aliased
 {
-  public Itest_CategoryObject As_Category { get; set; }
+  Itest_CategoryObject As_Category { get; }
 }
 
 public interface Itest_CategoryObject
   : Itest_AliasedObject
 {
-  public Itest_Resolution Resolution { get; set; }
-  public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
-  public ICollection<Itest_Modifiers> Modifiers { get; set; }
+  test_Resolution Resolution { get; }
+  Itest_TypeRef<Itest_TypeKind> Output { get; }
+  ICollection<Itest_Modifiers> Modifiers { get; }
 }

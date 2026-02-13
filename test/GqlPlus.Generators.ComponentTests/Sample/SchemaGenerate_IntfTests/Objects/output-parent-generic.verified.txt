@@ -13,20 +13,20 @@ namespace Components.Gqlp_Schema_output_parent_generic;
 
 public interface ICmptOutpPrntGnrc
 {
-  public ICmptRefOutpPrntGnrc<ICmptEnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
-  public ICmptOutpPrntGnrcObject AsOutpPrntGnrc { get; set; }
+  ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
+  ICmptOutpPrntGnrcObject AsOutpPrntGnrc { get; }
 }
 
 public interface ICmptOutpPrntGnrcObject
 {
 }
 
-public interface ICmptRefOutpPrntGnrc<Ttype>
+public interface ICmptRefOutpPrntGnrc<TType>
 {
-  public ICmptRefOutpPrntGnrcObject AsRefOutpPrntGnrc { get; set; }
+  ICmptRefOutpPrntGnrcObject<TType> AsRefOutpPrntGnrc { get; }
 }
 
-public interface ICmptRefOutpPrntGnrcObject<Ttype>
+public interface ICmptRefOutpPrntGnrcObject<TType>
 {
-  public Ttype Field { get; set; }
+  TType Field { get; }
 }

@@ -12,23 +12,23 @@ output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
 namespace Components.Gqlp_Schema_constraint_field_obj_Output;
 
 public class CmptCnstFieldObjOutp
-  : CmptRefCnstFieldObjOutp
+  : CmptRefCnstFieldObjOutp<ICmptAltCnstFieldObjOutp>
   , ICmptCnstFieldObjOutp
 {
   public ICmptCnstFieldObjOutpObject AsCnstFieldObjOutp { get; set; }
 }
 
-public class CmptRefCnstFieldObjOutp<Tref>
-  : ICmptRefCnstFieldObjOutp<Tref>
+public class CmptRefCnstFieldObjOutp<TRef>
+  : ICmptRefCnstFieldObjOutp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldObjOutpObject AsRefCnstFieldObjOutp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldObjOutpObject<TRef> AsRefCnstFieldObjOutp { get; set; }
 }
 
 public class CmptPrntCnstFieldObjOutp
   : ICmptPrntCnstFieldObjOutp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; set; }
 }
 
@@ -36,6 +36,6 @@ public class CmptAltCnstFieldObjOutp
   : CmptPrntCnstFieldObjOutp
   , ICmptAltCnstFieldObjOutp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; set; }
 }

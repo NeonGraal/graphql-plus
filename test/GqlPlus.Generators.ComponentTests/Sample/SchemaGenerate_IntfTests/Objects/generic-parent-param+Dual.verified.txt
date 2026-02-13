@@ -11,33 +11,33 @@ dual AltGnrcPrntParamDual { alt: Number | String }
 namespace Components.Gqlp_Schema_generic_parent_param_Dual;
 
 public interface ICmptGnrcPrntParamDual
-  : ICmptRefGnrcPrntParamDual
+  : ICmptRefGnrcPrntParamDual<ICmptAltGnrcPrntParamDual>
 {
-  public ICmptGnrcPrntParamDualObject AsGnrcPrntParamDual { get; set; }
+  ICmptGnrcPrntParamDualObject AsGnrcPrntParamDual { get; }
 }
 
 public interface ICmptGnrcPrntParamDualObject
-  : ICmptRefGnrcPrntParamDualObject
+  : ICmptRefGnrcPrntParamDualObject<ICmptAltGnrcPrntParamDual>
 {
 }
 
-public interface ICmptRefGnrcPrntParamDual<Tref>
+public interface ICmptRefGnrcPrntParamDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcPrntParamDualObject AsRefGnrcPrntParamDual { get; set; }
+  TRef Asref { get; }
+  ICmptRefGnrcPrntParamDualObject<TRef> AsRefGnrcPrntParamDual { get; }
 }
 
-public interface ICmptRefGnrcPrntParamDualObject<Tref>
+public interface ICmptRefGnrcPrntParamDualObject<TRef>
 {
 }
 
 public interface ICmptAltGnrcPrntParamDual
 {
-  public ICmptString AsString { get; set; }
-  public ICmptAltGnrcPrntParamDualObject AsAltGnrcPrntParamDual { get; set; }
+  string AsString { get; }
+  ICmptAltGnrcPrntParamDualObject AsAltGnrcPrntParamDual { get; }
 }
 
 public interface ICmptAltGnrcPrntParamDualObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

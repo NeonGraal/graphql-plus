@@ -378,11 +378,11 @@ public enum Cmpt_SimpleKind
 
 public enum Cmpt_TypeKind
 {
-  Basic = _SimpleKind.Basic,
-  Enum = _SimpleKind.Enum,
-  Internal = _SimpleKind.Internal,
-  Domain = _SimpleKind.Domain,
-  Union = _SimpleKind.Union,
+  Basic = Cmpt_SimpleKind.Basic,
+  Enum = Cmpt_SimpleKind.Enum,
+  Internal = Cmpt_SimpleKind.Internal,
+  Domain = Cmpt_SimpleKind.Domain,
+  Union = Cmpt_SimpleKind.Union,
   Dual,
   Input,
   Output,

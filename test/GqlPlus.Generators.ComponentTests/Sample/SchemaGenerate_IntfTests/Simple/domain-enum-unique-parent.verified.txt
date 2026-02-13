@@ -12,6 +12,6 @@ enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt dmnEnumUnqPrntDup }
 namespace Components.Gqlp_Schema_domain_enum_unique_parent;
 
 public interface ICmptDmnEnumUnqPrnt
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

@@ -29,46 +29,46 @@ namespace Components.Gqlp_Spec_Names;
 public interface ICmpt_Aliased
   : ICmpt_Named
 {
-  public ICmpt_AliasedObject As_Aliased { get; set; }
+  ICmpt_AliasedObject As_Aliased { get; }
 }
 
 public interface ICmpt_AliasedObject
   : ICmpt_NamedObject
 {
-  public ICollection<ICmpt_Name> Aliases { get; set; }
+  ICollection<ICmpt_Name> Aliases { get; }
 }
 
 public interface ICmpt_Named
   : ICmpt_Described
 {
-  public ICmpt_NamedObject As_Named { get; set; }
+  ICmpt_NamedObject As_Named { get; }
 }
 
 public interface ICmpt_NamedObject
   : ICmpt_DescribedObject
 {
-  public ICmpt_Name Name { get; set; }
+  ICmpt_Name Name { get; }
 }
 
 public interface ICmpt_Described
 {
-  public ICmpt_DescribedObject As_Described { get; set; }
+  ICmpt_DescribedObject As_Described { get; }
 }
 
 public interface ICmpt_DescribedObject
 {
-  public ICollection<ICmptString> Description { get; set; }
+  ICollection<string> Description { get; }
 }
 
 public interface ICmpt_AndType
   : ICmpt_Named
 {
-  public ICmpt_Type As_Type { get; set; }
-  public ICmpt_AndTypeObject As_AndType { get; set; }
+  ICmpt_Type As_Type { get; }
+  ICmpt_AndTypeObject As_AndType { get; }
 }
 
 public interface ICmpt_AndTypeObject
   : ICmpt_NamedObject
 {
-  public ICmpt_Type Type { get; set; }
+  ICmpt_Type Type { get; }
 }

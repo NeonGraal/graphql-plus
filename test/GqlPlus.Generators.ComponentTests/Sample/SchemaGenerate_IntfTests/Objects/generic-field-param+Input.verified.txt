@@ -12,31 +12,31 @@ namespace Components.Gqlp_Schema_generic_field_param_Input;
 
 public interface ICmptGnrcFieldParamInp
 {
-  public ICmptGnrcFieldParamInpObject AsGnrcFieldParamInp { get; set; }
+  ICmptGnrcFieldParamInpObject AsGnrcFieldParamInp { get; }
 }
 
 public interface ICmptGnrcFieldParamInpObject
 {
-  public ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> Field { get; set; }
+  ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> Field { get; }
 }
 
-public interface ICmptRefGnrcFieldParamInp<Tref>
+public interface ICmptRefGnrcFieldParamInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcFieldParamInpObject AsRefGnrcFieldParamInp { get; set; }
+  TRef Asref { get; }
+  ICmptRefGnrcFieldParamInpObject<TRef> AsRefGnrcFieldParamInp { get; }
 }
 
-public interface ICmptRefGnrcFieldParamInpObject<Tref>
+public interface ICmptRefGnrcFieldParamInpObject<TRef>
 {
 }
 
 public interface ICmptAltGnrcFieldParamInp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptAltGnrcFieldParamInpObject AsAltGnrcFieldParamInp { get; set; }
+  string AsString { get; }
+  ICmptAltGnrcFieldParamInpObject AsAltGnrcFieldParamInp { get; }
 }
 
 public interface ICmptAltGnrcFieldParamInpObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

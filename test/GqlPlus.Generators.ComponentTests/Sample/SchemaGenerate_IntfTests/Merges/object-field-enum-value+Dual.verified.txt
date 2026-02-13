@@ -11,10 +11,10 @@ namespace Components.Gqlp_Schema_object_field_enum_value_Dual;
 
 public interface ICmptObjFieldEnumValueDual
 {
-  public ICmptObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; set; }
+  ICmptObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; }
 }
 
 public interface ICmptObjFieldEnumValueDualObject
 {
-  public ICmptBoolean Field { get; set; }
+  bool Field { get; }
 }

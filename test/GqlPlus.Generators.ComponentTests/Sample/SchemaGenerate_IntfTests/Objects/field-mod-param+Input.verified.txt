@@ -9,23 +9,23 @@ input FldFieldModParamInp { field: Number | String }
 
 namespace Components.Gqlp_Schema_field_mod_param_Input;
 
-public interface ICmptFieldModParamInp<Tmod>
+public interface ICmptFieldModParamInp<TMod>
 {
-  public ICmptFieldModParamInpObject AsFieldModParamInp { get; set; }
+  ICmptFieldModParamInpObject<TMod> AsFieldModParamInp { get; }
 }
 
-public interface ICmptFieldModParamInpObject<Tmod>
+public interface ICmptFieldModParamInpObject<TMod>
 {
-  public IDictionary<Tmod, ICmptFldFieldModParamInp> Field { get; set; }
+  IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; }
 }
 
 public interface ICmptFldFieldModParamInp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptFldFieldModParamInpObject AsFldFieldModParamInp { get; set; }
+  string AsString { get; }
+  ICmptFldFieldModParamInpObject AsFldFieldModParamInp { get; }
 }
 
 public interface ICmptFldFieldModParamInpObject
 {
-  public ICmptNumber Field { get; set; }
+  decimal Field { get; }
 }

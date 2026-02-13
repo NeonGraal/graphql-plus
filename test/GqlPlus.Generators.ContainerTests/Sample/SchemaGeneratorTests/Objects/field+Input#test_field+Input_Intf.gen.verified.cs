@@ -7,10 +7,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_Input;
 
 public interface ItestFieldInp
 {
-  public ItestFieldInpObject AsFieldInp { get; set; }
+  ItestFieldInpObject AsFieldInp { get; }
 }
 
 public interface ItestFieldInpObject
 {
-  public ItestString Field { get; set; }
+  string Field { get; }
 }

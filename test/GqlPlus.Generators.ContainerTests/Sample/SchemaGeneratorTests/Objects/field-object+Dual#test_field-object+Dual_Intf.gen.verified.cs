@@ -7,21 +7,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_object_Dual;
 
 public interface ItestFieldObjDual
 {
-  public ItestFieldObjDualObject AsFieldObjDual { get; set; }
+  ItestFieldObjDualObject AsFieldObjDual { get; }
 }
 
 public interface ItestFieldObjDualObject
 {
-  public ItestFldFieldObjDual Field { get; set; }
+  ItestFldFieldObjDual Field { get; }
 }
 
 public interface ItestFldFieldObjDual
 {
-  public ItestString AsString { get; set; }
-  public ItestFldFieldObjDualObject AsFldFieldObjDual { get; set; }
+  string AsString { get; }
+  ItestFldFieldObjDualObject AsFldFieldObjDual { get; }
 }
 
 public interface ItestFldFieldObjDualObject
 {
-  public ItestNumber Field { get; set; }
+  decimal Field { get; }
 }

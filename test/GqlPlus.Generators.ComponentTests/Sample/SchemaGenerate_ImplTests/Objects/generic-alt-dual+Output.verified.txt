@@ -17,17 +17,17 @@ public class CmptGnrcAltDualOutp
   public ICmptGnrcAltDualOutpObject AsGnrcAltDualOutp { get; set; }
 }
 
-public class CmptRefGnrcAltDualOutp<Tref>
-  : ICmptRefGnrcAltDualOutp<Tref>
+public class CmptRefGnrcAltDualOutp<TRef>
+  : ICmptRefGnrcAltDualOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefGnrcAltDualOutpObject AsRefGnrcAltDualOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefGnrcAltDualOutpObject<TRef> AsRefGnrcAltDualOutp { get; set; }
 }
 
 public class CmptAltGnrcAltDualOutp
   : ICmptAltGnrcAltDualOutp
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltGnrcAltDualOutpObject AsAltGnrcAltDualOutp { get; set; }
 }

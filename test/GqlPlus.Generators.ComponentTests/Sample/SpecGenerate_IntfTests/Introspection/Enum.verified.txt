@@ -19,23 +19,23 @@ namespace Components.Gqlp_Spec_Enum;
 public interface ICmpt_EnumLabel
   : ICmpt_Aliased
 {
-  public ICmpt_EnumLabelObject As_EnumLabel { get; set; }
+  ICmpt_EnumLabelObject As_EnumLabel { get; }
 }
 
 public interface ICmpt_EnumLabelObject
   : ICmpt_AliasedObject
 {
-  public ICmpt_Name Enum { get; set; }
+  ICmpt_Name Enum { get; }
 }
 
 public interface ICmpt_EnumValue
-  : ICmpt_TypeRef
+  : ICmpt_TypeRef<ICmpt_TypeKind>
 {
-  public ICmpt_EnumValueObject As_EnumValue { get; set; }
+  ICmpt_EnumValueObject As_EnumValue { get; }
 }
 
 public interface ICmpt_EnumValueObject
-  : ICmpt_TypeRefObject
+  : ICmpt_TypeRefObject<ICmpt_TypeKind>
 {
-  public ICmpt_Name Label { get; set; }
+  ICmpt_Name Label { get; }
 }

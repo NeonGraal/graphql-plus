@@ -9,13 +9,13 @@ dual ObjParamDupDual<$test:String> { type: $test }
 
 namespace Components.Gqlp_Schema_object_param_dup_Dual;
 
-public interface ICmptObjParamDupDual<Ttest>
+public interface ICmptObjParamDupDual<TTest>
 {
-  public ICmptObjParamDupDualObject AsObjParamDupDual { get; set; }
+  ICmptObjParamDupDualObject<TTest> AsObjParamDupDual { get; }
 }
 
-public interface ICmptObjParamDupDualObject<Ttest>
+public interface ICmptObjParamDupDualObject<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
+  TTest Test { get; }
+  TTest Type { get; }
 }

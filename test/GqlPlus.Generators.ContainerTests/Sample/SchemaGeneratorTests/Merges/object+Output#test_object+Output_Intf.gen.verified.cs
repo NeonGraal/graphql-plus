@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_Output;
 
 public interface ItestObjOutp
 {
-  public ItestObjOutpObject AsObjOutp { get; set; }
+  ItestObjOutpObject AsObjOutp { get; }
 }
 
 public interface ItestObjOutpObject

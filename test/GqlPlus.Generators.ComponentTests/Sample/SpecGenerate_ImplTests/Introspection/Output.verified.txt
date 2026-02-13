@@ -16,7 +16,7 @@ output _OutputFieldType {
 namespace Components.Gqlp_Spec_Output;
 
 public class Cmpt_OutputField
-  : Cmpt_ObjField
+  : Cmpt_ObjField<ICmpt_ObjFieldType>
   , ICmpt_OutputField
 {
   public ICmpt_OutputFieldObject As_OutputField { get; set; }

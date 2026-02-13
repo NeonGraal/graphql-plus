@@ -10,6 +10,6 @@ domain DmnAlias [Num2] { number }
 namespace Components.Gqlp_Schema_domain_alias;
 
 public interface ICmptDmnAlias
-  : IDomainNumber
+  : IGqlpDomainNumber
 {
 }

@@ -12,23 +12,23 @@ input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
 namespace Components.Gqlp_Schema_constraint_field_obj_Input;
 
 public class CmptCnstFieldObjInp
-  : CmptRefCnstFieldObjInp
+  : CmptRefCnstFieldObjInp<ICmptAltCnstFieldObjInp>
   , ICmptCnstFieldObjInp
 {
   public ICmptCnstFieldObjInpObject AsCnstFieldObjInp { get; set; }
 }
 
-public class CmptRefCnstFieldObjInp<Tref>
-  : ICmptRefCnstFieldObjInp<Tref>
+public class CmptRefCnstFieldObjInp<TRef>
+  : ICmptRefCnstFieldObjInp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldObjInpObject AsRefCnstFieldObjInp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldObjInpObject<TRef> AsRefCnstFieldObjInp { get; set; }
 }
 
 public class CmptPrntCnstFieldObjInp
   : ICmptPrntCnstFieldObjInp
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstFieldObjInpObject AsPrntCnstFieldObjInp { get; set; }
 }
 
@@ -36,6 +36,6 @@ public class CmptAltCnstFieldObjInp
   : CmptPrntCnstFieldObjInp
   , ICmptAltCnstFieldObjInp
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstFieldObjInpObject AsAltCnstFieldObjInp { get; set; }
 }

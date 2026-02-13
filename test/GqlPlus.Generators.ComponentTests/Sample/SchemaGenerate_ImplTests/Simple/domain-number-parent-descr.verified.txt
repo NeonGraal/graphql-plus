@@ -1,5 +1,5 @@
 ﻿/* domain-number-parent-descr
-domain DmnNmbrPrntDescr { :"Parent comment"PrntDmnNmbrPrntDescr Number 2>}
+domain DmnNmbrPrntDescr { :"Parent comment"PrntDmnNmbrPrntDescr Number 2<}
 domain PrntDmnNmbrPrntDescr { Number <2 }
 */
 
@@ -16,7 +16,7 @@ public class CmptDmnNmbrPrntDescr
 }
 
 public class CmptPrntDmnNmbrPrntDescr
-  : DomainNumber
+  : GqlpDomainNumber
   , ICmptPrntDmnNmbrPrntDescr
 {
 }

@@ -15,6 +15,6 @@ public class Cmpt_Setting
   : Cmpt_Named
   , ICmpt_Setting
 {
-  public ICmpt_Value Value { get; set; }
+  public GqlpValue Value { get; set; }
   public ICmpt_SettingObject As_Setting { get; set; }
 }

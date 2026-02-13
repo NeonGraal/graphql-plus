@@ -12,17 +12,17 @@ public class testGnrcFieldParamOutp
   public ItestGnrcFieldParamOutpObject AsGnrcFieldParamOutp { get; set; }
 }
 
-public class testRefGnrcFieldParamOutp<Tref>
-  : ItestRefGnrcFieldParamOutp<Tref>
+public class testRefGnrcFieldParamOutp<TRef>
+  : ItestRefGnrcFieldParamOutp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcFieldParamOutpObject AsRefGnrcFieldParamOutp { get; set; }
+  public TRef Asref { get; set; }
+  public ItestRefGnrcFieldParamOutpObject<TRef> AsRefGnrcFieldParamOutp { get; set; }
 }
 
 public class testAltGnrcFieldParamOutp
   : ItestAltGnrcFieldParamOutp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcFieldParamOutpObject AsAltGnrcFieldParamOutp { get; set; }
 }

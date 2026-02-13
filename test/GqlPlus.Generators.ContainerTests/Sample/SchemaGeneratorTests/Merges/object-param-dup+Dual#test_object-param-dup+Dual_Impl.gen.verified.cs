@@ -5,10 +5,10 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_dup_Dual;
 
-public class testObjParamDupDual<Ttest>
-  : ItestObjParamDupDual<Ttest>
+public class testObjParamDupDual<TTest>
+  : ItestObjParamDupDual<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
-  public ItestObjParamDupDualObject AsObjParamDupDual { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+  public ItestObjParamDupDualObject<TTest> AsObjParamDupDual { get; set; }
 }

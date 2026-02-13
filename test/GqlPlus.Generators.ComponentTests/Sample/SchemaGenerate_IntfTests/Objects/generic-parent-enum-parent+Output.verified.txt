@@ -12,22 +12,22 @@ enum ParentGnrcPrntEnumPrntOutp { gnrcPrntEnumPrntOutpParent }
 namespace Components.Gqlp_Schema_generic_parent_enum_parent_Output;
 
 public interface ICmptGnrcPrntEnumPrntOutp
-  : ICmptFieldGnrcPrntEnumPrntOutp
+  : ICmptFieldGnrcPrntEnumPrntOutp<CmptEnumGnrcPrntEnumPrntOutp>
 {
-  public ICmptGnrcPrntEnumPrntOutpObject AsGnrcPrntEnumPrntOutp { get; set; }
+  ICmptGnrcPrntEnumPrntOutpObject AsGnrcPrntEnumPrntOutp { get; }
 }
 
 public interface ICmptGnrcPrntEnumPrntOutpObject
-  : ICmptFieldGnrcPrntEnumPrntOutpObject
+  : ICmptFieldGnrcPrntEnumPrntOutpObject<CmptEnumGnrcPrntEnumPrntOutp>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumPrntOutp<Tref>
+public interface ICmptFieldGnrcPrntEnumPrntOutp<TRef>
 {
-  public ICmptFieldGnrcPrntEnumPrntOutpObject AsFieldGnrcPrntEnumPrntOutp { get; set; }
+  ICmptFieldGnrcPrntEnumPrntOutpObject<TRef> AsFieldGnrcPrntEnumPrntOutp { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumPrntOutpObject<Tref>
+public interface ICmptFieldGnrcPrntEnumPrntOutpObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }

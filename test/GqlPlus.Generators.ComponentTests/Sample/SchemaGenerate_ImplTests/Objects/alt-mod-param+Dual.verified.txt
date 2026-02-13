@@ -9,17 +9,17 @@ dual AltAltModParamDual { alt: Number | String }
 
 namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 
-public class CmptAltModParamDual<Tmod>
-  : ICmptAltModParamDual<Tmod>
+public class CmptAltModParamDual<TMod>
+  : ICmptAltModParamDual<TMod>
 {
-  public IDictionary<Tmod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; set; }
-  public ICmptAltModParamDualObject AsAltModParamDual { get; set; }
+  public IDictionary<TMod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; set; }
+  public ICmptAltModParamDualObject<TMod> AsAltModParamDual { get; set; }
 }
 
 public class CmptAltAltModParamDual
   : ICmptAltAltModParamDual
 {
-  public ICmptNumber Alt { get; set; }
-  public ICmptString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ICmptAltAltModParamDualObject AsAltAltModParamDual { get; set; }
 }

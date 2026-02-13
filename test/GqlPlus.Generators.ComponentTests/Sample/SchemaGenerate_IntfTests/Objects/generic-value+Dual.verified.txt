@@ -12,20 +12,20 @@ namespace Components.Gqlp_Schema_generic_value_Dual;
 
 public interface ICmptGnrcValueDual
 {
-  public ICmptRefGnrcValueDual<ICmptEnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
-  public ICmptGnrcValueDualObject AsGnrcValueDual { get; set; }
+  ICmptRefGnrcValueDual<CmptEnumGnrcValueDual> AsEnumGnrcValueDualgnrcValueDual { get; }
+  ICmptGnrcValueDualObject AsGnrcValueDual { get; }
 }
 
 public interface ICmptGnrcValueDualObject
 {
 }
 
-public interface ICmptRefGnrcValueDual<Ttype>
+public interface ICmptRefGnrcValueDual<TType>
 {
-  public ICmptRefGnrcValueDualObject AsRefGnrcValueDual { get; set; }
+  ICmptRefGnrcValueDualObject<TType> AsRefGnrcValueDual { get; }
 }
 
-public interface ICmptRefGnrcValueDualObject<Ttype>
+public interface ICmptRefGnrcValueDualObject<TType>
 {
-  public Ttype Field { get; set; }
+  TType Field { get; }
 }

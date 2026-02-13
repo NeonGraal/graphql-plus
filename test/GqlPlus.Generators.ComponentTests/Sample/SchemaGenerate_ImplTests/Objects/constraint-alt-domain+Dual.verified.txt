@@ -17,15 +17,15 @@ public class CmptCnstAltDmnDual
   public ICmptCnstAltDmnDualObject AsCnstAltDmnDual { get; set; }
 }
 
-public class CmptRefCnstAltDmnDual<Tref>
-  : ICmptRefCnstAltDmnDual<Tref>
+public class CmptRefCnstAltDmnDual<TRef>
+  : ICmptRefCnstAltDmnDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ICmptRefCnstAltDmnDualObject AsRefCnstAltDmnDual { get; set; }
+  public TRef Asref { get; set; }
+  public ICmptRefCnstAltDmnDualObject<TRef> AsRefCnstAltDmnDual { get; set; }
 }
 
 public class CmptDomCnstAltDmnDual
-  : DomainString
+  : GqlpDomainString
   , ICmptDomCnstAltDmnDual
 {
 }

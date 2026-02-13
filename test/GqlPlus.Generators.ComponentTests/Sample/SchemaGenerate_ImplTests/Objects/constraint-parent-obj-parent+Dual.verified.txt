@@ -12,23 +12,23 @@ dual AltCnstPrntObjPrntDual { :PrntCnstPrntObjPrntDual alt: Number }
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Dual;
 
 public class CmptCnstPrntObjPrntDual
-  : CmptRefCnstPrntObjPrntDual
+  : CmptRefCnstPrntObjPrntDual<ICmptAltCnstPrntObjPrntDual>
   , ICmptCnstPrntObjPrntDual
 {
   public ICmptCnstPrntObjPrntDualObject AsCnstPrntObjPrntDual { get; set; }
 }
 
-public class CmptRefCnstPrntObjPrntDual<Tref>
-  : Cmptref
-  , ICmptRefCnstPrntObjPrntDual<Tref>
+public class CmptRefCnstPrntObjPrntDual<TRef>
+  : ICmptRefCnstPrntObjPrntDual<TRef>
 {
-  public ICmptRefCnstPrntObjPrntDualObject AsRefCnstPrntObjPrntDual { get; set; }
+  public TRef AsParent { get; set; }
+  public ICmptRefCnstPrntObjPrntDualObject<TRef> AsRefCnstPrntObjPrntDual { get; set; }
 }
 
 public class CmptPrntCnstPrntObjPrntDual
   : ICmptPrntCnstPrntObjPrntDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstPrntObjPrntDualObject AsPrntCnstPrntObjPrntDual { get; set; }
 }
 
@@ -36,6 +36,6 @@ public class CmptAltCnstPrntObjPrntDual
   : CmptPrntCnstPrntObjPrntDual
   , ICmptAltCnstPrntObjPrntDual
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstPrntObjPrntDualObject AsAltCnstPrntObjPrntDual { get; set; }
 }

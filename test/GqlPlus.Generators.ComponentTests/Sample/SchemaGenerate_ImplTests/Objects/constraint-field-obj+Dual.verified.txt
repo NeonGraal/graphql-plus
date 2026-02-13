@@ -12,23 +12,23 @@ dual AltCnstFieldObjDual { :PrntCnstFieldObjDual alt: Number }
 namespace Components.Gqlp_Schema_constraint_field_obj_Dual;
 
 public class CmptCnstFieldObjDual
-  : CmptRefCnstFieldObjDual
+  : CmptRefCnstFieldObjDual<ICmptAltCnstFieldObjDual>
   , ICmptCnstFieldObjDual
 {
   public ICmptCnstFieldObjDualObject AsCnstFieldObjDual { get; set; }
 }
 
-public class CmptRefCnstFieldObjDual<Tref>
-  : ICmptRefCnstFieldObjDual<Tref>
+public class CmptRefCnstFieldObjDual<TRef>
+  : ICmptRefCnstFieldObjDual<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptRefCnstFieldObjDualObject AsRefCnstFieldObjDual { get; set; }
+  public TRef Field { get; set; }
+  public ICmptRefCnstFieldObjDualObject<TRef> AsRefCnstFieldObjDual { get; set; }
 }
 
 public class CmptPrntCnstFieldObjDual
   : ICmptPrntCnstFieldObjDual
 {
-  public ICmptString AsString { get; set; }
+  public string AsString { get; set; }
   public ICmptPrntCnstFieldObjDualObject AsPrntCnstFieldObjDual { get; set; }
 }
 
@@ -36,6 +36,6 @@ public class CmptAltCnstFieldObjDual
   : CmptPrntCnstFieldObjDual
   , ICmptAltCnstFieldObjDual
 {
-  public ICmptNumber Alt { get; set; }
+  public decimal Alt { get; set; }
   public ICmptAltCnstFieldObjDualObject AsAltCnstFieldObjDual { get; set; }
 }

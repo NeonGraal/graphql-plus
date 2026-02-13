@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_descrs;
 
 public interface ItestDscrs
 {
-  public ItestDscrsObject AsDscrs { get; set; }
+  ItestDscrsObject AsDscrs { get; }
 }
 
 public interface ItestDscrsObject

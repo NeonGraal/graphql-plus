@@ -8,63 +8,63 @@ namespace GqlPlus.GeneratorTests.Gqlp_Declarations;
 public interface Itest_Schema
   : Itest_Named
 {
-  public Itest_SchemaObject As_Schema { get; set; }
+  Itest_SchemaObject As_Schema { get; }
 }
 
 public interface Itest_SchemaObject
   : Itest_NamedObject
 {
-  public IDictionary<test_Name, Itest_Categories> Categories { get; set; }
-  public IDictionary<test_Name, Itest_Directives> Directives { get; set; }
-  public IDictionary<test_Name, Itest_Type> Types { get; set; }
-  public IDictionary<test_Name, Itest_Setting> Settings { get; set; }
+  IDictionary<Itest_Name, Itest_Categories> Categories { get; }
+  IDictionary<Itest_Name, Itest_Directives> Directives { get; }
+  IDictionary<Itest_Name, Itest_Type> Types { get; }
+  IDictionary<Itest_Name, Itest_Setting> Settings { get; }
 }
 
 public interface Itest_Name
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface Itest_Filter
 {
-  public ICollection<Itest_NameFilter> As_NameFilter { get; set; }
-  public Itest_FilterObject As_Filter { get; set; }
+  ICollection<Itest_NameFilter> As_NameFilter { get; }
+  Itest_FilterObject As_Filter { get; }
 }
 
 public interface Itest_FilterObject
 {
-  public ICollection<Itest_NameFilter> Names { get; set; }
-  public ItestBoolean? MatchAliases { get; set; }
-  public ICollection<Itest_NameFilter> Aliases { get; set; }
-  public ItestBoolean? ReturnByAlias { get; set; }
-  public ItestBoolean? ReturnReferencedTypes { get; set; }
+  ICollection<Itest_NameFilter> Names { get; }
+  bool? MatchAliases { get; }
+  ICollection<Itest_NameFilter> Aliases { get; }
+  bool? ReturnByAlias { get; }
+  bool? ReturnReferencedTypes { get; }
 }
 
 public interface Itest_NameFilter
-  : IDomainString
+  : IGqlpDomainString
 {
 }
 
 public interface Itest_CategoryFilter
   : Itest_Filter
 {
-  public Itest_CategoryFilterObject As_CategoryFilter { get; set; }
+  Itest_CategoryFilterObject As_CategoryFilter { get; }
 }
 
 public interface Itest_CategoryFilterObject
   : Itest_FilterObject
 {
-  public ICollection<Itest_Resolution> Resolutions { get; set; }
+  ICollection<Itest_Resolution> Resolutions { get; }
 }
 
 public interface Itest_TypeFilter
   : Itest_Filter
 {
-  public Itest_TypeFilterObject As_TypeFilter { get; set; }
+  Itest_TypeFilterObject As_TypeFilter { get; }
 }
 
 public interface Itest_TypeFilterObject
   : Itest_FilterObject
 {
-  public ICollection<Itest_TypeKind> Kinds { get; set; }
+  ICollection<Itest_TypeKind> Kinds { get; }
 }

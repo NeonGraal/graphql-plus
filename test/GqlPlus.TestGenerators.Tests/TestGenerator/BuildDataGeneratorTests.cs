@@ -3,7 +3,6 @@
 namespace GqlPlus.TestGenerator;
 
 public class BuildDataGeneratorTests
-  : GeneratorTestsBase
 {
   [Fact]
   public Task NoAdditionalFiles()
@@ -11,7 +10,7 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate("", []);
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   private static readonly string[] s_additionalFilesWithIncorrectOne = [
@@ -26,7 +25,7 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate("", s_additionalFilesWithIncorrectOne.AdditionalPaths(nameof(IgnoresIncorrectAdditionalFiles)));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   private static readonly string[] s_additionalSubdirectoryFiles = [
@@ -41,7 +40,7 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate("", s_additionalSubdirectoryFiles.AdditionalPaths(nameof(SubDirectoryAdditionalFiles)));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 
   private static readonly string[] s_topDirs = ["Top", "Left", "Centre", "Right", "Bottom"];
@@ -65,6 +64,6 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate("", manyFiles.AdditionalPaths(nameof(ManyFiles)));
 
-    return AttachAndVerify(driver);
+    return driver.AttachAndVerify();
   }
 }

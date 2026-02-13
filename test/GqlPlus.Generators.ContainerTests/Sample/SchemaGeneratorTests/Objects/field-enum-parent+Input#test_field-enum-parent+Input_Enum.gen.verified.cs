@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Input;
 
 public enum testEnumFieldEnumPrntInp
 {
-  prnt_fieldEnumPrntInp = PrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
+  prnt_fieldEnumPrntInp = testPrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
   fieldEnumPrntInp,
 }
 

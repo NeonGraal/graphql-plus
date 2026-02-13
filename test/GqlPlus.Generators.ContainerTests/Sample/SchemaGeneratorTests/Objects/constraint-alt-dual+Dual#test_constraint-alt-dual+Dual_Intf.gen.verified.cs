@@ -7,28 +7,28 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_dual_Dual;
 
 public interface ItestCnstAltDualDual
 {
-  public ItestRefCnstAltDualDual<ItestAltCnstAltDualDual> AsRefCnstAltDualDual { get; set; }
-  public ItestCnstAltDualDualObject AsCnstAltDualDual { get; set; }
+  ItestRefCnstAltDualDual<ItestAltCnstAltDualDual> AsRefCnstAltDualDual { get; }
+  ItestCnstAltDualDualObject AsCnstAltDualDual { get; }
 }
 
 public interface ItestCnstAltDualDualObject
 {
 }
 
-public interface ItestRefCnstAltDualDual<Tref>
+public interface ItestRefCnstAltDualDual<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefCnstAltDualDualObject AsRefCnstAltDualDual { get; set; }
+  TRef Asref { get; }
+  ItestRefCnstAltDualDualObject<TRef> AsRefCnstAltDualDual { get; }
 }
 
-public interface ItestRefCnstAltDualDualObject<Tref>
+public interface ItestRefCnstAltDualDualObject<TRef>
 {
 }
 
 public interface ItestPrntCnstAltDualDual
 {
-  public ItestString AsString { get; set; }
-  public ItestPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; set; }
+  string AsString { get; }
+  ItestPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; }
 }
 
 public interface ItestPrntCnstAltDualDualObject
@@ -38,11 +38,11 @@ public interface ItestPrntCnstAltDualDualObject
 public interface ItestAltCnstAltDualDual
   : ItestPrntCnstAltDualDual
 {
-  public ItestAltCnstAltDualDualObject AsAltCnstAltDualDual { get; set; }
+  ItestAltCnstAltDualDualObject AsAltCnstAltDualDual { get; }
 }
 
 public interface ItestAltCnstAltDualDualObject
   : ItestPrntCnstAltDualDualObject
 {
-  public ItestNumber Alt { get; set; }
+  decimal Alt { get; }
 }

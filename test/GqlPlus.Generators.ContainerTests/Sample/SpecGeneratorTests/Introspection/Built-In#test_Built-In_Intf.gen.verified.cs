@@ -7,46 +7,46 @@ namespace GqlPlus.GeneratorTests.Gqlp_Built_In;
 
 public interface Itest_Collections
 {
-  public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
-  public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
-  public Itest_ModifierKeyed<Itest_ModifierKind> As_ModifierKeyed { get; set; }
-  public Itest_CollectionsObject As_Collections { get; set; }
+  Itest_Modifier<test_ModifierKind> As_ModifierKindList { get; }
+  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindDictionary { get; }
+  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindTypeParam { get; }
+  Itest_CollectionsObject As_Collections { get; }
 }
 
 public interface Itest_CollectionsObject
 {
 }
 
-public interface Itest_ModifierKeyed<Tkind>
-  : Itest_Modifier
+public interface Itest_ModifierKeyed<TKind>
+  : Itest_Modifier<TKind>
 {
-  public Itest_ModifierKeyedObject As_ModifierKeyed { get; set; }
+  Itest_ModifierKeyedObject<TKind> As_ModifierKeyed { get; }
 }
 
-public interface Itest_ModifierKeyedObject<Tkind>
-  : Itest_ModifierObject
+public interface Itest_ModifierKeyedObject<TKind>
+  : Itest_ModifierObject<TKind>
 {
-  public Itest_TypeSimple By { get; set; }
-  public ItestBoolean Optional { get; set; }
+  Itest_TypeSimple By { get; }
+  bool Optional { get; }
 }
 
 public interface Itest_Modifiers
 {
-  public Itest_Modifier<Itest_ModifierKind> As_Modifier { get; set; }
-  public Itest_Collections As_Collections { get; set; }
-  public Itest_ModifiersObject As_Modifiers { get; set; }
+  Itest_Modifier<test_ModifierKind> As_ModifierKindOptional { get; }
+  Itest_Collections As_Collections { get; }
+  Itest_ModifiersObject As_Modifiers { get; }
 }
 
 public interface Itest_ModifiersObject
 {
 }
 
-public interface Itest_Modifier<Tkind>
+public interface Itest_Modifier<TKind>
 {
-  public Itest_ModifierObject As_Modifier { get; set; }
+  Itest_ModifierObject<TKind> As_Modifier { get; }
 }
 
-public interface Itest_ModifierObject<Tkind>
+public interface Itest_ModifierObject<TKind>
 {
-  public Tkind ModifierKind { get; set; }
+  TKind ModifierKind { get; }
 }

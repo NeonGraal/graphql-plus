@@ -10,6 +10,6 @@ enum EnumDmnEnumDescr { dmnEnumDescr }
 namespace Components.Gqlp_Schema_domain_enum_descr;
 
 public interface ICmptDmnEnumDescr
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

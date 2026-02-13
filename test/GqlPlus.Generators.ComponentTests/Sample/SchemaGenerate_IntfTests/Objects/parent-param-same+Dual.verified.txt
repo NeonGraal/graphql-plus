@@ -9,24 +9,24 @@ dual RefPrntParamSameDual<$a:String> { | $a }
 
 namespace Components.Gqlp_Schema_parent_param_same_Dual;
 
-public interface ICmptPrntParamSameDual<Ta>
-  : ICmptRefPrntParamSameDual
+public interface ICmptPrntParamSameDual<TA>
+  : ICmptRefPrntParamSameDual<TA>
 {
-  public ICmptPrntParamSameDualObject AsPrntParamSameDual { get; set; }
+  ICmptPrntParamSameDualObject<TA> AsPrntParamSameDual { get; }
 }
 
-public interface ICmptPrntParamSameDualObject<Ta>
-  : ICmptRefPrntParamSameDualObject
+public interface ICmptPrntParamSameDualObject<TA>
+  : ICmptRefPrntParamSameDualObject<TA>
 {
-  public Ta Field { get; set; }
+  TA Field { get; }
 }
 
-public interface ICmptRefPrntParamSameDual<Ta>
+public interface ICmptRefPrntParamSameDual<TA>
 {
-  public Ta Asa { get; set; }
-  public ICmptRefPrntParamSameDualObject AsRefPrntParamSameDual { get; set; }
+  TA Asa { get; }
+  ICmptRefPrntParamSameDualObject<TA> AsRefPrntParamSameDual { get; }
 }
 
-public interface ICmptRefPrntParamSameDualObject<Ta>
+public interface ICmptRefPrntParamSameDualObject<TA>
 {
 }

@@ -12,21 +12,21 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
 public class CmptGnrcPrntEnumDomOutp
-  : CmptFieldGnrcPrntEnumDomOutp
+  : CmptFieldGnrcPrntEnumDomOutp<ICmptDomGnrcPrntEnumDomOutp>
   , ICmptGnrcPrntEnumDomOutp
 {
   public ICmptGnrcPrntEnumDomOutpObject AsGnrcPrntEnumDomOutp { get; set; }
 }
 
-public class CmptFieldGnrcPrntEnumDomOutp<Tref>
-  : ICmptFieldGnrcPrntEnumDomOutp<Tref>
+public class CmptFieldGnrcPrntEnumDomOutp<TRef>
+  : ICmptFieldGnrcPrntEnumDomOutp<TRef>
 {
-  public Tref Field { get; set; }
-  public ICmptFieldGnrcPrntEnumDomOutpObject AsFieldGnrcPrntEnumDomOutp { get; set; }
+  public TRef Field { get; set; }
+  public ICmptFieldGnrcPrntEnumDomOutpObject<TRef> AsFieldGnrcPrntEnumDomOutp { get; set; }
 }
 
 public class CmptDomGnrcPrntEnumDomOutp
-  : DomainEnum
+  : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomOutp
 {
 }

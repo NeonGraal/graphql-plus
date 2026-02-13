@@ -6,32 +6,32 @@
 namespace GqlPlus.GeneratorTests.Gqlp_Input;
 
 public interface Itest_InputField
-  : Itest_ObjField
+  : Itest_ObjField<Itest_InputFieldType>
 {
-  public Itest_InputFieldObject As_InputField { get; set; }
+  Itest_InputFieldObject As_InputField { get; }
 }
 
 public interface Itest_InputFieldObject
-  : Itest_ObjFieldObject
+  : Itest_ObjFieldObject<Itest_InputFieldType>
 {
 }
 
 public interface Itest_InputFieldType
   : Itest_ObjFieldType
 {
-  public Itest_InputFieldTypeObject As_InputFieldType { get; set; }
+  Itest_InputFieldTypeObject As_InputFieldType { get; }
 }
 
 public interface Itest_InputFieldTypeObject
   : Itest_ObjFieldTypeObject
 {
-  public Itest_Value? Default { get; set; }
+  GqlpValue? Default { get; }
 }
 
 public interface Itest_InputParam
   : Itest_InputFieldType
 {
-  public Itest_InputParamObject As_InputParam { get; set; }
+  Itest_InputParamObject As_InputParam { get; }
 }
 
 public interface Itest_InputParamObject

@@ -12,31 +12,30 @@ dual AltCnstPrntObjPrntDual { :PrntCnstPrntObjPrntDual alt: Number }
 namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Dual;
 
 public interface ICmptCnstPrntObjPrntDual
-  : ICmptRefCnstPrntObjPrntDual
+  : ICmptRefCnstPrntObjPrntDual<ICmptAltCnstPrntObjPrntDual>
 {
-  public ICmptCnstPrntObjPrntDualObject AsCnstPrntObjPrntDual { get; set; }
+  ICmptCnstPrntObjPrntDualObject AsCnstPrntObjPrntDual { get; }
 }
 
 public interface ICmptCnstPrntObjPrntDualObject
-  : ICmptRefCnstPrntObjPrntDualObject
+  : ICmptRefCnstPrntObjPrntDualObject<ICmptAltCnstPrntObjPrntDual>
 {
 }
 
-public interface ICmptRefCnstPrntObjPrntDual<Tref>
-  : ICmptref
+public interface ICmptRefCnstPrntObjPrntDual<TRef>
 {
-  public ICmptRefCnstPrntObjPrntDualObject AsRefCnstPrntObjPrntDual { get; set; }
+  TRef AsParent { get; }
+  ICmptRefCnstPrntObjPrntDualObject<TRef> AsRefCnstPrntObjPrntDual { get; }
 }
 
-public interface ICmptRefCnstPrntObjPrntDualObject<Tref>
-  : ICmptrefObject
+public interface ICmptRefCnstPrntObjPrntDualObject<TRef>
 {
 }
 
 public interface ICmptPrntCnstPrntObjPrntDual
 {
-  public ICmptString AsString { get; set; }
-  public ICmptPrntCnstPrntObjPrntDualObject AsPrntCnstPrntObjPrntDual { get; set; }
+  string AsString { get; }
+  ICmptPrntCnstPrntObjPrntDualObject AsPrntCnstPrntObjPrntDual { get; }
 }
 
 public interface ICmptPrntCnstPrntObjPrntDualObject
@@ -46,11 +45,11 @@ public interface ICmptPrntCnstPrntObjPrntDualObject
 public interface ICmptAltCnstPrntObjPrntDual
   : ICmptPrntCnstPrntObjPrntDual
 {
-  public ICmptAltCnstPrntObjPrntDualObject AsAltCnstPrntObjPrntDual { get; set; }
+  ICmptAltCnstPrntObjPrntDualObject AsAltCnstPrntObjPrntDual { get; }
 }
 
 public interface ICmptAltCnstPrntObjPrntDualObject
   : ICmptPrntCnstPrntObjPrntDualObject
 {
-  public ICmptNumber Alt { get; set; }
+  decimal Alt { get; }
 }

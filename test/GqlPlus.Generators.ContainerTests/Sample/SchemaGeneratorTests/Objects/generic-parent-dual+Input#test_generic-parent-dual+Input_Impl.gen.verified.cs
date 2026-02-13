@@ -6,23 +6,23 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_Input;
 
 public class testGnrcPrntDualInp
-  : testRefGnrcPrntDualInp
+  : testRefGnrcPrntDualInp<ItestAltGnrcPrntDualInp>
   , ItestGnrcPrntDualInp
 {
   public ItestGnrcPrntDualInpObject AsGnrcPrntDualInp { get; set; }
 }
 
-public class testRefGnrcPrntDualInp<Tref>
-  : ItestRefGnrcPrntDualInp<Tref>
+public class testRefGnrcPrntDualInp<TRef>
+  : ItestRefGnrcPrntDualInp<TRef>
 {
-  public Tref Asref { get; set; }
-  public ItestRefGnrcPrntDualInpObject AsRefGnrcPrntDualInp { get; set; }
+  public TRef Asref { get; set; }
+  public ItestRefGnrcPrntDualInpObject<TRef> AsRefGnrcPrntDualInp { get; set; }
 }
 
 public class testAltGnrcPrntDualInp
   : ItestAltGnrcPrntDualInp
 {
-  public ItestNumber Alt { get; set; }
-  public ItestString AsString { get; set; }
+  public decimal Alt { get; set; }
+  public string AsString { get; set; }
   public ItestAltGnrcPrntDualInpObject AsAltGnrcPrntDualInp { get; set; }
 }

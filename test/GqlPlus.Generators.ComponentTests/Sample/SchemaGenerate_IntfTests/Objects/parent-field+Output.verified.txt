@@ -12,22 +12,22 @@ namespace Components.Gqlp_Schema_parent_field_Output;
 public interface ICmptPrntFieldOutp
   : ICmptRefPrntFieldOutp
 {
-  public ICmptPrntFieldOutpObject AsPrntFieldOutp { get; set; }
+  ICmptPrntFieldOutpObject AsPrntFieldOutp { get; }
 }
 
 public interface ICmptPrntFieldOutpObject
   : ICmptRefPrntFieldOutpObject
 {
-  public ICmptNumber Field { get; set; }
+  decimal Field { get; }
 }
 
 public interface ICmptRefPrntFieldOutp
 {
-  public ICmptString AsString { get; set; }
-  public ICmptRefPrntFieldOutpObject AsRefPrntFieldOutp { get; set; }
+  string AsString { get; }
+  ICmptRefPrntFieldOutpObject AsRefPrntFieldOutp { get; }
 }
 
 public interface ICmptRefPrntFieldOutpObject
 {
-  public ICmptNumber Parent { get; set; }
+  decimal Parent { get; }
 }

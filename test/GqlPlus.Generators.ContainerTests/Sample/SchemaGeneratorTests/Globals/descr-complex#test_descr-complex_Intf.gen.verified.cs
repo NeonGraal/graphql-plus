@@ -7,7 +7,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_complex;
 
 public interface ItestDescrCmpl
 {
-  public ItestDescrCmplObject AsDescrCmpl { get; set; }
+  ItestDescrCmplObject AsDescrCmpl { get; }
 }
 
 public interface ItestDescrCmplObject

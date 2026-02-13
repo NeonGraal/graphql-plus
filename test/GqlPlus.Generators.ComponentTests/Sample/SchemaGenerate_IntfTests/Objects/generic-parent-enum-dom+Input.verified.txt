@@ -12,27 +12,27 @@ domain DomGnrcPrntEnumDomInp { enum gnrcPrntEnumDomInpLabel }
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Input;
 
 public interface ICmptGnrcPrntEnumDomInp
-  : ICmptFieldGnrcPrntEnumDomInp
+  : ICmptFieldGnrcPrntEnumDomInp<ICmptDomGnrcPrntEnumDomInp>
 {
-  public ICmptGnrcPrntEnumDomInpObject AsGnrcPrntEnumDomInp { get; set; }
+  ICmptGnrcPrntEnumDomInpObject AsGnrcPrntEnumDomInp { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomInpObject
-  : ICmptFieldGnrcPrntEnumDomInpObject
+  : ICmptFieldGnrcPrntEnumDomInpObject<ICmptDomGnrcPrntEnumDomInp>
 {
 }
 
-public interface ICmptFieldGnrcPrntEnumDomInp<Tref>
+public interface ICmptFieldGnrcPrntEnumDomInp<TRef>
 {
-  public ICmptFieldGnrcPrntEnumDomInpObject AsFieldGnrcPrntEnumDomInp { get; set; }
+  ICmptFieldGnrcPrntEnumDomInpObject<TRef> AsFieldGnrcPrntEnumDomInp { get; }
 }
 
-public interface ICmptFieldGnrcPrntEnumDomInpObject<Tref>
+public interface ICmptFieldGnrcPrntEnumDomInpObject<TRef>
 {
-  public Tref Field { get; set; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntEnumDomInp
-  : IDomainEnum
+  : IGqlpDomainEnum
 {
 }

@@ -31,46 +31,46 @@ namespace Components.Gqlp_Spec_Built_In;
 
 public interface ICmpt_Collections
 {
-  public ICmpt_Modifier<ICmpt_ModifierKind> As_Modifier { get; set; }
-  public ICmpt_ModifierKeyed<ICmpt_ModifierKind> As_ModifierKeyed { get; set; }
-  public ICmpt_ModifierKeyed<ICmpt_ModifierKind> As_ModifierKeyed { get; set; }
-  public ICmpt_CollectionsObject As_Collections { get; set; }
+  ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindList { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindDictionary { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindTypeParam { get; }
+  ICmpt_CollectionsObject As_Collections { get; }
 }
 
 public interface ICmpt_CollectionsObject
 {
 }
 
-public interface ICmpt_ModifierKeyed<Tkind>
-  : ICmpt_Modifier
+public interface ICmpt_ModifierKeyed<TKind>
+  : ICmpt_Modifier<TKind>
 {
-  public ICmpt_ModifierKeyedObject As_ModifierKeyed { get; set; }
+  ICmpt_ModifierKeyedObject<TKind> As_ModifierKeyed { get; }
 }
 
-public interface ICmpt_ModifierKeyedObject<Tkind>
-  : ICmpt_ModifierObject
+public interface ICmpt_ModifierKeyedObject<TKind>
+  : ICmpt_ModifierObject<TKind>
 {
-  public ICmpt_TypeSimple By { get; set; }
-  public ICmptBoolean Optional { get; set; }
+  ICmpt_TypeSimple By { get; }
+  bool Optional { get; }
 }
 
 public interface ICmpt_Modifiers
 {
-  public ICmpt_Modifier<ICmpt_ModifierKind> As_Modifier { get; set; }
-  public ICmpt_Collections As_Collections { get; set; }
-  public ICmpt_ModifiersObject As_Modifiers { get; set; }
+  ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindOptional { get; }
+  ICmpt_Collections As_Collections { get; }
+  ICmpt_ModifiersObject As_Modifiers { get; }
 }
 
 public interface ICmpt_ModifiersObject
 {
 }
 
-public interface ICmpt_Modifier<Tkind>
+public interface ICmpt_Modifier<TKind>
 {
-  public ICmpt_ModifierObject As_Modifier { get; set; }
+  ICmpt_ModifierObject<TKind> As_Modifier { get; }
 }
 
-public interface ICmpt_ModifierObject<Tkind>
+public interface ICmpt_ModifierObject<TKind>
 {
-  public Tkind ModifierKind { get; set; }
+  TKind ModifierKind { get; }
 }

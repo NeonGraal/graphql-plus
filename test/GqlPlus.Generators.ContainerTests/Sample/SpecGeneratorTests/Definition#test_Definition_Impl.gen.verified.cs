@@ -5,15 +5,15 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
-public class testNumber
-  : DomainNumber
-  , ItestNumber
+public class decimal
+  : GqlpDomainNumber
+  , decimal
 {
 }
 
-public class testString
-  : DomainString
-  , ItestString
+public class string
+  : GqlpDomainString
+  , string
 {
 }
 

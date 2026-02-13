@@ -8,11 +8,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_Option;
 public interface Itest_Setting
   : Itest_Named
 {
-  public Itest_SettingObject As_Setting { get; set; }
+  Itest_SettingObject As_Setting { get; }
 }
 
 public interface Itest_SettingObject
   : Itest_NamedObject
 {
-  public Itest_Value Value { get; set; }
+  GqlpValue Value { get; }
 }

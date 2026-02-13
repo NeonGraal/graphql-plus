@@ -36,73 +36,73 @@ public class testInDrctParam
 }
 
 public class testDmnAlias
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDmnAlias
 {
 }
 
 public class testDmnBool
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ItestDmnBool
 {
 }
 
 public class testDmnBoolDiff
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ItestDmnBoolDiff
 {
 }
 
 public class testDmnBoolSame
-  : DomainBoolean
+  : GqlpDomainBoolean
   , ItestDmnBoolSame
 {
 }
 
 public class testDmnEnumDiff
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestDmnEnumDiff
 {
 }
 
 public class testDmnEnumSame
-  : DomainEnum
+  : GqlpDomainEnum
   , ItestDmnEnumSame
 {
 }
 
 public class testDmnNmbr
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDmnNmbr
 {
 }
 
 public class testDmnNmbrDiff
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDmnNmbrDiff
 {
 }
 
 public class testDmnNmbrSame
-  : DomainNumber
+  : GqlpDomainNumber
   , ItestDmnNmbrSame
 {
 }
 
 public class testDmnStr
-  : DomainString
+  : GqlpDomainString
   , ItestDmnStr
 {
 }
 
 public class testDmnStrDiff
-  : DomainString
+  : GqlpDomainString
   , ItestDmnStrDiff
 {
 }
 
 public class testDmnStrSame
-  : DomainString
+  : GqlpDomainString
   , ItestDmnStrSame
 {
 }
@@ -185,49 +185,49 @@ public class testObjAltOutpType
 public class testObjAltEnumDual
   : ItestObjAltEnumDual
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumDualObject AsObjAltEnumDual { get; set; }
 }
 
 public class testObjAltEnumInp
   : ItestObjAltEnumInp
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumInpObject AsObjAltEnumInp { get; set; }
 }
 
 public class testObjAltEnumOutp
   : ItestObjAltEnumOutp
 {
-  public ItestBoolean AsBooleantrue { get; set; }
-  public ItestBoolean AsBooleanfalse { get; set; }
+  public bool AsBooleantrue { get; set; }
+  public bool AsBooleanfalse { get; set; }
   public ItestObjAltEnumOutpObject AsObjAltEnumOutp { get; set; }
 }
 
-public class testObjCnstDual<Ttype>
-  : ItestObjCnstDual<Ttype>
+public class testObjCnstDual<TType>
+  : ItestObjCnstDual<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
-  public ItestObjCnstDualObject AsObjCnstDual { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+  public ItestObjCnstDualObject<TType> AsObjCnstDual { get; set; }
 }
 
-public class testObjCnstInp<Ttype>
-  : ItestObjCnstInp<Ttype>
+public class testObjCnstInp<TType>
+  : ItestObjCnstInp<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
-  public ItestObjCnstInpObject AsObjCnstInp { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+  public ItestObjCnstInpObject<TType> AsObjCnstInp { get; set; }
 }
 
-public class testObjCnstOutp<Ttype>
-  : ItestObjCnstOutp<Ttype>
+public class testObjCnstOutp<TType>
+  : ItestObjCnstOutp<TType>
 {
-  public Ttype Field { get; set; }
-  public Ttype Str { get; set; }
-  public ItestObjCnstOutpObject AsObjCnstOutp { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+  public ItestObjCnstOutpObject<TType> AsObjCnstOutp { get; set; }
 }
 
 public class testObjFieldDual
@@ -311,112 +311,112 @@ public class testFldObjFieldAliasOutp
 public class testObjFieldEnumAliasDual
   : ItestObjFieldEnumAliasDual
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; set; }
 }
 
 public class testObjFieldEnumAliasInp
   : ItestObjFieldEnumAliasInp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; set; }
 }
 
 public class testObjFieldEnumAliasOutp
   : ItestObjFieldEnumAliasOutp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumAliasOutpObject AsObjFieldEnumAliasOutp { get; set; }
 }
 
 public class testObjFieldEnumValueDual
   : ItestObjFieldEnumValueDual
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; set; }
 }
 
 public class testObjFieldEnumValueInp
   : ItestObjFieldEnumValueInp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumValueInpObject AsObjFieldEnumValueInp { get; set; }
 }
 
 public class testObjFieldEnumValueOutp
   : ItestObjFieldEnumValueOutp
 {
-  public ItestBoolean Field { get; set; }
+  public bool Field { get; set; }
   public ItestObjFieldEnumValueOutpObject AsObjFieldEnumValueOutp { get; set; }
 }
 
 public class testObjFieldTypeAliasDual
   : ItestObjFieldTypeAliasDual
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; set; }
 }
 
 public class testObjFieldTypeAliasInp
   : ItestObjFieldTypeAliasInp
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestObjFieldTypeAliasInpObject AsObjFieldTypeAliasInp { get; set; }
 }
 
 public class testObjFieldTypeAliasOutp
   : ItestObjFieldTypeAliasOutp
 {
-  public ItestString Field { get; set; }
+  public string Field { get; set; }
   public ItestObjFieldTypeAliasOutpObject AsObjFieldTypeAliasOutp { get; set; }
 }
 
-public class testObjParamDual<Ttest,Ttype>
-  : ItestObjParamDual<Ttest,Ttype>
+public class testObjParamDual<TTest,TType>
+  : ItestObjParamDual<TTest,TType>
 {
-  public Ttest Test { get; set; }
-  public Ttype Type { get; set; }
-  public ItestObjParamDualObject AsObjParamDual { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+  public ItestObjParamDualObject<TTest,TType> AsObjParamDual { get; set; }
 }
 
-public class testObjParamInp<Ttest,Ttype>
-  : ItestObjParamInp<Ttest,Ttype>
+public class testObjParamInp<TTest,TType>
+  : ItestObjParamInp<TTest,TType>
 {
-  public Ttest Test { get; set; }
-  public Ttype Type { get; set; }
-  public ItestObjParamInpObject AsObjParamInp { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+  public ItestObjParamInpObject<TTest,TType> AsObjParamInp { get; set; }
 }
 
-public class testObjParamOutp<Ttest,Ttype>
-  : ItestObjParamOutp<Ttest,Ttype>
+public class testObjParamOutp<TTest,TType>
+  : ItestObjParamOutp<TTest,TType>
 {
-  public Ttest Test { get; set; }
-  public Ttype Type { get; set; }
-  public ItestObjParamOutpObject AsObjParamOutp { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+  public ItestObjParamOutpObject<TTest,TType> AsObjParamOutp { get; set; }
 }
 
-public class testObjParamDupDual<Ttest>
-  : ItestObjParamDupDual<Ttest>
+public class testObjParamDupDual<TTest>
+  : ItestObjParamDupDual<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
-  public ItestObjParamDupDualObject AsObjParamDupDual { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+  public ItestObjParamDupDualObject<TTest> AsObjParamDupDual { get; set; }
 }
 
-public class testObjParamDupInp<Ttest>
-  : ItestObjParamDupInp<Ttest>
+public class testObjParamDupInp<TTest>
+  : ItestObjParamDupInp<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
-  public ItestObjParamDupInpObject AsObjParamDupInp { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+  public ItestObjParamDupInpObject<TTest> AsObjParamDupInp { get; set; }
 }
 
-public class testObjParamDupOutp<Ttest>
-  : ItestObjParamDupOutp<Ttest>
+public class testObjParamDupOutp<TTest>
+  : ItestObjParamDupOutp<TTest>
 {
-  public Ttest Test { get; set; }
-  public Ttest Type { get; set; }
-  public ItestObjParamDupOutpObject AsObjParamDupOutp { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
+  public ItestObjParamDupOutpObject<TTest> AsObjParamDupOutp { get; set; }
 }
 
 public class testObjPrntDual

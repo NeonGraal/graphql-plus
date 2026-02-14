@@ -47,5 +47,5 @@ internal static class SchemaTestHelpers
     => [.. regexes.WithExcludes(r => new DomainRegexAst(AstNulls.At, "", false, r))];
 
   public static TypeParamAst[] TypeParams(this string[] parameters)
-    => [.. parameters.Select(parameter => new TypeParamAst(AstNulls.At, parameter) { Constraint = "_Any" })];
+    => [.. parameters.Select(parameter => new TypeParamAst(AstNulls.At, parameter, "_Any"))];
 }

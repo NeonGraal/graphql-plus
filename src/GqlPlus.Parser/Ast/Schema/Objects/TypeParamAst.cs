@@ -13,8 +13,8 @@ internal sealed record class TypeParamAst(
 {
   internal override string Abbr => "TP";
 
-  internal TypeParamAst(TokenAt at, string name)
-    : this(at, name, "", "") { }
+  internal TypeParamAst(TokenAt at, string name, string constraint)
+    : this(at, name, "", constraint) { }
 
   internal override IEnumerable<string?> GetFields()
     => DescriptionAt

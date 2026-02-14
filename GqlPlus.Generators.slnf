@@ -1,0 +1,31 @@
+{
+  "solution": {
+    "path": "GqlPlus.sln",
+    "projects": [
+      "src\\GqlPlus.Abstractions\\GqlPlus.Abstractions.csproj",
+      "src\\GqlPlus.Codec\\GqlPlus.Codec.csproj",
+      "src\\GqlPlus.Common\\GqlPlus.Common.csproj",
+      "src\\GqlPlus.Generators\\GqlPlus.Generators.csproj",
+      "src\\GqlPlus.Parser\\GqlPlus.Parser.csproj",
+      "src\\GqlPlus.PolyFill\\GqlPlus.PolyFill.csproj",
+      "test\\GqlPlus.Abstractions.ClassTests\\GqlPlus.Abstractions.ClassTests.csproj",
+      "test\\GqlPlus.ClassTestBase\\GqlPlus.ClassTestBase.csproj",
+      "test\\GqlPlus.ComponentTestBase\\GqlPlus.ComponentTestBase.csproj",
+      "test\\GqlPlus.Generators.ClassTests\\GqlPlus.Generators.ClassTests.csproj",
+      "test\\GqlPlus.Generators.ComponentTests\\GqlPlus.Generators.ComponentTests.csproj",
+      "test\\GqlPlus.Generators.ContainerTests\\GqlPlus.Generators.ContainerTests.csproj",
+      "test\\GqlPlus.GeneratorsTestBase\\GqlPlus.GeneratorsTestBase.csproj",
+      "test\\GqlPlus.Parser.ClassTests\\GqlPlus.Parser.ClassTests.csproj",
+      "test\\GqlPlus.Parser.ComponentTests\\GqlPlus.Parser.ComponentTests.csproj",
+      "test\\GqlPlus.Schema.GraphQlPlus\\GqlPlus.Schema.GraphQlPlus.csproj",
+      "test\\GqlPlus.StarWars.Api\\GqlPlus.StarWars.Api.csproj",
+      "test\\GqlPlus.StarWars.ContainerTests\\GqlPlus.StarWars.ContainerTests.csproj",
+      "test\\GqlPlus.StarWars.GraphQlPlus\\GqlPlus.StarWars.GraphQlPlus.csproj",
+      "test\\GqlPlus.TestBase\\GqlPlus.TestBase.csproj",
+      "test\\GqlPlus.TestGenerators.Tests\\GqlPlus.TestGenerators.Tests.csproj",
+      "test\\GqlPlus.TestGeneratorsBase\\GqlPlus.TestGeneratorsBase.csproj",
+      "test\\GqlPlus.TestGenerators\\GqlPlus.TestGenerators.csproj",
+      "test\\GqlPlus.VerifyTestBase\\GqlPlus.VerifyTestBase.csproj"
+    ]
+  }
+}

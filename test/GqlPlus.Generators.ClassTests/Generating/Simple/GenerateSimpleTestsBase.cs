@@ -4,7 +4,7 @@ using GqlPlus.Building.Schema.Simple;
 namespace GqlPlus.Generating.Simple;
 
 public abstract class GenerateSimpleTestsBase<TSimple>
-  : GenerateTypeClassTestsBase<TSimple, IGqlpTypeRef>
+  : GenerateTypeClassTestsBase<TSimple, IGqlpTypeRef, MapPair<string>>
   where TSimple : class, IGqlpSimple
 {
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]

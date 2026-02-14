@@ -3,7 +3,7 @@
 namespace GqlPlus.Generating.Objects;
 
 internal class GenerateForObject<TObjField>
-  : GenerateForClass<IGqlpObject<TObjField>>
+  : GenerateForClass<IGqlpObject<TObjField>, MapPair<string>>
   where TObjField : IGqlpObjField
 {
   public GenerateForObject()
@@ -99,6 +99,9 @@ internal class GenerateForObject<TObjField>
     }
   }
 
+  protected override void InterfaceMember(MapPair<string> item, GqlpGeneratorContext context)
+    => context.Write($"  {item.Value} {item.Key} {{ get; }}");
+
   protected override void ClassHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     string typeParams = TypeParamsString(ast);
@@ -112,4 +115,7 @@ internal class GenerateForObject<TObjField>
       context.Write("  : " + context.TypeName(ast, "I") + typeParams);
     }
   }
+
+  protected override void ClassMember(MapPair<string> item, GqlpGeneratorContext context)
+    => context.Write($"  public {item.Value} {item.Key} {{ get; set; }}");
 }

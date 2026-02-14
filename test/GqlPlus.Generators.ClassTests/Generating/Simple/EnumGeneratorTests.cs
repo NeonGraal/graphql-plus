@@ -23,7 +23,7 @@ public class EnumGeneratorTests
     MapPair<string> expected = new(labelName, "");
 
     // Act
-    MapPair<string>[] result = [.. _generator.TypeMembers(enumType, context)];
+    MapPair<string>[] result = [.. _generator.EnumMembers(enumType, context)];
 
     // Assert
     result.ShouldBe([expected]);
@@ -44,7 +44,7 @@ public class EnumGeneratorTests
     MapPair<string> expected = new(labelName, $" = {TestPrefix}{parentName}.{labelName}");
 
     // Act
-    MapPair<string>[] result = [.. _generator.TypeMembers(enumType, context)];
+    MapPair<string>[] result = [.. _generator.EnumMembers(enumType, context)];
 
     // Assert
     result.ShouldBe([expected]);

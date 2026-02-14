@@ -1,52 +1,41 @@
 ﻿
 namespace GqlPlus.Generating;
 
-internal abstract class GenerateForType<T>
+internal abstract class GenerateForType<TType>
   : ITypeGenerator
-  where T : IGqlpType
+  where TType : IGqlpType
 {
   public bool ForType(IGqlpType ast)
-    => ast is T;
+  => ast is TType;
 
   public void GenerateType(IGqlpType ast, GqlpGeneratorContext context)
-    => Generate((T)ast, context);
+    => Generate((TType)ast, context);
 
-  protected delegate void GenerateDelegate(T ast, GqlpGeneratorContext context);
-  protected delegate IEnumerable<MapPair<string>> GenerateMembers(T ast, GqlpGeneratorContext context);
-  protected delegate void GenerateMember(MapPair<string> item, GqlpGeneratorContext context);
+  protected delegate void GenerateDelegate(TType ast, GqlpGeneratorContext context);
+  protected delegate IEnumerable<TItem> GenerateMembers<TItem>(TType ast, GqlpGeneratorContext context);
+  protected delegate void GenerateMember<TItem>(TItem item, GqlpGeneratorContext context);
 
   protected Dictionary<GqlpGeneratorType, GenerateDelegate> _generators = [];
 
-  protected GenerateForType()
-    => _generators[GqlpGeneratorType.Interface] = GenerateBlock(InterfaceHeader, InterfaceMember);
-
-  private void Generate(T ast, GqlpGeneratorContext context)
+  private void Generate(TType ast, GqlpGeneratorContext context)
   {
     if (_generators.TryGetValue(context.GeneratorOptions.GeneratorType, out GenerateDelegate? generator)) {
       generator(ast, context);
     }
   }
 
-  protected GenerateDelegate GenerateBlock(GenerateDelegate head, GenerateMember member)
-    => (ast, context) => GenerateBlock(ast, context, head, TypeMembers, member);
+  protected static GenerateDelegate GenerateBlock<TItem>(GenerateDelegate head, GenerateMembers<TItem> members, GenerateMember<TItem> member)
+    => (ast, context) => GenerateBlock(ast, context, head, members, member);
 
-  protected static void GenerateBlock(T ast, GqlpGeneratorContext context, GenerateDelegate head, GenerateMembers members, GenerateMember member)
+  protected static void GenerateBlock<TItem>(TType ast, GqlpGeneratorContext context, GenerateDelegate head, GenerateMembers<TItem> members, GenerateMember<TItem> member)
   {
     context.Write("");
     head(ast, context);
     context.Write("{");
-    foreach (MapPair<string> item in members(ast, context)) {
+    foreach (TItem item in members(ast, context)) {
       member(item, context);
     }
 
     context.Write("}");
   }
-
-  protected virtual void InterfaceHeader(T ast, GqlpGeneratorContext context)
-    => context.Write("public interface " + context.TypeName(ast, "I"));
-
-  protected virtual void InterfaceMember(MapPair<string> item, GqlpGeneratorContext context)
-    => context.Write($"  {item.Value} {item.Key} {{ get; }}");
-
-  internal abstract IEnumerable<MapPair<string>> TypeMembers(T ast, GqlpGeneratorContext context);
 }

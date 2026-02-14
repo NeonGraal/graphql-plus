@@ -1,11 +1,11 @@
 ﻿
 namespace GqlPlus.Generating.Simple;
 
-internal abstract class GenerateForSimple<T>
-  : GenerateForClass<T>
-  where T : IGqlpSimple
+internal abstract class GenerateForSimple<TSimple>
+  : GenerateForClass<TSimple, MapPair<string>>
+  where TSimple : IGqlpSimple
 {
-  protected override void ClassHeader(T ast, GqlpGeneratorContext context)
+  protected override void ClassHeader(TSimple ast, GqlpGeneratorContext context)
   {
     base.ClassHeader(ast, context);
 
@@ -21,8 +21,10 @@ internal abstract class GenerateForSimple<T>
 
     context.Write("  " + interfaceSep + " " + context.TypeName(ast, "I"));
   }
+  protected override void ClassMember(MapPair<string> item, GqlpGeneratorContext context)
+    => context.Write($"  public {item.Value} {item.Key} {{ get; set; }}");
 
-  protected override void InterfaceHeader(T ast, GqlpGeneratorContext context)
+  protected override void InterfaceHeader(TSimple ast, GqlpGeneratorContext context)
   {
     base.InterfaceHeader(ast, context);
 
@@ -32,6 +34,9 @@ internal abstract class GenerateForSimple<T>
       context.Write("  : I" + defaultParent);
     }
   }
+
+  protected override void InterfaceMember(MapPair<string> item, GqlpGeneratorContext context)
+    => context.Write($"  {item.Value} {item.Key} {{ get; }}");
 
   protected abstract bool HasDefaultParent(out string? defaultParent);
 }

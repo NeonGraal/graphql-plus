@@ -5,7 +5,7 @@ namespace GqlPlus.Generating.Objects;
 
 public abstract class GenerateObjectTestsBase<TObjField>(
   TypeKind kind
-) : GenerateTypeClassTestsBase<IGqlpObject<TObjField>, IGqlpObjBase>
+) : GenerateTypeClassTestsBase<IGqlpObject<TObjField>, IGqlpObjBase, MapPair<string>>
   where TObjField : class, IGqlpObjField
 {
   protected TypeKind Kind { get; } = kind;

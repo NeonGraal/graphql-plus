@@ -5,10 +5,7 @@ internal sealed class EnumGenerator
   : GenerateForType<IGqlpEnum>
 {
   public EnumGenerator()
-  {
-    _generators.Remove(GqlpGeneratorType.Interface);
-    _generators.Add(GqlpGeneratorType.Enum, GenerateBlock(EnumHeader, EnumMember));
-  }
+    => _generators.Add(GqlpGeneratorType.Enum, GenerateBlock(EnumHeader, EnumMembers, EnumMember));
 
   private void EnumHeader(IGqlpEnum ast, GqlpGeneratorContext context)
     => context.Write($"public enum " + context.TypeName(ast, ""));
@@ -33,7 +30,7 @@ internal sealed class EnumGenerator
     return ParentItems(ast.Parent?.Name, context).Concat(members);
   }
 
-  internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpEnum ast, GqlpGeneratorContext context)
+  internal IEnumerable<MapPair<string>> EnumMembers(IGqlpEnum ast, GqlpGeneratorContext context)
   {
     IEnumerable<MapPair<string>> members = ast.Items.SelectMany(item =>
       item.Aliases

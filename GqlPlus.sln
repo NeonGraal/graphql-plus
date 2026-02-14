@@ -130,7 +130,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.Componen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.ClassTests", "test\GqlPlus.Generators.ClassTests\GqlPlus.Generators.ClassTests.csproj", "{D4DC52CA-26B4-408C-A965-BF026787ADB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.Attributes", "src\GqlPlus.Generators.Attributes\GqlPlus.Generators.Attributes.csproj", "{7ECF075F-05FD-4A9E-8C72-C909E80BCB3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Common", "src\GqlPlus.Common\GqlPlus.Common.csproj", "{7ECF075F-05FD-4A9E-8C72-C909E80BCB3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.GeneratorsTestBase", "test\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj", "{17C63E58-68E8-47BC-1FFE-497979A3ACDD}"
 EndProject

@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GqlPlus.Generators.Attributes\GqlPlus.Generators.Attributes.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\GqlPlus.Common\GqlPlus.Common.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\GqlPlus.Parser\GqlPlus.Parser.csproj" PrivateAssets="all" />
   </ItemGroup>
 

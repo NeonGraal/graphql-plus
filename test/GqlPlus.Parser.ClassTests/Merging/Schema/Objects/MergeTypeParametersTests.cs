@@ -8,23 +8,30 @@ namespace GqlPlus.Merging.Schema.Objects;
 public class MergeTypeParamsTests
   : TestDescriptionsMerger<IGqlpTypeParam>
 {
-  [Theory(Skip = "WIP"), RepeatData]
-  public void CanMerge_TwoAstsConstraintCantMerge_ReturnsErrors(string name, string constraint)
+  [Theory, RepeatData]
+  public void CanMerge_TwoAstsOneConstraintCanMerge_ReturnsGood(string name, string constraint)
     => this
       .SkipWhitespace(constraint)
-      .CanMerge_Errors(
-        new TypeParamAst(AstNulls.At, name) with { Constraint = constraint },
-        new TypeParamAst(AstNulls.At, name));
+      .CanMerge_Good(
+        new TypeParamAst(AstNulls.At, name, constraint),
+        new TypeParamAst(AstNulls.At, name, constraint));
 
-  [Theory(Skip = "WIP"), RepeatData]
-  public void Merge_TwoAstsWithConstraint_CallsConstraintMerge(string name, string constraint1, string constraint2)
+  [Theory, RepeatData]
+  public void CanMerge_TwoAstsTwoConstraintCanMerge_ReturnsErrors(string name, string constraint1, string constraint2)
     => this
-    .SkipWhitespace(constraint1)
-    .SkipWhitespace(constraint2)
+      .SkipEqual(constraint1, constraint2)
+      .CanMerge_Errors(
+        new TypeParamAst(AstNulls.At, name, constraint1),
+        new TypeParamAst(AstNulls.At, name, constraint2));
+
+  [Theory, RepeatData]
+  public void Merge_TwoAstsWithSameConstraint_ReturnsExpacted(string name, string constraint)
+    => this
+    .SkipWhitespace(constraint)
   .Merge_Expected([
-      new TypeParamAst(AstNulls.At, name) with { Constraint = constraint1 },
-      new TypeParamAst(AstNulls.At, name) with { Constraint = constraint2 }],
-      new TypeParamAst(AstNulls.At, name) with { Constraint = constraint1 + "|" + constraint2 });
+      new TypeParamAst(AstNulls.At, name, constraint ),
+      new TypeParamAst(AstNulls.At, name, constraint)],
+      new TypeParamAst(AstNulls.At, name, constraint));
 
   [Theory, RepeatData]
   public void Merge_ManyItems_ReturnsItem(string name)

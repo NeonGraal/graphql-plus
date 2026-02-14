@@ -27,11 +27,11 @@ public class MergeTypeParamsTests
   [Theory, RepeatData]
   public void Merge_TwoAstsWithSameConstraint_ReturnsExpected(string name, string constraint)
     => this
-    .SkipWhitespace(constraint)
-  .Merge_Expected([
-      new TypeParamAst(AstNulls.At, name, constraint),
-      new TypeParamAst(AstNulls.At, name, constraint)],
-      new TypeParamAst(AstNulls.At, name, constraint));
+      .SkipWhitespace(constraint)
+      .Merge_Expected([
+        new TypeParamAst(AstNulls.At, name, constraint),
+        new TypeParamAst(AstNulls.At, name, constraint)],
+        new TypeParamAst(AstNulls.At, name, constraint));
 
   [Theory, RepeatData]
   public void Merge_ManyItems_ReturnsItem(string name)

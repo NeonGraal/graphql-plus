@@ -163,8 +163,8 @@ public static class BuiltIn
     => new(AstNulls.At, type, kind, []) { Aliases = aliases };
 
   private static TypeParamAst KeyParam()
-      => new(AstNulls.At, "K") { Constraint = "_Key" };
+      => new(AstNulls.At, "K", "_Key");
 
   private static TypeParamAst TypeParam(string constraint = "_Any")
-    => new(AstNulls.At, "T") { Constraint = constraint };
+    => new(AstNulls.At, "T", constraint);
 }

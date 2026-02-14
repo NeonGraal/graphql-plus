@@ -25,7 +25,7 @@ public class MergeTypeParamsTests
         new TypeParamAst(AstNulls.At, name, constraint2));
 
   [Theory, RepeatData]
-  public void Merge_TwoAstsWithSameConstraint_ReturnsExpacted(string name, string constraint)
+  public void Merge_TwoAstsWithSameConstraint_ReturnsExpected(string name, string constraint)
     => this
     .SkipWhitespace(constraint)
   .Merge_Expected([

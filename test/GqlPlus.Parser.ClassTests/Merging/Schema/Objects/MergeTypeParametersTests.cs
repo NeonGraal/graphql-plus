@@ -29,7 +29,7 @@ public class MergeTypeParamsTests
     => this
     .SkipWhitespace(constraint)
   .Merge_Expected([
-      new TypeParamAst(AstNulls.At, name, constraint ),
+      new TypeParamAst(AstNulls.At, name, constraint),
       new TypeParamAst(AstNulls.At, name, constraint)],
       new TypeParamAst(AstNulls.At, name, constraint));
 

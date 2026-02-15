@@ -26,4 +26,4 @@ internal class ParseVarType : IParserVarType
   }
 }
 
-public interface IParserVarType : Parser<string>.I { }
+public interface IParserVarType : Parser<string>.I;

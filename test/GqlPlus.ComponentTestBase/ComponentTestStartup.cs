@@ -1,6 +1,7 @@
 ﻿using DiffEngine;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
+using GqlPlus.Parsing.Operation;
 using GqlPlus.Parsing.Schema;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -31,6 +32,7 @@ public static class ComponentTestStartup
       .AddComponentTest(checkEnv)
       .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
       .AddSchemaParsers()
+      .AddOperationParsers()
       .AddMergers();
 
   private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();

@@ -67,6 +67,14 @@ errors: !_Errors
 - !_Error
   _kind: !_TokenKind End
   _message: >-
+    In _OpDirectives can't get model for type '_Named'
+- !_Error
+  _kind: !_TokenKind End
+  _message: >-
+    In _Operation can't get model for type '_Aliased'
+- !_Error
+  _kind: !_TokenKind End
+  _message: >-
     In _Schema can't get model for type '_Named'
 - !_Error
   _kind: !_TokenKind End
@@ -1309,12 +1317,12 @@ types: !_Map(_Type)
     - !_DomainItem(_DomainRegex)
       domain: _Name
       exclude: false
-      pattern: '[A-Za-z_][A-Za-z0-9_]*'
+      pattern: '[A-Za-z_]\w*'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: '[A-Za-z_][A-Za-z0-9_]*'
+      pattern: '[A-Za-z_]\w*'
     name: _Name
     typeKind: !_TypeKind Domain
   !_Name _NameFilter: !_DomainString
@@ -1322,7 +1330,7 @@ types: !_Map(_Type)
     - !_DomainItem(_DomainRegex)
       domain: _NameFilter
       exclude: false
-      pattern: '[A-Za-z_.*]+'
+      pattern: '[\w.*]+'
     description: >-
       _NameFilter is a simple match expression against _Name where
       '.' matches any single character and '*' matches zero or
@@ -1331,7 +1339,7 @@ types: !_Map(_Type)
     items:
     - !_DomainRegex
       exclude: false
-      pattern: '[A-Za-z_.*]+'
+      pattern: '[\w.*]+'
     name: _NameFilter
     typeKind: !_TypeKind Domain
   !_Name _Named: !_TypeDual
@@ -1637,6 +1645,531 @@ types: !_Map(_Type)
         typeKind: !_SimpleKind Enum
     name: _ObjectKind
     typeKind: !_TypeKind Domain
+  !_Name _OpArgList: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate)
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      object: _OpArgList
+      type: !_ObjBase
+        name: _OpArgValue
+    alternates:
+    - !_Alternate
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      type: !_ObjBase
+        name: _OpArgValue
+    name: _OpArgList
+    typeKind: !_TypeKind Dual
+  !_Name _OpArgMap: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate)
+      collections:
+      - !_ModifierDictionary
+        by: Scalar
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Internal
+      object: _OpArgMap
+      type: !_ObjBase
+        name: _OpArgValue
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: value
+      object: _OpArgMap
+      type: !_ObjBase
+        name: _OpArgValue
+    - !_ObjectFor(_DualField)
+      name: byVariable
+      object: _OpArgMap
+      type: !_ObjBase
+        name: _Name
+    alternates:
+    - !_Alternate
+      collections:
+      - !_ModifierDictionary
+        by: Scalar
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Internal
+      type: !_ObjBase
+        name: _OpArgValue
+    fields:
+    - !_DualField
+      name: value
+      type: !_ObjBase
+        name: _OpArgValue
+    - !_DualField
+      name: byVariable
+      type: !_ObjBase
+        name: _Name
+    name: _OpArgMap
+    typeKind: !_TypeKind Dual
+  !_Name _OpArgValue: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate)
+      object: _OpArgValue
+      type: !_ObjBase
+        name: Value
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: variable
+      object: _OpArgValue
+      type: !_ObjBase
+        name: _Name
+    alternates:
+    - !_Alternate
+      type: !_ObjBase
+        name: Value
+    fields:
+    - !_DualField
+      name: variable
+      type: !_ObjBase
+        name: _Name
+    name: _OpArgValue
+    typeKind: !_TypeKind Dual
+  !_Name _OpArgument: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate)
+      object: _OpArgument
+      type: !_ObjBase
+        name: _OpArgValue
+    - !_ObjectFor(_Alternate)
+      object: _OpArgument
+      type: !_ObjBase
+        name: _OpArgList
+    - !_ObjectFor(_Alternate)
+      object: _OpArgument
+      type: !_ObjBase
+        name: _OpArgMap
+    alternates:
+    - !_Alternate
+      type: !_ObjBase
+        name: _OpArgValue
+    - !_Alternate
+      type: !_ObjBase
+        name: _OpArgList
+    - !_Alternate
+      type: !_ObjBase
+        name: _OpArgMap
+    name: _OpArgument
+    typeKind: !_TypeKind Dual
+  !_Name _OpDirective: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _Described
+      type: !_ObjBase
+        name: _DomainKind
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_ObjBase
+        name: _Name
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpDirective
+      type: !_ObjBase
+        name: _OpArgument
+    fields:
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_ObjBase
+        name: _OpArgument
+    name: _OpDirective
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Dual
+  !_Name _OpDirectives: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpDirectives
+      type: !_ObjBase
+        name: _OpDirective
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_ObjBase
+        name: _OpDirective
+    name: _OpDirectives
+    parent: !_ObjBase
+      name: _Named
+    typeKind: !_TypeKind Output
+  !_Name _OpField: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpDirectives
+      type: !_ObjBase
+        name: _OpDirective
+    - !_ObjectFor(_OutputField)
+      field: alias
+      label: String
+      name: _DomainKind
+      object: _OpField
+      typeKind: !_SimpleKind Enum
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpField
+      type: !_ObjBase
+        name: _OpArgument
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      object: _OpField
+      type: !_ObjBase
+        name: _Modifiers
+    fields:
+    - !_OutputEnum
+      field: alias
+      label: String
+      name: _DomainKind
+      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_ObjBase
+        name: _OpArgument
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      type: !_ObjBase
+        name: _Modifiers
+    name: _OpField
+    parent: !_ObjBase
+      name: _OpDirectives
+    typeKind: !_TypeKind Output
+  !_Name _OpFragment: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpDirectives
+      type: !_ObjBase
+        name: _OpDirective
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _OpFragment
+      type: !_ObjBase
+        name: _TypeRef
+        typeArgs:
+        - !_EnumValue
+          label: Output
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    fields:
+    - !_OutputField
+      name: type
+      type: !_ObjBase
+        name: _TypeRef
+        typeArgs:
+        - !_EnumValue
+          label: Output
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    name: _OpFragment
+    parent: !_ObjBase
+      name: _OpDirectives
+    typeKind: !_TypeKind Output
+  !_Name _OpInline: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      object: _OpInline
+      type: !_ObjBase
+        name: _TypeRef
+        typeArgs:
+        - !_EnumValue
+          label: Output
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpInline
+      type: !_ObjBase
+        name: _OpDirective
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      type: !_ObjBase
+        name: _TypeRef
+        typeArgs:
+        - !_EnumValue
+          label: Output
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_ObjBase
+        name: _OpDirective
+    name: _OpInline
+    typeKind: !_TypeKind Output
+  !_Name _OpResult: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate)
+      object: _OpResult
+      type: !_ObjBase
+        name: _TypeRef
+        typeArgs:
+        - !_TypeArg
+          name: _SimpleKind
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpResult
+      type: !_ObjBase
+        name: _OpArgument
+    alternates:
+    - !_Alternate
+      type: !_ObjBase
+        name: _TypeRef
+        typeArgs:
+        - !_TypeArg
+          name: _SimpleKind
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_ObjBase
+        name: _OpArgument
+    name: _OpResult
+    typeKind: !_TypeKind Output
+  !_Name _OpSelection: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate)
+      object: _OpSelection
+      type: !_ObjBase
+        name: _OpField
+    - !_ObjectFor(_Alternate)
+      object: _OpSelection
+      type: !_ObjBase
+        name: _OpSpread
+    - !_ObjectFor(_Alternate)
+      object: _OpSelection
+      type: !_ObjBase
+        name: _OpInline
+    alternates:
+    - !_Alternate
+      type: !_ObjBase
+        name: _OpField
+    - !_Alternate
+      type: !_ObjBase
+        name: _OpSpread
+    - !_Alternate
+      type: !_ObjBase
+        name: _OpInline
+    name: _OpSelection
+    typeKind: !_TypeKind Output
+  !_Name _OpSpread: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      field: fragment
+      label: String
+      name: _DomainKind
+      object: _OpSpread
+      typeKind: !_SimpleKind Enum
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpSpread
+      type: !_ObjBase
+        name: _OpDirective
+    fields:
+    - !_OutputEnum
+      field: fragment
+      label: String
+      name: _DomainKind
+      typeKind: !_SimpleKind Enum
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_ObjBase
+        name: _OpDirective
+    name: _OpSpread
+    typeKind: !_TypeKind Output
+  !_Name _OpVariable: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpDirectives
+      type: !_ObjBase
+        name: _OpDirective
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _OpVariable
+      type: !_ObjBase
+        name: _TypeRef
+        typeArgs:
+        - !_EnumValue
+          label: Input
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      object: _OpVariable
+      type: !_ObjBase
+        name: _Modifiers
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      object: _OpVariable
+      type: !_ObjBase
+        name: Value
+    fields:
+    - !_OutputField
+      name: type
+      type: !_ObjBase
+        name: _TypeRef
+        typeArgs:
+        - !_EnumValue
+          label: Input
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      type: !_ObjBase
+        name: _Modifiers
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      type: !_ObjBase
+        name: Value
+    name: _OpVariable
+    parent: !_ObjBase
+      name: _OpDirectives
+    typeKind: !_TypeKind Output
+  !_Name _Operation: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: category
+      object: _Operation
+      type: !_ObjBase
+        name: _Name
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
+      name: variables
+      object: _Operation
+      type: !_ObjBase
+        name: _OpVariable
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _Operation
+      type: !_ObjBase
+        name: _OpDirective
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
+      name: fragments
+      object: _Operation
+      type: !_ObjBase
+        name: _OpFragment
+    - !_ObjectFor(_OutputField)
+      name: result
+      object: _Operation
+      type: !_ObjBase
+        name: _OpResult
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List},
+        !_ModifierDictionary {by: _Path, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
+      name: selections
+      object: _Operation
+      type: !_ObjBase
+        name: _OpSelection
+    fields:
+    - !_OutputField
+      name: category
+      type: !_ObjBase
+        name: _Name
+    - !_OutputField
+      modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
+      name: variables
+      type: !_ObjBase
+        name: _OpVariable
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_ObjBase
+        name: _OpDirective
+    - !_OutputField
+      modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
+      name: fragments
+      type: !_ObjBase
+        name: _OpFragment
+    - !_OutputField
+      name: result
+      type: !_ObjBase
+        name: _OpResult
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List},
+        !_ModifierDictionary {by: _Path, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
+      name: selections
+      type: !_ObjBase
+        name: _OpSelection
+    name: _Operation
+    parent: !_ObjBase
+      name: _Aliased
+    typeKind: !_TypeKind Output
+  !_Name _Operations: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate)
+      object: _Operations
+      type: !_ObjBase
+        name: _Operation
+    - !_ObjectFor(_Alternate)
+      object: _Operations
+      type: !_ObjBase
+        name: _Type
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: operation
+      object: _Operations
+      type: !_ObjBase
+        name: _Operation
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _Operations
+      type: !_ObjBase
+        name: _Type
+    alternates:
+    - !_Alternate
+      type: !_ObjBase
+        name: _Operation
+    - !_Alternate
+      type: !_ObjBase
+        name: _Type
+    fields:
+    - !_OutputField
+      name: operation
+      type: !_ObjBase
+        name: _Operation
+    - !_OutputField
+      name: type
+      type: !_ObjBase
+        name: _Type
+    name: _Operations
+    typeKind: !_TypeKind Output
   !_Name _OutputField: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -1750,6 +2283,21 @@ types: !_Map(_Type)
         name: _Described
         typeKind: !_TypeKind Dual
       name: allItem
+  !_Name _Path: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: _Path
+      exclude: false
+      pattern: >-
+        (\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: >-
+        (\$([A-Za-z]\w*)?|\.+)?\d+(\.\d+)*
+    name: _Path
+    typeKind: !_TypeKind Domain
   !_Name _Resolution: !_TypeEnum
     allItems:
     - !_EnumLabel
@@ -1797,6 +2345,17 @@ types: !_Map(_Type)
     - !_ObjectFor(_OutputField)
       modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Domain}]
+      name: operations
+      object: _Schema
+      parameters:
+      - !_InputParam
+        modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+        name: _Filter
+      type: !_ObjBase
+        name: _Operations
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: types
       object: _Schema
       parameters:
@@ -1837,6 +2396,16 @@ types: !_Map(_Type)
         name: _Filter
       type: !_ObjBase
         name: _Directives
+    - !_OutputField
+      modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
+      name: operations
+      parameters:
+      - !_InputParam
+        modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+        name: _Filter
+      type: !_ObjBase
+        name: _Operations
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Domain}]

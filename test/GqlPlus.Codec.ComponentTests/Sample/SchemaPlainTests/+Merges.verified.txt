@@ -22,6 +22,10 @@
 [_Schema]:categories[_Map(_Categories)]:[_Name]ctgrMod[_Category]:output[_TypeRef(_TypeKind)]:name=CtgrMod
 [_Schema]:categories[_Map(_Categories)]:[_Name]ctgrMod[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
 [_Schema]:categories[_Map(_Categories)]:[_Name]ctgrMod[_Category]:resolution=[_Resolution]Parallel
+[_Schema]:categories[_Map(_Categories)]:[_Name]op[_Category]:name=op
+[_Schema]:categories[_Map(_Categories)]:[_Name]op[_Category]:output[_TypeRef(_TypeKind)]:name=Op
+[_Schema]:categories[_Map(_Categories)]:[_Name]op[_Category]:output[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
+[_Schema]:categories[_Map(_Categories)]:[_Name]op[_Category]:resolution=[_Resolution]Parallel
 [_Schema]:directives[_Map(_Directives)]:[_Name]Drct[_Directive]:locations[_Set(_Location)]:Inline=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]Drct[_Directive]:locations[_Set(_Location)]:Spread=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]Drct[_Directive]:name=Drct
@@ -38,6 +42,10 @@
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParam[_Directive]:parameters.0[_InputParam]:name=InDrctParam
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParam[_Directive]:repeatable=false
 [_Schema]:name=Schema
+[_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:aliases.0=Op1
+[_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:aliases.1=Op2
+[_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:category=op
+[_Schema]:operations[_Map(_Operations)]:[_Name]Operation[_Operation]:name=Operation
 [_Schema]:settings[_Map(_Setting)]:[_Name]merged[_Setting]:name=merged
 [_Schema]:settings[_Map(_Setting)]:[_Name]merged[_Setting]:value[_ConstantList].0=true
 [_Schema]:settings[_Map(_Setting)]:[_Name]merged[_Setting]:value[_ConstantList].1=0
@@ -566,6 +574,8 @@
 [_Schema]:types[_Map(_Type)]:[_Name]ObjPrntOutp[_TypeOutput]:name=ObjPrntOutp
 [_Schema]:types[_Map(_Type)]:[_Name]ObjPrntOutp[_TypeOutput]:parent[_ObjBase]:name=RefObjPrntOutp
 [_Schema]:types[_Map(_Type)]:[_Name]ObjPrntOutp[_TypeOutput]:typeKind=[_TypeKind]Output
+[_Schema]:types[_Map(_Type)]:[_Name]Op[_TypeOutput]:name=Op
+[_Schema]:types[_Map(_Type)]:[_Name]Op[_TypeOutput]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map(_Type)]:[_Name]OutpFieldParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
 [_Schema]:types[_Map(_Type)]:[_Name]OutpFieldParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=OutpFieldParam
 [_Schema]:types[_Map(_Type)]:[_Name]OutpFieldParam[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:name=OutpFieldParam1

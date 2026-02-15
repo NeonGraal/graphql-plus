@@ -15,6 +15,7 @@ public static class Startup
       .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaDirective>, ParseDirectiveChecks>()
       .AddOneChecks<IGqlpSchemaSetting>()
       .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaOption>, ParseOptionChecks>()
+      .AddTransient<IBaseAliasedChecks<OperationInput, IGqlpSchemaOperation>, ParseOperationChecks>()
 
       .AddTransient<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainTrueFalse>>, ParseDomainBooleanChecks>()
       .AddTransient<IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>>, ParseDomainEnumChecks>()

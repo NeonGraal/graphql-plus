@@ -3,6 +3,40 @@
   "aliases": ["Alias", "Opt1", "Opt2"],
   "categories": {
     "$mapTag": "_Map(_Categories)",
+    "catOprCtgr": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "catOprCtgr",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "CatOprCtgr",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
+    "catOprType": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "catOprType",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "CatOprType",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
     "ctgr": {
       "$keyTag": "_Name",
       "$mapTag": "_Category",
@@ -226,6 +260,23 @@
       "output": {
         "$mapTag": "_TypeRef(_TypeKind)",
         "name": "DescrBtwn",
+        "typeKind": {
+          "$value": "Output",
+          "$valueTag": "_TypeKind"
+        }
+      },
+      "resolution": {
+        "$value": "Parallel",
+        "$valueTag": "_Resolution"
+      }
+    },
+    "op": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Category",
+      "name": "op",
+      "output": {
+        "$mapTag": "_TypeRef(_TypeKind)",
+        "name": "Op",
         "typeKind": {
           "$value": "Output",
           "$valueTag": "_TypeKind"
@@ -529,6 +580,28 @@
     "$listTag": "_Errors"
   },
   "name": "Schema",
+  "operations": {
+    "$mapTag": "_Map(_Operations)",
+    "Operation": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "aliases": ["Op1", "Op2"],
+      "category": "op",
+      "name": "Operation"
+    },
+    "OprCtgr": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "category": "catOprCtgr",
+      "name": "OprCtgr"
+    },
+    "OprType": {
+      "$keyTag": "_Name",
+      "$mapTag": "_Operation",
+      "category": "catOprType",
+      "name": "OprType"
+    }
+  },
   "settings": {
     "$mapTag": "_Map(_Setting)",
     "descr": {
@@ -556,6 +629,70 @@
   },
   "types": {
     "$mapTag": "_Map(_Type)",
+    "AddrOprType": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "street",
+          "object": "AddrOprType",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "city",
+          "object": "AddrOprType",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "country",
+          "object": "AddrOprType",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "street",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "city",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "country",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "name": "AddrOprType",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
     "AltAltDual": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeDual",
@@ -3792,6 +3929,79 @@
         }
       ],
       "name": "AltSmplOutp",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "CatOprCtgr": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "name": "CatOprCtgr",
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "CatOprType": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "first",
+          "object": "CatOprType",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "last",
+          "object": "CatOprType",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_OutputField)",
+          "name": "address",
+          "object": "CatOprType",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "AddrOprType"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$mapTag": "_OutputField",
+          "name": "first",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "last",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_OutputField",
+          "name": "address",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "AddrOprType"
+          }
+        }
+      ],
+      "name": "CatOprType",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"
@@ -17858,6 +18068,15 @@
         "$mapTag": "_ObjBase",
         "name": "RefObjPrntOutp"
       },
+      "typeKind": {
+        "$value": "Output",
+        "$valueTag": "_TypeKind"
+      }
+    },
+    "Op": {
+      "$keyTag": "_Name",
+      "$mapTag": "_TypeOutput",
+      "name": "Op",
       "typeKind": {
         "$value": "Output",
         "$valueTag": "_TypeKind"

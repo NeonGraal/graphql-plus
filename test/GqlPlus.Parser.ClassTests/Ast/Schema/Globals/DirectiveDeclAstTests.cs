@@ -70,7 +70,7 @@ public partial class DirectiveDeclAstTests
       location => new DirectiveDeclAst(AstNulls.At, name) { Locations = location },
       location1 == location2);
 
-  private readonly DirectiveAstChecks _checks = new();
+  private readonly DirectiveDeclAstChecks _checks = new();
 
   [CheckTests(Inherited = true)]
   internal IAstDeclarationChecks AliasedChecks => _checks;
@@ -85,7 +85,7 @@ public partial class DirectiveDeclAstTests
     => new(AstNulls.At, input);
 }
 
-internal sealed class DirectiveAstChecks()
+internal sealed class DirectiveDeclAstChecks()
   : AstDeclarationChecks<DirectiveDeclAst>(DirectiveDeclAstTests.CreateDirective)
 {
   protected override string AliasesString(string input, string description, string aliases)

@@ -1,0 +1,4 @@
+operation Operation { op :String }
+operation Operation { op :String }
+category { Op }
+output Op { }

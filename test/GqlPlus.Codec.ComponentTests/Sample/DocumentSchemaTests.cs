@@ -72,8 +72,9 @@ public class DocumentSchemaTests(
 
     IEnumerable<CategoryModel> categories = model.GetCategories(null).Values.Select(c => c.And).Where(c => c is not null).Cast<CategoryModel>();
     IEnumerable<DirectiveModel> directives = model.GetDirectives(null).Values.Select(c => c.And).Where(c => c is not null).Cast<DirectiveModel>();
+    IEnumerable<OperationModel> operations = model.GetOperations(null).Values.Select(c => c.And).Where(c => c is not null).Cast<OperationModel>();
     ICollection<SettingModel> settings = model.GetSettings(null).Values;
-    SchemaModel newModel = new(model.Name, categories, directives, settings, [], model.Errors);
+    SchemaModel newModel = new(model.Name, categories, directives, operations, settings, [], model.Errors);
     Structured result = checks.Encode_Model(newModel, context)
       .Add("groups", groups)
       .Add("title", new(test));

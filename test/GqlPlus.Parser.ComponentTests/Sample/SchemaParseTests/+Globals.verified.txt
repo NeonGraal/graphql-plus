@@ -190,28 +190,98 @@ Success
   InDrctParamOpt
 }
 {
-  !Op I@008/0061
+  !SO I@011/0061
+  OprCtgr
+  catOprCtgr
+}
+{
+  !Ca P@010/0062
+  catOprCtgr
+  (Parallel)
+  !Tr I@012/0062
+  CatOprCtgr
+}
+{
+  !Ou I@008/0063
+  CatOprCtgr
+}
+{
+  !SO I@011/0065
+  OprType
+  catOprType
+}
+{
+  !Ca P@010/0066
+  catOprType
+  (Parallel)
+  !Tr I@012/0066
+  CatOprType
+}
+{
+  !Ou I@008/0067
+  CatOprType
+  {
+    !OF I@005/0068
+    first
+    :
+    I@012/0068
+    String
+    !OF I@005/0069
+    last
+    :
+    I@011/0069
+    String
+    !OF I@005/0070
+    address
+    :
+    I@014/0070
+    AddrOprType
+  }
+}
+{
+  !Ou I@008/0072
+  AddrOprType
+  {
+    !OF I@005/0073
+    street
+    :
+    I@013/0073
+    String
+    !OF I@005/0074
+    city
+    :
+    I@011/0074
+    String
+    !OF I@005/0075
+    country
+    :
+    I@014/0075
+    String
+  }
+}
+{
+  !Op I@008/0077
   Schema
   [
     Alias
   ]
 }
 {
-  !Op I@008/0063
+  !Op I@008/0079
   Schema
   {
-    !OS I@017/0063
+    !OS I@017/0079
     global
-    =( !k I@024/0063 Boolean.true )
+    =( !k I@024/0079 Boolean.true )
   }
 }
 {
-  !Op I@008/0065
+  !Op I@008/0081
   Schema
   {
     'Option Descr'
-    !OS S@017/0065
+    !OS S@017/0081
     descr
-    =( !k I@040/0065 Boolean.true )
+    =( !k I@040/0081 Boolean.true )
   }
 }

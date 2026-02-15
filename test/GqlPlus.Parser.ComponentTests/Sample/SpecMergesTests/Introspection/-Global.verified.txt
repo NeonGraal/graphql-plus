@@ -134,16 +134,315 @@ Success
   Fragment
 }
 {
-  !Ou I@008/0038
-  _Setting
+  !Ou I@008/0037
+  _Operations
+  {
+    !OF I@009/0038
+    operation
+    :
+    I@020/0038
+    _Operation
+    !OF I@009/0039
+    type
+    :
+    I@015/0039
+    _Type
+  }
+  |
+  I@007/0040
+  _Operation
+  I@007/0041
+  _Type
+}
+{
+  !Ou I@008/0044
+  _OpDirectives
   :
-  I@007/0039
+  I@007/0045
   _Named
   {
-    !OF I@009/0040
+    !OF I@009/0046
+    directives
+    :
+    I@021/0046
+    _OpDirective
+    []
+  }
+}
+{
+  !Ou I@008/0049
+  _Operation
+  :
+  I@007/0050
+  _Aliased
+  {
+    !OF I@009/0051
+    category
+    :
+    I@019/0051
+    _Name
+    !OF I@009/0052
+    variables
+    :
+    I@020/0052
+    _OpVariable
+    [_Name]
+    !OF I@009/0053
+    directives
+    :
+    I@021/0053
+    _OpDirective
+    []
+    !OF I@009/0054
+    fragments
+    :
+    I@020/0054
+    _OpFragment
+    [_Name]
+    !OF I@009/0055
+    result
+    :
+    I@017/0055
+    _OpResult
+    !OF I@009/0056
+    selections
+    :
+    I@021/0056
+    _OpSelection
+    []
+    [_Path]
+  }
+}
+{
+  !Ou I@008/0059
+  _OpVariable
+  :
+  I@007/0060
+  _OpDirectives
+  {
+    !OF I@009/0061
+    type
+    :
+    I@015/0061
+    _TypeRef
+    <
+      I@024/0061
+      _TypeKind.Input
+    >
+    !OF I@009/0062
+    modifiers
+    :
+    I@020/0062
+    _Modifiers
+    []
+    !OF I@009/0063
+    default
+    :
+    I@018/0063
+    Value
+    ?
+  }
+}
+{
+  !Du I@006/0066
+  _OpDirective
+  :
+  I@007/0067
+  _Named
+  {
+    !DF I@009/0068
+    argument
+    :
+    I@019/0068
+    _OpArgument
+    ?
+  }
+}
+{
+  !Ou I@008/0071
+  _OpFragment
+  :
+  I@007/0072
+  _OpDirectives
+  {
+    !OF I@009/0073
+    type
+    :
+    I@015/0073
+    _TypeRef
+    <
+      I@024/0073
+      _TypeKind.Output
+    >
+  }
+}
+{
+  !Du I@006/0076
+  _OpArgument
+  |
+  I@009/0077
+  _OpArgValue
+  I@009/0078
+  _OpArgList
+  I@009/0079
+  _OpArgMap
+}
+{
+  !Du I@006/0082
+  _OpArgValue
+  {
+    !DF I@009/0083
+    variable
+    :
+    I@019/0083
+    _Name
+  }
+  |
+  I@009/0084
+  Value
+}
+{
+  !Du I@006/0087
+  _OpArgList
+  |
+  I@007/0088
+  _OpArgValue
+  []
+}
+{
+  !Du I@006/0091
+  _OpArgMap
+  {
+    !DF I@009/0092
     value
     :
-    I@016/0040
+    I@016/0092
+    _OpArgValue
+    !DF I@009/0093
+    byVariable
+    :
+    I@021/0093
+    _Name
+  }
+  |
+  I@007/0094
+  _OpArgValue
+  [Scalar]
+}
+{
+  !Ou I@008/0097
+  _OpResult
+  {
+    !OF I@009/0098
+    argument
+    :
+    I@019/0098
+    _OpArgument
+    ?
+  }
+  |
+  I@007/0099
+  _TypeRef
+  <
+    I@016/0099
+    _SimpleKind
+  >
+}
+{
+  !Do I@008/0102
+  _Path
+  String
+  !DX R@023/0102
+  /(\\$([A-Za-z]\\w*)?|\\.+)?\\d+(\\.\\d+)*/
+}
+{
+  !Ou I@008/0104
+  _OpSelection
+  |
+  I@009/0105
+  _OpField
+  I@009/0106
+  _OpSpread
+  I@009/0107
+  _OpInline
+}
+{
+  !Ou I@008/0110
+  _OpField
+  :
+  I@007/0111
+  _OpDirectives
+  {
+    !OF I@009/0112
+    alias
+    :
+    I@016/0112
+    String
+    ?
+    !OF I@009/0113
+    argument
+    :
+    I@019/0113
+    _OpArgument
+    ?
+    !OF I@009/0114
+    modifiers
+    :
+    I@020/0114
+    _Modifiers
+    []
+  }
+}
+{
+  !Ou I@008/0117
+  _OpInline
+  {
+    !OF I@009/0118
+    type
+    :
+    I@015/0118
+    _TypeRef
+    <
+      I@024/0118
+      _TypeKind.Output
+    >
+    ?
+    !OF I@009/0119
+    directives
+    :
+    I@021/0119
+    _OpDirective
+    []
+  }
+}
+{
+  !Ou I@008/0122
+  _OpSpread
+  {
+    !OF I@009/0123
+    fragment
+    :
+    I@019/0123
+    String
+    !OF I@009/0124
+    directives
+    :
+    I@021/0124
+    _OpDirective
+    []
+  }
+}
+{
+  !Ou I@008/0127
+  _Setting
+  :
+  I@007/0128
+  _Named
+  {
+    !OF I@009/0129
+    value
+    :
+    I@016/0129
     Value
   }
 }

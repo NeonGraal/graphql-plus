@@ -1,6 +1,18 @@
 ﻿!_Schema
 aliases: [Alias,Opt1,Opt2]
 categories: !_Map(_Categories)
+  !_Name catOprCtgr: !_Category
+    name: catOprCtgr
+    output: !_TypeRef(_TypeKind)
+      name: CatOprCtgr
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name catOprType: !_Category
+    name: catOprType
+    output: !_TypeRef(_TypeKind)
+      name: CatOprType
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Name ctgr: !_Category
     name: ctgr
     output: !_TypeRef(_TypeKind)
@@ -74,6 +86,12 @@ categories: !_Map(_Categories)
     name: descrBtwn
     output: !_TypeRef(_TypeKind)
       name: DescrBtwn
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Name op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      name: Op
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 directives: !_Map(_Directives)
@@ -171,6 +189,17 @@ errors: !_Errors
     _kind: !_TokenKind End
     _message: "In PrntDualOutp can't get model for type 'RefPrntDualOutp'"
 name: Schema
+operations: !_Map(_Operations)
+  !_Name Operation: !_Operation
+    aliases: [Op1,Op2]
+    category: op
+    name: Operation
+  !_Name OprCtgr: !_Operation
+    category: catOprCtgr
+    name: OprCtgr
+  !_Name OprType: !_Operation
+    category: catOprType
+    name: OprType
 settings: !_Map(_Setting)
   !_Name descr: !_Setting
     description: 'Option Descr'
@@ -185,6 +214,38 @@ settings: !_Map(_Setting)
       - true
       - 0
 types: !_Map(_Type)
+  !_Name AddrOprType: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: street
+        object: AddrOprType
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: city
+        object: AddrOprType
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: country
+        object: AddrOprType
+        type: !_ObjBase
+          name: String
+    fields:
+      - !_OutputField
+        name: street
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: city
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: country
+        type: !_ObjBase
+          name: String
+    name: AddrOprType
+    typeKind: !_TypeKind Output
   !_Name AltAltDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_Alternate)
@@ -1674,6 +1735,41 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: String
     name: AltSmplOutp
+    typeKind: !_TypeKind Output
+  !_Name CatOprCtgr: !_TypeOutput
+    name: CatOprCtgr
+    typeKind: !_TypeKind Output
+  !_Name CatOprType: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: first
+        object: CatOprType
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: last
+        object: CatOprType
+        type: !_ObjBase
+          name: String
+      - !_ObjectFor(_OutputField)
+        name: address
+        object: CatOprType
+        type: !_ObjBase
+          name: AddrOprType
+    fields:
+      - !_OutputField
+        name: first
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: last
+        type: !_ObjBase
+          name: String
+      - !_OutputField
+        name: address
+        type: !_ObjBase
+          name: AddrOprType
+    name: CatOprType
     typeKind: !_TypeKind Output
   !_Name CnstAltDmnDual: !_TypeDual
     allAlternates:
@@ -8068,6 +8164,9 @@ types: !_Map(_Type)
     name: ObjPrntOutp
     parent: !_ObjBase
       name: RefObjPrntOutp
+    typeKind: !_TypeKind Output
+  !_Name Op: !_TypeOutput
+    name: Op
     typeKind: !_TypeKind Output
   !_Name OutpDescrParam: !_TypeOutput
     allFields:

@@ -10,7 +10,6 @@ public static class Startup
   public static void ConfigureServices(IServiceCollection services)
     => services
       .AddComponentParsers(false)
-      .AddOperationParsers()
 
       .AddFieldObjectKinds()
       .AddMatchers()

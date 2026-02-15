@@ -12,4 +12,4 @@ internal class SimpleName
   }
 }
 
-internal interface ISimpleName : INameParser { }
+internal interface ISimpleName : INameParser;

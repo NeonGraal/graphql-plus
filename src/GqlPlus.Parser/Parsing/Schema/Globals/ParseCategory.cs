@@ -53,7 +53,7 @@ internal class CategoryName
   }
 }
 
-internal interface ICategoryName : INameParser { }
+internal interface ICategoryName : INameParser;
 
 internal class ParseCategoryDefinition(
   Parser<IGqlpTypeRef>.D typeRef,

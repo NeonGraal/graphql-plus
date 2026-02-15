@@ -14,7 +14,6 @@ internal class GenerateForObject<TObjField>
 
   protected override void InterfaceMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  {item.Value} {item.Key} {{ get; }}");
-
 }
 
 internal abstract class GenerateForObject<TObjField, TFieldItem>

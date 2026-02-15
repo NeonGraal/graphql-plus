@@ -1,3 +1,3 @@
 ﻿namespace GqlPlus.Result;
 
-public interface IResultArrayEmpty<T> : IResultArray<T>, IResultEmpty<IEnumerable<T>> { }
+public interface IResultArrayEmpty<T> : IResultArray<T>, IResultEmpty<IEnumerable<T>>;

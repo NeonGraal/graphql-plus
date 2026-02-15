@@ -1,0 +1,12 @@
+﻿/* option-value
+option Schema { merged=true }
+option Schema { merged=[0] }
+*/
+
+// Generated from Schema option-value for Stat
+/*
+
+Option Schema
+*/
+
+namespace Components.Gqlp_Schema_option_value;

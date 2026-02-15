@@ -1,0 +1,31 @@
+﻿/* field-mod-param+Input
+input FieldModParamInp<$mod:String> { field: FldFieldModParamInp[$mod] }
+input FldFieldModParamInp { field: Number | String }
+*/
+
+// Generated from Schema field-mod-param+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_mod_param_Input;
+
+public interface ICmptFieldModParamInp<TMod>
+{
+  ICmptFieldModParamInpObject<TMod> AsFieldModParamInp { get; }
+}
+
+public interface ICmptFieldModParamInpObject<TMod>
+{
+  IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; }
+}
+
+public interface ICmptFldFieldModParamInp
+{
+  string AsString { get; }
+  ICmptFldFieldModParamInpObject AsFldFieldModParamInp { get; }
+}
+
+public interface ICmptFldFieldModParamInpObject
+{
+  decimal Field { get; }
+}

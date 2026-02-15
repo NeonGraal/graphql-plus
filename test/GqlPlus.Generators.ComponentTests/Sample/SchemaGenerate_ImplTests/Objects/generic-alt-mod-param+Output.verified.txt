@@ -1,0 +1,14 @@
+﻿/* generic-alt-mod-param+Output
+output RefGnrcAltModParamOutp<$ref:String $mod:String> { | $ref[$mod] }
+*/
+
+// Generated from Schema generic-alt-mod-param+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_mod_param_Output;
+
+public class CmptRefGnrcAltModParamOutp<TRef,TMod>
+  : ICmptRefGnrcAltModParamOutp<TRef,TMod>
+{
+}

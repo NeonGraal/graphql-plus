@@ -1,0 +1,15 @@
+﻿/* union-same
+union UnionSame { Boolean }
+union UnionSame { Boolean }
+*/
+
+// Generated from Schema union-same for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_same;
+
+public interface ICmptUnionSame
+{
+  Boolean AsBoolean { get; }
+}

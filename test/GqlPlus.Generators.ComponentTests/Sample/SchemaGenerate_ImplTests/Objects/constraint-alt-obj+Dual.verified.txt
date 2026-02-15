@@ -1,0 +1,34 @@
+﻿/* constraint-alt-obj+Dual
+dual CnstAltObjDual { | RefCnstAltObjDual<AltCnstAltObjDual> }
+dual RefCnstAltObjDual<$ref:PrntCnstAltObjDual> { | $ref }
+dual PrntCnstAltObjDual { | String }
+dual AltCnstAltObjDual { :PrntCnstAltObjDual alt: Number }
+*/
+
+// Generated from Schema constraint-alt-obj+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_obj_Dual;
+
+public class CmptCnstAltObjDual
+  : ICmptCnstAltObjDual
+{
+}
+
+public class CmptRefCnstAltObjDual<TRef>
+  : ICmptRefCnstAltObjDual<TRef>
+{
+}
+
+public class CmptPrntCnstAltObjDual
+  : ICmptPrntCnstAltObjDual
+{
+}
+
+public class CmptAltCnstAltObjDual
+  : CmptPrntCnstAltObjDual
+  , ICmptAltCnstAltObjDual
+{
+  public decimal Alt { get; set; }
+}

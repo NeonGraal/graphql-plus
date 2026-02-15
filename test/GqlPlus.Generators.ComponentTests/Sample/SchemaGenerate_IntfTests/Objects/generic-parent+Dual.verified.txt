@@ -1,0 +1,19 @@
+﻿/* generic-parent+Dual
+dual GnrcPrntDual<$type:_Dual> { :$type }
+*/
+
+// Generated from Schema generic-parent+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_Dual;
+
+public interface ICmptGnrcPrntDual<TType>
+{
+  TType AsParent { get; }
+  ICmptGnrcPrntDualObject<TType> AsGnrcPrntDual { get; }
+}
+
+public interface ICmptGnrcPrntDualObject<TType>
+{
+}

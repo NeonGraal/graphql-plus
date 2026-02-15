@@ -1,0 +1,19 @@
+﻿/* category-output-list
+category { CtgrOutpList[] }
+output CtgrOutpList { }
+*/
+
+// Generated from Schema category-output-list for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_output_list;
+
+public interface ICmptCtgrOutpList
+{
+  ICmptCtgrOutpListObject AsCtgrOutpList { get; }
+}
+
+public interface ICmptCtgrOutpListObject
+{
+}

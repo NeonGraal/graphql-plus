@@ -1,0 +1,19 @@
+﻿/* Option
+output _Setting {
+    : _Named
+        value: Value
+    }
+*/
+
+// Generated from Spec Option for Impl
+/*
+*/
+
+namespace Components.Gqlp_Spec_Option;
+
+public class Cmpt_Setting
+  : Cmpt_Named
+  , ICmpt_Setting
+{
+  public GqlpValue Value { get; set; }
+}

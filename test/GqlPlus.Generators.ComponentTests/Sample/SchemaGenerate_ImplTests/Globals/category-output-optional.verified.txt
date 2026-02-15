@@ -1,0 +1,15 @@
+﻿/* category-output-optional
+category { CtgrOutpOptl? }
+output CtgrOutpOptl { }
+*/
+
+// Generated from Schema category-output-optional for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_output_optional;
+
+public class CmptCtgrOutpOptl
+  : ICmptCtgrOutpOptl
+{
+}

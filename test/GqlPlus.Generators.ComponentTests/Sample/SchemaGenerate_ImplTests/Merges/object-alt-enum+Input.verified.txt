@@ -1,0 +1,15 @@
+﻿/* object-alt-enum+Input
+input ObjAltEnumInp { ! true }
+input ObjAltEnumInp { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_enum_Input;
+
+public class CmptObjAltEnumInp
+  : ICmptObjAltEnumInp
+{
+}

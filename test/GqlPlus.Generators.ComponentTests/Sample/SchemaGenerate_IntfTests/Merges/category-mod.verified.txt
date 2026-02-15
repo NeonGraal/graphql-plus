@@ -1,0 +1,20 @@
+﻿/* category-mod
+category [CatM1] { CtgrMod? }
+category [CatM2] { CtgrMod? }
+output CtgrMod { }
+*/
+
+// Generated from Schema category-mod for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_mod;
+
+public interface ICmptCtgrMod
+{
+  ICmptCtgrModObject AsCtgrMod { get; }
+}
+
+public interface ICmptCtgrModObject
+{
+}

@@ -1,0 +1,42 @@
+﻿/* generic-field-param+Output
+output GnrcFieldParamOutp { field: RefGnrcFieldParamOutp<AltGnrcFieldParamOutp> }
+output RefGnrcFieldParamOutp<$ref:_Output> { | $ref }
+output AltGnrcFieldParamOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-param+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_param_Output;
+
+public interface ICmptGnrcFieldParamOutp
+{
+  ICmptGnrcFieldParamOutpObject AsGnrcFieldParamOutp { get; }
+}
+
+public interface ICmptGnrcFieldParamOutpObject
+{
+  ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; }
+}
+
+public interface ICmptRefGnrcFieldParamOutp<TRef>
+{
+  TRef Asref { get; }
+  ICmptRefGnrcFieldParamOutpObject<TRef> AsRefGnrcFieldParamOutp { get; }
+}
+
+public interface ICmptRefGnrcFieldParamOutpObject<TRef>
+{
+}
+
+public interface ICmptAltGnrcFieldParamOutp
+{
+  string AsString { get; }
+  ICmptAltGnrcFieldParamOutpObject AsAltGnrcFieldParamOutp { get; }
+}
+
+public interface ICmptAltGnrcFieldParamOutpObject
+{
+  decimal Alt { get; }
+}

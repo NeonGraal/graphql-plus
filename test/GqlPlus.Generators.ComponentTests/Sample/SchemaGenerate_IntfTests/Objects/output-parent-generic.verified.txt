@@ -1,0 +1,32 @@
+﻿/* output-parent-generic
+output OutpPrntGnrc { | RefOutpPrntGnrc<EnumOutpPrntGnrc.prnt_outpPrntGnrc> }
+output RefOutpPrntGnrc<$type:PrntOutpPrntGnrc> { field: $type }
+enum EnumOutpPrntGnrc { :PrntOutpPrntGnrc outpPrntGnrc }
+enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
+*/
+
+// Generated from Schema output-parent-generic for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_parent_generic;
+
+public interface ICmptOutpPrntGnrc
+{
+  ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
+  ICmptOutpPrntGnrcObject AsOutpPrntGnrc { get; }
+}
+
+public interface ICmptOutpPrntGnrcObject
+{
+}
+
+public interface ICmptRefOutpPrntGnrc<TType>
+{
+  ICmptRefOutpPrntGnrcObject<TType> AsRefOutpPrntGnrc { get; }
+}
+
+public interface ICmptRefOutpPrntGnrcObject<TType>
+{
+  TType Field { get; }
+}

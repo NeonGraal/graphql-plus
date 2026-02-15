@@ -1,0 +1,19 @@
+﻿/* directive-param-dict
+directive @DrctParamDict(InDrctParamDict[String]) { all }
+input InDrctParamDict { }
+*/
+
+// Generated from Schema directive-param-dict for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param_dict;
+
+public interface ICmptInDrctParamDict
+{
+  ICmptInDrctParamDictObject AsInDrctParamDict { get; }
+}
+
+public interface ICmptInDrctParamDictObject
+{
+}

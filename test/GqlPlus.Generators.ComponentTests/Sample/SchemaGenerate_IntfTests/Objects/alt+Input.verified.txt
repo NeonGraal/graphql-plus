@@ -1,0 +1,31 @@
+﻿/* alt+Input
+input AltInp { | AltAltInp }
+input AltAltInp { alt: Number | String }
+*/
+
+// Generated from Schema alt+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_Input;
+
+public interface ICmptAltInp
+{
+  ICmptAltAltInp AsAltAltInp { get; }
+  ICmptAltInpObject AsAltInp { get; }
+}
+
+public interface ICmptAltInpObject
+{
+}
+
+public interface ICmptAltAltInp
+{
+  string AsString { get; }
+  ICmptAltAltInpObject AsAltAltInp { get; }
+}
+
+public interface ICmptAltAltInpObject
+{
+  decimal Alt { get; }
+}

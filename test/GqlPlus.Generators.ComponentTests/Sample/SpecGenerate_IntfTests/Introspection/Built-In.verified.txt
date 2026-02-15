@@ -1,0 +1,76 @@
+﻿/* Built-In
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$kind:_ModifierKind> {
+    : _Modifier<$kind>
+        by: _TypeSimple
+        isOptional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$kind:_ModifierKind> {
+        modifierKind: $kind
+    }
+*/
+
+// Generated from Spec Built-In for Intf
+/*
+*/
+
+namespace Components.Gqlp_Spec_Built_In;
+
+public interface ICmpt_Collections
+{
+  ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindList { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindDictionary { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindTypeParam { get; }
+  ICmpt_CollectionsObject As_Collections { get; }
+}
+
+public interface ICmpt_CollectionsObject
+{
+}
+
+public interface ICmpt_ModifierKeyed<TKind>
+  : ICmpt_Modifier<TKind>
+{
+  ICmpt_ModifierKeyedObject<TKind> As_ModifierKeyed { get; }
+}
+
+public interface ICmpt_ModifierKeyedObject<TKind>
+  : ICmpt_ModifierObject<TKind>
+{
+  ICmpt_TypeSimple By { get; }
+  bool IsOptional { get; }
+}
+
+public interface ICmpt_Modifiers
+{
+  ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindOptional { get; }
+  ICmpt_Collections As_Collections { get; }
+  ICmpt_ModifiersObject As_Modifiers { get; }
+}
+
+public interface ICmpt_ModifiersObject
+{
+}
+
+public interface ICmpt_Modifier<TKind>
+{
+  ICmpt_ModifierObject<TKind> As_Modifier { get; }
+}
+
+public interface ICmpt_ModifierObject<TKind>
+{
+  TKind ModifierKind { get; }
+}

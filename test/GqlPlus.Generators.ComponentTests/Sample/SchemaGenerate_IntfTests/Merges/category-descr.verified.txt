@@ -1,0 +1,22 @@
+﻿/* category-descr
+"First category"
+category { CtgrDescr }
+"Second category"
+category { CtgrDescr }
+output CtgrDescr { }
+*/
+
+// Generated from Schema category-descr for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_descr;
+
+public interface ICmptCtgrDescr
+{
+  ICmptCtgrDescrObject AsCtgrDescr { get; }
+}
+
+public interface ICmptCtgrDescrObject
+{
+}

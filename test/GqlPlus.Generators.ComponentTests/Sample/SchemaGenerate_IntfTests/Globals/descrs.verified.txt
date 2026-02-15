@@ -1,0 +1,20 @@
+﻿/* descrs
+"A simple description"
+"With extra"
+output Dscrs { }
+*/
+
+// Generated from Schema descrs for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_descrs;
+
+public interface ICmptDscrs
+{
+  ICmptDscrsObject AsDscrs { get; }
+}
+
+public interface ICmptDscrsObject
+{
+}

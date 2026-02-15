@@ -1,0 +1,23 @@
+﻿/* generic-parent-simple-enum+Dual
+dual GnrcPrntSmplEnumDual { :FieldGnrcPrntSmplEnumDual<EnumGnrcPrntSmplEnumDual> }
+dual FieldGnrcPrntSmplEnumDual<$ref:_Simple> { field: $ref }
+enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
+*/
+
+// Generated from Schema generic-parent-simple-enum+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_simple_enum_Dual;
+
+public class CmptGnrcPrntSmplEnumDual
+  : CmptFieldGnrcPrntSmplEnumDual<CmptEnumGnrcPrntSmplEnumDual>
+  , ICmptGnrcPrntSmplEnumDual
+{
+}
+
+public class CmptFieldGnrcPrntSmplEnumDual<TRef>
+  : ICmptFieldGnrcPrntSmplEnumDual<TRef>
+{
+  public TRef Field { get; set; }
+}

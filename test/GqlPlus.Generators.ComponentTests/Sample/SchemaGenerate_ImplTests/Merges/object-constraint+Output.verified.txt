@@ -1,0 +1,17 @@
+﻿/* object-constraint+Output
+output ObjCnstOutp<$type:String> { field: $type }
+output ObjCnstOutp<$type:String> { str: $type }
+*/
+
+// Generated from Schema object-constraint+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_constraint_Output;
+
+public class CmptObjCnstOutp<TType>
+  : ICmptObjCnstOutp<TType>
+{
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+}

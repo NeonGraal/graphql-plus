@@ -1,0 +1,27 @@
+﻿/* generic-alt-param+Input
+input GnrcAltParamInp { | RefGnrcAltParamInp<AltGnrcAltParamInp> }
+input RefGnrcAltParamInp<$ref:_Input> { | $ref }
+input AltGnrcAltParamInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_param_Input;
+
+public class CmptGnrcAltParamInp
+  : ICmptGnrcAltParamInp
+{
+}
+
+public class CmptRefGnrcAltParamInp<TRef>
+  : ICmptRefGnrcAltParamInp<TRef>
+{
+}
+
+public class CmptAltGnrcAltParamInp
+  : ICmptAltGnrcAltParamInp
+{
+  public decimal Alt { get; set; }
+}

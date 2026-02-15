@@ -1,0 +1,14 @@
+﻿/* constraint-alt+Dual
+dual CnstAltDual<$type:Number> { | $type }
+*/
+
+// Generated from Schema constraint-alt+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_Dual;
+
+public class CmptCnstAltDual<TType>
+  : ICmptCnstAltDual<TType>
+{
+}

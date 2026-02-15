@@ -1,0 +1,19 @@
+﻿/* field-simple+Dual
+dual FieldSmplDual { field: Number }
+*/
+
+// Generated from Schema field-simple+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_simple_Dual;
+
+public interface ICmptFieldSmplDual
+{
+  ICmptFieldSmplDualObject AsFieldSmplDual { get; }
+}
+
+public interface ICmptFieldSmplDualObject
+{
+  decimal Field { get; }
+}

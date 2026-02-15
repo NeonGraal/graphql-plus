@@ -1,0 +1,22 @@
+﻿/* parent-param-diff+Input
+input PrntParamDiffInp<$a:String> { :RefPrntParamDiffInp<$a> field: $a }
+input RefPrntParamDiffInp<$b:String> { | $b }
+*/
+
+// Generated from Schema parent-param-diff+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_param_diff_Input;
+
+public class CmptPrntParamDiffInp<TA>
+  : CmptRefPrntParamDiffInp<TA>
+  , ICmptPrntParamDiffInp<TA>
+{
+  public TA Field { get; set; }
+}
+
+public class CmptRefPrntParamDiffInp<TB>
+  : ICmptRefPrntParamDiffInp<TB>
+{
+}

@@ -1,0 +1,29 @@
+﻿/* constraint-dom-enum+Output
+output CnstDomEnumOutp { | RefCnstDomEnumOutp<cnstDomEnumOutp> }
+output RefCnstDomEnumOutp<$type:JustCnstDomEnumOutp> { field: $type }
+enum EnumCnstDomEnumOutp { cnstDomEnumOutp other }
+domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
+*/
+
+// Generated from Schema constraint-dom-enum+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
+
+public class CmptCnstDomEnumOutp
+  : ICmptCnstDomEnumOutp
+{
+}
+
+public class CmptRefCnstDomEnumOutp<TType>
+  : ICmptRefCnstDomEnumOutp<TType>
+{
+  public TType Field { get; set; }
+}
+
+public class CmptJustCnstDomEnumOutp
+  : GqlpDomainEnum
+  , ICmptJustCnstDomEnumOutp
+{
+}

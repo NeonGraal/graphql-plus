@@ -1,0 +1,19 @@
+﻿/* generic-field+Dual
+dual GnrcFieldDual<$type:String> { field: $type }
+*/
+
+// Generated from Schema generic-field+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_Dual;
+
+public interface ICmptGnrcFieldDual<TType>
+{
+  ICmptGnrcFieldDualObject<TType> AsGnrcFieldDual { get; }
+}
+
+public interface ICmptGnrcFieldDualObject<TType>
+{
+  TType Field { get; }
+}

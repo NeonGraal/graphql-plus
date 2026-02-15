@@ -1,0 +1,33 @@
+﻿/* parent-alt+Output
+output PrntAltOutp { :RefPrntAltOutp | Number }
+output RefPrntAltOutp {  parent: Number | String }
+*/
+
+// Generated from Schema parent-alt+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_alt_Output;
+
+public interface ICmptPrntAltOutp
+  : ICmptRefPrntAltOutp
+{
+  decimal AsNumber { get; }
+  ICmptPrntAltOutpObject AsPrntAltOutp { get; }
+}
+
+public interface ICmptPrntAltOutpObject
+  : ICmptRefPrntAltOutpObject
+{
+}
+
+public interface ICmptRefPrntAltOutp
+{
+  string AsString { get; }
+  ICmptRefPrntAltOutpObject AsRefPrntAltOutp { get; }
+}
+
+public interface ICmptRefPrntAltOutpObject
+{
+  decimal Parent { get; }
+}

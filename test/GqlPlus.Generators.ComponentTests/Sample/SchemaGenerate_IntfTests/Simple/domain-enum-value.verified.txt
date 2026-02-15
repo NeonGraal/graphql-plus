@@ -1,0 +1,15 @@
+﻿/* domain-enum-value
+domain DmnEnumValue { Enum EnumDmnEnumValue.dmnEnumValue }
+enum EnumDmnEnumValue { dmnEnumValue }
+*/
+
+// Generated from Schema domain-enum-value for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_value;
+
+public interface ICmptDmnEnumValue
+  : IGqlpDomainEnum
+{
+}

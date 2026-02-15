@@ -1,0 +1,682 @@
+﻿// Generated from Schema +Merges for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_Merges;
+
+public interface ICmptCtgr
+{
+  ICmptCtgrObject AsCtgr { get; }
+}
+
+public interface ICmptCtgrObject
+{
+}
+
+public interface ICmptCtgrAlias
+{
+  ICmptCtgrAliasObject AsCtgrAlias { get; }
+}
+
+public interface ICmptCtgrAliasObject
+{
+}
+
+public interface ICmptCtgrDescr
+{
+  ICmptCtgrDescrObject AsCtgrDescr { get; }
+}
+
+public interface ICmptCtgrDescrObject
+{
+}
+
+public interface ICmptCtgrMod
+{
+  ICmptCtgrModObject AsCtgrMod { get; }
+}
+
+public interface ICmptCtgrModObject
+{
+}
+
+public interface ICmptInDrctParam
+{
+  ICmptInDrctParamObject AsInDrctParam { get; }
+}
+
+public interface ICmptInDrctParamObject
+{
+}
+
+public interface ICmptDmnAlias
+  : IGqlpDomainNumber
+{
+}
+
+public interface ICmptDmnBool
+  : IGqlpDomainBoolean
+{
+}
+
+public interface ICmptDmnBoolDiff
+  : IGqlpDomainBoolean
+{
+}
+
+public interface ICmptDmnBoolSame
+  : IGqlpDomainBoolean
+{
+}
+
+public interface ICmptDmnEnumDiff
+  : IGqlpDomainEnum
+{
+}
+
+public interface ICmptDmnEnumSame
+  : IGqlpDomainEnum
+{
+}
+
+public interface ICmptDmnNmbr
+  : IGqlpDomainNumber
+{
+}
+
+public interface ICmptDmnNmbrDiff
+  : IGqlpDomainNumber
+{
+}
+
+public interface ICmptDmnNmbrSame
+  : IGqlpDomainNumber
+{
+}
+
+public interface ICmptDmnStr
+  : IGqlpDomainString
+{
+}
+
+public interface ICmptDmnStrDiff
+  : IGqlpDomainString
+{
+}
+
+public interface ICmptDmnStrSame
+  : IGqlpDomainString
+{
+}
+
+public interface ICmptObjDual
+{
+  ICmptObjDualObject AsObjDual { get; }
+}
+
+public interface ICmptObjDualObject
+{
+}
+
+public interface ICmptObjInp
+{
+  ICmptObjInpObject AsObjInp { get; }
+}
+
+public interface ICmptObjInpObject
+{
+}
+
+public interface ICmptObjOutp
+{
+  ICmptObjOutpObject AsObjOutp { get; }
+}
+
+public interface ICmptObjOutpObject
+{
+}
+
+public interface ICmptObjAliasDual
+{
+  ICmptObjAliasDualObject AsObjAliasDual { get; }
+}
+
+public interface ICmptObjAliasDualObject
+{
+}
+
+public interface ICmptObjAliasInp
+{
+  ICmptObjAliasInpObject AsObjAliasInp { get; }
+}
+
+public interface ICmptObjAliasInpObject
+{
+}
+
+public interface ICmptObjAliasOutp
+{
+  ICmptObjAliasOutpObject AsObjAliasOutp { get; }
+}
+
+public interface ICmptObjAliasOutpObject
+{
+}
+
+public interface ICmptObjAltDual
+{
+  ICmptObjAltDualType AsObjAltDualType { get; }
+  ICmptObjAltDualObject AsObjAltDual { get; }
+}
+
+public interface ICmptObjAltDualObject
+{
+}
+
+public interface ICmptObjAltDualType
+{
+  ICmptObjAltDualTypeObject AsObjAltDualType { get; }
+}
+
+public interface ICmptObjAltDualTypeObject
+{
+}
+
+public interface ICmptObjAltInp
+{
+  ICmptObjAltInpType AsObjAltInpType { get; }
+  ICmptObjAltInpObject AsObjAltInp { get; }
+}
+
+public interface ICmptObjAltInpObject
+{
+}
+
+public interface ICmptObjAltInpType
+{
+  ICmptObjAltInpTypeObject AsObjAltInpType { get; }
+}
+
+public interface ICmptObjAltInpTypeObject
+{
+}
+
+public interface ICmptObjAltOutp
+{
+  ICmptObjAltOutpType AsObjAltOutpType { get; }
+  ICmptObjAltOutpObject AsObjAltOutp { get; }
+}
+
+public interface ICmptObjAltOutpObject
+{
+}
+
+public interface ICmptObjAltOutpType
+{
+  ICmptObjAltOutpTypeObject AsObjAltOutpType { get; }
+}
+
+public interface ICmptObjAltOutpTypeObject
+{
+}
+
+public interface ICmptObjAltEnumDual
+{
+  bool AsBooleantrue { get; }
+  bool AsBooleanfalse { get; }
+  ICmptObjAltEnumDualObject AsObjAltEnumDual { get; }
+}
+
+public interface ICmptObjAltEnumDualObject
+{
+}
+
+public interface ICmptObjAltEnumInp
+{
+  bool AsBooleantrue { get; }
+  bool AsBooleanfalse { get; }
+  ICmptObjAltEnumInpObject AsObjAltEnumInp { get; }
+}
+
+public interface ICmptObjAltEnumInpObject
+{
+}
+
+public interface ICmptObjAltEnumOutp
+{
+  bool AsBooleantrue { get; }
+  bool AsBooleanfalse { get; }
+  ICmptObjAltEnumOutpObject AsObjAltEnumOutp { get; }
+}
+
+public interface ICmptObjAltEnumOutpObject
+{
+}
+
+public interface ICmptObjCnstDual<TType>
+{
+  ICmptObjCnstDualObject<TType> AsObjCnstDual { get; }
+}
+
+public interface ICmptObjCnstDualObject<TType>
+{
+  TType Field { get; }
+  TType Str { get; }
+}
+
+public interface ICmptObjCnstInp<TType>
+{
+  ICmptObjCnstInpObject<TType> AsObjCnstInp { get; }
+}
+
+public interface ICmptObjCnstInpObject<TType>
+{
+  TType Field { get; }
+  TType Str { get; }
+}
+
+public interface ICmptObjCnstOutp<TType>
+{
+  ICmptObjCnstOutpObject<TType> AsObjCnstOutp { get; }
+}
+
+public interface ICmptObjCnstOutpObject<TType>
+{
+  TType Field { get; }
+  TType Str { get; }
+}
+
+public interface ICmptObjFieldDual
+{
+  ICmptObjFieldDualObject AsObjFieldDual { get; }
+}
+
+public interface ICmptObjFieldDualObject
+{
+  ICmptFldObjFieldDual Field { get; }
+}
+
+public interface ICmptFldObjFieldDual
+{
+  ICmptFldObjFieldDualObject AsFldObjFieldDual { get; }
+}
+
+public interface ICmptFldObjFieldDualObject
+{
+}
+
+public interface ICmptObjFieldInp
+{
+  ICmptObjFieldInpObject AsObjFieldInp { get; }
+}
+
+public interface ICmptObjFieldInpObject
+{
+  ICmptFldObjFieldInp Field { get; }
+}
+
+public interface ICmptFldObjFieldInp
+{
+  ICmptFldObjFieldInpObject AsFldObjFieldInp { get; }
+}
+
+public interface ICmptFldObjFieldInpObject
+{
+}
+
+public interface ICmptObjFieldOutp
+{
+  ICmptObjFieldOutpObject AsObjFieldOutp { get; }
+}
+
+public interface ICmptObjFieldOutpObject
+{
+  ICmptFldObjFieldOutp Field { get; }
+}
+
+public interface ICmptFldObjFieldOutp
+{
+  ICmptFldObjFieldOutpObject AsFldObjFieldOutp { get; }
+}
+
+public interface ICmptFldObjFieldOutpObject
+{
+}
+
+public interface ICmptObjFieldAliasDual
+{
+  ICmptObjFieldAliasDualObject AsObjFieldAliasDual { get; }
+}
+
+public interface ICmptObjFieldAliasDualObject
+{
+  ICmptFldObjFieldAliasDual Field { get; }
+}
+
+public interface ICmptFldObjFieldAliasDual
+{
+  ICmptFldObjFieldAliasDualObject AsFldObjFieldAliasDual { get; }
+}
+
+public interface ICmptFldObjFieldAliasDualObject
+{
+}
+
+public interface ICmptObjFieldAliasInp
+{
+  ICmptObjFieldAliasInpObject AsObjFieldAliasInp { get; }
+}
+
+public interface ICmptObjFieldAliasInpObject
+{
+  ICmptFldObjFieldAliasInp Field { get; }
+}
+
+public interface ICmptFldObjFieldAliasInp
+{
+  ICmptFldObjFieldAliasInpObject AsFldObjFieldAliasInp { get; }
+}
+
+public interface ICmptFldObjFieldAliasInpObject
+{
+}
+
+public interface ICmptObjFieldAliasOutp
+{
+  ICmptObjFieldAliasOutpObject AsObjFieldAliasOutp { get; }
+}
+
+public interface ICmptObjFieldAliasOutpObject
+{
+  ICmptFldObjFieldAliasOutp Field { get; }
+}
+
+public interface ICmptFldObjFieldAliasOutp
+{
+  ICmptFldObjFieldAliasOutpObject AsFldObjFieldAliasOutp { get; }
+}
+
+public interface ICmptFldObjFieldAliasOutpObject
+{
+}
+
+public interface ICmptObjFieldEnumAliasDual
+{
+  ICmptObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; }
+}
+
+public interface ICmptObjFieldEnumAliasDualObject
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldEnumAliasInp
+{
+  ICmptObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; }
+}
+
+public interface ICmptObjFieldEnumAliasInpObject
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldEnumAliasOutp
+{
+  ICmptObjFieldEnumAliasOutpObject AsObjFieldEnumAliasOutp { get; }
+}
+
+public interface ICmptObjFieldEnumAliasOutpObject
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldEnumValueDual
+{
+  ICmptObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; }
+}
+
+public interface ICmptObjFieldEnumValueDualObject
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldEnumValueInp
+{
+  ICmptObjFieldEnumValueInpObject AsObjFieldEnumValueInp { get; }
+}
+
+public interface ICmptObjFieldEnumValueInpObject
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldEnumValueOutp
+{
+  ICmptObjFieldEnumValueOutpObject AsObjFieldEnumValueOutp { get; }
+}
+
+public interface ICmptObjFieldEnumValueOutpObject
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldTypeAliasDual
+{
+  ICmptObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; }
+}
+
+public interface ICmptObjFieldTypeAliasDualObject
+{
+  string Field { get; }
+}
+
+public interface ICmptObjFieldTypeAliasInp
+{
+  ICmptObjFieldTypeAliasInpObject AsObjFieldTypeAliasInp { get; }
+}
+
+public interface ICmptObjFieldTypeAliasInpObject
+{
+  string Field { get; }
+}
+
+public interface ICmptObjFieldTypeAliasOutp
+{
+  ICmptObjFieldTypeAliasOutpObject AsObjFieldTypeAliasOutp { get; }
+}
+
+public interface ICmptObjFieldTypeAliasOutpObject
+{
+  string Field { get; }
+}
+
+public interface ICmptObjParamDual<TTest,TType>
+{
+  ICmptObjParamDualObject<TTest,TType> AsObjParamDual { get; }
+}
+
+public interface ICmptObjParamDualObject<TTest,TType>
+{
+  TTest Test { get; }
+  TType Type { get; }
+}
+
+public interface ICmptObjParamInp<TTest,TType>
+{
+  ICmptObjParamInpObject<TTest,TType> AsObjParamInp { get; }
+}
+
+public interface ICmptObjParamInpObject<TTest,TType>
+{
+  TTest Test { get; }
+  TType Type { get; }
+}
+
+public interface ICmptObjParamOutp<TTest,TType>
+{
+  ICmptObjParamOutpObject<TTest,TType> AsObjParamOutp { get; }
+}
+
+public interface ICmptObjParamOutpObject<TTest,TType>
+{
+  TTest Test { get; }
+  TType Type { get; }
+}
+
+public interface ICmptObjParamDupDual<TTest>
+{
+  ICmptObjParamDupDualObject<TTest> AsObjParamDupDual { get; }
+}
+
+public interface ICmptObjParamDupDualObject<TTest>
+{
+  TTest Test { get; }
+  TTest Type { get; }
+}
+
+public interface ICmptObjParamDupInp<TTest>
+{
+  ICmptObjParamDupInpObject<TTest> AsObjParamDupInp { get; }
+}
+
+public interface ICmptObjParamDupInpObject<TTest>
+{
+  TTest Test { get; }
+  TTest Type { get; }
+}
+
+public interface ICmptObjParamDupOutp<TTest>
+{
+  ICmptObjParamDupOutpObject<TTest> AsObjParamDupOutp { get; }
+}
+
+public interface ICmptObjParamDupOutpObject<TTest>
+{
+  TTest Test { get; }
+  TTest Type { get; }
+}
+
+public interface ICmptObjPrntDual
+  : ICmptRefObjPrntDual
+{
+  ICmptObjPrntDualObject AsObjPrntDual { get; }
+}
+
+public interface ICmptObjPrntDualObject
+  : ICmptRefObjPrntDualObject
+{
+}
+
+public interface ICmptRefObjPrntDual
+{
+  ICmptRefObjPrntDualObject AsRefObjPrntDual { get; }
+}
+
+public interface ICmptRefObjPrntDualObject
+{
+}
+
+public interface ICmptObjPrntInp
+  : ICmptRefObjPrntInp
+{
+  ICmptObjPrntInpObject AsObjPrntInp { get; }
+}
+
+public interface ICmptObjPrntInpObject
+  : ICmptRefObjPrntInpObject
+{
+}
+
+public interface ICmptRefObjPrntInp
+{
+  ICmptRefObjPrntInpObject AsRefObjPrntInp { get; }
+}
+
+public interface ICmptRefObjPrntInpObject
+{
+}
+
+public interface ICmptObjPrntOutp
+  : ICmptRefObjPrntOutp
+{
+  ICmptObjPrntOutpObject AsObjPrntOutp { get; }
+}
+
+public interface ICmptObjPrntOutpObject
+  : ICmptRefObjPrntOutpObject
+{
+}
+
+public interface ICmptRefObjPrntOutp
+{
+  ICmptRefObjPrntOutpObject AsRefObjPrntOutp { get; }
+}
+
+public interface ICmptRefObjPrntOutpObject
+{
+}
+
+public interface ICmptOutpFieldParam
+{
+  ICmptOutpFieldParamObject AsOutpFieldParam { get; }
+}
+
+public interface ICmptOutpFieldParamObject
+{
+  ICmptFldOutpFieldParam Field { get; }
+}
+
+public interface ICmptOutpFieldParam1
+{
+  ICmptOutpFieldParam1Object AsOutpFieldParam1 { get; }
+}
+
+public interface ICmptOutpFieldParam1Object
+{
+}
+
+public interface ICmptOutpFieldParam2
+{
+  ICmptOutpFieldParam2Object AsOutpFieldParam2 { get; }
+}
+
+public interface ICmptOutpFieldParam2Object
+{
+}
+
+public interface ICmptFldOutpFieldParam
+{
+  ICmptFldOutpFieldParamObject AsFldOutpFieldParam { get; }
+}
+
+public interface ICmptFldOutpFieldParamObject
+{
+}
+
+public interface ICmptUnionAlias
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+}
+
+public interface ICmptUnionDiff
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+}
+
+public interface ICmptUnionSame
+{
+  Boolean AsBoolean { get; }
+}
+
+public interface ICmptUnionSamePrnt
+  : ICmptPrntUnionSamePrnt
+{
+  Boolean AsBoolean { get; }
+}
+
+public interface ICmptPrntUnionSamePrnt
+{
+  String AsString { get; }
+}

@@ -1,0 +1,20 @@
+﻿/* field-value-descr+Input
+input FieldValueDescrInp { field = "Test" "Descr" fieldValueDescrInp }
+enum EnumFieldValueDescrInp { fieldValueDescrInp }
+*/
+
+// Generated from Schema field-value-descr+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_value_descr_Input;
+
+public interface ICmptFieldValueDescrInp
+{
+  ICmptFieldValueDescrInpObject AsFieldValueDescrInp { get; }
+}
+
+public interface ICmptFieldValueDescrInpObject
+{
+  CmptEnumFieldValueDescrInp Field { get; }
+}

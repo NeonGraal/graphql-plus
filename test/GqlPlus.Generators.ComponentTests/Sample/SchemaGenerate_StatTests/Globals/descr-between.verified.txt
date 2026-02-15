@@ -1,0 +1,13 @@
+﻿/* descr-between
+category { DescrBtwn }
+"A description between"
+output DescrBtwn { }
+*/
+
+// Generated from Schema descr-between for Stat
+/*
+
+Category descrBtwn
+*/
+
+namespace Components.Gqlp_Schema_descr_between;

@@ -1,0 +1,248 @@
+﻿// Generated from Schema +Simple for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_Simple;
+
+public class CmptDmnBoolDescr
+  : GqlpDomainBoolean
+  , ICmptDmnBoolDescr
+{
+}
+
+public class CmptDmnBoolPrnt
+  : CmptPrntDmnBoolPrnt
+  , ICmptDmnBoolPrnt
+{
+}
+
+public class CmptPrntDmnBoolPrnt
+  : GqlpDomainBoolean
+  , ICmptPrntDmnBoolPrnt
+{
+}
+
+public class CmptDmnBoolPrntDescr
+  : CmptPrntDmnBoolPrntDescr
+  , ICmptDmnBoolPrntDescr
+{
+}
+
+public class CmptPrntDmnBoolPrntDescr
+  : GqlpDomainBoolean
+  , ICmptPrntDmnBoolPrntDescr
+{
+}
+
+public class CmptDmnEnumAll
+  : GqlpDomainEnum
+  , ICmptDmnEnumAll
+{
+}
+
+public class CmptDmnEnumAllDescr
+  : GqlpDomainEnum
+  , ICmptDmnEnumAllDescr
+{
+}
+
+public class CmptDmnEnumAllPrnt
+  : GqlpDomainEnum
+  , ICmptDmnEnumAllPrnt
+{
+}
+
+public class CmptDmnEnumDescr
+  : GqlpDomainEnum
+  , ICmptDmnEnumDescr
+{
+}
+
+public class CmptDmnEnumExcl
+  : GqlpDomainEnum
+  , ICmptDmnEnumExcl
+{
+}
+
+public class CmptDmnEnumExclPrnt
+  : GqlpDomainEnum
+  , ICmptDmnEnumExclPrnt
+{
+}
+
+public class CmptDmnEnumLabel
+  : GqlpDomainEnum
+  , ICmptDmnEnumLabel
+{
+}
+
+public class CmptDmnEnumPrnt
+  : CmptPrntDmnEnumPrnt
+  , ICmptDmnEnumPrnt
+{
+}
+
+public class CmptPrntDmnEnumPrnt
+  : GqlpDomainEnum
+  , ICmptPrntDmnEnumPrnt
+{
+}
+
+public class CmptDmnEnumPrntDescr
+  : CmptPrntDmnEnumPrntDescr
+  , ICmptDmnEnumPrntDescr
+{
+}
+
+public class CmptPrntDmnEnumPrntDescr
+  : GqlpDomainEnum
+  , ICmptPrntDmnEnumPrntDescr
+{
+}
+
+public class CmptDmnEnumUnq
+  : GqlpDomainEnum
+  , ICmptDmnEnumUnq
+{
+}
+
+public class CmptDmnEnumUnqPrnt
+  : GqlpDomainEnum
+  , ICmptDmnEnumUnqPrnt
+{
+}
+
+public class CmptDmnEnumValue
+  : GqlpDomainEnum
+  , ICmptDmnEnumValue
+{
+}
+
+public class CmptDmnEnumValuePrnt
+  : GqlpDomainEnum
+  , ICmptDmnEnumValuePrnt
+{
+}
+
+public class CmptDmnNmbrDescr
+  : GqlpDomainNumber
+  , ICmptDmnNmbrDescr
+{
+}
+
+public class CmptDmnNmbrPrnt
+  : CmptPrntDmnNmbrPrnt
+  , ICmptDmnNmbrPrnt
+{
+}
+
+public class CmptPrntDmnNmbrPrnt
+  : GqlpDomainNumber
+  , ICmptPrntDmnNmbrPrnt
+{
+}
+
+public class CmptDmnNmbrPrntDescr
+  : CmptPrntDmnNmbrPrntDescr
+  , ICmptDmnNmbrPrntDescr
+{
+}
+
+public class CmptPrntDmnNmbrPrntDescr
+  : GqlpDomainNumber
+  , ICmptPrntDmnNmbrPrntDescr
+{
+}
+
+public class CmptDmnNmbrPstv
+  : GqlpDomainNumber
+  , ICmptDmnNmbrPstv
+{
+}
+
+public class CmptDmnNmbrRange
+  : GqlpDomainNumber
+  , ICmptDmnNmbrRange
+{
+}
+
+public class CmptDmnStrDescr
+  : GqlpDomainString
+  , ICmptDmnStrDescr
+{
+}
+
+public class CmptDmnStrNonEmpty
+  : GqlpDomainString
+  , ICmptDmnStrNonEmpty
+{
+}
+
+public class CmptDmnStrPrnt
+  : CmptPrntDmnStrPrnt
+  , ICmptDmnStrPrnt
+{
+}
+
+public class CmptPrntDmnStrPrnt
+  : GqlpDomainString
+  , ICmptPrntDmnStrPrnt
+{
+}
+
+public class CmptDmnStrPrntDescr
+  : CmptPrntDmnStrPrntDescr
+  , ICmptDmnStrPrntDescr
+{
+}
+
+public class CmptPrntDmnStrPrntDescr
+  : GqlpDomainString
+  , ICmptPrntDmnStrPrntDescr
+{
+}
+
+public class CmptUnionDescr
+  : ICmptUnionDescr
+{
+  public Number AsNumber { get; set; }
+}
+
+public class CmptUnionPrnt
+  : CmptPrntUnionPrnt
+  , ICmptUnionPrnt
+{
+  public String AsString { get; set; }
+}
+
+public class CmptPrntUnionPrnt
+  : ICmptPrntUnionPrnt
+{
+  public Number AsNumber { get; set; }
+}
+
+public class CmptUnionPrntDescr
+  : CmptPrntUnionPrntDescr
+  , ICmptUnionPrntDescr
+{
+  public Number AsNumber { get; set; }
+}
+
+public class CmptPrntUnionPrntDescr
+  : ICmptPrntUnionPrntDescr
+{
+  public Number AsNumber { get; set; }
+}
+
+public class CmptUnionPrntDup
+  : CmptPrntUnionPrntDup
+  , ICmptUnionPrntDup
+{
+  public Number AsNumber { get; set; }
+}
+
+public class CmptPrntUnionPrntDup
+  : ICmptPrntUnionPrntDup
+{
+  public Number AsNumber { get; set; }
+}

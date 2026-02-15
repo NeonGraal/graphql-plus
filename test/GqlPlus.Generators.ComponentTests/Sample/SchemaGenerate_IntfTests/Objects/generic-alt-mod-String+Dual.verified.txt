@@ -1,0 +1,19 @@
+﻿/* generic-alt-mod-String+Dual
+dual RefGnrcAltModStrDual<$ref:String> { | $ref[*] }
+*/
+
+// Generated from Schema generic-alt-mod-String+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_mod_String_Dual;
+
+public interface ICmptRefGnrcAltModStrDual<TRef>
+{
+  IDictionary<string, TRef> Asref { get; }
+  ICmptRefGnrcAltModStrDualObject<TRef> AsRefGnrcAltModStrDual { get; }
+}
+
+public interface ICmptRefGnrcAltModStrDualObject<TRef>
+{
+}

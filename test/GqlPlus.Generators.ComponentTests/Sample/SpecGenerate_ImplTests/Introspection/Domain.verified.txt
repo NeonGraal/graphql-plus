@@ -1,0 +1,171 @@
+﻿/* Domain
+enum _DomainKind { Boolean Enum Number String }
+
+output _DomainRef<$kind:_DomainKind> {
+    : _TypeRef<_TypeKind.Domain>
+        domainKind: $kind
+    }
+
+output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
+    : _ParentType<_TypeKind.Domain $item $domainItem>
+        domainKind: $domain
+    }
+
+dual _BaseDomainItem {
+    : _Described
+        exclude: Boolean
+    }
+
+output _DomainItem<$item:_BaseDomainItem> {
+    : $item
+        domain: _Name
+    }
+
+output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$kind>
+        value: $value
+    | $value
+    }
+
+output _BasicValue {
+    | Boolean
+    | _EnumValue
+    | Number
+    | String
+    }
+
+dual _DomainTrueFalse {
+    : _BaseDomainItem
+        value: Boolean
+    }
+
+output _DomainItemTrueFalse {
+    : _DomainItem<_DomainTrueFalse>
+    }
+
+output _DomainLabel {
+    : _BaseDomainItem
+        label: _EnumValue
+    }
+
+output _DomainItemLabel {
+    : _DomainItem<_DomainLabel>
+    }
+
+dual _DomainRange {
+    : _BaseDomainItem
+        lower: Number?
+        upper: Number?
+    }
+
+output _DomainItemRange {
+    : _DomainItem<_DomainRange>
+    }
+
+dual _DomainRegex {
+    : _BaseDomainItem
+        pattern: String
+    }
+
+output _DomainItemRegex {
+    : _DomainItem<_DomainRegex>
+    }
+*/
+
+// Generated from Spec Domain for Impl
+/*
+*/
+
+namespace Components.Gqlp_Spec_Domain;
+
+public class Cmpt_DomainRef<TKind>
+  : Cmpt_TypeRef<ICmpt_TypeKind>
+  , ICmpt_DomainRef<TKind>
+{
+  public TKind DomainKind { get; set; }
+}
+
+public class Cmpt_BaseDomain<TDomain,TItem,TDomainItem>
+  : Cmpt_ParentType<ICmpt_TypeKind, TItem, TDomainItem>
+  , ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
+{
+  public TDomain DomainKind { get; set; }
+}
+
+public class Cmpt_BaseDomainItem
+  : Cmpt_Described
+  , ICmpt_BaseDomainItem
+{
+  public Cmpt_DomainKind Exclude { get; set; }
+}
+
+public class Cmpt_DomainItem<TItem>
+  : ICmpt_DomainItem<TItem>
+{
+  public ICmpt_Name Domain { get; set; }
+}
+
+public class Cmpt_DomainValue<TKind,TValue>
+  : Cmpt_DomainRef<TKind>
+  , ICmpt_DomainValue<TKind,TValue>
+{
+  public TValue Value { get; set; }
+}
+
+public class Cmpt_BasicValue
+  : ICmpt_BasicValue
+{
+}
+
+public class Cmpt_DomainTrueFalse
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainTrueFalse
+{
+  public Cmpt_DomainKind Value { get; set; }
+}
+
+public class Cmpt_DomainItemTrueFalse
+  : Cmpt_DomainItem<ICmpt_DomainTrueFalse>
+  , ICmpt_DomainItemTrueFalse
+{
+}
+
+public class Cmpt_DomainLabel
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainLabel
+{
+  public ICmpt_EnumValue Label { get; set; }
+}
+
+public class Cmpt_DomainItemLabel
+  : Cmpt_DomainItem<ICmpt_DomainLabel>
+  , ICmpt_DomainItemLabel
+{
+}
+
+public class Cmpt_DomainRange
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainRange
+{
+  public Cmpt_DomainKind? Lower { get; set; }
+  public Cmpt_DomainKind? Upper { get; set; }
+}
+
+public class Cmpt_DomainItemRange
+  : Cmpt_DomainItem<ICmpt_DomainRange>
+  , ICmpt_DomainItemRange
+{
+}
+
+public class Cmpt_DomainRegex
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainRegex
+{
+  public Cmpt_DomainKind Pattern { get; set; }
+}
+
+public class Cmpt_DomainItemRegex
+  : Cmpt_DomainItem<ICmpt_DomainRegex>
+  , ICmpt_DomainItemRegex
+{
+}

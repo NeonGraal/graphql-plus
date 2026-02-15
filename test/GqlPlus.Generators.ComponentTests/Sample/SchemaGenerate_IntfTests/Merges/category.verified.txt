@@ -1,0 +1,20 @@
+﻿/* category
+category { Ctgr }
+category ctgr { Ctgr }
+output Ctgr { }
+*/
+
+// Generated from Schema category for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_category;
+
+public interface ICmptCtgr
+{
+  ICmptCtgrObject AsCtgr { get; }
+}
+
+public interface ICmptCtgrObject
+{
+}

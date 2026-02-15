@@ -1,0 +1,21 @@
+﻿/* generic-field-arg+Input
+input GnrcFieldArgInp<$type:String> { field: RefGnrcFieldArgInp<$type> }
+input RefGnrcFieldArgInp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-field-arg+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_arg_Input;
+
+public class CmptGnrcFieldArgInp<TType>
+  : ICmptGnrcFieldArgInp<TType>
+{
+  public ICmptRefGnrcFieldArgInp<TType> Field { get; set; }
+}
+
+public class CmptRefGnrcFieldArgInp<TRef>
+  : ICmptRefGnrcFieldArgInp<TRef>
+{
+}

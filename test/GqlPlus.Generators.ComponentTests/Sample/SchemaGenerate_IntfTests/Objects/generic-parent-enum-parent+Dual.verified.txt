@@ -1,0 +1,33 @@
+﻿/* generic-parent-enum-parent+Dual
+dual GnrcPrntEnumPrntDual { :FieldGnrcPrntEnumPrntDual<EnumGnrcPrntEnumPrntDual> }
+dual FieldGnrcPrntEnumPrntDual<$ref:ParentGnrcPrntEnumPrntDual> { field: $ref }
+enum EnumGnrcPrntEnumPrntDual { :ParentGnrcPrntEnumPrntDual gnrcPrntEnumPrntDualLabel }
+enum ParentGnrcPrntEnumPrntDual { gnrcPrntEnumPrntDualParent }
+*/
+
+// Generated from Schema generic-parent-enum-parent+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_enum_parent_Dual;
+
+public interface ICmptGnrcPrntEnumPrntDual
+  : ICmptFieldGnrcPrntEnumPrntDual<CmptEnumGnrcPrntEnumPrntDual>
+{
+  ICmptGnrcPrntEnumPrntDualObject AsGnrcPrntEnumPrntDual { get; }
+}
+
+public interface ICmptGnrcPrntEnumPrntDualObject
+  : ICmptFieldGnrcPrntEnumPrntDualObject<CmptEnumGnrcPrntEnumPrntDual>
+{
+}
+
+public interface ICmptFieldGnrcPrntEnumPrntDual<TRef>
+{
+  ICmptFieldGnrcPrntEnumPrntDualObject<TRef> AsFieldGnrcPrntEnumPrntDual { get; }
+}
+
+public interface ICmptFieldGnrcPrntEnumPrntDualObject<TRef>
+{
+  TRef Field { get; }
+}

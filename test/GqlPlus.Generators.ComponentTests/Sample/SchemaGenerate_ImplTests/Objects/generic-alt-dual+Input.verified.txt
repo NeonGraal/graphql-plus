@@ -1,0 +1,27 @@
+﻿/* generic-alt-dual+Input
+input GnrcAltDualInp { | RefGnrcAltDualInp<AltGnrcAltDualInp> }
+input RefGnrcAltDualInp<$ref:_Dual> { | $ref }
+dual AltGnrcAltDualInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-dual+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_dual_Input;
+
+public class CmptGnrcAltDualInp
+  : ICmptGnrcAltDualInp
+{
+}
+
+public class CmptRefGnrcAltDualInp<TRef>
+  : ICmptRefGnrcAltDualInp<TRef>
+{
+}
+
+public class CmptAltGnrcAltDualInp
+  : ICmptAltGnrcAltDualInp
+{
+  public decimal Alt { get; set; }
+}

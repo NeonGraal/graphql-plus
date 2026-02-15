@@ -1,0 +1,29 @@
+﻿/* output-param-mod-Domain
+output OutpParamModDmn { field(InOutpParamModDmn[DomOutpParamModDmn]): DomOutpParamModDmn }
+input InOutpParamModDmn { param: Number | String }
+domain DomOutpParamModDmn { number 1 < 10 }
+*/
+
+// Generated from Schema output-param-mod-Domain for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param_mod_Domain;
+
+public class CmptOutpParamModDmn
+  : ICmptOutpParamModDmn
+{
+  public ICmptDomOutpParamModDmn Field { get; set; }
+}
+
+public class CmptInOutpParamModDmn
+  : ICmptInOutpParamModDmn
+{
+  public decimal Param { get; set; }
+}
+
+public class CmptDomOutpParamModDmn
+  : GqlpDomainNumber
+  , ICmptDomOutpParamModDmn
+{
+}

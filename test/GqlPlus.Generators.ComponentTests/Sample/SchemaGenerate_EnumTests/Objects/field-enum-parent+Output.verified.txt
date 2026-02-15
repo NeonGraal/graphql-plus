@@ -1,0 +1,22 @@
+﻿/* field-enum-parent+Output
+output FieldEnumPrntOutp { field = EnumFieldEnumPrntOutp.prnt_fieldEnumPrntOutp }
+enum EnumFieldEnumPrntOutp { :PrntFieldEnumPrntOutp fieldEnumPrntOutp }
+enum PrntFieldEnumPrntOutp { prnt_fieldEnumPrntOutp }
+*/
+
+// Generated from Schema field-enum-parent+Output for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_enum_parent_Output;
+
+public enum CmptEnumFieldEnumPrntOutp
+{
+  prnt_fieldEnumPrntOutp = CmptPrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
+  fieldEnumPrntOutp,
+}
+
+public enum CmptPrntFieldEnumPrntOutp
+{
+  prnt_fieldEnumPrntOutp,
+}

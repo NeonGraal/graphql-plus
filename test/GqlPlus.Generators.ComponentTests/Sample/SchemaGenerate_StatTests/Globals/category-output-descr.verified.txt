@@ -1,0 +1,12 @@
+﻿/* category-output-descr
+category { "Output comment" CtgrOutpDescr }
+output CtgrOutpDescr { }
+*/
+
+// Generated from Schema category-output-descr for Stat
+/*
+
+Category ctgrOutpDescr
+*/
+
+namespace Components.Gqlp_Schema_category_output_descr;

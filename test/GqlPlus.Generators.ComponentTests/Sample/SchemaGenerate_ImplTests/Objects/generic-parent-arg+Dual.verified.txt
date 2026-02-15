@@ -1,0 +1,21 @@
+﻿/* generic-parent-arg+Dual
+dual GnrcPrntArgDual<$type:String> { :RefGnrcPrntArgDual<$type> }
+dual RefGnrcPrntArgDual<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-parent-arg+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_arg_Dual;
+
+public class CmptGnrcPrntArgDual<TType>
+  : CmptRefGnrcPrntArgDual<TType>
+  , ICmptGnrcPrntArgDual<TType>
+{
+}
+
+public class CmptRefGnrcPrntArgDual<TRef>
+  : ICmptRefGnrcPrntArgDual<TRef>
+{
+}

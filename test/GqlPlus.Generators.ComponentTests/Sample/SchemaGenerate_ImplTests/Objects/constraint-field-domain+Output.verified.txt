@@ -1,0 +1,29 @@
+﻿/* constraint-field-domain+Output
+output CnstFieldDmnOutp { :RefCnstFieldDmnOutp<DomCnstFieldDmnOutp> }
+output RefCnstFieldDmnOutp<$ref:String> { field: $ref }
+domain DomCnstFieldDmnOutp { String /\w+/ }
+*/
+
+// Generated from Schema constraint-field-domain+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_domain_Output;
+
+public class CmptCnstFieldDmnOutp
+  : CmptRefCnstFieldDmnOutp<ICmptDomCnstFieldDmnOutp>
+  , ICmptCnstFieldDmnOutp
+{
+}
+
+public class CmptRefCnstFieldDmnOutp<TRef>
+  : ICmptRefCnstFieldDmnOutp<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+public class CmptDomCnstFieldDmnOutp
+  : GqlpDomainString
+  , ICmptDomCnstFieldDmnOutp
+{
+}

@@ -1,0 +1,22 @@
+﻿/* field-dual+Output
+output FieldDualOutp { field: FldFieldDualOutp }
+dual FldFieldDualOutp { field: Number | String }
+*/
+
+// Generated from Schema field-dual+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_dual_Output;
+
+public class CmptFieldDualOutp
+  : ICmptFieldDualOutp
+{
+  public ICmptFldFieldDualOutp Field { get; set; }
+}
+
+public class CmptFldFieldDualOutp
+  : ICmptFldFieldDualOutp
+{
+  public decimal Field { get; set; }
+}

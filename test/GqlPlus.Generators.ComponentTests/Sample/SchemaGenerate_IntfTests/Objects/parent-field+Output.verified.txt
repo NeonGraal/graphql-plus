@@ -1,0 +1,33 @@
+﻿/* parent-field+Output
+output PrntFieldOutp { :RefPrntFieldOutp field: Number }
+output RefPrntFieldOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_field_Output;
+
+public interface ICmptPrntFieldOutp
+  : ICmptRefPrntFieldOutp
+{
+  ICmptPrntFieldOutpObject AsPrntFieldOutp { get; }
+}
+
+public interface ICmptPrntFieldOutpObject
+  : ICmptRefPrntFieldOutpObject
+{
+  decimal Field { get; }
+}
+
+public interface ICmptRefPrntFieldOutp
+{
+  string AsString { get; }
+  ICmptRefPrntFieldOutpObject AsRefPrntFieldOutp { get; }
+}
+
+public interface ICmptRefPrntFieldOutpObject
+{
+  decimal Parent { get; }
+}

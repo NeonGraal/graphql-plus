@@ -1,0 +1,15 @@
+﻿/* enum-alias
+enum EnumAlias [En1] { enumAlias }
+enum EnumAlias [En2] { enumAlias }
+*/
+
+// Generated from Schema enum-alias for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_enum_alias;
+
+public enum CmptEnumAlias
+{
+  enumAlias,
+}

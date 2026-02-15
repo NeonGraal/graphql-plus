@@ -1,0 +1,22 @@
+﻿/* domain-number-parent-descr
+domain DmnNmbrPrntDescr { :"Parent comment"PrntDmnNmbrPrntDescr Number 2<}
+domain PrntDmnNmbrPrntDescr { Number <2 }
+*/
+
+// Generated from Schema domain-number-parent-descr for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_number_parent_descr;
+
+public class CmptDmnNmbrPrntDescr
+  : CmptPrntDmnNmbrPrntDescr
+  , ICmptDmnNmbrPrntDescr
+{
+}
+
+public class CmptPrntDmnNmbrPrntDescr
+  : GqlpDomainNumber
+  , ICmptPrntDmnNmbrPrntDescr
+{
+}

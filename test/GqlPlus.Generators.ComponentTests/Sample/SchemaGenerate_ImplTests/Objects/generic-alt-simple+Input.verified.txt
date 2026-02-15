@@ -1,0 +1,20 @@
+﻿/* generic-alt-simple+Input
+input GnrcAltSmplInp { | RefGnrcAltSmplInp<String> }
+input RefGnrcAltSmplInp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-simple+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_simple_Input;
+
+public class CmptGnrcAltSmplInp
+  : ICmptGnrcAltSmplInp
+{
+}
+
+public class CmptRefGnrcAltSmplInp<TRef>
+  : ICmptRefGnrcAltSmplInp<TRef>
+{
+}

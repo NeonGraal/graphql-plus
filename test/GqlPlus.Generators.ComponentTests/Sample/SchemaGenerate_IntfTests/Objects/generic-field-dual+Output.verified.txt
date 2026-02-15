@@ -1,0 +1,42 @@
+﻿/* generic-field-dual+Output
+output GnrcFieldDualOutp { field: RefGnrcFieldDualOutp<AltGnrcFieldDualOutp> }
+output RefGnrcFieldDualOutp<$ref:_Dual> { | $ref }
+dual AltGnrcFieldDualOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-dual+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_dual_Output;
+
+public interface ICmptGnrcFieldDualOutp
+{
+  ICmptGnrcFieldDualOutpObject AsGnrcFieldDualOutp { get; }
+}
+
+public interface ICmptGnrcFieldDualOutpObject
+{
+  ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; }
+}
+
+public interface ICmptRefGnrcFieldDualOutp<TRef>
+{
+  TRef Asref { get; }
+  ICmptRefGnrcFieldDualOutpObject<TRef> AsRefGnrcFieldDualOutp { get; }
+}
+
+public interface ICmptRefGnrcFieldDualOutpObject<TRef>
+{
+}
+
+public interface ICmptAltGnrcFieldDualOutp
+{
+  string AsString { get; }
+  ICmptAltGnrcFieldDualOutpObject AsAltGnrcFieldDualOutp { get; }
+}
+
+public interface ICmptAltGnrcFieldDualOutpObject
+{
+  decimal Alt { get; }
+}

@@ -1,0 +1,19 @@
+﻿/* field-simple+Output
+output FieldSmplOutp { field: Number }
+*/
+
+// Generated from Schema field-simple+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_simple_Output;
+
+public interface ICmptFieldSmplOutp
+{
+  ICmptFieldSmplOutpObject AsFieldSmplOutp { get; }
+}
+
+public interface ICmptFieldSmplOutpObject
+{
+  decimal Field { get; }
+}

@@ -1,0 +1,15 @@
+﻿/* descr-double
+"A 'double-quoted' description"
+output DescrDbl { }
+*/
+
+// Generated from Schema descr-double for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr_double;
+
+public class CmptDescrDbl
+  : ICmptDescrDbl
+{
+}

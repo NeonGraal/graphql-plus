@@ -1,0 +1,30 @@
+﻿/* object-field+Output
+output ObjFieldOutp { field: FldObjFieldOutp }
+output ObjFieldOutp { field: FldObjFieldOutp }
+output FldObjFieldOutp { }
+*/
+
+// Generated from Schema object-field+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_Output;
+
+public interface ICmptObjFieldOutp
+{
+  ICmptObjFieldOutpObject AsObjFieldOutp { get; }
+}
+
+public interface ICmptObjFieldOutpObject
+{
+  ICmptFldObjFieldOutp Field { get; }
+}
+
+public interface ICmptFldObjFieldOutp
+{
+  ICmptFldObjFieldOutpObject AsFldObjFieldOutp { get; }
+}
+
+public interface ICmptFldObjFieldOutpObject
+{
+}

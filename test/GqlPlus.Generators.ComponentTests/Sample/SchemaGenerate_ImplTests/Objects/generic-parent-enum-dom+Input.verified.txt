@@ -1,0 +1,30 @@
+﻿/* generic-parent-enum-dom+Input
+input GnrcPrntEnumDomInp { :FieldGnrcPrntEnumDomInp<DomGnrcPrntEnumDomInp> }
+input FieldGnrcPrntEnumDomInp<$ref:EnumGnrcPrntEnumDomInp> { field: $ref }
+enum EnumGnrcPrntEnumDomInp { gnrcPrntEnumDomInpLabel gnrcPrntEnumDomInpOther }
+domain DomGnrcPrntEnumDomInp { enum gnrcPrntEnumDomInpLabel }
+*/
+
+// Generated from Schema generic-parent-enum-dom+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_enum_dom_Input;
+
+public class CmptGnrcPrntEnumDomInp
+  : CmptFieldGnrcPrntEnumDomInp<ICmptDomGnrcPrntEnumDomInp>
+  , ICmptGnrcPrntEnumDomInp
+{
+}
+
+public class CmptFieldGnrcPrntEnumDomInp<TRef>
+  : ICmptFieldGnrcPrntEnumDomInp<TRef>
+{
+  public TRef Field { get; set; }
+}
+
+public class CmptDomGnrcPrntEnumDomInp
+  : GqlpDomainEnum
+  , ICmptDomGnrcPrntEnumDomInp
+{
+}

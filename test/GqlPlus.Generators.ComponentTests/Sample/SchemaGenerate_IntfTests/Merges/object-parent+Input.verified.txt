@@ -1,0 +1,31 @@
+﻿/* object-parent+Input
+input ObjPrntInp { :RefObjPrntInp }
+input ObjPrntInp { :RefObjPrntInp }
+input RefObjPrntInp { }
+*/
+
+// Generated from Schema object-parent+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_parent_Input;
+
+public interface ICmptObjPrntInp
+  : ICmptRefObjPrntInp
+{
+  ICmptObjPrntInpObject AsObjPrntInp { get; }
+}
+
+public interface ICmptObjPrntInpObject
+  : ICmptRefObjPrntInpObject
+{
+}
+
+public interface ICmptRefObjPrntInp
+{
+  ICmptRefObjPrntInpObject AsRefObjPrntInp { get; }
+}
+
+public interface ICmptRefObjPrntInpObject
+{
+}

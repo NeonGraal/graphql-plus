@@ -1,0 +1,21 @@
+﻿/* object-constraint+Input
+input ObjCnstInp<$type:String> { field: $type }
+input ObjCnstInp<$type:String> { str: $type }
+*/
+
+// Generated from Schema object-constraint+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_constraint_Input;
+
+public interface ICmptObjCnstInp<TType>
+{
+  ICmptObjCnstInpObject<TType> AsObjCnstInp { get; }
+}
+
+public interface ICmptObjCnstInpObject<TType>
+{
+  TType Field { get; }
+  TType Str { get; }
+}

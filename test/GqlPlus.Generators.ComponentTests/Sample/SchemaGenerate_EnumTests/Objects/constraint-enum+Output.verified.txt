@@ -1,0 +1,16 @@
+﻿/* constraint-enum+Output
+output CnstEnumOutp { | RefCnstEnumOutp<cnstEnumOutp> }
+output RefCnstEnumOutp<$type:EnumCnstEnumOutp> { field: $type }
+enum EnumCnstEnumOutp { cnstEnumOutp }
+*/
+
+// Generated from Schema constraint-enum+Output for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_enum_Output;
+
+public enum CmptEnumCnstEnumOutp
+{
+  cnstEnumOutp,
+}

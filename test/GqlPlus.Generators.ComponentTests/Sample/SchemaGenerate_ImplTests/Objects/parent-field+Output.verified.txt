@@ -1,0 +1,23 @@
+﻿/* parent-field+Output
+output PrntFieldOutp { :RefPrntFieldOutp field: Number }
+output RefPrntFieldOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_field_Output;
+
+public class CmptPrntFieldOutp
+  : CmptRefPrntFieldOutp
+  , ICmptPrntFieldOutp
+{
+  public decimal Field { get; set; }
+}
+
+public class CmptRefPrntFieldOutp
+  : ICmptRefPrntFieldOutp
+{
+  public decimal Parent { get; set; }
+}

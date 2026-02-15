@@ -1,0 +1,21 @@
+﻿/* alt-mod-param+Output
+output AltModParamOutp<$mod:String> { | AltAltModParamOutp[$mod] }
+output AltAltModParamOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-param+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_param_Output;
+
+public class CmptAltModParamOutp<TMod>
+  : ICmptAltModParamOutp<TMod>
+{
+}
+
+public class CmptAltAltModParamOutp
+  : ICmptAltAltModParamOutp
+{
+  public decimal Alt { get; set; }
+}

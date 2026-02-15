@@ -1,0 +1,20 @@
+﻿/* generic-alt-simple+Output
+output GnrcAltSmplOutp { | RefGnrcAltSmplOutp<String> }
+output RefGnrcAltSmplOutp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-simple+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_simple_Output;
+
+public class CmptGnrcAltSmplOutp
+  : ICmptGnrcAltSmplOutp
+{
+}
+
+public class CmptRefGnrcAltSmplOutp<TRef>
+  : ICmptRefGnrcAltSmplOutp<TRef>
+{
+}

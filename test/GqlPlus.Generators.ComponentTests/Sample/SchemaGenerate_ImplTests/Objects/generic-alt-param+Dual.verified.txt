@@ -1,0 +1,27 @@
+﻿/* generic-alt-param+Dual
+dual GnrcAltParamDual { | RefGnrcAltParamDual<AltGnrcAltParamDual> }
+dual RefGnrcAltParamDual<$ref:_Dual> { | $ref }
+dual AltGnrcAltParamDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_param_Dual;
+
+public class CmptGnrcAltParamDual
+  : ICmptGnrcAltParamDual
+{
+}
+
+public class CmptRefGnrcAltParamDual<TRef>
+  : ICmptRefGnrcAltParamDual<TRef>
+{
+}
+
+public class CmptAltGnrcAltParamDual
+  : ICmptAltGnrcAltParamDual
+{
+  public decimal Alt { get; set; }
+}

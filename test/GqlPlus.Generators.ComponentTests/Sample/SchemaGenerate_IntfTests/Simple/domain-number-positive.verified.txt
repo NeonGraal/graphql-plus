@@ -1,0 +1,14 @@
+﻿/* domain-number-positive
+domain DmnNmbrPstv { Number !<0 }
+*/
+
+// Generated from Schema domain-number-positive for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_number_positive;
+
+public interface ICmptDmnNmbrPstv
+  : IGqlpDomainNumber
+{
+}

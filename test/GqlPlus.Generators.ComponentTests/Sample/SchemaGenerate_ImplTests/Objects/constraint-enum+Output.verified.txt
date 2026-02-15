@@ -1,0 +1,22 @@
+﻿/* constraint-enum+Output
+output CnstEnumOutp { | RefCnstEnumOutp<cnstEnumOutp> }
+output RefCnstEnumOutp<$type:EnumCnstEnumOutp> { field: $type }
+enum EnumCnstEnumOutp { cnstEnumOutp }
+*/
+
+// Generated from Schema constraint-enum+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_enum_Output;
+
+public class CmptCnstEnumOutp
+  : ICmptCnstEnumOutp
+{
+}
+
+public class CmptRefCnstEnumOutp<TType>
+  : ICmptRefCnstEnumOutp<TType>
+{
+  public TType Field { get; set; }
+}

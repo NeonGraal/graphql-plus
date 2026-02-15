@@ -1,0 +1,20 @@
+﻿/* alt-enum+Output
+output AltEnumOutp { ! EnumAltEnumOutp.altEnumOutp }
+enum EnumAltEnumOutp { altEnumOutp }
+*/
+
+// Generated from Schema alt-enum+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_enum_Output;
+
+public interface ICmptAltEnumOutp
+{
+  CmptEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; }
+  ICmptAltEnumOutpObject AsAltEnumOutp { get; }
+}
+
+public interface ICmptAltEnumOutpObject
+{
+}

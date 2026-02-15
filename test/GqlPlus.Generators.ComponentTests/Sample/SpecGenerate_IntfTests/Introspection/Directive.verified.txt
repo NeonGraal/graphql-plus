@@ -1,0 +1,49 @@
+﻿/* Directive
+output _Directives {
+    : _AndType
+        directive: _Directive
+    | _Directive
+    }
+
+output _Directive {
+    : _Aliased
+        parameters: _InputParam[]
+        repeatable: Boolean
+        locations: _[_Location]
+    }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
+*/
+
+// Generated from Spec Directive for Intf
+/*
+*/
+
+namespace Components.Gqlp_Spec_Directive;
+
+public interface ICmpt_Directives
+  : ICmpt_AndType
+{
+  ICmpt_Directive As_Directive { get; }
+  ICmpt_DirectivesObject As_Directives { get; }
+}
+
+public interface ICmpt_DirectivesObject
+  : ICmpt_AndTypeObject
+{
+  ICmpt_Directive Directive { get; }
+}
+
+public interface ICmpt_Directive
+  : ICmpt_Aliased
+{
+  ICmpt_DirectiveObject As_Directive { get; }
+}
+
+public interface ICmpt_DirectiveObject
+  : ICmpt_AliasedObject
+{
+  ICollection<ICmpt_InputParam> Parameters { get; }
+  bool Repeatable { get; }
+  IDictionary<Cmpt_Location, GqlpUnit> Locations { get; }
+}

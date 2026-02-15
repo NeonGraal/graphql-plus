@@ -1,0 +1,19 @@
+﻿/* descr-complex
+"A \"more\" 'Complicated' \\ description"
+output DescrCmpl { }
+*/
+
+// Generated from Schema descr-complex for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr_complex;
+
+public interface ICmptDescrCmpl
+{
+  ICmptDescrCmplObject AsDescrCmpl { get; }
+}
+
+public interface ICmptDescrCmplObject
+{
+}

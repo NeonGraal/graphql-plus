@@ -1,0 +1,24 @@
+﻿/* Option
+output _Setting {
+    : _Named
+        value: Value
+    }
+*/
+
+// Generated from Spec Option for Intf
+/*
+*/
+
+namespace Components.Gqlp_Spec_Option;
+
+public interface ICmpt_Setting
+  : ICmpt_Named
+{
+  ICmpt_SettingObject As_Setting { get; }
+}
+
+public interface ICmpt_SettingObject
+  : ICmpt_NamedObject
+{
+  GqlpValue Value { get; }
+}

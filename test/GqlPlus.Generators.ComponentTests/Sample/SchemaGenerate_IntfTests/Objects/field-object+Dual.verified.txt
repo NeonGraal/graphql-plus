@@ -1,0 +1,31 @@
+﻿/* field-object+Dual
+dual FieldObjDual { field: FldFieldObjDual }
+dual FldFieldObjDual { field: Number | String }
+*/
+
+// Generated from Schema field-object+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_object_Dual;
+
+public interface ICmptFieldObjDual
+{
+  ICmptFieldObjDualObject AsFieldObjDual { get; }
+}
+
+public interface ICmptFieldObjDualObject
+{
+  ICmptFldFieldObjDual Field { get; }
+}
+
+public interface ICmptFldFieldObjDual
+{
+  string AsString { get; }
+  ICmptFldFieldObjDualObject AsFldFieldObjDual { get; }
+}
+
+public interface ICmptFldFieldObjDualObject
+{
+  decimal Field { get; }
+}

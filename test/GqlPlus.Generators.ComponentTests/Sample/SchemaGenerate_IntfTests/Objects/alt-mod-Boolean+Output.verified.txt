@@ -1,0 +1,31 @@
+﻿/* alt-mod-Boolean+Output
+output AltModBoolOutp { | AltAltModBoolOutp[^] }
+output AltAltModBoolOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-Boolean+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Output;
+
+public interface ICmptAltModBoolOutp
+{
+  IDictionary<bool, ICmptAltAltModBoolOutp> AsAltAltModBoolOutp { get; }
+  ICmptAltModBoolOutpObject AsAltModBoolOutp { get; }
+}
+
+public interface ICmptAltModBoolOutpObject
+{
+}
+
+public interface ICmptAltAltModBoolOutp
+{
+  string AsString { get; }
+  ICmptAltAltModBoolOutpObject AsAltAltModBoolOutp { get; }
+}
+
+public interface ICmptAltAltModBoolOutpObject
+{
+  decimal Alt { get; }
+}

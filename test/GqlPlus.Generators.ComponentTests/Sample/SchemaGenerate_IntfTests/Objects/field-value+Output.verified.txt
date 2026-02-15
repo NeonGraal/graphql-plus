@@ -1,0 +1,20 @@
+﻿/* field-value+Output
+output FieldValueOutp { field = fieldValueOutp }
+enum EnumFieldValueOutp { fieldValueOutp }
+*/
+
+// Generated from Schema field-value+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_value_Output;
+
+public interface ICmptFieldValueOutp
+{
+  ICmptFieldValueOutpObject AsFieldValueOutp { get; }
+}
+
+public interface ICmptFieldValueOutpObject
+{
+  CmptEnumFieldValueOutp Field { get; }
+}

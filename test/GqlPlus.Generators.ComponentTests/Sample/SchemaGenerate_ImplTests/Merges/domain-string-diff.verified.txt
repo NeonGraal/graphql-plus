@@ -1,0 +1,16 @@
+﻿/* domain-string-diff
+domain DmnStrDiff { string /a+/ }
+domain DmnStrDiff { string }
+*/
+
+// Generated from Schema domain-string-diff for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_string_diff;
+
+public class CmptDmnStrDiff
+  : GqlpDomainString
+  , ICmptDmnStrDiff
+{
+}

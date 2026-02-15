@@ -1,0 +1,22 @@
+﻿/* parent+Dual
+dual PrntDual { :RefPrntDual }
+dual RefPrntDual { parent: Number | String }
+*/
+
+// Generated from Schema parent+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_Dual;
+
+public class CmptPrntDual
+  : CmptRefPrntDual
+  , ICmptPrntDual
+{
+}
+
+public class CmptRefPrntDual
+  : ICmptRefPrntDual
+{
+  public decimal Parent { get; set; }
+}

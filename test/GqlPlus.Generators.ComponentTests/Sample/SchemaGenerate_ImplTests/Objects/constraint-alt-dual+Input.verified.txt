@@ -1,0 +1,34 @@
+﻿/* constraint-alt-dual+Input
+input CnstAltDualInp { | RefCnstAltDualInp<AltCnstAltDualInp> }
+input RefCnstAltDualInp<$ref:PrntCnstAltDualInp> { | $ref }
+dual PrntCnstAltDualInp { | String }
+input AltCnstAltDualInp { :PrntCnstAltDualInp alt: Number }
+*/
+
+// Generated from Schema constraint-alt-dual+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_dual_Input;
+
+public class CmptCnstAltDualInp
+  : ICmptCnstAltDualInp
+{
+}
+
+public class CmptRefCnstAltDualInp<TRef>
+  : ICmptRefCnstAltDualInp<TRef>
+{
+}
+
+public class CmptPrntCnstAltDualInp
+  : ICmptPrntCnstAltDualInp
+{
+}
+
+public class CmptAltCnstAltDualInp
+  : CmptPrntCnstAltDualInp
+  , ICmptAltCnstAltDualInp
+{
+  public decimal Alt { get; set; }
+}

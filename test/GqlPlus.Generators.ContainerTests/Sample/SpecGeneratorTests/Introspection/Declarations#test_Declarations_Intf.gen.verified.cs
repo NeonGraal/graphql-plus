@@ -1,0 +1,70 @@
+﻿//HintName: test_Declarations_Intf.gen.cs
+// Generated from Declarations.graphql+ for Intf
+/*
+*/
+
+namespace GqlPlus.GeneratorTests.Gqlp_Declarations;
+
+public interface Itest_Schema
+  : Itest_Named
+{
+  Itest_SchemaObject As_Schema { get; }
+}
+
+public interface Itest_SchemaObject
+  : Itest_NamedObject
+{
+  IDictionary<Itest_Name, Itest_Categories> Categories { get; }
+  IDictionary<Itest_Name, Itest_Directives> Directives { get; }
+  IDictionary<Itest_Name, Itest_Type> Types { get; }
+  IDictionary<Itest_Name, Itest_Setting> Settings { get; }
+}
+
+public interface Itest_Name
+  : IGqlpDomainString
+{
+}
+
+public interface Itest_Filter
+{
+  ICollection<Itest_NameFilter> As_NameFilter { get; }
+  Itest_FilterObject As_Filter { get; }
+}
+
+public interface Itest_FilterObject
+{
+  ICollection<Itest_NameFilter> Names { get; }
+  bool? MatchAliases { get; }
+  ICollection<Itest_NameFilter> Aliases { get; }
+  bool? ReturnByAlias { get; }
+  bool? ReturnReferencedTypes { get; }
+}
+
+public interface Itest_NameFilter
+  : IGqlpDomainString
+{
+}
+
+public interface Itest_CategoryFilter
+  : Itest_Filter
+{
+  Itest_CategoryFilterObject As_CategoryFilter { get; }
+}
+
+public interface Itest_CategoryFilterObject
+  : Itest_FilterObject
+{
+  ICollection<Itest_Resolution> Resolutions { get; }
+}
+
+public interface Itest_TypeFilter
+  : Itest_Filter
+{
+  Itest_TypeFilterObject As_TypeFilter { get; }
+}
+
+public interface Itest_TypeFilterObject
+  : Itest_FilterObject
+{
+  ICollection<Itest_TypeKind> Kinds { get; }
+}

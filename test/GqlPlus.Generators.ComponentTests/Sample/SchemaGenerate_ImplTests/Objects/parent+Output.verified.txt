@@ -1,0 +1,22 @@
+﻿/* parent+Output
+output PrntOutp { :RefPrntOutp }
+output RefPrntOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_Output;
+
+public class CmptPrntOutp
+  : CmptRefPrntOutp
+  , ICmptPrntOutp
+{
+}
+
+public class CmptRefPrntOutp
+  : ICmptRefPrntOutp
+{
+  public decimal Parent { get; set; }
+}

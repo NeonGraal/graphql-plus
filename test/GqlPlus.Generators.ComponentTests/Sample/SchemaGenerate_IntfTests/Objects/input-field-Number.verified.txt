@@ -1,0 +1,19 @@
+﻿/* input-field-Number
+input InpFieldNmbr { field: Number = 42 }
+*/
+
+// Generated from Schema input-field-Number for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_Number;
+
+public interface ICmptInpFieldNmbr
+{
+  ICmptInpFieldNmbrObject AsInpFieldNmbr { get; }
+}
+
+public interface ICmptInpFieldNmbrObject
+{
+  decimal Field { get; }
+}

@@ -1,0 +1,15 @@
+﻿/* category-output-list
+category { CtgrOutpList[] }
+output CtgrOutpList { }
+*/
+
+// Generated from Schema category-output-list for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_output_list;
+
+public class CmptCtgrOutpList
+  : ICmptCtgrOutpList
+{
+}

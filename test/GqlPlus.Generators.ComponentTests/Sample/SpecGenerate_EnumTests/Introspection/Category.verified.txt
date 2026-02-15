@@ -1,0 +1,29 @@
+﻿/* Category
+output _Categories {
+    : _AndType
+        category: _Category
+    | _Category
+    }
+
+output _Category {
+    : _Aliased
+        resolution: _Resolution
+        output: _TypeRef<_TypeKind.Output>
+        modifiers: _Modifiers[]
+    }
+
+enum _Resolution { Parallel Sequential Single }
+*/
+
+// Generated from Spec Category for Enum
+/*
+*/
+
+namespace Components.Gqlp_Spec_Category;
+
+public enum Cmpt_Resolution
+{
+  Parallel,
+  Sequential,
+  Single,
+}

@@ -1,0 +1,15 @@
+﻿/* category-output-dict
+category { CtgrOutpDict[*] }
+output CtgrOutpDict { }
+*/
+
+// Generated from Schema category-output-dict for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_output_dict;
+
+public class CmptCtgrOutpDict
+  : ICmptCtgrOutpDict
+{
+}

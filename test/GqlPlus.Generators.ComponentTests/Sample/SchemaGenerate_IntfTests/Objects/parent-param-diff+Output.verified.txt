@@ -1,0 +1,32 @@
+﻿/* parent-param-diff+Output
+output PrntParamDiffOutp<$a:String> { :RefPrntParamDiffOutp<$a> field: $a }
+output RefPrntParamDiffOutp<$b:String> { | $b }
+*/
+
+// Generated from Schema parent-param-diff+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_param_diff_Output;
+
+public interface ICmptPrntParamDiffOutp<TA>
+  : ICmptRefPrntParamDiffOutp<TA>
+{
+  ICmptPrntParamDiffOutpObject<TA> AsPrntParamDiffOutp { get; }
+}
+
+public interface ICmptPrntParamDiffOutpObject<TA>
+  : ICmptRefPrntParamDiffOutpObject<TA>
+{
+  TA Field { get; }
+}
+
+public interface ICmptRefPrntParamDiffOutp<TB>
+{
+  TB Asb { get; }
+  ICmptRefPrntParamDiffOutpObject<TB> AsRefPrntParamDiffOutp { get; }
+}
+
+public interface ICmptRefPrntParamDiffOutpObject<TB>
+{
+}

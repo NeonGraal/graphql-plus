@@ -1,0 +1,16 @@
+﻿/* domain-enum-descr
+domain DmnEnumDescr { enum "DomEnum" "Descr" dmnEnumDescr }
+enum EnumDmnEnumDescr { dmnEnumDescr }
+*/
+
+// Generated from Schema domain-enum-descr for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_descr;
+
+public class CmptDmnEnumDescr
+  : GqlpDomainEnum
+  , ICmptDmnEnumDescr
+{
+}

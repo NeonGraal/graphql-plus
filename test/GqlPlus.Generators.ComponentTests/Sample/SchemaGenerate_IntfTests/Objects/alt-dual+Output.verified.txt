@@ -1,0 +1,31 @@
+﻿/* alt-dual+Output
+output AltDualOutp { | ObjDualAltDualOutp }
+dual ObjDualAltDualOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt-dual+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_dual_Output;
+
+public interface ICmptAltDualOutp
+{
+  ICmptObjDualAltDualOutp AsObjDualAltDualOutp { get; }
+  ICmptAltDualOutpObject AsAltDualOutp { get; }
+}
+
+public interface ICmptAltDualOutpObject
+{
+}
+
+public interface ICmptObjDualAltDualOutp
+{
+  string AsString { get; }
+  ICmptObjDualAltDualOutpObject AsObjDualAltDualOutp { get; }
+}
+
+public interface ICmptObjDualAltDualOutpObject
+{
+  decimal Alt { get; }
+}

@@ -1,0 +1,15 @@
+﻿/* object-alias+Input
+input ObjAliasInp [Input1] { }
+input ObjAliasInp [Input2] { }
+*/
+
+// Generated from Schema object-alias+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alias_Input;
+
+public class CmptObjAliasInp
+  : ICmptObjAliasInp
+{
+}

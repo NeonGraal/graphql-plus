@@ -1,0 +1,14 @@
+﻿/* union-descr
+union UnionDescr { "Union" "Descr" Number }
+*/
+
+// Generated from Schema union-descr for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_descr;
+
+public interface ICmptUnionDescr
+{
+  Number AsNumber { get; }
+}

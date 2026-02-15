@@ -1,0 +1,16 @@
+﻿/* category
+category { Ctgr }
+category ctgr { Ctgr }
+output Ctgr { }
+*/
+
+// Generated from Schema category for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_category;
+
+public class CmptCtgr
+  : ICmptCtgr
+{
+}

@@ -1,0 +1,15 @@
+﻿/* object+Dual
+dual ObjDual { }
+dual ObjDual { }
+*/
+
+// Generated from Schema object+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_Dual;
+
+public class CmptObjDual
+  : ICmptObjDual
+{
+}

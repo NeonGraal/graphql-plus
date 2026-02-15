@@ -1,1 +1,1 @@
-d68067d  (HEAD -> main, origin/main, origin/HEAD) 2026-02-13 Merge pull request #46 from graphql-plus/star-wars
+3e97c69  (HEAD -> star-wars, origin/star-wars) 2026-02-13 Make field name not collide with dotNet names

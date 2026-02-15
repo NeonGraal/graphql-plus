@@ -1,0 +1,15 @@
+﻿/* input-field-String
+input InpFieldStr { field: String = 'default' }
+*/
+
+// Generated from Schema input-field-String for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_String;
+
+public class CmptInpFieldStr
+  : ICmptInpFieldStr
+{
+  public string Field { get; set; }
+}

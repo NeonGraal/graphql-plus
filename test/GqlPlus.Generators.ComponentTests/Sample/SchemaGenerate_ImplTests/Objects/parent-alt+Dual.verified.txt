@@ -1,0 +1,22 @@
+﻿/* parent-alt+Dual
+dual PrntAltDual { :RefPrntAltDual | Number }
+dual RefPrntAltDual {  parent: Number | String }
+*/
+
+// Generated from Schema parent-alt+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_alt_Dual;
+
+public class CmptPrntAltDual
+  : CmptRefPrntAltDual
+  , ICmptPrntAltDual
+{
+}
+
+public class CmptRefPrntAltDual
+  : ICmptRefPrntAltDual
+{
+  public decimal Parent { get; set; }
+}

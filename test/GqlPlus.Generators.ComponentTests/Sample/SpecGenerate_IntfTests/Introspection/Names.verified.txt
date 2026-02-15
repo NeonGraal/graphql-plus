@@ -1,0 +1,74 @@
+﻿/* Names
+dual _Aliased {
+    : _Named
+        aliases: _Name[]
+    }
+
+dual _Named {
+    : _Described
+        name: _Name
+    }
+
+dual _Described {
+        description: String[]
+    }
+
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
+*/
+
+// Generated from Spec Names for Intf
+/*
+*/
+
+namespace Components.Gqlp_Spec_Names;
+
+public interface ICmpt_Aliased
+  : ICmpt_Named
+{
+  ICmpt_AliasedObject As_Aliased { get; }
+}
+
+public interface ICmpt_AliasedObject
+  : ICmpt_NamedObject
+{
+  ICollection<ICmpt_Name> Aliases { get; }
+}
+
+public interface ICmpt_Named
+  : ICmpt_Described
+{
+  ICmpt_NamedObject As_Named { get; }
+}
+
+public interface ICmpt_NamedObject
+  : ICmpt_DescribedObject
+{
+  ICmpt_Name Name { get; }
+}
+
+public interface ICmpt_Described
+{
+  ICmpt_DescribedObject As_Described { get; }
+}
+
+public interface ICmpt_DescribedObject
+{
+  ICollection<string> Description { get; }
+}
+
+public interface ICmpt_AndType
+  : ICmpt_Named
+{
+  ICmpt_Type As_Type { get; }
+  ICmpt_AndTypeObject As_AndType { get; }
+}
+
+public interface ICmpt_AndTypeObject
+  : ICmpt_NamedObject
+{
+  ICmpt_Type Type { get; }
+}

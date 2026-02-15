@@ -1,0 +1,34 @@
+﻿/* constraint-alt-obj+Input
+input CnstAltObjInp { | RefCnstAltObjInp<AltCnstAltObjInp> }
+input RefCnstAltObjInp<$ref:PrntCnstAltObjInp> { | $ref }
+input PrntCnstAltObjInp { | String }
+input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
+*/
+
+// Generated from Schema constraint-alt-obj+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
+
+public class CmptCnstAltObjInp
+  : ICmptCnstAltObjInp
+{
+}
+
+public class CmptRefCnstAltObjInp<TRef>
+  : ICmptRefCnstAltObjInp<TRef>
+{
+}
+
+public class CmptPrntCnstAltObjInp
+  : ICmptPrntCnstAltObjInp
+{
+}
+
+public class CmptAltCnstAltObjInp
+  : CmptPrntCnstAltObjInp
+  , ICmptAltCnstAltObjInp
+{
+  public decimal Alt { get; set; }
+}

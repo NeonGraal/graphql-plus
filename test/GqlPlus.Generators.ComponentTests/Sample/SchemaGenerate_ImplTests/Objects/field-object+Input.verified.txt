@@ -1,0 +1,22 @@
+﻿/* field-object+Input
+input FieldObjInp { field: FldFieldObjInp }
+input FldFieldObjInp { field: Number | String }
+*/
+
+// Generated from Schema field-object+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_object_Input;
+
+public class CmptFieldObjInp
+  : ICmptFieldObjInp
+{
+  public ICmptFldFieldObjInp Field { get; set; }
+}
+
+public class CmptFldFieldObjInp
+  : ICmptFldFieldObjInp
+{
+  public decimal Field { get; set; }
+}

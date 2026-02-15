@@ -1,0 +1,15 @@
+﻿/* object-alt-enum+Dual
+dual ObjAltEnumDual { ! true }
+dual ObjAltEnumDual { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_enum_Dual;
+
+public class CmptObjAltEnumDual
+  : ICmptObjAltEnumDual
+{
+}

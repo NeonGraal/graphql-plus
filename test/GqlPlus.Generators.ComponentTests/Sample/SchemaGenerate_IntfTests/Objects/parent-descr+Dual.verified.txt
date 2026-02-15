@@ -1,0 +1,32 @@
+﻿/* parent-descr+Dual
+dual PrntDescrDual { : "Test" "Descr" RefPrntDescrDual }
+dual RefPrntDescrDual { parent: Number | String }
+*/
+
+// Generated from Schema parent-descr+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_descr_Dual;
+
+public interface ICmptPrntDescrDual
+  : ICmptRefPrntDescrDual
+{
+  ICmptPrntDescrDualObject AsPrntDescrDual { get; }
+}
+
+public interface ICmptPrntDescrDualObject
+  : ICmptRefPrntDescrDualObject
+{
+}
+
+public interface ICmptRefPrntDescrDual
+{
+  string AsString { get; }
+  ICmptRefPrntDescrDualObject AsRefPrntDescrDual { get; }
+}
+
+public interface ICmptRefPrntDescrDualObject
+{
+  decimal Parent { get; }
+}

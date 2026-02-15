@@ -1,0 +1,21 @@
+﻿/* union-parent-descr
+union UnionPrntDescr { :"Parent comment"PrntUnionPrntDescr Number }
+union PrntUnionPrntDescr { Number }
+*/
+
+// Generated from Schema union-parent-descr for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_parent_descr;
+
+public interface ICmptUnionPrntDescr
+  : ICmptPrntUnionPrntDescr
+{
+  Number AsNumber { get; }
+}
+
+public interface ICmptPrntUnionPrntDescr
+{
+  Number AsNumber { get; }
+}

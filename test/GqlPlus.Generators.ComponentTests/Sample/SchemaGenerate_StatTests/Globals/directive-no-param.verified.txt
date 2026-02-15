@@ -1,0 +1,11 @@
+﻿/* directive-no-param
+directive @DrctNoParam { all }
+*/
+
+// Generated from Schema directive-no-param for Stat
+/*
+
+Directive DrctNoParam
+*/
+
+namespace Components.Gqlp_Schema_directive_no_param;

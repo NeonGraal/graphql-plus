@@ -1,0 +1,31 @@
+﻿/* object-parent+Output
+output ObjPrntOutp { :RefObjPrntOutp }
+output ObjPrntOutp { :RefObjPrntOutp }
+output RefObjPrntOutp { }
+*/
+
+// Generated from Schema object-parent+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_parent_Output;
+
+public interface ICmptObjPrntOutp
+  : ICmptRefObjPrntOutp
+{
+  ICmptObjPrntOutpObject AsObjPrntOutp { get; }
+}
+
+public interface ICmptObjPrntOutpObject
+  : ICmptRefObjPrntOutpObject
+{
+}
+
+public interface ICmptRefObjPrntOutp
+{
+  ICmptRefObjPrntOutpObject AsRefObjPrntOutp { get; }
+}
+
+public interface ICmptRefObjPrntOutpObject
+{
+}

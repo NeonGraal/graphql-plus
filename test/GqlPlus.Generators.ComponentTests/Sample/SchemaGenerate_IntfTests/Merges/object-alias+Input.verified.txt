@@ -1,0 +1,19 @@
+﻿/* object-alias+Input
+input ObjAliasInp [Input1] { }
+input ObjAliasInp [Input2] { }
+*/
+
+// Generated from Schema object-alias+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alias_Input;
+
+public interface ICmptObjAliasInp
+{
+  ICmptObjAliasInpObject AsObjAliasInp { get; }
+}
+
+public interface ICmptObjAliasInpObject
+{
+}

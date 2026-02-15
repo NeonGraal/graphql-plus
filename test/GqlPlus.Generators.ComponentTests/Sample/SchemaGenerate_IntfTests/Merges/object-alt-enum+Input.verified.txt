@@ -1,0 +1,21 @@
+﻿/* object-alt-enum+Input
+input ObjAltEnumInp { ! true }
+input ObjAltEnumInp { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_enum_Input;
+
+public interface ICmptObjAltEnumInp
+{
+  bool AsBooleantrue { get; }
+  bool AsBooleanfalse { get; }
+  ICmptObjAltEnumInpObject AsObjAltEnumInp { get; }
+}
+
+public interface ICmptObjAltEnumInpObject
+{
+}

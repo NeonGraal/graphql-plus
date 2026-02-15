@@ -1,0 +1,20 @@
+﻿/* generic-alt-arg+Input
+input GnrcAltArgInp<$type:String> { | RefGnrcAltArgInp<$type> }
+input RefGnrcAltArgInp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-arg+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_arg_Input;
+
+public class CmptGnrcAltArgInp<TType>
+  : ICmptGnrcAltArgInp<TType>
+{
+}
+
+public class CmptRefGnrcAltArgInp<TRef>
+  : ICmptRefGnrcAltArgInp<TRef>
+{
+}

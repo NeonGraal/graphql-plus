@@ -1,0 +1,17 @@
+﻿/* field-enum-parent+Output
+output FieldEnumPrntOutp { field = EnumFieldEnumPrntOutp.prnt_fieldEnumPrntOutp }
+enum EnumFieldEnumPrntOutp { :PrntFieldEnumPrntOutp fieldEnumPrntOutp }
+enum PrntFieldEnumPrntOutp { prnt_fieldEnumPrntOutp }
+*/
+
+// Generated from Schema field-enum-parent+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_enum_parent_Output;
+
+public class CmptFieldEnumPrntOutp
+  : ICmptFieldEnumPrntOutp
+{
+  public CmptEnumFieldEnumPrntOutp Field { get; set; }
+}

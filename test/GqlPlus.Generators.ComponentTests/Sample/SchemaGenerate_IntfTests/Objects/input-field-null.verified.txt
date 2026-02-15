@@ -1,0 +1,29 @@
+﻿/* input-field-null
+input InpFieldNull { field: FldInpFieldNull? = null }
+dual FldInpFieldNull { }
+*/
+
+// Generated from Schema input-field-null for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_null;
+
+public interface ICmptInpFieldNull
+{
+  ICmptInpFieldNullObject AsInpFieldNull { get; }
+}
+
+public interface ICmptInpFieldNullObject
+{
+  ICmptFldInpFieldNull? Field { get; }
+}
+
+public interface ICmptFldInpFieldNull
+{
+  ICmptFldInpFieldNullObject AsFldInpFieldNull { get; }
+}
+
+public interface ICmptFldInpFieldNullObject
+{
+}

@@ -1,0 +1,20 @@
+﻿/* object-field-type-alias+Output
+output ObjFieldTypeAliasOutp { field: String }
+output ObjFieldTypeAliasOutp { field: String }
+*/
+
+// Generated from Schema object-field-type-alias+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_type_alias_Output;
+
+public interface ICmptObjFieldTypeAliasOutp
+{
+  ICmptObjFieldTypeAliasOutpObject AsObjFieldTypeAliasOutp { get; }
+}
+
+public interface ICmptObjFieldTypeAliasOutpObject
+{
+  string Field { get; }
+}

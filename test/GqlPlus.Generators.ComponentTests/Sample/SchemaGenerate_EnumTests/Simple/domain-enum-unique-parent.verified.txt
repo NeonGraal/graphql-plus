@@ -1,0 +1,35 @@
+﻿/* domain-enum-unique-parent
+domain DmnEnumUnqPrnt { enum EnumDmnEnumUnqPrnt.* !PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt DupDmnEnumUnqPrnt.dmnEnumUnqPrnt }
+enum EnumDmnEnumUnqPrnt { :PrntDmnEnumUnqPrnt enum_dmnEnumUnqPrnt dmnEnumUnqPrntValue }
+enum PrntDmnEnumUnqPrnt { dmnEnumUnqPrnt prnt_dmnEnumUnqPrnt dmnEnumUnqPrntPrnt }
+enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt dmnEnumUnqPrntDup }
+*/
+
+// Generated from Schema domain-enum-unique-parent for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_unique_parent;
+
+public enum CmptEnumDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
+  enum_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntValue,
+}
+
+public enum CmptPrntDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt,
+}
+
+public enum CmptDupDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt,
+  dup_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntDup,
+}

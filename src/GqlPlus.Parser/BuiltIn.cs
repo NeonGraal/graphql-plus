@@ -16,18 +16,20 @@ public static class BuiltIn
   public const string NullValue = "null";
   public const string NumberType = "Number";
   public const string NumberAlias = "0";
+  public const string ScalarType = "Scalar";
   public const string StringType = "String";
   public const string StringAlias = "*";
   public const string UnitType = "Unit";
   public const string UnitValue = "_";
+  public const string ValueType = "Value";
   public const string VoidType = "Void";
 
   public static IGqlpType[] Basic { get; } = [
-    Enum(BooleanType, [BooleanAlias, "_Boolean"], BooleanFalse, BooleanTrue),
-    Enum(UnitType, [UnitValue, "_Unit"], UnitValue),
+    Enum(BooleanType, [BooleanAlias, "_" + BooleanType], BooleanFalse, BooleanTrue),
+    Enum(UnitType, [UnitValue, "_" + UnitType], UnitValue),
 
-    Domain<DomainRangeAst, IGqlpDomainRange>(NumberType, DomainKind.Number, NumberAlias, "_Number"),
-    Domain<DomainRegexAst, IGqlpDomainRegex>(StringType, DomainKind.String, StringAlias, "_String"),
+    Domain<DomainRangeAst, IGqlpDomainRange>(NumberType, DomainKind.Number, NumberAlias, "_" + NumberType),
+    Domain<DomainRegexAst, IGqlpDomainRegex>(StringType, DomainKind.String, StringAlias, "_" + StringType),
   ];
 
   private static readonly string[] s_basicMembers = [BooleanType, NumberType, StringType, UnitType];
@@ -37,8 +39,8 @@ public static class BuiltIn
 
   static BuiltIn()
   {
-    SpecialTypeAst scalar = new("Scalar", TypeKind.Internal, t => t == Scalar);
-    SpecialTypeAst value = new("Value", TypeKind.Internal, t => t == Scalar || t == Value);
+    SpecialTypeAst scalar = new(ScalarType, t => t == Scalar);
+    SpecialTypeAst value = new(ValueType, t => t == Scalar || t == Value);
 
     Special = [
       new SpecialTypeAst("Any"),

@@ -1,0 +1,19 @@
+﻿/* object+Output
+output ObjOutp { }
+output ObjOutp { }
+*/
+
+// Generated from Schema object+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_Output;
+
+public interface ICmptObjOutp
+{
+  ICmptObjOutpObject AsObjOutp { get; }
+}
+
+public interface ICmptObjOutpObject
+{
+}

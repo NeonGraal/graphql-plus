@@ -1,0 +1,31 @@
+﻿/* generic-parent-arg+Output
+output GnrcPrntArgOutp<$type:String> { :RefGnrcPrntArgOutp<$type> }
+output RefGnrcPrntArgOutp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-parent-arg+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_arg_Output;
+
+public interface ICmptGnrcPrntArgOutp<TType>
+  : ICmptRefGnrcPrntArgOutp<TType>
+{
+  ICmptGnrcPrntArgOutpObject<TType> AsGnrcPrntArgOutp { get; }
+}
+
+public interface ICmptGnrcPrntArgOutpObject<TType>
+  : ICmptRefGnrcPrntArgOutpObject<TType>
+{
+}
+
+public interface ICmptRefGnrcPrntArgOutp<TRef>
+{
+  TRef Asref { get; }
+  ICmptRefGnrcPrntArgOutpObject<TRef> AsRefGnrcPrntArgOutp { get; }
+}
+
+public interface ICmptRefGnrcPrntArgOutpObject<TRef>
+{
+}

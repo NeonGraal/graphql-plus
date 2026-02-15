@@ -1,0 +1,30 @@
+﻿/* generic-alt-simple+Dual
+dual GnrcAltSmplDual { | RefGnrcAltSmplDual<String> }
+dual RefGnrcAltSmplDual<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-simple+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_simple_Dual;
+
+public interface ICmptGnrcAltSmplDual
+{
+  ICmptRefGnrcAltSmplDual<string> AsRefGnrcAltSmplDual { get; }
+  ICmptGnrcAltSmplDualObject AsGnrcAltSmplDual { get; }
+}
+
+public interface ICmptGnrcAltSmplDualObject
+{
+}
+
+public interface ICmptRefGnrcAltSmplDual<TRef>
+{
+  TRef Asref { get; }
+  ICmptRefGnrcAltSmplDualObject<TRef> AsRefGnrcAltSmplDual { get; }
+}
+
+public interface ICmptRefGnrcAltSmplDualObject<TRef>
+{
+}

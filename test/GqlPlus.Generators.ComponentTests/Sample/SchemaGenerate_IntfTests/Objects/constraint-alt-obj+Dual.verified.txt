@@ -1,0 +1,54 @@
+﻿/* constraint-alt-obj+Dual
+dual CnstAltObjDual { | RefCnstAltObjDual<AltCnstAltObjDual> }
+dual RefCnstAltObjDual<$ref:PrntCnstAltObjDual> { | $ref }
+dual PrntCnstAltObjDual { | String }
+dual AltCnstAltObjDual { :PrntCnstAltObjDual alt: Number }
+*/
+
+// Generated from Schema constraint-alt-obj+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_obj_Dual;
+
+public interface ICmptCnstAltObjDual
+{
+  ICmptRefCnstAltObjDual<ICmptAltCnstAltObjDual> AsRefCnstAltObjDual { get; }
+  ICmptCnstAltObjDualObject AsCnstAltObjDual { get; }
+}
+
+public interface ICmptCnstAltObjDualObject
+{
+}
+
+public interface ICmptRefCnstAltObjDual<TRef>
+{
+  TRef Asref { get; }
+  ICmptRefCnstAltObjDualObject<TRef> AsRefCnstAltObjDual { get; }
+}
+
+public interface ICmptRefCnstAltObjDualObject<TRef>
+{
+}
+
+public interface ICmptPrntCnstAltObjDual
+{
+  string AsString { get; }
+  ICmptPrntCnstAltObjDualObject AsPrntCnstAltObjDual { get; }
+}
+
+public interface ICmptPrntCnstAltObjDualObject
+{
+}
+
+public interface ICmptAltCnstAltObjDual
+  : ICmptPrntCnstAltObjDual
+{
+  ICmptAltCnstAltObjDualObject AsAltCnstAltObjDual { get; }
+}
+
+public interface ICmptAltCnstAltObjDualObject
+  : ICmptPrntCnstAltObjDualObject
+{
+  decimal Alt { get; }
+}

@@ -1,0 +1,21 @@
+﻿/* alt-dual+Dual
+dual AltDualDual { | ObjDualAltDualDual }
+dual ObjDualAltDualDual { alt: Number | String }
+*/
+
+// Generated from Schema alt-dual+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_dual_Dual;
+
+public class CmptAltDualDual
+  : ICmptAltDualDual
+{
+}
+
+public class CmptObjDualAltDualDual
+  : ICmptObjDualAltDualDual
+{
+  public decimal Alt { get; set; }
+}

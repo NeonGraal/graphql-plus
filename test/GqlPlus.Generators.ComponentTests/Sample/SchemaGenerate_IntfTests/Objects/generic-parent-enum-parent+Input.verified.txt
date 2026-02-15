@@ -1,0 +1,33 @@
+﻿/* generic-parent-enum-parent+Input
+input GnrcPrntEnumPrntInp { :FieldGnrcPrntEnumPrntInp<EnumGnrcPrntEnumPrntInp> }
+input FieldGnrcPrntEnumPrntInp<$ref:ParentGnrcPrntEnumPrntInp> { field: $ref }
+enum EnumGnrcPrntEnumPrntInp { :ParentGnrcPrntEnumPrntInp gnrcPrntEnumPrntInpLabel }
+enum ParentGnrcPrntEnumPrntInp { gnrcPrntEnumPrntInpParent }
+*/
+
+// Generated from Schema generic-parent-enum-parent+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_enum_parent_Input;
+
+public interface ICmptGnrcPrntEnumPrntInp
+  : ICmptFieldGnrcPrntEnumPrntInp<CmptEnumGnrcPrntEnumPrntInp>
+{
+  ICmptGnrcPrntEnumPrntInpObject AsGnrcPrntEnumPrntInp { get; }
+}
+
+public interface ICmptGnrcPrntEnumPrntInpObject
+  : ICmptFieldGnrcPrntEnumPrntInpObject<CmptEnumGnrcPrntEnumPrntInp>
+{
+}
+
+public interface ICmptFieldGnrcPrntEnumPrntInp<TRef>
+{
+  ICmptFieldGnrcPrntEnumPrntInpObject<TRef> AsFieldGnrcPrntEnumPrntInp { get; }
+}
+
+public interface ICmptFieldGnrcPrntEnumPrntInpObject<TRef>
+{
+  TRef Field { get; }
+}

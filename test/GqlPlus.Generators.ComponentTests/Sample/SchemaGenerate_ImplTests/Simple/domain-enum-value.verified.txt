@@ -1,0 +1,16 @@
+﻿/* domain-enum-value
+domain DmnEnumValue { Enum EnumDmnEnumValue.dmnEnumValue }
+enum EnumDmnEnumValue { dmnEnumValue }
+*/
+
+// Generated from Schema domain-enum-value for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_value;
+
+public class CmptDmnEnumValue
+  : GqlpDomainEnum
+  , ICmptDmnEnumValue
+{
+}

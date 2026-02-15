@@ -1,0 +1,31 @@
+﻿/* alt-dual+Input
+input AltDualInp { | ObjDualAltDualInp }
+dual ObjDualAltDualInp { alt: Number | String }
+*/
+
+// Generated from Schema alt-dual+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_dual_Input;
+
+public interface ICmptAltDualInp
+{
+  ICmptObjDualAltDualInp AsObjDualAltDualInp { get; }
+  ICmptAltDualInpObject AsAltDualInp { get; }
+}
+
+public interface ICmptAltDualInpObject
+{
+}
+
+public interface ICmptObjDualAltDualInp
+{
+  string AsString { get; }
+  ICmptObjDualAltDualInpObject AsObjDualAltDualInp { get; }
+}
+
+public interface ICmptObjDualAltDualInpObject
+{
+  decimal Alt { get; }
+}

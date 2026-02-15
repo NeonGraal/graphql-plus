@@ -1,0 +1,20 @@
+﻿/* domain-string-parent
+domain DmnStrPrnt { :PrntDmnStrPrnt String /a+/ }
+domain PrntDmnStrPrnt { String /b+/ }
+*/
+
+// Generated from Schema domain-string-parent for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_string_parent;
+
+public interface ICmptDmnStrPrnt
+  : ICmptPrntDmnStrPrnt
+{
+}
+
+public interface ICmptPrntDmnStrPrnt
+  : IGqlpDomainString
+{
+}

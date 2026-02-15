@@ -1,0 +1,13 @@
+﻿/* category-alias
+category [CatA1] { CtgrAlias }
+category [CatA2] { CtgrAlias }
+output CtgrAlias { }
+*/
+
+// Generated from Schema category-alias for Stat
+/*
+
+Category ctgrAlias
+*/
+
+namespace Components.Gqlp_Schema_category_alias;

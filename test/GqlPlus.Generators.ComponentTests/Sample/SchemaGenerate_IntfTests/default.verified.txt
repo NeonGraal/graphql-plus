@@ -1,0 +1,54 @@
+﻿/* default
+category { Query }
+output Query { }
+
+category { (sequential) Mutation }
+output Mutation { }
+
+category { (single) Subscription }
+output Subscription { }
+
+output _Schema { }
+*/
+
+// Generated from Schema default for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_default;
+
+public interface ICmptQuery
+{
+  ICmptQueryObject AsQuery { get; }
+}
+
+public interface ICmptQueryObject
+{
+}
+
+public interface ICmptMutation
+{
+  ICmptMutationObject AsMutation { get; }
+}
+
+public interface ICmptMutationObject
+{
+}
+
+public interface ICmptSubscription
+{
+  ICmptSubscriptionObject AsSubscription { get; }
+}
+
+public interface ICmptSubscriptionObject
+{
+}
+
+public interface ICmpt_Schema
+{
+  ICmpt_SchemaObject As_Schema { get; }
+}
+
+public interface ICmpt_SchemaObject
+{
+}

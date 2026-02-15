@@ -1,0 +1,19 @@
+﻿/* directive-param-opt
+directive @DrctParamOpt(InDrctParamOpt?) { all }
+input InDrctParamOpt { }
+*/
+
+// Generated from Schema directive-param-opt for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param_opt;
+
+public interface ICmptInDrctParamOpt
+{
+  ICmptInDrctParamOptObject AsInDrctParamOpt { get; }
+}
+
+public interface ICmptInDrctParamOptObject
+{
+}

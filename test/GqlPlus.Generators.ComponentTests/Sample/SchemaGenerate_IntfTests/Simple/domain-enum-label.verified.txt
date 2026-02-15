@@ -1,0 +1,15 @@
+﻿/* domain-enum-label
+domain DmnEnumLabel { enum dmnEnumLabel }
+enum EnumDmnEnumLabel { dmnEnumLabel }
+*/
+
+// Generated from Schema domain-enum-label for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_label;
+
+public interface ICmptDmnEnumLabel
+  : IGqlpDomainEnum
+{
+}

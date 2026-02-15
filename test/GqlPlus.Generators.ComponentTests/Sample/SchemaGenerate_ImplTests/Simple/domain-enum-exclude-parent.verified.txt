@@ -1,0 +1,17 @@
+﻿/* domain-enum-exclude-parent
+domain DmnEnumExclPrnt { enum EnumDmnEnumExclPrnt.* !PrntDmnEnumExclPrnt.* }
+enum EnumDmnEnumExclPrnt { :PrntDmnEnumExclPrnt dmnEnumExclPrnt dmnEnumExclPrntValue }
+enum PrntDmnEnumExclPrnt { prnt_dmnEnumExclPrnt dmnEnumExclPrntPrnt }
+*/
+
+// Generated from Schema domain-enum-exclude-parent for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_exclude_parent;
+
+public class CmptDmnEnumExclPrnt
+  : GqlpDomainEnum
+  , ICmptDmnEnumExclPrnt
+{
+}

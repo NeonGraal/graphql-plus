@@ -1,0 +1,22 @@
+﻿/* object-field-alias+Dual
+dual ObjFieldAliasDual { field [field1]: FldObjFieldAliasDual }
+dual ObjFieldAliasDual { field [field2]: FldObjFieldAliasDual }
+dual FldObjFieldAliasDual { }
+*/
+
+// Generated from Schema object-field-alias+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_alias_Dual;
+
+public class CmptObjFieldAliasDual
+  : ICmptObjFieldAliasDual
+{
+  public ICmptFldObjFieldAliasDual Field { get; set; }
+}
+
+public class CmptFldObjFieldAliasDual
+  : ICmptFldObjFieldAliasDual
+{
+}

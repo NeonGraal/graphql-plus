@@ -1,0 +1,37 @@
+﻿/* constraint-field-domain+Output
+output CnstFieldDmnOutp { :RefCnstFieldDmnOutp<DomCnstFieldDmnOutp> }
+output RefCnstFieldDmnOutp<$ref:String> { field: $ref }
+domain DomCnstFieldDmnOutp { String /\w+/ }
+*/
+
+// Generated from Schema constraint-field-domain+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_domain_Output;
+
+public interface ICmptCnstFieldDmnOutp
+  : ICmptRefCnstFieldDmnOutp<ICmptDomCnstFieldDmnOutp>
+{
+  ICmptCnstFieldDmnOutpObject AsCnstFieldDmnOutp { get; }
+}
+
+public interface ICmptCnstFieldDmnOutpObject
+  : ICmptRefCnstFieldDmnOutpObject<ICmptDomCnstFieldDmnOutp>
+{
+}
+
+public interface ICmptRefCnstFieldDmnOutp<TRef>
+{
+  ICmptRefCnstFieldDmnOutpObject<TRef> AsRefCnstFieldDmnOutp { get; }
+}
+
+public interface ICmptRefCnstFieldDmnOutpObject<TRef>
+{
+  TRef Field { get; }
+}
+
+public interface ICmptDomCnstFieldDmnOutp
+  : IGqlpDomainString
+{
+}

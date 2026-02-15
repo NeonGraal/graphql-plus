@@ -1,0 +1,245 @@
+﻿/* Domain
+enum _DomainKind { Boolean Enum Number String }
+
+output _DomainRef<$kind:_DomainKind> {
+    : _TypeRef<_TypeKind.Domain>
+        domainKind: $kind
+    }
+
+output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
+    : _ParentType<_TypeKind.Domain $item $domainItem>
+        domainKind: $domain
+    }
+
+dual _BaseDomainItem {
+    : _Described
+        exclude: Boolean
+    }
+
+output _DomainItem<$item:_BaseDomainItem> {
+    : $item
+        domain: _Name
+    }
+
+output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$kind>
+        value: $value
+    | $value
+    }
+
+output _BasicValue {
+    | Boolean
+    | _EnumValue
+    | Number
+    | String
+    }
+
+dual _DomainTrueFalse {
+    : _BaseDomainItem
+        value: Boolean
+    }
+
+output _DomainItemTrueFalse {
+    : _DomainItem<_DomainTrueFalse>
+    }
+
+output _DomainLabel {
+    : _BaseDomainItem
+        label: _EnumValue
+    }
+
+output _DomainItemLabel {
+    : _DomainItem<_DomainLabel>
+    }
+
+dual _DomainRange {
+    : _BaseDomainItem
+        lower: Number?
+        upper: Number?
+    }
+
+output _DomainItemRange {
+    : _DomainItem<_DomainRange>
+    }
+
+dual _DomainRegex {
+    : _BaseDomainItem
+        pattern: String
+    }
+
+output _DomainItemRegex {
+    : _DomainItem<_DomainRegex>
+    }
+*/
+
+// Generated from Spec Domain for Intf
+/*
+*/
+
+namespace Components.Gqlp_Spec_Domain;
+
+public interface ICmpt_DomainRef<TKind>
+  : ICmpt_TypeRef<ICmpt_TypeKind>
+{
+  ICmpt_DomainRefObject<TKind> As_DomainRef { get; }
+}
+
+public interface ICmpt_DomainRefObject<TKind>
+  : ICmpt_TypeRefObject<ICmpt_TypeKind>
+{
+  TKind DomainKind { get; }
+}
+
+public interface ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
+  : ICmpt_ParentType<ICmpt_TypeKind, TItem, TDomainItem>
+{
+  ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem> As_BaseDomain { get; }
+}
+
+public interface ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
+  : ICmpt_ParentTypeObject<ICmpt_TypeKind, TItem, TDomainItem>
+{
+  TDomain DomainKind { get; }
+}
+
+public interface ICmpt_BaseDomainItem
+  : ICmpt_Described
+{
+  ICmpt_BaseDomainItemObject As_BaseDomainItem { get; }
+}
+
+public interface ICmpt_BaseDomainItemObject
+  : ICmpt_DescribedObject
+{
+  Cmpt_DomainKind Exclude { get; }
+}
+
+public interface ICmpt_DomainItem<TItem>
+{
+  TItem AsParent { get; }
+  ICmpt_DomainItemObject<TItem> As_DomainItem { get; }
+}
+
+public interface ICmpt_DomainItemObject<TItem>
+{
+  ICmpt_Name Domain { get; }
+}
+
+public interface ICmpt_DomainValue<TKind,TValue>
+  : ICmpt_DomainRef<TKind>
+{
+  TValue Asvalue { get; }
+  ICmpt_DomainValueObject<TKind,TValue> As_DomainValue { get; }
+}
+
+public interface ICmpt_DomainValueObject<TKind,TValue>
+  : ICmpt_DomainRefObject<TKind>
+{
+  TValue Value { get; }
+}
+
+public interface ICmpt_BasicValue
+{
+  Cmpt_DomainKind As_DomainKindBoolean { get; }
+  ICmpt_EnumValue As_EnumValue { get; }
+  Cmpt_DomainKind As_DomainKindNumber { get; }
+  Cmpt_DomainKind As_DomainKindString { get; }
+  ICmpt_BasicValueObject As_BasicValue { get; }
+}
+
+public interface ICmpt_BasicValueObject
+{
+}
+
+public interface ICmpt_DomainTrueFalse
+  : ICmpt_BaseDomainItem
+{
+  ICmpt_DomainTrueFalseObject As_DomainTrueFalse { get; }
+}
+
+public interface ICmpt_DomainTrueFalseObject
+  : ICmpt_BaseDomainItemObject
+{
+  Cmpt_DomainKind Value { get; }
+}
+
+public interface ICmpt_DomainItemTrueFalse
+  : ICmpt_DomainItem<ICmpt_DomainTrueFalse>
+{
+  ICmpt_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; }
+}
+
+public interface ICmpt_DomainItemTrueFalseObject
+  : ICmpt_DomainItemObject<ICmpt_DomainTrueFalse>
+{
+}
+
+public interface ICmpt_DomainLabel
+  : ICmpt_BaseDomainItem
+{
+  ICmpt_DomainLabelObject As_DomainLabel { get; }
+}
+
+public interface ICmpt_DomainLabelObject
+  : ICmpt_BaseDomainItemObject
+{
+  ICmpt_EnumValue Label { get; }
+}
+
+public interface ICmpt_DomainItemLabel
+  : ICmpt_DomainItem<ICmpt_DomainLabel>
+{
+  ICmpt_DomainItemLabelObject As_DomainItemLabel { get; }
+}
+
+public interface ICmpt_DomainItemLabelObject
+  : ICmpt_DomainItemObject<ICmpt_DomainLabel>
+{
+}
+
+public interface ICmpt_DomainRange
+  : ICmpt_BaseDomainItem
+{
+  ICmpt_DomainRangeObject As_DomainRange { get; }
+}
+
+public interface ICmpt_DomainRangeObject
+  : ICmpt_BaseDomainItemObject
+{
+  Cmpt_DomainKind? Lower { get; }
+  Cmpt_DomainKind? Upper { get; }
+}
+
+public interface ICmpt_DomainItemRange
+  : ICmpt_DomainItem<ICmpt_DomainRange>
+{
+  ICmpt_DomainItemRangeObject As_DomainItemRange { get; }
+}
+
+public interface ICmpt_DomainItemRangeObject
+  : ICmpt_DomainItemObject<ICmpt_DomainRange>
+{
+}
+
+public interface ICmpt_DomainRegex
+  : ICmpt_BaseDomainItem
+{
+  ICmpt_DomainRegexObject As_DomainRegex { get; }
+}
+
+public interface ICmpt_DomainRegexObject
+  : ICmpt_BaseDomainItemObject
+{
+  Cmpt_DomainKind Pattern { get; }
+}
+
+public interface ICmpt_DomainItemRegex
+  : ICmpt_DomainItem<ICmpt_DomainRegex>
+{
+  ICmpt_DomainItemRegexObject As_DomainItemRegex { get; }
+}
+
+public interface ICmpt_DomainItemRegexObject
+  : ICmpt_DomainItemObject<ICmpt_DomainRegex>
+{
+}

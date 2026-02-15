@@ -1,0 +1,31 @@
+﻿/* alt+Output
+output AltOutp { | AltAltOutp }
+output AltAltOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_Output;
+
+public interface ICmptAltOutp
+{
+  ICmptAltAltOutp AsAltAltOutp { get; }
+  ICmptAltOutpObject AsAltOutp { get; }
+}
+
+public interface ICmptAltOutpObject
+{
+}
+
+public interface ICmptAltAltOutp
+{
+  string AsString { get; }
+  ICmptAltAltOutpObject AsAltAltOutp { get; }
+}
+
+public interface ICmptAltAltOutpObject
+{
+  decimal Alt { get; }
+}

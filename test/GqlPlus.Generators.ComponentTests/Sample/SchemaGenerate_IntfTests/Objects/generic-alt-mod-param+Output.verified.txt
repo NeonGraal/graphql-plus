@@ -1,0 +1,19 @@
+﻿/* generic-alt-mod-param+Output
+output RefGnrcAltModParamOutp<$ref:String $mod:String> { | $ref[$mod] }
+*/
+
+// Generated from Schema generic-alt-mod-param+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_mod_param_Output;
+
+public interface ICmptRefGnrcAltModParamOutp<TRef,TMod>
+{
+  IDictionary<TMod, TRef> Asref { get; }
+  ICmptRefGnrcAltModParamOutpObject<TRef,TMod> AsRefGnrcAltModParamOutp { get; }
+}
+
+public interface ICmptRefGnrcAltModParamOutpObject<TRef,TMod>
+{
+}

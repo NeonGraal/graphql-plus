@@ -1,0 +1,21 @@
+﻿/* object-constraint+Dual
+dual ObjCnstDual<$type:String> { field: $type }
+dual ObjCnstDual<$type:String> { str: $type }
+*/
+
+// Generated from Schema object-constraint+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_constraint_Dual;
+
+public interface ICmptObjCnstDual<TType>
+{
+  ICmptObjCnstDualObject<TType> AsObjCnstDual { get; }
+}
+
+public interface ICmptObjCnstDualObject<TType>
+{
+  TType Field { get; }
+  TType Str { get; }
+}

@@ -1,0 +1,16 @@
+﻿/* input-field-Enum
+input InpFieldEnum { field: EnumInpFieldEnum = inpFieldEnum }
+enum EnumInpFieldEnum { inpFieldEnum }
+*/
+
+// Generated from Schema input-field-Enum for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_Enum;
+
+public class CmptInpFieldEnum
+  : ICmptInpFieldEnum
+{
+  public CmptEnumInpFieldEnum Field { get; set; }
+}

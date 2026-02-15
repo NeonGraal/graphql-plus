@@ -1,0 +1,28 @@
+﻿/* output-param-descr
+output OutpParamDescr { field("Test" "Descr" InOutpParamDescr): FldOutpParamDescr }
+dual FldOutpParamDescr { }
+input InOutpParamDescr { param: Number | String }
+*/
+
+// Generated from Schema output-param-descr for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param_descr;
+
+public class CmptOutpParamDescr
+  : ICmptOutpParamDescr
+{
+  public ICmptFldOutpParamDescr Field { get; set; }
+}
+
+public class CmptFldOutpParamDescr
+  : ICmptFldOutpParamDescr
+{
+}
+
+public class CmptInOutpParamDescr
+  : ICmptInOutpParamDescr
+{
+  public decimal Param { get; set; }
+}

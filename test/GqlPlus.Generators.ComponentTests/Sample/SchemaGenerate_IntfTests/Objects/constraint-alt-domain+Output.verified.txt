@@ -1,0 +1,36 @@
+﻿/* constraint-alt-domain+Output
+output CnstAltDmnOutp { | RefCnstAltDmnOutp<DomCnstAltDmnOutp> }
+output RefCnstAltDmnOutp<$ref:String> { | $ref }
+domain DomCnstAltDmnOutp { String /\w+/ }
+*/
+
+// Generated from Schema constraint-alt-domain+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
+
+public interface ICmptCnstAltDmnOutp
+{
+  ICmptRefCnstAltDmnOutp<ICmptDomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; }
+  ICmptCnstAltDmnOutpObject AsCnstAltDmnOutp { get; }
+}
+
+public interface ICmptCnstAltDmnOutpObject
+{
+}
+
+public interface ICmptRefCnstAltDmnOutp<TRef>
+{
+  TRef Asref { get; }
+  ICmptRefCnstAltDmnOutpObject<TRef> AsRefCnstAltDmnOutp { get; }
+}
+
+public interface ICmptRefCnstAltDmnOutpObject<TRef>
+{
+}
+
+public interface ICmptDomCnstAltDmnOutp
+  : IGqlpDomainString
+{
+}

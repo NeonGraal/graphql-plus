@@ -1,0 +1,19 @@
+﻿/* generic-field+Output
+output GnrcFieldOutp<$type:String> { field: $type }
+*/
+
+// Generated from Schema generic-field+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_Output;
+
+public interface ICmptGnrcFieldOutp<TType>
+{
+  ICmptGnrcFieldOutpObject<TType> AsGnrcFieldOutp { get; }
+}
+
+public interface ICmptGnrcFieldOutpObject<TType>
+{
+  TType Field { get; }
+}

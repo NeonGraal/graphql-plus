@@ -1,0 +1,19 @@
+﻿/* field-type-descr+Output
+output FieldTypeDescrOutp { field: "Test" "Descr" Number }
+*/
+
+// Generated from Schema field-type-descr+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_type_descr_Output;
+
+public interface ICmptFieldTypeDescrOutp
+{
+  ICmptFieldTypeDescrOutpObject AsFieldTypeDescrOutp { get; }
+}
+
+public interface ICmptFieldTypeDescrOutpObject
+{
+  decimal Field { get; }
+}

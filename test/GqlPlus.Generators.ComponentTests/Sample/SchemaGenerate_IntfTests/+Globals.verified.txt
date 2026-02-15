@@ -1,0 +1,158 @@
+﻿// Generated from Schema +Globals for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_Globals;
+
+public interface ICmptCtgrDscrs
+{
+  ICmptCtgrDscrsObject AsCtgrDscrs { get; }
+}
+
+public interface ICmptCtgrDscrsObject
+{
+}
+
+public interface ICmptCtgrOutp
+{
+  ICmptCtgrOutpObject AsCtgrOutp { get; }
+}
+
+public interface ICmptCtgrOutpObject
+{
+}
+
+public interface ICmptCtgrOutpDescr
+{
+  ICmptCtgrOutpDescrObject AsCtgrOutpDescr { get; }
+}
+
+public interface ICmptCtgrOutpDescrObject
+{
+}
+
+public interface ICmptCtgrOutpDict
+{
+  ICmptCtgrOutpDictObject AsCtgrOutpDict { get; }
+}
+
+public interface ICmptCtgrOutpDictObject
+{
+}
+
+public interface ICmptCtgrOutpList
+{
+  ICmptCtgrOutpListObject AsCtgrOutpList { get; }
+}
+
+public interface ICmptCtgrOutpListObject
+{
+}
+
+public interface ICmptCtgrOutpOptl
+{
+  ICmptCtgrOutpOptlObject AsCtgrOutpOptl { get; }
+}
+
+public interface ICmptCtgrOutpOptlObject
+{
+}
+
+public interface ICmptDescr
+{
+  ICmptDescrObject AsDescr { get; }
+}
+
+public interface ICmptDescrObject
+{
+}
+
+public interface ICmptDescrBcks
+{
+  ICmptDescrBcksObject AsDescrBcks { get; }
+}
+
+public interface ICmptDescrBcksObject
+{
+}
+
+public interface ICmptDescrBtwn
+{
+  ICmptDescrBtwnObject AsDescrBtwn { get; }
+}
+
+public interface ICmptDescrBtwnObject
+{
+}
+
+public interface ICmptDescrCmpl
+{
+  ICmptDescrCmplObject AsDescrCmpl { get; }
+}
+
+public interface ICmptDescrCmplObject
+{
+}
+
+public interface ICmptDescrDbl
+{
+  ICmptDescrDblObject AsDescrDbl { get; }
+}
+
+public interface ICmptDescrDblObject
+{
+}
+
+public interface ICmptDescrSngl
+{
+  ICmptDescrSnglObject AsDescrSngl { get; }
+}
+
+public interface ICmptDescrSnglObject
+{
+}
+
+public interface ICmptDscrs
+{
+  ICmptDscrsObject AsDscrs { get; }
+}
+
+public interface ICmptDscrsObject
+{
+}
+
+public interface ICmptInDrctParamDict
+{
+  ICmptInDrctParamDictObject AsInDrctParamDict { get; }
+}
+
+public interface ICmptInDrctParamDictObject
+{
+}
+
+public interface ICmptInDrctParamIn
+{
+  ICmptInDrctParamInObject AsInDrctParamIn { get; }
+}
+
+public interface ICmptInDrctParamInObject
+{
+}
+
+public interface ICmptInDrctParamList
+{
+  ICmptInDrctParamListObject AsInDrctParamList { get; }
+}
+
+public interface ICmptInDrctParamListObject
+{
+}
+
+public interface ICmptInDrctParamOpt
+{
+  ICmptInDrctParamOptObject AsInDrctParamOpt { get; }
+}
+
+public interface ICmptInDrctParamOptObject
+{
+}

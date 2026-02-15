@@ -1,0 +1,19 @@
+﻿/* constraint-alt+Input
+input CnstAltInp<$type:Number> { | $type }
+*/
+
+// Generated from Schema constraint-alt+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_Input;
+
+public interface ICmptCnstAltInp<TType>
+{
+  TType Astype { get; }
+  ICmptCnstAltInpObject<TType> AsCnstAltInp { get; }
+}
+
+public interface ICmptCnstAltInpObject<TType>
+{
+}

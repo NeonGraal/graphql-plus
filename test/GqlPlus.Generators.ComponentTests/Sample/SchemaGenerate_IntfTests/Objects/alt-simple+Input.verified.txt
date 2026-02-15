@@ -1,0 +1,19 @@
+﻿/* alt-simple+Input
+input AltSmplInp { | String }
+*/
+
+// Generated from Schema alt-simple+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_simple_Input;
+
+public interface ICmptAltSmplInp
+{
+  string AsString { get; }
+  ICmptAltSmplInpObject AsAltSmplInp { get; }
+}
+
+public interface ICmptAltSmplInpObject
+{
+}

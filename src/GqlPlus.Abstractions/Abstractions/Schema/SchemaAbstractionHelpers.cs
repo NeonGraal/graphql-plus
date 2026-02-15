@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Abstractions.Schema;
 
 public static class SchemaAbstractionHelpers
 {
@@ -17,4 +19,8 @@ public static class SchemaAbstractionHelpers
     where TAliased : IGqlpAliased
     => AliasedGroup(items)
       .ToMap(g => g.Key, g => element(g));
+
+  public static IEnumerable<string> NameAndAliases<T>([NotNull] this T aliased)
+    where T : IGqlpAliased
+    => aliased.Aliases.Prepend(aliased.Name).Distinct();
 }

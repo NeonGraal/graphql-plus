@@ -1,0 +1,19 @@
+﻿/* object-alias+Output
+output ObjAliasOutp [Output1] { }
+output ObjAliasOutp [Output2] { }
+*/
+
+// Generated from Schema object-alias+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alias_Output;
+
+public interface ICmptObjAliasOutp
+{
+  ICmptObjAliasOutpObject AsObjAliasOutp { get; }
+}
+
+public interface ICmptObjAliasOutpObject
+{
+}

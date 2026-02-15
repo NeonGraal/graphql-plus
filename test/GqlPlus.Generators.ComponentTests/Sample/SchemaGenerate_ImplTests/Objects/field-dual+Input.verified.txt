@@ -1,0 +1,22 @@
+﻿/* field-dual+Input
+input FieldDualInp { field: FldFieldDualInp }
+dual FldFieldDualInp { field: Number | String }
+*/
+
+// Generated from Schema field-dual+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_dual_Input;
+
+public class CmptFieldDualInp
+  : ICmptFieldDualInp
+{
+  public ICmptFldFieldDualInp Field { get; set; }
+}
+
+public class CmptFldFieldDualInp
+  : ICmptFldFieldDualInp
+{
+  public decimal Field { get; set; }
+}

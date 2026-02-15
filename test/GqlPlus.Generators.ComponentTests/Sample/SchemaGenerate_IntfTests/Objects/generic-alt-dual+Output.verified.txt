@@ -1,0 +1,42 @@
+﻿/* generic-alt-dual+Output
+output GnrcAltDualOutp { | RefGnrcAltDualOutp<AltGnrcAltDualOutp> }
+output RefGnrcAltDualOutp<$ref:_Dual> { | $ref }
+dual AltGnrcAltDualOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-dual+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_dual_Output;
+
+public interface ICmptGnrcAltDualOutp
+{
+  ICmptRefGnrcAltDualOutp<ICmptAltGnrcAltDualOutp> AsRefGnrcAltDualOutp { get; }
+  ICmptGnrcAltDualOutpObject AsGnrcAltDualOutp { get; }
+}
+
+public interface ICmptGnrcAltDualOutpObject
+{
+}
+
+public interface ICmptRefGnrcAltDualOutp<TRef>
+{
+  TRef Asref { get; }
+  ICmptRefGnrcAltDualOutpObject<TRef> AsRefGnrcAltDualOutp { get; }
+}
+
+public interface ICmptRefGnrcAltDualOutpObject<TRef>
+{
+}
+
+public interface ICmptAltGnrcAltDualOutp
+{
+  string AsString { get; }
+  ICmptAltGnrcAltDualOutpObject AsAltGnrcAltDualOutp { get; }
+}
+
+public interface ICmptAltGnrcAltDualOutpObject
+{
+  decimal Alt { get; }
+}

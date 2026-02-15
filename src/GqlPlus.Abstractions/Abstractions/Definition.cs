@@ -40,7 +40,7 @@ public interface IGqlpModifier
   , IEquatable<IGqlpModifier>
 {
   ModifierKind ModifierKind { get; }
-  string? Key { get; }
+  string Key { get; }
   bool IsOptional { get; }
 }
 

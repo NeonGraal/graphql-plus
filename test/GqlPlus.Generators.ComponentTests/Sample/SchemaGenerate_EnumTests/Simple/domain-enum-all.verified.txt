@@ -1,0 +1,17 @@
+﻿/* domain-enum-all
+domain DmnEnumAll { enum EnumDmnEnumAll.* }
+enum EnumDmnEnumAll { dmnEnumAll enum_dmnEnumAll dmnEnumAllValue }
+*/
+
+// Generated from Schema domain-enum-all for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_all;
+
+public enum CmptEnumDmnEnumAll
+{
+  dmnEnumAll,
+  enum_dmnEnumAll,
+  dmnEnumAllValue,
+}

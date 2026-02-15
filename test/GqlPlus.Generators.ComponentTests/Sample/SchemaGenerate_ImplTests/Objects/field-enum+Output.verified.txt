@@ -1,0 +1,16 @@
+﻿/* field-enum+Output
+output FieldEnumOutp { field = EnumFieldEnumOutp.fieldEnumOutp }
+enum EnumFieldEnumOutp { fieldEnumOutp }
+*/
+
+// Generated from Schema field-enum+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_enum_Output;
+
+public class CmptFieldEnumOutp
+  : ICmptFieldEnumOutp
+{
+  public CmptEnumFieldEnumOutp Field { get; set; }
+}

@@ -1,0 +1,20 @@
+﻿/* object-field-enum-alias+Dual
+dual ObjFieldEnumAliasDual { field [field1] = Boolean.true }
+dual ObjFieldEnumAliasDual { field [field2] = true }
+*/
+
+// Generated from Schema object-field-enum-alias+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_enum_alias_Dual;
+
+public interface ICmptObjFieldEnumAliasDual
+{
+  ICmptObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; }
+}
+
+public interface ICmptObjFieldEnumAliasDualObject
+{
+  bool Field { get; }
+}

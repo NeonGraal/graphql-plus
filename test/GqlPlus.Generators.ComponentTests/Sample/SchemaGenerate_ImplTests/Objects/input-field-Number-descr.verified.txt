@@ -1,0 +1,15 @@
+﻿/* input-field-Number-descr
+input InpFieldNmbrDescr { field: "Test" "Descr" Number = 42 }
+*/
+
+// Generated from Schema input-field-Number-descr for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_Number_descr;
+
+public class CmptInpFieldNmbrDescr
+  : ICmptInpFieldNmbrDescr
+{
+  public decimal Field { get; set; }
+}

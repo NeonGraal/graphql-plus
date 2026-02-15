@@ -1,0 +1,21 @@
+﻿/* object-param+Input
+input ObjParamInp<$test:String> { test: $test }
+input ObjParamInp<$type:String> { type: $type }
+*/
+
+// Generated from Schema object-param+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_param_Input;
+
+public interface ICmptObjParamInp<TTest,TType>
+{
+  ICmptObjParamInpObject<TTest,TType> AsObjParamInp { get; }
+}
+
+public interface ICmptObjParamInpObject<TTest,TType>
+{
+  TTest Test { get; }
+  TType Type { get; }
+}

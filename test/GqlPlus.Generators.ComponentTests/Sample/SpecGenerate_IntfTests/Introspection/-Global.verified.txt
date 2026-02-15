@@ -1,0 +1,128 @@
+﻿/* -Global
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
+
+output _Categories {
+    : _AndType
+        category: _Category
+    | _Category
+    }
+
+output _Category {
+    : _Aliased
+        resolution: _Resolution
+        output: _TypeRef<_TypeKind.Output>
+        modifiers: _Modifiers[]
+    }
+
+enum _Resolution { Parallel Sequential Single }
+
+output _Directives {
+    : _AndType
+        directive: _Directive
+    | _Directive
+    }
+
+output _Directive {
+    : _Aliased
+        parameters: _InputParam[]
+        repeatable: Boolean
+        locations: _[_Location]
+    }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
+
+
+output _Setting {
+    : _Named
+        value: Value
+    }
+*/
+
+// Generated from Spec -Global for Intf
+/*
+*/
+
+namespace Components.Gqlp_Spec_Global;
+
+public interface ICmpt_AndType
+  : ICmpt_Named
+{
+  ICmpt_Type As_Type { get; }
+  ICmpt_AndTypeObject As_AndType { get; }
+}
+
+public interface ICmpt_AndTypeObject
+  : ICmpt_NamedObject
+{
+  ICmpt_Type Type { get; }
+}
+
+public interface ICmpt_Categories
+  : ICmpt_AndType
+{
+  ICmpt_Category As_Category { get; }
+  ICmpt_CategoriesObject As_Categories { get; }
+}
+
+public interface ICmpt_CategoriesObject
+  : ICmpt_AndTypeObject
+{
+  ICmpt_Category Category { get; }
+}
+
+public interface ICmpt_Category
+  : ICmpt_Aliased
+{
+  ICmpt_CategoryObject As_Category { get; }
+}
+
+public interface ICmpt_CategoryObject
+  : ICmpt_AliasedObject
+{
+  Cmpt_Resolution Resolution { get; }
+  ICmpt_TypeRef<ICmpt_TypeKind> Output { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
+}
+
+public interface ICmpt_Directives
+  : ICmpt_AndType
+{
+  ICmpt_Directive As_Directive { get; }
+  ICmpt_DirectivesObject As_Directives { get; }
+}
+
+public interface ICmpt_DirectivesObject
+  : ICmpt_AndTypeObject
+{
+  ICmpt_Directive Directive { get; }
+}
+
+public interface ICmpt_Directive
+  : ICmpt_Aliased
+{
+  ICmpt_DirectiveObject As_Directive { get; }
+}
+
+public interface ICmpt_DirectiveObject
+  : ICmpt_AliasedObject
+{
+  ICollection<ICmpt_InputParam> Parameters { get; }
+  bool Repeatable { get; }
+  IDictionary<Cmpt_Location, GqlpUnit> Locations { get; }
+}
+
+public interface ICmpt_Setting
+  : ICmpt_Named
+{
+  ICmpt_SettingObject As_Setting { get; }
+}
+
+public interface ICmpt_SettingObject
+  : ICmpt_NamedObject
+{
+  GqlpValue Value { get; }
+}

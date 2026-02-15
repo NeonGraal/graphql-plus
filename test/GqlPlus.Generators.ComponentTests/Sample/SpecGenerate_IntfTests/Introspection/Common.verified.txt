@@ -1,0 +1,135 @@
+﻿/* Common
+output _Type {
+    | _BaseType<_TypeKind.Basic>
+    | _BaseType<_TypeKind.Internal>
+    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
+    | _BaseDomain<_DomainKind.Enum _DomainLabel _DomainItemLabel>
+    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
+    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
+    | _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
+    | _ParentType<_TypeKind.Union _UnionRef _UnionMember>
+    | _TypeObject<_TypeKind.Dual _DualField>
+    | _TypeObject<_TypeKind.Input _InputField>
+    | _TypeObject<_TypeKind.Output _OutputField>
+    }
+
+output _BaseType<$kind:_TypeKind> {
+    : _Aliased
+        typeKind: $kind
+    }
+
+output _ChildType<$kind:_TypeKind $parent:_Described> {
+    : _BaseType<$kind>
+        parent: $parent
+    }
+
+output _ParentType<$kind:_TypeKind $item:_Described $allItem:_Described> {
+    : _ChildType<$kind _Named>
+        items: $item[]
+        allItems: $allItem[]
+    }
+
+enum _SimpleKind { Basic Enum Internal Domain Union }
+
+enum _TypeKind { :_SimpleKind Dual Input Output }
+
+dual _TypeRef<$kind:_TypeKind> {
+    : _Named
+        typeKind: $kind
+}
+
+dual _TypeSimple {
+    | _TypeRef<_TypeKind.Basic>
+    | _TypeRef<_TypeKind.Enum>
+    | _TypeRef<_TypeKind.Domain>
+    | _TypeRef<_TypeKind.Union>
+    }
+*/
+
+// Generated from Spec Common for Intf
+/*
+*/
+
+namespace Components.Gqlp_Spec_Common;
+
+public interface ICmpt_Type
+{
+  ICmpt_BaseType<Cmpt_TypeKind> As_TypeKindBasic { get; }
+  ICmpt_BaseType<Cmpt_TypeKind> As_TypeKindInternal { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainTrueFalse, ICmpt_DomainItemTrueFalse> As_DomainKindBoolean { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainLabel, ICmpt_DomainItemLabel> As_DomainKindEnum { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRange, ICmpt_DomainItemRange> As_DomainKindNumber { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRegex, ICmpt_DomainItemRegex> As_DomainKindString { get; }
+  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel> As_TypeKindEnum { get; }
+  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember> As_TypeKindUnion { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_DualField> As_TypeKindDual { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_InputField> As_TypeKindInput { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_OutputField> As_TypeKindOutput { get; }
+  ICmpt_TypeObject As_Type { get; }
+}
+
+public interface ICmpt_TypeObject
+{
+}
+
+public interface ICmpt_BaseType<TKind>
+  : ICmpt_Aliased
+{
+  ICmpt_BaseTypeObject<TKind> As_BaseType { get; }
+}
+
+public interface ICmpt_BaseTypeObject<TKind>
+  : ICmpt_AliasedObject
+{
+  TKind TypeKind { get; }
+}
+
+public interface ICmpt_ChildType<TKind,TParent>
+  : ICmpt_BaseType<TKind>
+{
+  ICmpt_ChildTypeObject<TKind,TParent> As_ChildType { get; }
+}
+
+public interface ICmpt_ChildTypeObject<TKind,TParent>
+  : ICmpt_BaseTypeObject<TKind>
+{
+  TParent Parent { get; }
+}
+
+public interface ICmpt_ParentType<TKind,TItem,TAllItem>
+  : ICmpt_ChildType<TKind, ICmpt_Named>
+{
+  ICmpt_ParentTypeObject<TKind,TItem,TAllItem> As_ParentType { get; }
+}
+
+public interface ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
+  : ICmpt_ChildTypeObject<TKind, ICmpt_Named>
+{
+  ICollection<TItem> Items { get; }
+  ICollection<TAllItem> AllItems { get; }
+}
+
+public interface ICmpt_TypeRef<TKind>
+  : ICmpt_Named
+{
+  ICmpt_TypeRefObject<TKind> As_TypeRef { get; }
+}
+
+public interface ICmpt_TypeRefObject<TKind>
+  : ICmpt_NamedObject
+{
+  TKind TypeKind { get; }
+}
+
+public interface ICmpt_TypeSimple
+{
+  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindBasic { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindEnum { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindDomain { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindUnion { get; }
+  ICmpt_TypeSimpleObject As_TypeSimple { get; }
+}
+
+public interface ICmpt_TypeSimpleObject
+{
+}

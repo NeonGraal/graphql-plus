@@ -1,0 +1,33 @@
+﻿/* parent-field+Dual
+dual PrntFieldDual { :RefPrntFieldDual field: Number }
+dual RefPrntFieldDual { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_field_Dual;
+
+public interface ICmptPrntFieldDual
+  : ICmptRefPrntFieldDual
+{
+  ICmptPrntFieldDualObject AsPrntFieldDual { get; }
+}
+
+public interface ICmptPrntFieldDualObject
+  : ICmptRefPrntFieldDualObject
+{
+  decimal Field { get; }
+}
+
+public interface ICmptRefPrntFieldDual
+{
+  string AsString { get; }
+  ICmptRefPrntFieldDualObject AsRefPrntFieldDual { get; }
+}
+
+public interface ICmptRefPrntFieldDualObject
+{
+  decimal Parent { get; }
+}

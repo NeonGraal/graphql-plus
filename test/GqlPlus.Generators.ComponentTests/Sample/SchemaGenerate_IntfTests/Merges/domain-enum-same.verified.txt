@@ -1,0 +1,15 @@
+﻿/* domain-enum-same
+domain DmnEnumSame { enum true }
+domain DmnEnumSame { enum true }
+*/
+
+// Generated from Schema domain-enum-same for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_same;
+
+public interface ICmptDmnEnumSame
+  : IGqlpDomainEnum
+{
+}

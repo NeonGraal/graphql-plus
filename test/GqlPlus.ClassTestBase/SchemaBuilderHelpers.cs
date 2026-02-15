@@ -20,10 +20,10 @@ public static class SchemaBuilderHelpers
     return result;
   }
 
-  public static T Named<T>(this IMockBuilder builder, string name)
-    where T : class, IGqlpNamed
+  public static TType Named<TType>(this IMockBuilder builder, string name)
+    where TType : class, IGqlpNamed
   {
-    T result = builder.Error<T>();
+    TType result = builder.Error<TType>();
     result.Name.Returns(name);
     return result;
   }

@@ -1,0 +1,21 @@
+﻿/* alt-dual+Output
+output AltDualOutp { | ObjDualAltDualOutp }
+dual ObjDualAltDualOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt-dual+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_dual_Output;
+
+public class CmptAltDualOutp
+  : ICmptAltDualOutp
+{
+}
+
+public class CmptObjDualAltDualOutp
+  : ICmptObjDualAltDualOutp
+{
+  public decimal Alt { get; set; }
+}

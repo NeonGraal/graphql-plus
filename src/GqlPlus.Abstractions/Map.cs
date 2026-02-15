@@ -21,6 +21,13 @@ public class Map<TMap>
 
   public void Add(MapPair<TMap> item)
     => Add(item.Key, item.Value);
+
+  public void AddRange(IEnumerable<MapPair<TMap>> items)
+  {
+    foreach (MapPair<TMap> item in items.ThrowIfNull()) {
+      Add(item);
+    }
+  }
 }
 
 public record struct MapPair<TMap>(string Key, TMap Value)

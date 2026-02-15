@@ -1,0 +1,31 @@
+﻿/* generic-enum+Dual
+dual GnrcEnumDual { | RefGnrcEnumDual<EnumGnrcEnumDual.gnrcEnumDual> }
+dual RefGnrcEnumDual<$type:_Enum> { field: $type }
+enum EnumGnrcEnumDual { gnrcEnumDual }
+*/
+
+// Generated from Schema generic-enum+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_enum_Dual;
+
+public interface ICmptGnrcEnumDual
+{
+  ICmptRefGnrcEnumDual<CmptEnumGnrcEnumDual> AsEnumGnrcEnumDualgnrcEnumDual { get; }
+  ICmptGnrcEnumDualObject AsGnrcEnumDual { get; }
+}
+
+public interface ICmptGnrcEnumDualObject
+{
+}
+
+public interface ICmptRefGnrcEnumDual<TType>
+{
+  ICmptRefGnrcEnumDualObject<TType> AsRefGnrcEnumDual { get; }
+}
+
+public interface ICmptRefGnrcEnumDualObject<TType>
+{
+  TType Field { get; }
+}

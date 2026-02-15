@@ -1,0 +1,43 @@
+﻿/* generic-parent-param+Output
+output GnrcPrntParamOutp { :RefGnrcPrntParamOutp<AltGnrcPrntParamOutp> }
+output RefGnrcPrntParamOutp<$ref:_Output> { | $ref }
+output AltGnrcPrntParamOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-param+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_param_Output;
+
+public interface ICmptGnrcPrntParamOutp
+  : ICmptRefGnrcPrntParamOutp<ICmptAltGnrcPrntParamOutp>
+{
+  ICmptGnrcPrntParamOutpObject AsGnrcPrntParamOutp { get; }
+}
+
+public interface ICmptGnrcPrntParamOutpObject
+  : ICmptRefGnrcPrntParamOutpObject<ICmptAltGnrcPrntParamOutp>
+{
+}
+
+public interface ICmptRefGnrcPrntParamOutp<TRef>
+{
+  TRef Asref { get; }
+  ICmptRefGnrcPrntParamOutpObject<TRef> AsRefGnrcPrntParamOutp { get; }
+}
+
+public interface ICmptRefGnrcPrntParamOutpObject<TRef>
+{
+}
+
+public interface ICmptAltGnrcPrntParamOutp
+{
+  string AsString { get; }
+  ICmptAltGnrcPrntParamOutpObject AsAltGnrcPrntParamOutp { get; }
+}
+
+public interface ICmptAltGnrcPrntParamOutpObject
+{
+  decimal Alt { get; }
+}

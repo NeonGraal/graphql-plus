@@ -1,0 +1,66 @@
+﻿/* output-parent-param
+output OutpPrntParam { :PrntOutpPrntParam field(InOutpPrntParam): FldOutpPrntParam }
+output PrntOutpPrntParam { field(PrntOutpPrntParamIn): FldOutpPrntParam }
+dual FldOutpPrntParam { }
+input InOutpPrntParam { param: Number | String }
+input PrntOutpPrntParamIn { parent: Number | String }
+*/
+
+// Generated from Schema output-parent-param for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_parent_param;
+
+public interface ICmptOutpPrntParam
+  : ICmptPrntOutpPrntParam
+{
+  ICmptOutpPrntParamObject AsOutpPrntParam { get; }
+}
+
+public interface ICmptOutpPrntParamObject
+  : ICmptPrntOutpPrntParamObject
+{
+  ICmptFldOutpPrntParam Field { get; }
+}
+
+public interface ICmptPrntOutpPrntParam
+{
+  ICmptPrntOutpPrntParamObject AsPrntOutpPrntParam { get; }
+}
+
+public interface ICmptPrntOutpPrntParamObject
+{
+  ICmptFldOutpPrntParam Field { get; }
+}
+
+public interface ICmptFldOutpPrntParam
+{
+  ICmptFldOutpPrntParamObject AsFldOutpPrntParam { get; }
+}
+
+public interface ICmptFldOutpPrntParamObject
+{
+}
+
+public interface ICmptInOutpPrntParam
+{
+  string AsString { get; }
+  ICmptInOutpPrntParamObject AsInOutpPrntParam { get; }
+}
+
+public interface ICmptInOutpPrntParamObject
+{
+  decimal Param { get; }
+}
+
+public interface ICmptPrntOutpPrntParamIn
+{
+  string AsString { get; }
+  ICmptPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; }
+}
+
+public interface ICmptPrntOutpPrntParamInObject
+{
+  decimal Parent { get; }
+}

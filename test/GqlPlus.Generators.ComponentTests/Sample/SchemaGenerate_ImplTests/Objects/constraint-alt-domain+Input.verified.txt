@@ -1,0 +1,27 @@
+﻿/* constraint-alt-domain+Input
+input CnstAltDmnInp { | RefCnstAltDmnInp<DomCnstAltDmnInp> }
+input RefCnstAltDmnInp<$ref:String> { | $ref }
+domain DomCnstAltDmnInp { String /\w+/ }
+*/
+
+// Generated from Schema constraint-alt-domain+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
+
+public class CmptCnstAltDmnInp
+  : ICmptCnstAltDmnInp
+{
+}
+
+public class CmptRefCnstAltDmnInp<TRef>
+  : ICmptRefCnstAltDmnInp<TRef>
+{
+}
+
+public class CmptDomCnstAltDmnInp
+  : GqlpDomainString
+  , ICmptDomCnstAltDmnInp
+{
+}

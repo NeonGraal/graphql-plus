@@ -1,0 +1,74 @@
+﻿/* Common
+output _Type {
+    | _BaseType<_TypeKind.Basic>
+    | _BaseType<_TypeKind.Internal>
+    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
+    | _BaseDomain<_DomainKind.Enum _DomainLabel _DomainItemLabel>
+    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
+    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
+    | _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
+    | _ParentType<_TypeKind.Union _UnionRef _UnionMember>
+    | _TypeObject<_TypeKind.Dual _DualField>
+    | _TypeObject<_TypeKind.Input _InputField>
+    | _TypeObject<_TypeKind.Output _OutputField>
+    }
+
+output _BaseType<$kind:_TypeKind> {
+    : _Aliased
+        typeKind: $kind
+    }
+
+output _ChildType<$kind:_TypeKind $parent:_Described> {
+    : _BaseType<$kind>
+        parent: $parent
+    }
+
+output _ParentType<$kind:_TypeKind $item:_Described $allItem:_Described> {
+    : _ChildType<$kind _Named>
+        items: $item[]
+        allItems: $allItem[]
+    }
+
+enum _SimpleKind { Basic Enum Internal Domain Union }
+
+enum _TypeKind { :_SimpleKind Dual Input Output }
+
+dual _TypeRef<$kind:_TypeKind> {
+    : _Named
+        typeKind: $kind
+}
+
+dual _TypeSimple {
+    | _TypeRef<_TypeKind.Basic>
+    | _TypeRef<_TypeKind.Enum>
+    | _TypeRef<_TypeKind.Domain>
+    | _TypeRef<_TypeKind.Union>
+    }
+*/
+
+// Generated from Spec Common for Enum
+/*
+*/
+
+namespace Components.Gqlp_Spec_Common;
+
+public enum Cmpt_SimpleKind
+{
+  Basic,
+  Enum,
+  Internal,
+  Domain,
+  Union,
+}
+
+public enum Cmpt_TypeKind
+{
+  Basic = Cmpt_SimpleKind.Basic,
+  Enum = Cmpt_SimpleKind.Enum,
+  Internal = Cmpt_SimpleKind.Internal,
+  Domain = Cmpt_SimpleKind.Domain,
+  Union = Cmpt_SimpleKind.Union,
+  Dual,
+  Input,
+  Output,
+}

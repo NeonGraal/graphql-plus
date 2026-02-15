@@ -1,0 +1,67 @@
+﻿/* constraint-parent-dual-grandparent+Input
+input CnstPrntDualGrndInp { :RefCnstPrntDualGrndInp<AltCnstPrntDualGrndInp> }
+input RefCnstPrntDualGrndInp<$ref:GrndCnstPrntDualGrndInp> { :$ref }
+dual GrndCnstPrntDualGrndInp { | String }
+dual PrntCnstPrntDualGrndInp { :GrndCnstPrntDualGrndInp }
+input AltCnstPrntDualGrndInp { :PrntCnstPrntDualGrndInp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-dual-grandparent+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Input;
+
+public interface ICmptCnstPrntDualGrndInp
+  : ICmptRefCnstPrntDualGrndInp<ICmptAltCnstPrntDualGrndInp>
+{
+  ICmptCnstPrntDualGrndInpObject AsCnstPrntDualGrndInp { get; }
+}
+
+public interface ICmptCnstPrntDualGrndInpObject
+  : ICmptRefCnstPrntDualGrndInpObject<ICmptAltCnstPrntDualGrndInp>
+{
+}
+
+public interface ICmptRefCnstPrntDualGrndInp<TRef>
+{
+  TRef AsParent { get; }
+  ICmptRefCnstPrntDualGrndInpObject<TRef> AsRefCnstPrntDualGrndInp { get; }
+}
+
+public interface ICmptRefCnstPrntDualGrndInpObject<TRef>
+{
+}
+
+public interface ICmptGrndCnstPrntDualGrndInp
+{
+  string AsString { get; }
+  ICmptGrndCnstPrntDualGrndInpObject AsGrndCnstPrntDualGrndInp { get; }
+}
+
+public interface ICmptGrndCnstPrntDualGrndInpObject
+{
+}
+
+public interface ICmptPrntCnstPrntDualGrndInp
+  : ICmptGrndCnstPrntDualGrndInp
+{
+  ICmptPrntCnstPrntDualGrndInpObject AsPrntCnstPrntDualGrndInp { get; }
+}
+
+public interface ICmptPrntCnstPrntDualGrndInpObject
+  : ICmptGrndCnstPrntDualGrndInpObject
+{
+}
+
+public interface ICmptAltCnstPrntDualGrndInp
+  : ICmptPrntCnstPrntDualGrndInp
+{
+  ICmptAltCnstPrntDualGrndInpObject AsAltCnstPrntDualGrndInp { get; }
+}
+
+public interface ICmptAltCnstPrntDualGrndInpObject
+  : ICmptPrntCnstPrntDualGrndInpObject
+{
+  decimal Alt { get; }
+}

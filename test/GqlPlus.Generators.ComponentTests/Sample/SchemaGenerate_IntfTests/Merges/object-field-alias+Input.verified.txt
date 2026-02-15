@@ -1,0 +1,30 @@
+﻿/* object-field-alias+Input
+input ObjFieldAliasInp { field [field1]: FldObjFieldAliasInp }
+input ObjFieldAliasInp { field [field2]: FldObjFieldAliasInp }
+input FldObjFieldAliasInp { }
+*/
+
+// Generated from Schema object-field-alias+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_alias_Input;
+
+public interface ICmptObjFieldAliasInp
+{
+  ICmptObjFieldAliasInpObject AsObjFieldAliasInp { get; }
+}
+
+public interface ICmptObjFieldAliasInpObject
+{
+  ICmptFldObjFieldAliasInp Field { get; }
+}
+
+public interface ICmptFldObjFieldAliasInp
+{
+  ICmptFldObjFieldAliasInpObject AsFldObjFieldAliasInp { get; }
+}
+
+public interface ICmptFldObjFieldAliasInpObject
+{
+}

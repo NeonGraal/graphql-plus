@@ -1,0 +1,27 @@
+﻿/* generic-alt-dual+Output
+output GnrcAltDualOutp { | RefGnrcAltDualOutp<AltGnrcAltDualOutp> }
+output RefGnrcAltDualOutp<$ref:_Dual> { | $ref }
+dual AltGnrcAltDualOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-dual+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_dual_Output;
+
+public class CmptGnrcAltDualOutp
+  : ICmptGnrcAltDualOutp
+{
+}
+
+public class CmptRefGnrcAltDualOutp<TRef>
+  : ICmptRefGnrcAltDualOutp<TRef>
+{
+}
+
+public class CmptAltGnrcAltDualOutp
+  : ICmptAltGnrcAltDualOutp
+{
+  public decimal Alt { get; set; }
+}

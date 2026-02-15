@@ -1,0 +1,43 @@
+﻿/* generic-parent-param+Dual
+dual GnrcPrntParamDual { :RefGnrcPrntParamDual<AltGnrcPrntParamDual> }
+dual RefGnrcPrntParamDual<$ref:_Dual> { | $ref }
+dual AltGnrcPrntParamDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-param+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_param_Dual;
+
+public interface ICmptGnrcPrntParamDual
+  : ICmptRefGnrcPrntParamDual<ICmptAltGnrcPrntParamDual>
+{
+  ICmptGnrcPrntParamDualObject AsGnrcPrntParamDual { get; }
+}
+
+public interface ICmptGnrcPrntParamDualObject
+  : ICmptRefGnrcPrntParamDualObject<ICmptAltGnrcPrntParamDual>
+{
+}
+
+public interface ICmptRefGnrcPrntParamDual<TRef>
+{
+  TRef Asref { get; }
+  ICmptRefGnrcPrntParamDualObject<TRef> AsRefGnrcPrntParamDual { get; }
+}
+
+public interface ICmptRefGnrcPrntParamDualObject<TRef>
+{
+}
+
+public interface ICmptAltGnrcPrntParamDual
+{
+  string AsString { get; }
+  ICmptAltGnrcPrntParamDualObject AsAltGnrcPrntParamDual { get; }
+}
+
+public interface ICmptAltGnrcPrntParamDualObject
+{
+  decimal Alt { get; }
+}

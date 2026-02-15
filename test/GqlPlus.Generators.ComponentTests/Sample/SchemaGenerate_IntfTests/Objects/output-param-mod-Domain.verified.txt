@@ -1,0 +1,37 @@
+﻿/* output-param-mod-Domain
+output OutpParamModDmn { field(InOutpParamModDmn[DomOutpParamModDmn]): DomOutpParamModDmn }
+input InOutpParamModDmn { param: Number | String }
+domain DomOutpParamModDmn { number 1 < 10 }
+*/
+
+// Generated from Schema output-param-mod-Domain for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param_mod_Domain;
+
+public interface ICmptOutpParamModDmn
+{
+  ICmptOutpParamModDmnObject AsOutpParamModDmn { get; }
+}
+
+public interface ICmptOutpParamModDmnObject
+{
+  ICmptDomOutpParamModDmn Field { get; }
+}
+
+public interface ICmptInOutpParamModDmn
+{
+  string AsString { get; }
+  ICmptInOutpParamModDmnObject AsInOutpParamModDmn { get; }
+}
+
+public interface ICmptInOutpParamModDmnObject
+{
+  decimal Param { get; }
+}
+
+public interface ICmptDomOutpParamModDmn
+  : IGqlpDomainNumber
+{
+}

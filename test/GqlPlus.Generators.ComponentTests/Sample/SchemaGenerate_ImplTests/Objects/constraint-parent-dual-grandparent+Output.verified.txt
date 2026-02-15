@@ -1,0 +1,42 @@
+﻿/* constraint-parent-dual-grandparent+Output
+output CnstPrntDualGrndOutp { :RefCnstPrntDualGrndOutp<AltCnstPrntDualGrndOutp> }
+output RefCnstPrntDualGrndOutp<$ref:GrndCnstPrntDualGrndOutp> { :$ref }
+dual GrndCnstPrntDualGrndOutp { | String }
+dual PrntCnstPrntDualGrndOutp { :GrndCnstPrntDualGrndOutp }
+output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-dual-grandparent+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
+
+public class CmptCnstPrntDualGrndOutp
+  : CmptRefCnstPrntDualGrndOutp<ICmptAltCnstPrntDualGrndOutp>
+  , ICmptCnstPrntDualGrndOutp
+{
+}
+
+public class CmptRefCnstPrntDualGrndOutp<TRef>
+  : ICmptRefCnstPrntDualGrndOutp<TRef>
+{
+}
+
+public class CmptGrndCnstPrntDualGrndOutp
+  : ICmptGrndCnstPrntDualGrndOutp
+{
+}
+
+public class CmptPrntCnstPrntDualGrndOutp
+  : CmptGrndCnstPrntDualGrndOutp
+  , ICmptPrntCnstPrntDualGrndOutp
+{
+}
+
+public class CmptAltCnstPrntDualGrndOutp
+  : CmptPrntCnstPrntDualGrndOutp
+  , ICmptAltCnstPrntDualGrndOutp
+{
+  public decimal Alt { get; set; }
+}

@@ -1,0 +1,17 @@
+﻿/* Dual
+output _DualField {
+    : _ObjField<_ObjFieldType>
+    }
+*/
+
+// Generated from Spec Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Spec_Dual;
+
+public class Cmpt_DualField
+  : Cmpt_ObjField<ICmpt_ObjFieldType>
+  , ICmpt_DualField
+{
+}

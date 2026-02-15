@@ -1,0 +1,20 @@
+﻿/* domain-bool-parent-descr
+domain DmnBoolPrntDescr { :"Parent comment"PrntDmnBoolPrntDescr Boolean false }
+domain PrntDmnBoolPrntDescr { Boolean true }
+*/
+
+// Generated from Schema domain-bool-parent-descr for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_bool_parent_descr;
+
+public interface ICmptDmnBoolPrntDescr
+  : ICmptPrntDmnBoolPrntDescr
+{
+}
+
+public interface ICmptPrntDmnBoolPrntDescr
+  : IGqlpDomainBoolean
+{
+}

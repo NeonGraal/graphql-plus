@@ -1,0 +1,121 @@
+﻿/* Schema
+"$T?"
+dual _Opt<$T:_Any> [Opt] { | $T | Null }
+
+dual _List<$T:_Any> [List] { | $T[] }
+
+dual _Dict<$K:_Key $T:_Any> [Dict] { | $T[$K] }
+
+dual _Map<$T:_Any> [Map] { | $T[*] }
+
+dual _Array<$T:_Any> [Array] { | $T[0] }
+
+dual _IfElse<$T:_Any> [IfElse] { | $T[^] }
+
+dual _Set<$K:_Key> [Set] { | _[$K] }
+
+dual _Mask<$K:_Key> [Mask] { | ^[$K] }
+
+union _Key { }
+dual _Any { }
+*/
+
+// Generated from Spec Schema for Intf
+/*
+*/
+
+namespace Components.Gqlp_Spec_Schema;
+
+public interface ICmpt_Opt<TT>
+{
+  TT AsT { get; }
+  CmptNull AsNull { get; }
+  ICmpt_OptObject<TT> As_Opt { get; }
+}
+
+public interface ICmpt_OptObject<TT>
+{
+}
+
+public interface ICmpt_List<TT>
+{
+  ICollection<TT> AsT { get; }
+  ICmpt_ListObject<TT> As_List { get; }
+}
+
+public interface ICmpt_ListObject<TT>
+{
+}
+
+public interface ICmpt_Dict<TK,TT>
+{
+  IDictionary<TK, TT> AsT { get; }
+  ICmpt_DictObject<TK,TT> As_Dict { get; }
+}
+
+public interface ICmpt_DictObject<TK,TT>
+{
+}
+
+public interface ICmpt_Map<TT>
+{
+  IDictionary<string, TT> AsT { get; }
+  ICmpt_MapObject<TT> As_Map { get; }
+}
+
+public interface ICmpt_MapObject<TT>
+{
+}
+
+public interface ICmpt_Array<TT>
+{
+  IDictionary<decimal, TT> AsT { get; }
+  ICmpt_ArrayObject<TT> As_Array { get; }
+}
+
+public interface ICmpt_ArrayObject<TT>
+{
+}
+
+public interface ICmpt_IfElse<TT>
+{
+  IDictionary<bool, TT> AsT { get; }
+  ICmpt_IfElseObject<TT> As_IfElse { get; }
+}
+
+public interface ICmpt_IfElseObject<TT>
+{
+}
+
+public interface ICmpt_Set<TK>
+{
+  IDictionary<TK, GqlpUnit> AsUnit_ { get; }
+  ICmpt_SetObject<TK> As_Set { get; }
+}
+
+public interface ICmpt_SetObject<TK>
+{
+}
+
+public interface ICmpt_Mask<TK>
+{
+  IDictionary<TK, bool> AsBoolean { get; }
+  ICmpt_MaskObject<TK> As_Mask { get; }
+}
+
+public interface ICmpt_MaskObject<TK>
+{
+}
+
+public interface ICmpt_Key
+{
+}
+
+public interface ICmpt_Any
+{
+  ICmpt_AnyObject As_Any { get; }
+}
+
+public interface ICmpt_AnyObject
+{
+}

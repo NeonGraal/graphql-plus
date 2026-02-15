@@ -1,0 +1,22 @@
+﻿/* object-field+Input
+input ObjFieldInp { field: FldObjFieldInp }
+input ObjFieldInp { field: FldObjFieldInp }
+input FldObjFieldInp { }
+*/
+
+// Generated from Schema object-field+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_Input;
+
+public class CmptObjFieldInp
+  : ICmptObjFieldInp
+{
+  public ICmptFldObjFieldInp Field { get; set; }
+}
+
+public class CmptFldObjFieldInp
+  : ICmptFldObjFieldInp
+{
+}

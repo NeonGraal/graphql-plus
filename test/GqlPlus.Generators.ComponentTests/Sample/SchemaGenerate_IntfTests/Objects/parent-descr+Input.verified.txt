@@ -1,0 +1,32 @@
+﻿/* parent-descr+Input
+input PrntDescrInp { : "Test" "Descr" RefPrntDescrInp }
+input RefPrntDescrInp { parent: Number | String }
+*/
+
+// Generated from Schema parent-descr+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_descr_Input;
+
+public interface ICmptPrntDescrInp
+  : ICmptRefPrntDescrInp
+{
+  ICmptPrntDescrInpObject AsPrntDescrInp { get; }
+}
+
+public interface ICmptPrntDescrInpObject
+  : ICmptRefPrntDescrInpObject
+{
+}
+
+public interface ICmptRefPrntDescrInp
+{
+  string AsString { get; }
+  ICmptRefPrntDescrInpObject AsRefPrntDescrInp { get; }
+}
+
+public interface ICmptRefPrntDescrInpObject
+{
+  decimal Parent { get; }
+}

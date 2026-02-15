@@ -1,0 +1,37 @@
+﻿/* generic-parent-string-dom+Dual
+dual GnrcPrntStrDomDual { :FieldGnrcPrntStrDomDual<DomGnrcPrntStrDomDual> }
+dual FieldGnrcPrntStrDomDual<$ref:String> { field: $ref }
+domain DomGnrcPrntStrDomDual { string /\w+/ }
+*/
+
+// Generated from Schema generic-parent-string-dom+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
+
+public interface ICmptGnrcPrntStrDomDual
+  : ICmptFieldGnrcPrntStrDomDual<ICmptDomGnrcPrntStrDomDual>
+{
+  ICmptGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; }
+}
+
+public interface ICmptGnrcPrntStrDomDualObject
+  : ICmptFieldGnrcPrntStrDomDualObject<ICmptDomGnrcPrntStrDomDual>
+{
+}
+
+public interface ICmptFieldGnrcPrntStrDomDual<TRef>
+{
+  ICmptFieldGnrcPrntStrDomDualObject<TRef> AsFieldGnrcPrntStrDomDual { get; }
+}
+
+public interface ICmptFieldGnrcPrntStrDomDualObject<TRef>
+{
+  TRef Field { get; }
+}
+
+public interface ICmptDomGnrcPrntStrDomDual
+  : IGqlpDomainString
+{
+}

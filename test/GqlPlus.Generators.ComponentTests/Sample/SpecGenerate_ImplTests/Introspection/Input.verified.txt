@@ -1,0 +1,39 @@
+﻿/* Input
+output _InputField {
+    : _ObjField<_InputFieldType>
+    }
+
+output _InputFieldType {
+    : _ObjFieldType
+        defaultValue: Value?
+    }
+
+output _InputParam {
+    : _InputFieldType
+    }
+*/
+
+// Generated from Spec Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Spec_Input;
+
+public class Cmpt_InputField
+  : Cmpt_ObjField<ICmpt_InputFieldType>
+  , ICmpt_InputField
+{
+}
+
+public class Cmpt_InputFieldType
+  : Cmpt_ObjFieldType
+  , ICmpt_InputFieldType
+{
+  public GqlpValue? DefaultValue { get; set; }
+}
+
+public class Cmpt_InputParam
+  : Cmpt_InputFieldType
+  , ICmpt_InputParam
+{
+}

@@ -1,0 +1,20 @@
+﻿/* directive-param
+directive @DrctParam(InDrctParam) { operation }
+directive @DrctParam { fragment }
+input InDrctParam { }
+*/
+
+// Generated from Schema directive-param for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param;
+
+public interface ICmptInDrctParam
+{
+  ICmptInDrctParamObject AsInDrctParam { get; }
+}
+
+public interface ICmptInDrctParamObject
+{
+}

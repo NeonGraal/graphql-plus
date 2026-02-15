@@ -1,0 +1,21 @@
+﻿/* object-alt-enum+Dual
+dual ObjAltEnumDual { ! true }
+dual ObjAltEnumDual { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_enum_Dual;
+
+public interface ICmptObjAltEnumDual
+{
+  bool AsBooleantrue { get; }
+  bool AsBooleanfalse { get; }
+  ICmptObjAltEnumDualObject AsObjAltEnumDual { get; }
+}
+
+public interface ICmptObjAltEnumDualObject
+{
+}

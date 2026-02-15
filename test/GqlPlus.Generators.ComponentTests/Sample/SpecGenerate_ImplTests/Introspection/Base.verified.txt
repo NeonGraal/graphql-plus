@@ -1,0 +1,167 @@
+﻿/* Base
+domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
+
+output _TypeObject<$kind:_ObjectKind $field:_ObjField> {
+    : _ChildType<$kind _ObjBase>
+        typeParams: _ObjTypeParam[]
+        fields: $field[]
+        alternates: _ObjAlternate[]
+        allFields: _ObjectFor<$field>[]
+        allAlternates: _ObjectFor<_ObjAlternate>[]
+    }
+
+output _ObjTypeParam {
+    : _Named
+        constraint: _TypeRef<_TypeKind>
+    }
+
+output _ObjBase {
+    : _Named
+        typeArgs: _ObjTypeArg[]
+    | _TypeParam
+    }
+
+output _ObjTypeArg {
+    : _TypeRef<_TypeKind>
+        label: _Name?
+    | _TypeParam
+    }
+
+output _TypeParam {
+    : _Described
+        typeParam: _Name
+    }
+
+output _ObjAlternate {
+      type: _ObjBase
+      collections: _Collections[]
+    | _ObjAlternateEnum
+    }
+
+output _ObjAlternateEnum {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Name
+    }
+output _ObjectFor<$for:_ForParam> {
+    : $for
+        objectType: _Name
+    }
+
+output _ObjField<$type:_ObjFieldType> {
+    : _Aliased
+      type: $type
+    }
+
+output _ObjFieldType {
+    : _ObjBase
+        modifiers: _Modifiers[]
+    | _ObjFieldEnum
+    }
+
+output _ObjFieldEnum {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Name
+    }
+
+output _ForParam<$type:_ObjFieldType> {
+    | _ObjAlternate
+    | _ObjField<$type>
+    }
+*/
+
+// Generated from Spec Base for Impl
+/*
+*/
+
+namespace Components.Gqlp_Spec_Base;
+
+public class Cmpt_ObjectKind
+  : GqlpDomainEnum
+  , ICmpt_ObjectKind
+{
+}
+
+public class Cmpt_TypeObject<TKind,TField>
+  : Cmpt_ChildType<TKind, ICmpt_ObjBase>
+  , ICmpt_TypeObject<TKind,TField>
+{
+  public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
+  public ICollection<TField> Fields { get; set; }
+  public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
+  public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
+  public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
+}
+
+public class Cmpt_ObjTypeParam
+  : Cmpt_Named
+  , ICmpt_ObjTypeParam
+{
+  public ICmpt_TypeRef<ICmpt_TypeKind> Constraint { get; set; }
+}
+
+public class Cmpt_ObjBase
+  : Cmpt_Named
+  , ICmpt_ObjBase
+{
+  public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
+}
+
+public class Cmpt_ObjTypeArg
+  : Cmpt_TypeRef<ICmpt_TypeKind>
+  , ICmpt_ObjTypeArg
+{
+  public ICmpt_Name? Label { get; set; }
+}
+
+public class Cmpt_TypeParam
+  : Cmpt_Described
+  , ICmpt_TypeParam
+{
+  public ICmpt_Name TypeParam { get; set; }
+}
+
+public class Cmpt_ObjAlternate
+  : ICmpt_ObjAlternate
+{
+  public ICmpt_ObjBase Type { get; set; }
+  public ICollection<ICmpt_Collections> Collections { get; set; }
+}
+
+public class Cmpt_ObjAlternateEnum
+  : Cmpt_TypeRef<ICmpt_TypeKind>
+  , ICmpt_ObjAlternateEnum
+{
+  public ICmpt_Name Label { get; set; }
+}
+
+public class Cmpt_ObjectFor<TFor>
+  : ICmpt_ObjectFor<TFor>
+{
+  public ICmpt_Name ObjectType { get; set; }
+}
+
+public class Cmpt_ObjField<TType>
+  : Cmpt_Aliased
+  , ICmpt_ObjField<TType>
+{
+  public TType Type { get; set; }
+}
+
+public class Cmpt_ObjFieldType
+  : Cmpt_ObjBase
+  , ICmpt_ObjFieldType
+{
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+}
+
+public class Cmpt_ObjFieldEnum
+  : Cmpt_TypeRef<ICmpt_TypeKind>
+  , ICmpt_ObjFieldEnum
+{
+  public ICmpt_Name Label { get; set; }
+}
+
+public class Cmpt_ForParam<TType>
+  : ICmpt_ForParam<TType>
+{
+}

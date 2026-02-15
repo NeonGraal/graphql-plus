@@ -1,0 +1,26 @@
+﻿//HintName: test_generic-field-arg+Output_Intf.gen.cs
+// Generated from generic-field-arg+Output.graphql+ for Intf
+/*
+*/
+
+namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Output;
+
+public interface ItestGnrcFieldArgOutp<TType>
+{
+  ItestGnrcFieldArgOutpObject<TType> AsGnrcFieldArgOutp { get; }
+}
+
+public interface ItestGnrcFieldArgOutpObject<TType>
+{
+  ItestRefGnrcFieldArgOutp<TType> Field { get; }
+}
+
+public interface ItestRefGnrcFieldArgOutp<TRef>
+{
+  TRef Asref { get; }
+  ItestRefGnrcFieldArgOutpObject<TRef> AsRefGnrcFieldArgOutp { get; }
+}
+
+public interface ItestRefGnrcFieldArgOutpObject<TRef>
+{
+}

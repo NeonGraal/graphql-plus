@@ -1,0 +1,28 @@
+﻿/* generic-parent-dual-parent+Output
+output GnrcPrntDualPrntOutp { :RefGnrcPrntDualPrntOutp<AltGnrcPrntDualPrntOutp> }
+output RefGnrcPrntDualPrntOutp<$ref:_Dual> { :$ref }
+dual AltGnrcPrntDualPrntOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-dual-parent+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_dual_parent_Output;
+
+public class CmptGnrcPrntDualPrntOutp
+  : CmptRefGnrcPrntDualPrntOutp<ICmptAltGnrcPrntDualPrntOutp>
+  , ICmptGnrcPrntDualPrntOutp
+{
+}
+
+public class CmptRefGnrcPrntDualPrntOutp<TRef>
+  : ICmptRefGnrcPrntDualPrntOutp<TRef>
+{
+}
+
+public class CmptAltGnrcPrntDualPrntOutp
+  : ICmptAltGnrcPrntDualPrntOutp
+{
+  public decimal Alt { get; set; }
+}

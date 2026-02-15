@@ -1,0 +1,22 @@
+﻿/* generic-value+Output
+output GnrcValueOutp { | RefGnrcValueOutp<gnrcValueOutp> }
+output RefGnrcValueOutp<$type:_Enum> { field: $type }
+enum EnumGnrcValueOutp { gnrcValueOutp }
+*/
+
+// Generated from Schema generic-value+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_value_Output;
+
+public class CmptGnrcValueOutp
+  : ICmptGnrcValueOutp
+{
+}
+
+public class CmptRefGnrcValueOutp<TType>
+  : ICmptRefGnrcValueOutp<TType>
+{
+  public TType Field { get; set; }
+}

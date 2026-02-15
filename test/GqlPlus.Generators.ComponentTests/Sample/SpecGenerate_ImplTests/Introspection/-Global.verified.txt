@@ -1,0 +1,95 @@
+﻿/* -Global
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
+
+output _Categories {
+    : _AndType
+        category: _Category
+    | _Category
+    }
+
+output _Category {
+    : _Aliased
+        resolution: _Resolution
+        output: _TypeRef<_TypeKind.Output>
+        modifiers: _Modifiers[]
+    }
+
+enum _Resolution { Parallel Sequential Single }
+
+output _Directives {
+    : _AndType
+        directive: _Directive
+    | _Directive
+    }
+
+output _Directive {
+    : _Aliased
+        parameters: _InputParam[]
+        repeatable: Boolean
+        locations: _[_Location]
+    }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
+
+
+output _Setting {
+    : _Named
+        value: Value
+    }
+*/
+
+// Generated from Spec -Global for Impl
+/*
+*/
+
+namespace Components.Gqlp_Spec_Global;
+
+public class Cmpt_AndType
+  : Cmpt_Named
+  , ICmpt_AndType
+{
+  public ICmpt_Type Type { get; set; }
+}
+
+public class Cmpt_Categories
+  : Cmpt_AndType
+  , ICmpt_Categories
+{
+  public ICmpt_Category Category { get; set; }
+}
+
+public class Cmpt_Category
+  : Cmpt_Aliased
+  , ICmpt_Category
+{
+  public Cmpt_Resolution Resolution { get; set; }
+  public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+}
+
+public class Cmpt_Directives
+  : Cmpt_AndType
+  , ICmpt_Directives
+{
+  public ICmpt_Directive Directive { get; set; }
+}
+
+public class Cmpt_Directive
+  : Cmpt_Aliased
+  , ICmpt_Directive
+{
+  public ICollection<ICmpt_InputParam> Parameters { get; set; }
+  public bool Repeatable { get; set; }
+  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
+}
+
+public class Cmpt_Setting
+  : Cmpt_Named
+  , ICmpt_Setting
+{
+  public GqlpValue Value { get; set; }
+}

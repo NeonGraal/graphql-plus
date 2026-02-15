@@ -1,0 +1,17 @@
+﻿/* domain-enum-all-descr
+domain DmnEnumAllDescr { enum "DomAll" "Descr" EnumDmnEnumAllDescr.* }
+enum EnumDmnEnumAllDescr { dmnEnumAllDescr enum_dmnEnumAllDescr dmnEnumAllDescrValue}
+*/
+
+// Generated from Schema domain-enum-all-descr for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_all_descr;
+
+public enum CmptEnumDmnEnumAllDescr
+{
+  dmnEnumAllDescr,
+  enum_dmnEnumAllDescr,
+  dmnEnumAllDescrValue,
+}

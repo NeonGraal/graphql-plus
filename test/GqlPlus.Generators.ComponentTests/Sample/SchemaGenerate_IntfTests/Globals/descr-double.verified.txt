@@ -1,0 +1,19 @@
+﻿/* descr-double
+"A 'double-quoted' description"
+output DescrDbl { }
+*/
+
+// Generated from Schema descr-double for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr_double;
+
+public interface ICmptDescrDbl
+{
+  ICmptDescrDblObject AsDescrDbl { get; }
+}
+
+public interface ICmptDescrDblObject
+{
+}

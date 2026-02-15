@@ -1,0 +1,77 @@
+﻿/* Schema
+"$T?"
+dual _Opt<$T:_Any> [Opt] { | $T | Null }
+
+dual _List<$T:_Any> [List] { | $T[] }
+
+dual _Dict<$K:_Key $T:_Any> [Dict] { | $T[$K] }
+
+dual _Map<$T:_Any> [Map] { | $T[*] }
+
+dual _Array<$T:_Any> [Array] { | $T[0] }
+
+dual _IfElse<$T:_Any> [IfElse] { | $T[^] }
+
+dual _Set<$K:_Key> [Set] { | _[$K] }
+
+dual _Mask<$K:_Key> [Mask] { | ^[$K] }
+
+union _Key { }
+dual _Any { }
+*/
+
+// Generated from Spec Schema for Impl
+/*
+*/
+
+namespace Components.Gqlp_Spec_Schema;
+
+public class Cmpt_Opt<TT>
+  : ICmpt_Opt<TT>
+{
+}
+
+public class Cmpt_List<TT>
+  : ICmpt_List<TT>
+{
+}
+
+public class Cmpt_Dict<TK,TT>
+  : ICmpt_Dict<TK,TT>
+{
+}
+
+public class Cmpt_Map<TT>
+  : ICmpt_Map<TT>
+{
+}
+
+public class Cmpt_Array<TT>
+  : ICmpt_Array<TT>
+{
+}
+
+public class Cmpt_IfElse<TT>
+  : ICmpt_IfElse<TT>
+{
+}
+
+public class Cmpt_Set<TK>
+  : ICmpt_Set<TK>
+{
+}
+
+public class Cmpt_Mask<TK>
+  : ICmpt_Mask<TK>
+{
+}
+
+public class Cmpt_Key
+  : ICmpt_Key
+{
+}
+
+public class Cmpt_Any
+  : ICmpt_Any
+{
+}

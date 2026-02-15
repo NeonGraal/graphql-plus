@@ -1,0 +1,34 @@
+﻿/* output-field-param
+output OutpFieldParam { field(OutpFieldParam1): FldOutpFieldParam }
+output OutpFieldParam { field(OutpFieldParam2): FldOutpFieldParam }
+input OutpFieldParam1 { }
+input OutpFieldParam2 { }
+dual FldOutpFieldParam { }
+*/
+
+// Generated from Schema output-field-param for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_field_param;
+
+public class CmptOutpFieldParam
+  : ICmptOutpFieldParam
+{
+  public ICmptFldOutpFieldParam Field { get; set; }
+}
+
+public class CmptOutpFieldParam1
+  : ICmptOutpFieldParam1
+{
+}
+
+public class CmptOutpFieldParam2
+  : ICmptOutpFieldParam2
+{
+}
+
+public class CmptFldOutpFieldParam
+  : ICmptFldOutpFieldParam
+{
+}

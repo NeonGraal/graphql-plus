@@ -1,0 +1,14 @@
+﻿/* generic-parent-descr+Dual
+dual GnrcPrntDescrDual<$type:_Dual> { :"Parent comment"$type }
+*/
+
+// Generated from Schema generic-parent-descr+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_descr_Dual;
+
+public class CmptGnrcPrntDescrDual<TType>
+  : ICmptGnrcPrntDescrDual<TType>
+{
+}

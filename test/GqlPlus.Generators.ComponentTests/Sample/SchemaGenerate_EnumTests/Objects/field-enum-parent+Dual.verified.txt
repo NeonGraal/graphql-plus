@@ -1,0 +1,22 @@
+﻿/* field-enum-parent+Dual
+dual FieldEnumPrntDual { field = EnumFieldEnumPrntDual.prnt_fieldEnumPrntDual }
+enum EnumFieldEnumPrntDual { :PrntFieldEnumPrntDual fieldEnumPrntDual }
+enum PrntFieldEnumPrntDual { prnt_fieldEnumPrntDual }
+*/
+
+// Generated from Schema field-enum-parent+Dual for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_enum_parent_Dual;
+
+public enum CmptEnumFieldEnumPrntDual
+{
+  prnt_fieldEnumPrntDual = CmptPrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
+  fieldEnumPrntDual,
+}
+
+public enum CmptPrntFieldEnumPrntDual
+{
+  prnt_fieldEnumPrntDual,
+}

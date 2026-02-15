@@ -1,0 +1,17 @@
+﻿/* union-diff
+union UnionDiff { Boolean }
+union UnionDiff { Number }
+*/
+
+// Generated from Schema union-diff for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_diff;
+
+public class CmptUnionDiff
+  : ICmptUnionDiff
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+}

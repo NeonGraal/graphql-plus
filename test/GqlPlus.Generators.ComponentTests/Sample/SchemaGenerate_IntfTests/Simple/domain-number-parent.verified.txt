@@ -1,0 +1,20 @@
+﻿/* domain-number-parent
+domain DmnNmbrPrnt { :PrntDmnNmbrPrnt Number 2>}
+domain PrntDmnNmbrPrnt { Number <2 }
+*/
+
+// Generated from Schema domain-number-parent for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_number_parent;
+
+public interface ICmptDmnNmbrPrnt
+  : ICmptPrntDmnNmbrPrnt
+{
+}
+
+public interface ICmptPrntDmnNmbrPrnt
+  : IGqlpDomainNumber
+{
+}

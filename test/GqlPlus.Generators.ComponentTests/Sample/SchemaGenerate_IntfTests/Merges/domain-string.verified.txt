@@ -1,0 +1,15 @@
+﻿/* domain-string
+domain DmnStr { string }
+domain DmnStr { string }
+*/
+
+// Generated from Schema domain-string for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_string;
+
+public interface ICmptDmnStr
+  : IGqlpDomainString
+{
+}

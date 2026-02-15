@@ -1,0 +1,43 @@
+﻿/* generic-parent-dual+Output
+output GnrcPrntDualOutp { :RefGnrcPrntDualOutp<AltGnrcPrntDualOutp> }
+output RefGnrcPrntDualOutp<$ref:_Dual> { | $ref }
+dual AltGnrcPrntDualOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-dual+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_dual_Output;
+
+public interface ICmptGnrcPrntDualOutp
+  : ICmptRefGnrcPrntDualOutp<ICmptAltGnrcPrntDualOutp>
+{
+  ICmptGnrcPrntDualOutpObject AsGnrcPrntDualOutp { get; }
+}
+
+public interface ICmptGnrcPrntDualOutpObject
+  : ICmptRefGnrcPrntDualOutpObject<ICmptAltGnrcPrntDualOutp>
+{
+}
+
+public interface ICmptRefGnrcPrntDualOutp<TRef>
+{
+  TRef Asref { get; }
+  ICmptRefGnrcPrntDualOutpObject<TRef> AsRefGnrcPrntDualOutp { get; }
+}
+
+public interface ICmptRefGnrcPrntDualOutpObject<TRef>
+{
+}
+
+public interface ICmptAltGnrcPrntDualOutp
+{
+  string AsString { get; }
+  ICmptAltGnrcPrntDualOutpObject AsAltGnrcPrntDualOutp { get; }
+}
+
+public interface ICmptAltGnrcPrntDualOutpObject
+{
+  decimal Alt { get; }
+}

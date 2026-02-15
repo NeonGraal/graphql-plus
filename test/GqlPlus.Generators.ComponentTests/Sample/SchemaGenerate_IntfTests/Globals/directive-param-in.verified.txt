@@ -1,0 +1,19 @@
+﻿/* directive-param-in
+directive @DrctParamIn(InDrctParamIn) { all }
+input InDrctParamIn { }
+*/
+
+// Generated from Schema directive-param-in for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param_in;
+
+public interface ICmptInDrctParamIn
+{
+  ICmptInDrctParamInObject AsInDrctParamIn { get; }
+}
+
+public interface ICmptInDrctParamInObject
+{
+}

@@ -1,0 +1,31 @@
+﻿/* field-mod-param+Dual
+dual FieldModParamDual<$mod:String> { field: FldFieldModParamDual[$mod] }
+dual FldFieldModParamDual { field: Number | String }
+*/
+
+// Generated from Schema field-mod-param+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_mod_param_Dual;
+
+public interface ICmptFieldModParamDual<TMod>
+{
+  ICmptFieldModParamDualObject<TMod> AsFieldModParamDual { get; }
+}
+
+public interface ICmptFieldModParamDualObject<TMod>
+{
+  IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; }
+}
+
+public interface ICmptFldFieldModParamDual
+{
+  string AsString { get; }
+  ICmptFldFieldModParamDualObject AsFldFieldModParamDual { get; }
+}
+
+public interface ICmptFldFieldModParamDualObject
+{
+  decimal Field { get; }
+}

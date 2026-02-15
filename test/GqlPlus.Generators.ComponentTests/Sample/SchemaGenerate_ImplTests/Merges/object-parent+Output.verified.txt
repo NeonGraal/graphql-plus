@@ -1,0 +1,22 @@
+﻿/* object-parent+Output
+output ObjPrntOutp { :RefObjPrntOutp }
+output ObjPrntOutp { :RefObjPrntOutp }
+output RefObjPrntOutp { }
+*/
+
+// Generated from Schema object-parent+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_parent_Output;
+
+public class CmptObjPrntOutp
+  : CmptRefObjPrntOutp
+  , ICmptObjPrntOutp
+{
+}
+
+public class CmptRefObjPrntOutp
+  : ICmptRefObjPrntOutp
+{
+}

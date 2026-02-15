@@ -1,0 +1,15 @@
+﻿/* field+Output
+output FieldOutp { field: String }
+*/
+
+// Generated from Schema field+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_Output;
+
+public class CmptFieldOutp
+  : ICmptFieldOutp
+{
+  public string Field { get; set; }
+}

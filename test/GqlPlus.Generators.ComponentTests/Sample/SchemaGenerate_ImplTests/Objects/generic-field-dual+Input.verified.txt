@@ -1,0 +1,28 @@
+﻿/* generic-field-dual+Input
+input GnrcFieldDualInp { field: RefGnrcFieldDualInp<AltGnrcFieldDualInp> }
+input RefGnrcFieldDualInp<$ref:_Dual> { | $ref }
+dual AltGnrcFieldDualInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-dual+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_dual_Input;
+
+public class CmptGnrcFieldDualInp
+  : ICmptGnrcFieldDualInp
+{
+  public ICmptRefGnrcFieldDualInp<ICmptAltGnrcFieldDualInp> Field { get; set; }
+}
+
+public class CmptRefGnrcFieldDualInp<TRef>
+  : ICmptRefGnrcFieldDualInp<TRef>
+{
+}
+
+public class CmptAltGnrcFieldDualInp
+  : ICmptAltGnrcFieldDualInp
+{
+  public decimal Alt { get; set; }
+}

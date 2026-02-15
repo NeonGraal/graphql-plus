@@ -1,0 +1,22 @@
+﻿/* field-object+Dual
+dual FieldObjDual { field: FldFieldObjDual }
+dual FldFieldObjDual { field: Number | String }
+*/
+
+// Generated from Schema field-object+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_object_Dual;
+
+public class CmptFieldObjDual
+  : ICmptFieldObjDual
+{
+  public ICmptFldFieldObjDual Field { get; set; }
+}
+
+public class CmptFldFieldObjDual
+  : ICmptFldFieldObjDual
+{
+  public decimal Field { get; set; }
+}

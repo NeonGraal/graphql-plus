@@ -1,0 +1,30 @@
+﻿/* generic-alt-arg+Dual
+dual GnrcAltArgDual<$type:String> { | RefGnrcAltArgDual<$type> }
+dual RefGnrcAltArgDual<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-arg+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_arg_Dual;
+
+public interface ICmptGnrcAltArgDual<TType>
+{
+  ICmptRefGnrcAltArgDual<TType> AsRefGnrcAltArgDual { get; }
+  ICmptGnrcAltArgDualObject<TType> AsGnrcAltArgDual { get; }
+}
+
+public interface ICmptGnrcAltArgDualObject<TType>
+{
+}
+
+public interface ICmptRefGnrcAltArgDual<TRef>
+{
+  TRef Asref { get; }
+  ICmptRefGnrcAltArgDualObject<TRef> AsRefGnrcAltArgDual { get; }
+}
+
+public interface ICmptRefGnrcAltArgDualObject<TRef>
+{
+}

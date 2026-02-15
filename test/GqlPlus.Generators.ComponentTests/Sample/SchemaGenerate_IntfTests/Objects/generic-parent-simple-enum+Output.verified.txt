@@ -1,0 +1,32 @@
+﻿/* generic-parent-simple-enum+Output
+output GnrcPrntSmplEnumOutp { :FieldGnrcPrntSmplEnumOutp<EnumGnrcPrntSmplEnumOutp> }
+output FieldGnrcPrntSmplEnumOutp<$ref:_Simple> { field: $ref }
+enum EnumGnrcPrntSmplEnumOutp { gnrcPrntSmplEnumOutp }
+*/
+
+// Generated from Schema generic-parent-simple-enum+Output for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_simple_enum_Output;
+
+public interface ICmptGnrcPrntSmplEnumOutp
+  : ICmptFieldGnrcPrntSmplEnumOutp<CmptEnumGnrcPrntSmplEnumOutp>
+{
+  ICmptGnrcPrntSmplEnumOutpObject AsGnrcPrntSmplEnumOutp { get; }
+}
+
+public interface ICmptGnrcPrntSmplEnumOutpObject
+  : ICmptFieldGnrcPrntSmplEnumOutpObject<CmptEnumGnrcPrntSmplEnumOutp>
+{
+}
+
+public interface ICmptFieldGnrcPrntSmplEnumOutp<TRef>
+{
+  ICmptFieldGnrcPrntSmplEnumOutpObject<TRef> AsFieldGnrcPrntSmplEnumOutp { get; }
+}
+
+public interface ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>
+{
+  TRef Field { get; }
+}

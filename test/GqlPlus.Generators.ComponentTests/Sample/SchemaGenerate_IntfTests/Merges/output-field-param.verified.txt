@@ -1,0 +1,50 @@
+﻿/* output-field-param
+output OutpFieldParam { field(OutpFieldParam1): FldOutpFieldParam }
+output OutpFieldParam { field(OutpFieldParam2): FldOutpFieldParam }
+input OutpFieldParam1 { }
+input OutpFieldParam2 { }
+dual FldOutpFieldParam { }
+*/
+
+// Generated from Schema output-field-param for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_field_param;
+
+public interface ICmptOutpFieldParam
+{
+  ICmptOutpFieldParamObject AsOutpFieldParam { get; }
+}
+
+public interface ICmptOutpFieldParamObject
+{
+  ICmptFldOutpFieldParam Field { get; }
+}
+
+public interface ICmptOutpFieldParam1
+{
+  ICmptOutpFieldParam1Object AsOutpFieldParam1 { get; }
+}
+
+public interface ICmptOutpFieldParam1Object
+{
+}
+
+public interface ICmptOutpFieldParam2
+{
+  ICmptOutpFieldParam2Object AsOutpFieldParam2 { get; }
+}
+
+public interface ICmptOutpFieldParam2Object
+{
+}
+
+public interface ICmptFldOutpFieldParam
+{
+  ICmptFldOutpFieldParamObject AsFldOutpFieldParam { get; }
+}
+
+public interface ICmptFldOutpFieldParamObject
+{
+}

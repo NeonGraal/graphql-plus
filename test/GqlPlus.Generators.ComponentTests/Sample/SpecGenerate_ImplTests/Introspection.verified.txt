@@ -1,0 +1,774 @@
+﻿/* Introspection
+output _Schema {
+    : _Named
+        categories(_CategoryFilter?): _Categories[_Name]
+        directives(_Filter?): _Directives[_Name]
+        types(_TypeFilter?): _Type[_Name]
+        settings(_Filter?): _Setting[_Name]
+    }
+
+domain _Name { String /[A-Za-z_][A-Za-z0-9_]*/ }
+
+input _Filter {
+        names: _NameFilter[]
+        matchAliases: Boolean? = true
+        aliases: _NameFilter[]
+        returnByAlias: Boolean? = false
+        returnReferencedTypes: Boolean? = false
+    | _NameFilter[]
+    }
+
+"_NameFilter is a simple match expression against _Name"
+"where '.' matches any single character and '*' matches zero or more of any character."
+domain _NameFilter { String /[A-Za-z_.*]+/ }
+
+input _CategoryFilter {
+    : _Filter
+        resolutions: _Resolution[]
+    }
+
+input _TypeFilter {
+    : _Filter
+        kinds: _TypeKind[]
+    }
+
+dual _Aliased {
+    : _Named
+        aliases: _Name[]
+    }
+
+dual _Named {
+    : _Described
+        name: _Name
+    }
+
+dual _Described {
+        description: String[]
+    }
+
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
+
+output _Categories {
+    : _AndType
+        category: _Category
+    | _Category
+    }
+
+output _Category {
+    : _Aliased
+        resolution: _Resolution
+        output: _TypeRef<_TypeKind.Output>
+        modifiers: _Modifiers[]
+    }
+
+enum _Resolution { Parallel Sequential Single }
+
+output _Directives {
+    : _AndType
+        directive: _Directive
+    | _Directive
+    }
+
+output _Directive {
+    : _Aliased
+        parameters: _InputParam[]
+        repeatable: Boolean
+        locations: _[_Location]
+    }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
+
+
+output _Setting {
+    : _Named
+        value: Value
+    }
+
+output _Type {
+    | _BaseType<_TypeKind.Basic>
+    | _BaseType<_TypeKind.Internal>
+    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
+    | _BaseDomain<_DomainKind.Enum _DomainLabel _DomainItemLabel>
+    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
+    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
+    | _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
+    | _ParentType<_TypeKind.Union _UnionRef _UnionMember>
+    | _TypeObject<_TypeKind.Dual _DualField>
+    | _TypeObject<_TypeKind.Input _InputField>
+    | _TypeObject<_TypeKind.Output _OutputField>
+    }
+
+output _BaseType<$kind:_TypeKind> {
+    : _Aliased
+        typeKind: $kind
+    }
+
+output _ChildType<$kind:_TypeKind $parent:_Described> {
+    : _BaseType<$kind>
+        parent: $parent
+    }
+
+output _ParentType<$kind:_TypeKind $item:_Described $allItem:_Described> {
+    : _ChildType<$kind _Named>
+        items: $item[]
+        allItems: $allItem[]
+    }
+
+enum _SimpleKind { Basic Enum Internal Domain Union }
+
+enum _TypeKind { :_SimpleKind Dual Input Output }
+
+dual _TypeRef<$kind:_TypeKind> {
+    : _Named
+        typeKind: $kind
+}
+
+dual _TypeSimple {
+    | _TypeRef<_TypeKind.Basic>
+    | _TypeRef<_TypeKind.Enum>
+    | _TypeRef<_TypeKind.Domain>
+    | _TypeRef<_TypeKind.Union>
+    }
+
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$kind:_ModifierKind> {
+    : _Modifier<$kind>
+        by: _TypeSimple
+        isOptional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$kind:_ModifierKind> {
+        modifierKind: $kind
+    }
+
+enum _DomainKind { Boolean Enum Number String }
+
+output _DomainRef<$kind:_DomainKind> {
+    : _TypeRef<_TypeKind.Domain>
+        domainKind: $kind
+    }
+
+output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
+    : _ParentType<_TypeKind.Domain $item $domainItem>
+        domainKind: $domain
+    }
+
+dual _BaseDomainItem {
+    : _Described
+        exclude: Boolean
+    }
+
+output _DomainItem<$item:_BaseDomainItem> {
+    : $item
+        domain: _Name
+    }
+
+output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$kind>
+        value: $value
+    | $value
+    }
+
+output _BasicValue {
+    | Boolean
+    | _EnumValue
+    | Number
+    | String
+    }
+
+dual _DomainTrueFalse {
+    : _BaseDomainItem
+        value: Boolean
+    }
+
+output _DomainItemTrueFalse {
+    : _DomainItem<_DomainTrueFalse>
+    }
+
+output _DomainLabel {
+    : _BaseDomainItem
+        label: _EnumValue
+    }
+
+output _DomainItemLabel {
+    : _DomainItem<_DomainLabel>
+    }
+
+dual _DomainRange {
+    : _BaseDomainItem
+        lower: Number?
+        upper: Number?
+    }
+
+output _DomainItemRange {
+    : _DomainItem<_DomainRange>
+    }
+
+dual _DomainRegex {
+    : _BaseDomainItem
+        pattern: String
+    }
+
+output _DomainItemRegex {
+    : _DomainItem<_DomainRegex>
+    }
+
+dual _EnumLabel {
+    : _Aliased
+        enumType: _Name
+    }
+
+output _EnumValue {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Name
+    }
+
+output _UnionRef {
+    : _TypeRef<_SimpleKind>
+    }
+
+output _UnionMember {
+    : _UnionRef
+        union: _Name
+    }
+
+domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
+
+output _TypeObject<$kind:_ObjectKind $field:_ObjField> {
+    : _ChildType<$kind _ObjBase>
+        typeParams: _ObjTypeParam[]
+        fields: $field[]
+        alternates: _ObjAlternate[]
+        allFields: _ObjectFor<$field>[]
+        allAlternates: _ObjectFor<_ObjAlternate>[]
+    }
+
+output _ObjTypeParam {
+    : _Named
+        constraint: _TypeRef<_TypeKind>
+    }
+
+output _ObjBase {
+    : _Named
+        typeArgs: _ObjTypeArg[]
+    | _TypeParam
+    }
+
+output _ObjTypeArg {
+    : _TypeRef<_TypeKind>
+        label: _Name?
+    | _TypeParam
+    }
+
+output _TypeParam {
+    : _Described
+        typeParam: _Name
+    }
+
+output _ObjAlternate {
+      type: _ObjBase
+      collections: _Collections[]
+    | _ObjAlternateEnum
+    }
+
+output _ObjAlternateEnum {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Name
+    }
+output _ObjectFor<$for:_ForParam> {
+    : $for
+        objectType: _Name
+    }
+
+output _ObjField<$type:_ObjFieldType> {
+    : _Aliased
+      type: $type
+    }
+
+output _ObjFieldType {
+    : _ObjBase
+        modifiers: _Modifiers[]
+    | _ObjFieldEnum
+    }
+
+output _ObjFieldEnum {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Name
+    }
+
+output _ForParam<$type:_ObjFieldType> {
+    | _ObjAlternate
+    | _ObjField<$type>
+    }
+
+output _DualField {
+    : _ObjField<_ObjFieldType>
+    }
+
+output _InputField {
+    : _ObjField<_InputFieldType>
+    }
+
+output _InputFieldType {
+    : _ObjFieldType
+        defaultValue: Value?
+    }
+
+output _InputParam {
+    : _InputFieldType
+    }
+
+output _OutputField {
+    : _ObjField<_ObjFieldType>
+    }
+
+output _OutputFieldType {
+    : _ObjFieldType
+        parameters: _InputParam[]
+    }
+*/
+
+// Generated from Spec Introspection for Impl
+/*
+*/
+
+namespace Components.Gqlp_Spec_Introspection;
+
+public class Cmpt_Schema
+  : Cmpt_Named
+  , ICmpt_Schema
+{
+  public IDictionary<ICmpt_Name, ICmpt_Categories> Categories { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Directives> Directives { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Type> Types { get; set; }
+  public IDictionary<ICmpt_Name, ICmpt_Setting> Settings { get; set; }
+}
+
+public class Cmpt_Name
+  : GqlpDomainString
+  , ICmpt_Name
+{
+}
+
+public class Cmpt_Filter
+  : ICmpt_Filter
+{
+  public ICollection<ICmpt_NameFilter> Names { get; set; }
+  public Cmpt_DomainKind? MatchAliases { get; set; }
+  public ICollection<ICmpt_NameFilter> Aliases { get; set; }
+  public Cmpt_DomainKind? ReturnByAlias { get; set; }
+  public Cmpt_DomainKind? ReturnReferencedTypes { get; set; }
+}
+
+public class Cmpt_NameFilter
+  : GqlpDomainString
+  , ICmpt_NameFilter
+{
+}
+
+public class Cmpt_CategoryFilter
+  : Cmpt_Filter
+  , ICmpt_CategoryFilter
+{
+  public ICollection<Cmpt_Resolution> Resolutions { get; set; }
+}
+
+public class Cmpt_TypeFilter
+  : Cmpt_Filter
+  , ICmpt_TypeFilter
+{
+  public ICollection<Cmpt_TypeKind> Kinds { get; set; }
+}
+
+public class Cmpt_Aliased
+  : Cmpt_Named
+  , ICmpt_Aliased
+{
+  public ICollection<ICmpt_Name> Aliases { get; set; }
+}
+
+public class Cmpt_Named
+  : Cmpt_Described
+  , ICmpt_Named
+{
+  public ICmpt_Name Name { get; set; }
+}
+
+public class Cmpt_Described
+  : ICmpt_Described
+{
+  public ICollection<Cmpt_DomainKind> Description { get; set; }
+}
+
+public class Cmpt_AndType
+  : Cmpt_Named
+  , ICmpt_AndType
+{
+  public ICmpt_Type Type { get; set; }
+}
+
+public class Cmpt_Categories
+  : Cmpt_AndType
+  , ICmpt_Categories
+{
+  public ICmpt_Category Category { get; set; }
+}
+
+public class Cmpt_Category
+  : Cmpt_Aliased
+  , ICmpt_Category
+{
+  public Cmpt_Resolution Resolution { get; set; }
+  public ICmpt_TypeRef<Cmpt_TypeKind> Output { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+}
+
+public class Cmpt_Directives
+  : Cmpt_AndType
+  , ICmpt_Directives
+{
+  public ICmpt_Directive Directive { get; set; }
+}
+
+public class Cmpt_Directive
+  : Cmpt_Aliased
+  , ICmpt_Directive
+{
+  public ICollection<ICmpt_InputParam> Parameters { get; set; }
+  public Cmpt_DomainKind Repeatable { get; set; }
+  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
+}
+
+public class Cmpt_Setting
+  : Cmpt_Named
+  , ICmpt_Setting
+{
+  public GqlpValue Value { get; set; }
+}
+
+public class Cmpt_Type
+  : ICmpt_Type
+{
+}
+
+public class Cmpt_BaseType<TKind>
+  : Cmpt_Aliased
+  , ICmpt_BaseType<TKind>
+{
+  public TKind TypeKind { get; set; }
+}
+
+public class Cmpt_ChildType<TKind,TParent>
+  : Cmpt_BaseType<TKind>
+  , ICmpt_ChildType<TKind,TParent>
+{
+  public TParent Parent { get; set; }
+}
+
+public class Cmpt_ParentType<TKind,TItem,TAllItem>
+  : Cmpt_ChildType<TKind, ICmpt_Named>
+  , ICmpt_ParentType<TKind,TItem,TAllItem>
+{
+  public ICollection<TItem> Items { get; set; }
+  public ICollection<TAllItem> AllItems { get; set; }
+}
+
+public class Cmpt_TypeRef<TKind>
+  : Cmpt_Named
+  , ICmpt_TypeRef<TKind>
+{
+  public TKind TypeKind { get; set; }
+}
+
+public class Cmpt_TypeSimple
+  : ICmpt_TypeSimple
+{
+}
+
+public class Cmpt_Collections
+  : ICmpt_Collections
+{
+}
+
+public class Cmpt_ModifierKeyed<TKind>
+  : Cmpt_Modifier<TKind>
+  , ICmpt_ModifierKeyed<TKind>
+{
+  public ICmpt_TypeSimple By { get; set; }
+  public Cmpt_DomainKind IsOptional { get; set; }
+}
+
+public class Cmpt_Modifiers
+  : ICmpt_Modifiers
+{
+}
+
+public class Cmpt_Modifier<TKind>
+  : ICmpt_Modifier<TKind>
+{
+  public TKind ModifierKind { get; set; }
+}
+
+public class Cmpt_DomainRef<TKind>
+  : Cmpt_TypeRef<Cmpt_TypeKind>
+  , ICmpt_DomainRef<TKind>
+{
+  public TKind DomainKind { get; set; }
+}
+
+public class Cmpt_BaseDomain<TDomain,TItem,TDomainItem>
+  : Cmpt_ParentType<Cmpt_TypeKind, TItem, TDomainItem>
+  , ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
+{
+  public TDomain DomainKind { get; set; }
+}
+
+public class Cmpt_BaseDomainItem
+  : Cmpt_Described
+  , ICmpt_BaseDomainItem
+{
+  public Cmpt_DomainKind Exclude { get; set; }
+}
+
+public class Cmpt_DomainItem<TItem>
+  : ICmpt_DomainItem<TItem>
+{
+  public ICmpt_Name Domain { get; set; }
+}
+
+public class Cmpt_DomainValue<TKind,TValue>
+  : Cmpt_DomainRef<TKind>
+  , ICmpt_DomainValue<TKind,TValue>
+{
+  public TValue Value { get; set; }
+}
+
+public class Cmpt_BasicValue
+  : ICmpt_BasicValue
+{
+}
+
+public class Cmpt_DomainTrueFalse
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainTrueFalse
+{
+  public Cmpt_DomainKind Value { get; set; }
+}
+
+public class Cmpt_DomainItemTrueFalse
+  : Cmpt_DomainItem<ICmpt_DomainTrueFalse>
+  , ICmpt_DomainItemTrueFalse
+{
+}
+
+public class Cmpt_DomainLabel
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainLabel
+{
+  public ICmpt_EnumValue Label { get; set; }
+}
+
+public class Cmpt_DomainItemLabel
+  : Cmpt_DomainItem<ICmpt_DomainLabel>
+  , ICmpt_DomainItemLabel
+{
+}
+
+public class Cmpt_DomainRange
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainRange
+{
+  public Cmpt_DomainKind? Lower { get; set; }
+  public Cmpt_DomainKind? Upper { get; set; }
+}
+
+public class Cmpt_DomainItemRange
+  : Cmpt_DomainItem<ICmpt_DomainRange>
+  , ICmpt_DomainItemRange
+{
+}
+
+public class Cmpt_DomainRegex
+  : Cmpt_BaseDomainItem
+  , ICmpt_DomainRegex
+{
+  public Cmpt_DomainKind Pattern { get; set; }
+}
+
+public class Cmpt_DomainItemRegex
+  : Cmpt_DomainItem<ICmpt_DomainRegex>
+  , ICmpt_DomainItemRegex
+{
+}
+
+public class Cmpt_EnumLabel
+  : Cmpt_Aliased
+  , ICmpt_EnumLabel
+{
+  public ICmpt_Name EnumType { get; set; }
+}
+
+public class Cmpt_EnumValue
+  : Cmpt_TypeRef<Cmpt_TypeKind>
+  , ICmpt_EnumValue
+{
+  public ICmpt_Name Label { get; set; }
+}
+
+public class Cmpt_UnionRef
+  : Cmpt_TypeRef<Cmpt_SimpleKind>
+  , ICmpt_UnionRef
+{
+}
+
+public class Cmpt_UnionMember
+  : Cmpt_UnionRef
+  , ICmpt_UnionMember
+{
+  public ICmpt_Name Union { get; set; }
+}
+
+public class Cmpt_ObjectKind
+  : GqlpDomainEnum
+  , ICmpt_ObjectKind
+{
+}
+
+public class Cmpt_TypeObject<TKind,TField>
+  : Cmpt_ChildType<TKind, ICmpt_ObjBase>
+  , ICmpt_TypeObject<TKind,TField>
+{
+  public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
+  public ICollection<TField> Fields { get; set; }
+  public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
+  public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
+  public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
+}
+
+public class Cmpt_ObjTypeParam
+  : Cmpt_Named
+  , ICmpt_ObjTypeParam
+{
+  public ICmpt_TypeRef<Cmpt_TypeKind> Constraint { get; set; }
+}
+
+public class Cmpt_ObjBase
+  : Cmpt_Named
+  , ICmpt_ObjBase
+{
+  public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
+}
+
+public class Cmpt_ObjTypeArg
+  : Cmpt_TypeRef<Cmpt_TypeKind>
+  , ICmpt_ObjTypeArg
+{
+  public ICmpt_Name? Label { get; set; }
+}
+
+public class Cmpt_TypeParam
+  : Cmpt_Described
+  , ICmpt_TypeParam
+{
+  public ICmpt_Name TypeParam { get; set; }
+}
+
+public class Cmpt_ObjAlternate
+  : ICmpt_ObjAlternate
+{
+  public ICmpt_ObjBase Type { get; set; }
+  public ICollection<ICmpt_Collections> Collections { get; set; }
+}
+
+public class Cmpt_ObjAlternateEnum
+  : Cmpt_TypeRef<Cmpt_TypeKind>
+  , ICmpt_ObjAlternateEnum
+{
+  public ICmpt_Name Label { get; set; }
+}
+
+public class Cmpt_ObjectFor<TFor>
+  : ICmpt_ObjectFor<TFor>
+{
+  public ICmpt_Name ObjectType { get; set; }
+}
+
+public class Cmpt_ObjField<TType>
+  : Cmpt_Aliased
+  , ICmpt_ObjField<TType>
+{
+  public TType Type { get; set; }
+}
+
+public class Cmpt_ObjFieldType
+  : Cmpt_ObjBase
+  , ICmpt_ObjFieldType
+{
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+}
+
+public class Cmpt_ObjFieldEnum
+  : Cmpt_TypeRef<Cmpt_TypeKind>
+  , ICmpt_ObjFieldEnum
+{
+  public ICmpt_Name Label { get; set; }
+}
+
+public class Cmpt_ForParam<TType>
+  : ICmpt_ForParam<TType>
+{
+}
+
+public class Cmpt_DualField
+  : Cmpt_ObjField<ICmpt_ObjFieldType>
+  , ICmpt_DualField
+{
+}
+
+public class Cmpt_InputField
+  : Cmpt_ObjField<ICmpt_InputFieldType>
+  , ICmpt_InputField
+{
+}
+
+public class Cmpt_InputFieldType
+  : Cmpt_ObjFieldType
+  , ICmpt_InputFieldType
+{
+  public GqlpValue? DefaultValue { get; set; }
+}
+
+public class Cmpt_InputParam
+  : Cmpt_InputFieldType
+  , ICmpt_InputParam
+{
+}
+
+public class Cmpt_OutputField
+  : Cmpt_ObjField<ICmpt_ObjFieldType>
+  , ICmpt_OutputField
+{
+}
+
+public class Cmpt_OutputFieldType
+  : Cmpt_ObjFieldType
+  , ICmpt_OutputFieldType
+{
+  public ICollection<ICmpt_InputParam> Parameters { get; set; }
+}

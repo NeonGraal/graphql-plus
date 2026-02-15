@@ -1,0 +1,49 @@
+﻿/* Category
+output _Categories {
+    : _AndType
+        category: _Category
+    | _Category
+    }
+
+output _Category {
+    : _Aliased
+        resolution: _Resolution
+        output: _TypeRef<_TypeKind.Output>
+        modifiers: _Modifiers[]
+    }
+
+enum _Resolution { Parallel Sequential Single }
+*/
+
+// Generated from Spec Category for Intf
+/*
+*/
+
+namespace Components.Gqlp_Spec_Category;
+
+public interface ICmpt_Categories
+  : ICmpt_AndType
+{
+  ICmpt_Category As_Category { get; }
+  ICmpt_CategoriesObject As_Categories { get; }
+}
+
+public interface ICmpt_CategoriesObject
+  : ICmpt_AndTypeObject
+{
+  ICmpt_Category Category { get; }
+}
+
+public interface ICmpt_Category
+  : ICmpt_Aliased
+{
+  ICmpt_CategoryObject As_Category { get; }
+}
+
+public interface ICmpt_CategoryObject
+  : ICmpt_AliasedObject
+{
+  Cmpt_Resolution Resolution { get; }
+  ICmpt_TypeRef<ICmpt_TypeKind> Output { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
+}

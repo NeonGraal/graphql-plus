@@ -1,0 +1,35 @@
+﻿/* constraint-parent-dual-parent+Dual
+dual CnstPrntDualPrntDual { :RefCnstPrntDualPrntDual<AltCnstPrntDualPrntDual> }
+dual RefCnstPrntDualPrntDual<$ref:PrntCnstPrntDualPrntDual> { :$ref }
+dual PrntCnstPrntDualPrntDual { | String }
+dual AltCnstPrntDualPrntDual { :PrntCnstPrntDualPrntDual alt: Number }
+*/
+
+// Generated from Schema constraint-parent-dual-parent+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Dual;
+
+public class CmptCnstPrntDualPrntDual
+  : CmptRefCnstPrntDualPrntDual<ICmptAltCnstPrntDualPrntDual>
+  , ICmptCnstPrntDualPrntDual
+{
+}
+
+public class CmptRefCnstPrntDualPrntDual<TRef>
+  : ICmptRefCnstPrntDualPrntDual<TRef>
+{
+}
+
+public class CmptPrntCnstPrntDualPrntDual
+  : ICmptPrntCnstPrntDualPrntDual
+{
+}
+
+public class CmptAltCnstPrntDualPrntDual
+  : CmptPrntCnstPrntDualPrntDual
+  , ICmptAltCnstPrntDualPrntDual
+{
+  public decimal Alt { get; set; }
+}

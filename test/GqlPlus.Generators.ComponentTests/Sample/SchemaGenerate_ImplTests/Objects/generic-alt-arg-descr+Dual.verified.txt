@@ -1,0 +1,20 @@
+﻿/* generic-alt-arg-descr+Dual
+dual GnrcAltArgDescrDual<$type:String> { | RefGnrcAltArgDescrDual<"Test" "Descr"$type> }
+dual RefGnrcAltArgDescrDual<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-arg-descr+Dual for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_arg_descr_Dual;
+
+public class CmptGnrcAltArgDescrDual<TType>
+  : ICmptGnrcAltArgDescrDual<TType>
+{
+}
+
+public class CmptRefGnrcAltArgDescrDual<TRef>
+  : ICmptRefGnrcAltArgDescrDual<TRef>
+{
+}

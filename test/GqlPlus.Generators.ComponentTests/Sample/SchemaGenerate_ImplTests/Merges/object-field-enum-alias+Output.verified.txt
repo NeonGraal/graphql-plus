@@ -1,0 +1,16 @@
+﻿/* object-field-enum-alias+Output
+output ObjFieldEnumAliasOutp { field [field1] = Boolean.true }
+output ObjFieldEnumAliasOutp { field [field2] = true }
+*/
+
+// Generated from Schema object-field-enum-alias+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_enum_alias_Output;
+
+public class CmptObjFieldEnumAliasOutp
+  : ICmptObjFieldEnumAliasOutp
+{
+  public bool Field { get; set; }
+}

@@ -1,0 +1,90 @@
+﻿// Generated from Schema +Globals for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_Globals;
+
+public class CmptCtgrDscrs
+  : ICmptCtgrDscrs
+{
+}
+
+public class CmptCtgrOutp
+  : ICmptCtgrOutp
+{
+}
+
+public class CmptCtgrOutpDescr
+  : ICmptCtgrOutpDescr
+{
+}
+
+public class CmptCtgrOutpDict
+  : ICmptCtgrOutpDict
+{
+}
+
+public class CmptCtgrOutpList
+  : ICmptCtgrOutpList
+{
+}
+
+public class CmptCtgrOutpOptl
+  : ICmptCtgrOutpOptl
+{
+}
+
+public class CmptDescr
+  : ICmptDescr
+{
+}
+
+public class CmptDescrBcks
+  : ICmptDescrBcks
+{
+}
+
+public class CmptDescrBtwn
+  : ICmptDescrBtwn
+{
+}
+
+public class CmptDescrCmpl
+  : ICmptDescrCmpl
+{
+}
+
+public class CmptDescrDbl
+  : ICmptDescrDbl
+{
+}
+
+public class CmptDescrSngl
+  : ICmptDescrSngl
+{
+}
+
+public class CmptDscrs
+  : ICmptDscrs
+{
+}
+
+public class CmptInDrctParamDict
+  : ICmptInDrctParamDict
+{
+}
+
+public class CmptInDrctParamIn
+  : ICmptInDrctParamIn
+{
+}
+
+public class CmptInDrctParamList
+  : ICmptInDrctParamList
+{
+}
+
+public class CmptInDrctParamOpt
+  : ICmptInDrctParamOpt
+{
+}

@@ -1,0 +1,37 @@
+﻿/* constraint-field-domain+Dual
+dual CnstFieldDmnDual { :RefCnstFieldDmnDual<DomCnstFieldDmnDual> }
+dual RefCnstFieldDmnDual<$ref:String> { field: $ref }
+domain DomCnstFieldDmnDual { String /\w+/ }
+*/
+
+// Generated from Schema constraint-field-domain+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_domain_Dual;
+
+public interface ICmptCnstFieldDmnDual
+  : ICmptRefCnstFieldDmnDual<ICmptDomCnstFieldDmnDual>
+{
+  ICmptCnstFieldDmnDualObject AsCnstFieldDmnDual { get; }
+}
+
+public interface ICmptCnstFieldDmnDualObject
+  : ICmptRefCnstFieldDmnDualObject<ICmptDomCnstFieldDmnDual>
+{
+}
+
+public interface ICmptRefCnstFieldDmnDual<TRef>
+{
+  ICmptRefCnstFieldDmnDualObject<TRef> AsRefCnstFieldDmnDual { get; }
+}
+
+public interface ICmptRefCnstFieldDmnDualObject<TRef>
+{
+  TRef Field { get; }
+}
+
+public interface ICmptDomCnstFieldDmnDual
+  : IGqlpDomainString
+{
+}

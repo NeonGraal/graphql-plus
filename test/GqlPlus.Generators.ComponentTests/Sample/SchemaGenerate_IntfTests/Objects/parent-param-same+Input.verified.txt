@@ -1,0 +1,32 @@
+﻿/* parent-param-same+Input
+input PrntParamSameInp<$a:String> { :RefPrntParamSameInp<$a> field: $a }
+input RefPrntParamSameInp<$a:String> { | $a }
+*/
+
+// Generated from Schema parent-param-same+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_param_same_Input;
+
+public interface ICmptPrntParamSameInp<TA>
+  : ICmptRefPrntParamSameInp<TA>
+{
+  ICmptPrntParamSameInpObject<TA> AsPrntParamSameInp { get; }
+}
+
+public interface ICmptPrntParamSameInpObject<TA>
+  : ICmptRefPrntParamSameInpObject<TA>
+{
+  TA Field { get; }
+}
+
+public interface ICmptRefPrntParamSameInp<TA>
+{
+  TA Asa { get; }
+  ICmptRefPrntParamSameInpObject<TA> AsRefPrntParamSameInp { get; }
+}
+
+public interface ICmptRefPrntParamSameInpObject<TA>
+{
+}

@@ -1,0 +1,25 @@
+﻿/* domain-enum-all-parent
+domain DmnEnumAllPrnt { enum EnumDmnEnumAllPrnt.* }
+enum EnumDmnEnumAllPrnt { :PrntDmnEnumAllPrnt dmnEnumAllPrnt dmnEnumAllPrntValue }
+enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt dmnEnumAllPrntPrnt }
+*/
+
+// Generated from Schema domain-enum-all-parent for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_all_parent;
+
+public enum CmptEnumDmnEnumAllPrnt
+{
+  prnt_dmnEnumAllPrnt = CmptPrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt = CmptPrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
+  dmnEnumAllPrnt,
+  dmnEnumAllPrntValue,
+}
+
+public enum CmptPrntDmnEnumAllPrnt
+{
+  prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt,
+}

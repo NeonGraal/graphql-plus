@@ -1,0 +1,21 @@
+﻿/* alt+Input
+input AltInp { | AltAltInp }
+input AltAltInp { alt: Number | String }
+*/
+
+// Generated from Schema alt+Input for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_Input;
+
+public class CmptAltInp
+  : ICmptAltInp
+{
+}
+
+public class CmptAltAltInp
+  : ICmptAltAltInp
+{
+  public decimal Alt { get; set; }
+}

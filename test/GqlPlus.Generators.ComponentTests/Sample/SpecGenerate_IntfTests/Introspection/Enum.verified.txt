@@ -1,0 +1,41 @@
+﻿/* Enum
+dual _EnumLabel {
+    : _Aliased
+        enumType: _Name
+    }
+
+output _EnumValue {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Name
+    }
+*/
+
+// Generated from Spec Enum for Intf
+/*
+*/
+
+namespace Components.Gqlp_Spec_Enum;
+
+public interface ICmpt_EnumLabel
+  : ICmpt_Aliased
+{
+  ICmpt_EnumLabelObject As_EnumLabel { get; }
+}
+
+public interface ICmpt_EnumLabelObject
+  : ICmpt_AliasedObject
+{
+  ICmpt_Name EnumType { get; }
+}
+
+public interface ICmpt_EnumValue
+  : ICmpt_TypeRef<ICmpt_TypeKind>
+{
+  ICmpt_EnumValueObject As_EnumValue { get; }
+}
+
+public interface ICmpt_EnumValueObject
+  : ICmpt_TypeRefObject<ICmpt_TypeKind>
+{
+  ICmpt_Name Label { get; }
+}

@@ -1,0 +1,30 @@
+﻿/* object-field-alias+Dual
+dual ObjFieldAliasDual { field [field1]: FldObjFieldAliasDual }
+dual ObjFieldAliasDual { field [field2]: FldObjFieldAliasDual }
+dual FldObjFieldAliasDual { }
+*/
+
+// Generated from Schema object-field-alias+Dual for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_alias_Dual;
+
+public interface ICmptObjFieldAliasDual
+{
+  ICmptObjFieldAliasDualObject AsObjFieldAliasDual { get; }
+}
+
+public interface ICmptObjFieldAliasDualObject
+{
+  ICmptFldObjFieldAliasDual Field { get; }
+}
+
+public interface ICmptFldObjFieldAliasDual
+{
+  ICmptFldObjFieldAliasDualObject AsFldObjFieldAliasDual { get; }
+}
+
+public interface ICmptFldObjFieldAliasDualObject
+{
+}

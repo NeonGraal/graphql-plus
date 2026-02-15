@@ -1,0 +1,17 @@
+﻿/* object-param+Output
+output ObjParamOutp<$test:String> { test: $test }
+output ObjParamOutp<$type:String> { type: $type }
+*/
+
+// Generated from Schema object-param+Output for Impl
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_param_Output;
+
+public class CmptObjParamOutp<TTest,TType>
+  : ICmptObjParamOutp<TTest,TType>
+{
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+}

@@ -1,0 +1,15 @@
+﻿/* domain-enum-descr
+domain DmnEnumDescr { enum "DomEnum" "Descr" dmnEnumDescr }
+enum EnumDmnEnumDescr { dmnEnumDescr }
+*/
+
+// Generated from Schema domain-enum-descr for Enum
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_descr;
+
+public enum CmptEnumDmnEnumDescr
+{
+  dmnEnumDescr,
+}

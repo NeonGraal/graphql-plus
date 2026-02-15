@@ -1,0 +1,38 @@
+﻿/* generic-parent-enum-dom+Input
+input GnrcPrntEnumDomInp { :FieldGnrcPrntEnumDomInp<DomGnrcPrntEnumDomInp> }
+input FieldGnrcPrntEnumDomInp<$ref:EnumGnrcPrntEnumDomInp> { field: $ref }
+enum EnumGnrcPrntEnumDomInp { gnrcPrntEnumDomInpLabel gnrcPrntEnumDomInpOther }
+domain DomGnrcPrntEnumDomInp { enum gnrcPrntEnumDomInpLabel }
+*/
+
+// Generated from Schema generic-parent-enum-dom+Input for Intf
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_enum_dom_Input;
+
+public interface ICmptGnrcPrntEnumDomInp
+  : ICmptFieldGnrcPrntEnumDomInp<ICmptDomGnrcPrntEnumDomInp>
+{
+  ICmptGnrcPrntEnumDomInpObject AsGnrcPrntEnumDomInp { get; }
+}
+
+public interface ICmptGnrcPrntEnumDomInpObject
+  : ICmptFieldGnrcPrntEnumDomInpObject<ICmptDomGnrcPrntEnumDomInp>
+{
+}
+
+public interface ICmptFieldGnrcPrntEnumDomInp<TRef>
+{
+  ICmptFieldGnrcPrntEnumDomInpObject<TRef> AsFieldGnrcPrntEnumDomInp { get; }
+}
+
+public interface ICmptFieldGnrcPrntEnumDomInpObject<TRef>
+{
+  TRef Field { get; }
+}
+
+public interface ICmptDomGnrcPrntEnumDomInp
+  : IGqlpDomainEnum
+{
+}

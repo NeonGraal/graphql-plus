@@ -47,7 +47,6 @@ public class Cmpt_Schema
   public IDictionary<ICmpt_Name, ICmpt_Directives> Directives { get; set; }
   public IDictionary<ICmpt_Name, ICmpt_Type> Types { get; set; }
   public IDictionary<ICmpt_Name, ICmpt_Setting> Settings { get; set; }
-  public ICmpt_SchemaObject As_Schema { get; set; }
 }
 
 public class Cmpt_Name
@@ -64,8 +63,6 @@ public class Cmpt_Filter
   public ICollection<ICmpt_NameFilter> Aliases { get; set; }
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
-  public ICollection<ICmpt_NameFilter> As_NameFilter { get; set; }
-  public ICmpt_FilterObject As_Filter { get; set; }
 }
 
 public class Cmpt_NameFilter
@@ -79,7 +76,6 @@ public class Cmpt_CategoryFilter
   , ICmpt_CategoryFilter
 {
   public ICollection<ICmpt_Resolution> Resolutions { get; set; }
-  public ICmpt_CategoryFilterObject As_CategoryFilter { get; set; }
 }
 
 public class Cmpt_TypeFilter
@@ -87,5 +83,4 @@ public class Cmpt_TypeFilter
   , ICmpt_TypeFilter
 {
   public ICollection<ICmpt_TypeKind> Kinds { get; set; }
-  public ICmpt_TypeFilterObject As_TypeFilter { get; set; }
 }

@@ -9,21 +9,16 @@ public class testCnstPrntObjPrntDual
   : testRefCnstPrntObjPrntDual<ItestAltCnstPrntObjPrntDual>
   , ItestCnstPrntObjPrntDual
 {
-  public ItestCnstPrntObjPrntDualObject AsCnstPrntObjPrntDual { get; set; }
 }
 
 public class testRefCnstPrntObjPrntDual<TRef>
   : ItestRefCnstPrntObjPrntDual<TRef>
 {
-  public TRef AsParent { get; set; }
-  public ItestRefCnstPrntObjPrntDualObject<TRef> AsRefCnstPrntObjPrntDual { get; set; }
 }
 
 public class testPrntCnstPrntObjPrntDual
   : ItestPrntCnstPrntObjPrntDual
 {
-  public string AsString { get; set; }
-  public ItestPrntCnstPrntObjPrntDualObject AsPrntCnstPrntObjPrntDual { get; set; }
 }
 
 public class testAltCnstPrntObjPrntDual
@@ -31,5 +26,4 @@ public class testAltCnstPrntObjPrntDual
   , ItestAltCnstPrntObjPrntDual
 {
   public decimal Alt { get; set; }
-  public ItestAltCnstPrntObjPrntDualObject AsAltCnstPrntObjPrntDual { get; set; }
 }

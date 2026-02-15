@@ -9,13 +9,10 @@ public class testFieldObjOutp
   : ItestFieldObjOutp
 {
   public ItestFldFieldObjOutp Field { get; set; }
-  public ItestFieldObjOutpObject AsFieldObjOutp { get; set; }
 }
 
 public class testFldFieldObjOutp
   : ItestFldFieldObjOutp
 {
   public decimal Field { get; set; }
-  public string AsString { get; set; }
-  public ItestFldFieldObjOutpObject AsFldFieldObjOutp { get; set; }
 }

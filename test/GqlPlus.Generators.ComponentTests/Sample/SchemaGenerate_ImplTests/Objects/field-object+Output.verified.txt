@@ -13,13 +13,10 @@ public class CmptFieldObjOutp
   : ICmptFieldObjOutp
 {
   public ICmptFldFieldObjOutp Field { get; set; }
-  public ICmptFieldObjOutpObject AsFieldObjOutp { get; set; }
 }
 
 public class CmptFldFieldObjOutp
   : ICmptFldFieldObjOutp
 {
   public decimal Field { get; set; }
-  public string AsString { get; set; }
-  public ICmptFldFieldObjOutpObject AsFldFieldObjOutp { get; set; }
 }

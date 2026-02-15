@@ -9,21 +9,17 @@ public class testCnstFieldObjOutp
   : testRefCnstFieldObjOutp<ItestAltCnstFieldObjOutp>
   , ItestCnstFieldObjOutp
 {
-  public ItestCnstFieldObjOutpObject AsCnstFieldObjOutp { get; set; }
 }
 
 public class testRefCnstFieldObjOutp<TRef>
   : ItestRefCnstFieldObjOutp<TRef>
 {
   public TRef Field { get; set; }
-  public ItestRefCnstFieldObjOutpObject<TRef> AsRefCnstFieldObjOutp { get; set; }
 }
 
 public class testPrntCnstFieldObjOutp
   : ItestPrntCnstFieldObjOutp
 {
-  public string AsString { get; set; }
-  public ItestPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; set; }
 }
 
 public class testAltCnstFieldObjOutp
@@ -31,5 +27,4 @@ public class testAltCnstFieldObjOutp
   , ItestAltCnstFieldObjOutp
 {
   public decimal Alt { get; set; }
-  public ItestAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; set; }
 }

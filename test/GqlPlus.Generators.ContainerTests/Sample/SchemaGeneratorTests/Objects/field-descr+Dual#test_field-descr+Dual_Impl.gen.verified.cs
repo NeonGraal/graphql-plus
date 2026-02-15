@@ -9,5 +9,4 @@ public class testFieldDescrDual
   : ItestFieldDescrDual
 {
   public string Field { get; set; }
-  public ItestFieldDescrDualObject AsFieldDescrDual { get; set; }
 }

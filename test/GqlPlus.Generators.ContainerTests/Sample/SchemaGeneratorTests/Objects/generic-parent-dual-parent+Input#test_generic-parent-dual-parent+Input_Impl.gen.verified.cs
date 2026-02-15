@@ -9,20 +9,15 @@ public class testGnrcPrntDualPrntInp
   : testRefGnrcPrntDualPrntInp<ItestAltGnrcPrntDualPrntInp>
   , ItestGnrcPrntDualPrntInp
 {
-  public ItestGnrcPrntDualPrntInpObject AsGnrcPrntDualPrntInp { get; set; }
 }
 
 public class testRefGnrcPrntDualPrntInp<TRef>
   : ItestRefGnrcPrntDualPrntInp<TRef>
 {
-  public TRef AsParent { get; set; }
-  public ItestRefGnrcPrntDualPrntInpObject<TRef> AsRefGnrcPrntDualPrntInp { get; set; }
 }
 
 public class testAltGnrcPrntDualPrntInp
   : ItestAltGnrcPrntDualPrntInp
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ItestAltGnrcPrntDualPrntInpObject AsAltGnrcPrntDualPrntInp { get; set; }
 }

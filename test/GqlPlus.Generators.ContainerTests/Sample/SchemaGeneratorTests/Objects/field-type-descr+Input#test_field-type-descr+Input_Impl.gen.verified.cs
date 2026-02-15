@@ -9,5 +9,4 @@ public class testFieldTypeDescrInp
   : ItestFieldTypeDescrInp
 {
   public decimal Field { get; set; }
-  public ItestFieldTypeDescrInpObject AsFieldTypeDescrInp { get; set; }
 }

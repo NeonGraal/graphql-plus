@@ -12,14 +12,10 @@ namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 public class CmptAltModBoolInp
   : ICmptAltModBoolInp
 {
-  public IDictionary<bool, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; set; }
-  public ICmptAltModBoolInpObject AsAltModBoolInp { get; set; }
 }
 
 public class CmptAltAltModBoolInp
   : ICmptAltAltModBoolInp
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ICmptAltAltModBoolInpObject AsAltAltModBoolInp { get; set; }
 }

@@ -10,12 +10,9 @@ public class testPrntParamDiffDual<TA>
   , ItestPrntParamDiffDual<TA>
 {
   public TA Field { get; set; }
-  public ItestPrntParamDiffDualObject<TA> AsPrntParamDiffDual { get; set; }
 }
 
 public class testRefPrntParamDiffDual<TB>
   : ItestRefPrntParamDiffDual<TB>
 {
-  public TB Asb { get; set; }
-  public ItestRefPrntParamDiffDualObject<TB> AsRefPrntParamDiffDual { get; set; }
 }

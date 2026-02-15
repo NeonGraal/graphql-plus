@@ -9,11 +9,9 @@ public class testObjFieldAliasDual
   : ItestObjFieldAliasDual
 {
   public ItestFldObjFieldAliasDual Field { get; set; }
-  public ItestObjFieldAliasDualObject AsObjFieldAliasDual { get; set; }
 }
 
 public class testFldObjFieldAliasDual
   : ItestFldObjFieldAliasDual
 {
-  public ItestFldObjFieldAliasDualObject AsFldObjFieldAliasDual { get; set; }
 }

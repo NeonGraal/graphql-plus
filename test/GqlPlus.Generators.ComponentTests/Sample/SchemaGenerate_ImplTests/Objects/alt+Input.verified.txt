@@ -12,14 +12,10 @@ namespace Components.Gqlp_Schema_alt_Input;
 public class CmptAltInp
   : ICmptAltInp
 {
-  public ICmptAltAltInp AsAltAltInp { get; set; }
-  public ICmptAltInpObject AsAltInp { get; set; }
 }
 
 public class CmptAltAltInp
   : ICmptAltAltInp
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ICmptAltAltInpObject AsAltAltInp { get; set; }
 }

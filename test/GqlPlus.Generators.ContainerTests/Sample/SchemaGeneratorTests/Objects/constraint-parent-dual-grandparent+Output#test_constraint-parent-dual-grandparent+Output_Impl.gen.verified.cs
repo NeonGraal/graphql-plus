@@ -9,28 +9,22 @@ public class testCnstPrntDualGrndOutp
   : testRefCnstPrntDualGrndOutp<ItestAltCnstPrntDualGrndOutp>
   , ItestCnstPrntDualGrndOutp
 {
-  public ItestCnstPrntDualGrndOutpObject AsCnstPrntDualGrndOutp { get; set; }
 }
 
 public class testRefCnstPrntDualGrndOutp<TRef>
   : ItestRefCnstPrntDualGrndOutp<TRef>
 {
-  public TRef AsParent { get; set; }
-  public ItestRefCnstPrntDualGrndOutpObject<TRef> AsRefCnstPrntDualGrndOutp { get; set; }
 }
 
 public class testGrndCnstPrntDualGrndOutp
   : ItestGrndCnstPrntDualGrndOutp
 {
-  public string AsString { get; set; }
-  public ItestGrndCnstPrntDualGrndOutpObject AsGrndCnstPrntDualGrndOutp { get; set; }
 }
 
 public class testPrntCnstPrntDualGrndOutp
   : testGrndCnstPrntDualGrndOutp
   , ItestPrntCnstPrntDualGrndOutp
 {
-  public ItestPrntCnstPrntDualGrndOutpObject AsPrntCnstPrntDualGrndOutp { get; set; }
 }
 
 public class testAltCnstPrntDualGrndOutp
@@ -38,5 +32,4 @@ public class testAltCnstPrntDualGrndOutp
   , ItestAltCnstPrntDualGrndOutp
 {
   public decimal Alt { get; set; }
-  public ItestAltCnstPrntDualGrndOutpObject AsAltCnstPrntDualGrndOutp { get; set; }
 }

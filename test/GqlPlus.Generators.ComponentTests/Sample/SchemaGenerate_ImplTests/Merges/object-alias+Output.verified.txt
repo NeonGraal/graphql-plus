@@ -12,5 +12,4 @@ namespace Components.Gqlp_Schema_object_alias_Output;
 public class CmptObjAliasOutp
   : ICmptObjAliasOutp
 {
-  public ICmptObjAliasOutpObject AsObjAliasOutp { get; set; }
 }

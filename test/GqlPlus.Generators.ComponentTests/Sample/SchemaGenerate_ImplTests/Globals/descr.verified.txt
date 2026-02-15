@@ -12,5 +12,4 @@ namespace Components.Gqlp_Schema_descr;
 public class CmptDescr
   : ICmptDescr
 {
-  public ICmptDescrObject AsDescr { get; set; }
 }

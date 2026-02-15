@@ -14,15 +14,12 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
 public class CmptCnstDomEnumOutp
   : ICmptCnstDomEnumOutp
 {
-  public ICmptRefCnstDomEnumOutp<CmptEnumCnstDomEnumOutp> AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; set; }
-  public ICmptCnstDomEnumOutpObject AsCnstDomEnumOutp { get; set; }
 }
 
 public class CmptRefCnstDomEnumOutp<TType>
   : ICmptRefCnstDomEnumOutp<TType>
 {
   public TType Field { get; set; }
-  public ICmptRefCnstDomEnumOutpObject<TType> AsRefCnstDomEnumOutp { get; set; }
 }
 
 public class CmptJustCnstDomEnumOutp

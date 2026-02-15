@@ -10,8 +10,6 @@ public class test_Directives
   , Itest_Directives
 {
   public Itest_Directive Directive { get; set; }
-  public Itest_Directive As_Directive { get; set; }
-  public Itest_DirectivesObject As_Directives { get; set; }
 }
 
 public class test_Directive
@@ -21,5 +19,4 @@ public class test_Directive
   public ICollection<Itest_InputParam> Parameters { get; set; }
   public bool Repeatable { get; set; }
   public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
-  public Itest_DirectiveObject As_Directive { get; set; }
 }

@@ -358,7 +358,6 @@ public class Cmpt_Schema
   public IDictionary<ICmpt_Name, ICmpt_Directives> Directives { get; set; }
   public IDictionary<ICmpt_Name, ICmpt_Type> Types { get; set; }
   public IDictionary<ICmpt_Name, ICmpt_Setting> Settings { get; set; }
-  public ICmpt_SchemaObject As_Schema { get; set; }
 }
 
 public class Cmpt_Name
@@ -375,8 +374,6 @@ public class Cmpt_Filter
   public ICollection<ICmpt_NameFilter> Aliases { get; set; }
   public Cmpt_DomainKind? ReturnByAlias { get; set; }
   public Cmpt_DomainKind? ReturnReferencedTypes { get; set; }
-  public ICollection<ICmpt_NameFilter> As_NameFilter { get; set; }
-  public ICmpt_FilterObject As_Filter { get; set; }
 }
 
 public class Cmpt_NameFilter
@@ -390,7 +387,6 @@ public class Cmpt_CategoryFilter
   , ICmpt_CategoryFilter
 {
   public ICollection<Cmpt_Resolution> Resolutions { get; set; }
-  public ICmpt_CategoryFilterObject As_CategoryFilter { get; set; }
 }
 
 public class Cmpt_TypeFilter
@@ -398,7 +394,6 @@ public class Cmpt_TypeFilter
   , ICmpt_TypeFilter
 {
   public ICollection<Cmpt_TypeKind> Kinds { get; set; }
-  public ICmpt_TypeFilterObject As_TypeFilter { get; set; }
 }
 
 public class Cmpt_Aliased
@@ -406,7 +401,6 @@ public class Cmpt_Aliased
   , ICmpt_Aliased
 {
   public ICollection<ICmpt_Name> Aliases { get; set; }
-  public ICmpt_AliasedObject As_Aliased { get; set; }
 }
 
 public class Cmpt_Named
@@ -414,14 +408,12 @@ public class Cmpt_Named
   , ICmpt_Named
 {
   public ICmpt_Name Name { get; set; }
-  public ICmpt_NamedObject As_Named { get; set; }
 }
 
 public class Cmpt_Described
   : ICmpt_Described
 {
   public ICollection<Cmpt_DomainKind> Description { get; set; }
-  public ICmpt_DescribedObject As_Described { get; set; }
 }
 
 public class Cmpt_AndType
@@ -429,8 +421,6 @@ public class Cmpt_AndType
   , ICmpt_AndType
 {
   public ICmpt_Type Type { get; set; }
-  public ICmpt_Type As_Type { get; set; }
-  public ICmpt_AndTypeObject As_AndType { get; set; }
 }
 
 public class Cmpt_Categories
@@ -438,8 +428,6 @@ public class Cmpt_Categories
   , ICmpt_Categories
 {
   public ICmpt_Category Category { get; set; }
-  public ICmpt_Category As_Category { get; set; }
-  public ICmpt_CategoriesObject As_Categories { get; set; }
 }
 
 public class Cmpt_Category
@@ -449,7 +437,6 @@ public class Cmpt_Category
   public Cmpt_Resolution Resolution { get; set; }
   public ICmpt_TypeRef<Cmpt_TypeKind> Output { get; set; }
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-  public ICmpt_CategoryObject As_Category { get; set; }
 }
 
 public class Cmpt_Directives
@@ -457,8 +444,6 @@ public class Cmpt_Directives
   , ICmpt_Directives
 {
   public ICmpt_Directive Directive { get; set; }
-  public ICmpt_Directive As_Directive { get; set; }
-  public ICmpt_DirectivesObject As_Directives { get; set; }
 }
 
 public class Cmpt_Directive
@@ -468,7 +453,6 @@ public class Cmpt_Directive
   public ICollection<ICmpt_InputParam> Parameters { get; set; }
   public Cmpt_DomainKind Repeatable { get; set; }
   public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
-  public ICmpt_DirectiveObject As_Directive { get; set; }
 }
 
 public class Cmpt_Setting
@@ -476,24 +460,11 @@ public class Cmpt_Setting
   , ICmpt_Setting
 {
   public GqlpValue Value { get; set; }
-  public ICmpt_SettingObject As_Setting { get; set; }
 }
 
 public class Cmpt_Type
   : ICmpt_Type
 {
-  public ICmpt_BaseType<Cmpt_TypeKind> As_TypeKindBasic { get; set; }
-  public ICmpt_BaseType<Cmpt_TypeKind> As_TypeKindInternal { get; set; }
-  public ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainTrueFalse, ICmpt_DomainItemTrueFalse> As_DomainKindBoolean { get; set; }
-  public ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainLabel, ICmpt_DomainItemLabel> As_DomainKindEnum { get; set; }
-  public ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainRange, ICmpt_DomainItemRange> As_DomainKindNumber { get; set; }
-  public ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainRegex, ICmpt_DomainItemRegex> As_DomainKindString { get; set; }
-  public ICmpt_ParentType<Cmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel> As_TypeKindEnum { get; set; }
-  public ICmpt_ParentType<Cmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember> As_TypeKindUnion { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_DualField> As_TypeKindDual { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_InputField> As_TypeKindInput { get; set; }
-  public ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_OutputField> As_TypeKindOutput { get; set; }
-  public ICmpt_TypeObject As_Type { get; set; }
 }
 
 public class Cmpt_BaseType<TKind>
@@ -501,7 +472,6 @@ public class Cmpt_BaseType<TKind>
   , ICmpt_BaseType<TKind>
 {
   public TKind TypeKind { get; set; }
-  public ICmpt_BaseTypeObject<TKind> As_BaseType { get; set; }
 }
 
 public class Cmpt_ChildType<TKind,TParent>
@@ -509,7 +479,6 @@ public class Cmpt_ChildType<TKind,TParent>
   , ICmpt_ChildType<TKind,TParent>
 {
   public TParent Parent { get; set; }
-  public ICmpt_ChildTypeObject<TKind,TParent> As_ChildType { get; set; }
 }
 
 public class Cmpt_ParentType<TKind,TItem,TAllItem>
@@ -518,7 +487,6 @@ public class Cmpt_ParentType<TKind,TItem,TAllItem>
 {
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
-  public ICmpt_ParentTypeObject<TKind,TItem,TAllItem> As_ParentType { get; set; }
 }
 
 public class Cmpt_TypeRef<TKind>
@@ -526,26 +494,16 @@ public class Cmpt_TypeRef<TKind>
   , ICmpt_TypeRef<TKind>
 {
   public TKind TypeKind { get; set; }
-  public ICmpt_TypeRefObject<TKind> As_TypeRef { get; set; }
 }
 
 public class Cmpt_TypeSimple
   : ICmpt_TypeSimple
 {
-  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindBasic { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindEnum { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindDomain { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindUnion { get; set; }
-  public ICmpt_TypeSimpleObject As_TypeSimple { get; set; }
 }
 
 public class Cmpt_Collections
   : ICmpt_Collections
 {
-  public ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindList { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindDictionary { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindTypeParam { get; set; }
-  public ICmpt_CollectionsObject As_Collections { get; set; }
 }
 
 public class Cmpt_ModifierKeyed<TKind>
@@ -554,22 +512,17 @@ public class Cmpt_ModifierKeyed<TKind>
 {
   public ICmpt_TypeSimple By { get; set; }
   public Cmpt_DomainKind IsOptional { get; set; }
-  public ICmpt_ModifierKeyedObject<TKind> As_ModifierKeyed { get; set; }
 }
 
 public class Cmpt_Modifiers
   : ICmpt_Modifiers
 {
-  public ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindOptional { get; set; }
-  public ICmpt_Collections As_Collections { get; set; }
-  public ICmpt_ModifiersObject As_Modifiers { get; set; }
 }
 
 public class Cmpt_Modifier<TKind>
   : ICmpt_Modifier<TKind>
 {
   public TKind ModifierKind { get; set; }
-  public ICmpt_ModifierObject<TKind> As_Modifier { get; set; }
 }
 
 public class Cmpt_DomainRef<TKind>
@@ -577,7 +530,6 @@ public class Cmpt_DomainRef<TKind>
   , ICmpt_DomainRef<TKind>
 {
   public TKind DomainKind { get; set; }
-  public ICmpt_DomainRefObject<TKind> As_DomainRef { get; set; }
 }
 
 public class Cmpt_BaseDomain<TDomain,TItem,TDomainItem>
@@ -585,7 +537,6 @@ public class Cmpt_BaseDomain<TDomain,TItem,TDomainItem>
   , ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
 {
   public TDomain DomainKind { get; set; }
-  public ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem> As_BaseDomain { get; set; }
 }
 
 public class Cmpt_BaseDomainItem
@@ -593,15 +544,12 @@ public class Cmpt_BaseDomainItem
   , ICmpt_BaseDomainItem
 {
   public Cmpt_DomainKind Exclude { get; set; }
-  public ICmpt_BaseDomainItemObject As_BaseDomainItem { get; set; }
 }
 
 public class Cmpt_DomainItem<TItem>
   : ICmpt_DomainItem<TItem>
 {
   public ICmpt_Name Domain { get; set; }
-  public TItem AsParent { get; set; }
-  public ICmpt_DomainItemObject<TItem> As_DomainItem { get; set; }
 }
 
 public class Cmpt_DomainValue<TKind,TValue>
@@ -609,18 +557,11 @@ public class Cmpt_DomainValue<TKind,TValue>
   , ICmpt_DomainValue<TKind,TValue>
 {
   public TValue Value { get; set; }
-  public TValue Asvalue { get; set; }
-  public ICmpt_DomainValueObject<TKind,TValue> As_DomainValue { get; set; }
 }
 
 public class Cmpt_BasicValue
   : ICmpt_BasicValue
 {
-  public Cmpt_DomainKind As_DomainKindBoolean { get; set; }
-  public ICmpt_EnumValue As_EnumValue { get; set; }
-  public Cmpt_DomainKind As_DomainKindNumber { get; set; }
-  public Cmpt_DomainKind As_DomainKindString { get; set; }
-  public ICmpt_BasicValueObject As_BasicValue { get; set; }
 }
 
 public class Cmpt_DomainTrueFalse
@@ -628,14 +569,12 @@ public class Cmpt_DomainTrueFalse
   , ICmpt_DomainTrueFalse
 {
   public Cmpt_DomainKind Value { get; set; }
-  public ICmpt_DomainTrueFalseObject As_DomainTrueFalse { get; set; }
 }
 
 public class Cmpt_DomainItemTrueFalse
   : Cmpt_DomainItem<ICmpt_DomainTrueFalse>
   , ICmpt_DomainItemTrueFalse
 {
-  public ICmpt_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; set; }
 }
 
 public class Cmpt_DomainLabel
@@ -643,14 +582,12 @@ public class Cmpt_DomainLabel
   , ICmpt_DomainLabel
 {
   public ICmpt_EnumValue Label { get; set; }
-  public ICmpt_DomainLabelObject As_DomainLabel { get; set; }
 }
 
 public class Cmpt_DomainItemLabel
   : Cmpt_DomainItem<ICmpt_DomainLabel>
   , ICmpt_DomainItemLabel
 {
-  public ICmpt_DomainItemLabelObject As_DomainItemLabel { get; set; }
 }
 
 public class Cmpt_DomainRange
@@ -659,14 +596,12 @@ public class Cmpt_DomainRange
 {
   public Cmpt_DomainKind? Lower { get; set; }
   public Cmpt_DomainKind? Upper { get; set; }
-  public ICmpt_DomainRangeObject As_DomainRange { get; set; }
 }
 
 public class Cmpt_DomainItemRange
   : Cmpt_DomainItem<ICmpt_DomainRange>
   , ICmpt_DomainItemRange
 {
-  public ICmpt_DomainItemRangeObject As_DomainItemRange { get; set; }
 }
 
 public class Cmpt_DomainRegex
@@ -674,14 +609,12 @@ public class Cmpt_DomainRegex
   , ICmpt_DomainRegex
 {
   public Cmpt_DomainKind Pattern { get; set; }
-  public ICmpt_DomainRegexObject As_DomainRegex { get; set; }
 }
 
 public class Cmpt_DomainItemRegex
   : Cmpt_DomainItem<ICmpt_DomainRegex>
   , ICmpt_DomainItemRegex
 {
-  public ICmpt_DomainItemRegexObject As_DomainItemRegex { get; set; }
 }
 
 public class Cmpt_EnumLabel
@@ -689,7 +622,6 @@ public class Cmpt_EnumLabel
   , ICmpt_EnumLabel
 {
   public ICmpt_Name EnumType { get; set; }
-  public ICmpt_EnumLabelObject As_EnumLabel { get; set; }
 }
 
 public class Cmpt_EnumValue
@@ -697,14 +629,12 @@ public class Cmpt_EnumValue
   , ICmpt_EnumValue
 {
   public ICmpt_Name Label { get; set; }
-  public ICmpt_EnumValueObject As_EnumValue { get; set; }
 }
 
 public class Cmpt_UnionRef
   : Cmpt_TypeRef<Cmpt_SimpleKind>
   , ICmpt_UnionRef
 {
-  public ICmpt_UnionRefObject As_UnionRef { get; set; }
 }
 
 public class Cmpt_UnionMember
@@ -712,7 +642,6 @@ public class Cmpt_UnionMember
   , ICmpt_UnionMember
 {
   public ICmpt_Name Union { get; set; }
-  public ICmpt_UnionMemberObject As_UnionMember { get; set; }
 }
 
 public class Cmpt_ObjectKind
@@ -730,7 +659,6 @@ public class Cmpt_TypeObject<TKind,TField>
   public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
   public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
-  public ICmpt_TypeObjectObject<TKind,TField> As_TypeObject { get; set; }
 }
 
 public class Cmpt_ObjTypeParam
@@ -738,7 +666,6 @@ public class Cmpt_ObjTypeParam
   , ICmpt_ObjTypeParam
 {
   public ICmpt_TypeRef<Cmpt_TypeKind> Constraint { get; set; }
-  public ICmpt_ObjTypeParamObject As_ObjTypeParam { get; set; }
 }
 
 public class Cmpt_ObjBase
@@ -746,8 +673,6 @@ public class Cmpt_ObjBase
   , ICmpt_ObjBase
 {
   public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
-  public ICmpt_TypeParam As_TypeParam { get; set; }
-  public ICmpt_ObjBaseObject As_ObjBase { get; set; }
 }
 
 public class Cmpt_ObjTypeArg
@@ -755,8 +680,6 @@ public class Cmpt_ObjTypeArg
   , ICmpt_ObjTypeArg
 {
   public ICmpt_Name? Label { get; set; }
-  public ICmpt_TypeParam As_TypeParam { get; set; }
-  public ICmpt_ObjTypeArgObject As_ObjTypeArg { get; set; }
 }
 
 public class Cmpt_TypeParam
@@ -764,7 +687,6 @@ public class Cmpt_TypeParam
   , ICmpt_TypeParam
 {
   public ICmpt_Name TypeParam { get; set; }
-  public ICmpt_TypeParamObject As_TypeParam { get; set; }
 }
 
 public class Cmpt_ObjAlternate
@@ -772,8 +694,6 @@ public class Cmpt_ObjAlternate
 {
   public ICmpt_ObjBase Type { get; set; }
   public ICollection<ICmpt_Collections> Collections { get; set; }
-  public ICmpt_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
-  public ICmpt_ObjAlternateObject As_ObjAlternate { get; set; }
 }
 
 public class Cmpt_ObjAlternateEnum
@@ -781,15 +701,12 @@ public class Cmpt_ObjAlternateEnum
   , ICmpt_ObjAlternateEnum
 {
   public ICmpt_Name Label { get; set; }
-  public ICmpt_ObjAlternateEnumObject As_ObjAlternateEnum { get; set; }
 }
 
 public class Cmpt_ObjectFor<TFor>
   : ICmpt_ObjectFor<TFor>
 {
   public ICmpt_Name ObjectType { get; set; }
-  public TFor AsParent { get; set; }
-  public ICmpt_ObjectForObject<TFor> As_ObjectFor { get; set; }
 }
 
 public class Cmpt_ObjField<TType>
@@ -797,7 +714,6 @@ public class Cmpt_ObjField<TType>
   , ICmpt_ObjField<TType>
 {
   public TType Type { get; set; }
-  public ICmpt_ObjFieldObject<TType> As_ObjField { get; set; }
 }
 
 public class Cmpt_ObjFieldType
@@ -805,8 +721,6 @@ public class Cmpt_ObjFieldType
   , ICmpt_ObjFieldType
 {
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-  public ICmpt_ObjFieldEnum As_ObjFieldEnum { get; set; }
-  public ICmpt_ObjFieldTypeObject As_ObjFieldType { get; set; }
 }
 
 public class Cmpt_ObjFieldEnum
@@ -814,29 +728,23 @@ public class Cmpt_ObjFieldEnum
   , ICmpt_ObjFieldEnum
 {
   public ICmpt_Name Label { get; set; }
-  public ICmpt_ObjFieldEnumObject As_ObjFieldEnum { get; set; }
 }
 
 public class Cmpt_ForParam<TType>
   : ICmpt_ForParam<TType>
 {
-  public ICmpt_ObjAlternate As_ObjAlternate { get; set; }
-  public ICmpt_ObjField<TType> As_ObjField { get; set; }
-  public ICmpt_ForParamObject<TType> As_ForParam { get; set; }
 }
 
 public class Cmpt_DualField
   : Cmpt_ObjField<ICmpt_ObjFieldType>
   , ICmpt_DualField
 {
-  public ICmpt_DualFieldObject As_DualField { get; set; }
 }
 
 public class Cmpt_InputField
   : Cmpt_ObjField<ICmpt_InputFieldType>
   , ICmpt_InputField
 {
-  public ICmpt_InputFieldObject As_InputField { get; set; }
 }
 
 public class Cmpt_InputFieldType
@@ -844,21 +752,18 @@ public class Cmpt_InputFieldType
   , ICmpt_InputFieldType
 {
   public GqlpValue? DefaultValue { get; set; }
-  public ICmpt_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 
 public class Cmpt_InputParam
   : Cmpt_InputFieldType
   , ICmpt_InputParam
 {
-  public ICmpt_InputParamObject As_InputParam { get; set; }
 }
 
 public class Cmpt_OutputField
   : Cmpt_ObjField<ICmpt_ObjFieldType>
   , ICmpt_OutputField
 {
-  public ICmpt_OutputFieldObject As_OutputField { get; set; }
 }
 
 public class Cmpt_OutputFieldType
@@ -866,5 +771,4 @@ public class Cmpt_OutputFieldType
   , ICmpt_OutputFieldType
 {
   public ICollection<ICmpt_InputParam> Parameters { get; set; }
-  public ICmpt_OutputFieldTypeObject As_OutputFieldType { get; set; }
 }

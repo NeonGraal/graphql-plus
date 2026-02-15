@@ -12,5 +12,4 @@ public class CmptFieldDescrDual
   : ICmptFieldDescrDual
 {
   public string Field { get; set; }
-  public ICmptFieldDescrDualObject AsFieldDescrDual { get; set; }
 }

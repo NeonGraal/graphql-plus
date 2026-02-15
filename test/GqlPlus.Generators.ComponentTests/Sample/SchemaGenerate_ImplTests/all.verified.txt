@@ -49,7 +49,6 @@ public class CmptField
   : ICmptField
 {
   public ICollection<string> Strings { get; set; }
-  public ICmptFieldObject AsField { get; set; }
 }
 
 public class CmptParam
@@ -57,14 +56,10 @@ public class CmptParam
 {
   public ICmptMany? AfterId { get; set; }
   public ICmptMany BeforeId { get; set; }
-  public string AsString { get; set; }
-  public ICmptParamObject AsParam { get; set; }
 }
 
 public class CmptAll
   : ICmptAll
 {
   public ICmptField Items { get; set; }
-  public string AsString { get; set; }
-  public ICmptAllObject AsAll { get; set; }
 }

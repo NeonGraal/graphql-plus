@@ -13,13 +13,10 @@ public class CmptPrntDualDual
   : CmptRefPrntDualDual
   , ICmptPrntDualDual
 {
-  public ICmptPrntDualDualObject AsPrntDualDual { get; set; }
 }
 
 public class CmptRefPrntDualDual
   : ICmptRefPrntDualDual
 {
   public decimal Parent { get; set; }
-  public string AsString { get; set; }
-  public ICmptRefPrntDualDualObject AsRefPrntDualDual { get; set; }
 }

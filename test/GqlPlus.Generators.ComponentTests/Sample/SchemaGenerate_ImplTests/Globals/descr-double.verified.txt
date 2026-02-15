@@ -12,5 +12,4 @@ namespace Components.Gqlp_Schema_descr_double;
 public class CmptDescrDbl
   : ICmptDescrDbl
 {
-  public ICmptDescrDblObject AsDescrDbl { get; set; }
 }

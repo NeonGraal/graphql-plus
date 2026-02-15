@@ -8,14 +8,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_Input;
 public class testAltInp
   : ItestAltInp
 {
-  public ItestAltAltInp AsAltAltInp { get; set; }
-  public ItestAltInpObject AsAltInp { get; set; }
 }
 
 public class testAltAltInp
   : ItestAltAltInp
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ItestAltAltInpObject AsAltAltInp { get; set; }
 }

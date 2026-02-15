@@ -11,6 +11,4 @@ namespace Components.Gqlp_Schema_alt_simple_Output;
 public class CmptAltSmplOutp
   : ICmptAltSmplOutp
 {
-  public string AsString { get; set; }
-  public ICmptAltSmplOutpObject AsAltSmplOutp { get; set; }
 }

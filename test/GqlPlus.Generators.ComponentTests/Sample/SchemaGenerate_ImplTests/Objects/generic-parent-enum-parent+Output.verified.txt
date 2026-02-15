@@ -15,12 +15,10 @@ public class CmptGnrcPrntEnumPrntOutp
   : CmptFieldGnrcPrntEnumPrntOutp<CmptEnumGnrcPrntEnumPrntOutp>
   , ICmptGnrcPrntEnumPrntOutp
 {
-  public ICmptGnrcPrntEnumPrntOutpObject AsGnrcPrntEnumPrntOutp { get; set; }
 }
 
 public class CmptFieldGnrcPrntEnumPrntOutp<TRef>
   : ICmptFieldGnrcPrntEnumPrntOutp<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptFieldGnrcPrntEnumPrntOutpObject<TRef> AsFieldGnrcPrntEnumPrntOutp { get; set; }
 }

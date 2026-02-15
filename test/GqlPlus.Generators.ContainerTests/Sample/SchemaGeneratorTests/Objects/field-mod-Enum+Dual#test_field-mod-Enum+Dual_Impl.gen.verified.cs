@@ -9,5 +9,4 @@ public class testFieldModEnumDual
   : ItestFieldModEnumDual
 {
   public IDictionary<testEnumFieldModEnumDual, string> Field { get; set; }
-  public ItestFieldModEnumDualObject AsFieldModEnumDual { get; set; }
 }

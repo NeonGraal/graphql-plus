@@ -26,8 +26,6 @@ public class Cmpt_Directives
   , ICmpt_Directives
 {
   public ICmpt_Directive Directive { get; set; }
-  public ICmpt_Directive As_Directive { get; set; }
-  public ICmpt_DirectivesObject As_Directives { get; set; }
 }
 
 public class Cmpt_Directive
@@ -37,5 +35,4 @@ public class Cmpt_Directive
   public ICollection<ICmpt_InputParam> Parameters { get; set; }
   public bool Repeatable { get; set; }
   public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
-  public ICmpt_DirectiveObject As_Directive { get; set; }
 }

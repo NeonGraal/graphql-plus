@@ -15,21 +15,17 @@ public class CmptCnstFieldDualDual
   : CmptRefCnstFieldDualDual<ICmptAltCnstFieldDualDual>
   , ICmptCnstFieldDualDual
 {
-  public ICmptCnstFieldDualDualObject AsCnstFieldDualDual { get; set; }
 }
 
 public class CmptRefCnstFieldDualDual<TRef>
   : ICmptRefCnstFieldDualDual<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptRefCnstFieldDualDualObject<TRef> AsRefCnstFieldDualDual { get; set; }
 }
 
 public class CmptPrntCnstFieldDualDual
   : ICmptPrntCnstFieldDualDual
 {
-  public string AsString { get; set; }
-  public ICmptPrntCnstFieldDualDualObject AsPrntCnstFieldDualDual { get; set; }
 }
 
 public class CmptAltCnstFieldDualDual
@@ -37,5 +33,4 @@ public class CmptAltCnstFieldDualDual
   , ICmptAltCnstFieldDualDual
 {
   public decimal Alt { get; set; }
-  public ICmptAltCnstFieldDualDualObject AsAltCnstFieldDualDual { get; set; }
 }

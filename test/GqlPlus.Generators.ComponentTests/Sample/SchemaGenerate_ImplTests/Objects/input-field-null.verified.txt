@@ -13,11 +13,9 @@ public class CmptInpFieldNull
   : ICmptInpFieldNull
 {
   public ICmptFldInpFieldNull? Field { get; set; }
-  public ICmptInpFieldNullObject AsInpFieldNull { get; set; }
 }
 
 public class CmptFldInpFieldNull
   : ICmptFldInpFieldNull
 {
-  public ICmptFldInpFieldNullObject AsFldInpFieldNull { get; set; }
 }

@@ -9,5 +9,4 @@ public class testInpFieldDescrNmbr
   : ItestInpFieldDescrNmbr
 {
   public decimal Field { get; set; }
-  public ItestInpFieldDescrNmbrObject AsInpFieldDescrNmbr { get; set; }
 }

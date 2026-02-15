@@ -9,5 +9,4 @@ public class testObjFieldEnumAliasInp
   : ItestObjFieldEnumAliasInp
 {
   public bool Field { get; set; }
-  public ItestObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; set; }
 }

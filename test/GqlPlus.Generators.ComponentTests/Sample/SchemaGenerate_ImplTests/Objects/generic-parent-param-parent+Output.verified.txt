@@ -14,20 +14,15 @@ public class CmptGnrcPrntParamPrntOutp
   : CmptRefGnrcPrntParamPrntOutp<ICmptAltGnrcPrntParamPrntOutp>
   , ICmptGnrcPrntParamPrntOutp
 {
-  public ICmptGnrcPrntParamPrntOutpObject AsGnrcPrntParamPrntOutp { get; set; }
 }
 
 public class CmptRefGnrcPrntParamPrntOutp<TRef>
   : ICmptRefGnrcPrntParamPrntOutp<TRef>
 {
-  public TRef AsParent { get; set; }
-  public ICmptRefGnrcPrntParamPrntOutpObject<TRef> AsRefGnrcPrntParamPrntOutp { get; set; }
 }
 
 public class CmptAltGnrcPrntParamPrntOutp
   : ICmptAltGnrcPrntParamPrntOutp
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ICmptAltGnrcPrntParamPrntOutpObject AsAltGnrcPrntParamPrntOutp { get; set; }
 }

@@ -13,7 +13,6 @@ public class test_Schema
   public IDictionary<Itest_Name, Itest_Directives> Directives { get; set; }
   public IDictionary<Itest_Name, Itest_Type> Types { get; set; }
   public IDictionary<Itest_Name, Itest_Setting> Settings { get; set; }
-  public Itest_SchemaObject As_Schema { get; set; }
 }
 
 public class test_Name
@@ -30,8 +29,6 @@ public class test_Filter
   public ICollection<Itest_NameFilter> Aliases { get; set; }
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
-  public ICollection<Itest_NameFilter> As_NameFilter { get; set; }
-  public Itest_FilterObject As_Filter { get; set; }
 }
 
 public class test_NameFilter
@@ -45,7 +42,6 @@ public class test_CategoryFilter
   , Itest_CategoryFilter
 {
   public ICollection<Itest_Resolution> Resolutions { get; set; }
-  public Itest_CategoryFilterObject As_CategoryFilter { get; set; }
 }
 
 public class test_TypeFilter
@@ -53,7 +49,6 @@ public class test_TypeFilter
   , Itest_TypeFilter
 {
   public ICollection<Itest_TypeKind> Kinds { get; set; }
-  public Itest_TypeFilterObject As_TypeFilter { get; set; }
 }
 
 public class test_Aliased
@@ -61,7 +56,6 @@ public class test_Aliased
   , Itest_Aliased
 {
   public ICollection<Itest_Name> Aliases { get; set; }
-  public Itest_AliasedObject As_Aliased { get; set; }
 }
 
 public class test_Named
@@ -69,12 +63,10 @@ public class test_Named
   , Itest_Named
 {
   public Itest_Name Name { get; set; }
-  public Itest_NamedObject As_Named { get; set; }
 }
 
 public class test_Described
   : Itest_Described
 {
   public ICollection<string> Description { get; set; }
-  public Itest_DescribedObject As_Described { get; set; }
 }

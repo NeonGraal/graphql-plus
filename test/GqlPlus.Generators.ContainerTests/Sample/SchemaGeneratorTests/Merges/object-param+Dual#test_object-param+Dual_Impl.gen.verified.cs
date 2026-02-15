@@ -10,5 +10,4 @@ public class testObjParamDual<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-  public ItestObjParamDualObject<TTest,TType> AsObjParamDual { get; set; }
 }

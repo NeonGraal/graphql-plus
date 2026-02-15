@@ -16,28 +16,22 @@ public class CmptCnstPrntDualGrndOutp
   : CmptRefCnstPrntDualGrndOutp<ICmptAltCnstPrntDualGrndOutp>
   , ICmptCnstPrntDualGrndOutp
 {
-  public ICmptCnstPrntDualGrndOutpObject AsCnstPrntDualGrndOutp { get; set; }
 }
 
 public class CmptRefCnstPrntDualGrndOutp<TRef>
   : ICmptRefCnstPrntDualGrndOutp<TRef>
 {
-  public TRef AsParent { get; set; }
-  public ICmptRefCnstPrntDualGrndOutpObject<TRef> AsRefCnstPrntDualGrndOutp { get; set; }
 }
 
 public class CmptGrndCnstPrntDualGrndOutp
   : ICmptGrndCnstPrntDualGrndOutp
 {
-  public string AsString { get; set; }
-  public ICmptGrndCnstPrntDualGrndOutpObject AsGrndCnstPrntDualGrndOutp { get; set; }
 }
 
 public class CmptPrntCnstPrntDualGrndOutp
   : CmptGrndCnstPrntDualGrndOutp
   , ICmptPrntCnstPrntDualGrndOutp
 {
-  public ICmptPrntCnstPrntDualGrndOutpObject AsPrntCnstPrntDualGrndOutp { get; set; }
 }
 
 public class CmptAltCnstPrntDualGrndOutp
@@ -45,5 +39,4 @@ public class CmptAltCnstPrntDualGrndOutp
   , ICmptAltCnstPrntDualGrndOutp
 {
   public decimal Alt { get; set; }
-  public ICmptAltCnstPrntDualGrndOutpObject AsAltCnstPrntDualGrndOutp { get; set; }
 }

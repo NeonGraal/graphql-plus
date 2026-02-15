@@ -12,5 +12,4 @@ public class CmptFieldOutp
   : ICmptFieldOutp
 {
   public string Field { get; set; }
-  public ICmptFieldOutpObject AsFieldOutp { get; set; }
 }

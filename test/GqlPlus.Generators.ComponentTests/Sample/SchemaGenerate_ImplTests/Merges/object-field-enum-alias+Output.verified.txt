@@ -13,5 +13,4 @@ public class CmptObjFieldEnumAliasOutp
   : ICmptObjFieldEnumAliasOutp
 {
   public bool Field { get; set; }
-  public ICmptObjFieldEnumAliasOutpObject AsObjFieldEnumAliasOutp { get; set; }
 }

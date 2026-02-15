@@ -10,5 +10,4 @@ public class test_Setting
   , Itest_Setting
 {
   public GqlpValue Value { get; set; }
-  public Itest_SettingObject As_Setting { get; set; }
 }

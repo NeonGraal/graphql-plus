@@ -13,14 +13,10 @@ public class CmptPrntAltOutp
   : CmptRefPrntAltOutp
   , ICmptPrntAltOutp
 {
-  public decimal AsNumber { get; set; }
-  public ICmptPrntAltOutpObject AsPrntAltOutp { get; set; }
 }
 
 public class CmptRefPrntAltOutp
   : ICmptRefPrntAltOutp
 {
   public decimal Parent { get; set; }
-  public string AsString { get; set; }
-  public ICmptRefPrntAltOutpObject AsRefPrntAltOutp { get; set; }
 }

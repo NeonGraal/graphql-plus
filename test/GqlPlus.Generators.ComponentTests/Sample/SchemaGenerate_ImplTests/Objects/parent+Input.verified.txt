@@ -13,13 +13,10 @@ public class CmptPrntInp
   : CmptRefPrntInp
   , ICmptPrntInp
 {
-  public ICmptPrntInpObject AsPrntInp { get; set; }
 }
 
 public class CmptRefPrntInp
   : ICmptRefPrntInp
 {
   public decimal Parent { get; set; }
-  public string AsString { get; set; }
-  public ICmptRefPrntInpObject AsRefPrntInp { get; set; }
 }

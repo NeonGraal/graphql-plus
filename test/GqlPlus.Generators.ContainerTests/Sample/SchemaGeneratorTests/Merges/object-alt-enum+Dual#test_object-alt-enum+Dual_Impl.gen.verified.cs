@@ -8,7 +8,4 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alt_enum_Dual;
 public class testObjAltEnumDual
   : ItestObjAltEnumDual
 {
-  public bool AsBooleantrue { get; set; }
-  public bool AsBooleanfalse { get; set; }
-  public ItestObjAltEnumDualObject AsObjAltEnumDual { get; set; }
 }

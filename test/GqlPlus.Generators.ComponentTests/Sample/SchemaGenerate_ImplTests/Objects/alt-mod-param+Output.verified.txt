@@ -12,14 +12,10 @@ namespace Components.Gqlp_Schema_alt_mod_param_Output;
 public class CmptAltModParamOutp<TMod>
   : ICmptAltModParamOutp<TMod>
 {
-  public IDictionary<TMod, ICmptAltAltModParamOutp> AsAltAltModParamOutp { get; set; }
-  public ICmptAltModParamOutpObject<TMod> AsAltModParamOutp { get; set; }
 }
 
 public class CmptAltAltModParamOutp
   : ICmptAltAltModParamOutp
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ICmptAltAltModParamOutpObject AsAltAltModParamOutp { get; set; }
 }

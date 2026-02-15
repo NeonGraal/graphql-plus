@@ -10,8 +10,6 @@ public class test_AndType
   , Itest_AndType
 {
   public Itest_Type Type { get; set; }
-  public Itest_Type As_Type { get; set; }
-  public Itest_AndTypeObject As_AndType { get; set; }
 }
 
 public class test_Categories
@@ -19,8 +17,6 @@ public class test_Categories
   , Itest_Categories
 {
   public Itest_Category Category { get; set; }
-  public Itest_Category As_Category { get; set; }
-  public Itest_CategoriesObject As_Categories { get; set; }
 }
 
 public class test_Category
@@ -30,7 +26,6 @@ public class test_Category
   public test_Resolution Resolution { get; set; }
   public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
-  public Itest_CategoryObject As_Category { get; set; }
 }
 
 public class test_Directives
@@ -38,8 +33,6 @@ public class test_Directives
   , Itest_Directives
 {
   public Itest_Directive Directive { get; set; }
-  public Itest_Directive As_Directive { get; set; }
-  public Itest_DirectivesObject As_Directives { get; set; }
 }
 
 public class test_Directive
@@ -49,7 +42,6 @@ public class test_Directive
   public ICollection<Itest_InputParam> Parameters { get; set; }
   public bool Repeatable { get; set; }
   public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
-  public Itest_DirectiveObject As_Directive { get; set; }
 }
 
 public class test_Setting
@@ -57,5 +49,4 @@ public class test_Setting
   , Itest_Setting
 {
   public GqlpValue Value { get; set; }
-  public Itest_SettingObject As_Setting { get; set; }
 }

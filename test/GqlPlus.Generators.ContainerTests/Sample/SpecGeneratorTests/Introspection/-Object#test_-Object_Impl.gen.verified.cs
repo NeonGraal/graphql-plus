@@ -20,7 +20,6 @@ public class test_TypeObject<TKind,TField>
   public ICollection<Itest_ObjAlternate> Alternates { get; set; }
   public ICollection<Itest_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
-  public Itest_TypeObjectObject<TKind,TField> As_TypeObject { get; set; }
 }
 
 public class test_ObjTypeParam
@@ -28,7 +27,6 @@ public class test_ObjTypeParam
   , Itest_ObjTypeParam
 {
   public Itest_TypeRef<Itest_TypeKind> Constraint { get; set; }
-  public Itest_ObjTypeParamObject As_ObjTypeParam { get; set; }
 }
 
 public class test_ObjBase
@@ -36,8 +34,6 @@ public class test_ObjBase
   , Itest_ObjBase
 {
   public ICollection<Itest_ObjTypeArg> TypeArgs { get; set; }
-  public Itest_TypeParam As_TypeParam { get; set; }
-  public Itest_ObjBaseObject As_ObjBase { get; set; }
 }
 
 public class test_ObjTypeArg
@@ -45,8 +41,6 @@ public class test_ObjTypeArg
   , Itest_ObjTypeArg
 {
   public Itest_Name? Label { get; set; }
-  public Itest_TypeParam As_TypeParam { get; set; }
-  public Itest_ObjTypeArgObject As_ObjTypeArg { get; set; }
 }
 
 public class test_TypeParam
@@ -54,7 +48,6 @@ public class test_TypeParam
   , Itest_TypeParam
 {
   public Itest_Name TypeParam { get; set; }
-  public Itest_TypeParamObject As_TypeParam { get; set; }
 }
 
 public class test_ObjAlternate
@@ -62,8 +55,6 @@ public class test_ObjAlternate
 {
   public Itest_ObjBase Type { get; set; }
   public ICollection<Itest_Collections> Collections { get; set; }
-  public Itest_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
-  public Itest_ObjAlternateObject As_ObjAlternate { get; set; }
 }
 
 public class test_ObjAlternateEnum
@@ -71,15 +62,12 @@ public class test_ObjAlternateEnum
   , Itest_ObjAlternateEnum
 {
   public Itest_Name Label { get; set; }
-  public Itest_ObjAlternateEnumObject As_ObjAlternateEnum { get; set; }
 }
 
 public class test_ObjectFor<TFor>
   : Itest_ObjectFor<TFor>
 {
   public Itest_Name ObjectType { get; set; }
-  public TFor AsParent { get; set; }
-  public Itest_ObjectForObject<TFor> As_ObjectFor { get; set; }
 }
 
 public class test_ObjField<TType>
@@ -87,7 +75,6 @@ public class test_ObjField<TType>
   , Itest_ObjField<TType>
 {
   public TType Type { get; set; }
-  public Itest_ObjFieldObject<TType> As_ObjField { get; set; }
 }
 
 public class test_ObjFieldType
@@ -95,8 +82,6 @@ public class test_ObjFieldType
   , Itest_ObjFieldType
 {
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
-  public Itest_ObjFieldEnum As_ObjFieldEnum { get; set; }
-  public Itest_ObjFieldTypeObject As_ObjFieldType { get; set; }
 }
 
 public class test_ObjFieldEnum
@@ -104,29 +89,23 @@ public class test_ObjFieldEnum
   , Itest_ObjFieldEnum
 {
   public Itest_Name Label { get; set; }
-  public Itest_ObjFieldEnumObject As_ObjFieldEnum { get; set; }
 }
 
 public class test_ForParam<TType>
   : Itest_ForParam<TType>
 {
-  public Itest_ObjAlternate As_ObjAlternate { get; set; }
-  public Itest_ObjField<TType> As_ObjField { get; set; }
-  public Itest_ForParamObject<TType> As_ForParam { get; set; }
 }
 
 public class test_DualField
   : test_ObjField<Itest_ObjFieldType>
   , Itest_DualField
 {
-  public Itest_DualFieldObject As_DualField { get; set; }
 }
 
 public class test_InputField
   : test_ObjField<Itest_InputFieldType>
   , Itest_InputField
 {
-  public Itest_InputFieldObject As_InputField { get; set; }
 }
 
 public class test_InputFieldType
@@ -134,21 +113,18 @@ public class test_InputFieldType
   , Itest_InputFieldType
 {
   public GqlpValue? DefaultValue { get; set; }
-  public Itest_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 
 public class test_InputParam
   : test_InputFieldType
   , Itest_InputParam
 {
-  public Itest_InputParamObject As_InputParam { get; set; }
 }
 
 public class test_OutputField
   : test_ObjField<Itest_ObjFieldType>
   , Itest_OutputField
 {
-  public Itest_OutputFieldObject As_OutputField { get; set; }
 }
 
 public class test_OutputFieldType
@@ -156,5 +132,4 @@ public class test_OutputFieldType
   , Itest_OutputFieldType
 {
   public ICollection<Itest_InputParam> Parameters { get; set; }
-  public Itest_OutputFieldTypeObject As_OutputFieldType { get; set; }
 }

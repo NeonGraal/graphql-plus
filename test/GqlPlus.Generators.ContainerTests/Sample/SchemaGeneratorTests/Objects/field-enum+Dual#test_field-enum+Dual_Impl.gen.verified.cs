@@ -9,5 +9,4 @@ public class testFieldEnumDual
   : ItestFieldEnumDual
 {
   public testEnumFieldEnumDual Field { get; set; }
-  public ItestFieldEnumDualObject AsFieldEnumDual { get; set; }
 }

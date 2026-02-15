@@ -13,5 +13,4 @@ public class CmptObjFieldEnumAliasInp
   : ICmptObjFieldEnumAliasInp
 {
   public bool Field { get; set; }
-  public ICmptObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; set; }
 }

@@ -21,7 +21,6 @@ public class Cmpt_EnumLabel
   , ICmpt_EnumLabel
 {
   public ICmpt_Name EnumType { get; set; }
-  public ICmpt_EnumLabelObject As_EnumLabel { get; set; }
 }
 
 public class Cmpt_EnumValue
@@ -29,5 +28,4 @@ public class Cmpt_EnumValue
   , ICmpt_EnumValue
 {
   public ICmpt_Name Label { get; set; }
-  public ICmpt_EnumValueObject As_EnumValue { get; set; }
 }

@@ -8,6 +8,4 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Dual;
 public class testAltSmplDual
   : ItestAltSmplDual
 {
-  public string AsString { get; set; }
-  public ItestAltSmplDualObject AsAltSmplDual { get; set; }
 }

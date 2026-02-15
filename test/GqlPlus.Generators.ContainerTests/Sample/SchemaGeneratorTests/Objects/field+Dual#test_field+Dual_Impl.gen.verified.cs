@@ -9,5 +9,4 @@ public class testFieldDual
   : ItestFieldDual
 {
   public string Field { get; set; }
-  public ItestFieldDualObject AsFieldDual { get; set; }
 }

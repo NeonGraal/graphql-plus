@@ -13,5 +13,4 @@ public class CmptFieldEnumDual
   : ICmptFieldEnumDual
 {
   public CmptEnumFieldEnumDual Field { get; set; }
-  public ICmptFieldEnumDualObject AsFieldEnumDual { get; set; }
 }

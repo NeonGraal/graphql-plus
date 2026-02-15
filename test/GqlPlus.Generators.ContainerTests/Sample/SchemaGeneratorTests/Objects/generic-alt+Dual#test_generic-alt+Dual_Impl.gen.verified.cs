@@ -8,6 +8,4 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_Dual;
 public class testGnrcAltDual<TType>
   : ItestGnrcAltDual<TType>
 {
-  public TType Astype { get; set; }
-  public ItestGnrcAltDualObject<TType> AsGnrcAltDual { get; set; }
 }

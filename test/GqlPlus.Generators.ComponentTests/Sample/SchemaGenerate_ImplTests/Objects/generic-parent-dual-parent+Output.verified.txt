@@ -14,20 +14,15 @@ public class CmptGnrcPrntDualPrntOutp
   : CmptRefGnrcPrntDualPrntOutp<ICmptAltGnrcPrntDualPrntOutp>
   , ICmptGnrcPrntDualPrntOutp
 {
-  public ICmptGnrcPrntDualPrntOutpObject AsGnrcPrntDualPrntOutp { get; set; }
 }
 
 public class CmptRefGnrcPrntDualPrntOutp<TRef>
   : ICmptRefGnrcPrntDualPrntOutp<TRef>
 {
-  public TRef AsParent { get; set; }
-  public ICmptRefGnrcPrntDualPrntOutpObject<TRef> AsRefGnrcPrntDualPrntOutp { get; set; }
 }
 
 public class CmptAltGnrcPrntDualPrntOutp
   : ICmptAltGnrcPrntDualPrntOutp
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ICmptAltGnrcPrntDualPrntOutpObject AsAltGnrcPrntDualPrntOutp { get; set; }
 }

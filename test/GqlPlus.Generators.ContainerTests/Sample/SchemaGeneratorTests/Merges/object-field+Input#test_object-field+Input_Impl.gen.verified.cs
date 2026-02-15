@@ -9,11 +9,9 @@ public class testObjFieldInp
   : ItestObjFieldInp
 {
   public ItestFldObjFieldInp Field { get; set; }
-  public ItestObjFieldInpObject AsObjFieldInp { get; set; }
 }
 
 public class testFldObjFieldInp
   : ItestFldObjFieldInp
 {
-  public ItestFldObjFieldInpObject AsFldObjFieldInp { get; set; }
 }

@@ -8,13 +8,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_parent_generic;
 public class testOutpPrntGnrc
   : ItestOutpPrntGnrc
 {
-  public ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc> AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; set; }
-  public ItestOutpPrntGnrcObject AsOutpPrntGnrc { get; set; }
 }
 
 public class testRefOutpPrntGnrc<TType>
   : ItestRefOutpPrntGnrc<TType>
 {
   public TType Field { get; set; }
-  public ItestRefOutpPrntGnrcObject<TType> AsRefOutpPrntGnrc { get; set; }
 }

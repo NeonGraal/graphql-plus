@@ -9,11 +9,9 @@ public class testObjFieldAliasOutp
   : ItestObjFieldAliasOutp
 {
   public ItestFldObjFieldAliasOutp Field { get; set; }
-  public ItestObjFieldAliasOutpObject AsObjFieldAliasOutp { get; set; }
 }
 
 public class testFldObjFieldAliasOutp
   : ItestFldObjFieldAliasOutp
 {
-  public ItestFldObjFieldAliasOutpObject AsFldObjFieldAliasOutp { get; set; }
 }

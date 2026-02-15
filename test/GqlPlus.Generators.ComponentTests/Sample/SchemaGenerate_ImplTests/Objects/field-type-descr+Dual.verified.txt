@@ -12,5 +12,4 @@ public class CmptFieldTypeDescrDual
   : ICmptFieldTypeDescrDual
 {
   public decimal Field { get; set; }
-  public ICmptFieldTypeDescrDualObject AsFieldTypeDescrDual { get; set; }
 }

@@ -10,5 +10,4 @@ public class testObjParamDupInp<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
-  public ItestObjParamDupInpObject<TTest> AsObjParamDupInp { get; set; }
 }

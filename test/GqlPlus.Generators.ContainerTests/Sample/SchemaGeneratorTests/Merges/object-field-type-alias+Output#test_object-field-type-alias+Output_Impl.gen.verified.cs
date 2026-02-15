@@ -9,5 +9,4 @@ public class testObjFieldTypeAliasOutp
   : ItestObjFieldTypeAliasOutp
 {
   public string Field { get; set; }
-  public ItestObjFieldTypeAliasOutpObject AsObjFieldTypeAliasOutp { get; set; }
 }

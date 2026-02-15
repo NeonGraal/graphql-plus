@@ -14,12 +14,9 @@ public class CmptPrntParamDiffInp<TA>
   , ICmptPrntParamDiffInp<TA>
 {
   public TA Field { get; set; }
-  public ICmptPrntParamDiffInpObject<TA> AsPrntParamDiffInp { get; set; }
 }
 
 public class CmptRefPrntParamDiffInp<TB>
   : ICmptRefPrntParamDiffInp<TB>
 {
-  public TB Asb { get; set; }
-  public ICmptRefPrntParamDiffInpObject<TB> AsRefPrntParamDiffInp { get; set; }
 }

@@ -32,10 +32,6 @@ namespace Components.Gqlp_Spec_Built_In;
 public class Cmpt_Collections
   : ICmpt_Collections
 {
-  public ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindList { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindDictionary { get; set; }
-  public ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindTypeParam { get; set; }
-  public ICmpt_CollectionsObject As_Collections { get; set; }
 }
 
 public class Cmpt_ModifierKeyed<TKind>
@@ -44,20 +40,15 @@ public class Cmpt_ModifierKeyed<TKind>
 {
   public ICmpt_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
-  public ICmpt_ModifierKeyedObject<TKind> As_ModifierKeyed { get; set; }
 }
 
 public class Cmpt_Modifiers
   : ICmpt_Modifiers
 {
-  public ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindOptional { get; set; }
-  public ICmpt_Collections As_Collections { get; set; }
-  public ICmpt_ModifiersObject As_Modifiers { get; set; }
 }
 
 public class Cmpt_Modifier<TKind>
   : ICmpt_Modifier<TKind>
 {
   public TKind ModifierKind { get; set; }
-  public ICmpt_ModifierObject<TKind> As_Modifier { get; set; }
 }

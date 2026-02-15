@@ -14,13 +14,10 @@ public class CmptPrntFieldDual
   , ICmptPrntFieldDual
 {
   public decimal Field { get; set; }
-  public ICmptPrntFieldDualObject AsPrntFieldDual { get; set; }
 }
 
 public class CmptRefPrntFieldDual
   : ICmptRefPrntFieldDual
 {
   public decimal Parent { get; set; }
-  public string AsString { get; set; }
-  public ICmptRefPrntFieldDualObject AsRefPrntFieldDual { get; set; }
 }

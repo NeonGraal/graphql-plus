@@ -10,13 +10,10 @@ public class testPrntFieldDual
   , ItestPrntFieldDual
 {
   public decimal Field { get; set; }
-  public ItestPrntFieldDualObject AsPrntFieldDual { get; set; }
 }
 
 public class testRefPrntFieldDual
   : ItestRefPrntFieldDual
 {
   public decimal Parent { get; set; }
-  public string AsString { get; set; }
-  public ItestRefPrntFieldDualObject AsRefPrntFieldDual { get; set; }
 }

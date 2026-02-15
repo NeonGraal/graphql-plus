@@ -9,21 +9,17 @@ public class testCnstFieldDualOutp
   : testRefCnstFieldDualOutp<ItestAltCnstFieldDualOutp>
   , ItestCnstFieldDualOutp
 {
-  public ItestCnstFieldDualOutpObject AsCnstFieldDualOutp { get; set; }
 }
 
 public class testRefCnstFieldDualOutp<TRef>
   : ItestRefCnstFieldDualOutp<TRef>
 {
   public TRef Field { get; set; }
-  public ItestRefCnstFieldDualOutpObject<TRef> AsRefCnstFieldDualOutp { get; set; }
 }
 
 public class testPrntCnstFieldDualOutp
   : ItestPrntCnstFieldDualOutp
 {
-  public string AsString { get; set; }
-  public ItestPrntCnstFieldDualOutpObject AsPrntCnstFieldDualOutp { get; set; }
 }
 
 public class testAltCnstFieldDualOutp
@@ -31,5 +27,4 @@ public class testAltCnstFieldDualOutp
   , ItestAltCnstFieldDualOutp
 {
   public decimal Alt { get; set; }
-  public ItestAltCnstFieldDualOutpObject AsAltCnstFieldDualOutp { get; set; }
 }

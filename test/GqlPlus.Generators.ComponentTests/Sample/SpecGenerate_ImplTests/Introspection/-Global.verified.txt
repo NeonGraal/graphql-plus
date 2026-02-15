@@ -53,8 +53,6 @@ public class Cmpt_AndType
   , ICmpt_AndType
 {
   public ICmpt_Type Type { get; set; }
-  public ICmpt_Type As_Type { get; set; }
-  public ICmpt_AndTypeObject As_AndType { get; set; }
 }
 
 public class Cmpt_Categories
@@ -62,8 +60,6 @@ public class Cmpt_Categories
   , ICmpt_Categories
 {
   public ICmpt_Category Category { get; set; }
-  public ICmpt_Category As_Category { get; set; }
-  public ICmpt_CategoriesObject As_Categories { get; set; }
 }
 
 public class Cmpt_Category
@@ -73,7 +69,6 @@ public class Cmpt_Category
   public Cmpt_Resolution Resolution { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-  public ICmpt_CategoryObject As_Category { get; set; }
 }
 
 public class Cmpt_Directives
@@ -81,8 +76,6 @@ public class Cmpt_Directives
   , ICmpt_Directives
 {
   public ICmpt_Directive Directive { get; set; }
-  public ICmpt_Directive As_Directive { get; set; }
-  public ICmpt_DirectivesObject As_Directives { get; set; }
 }
 
 public class Cmpt_Directive
@@ -92,7 +85,6 @@ public class Cmpt_Directive
   public ICollection<ICmpt_InputParam> Parameters { get; set; }
   public bool Repeatable { get; set; }
   public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
-  public ICmpt_DirectiveObject As_Directive { get; set; }
 }
 
 public class Cmpt_Setting
@@ -100,5 +92,4 @@ public class Cmpt_Setting
   , ICmpt_Setting
 {
   public GqlpValue Value { get; set; }
-  public ICmpt_SettingObject As_Setting { get; set; }
 }

@@ -90,7 +90,6 @@ public class Cmpt_TypeObject<TKind,TField>
   public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
   public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
-  public ICmpt_TypeObjectObject<TKind,TField> As_TypeObject { get; set; }
 }
 
 public class Cmpt_ObjTypeParam
@@ -98,7 +97,6 @@ public class Cmpt_ObjTypeParam
   , ICmpt_ObjTypeParam
 {
   public ICmpt_TypeRef<ICmpt_TypeKind> Constraint { get; set; }
-  public ICmpt_ObjTypeParamObject As_ObjTypeParam { get; set; }
 }
 
 public class Cmpt_ObjBase
@@ -106,8 +104,6 @@ public class Cmpt_ObjBase
   , ICmpt_ObjBase
 {
   public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
-  public ICmpt_TypeParam As_TypeParam { get; set; }
-  public ICmpt_ObjBaseObject As_ObjBase { get; set; }
 }
 
 public class Cmpt_ObjTypeArg
@@ -115,8 +111,6 @@ public class Cmpt_ObjTypeArg
   , ICmpt_ObjTypeArg
 {
   public ICmpt_Name? Label { get; set; }
-  public ICmpt_TypeParam As_TypeParam { get; set; }
-  public ICmpt_ObjTypeArgObject As_ObjTypeArg { get; set; }
 }
 
 public class Cmpt_TypeParam
@@ -124,7 +118,6 @@ public class Cmpt_TypeParam
   , ICmpt_TypeParam
 {
   public ICmpt_Name TypeParam { get; set; }
-  public ICmpt_TypeParamObject As_TypeParam { get; set; }
 }
 
 public class Cmpt_ObjAlternate
@@ -132,8 +125,6 @@ public class Cmpt_ObjAlternate
 {
   public ICmpt_ObjBase Type { get; set; }
   public ICollection<ICmpt_Collections> Collections { get; set; }
-  public ICmpt_ObjAlternateEnum As_ObjAlternateEnum { get; set; }
-  public ICmpt_ObjAlternateObject As_ObjAlternate { get; set; }
 }
 
 public class Cmpt_ObjAlternateEnum
@@ -141,15 +132,12 @@ public class Cmpt_ObjAlternateEnum
   , ICmpt_ObjAlternateEnum
 {
   public ICmpt_Name Label { get; set; }
-  public ICmpt_ObjAlternateEnumObject As_ObjAlternateEnum { get; set; }
 }
 
 public class Cmpt_ObjectFor<TFor>
   : ICmpt_ObjectFor<TFor>
 {
   public ICmpt_Name ObjectType { get; set; }
-  public TFor AsParent { get; set; }
-  public ICmpt_ObjectForObject<TFor> As_ObjectFor { get; set; }
 }
 
 public class Cmpt_ObjField<TType>
@@ -157,7 +145,6 @@ public class Cmpt_ObjField<TType>
   , ICmpt_ObjField<TType>
 {
   public TType Type { get; set; }
-  public ICmpt_ObjFieldObject<TType> As_ObjField { get; set; }
 }
 
 public class Cmpt_ObjFieldType
@@ -165,8 +152,6 @@ public class Cmpt_ObjFieldType
   , ICmpt_ObjFieldType
 {
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-  public ICmpt_ObjFieldEnum As_ObjFieldEnum { get; set; }
-  public ICmpt_ObjFieldTypeObject As_ObjFieldType { get; set; }
 }
 
 public class Cmpt_ObjFieldEnum
@@ -174,13 +159,9 @@ public class Cmpt_ObjFieldEnum
   , ICmpt_ObjFieldEnum
 {
   public ICmpt_Name Label { get; set; }
-  public ICmpt_ObjFieldEnumObject As_ObjFieldEnum { get; set; }
 }
 
 public class Cmpt_ForParam<TType>
   : ICmpt_ForParam<TType>
 {
-  public ICmpt_ObjAlternate As_ObjAlternate { get; set; }
-  public ICmpt_ObjField<TType> As_ObjField { get; set; }
-  public ICmpt_ForParamObject<TType> As_ForParam { get; set; }
 }

@@ -9,5 +9,4 @@ public class testFieldSmplInp
   : ItestFieldSmplInp
 {
   public decimal Field { get; set; }
-  public ItestFieldSmplInpObject AsFieldSmplInp { get; set; }
 }

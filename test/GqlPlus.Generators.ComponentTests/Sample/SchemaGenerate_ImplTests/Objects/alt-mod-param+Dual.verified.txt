@@ -12,14 +12,10 @@ namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 public class CmptAltModParamDual<TMod>
   : ICmptAltModParamDual<TMod>
 {
-  public IDictionary<TMod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; set; }
-  public ICmptAltModParamDualObject<TMod> AsAltModParamDual { get; set; }
 }
 
 public class CmptAltAltModParamDual
   : ICmptAltAltModParamDual
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ICmptAltAltModParamDualObject AsAltAltModParamDual { get; set; }
 }

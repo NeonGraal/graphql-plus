@@ -9,19 +9,15 @@ public class testOutpParamTypeDescr
   : ItestOutpParamTypeDescr
 {
   public ItestFldOutpParamTypeDescr Field { get; set; }
-  public ItestOutpParamTypeDescrObject AsOutpParamTypeDescr { get; set; }
 }
 
 public class testFldOutpParamTypeDescr
   : ItestFldOutpParamTypeDescr
 {
-  public ItestFldOutpParamTypeDescrObject AsFldOutpParamTypeDescr { get; set; }
 }
 
 public class testInOutpParamTypeDescr
   : ItestInOutpParamTypeDescr
 {
   public decimal Param { get; set; }
-  public string AsString { get; set; }
-  public ItestInOutpParamTypeDescrObject AsInOutpParamTypeDescr { get; set; }
 }

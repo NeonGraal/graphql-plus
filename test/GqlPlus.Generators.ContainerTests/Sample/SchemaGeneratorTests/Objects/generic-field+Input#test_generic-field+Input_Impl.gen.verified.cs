@@ -9,5 +9,4 @@ public class testGnrcFieldInp<TType>
   : ItestGnrcFieldInp<TType>
 {
   public TType Field { get; set; }
-  public ItestGnrcFieldInpObject<TType> AsGnrcFieldInp { get; set; }
 }

@@ -8,5 +8,4 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_double;
 public class testDescrDbl
   : ItestDescrDbl
 {
-  public ItestDescrDblObject AsDescrDbl { get; set; }
 }

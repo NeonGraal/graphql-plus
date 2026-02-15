@@ -8,14 +8,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Output;
 public class testAltModBoolOutp
   : ItestAltModBoolOutp
 {
-  public IDictionary<bool, ItestAltAltModBoolOutp> AsAltAltModBoolOutp { get; set; }
-  public ItestAltModBoolOutpObject AsAltModBoolOutp { get; set; }
 }
 
 public class testAltAltModBoolOutp
   : ItestAltAltModBoolOutp
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ItestAltAltModBoolOutpObject AsAltAltModBoolOutp { get; set; }
 }

@@ -14,5 +14,4 @@ public class CmptObjParamDual<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
-  public ICmptObjParamDualObject<TTest,TType> AsObjParamDual { get; set; }
 }

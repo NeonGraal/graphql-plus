@@ -13,12 +13,9 @@ public class CmptGnrcPrntArgDual<TType>
   : CmptRefGnrcPrntArgDual<TType>
   , ICmptGnrcPrntArgDual<TType>
 {
-  public ICmptGnrcPrntArgDualObject<TType> AsGnrcPrntArgDual { get; set; }
 }
 
 public class CmptRefGnrcPrntArgDual<TRef>
   : ICmptRefGnrcPrntArgDual<TRef>
 {
-  public TRef Asref { get; set; }
-  public ICmptRefGnrcPrntArgDualObject<TRef> AsRefGnrcPrntArgDual { get; set; }
 }

@@ -9,5 +9,4 @@ public class testFieldDescrInp
   : ItestFieldDescrInp
 {
   public string Field { get; set; }
-  public ItestFieldDescrInpObject AsFieldDescrInp { get; set; }
 }

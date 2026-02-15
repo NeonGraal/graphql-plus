@@ -13,5 +13,4 @@ namespace Components.Gqlp_Schema_category;
 public class CmptCtgr
   : ICmptCtgr
 {
-  public ICmptCtgrObject AsCtgr { get; set; }
 }

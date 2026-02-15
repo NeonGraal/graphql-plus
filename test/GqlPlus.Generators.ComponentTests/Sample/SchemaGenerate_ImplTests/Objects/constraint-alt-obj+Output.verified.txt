@@ -14,22 +14,16 @@ namespace Components.Gqlp_Schema_constraint_alt_obj_Output;
 public class CmptCnstAltObjOutp
   : ICmptCnstAltObjOutp
 {
-  public ICmptRefCnstAltObjOutp<ICmptAltCnstAltObjOutp> AsRefCnstAltObjOutp { get; set; }
-  public ICmptCnstAltObjOutpObject AsCnstAltObjOutp { get; set; }
 }
 
 public class CmptRefCnstAltObjOutp<TRef>
   : ICmptRefCnstAltObjOutp<TRef>
 {
-  public TRef Asref { get; set; }
-  public ICmptRefCnstAltObjOutpObject<TRef> AsRefCnstAltObjOutp { get; set; }
 }
 
 public class CmptPrntCnstAltObjOutp
   : ICmptPrntCnstAltObjOutp
 {
-  public string AsString { get; set; }
-  public ICmptPrntCnstAltObjOutpObject AsPrntCnstAltObjOutp { get; set; }
 }
 
 public class CmptAltCnstAltObjOutp
@@ -37,5 +31,4 @@ public class CmptAltCnstAltObjOutp
   , ICmptAltCnstAltObjOutp
 {
   public decimal Alt { get; set; }
-  public ICmptAltCnstAltObjOutpObject AsAltCnstAltObjOutp { get; set; }
 }

@@ -9,11 +9,9 @@ public class testObjPrntDual
   : testRefObjPrntDual
   , ItestObjPrntDual
 {
-  public ItestObjPrntDualObject AsObjPrntDual { get; set; }
 }
 
 public class testRefObjPrntDual
   : ItestRefObjPrntDual
 {
-  public ItestRefObjPrntDualObject AsRefObjPrntDual { get; set; }
 }

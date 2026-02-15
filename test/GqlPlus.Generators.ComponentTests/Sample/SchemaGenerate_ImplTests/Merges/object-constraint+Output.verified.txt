@@ -14,5 +14,4 @@ public class CmptObjCnstOutp<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
-  public ICmptObjCnstOutpObject<TType> AsObjCnstOutp { get; set; }
 }

@@ -19,7 +19,6 @@ public class Cmpt_UnionRef
   : Cmpt_TypeRef<ICmpt_SimpleKind>
   , ICmpt_UnionRef
 {
-  public ICmpt_UnionRefObject As_UnionRef { get; set; }
 }
 
 public class Cmpt_UnionMember
@@ -27,5 +26,4 @@ public class Cmpt_UnionMember
   , ICmpt_UnionMember
 {
   public ICmpt_Name Union { get; set; }
-  public ICmpt_UnionMemberObject As_UnionMember { get; set; }
 }

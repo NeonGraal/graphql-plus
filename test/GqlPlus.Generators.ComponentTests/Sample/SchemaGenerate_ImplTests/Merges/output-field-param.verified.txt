@@ -16,23 +16,19 @@ public class CmptOutpFieldParam
   : ICmptOutpFieldParam
 {
   public ICmptFldOutpFieldParam Field { get; set; }
-  public ICmptOutpFieldParamObject AsOutpFieldParam { get; set; }
 }
 
 public class CmptOutpFieldParam1
   : ICmptOutpFieldParam1
 {
-  public ICmptOutpFieldParam1Object AsOutpFieldParam1 { get; set; }
 }
 
 public class CmptOutpFieldParam2
   : ICmptOutpFieldParam2
 {
-  public ICmptOutpFieldParam2Object AsOutpFieldParam2 { get; set; }
 }
 
 public class CmptFldOutpFieldParam
   : ICmptFldOutpFieldParam
 {
-  public ICmptFldOutpFieldParamObject AsFldOutpFieldParam { get; set; }
 }

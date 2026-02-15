@@ -8,22 +8,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_dual_Input;
 public class testCnstAltDualInp
   : ItestCnstAltDualInp
 {
-  public ItestRefCnstAltDualInp<ItestAltCnstAltDualInp> AsRefCnstAltDualInp { get; set; }
-  public ItestCnstAltDualInpObject AsCnstAltDualInp { get; set; }
 }
 
 public class testRefCnstAltDualInp<TRef>
   : ItestRefCnstAltDualInp<TRef>
 {
-  public TRef Asref { get; set; }
-  public ItestRefCnstAltDualInpObject<TRef> AsRefCnstAltDualInp { get; set; }
 }
 
 public class testPrntCnstAltDualInp
   : ItestPrntCnstAltDualInp
 {
-  public string AsString { get; set; }
-  public ItestPrntCnstAltDualInpObject AsPrntCnstAltDualInp { get; set; }
 }
 
 public class testAltCnstAltDualInp
@@ -31,5 +25,4 @@ public class testAltCnstAltDualInp
   , ItestAltCnstAltDualInp
 {
   public decimal Alt { get; set; }
-  public ItestAltCnstAltDualInpObject AsAltCnstAltDualInp { get; set; }
 }

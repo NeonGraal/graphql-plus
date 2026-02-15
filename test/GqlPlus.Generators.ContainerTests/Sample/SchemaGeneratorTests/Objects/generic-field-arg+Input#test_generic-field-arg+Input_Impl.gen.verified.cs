@@ -9,12 +9,9 @@ public class testGnrcFieldArgInp<TType>
   : ItestGnrcFieldArgInp<TType>
 {
   public ItestRefGnrcFieldArgInp<TType> Field { get; set; }
-  public ItestGnrcFieldArgInpObject<TType> AsGnrcFieldArgInp { get; set; }
 }
 
 public class testRefGnrcFieldArgInp<TRef>
   : ItestRefGnrcFieldArgInp<TRef>
 {
-  public TRef Asref { get; set; }
-  public ItestRefGnrcFieldArgInpObject<TRef> AsRefGnrcFieldArgInp { get; set; }
 }

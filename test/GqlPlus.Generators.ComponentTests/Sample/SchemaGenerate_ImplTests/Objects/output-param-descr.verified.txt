@@ -14,19 +14,15 @@ public class CmptOutpParamDescr
   : ICmptOutpParamDescr
 {
   public ICmptFldOutpParamDescr Field { get; set; }
-  public ICmptOutpParamDescrObject AsOutpParamDescr { get; set; }
 }
 
 public class CmptFldOutpParamDescr
   : ICmptFldOutpParamDescr
 {
-  public ICmptFldOutpParamDescrObject AsFldOutpParamDescr { get; set; }
 }
 
 public class CmptInOutpParamDescr
   : ICmptInOutpParamDescr
 {
   public decimal Param { get; set; }
-  public string AsString { get; set; }
-  public ICmptInOutpParamDescrObject AsInOutpParamDescr { get; set; }
 }

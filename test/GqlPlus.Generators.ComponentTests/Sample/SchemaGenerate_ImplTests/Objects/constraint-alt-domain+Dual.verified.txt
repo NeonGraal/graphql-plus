@@ -13,15 +13,11 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
 public class CmptCnstAltDmnDual
   : ICmptCnstAltDmnDual
 {
-  public ICmptRefCnstAltDmnDual<ICmptDomCnstAltDmnDual> AsRefCnstAltDmnDual { get; set; }
-  public ICmptCnstAltDmnDualObject AsCnstAltDmnDual { get; set; }
 }
 
 public class CmptRefCnstAltDmnDual<TRef>
   : ICmptRefCnstAltDmnDual<TRef>
 {
-  public TRef Asref { get; set; }
-  public ICmptRefCnstAltDmnDualObject<TRef> AsRefCnstAltDmnDual { get; set; }
 }
 
 public class CmptDomCnstAltDmnDual

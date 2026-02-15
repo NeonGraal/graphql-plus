@@ -9,21 +9,17 @@ public class testCnstFieldObjInp
   : testRefCnstFieldObjInp<ItestAltCnstFieldObjInp>
   , ItestCnstFieldObjInp
 {
-  public ItestCnstFieldObjInpObject AsCnstFieldObjInp { get; set; }
 }
 
 public class testRefCnstFieldObjInp<TRef>
   : ItestRefCnstFieldObjInp<TRef>
 {
   public TRef Field { get; set; }
-  public ItestRefCnstFieldObjInpObject<TRef> AsRefCnstFieldObjInp { get; set; }
 }
 
 public class testPrntCnstFieldObjInp
   : ItestPrntCnstFieldObjInp
 {
-  public string AsString { get; set; }
-  public ItestPrntCnstFieldObjInpObject AsPrntCnstFieldObjInp { get; set; }
 }
 
 public class testAltCnstFieldObjInp
@@ -31,5 +27,4 @@ public class testAltCnstFieldObjInp
   , ItestAltCnstFieldObjInp
 {
   public decimal Alt { get; set; }
-  public ItestAltCnstFieldObjInpObject AsAltCnstFieldObjInp { get; set; }
 }

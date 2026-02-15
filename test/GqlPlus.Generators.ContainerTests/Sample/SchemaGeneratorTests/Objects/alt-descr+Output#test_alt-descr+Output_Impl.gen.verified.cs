@@ -8,6 +8,4 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Output;
 public class testAltDescrOutp
   : ItestAltDescrOutp
 {
-  public string AsString { get; set; }
-  public ItestAltDescrOutpObject AsAltDescrOutp { get; set; }
 }

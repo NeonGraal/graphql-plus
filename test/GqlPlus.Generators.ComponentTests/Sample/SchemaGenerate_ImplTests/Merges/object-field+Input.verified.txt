@@ -14,11 +14,9 @@ public class CmptObjFieldInp
   : ICmptObjFieldInp
 {
   public ICmptFldObjFieldInp Field { get; set; }
-  public ICmptObjFieldInpObject AsObjFieldInp { get; set; }
 }
 
 public class CmptFldObjFieldInp
   : ICmptFldObjFieldInp
 {
-  public ICmptFldObjFieldInpObject AsFldObjFieldInp { get; set; }
 }

@@ -9,5 +9,4 @@ public class testFieldOutp
   : ItestFieldOutp
 {
   public string Field { get; set; }
-  public ItestFieldOutpObject AsFieldOutp { get; set; }
 }

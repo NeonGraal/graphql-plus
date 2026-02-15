@@ -9,20 +9,15 @@ public class testGnrcPrntParamPrntInp
   : testRefGnrcPrntParamPrntInp<ItestAltGnrcPrntParamPrntInp>
   , ItestGnrcPrntParamPrntInp
 {
-  public ItestGnrcPrntParamPrntInpObject AsGnrcPrntParamPrntInp { get; set; }
 }
 
 public class testRefGnrcPrntParamPrntInp<TRef>
   : ItestRefGnrcPrntParamPrntInp<TRef>
 {
-  public TRef AsParent { get; set; }
-  public ItestRefGnrcPrntParamPrntInpObject<TRef> AsRefGnrcPrntParamPrntInp { get; set; }
 }
 
 public class testAltGnrcPrntParamPrntInp
   : ItestAltGnrcPrntParamPrntInp
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ItestAltGnrcPrntParamPrntInpObject AsAltGnrcPrntParamPrntInp { get; set; }
 }

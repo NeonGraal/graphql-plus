@@ -8,5 +8,4 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Output;
 public class testObjAliasOutp
   : ItestObjAliasOutp
 {
-  public ItestObjAliasOutpObject AsObjAliasOutp { get; set; }
 }

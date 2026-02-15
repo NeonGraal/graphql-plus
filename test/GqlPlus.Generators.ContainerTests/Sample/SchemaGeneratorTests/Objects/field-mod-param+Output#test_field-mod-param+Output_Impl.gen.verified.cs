@@ -9,13 +9,10 @@ public class testFieldModParamOutp<TMod>
   : ItestFieldModParamOutp<TMod>
 {
   public IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; set; }
-  public ItestFieldModParamOutpObject<TMod> AsFieldModParamOutp { get; set; }
 }
 
 public class testFldFieldModParamOutp
   : ItestFldFieldModParamOutp
 {
   public decimal Field { get; set; }
-  public string AsString { get; set; }
-  public ItestFldFieldModParamOutpObject AsFldFieldModParamOutp { get; set; }
 }

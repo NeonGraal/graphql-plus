@@ -13,5 +13,4 @@ public class CmptFieldValueOutp
   : ICmptFieldValueOutp
 {
   public CmptEnumFieldValueOutp Field { get; set; }
-  public ICmptFieldValueOutpObject AsFieldValueOutp { get; set; }
 }

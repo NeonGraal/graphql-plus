@@ -14,12 +14,10 @@ public class CmptGnrcPrntSmplEnumInp
   : CmptFieldGnrcPrntSmplEnumInp<CmptEnumGnrcPrntSmplEnumInp>
   , ICmptGnrcPrntSmplEnumInp
 {
-  public ICmptGnrcPrntSmplEnumInpObject AsGnrcPrntSmplEnumInp { get; set; }
 }
 
 public class CmptFieldGnrcPrntSmplEnumInp<TRef>
   : ICmptFieldGnrcPrntSmplEnumInp<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptFieldGnrcPrntSmplEnumInpObject<TRef> AsFieldGnrcPrntSmplEnumInp { get; set; }
 }

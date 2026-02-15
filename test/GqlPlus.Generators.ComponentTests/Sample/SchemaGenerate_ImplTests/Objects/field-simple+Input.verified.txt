@@ -12,5 +12,4 @@ public class CmptFieldSmplInp
   : ICmptFieldSmplInp
 {
   public decimal Field { get; set; }
-  public ICmptFieldSmplInpObject AsFieldSmplInp { get; set; }
 }

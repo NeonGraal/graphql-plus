@@ -9,13 +9,10 @@ public class testPrntDescrInp
   : testRefPrntDescrInp
   , ItestPrntDescrInp
 {
-  public ItestPrntDescrInpObject AsPrntDescrInp { get; set; }
 }
 
 public class testRefPrntDescrInp
   : ItestRefPrntDescrInp
 {
   public decimal Parent { get; set; }
-  public string AsString { get; set; }
-  public ItestRefPrntDescrInpObject AsRefPrntDescrInp { get; set; }
 }

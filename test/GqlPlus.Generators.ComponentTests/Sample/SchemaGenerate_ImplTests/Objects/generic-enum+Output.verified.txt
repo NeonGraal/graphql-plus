@@ -13,13 +13,10 @@ namespace Components.Gqlp_Schema_generic_enum_Output;
 public class CmptGnrcEnumOutp
   : ICmptGnrcEnumOutp
 {
-  public ICmptRefGnrcEnumOutp<CmptEnumGnrcEnumOutp> AsEnumGnrcEnumOutpgnrcEnumOutp { get; set; }
-  public ICmptGnrcEnumOutpObject AsGnrcEnumOutp { get; set; }
 }
 
 public class CmptRefGnrcEnumOutp<TType>
   : ICmptRefGnrcEnumOutp<TType>
 {
   public TType Field { get; set; }
-  public ICmptRefGnrcEnumOutpObject<TType> AsRefGnrcEnumOutp { get; set; }
 }

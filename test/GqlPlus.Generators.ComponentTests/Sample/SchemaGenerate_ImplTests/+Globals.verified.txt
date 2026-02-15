@@ -7,101 +7,84 @@ namespace Components.Gqlp_Schema_Globals;
 public class CmptCtgrDscrs
   : ICmptCtgrDscrs
 {
-  public ICmptCtgrDscrsObject AsCtgrDscrs { get; set; }
 }
 
 public class CmptCtgrOutp
   : ICmptCtgrOutp
 {
-  public ICmptCtgrOutpObject AsCtgrOutp { get; set; }
 }
 
 public class CmptCtgrOutpDescr
   : ICmptCtgrOutpDescr
 {
-  public ICmptCtgrOutpDescrObject AsCtgrOutpDescr { get; set; }
 }
 
 public class CmptCtgrOutpDict
   : ICmptCtgrOutpDict
 {
-  public ICmptCtgrOutpDictObject AsCtgrOutpDict { get; set; }
 }
 
 public class CmptCtgrOutpList
   : ICmptCtgrOutpList
 {
-  public ICmptCtgrOutpListObject AsCtgrOutpList { get; set; }
 }
 
 public class CmptCtgrOutpOptl
   : ICmptCtgrOutpOptl
 {
-  public ICmptCtgrOutpOptlObject AsCtgrOutpOptl { get; set; }
 }
 
 public class CmptDescr
   : ICmptDescr
 {
-  public ICmptDescrObject AsDescr { get; set; }
 }
 
 public class CmptDescrBcks
   : ICmptDescrBcks
 {
-  public ICmptDescrBcksObject AsDescrBcks { get; set; }
 }
 
 public class CmptDescrBtwn
   : ICmptDescrBtwn
 {
-  public ICmptDescrBtwnObject AsDescrBtwn { get; set; }
 }
 
 public class CmptDescrCmpl
   : ICmptDescrCmpl
 {
-  public ICmptDescrCmplObject AsDescrCmpl { get; set; }
 }
 
 public class CmptDescrDbl
   : ICmptDescrDbl
 {
-  public ICmptDescrDblObject AsDescrDbl { get; set; }
 }
 
 public class CmptDescrSngl
   : ICmptDescrSngl
 {
-  public ICmptDescrSnglObject AsDescrSngl { get; set; }
 }
 
 public class CmptDscrs
   : ICmptDscrs
 {
-  public ICmptDscrsObject AsDscrs { get; set; }
 }
 
 public class CmptInDrctParamDict
   : ICmptInDrctParamDict
 {
-  public ICmptInDrctParamDictObject AsInDrctParamDict { get; set; }
 }
 
 public class CmptInDrctParamIn
   : ICmptInDrctParamIn
 {
-  public ICmptInDrctParamInObject AsInDrctParamIn { get; set; }
 }
 
 public class CmptInDrctParamList
   : ICmptInDrctParamList
 {
-  public ICmptInDrctParamListObject AsInDrctParamList { get; set; }
 }
 
 public class CmptInDrctParamOpt
   : ICmptInDrctParamOpt
 {
-  public ICmptInDrctParamOptObject AsInDrctParamOpt { get; set; }
 }

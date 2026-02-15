@@ -12,5 +12,4 @@ namespace Components.Gqlp_Schema_directive_param_list;
 public class CmptInDrctParamList
   : ICmptInDrctParamList
 {
-  public ICmptInDrctParamListObject AsInDrctParamList { get; set; }
 }

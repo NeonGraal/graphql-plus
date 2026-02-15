@@ -9,13 +9,10 @@ public class testFieldDualInp
   : ItestFieldDualInp
 {
   public ItestFldFieldDualInp Field { get; set; }
-  public ItestFieldDualInpObject AsFieldDualInp { get; set; }
 }
 
 public class testFldFieldDualInp
   : ItestFldFieldDualInp
 {
   public decimal Field { get; set; }
-  public string AsString { get; set; }
-  public ItestFldFieldDualInpObject AsFldFieldDualInp { get; set; }
 }

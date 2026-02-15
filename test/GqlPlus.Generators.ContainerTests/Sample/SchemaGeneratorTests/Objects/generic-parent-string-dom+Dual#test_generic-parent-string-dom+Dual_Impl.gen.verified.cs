@@ -9,14 +9,12 @@ public class testGnrcPrntStrDomDual
   : testFieldGnrcPrntStrDomDual<ItestDomGnrcPrntStrDomDual>
   , ItestGnrcPrntStrDomDual
 {
-  public ItestGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; set; }
 }
 
 public class testFieldGnrcPrntStrDomDual<TRef>
   : ItestFieldGnrcPrntStrDomDual<TRef>
 {
   public TRef Field { get; set; }
-  public ItestFieldGnrcPrntStrDomDualObject<TRef> AsFieldGnrcPrntStrDomDual { get; set; }
 }
 
 public class testDomGnrcPrntStrDomDual

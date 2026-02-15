@@ -12,5 +12,4 @@ public class CmptFieldDescrInp
   : ICmptFieldDescrInp
 {
   public string Field { get; set; }
-  public ICmptFieldDescrInpObject AsFieldDescrInp { get; set; }
 }

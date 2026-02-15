@@ -9,7 +9,6 @@ public class test_InputField
   : test_ObjField<Itest_InputFieldType>
   , Itest_InputField
 {
-  public Itest_InputFieldObject As_InputField { get; set; }
 }
 
 public class test_InputFieldType
@@ -17,12 +16,10 @@ public class test_InputFieldType
   , Itest_InputFieldType
 {
   public GqlpValue? DefaultValue { get; set; }
-  public Itest_InputFieldTypeObject As_InputFieldType { get; set; }
 }
 
 public class test_InputParam
   : test_InputFieldType
   , Itest_InputParam
 {
-  public Itest_InputParamObject As_InputParam { get; set; }
 }

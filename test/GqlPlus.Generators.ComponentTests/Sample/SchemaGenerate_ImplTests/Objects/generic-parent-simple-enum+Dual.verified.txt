@@ -14,12 +14,10 @@ public class CmptGnrcPrntSmplEnumDual
   : CmptFieldGnrcPrntSmplEnumDual<CmptEnumGnrcPrntSmplEnumDual>
   , ICmptGnrcPrntSmplEnumDual
 {
-  public ICmptGnrcPrntSmplEnumDualObject AsGnrcPrntSmplEnumDual { get; set; }
 }
 
 public class CmptFieldGnrcPrntSmplEnumDual<TRef>
   : ICmptFieldGnrcPrntSmplEnumDual<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptFieldGnrcPrntSmplEnumDualObject<TRef> AsFieldGnrcPrntSmplEnumDual { get; set; }
 }

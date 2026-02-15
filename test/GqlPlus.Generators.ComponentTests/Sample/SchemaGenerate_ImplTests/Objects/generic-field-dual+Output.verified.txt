@@ -14,20 +14,15 @@ public class CmptGnrcFieldDualOutp
   : ICmptGnrcFieldDualOutp
 {
   public ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; set; }
-  public ICmptGnrcFieldDualOutpObject AsGnrcFieldDualOutp { get; set; }
 }
 
 public class CmptRefGnrcFieldDualOutp<TRef>
   : ICmptRefGnrcFieldDualOutp<TRef>
 {
-  public TRef Asref { get; set; }
-  public ICmptRefGnrcFieldDualOutpObject<TRef> AsRefGnrcFieldDualOutp { get; set; }
 }
 
 public class CmptAltGnrcFieldDualOutp
   : ICmptAltGnrcFieldDualOutp
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ICmptAltGnrcFieldDualOutpObject AsAltGnrcFieldDualOutp { get; set; }
 }

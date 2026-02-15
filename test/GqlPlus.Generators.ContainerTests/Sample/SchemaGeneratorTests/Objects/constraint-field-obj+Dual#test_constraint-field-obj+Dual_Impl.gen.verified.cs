@@ -9,21 +9,17 @@ public class testCnstFieldObjDual
   : testRefCnstFieldObjDual<ItestAltCnstFieldObjDual>
   , ItestCnstFieldObjDual
 {
-  public ItestCnstFieldObjDualObject AsCnstFieldObjDual { get; set; }
 }
 
 public class testRefCnstFieldObjDual<TRef>
   : ItestRefCnstFieldObjDual<TRef>
 {
   public TRef Field { get; set; }
-  public ItestRefCnstFieldObjDualObject<TRef> AsRefCnstFieldObjDual { get; set; }
 }
 
 public class testPrntCnstFieldObjDual
   : ItestPrntCnstFieldObjDual
 {
-  public string AsString { get; set; }
-  public ItestPrntCnstFieldObjDualObject AsPrntCnstFieldObjDual { get; set; }
 }
 
 public class testAltCnstFieldObjDual
@@ -31,5 +27,4 @@ public class testAltCnstFieldObjDual
   , ItestAltCnstFieldObjDual
 {
   public decimal Alt { get; set; }
-  public ItestAltCnstFieldObjDualObject AsAltCnstFieldObjDual { get; set; }
 }

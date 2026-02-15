@@ -13,13 +13,10 @@ public class CmptFieldModParamOutp<TMod>
   : ICmptFieldModParamOutp<TMod>
 {
   public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
-  public ICmptFieldModParamOutpObject<TMod> AsFieldModParamOutp { get; set; }
 }
 
 public class CmptFldFieldModParamOutp
   : ICmptFldFieldModParamOutp
 {
   public decimal Field { get; set; }
-  public string AsString { get; set; }
-  public ICmptFldFieldModParamOutpObject AsFldFieldModParamOutp { get; set; }
 }

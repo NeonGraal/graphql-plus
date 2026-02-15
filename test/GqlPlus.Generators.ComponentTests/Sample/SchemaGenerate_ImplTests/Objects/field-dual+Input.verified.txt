@@ -13,13 +13,10 @@ public class CmptFieldDualInp
   : ICmptFieldDualInp
 {
   public ICmptFldFieldDualInp Field { get; set; }
-  public ICmptFieldDualInpObject AsFieldDualInp { get; set; }
 }
 
 public class CmptFldFieldDualInp
   : ICmptFldFieldDualInp
 {
   public decimal Field { get; set; }
-  public string AsString { get; set; }
-  public ICmptFldFieldDualInpObject AsFldFieldDualInp { get; set; }
 }

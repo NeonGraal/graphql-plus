@@ -14,11 +14,9 @@ public class CmptObjPrntInp
   : CmptRefObjPrntInp
   , ICmptObjPrntInp
 {
-  public ICmptObjPrntInpObject AsObjPrntInp { get; set; }
 }
 
 public class CmptRefObjPrntInp
   : ICmptRefObjPrntInp
 {
-  public ICmptRefObjPrntInpObject AsRefObjPrntInp { get; set; }
 }

@@ -20,23 +20,19 @@ namespace Components.Gqlp_Schema_default;
 public class CmptQuery
   : ICmptQuery
 {
-  public ICmptQueryObject AsQuery { get; set; }
 }
 
 public class CmptMutation
   : ICmptMutation
 {
-  public ICmptMutationObject AsMutation { get; set; }
 }
 
 public class CmptSubscription
   : ICmptSubscription
 {
-  public ICmptSubscriptionObject AsSubscription { get; set; }
 }
 
 public class Cmpt_Schema
   : ICmpt_Schema
 {
-  public ICmpt_SchemaObject As_Schema { get; set; }
 }

@@ -14,5 +14,4 @@ namespace Components.Gqlp_Schema_category_descrs;
 public class CmptCtgrDscrs
   : ICmptCtgrDscrs
 {
-  public ICmptCtgrDscrsObject AsCtgrDscrs { get; set; }
 }

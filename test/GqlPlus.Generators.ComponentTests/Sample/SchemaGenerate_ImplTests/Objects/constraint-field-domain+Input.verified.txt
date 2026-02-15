@@ -14,14 +14,12 @@ public class CmptCnstFieldDmnInp
   : CmptRefCnstFieldDmnInp<ICmptDomCnstFieldDmnInp>
   , ICmptCnstFieldDmnInp
 {
-  public ICmptCnstFieldDmnInpObject AsCnstFieldDmnInp { get; set; }
 }
 
 public class CmptRefCnstFieldDmnInp<TRef>
   : ICmptRefCnstFieldDmnInp<TRef>
 {
   public TRef Field { get; set; }
-  public ICmptRefCnstFieldDmnInpObject<TRef> AsRefCnstFieldDmnInp { get; set; }
 }
 
 public class CmptDomCnstFieldDmnInp

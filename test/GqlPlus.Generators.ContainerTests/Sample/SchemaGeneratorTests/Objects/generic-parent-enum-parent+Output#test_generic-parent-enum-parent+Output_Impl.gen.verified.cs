@@ -9,12 +9,10 @@ public class testGnrcPrntEnumPrntOutp
   : testFieldGnrcPrntEnumPrntOutp<testEnumGnrcPrntEnumPrntOutp>
   , ItestGnrcPrntEnumPrntOutp
 {
-  public ItestGnrcPrntEnumPrntOutpObject AsGnrcPrntEnumPrntOutp { get; set; }
 }
 
 public class testFieldGnrcPrntEnumPrntOutp<TRef>
   : ItestFieldGnrcPrntEnumPrntOutp<TRef>
 {
   public TRef Field { get; set; }
-  public ItestFieldGnrcPrntEnumPrntOutpObject<TRef> AsFieldGnrcPrntEnumPrntOutp { get; set; }
 }

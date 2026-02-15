@@ -13,5 +13,4 @@ public class CmptFieldEnumInp
   : ICmptFieldEnumInp
 {
   public CmptEnumFieldEnumInp Field { get; set; }
-  public ICmptFieldEnumInpObject AsFieldEnumInp { get; set; }
 }

@@ -13,5 +13,4 @@ namespace Components.Gqlp_Schema_category_mod;
 public class CmptCtgrMod
   : ICmptCtgrMod
 {
-  public ICmptCtgrModObject AsCtgrMod { get; set; }
 }

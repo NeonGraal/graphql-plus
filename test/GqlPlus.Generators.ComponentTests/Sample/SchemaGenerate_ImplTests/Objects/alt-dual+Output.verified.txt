@@ -12,14 +12,10 @@ namespace Components.Gqlp_Schema_alt_dual_Output;
 public class CmptAltDualOutp
   : ICmptAltDualOutp
 {
-  public ICmptObjDualAltDualOutp AsObjDualAltDualOutp { get; set; }
-  public ICmptAltDualOutpObject AsAltDualOutp { get; set; }
 }
 
 public class CmptObjDualAltDualOutp
   : ICmptObjDualAltDualOutp
 {
   public decimal Alt { get; set; }
-  public string AsString { get; set; }
-  public ICmptObjDualAltDualOutpObject AsObjDualAltDualOutp { get; set; }
 }

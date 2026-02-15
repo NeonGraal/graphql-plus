@@ -12,5 +12,4 @@ public class CmptFieldTypeDescrOutp
   : ICmptFieldTypeDescrOutp
 {
   public decimal Field { get; set; }
-  public ICmptFieldTypeDescrOutpObject AsFieldTypeDescrOutp { get; set; }
 }

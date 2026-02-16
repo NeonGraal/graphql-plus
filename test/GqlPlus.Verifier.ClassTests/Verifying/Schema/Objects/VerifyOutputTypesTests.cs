@@ -43,7 +43,7 @@ public class VerifyOutputFieldsTests
     Define(paramType);
 
     IGqlpInputParam param = A.InputParam("c").AsInputParam;
-    IGqlpOutputField field = A.OutputField("a", "b").WithParams([param]).AsOutputField;
+    IGqlpOutputField field = A.OutputField("a", "b").WithParam(param).AsOutputField;
     TheBuilder.WithObjFields(field);
 
     Verify_NoErrors();
@@ -60,7 +60,7 @@ public class VerifyOutputFieldsTests
 
     IGqlpInputParam param = A.InputParam("c").WithModifier(ModifierKind.Dict, "d").AsInputParam;
 
-    IGqlpOutputField field = A.OutputField("a", "b").WithParams(param).AsOutputField;
+    IGqlpOutputField field = A.OutputField("a", "b").WithParam(param).AsOutputField;
 
     TheObject.Fields.Returns([field]);
     TheObject.ObjFields.Returns([field]);

@@ -5,7 +5,7 @@ namespace GqlPlus.Building.Schema.Objects;
 public class OutputFieldBuilder
   : ObjFieldBuilder
 {
-  internal IGqlpInputParam[] _inputParams = [];
+  internal IGqlpInputParam? _inputParam;
 
   public OutputFieldBuilder(string name, string type)
     : base(name, type)
@@ -16,7 +16,7 @@ public class OutputFieldBuilder
   {
     T result = base.Build<T>();
 
-    result.Params.Returns(_inputParams);
+    result.Parameter.Returns(_inputParam);
 
     return result;
   }
@@ -27,7 +27,7 @@ public class OutputFieldBuilder
 
 public static class OutputFieldBuilderHelper
 {
-  public static T WithParams<T>(this T builder, params IGqlpInputParam[] inputParams)
+  public static T WithParam<T>(this T builder, IGqlpInputParam? inputParam)
     where T : OutputFieldBuilder
-    => builder.FluentAction(b => b._inputParams = inputParams);
+    => builder.FluentAction(b => b._inputParam = inputParam);
 }

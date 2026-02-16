@@ -31,16 +31,14 @@ types: !_Map(_Type)
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpParam
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         name: InOutpParam
       type: !_ObjBase
         name: FldOutpParam
     fields:
     - !_OutputField
       name: field
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         name: InOutpParam
       type: !_ObjBase
         name: FldOutpParam

@@ -172,7 +172,7 @@ internal class OutputFieldEncoder(
   internal override Structured Encode(OutputFieldModel model)
     => model.Enum is null
       ? base.Encode(model)
-        .AddList("parameters", model.Params, parameter)
+        .AddEncoded("parameter", model.Parameter, parameter)
       : outputEnum.Encode(model.Enum);
 }
 

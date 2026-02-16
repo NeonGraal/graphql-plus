@@ -102,7 +102,7 @@ public interface IGqlpOutputField
   : IGqlpObjField
   , IEquatable<IGqlpOutputField>
 {
-  IEnumerable<IGqlpInputParam> Params { get; }
+  IGqlpInputParam? Parameter { get; }
 }
 
 public interface IGqlpInputParam

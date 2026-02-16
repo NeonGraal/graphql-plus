@@ -74,21 +74,19 @@
           "description": "Some items",
           "name": "items",
           "object": "All",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_Modifier",
-                  "modifierKind": {
-                    "$value": "Opt",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "Param"
-            }
-          ],
+              }
+            ],
+            "name": "Param"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "Field"
@@ -111,21 +109,19 @@
           "$mapTag": "_OutputField",
           "description": "Some items",
           "name": "items",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_Modifier",
-                  "modifierKind": {
-                    "$value": "Opt",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "Param"
-            }
-          ],
+              }
+            ],
+            "name": "Param"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "Field"

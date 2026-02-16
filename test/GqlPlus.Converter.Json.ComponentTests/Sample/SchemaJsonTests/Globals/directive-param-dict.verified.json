@@ -15,26 +15,24 @@
         "Variable": "_"
       },
       "name": "DrctParamDict",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "modifiers": [
-            {
-              "$mapTag": "_ModifierDictionary",
-              "by": "String",
-              "modifierKind": {
-                "$value": "Dict",
-                "$valueTag": "_ModifierKind"
-              },
-              "typeKind": {
-                "$value": "Basic",
-                "$valueTag": "_SimpleKind"
-              }
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "modifiers": [
+          {
+            "$mapTag": "_ModifierDictionary",
+            "by": "String",
+            "modifierKind": {
+              "$value": "Dict",
+              "$valueTag": "_ModifierKind"
+            },
+            "typeKind": {
+              "$value": "Basic",
+              "$valueTag": "_SimpleKind"
             }
-          ],
-          "name": "InDrctParamDict"
-        }
-      ],
+          }
+        ],
+        "name": "InDrctParamDict"
+      },
       "repeatable": false
     }
   },

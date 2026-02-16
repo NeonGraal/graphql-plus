@@ -68,12 +68,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "PrntOutpPrntParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "PrntOutpPrntParamIn"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "PrntOutpPrntParamIn"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpPrntParam"
@@ -83,12 +81,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpPrntParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpPrntParam"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpPrntParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpPrntParam"
@@ -99,12 +95,10 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpPrntParam"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpPrntParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpPrntParam"
@@ -129,12 +123,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "PrntOutpPrntParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "PrntOutpPrntParamIn"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "PrntOutpPrntParamIn"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpPrntParam"
@@ -145,12 +137,10 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "PrntOutpPrntParamIn"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "PrntOutpPrntParamIn"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpPrntParam"

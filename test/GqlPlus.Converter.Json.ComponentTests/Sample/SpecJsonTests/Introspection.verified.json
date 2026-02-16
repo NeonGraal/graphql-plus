@@ -4126,21 +4126,19 @@
           ],
           "name": "categories",
           "object": "_Schema",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_Modifier",
-                  "modifierKind": {
-                    "$value": "Opt",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "_CategoryFilter"
-            }
-          ],
+              }
+            ],
+            "name": "_CategoryFilter"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Categories"
@@ -4164,21 +4162,19 @@
           ],
           "name": "directives",
           "object": "_Schema",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_Modifier",
-                  "modifierKind": {
-                    "$value": "Opt",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "_Filter"
-            }
-          ],
+              }
+            ],
+            "name": "_Filter"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Directives"
@@ -4202,21 +4198,19 @@
           ],
           "name": "types",
           "object": "_Schema",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_Modifier",
-                  "modifierKind": {
-                    "$value": "Opt",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "_TypeFilter"
-            }
-          ],
+              }
+            ],
+            "name": "_TypeFilter"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Type"
@@ -4240,21 +4234,19 @@
           ],
           "name": "settings",
           "object": "_Schema",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_Modifier",
-                  "modifierKind": {
-                    "$value": "Opt",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "_Filter"
-            }
-          ],
+              }
+            ],
+            "name": "_Filter"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Setting"
@@ -4279,21 +4271,19 @@
             }
           ],
           "name": "categories",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_Modifier",
-                  "modifierKind": {
-                    "$value": "Opt",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "_CategoryFilter"
-            }
-          ],
+              }
+            ],
+            "name": "_CategoryFilter"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Categories"
@@ -4316,21 +4306,19 @@
             }
           ],
           "name": "directives",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_Modifier",
-                  "modifierKind": {
-                    "$value": "Opt",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "_Filter"
-            }
-          ],
+              }
+            ],
+            "name": "_Filter"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Directives"
@@ -4353,21 +4341,19 @@
             }
           ],
           "name": "types",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_Modifier",
-                  "modifierKind": {
-                    "$value": "Opt",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "_TypeFilter"
-            }
-          ],
+              }
+            ],
+            "name": "_TypeFilter"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Type"
@@ -4390,21 +4376,19 @@
             }
           ],
           "name": "settings",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_Modifier",
-                  "modifierKind": {
-                    "$value": "Opt",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_Modifier",
+                "modifierKind": {
+                  "$value": "Opt",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "_Filter"
-            }
-          ],
+              }
+            ],
+            "name": "_Filter"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "_Setting"

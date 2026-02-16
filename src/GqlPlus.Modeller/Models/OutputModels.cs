@@ -12,7 +12,7 @@ public record class OutputFieldModel(
   string Description
 ) : ObjFieldModel(Name, Type, Description)
 {
-  public InputParamModel[] Params { get; set; } = [];
+  public InputParamModel? Parameter { get; set; }
   public OutputEnumModel? Enum { get; set; }
 }
 

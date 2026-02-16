@@ -29,7 +29,7 @@ internal class MergeInputParams(
     }
 
     return first with {
-      DefaultValue = (ConstantAst?)group.Merge(item => item.DefaultValue, constant).FirstOrDefault(),
+      DefaultValue = group.Merge(item => item.DefaultValue, constant).FirstOrDefault(),
     };
   }
 }

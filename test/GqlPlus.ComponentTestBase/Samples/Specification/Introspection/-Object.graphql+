@@ -80,16 +80,12 @@ output _InputFieldType {
         defaultValue: Value?
     }
 
-output _InputParam {
-    : _InputFieldType
-    }
-
 output _OutputField {
     : _ObjField<_ObjFieldType>
     }
 
 output _OutputFieldType {
     : _ObjFieldType
-        parameters: _InputParam[]
+        parameter: _InputFieldType?
     }
 

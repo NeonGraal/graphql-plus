@@ -1,30 +1,31 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Reflection.Metadata;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
 public partial class OutputFieldAstTests
 {
   [Theory, RepeatData]
-  public void HashCode_WithParam(FieldInput input, string[] parameters)
+  public void HashCode_WithParam(FieldInput input, string parameter)
       => _checks.HashCode(
-        () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Params = parameters.Params() });
+        () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Parameter = parameter.Parameter() });
 
   [Theory, RepeatData]
-  public void Text_WithParams(FieldInput input, string[] parameters)
+  public void Text_WithParams(FieldInput input, string parameter)
     => _checks.Text(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Params = parameters.Params() },
-      $"( !OF {input.Name} ( {parameters.Joined(s => "!Pa " + s)} ) : {input.Type} )");
+      () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Parameter = parameter.Parameter() },
+      $"( !OF {input.Name} ( !Pa {parameter} ) : {input.Type} )");
 
   [Theory, RepeatData]
-  public void Equality_WithParam(FieldInput input, string[] parameters)
+  public void Equality_WithParam(FieldInput input, string parameter)
     => _checks.Equality(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Params = parameters.Params() });
+      () => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Parameter = parameter.Parameter() });
 
   [Theory, RepeatData]
-  public void Inequality_BetweenParams(FieldInput input, string[] parameters1, string[] parameters2)
-    => _checks.InequalityBetween(parameters1, parameters2,
-      parameters => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Params = parameters.Params() },
-      parameters1.SequenceEqual(parameters2));
+  public void Inequality_BetweenParams(FieldInput input, string parameter1, string parameter2)
+    => _checks.InequalityBetween(parameter1, parameter2,
+      parameter => new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, string.Empty)) { Parameter = parameter.Parameter() },
+      parameter1 == parameter2);
 
   private readonly OutputFieldAstChecks _checks = new();
 

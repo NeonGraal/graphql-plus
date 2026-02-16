@@ -3,10 +3,9 @@ directives: !_Map(_Directives)
   !_Name DrctParamOpt: !_Directive
     locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamOpt
-    parameters:
-      - !_InputParam
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: InDrctParamOpt
+    parameter: !_InputParam
+      modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+      name: InDrctParamOpt
     repeatable: false
 types: !_Map(_Type)
   !_Name InDrctParamOpt: !_TypeInput

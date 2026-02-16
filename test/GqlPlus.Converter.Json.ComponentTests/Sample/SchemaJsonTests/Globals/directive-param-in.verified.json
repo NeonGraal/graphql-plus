@@ -15,12 +15,10 @@
         "Variable": "_"
       },
       "name": "DrctParamIn",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "name": "InDrctParamIn"
-        }
-      ],
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "name": "InDrctParamIn"
+      },
       "repeatable": false
     }
   },

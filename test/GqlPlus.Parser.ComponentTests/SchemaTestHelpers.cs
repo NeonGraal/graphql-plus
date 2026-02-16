@@ -23,11 +23,11 @@ internal static class SchemaTestHelpers
   public static TypeArgAst[] TypeArgs(this string[] arguments)
     => [.. arguments.Select(a => new TypeArgAst(AstNulls.At, a, ""))];
 
-  public static InputParamAst[] Params(this IEnumerable<string> parameters)
-    => [.. parameters.Select(parameter => new InputParamAst(AstNulls.At, parameter))];
+  public static InputParamAst Param(this string parameter)
+    => new(AstNulls.At, parameter);
 
-  public static InputParamAst[] Params(this string[] parameters, Func<InputParamAst, InputParamAst> mapping)
-    => [.. parameters.Select(parameter => mapping(new InputParamAst(AstNulls.At, parameter)))];
+  public static InputParamAst Param(this string parameter, Func<InputParamAst, InputParamAst> mapping)
+    => mapping(new InputParamAst(AstNulls.At, parameter));
 
   private static TResult[] WithExcludes<TInput, TResult>(this TInput[] inputs, Func<TInput, TResult> mapping)
     where TResult : AstDomainItem

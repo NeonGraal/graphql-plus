@@ -61,33 +61,29 @@ directives: !_Map(_Directives)
   !_Name DrctParamDict: !_Directive
     locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamDict
-    parameters:
-      - !_InputParam
-        modifiers: [!_ModifierDictionary{by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
-        name: InDrctParamDict
+    parameter: !_InputParam
+      modifiers: [!_ModifierDictionary{by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
+      name: InDrctParamDict
     repeatable: false
   !_Name DrctParamIn: !_Directive
     locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamIn
-    parameters:
-      - !_InputParam
-        name: InDrctParamIn
+    parameter: !_InputParam
+      name: InDrctParamIn
     repeatable: false
   !_Name DrctParamList: !_Directive
     locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamList
-    parameters:
-      - !_InputParam
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: InDrctParamList
+    parameter: !_InputParam
+      modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+      name: InDrctParamList
     repeatable: false
   !_Name DrctParamOpt: !_Directive
     locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamOpt
-    parameters:
-      - !_InputParam
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: InDrctParamOpt
+    parameter: !_InputParam
+      modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+      name: InDrctParamOpt
     repeatable: false
 name: Schema
 settings: !_Map(_Setting)

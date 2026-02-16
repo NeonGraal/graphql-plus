@@ -89,22 +89,20 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpParamModParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_ModifierTypeParam",
-                  "by": "mod",
-                  "modifierKind": {
-                    "$value": "Param",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_ModifierTypeParam",
+                "by": "mod",
+                "modifierKind": {
+                  "$value": "Param",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "InOutpParamModParam"
-            }
-          ],
+              }
+            ],
+            "name": "InOutpParamModParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "DomOutpParamModParam"
@@ -115,22 +113,20 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_ModifierTypeParam",
-                  "by": "mod",
-                  "modifierKind": {
-                    "$value": "Param",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_ModifierTypeParam",
+                "by": "mod",
+                "modifierKind": {
+                  "$value": "Param",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "InOutpParamModParam"
-            }
-          ],
+              }
+            ],
+            "name": "InOutpParamModParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "DomOutpParamModParam"

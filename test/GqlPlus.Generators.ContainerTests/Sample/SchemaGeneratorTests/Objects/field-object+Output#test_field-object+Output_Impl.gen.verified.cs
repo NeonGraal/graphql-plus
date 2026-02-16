@@ -8,11 +8,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_object_Output;
 public class testFieldObjOutp
   : ItestFieldObjOutp
 {
-  public ItestFldFieldObjOutp Field { get; set; }
+public ItestFldFieldObjOutp Field { get; set; }
 }
 
 public class testFldFieldObjOutp
   : ItestFldFieldObjOutp
 {
-  public decimal Field { get; set; }
+public decimal Field { get; set; }
 }

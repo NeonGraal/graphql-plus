@@ -13,7 +13,8 @@ namespace Components.Gqlp_Schema_output_param_mod_param;
 public class CmptOutpParamModParam<TMod>
   : ICmptOutpParamModParam<TMod>
 {
-  public ICmptDomOutpParamModParam Field { get; set; }
+public ICmptDomOutpParamModParam Field (IDictionary<TMod, ICmptInOutpParamModParam>)
+{ }
 }
 
 public class CmptInOutpParamModParam

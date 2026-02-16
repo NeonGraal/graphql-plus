@@ -28,7 +28,7 @@ public interface ICmptFieldGnrcPrntStrDomOutp<TRef>
 
 public interface ICmptFieldGnrcPrntStrDomOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntStrDomOutp

@@ -16,6 +16,6 @@ public interface ICmptObjParamDupOutp<TTest>
 
 public interface ICmptObjParamDupOutpObject<TTest>
 {
-  TTest Test { get; }
-  TTest Type { get; }
+TTest Test { get; }
+TTest Type { get; }
 }

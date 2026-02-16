@@ -14,7 +14,7 @@ public class testCnstFieldDmnOutp
 public class testRefCnstFieldDmnOutp<TRef>
   : ItestRefCnstFieldDmnOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class testDomCnstFieldDmnOutp

@@ -11,5 +11,5 @@ namespace Components.Gqlp_Schema_field_simple_Output;
 public class CmptFieldSmplOutp
   : ICmptFieldSmplOutp
 {
-  public decimal Field { get; set; }
+public decimal Field { get; set; }
 }

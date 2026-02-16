@@ -22,5 +22,5 @@ public interface ItestRefOutpPrntGnrc<TType>
 
 public interface ItestRefOutpPrntGnrcObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }

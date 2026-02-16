@@ -17,7 +17,7 @@ public interface ICmptGnrcFieldDualOutp
 
 public interface ICmptGnrcFieldDualOutpObject
 {
-  ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; }
+ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; }
 }
 
 public interface ICmptRefGnrcFieldDualOutp<TRef>

@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_dual_Output;
 public class testGnrcFieldDualOutp
   : ItestGnrcFieldDualOutp
 {
-  public ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; set; }
+public ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; set; }
 }
 
 public class testRefGnrcFieldDualOutp<TRef>

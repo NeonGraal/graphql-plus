@@ -56,5 +56,5 @@ public interface ItestAltCnstPrntDualGrndOutp
 public interface ItestAltCnstPrntDualGrndOutpObject
   : ItestPrntCnstPrntDualGrndOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

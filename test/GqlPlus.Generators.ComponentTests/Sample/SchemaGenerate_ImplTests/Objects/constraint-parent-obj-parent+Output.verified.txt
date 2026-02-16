@@ -31,5 +31,5 @@ public class CmptAltCnstPrntObjPrntOutp
   : CmptPrntCnstPrntObjPrntOutp
   , ICmptAltCnstPrntObjPrntOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

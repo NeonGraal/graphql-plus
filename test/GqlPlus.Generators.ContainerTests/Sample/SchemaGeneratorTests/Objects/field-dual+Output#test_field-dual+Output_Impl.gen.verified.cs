@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Output;
 public class testFieldDualOutp
   : ItestFieldDualOutp
 {
-  public ItestFldFieldDualOutp Field { get; set; }
+public ItestFldFieldDualOutp Field { get; set; }
 }
 
 public class testFldFieldDualOutp

@@ -24,5 +24,5 @@ public interface ItestRefPrntOutp
 
 public interface ItestRefPrntOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }

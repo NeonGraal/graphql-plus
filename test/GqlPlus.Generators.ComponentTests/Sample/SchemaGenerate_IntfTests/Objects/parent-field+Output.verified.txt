@@ -18,7 +18,7 @@ public interface ICmptPrntFieldOutp
 public interface ICmptPrntFieldOutpObject
   : ICmptRefPrntFieldOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ICmptRefPrntFieldOutp
@@ -29,5 +29,5 @@ public interface ICmptRefPrntFieldOutp
 
 public interface ICmptRefPrntFieldOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }

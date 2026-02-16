@@ -39,5 +39,5 @@ public interface ICmptAltGnrcPrntParamPrntOutp
 
 public interface ICmptAltGnrcPrntParamPrntOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

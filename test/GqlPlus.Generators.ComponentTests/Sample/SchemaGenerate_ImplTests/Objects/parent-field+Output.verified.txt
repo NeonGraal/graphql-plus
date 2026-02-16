@@ -13,11 +13,11 @@ public class CmptPrntFieldOutp
   : CmptRefPrntFieldOutp
   , ICmptPrntFieldOutp
 {
-  public decimal Field { get; set; }
+public decimal Field { get; set; }
 }
 
 public class CmptRefPrntFieldOutp
   : ICmptRefPrntFieldOutp
 {
-  public decimal Parent { get; set; }
+public decimal Parent { get; set; }
 }

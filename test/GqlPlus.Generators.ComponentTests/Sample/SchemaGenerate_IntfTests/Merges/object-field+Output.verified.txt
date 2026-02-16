@@ -17,7 +17,7 @@ public interface ICmptObjFieldOutp
 
 public interface ICmptObjFieldOutpObject
 {
-  ICmptFldObjFieldOutp Field { get; }
+ICmptFldObjFieldOutp Field { get; }
 }
 
 public interface ICmptFldObjFieldOutp

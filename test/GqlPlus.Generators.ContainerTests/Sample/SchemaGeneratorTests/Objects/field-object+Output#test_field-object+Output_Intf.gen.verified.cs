@@ -12,7 +12,7 @@ public interface ItestFieldObjOutp
 
 public interface ItestFieldObjOutpObject
 {
-  ItestFldFieldObjOutp Field { get; }
+ItestFldFieldObjOutp Field { get; }
 }
 
 public interface ItestFldFieldObjOutp
@@ -23,5 +23,5 @@ public interface ItestFldFieldObjOutp
 
 public interface ItestFldFieldObjOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }

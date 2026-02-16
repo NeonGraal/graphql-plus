@@ -15,7 +15,8 @@ namespace Components.Gqlp_Schema_output_field_param;
 public class CmptOutpFieldParam
   : ICmptOutpFieldParam
 {
-  public ICmptFldOutpFieldParam Field { get; set; }
+public ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1)
+{ }
 }
 
 public class CmptOutpFieldParam1

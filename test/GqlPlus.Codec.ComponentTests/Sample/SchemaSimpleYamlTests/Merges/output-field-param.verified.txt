@@ -8,21 +8,15 @@ types: !_Map(_Type)
       - !_ObjectFor(_OutputField)
         name: field
         object: OutpFieldParam
-        parameters:
-          - !_InputParam
-            name: OutpFieldParam1
-          - !_InputParam
-            name: OutpFieldParam2
+        parameter: !_InputParam
+          name: OutpFieldParam1
         type: !_ObjBase
           name: FldOutpFieldParam
     fields:
       - !_OutputField
         name: field
-        parameters:
-          - !_InputParam
-            name: OutpFieldParam1
-          - !_InputParam
-            name: OutpFieldParam2
+        parameter: !_InputParam
+          name: OutpFieldParam1
         type: !_ObjBase
           name: FldOutpFieldParam
     name: OutpFieldParam

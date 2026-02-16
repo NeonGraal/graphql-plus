@@ -218,7 +218,7 @@ public interface ItestAltAltOutp
 
 public interface ItestAltAltOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestAltDescrDual
@@ -404,7 +404,7 @@ public interface ItestAltAltModBoolOutp
 
 public interface ItestAltAltModBoolOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestAltModParamDual<TMod>
@@ -467,7 +467,7 @@ public interface ItestAltAltModParamOutp
 
 public interface ItestAltAltModParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestAltSmplDual
@@ -728,7 +728,7 @@ public interface ItestAltCnstAltDualOutp
 public interface ItestAltCnstAltDualOutpObject
   : ItestPrntCnstAltDualOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestCnstAltObjDual
@@ -854,7 +854,7 @@ public interface ItestAltCnstAltObjOutp
 public interface ItestAltCnstAltObjOutpObject
   : ItestPrntCnstAltObjOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestCnstDomEnumDual
@@ -924,7 +924,7 @@ public interface ItestRefCnstDomEnumOutp<TType>
 
 public interface ItestRefCnstDomEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ItestJustCnstDomEnumOutp
@@ -989,7 +989,7 @@ public interface ItestRefCnstEnumOutp<TType>
 
 public interface ItestRefCnstEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ItestCnstEnumPrntDual
@@ -1049,7 +1049,7 @@ public interface ItestRefCnstEnumPrntOutp<TType>
 
 public interface ItestRefCnstEnumPrntOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ItestCnstFieldDmnDual
@@ -1122,7 +1122,7 @@ public interface ItestRefCnstFieldDmnOutp<TRef>
 
 public interface ItestRefCnstFieldDmnOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ItestDomCnstFieldDmnOutp
@@ -1234,7 +1234,7 @@ public interface ItestRefCnstFieldDualOutp<TRef>
 
 public interface ItestRefCnstFieldDualOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ItestPrntCnstFieldDualOutp
@@ -1256,7 +1256,7 @@ public interface ItestAltCnstFieldDualOutp
 public interface ItestAltCnstFieldDualOutpObject
   : ItestPrntCnstFieldDualOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestCnstFieldObjDual
@@ -1363,7 +1363,7 @@ public interface ItestRefCnstFieldObjOutp<TRef>
 
 public interface ItestRefCnstFieldObjOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ItestPrntCnstFieldObjOutp
@@ -1385,7 +1385,7 @@ public interface ItestAltCnstFieldObjOutp
 public interface ItestAltCnstFieldObjOutpObject
   : ItestPrntCnstFieldObjOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestCnstPrntDualGrndDual
@@ -1547,7 +1547,7 @@ public interface ItestAltCnstPrntDualGrndOutp
 public interface ItestAltCnstPrntDualGrndOutpObject
   : ItestPrntCnstPrntDualGrndOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestCnstPrntDualPrntDual
@@ -1676,7 +1676,7 @@ public interface ItestAltCnstPrntDualPrntOutp
 public interface ItestAltCnstPrntDualPrntOutpObject
   : ItestPrntCnstPrntDualPrntOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestCnstPrntEnumDual
@@ -1736,7 +1736,7 @@ public interface ItestRefCnstPrntEnumOutp<TType>
 
 public interface ItestRefCnstPrntEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ItestCnstPrntObjPrntDual
@@ -1865,7 +1865,7 @@ public interface ItestAltCnstPrntObjPrntOutp
 public interface ItestAltCnstPrntObjPrntOutpObject
   : ItestPrntCnstPrntObjPrntOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestFieldDual
@@ -1895,7 +1895,7 @@ public interface ItestFieldOutp
 
 public interface ItestFieldOutpObject
 {
-  string Field { get; }
+string Field { get; }
 }
 
 public interface ItestFieldDescrDual
@@ -1925,7 +1925,7 @@ public interface ItestFieldDescrOutp
 
 public interface ItestFieldDescrOutpObject
 {
-  string Field { get; }
+string Field { get; }
 }
 
 public interface ItestFieldDualDual
@@ -1977,7 +1977,7 @@ public interface ItestFieldDualOutp
 
 public interface ItestFieldDualOutpObject
 {
-  ItestFldFieldDualOutp Field { get; }
+ItestFldFieldDualOutp Field { get; }
 }
 
 public interface ItestFldFieldDualOutp
@@ -2018,7 +2018,7 @@ public interface ItestFieldEnumOutp
 
 public interface ItestFieldEnumOutpObject
 {
-  testEnumFieldEnumOutp Field { get; }
+testEnumFieldEnumOutp Field { get; }
 }
 
 public interface ItestFieldEnumPrntDual
@@ -2048,7 +2048,7 @@ public interface ItestFieldEnumPrntOutp
 
 public interface ItestFieldEnumPrntOutpObject
 {
-  testEnumFieldEnumPrntOutp Field { get; }
+testEnumFieldEnumPrntOutp Field { get; }
 }
 
 public interface ItestFieldModEnumDual
@@ -2078,7 +2078,7 @@ public interface ItestFieldModEnumOutp
 
 public interface ItestFieldModEnumOutpObject
 {
-  IDictionary<testEnumFieldModEnumOutp, string> Field { get; }
+IDictionary<testEnumFieldModEnumOutp, string> Field { get; }
 }
 
 public interface ItestFieldModParamDual<TMod>
@@ -2130,7 +2130,7 @@ public interface ItestFieldModParamOutp<TMod>
 
 public interface ItestFieldModParamOutpObject<TMod>
 {
-  IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; }
+IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; }
 }
 
 public interface ItestFldFieldModParamOutp
@@ -2141,7 +2141,7 @@ public interface ItestFldFieldModParamOutp
 
 public interface ItestFldFieldModParamOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ItestFieldObjDual
@@ -2193,7 +2193,7 @@ public interface ItestFieldObjOutp
 
 public interface ItestFieldObjOutpObject
 {
-  ItestFldFieldObjOutp Field { get; }
+ItestFldFieldObjOutp Field { get; }
 }
 
 public interface ItestFldFieldObjOutp
@@ -2204,7 +2204,7 @@ public interface ItestFldFieldObjOutp
 
 public interface ItestFldFieldObjOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ItestFieldSmplDual
@@ -2234,7 +2234,7 @@ public interface ItestFieldSmplOutp
 
 public interface ItestFieldSmplOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ItestFieldTypeDescrDual
@@ -2264,7 +2264,7 @@ public interface ItestFieldTypeDescrOutp
 
 public interface ItestFieldTypeDescrOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ItestFieldValueDual
@@ -2294,7 +2294,7 @@ public interface ItestFieldValueOutp
 
 public interface ItestFieldValueOutpObject
 {
-  testEnumFieldValueOutp Field { get; }
+testEnumFieldValueOutp Field { get; }
 }
 
 public interface ItestFieldValueDescrDual
@@ -2324,7 +2324,7 @@ public interface ItestFieldValueDescrOutp
 
 public interface ItestFieldValueDescrOutpObject
 {
-  testEnumFieldValueDescrOutp Field { get; }
+testEnumFieldValueDescrOutp Field { get; }
 }
 
 public interface ItestGnrcAltDual<TType>
@@ -2720,7 +2720,7 @@ public interface ItestAltGnrcAltParamOutp
 
 public interface ItestAltGnrcAltParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestGnrcAltSmplDual
@@ -2810,7 +2810,7 @@ public interface ItestGnrcDescrOutp<TType>
 
 public interface ItestGnrcDescrOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ItestGnrcEnumDual
@@ -2870,7 +2870,7 @@ public interface ItestRefGnrcEnumOutp<TType>
 
 public interface ItestRefGnrcEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ItestGnrcFieldDual<TType>
@@ -2900,7 +2900,7 @@ public interface ItestGnrcFieldOutp<TType>
 
 public interface ItestGnrcFieldOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ItestGnrcFieldArgDual<TType>
@@ -2950,7 +2950,7 @@ public interface ItestGnrcFieldArgOutp<TType>
 
 public interface ItestGnrcFieldArgOutpObject<TType>
 {
-  ItestRefGnrcFieldArgOutp<TType> Field { get; }
+ItestRefGnrcFieldArgOutp<TType> Field { get; }
 }
 
 public interface ItestRefGnrcFieldArgOutp<TRef>
@@ -3032,7 +3032,7 @@ public interface ItestGnrcFieldDualOutp
 
 public interface ItestGnrcFieldDualOutpObject
 {
-  ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; }
+ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; }
 }
 
 public interface ItestRefGnrcFieldDualOutp<TRef>
@@ -3125,7 +3125,7 @@ public interface ItestGnrcFieldParamOutp
 
 public interface ItestGnrcFieldParamOutpObject
 {
-  ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; }
+ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; }
 }
 
 public interface ItestRefGnrcFieldParamOutp<TRef>
@@ -3146,7 +3146,7 @@ public interface ItestAltGnrcFieldParamOutp
 
 public interface ItestAltGnrcFieldParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestGnrcPrntDual<TType>
@@ -3524,7 +3524,7 @@ public interface ItestFieldGnrcPrntEnumChildOutp<TRef>
 
 public interface ItestFieldGnrcPrntEnumChildOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ItestGnrcPrntEnumDomDual
@@ -3597,7 +3597,7 @@ public interface ItestFieldGnrcPrntEnumDomOutp<TRef>
 
 public interface ItestFieldGnrcPrntEnumDomOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ItestDomGnrcPrntEnumDomOutp
@@ -3665,7 +3665,7 @@ public interface ItestFieldGnrcPrntEnumPrntOutp<TRef>
 
 public interface ItestFieldGnrcPrntEnumPrntOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ItestGnrcPrntParamDual
@@ -3761,7 +3761,7 @@ public interface ItestAltGnrcPrntParamOutp
 
 public interface ItestAltGnrcPrntParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestGnrcPrntParamPrntDual
@@ -3857,7 +3857,7 @@ public interface ItestAltGnrcPrntParamPrntOutp
 
 public interface ItestAltGnrcPrntParamPrntOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ItestGnrcPrntSmplEnumDual
@@ -3920,7 +3920,7 @@ public interface ItestFieldGnrcPrntSmplEnumOutp<TRef>
 
 public interface ItestFieldGnrcPrntSmplEnumOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ItestGnrcPrntStrDomDual
@@ -3993,7 +3993,7 @@ public interface ItestFieldGnrcPrntStrDomOutp<TRef>
 
 public interface ItestFieldGnrcPrntStrDomOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ItestDomGnrcPrntStrDomOutp
@@ -4058,7 +4058,7 @@ public interface ItestRefGnrcValueOutp<TType>
 
 public interface ItestRefGnrcValueOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ItestInpFieldDescrNmbr
@@ -4137,7 +4137,7 @@ public interface ItestOutpDescrParam
 
 public interface ItestOutpDescrParamObject
 {
-  ItestFldOutpDescrParam Field { get; }
+ItestFldOutpDescrParam Field (ItestInOutpDescrParam parameter);
 }
 
 public interface ItestFldOutpDescrParam
@@ -4167,7 +4167,7 @@ public interface ItestOutpParam
 
 public interface ItestOutpParamObject
 {
-  ItestFldOutpParam Field { get; }
+ItestFldOutpParam Field (ItestInOutpParam parameter);
 }
 
 public interface ItestFldOutpParam
@@ -4197,7 +4197,7 @@ public interface ItestOutpParamDescr
 
 public interface ItestOutpParamDescrObject
 {
-  ItestFldOutpParamDescr Field { get; }
+ItestFldOutpParamDescr Field (ItestInOutpParamDescr parameter);
 }
 
 public interface ItestFldOutpParamDescr
@@ -4227,7 +4227,7 @@ public interface ItestOutpParamModDmn
 
 public interface ItestOutpParamModDmnObject
 {
-  ItestDomOutpParamModDmn Field { get; }
+ItestDomOutpParamModDmn Field (IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter);
 }
 
 public interface ItestInOutpParamModDmn
@@ -4253,7 +4253,7 @@ public interface ItestOutpParamModParam<TMod>
 
 public interface ItestOutpParamModParamObject<TMod>
 {
-  ItestDomOutpParamModParam Field { get; }
+ItestDomOutpParamModParam Field (IDictionary<TMod, ItestInOutpParamModParam> parameter);
 }
 
 public interface ItestInOutpParamModParam
@@ -4279,7 +4279,7 @@ public interface ItestOutpParamTypeDescr
 
 public interface ItestOutpParamTypeDescrObject
 {
-  ItestFldOutpParamTypeDescr Field { get; }
+ItestFldOutpParamTypeDescr Field (ItestInOutpParamTypeDescr parameter);
 }
 
 public interface ItestFldOutpParamTypeDescr
@@ -4319,7 +4319,7 @@ public interface ItestRefOutpPrntGnrc<TType>
 
 public interface ItestRefOutpPrntGnrcObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ItestOutpPrntParam
@@ -4331,7 +4331,7 @@ public interface ItestOutpPrntParam
 public interface ItestOutpPrntParamObject
   : ItestPrntOutpPrntParamObject
 {
-  ItestFldOutpPrntParam Field { get; }
+ItestFldOutpPrntParam Field (ItestInOutpPrntParam parameter);
 }
 
 public interface ItestPrntOutpPrntParam
@@ -4341,7 +4341,7 @@ public interface ItestPrntOutpPrntParam
 
 public interface ItestPrntOutpPrntParamObject
 {
-  ItestFldOutpPrntParam Field { get; }
+ItestFldOutpPrntParam Field (ItestPrntOutpPrntParamIn parameter);
 }
 
 public interface ItestFldOutpPrntParam
@@ -4438,7 +4438,7 @@ public interface ItestRefPrntOutp
 
 public interface ItestRefPrntOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }
 
 public interface ItestPrntAltDual
@@ -4507,7 +4507,7 @@ public interface ItestRefPrntAltOutp
 
 public interface ItestRefPrntAltOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }
 
 public interface ItestPrntDescrDual
@@ -4573,7 +4573,7 @@ public interface ItestRefPrntDescrOutp
 
 public interface ItestRefPrntDescrOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }
 
 public interface ItestPrntDualDual
@@ -4697,7 +4697,7 @@ public interface ItestPrntFieldOutp
 public interface ItestPrntFieldOutpObject
   : ItestRefPrntFieldOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ItestRefPrntFieldOutp
@@ -4708,7 +4708,7 @@ public interface ItestRefPrntFieldOutp
 
 public interface ItestRefPrntFieldOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }
 
 public interface ItestPrntParamDiffDual<TA>
@@ -4764,7 +4764,7 @@ public interface ItestPrntParamDiffOutp<TA>
 public interface ItestPrntParamDiffOutpObject<TA>
   : ItestRefPrntParamDiffOutpObject<TA>
 {
-  TA Field { get; }
+TA Field { get; }
 }
 
 public interface ItestRefPrntParamDiffOutp<TB>
@@ -4830,7 +4830,7 @@ public interface ItestPrntParamSameOutp<TA>
 public interface ItestPrntParamSameOutpObject<TA>
   : ItestRefPrntParamSameOutpObject<TA>
 {
-  TA Field { get; }
+TA Field { get; }
 }
 
 public interface ItestRefPrntParamSameOutp<TA>
@@ -5121,8 +5121,8 @@ public interface ItestObjCnstOutp<TType>
 
 public interface ItestObjCnstOutpObject<TType>
 {
-  TType Field { get; }
-  TType Str { get; }
+TType Field { get; }
+TType Str { get; }
 }
 
 public interface ItestObjFieldDual
@@ -5170,7 +5170,7 @@ public interface ItestObjFieldOutp
 
 public interface ItestObjFieldOutpObject
 {
-  ItestFldObjFieldOutp Field { get; }
+ItestFldObjFieldOutp Field { get; }
 }
 
 public interface ItestFldObjFieldOutp
@@ -5227,7 +5227,7 @@ public interface ItestObjFieldAliasOutp
 
 public interface ItestObjFieldAliasOutpObject
 {
-  ItestFldObjFieldAliasOutp Field { get; }
+ItestFldObjFieldAliasOutp Field { get; }
 }
 
 public interface ItestFldObjFieldAliasOutp
@@ -5266,7 +5266,7 @@ public interface ItestObjFieldEnumAliasOutp
 
 public interface ItestObjFieldEnumAliasOutpObject
 {
-  bool Field { get; }
+bool Field { get; }
 }
 
 public interface ItestObjFieldEnumValueDual
@@ -5296,7 +5296,7 @@ public interface ItestObjFieldEnumValueOutp
 
 public interface ItestObjFieldEnumValueOutpObject
 {
-  bool Field { get; }
+bool Field { get; }
 }
 
 public interface ItestObjFieldTypeAliasDual
@@ -5326,7 +5326,7 @@ public interface ItestObjFieldTypeAliasOutp
 
 public interface ItestObjFieldTypeAliasOutpObject
 {
-  string Field { get; }
+string Field { get; }
 }
 
 public interface ItestObjParamDual<TTest,TType>
@@ -5358,8 +5358,8 @@ public interface ItestObjParamOutp<TTest,TType>
 
 public interface ItestObjParamOutpObject<TTest,TType>
 {
-  TTest Test { get; }
-  TType Type { get; }
+TTest Test { get; }
+TType Type { get; }
 }
 
 public interface ItestObjParamDupDual<TTest>
@@ -5391,8 +5391,8 @@ public interface ItestObjParamDupOutp<TTest>
 
 public interface ItestObjParamDupOutpObject<TTest>
 {
-  TTest Test { get; }
-  TTest Type { get; }
+TTest Test { get; }
+TTest Type { get; }
 }
 
 public interface ItestObjPrntDual
@@ -5462,7 +5462,7 @@ public interface ItestOutpFieldParam
 
 public interface ItestOutpFieldParamObject
 {
-  ItestFldOutpFieldParam Field { get; }
+ItestFldOutpFieldParam Field (ItestOutpFieldParam1 parameter);
 }
 
 public interface ItestOutpFieldParam1

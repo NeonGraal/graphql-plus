@@ -50,5 +50,5 @@ public interface ICmptAltCnstAltObjOutp
 public interface ICmptAltCnstAltObjOutpObject
   : ICmptPrntCnstAltObjOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

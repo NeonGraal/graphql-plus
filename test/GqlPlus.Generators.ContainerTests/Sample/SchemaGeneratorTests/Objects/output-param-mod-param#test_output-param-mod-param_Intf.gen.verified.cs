@@ -12,7 +12,7 @@ public interface ItestOutpParamModParam<TMod>
 
 public interface ItestOutpParamModParamObject<TMod>
 {
-  ItestDomOutpParamModParam Field { get; }
+ItestDomOutpParamModParam Field (IDictionary<TMod, ItestInOutpParamModParam> parameter);
 }
 
 public interface ItestInOutpParamModParam

@@ -13,7 +13,8 @@ namespace Components.Gqlp_Schema_output_param_mod_Domain;
 public class CmptOutpParamModDmn
   : ICmptOutpParamModDmn
 {
-  public ICmptDomOutpParamModDmn Field { get; set; }
+public ICmptDomOutpParamModDmn Field (IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn>)
+{ }
 }
 
 public class CmptInOutpParamModDmn

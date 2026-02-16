@@ -16,6 +16,6 @@ public interface ICmptObjCnstOutp<TType>
 
 public interface ICmptObjCnstOutpObject<TType>
 {
-  TType Field { get; }
-  TType Str { get; }
+TType Field { get; }
+TType Str { get; }
 }

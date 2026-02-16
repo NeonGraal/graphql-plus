@@ -12,5 +12,5 @@ public interface ItestFieldDescrOutp
 
 public interface ItestFieldDescrOutpObject
 {
-  string Field { get; }
+string Field { get; }
 }

@@ -12,7 +12,7 @@ public interface ItestGnrcFieldParamOutp
 
 public interface ItestGnrcFieldParamOutpObject
 {
-  ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; }
+ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; }
 }
 
 public interface ItestRefGnrcFieldParamOutp<TRef>
@@ -33,5 +33,5 @@ public interface ItestAltGnrcFieldParamOutp
 
 public interface ItestAltGnrcFieldParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

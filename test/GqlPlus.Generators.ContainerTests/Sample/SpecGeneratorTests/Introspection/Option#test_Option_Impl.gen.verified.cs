@@ -9,5 +9,5 @@ public class test_Setting
   : test_Named
   , Itest_Setting
 {
-  public GqlpValue Value { get; set; }
+public GqlpValue Value { get; set; }
 }

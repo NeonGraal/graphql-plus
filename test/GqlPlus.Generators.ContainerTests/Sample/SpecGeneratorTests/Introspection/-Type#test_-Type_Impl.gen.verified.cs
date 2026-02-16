@@ -14,22 +14,22 @@ public class test_BaseType<TKind>
   : test_Aliased
   , Itest_BaseType<TKind>
 {
-  public TKind TypeKind { get; set; }
+public TKind TypeKind { get; set; }
 }
 
 public class test_ChildType<TKind,TParent>
   : test_BaseType<TKind>
   , Itest_ChildType<TKind,TParent>
 {
-  public TParent Parent { get; set; }
+public TParent Parent { get; set; }
 }
 
 public class test_ParentType<TKind,TItem,TAllItem>
   : test_ChildType<TKind, Itest_Named>
   , Itest_ParentType<TKind,TItem,TAllItem>
 {
-  public ICollection<TItem> Items { get; set; }
-  public ICollection<TAllItem> AllItems { get; set; }
+public ICollection<TItem> Items { get; set; }
+public ICollection<TAllItem> AllItems { get; set; }
 }
 
 public class test_TypeRef<TKind>

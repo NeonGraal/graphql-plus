@@ -12,12 +12,12 @@
 [_Schema]:types[_Map(_Type)]:[_Name]InOutpParamDescr[_TypeInput]:typeKind=[_TypeKind]Input
 [_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=field
 [_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=OutpParamDescr
-[_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:description='Test Descr'
-[_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:parameters.0[_InputParam]:name=InOutpParamDescr
+[_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:parameter[_InputParam]:description='Test Descr'
+[_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:parameter[_InputParam]:name=InOutpParamDescr
 [_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=FldOutpParamDescr
 [_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:fields.0[_OutputField]:name=field
-[_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:fields.0[_OutputField]:parameters.0[_InputParam]:description='Test Descr'
-[_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:fields.0[_OutputField]:parameters.0[_InputParam]:name=InOutpParamDescr
+[_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:fields.0[_OutputField]:parameter[_InputParam]:description='Test Descr'
+[_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:fields.0[_OutputField]:parameter[_InputParam]:name=InOutpParamDescr
 [_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=FldOutpParamDescr
 [_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:name=OutpParamDescr
 [_Schema]:types[_Map(_Type)]:[_Name]OutpParamDescr[_TypeOutput]:typeKind=[_TypeKind]Output

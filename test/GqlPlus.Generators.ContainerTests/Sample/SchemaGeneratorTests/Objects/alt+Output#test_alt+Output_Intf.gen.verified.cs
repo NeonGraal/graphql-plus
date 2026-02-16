@@ -23,5 +23,5 @@ public interface ItestAltAltOutp
 
 public interface ItestAltAltOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

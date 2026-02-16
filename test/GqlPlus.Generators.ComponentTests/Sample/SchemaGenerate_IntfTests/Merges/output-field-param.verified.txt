@@ -19,7 +19,7 @@ public interface ICmptOutpFieldParam
 
 public interface ICmptOutpFieldParamObject
 {
-  ICmptFldOutpFieldParam Field { get; }
+ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1 parameter);
 }
 
 public interface ICmptOutpFieldParam1

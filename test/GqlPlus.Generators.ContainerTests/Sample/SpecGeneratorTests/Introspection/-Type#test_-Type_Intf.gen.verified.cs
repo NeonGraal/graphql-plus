@@ -34,7 +34,7 @@ public interface Itest_BaseType<TKind>
 public interface Itest_BaseTypeObject<TKind>
   : Itest_AliasedObject
 {
-  TKind TypeKind { get; }
+TKind TypeKind { get; }
 }
 
 public interface Itest_ChildType<TKind,TParent>
@@ -46,7 +46,7 @@ public interface Itest_ChildType<TKind,TParent>
 public interface Itest_ChildTypeObject<TKind,TParent>
   : Itest_BaseTypeObject<TKind>
 {
-  TParent Parent { get; }
+TParent Parent { get; }
 }
 
 public interface Itest_ParentType<TKind,TItem,TAllItem>
@@ -58,8 +58,8 @@ public interface Itest_ParentType<TKind,TItem,TAllItem>
 public interface Itest_ParentTypeObject<TKind,TItem,TAllItem>
   : Itest_ChildTypeObject<TKind, Itest_Named>
 {
-  ICollection<TItem> Items { get; }
-  ICollection<TAllItem> AllItems { get; }
+ICollection<TItem> Items { get; }
+ICollection<TAllItem> AllItems { get; }
 }
 
 public interface Itest_TypeRef<TKind>

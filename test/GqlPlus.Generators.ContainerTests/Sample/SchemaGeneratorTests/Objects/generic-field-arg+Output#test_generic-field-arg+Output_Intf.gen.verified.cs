@@ -12,7 +12,7 @@ public interface ItestGnrcFieldArgOutp<TType>
 
 public interface ItestGnrcFieldArgOutpObject<TType>
 {
-  ItestRefGnrcFieldArgOutp<TType> Field { get; }
+ItestRefGnrcFieldArgOutp<TType> Field { get; }
 }
 
 public interface ItestRefGnrcFieldArgOutp<TRef>

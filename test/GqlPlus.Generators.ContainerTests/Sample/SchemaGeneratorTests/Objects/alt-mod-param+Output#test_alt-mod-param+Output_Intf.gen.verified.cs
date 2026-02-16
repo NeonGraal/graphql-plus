@@ -23,5 +23,5 @@ public interface ItestAltAltModParamOutp
 
 public interface ItestAltAltModParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

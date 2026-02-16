@@ -14,7 +14,7 @@ public interface ItestOutpPrntParam
 public interface ItestOutpPrntParamObject
   : ItestPrntOutpPrntParamObject
 {
-  ItestFldOutpPrntParam Field { get; }
+ItestFldOutpPrntParam Field (ItestInOutpPrntParam parameter);
 }
 
 public interface ItestPrntOutpPrntParam
@@ -24,7 +24,7 @@ public interface ItestPrntOutpPrntParam
 
 public interface ItestPrntOutpPrntParamObject
 {
-  ItestFldOutpPrntParam Field { get; }
+ItestFldOutpPrntParam Field (ItestPrntOutpPrntParamIn parameter);
 }
 
 public interface ItestFldOutpPrntParam

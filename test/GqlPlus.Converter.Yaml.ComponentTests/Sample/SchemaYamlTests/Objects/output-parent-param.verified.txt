@@ -31,24 +31,21 @@ types: !_Map(_Type)
     - !_ObjectFor(_OutputField)
       name: field
       object: PrntOutpPrntParam
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         name: PrntOutpPrntParamIn
       type: !_ObjBase
         name: FldOutpPrntParam
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpPrntParam
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         name: InOutpPrntParam
       type: !_ObjBase
         name: FldOutpPrntParam
     fields:
     - !_OutputField
       name: field
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         name: InOutpPrntParam
       type: !_ObjBase
         name: FldOutpPrntParam
@@ -61,16 +58,14 @@ types: !_Map(_Type)
     - !_ObjectFor(_OutputField)
       name: field
       object: PrntOutpPrntParam
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         name: PrntOutpPrntParamIn
       type: !_ObjBase
         name: FldOutpPrntParam
     fields:
     - !_OutputField
       name: field
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         name: PrntOutpPrntParamIn
       type: !_ObjBase
         name: FldOutpPrntParam

@@ -11,5 +11,5 @@ namespace Components.Gqlp_Schema_generic_descr_Output;
 public class CmptGnrcDescrOutp<TType>
   : ICmptGnrcDescrOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }

@@ -203,26 +203,24 @@
         "Variable": "_"
       },
       "name": "DrctParamDict",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "modifiers": [
-            {
-              "$mapTag": "_ModifierDictionary",
-              "by": "String",
-              "modifierKind": {
-                "$value": "Dict",
-                "$valueTag": "_ModifierKind"
-              },
-              "typeKind": {
-                "$value": "Basic",
-                "$valueTag": "_SimpleKind"
-              }
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "modifiers": [
+          {
+            "$mapTag": "_ModifierDictionary",
+            "by": "String",
+            "modifierKind": {
+              "$value": "Dict",
+              "$valueTag": "_ModifierKind"
+            },
+            "typeKind": {
+              "$value": "Basic",
+              "$valueTag": "_SimpleKind"
             }
-          ],
-          "name": "InDrctParamDict"
-        }
-      ],
+          }
+        ],
+        "name": "InDrctParamDict"
+      },
       "repeatable": false
     },
     "DrctParamIn": {
@@ -238,12 +236,10 @@
         "Variable": "_"
       },
       "name": "DrctParamIn",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "name": "InDrctParamIn"
-        }
-      ],
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "name": "InDrctParamIn"
+      },
       "repeatable": false
     },
     "DrctParamList": {
@@ -259,21 +255,19 @@
         "Variable": "_"
       },
       "name": "DrctParamList",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "modifiers": [
+          {
+            "$mapTag": "_Modifier",
+            "modifierKind": {
+              "$value": "List",
+              "$valueTag": "_ModifierKind"
             }
-          ],
-          "name": "InDrctParamList"
-        }
-      ],
+          }
+        ],
+        "name": "InDrctParamList"
+      },
       "repeatable": false
     },
     "DrctParamOpt": {
@@ -289,21 +283,19 @@
         "Variable": "_"
       },
       "name": "DrctParamOpt",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "Opt",
-                "$valueTag": "_ModifierKind"
-              }
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "modifiers": [
+          {
+            "$mapTag": "_Modifier",
+            "modifierKind": {
+              "$value": "Opt",
+              "$valueTag": "_ModifierKind"
             }
-          ],
-          "name": "InDrctParamOpt"
-        }
-      ],
+          }
+        ],
+        "name": "InDrctParamOpt"
+      },
       "repeatable": false
     }
   },

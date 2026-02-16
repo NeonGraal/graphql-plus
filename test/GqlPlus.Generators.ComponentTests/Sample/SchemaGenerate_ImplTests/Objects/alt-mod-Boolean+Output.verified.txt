@@ -17,5 +17,5 @@ public class CmptAltModBoolOutp
 public class CmptAltAltModBoolOutp
   : ICmptAltAltModBoolOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

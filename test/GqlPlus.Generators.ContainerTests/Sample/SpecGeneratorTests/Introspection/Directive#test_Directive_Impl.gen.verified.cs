@@ -9,14 +9,14 @@ public class test_Directives
   : test_AndType
   , Itest_Directives
 {
-  public Itest_Directive Directive { get; set; }
+public Itest_Directive Directive { get; set; }
 }
 
 public class test_Directive
   : test_Aliased
   , Itest_Directive
 {
-  public ICollection<Itest_InputParam> Parameters { get; set; }
-  public bool Repeatable { get; set; }
-  public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
+public Itest_InputFieldType? Parameter { get; set; }
+public bool Repeatable { get; set; }
+public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
 }

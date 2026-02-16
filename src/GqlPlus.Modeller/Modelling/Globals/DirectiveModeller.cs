@@ -9,6 +9,6 @@ internal class DirectiveModeller(
       Aliases = [.. ast.Aliases],
       Repeatable = ast.DirectiveOption == DirectiveOption.Repeatable,
       Locations = ast.Locations,
-      Parameters = parameter.ToModels(ast.Params, typeKinds),
+      Parameter = parameter.TryModel(ast.Parameter, typeKinds),
     };
 }

@@ -12,6 +12,6 @@ public interface ItestObjParamOutp<TTest,TType>
 
 public interface ItestObjParamOutpObject<TTest,TType>
 {
-  TTest Test { get; }
-  TType Type { get; }
+TTest Test { get; }
+TType Type { get; }
 }

@@ -28,5 +28,5 @@ public interface ICmptRefCnstEnumPrntOutp<TType>
 
 public interface ICmptRefCnstEnumPrntOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }

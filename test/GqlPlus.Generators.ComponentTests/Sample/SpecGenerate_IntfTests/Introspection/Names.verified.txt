@@ -70,5 +70,5 @@ public interface ICmpt_AndType
 public interface ICmpt_AndTypeObject
   : ICmpt_NamedObject
 {
-  ICmpt_Type Type { get; }
+ICmpt_Type Type { get; }
 }

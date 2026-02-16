@@ -12,7 +12,7 @@ public interface ItestObjFieldOutp
 
 public interface ItestObjFieldOutpObject
 {
-  ItestFldObjFieldOutp Field { get; }
+ItestFldObjFieldOutp Field { get; }
 }
 
 public interface ItestFldObjFieldOutp

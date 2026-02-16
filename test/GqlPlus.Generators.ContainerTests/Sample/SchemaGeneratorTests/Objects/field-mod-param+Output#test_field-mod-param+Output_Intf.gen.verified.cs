@@ -12,7 +12,7 @@ public interface ItestFieldModParamOutp<TMod>
 
 public interface ItestFieldModParamOutpObject<TMod>
 {
-  IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; }
+IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; }
 }
 
 public interface ItestFldFieldModParamOutp
@@ -23,5 +23,5 @@ public interface ItestFldFieldModParamOutp
 
 public interface ItestFldFieldModParamOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }

@@ -17,7 +17,7 @@ public interface ICmptGnrcFieldParamOutp
 
 public interface ICmptGnrcFieldParamOutpObject
 {
-  ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; }
+ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; }
 }
 
 public interface ICmptRefGnrcFieldParamOutp<TRef>
@@ -38,5 +38,5 @@ public interface ICmptAltGnrcFieldParamOutp
 
 public interface ICmptAltGnrcFieldParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

@@ -12,6 +12,6 @@ public interface ItestObjCnstOutp<TType>
 
 public interface ItestObjCnstOutpObject<TType>
 {
-  TType Field { get; }
-  TType Str { get; }
+TType Field { get; }
+TType Str { get; }
 }

@@ -15,7 +15,7 @@ public interface Itest_Categories
 public interface Itest_CategoriesObject
   : Itest_AndTypeObject
 {
-  Itest_Category Category { get; }
+Itest_Category Category { get; }
 }
 
 public interface Itest_Category
@@ -27,7 +27,7 @@ public interface Itest_Category
 public interface Itest_CategoryObject
   : Itest_AliasedObject
 {
-  test_Resolution Resolution { get; }
-  Itest_TypeRef<Itest_TypeKind> Output { get; }
-  ICollection<Itest_Modifiers> Modifiers { get; }
+test_Resolution Resolution { get; }
+Itest_TypeRef<Itest_TypeKind> Output { get; }
+ICollection<Itest_Modifiers> Modifiers { get; }
 }

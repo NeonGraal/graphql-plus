@@ -15,5 +15,5 @@ public interface ICmptGnrcDescrOutp<TType>
 
 public interface ICmptGnrcDescrOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }

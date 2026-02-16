@@ -34,5 +34,5 @@ public interface ItestAltGnrcPrntParamPrntOutp
 
 public interface ItestAltGnrcPrntParamPrntOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

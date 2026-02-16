@@ -64,7 +64,7 @@ public interface ICmptAltAltOutp
 
 public interface ICmptAltAltOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptAltDescrDual
@@ -250,7 +250,7 @@ public interface ICmptAltAltModBoolOutp
 
 public interface ICmptAltAltModBoolOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptAltModParamDual<TMod>
@@ -313,7 +313,7 @@ public interface ICmptAltAltModParamOutp
 
 public interface ICmptAltAltModParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptAltSmplDual
@@ -574,7 +574,7 @@ public interface ICmptAltCnstAltDualOutp
 public interface ICmptAltCnstAltDualOutpObject
   : ICmptPrntCnstAltDualOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptCnstAltObjDual
@@ -700,7 +700,7 @@ public interface ICmptAltCnstAltObjOutp
 public interface ICmptAltCnstAltObjOutpObject
   : ICmptPrntCnstAltObjOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptCnstDomEnumDual
@@ -770,7 +770,7 @@ public interface ICmptRefCnstDomEnumOutp<TType>
 
 public interface ICmptRefCnstDomEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ICmptJustCnstDomEnumOutp
@@ -835,7 +835,7 @@ public interface ICmptRefCnstEnumOutp<TType>
 
 public interface ICmptRefCnstEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ICmptCnstEnumPrntDual
@@ -895,7 +895,7 @@ public interface ICmptRefCnstEnumPrntOutp<TType>
 
 public interface ICmptRefCnstEnumPrntOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ICmptCnstFieldDmnDual
@@ -968,7 +968,7 @@ public interface ICmptRefCnstFieldDmnOutp<TRef>
 
 public interface ICmptRefCnstFieldDmnOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ICmptDomCnstFieldDmnOutp
@@ -1080,7 +1080,7 @@ public interface ICmptRefCnstFieldDualOutp<TRef>
 
 public interface ICmptRefCnstFieldDualOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldDualOutp
@@ -1102,7 +1102,7 @@ public interface ICmptAltCnstFieldDualOutp
 public interface ICmptAltCnstFieldDualOutpObject
   : ICmptPrntCnstFieldDualOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptCnstFieldObjDual
@@ -1209,7 +1209,7 @@ public interface ICmptRefCnstFieldObjOutp<TRef>
 
 public interface ICmptRefCnstFieldObjOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldObjOutp
@@ -1231,7 +1231,7 @@ public interface ICmptAltCnstFieldObjOutp
 public interface ICmptAltCnstFieldObjOutpObject
   : ICmptPrntCnstFieldObjOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptCnstPrntDualGrndDual
@@ -1393,7 +1393,7 @@ public interface ICmptAltCnstPrntDualGrndOutp
 public interface ICmptAltCnstPrntDualGrndOutpObject
   : ICmptPrntCnstPrntDualGrndOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptCnstPrntDualPrntDual
@@ -1522,7 +1522,7 @@ public interface ICmptAltCnstPrntDualPrntOutp
 public interface ICmptAltCnstPrntDualPrntOutpObject
   : ICmptPrntCnstPrntDualPrntOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptCnstPrntEnumDual
@@ -1582,7 +1582,7 @@ public interface ICmptRefCnstPrntEnumOutp<TType>
 
 public interface ICmptRefCnstPrntEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ICmptCnstPrntObjPrntDual
@@ -1711,7 +1711,7 @@ public interface ICmptAltCnstPrntObjPrntOutp
 public interface ICmptAltCnstPrntObjPrntOutpObject
   : ICmptPrntCnstPrntObjPrntOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptFieldDual
@@ -1741,7 +1741,7 @@ public interface ICmptFieldOutp
 
 public interface ICmptFieldOutpObject
 {
-  string Field { get; }
+string Field { get; }
 }
 
 public interface ICmptFieldDescrDual
@@ -1771,7 +1771,7 @@ public interface ICmptFieldDescrOutp
 
 public interface ICmptFieldDescrOutpObject
 {
-  string Field { get; }
+string Field { get; }
 }
 
 public interface ICmptFieldDualDual
@@ -1823,7 +1823,7 @@ public interface ICmptFieldDualOutp
 
 public interface ICmptFieldDualOutpObject
 {
-  ICmptFldFieldDualOutp Field { get; }
+ICmptFldFieldDualOutp Field { get; }
 }
 
 public interface ICmptFldFieldDualOutp
@@ -1864,7 +1864,7 @@ public interface ICmptFieldEnumOutp
 
 public interface ICmptFieldEnumOutpObject
 {
-  CmptEnumFieldEnumOutp Field { get; }
+CmptEnumFieldEnumOutp Field { get; }
 }
 
 public interface ICmptFieldEnumPrntDual
@@ -1894,7 +1894,7 @@ public interface ICmptFieldEnumPrntOutp
 
 public interface ICmptFieldEnumPrntOutpObject
 {
-  CmptEnumFieldEnumPrntOutp Field { get; }
+CmptEnumFieldEnumPrntOutp Field { get; }
 }
 
 public interface ICmptFieldModEnumDual
@@ -1924,7 +1924,7 @@ public interface ICmptFieldModEnumOutp
 
 public interface ICmptFieldModEnumOutpObject
 {
-  IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; }
+IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; }
 }
 
 public interface ICmptFieldModParamDual<TMod>
@@ -1976,7 +1976,7 @@ public interface ICmptFieldModParamOutp<TMod>
 
 public interface ICmptFieldModParamOutpObject<TMod>
 {
-  IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; }
+IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; }
 }
 
 public interface ICmptFldFieldModParamOutp
@@ -1987,7 +1987,7 @@ public interface ICmptFldFieldModParamOutp
 
 public interface ICmptFldFieldModParamOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ICmptFieldObjDual
@@ -2039,7 +2039,7 @@ public interface ICmptFieldObjOutp
 
 public interface ICmptFieldObjOutpObject
 {
-  ICmptFldFieldObjOutp Field { get; }
+ICmptFldFieldObjOutp Field { get; }
 }
 
 public interface ICmptFldFieldObjOutp
@@ -2050,7 +2050,7 @@ public interface ICmptFldFieldObjOutp
 
 public interface ICmptFldFieldObjOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ICmptFieldSmplDual
@@ -2080,7 +2080,7 @@ public interface ICmptFieldSmplOutp
 
 public interface ICmptFieldSmplOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ICmptFieldTypeDescrDual
@@ -2110,7 +2110,7 @@ public interface ICmptFieldTypeDescrOutp
 
 public interface ICmptFieldTypeDescrOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ICmptFieldValueDual
@@ -2140,7 +2140,7 @@ public interface ICmptFieldValueOutp
 
 public interface ICmptFieldValueOutpObject
 {
-  CmptEnumFieldValueOutp Field { get; }
+CmptEnumFieldValueOutp Field { get; }
 }
 
 public interface ICmptFieldValueDescrDual
@@ -2170,7 +2170,7 @@ public interface ICmptFieldValueDescrOutp
 
 public interface ICmptFieldValueDescrOutpObject
 {
-  CmptEnumFieldValueDescrOutp Field { get; }
+CmptEnumFieldValueDescrOutp Field { get; }
 }
 
 public interface ICmptGnrcAltDual<TType>
@@ -2566,7 +2566,7 @@ public interface ICmptAltGnrcAltParamOutp
 
 public interface ICmptAltGnrcAltParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptGnrcAltSmplDual
@@ -2656,7 +2656,7 @@ public interface ICmptGnrcDescrOutp<TType>
 
 public interface ICmptGnrcDescrOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ICmptGnrcEnumDual
@@ -2716,7 +2716,7 @@ public interface ICmptRefGnrcEnumOutp<TType>
 
 public interface ICmptRefGnrcEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ICmptGnrcFieldDual<TType>
@@ -2746,7 +2746,7 @@ public interface ICmptGnrcFieldOutp<TType>
 
 public interface ICmptGnrcFieldOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ICmptGnrcFieldArgDual<TType>
@@ -2796,7 +2796,7 @@ public interface ICmptGnrcFieldArgOutp<TType>
 
 public interface ICmptGnrcFieldArgOutpObject<TType>
 {
-  ICmptRefGnrcFieldArgOutp<TType> Field { get; }
+ICmptRefGnrcFieldArgOutp<TType> Field { get; }
 }
 
 public interface ICmptRefGnrcFieldArgOutp<TRef>
@@ -2878,7 +2878,7 @@ public interface ICmptGnrcFieldDualOutp
 
 public interface ICmptGnrcFieldDualOutpObject
 {
-  ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; }
+ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; }
 }
 
 public interface ICmptRefGnrcFieldDualOutp<TRef>
@@ -2971,7 +2971,7 @@ public interface ICmptGnrcFieldParamOutp
 
 public interface ICmptGnrcFieldParamOutpObject
 {
-  ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; }
+ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; }
 }
 
 public interface ICmptRefGnrcFieldParamOutp<TRef>
@@ -2992,7 +2992,7 @@ public interface ICmptAltGnrcFieldParamOutp
 
 public interface ICmptAltGnrcFieldParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptGnrcPrntDual<TType>
@@ -3370,7 +3370,7 @@ public interface ICmptFieldGnrcPrntEnumChildOutp<TRef>
 
 public interface ICmptFieldGnrcPrntEnumChildOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomDual
@@ -3443,7 +3443,7 @@ public interface ICmptFieldGnrcPrntEnumDomOutp<TRef>
 
 public interface ICmptFieldGnrcPrntEnumDomOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntEnumDomOutp
@@ -3511,7 +3511,7 @@ public interface ICmptFieldGnrcPrntEnumPrntOutp<TRef>
 
 public interface ICmptFieldGnrcPrntEnumPrntOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntParamDual
@@ -3607,7 +3607,7 @@ public interface ICmptAltGnrcPrntParamOutp
 
 public interface ICmptAltGnrcPrntParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptGnrcPrntParamPrntDual
@@ -3703,7 +3703,7 @@ public interface ICmptAltGnrcPrntParamPrntOutp
 
 public interface ICmptAltGnrcPrntParamPrntOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }
 
 public interface ICmptGnrcPrntSmplEnumDual
@@ -3766,7 +3766,7 @@ public interface ICmptFieldGnrcPrntSmplEnumOutp<TRef>
 
 public interface ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ICmptGnrcPrntStrDomDual
@@ -3839,7 +3839,7 @@ public interface ICmptFieldGnrcPrntStrDomOutp<TRef>
 
 public interface ICmptFieldGnrcPrntStrDomOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntStrDomOutp
@@ -3904,7 +3904,7 @@ public interface ICmptRefGnrcValueOutp<TType>
 
 public interface ICmptRefGnrcValueOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ICmptInpFieldDescrNmbr
@@ -3983,7 +3983,7 @@ public interface ICmptOutpDescrParam
 
 public interface ICmptOutpDescrParamObject
 {
-  ICmptFldOutpDescrParam Field { get; }
+ICmptFldOutpDescrParam Field (ICmptInOutpDescrParam parameter);
 }
 
 public interface ICmptFldOutpDescrParam
@@ -4013,7 +4013,7 @@ public interface ICmptOutpParam
 
 public interface ICmptOutpParamObject
 {
-  ICmptFldOutpParam Field { get; }
+ICmptFldOutpParam Field (ICmptInOutpParam parameter);
 }
 
 public interface ICmptFldOutpParam
@@ -4043,7 +4043,7 @@ public interface ICmptOutpParamDescr
 
 public interface ICmptOutpParamDescrObject
 {
-  ICmptFldOutpParamDescr Field { get; }
+ICmptFldOutpParamDescr Field (ICmptInOutpParamDescr parameter);
 }
 
 public interface ICmptFldOutpParamDescr
@@ -4073,7 +4073,7 @@ public interface ICmptOutpParamModDmn
 
 public interface ICmptOutpParamModDmnObject
 {
-  ICmptDomOutpParamModDmn Field { get; }
+ICmptDomOutpParamModDmn Field (IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
 }
 
 public interface ICmptInOutpParamModDmn
@@ -4099,7 +4099,7 @@ public interface ICmptOutpParamModParam<TMod>
 
 public interface ICmptOutpParamModParamObject<TMod>
 {
-  ICmptDomOutpParamModParam Field { get; }
+ICmptDomOutpParamModParam Field (IDictionary<TMod, ICmptInOutpParamModParam> parameter);
 }
 
 public interface ICmptInOutpParamModParam
@@ -4125,7 +4125,7 @@ public interface ICmptOutpParamTypeDescr
 
 public interface ICmptOutpParamTypeDescrObject
 {
-  ICmptFldOutpParamTypeDescr Field { get; }
+ICmptFldOutpParamTypeDescr Field (ICmptInOutpParamTypeDescr parameter);
 }
 
 public interface ICmptFldOutpParamTypeDescr
@@ -4165,7 +4165,7 @@ public interface ICmptRefOutpPrntGnrc<TType>
 
 public interface ICmptRefOutpPrntGnrcObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ICmptOutpPrntParam
@@ -4177,7 +4177,7 @@ public interface ICmptOutpPrntParam
 public interface ICmptOutpPrntParamObject
   : ICmptPrntOutpPrntParamObject
 {
-  ICmptFldOutpPrntParam Field { get; }
+ICmptFldOutpPrntParam Field (ICmptInOutpPrntParam parameter);
 }
 
 public interface ICmptPrntOutpPrntParam
@@ -4187,7 +4187,7 @@ public interface ICmptPrntOutpPrntParam
 
 public interface ICmptPrntOutpPrntParamObject
 {
-  ICmptFldOutpPrntParam Field { get; }
+ICmptFldOutpPrntParam Field (ICmptPrntOutpPrntParamIn parameter);
 }
 
 public interface ICmptFldOutpPrntParam
@@ -4284,7 +4284,7 @@ public interface ICmptRefPrntOutp
 
 public interface ICmptRefPrntOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }
 
 public interface ICmptPrntAltDual
@@ -4353,7 +4353,7 @@ public interface ICmptRefPrntAltOutp
 
 public interface ICmptRefPrntAltOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }
 
 public interface ICmptPrntDescrDual
@@ -4419,7 +4419,7 @@ public interface ICmptRefPrntDescrOutp
 
 public interface ICmptRefPrntDescrOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }
 
 public interface ICmptPrntDualDual
@@ -4543,7 +4543,7 @@ public interface ICmptPrntFieldOutp
 public interface ICmptPrntFieldOutpObject
   : ICmptRefPrntFieldOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ICmptRefPrntFieldOutp
@@ -4554,7 +4554,7 @@ public interface ICmptRefPrntFieldOutp
 
 public interface ICmptRefPrntFieldOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }
 
 public interface ICmptPrntParamDiffDual<TA>
@@ -4610,7 +4610,7 @@ public interface ICmptPrntParamDiffOutp<TA>
 public interface ICmptPrntParamDiffOutpObject<TA>
   : ICmptRefPrntParamDiffOutpObject<TA>
 {
-  TA Field { get; }
+TA Field { get; }
 }
 
 public interface ICmptRefPrntParamDiffOutp<TB>
@@ -4676,7 +4676,7 @@ public interface ICmptPrntParamSameOutp<TA>
 public interface ICmptPrntParamSameOutpObject<TA>
   : ICmptRefPrntParamSameOutpObject<TA>
 {
-  TA Field { get; }
+TA Field { get; }
 }
 
 public interface ICmptRefPrntParamSameOutp<TA>

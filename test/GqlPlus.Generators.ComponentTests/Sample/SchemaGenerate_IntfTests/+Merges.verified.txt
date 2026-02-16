@@ -282,8 +282,8 @@ public interface ICmptObjCnstOutp<TType>
 
 public interface ICmptObjCnstOutpObject<TType>
 {
-  TType Field { get; }
-  TType Str { get; }
+TType Field { get; }
+TType Str { get; }
 }
 
 public interface ICmptObjFieldDual
@@ -331,7 +331,7 @@ public interface ICmptObjFieldOutp
 
 public interface ICmptObjFieldOutpObject
 {
-  ICmptFldObjFieldOutp Field { get; }
+ICmptFldObjFieldOutp Field { get; }
 }
 
 public interface ICmptFldObjFieldOutp
@@ -388,7 +388,7 @@ public interface ICmptObjFieldAliasOutp
 
 public interface ICmptObjFieldAliasOutpObject
 {
-  ICmptFldObjFieldAliasOutp Field { get; }
+ICmptFldObjFieldAliasOutp Field { get; }
 }
 
 public interface ICmptFldObjFieldAliasOutp
@@ -427,7 +427,7 @@ public interface ICmptObjFieldEnumAliasOutp
 
 public interface ICmptObjFieldEnumAliasOutpObject
 {
-  bool Field { get; }
+bool Field { get; }
 }
 
 public interface ICmptObjFieldEnumValueDual
@@ -457,7 +457,7 @@ public interface ICmptObjFieldEnumValueOutp
 
 public interface ICmptObjFieldEnumValueOutpObject
 {
-  bool Field { get; }
+bool Field { get; }
 }
 
 public interface ICmptObjFieldTypeAliasDual
@@ -487,7 +487,7 @@ public interface ICmptObjFieldTypeAliasOutp
 
 public interface ICmptObjFieldTypeAliasOutpObject
 {
-  string Field { get; }
+string Field { get; }
 }
 
 public interface ICmptObjParamDual<TTest,TType>
@@ -519,8 +519,8 @@ public interface ICmptObjParamOutp<TTest,TType>
 
 public interface ICmptObjParamOutpObject<TTest,TType>
 {
-  TTest Test { get; }
-  TType Type { get; }
+TTest Test { get; }
+TType Type { get; }
 }
 
 public interface ICmptObjParamDupDual<TTest>
@@ -552,8 +552,8 @@ public interface ICmptObjParamDupOutp<TTest>
 
 public interface ICmptObjParamDupOutpObject<TTest>
 {
-  TTest Test { get; }
-  TTest Type { get; }
+TTest Test { get; }
+TTest Type { get; }
 }
 
 public interface ICmptObjPrntDual
@@ -623,7 +623,7 @@ public interface ICmptOutpFieldParam
 
 public interface ICmptOutpFieldParamObject
 {
-  ICmptFldOutpFieldParam Field { get; }
+ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1 parameter);
 }
 
 public interface ICmptOutpFieldParam1

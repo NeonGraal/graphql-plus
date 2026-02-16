@@ -25,5 +25,5 @@ public interface Itest_UnionMember
 public interface Itest_UnionMemberObject
   : Itest_UnionRefObject
 {
-  Itest_Name Union { get; }
+Itest_Name Union { get; }
 }

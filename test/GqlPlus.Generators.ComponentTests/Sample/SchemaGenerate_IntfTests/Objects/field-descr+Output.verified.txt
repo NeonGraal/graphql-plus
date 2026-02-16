@@ -15,5 +15,5 @@ public interface ICmptFieldDescrOutp
 
 public interface ICmptFieldDescrOutpObject
 {
-  string Field { get; }
+string Field { get; }
 }

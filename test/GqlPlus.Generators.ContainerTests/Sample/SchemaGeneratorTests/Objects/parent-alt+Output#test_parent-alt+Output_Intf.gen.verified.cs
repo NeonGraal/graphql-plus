@@ -25,5 +25,5 @@ public interface ItestRefPrntAltOutp
 
 public interface ItestRefPrntAltOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }

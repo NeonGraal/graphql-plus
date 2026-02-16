@@ -15,7 +15,7 @@ public interface Itest_Directives
 public interface Itest_DirectivesObject
   : Itest_AndTypeObject
 {
-  Itest_Directive Directive { get; }
+Itest_Directive Directive { get; }
 }
 
 public interface Itest_Directive
@@ -27,7 +27,7 @@ public interface Itest_Directive
 public interface Itest_DirectiveObject
   : Itest_AliasedObject
 {
-  ICollection<Itest_InputParam> Parameters { get; }
-  bool Repeatable { get; }
-  IDictionary<test_Location, GqlpUnit> Locations { get; }
+Itest_InputFieldType? Parameter { get; }
+bool Repeatable { get; }
+IDictionary<test_Location, GqlpUnit> Locations { get; }
 }

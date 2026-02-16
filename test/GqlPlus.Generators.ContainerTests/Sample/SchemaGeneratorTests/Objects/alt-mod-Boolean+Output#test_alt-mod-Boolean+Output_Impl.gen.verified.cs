@@ -13,5 +13,5 @@ public class testAltModBoolOutp
 public class testAltAltModBoolOutp
   : ItestAltAltModBoolOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

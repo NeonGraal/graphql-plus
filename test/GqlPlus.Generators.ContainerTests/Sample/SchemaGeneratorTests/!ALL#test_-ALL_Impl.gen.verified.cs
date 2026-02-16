@@ -120,7 +120,7 @@ public class testAltOutp
 public class testAltAltOutp
   : ItestAltAltOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testAltDescrDual
@@ -216,7 +216,7 @@ public class testAltModBoolOutp
 public class testAltAltModBoolOutp
   : ItestAltAltModBoolOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testAltModParamDual<TMod>
@@ -249,7 +249,7 @@ public class testAltModParamOutp<TMod>
 public class testAltAltModParamOutp
   : ItestAltAltModParamOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testAltSmplDual
@@ -393,7 +393,7 @@ public class testAltCnstAltDualOutp
   : testPrntCnstAltDualOutp
   , ItestAltCnstAltDualOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testCnstAltObjDual
@@ -459,7 +459,7 @@ public class testAltCnstAltObjOutp
   : testPrntCnstAltObjOutp
   , ItestAltCnstAltObjOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testCnstDomEnumDual
@@ -504,7 +504,7 @@ public class testCnstDomEnumOutp
 public class testRefCnstDomEnumOutp<TType>
   : ItestRefCnstDomEnumOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }
 
 public class testJustCnstDomEnumOutp
@@ -543,7 +543,7 @@ public class testCnstEnumOutp
 public class testRefCnstEnumOutp<TType>
   : ItestRefCnstEnumOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }
 
 public class testCnstEnumPrntDual
@@ -576,7 +576,7 @@ public class testCnstEnumPrntOutp
 public class testRefCnstEnumPrntOutp<TType>
   : ItestRefCnstEnumPrntOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }
 
 public class testCnstFieldDmnDual
@@ -624,7 +624,7 @@ public class testCnstFieldDmnOutp
 public class testRefCnstFieldDmnOutp<TRef>
   : ItestRefCnstFieldDmnOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class testDomCnstFieldDmnOutp
@@ -690,7 +690,7 @@ public class testCnstFieldDualOutp
 public class testRefCnstFieldDualOutp<TRef>
   : ItestRefCnstFieldDualOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class testPrntCnstFieldDualOutp
@@ -702,7 +702,7 @@ public class testAltCnstFieldDualOutp
   : testPrntCnstFieldDualOutp
   , ItestAltCnstFieldDualOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testCnstFieldObjDual
@@ -762,7 +762,7 @@ public class testCnstFieldObjOutp
 public class testRefCnstFieldObjOutp<TRef>
   : ItestRefCnstFieldObjOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class testPrntCnstFieldObjOutp
@@ -774,7 +774,7 @@ public class testAltCnstFieldObjOutp
   : testPrntCnstFieldObjOutp
   , ItestAltCnstFieldObjOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testCnstPrntDualGrndDual
@@ -861,7 +861,7 @@ public class testAltCnstPrntDualGrndOutp
   : testPrntCnstPrntDualGrndOutp
   , ItestAltCnstPrntDualGrndOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testCnstPrntDualPrntDual
@@ -930,7 +930,7 @@ public class testAltCnstPrntDualPrntOutp
   : testPrntCnstPrntDualPrntOutp
   , ItestAltCnstPrntDualPrntOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testCnstPrntEnumDual
@@ -963,7 +963,7 @@ public class testCnstPrntEnumOutp
 public class testRefCnstPrntEnumOutp<TType>
   : ItestRefCnstPrntEnumOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }
 
 public class testCnstPrntObjPrntDual
@@ -1032,7 +1032,7 @@ public class testAltCnstPrntObjPrntOutp
   : testPrntCnstPrntObjPrntOutp
   , ItestAltCnstPrntObjPrntOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testFieldDual
@@ -1050,7 +1050,7 @@ public class testFieldInp
 public class testFieldOutp
   : ItestFieldOutp
 {
-  public string Field { get; set; }
+public string Field { get; set; }
 }
 
 public class testFieldDescrDual
@@ -1068,7 +1068,7 @@ public class testFieldDescrInp
 public class testFieldDescrOutp
   : ItestFieldDescrOutp
 {
-  public string Field { get; set; }
+public string Field { get; set; }
 }
 
 public class testFieldDualDual
@@ -1098,7 +1098,7 @@ public class testFldFieldDualInp
 public class testFieldDualOutp
   : ItestFieldDualOutp
 {
-  public ItestFldFieldDualOutp Field { get; set; }
+public ItestFldFieldDualOutp Field { get; set; }
 }
 
 public class testFldFieldDualOutp
@@ -1122,7 +1122,7 @@ public class testFieldEnumInp
 public class testFieldEnumOutp
   : ItestFieldEnumOutp
 {
-  public testEnumFieldEnumOutp Field { get; set; }
+public testEnumFieldEnumOutp Field { get; set; }
 }
 
 public class testFieldEnumPrntDual
@@ -1140,7 +1140,7 @@ public class testFieldEnumPrntInp
 public class testFieldEnumPrntOutp
   : ItestFieldEnumPrntOutp
 {
-  public testEnumFieldEnumPrntOutp Field { get; set; }
+public testEnumFieldEnumPrntOutp Field { get; set; }
 }
 
 public class testFieldModEnumDual
@@ -1158,7 +1158,7 @@ public class testFieldModEnumInp
 public class testFieldModEnumOutp
   : ItestFieldModEnumOutp
 {
-  public IDictionary<testEnumFieldModEnumOutp, string> Field { get; set; }
+public IDictionary<testEnumFieldModEnumOutp, string> Field { get; set; }
 }
 
 public class testFieldModParamDual<TMod>
@@ -1188,13 +1188,13 @@ public class testFldFieldModParamInp
 public class testFieldModParamOutp<TMod>
   : ItestFieldModParamOutp<TMod>
 {
-  public IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; set; }
+public IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; set; }
 }
 
 public class testFldFieldModParamOutp
   : ItestFldFieldModParamOutp
 {
-  public decimal Field { get; set; }
+public decimal Field { get; set; }
 }
 
 public class testFieldObjDual
@@ -1224,13 +1224,13 @@ public class testFldFieldObjInp
 public class testFieldObjOutp
   : ItestFieldObjOutp
 {
-  public ItestFldFieldObjOutp Field { get; set; }
+public ItestFldFieldObjOutp Field { get; set; }
 }
 
 public class testFldFieldObjOutp
   : ItestFldFieldObjOutp
 {
-  public decimal Field { get; set; }
+public decimal Field { get; set; }
 }
 
 public class testFieldSmplDual
@@ -1248,7 +1248,7 @@ public class testFieldSmplInp
 public class testFieldSmplOutp
   : ItestFieldSmplOutp
 {
-  public decimal Field { get; set; }
+public decimal Field { get; set; }
 }
 
 public class testFieldTypeDescrDual
@@ -1266,7 +1266,7 @@ public class testFieldTypeDescrInp
 public class testFieldTypeDescrOutp
   : ItestFieldTypeDescrOutp
 {
-  public decimal Field { get; set; }
+public decimal Field { get; set; }
 }
 
 public class testFieldValueDual
@@ -1284,7 +1284,7 @@ public class testFieldValueInp
 public class testFieldValueOutp
   : ItestFieldValueOutp
 {
-  public testEnumFieldValueOutp Field { get; set; }
+public testEnumFieldValueOutp Field { get; set; }
 }
 
 public class testFieldValueDescrDual
@@ -1302,7 +1302,7 @@ public class testFieldValueDescrInp
 public class testFieldValueDescrOutp
   : ItestFieldValueDescrOutp
 {
-  public testEnumFieldValueDescrOutp Field { get; set; }
+public testEnumFieldValueDescrOutp Field { get; set; }
 }
 
 public class testGnrcAltDual<TType>
@@ -1503,7 +1503,7 @@ public class testRefGnrcAltParamOutp<TRef>
 public class testAltGnrcAltParamOutp
   : ItestAltGnrcAltParamOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testGnrcAltSmplDual
@@ -1551,7 +1551,7 @@ public class testGnrcDescrInp<TType>
 public class testGnrcDescrOutp<TType>
   : ItestGnrcDescrOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }
 
 public class testGnrcEnumDual
@@ -1584,7 +1584,7 @@ public class testGnrcEnumOutp
 public class testRefGnrcEnumOutp<TType>
   : ItestRefGnrcEnumOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }
 
 public class testGnrcFieldDual<TType>
@@ -1602,7 +1602,7 @@ public class testGnrcFieldInp<TType>
 public class testGnrcFieldOutp<TType>
   : ItestGnrcFieldOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }
 
 public class testGnrcFieldArgDual<TType>
@@ -1630,7 +1630,7 @@ public class testRefGnrcFieldArgInp<TRef>
 public class testGnrcFieldArgOutp<TType>
   : ItestGnrcFieldArgOutp<TType>
 {
-  public ItestRefGnrcFieldArgOutp<TType> Field { get; set; }
+public ItestRefGnrcFieldArgOutp<TType> Field { get; set; }
 }
 
 public class testRefGnrcFieldArgOutp<TRef>
@@ -1675,7 +1675,7 @@ public class testAltGnrcFieldDualInp
 public class testGnrcFieldDualOutp
   : ItestGnrcFieldDualOutp
 {
-  public ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; set; }
+public ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; set; }
 }
 
 public class testRefGnrcFieldDualOutp<TRef>
@@ -1726,7 +1726,7 @@ public class testAltGnrcFieldParamInp
 public class testGnrcFieldParamOutp
   : ItestGnrcFieldParamOutp
 {
-  public ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; set; }
+public ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; set; }
 }
 
 public class testRefGnrcFieldParamOutp<TRef>
@@ -1737,7 +1737,7 @@ public class testRefGnrcFieldParamOutp<TRef>
 public class testAltGnrcFieldParamOutp
   : ItestAltGnrcFieldParamOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testGnrcPrntDual<TType>
@@ -1938,7 +1938,7 @@ public class testGnrcPrntEnumChildOutp
 public class testFieldGnrcPrntEnumChildOutp<TRef>
   : ItestFieldGnrcPrntEnumChildOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class testGnrcPrntEnumDomDual
@@ -1986,7 +1986,7 @@ public class testGnrcPrntEnumDomOutp
 public class testFieldGnrcPrntEnumDomOutp<TRef>
   : ItestFieldGnrcPrntEnumDomOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class testDomGnrcPrntEnumDomOutp
@@ -2028,7 +2028,7 @@ public class testGnrcPrntEnumPrntOutp
 public class testFieldGnrcPrntEnumPrntOutp<TRef>
   : ItestFieldGnrcPrntEnumPrntOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class testGnrcPrntParamDual
@@ -2079,7 +2079,7 @@ public class testRefGnrcPrntParamOutp<TRef>
 public class testAltGnrcPrntParamOutp
   : ItestAltGnrcPrntParamOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testGnrcPrntParamPrntDual
@@ -2130,7 +2130,7 @@ public class testRefGnrcPrntParamPrntOutp<TRef>
 public class testAltGnrcPrntParamPrntOutp
   : ItestAltGnrcPrntParamPrntOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }
 
 public class testGnrcPrntSmplEnumDual
@@ -2166,7 +2166,7 @@ public class testGnrcPrntSmplEnumOutp
 public class testFieldGnrcPrntSmplEnumOutp<TRef>
   : ItestFieldGnrcPrntSmplEnumOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class testGnrcPrntStrDomDual
@@ -2214,7 +2214,7 @@ public class testGnrcPrntStrDomOutp
 public class testFieldGnrcPrntStrDomOutp<TRef>
   : ItestFieldGnrcPrntStrDomOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class testDomGnrcPrntStrDomOutp
@@ -2253,7 +2253,7 @@ public class testGnrcValueOutp
 public class testRefGnrcValueOutp<TType>
   : ItestRefGnrcValueOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }
 
 public class testInpFieldDescrNmbr
@@ -2300,7 +2300,8 @@ public class testInpFieldStr
 public class testOutpDescrParam
   : ItestOutpDescrParam
 {
-  public ItestFldOutpDescrParam Field { get; set; }
+public ItestFldOutpDescrParam Field (ItestInOutpDescrParam)
+{ }
 }
 
 public class testFldOutpDescrParam
@@ -2317,7 +2318,8 @@ public class testInOutpDescrParam
 public class testOutpParam
   : ItestOutpParam
 {
-  public ItestFldOutpParam Field { get; set; }
+public ItestFldOutpParam Field (ItestInOutpParam)
+{ }
 }
 
 public class testFldOutpParam
@@ -2334,7 +2336,8 @@ public class testInOutpParam
 public class testOutpParamDescr
   : ItestOutpParamDescr
 {
-  public ItestFldOutpParamDescr Field { get; set; }
+public ItestFldOutpParamDescr Field (ItestInOutpParamDescr)
+{ }
 }
 
 public class testFldOutpParamDescr
@@ -2351,7 +2354,8 @@ public class testInOutpParamDescr
 public class testOutpParamModDmn
   : ItestOutpParamModDmn
 {
-  public ItestDomOutpParamModDmn Field { get; set; }
+public ItestDomOutpParamModDmn Field (IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn>)
+{ }
 }
 
 public class testInOutpParamModDmn
@@ -2369,7 +2373,8 @@ public class testDomOutpParamModDmn
 public class testOutpParamModParam<TMod>
   : ItestOutpParamModParam<TMod>
 {
-  public ItestDomOutpParamModParam Field { get; set; }
+public ItestDomOutpParamModParam Field (IDictionary<TMod, ItestInOutpParamModParam>)
+{ }
 }
 
 public class testInOutpParamModParam
@@ -2387,7 +2392,8 @@ public class testDomOutpParamModParam
 public class testOutpParamTypeDescr
   : ItestOutpParamTypeDescr
 {
-  public ItestFldOutpParamTypeDescr Field { get; set; }
+public ItestFldOutpParamTypeDescr Field (ItestInOutpParamTypeDescr)
+{ }
 }
 
 public class testFldOutpParamTypeDescr
@@ -2409,20 +2415,22 @@ public class testOutpPrntGnrc
 public class testRefOutpPrntGnrc<TType>
   : ItestRefOutpPrntGnrc<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }
 
 public class testOutpPrntParam
   : testPrntOutpPrntParam
   , ItestOutpPrntParam
 {
-  public ItestFldOutpPrntParam Field { get; set; }
+public ItestFldOutpPrntParam Field (ItestInOutpPrntParam)
+{ }
 }
 
 public class testPrntOutpPrntParam
   : ItestPrntOutpPrntParam
 {
-  public ItestFldOutpPrntParam Field { get; set; }
+public ItestFldOutpPrntParam Field (ItestPrntOutpPrntParamIn)
+{ }
 }
 
 public class testFldOutpPrntParam
@@ -2475,7 +2483,7 @@ public class testPrntOutp
 public class testRefPrntOutp
   : ItestRefPrntOutp
 {
-  public decimal Parent { get; set; }
+public decimal Parent { get; set; }
 }
 
 public class testPrntAltDual
@@ -2511,7 +2519,7 @@ public class testPrntAltOutp
 public class testRefPrntAltOutp
   : ItestRefPrntAltOutp
 {
-  public decimal Parent { get; set; }
+public decimal Parent { get; set; }
 }
 
 public class testPrntDescrDual
@@ -2547,7 +2555,7 @@ public class testPrntDescrOutp
 public class testRefPrntDescrOutp
   : ItestRefPrntDescrOutp
 {
-  public decimal Parent { get; set; }
+public decimal Parent { get; set; }
 }
 
 public class testPrntDualDual
@@ -2616,13 +2624,13 @@ public class testPrntFieldOutp
   : testRefPrntFieldOutp
   , ItestPrntFieldOutp
 {
-  public decimal Field { get; set; }
+public decimal Field { get; set; }
 }
 
 public class testRefPrntFieldOutp
   : ItestRefPrntFieldOutp
 {
-  public decimal Parent { get; set; }
+public decimal Parent { get; set; }
 }
 
 public class testPrntParamDiffDual<TA>
@@ -2653,7 +2661,7 @@ public class testPrntParamDiffOutp<TA>
   : testRefPrntParamDiffOutp<TA>
   , ItestPrntParamDiffOutp<TA>
 {
-  public TA Field { get; set; }
+public TA Field { get; set; }
 }
 
 public class testRefPrntParamDiffOutp<TB>
@@ -2689,7 +2697,7 @@ public class testPrntParamSameOutp<TA>
   : testRefPrntParamSameOutp<TA>
   , ItestPrntParamSameOutp<TA>
 {
-  public TA Field { get; set; }
+public TA Field { get; set; }
 }
 
 public class testRefPrntParamSameOutp<TA>
@@ -2886,8 +2894,8 @@ public class testObjCnstInp<TType>
 public class testObjCnstOutp<TType>
   : ItestObjCnstOutp<TType>
 {
-  public TType Field { get; set; }
-  public TType Str { get; set; }
+public TType Field { get; set; }
+public TType Str { get; set; }
 }
 
 public class testObjFieldDual
@@ -2915,7 +2923,7 @@ public class testFldObjFieldInp
 public class testObjFieldOutp
   : ItestObjFieldOutp
 {
-  public ItestFldObjFieldOutp Field { get; set; }
+public ItestFldObjFieldOutp Field { get; set; }
 }
 
 public class testFldObjFieldOutp
@@ -2948,7 +2956,7 @@ public class testFldObjFieldAliasInp
 public class testObjFieldAliasOutp
   : ItestObjFieldAliasOutp
 {
-  public ItestFldObjFieldAliasOutp Field { get; set; }
+public ItestFldObjFieldAliasOutp Field { get; set; }
 }
 
 public class testFldObjFieldAliasOutp
@@ -2971,7 +2979,7 @@ public class testObjFieldEnumAliasInp
 public class testObjFieldEnumAliasOutp
   : ItestObjFieldEnumAliasOutp
 {
-  public bool Field { get; set; }
+public bool Field { get; set; }
 }
 
 public class testObjFieldEnumValueDual
@@ -2989,7 +2997,7 @@ public class testObjFieldEnumValueInp
 public class testObjFieldEnumValueOutp
   : ItestObjFieldEnumValueOutp
 {
-  public bool Field { get; set; }
+public bool Field { get; set; }
 }
 
 public class testObjFieldTypeAliasDual
@@ -3007,7 +3015,7 @@ public class testObjFieldTypeAliasInp
 public class testObjFieldTypeAliasOutp
   : ItestObjFieldTypeAliasOutp
 {
-  public string Field { get; set; }
+public string Field { get; set; }
 }
 
 public class testObjParamDual<TTest,TType>
@@ -3027,8 +3035,8 @@ public class testObjParamInp<TTest,TType>
 public class testObjParamOutp<TTest,TType>
   : ItestObjParamOutp<TTest,TType>
 {
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
+public TTest Test { get; set; }
+public TType Type { get; set; }
 }
 
 public class testObjParamDupDual<TTest>
@@ -3048,8 +3056,8 @@ public class testObjParamDupInp<TTest>
 public class testObjParamDupOutp<TTest>
   : ItestObjParamDupOutp<TTest>
 {
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
+public TTest Test { get; set; }
+public TTest Type { get; set; }
 }
 
 public class testObjPrntDual
@@ -3088,7 +3096,8 @@ public class testRefObjPrntOutp
 public class testOutpFieldParam
   : ItestOutpFieldParam
 {
-  public ItestFldOutpFieldParam Field { get; set; }
+public ItestFldOutpFieldParam Field (ItestOutpFieldParam1)
+{ }
 }
 
 public class testOutpFieldParam1

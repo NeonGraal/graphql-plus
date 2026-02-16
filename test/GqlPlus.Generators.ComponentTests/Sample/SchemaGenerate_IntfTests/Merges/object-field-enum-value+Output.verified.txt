@@ -16,5 +16,5 @@ public interface ICmptObjFieldEnumValueOutp
 
 public interface ICmptObjFieldEnumValueOutpObject
 {
-  bool Field { get; }
+bool Field { get; }
 }

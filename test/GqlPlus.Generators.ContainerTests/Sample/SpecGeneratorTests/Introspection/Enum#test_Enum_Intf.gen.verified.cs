@@ -26,5 +26,5 @@ public interface Itest_EnumValue
 public interface Itest_EnumValueObject
   : Itest_TypeRefObject<Itest_TypeKind>
 {
-  Itest_Name Label { get; }
+Itest_Name Label { get; }
 }

@@ -12,5 +12,5 @@ namespace Components.Gqlp_Schema_field_value_descr_Output;
 public class CmptFieldValueDescrOutp
   : ICmptFieldValueDescrOutp
 {
-  public CmptEnumFieldValueDescrOutp Field { get; set; }
+public CmptEnumFieldValueDescrOutp Field { get; set; }
 }

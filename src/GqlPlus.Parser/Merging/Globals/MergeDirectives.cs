@@ -15,13 +15,13 @@ internal class MergeDirectives(
 
   protected override IMessages CanMergeGroup(IGrouping<string, IGqlpSchemaDirective> group)
     => base.CanMergeGroup(group)
-      .Add(group.ManyCanMerge(d => d.Params, parameters));
+     .Add(group.CanMerge(item => item.Parameter, parameters));
 
   protected override IGqlpSchemaDirective MergeGroup(IEnumerable<IGqlpSchemaDirective> group)
   {
     DirectiveDeclAst ast = (DirectiveDeclAst)base.MergeGroup(group);
     return ast with {
-      Params = group.ManyMerge(item => item.Params, parameters).ArrayOf<InputParamAst>(),
+      Parameter = group.Merge(item => item.Parameter, parameters).FirstOrDefault(),
       Locations = group.Aggregate(DirectiveLocation.None, (l, d) => d.Locations | l),
     };
   }

@@ -44,5 +44,5 @@ public interface ItestAltCnstAltDualOutp
 public interface ItestAltCnstAltDualOutpObject
   : ItestPrntCnstAltDualOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

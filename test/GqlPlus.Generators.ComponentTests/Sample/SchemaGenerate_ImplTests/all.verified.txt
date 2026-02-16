@@ -61,5 +61,6 @@ public class CmptParam
 public class CmptAll
   : ICmptAll
 {
-  public ICmptField Items { get; set; }
+public ICmptField Items (ICmptParam?)
+{ }
 }

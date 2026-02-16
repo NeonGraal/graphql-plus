@@ -12,7 +12,7 @@ public interface ItestOutpDescrParam
 
 public interface ItestOutpDescrParamObject
 {
-  ItestFldOutpDescrParam Field { get; }
+ItestFldOutpDescrParam Field (ItestInOutpDescrParam parameter);
 }
 
 public interface ItestFldOutpDescrParam

@@ -25,5 +25,5 @@ public interface Itest_OutputFieldType
 public interface Itest_OutputFieldTypeObject
   : Itest_ObjFieldTypeObject
 {
-  ICollection<Itest_InputParam> Parameters { get; }
+Itest_InputFieldType? Parameter { get; }
 }

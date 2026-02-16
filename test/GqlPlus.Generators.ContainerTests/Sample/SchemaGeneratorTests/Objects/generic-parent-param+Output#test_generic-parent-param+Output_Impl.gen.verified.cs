@@ -19,5 +19,5 @@ public class testRefGnrcPrntParamOutp<TRef>
 public class testAltGnrcPrntParamOutp
   : ItestAltGnrcPrntParamOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

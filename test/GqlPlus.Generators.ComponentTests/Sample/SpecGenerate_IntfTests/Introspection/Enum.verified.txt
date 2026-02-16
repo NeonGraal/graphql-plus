@@ -37,5 +37,5 @@ public interface ICmpt_EnumValue
 public interface ICmpt_EnumValueObject
   : ICmpt_TypeRefObject<ICmpt_TypeKind>
 {
-  ICmpt_Name Label { get; }
+ICmpt_Name Label { get; }
 }

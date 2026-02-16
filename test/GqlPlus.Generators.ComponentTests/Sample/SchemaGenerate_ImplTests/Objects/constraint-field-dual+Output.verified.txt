@@ -20,7 +20,7 @@ public class CmptCnstFieldDualOutp
 public class CmptRefCnstFieldDualOutp<TRef>
   : ICmptRefCnstFieldDualOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class CmptPrntCnstFieldDualOutp
@@ -32,5 +32,5 @@ public class CmptAltCnstFieldDualOutp
   : CmptPrntCnstFieldDualOutp
   , ICmptAltCnstFieldDualOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

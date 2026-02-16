@@ -30,5 +30,5 @@ public class CmptAltCnstAltDualOutp
   : CmptPrntCnstAltDualOutp
   , ICmptAltCnstAltDualOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

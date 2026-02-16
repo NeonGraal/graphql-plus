@@ -8,5 +8,5 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Output;
 public class testFieldValueDescrOutp
   : ItestFieldValueDescrOutp
 {
-  public testEnumFieldValueDescrOutp Field { get; set; }
+public testEnumFieldValueDescrOutp Field { get; set; }
 }

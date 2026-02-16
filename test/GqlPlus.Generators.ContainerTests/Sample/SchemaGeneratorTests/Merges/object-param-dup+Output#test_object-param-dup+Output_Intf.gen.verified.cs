@@ -12,6 +12,6 @@ public interface ItestObjParamDupOutp<TTest>
 
 public interface ItestObjParamDupOutpObject<TTest>
 {
-  TTest Test { get; }
-  TTest Type { get; }
+TTest Test { get; }
+TTest Type { get; }
 }

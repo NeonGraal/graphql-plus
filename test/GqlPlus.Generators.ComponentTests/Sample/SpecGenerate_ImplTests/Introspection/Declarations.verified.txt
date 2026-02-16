@@ -43,10 +43,14 @@ public class Cmpt_Schema
   : Cmpt_Named
   , ICmpt_Schema
 {
-  public IDictionary<ICmpt_Name, ICmpt_Categories> Categories { get; set; }
-  public IDictionary<ICmpt_Name, ICmpt_Directives> Directives { get; set; }
-  public IDictionary<ICmpt_Name, ICmpt_Type> Types { get; set; }
-  public IDictionary<ICmpt_Name, ICmpt_Setting> Settings { get; set; }
+public IDictionary<ICmpt_Name, ICmpt_Categories> Categories (ICmpt_CategoryFilter?)
+{ }
+public IDictionary<ICmpt_Name, ICmpt_Directives> Directives (ICmpt_Filter?)
+{ }
+public IDictionary<ICmpt_Name, ICmpt_Type> Types (ICmpt_TypeFilter?)
+{ }
+public IDictionary<ICmpt_Name, ICmpt_Setting> Settings (ICmpt_Filter?)
+{ }
 }
 
 public class Cmpt_Name

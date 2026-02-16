@@ -14,7 +14,7 @@ public interface Itest_DomainRef<TKind>
 public interface Itest_DomainRefObject<TKind>
   : Itest_TypeRefObject<Itest_TypeKind>
 {
-  TKind DomainKind { get; }
+TKind DomainKind { get; }
 }
 
 public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
@@ -26,7 +26,7 @@ public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
 public interface Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
   : Itest_ParentTypeObject<Itest_TypeKind, TItem, TDomainItem>
 {
-  TDomain DomainKind { get; }
+TDomain DomainKind { get; }
 }
 
 public interface Itest_BaseDomainItem
@@ -49,7 +49,7 @@ public interface Itest_DomainItem<TItem>
 
 public interface Itest_DomainItemObject<TItem>
 {
-  Itest_Name Domain { get; }
+Itest_Name Domain { get; }
 }
 
 public interface Itest_DomainValue<TKind,TValue>
@@ -62,7 +62,7 @@ public interface Itest_DomainValue<TKind,TValue>
 public interface Itest_DomainValueObject<TKind,TValue>
   : Itest_DomainRefObject<TKind>
 {
-  TValue Value { get; }
+TValue Value { get; }
 }
 
 public interface Itest_BasicValue
@@ -110,7 +110,7 @@ public interface Itest_DomainLabel
 public interface Itest_DomainLabelObject
   : Itest_BaseDomainItemObject
 {
-  Itest_EnumValue Label { get; }
+Itest_EnumValue Label { get; }
 }
 
 public interface Itest_DomainItemLabel

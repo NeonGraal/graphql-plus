@@ -23,7 +23,7 @@ public interface ItestRefCnstFieldDmnOutp<TRef>
 
 public interface ItestRefCnstFieldDmnOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ItestDomCnstFieldDmnOutp

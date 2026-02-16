@@ -15,5 +15,5 @@ public class test_OutputFieldType
   : test_ObjFieldType
   , Itest_OutputFieldType
 {
-  public ICollection<Itest_InputParam> Parameters { get; set; }
+public Itest_InputFieldType? Parameter { get; set; }
 }

@@ -14,5 +14,5 @@ public class testPrntOutp
 public class testRefPrntOutp
   : ItestRefPrntOutp
 {
-  public decimal Parent { get; set; }
+public decimal Parent { get; set; }
 }

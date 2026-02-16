@@ -9,13 +9,15 @@ public class testOutpPrntParam
   : testPrntOutpPrntParam
   , ItestOutpPrntParam
 {
-  public ItestFldOutpPrntParam Field { get; set; }
+public ItestFldOutpPrntParam Field (ItestInOutpPrntParam)
+{ }
 }
 
 public class testPrntOutpPrntParam
   : ItestPrntOutpPrntParam
 {
-  public ItestFldOutpPrntParam Field { get; set; }
+public ItestFldOutpPrntParam Field (ItestPrntOutpPrntParamIn)
+{ }
 }
 
 public class testFldOutpPrntParam

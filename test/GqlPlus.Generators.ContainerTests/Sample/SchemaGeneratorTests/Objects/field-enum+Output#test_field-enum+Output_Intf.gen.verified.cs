@@ -12,5 +12,5 @@ public interface ItestFieldEnumOutp
 
 public interface ItestFieldEnumOutpObject
 {
-  testEnumFieldEnumOutp Field { get; }
+testEnumFieldEnumOutp Field { get; }
 }

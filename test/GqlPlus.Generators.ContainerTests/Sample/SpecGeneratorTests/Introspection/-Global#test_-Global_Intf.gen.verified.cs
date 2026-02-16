@@ -15,7 +15,7 @@ public interface Itest_AndType
 public interface Itest_AndTypeObject
   : Itest_NamedObject
 {
-  Itest_Type Type { get; }
+Itest_Type Type { get; }
 }
 
 public interface Itest_Categories
@@ -28,7 +28,7 @@ public interface Itest_Categories
 public interface Itest_CategoriesObject
   : Itest_AndTypeObject
 {
-  Itest_Category Category { get; }
+Itest_Category Category { get; }
 }
 
 public interface Itest_Category
@@ -40,9 +40,9 @@ public interface Itest_Category
 public interface Itest_CategoryObject
   : Itest_AliasedObject
 {
-  test_Resolution Resolution { get; }
-  Itest_TypeRef<Itest_TypeKind> Output { get; }
-  ICollection<Itest_Modifiers> Modifiers { get; }
+test_Resolution Resolution { get; }
+Itest_TypeRef<Itest_TypeKind> Output { get; }
+ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
 public interface Itest_Directives
@@ -55,7 +55,7 @@ public interface Itest_Directives
 public interface Itest_DirectivesObject
   : Itest_AndTypeObject
 {
-  Itest_Directive Directive { get; }
+Itest_Directive Directive { get; }
 }
 
 public interface Itest_Directive
@@ -67,9 +67,9 @@ public interface Itest_Directive
 public interface Itest_DirectiveObject
   : Itest_AliasedObject
 {
-  ICollection<Itest_InputParam> Parameters { get; }
-  bool Repeatable { get; }
-  IDictionary<test_Location, GqlpUnit> Locations { get; }
+Itest_InputFieldType? Parameter { get; }
+bool Repeatable { get; }
+IDictionary<test_Location, GqlpUnit> Locations { get; }
 }
 
 public interface Itest_Setting
@@ -81,5 +81,5 @@ public interface Itest_Setting
 public interface Itest_SettingObject
   : Itest_NamedObject
 {
-  GqlpValue Value { get; }
+GqlpValue Value { get; }
 }

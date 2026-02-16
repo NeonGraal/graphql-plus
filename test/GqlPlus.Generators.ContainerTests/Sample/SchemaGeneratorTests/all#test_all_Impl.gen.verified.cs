@@ -34,5 +34,6 @@ public class testParam
 public class testAll
   : ItestAll
 {
-  public ItestField Items { get; set; }
+public ItestField Items (ItestParam?)
+{ }
 }

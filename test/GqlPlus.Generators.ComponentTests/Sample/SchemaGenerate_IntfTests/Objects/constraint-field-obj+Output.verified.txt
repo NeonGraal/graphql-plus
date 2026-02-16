@@ -29,7 +29,7 @@ public interface ICmptRefCnstFieldObjOutp<TRef>
 
 public interface ICmptRefCnstFieldObjOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldObjOutp
@@ -51,5 +51,5 @@ public interface ICmptAltCnstFieldObjOutp
 public interface ICmptAltCnstFieldObjOutpObject
   : ICmptPrntCnstFieldObjOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

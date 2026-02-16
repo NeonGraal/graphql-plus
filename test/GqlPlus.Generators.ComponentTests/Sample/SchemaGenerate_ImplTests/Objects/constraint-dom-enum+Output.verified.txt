@@ -19,7 +19,7 @@ public class CmptCnstDomEnumOutp
 public class CmptRefCnstDomEnumOutp<TType>
   : ICmptRefCnstDomEnumOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }
 
 public class CmptJustCnstDomEnumOutp

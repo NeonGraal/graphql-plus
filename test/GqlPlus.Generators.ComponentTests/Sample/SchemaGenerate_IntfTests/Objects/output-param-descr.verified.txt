@@ -17,7 +17,7 @@ public interface ICmptOutpParamDescr
 
 public interface ICmptOutpParamDescrObject
 {
-  ICmptFldOutpParamDescr Field { get; }
+ICmptFldOutpParamDescr Field (ICmptInOutpParamDescr parameter);
 }
 
 public interface ICmptFldOutpParamDescr

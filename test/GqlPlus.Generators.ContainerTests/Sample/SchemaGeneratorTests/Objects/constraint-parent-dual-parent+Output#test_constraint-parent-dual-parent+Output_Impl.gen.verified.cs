@@ -25,5 +25,5 @@ public class testAltCnstPrntDualPrntOutp
   : testPrntCnstPrntDualPrntOutp
   , ItestAltCnstPrntDualPrntOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

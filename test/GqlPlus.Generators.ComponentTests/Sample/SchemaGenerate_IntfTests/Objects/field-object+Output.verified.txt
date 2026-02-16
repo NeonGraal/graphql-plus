@@ -16,7 +16,7 @@ public interface ICmptFieldObjOutp
 
 public interface ICmptFieldObjOutpObject
 {
-  ICmptFldFieldObjOutp Field { get; }
+ICmptFldFieldObjOutp Field { get; }
 }
 
 public interface ICmptFldFieldObjOutp
@@ -27,5 +27,5 @@ public interface ICmptFldFieldObjOutp
 
 public interface ICmptFldFieldObjOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }

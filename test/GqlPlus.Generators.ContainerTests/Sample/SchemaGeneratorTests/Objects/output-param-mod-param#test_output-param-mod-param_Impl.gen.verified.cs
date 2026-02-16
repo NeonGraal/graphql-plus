@@ -8,7 +8,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_param;
 public class testOutpParamModParam<TMod>
   : ItestOutpParamModParam<TMod>
 {
-  public ItestDomOutpParamModParam Field { get; set; }
+public ItestDomOutpParamModParam Field (IDictionary<TMod, ItestInOutpParamModParam>)
+{ }
 }
 
 public class testInOutpParamModParam

@@ -23,5 +23,5 @@ public interface ItestFieldGnrcPrntSmplEnumOutp<TRef>
 
 public interface ItestFieldGnrcPrntSmplEnumOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }

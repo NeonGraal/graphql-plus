@@ -22,7 +22,7 @@ public interface ItestRefCnstDomEnumOutp<TType>
 
 public interface ItestRefCnstDomEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ItestJustCnstDomEnumOutp

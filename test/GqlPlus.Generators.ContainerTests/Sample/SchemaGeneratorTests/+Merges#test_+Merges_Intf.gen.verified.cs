@@ -283,8 +283,8 @@ public interface ItestObjCnstOutp<TType>
 
 public interface ItestObjCnstOutpObject<TType>
 {
-  TType Field { get; }
-  TType Str { get; }
+TType Field { get; }
+TType Str { get; }
 }
 
 public interface ItestObjFieldDual
@@ -332,7 +332,7 @@ public interface ItestObjFieldOutp
 
 public interface ItestObjFieldOutpObject
 {
-  ItestFldObjFieldOutp Field { get; }
+ItestFldObjFieldOutp Field { get; }
 }
 
 public interface ItestFldObjFieldOutp
@@ -389,7 +389,7 @@ public interface ItestObjFieldAliasOutp
 
 public interface ItestObjFieldAliasOutpObject
 {
-  ItestFldObjFieldAliasOutp Field { get; }
+ItestFldObjFieldAliasOutp Field { get; }
 }
 
 public interface ItestFldObjFieldAliasOutp
@@ -428,7 +428,7 @@ public interface ItestObjFieldEnumAliasOutp
 
 public interface ItestObjFieldEnumAliasOutpObject
 {
-  bool Field { get; }
+bool Field { get; }
 }
 
 public interface ItestObjFieldEnumValueDual
@@ -458,7 +458,7 @@ public interface ItestObjFieldEnumValueOutp
 
 public interface ItestObjFieldEnumValueOutpObject
 {
-  bool Field { get; }
+bool Field { get; }
 }
 
 public interface ItestObjFieldTypeAliasDual
@@ -488,7 +488,7 @@ public interface ItestObjFieldTypeAliasOutp
 
 public interface ItestObjFieldTypeAliasOutpObject
 {
-  string Field { get; }
+string Field { get; }
 }
 
 public interface ItestObjParamDual<TTest,TType>
@@ -520,8 +520,8 @@ public interface ItestObjParamOutp<TTest,TType>
 
 public interface ItestObjParamOutpObject<TTest,TType>
 {
-  TTest Test { get; }
-  TType Type { get; }
+TTest Test { get; }
+TType Type { get; }
 }
 
 public interface ItestObjParamDupDual<TTest>
@@ -553,8 +553,8 @@ public interface ItestObjParamDupOutp<TTest>
 
 public interface ItestObjParamDupOutpObject<TTest>
 {
-  TTest Test { get; }
-  TTest Type { get; }
+TTest Test { get; }
+TTest Type { get; }
 }
 
 public interface ItestObjPrntDual
@@ -624,7 +624,7 @@ public interface ItestOutpFieldParam
 
 public interface ItestOutpFieldParamObject
 {
-  ItestFldOutpFieldParam Field { get; }
+ItestFldOutpFieldParam Field (ItestOutpFieldParam1 parameter);
 }
 
 public interface ItestOutpFieldParam1

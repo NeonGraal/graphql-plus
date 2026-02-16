@@ -20,7 +20,7 @@ internal class OutputGenerator
     if (string.IsNullOrEmpty(item.Param)) {
       context.Write(member + "{ get; }");
     } else {
-      context.Write($"{member}({item.Param});");
+      context.Write($"{member}({item.Param} parameter);");
     }
   }
 
@@ -28,7 +28,7 @@ internal class OutputGenerator
     => ast.ObjFields.Select(f => new OutputField(
       f.Name.Capitalize(),
       ModifiedTypeString(f.Type, f, context),
-      f.Params.);
+      f.Parameter is null ? "" : ModifiedTypeString(f.Parameter.Type, f.Parameter, context)));
 }
 
 internal class OutputField(string fieldName, string fieldType, string fieldParam)

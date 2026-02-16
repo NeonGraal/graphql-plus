@@ -16,13 +16,15 @@ public class CmptOutpPrntParam
   : CmptPrntOutpPrntParam
   , ICmptOutpPrntParam
 {
-  public ICmptFldOutpPrntParam Field { get; set; }
+public ICmptFldOutpPrntParam Field (ICmptInOutpPrntParam)
+{ }
 }
 
 public class CmptPrntOutpPrntParam
   : ICmptPrntOutpPrntParam
 {
-  public ICmptFldOutpPrntParam Field { get; set; }
+public ICmptFldOutpPrntParam Field (ICmptPrntOutpPrntParamIn)
+{ }
 }
 
 public class CmptFldOutpPrntParam

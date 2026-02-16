@@ -23,7 +23,7 @@ public interface ItestRefCnstFieldDualOutp<TRef>
 
 public interface ItestRefCnstFieldDualOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ItestPrntCnstFieldDualOutp
@@ -45,5 +45,5 @@ public interface ItestAltCnstFieldDualOutp
 public interface ItestAltCnstFieldDualOutpObject
   : ItestPrntCnstFieldDualOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

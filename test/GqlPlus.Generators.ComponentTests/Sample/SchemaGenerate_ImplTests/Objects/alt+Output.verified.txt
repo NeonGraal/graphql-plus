@@ -17,5 +17,5 @@ public class CmptAltOutp
 public class CmptAltAltOutp
   : ICmptAltAltOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

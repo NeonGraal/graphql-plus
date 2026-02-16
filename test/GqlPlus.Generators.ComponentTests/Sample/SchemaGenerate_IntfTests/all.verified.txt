@@ -73,5 +73,5 @@ public interface ICmptAll
 
 public interface ICmptAllObject
 {
-  ICmptField Items { get; }
+ICmptField Items (ICmptParam? parameter);
 }

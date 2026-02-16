@@ -8,7 +8,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_param_Output;
 public class testGnrcFieldParamOutp
   : ItestGnrcFieldParamOutp
 {
-  public ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; set; }
+public ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; set; }
 }
 
 public class testRefGnrcFieldParamOutp<TRef>
@@ -19,5 +19,5 @@ public class testRefGnrcFieldParamOutp<TRef>
 public class testAltGnrcFieldParamOutp
   : ItestAltGnrcFieldParamOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

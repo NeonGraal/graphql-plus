@@ -9,7 +9,7 @@ public class testPrntParamDiffOutp<TA>
   : testRefPrntParamDiffOutp<TA>
   , ItestPrntParamDiffOutp<TA>
 {
-  public TA Field { get; set; }
+public TA Field { get; set; }
 }
 
 public class testRefPrntParamDiffOutp<TB>

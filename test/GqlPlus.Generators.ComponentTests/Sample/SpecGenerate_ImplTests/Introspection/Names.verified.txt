@@ -50,5 +50,5 @@ public class Cmpt_AndType
   : Cmpt_Named
   , ICmpt_AndType
 {
-  public ICmpt_Type Type { get; set; }
+public ICmpt_Type Type { get; set; }
 }

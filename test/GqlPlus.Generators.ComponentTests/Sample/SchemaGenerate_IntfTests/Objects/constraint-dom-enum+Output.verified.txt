@@ -28,7 +28,7 @@ public interface ICmptRefCnstDomEnumOutp<TType>
 
 public interface ICmptRefCnstDomEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }
 
 public interface ICmptJustCnstDomEnumOutp

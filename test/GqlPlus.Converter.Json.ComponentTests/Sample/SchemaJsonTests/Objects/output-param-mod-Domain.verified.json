@@ -89,26 +89,24 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpParamModDmn",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_ModifierDictionary",
-                  "by": "DomOutpParamModDmn",
-                  "modifierKind": {
-                    "$value": "Dict",
-                    "$valueTag": "_ModifierKind"
-                  },
-                  "typeKind": {
-                    "$value": "Domain",
-                    "$valueTag": "_SimpleKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_ModifierDictionary",
+                "by": "DomOutpParamModDmn",
+                "modifierKind": {
+                  "$value": "Dict",
+                  "$valueTag": "_ModifierKind"
+                },
+                "typeKind": {
+                  "$value": "Domain",
+                  "$valueTag": "_SimpleKind"
                 }
-              ],
-              "name": "InOutpParamModDmn"
-            }
-          ],
+              }
+            ],
+            "name": "InOutpParamModDmn"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "DomOutpParamModDmn"
@@ -119,26 +117,24 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_ModifierDictionary",
-                  "by": "DomOutpParamModDmn",
-                  "modifierKind": {
-                    "$value": "Dict",
-                    "$valueTag": "_ModifierKind"
-                  },
-                  "typeKind": {
-                    "$value": "Domain",
-                    "$valueTag": "_SimpleKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_ModifierDictionary",
+                "by": "DomOutpParamModDmn",
+                "modifierKind": {
+                  "$value": "Dict",
+                  "$valueTag": "_ModifierKind"
+                },
+                "typeKind": {
+                  "$value": "Domain",
+                  "$valueTag": "_SimpleKind"
                 }
-              ],
-              "name": "InOutpParamModDmn"
-            }
-          ],
+              }
+            ],
+            "name": "InOutpParamModDmn"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "DomOutpParamModDmn"

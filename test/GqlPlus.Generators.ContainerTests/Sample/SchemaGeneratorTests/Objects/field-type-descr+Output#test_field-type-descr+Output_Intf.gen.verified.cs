@@ -12,5 +12,5 @@ public interface ItestFieldTypeDescrOutp
 
 public interface ItestFieldTypeDescrOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }

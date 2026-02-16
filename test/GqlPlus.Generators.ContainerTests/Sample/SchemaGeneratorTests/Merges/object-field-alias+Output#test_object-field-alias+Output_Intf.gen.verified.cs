@@ -12,7 +12,7 @@ public interface ItestObjFieldAliasOutp
 
 public interface ItestObjFieldAliasOutpObject
 {
-  ItestFldObjFieldAliasOutp Field { get; }
+ItestFldObjFieldAliasOutp Field { get; }
 }
 
 public interface ItestFldObjFieldAliasOutp

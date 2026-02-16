@@ -194,8 +194,8 @@ public class testObjCnstInp<TType>
 public class testObjCnstOutp<TType>
   : ItestObjCnstOutp<TType>
 {
-  public TType Field { get; set; }
-  public TType Str { get; set; }
+public TType Field { get; set; }
+public TType Str { get; set; }
 }
 
 public class testObjFieldDual
@@ -223,7 +223,7 @@ public class testFldObjFieldInp
 public class testObjFieldOutp
   : ItestObjFieldOutp
 {
-  public ItestFldObjFieldOutp Field { get; set; }
+public ItestFldObjFieldOutp Field { get; set; }
 }
 
 public class testFldObjFieldOutp
@@ -256,7 +256,7 @@ public class testFldObjFieldAliasInp
 public class testObjFieldAliasOutp
   : ItestObjFieldAliasOutp
 {
-  public ItestFldObjFieldAliasOutp Field { get; set; }
+public ItestFldObjFieldAliasOutp Field { get; set; }
 }
 
 public class testFldObjFieldAliasOutp
@@ -279,7 +279,7 @@ public class testObjFieldEnumAliasInp
 public class testObjFieldEnumAliasOutp
   : ItestObjFieldEnumAliasOutp
 {
-  public bool Field { get; set; }
+public bool Field { get; set; }
 }
 
 public class testObjFieldEnumValueDual
@@ -297,7 +297,7 @@ public class testObjFieldEnumValueInp
 public class testObjFieldEnumValueOutp
   : ItestObjFieldEnumValueOutp
 {
-  public bool Field { get; set; }
+public bool Field { get; set; }
 }
 
 public class testObjFieldTypeAliasDual
@@ -315,7 +315,7 @@ public class testObjFieldTypeAliasInp
 public class testObjFieldTypeAliasOutp
   : ItestObjFieldTypeAliasOutp
 {
-  public string Field { get; set; }
+public string Field { get; set; }
 }
 
 public class testObjParamDual<TTest,TType>
@@ -335,8 +335,8 @@ public class testObjParamInp<TTest,TType>
 public class testObjParamOutp<TTest,TType>
   : ItestObjParamOutp<TTest,TType>
 {
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
+public TTest Test { get; set; }
+public TType Type { get; set; }
 }
 
 public class testObjParamDupDual<TTest>
@@ -356,8 +356,8 @@ public class testObjParamDupInp<TTest>
 public class testObjParamDupOutp<TTest>
   : ItestObjParamDupOutp<TTest>
 {
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
+public TTest Test { get; set; }
+public TTest Type { get; set; }
 }
 
 public class testObjPrntDual
@@ -396,7 +396,8 @@ public class testRefObjPrntOutp
 public class testOutpFieldParam
   : ItestOutpFieldParam
 {
-  public ItestFldOutpFieldParam Field { get; set; }
+public ItestFldOutpFieldParam Field (ItestOutpFieldParam1)
+{ }
 }
 
 public class testOutpFieldParam1

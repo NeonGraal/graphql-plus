@@ -14,7 +14,7 @@ public class testGnrcPrntStrDomOutp
 public class testFieldGnrcPrntStrDomOutp<TRef>
   : ItestFieldGnrcPrntStrDomOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class testDomGnrcPrntStrDomOutp

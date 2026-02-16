@@ -29,5 +29,5 @@ public class test_AndType
   : test_Named
   , Itest_AndType
 {
-  public Itest_Type Type { get; set; }
+public Itest_Type Type { get; set; }
 }

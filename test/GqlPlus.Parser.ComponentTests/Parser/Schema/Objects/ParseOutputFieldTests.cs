@@ -9,23 +9,23 @@ public class ParseOutputFieldTests(
 ) : TestObjectField<IGqlpOutputField>(checks)
 {
   [Theory, RepeatData]
-  public void WithParams_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
+  public void WithParams_ReturnsCorrectAst(string name, string fieldType, string parameter)
     => checks.TrueExpected(
-      name + "(" + parameters.Joined() + "):" + fieldType,
+      name + "(" + parameter + "):" + fieldType,
       Field(name, FieldBase(fieldType)) with {
-        Params = parameters.Params()
+        Parameter = parameter.Param()
       });
 
   [Theory, RepeatData]
-  public void WithParamsBad_ReturnsFalse(string name, string fieldType, string[] parameters)
-    => checks.FalseExpected(name + "(" + parameters.Joined() + ":" + fieldType);
+  public void WithParamsBad_ReturnsFalse(string name, string fieldType, string parameter)
+    => checks.FalseExpected(name + "(" + parameter + ":" + fieldType);
 
   [Theory, RepeatData]
-  public void WithParamsModifiers_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
+  public void WithParamsModifiers_ReturnsCorrectAst(string name, string fieldType, string parameter)
     => checks.TrueExpected(
-      name + "(" + parameters.Joined(p => p + "[]?") + "):" + fieldType,
+      name + "(" + parameter + "[]?):" + fieldType,
       Field(name, FieldBase(fieldType)) with {
-        Params = parameters.Params(p => p with { Modifiers = TestMods() })
+        Parameter = parameter.Param(p => p with { Modifiers = TestMods() })
       });
 
   [Theory, RepeatData]
@@ -37,11 +37,11 @@ public class ParseOutputFieldTests(
     => checks.FalseExpected(name + "(" + parameter + "=):" + fieldType);
 
   [Theory, RepeatData]
-  public void WithParamsDefault_ReturnsCorrectAst(string name, string fieldType, string[] parameters, string content)
+  public void WithParamsDefault_ReturnsCorrectAst(string name, string fieldType, string parameter, string content)
     => checks.TrueExpected(
-      name + "(" + parameters.Joined(p => p + "='" + content + "'") + "):" + fieldType,
+      name + "(" + parameter + "='" + content + "'):" + fieldType,
       Field(name, FieldBase(fieldType)) with {
-        Params = parameters.Params(p => p with {
+        Parameter = parameter.Param(p => p with {
           DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, content))
         })
       });

@@ -28,5 +28,5 @@ public interface ICmptRefPrntOutp
 
 public interface ICmptRefPrntOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }

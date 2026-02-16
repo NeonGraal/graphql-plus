@@ -18,5 +18,5 @@ public class CmptPrntAltOutp
 public class CmptRefPrntAltOutp
   : ICmptRefPrntAltOutp
 {
-  public decimal Parent { get; set; }
+public decimal Parent { get; set; }
 }

@@ -5,7 +5,7 @@
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:locations[_Set(_Location)]:Spread=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:locations[_Set(_Location)]:Variable=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:name=DrctParamIn
-[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:parameters.0[_InputParam]:name=InDrctParamIn
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:parameter[_InputParam]:name=InDrctParamIn
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:repeatable=false
 [_Schema]:types[_Map(_Type)]:[_Name]InDrctParamIn[_TypeInput]:name=InDrctParamIn
 [_Schema]:types[_Map(_Type)]:[_Name]InDrctParamIn[_TypeInput]:typeKind=[_TypeKind]Input

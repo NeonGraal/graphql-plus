@@ -9,10 +9,14 @@ public class test_Schema
   : test_Named
   , Itest_Schema
 {
-  public IDictionary<Itest_Name, Itest_Categories> Categories { get; set; }
-  public IDictionary<Itest_Name, Itest_Directives> Directives { get; set; }
-  public IDictionary<Itest_Name, Itest_Type> Types { get; set; }
-  public IDictionary<Itest_Name, Itest_Setting> Settings { get; set; }
+public IDictionary<Itest_Name, Itest_Categories> Categories (Itest_CategoryFilter?)
+{ }
+public IDictionary<Itest_Name, Itest_Directives> Directives (Itest_Filter?)
+{ }
+public IDictionary<Itest_Name, Itest_Type> Types (Itest_TypeFilter?)
+{ }
+public IDictionary<Itest_Name, Itest_Setting> Settings (Itest_Filter?)
+{ }
 }
 
 public class test_Name

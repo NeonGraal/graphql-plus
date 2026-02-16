@@ -27,5 +27,5 @@ public interface ICmptRefGnrcEnumOutp<TType>
 
 public interface ICmptRefGnrcEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }

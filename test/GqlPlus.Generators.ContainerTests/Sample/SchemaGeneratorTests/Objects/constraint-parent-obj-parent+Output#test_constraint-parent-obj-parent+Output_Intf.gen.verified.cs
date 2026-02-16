@@ -45,5 +45,5 @@ public interface ItestAltCnstPrntObjPrntOutp
 public interface ItestAltCnstPrntObjPrntOutpObject
   : ItestPrntCnstPrntObjPrntOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

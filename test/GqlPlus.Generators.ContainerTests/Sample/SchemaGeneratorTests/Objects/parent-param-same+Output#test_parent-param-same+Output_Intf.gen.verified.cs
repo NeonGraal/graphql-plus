@@ -14,7 +14,7 @@ public interface ItestPrntParamSameOutp<TA>
 public interface ItestPrntParamSameOutpObject<TA>
   : ItestRefPrntParamSameOutpObject<TA>
 {
-  TA Field { get; }
+TA Field { get; }
 }
 
 public interface ItestRefPrntParamSameOutp<TA>

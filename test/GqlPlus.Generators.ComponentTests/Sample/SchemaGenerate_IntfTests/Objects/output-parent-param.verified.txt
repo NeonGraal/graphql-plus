@@ -21,7 +21,7 @@ public interface ICmptOutpPrntParam
 public interface ICmptOutpPrntParamObject
   : ICmptPrntOutpPrntParamObject
 {
-  ICmptFldOutpPrntParam Field { get; }
+ICmptFldOutpPrntParam Field (ICmptInOutpPrntParam parameter);
 }
 
 public interface ICmptPrntOutpPrntParam
@@ -31,7 +31,7 @@ public interface ICmptPrntOutpPrntParam
 
 public interface ICmptPrntOutpPrntParamObject
 {
-  ICmptFldOutpPrntParam Field { get; }
+ICmptFldOutpPrntParam Field (ICmptPrntOutpPrntParamIn parameter);
 }
 
 public interface ICmptFldOutpPrntParam

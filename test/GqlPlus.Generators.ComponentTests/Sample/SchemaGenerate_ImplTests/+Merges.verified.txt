@@ -193,8 +193,8 @@ public class CmptObjCnstInp<TType>
 public class CmptObjCnstOutp<TType>
   : ICmptObjCnstOutp<TType>
 {
-  public TType Field { get; set; }
-  public TType Str { get; set; }
+public TType Field { get; set; }
+public TType Str { get; set; }
 }
 
 public class CmptObjFieldDual
@@ -222,7 +222,7 @@ public class CmptFldObjFieldInp
 public class CmptObjFieldOutp
   : ICmptObjFieldOutp
 {
-  public ICmptFldObjFieldOutp Field { get; set; }
+public ICmptFldObjFieldOutp Field { get; set; }
 }
 
 public class CmptFldObjFieldOutp
@@ -255,7 +255,7 @@ public class CmptFldObjFieldAliasInp
 public class CmptObjFieldAliasOutp
   : ICmptObjFieldAliasOutp
 {
-  public ICmptFldObjFieldAliasOutp Field { get; set; }
+public ICmptFldObjFieldAliasOutp Field { get; set; }
 }
 
 public class CmptFldObjFieldAliasOutp
@@ -278,7 +278,7 @@ public class CmptObjFieldEnumAliasInp
 public class CmptObjFieldEnumAliasOutp
   : ICmptObjFieldEnumAliasOutp
 {
-  public bool Field { get; set; }
+public bool Field { get; set; }
 }
 
 public class CmptObjFieldEnumValueDual
@@ -296,7 +296,7 @@ public class CmptObjFieldEnumValueInp
 public class CmptObjFieldEnumValueOutp
   : ICmptObjFieldEnumValueOutp
 {
-  public bool Field { get; set; }
+public bool Field { get; set; }
 }
 
 public class CmptObjFieldTypeAliasDual
@@ -314,7 +314,7 @@ public class CmptObjFieldTypeAliasInp
 public class CmptObjFieldTypeAliasOutp
   : ICmptObjFieldTypeAliasOutp
 {
-  public string Field { get; set; }
+public string Field { get; set; }
 }
 
 public class CmptObjParamDual<TTest,TType>
@@ -334,8 +334,8 @@ public class CmptObjParamInp<TTest,TType>
 public class CmptObjParamOutp<TTest,TType>
   : ICmptObjParamOutp<TTest,TType>
 {
-  public TTest Test { get; set; }
-  public TType Type { get; set; }
+public TTest Test { get; set; }
+public TType Type { get; set; }
 }
 
 public class CmptObjParamDupDual<TTest>
@@ -355,8 +355,8 @@ public class CmptObjParamDupInp<TTest>
 public class CmptObjParamDupOutp<TTest>
   : ICmptObjParamDupOutp<TTest>
 {
-  public TTest Test { get; set; }
-  public TTest Type { get; set; }
+public TTest Test { get; set; }
+public TTest Type { get; set; }
 }
 
 public class CmptObjPrntDual
@@ -395,7 +395,8 @@ public class CmptRefObjPrntOutp
 public class CmptOutpFieldParam
   : ICmptOutpFieldParam
 {
-  public ICmptFldOutpFieldParam Field { get; set; }
+public ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1)
+{ }
 }
 
 public class CmptOutpFieldParam1

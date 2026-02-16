@@ -22,5 +22,5 @@ public interface ItestRefCnstPrntEnumOutp<TType>
 
 public interface ItestRefCnstPrntEnumOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }

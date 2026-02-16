@@ -16,7 +16,7 @@ public interface ICmptGnrcFieldArgOutp<TType>
 
 public interface ICmptGnrcFieldArgOutpObject<TType>
 {
-  ICmptRefGnrcFieldArgOutp<TType> Field { get; }
+ICmptRefGnrcFieldArgOutp<TType> Field { get; }
 }
 
 public interface ICmptRefGnrcFieldArgOutp<TRef>

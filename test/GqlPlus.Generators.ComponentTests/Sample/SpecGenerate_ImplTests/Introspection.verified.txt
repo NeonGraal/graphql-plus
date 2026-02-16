@@ -75,7 +75,7 @@ output _Directives {
 
 output _Directive {
     : _Aliased
-        parameters: _InputParam[]
+        parameter: _InputFieldType?
         repeatable: Boolean
         locations: _[_Location]
     }
@@ -330,17 +330,13 @@ output _InputFieldType {
         defaultValue: Value?
     }
 
-output _InputParam {
-    : _InputFieldType
-    }
-
 output _OutputField {
     : _ObjField<_ObjFieldType>
     }
 
 output _OutputFieldType {
     : _ObjFieldType
-        parameters: _InputParam[]
+        parameter: _InputFieldType?
     }
 */
 
@@ -354,10 +350,14 @@ public class Cmpt_Schema
   : Cmpt_Named
   , ICmpt_Schema
 {
-  public IDictionary<ICmpt_Name, ICmpt_Categories> Categories { get; set; }
-  public IDictionary<ICmpt_Name, ICmpt_Directives> Directives { get; set; }
-  public IDictionary<ICmpt_Name, ICmpt_Type> Types { get; set; }
-  public IDictionary<ICmpt_Name, ICmpt_Setting> Settings { get; set; }
+public IDictionary<ICmpt_Name, ICmpt_Categories> Categories (ICmpt_CategoryFilter?)
+{ }
+public IDictionary<ICmpt_Name, ICmpt_Directives> Directives (ICmpt_Filter?)
+{ }
+public IDictionary<ICmpt_Name, ICmpt_Type> Types (ICmpt_TypeFilter?)
+{ }
+public IDictionary<ICmpt_Name, ICmpt_Setting> Settings (ICmpt_Filter?)
+{ }
 }
 
 public class Cmpt_Name
@@ -420,46 +420,46 @@ public class Cmpt_AndType
   : Cmpt_Named
   , ICmpt_AndType
 {
-  public ICmpt_Type Type { get; set; }
+public ICmpt_Type Type { get; set; }
 }
 
 public class Cmpt_Categories
   : Cmpt_AndType
   , ICmpt_Categories
 {
-  public ICmpt_Category Category { get; set; }
+public ICmpt_Category Category { get; set; }
 }
 
 public class Cmpt_Category
   : Cmpt_Aliased
   , ICmpt_Category
 {
-  public Cmpt_Resolution Resolution { get; set; }
-  public ICmpt_TypeRef<Cmpt_TypeKind> Output { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+public Cmpt_Resolution Resolution { get; set; }
+public ICmpt_TypeRef<Cmpt_TypeKind> Output { get; set; }
+public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 }
 
 public class Cmpt_Directives
   : Cmpt_AndType
   , ICmpt_Directives
 {
-  public ICmpt_Directive Directive { get; set; }
+public ICmpt_Directive Directive { get; set; }
 }
 
 public class Cmpt_Directive
   : Cmpt_Aliased
   , ICmpt_Directive
 {
-  public ICollection<ICmpt_InputParam> Parameters { get; set; }
-  public Cmpt_DomainKind Repeatable { get; set; }
-  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
+public ICmpt_InputFieldType? Parameter { get; set; }
+public Cmpt_DomainKind Repeatable { get; set; }
+public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
 }
 
 public class Cmpt_Setting
   : Cmpt_Named
   , ICmpt_Setting
 {
-  public GqlpValue Value { get; set; }
+public GqlpValue Value { get; set; }
 }
 
 public class Cmpt_Type
@@ -471,22 +471,22 @@ public class Cmpt_BaseType<TKind>
   : Cmpt_Aliased
   , ICmpt_BaseType<TKind>
 {
-  public TKind TypeKind { get; set; }
+public TKind TypeKind { get; set; }
 }
 
 public class Cmpt_ChildType<TKind,TParent>
   : Cmpt_BaseType<TKind>
   , ICmpt_ChildType<TKind,TParent>
 {
-  public TParent Parent { get; set; }
+public TParent Parent { get; set; }
 }
 
 public class Cmpt_ParentType<TKind,TItem,TAllItem>
   : Cmpt_ChildType<TKind, ICmpt_Named>
   , ICmpt_ParentType<TKind,TItem,TAllItem>
 {
-  public ICollection<TItem> Items { get; set; }
-  public ICollection<TAllItem> AllItems { get; set; }
+public ICollection<TItem> Items { get; set; }
+public ICollection<TAllItem> AllItems { get; set; }
 }
 
 public class Cmpt_TypeRef<TKind>
@@ -529,14 +529,14 @@ public class Cmpt_DomainRef<TKind>
   : Cmpt_TypeRef<Cmpt_TypeKind>
   , ICmpt_DomainRef<TKind>
 {
-  public TKind DomainKind { get; set; }
+public TKind DomainKind { get; set; }
 }
 
 public class Cmpt_BaseDomain<TDomain,TItem,TDomainItem>
   : Cmpt_ParentType<Cmpt_TypeKind, TItem, TDomainItem>
   , ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
 {
-  public TDomain DomainKind { get; set; }
+public TDomain DomainKind { get; set; }
 }
 
 public class Cmpt_BaseDomainItem
@@ -549,14 +549,14 @@ public class Cmpt_BaseDomainItem
 public class Cmpt_DomainItem<TItem>
   : ICmpt_DomainItem<TItem>
 {
-  public ICmpt_Name Domain { get; set; }
+public ICmpt_Name Domain { get; set; }
 }
 
 public class Cmpt_DomainValue<TKind,TValue>
   : Cmpt_DomainRef<TKind>
   , ICmpt_DomainValue<TKind,TValue>
 {
-  public TValue Value { get; set; }
+public TValue Value { get; set; }
 }
 
 public class Cmpt_BasicValue
@@ -581,7 +581,7 @@ public class Cmpt_DomainLabel
   : Cmpt_BaseDomainItem
   , ICmpt_DomainLabel
 {
-  public ICmpt_EnumValue Label { get; set; }
+public ICmpt_EnumValue Label { get; set; }
 }
 
 public class Cmpt_DomainItemLabel
@@ -628,7 +628,7 @@ public class Cmpt_EnumValue
   : Cmpt_TypeRef<Cmpt_TypeKind>
   , ICmpt_EnumValue
 {
-  public ICmpt_Name Label { get; set; }
+public ICmpt_Name Label { get; set; }
 }
 
 public class Cmpt_UnionRef
@@ -641,7 +641,7 @@ public class Cmpt_UnionMember
   : Cmpt_UnionRef
   , ICmpt_UnionMember
 {
-  public ICmpt_Name Union { get; set; }
+public ICmpt_Name Union { get; set; }
 }
 
 public class Cmpt_ObjectKind
@@ -654,80 +654,80 @@ public class Cmpt_TypeObject<TKind,TField>
   : Cmpt_ChildType<TKind, ICmpt_ObjBase>
   , ICmpt_TypeObject<TKind,TField>
 {
-  public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
-  public ICollection<TField> Fields { get; set; }
-  public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
-  public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
-  public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
+public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
+public ICollection<TField> Fields { get; set; }
+public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
+public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
+public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
 }
 
 public class Cmpt_ObjTypeParam
   : Cmpt_Named
   , ICmpt_ObjTypeParam
 {
-  public ICmpt_TypeRef<Cmpt_TypeKind> Constraint { get; set; }
+public ICmpt_TypeRef<Cmpt_TypeKind> Constraint { get; set; }
 }
 
 public class Cmpt_ObjBase
   : Cmpt_Named
   , ICmpt_ObjBase
 {
-  public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
+public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
 }
 
 public class Cmpt_ObjTypeArg
   : Cmpt_TypeRef<Cmpt_TypeKind>
   , ICmpt_ObjTypeArg
 {
-  public ICmpt_Name? Label { get; set; }
+public ICmpt_Name? Label { get; set; }
 }
 
 public class Cmpt_TypeParam
   : Cmpt_Described
   , ICmpt_TypeParam
 {
-  public ICmpt_Name TypeParam { get; set; }
+public ICmpt_Name TypeParam { get; set; }
 }
 
 public class Cmpt_ObjAlternate
   : ICmpt_ObjAlternate
 {
-  public ICmpt_ObjBase Type { get; set; }
-  public ICollection<ICmpt_Collections> Collections { get; set; }
+public ICmpt_ObjBase Type { get; set; }
+public ICollection<ICmpt_Collections> Collections { get; set; }
 }
 
 public class Cmpt_ObjAlternateEnum
   : Cmpt_TypeRef<Cmpt_TypeKind>
   , ICmpt_ObjAlternateEnum
 {
-  public ICmpt_Name Label { get; set; }
+public ICmpt_Name Label { get; set; }
 }
 
 public class Cmpt_ObjectFor<TFor>
   : ICmpt_ObjectFor<TFor>
 {
-  public ICmpt_Name ObjectType { get; set; }
+public ICmpt_Name ObjectType { get; set; }
 }
 
 public class Cmpt_ObjField<TType>
   : Cmpt_Aliased
   , ICmpt_ObjField<TType>
 {
-  public TType Type { get; set; }
+public TType Type { get; set; }
 }
 
 public class Cmpt_ObjFieldType
   : Cmpt_ObjBase
   , ICmpt_ObjFieldType
 {
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 }
 
 public class Cmpt_ObjFieldEnum
   : Cmpt_TypeRef<Cmpt_TypeKind>
   , ICmpt_ObjFieldEnum
 {
-  public ICmpt_Name Label { get; set; }
+public ICmpt_Name Label { get; set; }
 }
 
 public class Cmpt_ForParam<TType>
@@ -751,13 +751,7 @@ public class Cmpt_InputFieldType
   : Cmpt_ObjFieldType
   , ICmpt_InputFieldType
 {
-  public GqlpValue? DefaultValue { get; set; }
-}
-
-public class Cmpt_InputParam
-  : Cmpt_InputFieldType
-  , ICmpt_InputParam
-{
+public GqlpValue? DefaultValue { get; set; }
 }
 
 public class Cmpt_OutputField
@@ -770,5 +764,5 @@ public class Cmpt_OutputFieldType
   : Cmpt_ObjFieldType
   , ICmpt_OutputFieldType
 {
-  public ICollection<ICmpt_InputParam> Parameters { get; set; }
+public ICmpt_InputFieldType? Parameter { get; set; }
 }

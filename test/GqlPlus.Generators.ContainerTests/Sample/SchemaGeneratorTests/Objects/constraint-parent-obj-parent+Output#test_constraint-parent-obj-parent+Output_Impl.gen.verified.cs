@@ -25,5 +25,5 @@ public class testAltCnstPrntObjPrntOutp
   : testPrntCnstPrntObjPrntOutp
   , ItestAltCnstPrntObjPrntOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

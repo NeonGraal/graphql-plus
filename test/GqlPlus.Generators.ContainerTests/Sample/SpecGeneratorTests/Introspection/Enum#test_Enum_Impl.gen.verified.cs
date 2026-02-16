@@ -16,5 +16,5 @@ public class test_EnumValue
   : test_TypeRef<Itest_TypeKind>
   , Itest_EnumValue
 {
-  public Itest_Name Label { get; set; }
+public Itest_Name Label { get; set; }
 }

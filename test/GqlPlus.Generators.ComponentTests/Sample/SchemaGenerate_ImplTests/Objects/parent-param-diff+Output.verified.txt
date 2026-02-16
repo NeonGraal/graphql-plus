@@ -13,7 +13,7 @@ public class CmptPrntParamDiffOutp<TA>
   : CmptRefPrntParamDiffOutp<TA>
   , ICmptPrntParamDiffOutp<TA>
 {
-  public TA Field { get; set; }
+public TA Field { get; set; }
 }
 
 public class CmptRefPrntParamDiffOutp<TB>

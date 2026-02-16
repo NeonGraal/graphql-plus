@@ -15,5 +15,5 @@ public interface ICmptGnrcFieldOutp<TType>
 
 public interface ICmptGnrcFieldOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }

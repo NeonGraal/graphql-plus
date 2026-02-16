@@ -35,5 +35,5 @@ public interface ICmpt_UnionMember
 public interface ICmpt_UnionMemberObject
   : ICmpt_UnionRefObject
 {
-  ICmpt_Name Union { get; }
+ICmpt_Name Union { get; }
 }

@@ -8,7 +8,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_param_type_descr;
 public class testOutpParamTypeDescr
   : ItestOutpParamTypeDescr
 {
-  public ItestFldOutpParamTypeDescr Field { get; set; }
+public ItestFldOutpParamTypeDescr Field (ItestInOutpParamTypeDescr)
+{ }
 }
 
 public class testFldOutpParamTypeDescr

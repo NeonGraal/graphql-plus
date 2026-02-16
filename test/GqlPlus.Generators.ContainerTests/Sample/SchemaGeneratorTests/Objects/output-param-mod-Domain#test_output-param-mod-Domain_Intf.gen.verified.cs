@@ -12,7 +12,7 @@ public interface ItestOutpParamModDmn
 
 public interface ItestOutpParamModDmnObject
 {
-  ItestDomOutpParamModDmn Field { get; }
+ItestDomOutpParamModDmn Field (IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter);
 }
 
 public interface ItestInOutpParamModDmn

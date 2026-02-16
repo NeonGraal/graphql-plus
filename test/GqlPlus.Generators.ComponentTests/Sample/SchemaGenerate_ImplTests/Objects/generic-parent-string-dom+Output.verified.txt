@@ -19,7 +19,7 @@ public class CmptGnrcPrntStrDomOutp
 public class CmptFieldGnrcPrntStrDomOutp<TRef>
   : ICmptFieldGnrcPrntStrDomOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class CmptDomGnrcPrntStrDomOutp

@@ -62,10 +62,10 @@ public interface ICmpt_Schema
 public interface ICmpt_SchemaObject
   : ICmpt_NamedObject
 {
-  IDictionary<ICmpt_Name, ICmpt_Categories> Categories { get; }
-  IDictionary<ICmpt_Name, ICmpt_Directives> Directives { get; }
-  IDictionary<ICmpt_Name, ICmpt_Type> Types { get; }
-  IDictionary<ICmpt_Name, ICmpt_Setting> Settings { get; }
+IDictionary<ICmpt_Name, ICmpt_Categories> Categories (ICmpt_CategoryFilter? parameter);
+IDictionary<ICmpt_Name, ICmpt_Directives> Directives (ICmpt_Filter? parameter);
+IDictionary<ICmpt_Name, ICmpt_Type> Types (ICmpt_TypeFilter? parameter);
+IDictionary<ICmpt_Name, ICmpt_Setting> Settings (ICmpt_Filter? parameter);
 }
 
 public interface ICmpt_Name

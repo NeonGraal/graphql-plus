@@ -18,7 +18,7 @@ public interface ICmptPrntParamDiffOutp<TA>
 public interface ICmptPrntParamDiffOutpObject<TA>
   : ICmptRefPrntParamDiffOutpObject<TA>
 {
-  TA Field { get; }
+TA Field { get; }
 }
 
 public interface ICmptRefPrntParamDiffOutp<TB>

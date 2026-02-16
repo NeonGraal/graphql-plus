@@ -12,7 +12,7 @@ public interface ItestFieldDualOutp
 
 public interface ItestFieldDualOutpObject
 {
-  ItestFldFieldDualOutp Field { get; }
+ItestFldFieldDualOutp Field { get; }
 }
 
 public interface ItestFldFieldDualOutp

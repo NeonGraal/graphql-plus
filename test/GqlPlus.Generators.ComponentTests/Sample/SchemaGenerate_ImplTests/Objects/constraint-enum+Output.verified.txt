@@ -18,5 +18,5 @@ public class CmptCnstEnumOutp
 public class CmptRefCnstEnumOutp<TType>
   : ICmptRefCnstEnumOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }

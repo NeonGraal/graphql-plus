@@ -49,5 +49,5 @@ public interface Itest_AndType
 public interface Itest_AndTypeObject
   : Itest_NamedObject
 {
-  Itest_Type Type { get; }
+Itest_Type Type { get; }
 }

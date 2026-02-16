@@ -16,7 +16,7 @@ public interface ICmptFieldDualOutp
 
 public interface ICmptFieldDualOutpObject
 {
-  ICmptFldFieldDualOutp Field { get; }
+ICmptFldFieldDualOutp Field { get; }
 }
 
 public interface ICmptFldFieldDualOutp

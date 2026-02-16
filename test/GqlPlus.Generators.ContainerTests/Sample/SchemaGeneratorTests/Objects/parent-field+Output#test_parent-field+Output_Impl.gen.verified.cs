@@ -9,11 +9,11 @@ public class testPrntFieldOutp
   : testRefPrntFieldOutp
   , ItestPrntFieldOutp
 {
-  public decimal Field { get; set; }
+public decimal Field { get; set; }
 }
 
 public class testRefPrntFieldOutp
   : ItestRefPrntFieldOutp
 {
-  public decimal Parent { get; set; }
+public decimal Parent { get; set; }
 }

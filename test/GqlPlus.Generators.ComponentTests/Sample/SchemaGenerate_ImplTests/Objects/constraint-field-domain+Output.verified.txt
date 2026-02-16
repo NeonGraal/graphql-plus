@@ -19,7 +19,7 @@ public class CmptCnstFieldDmnOutp
 public class CmptRefCnstFieldDmnOutp<TRef>
   : ICmptRefCnstFieldDmnOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class CmptDomCnstFieldDmnOutp

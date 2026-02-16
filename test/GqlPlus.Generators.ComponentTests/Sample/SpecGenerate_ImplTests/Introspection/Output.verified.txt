@@ -5,7 +5,7 @@ output _OutputField {
 
 output _OutputFieldType {
     : _ObjFieldType
-        parameters: _InputParam[]
+        parameter: _InputFieldType?
     }
 */
 
@@ -25,5 +25,5 @@ public class Cmpt_OutputFieldType
   : Cmpt_ObjFieldType
   , ICmpt_OutputFieldType
 {
-  public ICollection<ICmpt_InputParam> Parameters { get; set; }
+public ICmpt_InputFieldType? Parameter { get; set; }
 }

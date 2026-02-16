@@ -15,5 +15,5 @@ public interface ICmptFieldSmplOutp
 
 public interface ICmptFieldSmplOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }

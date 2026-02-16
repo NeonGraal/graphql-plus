@@ -16,7 +16,7 @@ public interface ICmptFieldModParamOutp<TMod>
 
 public interface ICmptFieldModParamOutpObject<TMod>
 {
-  IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; }
+IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; }
 }
 
 public interface ICmptFldFieldModParamOutp
@@ -27,5 +27,5 @@ public interface ICmptFldFieldModParamOutp
 
 public interface ICmptFldFieldModParamOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }

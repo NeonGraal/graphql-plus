@@ -9,14 +9,14 @@ public class test_DomainRef<TKind>
   : test_TypeRef<Itest_TypeKind>
   , Itest_DomainRef<TKind>
 {
-  public TKind DomainKind { get; set; }
+public TKind DomainKind { get; set; }
 }
 
 public class test_BaseDomain<TDomain,TItem,TDomainItem>
   : test_ParentType<Itest_TypeKind, TItem, TDomainItem>
   , Itest_BaseDomain<TDomain,TItem,TDomainItem>
 {
-  public TDomain DomainKind { get; set; }
+public TDomain DomainKind { get; set; }
 }
 
 public class test_BaseDomainItem
@@ -29,14 +29,14 @@ public class test_BaseDomainItem
 public class test_DomainItem<TItem>
   : Itest_DomainItem<TItem>
 {
-  public Itest_Name Domain { get; set; }
+public Itest_Name Domain { get; set; }
 }
 
 public class test_DomainValue<TKind,TValue>
   : test_DomainRef<TKind>
   , Itest_DomainValue<TKind,TValue>
 {
-  public TValue Value { get; set; }
+public TValue Value { get; set; }
 }
 
 public class test_BasicValue
@@ -61,7 +61,7 @@ public class test_DomainLabel
   : test_BaseDomainItem
   , Itest_DomainLabel
 {
-  public Itest_EnumValue Label { get; set; }
+public Itest_EnumValue Label { get; set; }
 }
 
 public class test_DomainItemLabel
@@ -108,7 +108,7 @@ public class test_EnumValue
   : test_TypeRef<Itest_TypeKind>
   , Itest_EnumValue
 {
-  public Itest_Name Label { get; set; }
+public Itest_Name Label { get; set; }
 }
 
 public class test_UnionRef
@@ -121,5 +121,5 @@ public class test_UnionMember
   : test_UnionRef
   , Itest_UnionMember
 {
-  public Itest_Name Union { get; set; }
+public Itest_Name Union { get; set; }
 }

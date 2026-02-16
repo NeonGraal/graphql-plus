@@ -29,5 +29,5 @@ public interface ICmptRefPrntAltOutp
 
 public interface ICmptRefPrntAltOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }

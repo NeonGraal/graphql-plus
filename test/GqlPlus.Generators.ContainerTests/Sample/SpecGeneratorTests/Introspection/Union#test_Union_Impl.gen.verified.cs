@@ -15,5 +15,5 @@ public class test_UnionMember
   : test_UnionRef
   , Itest_UnionMember
 {
-  public Itest_Name Union { get; set; }
+public Itest_Name Union { get; set; }
 }

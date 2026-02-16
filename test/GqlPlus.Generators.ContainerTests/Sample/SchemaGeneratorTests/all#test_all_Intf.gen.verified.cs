@@ -46,5 +46,5 @@ public interface ItestAll
 
 public interface ItestAllObject
 {
-  ItestField Items { get; }
+ItestField Items (ItestParam? parameter);
 }

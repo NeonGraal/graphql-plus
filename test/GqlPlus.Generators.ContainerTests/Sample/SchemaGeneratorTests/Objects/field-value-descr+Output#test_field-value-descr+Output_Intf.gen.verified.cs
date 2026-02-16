@@ -12,5 +12,5 @@ public interface ItestFieldValueDescrOutp
 
 public interface ItestFieldValueDescrOutpObject
 {
-  testEnumFieldValueDescrOutp Field { get; }
+testEnumFieldValueDescrOutp Field { get; }
 }

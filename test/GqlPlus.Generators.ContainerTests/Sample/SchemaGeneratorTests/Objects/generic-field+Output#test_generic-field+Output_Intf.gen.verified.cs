@@ -12,5 +12,5 @@ public interface ItestGnrcFieldOutp<TType>
 
 public interface ItestGnrcFieldOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }

@@ -12,7 +12,7 @@ public interface ItestGnrcFieldDualOutp
 
 public interface ItestGnrcFieldDualOutpObject
 {
-  ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; }
+ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; }
 }
 
 public interface ItestRefGnrcFieldDualOutp<TRef>

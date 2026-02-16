@@ -8,5 +8,5 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_enum_Output;
 public class testFieldEnumOutp
   : ItestFieldEnumOutp
 {
-  public testEnumFieldEnumOutp Field { get; set; }
+public testEnumFieldEnumOutp Field { get; set; }
 }

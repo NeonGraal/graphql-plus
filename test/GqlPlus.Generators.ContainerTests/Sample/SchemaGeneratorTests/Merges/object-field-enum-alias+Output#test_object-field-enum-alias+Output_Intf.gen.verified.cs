@@ -12,5 +12,5 @@ public interface ItestObjFieldEnumAliasOutp
 
 public interface ItestObjFieldEnumAliasOutpObject
 {
-  bool Field { get; }
+bool Field { get; }
 }

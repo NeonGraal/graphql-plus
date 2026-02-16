@@ -17,7 +17,7 @@ public interface ICmptOutpParamModDmn
 
 public interface ICmptOutpParamModDmnObject
 {
-  ICmptDomOutpParamModDmn Field { get; }
+ICmptDomOutpParamModDmn Field (IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
 }
 
 public interface ICmptInOutpParamModDmn

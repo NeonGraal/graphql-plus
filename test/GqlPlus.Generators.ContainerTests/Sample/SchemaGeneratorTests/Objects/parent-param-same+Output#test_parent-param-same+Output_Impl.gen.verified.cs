@@ -9,7 +9,7 @@ public class testPrntParamSameOutp<TA>
   : testRefPrntParamSameOutp<TA>
   , ItestPrntParamSameOutp<TA>
 {
-  public TA Field { get; set; }
+public TA Field { get; set; }
 }
 
 public class testRefPrntParamSameOutp<TA>

@@ -13,5 +13,5 @@ public class testAltModParamOutp<TMod>
 public class testAltAltModParamOutp
   : ItestAltAltModParamOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

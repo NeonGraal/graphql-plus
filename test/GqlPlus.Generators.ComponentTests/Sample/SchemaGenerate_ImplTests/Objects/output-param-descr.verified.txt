@@ -13,7 +13,8 @@ namespace Components.Gqlp_Schema_output_param_descr;
 public class CmptOutpParamDescr
   : ICmptOutpParamDescr
 {
-  public ICmptFldOutpParamDescr Field { get; set; }
+public ICmptFldOutpParamDescr Field (ICmptInOutpParamDescr)
+{ }
 }
 
 public class CmptFldOutpParamDescr

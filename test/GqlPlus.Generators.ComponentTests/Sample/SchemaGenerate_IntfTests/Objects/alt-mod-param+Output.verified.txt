@@ -27,5 +27,5 @@ public interface ICmptAltAltModParamOutp
 
 public interface ICmptAltAltModParamOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

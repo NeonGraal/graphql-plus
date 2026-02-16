@@ -12,5 +12,5 @@ public interface ItestGnrcDescrOutp<TType>
 
 public interface ItestGnrcDescrOutpObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }

@@ -14,7 +14,7 @@ public interface ItestPrntFieldOutp
 public interface ItestPrntFieldOutpObject
   : ItestRefPrntFieldOutpObject
 {
-  decimal Field { get; }
+decimal Field { get; }
 }
 
 public interface ItestRefPrntFieldOutp
@@ -25,5 +25,5 @@ public interface ItestRefPrntFieldOutp
 
 public interface ItestRefPrntFieldOutpObject
 {
-  decimal Parent { get; }
+decimal Parent { get; }
 }

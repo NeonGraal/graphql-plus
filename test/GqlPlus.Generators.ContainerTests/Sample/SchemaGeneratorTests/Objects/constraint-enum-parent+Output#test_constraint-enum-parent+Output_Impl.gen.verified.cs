@@ -13,5 +13,5 @@ public class testCnstEnumPrntOutp
 public class testRefCnstEnumPrntOutp<TType>
   : ItestRefCnstEnumPrntOutp<TType>
 {
-  public TType Field { get; set; }
+public TType Field { get; set; }
 }

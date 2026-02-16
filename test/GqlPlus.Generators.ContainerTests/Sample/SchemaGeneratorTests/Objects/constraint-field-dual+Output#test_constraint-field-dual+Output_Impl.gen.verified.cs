@@ -14,7 +14,7 @@ public class testCnstFieldDualOutp
 public class testRefCnstFieldDualOutp<TRef>
   : ItestRefCnstFieldDualOutp<TRef>
 {
-  public TRef Field { get; set; }
+public TRef Field { get; set; }
 }
 
 public class testPrntCnstFieldDualOutp
@@ -26,5 +26,5 @@ public class testAltCnstFieldDualOutp
   : testPrntCnstFieldDualOutp
   , ItestAltCnstFieldDualOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

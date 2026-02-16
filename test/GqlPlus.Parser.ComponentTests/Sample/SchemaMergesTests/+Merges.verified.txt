@@ -793,9 +793,6 @@ Success
       !Pa
       I@031/0001
       OutpFieldParam1
-      !Pa
-      I@031/0002
-      OutpFieldParam2
     )
     :
     I@049/0001

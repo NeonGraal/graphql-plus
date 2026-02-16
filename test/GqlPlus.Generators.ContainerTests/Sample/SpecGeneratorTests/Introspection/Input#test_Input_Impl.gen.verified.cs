@@ -15,11 +15,5 @@ public class test_InputFieldType
   : test_ObjFieldType
   , Itest_InputFieldType
 {
-  public GqlpValue? DefaultValue { get; set; }
-}
-
-public class test_InputParam
-  : test_InputFieldType
-  , Itest_InputParam
-{
+public GqlpValue? DefaultValue { get; set; }
 }

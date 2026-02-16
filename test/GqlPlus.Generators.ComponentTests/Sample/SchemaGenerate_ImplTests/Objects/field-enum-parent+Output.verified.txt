@@ -13,5 +13,5 @@ namespace Components.Gqlp_Schema_field_enum_parent_Output;
 public class CmptFieldEnumPrntOutp
   : ICmptFieldEnumPrntOutp
 {
-  public CmptEnumFieldEnumPrntOutp Field { get; set; }
+public CmptEnumFieldEnumPrntOutp Field { get; set; }
 }

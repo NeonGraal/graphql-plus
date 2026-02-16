@@ -13,5 +13,5 @@ public class testAltOutp
 public class testAltAltOutp
   : ItestAltAltOutp
 {
-  public decimal Alt { get; set; }
+public decimal Alt { get; set; }
 }

@@ -28,5 +28,5 @@ public interface ICmptRefOutpPrntGnrc<TType>
 
 public interface ICmptRefOutpPrntGnrcObject<TType>
 {
-  TType Field { get; }
+TType Field { get; }
 }

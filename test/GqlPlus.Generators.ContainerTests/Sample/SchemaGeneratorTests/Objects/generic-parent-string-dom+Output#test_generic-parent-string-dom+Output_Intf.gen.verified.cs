@@ -23,7 +23,7 @@ public interface ItestFieldGnrcPrntStrDomOutp<TRef>
 
 public interface ItestFieldGnrcPrntStrDomOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }
 
 public interface ItestDomGnrcPrntStrDomOutp

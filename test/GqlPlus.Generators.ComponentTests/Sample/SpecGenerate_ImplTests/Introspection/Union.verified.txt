@@ -25,5 +25,5 @@ public class Cmpt_UnionMember
   : Cmpt_UnionRef
   , ICmpt_UnionMember
 {
-  public ICmpt_Name Union { get; set; }
+public ICmpt_Name Union { get; set; }
 }

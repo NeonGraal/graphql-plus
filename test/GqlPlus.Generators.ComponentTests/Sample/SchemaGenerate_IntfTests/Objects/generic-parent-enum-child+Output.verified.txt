@@ -29,5 +29,5 @@ public interface ICmptFieldGnrcPrntEnumChildOutp<TRef>
 
 public interface ICmptFieldGnrcPrntEnumChildOutpObject<TRef>
 {
-  TRef Field { get; }
+TRef Field { get; }
 }

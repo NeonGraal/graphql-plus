@@ -63,5 +63,5 @@ public interface ICmptAltCnstPrntDualGrndOutp
 public interface ICmptAltCnstPrntDualGrndOutpObject
   : ICmptPrntCnstPrntDualGrndOutpObject
 {
-  decimal Alt { get; }
+decimal Alt { get; }
 }

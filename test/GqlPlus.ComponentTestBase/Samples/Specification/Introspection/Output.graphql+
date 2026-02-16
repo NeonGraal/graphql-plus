@@ -4,6 +4,6 @@ output _OutputField {
 
 output _OutputFieldType {
     : _ObjFieldType
-        parameters: _InputParam[]
+        parameter: _InputFieldType?
     }
 

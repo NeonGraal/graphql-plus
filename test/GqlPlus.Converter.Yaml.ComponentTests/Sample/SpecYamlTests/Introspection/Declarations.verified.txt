@@ -177,8 +177,7 @@ types: !_Map(_Type)
       modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: categories
       object: _Schema
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
         name: _CategoryFilter
       type: !_ObjBase
@@ -187,8 +186,7 @@ types: !_Map(_Type)
       modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: directives
       object: _Schema
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
         name: _Filter
       type: !_ObjBase
@@ -197,8 +195,7 @@ types: !_Map(_Type)
       modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: types
       object: _Schema
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
         name: _TypeFilter
       type: !_ObjBase
@@ -207,8 +204,7 @@ types: !_Map(_Type)
       modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: settings
       object: _Schema
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
         name: _Filter
       type: !_ObjBase
@@ -217,8 +213,7 @@ types: !_Map(_Type)
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: categories
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
         name: _CategoryFilter
       type: !_ObjBase
@@ -226,8 +221,7 @@ types: !_Map(_Type)
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: directives
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
         name: _Filter
       type: !_ObjBase
@@ -235,8 +229,7 @@ types: !_Map(_Type)
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: types
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
         name: _TypeFilter
       type: !_ObjBase
@@ -244,8 +237,7 @@ types: !_Map(_Type)
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Name, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: settings
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
         name: _Filter
       type: !_ObjBase

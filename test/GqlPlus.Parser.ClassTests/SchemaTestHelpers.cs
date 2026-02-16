@@ -23,6 +23,9 @@ internal static class SchemaTestHelpers
   public static TypeArgAst[] TypeArgs(this string[] arguments)
     => [.. arguments.Select(a => new TypeArgAst(AstNulls.At, a, ""))];
 
+  public static InputParamAst Parameter(this string parameter)
+    => new(AstNulls.At, parameter);
+
   public static InputParamAst[] Params(this IEnumerable<string> parameters)
     => [.. parameters.Select(parameter => new InputParamAst(AstNulls.At, parameter))];
 

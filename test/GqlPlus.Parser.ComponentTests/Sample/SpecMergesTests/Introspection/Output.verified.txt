@@ -20,11 +20,11 @@ Success
   _ObjFieldType
   {
     !OF I@009/0007
-    parameters
+    parameter
     :
-    I@021/0007
-    _InputParam
-    []
+    I@020/0007
+    _InputFieldType
+    ?
   }
 }
 ]

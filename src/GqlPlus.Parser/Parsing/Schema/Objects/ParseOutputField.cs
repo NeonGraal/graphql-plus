@@ -15,7 +15,7 @@ internal class ParseOutputField(
   private readonly Parser<IGqlpInputParam>.LA _parameter = parameter;
 
   protected override void ApplyFieldParams(OutputFieldAst field, IGqlpInputParam[] parameters)
-    => field.Params = parameters;
+    => field.Parameter = parameters.FirstOrDefault();
 
   protected override OutputFieldAst ObjField(
     TokenAt at,

@@ -11,26 +11,24 @@ internal sealed record class OutputFieldAst(
 ) : AstObjField(At, Name, Description, Type)
   , IGqlpOutputField
 {
-  public IGqlpInputParam[] Params { get; set; } = [];
+  public IGqlpInputParam? Parameter { get; set; }
 
   public OutputFieldAst(TokenAt at, string name, IGqlpObjBase type)
     : this(at, name, "", type) { }
 
   internal override string Abbr => "OF";
 
-  IEnumerable<IGqlpInputParam> IGqlpOutputField.Params => Params;
-
   public bool Equals(OutputFieldAst? other)
     => other is IGqlpOutputField field && Equals(field);
   public bool Equals(IGqlpOutputField? other)
     => base.Equals(other)
-    && Params.SequenceEqual(other!.Params)
-    && EnumValue.NullEqual(other.EnumValue);
+    && Parameter.NullEqual(other?.Parameter)
+    && EnumValue.NullEqual(other?.EnumValue);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Params.Length, EnumValue.NullHashCode());
+    => HashCode.Combine(base.GetHashCode(), Parameter, EnumValue.NullHashCode());
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Concat(Params.Bracket("(", ")"))
+      .Concat(Parameter.Bracket("(", ")"))
       .Concat(TypeFields());
 }

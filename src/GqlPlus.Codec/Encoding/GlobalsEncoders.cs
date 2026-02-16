@@ -55,7 +55,7 @@ internal class DirectiveEncoder(
   internal override Structured Encode(DirectiveModel model)
     => base.Encode(model)
       .AddSet("locations", model.Locations, "_Location")
-      .AddList("parameters", model.Parameters, parameter)
+      .AddEncoded("parameter", model.Parameter, parameter)
       .Add("repeatable", model.Repeatable);
 }
 

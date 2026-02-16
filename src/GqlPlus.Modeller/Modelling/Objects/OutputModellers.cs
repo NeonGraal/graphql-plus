@@ -24,7 +24,7 @@ internal class OutputFieldModeller(
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
     => field.EnumValue is null
       ? new(field.Name, type, field.Description) {
-        Params = parameter.ToModels(field.Params, typeKinds),
+        Parameter = parameter.TryModel(field.Parameter, typeKinds),
       }
       : new(field.Name, type, field.Description) {
         Enum = new(field.Name, type.Name, field.EnumValue.EnumLabel!, type.Description)

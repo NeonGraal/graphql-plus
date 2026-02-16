@@ -17,7 +17,7 @@ internal class ParseDirective(
   protected override IGqlpSchemaDirective MakeResult(AstPartial<IGqlpInputParam, DirectiveOption> partial, DirectiveLocation value)
     => new DirectiveDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
-      Params = partial.Params,
+      Parameter = partial.Params.FirstOrDefault(),
       Option = partial.Option ?? DirectiveOption.Unique,
       Locations = value,
     };
@@ -25,7 +25,7 @@ internal class ParseDirective(
   protected override IGqlpSchemaDirective ToResult(AstPartial<IGqlpInputParam, DirectiveOption> partial)
     => new DirectiveDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
-      Params = partial.Params,
+      Parameter = partial.Params.FirstOrDefault(),
       Option = partial.Option ?? DirectiveOption.Unique,
     };
 }

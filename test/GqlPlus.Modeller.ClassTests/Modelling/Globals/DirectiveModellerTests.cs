@@ -20,7 +20,6 @@ public class DirectiveModellerTests
     ast.Aliases.Returns(aliases);
     ast.DirectiveOption.Returns(DirectiveOption.Repeatable);
     ast.Locations.Returns(DirectiveLocation.Operation | DirectiveLocation.Fragment);
-    ast.Params.Returns([]);
 
     // Act
     DirectiveModel result = Modeller.ToModel<DirectiveModel>(ast, TypeKinds);

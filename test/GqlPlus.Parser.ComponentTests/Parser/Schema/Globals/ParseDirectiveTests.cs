@@ -25,11 +25,11 @@ public sealed class ParseDirectiveTests(
     => checks.FalseExpected("@" + name + "{()operation}");
 
   [Theory, RepeatData]
-  public void WithParams_ReturnsCorrectAst(string name, string[] parameters)
+  public void WithParams_ReturnsCorrectAst(string name, string parameter)
     => checks.TrueExpected(
-      "@" + name + "(" + parameters.Joined() + "){operation}",
+      "@" + name + "(" + parameter + "){operation}",
       new DirectiveDeclAst(AstNulls.At, name) {
-        Params = parameters.Params(),
+        Parameter = parameter.Param(),
         Locations = DirectiveLocation.Operation,
       });
 

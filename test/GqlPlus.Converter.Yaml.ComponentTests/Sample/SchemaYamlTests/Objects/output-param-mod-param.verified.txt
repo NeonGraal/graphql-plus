@@ -43,8 +43,7 @@ types: !_Map(_Type)
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpParamModParam
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
         name: InOutpParamModParam
       type: !_ObjBase
@@ -52,8 +51,7 @@ types: !_Map(_Type)
     fields:
     - !_OutputField
       name: field
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
         name: InOutpParamModParam
       type: !_ObjBase

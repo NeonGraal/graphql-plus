@@ -20,12 +20,11 @@ public class MergeDirectivesTests
       new DirectiveDeclAst(AstNulls.At, name)]);
 
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsParamsCantMerge_ReturnsErrors(string name, string[] parameters)
+  public void CanMerge_TwoAstsParamsCantMerge_ReturnsErrors(string name, string parameter)
     => this
-      .SkipUnless(parameters)
       .CanMergeReturnsError(_parameters)
       .CanMerge_Errors(
-        new DirectiveDeclAst(AstNulls.At, name) with { Params = parameters.Params() },
+        new DirectiveDeclAst(AstNulls.At, name) with { Parameter = parameter.Parameter() },
         new DirectiveDeclAst(AstNulls.At, name));
 
   [Theory, RepeatData]
@@ -36,12 +35,12 @@ public class MergeDirectivesTests
       new DirectiveDeclAst(AstNulls.At, name) with { Locations = locations1 | locations2 });
 
   [Theory, RepeatData]
-  public void Merge_TwoAstsWithParams_CallsParamsMerge(string name, string[] parameters)
+  public void Merge_TwoAstsWithParams_CallsParamsMerge(string name, string parameter)
   {
     Merge_Expected([
-      new DirectiveDeclAst(AstNulls.At, name) with { Params = parameters.Params() },
-      new DirectiveDeclAst(AstNulls.At, name) with { Params = parameters.Params() }],
-      new DirectiveDeclAst(AstNulls.At, name) with { Params = parameters.Concat(parameters).Params() })
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameter = parameter.Parameter() },
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameter = parameter.Parameter() }],
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameter = parameter.Parameter() })
     .MergeCalled(_parameters);
   }
 

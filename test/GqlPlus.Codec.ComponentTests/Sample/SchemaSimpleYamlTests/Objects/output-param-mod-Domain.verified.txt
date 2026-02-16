@@ -43,19 +43,17 @@ types: !_Map(_Type)
       - !_ObjectFor(_OutputField)
         name: field
         object: OutpParamModDmn
-        parameters:
-          - !_InputParam
-            modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-            name: InOutpParamModDmn
+        parameter: !_InputParam
+          modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+          name: InOutpParamModDmn
         type: !_ObjBase
           name: DomOutpParamModDmn
     fields:
       - !_OutputField
         name: field
-        parameters:
-          - !_InputParam
-            modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-            name: InOutpParamModDmn
+        parameter: !_InputParam
+          modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+          name: InOutpParamModDmn
         type: !_ObjBase
           name: DomOutpParamModDmn
     name: OutpParamModDmn

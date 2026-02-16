@@ -11,12 +11,10 @@
         "Operation": "_"
       },
       "name": "DrctParam",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "name": "InDrctParam"
-        }
-      ],
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "name": "InDrctParam"
+      },
       "repeatable": false
     }
   },

@@ -302,12 +302,10 @@
         "Operation": "_"
       },
       "name": "DrctParam",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "name": "InDrctParam"
-        }
-      ],
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "name": "InDrctParam"
+      },
       "repeatable": false
     },
     "DrctParamDict": {
@@ -323,26 +321,24 @@
         "Variable": "_"
       },
       "name": "DrctParamDict",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "modifiers": [
-            {
-              "$mapTag": "_ModifierDictionary",
-              "by": "String",
-              "modifierKind": {
-                "$value": "Dict",
-                "$valueTag": "_ModifierKind"
-              },
-              "typeKind": {
-                "$value": "Basic",
-                "$valueTag": "_SimpleKind"
-              }
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "modifiers": [
+          {
+            "$mapTag": "_ModifierDictionary",
+            "by": "String",
+            "modifierKind": {
+              "$value": "Dict",
+              "$valueTag": "_ModifierKind"
+            },
+            "typeKind": {
+              "$value": "Basic",
+              "$valueTag": "_SimpleKind"
             }
-          ],
-          "name": "InDrctParamDict"
-        }
-      ],
+          }
+        ],
+        "name": "InDrctParamDict"
+      },
       "repeatable": false
     },
     "DrctParamIn": {
@@ -358,12 +354,10 @@
         "Variable": "_"
       },
       "name": "DrctParamIn",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "name": "InDrctParamIn"
-        }
-      ],
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "name": "InDrctParamIn"
+      },
       "repeatable": false
     },
     "DrctParamList": {
@@ -379,21 +373,19 @@
         "Variable": "_"
       },
       "name": "DrctParamList",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "modifiers": [
+          {
+            "$mapTag": "_Modifier",
+            "modifierKind": {
+              "$value": "List",
+              "$valueTag": "_ModifierKind"
             }
-          ],
-          "name": "InDrctParamList"
-        }
-      ],
+          }
+        ],
+        "name": "InDrctParamList"
+      },
       "repeatable": false
     },
     "DrctParamOpt": {
@@ -409,21 +401,19 @@
         "Variable": "_"
       },
       "name": "DrctParamOpt",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "Opt",
-                "$valueTag": "_ModifierKind"
-              }
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "modifiers": [
+          {
+            "$mapTag": "_Modifier",
+            "modifierKind": {
+              "$value": "Opt",
+              "$valueTag": "_ModifierKind"
             }
-          ],
-          "name": "InDrctParamOpt"
-        }
-      ],
+          }
+        ],
+        "name": "InDrctParamOpt"
+      },
       "repeatable": false
     }
   },
@@ -17872,12 +17862,10 @@
           "description": "Test Descr",
           "name": "field",
           "object": "OutpDescrParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpDescrParam"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpDescrParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpDescrParam"
@@ -17889,12 +17877,10 @@
           "$mapTag": "_OutputField",
           "description": "Test Descr",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpDescrParam"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpDescrParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpDescrParam"
@@ -17915,16 +17901,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpFieldParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "OutpFieldParam1"
-            },
-            {
-              "$mapTag": "_InputParam",
-              "name": "OutpFieldParam2"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "OutpFieldParam1"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpFieldParam"
@@ -17935,16 +17915,10 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "OutpFieldParam1"
-            },
-            {
-              "$mapTag": "_InputParam",
-              "name": "OutpFieldParam2"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "OutpFieldParam1"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpFieldParam"
@@ -17983,12 +17957,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpParam"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpParam"
@@ -17999,12 +17971,10 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpParam"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpParam"
@@ -18025,13 +17995,11 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpParamDescr",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "description": "Test Descr",
-              "name": "InOutpParamDescr"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "description": "Test Descr",
+            "name": "InOutpParamDescr"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpParamDescr"
@@ -18042,13 +18010,11 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "description": "Test Descr",
-              "name": "InOutpParamDescr"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "description": "Test Descr",
+            "name": "InOutpParamDescr"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpParamDescr"
@@ -18069,26 +18035,24 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpParamModDmn",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_ModifierDictionary",
-                  "by": "DomOutpParamModDmn",
-                  "modifierKind": {
-                    "$value": "Dict",
-                    "$valueTag": "_ModifierKind"
-                  },
-                  "typeKind": {
-                    "$value": "Domain",
-                    "$valueTag": "_SimpleKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_ModifierDictionary",
+                "by": "DomOutpParamModDmn",
+                "modifierKind": {
+                  "$value": "Dict",
+                  "$valueTag": "_ModifierKind"
+                },
+                "typeKind": {
+                  "$value": "Domain",
+                  "$valueTag": "_SimpleKind"
                 }
-              ],
-              "name": "InOutpParamModDmn"
-            }
-          ],
+              }
+            ],
+            "name": "InOutpParamModDmn"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "DomOutpParamModDmn"
@@ -18099,26 +18063,24 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_ModifierDictionary",
-                  "by": "DomOutpParamModDmn",
-                  "modifierKind": {
-                    "$value": "Dict",
-                    "$valueTag": "_ModifierKind"
-                  },
-                  "typeKind": {
-                    "$value": "Domain",
-                    "$valueTag": "_SimpleKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_ModifierDictionary",
+                "by": "DomOutpParamModDmn",
+                "modifierKind": {
+                  "$value": "Dict",
+                  "$valueTag": "_ModifierKind"
+                },
+                "typeKind": {
+                  "$value": "Domain",
+                  "$valueTag": "_SimpleKind"
                 }
-              ],
-              "name": "InOutpParamModDmn"
-            }
-          ],
+              }
+            ],
+            "name": "InOutpParamModDmn"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "DomOutpParamModDmn"
@@ -18139,22 +18101,20 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpParamModParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_ModifierTypeParam",
-                  "by": "mod",
-                  "modifierKind": {
-                    "$value": "Param",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_ModifierTypeParam",
+                "by": "mod",
+                "modifierKind": {
+                  "$value": "Param",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "InOutpParamModParam"
-            }
-          ],
+              }
+            ],
+            "name": "InOutpParamModParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "DomOutpParamModParam"
@@ -18165,22 +18125,20 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "modifiers": [
-                {
-                  "$mapTag": "_ModifierTypeParam",
-                  "by": "mod",
-                  "modifierKind": {
-                    "$value": "Param",
-                    "$valueTag": "_ModifierKind"
-                  }
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "modifiers": [
+              {
+                "$mapTag": "_ModifierTypeParam",
+                "by": "mod",
+                "modifierKind": {
+                  "$value": "Param",
+                  "$valueTag": "_ModifierKind"
                 }
-              ],
-              "name": "InOutpParamModParam"
-            }
-          ],
+              }
+            ],
+            "name": "InOutpParamModParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "DomOutpParamModParam"
@@ -18215,12 +18173,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpParamTypeDescr",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpParamTypeDescr"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpParamTypeDescr"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "description": "Test Descr",
@@ -18232,12 +18188,10 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpParamTypeDescr"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpParamTypeDescr"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "description": "Test Descr",
@@ -18309,12 +18263,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "PrntOutpPrntParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "PrntOutpPrntParamIn"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "PrntOutpPrntParamIn"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpPrntParam"
@@ -18324,12 +18276,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpPrntParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpPrntParam"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpPrntParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpPrntParam"
@@ -18340,12 +18290,10 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpPrntParam"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpPrntParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpPrntParam"
@@ -20366,12 +20314,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "PrntOutpPrntParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "PrntOutpPrntParamIn"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "PrntOutpPrntParamIn"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpPrntParam"
@@ -20382,12 +20328,10 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "PrntOutpPrntParamIn"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "PrntOutpPrntParamIn"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpPrntParam"

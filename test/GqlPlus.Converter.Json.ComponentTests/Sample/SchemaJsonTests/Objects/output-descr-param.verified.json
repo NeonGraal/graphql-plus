@@ -69,12 +69,10 @@
           "description": "Test Descr",
           "name": "field",
           "object": "OutpDescrParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpDescrParam"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpDescrParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpDescrParam"
@@ -86,12 +84,10 @@
           "$mapTag": "_OutputField",
           "description": "Test Descr",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "InOutpDescrParam"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "InOutpDescrParam"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpDescrParam"

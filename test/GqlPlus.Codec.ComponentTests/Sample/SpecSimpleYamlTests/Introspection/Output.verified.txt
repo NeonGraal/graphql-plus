@@ -18,17 +18,17 @@ types: !_Map(_Type)
   !_Name _OutputFieldType: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: parameter
         object: _OutputFieldType
         type: !_ObjBase
-          name: _InputParam
+          name: _InputFieldType
     fields:
       - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: parameter
         type: !_ObjBase
-          name: _InputParam
+          name: _InputFieldType
     name: _OutputFieldType
     parent: !_ObjBase
       name: _ObjFieldType

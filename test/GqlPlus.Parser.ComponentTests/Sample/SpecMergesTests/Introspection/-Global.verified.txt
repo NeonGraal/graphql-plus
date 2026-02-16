@@ -99,11 +99,11 @@ Success
   _Aliased
   {
     !OF I@009/0030
-    parameters
+    parameter
     :
-    I@021/0030
-    _InputParam
-    []
+    I@020/0030
+    _InputFieldType
+    ?
     !OF I@009/0031
     repeatable
     :

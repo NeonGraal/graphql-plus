@@ -10,9 +10,9 @@ internal class MergeOutputFields(
 {
   protected override IMessages CanMergeGroup(IGrouping<string, IGqlpOutputField> group)
     => base.CanMergeGroup(group)
-      .Add(group.ManyCanMerge(item => item.Params, parameters));
+      .Add(group.CanMerge(item => item.Parameter, parameters));
   protected override IGqlpOutputField MergeGroup(IEnumerable<IGqlpOutputField> group)
     => (OutputFieldAst)base.MergeGroup(group) with {
-      Params = group.ManyMerge(item => item.Params, parameters).ArrayOf<InputParamAst>(),
+      Parameter = group.Merge(item => item.Parameter, parameters).FirstOrDefault(),
     };
 }

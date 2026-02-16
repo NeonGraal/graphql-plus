@@ -66,10 +66,10 @@
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:locations[_Set(_Location)]:Spread=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:locations[_Set(_Location)]:Variable=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:name=DrctParamDict
-[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:parameters.0[_InputParam]:modifiers.0[_ModifierDictionary]:by=String
-[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:parameters.0[_InputParam]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
-[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:parameters.0[_InputParam]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Basic
-[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:parameters.0[_InputParam]:name=InDrctParamDict
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:parameter[_InputParam]:modifiers.0[_ModifierDictionary]:by=String
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:parameter[_InputParam]:modifiers.0[_ModifierDictionary]:modifierKind=[_ModifierKind]Dict
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:parameter[_InputParam]:modifiers.0[_ModifierDictionary]:typeKind=[_SimpleKind]Basic
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:parameter[_InputParam]:name=InDrctParamDict
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamDict[_Directive]:repeatable=false
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:locations[_Set(_Location)]:Field=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:locations[_Set(_Location)]:Fragment=_
@@ -78,7 +78,7 @@
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:locations[_Set(_Location)]:Spread=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:locations[_Set(_Location)]:Variable=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:name=DrctParamIn
-[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:parameters.0[_InputParam]:name=InDrctParamIn
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:parameter[_InputParam]:name=InDrctParamIn
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamIn[_Directive]:repeatable=false
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamList[_Directive]:locations[_Set(_Location)]:Field=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamList[_Directive]:locations[_Set(_Location)]:Fragment=_
@@ -87,8 +87,8 @@
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamList[_Directive]:locations[_Set(_Location)]:Spread=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamList[_Directive]:locations[_Set(_Location)]:Variable=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamList[_Directive]:name=DrctParamList
-[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamList[_Directive]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
-[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamList[_Directive]:parameters.0[_InputParam]:name=InDrctParamList
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamList[_Directive]:parameter[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamList[_Directive]:parameter[_InputParam]:name=InDrctParamList
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamList[_Directive]:repeatable=false
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamOpt[_Directive]:locations[_Set(_Location)]:Field=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamOpt[_Directive]:locations[_Set(_Location)]:Fragment=_
@@ -97,8 +97,8 @@
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamOpt[_Directive]:locations[_Set(_Location)]:Spread=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamOpt[_Directive]:locations[_Set(_Location)]:Variable=_
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamOpt[_Directive]:name=DrctParamOpt
-[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamOpt[_Directive]:parameters.0[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
-[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamOpt[_Directive]:parameters.0[_InputParam]:name=InDrctParamOpt
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamOpt[_Directive]:parameter[_InputParam]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamOpt[_Directive]:parameter[_InputParam]:name=InDrctParamOpt
 [_Schema]:directives[_Map(_Directives)]:[_Name]DrctParamOpt[_Directive]:repeatable=false
 [_Schema]:name=Schema
 [_Schema]:operations[_Map(_Operations)]:[_Name]OprCtgr[_Operation]:category=catOprCtgr

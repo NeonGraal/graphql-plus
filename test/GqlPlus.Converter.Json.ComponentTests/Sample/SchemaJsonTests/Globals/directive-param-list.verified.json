@@ -15,21 +15,19 @@
         "Variable": "_"
       },
       "name": "DrctParamList",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "modifiers": [
+          {
+            "$mapTag": "_Modifier",
+            "modifierKind": {
+              "$value": "List",
+              "$valueTag": "_ModifierKind"
             }
-          ],
-          "name": "InDrctParamList"
-        }
-      ],
+          }
+        ],
+        "name": "InDrctParamList"
+      },
       "repeatable": false
     }
   },

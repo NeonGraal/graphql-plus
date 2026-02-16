@@ -32,8 +32,7 @@ types: !_Map(_Type)
       description: 'Test Descr'
       name: field
       object: OutpDescrParam
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         name: InOutpDescrParam
       type: !_ObjBase
         name: FldOutpDescrParam
@@ -41,8 +40,7 @@ types: !_Map(_Type)
     - !_OutputField
       description: 'Test Descr'
       name: field
-      parameters:
-      - !_InputParam
+      parameter: !_InputParam
         name: InOutpDescrParam
       type: !_ObjBase
         name: FldOutpDescrParam

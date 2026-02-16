@@ -27,26 +27,26 @@ public partial class DirectiveDeclAstTests
       option1 == option2);
 
   [Theory, RepeatData]
-  public void HashCode_WithParam(string name, string[] parameters)
+  public void HashCode_WithParam(string name, string parameter)
       => _checks.HashCode(
-        () => new DirectiveDeclAst(AstNulls.At, name) { Params = parameters.Params() });
+        () => new DirectiveDeclAst(AstNulls.At, name) { Parameter = parameter.Parameter() });
 
   [Theory, RepeatData]
-  public void Text_WithParams(string name, string[] parameters)
+  public void Text_WithParams(string name, string parameter)
     => _checks.Text(
-      () => new DirectiveDeclAst(AstNulls.At, name) { Params = parameters.Params() },
-      $"( !Di {name} ( {parameters.Joined(s => "!Pa " + s)} ) (Unique) None )");
+      () => new DirectiveDeclAst(AstNulls.At, name) { Parameter = parameter.Parameter() },
+      $"( !Di {name} ( !Pa {parameter} ) (Unique) None )");
 
   [Theory, RepeatData]
-  public void Equality_WithParam(string name, string[] parameters)
+  public void Equality_WithParam(string name, string parameter)
     => _checks.Equality(
-      () => new DirectiveDeclAst(AstNulls.At, name) { Params = parameters.Params() });
+      () => new DirectiveDeclAst(AstNulls.At, name) { Parameter = parameter.Parameter() });
 
   [Theory, RepeatData]
-  public void Inequality_BetweenParams(string name, string[] parameters1, string[] parameters2)
-    => _checks.InequalityBetween(parameters1, parameters2,
-      parameters => new DirectiveDeclAst(AstNulls.At, name) { Params = parameters.Params() },
-      parameters1.SequenceEqual(parameters2));
+  public void Inequality_BetweenParams(string name, string parameter1, string parameter2)
+    => _checks.InequalityBetween(parameter1, parameter2,
+      parameter => new DirectiveDeclAst(AstNulls.At, name) { Parameter = parameter.Parameter() },
+      parameter1 == parameter2);
 
   [Theory, RepeatData]
   public void HashCode_WithLocations(string name, DirectiveLocation location)

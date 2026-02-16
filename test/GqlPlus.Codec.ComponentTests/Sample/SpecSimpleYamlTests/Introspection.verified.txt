@@ -510,11 +510,11 @@ types: !_Map(_Type)
   !_Name _Directive: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: parameter
         object: _Directive
         type: !_ObjBase
-          name: _InputParam
+          name: _InputFieldType
       - !_ObjectFor(_OutputField)
         field: repeatable
         label: Boolean
@@ -529,10 +529,10 @@ types: !_Map(_Type)
         typeKind: !_SimpleKind Enum
     fields:
       - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: parameter
         type: !_ObjBase
-          name: _InputParam
+          name: _InputFieldType
       - !_OutputEnum
         field: repeatable
         label: Boolean
@@ -1102,39 +1102,6 @@ types: !_Map(_Type)
     name: _InputFieldType
     parent: !_ObjBase
       name: _ObjFieldType
-    typeKind: !_TypeKind Output
-  !_Name _InputParam: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _ObjBase
-        type: !_ObjBase
-          name: _TypeParam
-      - !_ObjectFor(_Alternate)
-        object: _ObjFieldType
-        type: !_ObjBase
-          name: _ObjFieldEnum
-    allFields:
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: typeArgs
-        object: _ObjBase
-        type: !_ObjBase
-          name: _ObjTypeArg
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: modifiers
-        object: _ObjFieldType
-        type: !_ObjBase
-          name: _Modifiers
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: defaultValue
-        object: _InputFieldType
-        type: !_ObjBase
-          name: Value
-    name: _InputParam
-    parent: !_ObjBase
-      name: _InputFieldType
     typeKind: !_TypeKind Output
   !_Name _Location: !_TypeEnum
     allItems:
@@ -2187,17 +2154,17 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _Modifiers
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: parameter
         object: _OutputFieldType
         type: !_ObjBase
-          name: _InputParam
+          name: _InputFieldType
     fields:
       - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: parameter
         type: !_ObjBase
-          name: _InputParam
+          name: _InputFieldType
     name: _OutputFieldType
     parent: !_ObjBase
       name: _ObjFieldType
@@ -2301,96 +2268,86 @@ types: !_Map(_Type)
         modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: categories
         object: _Schema
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _CategoryFilter
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: _CategoryFilter
         type: !_ObjBase
           name: _Categories
       - !_ObjectFor(_OutputField)
         modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: directives
         object: _Schema
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _Filter
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: _Filter
         type: !_ObjBase
           name: _Directives
       - !_ObjectFor(_OutputField)
         modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: operations
         object: _Schema
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _Filter
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: _Filter
         type: !_ObjBase
           name: _Operations
       - !_ObjectFor(_OutputField)
         modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: types
         object: _Schema
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _TypeFilter
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: _TypeFilter
         type: !_ObjBase
           name: _Type
       - !_ObjectFor(_OutputField)
         modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: settings
         object: _Schema
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _Filter
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: _Filter
         type: !_ObjBase
           name: _Setting
     fields:
       - !_OutputField
         modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: categories
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _CategoryFilter
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: _CategoryFilter
         type: !_ObjBase
           name: _Categories
       - !_OutputField
         modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: directives
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _Filter
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: _Filter
         type: !_ObjBase
           name: _Directives
       - !_OutputField
         modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: operations
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _Filter
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: _Filter
         type: !_ObjBase
           name: _Operations
       - !_OutputField
         modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: types
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _TypeFilter
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: _TypeFilter
         type: !_ObjBase
           name: _Type
       - !_OutputField
         modifiers: [!_ModifierDictionary{by:_Name,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: settings
-        parameters:
-          - !_InputParam
-            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-            name: _Filter
+        parameter: !_InputParam
+          modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+          name: _Filter
         type: !_ObjBase
           name: _Setting
     name: _Schema

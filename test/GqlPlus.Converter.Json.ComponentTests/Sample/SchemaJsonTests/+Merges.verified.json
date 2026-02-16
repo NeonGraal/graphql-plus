@@ -135,12 +135,10 @@
         "Operation": "_"
       },
       "name": "DrctParam",
-      "parameters": [
-        {
-          "$mapTag": "_InputParam",
-          "name": "InDrctParam"
-        }
-      ],
+      "parameter": {
+        "$mapTag": "_InputParam",
+        "name": "InDrctParam"
+      },
       "repeatable": false
     }
   },
@@ -2195,16 +2193,10 @@
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpFieldParam",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "OutpFieldParam1"
-            },
-            {
-              "$mapTag": "_InputParam",
-              "name": "OutpFieldParam2"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "OutpFieldParam1"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpFieldParam"
@@ -2215,16 +2207,10 @@
         {
           "$mapTag": "_OutputField",
           "name": "field",
-          "parameters": [
-            {
-              "$mapTag": "_InputParam",
-              "name": "OutpFieldParam1"
-            },
-            {
-              "$mapTag": "_InputParam",
-              "name": "OutpFieldParam2"
-            }
-          ],
+          "parameter": {
+            "$mapTag": "_InputParam",
+            "name": "OutpFieldParam1"
+          },
           "type": {
             "$mapTag": "_ObjBase",
             "name": "FldOutpFieldParam"

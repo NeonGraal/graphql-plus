@@ -31,18 +31,16 @@ types: !_Map(_Type)
       - !_ObjectFor(_OutputField)
         name: field
         object: OutpParamTypeDescr
-        parameters:
-          - !_InputParam
-            name: InOutpParamTypeDescr
+        parameter: !_InputParam
+          name: InOutpParamTypeDescr
         type: !_ObjBase
           description: 'Test Descr'
           name: FldOutpParamTypeDescr
     fields:
       - !_OutputField
         name: field
-        parameters:
-          - !_InputParam
-            name: InOutpParamTypeDescr
+        parameter: !_InputParam
+          name: InOutpParamTypeDescr
         type: !_ObjBase
           description: 'Test Descr'
           name: FldOutpParamTypeDescr

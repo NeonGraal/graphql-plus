@@ -23,13 +23,13 @@ public class DirectiveEncoderTests
     // Act
     EncodeAndCheck(new(name, contents) {
       Locations = DirectiveLocation.Operation,
-      Parameters = [parameter],
+      Parameter = parameter,
       Repeatable = true,
     }, [
         $"[_Directive]:description=" + contents.QuotedIdentifier(),
         "[_Directive]:locations[_Set(_Location)]:Operation=_",
         "[_Directive]:name=" + name,
-        "[_Directive]:parameters.0=" + input,
+        "[_Directive]:parameter=" + input,
         "[_Directive]:repeatable=true"
         ]);
   }

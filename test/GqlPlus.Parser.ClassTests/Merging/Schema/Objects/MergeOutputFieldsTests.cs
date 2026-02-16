@@ -8,20 +8,19 @@ public class MergeOutputFieldsTests
   : TestObjectFieldMerger<IGqlpOutputField>
 {
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsParamsCantMerge_ReturnsErrors(string name, string type, string[] parameters)
+  public void CanMerge_TwoAstsParamsCantMerge_ReturnsErrors(string name, string type, string parameter)
     => this
-      .SkipUnless(parameters)
       .CanMergeReturnsError(_parameters)
       .CanMerge_Errors(
-        MakeFieldParams(name, type, parameters),
+        MakeFieldParam(name, type, parameter),
         MakeField(name, type));
 
   [Theory, RepeatData]
-  public void Merge_TwoAstsWithParams_CallsParamsMerge(string name, string type, string[] parameters)
+  public void Merge_TwoAstsWithParams_CallsParamsMerge(string name, string type, string parameter)
     => Merge_Expected(
-        [MakeFieldParams(name, type, parameters),
-          MakeFieldParams(name, type, parameters)],
-        MakeFieldParams(name, type, parameters.Concat(parameters)))
+        [MakeFieldParam(name, type, parameter),
+          MakeFieldParam(name, type, parameter)],
+        MakeFieldParam(name, type, parameter))
       .MergeCalled(_parameters);
 
   private readonly MergeOutputFields _merger;
@@ -39,9 +38,9 @@ public class MergeOutputFieldsTests
     => new OutputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, type, typeDescription)) {
       Aliases = aliases ?? [],
     };
-  private static OutputFieldAst MakeFieldParams(string name, string type, IEnumerable<string> parameters)
+  private static OutputFieldAst MakeFieldParam(string name, string type, string parameter)
     => new(AstNulls.At, name, new ObjBaseAst(AstNulls.At, type, "")) {
-      Params = parameters.ThrowIfNull().Params(),
+      Parameter = parameter.Parameter(),
     };
   protected override IGqlpOutputField MakeFieldModifiers(string name)
     => new OutputFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, name, "")) {

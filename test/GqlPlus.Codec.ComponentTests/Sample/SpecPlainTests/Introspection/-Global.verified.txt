@@ -65,10 +65,10 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:name=_Category
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:parent[_ObjBase]:name=_Aliased
 [_Schema]:types[_Map(_Type)]:[_Name]_Category[_TypeOutput]:typeKind=[_TypeKind]Output
-[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
-[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=parameters
+[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:name=parameter
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=_Directive
-[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_InputParam
+[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_InputFieldType
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:name=repeatable
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:object=_Directive
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Boolean
@@ -77,9 +77,9 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:name=Unit
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:object=_Directive
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:typeKind=[_SimpleKind]Enum
-[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]List
-[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:fields.0[_OutputField]:name=parameters
-[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_InputParam
+[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
+[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:fields.0[_OutputField]:name=parameter
+[_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=_InputFieldType
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:fields.1[_OutputField]:name=repeatable
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:name=Boolean
 [_Schema]:types[_Map(_Type)]:[_Name]_Directive[_TypeOutput]:fields.2[_OutputEnum]:field=locations

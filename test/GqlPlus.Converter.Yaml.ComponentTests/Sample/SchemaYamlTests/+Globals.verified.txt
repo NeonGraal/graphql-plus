@@ -77,8 +77,7 @@ directives: !_Map(_Directives)
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
       Operation: _, Spread: _, Variable: _}
     name: DrctParamDict
-    parameters:
-    - !_InputParam
+    parameter: !_InputParam
       modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Basic}]
       name: InDrctParamDict
@@ -87,16 +86,14 @@ directives: !_Map(_Directives)
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
       Operation: _, Spread: _, Variable: _}
     name: DrctParamIn
-    parameters:
-    - !_InputParam
+    parameter: !_InputParam
       name: InDrctParamIn
     repeatable: false
   !_Name DrctParamList: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
       Operation: _, Spread: _, Variable: _}
     name: DrctParamList
-    parameters:
-    - !_InputParam
+    parameter: !_InputParam
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: InDrctParamList
     repeatable: false
@@ -104,8 +101,7 @@ directives: !_Map(_Directives)
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
       Operation: _, Spread: _, Variable: _}
     name: DrctParamOpt
-    parameters:
-    - !_InputParam
+    parameter: !_InputParam
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: InDrctParamOpt
     repeatable: false

@@ -3,9 +3,8 @@ directives: !_Map(_Directives)
   !_Name DrctParam: !_Directive
     locations: !_Set(_Location){Fragment:_,Operation:_}
     name: DrctParam
-    parameters:
-      - !_InputParam
-        name: InDrctParam
+    parameter: !_InputParam
+      name: InDrctParam
     repeatable: false
 types: !_Map(_Type)
   !_Name InDrctParam: !_TypeInput

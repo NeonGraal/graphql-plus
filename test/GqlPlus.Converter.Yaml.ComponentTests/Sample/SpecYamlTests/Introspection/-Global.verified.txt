@@ -130,11 +130,11 @@ types: !_Map(_Type)
   !_Name _Directive: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: parameters
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: parameter
       object: _Directive
       type: !_ObjBase
-        name: _InputParam
+        name: _InputFieldType
     - !_ObjectFor(_OutputField)
       name: repeatable
       object: _Directive
@@ -148,10 +148,10 @@ types: !_Map(_Type)
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: parameters
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: parameter
       type: !_ObjBase
-        name: _InputParam
+        name: _InputFieldType
     - !_OutputField
       name: repeatable
       type: !_ObjBase

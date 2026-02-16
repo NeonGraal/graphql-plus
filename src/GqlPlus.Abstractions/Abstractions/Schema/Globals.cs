@@ -22,7 +22,7 @@ public interface IGqlpSchemaDirective
   : IGqlpDeclaration
   , IEquatable<IGqlpSchemaDirective>
 {
-  IEnumerable<IGqlpInputParam> Params { get; }
+  IGqlpInputParam? Parameter { get; }
   DirectiveOption DirectiveOption { get; }
   DirectiveLocation Locations { get; }
 }

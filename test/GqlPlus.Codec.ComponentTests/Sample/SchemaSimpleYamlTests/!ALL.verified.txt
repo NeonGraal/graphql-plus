@@ -116,40 +116,35 @@ directives: !_Map(_Directives)
   !_Name DrctParam: !_Directive
     locations: !_Set(_Location){Fragment:_,Operation:_}
     name: DrctParam
-    parameters:
-      - !_InputParam
-        name: InDrctParam
+    parameter: !_InputParam
+      name: InDrctParam
     repeatable: false
   !_Name DrctParamDict: !_Directive
     locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamDict
-    parameters:
-      - !_InputParam
-        modifiers: [!_ModifierDictionary{by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
-        name: InDrctParamDict
+    parameter: !_InputParam
+      modifiers: [!_ModifierDictionary{by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
+      name: InDrctParamDict
     repeatable: false
   !_Name DrctParamIn: !_Directive
     locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamIn
-    parameters:
-      - !_InputParam
-        name: InDrctParamIn
+    parameter: !_InputParam
+      name: InDrctParamIn
     repeatable: false
   !_Name DrctParamList: !_Directive
     locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamList
-    parameters:
-      - !_InputParam
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: InDrctParamList
+    parameter: !_InputParam
+      modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+      name: InDrctParamList
     repeatable: false
   !_Name DrctParamOpt: !_Directive
     locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamOpt
-    parameters:
-      - !_InputParam
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: InDrctParamOpt
+    parameter: !_InputParam
+      modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+      name: InDrctParamOpt
     repeatable: false
 errors: !_Errors
   - !_Error
@@ -8174,18 +8169,16 @@ types: !_Map(_Type)
         description: 'Test Descr'
         name: field
         object: OutpDescrParam
-        parameters:
-          - !_InputParam
-            name: InOutpDescrParam
+        parameter: !_InputParam
+          name: InOutpDescrParam
         type: !_ObjBase
           name: FldOutpDescrParam
     fields:
       - !_OutputField
         description: 'Test Descr'
         name: field
-        parameters:
-          - !_InputParam
-            name: InOutpDescrParam
+        parameter: !_InputParam
+          name: InOutpDescrParam
         type: !_ObjBase
           name: FldOutpDescrParam
     name: OutpDescrParam
@@ -8195,21 +8188,15 @@ types: !_Map(_Type)
       - !_ObjectFor(_OutputField)
         name: field
         object: OutpFieldParam
-        parameters:
-          - !_InputParam
-            name: OutpFieldParam1
-          - !_InputParam
-            name: OutpFieldParam2
+        parameter: !_InputParam
+          name: OutpFieldParam1
         type: !_ObjBase
           name: FldOutpFieldParam
     fields:
       - !_OutputField
         name: field
-        parameters:
-          - !_InputParam
-            name: OutpFieldParam1
-          - !_InputParam
-            name: OutpFieldParam2
+        parameter: !_InputParam
+          name: OutpFieldParam1
         type: !_ObjBase
           name: FldOutpFieldParam
     name: OutpFieldParam
@@ -8225,17 +8212,15 @@ types: !_Map(_Type)
       - !_ObjectFor(_OutputField)
         name: field
         object: OutpParam
-        parameters:
-          - !_InputParam
-            name: InOutpParam
+        parameter: !_InputParam
+          name: InOutpParam
         type: !_ObjBase
           name: FldOutpParam
     fields:
       - !_OutputField
         name: field
-        parameters:
-          - !_InputParam
-            name: InOutpParam
+        parameter: !_InputParam
+          name: InOutpParam
         type: !_ObjBase
           name: FldOutpParam
     name: OutpParam
@@ -8245,19 +8230,17 @@ types: !_Map(_Type)
       - !_ObjectFor(_OutputField)
         name: field
         object: OutpParamDescr
-        parameters:
-          - !_InputParam
-            description: 'Test Descr'
-            name: InOutpParamDescr
+        parameter: !_InputParam
+          description: 'Test Descr'
+          name: InOutpParamDescr
         type: !_ObjBase
           name: FldOutpParamDescr
     fields:
       - !_OutputField
         name: field
-        parameters:
-          - !_InputParam
-            description: 'Test Descr'
-            name: InOutpParamDescr
+        parameter: !_InputParam
+          description: 'Test Descr'
+          name: InOutpParamDescr
         type: !_ObjBase
           name: FldOutpParamDescr
     name: OutpParamDescr
@@ -8267,19 +8250,17 @@ types: !_Map(_Type)
       - !_ObjectFor(_OutputField)
         name: field
         object: OutpParamModDmn
-        parameters:
-          - !_InputParam
-            modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-            name: InOutpParamModDmn
+        parameter: !_InputParam
+          modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+          name: InOutpParamModDmn
         type: !_ObjBase
           name: DomOutpParamModDmn
     fields:
       - !_OutputField
         name: field
-        parameters:
-          - !_InputParam
-            modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
-            name: InOutpParamModDmn
+        parameter: !_InputParam
+          modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+          name: InOutpParamModDmn
         type: !_ObjBase
           name: DomOutpParamModDmn
     name: OutpParamModDmn
@@ -8289,19 +8270,17 @@ types: !_Map(_Type)
       - !_ObjectFor(_OutputField)
         name: field
         object: OutpParamModParam
-        parameters:
-          - !_InputParam
-            modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
-            name: InOutpParamModParam
+        parameter: !_InputParam
+          modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
+          name: InOutpParamModParam
         type: !_ObjBase
           name: DomOutpParamModParam
     fields:
       - !_OutputField
         name: field
-        parameters:
-          - !_InputParam
-            modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
-            name: InOutpParamModParam
+        parameter: !_InputParam
+          modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
+          name: InOutpParamModParam
         type: !_ObjBase
           name: DomOutpParamModParam
     name: OutpParamModParam
@@ -8317,18 +8296,16 @@ types: !_Map(_Type)
       - !_ObjectFor(_OutputField)
         name: field
         object: OutpParamTypeDescr
-        parameters:
-          - !_InputParam
-            name: InOutpParamTypeDescr
+        parameter: !_InputParam
+          name: InOutpParamTypeDescr
         type: !_ObjBase
           description: 'Test Descr'
           name: FldOutpParamTypeDescr
     fields:
       - !_OutputField
         name: field
-        parameters:
-          - !_InputParam
-            name: InOutpParamTypeDescr
+        parameter: !_InputParam
+          name: InOutpParamTypeDescr
         type: !_ObjBase
           description: 'Test Descr'
           name: FldOutpParamTypeDescr
@@ -8361,25 +8338,22 @@ types: !_Map(_Type)
       - !_ObjectFor(_OutputField)
         name: field
         object: PrntOutpPrntParam
-        parameters:
-          - !_InputParam
-            name: PrntOutpPrntParamIn
+        parameter: !_InputParam
+          name: PrntOutpPrntParamIn
         type: !_ObjBase
           name: FldOutpPrntParam
       - !_ObjectFor(_OutputField)
         name: field
         object: OutpPrntParam
-        parameters:
-          - !_InputParam
-            name: InOutpPrntParam
+        parameter: !_InputParam
+          name: InOutpPrntParam
         type: !_ObjBase
           name: FldOutpPrntParam
     fields:
       - !_OutputField
         name: field
-        parameters:
-          - !_InputParam
-            name: InOutpPrntParam
+        parameter: !_InputParam
+          name: InOutpPrntParam
         type: !_ObjBase
           name: FldOutpPrntParam
     name: OutpPrntParam
@@ -9300,17 +9274,15 @@ types: !_Map(_Type)
       - !_ObjectFor(_OutputField)
         name: field
         object: PrntOutpPrntParam
-        parameters:
-          - !_InputParam
-            name: PrntOutpPrntParamIn
+        parameter: !_InputParam
+          name: PrntOutpPrntParamIn
         type: !_ObjBase
           name: FldOutpPrntParam
     fields:
       - !_OutputField
         name: field
-        parameters:
-          - !_InputParam
-            name: PrntOutpPrntParamIn
+        parameter: !_InputParam
+          name: PrntOutpPrntParamIn
         type: !_ObjBase
           name: FldOutpPrntParam
     name: PrntOutpPrntParam

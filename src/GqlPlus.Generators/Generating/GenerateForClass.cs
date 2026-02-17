@@ -6,33 +6,41 @@ internal abstract class GenerateForClass<TClass, TMember>
 {
   protected GenerateForClass()
   {
-    _generators[GqlpGeneratorType.Interface] = GenerateBlock(InterfaceHeader, TypeMembers, InterfaceMember);
-    _generators[GqlpGeneratorType.Implementation] = GenerateBlock(ClassHeader, TypeMembers, ClassMember);
+    AddGenerator(GqlpGeneratorType.Interface, InterfaceHeader, TypeMembers, InterfaceMember);
+    AddGenerator(GqlpGeneratorType.Implementation, ClassHeader, TypeMembers, ClassMember, ClassTail);
   }
 
   protected virtual void ClassHeader(TClass ast, GqlpGeneratorContext context)
   {
-    context.Write("public class " + context.TypeName(ast, ""));
-    if (context.GeneratorOptions.BaseType == GqlpBaseType.Class) {
-      context.Write("  : " + context.GeneratorOptions.BaseName);
-    } else {
-      context.Write($"  // No Base because it's {context.GeneratorOptions.BaseType}");
-    }
+    string interfaceSep = TypeHeader(ast, context, "class", "", GqlpBaseType.Class);
+    TypeInterface(ast, context, interfaceSep);
   }
 
   protected abstract void ClassMember(TMember item, GqlpGeneratorContext context);
 
+  protected virtual void ClassTail(TClass ast, GqlpGeneratorContext context)
+  { }
+
   protected virtual void InterfaceHeader(TClass ast, GqlpGeneratorContext context)
-  {
-    context.Write("public interface " + context.TypeName(ast, "I"));
-    if (context.GeneratorOptions.BaseType == GqlpBaseType.Interface) {
-      context.Write("  : " + context.GeneratorOptions.BaseName);
-    } else {
-      context.Write($"  // No Base because it's {context.GeneratorOptions.BaseType}");
-    }
-  }
+    => TypeHeader(ast, context, "interface", "I", GqlpBaseType.Interface);
 
   protected abstract void InterfaceMember(TMember item, GqlpGeneratorContext context);
+
+  protected virtual string TypeHeader(TClass ast, GqlpGeneratorContext context, string type, string prefix, GqlpBaseType baseType)
+  {
+    context.Write($"public {type} " + context.TypeName(ast, prefix));
+
+    if (context.GeneratorOptions.BaseType == baseType) {
+      context.Write("  : " + context.GeneratorOptions.BaseName);
+      return ",";
+    }
+
+    context.Write($"  // No Base because it's {context.GeneratorOptions.BaseType}");
+    return ":";
+  }
+
+  protected virtual void TypeInterface(TClass ast, GqlpGeneratorContext context, string interfaceSep)
+    => context.Write("  " + interfaceSep + " " + context.TypeName(ast, "I"));
 
   internal abstract IEnumerable<TMember> TypeMembers(TClass ast, GqlpGeneratorContext context);
 }

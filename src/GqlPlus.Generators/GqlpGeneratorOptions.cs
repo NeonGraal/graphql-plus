@@ -16,7 +16,7 @@ internal class GqlpGeneratorOptions
 
     if (names.Length > 1) {
       BaseName = names.Last();
-      NameSpace = string.Join(".", names.Take(names.Length - 1));
+      NameSpace = names.Take(names.Length - 1).Joined(".");
     } else {
       BaseName = fullName;
       NameSpace = string.Empty;

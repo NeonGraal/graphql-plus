@@ -49,7 +49,7 @@ public static class IEnumerableHelpers
   }
 
   public static string Debug(this IEnumerable<string?>? items)
-    => string.Join(", ", items?.OrderBy(t => t, StringComparer.Ordinal).Select(i => $"'{i}'") ?? []);
+    => (items?.OrderBy(t => t, StringComparer.Ordinal)).Joined(i => $"'{i}'", ", ");
 
   public static string Joined(this IEnumerable<string?>? items, string by = " ")
     => string.Join(by, items?.RemoveEmpty() ?? []);

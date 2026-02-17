@@ -1,26 +1,26 @@
-﻿namespace GqlPlus.Generating.Objects;
+﻿using GqlPlus.Abstractions;
+
+namespace GqlPlus.Generating.Objects;
 
 internal class OutputGenerator
   : GenerateForObject<IGqlpOutputField, OutputField>
 {
   protected override void ClassMember(OutputField item, GqlpGeneratorContext context)
   {
-    string member = $"public {item.Type} {item.Name} ";
     if (string.IsNullOrEmpty(item.Param)) {
-      context.Write("  " + member + "{ get; set; }");
+      context.Write("  public " + item.Type + " " + item.Name + " { get; set; }");
     } else {
-      context.Write($"  {member}({item.Param})");
-      context.Write("{ }");
+      context.Write($"  public {item.Type}? {item.Name}({item.Param} parameter)");
+      context.Write("    => null;");
     }
   }
 
   protected override void InterfaceMember(OutputField item, GqlpGeneratorContext context)
   {
-    string member = $"{item.Type} {item.Name} ";
     if (string.IsNullOrEmpty(item.Param)) {
-      context.Write("  " + member + "{ get; }");
+      context.Write("  " + item.Type + " " + item.Name + " { get; }");
     } else {
-      context.Write($"  {member}({item.Param} parameter);");
+      context.Write($"  {item.Type}? {item.Name}({item.Param} parameter);");
     }
   }
 
@@ -29,6 +29,12 @@ internal class OutputGenerator
       f.Name.Capitalize(),
       ModifiedTypeString(f.Type, f, context),
       f.Parameter is null ? "" : ModifiedTypeString(f.Parameter.Type, f.Parameter, context)));
+
+  internal override MapPair<string>[] RequiredMembers(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorContext context)
+    => [.. ast.ObjFields
+      .Where(f => f.Parameter is null && f.Modifiers.LastOrDefault()?.ModifierKind != ModifierKind.Opt)
+      .Select(f => ModifiedTypeString(f.Type, f, context).ToPair(f.Name))];
+
 }
 
 internal class OutputField(string fieldName, string fieldType, string fieldParam)

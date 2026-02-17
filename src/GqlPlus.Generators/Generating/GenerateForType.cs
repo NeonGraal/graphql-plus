@@ -24,10 +24,21 @@ internal abstract class GenerateForType<TType>
     }
   }
 
-  protected static GenerateDelegate GenerateBlock<TItem>(GenerateDelegate head, GenerateMembers<TItem> members, GenerateMember<TItem> member)
-    => (ast, context) => GenerateBlock(ast, context, head, members, member);
+  protected void AddGenerator<TItem>(
+    GqlpGeneratorType type,
+    GenerateDelegate head,
+    GenerateMembers<TItem> members,
+    GenerateMember<TItem> member,
+    GenerateDelegate? tail = null)
+    => _generators[type] = (ast, context) => GenerateBlock(ast, context, head, members, member, tail);
 
-  protected static void GenerateBlock<TItem>(TType ast, GqlpGeneratorContext context, GenerateDelegate head, GenerateMembers<TItem> members, GenerateMember<TItem> member)
+  protected static void GenerateBlock<TItem>(
+    TType ast,
+    GqlpGeneratorContext context,
+    GenerateDelegate head,
+    GenerateMembers<TItem> members,
+    GenerateMember<TItem> member,
+    GenerateDelegate? tail = null)
   {
     context.Write("");
     head(ast, context);
@@ -36,6 +47,7 @@ internal abstract class GenerateForType<TType>
       member(item, context);
     }
 
+    tail?.Invoke(ast, context);
     context.Write("}");
   }
 }

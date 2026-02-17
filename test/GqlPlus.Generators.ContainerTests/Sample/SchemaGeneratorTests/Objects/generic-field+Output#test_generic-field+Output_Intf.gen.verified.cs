@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_Output;
 public interface ItestGnrcFieldOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldOutpObject<TType> AsGnrcFieldOutp { get; }
+  ItestGnrcFieldOutpObject<TType>? As_GnrcFieldOutp { get; }
 }
 
 public interface ItestGnrcFieldOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }

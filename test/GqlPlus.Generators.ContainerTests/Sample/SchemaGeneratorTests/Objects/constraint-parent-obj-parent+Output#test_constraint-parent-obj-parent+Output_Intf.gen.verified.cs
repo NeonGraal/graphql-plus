@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_obj_parent_Output;
 public interface ItestCnstPrntObjPrntOutp
   : ItestRefCnstPrntObjPrntOutp<ItestAltCnstPrntObjPrntOutp>
 {
-  ItestCnstPrntObjPrntOutpObject AsCnstPrntObjPrntOutp { get; }
+  ItestCnstPrntObjPrntOutpObject? As_CnstPrntObjPrntOutp { get; }
 }
 
 public interface ItestCnstPrntObjPrntOutpObject
@@ -21,29 +21,31 @@ public interface ItestCnstPrntObjPrntOutpObject
 public interface ItestRefCnstPrntObjPrntOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefCnstPrntObjPrntOutpObject<TRef> AsRefCnstPrntObjPrntOutp { get; }
+  TRef? As_Parent { get; }
+  ItestRefCnstPrntObjPrntOutpObject<TRef>? As_RefCnstPrntObjPrntOutp { get; }
 }
 
 public interface ItestRefCnstPrntObjPrntOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstPrntObjPrntOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstPrntObjPrntOutpObject AsPrntCnstPrntObjPrntOutp { get; }
+  string? AsString { get; }
+  ItestPrntCnstPrntObjPrntOutpObject? As_PrntCnstPrntObjPrntOutp { get; }
 }
 
 public interface ItestPrntCnstPrntObjPrntOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstPrntObjPrntOutp
   : ItestPrntCnstPrntObjPrntOutp
 {
-  ItestAltCnstPrntObjPrntOutpObject AsAltCnstPrntObjPrntOutp { get; }
+  ItestAltCnstPrntObjPrntOutpObject? As_AltCnstPrntObjPrntOutp { get; }
 }
 
 public interface ItestAltCnstPrntObjPrntOutpObject

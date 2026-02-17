@@ -10,32 +10,35 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_param_type_descr;
 public interface ItestOutpParamTypeDescr
   : IGqlpModelImplementationBase
 {
-  ItestOutpParamTypeDescrObject AsOutpParamTypeDescr { get; }
+  ItestOutpParamTypeDescrObject? As_OutpParamTypeDescr { get; }
 }
 
 public interface ItestOutpParamTypeDescrObject
+  : IGqlpModelImplementationBase
 {
-  ItestFldOutpParamTypeDescr Field (ItestInOutpParamTypeDescr parameter);
+  ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter);
 }
 
 public interface ItestFldOutpParamTypeDescr
   : IGqlpModelImplementationBase
 {
-  ItestFldOutpParamTypeDescrObject AsFldOutpParamTypeDescr { get; }
+  ItestFldOutpParamTypeDescrObject? As_FldOutpParamTypeDescr { get; }
 }
 
 public interface ItestFldOutpParamTypeDescrObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInOutpParamTypeDescr
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestInOutpParamTypeDescrObject AsInOutpParamTypeDescr { get; }
+  string? AsString { get; }
+  ItestInOutpParamTypeDescrObject? As_InOutpParamTypeDescr { get; }
 }
 
 public interface ItestInOutpParamTypeDescrObject
+  : IGqlpModelImplementationBase
 {
   decimal Param { get; }
 }

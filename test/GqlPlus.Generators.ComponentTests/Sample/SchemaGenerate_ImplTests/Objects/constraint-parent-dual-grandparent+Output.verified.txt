@@ -18,27 +18,87 @@ public class CmptCnstPrntDualGrndOutp
   : CmptRefCnstPrntDualGrndOutp<ICmptAltCnstPrntDualGrndOutp>
   , ICmptCnstPrntDualGrndOutp
 {
+  public ICmptCnstPrntDualGrndOutpObject? As_CnstPrntDualGrndOutp { get; set; }
+}
+
+public class CmptCnstPrntDualGrndOutpObject
+  : CmptRefCnstPrntDualGrndOutpObject<ICmptAltCnstPrntDualGrndOutp>
+  , ICmptCnstPrntDualGrndOutpObject
+{
+
+  public CmptCnstPrntDualGrndOutpObject()
+  {
+  }
 }
 
 public class CmptRefCnstPrntDualGrndOutp<TRef>
-  : ICmptRefCnstPrntDualGrndOutp<TRef>
+  : Schema_constraint-parent-dual-grandparent+Output
+  , ICmptRefCnstPrntDualGrndOutp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ICmptRefCnstPrntDualGrndOutpObject<TRef>? As_RefCnstPrntDualGrndOutp { get; set; }
+}
+
+public class CmptRefCnstPrntDualGrndOutpObject<TRef>
+  : Schema_constraint-parent-dual-grandparent+Output
+  , ICmptRefCnstPrntDualGrndOutpObject<TRef>
+{
+
+  public CmptRefCnstPrntDualGrndOutpObject()
+  {
+  }
 }
 
 public class CmptGrndCnstPrntDualGrndOutp
-  : ICmptGrndCnstPrntDualGrndOutp
+  : Schema_constraint-parent-dual-grandparent+Output
+  , ICmptGrndCnstPrntDualGrndOutp
 {
+  public string? AsString { get; set; }
+  public ICmptGrndCnstPrntDualGrndOutpObject? As_GrndCnstPrntDualGrndOutp { get; set; }
+}
+
+public class CmptGrndCnstPrntDualGrndOutpObject
+  : Schema_constraint-parent-dual-grandparent+Output
+  , ICmptGrndCnstPrntDualGrndOutpObject
+{
+
+  public CmptGrndCnstPrntDualGrndOutpObject()
+  {
+  }
 }
 
 public class CmptPrntCnstPrntDualGrndOutp
   : CmptGrndCnstPrntDualGrndOutp
   , ICmptPrntCnstPrntDualGrndOutp
 {
+  public ICmptPrntCnstPrntDualGrndOutpObject? As_PrntCnstPrntDualGrndOutp { get; set; }
+}
+
+public class CmptPrntCnstPrntDualGrndOutpObject
+  : CmptGrndCnstPrntDualGrndOutpObject
+  , ICmptPrntCnstPrntDualGrndOutpObject
+{
+
+  public CmptPrntCnstPrntDualGrndOutpObject()
+  {
+  }
 }
 
 public class CmptAltCnstPrntDualGrndOutp
   : CmptPrntCnstPrntDualGrndOutp
   , ICmptAltCnstPrntDualGrndOutp
 {
+  public ICmptAltCnstPrntDualGrndOutpObject? As_AltCnstPrntDualGrndOutp { get; set; }
+}
+
+public class CmptAltCnstPrntDualGrndOutpObject
+  : CmptPrntCnstPrntDualGrndOutpObject
+  , ICmptAltCnstPrntDualGrndOutpObject
+{
   public decimal Alt { get; set; }
+
+  public CmptAltCnstPrntDualGrndOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

@@ -8,17 +8,57 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_dual_Dual;
 
 public class testGnrcAltDualDual
-  : ItestGnrcAltDualDual
+  : GqlpModelImplementationBase
+  , ItestGnrcAltDualDual
 {
+  public ItestRefGnrcAltDualDual<ItestAltGnrcAltDualDual>? AsRefGnrcAltDualDual { get; set; }
+  public ItestGnrcAltDualDualObject? As_GnrcAltDualDual { get; set; }
+}
+
+public class testGnrcAltDualDualObject
+  : GqlpModelImplementationBase
+  , ItestGnrcAltDualDualObject
+{
+
+  public testGnrcAltDualDualObject()
+  {
+  }
 }
 
 public class testRefGnrcAltDualDual<TRef>
-  : ItestRefGnrcAltDualDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltDualDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltDualDualObject<TRef>? As_RefGnrcAltDualDual { get; set; }
+}
+
+public class testRefGnrcAltDualDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltDualDualObject<TRef>
+{
+
+  public testRefGnrcAltDualDualObject()
+  {
+  }
 }
 
 public class testAltGnrcAltDualDual
-  : ItestAltGnrcAltDualDual
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltDualDual
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcAltDualDualObject? As_AltGnrcAltDualDual { get; set; }
+}
+
+public class testAltGnrcAltDualDualObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltDualDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcAltDualDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

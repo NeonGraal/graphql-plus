@@ -11,12 +11,37 @@ public class testGnrcPrntStrDomInp
   : testFieldGnrcPrntStrDomInp<ItestDomGnrcPrntStrDomInp>
   , ItestGnrcPrntStrDomInp
 {
+  public ItestGnrcPrntStrDomInpObject? As_GnrcPrntStrDomInp { get; set; }
+}
+
+public class testGnrcPrntStrDomInpObject
+  : testFieldGnrcPrntStrDomInpObject<ItestDomGnrcPrntStrDomInp>
+  , ItestGnrcPrntStrDomInpObject
+{
+
+  public testGnrcPrntStrDomInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntStrDomInp<TRef>
-  : ItestFieldGnrcPrntStrDomInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntStrDomInp<TRef>
+{
+  public ItestFieldGnrcPrntStrDomInpObject<TRef>? As_FieldGnrcPrntStrDomInp { get; set; }
+}
+
+public class testFieldGnrcPrntStrDomInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntStrDomInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntStrDomInpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testDomGnrcPrntStrDomInp

@@ -10,16 +10,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_Declarations;
 public interface Itest_Schema
   : Itest_Named
 {
-  Itest_SchemaObject As_Schema { get; }
+  Itest_SchemaObject? As__Schema { get; }
 }
 
 public interface Itest_SchemaObject
   : Itest_NamedObject
 {
-  IDictionary<Itest_Name, Itest_Categories> Categories (Itest_CategoryFilter? parameter);
-  IDictionary<Itest_Name, Itest_Directives> Directives (Itest_Filter? parameter);
-  IDictionary<Itest_Name, Itest_Type> Types (Itest_TypeFilter? parameter);
-  IDictionary<Itest_Name, Itest_Setting> Settings (Itest_Filter? parameter);
+  IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter);
+  IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter);
+  IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter);
+  IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter);
 }
 
 public interface Itest_Name
@@ -30,11 +30,12 @@ public interface Itest_Name
 public interface Itest_Filter
   : IGqlpModelImplementationBase
 {
-  ICollection<Itest_NameFilter> As_NameFilter { get; }
-  Itest_FilterObject As_Filter { get; }
+  ICollection<Itest_NameFilter>? As_NameFilter { get; }
+  Itest_FilterObject? As__Filter { get; }
 }
 
 public interface Itest_FilterObject
+  : IGqlpModelImplementationBase
 {
   ICollection<Itest_NameFilter> Names { get; }
   bool? MatchAliases { get; }
@@ -51,7 +52,7 @@ public interface Itest_NameFilter
 public interface Itest_CategoryFilter
   : Itest_Filter
 {
-  Itest_CategoryFilterObject As_CategoryFilter { get; }
+  Itest_CategoryFilterObject? As__CategoryFilter { get; }
 }
 
 public interface Itest_CategoryFilterObject
@@ -63,7 +64,7 @@ public interface Itest_CategoryFilterObject
 public interface Itest_TypeFilter
   : Itest_Filter
 {
-  Itest_TypeFilterObject As_TypeFilter { get; }
+  Itest_TypeFilterObject? As__TypeFilter { get; }
 }
 
 public interface Itest_TypeFilterObject

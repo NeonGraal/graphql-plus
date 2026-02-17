@@ -10,21 +10,23 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_descr_Dual;
 public interface ItestGnrcAltArgDescrDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltArgDescrDual<TType> AsRefGnrcAltArgDescrDual { get; }
-  ItestGnrcAltArgDescrDualObject<TType> AsGnrcAltArgDescrDual { get; }
+  ItestRefGnrcAltArgDescrDual<TType>? AsRefGnrcAltArgDescrDual { get; }
+  ItestGnrcAltArgDescrDualObject<TType>? As_GnrcAltArgDescrDual { get; }
 }
 
 public interface ItestGnrcAltArgDescrDualObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltArgDescrDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltArgDescrDualObject<TRef> AsRefGnrcAltArgDescrDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltArgDescrDualObject<TRef>? As_RefGnrcAltArgDescrDual { get; }
 }
 
 public interface ItestRefGnrcAltArgDescrDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }

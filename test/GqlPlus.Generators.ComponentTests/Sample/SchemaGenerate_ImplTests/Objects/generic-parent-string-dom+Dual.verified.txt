@@ -16,12 +16,37 @@ public class CmptGnrcPrntStrDomDual
   : CmptFieldGnrcPrntStrDomDual<ICmptDomGnrcPrntStrDomDual>
   , ICmptGnrcPrntStrDomDual
 {
+  public ICmptGnrcPrntStrDomDualObject? As_GnrcPrntStrDomDual { get; set; }
+}
+
+public class CmptGnrcPrntStrDomDualObject
+  : CmptFieldGnrcPrntStrDomDualObject<ICmptDomGnrcPrntStrDomDual>
+  , ICmptGnrcPrntStrDomDualObject
+{
+
+  public CmptGnrcPrntStrDomDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class CmptFieldGnrcPrntStrDomDual<TRef>
-  : ICmptFieldGnrcPrntStrDomDual<TRef>
+  : Schema_generic-parent-string-dom+Dual
+  , ICmptFieldGnrcPrntStrDomDual<TRef>
+{
+  public ICmptFieldGnrcPrntStrDomDualObject<TRef>? As_FieldGnrcPrntStrDomDual { get; set; }
+}
+
+public class CmptFieldGnrcPrntStrDomDualObject<TRef>
+  : Schema_generic-parent-string-dom+Dual
+  , ICmptFieldGnrcPrntStrDomDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public CmptFieldGnrcPrntStrDomDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptDomGnrcPrntStrDomDual

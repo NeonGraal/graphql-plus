@@ -14,12 +14,38 @@ enum ParentCnstEnumPrntInp { parentCnstEnumPrntInp }
 namespace Components.Gqlp_Schema_constraint_enum_parent_Input;
 
 public class CmptCnstEnumPrntInp
-  : ICmptCnstEnumPrntInp
+  : Schema_constraint-enum-parent+Input
+  , ICmptCnstEnumPrntInp
 {
+  public ICmptRefCnstEnumPrntInp<CmptEnumCnstEnumPrntInp>? AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; set; }
+  public ICmptCnstEnumPrntInpObject? As_CnstEnumPrntInp { get; set; }
+}
+
+public class CmptCnstEnumPrntInpObject
+  : Schema_constraint-enum-parent+Input
+  , ICmptCnstEnumPrntInpObject
+{
+
+  public CmptCnstEnumPrntInpObject()
+  {
+  }
 }
 
 public class CmptRefCnstEnumPrntInp<TType>
-  : ICmptRefCnstEnumPrntInp<TType>
+  : Schema_constraint-enum-parent+Input
+  , ICmptRefCnstEnumPrntInp<TType>
+{
+  public ICmptRefCnstEnumPrntInpObject<TType>? As_RefCnstEnumPrntInp { get; set; }
+}
+
+public class CmptRefCnstEnumPrntInpObject<TType>
+  : Schema_constraint-enum-parent+Input
+  , ICmptRefCnstEnumPrntInpObject<TType>
 {
   public TType Field { get; set; }
+
+  public CmptRefCnstEnumPrntInpObject(TType field)
+  {
+    Field = field;
+  }
 }

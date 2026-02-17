@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_backslash;
 public interface ItestDescrBcks
   : IGqlpModelImplementationBase
 {
-  ItestDescrBcksObject AsDescrBcks { get; }
+  ItestDescrBcksObject? As_DescrBcks { get; }
 }
 
 public interface ItestDescrBcksObject
+  : IGqlpModelImplementationBase
 {
 }

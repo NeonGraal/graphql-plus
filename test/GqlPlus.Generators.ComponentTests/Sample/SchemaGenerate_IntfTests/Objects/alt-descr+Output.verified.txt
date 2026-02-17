@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_alt_descr_Output;
 public interface ICmptAltDescrOutp
   : Schema_alt-descr+Output
 {
-  string AsString { get; }
-  ICmptAltDescrOutpObject AsAltDescrOutp { get; }
+  string? AsString { get; }
+  ICmptAltDescrOutpObject? As_AltDescrOutp { get; }
 }
 
 public interface ICmptAltDescrOutpObject
+  : Schema_alt-descr+Output
 {
 }

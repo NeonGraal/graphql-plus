@@ -12,6 +12,18 @@ output DescrDbl { }
 namespace Components.Gqlp_Schema_descr_double;
 
 public class CmptDescrDbl
-  : ICmptDescrDbl
+  : Schema_descr-double
+  , ICmptDescrDbl
 {
+  public ICmptDescrDblObject? As_DescrDbl { get; set; }
+}
+
+public class CmptDescrDblObject
+  : Schema_descr-double
+  , ICmptDescrDblObject
+{
+
+  public CmptDescrDblObject()
+  {
+  }
 }

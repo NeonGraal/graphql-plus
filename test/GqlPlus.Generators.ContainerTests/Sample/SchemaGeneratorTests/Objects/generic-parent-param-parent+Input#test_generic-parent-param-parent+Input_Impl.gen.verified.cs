@@ -11,15 +11,53 @@ public class testGnrcPrntParamPrntInp
   : testRefGnrcPrntParamPrntInp<ItestAltGnrcPrntParamPrntInp>
   , ItestGnrcPrntParamPrntInp
 {
+  public ItestGnrcPrntParamPrntInpObject? As_GnrcPrntParamPrntInp { get; set; }
+}
+
+public class testGnrcPrntParamPrntInpObject
+  : testRefGnrcPrntParamPrntInpObject<ItestAltGnrcPrntParamPrntInp>
+  , ItestGnrcPrntParamPrntInpObject
+{
+
+  public testGnrcPrntParamPrntInpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntParamPrntInp<TRef>
-  : ItestRefGnrcPrntParamPrntInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamPrntInp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefGnrcPrntParamPrntInpObject<TRef>? As_RefGnrcPrntParamPrntInp { get; set; }
+}
+
+public class testRefGnrcPrntParamPrntInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamPrntInpObject<TRef>
+{
+
+  public testRefGnrcPrntParamPrntInpObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntParamPrntInp
-  : ItestAltGnrcPrntParamPrntInp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamPrntInp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntParamPrntInpObject? As_AltGnrcPrntParamPrntInp { get; set; }
+}
+
+public class testAltGnrcPrntParamPrntInpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamPrntInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntParamPrntInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

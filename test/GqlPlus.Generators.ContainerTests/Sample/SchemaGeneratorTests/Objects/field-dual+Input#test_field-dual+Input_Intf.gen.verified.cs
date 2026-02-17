@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Input;
 public interface ItestFieldDualInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldDualInpObject AsFieldDualInp { get; }
+  ItestFieldDualInpObject? As_FieldDualInp { get; }
 }
 
 public interface ItestFieldDualInpObject
+  : IGqlpModelImplementationBase
 {
   ItestFldFieldDualInp Field { get; }
 }
@@ -21,11 +22,12 @@ public interface ItestFieldDualInpObject
 public interface ItestFldFieldDualInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestFldFieldDualInpObject AsFldFieldDualInp { get; }
+  string? AsString { get; }
+  ItestFldFieldDualInpObject? As_FldFieldDualInp { get; }
 }
 
 public interface ItestFldFieldDualInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }

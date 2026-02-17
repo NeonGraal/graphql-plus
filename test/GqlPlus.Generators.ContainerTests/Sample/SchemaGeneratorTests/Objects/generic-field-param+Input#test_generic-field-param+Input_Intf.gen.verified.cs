@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_param_Input;
 public interface ItestGnrcFieldParamInp
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldParamInpObject AsGnrcFieldParamInp { get; }
+  ItestGnrcFieldParamInpObject? As_GnrcFieldParamInp { get; }
 }
 
 public interface ItestGnrcFieldParamInpObject
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> Field { get; }
 }
@@ -21,22 +22,24 @@ public interface ItestGnrcFieldParamInpObject
 public interface ItestRefGnrcFieldParamInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldParamInpObject<TRef> AsRefGnrcFieldParamInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldParamInpObject<TRef>? As_RefGnrcFieldParamInp { get; }
 }
 
 public interface ItestRefGnrcFieldParamInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcFieldParamInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcFieldParamInpObject AsAltGnrcFieldParamInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcFieldParamInpObject? As_AltGnrcFieldParamInp { get; }
 }
 
 public interface ItestAltGnrcFieldParamInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }

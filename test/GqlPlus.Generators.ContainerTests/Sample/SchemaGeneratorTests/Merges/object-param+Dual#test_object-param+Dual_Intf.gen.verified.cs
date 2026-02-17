@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_param_Dual;
 public interface ItestObjParamDual<TTest,TType>
   : IGqlpModelImplementationBase
 {
-  ItestObjParamDualObject<TTest,TType> AsObjParamDual { get; }
+  ItestObjParamDualObject<TTest,TType>? As_ObjParamDual { get; }
 }
 
 public interface ItestObjParamDualObject<TTest,TType>
+  : IGqlpModelImplementationBase
 {
   TTest Test { get; }
   TType Type { get; }

@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_field_value_descr_Output;
 public interface ICmptFieldValueDescrOutp
   : Schema_field-value-descr+Output
 {
-  ICmptFieldValueDescrOutpObject AsFieldValueDescrOutp { get; }
+  ICmptFieldValueDescrOutpObject? As_FieldValueDescrOutp { get; }
 }
 
 public interface ICmptFieldValueDescrOutpObject
+  : Schema_field-value-descr+Output
 {
   CmptEnumFieldValueDescrOutp Field { get; }
 }

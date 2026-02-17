@@ -17,10 +17,35 @@ public class CmptGnrcPrntEnumChildInp
   : CmptFieldGnrcPrntEnumChildInp<CmptParentGnrcPrntEnumChildInp>
   , ICmptGnrcPrntEnumChildInp
 {
+  public ICmptGnrcPrntEnumChildInpObject? As_GnrcPrntEnumChildInp { get; set; }
+}
+
+public class CmptGnrcPrntEnumChildInpObject
+  : CmptFieldGnrcPrntEnumChildInpObject<CmptParentGnrcPrntEnumChildInp>
+  , ICmptGnrcPrntEnumChildInpObject
+{
+
+  public CmptGnrcPrntEnumChildInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class CmptFieldGnrcPrntEnumChildInp<TRef>
-  : ICmptFieldGnrcPrntEnumChildInp<TRef>
+  : Schema_generic-parent-enum-child+Input
+  , ICmptFieldGnrcPrntEnumChildInp<TRef>
+{
+  public ICmptFieldGnrcPrntEnumChildInpObject<TRef>? As_FieldGnrcPrntEnumChildInp { get; set; }
+}
+
+public class CmptFieldGnrcPrntEnumChildInpObject<TRef>
+  : Schema_generic-parent-enum-child+Input
+  , ICmptFieldGnrcPrntEnumChildInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public CmptFieldGnrcPrntEnumChildInpObject(TRef field)
+  {
+    Field = field;
+  }
 }

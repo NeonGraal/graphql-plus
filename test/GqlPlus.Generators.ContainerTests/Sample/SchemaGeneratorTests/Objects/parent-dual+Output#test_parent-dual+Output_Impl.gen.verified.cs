@@ -11,10 +11,35 @@ public class testPrntDualOutp
   : testRefPrntDualOutp
   , ItestPrntDualOutp
 {
+  public ItestPrntDualOutpObject? As_PrntDualOutp { get; set; }
+}
+
+public class testPrntDualOutpObject
+  : testRefPrntDualOutpObject
+  , ItestPrntDualOutpObject
+{
+
+  public testPrntDualOutpObject()
+  {
+  }
 }
 
 public class testRefPrntDualOutp
-  : ItestRefPrntDualOutp
+  : GqlpModelImplementationBase
+  , ItestRefPrntDualOutp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntDualOutpObject? As_RefPrntDualOutp { get; set; }
+}
+
+public class testRefPrntDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntDualOutpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntDualOutpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }

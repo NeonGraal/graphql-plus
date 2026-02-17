@@ -8,12 +8,39 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Output;
 
 public class testAltModParamOutp<TMod>
-  : ItestAltModParamOutp<TMod>
+  : GqlpModelImplementationBase
+  , ItestAltModParamOutp<TMod>
 {
+  public IDictionary<TMod, ItestAltAltModParamOutp>? AsAltAltModParamOutp { get; set; }
+  public ItestAltModParamOutpObject<TMod>? As_AltModParamOutp { get; set; }
+}
+
+public class testAltModParamOutpObject<TMod>
+  : GqlpModelImplementationBase
+  , ItestAltModParamOutpObject<TMod>
+{
+
+  public testAltModParamOutpObject()
+  {
+  }
 }
 
 public class testAltAltModParamOutp
-  : ItestAltAltModParamOutp
+  : GqlpModelImplementationBase
+  , ItestAltAltModParamOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltAltModParamOutpObject? As_AltAltModParamOutp { get; set; }
+}
+
+public class testAltAltModParamOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltAltModParamOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltAltModParamOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

@@ -8,290 +8,1000 @@
 namespace GqlPlus.GeneratorTests.Gqlp__ALL;
 
 public class testCtgrDscrs
-  : ItestCtgrDscrs
+  : GqlpModelImplementationBase
+  , ItestCtgrDscrs
 {
+  public ItestCtgrDscrsObject? As_CtgrDscrs { get; set; }
+}
+
+public class testCtgrDscrsObject
+  : GqlpModelImplementationBase
+  , ItestCtgrDscrsObject
+{
+
+  public testCtgrDscrsObject()
+  {
+  }
 }
 
 public class testCtgrOutp
-  : ItestCtgrOutp
+  : GqlpModelImplementationBase
+  , ItestCtgrOutp
 {
+  public ItestCtgrOutpObject? As_CtgrOutp { get; set; }
+}
+
+public class testCtgrOutpObject
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpObject
+{
+
+  public testCtgrOutpObject()
+  {
+  }
 }
 
 public class testCtgrOutpDescr
-  : ItestCtgrOutpDescr
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpDescr
 {
+  public ItestCtgrOutpDescrObject? As_CtgrOutpDescr { get; set; }
+}
+
+public class testCtgrOutpDescrObject
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpDescrObject
+{
+
+  public testCtgrOutpDescrObject()
+  {
+  }
 }
 
 public class testCtgrOutpDict
-  : ItestCtgrOutpDict
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpDict
 {
+  public ItestCtgrOutpDictObject? As_CtgrOutpDict { get; set; }
+}
+
+public class testCtgrOutpDictObject
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpDictObject
+{
+
+  public testCtgrOutpDictObject()
+  {
+  }
 }
 
 public class testCtgrOutpList
-  : ItestCtgrOutpList
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpList
 {
+  public ItestCtgrOutpListObject? As_CtgrOutpList { get; set; }
+}
+
+public class testCtgrOutpListObject
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpListObject
+{
+
+  public testCtgrOutpListObject()
+  {
+  }
 }
 
 public class testCtgrOutpOptl
-  : ItestCtgrOutpOptl
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpOptl
 {
+  public ItestCtgrOutpOptlObject? As_CtgrOutpOptl { get; set; }
+}
+
+public class testCtgrOutpOptlObject
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpOptlObject
+{
+
+  public testCtgrOutpOptlObject()
+  {
+  }
 }
 
 public class testDescr
-  : ItestDescr
+  : GqlpModelImplementationBase
+  , ItestDescr
 {
+  public ItestDescrObject? As_Descr { get; set; }
+}
+
+public class testDescrObject
+  : GqlpModelImplementationBase
+  , ItestDescrObject
+{
+
+  public testDescrObject()
+  {
+  }
 }
 
 public class testDescrBcks
-  : ItestDescrBcks
+  : GqlpModelImplementationBase
+  , ItestDescrBcks
 {
+  public ItestDescrBcksObject? As_DescrBcks { get; set; }
+}
+
+public class testDescrBcksObject
+  : GqlpModelImplementationBase
+  , ItestDescrBcksObject
+{
+
+  public testDescrBcksObject()
+  {
+  }
 }
 
 public class testDescrBtwn
-  : ItestDescrBtwn
+  : GqlpModelImplementationBase
+  , ItestDescrBtwn
 {
+  public ItestDescrBtwnObject? As_DescrBtwn { get; set; }
+}
+
+public class testDescrBtwnObject
+  : GqlpModelImplementationBase
+  , ItestDescrBtwnObject
+{
+
+  public testDescrBtwnObject()
+  {
+  }
 }
 
 public class testDescrCmpl
-  : ItestDescrCmpl
+  : GqlpModelImplementationBase
+  , ItestDescrCmpl
 {
+  public ItestDescrCmplObject? As_DescrCmpl { get; set; }
+}
+
+public class testDescrCmplObject
+  : GqlpModelImplementationBase
+  , ItestDescrCmplObject
+{
+
+  public testDescrCmplObject()
+  {
+  }
 }
 
 public class testDescrDbl
-  : ItestDescrDbl
+  : GqlpModelImplementationBase
+  , ItestDescrDbl
 {
+  public ItestDescrDblObject? As_DescrDbl { get; set; }
+}
+
+public class testDescrDblObject
+  : GqlpModelImplementationBase
+  , ItestDescrDblObject
+{
+
+  public testDescrDblObject()
+  {
+  }
 }
 
 public class testDescrSngl
-  : ItestDescrSngl
+  : GqlpModelImplementationBase
+  , ItestDescrSngl
 {
+  public ItestDescrSnglObject? As_DescrSngl { get; set; }
+}
+
+public class testDescrSnglObject
+  : GqlpModelImplementationBase
+  , ItestDescrSnglObject
+{
+
+  public testDescrSnglObject()
+  {
+  }
 }
 
 public class testDscrs
-  : ItestDscrs
+  : GqlpModelImplementationBase
+  , ItestDscrs
 {
+  public ItestDscrsObject? As_Dscrs { get; set; }
+}
+
+public class testDscrsObject
+  : GqlpModelImplementationBase
+  , ItestDscrsObject
+{
+
+  public testDscrsObject()
+  {
+  }
 }
 
 public class testInDrctParamDict
-  : ItestInDrctParamDict
+  : GqlpModelImplementationBase
+  , ItestInDrctParamDict
 {
+  public ItestInDrctParamDictObject? As_InDrctParamDict { get; set; }
+}
+
+public class testInDrctParamDictObject
+  : GqlpModelImplementationBase
+  , ItestInDrctParamDictObject
+{
+
+  public testInDrctParamDictObject()
+  {
+  }
 }
 
 public class testInDrctParamIn
-  : ItestInDrctParamIn
+  : GqlpModelImplementationBase
+  , ItestInDrctParamIn
 {
+  public ItestInDrctParamInObject? As_InDrctParamIn { get; set; }
+}
+
+public class testInDrctParamInObject
+  : GqlpModelImplementationBase
+  , ItestInDrctParamInObject
+{
+
+  public testInDrctParamInObject()
+  {
+  }
 }
 
 public class testInDrctParamList
-  : ItestInDrctParamList
+  : GqlpModelImplementationBase
+  , ItestInDrctParamList
 {
+  public ItestInDrctParamListObject? As_InDrctParamList { get; set; }
+}
+
+public class testInDrctParamListObject
+  : GqlpModelImplementationBase
+  , ItestInDrctParamListObject
+{
+
+  public testInDrctParamListObject()
+  {
+  }
 }
 
 public class testInDrctParamOpt
-  : ItestInDrctParamOpt
+  : GqlpModelImplementationBase
+  , ItestInDrctParamOpt
 {
+  public ItestInDrctParamOptObject? As_InDrctParamOpt { get; set; }
+}
+
+public class testInDrctParamOptObject
+  : GqlpModelImplementationBase
+  , ItestInDrctParamOptObject
+{
+
+  public testInDrctParamOptObject()
+  {
+  }
 }
 
 public class testAltDual
-  : ItestAltDual
+  : GqlpModelImplementationBase
+  , ItestAltDual
 {
+  public ItestAltAltDual? AsAltAltDual { get; set; }
+  public ItestAltDualObject? As_AltDual { get; set; }
+}
+
+public class testAltDualObject
+  : GqlpModelImplementationBase
+  , ItestAltDualObject
+{
+
+  public testAltDualObject()
+  {
+  }
 }
 
 public class testAltAltDual
-  : ItestAltAltDual
+  : GqlpModelImplementationBase
+  , ItestAltAltDual
+{
+  public string? AsString { get; set; }
+  public ItestAltAltDualObject? As_AltAltDual { get; set; }
+}
+
+public class testAltAltDualObject
+  : GqlpModelImplementationBase
+  , ItestAltAltDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltAltDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltInp
-  : ItestAltInp
+  : GqlpModelImplementationBase
+  , ItestAltInp
 {
+  public ItestAltAltInp? AsAltAltInp { get; set; }
+  public ItestAltInpObject? As_AltInp { get; set; }
+}
+
+public class testAltInpObject
+  : GqlpModelImplementationBase
+  , ItestAltInpObject
+{
+
+  public testAltInpObject()
+  {
+  }
 }
 
 public class testAltAltInp
-  : ItestAltAltInp
+  : GqlpModelImplementationBase
+  , ItestAltAltInp
+{
+  public string? AsString { get; set; }
+  public ItestAltAltInpObject? As_AltAltInp { get; set; }
+}
+
+public class testAltAltInpObject
+  : GqlpModelImplementationBase
+  , ItestAltAltInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltAltInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltOutp
-  : ItestAltOutp
+  : GqlpModelImplementationBase
+  , ItestAltOutp
 {
+  public ItestAltAltOutp? AsAltAltOutp { get; set; }
+  public ItestAltOutpObject? As_AltOutp { get; set; }
+}
+
+public class testAltOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltOutpObject
+{
+
+  public testAltOutpObject()
+  {
+  }
 }
 
 public class testAltAltOutp
-  : ItestAltAltOutp
+  : GqlpModelImplementationBase
+  , ItestAltAltOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltAltOutpObject? As_AltAltOutp { get; set; }
+}
+
+public class testAltAltOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltAltOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltAltOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltDescrDual
-  : ItestAltDescrDual
+  : GqlpModelImplementationBase
+  , ItestAltDescrDual
 {
+  public string? AsString { get; set; }
+  public ItestAltDescrDualObject? As_AltDescrDual { get; set; }
+}
+
+public class testAltDescrDualObject
+  : GqlpModelImplementationBase
+  , ItestAltDescrDualObject
+{
+
+  public testAltDescrDualObject()
+  {
+  }
 }
 
 public class testAltDescrInp
-  : ItestAltDescrInp
+  : GqlpModelImplementationBase
+  , ItestAltDescrInp
 {
+  public string? AsString { get; set; }
+  public ItestAltDescrInpObject? As_AltDescrInp { get; set; }
+}
+
+public class testAltDescrInpObject
+  : GqlpModelImplementationBase
+  , ItestAltDescrInpObject
+{
+
+  public testAltDescrInpObject()
+  {
+  }
 }
 
 public class testAltDescrOutp
-  : ItestAltDescrOutp
+  : GqlpModelImplementationBase
+  , ItestAltDescrOutp
 {
+  public string? AsString { get; set; }
+  public ItestAltDescrOutpObject? As_AltDescrOutp { get; set; }
+}
+
+public class testAltDescrOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltDescrOutpObject
+{
+
+  public testAltDescrOutpObject()
+  {
+  }
 }
 
 public class testAltDualDual
-  : ItestAltDualDual
+  : GqlpModelImplementationBase
+  , ItestAltDualDual
 {
+  public ItestObjDualAltDualDual? AsObjDualAltDualDual { get; set; }
+  public ItestAltDualDualObject? As_AltDualDual { get; set; }
+}
+
+public class testAltDualDualObject
+  : GqlpModelImplementationBase
+  , ItestAltDualDualObject
+{
+
+  public testAltDualDualObject()
+  {
+  }
 }
 
 public class testObjDualAltDualDual
-  : ItestObjDualAltDualDual
+  : GqlpModelImplementationBase
+  , ItestObjDualAltDualDual
+{
+  public string? AsString { get; set; }
+  public ItestObjDualAltDualDualObject? As_ObjDualAltDualDual { get; set; }
+}
+
+public class testObjDualAltDualDualObject
+  : GqlpModelImplementationBase
+  , ItestObjDualAltDualDualObject
 {
   public decimal Alt { get; set; }
+
+  public testObjDualAltDualDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltDualInp
-  : ItestAltDualInp
+  : GqlpModelImplementationBase
+  , ItestAltDualInp
 {
+  public ItestObjDualAltDualInp? AsObjDualAltDualInp { get; set; }
+  public ItestAltDualInpObject? As_AltDualInp { get; set; }
+}
+
+public class testAltDualInpObject
+  : GqlpModelImplementationBase
+  , ItestAltDualInpObject
+{
+
+  public testAltDualInpObject()
+  {
+  }
 }
 
 public class testObjDualAltDualInp
-  : ItestObjDualAltDualInp
+  : GqlpModelImplementationBase
+  , ItestObjDualAltDualInp
+{
+  public string? AsString { get; set; }
+  public ItestObjDualAltDualInpObject? As_ObjDualAltDualInp { get; set; }
+}
+
+public class testObjDualAltDualInpObject
+  : GqlpModelImplementationBase
+  , ItestObjDualAltDualInpObject
 {
   public decimal Alt { get; set; }
+
+  public testObjDualAltDualInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltDualOutp
-  : ItestAltDualOutp
+  : GqlpModelImplementationBase
+  , ItestAltDualOutp
 {
+  public ItestObjDualAltDualOutp? AsObjDualAltDualOutp { get; set; }
+  public ItestAltDualOutpObject? As_AltDualOutp { get; set; }
+}
+
+public class testAltDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltDualOutpObject
+{
+
+  public testAltDualOutpObject()
+  {
+  }
 }
 
 public class testObjDualAltDualOutp
-  : ItestObjDualAltDualOutp
+  : GqlpModelImplementationBase
+  , ItestObjDualAltDualOutp
+{
+  public string? AsString { get; set; }
+  public ItestObjDualAltDualOutpObject? As_ObjDualAltDualOutp { get; set; }
+}
+
+public class testObjDualAltDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestObjDualAltDualOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testObjDualAltDualOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltEnumDual
-  : ItestAltEnumDual
+  : GqlpModelImplementationBase
+  , ItestAltEnumDual
 {
+  public testEnumAltEnumDual? AsEnumAltEnumDualaltEnumDual { get; set; }
+  public ItestAltEnumDualObject? As_AltEnumDual { get; set; }
+}
+
+public class testAltEnumDualObject
+  : GqlpModelImplementationBase
+  , ItestAltEnumDualObject
+{
+
+  public testAltEnumDualObject()
+  {
+  }
 }
 
 public class testAltEnumInp
-  : ItestAltEnumInp
+  : GqlpModelImplementationBase
+  , ItestAltEnumInp
 {
+  public testEnumAltEnumInp? AsEnumAltEnumInpaltEnumInp { get; set; }
+  public ItestAltEnumInpObject? As_AltEnumInp { get; set; }
+}
+
+public class testAltEnumInpObject
+  : GqlpModelImplementationBase
+  , ItestAltEnumInpObject
+{
+
+  public testAltEnumInpObject()
+  {
+  }
 }
 
 public class testAltEnumOutp
-  : ItestAltEnumOutp
+  : GqlpModelImplementationBase
+  , ItestAltEnumOutp
 {
+  public testEnumAltEnumOutp? AsEnumAltEnumOutpaltEnumOutp { get; set; }
+  public ItestAltEnumOutpObject? As_AltEnumOutp { get; set; }
+}
+
+public class testAltEnumOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltEnumOutpObject
+{
+
+  public testAltEnumOutpObject()
+  {
+  }
 }
 
 public class testAltModBoolDual
-  : ItestAltModBoolDual
+  : GqlpModelImplementationBase
+  , ItestAltModBoolDual
 {
+  public IDictionary<bool, ItestAltAltModBoolDual>? AsAltAltModBoolDual { get; set; }
+  public ItestAltModBoolDualObject? As_AltModBoolDual { get; set; }
+}
+
+public class testAltModBoolDualObject
+  : GqlpModelImplementationBase
+  , ItestAltModBoolDualObject
+{
+
+  public testAltModBoolDualObject()
+  {
+  }
 }
 
 public class testAltAltModBoolDual
-  : ItestAltAltModBoolDual
+  : GqlpModelImplementationBase
+  , ItestAltAltModBoolDual
+{
+  public string? AsString { get; set; }
+  public ItestAltAltModBoolDualObject? As_AltAltModBoolDual { get; set; }
+}
+
+public class testAltAltModBoolDualObject
+  : GqlpModelImplementationBase
+  , ItestAltAltModBoolDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltAltModBoolDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltModBoolInp
-  : ItestAltModBoolInp
+  : GqlpModelImplementationBase
+  , ItestAltModBoolInp
 {
+  public IDictionary<bool, ItestAltAltModBoolInp>? AsAltAltModBoolInp { get; set; }
+  public ItestAltModBoolInpObject? As_AltModBoolInp { get; set; }
+}
+
+public class testAltModBoolInpObject
+  : GqlpModelImplementationBase
+  , ItestAltModBoolInpObject
+{
+
+  public testAltModBoolInpObject()
+  {
+  }
 }
 
 public class testAltAltModBoolInp
-  : ItestAltAltModBoolInp
+  : GqlpModelImplementationBase
+  , ItestAltAltModBoolInp
+{
+  public string? AsString { get; set; }
+  public ItestAltAltModBoolInpObject? As_AltAltModBoolInp { get; set; }
+}
+
+public class testAltAltModBoolInpObject
+  : GqlpModelImplementationBase
+  , ItestAltAltModBoolInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltAltModBoolInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltModBoolOutp
-  : ItestAltModBoolOutp
+  : GqlpModelImplementationBase
+  , ItestAltModBoolOutp
 {
+  public IDictionary<bool, ItestAltAltModBoolOutp>? AsAltAltModBoolOutp { get; set; }
+  public ItestAltModBoolOutpObject? As_AltModBoolOutp { get; set; }
+}
+
+public class testAltModBoolOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltModBoolOutpObject
+{
+
+  public testAltModBoolOutpObject()
+  {
+  }
 }
 
 public class testAltAltModBoolOutp
-  : ItestAltAltModBoolOutp
+  : GqlpModelImplementationBase
+  , ItestAltAltModBoolOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltAltModBoolOutpObject? As_AltAltModBoolOutp { get; set; }
+}
+
+public class testAltAltModBoolOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltAltModBoolOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltAltModBoolOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltModParamDual<TMod>
-  : ItestAltModParamDual<TMod>
+  : GqlpModelImplementationBase
+  , ItestAltModParamDual<TMod>
 {
+  public IDictionary<TMod, ItestAltAltModParamDual>? AsAltAltModParamDual { get; set; }
+  public ItestAltModParamDualObject<TMod>? As_AltModParamDual { get; set; }
+}
+
+public class testAltModParamDualObject<TMod>
+  : GqlpModelImplementationBase
+  , ItestAltModParamDualObject<TMod>
+{
+
+  public testAltModParamDualObject()
+  {
+  }
 }
 
 public class testAltAltModParamDual
-  : ItestAltAltModParamDual
+  : GqlpModelImplementationBase
+  , ItestAltAltModParamDual
+{
+  public string? AsString { get; set; }
+  public ItestAltAltModParamDualObject? As_AltAltModParamDual { get; set; }
+}
+
+public class testAltAltModParamDualObject
+  : GqlpModelImplementationBase
+  , ItestAltAltModParamDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltAltModParamDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltModParamInp<TMod>
-  : ItestAltModParamInp<TMod>
+  : GqlpModelImplementationBase
+  , ItestAltModParamInp<TMod>
 {
+  public IDictionary<TMod, ItestAltAltModParamInp>? AsAltAltModParamInp { get; set; }
+  public ItestAltModParamInpObject<TMod>? As_AltModParamInp { get; set; }
+}
+
+public class testAltModParamInpObject<TMod>
+  : GqlpModelImplementationBase
+  , ItestAltModParamInpObject<TMod>
+{
+
+  public testAltModParamInpObject()
+  {
+  }
 }
 
 public class testAltAltModParamInp
-  : ItestAltAltModParamInp
+  : GqlpModelImplementationBase
+  , ItestAltAltModParamInp
+{
+  public string? AsString { get; set; }
+  public ItestAltAltModParamInpObject? As_AltAltModParamInp { get; set; }
+}
+
+public class testAltAltModParamInpObject
+  : GqlpModelImplementationBase
+  , ItestAltAltModParamInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltAltModParamInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltModParamOutp<TMod>
-  : ItestAltModParamOutp<TMod>
+  : GqlpModelImplementationBase
+  , ItestAltModParamOutp<TMod>
 {
+  public IDictionary<TMod, ItestAltAltModParamOutp>? AsAltAltModParamOutp { get; set; }
+  public ItestAltModParamOutpObject<TMod>? As_AltModParamOutp { get; set; }
+}
+
+public class testAltModParamOutpObject<TMod>
+  : GqlpModelImplementationBase
+  , ItestAltModParamOutpObject<TMod>
+{
+
+  public testAltModParamOutpObject()
+  {
+  }
 }
 
 public class testAltAltModParamOutp
-  : ItestAltAltModParamOutp
+  : GqlpModelImplementationBase
+  , ItestAltAltModParamOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltAltModParamOutpObject? As_AltAltModParamOutp { get; set; }
+}
+
+public class testAltAltModParamOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltAltModParamOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltAltModParamOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testAltSmplDual
-  : ItestAltSmplDual
+  : GqlpModelImplementationBase
+  , ItestAltSmplDual
 {
+  public string? AsString { get; set; }
+  public ItestAltSmplDualObject? As_AltSmplDual { get; set; }
+}
+
+public class testAltSmplDualObject
+  : GqlpModelImplementationBase
+  , ItestAltSmplDualObject
+{
+
+  public testAltSmplDualObject()
+  {
+  }
 }
 
 public class testAltSmplInp
-  : ItestAltSmplInp
+  : GqlpModelImplementationBase
+  , ItestAltSmplInp
 {
+  public string? AsString { get; set; }
+  public ItestAltSmplInpObject? As_AltSmplInp { get; set; }
+}
+
+public class testAltSmplInpObject
+  : GqlpModelImplementationBase
+  , ItestAltSmplInpObject
+{
+
+  public testAltSmplInpObject()
+  {
+  }
 }
 
 public class testAltSmplOutp
-  : ItestAltSmplOutp
+  : GqlpModelImplementationBase
+  , ItestAltSmplOutp
 {
+  public string? AsString { get; set; }
+  public ItestAltSmplOutpObject? As_AltSmplOutp { get; set; }
+}
+
+public class testAltSmplOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltSmplOutpObject
+{
+
+  public testAltSmplOutpObject()
+  {
+  }
 }
 
 public class testCnstAltDual<TType>
-  : ItestCnstAltDual<TType>
+  : GqlpModelImplementationBase
+  , ItestCnstAltDual<TType>
 {
+  public TType? Astype { get; set; }
+  public ItestCnstAltDualObject<TType>? As_CnstAltDual { get; set; }
+}
+
+public class testCnstAltDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestCnstAltDualObject<TType>
+{
+
+  public testCnstAltDualObject()
+  {
+  }
 }
 
 public class testCnstAltInp<TType>
-  : ItestCnstAltInp<TType>
+  : GqlpModelImplementationBase
+  , ItestCnstAltInp<TType>
 {
+  public TType? Astype { get; set; }
+  public ItestCnstAltInpObject<TType>? As_CnstAltInp { get; set; }
+}
+
+public class testCnstAltInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestCnstAltInpObject<TType>
+{
+
+  public testCnstAltInpObject()
+  {
+  }
 }
 
 public class testCnstAltOutp<TType>
-  : ItestCnstAltOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestCnstAltOutp<TType>
 {
+  public TType? Astype { get; set; }
+  public ItestCnstAltOutpObject<TType>? As_CnstAltOutp { get; set; }
+}
+
+public class testCnstAltOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestCnstAltOutpObject<TType>
+{
+
+  public testCnstAltOutpObject()
+  {
+  }
 }
 
 public class testCnstAltDmnDual
-  : ItestCnstAltDmnDual
+  : GqlpModelImplementationBase
+  , ItestCnstAltDmnDual
 {
+  public ItestRefCnstAltDmnDual<ItestDomCnstAltDmnDual>? AsRefCnstAltDmnDual { get; set; }
+  public ItestCnstAltDmnDualObject? As_CnstAltDmnDual { get; set; }
+}
+
+public class testCnstAltDmnDualObject
+  : GqlpModelImplementationBase
+  , ItestCnstAltDmnDualObject
+{
+
+  public testCnstAltDmnDualObject()
+  {
+  }
 }
 
 public class testRefCnstAltDmnDual<TRef>
-  : ItestRefCnstAltDmnDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDmnDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefCnstAltDmnDualObject<TRef>? As_RefCnstAltDmnDual { get; set; }
+}
+
+public class testRefCnstAltDmnDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDmnDualObject<TRef>
+{
+
+  public testRefCnstAltDmnDualObject()
+  {
+  }
 }
 
 public class testDomCnstAltDmnDual
@@ -301,13 +1011,39 @@ public class testDomCnstAltDmnDual
 }
 
 public class testCnstAltDmnInp
-  : ItestCnstAltDmnInp
+  : GqlpModelImplementationBase
+  , ItestCnstAltDmnInp
 {
+  public ItestRefCnstAltDmnInp<ItestDomCnstAltDmnInp>? AsRefCnstAltDmnInp { get; set; }
+  public ItestCnstAltDmnInpObject? As_CnstAltDmnInp { get; set; }
+}
+
+public class testCnstAltDmnInpObject
+  : GqlpModelImplementationBase
+  , ItestCnstAltDmnInpObject
+{
+
+  public testCnstAltDmnInpObject()
+  {
+  }
 }
 
 public class testRefCnstAltDmnInp<TRef>
-  : ItestRefCnstAltDmnInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDmnInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefCnstAltDmnInpObject<TRef>? As_RefCnstAltDmnInp { get; set; }
+}
+
+public class testRefCnstAltDmnInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDmnInpObject<TRef>
+{
+
+  public testRefCnstAltDmnInpObject()
+  {
+  }
 }
 
 public class testDomCnstAltDmnInp
@@ -317,13 +1053,39 @@ public class testDomCnstAltDmnInp
 }
 
 public class testCnstAltDmnOutp
-  : ItestCnstAltDmnOutp
+  : GqlpModelImplementationBase
+  , ItestCnstAltDmnOutp
 {
+  public ItestRefCnstAltDmnOutp<ItestDomCnstAltDmnOutp>? AsRefCnstAltDmnOutp { get; set; }
+  public ItestCnstAltDmnOutpObject? As_CnstAltDmnOutp { get; set; }
+}
+
+public class testCnstAltDmnOutpObject
+  : GqlpModelImplementationBase
+  , ItestCnstAltDmnOutpObject
+{
+
+  public testCnstAltDmnOutpObject()
+  {
+  }
 }
 
 public class testRefCnstAltDmnOutp<TRef>
-  : ItestRefCnstAltDmnOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDmnOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefCnstAltDmnOutpObject<TRef>? As_RefCnstAltDmnOutp { get; set; }
+}
+
+public class testRefCnstAltDmnOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDmnOutpObject<TRef>
+{
+
+  public testRefCnstAltDmnOutpObject()
+  {
+  }
 }
 
 public class testDomCnstAltDmnOutp
@@ -333,146 +1095,478 @@ public class testDomCnstAltDmnOutp
 }
 
 public class testCnstAltDualDual
-  : ItestCnstAltDualDual
+  : GqlpModelImplementationBase
+  , ItestCnstAltDualDual
 {
+  public ItestRefCnstAltDualDual<ItestAltCnstAltDualDual>? AsRefCnstAltDualDual { get; set; }
+  public ItestCnstAltDualDualObject? As_CnstAltDualDual { get; set; }
+}
+
+public class testCnstAltDualDualObject
+  : GqlpModelImplementationBase
+  , ItestCnstAltDualDualObject
+{
+
+  public testCnstAltDualDualObject()
+  {
+  }
 }
 
 public class testRefCnstAltDualDual<TRef>
-  : ItestRefCnstAltDualDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDualDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefCnstAltDualDualObject<TRef>? As_RefCnstAltDualDual { get; set; }
+}
+
+public class testRefCnstAltDualDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDualDualObject<TRef>
+{
+
+  public testRefCnstAltDualDualObject()
+  {
+  }
 }
 
 public class testPrntCnstAltDualDual
-  : ItestPrntCnstAltDualDual
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltDualDual
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstAltDualDualObject? As_PrntCnstAltDualDual { get; set; }
+}
+
+public class testPrntCnstAltDualDualObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltDualDualObject
+{
+
+  public testPrntCnstAltDualDualObject()
+  {
+  }
 }
 
 public class testAltCnstAltDualDual
   : testPrntCnstAltDualDual
   , ItestAltCnstAltDualDual
 {
+  public ItestAltCnstAltDualDualObject? As_AltCnstAltDualDual { get; set; }
+}
+
+public class testAltCnstAltDualDualObject
+  : testPrntCnstAltDualDualObject
+  , ItestAltCnstAltDualDualObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstAltDualDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstAltDualInp
-  : ItestCnstAltDualInp
+  : GqlpModelImplementationBase
+  , ItestCnstAltDualInp
 {
+  public ItestRefCnstAltDualInp<ItestAltCnstAltDualInp>? AsRefCnstAltDualInp { get; set; }
+  public ItestCnstAltDualInpObject? As_CnstAltDualInp { get; set; }
+}
+
+public class testCnstAltDualInpObject
+  : GqlpModelImplementationBase
+  , ItestCnstAltDualInpObject
+{
+
+  public testCnstAltDualInpObject()
+  {
+  }
 }
 
 public class testRefCnstAltDualInp<TRef>
-  : ItestRefCnstAltDualInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDualInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefCnstAltDualInpObject<TRef>? As_RefCnstAltDualInp { get; set; }
+}
+
+public class testRefCnstAltDualInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDualInpObject<TRef>
+{
+
+  public testRefCnstAltDualInpObject()
+  {
+  }
 }
 
 public class testPrntCnstAltDualInp
-  : ItestPrntCnstAltDualInp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltDualInp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstAltDualInpObject? As_PrntCnstAltDualInp { get; set; }
+}
+
+public class testPrntCnstAltDualInpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltDualInpObject
+{
+
+  public testPrntCnstAltDualInpObject()
+  {
+  }
 }
 
 public class testAltCnstAltDualInp
   : testPrntCnstAltDualInp
   , ItestAltCnstAltDualInp
 {
+  public ItestAltCnstAltDualInpObject? As_AltCnstAltDualInp { get; set; }
+}
+
+public class testAltCnstAltDualInpObject
+  : testPrntCnstAltDualInpObject
+  , ItestAltCnstAltDualInpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstAltDualInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstAltDualOutp
-  : ItestCnstAltDualOutp
+  : GqlpModelImplementationBase
+  , ItestCnstAltDualOutp
 {
+  public ItestRefCnstAltDualOutp<ItestAltCnstAltDualOutp>? AsRefCnstAltDualOutp { get; set; }
+  public ItestCnstAltDualOutpObject? As_CnstAltDualOutp { get; set; }
+}
+
+public class testCnstAltDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestCnstAltDualOutpObject
+{
+
+  public testCnstAltDualOutpObject()
+  {
+  }
 }
 
 public class testRefCnstAltDualOutp<TRef>
-  : ItestRefCnstAltDualOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDualOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefCnstAltDualOutpObject<TRef>? As_RefCnstAltDualOutp { get; set; }
+}
+
+public class testRefCnstAltDualOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDualOutpObject<TRef>
+{
+
+  public testRefCnstAltDualOutpObject()
+  {
+  }
 }
 
 public class testPrntCnstAltDualOutp
-  : ItestPrntCnstAltDualOutp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltDualOutp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstAltDualOutpObject? As_PrntCnstAltDualOutp { get; set; }
+}
+
+public class testPrntCnstAltDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltDualOutpObject
+{
+
+  public testPrntCnstAltDualOutpObject()
+  {
+  }
 }
 
 public class testAltCnstAltDualOutp
   : testPrntCnstAltDualOutp
   , ItestAltCnstAltDualOutp
 {
+  public ItestAltCnstAltDualOutpObject? As_AltCnstAltDualOutp { get; set; }
+}
+
+public class testAltCnstAltDualOutpObject
+  : testPrntCnstAltDualOutpObject
+  , ItestAltCnstAltDualOutpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstAltDualOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstAltObjDual
-  : ItestCnstAltObjDual
+  : GqlpModelImplementationBase
+  , ItestCnstAltObjDual
 {
+  public ItestRefCnstAltObjDual<ItestAltCnstAltObjDual>? AsRefCnstAltObjDual { get; set; }
+  public ItestCnstAltObjDualObject? As_CnstAltObjDual { get; set; }
+}
+
+public class testCnstAltObjDualObject
+  : GqlpModelImplementationBase
+  , ItestCnstAltObjDualObject
+{
+
+  public testCnstAltObjDualObject()
+  {
+  }
 }
 
 public class testRefCnstAltObjDual<TRef>
-  : ItestRefCnstAltObjDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltObjDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefCnstAltObjDualObject<TRef>? As_RefCnstAltObjDual { get; set; }
+}
+
+public class testRefCnstAltObjDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltObjDualObject<TRef>
+{
+
+  public testRefCnstAltObjDualObject()
+  {
+  }
 }
 
 public class testPrntCnstAltObjDual
-  : ItestPrntCnstAltObjDual
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltObjDual
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstAltObjDualObject? As_PrntCnstAltObjDual { get; set; }
+}
+
+public class testPrntCnstAltObjDualObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltObjDualObject
+{
+
+  public testPrntCnstAltObjDualObject()
+  {
+  }
 }
 
 public class testAltCnstAltObjDual
   : testPrntCnstAltObjDual
   , ItestAltCnstAltObjDual
 {
+  public ItestAltCnstAltObjDualObject? As_AltCnstAltObjDual { get; set; }
+}
+
+public class testAltCnstAltObjDualObject
+  : testPrntCnstAltObjDualObject
+  , ItestAltCnstAltObjDualObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstAltObjDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstAltObjInp
-  : ItestCnstAltObjInp
+  : GqlpModelImplementationBase
+  , ItestCnstAltObjInp
 {
+  public ItestRefCnstAltObjInp<ItestAltCnstAltObjInp>? AsRefCnstAltObjInp { get; set; }
+  public ItestCnstAltObjInpObject? As_CnstAltObjInp { get; set; }
+}
+
+public class testCnstAltObjInpObject
+  : GqlpModelImplementationBase
+  , ItestCnstAltObjInpObject
+{
+
+  public testCnstAltObjInpObject()
+  {
+  }
 }
 
 public class testRefCnstAltObjInp<TRef>
-  : ItestRefCnstAltObjInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltObjInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefCnstAltObjInpObject<TRef>? As_RefCnstAltObjInp { get; set; }
+}
+
+public class testRefCnstAltObjInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltObjInpObject<TRef>
+{
+
+  public testRefCnstAltObjInpObject()
+  {
+  }
 }
 
 public class testPrntCnstAltObjInp
-  : ItestPrntCnstAltObjInp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltObjInp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstAltObjInpObject? As_PrntCnstAltObjInp { get; set; }
+}
+
+public class testPrntCnstAltObjInpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltObjInpObject
+{
+
+  public testPrntCnstAltObjInpObject()
+  {
+  }
 }
 
 public class testAltCnstAltObjInp
   : testPrntCnstAltObjInp
   , ItestAltCnstAltObjInp
 {
+  public ItestAltCnstAltObjInpObject? As_AltCnstAltObjInp { get; set; }
+}
+
+public class testAltCnstAltObjInpObject
+  : testPrntCnstAltObjInpObject
+  , ItestAltCnstAltObjInpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstAltObjInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstAltObjOutp
-  : ItestCnstAltObjOutp
+  : GqlpModelImplementationBase
+  , ItestCnstAltObjOutp
 {
+  public ItestRefCnstAltObjOutp<ItestAltCnstAltObjOutp>? AsRefCnstAltObjOutp { get; set; }
+  public ItestCnstAltObjOutpObject? As_CnstAltObjOutp { get; set; }
+}
+
+public class testCnstAltObjOutpObject
+  : GqlpModelImplementationBase
+  , ItestCnstAltObjOutpObject
+{
+
+  public testCnstAltObjOutpObject()
+  {
+  }
 }
 
 public class testRefCnstAltObjOutp<TRef>
-  : ItestRefCnstAltObjOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltObjOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefCnstAltObjOutpObject<TRef>? As_RefCnstAltObjOutp { get; set; }
+}
+
+public class testRefCnstAltObjOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltObjOutpObject<TRef>
+{
+
+  public testRefCnstAltObjOutpObject()
+  {
+  }
 }
 
 public class testPrntCnstAltObjOutp
-  : ItestPrntCnstAltObjOutp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltObjOutp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstAltObjOutpObject? As_PrntCnstAltObjOutp { get; set; }
+}
+
+public class testPrntCnstAltObjOutpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltObjOutpObject
+{
+
+  public testPrntCnstAltObjOutpObject()
+  {
+  }
 }
 
 public class testAltCnstAltObjOutp
   : testPrntCnstAltObjOutp
   , ItestAltCnstAltObjOutp
 {
+  public ItestAltCnstAltObjOutpObject? As_AltCnstAltObjOutp { get; set; }
+}
+
+public class testAltCnstAltObjOutpObject
+  : testPrntCnstAltObjOutpObject
+  , ItestAltCnstAltObjOutpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstAltObjOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstDomEnumDual
-  : ItestCnstDomEnumDual
+  : GqlpModelImplementationBase
+  , ItestCnstDomEnumDual
 {
+  public ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; set; }
+  public ItestCnstDomEnumDualObject? As_CnstDomEnumDual { get; set; }
+}
+
+public class testCnstDomEnumDualObject
+  : GqlpModelImplementationBase
+  , ItestCnstDomEnumDualObject
+{
+
+  public testCnstDomEnumDualObject()
+  {
+  }
 }
 
 public class testRefCnstDomEnumDual<TType>
-  : ItestRefCnstDomEnumDual<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstDomEnumDual<TType>
+{
+  public ItestRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; set; }
+}
+
+public class testRefCnstDomEnumDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstDomEnumDualObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstDomEnumDualObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testJustCnstDomEnumDual
@@ -482,14 +1576,40 @@ public class testJustCnstDomEnumDual
 }
 
 public class testCnstDomEnumInp
-  : ItestCnstDomEnumInp
+  : GqlpModelImplementationBase
+  , ItestCnstDomEnumInp
 {
+  public ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp>? AsEnumCnstDomEnumInpcnstDomEnumInp { get; set; }
+  public ItestCnstDomEnumInpObject? As_CnstDomEnumInp { get; set; }
+}
+
+public class testCnstDomEnumInpObject
+  : GqlpModelImplementationBase
+  , ItestCnstDomEnumInpObject
+{
+
+  public testCnstDomEnumInpObject()
+  {
+  }
 }
 
 public class testRefCnstDomEnumInp<TType>
-  : ItestRefCnstDomEnumInp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstDomEnumInp<TType>
+{
+  public ItestRefCnstDomEnumInpObject<TType>? As_RefCnstDomEnumInp { get; set; }
+}
+
+public class testRefCnstDomEnumInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstDomEnumInpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstDomEnumInpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testJustCnstDomEnumInp
@@ -499,14 +1619,40 @@ public class testJustCnstDomEnumInp
 }
 
 public class testCnstDomEnumOutp
-  : ItestCnstDomEnumOutp
+  : GqlpModelImplementationBase
+  , ItestCnstDomEnumOutp
 {
+  public ItestRefCnstDomEnumOutp<testEnumCnstDomEnumOutp>? AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; set; }
+  public ItestCnstDomEnumOutpObject? As_CnstDomEnumOutp { get; set; }
+}
+
+public class testCnstDomEnumOutpObject
+  : GqlpModelImplementationBase
+  , ItestCnstDomEnumOutpObject
+{
+
+  public testCnstDomEnumOutpObject()
+  {
+  }
 }
 
 public class testRefCnstDomEnumOutp<TType>
-  : ItestRefCnstDomEnumOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstDomEnumOutp<TType>
+{
+  public ItestRefCnstDomEnumOutpObject<TType>? As_RefCnstDomEnumOutp { get; set; }
+}
+
+public class testRefCnstDomEnumOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstDomEnumOutpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstDomEnumOutpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testJustCnstDomEnumOutp
@@ -516,81 +1662,262 @@ public class testJustCnstDomEnumOutp
 }
 
 public class testCnstEnumDual
-  : ItestCnstEnumDual
+  : GqlpModelImplementationBase
+  , ItestCnstEnumDual
 {
+  public ItestRefCnstEnumDual<testEnumCnstEnumDual>? AsEnumCnstEnumDualcnstEnumDual { get; set; }
+  public ItestCnstEnumDualObject? As_CnstEnumDual { get; set; }
+}
+
+public class testCnstEnumDualObject
+  : GqlpModelImplementationBase
+  , ItestCnstEnumDualObject
+{
+
+  public testCnstEnumDualObject()
+  {
+  }
 }
 
 public class testRefCnstEnumDual<TType>
-  : ItestRefCnstEnumDual<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumDual<TType>
+{
+  public ItestRefCnstEnumDualObject<TType>? As_RefCnstEnumDual { get; set; }
+}
+
+public class testRefCnstEnumDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumDualObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstEnumDualObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testCnstEnumInp
-  : ItestCnstEnumInp
+  : GqlpModelImplementationBase
+  , ItestCnstEnumInp
 {
+  public ItestRefCnstEnumInp<testEnumCnstEnumInp>? AsEnumCnstEnumInpcnstEnumInp { get; set; }
+  public ItestCnstEnumInpObject? As_CnstEnumInp { get; set; }
+}
+
+public class testCnstEnumInpObject
+  : GqlpModelImplementationBase
+  , ItestCnstEnumInpObject
+{
+
+  public testCnstEnumInpObject()
+  {
+  }
 }
 
 public class testRefCnstEnumInp<TType>
-  : ItestRefCnstEnumInp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumInp<TType>
+{
+  public ItestRefCnstEnumInpObject<TType>? As_RefCnstEnumInp { get; set; }
+}
+
+public class testRefCnstEnumInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumInpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstEnumInpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testCnstEnumOutp
-  : ItestCnstEnumOutp
+  : GqlpModelImplementationBase
+  , ItestCnstEnumOutp
 {
+  public ItestRefCnstEnumOutp<testEnumCnstEnumOutp>? AsEnumCnstEnumOutpcnstEnumOutp { get; set; }
+  public ItestCnstEnumOutpObject? As_CnstEnumOutp { get; set; }
+}
+
+public class testCnstEnumOutpObject
+  : GqlpModelImplementationBase
+  , ItestCnstEnumOutpObject
+{
+
+  public testCnstEnumOutpObject()
+  {
+  }
 }
 
 public class testRefCnstEnumOutp<TType>
-  : ItestRefCnstEnumOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumOutp<TType>
+{
+  public ItestRefCnstEnumOutpObject<TType>? As_RefCnstEnumOutp { get; set; }
+}
+
+public class testRefCnstEnumOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumOutpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstEnumOutpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testCnstEnumPrntDual
-  : ItestCnstEnumPrntDual
+  : GqlpModelImplementationBase
+  , ItestCnstEnumPrntDual
 {
+  public ItestRefCnstEnumPrntDual<testEnumCnstEnumPrntDual>? AsEnumCnstEnumPrntDualcnstEnumPrntDual { get; set; }
+  public ItestCnstEnumPrntDualObject? As_CnstEnumPrntDual { get; set; }
+}
+
+public class testCnstEnumPrntDualObject
+  : GqlpModelImplementationBase
+  , ItestCnstEnumPrntDualObject
+{
+
+  public testCnstEnumPrntDualObject()
+  {
+  }
 }
 
 public class testRefCnstEnumPrntDual<TType>
-  : ItestRefCnstEnumPrntDual<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumPrntDual<TType>
+{
+  public ItestRefCnstEnumPrntDualObject<TType>? As_RefCnstEnumPrntDual { get; set; }
+}
+
+public class testRefCnstEnumPrntDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumPrntDualObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstEnumPrntDualObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testCnstEnumPrntInp
-  : ItestCnstEnumPrntInp
+  : GqlpModelImplementationBase
+  , ItestCnstEnumPrntInp
 {
+  public ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp>? AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; set; }
+  public ItestCnstEnumPrntInpObject? As_CnstEnumPrntInp { get; set; }
+}
+
+public class testCnstEnumPrntInpObject
+  : GqlpModelImplementationBase
+  , ItestCnstEnumPrntInpObject
+{
+
+  public testCnstEnumPrntInpObject()
+  {
+  }
 }
 
 public class testRefCnstEnumPrntInp<TType>
-  : ItestRefCnstEnumPrntInp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumPrntInp<TType>
+{
+  public ItestRefCnstEnumPrntInpObject<TType>? As_RefCnstEnumPrntInp { get; set; }
+}
+
+public class testRefCnstEnumPrntInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumPrntInpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstEnumPrntInpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testCnstEnumPrntOutp
-  : ItestCnstEnumPrntOutp
+  : GqlpModelImplementationBase
+  , ItestCnstEnumPrntOutp
 {
+  public ItestRefCnstEnumPrntOutp<testEnumCnstEnumPrntOutp>? AsEnumCnstEnumPrntOutpcnstEnumPrntOutp { get; set; }
+  public ItestCnstEnumPrntOutpObject? As_CnstEnumPrntOutp { get; set; }
+}
+
+public class testCnstEnumPrntOutpObject
+  : GqlpModelImplementationBase
+  , ItestCnstEnumPrntOutpObject
+{
+
+  public testCnstEnumPrntOutpObject()
+  {
+  }
 }
 
 public class testRefCnstEnumPrntOutp<TType>
-  : ItestRefCnstEnumPrntOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumPrntOutp<TType>
+{
+  public ItestRefCnstEnumPrntOutpObject<TType>? As_RefCnstEnumPrntOutp { get; set; }
+}
+
+public class testRefCnstEnumPrntOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstEnumPrntOutpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstEnumPrntOutpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testCnstFieldDmnDual
   : testRefCnstFieldDmnDual<ItestDomCnstFieldDmnDual>
   , ItestCnstFieldDmnDual
 {
+  public ItestCnstFieldDmnDualObject? As_CnstFieldDmnDual { get; set; }
+}
+
+public class testCnstFieldDmnDualObject
+  : testRefCnstFieldDmnDualObject<ItestDomCnstFieldDmnDual>
+  , ItestCnstFieldDmnDualObject
+{
+
+  public testCnstFieldDmnDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldDmnDual<TRef>
-  : ItestRefCnstFieldDmnDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDmnDual<TRef>
+{
+  public ItestRefCnstFieldDmnDualObject<TRef>? As_RefCnstFieldDmnDual { get; set; }
+}
+
+public class testRefCnstFieldDmnDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDmnDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldDmnDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testDomCnstFieldDmnDual
@@ -603,12 +1930,37 @@ public class testCnstFieldDmnInp
   : testRefCnstFieldDmnInp<ItestDomCnstFieldDmnInp>
   , ItestCnstFieldDmnInp
 {
+  public ItestCnstFieldDmnInpObject? As_CnstFieldDmnInp { get; set; }
+}
+
+public class testCnstFieldDmnInpObject
+  : testRefCnstFieldDmnInpObject<ItestDomCnstFieldDmnInp>
+  , ItestCnstFieldDmnInpObject
+{
+
+  public testCnstFieldDmnInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldDmnInp<TRef>
-  : ItestRefCnstFieldDmnInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDmnInp<TRef>
+{
+  public ItestRefCnstFieldDmnInpObject<TRef>? As_RefCnstFieldDmnInp { get; set; }
+}
+
+public class testRefCnstFieldDmnInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDmnInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldDmnInpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testDomCnstFieldDmnInp
@@ -621,12 +1973,37 @@ public class testCnstFieldDmnOutp
   : testRefCnstFieldDmnOutp<ItestDomCnstFieldDmnOutp>
   , ItestCnstFieldDmnOutp
 {
+  public ItestCnstFieldDmnOutpObject? As_CnstFieldDmnOutp { get; set; }
+}
+
+public class testCnstFieldDmnOutpObject
+  : testRefCnstFieldDmnOutpObject<ItestDomCnstFieldDmnOutp>
+  , ItestCnstFieldDmnOutpObject
+{
+
+  public testCnstFieldDmnOutpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldDmnOutp<TRef>
-  : ItestRefCnstFieldDmnOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDmnOutp<TRef>
+{
+  public ItestRefCnstFieldDmnOutpObject<TRef>? As_RefCnstFieldDmnOutp { get; set; }
+}
+
+public class testRefCnstFieldDmnOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDmnOutpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldDmnOutpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testDomCnstFieldDmnOutp
@@ -639,1320 +2016,4309 @@ public class testCnstFieldDualDual
   : testRefCnstFieldDualDual<ItestAltCnstFieldDualDual>
   , ItestCnstFieldDualDual
 {
+  public ItestCnstFieldDualDualObject? As_CnstFieldDualDual { get; set; }
+}
+
+public class testCnstFieldDualDualObject
+  : testRefCnstFieldDualDualObject<ItestAltCnstFieldDualDual>
+  , ItestCnstFieldDualDualObject
+{
+
+  public testCnstFieldDualDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldDualDual<TRef>
-  : ItestRefCnstFieldDualDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDualDual<TRef>
+{
+  public ItestRefCnstFieldDualDualObject<TRef>? As_RefCnstFieldDualDual { get; set; }
+}
+
+public class testRefCnstFieldDualDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDualDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldDualDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testPrntCnstFieldDualDual
-  : ItestPrntCnstFieldDualDual
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldDualDual
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstFieldDualDualObject? As_PrntCnstFieldDualDual { get; set; }
+}
+
+public class testPrntCnstFieldDualDualObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldDualDualObject
+{
+
+  public testPrntCnstFieldDualDualObject()
+  {
+  }
 }
 
 public class testAltCnstFieldDualDual
   : testPrntCnstFieldDualDual
   , ItestAltCnstFieldDualDual
 {
+  public ItestAltCnstFieldDualDualObject? As_AltCnstFieldDualDual { get; set; }
+}
+
+public class testAltCnstFieldDualDualObject
+  : testPrntCnstFieldDualDualObject
+  , ItestAltCnstFieldDualDualObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstFieldDualDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstFieldDualInp
   : testRefCnstFieldDualInp<ItestAltCnstFieldDualInp>
   , ItestCnstFieldDualInp
 {
+  public ItestCnstFieldDualInpObject? As_CnstFieldDualInp { get; set; }
+}
+
+public class testCnstFieldDualInpObject
+  : testRefCnstFieldDualInpObject<ItestAltCnstFieldDualInp>
+  , ItestCnstFieldDualInpObject
+{
+
+  public testCnstFieldDualInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldDualInp<TRef>
-  : ItestRefCnstFieldDualInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDualInp<TRef>
+{
+  public ItestRefCnstFieldDualInpObject<TRef>? As_RefCnstFieldDualInp { get; set; }
+}
+
+public class testRefCnstFieldDualInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDualInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldDualInpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testPrntCnstFieldDualInp
-  : ItestPrntCnstFieldDualInp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldDualInp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstFieldDualInpObject? As_PrntCnstFieldDualInp { get; set; }
+}
+
+public class testPrntCnstFieldDualInpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldDualInpObject
+{
+
+  public testPrntCnstFieldDualInpObject()
+  {
+  }
 }
 
 public class testAltCnstFieldDualInp
   : testPrntCnstFieldDualInp
   , ItestAltCnstFieldDualInp
 {
+  public ItestAltCnstFieldDualInpObject? As_AltCnstFieldDualInp { get; set; }
+}
+
+public class testAltCnstFieldDualInpObject
+  : testPrntCnstFieldDualInpObject
+  , ItestAltCnstFieldDualInpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstFieldDualInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstFieldDualOutp
   : testRefCnstFieldDualOutp<ItestAltCnstFieldDualOutp>
   , ItestCnstFieldDualOutp
 {
+  public ItestCnstFieldDualOutpObject? As_CnstFieldDualOutp { get; set; }
+}
+
+public class testCnstFieldDualOutpObject
+  : testRefCnstFieldDualOutpObject<ItestAltCnstFieldDualOutp>
+  , ItestCnstFieldDualOutpObject
+{
+
+  public testCnstFieldDualOutpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldDualOutp<TRef>
-  : ItestRefCnstFieldDualOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDualOutp<TRef>
+{
+  public ItestRefCnstFieldDualOutpObject<TRef>? As_RefCnstFieldDualOutp { get; set; }
+}
+
+public class testRefCnstFieldDualOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDualOutpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldDualOutpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testPrntCnstFieldDualOutp
-  : ItestPrntCnstFieldDualOutp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldDualOutp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstFieldDualOutpObject? As_PrntCnstFieldDualOutp { get; set; }
+}
+
+public class testPrntCnstFieldDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldDualOutpObject
+{
+
+  public testPrntCnstFieldDualOutpObject()
+  {
+  }
 }
 
 public class testAltCnstFieldDualOutp
   : testPrntCnstFieldDualOutp
   , ItestAltCnstFieldDualOutp
 {
+  public ItestAltCnstFieldDualOutpObject? As_AltCnstFieldDualOutp { get; set; }
+}
+
+public class testAltCnstFieldDualOutpObject
+  : testPrntCnstFieldDualOutpObject
+  , ItestAltCnstFieldDualOutpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstFieldDualOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstFieldObjDual
   : testRefCnstFieldObjDual<ItestAltCnstFieldObjDual>
   , ItestCnstFieldObjDual
 {
+  public ItestCnstFieldObjDualObject? As_CnstFieldObjDual { get; set; }
+}
+
+public class testCnstFieldObjDualObject
+  : testRefCnstFieldObjDualObject<ItestAltCnstFieldObjDual>
+  , ItestCnstFieldObjDualObject
+{
+
+  public testCnstFieldObjDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldObjDual<TRef>
-  : ItestRefCnstFieldObjDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldObjDual<TRef>
+{
+  public ItestRefCnstFieldObjDualObject<TRef>? As_RefCnstFieldObjDual { get; set; }
+}
+
+public class testRefCnstFieldObjDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldObjDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldObjDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testPrntCnstFieldObjDual
-  : ItestPrntCnstFieldObjDual
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldObjDual
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstFieldObjDualObject? As_PrntCnstFieldObjDual { get; set; }
+}
+
+public class testPrntCnstFieldObjDualObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldObjDualObject
+{
+
+  public testPrntCnstFieldObjDualObject()
+  {
+  }
 }
 
 public class testAltCnstFieldObjDual
   : testPrntCnstFieldObjDual
   , ItestAltCnstFieldObjDual
 {
+  public ItestAltCnstFieldObjDualObject? As_AltCnstFieldObjDual { get; set; }
+}
+
+public class testAltCnstFieldObjDualObject
+  : testPrntCnstFieldObjDualObject
+  , ItestAltCnstFieldObjDualObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstFieldObjDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstFieldObjInp
   : testRefCnstFieldObjInp<ItestAltCnstFieldObjInp>
   , ItestCnstFieldObjInp
 {
+  public ItestCnstFieldObjInpObject? As_CnstFieldObjInp { get; set; }
+}
+
+public class testCnstFieldObjInpObject
+  : testRefCnstFieldObjInpObject<ItestAltCnstFieldObjInp>
+  , ItestCnstFieldObjInpObject
+{
+
+  public testCnstFieldObjInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldObjInp<TRef>
-  : ItestRefCnstFieldObjInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldObjInp<TRef>
+{
+  public ItestRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; set; }
+}
+
+public class testRefCnstFieldObjInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldObjInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldObjInpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testPrntCnstFieldObjInp
-  : ItestPrntCnstFieldObjInp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldObjInp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstFieldObjInpObject? As_PrntCnstFieldObjInp { get; set; }
+}
+
+public class testPrntCnstFieldObjInpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldObjInpObject
+{
+
+  public testPrntCnstFieldObjInpObject()
+  {
+  }
 }
 
 public class testAltCnstFieldObjInp
   : testPrntCnstFieldObjInp
   , ItestAltCnstFieldObjInp
 {
+  public ItestAltCnstFieldObjInpObject? As_AltCnstFieldObjInp { get; set; }
+}
+
+public class testAltCnstFieldObjInpObject
+  : testPrntCnstFieldObjInpObject
+  , ItestAltCnstFieldObjInpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstFieldObjInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstFieldObjOutp
   : testRefCnstFieldObjOutp<ItestAltCnstFieldObjOutp>
   , ItestCnstFieldObjOutp
 {
+  public ItestCnstFieldObjOutpObject? As_CnstFieldObjOutp { get; set; }
+}
+
+public class testCnstFieldObjOutpObject
+  : testRefCnstFieldObjOutpObject<ItestAltCnstFieldObjOutp>
+  , ItestCnstFieldObjOutpObject
+{
+
+  public testCnstFieldObjOutpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldObjOutp<TRef>
-  : ItestRefCnstFieldObjOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldObjOutp<TRef>
+{
+  public ItestRefCnstFieldObjOutpObject<TRef>? As_RefCnstFieldObjOutp { get; set; }
+}
+
+public class testRefCnstFieldObjOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldObjOutpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldObjOutpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testPrntCnstFieldObjOutp
-  : ItestPrntCnstFieldObjOutp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldObjOutp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstFieldObjOutpObject? As_PrntCnstFieldObjOutp { get; set; }
+}
+
+public class testPrntCnstFieldObjOutpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldObjOutpObject
+{
+
+  public testPrntCnstFieldObjOutpObject()
+  {
+  }
 }
 
 public class testAltCnstFieldObjOutp
   : testPrntCnstFieldObjOutp
   , ItestAltCnstFieldObjOutp
 {
+  public ItestAltCnstFieldObjOutpObject? As_AltCnstFieldObjOutp { get; set; }
+}
+
+public class testAltCnstFieldObjOutpObject
+  : testPrntCnstFieldObjOutpObject
+  , ItestAltCnstFieldObjOutpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstFieldObjOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstPrntDualGrndDual
   : testRefCnstPrntDualGrndDual<ItestAltCnstPrntDualGrndDual>
   , ItestCnstPrntDualGrndDual
 {
+  public ItestCnstPrntDualGrndDualObject? As_CnstPrntDualGrndDual { get; set; }
+}
+
+public class testCnstPrntDualGrndDualObject
+  : testRefCnstPrntDualGrndDualObject<ItestAltCnstPrntDualGrndDual>
+  , ItestCnstPrntDualGrndDualObject
+{
+
+  public testCnstPrntDualGrndDualObject()
+  {
+  }
 }
 
 public class testRefCnstPrntDualGrndDual<TRef>
-  : ItestRefCnstPrntDualGrndDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualGrndDual<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefCnstPrntDualGrndDualObject<TRef>? As_RefCnstPrntDualGrndDual { get; set; }
+}
+
+public class testRefCnstPrntDualGrndDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualGrndDualObject<TRef>
+{
+
+  public testRefCnstPrntDualGrndDualObject()
+  {
+  }
 }
 
 public class testGrndCnstPrntDualGrndDual
-  : ItestGrndCnstPrntDualGrndDual
+  : GqlpModelImplementationBase
+  , ItestGrndCnstPrntDualGrndDual
 {
+  public string? AsString { get; set; }
+  public ItestGrndCnstPrntDualGrndDualObject? As_GrndCnstPrntDualGrndDual { get; set; }
+}
+
+public class testGrndCnstPrntDualGrndDualObject
+  : GqlpModelImplementationBase
+  , ItestGrndCnstPrntDualGrndDualObject
+{
+
+  public testGrndCnstPrntDualGrndDualObject()
+  {
+  }
 }
 
 public class testPrntCnstPrntDualGrndDual
   : testGrndCnstPrntDualGrndDual
   , ItestPrntCnstPrntDualGrndDual
 {
+  public ItestPrntCnstPrntDualGrndDualObject? As_PrntCnstPrntDualGrndDual { get; set; }
+}
+
+public class testPrntCnstPrntDualGrndDualObject
+  : testGrndCnstPrntDualGrndDualObject
+  , ItestPrntCnstPrntDualGrndDualObject
+{
+
+  public testPrntCnstPrntDualGrndDualObject()
+  {
+  }
 }
 
 public class testAltCnstPrntDualGrndDual
   : testPrntCnstPrntDualGrndDual
   , ItestAltCnstPrntDualGrndDual
 {
+  public ItestAltCnstPrntDualGrndDualObject? As_AltCnstPrntDualGrndDual { get; set; }
+}
+
+public class testAltCnstPrntDualGrndDualObject
+  : testPrntCnstPrntDualGrndDualObject
+  , ItestAltCnstPrntDualGrndDualObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstPrntDualGrndDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstPrntDualGrndInp
   : testRefCnstPrntDualGrndInp<ItestAltCnstPrntDualGrndInp>
   , ItestCnstPrntDualGrndInp
 {
+  public ItestCnstPrntDualGrndInpObject? As_CnstPrntDualGrndInp { get; set; }
+}
+
+public class testCnstPrntDualGrndInpObject
+  : testRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>
+  , ItestCnstPrntDualGrndInpObject
+{
+
+  public testCnstPrntDualGrndInpObject()
+  {
+  }
 }
 
 public class testRefCnstPrntDualGrndInp<TRef>
-  : ItestRefCnstPrntDualGrndInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualGrndInp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefCnstPrntDualGrndInpObject<TRef>? As_RefCnstPrntDualGrndInp { get; set; }
+}
+
+public class testRefCnstPrntDualGrndInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualGrndInpObject<TRef>
+{
+
+  public testRefCnstPrntDualGrndInpObject()
+  {
+  }
 }
 
 public class testGrndCnstPrntDualGrndInp
-  : ItestGrndCnstPrntDualGrndInp
+  : GqlpModelImplementationBase
+  , ItestGrndCnstPrntDualGrndInp
 {
+  public string? AsString { get; set; }
+  public ItestGrndCnstPrntDualGrndInpObject? As_GrndCnstPrntDualGrndInp { get; set; }
+}
+
+public class testGrndCnstPrntDualGrndInpObject
+  : GqlpModelImplementationBase
+  , ItestGrndCnstPrntDualGrndInpObject
+{
+
+  public testGrndCnstPrntDualGrndInpObject()
+  {
+  }
 }
 
 public class testPrntCnstPrntDualGrndInp
   : testGrndCnstPrntDualGrndInp
   , ItestPrntCnstPrntDualGrndInp
 {
+  public ItestPrntCnstPrntDualGrndInpObject? As_PrntCnstPrntDualGrndInp { get; set; }
+}
+
+public class testPrntCnstPrntDualGrndInpObject
+  : testGrndCnstPrntDualGrndInpObject
+  , ItestPrntCnstPrntDualGrndInpObject
+{
+
+  public testPrntCnstPrntDualGrndInpObject()
+  {
+  }
 }
 
 public class testAltCnstPrntDualGrndInp
   : testPrntCnstPrntDualGrndInp
   , ItestAltCnstPrntDualGrndInp
 {
+  public ItestAltCnstPrntDualGrndInpObject? As_AltCnstPrntDualGrndInp { get; set; }
+}
+
+public class testAltCnstPrntDualGrndInpObject
+  : testPrntCnstPrntDualGrndInpObject
+  , ItestAltCnstPrntDualGrndInpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstPrntDualGrndInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstPrntDualGrndOutp
   : testRefCnstPrntDualGrndOutp<ItestAltCnstPrntDualGrndOutp>
   , ItestCnstPrntDualGrndOutp
 {
+  public ItestCnstPrntDualGrndOutpObject? As_CnstPrntDualGrndOutp { get; set; }
+}
+
+public class testCnstPrntDualGrndOutpObject
+  : testRefCnstPrntDualGrndOutpObject<ItestAltCnstPrntDualGrndOutp>
+  , ItestCnstPrntDualGrndOutpObject
+{
+
+  public testCnstPrntDualGrndOutpObject()
+  {
+  }
 }
 
 public class testRefCnstPrntDualGrndOutp<TRef>
-  : ItestRefCnstPrntDualGrndOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualGrndOutp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefCnstPrntDualGrndOutpObject<TRef>? As_RefCnstPrntDualGrndOutp { get; set; }
+}
+
+public class testRefCnstPrntDualGrndOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualGrndOutpObject<TRef>
+{
+
+  public testRefCnstPrntDualGrndOutpObject()
+  {
+  }
 }
 
 public class testGrndCnstPrntDualGrndOutp
-  : ItestGrndCnstPrntDualGrndOutp
+  : GqlpModelImplementationBase
+  , ItestGrndCnstPrntDualGrndOutp
 {
+  public string? AsString { get; set; }
+  public ItestGrndCnstPrntDualGrndOutpObject? As_GrndCnstPrntDualGrndOutp { get; set; }
+}
+
+public class testGrndCnstPrntDualGrndOutpObject
+  : GqlpModelImplementationBase
+  , ItestGrndCnstPrntDualGrndOutpObject
+{
+
+  public testGrndCnstPrntDualGrndOutpObject()
+  {
+  }
 }
 
 public class testPrntCnstPrntDualGrndOutp
   : testGrndCnstPrntDualGrndOutp
   , ItestPrntCnstPrntDualGrndOutp
 {
+  public ItestPrntCnstPrntDualGrndOutpObject? As_PrntCnstPrntDualGrndOutp { get; set; }
+}
+
+public class testPrntCnstPrntDualGrndOutpObject
+  : testGrndCnstPrntDualGrndOutpObject
+  , ItestPrntCnstPrntDualGrndOutpObject
+{
+
+  public testPrntCnstPrntDualGrndOutpObject()
+  {
+  }
 }
 
 public class testAltCnstPrntDualGrndOutp
   : testPrntCnstPrntDualGrndOutp
   , ItestAltCnstPrntDualGrndOutp
 {
+  public ItestAltCnstPrntDualGrndOutpObject? As_AltCnstPrntDualGrndOutp { get; set; }
+}
+
+public class testAltCnstPrntDualGrndOutpObject
+  : testPrntCnstPrntDualGrndOutpObject
+  , ItestAltCnstPrntDualGrndOutpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstPrntDualGrndOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstPrntDualPrntDual
   : testRefCnstPrntDualPrntDual<ItestAltCnstPrntDualPrntDual>
   , ItestCnstPrntDualPrntDual
 {
+  public ItestCnstPrntDualPrntDualObject? As_CnstPrntDualPrntDual { get; set; }
+}
+
+public class testCnstPrntDualPrntDualObject
+  : testRefCnstPrntDualPrntDualObject<ItestAltCnstPrntDualPrntDual>
+  , ItestCnstPrntDualPrntDualObject
+{
+
+  public testCnstPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class testRefCnstPrntDualPrntDual<TRef>
-  : ItestRefCnstPrntDualPrntDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualPrntDual<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefCnstPrntDualPrntDualObject<TRef>? As_RefCnstPrntDualPrntDual { get; set; }
+}
+
+public class testRefCnstPrntDualPrntDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualPrntDualObject<TRef>
+{
+
+  public testRefCnstPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class testPrntCnstPrntDualPrntDual
-  : ItestPrntCnstPrntDualPrntDual
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntDualPrntDual
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstPrntDualPrntDualObject? As_PrntCnstPrntDualPrntDual { get; set; }
+}
+
+public class testPrntCnstPrntDualPrntDualObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntDualPrntDualObject
+{
+
+  public testPrntCnstPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class testAltCnstPrntDualPrntDual
   : testPrntCnstPrntDualPrntDual
   , ItestAltCnstPrntDualPrntDual
 {
+  public ItestAltCnstPrntDualPrntDualObject? As_AltCnstPrntDualPrntDual { get; set; }
+}
+
+public class testAltCnstPrntDualPrntDualObject
+  : testPrntCnstPrntDualPrntDualObject
+  , ItestAltCnstPrntDualPrntDualObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstPrntDualPrntDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstPrntDualPrntInp
   : testRefCnstPrntDualPrntInp<ItestAltCnstPrntDualPrntInp>
   , ItestCnstPrntDualPrntInp
 {
+  public ItestCnstPrntDualPrntInpObject? As_CnstPrntDualPrntInp { get; set; }
+}
+
+public class testCnstPrntDualPrntInpObject
+  : testRefCnstPrntDualPrntInpObject<ItestAltCnstPrntDualPrntInp>
+  , ItestCnstPrntDualPrntInpObject
+{
+
+  public testCnstPrntDualPrntInpObject()
+  {
+  }
 }
 
 public class testRefCnstPrntDualPrntInp<TRef>
-  : ItestRefCnstPrntDualPrntInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualPrntInp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefCnstPrntDualPrntInpObject<TRef>? As_RefCnstPrntDualPrntInp { get; set; }
+}
+
+public class testRefCnstPrntDualPrntInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualPrntInpObject<TRef>
+{
+
+  public testRefCnstPrntDualPrntInpObject()
+  {
+  }
 }
 
 public class testPrntCnstPrntDualPrntInp
-  : ItestPrntCnstPrntDualPrntInp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntDualPrntInp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstPrntDualPrntInpObject? As_PrntCnstPrntDualPrntInp { get; set; }
+}
+
+public class testPrntCnstPrntDualPrntInpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntDualPrntInpObject
+{
+
+  public testPrntCnstPrntDualPrntInpObject()
+  {
+  }
 }
 
 public class testAltCnstPrntDualPrntInp
   : testPrntCnstPrntDualPrntInp
   , ItestAltCnstPrntDualPrntInp
 {
+  public ItestAltCnstPrntDualPrntInpObject? As_AltCnstPrntDualPrntInp { get; set; }
+}
+
+public class testAltCnstPrntDualPrntInpObject
+  : testPrntCnstPrntDualPrntInpObject
+  , ItestAltCnstPrntDualPrntInpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstPrntDualPrntInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstPrntDualPrntOutp
   : testRefCnstPrntDualPrntOutp<ItestAltCnstPrntDualPrntOutp>
   , ItestCnstPrntDualPrntOutp
 {
+  public ItestCnstPrntDualPrntOutpObject? As_CnstPrntDualPrntOutp { get; set; }
+}
+
+public class testCnstPrntDualPrntOutpObject
+  : testRefCnstPrntDualPrntOutpObject<ItestAltCnstPrntDualPrntOutp>
+  , ItestCnstPrntDualPrntOutpObject
+{
+
+  public testCnstPrntDualPrntOutpObject()
+  {
+  }
 }
 
 public class testRefCnstPrntDualPrntOutp<TRef>
-  : ItestRefCnstPrntDualPrntOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualPrntOutp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefCnstPrntDualPrntOutpObject<TRef>? As_RefCnstPrntDualPrntOutp { get; set; }
+}
+
+public class testRefCnstPrntDualPrntOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualPrntOutpObject<TRef>
+{
+
+  public testRefCnstPrntDualPrntOutpObject()
+  {
+  }
 }
 
 public class testPrntCnstPrntDualPrntOutp
-  : ItestPrntCnstPrntDualPrntOutp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntDualPrntOutp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstPrntDualPrntOutpObject? As_PrntCnstPrntDualPrntOutp { get; set; }
+}
+
+public class testPrntCnstPrntDualPrntOutpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntDualPrntOutpObject
+{
+
+  public testPrntCnstPrntDualPrntOutpObject()
+  {
+  }
 }
 
 public class testAltCnstPrntDualPrntOutp
   : testPrntCnstPrntDualPrntOutp
   , ItestAltCnstPrntDualPrntOutp
 {
+  public ItestAltCnstPrntDualPrntOutpObject? As_AltCnstPrntDualPrntOutp { get; set; }
+}
+
+public class testAltCnstPrntDualPrntOutpObject
+  : testPrntCnstPrntDualPrntOutpObject
+  , ItestAltCnstPrntDualPrntOutpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstPrntDualPrntOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstPrntEnumDual
-  : ItestCnstPrntEnumDual
+  : GqlpModelImplementationBase
+  , ItestCnstPrntEnumDual
 {
+  public ItestRefCnstPrntEnumDual<testParentCnstPrntEnumDual>? AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; set; }
+  public ItestCnstPrntEnumDualObject? As_CnstPrntEnumDual { get; set; }
+}
+
+public class testCnstPrntEnumDualObject
+  : GqlpModelImplementationBase
+  , ItestCnstPrntEnumDualObject
+{
+
+  public testCnstPrntEnumDualObject()
+  {
+  }
 }
 
 public class testRefCnstPrntEnumDual<TType>
-  : ItestRefCnstPrntEnumDual<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntEnumDual<TType>
+{
+  public ItestRefCnstPrntEnumDualObject<TType>? As_RefCnstPrntEnumDual { get; set; }
+}
+
+public class testRefCnstPrntEnumDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntEnumDualObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstPrntEnumDualObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testCnstPrntEnumInp
-  : ItestCnstPrntEnumInp
+  : GqlpModelImplementationBase
+  , ItestCnstPrntEnumInp
 {
+  public ItestRefCnstPrntEnumInp<testParentCnstPrntEnumInp>? AsParentCnstPrntEnumInpparentCnstPrntEnumInp { get; set; }
+  public ItestCnstPrntEnumInpObject? As_CnstPrntEnumInp { get; set; }
+}
+
+public class testCnstPrntEnumInpObject
+  : GqlpModelImplementationBase
+  , ItestCnstPrntEnumInpObject
+{
+
+  public testCnstPrntEnumInpObject()
+  {
+  }
 }
 
 public class testRefCnstPrntEnumInp<TType>
-  : ItestRefCnstPrntEnumInp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntEnumInp<TType>
+{
+  public ItestRefCnstPrntEnumInpObject<TType>? As_RefCnstPrntEnumInp { get; set; }
+}
+
+public class testRefCnstPrntEnumInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntEnumInpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstPrntEnumInpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testCnstPrntEnumOutp
-  : ItestCnstPrntEnumOutp
+  : GqlpModelImplementationBase
+  , ItestCnstPrntEnumOutp
 {
+  public ItestRefCnstPrntEnumOutp<testParentCnstPrntEnumOutp>? AsParentCnstPrntEnumOutpparentCnstPrntEnumOutp { get; set; }
+  public ItestCnstPrntEnumOutpObject? As_CnstPrntEnumOutp { get; set; }
+}
+
+public class testCnstPrntEnumOutpObject
+  : GqlpModelImplementationBase
+  , ItestCnstPrntEnumOutpObject
+{
+
+  public testCnstPrntEnumOutpObject()
+  {
+  }
 }
 
 public class testRefCnstPrntEnumOutp<TType>
-  : ItestRefCnstPrntEnumOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntEnumOutp<TType>
+{
+  public ItestRefCnstPrntEnumOutpObject<TType>? As_RefCnstPrntEnumOutp { get; set; }
+}
+
+public class testRefCnstPrntEnumOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntEnumOutpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefCnstPrntEnumOutpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testCnstPrntObjPrntDual
   : testRefCnstPrntObjPrntDual<ItestAltCnstPrntObjPrntDual>
   , ItestCnstPrntObjPrntDual
 {
+  public ItestCnstPrntObjPrntDualObject? As_CnstPrntObjPrntDual { get; set; }
+}
+
+public class testCnstPrntObjPrntDualObject
+  : testRefCnstPrntObjPrntDualObject<ItestAltCnstPrntObjPrntDual>
+  , ItestCnstPrntObjPrntDualObject
+{
+
+  public testCnstPrntObjPrntDualObject()
+  {
+  }
 }
 
 public class testRefCnstPrntObjPrntDual<TRef>
-  : ItestRefCnstPrntObjPrntDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntObjPrntDual<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefCnstPrntObjPrntDualObject<TRef>? As_RefCnstPrntObjPrntDual { get; set; }
+}
+
+public class testRefCnstPrntObjPrntDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntObjPrntDualObject<TRef>
+{
+
+  public testRefCnstPrntObjPrntDualObject()
+  {
+  }
 }
 
 public class testPrntCnstPrntObjPrntDual
-  : ItestPrntCnstPrntObjPrntDual
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntObjPrntDual
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstPrntObjPrntDualObject? As_PrntCnstPrntObjPrntDual { get; set; }
+}
+
+public class testPrntCnstPrntObjPrntDualObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntObjPrntDualObject
+{
+
+  public testPrntCnstPrntObjPrntDualObject()
+  {
+  }
 }
 
 public class testAltCnstPrntObjPrntDual
   : testPrntCnstPrntObjPrntDual
   , ItestAltCnstPrntObjPrntDual
 {
+  public ItestAltCnstPrntObjPrntDualObject? As_AltCnstPrntObjPrntDual { get; set; }
+}
+
+public class testAltCnstPrntObjPrntDualObject
+  : testPrntCnstPrntObjPrntDualObject
+  , ItestAltCnstPrntObjPrntDualObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstPrntObjPrntDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstPrntObjPrntInp
   : testRefCnstPrntObjPrntInp<ItestAltCnstPrntObjPrntInp>
   , ItestCnstPrntObjPrntInp
 {
+  public ItestCnstPrntObjPrntInpObject? As_CnstPrntObjPrntInp { get; set; }
+}
+
+public class testCnstPrntObjPrntInpObject
+  : testRefCnstPrntObjPrntInpObject<ItestAltCnstPrntObjPrntInp>
+  , ItestCnstPrntObjPrntInpObject
+{
+
+  public testCnstPrntObjPrntInpObject()
+  {
+  }
 }
 
 public class testRefCnstPrntObjPrntInp<TRef>
-  : ItestRefCnstPrntObjPrntInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntObjPrntInp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefCnstPrntObjPrntInpObject<TRef>? As_RefCnstPrntObjPrntInp { get; set; }
+}
+
+public class testRefCnstPrntObjPrntInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntObjPrntInpObject<TRef>
+{
+
+  public testRefCnstPrntObjPrntInpObject()
+  {
+  }
 }
 
 public class testPrntCnstPrntObjPrntInp
-  : ItestPrntCnstPrntObjPrntInp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntObjPrntInp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstPrntObjPrntInpObject? As_PrntCnstPrntObjPrntInp { get; set; }
+}
+
+public class testPrntCnstPrntObjPrntInpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntObjPrntInpObject
+{
+
+  public testPrntCnstPrntObjPrntInpObject()
+  {
+  }
 }
 
 public class testAltCnstPrntObjPrntInp
   : testPrntCnstPrntObjPrntInp
   , ItestAltCnstPrntObjPrntInp
 {
+  public ItestAltCnstPrntObjPrntInpObject? As_AltCnstPrntObjPrntInp { get; set; }
+}
+
+public class testAltCnstPrntObjPrntInpObject
+  : testPrntCnstPrntObjPrntInpObject
+  , ItestAltCnstPrntObjPrntInpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstPrntObjPrntInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testCnstPrntObjPrntOutp
   : testRefCnstPrntObjPrntOutp<ItestAltCnstPrntObjPrntOutp>
   , ItestCnstPrntObjPrntOutp
 {
+  public ItestCnstPrntObjPrntOutpObject? As_CnstPrntObjPrntOutp { get; set; }
+}
+
+public class testCnstPrntObjPrntOutpObject
+  : testRefCnstPrntObjPrntOutpObject<ItestAltCnstPrntObjPrntOutp>
+  , ItestCnstPrntObjPrntOutpObject
+{
+
+  public testCnstPrntObjPrntOutpObject()
+  {
+  }
 }
 
 public class testRefCnstPrntObjPrntOutp<TRef>
-  : ItestRefCnstPrntObjPrntOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntObjPrntOutp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefCnstPrntObjPrntOutpObject<TRef>? As_RefCnstPrntObjPrntOutp { get; set; }
+}
+
+public class testRefCnstPrntObjPrntOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntObjPrntOutpObject<TRef>
+{
+
+  public testRefCnstPrntObjPrntOutpObject()
+  {
+  }
 }
 
 public class testPrntCnstPrntObjPrntOutp
-  : ItestPrntCnstPrntObjPrntOutp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntObjPrntOutp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstPrntObjPrntOutpObject? As_PrntCnstPrntObjPrntOutp { get; set; }
+}
+
+public class testPrntCnstPrntObjPrntOutpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntObjPrntOutpObject
+{
+
+  public testPrntCnstPrntObjPrntOutpObject()
+  {
+  }
 }
 
 public class testAltCnstPrntObjPrntOutp
   : testPrntCnstPrntObjPrntOutp
   , ItestAltCnstPrntObjPrntOutp
 {
+  public ItestAltCnstPrntObjPrntOutpObject? As_AltCnstPrntObjPrntOutp { get; set; }
+}
+
+public class testAltCnstPrntObjPrntOutpObject
+  : testPrntCnstPrntObjPrntOutpObject
+  , ItestAltCnstPrntObjPrntOutpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstPrntObjPrntOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testFieldDual
-  : ItestFieldDual
+  : GqlpModelImplementationBase
+  , ItestFieldDual
+{
+  public ItestFieldDualObject? As_FieldDual { get; set; }
+}
+
+public class testFieldDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldDualObject
 {
   public string Field { get; set; }
+
+  public testFieldDualObject(string field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldInp
-  : ItestFieldInp
+  : GqlpModelImplementationBase
+  , ItestFieldInp
+{
+  public ItestFieldInpObject? As_FieldInp { get; set; }
+}
+
+public class testFieldInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldInpObject
 {
   public string Field { get; set; }
+
+  public testFieldInpObject(string field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldOutp
-  : ItestFieldOutp
+  : GqlpModelImplementationBase
+  , ItestFieldOutp
+{
+  public ItestFieldOutpObject? As_FieldOutp { get; set; }
+}
+
+public class testFieldOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldOutpObject
 {
   public string Field { get; set; }
+
+  public testFieldOutpObject(string field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldDescrDual
-  : ItestFieldDescrDual
+  : GqlpModelImplementationBase
+  , ItestFieldDescrDual
+{
+  public ItestFieldDescrDualObject? As_FieldDescrDual { get; set; }
+}
+
+public class testFieldDescrDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldDescrDualObject
 {
   public string Field { get; set; }
+
+  public testFieldDescrDualObject(string field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldDescrInp
-  : ItestFieldDescrInp
+  : GqlpModelImplementationBase
+  , ItestFieldDescrInp
+{
+  public ItestFieldDescrInpObject? As_FieldDescrInp { get; set; }
+}
+
+public class testFieldDescrInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldDescrInpObject
 {
   public string Field { get; set; }
+
+  public testFieldDescrInpObject(string field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldDescrOutp
-  : ItestFieldDescrOutp
+  : GqlpModelImplementationBase
+  , ItestFieldDescrOutp
+{
+  public ItestFieldDescrOutpObject? As_FieldDescrOutp { get; set; }
+}
+
+public class testFieldDescrOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldDescrOutpObject
 {
   public string Field { get; set; }
+
+  public testFieldDescrOutpObject(string field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldDualDual
-  : ItestFieldDualDual
+  : GqlpModelImplementationBase
+  , ItestFieldDualDual
+{
+  public ItestFieldDualDualObject? As_FieldDualDual { get; set; }
+}
+
+public class testFieldDualDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldDualDualObject
 {
   public ItestFldFieldDualDual Field { get; set; }
+
+  public testFieldDualDualObject(ItestFldFieldDualDual field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldFieldDualDual
-  : ItestFldFieldDualDual
+  : GqlpModelImplementationBase
+  , ItestFldFieldDualDual
+{
+  public string? AsString { get; set; }
+  public ItestFldFieldDualDualObject? As_FldFieldDualDual { get; set; }
+}
+
+public class testFldFieldDualDualObject
+  : GqlpModelImplementationBase
+  , ItestFldFieldDualDualObject
 {
   public decimal Field { get; set; }
+
+  public testFldFieldDualDualObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldDualInp
-  : ItestFieldDualInp
+  : GqlpModelImplementationBase
+  , ItestFieldDualInp
+{
+  public ItestFieldDualInpObject? As_FieldDualInp { get; set; }
+}
+
+public class testFieldDualInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldDualInpObject
 {
   public ItestFldFieldDualInp Field { get; set; }
+
+  public testFieldDualInpObject(ItestFldFieldDualInp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldFieldDualInp
-  : ItestFldFieldDualInp
+  : GqlpModelImplementationBase
+  , ItestFldFieldDualInp
+{
+  public string? AsString { get; set; }
+  public ItestFldFieldDualInpObject? As_FldFieldDualInp { get; set; }
+}
+
+public class testFldFieldDualInpObject
+  : GqlpModelImplementationBase
+  , ItestFldFieldDualInpObject
 {
   public decimal Field { get; set; }
+
+  public testFldFieldDualInpObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldDualOutp
-  : ItestFieldDualOutp
+  : GqlpModelImplementationBase
+  , ItestFieldDualOutp
+{
+  public ItestFieldDualOutpObject? As_FieldDualOutp { get; set; }
+}
+
+public class testFieldDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldDualOutpObject
 {
   public ItestFldFieldDualOutp Field { get; set; }
+
+  public testFieldDualOutpObject(ItestFldFieldDualOutp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldFieldDualOutp
-  : ItestFldFieldDualOutp
+  : GqlpModelImplementationBase
+  , ItestFldFieldDualOutp
+{
+  public string? AsString { get; set; }
+  public ItestFldFieldDualOutpObject? As_FldFieldDualOutp { get; set; }
+}
+
+public class testFldFieldDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestFldFieldDualOutpObject
 {
   public decimal Field { get; set; }
+
+  public testFldFieldDualOutpObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldEnumDual
-  : ItestFieldEnumDual
+  : GqlpModelImplementationBase
+  , ItestFieldEnumDual
+{
+  public ItestFieldEnumDualObject? As_FieldEnumDual { get; set; }
+}
+
+public class testFieldEnumDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldEnumDualObject
 {
   public testEnumFieldEnumDual Field { get; set; }
+
+  public testFieldEnumDualObject(testEnumFieldEnumDual field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldEnumInp
-  : ItestFieldEnumInp
+  : GqlpModelImplementationBase
+  , ItestFieldEnumInp
+{
+  public ItestFieldEnumInpObject? As_FieldEnumInp { get; set; }
+}
+
+public class testFieldEnumInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldEnumInpObject
 {
   public testEnumFieldEnumInp Field { get; set; }
+
+  public testFieldEnumInpObject(testEnumFieldEnumInp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldEnumOutp
-  : ItestFieldEnumOutp
+  : GqlpModelImplementationBase
+  , ItestFieldEnumOutp
+{
+  public ItestFieldEnumOutpObject? As_FieldEnumOutp { get; set; }
+}
+
+public class testFieldEnumOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldEnumOutpObject
 {
   public testEnumFieldEnumOutp Field { get; set; }
+
+  public testFieldEnumOutpObject(testEnumFieldEnumOutp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldEnumPrntDual
-  : ItestFieldEnumPrntDual
+  : GqlpModelImplementationBase
+  , ItestFieldEnumPrntDual
+{
+  public ItestFieldEnumPrntDualObject? As_FieldEnumPrntDual { get; set; }
+}
+
+public class testFieldEnumPrntDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldEnumPrntDualObject
 {
   public testEnumFieldEnumPrntDual Field { get; set; }
+
+  public testFieldEnumPrntDualObject(testEnumFieldEnumPrntDual field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldEnumPrntInp
-  : ItestFieldEnumPrntInp
+  : GqlpModelImplementationBase
+  , ItestFieldEnumPrntInp
+{
+  public ItestFieldEnumPrntInpObject? As_FieldEnumPrntInp { get; set; }
+}
+
+public class testFieldEnumPrntInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldEnumPrntInpObject
 {
   public testEnumFieldEnumPrntInp Field { get; set; }
+
+  public testFieldEnumPrntInpObject(testEnumFieldEnumPrntInp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldEnumPrntOutp
-  : ItestFieldEnumPrntOutp
+  : GqlpModelImplementationBase
+  , ItestFieldEnumPrntOutp
+{
+  public ItestFieldEnumPrntOutpObject? As_FieldEnumPrntOutp { get; set; }
+}
+
+public class testFieldEnumPrntOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldEnumPrntOutpObject
 {
   public testEnumFieldEnumPrntOutp Field { get; set; }
+
+  public testFieldEnumPrntOutpObject(testEnumFieldEnumPrntOutp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldModEnumDual
-  : ItestFieldModEnumDual
+  : GqlpModelImplementationBase
+  , ItestFieldModEnumDual
+{
+  public ItestFieldModEnumDualObject? As_FieldModEnumDual { get; set; }
+}
+
+public class testFieldModEnumDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldModEnumDualObject
 {
   public IDictionary<testEnumFieldModEnumDual, string> Field { get; set; }
+
+  public testFieldModEnumDualObject(IDictionary<testEnumFieldModEnumDual, string> field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldModEnumInp
-  : ItestFieldModEnumInp
+  : GqlpModelImplementationBase
+  , ItestFieldModEnumInp
+{
+  public ItestFieldModEnumInpObject? As_FieldModEnumInp { get; set; }
+}
+
+public class testFieldModEnumInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldModEnumInpObject
 {
   public IDictionary<testEnumFieldModEnumInp, string> Field { get; set; }
+
+  public testFieldModEnumInpObject(IDictionary<testEnumFieldModEnumInp, string> field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldModEnumOutp
-  : ItestFieldModEnumOutp
+  : GqlpModelImplementationBase
+  , ItestFieldModEnumOutp
+{
+  public ItestFieldModEnumOutpObject? As_FieldModEnumOutp { get; set; }
+}
+
+public class testFieldModEnumOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldModEnumOutpObject
 {
   public IDictionary<testEnumFieldModEnumOutp, string> Field { get; set; }
+
+  public testFieldModEnumOutpObject(IDictionary<testEnumFieldModEnumOutp, string> field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldModParamDual<TMod>
-  : ItestFieldModParamDual<TMod>
+  : GqlpModelImplementationBase
+  , ItestFieldModParamDual<TMod>
+{
+  public ItestFieldModParamDualObject<TMod>? As_FieldModParamDual { get; set; }
+}
+
+public class testFieldModParamDualObject<TMod>
+  : GqlpModelImplementationBase
+  , ItestFieldModParamDualObject<TMod>
 {
   public IDictionary<TMod, ItestFldFieldModParamDual> Field { get; set; }
+
+  public testFieldModParamDualObject(IDictionary<TMod, ItestFldFieldModParamDual> field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldFieldModParamDual
-  : ItestFldFieldModParamDual
+  : GqlpModelImplementationBase
+  , ItestFldFieldModParamDual
+{
+  public string? AsString { get; set; }
+  public ItestFldFieldModParamDualObject? As_FldFieldModParamDual { get; set; }
+}
+
+public class testFldFieldModParamDualObject
+  : GqlpModelImplementationBase
+  , ItestFldFieldModParamDualObject
 {
   public decimal Field { get; set; }
+
+  public testFldFieldModParamDualObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldModParamInp<TMod>
-  : ItestFieldModParamInp<TMod>
+  : GqlpModelImplementationBase
+  , ItestFieldModParamInp<TMod>
+{
+  public ItestFieldModParamInpObject<TMod>? As_FieldModParamInp { get; set; }
+}
+
+public class testFieldModParamInpObject<TMod>
+  : GqlpModelImplementationBase
+  , ItestFieldModParamInpObject<TMod>
 {
   public IDictionary<TMod, ItestFldFieldModParamInp> Field { get; set; }
+
+  public testFieldModParamInpObject(IDictionary<TMod, ItestFldFieldModParamInp> field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldFieldModParamInp
-  : ItestFldFieldModParamInp
+  : GqlpModelImplementationBase
+  , ItestFldFieldModParamInp
+{
+  public string? AsString { get; set; }
+  public ItestFldFieldModParamInpObject? As_FldFieldModParamInp { get; set; }
+}
+
+public class testFldFieldModParamInpObject
+  : GqlpModelImplementationBase
+  , ItestFldFieldModParamInpObject
 {
   public decimal Field { get; set; }
+
+  public testFldFieldModParamInpObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldModParamOutp<TMod>
-  : ItestFieldModParamOutp<TMod>
+  : GqlpModelImplementationBase
+  , ItestFieldModParamOutp<TMod>
+{
+  public ItestFieldModParamOutpObject<TMod>? As_FieldModParamOutp { get; set; }
+}
+
+public class testFieldModParamOutpObject<TMod>
+  : GqlpModelImplementationBase
+  , ItestFieldModParamOutpObject<TMod>
 {
   public IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; set; }
+
+  public testFieldModParamOutpObject(IDictionary<TMod, ItestFldFieldModParamOutp> field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldFieldModParamOutp
-  : ItestFldFieldModParamOutp
+  : GqlpModelImplementationBase
+  , ItestFldFieldModParamOutp
+{
+  public string? AsString { get; set; }
+  public ItestFldFieldModParamOutpObject? As_FldFieldModParamOutp { get; set; }
+}
+
+public class testFldFieldModParamOutpObject
+  : GqlpModelImplementationBase
+  , ItestFldFieldModParamOutpObject
 {
   public decimal Field { get; set; }
+
+  public testFldFieldModParamOutpObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldObjDual
-  : ItestFieldObjDual
+  : GqlpModelImplementationBase
+  , ItestFieldObjDual
+{
+  public ItestFieldObjDualObject? As_FieldObjDual { get; set; }
+}
+
+public class testFieldObjDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldObjDualObject
 {
   public ItestFldFieldObjDual Field { get; set; }
+
+  public testFieldObjDualObject(ItestFldFieldObjDual field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldFieldObjDual
-  : ItestFldFieldObjDual
+  : GqlpModelImplementationBase
+  , ItestFldFieldObjDual
+{
+  public string? AsString { get; set; }
+  public ItestFldFieldObjDualObject? As_FldFieldObjDual { get; set; }
+}
+
+public class testFldFieldObjDualObject
+  : GqlpModelImplementationBase
+  , ItestFldFieldObjDualObject
 {
   public decimal Field { get; set; }
+
+  public testFldFieldObjDualObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldObjInp
-  : ItestFieldObjInp
+  : GqlpModelImplementationBase
+  , ItestFieldObjInp
+{
+  public ItestFieldObjInpObject? As_FieldObjInp { get; set; }
+}
+
+public class testFieldObjInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldObjInpObject
 {
   public ItestFldFieldObjInp Field { get; set; }
+
+  public testFieldObjInpObject(ItestFldFieldObjInp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldFieldObjInp
-  : ItestFldFieldObjInp
+  : GqlpModelImplementationBase
+  , ItestFldFieldObjInp
+{
+  public string? AsString { get; set; }
+  public ItestFldFieldObjInpObject? As_FldFieldObjInp { get; set; }
+}
+
+public class testFldFieldObjInpObject
+  : GqlpModelImplementationBase
+  , ItestFldFieldObjInpObject
 {
   public decimal Field { get; set; }
+
+  public testFldFieldObjInpObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldObjOutp
-  : ItestFieldObjOutp
+  : GqlpModelImplementationBase
+  , ItestFieldObjOutp
+{
+  public ItestFieldObjOutpObject? As_FieldObjOutp { get; set; }
+}
+
+public class testFieldObjOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldObjOutpObject
 {
   public ItestFldFieldObjOutp Field { get; set; }
+
+  public testFieldObjOutpObject(ItestFldFieldObjOutp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldFieldObjOutp
-  : ItestFldFieldObjOutp
+  : GqlpModelImplementationBase
+  , ItestFldFieldObjOutp
+{
+  public string? AsString { get; set; }
+  public ItestFldFieldObjOutpObject? As_FldFieldObjOutp { get; set; }
+}
+
+public class testFldFieldObjOutpObject
+  : GqlpModelImplementationBase
+  , ItestFldFieldObjOutpObject
 {
   public decimal Field { get; set; }
+
+  public testFldFieldObjOutpObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldSmplDual
-  : ItestFieldSmplDual
+  : GqlpModelImplementationBase
+  , ItestFieldSmplDual
+{
+  public ItestFieldSmplDualObject? As_FieldSmplDual { get; set; }
+}
+
+public class testFieldSmplDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldSmplDualObject
 {
   public decimal Field { get; set; }
+
+  public testFieldSmplDualObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldSmplInp
-  : ItestFieldSmplInp
+  : GqlpModelImplementationBase
+  , ItestFieldSmplInp
+{
+  public ItestFieldSmplInpObject? As_FieldSmplInp { get; set; }
+}
+
+public class testFieldSmplInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldSmplInpObject
 {
   public decimal Field { get; set; }
+
+  public testFieldSmplInpObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldSmplOutp
-  : ItestFieldSmplOutp
+  : GqlpModelImplementationBase
+  , ItestFieldSmplOutp
+{
+  public ItestFieldSmplOutpObject? As_FieldSmplOutp { get; set; }
+}
+
+public class testFieldSmplOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldSmplOutpObject
 {
   public decimal Field { get; set; }
+
+  public testFieldSmplOutpObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldTypeDescrDual
-  : ItestFieldTypeDescrDual
+  : GqlpModelImplementationBase
+  , ItestFieldTypeDescrDual
+{
+  public ItestFieldTypeDescrDualObject? As_FieldTypeDescrDual { get; set; }
+}
+
+public class testFieldTypeDescrDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldTypeDescrDualObject
 {
   public decimal Field { get; set; }
+
+  public testFieldTypeDescrDualObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldTypeDescrInp
-  : ItestFieldTypeDescrInp
+  : GqlpModelImplementationBase
+  , ItestFieldTypeDescrInp
+{
+  public ItestFieldTypeDescrInpObject? As_FieldTypeDescrInp { get; set; }
+}
+
+public class testFieldTypeDescrInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldTypeDescrInpObject
 {
   public decimal Field { get; set; }
+
+  public testFieldTypeDescrInpObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldTypeDescrOutp
-  : ItestFieldTypeDescrOutp
+  : GqlpModelImplementationBase
+  , ItestFieldTypeDescrOutp
+{
+  public ItestFieldTypeDescrOutpObject? As_FieldTypeDescrOutp { get; set; }
+}
+
+public class testFieldTypeDescrOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldTypeDescrOutpObject
 {
   public decimal Field { get; set; }
+
+  public testFieldTypeDescrOutpObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldValueDual
-  : ItestFieldValueDual
+  : GqlpModelImplementationBase
+  , ItestFieldValueDual
+{
+  public ItestFieldValueDualObject? As_FieldValueDual { get; set; }
+}
+
+public class testFieldValueDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldValueDualObject
 {
   public testEnumFieldValueDual Field { get; set; }
+
+  public testFieldValueDualObject(testEnumFieldValueDual field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldValueInp
-  : ItestFieldValueInp
+  : GqlpModelImplementationBase
+  , ItestFieldValueInp
+{
+  public ItestFieldValueInpObject? As_FieldValueInp { get; set; }
+}
+
+public class testFieldValueInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldValueInpObject
 {
   public testEnumFieldValueInp Field { get; set; }
+
+  public testFieldValueInpObject(testEnumFieldValueInp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldValueOutp
-  : ItestFieldValueOutp
+  : GqlpModelImplementationBase
+  , ItestFieldValueOutp
+{
+  public ItestFieldValueOutpObject? As_FieldValueOutp { get; set; }
+}
+
+public class testFieldValueOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldValueOutpObject
 {
   public testEnumFieldValueOutp Field { get; set; }
+
+  public testFieldValueOutpObject(testEnumFieldValueOutp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldValueDescrDual
-  : ItestFieldValueDescrDual
+  : GqlpModelImplementationBase
+  , ItestFieldValueDescrDual
+{
+  public ItestFieldValueDescrDualObject? As_FieldValueDescrDual { get; set; }
+}
+
+public class testFieldValueDescrDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldValueDescrDualObject
 {
   public testEnumFieldValueDescrDual Field { get; set; }
+
+  public testFieldValueDescrDualObject(testEnumFieldValueDescrDual field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldValueDescrInp
-  : ItestFieldValueDescrInp
+  : GqlpModelImplementationBase
+  , ItestFieldValueDescrInp
+{
+  public ItestFieldValueDescrInpObject? As_FieldValueDescrInp { get; set; }
+}
+
+public class testFieldValueDescrInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldValueDescrInpObject
 {
   public testEnumFieldValueDescrInp Field { get; set; }
+
+  public testFieldValueDescrInpObject(testEnumFieldValueDescrInp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFieldValueDescrOutp
-  : ItestFieldValueDescrOutp
+  : GqlpModelImplementationBase
+  , ItestFieldValueDescrOutp
+{
+  public ItestFieldValueDescrOutpObject? As_FieldValueDescrOutp { get; set; }
+}
+
+public class testFieldValueDescrOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldValueDescrOutpObject
 {
   public testEnumFieldValueDescrOutp Field { get; set; }
+
+  public testFieldValueDescrOutpObject(testEnumFieldValueDescrOutp field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcAltDual<TType>
-  : ItestGnrcAltDual<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltDual<TType>
 {
+  public TType? Astype { get; set; }
+  public ItestGnrcAltDualObject<TType>? As_GnrcAltDual { get; set; }
+}
+
+public class testGnrcAltDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltDualObject<TType>
+{
+
+  public testGnrcAltDualObject()
+  {
+  }
 }
 
 public class testGnrcAltInp<TType>
-  : ItestGnrcAltInp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltInp<TType>
 {
+  public TType? Astype { get; set; }
+  public ItestGnrcAltInpObject<TType>? As_GnrcAltInp { get; set; }
+}
+
+public class testGnrcAltInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltInpObject<TType>
+{
+
+  public testGnrcAltInpObject()
+  {
+  }
 }
 
 public class testGnrcAltOutp<TType>
-  : ItestGnrcAltOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltOutp<TType>
 {
+  public TType? Astype { get; set; }
+  public ItestGnrcAltOutpObject<TType>? As_GnrcAltOutp { get; set; }
+}
+
+public class testGnrcAltOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltOutpObject<TType>
+{
+
+  public testGnrcAltOutpObject()
+  {
+  }
 }
 
 public class testGnrcAltArgDual<TType>
-  : ItestGnrcAltArgDual<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgDual<TType>
 {
+  public ItestRefGnrcAltArgDual<TType>? AsRefGnrcAltArgDual { get; set; }
+  public ItestGnrcAltArgDualObject<TType>? As_GnrcAltArgDual { get; set; }
+}
+
+public class testGnrcAltArgDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgDualObject<TType>
+{
+
+  public testGnrcAltArgDualObject()
+  {
+  }
 }
 
 public class testRefGnrcAltArgDual<TRef>
-  : ItestRefGnrcAltArgDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltArgDualObject<TRef>? As_RefGnrcAltArgDual { get; set; }
+}
+
+public class testRefGnrcAltArgDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgDualObject<TRef>
+{
+
+  public testRefGnrcAltArgDualObject()
+  {
+  }
 }
 
 public class testGnrcAltArgInp<TType>
-  : ItestGnrcAltArgInp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgInp<TType>
 {
+  public ItestRefGnrcAltArgInp<TType>? AsRefGnrcAltArgInp { get; set; }
+  public ItestGnrcAltArgInpObject<TType>? As_GnrcAltArgInp { get; set; }
+}
+
+public class testGnrcAltArgInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgInpObject<TType>
+{
+
+  public testGnrcAltArgInpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltArgInp<TRef>
-  : ItestRefGnrcAltArgInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltArgInpObject<TRef>? As_RefGnrcAltArgInp { get; set; }
+}
+
+public class testRefGnrcAltArgInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgInpObject<TRef>
+{
+
+  public testRefGnrcAltArgInpObject()
+  {
+  }
 }
 
 public class testGnrcAltArgOutp<TType>
-  : ItestGnrcAltArgOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgOutp<TType>
 {
+  public ItestRefGnrcAltArgOutp<TType>? AsRefGnrcAltArgOutp { get; set; }
+  public ItestGnrcAltArgOutpObject<TType>? As_GnrcAltArgOutp { get; set; }
+}
+
+public class testGnrcAltArgOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgOutpObject<TType>
+{
+
+  public testGnrcAltArgOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltArgOutp<TRef>
-  : ItestRefGnrcAltArgOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltArgOutpObject<TRef>? As_RefGnrcAltArgOutp { get; set; }
+}
+
+public class testRefGnrcAltArgOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgOutpObject<TRef>
+{
+
+  public testRefGnrcAltArgOutpObject()
+  {
+  }
 }
 
 public class testGnrcAltArgDescrDual<TType>
-  : ItestGnrcAltArgDescrDual<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgDescrDual<TType>
 {
+  public ItestRefGnrcAltArgDescrDual<TType>? AsRefGnrcAltArgDescrDual { get; set; }
+  public ItestGnrcAltArgDescrDualObject<TType>? As_GnrcAltArgDescrDual { get; set; }
+}
+
+public class testGnrcAltArgDescrDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgDescrDualObject<TType>
+{
+
+  public testGnrcAltArgDescrDualObject()
+  {
+  }
 }
 
 public class testRefGnrcAltArgDescrDual<TRef>
-  : ItestRefGnrcAltArgDescrDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgDescrDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltArgDescrDualObject<TRef>? As_RefGnrcAltArgDescrDual { get; set; }
+}
+
+public class testRefGnrcAltArgDescrDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgDescrDualObject<TRef>
+{
+
+  public testRefGnrcAltArgDescrDualObject()
+  {
+  }
 }
 
 public class testGnrcAltArgDescrInp<TType>
-  : ItestGnrcAltArgDescrInp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgDescrInp<TType>
 {
+  public ItestRefGnrcAltArgDescrInp<TType>? AsRefGnrcAltArgDescrInp { get; set; }
+  public ItestGnrcAltArgDescrInpObject<TType>? As_GnrcAltArgDescrInp { get; set; }
+}
+
+public class testGnrcAltArgDescrInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgDescrInpObject<TType>
+{
+
+  public testGnrcAltArgDescrInpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltArgDescrInp<TRef>
-  : ItestRefGnrcAltArgDescrInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgDescrInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltArgDescrInpObject<TRef>? As_RefGnrcAltArgDescrInp { get; set; }
+}
+
+public class testRefGnrcAltArgDescrInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgDescrInpObject<TRef>
+{
+
+  public testRefGnrcAltArgDescrInpObject()
+  {
+  }
 }
 
 public class testGnrcAltArgDescrOutp<TType>
-  : ItestGnrcAltArgDescrOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgDescrOutp<TType>
 {
+  public ItestRefGnrcAltArgDescrOutp<TType>? AsRefGnrcAltArgDescrOutp { get; set; }
+  public ItestGnrcAltArgDescrOutpObject<TType>? As_GnrcAltArgDescrOutp { get; set; }
+}
+
+public class testGnrcAltArgDescrOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgDescrOutpObject<TType>
+{
+
+  public testGnrcAltArgDescrOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltArgDescrOutp<TRef>
-  : ItestRefGnrcAltArgDescrOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgDescrOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltArgDescrOutpObject<TRef>? As_RefGnrcAltArgDescrOutp { get; set; }
+}
+
+public class testRefGnrcAltArgDescrOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgDescrOutpObject<TRef>
+{
+
+  public testRefGnrcAltArgDescrOutpObject()
+  {
+  }
 }
 
 public class testGnrcAltDualDual
-  : ItestGnrcAltDualDual
+  : GqlpModelImplementationBase
+  , ItestGnrcAltDualDual
 {
+  public ItestRefGnrcAltDualDual<ItestAltGnrcAltDualDual>? AsRefGnrcAltDualDual { get; set; }
+  public ItestGnrcAltDualDualObject? As_GnrcAltDualDual { get; set; }
+}
+
+public class testGnrcAltDualDualObject
+  : GqlpModelImplementationBase
+  , ItestGnrcAltDualDualObject
+{
+
+  public testGnrcAltDualDualObject()
+  {
+  }
 }
 
 public class testRefGnrcAltDualDual<TRef>
-  : ItestRefGnrcAltDualDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltDualDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltDualDualObject<TRef>? As_RefGnrcAltDualDual { get; set; }
+}
+
+public class testRefGnrcAltDualDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltDualDualObject<TRef>
+{
+
+  public testRefGnrcAltDualDualObject()
+  {
+  }
 }
 
 public class testAltGnrcAltDualDual
-  : ItestAltGnrcAltDualDual
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltDualDual
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcAltDualDualObject? As_AltGnrcAltDualDual { get; set; }
+}
+
+public class testAltGnrcAltDualDualObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltDualDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcAltDualDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcAltDualInp
-  : ItestGnrcAltDualInp
+  : GqlpModelImplementationBase
+  , ItestGnrcAltDualInp
 {
+  public ItestRefGnrcAltDualInp<ItestAltGnrcAltDualInp>? AsRefGnrcAltDualInp { get; set; }
+  public ItestGnrcAltDualInpObject? As_GnrcAltDualInp { get; set; }
+}
+
+public class testGnrcAltDualInpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcAltDualInpObject
+{
+
+  public testGnrcAltDualInpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltDualInp<TRef>
-  : ItestRefGnrcAltDualInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltDualInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltDualInpObject<TRef>? As_RefGnrcAltDualInp { get; set; }
+}
+
+public class testRefGnrcAltDualInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltDualInpObject<TRef>
+{
+
+  public testRefGnrcAltDualInpObject()
+  {
+  }
 }
 
 public class testAltGnrcAltDualInp
-  : ItestAltGnrcAltDualInp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltDualInp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcAltDualInpObject? As_AltGnrcAltDualInp { get; set; }
+}
+
+public class testAltGnrcAltDualInpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltDualInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcAltDualInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcAltDualOutp
-  : ItestGnrcAltDualOutp
+  : GqlpModelImplementationBase
+  , ItestGnrcAltDualOutp
 {
+  public ItestRefGnrcAltDualOutp<ItestAltGnrcAltDualOutp>? AsRefGnrcAltDualOutp { get; set; }
+  public ItestGnrcAltDualOutpObject? As_GnrcAltDualOutp { get; set; }
+}
+
+public class testGnrcAltDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcAltDualOutpObject
+{
+
+  public testGnrcAltDualOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltDualOutp<TRef>
-  : ItestRefGnrcAltDualOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltDualOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltDualOutpObject<TRef>? As_RefGnrcAltDualOutp { get; set; }
+}
+
+public class testRefGnrcAltDualOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltDualOutpObject<TRef>
+{
+
+  public testRefGnrcAltDualOutpObject()
+  {
+  }
 }
 
 public class testAltGnrcAltDualOutp
-  : ItestAltGnrcAltDualOutp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltDualOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcAltDualOutpObject? As_AltGnrcAltDualOutp { get; set; }
+}
+
+public class testAltGnrcAltDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltDualOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcAltDualOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testRefGnrcAltModParamDual<TRef,TMod>
-  : ItestRefGnrcAltModParamDual<TRef,TMod>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModParamDual<TRef,TMod>
 {
+  public IDictionary<TMod, TRef>? Asref { get; set; }
+  public ItestRefGnrcAltModParamDualObject<TRef,TMod>? As_RefGnrcAltModParamDual { get; set; }
+}
+
+public class testRefGnrcAltModParamDualObject<TRef,TMod>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModParamDualObject<TRef,TMod>
+{
+
+  public testRefGnrcAltModParamDualObject()
+  {
+  }
 }
 
 public class testRefGnrcAltModParamInp<TRef,TMod>
-  : ItestRefGnrcAltModParamInp<TRef,TMod>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModParamInp<TRef,TMod>
 {
+  public IDictionary<TMod, TRef>? Asref { get; set; }
+  public ItestRefGnrcAltModParamInpObject<TRef,TMod>? As_RefGnrcAltModParamInp { get; set; }
+}
+
+public class testRefGnrcAltModParamInpObject<TRef,TMod>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModParamInpObject<TRef,TMod>
+{
+
+  public testRefGnrcAltModParamInpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltModParamOutp<TRef,TMod>
-  : ItestRefGnrcAltModParamOutp<TRef,TMod>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModParamOutp<TRef,TMod>
 {
+  public IDictionary<TMod, TRef>? Asref { get; set; }
+  public ItestRefGnrcAltModParamOutpObject<TRef,TMod>? As_RefGnrcAltModParamOutp { get; set; }
+}
+
+public class testRefGnrcAltModParamOutpObject<TRef,TMod>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModParamOutpObject<TRef,TMod>
+{
+
+  public testRefGnrcAltModParamOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltModStrDual<TRef>
-  : ItestRefGnrcAltModStrDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModStrDual<TRef>
 {
+  public IDictionary<string, TRef>? Asref { get; set; }
+  public ItestRefGnrcAltModStrDualObject<TRef>? As_RefGnrcAltModStrDual { get; set; }
+}
+
+public class testRefGnrcAltModStrDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModStrDualObject<TRef>
+{
+
+  public testRefGnrcAltModStrDualObject()
+  {
+  }
 }
 
 public class testRefGnrcAltModStrInp<TRef>
-  : ItestRefGnrcAltModStrInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModStrInp<TRef>
 {
+  public IDictionary<string, TRef>? Asref { get; set; }
+  public ItestRefGnrcAltModStrInpObject<TRef>? As_RefGnrcAltModStrInp { get; set; }
+}
+
+public class testRefGnrcAltModStrInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModStrInpObject<TRef>
+{
+
+  public testRefGnrcAltModStrInpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltModStrOutp<TRef>
-  : ItestRefGnrcAltModStrOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModStrOutp<TRef>
 {
+  public IDictionary<string, TRef>? Asref { get; set; }
+  public ItestRefGnrcAltModStrOutpObject<TRef>? As_RefGnrcAltModStrOutp { get; set; }
+}
+
+public class testRefGnrcAltModStrOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltModStrOutpObject<TRef>
+{
+
+  public testRefGnrcAltModStrOutpObject()
+  {
+  }
 }
 
 public class testGnrcAltParamDual
-  : ItestGnrcAltParamDual
+  : GqlpModelImplementationBase
+  , ItestGnrcAltParamDual
 {
+  public ItestRefGnrcAltParamDual<ItestAltGnrcAltParamDual>? AsRefGnrcAltParamDual { get; set; }
+  public ItestGnrcAltParamDualObject? As_GnrcAltParamDual { get; set; }
+}
+
+public class testGnrcAltParamDualObject
+  : GqlpModelImplementationBase
+  , ItestGnrcAltParamDualObject
+{
+
+  public testGnrcAltParamDualObject()
+  {
+  }
 }
 
 public class testRefGnrcAltParamDual<TRef>
-  : ItestRefGnrcAltParamDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltParamDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltParamDualObject<TRef>? As_RefGnrcAltParamDual { get; set; }
+}
+
+public class testRefGnrcAltParamDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltParamDualObject<TRef>
+{
+
+  public testRefGnrcAltParamDualObject()
+  {
+  }
 }
 
 public class testAltGnrcAltParamDual
-  : ItestAltGnrcAltParamDual
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltParamDual
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcAltParamDualObject? As_AltGnrcAltParamDual { get; set; }
+}
+
+public class testAltGnrcAltParamDualObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltParamDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcAltParamDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcAltParamInp
-  : ItestGnrcAltParamInp
+  : GqlpModelImplementationBase
+  , ItestGnrcAltParamInp
 {
+  public ItestRefGnrcAltParamInp<ItestAltGnrcAltParamInp>? AsRefGnrcAltParamInp { get; set; }
+  public ItestGnrcAltParamInpObject? As_GnrcAltParamInp { get; set; }
+}
+
+public class testGnrcAltParamInpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcAltParamInpObject
+{
+
+  public testGnrcAltParamInpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltParamInp<TRef>
-  : ItestRefGnrcAltParamInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltParamInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltParamInpObject<TRef>? As_RefGnrcAltParamInp { get; set; }
+}
+
+public class testRefGnrcAltParamInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltParamInpObject<TRef>
+{
+
+  public testRefGnrcAltParamInpObject()
+  {
+  }
 }
 
 public class testAltGnrcAltParamInp
-  : ItestAltGnrcAltParamInp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltParamInp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcAltParamInpObject? As_AltGnrcAltParamInp { get; set; }
+}
+
+public class testAltGnrcAltParamInpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltParamInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcAltParamInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcAltParamOutp
-  : ItestGnrcAltParamOutp
+  : GqlpModelImplementationBase
+  , ItestGnrcAltParamOutp
 {
+  public ItestRefGnrcAltParamOutp<ItestAltGnrcAltParamOutp>? AsRefGnrcAltParamOutp { get; set; }
+  public ItestGnrcAltParamOutpObject? As_GnrcAltParamOutp { get; set; }
+}
+
+public class testGnrcAltParamOutpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcAltParamOutpObject
+{
+
+  public testGnrcAltParamOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltParamOutp<TRef>
-  : ItestRefGnrcAltParamOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltParamOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltParamOutpObject<TRef>? As_RefGnrcAltParamOutp { get; set; }
+}
+
+public class testRefGnrcAltParamOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltParamOutpObject<TRef>
+{
+
+  public testRefGnrcAltParamOutpObject()
+  {
+  }
 }
 
 public class testAltGnrcAltParamOutp
-  : ItestAltGnrcAltParamOutp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltParamOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcAltParamOutpObject? As_AltGnrcAltParamOutp { get; set; }
+}
+
+public class testAltGnrcAltParamOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcAltParamOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcAltParamOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcAltSmplDual
-  : ItestGnrcAltSmplDual
+  : GqlpModelImplementationBase
+  , ItestGnrcAltSmplDual
 {
+  public ItestRefGnrcAltSmplDual<string>? AsRefGnrcAltSmplDual { get; set; }
+  public ItestGnrcAltSmplDualObject? As_GnrcAltSmplDual { get; set; }
+}
+
+public class testGnrcAltSmplDualObject
+  : GqlpModelImplementationBase
+  , ItestGnrcAltSmplDualObject
+{
+
+  public testGnrcAltSmplDualObject()
+  {
+  }
 }
 
 public class testRefGnrcAltSmplDual<TRef>
-  : ItestRefGnrcAltSmplDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltSmplDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltSmplDualObject<TRef>? As_RefGnrcAltSmplDual { get; set; }
+}
+
+public class testRefGnrcAltSmplDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltSmplDualObject<TRef>
+{
+
+  public testRefGnrcAltSmplDualObject()
+  {
+  }
 }
 
 public class testGnrcAltSmplInp
-  : ItestGnrcAltSmplInp
+  : GqlpModelImplementationBase
+  , ItestGnrcAltSmplInp
 {
+  public ItestRefGnrcAltSmplInp<string>? AsRefGnrcAltSmplInp { get; set; }
+  public ItestGnrcAltSmplInpObject? As_GnrcAltSmplInp { get; set; }
+}
+
+public class testGnrcAltSmplInpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcAltSmplInpObject
+{
+
+  public testGnrcAltSmplInpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltSmplInp<TRef>
-  : ItestRefGnrcAltSmplInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltSmplInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltSmplInpObject<TRef>? As_RefGnrcAltSmplInp { get; set; }
+}
+
+public class testRefGnrcAltSmplInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltSmplInpObject<TRef>
+{
+
+  public testRefGnrcAltSmplInpObject()
+  {
+  }
 }
 
 public class testGnrcAltSmplOutp
-  : ItestGnrcAltSmplOutp
+  : GqlpModelImplementationBase
+  , ItestGnrcAltSmplOutp
 {
+  public ItestRefGnrcAltSmplOutp<string>? AsRefGnrcAltSmplOutp { get; set; }
+  public ItestGnrcAltSmplOutpObject? As_GnrcAltSmplOutp { get; set; }
+}
+
+public class testGnrcAltSmplOutpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcAltSmplOutpObject
+{
+
+  public testGnrcAltSmplOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltSmplOutp<TRef>
-  : ItestRefGnrcAltSmplOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltSmplOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltSmplOutpObject<TRef>? As_RefGnrcAltSmplOutp { get; set; }
+}
+
+public class testRefGnrcAltSmplOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltSmplOutpObject<TRef>
+{
+
+  public testRefGnrcAltSmplOutpObject()
+  {
+  }
 }
 
 public class testGnrcDescrDual<TType>
-  : ItestGnrcDescrDual<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcDescrDual<TType>
+{
+  public ItestGnrcDescrDualObject<TType>? As_GnrcDescrDual { get; set; }
+}
+
+public class testGnrcDescrDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcDescrDualObject<TType>
 {
   public TType Field { get; set; }
+
+  public testGnrcDescrDualObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcDescrInp<TType>
-  : ItestGnrcDescrInp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcDescrInp<TType>
+{
+  public ItestGnrcDescrInpObject<TType>? As_GnrcDescrInp { get; set; }
+}
+
+public class testGnrcDescrInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcDescrInpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testGnrcDescrInpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcDescrOutp<TType>
-  : ItestGnrcDescrOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcDescrOutp<TType>
+{
+  public ItestGnrcDescrOutpObject<TType>? As_GnrcDescrOutp { get; set; }
+}
+
+public class testGnrcDescrOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcDescrOutpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testGnrcDescrOutpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcEnumDual
-  : ItestGnrcEnumDual
+  : GqlpModelImplementationBase
+  , ItestGnrcEnumDual
 {
+  public ItestRefGnrcEnumDual<testEnumGnrcEnumDual>? AsEnumGnrcEnumDualgnrcEnumDual { get; set; }
+  public ItestGnrcEnumDualObject? As_GnrcEnumDual { get; set; }
+}
+
+public class testGnrcEnumDualObject
+  : GqlpModelImplementationBase
+  , ItestGnrcEnumDualObject
+{
+
+  public testGnrcEnumDualObject()
+  {
+  }
 }
 
 public class testRefGnrcEnumDual<TType>
-  : ItestRefGnrcEnumDual<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcEnumDual<TType>
+{
+  public ItestRefGnrcEnumDualObject<TType>? As_RefGnrcEnumDual { get; set; }
+}
+
+public class testRefGnrcEnumDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcEnumDualObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefGnrcEnumDualObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcEnumInp
-  : ItestGnrcEnumInp
+  : GqlpModelImplementationBase
+  , ItestGnrcEnumInp
 {
+  public ItestRefGnrcEnumInp<testEnumGnrcEnumInp>? AsEnumGnrcEnumInpgnrcEnumInp { get; set; }
+  public ItestGnrcEnumInpObject? As_GnrcEnumInp { get; set; }
+}
+
+public class testGnrcEnumInpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcEnumInpObject
+{
+
+  public testGnrcEnumInpObject()
+  {
+  }
 }
 
 public class testRefGnrcEnumInp<TType>
-  : ItestRefGnrcEnumInp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcEnumInp<TType>
+{
+  public ItestRefGnrcEnumInpObject<TType>? As_RefGnrcEnumInp { get; set; }
+}
+
+public class testRefGnrcEnumInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcEnumInpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefGnrcEnumInpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcEnumOutp
-  : ItestGnrcEnumOutp
+  : GqlpModelImplementationBase
+  , ItestGnrcEnumOutp
 {
+  public ItestRefGnrcEnumOutp<testEnumGnrcEnumOutp>? AsEnumGnrcEnumOutpgnrcEnumOutp { get; set; }
+  public ItestGnrcEnumOutpObject? As_GnrcEnumOutp { get; set; }
+}
+
+public class testGnrcEnumOutpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcEnumOutpObject
+{
+
+  public testGnrcEnumOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcEnumOutp<TType>
-  : ItestRefGnrcEnumOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcEnumOutp<TType>
+{
+  public ItestRefGnrcEnumOutpObject<TType>? As_RefGnrcEnumOutp { get; set; }
+}
+
+public class testRefGnrcEnumOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcEnumOutpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefGnrcEnumOutpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcFieldDual<TType>
-  : ItestGnrcFieldDual<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldDual<TType>
+{
+  public ItestGnrcFieldDualObject<TType>? As_GnrcFieldDual { get; set; }
+}
+
+public class testGnrcFieldDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldDualObject<TType>
 {
   public TType Field { get; set; }
+
+  public testGnrcFieldDualObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcFieldInp<TType>
-  : ItestGnrcFieldInp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldInp<TType>
+{
+  public ItestGnrcFieldInpObject<TType>? As_GnrcFieldInp { get; set; }
+}
+
+public class testGnrcFieldInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldInpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testGnrcFieldInpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcFieldOutp<TType>
-  : ItestGnrcFieldOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldOutp<TType>
+{
+  public ItestGnrcFieldOutpObject<TType>? As_GnrcFieldOutp { get; set; }
+}
+
+public class testGnrcFieldOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldOutpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testGnrcFieldOutpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcFieldArgDual<TType>
-  : ItestGnrcFieldArgDual<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldArgDual<TType>
+{
+  public ItestGnrcFieldArgDualObject<TType>? As_GnrcFieldArgDual { get; set; }
+}
+
+public class testGnrcFieldArgDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldArgDualObject<TType>
 {
   public ItestRefGnrcFieldArgDual<TType> Field { get; set; }
+
+  public testGnrcFieldArgDualObject(ItestRefGnrcFieldArgDual<TType> field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefGnrcFieldArgDual<TRef>
-  : ItestRefGnrcFieldArgDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldArgDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcFieldArgDualObject<TRef>? As_RefGnrcFieldArgDual { get; set; }
+}
+
+public class testRefGnrcFieldArgDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldArgDualObject<TRef>
+{
+
+  public testRefGnrcFieldArgDualObject()
+  {
+  }
 }
 
 public class testGnrcFieldArgInp<TType>
-  : ItestGnrcFieldArgInp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldArgInp<TType>
+{
+  public ItestGnrcFieldArgInpObject<TType>? As_GnrcFieldArgInp { get; set; }
+}
+
+public class testGnrcFieldArgInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldArgInpObject<TType>
 {
   public ItestRefGnrcFieldArgInp<TType> Field { get; set; }
+
+  public testGnrcFieldArgInpObject(ItestRefGnrcFieldArgInp<TType> field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefGnrcFieldArgInp<TRef>
-  : ItestRefGnrcFieldArgInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldArgInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcFieldArgInpObject<TRef>? As_RefGnrcFieldArgInp { get; set; }
+}
+
+public class testRefGnrcFieldArgInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldArgInpObject<TRef>
+{
+
+  public testRefGnrcFieldArgInpObject()
+  {
+  }
 }
 
 public class testGnrcFieldArgOutp<TType>
-  : ItestGnrcFieldArgOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldArgOutp<TType>
+{
+  public ItestGnrcFieldArgOutpObject<TType>? As_GnrcFieldArgOutp { get; set; }
+}
+
+public class testGnrcFieldArgOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldArgOutpObject<TType>
 {
   public ItestRefGnrcFieldArgOutp<TType> Field { get; set; }
+
+  public testGnrcFieldArgOutpObject(ItestRefGnrcFieldArgOutp<TType> field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefGnrcFieldArgOutp<TRef>
-  : ItestRefGnrcFieldArgOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldArgOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcFieldArgOutpObject<TRef>? As_RefGnrcFieldArgOutp { get; set; }
+}
+
+public class testRefGnrcFieldArgOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldArgOutpObject<TRef>
+{
+
+  public testRefGnrcFieldArgOutpObject()
+  {
+  }
 }
 
 public class testGnrcFieldDualDual
-  : ItestGnrcFieldDualDual
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldDualDual
+{
+  public ItestGnrcFieldDualDualObject? As_GnrcFieldDualDual { get; set; }
+}
+
+public class testGnrcFieldDualDualObject
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldDualDualObject
 {
   public ItestRefGnrcFieldDualDual<ItestAltGnrcFieldDualDual> Field { get; set; }
+
+  public testGnrcFieldDualDualObject(ItestRefGnrcFieldDualDual<ItestAltGnrcFieldDualDual> field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefGnrcFieldDualDual<TRef>
-  : ItestRefGnrcFieldDualDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldDualDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcFieldDualDualObject<TRef>? As_RefGnrcFieldDualDual { get; set; }
+}
+
+public class testRefGnrcFieldDualDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldDualDualObject<TRef>
+{
+
+  public testRefGnrcFieldDualDualObject()
+  {
+  }
 }
 
 public class testAltGnrcFieldDualDual
-  : ItestAltGnrcFieldDualDual
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldDualDual
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcFieldDualDualObject? As_AltGnrcFieldDualDual { get; set; }
+}
+
+public class testAltGnrcFieldDualDualObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldDualDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcFieldDualDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcFieldDualInp
-  : ItestGnrcFieldDualInp
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldDualInp
+{
+  public ItestGnrcFieldDualInpObject? As_GnrcFieldDualInp { get; set; }
+}
+
+public class testGnrcFieldDualInpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldDualInpObject
 {
   public ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> Field { get; set; }
+
+  public testGnrcFieldDualInpObject(ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefGnrcFieldDualInp<TRef>
-  : ItestRefGnrcFieldDualInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldDualInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcFieldDualInpObject<TRef>? As_RefGnrcFieldDualInp { get; set; }
+}
+
+public class testRefGnrcFieldDualInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldDualInpObject<TRef>
+{
+
+  public testRefGnrcFieldDualInpObject()
+  {
+  }
 }
 
 public class testAltGnrcFieldDualInp
-  : ItestAltGnrcFieldDualInp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldDualInp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcFieldDualInpObject? As_AltGnrcFieldDualInp { get; set; }
+}
+
+public class testAltGnrcFieldDualInpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldDualInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcFieldDualInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcFieldDualOutp
-  : ItestGnrcFieldDualOutp
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldDualOutp
+{
+  public ItestGnrcFieldDualOutpObject? As_GnrcFieldDualOutp { get; set; }
+}
+
+public class testGnrcFieldDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldDualOutpObject
 {
   public ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; set; }
+
+  public testGnrcFieldDualOutpObject(ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefGnrcFieldDualOutp<TRef>
-  : ItestRefGnrcFieldDualOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldDualOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcFieldDualOutpObject<TRef>? As_RefGnrcFieldDualOutp { get; set; }
+}
+
+public class testRefGnrcFieldDualOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldDualOutpObject<TRef>
+{
+
+  public testRefGnrcFieldDualOutpObject()
+  {
+  }
 }
 
 public class testAltGnrcFieldDualOutp
-  : ItestAltGnrcFieldDualOutp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldDualOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcFieldDualOutpObject? As_AltGnrcFieldDualOutp { get; set; }
+}
+
+public class testAltGnrcFieldDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldDualOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcFieldDualOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcFieldParamDual
-  : ItestGnrcFieldParamDual
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldParamDual
+{
+  public ItestGnrcFieldParamDualObject? As_GnrcFieldParamDual { get; set; }
+}
+
+public class testGnrcFieldParamDualObject
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldParamDualObject
 {
   public ItestRefGnrcFieldParamDual<ItestAltGnrcFieldParamDual> Field { get; set; }
+
+  public testGnrcFieldParamDualObject(ItestRefGnrcFieldParamDual<ItestAltGnrcFieldParamDual> field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefGnrcFieldParamDual<TRef>
-  : ItestRefGnrcFieldParamDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldParamDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcFieldParamDualObject<TRef>? As_RefGnrcFieldParamDual { get; set; }
+}
+
+public class testRefGnrcFieldParamDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldParamDualObject<TRef>
+{
+
+  public testRefGnrcFieldParamDualObject()
+  {
+  }
 }
 
 public class testAltGnrcFieldParamDual
-  : ItestAltGnrcFieldParamDual
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldParamDual
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcFieldParamDualObject? As_AltGnrcFieldParamDual { get; set; }
+}
+
+public class testAltGnrcFieldParamDualObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldParamDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcFieldParamDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcFieldParamInp
-  : ItestGnrcFieldParamInp
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldParamInp
+{
+  public ItestGnrcFieldParamInpObject? As_GnrcFieldParamInp { get; set; }
+}
+
+public class testGnrcFieldParamInpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldParamInpObject
 {
   public ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> Field { get; set; }
+
+  public testGnrcFieldParamInpObject(ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefGnrcFieldParamInp<TRef>
-  : ItestRefGnrcFieldParamInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldParamInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcFieldParamInpObject<TRef>? As_RefGnrcFieldParamInp { get; set; }
+}
+
+public class testRefGnrcFieldParamInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldParamInpObject<TRef>
+{
+
+  public testRefGnrcFieldParamInpObject()
+  {
+  }
 }
 
 public class testAltGnrcFieldParamInp
-  : ItestAltGnrcFieldParamInp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldParamInp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcFieldParamInpObject? As_AltGnrcFieldParamInp { get; set; }
+}
+
+public class testAltGnrcFieldParamInpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldParamInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcFieldParamInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcFieldParamOutp
-  : ItestGnrcFieldParamOutp
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldParamOutp
+{
+  public ItestGnrcFieldParamOutpObject? As_GnrcFieldParamOutp { get; set; }
+}
+
+public class testGnrcFieldParamOutpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldParamOutpObject
 {
   public ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; set; }
+
+  public testGnrcFieldParamOutpObject(ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefGnrcFieldParamOutp<TRef>
-  : ItestRefGnrcFieldParamOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldParamOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcFieldParamOutpObject<TRef>? As_RefGnrcFieldParamOutp { get; set; }
+}
+
+public class testRefGnrcFieldParamOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldParamOutpObject<TRef>
+{
+
+  public testRefGnrcFieldParamOutpObject()
+  {
+  }
 }
 
 public class testAltGnrcFieldParamOutp
-  : ItestAltGnrcFieldParamOutp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldParamOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcFieldParamOutpObject? As_AltGnrcFieldParamOutp { get; set; }
+}
+
+public class testAltGnrcFieldParamOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldParamOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcFieldParamOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntDual<TType>
-  : ItestGnrcPrntDual<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntDual<TType>
 {
+  public TType? As_Parent { get; set; }
+  public ItestGnrcPrntDualObject<TType>? As_GnrcPrntDual { get; set; }
+}
+
+public class testGnrcPrntDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntDualObject<TType>
+{
+
+  public testGnrcPrntDualObject()
+  {
+  }
 }
 
 public class testGnrcPrntInp<TType>
-  : ItestGnrcPrntInp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntInp<TType>
 {
+  public TType? As_Parent { get; set; }
+  public ItestGnrcPrntInpObject<TType>? As_GnrcPrntInp { get; set; }
+}
+
+public class testGnrcPrntInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntInpObject<TType>
+{
+
+  public testGnrcPrntInpObject()
+  {
+  }
 }
 
 public class testGnrcPrntOutp<TType>
-  : ItestGnrcPrntOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntOutp<TType>
 {
+  public TType? As_Parent { get; set; }
+  public ItestGnrcPrntOutpObject<TType>? As_GnrcPrntOutp { get; set; }
+}
+
+public class testGnrcPrntOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntOutpObject<TType>
+{
+
+  public testGnrcPrntOutpObject()
+  {
+  }
 }
 
 public class testGnrcPrntArgDual<TType>
   : testRefGnrcPrntArgDual<TType>
   , ItestGnrcPrntArgDual<TType>
 {
+  public ItestGnrcPrntArgDualObject<TType>? As_GnrcPrntArgDual { get; set; }
+}
+
+public class testGnrcPrntArgDualObject<TType>
+  : testRefGnrcPrntArgDualObject<TType>
+  , ItestGnrcPrntArgDualObject<TType>
+{
+
+  public testGnrcPrntArgDualObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntArgDual<TRef>
-  : ItestRefGnrcPrntArgDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntArgDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcPrntArgDualObject<TRef>? As_RefGnrcPrntArgDual { get; set; }
+}
+
+public class testRefGnrcPrntArgDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntArgDualObject<TRef>
+{
+
+  public testRefGnrcPrntArgDualObject()
+  {
+  }
 }
 
 public class testGnrcPrntArgInp<TType>
   : testRefGnrcPrntArgInp<TType>
   , ItestGnrcPrntArgInp<TType>
 {
+  public ItestGnrcPrntArgInpObject<TType>? As_GnrcPrntArgInp { get; set; }
+}
+
+public class testGnrcPrntArgInpObject<TType>
+  : testRefGnrcPrntArgInpObject<TType>
+  , ItestGnrcPrntArgInpObject<TType>
+{
+
+  public testGnrcPrntArgInpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntArgInp<TRef>
-  : ItestRefGnrcPrntArgInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntArgInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcPrntArgInpObject<TRef>? As_RefGnrcPrntArgInp { get; set; }
+}
+
+public class testRefGnrcPrntArgInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntArgInpObject<TRef>
+{
+
+  public testRefGnrcPrntArgInpObject()
+  {
+  }
 }
 
 public class testGnrcPrntArgOutp<TType>
   : testRefGnrcPrntArgOutp<TType>
   , ItestGnrcPrntArgOutp<TType>
 {
+  public ItestGnrcPrntArgOutpObject<TType>? As_GnrcPrntArgOutp { get; set; }
+}
+
+public class testGnrcPrntArgOutpObject<TType>
+  : testRefGnrcPrntArgOutpObject<TType>
+  , ItestGnrcPrntArgOutpObject<TType>
+{
+
+  public testGnrcPrntArgOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntArgOutp<TRef>
-  : ItestRefGnrcPrntArgOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntArgOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcPrntArgOutpObject<TRef>? As_RefGnrcPrntArgOutp { get; set; }
+}
+
+public class testRefGnrcPrntArgOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntArgOutpObject<TRef>
+{
+
+  public testRefGnrcPrntArgOutpObject()
+  {
+  }
 }
 
 public class testGnrcPrntDescrDual<TType>
-  : ItestGnrcPrntDescrDual<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntDescrDual<TType>
 {
+  public TType? As_Parent { get; set; }
+  public ItestGnrcPrntDescrDualObject<TType>? As_GnrcPrntDescrDual { get; set; }
+}
+
+public class testGnrcPrntDescrDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntDescrDualObject<TType>
+{
+
+  public testGnrcPrntDescrDualObject()
+  {
+  }
 }
 
 public class testGnrcPrntDescrInp<TType>
-  : ItestGnrcPrntDescrInp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntDescrInp<TType>
 {
+  public TType? As_Parent { get; set; }
+  public ItestGnrcPrntDescrInpObject<TType>? As_GnrcPrntDescrInp { get; set; }
+}
+
+public class testGnrcPrntDescrInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntDescrInpObject<TType>
+{
+
+  public testGnrcPrntDescrInpObject()
+  {
+  }
 }
 
 public class testGnrcPrntDescrOutp<TType>
-  : ItestGnrcPrntDescrOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntDescrOutp<TType>
 {
+  public TType? As_Parent { get; set; }
+  public ItestGnrcPrntDescrOutpObject<TType>? As_GnrcPrntDescrOutp { get; set; }
+}
+
+public class testGnrcPrntDescrOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcPrntDescrOutpObject<TType>
+{
+
+  public testGnrcPrntDescrOutpObject()
+  {
+  }
 }
 
 public class testGnrcPrntDualDual
   : testRefGnrcPrntDualDual<ItestAltGnrcPrntDualDual>
   , ItestGnrcPrntDualDual
 {
+  public ItestGnrcPrntDualDualObject? As_GnrcPrntDualDual { get; set; }
+}
+
+public class testGnrcPrntDualDualObject
+  : testRefGnrcPrntDualDualObject<ItestAltGnrcPrntDualDual>
+  , ItestGnrcPrntDualDualObject
+{
+
+  public testGnrcPrntDualDualObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntDualDual<TRef>
-  : ItestRefGnrcPrntDualDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcPrntDualDualObject<TRef>? As_RefGnrcPrntDualDual { get; set; }
+}
+
+public class testRefGnrcPrntDualDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualDualObject<TRef>
+{
+
+  public testRefGnrcPrntDualDualObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntDualDual
-  : ItestAltGnrcPrntDualDual
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualDual
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntDualDualObject? As_AltGnrcPrntDualDual { get; set; }
+}
+
+public class testAltGnrcPrntDualDualObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntDualDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntDualInp
   : testRefGnrcPrntDualInp<ItestAltGnrcPrntDualInp>
   , ItestGnrcPrntDualInp
 {
+  public ItestGnrcPrntDualInpObject? As_GnrcPrntDualInp { get; set; }
+}
+
+public class testGnrcPrntDualInpObject
+  : testRefGnrcPrntDualInpObject<ItestAltGnrcPrntDualInp>
+  , ItestGnrcPrntDualInpObject
+{
+
+  public testGnrcPrntDualInpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntDualInp<TRef>
-  : ItestRefGnrcPrntDualInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcPrntDualInpObject<TRef>? As_RefGnrcPrntDualInp { get; set; }
+}
+
+public class testRefGnrcPrntDualInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualInpObject<TRef>
+{
+
+  public testRefGnrcPrntDualInpObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntDualInp
-  : ItestAltGnrcPrntDualInp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualInp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntDualInpObject? As_AltGnrcPrntDualInp { get; set; }
+}
+
+public class testAltGnrcPrntDualInpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntDualInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntDualOutp
   : testRefGnrcPrntDualOutp<ItestAltGnrcPrntDualOutp>
   , ItestGnrcPrntDualOutp
 {
+  public ItestGnrcPrntDualOutpObject? As_GnrcPrntDualOutp { get; set; }
+}
+
+public class testGnrcPrntDualOutpObject
+  : testRefGnrcPrntDualOutpObject<ItestAltGnrcPrntDualOutp>
+  , ItestGnrcPrntDualOutpObject
+{
+
+  public testGnrcPrntDualOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntDualOutp<TRef>
-  : ItestRefGnrcPrntDualOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcPrntDualOutpObject<TRef>? As_RefGnrcPrntDualOutp { get; set; }
+}
+
+public class testRefGnrcPrntDualOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualOutpObject<TRef>
+{
+
+  public testRefGnrcPrntDualOutpObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntDualOutp
-  : ItestAltGnrcPrntDualOutp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntDualOutpObject? As_AltGnrcPrntDualOutp { get; set; }
+}
+
+public class testAltGnrcPrntDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntDualOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntDualPrntDual
   : testRefGnrcPrntDualPrntDual<ItestAltGnrcPrntDualPrntDual>
   , ItestGnrcPrntDualPrntDual
 {
+  public ItestGnrcPrntDualPrntDualObject? As_GnrcPrntDualPrntDual { get; set; }
+}
+
+public class testGnrcPrntDualPrntDualObject
+  : testRefGnrcPrntDualPrntDualObject<ItestAltGnrcPrntDualPrntDual>
+  , ItestGnrcPrntDualPrntDualObject
+{
+
+  public testGnrcPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntDualPrntDual<TRef>
-  : ItestRefGnrcPrntDualPrntDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualPrntDual<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefGnrcPrntDualPrntDualObject<TRef>? As_RefGnrcPrntDualPrntDual { get; set; }
+}
+
+public class testRefGnrcPrntDualPrntDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualPrntDualObject<TRef>
+{
+
+  public testRefGnrcPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntDualPrntDual
-  : ItestAltGnrcPrntDualPrntDual
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualPrntDual
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntDualPrntDualObject? As_AltGnrcPrntDualPrntDual { get; set; }
+}
+
+public class testAltGnrcPrntDualPrntDualObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualPrntDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntDualPrntDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntDualPrntInp
   : testRefGnrcPrntDualPrntInp<ItestAltGnrcPrntDualPrntInp>
   , ItestGnrcPrntDualPrntInp
 {
+  public ItestGnrcPrntDualPrntInpObject? As_GnrcPrntDualPrntInp { get; set; }
+}
+
+public class testGnrcPrntDualPrntInpObject
+  : testRefGnrcPrntDualPrntInpObject<ItestAltGnrcPrntDualPrntInp>
+  , ItestGnrcPrntDualPrntInpObject
+{
+
+  public testGnrcPrntDualPrntInpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntDualPrntInp<TRef>
-  : ItestRefGnrcPrntDualPrntInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualPrntInp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefGnrcPrntDualPrntInpObject<TRef>? As_RefGnrcPrntDualPrntInp { get; set; }
+}
+
+public class testRefGnrcPrntDualPrntInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualPrntInpObject<TRef>
+{
+
+  public testRefGnrcPrntDualPrntInpObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntDualPrntInp
-  : ItestAltGnrcPrntDualPrntInp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualPrntInp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntDualPrntInpObject? As_AltGnrcPrntDualPrntInp { get; set; }
+}
+
+public class testAltGnrcPrntDualPrntInpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualPrntInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntDualPrntInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntDualPrntOutp
   : testRefGnrcPrntDualPrntOutp<ItestAltGnrcPrntDualPrntOutp>
   , ItestGnrcPrntDualPrntOutp
 {
+  public ItestGnrcPrntDualPrntOutpObject? As_GnrcPrntDualPrntOutp { get; set; }
+}
+
+public class testGnrcPrntDualPrntOutpObject
+  : testRefGnrcPrntDualPrntOutpObject<ItestAltGnrcPrntDualPrntOutp>
+  , ItestGnrcPrntDualPrntOutpObject
+{
+
+  public testGnrcPrntDualPrntOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntDualPrntOutp<TRef>
-  : ItestRefGnrcPrntDualPrntOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualPrntOutp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefGnrcPrntDualPrntOutpObject<TRef>? As_RefGnrcPrntDualPrntOutp { get; set; }
+}
+
+public class testRefGnrcPrntDualPrntOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualPrntOutpObject<TRef>
+{
+
+  public testRefGnrcPrntDualPrntOutpObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntDualPrntOutp
-  : ItestAltGnrcPrntDualPrntOutp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualPrntOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntDualPrntOutpObject? As_AltGnrcPrntDualPrntOutp { get; set; }
+}
+
+public class testAltGnrcPrntDualPrntOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualPrntOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntDualPrntOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntEnumChildDual
   : testFieldGnrcPrntEnumChildDual<testParentGnrcPrntEnumChildDual>
   , ItestGnrcPrntEnumChildDual
 {
+  public ItestGnrcPrntEnumChildDualObject? As_GnrcPrntEnumChildDual { get; set; }
+}
+
+public class testGnrcPrntEnumChildDualObject
+  : testFieldGnrcPrntEnumChildDualObject<testParentGnrcPrntEnumChildDual>
+  , ItestGnrcPrntEnumChildDualObject
+{
+
+  public testGnrcPrntEnumChildDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntEnumChildDual<TRef>
-  : ItestFieldGnrcPrntEnumChildDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumChildDual<TRef>
+{
+  public ItestFieldGnrcPrntEnumChildDualObject<TRef>? As_FieldGnrcPrntEnumChildDual { get; set; }
+}
+
+public class testFieldGnrcPrntEnumChildDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumChildDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntEnumChildDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcPrntEnumChildInp
   : testFieldGnrcPrntEnumChildInp<testParentGnrcPrntEnumChildInp>
   , ItestGnrcPrntEnumChildInp
 {
+  public ItestGnrcPrntEnumChildInpObject? As_GnrcPrntEnumChildInp { get; set; }
+}
+
+public class testGnrcPrntEnumChildInpObject
+  : testFieldGnrcPrntEnumChildInpObject<testParentGnrcPrntEnumChildInp>
+  , ItestGnrcPrntEnumChildInpObject
+{
+
+  public testGnrcPrntEnumChildInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntEnumChildInp<TRef>
-  : ItestFieldGnrcPrntEnumChildInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumChildInp<TRef>
+{
+  public ItestFieldGnrcPrntEnumChildInpObject<TRef>? As_FieldGnrcPrntEnumChildInp { get; set; }
+}
+
+public class testFieldGnrcPrntEnumChildInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumChildInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntEnumChildInpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcPrntEnumChildOutp
   : testFieldGnrcPrntEnumChildOutp<testParentGnrcPrntEnumChildOutp>
   , ItestGnrcPrntEnumChildOutp
 {
+  public ItestGnrcPrntEnumChildOutpObject? As_GnrcPrntEnumChildOutp { get; set; }
+}
+
+public class testGnrcPrntEnumChildOutpObject
+  : testFieldGnrcPrntEnumChildOutpObject<testParentGnrcPrntEnumChildOutp>
+  , ItestGnrcPrntEnumChildOutpObject
+{
+
+  public testGnrcPrntEnumChildOutpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntEnumChildOutp<TRef>
-  : ItestFieldGnrcPrntEnumChildOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumChildOutp<TRef>
+{
+  public ItestFieldGnrcPrntEnumChildOutpObject<TRef>? As_FieldGnrcPrntEnumChildOutp { get; set; }
+}
+
+public class testFieldGnrcPrntEnumChildOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumChildOutpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntEnumChildOutpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcPrntEnumDomDual
   : testFieldGnrcPrntEnumDomDual<ItestDomGnrcPrntEnumDomDual>
   , ItestGnrcPrntEnumDomDual
 {
+  public ItestGnrcPrntEnumDomDualObject? As_GnrcPrntEnumDomDual { get; set; }
+}
+
+public class testGnrcPrntEnumDomDualObject
+  : testFieldGnrcPrntEnumDomDualObject<ItestDomGnrcPrntEnumDomDual>
+  , ItestGnrcPrntEnumDomDualObject
+{
+
+  public testGnrcPrntEnumDomDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntEnumDomDual<TRef>
-  : ItestFieldGnrcPrntEnumDomDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumDomDual<TRef>
+{
+  public ItestFieldGnrcPrntEnumDomDualObject<TRef>? As_FieldGnrcPrntEnumDomDual { get; set; }
+}
+
+public class testFieldGnrcPrntEnumDomDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumDomDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntEnumDomDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testDomGnrcPrntEnumDomDual
@@ -1965,12 +6331,37 @@ public class testGnrcPrntEnumDomInp
   : testFieldGnrcPrntEnumDomInp<ItestDomGnrcPrntEnumDomInp>
   , ItestGnrcPrntEnumDomInp
 {
+  public ItestGnrcPrntEnumDomInpObject? As_GnrcPrntEnumDomInp { get; set; }
+}
+
+public class testGnrcPrntEnumDomInpObject
+  : testFieldGnrcPrntEnumDomInpObject<ItestDomGnrcPrntEnumDomInp>
+  , ItestGnrcPrntEnumDomInpObject
+{
+
+  public testGnrcPrntEnumDomInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntEnumDomInp<TRef>
-  : ItestFieldGnrcPrntEnumDomInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumDomInp<TRef>
+{
+  public ItestFieldGnrcPrntEnumDomInpObject<TRef>? As_FieldGnrcPrntEnumDomInp { get; set; }
+}
+
+public class testFieldGnrcPrntEnumDomInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumDomInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntEnumDomInpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testDomGnrcPrntEnumDomInp
@@ -1983,12 +6374,37 @@ public class testGnrcPrntEnumDomOutp
   : testFieldGnrcPrntEnumDomOutp<ItestDomGnrcPrntEnumDomOutp>
   , ItestGnrcPrntEnumDomOutp
 {
+  public ItestGnrcPrntEnumDomOutpObject? As_GnrcPrntEnumDomOutp { get; set; }
+}
+
+public class testGnrcPrntEnumDomOutpObject
+  : testFieldGnrcPrntEnumDomOutpObject<ItestDomGnrcPrntEnumDomOutp>
+  , ItestGnrcPrntEnumDomOutpObject
+{
+
+  public testGnrcPrntEnumDomOutpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntEnumDomOutp<TRef>
-  : ItestFieldGnrcPrntEnumDomOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumDomOutp<TRef>
+{
+  public ItestFieldGnrcPrntEnumDomOutpObject<TRef>? As_FieldGnrcPrntEnumDomOutp { get; set; }
+}
+
+public class testFieldGnrcPrntEnumDomOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumDomOutpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntEnumDomOutpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testDomGnrcPrntEnumDomOutp
@@ -2001,186 +6417,589 @@ public class testGnrcPrntEnumPrntDual
   : testFieldGnrcPrntEnumPrntDual<testEnumGnrcPrntEnumPrntDual>
   , ItestGnrcPrntEnumPrntDual
 {
+  public ItestGnrcPrntEnumPrntDualObject? As_GnrcPrntEnumPrntDual { get; set; }
+}
+
+public class testGnrcPrntEnumPrntDualObject
+  : testFieldGnrcPrntEnumPrntDualObject<testEnumGnrcPrntEnumPrntDual>
+  , ItestGnrcPrntEnumPrntDualObject
+{
+
+  public testGnrcPrntEnumPrntDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntEnumPrntDual<TRef>
-  : ItestFieldGnrcPrntEnumPrntDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumPrntDual<TRef>
+{
+  public ItestFieldGnrcPrntEnumPrntDualObject<TRef>? As_FieldGnrcPrntEnumPrntDual { get; set; }
+}
+
+public class testFieldGnrcPrntEnumPrntDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumPrntDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntEnumPrntDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcPrntEnumPrntInp
   : testFieldGnrcPrntEnumPrntInp<testEnumGnrcPrntEnumPrntInp>
   , ItestGnrcPrntEnumPrntInp
 {
+  public ItestGnrcPrntEnumPrntInpObject? As_GnrcPrntEnumPrntInp { get; set; }
+}
+
+public class testGnrcPrntEnumPrntInpObject
+  : testFieldGnrcPrntEnumPrntInpObject<testEnumGnrcPrntEnumPrntInp>
+  , ItestGnrcPrntEnumPrntInpObject
+{
+
+  public testGnrcPrntEnumPrntInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntEnumPrntInp<TRef>
-  : ItestFieldGnrcPrntEnumPrntInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumPrntInp<TRef>
+{
+  public ItestFieldGnrcPrntEnumPrntInpObject<TRef>? As_FieldGnrcPrntEnumPrntInp { get; set; }
+}
+
+public class testFieldGnrcPrntEnumPrntInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumPrntInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntEnumPrntInpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcPrntEnumPrntOutp
   : testFieldGnrcPrntEnumPrntOutp<testEnumGnrcPrntEnumPrntOutp>
   , ItestGnrcPrntEnumPrntOutp
 {
+  public ItestGnrcPrntEnumPrntOutpObject? As_GnrcPrntEnumPrntOutp { get; set; }
+}
+
+public class testGnrcPrntEnumPrntOutpObject
+  : testFieldGnrcPrntEnumPrntOutpObject<testEnumGnrcPrntEnumPrntOutp>
+  , ItestGnrcPrntEnumPrntOutpObject
+{
+
+  public testGnrcPrntEnumPrntOutpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntEnumPrntOutp<TRef>
-  : ItestFieldGnrcPrntEnumPrntOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumPrntOutp<TRef>
+{
+  public ItestFieldGnrcPrntEnumPrntOutpObject<TRef>? As_FieldGnrcPrntEnumPrntOutp { get; set; }
+}
+
+public class testFieldGnrcPrntEnumPrntOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumPrntOutpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntEnumPrntOutpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcPrntParamDual
   : testRefGnrcPrntParamDual<ItestAltGnrcPrntParamDual>
   , ItestGnrcPrntParamDual
 {
+  public ItestGnrcPrntParamDualObject? As_GnrcPrntParamDual { get; set; }
+}
+
+public class testGnrcPrntParamDualObject
+  : testRefGnrcPrntParamDualObject<ItestAltGnrcPrntParamDual>
+  , ItestGnrcPrntParamDualObject
+{
+
+  public testGnrcPrntParamDualObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntParamDual<TRef>
-  : ItestRefGnrcPrntParamDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcPrntParamDualObject<TRef>? As_RefGnrcPrntParamDual { get; set; }
+}
+
+public class testRefGnrcPrntParamDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamDualObject<TRef>
+{
+
+  public testRefGnrcPrntParamDualObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntParamDual
-  : ItestAltGnrcPrntParamDual
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamDual
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntParamDualObject? As_AltGnrcPrntParamDual { get; set; }
+}
+
+public class testAltGnrcPrntParamDualObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntParamDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntParamInp
   : testRefGnrcPrntParamInp<ItestAltGnrcPrntParamInp>
   , ItestGnrcPrntParamInp
 {
+  public ItestGnrcPrntParamInpObject? As_GnrcPrntParamInp { get; set; }
+}
+
+public class testGnrcPrntParamInpObject
+  : testRefGnrcPrntParamInpObject<ItestAltGnrcPrntParamInp>
+  , ItestGnrcPrntParamInpObject
+{
+
+  public testGnrcPrntParamInpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntParamInp<TRef>
-  : ItestRefGnrcPrntParamInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcPrntParamInpObject<TRef>? As_RefGnrcPrntParamInp { get; set; }
+}
+
+public class testRefGnrcPrntParamInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamInpObject<TRef>
+{
+
+  public testRefGnrcPrntParamInpObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntParamInp
-  : ItestAltGnrcPrntParamInp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamInp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntParamInpObject? As_AltGnrcPrntParamInp { get; set; }
+}
+
+public class testAltGnrcPrntParamInpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntParamInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntParamOutp
   : testRefGnrcPrntParamOutp<ItestAltGnrcPrntParamOutp>
   , ItestGnrcPrntParamOutp
 {
+  public ItestGnrcPrntParamOutpObject? As_GnrcPrntParamOutp { get; set; }
+}
+
+public class testGnrcPrntParamOutpObject
+  : testRefGnrcPrntParamOutpObject<ItestAltGnrcPrntParamOutp>
+  , ItestGnrcPrntParamOutpObject
+{
+
+  public testGnrcPrntParamOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntParamOutp<TRef>
-  : ItestRefGnrcPrntParamOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcPrntParamOutpObject<TRef>? As_RefGnrcPrntParamOutp { get; set; }
+}
+
+public class testRefGnrcPrntParamOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamOutpObject<TRef>
+{
+
+  public testRefGnrcPrntParamOutpObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntParamOutp
-  : ItestAltGnrcPrntParamOutp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntParamOutpObject? As_AltGnrcPrntParamOutp { get; set; }
+}
+
+public class testAltGnrcPrntParamOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntParamOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntParamPrntDual
   : testRefGnrcPrntParamPrntDual<ItestAltGnrcPrntParamPrntDual>
   , ItestGnrcPrntParamPrntDual
 {
+  public ItestGnrcPrntParamPrntDualObject? As_GnrcPrntParamPrntDual { get; set; }
+}
+
+public class testGnrcPrntParamPrntDualObject
+  : testRefGnrcPrntParamPrntDualObject<ItestAltGnrcPrntParamPrntDual>
+  , ItestGnrcPrntParamPrntDualObject
+{
+
+  public testGnrcPrntParamPrntDualObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntParamPrntDual<TRef>
-  : ItestRefGnrcPrntParamPrntDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamPrntDual<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefGnrcPrntParamPrntDualObject<TRef>? As_RefGnrcPrntParamPrntDual { get; set; }
+}
+
+public class testRefGnrcPrntParamPrntDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamPrntDualObject<TRef>
+{
+
+  public testRefGnrcPrntParamPrntDualObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntParamPrntDual
-  : ItestAltGnrcPrntParamPrntDual
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamPrntDual
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntParamPrntDualObject? As_AltGnrcPrntParamPrntDual { get; set; }
+}
+
+public class testAltGnrcPrntParamPrntDualObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamPrntDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntParamPrntDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntParamPrntInp
   : testRefGnrcPrntParamPrntInp<ItestAltGnrcPrntParamPrntInp>
   , ItestGnrcPrntParamPrntInp
 {
+  public ItestGnrcPrntParamPrntInpObject? As_GnrcPrntParamPrntInp { get; set; }
+}
+
+public class testGnrcPrntParamPrntInpObject
+  : testRefGnrcPrntParamPrntInpObject<ItestAltGnrcPrntParamPrntInp>
+  , ItestGnrcPrntParamPrntInpObject
+{
+
+  public testGnrcPrntParamPrntInpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntParamPrntInp<TRef>
-  : ItestRefGnrcPrntParamPrntInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamPrntInp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefGnrcPrntParamPrntInpObject<TRef>? As_RefGnrcPrntParamPrntInp { get; set; }
+}
+
+public class testRefGnrcPrntParamPrntInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamPrntInpObject<TRef>
+{
+
+  public testRefGnrcPrntParamPrntInpObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntParamPrntInp
-  : ItestAltGnrcPrntParamPrntInp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamPrntInp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntParamPrntInpObject? As_AltGnrcPrntParamPrntInp { get; set; }
+}
+
+public class testAltGnrcPrntParamPrntInpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamPrntInpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntParamPrntInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntParamPrntOutp
   : testRefGnrcPrntParamPrntOutp<ItestAltGnrcPrntParamPrntOutp>
   , ItestGnrcPrntParamPrntOutp
 {
+  public ItestGnrcPrntParamPrntOutpObject? As_GnrcPrntParamPrntOutp { get; set; }
+}
+
+public class testGnrcPrntParamPrntOutpObject
+  : testRefGnrcPrntParamPrntOutpObject<ItestAltGnrcPrntParamPrntOutp>
+  , ItestGnrcPrntParamPrntOutpObject
+{
+
+  public testGnrcPrntParamPrntOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntParamPrntOutp<TRef>
-  : ItestRefGnrcPrntParamPrntOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamPrntOutp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefGnrcPrntParamPrntOutpObject<TRef>? As_RefGnrcPrntParamPrntOutp { get; set; }
+}
+
+public class testRefGnrcPrntParamPrntOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntParamPrntOutpObject<TRef>
+{
+
+  public testRefGnrcPrntParamPrntOutpObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntParamPrntOutp
-  : ItestAltGnrcPrntParamPrntOutp
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamPrntOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntParamPrntOutpObject? As_AltGnrcPrntParamPrntOutp { get; set; }
+}
+
+public class testAltGnrcPrntParamPrntOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntParamPrntOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntParamPrntOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }
 
 public class testGnrcPrntSmplEnumDual
   : testFieldGnrcPrntSmplEnumDual<testEnumGnrcPrntSmplEnumDual>
   , ItestGnrcPrntSmplEnumDual
 {
+  public ItestGnrcPrntSmplEnumDualObject? As_GnrcPrntSmplEnumDual { get; set; }
+}
+
+public class testGnrcPrntSmplEnumDualObject
+  : testFieldGnrcPrntSmplEnumDualObject<testEnumGnrcPrntSmplEnumDual>
+  , ItestGnrcPrntSmplEnumDualObject
+{
+
+  public testGnrcPrntSmplEnumDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntSmplEnumDual<TRef>
-  : ItestFieldGnrcPrntSmplEnumDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntSmplEnumDual<TRef>
+{
+  public ItestFieldGnrcPrntSmplEnumDualObject<TRef>? As_FieldGnrcPrntSmplEnumDual { get; set; }
+}
+
+public class testFieldGnrcPrntSmplEnumDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntSmplEnumDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntSmplEnumDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcPrntSmplEnumInp
   : testFieldGnrcPrntSmplEnumInp<testEnumGnrcPrntSmplEnumInp>
   , ItestGnrcPrntSmplEnumInp
 {
+  public ItestGnrcPrntSmplEnumInpObject? As_GnrcPrntSmplEnumInp { get; set; }
+}
+
+public class testGnrcPrntSmplEnumInpObject
+  : testFieldGnrcPrntSmplEnumInpObject<testEnumGnrcPrntSmplEnumInp>
+  , ItestGnrcPrntSmplEnumInpObject
+{
+
+  public testGnrcPrntSmplEnumInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntSmplEnumInp<TRef>
-  : ItestFieldGnrcPrntSmplEnumInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntSmplEnumInp<TRef>
+{
+  public ItestFieldGnrcPrntSmplEnumInpObject<TRef>? As_FieldGnrcPrntSmplEnumInp { get; set; }
+}
+
+public class testFieldGnrcPrntSmplEnumInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntSmplEnumInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntSmplEnumInpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcPrntSmplEnumOutp
   : testFieldGnrcPrntSmplEnumOutp<testEnumGnrcPrntSmplEnumOutp>
   , ItestGnrcPrntSmplEnumOutp
 {
+  public ItestGnrcPrntSmplEnumOutpObject? As_GnrcPrntSmplEnumOutp { get; set; }
+}
+
+public class testGnrcPrntSmplEnumOutpObject
+  : testFieldGnrcPrntSmplEnumOutpObject<testEnumGnrcPrntSmplEnumOutp>
+  , ItestGnrcPrntSmplEnumOutpObject
+{
+
+  public testGnrcPrntSmplEnumOutpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntSmplEnumOutp<TRef>
-  : ItestFieldGnrcPrntSmplEnumOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntSmplEnumOutp<TRef>
+{
+  public ItestFieldGnrcPrntSmplEnumOutpObject<TRef>? As_FieldGnrcPrntSmplEnumOutp { get; set; }
+}
+
+public class testFieldGnrcPrntSmplEnumOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntSmplEnumOutpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntSmplEnumOutpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcPrntStrDomDual
   : testFieldGnrcPrntStrDomDual<ItestDomGnrcPrntStrDomDual>
   , ItestGnrcPrntStrDomDual
 {
+  public ItestGnrcPrntStrDomDualObject? As_GnrcPrntStrDomDual { get; set; }
+}
+
+public class testGnrcPrntStrDomDualObject
+  : testFieldGnrcPrntStrDomDualObject<ItestDomGnrcPrntStrDomDual>
+  , ItestGnrcPrntStrDomDualObject
+{
+
+  public testGnrcPrntStrDomDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntStrDomDual<TRef>
-  : ItestFieldGnrcPrntStrDomDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntStrDomDual<TRef>
+{
+  public ItestFieldGnrcPrntStrDomDualObject<TRef>? As_FieldGnrcPrntStrDomDual { get; set; }
+}
+
+public class testFieldGnrcPrntStrDomDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntStrDomDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntStrDomDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testDomGnrcPrntStrDomDual
@@ -2193,12 +7012,37 @@ public class testGnrcPrntStrDomInp
   : testFieldGnrcPrntStrDomInp<ItestDomGnrcPrntStrDomInp>
   , ItestGnrcPrntStrDomInp
 {
+  public ItestGnrcPrntStrDomInpObject? As_GnrcPrntStrDomInp { get; set; }
+}
+
+public class testGnrcPrntStrDomInpObject
+  : testFieldGnrcPrntStrDomInpObject<ItestDomGnrcPrntStrDomInp>
+  , ItestGnrcPrntStrDomInpObject
+{
+
+  public testGnrcPrntStrDomInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntStrDomInp<TRef>
-  : ItestFieldGnrcPrntStrDomInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntStrDomInp<TRef>
+{
+  public ItestFieldGnrcPrntStrDomInpObject<TRef>? As_FieldGnrcPrntStrDomInp { get; set; }
+}
+
+public class testFieldGnrcPrntStrDomInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntStrDomInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntStrDomInpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testDomGnrcPrntStrDomInp
@@ -2211,12 +7055,37 @@ public class testGnrcPrntStrDomOutp
   : testFieldGnrcPrntStrDomOutp<ItestDomGnrcPrntStrDomOutp>
   , ItestGnrcPrntStrDomOutp
 {
+  public ItestGnrcPrntStrDomOutpObject? As_GnrcPrntStrDomOutp { get; set; }
+}
+
+public class testGnrcPrntStrDomOutpObject
+  : testFieldGnrcPrntStrDomOutpObject<ItestDomGnrcPrntStrDomOutp>
+  , ItestGnrcPrntStrDomOutpObject
+{
+
+  public testGnrcPrntStrDomOutpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntStrDomOutp<TRef>
-  : ItestFieldGnrcPrntStrDomOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntStrDomOutp<TRef>
+{
+  public ItestFieldGnrcPrntStrDomOutpObject<TRef>? As_FieldGnrcPrntStrDomOutp { get; set; }
+}
+
+public class testFieldGnrcPrntStrDomOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntStrDomOutpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntStrDomOutpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testDomGnrcPrntStrDomOutp
@@ -2226,144 +7095,451 @@ public class testDomGnrcPrntStrDomOutp
 }
 
 public class testGnrcValueDual
-  : ItestGnrcValueDual
+  : GqlpModelImplementationBase
+  , ItestGnrcValueDual
 {
+  public ItestRefGnrcValueDual<testEnumGnrcValueDual>? AsEnumGnrcValueDualgnrcValueDual { get; set; }
+  public ItestGnrcValueDualObject? As_GnrcValueDual { get; set; }
+}
+
+public class testGnrcValueDualObject
+  : GqlpModelImplementationBase
+  , ItestGnrcValueDualObject
+{
+
+  public testGnrcValueDualObject()
+  {
+  }
 }
 
 public class testRefGnrcValueDual<TType>
-  : ItestRefGnrcValueDual<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcValueDual<TType>
+{
+  public ItestRefGnrcValueDualObject<TType>? As_RefGnrcValueDual { get; set; }
+}
+
+public class testRefGnrcValueDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcValueDualObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefGnrcValueDualObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcValueInp
-  : ItestGnrcValueInp
+  : GqlpModelImplementationBase
+  , ItestGnrcValueInp
 {
+  public ItestRefGnrcValueInp<testEnumGnrcValueInp>? AsEnumGnrcValueInpgnrcValueInp { get; set; }
+  public ItestGnrcValueInpObject? As_GnrcValueInp { get; set; }
+}
+
+public class testGnrcValueInpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcValueInpObject
+{
+
+  public testGnrcValueInpObject()
+  {
+  }
 }
 
 public class testRefGnrcValueInp<TType>
-  : ItestRefGnrcValueInp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcValueInp<TType>
+{
+  public ItestRefGnrcValueInpObject<TType>? As_RefGnrcValueInp { get; set; }
+}
+
+public class testRefGnrcValueInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcValueInpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefGnrcValueInpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testGnrcValueOutp
-  : ItestGnrcValueOutp
+  : GqlpModelImplementationBase
+  , ItestGnrcValueOutp
 {
+  public ItestRefGnrcValueOutp<testEnumGnrcValueOutp>? AsEnumGnrcValueOutpgnrcValueOutp { get; set; }
+  public ItestGnrcValueOutpObject? As_GnrcValueOutp { get; set; }
+}
+
+public class testGnrcValueOutpObject
+  : GqlpModelImplementationBase
+  , ItestGnrcValueOutpObject
+{
+
+  public testGnrcValueOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcValueOutp<TType>
-  : ItestRefGnrcValueOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcValueOutp<TType>
+{
+  public ItestRefGnrcValueOutpObject<TType>? As_RefGnrcValueOutp { get; set; }
+}
+
+public class testRefGnrcValueOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcValueOutpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefGnrcValueOutpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testInpFieldDescrNmbr
-  : ItestInpFieldDescrNmbr
+  : GqlpModelImplementationBase
+  , ItestInpFieldDescrNmbr
+{
+  public ItestInpFieldDescrNmbrObject? As_InpFieldDescrNmbr { get; set; }
+}
+
+public class testInpFieldDescrNmbrObject
+  : GqlpModelImplementationBase
+  , ItestInpFieldDescrNmbrObject
 {
   public decimal Field { get; set; }
+
+  public testInpFieldDescrNmbrObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testInpFieldEnum
-  : ItestInpFieldEnum
+  : GqlpModelImplementationBase
+  , ItestInpFieldEnum
+{
+  public ItestInpFieldEnumObject? As_InpFieldEnum { get; set; }
+}
+
+public class testInpFieldEnumObject
+  : GqlpModelImplementationBase
+  , ItestInpFieldEnumObject
 {
   public testEnumInpFieldEnum Field { get; set; }
+
+  public testInpFieldEnumObject(testEnumInpFieldEnum field)
+  {
+    Field = field;
+  }
 }
 
 public class testInpFieldNull
-  : ItestInpFieldNull
+  : GqlpModelImplementationBase
+  , ItestInpFieldNull
+{
+  public ItestInpFieldNullObject? As_InpFieldNull { get; set; }
+}
+
+public class testInpFieldNullObject
+  : GqlpModelImplementationBase
+  , ItestInpFieldNullObject
 {
   public ItestFldInpFieldNull? Field { get; set; }
+
+  public testInpFieldNullObject()
+  {
+  }
 }
 
 public class testFldInpFieldNull
-  : ItestFldInpFieldNull
+  : GqlpModelImplementationBase
+  , ItestFldInpFieldNull
 {
+  public ItestFldInpFieldNullObject? As_FldInpFieldNull { get; set; }
+}
+
+public class testFldInpFieldNullObject
+  : GqlpModelImplementationBase
+  , ItestFldInpFieldNullObject
+{
+
+  public testFldInpFieldNullObject()
+  {
+  }
 }
 
 public class testInpFieldNmbr
-  : ItestInpFieldNmbr
+  : GqlpModelImplementationBase
+  , ItestInpFieldNmbr
+{
+  public ItestInpFieldNmbrObject? As_InpFieldNmbr { get; set; }
+}
+
+public class testInpFieldNmbrObject
+  : GqlpModelImplementationBase
+  , ItestInpFieldNmbrObject
 {
   public decimal Field { get; set; }
+
+  public testInpFieldNmbrObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testInpFieldNmbrDescr
-  : ItestInpFieldNmbrDescr
+  : GqlpModelImplementationBase
+  , ItestInpFieldNmbrDescr
+{
+  public ItestInpFieldNmbrDescrObject? As_InpFieldNmbrDescr { get; set; }
+}
+
+public class testInpFieldNmbrDescrObject
+  : GqlpModelImplementationBase
+  , ItestInpFieldNmbrDescrObject
 {
   public decimal Field { get; set; }
+
+  public testInpFieldNmbrDescrObject(decimal field)
+  {
+    Field = field;
+  }
 }
 
 public class testInpFieldStr
-  : ItestInpFieldStr
+  : GqlpModelImplementationBase
+  , ItestInpFieldStr
+{
+  public ItestInpFieldStrObject? As_InpFieldStr { get; set; }
+}
+
+public class testInpFieldStrObject
+  : GqlpModelImplementationBase
+  , ItestInpFieldStrObject
 {
   public string Field { get; set; }
+
+  public testInpFieldStrObject(string field)
+  {
+    Field = field;
+  }
 }
 
 public class testOutpDescrParam
-  : ItestOutpDescrParam
+  : GqlpModelImplementationBase
+  , ItestOutpDescrParam
 {
-  public ItestFldOutpDescrParam Field (ItestInOutpDescrParam)
-{ }
+  public ItestOutpDescrParamObject? As_OutpDescrParam { get; set; }
+}
+
+public class testOutpDescrParamObject
+  : GqlpModelImplementationBase
+  , ItestOutpDescrParamObject
+{
+  public ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter)
+    => null;
+
+  public testOutpDescrParamObject()
+  {
+  }
 }
 
 public class testFldOutpDescrParam
-  : ItestFldOutpDescrParam
+  : GqlpModelImplementationBase
+  , ItestFldOutpDescrParam
 {
+  public ItestFldOutpDescrParamObject? As_FldOutpDescrParam { get; set; }
+}
+
+public class testFldOutpDescrParamObject
+  : GqlpModelImplementationBase
+  , ItestFldOutpDescrParamObject
+{
+
+  public testFldOutpDescrParamObject()
+  {
+  }
 }
 
 public class testInOutpDescrParam
-  : ItestInOutpDescrParam
+  : GqlpModelImplementationBase
+  , ItestInOutpDescrParam
+{
+  public string? AsString { get; set; }
+  public ItestInOutpDescrParamObject? As_InOutpDescrParam { get; set; }
+}
+
+public class testInOutpDescrParamObject
+  : GqlpModelImplementationBase
+  , ItestInOutpDescrParamObject
 {
   public decimal Param { get; set; }
+
+  public testInOutpDescrParamObject(decimal param)
+  {
+    Param = param;
+  }
 }
 
 public class testOutpParam
-  : ItestOutpParam
+  : GqlpModelImplementationBase
+  , ItestOutpParam
 {
-  public ItestFldOutpParam Field (ItestInOutpParam)
-{ }
+  public ItestOutpParamObject? As_OutpParam { get; set; }
+}
+
+public class testOutpParamObject
+  : GqlpModelImplementationBase
+  , ItestOutpParamObject
+{
+  public ItestFldOutpParam? Field(ItestInOutpParam parameter)
+    => null;
+
+  public testOutpParamObject()
+  {
+  }
 }
 
 public class testFldOutpParam
-  : ItestFldOutpParam
+  : GqlpModelImplementationBase
+  , ItestFldOutpParam
 {
+  public ItestFldOutpParamObject? As_FldOutpParam { get; set; }
+}
+
+public class testFldOutpParamObject
+  : GqlpModelImplementationBase
+  , ItestFldOutpParamObject
+{
+
+  public testFldOutpParamObject()
+  {
+  }
 }
 
 public class testInOutpParam
-  : ItestInOutpParam
+  : GqlpModelImplementationBase
+  , ItestInOutpParam
+{
+  public string? AsString { get; set; }
+  public ItestInOutpParamObject? As_InOutpParam { get; set; }
+}
+
+public class testInOutpParamObject
+  : GqlpModelImplementationBase
+  , ItestInOutpParamObject
 {
   public decimal Param { get; set; }
+
+  public testInOutpParamObject(decimal param)
+  {
+    Param = param;
+  }
 }
 
 public class testOutpParamDescr
-  : ItestOutpParamDescr
+  : GqlpModelImplementationBase
+  , ItestOutpParamDescr
 {
-  public ItestFldOutpParamDescr Field (ItestInOutpParamDescr)
-{ }
+  public ItestOutpParamDescrObject? As_OutpParamDescr { get; set; }
+}
+
+public class testOutpParamDescrObject
+  : GqlpModelImplementationBase
+  , ItestOutpParamDescrObject
+{
+  public ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter)
+    => null;
+
+  public testOutpParamDescrObject()
+  {
+  }
 }
 
 public class testFldOutpParamDescr
-  : ItestFldOutpParamDescr
+  : GqlpModelImplementationBase
+  , ItestFldOutpParamDescr
 {
+  public ItestFldOutpParamDescrObject? As_FldOutpParamDescr { get; set; }
+}
+
+public class testFldOutpParamDescrObject
+  : GqlpModelImplementationBase
+  , ItestFldOutpParamDescrObject
+{
+
+  public testFldOutpParamDescrObject()
+  {
+  }
 }
 
 public class testInOutpParamDescr
-  : ItestInOutpParamDescr
+  : GqlpModelImplementationBase
+  , ItestInOutpParamDescr
+{
+  public string? AsString { get; set; }
+  public ItestInOutpParamDescrObject? As_InOutpParamDescr { get; set; }
+}
+
+public class testInOutpParamDescrObject
+  : GqlpModelImplementationBase
+  , ItestInOutpParamDescrObject
 {
   public decimal Param { get; set; }
+
+  public testInOutpParamDescrObject(decimal param)
+  {
+    Param = param;
+  }
 }
 
 public class testOutpParamModDmn
-  : ItestOutpParamModDmn
+  : GqlpModelImplementationBase
+  , ItestOutpParamModDmn
 {
-  public ItestDomOutpParamModDmn Field (IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn>)
-{ }
+  public ItestOutpParamModDmnObject? As_OutpParamModDmn { get; set; }
+}
+
+public class testOutpParamModDmnObject
+  : GqlpModelImplementationBase
+  , ItestOutpParamModDmnObject
+{
+  public ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter)
+    => null;
+
+  public testOutpParamModDmnObject()
+  {
+  }
 }
 
 public class testInOutpParamModDmn
-  : ItestInOutpParamModDmn
+  : GqlpModelImplementationBase
+  , ItestInOutpParamModDmn
+{
+  public string? AsString { get; set; }
+  public ItestInOutpParamModDmnObject? As_InOutpParamModDmn { get; set; }
+}
+
+public class testInOutpParamModDmnObject
+  : GqlpModelImplementationBase
+  , ItestInOutpParamModDmnObject
 {
   public decimal Param { get; set; }
+
+  public testInOutpParamModDmnObject(decimal param)
+  {
+    Param = param;
+  }
 }
 
 public class testDomOutpParamModDmn
@@ -2373,16 +7549,42 @@ public class testDomOutpParamModDmn
 }
 
 public class testOutpParamModParam<TMod>
-  : ItestOutpParamModParam<TMod>
+  : GqlpModelImplementationBase
+  , ItestOutpParamModParam<TMod>
 {
-  public ItestDomOutpParamModParam Field (IDictionary<TMod, ItestInOutpParamModParam>)
-{ }
+  public ItestOutpParamModParamObject<TMod>? As_OutpParamModParam { get; set; }
+}
+
+public class testOutpParamModParamObject<TMod>
+  : GqlpModelImplementationBase
+  , ItestOutpParamModParamObject<TMod>
+{
+  public ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
+    => null;
+
+  public testOutpParamModParamObject()
+  {
+  }
 }
 
 public class testInOutpParamModParam
-  : ItestInOutpParamModParam
+  : GqlpModelImplementationBase
+  , ItestInOutpParamModParam
+{
+  public string? AsString { get; set; }
+  public ItestInOutpParamModParamObject? As_InOutpParamModParam { get; set; }
+}
+
+public class testInOutpParamModParamObject
+  : GqlpModelImplementationBase
+  , ItestInOutpParamModParamObject
 {
   public decimal Param { get; set; }
+
+  public testInOutpParamModParamObject(decimal param)
+  {
+    Param = param;
+  }
 }
 
 public class testDomOutpParamModParam
@@ -2392,344 +7594,1075 @@ public class testDomOutpParamModParam
 }
 
 public class testOutpParamTypeDescr
-  : ItestOutpParamTypeDescr
+  : GqlpModelImplementationBase
+  , ItestOutpParamTypeDescr
 {
-  public ItestFldOutpParamTypeDescr Field (ItestInOutpParamTypeDescr)
-{ }
+  public ItestOutpParamTypeDescrObject? As_OutpParamTypeDescr { get; set; }
+}
+
+public class testOutpParamTypeDescrObject
+  : GqlpModelImplementationBase
+  , ItestOutpParamTypeDescrObject
+{
+  public ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter)
+    => null;
+
+  public testOutpParamTypeDescrObject()
+  {
+  }
 }
 
 public class testFldOutpParamTypeDescr
-  : ItestFldOutpParamTypeDescr
+  : GqlpModelImplementationBase
+  , ItestFldOutpParamTypeDescr
 {
+  public ItestFldOutpParamTypeDescrObject? As_FldOutpParamTypeDescr { get; set; }
+}
+
+public class testFldOutpParamTypeDescrObject
+  : GqlpModelImplementationBase
+  , ItestFldOutpParamTypeDescrObject
+{
+
+  public testFldOutpParamTypeDescrObject()
+  {
+  }
 }
 
 public class testInOutpParamTypeDescr
-  : ItestInOutpParamTypeDescr
+  : GqlpModelImplementationBase
+  , ItestInOutpParamTypeDescr
+{
+  public string? AsString { get; set; }
+  public ItestInOutpParamTypeDescrObject? As_InOutpParamTypeDescr { get; set; }
+}
+
+public class testInOutpParamTypeDescrObject
+  : GqlpModelImplementationBase
+  , ItestInOutpParamTypeDescrObject
 {
   public decimal Param { get; set; }
+
+  public testInOutpParamTypeDescrObject(decimal param)
+  {
+    Param = param;
+  }
 }
 
 public class testOutpPrntGnrc
-  : ItestOutpPrntGnrc
+  : GqlpModelImplementationBase
+  , ItestOutpPrntGnrc
 {
+  public ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc>? AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; set; }
+  public ItestOutpPrntGnrcObject? As_OutpPrntGnrc { get; set; }
+}
+
+public class testOutpPrntGnrcObject
+  : GqlpModelImplementationBase
+  , ItestOutpPrntGnrcObject
+{
+
+  public testOutpPrntGnrcObject()
+  {
+  }
 }
 
 public class testRefOutpPrntGnrc<TType>
-  : ItestRefOutpPrntGnrc<TType>
+  : GqlpModelImplementationBase
+  , ItestRefOutpPrntGnrc<TType>
+{
+  public ItestRefOutpPrntGnrcObject<TType>? As_RefOutpPrntGnrc { get; set; }
+}
+
+public class testRefOutpPrntGnrcObject<TType>
+  : GqlpModelImplementationBase
+  , ItestRefOutpPrntGnrcObject<TType>
 {
   public TType Field { get; set; }
+
+  public testRefOutpPrntGnrcObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class testOutpPrntParam
   : testPrntOutpPrntParam
   , ItestOutpPrntParam
 {
-  public ItestFldOutpPrntParam Field (ItestInOutpPrntParam)
-{ }
+  public ItestOutpPrntParamObject? As_OutpPrntParam { get; set; }
+}
+
+public class testOutpPrntParamObject
+  : testPrntOutpPrntParamObject
+  , ItestOutpPrntParamObject
+{
+  public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
+    => null;
+
+  public testOutpPrntParamObject()
+  {
+  }
 }
 
 public class testPrntOutpPrntParam
-  : ItestPrntOutpPrntParam
+  : GqlpModelImplementationBase
+  , ItestPrntOutpPrntParam
 {
-  public ItestFldOutpPrntParam Field (ItestPrntOutpPrntParamIn)
-{ }
+  public ItestPrntOutpPrntParamObject? As_PrntOutpPrntParam { get; set; }
+}
+
+public class testPrntOutpPrntParamObject
+  : GqlpModelImplementationBase
+  , ItestPrntOutpPrntParamObject
+{
+  public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
+    => null;
+
+  public testPrntOutpPrntParamObject()
+  {
+  }
 }
 
 public class testFldOutpPrntParam
-  : ItestFldOutpPrntParam
+  : GqlpModelImplementationBase
+  , ItestFldOutpPrntParam
 {
+  public ItestFldOutpPrntParamObject? As_FldOutpPrntParam { get; set; }
+}
+
+public class testFldOutpPrntParamObject
+  : GqlpModelImplementationBase
+  , ItestFldOutpPrntParamObject
+{
+
+  public testFldOutpPrntParamObject()
+  {
+  }
 }
 
 public class testInOutpPrntParam
-  : ItestInOutpPrntParam
+  : GqlpModelImplementationBase
+  , ItestInOutpPrntParam
+{
+  public string? AsString { get; set; }
+  public ItestInOutpPrntParamObject? As_InOutpPrntParam { get; set; }
+}
+
+public class testInOutpPrntParamObject
+  : GqlpModelImplementationBase
+  , ItestInOutpPrntParamObject
 {
   public decimal Param { get; set; }
+
+  public testInOutpPrntParamObject(decimal param)
+  {
+    Param = param;
+  }
 }
 
 public class testPrntOutpPrntParamIn
-  : ItestPrntOutpPrntParamIn
+  : GqlpModelImplementationBase
+  , ItestPrntOutpPrntParamIn
+{
+  public string? AsString { get; set; }
+  public ItestPrntOutpPrntParamInObject? As_PrntOutpPrntParamIn { get; set; }
+}
+
+public class testPrntOutpPrntParamInObject
+  : GqlpModelImplementationBase
+  , ItestPrntOutpPrntParamInObject
 {
   public decimal Parent { get; set; }
+
+  public testPrntOutpPrntParamInObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntDual
   : testRefPrntDual
   , ItestPrntDual
 {
+  public ItestPrntDualObject? As_PrntDual { get; set; }
+}
+
+public class testPrntDualObject
+  : testRefPrntDualObject
+  , ItestPrntDualObject
+{
+
+  public testPrntDualObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntDual
-  : ItestRefPrntDual
+  : GqlpModelImplementationBase
+  , ItestRefPrntDual
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntDualObject? As_RefPrntDual { get; set; }
+}
+
+public class testRefPrntDualObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntDualObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntDualObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntInp
   : testRefPrntInp
   , ItestPrntInp
 {
+  public ItestPrntInpObject? As_PrntInp { get; set; }
+}
+
+public class testPrntInpObject
+  : testRefPrntInpObject
+  , ItestPrntInpObject
+{
+
+  public testPrntInpObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntInp
-  : ItestRefPrntInp
+  : GqlpModelImplementationBase
+  , ItestRefPrntInp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntInpObject? As_RefPrntInp { get; set; }
+}
+
+public class testRefPrntInpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntInpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntInpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntOutp
   : testRefPrntOutp
   , ItestPrntOutp
 {
+  public ItestPrntOutpObject? As_PrntOutp { get; set; }
+}
+
+public class testPrntOutpObject
+  : testRefPrntOutpObject
+  , ItestPrntOutpObject
+{
+
+  public testPrntOutpObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntOutp
-  : ItestRefPrntOutp
+  : GqlpModelImplementationBase
+  , ItestRefPrntOutp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntOutpObject? As_RefPrntOutp { get; set; }
+}
+
+public class testRefPrntOutpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntOutpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntOutpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntAltDual
   : testRefPrntAltDual
   , ItestPrntAltDual
 {
+  public decimal? AsNumber { get; set; }
+  public ItestPrntAltDualObject? As_PrntAltDual { get; set; }
+}
+
+public class testPrntAltDualObject
+  : testRefPrntAltDualObject
+  , ItestPrntAltDualObject
+{
+
+  public testPrntAltDualObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntAltDual
-  : ItestRefPrntAltDual
+  : GqlpModelImplementationBase
+  , ItestRefPrntAltDual
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntAltDualObject? As_RefPrntAltDual { get; set; }
+}
+
+public class testRefPrntAltDualObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntAltDualObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntAltDualObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntAltInp
   : testRefPrntAltInp
   , ItestPrntAltInp
 {
+  public decimal? AsNumber { get; set; }
+  public ItestPrntAltInpObject? As_PrntAltInp { get; set; }
+}
+
+public class testPrntAltInpObject
+  : testRefPrntAltInpObject
+  , ItestPrntAltInpObject
+{
+
+  public testPrntAltInpObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntAltInp
-  : ItestRefPrntAltInp
+  : GqlpModelImplementationBase
+  , ItestRefPrntAltInp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntAltInpObject? As_RefPrntAltInp { get; set; }
+}
+
+public class testRefPrntAltInpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntAltInpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntAltInpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntAltOutp
   : testRefPrntAltOutp
   , ItestPrntAltOutp
 {
+  public decimal? AsNumber { get; set; }
+  public ItestPrntAltOutpObject? As_PrntAltOutp { get; set; }
+}
+
+public class testPrntAltOutpObject
+  : testRefPrntAltOutpObject
+  , ItestPrntAltOutpObject
+{
+
+  public testPrntAltOutpObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntAltOutp
-  : ItestRefPrntAltOutp
+  : GqlpModelImplementationBase
+  , ItestRefPrntAltOutp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntAltOutpObject? As_RefPrntAltOutp { get; set; }
+}
+
+public class testRefPrntAltOutpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntAltOutpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntAltOutpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntDescrDual
   : testRefPrntDescrDual
   , ItestPrntDescrDual
 {
+  public ItestPrntDescrDualObject? As_PrntDescrDual { get; set; }
+}
+
+public class testPrntDescrDualObject
+  : testRefPrntDescrDualObject
+  , ItestPrntDescrDualObject
+{
+
+  public testPrntDescrDualObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntDescrDual
-  : ItestRefPrntDescrDual
+  : GqlpModelImplementationBase
+  , ItestRefPrntDescrDual
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntDescrDualObject? As_RefPrntDescrDual { get; set; }
+}
+
+public class testRefPrntDescrDualObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntDescrDualObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntDescrDualObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntDescrInp
   : testRefPrntDescrInp
   , ItestPrntDescrInp
 {
+  public ItestPrntDescrInpObject? As_PrntDescrInp { get; set; }
+}
+
+public class testPrntDescrInpObject
+  : testRefPrntDescrInpObject
+  , ItestPrntDescrInpObject
+{
+
+  public testPrntDescrInpObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntDescrInp
-  : ItestRefPrntDescrInp
+  : GqlpModelImplementationBase
+  , ItestRefPrntDescrInp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntDescrInpObject? As_RefPrntDescrInp { get; set; }
+}
+
+public class testRefPrntDescrInpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntDescrInpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntDescrInpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntDescrOutp
   : testRefPrntDescrOutp
   , ItestPrntDescrOutp
 {
+  public ItestPrntDescrOutpObject? As_PrntDescrOutp { get; set; }
+}
+
+public class testPrntDescrOutpObject
+  : testRefPrntDescrOutpObject
+  , ItestPrntDescrOutpObject
+{
+
+  public testPrntDescrOutpObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntDescrOutp
-  : ItestRefPrntDescrOutp
+  : GqlpModelImplementationBase
+  , ItestRefPrntDescrOutp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntDescrOutpObject? As_RefPrntDescrOutp { get; set; }
+}
+
+public class testRefPrntDescrOutpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntDescrOutpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntDescrOutpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntDualDual
   : testRefPrntDualDual
   , ItestPrntDualDual
 {
+  public ItestPrntDualDualObject? As_PrntDualDual { get; set; }
+}
+
+public class testPrntDualDualObject
+  : testRefPrntDualDualObject
+  , ItestPrntDualDualObject
+{
+
+  public testPrntDualDualObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntDualDual
-  : ItestRefPrntDualDual
+  : GqlpModelImplementationBase
+  , ItestRefPrntDualDual
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntDualDualObject? As_RefPrntDualDual { get; set; }
+}
+
+public class testRefPrntDualDualObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntDualDualObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntDualDualObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntDualInp
   : testRefPrntDualInp
   , ItestPrntDualInp
 {
+  public ItestPrntDualInpObject? As_PrntDualInp { get; set; }
+}
+
+public class testPrntDualInpObject
+  : testRefPrntDualInpObject
+  , ItestPrntDualInpObject
+{
+
+  public testPrntDualInpObject()
+  {
+  }
 }
 
 public class testRefPrntDualInp
-  : ItestRefPrntDualInp
+  : GqlpModelImplementationBase
+  , ItestRefPrntDualInp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntDualInpObject? As_RefPrntDualInp { get; set; }
+}
+
+public class testRefPrntDualInpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntDualInpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntDualInpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntDualOutp
   : testRefPrntDualOutp
   , ItestPrntDualOutp
 {
+  public ItestPrntDualOutpObject? As_PrntDualOutp { get; set; }
+}
+
+public class testPrntDualOutpObject
+  : testRefPrntDualOutpObject
+  , ItestPrntDualOutpObject
+{
+
+  public testPrntDualOutpObject()
+  {
+  }
 }
 
 public class testRefPrntDualOutp
-  : ItestRefPrntDualOutp
+  : GqlpModelImplementationBase
+  , ItestRefPrntDualOutp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntDualOutpObject? As_RefPrntDualOutp { get; set; }
+}
+
+public class testRefPrntDualOutpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntDualOutpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntDualOutpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntFieldDual
   : testRefPrntFieldDual
   , ItestPrntFieldDual
 {
+  public ItestPrntFieldDualObject? As_PrntFieldDual { get; set; }
+}
+
+public class testPrntFieldDualObject
+  : testRefPrntFieldDualObject
+  , ItestPrntFieldDualObject
+{
   public decimal Field { get; set; }
+
+  public testPrntFieldDualObject(decimal parent, decimal field)
+    : base(parent)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntFieldDual
-  : ItestRefPrntFieldDual
+  : GqlpModelImplementationBase
+  , ItestRefPrntFieldDual
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntFieldDualObject? As_RefPrntFieldDual { get; set; }
+}
+
+public class testRefPrntFieldDualObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntFieldDualObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntFieldDualObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntFieldInp
   : testRefPrntFieldInp
   , ItestPrntFieldInp
 {
+  public ItestPrntFieldInpObject? As_PrntFieldInp { get; set; }
+}
+
+public class testPrntFieldInpObject
+  : testRefPrntFieldInpObject
+  , ItestPrntFieldInpObject
+{
   public decimal Field { get; set; }
+
+  public testPrntFieldInpObject(decimal parent, decimal field)
+    : base(parent)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntFieldInp
-  : ItestRefPrntFieldInp
+  : GqlpModelImplementationBase
+  , ItestRefPrntFieldInp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntFieldInpObject? As_RefPrntFieldInp { get; set; }
+}
+
+public class testRefPrntFieldInpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntFieldInpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntFieldInpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntFieldOutp
   : testRefPrntFieldOutp
   , ItestPrntFieldOutp
 {
+  public ItestPrntFieldOutpObject? As_PrntFieldOutp { get; set; }
+}
+
+public class testPrntFieldOutpObject
+  : testRefPrntFieldOutpObject
+  , ItestPrntFieldOutpObject
+{
   public decimal Field { get; set; }
+
+  public testPrntFieldOutpObject(decimal parent, decimal field)
+    : base(parent)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntFieldOutp
-  : ItestRefPrntFieldOutp
+  : GqlpModelImplementationBase
+  , ItestRefPrntFieldOutp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntFieldOutpObject? As_RefPrntFieldOutp { get; set; }
+}
+
+public class testRefPrntFieldOutpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntFieldOutpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntFieldOutpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }
 
 public class testPrntParamDiffDual<TA>
   : testRefPrntParamDiffDual<TA>
   , ItestPrntParamDiffDual<TA>
 {
+  public ItestPrntParamDiffDualObject<TA>? As_PrntParamDiffDual { get; set; }
+}
+
+public class testPrntParamDiffDualObject<TA>
+  : testRefPrntParamDiffDualObject<TA>
+  , ItestPrntParamDiffDualObject<TA>
+{
   public TA Field { get; set; }
+
+  public testPrntParamDiffDualObject(TA field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntParamDiffDual<TB>
-  : ItestRefPrntParamDiffDual<TB>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamDiffDual<TB>
 {
+  public TB? Asb { get; set; }
+  public ItestRefPrntParamDiffDualObject<TB>? As_RefPrntParamDiffDual { get; set; }
+}
+
+public class testRefPrntParamDiffDualObject<TB>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamDiffDualObject<TB>
+{
+
+  public testRefPrntParamDiffDualObject()
+  {
+  }
 }
 
 public class testPrntParamDiffInp<TA>
   : testRefPrntParamDiffInp<TA>
   , ItestPrntParamDiffInp<TA>
 {
+  public ItestPrntParamDiffInpObject<TA>? As_PrntParamDiffInp { get; set; }
+}
+
+public class testPrntParamDiffInpObject<TA>
+  : testRefPrntParamDiffInpObject<TA>
+  , ItestPrntParamDiffInpObject<TA>
+{
   public TA Field { get; set; }
+
+  public testPrntParamDiffInpObject(TA field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntParamDiffInp<TB>
-  : ItestRefPrntParamDiffInp<TB>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamDiffInp<TB>
 {
+  public TB? Asb { get; set; }
+  public ItestRefPrntParamDiffInpObject<TB>? As_RefPrntParamDiffInp { get; set; }
+}
+
+public class testRefPrntParamDiffInpObject<TB>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamDiffInpObject<TB>
+{
+
+  public testRefPrntParamDiffInpObject()
+  {
+  }
 }
 
 public class testPrntParamDiffOutp<TA>
   : testRefPrntParamDiffOutp<TA>
   , ItestPrntParamDiffOutp<TA>
 {
+  public ItestPrntParamDiffOutpObject<TA>? As_PrntParamDiffOutp { get; set; }
+}
+
+public class testPrntParamDiffOutpObject<TA>
+  : testRefPrntParamDiffOutpObject<TA>
+  , ItestPrntParamDiffOutpObject<TA>
+{
   public TA Field { get; set; }
+
+  public testPrntParamDiffOutpObject(TA field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntParamDiffOutp<TB>
-  : ItestRefPrntParamDiffOutp<TB>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamDiffOutp<TB>
 {
+  public TB? Asb { get; set; }
+  public ItestRefPrntParamDiffOutpObject<TB>? As_RefPrntParamDiffOutp { get; set; }
+}
+
+public class testRefPrntParamDiffOutpObject<TB>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamDiffOutpObject<TB>
+{
+
+  public testRefPrntParamDiffOutpObject()
+  {
+  }
 }
 
 public class testPrntParamSameDual<TA>
   : testRefPrntParamSameDual<TA>
   , ItestPrntParamSameDual<TA>
 {
+  public ItestPrntParamSameDualObject<TA>? As_PrntParamSameDual { get; set; }
+}
+
+public class testPrntParamSameDualObject<TA>
+  : testRefPrntParamSameDualObject<TA>
+  , ItestPrntParamSameDualObject<TA>
+{
   public TA Field { get; set; }
+
+  public testPrntParamSameDualObject(TA field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntParamSameDual<TA>
-  : ItestRefPrntParamSameDual<TA>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamSameDual<TA>
 {
+  public TA? Asa { get; set; }
+  public ItestRefPrntParamSameDualObject<TA>? As_RefPrntParamSameDual { get; set; }
+}
+
+public class testRefPrntParamSameDualObject<TA>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamSameDualObject<TA>
+{
+
+  public testRefPrntParamSameDualObject()
+  {
+  }
 }
 
 public class testPrntParamSameInp<TA>
   : testRefPrntParamSameInp<TA>
   , ItestPrntParamSameInp<TA>
 {
+  public ItestPrntParamSameInpObject<TA>? As_PrntParamSameInp { get; set; }
+}
+
+public class testPrntParamSameInpObject<TA>
+  : testRefPrntParamSameInpObject<TA>
+  , ItestPrntParamSameInpObject<TA>
+{
   public TA Field { get; set; }
+
+  public testPrntParamSameInpObject(TA field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntParamSameInp<TA>
-  : ItestRefPrntParamSameInp<TA>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamSameInp<TA>
 {
+  public TA? Asa { get; set; }
+  public ItestRefPrntParamSameInpObject<TA>? As_RefPrntParamSameInp { get; set; }
+}
+
+public class testRefPrntParamSameInpObject<TA>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamSameInpObject<TA>
+{
+
+  public testRefPrntParamSameInpObject()
+  {
+  }
 }
 
 public class testPrntParamSameOutp<TA>
   : testRefPrntParamSameOutp<TA>
   , ItestPrntParamSameOutp<TA>
 {
+  public ItestPrntParamSameOutpObject<TA>? As_PrntParamSameOutp { get; set; }
+}
+
+public class testPrntParamSameOutpObject<TA>
+  : testRefPrntParamSameOutpObject<TA>
+  , ItestPrntParamSameOutpObject<TA>
+{
   public TA Field { get; set; }
+
+  public testPrntParamSameOutpObject(TA field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntParamSameOutp<TA>
-  : ItestRefPrntParamSameOutp<TA>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamSameOutp<TA>
 {
+  public TA? Asa { get; set; }
+  public ItestRefPrntParamSameOutpObject<TA>? As_RefPrntParamSameOutp { get; set; }
+}
+
+public class testRefPrntParamSameOutpObject<TA>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamSameOutpObject<TA>
+{
+
+  public testRefPrntParamSameOutpObject()
+  {
+  }
 }
 
 public class testCtgr
-  : ItestCtgr
+  : GqlpModelImplementationBase
+  , ItestCtgr
 {
+  public ItestCtgrObject? As_Ctgr { get; set; }
+}
+
+public class testCtgrObject
+  : GqlpModelImplementationBase
+  , ItestCtgrObject
+{
+
+  public testCtgrObject()
+  {
+  }
 }
 
 public class testCtgrAlias
-  : ItestCtgrAlias
+  : GqlpModelImplementationBase
+  , ItestCtgrAlias
 {
+  public ItestCtgrAliasObject? As_CtgrAlias { get; set; }
+}
+
+public class testCtgrAliasObject
+  : GqlpModelImplementationBase
+  , ItestCtgrAliasObject
+{
+
+  public testCtgrAliasObject()
+  {
+  }
 }
 
 public class testCtgrDescr
-  : ItestCtgrDescr
+  : GqlpModelImplementationBase
+  , ItestCtgrDescr
 {
+  public ItestCtgrDescrObject? As_CtgrDescr { get; set; }
+}
+
+public class testCtgrDescrObject
+  : GqlpModelImplementationBase
+  , ItestCtgrDescrObject
+{
+
+  public testCtgrDescrObject()
+  {
+  }
 }
 
 public class testCtgrMod
-  : ItestCtgrMod
+  : GqlpModelImplementationBase
+  , ItestCtgrMod
 {
+  public ItestCtgrModObject? As_CtgrMod { get; set; }
+}
+
+public class testCtgrModObject
+  : GqlpModelImplementationBase
+  , ItestCtgrModObject
+{
+
+  public testCtgrModObject()
+  {
+  }
 }
 
 public class testInDrctParam
-  : ItestInDrctParam
+  : GqlpModelImplementationBase
+  , ItestInDrctParam
 {
+  public ItestInDrctParamObject? As_InDrctParam { get; set; }
+}
+
+public class testInDrctParamObject
+  : GqlpModelImplementationBase
+  , ItestInDrctParamObject
+{
+
+  public testInDrctParamObject()
+  {
+  }
 }
 
 public class testDmnAlias
@@ -2805,316 +8738,1015 @@ public class testDmnStrSame
 }
 
 public class testObjDual
-  : ItestObjDual
+  : GqlpModelImplementationBase
+  , ItestObjDual
 {
+  public ItestObjDualObject? As_ObjDual { get; set; }
+}
+
+public class testObjDualObject
+  : GqlpModelImplementationBase
+  , ItestObjDualObject
+{
+
+  public testObjDualObject()
+  {
+  }
 }
 
 public class testObjInp
-  : ItestObjInp
+  : GqlpModelImplementationBase
+  , ItestObjInp
 {
+  public ItestObjInpObject? As_ObjInp { get; set; }
+}
+
+public class testObjInpObject
+  : GqlpModelImplementationBase
+  , ItestObjInpObject
+{
+
+  public testObjInpObject()
+  {
+  }
 }
 
 public class testObjOutp
-  : ItestObjOutp
+  : GqlpModelImplementationBase
+  , ItestObjOutp
 {
+  public ItestObjOutpObject? As_ObjOutp { get; set; }
+}
+
+public class testObjOutpObject
+  : GqlpModelImplementationBase
+  , ItestObjOutpObject
+{
+
+  public testObjOutpObject()
+  {
+  }
 }
 
 public class testObjAliasDual
-  : ItestObjAliasDual
+  : GqlpModelImplementationBase
+  , ItestObjAliasDual
 {
+  public ItestObjAliasDualObject? As_ObjAliasDual { get; set; }
+}
+
+public class testObjAliasDualObject
+  : GqlpModelImplementationBase
+  , ItestObjAliasDualObject
+{
+
+  public testObjAliasDualObject()
+  {
+  }
 }
 
 public class testObjAliasInp
-  : ItestObjAliasInp
+  : GqlpModelImplementationBase
+  , ItestObjAliasInp
 {
+  public ItestObjAliasInpObject? As_ObjAliasInp { get; set; }
+}
+
+public class testObjAliasInpObject
+  : GqlpModelImplementationBase
+  , ItestObjAliasInpObject
+{
+
+  public testObjAliasInpObject()
+  {
+  }
 }
 
 public class testObjAliasOutp
-  : ItestObjAliasOutp
+  : GqlpModelImplementationBase
+  , ItestObjAliasOutp
 {
+  public ItestObjAliasOutpObject? As_ObjAliasOutp { get; set; }
+}
+
+public class testObjAliasOutpObject
+  : GqlpModelImplementationBase
+  , ItestObjAliasOutpObject
+{
+
+  public testObjAliasOutpObject()
+  {
+  }
 }
 
 public class testObjAltDual
-  : ItestObjAltDual
+  : GqlpModelImplementationBase
+  , ItestObjAltDual
 {
+  public ItestObjAltDualType? AsObjAltDualType { get; set; }
+  public ItestObjAltDualObject? As_ObjAltDual { get; set; }
+}
+
+public class testObjAltDualObject
+  : GqlpModelImplementationBase
+  , ItestObjAltDualObject
+{
+
+  public testObjAltDualObject()
+  {
+  }
 }
 
 public class testObjAltDualType
-  : ItestObjAltDualType
+  : GqlpModelImplementationBase
+  , ItestObjAltDualType
 {
+  public ItestObjAltDualTypeObject? As_ObjAltDualType { get; set; }
+}
+
+public class testObjAltDualTypeObject
+  : GqlpModelImplementationBase
+  , ItestObjAltDualTypeObject
+{
+
+  public testObjAltDualTypeObject()
+  {
+  }
 }
 
 public class testObjAltInp
-  : ItestObjAltInp
+  : GqlpModelImplementationBase
+  , ItestObjAltInp
 {
+  public ItestObjAltInpType? AsObjAltInpType { get; set; }
+  public ItestObjAltInpObject? As_ObjAltInp { get; set; }
+}
+
+public class testObjAltInpObject
+  : GqlpModelImplementationBase
+  , ItestObjAltInpObject
+{
+
+  public testObjAltInpObject()
+  {
+  }
 }
 
 public class testObjAltInpType
-  : ItestObjAltInpType
+  : GqlpModelImplementationBase
+  , ItestObjAltInpType
 {
+  public ItestObjAltInpTypeObject? As_ObjAltInpType { get; set; }
+}
+
+public class testObjAltInpTypeObject
+  : GqlpModelImplementationBase
+  , ItestObjAltInpTypeObject
+{
+
+  public testObjAltInpTypeObject()
+  {
+  }
 }
 
 public class testObjAltOutp
-  : ItestObjAltOutp
+  : GqlpModelImplementationBase
+  , ItestObjAltOutp
 {
+  public ItestObjAltOutpType? AsObjAltOutpType { get; set; }
+  public ItestObjAltOutpObject? As_ObjAltOutp { get; set; }
+}
+
+public class testObjAltOutpObject
+  : GqlpModelImplementationBase
+  , ItestObjAltOutpObject
+{
+
+  public testObjAltOutpObject()
+  {
+  }
 }
 
 public class testObjAltOutpType
-  : ItestObjAltOutpType
+  : GqlpModelImplementationBase
+  , ItestObjAltOutpType
 {
+  public ItestObjAltOutpTypeObject? As_ObjAltOutpType { get; set; }
+}
+
+public class testObjAltOutpTypeObject
+  : GqlpModelImplementationBase
+  , ItestObjAltOutpTypeObject
+{
+
+  public testObjAltOutpTypeObject()
+  {
+  }
 }
 
 public class testObjAltEnumDual
-  : ItestObjAltEnumDual
+  : GqlpModelImplementationBase
+  , ItestObjAltEnumDual
 {
+  public bool? AsBooleantrue { get; set; }
+  public bool? AsBooleanfalse { get; set; }
+  public ItestObjAltEnumDualObject? As_ObjAltEnumDual { get; set; }
+}
+
+public class testObjAltEnumDualObject
+  : GqlpModelImplementationBase
+  , ItestObjAltEnumDualObject
+{
+
+  public testObjAltEnumDualObject()
+  {
+  }
 }
 
 public class testObjAltEnumInp
-  : ItestObjAltEnumInp
+  : GqlpModelImplementationBase
+  , ItestObjAltEnumInp
 {
+  public bool? AsBooleantrue { get; set; }
+  public bool? AsBooleanfalse { get; set; }
+  public ItestObjAltEnumInpObject? As_ObjAltEnumInp { get; set; }
+}
+
+public class testObjAltEnumInpObject
+  : GqlpModelImplementationBase
+  , ItestObjAltEnumInpObject
+{
+
+  public testObjAltEnumInpObject()
+  {
+  }
 }
 
 public class testObjAltEnumOutp
-  : ItestObjAltEnumOutp
+  : GqlpModelImplementationBase
+  , ItestObjAltEnumOutp
 {
+  public bool? AsBooleantrue { get; set; }
+  public bool? AsBooleanfalse { get; set; }
+  public ItestObjAltEnumOutpObject? As_ObjAltEnumOutp { get; set; }
+}
+
+public class testObjAltEnumOutpObject
+  : GqlpModelImplementationBase
+  , ItestObjAltEnumOutpObject
+{
+
+  public testObjAltEnumOutpObject()
+  {
+  }
 }
 
 public class testObjCnstDual<TType>
-  : ItestObjCnstDual<TType>
+  : GqlpModelImplementationBase
+  , ItestObjCnstDual<TType>
+{
+  public ItestObjCnstDualObject<TType>? As_ObjCnstDual { get; set; }
+}
+
+public class testObjCnstDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestObjCnstDualObject<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
+
+  public testObjCnstDualObject(TType field, TType str)
+  {
+    Field = field;
+    Str = str;
+  }
 }
 
 public class testObjCnstInp<TType>
-  : ItestObjCnstInp<TType>
+  : GqlpModelImplementationBase
+  , ItestObjCnstInp<TType>
+{
+  public ItestObjCnstInpObject<TType>? As_ObjCnstInp { get; set; }
+}
+
+public class testObjCnstInpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestObjCnstInpObject<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
+
+  public testObjCnstInpObject(TType field, TType str)
+  {
+    Field = field;
+    Str = str;
+  }
 }
 
 public class testObjCnstOutp<TType>
-  : ItestObjCnstOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestObjCnstOutp<TType>
+{
+  public ItestObjCnstOutpObject<TType>? As_ObjCnstOutp { get; set; }
+}
+
+public class testObjCnstOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestObjCnstOutpObject<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
+
+  public testObjCnstOutpObject(TType field, TType str)
+  {
+    Field = field;
+    Str = str;
+  }
 }
 
 public class testObjFieldDual
-  : ItestObjFieldDual
+  : GqlpModelImplementationBase
+  , ItestObjFieldDual
+{
+  public ItestObjFieldDualObject? As_ObjFieldDual { get; set; }
+}
+
+public class testObjFieldDualObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldDualObject
 {
   public ItestFldObjFieldDual Field { get; set; }
+
+  public testObjFieldDualObject(ItestFldObjFieldDual field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldObjFieldDual
-  : ItestFldObjFieldDual
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldDual
 {
+  public ItestFldObjFieldDualObject? As_FldObjFieldDual { get; set; }
+}
+
+public class testFldObjFieldDualObject
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldDualObject
+{
+
+  public testFldObjFieldDualObject()
+  {
+  }
 }
 
 public class testObjFieldInp
-  : ItestObjFieldInp
+  : GqlpModelImplementationBase
+  , ItestObjFieldInp
+{
+  public ItestObjFieldInpObject? As_ObjFieldInp { get; set; }
+}
+
+public class testObjFieldInpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldInpObject
 {
   public ItestFldObjFieldInp Field { get; set; }
+
+  public testObjFieldInpObject(ItestFldObjFieldInp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldObjFieldInp
-  : ItestFldObjFieldInp
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldInp
 {
+  public ItestFldObjFieldInpObject? As_FldObjFieldInp { get; set; }
+}
+
+public class testFldObjFieldInpObject
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldInpObject
+{
+
+  public testFldObjFieldInpObject()
+  {
+  }
 }
 
 public class testObjFieldOutp
-  : ItestObjFieldOutp
+  : GqlpModelImplementationBase
+  , ItestObjFieldOutp
+{
+  public ItestObjFieldOutpObject? As_ObjFieldOutp { get; set; }
+}
+
+public class testObjFieldOutpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldOutpObject
 {
   public ItestFldObjFieldOutp Field { get; set; }
+
+  public testObjFieldOutpObject(ItestFldObjFieldOutp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldObjFieldOutp
-  : ItestFldObjFieldOutp
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldOutp
 {
+  public ItestFldObjFieldOutpObject? As_FldObjFieldOutp { get; set; }
+}
+
+public class testFldObjFieldOutpObject
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldOutpObject
+{
+
+  public testFldObjFieldOutpObject()
+  {
+  }
 }
 
 public class testObjFieldAliasDual
-  : ItestObjFieldAliasDual
+  : GqlpModelImplementationBase
+  , ItestObjFieldAliasDual
+{
+  public ItestObjFieldAliasDualObject? As_ObjFieldAliasDual { get; set; }
+}
+
+public class testObjFieldAliasDualObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldAliasDualObject
 {
   public ItestFldObjFieldAliasDual Field { get; set; }
+
+  public testObjFieldAliasDualObject(ItestFldObjFieldAliasDual field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldObjFieldAliasDual
-  : ItestFldObjFieldAliasDual
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldAliasDual
 {
+  public ItestFldObjFieldAliasDualObject? As_FldObjFieldAliasDual { get; set; }
+}
+
+public class testFldObjFieldAliasDualObject
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldAliasDualObject
+{
+
+  public testFldObjFieldAliasDualObject()
+  {
+  }
 }
 
 public class testObjFieldAliasInp
-  : ItestObjFieldAliasInp
+  : GqlpModelImplementationBase
+  , ItestObjFieldAliasInp
+{
+  public ItestObjFieldAliasInpObject? As_ObjFieldAliasInp { get; set; }
+}
+
+public class testObjFieldAliasInpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldAliasInpObject
 {
   public ItestFldObjFieldAliasInp Field { get; set; }
+
+  public testObjFieldAliasInpObject(ItestFldObjFieldAliasInp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldObjFieldAliasInp
-  : ItestFldObjFieldAliasInp
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldAliasInp
 {
+  public ItestFldObjFieldAliasInpObject? As_FldObjFieldAliasInp { get; set; }
+}
+
+public class testFldObjFieldAliasInpObject
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldAliasInpObject
+{
+
+  public testFldObjFieldAliasInpObject()
+  {
+  }
 }
 
 public class testObjFieldAliasOutp
-  : ItestObjFieldAliasOutp
+  : GqlpModelImplementationBase
+  , ItestObjFieldAliasOutp
+{
+  public ItestObjFieldAliasOutpObject? As_ObjFieldAliasOutp { get; set; }
+}
+
+public class testObjFieldAliasOutpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldAliasOutpObject
 {
   public ItestFldObjFieldAliasOutp Field { get; set; }
+
+  public testObjFieldAliasOutpObject(ItestFldObjFieldAliasOutp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldObjFieldAliasOutp
-  : ItestFldObjFieldAliasOutp
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldAliasOutp
 {
+  public ItestFldObjFieldAliasOutpObject? As_FldObjFieldAliasOutp { get; set; }
+}
+
+public class testFldObjFieldAliasOutpObject
+  : GqlpModelImplementationBase
+  , ItestFldObjFieldAliasOutpObject
+{
+
+  public testFldObjFieldAliasOutpObject()
+  {
+  }
 }
 
 public class testObjFieldEnumAliasDual
-  : ItestObjFieldEnumAliasDual
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumAliasDual
+{
+  public ItestObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; set; }
+}
+
+public class testObjFieldEnumAliasDualObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumAliasDualObject
 {
   public bool Field { get; set; }
+
+  public testObjFieldEnumAliasDualObject(bool field)
+  {
+    Field = field;
+  }
 }
 
 public class testObjFieldEnumAliasInp
-  : ItestObjFieldEnumAliasInp
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumAliasInp
+{
+  public ItestObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; set; }
+}
+
+public class testObjFieldEnumAliasInpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumAliasInpObject
 {
   public bool Field { get; set; }
+
+  public testObjFieldEnumAliasInpObject(bool field)
+  {
+    Field = field;
+  }
 }
 
 public class testObjFieldEnumAliasOutp
-  : ItestObjFieldEnumAliasOutp
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumAliasOutp
+{
+  public ItestObjFieldEnumAliasOutpObject? As_ObjFieldEnumAliasOutp { get; set; }
+}
+
+public class testObjFieldEnumAliasOutpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumAliasOutpObject
 {
   public bool Field { get; set; }
+
+  public testObjFieldEnumAliasOutpObject(bool field)
+  {
+    Field = field;
+  }
 }
 
 public class testObjFieldEnumValueDual
-  : ItestObjFieldEnumValueDual
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumValueDual
+{
+  public ItestObjFieldEnumValueDualObject? As_ObjFieldEnumValueDual { get; set; }
+}
+
+public class testObjFieldEnumValueDualObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumValueDualObject
 {
   public bool Field { get; set; }
+
+  public testObjFieldEnumValueDualObject(bool field)
+  {
+    Field = field;
+  }
 }
 
 public class testObjFieldEnumValueInp
-  : ItestObjFieldEnumValueInp
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumValueInp
+{
+  public ItestObjFieldEnumValueInpObject? As_ObjFieldEnumValueInp { get; set; }
+}
+
+public class testObjFieldEnumValueInpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumValueInpObject
 {
   public bool Field { get; set; }
+
+  public testObjFieldEnumValueInpObject(bool field)
+  {
+    Field = field;
+  }
 }
 
 public class testObjFieldEnumValueOutp
-  : ItestObjFieldEnumValueOutp
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumValueOutp
+{
+  public ItestObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; set; }
+}
+
+public class testObjFieldEnumValueOutpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumValueOutpObject
 {
   public bool Field { get; set; }
+
+  public testObjFieldEnumValueOutpObject(bool field)
+  {
+    Field = field;
+  }
 }
 
 public class testObjFieldTypeAliasDual
-  : ItestObjFieldTypeAliasDual
+  : GqlpModelImplementationBase
+  , ItestObjFieldTypeAliasDual
+{
+  public ItestObjFieldTypeAliasDualObject? As_ObjFieldTypeAliasDual { get; set; }
+}
+
+public class testObjFieldTypeAliasDualObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldTypeAliasDualObject
 {
   public string Field { get; set; }
+
+  public testObjFieldTypeAliasDualObject(string field)
+  {
+    Field = field;
+  }
 }
 
 public class testObjFieldTypeAliasInp
-  : ItestObjFieldTypeAliasInp
+  : GqlpModelImplementationBase
+  , ItestObjFieldTypeAliasInp
+{
+  public ItestObjFieldTypeAliasInpObject? As_ObjFieldTypeAliasInp { get; set; }
+}
+
+public class testObjFieldTypeAliasInpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldTypeAliasInpObject
 {
   public string Field { get; set; }
+
+  public testObjFieldTypeAliasInpObject(string field)
+  {
+    Field = field;
+  }
 }
 
 public class testObjFieldTypeAliasOutp
-  : ItestObjFieldTypeAliasOutp
+  : GqlpModelImplementationBase
+  , ItestObjFieldTypeAliasOutp
+{
+  public ItestObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; set; }
+}
+
+public class testObjFieldTypeAliasOutpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldTypeAliasOutpObject
 {
   public string Field { get; set; }
+
+  public testObjFieldTypeAliasOutpObject(string field)
+  {
+    Field = field;
+  }
 }
 
 public class testObjParamDual<TTest,TType>
-  : ItestObjParamDual<TTest,TType>
+  : GqlpModelImplementationBase
+  , ItestObjParamDual<TTest,TType>
+{
+  public ItestObjParamDualObject<TTest,TType>? As_ObjParamDual { get; set; }
+}
+
+public class testObjParamDualObject<TTest,TType>
+  : GqlpModelImplementationBase
+  , ItestObjParamDualObject<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
+
+  public testObjParamDualObject(TTest test, TType type)
+  {
+    Test = test;
+    Type = type;
+  }
 }
 
 public class testObjParamInp<TTest,TType>
-  : ItestObjParamInp<TTest,TType>
+  : GqlpModelImplementationBase
+  , ItestObjParamInp<TTest,TType>
+{
+  public ItestObjParamInpObject<TTest,TType>? As_ObjParamInp { get; set; }
+}
+
+public class testObjParamInpObject<TTest,TType>
+  : GqlpModelImplementationBase
+  , ItestObjParamInpObject<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
+
+  public testObjParamInpObject(TTest test, TType type)
+  {
+    Test = test;
+    Type = type;
+  }
 }
 
 public class testObjParamOutp<TTest,TType>
-  : ItestObjParamOutp<TTest,TType>
+  : GqlpModelImplementationBase
+  , ItestObjParamOutp<TTest,TType>
+{
+  public ItestObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; set; }
+}
+
+public class testObjParamOutpObject<TTest,TType>
+  : GqlpModelImplementationBase
+  , ItestObjParamOutpObject<TTest,TType>
 {
   public TTest Test { get; set; }
   public TType Type { get; set; }
+
+  public testObjParamOutpObject(TTest test, TType type)
+  {
+    Test = test;
+    Type = type;
+  }
 }
 
 public class testObjParamDupDual<TTest>
-  : ItestObjParamDupDual<TTest>
+  : GqlpModelImplementationBase
+  , ItestObjParamDupDual<TTest>
+{
+  public ItestObjParamDupDualObject<TTest>? As_ObjParamDupDual { get; set; }
+}
+
+public class testObjParamDupDualObject<TTest>
+  : GqlpModelImplementationBase
+  , ItestObjParamDupDualObject<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
+
+  public testObjParamDupDualObject(TTest test, TTest type)
+  {
+    Test = test;
+    Type = type;
+  }
 }
 
 public class testObjParamDupInp<TTest>
-  : ItestObjParamDupInp<TTest>
+  : GqlpModelImplementationBase
+  , ItestObjParamDupInp<TTest>
+{
+  public ItestObjParamDupInpObject<TTest>? As_ObjParamDupInp { get; set; }
+}
+
+public class testObjParamDupInpObject<TTest>
+  : GqlpModelImplementationBase
+  , ItestObjParamDupInpObject<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
+
+  public testObjParamDupInpObject(TTest test, TTest type)
+  {
+    Test = test;
+    Type = type;
+  }
 }
 
 public class testObjParamDupOutp<TTest>
-  : ItestObjParamDupOutp<TTest>
+  : GqlpModelImplementationBase
+  , ItestObjParamDupOutp<TTest>
+{
+  public ItestObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; set; }
+}
+
+public class testObjParamDupOutpObject<TTest>
+  : GqlpModelImplementationBase
+  , ItestObjParamDupOutpObject<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
+
+  public testObjParamDupOutpObject(TTest test, TTest type)
+  {
+    Test = test;
+    Type = type;
+  }
 }
 
 public class testObjPrntDual
   : testRefObjPrntDual
   , ItestObjPrntDual
 {
+  public ItestObjPrntDualObject? As_ObjPrntDual { get; set; }
+}
+
+public class testObjPrntDualObject
+  : testRefObjPrntDualObject
+  , ItestObjPrntDualObject
+{
+
+  public testObjPrntDualObject()
+  {
+  }
 }
 
 public class testRefObjPrntDual
-  : ItestRefObjPrntDual
+  : GqlpModelImplementationBase
+  , ItestRefObjPrntDual
 {
+  public ItestRefObjPrntDualObject? As_RefObjPrntDual { get; set; }
+}
+
+public class testRefObjPrntDualObject
+  : GqlpModelImplementationBase
+  , ItestRefObjPrntDualObject
+{
+
+  public testRefObjPrntDualObject()
+  {
+  }
 }
 
 public class testObjPrntInp
   : testRefObjPrntInp
   , ItestObjPrntInp
 {
+  public ItestObjPrntInpObject? As_ObjPrntInp { get; set; }
+}
+
+public class testObjPrntInpObject
+  : testRefObjPrntInpObject
+  , ItestObjPrntInpObject
+{
+
+  public testObjPrntInpObject()
+  {
+  }
 }
 
 public class testRefObjPrntInp
-  : ItestRefObjPrntInp
+  : GqlpModelImplementationBase
+  , ItestRefObjPrntInp
 {
+  public ItestRefObjPrntInpObject? As_RefObjPrntInp { get; set; }
+}
+
+public class testRefObjPrntInpObject
+  : GqlpModelImplementationBase
+  , ItestRefObjPrntInpObject
+{
+
+  public testRefObjPrntInpObject()
+  {
+  }
 }
 
 public class testObjPrntOutp
   : testRefObjPrntOutp
   , ItestObjPrntOutp
 {
+  public ItestObjPrntOutpObject? As_ObjPrntOutp { get; set; }
+}
+
+public class testObjPrntOutpObject
+  : testRefObjPrntOutpObject
+  , ItestObjPrntOutpObject
+{
+
+  public testObjPrntOutpObject()
+  {
+  }
 }
 
 public class testRefObjPrntOutp
-  : ItestRefObjPrntOutp
+  : GqlpModelImplementationBase
+  , ItestRefObjPrntOutp
 {
+  public ItestRefObjPrntOutpObject? As_RefObjPrntOutp { get; set; }
+}
+
+public class testRefObjPrntOutpObject
+  : GqlpModelImplementationBase
+  , ItestRefObjPrntOutpObject
+{
+
+  public testRefObjPrntOutpObject()
+  {
+  }
 }
 
 public class testOutpFieldParam
-  : ItestOutpFieldParam
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParam
 {
-  public ItestFldOutpFieldParam Field (ItestOutpFieldParam1)
-{ }
+  public ItestOutpFieldParamObject? As_OutpFieldParam { get; set; }
+}
+
+public class testOutpFieldParamObject
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParamObject
+{
+  public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)
+    => null;
+
+  public testOutpFieldParamObject()
+  {
+  }
 }
 
 public class testOutpFieldParam1
-  : ItestOutpFieldParam1
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParam1
 {
+  public ItestOutpFieldParam1Object? As_OutpFieldParam1 { get; set; }
+}
+
+public class testOutpFieldParam1Object
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParam1Object
+{
+
+  public testOutpFieldParam1Object()
+  {
+  }
 }
 
 public class testOutpFieldParam2
-  : ItestOutpFieldParam2
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParam2
 {
+  public ItestOutpFieldParam2Object? As_OutpFieldParam2 { get; set; }
+}
+
+public class testOutpFieldParam2Object
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParam2Object
+{
+
+  public testOutpFieldParam2Object()
+  {
+  }
 }
 
 public class testFldOutpFieldParam
-  : ItestFldOutpFieldParam
+  : GqlpModelImplementationBase
+  , ItestFldOutpFieldParam
 {
+  public ItestFldOutpFieldParamObject? As_FldOutpFieldParam { get; set; }
+}
+
+public class testFldOutpFieldParamObject
+  : GqlpModelImplementationBase
+  , ItestFldOutpFieldParamObject
+{
+
+  public testFldOutpFieldParamObject()
+  {
+  }
 }
 
 public class testUnionAlias

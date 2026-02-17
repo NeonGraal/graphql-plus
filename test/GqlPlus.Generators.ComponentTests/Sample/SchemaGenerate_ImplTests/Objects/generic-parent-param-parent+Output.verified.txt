@@ -16,15 +16,53 @@ public class CmptGnrcPrntParamPrntOutp
   : CmptRefGnrcPrntParamPrntOutp<ICmptAltGnrcPrntParamPrntOutp>
   , ICmptGnrcPrntParamPrntOutp
 {
+  public ICmptGnrcPrntParamPrntOutpObject? As_GnrcPrntParamPrntOutp { get; set; }
+}
+
+public class CmptGnrcPrntParamPrntOutpObject
+  : CmptRefGnrcPrntParamPrntOutpObject<ICmptAltGnrcPrntParamPrntOutp>
+  , ICmptGnrcPrntParamPrntOutpObject
+{
+
+  public CmptGnrcPrntParamPrntOutpObject()
+  {
+  }
 }
 
 public class CmptRefGnrcPrntParamPrntOutp<TRef>
-  : ICmptRefGnrcPrntParamPrntOutp<TRef>
+  : Schema_generic-parent-param-parent+Output
+  , ICmptRefGnrcPrntParamPrntOutp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ICmptRefGnrcPrntParamPrntOutpObject<TRef>? As_RefGnrcPrntParamPrntOutp { get; set; }
+}
+
+public class CmptRefGnrcPrntParamPrntOutpObject<TRef>
+  : Schema_generic-parent-param-parent+Output
+  , ICmptRefGnrcPrntParamPrntOutpObject<TRef>
+{
+
+  public CmptRefGnrcPrntParamPrntOutpObject()
+  {
+  }
 }
 
 public class CmptAltGnrcPrntParamPrntOutp
-  : ICmptAltGnrcPrntParamPrntOutp
+  : Schema_generic-parent-param-parent+Output
+  , ICmptAltGnrcPrntParamPrntOutp
+{
+  public string? AsString { get; set; }
+  public ICmptAltGnrcPrntParamPrntOutpObject? As_AltGnrcPrntParamPrntOutp { get; set; }
+}
+
+public class CmptAltGnrcPrntParamPrntOutpObject
+  : Schema_generic-parent-param-parent+Output
+  , ICmptAltGnrcPrntParamPrntOutpObject
 {
   public decimal Alt { get; set; }
+
+  public CmptAltGnrcPrntParamPrntOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

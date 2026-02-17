@@ -8,6 +8,19 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Input;
 
 public class testAltSmplInp
-  : ItestAltSmplInp
+  : GqlpModelImplementationBase
+  , ItestAltSmplInp
 {
+  public string? AsString { get; set; }
+  public ItestAltSmplInpObject? As_AltSmplInp { get; set; }
+}
+
+public class testAltSmplInpObject
+  : GqlpModelImplementationBase
+  , ItestAltSmplInpObject
+{
+
+  public testAltSmplInpObject()
+  {
+  }
 }

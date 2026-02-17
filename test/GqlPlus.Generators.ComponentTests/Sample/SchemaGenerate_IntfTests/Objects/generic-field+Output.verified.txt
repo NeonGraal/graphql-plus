@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_generic_field_Output;
 public interface ICmptGnrcFieldOutp<TType>
   : Schema_generic-field+Output
 {
-  ICmptGnrcFieldOutpObject<TType> AsGnrcFieldOutp { get; }
+  ICmptGnrcFieldOutpObject<TType>? As_GnrcFieldOutp { get; }
 }
 
 public interface ICmptGnrcFieldOutpObject<TType>
+  : Schema_generic-field+Output
 {
   TType Field { get; }
 }

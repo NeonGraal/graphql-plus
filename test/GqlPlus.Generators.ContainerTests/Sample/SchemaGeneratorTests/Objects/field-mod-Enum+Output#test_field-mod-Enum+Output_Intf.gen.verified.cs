@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Output;
 public interface ItestFieldModEnumOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldModEnumOutpObject AsFieldModEnumOutp { get; }
+  ItestFieldModEnumOutpObject? As_FieldModEnumOutp { get; }
 }
 
 public interface ItestFieldModEnumOutpObject
+  : IGqlpModelImplementationBase
 {
   IDictionary<testEnumFieldModEnumOutp, string> Field { get; }
 }

@@ -14,9 +14,10 @@ namespace Components.Gqlp_Schema_object_Dual;
 public interface ICmptObjDual
   : Schema_object+Dual
 {
-  ICmptObjDualObject AsObjDual { get; }
+  ICmptObjDualObject? As_ObjDual { get; }
 }
 
 public interface ICmptObjDualObject
+  : Schema_object+Dual
 {
 }

@@ -22,21 +22,61 @@ public class testMany
 }
 
 public class testField
-  : ItestField
+  : GqlpModelImplementationBase
+  , ItestField
+{
+  public ItestFieldObject? As_Field { get; set; }
+}
+
+public class testFieldObject
+  : GqlpModelImplementationBase
+  , ItestFieldObject
 {
   public ICollection<string> Strings { get; set; }
+
+  public testFieldObject(ICollection<string> strings)
+  {
+    Strings = strings;
+  }
 }
 
 public class testParam
-  : ItestParam
+  : GqlpModelImplementationBase
+  , ItestParam
+{
+  public string? AsString { get; set; }
+  public ItestParamObject? As_Param { get; set; }
+}
+
+public class testParamObject
+  : GqlpModelImplementationBase
+  , ItestParamObject
 {
   public ItestMany? AfterId { get; set; }
   public ItestMany BeforeId { get; set; }
+
+  public testParamObject(ItestMany beforeId)
+  {
+    BeforeId = beforeId;
+  }
 }
 
 public class testAll
-  : ItestAll
+  : GqlpModelImplementationBase
+  , ItestAll
 {
-  public ItestField Items (ItestParam?)
-{ }
+  public string? AsString { get; set; }
+  public ItestAllObject? As_All { get; set; }
+}
+
+public class testAllObject
+  : GqlpModelImplementationBase
+  , ItestAllObject
+{
+  public ItestField? Items(ItestParam? parameter)
+    => null;
+
+  public testAllObject()
+  {
+  }
 }

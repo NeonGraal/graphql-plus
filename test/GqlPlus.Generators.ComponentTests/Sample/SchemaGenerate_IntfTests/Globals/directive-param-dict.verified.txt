@@ -14,9 +14,10 @@ namespace Components.Gqlp_Schema_directive_param_dict;
 public interface ICmptInDrctParamDict
   : Schema_directive-param-dict
 {
-  ICmptInDrctParamDictObject AsInDrctParamDict { get; }
+  ICmptInDrctParamDictObject? As_InDrctParamDict { get; }
 }
 
 public interface ICmptInDrctParamDictObject
+  : Schema_directive-param-dict
 {
 }

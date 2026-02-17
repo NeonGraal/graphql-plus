@@ -11,21 +11,70 @@ public class testCnstPrntDualPrntDual
   : testRefCnstPrntDualPrntDual<ItestAltCnstPrntDualPrntDual>
   , ItestCnstPrntDualPrntDual
 {
+  public ItestCnstPrntDualPrntDualObject? As_CnstPrntDualPrntDual { get; set; }
+}
+
+public class testCnstPrntDualPrntDualObject
+  : testRefCnstPrntDualPrntDualObject<ItestAltCnstPrntDualPrntDual>
+  , ItestCnstPrntDualPrntDualObject
+{
+
+  public testCnstPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class testRefCnstPrntDualPrntDual<TRef>
-  : ItestRefCnstPrntDualPrntDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualPrntDual<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefCnstPrntDualPrntDualObject<TRef>? As_RefCnstPrntDualPrntDual { get; set; }
+}
+
+public class testRefCnstPrntDualPrntDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualPrntDualObject<TRef>
+{
+
+  public testRefCnstPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class testPrntCnstPrntDualPrntDual
-  : ItestPrntCnstPrntDualPrntDual
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntDualPrntDual
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstPrntDualPrntDualObject? As_PrntCnstPrntDualPrntDual { get; set; }
+}
+
+public class testPrntCnstPrntDualPrntDualObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstPrntDualPrntDualObject
+{
+
+  public testPrntCnstPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class testAltCnstPrntDualPrntDual
   : testPrntCnstPrntDualPrntDual
   , ItestAltCnstPrntDualPrntDual
 {
+  public ItestAltCnstPrntDualPrntDualObject? As_AltCnstPrntDualPrntDual { get; set; }
+}
+
+public class testAltCnstPrntDualPrntDualObject
+  : testPrntCnstPrntDualPrntDualObject
+  , ItestAltCnstPrntDualPrntDualObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstPrntDualPrntDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

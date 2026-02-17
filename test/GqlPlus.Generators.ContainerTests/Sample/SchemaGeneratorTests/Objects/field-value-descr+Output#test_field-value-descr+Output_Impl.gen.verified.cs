@@ -8,7 +8,20 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Output;
 
 public class testFieldValueDescrOutp
-  : ItestFieldValueDescrOutp
+  : GqlpModelImplementationBase
+  , ItestFieldValueDescrOutp
+{
+  public ItestFieldValueDescrOutpObject? As_FieldValueDescrOutp { get; set; }
+}
+
+public class testFieldValueDescrOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldValueDescrOutpObject
 {
   public testEnumFieldValueDescrOutp Field { get; set; }
+
+  public testFieldValueDescrOutpObject(testEnumFieldValueDescrOutp field)
+  {
+    Field = field;
+  }
 }

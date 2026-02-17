@@ -15,10 +15,35 @@ public class CmptPrntParamSameOutp<TA>
   : CmptRefPrntParamSameOutp<TA>
   , ICmptPrntParamSameOutp<TA>
 {
+  public ICmptPrntParamSameOutpObject<TA>? As_PrntParamSameOutp { get; set; }
+}
+
+public class CmptPrntParamSameOutpObject<TA>
+  : CmptRefPrntParamSameOutpObject<TA>
+  , ICmptPrntParamSameOutpObject<TA>
+{
   public TA Field { get; set; }
+
+  public CmptPrntParamSameOutpObject(TA field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptRefPrntParamSameOutp<TA>
-  : ICmptRefPrntParamSameOutp<TA>
+  : Schema_parent-param-same+Output
+  , ICmptRefPrntParamSameOutp<TA>
 {
+  public TA? Asa { get; set; }
+  public ICmptRefPrntParamSameOutpObject<TA>? As_RefPrntParamSameOutp { get; set; }
+}
+
+public class CmptRefPrntParamSameOutpObject<TA>
+  : Schema_parent-param-same+Output
+  , ICmptRefPrntParamSameOutpObject<TA>
+{
+
+  public CmptRefPrntParamSameOutpObject()
+  {
+  }
 }

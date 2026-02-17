@@ -21,11 +21,34 @@ public class Cmpt_UnionRef
   : Cmpt_TypeRef<ICmpt_SimpleKind>
   , ICmpt_UnionRef
 {
+  public ICmpt_UnionRefObject? As__UnionRef { get; set; }
+}
+
+public class Cmpt_UnionRefObject
+  : Cmpt_TypeRefObject<ICmpt_SimpleKind>
+  , ICmpt_UnionRefObject
+{
+
+  public Cmpt_UnionRefObject()
+  {
+  }
 }
 
 public class Cmpt_UnionMember
   : Cmpt_UnionRef
   , ICmpt_UnionMember
 {
+  public ICmpt_UnionMemberObject? As__UnionMember { get; set; }
+}
+
+public class Cmpt_UnionMemberObject
+  : Cmpt_UnionRefObject
+  , ICmpt_UnionMemberObject
+{
   public ICmpt_Name Union { get; set; }
+
+  public Cmpt_UnionMemberObject(ICmpt_Name union)
+  {
+    Union = union;
+  }
 }

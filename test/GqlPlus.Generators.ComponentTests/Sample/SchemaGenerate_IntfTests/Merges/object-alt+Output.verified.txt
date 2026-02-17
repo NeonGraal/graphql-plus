@@ -15,20 +15,22 @@ namespace Components.Gqlp_Schema_object_alt_Output;
 public interface ICmptObjAltOutp
   : Schema_object-alt+Output
 {
-  ICmptObjAltOutpType AsObjAltOutpType { get; }
-  ICmptObjAltOutpObject AsObjAltOutp { get; }
+  ICmptObjAltOutpType? AsObjAltOutpType { get; }
+  ICmptObjAltOutpObject? As_ObjAltOutp { get; }
 }
 
 public interface ICmptObjAltOutpObject
+  : Schema_object-alt+Output
 {
 }
 
 public interface ICmptObjAltOutpType
   : Schema_object-alt+Output
 {
-  ICmptObjAltOutpTypeObject AsObjAltOutpType { get; }
+  ICmptObjAltOutpTypeObject? As_ObjAltOutpType { get; }
 }
 
 public interface ICmptObjAltOutpTypeObject
+  : Schema_object-alt+Output
 {
 }

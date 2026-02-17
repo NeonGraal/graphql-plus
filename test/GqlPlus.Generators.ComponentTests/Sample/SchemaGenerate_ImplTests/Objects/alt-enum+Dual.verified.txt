@@ -12,6 +12,19 @@ enum EnumAltEnumDual { altEnumDual }
 namespace Components.Gqlp_Schema_alt_enum_Dual;
 
 public class CmptAltEnumDual
-  : ICmptAltEnumDual
+  : Schema_alt-enum+Dual
+  , ICmptAltEnumDual
 {
+  public CmptEnumAltEnumDual? AsEnumAltEnumDualaltEnumDual { get; set; }
+  public ICmptAltEnumDualObject? As_AltEnumDual { get; set; }
+}
+
+public class CmptAltEnumDualObject
+  : Schema_alt-enum+Dual
+  , ICmptAltEnumDualObject
+{
+
+  public CmptAltEnumDualObject()
+  {
+  }
 }

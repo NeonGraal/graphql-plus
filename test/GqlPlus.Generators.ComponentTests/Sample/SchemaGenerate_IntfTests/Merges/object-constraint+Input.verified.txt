@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_object_constraint_Input;
 public interface ICmptObjCnstInp<TType>
   : Schema_object-constraint+Input
 {
-  ICmptObjCnstInpObject<TType> AsObjCnstInp { get; }
+  ICmptObjCnstInpObject<TType>? As_ObjCnstInp { get; }
 }
 
 public interface ICmptObjCnstInpObject<TType>
+  : Schema_object-constraint+Input
 {
   TType Field { get; }
   TType Str { get; }

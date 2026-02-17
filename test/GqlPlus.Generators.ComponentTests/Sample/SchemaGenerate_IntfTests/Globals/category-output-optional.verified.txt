@@ -14,9 +14,10 @@ namespace Components.Gqlp_Schema_category_output_optional;
 public interface ICmptCtgrOutpOptl
   : Schema_category-output-optional
 {
-  ICmptCtgrOutpOptlObject AsCtgrOutpOptl { get; }
+  ICmptCtgrOutpOptlObject? As_CtgrOutpOptl { get; }
 }
 
 public interface ICmptCtgrOutpOptlObject
+  : Schema_category-output-optional
 {
 }

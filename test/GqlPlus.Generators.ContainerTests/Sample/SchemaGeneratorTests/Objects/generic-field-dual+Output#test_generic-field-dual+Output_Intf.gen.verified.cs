@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_dual_Output;
 public interface ItestGnrcFieldDualOutp
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldDualOutpObject AsGnrcFieldDualOutp { get; }
+  ItestGnrcFieldDualOutpObject? As_GnrcFieldDualOutp { get; }
 }
 
 public interface ItestGnrcFieldDualOutpObject
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; }
 }
@@ -21,22 +22,24 @@ public interface ItestGnrcFieldDualOutpObject
 public interface ItestRefGnrcFieldDualOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldDualOutpObject<TRef> AsRefGnrcFieldDualOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldDualOutpObject<TRef>? As_RefGnrcFieldDualOutp { get; }
 }
 
 public interface ItestRefGnrcFieldDualOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcFieldDualOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcFieldDualOutpObject AsAltGnrcFieldDualOutp { get; }
+  string? AsString { get; }
+  ItestAltGnrcFieldDualOutpObject? As_AltGnrcFieldDualOutp { get; }
 }
 
 public interface ItestAltGnrcFieldDualOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }

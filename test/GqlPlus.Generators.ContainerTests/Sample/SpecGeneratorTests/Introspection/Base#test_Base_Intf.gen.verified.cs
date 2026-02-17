@@ -15,7 +15,7 @@ public interface Itest_ObjectKind
 public interface Itest_TypeObject<TKind,TField>
   : Itest_ChildType<TKind, Itest_ObjBase>
 {
-  Itest_TypeObjectObject<TKind,TField> As_TypeObject { get; }
+  Itest_TypeObjectObject<TKind,TField>? As__TypeObject { get; }
 }
 
 public interface Itest_TypeObjectObject<TKind,TField>
@@ -31,7 +31,7 @@ public interface Itest_TypeObjectObject<TKind,TField>
 public interface Itest_ObjTypeParam
   : Itest_Named
 {
-  Itest_ObjTypeParamObject As_ObjTypeParam { get; }
+  Itest_ObjTypeParamObject? As__ObjTypeParam { get; }
 }
 
 public interface Itest_ObjTypeParamObject
@@ -43,8 +43,8 @@ public interface Itest_ObjTypeParamObject
 public interface Itest_ObjBase
   : Itest_Named
 {
-  Itest_TypeParam As_TypeParam { get; }
-  Itest_ObjBaseObject As_ObjBase { get; }
+  Itest_TypeParam? As_TypeParam { get; }
+  Itest_ObjBaseObject? As__ObjBase { get; }
 }
 
 public interface Itest_ObjBaseObject
@@ -56,8 +56,8 @@ public interface Itest_ObjBaseObject
 public interface Itest_ObjTypeArg
   : Itest_TypeRef<Itest_TypeKind>
 {
-  Itest_TypeParam As_TypeParam { get; }
-  Itest_ObjTypeArgObject As_ObjTypeArg { get; }
+  Itest_TypeParam? As_TypeParam { get; }
+  Itest_ObjTypeArgObject? As__ObjTypeArg { get; }
 }
 
 public interface Itest_ObjTypeArgObject
@@ -69,7 +69,7 @@ public interface Itest_ObjTypeArgObject
 public interface Itest_TypeParam
   : Itest_Described
 {
-  Itest_TypeParamObject As_TypeParam { get; }
+  Itest_TypeParamObject? As__TypeParam { get; }
 }
 
 public interface Itest_TypeParamObject
@@ -81,11 +81,12 @@ public interface Itest_TypeParamObject
 public interface Itest_ObjAlternate
   : IGqlpModelImplementationBase
 {
-  Itest_ObjAlternateEnum As_ObjAlternateEnum { get; }
-  Itest_ObjAlternateObject As_ObjAlternate { get; }
+  Itest_ObjAlternateEnum? As_ObjAlternateEnum { get; }
+  Itest_ObjAlternateObject? As__ObjAlternate { get; }
 }
 
 public interface Itest_ObjAlternateObject
+  : IGqlpModelImplementationBase
 {
   Itest_ObjBase Type { get; }
   ICollection<Itest_Collections> Collections { get; }
@@ -94,7 +95,7 @@ public interface Itest_ObjAlternateObject
 public interface Itest_ObjAlternateEnum
   : Itest_TypeRef<Itest_TypeKind>
 {
-  Itest_ObjAlternateEnumObject As_ObjAlternateEnum { get; }
+  Itest_ObjAlternateEnumObject? As__ObjAlternateEnum { get; }
 }
 
 public interface Itest_ObjAlternateEnumObject
@@ -106,11 +107,12 @@ public interface Itest_ObjAlternateEnumObject
 public interface Itest_ObjectFor<TFor>
   : IGqlpModelImplementationBase
 {
-  TFor AsParent { get; }
-  Itest_ObjectForObject<TFor> As_ObjectFor { get; }
+  TFor? As_Parent { get; }
+  Itest_ObjectForObject<TFor>? As__ObjectFor { get; }
 }
 
 public interface Itest_ObjectForObject<TFor>
+  : IGqlpModelImplementationBase
 {
   Itest_Name ObjectType { get; }
 }
@@ -118,7 +120,7 @@ public interface Itest_ObjectForObject<TFor>
 public interface Itest_ObjField<TType>
   : Itest_Aliased
 {
-  Itest_ObjFieldObject<TType> As_ObjField { get; }
+  Itest_ObjFieldObject<TType>? As__ObjField { get; }
 }
 
 public interface Itest_ObjFieldObject<TType>
@@ -130,8 +132,8 @@ public interface Itest_ObjFieldObject<TType>
 public interface Itest_ObjFieldType
   : Itest_ObjBase
 {
-  Itest_ObjFieldEnum As_ObjFieldEnum { get; }
-  Itest_ObjFieldTypeObject As_ObjFieldType { get; }
+  Itest_ObjFieldEnum? As_ObjFieldEnum { get; }
+  Itest_ObjFieldTypeObject? As__ObjFieldType { get; }
 }
 
 public interface Itest_ObjFieldTypeObject
@@ -143,7 +145,7 @@ public interface Itest_ObjFieldTypeObject
 public interface Itest_ObjFieldEnum
   : Itest_TypeRef<Itest_TypeKind>
 {
-  Itest_ObjFieldEnumObject As_ObjFieldEnum { get; }
+  Itest_ObjFieldEnumObject? As__ObjFieldEnum { get; }
 }
 
 public interface Itest_ObjFieldEnumObject
@@ -155,11 +157,12 @@ public interface Itest_ObjFieldEnumObject
 public interface Itest_ForParam<TType>
   : IGqlpModelImplementationBase
 {
-  Itest_ObjAlternate As_ObjAlternate { get; }
-  Itest_ObjField<TType> As_ObjField { get; }
-  Itest_ForParamObject<TType> As_ForParam { get; }
+  Itest_ObjAlternate? As_ObjAlternate { get; }
+  Itest_ObjField<TType>? As_ObjField { get; }
+  Itest_ForParamObject<TType>? As__ForParam { get; }
 }
 
 public interface Itest_ForParamObject<TType>
+  : IGqlpModelImplementationBase
 {
 }

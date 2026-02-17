@@ -15,9 +15,10 @@ namespace Components.Gqlp_Schema_category_alias;
 public interface ICmptCtgrAlias
   : Schema_category-alias
 {
-  ICmptCtgrAliasObject AsCtgrAlias { get; }
+  ICmptCtgrAliasObject? As_CtgrAlias { get; }
 }
 
 public interface ICmptCtgrAliasObject
+  : Schema_category-alias
 {
 }

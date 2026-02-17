@@ -20,7 +20,7 @@ namespace Components.Gqlp_Spec_Output;
 public interface ICmpt_OutputField
   : ICmpt_ObjField<ICmpt_ObjFieldType>
 {
-  ICmpt_OutputFieldObject As_OutputField { get; }
+  ICmpt_OutputFieldObject? As__OutputField { get; }
 }
 
 public interface ICmpt_OutputFieldObject
@@ -31,7 +31,7 @@ public interface ICmpt_OutputFieldObject
 public interface ICmpt_OutputFieldType
   : ICmpt_ObjFieldType
 {
-  ICmpt_OutputFieldTypeObject As_OutputFieldType { get; }
+  ICmpt_OutputFieldTypeObject? As__OutputFieldType { get; }
 }
 
 public interface ICmpt_OutputFieldTypeObject

@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_field_value_Output;
 public interface ICmptFieldValueOutp
   : Schema_field-value+Output
 {
-  ICmptFieldValueOutpObject AsFieldValueOutp { get; }
+  ICmptFieldValueOutpObject? As_FieldValueOutp { get; }
 }
 
 public interface ICmptFieldValueOutpObject
+  : Schema_field-value+Output
 {
   CmptEnumFieldValueOutp Field { get; }
 }

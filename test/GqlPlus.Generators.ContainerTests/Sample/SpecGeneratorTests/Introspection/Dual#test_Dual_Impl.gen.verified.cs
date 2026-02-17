@@ -11,4 +11,15 @@ public class test_DualField
   : test_ObjField<Itest_ObjFieldType>
   , Itest_DualField
 {
+  public Itest_DualFieldObject? As__DualField { get; set; }
+}
+
+public class test_DualFieldObject
+  : test_ObjFieldObject<Itest_ObjFieldType>
+  , Itest_DualFieldObject
+{
+
+  public test_DualFieldObject()
+  {
+  }
 }

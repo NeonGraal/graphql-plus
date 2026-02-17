@@ -49,21 +49,61 @@ public class CmptMany
 }
 
 public class CmptField
-  : ICmptField
+  : Schema_all
+  , ICmptField
+{
+  public ICmptFieldObject? As_Field { get; set; }
+}
+
+public class CmptFieldObject
+  : Schema_all
+  , ICmptFieldObject
 {
   public ICollection<string> Strings { get; set; }
+
+  public CmptFieldObject(ICollection<string> strings)
+  {
+    Strings = strings;
+  }
 }
 
 public class CmptParam
-  : ICmptParam
+  : Schema_all
+  , ICmptParam
+{
+  public string? AsString { get; set; }
+  public ICmptParamObject? As_Param { get; set; }
+}
+
+public class CmptParamObject
+  : Schema_all
+  , ICmptParamObject
 {
   public ICmptMany? AfterId { get; set; }
   public ICmptMany BeforeId { get; set; }
+
+  public CmptParamObject(ICmptMany beforeId)
+  {
+    BeforeId = beforeId;
+  }
 }
 
 public class CmptAll
-  : ICmptAll
+  : Schema_all
+  , ICmptAll
 {
-  public ICmptField Items (ICmptParam?)
-{ }
+  public string? AsString { get; set; }
+  public ICmptAllObject? As_All { get; set; }
+}
+
+public class CmptAllObject
+  : Schema_all
+  , ICmptAllObject
+{
+  public ICmptField? Items(ICmptParam? parameter)
+    => null;
+
+  public CmptAllObject()
+  {
+  }
 }

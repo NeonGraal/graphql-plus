@@ -13,18 +13,58 @@ dual AltGnrcFieldDualOutp { alt: Number | String }
 namespace Components.Gqlp_Schema_generic_field_dual_Output;
 
 public class CmptGnrcFieldDualOutp
-  : ICmptGnrcFieldDualOutp
+  : Schema_generic-field-dual+Output
+  , ICmptGnrcFieldDualOutp
+{
+  public ICmptGnrcFieldDualOutpObject? As_GnrcFieldDualOutp { get; set; }
+}
+
+public class CmptGnrcFieldDualOutpObject
+  : Schema_generic-field-dual+Output
+  , ICmptGnrcFieldDualOutpObject
 {
   public ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; set; }
+
+  public CmptGnrcFieldDualOutpObject(ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptRefGnrcFieldDualOutp<TRef>
-  : ICmptRefGnrcFieldDualOutp<TRef>
+  : Schema_generic-field-dual+Output
+  , ICmptRefGnrcFieldDualOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ICmptRefGnrcFieldDualOutpObject<TRef>? As_RefGnrcFieldDualOutp { get; set; }
+}
+
+public class CmptRefGnrcFieldDualOutpObject<TRef>
+  : Schema_generic-field-dual+Output
+  , ICmptRefGnrcFieldDualOutpObject<TRef>
+{
+
+  public CmptRefGnrcFieldDualOutpObject()
+  {
+  }
 }
 
 public class CmptAltGnrcFieldDualOutp
-  : ICmptAltGnrcFieldDualOutp
+  : Schema_generic-field-dual+Output
+  , ICmptAltGnrcFieldDualOutp
+{
+  public string? AsString { get; set; }
+  public ICmptAltGnrcFieldDualOutpObject? As_AltGnrcFieldDualOutp { get; set; }
+}
+
+public class CmptAltGnrcFieldDualOutpObject
+  : Schema_generic-field-dual+Output
+  , ICmptAltGnrcFieldDualOutpObject
 {
   public decimal Alt { get; set; }
+
+  public CmptAltGnrcFieldDualOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

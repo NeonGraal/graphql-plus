@@ -12,6 +12,20 @@ output ObjAltEnumOutp { ! false }
 namespace Components.Gqlp_Schema_object_alt_enum_Output;
 
 public class CmptObjAltEnumOutp
-  : ICmptObjAltEnumOutp
+  : Schema_object-alt-enum+Output
+  , ICmptObjAltEnumOutp
 {
+  public bool? AsBooleantrue { get; set; }
+  public bool? AsBooleanfalse { get; set; }
+  public ICmptObjAltEnumOutpObject? As_ObjAltEnumOutp { get; set; }
+}
+
+public class CmptObjAltEnumOutpObject
+  : Schema_object-alt-enum+Output
+  , ICmptObjAltEnumOutpObject
+{
+
+  public CmptObjAltEnumOutpObject()
+  {
+  }
 }

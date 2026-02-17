@@ -15,10 +15,36 @@ public class CmptPrntDualDual
   : CmptRefPrntDualDual
   , ICmptPrntDualDual
 {
+  public ICmptPrntDualDualObject? As_PrntDualDual { get; set; }
+}
+
+public class CmptPrntDualDualObject
+  : CmptRefPrntDualDualObject
+  , ICmptPrntDualDualObject
+{
+
+  public CmptPrntDualDualObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class CmptRefPrntDualDual
-  : ICmptRefPrntDualDual
+  : Schema_parent-dual+Dual
+  , ICmptRefPrntDualDual
+{
+  public string? AsString { get; set; }
+  public ICmptRefPrntDualDualObject? As_RefPrntDualDual { get; set; }
+}
+
+public class CmptRefPrntDualDualObject
+  : Schema_parent-dual+Dual
+  , ICmptRefPrntDualDualObject
 {
   public decimal Parent { get; set; }
+
+  public CmptRefPrntDualDualObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }

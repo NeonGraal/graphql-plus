@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_alias_Dual;
 public interface ItestObjFieldEnumAliasDual
   : IGqlpModelImplementationBase
 {
-  ItestObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; }
+  ItestObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; }
 }
 
 public interface ItestObjFieldEnumAliasDualObject
+  : IGqlpModelImplementationBase
 {
   bool Field { get; }
 }

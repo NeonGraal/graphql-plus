@@ -16,40 +16,43 @@ namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
 public interface ICmptCnstAltObjInp
   : Schema_constraint-alt-obj+Input
 {
-  ICmptRefCnstAltObjInp<ICmptAltCnstAltObjInp> AsRefCnstAltObjInp { get; }
-  ICmptCnstAltObjInpObject AsCnstAltObjInp { get; }
+  ICmptRefCnstAltObjInp<ICmptAltCnstAltObjInp>? AsRefCnstAltObjInp { get; }
+  ICmptCnstAltObjInpObject? As_CnstAltObjInp { get; }
 }
 
 public interface ICmptCnstAltObjInpObject
+  : Schema_constraint-alt-obj+Input
 {
 }
 
 public interface ICmptRefCnstAltObjInp<TRef>
   : Schema_constraint-alt-obj+Input
 {
-  TRef Asref { get; }
-  ICmptRefCnstAltObjInpObject<TRef> AsRefCnstAltObjInp { get; }
+  TRef? Asref { get; }
+  ICmptRefCnstAltObjInpObject<TRef>? As_RefCnstAltObjInp { get; }
 }
 
 public interface ICmptRefCnstAltObjInpObject<TRef>
+  : Schema_constraint-alt-obj+Input
 {
 }
 
 public interface ICmptPrntCnstAltObjInp
   : Schema_constraint-alt-obj+Input
 {
-  string AsString { get; }
-  ICmptPrntCnstAltObjInpObject AsPrntCnstAltObjInp { get; }
+  string? AsString { get; }
+  ICmptPrntCnstAltObjInpObject? As_PrntCnstAltObjInp { get; }
 }
 
 public interface ICmptPrntCnstAltObjInpObject
+  : Schema_constraint-alt-obj+Input
 {
 }
 
 public interface ICmptAltCnstAltObjInp
   : ICmptPrntCnstAltObjInp
 {
-  ICmptAltCnstAltObjInpObject AsAltCnstAltObjInp { get; }
+  ICmptAltCnstAltObjInpObject? As_AltCnstAltObjInp { get; }
 }
 
 public interface ICmptAltCnstAltObjInpObject

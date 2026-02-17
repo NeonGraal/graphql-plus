@@ -21,7 +21,7 @@ namespace Components.Gqlp_Spec_Enum;
 public interface ICmpt_EnumLabel
   : ICmpt_Aliased
 {
-  ICmpt_EnumLabelObject As_EnumLabel { get; }
+  ICmpt_EnumLabelObject? As__EnumLabel { get; }
 }
 
 public interface ICmpt_EnumLabelObject
@@ -33,7 +33,7 @@ public interface ICmpt_EnumLabelObject
 public interface ICmpt_EnumValue
   : ICmpt_TypeRef<ICmpt_TypeKind>
 {
-  ICmpt_EnumValueObject As_EnumValue { get; }
+  ICmpt_EnumValueObject? As__EnumValue { get; }
 }
 
 public interface ICmpt_EnumValueObject

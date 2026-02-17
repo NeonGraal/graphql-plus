@@ -10,8 +10,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_Category;
 public interface Itest_Categories
   : Itest_AndType
 {
-  Itest_Category As_Category { get; }
-  Itest_CategoriesObject As_Categories { get; }
+  Itest_Category? As_Category { get; }
+  Itest_CategoriesObject? As__Categories { get; }
 }
 
 public interface Itest_CategoriesObject
@@ -23,7 +23,7 @@ public interface Itest_CategoriesObject
 public interface Itest_Category
   : Itest_Aliased
 {
-  Itest_CategoryObject As_Category { get; }
+  Itest_CategoryObject? As__Category { get; }
 }
 
 public interface Itest_CategoryObject

@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Output;
 public interface ItestFieldModParamOutp<TMod>
   : IGqlpModelImplementationBase
 {
-  ItestFieldModParamOutpObject<TMod> AsFieldModParamOutp { get; }
+  ItestFieldModParamOutpObject<TMod>? As_FieldModParamOutp { get; }
 }
 
 public interface ItestFieldModParamOutpObject<TMod>
+  : IGqlpModelImplementationBase
 {
   IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; }
 }
@@ -21,11 +22,12 @@ public interface ItestFieldModParamOutpObject<TMod>
 public interface ItestFldFieldModParamOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestFldFieldModParamOutpObject AsFldFieldModParamOutp { get; }
+  string? AsString { get; }
+  ItestFldFieldModParamOutpObject? As_FldFieldModParamOutp { get; }
 }
 
 public interface ItestFldFieldModParamOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }

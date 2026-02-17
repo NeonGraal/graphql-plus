@@ -8,6 +8,18 @@
 namespace GqlPlus.GeneratorTests.Gqlp_category_alias;
 
 public class testCtgrAlias
-  : ItestCtgrAlias
+  : GqlpModelImplementationBase
+  , ItestCtgrAlias
 {
+  public ItestCtgrAliasObject? As_CtgrAlias { get; set; }
+}
+
+public class testCtgrAliasObject
+  : GqlpModelImplementationBase
+  , ItestCtgrAliasObject
+{
+
+  public testCtgrAliasObject()
+  {
+  }
 }

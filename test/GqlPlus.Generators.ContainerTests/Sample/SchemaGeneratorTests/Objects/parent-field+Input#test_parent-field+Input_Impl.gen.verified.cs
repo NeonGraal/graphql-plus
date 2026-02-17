@@ -11,11 +11,38 @@ public class testPrntFieldInp
   : testRefPrntFieldInp
   , ItestPrntFieldInp
 {
+  public ItestPrntFieldInpObject? As_PrntFieldInp { get; set; }
+}
+
+public class testPrntFieldInpObject
+  : testRefPrntFieldInpObject
+  , ItestPrntFieldInpObject
+{
   public decimal Field { get; set; }
+
+  public testPrntFieldInpObject(decimal parent, decimal field)
+    : base(parent)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntFieldInp
-  : ItestRefPrntFieldInp
+  : GqlpModelImplementationBase
+  , ItestRefPrntFieldInp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntFieldInpObject? As_RefPrntFieldInp { get; set; }
+}
+
+public class testRefPrntFieldInpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntFieldInpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntFieldInpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }

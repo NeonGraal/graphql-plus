@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_generic_parent_Dual;
 public interface ICmptGnrcPrntDual<TType>
   : Schema_generic-parent+Dual
 {
-  TType AsParent { get; }
-  ICmptGnrcPrntDualObject<TType> AsGnrcPrntDual { get; }
+  TType? As_Parent { get; }
+  ICmptGnrcPrntDualObject<TType>? As_GnrcPrntDual { get; }
 }
 
 public interface ICmptGnrcPrntDualObject<TType>
+  : Schema_generic-parent+Dual
 {
 }

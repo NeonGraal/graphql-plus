@@ -8,23 +8,71 @@
 namespace GqlPlus.GeneratorTests.Gqlp_output_field_param;
 
 public class testOutpFieldParam
-  : ItestOutpFieldParam
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParam
 {
-  public ItestFldOutpFieldParam Field (ItestOutpFieldParam1)
-{ }
+  public ItestOutpFieldParamObject? As_OutpFieldParam { get; set; }
+}
+
+public class testOutpFieldParamObject
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParamObject
+{
+  public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)
+    => null;
+
+  public testOutpFieldParamObject()
+  {
+  }
 }
 
 public class testOutpFieldParam1
-  : ItestOutpFieldParam1
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParam1
 {
+  public ItestOutpFieldParam1Object? As_OutpFieldParam1 { get; set; }
+}
+
+public class testOutpFieldParam1Object
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParam1Object
+{
+
+  public testOutpFieldParam1Object()
+  {
+  }
 }
 
 public class testOutpFieldParam2
-  : ItestOutpFieldParam2
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParam2
 {
+  public ItestOutpFieldParam2Object? As_OutpFieldParam2 { get; set; }
+}
+
+public class testOutpFieldParam2Object
+  : GqlpModelImplementationBase
+  , ItestOutpFieldParam2Object
+{
+
+  public testOutpFieldParam2Object()
+  {
+  }
 }
 
 public class testFldOutpFieldParam
-  : ItestFldOutpFieldParam
+  : GqlpModelImplementationBase
+  , ItestFldOutpFieldParam
 {
+  public ItestFldOutpFieldParamObject? As_FldOutpFieldParam { get; set; }
+}
+
+public class testFldOutpFieldParamObject
+  : GqlpModelImplementationBase
+  , ItestFldOutpFieldParamObject
+{
+
+  public testFldOutpFieldParamObject()
+  {
+  }
 }

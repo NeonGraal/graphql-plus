@@ -10,21 +10,23 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_enum_parent_Input;
 public interface ItestCnstEnumPrntInp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp> AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; }
-  ItestCnstEnumPrntInpObject AsCnstEnumPrntInp { get; }
+  ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp>? AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; }
+  ItestCnstEnumPrntInpObject? As_CnstEnumPrntInp { get; }
 }
 
 public interface ItestCnstEnumPrntInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstEnumPrntInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumPrntInpObject<TType> AsRefCnstEnumPrntInp { get; }
+  ItestRefCnstEnumPrntInpObject<TType>? As_RefCnstEnumPrntInp { get; }
 }
 
 public interface ItestRefCnstEnumPrntInpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }

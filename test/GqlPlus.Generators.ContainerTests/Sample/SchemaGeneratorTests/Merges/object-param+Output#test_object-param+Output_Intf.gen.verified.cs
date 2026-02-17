@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_param_Output;
 public interface ItestObjParamOutp<TTest,TType>
   : IGqlpModelImplementationBase
 {
-  ItestObjParamOutpObject<TTest,TType> AsObjParamOutp { get; }
+  ItestObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; }
 }
 
 public interface ItestObjParamOutpObject<TTest,TType>
+  : IGqlpModelImplementationBase
 {
   TTest Test { get; }
   TType Type { get; }

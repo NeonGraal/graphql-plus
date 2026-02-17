@@ -8,7 +8,20 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Input;
 
 public class testFieldSmplInp
-  : ItestFieldSmplInp
+  : GqlpModelImplementationBase
+  , ItestFieldSmplInp
+{
+  public ItestFieldSmplInpObject? As_FieldSmplInp { get; set; }
+}
+
+public class testFieldSmplInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldSmplInpObject
 {
   public decimal Field { get; set; }
+
+  public testFieldSmplInpObject(decimal field)
+  {
+    Field = field;
+  }
 }

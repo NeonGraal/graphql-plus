@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Dual;
 public interface ItestAltDescrDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltDescrDualObject AsAltDescrDual { get; }
+  string? AsString { get; }
+  ItestAltDescrDualObject? As_AltDescrDual { get; }
 }
 
 public interface ItestAltDescrDualObject
+  : IGqlpModelImplementationBase
 {
 }

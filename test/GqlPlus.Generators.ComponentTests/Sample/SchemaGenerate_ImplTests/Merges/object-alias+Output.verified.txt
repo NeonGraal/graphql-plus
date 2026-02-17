@@ -12,6 +12,18 @@ output ObjAliasOutp [Output2] { }
 namespace Components.Gqlp_Schema_object_alias_Output;
 
 public class CmptObjAliasOutp
-  : ICmptObjAliasOutp
+  : Schema_object-alias+Output
+  , ICmptObjAliasOutp
 {
+  public ICmptObjAliasOutpObject? As_ObjAliasOutp { get; set; }
+}
+
+public class CmptObjAliasOutpObject
+  : Schema_object-alias+Output
+  , ICmptObjAliasOutpObject
+{
+
+  public CmptObjAliasOutpObject()
+  {
+  }
 }

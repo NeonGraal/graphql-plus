@@ -10,8 +10,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_alt_Dual;
 public interface ItestPrntAltDual
   : ItestRefPrntAltDual
 {
-  decimal AsNumber { get; }
-  ItestPrntAltDualObject AsPrntAltDual { get; }
+  decimal? AsNumber { get; }
+  ItestPrntAltDualObject? As_PrntAltDual { get; }
 }
 
 public interface ItestPrntAltDualObject
@@ -22,11 +22,12 @@ public interface ItestPrntAltDualObject
 public interface ItestRefPrntAltDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntAltDualObject AsRefPrntAltDual { get; }
+  string? AsString { get; }
+  ItestRefPrntAltDualObject? As_RefPrntAltDual { get; }
 }
 
 public interface ItestRefPrntAltDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }

@@ -8,19 +8,57 @@
 namespace GqlPlus.GeneratorTests.Gqlp_output_descr_param;
 
 public class testOutpDescrParam
-  : ItestOutpDescrParam
+  : GqlpModelImplementationBase
+  , ItestOutpDescrParam
 {
-  public ItestFldOutpDescrParam Field (ItestInOutpDescrParam)
-{ }
+  public ItestOutpDescrParamObject? As_OutpDescrParam { get; set; }
+}
+
+public class testOutpDescrParamObject
+  : GqlpModelImplementationBase
+  , ItestOutpDescrParamObject
+{
+  public ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter)
+    => null;
+
+  public testOutpDescrParamObject()
+  {
+  }
 }
 
 public class testFldOutpDescrParam
-  : ItestFldOutpDescrParam
+  : GqlpModelImplementationBase
+  , ItestFldOutpDescrParam
 {
+  public ItestFldOutpDescrParamObject? As_FldOutpDescrParam { get; set; }
+}
+
+public class testFldOutpDescrParamObject
+  : GqlpModelImplementationBase
+  , ItestFldOutpDescrParamObject
+{
+
+  public testFldOutpDescrParamObject()
+  {
+  }
 }
 
 public class testInOutpDescrParam
-  : ItestInOutpDescrParam
+  : GqlpModelImplementationBase
+  , ItestInOutpDescrParam
+{
+  public string? AsString { get; set; }
+  public ItestInOutpDescrParamObject? As_InOutpDescrParam { get; set; }
+}
+
+public class testInOutpDescrParamObject
+  : GqlpModelImplementationBase
+  , ItestInOutpDescrParamObject
 {
   public decimal Param { get; set; }
+
+  public testInOutpDescrParamObject(decimal param)
+  {
+    Param = param;
+  }
 }

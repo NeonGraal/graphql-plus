@@ -11,22 +11,72 @@ public class testCnstFieldDualDual
   : testRefCnstFieldDualDual<ItestAltCnstFieldDualDual>
   , ItestCnstFieldDualDual
 {
+  public ItestCnstFieldDualDualObject? As_CnstFieldDualDual { get; set; }
+}
+
+public class testCnstFieldDualDualObject
+  : testRefCnstFieldDualDualObject<ItestAltCnstFieldDualDual>
+  , ItestCnstFieldDualDualObject
+{
+
+  public testCnstFieldDualDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldDualDual<TRef>
-  : ItestRefCnstFieldDualDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDualDual<TRef>
+{
+  public ItestRefCnstFieldDualDualObject<TRef>? As_RefCnstFieldDualDual { get; set; }
+}
+
+public class testRefCnstFieldDualDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDualDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldDualDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testPrntCnstFieldDualDual
-  : ItestPrntCnstFieldDualDual
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldDualDual
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstFieldDualDualObject? As_PrntCnstFieldDualDual { get; set; }
+}
+
+public class testPrntCnstFieldDualDualObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldDualDualObject
+{
+
+  public testPrntCnstFieldDualDualObject()
+  {
+  }
 }
 
 public class testAltCnstFieldDualDual
   : testPrntCnstFieldDualDual
   , ItestAltCnstFieldDualDual
 {
+  public ItestAltCnstFieldDualDualObject? As_AltCnstFieldDualDual { get; set; }
+}
+
+public class testAltCnstFieldDualDualObject
+  : testPrntCnstFieldDualDualObject
+  , ItestAltCnstFieldDualDualObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstFieldDualDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

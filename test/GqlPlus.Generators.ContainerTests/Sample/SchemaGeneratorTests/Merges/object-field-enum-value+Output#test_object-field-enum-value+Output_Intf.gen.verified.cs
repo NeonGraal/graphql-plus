@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_value_Output;
 public interface ItestObjFieldEnumValueOutp
   : IGqlpModelImplementationBase
 {
-  ItestObjFieldEnumValueOutpObject AsObjFieldEnumValueOutp { get; }
+  ItestObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; }
 }
 
 public interface ItestObjFieldEnumValueOutpObject
+  : IGqlpModelImplementationBase
 {
   bool Field { get; }
 }

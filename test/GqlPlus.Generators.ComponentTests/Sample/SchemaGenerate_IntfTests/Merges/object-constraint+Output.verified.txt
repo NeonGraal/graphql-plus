@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_object_constraint_Output;
 public interface ICmptObjCnstOutp<TType>
   : Schema_object-constraint+Output
 {
-  ICmptObjCnstOutpObject<TType> AsObjCnstOutp { get; }
+  ICmptObjCnstOutpObject<TType>? As_ObjCnstOutp { get; }
 }
 
 public interface ICmptObjCnstOutpObject<TType>
+  : Schema_object-constraint+Output
 {
   TType Field { get; }
   TType Str { get; }

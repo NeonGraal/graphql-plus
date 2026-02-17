@@ -12,6 +12,18 @@ output CtgrOutpDescr { }
 namespace Components.Gqlp_Schema_category_output_descr;
 
 public class CmptCtgrOutpDescr
-  : ICmptCtgrOutpDescr
+  : Schema_category-output-descr
+  , ICmptCtgrOutpDescr
 {
+  public ICmptCtgrOutpDescrObject? As_CtgrOutpDescr { get; set; }
+}
+
+public class CmptCtgrOutpDescrObject
+  : Schema_category-output-descr
+  , ICmptCtgrOutpDescrObject
+{
+
+  public CmptCtgrOutpDescrObject()
+  {
+  }
 }

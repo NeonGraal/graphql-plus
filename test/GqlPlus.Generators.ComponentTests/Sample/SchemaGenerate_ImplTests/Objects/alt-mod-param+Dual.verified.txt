@@ -12,12 +12,39 @@ dual AltAltModParamDual { alt: Number | String }
 namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 
 public class CmptAltModParamDual<TMod>
-  : ICmptAltModParamDual<TMod>
+  : Schema_alt-mod-param+Dual
+  , ICmptAltModParamDual<TMod>
 {
+  public IDictionary<TMod, ICmptAltAltModParamDual>? AsAltAltModParamDual { get; set; }
+  public ICmptAltModParamDualObject<TMod>? As_AltModParamDual { get; set; }
+}
+
+public class CmptAltModParamDualObject<TMod>
+  : Schema_alt-mod-param+Dual
+  , ICmptAltModParamDualObject<TMod>
+{
+
+  public CmptAltModParamDualObject()
+  {
+  }
 }
 
 public class CmptAltAltModParamDual
-  : ICmptAltAltModParamDual
+  : Schema_alt-mod-param+Dual
+  , ICmptAltAltModParamDual
+{
+  public string? AsString { get; set; }
+  public ICmptAltAltModParamDualObject? As_AltAltModParamDual { get; set; }
+}
+
+public class CmptAltAltModParamDualObject
+  : Schema_alt-mod-param+Dual
+  , ICmptAltAltModParamDualObject
 {
   public decimal Alt { get; set; }
+
+  public CmptAltAltModParamDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

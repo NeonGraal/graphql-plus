@@ -10,40 +10,43 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_obj_Input;
 public interface ItestCnstAltObjInp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltObjInp<ItestAltCnstAltObjInp> AsRefCnstAltObjInp { get; }
-  ItestCnstAltObjInpObject AsCnstAltObjInp { get; }
+  ItestRefCnstAltObjInp<ItestAltCnstAltObjInp>? AsRefCnstAltObjInp { get; }
+  ItestCnstAltObjInpObject? As_CnstAltObjInp { get; }
 }
 
 public interface ItestCnstAltObjInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltObjInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltObjInpObject<TRef> AsRefCnstAltObjInp { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltObjInpObject<TRef>? As_RefCnstAltObjInp { get; }
 }
 
 public interface ItestRefCnstAltObjInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstAltObjInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstAltObjInpObject AsPrntCnstAltObjInp { get; }
+  string? AsString { get; }
+  ItestPrntCnstAltObjInpObject? As_PrntCnstAltObjInp { get; }
 }
 
 public interface ItestPrntCnstAltObjInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstAltObjInp
   : ItestPrntCnstAltObjInp
 {
-  ItestAltCnstAltObjInpObject AsAltCnstAltObjInp { get; }
+  ItestAltCnstAltObjInpObject? As_AltCnstAltObjInp { get; }
 }
 
 public interface ItestAltCnstAltObjInpObject

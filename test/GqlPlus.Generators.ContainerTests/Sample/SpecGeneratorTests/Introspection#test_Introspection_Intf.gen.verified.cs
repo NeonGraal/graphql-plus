@@ -10,16 +10,16 @@ namespace GqlPlus.GeneratorTests.Gqlp_Introspection;
 public interface Itest_Schema
   : Itest_Named
 {
-  Itest_SchemaObject As_Schema { get; }
+  Itest_SchemaObject? As__Schema { get; }
 }
 
 public interface Itest_SchemaObject
   : Itest_NamedObject
 {
-  IDictionary<Itest_Name, Itest_Categories> Categories (Itest_CategoryFilter? parameter);
-  IDictionary<Itest_Name, Itest_Directives> Directives (Itest_Filter? parameter);
-  IDictionary<Itest_Name, Itest_Type> Types (Itest_TypeFilter? parameter);
-  IDictionary<Itest_Name, Itest_Setting> Settings (Itest_Filter? parameter);
+  IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter);
+  IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter);
+  IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter);
+  IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter);
 }
 
 public interface Itest_Name
@@ -30,11 +30,12 @@ public interface Itest_Name
 public interface Itest_Filter
   : IGqlpModelImplementationBase
 {
-  ICollection<Itest_NameFilter> As_NameFilter { get; }
-  Itest_FilterObject As_Filter { get; }
+  ICollection<Itest_NameFilter>? As_NameFilter { get; }
+  Itest_FilterObject? As__Filter { get; }
 }
 
 public interface Itest_FilterObject
+  : IGqlpModelImplementationBase
 {
   ICollection<Itest_NameFilter> Names { get; }
   test_DomainKind? MatchAliases { get; }
@@ -51,7 +52,7 @@ public interface Itest_NameFilter
 public interface Itest_CategoryFilter
   : Itest_Filter
 {
-  Itest_CategoryFilterObject As_CategoryFilter { get; }
+  Itest_CategoryFilterObject? As__CategoryFilter { get; }
 }
 
 public interface Itest_CategoryFilterObject
@@ -63,7 +64,7 @@ public interface Itest_CategoryFilterObject
 public interface Itest_TypeFilter
   : Itest_Filter
 {
-  Itest_TypeFilterObject As_TypeFilter { get; }
+  Itest_TypeFilterObject? As__TypeFilter { get; }
 }
 
 public interface Itest_TypeFilterObject
@@ -75,7 +76,7 @@ public interface Itest_TypeFilterObject
 public interface Itest_Aliased
   : Itest_Named
 {
-  Itest_AliasedObject As_Aliased { get; }
+  Itest_AliasedObject? As__Aliased { get; }
 }
 
 public interface Itest_AliasedObject
@@ -87,7 +88,7 @@ public interface Itest_AliasedObject
 public interface Itest_Named
   : Itest_Described
 {
-  Itest_NamedObject As_Named { get; }
+  Itest_NamedObject? As__Named { get; }
 }
 
 public interface Itest_NamedObject
@@ -99,10 +100,11 @@ public interface Itest_NamedObject
 public interface Itest_Described
   : IGqlpModelImplementationBase
 {
-  Itest_DescribedObject As_Described { get; }
+  Itest_DescribedObject? As__Described { get; }
 }
 
 public interface Itest_DescribedObject
+  : IGqlpModelImplementationBase
 {
   ICollection<test_DomainKind> Description { get; }
 }
@@ -110,8 +112,8 @@ public interface Itest_DescribedObject
 public interface Itest_AndType
   : Itest_Named
 {
-  Itest_Type As_Type { get; }
-  Itest_AndTypeObject As_AndType { get; }
+  Itest_Type? As_Type { get; }
+  Itest_AndTypeObject? As__AndType { get; }
 }
 
 public interface Itest_AndTypeObject
@@ -123,8 +125,8 @@ public interface Itest_AndTypeObject
 public interface Itest_Categories
   : Itest_AndType
 {
-  Itest_Category As_Category { get; }
-  Itest_CategoriesObject As_Categories { get; }
+  Itest_Category? As_Category { get; }
+  Itest_CategoriesObject? As__Categories { get; }
 }
 
 public interface Itest_CategoriesObject
@@ -136,7 +138,7 @@ public interface Itest_CategoriesObject
 public interface Itest_Category
   : Itest_Aliased
 {
-  Itest_CategoryObject As_Category { get; }
+  Itest_CategoryObject? As__Category { get; }
 }
 
 public interface Itest_CategoryObject
@@ -150,8 +152,8 @@ public interface Itest_CategoryObject
 public interface Itest_Directives
   : Itest_AndType
 {
-  Itest_Directive As_Directive { get; }
-  Itest_DirectivesObject As_Directives { get; }
+  Itest_Directive? As_Directive { get; }
+  Itest_DirectivesObject? As__Directives { get; }
 }
 
 public interface Itest_DirectivesObject
@@ -163,7 +165,7 @@ public interface Itest_DirectivesObject
 public interface Itest_Directive
   : Itest_Aliased
 {
-  Itest_DirectiveObject As_Directive { get; }
+  Itest_DirectiveObject? As__Directive { get; }
 }
 
 public interface Itest_DirectiveObject
@@ -177,7 +179,7 @@ public interface Itest_DirectiveObject
 public interface Itest_Setting
   : Itest_Named
 {
-  Itest_SettingObject As_Setting { get; }
+  Itest_SettingObject? As__Setting { get; }
 }
 
 public interface Itest_SettingObject
@@ -189,28 +191,29 @@ public interface Itest_SettingObject
 public interface Itest_Type
   : IGqlpModelImplementationBase
 {
-  Itest_BaseType<test_TypeKind> As_TypeKindBasic { get; }
-  Itest_BaseType<test_TypeKind> As_TypeKindInternal { get; }
-  Itest_BaseDomain<test_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse> As_DomainKindBoolean { get; }
-  Itest_BaseDomain<test_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel> As_DomainKindEnum { get; }
-  Itest_BaseDomain<test_DomainKind, Itest_DomainRange, Itest_DomainItemRange> As_DomainKindNumber { get; }
-  Itest_BaseDomain<test_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex> As_DomainKindString { get; }
-  Itest_ParentType<test_TypeKind, Itest_Aliased, Itest_EnumLabel> As_TypeKindEnum { get; }
-  Itest_ParentType<test_TypeKind, Itest_UnionRef, Itest_UnionMember> As_TypeKindUnion { get; }
-  Itest_TypeObject<test_TypeKind, Itest_DualField> As_TypeKindDual { get; }
-  Itest_TypeObject<test_TypeKind, Itest_InputField> As_TypeKindInput { get; }
-  Itest_TypeObject<test_TypeKind, Itest_OutputField> As_TypeKindOutput { get; }
-  Itest_TypeObject As_Type { get; }
+  Itest_BaseType<test_TypeKind>? As_TypeKindBasic { get; }
+  Itest_BaseType<test_TypeKind>? As_TypeKindInternal { get; }
+  Itest_BaseDomain<test_DomainKind, Itest_DomainTrueFalse, Itest_DomainItemTrueFalse>? As_DomainKindBoolean { get; }
+  Itest_BaseDomain<test_DomainKind, Itest_DomainLabel, Itest_DomainItemLabel>? As_DomainKindEnum { get; }
+  Itest_BaseDomain<test_DomainKind, Itest_DomainRange, Itest_DomainItemRange>? As_DomainKindNumber { get; }
+  Itest_BaseDomain<test_DomainKind, Itest_DomainRegex, Itest_DomainItemRegex>? As_DomainKindString { get; }
+  Itest_ParentType<test_TypeKind, Itest_Aliased, Itest_EnumLabel>? As_TypeKindEnum { get; }
+  Itest_ParentType<test_TypeKind, Itest_UnionRef, Itest_UnionMember>? As_TypeKindUnion { get; }
+  Itest_TypeObject<test_TypeKind, Itest_DualField>? As_TypeKindDual { get; }
+  Itest_TypeObject<test_TypeKind, Itest_InputField>? As_TypeKindInput { get; }
+  Itest_TypeObject<test_TypeKind, Itest_OutputField>? As_TypeKindOutput { get; }
+  Itest_TypeObject? As__Type { get; }
 }
 
 public interface Itest_TypeObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface Itest_BaseType<TKind>
   : Itest_Aliased
 {
-  Itest_BaseTypeObject<TKind> As_BaseType { get; }
+  Itest_BaseTypeObject<TKind>? As__BaseType { get; }
 }
 
 public interface Itest_BaseTypeObject<TKind>
@@ -222,7 +225,7 @@ public interface Itest_BaseTypeObject<TKind>
 public interface Itest_ChildType<TKind,TParent>
   : Itest_BaseType<TKind>
 {
-  Itest_ChildTypeObject<TKind,TParent> As_ChildType { get; }
+  Itest_ChildTypeObject<TKind,TParent>? As__ChildType { get; }
 }
 
 public interface Itest_ChildTypeObject<TKind,TParent>
@@ -234,7 +237,7 @@ public interface Itest_ChildTypeObject<TKind,TParent>
 public interface Itest_ParentType<TKind,TItem,TAllItem>
   : Itest_ChildType<TKind, Itest_Named>
 {
-  Itest_ParentTypeObject<TKind,TItem,TAllItem> As_ParentType { get; }
+  Itest_ParentTypeObject<TKind,TItem,TAllItem>? As__ParentType { get; }
 }
 
 public interface Itest_ParentTypeObject<TKind,TItem,TAllItem>
@@ -247,7 +250,7 @@ public interface Itest_ParentTypeObject<TKind,TItem,TAllItem>
 public interface Itest_TypeRef<TKind>
   : Itest_Named
 {
-  Itest_TypeRefObject<TKind> As_TypeRef { get; }
+  Itest_TypeRefObject<TKind>? As__TypeRef { get; }
 }
 
 public interface Itest_TypeRefObject<TKind>
@@ -259,34 +262,36 @@ public interface Itest_TypeRefObject<TKind>
 public interface Itest_TypeSimple
   : IGqlpModelImplementationBase
 {
-  Itest_TypeRef<test_TypeKind> As_TypeKindBasic { get; }
-  Itest_TypeRef<test_TypeKind> As_TypeKindEnum { get; }
-  Itest_TypeRef<test_TypeKind> As_TypeKindDomain { get; }
-  Itest_TypeRef<test_TypeKind> As_TypeKindUnion { get; }
-  Itest_TypeSimpleObject As_TypeSimple { get; }
+  Itest_TypeRef<test_TypeKind>? As_TypeKindBasic { get; }
+  Itest_TypeRef<test_TypeKind>? As_TypeKindEnum { get; }
+  Itest_TypeRef<test_TypeKind>? As_TypeKindDomain { get; }
+  Itest_TypeRef<test_TypeKind>? As_TypeKindUnion { get; }
+  Itest_TypeSimpleObject? As__TypeSimple { get; }
 }
 
 public interface Itest_TypeSimpleObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface Itest_Collections
   : IGqlpModelImplementationBase
 {
-  Itest_Modifier<test_ModifierKind> As_ModifierKindList { get; }
-  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindDictionary { get; }
-  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindTypeParam { get; }
-  Itest_CollectionsObject As_Collections { get; }
+  Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; }
+  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindDictionary { get; }
+  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindTypeParam { get; }
+  Itest_CollectionsObject? As__Collections { get; }
 }
 
 public interface Itest_CollectionsObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface Itest_ModifierKeyed<TKind>
   : Itest_Modifier<TKind>
 {
-  Itest_ModifierKeyedObject<TKind> As_ModifierKeyed { get; }
+  Itest_ModifierKeyedObject<TKind>? As__ModifierKeyed { get; }
 }
 
 public interface Itest_ModifierKeyedObject<TKind>
@@ -299,22 +304,24 @@ public interface Itest_ModifierKeyedObject<TKind>
 public interface Itest_Modifiers
   : IGqlpModelImplementationBase
 {
-  Itest_Modifier<test_ModifierKind> As_ModifierKindOptional { get; }
-  Itest_Collections As_Collections { get; }
-  Itest_ModifiersObject As_Modifiers { get; }
+  Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; }
+  Itest_Collections? As_Collections { get; }
+  Itest_ModifiersObject? As__Modifiers { get; }
 }
 
 public interface Itest_ModifiersObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface Itest_Modifier<TKind>
   : IGqlpModelImplementationBase
 {
-  Itest_ModifierObject<TKind> As_Modifier { get; }
+  Itest_ModifierObject<TKind>? As__Modifier { get; }
 }
 
 public interface Itest_ModifierObject<TKind>
+  : IGqlpModelImplementationBase
 {
   TKind ModifierKind { get; }
 }
@@ -322,7 +329,7 @@ public interface Itest_ModifierObject<TKind>
 public interface Itest_DomainRef<TKind>
   : Itest_TypeRef<test_TypeKind>
 {
-  Itest_DomainRefObject<TKind> As_DomainRef { get; }
+  Itest_DomainRefObject<TKind>? As__DomainRef { get; }
 }
 
 public interface Itest_DomainRefObject<TKind>
@@ -334,7 +341,7 @@ public interface Itest_DomainRefObject<TKind>
 public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
   : Itest_ParentType<test_TypeKind, TItem, TDomainItem>
 {
-  Itest_BaseDomainObject<TDomain,TItem,TDomainItem> As_BaseDomain { get; }
+  Itest_BaseDomainObject<TDomain,TItem,TDomainItem>? As__BaseDomain { get; }
 }
 
 public interface Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
@@ -346,7 +353,7 @@ public interface Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
 public interface Itest_BaseDomainItem
   : Itest_Described
 {
-  Itest_BaseDomainItemObject As_BaseDomainItem { get; }
+  Itest_BaseDomainItemObject? As__BaseDomainItem { get; }
 }
 
 public interface Itest_BaseDomainItemObject
@@ -358,11 +365,12 @@ public interface Itest_BaseDomainItemObject
 public interface Itest_DomainItem<TItem>
   : IGqlpModelImplementationBase
 {
-  TItem AsParent { get; }
-  Itest_DomainItemObject<TItem> As_DomainItem { get; }
+  TItem? As_Parent { get; }
+  Itest_DomainItemObject<TItem>? As__DomainItem { get; }
 }
 
 public interface Itest_DomainItemObject<TItem>
+  : IGqlpModelImplementationBase
 {
   Itest_Name Domain { get; }
 }
@@ -370,8 +378,8 @@ public interface Itest_DomainItemObject<TItem>
 public interface Itest_DomainValue<TKind,TValue>
   : Itest_DomainRef<TKind>
 {
-  TValue Asvalue { get; }
-  Itest_DomainValueObject<TKind,TValue> As_DomainValue { get; }
+  TValue? Asvalue { get; }
+  Itest_DomainValueObject<TKind,TValue>? As__DomainValue { get; }
 }
 
 public interface Itest_DomainValueObject<TKind,TValue>
@@ -383,21 +391,22 @@ public interface Itest_DomainValueObject<TKind,TValue>
 public interface Itest_BasicValue
   : IGqlpModelImplementationBase
 {
-  test_DomainKind As_DomainKindBoolean { get; }
-  Itest_EnumValue As_EnumValue { get; }
-  test_DomainKind As_DomainKindNumber { get; }
-  test_DomainKind As_DomainKindString { get; }
-  Itest_BasicValueObject As_BasicValue { get; }
+  test_DomainKind? As_DomainKindBoolean { get; }
+  Itest_EnumValue? As_EnumValue { get; }
+  test_DomainKind? As_DomainKindNumber { get; }
+  test_DomainKind? As_DomainKindString { get; }
+  Itest_BasicValueObject? As__BasicValue { get; }
 }
 
 public interface Itest_BasicValueObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface Itest_DomainTrueFalse
   : Itest_BaseDomainItem
 {
-  Itest_DomainTrueFalseObject As_DomainTrueFalse { get; }
+  Itest_DomainTrueFalseObject? As__DomainTrueFalse { get; }
 }
 
 public interface Itest_DomainTrueFalseObject
@@ -409,7 +418,7 @@ public interface Itest_DomainTrueFalseObject
 public interface Itest_DomainItemTrueFalse
   : Itest_DomainItem<Itest_DomainTrueFalse>
 {
-  Itest_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; }
+  Itest_DomainItemTrueFalseObject? As__DomainItemTrueFalse { get; }
 }
 
 public interface Itest_DomainItemTrueFalseObject
@@ -420,7 +429,7 @@ public interface Itest_DomainItemTrueFalseObject
 public interface Itest_DomainLabel
   : Itest_BaseDomainItem
 {
-  Itest_DomainLabelObject As_DomainLabel { get; }
+  Itest_DomainLabelObject? As__DomainLabel { get; }
 }
 
 public interface Itest_DomainLabelObject
@@ -432,7 +441,7 @@ public interface Itest_DomainLabelObject
 public interface Itest_DomainItemLabel
   : Itest_DomainItem<Itest_DomainLabel>
 {
-  Itest_DomainItemLabelObject As_DomainItemLabel { get; }
+  Itest_DomainItemLabelObject? As__DomainItemLabel { get; }
 }
 
 public interface Itest_DomainItemLabelObject
@@ -443,7 +452,7 @@ public interface Itest_DomainItemLabelObject
 public interface Itest_DomainRange
   : Itest_BaseDomainItem
 {
-  Itest_DomainRangeObject As_DomainRange { get; }
+  Itest_DomainRangeObject? As__DomainRange { get; }
 }
 
 public interface Itest_DomainRangeObject
@@ -456,7 +465,7 @@ public interface Itest_DomainRangeObject
 public interface Itest_DomainItemRange
   : Itest_DomainItem<Itest_DomainRange>
 {
-  Itest_DomainItemRangeObject As_DomainItemRange { get; }
+  Itest_DomainItemRangeObject? As__DomainItemRange { get; }
 }
 
 public interface Itest_DomainItemRangeObject
@@ -467,7 +476,7 @@ public interface Itest_DomainItemRangeObject
 public interface Itest_DomainRegex
   : Itest_BaseDomainItem
 {
-  Itest_DomainRegexObject As_DomainRegex { get; }
+  Itest_DomainRegexObject? As__DomainRegex { get; }
 }
 
 public interface Itest_DomainRegexObject
@@ -479,7 +488,7 @@ public interface Itest_DomainRegexObject
 public interface Itest_DomainItemRegex
   : Itest_DomainItem<Itest_DomainRegex>
 {
-  Itest_DomainItemRegexObject As_DomainItemRegex { get; }
+  Itest_DomainItemRegexObject? As__DomainItemRegex { get; }
 }
 
 public interface Itest_DomainItemRegexObject
@@ -490,7 +499,7 @@ public interface Itest_DomainItemRegexObject
 public interface Itest_EnumLabel
   : Itest_Aliased
 {
-  Itest_EnumLabelObject As_EnumLabel { get; }
+  Itest_EnumLabelObject? As__EnumLabel { get; }
 }
 
 public interface Itest_EnumLabelObject
@@ -502,7 +511,7 @@ public interface Itest_EnumLabelObject
 public interface Itest_EnumValue
   : Itest_TypeRef<test_TypeKind>
 {
-  Itest_EnumValueObject As_EnumValue { get; }
+  Itest_EnumValueObject? As__EnumValue { get; }
 }
 
 public interface Itest_EnumValueObject
@@ -514,7 +523,7 @@ public interface Itest_EnumValueObject
 public interface Itest_UnionRef
   : Itest_TypeRef<test_SimpleKind>
 {
-  Itest_UnionRefObject As_UnionRef { get; }
+  Itest_UnionRefObject? As__UnionRef { get; }
 }
 
 public interface Itest_UnionRefObject
@@ -525,7 +534,7 @@ public interface Itest_UnionRefObject
 public interface Itest_UnionMember
   : Itest_UnionRef
 {
-  Itest_UnionMemberObject As_UnionMember { get; }
+  Itest_UnionMemberObject? As__UnionMember { get; }
 }
 
 public interface Itest_UnionMemberObject
@@ -542,7 +551,7 @@ public interface Itest_ObjectKind
 public interface Itest_TypeObject<TKind,TField>
   : Itest_ChildType<TKind, Itest_ObjBase>
 {
-  Itest_TypeObjectObject<TKind,TField> As_TypeObject { get; }
+  Itest_TypeObjectObject<TKind,TField>? As__TypeObject { get; }
 }
 
 public interface Itest_TypeObjectObject<TKind,TField>
@@ -558,7 +567,7 @@ public interface Itest_TypeObjectObject<TKind,TField>
 public interface Itest_ObjTypeParam
   : Itest_Named
 {
-  Itest_ObjTypeParamObject As_ObjTypeParam { get; }
+  Itest_ObjTypeParamObject? As__ObjTypeParam { get; }
 }
 
 public interface Itest_ObjTypeParamObject
@@ -570,8 +579,8 @@ public interface Itest_ObjTypeParamObject
 public interface Itest_ObjBase
   : Itest_Named
 {
-  Itest_TypeParam As_TypeParam { get; }
-  Itest_ObjBaseObject As_ObjBase { get; }
+  Itest_TypeParam? As_TypeParam { get; }
+  Itest_ObjBaseObject? As__ObjBase { get; }
 }
 
 public interface Itest_ObjBaseObject
@@ -583,8 +592,8 @@ public interface Itest_ObjBaseObject
 public interface Itest_ObjTypeArg
   : Itest_TypeRef<test_TypeKind>
 {
-  Itest_TypeParam As_TypeParam { get; }
-  Itest_ObjTypeArgObject As_ObjTypeArg { get; }
+  Itest_TypeParam? As_TypeParam { get; }
+  Itest_ObjTypeArgObject? As__ObjTypeArg { get; }
 }
 
 public interface Itest_ObjTypeArgObject
@@ -596,7 +605,7 @@ public interface Itest_ObjTypeArgObject
 public interface Itest_TypeParam
   : Itest_Described
 {
-  Itest_TypeParamObject As_TypeParam { get; }
+  Itest_TypeParamObject? As__TypeParam { get; }
 }
 
 public interface Itest_TypeParamObject
@@ -608,11 +617,12 @@ public interface Itest_TypeParamObject
 public interface Itest_ObjAlternate
   : IGqlpModelImplementationBase
 {
-  Itest_ObjAlternateEnum As_ObjAlternateEnum { get; }
-  Itest_ObjAlternateObject As_ObjAlternate { get; }
+  Itest_ObjAlternateEnum? As_ObjAlternateEnum { get; }
+  Itest_ObjAlternateObject? As__ObjAlternate { get; }
 }
 
 public interface Itest_ObjAlternateObject
+  : IGqlpModelImplementationBase
 {
   Itest_ObjBase Type { get; }
   ICollection<Itest_Collections> Collections { get; }
@@ -621,7 +631,7 @@ public interface Itest_ObjAlternateObject
 public interface Itest_ObjAlternateEnum
   : Itest_TypeRef<test_TypeKind>
 {
-  Itest_ObjAlternateEnumObject As_ObjAlternateEnum { get; }
+  Itest_ObjAlternateEnumObject? As__ObjAlternateEnum { get; }
 }
 
 public interface Itest_ObjAlternateEnumObject
@@ -633,11 +643,12 @@ public interface Itest_ObjAlternateEnumObject
 public interface Itest_ObjectFor<TFor>
   : IGqlpModelImplementationBase
 {
-  TFor AsParent { get; }
-  Itest_ObjectForObject<TFor> As_ObjectFor { get; }
+  TFor? As_Parent { get; }
+  Itest_ObjectForObject<TFor>? As__ObjectFor { get; }
 }
 
 public interface Itest_ObjectForObject<TFor>
+  : IGqlpModelImplementationBase
 {
   Itest_Name ObjectType { get; }
 }
@@ -645,7 +656,7 @@ public interface Itest_ObjectForObject<TFor>
 public interface Itest_ObjField<TType>
   : Itest_Aliased
 {
-  Itest_ObjFieldObject<TType> As_ObjField { get; }
+  Itest_ObjFieldObject<TType>? As__ObjField { get; }
 }
 
 public interface Itest_ObjFieldObject<TType>
@@ -657,8 +668,8 @@ public interface Itest_ObjFieldObject<TType>
 public interface Itest_ObjFieldType
   : Itest_ObjBase
 {
-  Itest_ObjFieldEnum As_ObjFieldEnum { get; }
-  Itest_ObjFieldTypeObject As_ObjFieldType { get; }
+  Itest_ObjFieldEnum? As_ObjFieldEnum { get; }
+  Itest_ObjFieldTypeObject? As__ObjFieldType { get; }
 }
 
 public interface Itest_ObjFieldTypeObject
@@ -670,7 +681,7 @@ public interface Itest_ObjFieldTypeObject
 public interface Itest_ObjFieldEnum
   : Itest_TypeRef<test_TypeKind>
 {
-  Itest_ObjFieldEnumObject As_ObjFieldEnum { get; }
+  Itest_ObjFieldEnumObject? As__ObjFieldEnum { get; }
 }
 
 public interface Itest_ObjFieldEnumObject
@@ -682,19 +693,20 @@ public interface Itest_ObjFieldEnumObject
 public interface Itest_ForParam<TType>
   : IGqlpModelImplementationBase
 {
-  Itest_ObjAlternate As_ObjAlternate { get; }
-  Itest_ObjField<TType> As_ObjField { get; }
-  Itest_ForParamObject<TType> As_ForParam { get; }
+  Itest_ObjAlternate? As_ObjAlternate { get; }
+  Itest_ObjField<TType>? As_ObjField { get; }
+  Itest_ForParamObject<TType>? As__ForParam { get; }
 }
 
 public interface Itest_ForParamObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface Itest_DualField
   : Itest_ObjField<Itest_ObjFieldType>
 {
-  Itest_DualFieldObject As_DualField { get; }
+  Itest_DualFieldObject? As__DualField { get; }
 }
 
 public interface Itest_DualFieldObject
@@ -705,7 +717,7 @@ public interface Itest_DualFieldObject
 public interface Itest_InputField
   : Itest_ObjField<Itest_InputFieldType>
 {
-  Itest_InputFieldObject As_InputField { get; }
+  Itest_InputFieldObject? As__InputField { get; }
 }
 
 public interface Itest_InputFieldObject
@@ -716,7 +728,7 @@ public interface Itest_InputFieldObject
 public interface Itest_InputFieldType
   : Itest_ObjFieldType
 {
-  Itest_InputFieldTypeObject As_InputFieldType { get; }
+  Itest_InputFieldTypeObject? As__InputFieldType { get; }
 }
 
 public interface Itest_InputFieldTypeObject
@@ -728,7 +740,7 @@ public interface Itest_InputFieldTypeObject
 public interface Itest_OutputField
   : Itest_ObjField<Itest_ObjFieldType>
 {
-  Itest_OutputFieldObject As_OutputField { get; }
+  Itest_OutputFieldObject? As__OutputField { get; }
 }
 
 public interface Itest_OutputFieldObject
@@ -739,7 +751,7 @@ public interface Itest_OutputFieldObject
 public interface Itest_OutputFieldType
   : Itest_ObjFieldType
 {
-  Itest_OutputFieldTypeObject As_OutputFieldType { get; }
+  Itest_OutputFieldTypeObject? As__OutputFieldType { get; }
 }
 
 public interface Itest_OutputFieldTypeObject

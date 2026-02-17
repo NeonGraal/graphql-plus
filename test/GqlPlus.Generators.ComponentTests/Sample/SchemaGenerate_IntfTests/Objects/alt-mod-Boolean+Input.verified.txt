@@ -14,22 +14,24 @@ namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 public interface ICmptAltModBoolInp
   : Schema_alt-mod-Boolean+Input
 {
-  IDictionary<bool, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; }
-  ICmptAltModBoolInpObject AsAltModBoolInp { get; }
+  IDictionary<bool, ICmptAltAltModBoolInp>? AsAltAltModBoolInp { get; }
+  ICmptAltModBoolInpObject? As_AltModBoolInp { get; }
 }
 
 public interface ICmptAltModBoolInpObject
+  : Schema_alt-mod-Boolean+Input
 {
 }
 
 public interface ICmptAltAltModBoolInp
   : Schema_alt-mod-Boolean+Input
 {
-  string AsString { get; }
-  ICmptAltAltModBoolInpObject AsAltAltModBoolInp { get; }
+  string? AsString { get; }
+  ICmptAltAltModBoolInpObject? As_AltAltModBoolInp { get; }
 }
 
 public interface ICmptAltAltModBoolInpObject
+  : Schema_alt-mod-Boolean+Input
 {
   decimal Alt { get; }
 }

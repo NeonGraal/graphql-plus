@@ -11,6 +11,19 @@ dual RefGnrcAltModParamDual<$ref:String $mod:String> { | $ref[$mod] }
 namespace Components.Gqlp_Schema_generic_alt_mod_param_Dual;
 
 public class CmptRefGnrcAltModParamDual<TRef,TMod>
-  : ICmptRefGnrcAltModParamDual<TRef,TMod>
+  : Schema_generic-alt-mod-param+Dual
+  , ICmptRefGnrcAltModParamDual<TRef,TMod>
 {
+  public IDictionary<TMod, TRef>? Asref { get; set; }
+  public ICmptRefGnrcAltModParamDualObject<TRef,TMod>? As_RefGnrcAltModParamDual { get; set; }
+}
+
+public class CmptRefGnrcAltModParamDualObject<TRef,TMod>
+  : Schema_generic-alt-mod-param+Dual
+  , ICmptRefGnrcAltModParamDualObject<TRef,TMod>
+{
+
+  public CmptRefGnrcAltModParamDualObject()
+  {
+  }
 }

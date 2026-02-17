@@ -15,10 +15,11 @@ namespace Components.Gqlp_Schema_object_field_Dual;
 public interface ICmptObjFieldDual
   : Schema_object-field+Dual
 {
-  ICmptObjFieldDualObject AsObjFieldDual { get; }
+  ICmptObjFieldDualObject? As_ObjFieldDual { get; }
 }
 
 public interface ICmptObjFieldDualObject
+  : Schema_object-field+Dual
 {
   ICmptFldObjFieldDual Field { get; }
 }
@@ -26,9 +27,10 @@ public interface ICmptObjFieldDualObject
 public interface ICmptFldObjFieldDual
   : Schema_object-field+Dual
 {
-  ICmptFldObjFieldDualObject AsFldObjFieldDual { get; }
+  ICmptFldObjFieldDualObject? As_FldObjFieldDual { get; }
 }
 
 public interface ICmptFldObjFieldDualObject
+  : Schema_object-field+Dual
 {
 }

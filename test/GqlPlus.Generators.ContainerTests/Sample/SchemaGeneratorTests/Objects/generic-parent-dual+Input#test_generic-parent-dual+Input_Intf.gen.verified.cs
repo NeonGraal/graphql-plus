@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_Input;
 public interface ItestGnrcPrntDualInp
   : ItestRefGnrcPrntDualInp<ItestAltGnrcPrntDualInp>
 {
-  ItestGnrcPrntDualInpObject AsGnrcPrntDualInp { get; }
+  ItestGnrcPrntDualInpObject? As_GnrcPrntDualInp { get; }
 }
 
 public interface ItestGnrcPrntDualInpObject
@@ -21,22 +21,24 @@ public interface ItestGnrcPrntDualInpObject
 public interface ItestRefGnrcPrntDualInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcPrntDualInpObject<TRef> AsRefGnrcPrntDualInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcPrntDualInpObject<TRef>? As_RefGnrcPrntDualInp { get; }
 }
 
 public interface ItestRefGnrcPrntDualInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntDualInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntDualInpObject AsAltGnrcPrntDualInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntDualInpObject? As_AltGnrcPrntDualInp { get; }
 }
 
 public interface ItestAltGnrcPrntDualInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }

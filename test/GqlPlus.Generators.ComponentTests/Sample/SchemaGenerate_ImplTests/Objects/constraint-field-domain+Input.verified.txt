@@ -16,12 +16,37 @@ public class CmptCnstFieldDmnInp
   : CmptRefCnstFieldDmnInp<ICmptDomCnstFieldDmnInp>
   , ICmptCnstFieldDmnInp
 {
+  public ICmptCnstFieldDmnInpObject? As_CnstFieldDmnInp { get; set; }
+}
+
+public class CmptCnstFieldDmnInpObject
+  : CmptRefCnstFieldDmnInpObject<ICmptDomCnstFieldDmnInp>
+  , ICmptCnstFieldDmnInpObject
+{
+
+  public CmptCnstFieldDmnInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class CmptRefCnstFieldDmnInp<TRef>
-  : ICmptRefCnstFieldDmnInp<TRef>
+  : Schema_constraint-field-domain+Input
+  , ICmptRefCnstFieldDmnInp<TRef>
+{
+  public ICmptRefCnstFieldDmnInpObject<TRef>? As_RefCnstFieldDmnInp { get; set; }
+}
+
+public class CmptRefCnstFieldDmnInpObject<TRef>
+  : Schema_constraint-field-domain+Input
+  , ICmptRefCnstFieldDmnInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public CmptRefCnstFieldDmnInpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptDomCnstFieldDmnInp

@@ -8,13 +8,40 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Input;
 
 public class testFieldDualInp
-  : ItestFieldDualInp
+  : GqlpModelImplementationBase
+  , ItestFieldDualInp
+{
+  public ItestFieldDualInpObject? As_FieldDualInp { get; set; }
+}
+
+public class testFieldDualInpObject
+  : GqlpModelImplementationBase
+  , ItestFieldDualInpObject
 {
   public ItestFldFieldDualInp Field { get; set; }
+
+  public testFieldDualInpObject(ItestFldFieldDualInp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldFieldDualInp
-  : ItestFldFieldDualInp
+  : GqlpModelImplementationBase
+  , ItestFldFieldDualInp
+{
+  public string? AsString { get; set; }
+  public ItestFldFieldDualInpObject? As_FldFieldDualInp { get; set; }
+}
+
+public class testFldFieldDualInpObject
+  : GqlpModelImplementationBase
+  , ItestFldFieldDualInpObject
 {
   public decimal Field { get; set; }
+
+  public testFldFieldDualInpObject(decimal field)
+  {
+    Field = field;
+  }
 }

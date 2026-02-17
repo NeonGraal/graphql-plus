@@ -12,6 +12,18 @@ input ObjAliasInp [Input2] { }
 namespace Components.Gqlp_Schema_object_alias_Input;
 
 public class CmptObjAliasInp
-  : ICmptObjAliasInp
+  : Schema_object-alias+Input
+  , ICmptObjAliasInp
 {
+  public ICmptObjAliasInpObject? As_ObjAliasInp { get; set; }
+}
+
+public class CmptObjAliasInpObject
+  : Schema_object-alias+Input
+  , ICmptObjAliasInpObject
+{
+
+  public CmptObjAliasInpObject()
+  {
+  }
 }

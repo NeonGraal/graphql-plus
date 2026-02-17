@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_field_object_Output;
 public interface ICmptFieldObjOutp
   : Schema_field-object+Output
 {
-  ICmptFieldObjOutpObject AsFieldObjOutp { get; }
+  ICmptFieldObjOutpObject? As_FieldObjOutp { get; }
 }
 
 public interface ICmptFieldObjOutpObject
+  : Schema_field-object+Output
 {
   ICmptFldFieldObjOutp Field { get; }
 }
@@ -25,11 +26,12 @@ public interface ICmptFieldObjOutpObject
 public interface ICmptFldFieldObjOutp
   : Schema_field-object+Output
 {
-  string AsString { get; }
-  ICmptFldFieldObjOutpObject AsFldFieldObjOutp { get; }
+  string? AsString { get; }
+  ICmptFldFieldObjOutpObject? As_FldFieldObjOutp { get; }
 }
 
 public interface ICmptFldFieldObjOutpObject
+  : Schema_field-object+Output
 {
   decimal Field { get; }
 }

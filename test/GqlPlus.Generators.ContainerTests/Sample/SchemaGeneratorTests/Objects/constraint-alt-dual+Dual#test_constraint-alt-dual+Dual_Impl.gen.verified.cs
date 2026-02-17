@@ -8,23 +8,74 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_dual_Dual;
 
 public class testCnstAltDualDual
-  : ItestCnstAltDualDual
+  : GqlpModelImplementationBase
+  , ItestCnstAltDualDual
 {
+  public ItestRefCnstAltDualDual<ItestAltCnstAltDualDual>? AsRefCnstAltDualDual { get; set; }
+  public ItestCnstAltDualDualObject? As_CnstAltDualDual { get; set; }
+}
+
+public class testCnstAltDualDualObject
+  : GqlpModelImplementationBase
+  , ItestCnstAltDualDualObject
+{
+
+  public testCnstAltDualDualObject()
+  {
+  }
 }
 
 public class testRefCnstAltDualDual<TRef>
-  : ItestRefCnstAltDualDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDualDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefCnstAltDualDualObject<TRef>? As_RefCnstAltDualDual { get; set; }
+}
+
+public class testRefCnstAltDualDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltDualDualObject<TRef>
+{
+
+  public testRefCnstAltDualDualObject()
+  {
+  }
 }
 
 public class testPrntCnstAltDualDual
-  : ItestPrntCnstAltDualDual
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltDualDual
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstAltDualDualObject? As_PrntCnstAltDualDual { get; set; }
+}
+
+public class testPrntCnstAltDualDualObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltDualDualObject
+{
+
+  public testPrntCnstAltDualDualObject()
+  {
+  }
 }
 
 public class testAltCnstAltDualDual
   : testPrntCnstAltDualDual
   , ItestAltCnstAltDualDual
 {
+  public ItestAltCnstAltDualDualObject? As_AltCnstAltDualDual { get; set; }
+}
+
+public class testAltCnstAltDualDualObject
+  : testPrntCnstAltDualDualObject
+  , ItestAltCnstAltDualDualObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstAltDualDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

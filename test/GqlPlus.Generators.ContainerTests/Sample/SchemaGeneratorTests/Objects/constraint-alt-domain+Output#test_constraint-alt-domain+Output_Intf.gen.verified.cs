@@ -10,22 +10,24 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Output;
 public interface ItestCnstAltDmnOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltDmnOutp<ItestDomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; }
-  ItestCnstAltDmnOutpObject AsCnstAltDmnOutp { get; }
+  ItestRefCnstAltDmnOutp<ItestDomCnstAltDmnOutp>? AsRefCnstAltDmnOutp { get; }
+  ItestCnstAltDmnOutpObject? As_CnstAltDmnOutp { get; }
 }
 
 public interface ItestCnstAltDmnOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltDmnOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltDmnOutpObject<TRef> AsRefCnstAltDmnOutp { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltDmnOutpObject<TRef>? As_RefCnstAltDmnOutp { get; }
 }
 
 public interface ItestRefCnstAltDmnOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 

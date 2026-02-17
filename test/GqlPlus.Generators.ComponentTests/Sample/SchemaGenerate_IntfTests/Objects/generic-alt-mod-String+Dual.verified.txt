@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_generic_alt_mod_String_Dual;
 public interface ICmptRefGnrcAltModStrDual<TRef>
   : Schema_generic-alt-mod-String+Dual
 {
-  IDictionary<string, TRef> Asref { get; }
-  ICmptRefGnrcAltModStrDualObject<TRef> AsRefGnrcAltModStrDual { get; }
+  IDictionary<string, TRef>? Asref { get; }
+  ICmptRefGnrcAltModStrDualObject<TRef>? As_RefGnrcAltModStrDual { get; }
 }
 
 public interface ICmptRefGnrcAltModStrDualObject<TRef>
+  : Schema_generic-alt-mod-String+Dual
 {
 }

@@ -15,20 +15,22 @@ namespace Components.Gqlp_Schema_object_alt_Input;
 public interface ICmptObjAltInp
   : Schema_object-alt+Input
 {
-  ICmptObjAltInpType AsObjAltInpType { get; }
-  ICmptObjAltInpObject AsObjAltInp { get; }
+  ICmptObjAltInpType? AsObjAltInpType { get; }
+  ICmptObjAltInpObject? As_ObjAltInp { get; }
 }
 
 public interface ICmptObjAltInpObject
+  : Schema_object-alt+Input
 {
 }
 
 public interface ICmptObjAltInpType
   : Schema_object-alt+Input
 {
-  ICmptObjAltInpTypeObject AsObjAltInpType { get; }
+  ICmptObjAltInpTypeObject? As_ObjAltInpType { get; }
 }
 
 public interface ICmptObjAltInpTypeObject
+  : Schema_object-alt+Input
 {
 }

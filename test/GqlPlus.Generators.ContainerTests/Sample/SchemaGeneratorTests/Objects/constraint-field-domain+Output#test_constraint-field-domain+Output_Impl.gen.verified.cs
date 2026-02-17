@@ -11,12 +11,37 @@ public class testCnstFieldDmnOutp
   : testRefCnstFieldDmnOutp<ItestDomCnstFieldDmnOutp>
   , ItestCnstFieldDmnOutp
 {
+  public ItestCnstFieldDmnOutpObject? As_CnstFieldDmnOutp { get; set; }
+}
+
+public class testCnstFieldDmnOutpObject
+  : testRefCnstFieldDmnOutpObject<ItestDomCnstFieldDmnOutp>
+  , ItestCnstFieldDmnOutpObject
+{
+
+  public testCnstFieldDmnOutpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldDmnOutp<TRef>
-  : ItestRefCnstFieldDmnOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDmnOutp<TRef>
+{
+  public ItestRefCnstFieldDmnOutpObject<TRef>? As_RefCnstFieldDmnOutp { get; set; }
+}
+
+public class testRefCnstFieldDmnOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldDmnOutpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldDmnOutpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testDomCnstFieldDmnOutp

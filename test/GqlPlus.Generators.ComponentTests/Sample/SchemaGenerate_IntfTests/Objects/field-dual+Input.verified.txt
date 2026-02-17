@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_field_dual_Input;
 public interface ICmptFieldDualInp
   : Schema_field-dual+Input
 {
-  ICmptFieldDualInpObject AsFieldDualInp { get; }
+  ICmptFieldDualInpObject? As_FieldDualInp { get; }
 }
 
 public interface ICmptFieldDualInpObject
+  : Schema_field-dual+Input
 {
   ICmptFldFieldDualInp Field { get; }
 }
@@ -25,11 +26,12 @@ public interface ICmptFieldDualInpObject
 public interface ICmptFldFieldDualInp
   : Schema_field-dual+Input
 {
-  string AsString { get; }
-  ICmptFldFieldDualInpObject AsFldFieldDualInp { get; }
+  string? AsString { get; }
+  ICmptFldFieldDualInpObject? As_FldFieldDualInp { get; }
 }
 
 public interface ICmptFldFieldDualInpObject
+  : Schema_field-dual+Input
 {
   decimal Field { get; }
 }

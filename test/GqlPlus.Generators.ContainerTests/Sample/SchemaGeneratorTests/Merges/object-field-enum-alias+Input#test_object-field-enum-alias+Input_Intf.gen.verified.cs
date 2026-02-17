@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_alias_Input;
 public interface ItestObjFieldEnumAliasInp
   : IGqlpModelImplementationBase
 {
-  ItestObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; }
+  ItestObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; }
 }
 
 public interface ItestObjFieldEnumAliasInpObject
+  : IGqlpModelImplementationBase
 {
   bool Field { get; }
 }

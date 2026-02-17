@@ -15,9 +15,33 @@ public class CmptGnrcPrntArgOutp<TType>
   : CmptRefGnrcPrntArgOutp<TType>
   , ICmptGnrcPrntArgOutp<TType>
 {
+  public ICmptGnrcPrntArgOutpObject<TType>? As_GnrcPrntArgOutp { get; set; }
+}
+
+public class CmptGnrcPrntArgOutpObject<TType>
+  : CmptRefGnrcPrntArgOutpObject<TType>
+  , ICmptGnrcPrntArgOutpObject<TType>
+{
+
+  public CmptGnrcPrntArgOutpObject()
+  {
+  }
 }
 
 public class CmptRefGnrcPrntArgOutp<TRef>
-  : ICmptRefGnrcPrntArgOutp<TRef>
+  : Schema_generic-parent-arg+Output
+  , ICmptRefGnrcPrntArgOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ICmptRefGnrcPrntArgOutpObject<TRef>? As_RefGnrcPrntArgOutp { get; set; }
+}
+
+public class CmptRefGnrcPrntArgOutpObject<TRef>
+  : Schema_generic-parent-arg+Output
+  , ICmptRefGnrcPrntArgOutpObject<TRef>
+{
+
+  public CmptRefGnrcPrntArgOutpObject()
+  {
+  }
 }

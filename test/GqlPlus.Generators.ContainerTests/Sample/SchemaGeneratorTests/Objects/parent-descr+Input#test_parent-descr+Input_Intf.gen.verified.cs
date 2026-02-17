@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_descr_Input;
 public interface ItestPrntDescrInp
   : ItestRefPrntDescrInp
 {
-  ItestPrntDescrInpObject AsPrntDescrInp { get; }
+  ItestPrntDescrInpObject? As_PrntDescrInp { get; }
 }
 
 public interface ItestPrntDescrInpObject
@@ -21,11 +21,12 @@ public interface ItestPrntDescrInpObject
 public interface ItestRefPrntDescrInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntDescrInpObject AsRefPrntDescrInp { get; }
+  string? AsString { get; }
+  ItestRefPrntDescrInpObject? As_RefPrntDescrInp { get; }
 }
 
 public interface ItestRefPrntDescrInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }

@@ -16,21 +16,23 @@ namespace Components.Gqlp_Schema_constraint_parent_enum_Dual;
 public interface ICmptCnstPrntEnumDual
   : Schema_constraint-parent-enum+Dual
 {
-  ICmptRefCnstPrntEnumDual<CmptParentCnstPrntEnumDual> AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; }
-  ICmptCnstPrntEnumDualObject AsCnstPrntEnumDual { get; }
+  ICmptRefCnstPrntEnumDual<CmptParentCnstPrntEnumDual>? AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; }
+  ICmptCnstPrntEnumDualObject? As_CnstPrntEnumDual { get; }
 }
 
 public interface ICmptCnstPrntEnumDualObject
+  : Schema_constraint-parent-enum+Dual
 {
 }
 
 public interface ICmptRefCnstPrntEnumDual<TType>
   : Schema_constraint-parent-enum+Dual
 {
-  ICmptRefCnstPrntEnumDualObject<TType> AsRefCnstPrntEnumDual { get; }
+  ICmptRefCnstPrntEnumDualObject<TType>? As_RefCnstPrntEnumDual { get; }
 }
 
 public interface ICmptRefCnstPrntEnumDualObject<TType>
+  : Schema_constraint-parent-enum+Dual
 {
   TType Field { get; }
 }

@@ -16,12 +16,37 @@ public class CmptGnrcPrntStrDomOutp
   : CmptFieldGnrcPrntStrDomOutp<ICmptDomGnrcPrntStrDomOutp>
   , ICmptGnrcPrntStrDomOutp
 {
+  public ICmptGnrcPrntStrDomOutpObject? As_GnrcPrntStrDomOutp { get; set; }
+}
+
+public class CmptGnrcPrntStrDomOutpObject
+  : CmptFieldGnrcPrntStrDomOutpObject<ICmptDomGnrcPrntStrDomOutp>
+  , ICmptGnrcPrntStrDomOutpObject
+{
+
+  public CmptGnrcPrntStrDomOutpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class CmptFieldGnrcPrntStrDomOutp<TRef>
-  : ICmptFieldGnrcPrntStrDomOutp<TRef>
+  : Schema_generic-parent-string-dom+Output
+  , ICmptFieldGnrcPrntStrDomOutp<TRef>
+{
+  public ICmptFieldGnrcPrntStrDomOutpObject<TRef>? As_FieldGnrcPrntStrDomOutp { get; set; }
+}
+
+public class CmptFieldGnrcPrntStrDomOutpObject<TRef>
+  : Schema_generic-parent-string-dom+Output
+  , ICmptFieldGnrcPrntStrDomOutpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public CmptFieldGnrcPrntStrDomOutpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptDomGnrcPrntStrDomOutp

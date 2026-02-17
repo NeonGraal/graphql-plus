@@ -14,9 +14,10 @@ namespace Components.Gqlp_Schema_object_Input;
 public interface ICmptObjInp
   : Schema_object+Input
 {
-  ICmptObjInpObject AsObjInp { get; }
+  ICmptObjInpObject? As_ObjInp { get; }
 }
 
 public interface ICmptObjInpObject
+  : Schema_object+Input
 {
 }

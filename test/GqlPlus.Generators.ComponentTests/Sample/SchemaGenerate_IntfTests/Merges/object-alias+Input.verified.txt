@@ -14,9 +14,10 @@ namespace Components.Gqlp_Schema_object_alias_Input;
 public interface ICmptObjAliasInp
   : Schema_object-alias+Input
 {
-  ICmptObjAliasInpObject AsObjAliasInp { get; }
+  ICmptObjAliasInpObject? As_ObjAliasInp { get; }
 }
 
 public interface ICmptObjAliasInpObject
+  : Schema_object-alias+Input
 {
 }

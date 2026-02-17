@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Dual;
 public interface ItestCnstFieldDmnDual
   : ItestRefCnstFieldDmnDual<ItestDomCnstFieldDmnDual>
 {
-  ItestCnstFieldDmnDualObject AsCnstFieldDmnDual { get; }
+  ItestCnstFieldDmnDualObject? As_CnstFieldDmnDual { get; }
 }
 
 public interface ItestCnstFieldDmnDualObject
@@ -21,10 +21,11 @@ public interface ItestCnstFieldDmnDualObject
 public interface ItestRefCnstFieldDmnDual<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldDmnDualObject<TRef> AsRefCnstFieldDmnDual { get; }
+  ItestRefCnstFieldDmnDualObject<TRef>? As_RefCnstFieldDmnDual { get; }
 }
 
 public interface ItestRefCnstFieldDmnDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }

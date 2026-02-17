@@ -15,10 +15,37 @@ public class CmptPrntAltDual
   : CmptRefPrntAltDual
   , ICmptPrntAltDual
 {
+  public decimal? AsNumber { get; set; }
+  public ICmptPrntAltDualObject? As_PrntAltDual { get; set; }
+}
+
+public class CmptPrntAltDualObject
+  : CmptRefPrntAltDualObject
+  , ICmptPrntAltDualObject
+{
+
+  public CmptPrntAltDualObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class CmptRefPrntAltDual
-  : ICmptRefPrntAltDual
+  : Schema_parent-alt+Dual
+  , ICmptRefPrntAltDual
+{
+  public string? AsString { get; set; }
+  public ICmptRefPrntAltDualObject? As_RefPrntAltDual { get; set; }
+}
+
+public class CmptRefPrntAltDualObject
+  : Schema_parent-alt+Dual
+  , ICmptRefPrntAltDualObject
 {
   public decimal Parent { get; set; }
+
+  public CmptRefPrntAltDualObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }

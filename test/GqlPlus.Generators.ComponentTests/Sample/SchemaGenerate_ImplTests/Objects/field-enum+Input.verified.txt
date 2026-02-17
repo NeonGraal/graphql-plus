@@ -12,7 +12,20 @@ enum EnumFieldEnumInp { fieldEnumInp }
 namespace Components.Gqlp_Schema_field_enum_Input;
 
 public class CmptFieldEnumInp
-  : ICmptFieldEnumInp
+  : Schema_field-enum+Input
+  , ICmptFieldEnumInp
+{
+  public ICmptFieldEnumInpObject? As_FieldEnumInp { get; set; }
+}
+
+public class CmptFieldEnumInpObject
+  : Schema_field-enum+Input
+  , ICmptFieldEnumInpObject
 {
   public CmptEnumFieldEnumInp Field { get; set; }
+
+  public CmptFieldEnumInpObject(CmptEnumFieldEnumInp field)
+  {
+    Field = field;
+  }
 }

@@ -15,7 +15,7 @@ namespace Components.Gqlp_Schema_object_parent_Output;
 public interface ICmptObjPrntOutp
   : ICmptRefObjPrntOutp
 {
-  ICmptObjPrntOutpObject AsObjPrntOutp { get; }
+  ICmptObjPrntOutpObject? As_ObjPrntOutp { get; }
 }
 
 public interface ICmptObjPrntOutpObject
@@ -26,9 +26,10 @@ public interface ICmptObjPrntOutpObject
 public interface ICmptRefObjPrntOutp
   : Schema_object-parent+Output
 {
-  ICmptRefObjPrntOutpObject AsRefObjPrntOutp { get; }
+  ICmptRefObjPrntOutpObject? As_RefObjPrntOutp { get; }
 }
 
 public interface ICmptRefObjPrntOutpObject
+  : Schema_object-parent+Output
 {
 }

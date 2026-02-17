@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_double;
 public interface ItestDescrDbl
   : IGqlpModelImplementationBase
 {
-  ItestDescrDblObject AsDescrDbl { get; }
+  ItestDescrDblObject? As_DescrDbl { get; }
 }
 
 public interface ItestDescrDblObject
+  : IGqlpModelImplementationBase
 {
 }

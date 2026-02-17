@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_enum_parent_Output;
 public interface ItestFieldEnumPrntOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldEnumPrntOutpObject AsFieldEnumPrntOutp { get; }
+  ItestFieldEnumPrntOutpObject? As_FieldEnumPrntOutp { get; }
 }
 
 public interface ItestFieldEnumPrntOutpObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldEnumPrntOutp Field { get; }
 }

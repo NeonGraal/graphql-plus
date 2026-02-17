@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_Output;
 public interface ItestObjOutp
   : IGqlpModelImplementationBase
 {
-  ItestObjOutpObject AsObjOutp { get; }
+  ItestObjOutpObject? As_ObjOutp { get; }
 }
 
 public interface ItestObjOutpObject
+  : IGqlpModelImplementationBase
 {
 }

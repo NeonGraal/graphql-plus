@@ -8,6 +8,18 @@
 namespace GqlPlus.GeneratorTests.Gqlp_category_descrs;
 
 public class testCtgrDscrs
-  : ItestCtgrDscrs
+  : GqlpModelImplementationBase
+  , ItestCtgrDscrs
 {
+  public ItestCtgrDscrsObject? As_CtgrDscrs { get; set; }
+}
+
+public class testCtgrDscrsObject
+  : GqlpModelImplementationBase
+  , ItestCtgrDscrsObject
+{
+
+  public testCtgrDscrsObject()
+  {
+  }
 }

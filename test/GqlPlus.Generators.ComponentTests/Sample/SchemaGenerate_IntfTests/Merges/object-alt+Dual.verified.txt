@@ -15,20 +15,22 @@ namespace Components.Gqlp_Schema_object_alt_Dual;
 public interface ICmptObjAltDual
   : Schema_object-alt+Dual
 {
-  ICmptObjAltDualType AsObjAltDualType { get; }
-  ICmptObjAltDualObject AsObjAltDual { get; }
+  ICmptObjAltDualType? AsObjAltDualType { get; }
+  ICmptObjAltDualObject? As_ObjAltDual { get; }
 }
 
 public interface ICmptObjAltDualObject
+  : Schema_object-alt+Dual
 {
 }
 
 public interface ICmptObjAltDualType
   : Schema_object-alt+Dual
 {
-  ICmptObjAltDualTypeObject AsObjAltDualType { get; }
+  ICmptObjAltDualTypeObject? As_ObjAltDualType { get; }
 }
 
 public interface ICmptObjAltDualTypeObject
+  : Schema_object-alt+Dual
 {
 }

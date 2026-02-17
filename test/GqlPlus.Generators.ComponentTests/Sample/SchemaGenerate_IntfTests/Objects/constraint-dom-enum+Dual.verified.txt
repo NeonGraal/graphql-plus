@@ -16,21 +16,23 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 public interface ICmptCnstDomEnumDual
   : Schema_constraint-dom-enum+Dual
 {
-  ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual> AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
-  ICmptCnstDomEnumDualObject AsCnstDomEnumDual { get; }
+  ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
+  ICmptCnstDomEnumDualObject? As_CnstDomEnumDual { get; }
 }
 
 public interface ICmptCnstDomEnumDualObject
+  : Schema_constraint-dom-enum+Dual
 {
 }
 
 public interface ICmptRefCnstDomEnumDual<TType>
   : Schema_constraint-dom-enum+Dual
 {
-  ICmptRefCnstDomEnumDualObject<TType> AsRefCnstDomEnumDual { get; }
+  ICmptRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; }
 }
 
 public interface ICmptRefCnstDomEnumDualObject<TType>
+  : Schema_constraint-dom-enum+Dual
 {
   TType Field { get; }
 }

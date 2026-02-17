@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_parent_param_same_Dual;
 public interface ICmptPrntParamSameDual<TA>
   : ICmptRefPrntParamSameDual<TA>
 {
-  ICmptPrntParamSameDualObject<TA> AsPrntParamSameDual { get; }
+  ICmptPrntParamSameDualObject<TA>? As_PrntParamSameDual { get; }
 }
 
 public interface ICmptPrntParamSameDualObject<TA>
@@ -26,10 +26,11 @@ public interface ICmptPrntParamSameDualObject<TA>
 public interface ICmptRefPrntParamSameDual<TA>
   : Schema_parent-param-same+Dual
 {
-  TA Asa { get; }
-  ICmptRefPrntParamSameDualObject<TA> AsRefPrntParamSameDual { get; }
+  TA? Asa { get; }
+  ICmptRefPrntParamSameDualObject<TA>? As_RefPrntParamSameDual { get; }
 }
 
 public interface ICmptRefPrntParamSameDualObject<TA>
+  : Schema_parent-param-same+Dual
 {
 }

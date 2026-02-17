@@ -12,6 +12,18 @@ output CtgrOutpDict { }
 namespace Components.Gqlp_Schema_category_output_dict;
 
 public class CmptCtgrOutpDict
-  : ICmptCtgrOutpDict
+  : Schema_category-output-dict
+  , ICmptCtgrOutpDict
 {
+  public ICmptCtgrOutpDictObject? As_CtgrOutpDict { get; set; }
+}
+
+public class CmptCtgrOutpDictObject
+  : Schema_category-output-dict
+  , ICmptCtgrOutpDictObject
+{
+
+  public CmptCtgrOutpDictObject()
+  {
+  }
 }

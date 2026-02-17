@@ -10,39 +10,43 @@ namespace GqlPlus.GeneratorTests.Gqlp_default;
 public interface ItestQuery
   : IGqlpModelImplementationBase
 {
-  ItestQueryObject AsQuery { get; }
+  ItestQueryObject? As_Query { get; }
 }
 
 public interface ItestQueryObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestMutation
   : IGqlpModelImplementationBase
 {
-  ItestMutationObject AsMutation { get; }
+  ItestMutationObject? As_Mutation { get; }
 }
 
 public interface ItestMutationObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestSubscription
   : IGqlpModelImplementationBase
 {
-  ItestSubscriptionObject AsSubscription { get; }
+  ItestSubscriptionObject? As_Subscription { get; }
 }
 
 public interface ItestSubscriptionObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface Itest_Schema
   : IGqlpModelImplementationBase
 {
-  Itest_SchemaObject As_Schema { get; }
+  Itest_SchemaObject? As__Schema { get; }
 }
 
 public interface Itest_SchemaObject
+  : IGqlpModelImplementationBase
 {
 }

@@ -12,7 +12,20 @@ input ObjFieldTypeAliasInp { field: String }
 namespace Components.Gqlp_Schema_object_field_type_alias_Input;
 
 public class CmptObjFieldTypeAliasInp
-  : ICmptObjFieldTypeAliasInp
+  : Schema_object-field-type-alias+Input
+  , ICmptObjFieldTypeAliasInp
+{
+  public ICmptObjFieldTypeAliasInpObject? As_ObjFieldTypeAliasInp { get; set; }
+}
+
+public class CmptObjFieldTypeAliasInpObject
+  : Schema_object-field-type-alias+Input
+  , ICmptObjFieldTypeAliasInpObject
 {
   public string Field { get; set; }
+
+  public CmptObjFieldTypeAliasInpObject(string field)
+  {
+    Field = field;
+  }
 }

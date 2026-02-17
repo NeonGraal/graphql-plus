@@ -58,16 +58,16 @@ namespace Components.Gqlp_Spec_Schema;
 public interface ICmpt_Schema
   : ICmpt_Named
 {
-  ICmpt_SchemaObject As_Schema { get; }
+  ICmpt_SchemaObject? As__Schema { get; }
 }
 
 public interface ICmpt_SchemaObject
   : ICmpt_NamedObject
 {
-  IDictionary<ICmpt_Name, ICmpt_Categories> Categories (ICmpt_CategoryFilter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Directives> Directives (ICmpt_Filter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Type> Types (ICmpt_TypeFilter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Setting> Settings (ICmpt_Filter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter);
 }
 
 public interface ICmpt_Name
@@ -78,11 +78,12 @@ public interface ICmpt_Name
 public interface ICmpt_Filter
   : Spec_-Schema
 {
-  ICollection<ICmpt_NameFilter> As_NameFilter { get; }
-  ICmpt_FilterObject As_Filter { get; }
+  ICollection<ICmpt_NameFilter>? As_NameFilter { get; }
+  ICmpt_FilterObject? As__Filter { get; }
 }
 
 public interface ICmpt_FilterObject
+  : Spec_-Schema
 {
   ICollection<ICmpt_NameFilter> Names { get; }
   bool? MatchAliases { get; }
@@ -99,7 +100,7 @@ public interface ICmpt_NameFilter
 public interface ICmpt_CategoryFilter
   : ICmpt_Filter
 {
-  ICmpt_CategoryFilterObject As_CategoryFilter { get; }
+  ICmpt_CategoryFilterObject? As__CategoryFilter { get; }
 }
 
 public interface ICmpt_CategoryFilterObject
@@ -111,7 +112,7 @@ public interface ICmpt_CategoryFilterObject
 public interface ICmpt_TypeFilter
   : ICmpt_Filter
 {
-  ICmpt_TypeFilterObject As_TypeFilter { get; }
+  ICmpt_TypeFilterObject? As__TypeFilter { get; }
 }
 
 public interface ICmpt_TypeFilterObject
@@ -123,7 +124,7 @@ public interface ICmpt_TypeFilterObject
 public interface ICmpt_Aliased
   : ICmpt_Named
 {
-  ICmpt_AliasedObject As_Aliased { get; }
+  ICmpt_AliasedObject? As__Aliased { get; }
 }
 
 public interface ICmpt_AliasedObject
@@ -135,7 +136,7 @@ public interface ICmpt_AliasedObject
 public interface ICmpt_Named
   : ICmpt_Described
 {
-  ICmpt_NamedObject As_Named { get; }
+  ICmpt_NamedObject? As__Named { get; }
 }
 
 public interface ICmpt_NamedObject
@@ -147,10 +148,11 @@ public interface ICmpt_NamedObject
 public interface ICmpt_Described
   : Spec_-Schema
 {
-  ICmpt_DescribedObject As_Described { get; }
+  ICmpt_DescribedObject? As__Described { get; }
 }
 
 public interface ICmpt_DescribedObject
+  : Spec_-Schema
 {
   ICollection<string> Description { get; }
 }

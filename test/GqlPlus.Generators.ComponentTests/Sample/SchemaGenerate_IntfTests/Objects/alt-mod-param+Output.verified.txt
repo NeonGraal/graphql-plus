@@ -14,22 +14,24 @@ namespace Components.Gqlp_Schema_alt_mod_param_Output;
 public interface ICmptAltModParamOutp<TMod>
   : Schema_alt-mod-param+Output
 {
-  IDictionary<TMod, ICmptAltAltModParamOutp> AsAltAltModParamOutp { get; }
-  ICmptAltModParamOutpObject<TMod> AsAltModParamOutp { get; }
+  IDictionary<TMod, ICmptAltAltModParamOutp>? AsAltAltModParamOutp { get; }
+  ICmptAltModParamOutpObject<TMod>? As_AltModParamOutp { get; }
 }
 
 public interface ICmptAltModParamOutpObject<TMod>
+  : Schema_alt-mod-param+Output
 {
 }
 
 public interface ICmptAltAltModParamOutp
   : Schema_alt-mod-param+Output
 {
-  string AsString { get; }
-  ICmptAltAltModParamOutpObject AsAltAltModParamOutp { get; }
+  string? AsString { get; }
+  ICmptAltAltModParamOutpObject? As_AltAltModParamOutp { get; }
 }
 
 public interface ICmptAltAltModParamOutpObject
+  : Schema_alt-mod-param+Output
 {
   decimal Alt { get; }
 }

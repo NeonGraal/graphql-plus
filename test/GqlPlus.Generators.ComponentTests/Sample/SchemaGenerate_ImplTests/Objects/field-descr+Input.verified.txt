@@ -11,7 +11,20 @@ input FieldDescrInp { "Test" "Descr" field: String }
 namespace Components.Gqlp_Schema_field_descr_Input;
 
 public class CmptFieldDescrInp
-  : ICmptFieldDescrInp
+  : Schema_field-descr+Input
+  , ICmptFieldDescrInp
+{
+  public ICmptFieldDescrInpObject? As_FieldDescrInp { get; set; }
+}
+
+public class CmptFieldDescrInpObject
+  : Schema_field-descr+Input
+  , ICmptFieldDescrInpObject
 {
   public string Field { get; set; }
+
+  public CmptFieldDescrInpObject(string field)
+  {
+    Field = field;
+  }
 }

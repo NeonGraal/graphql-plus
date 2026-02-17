@@ -14,8 +14,8 @@ namespace Components.Gqlp_Schema_parent_alt_Input;
 public interface ICmptPrntAltInp
   : ICmptRefPrntAltInp
 {
-  decimal AsNumber { get; }
-  ICmptPrntAltInpObject AsPrntAltInp { get; }
+  decimal? AsNumber { get; }
+  ICmptPrntAltInpObject? As_PrntAltInp { get; }
 }
 
 public interface ICmptPrntAltInpObject
@@ -26,11 +26,12 @@ public interface ICmptPrntAltInpObject
 public interface ICmptRefPrntAltInp
   : Schema_parent-alt+Input
 {
-  string AsString { get; }
-  ICmptRefPrntAltInpObject AsRefPrntAltInp { get; }
+  string? AsString { get; }
+  ICmptRefPrntAltInpObject? As_RefPrntAltInp { get; }
 }
 
 public interface ICmptRefPrntAltInpObject
+  : Schema_parent-alt+Input
 {
   decimal Parent { get; }
 }

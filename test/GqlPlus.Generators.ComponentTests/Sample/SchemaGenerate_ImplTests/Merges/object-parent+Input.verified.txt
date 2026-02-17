@@ -16,9 +16,32 @@ public class CmptObjPrntInp
   : CmptRefObjPrntInp
   , ICmptObjPrntInp
 {
+  public ICmptObjPrntInpObject? As_ObjPrntInp { get; set; }
+}
+
+public class CmptObjPrntInpObject
+  : CmptRefObjPrntInpObject
+  , ICmptObjPrntInpObject
+{
+
+  public CmptObjPrntInpObject()
+  {
+  }
 }
 
 public class CmptRefObjPrntInp
-  : ICmptRefObjPrntInp
+  : Schema_object-parent+Input
+  , ICmptRefObjPrntInp
 {
+  public ICmptRefObjPrntInpObject? As_RefObjPrntInp { get; set; }
+}
+
+public class CmptRefObjPrntInpObject
+  : Schema_object-parent+Input
+  , ICmptRefObjPrntInpObject
+{
+
+  public CmptRefObjPrntInpObject()
+  {
+  }
 }

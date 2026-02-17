@@ -13,12 +13,38 @@ enum EnumCnstEnumInp { cnstEnumInp }
 namespace Components.Gqlp_Schema_constraint_enum_Input;
 
 public class CmptCnstEnumInp
-  : ICmptCnstEnumInp
+  : Schema_constraint-enum+Input
+  , ICmptCnstEnumInp
 {
+  public ICmptRefCnstEnumInp<CmptEnumCnstEnumInp>? AsEnumCnstEnumInpcnstEnumInp { get; set; }
+  public ICmptCnstEnumInpObject? As_CnstEnumInp { get; set; }
+}
+
+public class CmptCnstEnumInpObject
+  : Schema_constraint-enum+Input
+  , ICmptCnstEnumInpObject
+{
+
+  public CmptCnstEnumInpObject()
+  {
+  }
 }
 
 public class CmptRefCnstEnumInp<TType>
-  : ICmptRefCnstEnumInp<TType>
+  : Schema_constraint-enum+Input
+  , ICmptRefCnstEnumInp<TType>
+{
+  public ICmptRefCnstEnumInpObject<TType>? As_RefCnstEnumInp { get; set; }
+}
+
+public class CmptRefCnstEnumInpObject<TType>
+  : Schema_constraint-enum+Input
+  , ICmptRefCnstEnumInpObject<TType>
 {
   public TType Field { get; set; }
+
+  public CmptRefCnstEnumInpObject(TType field)
+  {
+    Field = field;
+  }
 }

@@ -8,6 +8,18 @@
 namespace GqlPlus.GeneratorTests.Gqlp_descr_single;
 
 public class testDescrSngl
-  : ItestDescrSngl
+  : GqlpModelImplementationBase
+  , ItestDescrSngl
 {
+  public ItestDescrSnglObject? As_DescrSngl { get; set; }
+}
+
+public class testDescrSnglObject
+  : GqlpModelImplementationBase
+  , ItestDescrSnglObject
+{
+
+  public testDescrSnglObject()
+  {
+  }
 }

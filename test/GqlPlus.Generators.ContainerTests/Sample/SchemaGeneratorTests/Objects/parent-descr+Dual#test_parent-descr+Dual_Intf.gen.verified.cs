@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_descr_Dual;
 public interface ItestPrntDescrDual
   : ItestRefPrntDescrDual
 {
-  ItestPrntDescrDualObject AsPrntDescrDual { get; }
+  ItestPrntDescrDualObject? As_PrntDescrDual { get; }
 }
 
 public interface ItestPrntDescrDualObject
@@ -21,11 +21,12 @@ public interface ItestPrntDescrDualObject
 public interface ItestRefPrntDescrDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntDescrDualObject AsRefPrntDescrDual { get; }
+  string? AsString { get; }
+  ItestRefPrntDescrDualObject? As_RefPrntDescrDual { get; }
 }
 
 public interface ItestRefPrntDescrDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }

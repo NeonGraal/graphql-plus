@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_input_field_null;
 public interface ItestInpFieldNull
   : IGqlpModelImplementationBase
 {
-  ItestInpFieldNullObject AsInpFieldNull { get; }
+  ItestInpFieldNullObject? As_InpFieldNull { get; }
 }
 
 public interface ItestInpFieldNullObject
+  : IGqlpModelImplementationBase
 {
   ItestFldInpFieldNull? Field { get; }
 }
@@ -21,9 +22,10 @@ public interface ItestInpFieldNullObject
 public interface ItestFldInpFieldNull
   : IGqlpModelImplementationBase
 {
-  ItestFldInpFieldNullObject AsFldInpFieldNull { get; }
+  ItestFldInpFieldNullObject? As_FldInpFieldNull { get; }
 }
 
 public interface ItestFldInpFieldNullObject
+  : IGqlpModelImplementationBase
 {
 }

@@ -10,8 +10,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_alt_Output;
 public interface ItestPrntAltOutp
   : ItestRefPrntAltOutp
 {
-  decimal AsNumber { get; }
-  ItestPrntAltOutpObject AsPrntAltOutp { get; }
+  decimal? AsNumber { get; }
+  ItestPrntAltOutpObject? As_PrntAltOutp { get; }
 }
 
 public interface ItestPrntAltOutpObject
@@ -22,11 +22,12 @@ public interface ItestPrntAltOutpObject
 public interface ItestRefPrntAltOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntAltOutpObject AsRefPrntAltOutp { get; }
+  string? AsString { get; }
+  ItestRefPrntAltOutpObject? As_RefPrntAltOutp { get; }
 }
 
 public interface ItestRefPrntAltOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }

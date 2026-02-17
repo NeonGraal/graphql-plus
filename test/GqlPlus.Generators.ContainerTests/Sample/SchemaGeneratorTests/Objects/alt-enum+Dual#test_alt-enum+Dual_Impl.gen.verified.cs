@@ -8,6 +8,19 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Dual;
 
 public class testAltEnumDual
-  : ItestAltEnumDual
+  : GqlpModelImplementationBase
+  , ItestAltEnumDual
 {
+  public testEnumAltEnumDual? AsEnumAltEnumDualaltEnumDual { get; set; }
+  public ItestAltEnumDualObject? As_AltEnumDual { get; set; }
+}
+
+public class testAltEnumDualObject
+  : GqlpModelImplementationBase
+  , ItestAltEnumDualObject
+{
+
+  public testAltEnumDualObject()
+  {
+  }
 }

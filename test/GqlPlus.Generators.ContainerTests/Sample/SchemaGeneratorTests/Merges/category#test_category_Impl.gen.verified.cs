@@ -8,6 +8,18 @@
 namespace GqlPlus.GeneratorTests.Gqlp_category;
 
 public class testCtgr
-  : ItestCtgr
+  : GqlpModelImplementationBase
+  , ItestCtgr
 {
+  public ItestCtgrObject? As_Ctgr { get; set; }
+}
+
+public class testCtgrObject
+  : GqlpModelImplementationBase
+  , ItestCtgrObject
+{
+
+  public testCtgrObject()
+  {
+  }
 }

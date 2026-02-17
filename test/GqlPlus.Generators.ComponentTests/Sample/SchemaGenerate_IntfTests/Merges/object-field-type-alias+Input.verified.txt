@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_object_field_type_alias_Input;
 public interface ICmptObjFieldTypeAliasInp
   : Schema_object-field-type-alias+Input
 {
-  ICmptObjFieldTypeAliasInpObject AsObjFieldTypeAliasInp { get; }
+  ICmptObjFieldTypeAliasInpObject? As_ObjFieldTypeAliasInp { get; }
 }
 
 public interface ICmptObjFieldTypeAliasInpObject
+  : Schema_object-field-type-alias+Input
 {
   string Field { get; }
 }

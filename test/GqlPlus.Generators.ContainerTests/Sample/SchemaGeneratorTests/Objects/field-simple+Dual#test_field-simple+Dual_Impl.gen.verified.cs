@@ -8,7 +8,20 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Dual;
 
 public class testFieldSmplDual
-  : ItestFieldSmplDual
+  : GqlpModelImplementationBase
+  , ItestFieldSmplDual
+{
+  public ItestFieldSmplDualObject? As_FieldSmplDual { get; set; }
+}
+
+public class testFieldSmplDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldSmplDualObject
 {
   public decimal Field { get; set; }
+
+  public testFieldSmplDualObject(decimal field)
+  {
+    Field = field;
+  }
 }

@@ -10,21 +10,23 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Dual;
 public interface ItestCnstDomEnumDual
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual> AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
-  ItestCnstDomEnumDualObject AsCnstDomEnumDual { get; }
+  ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
+  ItestCnstDomEnumDualObject? As_CnstDomEnumDual { get; }
 }
 
 public interface ItestCnstDomEnumDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstDomEnumDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstDomEnumDualObject<TType> AsRefCnstDomEnumDual { get; }
+  ItestRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; }
 }
 
 public interface ItestRefCnstDomEnumDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }

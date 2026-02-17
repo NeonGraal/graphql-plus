@@ -11,10 +11,35 @@ public class testGnrcPrntEnumPrntDual
   : testFieldGnrcPrntEnumPrntDual<testEnumGnrcPrntEnumPrntDual>
   , ItestGnrcPrntEnumPrntDual
 {
+  public ItestGnrcPrntEnumPrntDualObject? As_GnrcPrntEnumPrntDual { get; set; }
+}
+
+public class testGnrcPrntEnumPrntDualObject
+  : testFieldGnrcPrntEnumPrntDualObject<testEnumGnrcPrntEnumPrntDual>
+  , ItestGnrcPrntEnumPrntDualObject
+{
+
+  public testGnrcPrntEnumPrntDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testFieldGnrcPrntEnumPrntDual<TRef>
-  : ItestFieldGnrcPrntEnumPrntDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumPrntDual<TRef>
+{
+  public ItestFieldGnrcPrntEnumPrntDualObject<TRef>? As_FieldGnrcPrntEnumPrntDual { get; set; }
+}
+
+public class testFieldGnrcPrntEnumPrntDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestFieldGnrcPrntEnumPrntDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testFieldGnrcPrntEnumPrntDualObject(TRef field)
+  {
+    Field = field;
+  }
 }

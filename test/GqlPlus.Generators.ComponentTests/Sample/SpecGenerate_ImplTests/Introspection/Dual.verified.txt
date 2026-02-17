@@ -16,4 +16,15 @@ public class Cmpt_DualField
   : Cmpt_ObjField<ICmpt_ObjFieldType>
   , ICmpt_DualField
 {
+  public ICmpt_DualFieldObject? As__DualField { get; set; }
+}
+
+public class Cmpt_DualFieldObject
+  : Cmpt_ObjFieldObject<ICmpt_ObjFieldType>
+  , ICmpt_DualFieldObject
+{
+
+  public Cmpt_DualFieldObject()
+  {
+  }
 }

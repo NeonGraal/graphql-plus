@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_input_field_Enum;
 public interface ICmptInpFieldEnum
   : Schema_input-field-Enum
 {
-  ICmptInpFieldEnumObject AsInpFieldEnum { get; }
+  ICmptInpFieldEnumObject? As_InpFieldEnum { get; }
 }
 
 public interface ICmptInpFieldEnumObject
+  : Schema_input-field-Enum
 {
   CmptEnumInpFieldEnum Field { get; }
 }

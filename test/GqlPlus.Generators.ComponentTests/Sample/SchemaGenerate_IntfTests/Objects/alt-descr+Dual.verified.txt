@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_alt_descr_Dual;
 public interface ICmptAltDescrDual
   : Schema_alt-descr+Dual
 {
-  string AsString { get; }
-  ICmptAltDescrDualObject AsAltDescrDual { get; }
+  string? AsString { get; }
+  ICmptAltDescrDualObject? As_AltDescrDual { get; }
 }
 
 public interface ICmptAltDescrDualObject
+  : Schema_alt-descr+Dual
 {
 }

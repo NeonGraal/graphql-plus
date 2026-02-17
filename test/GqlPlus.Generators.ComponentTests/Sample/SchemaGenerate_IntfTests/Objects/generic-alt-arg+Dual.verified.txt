@@ -14,21 +14,23 @@ namespace Components.Gqlp_Schema_generic_alt_arg_Dual;
 public interface ICmptGnrcAltArgDual<TType>
   : Schema_generic-alt-arg+Dual
 {
-  ICmptRefGnrcAltArgDual<TType> AsRefGnrcAltArgDual { get; }
-  ICmptGnrcAltArgDualObject<TType> AsGnrcAltArgDual { get; }
+  ICmptRefGnrcAltArgDual<TType>? AsRefGnrcAltArgDual { get; }
+  ICmptGnrcAltArgDualObject<TType>? As_GnrcAltArgDual { get; }
 }
 
 public interface ICmptGnrcAltArgDualObject<TType>
+  : Schema_generic-alt-arg+Dual
 {
 }
 
 public interface ICmptRefGnrcAltArgDual<TRef>
   : Schema_generic-alt-arg+Dual
 {
-  TRef Asref { get; }
-  ICmptRefGnrcAltArgDualObject<TRef> AsRefGnrcAltArgDual { get; }
+  TRef? Asref { get; }
+  ICmptRefGnrcAltArgDualObject<TRef>? As_RefGnrcAltArgDual { get; }
 }
 
 public interface ICmptRefGnrcAltArgDualObject<TRef>
+  : Schema_generic-alt-arg+Dual
 {
 }

@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Names;
 public interface Itest_Aliased
   : Itest_Named
 {
-  Itest_AliasedObject As_Aliased { get; }
+  Itest_AliasedObject? As__Aliased { get; }
 }
 
 public interface Itest_AliasedObject
@@ -22,7 +22,7 @@ public interface Itest_AliasedObject
 public interface Itest_Named
   : Itest_Described
 {
-  Itest_NamedObject As_Named { get; }
+  Itest_NamedObject? As__Named { get; }
 }
 
 public interface Itest_NamedObject
@@ -34,10 +34,11 @@ public interface Itest_NamedObject
 public interface Itest_Described
   : IGqlpModelImplementationBase
 {
-  Itest_DescribedObject As_Described { get; }
+  Itest_DescribedObject? As__Described { get; }
 }
 
 public interface Itest_DescribedObject
+  : IGqlpModelImplementationBase
 {
   ICollection<string> Description { get; }
 }
@@ -45,8 +46,8 @@ public interface Itest_DescribedObject
 public interface Itest_AndType
   : Itest_Named
 {
-  Itest_Type As_Type { get; }
-  Itest_AndTypeObject As_AndType { get; }
+  Itest_Type? As_Type { get; }
+  Itest_AndTypeObject? As__AndType { get; }
 }
 
 public interface Itest_AndTypeObject

@@ -13,6 +13,18 @@ output Ctgr { }
 namespace Components.Gqlp_Schema_category;
 
 public class CmptCtgr
-  : ICmptCtgr
+  : Schema_category
+  , ICmptCtgr
 {
+  public ICmptCtgrObject? As_Ctgr { get; set; }
+}
+
+public class CmptCtgrObject
+  : Schema_category
+  , ICmptCtgrObject
+{
+
+  public CmptCtgrObject()
+  {
+  }
 }

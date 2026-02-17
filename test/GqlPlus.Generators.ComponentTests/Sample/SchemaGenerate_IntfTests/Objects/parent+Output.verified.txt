@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_parent_Output;
 public interface ICmptPrntOutp
   : ICmptRefPrntOutp
 {
-  ICmptPrntOutpObject AsPrntOutp { get; }
+  ICmptPrntOutpObject? As_PrntOutp { get; }
 }
 
 public interface ICmptPrntOutpObject
@@ -25,11 +25,12 @@ public interface ICmptPrntOutpObject
 public interface ICmptRefPrntOutp
   : Schema_parent+Output
 {
-  string AsString { get; }
-  ICmptRefPrntOutpObject AsRefPrntOutp { get; }
+  string? AsString { get; }
+  ICmptRefPrntOutpObject? As_RefPrntOutp { get; }
 }
 
 public interface ICmptRefPrntOutpObject
+  : Schema_parent+Output
 {
   decimal Parent { get; }
 }

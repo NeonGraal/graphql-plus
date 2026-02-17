@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_dual_parent_Dual;
 public interface ItestGnrcPrntDualPrntDual
   : ItestRefGnrcPrntDualPrntDual<ItestAltGnrcPrntDualPrntDual>
 {
-  ItestGnrcPrntDualPrntDualObject AsGnrcPrntDualPrntDual { get; }
+  ItestGnrcPrntDualPrntDualObject? As_GnrcPrntDualPrntDual { get; }
 }
 
 public interface ItestGnrcPrntDualPrntDualObject
@@ -21,22 +21,24 @@ public interface ItestGnrcPrntDualPrntDualObject
 public interface ItestRefGnrcPrntDualPrntDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefGnrcPrntDualPrntDualObject<TRef> AsRefGnrcPrntDualPrntDual { get; }
+  TRef? As_Parent { get; }
+  ItestRefGnrcPrntDualPrntDualObject<TRef>? As_RefGnrcPrntDualPrntDual { get; }
 }
 
 public interface ItestRefGnrcPrntDualPrntDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntDualPrntDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntDualPrntDualObject AsAltGnrcPrntDualPrntDual { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntDualPrntDualObject? As_AltGnrcPrntDualPrntDual { get; }
 }
 
 public interface ItestAltGnrcPrntDualPrntDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }

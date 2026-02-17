@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Dual;
 public interface ItestFieldSmplDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldSmplDualObject AsFieldSmplDual { get; }
+  ItestFieldSmplDualObject? As_FieldSmplDual { get; }
 }
 
 public interface ItestFieldSmplDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }

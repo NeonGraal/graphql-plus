@@ -11,10 +11,36 @@ public class testPrntInp
   : testRefPrntInp
   , ItestPrntInp
 {
+  public ItestPrntInpObject? As_PrntInp { get; set; }
+}
+
+public class testPrntInpObject
+  : testRefPrntInpObject
+  , ItestPrntInpObject
+{
+
+  public testPrntInpObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntInp
-  : ItestRefPrntInp
+  : GqlpModelImplementationBase
+  , ItestRefPrntInp
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntInpObject? As_RefPrntInp { get; set; }
+}
+
+public class testRefPrntInpObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntInpObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntInpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }

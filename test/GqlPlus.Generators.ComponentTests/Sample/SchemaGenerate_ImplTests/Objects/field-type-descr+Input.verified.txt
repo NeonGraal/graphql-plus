@@ -11,7 +11,20 @@ input FieldTypeDescrInp { field: "Test" "Descr" Number }
 namespace Components.Gqlp_Schema_field_type_descr_Input;
 
 public class CmptFieldTypeDescrInp
-  : ICmptFieldTypeDescrInp
+  : Schema_field-type-descr+Input
+  , ICmptFieldTypeDescrInp
+{
+  public ICmptFieldTypeDescrInpObject? As_FieldTypeDescrInp { get; set; }
+}
+
+public class CmptFieldTypeDescrInpObject
+  : Schema_field-type-descr+Input
+  , ICmptFieldTypeDescrInpObject
 {
   public decimal Field { get; set; }
+
+  public CmptFieldTypeDescrInpObject(decimal field)
+  {
+    Field = field;
+  }
 }

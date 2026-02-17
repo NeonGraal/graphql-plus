@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_field_descr_Output;
 public interface ICmptFieldDescrOutp
   : Schema_field-descr+Output
 {
-  ICmptFieldDescrOutpObject AsFieldDescrOutp { get; }
+  ICmptFieldDescrOutpObject? As_FieldDescrOutp { get; }
 }
 
 public interface ICmptFieldDescrOutpObject
+  : Schema_field-descr+Output
 {
   string Field { get; }
 }

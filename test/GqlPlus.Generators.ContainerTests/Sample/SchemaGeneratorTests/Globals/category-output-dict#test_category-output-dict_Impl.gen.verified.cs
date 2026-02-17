@@ -8,6 +8,18 @@
 namespace GqlPlus.GeneratorTests.Gqlp_category_output_dict;
 
 public class testCtgrOutpDict
-  : ItestCtgrOutpDict
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpDict
 {
+  public ItestCtgrOutpDictObject? As_CtgrOutpDict { get; set; }
+}
+
+public class testCtgrOutpDictObject
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpDictObject
+{
+
+  public testCtgrOutpDictObject()
+  {
+  }
 }

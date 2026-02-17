@@ -8,7 +8,20 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_Dual;
 
 public class testFieldDual
-  : ItestFieldDual
+  : GqlpModelImplementationBase
+  , ItestFieldDual
+{
+  public ItestFieldDualObject? As_FieldDual { get; set; }
+}
+
+public class testFieldDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldDualObject
 {
   public string Field { get; set; }
+
+  public testFieldDualObject(string field)
+  {
+    Field = field;
+  }
 }

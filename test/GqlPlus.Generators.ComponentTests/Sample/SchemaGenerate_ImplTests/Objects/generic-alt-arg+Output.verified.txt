@@ -12,11 +12,37 @@ output RefGnrcAltArgOutp<$ref:String> { | $ref }
 namespace Components.Gqlp_Schema_generic_alt_arg_Output;
 
 public class CmptGnrcAltArgOutp<TType>
-  : ICmptGnrcAltArgOutp<TType>
+  : Schema_generic-alt-arg+Output
+  , ICmptGnrcAltArgOutp<TType>
 {
+  public ICmptRefGnrcAltArgOutp<TType>? AsRefGnrcAltArgOutp { get; set; }
+  public ICmptGnrcAltArgOutpObject<TType>? As_GnrcAltArgOutp { get; set; }
+}
+
+public class CmptGnrcAltArgOutpObject<TType>
+  : Schema_generic-alt-arg+Output
+  , ICmptGnrcAltArgOutpObject<TType>
+{
+
+  public CmptGnrcAltArgOutpObject()
+  {
+  }
 }
 
 public class CmptRefGnrcAltArgOutp<TRef>
-  : ICmptRefGnrcAltArgOutp<TRef>
+  : Schema_generic-alt-arg+Output
+  , ICmptRefGnrcAltArgOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ICmptRefGnrcAltArgOutpObject<TRef>? As_RefGnrcAltArgOutp { get; set; }
+}
+
+public class CmptRefGnrcAltArgOutpObject<TRef>
+  : Schema_generic-alt-arg+Output
+  , ICmptRefGnrcAltArgOutpObject<TRef>
+{
+
+  public CmptRefGnrcAltArgOutpObject()
+  {
+  }
 }

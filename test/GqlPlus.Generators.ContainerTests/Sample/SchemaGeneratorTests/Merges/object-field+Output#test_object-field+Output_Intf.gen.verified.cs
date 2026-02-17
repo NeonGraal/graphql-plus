@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_Output;
 public interface ItestObjFieldOutp
   : IGqlpModelImplementationBase
 {
-  ItestObjFieldOutpObject AsObjFieldOutp { get; }
+  ItestObjFieldOutpObject? As_ObjFieldOutp { get; }
 }
 
 public interface ItestObjFieldOutpObject
+  : IGqlpModelImplementationBase
 {
   ItestFldObjFieldOutp Field { get; }
 }
@@ -21,9 +22,10 @@ public interface ItestObjFieldOutpObject
 public interface ItestFldObjFieldOutp
   : IGqlpModelImplementationBase
 {
-  ItestFldObjFieldOutpObject AsFldObjFieldOutp { get; }
+  ItestFldObjFieldOutpObject? As_FldObjFieldOutp { get; }
 }
 
 public interface ItestFldObjFieldOutpObject
+  : IGqlpModelImplementationBase
 {
 }

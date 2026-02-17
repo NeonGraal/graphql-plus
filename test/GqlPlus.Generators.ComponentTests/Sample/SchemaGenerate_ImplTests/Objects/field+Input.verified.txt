@@ -11,7 +11,20 @@ input FieldInp { field: String }
 namespace Components.Gqlp_Schema_field_Input;
 
 public class CmptFieldInp
-  : ICmptFieldInp
+  : Schema_field+Input
+  , ICmptFieldInp
+{
+  public ICmptFieldInpObject? As_FieldInp { get; set; }
+}
+
+public class CmptFieldInpObject
+  : Schema_field+Input
+  , ICmptFieldInpObject
 {
   public string Field { get; set; }
+
+  public CmptFieldInpObject(string field)
+  {
+    Field = field;
+  }
 }

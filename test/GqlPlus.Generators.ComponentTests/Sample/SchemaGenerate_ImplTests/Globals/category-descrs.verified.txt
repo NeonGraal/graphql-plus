@@ -14,6 +14,18 @@ output CtgrDscrs { }
 namespace Components.Gqlp_Schema_category_descrs;
 
 public class CmptCtgrDscrs
-  : ICmptCtgrDscrs
+  : Schema_category-descrs
+  , ICmptCtgrDscrs
 {
+  public ICmptCtgrDscrsObject? As_CtgrDscrs { get; set; }
+}
+
+public class CmptCtgrDscrsObject
+  : Schema_category-descrs
+  , ICmptCtgrDscrsObject
+{
+
+  public CmptCtgrDscrsObject()
+  {
+  }
 }

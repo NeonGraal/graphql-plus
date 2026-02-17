@@ -10,20 +10,21 @@ namespace GqlPlus.GeneratorTests.Gqlp_Built_In;
 public interface Itest_Collections
   : IGqlpModelImplementationBase
 {
-  Itest_Modifier<test_ModifierKind> As_ModifierKindList { get; }
-  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindDictionary { get; }
-  Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindTypeParam { get; }
-  Itest_CollectionsObject As_Collections { get; }
+  Itest_Modifier<test_ModifierKind>? As_ModifierKindList { get; }
+  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindDictionary { get; }
+  Itest_ModifierKeyed<test_ModifierKind>? As_ModifierKindTypeParam { get; }
+  Itest_CollectionsObject? As__Collections { get; }
 }
 
 public interface Itest_CollectionsObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface Itest_ModifierKeyed<TKind>
   : Itest_Modifier<TKind>
 {
-  Itest_ModifierKeyedObject<TKind> As_ModifierKeyed { get; }
+  Itest_ModifierKeyedObject<TKind>? As__ModifierKeyed { get; }
 }
 
 public interface Itest_ModifierKeyedObject<TKind>
@@ -36,22 +37,24 @@ public interface Itest_ModifierKeyedObject<TKind>
 public interface Itest_Modifiers
   : IGqlpModelImplementationBase
 {
-  Itest_Modifier<test_ModifierKind> As_ModifierKindOptional { get; }
-  Itest_Collections As_Collections { get; }
-  Itest_ModifiersObject As_Modifiers { get; }
+  Itest_Modifier<test_ModifierKind>? As_ModifierKindOptional { get; }
+  Itest_Collections? As_Collections { get; }
+  Itest_ModifiersObject? As__Modifiers { get; }
 }
 
 public interface Itest_ModifiersObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface Itest_Modifier<TKind>
   : IGqlpModelImplementationBase
 {
-  Itest_ModifierObject<TKind> As_Modifier { get; }
+  Itest_ModifierObject<TKind>? As__Modifier { get; }
 }
 
 public interface Itest_ModifierObject<TKind>
+  : IGqlpModelImplementationBase
 {
   TKind ModifierKind { get; }
 }

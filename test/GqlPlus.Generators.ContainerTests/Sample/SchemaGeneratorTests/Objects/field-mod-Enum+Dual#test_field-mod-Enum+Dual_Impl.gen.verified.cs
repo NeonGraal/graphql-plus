@@ -8,7 +8,20 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Dual;
 
 public class testFieldModEnumDual
-  : ItestFieldModEnumDual
+  : GqlpModelImplementationBase
+  , ItestFieldModEnumDual
+{
+  public ItestFieldModEnumDualObject? As_FieldModEnumDual { get; set; }
+}
+
+public class testFieldModEnumDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldModEnumDualObject
 {
   public IDictionary<testEnumFieldModEnumDual, string> Field { get; set; }
+
+  public testFieldModEnumDualObject(IDictionary<testEnumFieldModEnumDual, string> field)
+  {
+    Field = field;
+  }
 }

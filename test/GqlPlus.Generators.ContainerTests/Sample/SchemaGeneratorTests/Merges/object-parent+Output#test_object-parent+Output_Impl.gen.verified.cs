@@ -11,9 +11,32 @@ public class testObjPrntOutp
   : testRefObjPrntOutp
   , ItestObjPrntOutp
 {
+  public ItestObjPrntOutpObject? As_ObjPrntOutp { get; set; }
+}
+
+public class testObjPrntOutpObject
+  : testRefObjPrntOutpObject
+  , ItestObjPrntOutpObject
+{
+
+  public testObjPrntOutpObject()
+  {
+  }
 }
 
 public class testRefObjPrntOutp
-  : ItestRefObjPrntOutp
+  : GqlpModelImplementationBase
+  , ItestRefObjPrntOutp
 {
+  public ItestRefObjPrntOutpObject? As_RefObjPrntOutp { get; set; }
+}
+
+public class testRefObjPrntOutpObject
+  : GqlpModelImplementationBase
+  , ItestRefObjPrntOutpObject
+{
+
+  public testRefObjPrntOutpObject()
+  {
+  }
 }

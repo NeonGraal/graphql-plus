@@ -11,27 +11,87 @@ public class testCnstPrntDualGrndInp
   : testRefCnstPrntDualGrndInp<ItestAltCnstPrntDualGrndInp>
   , ItestCnstPrntDualGrndInp
 {
+  public ItestCnstPrntDualGrndInpObject? As_CnstPrntDualGrndInp { get; set; }
+}
+
+public class testCnstPrntDualGrndInpObject
+  : testRefCnstPrntDualGrndInpObject<ItestAltCnstPrntDualGrndInp>
+  , ItestCnstPrntDualGrndInpObject
+{
+
+  public testCnstPrntDualGrndInpObject()
+  {
+  }
 }
 
 public class testRefCnstPrntDualGrndInp<TRef>
-  : ItestRefCnstPrntDualGrndInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualGrndInp<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefCnstPrntDualGrndInpObject<TRef>? As_RefCnstPrntDualGrndInp { get; set; }
+}
+
+public class testRefCnstPrntDualGrndInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstPrntDualGrndInpObject<TRef>
+{
+
+  public testRefCnstPrntDualGrndInpObject()
+  {
+  }
 }
 
 public class testGrndCnstPrntDualGrndInp
-  : ItestGrndCnstPrntDualGrndInp
+  : GqlpModelImplementationBase
+  , ItestGrndCnstPrntDualGrndInp
 {
+  public string? AsString { get; set; }
+  public ItestGrndCnstPrntDualGrndInpObject? As_GrndCnstPrntDualGrndInp { get; set; }
+}
+
+public class testGrndCnstPrntDualGrndInpObject
+  : GqlpModelImplementationBase
+  , ItestGrndCnstPrntDualGrndInpObject
+{
+
+  public testGrndCnstPrntDualGrndInpObject()
+  {
+  }
 }
 
 public class testPrntCnstPrntDualGrndInp
   : testGrndCnstPrntDualGrndInp
   , ItestPrntCnstPrntDualGrndInp
 {
+  public ItestPrntCnstPrntDualGrndInpObject? As_PrntCnstPrntDualGrndInp { get; set; }
+}
+
+public class testPrntCnstPrntDualGrndInpObject
+  : testGrndCnstPrntDualGrndInpObject
+  , ItestPrntCnstPrntDualGrndInpObject
+{
+
+  public testPrntCnstPrntDualGrndInpObject()
+  {
+  }
 }
 
 public class testAltCnstPrntDualGrndInp
   : testPrntCnstPrntDualGrndInp
   , ItestAltCnstPrntDualGrndInp
 {
+  public ItestAltCnstPrntDualGrndInpObject? As_AltCnstPrntDualGrndInp { get; set; }
+}
+
+public class testAltCnstPrntDualGrndInpObject
+  : testPrntCnstPrntDualGrndInpObject
+  , ItestAltCnstPrntDualGrndInpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstPrntDualGrndInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

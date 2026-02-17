@@ -26,8 +26,8 @@ namespace Components.Gqlp_Spec_Directive;
 public interface ICmpt_Directives
   : ICmpt_AndType
 {
-  ICmpt_Directive As_Directive { get; }
-  ICmpt_DirectivesObject As_Directives { get; }
+  ICmpt_Directive? As_Directive { get; }
+  ICmpt_DirectivesObject? As__Directives { get; }
 }
 
 public interface ICmpt_DirectivesObject
@@ -39,7 +39,7 @@ public interface ICmpt_DirectivesObject
 public interface ICmpt_Directive
   : ICmpt_Aliased
 {
-  ICmpt_DirectiveObject As_Directive { get; }
+  ICmpt_DirectiveObject? As__Directive { get; }
 }
 
 public interface ICmpt_DirectiveObject

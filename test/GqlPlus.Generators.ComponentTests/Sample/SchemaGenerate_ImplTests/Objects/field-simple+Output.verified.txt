@@ -11,7 +11,20 @@ output FieldSmplOutp { field: Number }
 namespace Components.Gqlp_Schema_field_simple_Output;
 
 public class CmptFieldSmplOutp
-  : ICmptFieldSmplOutp
+  : Schema_field-simple+Output
+  , ICmptFieldSmplOutp
+{
+  public ICmptFieldSmplOutpObject? As_FieldSmplOutp { get; set; }
+}
+
+public class CmptFieldSmplOutpObject
+  : Schema_field-simple+Output
+  , ICmptFieldSmplOutpObject
 {
   public decimal Field { get; set; }
+
+  public CmptFieldSmplOutpObject(decimal field)
+  {
+    Field = field;
+  }
 }

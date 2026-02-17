@@ -12,8 +12,22 @@ input ObjCnstInp<$type:String> { str: $type }
 namespace Components.Gqlp_Schema_object_constraint_Input;
 
 public class CmptObjCnstInp<TType>
-  : ICmptObjCnstInp<TType>
+  : Schema_object-constraint+Input
+  , ICmptObjCnstInp<TType>
+{
+  public ICmptObjCnstInpObject<TType>? As_ObjCnstInp { get; set; }
+}
+
+public class CmptObjCnstInpObject<TType>
+  : Schema_object-constraint+Input
+  , ICmptObjCnstInpObject<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
+
+  public CmptObjCnstInpObject(TType field, TType str)
+  {
+    Field = field;
+    Str = str;
+  }
 }

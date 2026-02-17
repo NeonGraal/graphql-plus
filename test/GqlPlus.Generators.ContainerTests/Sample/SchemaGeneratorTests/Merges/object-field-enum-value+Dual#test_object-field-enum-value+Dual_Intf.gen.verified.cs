@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_value_Dual;
 public interface ItestObjFieldEnumValueDual
   : IGqlpModelImplementationBase
 {
-  ItestObjFieldEnumValueDualObject AsObjFieldEnumValueDual { get; }
+  ItestObjFieldEnumValueDualObject? As_ObjFieldEnumValueDual { get; }
 }
 
 public interface ItestObjFieldEnumValueDualObject
+  : IGqlpModelImplementationBase
 {
   bool Field { get; }
 }

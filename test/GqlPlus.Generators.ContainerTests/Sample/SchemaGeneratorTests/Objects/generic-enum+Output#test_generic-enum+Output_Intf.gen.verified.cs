@@ -10,21 +10,23 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_enum_Output;
 public interface ItestGnrcEnumOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcEnumOutp<testEnumGnrcEnumOutp> AsEnumGnrcEnumOutpgnrcEnumOutp { get; }
-  ItestGnrcEnumOutpObject AsGnrcEnumOutp { get; }
+  ItestRefGnrcEnumOutp<testEnumGnrcEnumOutp>? AsEnumGnrcEnumOutpgnrcEnumOutp { get; }
+  ItestGnrcEnumOutpObject? As_GnrcEnumOutp { get; }
 }
 
 public interface ItestGnrcEnumOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcEnumOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcEnumOutpObject<TType> AsRefGnrcEnumOutp { get; }
+  ItestRefGnrcEnumOutpObject<TType>? As_RefGnrcEnumOutp { get; }
 }
 
 public interface ItestRefGnrcEnumOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }

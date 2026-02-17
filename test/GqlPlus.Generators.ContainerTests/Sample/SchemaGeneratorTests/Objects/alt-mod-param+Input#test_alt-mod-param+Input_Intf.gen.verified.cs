@@ -10,22 +10,24 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Input;
 public interface ItestAltModParamInp<TMod>
   : IGqlpModelImplementationBase
 {
-  IDictionary<TMod, ItestAltAltModParamInp> AsAltAltModParamInp { get; }
-  ItestAltModParamInpObject<TMod> AsAltModParamInp { get; }
+  IDictionary<TMod, ItestAltAltModParamInp>? AsAltAltModParamInp { get; }
+  ItestAltModParamInpObject<TMod>? As_AltModParamInp { get; }
 }
 
 public interface ItestAltModParamInpObject<TMod>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltModParamInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltModParamInpObject AsAltAltModParamInp { get; }
+  string? AsString { get; }
+  ItestAltAltModParamInpObject? As_AltAltModParamInp { get; }
 }
 
 public interface ItestAltAltModParamInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }

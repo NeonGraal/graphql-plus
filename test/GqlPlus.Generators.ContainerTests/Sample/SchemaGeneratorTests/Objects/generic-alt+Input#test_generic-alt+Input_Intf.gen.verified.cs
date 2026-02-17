@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_Input;
 public interface ItestGnrcAltInp<TType>
   : IGqlpModelImplementationBase
 {
-  TType Astype { get; }
-  ItestGnrcAltInpObject<TType> AsGnrcAltInp { get; }
+  TType? Astype { get; }
+  ItestGnrcAltInpObject<TType>? As_GnrcAltInp { get; }
 }
 
 public interface ItestGnrcAltInpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }

@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_param_diff_Input;
 public interface ItestPrntParamDiffInp<TA>
   : ItestRefPrntParamDiffInp<TA>
 {
-  ItestPrntParamDiffInpObject<TA> AsPrntParamDiffInp { get; }
+  ItestPrntParamDiffInpObject<TA>? As_PrntParamDiffInp { get; }
 }
 
 public interface ItestPrntParamDiffInpObject<TA>
@@ -22,10 +22,11 @@ public interface ItestPrntParamDiffInpObject<TA>
 public interface ItestRefPrntParamDiffInp<TB>
   : IGqlpModelImplementationBase
 {
-  TB Asb { get; }
-  ItestRefPrntParamDiffInpObject<TB> AsRefPrntParamDiffInp { get; }
+  TB? Asb { get; }
+  ItestRefPrntParamDiffInpObject<TB>? As_RefPrntParamDiffInp { get; }
 }
 
 public interface ItestRefPrntParamDiffInpObject<TB>
+  : IGqlpModelImplementationBase
 {
 }

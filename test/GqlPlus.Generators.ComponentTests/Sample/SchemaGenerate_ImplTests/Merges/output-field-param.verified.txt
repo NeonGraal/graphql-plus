@@ -15,23 +15,71 @@ dual FldOutpFieldParam { }
 namespace Components.Gqlp_Schema_output_field_param;
 
 public class CmptOutpFieldParam
-  : ICmptOutpFieldParam
+  : Schema_output-field-param
+  , ICmptOutpFieldParam
 {
-  public ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1)
-{ }
+  public ICmptOutpFieldParamObject? As_OutpFieldParam { get; set; }
+}
+
+public class CmptOutpFieldParamObject
+  : Schema_output-field-param
+  , ICmptOutpFieldParamObject
+{
+  public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
+    => null;
+
+  public CmptOutpFieldParamObject()
+  {
+  }
 }
 
 public class CmptOutpFieldParam1
-  : ICmptOutpFieldParam1
+  : Schema_output-field-param
+  , ICmptOutpFieldParam1
 {
+  public ICmptOutpFieldParam1Object? As_OutpFieldParam1 { get; set; }
+}
+
+public class CmptOutpFieldParam1Object
+  : Schema_output-field-param
+  , ICmptOutpFieldParam1Object
+{
+
+  public CmptOutpFieldParam1Object()
+  {
+  }
 }
 
 public class CmptOutpFieldParam2
-  : ICmptOutpFieldParam2
+  : Schema_output-field-param
+  , ICmptOutpFieldParam2
 {
+  public ICmptOutpFieldParam2Object? As_OutpFieldParam2 { get; set; }
+}
+
+public class CmptOutpFieldParam2Object
+  : Schema_output-field-param
+  , ICmptOutpFieldParam2Object
+{
+
+  public CmptOutpFieldParam2Object()
+  {
+  }
 }
 
 public class CmptFldOutpFieldParam
-  : ICmptFldOutpFieldParam
+  : Schema_output-field-param
+  , ICmptFldOutpFieldParam
 {
+  public ICmptFldOutpFieldParamObject? As_FldOutpFieldParam { get; set; }
+}
+
+public class CmptFldOutpFieldParamObject
+  : Schema_output-field-param
+  , ICmptFldOutpFieldParamObject
+{
+
+  public CmptFldOutpFieldParamObject()
+  {
+  }
 }

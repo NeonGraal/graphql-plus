@@ -14,9 +14,10 @@ namespace Components.Gqlp_Schema_object_alias_Output;
 public interface ICmptObjAliasOutp
   : Schema_object-alias+Output
 {
-  ICmptObjAliasOutpObject AsObjAliasOutp { get; }
+  ICmptObjAliasOutpObject? As_ObjAliasOutp { get; }
 }
 
 public interface ICmptObjAliasOutpObject
+  : Schema_object-alias+Output
 {
 }

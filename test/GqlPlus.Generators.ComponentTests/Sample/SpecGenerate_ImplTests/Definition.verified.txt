@@ -78,8 +78,20 @@ public class Cmpt_Key
 }
 
 public class Cmpt_Object
-  : ICmpt_Object
+  : Spec_Definition
+  , ICmpt_Object
 {
+  public ICmpt_ObjectObject? As__Object { get; set; }
+}
+
+public class Cmpt_ObjectObject
+  : Spec_Definition
+  , ICmpt_ObjectObject
+{
+
+  public Cmpt_ObjectObject()
+  {
+  }
 }
 
 public class Cmpt_Domain
@@ -89,8 +101,20 @@ public class Cmpt_Domain
 }
 
 public class Cmpt_Dual
-  : ICmpt_Dual
+  : Spec_Definition
+  , ICmpt_Dual
 {
+  public ICmpt_DualObject? As__Dual { get; set; }
+}
+
+public class Cmpt_DualObject
+  : Spec_Definition
+  , ICmpt_DualObject
+{
+
+  public Cmpt_DualObject()
+  {
+  }
 }
 
 public class Cmpt_Enum
@@ -100,13 +124,37 @@ public class Cmpt_Enum
 }
 
 public class Cmpt_Input
-  : ICmpt_Input
+  : Spec_Definition
+  , ICmpt_Input
 {
+  public ICmpt_InputObject? As__Input { get; set; }
+}
+
+public class Cmpt_InputObject
+  : Spec_Definition
+  , ICmpt_InputObject
+{
+
+  public Cmpt_InputObject()
+  {
+  }
 }
 
 public class Cmpt_Output
-  : ICmpt_Output
+  : Spec_Definition
+  , ICmpt_Output
 {
+  public ICmpt_OutputObject? As__Output { get; set; }
+}
+
+public class Cmpt_OutputObject
+  : Spec_Definition
+  , ICmpt_OutputObject
+{
+
+  public Cmpt_OutputObject()
+  {
+  }
 }
 
 public class Cmpt_Union

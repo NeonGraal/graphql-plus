@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_alt_enum_Dual;
 public interface ICmptAltEnumDual
   : Schema_alt-enum+Dual
 {
-  CmptEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; }
-  ICmptAltEnumDualObject AsAltEnumDual { get; }
+  CmptEnumAltEnumDual? AsEnumAltEnumDualaltEnumDual { get; }
+  ICmptAltEnumDualObject? As_AltEnumDual { get; }
 }
 
 public interface ICmptAltEnumDualObject
+  : Schema_alt-enum+Dual
 {
 }

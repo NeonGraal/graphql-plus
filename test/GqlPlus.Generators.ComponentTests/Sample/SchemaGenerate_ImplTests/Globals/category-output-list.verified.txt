@@ -12,6 +12,18 @@ output CtgrOutpList { }
 namespace Components.Gqlp_Schema_category_output_list;
 
 public class CmptCtgrOutpList
-  : ICmptCtgrOutpList
+  : Schema_category-output-list
+  , ICmptCtgrOutpList
 {
+  public ICmptCtgrOutpListObject? As_CtgrOutpList { get; set; }
+}
+
+public class CmptCtgrOutpListObject
+  : Schema_category-output-list
+  , ICmptCtgrOutpListObject
+{
+
+  public CmptCtgrOutpListObject()
+  {
+  }
 }

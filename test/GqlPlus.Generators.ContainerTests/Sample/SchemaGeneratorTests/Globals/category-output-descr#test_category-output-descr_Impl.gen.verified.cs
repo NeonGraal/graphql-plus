@@ -8,6 +8,18 @@
 namespace GqlPlus.GeneratorTests.Gqlp_category_output_descr;
 
 public class testCtgrOutpDescr
-  : ItestCtgrOutpDescr
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpDescr
 {
+  public ItestCtgrOutpDescrObject? As_CtgrOutpDescr { get; set; }
+}
+
+public class testCtgrOutpDescrObject
+  : GqlpModelImplementationBase
+  , ItestCtgrOutpDescrObject
+{
+
+  public testCtgrOutpDescrObject()
+  {
+  }
 }

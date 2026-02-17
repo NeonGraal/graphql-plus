@@ -15,21 +15,23 @@ namespace Components.Gqlp_Schema_generic_value_Input;
 public interface ICmptGnrcValueInp
   : Schema_generic-value+Input
 {
-  ICmptRefGnrcValueInp<CmptEnumGnrcValueInp> AsEnumGnrcValueInpgnrcValueInp { get; }
-  ICmptGnrcValueInpObject AsGnrcValueInp { get; }
+  ICmptRefGnrcValueInp<CmptEnumGnrcValueInp>? AsEnumGnrcValueInpgnrcValueInp { get; }
+  ICmptGnrcValueInpObject? As_GnrcValueInp { get; }
 }
 
 public interface ICmptGnrcValueInpObject
+  : Schema_generic-value+Input
 {
 }
 
 public interface ICmptRefGnrcValueInp<TType>
   : Schema_generic-value+Input
 {
-  ICmptRefGnrcValueInpObject<TType> AsRefGnrcValueInp { get; }
+  ICmptRefGnrcValueInpObject<TType>? As_RefGnrcValueInp { get; }
 }
 
 public interface ICmptRefGnrcValueInpObject<TType>
+  : Schema_generic-value+Input
 {
   TType Field { get; }
 }

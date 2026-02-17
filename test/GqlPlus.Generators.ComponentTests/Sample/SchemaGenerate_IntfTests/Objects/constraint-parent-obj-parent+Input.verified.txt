@@ -16,7 +16,7 @@ namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Input;
 public interface ICmptCnstPrntObjPrntInp
   : ICmptRefCnstPrntObjPrntInp<ICmptAltCnstPrntObjPrntInp>
 {
-  ICmptCnstPrntObjPrntInpObject AsCnstPrntObjPrntInp { get; }
+  ICmptCnstPrntObjPrntInpObject? As_CnstPrntObjPrntInp { get; }
 }
 
 public interface ICmptCnstPrntObjPrntInpObject
@@ -27,29 +27,31 @@ public interface ICmptCnstPrntObjPrntInpObject
 public interface ICmptRefCnstPrntObjPrntInp<TRef>
   : Schema_constraint-parent-obj-parent+Input
 {
-  TRef AsParent { get; }
-  ICmptRefCnstPrntObjPrntInpObject<TRef> AsRefCnstPrntObjPrntInp { get; }
+  TRef? As_Parent { get; }
+  ICmptRefCnstPrntObjPrntInpObject<TRef>? As_RefCnstPrntObjPrntInp { get; }
 }
 
 public interface ICmptRefCnstPrntObjPrntInpObject<TRef>
+  : Schema_constraint-parent-obj-parent+Input
 {
 }
 
 public interface ICmptPrntCnstPrntObjPrntInp
   : Schema_constraint-parent-obj-parent+Input
 {
-  string AsString { get; }
-  ICmptPrntCnstPrntObjPrntInpObject AsPrntCnstPrntObjPrntInp { get; }
+  string? AsString { get; }
+  ICmptPrntCnstPrntObjPrntInpObject? As_PrntCnstPrntObjPrntInp { get; }
 }
 
 public interface ICmptPrntCnstPrntObjPrntInpObject
+  : Schema_constraint-parent-obj-parent+Input
 {
 }
 
 public interface ICmptAltCnstPrntObjPrntInp
   : ICmptPrntCnstPrntObjPrntInp
 {
-  ICmptAltCnstPrntObjPrntInpObject AsAltCnstPrntObjPrntInp { get; }
+  ICmptAltCnstPrntObjPrntInpObject? As_AltCnstPrntObjPrntInp { get; }
 }
 
 public interface ICmptAltCnstPrntObjPrntInpObject

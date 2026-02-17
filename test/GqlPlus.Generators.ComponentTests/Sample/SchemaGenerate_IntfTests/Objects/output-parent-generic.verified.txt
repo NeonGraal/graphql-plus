@@ -16,21 +16,23 @@ namespace Components.Gqlp_Schema_output_parent_generic;
 public interface ICmptOutpPrntGnrc
   : Schema_output-parent-generic
 {
-  ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc> AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
-  ICmptOutpPrntGnrcObject AsOutpPrntGnrc { get; }
+  ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc>? AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
+  ICmptOutpPrntGnrcObject? As_OutpPrntGnrc { get; }
 }
 
 public interface ICmptOutpPrntGnrcObject
+  : Schema_output-parent-generic
 {
 }
 
 public interface ICmptRefOutpPrntGnrc<TType>
   : Schema_output-parent-generic
 {
-  ICmptRefOutpPrntGnrcObject<TType> AsRefOutpPrntGnrc { get; }
+  ICmptRefOutpPrntGnrcObject<TType>? As_RefOutpPrntGnrc { get; }
 }
 
 public interface ICmptRefOutpPrntGnrcObject<TType>
+  : Schema_output-parent-generic
 {
   TType Field { get; }
 }

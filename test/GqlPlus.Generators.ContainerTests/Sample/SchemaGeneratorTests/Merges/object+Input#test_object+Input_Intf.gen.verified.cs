@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_Input;
 public interface ItestObjInp
   : IGqlpModelImplementationBase
 {
-  ItestObjInpObject AsObjInp { get; }
+  ItestObjInpObject? As_ObjInp { get; }
 }
 
 public interface ItestObjInpObject
+  : IGqlpModelImplementationBase
 {
 }

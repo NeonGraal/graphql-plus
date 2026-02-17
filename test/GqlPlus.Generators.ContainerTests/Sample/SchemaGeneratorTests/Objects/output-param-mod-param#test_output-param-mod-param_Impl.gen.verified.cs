@@ -8,16 +8,42 @@
 namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_param;
 
 public class testOutpParamModParam<TMod>
-  : ItestOutpParamModParam<TMod>
+  : GqlpModelImplementationBase
+  , ItestOutpParamModParam<TMod>
 {
-  public ItestDomOutpParamModParam Field (IDictionary<TMod, ItestInOutpParamModParam>)
-{ }
+  public ItestOutpParamModParamObject<TMod>? As_OutpParamModParam { get; set; }
+}
+
+public class testOutpParamModParamObject<TMod>
+  : GqlpModelImplementationBase
+  , ItestOutpParamModParamObject<TMod>
+{
+  public ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
+    => null;
+
+  public testOutpParamModParamObject()
+  {
+  }
 }
 
 public class testInOutpParamModParam
-  : ItestInOutpParamModParam
+  : GqlpModelImplementationBase
+  , ItestInOutpParamModParam
+{
+  public string? AsString { get; set; }
+  public ItestInOutpParamModParamObject? As_InOutpParamModParam { get; set; }
+}
+
+public class testInOutpParamModParamObject
+  : GqlpModelImplementationBase
+  , ItestInOutpParamModParamObject
 {
   public decimal Param { get; set; }
+
+  public testInOutpParamModParamObject(decimal param)
+  {
+    Param = param;
+  }
 }
 
 public class testDomOutpParamModParam

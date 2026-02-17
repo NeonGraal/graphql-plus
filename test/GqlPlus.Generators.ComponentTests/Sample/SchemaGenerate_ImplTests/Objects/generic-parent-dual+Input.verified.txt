@@ -16,15 +16,53 @@ public class CmptGnrcPrntDualInp
   : CmptRefGnrcPrntDualInp<ICmptAltGnrcPrntDualInp>
   , ICmptGnrcPrntDualInp
 {
+  public ICmptGnrcPrntDualInpObject? As_GnrcPrntDualInp { get; set; }
+}
+
+public class CmptGnrcPrntDualInpObject
+  : CmptRefGnrcPrntDualInpObject<ICmptAltGnrcPrntDualInp>
+  , ICmptGnrcPrntDualInpObject
+{
+
+  public CmptGnrcPrntDualInpObject()
+  {
+  }
 }
 
 public class CmptRefGnrcPrntDualInp<TRef>
-  : ICmptRefGnrcPrntDualInp<TRef>
+  : Schema_generic-parent-dual+Input
+  , ICmptRefGnrcPrntDualInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ICmptRefGnrcPrntDualInpObject<TRef>? As_RefGnrcPrntDualInp { get; set; }
+}
+
+public class CmptRefGnrcPrntDualInpObject<TRef>
+  : Schema_generic-parent-dual+Input
+  , ICmptRefGnrcPrntDualInpObject<TRef>
+{
+
+  public CmptRefGnrcPrntDualInpObject()
+  {
+  }
 }
 
 public class CmptAltGnrcPrntDualInp
-  : ICmptAltGnrcPrntDualInp
+  : Schema_generic-parent-dual+Input
+  , ICmptAltGnrcPrntDualInp
+{
+  public string? AsString { get; set; }
+  public ICmptAltGnrcPrntDualInpObject? As_AltGnrcPrntDualInp { get; set; }
+}
+
+public class CmptAltGnrcPrntDualInpObject
+  : Schema_generic-parent-dual+Input
+  , ICmptAltGnrcPrntDualInpObject
 {
   public decimal Alt { get; set; }
+
+  public CmptAltGnrcPrntDualInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

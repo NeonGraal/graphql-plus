@@ -14,12 +14,38 @@ enum ParentCnstEnumPrntDual { parentCnstEnumPrntDual }
 namespace Components.Gqlp_Schema_constraint_enum_parent_Dual;
 
 public class CmptCnstEnumPrntDual
-  : ICmptCnstEnumPrntDual
+  : Schema_constraint-enum-parent+Dual
+  , ICmptCnstEnumPrntDual
 {
+  public ICmptRefCnstEnumPrntDual<CmptEnumCnstEnumPrntDual>? AsEnumCnstEnumPrntDualcnstEnumPrntDual { get; set; }
+  public ICmptCnstEnumPrntDualObject? As_CnstEnumPrntDual { get; set; }
+}
+
+public class CmptCnstEnumPrntDualObject
+  : Schema_constraint-enum-parent+Dual
+  , ICmptCnstEnumPrntDualObject
+{
+
+  public CmptCnstEnumPrntDualObject()
+  {
+  }
 }
 
 public class CmptRefCnstEnumPrntDual<TType>
-  : ICmptRefCnstEnumPrntDual<TType>
+  : Schema_constraint-enum-parent+Dual
+  , ICmptRefCnstEnumPrntDual<TType>
+{
+  public ICmptRefCnstEnumPrntDualObject<TType>? As_RefCnstEnumPrntDual { get; set; }
+}
+
+public class CmptRefCnstEnumPrntDualObject<TType>
+  : Schema_constraint-enum-parent+Dual
+  , ICmptRefCnstEnumPrntDualObject<TType>
 {
   public TType Field { get; set; }
+
+  public CmptRefCnstEnumPrntDualObject(TType field)
+  {
+    Field = field;
+  }
 }

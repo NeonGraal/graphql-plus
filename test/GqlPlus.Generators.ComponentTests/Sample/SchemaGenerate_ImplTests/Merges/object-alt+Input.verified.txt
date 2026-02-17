@@ -13,11 +13,36 @@ input ObjAltInpType { }
 namespace Components.Gqlp_Schema_object_alt_Input;
 
 public class CmptObjAltInp
-  : ICmptObjAltInp
+  : Schema_object-alt+Input
+  , ICmptObjAltInp
 {
+  public ICmptObjAltInpType? AsObjAltInpType { get; set; }
+  public ICmptObjAltInpObject? As_ObjAltInp { get; set; }
+}
+
+public class CmptObjAltInpObject
+  : Schema_object-alt+Input
+  , ICmptObjAltInpObject
+{
+
+  public CmptObjAltInpObject()
+  {
+  }
 }
 
 public class CmptObjAltInpType
-  : ICmptObjAltInpType
+  : Schema_object-alt+Input
+  , ICmptObjAltInpType
 {
+  public ICmptObjAltInpTypeObject? As_ObjAltInpType { get; set; }
+}
+
+public class CmptObjAltInpTypeObject
+  : Schema_object-alt+Input
+  , ICmptObjAltInpTypeObject
+{
+
+  public CmptObjAltInpTypeObject()
+  {
+  }
 }

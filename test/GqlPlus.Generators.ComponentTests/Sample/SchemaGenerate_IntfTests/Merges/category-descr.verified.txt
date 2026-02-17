@@ -17,9 +17,10 @@ namespace Components.Gqlp_Schema_category_descr;
 public interface ICmptCtgrDescr
   : Schema_category-descr
 {
-  ICmptCtgrDescrObject AsCtgrDescr { get; }
+  ICmptCtgrDescrObject? As_CtgrDescr { get; }
 }
 
 public interface ICmptCtgrDescrObject
+  : Schema_category-descr
 {
 }

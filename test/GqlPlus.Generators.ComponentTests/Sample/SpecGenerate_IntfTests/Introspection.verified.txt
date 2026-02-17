@@ -351,16 +351,16 @@ namespace Components.Gqlp_Spec_Introspection;
 public interface ICmpt_Schema
   : ICmpt_Named
 {
-  ICmpt_SchemaObject As_Schema { get; }
+  ICmpt_SchemaObject? As__Schema { get; }
 }
 
 public interface ICmpt_SchemaObject
   : ICmpt_NamedObject
 {
-  IDictionary<ICmpt_Name, ICmpt_Categories> Categories (ICmpt_CategoryFilter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Directives> Directives (ICmpt_Filter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Type> Types (ICmpt_TypeFilter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Setting> Settings (ICmpt_Filter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter);
 }
 
 public interface ICmpt_Name
@@ -371,11 +371,12 @@ public interface ICmpt_Name
 public interface ICmpt_Filter
   : Spec_Introspection
 {
-  ICollection<ICmpt_NameFilter> As_NameFilter { get; }
-  ICmpt_FilterObject As_Filter { get; }
+  ICollection<ICmpt_NameFilter>? As_NameFilter { get; }
+  ICmpt_FilterObject? As__Filter { get; }
 }
 
 public interface ICmpt_FilterObject
+  : Spec_Introspection
 {
   ICollection<ICmpt_NameFilter> Names { get; }
   Cmpt_DomainKind? MatchAliases { get; }
@@ -392,7 +393,7 @@ public interface ICmpt_NameFilter
 public interface ICmpt_CategoryFilter
   : ICmpt_Filter
 {
-  ICmpt_CategoryFilterObject As_CategoryFilter { get; }
+  ICmpt_CategoryFilterObject? As__CategoryFilter { get; }
 }
 
 public interface ICmpt_CategoryFilterObject
@@ -404,7 +405,7 @@ public interface ICmpt_CategoryFilterObject
 public interface ICmpt_TypeFilter
   : ICmpt_Filter
 {
-  ICmpt_TypeFilterObject As_TypeFilter { get; }
+  ICmpt_TypeFilterObject? As__TypeFilter { get; }
 }
 
 public interface ICmpt_TypeFilterObject
@@ -416,7 +417,7 @@ public interface ICmpt_TypeFilterObject
 public interface ICmpt_Aliased
   : ICmpt_Named
 {
-  ICmpt_AliasedObject As_Aliased { get; }
+  ICmpt_AliasedObject? As__Aliased { get; }
 }
 
 public interface ICmpt_AliasedObject
@@ -428,7 +429,7 @@ public interface ICmpt_AliasedObject
 public interface ICmpt_Named
   : ICmpt_Described
 {
-  ICmpt_NamedObject As_Named { get; }
+  ICmpt_NamedObject? As__Named { get; }
 }
 
 public interface ICmpt_NamedObject
@@ -440,10 +441,11 @@ public interface ICmpt_NamedObject
 public interface ICmpt_Described
   : Spec_Introspection
 {
-  ICmpt_DescribedObject As_Described { get; }
+  ICmpt_DescribedObject? As__Described { get; }
 }
 
 public interface ICmpt_DescribedObject
+  : Spec_Introspection
 {
   ICollection<Cmpt_DomainKind> Description { get; }
 }
@@ -451,8 +453,8 @@ public interface ICmpt_DescribedObject
 public interface ICmpt_AndType
   : ICmpt_Named
 {
-  ICmpt_Type As_Type { get; }
-  ICmpt_AndTypeObject As_AndType { get; }
+  ICmpt_Type? As_Type { get; }
+  ICmpt_AndTypeObject? As__AndType { get; }
 }
 
 public interface ICmpt_AndTypeObject
@@ -464,8 +466,8 @@ public interface ICmpt_AndTypeObject
 public interface ICmpt_Categories
   : ICmpt_AndType
 {
-  ICmpt_Category As_Category { get; }
-  ICmpt_CategoriesObject As_Categories { get; }
+  ICmpt_Category? As_Category { get; }
+  ICmpt_CategoriesObject? As__Categories { get; }
 }
 
 public interface ICmpt_CategoriesObject
@@ -477,7 +479,7 @@ public interface ICmpt_CategoriesObject
 public interface ICmpt_Category
   : ICmpt_Aliased
 {
-  ICmpt_CategoryObject As_Category { get; }
+  ICmpt_CategoryObject? As__Category { get; }
 }
 
 public interface ICmpt_CategoryObject
@@ -491,8 +493,8 @@ public interface ICmpt_CategoryObject
 public interface ICmpt_Directives
   : ICmpt_AndType
 {
-  ICmpt_Directive As_Directive { get; }
-  ICmpt_DirectivesObject As_Directives { get; }
+  ICmpt_Directive? As_Directive { get; }
+  ICmpt_DirectivesObject? As__Directives { get; }
 }
 
 public interface ICmpt_DirectivesObject
@@ -504,7 +506,7 @@ public interface ICmpt_DirectivesObject
 public interface ICmpt_Directive
   : ICmpt_Aliased
 {
-  ICmpt_DirectiveObject As_Directive { get; }
+  ICmpt_DirectiveObject? As__Directive { get; }
 }
 
 public interface ICmpt_DirectiveObject
@@ -518,7 +520,7 @@ public interface ICmpt_DirectiveObject
 public interface ICmpt_Setting
   : ICmpt_Named
 {
-  ICmpt_SettingObject As_Setting { get; }
+  ICmpt_SettingObject? As__Setting { get; }
 }
 
 public interface ICmpt_SettingObject
@@ -530,28 +532,29 @@ public interface ICmpt_SettingObject
 public interface ICmpt_Type
   : Spec_Introspection
 {
-  ICmpt_BaseType<Cmpt_TypeKind> As_TypeKindBasic { get; }
-  ICmpt_BaseType<Cmpt_TypeKind> As_TypeKindInternal { get; }
-  ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainTrueFalse, ICmpt_DomainItemTrueFalse> As_DomainKindBoolean { get; }
-  ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainLabel, ICmpt_DomainItemLabel> As_DomainKindEnum { get; }
-  ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainRange, ICmpt_DomainItemRange> As_DomainKindNumber { get; }
-  ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainRegex, ICmpt_DomainItemRegex> As_DomainKindString { get; }
-  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel> As_TypeKindEnum { get; }
-  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember> As_TypeKindUnion { get; }
-  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_DualField> As_TypeKindDual { get; }
-  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_InputField> As_TypeKindInput { get; }
-  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_OutputField> As_TypeKindOutput { get; }
-  ICmpt_TypeObject As_Type { get; }
+  ICmpt_BaseType<Cmpt_TypeKind>? As_TypeKindBasic { get; }
+  ICmpt_BaseType<Cmpt_TypeKind>? As_TypeKindInternal { get; }
+  ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainTrueFalse, ICmpt_DomainItemTrueFalse>? As_DomainKindBoolean { get; }
+  ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainLabel, ICmpt_DomainItemLabel>? As_DomainKindEnum { get; }
+  ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainRange, ICmpt_DomainItemRange>? As_DomainKindNumber { get; }
+  ICmpt_BaseDomain<Cmpt_DomainKind, ICmpt_DomainRegex, ICmpt_DomainItemRegex>? As_DomainKindString { get; }
+  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel>? As_TypeKindEnum { get; }
+  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember>? As_TypeKindUnion { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_DualField>? As_TypeKindDual { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_InputField>? As_TypeKindInput { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_OutputField>? As_TypeKindOutput { get; }
+  ICmpt_TypeObject? As__Type { get; }
 }
 
 public interface ICmpt_TypeObject
+  : Spec_Introspection
 {
 }
 
 public interface ICmpt_BaseType<TKind>
   : ICmpt_Aliased
 {
-  ICmpt_BaseTypeObject<TKind> As_BaseType { get; }
+  ICmpt_BaseTypeObject<TKind>? As__BaseType { get; }
 }
 
 public interface ICmpt_BaseTypeObject<TKind>
@@ -563,7 +566,7 @@ public interface ICmpt_BaseTypeObject<TKind>
 public interface ICmpt_ChildType<TKind,TParent>
   : ICmpt_BaseType<TKind>
 {
-  ICmpt_ChildTypeObject<TKind,TParent> As_ChildType { get; }
+  ICmpt_ChildTypeObject<TKind,TParent>? As__ChildType { get; }
 }
 
 public interface ICmpt_ChildTypeObject<TKind,TParent>
@@ -575,7 +578,7 @@ public interface ICmpt_ChildTypeObject<TKind,TParent>
 public interface ICmpt_ParentType<TKind,TItem,TAllItem>
   : ICmpt_ChildType<TKind, ICmpt_Named>
 {
-  ICmpt_ParentTypeObject<TKind,TItem,TAllItem> As_ParentType { get; }
+  ICmpt_ParentTypeObject<TKind,TItem,TAllItem>? As__ParentType { get; }
 }
 
 public interface ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
@@ -588,7 +591,7 @@ public interface ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
 public interface ICmpt_TypeRef<TKind>
   : ICmpt_Named
 {
-  ICmpt_TypeRefObject<TKind> As_TypeRef { get; }
+  ICmpt_TypeRefObject<TKind>? As__TypeRef { get; }
 }
 
 public interface ICmpt_TypeRefObject<TKind>
@@ -600,34 +603,36 @@ public interface ICmpt_TypeRefObject<TKind>
 public interface ICmpt_TypeSimple
   : Spec_Introspection
 {
-  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindBasic { get; }
-  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindEnum { get; }
-  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindDomain { get; }
-  ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindUnion { get; }
-  ICmpt_TypeSimpleObject As_TypeSimple { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindBasic { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindEnum { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindDomain { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindUnion { get; }
+  ICmpt_TypeSimpleObject? As__TypeSimple { get; }
 }
 
 public interface ICmpt_TypeSimpleObject
+  : Spec_Introspection
 {
 }
 
 public interface ICmpt_Collections
   : Spec_Introspection
 {
-  ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindList { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindDictionary { get; }
-  ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindTypeParam { get; }
-  ICmpt_CollectionsObject As_Collections { get; }
+  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; }
+  ICmpt_CollectionsObject? As__Collections { get; }
 }
 
 public interface ICmpt_CollectionsObject
+  : Spec_Introspection
 {
 }
 
 public interface ICmpt_ModifierKeyed<TKind>
   : ICmpt_Modifier<TKind>
 {
-  ICmpt_ModifierKeyedObject<TKind> As_ModifierKeyed { get; }
+  ICmpt_ModifierKeyedObject<TKind>? As__ModifierKeyed { get; }
 }
 
 public interface ICmpt_ModifierKeyedObject<TKind>
@@ -640,22 +645,24 @@ public interface ICmpt_ModifierKeyedObject<TKind>
 public interface ICmpt_Modifiers
   : Spec_Introspection
 {
-  ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindOptional { get; }
-  ICmpt_Collections As_Collections { get; }
-  ICmpt_ModifiersObject As_Modifiers { get; }
+  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; }
+  ICmpt_Collections? As_Collections { get; }
+  ICmpt_ModifiersObject? As__Modifiers { get; }
 }
 
 public interface ICmpt_ModifiersObject
+  : Spec_Introspection
 {
 }
 
 public interface ICmpt_Modifier<TKind>
   : Spec_Introspection
 {
-  ICmpt_ModifierObject<TKind> As_Modifier { get; }
+  ICmpt_ModifierObject<TKind>? As__Modifier { get; }
 }
 
 public interface ICmpt_ModifierObject<TKind>
+  : Spec_Introspection
 {
   TKind ModifierKind { get; }
 }
@@ -663,7 +670,7 @@ public interface ICmpt_ModifierObject<TKind>
 public interface ICmpt_DomainRef<TKind>
   : ICmpt_TypeRef<Cmpt_TypeKind>
 {
-  ICmpt_DomainRefObject<TKind> As_DomainRef { get; }
+  ICmpt_DomainRefObject<TKind>? As__DomainRef { get; }
 }
 
 public interface ICmpt_DomainRefObject<TKind>
@@ -675,7 +682,7 @@ public interface ICmpt_DomainRefObject<TKind>
 public interface ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
   : ICmpt_ParentType<Cmpt_TypeKind, TItem, TDomainItem>
 {
-  ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem> As_BaseDomain { get; }
+  ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>? As__BaseDomain { get; }
 }
 
 public interface ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
@@ -687,7 +694,7 @@ public interface ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
 public interface ICmpt_BaseDomainItem
   : ICmpt_Described
 {
-  ICmpt_BaseDomainItemObject As_BaseDomainItem { get; }
+  ICmpt_BaseDomainItemObject? As__BaseDomainItem { get; }
 }
 
 public interface ICmpt_BaseDomainItemObject
@@ -699,11 +706,12 @@ public interface ICmpt_BaseDomainItemObject
 public interface ICmpt_DomainItem<TItem>
   : Spec_Introspection
 {
-  TItem AsParent { get; }
-  ICmpt_DomainItemObject<TItem> As_DomainItem { get; }
+  TItem? As_Parent { get; }
+  ICmpt_DomainItemObject<TItem>? As__DomainItem { get; }
 }
 
 public interface ICmpt_DomainItemObject<TItem>
+  : Spec_Introspection
 {
   ICmpt_Name Domain { get; }
 }
@@ -711,8 +719,8 @@ public interface ICmpt_DomainItemObject<TItem>
 public interface ICmpt_DomainValue<TKind,TValue>
   : ICmpt_DomainRef<TKind>
 {
-  TValue Asvalue { get; }
-  ICmpt_DomainValueObject<TKind,TValue> As_DomainValue { get; }
+  TValue? Asvalue { get; }
+  ICmpt_DomainValueObject<TKind,TValue>? As__DomainValue { get; }
 }
 
 public interface ICmpt_DomainValueObject<TKind,TValue>
@@ -724,21 +732,22 @@ public interface ICmpt_DomainValueObject<TKind,TValue>
 public interface ICmpt_BasicValue
   : Spec_Introspection
 {
-  Cmpt_DomainKind As_DomainKindBoolean { get; }
-  ICmpt_EnumValue As_EnumValue { get; }
-  Cmpt_DomainKind As_DomainKindNumber { get; }
-  Cmpt_DomainKind As_DomainKindString { get; }
-  ICmpt_BasicValueObject As_BasicValue { get; }
+  Cmpt_DomainKind? As_DomainKindBoolean { get; }
+  ICmpt_EnumValue? As_EnumValue { get; }
+  Cmpt_DomainKind? As_DomainKindNumber { get; }
+  Cmpt_DomainKind? As_DomainKindString { get; }
+  ICmpt_BasicValueObject? As__BasicValue { get; }
 }
 
 public interface ICmpt_BasicValueObject
+  : Spec_Introspection
 {
 }
 
 public interface ICmpt_DomainTrueFalse
   : ICmpt_BaseDomainItem
 {
-  ICmpt_DomainTrueFalseObject As_DomainTrueFalse { get; }
+  ICmpt_DomainTrueFalseObject? As__DomainTrueFalse { get; }
 }
 
 public interface ICmpt_DomainTrueFalseObject
@@ -750,7 +759,7 @@ public interface ICmpt_DomainTrueFalseObject
 public interface ICmpt_DomainItemTrueFalse
   : ICmpt_DomainItem<ICmpt_DomainTrueFalse>
 {
-  ICmpt_DomainItemTrueFalseObject As_DomainItemTrueFalse { get; }
+  ICmpt_DomainItemTrueFalseObject? As__DomainItemTrueFalse { get; }
 }
 
 public interface ICmpt_DomainItemTrueFalseObject
@@ -761,7 +770,7 @@ public interface ICmpt_DomainItemTrueFalseObject
 public interface ICmpt_DomainLabel
   : ICmpt_BaseDomainItem
 {
-  ICmpt_DomainLabelObject As_DomainLabel { get; }
+  ICmpt_DomainLabelObject? As__DomainLabel { get; }
 }
 
 public interface ICmpt_DomainLabelObject
@@ -773,7 +782,7 @@ public interface ICmpt_DomainLabelObject
 public interface ICmpt_DomainItemLabel
   : ICmpt_DomainItem<ICmpt_DomainLabel>
 {
-  ICmpt_DomainItemLabelObject As_DomainItemLabel { get; }
+  ICmpt_DomainItemLabelObject? As__DomainItemLabel { get; }
 }
 
 public interface ICmpt_DomainItemLabelObject
@@ -784,7 +793,7 @@ public interface ICmpt_DomainItemLabelObject
 public interface ICmpt_DomainRange
   : ICmpt_BaseDomainItem
 {
-  ICmpt_DomainRangeObject As_DomainRange { get; }
+  ICmpt_DomainRangeObject? As__DomainRange { get; }
 }
 
 public interface ICmpt_DomainRangeObject
@@ -797,7 +806,7 @@ public interface ICmpt_DomainRangeObject
 public interface ICmpt_DomainItemRange
   : ICmpt_DomainItem<ICmpt_DomainRange>
 {
-  ICmpt_DomainItemRangeObject As_DomainItemRange { get; }
+  ICmpt_DomainItemRangeObject? As__DomainItemRange { get; }
 }
 
 public interface ICmpt_DomainItemRangeObject
@@ -808,7 +817,7 @@ public interface ICmpt_DomainItemRangeObject
 public interface ICmpt_DomainRegex
   : ICmpt_BaseDomainItem
 {
-  ICmpt_DomainRegexObject As_DomainRegex { get; }
+  ICmpt_DomainRegexObject? As__DomainRegex { get; }
 }
 
 public interface ICmpt_DomainRegexObject
@@ -820,7 +829,7 @@ public interface ICmpt_DomainRegexObject
 public interface ICmpt_DomainItemRegex
   : ICmpt_DomainItem<ICmpt_DomainRegex>
 {
-  ICmpt_DomainItemRegexObject As_DomainItemRegex { get; }
+  ICmpt_DomainItemRegexObject? As__DomainItemRegex { get; }
 }
 
 public interface ICmpt_DomainItemRegexObject
@@ -831,7 +840,7 @@ public interface ICmpt_DomainItemRegexObject
 public interface ICmpt_EnumLabel
   : ICmpt_Aliased
 {
-  ICmpt_EnumLabelObject As_EnumLabel { get; }
+  ICmpt_EnumLabelObject? As__EnumLabel { get; }
 }
 
 public interface ICmpt_EnumLabelObject
@@ -843,7 +852,7 @@ public interface ICmpt_EnumLabelObject
 public interface ICmpt_EnumValue
   : ICmpt_TypeRef<Cmpt_TypeKind>
 {
-  ICmpt_EnumValueObject As_EnumValue { get; }
+  ICmpt_EnumValueObject? As__EnumValue { get; }
 }
 
 public interface ICmpt_EnumValueObject
@@ -855,7 +864,7 @@ public interface ICmpt_EnumValueObject
 public interface ICmpt_UnionRef
   : ICmpt_TypeRef<Cmpt_SimpleKind>
 {
-  ICmpt_UnionRefObject As_UnionRef { get; }
+  ICmpt_UnionRefObject? As__UnionRef { get; }
 }
 
 public interface ICmpt_UnionRefObject
@@ -866,7 +875,7 @@ public interface ICmpt_UnionRefObject
 public interface ICmpt_UnionMember
   : ICmpt_UnionRef
 {
-  ICmpt_UnionMemberObject As_UnionMember { get; }
+  ICmpt_UnionMemberObject? As__UnionMember { get; }
 }
 
 public interface ICmpt_UnionMemberObject
@@ -883,7 +892,7 @@ public interface ICmpt_ObjectKind
 public interface ICmpt_TypeObject<TKind,TField>
   : ICmpt_ChildType<TKind, ICmpt_ObjBase>
 {
-  ICmpt_TypeObjectObject<TKind,TField> As_TypeObject { get; }
+  ICmpt_TypeObjectObject<TKind,TField>? As__TypeObject { get; }
 }
 
 public interface ICmpt_TypeObjectObject<TKind,TField>
@@ -899,7 +908,7 @@ public interface ICmpt_TypeObjectObject<TKind,TField>
 public interface ICmpt_ObjTypeParam
   : ICmpt_Named
 {
-  ICmpt_ObjTypeParamObject As_ObjTypeParam { get; }
+  ICmpt_ObjTypeParamObject? As__ObjTypeParam { get; }
 }
 
 public interface ICmpt_ObjTypeParamObject
@@ -911,8 +920,8 @@ public interface ICmpt_ObjTypeParamObject
 public interface ICmpt_ObjBase
   : ICmpt_Named
 {
-  ICmpt_TypeParam As_TypeParam { get; }
-  ICmpt_ObjBaseObject As_ObjBase { get; }
+  ICmpt_TypeParam? As_TypeParam { get; }
+  ICmpt_ObjBaseObject? As__ObjBase { get; }
 }
 
 public interface ICmpt_ObjBaseObject
@@ -924,8 +933,8 @@ public interface ICmpt_ObjBaseObject
 public interface ICmpt_ObjTypeArg
   : ICmpt_TypeRef<Cmpt_TypeKind>
 {
-  ICmpt_TypeParam As_TypeParam { get; }
-  ICmpt_ObjTypeArgObject As_ObjTypeArg { get; }
+  ICmpt_TypeParam? As_TypeParam { get; }
+  ICmpt_ObjTypeArgObject? As__ObjTypeArg { get; }
 }
 
 public interface ICmpt_ObjTypeArgObject
@@ -937,7 +946,7 @@ public interface ICmpt_ObjTypeArgObject
 public interface ICmpt_TypeParam
   : ICmpt_Described
 {
-  ICmpt_TypeParamObject As_TypeParam { get; }
+  ICmpt_TypeParamObject? As__TypeParam { get; }
 }
 
 public interface ICmpt_TypeParamObject
@@ -949,11 +958,12 @@ public interface ICmpt_TypeParamObject
 public interface ICmpt_ObjAlternate
   : Spec_Introspection
 {
-  ICmpt_ObjAlternateEnum As_ObjAlternateEnum { get; }
-  ICmpt_ObjAlternateObject As_ObjAlternate { get; }
+  ICmpt_ObjAlternateEnum? As_ObjAlternateEnum { get; }
+  ICmpt_ObjAlternateObject? As__ObjAlternate { get; }
 }
 
 public interface ICmpt_ObjAlternateObject
+  : Spec_Introspection
 {
   ICmpt_ObjBase Type { get; }
   ICollection<ICmpt_Collections> Collections { get; }
@@ -962,7 +972,7 @@ public interface ICmpt_ObjAlternateObject
 public interface ICmpt_ObjAlternateEnum
   : ICmpt_TypeRef<Cmpt_TypeKind>
 {
-  ICmpt_ObjAlternateEnumObject As_ObjAlternateEnum { get; }
+  ICmpt_ObjAlternateEnumObject? As__ObjAlternateEnum { get; }
 }
 
 public interface ICmpt_ObjAlternateEnumObject
@@ -974,11 +984,12 @@ public interface ICmpt_ObjAlternateEnumObject
 public interface ICmpt_ObjectFor<TFor>
   : Spec_Introspection
 {
-  TFor AsParent { get; }
-  ICmpt_ObjectForObject<TFor> As_ObjectFor { get; }
+  TFor? As_Parent { get; }
+  ICmpt_ObjectForObject<TFor>? As__ObjectFor { get; }
 }
 
 public interface ICmpt_ObjectForObject<TFor>
+  : Spec_Introspection
 {
   ICmpt_Name ObjectType { get; }
 }
@@ -986,7 +997,7 @@ public interface ICmpt_ObjectForObject<TFor>
 public interface ICmpt_ObjField<TType>
   : ICmpt_Aliased
 {
-  ICmpt_ObjFieldObject<TType> As_ObjField { get; }
+  ICmpt_ObjFieldObject<TType>? As__ObjField { get; }
 }
 
 public interface ICmpt_ObjFieldObject<TType>
@@ -998,8 +1009,8 @@ public interface ICmpt_ObjFieldObject<TType>
 public interface ICmpt_ObjFieldType
   : ICmpt_ObjBase
 {
-  ICmpt_ObjFieldEnum As_ObjFieldEnum { get; }
-  ICmpt_ObjFieldTypeObject As_ObjFieldType { get; }
+  ICmpt_ObjFieldEnum? As_ObjFieldEnum { get; }
+  ICmpt_ObjFieldTypeObject? As__ObjFieldType { get; }
 }
 
 public interface ICmpt_ObjFieldTypeObject
@@ -1011,7 +1022,7 @@ public interface ICmpt_ObjFieldTypeObject
 public interface ICmpt_ObjFieldEnum
   : ICmpt_TypeRef<Cmpt_TypeKind>
 {
-  ICmpt_ObjFieldEnumObject As_ObjFieldEnum { get; }
+  ICmpt_ObjFieldEnumObject? As__ObjFieldEnum { get; }
 }
 
 public interface ICmpt_ObjFieldEnumObject
@@ -1023,19 +1034,20 @@ public interface ICmpt_ObjFieldEnumObject
 public interface ICmpt_ForParam<TType>
   : Spec_Introspection
 {
-  ICmpt_ObjAlternate As_ObjAlternate { get; }
-  ICmpt_ObjField<TType> As_ObjField { get; }
-  ICmpt_ForParamObject<TType> As_ForParam { get; }
+  ICmpt_ObjAlternate? As_ObjAlternate { get; }
+  ICmpt_ObjField<TType>? As_ObjField { get; }
+  ICmpt_ForParamObject<TType>? As__ForParam { get; }
 }
 
 public interface ICmpt_ForParamObject<TType>
+  : Spec_Introspection
 {
 }
 
 public interface ICmpt_DualField
   : ICmpt_ObjField<ICmpt_ObjFieldType>
 {
-  ICmpt_DualFieldObject As_DualField { get; }
+  ICmpt_DualFieldObject? As__DualField { get; }
 }
 
 public interface ICmpt_DualFieldObject
@@ -1046,7 +1058,7 @@ public interface ICmpt_DualFieldObject
 public interface ICmpt_InputField
   : ICmpt_ObjField<ICmpt_InputFieldType>
 {
-  ICmpt_InputFieldObject As_InputField { get; }
+  ICmpt_InputFieldObject? As__InputField { get; }
 }
 
 public interface ICmpt_InputFieldObject
@@ -1057,7 +1069,7 @@ public interface ICmpt_InputFieldObject
 public interface ICmpt_InputFieldType
   : ICmpt_ObjFieldType
 {
-  ICmpt_InputFieldTypeObject As_InputFieldType { get; }
+  ICmpt_InputFieldTypeObject? As__InputFieldType { get; }
 }
 
 public interface ICmpt_InputFieldTypeObject
@@ -1069,7 +1081,7 @@ public interface ICmpt_InputFieldTypeObject
 public interface ICmpt_OutputField
   : ICmpt_ObjField<ICmpt_ObjFieldType>
 {
-  ICmpt_OutputFieldObject As_OutputField { get; }
+  ICmpt_OutputFieldObject? As__OutputField { get; }
 }
 
 public interface ICmpt_OutputFieldObject
@@ -1080,7 +1092,7 @@ public interface ICmpt_OutputFieldObject
 public interface ICmpt_OutputFieldType
   : ICmpt_ObjFieldType
 {
-  ICmpt_OutputFieldTypeObject As_OutputFieldType { get; }
+  ICmpt_OutputFieldTypeObject? As__OutputFieldType { get; }
 }
 
 public interface ICmpt_OutputFieldTypeObject

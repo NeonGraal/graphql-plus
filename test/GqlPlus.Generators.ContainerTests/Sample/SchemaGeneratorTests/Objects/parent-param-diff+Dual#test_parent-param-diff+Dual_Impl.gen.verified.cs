@@ -11,10 +11,35 @@ public class testPrntParamDiffDual<TA>
   : testRefPrntParamDiffDual<TA>
   , ItestPrntParamDiffDual<TA>
 {
+  public ItestPrntParamDiffDualObject<TA>? As_PrntParamDiffDual { get; set; }
+}
+
+public class testPrntParamDiffDualObject<TA>
+  : testRefPrntParamDiffDualObject<TA>
+  , ItestPrntParamDiffDualObject<TA>
+{
   public TA Field { get; set; }
+
+  public testPrntParamDiffDualObject(TA field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntParamDiffDual<TB>
-  : ItestRefPrntParamDiffDual<TB>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamDiffDual<TB>
 {
+  public TB? Asb { get; set; }
+  public ItestRefPrntParamDiffDualObject<TB>? As_RefPrntParamDiffDual { get; set; }
+}
+
+public class testRefPrntParamDiffDualObject<TB>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamDiffDualObject<TB>
+{
+
+  public testRefPrntParamDiffDualObject()
+  {
+  }
 }

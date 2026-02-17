@@ -14,14 +14,40 @@ domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
 namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 
 public class CmptCnstDomEnumDual
-  : ICmptCnstDomEnumDual
+  : Schema_constraint-dom-enum+Dual
+  , ICmptCnstDomEnumDual
 {
+  public ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; set; }
+  public ICmptCnstDomEnumDualObject? As_CnstDomEnumDual { get; set; }
+}
+
+public class CmptCnstDomEnumDualObject
+  : Schema_constraint-dom-enum+Dual
+  , ICmptCnstDomEnumDualObject
+{
+
+  public CmptCnstDomEnumDualObject()
+  {
+  }
 }
 
 public class CmptRefCnstDomEnumDual<TType>
-  : ICmptRefCnstDomEnumDual<TType>
+  : Schema_constraint-dom-enum+Dual
+  , ICmptRefCnstDomEnumDual<TType>
+{
+  public ICmptRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; set; }
+}
+
+public class CmptRefCnstDomEnumDualObject<TType>
+  : Schema_constraint-dom-enum+Dual
+  , ICmptRefCnstDomEnumDualObject<TType>
 {
   public TType Field { get; set; }
+
+  public CmptRefCnstDomEnumDualObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptJustCnstDomEnumDual

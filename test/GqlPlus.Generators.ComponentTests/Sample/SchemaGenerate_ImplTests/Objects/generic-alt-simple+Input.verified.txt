@@ -12,11 +12,37 @@ input RefGnrcAltSmplInp<$ref:String> { | $ref }
 namespace Components.Gqlp_Schema_generic_alt_simple_Input;
 
 public class CmptGnrcAltSmplInp
-  : ICmptGnrcAltSmplInp
+  : Schema_generic-alt-simple+Input
+  , ICmptGnrcAltSmplInp
 {
+  public ICmptRefGnrcAltSmplInp<string>? AsRefGnrcAltSmplInp { get; set; }
+  public ICmptGnrcAltSmplInpObject? As_GnrcAltSmplInp { get; set; }
+}
+
+public class CmptGnrcAltSmplInpObject
+  : Schema_generic-alt-simple+Input
+  , ICmptGnrcAltSmplInpObject
+{
+
+  public CmptGnrcAltSmplInpObject()
+  {
+  }
 }
 
 public class CmptRefGnrcAltSmplInp<TRef>
-  : ICmptRefGnrcAltSmplInp<TRef>
+  : Schema_generic-alt-simple+Input
+  , ICmptRefGnrcAltSmplInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ICmptRefGnrcAltSmplInpObject<TRef>? As_RefGnrcAltSmplInp { get; set; }
+}
+
+public class CmptRefGnrcAltSmplInpObject<TRef>
+  : Schema_generic-alt-simple+Input
+  , ICmptRefGnrcAltSmplInpObject<TRef>
+{
+
+  public CmptRefGnrcAltSmplInpObject()
+  {
+  }
 }

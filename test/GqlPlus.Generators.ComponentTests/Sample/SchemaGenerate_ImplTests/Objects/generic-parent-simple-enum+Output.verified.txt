@@ -16,10 +16,35 @@ public class CmptGnrcPrntSmplEnumOutp
   : CmptFieldGnrcPrntSmplEnumOutp<CmptEnumGnrcPrntSmplEnumOutp>
   , ICmptGnrcPrntSmplEnumOutp
 {
+  public ICmptGnrcPrntSmplEnumOutpObject? As_GnrcPrntSmplEnumOutp { get; set; }
+}
+
+public class CmptGnrcPrntSmplEnumOutpObject
+  : CmptFieldGnrcPrntSmplEnumOutpObject<CmptEnumGnrcPrntSmplEnumOutp>
+  , ICmptGnrcPrntSmplEnumOutpObject
+{
+
+  public CmptGnrcPrntSmplEnumOutpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class CmptFieldGnrcPrntSmplEnumOutp<TRef>
-  : ICmptFieldGnrcPrntSmplEnumOutp<TRef>
+  : Schema_generic-parent-simple-enum+Output
+  , ICmptFieldGnrcPrntSmplEnumOutp<TRef>
+{
+  public ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>? As_FieldGnrcPrntSmplEnumOutp { get; set; }
+}
+
+public class CmptFieldGnrcPrntSmplEnumOutpObject<TRef>
+  : Schema_generic-parent-simple-enum+Output
+  , ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public CmptFieldGnrcPrntSmplEnumOutpObject(TRef field)
+  {
+    Field = field;
+  }
 }

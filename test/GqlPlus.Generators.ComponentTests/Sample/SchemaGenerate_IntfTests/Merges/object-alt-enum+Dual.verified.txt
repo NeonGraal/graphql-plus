@@ -14,11 +14,12 @@ namespace Components.Gqlp_Schema_object_alt_enum_Dual;
 public interface ICmptObjAltEnumDual
   : Schema_object-alt-enum+Dual
 {
-  bool AsBooleantrue { get; }
-  bool AsBooleanfalse { get; }
-  ICmptObjAltEnumDualObject AsObjAltEnumDual { get; }
+  bool? AsBooleantrue { get; }
+  bool? AsBooleanfalse { get; }
+  ICmptObjAltEnumDualObject? As_ObjAltEnumDual { get; }
 }
 
 public interface ICmptObjAltEnumDualObject
+  : Schema_object-alt-enum+Dual
 {
 }

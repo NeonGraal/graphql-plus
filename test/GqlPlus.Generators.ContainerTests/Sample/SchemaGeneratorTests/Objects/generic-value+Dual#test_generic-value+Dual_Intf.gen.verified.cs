@@ -10,21 +10,23 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Dual;
 public interface ItestGnrcValueDual
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcValueDual<testEnumGnrcValueDual> AsEnumGnrcValueDualgnrcValueDual { get; }
-  ItestGnrcValueDualObject AsGnrcValueDual { get; }
+  ItestRefGnrcValueDual<testEnumGnrcValueDual>? AsEnumGnrcValueDualgnrcValueDual { get; }
+  ItestGnrcValueDualObject? As_GnrcValueDual { get; }
 }
 
 public interface ItestGnrcValueDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcValueDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcValueDualObject<TType> AsRefGnrcValueDual { get; }
+  ItestRefGnrcValueDualObject<TType>? As_RefGnrcValueDual { get; }
 }
 
 public interface ItestRefGnrcValueDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }

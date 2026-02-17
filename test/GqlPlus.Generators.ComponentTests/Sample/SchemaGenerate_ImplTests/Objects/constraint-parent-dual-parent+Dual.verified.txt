@@ -17,21 +17,70 @@ public class CmptCnstPrntDualPrntDual
   : CmptRefCnstPrntDualPrntDual<ICmptAltCnstPrntDualPrntDual>
   , ICmptCnstPrntDualPrntDual
 {
+  public ICmptCnstPrntDualPrntDualObject? As_CnstPrntDualPrntDual { get; set; }
+}
+
+public class CmptCnstPrntDualPrntDualObject
+  : CmptRefCnstPrntDualPrntDualObject<ICmptAltCnstPrntDualPrntDual>
+  , ICmptCnstPrntDualPrntDualObject
+{
+
+  public CmptCnstPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class CmptRefCnstPrntDualPrntDual<TRef>
-  : ICmptRefCnstPrntDualPrntDual<TRef>
+  : Schema_constraint-parent-dual-parent+Dual
+  , ICmptRefCnstPrntDualPrntDual<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ICmptRefCnstPrntDualPrntDualObject<TRef>? As_RefCnstPrntDualPrntDual { get; set; }
+}
+
+public class CmptRefCnstPrntDualPrntDualObject<TRef>
+  : Schema_constraint-parent-dual-parent+Dual
+  , ICmptRefCnstPrntDualPrntDualObject<TRef>
+{
+
+  public CmptRefCnstPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class CmptPrntCnstPrntDualPrntDual
-  : ICmptPrntCnstPrntDualPrntDual
+  : Schema_constraint-parent-dual-parent+Dual
+  , ICmptPrntCnstPrntDualPrntDual
 {
+  public string? AsString { get; set; }
+  public ICmptPrntCnstPrntDualPrntDualObject? As_PrntCnstPrntDualPrntDual { get; set; }
+}
+
+public class CmptPrntCnstPrntDualPrntDualObject
+  : Schema_constraint-parent-dual-parent+Dual
+  , ICmptPrntCnstPrntDualPrntDualObject
+{
+
+  public CmptPrntCnstPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class CmptAltCnstPrntDualPrntDual
   : CmptPrntCnstPrntDualPrntDual
   , ICmptAltCnstPrntDualPrntDual
 {
+  public ICmptAltCnstPrntDualPrntDualObject? As_AltCnstPrntDualPrntDual { get; set; }
+}
+
+public class CmptAltCnstPrntDualPrntDualObject
+  : CmptPrntCnstPrntDualPrntDualObject
+  , ICmptAltCnstPrntDualPrntDualObject
+{
   public decimal Alt { get; set; }
+
+  public CmptAltCnstPrntDualPrntDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

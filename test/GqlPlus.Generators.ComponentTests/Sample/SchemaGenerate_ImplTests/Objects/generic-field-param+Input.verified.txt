@@ -13,18 +13,58 @@ input AltGnrcFieldParamInp { alt: Number | String }
 namespace Components.Gqlp_Schema_generic_field_param_Input;
 
 public class CmptGnrcFieldParamInp
-  : ICmptGnrcFieldParamInp
+  : Schema_generic-field-param+Input
+  , ICmptGnrcFieldParamInp
+{
+  public ICmptGnrcFieldParamInpObject? As_GnrcFieldParamInp { get; set; }
+}
+
+public class CmptGnrcFieldParamInpObject
+  : Schema_generic-field-param+Input
+  , ICmptGnrcFieldParamInpObject
 {
   public ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> Field { get; set; }
+
+  public CmptGnrcFieldParamInpObject(ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptRefGnrcFieldParamInp<TRef>
-  : ICmptRefGnrcFieldParamInp<TRef>
+  : Schema_generic-field-param+Input
+  , ICmptRefGnrcFieldParamInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ICmptRefGnrcFieldParamInpObject<TRef>? As_RefGnrcFieldParamInp { get; set; }
+}
+
+public class CmptRefGnrcFieldParamInpObject<TRef>
+  : Schema_generic-field-param+Input
+  , ICmptRefGnrcFieldParamInpObject<TRef>
+{
+
+  public CmptRefGnrcFieldParamInpObject()
+  {
+  }
 }
 
 public class CmptAltGnrcFieldParamInp
-  : ICmptAltGnrcFieldParamInp
+  : Schema_generic-field-param+Input
+  , ICmptAltGnrcFieldParamInp
+{
+  public string? AsString { get; set; }
+  public ICmptAltGnrcFieldParamInpObject? As_AltGnrcFieldParamInp { get; set; }
+}
+
+public class CmptAltGnrcFieldParamInpObject
+  : Schema_generic-field-param+Input
+  , ICmptAltGnrcFieldParamInpObject
 {
   public decimal Alt { get; set; }
+
+  public CmptAltGnrcFieldParamInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

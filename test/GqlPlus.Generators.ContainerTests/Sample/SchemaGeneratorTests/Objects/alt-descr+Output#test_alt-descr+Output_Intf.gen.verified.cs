@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_descr_Output;
 public interface ItestAltDescrOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltDescrOutpObject AsAltDescrOutp { get; }
+  string? AsString { get; }
+  ItestAltDescrOutpObject? As_AltDescrOutp { get; }
 }
 
 public interface ItestAltDescrOutpObject
+  : IGqlpModelImplementationBase
 {
 }

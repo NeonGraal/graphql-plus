@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Dual;
 public interface ItestAltEnumDual
   : IGqlpModelImplementationBase
 {
-  testEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; }
-  ItestAltEnumDualObject AsAltEnumDual { get; }
+  testEnumAltEnumDual? AsEnumAltEnumDualaltEnumDual { get; }
+  ItestAltEnumDualObject? As_AltEnumDual { get; }
 }
 
 public interface ItestAltEnumDualObject
+  : IGqlpModelImplementationBase
 {
 }

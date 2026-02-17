@@ -13,12 +13,38 @@ enum EnumGnrcEnumOutp { gnrcEnumOutp }
 namespace Components.Gqlp_Schema_generic_enum_Output;
 
 public class CmptGnrcEnumOutp
-  : ICmptGnrcEnumOutp
+  : Schema_generic-enum+Output
+  , ICmptGnrcEnumOutp
 {
+  public ICmptRefGnrcEnumOutp<CmptEnumGnrcEnumOutp>? AsEnumGnrcEnumOutpgnrcEnumOutp { get; set; }
+  public ICmptGnrcEnumOutpObject? As_GnrcEnumOutp { get; set; }
+}
+
+public class CmptGnrcEnumOutpObject
+  : Schema_generic-enum+Output
+  , ICmptGnrcEnumOutpObject
+{
+
+  public CmptGnrcEnumOutpObject()
+  {
+  }
 }
 
 public class CmptRefGnrcEnumOutp<TType>
-  : ICmptRefGnrcEnumOutp<TType>
+  : Schema_generic-enum+Output
+  , ICmptRefGnrcEnumOutp<TType>
+{
+  public ICmptRefGnrcEnumOutpObject<TType>? As_RefGnrcEnumOutp { get; set; }
+}
+
+public class CmptRefGnrcEnumOutpObject<TType>
+  : Schema_generic-enum+Output
+  , ICmptRefGnrcEnumOutpObject<TType>
 {
   public TType Field { get; set; }
+
+  public CmptRefGnrcEnumOutpObject(TType field)
+  {
+    Field = field;
+  }
 }

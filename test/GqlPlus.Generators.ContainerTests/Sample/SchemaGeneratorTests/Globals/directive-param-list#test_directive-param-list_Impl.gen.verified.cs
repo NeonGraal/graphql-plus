@@ -8,6 +8,18 @@
 namespace GqlPlus.GeneratorTests.Gqlp_directive_param_list;
 
 public class testInDrctParamList
-  : ItestInDrctParamList
+  : GqlpModelImplementationBase
+  , ItestInDrctParamList
 {
+  public ItestInDrctParamListObject? As_InDrctParamList { get; set; }
+}
+
+public class testInDrctParamListObject
+  : GqlpModelImplementationBase
+  , ItestInDrctParamListObject
+{
+
+  public testInDrctParamListObject()
+  {
+  }
 }

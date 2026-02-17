@@ -8,6 +8,18 @@
 namespace GqlPlus.GeneratorTests.Gqlp_descr_complex;
 
 public class testDescrCmpl
-  : ItestDescrCmpl
+  : GqlpModelImplementationBase
+  , ItestDescrCmpl
 {
+  public ItestDescrCmplObject? As_DescrCmpl { get; set; }
+}
+
+public class testDescrCmplObject
+  : GqlpModelImplementationBase
+  , ItestDescrCmplObject
+{
+
+  public testDescrCmplObject()
+  {
+  }
 }

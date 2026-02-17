@@ -15,21 +15,23 @@ namespace Components.Gqlp_Schema_generic_value_Dual;
 public interface ICmptGnrcValueDual
   : Schema_generic-value+Dual
 {
-  ICmptRefGnrcValueDual<CmptEnumGnrcValueDual> AsEnumGnrcValueDualgnrcValueDual { get; }
-  ICmptGnrcValueDualObject AsGnrcValueDual { get; }
+  ICmptRefGnrcValueDual<CmptEnumGnrcValueDual>? AsEnumGnrcValueDualgnrcValueDual { get; }
+  ICmptGnrcValueDualObject? As_GnrcValueDual { get; }
 }
 
 public interface ICmptGnrcValueDualObject
+  : Schema_generic-value+Dual
 {
 }
 
 public interface ICmptRefGnrcValueDual<TType>
   : Schema_generic-value+Dual
 {
-  ICmptRefGnrcValueDualObject<TType> AsRefGnrcValueDual { get; }
+  ICmptRefGnrcValueDualObject<TType>? As_RefGnrcValueDual { get; }
 }
 
 public interface ICmptRefGnrcValueDualObject<TType>
+  : Schema_generic-value+Dual
 {
   TType Field { get; }
 }

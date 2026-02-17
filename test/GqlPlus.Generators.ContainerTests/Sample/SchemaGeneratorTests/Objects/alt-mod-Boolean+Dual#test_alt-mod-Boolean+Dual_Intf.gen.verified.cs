@@ -10,22 +10,24 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Dual;
 public interface ItestAltModBoolDual
   : IGqlpModelImplementationBase
 {
-  IDictionary<bool, ItestAltAltModBoolDual> AsAltAltModBoolDual { get; }
-  ItestAltModBoolDualObject AsAltModBoolDual { get; }
+  IDictionary<bool, ItestAltAltModBoolDual>? AsAltAltModBoolDual { get; }
+  ItestAltModBoolDualObject? As_AltModBoolDual { get; }
 }
 
 public interface ItestAltModBoolDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltModBoolDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltModBoolDualObject AsAltAltModBoolDual { get; }
+  string? AsString { get; }
+  ItestAltAltModBoolDualObject? As_AltAltModBoolDual { get; }
 }
 
 public interface ItestAltAltModBoolDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }

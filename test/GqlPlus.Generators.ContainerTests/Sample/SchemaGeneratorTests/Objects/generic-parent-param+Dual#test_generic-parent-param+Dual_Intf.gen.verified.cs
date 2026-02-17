@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_param_Dual;
 public interface ItestGnrcPrntParamDual
   : ItestRefGnrcPrntParamDual<ItestAltGnrcPrntParamDual>
 {
-  ItestGnrcPrntParamDualObject AsGnrcPrntParamDual { get; }
+  ItestGnrcPrntParamDualObject? As_GnrcPrntParamDual { get; }
 }
 
 public interface ItestGnrcPrntParamDualObject
@@ -21,22 +21,24 @@ public interface ItestGnrcPrntParamDualObject
 public interface ItestRefGnrcPrntParamDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcPrntParamDualObject<TRef> AsRefGnrcPrntParamDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcPrntParamDualObject<TRef>? As_RefGnrcPrntParamDual { get; }
 }
 
 public interface ItestRefGnrcPrntParamDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntParamDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntParamDualObject AsAltGnrcPrntParamDual { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntParamDualObject? As_AltGnrcPrntParamDual { get; }
 }
 
 public interface ItestAltGnrcPrntParamDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }

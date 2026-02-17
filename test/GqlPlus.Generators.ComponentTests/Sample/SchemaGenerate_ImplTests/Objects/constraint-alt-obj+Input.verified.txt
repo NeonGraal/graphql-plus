@@ -14,23 +14,74 @@ input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
 namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
 
 public class CmptCnstAltObjInp
-  : ICmptCnstAltObjInp
+  : Schema_constraint-alt-obj+Input
+  , ICmptCnstAltObjInp
 {
+  public ICmptRefCnstAltObjInp<ICmptAltCnstAltObjInp>? AsRefCnstAltObjInp { get; set; }
+  public ICmptCnstAltObjInpObject? As_CnstAltObjInp { get; set; }
+}
+
+public class CmptCnstAltObjInpObject
+  : Schema_constraint-alt-obj+Input
+  , ICmptCnstAltObjInpObject
+{
+
+  public CmptCnstAltObjInpObject()
+  {
+  }
 }
 
 public class CmptRefCnstAltObjInp<TRef>
-  : ICmptRefCnstAltObjInp<TRef>
+  : Schema_constraint-alt-obj+Input
+  , ICmptRefCnstAltObjInp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ICmptRefCnstAltObjInpObject<TRef>? As_RefCnstAltObjInp { get; set; }
+}
+
+public class CmptRefCnstAltObjInpObject<TRef>
+  : Schema_constraint-alt-obj+Input
+  , ICmptRefCnstAltObjInpObject<TRef>
+{
+
+  public CmptRefCnstAltObjInpObject()
+  {
+  }
 }
 
 public class CmptPrntCnstAltObjInp
-  : ICmptPrntCnstAltObjInp
+  : Schema_constraint-alt-obj+Input
+  , ICmptPrntCnstAltObjInp
 {
+  public string? AsString { get; set; }
+  public ICmptPrntCnstAltObjInpObject? As_PrntCnstAltObjInp { get; set; }
+}
+
+public class CmptPrntCnstAltObjInpObject
+  : Schema_constraint-alt-obj+Input
+  , ICmptPrntCnstAltObjInpObject
+{
+
+  public CmptPrntCnstAltObjInpObject()
+  {
+  }
 }
 
 public class CmptAltCnstAltObjInp
   : CmptPrntCnstAltObjInp
   , ICmptAltCnstAltObjInp
 {
+  public ICmptAltCnstAltObjInpObject? As_AltCnstAltObjInp { get; set; }
+}
+
+public class CmptAltCnstAltObjInpObject
+  : CmptPrntCnstAltObjInpObject
+  , ICmptAltCnstAltObjInpObject
+{
   public decimal Alt { get; set; }
+
+  public CmptAltCnstAltObjInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

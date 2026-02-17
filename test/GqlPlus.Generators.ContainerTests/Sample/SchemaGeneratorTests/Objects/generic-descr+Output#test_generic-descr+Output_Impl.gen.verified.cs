@@ -8,7 +8,20 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Output;
 
 public class testGnrcDescrOutp<TType>
-  : ItestGnrcDescrOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcDescrOutp<TType>
+{
+  public ItestGnrcDescrOutpObject<TType>? As_GnrcDescrOutp { get; set; }
+}
+
+public class testGnrcDescrOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcDescrOutpObject<TType>
 {
   public TType Field { get; set; }
+
+  public testGnrcDescrOutpObject(TType field)
+  {
+    Field = field;
+  }
 }

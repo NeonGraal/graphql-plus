@@ -16,7 +16,7 @@ namespace Components.Gqlp_Spec_Option;
 public interface ICmpt_Setting
   : ICmpt_Named
 {
-  ICmpt_SettingObject As_Setting { get; }
+  ICmpt_SettingObject? As__Setting { get; }
 }
 
 public interface ICmpt_SettingObject

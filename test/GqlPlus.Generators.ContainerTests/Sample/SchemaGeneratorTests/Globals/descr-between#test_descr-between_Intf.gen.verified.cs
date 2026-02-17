@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_descr_between;
 public interface ItestDescrBtwn
   : IGqlpModelImplementationBase
 {
-  ItestDescrBtwnObject AsDescrBtwn { get; }
+  ItestDescrBtwnObject? As_DescrBtwn { get; }
 }
 
 public interface ItestDescrBtwnObject
+  : IGqlpModelImplementationBase
 {
 }

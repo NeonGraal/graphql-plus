@@ -12,12 +12,39 @@ output AltAltOutp { alt: Number | String }
 namespace Components.Gqlp_Schema_alt_Output;
 
 public class CmptAltOutp
-  : ICmptAltOutp
+  : Schema_alt+Output
+  , ICmptAltOutp
 {
+  public ICmptAltAltOutp? AsAltAltOutp { get; set; }
+  public ICmptAltOutpObject? As_AltOutp { get; set; }
+}
+
+public class CmptAltOutpObject
+  : Schema_alt+Output
+  , ICmptAltOutpObject
+{
+
+  public CmptAltOutpObject()
+  {
+  }
 }
 
 public class CmptAltAltOutp
-  : ICmptAltAltOutp
+  : Schema_alt+Output
+  , ICmptAltAltOutp
+{
+  public string? AsString { get; set; }
+  public ICmptAltAltOutpObject? As_AltAltOutp { get; set; }
+}
+
+public class CmptAltAltOutpObject
+  : Schema_alt+Output
+  , ICmptAltAltOutpObject
 {
   public decimal Alt { get; set; }
+
+  public CmptAltAltOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

@@ -11,15 +11,53 @@ public class testGnrcPrntDualPrntDual
   : testRefGnrcPrntDualPrntDual<ItestAltGnrcPrntDualPrntDual>
   , ItestGnrcPrntDualPrntDual
 {
+  public ItestGnrcPrntDualPrntDualObject? As_GnrcPrntDualPrntDual { get; set; }
+}
+
+public class testGnrcPrntDualPrntDualObject
+  : testRefGnrcPrntDualPrntDualObject<ItestAltGnrcPrntDualPrntDual>
+  , ItestGnrcPrntDualPrntDualObject
+{
+
+  public testGnrcPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntDualPrntDual<TRef>
-  : ItestRefGnrcPrntDualPrntDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualPrntDual<TRef>
 {
+  public TRef? As_Parent { get; set; }
+  public ItestRefGnrcPrntDualPrntDualObject<TRef>? As_RefGnrcPrntDualPrntDual { get; set; }
+}
+
+public class testRefGnrcPrntDualPrntDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntDualPrntDualObject<TRef>
+{
+
+  public testRefGnrcPrntDualPrntDualObject()
+  {
+  }
 }
 
 public class testAltGnrcPrntDualPrntDual
-  : ItestAltGnrcPrntDualPrntDual
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualPrntDual
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcPrntDualPrntDualObject? As_AltGnrcPrntDualPrntDual { get; set; }
+}
+
+public class testAltGnrcPrntDualPrntDualObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcPrntDualPrntDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcPrntDualPrntDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

@@ -14,9 +14,10 @@ namespace Components.Gqlp_Schema_object_alias_Dual;
 public interface ICmptObjAliasDual
   : Schema_object-alias+Dual
 {
-  ICmptObjAliasDualObject AsObjAliasDual { get; }
+  ICmptObjAliasDualObject? As_ObjAliasDual { get; }
 }
 
 public interface ICmptObjAliasDualObject
+  : Schema_object-alias+Dual
 {
 }

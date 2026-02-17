@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_parent_Input;
 public interface ItestGnrcPrntEnumPrntInp
   : ItestFieldGnrcPrntEnumPrntInp<testEnumGnrcPrntEnumPrntInp>
 {
-  ItestGnrcPrntEnumPrntInpObject AsGnrcPrntEnumPrntInp { get; }
+  ItestGnrcPrntEnumPrntInpObject? As_GnrcPrntEnumPrntInp { get; }
 }
 
 public interface ItestGnrcPrntEnumPrntInpObject
@@ -21,10 +21,11 @@ public interface ItestGnrcPrntEnumPrntInpObject
 public interface ItestFieldGnrcPrntEnumPrntInp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntEnumPrntInpObject<TRef> AsFieldGnrcPrntEnumPrntInp { get; }
+  ItestFieldGnrcPrntEnumPrntInpObject<TRef>? As_FieldGnrcPrntEnumPrntInp { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumPrntInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }

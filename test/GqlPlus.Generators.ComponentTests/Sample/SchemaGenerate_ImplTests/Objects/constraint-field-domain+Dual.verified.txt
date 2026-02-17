@@ -16,12 +16,37 @@ public class CmptCnstFieldDmnDual
   : CmptRefCnstFieldDmnDual<ICmptDomCnstFieldDmnDual>
   , ICmptCnstFieldDmnDual
 {
+  public ICmptCnstFieldDmnDualObject? As_CnstFieldDmnDual { get; set; }
+}
+
+public class CmptCnstFieldDmnDualObject
+  : CmptRefCnstFieldDmnDualObject<ICmptDomCnstFieldDmnDual>
+  , ICmptCnstFieldDmnDualObject
+{
+
+  public CmptCnstFieldDmnDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class CmptRefCnstFieldDmnDual<TRef>
-  : ICmptRefCnstFieldDmnDual<TRef>
+  : Schema_constraint-field-domain+Dual
+  , ICmptRefCnstFieldDmnDual<TRef>
+{
+  public ICmptRefCnstFieldDmnDualObject<TRef>? As_RefCnstFieldDmnDual { get; set; }
+}
+
+public class CmptRefCnstFieldDmnDualObject<TRef>
+  : Schema_constraint-field-domain+Dual
+  , ICmptRefCnstFieldDmnDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public CmptRefCnstFieldDmnDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptDomCnstFieldDmnDual

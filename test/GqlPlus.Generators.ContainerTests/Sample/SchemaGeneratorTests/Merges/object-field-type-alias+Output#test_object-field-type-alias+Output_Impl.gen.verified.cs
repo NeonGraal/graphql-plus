@@ -8,7 +8,20 @@
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_type_alias_Output;
 
 public class testObjFieldTypeAliasOutp
-  : ItestObjFieldTypeAliasOutp
+  : GqlpModelImplementationBase
+  , ItestObjFieldTypeAliasOutp
+{
+  public ItestObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; set; }
+}
+
+public class testObjFieldTypeAliasOutpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldTypeAliasOutpObject
 {
   public string Field { get; set; }
+
+  public testObjFieldTypeAliasOutpObject(string field)
+  {
+    Field = field;
+  }
 }

@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Input;
 public interface ItestAltSmplInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltSmplInpObject AsAltSmplInp { get; }
+  string? AsString { get; }
+  ItestAltSmplInpObject? As_AltSmplInp { get; }
 }
 
 public interface ItestAltSmplInpObject
+  : IGqlpModelImplementationBase
 {
 }

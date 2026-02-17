@@ -15,7 +15,7 @@ namespace Components.Gqlp_Schema_generic_parent_dual_Dual;
 public interface ICmptGnrcPrntDualDual
   : ICmptRefGnrcPrntDualDual<ICmptAltGnrcPrntDualDual>
 {
-  ICmptGnrcPrntDualDualObject AsGnrcPrntDualDual { get; }
+  ICmptGnrcPrntDualDualObject? As_GnrcPrntDualDual { get; }
 }
 
 public interface ICmptGnrcPrntDualDualObject
@@ -26,22 +26,24 @@ public interface ICmptGnrcPrntDualDualObject
 public interface ICmptRefGnrcPrntDualDual<TRef>
   : Schema_generic-parent-dual+Dual
 {
-  TRef Asref { get; }
-  ICmptRefGnrcPrntDualDualObject<TRef> AsRefGnrcPrntDualDual { get; }
+  TRef? Asref { get; }
+  ICmptRefGnrcPrntDualDualObject<TRef>? As_RefGnrcPrntDualDual { get; }
 }
 
 public interface ICmptRefGnrcPrntDualDualObject<TRef>
+  : Schema_generic-parent-dual+Dual
 {
 }
 
 public interface ICmptAltGnrcPrntDualDual
   : Schema_generic-parent-dual+Dual
 {
-  string AsString { get; }
-  ICmptAltGnrcPrntDualDualObject AsAltGnrcPrntDualDual { get; }
+  string? AsString { get; }
+  ICmptAltGnrcPrntDualDualObject? As_AltGnrcPrntDualDual { get; }
 }
 
 public interface ICmptAltGnrcPrntDualDualObject
+  : Schema_generic-parent-dual+Dual
 {
   decimal Alt { get; }
 }

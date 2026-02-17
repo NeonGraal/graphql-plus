@@ -15,10 +15,36 @@ public class CmptPrntInp
   : CmptRefPrntInp
   , ICmptPrntInp
 {
+  public ICmptPrntInpObject? As_PrntInp { get; set; }
+}
+
+public class CmptPrntInpObject
+  : CmptRefPrntInpObject
+  , ICmptPrntInpObject
+{
+
+  public CmptPrntInpObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class CmptRefPrntInp
-  : ICmptRefPrntInp
+  : Schema_parent+Input
+  , ICmptRefPrntInp
+{
+  public string? AsString { get; set; }
+  public ICmptRefPrntInpObject? As_RefPrntInp { get; set; }
+}
+
+public class CmptRefPrntInpObject
+  : Schema_parent+Input
+  , ICmptRefPrntInpObject
 {
   public decimal Parent { get; set; }
+
+  public CmptRefPrntInpObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }

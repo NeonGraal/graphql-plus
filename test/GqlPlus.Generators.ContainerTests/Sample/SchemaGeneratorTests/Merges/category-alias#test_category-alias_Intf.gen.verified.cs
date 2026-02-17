@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_alias;
 public interface ItestCtgrAlias
   : IGqlpModelImplementationBase
 {
-  ItestCtgrAliasObject AsCtgrAlias { get; }
+  ItestCtgrAliasObject? As_CtgrAlias { get; }
 }
 
 public interface ItestCtgrAliasObject
+  : IGqlpModelImplementationBase
 {
 }

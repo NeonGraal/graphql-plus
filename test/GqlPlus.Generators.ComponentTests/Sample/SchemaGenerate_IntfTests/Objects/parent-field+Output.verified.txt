@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_parent_field_Output;
 public interface ICmptPrntFieldOutp
   : ICmptRefPrntFieldOutp
 {
-  ICmptPrntFieldOutpObject AsPrntFieldOutp { get; }
+  ICmptPrntFieldOutpObject? As_PrntFieldOutp { get; }
 }
 
 public interface ICmptPrntFieldOutpObject
@@ -26,11 +26,12 @@ public interface ICmptPrntFieldOutpObject
 public interface ICmptRefPrntFieldOutp
   : Schema_parent-field+Output
 {
-  string AsString { get; }
-  ICmptRefPrntFieldOutpObject AsRefPrntFieldOutp { get; }
+  string? AsString { get; }
+  ICmptRefPrntFieldOutpObject? As_RefPrntFieldOutp { get; }
 }
 
 public interface ICmptRefPrntFieldOutpObject
+  : Schema_parent-field+Output
 {
   decimal Parent { get; }
 }

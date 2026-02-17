@@ -14,9 +14,10 @@ namespace Components.Gqlp_Schema_directive_param_in;
 public interface ICmptInDrctParamIn
   : Schema_directive-param-in
 {
-  ICmptInDrctParamInObject AsInDrctParamIn { get; }
+  ICmptInDrctParamInObject? As_InDrctParamIn { get; }
 }
 
 public interface ICmptInDrctParamInObject
+  : Schema_directive-param-in
 {
 }

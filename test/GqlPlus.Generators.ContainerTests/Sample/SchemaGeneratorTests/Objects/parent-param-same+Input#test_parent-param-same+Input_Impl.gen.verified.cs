@@ -11,10 +11,35 @@ public class testPrntParamSameInp<TA>
   : testRefPrntParamSameInp<TA>
   , ItestPrntParamSameInp<TA>
 {
+  public ItestPrntParamSameInpObject<TA>? As_PrntParamSameInp { get; set; }
+}
+
+public class testPrntParamSameInpObject<TA>
+  : testRefPrntParamSameInpObject<TA>
+  , ItestPrntParamSameInpObject<TA>
+{
   public TA Field { get; set; }
+
+  public testPrntParamSameInpObject(TA field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefPrntParamSameInp<TA>
-  : ItestRefPrntParamSameInp<TA>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamSameInp<TA>
 {
+  public TA? Asa { get; set; }
+  public ItestRefPrntParamSameInpObject<TA>? As_RefPrntParamSameInp { get; set; }
+}
+
+public class testRefPrntParamSameInpObject<TA>
+  : GqlpModelImplementationBase
+  , ItestRefPrntParamSameInpObject<TA>
+{
+
+  public testRefPrntParamSameInpObject()
+  {
+  }
 }

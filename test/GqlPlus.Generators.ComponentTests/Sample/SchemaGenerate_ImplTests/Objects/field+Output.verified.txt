@@ -11,7 +11,20 @@ output FieldOutp { field: String }
 namespace Components.Gqlp_Schema_field_Output;
 
 public class CmptFieldOutp
-  : ICmptFieldOutp
+  : Schema_field+Output
+  , ICmptFieldOutp
+{
+  public ICmptFieldOutpObject? As_FieldOutp { get; set; }
+}
+
+public class CmptFieldOutpObject
+  : Schema_field+Output
+  , ICmptFieldOutpObject
 {
   public string Field { get; set; }
+
+  public CmptFieldOutpObject(string field)
+  {
+    Field = field;
+  }
 }

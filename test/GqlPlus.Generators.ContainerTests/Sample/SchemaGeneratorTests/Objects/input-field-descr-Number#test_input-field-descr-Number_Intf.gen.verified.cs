@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_input_field_descr_Number;
 public interface ItestInpFieldDescrNmbr
   : IGqlpModelImplementationBase
 {
-  ItestInpFieldDescrNmbrObject AsInpFieldDescrNmbr { get; }
+  ItestInpFieldDescrNmbrObject? As_InpFieldDescrNmbr { get; }
 }
 
 public interface ItestInpFieldDescrNmbrObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }

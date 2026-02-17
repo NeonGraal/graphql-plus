@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_dual_Dual;
 public interface ItestCnstFieldDualDual
   : ItestRefCnstFieldDualDual<ItestAltCnstFieldDualDual>
 {
-  ItestCnstFieldDualDualObject AsCnstFieldDualDual { get; }
+  ItestCnstFieldDualDualObject? As_CnstFieldDualDual { get; }
 }
 
 public interface ItestCnstFieldDualDualObject
@@ -21,10 +21,11 @@ public interface ItestCnstFieldDualDualObject
 public interface ItestRefCnstFieldDualDual<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldDualDualObject<TRef> AsRefCnstFieldDualDual { get; }
+  ItestRefCnstFieldDualDualObject<TRef>? As_RefCnstFieldDualDual { get; }
 }
 
 public interface ItestRefCnstFieldDualDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -32,18 +33,19 @@ public interface ItestRefCnstFieldDualDualObject<TRef>
 public interface ItestPrntCnstFieldDualDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstFieldDualDualObject AsPrntCnstFieldDualDual { get; }
+  string? AsString { get; }
+  ItestPrntCnstFieldDualDualObject? As_PrntCnstFieldDualDual { get; }
 }
 
 public interface ItestPrntCnstFieldDualDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstFieldDualDual
   : ItestPrntCnstFieldDualDual
 {
-  ItestAltCnstFieldDualDualObject AsAltCnstFieldDualDual { get; }
+  ItestAltCnstFieldDualDualObject? As_AltCnstFieldDualDual { get; }
 }
 
 public interface ItestAltCnstFieldDualDualObject

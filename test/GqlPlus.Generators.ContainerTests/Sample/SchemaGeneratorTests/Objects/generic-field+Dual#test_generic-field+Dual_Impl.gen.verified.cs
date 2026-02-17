@@ -8,7 +8,20 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_Dual;
 
 public class testGnrcFieldDual<TType>
-  : ItestGnrcFieldDual<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldDual<TType>
+{
+  public ItestGnrcFieldDualObject<TType>? As_GnrcFieldDual { get; set; }
+}
+
+public class testGnrcFieldDualObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldDualObject<TType>
 {
   public TType Field { get; set; }
+
+  public testGnrcFieldDualObject(TType field)
+  {
+    Field = field;
+  }
 }

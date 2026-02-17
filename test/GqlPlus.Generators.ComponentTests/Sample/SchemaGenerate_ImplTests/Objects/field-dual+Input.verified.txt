@@ -12,13 +12,40 @@ dual FldFieldDualInp { field: Number | String }
 namespace Components.Gqlp_Schema_field_dual_Input;
 
 public class CmptFieldDualInp
-  : ICmptFieldDualInp
+  : Schema_field-dual+Input
+  , ICmptFieldDualInp
+{
+  public ICmptFieldDualInpObject? As_FieldDualInp { get; set; }
+}
+
+public class CmptFieldDualInpObject
+  : Schema_field-dual+Input
+  , ICmptFieldDualInpObject
 {
   public ICmptFldFieldDualInp Field { get; set; }
+
+  public CmptFieldDualInpObject(ICmptFldFieldDualInp field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptFldFieldDualInp
-  : ICmptFldFieldDualInp
+  : Schema_field-dual+Input
+  , ICmptFldFieldDualInp
+{
+  public string? AsString { get; set; }
+  public ICmptFldFieldDualInpObject? As_FldFieldDualInp { get; set; }
+}
+
+public class CmptFldFieldDualInpObject
+  : Schema_field-dual+Input
+  , ICmptFldFieldDualInpObject
 {
   public decimal Field { get; set; }
+
+  public CmptFldFieldDualInpObject(decimal field)
+  {
+    Field = field;
+  }
 }

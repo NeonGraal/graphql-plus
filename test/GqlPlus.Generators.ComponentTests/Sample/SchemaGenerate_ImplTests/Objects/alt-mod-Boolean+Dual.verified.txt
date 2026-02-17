@@ -12,12 +12,39 @@ dual AltAltModBoolDual { alt: Number | String }
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
 
 public class CmptAltModBoolDual
-  : ICmptAltModBoolDual
+  : Schema_alt-mod-Boolean+Dual
+  , ICmptAltModBoolDual
 {
+  public IDictionary<bool, ICmptAltAltModBoolDual>? AsAltAltModBoolDual { get; set; }
+  public ICmptAltModBoolDualObject? As_AltModBoolDual { get; set; }
+}
+
+public class CmptAltModBoolDualObject
+  : Schema_alt-mod-Boolean+Dual
+  , ICmptAltModBoolDualObject
+{
+
+  public CmptAltModBoolDualObject()
+  {
+  }
 }
 
 public class CmptAltAltModBoolDual
-  : ICmptAltAltModBoolDual
+  : Schema_alt-mod-Boolean+Dual
+  , ICmptAltAltModBoolDual
+{
+  public string? AsString { get; set; }
+  public ICmptAltAltModBoolDualObject? As_AltAltModBoolDual { get; set; }
+}
+
+public class CmptAltAltModBoolDualObject
+  : Schema_alt-mod-Boolean+Dual
+  , ICmptAltAltModBoolDualObject
 {
   public decimal Alt { get; set; }
+
+  public CmptAltAltModBoolDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

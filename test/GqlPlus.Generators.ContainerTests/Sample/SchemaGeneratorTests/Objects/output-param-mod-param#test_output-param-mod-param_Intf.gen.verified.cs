@@ -10,22 +10,24 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_param;
 public interface ItestOutpParamModParam<TMod>
   : IGqlpModelImplementationBase
 {
-  ItestOutpParamModParamObject<TMod> AsOutpParamModParam { get; }
+  ItestOutpParamModParamObject<TMod>? As_OutpParamModParam { get; }
 }
 
 public interface ItestOutpParamModParamObject<TMod>
+  : IGqlpModelImplementationBase
 {
-  ItestDomOutpParamModParam Field (IDictionary<TMod, ItestInOutpParamModParam> parameter);
+  ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter);
 }
 
 public interface ItestInOutpParamModParam
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestInOutpParamModParamObject AsInOutpParamModParam { get; }
+  string? AsString { get; }
+  ItestInOutpParamModParamObject? As_InOutpParamModParam { get; }
 }
 
 public interface ItestInOutpParamModParamObject
+  : IGqlpModelImplementationBase
 {
   decimal Param { get; }
 }

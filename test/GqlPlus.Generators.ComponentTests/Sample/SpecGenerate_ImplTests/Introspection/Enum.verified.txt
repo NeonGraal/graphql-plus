@@ -22,12 +22,36 @@ public class Cmpt_EnumLabel
   : Cmpt_Aliased
   , ICmpt_EnumLabel
 {
+  public ICmpt_EnumLabelObject? As__EnumLabel { get; set; }
+}
+
+public class Cmpt_EnumLabelObject
+  : Cmpt_AliasedObject
+  , ICmpt_EnumLabelObject
+{
   public ICmpt_Name EnumType { get; set; }
+
+  public Cmpt_EnumLabelObject(ICmpt_Name enumType)
+  {
+    EnumType = enumType;
+  }
 }
 
 public class Cmpt_EnumValue
   : Cmpt_TypeRef<ICmpt_TypeKind>
   , ICmpt_EnumValue
 {
+  public ICmpt_EnumValueObject? As__EnumValue { get; set; }
+}
+
+public class Cmpt_EnumValueObject
+  : Cmpt_TypeRefObject<ICmpt_TypeKind>
+  , ICmpt_EnumValueObject
+{
   public ICmpt_Name Label { get; set; }
+
+  public Cmpt_EnumValueObject(ICmpt_Name label)
+  {
+    Label = label;
+  }
 }

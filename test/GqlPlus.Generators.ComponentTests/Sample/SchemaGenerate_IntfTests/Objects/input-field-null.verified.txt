@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_input_field_null;
 public interface ICmptInpFieldNull
   : Schema_input-field-null
 {
-  ICmptInpFieldNullObject AsInpFieldNull { get; }
+  ICmptInpFieldNullObject? As_InpFieldNull { get; }
 }
 
 public interface ICmptInpFieldNullObject
+  : Schema_input-field-null
 {
   ICmptFldInpFieldNull? Field { get; }
 }
@@ -25,9 +26,10 @@ public interface ICmptInpFieldNullObject
 public interface ICmptFldInpFieldNull
   : Schema_input-field-null
 {
-  ICmptFldInpFieldNullObject AsFldInpFieldNull { get; }
+  ICmptFldInpFieldNullObject? As_FldInpFieldNull { get; }
 }
 
 public interface ICmptFldInpFieldNullObject
+  : Schema_input-field-null
 {
 }

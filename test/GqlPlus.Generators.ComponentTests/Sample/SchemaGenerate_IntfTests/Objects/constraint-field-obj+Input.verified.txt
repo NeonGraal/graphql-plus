@@ -16,7 +16,7 @@ namespace Components.Gqlp_Schema_constraint_field_obj_Input;
 public interface ICmptCnstFieldObjInp
   : ICmptRefCnstFieldObjInp<ICmptAltCnstFieldObjInp>
 {
-  ICmptCnstFieldObjInpObject AsCnstFieldObjInp { get; }
+  ICmptCnstFieldObjInpObject? As_CnstFieldObjInp { get; }
 }
 
 public interface ICmptCnstFieldObjInpObject
@@ -27,10 +27,11 @@ public interface ICmptCnstFieldObjInpObject
 public interface ICmptRefCnstFieldObjInp<TRef>
   : Schema_constraint-field-obj+Input
 {
-  ICmptRefCnstFieldObjInpObject<TRef> AsRefCnstFieldObjInp { get; }
+  ICmptRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; }
 }
 
 public interface ICmptRefCnstFieldObjInpObject<TRef>
+  : Schema_constraint-field-obj+Input
 {
   TRef Field { get; }
 }
@@ -38,18 +39,19 @@ public interface ICmptRefCnstFieldObjInpObject<TRef>
 public interface ICmptPrntCnstFieldObjInp
   : Schema_constraint-field-obj+Input
 {
-  string AsString { get; }
-  ICmptPrntCnstFieldObjInpObject AsPrntCnstFieldObjInp { get; }
+  string? AsString { get; }
+  ICmptPrntCnstFieldObjInpObject? As_PrntCnstFieldObjInp { get; }
 }
 
 public interface ICmptPrntCnstFieldObjInpObject
+  : Schema_constraint-field-obj+Input
 {
 }
 
 public interface ICmptAltCnstFieldObjInp
   : ICmptPrntCnstFieldObjInp
 {
-  ICmptAltCnstFieldObjInpObject AsAltCnstFieldObjInp { get; }
+  ICmptAltCnstFieldObjInpObject? As_AltCnstFieldObjInp { get; }
 }
 
 public interface ICmptAltCnstFieldObjInpObject

@@ -44,16 +44,16 @@ namespace Components.Gqlp_Spec_Declarations;
 public interface ICmpt_Schema
   : ICmpt_Named
 {
-  ICmpt_SchemaObject As_Schema { get; }
+  ICmpt_SchemaObject? As__Schema { get; }
 }
 
 public interface ICmpt_SchemaObject
   : ICmpt_NamedObject
 {
-  IDictionary<ICmpt_Name, ICmpt_Categories> Categories (ICmpt_CategoryFilter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Directives> Directives (ICmpt_Filter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Type> Types (ICmpt_TypeFilter? parameter);
-  IDictionary<ICmpt_Name, ICmpt_Setting> Settings (ICmpt_Filter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter);
 }
 
 public interface ICmpt_Name
@@ -64,11 +64,12 @@ public interface ICmpt_Name
 public interface ICmpt_Filter
   : Spec_Declarations
 {
-  ICollection<ICmpt_NameFilter> As_NameFilter { get; }
-  ICmpt_FilterObject As_Filter { get; }
+  ICollection<ICmpt_NameFilter>? As_NameFilter { get; }
+  ICmpt_FilterObject? As__Filter { get; }
 }
 
 public interface ICmpt_FilterObject
+  : Spec_Declarations
 {
   ICollection<ICmpt_NameFilter> Names { get; }
   bool? MatchAliases { get; }
@@ -85,7 +86,7 @@ public interface ICmpt_NameFilter
 public interface ICmpt_CategoryFilter
   : ICmpt_Filter
 {
-  ICmpt_CategoryFilterObject As_CategoryFilter { get; }
+  ICmpt_CategoryFilterObject? As__CategoryFilter { get; }
 }
 
 public interface ICmpt_CategoryFilterObject
@@ -97,7 +98,7 @@ public interface ICmpt_CategoryFilterObject
 public interface ICmpt_TypeFilter
   : ICmpt_Filter
 {
-  ICmpt_TypeFilterObject As_TypeFilter { get; }
+  ICmpt_TypeFilterObject? As__TypeFilter { get; }
 }
 
 public interface ICmpt_TypeFilterObject

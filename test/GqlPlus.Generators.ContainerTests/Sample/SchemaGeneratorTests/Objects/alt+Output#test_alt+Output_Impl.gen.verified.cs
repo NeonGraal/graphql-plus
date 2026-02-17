@@ -8,12 +8,39 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_Output;
 
 public class testAltOutp
-  : ItestAltOutp
+  : GqlpModelImplementationBase
+  , ItestAltOutp
 {
+  public ItestAltAltOutp? AsAltAltOutp { get; set; }
+  public ItestAltOutpObject? As_AltOutp { get; set; }
+}
+
+public class testAltOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltOutpObject
+{
+
+  public testAltOutpObject()
+  {
+  }
 }
 
 public class testAltAltOutp
-  : ItestAltAltOutp
+  : GqlpModelImplementationBase
+  , ItestAltAltOutp
+{
+  public string? AsString { get; set; }
+  public ItestAltAltOutpObject? As_AltAltOutp { get; set; }
+}
+
+public class testAltAltOutpObject
+  : GqlpModelImplementationBase
+  , ItestAltAltOutpObject
 {
   public decimal Alt { get; set; }
+
+  public testAltAltOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

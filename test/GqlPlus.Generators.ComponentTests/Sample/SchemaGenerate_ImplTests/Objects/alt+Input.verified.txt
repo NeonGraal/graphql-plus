@@ -12,12 +12,39 @@ input AltAltInp { alt: Number | String }
 namespace Components.Gqlp_Schema_alt_Input;
 
 public class CmptAltInp
-  : ICmptAltInp
+  : Schema_alt+Input
+  , ICmptAltInp
 {
+  public ICmptAltAltInp? AsAltAltInp { get; set; }
+  public ICmptAltInpObject? As_AltInp { get; set; }
+}
+
+public class CmptAltInpObject
+  : Schema_alt+Input
+  , ICmptAltInpObject
+{
+
+  public CmptAltInpObject()
+  {
+  }
 }
 
 public class CmptAltAltInp
-  : ICmptAltAltInp
+  : Schema_alt+Input
+  , ICmptAltAltInp
+{
+  public string? AsString { get; set; }
+  public ICmptAltAltInpObject? As_AltAltInp { get; set; }
+}
+
+public class CmptAltAltInpObject
+  : Schema_alt+Input
+  , ICmptAltAltInpObject
 {
   public decimal Alt { get; set; }
+
+  public CmptAltAltInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

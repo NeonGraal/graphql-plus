@@ -12,7 +12,20 @@ enum EnumFieldEnumDual { fieldEnumDual }
 namespace Components.Gqlp_Schema_field_enum_Dual;
 
 public class CmptFieldEnumDual
-  : ICmptFieldEnumDual
+  : Schema_field-enum+Dual
+  , ICmptFieldEnumDual
+{
+  public ICmptFieldEnumDualObject? As_FieldEnumDual { get; set; }
+}
+
+public class CmptFieldEnumDualObject
+  : Schema_field-enum+Dual
+  , ICmptFieldEnumDualObject
 {
   public CmptEnumFieldEnumDual Field { get; set; }
+
+  public CmptFieldEnumDualObject(CmptEnumFieldEnumDual field)
+  {
+    Field = field;
+  }
 }

@@ -14,23 +14,74 @@ output AltCnstAltDualOutp { :PrntCnstAltDualOutp alt: Number }
 namespace Components.Gqlp_Schema_constraint_alt_dual_Output;
 
 public class CmptCnstAltDualOutp
-  : ICmptCnstAltDualOutp
+  : Schema_constraint-alt-dual+Output
+  , ICmptCnstAltDualOutp
 {
+  public ICmptRefCnstAltDualOutp<ICmptAltCnstAltDualOutp>? AsRefCnstAltDualOutp { get; set; }
+  public ICmptCnstAltDualOutpObject? As_CnstAltDualOutp { get; set; }
+}
+
+public class CmptCnstAltDualOutpObject
+  : Schema_constraint-alt-dual+Output
+  , ICmptCnstAltDualOutpObject
+{
+
+  public CmptCnstAltDualOutpObject()
+  {
+  }
 }
 
 public class CmptRefCnstAltDualOutp<TRef>
-  : ICmptRefCnstAltDualOutp<TRef>
+  : Schema_constraint-alt-dual+Output
+  , ICmptRefCnstAltDualOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ICmptRefCnstAltDualOutpObject<TRef>? As_RefCnstAltDualOutp { get; set; }
+}
+
+public class CmptRefCnstAltDualOutpObject<TRef>
+  : Schema_constraint-alt-dual+Output
+  , ICmptRefCnstAltDualOutpObject<TRef>
+{
+
+  public CmptRefCnstAltDualOutpObject()
+  {
+  }
 }
 
 public class CmptPrntCnstAltDualOutp
-  : ICmptPrntCnstAltDualOutp
+  : Schema_constraint-alt-dual+Output
+  , ICmptPrntCnstAltDualOutp
 {
+  public string? AsString { get; set; }
+  public ICmptPrntCnstAltDualOutpObject? As_PrntCnstAltDualOutp { get; set; }
+}
+
+public class CmptPrntCnstAltDualOutpObject
+  : Schema_constraint-alt-dual+Output
+  , ICmptPrntCnstAltDualOutpObject
+{
+
+  public CmptPrntCnstAltDualOutpObject()
+  {
+  }
 }
 
 public class CmptAltCnstAltDualOutp
   : CmptPrntCnstAltDualOutp
   , ICmptAltCnstAltDualOutp
 {
+  public ICmptAltCnstAltDualOutpObject? As_AltCnstAltDualOutp { get; set; }
+}
+
+public class CmptAltCnstAltDualOutpObject
+  : CmptPrntCnstAltDualOutpObject
+  , ICmptAltCnstAltDualOutpObject
+{
   public decimal Alt { get; set; }
+
+  public CmptAltCnstAltDualOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

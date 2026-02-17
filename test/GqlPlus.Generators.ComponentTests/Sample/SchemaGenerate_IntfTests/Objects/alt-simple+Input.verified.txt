@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_alt_simple_Input;
 public interface ICmptAltSmplInp
   : Schema_alt-simple+Input
 {
-  string AsString { get; }
-  ICmptAltSmplInpObject AsAltSmplInp { get; }
+  string? AsString { get; }
+  ICmptAltSmplInpObject? As_AltSmplInp { get; }
 }
 
 public interface ICmptAltSmplInpObject
+  : Schema_alt-simple+Input
 {
 }

@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Dual;
 public interface ItestFieldValueDescrDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldValueDescrDualObject AsFieldValueDescrDual { get; }
+  ItestFieldValueDescrDualObject? As_FieldValueDescrDual { get; }
 }
 
 public interface ItestFieldValueDescrDualObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldValueDescrDual Field { get; }
 }

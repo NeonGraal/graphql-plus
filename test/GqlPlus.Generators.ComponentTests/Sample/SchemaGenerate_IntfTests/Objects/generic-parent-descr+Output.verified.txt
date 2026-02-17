@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_generic_parent_descr_Output;
 public interface ICmptGnrcPrntDescrOutp<TType>
   : Schema_generic-parent-descr+Output
 {
-  TType AsParent { get; }
-  ICmptGnrcPrntDescrOutpObject<TType> AsGnrcPrntDescrOutp { get; }
+  TType? As_Parent { get; }
+  ICmptGnrcPrntDescrOutpObject<TType>? As_GnrcPrntDescrOutp { get; }
 }
 
 public interface ICmptGnrcPrntDescrOutpObject<TType>
+  : Schema_generic-parent-descr+Output
 {
 }

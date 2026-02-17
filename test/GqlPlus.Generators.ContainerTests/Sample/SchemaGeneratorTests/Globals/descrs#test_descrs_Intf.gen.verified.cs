@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_descrs;
 public interface ItestDscrs
   : IGqlpModelImplementationBase
 {
-  ItestDscrsObject AsDscrs { get; }
+  ItestDscrsObject? As_Dscrs { get; }
 }
 
 public interface ItestDscrsObject
+  : IGqlpModelImplementationBase
 {
 }

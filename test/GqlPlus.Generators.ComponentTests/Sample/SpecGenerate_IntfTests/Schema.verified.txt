@@ -31,89 +31,97 @@ namespace Components.Gqlp_Spec_Schema;
 public interface ICmpt_Opt<TT>
   : Spec_Schema
 {
-  TT AsT { get; }
-  CmptNull AsNull { get; }
-  ICmpt_OptObject<TT> As_Opt { get; }
+  TT? AsT { get; }
+  CmptNull? AsNull { get; }
+  ICmpt_OptObject<TT>? As__Opt { get; }
 }
 
 public interface ICmpt_OptObject<TT>
+  : Spec_Schema
 {
 }
 
 public interface ICmpt_List<TT>
   : Spec_Schema
 {
-  ICollection<TT> AsT { get; }
-  ICmpt_ListObject<TT> As_List { get; }
+  ICollection<TT>? AsT { get; }
+  ICmpt_ListObject<TT>? As__List { get; }
 }
 
 public interface ICmpt_ListObject<TT>
+  : Spec_Schema
 {
 }
 
 public interface ICmpt_Dict<TK,TT>
   : Spec_Schema
 {
-  IDictionary<TK, TT> AsT { get; }
-  ICmpt_DictObject<TK,TT> As_Dict { get; }
+  IDictionary<TK, TT>? AsT { get; }
+  ICmpt_DictObject<TK,TT>? As__Dict { get; }
 }
 
 public interface ICmpt_DictObject<TK,TT>
+  : Spec_Schema
 {
 }
 
 public interface ICmpt_Map<TT>
   : Spec_Schema
 {
-  IDictionary<string, TT> AsT { get; }
-  ICmpt_MapObject<TT> As_Map { get; }
+  IDictionary<string, TT>? AsT { get; }
+  ICmpt_MapObject<TT>? As__Map { get; }
 }
 
 public interface ICmpt_MapObject<TT>
+  : Spec_Schema
 {
 }
 
 public interface ICmpt_Array<TT>
   : Spec_Schema
 {
-  IDictionary<decimal, TT> AsT { get; }
-  ICmpt_ArrayObject<TT> As_Array { get; }
+  IDictionary<decimal, TT>? AsT { get; }
+  ICmpt_ArrayObject<TT>? As__Array { get; }
 }
 
 public interface ICmpt_ArrayObject<TT>
+  : Spec_Schema
 {
 }
 
 public interface ICmpt_IfElse<TT>
   : Spec_Schema
 {
-  IDictionary<bool, TT> AsT { get; }
-  ICmpt_IfElseObject<TT> As_IfElse { get; }
+  IDictionary<bool, TT>? AsT { get; }
+  ICmpt_IfElseObject<TT>? As__IfElse { get; }
 }
 
 public interface ICmpt_IfElseObject<TT>
+  : Spec_Schema
 {
 }
 
 public interface ICmpt_Set<TK>
   : Spec_Schema
 {
-  IDictionary<TK, GqlpUnit> AsUnit_ { get; }
-  ICmpt_SetObject<TK> As_Set { get; }
+  IDictionary<TK, GqlpUnit>? AsUnit_ { get; }
+  ICmpt_SetObject<TK>? As__Set { get; }
 }
 
 public interface ICmpt_SetObject<TK>
+  : Spec_Schema
 {
 }
 
 public interface ICmpt_Mask<TK>
   : Spec_Schema
 {
-  IDictionary<TK, bool> AsBoolean { get; }
-  ICmpt_MaskObject<TK> As_Mask { get; }
+  IDictionary<TK, bool>? AsBoolean { get; }
+  ICmpt_MaskObject<TK>? As__Mask { get; }
 }
 
 public interface ICmpt_MaskObject<TK>
+  : Spec_Schema
 {
 }
 
@@ -125,9 +133,10 @@ public interface ICmpt_Key
 public interface ICmpt_Any
   : Spec_Schema
 {
-  ICmpt_AnyObject As_Any { get; }
+  ICmpt_AnyObject? As__Any { get; }
 }
 
 public interface ICmpt_AnyObject
+  : Spec_Schema
 {
 }

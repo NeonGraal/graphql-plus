@@ -17,7 +17,7 @@ namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Dual;
 public interface ICmptCnstPrntDualGrndDual
   : ICmptRefCnstPrntDualGrndDual<ICmptAltCnstPrntDualGrndDual>
 {
-  ICmptCnstPrntDualGrndDualObject AsCnstPrntDualGrndDual { get; }
+  ICmptCnstPrntDualGrndDualObject? As_CnstPrntDualGrndDual { get; }
 }
 
 public interface ICmptCnstPrntDualGrndDualObject
@@ -28,29 +28,31 @@ public interface ICmptCnstPrntDualGrndDualObject
 public interface ICmptRefCnstPrntDualGrndDual<TRef>
   : Schema_constraint-parent-dual-grandparent+Dual
 {
-  TRef AsParent { get; }
-  ICmptRefCnstPrntDualGrndDualObject<TRef> AsRefCnstPrntDualGrndDual { get; }
+  TRef? As_Parent { get; }
+  ICmptRefCnstPrntDualGrndDualObject<TRef>? As_RefCnstPrntDualGrndDual { get; }
 }
 
 public interface ICmptRefCnstPrntDualGrndDualObject<TRef>
+  : Schema_constraint-parent-dual-grandparent+Dual
 {
 }
 
 public interface ICmptGrndCnstPrntDualGrndDual
   : Schema_constraint-parent-dual-grandparent+Dual
 {
-  string AsString { get; }
-  ICmptGrndCnstPrntDualGrndDualObject AsGrndCnstPrntDualGrndDual { get; }
+  string? AsString { get; }
+  ICmptGrndCnstPrntDualGrndDualObject? As_GrndCnstPrntDualGrndDual { get; }
 }
 
 public interface ICmptGrndCnstPrntDualGrndDualObject
+  : Schema_constraint-parent-dual-grandparent+Dual
 {
 }
 
 public interface ICmptPrntCnstPrntDualGrndDual
   : ICmptGrndCnstPrntDualGrndDual
 {
-  ICmptPrntCnstPrntDualGrndDualObject AsPrntCnstPrntDualGrndDual { get; }
+  ICmptPrntCnstPrntDualGrndDualObject? As_PrntCnstPrntDualGrndDual { get; }
 }
 
 public interface ICmptPrntCnstPrntDualGrndDualObject
@@ -61,7 +63,7 @@ public interface ICmptPrntCnstPrntDualGrndDualObject
 public interface ICmptAltCnstPrntDualGrndDual
   : ICmptPrntCnstPrntDualGrndDual
 {
-  ICmptAltCnstPrntDualGrndDualObject AsAltCnstPrntDualGrndDual { get; }
+  ICmptAltCnstPrntDualGrndDualObject? As_AltCnstPrntDualGrndDual { get; }
 }
 
 public interface ICmptAltCnstPrntDualGrndDualObject

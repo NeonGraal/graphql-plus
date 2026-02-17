@@ -10,20 +10,22 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Input;
 public interface ItestObjAltInp
   : IGqlpModelImplementationBase
 {
-  ItestObjAltInpType AsObjAltInpType { get; }
-  ItestObjAltInpObject AsObjAltInp { get; }
+  ItestObjAltInpType? AsObjAltInpType { get; }
+  ItestObjAltInpObject? As_ObjAltInp { get; }
 }
 
 public interface ItestObjAltInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestObjAltInpType
   : IGqlpModelImplementationBase
 {
-  ItestObjAltInpTypeObject AsObjAltInpType { get; }
+  ItestObjAltInpTypeObject? As_ObjAltInpType { get; }
 }
 
 public interface ItestObjAltInpTypeObject
+  : IGqlpModelImplementationBase
 {
 }

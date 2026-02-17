@@ -10,40 +10,44 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_field_param;
 public interface ItestOutpFieldParam
   : IGqlpModelImplementationBase
 {
-  ItestOutpFieldParamObject AsOutpFieldParam { get; }
+  ItestOutpFieldParamObject? As_OutpFieldParam { get; }
 }
 
 public interface ItestOutpFieldParamObject
+  : IGqlpModelImplementationBase
 {
-  ItestFldOutpFieldParam Field (ItestOutpFieldParam1 parameter);
+  ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter);
 }
 
 public interface ItestOutpFieldParam1
   : IGqlpModelImplementationBase
 {
-  ItestOutpFieldParam1Object AsOutpFieldParam1 { get; }
+  ItestOutpFieldParam1Object? As_OutpFieldParam1 { get; }
 }
 
 public interface ItestOutpFieldParam1Object
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestOutpFieldParam2
   : IGqlpModelImplementationBase
 {
-  ItestOutpFieldParam2Object AsOutpFieldParam2 { get; }
+  ItestOutpFieldParam2Object? As_OutpFieldParam2 { get; }
 }
 
 public interface ItestOutpFieldParam2Object
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestFldOutpFieldParam
   : IGqlpModelImplementationBase
 {
-  ItestFldOutpFieldParamObject AsFldOutpFieldParam { get; }
+  ItestFldOutpFieldParamObject? As_FldOutpFieldParam { get; }
 }
 
 public interface ItestFldOutpFieldParamObject
+  : IGqlpModelImplementationBase
 {
 }

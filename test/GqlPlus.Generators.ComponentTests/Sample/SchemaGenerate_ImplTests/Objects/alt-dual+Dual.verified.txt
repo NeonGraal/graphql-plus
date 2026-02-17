@@ -12,12 +12,39 @@ dual ObjDualAltDualDual { alt: Number | String }
 namespace Components.Gqlp_Schema_alt_dual_Dual;
 
 public class CmptAltDualDual
-  : ICmptAltDualDual
+  : Schema_alt-dual+Dual
+  , ICmptAltDualDual
 {
+  public ICmptObjDualAltDualDual? AsObjDualAltDualDual { get; set; }
+  public ICmptAltDualDualObject? As_AltDualDual { get; set; }
+}
+
+public class CmptAltDualDualObject
+  : Schema_alt-dual+Dual
+  , ICmptAltDualDualObject
+{
+
+  public CmptAltDualDualObject()
+  {
+  }
 }
 
 public class CmptObjDualAltDualDual
-  : ICmptObjDualAltDualDual
+  : Schema_alt-dual+Dual
+  , ICmptObjDualAltDualDual
+{
+  public string? AsString { get; set; }
+  public ICmptObjDualAltDualDualObject? As_ObjDualAltDualDual { get; set; }
+}
+
+public class CmptObjDualAltDualDualObject
+  : Schema_alt-dual+Dual
+  , ICmptObjDualAltDualDualObject
 {
   public decimal Alt { get; set; }
+
+  public CmptObjDualAltDualDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

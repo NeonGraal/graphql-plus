@@ -16,7 +16,7 @@ namespace Components.Gqlp_Schema_constraint_field_obj_Dual;
 public interface ICmptCnstFieldObjDual
   : ICmptRefCnstFieldObjDual<ICmptAltCnstFieldObjDual>
 {
-  ICmptCnstFieldObjDualObject AsCnstFieldObjDual { get; }
+  ICmptCnstFieldObjDualObject? As_CnstFieldObjDual { get; }
 }
 
 public interface ICmptCnstFieldObjDualObject
@@ -27,10 +27,11 @@ public interface ICmptCnstFieldObjDualObject
 public interface ICmptRefCnstFieldObjDual<TRef>
   : Schema_constraint-field-obj+Dual
 {
-  ICmptRefCnstFieldObjDualObject<TRef> AsRefCnstFieldObjDual { get; }
+  ICmptRefCnstFieldObjDualObject<TRef>? As_RefCnstFieldObjDual { get; }
 }
 
 public interface ICmptRefCnstFieldObjDualObject<TRef>
+  : Schema_constraint-field-obj+Dual
 {
   TRef Field { get; }
 }
@@ -38,18 +39,19 @@ public interface ICmptRefCnstFieldObjDualObject<TRef>
 public interface ICmptPrntCnstFieldObjDual
   : Schema_constraint-field-obj+Dual
 {
-  string AsString { get; }
-  ICmptPrntCnstFieldObjDualObject AsPrntCnstFieldObjDual { get; }
+  string? AsString { get; }
+  ICmptPrntCnstFieldObjDualObject? As_PrntCnstFieldObjDual { get; }
 }
 
 public interface ICmptPrntCnstFieldObjDualObject
+  : Schema_constraint-field-obj+Dual
 {
 }
 
 public interface ICmptAltCnstFieldObjDual
   : ICmptPrntCnstFieldObjDual
 {
-  ICmptAltCnstFieldObjDualObject AsAltCnstFieldObjDual { get; }
+  ICmptAltCnstFieldObjDualObject? As_AltCnstFieldObjDual { get; }
 }
 
 public interface ICmptAltCnstFieldObjDualObject

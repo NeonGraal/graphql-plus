@@ -13,19 +13,57 @@ input InOutpParam { param: Number | String }
 namespace Components.Gqlp_Schema_output_param;
 
 public class CmptOutpParam
-  : ICmptOutpParam
+  : Schema_output-param
+  , ICmptOutpParam
 {
-  public ICmptFldOutpParam Field (ICmptInOutpParam)
-{ }
+  public ICmptOutpParamObject? As_OutpParam { get; set; }
+}
+
+public class CmptOutpParamObject
+  : Schema_output-param
+  , ICmptOutpParamObject
+{
+  public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
+    => null;
+
+  public CmptOutpParamObject()
+  {
+  }
 }
 
 public class CmptFldOutpParam
-  : ICmptFldOutpParam
+  : Schema_output-param
+  , ICmptFldOutpParam
 {
+  public ICmptFldOutpParamObject? As_FldOutpParam { get; set; }
+}
+
+public class CmptFldOutpParamObject
+  : Schema_output-param
+  , ICmptFldOutpParamObject
+{
+
+  public CmptFldOutpParamObject()
+  {
+  }
 }
 
 public class CmptInOutpParam
-  : ICmptInOutpParam
+  : Schema_output-param
+  , ICmptInOutpParam
+{
+  public string? AsString { get; set; }
+  public ICmptInOutpParamObject? As_InOutpParam { get; set; }
+}
+
+public class CmptInOutpParamObject
+  : Schema_output-param
+  , ICmptInOutpParamObject
 {
   public decimal Param { get; set; }
+
+  public CmptInOutpParamObject(decimal param)
+  {
+    Param = param;
+  }
 }

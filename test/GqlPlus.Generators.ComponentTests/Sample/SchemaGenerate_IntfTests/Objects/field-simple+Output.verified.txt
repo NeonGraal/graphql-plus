@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_field_simple_Output;
 public interface ICmptFieldSmplOutp
   : Schema_field-simple+Output
 {
-  ICmptFieldSmplOutpObject AsFieldSmplOutp { get; }
+  ICmptFieldSmplOutpObject? As_FieldSmplOutp { get; }
 }
 
 public interface ICmptFieldSmplOutpObject
+  : Schema_field-simple+Output
 {
   decimal Field { get; }
 }

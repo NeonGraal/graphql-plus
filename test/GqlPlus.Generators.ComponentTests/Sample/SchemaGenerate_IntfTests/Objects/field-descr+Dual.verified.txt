@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_field_descr_Dual;
 public interface ICmptFieldDescrDual
   : Schema_field-descr+Dual
 {
-  ICmptFieldDescrDualObject AsFieldDescrDual { get; }
+  ICmptFieldDescrDualObject? As_FieldDescrDual { get; }
 }
 
 public interface ICmptFieldDescrDualObject
+  : Schema_field-descr+Dual
 {
   string Field { get; }
 }

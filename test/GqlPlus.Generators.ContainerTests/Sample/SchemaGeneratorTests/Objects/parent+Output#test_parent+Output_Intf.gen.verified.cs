@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_parent_Output;
 public interface ItestPrntOutp
   : ItestRefPrntOutp
 {
-  ItestPrntOutpObject AsPrntOutp { get; }
+  ItestPrntOutpObject? As_PrntOutp { get; }
 }
 
 public interface ItestPrntOutpObject
@@ -21,11 +21,12 @@ public interface ItestPrntOutpObject
 public interface ItestRefPrntOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntOutpObject AsRefPrntOutp { get; }
+  string? AsString { get; }
+  ItestRefPrntOutpObject? As_RefPrntOutp { get; }
 }
 
 public interface ItestRefPrntOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }

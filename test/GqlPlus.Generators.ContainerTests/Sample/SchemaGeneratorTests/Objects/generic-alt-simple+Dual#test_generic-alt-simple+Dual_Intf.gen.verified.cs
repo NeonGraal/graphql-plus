@@ -10,21 +10,23 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Dual;
 public interface ItestGnrcAltSmplDual
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltSmplDual<string> AsRefGnrcAltSmplDual { get; }
-  ItestGnrcAltSmplDualObject AsGnrcAltSmplDual { get; }
+  ItestRefGnrcAltSmplDual<string>? AsRefGnrcAltSmplDual { get; }
+  ItestGnrcAltSmplDualObject? As_GnrcAltSmplDual { get; }
 }
 
 public interface ItestGnrcAltSmplDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltSmplDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltSmplDualObject<TRef> AsRefGnrcAltSmplDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltSmplDualObject<TRef>? As_RefGnrcAltSmplDual { get; }
 }
 
 public interface ItestRefGnrcAltSmplDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }

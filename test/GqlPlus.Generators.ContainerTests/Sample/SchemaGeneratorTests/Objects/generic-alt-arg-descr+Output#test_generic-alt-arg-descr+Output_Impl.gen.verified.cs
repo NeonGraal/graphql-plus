@@ -8,11 +8,37 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_arg_descr_Output;
 
 public class testGnrcAltArgDescrOutp<TType>
-  : ItestGnrcAltArgDescrOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgDescrOutp<TType>
 {
+  public ItestRefGnrcAltArgDescrOutp<TType>? AsRefGnrcAltArgDescrOutp { get; set; }
+  public ItestGnrcAltArgDescrOutpObject<TType>? As_GnrcAltArgDescrOutp { get; set; }
+}
+
+public class testGnrcAltArgDescrOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltArgDescrOutpObject<TType>
+{
+
+  public testGnrcAltArgDescrOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcAltArgDescrOutp<TRef>
-  : ItestRefGnrcAltArgDescrOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgDescrOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcAltArgDescrOutpObject<TRef>? As_RefGnrcAltArgDescrOutp { get; set; }
+}
+
+public class testRefGnrcAltArgDescrOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcAltArgDescrOutpObject<TRef>
+{
+
+  public testRefGnrcAltArgDescrOutpObject()
+  {
+  }
 }

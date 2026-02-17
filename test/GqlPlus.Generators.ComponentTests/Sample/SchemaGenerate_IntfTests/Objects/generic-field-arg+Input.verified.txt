@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_generic_field_arg_Input;
 public interface ICmptGnrcFieldArgInp<TType>
   : Schema_generic-field-arg+Input
 {
-  ICmptGnrcFieldArgInpObject<TType> AsGnrcFieldArgInp { get; }
+  ICmptGnrcFieldArgInpObject<TType>? As_GnrcFieldArgInp { get; }
 }
 
 public interface ICmptGnrcFieldArgInpObject<TType>
+  : Schema_generic-field-arg+Input
 {
   ICmptRefGnrcFieldArgInp<TType> Field { get; }
 }
@@ -25,10 +26,11 @@ public interface ICmptGnrcFieldArgInpObject<TType>
 public interface ICmptRefGnrcFieldArgInp<TRef>
   : Schema_generic-field-arg+Input
 {
-  TRef Asref { get; }
-  ICmptRefGnrcFieldArgInpObject<TRef> AsRefGnrcFieldArgInp { get; }
+  TRef? Asref { get; }
+  ICmptRefGnrcFieldArgInpObject<TRef>? As_RefGnrcFieldArgInp { get; }
 }
 
 public interface ICmptRefGnrcFieldArgInpObject<TRef>
+  : Schema_generic-field-arg+Input
 {
 }

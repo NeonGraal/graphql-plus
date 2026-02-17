@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_mod;
 public interface ItestCtgrMod
   : IGqlpModelImplementationBase
 {
-  ItestCtgrModObject AsCtgrMod { get; }
+  ItestCtgrModObject? As_CtgrMod { get; }
 }
 
 public interface ItestCtgrModObject
+  : IGqlpModelImplementationBase
 {
 }

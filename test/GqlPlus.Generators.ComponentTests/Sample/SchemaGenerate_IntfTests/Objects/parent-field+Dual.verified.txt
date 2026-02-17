@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_parent_field_Dual;
 public interface ICmptPrntFieldDual
   : ICmptRefPrntFieldDual
 {
-  ICmptPrntFieldDualObject AsPrntFieldDual { get; }
+  ICmptPrntFieldDualObject? As_PrntFieldDual { get; }
 }
 
 public interface ICmptPrntFieldDualObject
@@ -26,11 +26,12 @@ public interface ICmptPrntFieldDualObject
 public interface ICmptRefPrntFieldDual
   : Schema_parent-field+Dual
 {
-  string AsString { get; }
-  ICmptRefPrntFieldDualObject AsRefPrntFieldDual { get; }
+  string? AsString { get; }
+  ICmptRefPrntFieldDualObject? As_RefPrntFieldDual { get; }
 }
 
 public interface ICmptRefPrntFieldDualObject
+  : Schema_parent-field+Dual
 {
   decimal Parent { get; }
 }

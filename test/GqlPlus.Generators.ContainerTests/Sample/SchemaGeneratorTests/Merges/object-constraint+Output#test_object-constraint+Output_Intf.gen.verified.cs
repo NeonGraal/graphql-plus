@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_constraint_Output;
 public interface ItestObjCnstOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestObjCnstOutpObject<TType> AsObjCnstOutp { get; }
+  ItestObjCnstOutpObject<TType>? As_ObjCnstOutp { get; }
 }
 
 public interface ItestObjCnstOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
   TType Str { get; }

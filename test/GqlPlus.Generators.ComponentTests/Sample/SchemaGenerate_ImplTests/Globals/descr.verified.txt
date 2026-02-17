@@ -12,6 +12,18 @@ output Descr { }
 namespace Components.Gqlp_Schema_descr;
 
 public class CmptDescr
-  : ICmptDescr
+  : Schema_descr
+  , ICmptDescr
 {
+  public ICmptDescrObject? As_Descr { get; set; }
+}
+
+public class CmptDescrObject
+  : Schema_descr
+  , ICmptDescrObject
+{
+
+  public CmptDescrObject()
+  {
+  }
 }

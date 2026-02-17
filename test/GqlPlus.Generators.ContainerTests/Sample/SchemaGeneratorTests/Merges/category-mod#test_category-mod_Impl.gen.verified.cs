@@ -8,6 +8,18 @@
 namespace GqlPlus.GeneratorTests.Gqlp_category_mod;
 
 public class testCtgrMod
-  : ItestCtgrMod
+  : GqlpModelImplementationBase
+  , ItestCtgrMod
 {
+  public ItestCtgrModObject? As_CtgrMod { get; set; }
+}
+
+public class testCtgrModObject
+  : GqlpModelImplementationBase
+  , ItestCtgrModObject
+{
+
+  public testCtgrModObject()
+  {
+  }
 }

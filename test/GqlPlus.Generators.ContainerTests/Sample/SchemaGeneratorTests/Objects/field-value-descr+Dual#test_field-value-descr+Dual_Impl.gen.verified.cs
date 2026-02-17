@@ -8,7 +8,20 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Dual;
 
 public class testFieldValueDescrDual
-  : ItestFieldValueDescrDual
+  : GqlpModelImplementationBase
+  , ItestFieldValueDescrDual
+{
+  public ItestFieldValueDescrDualObject? As_FieldValueDescrDual { get; set; }
+}
+
+public class testFieldValueDescrDualObject
+  : GqlpModelImplementationBase
+  , ItestFieldValueDescrDualObject
 {
   public testEnumFieldValueDescrDual Field { get; set; }
+
+  public testFieldValueDescrDualObject(testEnumFieldValueDescrDual field)
+  {
+    Field = field;
+  }
 }

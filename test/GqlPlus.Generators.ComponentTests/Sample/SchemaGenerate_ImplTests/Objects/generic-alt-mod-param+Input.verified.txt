@@ -11,6 +11,19 @@ input RefGnrcAltModParamInp<$ref:String $mod:String> { | $ref[$mod] }
 namespace Components.Gqlp_Schema_generic_alt_mod_param_Input;
 
 public class CmptRefGnrcAltModParamInp<TRef,TMod>
-  : ICmptRefGnrcAltModParamInp<TRef,TMod>
+  : Schema_generic-alt-mod-param+Input
+  , ICmptRefGnrcAltModParamInp<TRef,TMod>
 {
+  public IDictionary<TMod, TRef>? Asref { get; set; }
+  public ICmptRefGnrcAltModParamInpObject<TRef,TMod>? As_RefGnrcAltModParamInp { get; set; }
+}
+
+public class CmptRefGnrcAltModParamInpObject<TRef,TMod>
+  : Schema_generic-alt-mod-param+Input
+  , ICmptRefGnrcAltModParamInpObject<TRef,TMod>
+{
+
+  public CmptRefGnrcAltModParamInpObject()
+  {
+  }
 }

@@ -59,14 +59,25 @@ public class Cmpt_Schema
   : Cmpt_Named
   , ICmpt_Schema
 {
-  public IDictionary<ICmpt_Name, ICmpt_Categories> Categories (ICmpt_CategoryFilter?)
-{ }
-  public IDictionary<ICmpt_Name, ICmpt_Directives> Directives (ICmpt_Filter?)
-{ }
-  public IDictionary<ICmpt_Name, ICmpt_Type> Types (ICmpt_TypeFilter?)
-{ }
-  public IDictionary<ICmpt_Name, ICmpt_Setting> Settings (ICmpt_Filter?)
-{ }
+  public ICmpt_SchemaObject? As__Schema { get; set; }
+}
+
+public class Cmpt_SchemaObject
+  : Cmpt_NamedObject
+  , ICmpt_SchemaObject
+{
+  public IDictionary<ICmpt_Name, ICmpt_Categories>? Categories(ICmpt_CategoryFilter? parameter)
+    => null;
+  public IDictionary<ICmpt_Name, ICmpt_Directives>? Directives(ICmpt_Filter? parameter)
+    => null;
+  public IDictionary<ICmpt_Name, ICmpt_Type>? Types(ICmpt_TypeFilter? parameter)
+    => null;
+  public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
+    => null;
+
+  public Cmpt_SchemaObject()
+  {
+  }
 }
 
 public class Cmpt_Name
@@ -76,13 +87,28 @@ public class Cmpt_Name
 }
 
 public class Cmpt_Filter
-  : ICmpt_Filter
+  : Spec_-Schema
+  , ICmpt_Filter
+{
+  public ICollection<ICmpt_NameFilter>? As_NameFilter { get; set; }
+  public ICmpt_FilterObject? As__Filter { get; set; }
+}
+
+public class Cmpt_FilterObject
+  : Spec_-Schema
+  , ICmpt_FilterObject
 {
   public ICollection<ICmpt_NameFilter> Names { get; set; }
   public bool? MatchAliases { get; set; }
   public ICollection<ICmpt_NameFilter> Aliases { get; set; }
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
+
+  public Cmpt_FilterObject(ICollection<ICmpt_NameFilter> names, ICollection<ICmpt_NameFilter> aliases)
+  {
+    Names = names;
+    Aliases = aliases;
+  }
 }
 
 public class Cmpt_NameFilter
@@ -95,32 +121,97 @@ public class Cmpt_CategoryFilter
   : Cmpt_Filter
   , ICmpt_CategoryFilter
 {
+  public ICmpt_CategoryFilterObject? As__CategoryFilter { get; set; }
+}
+
+public class Cmpt_CategoryFilterObject
+  : Cmpt_FilterObject
+  , ICmpt_CategoryFilterObject
+{
   public ICollection<ICmpt_Resolution> Resolutions { get; set; }
+
+  public Cmpt_CategoryFilterObject(ICollection<ICmpt_NameFilter> names, ICollection<ICmpt_NameFilter> aliases, ICollection<ICmpt_Resolution> resolutions)
+    : base(names, aliases)
+  {
+    Resolutions = resolutions;
+  }
 }
 
 public class Cmpt_TypeFilter
   : Cmpt_Filter
   , ICmpt_TypeFilter
 {
+  public ICmpt_TypeFilterObject? As__TypeFilter { get; set; }
+}
+
+public class Cmpt_TypeFilterObject
+  : Cmpt_FilterObject
+  , ICmpt_TypeFilterObject
+{
   public ICollection<ICmpt_TypeKind> Kinds { get; set; }
+
+  public Cmpt_TypeFilterObject(ICollection<ICmpt_NameFilter> names, ICollection<ICmpt_NameFilter> aliases, ICollection<ICmpt_TypeKind> kinds)
+    : base(names, aliases)
+  {
+    Kinds = kinds;
+  }
 }
 
 public class Cmpt_Aliased
   : Cmpt_Named
   , ICmpt_Aliased
 {
+  public ICmpt_AliasedObject? As__Aliased { get; set; }
+}
+
+public class Cmpt_AliasedObject
+  : Cmpt_NamedObject
+  , ICmpt_AliasedObject
+{
   public ICollection<ICmpt_Name> Aliases { get; set; }
+
+  public Cmpt_AliasedObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases)
+    : base(description, name)
+  {
+    Aliases = aliases;
+  }
 }
 
 public class Cmpt_Named
   : Cmpt_Described
   , ICmpt_Named
 {
+  public ICmpt_NamedObject? As__Named { get; set; }
+}
+
+public class Cmpt_NamedObject
+  : Cmpt_DescribedObject
+  , ICmpt_NamedObject
+{
   public ICmpt_Name Name { get; set; }
+
+  public Cmpt_NamedObject(ICollection<string> description, ICmpt_Name name)
+    : base(description)
+  {
+    Name = name;
+  }
 }
 
 public class Cmpt_Described
-  : ICmpt_Described
+  : Spec_-Schema
+  , ICmpt_Described
+{
+  public ICmpt_DescribedObject? As__Described { get; set; }
+}
+
+public class Cmpt_DescribedObject
+  : Spec_-Schema
+  , ICmpt_DescribedObject
 {
   public ICollection<string> Description { get; set; }
+
+  public Cmpt_DescribedObject(ICollection<string> description)
+  {
+    Description = description;
+  }
 }

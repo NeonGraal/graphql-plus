@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_field_value_Input;
 public interface ICmptFieldValueInp
   : Schema_field-value+Input
 {
-  ICmptFieldValueInpObject AsFieldValueInp { get; }
+  ICmptFieldValueInpObject? As_FieldValueInp { get; }
 }
 
 public interface ICmptFieldValueInpObject
+  : Schema_field-value+Input
 {
   CmptEnumFieldValueInp Field { get; }
 }

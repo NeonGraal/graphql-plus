@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Dual;
 public interface ItestGnrcPrntStrDomDual
   : ItestFieldGnrcPrntStrDomDual<ItestDomGnrcPrntStrDomDual>
 {
-  ItestGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; }
+  ItestGnrcPrntStrDomDualObject? As_GnrcPrntStrDomDual { get; }
 }
 
 public interface ItestGnrcPrntStrDomDualObject
@@ -21,10 +21,11 @@ public interface ItestGnrcPrntStrDomDualObject
 public interface ItestFieldGnrcPrntStrDomDual<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntStrDomDualObject<TRef> AsFieldGnrcPrntStrDomDual { get; }
+  ItestFieldGnrcPrntStrDomDualObject<TRef>? As_FieldGnrcPrntStrDomDual { get; }
 }
 
 public interface ItestFieldGnrcPrntStrDomDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }

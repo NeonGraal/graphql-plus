@@ -10,21 +10,23 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_dom_enum_Input;
 public interface ItestCnstDomEnumInp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp> AsEnumCnstDomEnumInpcnstDomEnumInp { get; }
-  ItestCnstDomEnumInpObject AsCnstDomEnumInp { get; }
+  ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp>? AsEnumCnstDomEnumInpcnstDomEnumInp { get; }
+  ItestCnstDomEnumInpObject? As_CnstDomEnumInp { get; }
 }
 
 public interface ItestCnstDomEnumInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstDomEnumInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstDomEnumInpObject<TType> AsRefCnstDomEnumInp { get; }
+  ItestRefCnstDomEnumInpObject<TType>? As_RefCnstDomEnumInp { get; }
 }
 
 public interface ItestRefCnstDomEnumInpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }

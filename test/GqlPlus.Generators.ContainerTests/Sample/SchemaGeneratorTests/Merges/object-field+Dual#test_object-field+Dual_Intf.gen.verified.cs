@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_Dual;
 public interface ItestObjFieldDual
   : IGqlpModelImplementationBase
 {
-  ItestObjFieldDualObject AsObjFieldDual { get; }
+  ItestObjFieldDualObject? As_ObjFieldDual { get; }
 }
 
 public interface ItestObjFieldDualObject
+  : IGqlpModelImplementationBase
 {
   ItestFldObjFieldDual Field { get; }
 }
@@ -21,9 +22,10 @@ public interface ItestObjFieldDualObject
 public interface ItestFldObjFieldDual
   : IGqlpModelImplementationBase
 {
-  ItestFldObjFieldDualObject AsFldObjFieldDual { get; }
+  ItestFldObjFieldDualObject? As_FldObjFieldDual { get; }
 }
 
 public interface ItestFldObjFieldDualObject
+  : IGqlpModelImplementationBase
 {
 }

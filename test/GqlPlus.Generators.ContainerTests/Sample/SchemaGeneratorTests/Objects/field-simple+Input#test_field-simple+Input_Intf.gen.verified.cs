@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Input;
 public interface ItestFieldSmplInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldSmplInpObject AsFieldSmplInp { get; }
+  ItestFieldSmplInpObject? As_FieldSmplInp { get; }
 }
 
 public interface ItestFieldSmplInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }

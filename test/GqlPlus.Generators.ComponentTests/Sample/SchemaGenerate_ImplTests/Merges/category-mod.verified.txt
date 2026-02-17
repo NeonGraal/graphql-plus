@@ -13,6 +13,18 @@ output CtgrMod { }
 namespace Components.Gqlp_Schema_category_mod;
 
 public class CmptCtgrMod
-  : ICmptCtgrMod
+  : Schema_category-mod
+  , ICmptCtgrMod
 {
+  public ICmptCtgrModObject? As_CtgrMod { get; set; }
+}
+
+public class CmptCtgrModObject
+  : Schema_category-mod
+  , ICmptCtgrModObject
+{
+
+  public CmptCtgrModObject()
+  {
+  }
 }

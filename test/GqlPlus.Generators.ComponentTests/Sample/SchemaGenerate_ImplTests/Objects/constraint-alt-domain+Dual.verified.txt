@@ -13,13 +13,39 @@ domain DomCnstAltDmnDual { String /\w+/ }
 namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
 
 public class CmptCnstAltDmnDual
-  : ICmptCnstAltDmnDual
+  : Schema_constraint-alt-domain+Dual
+  , ICmptCnstAltDmnDual
 {
+  public ICmptRefCnstAltDmnDual<ICmptDomCnstAltDmnDual>? AsRefCnstAltDmnDual { get; set; }
+  public ICmptCnstAltDmnDualObject? As_CnstAltDmnDual { get; set; }
+}
+
+public class CmptCnstAltDmnDualObject
+  : Schema_constraint-alt-domain+Dual
+  , ICmptCnstAltDmnDualObject
+{
+
+  public CmptCnstAltDmnDualObject()
+  {
+  }
 }
 
 public class CmptRefCnstAltDmnDual<TRef>
-  : ICmptRefCnstAltDmnDual<TRef>
+  : Schema_constraint-alt-domain+Dual
+  , ICmptRefCnstAltDmnDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ICmptRefCnstAltDmnDualObject<TRef>? As_RefCnstAltDmnDual { get; set; }
+}
+
+public class CmptRefCnstAltDmnDualObject<TRef>
+  : Schema_constraint-alt-domain+Dual
+  , ICmptRefCnstAltDmnDualObject<TRef>
+{
+
+  public CmptRefCnstAltDmnDualObject()
+  {
+  }
 }
 
 public class CmptDomCnstAltDmnDual

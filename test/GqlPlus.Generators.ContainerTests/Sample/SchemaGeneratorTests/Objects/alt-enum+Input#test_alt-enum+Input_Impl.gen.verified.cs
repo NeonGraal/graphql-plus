@@ -8,6 +8,19 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Input;
 
 public class testAltEnumInp
-  : ItestAltEnumInp
+  : GqlpModelImplementationBase
+  , ItestAltEnumInp
 {
+  public testEnumAltEnumInp? AsEnumAltEnumInpaltEnumInp { get; set; }
+  public ItestAltEnumInpObject? As_AltEnumInp { get; set; }
+}
+
+public class testAltEnumInpObject
+  : GqlpModelImplementationBase
+  , ItestAltEnumInpObject
+{
+
+  public testAltEnumInpObject()
+  {
+  }
 }

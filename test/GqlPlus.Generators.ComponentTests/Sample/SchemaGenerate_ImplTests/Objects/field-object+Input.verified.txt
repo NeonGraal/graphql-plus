@@ -12,13 +12,40 @@ input FldFieldObjInp { field: Number | String }
 namespace Components.Gqlp_Schema_field_object_Input;
 
 public class CmptFieldObjInp
-  : ICmptFieldObjInp
+  : Schema_field-object+Input
+  , ICmptFieldObjInp
+{
+  public ICmptFieldObjInpObject? As_FieldObjInp { get; set; }
+}
+
+public class CmptFieldObjInpObject
+  : Schema_field-object+Input
+  , ICmptFieldObjInpObject
 {
   public ICmptFldFieldObjInp Field { get; set; }
+
+  public CmptFieldObjInpObject(ICmptFldFieldObjInp field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptFldFieldObjInp
-  : ICmptFldFieldObjInp
+  : Schema_field-object+Input
+  , ICmptFldFieldObjInp
+{
+  public string? AsString { get; set; }
+  public ICmptFldFieldObjInpObject? As_FldFieldObjInp { get; set; }
+}
+
+public class CmptFldFieldObjInpObject
+  : Schema_field-object+Input
+  , ICmptFldFieldObjInpObject
 {
   public decimal Field { get; set; }
+
+  public CmptFldFieldObjInpObject(decimal field)
+  {
+    Field = field;
+  }
 }

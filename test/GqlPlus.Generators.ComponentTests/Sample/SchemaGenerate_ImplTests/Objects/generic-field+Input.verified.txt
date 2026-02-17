@@ -11,7 +11,20 @@ input GnrcFieldInp<$type:String> { field: $type }
 namespace Components.Gqlp_Schema_generic_field_Input;
 
 public class CmptGnrcFieldInp<TType>
-  : ICmptGnrcFieldInp<TType>
+  : Schema_generic-field+Input
+  , ICmptGnrcFieldInp<TType>
+{
+  public ICmptGnrcFieldInpObject<TType>? As_GnrcFieldInp { get; set; }
+}
+
+public class CmptGnrcFieldInpObject<TType>
+  : Schema_generic-field+Input
+  , ICmptGnrcFieldInpObject<TType>
 {
   public TType Field { get; set; }
+
+  public CmptGnrcFieldInpObject(TType field)
+  {
+    Field = field;
+  }
 }

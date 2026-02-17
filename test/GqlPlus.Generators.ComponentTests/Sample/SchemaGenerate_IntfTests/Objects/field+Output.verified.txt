@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_field_Output;
 public interface ICmptFieldOutp
   : Schema_field+Output
 {
-  ICmptFieldOutpObject AsFieldOutp { get; }
+  ICmptFieldOutpObject? As_FieldOutp { get; }
 }
 
 public interface ICmptFieldOutpObject
+  : Schema_field+Output
 {
   string Field { get; }
 }

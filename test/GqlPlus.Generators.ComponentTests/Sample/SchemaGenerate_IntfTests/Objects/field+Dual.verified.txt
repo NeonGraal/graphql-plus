@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_field_Dual;
 public interface ICmptFieldDual
   : Schema_field+Dual
 {
-  ICmptFieldDualObject AsFieldDual { get; }
+  ICmptFieldDualObject? As_FieldDual { get; }
 }
 
 public interface ICmptFieldDualObject
+  : Schema_field+Dual
 {
   string Field { get; }
 }

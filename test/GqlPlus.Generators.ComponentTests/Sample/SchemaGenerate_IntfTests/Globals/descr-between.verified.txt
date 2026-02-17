@@ -15,9 +15,10 @@ namespace Components.Gqlp_Schema_descr_between;
 public interface ICmptDescrBtwn
   : Schema_descr-between
 {
-  ICmptDescrBtwnObject AsDescrBtwn { get; }
+  ICmptDescrBtwnObject? As_DescrBtwn { get; }
 }
 
 public interface ICmptDescrBtwnObject
+  : Schema_descr-between
 {
 }

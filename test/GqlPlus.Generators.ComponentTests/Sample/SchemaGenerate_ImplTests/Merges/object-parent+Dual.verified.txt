@@ -16,9 +16,32 @@ public class CmptObjPrntDual
   : CmptRefObjPrntDual
   , ICmptObjPrntDual
 {
+  public ICmptObjPrntDualObject? As_ObjPrntDual { get; set; }
+}
+
+public class CmptObjPrntDualObject
+  : CmptRefObjPrntDualObject
+  , ICmptObjPrntDualObject
+{
+
+  public CmptObjPrntDualObject()
+  {
+  }
 }
 
 public class CmptRefObjPrntDual
-  : ICmptRefObjPrntDual
+  : Schema_object-parent+Dual
+  , ICmptRefObjPrntDual
 {
+  public ICmptRefObjPrntDualObject? As_RefObjPrntDual { get; set; }
+}
+
+public class CmptRefObjPrntDualObject
+  : Schema_object-parent+Dual
+  , ICmptRefObjPrntDualObject
+{
+
+  public CmptRefObjPrntDualObject()
+  {
+  }
 }

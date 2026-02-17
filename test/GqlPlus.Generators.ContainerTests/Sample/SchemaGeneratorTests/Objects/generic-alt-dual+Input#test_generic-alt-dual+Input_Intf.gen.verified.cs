@@ -10,33 +10,36 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_dual_Input;
 public interface ItestGnrcAltDualInp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltDualInp<ItestAltGnrcAltDualInp> AsRefGnrcAltDualInp { get; }
-  ItestGnrcAltDualInpObject AsGnrcAltDualInp { get; }
+  ItestRefGnrcAltDualInp<ItestAltGnrcAltDualInp>? AsRefGnrcAltDualInp { get; }
+  ItestGnrcAltDualInpObject? As_GnrcAltDualInp { get; }
 }
 
 public interface ItestGnrcAltDualInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltDualInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltDualInpObject<TRef> AsRefGnrcAltDualInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltDualInpObject<TRef>? As_RefGnrcAltDualInp { get; }
 }
 
 public interface ItestRefGnrcAltDualInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcAltDualInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcAltDualInpObject AsAltGnrcAltDualInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcAltDualInpObject? As_AltGnrcAltDualInp { get; }
 }
 
 public interface ItestAltGnrcAltDualInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }

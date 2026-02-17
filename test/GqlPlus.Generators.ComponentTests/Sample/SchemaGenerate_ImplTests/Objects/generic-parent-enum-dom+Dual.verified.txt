@@ -17,12 +17,37 @@ public class CmptGnrcPrntEnumDomDual
   : CmptFieldGnrcPrntEnumDomDual<ICmptDomGnrcPrntEnumDomDual>
   , ICmptGnrcPrntEnumDomDual
 {
+  public ICmptGnrcPrntEnumDomDualObject? As_GnrcPrntEnumDomDual { get; set; }
+}
+
+public class CmptGnrcPrntEnumDomDualObject
+  : CmptFieldGnrcPrntEnumDomDualObject<ICmptDomGnrcPrntEnumDomDual>
+  , ICmptGnrcPrntEnumDomDualObject
+{
+
+  public CmptGnrcPrntEnumDomDualObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class CmptFieldGnrcPrntEnumDomDual<TRef>
-  : ICmptFieldGnrcPrntEnumDomDual<TRef>
+  : Schema_generic-parent-enum-dom+Dual
+  , ICmptFieldGnrcPrntEnumDomDual<TRef>
+{
+  public ICmptFieldGnrcPrntEnumDomDualObject<TRef>? As_FieldGnrcPrntEnumDomDual { get; set; }
+}
+
+public class CmptFieldGnrcPrntEnumDomDualObject<TRef>
+  : Schema_generic-parent-enum-dom+Dual
+  , ICmptFieldGnrcPrntEnumDomDualObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public CmptFieldGnrcPrntEnumDomDualObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptDomGnrcPrntEnumDomDual

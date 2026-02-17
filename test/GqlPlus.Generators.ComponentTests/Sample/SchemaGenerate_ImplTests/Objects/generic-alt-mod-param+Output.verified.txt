@@ -11,6 +11,19 @@ output RefGnrcAltModParamOutp<$ref:String $mod:String> { | $ref[$mod] }
 namespace Components.Gqlp_Schema_generic_alt_mod_param_Output;
 
 public class CmptRefGnrcAltModParamOutp<TRef,TMod>
-  : ICmptRefGnrcAltModParamOutp<TRef,TMod>
+  : Schema_generic-alt-mod-param+Output
+  , ICmptRefGnrcAltModParamOutp<TRef,TMod>
 {
+  public IDictionary<TMod, TRef>? Asref { get; set; }
+  public ICmptRefGnrcAltModParamOutpObject<TRef,TMod>? As_RefGnrcAltModParamOutp { get; set; }
+}
+
+public class CmptRefGnrcAltModParamOutpObject<TRef,TMod>
+  : Schema_generic-alt-mod-param+Output
+  , ICmptRefGnrcAltModParamOutpObject<TRef,TMod>
+{
+
+  public CmptRefGnrcAltModParamOutpObject()
+  {
+  }
 }

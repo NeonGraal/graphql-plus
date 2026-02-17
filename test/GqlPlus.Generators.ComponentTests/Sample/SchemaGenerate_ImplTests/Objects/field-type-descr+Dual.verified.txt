@@ -11,7 +11,20 @@ dual FieldTypeDescrDual { field: "Test" "Descr" Number }
 namespace Components.Gqlp_Schema_field_type_descr_Dual;
 
 public class CmptFieldTypeDescrDual
-  : ICmptFieldTypeDescrDual
+  : Schema_field-type-descr+Dual
+  , ICmptFieldTypeDescrDual
+{
+  public ICmptFieldTypeDescrDualObject? As_FieldTypeDescrDual { get; set; }
+}
+
+public class CmptFieldTypeDescrDualObject
+  : Schema_field-type-descr+Dual
+  , ICmptFieldTypeDescrDualObject
 {
   public decimal Field { get; set; }
+
+  public CmptFieldTypeDescrDualObject(decimal field)
+  {
+    Field = field;
+  }
 }

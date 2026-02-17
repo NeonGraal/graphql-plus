@@ -8,18 +8,58 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_param_Dual;
 
 public class testGnrcFieldParamDual
-  : ItestGnrcFieldParamDual
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldParamDual
+{
+  public ItestGnrcFieldParamDualObject? As_GnrcFieldParamDual { get; set; }
+}
+
+public class testGnrcFieldParamDualObject
+  : GqlpModelImplementationBase
+  , ItestGnrcFieldParamDualObject
 {
   public ItestRefGnrcFieldParamDual<ItestAltGnrcFieldParamDual> Field { get; set; }
+
+  public testGnrcFieldParamDualObject(ItestRefGnrcFieldParamDual<ItestAltGnrcFieldParamDual> field)
+  {
+    Field = field;
+  }
 }
 
 public class testRefGnrcFieldParamDual<TRef>
-  : ItestRefGnrcFieldParamDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldParamDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcFieldParamDualObject<TRef>? As_RefGnrcFieldParamDual { get; set; }
+}
+
+public class testRefGnrcFieldParamDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcFieldParamDualObject<TRef>
+{
+
+  public testRefGnrcFieldParamDualObject()
+  {
+  }
 }
 
 public class testAltGnrcFieldParamDual
-  : ItestAltGnrcFieldParamDual
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldParamDual
+{
+  public string? AsString { get; set; }
+  public ItestAltGnrcFieldParamDualObject? As_AltGnrcFieldParamDual { get; set; }
+}
+
+public class testAltGnrcFieldParamDualObject
+  : GqlpModelImplementationBase
+  , ItestAltGnrcFieldParamDualObject
 {
   public decimal Alt { get; set; }
+
+  public testAltGnrcFieldParamDualObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

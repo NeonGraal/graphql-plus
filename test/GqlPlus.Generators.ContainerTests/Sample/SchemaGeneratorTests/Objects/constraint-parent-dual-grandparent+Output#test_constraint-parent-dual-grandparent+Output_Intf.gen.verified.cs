@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_grandparent_Output;
 public interface ItestCnstPrntDualGrndOutp
   : ItestRefCnstPrntDualGrndOutp<ItestAltCnstPrntDualGrndOutp>
 {
-  ItestCnstPrntDualGrndOutpObject AsCnstPrntDualGrndOutp { get; }
+  ItestCnstPrntDualGrndOutpObject? As_CnstPrntDualGrndOutp { get; }
 }
 
 public interface ItestCnstPrntDualGrndOutpObject
@@ -21,29 +21,31 @@ public interface ItestCnstPrntDualGrndOutpObject
 public interface ItestRefCnstPrntDualGrndOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefCnstPrntDualGrndOutpObject<TRef> AsRefCnstPrntDualGrndOutp { get; }
+  TRef? As_Parent { get; }
+  ItestRefCnstPrntDualGrndOutpObject<TRef>? As_RefCnstPrntDualGrndOutp { get; }
 }
 
 public interface ItestRefCnstPrntDualGrndOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGrndCnstPrntDualGrndOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestGrndCnstPrntDualGrndOutpObject AsGrndCnstPrntDualGrndOutp { get; }
+  string? AsString { get; }
+  ItestGrndCnstPrntDualGrndOutpObject? As_GrndCnstPrntDualGrndOutp { get; }
 }
 
 public interface ItestGrndCnstPrntDualGrndOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstPrntDualGrndOutp
   : ItestGrndCnstPrntDualGrndOutp
 {
-  ItestPrntCnstPrntDualGrndOutpObject AsPrntCnstPrntDualGrndOutp { get; }
+  ItestPrntCnstPrntDualGrndOutpObject? As_PrntCnstPrntDualGrndOutp { get; }
 }
 
 public interface ItestPrntCnstPrntDualGrndOutpObject
@@ -54,7 +56,7 @@ public interface ItestPrntCnstPrntDualGrndOutpObject
 public interface ItestAltCnstPrntDualGrndOutp
   : ItestPrntCnstPrntDualGrndOutp
 {
-  ItestAltCnstPrntDualGrndOutpObject AsAltCnstPrntDualGrndOutp { get; }
+  ItestAltCnstPrntDualGrndOutpObject? As_AltCnstPrntDualGrndOutp { get; }
 }
 
 public interface ItestAltCnstPrntDualGrndOutpObject

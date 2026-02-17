@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_input_field_Enum;
 public interface ItestInpFieldEnum
   : IGqlpModelImplementationBase
 {
-  ItestInpFieldEnumObject AsInpFieldEnum { get; }
+  ItestInpFieldEnumObject? As_InpFieldEnum { get; }
 }
 
 public interface ItestInpFieldEnumObject
+  : IGqlpModelImplementationBase
 {
   testEnumInpFieldEnum Field { get; }
 }

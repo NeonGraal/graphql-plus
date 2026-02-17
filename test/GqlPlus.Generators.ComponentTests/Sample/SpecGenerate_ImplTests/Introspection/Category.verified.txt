@@ -27,14 +27,41 @@ public class Cmpt_Categories
   : Cmpt_AndType
   , ICmpt_Categories
 {
+  public ICmpt_Category? As_Category { get; set; }
+  public ICmpt_CategoriesObject? As__Categories { get; set; }
+}
+
+public class Cmpt_CategoriesObject
+  : Cmpt_AndTypeObject
+  , ICmpt_CategoriesObject
+{
   public ICmpt_Category Category { get; set; }
+
+  public Cmpt_CategoriesObject(ICmpt_Category category)
+  {
+    Category = category;
+  }
 }
 
 public class Cmpt_Category
   : Cmpt_Aliased
   , ICmpt_Category
 {
+  public ICmpt_CategoryObject? As__Category { get; set; }
+}
+
+public class Cmpt_CategoryObject
+  : Cmpt_AliasedObject
+  , ICmpt_CategoryObject
+{
   public Cmpt_Resolution Resolution { get; set; }
   public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+
+  public Cmpt_CategoryObject(Cmpt_Resolution resolution, ICmpt_TypeRef<ICmpt_TypeKind> output, ICollection<ICmpt_Modifiers> modifiers)
+  {
+    Resolution = resolution;
+    Output = output;
+    Modifiers = modifiers;
+  }
 }

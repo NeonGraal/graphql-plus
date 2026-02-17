@@ -8,7 +8,20 @@
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_Number_descr;
 
 public class testInpFieldNmbrDescr
-  : ItestInpFieldNmbrDescr
+  : GqlpModelImplementationBase
+  , ItestInpFieldNmbrDescr
+{
+  public ItestInpFieldNmbrDescrObject? As_InpFieldNmbrDescr { get; set; }
+}
+
+public class testInpFieldNmbrDescrObject
+  : GqlpModelImplementationBase
+  , ItestInpFieldNmbrDescrObject
 {
   public decimal Field { get; set; }
+
+  public testInpFieldNmbrDescrObject(decimal field)
+  {
+    Field = field;
+  }
 }

@@ -14,9 +14,10 @@ namespace Components.Gqlp_Schema_descr_single;
 public interface ICmptDescrSngl
   : Schema_descr-single
 {
-  ICmptDescrSnglObject AsDescrSngl { get; }
+  ICmptDescrSnglObject? As_DescrSngl { get; }
 }
 
 public interface ICmptDescrSnglObject
+  : Schema_descr-single
 {
 }

@@ -44,10 +44,11 @@ public interface Itest_Key
 public interface Itest_Object
   : IGqlpModelImplementationBase
 {
-  Itest_ObjectObject As_Object { get; }
+  Itest_ObjectObject? As__Object { get; }
 }
 
 public interface Itest_ObjectObject
+  : IGqlpModelImplementationBase
 {
 }
 
@@ -59,10 +60,11 @@ public interface Itest_Domain
 public interface Itest_Dual
   : IGqlpModelImplementationBase
 {
-  Itest_DualObject As_Dual { get; }
+  Itest_DualObject? As__Dual { get; }
 }
 
 public interface Itest_DualObject
+  : IGqlpModelImplementationBase
 {
 }
 
@@ -74,20 +76,22 @@ public interface Itest_Enum
 public interface Itest_Input
   : IGqlpModelImplementationBase
 {
-  Itest_InputObject As_Input { get; }
+  Itest_InputObject? As__Input { get; }
 }
 
 public interface Itest_InputObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface Itest_Output
   : IGqlpModelImplementationBase
 {
-  Itest_OutputObject As_Output { get; }
+  Itest_OutputObject? As__Output { get; }
 }
 
 public interface Itest_OutputObject
+  : IGqlpModelImplementationBase
 {
 }
 

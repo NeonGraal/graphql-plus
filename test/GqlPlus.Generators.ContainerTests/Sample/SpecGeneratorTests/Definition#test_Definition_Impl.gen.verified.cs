@@ -47,8 +47,20 @@ public class test_Key
 }
 
 public class test_Object
-  : Itest_Object
+  : GqlpModelImplementationBase
+  , Itest_Object
 {
+  public Itest_ObjectObject? As__Object { get; set; }
+}
+
+public class test_ObjectObject
+  : GqlpModelImplementationBase
+  , Itest_ObjectObject
+{
+
+  public test_ObjectObject()
+  {
+  }
 }
 
 public class test_Domain
@@ -58,8 +70,20 @@ public class test_Domain
 }
 
 public class test_Dual
-  : Itest_Dual
+  : GqlpModelImplementationBase
+  , Itest_Dual
 {
+  public Itest_DualObject? As__Dual { get; set; }
+}
+
+public class test_DualObject
+  : GqlpModelImplementationBase
+  , Itest_DualObject
+{
+
+  public test_DualObject()
+  {
+  }
 }
 
 public class test_Enum
@@ -69,13 +93,37 @@ public class test_Enum
 }
 
 public class test_Input
-  : Itest_Input
+  : GqlpModelImplementationBase
+  , Itest_Input
 {
+  public Itest_InputObject? As__Input { get; set; }
+}
+
+public class test_InputObject
+  : GqlpModelImplementationBase
+  , Itest_InputObject
+{
+
+  public test_InputObject()
+  {
+  }
 }
 
 public class test_Output
-  : Itest_Output
+  : GqlpModelImplementationBase
+  , Itest_Output
 {
+  public Itest_OutputObject? As__Output { get; set; }
+}
+
+public class test_OutputObject
+  : GqlpModelImplementationBase
+  , Itest_OutputObject
+{
+
+  public test_OutputObject()
+  {
+  }
 }
 
 public class test_Union

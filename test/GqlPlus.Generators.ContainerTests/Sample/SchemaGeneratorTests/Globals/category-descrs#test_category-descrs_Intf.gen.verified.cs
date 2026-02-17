@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_descrs;
 public interface ItestCtgrDscrs
   : IGqlpModelImplementationBase
 {
-  ItestCtgrDscrsObject AsCtgrDscrs { get; }
+  ItestCtgrDscrsObject? As_CtgrDscrs { get; }
 }
 
 public interface ItestCtgrDscrsObject
+  : IGqlpModelImplementationBase
 {
 }

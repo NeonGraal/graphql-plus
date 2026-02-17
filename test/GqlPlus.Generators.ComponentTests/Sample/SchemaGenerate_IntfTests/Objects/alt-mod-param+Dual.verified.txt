@@ -14,22 +14,24 @@ namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 public interface ICmptAltModParamDual<TMod>
   : Schema_alt-mod-param+Dual
 {
-  IDictionary<TMod, ICmptAltAltModParamDual> AsAltAltModParamDual { get; }
-  ICmptAltModParamDualObject<TMod> AsAltModParamDual { get; }
+  IDictionary<TMod, ICmptAltAltModParamDual>? AsAltAltModParamDual { get; }
+  ICmptAltModParamDualObject<TMod>? As_AltModParamDual { get; }
 }
 
 public interface ICmptAltModParamDualObject<TMod>
+  : Schema_alt-mod-param+Dual
 {
 }
 
 public interface ICmptAltAltModParamDual
   : Schema_alt-mod-param+Dual
 {
-  string AsString { get; }
-  ICmptAltAltModParamDualObject AsAltAltModParamDual { get; }
+  string? AsString { get; }
+  ICmptAltAltModParamDualObject? As_AltAltModParamDual { get; }
 }
 
 public interface ICmptAltAltModParamDualObject
+  : Schema_alt-mod-param+Dual
 {
   decimal Alt { get; }
 }

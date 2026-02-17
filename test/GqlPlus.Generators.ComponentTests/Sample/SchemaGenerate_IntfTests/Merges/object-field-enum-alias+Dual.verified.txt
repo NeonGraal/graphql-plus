@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_object_field_enum_alias_Dual;
 public interface ICmptObjFieldEnumAliasDual
   : Schema_object-field-enum-alias+Dual
 {
-  ICmptObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; }
+  ICmptObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; }
 }
 
 public interface ICmptObjFieldEnumAliasDualObject
+  : Schema_object-field-enum-alias+Dual
 {
   bool Field { get; }
 }

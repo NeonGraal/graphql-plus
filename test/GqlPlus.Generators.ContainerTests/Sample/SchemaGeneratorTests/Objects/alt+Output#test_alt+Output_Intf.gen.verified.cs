@@ -10,22 +10,24 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_Output;
 public interface ItestAltOutp
   : IGqlpModelImplementationBase
 {
-  ItestAltAltOutp AsAltAltOutp { get; }
-  ItestAltOutpObject AsAltOutp { get; }
+  ItestAltAltOutp? AsAltAltOutp { get; }
+  ItestAltOutpObject? As_AltOutp { get; }
 }
 
 public interface ItestAltOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltOutpObject AsAltAltOutp { get; }
+  string? AsString { get; }
+  ItestAltAltOutpObject? As_AltAltOutp { get; }
 }
 
 public interface ItestAltAltOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }

@@ -16,40 +16,43 @@ namespace Components.Gqlp_Schema_constraint_alt_dual_Dual;
 public interface ICmptCnstAltDualDual
   : Schema_constraint-alt-dual+Dual
 {
-  ICmptRefCnstAltDualDual<ICmptAltCnstAltDualDual> AsRefCnstAltDualDual { get; }
-  ICmptCnstAltDualDualObject AsCnstAltDualDual { get; }
+  ICmptRefCnstAltDualDual<ICmptAltCnstAltDualDual>? AsRefCnstAltDualDual { get; }
+  ICmptCnstAltDualDualObject? As_CnstAltDualDual { get; }
 }
 
 public interface ICmptCnstAltDualDualObject
+  : Schema_constraint-alt-dual+Dual
 {
 }
 
 public interface ICmptRefCnstAltDualDual<TRef>
   : Schema_constraint-alt-dual+Dual
 {
-  TRef Asref { get; }
-  ICmptRefCnstAltDualDualObject<TRef> AsRefCnstAltDualDual { get; }
+  TRef? Asref { get; }
+  ICmptRefCnstAltDualDualObject<TRef>? As_RefCnstAltDualDual { get; }
 }
 
 public interface ICmptRefCnstAltDualDualObject<TRef>
+  : Schema_constraint-alt-dual+Dual
 {
 }
 
 public interface ICmptPrntCnstAltDualDual
   : Schema_constraint-alt-dual+Dual
 {
-  string AsString { get; }
-  ICmptPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; }
+  string? AsString { get; }
+  ICmptPrntCnstAltDualDualObject? As_PrntCnstAltDualDual { get; }
 }
 
 public interface ICmptPrntCnstAltDualDualObject
+  : Schema_constraint-alt-dual+Dual
 {
 }
 
 public interface ICmptAltCnstAltDualDual
   : ICmptPrntCnstAltDualDual
 {
-  ICmptAltCnstAltDualDualObject AsAltCnstAltDualDual { get; }
+  ICmptAltCnstAltDualDualObject? As_AltCnstAltDualDual { get; }
 }
 
 public interface ICmptAltCnstAltDualDualObject

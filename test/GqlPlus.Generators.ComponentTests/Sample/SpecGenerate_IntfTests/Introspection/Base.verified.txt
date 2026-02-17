@@ -85,7 +85,7 @@ public interface ICmpt_ObjectKind
 public interface ICmpt_TypeObject<TKind,TField>
   : ICmpt_ChildType<TKind, ICmpt_ObjBase>
 {
-  ICmpt_TypeObjectObject<TKind,TField> As_TypeObject { get; }
+  ICmpt_TypeObjectObject<TKind,TField>? As__TypeObject { get; }
 }
 
 public interface ICmpt_TypeObjectObject<TKind,TField>
@@ -101,7 +101,7 @@ public interface ICmpt_TypeObjectObject<TKind,TField>
 public interface ICmpt_ObjTypeParam
   : ICmpt_Named
 {
-  ICmpt_ObjTypeParamObject As_ObjTypeParam { get; }
+  ICmpt_ObjTypeParamObject? As__ObjTypeParam { get; }
 }
 
 public interface ICmpt_ObjTypeParamObject
@@ -113,8 +113,8 @@ public interface ICmpt_ObjTypeParamObject
 public interface ICmpt_ObjBase
   : ICmpt_Named
 {
-  ICmpt_TypeParam As_TypeParam { get; }
-  ICmpt_ObjBaseObject As_ObjBase { get; }
+  ICmpt_TypeParam? As_TypeParam { get; }
+  ICmpt_ObjBaseObject? As__ObjBase { get; }
 }
 
 public interface ICmpt_ObjBaseObject
@@ -126,8 +126,8 @@ public interface ICmpt_ObjBaseObject
 public interface ICmpt_ObjTypeArg
   : ICmpt_TypeRef<ICmpt_TypeKind>
 {
-  ICmpt_TypeParam As_TypeParam { get; }
-  ICmpt_ObjTypeArgObject As_ObjTypeArg { get; }
+  ICmpt_TypeParam? As_TypeParam { get; }
+  ICmpt_ObjTypeArgObject? As__ObjTypeArg { get; }
 }
 
 public interface ICmpt_ObjTypeArgObject
@@ -139,7 +139,7 @@ public interface ICmpt_ObjTypeArgObject
 public interface ICmpt_TypeParam
   : ICmpt_Described
 {
-  ICmpt_TypeParamObject As_TypeParam { get; }
+  ICmpt_TypeParamObject? As__TypeParam { get; }
 }
 
 public interface ICmpt_TypeParamObject
@@ -151,11 +151,12 @@ public interface ICmpt_TypeParamObject
 public interface ICmpt_ObjAlternate
   : Spec_Base
 {
-  ICmpt_ObjAlternateEnum As_ObjAlternateEnum { get; }
-  ICmpt_ObjAlternateObject As_ObjAlternate { get; }
+  ICmpt_ObjAlternateEnum? As_ObjAlternateEnum { get; }
+  ICmpt_ObjAlternateObject? As__ObjAlternate { get; }
 }
 
 public interface ICmpt_ObjAlternateObject
+  : Spec_Base
 {
   ICmpt_ObjBase Type { get; }
   ICollection<ICmpt_Collections> Collections { get; }
@@ -164,7 +165,7 @@ public interface ICmpt_ObjAlternateObject
 public interface ICmpt_ObjAlternateEnum
   : ICmpt_TypeRef<ICmpt_TypeKind>
 {
-  ICmpt_ObjAlternateEnumObject As_ObjAlternateEnum { get; }
+  ICmpt_ObjAlternateEnumObject? As__ObjAlternateEnum { get; }
 }
 
 public interface ICmpt_ObjAlternateEnumObject
@@ -176,11 +177,12 @@ public interface ICmpt_ObjAlternateEnumObject
 public interface ICmpt_ObjectFor<TFor>
   : Spec_Base
 {
-  TFor AsParent { get; }
-  ICmpt_ObjectForObject<TFor> As_ObjectFor { get; }
+  TFor? As_Parent { get; }
+  ICmpt_ObjectForObject<TFor>? As__ObjectFor { get; }
 }
 
 public interface ICmpt_ObjectForObject<TFor>
+  : Spec_Base
 {
   ICmpt_Name ObjectType { get; }
 }
@@ -188,7 +190,7 @@ public interface ICmpt_ObjectForObject<TFor>
 public interface ICmpt_ObjField<TType>
   : ICmpt_Aliased
 {
-  ICmpt_ObjFieldObject<TType> As_ObjField { get; }
+  ICmpt_ObjFieldObject<TType>? As__ObjField { get; }
 }
 
 public interface ICmpt_ObjFieldObject<TType>
@@ -200,8 +202,8 @@ public interface ICmpt_ObjFieldObject<TType>
 public interface ICmpt_ObjFieldType
   : ICmpt_ObjBase
 {
-  ICmpt_ObjFieldEnum As_ObjFieldEnum { get; }
-  ICmpt_ObjFieldTypeObject As_ObjFieldType { get; }
+  ICmpt_ObjFieldEnum? As_ObjFieldEnum { get; }
+  ICmpt_ObjFieldTypeObject? As__ObjFieldType { get; }
 }
 
 public interface ICmpt_ObjFieldTypeObject
@@ -213,7 +215,7 @@ public interface ICmpt_ObjFieldTypeObject
 public interface ICmpt_ObjFieldEnum
   : ICmpt_TypeRef<ICmpt_TypeKind>
 {
-  ICmpt_ObjFieldEnumObject As_ObjFieldEnum { get; }
+  ICmpt_ObjFieldEnumObject? As__ObjFieldEnum { get; }
 }
 
 public interface ICmpt_ObjFieldEnumObject
@@ -225,11 +227,12 @@ public interface ICmpt_ObjFieldEnumObject
 public interface ICmpt_ForParam<TType>
   : Spec_Base
 {
-  ICmpt_ObjAlternate As_ObjAlternate { get; }
-  ICmpt_ObjField<TType> As_ObjField { get; }
-  ICmpt_ForParamObject<TType> As_ForParam { get; }
+  ICmpt_ObjAlternate? As_ObjAlternate { get; }
+  ICmpt_ObjField<TType>? As_ObjField { get; }
+  ICmpt_ForParamObject<TType>? As__ForParam { get; }
 }
 
 public interface ICmpt_ForParamObject<TType>
+  : Spec_Base
 {
 }

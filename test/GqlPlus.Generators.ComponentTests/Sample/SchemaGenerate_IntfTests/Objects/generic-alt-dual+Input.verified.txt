@@ -15,33 +15,36 @@ namespace Components.Gqlp_Schema_generic_alt_dual_Input;
 public interface ICmptGnrcAltDualInp
   : Schema_generic-alt-dual+Input
 {
-  ICmptRefGnrcAltDualInp<ICmptAltGnrcAltDualInp> AsRefGnrcAltDualInp { get; }
-  ICmptGnrcAltDualInpObject AsGnrcAltDualInp { get; }
+  ICmptRefGnrcAltDualInp<ICmptAltGnrcAltDualInp>? AsRefGnrcAltDualInp { get; }
+  ICmptGnrcAltDualInpObject? As_GnrcAltDualInp { get; }
 }
 
 public interface ICmptGnrcAltDualInpObject
+  : Schema_generic-alt-dual+Input
 {
 }
 
 public interface ICmptRefGnrcAltDualInp<TRef>
   : Schema_generic-alt-dual+Input
 {
-  TRef Asref { get; }
-  ICmptRefGnrcAltDualInpObject<TRef> AsRefGnrcAltDualInp { get; }
+  TRef? Asref { get; }
+  ICmptRefGnrcAltDualInpObject<TRef>? As_RefGnrcAltDualInp { get; }
 }
 
 public interface ICmptRefGnrcAltDualInpObject<TRef>
+  : Schema_generic-alt-dual+Input
 {
 }
 
 public interface ICmptAltGnrcAltDualInp
   : Schema_generic-alt-dual+Input
 {
-  string AsString { get; }
-  ICmptAltGnrcAltDualInpObject AsAltGnrcAltDualInp { get; }
+  string? AsString { get; }
+  ICmptAltGnrcAltDualInpObject? As_AltGnrcAltDualInp { get; }
 }
 
 public interface ICmptAltGnrcAltDualInpObject
+  : Schema_generic-alt-dual+Input
 {
   decimal Alt { get; }
 }

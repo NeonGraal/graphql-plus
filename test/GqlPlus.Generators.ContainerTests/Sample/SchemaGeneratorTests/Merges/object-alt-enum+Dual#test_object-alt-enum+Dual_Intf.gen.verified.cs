@@ -10,11 +10,12 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_alt_enum_Dual;
 public interface ItestObjAltEnumDual
   : IGqlpModelImplementationBase
 {
-  bool AsBooleantrue { get; }
-  bool AsBooleanfalse { get; }
-  ItestObjAltEnumDualObject AsObjAltEnumDual { get; }
+  bool? AsBooleantrue { get; }
+  bool? AsBooleanfalse { get; }
+  ItestObjAltEnumDualObject? As_ObjAltEnumDual { get; }
 }
 
 public interface ItestObjAltEnumDualObject
+  : IGqlpModelImplementationBase
 {
 }

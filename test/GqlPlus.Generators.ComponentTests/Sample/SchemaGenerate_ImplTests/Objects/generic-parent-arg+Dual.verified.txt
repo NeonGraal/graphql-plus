@@ -15,9 +15,33 @@ public class CmptGnrcPrntArgDual<TType>
   : CmptRefGnrcPrntArgDual<TType>
   , ICmptGnrcPrntArgDual<TType>
 {
+  public ICmptGnrcPrntArgDualObject<TType>? As_GnrcPrntArgDual { get; set; }
+}
+
+public class CmptGnrcPrntArgDualObject<TType>
+  : CmptRefGnrcPrntArgDualObject<TType>
+  , ICmptGnrcPrntArgDualObject<TType>
+{
+
+  public CmptGnrcPrntArgDualObject()
+  {
+  }
 }
 
 public class CmptRefGnrcPrntArgDual<TRef>
-  : ICmptRefGnrcPrntArgDual<TRef>
+  : Schema_generic-parent-arg+Dual
+  , ICmptRefGnrcPrntArgDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ICmptRefGnrcPrntArgDualObject<TRef>? As_RefGnrcPrntArgDual { get; set; }
+}
+
+public class CmptRefGnrcPrntArgDualObject<TRef>
+  : Schema_generic-parent-arg+Dual
+  , ICmptRefGnrcPrntArgDualObject<TRef>
+{
+
+  public CmptRefGnrcPrntArgDualObject()
+  {
+  }
 }

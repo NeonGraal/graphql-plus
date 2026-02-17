@@ -13,11 +13,36 @@ output ObjAltOutpType { }
 namespace Components.Gqlp_Schema_object_alt_Output;
 
 public class CmptObjAltOutp
-  : ICmptObjAltOutp
+  : Schema_object-alt+Output
+  , ICmptObjAltOutp
 {
+  public ICmptObjAltOutpType? AsObjAltOutpType { get; set; }
+  public ICmptObjAltOutpObject? As_ObjAltOutp { get; set; }
+}
+
+public class CmptObjAltOutpObject
+  : Schema_object-alt+Output
+  , ICmptObjAltOutpObject
+{
+
+  public CmptObjAltOutpObject()
+  {
+  }
 }
 
 public class CmptObjAltOutpType
-  : ICmptObjAltOutpType
+  : Schema_object-alt+Output
+  , ICmptObjAltOutpType
 {
+  public ICmptObjAltOutpTypeObject? As_ObjAltOutpType { get; set; }
+}
+
+public class CmptObjAltOutpTypeObject
+  : Schema_object-alt+Output
+  , ICmptObjAltOutpTypeObject
+{
+
+  public CmptObjAltOutpTypeObject()
+  {
+  }
 }

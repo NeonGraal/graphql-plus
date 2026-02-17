@@ -11,22 +11,72 @@ public class testCnstFieldObjInp
   : testRefCnstFieldObjInp<ItestAltCnstFieldObjInp>
   , ItestCnstFieldObjInp
 {
+  public ItestCnstFieldObjInpObject? As_CnstFieldObjInp { get; set; }
+}
+
+public class testCnstFieldObjInpObject
+  : testRefCnstFieldObjInpObject<ItestAltCnstFieldObjInp>
+  , ItestCnstFieldObjInpObject
+{
+
+  public testCnstFieldObjInpObject(TRef field)
+    : base(field)
+  {
+  }
 }
 
 public class testRefCnstFieldObjInp<TRef>
-  : ItestRefCnstFieldObjInp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldObjInp<TRef>
+{
+  public ItestRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; set; }
+}
+
+public class testRefCnstFieldObjInpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstFieldObjInpObject<TRef>
 {
   public TRef Field { get; set; }
+
+  public testRefCnstFieldObjInpObject(TRef field)
+  {
+    Field = field;
+  }
 }
 
 public class testPrntCnstFieldObjInp
-  : ItestPrntCnstFieldObjInp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldObjInp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstFieldObjInpObject? As_PrntCnstFieldObjInp { get; set; }
+}
+
+public class testPrntCnstFieldObjInpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstFieldObjInpObject
+{
+
+  public testPrntCnstFieldObjInpObject()
+  {
+  }
 }
 
 public class testAltCnstFieldObjInp
   : testPrntCnstFieldObjInp
   , ItestAltCnstFieldObjInp
 {
+  public ItestAltCnstFieldObjInpObject? As_AltCnstFieldObjInp { get; set; }
+}
+
+public class testAltCnstFieldObjInpObject
+  : testPrntCnstFieldObjInpObject
+  , ItestAltCnstFieldObjInpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstFieldObjInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

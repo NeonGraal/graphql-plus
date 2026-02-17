@@ -11,6 +11,19 @@ output GnrcPrntDescrOutp<$type:_Dual> { :"Parent comment"$type }
 namespace Components.Gqlp_Schema_generic_parent_descr_Output;
 
 public class CmptGnrcPrntDescrOutp<TType>
-  : ICmptGnrcPrntDescrOutp<TType>
+  : Schema_generic-parent-descr+Output
+  , ICmptGnrcPrntDescrOutp<TType>
 {
+  public TType? As_Parent { get; set; }
+  public ICmptGnrcPrntDescrOutpObject<TType>? As_GnrcPrntDescrOutp { get; set; }
+}
+
+public class CmptGnrcPrntDescrOutpObject<TType>
+  : Schema_generic-parent-descr+Output
+  , ICmptGnrcPrntDescrOutpObject<TType>
+{
+
+  public CmptGnrcPrntDescrOutpObject()
+  {
+  }
 }

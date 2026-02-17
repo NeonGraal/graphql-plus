@@ -12,7 +12,20 @@ input ObjFieldEnumValueInp { field = true }
 namespace Components.Gqlp_Schema_object_field_enum_value_Input;
 
 public class CmptObjFieldEnumValueInp
-  : ICmptObjFieldEnumValueInp
+  : Schema_object-field-enum-value+Input
+  , ICmptObjFieldEnumValueInp
+{
+  public ICmptObjFieldEnumValueInpObject? As_ObjFieldEnumValueInp { get; set; }
+}
+
+public class CmptObjFieldEnumValueInpObject
+  : Schema_object-field-enum-value+Input
+  , ICmptObjFieldEnumValueInpObject
 {
   public bool Field { get; set; }
+
+  public CmptObjFieldEnumValueInpObject(bool field)
+  {
+    Field = field;
+  }
 }

@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Output;
 public interface ItestGnrcFieldArgOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldArgOutpObject<TType> AsGnrcFieldArgOutp { get; }
+  ItestGnrcFieldArgOutpObject<TType>? As_GnrcFieldArgOutp { get; }
 }
 
 public interface ItestGnrcFieldArgOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldArgOutp<TType> Field { get; }
 }
@@ -21,10 +22,11 @@ public interface ItestGnrcFieldArgOutpObject<TType>
 public interface ItestRefGnrcFieldArgOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldArgOutpObject<TRef> AsRefGnrcFieldArgOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldArgOutpObject<TRef>? As_RefGnrcFieldArgOutp { get; }
 }
 
 public interface ItestRefGnrcFieldArgOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }

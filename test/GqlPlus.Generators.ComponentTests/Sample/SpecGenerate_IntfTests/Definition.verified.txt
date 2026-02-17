@@ -75,10 +75,11 @@ public interface ICmpt_Key
 public interface ICmpt_Object
   : Spec_Definition
 {
-  ICmpt_ObjectObject As_Object { get; }
+  ICmpt_ObjectObject? As__Object { get; }
 }
 
 public interface ICmpt_ObjectObject
+  : Spec_Definition
 {
 }
 
@@ -90,10 +91,11 @@ public interface ICmpt_Domain
 public interface ICmpt_Dual
   : Spec_Definition
 {
-  ICmpt_DualObject As_Dual { get; }
+  ICmpt_DualObject? As__Dual { get; }
 }
 
 public interface ICmpt_DualObject
+  : Spec_Definition
 {
 }
 
@@ -105,20 +107,22 @@ public interface ICmpt_Enum
 public interface ICmpt_Input
   : Spec_Definition
 {
-  ICmpt_InputObject As_Input { get; }
+  ICmpt_InputObject? As__Input { get; }
 }
 
 public interface ICmpt_InputObject
+  : Spec_Definition
 {
 }
 
 public interface ICmpt_Output
   : Spec_Definition
 {
-  ICmpt_OutputObject As_Output { get; }
+  ICmpt_OutputObject? As__Output { get; }
 }
 
 public interface ICmpt_OutputObject
+  : Spec_Definition
 {
 }
 

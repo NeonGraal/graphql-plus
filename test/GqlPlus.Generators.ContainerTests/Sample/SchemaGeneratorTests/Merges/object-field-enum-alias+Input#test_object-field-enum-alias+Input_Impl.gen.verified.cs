@@ -8,7 +8,20 @@
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_alias_Input;
 
 public class testObjFieldEnumAliasInp
-  : ItestObjFieldEnumAliasInp
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumAliasInp
+{
+  public ItestObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; set; }
+}
+
+public class testObjFieldEnumAliasInpObject
+  : GqlpModelImplementationBase
+  , ItestObjFieldEnumAliasInpObject
 {
   public bool Field { get; set; }
+
+  public testObjFieldEnumAliasInpObject(bool field)
+  {
+    Field = field;
+  }
 }

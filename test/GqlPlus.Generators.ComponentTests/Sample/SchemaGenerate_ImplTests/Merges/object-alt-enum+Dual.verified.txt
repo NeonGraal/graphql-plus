@@ -12,6 +12,20 @@ dual ObjAltEnumDual { ! false }
 namespace Components.Gqlp_Schema_object_alt_enum_Dual;
 
 public class CmptObjAltEnumDual
-  : ICmptObjAltEnumDual
+  : Schema_object-alt-enum+Dual
+  , ICmptObjAltEnumDual
 {
+  public bool? AsBooleantrue { get; set; }
+  public bool? AsBooleanfalse { get; set; }
+  public ICmptObjAltEnumDualObject? As_ObjAltEnumDual { get; set; }
+}
+
+public class CmptObjAltEnumDualObject
+  : Schema_object-alt-enum+Dual
+  , ICmptObjAltEnumDualObject
+{
+
+  public CmptObjAltEnumDualObject()
+  {
+  }
 }

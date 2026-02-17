@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_Input;
 public interface ItestFieldInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldInpObject AsFieldInp { get; }
+  ItestFieldInpObject? As_FieldInp { get; }
 }
 
 public interface ItestFieldInpObject
+  : IGqlpModelImplementationBase
 {
   string Field { get; }
 }

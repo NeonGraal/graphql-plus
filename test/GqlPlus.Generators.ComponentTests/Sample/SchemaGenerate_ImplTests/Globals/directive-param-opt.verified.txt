@@ -12,6 +12,18 @@ input InDrctParamOpt { }
 namespace Components.Gqlp_Schema_directive_param_opt;
 
 public class CmptInDrctParamOpt
-  : ICmptInDrctParamOpt
+  : Schema_directive-param-opt
+  , ICmptInDrctParamOpt
 {
+  public ICmptInDrctParamOptObject? As_InDrctParamOpt { get; set; }
+}
+
+public class CmptInDrctParamOptObject
+  : Schema_directive-param-opt
+  , ICmptInDrctParamOptObject
+{
+
+  public CmptInDrctParamOptObject()
+  {
+  }
 }

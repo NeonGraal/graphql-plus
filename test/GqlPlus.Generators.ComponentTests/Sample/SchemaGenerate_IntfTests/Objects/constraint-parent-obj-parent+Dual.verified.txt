@@ -16,7 +16,7 @@ namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Dual;
 public interface ICmptCnstPrntObjPrntDual
   : ICmptRefCnstPrntObjPrntDual<ICmptAltCnstPrntObjPrntDual>
 {
-  ICmptCnstPrntObjPrntDualObject AsCnstPrntObjPrntDual { get; }
+  ICmptCnstPrntObjPrntDualObject? As_CnstPrntObjPrntDual { get; }
 }
 
 public interface ICmptCnstPrntObjPrntDualObject
@@ -27,29 +27,31 @@ public interface ICmptCnstPrntObjPrntDualObject
 public interface ICmptRefCnstPrntObjPrntDual<TRef>
   : Schema_constraint-parent-obj-parent+Dual
 {
-  TRef AsParent { get; }
-  ICmptRefCnstPrntObjPrntDualObject<TRef> AsRefCnstPrntObjPrntDual { get; }
+  TRef? As_Parent { get; }
+  ICmptRefCnstPrntObjPrntDualObject<TRef>? As_RefCnstPrntObjPrntDual { get; }
 }
 
 public interface ICmptRefCnstPrntObjPrntDualObject<TRef>
+  : Schema_constraint-parent-obj-parent+Dual
 {
 }
 
 public interface ICmptPrntCnstPrntObjPrntDual
   : Schema_constraint-parent-obj-parent+Dual
 {
-  string AsString { get; }
-  ICmptPrntCnstPrntObjPrntDualObject AsPrntCnstPrntObjPrntDual { get; }
+  string? AsString { get; }
+  ICmptPrntCnstPrntObjPrntDualObject? As_PrntCnstPrntObjPrntDual { get; }
 }
 
 public interface ICmptPrntCnstPrntObjPrntDualObject
+  : Schema_constraint-parent-obj-parent+Dual
 {
 }
 
 public interface ICmptAltCnstPrntObjPrntDual
   : ICmptPrntCnstPrntObjPrntDual
 {
-  ICmptAltCnstPrntObjPrntDualObject AsAltCnstPrntObjPrntDual { get; }
+  ICmptAltCnstPrntObjPrntDualObject? As_AltCnstPrntObjPrntDual { get; }
 }
 
 public interface ICmptAltCnstPrntObjPrntDualObject

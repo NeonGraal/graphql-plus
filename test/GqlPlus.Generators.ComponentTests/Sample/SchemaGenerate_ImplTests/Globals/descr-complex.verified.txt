@@ -12,6 +12,18 @@ output DescrCmpl { }
 namespace Components.Gqlp_Schema_descr_complex;
 
 public class CmptDescrCmpl
-  : ICmptDescrCmpl
+  : Schema_descr-complex
+  , ICmptDescrCmpl
 {
+  public ICmptDescrCmplObject? As_DescrCmpl { get; set; }
+}
+
+public class CmptDescrCmplObject
+  : Schema_descr-complex
+  , ICmptDescrCmplObject
+{
+
+  public CmptDescrCmplObject()
+  {
+  }
 }

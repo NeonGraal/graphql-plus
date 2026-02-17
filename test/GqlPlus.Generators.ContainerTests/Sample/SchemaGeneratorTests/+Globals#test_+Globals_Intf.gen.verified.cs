@@ -10,169 +10,186 @@ namespace GqlPlus.GeneratorTests.Gqlp__Globals;
 public interface ItestCtgrDscrs
   : IGqlpModelImplementationBase
 {
-  ItestCtgrDscrsObject AsCtgrDscrs { get; }
+  ItestCtgrDscrsObject? As_CtgrDscrs { get; }
 }
 
 public interface ItestCtgrDscrsObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestCtgrOutp
   : IGqlpModelImplementationBase
 {
-  ItestCtgrOutpObject AsCtgrOutp { get; }
+  ItestCtgrOutpObject? As_CtgrOutp { get; }
 }
 
 public interface ItestCtgrOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestCtgrOutpDescr
   : IGqlpModelImplementationBase
 {
-  ItestCtgrOutpDescrObject AsCtgrOutpDescr { get; }
+  ItestCtgrOutpDescrObject? As_CtgrOutpDescr { get; }
 }
 
 public interface ItestCtgrOutpDescrObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestCtgrOutpDict
   : IGqlpModelImplementationBase
 {
-  ItestCtgrOutpDictObject AsCtgrOutpDict { get; }
+  ItestCtgrOutpDictObject? As_CtgrOutpDict { get; }
 }
 
 public interface ItestCtgrOutpDictObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestCtgrOutpList
   : IGqlpModelImplementationBase
 {
-  ItestCtgrOutpListObject AsCtgrOutpList { get; }
+  ItestCtgrOutpListObject? As_CtgrOutpList { get; }
 }
 
 public interface ItestCtgrOutpListObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestCtgrOutpOptl
   : IGqlpModelImplementationBase
 {
-  ItestCtgrOutpOptlObject AsCtgrOutpOptl { get; }
+  ItestCtgrOutpOptlObject? As_CtgrOutpOptl { get; }
 }
 
 public interface ItestCtgrOutpOptlObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestDescr
   : IGqlpModelImplementationBase
 {
-  ItestDescrObject AsDescr { get; }
+  ItestDescrObject? As_Descr { get; }
 }
 
 public interface ItestDescrObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestDescrBcks
   : IGqlpModelImplementationBase
 {
-  ItestDescrBcksObject AsDescrBcks { get; }
+  ItestDescrBcksObject? As_DescrBcks { get; }
 }
 
 public interface ItestDescrBcksObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestDescrBtwn
   : IGqlpModelImplementationBase
 {
-  ItestDescrBtwnObject AsDescrBtwn { get; }
+  ItestDescrBtwnObject? As_DescrBtwn { get; }
 }
 
 public interface ItestDescrBtwnObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestDescrCmpl
   : IGqlpModelImplementationBase
 {
-  ItestDescrCmplObject AsDescrCmpl { get; }
+  ItestDescrCmplObject? As_DescrCmpl { get; }
 }
 
 public interface ItestDescrCmplObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestDescrDbl
   : IGqlpModelImplementationBase
 {
-  ItestDescrDblObject AsDescrDbl { get; }
+  ItestDescrDblObject? As_DescrDbl { get; }
 }
 
 public interface ItestDescrDblObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestDescrSngl
   : IGqlpModelImplementationBase
 {
-  ItestDescrSnglObject AsDescrSngl { get; }
+  ItestDescrSnglObject? As_DescrSngl { get; }
 }
 
 public interface ItestDescrSnglObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestDscrs
   : IGqlpModelImplementationBase
 {
-  ItestDscrsObject AsDscrs { get; }
+  ItestDscrsObject? As_Dscrs { get; }
 }
 
 public interface ItestDscrsObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInDrctParamDict
   : IGqlpModelImplementationBase
 {
-  ItestInDrctParamDictObject AsInDrctParamDict { get; }
+  ItestInDrctParamDictObject? As_InDrctParamDict { get; }
 }
 
 public interface ItestInDrctParamDictObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInDrctParamIn
   : IGqlpModelImplementationBase
 {
-  ItestInDrctParamInObject AsInDrctParamIn { get; }
+  ItestInDrctParamInObject? As_InDrctParamIn { get; }
 }
 
 public interface ItestInDrctParamInObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInDrctParamList
   : IGqlpModelImplementationBase
 {
-  ItestInDrctParamListObject AsInDrctParamList { get; }
+  ItestInDrctParamListObject? As_InDrctParamList { get; }
 }
 
 public interface ItestInDrctParamListObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInDrctParamOpt
   : IGqlpModelImplementationBase
 {
-  ItestInDrctParamOptObject AsInDrctParamOpt { get; }
+  ItestInDrctParamOptObject? As_InDrctParamOpt { get; }
 }
 
 public interface ItestInDrctParamOptObject
+  : IGqlpModelImplementationBase
 {
 }

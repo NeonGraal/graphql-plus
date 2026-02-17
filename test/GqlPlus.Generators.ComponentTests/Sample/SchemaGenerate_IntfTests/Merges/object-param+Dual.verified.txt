@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_object_param_Dual;
 public interface ICmptObjParamDual<TTest,TType>
   : Schema_object-param+Dual
 {
-  ICmptObjParamDualObject<TTest,TType> AsObjParamDual { get; }
+  ICmptObjParamDualObject<TTest,TType>? As_ObjParamDual { get; }
 }
 
 public interface ICmptObjParamDualObject<TTest,TType>
+  : Schema_object-param+Dual
 {
   TTest Test { get; }
   TType Type { get; }

@@ -32,25 +32,81 @@ dual _Modifier<$kind:_ModifierKind> {
 namespace Components.Gqlp_Spec_Built_In;
 
 public class Cmpt_Collections
-  : ICmpt_Collections
+  : Spec_Built-In
+  , ICmpt_Collections
 {
+  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; set; }
+  public ICmpt_CollectionsObject? As__Collections { get; set; }
+}
+
+public class Cmpt_CollectionsObject
+  : Spec_Built-In
+  , ICmpt_CollectionsObject
+{
+
+  public Cmpt_CollectionsObject()
+  {
+  }
 }
 
 public class Cmpt_ModifierKeyed<TKind>
   : Cmpt_Modifier<TKind>
   , ICmpt_ModifierKeyed<TKind>
 {
+  public ICmpt_ModifierKeyedObject<TKind>? As__ModifierKeyed { get; set; }
+}
+
+public class Cmpt_ModifierKeyedObject<TKind>
+  : Cmpt_ModifierObject<TKind>
+  , ICmpt_ModifierKeyedObject<TKind>
+{
   public ICmpt_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
+
+  public Cmpt_ModifierKeyedObject(TKind modifierKind, ICmpt_TypeSimple by, bool isOptional)
+    : base(modifierKind)
+  {
+    By = by;
+    IsOptional = isOptional;
+  }
 }
 
 public class Cmpt_Modifiers
-  : ICmpt_Modifiers
+  : Spec_Built-In
+  , ICmpt_Modifiers
 {
+  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; set; }
+  public ICmpt_Collections? As_Collections { get; set; }
+  public ICmpt_ModifiersObject? As__Modifiers { get; set; }
+}
+
+public class Cmpt_ModifiersObject
+  : Spec_Built-In
+  , ICmpt_ModifiersObject
+{
+
+  public Cmpt_ModifiersObject()
+  {
+  }
 }
 
 public class Cmpt_Modifier<TKind>
-  : ICmpt_Modifier<TKind>
+  : Spec_Built-In
+  , ICmpt_Modifier<TKind>
+{
+  public ICmpt_ModifierObject<TKind>? As__Modifier { get; set; }
+}
+
+public class Cmpt_ModifierObject<TKind>
+  : Spec_Built-In
+  , ICmpt_ModifierObject<TKind>
 {
   public TKind ModifierKind { get; set; }
+
+  public Cmpt_ModifierObject(TKind modifierKind)
+  {
+    ModifierKind = modifierKind;
+  }
 }

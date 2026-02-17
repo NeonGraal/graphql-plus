@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_field_Input;
 public interface ICmptFieldInp
   : Schema_field+Input
 {
-  ICmptFieldInpObject AsFieldInp { get; }
+  ICmptFieldInpObject? As_FieldInp { get; }
 }
 
 public interface ICmptFieldInpObject
+  : Schema_field+Input
 {
   string Field { get; }
 }

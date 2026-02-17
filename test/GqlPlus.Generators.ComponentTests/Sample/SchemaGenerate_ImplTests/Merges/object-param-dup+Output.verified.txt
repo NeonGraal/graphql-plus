@@ -12,8 +12,22 @@ output ObjParamDupOutp<$test:String> { type: $test }
 namespace Components.Gqlp_Schema_object_param_dup_Output;
 
 public class CmptObjParamDupOutp<TTest>
-  : ICmptObjParamDupOutp<TTest>
+  : Schema_object-param-dup+Output
+  , ICmptObjParamDupOutp<TTest>
+{
+  public ICmptObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; set; }
+}
+
+public class CmptObjParamDupOutpObject<TTest>
+  : Schema_object-param-dup+Output
+  , ICmptObjParamDupOutpObject<TTest>
 {
   public TTest Test { get; set; }
   public TTest Type { get; set; }
+
+  public CmptObjParamDupOutpObject(TTest test, TTest type)
+  {
+    Test = test;
+    Type = type;
+  }
 }

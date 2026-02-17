@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_descr_Dual;
 public interface ItestGnrcPrntDescrDual<TType>
   : IGqlpModelImplementationBase
 {
-  TType AsParent { get; }
-  ItestGnrcPrntDescrDualObject<TType> AsGnrcPrntDescrDual { get; }
+  TType? As_Parent { get; }
+  ItestGnrcPrntDescrDualObject<TType>? As_GnrcPrntDescrDual { get; }
 }
 
 public interface ItestGnrcPrntDescrDualObject<TType>
+  : IGqlpModelImplementationBase
 {
 }

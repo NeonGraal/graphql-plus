@@ -15,32 +15,35 @@ namespace Components.Gqlp_Schema_output_param_descr;
 public interface ICmptOutpParamDescr
   : Schema_output-param-descr
 {
-  ICmptOutpParamDescrObject AsOutpParamDescr { get; }
+  ICmptOutpParamDescrObject? As_OutpParamDescr { get; }
 }
 
 public interface ICmptOutpParamDescrObject
+  : Schema_output-param-descr
 {
-  ICmptFldOutpParamDescr Field (ICmptInOutpParamDescr parameter);
+  ICmptFldOutpParamDescr? Field(ICmptInOutpParamDescr parameter);
 }
 
 public interface ICmptFldOutpParamDescr
   : Schema_output-param-descr
 {
-  ICmptFldOutpParamDescrObject AsFldOutpParamDescr { get; }
+  ICmptFldOutpParamDescrObject? As_FldOutpParamDescr { get; }
 }
 
 public interface ICmptFldOutpParamDescrObject
+  : Schema_output-param-descr
 {
 }
 
 public interface ICmptInOutpParamDescr
   : Schema_output-param-descr
 {
-  string AsString { get; }
-  ICmptInOutpParamDescrObject AsInOutpParamDescr { get; }
+  string? AsString { get; }
+  ICmptInOutpParamDescrObject? As_InOutpParamDescr { get; }
 }
 
 public interface ICmptInOutpParamDescrObject
+  : Schema_output-param-descr
 {
   decimal Param { get; }
 }

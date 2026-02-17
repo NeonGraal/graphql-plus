@@ -13,6 +13,18 @@ output CtgrAlias { }
 namespace Components.Gqlp_Schema_category_alias;
 
 public class CmptCtgrAlias
-  : ICmptCtgrAlias
+  : Schema_category-alias
+  , ICmptCtgrAlias
 {
+  public ICmptCtgrAliasObject? As_CtgrAlias { get; set; }
+}
+
+public class CmptCtgrAliasObject
+  : Schema_category-alias
+  , ICmptCtgrAliasObject
+{
+
+  public CmptCtgrAliasObject()
+  {
+  }
 }

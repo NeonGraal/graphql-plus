@@ -12,6 +12,18 @@ output DescrBcks { }
 namespace Components.Gqlp_Schema_descr_backslash;
 
 public class CmptDescrBcks
-  : ICmptDescrBcks
+  : Schema_descr-backslash
+  , ICmptDescrBcks
 {
+  public ICmptDescrBcksObject? As_DescrBcks { get; set; }
+}
+
+public class CmptDescrBcksObject
+  : Schema_descr-backslash
+  , ICmptDescrBcksObject
+{
+
+  public CmptDescrBcksObject()
+  {
+  }
 }

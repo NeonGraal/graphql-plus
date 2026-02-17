@@ -14,9 +14,10 @@ namespace Components.Gqlp_Schema_category_output_dict;
 public interface ICmptCtgrOutpDict
   : Schema_category-output-dict
 {
-  ICmptCtgrOutpDictObject AsCtgrOutpDict { get; }
+  ICmptCtgrOutpDictObject? As_CtgrOutpDict { get; }
 }
 
 public interface ICmptCtgrOutpDictObject
+  : Schema_category-output-dict
 {
 }

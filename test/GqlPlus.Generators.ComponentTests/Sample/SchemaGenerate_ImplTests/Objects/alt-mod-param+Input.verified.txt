@@ -12,12 +12,39 @@ input AltAltModParamInp { alt: Number | String }
 namespace Components.Gqlp_Schema_alt_mod_param_Input;
 
 public class CmptAltModParamInp<TMod>
-  : ICmptAltModParamInp<TMod>
+  : Schema_alt-mod-param+Input
+  , ICmptAltModParamInp<TMod>
 {
+  public IDictionary<TMod, ICmptAltAltModParamInp>? AsAltAltModParamInp { get; set; }
+  public ICmptAltModParamInpObject<TMod>? As_AltModParamInp { get; set; }
+}
+
+public class CmptAltModParamInpObject<TMod>
+  : Schema_alt-mod-param+Input
+  , ICmptAltModParamInpObject<TMod>
+{
+
+  public CmptAltModParamInpObject()
+  {
+  }
 }
 
 public class CmptAltAltModParamInp
-  : ICmptAltAltModParamInp
+  : Schema_alt-mod-param+Input
+  , ICmptAltAltModParamInp
+{
+  public string? AsString { get; set; }
+  public ICmptAltAltModParamInpObject? As_AltAltModParamInp { get; set; }
+}
+
+public class CmptAltAltModParamInpObject
+  : Schema_alt-mod-param+Input
+  , ICmptAltAltModParamInpObject
 {
   public decimal Alt { get; set; }
+
+  public CmptAltAltModParamInpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

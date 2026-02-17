@@ -15,7 +15,7 @@ namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
 public interface ICmptGnrcPrntStrDomDual
   : ICmptFieldGnrcPrntStrDomDual<ICmptDomGnrcPrntStrDomDual>
 {
-  ICmptGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; }
+  ICmptGnrcPrntStrDomDualObject? As_GnrcPrntStrDomDual { get; }
 }
 
 public interface ICmptGnrcPrntStrDomDualObject
@@ -26,10 +26,11 @@ public interface ICmptGnrcPrntStrDomDualObject
 public interface ICmptFieldGnrcPrntStrDomDual<TRef>
   : Schema_generic-parent-string-dom+Dual
 {
-  ICmptFieldGnrcPrntStrDomDualObject<TRef> AsFieldGnrcPrntStrDomDual { get; }
+  ICmptFieldGnrcPrntStrDomDualObject<TRef>? As_FieldGnrcPrntStrDomDual { get; }
 }
 
 public interface ICmptFieldGnrcPrntStrDomDualObject<TRef>
+  : Schema_generic-parent-string-dom+Dual
 {
   TRef Field { get; }
 }

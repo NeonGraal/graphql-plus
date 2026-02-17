@@ -14,7 +14,7 @@ namespace Components.Gqlp_Schema_parent_dual_Output;
 public interface ICmptPrntDualOutp
   : ICmptRefPrntDualOutp
 {
-  ICmptPrntDualOutpObject AsPrntDualOutp { get; }
+  ICmptPrntDualOutpObject? As_PrntDualOutp { get; }
 }
 
 public interface ICmptPrntDualOutpObject
@@ -25,11 +25,12 @@ public interface ICmptPrntDualOutpObject
 public interface ICmptRefPrntDualOutp
   : Schema_parent-dual+Output
 {
-  string AsString { get; }
-  ICmptRefPrntDualOutpObject AsRefPrntDualOutp { get; }
+  string? AsString { get; }
+  ICmptRefPrntDualOutpObject? As_RefPrntDualOutp { get; }
 }
 
 public interface ICmptRefPrntDualOutpObject
+  : Schema_parent-dual+Output
 {
   decimal Parent { get; }
 }

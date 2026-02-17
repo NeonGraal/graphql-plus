@@ -53,8 +53,8 @@ namespace Components.Gqlp_Spec_Global;
 public interface ICmpt_AndType
   : ICmpt_Named
 {
-  ICmpt_Type As_Type { get; }
-  ICmpt_AndTypeObject As_AndType { get; }
+  ICmpt_Type? As_Type { get; }
+  ICmpt_AndTypeObject? As__AndType { get; }
 }
 
 public interface ICmpt_AndTypeObject
@@ -66,8 +66,8 @@ public interface ICmpt_AndTypeObject
 public interface ICmpt_Categories
   : ICmpt_AndType
 {
-  ICmpt_Category As_Category { get; }
-  ICmpt_CategoriesObject As_Categories { get; }
+  ICmpt_Category? As_Category { get; }
+  ICmpt_CategoriesObject? As__Categories { get; }
 }
 
 public interface ICmpt_CategoriesObject
@@ -79,7 +79,7 @@ public interface ICmpt_CategoriesObject
 public interface ICmpt_Category
   : ICmpt_Aliased
 {
-  ICmpt_CategoryObject As_Category { get; }
+  ICmpt_CategoryObject? As__Category { get; }
 }
 
 public interface ICmpt_CategoryObject
@@ -93,8 +93,8 @@ public interface ICmpt_CategoryObject
 public interface ICmpt_Directives
   : ICmpt_AndType
 {
-  ICmpt_Directive As_Directive { get; }
-  ICmpt_DirectivesObject As_Directives { get; }
+  ICmpt_Directive? As_Directive { get; }
+  ICmpt_DirectivesObject? As__Directives { get; }
 }
 
 public interface ICmpt_DirectivesObject
@@ -106,7 +106,7 @@ public interface ICmpt_DirectivesObject
 public interface ICmpt_Directive
   : ICmpt_Aliased
 {
-  ICmpt_DirectiveObject As_Directive { get; }
+  ICmpt_DirectiveObject? As__Directive { get; }
 }
 
 public interface ICmpt_DirectiveObject
@@ -120,7 +120,7 @@ public interface ICmpt_DirectiveObject
 public interface ICmpt_Setting
   : ICmpt_Named
 {
-  ICmpt_SettingObject As_Setting { get; }
+  ICmpt_SettingObject? As__Setting { get; }
 }
 
 public interface ICmpt_SettingObject

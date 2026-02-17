@@ -10,40 +10,43 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_dual_Dual;
 public interface ItestCnstAltDualDual
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltDualDual<ItestAltCnstAltDualDual> AsRefCnstAltDualDual { get; }
-  ItestCnstAltDualDualObject AsCnstAltDualDual { get; }
+  ItestRefCnstAltDualDual<ItestAltCnstAltDualDual>? AsRefCnstAltDualDual { get; }
+  ItestCnstAltDualDualObject? As_CnstAltDualDual { get; }
 }
 
 public interface ItestCnstAltDualDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltDualDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltDualDualObject<TRef> AsRefCnstAltDualDual { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltDualDualObject<TRef>? As_RefCnstAltDualDual { get; }
 }
 
 public interface ItestRefCnstAltDualDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstAltDualDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; }
+  string? AsString { get; }
+  ItestPrntCnstAltDualDualObject? As_PrntCnstAltDualDual { get; }
 }
 
 public interface ItestPrntCnstAltDualDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstAltDualDual
   : ItestPrntCnstAltDualDual
 {
-  ItestAltCnstAltDualDualObject AsAltCnstAltDualDual { get; }
+  ItestAltCnstAltDualDualObject? As_AltCnstAltDualDual { get; }
 }
 
 public interface ItestAltCnstAltDualDualObject

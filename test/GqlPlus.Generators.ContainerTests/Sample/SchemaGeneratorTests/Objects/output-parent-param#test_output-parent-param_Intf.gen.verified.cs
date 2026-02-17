@@ -10,44 +10,47 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_parent_param;
 public interface ItestOutpPrntParam
   : ItestPrntOutpPrntParam
 {
-  ItestOutpPrntParamObject AsOutpPrntParam { get; }
+  ItestOutpPrntParamObject? As_OutpPrntParam { get; }
 }
 
 public interface ItestOutpPrntParamObject
   : ItestPrntOutpPrntParamObject
 {
-  ItestFldOutpPrntParam Field (ItestInOutpPrntParam parameter);
+  ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter);
 }
 
 public interface ItestPrntOutpPrntParam
   : IGqlpModelImplementationBase
 {
-  ItestPrntOutpPrntParamObject AsPrntOutpPrntParam { get; }
+  ItestPrntOutpPrntParamObject? As_PrntOutpPrntParam { get; }
 }
 
 public interface ItestPrntOutpPrntParamObject
+  : IGqlpModelImplementationBase
 {
-  ItestFldOutpPrntParam Field (ItestPrntOutpPrntParamIn parameter);
+  ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter);
 }
 
 public interface ItestFldOutpPrntParam
   : IGqlpModelImplementationBase
 {
-  ItestFldOutpPrntParamObject AsFldOutpPrntParam { get; }
+  ItestFldOutpPrntParamObject? As_FldOutpPrntParam { get; }
 }
 
 public interface ItestFldOutpPrntParamObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInOutpPrntParam
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestInOutpPrntParamObject AsInOutpPrntParam { get; }
+  string? AsString { get; }
+  ItestInOutpPrntParamObject? As_InOutpPrntParam { get; }
 }
 
 public interface ItestInOutpPrntParamObject
+  : IGqlpModelImplementationBase
 {
   decimal Param { get; }
 }
@@ -55,11 +58,12 @@ public interface ItestInOutpPrntParamObject
 public interface ItestPrntOutpPrntParamIn
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; }
+  string? AsString { get; }
+  ItestPrntOutpPrntParamInObject? As_PrntOutpPrntParamIn { get; }
 }
 
 public interface ItestPrntOutpPrntParamInObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }

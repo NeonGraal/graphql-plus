@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_field_mod_param_Dual;
 public interface ICmptFieldModParamDual<TMod>
   : Schema_field-mod-param+Dual
 {
-  ICmptFieldModParamDualObject<TMod> AsFieldModParamDual { get; }
+  ICmptFieldModParamDualObject<TMod>? As_FieldModParamDual { get; }
 }
 
 public interface ICmptFieldModParamDualObject<TMod>
+  : Schema_field-mod-param+Dual
 {
   IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; }
 }
@@ -25,11 +26,12 @@ public interface ICmptFieldModParamDualObject<TMod>
 public interface ICmptFldFieldModParamDual
   : Schema_field-mod-param+Dual
 {
-  string AsString { get; }
-  ICmptFldFieldModParamDualObject AsFldFieldModParamDual { get; }
+  string? AsString { get; }
+  ICmptFldFieldModParamDualObject? As_FldFieldModParamDual { get; }
 }
 
 public interface ICmptFldFieldModParamDualObject
+  : Schema_field-mod-param+Dual
 {
   decimal Field { get; }
 }

@@ -10,33 +10,36 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_param_Input;
 public interface ItestGnrcAltParamInp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltParamInp<ItestAltGnrcAltParamInp> AsRefGnrcAltParamInp { get; }
-  ItestGnrcAltParamInpObject AsGnrcAltParamInp { get; }
+  ItestRefGnrcAltParamInp<ItestAltGnrcAltParamInp>? AsRefGnrcAltParamInp { get; }
+  ItestGnrcAltParamInpObject? As_GnrcAltParamInp { get; }
 }
 
 public interface ItestGnrcAltParamInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltParamInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltParamInpObject<TRef> AsRefGnrcAltParamInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltParamInpObject<TRef>? As_RefGnrcAltParamInp { get; }
 }
 
 public interface ItestRefGnrcAltParamInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcAltParamInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcAltParamInpObject AsAltGnrcAltParamInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcAltParamInpObject? As_AltGnrcAltParamInp { get; }
 }
 
 public interface ItestAltGnrcAltParamInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }

@@ -10,22 +10,24 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_Dual;
 public interface ItestAltDual
   : IGqlpModelImplementationBase
 {
-  ItestAltAltDual AsAltAltDual { get; }
-  ItestAltDualObject AsAltDual { get; }
+  ItestAltAltDual? AsAltAltDual { get; }
+  ItestAltDualObject? As_AltDual { get; }
 }
 
 public interface ItestAltDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltDualObject AsAltAltDual { get; }
+  string? AsString { get; }
+  ItestAltAltDualObject? As_AltAltDual { get; }
 }
 
 public interface ItestAltAltDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }

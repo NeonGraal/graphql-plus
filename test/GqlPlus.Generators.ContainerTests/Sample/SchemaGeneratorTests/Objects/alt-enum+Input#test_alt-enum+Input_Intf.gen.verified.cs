@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Input;
 public interface ItestAltEnumInp
   : IGqlpModelImplementationBase
 {
-  testEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; }
-  ItestAltEnumInpObject AsAltEnumInp { get; }
+  testEnumAltEnumInp? AsEnumAltEnumInpaltEnumInp { get; }
+  ItestAltEnumInpObject? As_AltEnumInp { get; }
 }
 
 public interface ItestAltEnumInpObject
+  : IGqlpModelImplementationBase
 {
 }

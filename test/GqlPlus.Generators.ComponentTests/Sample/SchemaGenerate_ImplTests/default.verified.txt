@@ -20,21 +20,69 @@ output _Schema { }
 namespace Components.Gqlp_Schema_default;
 
 public class CmptQuery
-  : ICmptQuery
+  : Schema_default
+  , ICmptQuery
 {
+  public ICmptQueryObject? As_Query { get; set; }
+}
+
+public class CmptQueryObject
+  : Schema_default
+  , ICmptQueryObject
+{
+
+  public CmptQueryObject()
+  {
+  }
 }
 
 public class CmptMutation
-  : ICmptMutation
+  : Schema_default
+  , ICmptMutation
 {
+  public ICmptMutationObject? As_Mutation { get; set; }
+}
+
+public class CmptMutationObject
+  : Schema_default
+  , ICmptMutationObject
+{
+
+  public CmptMutationObject()
+  {
+  }
 }
 
 public class CmptSubscription
-  : ICmptSubscription
+  : Schema_default
+  , ICmptSubscription
 {
+  public ICmptSubscriptionObject? As_Subscription { get; set; }
+}
+
+public class CmptSubscriptionObject
+  : Schema_default
+  , ICmptSubscriptionObject
+{
+
+  public CmptSubscriptionObject()
+  {
+  }
 }
 
 public class Cmpt_Schema
-  : ICmpt_Schema
+  : Schema_default
+  , ICmpt_Schema
 {
+  public ICmpt_SchemaObject? As__Schema { get; set; }
+}
+
+public class Cmpt_SchemaObject
+  : Schema_default
+  , ICmpt_SchemaObject
+{
+
+  public Cmpt_SchemaObject()
+  {
+  }
 }

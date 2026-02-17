@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Input;
 public interface ItestFieldValueDescrInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldValueDescrInpObject AsFieldValueDescrInp { get; }
+  ItestFieldValueDescrInpObject? As_FieldValueDescrInp { get; }
 }
 
 public interface ItestFieldValueDescrInpObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldValueDescrInp Field { get; }
 }

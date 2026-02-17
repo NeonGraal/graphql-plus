@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_field_simple_Dual;
 public interface ICmptFieldSmplDual
   : Schema_field-simple+Dual
 {
-  ICmptFieldSmplDualObject AsFieldSmplDual { get; }
+  ICmptFieldSmplDualObject? As_FieldSmplDual { get; }
 }
 
 public interface ICmptFieldSmplDualObject
+  : Schema_field-simple+Dual
 {
   decimal Field { get; }
 }

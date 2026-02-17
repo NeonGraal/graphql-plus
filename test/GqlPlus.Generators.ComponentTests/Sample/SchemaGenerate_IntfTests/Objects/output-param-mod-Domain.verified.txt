@@ -15,22 +15,24 @@ namespace Components.Gqlp_Schema_output_param_mod_Domain;
 public interface ICmptOutpParamModDmn
   : Schema_output-param-mod-Domain
 {
-  ICmptOutpParamModDmnObject AsOutpParamModDmn { get; }
+  ICmptOutpParamModDmnObject? As_OutpParamModDmn { get; }
 }
 
 public interface ICmptOutpParamModDmnObject
+  : Schema_output-param-mod-Domain
 {
-  ICmptDomOutpParamModDmn Field (IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
+  ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
 }
 
 public interface ICmptInOutpParamModDmn
   : Schema_output-param-mod-Domain
 {
-  string AsString { get; }
-  ICmptInOutpParamModDmnObject AsInOutpParamModDmn { get; }
+  string? AsString { get; }
+  ICmptInOutpParamModDmnObject? As_InOutpParamModDmn { get; }
 }
 
 public interface ICmptInOutpParamModDmnObject
+  : Schema_output-param-mod-Domain
 {
   decimal Param { get; }
 }

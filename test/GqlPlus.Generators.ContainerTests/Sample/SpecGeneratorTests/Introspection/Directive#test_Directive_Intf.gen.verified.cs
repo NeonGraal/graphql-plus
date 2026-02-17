@@ -10,8 +10,8 @@ namespace GqlPlus.GeneratorTests.Gqlp_Directive;
 public interface Itest_Directives
   : Itest_AndType
 {
-  Itest_Directive As_Directive { get; }
-  Itest_DirectivesObject As_Directives { get; }
+  Itest_Directive? As_Directive { get; }
+  Itest_DirectivesObject? As__Directives { get; }
 }
 
 public interface Itest_DirectivesObject
@@ -23,7 +23,7 @@ public interface Itest_DirectivesObject
 public interface Itest_Directive
   : Itest_Aliased
 {
-  Itest_DirectiveObject As_Directive { get; }
+  Itest_DirectiveObject? As__Directive { get; }
 }
 
 public interface Itest_DirectiveObject

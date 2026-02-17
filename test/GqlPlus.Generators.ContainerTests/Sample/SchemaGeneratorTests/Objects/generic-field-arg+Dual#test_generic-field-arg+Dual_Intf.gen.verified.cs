@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Dual;
 public interface ItestGnrcFieldArgDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldArgDualObject<TType> AsGnrcFieldArgDual { get; }
+  ItestGnrcFieldArgDualObject<TType>? As_GnrcFieldArgDual { get; }
 }
 
 public interface ItestGnrcFieldArgDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldArgDual<TType> Field { get; }
 }
@@ -21,10 +22,11 @@ public interface ItestGnrcFieldArgDualObject<TType>
 public interface ItestRefGnrcFieldArgDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldArgDualObject<TRef> AsRefGnrcFieldArgDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldArgDualObject<TRef>? As_RefGnrcFieldArgDual { get; }
 }
 
 public interface ItestRefGnrcFieldArgDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }

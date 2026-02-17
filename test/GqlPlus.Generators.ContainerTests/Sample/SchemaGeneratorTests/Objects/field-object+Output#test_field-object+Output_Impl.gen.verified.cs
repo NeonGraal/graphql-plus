@@ -8,13 +8,40 @@
 namespace GqlPlus.GeneratorTests.Gqlp_field_object_Output;
 
 public class testFieldObjOutp
-  : ItestFieldObjOutp
+  : GqlpModelImplementationBase
+  , ItestFieldObjOutp
+{
+  public ItestFieldObjOutpObject? As_FieldObjOutp { get; set; }
+}
+
+public class testFieldObjOutpObject
+  : GqlpModelImplementationBase
+  , ItestFieldObjOutpObject
 {
   public ItestFldFieldObjOutp Field { get; set; }
+
+  public testFieldObjOutpObject(ItestFldFieldObjOutp field)
+  {
+    Field = field;
+  }
 }
 
 public class testFldFieldObjOutp
-  : ItestFldFieldObjOutp
+  : GqlpModelImplementationBase
+  , ItestFldFieldObjOutp
+{
+  public string? AsString { get; set; }
+  public ItestFldFieldObjOutpObject? As_FldFieldObjOutp { get; set; }
+}
+
+public class testFldFieldObjOutpObject
+  : GqlpModelImplementationBase
+  , ItestFldFieldObjOutpObject
 {
   public decimal Field { get; set; }
+
+  public testFldFieldObjOutpObject(decimal field)
+  {
+    Field = field;
+  }
 }

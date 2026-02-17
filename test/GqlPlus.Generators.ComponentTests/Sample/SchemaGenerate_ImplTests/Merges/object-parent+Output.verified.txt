@@ -16,9 +16,32 @@ public class CmptObjPrntOutp
   : CmptRefObjPrntOutp
   , ICmptObjPrntOutp
 {
+  public ICmptObjPrntOutpObject? As_ObjPrntOutp { get; set; }
+}
+
+public class CmptObjPrntOutpObject
+  : CmptRefObjPrntOutpObject
+  , ICmptObjPrntOutpObject
+{
+
+  public CmptObjPrntOutpObject()
+  {
+  }
 }
 
 public class CmptRefObjPrntOutp
-  : ICmptRefObjPrntOutp
+  : Schema_object-parent+Output
+  , ICmptRefObjPrntOutp
 {
+  public ICmptRefObjPrntOutpObject? As_RefObjPrntOutp { get; set; }
+}
+
+public class CmptRefObjPrntOutpObject
+  : Schema_object-parent+Output
+  , ICmptRefObjPrntOutpObject
+{
+
+  public CmptRefObjPrntOutpObject()
+  {
+  }
 }

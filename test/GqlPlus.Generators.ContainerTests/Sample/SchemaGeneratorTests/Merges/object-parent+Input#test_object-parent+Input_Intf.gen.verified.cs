@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_parent_Input;
 public interface ItestObjPrntInp
   : ItestRefObjPrntInp
 {
-  ItestObjPrntInpObject AsObjPrntInp { get; }
+  ItestObjPrntInpObject? As_ObjPrntInp { get; }
 }
 
 public interface ItestObjPrntInpObject
@@ -21,9 +21,10 @@ public interface ItestObjPrntInpObject
 public interface ItestRefObjPrntInp
   : IGqlpModelImplementationBase
 {
-  ItestRefObjPrntInpObject AsRefObjPrntInp { get; }
+  ItestRefObjPrntInpObject? As_RefObjPrntInp { get; }
 }
 
 public interface ItestRefObjPrntInpObject
+  : IGqlpModelImplementationBase
 {
 }

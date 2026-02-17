@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_Dual;
 public interface ItestObjDual
   : IGqlpModelImplementationBase
 {
-  ItestObjDualObject AsObjDual { get; }
+  ItestObjDualObject? As_ObjDual { get; }
 }
 
 public interface ItestObjDualObject
+  : IGqlpModelImplementationBase
 {
 }

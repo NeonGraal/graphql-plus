@@ -11,9 +11,33 @@ public class testGnrcPrntArgDual<TType>
   : testRefGnrcPrntArgDual<TType>
   , ItestGnrcPrntArgDual<TType>
 {
+  public ItestGnrcPrntArgDualObject<TType>? As_GnrcPrntArgDual { get; set; }
+}
+
+public class testGnrcPrntArgDualObject<TType>
+  : testRefGnrcPrntArgDualObject<TType>
+  , ItestGnrcPrntArgDualObject<TType>
+{
+
+  public testGnrcPrntArgDualObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntArgDual<TRef>
-  : ItestRefGnrcPrntArgDual<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntArgDual<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcPrntArgDualObject<TRef>? As_RefGnrcPrntArgDual { get; set; }
+}
+
+public class testRefGnrcPrntArgDualObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntArgDualObject<TRef>
+{
+
+  public testRefGnrcPrntArgDualObject()
+  {
+  }
 }

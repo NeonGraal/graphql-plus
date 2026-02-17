@@ -14,21 +14,23 @@ namespace Components.Gqlp_Schema_generic_alt_simple_Output;
 public interface ICmptGnrcAltSmplOutp
   : Schema_generic-alt-simple+Output
 {
-  ICmptRefGnrcAltSmplOutp<string> AsRefGnrcAltSmplOutp { get; }
-  ICmptGnrcAltSmplOutpObject AsGnrcAltSmplOutp { get; }
+  ICmptRefGnrcAltSmplOutp<string>? AsRefGnrcAltSmplOutp { get; }
+  ICmptGnrcAltSmplOutpObject? As_GnrcAltSmplOutp { get; }
 }
 
 public interface ICmptGnrcAltSmplOutpObject
+  : Schema_generic-alt-simple+Output
 {
 }
 
 public interface ICmptRefGnrcAltSmplOutp<TRef>
   : Schema_generic-alt-simple+Output
 {
-  TRef Asref { get; }
-  ICmptRefGnrcAltSmplOutpObject<TRef> AsRefGnrcAltSmplOutp { get; }
+  TRef? Asref { get; }
+  ICmptRefGnrcAltSmplOutpObject<TRef>? As_RefGnrcAltSmplOutp { get; }
 }
 
 public interface ICmptRefGnrcAltSmplOutpObject<TRef>
+  : Schema_generic-alt-simple+Output
 {
 }

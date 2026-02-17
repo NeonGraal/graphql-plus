@@ -8,11 +8,36 @@
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Input;
 
 public class testObjAltInp
-  : ItestObjAltInp
+  : GqlpModelImplementationBase
+  , ItestObjAltInp
 {
+  public ItestObjAltInpType? AsObjAltInpType { get; set; }
+  public ItestObjAltInpObject? As_ObjAltInp { get; set; }
+}
+
+public class testObjAltInpObject
+  : GqlpModelImplementationBase
+  , ItestObjAltInpObject
+{
+
+  public testObjAltInpObject()
+  {
+  }
 }
 
 public class testObjAltInpType
-  : ItestObjAltInpType
+  : GqlpModelImplementationBase
+  , ItestObjAltInpType
 {
+  public ItestObjAltInpTypeObject? As_ObjAltInpType { get; set; }
+}
+
+public class testObjAltInpTypeObject
+  : GqlpModelImplementationBase
+  , ItestObjAltInpTypeObject
+{
+
+  public testObjAltInpTypeObject()
+  {
+  }
 }

@@ -10,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Output;
 public interface ItestCnstFieldObjOutp
   : ItestRefCnstFieldObjOutp<ItestAltCnstFieldObjOutp>
 {
-  ItestCnstFieldObjOutpObject AsCnstFieldObjOutp { get; }
+  ItestCnstFieldObjOutpObject? As_CnstFieldObjOutp { get; }
 }
 
 public interface ItestCnstFieldObjOutpObject
@@ -21,10 +21,11 @@ public interface ItestCnstFieldObjOutpObject
 public interface ItestRefCnstFieldObjOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldObjOutpObject<TRef> AsRefCnstFieldObjOutp { get; }
+  ItestRefCnstFieldObjOutpObject<TRef>? As_RefCnstFieldObjOutp { get; }
 }
 
 public interface ItestRefCnstFieldObjOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -32,18 +33,19 @@ public interface ItestRefCnstFieldObjOutpObject<TRef>
 public interface ItestPrntCnstFieldObjOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; }
+  string? AsString { get; }
+  ItestPrntCnstFieldObjOutpObject? As_PrntCnstFieldObjOutp { get; }
 }
 
 public interface ItestPrntCnstFieldObjOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstFieldObjOutp
   : ItestPrntCnstFieldObjOutp
 {
-  ItestAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; }
+  ItestAltCnstFieldObjOutpObject? As_AltCnstFieldObjOutp { get; }
 }
 
 public interface ItestAltCnstFieldObjOutpObject

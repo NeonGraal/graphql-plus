@@ -12,8 +12,22 @@ output ObjCnstOutp<$type:String> { str: $type }
 namespace Components.Gqlp_Schema_object_constraint_Output;
 
 public class CmptObjCnstOutp<TType>
-  : ICmptObjCnstOutp<TType>
+  : Schema_object-constraint+Output
+  , ICmptObjCnstOutp<TType>
+{
+  public ICmptObjCnstOutpObject<TType>? As_ObjCnstOutp { get; set; }
+}
+
+public class CmptObjCnstOutpObject<TType>
+  : Schema_object-constraint+Output
+  , ICmptObjCnstOutpObject<TType>
 {
   public TType Field { get; set; }
   public TType Str { get; set; }
+
+  public CmptObjCnstOutpObject(TType field, TType str)
+  {
+    Field = field;
+    Str = str;
+  }
 }

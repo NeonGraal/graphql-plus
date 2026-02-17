@@ -15,9 +15,10 @@ namespace Components.Gqlp_Schema_category_mod;
 public interface ICmptCtgrMod
   : Schema_category-mod
 {
-  ICmptCtgrModObject AsCtgrMod { get; }
+  ICmptCtgrModObject? As_CtgrMod { get; }
 }
 
 public interface ICmptCtgrModObject
+  : Schema_category-mod
 {
 }

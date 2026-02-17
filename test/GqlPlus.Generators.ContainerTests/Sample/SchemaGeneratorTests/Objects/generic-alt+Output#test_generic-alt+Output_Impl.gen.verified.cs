@@ -8,6 +8,19 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_Output;
 
 public class testGnrcAltOutp<TType>
-  : ItestGnrcAltOutp<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltOutp<TType>
 {
+  public TType? Astype { get; set; }
+  public ItestGnrcAltOutpObject<TType>? As_GnrcAltOutp { get; set; }
+}
+
+public class testGnrcAltOutpObject<TType>
+  : GqlpModelImplementationBase
+  , ItestGnrcAltOutpObject<TType>
+{
+
+  public testGnrcAltOutpObject()
+  {
+  }
 }

@@ -14,22 +14,24 @@ namespace Components.Gqlp_Schema_alt_dual_Output;
 public interface ICmptAltDualOutp
   : Schema_alt-dual+Output
 {
-  ICmptObjDualAltDualOutp AsObjDualAltDualOutp { get; }
-  ICmptAltDualOutpObject AsAltDualOutp { get; }
+  ICmptObjDualAltDualOutp? AsObjDualAltDualOutp { get; }
+  ICmptAltDualOutpObject? As_AltDualOutp { get; }
 }
 
 public interface ICmptAltDualOutpObject
+  : Schema_alt-dual+Output
 {
 }
 
 public interface ICmptObjDualAltDualOutp
   : Schema_alt-dual+Output
 {
-  string AsString { get; }
-  ICmptObjDualAltDualOutpObject AsObjDualAltDualOutp { get; }
+  string? AsString { get; }
+  ICmptObjDualAltDualOutpObject? As_ObjDualAltDualOutp { get; }
 }
 
 public interface ICmptObjDualAltDualOutpObject
+  : Schema_alt-dual+Output
 {
   decimal Alt { get; }
 }

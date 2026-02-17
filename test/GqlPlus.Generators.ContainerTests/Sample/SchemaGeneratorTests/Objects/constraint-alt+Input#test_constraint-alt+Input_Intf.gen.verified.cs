@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Input;
 public interface ItestCnstAltInp<TType>
   : IGqlpModelImplementationBase
 {
-  TType Astype { get; }
-  ItestCnstAltInpObject<TType> AsCnstAltInp { get; }
+  TType? Astype { get; }
+  ItestCnstAltInpObject<TType>? As_CnstAltInp { get; }
 }
 
 public interface ItestCnstAltInpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }

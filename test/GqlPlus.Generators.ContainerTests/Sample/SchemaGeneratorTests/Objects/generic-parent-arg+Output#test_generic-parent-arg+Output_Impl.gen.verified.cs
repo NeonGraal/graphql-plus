@@ -11,9 +11,33 @@ public class testGnrcPrntArgOutp<TType>
   : testRefGnrcPrntArgOutp<TType>
   , ItestGnrcPrntArgOutp<TType>
 {
+  public ItestGnrcPrntArgOutpObject<TType>? As_GnrcPrntArgOutp { get; set; }
+}
+
+public class testGnrcPrntArgOutpObject<TType>
+  : testRefGnrcPrntArgOutpObject<TType>
+  , ItestGnrcPrntArgOutpObject<TType>
+{
+
+  public testGnrcPrntArgOutpObject()
+  {
+  }
 }
 
 public class testRefGnrcPrntArgOutp<TRef>
-  : ItestRefGnrcPrntArgOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntArgOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefGnrcPrntArgOutpObject<TRef>? As_RefGnrcPrntArgOutp { get; set; }
+}
+
+public class testRefGnrcPrntArgOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefGnrcPrntArgOutpObject<TRef>
+{
+
+  public testRefGnrcPrntArgOutpObject()
+  {
+  }
 }

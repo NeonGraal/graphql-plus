@@ -12,7 +12,20 @@ enum EnumFieldModEnumOutp { value }
 namespace Components.Gqlp_Schema_field_mod_Enum_Output;
 
 public class CmptFieldModEnumOutp
-  : ICmptFieldModEnumOutp
+  : Schema_field-mod-Enum+Output
+  , ICmptFieldModEnumOutp
+{
+  public ICmptFieldModEnumOutpObject? As_FieldModEnumOutp { get; set; }
+}
+
+public class CmptFieldModEnumOutpObject
+  : Schema_field-mod-Enum+Output
+  , ICmptFieldModEnumOutpObject
 {
   public IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; set; }
+
+  public CmptFieldModEnumOutpObject(IDictionary<CmptEnumFieldModEnumOutp, string> field)
+  {
+    Field = field;
+  }
 }

@@ -49,10 +49,11 @@ public interface ICmptMany
 public interface ICmptField
   : Schema_all
 {
-  ICmptFieldObject AsField { get; }
+  ICmptFieldObject? As_Field { get; }
 }
 
 public interface ICmptFieldObject
+  : Schema_all
 {
   ICollection<string> Strings { get; }
 }
@@ -60,11 +61,12 @@ public interface ICmptFieldObject
 public interface ICmptParam
   : Schema_all
 {
-  string AsString { get; }
-  ICmptParamObject AsParam { get; }
+  string? AsString { get; }
+  ICmptParamObject? As_Param { get; }
 }
 
 public interface ICmptParamObject
+  : Schema_all
 {
   ICmptMany? AfterId { get; }
   ICmptMany BeforeId { get; }
@@ -73,11 +75,12 @@ public interface ICmptParamObject
 public interface ICmptAll
   : Schema_all
 {
-  string AsString { get; }
-  ICmptAllObject AsAll { get; }
+  string? AsString { get; }
+  ICmptAllObject? As_All { get; }
 }
 
 public interface ICmptAllObject
+  : Schema_all
 {
-  ICmptField Items (ICmptParam? parameter);
+  ICmptField? Items(ICmptParam? parameter);
 }

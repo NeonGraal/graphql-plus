@@ -8,23 +8,74 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_obj_Output;
 
 public class testCnstAltObjOutp
-  : ItestCnstAltObjOutp
+  : GqlpModelImplementationBase
+  , ItestCnstAltObjOutp
 {
+  public ItestRefCnstAltObjOutp<ItestAltCnstAltObjOutp>? AsRefCnstAltObjOutp { get; set; }
+  public ItestCnstAltObjOutpObject? As_CnstAltObjOutp { get; set; }
+}
+
+public class testCnstAltObjOutpObject
+  : GqlpModelImplementationBase
+  , ItestCnstAltObjOutpObject
+{
+
+  public testCnstAltObjOutpObject()
+  {
+  }
 }
 
 public class testRefCnstAltObjOutp<TRef>
-  : ItestRefCnstAltObjOutp<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltObjOutp<TRef>
 {
+  public TRef? Asref { get; set; }
+  public ItestRefCnstAltObjOutpObject<TRef>? As_RefCnstAltObjOutp { get; set; }
+}
+
+public class testRefCnstAltObjOutpObject<TRef>
+  : GqlpModelImplementationBase
+  , ItestRefCnstAltObjOutpObject<TRef>
+{
+
+  public testRefCnstAltObjOutpObject()
+  {
+  }
 }
 
 public class testPrntCnstAltObjOutp
-  : ItestPrntCnstAltObjOutp
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltObjOutp
 {
+  public string? AsString { get; set; }
+  public ItestPrntCnstAltObjOutpObject? As_PrntCnstAltObjOutp { get; set; }
+}
+
+public class testPrntCnstAltObjOutpObject
+  : GqlpModelImplementationBase
+  , ItestPrntCnstAltObjOutpObject
+{
+
+  public testPrntCnstAltObjOutpObject()
+  {
+  }
 }
 
 public class testAltCnstAltObjOutp
   : testPrntCnstAltObjOutp
   , ItestAltCnstAltObjOutp
 {
+  public ItestAltCnstAltObjOutpObject? As_AltCnstAltObjOutp { get; set; }
+}
+
+public class testAltCnstAltObjOutpObject
+  : testPrntCnstAltObjOutpObject
+  , ItestAltCnstAltObjOutpObject
+{
   public decimal Alt { get; set; }
+
+  public testAltCnstAltObjOutpObject(decimal alt)
+  {
+    Alt = alt;
+  }
 }

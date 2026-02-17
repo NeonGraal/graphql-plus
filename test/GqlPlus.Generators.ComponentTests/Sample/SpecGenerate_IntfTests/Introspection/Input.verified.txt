@@ -20,7 +20,7 @@ namespace Components.Gqlp_Spec_Input;
 public interface ICmpt_InputField
   : ICmpt_ObjField<ICmpt_InputFieldType>
 {
-  ICmpt_InputFieldObject As_InputField { get; }
+  ICmpt_InputFieldObject? As__InputField { get; }
 }
 
 public interface ICmpt_InputFieldObject
@@ -31,7 +31,7 @@ public interface ICmpt_InputFieldObject
 public interface ICmpt_InputFieldType
   : ICmpt_ObjFieldType
 {
-  ICmpt_InputFieldTypeObject As_InputFieldType { get; }
+  ICmpt_InputFieldTypeObject? As__InputFieldType { get; }
 }
 
 public interface ICmpt_InputFieldTypeObject

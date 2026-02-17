@@ -10,22 +10,24 @@ namespace GqlPlus.GeneratorTests.Gqlp__Objects;
 public interface ItestAltDual
   : IGqlpModelImplementationBase
 {
-  ItestAltAltDual AsAltAltDual { get; }
-  ItestAltDualObject AsAltDual { get; }
+  ItestAltAltDual? AsAltAltDual { get; }
+  ItestAltDualObject? As_AltDual { get; }
 }
 
 public interface ItestAltDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltDualObject AsAltAltDual { get; }
+  string? AsString { get; }
+  ItestAltAltDualObject? As_AltAltDual { get; }
 }
 
 public interface ItestAltAltDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -33,22 +35,24 @@ public interface ItestAltAltDualObject
 public interface ItestAltInp
   : IGqlpModelImplementationBase
 {
-  ItestAltAltInp AsAltAltInp { get; }
-  ItestAltInpObject AsAltInp { get; }
+  ItestAltAltInp? AsAltAltInp { get; }
+  ItestAltInpObject? As_AltInp { get; }
 }
 
 public interface ItestAltInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltInpObject AsAltAltInp { get; }
+  string? AsString { get; }
+  ItestAltAltInpObject? As_AltAltInp { get; }
 }
 
 public interface ItestAltAltInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -56,22 +60,24 @@ public interface ItestAltAltInpObject
 public interface ItestAltOutp
   : IGqlpModelImplementationBase
 {
-  ItestAltAltOutp AsAltAltOutp { get; }
-  ItestAltOutpObject AsAltOutp { get; }
+  ItestAltAltOutp? AsAltAltOutp { get; }
+  ItestAltOutpObject? As_AltOutp { get; }
 }
 
 public interface ItestAltOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltOutpObject AsAltAltOutp { get; }
+  string? AsString { get; }
+  ItestAltAltOutpObject? As_AltAltOutp { get; }
 }
 
 public interface ItestAltAltOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -79,55 +85,60 @@ public interface ItestAltAltOutpObject
 public interface ItestAltDescrDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltDescrDualObject AsAltDescrDual { get; }
+  string? AsString { get; }
+  ItestAltDescrDualObject? As_AltDescrDual { get; }
 }
 
 public interface ItestAltDescrDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltDescrInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltDescrInpObject AsAltDescrInp { get; }
+  string? AsString { get; }
+  ItestAltDescrInpObject? As_AltDescrInp { get; }
 }
 
 public interface ItestAltDescrInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltDescrOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltDescrOutpObject AsAltDescrOutp { get; }
+  string? AsString { get; }
+  ItestAltDescrOutpObject? As_AltDescrOutp { get; }
 }
 
 public interface ItestAltDescrOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltDualDual
   : IGqlpModelImplementationBase
 {
-  ItestObjDualAltDualDual AsObjDualAltDualDual { get; }
-  ItestAltDualDualObject AsAltDualDual { get; }
+  ItestObjDualAltDualDual? AsObjDualAltDualDual { get; }
+  ItestAltDualDualObject? As_AltDualDual { get; }
 }
 
 public interface ItestAltDualDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestObjDualAltDualDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestObjDualAltDualDualObject AsObjDualAltDualDual { get; }
+  string? AsString { get; }
+  ItestObjDualAltDualDualObject? As_ObjDualAltDualDual { get; }
 }
 
 public interface ItestObjDualAltDualDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -135,22 +146,24 @@ public interface ItestObjDualAltDualDualObject
 public interface ItestAltDualInp
   : IGqlpModelImplementationBase
 {
-  ItestObjDualAltDualInp AsObjDualAltDualInp { get; }
-  ItestAltDualInpObject AsAltDualInp { get; }
+  ItestObjDualAltDualInp? AsObjDualAltDualInp { get; }
+  ItestAltDualInpObject? As_AltDualInp { get; }
 }
 
 public interface ItestAltDualInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestObjDualAltDualInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestObjDualAltDualInpObject AsObjDualAltDualInp { get; }
+  string? AsString { get; }
+  ItestObjDualAltDualInpObject? As_ObjDualAltDualInp { get; }
 }
 
 public interface ItestObjDualAltDualInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -158,22 +171,24 @@ public interface ItestObjDualAltDualInpObject
 public interface ItestAltDualOutp
   : IGqlpModelImplementationBase
 {
-  ItestObjDualAltDualOutp AsObjDualAltDualOutp { get; }
-  ItestAltDualOutpObject AsAltDualOutp { get; }
+  ItestObjDualAltDualOutp? AsObjDualAltDualOutp { get; }
+  ItestAltDualOutpObject? As_AltDualOutp { get; }
 }
 
 public interface ItestAltDualOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestObjDualAltDualOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestObjDualAltDualOutpObject AsObjDualAltDualOutp { get; }
+  string? AsString { get; }
+  ItestObjDualAltDualOutpObject? As_ObjDualAltDualOutp { get; }
 }
 
 public interface ItestObjDualAltDualOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -181,55 +196,60 @@ public interface ItestObjDualAltDualOutpObject
 public interface ItestAltEnumDual
   : IGqlpModelImplementationBase
 {
-  testEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; }
-  ItestAltEnumDualObject AsAltEnumDual { get; }
+  testEnumAltEnumDual? AsEnumAltEnumDualaltEnumDual { get; }
+  ItestAltEnumDualObject? As_AltEnumDual { get; }
 }
 
 public interface ItestAltEnumDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltEnumInp
   : IGqlpModelImplementationBase
 {
-  testEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; }
-  ItestAltEnumInpObject AsAltEnumInp { get; }
+  testEnumAltEnumInp? AsEnumAltEnumInpaltEnumInp { get; }
+  ItestAltEnumInpObject? As_AltEnumInp { get; }
 }
 
 public interface ItestAltEnumInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltEnumOutp
   : IGqlpModelImplementationBase
 {
-  testEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; }
-  ItestAltEnumOutpObject AsAltEnumOutp { get; }
+  testEnumAltEnumOutp? AsEnumAltEnumOutpaltEnumOutp { get; }
+  ItestAltEnumOutpObject? As_AltEnumOutp { get; }
 }
 
 public interface ItestAltEnumOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltModBoolDual
   : IGqlpModelImplementationBase
 {
-  IDictionary<bool, ItestAltAltModBoolDual> AsAltAltModBoolDual { get; }
-  ItestAltModBoolDualObject AsAltModBoolDual { get; }
+  IDictionary<bool, ItestAltAltModBoolDual>? AsAltAltModBoolDual { get; }
+  ItestAltModBoolDualObject? As_AltModBoolDual { get; }
 }
 
 public interface ItestAltModBoolDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltModBoolDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltModBoolDualObject AsAltAltModBoolDual { get; }
+  string? AsString { get; }
+  ItestAltAltModBoolDualObject? As_AltAltModBoolDual { get; }
 }
 
 public interface ItestAltAltModBoolDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -237,22 +257,24 @@ public interface ItestAltAltModBoolDualObject
 public interface ItestAltModBoolInp
   : IGqlpModelImplementationBase
 {
-  IDictionary<bool, ItestAltAltModBoolInp> AsAltAltModBoolInp { get; }
-  ItestAltModBoolInpObject AsAltModBoolInp { get; }
+  IDictionary<bool, ItestAltAltModBoolInp>? AsAltAltModBoolInp { get; }
+  ItestAltModBoolInpObject? As_AltModBoolInp { get; }
 }
 
 public interface ItestAltModBoolInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltModBoolInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltModBoolInpObject AsAltAltModBoolInp { get; }
+  string? AsString { get; }
+  ItestAltAltModBoolInpObject? As_AltAltModBoolInp { get; }
 }
 
 public interface ItestAltAltModBoolInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -260,22 +282,24 @@ public interface ItestAltAltModBoolInpObject
 public interface ItestAltModBoolOutp
   : IGqlpModelImplementationBase
 {
-  IDictionary<bool, ItestAltAltModBoolOutp> AsAltAltModBoolOutp { get; }
-  ItestAltModBoolOutpObject AsAltModBoolOutp { get; }
+  IDictionary<bool, ItestAltAltModBoolOutp>? AsAltAltModBoolOutp { get; }
+  ItestAltModBoolOutpObject? As_AltModBoolOutp { get; }
 }
 
 public interface ItestAltModBoolOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltModBoolOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltModBoolOutpObject AsAltAltModBoolOutp { get; }
+  string? AsString { get; }
+  ItestAltAltModBoolOutpObject? As_AltAltModBoolOutp { get; }
 }
 
 public interface ItestAltAltModBoolOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -283,22 +307,24 @@ public interface ItestAltAltModBoolOutpObject
 public interface ItestAltModParamDual<TMod>
   : IGqlpModelImplementationBase
 {
-  IDictionary<TMod, ItestAltAltModParamDual> AsAltAltModParamDual { get; }
-  ItestAltModParamDualObject<TMod> AsAltModParamDual { get; }
+  IDictionary<TMod, ItestAltAltModParamDual>? AsAltAltModParamDual { get; }
+  ItestAltModParamDualObject<TMod>? As_AltModParamDual { get; }
 }
 
 public interface ItestAltModParamDualObject<TMod>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltModParamDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltModParamDualObject AsAltAltModParamDual { get; }
+  string? AsString { get; }
+  ItestAltAltModParamDualObject? As_AltAltModParamDual { get; }
 }
 
 public interface ItestAltAltModParamDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -306,22 +332,24 @@ public interface ItestAltAltModParamDualObject
 public interface ItestAltModParamInp<TMod>
   : IGqlpModelImplementationBase
 {
-  IDictionary<TMod, ItestAltAltModParamInp> AsAltAltModParamInp { get; }
-  ItestAltModParamInpObject<TMod> AsAltModParamInp { get; }
+  IDictionary<TMod, ItestAltAltModParamInp>? AsAltAltModParamInp { get; }
+  ItestAltModParamInpObject<TMod>? As_AltModParamInp { get; }
 }
 
 public interface ItestAltModParamInpObject<TMod>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltModParamInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltModParamInpObject AsAltAltModParamInp { get; }
+  string? AsString { get; }
+  ItestAltAltModParamInpObject? As_AltAltModParamInp { get; }
 }
 
 public interface ItestAltAltModParamInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -329,22 +357,24 @@ public interface ItestAltAltModParamInpObject
 public interface ItestAltModParamOutp<TMod>
   : IGqlpModelImplementationBase
 {
-  IDictionary<TMod, ItestAltAltModParamOutp> AsAltAltModParamOutp { get; }
-  ItestAltModParamOutpObject<TMod> AsAltModParamOutp { get; }
+  IDictionary<TMod, ItestAltAltModParamOutp>? AsAltAltModParamOutp { get; }
+  ItestAltModParamOutpObject<TMod>? As_AltModParamOutp { get; }
 }
 
 public interface ItestAltModParamOutpObject<TMod>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltAltModParamOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltAltModParamOutpObject AsAltAltModParamOutp { get; }
+  string? AsString { get; }
+  ItestAltAltModParamOutpObject? As_AltAltModParamOutp { get; }
 }
 
 public interface ItestAltAltModParamOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -352,88 +382,96 @@ public interface ItestAltAltModParamOutpObject
 public interface ItestAltSmplDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltSmplDualObject AsAltSmplDual { get; }
+  string? AsString { get; }
+  ItestAltSmplDualObject? As_AltSmplDual { get; }
 }
 
 public interface ItestAltSmplDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltSmplInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltSmplInpObject AsAltSmplInp { get; }
+  string? AsString { get; }
+  ItestAltSmplInpObject? As_AltSmplInp { get; }
 }
 
 public interface ItestAltSmplInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltSmplOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltSmplOutpObject AsAltSmplOutp { get; }
+  string? AsString { get; }
+  ItestAltSmplOutpObject? As_AltSmplOutp { get; }
 }
 
 public interface ItestAltSmplOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestCnstAltDual<TType>
   : IGqlpModelImplementationBase
 {
-  TType Astype { get; }
-  ItestCnstAltDualObject<TType> AsCnstAltDual { get; }
+  TType? Astype { get; }
+  ItestCnstAltDualObject<TType>? As_CnstAltDual { get; }
 }
 
 public interface ItestCnstAltDualObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestCnstAltInp<TType>
   : IGqlpModelImplementationBase
 {
-  TType Astype { get; }
-  ItestCnstAltInpObject<TType> AsCnstAltInp { get; }
+  TType? Astype { get; }
+  ItestCnstAltInpObject<TType>? As_CnstAltInp { get; }
 }
 
 public interface ItestCnstAltInpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestCnstAltOutp<TType>
   : IGqlpModelImplementationBase
 {
-  TType Astype { get; }
-  ItestCnstAltOutpObject<TType> AsCnstAltOutp { get; }
+  TType? Astype { get; }
+  ItestCnstAltOutpObject<TType>? As_CnstAltOutp { get; }
 }
 
 public interface ItestCnstAltOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestCnstAltDmnDual
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltDmnDual<ItestDomCnstAltDmnDual> AsRefCnstAltDmnDual { get; }
-  ItestCnstAltDmnDualObject AsCnstAltDmnDual { get; }
+  ItestRefCnstAltDmnDual<ItestDomCnstAltDmnDual>? AsRefCnstAltDmnDual { get; }
+  ItestCnstAltDmnDualObject? As_CnstAltDmnDual { get; }
 }
 
 public interface ItestCnstAltDmnDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltDmnDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltDmnDualObject<TRef> AsRefCnstAltDmnDual { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltDmnDualObject<TRef>? As_RefCnstAltDmnDual { get; }
 }
 
 public interface ItestRefCnstAltDmnDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
@@ -445,22 +483,24 @@ public interface ItestDomCnstAltDmnDual
 public interface ItestCnstAltDmnInp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltDmnInp<ItestDomCnstAltDmnInp> AsRefCnstAltDmnInp { get; }
-  ItestCnstAltDmnInpObject AsCnstAltDmnInp { get; }
+  ItestRefCnstAltDmnInp<ItestDomCnstAltDmnInp>? AsRefCnstAltDmnInp { get; }
+  ItestCnstAltDmnInpObject? As_CnstAltDmnInp { get; }
 }
 
 public interface ItestCnstAltDmnInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltDmnInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltDmnInpObject<TRef> AsRefCnstAltDmnInp { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltDmnInpObject<TRef>? As_RefCnstAltDmnInp { get; }
 }
 
 public interface ItestRefCnstAltDmnInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
@@ -472,22 +512,24 @@ public interface ItestDomCnstAltDmnInp
 public interface ItestCnstAltDmnOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltDmnOutp<ItestDomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; }
-  ItestCnstAltDmnOutpObject AsCnstAltDmnOutp { get; }
+  ItestRefCnstAltDmnOutp<ItestDomCnstAltDmnOutp>? AsRefCnstAltDmnOutp { get; }
+  ItestCnstAltDmnOutpObject? As_CnstAltDmnOutp { get; }
 }
 
 public interface ItestCnstAltDmnOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltDmnOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltDmnOutpObject<TRef> AsRefCnstAltDmnOutp { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltDmnOutpObject<TRef>? As_RefCnstAltDmnOutp { get; }
 }
 
 public interface ItestRefCnstAltDmnOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
@@ -499,40 +541,43 @@ public interface ItestDomCnstAltDmnOutp
 public interface ItestCnstAltDualDual
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltDualDual<ItestAltCnstAltDualDual> AsRefCnstAltDualDual { get; }
-  ItestCnstAltDualDualObject AsCnstAltDualDual { get; }
+  ItestRefCnstAltDualDual<ItestAltCnstAltDualDual>? AsRefCnstAltDualDual { get; }
+  ItestCnstAltDualDualObject? As_CnstAltDualDual { get; }
 }
 
 public interface ItestCnstAltDualDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltDualDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltDualDualObject<TRef> AsRefCnstAltDualDual { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltDualDualObject<TRef>? As_RefCnstAltDualDual { get; }
 }
 
 public interface ItestRefCnstAltDualDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstAltDualDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstAltDualDualObject AsPrntCnstAltDualDual { get; }
+  string? AsString { get; }
+  ItestPrntCnstAltDualDualObject? As_PrntCnstAltDualDual { get; }
 }
 
 public interface ItestPrntCnstAltDualDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstAltDualDual
   : ItestPrntCnstAltDualDual
 {
-  ItestAltCnstAltDualDualObject AsAltCnstAltDualDual { get; }
+  ItestAltCnstAltDualDualObject? As_AltCnstAltDualDual { get; }
 }
 
 public interface ItestAltCnstAltDualDualObject
@@ -544,40 +589,43 @@ public interface ItestAltCnstAltDualDualObject
 public interface ItestCnstAltDualInp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltDualInp<ItestAltCnstAltDualInp> AsRefCnstAltDualInp { get; }
-  ItestCnstAltDualInpObject AsCnstAltDualInp { get; }
+  ItestRefCnstAltDualInp<ItestAltCnstAltDualInp>? AsRefCnstAltDualInp { get; }
+  ItestCnstAltDualInpObject? As_CnstAltDualInp { get; }
 }
 
 public interface ItestCnstAltDualInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltDualInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltDualInpObject<TRef> AsRefCnstAltDualInp { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltDualInpObject<TRef>? As_RefCnstAltDualInp { get; }
 }
 
 public interface ItestRefCnstAltDualInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstAltDualInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstAltDualInpObject AsPrntCnstAltDualInp { get; }
+  string? AsString { get; }
+  ItestPrntCnstAltDualInpObject? As_PrntCnstAltDualInp { get; }
 }
 
 public interface ItestPrntCnstAltDualInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstAltDualInp
   : ItestPrntCnstAltDualInp
 {
-  ItestAltCnstAltDualInpObject AsAltCnstAltDualInp { get; }
+  ItestAltCnstAltDualInpObject? As_AltCnstAltDualInp { get; }
 }
 
 public interface ItestAltCnstAltDualInpObject
@@ -589,40 +637,43 @@ public interface ItestAltCnstAltDualInpObject
 public interface ItestCnstAltDualOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltDualOutp<ItestAltCnstAltDualOutp> AsRefCnstAltDualOutp { get; }
-  ItestCnstAltDualOutpObject AsCnstAltDualOutp { get; }
+  ItestRefCnstAltDualOutp<ItestAltCnstAltDualOutp>? AsRefCnstAltDualOutp { get; }
+  ItestCnstAltDualOutpObject? As_CnstAltDualOutp { get; }
 }
 
 public interface ItestCnstAltDualOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltDualOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltDualOutpObject<TRef> AsRefCnstAltDualOutp { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltDualOutpObject<TRef>? As_RefCnstAltDualOutp { get; }
 }
 
 public interface ItestRefCnstAltDualOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstAltDualOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstAltDualOutpObject AsPrntCnstAltDualOutp { get; }
+  string? AsString { get; }
+  ItestPrntCnstAltDualOutpObject? As_PrntCnstAltDualOutp { get; }
 }
 
 public interface ItestPrntCnstAltDualOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstAltDualOutp
   : ItestPrntCnstAltDualOutp
 {
-  ItestAltCnstAltDualOutpObject AsAltCnstAltDualOutp { get; }
+  ItestAltCnstAltDualOutpObject? As_AltCnstAltDualOutp { get; }
 }
 
 public interface ItestAltCnstAltDualOutpObject
@@ -634,40 +685,43 @@ public interface ItestAltCnstAltDualOutpObject
 public interface ItestCnstAltObjDual
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltObjDual<ItestAltCnstAltObjDual> AsRefCnstAltObjDual { get; }
-  ItestCnstAltObjDualObject AsCnstAltObjDual { get; }
+  ItestRefCnstAltObjDual<ItestAltCnstAltObjDual>? AsRefCnstAltObjDual { get; }
+  ItestCnstAltObjDualObject? As_CnstAltObjDual { get; }
 }
 
 public interface ItestCnstAltObjDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltObjDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltObjDualObject<TRef> AsRefCnstAltObjDual { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltObjDualObject<TRef>? As_RefCnstAltObjDual { get; }
 }
 
 public interface ItestRefCnstAltObjDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstAltObjDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstAltObjDualObject AsPrntCnstAltObjDual { get; }
+  string? AsString { get; }
+  ItestPrntCnstAltObjDualObject? As_PrntCnstAltObjDual { get; }
 }
 
 public interface ItestPrntCnstAltObjDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstAltObjDual
   : ItestPrntCnstAltObjDual
 {
-  ItestAltCnstAltObjDualObject AsAltCnstAltObjDual { get; }
+  ItestAltCnstAltObjDualObject? As_AltCnstAltObjDual { get; }
 }
 
 public interface ItestAltCnstAltObjDualObject
@@ -679,40 +733,43 @@ public interface ItestAltCnstAltObjDualObject
 public interface ItestCnstAltObjInp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltObjInp<ItestAltCnstAltObjInp> AsRefCnstAltObjInp { get; }
-  ItestCnstAltObjInpObject AsCnstAltObjInp { get; }
+  ItestRefCnstAltObjInp<ItestAltCnstAltObjInp>? AsRefCnstAltObjInp { get; }
+  ItestCnstAltObjInpObject? As_CnstAltObjInp { get; }
 }
 
 public interface ItestCnstAltObjInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltObjInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltObjInpObject<TRef> AsRefCnstAltObjInp { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltObjInpObject<TRef>? As_RefCnstAltObjInp { get; }
 }
 
 public interface ItestRefCnstAltObjInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstAltObjInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstAltObjInpObject AsPrntCnstAltObjInp { get; }
+  string? AsString { get; }
+  ItestPrntCnstAltObjInpObject? As_PrntCnstAltObjInp { get; }
 }
 
 public interface ItestPrntCnstAltObjInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstAltObjInp
   : ItestPrntCnstAltObjInp
 {
-  ItestAltCnstAltObjInpObject AsAltCnstAltObjInp { get; }
+  ItestAltCnstAltObjInpObject? As_AltCnstAltObjInp { get; }
 }
 
 public interface ItestAltCnstAltObjInpObject
@@ -724,40 +781,43 @@ public interface ItestAltCnstAltObjInpObject
 public interface ItestCnstAltObjOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstAltObjOutp<ItestAltCnstAltObjOutp> AsRefCnstAltObjOutp { get; }
-  ItestCnstAltObjOutpObject AsCnstAltObjOutp { get; }
+  ItestRefCnstAltObjOutp<ItestAltCnstAltObjOutp>? AsRefCnstAltObjOutp { get; }
+  ItestCnstAltObjOutpObject? As_CnstAltObjOutp { get; }
 }
 
 public interface ItestCnstAltObjOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstAltObjOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefCnstAltObjOutpObject<TRef> AsRefCnstAltObjOutp { get; }
+  TRef? Asref { get; }
+  ItestRefCnstAltObjOutpObject<TRef>? As_RefCnstAltObjOutp { get; }
 }
 
 public interface ItestRefCnstAltObjOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstAltObjOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstAltObjOutpObject AsPrntCnstAltObjOutp { get; }
+  string? AsString { get; }
+  ItestPrntCnstAltObjOutpObject? As_PrntCnstAltObjOutp { get; }
 }
 
 public interface ItestPrntCnstAltObjOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstAltObjOutp
   : ItestPrntCnstAltObjOutp
 {
-  ItestAltCnstAltObjOutpObject AsAltCnstAltObjOutp { get; }
+  ItestAltCnstAltObjOutpObject? As_AltCnstAltObjOutp { get; }
 }
 
 public interface ItestAltCnstAltObjOutpObject
@@ -769,21 +829,23 @@ public interface ItestAltCnstAltObjOutpObject
 public interface ItestCnstDomEnumDual
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual> AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
-  ItestCnstDomEnumDualObject AsCnstDomEnumDual { get; }
+  ItestRefCnstDomEnumDual<testEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
+  ItestCnstDomEnumDualObject? As_CnstDomEnumDual { get; }
 }
 
 public interface ItestCnstDomEnumDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstDomEnumDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstDomEnumDualObject<TType> AsRefCnstDomEnumDual { get; }
+  ItestRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; }
 }
 
 public interface ItestRefCnstDomEnumDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -796,21 +858,23 @@ public interface ItestJustCnstDomEnumDual
 public interface ItestCnstDomEnumInp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp> AsEnumCnstDomEnumInpcnstDomEnumInp { get; }
-  ItestCnstDomEnumInpObject AsCnstDomEnumInp { get; }
+  ItestRefCnstDomEnumInp<testEnumCnstDomEnumInp>? AsEnumCnstDomEnumInpcnstDomEnumInp { get; }
+  ItestCnstDomEnumInpObject? As_CnstDomEnumInp { get; }
 }
 
 public interface ItestCnstDomEnumInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstDomEnumInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstDomEnumInpObject<TType> AsRefCnstDomEnumInp { get; }
+  ItestRefCnstDomEnumInpObject<TType>? As_RefCnstDomEnumInp { get; }
 }
 
 public interface ItestRefCnstDomEnumInpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -823,21 +887,23 @@ public interface ItestJustCnstDomEnumInp
 public interface ItestCnstDomEnumOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstDomEnumOutp<testEnumCnstDomEnumOutp> AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; }
-  ItestCnstDomEnumOutpObject AsCnstDomEnumOutp { get; }
+  ItestRefCnstDomEnumOutp<testEnumCnstDomEnumOutp>? AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; }
+  ItestCnstDomEnumOutpObject? As_CnstDomEnumOutp { get; }
 }
 
 public interface ItestCnstDomEnumOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstDomEnumOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstDomEnumOutpObject<TType> AsRefCnstDomEnumOutp { get; }
+  ItestRefCnstDomEnumOutpObject<TType>? As_RefCnstDomEnumOutp { get; }
 }
 
 public interface ItestRefCnstDomEnumOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -850,21 +916,23 @@ public interface ItestJustCnstDomEnumOutp
 public interface ItestCnstEnumDual
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumDual<testEnumCnstEnumDual> AsEnumCnstEnumDualcnstEnumDual { get; }
-  ItestCnstEnumDualObject AsCnstEnumDual { get; }
+  ItestRefCnstEnumDual<testEnumCnstEnumDual>? AsEnumCnstEnumDualcnstEnumDual { get; }
+  ItestCnstEnumDualObject? As_CnstEnumDual { get; }
 }
 
 public interface ItestCnstEnumDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstEnumDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumDualObject<TType> AsRefCnstEnumDual { get; }
+  ItestRefCnstEnumDualObject<TType>? As_RefCnstEnumDual { get; }
 }
 
 public interface ItestRefCnstEnumDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -872,21 +940,23 @@ public interface ItestRefCnstEnumDualObject<TType>
 public interface ItestCnstEnumInp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumInp<testEnumCnstEnumInp> AsEnumCnstEnumInpcnstEnumInp { get; }
-  ItestCnstEnumInpObject AsCnstEnumInp { get; }
+  ItestRefCnstEnumInp<testEnumCnstEnumInp>? AsEnumCnstEnumInpcnstEnumInp { get; }
+  ItestCnstEnumInpObject? As_CnstEnumInp { get; }
 }
 
 public interface ItestCnstEnumInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstEnumInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumInpObject<TType> AsRefCnstEnumInp { get; }
+  ItestRefCnstEnumInpObject<TType>? As_RefCnstEnumInp { get; }
 }
 
 public interface ItestRefCnstEnumInpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -894,21 +964,23 @@ public interface ItestRefCnstEnumInpObject<TType>
 public interface ItestCnstEnumOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumOutp<testEnumCnstEnumOutp> AsEnumCnstEnumOutpcnstEnumOutp { get; }
-  ItestCnstEnumOutpObject AsCnstEnumOutp { get; }
+  ItestRefCnstEnumOutp<testEnumCnstEnumOutp>? AsEnumCnstEnumOutpcnstEnumOutp { get; }
+  ItestCnstEnumOutpObject? As_CnstEnumOutp { get; }
 }
 
 public interface ItestCnstEnumOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstEnumOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumOutpObject<TType> AsRefCnstEnumOutp { get; }
+  ItestRefCnstEnumOutpObject<TType>? As_RefCnstEnumOutp { get; }
 }
 
 public interface ItestRefCnstEnumOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -916,21 +988,23 @@ public interface ItestRefCnstEnumOutpObject<TType>
 public interface ItestCnstEnumPrntDual
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumPrntDual<testEnumCnstEnumPrntDual> AsEnumCnstEnumPrntDualcnstEnumPrntDual { get; }
-  ItestCnstEnumPrntDualObject AsCnstEnumPrntDual { get; }
+  ItestRefCnstEnumPrntDual<testEnumCnstEnumPrntDual>? AsEnumCnstEnumPrntDualcnstEnumPrntDual { get; }
+  ItestCnstEnumPrntDualObject? As_CnstEnumPrntDual { get; }
 }
 
 public interface ItestCnstEnumPrntDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstEnumPrntDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumPrntDualObject<TType> AsRefCnstEnumPrntDual { get; }
+  ItestRefCnstEnumPrntDualObject<TType>? As_RefCnstEnumPrntDual { get; }
 }
 
 public interface ItestRefCnstEnumPrntDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -938,21 +1012,23 @@ public interface ItestRefCnstEnumPrntDualObject<TType>
 public interface ItestCnstEnumPrntInp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp> AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; }
-  ItestCnstEnumPrntInpObject AsCnstEnumPrntInp { get; }
+  ItestRefCnstEnumPrntInp<testEnumCnstEnumPrntInp>? AsEnumCnstEnumPrntInpcnstEnumPrntInp { get; }
+  ItestCnstEnumPrntInpObject? As_CnstEnumPrntInp { get; }
 }
 
 public interface ItestCnstEnumPrntInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstEnumPrntInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumPrntInpObject<TType> AsRefCnstEnumPrntInp { get; }
+  ItestRefCnstEnumPrntInpObject<TType>? As_RefCnstEnumPrntInp { get; }
 }
 
 public interface ItestRefCnstEnumPrntInpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -960,21 +1036,23 @@ public interface ItestRefCnstEnumPrntInpObject<TType>
 public interface ItestCnstEnumPrntOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumPrntOutp<testEnumCnstEnumPrntOutp> AsEnumCnstEnumPrntOutpcnstEnumPrntOutp { get; }
-  ItestCnstEnumPrntOutpObject AsCnstEnumPrntOutp { get; }
+  ItestRefCnstEnumPrntOutp<testEnumCnstEnumPrntOutp>? AsEnumCnstEnumPrntOutpcnstEnumPrntOutp { get; }
+  ItestCnstEnumPrntOutpObject? As_CnstEnumPrntOutp { get; }
 }
 
 public interface ItestCnstEnumPrntOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstEnumPrntOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstEnumPrntOutpObject<TType> AsRefCnstEnumPrntOutp { get; }
+  ItestRefCnstEnumPrntOutpObject<TType>? As_RefCnstEnumPrntOutp { get; }
 }
 
 public interface ItestRefCnstEnumPrntOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -982,7 +1060,7 @@ public interface ItestRefCnstEnumPrntOutpObject<TType>
 public interface ItestCnstFieldDmnDual
   : ItestRefCnstFieldDmnDual<ItestDomCnstFieldDmnDual>
 {
-  ItestCnstFieldDmnDualObject AsCnstFieldDmnDual { get; }
+  ItestCnstFieldDmnDualObject? As_CnstFieldDmnDual { get; }
 }
 
 public interface ItestCnstFieldDmnDualObject
@@ -993,10 +1071,11 @@ public interface ItestCnstFieldDmnDualObject
 public interface ItestRefCnstFieldDmnDual<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldDmnDualObject<TRef> AsRefCnstFieldDmnDual { get; }
+  ItestRefCnstFieldDmnDualObject<TRef>? As_RefCnstFieldDmnDual { get; }
 }
 
 public interface ItestRefCnstFieldDmnDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -1009,7 +1088,7 @@ public interface ItestDomCnstFieldDmnDual
 public interface ItestCnstFieldDmnInp
   : ItestRefCnstFieldDmnInp<ItestDomCnstFieldDmnInp>
 {
-  ItestCnstFieldDmnInpObject AsCnstFieldDmnInp { get; }
+  ItestCnstFieldDmnInpObject? As_CnstFieldDmnInp { get; }
 }
 
 public interface ItestCnstFieldDmnInpObject
@@ -1020,10 +1099,11 @@ public interface ItestCnstFieldDmnInpObject
 public interface ItestRefCnstFieldDmnInp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldDmnInpObject<TRef> AsRefCnstFieldDmnInp { get; }
+  ItestRefCnstFieldDmnInpObject<TRef>? As_RefCnstFieldDmnInp { get; }
 }
 
 public interface ItestRefCnstFieldDmnInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -1036,7 +1116,7 @@ public interface ItestDomCnstFieldDmnInp
 public interface ItestCnstFieldDmnOutp
   : ItestRefCnstFieldDmnOutp<ItestDomCnstFieldDmnOutp>
 {
-  ItestCnstFieldDmnOutpObject AsCnstFieldDmnOutp { get; }
+  ItestCnstFieldDmnOutpObject? As_CnstFieldDmnOutp { get; }
 }
 
 public interface ItestCnstFieldDmnOutpObject
@@ -1047,10 +1127,11 @@ public interface ItestCnstFieldDmnOutpObject
 public interface ItestRefCnstFieldDmnOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldDmnOutpObject<TRef> AsRefCnstFieldDmnOutp { get; }
+  ItestRefCnstFieldDmnOutpObject<TRef>? As_RefCnstFieldDmnOutp { get; }
 }
 
 public interface ItestRefCnstFieldDmnOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -1063,7 +1144,7 @@ public interface ItestDomCnstFieldDmnOutp
 public interface ItestCnstFieldDualDual
   : ItestRefCnstFieldDualDual<ItestAltCnstFieldDualDual>
 {
-  ItestCnstFieldDualDualObject AsCnstFieldDualDual { get; }
+  ItestCnstFieldDualDualObject? As_CnstFieldDualDual { get; }
 }
 
 public interface ItestCnstFieldDualDualObject
@@ -1074,10 +1155,11 @@ public interface ItestCnstFieldDualDualObject
 public interface ItestRefCnstFieldDualDual<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldDualDualObject<TRef> AsRefCnstFieldDualDual { get; }
+  ItestRefCnstFieldDualDualObject<TRef>? As_RefCnstFieldDualDual { get; }
 }
 
 public interface ItestRefCnstFieldDualDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -1085,18 +1167,19 @@ public interface ItestRefCnstFieldDualDualObject<TRef>
 public interface ItestPrntCnstFieldDualDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstFieldDualDualObject AsPrntCnstFieldDualDual { get; }
+  string? AsString { get; }
+  ItestPrntCnstFieldDualDualObject? As_PrntCnstFieldDualDual { get; }
 }
 
 public interface ItestPrntCnstFieldDualDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstFieldDualDual
   : ItestPrntCnstFieldDualDual
 {
-  ItestAltCnstFieldDualDualObject AsAltCnstFieldDualDual { get; }
+  ItestAltCnstFieldDualDualObject? As_AltCnstFieldDualDual { get; }
 }
 
 public interface ItestAltCnstFieldDualDualObject
@@ -1108,7 +1191,7 @@ public interface ItestAltCnstFieldDualDualObject
 public interface ItestCnstFieldDualInp
   : ItestRefCnstFieldDualInp<ItestAltCnstFieldDualInp>
 {
-  ItestCnstFieldDualInpObject AsCnstFieldDualInp { get; }
+  ItestCnstFieldDualInpObject? As_CnstFieldDualInp { get; }
 }
 
 public interface ItestCnstFieldDualInpObject
@@ -1119,10 +1202,11 @@ public interface ItestCnstFieldDualInpObject
 public interface ItestRefCnstFieldDualInp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldDualInpObject<TRef> AsRefCnstFieldDualInp { get; }
+  ItestRefCnstFieldDualInpObject<TRef>? As_RefCnstFieldDualInp { get; }
 }
 
 public interface ItestRefCnstFieldDualInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -1130,18 +1214,19 @@ public interface ItestRefCnstFieldDualInpObject<TRef>
 public interface ItestPrntCnstFieldDualInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstFieldDualInpObject AsPrntCnstFieldDualInp { get; }
+  string? AsString { get; }
+  ItestPrntCnstFieldDualInpObject? As_PrntCnstFieldDualInp { get; }
 }
 
 public interface ItestPrntCnstFieldDualInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstFieldDualInp
   : ItestPrntCnstFieldDualInp
 {
-  ItestAltCnstFieldDualInpObject AsAltCnstFieldDualInp { get; }
+  ItestAltCnstFieldDualInpObject? As_AltCnstFieldDualInp { get; }
 }
 
 public interface ItestAltCnstFieldDualInpObject
@@ -1153,7 +1238,7 @@ public interface ItestAltCnstFieldDualInpObject
 public interface ItestCnstFieldDualOutp
   : ItestRefCnstFieldDualOutp<ItestAltCnstFieldDualOutp>
 {
-  ItestCnstFieldDualOutpObject AsCnstFieldDualOutp { get; }
+  ItestCnstFieldDualOutpObject? As_CnstFieldDualOutp { get; }
 }
 
 public interface ItestCnstFieldDualOutpObject
@@ -1164,10 +1249,11 @@ public interface ItestCnstFieldDualOutpObject
 public interface ItestRefCnstFieldDualOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldDualOutpObject<TRef> AsRefCnstFieldDualOutp { get; }
+  ItestRefCnstFieldDualOutpObject<TRef>? As_RefCnstFieldDualOutp { get; }
 }
 
 public interface ItestRefCnstFieldDualOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -1175,18 +1261,19 @@ public interface ItestRefCnstFieldDualOutpObject<TRef>
 public interface ItestPrntCnstFieldDualOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstFieldDualOutpObject AsPrntCnstFieldDualOutp { get; }
+  string? AsString { get; }
+  ItestPrntCnstFieldDualOutpObject? As_PrntCnstFieldDualOutp { get; }
 }
 
 public interface ItestPrntCnstFieldDualOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstFieldDualOutp
   : ItestPrntCnstFieldDualOutp
 {
-  ItestAltCnstFieldDualOutpObject AsAltCnstFieldDualOutp { get; }
+  ItestAltCnstFieldDualOutpObject? As_AltCnstFieldDualOutp { get; }
 }
 
 public interface ItestAltCnstFieldDualOutpObject
@@ -1198,7 +1285,7 @@ public interface ItestAltCnstFieldDualOutpObject
 public interface ItestCnstFieldObjDual
   : ItestRefCnstFieldObjDual<ItestAltCnstFieldObjDual>
 {
-  ItestCnstFieldObjDualObject AsCnstFieldObjDual { get; }
+  ItestCnstFieldObjDualObject? As_CnstFieldObjDual { get; }
 }
 
 public interface ItestCnstFieldObjDualObject
@@ -1209,10 +1296,11 @@ public interface ItestCnstFieldObjDualObject
 public interface ItestRefCnstFieldObjDual<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldObjDualObject<TRef> AsRefCnstFieldObjDual { get; }
+  ItestRefCnstFieldObjDualObject<TRef>? As_RefCnstFieldObjDual { get; }
 }
 
 public interface ItestRefCnstFieldObjDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -1220,18 +1308,19 @@ public interface ItestRefCnstFieldObjDualObject<TRef>
 public interface ItestPrntCnstFieldObjDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstFieldObjDualObject AsPrntCnstFieldObjDual { get; }
+  string? AsString { get; }
+  ItestPrntCnstFieldObjDualObject? As_PrntCnstFieldObjDual { get; }
 }
 
 public interface ItestPrntCnstFieldObjDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstFieldObjDual
   : ItestPrntCnstFieldObjDual
 {
-  ItestAltCnstFieldObjDualObject AsAltCnstFieldObjDual { get; }
+  ItestAltCnstFieldObjDualObject? As_AltCnstFieldObjDual { get; }
 }
 
 public interface ItestAltCnstFieldObjDualObject
@@ -1243,7 +1332,7 @@ public interface ItestAltCnstFieldObjDualObject
 public interface ItestCnstFieldObjInp
   : ItestRefCnstFieldObjInp<ItestAltCnstFieldObjInp>
 {
-  ItestCnstFieldObjInpObject AsCnstFieldObjInp { get; }
+  ItestCnstFieldObjInpObject? As_CnstFieldObjInp { get; }
 }
 
 public interface ItestCnstFieldObjInpObject
@@ -1254,10 +1343,11 @@ public interface ItestCnstFieldObjInpObject
 public interface ItestRefCnstFieldObjInp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldObjInpObject<TRef> AsRefCnstFieldObjInp { get; }
+  ItestRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; }
 }
 
 public interface ItestRefCnstFieldObjInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -1265,18 +1355,19 @@ public interface ItestRefCnstFieldObjInpObject<TRef>
 public interface ItestPrntCnstFieldObjInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstFieldObjInpObject AsPrntCnstFieldObjInp { get; }
+  string? AsString { get; }
+  ItestPrntCnstFieldObjInpObject? As_PrntCnstFieldObjInp { get; }
 }
 
 public interface ItestPrntCnstFieldObjInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstFieldObjInp
   : ItestPrntCnstFieldObjInp
 {
-  ItestAltCnstFieldObjInpObject AsAltCnstFieldObjInp { get; }
+  ItestAltCnstFieldObjInpObject? As_AltCnstFieldObjInp { get; }
 }
 
 public interface ItestAltCnstFieldObjInpObject
@@ -1288,7 +1379,7 @@ public interface ItestAltCnstFieldObjInpObject
 public interface ItestCnstFieldObjOutp
   : ItestRefCnstFieldObjOutp<ItestAltCnstFieldObjOutp>
 {
-  ItestCnstFieldObjOutpObject AsCnstFieldObjOutp { get; }
+  ItestCnstFieldObjOutpObject? As_CnstFieldObjOutp { get; }
 }
 
 public interface ItestCnstFieldObjOutpObject
@@ -1299,10 +1390,11 @@ public interface ItestCnstFieldObjOutpObject
 public interface ItestRefCnstFieldObjOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstFieldObjOutpObject<TRef> AsRefCnstFieldObjOutp { get; }
+  ItestRefCnstFieldObjOutpObject<TRef>? As_RefCnstFieldObjOutp { get; }
 }
 
 public interface ItestRefCnstFieldObjOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -1310,18 +1402,19 @@ public interface ItestRefCnstFieldObjOutpObject<TRef>
 public interface ItestPrntCnstFieldObjOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; }
+  string? AsString { get; }
+  ItestPrntCnstFieldObjOutpObject? As_PrntCnstFieldObjOutp { get; }
 }
 
 public interface ItestPrntCnstFieldObjOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstFieldObjOutp
   : ItestPrntCnstFieldObjOutp
 {
-  ItestAltCnstFieldObjOutpObject AsAltCnstFieldObjOutp { get; }
+  ItestAltCnstFieldObjOutpObject? As_AltCnstFieldObjOutp { get; }
 }
 
 public interface ItestAltCnstFieldObjOutpObject
@@ -1333,7 +1426,7 @@ public interface ItestAltCnstFieldObjOutpObject
 public interface ItestCnstPrntDualGrndDual
   : ItestRefCnstPrntDualGrndDual<ItestAltCnstPrntDualGrndDual>
 {
-  ItestCnstPrntDualGrndDualObject AsCnstPrntDualGrndDual { get; }
+  ItestCnstPrntDualGrndDualObject? As_CnstPrntDualGrndDual { get; }
 }
 
 public interface ItestCnstPrntDualGrndDualObject
@@ -1344,29 +1437,31 @@ public interface ItestCnstPrntDualGrndDualObject
 public interface ItestRefCnstPrntDualGrndDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefCnstPrntDualGrndDualObject<TRef> AsRefCnstPrntDualGrndDual { get; }
+  TRef? As_Parent { get; }
+  ItestRefCnstPrntDualGrndDualObject<TRef>? As_RefCnstPrntDualGrndDual { get; }
 }
 
 public interface ItestRefCnstPrntDualGrndDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGrndCnstPrntDualGrndDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestGrndCnstPrntDualGrndDualObject AsGrndCnstPrntDualGrndDual { get; }
+  string? AsString { get; }
+  ItestGrndCnstPrntDualGrndDualObject? As_GrndCnstPrntDualGrndDual { get; }
 }
 
 public interface ItestGrndCnstPrntDualGrndDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstPrntDualGrndDual
   : ItestGrndCnstPrntDualGrndDual
 {
-  ItestPrntCnstPrntDualGrndDualObject AsPrntCnstPrntDualGrndDual { get; }
+  ItestPrntCnstPrntDualGrndDualObject? As_PrntCnstPrntDualGrndDual { get; }
 }
 
 public interface ItestPrntCnstPrntDualGrndDualObject
@@ -1377,7 +1472,7 @@ public interface ItestPrntCnstPrntDualGrndDualObject
 public interface ItestAltCnstPrntDualGrndDual
   : ItestPrntCnstPrntDualGrndDual
 {
-  ItestAltCnstPrntDualGrndDualObject AsAltCnstPrntDualGrndDual { get; }
+  ItestAltCnstPrntDualGrndDualObject? As_AltCnstPrntDualGrndDual { get; }
 }
 
 public interface ItestAltCnstPrntDualGrndDualObject
@@ -1389,7 +1484,7 @@ public interface ItestAltCnstPrntDualGrndDualObject
 public interface ItestCnstPrntDualGrndInp
   : ItestRefCnstPrntDualGrndInp<ItestAltCnstPrntDualGrndInp>
 {
-  ItestCnstPrntDualGrndInpObject AsCnstPrntDualGrndInp { get; }
+  ItestCnstPrntDualGrndInpObject? As_CnstPrntDualGrndInp { get; }
 }
 
 public interface ItestCnstPrntDualGrndInpObject
@@ -1400,29 +1495,31 @@ public interface ItestCnstPrntDualGrndInpObject
 public interface ItestRefCnstPrntDualGrndInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefCnstPrntDualGrndInpObject<TRef> AsRefCnstPrntDualGrndInp { get; }
+  TRef? As_Parent { get; }
+  ItestRefCnstPrntDualGrndInpObject<TRef>? As_RefCnstPrntDualGrndInp { get; }
 }
 
 public interface ItestRefCnstPrntDualGrndInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGrndCnstPrntDualGrndInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestGrndCnstPrntDualGrndInpObject AsGrndCnstPrntDualGrndInp { get; }
+  string? AsString { get; }
+  ItestGrndCnstPrntDualGrndInpObject? As_GrndCnstPrntDualGrndInp { get; }
 }
 
 public interface ItestGrndCnstPrntDualGrndInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstPrntDualGrndInp
   : ItestGrndCnstPrntDualGrndInp
 {
-  ItestPrntCnstPrntDualGrndInpObject AsPrntCnstPrntDualGrndInp { get; }
+  ItestPrntCnstPrntDualGrndInpObject? As_PrntCnstPrntDualGrndInp { get; }
 }
 
 public interface ItestPrntCnstPrntDualGrndInpObject
@@ -1433,7 +1530,7 @@ public interface ItestPrntCnstPrntDualGrndInpObject
 public interface ItestAltCnstPrntDualGrndInp
   : ItestPrntCnstPrntDualGrndInp
 {
-  ItestAltCnstPrntDualGrndInpObject AsAltCnstPrntDualGrndInp { get; }
+  ItestAltCnstPrntDualGrndInpObject? As_AltCnstPrntDualGrndInp { get; }
 }
 
 public interface ItestAltCnstPrntDualGrndInpObject
@@ -1445,7 +1542,7 @@ public interface ItestAltCnstPrntDualGrndInpObject
 public interface ItestCnstPrntDualGrndOutp
   : ItestRefCnstPrntDualGrndOutp<ItestAltCnstPrntDualGrndOutp>
 {
-  ItestCnstPrntDualGrndOutpObject AsCnstPrntDualGrndOutp { get; }
+  ItestCnstPrntDualGrndOutpObject? As_CnstPrntDualGrndOutp { get; }
 }
 
 public interface ItestCnstPrntDualGrndOutpObject
@@ -1456,29 +1553,31 @@ public interface ItestCnstPrntDualGrndOutpObject
 public interface ItestRefCnstPrntDualGrndOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefCnstPrntDualGrndOutpObject<TRef> AsRefCnstPrntDualGrndOutp { get; }
+  TRef? As_Parent { get; }
+  ItestRefCnstPrntDualGrndOutpObject<TRef>? As_RefCnstPrntDualGrndOutp { get; }
 }
 
 public interface ItestRefCnstPrntDualGrndOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGrndCnstPrntDualGrndOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestGrndCnstPrntDualGrndOutpObject AsGrndCnstPrntDualGrndOutp { get; }
+  string? AsString { get; }
+  ItestGrndCnstPrntDualGrndOutpObject? As_GrndCnstPrntDualGrndOutp { get; }
 }
 
 public interface ItestGrndCnstPrntDualGrndOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstPrntDualGrndOutp
   : ItestGrndCnstPrntDualGrndOutp
 {
-  ItestPrntCnstPrntDualGrndOutpObject AsPrntCnstPrntDualGrndOutp { get; }
+  ItestPrntCnstPrntDualGrndOutpObject? As_PrntCnstPrntDualGrndOutp { get; }
 }
 
 public interface ItestPrntCnstPrntDualGrndOutpObject
@@ -1489,7 +1588,7 @@ public interface ItestPrntCnstPrntDualGrndOutpObject
 public interface ItestAltCnstPrntDualGrndOutp
   : ItestPrntCnstPrntDualGrndOutp
 {
-  ItestAltCnstPrntDualGrndOutpObject AsAltCnstPrntDualGrndOutp { get; }
+  ItestAltCnstPrntDualGrndOutpObject? As_AltCnstPrntDualGrndOutp { get; }
 }
 
 public interface ItestAltCnstPrntDualGrndOutpObject
@@ -1501,7 +1600,7 @@ public interface ItestAltCnstPrntDualGrndOutpObject
 public interface ItestCnstPrntDualPrntDual
   : ItestRefCnstPrntDualPrntDual<ItestAltCnstPrntDualPrntDual>
 {
-  ItestCnstPrntDualPrntDualObject AsCnstPrntDualPrntDual { get; }
+  ItestCnstPrntDualPrntDualObject? As_CnstPrntDualPrntDual { get; }
 }
 
 public interface ItestCnstPrntDualPrntDualObject
@@ -1512,29 +1611,31 @@ public interface ItestCnstPrntDualPrntDualObject
 public interface ItestRefCnstPrntDualPrntDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefCnstPrntDualPrntDualObject<TRef> AsRefCnstPrntDualPrntDual { get; }
+  TRef? As_Parent { get; }
+  ItestRefCnstPrntDualPrntDualObject<TRef>? As_RefCnstPrntDualPrntDual { get; }
 }
 
 public interface ItestRefCnstPrntDualPrntDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstPrntDualPrntDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstPrntDualPrntDualObject AsPrntCnstPrntDualPrntDual { get; }
+  string? AsString { get; }
+  ItestPrntCnstPrntDualPrntDualObject? As_PrntCnstPrntDualPrntDual { get; }
 }
 
 public interface ItestPrntCnstPrntDualPrntDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstPrntDualPrntDual
   : ItestPrntCnstPrntDualPrntDual
 {
-  ItestAltCnstPrntDualPrntDualObject AsAltCnstPrntDualPrntDual { get; }
+  ItestAltCnstPrntDualPrntDualObject? As_AltCnstPrntDualPrntDual { get; }
 }
 
 public interface ItestAltCnstPrntDualPrntDualObject
@@ -1546,7 +1647,7 @@ public interface ItestAltCnstPrntDualPrntDualObject
 public interface ItestCnstPrntDualPrntInp
   : ItestRefCnstPrntDualPrntInp<ItestAltCnstPrntDualPrntInp>
 {
-  ItestCnstPrntDualPrntInpObject AsCnstPrntDualPrntInp { get; }
+  ItestCnstPrntDualPrntInpObject? As_CnstPrntDualPrntInp { get; }
 }
 
 public interface ItestCnstPrntDualPrntInpObject
@@ -1557,29 +1658,31 @@ public interface ItestCnstPrntDualPrntInpObject
 public interface ItestRefCnstPrntDualPrntInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefCnstPrntDualPrntInpObject<TRef> AsRefCnstPrntDualPrntInp { get; }
+  TRef? As_Parent { get; }
+  ItestRefCnstPrntDualPrntInpObject<TRef>? As_RefCnstPrntDualPrntInp { get; }
 }
 
 public interface ItestRefCnstPrntDualPrntInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstPrntDualPrntInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstPrntDualPrntInpObject AsPrntCnstPrntDualPrntInp { get; }
+  string? AsString { get; }
+  ItestPrntCnstPrntDualPrntInpObject? As_PrntCnstPrntDualPrntInp { get; }
 }
 
 public interface ItestPrntCnstPrntDualPrntInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstPrntDualPrntInp
   : ItestPrntCnstPrntDualPrntInp
 {
-  ItestAltCnstPrntDualPrntInpObject AsAltCnstPrntDualPrntInp { get; }
+  ItestAltCnstPrntDualPrntInpObject? As_AltCnstPrntDualPrntInp { get; }
 }
 
 public interface ItestAltCnstPrntDualPrntInpObject
@@ -1591,7 +1694,7 @@ public interface ItestAltCnstPrntDualPrntInpObject
 public interface ItestCnstPrntDualPrntOutp
   : ItestRefCnstPrntDualPrntOutp<ItestAltCnstPrntDualPrntOutp>
 {
-  ItestCnstPrntDualPrntOutpObject AsCnstPrntDualPrntOutp { get; }
+  ItestCnstPrntDualPrntOutpObject? As_CnstPrntDualPrntOutp { get; }
 }
 
 public interface ItestCnstPrntDualPrntOutpObject
@@ -1602,29 +1705,31 @@ public interface ItestCnstPrntDualPrntOutpObject
 public interface ItestRefCnstPrntDualPrntOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefCnstPrntDualPrntOutpObject<TRef> AsRefCnstPrntDualPrntOutp { get; }
+  TRef? As_Parent { get; }
+  ItestRefCnstPrntDualPrntOutpObject<TRef>? As_RefCnstPrntDualPrntOutp { get; }
 }
 
 public interface ItestRefCnstPrntDualPrntOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstPrntDualPrntOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstPrntDualPrntOutpObject AsPrntCnstPrntDualPrntOutp { get; }
+  string? AsString { get; }
+  ItestPrntCnstPrntDualPrntOutpObject? As_PrntCnstPrntDualPrntOutp { get; }
 }
 
 public interface ItestPrntCnstPrntDualPrntOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstPrntDualPrntOutp
   : ItestPrntCnstPrntDualPrntOutp
 {
-  ItestAltCnstPrntDualPrntOutpObject AsAltCnstPrntDualPrntOutp { get; }
+  ItestAltCnstPrntDualPrntOutpObject? As_AltCnstPrntDualPrntOutp { get; }
 }
 
 public interface ItestAltCnstPrntDualPrntOutpObject
@@ -1636,21 +1741,23 @@ public interface ItestAltCnstPrntDualPrntOutpObject
 public interface ItestCnstPrntEnumDual
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstPrntEnumDual<testParentCnstPrntEnumDual> AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; }
-  ItestCnstPrntEnumDualObject AsCnstPrntEnumDual { get; }
+  ItestRefCnstPrntEnumDual<testParentCnstPrntEnumDual>? AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; }
+  ItestCnstPrntEnumDualObject? As_CnstPrntEnumDual { get; }
 }
 
 public interface ItestCnstPrntEnumDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstPrntEnumDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstPrntEnumDualObject<TType> AsRefCnstPrntEnumDual { get; }
+  ItestRefCnstPrntEnumDualObject<TType>? As_RefCnstPrntEnumDual { get; }
 }
 
 public interface ItestRefCnstPrntEnumDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -1658,21 +1765,23 @@ public interface ItestRefCnstPrntEnumDualObject<TType>
 public interface ItestCnstPrntEnumInp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstPrntEnumInp<testParentCnstPrntEnumInp> AsParentCnstPrntEnumInpparentCnstPrntEnumInp { get; }
-  ItestCnstPrntEnumInpObject AsCnstPrntEnumInp { get; }
+  ItestRefCnstPrntEnumInp<testParentCnstPrntEnumInp>? AsParentCnstPrntEnumInpparentCnstPrntEnumInp { get; }
+  ItestCnstPrntEnumInpObject? As_CnstPrntEnumInp { get; }
 }
 
 public interface ItestCnstPrntEnumInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstPrntEnumInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstPrntEnumInpObject<TType> AsRefCnstPrntEnumInp { get; }
+  ItestRefCnstPrntEnumInpObject<TType>? As_RefCnstPrntEnumInp { get; }
 }
 
 public interface ItestRefCnstPrntEnumInpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -1680,21 +1789,23 @@ public interface ItestRefCnstPrntEnumInpObject<TType>
 public interface ItestCnstPrntEnumOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstPrntEnumOutp<testParentCnstPrntEnumOutp> AsParentCnstPrntEnumOutpparentCnstPrntEnumOutp { get; }
-  ItestCnstPrntEnumOutpObject AsCnstPrntEnumOutp { get; }
+  ItestRefCnstPrntEnumOutp<testParentCnstPrntEnumOutp>? AsParentCnstPrntEnumOutpparentCnstPrntEnumOutp { get; }
+  ItestCnstPrntEnumOutpObject? As_CnstPrntEnumOutp { get; }
 }
 
 public interface ItestCnstPrntEnumOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefCnstPrntEnumOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefCnstPrntEnumOutpObject<TType> AsRefCnstPrntEnumOutp { get; }
+  ItestRefCnstPrntEnumOutpObject<TType>? As_RefCnstPrntEnumOutp { get; }
 }
 
 public interface ItestRefCnstPrntEnumOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -1702,7 +1813,7 @@ public interface ItestRefCnstPrntEnumOutpObject<TType>
 public interface ItestCnstPrntObjPrntDual
   : ItestRefCnstPrntObjPrntDual<ItestAltCnstPrntObjPrntDual>
 {
-  ItestCnstPrntObjPrntDualObject AsCnstPrntObjPrntDual { get; }
+  ItestCnstPrntObjPrntDualObject? As_CnstPrntObjPrntDual { get; }
 }
 
 public interface ItestCnstPrntObjPrntDualObject
@@ -1713,29 +1824,31 @@ public interface ItestCnstPrntObjPrntDualObject
 public interface ItestRefCnstPrntObjPrntDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefCnstPrntObjPrntDualObject<TRef> AsRefCnstPrntObjPrntDual { get; }
+  TRef? As_Parent { get; }
+  ItestRefCnstPrntObjPrntDualObject<TRef>? As_RefCnstPrntObjPrntDual { get; }
 }
 
 public interface ItestRefCnstPrntObjPrntDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstPrntObjPrntDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstPrntObjPrntDualObject AsPrntCnstPrntObjPrntDual { get; }
+  string? AsString { get; }
+  ItestPrntCnstPrntObjPrntDualObject? As_PrntCnstPrntObjPrntDual { get; }
 }
 
 public interface ItestPrntCnstPrntObjPrntDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstPrntObjPrntDual
   : ItestPrntCnstPrntObjPrntDual
 {
-  ItestAltCnstPrntObjPrntDualObject AsAltCnstPrntObjPrntDual { get; }
+  ItestAltCnstPrntObjPrntDualObject? As_AltCnstPrntObjPrntDual { get; }
 }
 
 public interface ItestAltCnstPrntObjPrntDualObject
@@ -1747,7 +1860,7 @@ public interface ItestAltCnstPrntObjPrntDualObject
 public interface ItestCnstPrntObjPrntInp
   : ItestRefCnstPrntObjPrntInp<ItestAltCnstPrntObjPrntInp>
 {
-  ItestCnstPrntObjPrntInpObject AsCnstPrntObjPrntInp { get; }
+  ItestCnstPrntObjPrntInpObject? As_CnstPrntObjPrntInp { get; }
 }
 
 public interface ItestCnstPrntObjPrntInpObject
@@ -1758,29 +1871,31 @@ public interface ItestCnstPrntObjPrntInpObject
 public interface ItestRefCnstPrntObjPrntInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefCnstPrntObjPrntInpObject<TRef> AsRefCnstPrntObjPrntInp { get; }
+  TRef? As_Parent { get; }
+  ItestRefCnstPrntObjPrntInpObject<TRef>? As_RefCnstPrntObjPrntInp { get; }
 }
 
 public interface ItestRefCnstPrntObjPrntInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstPrntObjPrntInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstPrntObjPrntInpObject AsPrntCnstPrntObjPrntInp { get; }
+  string? AsString { get; }
+  ItestPrntCnstPrntObjPrntInpObject? As_PrntCnstPrntObjPrntInp { get; }
 }
 
 public interface ItestPrntCnstPrntObjPrntInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstPrntObjPrntInp
   : ItestPrntCnstPrntObjPrntInp
 {
-  ItestAltCnstPrntObjPrntInpObject AsAltCnstPrntObjPrntInp { get; }
+  ItestAltCnstPrntObjPrntInpObject? As_AltCnstPrntObjPrntInp { get; }
 }
 
 public interface ItestAltCnstPrntObjPrntInpObject
@@ -1792,7 +1907,7 @@ public interface ItestAltCnstPrntObjPrntInpObject
 public interface ItestCnstPrntObjPrntOutp
   : ItestRefCnstPrntObjPrntOutp<ItestAltCnstPrntObjPrntOutp>
 {
-  ItestCnstPrntObjPrntOutpObject AsCnstPrntObjPrntOutp { get; }
+  ItestCnstPrntObjPrntOutpObject? As_CnstPrntObjPrntOutp { get; }
 }
 
 public interface ItestCnstPrntObjPrntOutpObject
@@ -1803,29 +1918,31 @@ public interface ItestCnstPrntObjPrntOutpObject
 public interface ItestRefCnstPrntObjPrntOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefCnstPrntObjPrntOutpObject<TRef> AsRefCnstPrntObjPrntOutp { get; }
+  TRef? As_Parent { get; }
+  ItestRefCnstPrntObjPrntOutpObject<TRef>? As_RefCnstPrntObjPrntOutp { get; }
 }
 
 public interface ItestRefCnstPrntObjPrntOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntCnstPrntObjPrntOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntCnstPrntObjPrntOutpObject AsPrntCnstPrntObjPrntOutp { get; }
+  string? AsString { get; }
+  ItestPrntCnstPrntObjPrntOutpObject? As_PrntCnstPrntObjPrntOutp { get; }
 }
 
 public interface ItestPrntCnstPrntObjPrntOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltCnstPrntObjPrntOutp
   : ItestPrntCnstPrntObjPrntOutp
 {
-  ItestAltCnstPrntObjPrntOutpObject AsAltCnstPrntObjPrntOutp { get; }
+  ItestAltCnstPrntObjPrntOutpObject? As_AltCnstPrntObjPrntOutp { get; }
 }
 
 public interface ItestAltCnstPrntObjPrntOutpObject
@@ -1837,10 +1954,11 @@ public interface ItestAltCnstPrntObjPrntOutpObject
 public interface ItestFieldDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldDualObject AsFieldDual { get; }
+  ItestFieldDualObject? As_FieldDual { get; }
 }
 
 public interface ItestFieldDualObject
+  : IGqlpModelImplementationBase
 {
   string Field { get; }
 }
@@ -1848,10 +1966,11 @@ public interface ItestFieldDualObject
 public interface ItestFieldInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldInpObject AsFieldInp { get; }
+  ItestFieldInpObject? As_FieldInp { get; }
 }
 
 public interface ItestFieldInpObject
+  : IGqlpModelImplementationBase
 {
   string Field { get; }
 }
@@ -1859,10 +1978,11 @@ public interface ItestFieldInpObject
 public interface ItestFieldOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldOutpObject AsFieldOutp { get; }
+  ItestFieldOutpObject? As_FieldOutp { get; }
 }
 
 public interface ItestFieldOutpObject
+  : IGqlpModelImplementationBase
 {
   string Field { get; }
 }
@@ -1870,10 +1990,11 @@ public interface ItestFieldOutpObject
 public interface ItestFieldDescrDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldDescrDualObject AsFieldDescrDual { get; }
+  ItestFieldDescrDualObject? As_FieldDescrDual { get; }
 }
 
 public interface ItestFieldDescrDualObject
+  : IGqlpModelImplementationBase
 {
   string Field { get; }
 }
@@ -1881,10 +2002,11 @@ public interface ItestFieldDescrDualObject
 public interface ItestFieldDescrInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldDescrInpObject AsFieldDescrInp { get; }
+  ItestFieldDescrInpObject? As_FieldDescrInp { get; }
 }
 
 public interface ItestFieldDescrInpObject
+  : IGqlpModelImplementationBase
 {
   string Field { get; }
 }
@@ -1892,10 +2014,11 @@ public interface ItestFieldDescrInpObject
 public interface ItestFieldDescrOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldDescrOutpObject AsFieldDescrOutp { get; }
+  ItestFieldDescrOutpObject? As_FieldDescrOutp { get; }
 }
 
 public interface ItestFieldDescrOutpObject
+  : IGqlpModelImplementationBase
 {
   string Field { get; }
 }
@@ -1903,10 +2026,11 @@ public interface ItestFieldDescrOutpObject
 public interface ItestFieldDualDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldDualDualObject AsFieldDualDual { get; }
+  ItestFieldDualDualObject? As_FieldDualDual { get; }
 }
 
 public interface ItestFieldDualDualObject
+  : IGqlpModelImplementationBase
 {
   ItestFldFieldDualDual Field { get; }
 }
@@ -1914,11 +2038,12 @@ public interface ItestFieldDualDualObject
 public interface ItestFldFieldDualDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestFldFieldDualDualObject AsFldFieldDualDual { get; }
+  string? AsString { get; }
+  ItestFldFieldDualDualObject? As_FldFieldDualDual { get; }
 }
 
 public interface ItestFldFieldDualDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -1926,10 +2051,11 @@ public interface ItestFldFieldDualDualObject
 public interface ItestFieldDualInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldDualInpObject AsFieldDualInp { get; }
+  ItestFieldDualInpObject? As_FieldDualInp { get; }
 }
 
 public interface ItestFieldDualInpObject
+  : IGqlpModelImplementationBase
 {
   ItestFldFieldDualInp Field { get; }
 }
@@ -1937,11 +2063,12 @@ public interface ItestFieldDualInpObject
 public interface ItestFldFieldDualInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestFldFieldDualInpObject AsFldFieldDualInp { get; }
+  string? AsString { get; }
+  ItestFldFieldDualInpObject? As_FldFieldDualInp { get; }
 }
 
 public interface ItestFldFieldDualInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -1949,10 +2076,11 @@ public interface ItestFldFieldDualInpObject
 public interface ItestFieldDualOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldDualOutpObject AsFieldDualOutp { get; }
+  ItestFieldDualOutpObject? As_FieldDualOutp { get; }
 }
 
 public interface ItestFieldDualOutpObject
+  : IGqlpModelImplementationBase
 {
   ItestFldFieldDualOutp Field { get; }
 }
@@ -1960,11 +2088,12 @@ public interface ItestFieldDualOutpObject
 public interface ItestFldFieldDualOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestFldFieldDualOutpObject AsFldFieldDualOutp { get; }
+  string? AsString { get; }
+  ItestFldFieldDualOutpObject? As_FldFieldDualOutp { get; }
 }
 
 public interface ItestFldFieldDualOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -1972,10 +2101,11 @@ public interface ItestFldFieldDualOutpObject
 public interface ItestFieldEnumDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldEnumDualObject AsFieldEnumDual { get; }
+  ItestFieldEnumDualObject? As_FieldEnumDual { get; }
 }
 
 public interface ItestFieldEnumDualObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldEnumDual Field { get; }
 }
@@ -1983,10 +2113,11 @@ public interface ItestFieldEnumDualObject
 public interface ItestFieldEnumInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldEnumInpObject AsFieldEnumInp { get; }
+  ItestFieldEnumInpObject? As_FieldEnumInp { get; }
 }
 
 public interface ItestFieldEnumInpObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldEnumInp Field { get; }
 }
@@ -1994,10 +2125,11 @@ public interface ItestFieldEnumInpObject
 public interface ItestFieldEnumOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldEnumOutpObject AsFieldEnumOutp { get; }
+  ItestFieldEnumOutpObject? As_FieldEnumOutp { get; }
 }
 
 public interface ItestFieldEnumOutpObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldEnumOutp Field { get; }
 }
@@ -2005,10 +2137,11 @@ public interface ItestFieldEnumOutpObject
 public interface ItestFieldEnumPrntDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldEnumPrntDualObject AsFieldEnumPrntDual { get; }
+  ItestFieldEnumPrntDualObject? As_FieldEnumPrntDual { get; }
 }
 
 public interface ItestFieldEnumPrntDualObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldEnumPrntDual Field { get; }
 }
@@ -2016,10 +2149,11 @@ public interface ItestFieldEnumPrntDualObject
 public interface ItestFieldEnumPrntInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldEnumPrntInpObject AsFieldEnumPrntInp { get; }
+  ItestFieldEnumPrntInpObject? As_FieldEnumPrntInp { get; }
 }
 
 public interface ItestFieldEnumPrntInpObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldEnumPrntInp Field { get; }
 }
@@ -2027,10 +2161,11 @@ public interface ItestFieldEnumPrntInpObject
 public interface ItestFieldEnumPrntOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldEnumPrntOutpObject AsFieldEnumPrntOutp { get; }
+  ItestFieldEnumPrntOutpObject? As_FieldEnumPrntOutp { get; }
 }
 
 public interface ItestFieldEnumPrntOutpObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldEnumPrntOutp Field { get; }
 }
@@ -2038,10 +2173,11 @@ public interface ItestFieldEnumPrntOutpObject
 public interface ItestFieldModEnumDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldModEnumDualObject AsFieldModEnumDual { get; }
+  ItestFieldModEnumDualObject? As_FieldModEnumDual { get; }
 }
 
 public interface ItestFieldModEnumDualObject
+  : IGqlpModelImplementationBase
 {
   IDictionary<testEnumFieldModEnumDual, string> Field { get; }
 }
@@ -2049,10 +2185,11 @@ public interface ItestFieldModEnumDualObject
 public interface ItestFieldModEnumInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldModEnumInpObject AsFieldModEnumInp { get; }
+  ItestFieldModEnumInpObject? As_FieldModEnumInp { get; }
 }
 
 public interface ItestFieldModEnumInpObject
+  : IGqlpModelImplementationBase
 {
   IDictionary<testEnumFieldModEnumInp, string> Field { get; }
 }
@@ -2060,10 +2197,11 @@ public interface ItestFieldModEnumInpObject
 public interface ItestFieldModEnumOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldModEnumOutpObject AsFieldModEnumOutp { get; }
+  ItestFieldModEnumOutpObject? As_FieldModEnumOutp { get; }
 }
 
 public interface ItestFieldModEnumOutpObject
+  : IGqlpModelImplementationBase
 {
   IDictionary<testEnumFieldModEnumOutp, string> Field { get; }
 }
@@ -2071,10 +2209,11 @@ public interface ItestFieldModEnumOutpObject
 public interface ItestFieldModParamDual<TMod>
   : IGqlpModelImplementationBase
 {
-  ItestFieldModParamDualObject<TMod> AsFieldModParamDual { get; }
+  ItestFieldModParamDualObject<TMod>? As_FieldModParamDual { get; }
 }
 
 public interface ItestFieldModParamDualObject<TMod>
+  : IGqlpModelImplementationBase
 {
   IDictionary<TMod, ItestFldFieldModParamDual> Field { get; }
 }
@@ -2082,11 +2221,12 @@ public interface ItestFieldModParamDualObject<TMod>
 public interface ItestFldFieldModParamDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestFldFieldModParamDualObject AsFldFieldModParamDual { get; }
+  string? AsString { get; }
+  ItestFldFieldModParamDualObject? As_FldFieldModParamDual { get; }
 }
 
 public interface ItestFldFieldModParamDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2094,10 +2234,11 @@ public interface ItestFldFieldModParamDualObject
 public interface ItestFieldModParamInp<TMod>
   : IGqlpModelImplementationBase
 {
-  ItestFieldModParamInpObject<TMod> AsFieldModParamInp { get; }
+  ItestFieldModParamInpObject<TMod>? As_FieldModParamInp { get; }
 }
 
 public interface ItestFieldModParamInpObject<TMod>
+  : IGqlpModelImplementationBase
 {
   IDictionary<TMod, ItestFldFieldModParamInp> Field { get; }
 }
@@ -2105,11 +2246,12 @@ public interface ItestFieldModParamInpObject<TMod>
 public interface ItestFldFieldModParamInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestFldFieldModParamInpObject AsFldFieldModParamInp { get; }
+  string? AsString { get; }
+  ItestFldFieldModParamInpObject? As_FldFieldModParamInp { get; }
 }
 
 public interface ItestFldFieldModParamInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2117,10 +2259,11 @@ public interface ItestFldFieldModParamInpObject
 public interface ItestFieldModParamOutp<TMod>
   : IGqlpModelImplementationBase
 {
-  ItestFieldModParamOutpObject<TMod> AsFieldModParamOutp { get; }
+  ItestFieldModParamOutpObject<TMod>? As_FieldModParamOutp { get; }
 }
 
 public interface ItestFieldModParamOutpObject<TMod>
+  : IGqlpModelImplementationBase
 {
   IDictionary<TMod, ItestFldFieldModParamOutp> Field { get; }
 }
@@ -2128,11 +2271,12 @@ public interface ItestFieldModParamOutpObject<TMod>
 public interface ItestFldFieldModParamOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestFldFieldModParamOutpObject AsFldFieldModParamOutp { get; }
+  string? AsString { get; }
+  ItestFldFieldModParamOutpObject? As_FldFieldModParamOutp { get; }
 }
 
 public interface ItestFldFieldModParamOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2140,10 +2284,11 @@ public interface ItestFldFieldModParamOutpObject
 public interface ItestFieldObjDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldObjDualObject AsFieldObjDual { get; }
+  ItestFieldObjDualObject? As_FieldObjDual { get; }
 }
 
 public interface ItestFieldObjDualObject
+  : IGqlpModelImplementationBase
 {
   ItestFldFieldObjDual Field { get; }
 }
@@ -2151,11 +2296,12 @@ public interface ItestFieldObjDualObject
 public interface ItestFldFieldObjDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestFldFieldObjDualObject AsFldFieldObjDual { get; }
+  string? AsString { get; }
+  ItestFldFieldObjDualObject? As_FldFieldObjDual { get; }
 }
 
 public interface ItestFldFieldObjDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2163,10 +2309,11 @@ public interface ItestFldFieldObjDualObject
 public interface ItestFieldObjInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldObjInpObject AsFieldObjInp { get; }
+  ItestFieldObjInpObject? As_FieldObjInp { get; }
 }
 
 public interface ItestFieldObjInpObject
+  : IGqlpModelImplementationBase
 {
   ItestFldFieldObjInp Field { get; }
 }
@@ -2174,11 +2321,12 @@ public interface ItestFieldObjInpObject
 public interface ItestFldFieldObjInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestFldFieldObjInpObject AsFldFieldObjInp { get; }
+  string? AsString { get; }
+  ItestFldFieldObjInpObject? As_FldFieldObjInp { get; }
 }
 
 public interface ItestFldFieldObjInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2186,10 +2334,11 @@ public interface ItestFldFieldObjInpObject
 public interface ItestFieldObjOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldObjOutpObject AsFieldObjOutp { get; }
+  ItestFieldObjOutpObject? As_FieldObjOutp { get; }
 }
 
 public interface ItestFieldObjOutpObject
+  : IGqlpModelImplementationBase
 {
   ItestFldFieldObjOutp Field { get; }
 }
@@ -2197,11 +2346,12 @@ public interface ItestFieldObjOutpObject
 public interface ItestFldFieldObjOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestFldFieldObjOutpObject AsFldFieldObjOutp { get; }
+  string? AsString { get; }
+  ItestFldFieldObjOutpObject? As_FldFieldObjOutp { get; }
 }
 
 public interface ItestFldFieldObjOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2209,10 +2359,11 @@ public interface ItestFldFieldObjOutpObject
 public interface ItestFieldSmplDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldSmplDualObject AsFieldSmplDual { get; }
+  ItestFieldSmplDualObject? As_FieldSmplDual { get; }
 }
 
 public interface ItestFieldSmplDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2220,10 +2371,11 @@ public interface ItestFieldSmplDualObject
 public interface ItestFieldSmplInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldSmplInpObject AsFieldSmplInp { get; }
+  ItestFieldSmplInpObject? As_FieldSmplInp { get; }
 }
 
 public interface ItestFieldSmplInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2231,10 +2383,11 @@ public interface ItestFieldSmplInpObject
 public interface ItestFieldSmplOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldSmplOutpObject AsFieldSmplOutp { get; }
+  ItestFieldSmplOutpObject? As_FieldSmplOutp { get; }
 }
 
 public interface ItestFieldSmplOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2242,10 +2395,11 @@ public interface ItestFieldSmplOutpObject
 public interface ItestFieldTypeDescrDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldTypeDescrDualObject AsFieldTypeDescrDual { get; }
+  ItestFieldTypeDescrDualObject? As_FieldTypeDescrDual { get; }
 }
 
 public interface ItestFieldTypeDescrDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2253,10 +2407,11 @@ public interface ItestFieldTypeDescrDualObject
 public interface ItestFieldTypeDescrInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldTypeDescrInpObject AsFieldTypeDescrInp { get; }
+  ItestFieldTypeDescrInpObject? As_FieldTypeDescrInp { get; }
 }
 
 public interface ItestFieldTypeDescrInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2264,10 +2419,11 @@ public interface ItestFieldTypeDescrInpObject
 public interface ItestFieldTypeDescrOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldTypeDescrOutpObject AsFieldTypeDescrOutp { get; }
+  ItestFieldTypeDescrOutpObject? As_FieldTypeDescrOutp { get; }
 }
 
 public interface ItestFieldTypeDescrOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -2275,10 +2431,11 @@ public interface ItestFieldTypeDescrOutpObject
 public interface ItestFieldValueDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldValueDualObject AsFieldValueDual { get; }
+  ItestFieldValueDualObject? As_FieldValueDual { get; }
 }
 
 public interface ItestFieldValueDualObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldValueDual Field { get; }
 }
@@ -2286,10 +2443,11 @@ public interface ItestFieldValueDualObject
 public interface ItestFieldValueInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldValueInpObject AsFieldValueInp { get; }
+  ItestFieldValueInpObject? As_FieldValueInp { get; }
 }
 
 public interface ItestFieldValueInpObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldValueInp Field { get; }
 }
@@ -2297,10 +2455,11 @@ public interface ItestFieldValueInpObject
 public interface ItestFieldValueOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldValueOutpObject AsFieldValueOutp { get; }
+  ItestFieldValueOutpObject? As_FieldValueOutp { get; }
 }
 
 public interface ItestFieldValueOutpObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldValueOutp Field { get; }
 }
@@ -2308,10 +2467,11 @@ public interface ItestFieldValueOutpObject
 public interface ItestFieldValueDescrDual
   : IGqlpModelImplementationBase
 {
-  ItestFieldValueDescrDualObject AsFieldValueDescrDual { get; }
+  ItestFieldValueDescrDualObject? As_FieldValueDescrDual { get; }
 }
 
 public interface ItestFieldValueDescrDualObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldValueDescrDual Field { get; }
 }
@@ -2319,10 +2479,11 @@ public interface ItestFieldValueDescrDualObject
 public interface ItestFieldValueDescrInp
   : IGqlpModelImplementationBase
 {
-  ItestFieldValueDescrInpObject AsFieldValueDescrInp { get; }
+  ItestFieldValueDescrInpObject? As_FieldValueDescrInp { get; }
 }
 
 public interface ItestFieldValueDescrInpObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldValueDescrInp Field { get; }
 }
@@ -2330,10 +2491,11 @@ public interface ItestFieldValueDescrInpObject
 public interface ItestFieldValueDescrOutp
   : IGqlpModelImplementationBase
 {
-  ItestFieldValueDescrOutpObject AsFieldValueDescrOutp { get; }
+  ItestFieldValueDescrOutpObject? As_FieldValueDescrOutp { get; }
 }
 
 public interface ItestFieldValueDescrOutpObject
+  : IGqlpModelImplementationBase
 {
   testEnumFieldValueDescrOutp Field { get; }
 }
@@ -2341,198 +2503,216 @@ public interface ItestFieldValueDescrOutpObject
 public interface ItestGnrcAltDual<TType>
   : IGqlpModelImplementationBase
 {
-  TType Astype { get; }
-  ItestGnrcAltDualObject<TType> AsGnrcAltDual { get; }
+  TType? Astype { get; }
+  ItestGnrcAltDualObject<TType>? As_GnrcAltDual { get; }
 }
 
 public interface ItestGnrcAltDualObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltInp<TType>
   : IGqlpModelImplementationBase
 {
-  TType Astype { get; }
-  ItestGnrcAltInpObject<TType> AsGnrcAltInp { get; }
+  TType? Astype { get; }
+  ItestGnrcAltInpObject<TType>? As_GnrcAltInp { get; }
 }
 
 public interface ItestGnrcAltInpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltOutp<TType>
   : IGqlpModelImplementationBase
 {
-  TType Astype { get; }
-  ItestGnrcAltOutpObject<TType> AsGnrcAltOutp { get; }
+  TType? Astype { get; }
+  ItestGnrcAltOutpObject<TType>? As_GnrcAltOutp { get; }
 }
 
 public interface ItestGnrcAltOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltArgDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltArgDual<TType> AsRefGnrcAltArgDual { get; }
-  ItestGnrcAltArgDualObject<TType> AsGnrcAltArgDual { get; }
+  ItestRefGnrcAltArgDual<TType>? AsRefGnrcAltArgDual { get; }
+  ItestGnrcAltArgDualObject<TType>? As_GnrcAltArgDual { get; }
 }
 
 public interface ItestGnrcAltArgDualObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltArgDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltArgDualObject<TRef> AsRefGnrcAltArgDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltArgDualObject<TRef>? As_RefGnrcAltArgDual { get; }
 }
 
 public interface ItestRefGnrcAltArgDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltArgInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltArgInp<TType> AsRefGnrcAltArgInp { get; }
-  ItestGnrcAltArgInpObject<TType> AsGnrcAltArgInp { get; }
+  ItestRefGnrcAltArgInp<TType>? AsRefGnrcAltArgInp { get; }
+  ItestGnrcAltArgInpObject<TType>? As_GnrcAltArgInp { get; }
 }
 
 public interface ItestGnrcAltArgInpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltArgInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltArgInpObject<TRef> AsRefGnrcAltArgInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltArgInpObject<TRef>? As_RefGnrcAltArgInp { get; }
 }
 
 public interface ItestRefGnrcAltArgInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltArgOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltArgOutp<TType> AsRefGnrcAltArgOutp { get; }
-  ItestGnrcAltArgOutpObject<TType> AsGnrcAltArgOutp { get; }
+  ItestRefGnrcAltArgOutp<TType>? AsRefGnrcAltArgOutp { get; }
+  ItestGnrcAltArgOutpObject<TType>? As_GnrcAltArgOutp { get; }
 }
 
 public interface ItestGnrcAltArgOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltArgOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltArgOutpObject<TRef> AsRefGnrcAltArgOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltArgOutpObject<TRef>? As_RefGnrcAltArgOutp { get; }
 }
 
 public interface ItestRefGnrcAltArgOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltArgDescrDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltArgDescrDual<TType> AsRefGnrcAltArgDescrDual { get; }
-  ItestGnrcAltArgDescrDualObject<TType> AsGnrcAltArgDescrDual { get; }
+  ItestRefGnrcAltArgDescrDual<TType>? AsRefGnrcAltArgDescrDual { get; }
+  ItestGnrcAltArgDescrDualObject<TType>? As_GnrcAltArgDescrDual { get; }
 }
 
 public interface ItestGnrcAltArgDescrDualObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltArgDescrDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltArgDescrDualObject<TRef> AsRefGnrcAltArgDescrDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltArgDescrDualObject<TRef>? As_RefGnrcAltArgDescrDual { get; }
 }
 
 public interface ItestRefGnrcAltArgDescrDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltArgDescrInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltArgDescrInp<TType> AsRefGnrcAltArgDescrInp { get; }
-  ItestGnrcAltArgDescrInpObject<TType> AsGnrcAltArgDescrInp { get; }
+  ItestRefGnrcAltArgDescrInp<TType>? AsRefGnrcAltArgDescrInp { get; }
+  ItestGnrcAltArgDescrInpObject<TType>? As_GnrcAltArgDescrInp { get; }
 }
 
 public interface ItestGnrcAltArgDescrInpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltArgDescrInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltArgDescrInpObject<TRef> AsRefGnrcAltArgDescrInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltArgDescrInpObject<TRef>? As_RefGnrcAltArgDescrInp { get; }
 }
 
 public interface ItestRefGnrcAltArgDescrInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltArgDescrOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltArgDescrOutp<TType> AsRefGnrcAltArgDescrOutp { get; }
-  ItestGnrcAltArgDescrOutpObject<TType> AsGnrcAltArgDescrOutp { get; }
+  ItestRefGnrcAltArgDescrOutp<TType>? AsRefGnrcAltArgDescrOutp { get; }
+  ItestGnrcAltArgDescrOutpObject<TType>? As_GnrcAltArgDescrOutp { get; }
 }
 
 public interface ItestGnrcAltArgDescrOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltArgDescrOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltArgDescrOutpObject<TRef> AsRefGnrcAltArgDescrOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltArgDescrOutpObject<TRef>? As_RefGnrcAltArgDescrOutp { get; }
 }
 
 public interface ItestRefGnrcAltArgDescrOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltDualDual
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltDualDual<ItestAltGnrcAltDualDual> AsRefGnrcAltDualDual { get; }
-  ItestGnrcAltDualDualObject AsGnrcAltDualDual { get; }
+  ItestRefGnrcAltDualDual<ItestAltGnrcAltDualDual>? AsRefGnrcAltDualDual { get; }
+  ItestGnrcAltDualDualObject? As_GnrcAltDualDual { get; }
 }
 
 public interface ItestGnrcAltDualDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltDualDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltDualDualObject<TRef> AsRefGnrcAltDualDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltDualDualObject<TRef>? As_RefGnrcAltDualDual { get; }
 }
 
 public interface ItestRefGnrcAltDualDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcAltDualDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcAltDualDualObject AsAltGnrcAltDualDual { get; }
+  string? AsString { get; }
+  ItestAltGnrcAltDualDualObject? As_AltGnrcAltDualDual { get; }
 }
 
 public interface ItestAltGnrcAltDualDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -2540,33 +2720,36 @@ public interface ItestAltGnrcAltDualDualObject
 public interface ItestGnrcAltDualInp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltDualInp<ItestAltGnrcAltDualInp> AsRefGnrcAltDualInp { get; }
-  ItestGnrcAltDualInpObject AsGnrcAltDualInp { get; }
+  ItestRefGnrcAltDualInp<ItestAltGnrcAltDualInp>? AsRefGnrcAltDualInp { get; }
+  ItestGnrcAltDualInpObject? As_GnrcAltDualInp { get; }
 }
 
 public interface ItestGnrcAltDualInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltDualInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltDualInpObject<TRef> AsRefGnrcAltDualInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltDualInpObject<TRef>? As_RefGnrcAltDualInp { get; }
 }
 
 public interface ItestRefGnrcAltDualInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcAltDualInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcAltDualInpObject AsAltGnrcAltDualInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcAltDualInpObject? As_AltGnrcAltDualInp { get; }
 }
 
 public interface ItestAltGnrcAltDualInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -2574,33 +2757,36 @@ public interface ItestAltGnrcAltDualInpObject
 public interface ItestGnrcAltDualOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltDualOutp<ItestAltGnrcAltDualOutp> AsRefGnrcAltDualOutp { get; }
-  ItestGnrcAltDualOutpObject AsGnrcAltDualOutp { get; }
+  ItestRefGnrcAltDualOutp<ItestAltGnrcAltDualOutp>? AsRefGnrcAltDualOutp { get; }
+  ItestGnrcAltDualOutpObject? As_GnrcAltDualOutp { get; }
 }
 
 public interface ItestGnrcAltDualOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltDualOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltDualOutpObject<TRef> AsRefGnrcAltDualOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltDualOutpObject<TRef>? As_RefGnrcAltDualOutp { get; }
 }
 
 public interface ItestRefGnrcAltDualOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcAltDualOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcAltDualOutpObject AsAltGnrcAltDualOutp { get; }
+  string? AsString { get; }
+  ItestAltGnrcAltDualOutpObject? As_AltGnrcAltDualOutp { get; }
 }
 
 public interface ItestAltGnrcAltDualOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -2608,99 +2794,108 @@ public interface ItestAltGnrcAltDualOutpObject
 public interface ItestRefGnrcAltModParamDual<TRef,TMod>
   : IGqlpModelImplementationBase
 {
-  IDictionary<TMod, TRef> Asref { get; }
-  ItestRefGnrcAltModParamDualObject<TRef,TMod> AsRefGnrcAltModParamDual { get; }
+  IDictionary<TMod, TRef>? Asref { get; }
+  ItestRefGnrcAltModParamDualObject<TRef,TMod>? As_RefGnrcAltModParamDual { get; }
 }
 
 public interface ItestRefGnrcAltModParamDualObject<TRef,TMod>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltModParamInp<TRef,TMod>
   : IGqlpModelImplementationBase
 {
-  IDictionary<TMod, TRef> Asref { get; }
-  ItestRefGnrcAltModParamInpObject<TRef,TMod> AsRefGnrcAltModParamInp { get; }
+  IDictionary<TMod, TRef>? Asref { get; }
+  ItestRefGnrcAltModParamInpObject<TRef,TMod>? As_RefGnrcAltModParamInp { get; }
 }
 
 public interface ItestRefGnrcAltModParamInpObject<TRef,TMod>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltModParamOutp<TRef,TMod>
   : IGqlpModelImplementationBase
 {
-  IDictionary<TMod, TRef> Asref { get; }
-  ItestRefGnrcAltModParamOutpObject<TRef,TMod> AsRefGnrcAltModParamOutp { get; }
+  IDictionary<TMod, TRef>? Asref { get; }
+  ItestRefGnrcAltModParamOutpObject<TRef,TMod>? As_RefGnrcAltModParamOutp { get; }
 }
 
 public interface ItestRefGnrcAltModParamOutpObject<TRef,TMod>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltModStrDual<TRef>
   : IGqlpModelImplementationBase
 {
-  IDictionary<string, TRef> Asref { get; }
-  ItestRefGnrcAltModStrDualObject<TRef> AsRefGnrcAltModStrDual { get; }
+  IDictionary<string, TRef>? Asref { get; }
+  ItestRefGnrcAltModStrDualObject<TRef>? As_RefGnrcAltModStrDual { get; }
 }
 
 public interface ItestRefGnrcAltModStrDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltModStrInp<TRef>
   : IGqlpModelImplementationBase
 {
-  IDictionary<string, TRef> Asref { get; }
-  ItestRefGnrcAltModStrInpObject<TRef> AsRefGnrcAltModStrInp { get; }
+  IDictionary<string, TRef>? Asref { get; }
+  ItestRefGnrcAltModStrInpObject<TRef>? As_RefGnrcAltModStrInp { get; }
 }
 
 public interface ItestRefGnrcAltModStrInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltModStrOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  IDictionary<string, TRef> Asref { get; }
-  ItestRefGnrcAltModStrOutpObject<TRef> AsRefGnrcAltModStrOutp { get; }
+  IDictionary<string, TRef>? Asref { get; }
+  ItestRefGnrcAltModStrOutpObject<TRef>? As_RefGnrcAltModStrOutp { get; }
 }
 
 public interface ItestRefGnrcAltModStrOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltParamDual
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltParamDual<ItestAltGnrcAltParamDual> AsRefGnrcAltParamDual { get; }
-  ItestGnrcAltParamDualObject AsGnrcAltParamDual { get; }
+  ItestRefGnrcAltParamDual<ItestAltGnrcAltParamDual>? AsRefGnrcAltParamDual { get; }
+  ItestGnrcAltParamDualObject? As_GnrcAltParamDual { get; }
 }
 
 public interface ItestGnrcAltParamDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltParamDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltParamDualObject<TRef> AsRefGnrcAltParamDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltParamDualObject<TRef>? As_RefGnrcAltParamDual { get; }
 }
 
 public interface ItestRefGnrcAltParamDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcAltParamDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcAltParamDualObject AsAltGnrcAltParamDual { get; }
+  string? AsString { get; }
+  ItestAltGnrcAltParamDualObject? As_AltGnrcAltParamDual { get; }
 }
 
 public interface ItestAltGnrcAltParamDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -2708,33 +2903,36 @@ public interface ItestAltGnrcAltParamDualObject
 public interface ItestGnrcAltParamInp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltParamInp<ItestAltGnrcAltParamInp> AsRefGnrcAltParamInp { get; }
-  ItestGnrcAltParamInpObject AsGnrcAltParamInp { get; }
+  ItestRefGnrcAltParamInp<ItestAltGnrcAltParamInp>? AsRefGnrcAltParamInp { get; }
+  ItestGnrcAltParamInpObject? As_GnrcAltParamInp { get; }
 }
 
 public interface ItestGnrcAltParamInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltParamInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltParamInpObject<TRef> AsRefGnrcAltParamInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltParamInpObject<TRef>? As_RefGnrcAltParamInp { get; }
 }
 
 public interface ItestRefGnrcAltParamInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcAltParamInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcAltParamInpObject AsAltGnrcAltParamInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcAltParamInpObject? As_AltGnrcAltParamInp { get; }
 }
 
 public interface ItestAltGnrcAltParamInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -2742,33 +2940,36 @@ public interface ItestAltGnrcAltParamInpObject
 public interface ItestGnrcAltParamOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltParamOutp<ItestAltGnrcAltParamOutp> AsRefGnrcAltParamOutp { get; }
-  ItestGnrcAltParamOutpObject AsGnrcAltParamOutp { get; }
+  ItestRefGnrcAltParamOutp<ItestAltGnrcAltParamOutp>? AsRefGnrcAltParamOutp { get; }
+  ItestGnrcAltParamOutpObject? As_GnrcAltParamOutp { get; }
 }
 
 public interface ItestGnrcAltParamOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltParamOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltParamOutpObject<TRef> AsRefGnrcAltParamOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltParamOutpObject<TRef>? As_RefGnrcAltParamOutp { get; }
 }
 
 public interface ItestRefGnrcAltParamOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcAltParamOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcAltParamOutpObject AsAltGnrcAltParamOutp { get; }
+  string? AsString { get; }
+  ItestAltGnrcAltParamOutpObject? As_AltGnrcAltParamOutp { get; }
 }
 
 public interface ItestAltGnrcAltParamOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -2776,76 +2977,83 @@ public interface ItestAltGnrcAltParamOutpObject
 public interface ItestGnrcAltSmplDual
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltSmplDual<string> AsRefGnrcAltSmplDual { get; }
-  ItestGnrcAltSmplDualObject AsGnrcAltSmplDual { get; }
+  ItestRefGnrcAltSmplDual<string>? AsRefGnrcAltSmplDual { get; }
+  ItestGnrcAltSmplDualObject? As_GnrcAltSmplDual { get; }
 }
 
 public interface ItestGnrcAltSmplDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltSmplDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltSmplDualObject<TRef> AsRefGnrcAltSmplDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltSmplDualObject<TRef>? As_RefGnrcAltSmplDual { get; }
 }
 
 public interface ItestRefGnrcAltSmplDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltSmplInp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltSmplInp<string> AsRefGnrcAltSmplInp { get; }
-  ItestGnrcAltSmplInpObject AsGnrcAltSmplInp { get; }
+  ItestRefGnrcAltSmplInp<string>? AsRefGnrcAltSmplInp { get; }
+  ItestGnrcAltSmplInpObject? As_GnrcAltSmplInp { get; }
 }
 
 public interface ItestGnrcAltSmplInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltSmplInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltSmplInpObject<TRef> AsRefGnrcAltSmplInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltSmplInpObject<TRef>? As_RefGnrcAltSmplInp { get; }
 }
 
 public interface ItestRefGnrcAltSmplInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcAltSmplOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcAltSmplOutp<string> AsRefGnrcAltSmplOutp { get; }
-  ItestGnrcAltSmplOutpObject AsGnrcAltSmplOutp { get; }
+  ItestRefGnrcAltSmplOutp<string>? AsRefGnrcAltSmplOutp { get; }
+  ItestGnrcAltSmplOutpObject? As_GnrcAltSmplOutp { get; }
 }
 
 public interface ItestGnrcAltSmplOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcAltSmplOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcAltSmplOutpObject<TRef> AsRefGnrcAltSmplOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcAltSmplOutpObject<TRef>? As_RefGnrcAltSmplOutp { get; }
 }
 
 public interface ItestRefGnrcAltSmplOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcDescrDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcDescrDualObject<TType> AsGnrcDescrDual { get; }
+  ItestGnrcDescrDualObject<TType>? As_GnrcDescrDual { get; }
 }
 
 public interface ItestGnrcDescrDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -2853,10 +3061,11 @@ public interface ItestGnrcDescrDualObject<TType>
 public interface ItestGnrcDescrInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcDescrInpObject<TType> AsGnrcDescrInp { get; }
+  ItestGnrcDescrInpObject<TType>? As_GnrcDescrInp { get; }
 }
 
 public interface ItestGnrcDescrInpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -2864,10 +3073,11 @@ public interface ItestGnrcDescrInpObject<TType>
 public interface ItestGnrcDescrOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcDescrOutpObject<TType> AsGnrcDescrOutp { get; }
+  ItestGnrcDescrOutpObject<TType>? As_GnrcDescrOutp { get; }
 }
 
 public interface ItestGnrcDescrOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -2875,21 +3085,23 @@ public interface ItestGnrcDescrOutpObject<TType>
 public interface ItestGnrcEnumDual
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcEnumDual<testEnumGnrcEnumDual> AsEnumGnrcEnumDualgnrcEnumDual { get; }
-  ItestGnrcEnumDualObject AsGnrcEnumDual { get; }
+  ItestRefGnrcEnumDual<testEnumGnrcEnumDual>? AsEnumGnrcEnumDualgnrcEnumDual { get; }
+  ItestGnrcEnumDualObject? As_GnrcEnumDual { get; }
 }
 
 public interface ItestGnrcEnumDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcEnumDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcEnumDualObject<TType> AsRefGnrcEnumDual { get; }
+  ItestRefGnrcEnumDualObject<TType>? As_RefGnrcEnumDual { get; }
 }
 
 public interface ItestRefGnrcEnumDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -2897,21 +3109,23 @@ public interface ItestRefGnrcEnumDualObject<TType>
 public interface ItestGnrcEnumInp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcEnumInp<testEnumGnrcEnumInp> AsEnumGnrcEnumInpgnrcEnumInp { get; }
-  ItestGnrcEnumInpObject AsGnrcEnumInp { get; }
+  ItestRefGnrcEnumInp<testEnumGnrcEnumInp>? AsEnumGnrcEnumInpgnrcEnumInp { get; }
+  ItestGnrcEnumInpObject? As_GnrcEnumInp { get; }
 }
 
 public interface ItestGnrcEnumInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcEnumInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcEnumInpObject<TType> AsRefGnrcEnumInp { get; }
+  ItestRefGnrcEnumInpObject<TType>? As_RefGnrcEnumInp { get; }
 }
 
 public interface ItestRefGnrcEnumInpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -2919,21 +3133,23 @@ public interface ItestRefGnrcEnumInpObject<TType>
 public interface ItestGnrcEnumOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcEnumOutp<testEnumGnrcEnumOutp> AsEnumGnrcEnumOutpgnrcEnumOutp { get; }
-  ItestGnrcEnumOutpObject AsGnrcEnumOutp { get; }
+  ItestRefGnrcEnumOutp<testEnumGnrcEnumOutp>? AsEnumGnrcEnumOutpgnrcEnumOutp { get; }
+  ItestGnrcEnumOutpObject? As_GnrcEnumOutp { get; }
 }
 
 public interface ItestGnrcEnumOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcEnumOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcEnumOutpObject<TType> AsRefGnrcEnumOutp { get; }
+  ItestRefGnrcEnumOutpObject<TType>? As_RefGnrcEnumOutp { get; }
 }
 
 public interface ItestRefGnrcEnumOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -2941,10 +3157,11 @@ public interface ItestRefGnrcEnumOutpObject<TType>
 public interface ItestGnrcFieldDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldDualObject<TType> AsGnrcFieldDual { get; }
+  ItestGnrcFieldDualObject<TType>? As_GnrcFieldDual { get; }
 }
 
 public interface ItestGnrcFieldDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -2952,10 +3169,11 @@ public interface ItestGnrcFieldDualObject<TType>
 public interface ItestGnrcFieldInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldInpObject<TType> AsGnrcFieldInp { get; }
+  ItestGnrcFieldInpObject<TType>? As_GnrcFieldInp { get; }
 }
 
 public interface ItestGnrcFieldInpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -2963,10 +3181,11 @@ public interface ItestGnrcFieldInpObject<TType>
 public interface ItestGnrcFieldOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldOutpObject<TType> AsGnrcFieldOutp { get; }
+  ItestGnrcFieldOutpObject<TType>? As_GnrcFieldOutp { get; }
 }
 
 public interface ItestGnrcFieldOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -2974,10 +3193,11 @@ public interface ItestGnrcFieldOutpObject<TType>
 public interface ItestGnrcFieldArgDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldArgDualObject<TType> AsGnrcFieldArgDual { get; }
+  ItestGnrcFieldArgDualObject<TType>? As_GnrcFieldArgDual { get; }
 }
 
 public interface ItestGnrcFieldArgDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldArgDual<TType> Field { get; }
 }
@@ -2985,21 +3205,23 @@ public interface ItestGnrcFieldArgDualObject<TType>
 public interface ItestRefGnrcFieldArgDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldArgDualObject<TRef> AsRefGnrcFieldArgDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldArgDualObject<TRef>? As_RefGnrcFieldArgDual { get; }
 }
 
 public interface ItestRefGnrcFieldArgDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcFieldArgInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldArgInpObject<TType> AsGnrcFieldArgInp { get; }
+  ItestGnrcFieldArgInpObject<TType>? As_GnrcFieldArgInp { get; }
 }
 
 public interface ItestGnrcFieldArgInpObject<TType>
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldArgInp<TType> Field { get; }
 }
@@ -3007,21 +3229,23 @@ public interface ItestGnrcFieldArgInpObject<TType>
 public interface ItestRefGnrcFieldArgInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldArgInpObject<TRef> AsRefGnrcFieldArgInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldArgInpObject<TRef>? As_RefGnrcFieldArgInp { get; }
 }
 
 public interface ItestRefGnrcFieldArgInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcFieldArgOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldArgOutpObject<TType> AsGnrcFieldArgOutp { get; }
+  ItestGnrcFieldArgOutpObject<TType>? As_GnrcFieldArgOutp { get; }
 }
 
 public interface ItestGnrcFieldArgOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldArgOutp<TType> Field { get; }
 }
@@ -3029,21 +3253,23 @@ public interface ItestGnrcFieldArgOutpObject<TType>
 public interface ItestRefGnrcFieldArgOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldArgOutpObject<TRef> AsRefGnrcFieldArgOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldArgOutpObject<TRef>? As_RefGnrcFieldArgOutp { get; }
 }
 
 public interface ItestRefGnrcFieldArgOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcFieldDualDual
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldDualDualObject AsGnrcFieldDualDual { get; }
+  ItestGnrcFieldDualDualObject? As_GnrcFieldDualDual { get; }
 }
 
 public interface ItestGnrcFieldDualDualObject
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldDualDual<ItestAltGnrcFieldDualDual> Field { get; }
 }
@@ -3051,22 +3277,24 @@ public interface ItestGnrcFieldDualDualObject
 public interface ItestRefGnrcFieldDualDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldDualDualObject<TRef> AsRefGnrcFieldDualDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldDualDualObject<TRef>? As_RefGnrcFieldDualDual { get; }
 }
 
 public interface ItestRefGnrcFieldDualDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcFieldDualDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcFieldDualDualObject AsAltGnrcFieldDualDual { get; }
+  string? AsString { get; }
+  ItestAltGnrcFieldDualDualObject? As_AltGnrcFieldDualDual { get; }
 }
 
 public interface ItestAltGnrcFieldDualDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3074,10 +3302,11 @@ public interface ItestAltGnrcFieldDualDualObject
 public interface ItestGnrcFieldDualInp
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldDualInpObject AsGnrcFieldDualInp { get; }
+  ItestGnrcFieldDualInpObject? As_GnrcFieldDualInp { get; }
 }
 
 public interface ItestGnrcFieldDualInpObject
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> Field { get; }
 }
@@ -3085,22 +3314,24 @@ public interface ItestGnrcFieldDualInpObject
 public interface ItestRefGnrcFieldDualInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldDualInpObject<TRef> AsRefGnrcFieldDualInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldDualInpObject<TRef>? As_RefGnrcFieldDualInp { get; }
 }
 
 public interface ItestRefGnrcFieldDualInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcFieldDualInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcFieldDualInpObject AsAltGnrcFieldDualInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcFieldDualInpObject? As_AltGnrcFieldDualInp { get; }
 }
 
 public interface ItestAltGnrcFieldDualInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3108,10 +3339,11 @@ public interface ItestAltGnrcFieldDualInpObject
 public interface ItestGnrcFieldDualOutp
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldDualOutpObject AsGnrcFieldDualOutp { get; }
+  ItestGnrcFieldDualOutpObject? As_GnrcFieldDualOutp { get; }
 }
 
 public interface ItestGnrcFieldDualOutpObject
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldDualOutp<ItestAltGnrcFieldDualOutp> Field { get; }
 }
@@ -3119,22 +3351,24 @@ public interface ItestGnrcFieldDualOutpObject
 public interface ItestRefGnrcFieldDualOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldDualOutpObject<TRef> AsRefGnrcFieldDualOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldDualOutpObject<TRef>? As_RefGnrcFieldDualOutp { get; }
 }
 
 public interface ItestRefGnrcFieldDualOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcFieldDualOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcFieldDualOutpObject AsAltGnrcFieldDualOutp { get; }
+  string? AsString { get; }
+  ItestAltGnrcFieldDualOutpObject? As_AltGnrcFieldDualOutp { get; }
 }
 
 public interface ItestAltGnrcFieldDualOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3142,10 +3376,11 @@ public interface ItestAltGnrcFieldDualOutpObject
 public interface ItestGnrcFieldParamDual
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldParamDualObject AsGnrcFieldParamDual { get; }
+  ItestGnrcFieldParamDualObject? As_GnrcFieldParamDual { get; }
 }
 
 public interface ItestGnrcFieldParamDualObject
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldParamDual<ItestAltGnrcFieldParamDual> Field { get; }
 }
@@ -3153,22 +3388,24 @@ public interface ItestGnrcFieldParamDualObject
 public interface ItestRefGnrcFieldParamDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldParamDualObject<TRef> AsRefGnrcFieldParamDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldParamDualObject<TRef>? As_RefGnrcFieldParamDual { get; }
 }
 
 public interface ItestRefGnrcFieldParamDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcFieldParamDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcFieldParamDualObject AsAltGnrcFieldParamDual { get; }
+  string? AsString { get; }
+  ItestAltGnrcFieldParamDualObject? As_AltGnrcFieldParamDual { get; }
 }
 
 public interface ItestAltGnrcFieldParamDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3176,10 +3413,11 @@ public interface ItestAltGnrcFieldParamDualObject
 public interface ItestGnrcFieldParamInp
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldParamInpObject AsGnrcFieldParamInp { get; }
+  ItestGnrcFieldParamInpObject? As_GnrcFieldParamInp { get; }
 }
 
 public interface ItestGnrcFieldParamInpObject
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldParamInp<ItestAltGnrcFieldParamInp> Field { get; }
 }
@@ -3187,22 +3425,24 @@ public interface ItestGnrcFieldParamInpObject
 public interface ItestRefGnrcFieldParamInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldParamInpObject<TRef> AsRefGnrcFieldParamInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldParamInpObject<TRef>? As_RefGnrcFieldParamInp { get; }
 }
 
 public interface ItestRefGnrcFieldParamInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcFieldParamInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcFieldParamInpObject AsAltGnrcFieldParamInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcFieldParamInpObject? As_AltGnrcFieldParamInp { get; }
 }
 
 public interface ItestAltGnrcFieldParamInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3210,10 +3450,11 @@ public interface ItestAltGnrcFieldParamInpObject
 public interface ItestGnrcFieldParamOutp
   : IGqlpModelImplementationBase
 {
-  ItestGnrcFieldParamOutpObject AsGnrcFieldParamOutp { get; }
+  ItestGnrcFieldParamOutpObject? As_GnrcFieldParamOutp { get; }
 }
 
 public interface ItestGnrcFieldParamOutpObject
+  : IGqlpModelImplementationBase
 {
   ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; }
 }
@@ -3221,22 +3462,24 @@ public interface ItestGnrcFieldParamOutpObject
 public interface ItestRefGnrcFieldParamOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcFieldParamOutpObject<TRef> AsRefGnrcFieldParamOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcFieldParamOutpObject<TRef>? As_RefGnrcFieldParamOutp { get; }
 }
 
 public interface ItestRefGnrcFieldParamOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcFieldParamOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcFieldParamOutpObject AsAltGnrcFieldParamOutp { get; }
+  string? AsString { get; }
+  ItestAltGnrcFieldParamOutpObject? As_AltGnrcFieldParamOutp { get; }
 }
 
 public interface ItestAltGnrcFieldParamOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3244,40 +3487,43 @@ public interface ItestAltGnrcFieldParamOutpObject
 public interface ItestGnrcPrntDual<TType>
   : IGqlpModelImplementationBase
 {
-  TType AsParent { get; }
-  ItestGnrcPrntDualObject<TType> AsGnrcPrntDual { get; }
+  TType? As_Parent { get; }
+  ItestGnrcPrntDualObject<TType>? As_GnrcPrntDual { get; }
 }
 
 public interface ItestGnrcPrntDualObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcPrntInp<TType>
   : IGqlpModelImplementationBase
 {
-  TType AsParent { get; }
-  ItestGnrcPrntInpObject<TType> AsGnrcPrntInp { get; }
+  TType? As_Parent { get; }
+  ItestGnrcPrntInpObject<TType>? As_GnrcPrntInp { get; }
 }
 
 public interface ItestGnrcPrntInpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcPrntOutp<TType>
   : IGqlpModelImplementationBase
 {
-  TType AsParent { get; }
-  ItestGnrcPrntOutpObject<TType> AsGnrcPrntOutp { get; }
+  TType? As_Parent { get; }
+  ItestGnrcPrntOutpObject<TType>? As_GnrcPrntOutp { get; }
 }
 
 public interface ItestGnrcPrntOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcPrntArgDual<TType>
   : ItestRefGnrcPrntArgDual<TType>
 {
-  ItestGnrcPrntArgDualObject<TType> AsGnrcPrntArgDual { get; }
+  ItestGnrcPrntArgDualObject<TType>? As_GnrcPrntArgDual { get; }
 }
 
 public interface ItestGnrcPrntArgDualObject<TType>
@@ -3288,18 +3534,19 @@ public interface ItestGnrcPrntArgDualObject<TType>
 public interface ItestRefGnrcPrntArgDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcPrntArgDualObject<TRef> AsRefGnrcPrntArgDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcPrntArgDualObject<TRef>? As_RefGnrcPrntArgDual { get; }
 }
 
 public interface ItestRefGnrcPrntArgDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcPrntArgInp<TType>
   : ItestRefGnrcPrntArgInp<TType>
 {
-  ItestGnrcPrntArgInpObject<TType> AsGnrcPrntArgInp { get; }
+  ItestGnrcPrntArgInpObject<TType>? As_GnrcPrntArgInp { get; }
 }
 
 public interface ItestGnrcPrntArgInpObject<TType>
@@ -3310,18 +3557,19 @@ public interface ItestGnrcPrntArgInpObject<TType>
 public interface ItestRefGnrcPrntArgInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcPrntArgInpObject<TRef> AsRefGnrcPrntArgInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcPrntArgInpObject<TRef>? As_RefGnrcPrntArgInp { get; }
 }
 
 public interface ItestRefGnrcPrntArgInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcPrntArgOutp<TType>
   : ItestRefGnrcPrntArgOutp<TType>
 {
-  ItestGnrcPrntArgOutpObject<TType> AsGnrcPrntArgOutp { get; }
+  ItestGnrcPrntArgOutpObject<TType>? As_GnrcPrntArgOutp { get; }
 }
 
 public interface ItestGnrcPrntArgOutpObject<TType>
@@ -3332,51 +3580,55 @@ public interface ItestGnrcPrntArgOutpObject<TType>
 public interface ItestRefGnrcPrntArgOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcPrntArgOutpObject<TRef> AsRefGnrcPrntArgOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcPrntArgOutpObject<TRef>? As_RefGnrcPrntArgOutp { get; }
 }
 
 public interface ItestRefGnrcPrntArgOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcPrntDescrDual<TType>
   : IGqlpModelImplementationBase
 {
-  TType AsParent { get; }
-  ItestGnrcPrntDescrDualObject<TType> AsGnrcPrntDescrDual { get; }
+  TType? As_Parent { get; }
+  ItestGnrcPrntDescrDualObject<TType>? As_GnrcPrntDescrDual { get; }
 }
 
 public interface ItestGnrcPrntDescrDualObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcPrntDescrInp<TType>
   : IGqlpModelImplementationBase
 {
-  TType AsParent { get; }
-  ItestGnrcPrntDescrInpObject<TType> AsGnrcPrntDescrInp { get; }
+  TType? As_Parent { get; }
+  ItestGnrcPrntDescrInpObject<TType>? As_GnrcPrntDescrInp { get; }
 }
 
 public interface ItestGnrcPrntDescrInpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcPrntDescrOutp<TType>
   : IGqlpModelImplementationBase
 {
-  TType AsParent { get; }
-  ItestGnrcPrntDescrOutpObject<TType> AsGnrcPrntDescrOutp { get; }
+  TType? As_Parent { get; }
+  ItestGnrcPrntDescrOutpObject<TType>? As_GnrcPrntDescrOutp { get; }
 }
 
 public interface ItestGnrcPrntDescrOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestGnrcPrntDualDual
   : ItestRefGnrcPrntDualDual<ItestAltGnrcPrntDualDual>
 {
-  ItestGnrcPrntDualDualObject AsGnrcPrntDualDual { get; }
+  ItestGnrcPrntDualDualObject? As_GnrcPrntDualDual { get; }
 }
 
 public interface ItestGnrcPrntDualDualObject
@@ -3387,22 +3639,24 @@ public interface ItestGnrcPrntDualDualObject
 public interface ItestRefGnrcPrntDualDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcPrntDualDualObject<TRef> AsRefGnrcPrntDualDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcPrntDualDualObject<TRef>? As_RefGnrcPrntDualDual { get; }
 }
 
 public interface ItestRefGnrcPrntDualDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntDualDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntDualDualObject AsAltGnrcPrntDualDual { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntDualDualObject? As_AltGnrcPrntDualDual { get; }
 }
 
 public interface ItestAltGnrcPrntDualDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3410,7 +3664,7 @@ public interface ItestAltGnrcPrntDualDualObject
 public interface ItestGnrcPrntDualInp
   : ItestRefGnrcPrntDualInp<ItestAltGnrcPrntDualInp>
 {
-  ItestGnrcPrntDualInpObject AsGnrcPrntDualInp { get; }
+  ItestGnrcPrntDualInpObject? As_GnrcPrntDualInp { get; }
 }
 
 public interface ItestGnrcPrntDualInpObject
@@ -3421,22 +3675,24 @@ public interface ItestGnrcPrntDualInpObject
 public interface ItestRefGnrcPrntDualInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcPrntDualInpObject<TRef> AsRefGnrcPrntDualInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcPrntDualInpObject<TRef>? As_RefGnrcPrntDualInp { get; }
 }
 
 public interface ItestRefGnrcPrntDualInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntDualInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntDualInpObject AsAltGnrcPrntDualInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntDualInpObject? As_AltGnrcPrntDualInp { get; }
 }
 
 public interface ItestAltGnrcPrntDualInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3444,7 +3700,7 @@ public interface ItestAltGnrcPrntDualInpObject
 public interface ItestGnrcPrntDualOutp
   : ItestRefGnrcPrntDualOutp<ItestAltGnrcPrntDualOutp>
 {
-  ItestGnrcPrntDualOutpObject AsGnrcPrntDualOutp { get; }
+  ItestGnrcPrntDualOutpObject? As_GnrcPrntDualOutp { get; }
 }
 
 public interface ItestGnrcPrntDualOutpObject
@@ -3455,22 +3711,24 @@ public interface ItestGnrcPrntDualOutpObject
 public interface ItestRefGnrcPrntDualOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcPrntDualOutpObject<TRef> AsRefGnrcPrntDualOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcPrntDualOutpObject<TRef>? As_RefGnrcPrntDualOutp { get; }
 }
 
 public interface ItestRefGnrcPrntDualOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntDualOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntDualOutpObject AsAltGnrcPrntDualOutp { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntDualOutpObject? As_AltGnrcPrntDualOutp { get; }
 }
 
 public interface ItestAltGnrcPrntDualOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3478,7 +3736,7 @@ public interface ItestAltGnrcPrntDualOutpObject
 public interface ItestGnrcPrntDualPrntDual
   : ItestRefGnrcPrntDualPrntDual<ItestAltGnrcPrntDualPrntDual>
 {
-  ItestGnrcPrntDualPrntDualObject AsGnrcPrntDualPrntDual { get; }
+  ItestGnrcPrntDualPrntDualObject? As_GnrcPrntDualPrntDual { get; }
 }
 
 public interface ItestGnrcPrntDualPrntDualObject
@@ -3489,22 +3747,24 @@ public interface ItestGnrcPrntDualPrntDualObject
 public interface ItestRefGnrcPrntDualPrntDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefGnrcPrntDualPrntDualObject<TRef> AsRefGnrcPrntDualPrntDual { get; }
+  TRef? As_Parent { get; }
+  ItestRefGnrcPrntDualPrntDualObject<TRef>? As_RefGnrcPrntDualPrntDual { get; }
 }
 
 public interface ItestRefGnrcPrntDualPrntDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntDualPrntDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntDualPrntDualObject AsAltGnrcPrntDualPrntDual { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntDualPrntDualObject? As_AltGnrcPrntDualPrntDual { get; }
 }
 
 public interface ItestAltGnrcPrntDualPrntDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3512,7 +3772,7 @@ public interface ItestAltGnrcPrntDualPrntDualObject
 public interface ItestGnrcPrntDualPrntInp
   : ItestRefGnrcPrntDualPrntInp<ItestAltGnrcPrntDualPrntInp>
 {
-  ItestGnrcPrntDualPrntInpObject AsGnrcPrntDualPrntInp { get; }
+  ItestGnrcPrntDualPrntInpObject? As_GnrcPrntDualPrntInp { get; }
 }
 
 public interface ItestGnrcPrntDualPrntInpObject
@@ -3523,22 +3783,24 @@ public interface ItestGnrcPrntDualPrntInpObject
 public interface ItestRefGnrcPrntDualPrntInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefGnrcPrntDualPrntInpObject<TRef> AsRefGnrcPrntDualPrntInp { get; }
+  TRef? As_Parent { get; }
+  ItestRefGnrcPrntDualPrntInpObject<TRef>? As_RefGnrcPrntDualPrntInp { get; }
 }
 
 public interface ItestRefGnrcPrntDualPrntInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntDualPrntInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntDualPrntInpObject AsAltGnrcPrntDualPrntInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntDualPrntInpObject? As_AltGnrcPrntDualPrntInp { get; }
 }
 
 public interface ItestAltGnrcPrntDualPrntInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3546,7 +3808,7 @@ public interface ItestAltGnrcPrntDualPrntInpObject
 public interface ItestGnrcPrntDualPrntOutp
   : ItestRefGnrcPrntDualPrntOutp<ItestAltGnrcPrntDualPrntOutp>
 {
-  ItestGnrcPrntDualPrntOutpObject AsGnrcPrntDualPrntOutp { get; }
+  ItestGnrcPrntDualPrntOutpObject? As_GnrcPrntDualPrntOutp { get; }
 }
 
 public interface ItestGnrcPrntDualPrntOutpObject
@@ -3557,22 +3819,24 @@ public interface ItestGnrcPrntDualPrntOutpObject
 public interface ItestRefGnrcPrntDualPrntOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefGnrcPrntDualPrntOutpObject<TRef> AsRefGnrcPrntDualPrntOutp { get; }
+  TRef? As_Parent { get; }
+  ItestRefGnrcPrntDualPrntOutpObject<TRef>? As_RefGnrcPrntDualPrntOutp { get; }
 }
 
 public interface ItestRefGnrcPrntDualPrntOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntDualPrntOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntDualPrntOutpObject AsAltGnrcPrntDualPrntOutp { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntDualPrntOutpObject? As_AltGnrcPrntDualPrntOutp { get; }
 }
 
 public interface ItestAltGnrcPrntDualPrntOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3580,7 +3844,7 @@ public interface ItestAltGnrcPrntDualPrntOutpObject
 public interface ItestGnrcPrntEnumChildDual
   : ItestFieldGnrcPrntEnumChildDual<testParentGnrcPrntEnumChildDual>
 {
-  ItestGnrcPrntEnumChildDualObject AsGnrcPrntEnumChildDual { get; }
+  ItestGnrcPrntEnumChildDualObject? As_GnrcPrntEnumChildDual { get; }
 }
 
 public interface ItestGnrcPrntEnumChildDualObject
@@ -3591,10 +3855,11 @@ public interface ItestGnrcPrntEnumChildDualObject
 public interface ItestFieldGnrcPrntEnumChildDual<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntEnumChildDualObject<TRef> AsFieldGnrcPrntEnumChildDual { get; }
+  ItestFieldGnrcPrntEnumChildDualObject<TRef>? As_FieldGnrcPrntEnumChildDual { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumChildDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -3602,7 +3867,7 @@ public interface ItestFieldGnrcPrntEnumChildDualObject<TRef>
 public interface ItestGnrcPrntEnumChildInp
   : ItestFieldGnrcPrntEnumChildInp<testParentGnrcPrntEnumChildInp>
 {
-  ItestGnrcPrntEnumChildInpObject AsGnrcPrntEnumChildInp { get; }
+  ItestGnrcPrntEnumChildInpObject? As_GnrcPrntEnumChildInp { get; }
 }
 
 public interface ItestGnrcPrntEnumChildInpObject
@@ -3613,10 +3878,11 @@ public interface ItestGnrcPrntEnumChildInpObject
 public interface ItestFieldGnrcPrntEnumChildInp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntEnumChildInpObject<TRef> AsFieldGnrcPrntEnumChildInp { get; }
+  ItestFieldGnrcPrntEnumChildInpObject<TRef>? As_FieldGnrcPrntEnumChildInp { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumChildInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -3624,7 +3890,7 @@ public interface ItestFieldGnrcPrntEnumChildInpObject<TRef>
 public interface ItestGnrcPrntEnumChildOutp
   : ItestFieldGnrcPrntEnumChildOutp<testParentGnrcPrntEnumChildOutp>
 {
-  ItestGnrcPrntEnumChildOutpObject AsGnrcPrntEnumChildOutp { get; }
+  ItestGnrcPrntEnumChildOutpObject? As_GnrcPrntEnumChildOutp { get; }
 }
 
 public interface ItestGnrcPrntEnumChildOutpObject
@@ -3635,10 +3901,11 @@ public interface ItestGnrcPrntEnumChildOutpObject
 public interface ItestFieldGnrcPrntEnumChildOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntEnumChildOutpObject<TRef> AsFieldGnrcPrntEnumChildOutp { get; }
+  ItestFieldGnrcPrntEnumChildOutpObject<TRef>? As_FieldGnrcPrntEnumChildOutp { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumChildOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -3646,7 +3913,7 @@ public interface ItestFieldGnrcPrntEnumChildOutpObject<TRef>
 public interface ItestGnrcPrntEnumDomDual
   : ItestFieldGnrcPrntEnumDomDual<ItestDomGnrcPrntEnumDomDual>
 {
-  ItestGnrcPrntEnumDomDualObject AsGnrcPrntEnumDomDual { get; }
+  ItestGnrcPrntEnumDomDualObject? As_GnrcPrntEnumDomDual { get; }
 }
 
 public interface ItestGnrcPrntEnumDomDualObject
@@ -3657,10 +3924,11 @@ public interface ItestGnrcPrntEnumDomDualObject
 public interface ItestFieldGnrcPrntEnumDomDual<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntEnumDomDualObject<TRef> AsFieldGnrcPrntEnumDomDual { get; }
+  ItestFieldGnrcPrntEnumDomDualObject<TRef>? As_FieldGnrcPrntEnumDomDual { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumDomDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -3673,7 +3941,7 @@ public interface ItestDomGnrcPrntEnumDomDual
 public interface ItestGnrcPrntEnumDomInp
   : ItestFieldGnrcPrntEnumDomInp<ItestDomGnrcPrntEnumDomInp>
 {
-  ItestGnrcPrntEnumDomInpObject AsGnrcPrntEnumDomInp { get; }
+  ItestGnrcPrntEnumDomInpObject? As_GnrcPrntEnumDomInp { get; }
 }
 
 public interface ItestGnrcPrntEnumDomInpObject
@@ -3684,10 +3952,11 @@ public interface ItestGnrcPrntEnumDomInpObject
 public interface ItestFieldGnrcPrntEnumDomInp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntEnumDomInpObject<TRef> AsFieldGnrcPrntEnumDomInp { get; }
+  ItestFieldGnrcPrntEnumDomInpObject<TRef>? As_FieldGnrcPrntEnumDomInp { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumDomInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -3700,7 +3969,7 @@ public interface ItestDomGnrcPrntEnumDomInp
 public interface ItestGnrcPrntEnumDomOutp
   : ItestFieldGnrcPrntEnumDomOutp<ItestDomGnrcPrntEnumDomOutp>
 {
-  ItestGnrcPrntEnumDomOutpObject AsGnrcPrntEnumDomOutp { get; }
+  ItestGnrcPrntEnumDomOutpObject? As_GnrcPrntEnumDomOutp { get; }
 }
 
 public interface ItestGnrcPrntEnumDomOutpObject
@@ -3711,10 +3980,11 @@ public interface ItestGnrcPrntEnumDomOutpObject
 public interface ItestFieldGnrcPrntEnumDomOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntEnumDomOutpObject<TRef> AsFieldGnrcPrntEnumDomOutp { get; }
+  ItestFieldGnrcPrntEnumDomOutpObject<TRef>? As_FieldGnrcPrntEnumDomOutp { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumDomOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -3727,7 +3997,7 @@ public interface ItestDomGnrcPrntEnumDomOutp
 public interface ItestGnrcPrntEnumPrntDual
   : ItestFieldGnrcPrntEnumPrntDual<testEnumGnrcPrntEnumPrntDual>
 {
-  ItestGnrcPrntEnumPrntDualObject AsGnrcPrntEnumPrntDual { get; }
+  ItestGnrcPrntEnumPrntDualObject? As_GnrcPrntEnumPrntDual { get; }
 }
 
 public interface ItestGnrcPrntEnumPrntDualObject
@@ -3738,10 +4008,11 @@ public interface ItestGnrcPrntEnumPrntDualObject
 public interface ItestFieldGnrcPrntEnumPrntDual<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntEnumPrntDualObject<TRef> AsFieldGnrcPrntEnumPrntDual { get; }
+  ItestFieldGnrcPrntEnumPrntDualObject<TRef>? As_FieldGnrcPrntEnumPrntDual { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumPrntDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -3749,7 +4020,7 @@ public interface ItestFieldGnrcPrntEnumPrntDualObject<TRef>
 public interface ItestGnrcPrntEnumPrntInp
   : ItestFieldGnrcPrntEnumPrntInp<testEnumGnrcPrntEnumPrntInp>
 {
-  ItestGnrcPrntEnumPrntInpObject AsGnrcPrntEnumPrntInp { get; }
+  ItestGnrcPrntEnumPrntInpObject? As_GnrcPrntEnumPrntInp { get; }
 }
 
 public interface ItestGnrcPrntEnumPrntInpObject
@@ -3760,10 +4031,11 @@ public interface ItestGnrcPrntEnumPrntInpObject
 public interface ItestFieldGnrcPrntEnumPrntInp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntEnumPrntInpObject<TRef> AsFieldGnrcPrntEnumPrntInp { get; }
+  ItestFieldGnrcPrntEnumPrntInpObject<TRef>? As_FieldGnrcPrntEnumPrntInp { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumPrntInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -3771,7 +4043,7 @@ public interface ItestFieldGnrcPrntEnumPrntInpObject<TRef>
 public interface ItestGnrcPrntEnumPrntOutp
   : ItestFieldGnrcPrntEnumPrntOutp<testEnumGnrcPrntEnumPrntOutp>
 {
-  ItestGnrcPrntEnumPrntOutpObject AsGnrcPrntEnumPrntOutp { get; }
+  ItestGnrcPrntEnumPrntOutpObject? As_GnrcPrntEnumPrntOutp { get; }
 }
 
 public interface ItestGnrcPrntEnumPrntOutpObject
@@ -3782,10 +4054,11 @@ public interface ItestGnrcPrntEnumPrntOutpObject
 public interface ItestFieldGnrcPrntEnumPrntOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntEnumPrntOutpObject<TRef> AsFieldGnrcPrntEnumPrntOutp { get; }
+  ItestFieldGnrcPrntEnumPrntOutpObject<TRef>? As_FieldGnrcPrntEnumPrntOutp { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumPrntOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -3793,7 +4066,7 @@ public interface ItestFieldGnrcPrntEnumPrntOutpObject<TRef>
 public interface ItestGnrcPrntParamDual
   : ItestRefGnrcPrntParamDual<ItestAltGnrcPrntParamDual>
 {
-  ItestGnrcPrntParamDualObject AsGnrcPrntParamDual { get; }
+  ItestGnrcPrntParamDualObject? As_GnrcPrntParamDual { get; }
 }
 
 public interface ItestGnrcPrntParamDualObject
@@ -3804,22 +4077,24 @@ public interface ItestGnrcPrntParamDualObject
 public interface ItestRefGnrcPrntParamDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcPrntParamDualObject<TRef> AsRefGnrcPrntParamDual { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcPrntParamDualObject<TRef>? As_RefGnrcPrntParamDual { get; }
 }
 
 public interface ItestRefGnrcPrntParamDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntParamDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntParamDualObject AsAltGnrcPrntParamDual { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntParamDualObject? As_AltGnrcPrntParamDual { get; }
 }
 
 public interface ItestAltGnrcPrntParamDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3827,7 +4102,7 @@ public interface ItestAltGnrcPrntParamDualObject
 public interface ItestGnrcPrntParamInp
   : ItestRefGnrcPrntParamInp<ItestAltGnrcPrntParamInp>
 {
-  ItestGnrcPrntParamInpObject AsGnrcPrntParamInp { get; }
+  ItestGnrcPrntParamInpObject? As_GnrcPrntParamInp { get; }
 }
 
 public interface ItestGnrcPrntParamInpObject
@@ -3838,22 +4113,24 @@ public interface ItestGnrcPrntParamInpObject
 public interface ItestRefGnrcPrntParamInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcPrntParamInpObject<TRef> AsRefGnrcPrntParamInp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcPrntParamInpObject<TRef>? As_RefGnrcPrntParamInp { get; }
 }
 
 public interface ItestRefGnrcPrntParamInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntParamInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntParamInpObject AsAltGnrcPrntParamInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntParamInpObject? As_AltGnrcPrntParamInp { get; }
 }
 
 public interface ItestAltGnrcPrntParamInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3861,7 +4138,7 @@ public interface ItestAltGnrcPrntParamInpObject
 public interface ItestGnrcPrntParamOutp
   : ItestRefGnrcPrntParamOutp<ItestAltGnrcPrntParamOutp>
 {
-  ItestGnrcPrntParamOutpObject AsGnrcPrntParamOutp { get; }
+  ItestGnrcPrntParamOutpObject? As_GnrcPrntParamOutp { get; }
 }
 
 public interface ItestGnrcPrntParamOutpObject
@@ -3872,22 +4149,24 @@ public interface ItestGnrcPrntParamOutpObject
 public interface ItestRefGnrcPrntParamOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef Asref { get; }
-  ItestRefGnrcPrntParamOutpObject<TRef> AsRefGnrcPrntParamOutp { get; }
+  TRef? Asref { get; }
+  ItestRefGnrcPrntParamOutpObject<TRef>? As_RefGnrcPrntParamOutp { get; }
 }
 
 public interface ItestRefGnrcPrntParamOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntParamOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntParamOutpObject AsAltGnrcPrntParamOutp { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntParamOutpObject? As_AltGnrcPrntParamOutp { get; }
 }
 
 public interface ItestAltGnrcPrntParamOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3895,7 +4174,7 @@ public interface ItestAltGnrcPrntParamOutpObject
 public interface ItestGnrcPrntParamPrntDual
   : ItestRefGnrcPrntParamPrntDual<ItestAltGnrcPrntParamPrntDual>
 {
-  ItestGnrcPrntParamPrntDualObject AsGnrcPrntParamPrntDual { get; }
+  ItestGnrcPrntParamPrntDualObject? As_GnrcPrntParamPrntDual { get; }
 }
 
 public interface ItestGnrcPrntParamPrntDualObject
@@ -3906,22 +4185,24 @@ public interface ItestGnrcPrntParamPrntDualObject
 public interface ItestRefGnrcPrntParamPrntDual<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefGnrcPrntParamPrntDualObject<TRef> AsRefGnrcPrntParamPrntDual { get; }
+  TRef? As_Parent { get; }
+  ItestRefGnrcPrntParamPrntDualObject<TRef>? As_RefGnrcPrntParamPrntDual { get; }
 }
 
 public interface ItestRefGnrcPrntParamPrntDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntParamPrntDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntParamPrntDualObject AsAltGnrcPrntParamPrntDual { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntParamPrntDualObject? As_AltGnrcPrntParamPrntDual { get; }
 }
 
 public interface ItestAltGnrcPrntParamPrntDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3929,7 +4210,7 @@ public interface ItestAltGnrcPrntParamPrntDualObject
 public interface ItestGnrcPrntParamPrntInp
   : ItestRefGnrcPrntParamPrntInp<ItestAltGnrcPrntParamPrntInp>
 {
-  ItestGnrcPrntParamPrntInpObject AsGnrcPrntParamPrntInp { get; }
+  ItestGnrcPrntParamPrntInpObject? As_GnrcPrntParamPrntInp { get; }
 }
 
 public interface ItestGnrcPrntParamPrntInpObject
@@ -3940,22 +4221,24 @@ public interface ItestGnrcPrntParamPrntInpObject
 public interface ItestRefGnrcPrntParamPrntInp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefGnrcPrntParamPrntInpObject<TRef> AsRefGnrcPrntParamPrntInp { get; }
+  TRef? As_Parent { get; }
+  ItestRefGnrcPrntParamPrntInpObject<TRef>? As_RefGnrcPrntParamPrntInp { get; }
 }
 
 public interface ItestRefGnrcPrntParamPrntInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntParamPrntInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntParamPrntInpObject AsAltGnrcPrntParamPrntInp { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntParamPrntInpObject? As_AltGnrcPrntParamPrntInp { get; }
 }
 
 public interface ItestAltGnrcPrntParamPrntInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3963,7 +4246,7 @@ public interface ItestAltGnrcPrntParamPrntInpObject
 public interface ItestGnrcPrntParamPrntOutp
   : ItestRefGnrcPrntParamPrntOutp<ItestAltGnrcPrntParamPrntOutp>
 {
-  ItestGnrcPrntParamPrntOutpObject AsGnrcPrntParamPrntOutp { get; }
+  ItestGnrcPrntParamPrntOutpObject? As_GnrcPrntParamPrntOutp { get; }
 }
 
 public interface ItestGnrcPrntParamPrntOutpObject
@@ -3974,22 +4257,24 @@ public interface ItestGnrcPrntParamPrntOutpObject
 public interface ItestRefGnrcPrntParamPrntOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  TRef AsParent { get; }
-  ItestRefGnrcPrntParamPrntOutpObject<TRef> AsRefGnrcPrntParamPrntOutp { get; }
+  TRef? As_Parent { get; }
+  ItestRefGnrcPrntParamPrntOutpObject<TRef>? As_RefGnrcPrntParamPrntOutp { get; }
 }
 
 public interface ItestRefGnrcPrntParamPrntOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestAltGnrcPrntParamPrntOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAltGnrcPrntParamPrntOutpObject AsAltGnrcPrntParamPrntOutp { get; }
+  string? AsString { get; }
+  ItestAltGnrcPrntParamPrntOutpObject? As_AltGnrcPrntParamPrntOutp { get; }
 }
 
 public interface ItestAltGnrcPrntParamPrntOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Alt { get; }
 }
@@ -3997,7 +4282,7 @@ public interface ItestAltGnrcPrntParamPrntOutpObject
 public interface ItestGnrcPrntSmplEnumDual
   : ItestFieldGnrcPrntSmplEnumDual<testEnumGnrcPrntSmplEnumDual>
 {
-  ItestGnrcPrntSmplEnumDualObject AsGnrcPrntSmplEnumDual { get; }
+  ItestGnrcPrntSmplEnumDualObject? As_GnrcPrntSmplEnumDual { get; }
 }
 
 public interface ItestGnrcPrntSmplEnumDualObject
@@ -4008,10 +4293,11 @@ public interface ItestGnrcPrntSmplEnumDualObject
 public interface ItestFieldGnrcPrntSmplEnumDual<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntSmplEnumDualObject<TRef> AsFieldGnrcPrntSmplEnumDual { get; }
+  ItestFieldGnrcPrntSmplEnumDualObject<TRef>? As_FieldGnrcPrntSmplEnumDual { get; }
 }
 
 public interface ItestFieldGnrcPrntSmplEnumDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -4019,7 +4305,7 @@ public interface ItestFieldGnrcPrntSmplEnumDualObject<TRef>
 public interface ItestGnrcPrntSmplEnumInp
   : ItestFieldGnrcPrntSmplEnumInp<testEnumGnrcPrntSmplEnumInp>
 {
-  ItestGnrcPrntSmplEnumInpObject AsGnrcPrntSmplEnumInp { get; }
+  ItestGnrcPrntSmplEnumInpObject? As_GnrcPrntSmplEnumInp { get; }
 }
 
 public interface ItestGnrcPrntSmplEnumInpObject
@@ -4030,10 +4316,11 @@ public interface ItestGnrcPrntSmplEnumInpObject
 public interface ItestFieldGnrcPrntSmplEnumInp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntSmplEnumInpObject<TRef> AsFieldGnrcPrntSmplEnumInp { get; }
+  ItestFieldGnrcPrntSmplEnumInpObject<TRef>? As_FieldGnrcPrntSmplEnumInp { get; }
 }
 
 public interface ItestFieldGnrcPrntSmplEnumInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -4041,7 +4328,7 @@ public interface ItestFieldGnrcPrntSmplEnumInpObject<TRef>
 public interface ItestGnrcPrntSmplEnumOutp
   : ItestFieldGnrcPrntSmplEnumOutp<testEnumGnrcPrntSmplEnumOutp>
 {
-  ItestGnrcPrntSmplEnumOutpObject AsGnrcPrntSmplEnumOutp { get; }
+  ItestGnrcPrntSmplEnumOutpObject? As_GnrcPrntSmplEnumOutp { get; }
 }
 
 public interface ItestGnrcPrntSmplEnumOutpObject
@@ -4052,10 +4339,11 @@ public interface ItestGnrcPrntSmplEnumOutpObject
 public interface ItestFieldGnrcPrntSmplEnumOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntSmplEnumOutpObject<TRef> AsFieldGnrcPrntSmplEnumOutp { get; }
+  ItestFieldGnrcPrntSmplEnumOutpObject<TRef>? As_FieldGnrcPrntSmplEnumOutp { get; }
 }
 
 public interface ItestFieldGnrcPrntSmplEnumOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -4063,7 +4351,7 @@ public interface ItestFieldGnrcPrntSmplEnumOutpObject<TRef>
 public interface ItestGnrcPrntStrDomDual
   : ItestFieldGnrcPrntStrDomDual<ItestDomGnrcPrntStrDomDual>
 {
-  ItestGnrcPrntStrDomDualObject AsGnrcPrntStrDomDual { get; }
+  ItestGnrcPrntStrDomDualObject? As_GnrcPrntStrDomDual { get; }
 }
 
 public interface ItestGnrcPrntStrDomDualObject
@@ -4074,10 +4362,11 @@ public interface ItestGnrcPrntStrDomDualObject
 public interface ItestFieldGnrcPrntStrDomDual<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntStrDomDualObject<TRef> AsFieldGnrcPrntStrDomDual { get; }
+  ItestFieldGnrcPrntStrDomDualObject<TRef>? As_FieldGnrcPrntStrDomDual { get; }
 }
 
 public interface ItestFieldGnrcPrntStrDomDualObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -4090,7 +4379,7 @@ public interface ItestDomGnrcPrntStrDomDual
 public interface ItestGnrcPrntStrDomInp
   : ItestFieldGnrcPrntStrDomInp<ItestDomGnrcPrntStrDomInp>
 {
-  ItestGnrcPrntStrDomInpObject AsGnrcPrntStrDomInp { get; }
+  ItestGnrcPrntStrDomInpObject? As_GnrcPrntStrDomInp { get; }
 }
 
 public interface ItestGnrcPrntStrDomInpObject
@@ -4101,10 +4390,11 @@ public interface ItestGnrcPrntStrDomInpObject
 public interface ItestFieldGnrcPrntStrDomInp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntStrDomInpObject<TRef> AsFieldGnrcPrntStrDomInp { get; }
+  ItestFieldGnrcPrntStrDomInpObject<TRef>? As_FieldGnrcPrntStrDomInp { get; }
 }
 
 public interface ItestFieldGnrcPrntStrDomInpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -4117,7 +4407,7 @@ public interface ItestDomGnrcPrntStrDomInp
 public interface ItestGnrcPrntStrDomOutp
   : ItestFieldGnrcPrntStrDomOutp<ItestDomGnrcPrntStrDomOutp>
 {
-  ItestGnrcPrntStrDomOutpObject AsGnrcPrntStrDomOutp { get; }
+  ItestGnrcPrntStrDomOutpObject? As_GnrcPrntStrDomOutp { get; }
 }
 
 public interface ItestGnrcPrntStrDomOutpObject
@@ -4128,10 +4418,11 @@ public interface ItestGnrcPrntStrDomOutpObject
 public interface ItestFieldGnrcPrntStrDomOutp<TRef>
   : IGqlpModelImplementationBase
 {
-  ItestFieldGnrcPrntStrDomOutpObject<TRef> AsFieldGnrcPrntStrDomOutp { get; }
+  ItestFieldGnrcPrntStrDomOutpObject<TRef>? As_FieldGnrcPrntStrDomOutp { get; }
 }
 
 public interface ItestFieldGnrcPrntStrDomOutpObject<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Field { get; }
 }
@@ -4144,21 +4435,23 @@ public interface ItestDomGnrcPrntStrDomOutp
 public interface ItestGnrcValueDual
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcValueDual<testEnumGnrcValueDual> AsEnumGnrcValueDualgnrcValueDual { get; }
-  ItestGnrcValueDualObject AsGnrcValueDual { get; }
+  ItestRefGnrcValueDual<testEnumGnrcValueDual>? AsEnumGnrcValueDualgnrcValueDual { get; }
+  ItestGnrcValueDualObject? As_GnrcValueDual { get; }
 }
 
 public interface ItestGnrcValueDualObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcValueDual<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcValueDualObject<TType> AsRefGnrcValueDual { get; }
+  ItestRefGnrcValueDualObject<TType>? As_RefGnrcValueDual { get; }
 }
 
 public interface ItestRefGnrcValueDualObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -4166,21 +4459,23 @@ public interface ItestRefGnrcValueDualObject<TType>
 public interface ItestGnrcValueInp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcValueInp<testEnumGnrcValueInp> AsEnumGnrcValueInpgnrcValueInp { get; }
-  ItestGnrcValueInpObject AsGnrcValueInp { get; }
+  ItestRefGnrcValueInp<testEnumGnrcValueInp>? AsEnumGnrcValueInpgnrcValueInp { get; }
+  ItestGnrcValueInpObject? As_GnrcValueInp { get; }
 }
 
 public interface ItestGnrcValueInpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcValueInp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcValueInpObject<TType> AsRefGnrcValueInp { get; }
+  ItestRefGnrcValueInpObject<TType>? As_RefGnrcValueInp { get; }
 }
 
 public interface ItestRefGnrcValueInpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -4188,21 +4483,23 @@ public interface ItestRefGnrcValueInpObject<TType>
 public interface ItestGnrcValueOutp
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcValueOutp<testEnumGnrcValueOutp> AsEnumGnrcValueOutpgnrcValueOutp { get; }
-  ItestGnrcValueOutpObject AsGnrcValueOutp { get; }
+  ItestRefGnrcValueOutp<testEnumGnrcValueOutp>? AsEnumGnrcValueOutpgnrcValueOutp { get; }
+  ItestGnrcValueOutpObject? As_GnrcValueOutp { get; }
 }
 
 public interface ItestGnrcValueOutpObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefGnrcValueOutp<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefGnrcValueOutpObject<TType> AsRefGnrcValueOutp { get; }
+  ItestRefGnrcValueOutpObject<TType>? As_RefGnrcValueOutp { get; }
 }
 
 public interface ItestRefGnrcValueOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -4210,10 +4507,11 @@ public interface ItestRefGnrcValueOutpObject<TType>
 public interface ItestInpFieldDescrNmbr
   : IGqlpModelImplementationBase
 {
-  ItestInpFieldDescrNmbrObject AsInpFieldDescrNmbr { get; }
+  ItestInpFieldDescrNmbrObject? As_InpFieldDescrNmbr { get; }
 }
 
 public interface ItestInpFieldDescrNmbrObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -4221,10 +4519,11 @@ public interface ItestInpFieldDescrNmbrObject
 public interface ItestInpFieldEnum
   : IGqlpModelImplementationBase
 {
-  ItestInpFieldEnumObject AsInpFieldEnum { get; }
+  ItestInpFieldEnumObject? As_InpFieldEnum { get; }
 }
 
 public interface ItestInpFieldEnumObject
+  : IGqlpModelImplementationBase
 {
   testEnumInpFieldEnum Field { get; }
 }
@@ -4232,10 +4531,11 @@ public interface ItestInpFieldEnumObject
 public interface ItestInpFieldNull
   : IGqlpModelImplementationBase
 {
-  ItestInpFieldNullObject AsInpFieldNull { get; }
+  ItestInpFieldNullObject? As_InpFieldNull { get; }
 }
 
 public interface ItestInpFieldNullObject
+  : IGqlpModelImplementationBase
 {
   ItestFldInpFieldNull? Field { get; }
 }
@@ -4243,20 +4543,22 @@ public interface ItestInpFieldNullObject
 public interface ItestFldInpFieldNull
   : IGqlpModelImplementationBase
 {
-  ItestFldInpFieldNullObject AsFldInpFieldNull { get; }
+  ItestFldInpFieldNullObject? As_FldInpFieldNull { get; }
 }
 
 public interface ItestFldInpFieldNullObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInpFieldNmbr
   : IGqlpModelImplementationBase
 {
-  ItestInpFieldNmbrObject AsInpFieldNmbr { get; }
+  ItestInpFieldNmbrObject? As_InpFieldNmbr { get; }
 }
 
 public interface ItestInpFieldNmbrObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -4264,10 +4566,11 @@ public interface ItestInpFieldNmbrObject
 public interface ItestInpFieldNmbrDescr
   : IGqlpModelImplementationBase
 {
-  ItestInpFieldNmbrDescrObject AsInpFieldNmbrDescr { get; }
+  ItestInpFieldNmbrDescrObject? As_InpFieldNmbrDescr { get; }
 }
 
 public interface ItestInpFieldNmbrDescrObject
+  : IGqlpModelImplementationBase
 {
   decimal Field { get; }
 }
@@ -4275,10 +4578,11 @@ public interface ItestInpFieldNmbrDescrObject
 public interface ItestInpFieldStr
   : IGqlpModelImplementationBase
 {
-  ItestInpFieldStrObject AsInpFieldStr { get; }
+  ItestInpFieldStrObject? As_InpFieldStr { get; }
 }
 
 public interface ItestInpFieldStrObject
+  : IGqlpModelImplementationBase
 {
   string Field { get; }
 }
@@ -4286,32 +4590,35 @@ public interface ItestInpFieldStrObject
 public interface ItestOutpDescrParam
   : IGqlpModelImplementationBase
 {
-  ItestOutpDescrParamObject AsOutpDescrParam { get; }
+  ItestOutpDescrParamObject? As_OutpDescrParam { get; }
 }
 
 public interface ItestOutpDescrParamObject
+  : IGqlpModelImplementationBase
 {
-  ItestFldOutpDescrParam Field (ItestInOutpDescrParam parameter);
+  ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter);
 }
 
 public interface ItestFldOutpDescrParam
   : IGqlpModelImplementationBase
 {
-  ItestFldOutpDescrParamObject AsFldOutpDescrParam { get; }
+  ItestFldOutpDescrParamObject? As_FldOutpDescrParam { get; }
 }
 
 public interface ItestFldOutpDescrParamObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInOutpDescrParam
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestInOutpDescrParamObject AsInOutpDescrParam { get; }
+  string? AsString { get; }
+  ItestInOutpDescrParamObject? As_InOutpDescrParam { get; }
 }
 
 public interface ItestInOutpDescrParamObject
+  : IGqlpModelImplementationBase
 {
   decimal Param { get; }
 }
@@ -4319,32 +4626,35 @@ public interface ItestInOutpDescrParamObject
 public interface ItestOutpParam
   : IGqlpModelImplementationBase
 {
-  ItestOutpParamObject AsOutpParam { get; }
+  ItestOutpParamObject? As_OutpParam { get; }
 }
 
 public interface ItestOutpParamObject
+  : IGqlpModelImplementationBase
 {
-  ItestFldOutpParam Field (ItestInOutpParam parameter);
+  ItestFldOutpParam? Field(ItestInOutpParam parameter);
 }
 
 public interface ItestFldOutpParam
   : IGqlpModelImplementationBase
 {
-  ItestFldOutpParamObject AsFldOutpParam { get; }
+  ItestFldOutpParamObject? As_FldOutpParam { get; }
 }
 
 public interface ItestFldOutpParamObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInOutpParam
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestInOutpParamObject AsInOutpParam { get; }
+  string? AsString { get; }
+  ItestInOutpParamObject? As_InOutpParam { get; }
 }
 
 public interface ItestInOutpParamObject
+  : IGqlpModelImplementationBase
 {
   decimal Param { get; }
 }
@@ -4352,32 +4662,35 @@ public interface ItestInOutpParamObject
 public interface ItestOutpParamDescr
   : IGqlpModelImplementationBase
 {
-  ItestOutpParamDescrObject AsOutpParamDescr { get; }
+  ItestOutpParamDescrObject? As_OutpParamDescr { get; }
 }
 
 public interface ItestOutpParamDescrObject
+  : IGqlpModelImplementationBase
 {
-  ItestFldOutpParamDescr Field (ItestInOutpParamDescr parameter);
+  ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter);
 }
 
 public interface ItestFldOutpParamDescr
   : IGqlpModelImplementationBase
 {
-  ItestFldOutpParamDescrObject AsFldOutpParamDescr { get; }
+  ItestFldOutpParamDescrObject? As_FldOutpParamDescr { get; }
 }
 
 public interface ItestFldOutpParamDescrObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInOutpParamDescr
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestInOutpParamDescrObject AsInOutpParamDescr { get; }
+  string? AsString { get; }
+  ItestInOutpParamDescrObject? As_InOutpParamDescr { get; }
 }
 
 public interface ItestInOutpParamDescrObject
+  : IGqlpModelImplementationBase
 {
   decimal Param { get; }
 }
@@ -4385,22 +4698,24 @@ public interface ItestInOutpParamDescrObject
 public interface ItestOutpParamModDmn
   : IGqlpModelImplementationBase
 {
-  ItestOutpParamModDmnObject AsOutpParamModDmn { get; }
+  ItestOutpParamModDmnObject? As_OutpParamModDmn { get; }
 }
 
 public interface ItestOutpParamModDmnObject
+  : IGqlpModelImplementationBase
 {
-  ItestDomOutpParamModDmn Field (IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter);
+  ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter);
 }
 
 public interface ItestInOutpParamModDmn
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestInOutpParamModDmnObject AsInOutpParamModDmn { get; }
+  string? AsString { get; }
+  ItestInOutpParamModDmnObject? As_InOutpParamModDmn { get; }
 }
 
 public interface ItestInOutpParamModDmnObject
+  : IGqlpModelImplementationBase
 {
   decimal Param { get; }
 }
@@ -4413,22 +4728,24 @@ public interface ItestDomOutpParamModDmn
 public interface ItestOutpParamModParam<TMod>
   : IGqlpModelImplementationBase
 {
-  ItestOutpParamModParamObject<TMod> AsOutpParamModParam { get; }
+  ItestOutpParamModParamObject<TMod>? As_OutpParamModParam { get; }
 }
 
 public interface ItestOutpParamModParamObject<TMod>
+  : IGqlpModelImplementationBase
 {
-  ItestDomOutpParamModParam Field (IDictionary<TMod, ItestInOutpParamModParam> parameter);
+  ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter);
 }
 
 public interface ItestInOutpParamModParam
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestInOutpParamModParamObject AsInOutpParamModParam { get; }
+  string? AsString { get; }
+  ItestInOutpParamModParamObject? As_InOutpParamModParam { get; }
 }
 
 public interface ItestInOutpParamModParamObject
+  : IGqlpModelImplementationBase
 {
   decimal Param { get; }
 }
@@ -4441,32 +4758,35 @@ public interface ItestDomOutpParamModParam
 public interface ItestOutpParamTypeDescr
   : IGqlpModelImplementationBase
 {
-  ItestOutpParamTypeDescrObject AsOutpParamTypeDescr { get; }
+  ItestOutpParamTypeDescrObject? As_OutpParamTypeDescr { get; }
 }
 
 public interface ItestOutpParamTypeDescrObject
+  : IGqlpModelImplementationBase
 {
-  ItestFldOutpParamTypeDescr Field (ItestInOutpParamTypeDescr parameter);
+  ItestFldOutpParamTypeDescr? Field(ItestInOutpParamTypeDescr parameter);
 }
 
 public interface ItestFldOutpParamTypeDescr
   : IGqlpModelImplementationBase
 {
-  ItestFldOutpParamTypeDescrObject AsFldOutpParamTypeDescr { get; }
+  ItestFldOutpParamTypeDescrObject? As_FldOutpParamTypeDescr { get; }
 }
 
 public interface ItestFldOutpParamTypeDescrObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInOutpParamTypeDescr
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestInOutpParamTypeDescrObject AsInOutpParamTypeDescr { get; }
+  string? AsString { get; }
+  ItestInOutpParamTypeDescrObject? As_InOutpParamTypeDescr { get; }
 }
 
 public interface ItestInOutpParamTypeDescrObject
+  : IGqlpModelImplementationBase
 {
   decimal Param { get; }
 }
@@ -4474,21 +4794,23 @@ public interface ItestInOutpParamTypeDescrObject
 public interface ItestOutpPrntGnrc
   : IGqlpModelImplementationBase
 {
-  ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc> AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
-  ItestOutpPrntGnrcObject AsOutpPrntGnrc { get; }
+  ItestRefOutpPrntGnrc<testEnumOutpPrntGnrc>? AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
+  ItestOutpPrntGnrcObject? As_OutpPrntGnrc { get; }
 }
 
 public interface ItestOutpPrntGnrcObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestRefOutpPrntGnrc<TType>
   : IGqlpModelImplementationBase
 {
-  ItestRefOutpPrntGnrcObject<TType> AsRefOutpPrntGnrc { get; }
+  ItestRefOutpPrntGnrcObject<TType>? As_RefOutpPrntGnrc { get; }
 }
 
 public interface ItestRefOutpPrntGnrcObject<TType>
+  : IGqlpModelImplementationBase
 {
   TType Field { get; }
 }
@@ -4496,44 +4818,47 @@ public interface ItestRefOutpPrntGnrcObject<TType>
 public interface ItestOutpPrntParam
   : ItestPrntOutpPrntParam
 {
-  ItestOutpPrntParamObject AsOutpPrntParam { get; }
+  ItestOutpPrntParamObject? As_OutpPrntParam { get; }
 }
 
 public interface ItestOutpPrntParamObject
   : ItestPrntOutpPrntParamObject
 {
-  ItestFldOutpPrntParam Field (ItestInOutpPrntParam parameter);
+  ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter);
 }
 
 public interface ItestPrntOutpPrntParam
   : IGqlpModelImplementationBase
 {
-  ItestPrntOutpPrntParamObject AsPrntOutpPrntParam { get; }
+  ItestPrntOutpPrntParamObject? As_PrntOutpPrntParam { get; }
 }
 
 public interface ItestPrntOutpPrntParamObject
+  : IGqlpModelImplementationBase
 {
-  ItestFldOutpPrntParam Field (ItestPrntOutpPrntParamIn parameter);
+  ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter);
 }
 
 public interface ItestFldOutpPrntParam
   : IGqlpModelImplementationBase
 {
-  ItestFldOutpPrntParamObject AsFldOutpPrntParam { get; }
+  ItestFldOutpPrntParamObject? As_FldOutpPrntParam { get; }
 }
 
 public interface ItestFldOutpPrntParamObject
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestInOutpPrntParam
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestInOutpPrntParamObject AsInOutpPrntParam { get; }
+  string? AsString { get; }
+  ItestInOutpPrntParamObject? As_InOutpPrntParam { get; }
 }
 
 public interface ItestInOutpPrntParamObject
+  : IGqlpModelImplementationBase
 {
   decimal Param { get; }
 }
@@ -4541,11 +4866,12 @@ public interface ItestInOutpPrntParamObject
 public interface ItestPrntOutpPrntParamIn
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; }
+  string? AsString { get; }
+  ItestPrntOutpPrntParamInObject? As_PrntOutpPrntParamIn { get; }
 }
 
 public interface ItestPrntOutpPrntParamInObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4553,7 +4879,7 @@ public interface ItestPrntOutpPrntParamInObject
 public interface ItestPrntDual
   : ItestRefPrntDual
 {
-  ItestPrntDualObject AsPrntDual { get; }
+  ItestPrntDualObject? As_PrntDual { get; }
 }
 
 public interface ItestPrntDualObject
@@ -4564,11 +4890,12 @@ public interface ItestPrntDualObject
 public interface ItestRefPrntDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntDualObject AsRefPrntDual { get; }
+  string? AsString { get; }
+  ItestRefPrntDualObject? As_RefPrntDual { get; }
 }
 
 public interface ItestRefPrntDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4576,7 +4903,7 @@ public interface ItestRefPrntDualObject
 public interface ItestPrntInp
   : ItestRefPrntInp
 {
-  ItestPrntInpObject AsPrntInp { get; }
+  ItestPrntInpObject? As_PrntInp { get; }
 }
 
 public interface ItestPrntInpObject
@@ -4587,11 +4914,12 @@ public interface ItestPrntInpObject
 public interface ItestRefPrntInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntInpObject AsRefPrntInp { get; }
+  string? AsString { get; }
+  ItestRefPrntInpObject? As_RefPrntInp { get; }
 }
 
 public interface ItestRefPrntInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4599,7 +4927,7 @@ public interface ItestRefPrntInpObject
 public interface ItestPrntOutp
   : ItestRefPrntOutp
 {
-  ItestPrntOutpObject AsPrntOutp { get; }
+  ItestPrntOutpObject? As_PrntOutp { get; }
 }
 
 public interface ItestPrntOutpObject
@@ -4610,11 +4938,12 @@ public interface ItestPrntOutpObject
 public interface ItestRefPrntOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntOutpObject AsRefPrntOutp { get; }
+  string? AsString { get; }
+  ItestRefPrntOutpObject? As_RefPrntOutp { get; }
 }
 
 public interface ItestRefPrntOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4622,8 +4951,8 @@ public interface ItestRefPrntOutpObject
 public interface ItestPrntAltDual
   : ItestRefPrntAltDual
 {
-  decimal AsNumber { get; }
-  ItestPrntAltDualObject AsPrntAltDual { get; }
+  decimal? AsNumber { get; }
+  ItestPrntAltDualObject? As_PrntAltDual { get; }
 }
 
 public interface ItestPrntAltDualObject
@@ -4634,11 +4963,12 @@ public interface ItestPrntAltDualObject
 public interface ItestRefPrntAltDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntAltDualObject AsRefPrntAltDual { get; }
+  string? AsString { get; }
+  ItestRefPrntAltDualObject? As_RefPrntAltDual { get; }
 }
 
 public interface ItestRefPrntAltDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4646,8 +4976,8 @@ public interface ItestRefPrntAltDualObject
 public interface ItestPrntAltInp
   : ItestRefPrntAltInp
 {
-  decimal AsNumber { get; }
-  ItestPrntAltInpObject AsPrntAltInp { get; }
+  decimal? AsNumber { get; }
+  ItestPrntAltInpObject? As_PrntAltInp { get; }
 }
 
 public interface ItestPrntAltInpObject
@@ -4658,11 +4988,12 @@ public interface ItestPrntAltInpObject
 public interface ItestRefPrntAltInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntAltInpObject AsRefPrntAltInp { get; }
+  string? AsString { get; }
+  ItestRefPrntAltInpObject? As_RefPrntAltInp { get; }
 }
 
 public interface ItestRefPrntAltInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4670,8 +5001,8 @@ public interface ItestRefPrntAltInpObject
 public interface ItestPrntAltOutp
   : ItestRefPrntAltOutp
 {
-  decimal AsNumber { get; }
-  ItestPrntAltOutpObject AsPrntAltOutp { get; }
+  decimal? AsNumber { get; }
+  ItestPrntAltOutpObject? As_PrntAltOutp { get; }
 }
 
 public interface ItestPrntAltOutpObject
@@ -4682,11 +5013,12 @@ public interface ItestPrntAltOutpObject
 public interface ItestRefPrntAltOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntAltOutpObject AsRefPrntAltOutp { get; }
+  string? AsString { get; }
+  ItestRefPrntAltOutpObject? As_RefPrntAltOutp { get; }
 }
 
 public interface ItestRefPrntAltOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4694,7 +5026,7 @@ public interface ItestRefPrntAltOutpObject
 public interface ItestPrntDescrDual
   : ItestRefPrntDescrDual
 {
-  ItestPrntDescrDualObject AsPrntDescrDual { get; }
+  ItestPrntDescrDualObject? As_PrntDescrDual { get; }
 }
 
 public interface ItestPrntDescrDualObject
@@ -4705,11 +5037,12 @@ public interface ItestPrntDescrDualObject
 public interface ItestRefPrntDescrDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntDescrDualObject AsRefPrntDescrDual { get; }
+  string? AsString { get; }
+  ItestRefPrntDescrDualObject? As_RefPrntDescrDual { get; }
 }
 
 public interface ItestRefPrntDescrDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4717,7 +5050,7 @@ public interface ItestRefPrntDescrDualObject
 public interface ItestPrntDescrInp
   : ItestRefPrntDescrInp
 {
-  ItestPrntDescrInpObject AsPrntDescrInp { get; }
+  ItestPrntDescrInpObject? As_PrntDescrInp { get; }
 }
 
 public interface ItestPrntDescrInpObject
@@ -4728,11 +5061,12 @@ public interface ItestPrntDescrInpObject
 public interface ItestRefPrntDescrInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntDescrInpObject AsRefPrntDescrInp { get; }
+  string? AsString { get; }
+  ItestRefPrntDescrInpObject? As_RefPrntDescrInp { get; }
 }
 
 public interface ItestRefPrntDescrInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4740,7 +5074,7 @@ public interface ItestRefPrntDescrInpObject
 public interface ItestPrntDescrOutp
   : ItestRefPrntDescrOutp
 {
-  ItestPrntDescrOutpObject AsPrntDescrOutp { get; }
+  ItestPrntDescrOutpObject? As_PrntDescrOutp { get; }
 }
 
 public interface ItestPrntDescrOutpObject
@@ -4751,11 +5085,12 @@ public interface ItestPrntDescrOutpObject
 public interface ItestRefPrntDescrOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntDescrOutpObject AsRefPrntDescrOutp { get; }
+  string? AsString { get; }
+  ItestRefPrntDescrOutpObject? As_RefPrntDescrOutp { get; }
 }
 
 public interface ItestRefPrntDescrOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4763,7 +5098,7 @@ public interface ItestRefPrntDescrOutpObject
 public interface ItestPrntDualDual
   : ItestRefPrntDualDual
 {
-  ItestPrntDualDualObject AsPrntDualDual { get; }
+  ItestPrntDualDualObject? As_PrntDualDual { get; }
 }
 
 public interface ItestPrntDualDualObject
@@ -4774,11 +5109,12 @@ public interface ItestPrntDualDualObject
 public interface ItestRefPrntDualDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntDualDualObject AsRefPrntDualDual { get; }
+  string? AsString { get; }
+  ItestRefPrntDualDualObject? As_RefPrntDualDual { get; }
 }
 
 public interface ItestRefPrntDualDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4786,7 +5122,7 @@ public interface ItestRefPrntDualDualObject
 public interface ItestPrntDualInp
   : ItestRefPrntDualInp
 {
-  ItestPrntDualInpObject AsPrntDualInp { get; }
+  ItestPrntDualInpObject? As_PrntDualInp { get; }
 }
 
 public interface ItestPrntDualInpObject
@@ -4797,11 +5133,12 @@ public interface ItestPrntDualInpObject
 public interface ItestRefPrntDualInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntDualInpObject AsRefPrntDualInp { get; }
+  string? AsString { get; }
+  ItestRefPrntDualInpObject? As_RefPrntDualInp { get; }
 }
 
 public interface ItestRefPrntDualInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4809,7 +5146,7 @@ public interface ItestRefPrntDualInpObject
 public interface ItestPrntDualOutp
   : ItestRefPrntDualOutp
 {
-  ItestPrntDualOutpObject AsPrntDualOutp { get; }
+  ItestPrntDualOutpObject? As_PrntDualOutp { get; }
 }
 
 public interface ItestPrntDualOutpObject
@@ -4820,11 +5157,12 @@ public interface ItestPrntDualOutpObject
 public interface ItestRefPrntDualOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntDualOutpObject AsRefPrntDualOutp { get; }
+  string? AsString { get; }
+  ItestRefPrntDualOutpObject? As_RefPrntDualOutp { get; }
 }
 
 public interface ItestRefPrntDualOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4832,7 +5170,7 @@ public interface ItestRefPrntDualOutpObject
 public interface ItestPrntFieldDual
   : ItestRefPrntFieldDual
 {
-  ItestPrntFieldDualObject AsPrntFieldDual { get; }
+  ItestPrntFieldDualObject? As_PrntFieldDual { get; }
 }
 
 public interface ItestPrntFieldDualObject
@@ -4844,11 +5182,12 @@ public interface ItestPrntFieldDualObject
 public interface ItestRefPrntFieldDual
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntFieldDualObject AsRefPrntFieldDual { get; }
+  string? AsString { get; }
+  ItestRefPrntFieldDualObject? As_RefPrntFieldDual { get; }
 }
 
 public interface ItestRefPrntFieldDualObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4856,7 +5195,7 @@ public interface ItestRefPrntFieldDualObject
 public interface ItestPrntFieldInp
   : ItestRefPrntFieldInp
 {
-  ItestPrntFieldInpObject AsPrntFieldInp { get; }
+  ItestPrntFieldInpObject? As_PrntFieldInp { get; }
 }
 
 public interface ItestPrntFieldInpObject
@@ -4868,11 +5207,12 @@ public interface ItestPrntFieldInpObject
 public interface ItestRefPrntFieldInp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntFieldInpObject AsRefPrntFieldInp { get; }
+  string? AsString { get; }
+  ItestRefPrntFieldInpObject? As_RefPrntFieldInp { get; }
 }
 
 public interface ItestRefPrntFieldInpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4880,7 +5220,7 @@ public interface ItestRefPrntFieldInpObject
 public interface ItestPrntFieldOutp
   : ItestRefPrntFieldOutp
 {
-  ItestPrntFieldOutpObject AsPrntFieldOutp { get; }
+  ItestPrntFieldOutpObject? As_PrntFieldOutp { get; }
 }
 
 public interface ItestPrntFieldOutpObject
@@ -4892,11 +5232,12 @@ public interface ItestPrntFieldOutpObject
 public interface ItestRefPrntFieldOutp
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestRefPrntFieldOutpObject AsRefPrntFieldOutp { get; }
+  string? AsString { get; }
+  ItestRefPrntFieldOutpObject? As_RefPrntFieldOutp { get; }
 }
 
 public interface ItestRefPrntFieldOutpObject
+  : IGqlpModelImplementationBase
 {
   decimal Parent { get; }
 }
@@ -4904,7 +5245,7 @@ public interface ItestRefPrntFieldOutpObject
 public interface ItestPrntParamDiffDual<TA>
   : ItestRefPrntParamDiffDual<TA>
 {
-  ItestPrntParamDiffDualObject<TA> AsPrntParamDiffDual { get; }
+  ItestPrntParamDiffDualObject<TA>? As_PrntParamDiffDual { get; }
 }
 
 public interface ItestPrntParamDiffDualObject<TA>
@@ -4916,18 +5257,19 @@ public interface ItestPrntParamDiffDualObject<TA>
 public interface ItestRefPrntParamDiffDual<TB>
   : IGqlpModelImplementationBase
 {
-  TB Asb { get; }
-  ItestRefPrntParamDiffDualObject<TB> AsRefPrntParamDiffDual { get; }
+  TB? Asb { get; }
+  ItestRefPrntParamDiffDualObject<TB>? As_RefPrntParamDiffDual { get; }
 }
 
 public interface ItestRefPrntParamDiffDualObject<TB>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntParamDiffInp<TA>
   : ItestRefPrntParamDiffInp<TA>
 {
-  ItestPrntParamDiffInpObject<TA> AsPrntParamDiffInp { get; }
+  ItestPrntParamDiffInpObject<TA>? As_PrntParamDiffInp { get; }
 }
 
 public interface ItestPrntParamDiffInpObject<TA>
@@ -4939,18 +5281,19 @@ public interface ItestPrntParamDiffInpObject<TA>
 public interface ItestRefPrntParamDiffInp<TB>
   : IGqlpModelImplementationBase
 {
-  TB Asb { get; }
-  ItestRefPrntParamDiffInpObject<TB> AsRefPrntParamDiffInp { get; }
+  TB? Asb { get; }
+  ItestRefPrntParamDiffInpObject<TB>? As_RefPrntParamDiffInp { get; }
 }
 
 public interface ItestRefPrntParamDiffInpObject<TB>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntParamDiffOutp<TA>
   : ItestRefPrntParamDiffOutp<TA>
 {
-  ItestPrntParamDiffOutpObject<TA> AsPrntParamDiffOutp { get; }
+  ItestPrntParamDiffOutpObject<TA>? As_PrntParamDiffOutp { get; }
 }
 
 public interface ItestPrntParamDiffOutpObject<TA>
@@ -4962,18 +5305,19 @@ public interface ItestPrntParamDiffOutpObject<TA>
 public interface ItestRefPrntParamDiffOutp<TB>
   : IGqlpModelImplementationBase
 {
-  TB Asb { get; }
-  ItestRefPrntParamDiffOutpObject<TB> AsRefPrntParamDiffOutp { get; }
+  TB? Asb { get; }
+  ItestRefPrntParamDiffOutpObject<TB>? As_RefPrntParamDiffOutp { get; }
 }
 
 public interface ItestRefPrntParamDiffOutpObject<TB>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntParamSameDual<TA>
   : ItestRefPrntParamSameDual<TA>
 {
-  ItestPrntParamSameDualObject<TA> AsPrntParamSameDual { get; }
+  ItestPrntParamSameDualObject<TA>? As_PrntParamSameDual { get; }
 }
 
 public interface ItestPrntParamSameDualObject<TA>
@@ -4985,18 +5329,19 @@ public interface ItestPrntParamSameDualObject<TA>
 public interface ItestRefPrntParamSameDual<TA>
   : IGqlpModelImplementationBase
 {
-  TA Asa { get; }
-  ItestRefPrntParamSameDualObject<TA> AsRefPrntParamSameDual { get; }
+  TA? Asa { get; }
+  ItestRefPrntParamSameDualObject<TA>? As_RefPrntParamSameDual { get; }
 }
 
 public interface ItestRefPrntParamSameDualObject<TA>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntParamSameInp<TA>
   : ItestRefPrntParamSameInp<TA>
 {
-  ItestPrntParamSameInpObject<TA> AsPrntParamSameInp { get; }
+  ItestPrntParamSameInpObject<TA>? As_PrntParamSameInp { get; }
 }
 
 public interface ItestPrntParamSameInpObject<TA>
@@ -5008,18 +5353,19 @@ public interface ItestPrntParamSameInpObject<TA>
 public interface ItestRefPrntParamSameInp<TA>
   : IGqlpModelImplementationBase
 {
-  TA Asa { get; }
-  ItestRefPrntParamSameInpObject<TA> AsRefPrntParamSameInp { get; }
+  TA? Asa { get; }
+  ItestRefPrntParamSameInpObject<TA>? As_RefPrntParamSameInp { get; }
 }
 
 public interface ItestRefPrntParamSameInpObject<TA>
+  : IGqlpModelImplementationBase
 {
 }
 
 public interface ItestPrntParamSameOutp<TA>
   : ItestRefPrntParamSameOutp<TA>
 {
-  ItestPrntParamSameOutpObject<TA> AsPrntParamSameOutp { get; }
+  ItestPrntParamSameOutpObject<TA>? As_PrntParamSameOutp { get; }
 }
 
 public interface ItestPrntParamSameOutpObject<TA>
@@ -5031,10 +5377,11 @@ public interface ItestPrntParamSameOutpObject<TA>
 public interface ItestRefPrntParamSameOutp<TA>
   : IGqlpModelImplementationBase
 {
-  TA Asa { get; }
-  ItestRefPrntParamSameOutpObject<TA> AsRefPrntParamSameOutp { get; }
+  TA? Asa { get; }
+  ItestRefPrntParamSameOutpObject<TA>? As_RefPrntParamSameOutp { get; }
 }
 
 public interface ItestRefPrntParamSameOutpObject<TA>
+  : IGqlpModelImplementationBase
 {
 }

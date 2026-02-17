@@ -22,10 +22,11 @@ public interface ItestMany
 public interface ItestField
   : IGqlpModelImplementationBase
 {
-  ItestFieldObject AsField { get; }
+  ItestFieldObject? As_Field { get; }
 }
 
 public interface ItestFieldObject
+  : IGqlpModelImplementationBase
 {
   ICollection<string> Strings { get; }
 }
@@ -33,11 +34,12 @@ public interface ItestFieldObject
 public interface ItestParam
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestParamObject AsParam { get; }
+  string? AsString { get; }
+  ItestParamObject? As_Param { get; }
 }
 
 public interface ItestParamObject
+  : IGqlpModelImplementationBase
 {
   ItestMany? AfterId { get; }
   ItestMany BeforeId { get; }
@@ -46,11 +48,12 @@ public interface ItestParamObject
 public interface ItestAll
   : IGqlpModelImplementationBase
 {
-  string AsString { get; }
-  ItestAllObject AsAll { get; }
+  string? AsString { get; }
+  ItestAllObject? As_All { get; }
 }
 
 public interface ItestAllObject
+  : IGqlpModelImplementationBase
 {
-  ItestField Items (ItestParam? parameter);
+  ItestField? Items(ItestParam? parameter);
 }

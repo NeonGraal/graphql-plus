@@ -14,21 +14,23 @@ namespace Components.Gqlp_Schema_generic_alt_arg_descr_Input;
 public interface ICmptGnrcAltArgDescrInp<TType>
   : Schema_generic-alt-arg-descr+Input
 {
-  ICmptRefGnrcAltArgDescrInp<TType> AsRefGnrcAltArgDescrInp { get; }
-  ICmptGnrcAltArgDescrInpObject<TType> AsGnrcAltArgDescrInp { get; }
+  ICmptRefGnrcAltArgDescrInp<TType>? AsRefGnrcAltArgDescrInp { get; }
+  ICmptGnrcAltArgDescrInpObject<TType>? As_GnrcAltArgDescrInp { get; }
 }
 
 public interface ICmptGnrcAltArgDescrInpObject<TType>
+  : Schema_generic-alt-arg-descr+Input
 {
 }
 
 public interface ICmptRefGnrcAltArgDescrInp<TRef>
   : Schema_generic-alt-arg-descr+Input
 {
-  TRef Asref { get; }
-  ICmptRefGnrcAltArgDescrInpObject<TRef> AsRefGnrcAltArgDescrInp { get; }
+  TRef? Asref { get; }
+  ICmptRefGnrcAltArgDescrInpObject<TRef>? As_RefGnrcAltArgDescrInp { get; }
 }
 
 public interface ICmptRefGnrcAltArgDescrInpObject<TRef>
+  : Schema_generic-alt-arg-descr+Input
 {
 }

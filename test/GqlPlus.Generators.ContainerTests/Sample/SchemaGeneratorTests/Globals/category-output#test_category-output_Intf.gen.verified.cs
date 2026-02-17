@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_output;
 public interface ItestCtgrOutp
   : IGqlpModelImplementationBase
 {
-  ItestCtgrOutpObject AsCtgrOutp { get; }
+  ItestCtgrOutpObject? As_CtgrOutp { get; }
 }
 
 public interface ItestCtgrOutpObject
+  : IGqlpModelImplementationBase
 {
 }

@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_object_field_type_alias_Output;
 public interface ItestObjFieldTypeAliasOutp
   : IGqlpModelImplementationBase
 {
-  ItestObjFieldTypeAliasOutpObject AsObjFieldTypeAliasOutp { get; }
+  ItestObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; }
 }
 
 public interface ItestObjFieldTypeAliasOutpObject
+  : IGqlpModelImplementationBase
 {
   string Field { get; }
 }

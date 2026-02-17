@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_alt_descr_Input;
 public interface ICmptAltDescrInp
   : Schema_alt-descr+Input
 {
-  string AsString { get; }
-  ICmptAltDescrInpObject AsAltDescrInp { get; }
+  string? AsString { get; }
+  ICmptAltDescrInpObject? As_AltDescrInp { get; }
 }
 
 public interface ICmptAltDescrInpObject
+  : Schema_alt-descr+Input
 {
 }

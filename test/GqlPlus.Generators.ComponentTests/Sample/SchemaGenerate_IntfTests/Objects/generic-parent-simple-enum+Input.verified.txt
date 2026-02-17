@@ -15,7 +15,7 @@ namespace Components.Gqlp_Schema_generic_parent_simple_enum_Input;
 public interface ICmptGnrcPrntSmplEnumInp
   : ICmptFieldGnrcPrntSmplEnumInp<CmptEnumGnrcPrntSmplEnumInp>
 {
-  ICmptGnrcPrntSmplEnumInpObject AsGnrcPrntSmplEnumInp { get; }
+  ICmptGnrcPrntSmplEnumInpObject? As_GnrcPrntSmplEnumInp { get; }
 }
 
 public interface ICmptGnrcPrntSmplEnumInpObject
@@ -26,10 +26,11 @@ public interface ICmptGnrcPrntSmplEnumInpObject
 public interface ICmptFieldGnrcPrntSmplEnumInp<TRef>
   : Schema_generic-parent-simple-enum+Input
 {
-  ICmptFieldGnrcPrntSmplEnumInpObject<TRef> AsFieldGnrcPrntSmplEnumInp { get; }
+  ICmptFieldGnrcPrntSmplEnumInpObject<TRef>? As_FieldGnrcPrntSmplEnumInp { get; }
 }
 
 public interface ICmptFieldGnrcPrntSmplEnumInpObject<TRef>
+  : Schema_generic-parent-simple-enum+Input
 {
   TRef Field { get; }
 }

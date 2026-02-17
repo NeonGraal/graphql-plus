@@ -10,9 +10,10 @@ namespace GqlPlus.GeneratorTests.Gqlp_category_output_descr;
 public interface ItestCtgrOutpDescr
   : IGqlpModelImplementationBase
 {
-  ItestCtgrOutpDescrObject AsCtgrOutpDescr { get; }
+  ItestCtgrOutpDescrObject? As_CtgrOutpDescr { get; }
 }
 
 public interface ItestCtgrOutpDescrObject
+  : IGqlpModelImplementationBase
 {
 }

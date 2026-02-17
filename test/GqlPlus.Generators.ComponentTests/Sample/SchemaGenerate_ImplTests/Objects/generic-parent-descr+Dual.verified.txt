@@ -11,6 +11,19 @@ dual GnrcPrntDescrDual<$type:_Dual> { :"Parent comment"$type }
 namespace Components.Gqlp_Schema_generic_parent_descr_Dual;
 
 public class CmptGnrcPrntDescrDual<TType>
-  : ICmptGnrcPrntDescrDual<TType>
+  : Schema_generic-parent-descr+Dual
+  , ICmptGnrcPrntDescrDual<TType>
 {
+  public TType? As_Parent { get; set; }
+  public ICmptGnrcPrntDescrDualObject<TType>? As_GnrcPrntDescrDual { get; set; }
+}
+
+public class CmptGnrcPrntDescrDualObject<TType>
+  : Schema_generic-parent-descr+Dual
+  , ICmptGnrcPrntDescrDualObject<TType>
+{
+
+  public CmptGnrcPrntDescrDualObject()
+  {
+  }
 }

@@ -14,8 +14,8 @@ namespace Components.Gqlp_Schema_parent_alt_Output;
 public interface ICmptPrntAltOutp
   : ICmptRefPrntAltOutp
 {
-  decimal AsNumber { get; }
-  ICmptPrntAltOutpObject AsPrntAltOutp { get; }
+  decimal? AsNumber { get; }
+  ICmptPrntAltOutpObject? As_PrntAltOutp { get; }
 }
 
 public interface ICmptPrntAltOutpObject
@@ -26,11 +26,12 @@ public interface ICmptPrntAltOutpObject
 public interface ICmptRefPrntAltOutp
   : Schema_parent-alt+Output
 {
-  string AsString { get; }
-  ICmptRefPrntAltOutpObject AsRefPrntAltOutp { get; }
+  string? AsString { get; }
+  ICmptRefPrntAltOutpObject? As_RefPrntAltOutp { get; }
 }
 
 public interface ICmptRefPrntAltOutpObject
+  : Schema_parent-alt+Output
 {
   decimal Parent { get; }
 }

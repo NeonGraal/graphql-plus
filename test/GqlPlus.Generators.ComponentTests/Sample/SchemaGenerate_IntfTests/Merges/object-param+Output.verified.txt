@@ -14,10 +14,11 @@ namespace Components.Gqlp_Schema_object_param_Output;
 public interface ICmptObjParamOutp<TTest,TType>
   : Schema_object-param+Output
 {
-  ICmptObjParamOutpObject<TTest,TType> AsObjParamOutp { get; }
+  ICmptObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; }
 }
 
 public interface ICmptObjParamOutpObject<TTest,TType>
+  : Schema_object-param+Output
 {
   TTest Test { get; }
   TType Type { get; }

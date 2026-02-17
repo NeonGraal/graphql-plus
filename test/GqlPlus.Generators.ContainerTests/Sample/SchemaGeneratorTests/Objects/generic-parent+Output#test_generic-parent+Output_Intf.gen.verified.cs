@@ -10,10 +10,11 @@ namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_Output;
 public interface ItestGnrcPrntOutp<TType>
   : IGqlpModelImplementationBase
 {
-  TType AsParent { get; }
-  ItestGnrcPrntOutpObject<TType> AsGnrcPrntOutp { get; }
+  TType? As_Parent { get; }
+  ItestGnrcPrntOutpObject<TType>? As_GnrcPrntOutp { get; }
 }
 
 public interface ItestGnrcPrntOutpObject<TType>
+  : IGqlpModelImplementationBase
 {
 }

@@ -26,8 +26,8 @@ namespace Components.Gqlp_Spec_Category;
 public interface ICmpt_Categories
   : ICmpt_AndType
 {
-  ICmpt_Category As_Category { get; }
-  ICmpt_CategoriesObject As_Categories { get; }
+  ICmpt_Category? As_Category { get; }
+  ICmpt_CategoriesObject? As__Categories { get; }
 }
 
 public interface ICmpt_CategoriesObject
@@ -39,7 +39,7 @@ public interface ICmpt_CategoriesObject
 public interface ICmpt_Category
   : ICmpt_Aliased
 {
-  ICmpt_CategoryObject As_Category { get; }
+  ICmpt_CategoryObject? As__Category { get; }
 }
 
 public interface ICmpt_CategoryObject

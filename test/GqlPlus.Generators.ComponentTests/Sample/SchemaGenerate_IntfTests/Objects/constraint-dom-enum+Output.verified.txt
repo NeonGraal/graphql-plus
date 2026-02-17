@@ -16,21 +16,23 @@ namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
 public interface ICmptCnstDomEnumOutp
   : Schema_constraint-dom-enum+Output
 {
-  ICmptRefCnstDomEnumOutp<CmptEnumCnstDomEnumOutp> AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; }
-  ICmptCnstDomEnumOutpObject AsCnstDomEnumOutp { get; }
+  ICmptRefCnstDomEnumOutp<CmptEnumCnstDomEnumOutp>? AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; }
+  ICmptCnstDomEnumOutpObject? As_CnstDomEnumOutp { get; }
 }
 
 public interface ICmptCnstDomEnumOutpObject
+  : Schema_constraint-dom-enum+Output
 {
 }
 
 public interface ICmptRefCnstDomEnumOutp<TType>
   : Schema_constraint-dom-enum+Output
 {
-  ICmptRefCnstDomEnumOutpObject<TType> AsRefCnstDomEnumOutp { get; }
+  ICmptRefCnstDomEnumOutpObject<TType>? As_RefCnstDomEnumOutp { get; }
 }
 
 public interface ICmptRefCnstDomEnumOutpObject<TType>
+  : Schema_constraint-dom-enum+Output
 {
   TType Field { get; }
 }

@@ -13,10 +13,11 @@ namespace Components.Gqlp_Schema_generic_parent_Input;
 public interface ICmptGnrcPrntInp<TType>
   : Schema_generic-parent+Input
 {
-  TType AsParent { get; }
-  ICmptGnrcPrntInpObject<TType> AsGnrcPrntInp { get; }
+  TType? As_Parent { get; }
+  ICmptGnrcPrntInpObject<TType>? As_GnrcPrntInp { get; }
 }
 
 public interface ICmptGnrcPrntInpObject<TType>
+  : Schema_generic-parent+Input
 {
 }

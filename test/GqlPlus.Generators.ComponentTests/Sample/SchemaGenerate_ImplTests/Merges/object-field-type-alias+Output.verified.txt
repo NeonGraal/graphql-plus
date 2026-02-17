@@ -12,7 +12,20 @@ output ObjFieldTypeAliasOutp { field: String }
 namespace Components.Gqlp_Schema_object_field_type_alias_Output;
 
 public class CmptObjFieldTypeAliasOutp
-  : ICmptObjFieldTypeAliasOutp
+  : Schema_object-field-type-alias+Output
+  , ICmptObjFieldTypeAliasOutp
+{
+  public ICmptObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; set; }
+}
+
+public class CmptObjFieldTypeAliasOutpObject
+  : Schema_object-field-type-alias+Output
+  , ICmptObjFieldTypeAliasOutpObject
 {
   public string Field { get; set; }
+
+  public CmptObjFieldTypeAliasOutpObject(string field)
+  {
+    Field = field;
+  }
 }

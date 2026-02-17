@@ -14,14 +14,40 @@ domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
 namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
 
 public class CmptCnstDomEnumOutp
-  : ICmptCnstDomEnumOutp
+  : Schema_constraint-dom-enum+Output
+  , ICmptCnstDomEnumOutp
 {
+  public ICmptRefCnstDomEnumOutp<CmptEnumCnstDomEnumOutp>? AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; set; }
+  public ICmptCnstDomEnumOutpObject? As_CnstDomEnumOutp { get; set; }
+}
+
+public class CmptCnstDomEnumOutpObject
+  : Schema_constraint-dom-enum+Output
+  , ICmptCnstDomEnumOutpObject
+{
+
+  public CmptCnstDomEnumOutpObject()
+  {
+  }
 }
 
 public class CmptRefCnstDomEnumOutp<TType>
-  : ICmptRefCnstDomEnumOutp<TType>
+  : Schema_constraint-dom-enum+Output
+  , ICmptRefCnstDomEnumOutp<TType>
+{
+  public ICmptRefCnstDomEnumOutpObject<TType>? As_RefCnstDomEnumOutp { get; set; }
+}
+
+public class CmptRefCnstDomEnumOutpObject<TType>
+  : Schema_constraint-dom-enum+Output
+  , ICmptRefCnstDomEnumOutpObject<TType>
 {
   public TType Field { get; set; }
+
+  public CmptRefCnstDomEnumOutpObject(TType field)
+  {
+    Field = field;
+  }
 }
 
 public class CmptJustCnstDomEnumOutp

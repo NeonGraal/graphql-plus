@@ -12,6 +12,18 @@ dual ObjDual { }
 namespace Components.Gqlp_Schema_object_Dual;
 
 public class CmptObjDual
-  : ICmptObjDual
+  : Schema_object+Dual
+  , ICmptObjDual
 {
+  public ICmptObjDualObject? As_ObjDual { get; set; }
+}
+
+public class CmptObjDualObject
+  : Schema_object+Dual
+  , ICmptObjDualObject
+{
+
+  public CmptObjDualObject()
+  {
+  }
 }

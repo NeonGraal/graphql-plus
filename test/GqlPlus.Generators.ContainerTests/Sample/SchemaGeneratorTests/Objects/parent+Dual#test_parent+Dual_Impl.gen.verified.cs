@@ -11,10 +11,36 @@ public class testPrntDual
   : testRefPrntDual
   , ItestPrntDual
 {
+  public ItestPrntDualObject? As_PrntDual { get; set; }
+}
+
+public class testPrntDualObject
+  : testRefPrntDualObject
+  , ItestPrntDualObject
+{
+
+  public testPrntDualObject(decimal parent)
+    : base(parent)
+  {
+  }
 }
 
 public class testRefPrntDual
-  : ItestRefPrntDual
+  : GqlpModelImplementationBase
+  , ItestRefPrntDual
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntDualObject? As_RefPrntDual { get; set; }
+}
+
+public class testRefPrntDualObject
+  : GqlpModelImplementationBase
+  , ItestRefPrntDualObject
 {
   public decimal Parent { get; set; }
+
+  public testRefPrntDualObject(decimal parent)
+  {
+    Parent = parent;
+  }
 }

@@ -15,22 +15,24 @@ namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 public interface ICmptCnstAltDmnOutp
   : Schema_constraint-alt-domain+Output
 {
-  ICmptRefCnstAltDmnOutp<ICmptDomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; }
-  ICmptCnstAltDmnOutpObject AsCnstAltDmnOutp { get; }
+  ICmptRefCnstAltDmnOutp<ICmptDomCnstAltDmnOutp>? AsRefCnstAltDmnOutp { get; }
+  ICmptCnstAltDmnOutpObject? As_CnstAltDmnOutp { get; }
 }
 
 public interface ICmptCnstAltDmnOutpObject
+  : Schema_constraint-alt-domain+Output
 {
 }
 
 public interface ICmptRefCnstAltDmnOutp<TRef>
   : Schema_constraint-alt-domain+Output
 {
-  TRef Asref { get; }
-  ICmptRefCnstAltDmnOutpObject<TRef> AsRefCnstAltDmnOutp { get; }
+  TRef? Asref { get; }
+  ICmptRefCnstAltDmnOutpObject<TRef>? As_RefCnstAltDmnOutp { get; }
 }
 
 public interface ICmptRefCnstAltDmnOutpObject<TRef>
+  : Schema_constraint-alt-domain+Output
 {
 }
 

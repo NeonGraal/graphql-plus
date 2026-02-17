@@ -6,7 +6,9 @@ dual PrntCnstPrntDualGrndInp { :GrndCnstPrntDualGrndInp }
 input AltCnstPrntDualGrndInp { :PrntCnstPrntDualGrndInp alt: Number }
 */
 
-// Generated from Schema constraint-parent-dual-grandparent+Input for Intf
+// Generated from Schema constraint-parent-dual-grandparent+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-parent-dual-grandparent+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -24,6 +26,7 @@ public interface ICmptCnstPrntDualGrndInpObject
 }
 
 public interface ICmptRefCnstPrntDualGrndInp<TRef>
+  : Schema_constraint-parent-dual-grandparent+Input
 {
   TRef AsParent { get; }
   ICmptRefCnstPrntDualGrndInpObject<TRef> AsRefCnstPrntDualGrndInp { get; }
@@ -34,6 +37,7 @@ public interface ICmptRefCnstPrntDualGrndInpObject<TRef>
 }
 
 public interface ICmptGrndCnstPrntDualGrndInp
+  : Schema_constraint-parent-dual-grandparent+Input
 {
   string AsString { get; }
   ICmptGrndCnstPrntDualGrndInpObject AsGrndCnstPrntDualGrndInp { get; }

@@ -1,5 +1,7 @@
 ﻿//HintName: test_category-output_Stat.gen.cs
-// Generated from category-output.graphql+ for Stat
+// Generated from {CurrentDirectory}category-output.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 
 Category ctgrOutp

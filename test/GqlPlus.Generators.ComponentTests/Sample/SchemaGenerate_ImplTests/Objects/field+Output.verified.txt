@@ -2,7 +2,9 @@
 output FieldOutp { field: String }
 */
 
-// Generated from Schema field+Output for Impl
+// Generated from Schema field+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -11,5 +13,5 @@ namespace Components.Gqlp_Schema_field_Output;
 public class CmptFieldOutp
   : ICmptFieldOutp
 {
-public string Field { get; set; }
+  public string Field { get; set; }
 }

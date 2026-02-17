@@ -1,5 +1,7 @@
 ﻿//HintName: test_parent-field+Input_Intf.gen.cs
-// Generated from parent-field+Input.graphql+ for Intf
+// Generated from {CurrentDirectory}parent-field+Input.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -18,6 +20,7 @@ public interface ItestPrntFieldInpObject
 }
 
 public interface ItestRefPrntFieldInp
+  : IGqlpModelImplementationBase
 {
   string AsString { get; }
   ItestRefPrntFieldInpObject AsRefPrntFieldInp { get; }

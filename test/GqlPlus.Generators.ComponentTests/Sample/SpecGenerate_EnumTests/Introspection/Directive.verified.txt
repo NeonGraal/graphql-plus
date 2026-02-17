@@ -15,7 +15,9 @@ output _Directive {
 enum _Location { Operation Variable Field Inline Spread Fragment }
 */
 
-// Generated from Spec Directive for Enum
+// Generated from Spec Directive
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_Directive, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

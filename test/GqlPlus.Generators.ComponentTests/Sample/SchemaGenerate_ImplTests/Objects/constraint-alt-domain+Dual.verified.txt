@@ -4,7 +4,9 @@ dual RefCnstAltDmnDual<$ref:String> { | $ref }
 domain DomCnstAltDmnDual { String /\w+/ }
 */
 
-// Generated from Schema constraint-alt-domain+Dual for Impl
+// Generated from Schema constraint-alt-domain+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-domain+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

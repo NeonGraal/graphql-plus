@@ -1,5 +1,7 @@
 ﻿//HintName: test_-Simple_Intf.gen.cs
-// Generated from -Simple.graphql+ for Intf
+// Generated from {CurrentDirectory}-Simple.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -14,7 +16,7 @@ public interface Itest_DomainRef<TKind>
 public interface Itest_DomainRefObject<TKind>
   : Itest_TypeRefObject<Itest_TypeKind>
 {
-TKind DomainKind { get; }
+  TKind DomainKind { get; }
 }
 
 public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
@@ -26,7 +28,7 @@ public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
 public interface Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
   : Itest_ParentTypeObject<Itest_TypeKind, TItem, TDomainItem>
 {
-TDomain DomainKind { get; }
+  TDomain DomainKind { get; }
 }
 
 public interface Itest_BaseDomainItem
@@ -42,6 +44,7 @@ public interface Itest_BaseDomainItemObject
 }
 
 public interface Itest_DomainItem<TItem>
+  : IGqlpModelImplementationBase
 {
   TItem AsParent { get; }
   Itest_DomainItemObject<TItem> As_DomainItem { get; }
@@ -49,7 +52,7 @@ public interface Itest_DomainItem<TItem>
 
 public interface Itest_DomainItemObject<TItem>
 {
-Itest_Name Domain { get; }
+  Itest_Name Domain { get; }
 }
 
 public interface Itest_DomainValue<TKind,TValue>
@@ -62,10 +65,11 @@ public interface Itest_DomainValue<TKind,TValue>
 public interface Itest_DomainValueObject<TKind,TValue>
   : Itest_DomainRefObject<TKind>
 {
-TValue Value { get; }
+  TValue Value { get; }
 }
 
 public interface Itest_BasicValue
+  : IGqlpModelImplementationBase
 {
   test_DomainKind As_DomainKindBoolean { get; }
   Itest_EnumValue As_EnumValue { get; }
@@ -110,7 +114,7 @@ public interface Itest_DomainLabel
 public interface Itest_DomainLabelObject
   : Itest_BaseDomainItemObject
 {
-Itest_EnumValue Label { get; }
+  Itest_EnumValue Label { get; }
 }
 
 public interface Itest_DomainItemLabel
@@ -192,7 +196,7 @@ public interface Itest_EnumValue
 public interface Itest_EnumValueObject
   : Itest_TypeRefObject<Itest_TypeKind>
 {
-Itest_Name Label { get; }
+  Itest_Name Label { get; }
 }
 
 public interface Itest_UnionRef
@@ -215,5 +219,5 @@ public interface Itest_UnionMember
 public interface Itest_UnionMemberObject
   : Itest_UnionRefObject
 {
-Itest_Name Union { get; }
+  Itest_Name Union { get; }
 }

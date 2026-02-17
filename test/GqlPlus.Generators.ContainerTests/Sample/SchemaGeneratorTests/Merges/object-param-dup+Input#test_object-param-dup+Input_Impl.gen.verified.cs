@@ -1,5 +1,7 @@
 ﻿//HintName: test_object-param-dup+Input_Impl.gen.cs
-// Generated from object-param-dup+Input.graphql+ for Impl
+// Generated from {CurrentDirectory}object-param-dup+Input.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

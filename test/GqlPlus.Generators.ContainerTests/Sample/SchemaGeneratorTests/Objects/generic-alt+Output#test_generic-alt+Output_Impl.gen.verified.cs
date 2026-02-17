@@ -1,5 +1,7 @@
 ﻿//HintName: test_generic-alt+Output_Impl.gen.cs
-// Generated from generic-alt+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}generic-alt+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

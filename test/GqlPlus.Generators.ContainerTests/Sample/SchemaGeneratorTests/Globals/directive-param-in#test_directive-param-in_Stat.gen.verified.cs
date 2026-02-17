@@ -1,5 +1,7 @@
 ﻿//HintName: test_directive-param-in_Stat.gen.cs
-// Generated from directive-param-in.graphql+ for Stat
+// Generated from {CurrentDirectory}directive-param-in.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 
 Directive DrctParamIn

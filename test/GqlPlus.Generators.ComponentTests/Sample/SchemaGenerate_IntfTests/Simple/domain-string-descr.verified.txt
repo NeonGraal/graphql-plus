@@ -2,7 +2,9 @@
 domain DmnStrDescr { String "DomString" "Descr" /a+/ }
 */
 
-// Generated from Schema domain-string-descr for Intf
+// Generated from Schema domain-string-descr
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-string-descr, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

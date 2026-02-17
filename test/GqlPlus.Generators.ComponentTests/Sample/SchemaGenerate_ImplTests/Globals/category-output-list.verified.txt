@@ -3,7 +3,9 @@ category { CtgrOutpList[] }
 output CtgrOutpList { }
 */
 
-// Generated from Schema category-output-list for Impl
+// Generated from Schema category-output-list
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-output-list, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

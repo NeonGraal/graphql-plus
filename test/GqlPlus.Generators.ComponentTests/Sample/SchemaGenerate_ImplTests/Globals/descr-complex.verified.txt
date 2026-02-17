@@ -3,7 +3,9 @@
 output DescrCmpl { }
 */
 
-// Generated from Schema descr-complex for Impl
+// Generated from Schema descr-complex
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-complex, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

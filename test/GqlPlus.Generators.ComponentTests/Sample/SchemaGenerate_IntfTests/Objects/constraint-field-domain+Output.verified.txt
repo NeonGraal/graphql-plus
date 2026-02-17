@@ -4,7 +4,9 @@ output RefCnstFieldDmnOutp<$ref:String> { field: $ref }
 domain DomCnstFieldDmnOutp { String /\w+/ }
 */
 
-// Generated from Schema constraint-field-domain+Output for Intf
+// Generated from Schema constraint-field-domain+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-field-domain+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,13 +24,14 @@ public interface ICmptCnstFieldDmnOutpObject
 }
 
 public interface ICmptRefCnstFieldDmnOutp<TRef>
+  : Schema_constraint-field-domain+Output
 {
   ICmptRefCnstFieldDmnOutpObject<TRef> AsRefCnstFieldDmnOutp { get; }
 }
 
 public interface ICmptRefCnstFieldDmnOutpObject<TRef>
 {
-TRef Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomCnstFieldDmnOutp

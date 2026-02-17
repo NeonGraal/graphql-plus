@@ -30,7 +30,9 @@ dual _Object [Object, obj, %] { }
 union _Simple [Simple] { _Enum _Domain _Union }
 */
 
-// Generated from Spec Definition for Intf
+// Generated from Spec Definition
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Definition, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -47,6 +49,7 @@ public interface string
 }
 
 public interface ICmpt_Basic
+  : Spec_Definition
 {
   Boolean AsBoolean { get; }
   Number AsNumber { get; }
@@ -55,12 +58,14 @@ public interface ICmpt_Basic
 }
 
 public interface ICmpt_Internal
+  : Spec_Definition
 {
   Null AsNull { get; }
   Void AsVoid { get; }
 }
 
 public interface ICmpt_Key
+  : Spec_Definition
 {
   _Basic As_Basic { get; }
   _Internal As_Internal { get; }
@@ -68,6 +73,7 @@ public interface ICmpt_Key
 }
 
 public interface ICmpt_Object
+  : Spec_Definition
 {
   ICmpt_ObjectObject As_Object { get; }
 }
@@ -77,10 +83,12 @@ public interface ICmpt_ObjectObject
 }
 
 public interface ICmpt_Domain
+  : Spec_Definition
 {
 }
 
 public interface ICmpt_Dual
+  : Spec_Definition
 {
   ICmpt_DualObject As_Dual { get; }
 }
@@ -90,10 +98,12 @@ public interface ICmpt_DualObject
 }
 
 public interface ICmpt_Enum
+  : Spec_Definition
 {
 }
 
 public interface ICmpt_Input
+  : Spec_Definition
 {
   ICmpt_InputObject As_Input { get; }
 }
@@ -103,6 +113,7 @@ public interface ICmpt_InputObject
 }
 
 public interface ICmpt_Output
+  : Spec_Definition
 {
   ICmpt_OutputObject As_Output { get; }
 }
@@ -112,10 +123,12 @@ public interface ICmpt_OutputObject
 }
 
 public interface ICmpt_Union
+  : Spec_Definition
 {
 }
 
 public interface ICmpt_Simple
+  : Spec_Definition
 {
   _Enum As_Enum { get; }
   _Domain As_Domain { get; }

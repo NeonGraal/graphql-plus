@@ -3,7 +3,9 @@ input GnrcAltSmplInp { | RefGnrcAltSmplInp<String> }
 input RefGnrcAltSmplInp<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-alt-simple+Input for Impl
+// Generated from Schema generic-alt-simple+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-simple+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

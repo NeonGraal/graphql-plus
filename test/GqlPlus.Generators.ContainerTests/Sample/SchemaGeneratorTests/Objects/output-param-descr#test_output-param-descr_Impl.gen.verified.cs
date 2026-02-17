@@ -1,5 +1,7 @@
 ﻿//HintName: test_output-param-descr_Impl.gen.cs
-// Generated from output-param-descr.graphql+ for Impl
+// Generated from {CurrentDirectory}output-param-descr.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -8,7 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_output_param_descr;
 public class testOutpParamDescr
   : ItestOutpParamDescr
 {
-public ItestFldOutpParamDescr Field (ItestInOutpParamDescr)
+  public ItestFldOutpParamDescr Field (ItestInOutpParamDescr)
 { }
 }
 

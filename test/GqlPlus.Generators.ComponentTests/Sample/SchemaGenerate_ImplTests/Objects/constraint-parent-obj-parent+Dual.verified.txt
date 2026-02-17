@@ -5,7 +5,9 @@ dual PrntCnstPrntObjPrntDual { | String }
 dual AltCnstPrntObjPrntDual { :PrntCnstPrntObjPrntDual alt: Number }
 */
 
-// Generated from Schema constraint-parent-obj-parent+Dual for Impl
+// Generated from Schema constraint-parent-obj-parent+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-obj-parent+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

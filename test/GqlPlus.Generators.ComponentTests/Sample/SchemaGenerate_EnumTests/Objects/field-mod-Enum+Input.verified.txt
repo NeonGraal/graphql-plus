@@ -3,7 +3,9 @@ input FieldModEnumInp { field: String[EnumFieldModEnumInp] }
 enum EnumFieldModEnumInp { value }
 */
 
-// Generated from Schema field-mod-Enum+Input for Enum
+// Generated from Schema field-mod-Enum+Input
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_field-mod-Enum+Input, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -4,7 +4,9 @@ output ObjPrntOutp { :RefObjPrntOutp }
 output RefObjPrntOutp { }
 */
 
-// Generated from Schema object-parent+Output for Intf
+// Generated from Schema object-parent+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-parent+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,6 +24,7 @@ public interface ICmptObjPrntOutpObject
 }
 
 public interface ICmptRefObjPrntOutp
+  : Schema_object-parent+Output
 {
   ICmptRefObjPrntOutpObject AsRefObjPrntOutp { get; }
 }

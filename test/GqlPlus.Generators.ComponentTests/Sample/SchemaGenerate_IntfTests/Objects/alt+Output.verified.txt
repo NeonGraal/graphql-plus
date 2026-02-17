@@ -3,13 +3,16 @@ output AltOutp { | AltAltOutp }
 output AltAltOutp { alt: Number | String }
 */
 
-// Generated from Schema alt+Output for Intf
+// Generated from Schema alt+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_alt_Output;
 
 public interface ICmptAltOutp
+  : Schema_alt+Output
 {
   ICmptAltAltOutp AsAltAltOutp { get; }
   ICmptAltOutpObject AsAltOutp { get; }
@@ -20,6 +23,7 @@ public interface ICmptAltOutpObject
 }
 
 public interface ICmptAltAltOutp
+  : Schema_alt+Output
 {
   string AsString { get; }
   ICmptAltAltOutpObject AsAltAltOutp { get; }
@@ -27,5 +31,5 @@ public interface ICmptAltAltOutp
 
 public interface ICmptAltAltOutpObject
 {
-decimal Alt { get; }
+  decimal Alt { get; }
 }

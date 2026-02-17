@@ -3,7 +3,9 @@ directive @DrctParamDict(InDrctParamDict[String]) { all }
 input InDrctParamDict { }
 */
 
-// Generated from Schema directive-param-dict for Impl
+// Generated from Schema directive-param-dict
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_directive-param-dict, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

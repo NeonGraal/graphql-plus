@@ -1,11 +1,14 @@
 ﻿//HintName: test_object-field+Input_Intf.gen.cs
-// Generated from object-field+Input.graphql+ for Intf
+// Generated from {CurrentDirectory}object-field+Input.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_Input;
 
 public interface ItestObjFieldInp
+  : IGqlpModelImplementationBase
 {
   ItestObjFieldInpObject AsObjFieldInp { get; }
 }
@@ -16,6 +19,7 @@ public interface ItestObjFieldInpObject
 }
 
 public interface ItestFldObjFieldInp
+  : IGqlpModelImplementationBase
 {
   ItestFldObjFieldInpObject AsFldObjFieldInp { get; }
 }

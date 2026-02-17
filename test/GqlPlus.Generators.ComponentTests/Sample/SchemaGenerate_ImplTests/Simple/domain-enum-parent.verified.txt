@@ -4,7 +4,9 @@ domain PrntDmnEnumPrnt { Enum prnt_dmnEnumPrnt }
 enum EnumDmnEnumPrnt { enum_dmnEnumPrnt prnt_dmnEnumPrnt }
 */
 
-// Generated from Schema domain-enum-parent for Impl
+// Generated from Schema domain-enum-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-parent, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

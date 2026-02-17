@@ -3,7 +3,9 @@ output PrntOutp { :RefPrntOutp }
 output RefPrntOutp { parent: Number | String }
 */
 
-// Generated from Schema parent+Output for Intf
+// Generated from Schema parent+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -21,6 +23,7 @@ public interface ICmptPrntOutpObject
 }
 
 public interface ICmptRefPrntOutp
+  : Schema_parent+Output
 {
   string AsString { get; }
   ICmptRefPrntOutpObject AsRefPrntOutp { get; }
@@ -28,5 +31,5 @@ public interface ICmptRefPrntOutp
 
 public interface ICmptRefPrntOutpObject
 {
-decimal Parent { get; }
+  decimal Parent { get; }
 }

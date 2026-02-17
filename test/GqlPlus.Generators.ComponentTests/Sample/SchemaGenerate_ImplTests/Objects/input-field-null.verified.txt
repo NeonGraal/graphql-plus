@@ -3,7 +3,9 @@ input InpFieldNull { field: FldInpFieldNull? = null }
 dual FldInpFieldNull { }
 */
 
-// Generated from Schema input-field-null for Impl
+// Generated from Schema input-field-null
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-null, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

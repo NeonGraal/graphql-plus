@@ -1,5 +1,7 @@
 ﻿//HintName: test_parent-param-diff+Output_Impl.gen.cs
-// Generated from parent-param-diff+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}parent-param-diff+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -9,7 +11,7 @@ public class testPrntParamDiffOutp<TA>
   : testRefPrntParamDiffOutp<TA>
   , ItestPrntParamDiffOutp<TA>
 {
-public TA Field { get; set; }
+  public TA Field { get; set; }
 }
 
 public class testRefPrntParamDiffOutp<TB>

@@ -4,7 +4,9 @@ output RefGnrcEnumOutp<$type:_Enum> { field: $type }
 enum EnumGnrcEnumOutp { gnrcEnumOutp }
 */
 
-// Generated from Schema generic-enum+Output for Enum
+// Generated from Schema generic-enum+Output
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_generic-enum+Output, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

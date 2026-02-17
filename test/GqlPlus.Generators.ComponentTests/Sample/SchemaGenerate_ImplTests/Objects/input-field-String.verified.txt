@@ -2,7 +2,9 @@
 input InpFieldStr { field: String = 'default' }
 */
 
-// Generated from Schema input-field-String for Impl
+// Generated from Schema input-field-String
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-String, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

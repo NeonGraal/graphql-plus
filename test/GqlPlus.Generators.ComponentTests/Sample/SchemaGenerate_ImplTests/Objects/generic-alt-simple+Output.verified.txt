@@ -3,7 +3,9 @@ output GnrcAltSmplOutp { | RefGnrcAltSmplOutp<String> }
 output RefGnrcAltSmplOutp<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-alt-simple+Output for Impl
+// Generated from Schema generic-alt-simple+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-simple+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

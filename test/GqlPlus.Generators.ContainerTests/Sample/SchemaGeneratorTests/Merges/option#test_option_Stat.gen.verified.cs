@@ -1,5 +1,7 @@
 ﻿//HintName: test_option_Stat.gen.cs
-// Generated from option.graphql+ for Stat
+// Generated from {CurrentDirectory}option.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 
 Option Schema

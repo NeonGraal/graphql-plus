@@ -3,7 +3,9 @@ domain DmnEnumDescr { enum "DomEnum" "Descr" dmnEnumDescr }
 enum EnumDmnEnumDescr { dmnEnumDescr }
 */
 
-// Generated from Schema domain-enum-descr for Enum
+// Generated from Schema domain-enum-descr
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_domain-enum-descr, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

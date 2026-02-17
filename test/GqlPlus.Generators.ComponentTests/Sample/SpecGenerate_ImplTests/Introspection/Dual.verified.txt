@@ -4,7 +4,9 @@ output _DualField {
     }
 */
 
-// Generated from Spec Dual for Impl
+// Generated from Spec Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

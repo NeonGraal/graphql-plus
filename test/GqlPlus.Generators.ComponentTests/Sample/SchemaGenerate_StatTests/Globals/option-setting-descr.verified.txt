@@ -2,7 +2,9 @@
 option Schema { "Option" "Descr" descr=true }
 */
 
-// Generated from Schema option-setting-descr for Stat
+// Generated from Schema option-setting-descr
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_option-setting-descr, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Option Schema

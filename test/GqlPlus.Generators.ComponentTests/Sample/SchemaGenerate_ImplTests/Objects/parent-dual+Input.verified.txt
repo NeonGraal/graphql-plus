@@ -3,7 +3,9 @@ input PrntDualInp { :RefPrntDualInp }
 dual RefPrntDualInp { parent: Number | String }
 */
 
-// Generated from Schema parent-dual+Input for Impl
+// Generated from Schema parent-dual+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-dual+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

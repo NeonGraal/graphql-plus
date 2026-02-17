@@ -2,7 +2,9 @@
 input FieldInp { field: String }
 */
 
-// Generated from Schema field+Input for Impl
+// Generated from Schema field+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

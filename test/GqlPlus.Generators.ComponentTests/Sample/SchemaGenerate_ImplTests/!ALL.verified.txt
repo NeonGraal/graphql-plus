@@ -1,4 +1,6 @@
-﻿// Generated from Schema !ALL for Impl
+﻿// Generated from Schema !ALL
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_!ALL, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -119,7 +121,7 @@ public class CmptAltOutp
 public class CmptAltAltOutp
   : ICmptAltAltOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptAltDescrDual
@@ -215,7 +217,7 @@ public class CmptAltModBoolOutp
 public class CmptAltAltModBoolOutp
   : ICmptAltAltModBoolOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptAltModParamDual<TMod>
@@ -248,7 +250,7 @@ public class CmptAltModParamOutp<TMod>
 public class CmptAltAltModParamOutp
   : ICmptAltAltModParamOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptAltSmplDual
@@ -392,7 +394,7 @@ public class CmptAltCnstAltDualOutp
   : CmptPrntCnstAltDualOutp
   , ICmptAltCnstAltDualOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptCnstAltObjDual
@@ -458,7 +460,7 @@ public class CmptAltCnstAltObjOutp
   : CmptPrntCnstAltObjOutp
   , ICmptAltCnstAltObjOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptCnstDomEnumDual
@@ -503,7 +505,7 @@ public class CmptCnstDomEnumOutp
 public class CmptRefCnstDomEnumOutp<TType>
   : ICmptRefCnstDomEnumOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }
 
 public class CmptJustCnstDomEnumOutp
@@ -542,7 +544,7 @@ public class CmptCnstEnumOutp
 public class CmptRefCnstEnumOutp<TType>
   : ICmptRefCnstEnumOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }
 
 public class CmptCnstEnumPrntDual
@@ -575,7 +577,7 @@ public class CmptCnstEnumPrntOutp
 public class CmptRefCnstEnumPrntOutp<TType>
   : ICmptRefCnstEnumPrntOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }
 
 public class CmptCnstFieldDmnDual
@@ -623,7 +625,7 @@ public class CmptCnstFieldDmnOutp
 public class CmptRefCnstFieldDmnOutp<TRef>
   : ICmptRefCnstFieldDmnOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class CmptDomCnstFieldDmnOutp
@@ -689,7 +691,7 @@ public class CmptCnstFieldDualOutp
 public class CmptRefCnstFieldDualOutp<TRef>
   : ICmptRefCnstFieldDualOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class CmptPrntCnstFieldDualOutp
@@ -701,7 +703,7 @@ public class CmptAltCnstFieldDualOutp
   : CmptPrntCnstFieldDualOutp
   , ICmptAltCnstFieldDualOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptCnstFieldObjDual
@@ -761,7 +763,7 @@ public class CmptCnstFieldObjOutp
 public class CmptRefCnstFieldObjOutp<TRef>
   : ICmptRefCnstFieldObjOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class CmptPrntCnstFieldObjOutp
@@ -773,7 +775,7 @@ public class CmptAltCnstFieldObjOutp
   : CmptPrntCnstFieldObjOutp
   , ICmptAltCnstFieldObjOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptCnstPrntDualGrndDual
@@ -860,7 +862,7 @@ public class CmptAltCnstPrntDualGrndOutp
   : CmptPrntCnstPrntDualGrndOutp
   , ICmptAltCnstPrntDualGrndOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptCnstPrntDualPrntDual
@@ -929,7 +931,7 @@ public class CmptAltCnstPrntDualPrntOutp
   : CmptPrntCnstPrntDualPrntOutp
   , ICmptAltCnstPrntDualPrntOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptCnstPrntEnumDual
@@ -962,7 +964,7 @@ public class CmptCnstPrntEnumOutp
 public class CmptRefCnstPrntEnumOutp<TType>
   : ICmptRefCnstPrntEnumOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }
 
 public class CmptCnstPrntObjPrntDual
@@ -1031,7 +1033,7 @@ public class CmptAltCnstPrntObjPrntOutp
   : CmptPrntCnstPrntObjPrntOutp
   , ICmptAltCnstPrntObjPrntOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptFieldDual
@@ -1049,7 +1051,7 @@ public class CmptFieldInp
 public class CmptFieldOutp
   : ICmptFieldOutp
 {
-public string Field { get; set; }
+  public string Field { get; set; }
 }
 
 public class CmptFieldDescrDual
@@ -1067,7 +1069,7 @@ public class CmptFieldDescrInp
 public class CmptFieldDescrOutp
   : ICmptFieldDescrOutp
 {
-public string Field { get; set; }
+  public string Field { get; set; }
 }
 
 public class CmptFieldDualDual
@@ -1097,7 +1099,7 @@ public class CmptFldFieldDualInp
 public class CmptFieldDualOutp
   : ICmptFieldDualOutp
 {
-public ICmptFldFieldDualOutp Field { get; set; }
+  public ICmptFldFieldDualOutp Field { get; set; }
 }
 
 public class CmptFldFieldDualOutp
@@ -1121,7 +1123,7 @@ public class CmptFieldEnumInp
 public class CmptFieldEnumOutp
   : ICmptFieldEnumOutp
 {
-public CmptEnumFieldEnumOutp Field { get; set; }
+  public CmptEnumFieldEnumOutp Field { get; set; }
 }
 
 public class CmptFieldEnumPrntDual
@@ -1139,7 +1141,7 @@ public class CmptFieldEnumPrntInp
 public class CmptFieldEnumPrntOutp
   : ICmptFieldEnumPrntOutp
 {
-public CmptEnumFieldEnumPrntOutp Field { get; set; }
+  public CmptEnumFieldEnumPrntOutp Field { get; set; }
 }
 
 public class CmptFieldModEnumDual
@@ -1157,7 +1159,7 @@ public class CmptFieldModEnumInp
 public class CmptFieldModEnumOutp
   : ICmptFieldModEnumOutp
 {
-public IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; set; }
+  public IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; set; }
 }
 
 public class CmptFieldModParamDual<TMod>
@@ -1187,13 +1189,13 @@ public class CmptFldFieldModParamInp
 public class CmptFieldModParamOutp<TMod>
   : ICmptFieldModParamOutp<TMod>
 {
-public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
+  public IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; set; }
 }
 
 public class CmptFldFieldModParamOutp
   : ICmptFldFieldModParamOutp
 {
-public decimal Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public class CmptFieldObjDual
@@ -1223,13 +1225,13 @@ public class CmptFldFieldObjInp
 public class CmptFieldObjOutp
   : ICmptFieldObjOutp
 {
-public ICmptFldFieldObjOutp Field { get; set; }
+  public ICmptFldFieldObjOutp Field { get; set; }
 }
 
 public class CmptFldFieldObjOutp
   : ICmptFldFieldObjOutp
 {
-public decimal Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public class CmptFieldSmplDual
@@ -1247,7 +1249,7 @@ public class CmptFieldSmplInp
 public class CmptFieldSmplOutp
   : ICmptFieldSmplOutp
 {
-public decimal Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public class CmptFieldTypeDescrDual
@@ -1265,7 +1267,7 @@ public class CmptFieldTypeDescrInp
 public class CmptFieldTypeDescrOutp
   : ICmptFieldTypeDescrOutp
 {
-public decimal Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public class CmptFieldValueDual
@@ -1283,7 +1285,7 @@ public class CmptFieldValueInp
 public class CmptFieldValueOutp
   : ICmptFieldValueOutp
 {
-public CmptEnumFieldValueOutp Field { get; set; }
+  public CmptEnumFieldValueOutp Field { get; set; }
 }
 
 public class CmptFieldValueDescrDual
@@ -1301,7 +1303,7 @@ public class CmptFieldValueDescrInp
 public class CmptFieldValueDescrOutp
   : ICmptFieldValueDescrOutp
 {
-public CmptEnumFieldValueDescrOutp Field { get; set; }
+  public CmptEnumFieldValueDescrOutp Field { get; set; }
 }
 
 public class CmptGnrcAltDual<TType>
@@ -1502,7 +1504,7 @@ public class CmptRefGnrcAltParamOutp<TRef>
 public class CmptAltGnrcAltParamOutp
   : ICmptAltGnrcAltParamOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptGnrcAltSmplDual
@@ -1550,7 +1552,7 @@ public class CmptGnrcDescrInp<TType>
 public class CmptGnrcDescrOutp<TType>
   : ICmptGnrcDescrOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }
 
 public class CmptGnrcEnumDual
@@ -1583,7 +1585,7 @@ public class CmptGnrcEnumOutp
 public class CmptRefGnrcEnumOutp<TType>
   : ICmptRefGnrcEnumOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }
 
 public class CmptGnrcFieldDual<TType>
@@ -1601,7 +1603,7 @@ public class CmptGnrcFieldInp<TType>
 public class CmptGnrcFieldOutp<TType>
   : ICmptGnrcFieldOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }
 
 public class CmptGnrcFieldArgDual<TType>
@@ -1629,7 +1631,7 @@ public class CmptRefGnrcFieldArgInp<TRef>
 public class CmptGnrcFieldArgOutp<TType>
   : ICmptGnrcFieldArgOutp<TType>
 {
-public ICmptRefGnrcFieldArgOutp<TType> Field { get; set; }
+  public ICmptRefGnrcFieldArgOutp<TType> Field { get; set; }
 }
 
 public class CmptRefGnrcFieldArgOutp<TRef>
@@ -1674,7 +1676,7 @@ public class CmptAltGnrcFieldDualInp
 public class CmptGnrcFieldDualOutp
   : ICmptGnrcFieldDualOutp
 {
-public ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; set; }
+  public ICmptRefGnrcFieldDualOutp<ICmptAltGnrcFieldDualOutp> Field { get; set; }
 }
 
 public class CmptRefGnrcFieldDualOutp<TRef>
@@ -1725,7 +1727,7 @@ public class CmptAltGnrcFieldParamInp
 public class CmptGnrcFieldParamOutp
   : ICmptGnrcFieldParamOutp
 {
-public ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; set; }
+  public ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; set; }
 }
 
 public class CmptRefGnrcFieldParamOutp<TRef>
@@ -1736,7 +1738,7 @@ public class CmptRefGnrcFieldParamOutp<TRef>
 public class CmptAltGnrcFieldParamOutp
   : ICmptAltGnrcFieldParamOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptGnrcPrntDual<TType>
@@ -1937,7 +1939,7 @@ public class CmptGnrcPrntEnumChildOutp
 public class CmptFieldGnrcPrntEnumChildOutp<TRef>
   : ICmptFieldGnrcPrntEnumChildOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class CmptGnrcPrntEnumDomDual
@@ -1985,7 +1987,7 @@ public class CmptGnrcPrntEnumDomOutp
 public class CmptFieldGnrcPrntEnumDomOutp<TRef>
   : ICmptFieldGnrcPrntEnumDomOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class CmptDomGnrcPrntEnumDomOutp
@@ -2027,7 +2029,7 @@ public class CmptGnrcPrntEnumPrntOutp
 public class CmptFieldGnrcPrntEnumPrntOutp<TRef>
   : ICmptFieldGnrcPrntEnumPrntOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class CmptGnrcPrntParamDual
@@ -2078,7 +2080,7 @@ public class CmptRefGnrcPrntParamOutp<TRef>
 public class CmptAltGnrcPrntParamOutp
   : ICmptAltGnrcPrntParamOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptGnrcPrntParamPrntDual
@@ -2129,7 +2131,7 @@ public class CmptRefGnrcPrntParamPrntOutp<TRef>
 public class CmptAltGnrcPrntParamPrntOutp
   : ICmptAltGnrcPrntParamPrntOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }
 
 public class CmptGnrcPrntSmplEnumDual
@@ -2165,7 +2167,7 @@ public class CmptGnrcPrntSmplEnumOutp
 public class CmptFieldGnrcPrntSmplEnumOutp<TRef>
   : ICmptFieldGnrcPrntSmplEnumOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class CmptGnrcPrntStrDomDual
@@ -2213,7 +2215,7 @@ public class CmptGnrcPrntStrDomOutp
 public class CmptFieldGnrcPrntStrDomOutp<TRef>
   : ICmptFieldGnrcPrntStrDomOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class CmptDomGnrcPrntStrDomOutp
@@ -2252,7 +2254,7 @@ public class CmptGnrcValueOutp
 public class CmptRefGnrcValueOutp<TType>
   : ICmptRefGnrcValueOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }
 
 public class CmptInpFieldDescrNmbr
@@ -2299,7 +2301,7 @@ public class CmptInpFieldStr
 public class CmptOutpDescrParam
   : ICmptOutpDescrParam
 {
-public ICmptFldOutpDescrParam Field (ICmptInOutpDescrParam)
+  public ICmptFldOutpDescrParam Field (ICmptInOutpDescrParam)
 { }
 }
 
@@ -2317,7 +2319,7 @@ public class CmptInOutpDescrParam
 public class CmptOutpParam
   : ICmptOutpParam
 {
-public ICmptFldOutpParam Field (ICmptInOutpParam)
+  public ICmptFldOutpParam Field (ICmptInOutpParam)
 { }
 }
 
@@ -2335,7 +2337,7 @@ public class CmptInOutpParam
 public class CmptOutpParamDescr
   : ICmptOutpParamDescr
 {
-public ICmptFldOutpParamDescr Field (ICmptInOutpParamDescr)
+  public ICmptFldOutpParamDescr Field (ICmptInOutpParamDescr)
 { }
 }
 
@@ -2353,7 +2355,7 @@ public class CmptInOutpParamDescr
 public class CmptOutpParamModDmn
   : ICmptOutpParamModDmn
 {
-public ICmptDomOutpParamModDmn Field (IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn>)
+  public ICmptDomOutpParamModDmn Field (IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn>)
 { }
 }
 
@@ -2372,7 +2374,7 @@ public class CmptDomOutpParamModDmn
 public class CmptOutpParamModParam<TMod>
   : ICmptOutpParamModParam<TMod>
 {
-public ICmptDomOutpParamModParam Field (IDictionary<TMod, ICmptInOutpParamModParam>)
+  public ICmptDomOutpParamModParam Field (IDictionary<TMod, ICmptInOutpParamModParam>)
 { }
 }
 
@@ -2391,7 +2393,7 @@ public class CmptDomOutpParamModParam
 public class CmptOutpParamTypeDescr
   : ICmptOutpParamTypeDescr
 {
-public ICmptFldOutpParamTypeDescr Field (ICmptInOutpParamTypeDescr)
+  public ICmptFldOutpParamTypeDescr Field (ICmptInOutpParamTypeDescr)
 { }
 }
 
@@ -2414,21 +2416,21 @@ public class CmptOutpPrntGnrc
 public class CmptRefOutpPrntGnrc<TType>
   : ICmptRefOutpPrntGnrc<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }
 
 public class CmptOutpPrntParam
   : CmptPrntOutpPrntParam
   , ICmptOutpPrntParam
 {
-public ICmptFldOutpPrntParam Field (ICmptInOutpPrntParam)
+  public ICmptFldOutpPrntParam Field (ICmptInOutpPrntParam)
 { }
 }
 
 public class CmptPrntOutpPrntParam
   : ICmptPrntOutpPrntParam
 {
-public ICmptFldOutpPrntParam Field (ICmptPrntOutpPrntParamIn)
+  public ICmptFldOutpPrntParam Field (ICmptPrntOutpPrntParamIn)
 { }
 }
 
@@ -2482,7 +2484,7 @@ public class CmptPrntOutp
 public class CmptRefPrntOutp
   : ICmptRefPrntOutp
 {
-public decimal Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public class CmptPrntAltDual
@@ -2518,7 +2520,7 @@ public class CmptPrntAltOutp
 public class CmptRefPrntAltOutp
   : ICmptRefPrntAltOutp
 {
-public decimal Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public class CmptPrntDescrDual
@@ -2554,7 +2556,7 @@ public class CmptPrntDescrOutp
 public class CmptRefPrntDescrOutp
   : ICmptRefPrntDescrOutp
 {
-public decimal Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public class CmptPrntDualDual
@@ -2623,13 +2625,13 @@ public class CmptPrntFieldOutp
   : CmptRefPrntFieldOutp
   , ICmptPrntFieldOutp
 {
-public decimal Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public class CmptRefPrntFieldOutp
   : ICmptRefPrntFieldOutp
 {
-public decimal Parent { get; set; }
+  public decimal Parent { get; set; }
 }
 
 public class CmptPrntParamDiffDual<TA>
@@ -2660,7 +2662,7 @@ public class CmptPrntParamDiffOutp<TA>
   : CmptRefPrntParamDiffOutp<TA>
   , ICmptPrntParamDiffOutp<TA>
 {
-public TA Field { get; set; }
+  public TA Field { get; set; }
 }
 
 public class CmptRefPrntParamDiffOutp<TB>
@@ -2696,7 +2698,7 @@ public class CmptPrntParamSameOutp<TA>
   : CmptRefPrntParamSameOutp<TA>
   , ICmptPrntParamSameOutp<TA>
 {
-public TA Field { get; set; }
+  public TA Field { get; set; }
 }
 
 public class CmptRefPrntParamSameOutp<TA>
@@ -2893,8 +2895,8 @@ public class CmptObjCnstInp<TType>
 public class CmptObjCnstOutp<TType>
   : ICmptObjCnstOutp<TType>
 {
-public TType Field { get; set; }
-public TType Str { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
 }
 
 public class CmptObjFieldDual
@@ -2922,7 +2924,7 @@ public class CmptFldObjFieldInp
 public class CmptObjFieldOutp
   : ICmptObjFieldOutp
 {
-public ICmptFldObjFieldOutp Field { get; set; }
+  public ICmptFldObjFieldOutp Field { get; set; }
 }
 
 public class CmptFldObjFieldOutp
@@ -2955,7 +2957,7 @@ public class CmptFldObjFieldAliasInp
 public class CmptObjFieldAliasOutp
   : ICmptObjFieldAliasOutp
 {
-public ICmptFldObjFieldAliasOutp Field { get; set; }
+  public ICmptFldObjFieldAliasOutp Field { get; set; }
 }
 
 public class CmptFldObjFieldAliasOutp
@@ -2978,7 +2980,7 @@ public class CmptObjFieldEnumAliasInp
 public class CmptObjFieldEnumAliasOutp
   : ICmptObjFieldEnumAliasOutp
 {
-public bool Field { get; set; }
+  public bool Field { get; set; }
 }
 
 public class CmptObjFieldEnumValueDual
@@ -2996,7 +2998,7 @@ public class CmptObjFieldEnumValueInp
 public class CmptObjFieldEnumValueOutp
   : ICmptObjFieldEnumValueOutp
 {
-public bool Field { get; set; }
+  public bool Field { get; set; }
 }
 
 public class CmptObjFieldTypeAliasDual
@@ -3014,7 +3016,7 @@ public class CmptObjFieldTypeAliasInp
 public class CmptObjFieldTypeAliasOutp
   : ICmptObjFieldTypeAliasOutp
 {
-public string Field { get; set; }
+  public string Field { get; set; }
 }
 
 public class CmptObjParamDual<TTest,TType>
@@ -3034,8 +3036,8 @@ public class CmptObjParamInp<TTest,TType>
 public class CmptObjParamOutp<TTest,TType>
   : ICmptObjParamOutp<TTest,TType>
 {
-public TTest Test { get; set; }
-public TType Type { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
 }
 
 public class CmptObjParamDupDual<TTest>
@@ -3055,8 +3057,8 @@ public class CmptObjParamDupInp<TTest>
 public class CmptObjParamDupOutp<TTest>
   : ICmptObjParamDupOutp<TTest>
 {
-public TTest Test { get; set; }
-public TTest Type { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
 }
 
 public class CmptObjPrntDual
@@ -3095,7 +3097,7 @@ public class CmptRefObjPrntOutp
 public class CmptOutpFieldParam
   : ICmptOutpFieldParam
 {
-public ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1)
+  public ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1)
 { }
 }
 
@@ -3115,21 +3117,24 @@ public class CmptFldOutpFieldParam
 }
 
 public class CmptUnionAlias
-  : ICmptUnionAlias
+  : Schema_!ALL
+  , ICmptUnionAlias
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
 
 public class CmptUnionDiff
-  : ICmptUnionDiff
+  : Schema_!ALL
+  , ICmptUnionDiff
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
 
 public class CmptUnionSame
-  : ICmptUnionSame
+  : Schema_!ALL
+  , ICmptUnionSame
 {
   public Boolean AsBoolean { get; set; }
 }
@@ -3142,7 +3147,8 @@ public class CmptUnionSamePrnt
 }
 
 public class CmptPrntUnionSamePrnt
-  : ICmptPrntUnionSamePrnt
+  : Schema_!ALL
+  , ICmptPrntUnionSamePrnt
 {
   public String AsString { get; set; }
 }
@@ -3346,7 +3352,8 @@ public class CmptPrntDmnStrPrntDescr
 }
 
 public class CmptUnionDescr
-  : ICmptUnionDescr
+  : Schema_!ALL
+  , ICmptUnionDescr
 {
   public Number AsNumber { get; set; }
 }
@@ -3359,7 +3366,8 @@ public class CmptUnionPrnt
 }
 
 public class CmptPrntUnionPrnt
-  : ICmptPrntUnionPrnt
+  : Schema_!ALL
+  , ICmptPrntUnionPrnt
 {
   public Number AsNumber { get; set; }
 }
@@ -3372,7 +3380,8 @@ public class CmptUnionPrntDescr
 }
 
 public class CmptPrntUnionPrntDescr
-  : ICmptPrntUnionPrntDescr
+  : Schema_!ALL
+  , ICmptPrntUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
@@ -3385,7 +3394,8 @@ public class CmptUnionPrntDup
 }
 
 public class CmptPrntUnionPrntDup
-  : ICmptPrntUnionPrntDup
+  : Schema_!ALL
+  , ICmptPrntUnionPrntDup
 {
   public Number AsNumber { get; set; }
 }

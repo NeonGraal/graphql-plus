@@ -15,7 +15,9 @@ output _Category {
 enum _Resolution { Parallel Sequential Single }
 */
 
-// Generated from Spec Category for Impl
+// Generated from Spec Category
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Category, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -25,14 +27,14 @@ public class Cmpt_Categories
   : Cmpt_AndType
   , ICmpt_Categories
 {
-public ICmpt_Category Category { get; set; }
+  public ICmpt_Category Category { get; set; }
 }
 
 public class Cmpt_Category
   : Cmpt_Aliased
   , ICmpt_Category
 {
-public Cmpt_Resolution Resolution { get; set; }
-public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
-public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+  public Cmpt_Resolution Resolution { get; set; }
+  public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 }

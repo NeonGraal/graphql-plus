@@ -3,18 +3,21 @@ output FieldModEnumOutp { field: String[EnumFieldModEnumOutp] }
 enum EnumFieldModEnumOutp { value }
 */
 
-// Generated from Schema field-mod-Enum+Output for Intf
+// Generated from Schema field-mod-Enum+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-mod-Enum+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_mod_Enum_Output;
 
 public interface ICmptFieldModEnumOutp
+  : Schema_field-mod-Enum+Output
 {
   ICmptFieldModEnumOutpObject AsFieldModEnumOutp { get; }
 }
 
 public interface ICmptFieldModEnumOutpObject
 {
-IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; }
+  IDictionary<CmptEnumFieldModEnumOutp, string> Field { get; }
 }

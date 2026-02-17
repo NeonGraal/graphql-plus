@@ -4,7 +4,9 @@ output ObjFieldOutp { field: FldObjFieldOutp }
 output FldObjFieldOutp { }
 */
 
-// Generated from Schema object-field+Output for Impl
+// Generated from Schema object-field+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -13,7 +15,7 @@ namespace Components.Gqlp_Schema_object_field_Output;
 public class CmptObjFieldOutp
   : ICmptObjFieldOutp
 {
-public ICmptFldObjFieldOutp Field { get; set; }
+  public ICmptFldObjFieldOutp Field { get; set; }
 }
 
 public class CmptFldObjFieldOutp

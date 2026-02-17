@@ -5,13 +5,16 @@ enum EnumCnstDomEnumOutp { cnstDomEnumOutp other }
 domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
 */
 
-// Generated from Schema constraint-dom-enum+Output for Intf
+// Generated from Schema constraint-dom-enum+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-dom-enum+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
 
 public interface ICmptCnstDomEnumOutp
+  : Schema_constraint-dom-enum+Output
 {
   ICmptRefCnstDomEnumOutp<CmptEnumCnstDomEnumOutp> AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; }
   ICmptCnstDomEnumOutpObject AsCnstDomEnumOutp { get; }
@@ -22,13 +25,14 @@ public interface ICmptCnstDomEnumOutpObject
 }
 
 public interface ICmptRefCnstDomEnumOutp<TType>
+  : Schema_constraint-dom-enum+Output
 {
   ICmptRefCnstDomEnumOutpObject<TType> AsRefCnstDomEnumOutp { get; }
 }
 
 public interface ICmptRefCnstDomEnumOutpObject<TType>
 {
-TType Field { get; }
+  TType Field { get; }
 }
 
 public interface ICmptJustCnstDomEnumOutp

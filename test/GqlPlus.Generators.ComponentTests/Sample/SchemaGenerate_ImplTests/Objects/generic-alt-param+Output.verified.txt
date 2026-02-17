@@ -4,7 +4,9 @@ output RefGnrcAltParamOutp<$ref:_Output> { | $ref }
 output AltGnrcAltParamOutp { alt: Number | String }
 */
 
-// Generated from Schema generic-alt-param+Output for Impl
+// Generated from Schema generic-alt-param+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-param+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -23,5 +25,5 @@ public class CmptRefGnrcAltParamOutp<TRef>
 public class CmptAltGnrcAltParamOutp
   : ICmptAltGnrcAltParamOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }

@@ -4,13 +4,16 @@ category { DescrBtwn }
 output DescrBtwn { }
 */
 
-// Generated from Schema descr-between for Intf
+// Generated from Schema descr-between
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_descr-between, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_descr_between;
 
 public interface ICmptDescrBtwn
+  : Schema_descr-between
 {
   ICmptDescrBtwnObject AsDescrBtwn { get; }
 }

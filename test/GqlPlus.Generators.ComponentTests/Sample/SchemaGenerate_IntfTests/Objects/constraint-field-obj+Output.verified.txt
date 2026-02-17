@@ -5,7 +5,9 @@ output PrntCnstFieldObjOutp { | String }
 output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
 */
 
-// Generated from Schema constraint-field-obj+Output for Intf
+// Generated from Schema constraint-field-obj+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-field-obj+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -23,16 +25,18 @@ public interface ICmptCnstFieldObjOutpObject
 }
 
 public interface ICmptRefCnstFieldObjOutp<TRef>
+  : Schema_constraint-field-obj+Output
 {
   ICmptRefCnstFieldObjOutpObject<TRef> AsRefCnstFieldObjOutp { get; }
 }
 
 public interface ICmptRefCnstFieldObjOutpObject<TRef>
 {
-TRef Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptPrntCnstFieldObjOutp
+  : Schema_constraint-field-obj+Output
 {
   string AsString { get; }
   ICmptPrntCnstFieldObjOutpObject AsPrntCnstFieldObjOutp { get; }
@@ -51,5 +55,5 @@ public interface ICmptAltCnstFieldObjOutp
 public interface ICmptAltCnstFieldObjOutpObject
   : ICmptPrntCnstFieldObjOutpObject
 {
-decimal Alt { get; }
+  decimal Alt { get; }
 }

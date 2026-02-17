@@ -3,7 +3,9 @@ input PrntDescrInp { : "Test" "Descr" RefPrntDescrInp }
 input RefPrntDescrInp { parent: Number | String }
 */
 
-// Generated from Schema parent-descr+Input for Impl
+// Generated from Schema parent-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-descr+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

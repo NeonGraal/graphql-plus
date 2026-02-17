@@ -3,7 +3,9 @@ dual ObjParamDual<$test:String> { test: $test }
 dual ObjParamDual<$type:String> { type: $type }
 */
 
-// Generated from Schema object-param+Dual for Impl
+// Generated from Schema object-param+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-param+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

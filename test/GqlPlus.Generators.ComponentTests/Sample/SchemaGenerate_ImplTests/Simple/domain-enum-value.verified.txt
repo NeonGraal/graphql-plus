@@ -3,7 +3,9 @@ domain DmnEnumValue { Enum EnumDmnEnumValue.dmnEnumValue }
 enum EnumDmnEnumValue { dmnEnumValue }
 */
 
-// Generated from Schema domain-enum-value for Impl
+// Generated from Schema domain-enum-value
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-value, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

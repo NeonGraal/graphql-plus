@@ -5,7 +5,9 @@ input PrntCnstAltObjInp { | String }
 input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
 */
 
-// Generated from Schema constraint-alt-obj+Input for Impl
+// Generated from Schema constraint-alt-obj+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-obj+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

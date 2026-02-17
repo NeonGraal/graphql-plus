@@ -1,5 +1,7 @@
 ﻿//HintName: test_union-parent-descr_Intf.gen.cs
-// Generated from union-parent-descr.graphql+ for Intf
+// Generated from {CurrentDirectory}union-parent-descr.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -12,6 +14,7 @@ public interface ItestUnionPrntDescr
 }
 
 public interface ItestPrntUnionPrntDescr
+  : IGqlpModelImplementationBase
 {
   Number AsNumber { get; }
 }

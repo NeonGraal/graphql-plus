@@ -17,4 +17,7 @@ public sealed class GqlpModelOptions(string baseNamespace, string typePrefix)
     : base.Equals(obj);
   public override int GetHashCode()
     => HashCode.Combine(BaseNamespace, TypePrefix);
+
+  public override string ToString()
+    => $"BaseNamespace: {BaseNamespace}, TypePrefix: {TypePrefix}";
 }

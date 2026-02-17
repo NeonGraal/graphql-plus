@@ -3,7 +3,9 @@ input GnrcFieldArgInp<$type:String> { field: RefGnrcFieldArgInp<$type> }
 input RefGnrcFieldArgInp<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-field-arg+Input for Impl
+// Generated from Schema generic-field-arg+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-arg+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

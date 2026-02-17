@@ -5,13 +5,16 @@ enum EnumCnstPrntEnumInp { :ParentCnstPrntEnumInp cnstPrntEnumInp }
 enum ParentCnstPrntEnumInp { parentCnstPrntEnumInp }
 */
 
-// Generated from Schema constraint-parent-enum+Input for Intf
+// Generated from Schema constraint-parent-enum+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-parent-enum+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_constraint_parent_enum_Input;
 
 public interface ICmptCnstPrntEnumInp
+  : Schema_constraint-parent-enum+Input
 {
   ICmptRefCnstPrntEnumInp<CmptParentCnstPrntEnumInp> AsParentCnstPrntEnumInpparentCnstPrntEnumInp { get; }
   ICmptCnstPrntEnumInpObject AsCnstPrntEnumInp { get; }
@@ -22,6 +25,7 @@ public interface ICmptCnstPrntEnumInpObject
 }
 
 public interface ICmptRefCnstPrntEnumInp<TType>
+  : Schema_constraint-parent-enum+Input
 {
   ICmptRefCnstPrntEnumInpObject<TType> AsRefCnstPrntEnumInp { get; }
 }

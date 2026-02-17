@@ -1,5 +1,7 @@
 ﻿//HintName: test_Introspection_Enum.gen.cs
-// Generated from Introspection.graphql+ for Enum
+// Generated from {CurrentDirectory}Introspection.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

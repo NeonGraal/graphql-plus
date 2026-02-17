@@ -1,11 +1,14 @@
 ﻿//HintName: test_field-mod-Enum+Input_Intf.gen.cs
-// Generated from field-mod-Enum+Input.graphql+ for Intf
+// Generated from {CurrentDirectory}field-mod-Enum+Input.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Input;
 
 public interface ItestFieldModEnumInp
+  : IGqlpModelImplementationBase
 {
   ItestFieldModEnumInpObject AsFieldModEnumInp { get; }
 }

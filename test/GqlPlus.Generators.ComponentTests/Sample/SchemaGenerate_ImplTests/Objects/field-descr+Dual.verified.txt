@@ -2,7 +2,9 @@
 dual FieldDescrDual { "Test" "Descr" field: String }
 */
 
-// Generated from Schema field-descr+Dual for Impl
+// Generated from Schema field-descr+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-descr+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

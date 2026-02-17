@@ -1,11 +1,14 @@
 ﻿//HintName: test_union-same_Intf.gen.cs
-// Generated from union-same.graphql+ for Intf
+// Generated from {CurrentDirectory}union-same.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_same;
 
 public interface ItestUnionSame
+  : IGqlpModelImplementationBase
 {
   Boolean AsBoolean { get; }
 }

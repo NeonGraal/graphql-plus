@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-dom-enum+Output_Impl.gen.cs
-// Generated from constraint-dom-enum+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}constraint-dom-enum+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -13,7 +15,7 @@ public class testCnstDomEnumOutp
 public class testRefCnstDomEnumOutp<TType>
   : ItestRefCnstDomEnumOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }
 
 public class testJustCnstDomEnumOutp

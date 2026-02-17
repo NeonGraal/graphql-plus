@@ -1,5 +1,7 @@
 ﻿//HintName: test_Option_Intf.gen.cs
-// Generated from Option.graphql+ for Intf
+// Generated from {CurrentDirectory}Option.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -14,5 +16,5 @@ public interface Itest_Setting
 public interface Itest_SettingObject
   : Itest_NamedObject
 {
-GqlpValue Value { get; }
+  GqlpValue Value { get; }
 }

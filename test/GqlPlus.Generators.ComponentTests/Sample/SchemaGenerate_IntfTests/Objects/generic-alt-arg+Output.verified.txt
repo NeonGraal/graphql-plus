@@ -3,13 +3,16 @@ output GnrcAltArgOutp<$type:String> { | RefGnrcAltArgOutp<$type> }
 output RefGnrcAltArgOutp<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-alt-arg+Output for Intf
+// Generated from Schema generic-alt-arg+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-alt-arg+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_generic_alt_arg_Output;
 
 public interface ICmptGnrcAltArgOutp<TType>
+  : Schema_generic-alt-arg+Output
 {
   ICmptRefGnrcAltArgOutp<TType> AsRefGnrcAltArgOutp { get; }
   ICmptGnrcAltArgOutpObject<TType> AsGnrcAltArgOutp { get; }
@@ -20,6 +23,7 @@ public interface ICmptGnrcAltArgOutpObject<TType>
 }
 
 public interface ICmptRefGnrcAltArgOutp<TRef>
+  : Schema_generic-alt-arg+Output
 {
   TRef Asref { get; }
   ICmptRefGnrcAltArgOutpObject<TRef> AsRefGnrcAltArgOutp { get; }

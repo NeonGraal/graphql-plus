@@ -1,5 +1,7 @@
 ﻿//HintName: test_alt-mod-Boolean+Input_Impl.gen.cs
-// Generated from alt-mod-Boolean+Input.graphql+ for Impl
+// Generated from {CurrentDirectory}alt-mod-Boolean+Input.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

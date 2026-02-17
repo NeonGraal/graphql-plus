@@ -3,7 +3,9 @@ category { CtgrOutpDict[*] }
 output CtgrOutpDict { }
 */
 
-// Generated from Schema category-output-dict for Stat
+// Generated from Schema category-output-dict
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category-output-dict, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Category ctgrOutpDict

@@ -1,5 +1,7 @@
 ﻿//HintName: test_parent-field+Output_Intf.gen.cs
-// Generated from parent-field+Output.graphql+ for Intf
+// Generated from {CurrentDirectory}parent-field+Output.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -14,10 +16,11 @@ public interface ItestPrntFieldOutp
 public interface ItestPrntFieldOutpObject
   : ItestRefPrntFieldOutpObject
 {
-decimal Field { get; }
+  decimal Field { get; }
 }
 
 public interface ItestRefPrntFieldOutp
+  : IGqlpModelImplementationBase
 {
   string AsString { get; }
   ItestRefPrntFieldOutpObject AsRefPrntFieldOutp { get; }
@@ -25,5 +28,5 @@ public interface ItestRefPrntFieldOutp
 
 public interface ItestRefPrntFieldOutpObject
 {
-decimal Parent { get; }
+  decimal Parent { get; }
 }

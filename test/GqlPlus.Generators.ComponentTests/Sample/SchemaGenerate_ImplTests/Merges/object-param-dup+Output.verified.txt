@@ -3,7 +3,9 @@ output ObjParamDupOutp<$test:String> { test: $test }
 output ObjParamDupOutp<$test:String> { type: $test }
 */
 
-// Generated from Schema object-param-dup+Output for Impl
+// Generated from Schema object-param-dup+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-param-dup+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -12,6 +14,6 @@ namespace Components.Gqlp_Schema_object_param_dup_Output;
 public class CmptObjParamDupOutp<TTest>
   : ICmptObjParamDupOutp<TTest>
 {
-public TTest Test { get; set; }
-public TTest Type { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
 }

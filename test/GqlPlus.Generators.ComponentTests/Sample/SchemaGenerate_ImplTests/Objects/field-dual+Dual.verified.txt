@@ -3,7 +3,9 @@ dual FieldDualDual { field: FldFieldDualDual }
 dual FldFieldDualDual { field: Number | String }
 */
 
-// Generated from Schema field-dual+Dual for Impl
+// Generated from Schema field-dual+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-dual+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

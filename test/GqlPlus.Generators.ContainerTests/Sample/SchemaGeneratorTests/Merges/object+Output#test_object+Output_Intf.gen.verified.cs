@@ -1,11 +1,14 @@
 ﻿//HintName: test_object+Output_Intf.gen.cs
-// Generated from object+Output.graphql+ for Intf
+// Generated from {CurrentDirectory}object+Output.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_Output;
 
 public interface ItestObjOutp
+  : IGqlpModelImplementationBase
 {
   ItestObjOutpObject AsObjOutp { get; }
 }

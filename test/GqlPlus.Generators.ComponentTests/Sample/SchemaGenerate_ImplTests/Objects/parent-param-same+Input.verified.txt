@@ -3,7 +3,9 @@ input PrntParamSameInp<$a:String> { :RefPrntParamSameInp<$a> field: $a }
 input RefPrntParamSameInp<$a:String> { | $a }
 */
 
-// Generated from Schema parent-param-same+Input for Impl
+// Generated from Schema parent-param-same+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-same+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

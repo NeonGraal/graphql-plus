@@ -1,5 +1,7 @@
 ﻿//HintName: test_alt-mod-param+Dual_Impl.gen.cs
-// Generated from alt-mod-param+Dual.graphql+ for Impl
+// Generated from {CurrentDirectory}alt-mod-param+Dual.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

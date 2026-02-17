@@ -3,7 +3,9 @@ dual PrntFieldDual { :RefPrntFieldDual field: Number }
 dual RefPrntFieldDual { parent: Number | String }
 */
 
-// Generated from Schema parent-field+Dual for Impl
+// Generated from Schema parent-field+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-field+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

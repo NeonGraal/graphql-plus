@@ -3,14 +3,17 @@ union UnionSame { Boolean }
 union UnionSame { Boolean }
 */
 
-// Generated from Schema union-same for Impl
+// Generated from Schema union-same
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-same, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_union_same;
 
 public class CmptUnionSame
-  : ICmptUnionSame
+  : Schema_union-same
+  , ICmptUnionSame
 {
   public Boolean AsBoolean { get; set; }
 }

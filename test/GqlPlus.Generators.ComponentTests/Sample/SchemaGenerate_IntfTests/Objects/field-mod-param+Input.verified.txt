@@ -3,13 +3,16 @@ input FieldModParamInp<$mod:String> { field: FldFieldModParamInp[$mod] }
 input FldFieldModParamInp { field: Number | String }
 */
 
-// Generated from Schema field-mod-param+Input for Intf
+// Generated from Schema field-mod-param+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-mod-param+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_mod_param_Input;
 
 public interface ICmptFieldModParamInp<TMod>
+  : Schema_field-mod-param+Input
 {
   ICmptFieldModParamInpObject<TMod> AsFieldModParamInp { get; }
 }
@@ -20,6 +23,7 @@ public interface ICmptFieldModParamInpObject<TMod>
 }
 
 public interface ICmptFldFieldModParamInp
+  : Schema_field-mod-param+Input
 {
   string AsString { get; }
   ICmptFldFieldModParamInpObject AsFldFieldModParamInp { get; }

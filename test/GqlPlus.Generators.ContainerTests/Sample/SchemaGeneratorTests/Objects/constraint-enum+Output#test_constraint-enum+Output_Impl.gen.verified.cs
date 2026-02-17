@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-enum+Output_Impl.gen.cs
-// Generated from constraint-enum+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}constraint-enum+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -13,5 +15,5 @@ public class testCnstEnumOutp
 public class testRefCnstEnumOutp<TType>
   : ItestRefCnstEnumOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }

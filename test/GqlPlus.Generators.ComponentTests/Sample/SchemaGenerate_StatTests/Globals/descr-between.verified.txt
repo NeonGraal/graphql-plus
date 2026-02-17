@@ -4,7 +4,9 @@ category { DescrBtwn }
 output DescrBtwn { }
 */
 
-// Generated from Schema descr-between for Stat
+// Generated from Schema descr-between
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_descr-between, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Category descrBtwn

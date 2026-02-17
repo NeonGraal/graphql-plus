@@ -3,7 +3,9 @@ domain DmnEnumExcl { enum !dmnEnumExcl EnumDmnEnumExcl.* }
 enum EnumDmnEnumExcl { dmnEnumExcl enum_dmnEnumExcl dmnEnumExclValue }
 */
 
-// Generated from Schema domain-enum-exclude for Enum
+// Generated from Schema domain-enum-exclude
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_domain-enum-exclude, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

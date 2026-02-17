@@ -1,5 +1,7 @@
 ﻿//HintName: test_category-descrs_Impl.gen.cs
-// Generated from category-descrs.graphql+ for Impl
+// Generated from {CurrentDirectory}category-descrs.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

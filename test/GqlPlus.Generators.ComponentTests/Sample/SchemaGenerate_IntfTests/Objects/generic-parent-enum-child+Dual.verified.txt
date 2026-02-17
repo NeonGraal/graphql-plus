@@ -5,7 +5,9 @@ enum EnumGnrcPrntEnumChildDual { :ParentGnrcPrntEnumChildDual gnrcPrntEnumChildD
 enum ParentGnrcPrntEnumChildDual { gnrcPrntEnumChildDualParent }
 */
 
-// Generated from Schema generic-parent-enum-child+Dual for Intf
+// Generated from Schema generic-parent-enum-child+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-enum-child+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -23,6 +25,7 @@ public interface ICmptGnrcPrntEnumChildDualObject
 }
 
 public interface ICmptFieldGnrcPrntEnumChildDual<TRef>
+  : Schema_generic-parent-enum-child+Dual
 {
   ICmptFieldGnrcPrntEnumChildDualObject<TRef> AsFieldGnrcPrntEnumChildDual { get; }
 }

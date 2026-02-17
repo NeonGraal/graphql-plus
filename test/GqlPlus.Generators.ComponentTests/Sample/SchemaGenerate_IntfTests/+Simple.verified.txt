@@ -1,4 +1,6 @@
-﻿// Generated from Schema +Simple for Intf
+﻿// Generated from Schema +Simple
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_+Simple, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -170,6 +172,7 @@ public interface ICmptPrntDmnStrPrntDescr
 }
 
 public interface ICmptUnionDescr
+  : Schema_+Simple
 {
   Number AsNumber { get; }
 }
@@ -181,6 +184,7 @@ public interface ICmptUnionPrnt
 }
 
 public interface ICmptPrntUnionPrnt
+  : Schema_+Simple
 {
   Number AsNumber { get; }
 }
@@ -192,6 +196,7 @@ public interface ICmptUnionPrntDescr
 }
 
 public interface ICmptPrntUnionPrntDescr
+  : Schema_+Simple
 {
   Number AsNumber { get; }
 }
@@ -203,6 +208,7 @@ public interface ICmptUnionPrntDup
 }
 
 public interface ICmptPrntUnionPrntDup
+  : Schema_+Simple
 {
   Number AsNumber { get; }
 }

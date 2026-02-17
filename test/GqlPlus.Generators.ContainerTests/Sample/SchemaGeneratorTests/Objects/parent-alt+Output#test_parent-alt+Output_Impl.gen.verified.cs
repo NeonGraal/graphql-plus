@@ -1,5 +1,7 @@
 ﻿//HintName: test_parent-alt+Output_Impl.gen.cs
-// Generated from parent-alt+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}parent-alt+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -14,5 +16,5 @@ public class testPrntAltOutp
 public class testRefPrntAltOutp
   : ItestRefPrntAltOutp
 {
-public decimal Parent { get; set; }
+  public decimal Parent { get; set; }
 }

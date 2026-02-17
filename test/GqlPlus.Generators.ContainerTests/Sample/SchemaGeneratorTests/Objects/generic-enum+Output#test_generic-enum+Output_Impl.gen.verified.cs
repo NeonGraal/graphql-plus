@@ -1,5 +1,7 @@
 ﻿//HintName: test_generic-enum+Output_Impl.gen.cs
-// Generated from generic-enum+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}generic-enum+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -13,5 +15,5 @@ public class testGnrcEnumOutp
 public class testRefGnrcEnumOutp<TType>
   : ItestRefGnrcEnumOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }

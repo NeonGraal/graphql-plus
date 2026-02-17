@@ -3,7 +3,9 @@ input ObjFieldEnumAliasInp { field [field1] = Boolean.true }
 input ObjFieldEnumAliasInp { field [field2] = true }
 */
 
-// Generated from Schema object-field-enum-alias+Input for Impl
+// Generated from Schema object-field-enum-alias+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-enum-alias+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

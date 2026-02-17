@@ -30,7 +30,9 @@ dual _Object [Object, obj, %] { }
 union _Simple [Simple] { _Enum _Domain _Union }
 */
 
-// Generated from Spec Definition for Impl
+// Generated from Spec Definition
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Definition, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -49,7 +51,8 @@ public class string
 }
 
 public class Cmpt_Basic
-  : ICmpt_Basic
+  : Spec_Definition
+  , ICmpt_Basic
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
@@ -58,14 +61,16 @@ public class Cmpt_Basic
 }
 
 public class Cmpt_Internal
-  : ICmpt_Internal
+  : Spec_Definition
+  , ICmpt_Internal
 {
   public Null AsNull { get; set; }
   public Void AsVoid { get; set; }
 }
 
 public class Cmpt_Key
-  : ICmpt_Key
+  : Spec_Definition
+  , ICmpt_Key
 {
   public _Basic As_Basic { get; set; }
   public _Internal As_Internal { get; set; }
@@ -78,7 +83,8 @@ public class Cmpt_Object
 }
 
 public class Cmpt_Domain
-  : ICmpt_Domain
+  : Spec_Definition
+  , ICmpt_Domain
 {
 }
 
@@ -88,7 +94,8 @@ public class Cmpt_Dual
 }
 
 public class Cmpt_Enum
-  : ICmpt_Enum
+  : Spec_Definition
+  , ICmpt_Enum
 {
 }
 
@@ -103,12 +110,14 @@ public class Cmpt_Output
 }
 
 public class Cmpt_Union
-  : ICmpt_Union
+  : Spec_Definition
+  , ICmpt_Union
 {
 }
 
 public class Cmpt_Simple
-  : ICmpt_Simple
+  : Spec_Definition
+  , ICmpt_Simple
 {
   public _Enum As_Enum { get; set; }
   public _Domain As_Domain { get; set; }

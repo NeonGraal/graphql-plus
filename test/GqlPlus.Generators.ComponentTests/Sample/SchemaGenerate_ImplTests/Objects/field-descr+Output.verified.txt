@@ -2,7 +2,9 @@
 output FieldDescrOutp { "Test" "Descr" field: String }
 */
 
-// Generated from Schema field-descr+Output for Impl
+// Generated from Schema field-descr+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-descr+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -11,5 +13,5 @@ namespace Components.Gqlp_Schema_field_descr_Output;
 public class CmptFieldDescrOutp
   : ICmptFieldDescrOutp
 {
-public string Field { get; set; }
+  public string Field { get; set; }
 }

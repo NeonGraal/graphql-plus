@@ -1,5 +1,7 @@
 ﻿//HintName: test_Directive_Enum.gen.cs
-// Generated from Directive.graphql+ for Enum
+// Generated from {CurrentDirectory}Directive.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

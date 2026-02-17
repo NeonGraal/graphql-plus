@@ -3,7 +3,9 @@ input PrntFieldInp { :RefPrntFieldInp field: Number }
 input RefPrntFieldInp { parent: Number | String }
 */
 
-// Generated from Schema parent-field+Input for Impl
+// Generated from Schema parent-field+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-field+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

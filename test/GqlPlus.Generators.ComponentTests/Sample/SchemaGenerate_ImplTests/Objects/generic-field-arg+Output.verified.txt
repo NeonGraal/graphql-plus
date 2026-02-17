@@ -3,7 +3,9 @@ output GnrcFieldArgOutp<$type:String> { field: RefGnrcFieldArgOutp<$type> }
 output RefGnrcFieldArgOutp<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-field-arg+Output for Impl
+// Generated from Schema generic-field-arg+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-arg+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -12,7 +14,7 @@ namespace Components.Gqlp_Schema_generic_field_arg_Output;
 public class CmptGnrcFieldArgOutp<TType>
   : ICmptGnrcFieldArgOutp<TType>
 {
-public ICmptRefGnrcFieldArgOutp<TType> Field { get; set; }
+  public ICmptRefGnrcFieldArgOutp<TType> Field { get; set; }
 }
 
 public class CmptRefGnrcFieldArgOutp<TRef>

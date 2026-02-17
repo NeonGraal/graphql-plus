@@ -4,23 +4,27 @@ output ObjFieldOutp { field: FldObjFieldOutp }
 output FldObjFieldOutp { }
 */
 
-// Generated from Schema object-field+Output for Intf
+// Generated from Schema object-field+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-field+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_field_Output;
 
 public interface ICmptObjFieldOutp
+  : Schema_object-field+Output
 {
   ICmptObjFieldOutpObject AsObjFieldOutp { get; }
 }
 
 public interface ICmptObjFieldOutpObject
 {
-ICmptFldObjFieldOutp Field { get; }
+  ICmptFldObjFieldOutp Field { get; }
 }
 
 public interface ICmptFldObjFieldOutp
+  : Schema_object-field+Output
 {
   ICmptFldObjFieldOutpObject AsFldObjFieldOutp { get; }
 }

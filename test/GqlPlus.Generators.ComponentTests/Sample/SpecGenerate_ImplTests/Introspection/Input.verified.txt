@@ -9,7 +9,9 @@ output _InputFieldType {
     }
 */
 
-// Generated from Spec Input for Impl
+// Generated from Spec Input
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -25,5 +27,5 @@ public class Cmpt_InputFieldType
   : Cmpt_ObjFieldType
   , ICmpt_InputFieldType
 {
-public GqlpValue? DefaultValue { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
 }

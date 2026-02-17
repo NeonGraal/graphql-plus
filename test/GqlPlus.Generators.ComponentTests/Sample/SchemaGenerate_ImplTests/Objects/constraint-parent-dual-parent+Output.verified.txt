@@ -5,7 +5,9 @@ dual PrntCnstPrntDualPrntOutp { | String }
 output AltCnstPrntDualPrntOutp { :PrntCnstPrntDualPrntOutp alt: Number }
 */
 
-// Generated from Schema constraint-parent-dual-parent+Output for Impl
+// Generated from Schema constraint-parent-dual-parent+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-dual-parent+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -31,5 +33,5 @@ public class CmptAltCnstPrntDualPrntOutp
   : CmptPrntCnstPrntDualPrntOutp
   , ICmptAltCnstPrntDualPrntOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }

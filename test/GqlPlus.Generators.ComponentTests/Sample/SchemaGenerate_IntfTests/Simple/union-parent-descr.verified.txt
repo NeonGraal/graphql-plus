@@ -3,7 +3,9 @@ union UnionPrntDescr { :"Parent comment"PrntUnionPrntDescr Number }
 union PrntUnionPrntDescr { Number }
 */
 
-// Generated from Schema union-parent-descr for Intf
+// Generated from Schema union-parent-descr
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_union-parent-descr, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -16,6 +18,7 @@ public interface ICmptUnionPrntDescr
 }
 
 public interface ICmptPrntUnionPrntDescr
+  : Schema_union-parent-descr
 {
   Number AsNumber { get; }
 }

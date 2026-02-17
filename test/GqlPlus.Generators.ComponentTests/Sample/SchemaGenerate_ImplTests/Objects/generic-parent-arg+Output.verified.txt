@@ -3,7 +3,9 @@ output GnrcPrntArgOutp<$type:String> { :RefGnrcPrntArgOutp<$type> }
 output RefGnrcPrntArgOutp<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-parent-arg+Output for Impl
+// Generated from Schema generic-parent-arg+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-arg+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

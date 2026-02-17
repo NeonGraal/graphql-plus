@@ -2,7 +2,9 @@
 input GnrcDescrInp<"Test" "Descr" $type:String> { field: $type }
 */
 
-// Generated from Schema generic-descr+Input for Impl
+// Generated from Schema generic-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-descr+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

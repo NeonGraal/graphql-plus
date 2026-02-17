@@ -3,7 +3,9 @@ input PrntDescrInp { : "Test" "Descr" RefPrntDescrInp }
 input RefPrntDescrInp { parent: Number | String }
 */
 
-// Generated from Schema parent-descr+Input for Intf
+// Generated from Schema parent-descr+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-descr+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -21,6 +23,7 @@ public interface ICmptPrntDescrInpObject
 }
 
 public interface ICmptRefPrntDescrInp
+  : Schema_parent-descr+Input
 {
   string AsString { get; }
   ICmptRefPrntDescrInpObject AsRefPrntDescrInp { get; }

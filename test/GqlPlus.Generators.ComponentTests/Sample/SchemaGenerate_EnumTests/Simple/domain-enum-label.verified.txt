@@ -3,7 +3,9 @@ domain DmnEnumLabel { enum dmnEnumLabel }
 enum EnumDmnEnumLabel { dmnEnumLabel }
 */
 
-// Generated from Schema domain-enum-label for Enum
+// Generated from Schema domain-enum-label
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_domain-enum-label, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

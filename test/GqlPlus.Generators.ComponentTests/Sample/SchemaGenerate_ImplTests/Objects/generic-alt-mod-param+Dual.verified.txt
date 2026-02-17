@@ -2,7 +2,9 @@
 dual RefGnrcAltModParamDual<$ref:String $mod:String> { | $ref[$mod] }
 */
 
-// Generated from Schema generic-alt-mod-param+Dual for Impl
+// Generated from Schema generic-alt-mod-param+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-mod-param+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

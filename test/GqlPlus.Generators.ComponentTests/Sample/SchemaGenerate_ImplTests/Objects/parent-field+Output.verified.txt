@@ -3,7 +3,9 @@ output PrntFieldOutp { :RefPrntFieldOutp field: Number }
 output RefPrntFieldOutp { parent: Number | String }
 */
 
-// Generated from Schema parent-field+Output for Impl
+// Generated from Schema parent-field+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-field+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -13,11 +15,11 @@ public class CmptPrntFieldOutp
   : CmptRefPrntFieldOutp
   , ICmptPrntFieldOutp
 {
-public decimal Field { get; set; }
+  public decimal Field { get; set; }
 }
 
 public class CmptRefPrntFieldOutp
   : ICmptRefPrntFieldOutp
 {
-public decimal Parent { get; set; }
+  public decimal Parent { get; set; }
 }

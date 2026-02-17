@@ -2,7 +2,9 @@
 input InpFieldNmbrDescr { field: "Test" "Descr" Number = 42 }
 */
 
-// Generated from Schema input-field-Number-descr for Impl
+// Generated from Schema input-field-Number-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-Number-descr, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

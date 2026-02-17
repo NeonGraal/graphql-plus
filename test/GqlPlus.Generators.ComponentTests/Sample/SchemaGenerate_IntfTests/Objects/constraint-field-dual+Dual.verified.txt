@@ -5,7 +5,9 @@ dual PrntCnstFieldDualDual { | String }
 dual AltCnstFieldDualDual { :PrntCnstFieldDualDual alt: Number }
 */
 
-// Generated from Schema constraint-field-dual+Dual for Intf
+// Generated from Schema constraint-field-dual+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-field-dual+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -23,6 +25,7 @@ public interface ICmptCnstFieldDualDualObject
 }
 
 public interface ICmptRefCnstFieldDualDual<TRef>
+  : Schema_constraint-field-dual+Dual
 {
   ICmptRefCnstFieldDualDualObject<TRef> AsRefCnstFieldDualDual { get; }
 }
@@ -33,6 +36,7 @@ public interface ICmptRefCnstFieldDualDualObject<TRef>
 }
 
 public interface ICmptPrntCnstFieldDualDual
+  : Schema_constraint-field-dual+Dual
 {
   string AsString { get; }
   ICmptPrntCnstFieldDualDualObject AsPrntCnstFieldDualDual { get; }

@@ -3,7 +3,9 @@ output ObjAliasOutp [Output1] { }
 output ObjAliasOutp [Output2] { }
 */
 
-// Generated from Schema object-alias+Output for Impl
+// Generated from Schema object-alias+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alias+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

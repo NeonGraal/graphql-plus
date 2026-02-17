@@ -3,7 +3,9 @@ category { CtgrOutp }
 output CtgrOutp { }
 */
 
-// Generated from Schema category-output for Stat
+// Generated from Schema category-output
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category-output, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Category ctgrOutp

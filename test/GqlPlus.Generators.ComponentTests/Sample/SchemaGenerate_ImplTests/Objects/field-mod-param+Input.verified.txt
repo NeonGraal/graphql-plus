@@ -3,7 +3,9 @@ input FieldModParamInp<$mod:String> { field: FldFieldModParamInp[$mod] }
 input FldFieldModParamInp { field: Number | String }
 */
 
-// Generated from Schema field-mod-param+Input for Impl
+// Generated from Schema field-mod-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-mod-param+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

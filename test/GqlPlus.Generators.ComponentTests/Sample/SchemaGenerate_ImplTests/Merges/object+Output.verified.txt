@@ -3,7 +3,9 @@ output ObjOutp { }
 output ObjOutp { }
 */
 
-// Generated from Schema object+Output for Impl
+// Generated from Schema object+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

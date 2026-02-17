@@ -1,4 +1,6 @@
-﻿// Generated from Schema +Simple for Enum
+﻿// Generated from Schema +Simple
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_+Simple, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

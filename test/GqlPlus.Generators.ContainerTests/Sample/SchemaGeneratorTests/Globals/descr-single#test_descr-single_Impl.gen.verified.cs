@@ -1,5 +1,7 @@
 ﻿//HintName: test_descr-single_Impl.gen.cs
-// Generated from descr-single.graphql+ for Impl
+// Generated from {CurrentDirectory}descr-single.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

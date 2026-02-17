@@ -3,13 +3,16 @@ input InpFieldNull { field: FldInpFieldNull? = null }
 dual FldInpFieldNull { }
 */
 
-// Generated from Schema input-field-null for Intf
+// Generated from Schema input-field-null
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_input-field-null, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_input_field_null;
 
 public interface ICmptInpFieldNull
+  : Schema_input-field-null
 {
   ICmptInpFieldNullObject AsInpFieldNull { get; }
 }
@@ -20,6 +23,7 @@ public interface ICmptInpFieldNullObject
 }
 
 public interface ICmptFldInpFieldNull
+  : Schema_input-field-null
 {
   ICmptFldInpFieldNullObject AsFldInpFieldNull { get; }
 }

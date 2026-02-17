@@ -5,7 +5,9 @@ enum EnumGnrcPrntEnumChildOutp { :ParentGnrcPrntEnumChildOutp gnrcPrntEnumChildO
 enum ParentGnrcPrntEnumChildOutp { gnrcPrntEnumChildOutpParent }
 */
 
-// Generated from Schema generic-parent-enum-child+Output for Intf
+// Generated from Schema generic-parent-enum-child+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-enum-child+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -23,11 +25,12 @@ public interface ICmptGnrcPrntEnumChildOutpObject
 }
 
 public interface ICmptFieldGnrcPrntEnumChildOutp<TRef>
+  : Schema_generic-parent-enum-child+Output
 {
   ICmptFieldGnrcPrntEnumChildOutpObject<TRef> AsFieldGnrcPrntEnumChildOutp { get; }
 }
 
 public interface ICmptFieldGnrcPrntEnumChildOutpObject<TRef>
 {
-TRef Field { get; }
+  TRef Field { get; }
 }

@@ -3,13 +3,16 @@ dual FieldModParamDual<$mod:String> { field: FldFieldModParamDual[$mod] }
 dual FldFieldModParamDual { field: Number | String }
 */
 
-// Generated from Schema field-mod-param+Dual for Intf
+// Generated from Schema field-mod-param+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-mod-param+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
 public interface ICmptFieldModParamDual<TMod>
+  : Schema_field-mod-param+Dual
 {
   ICmptFieldModParamDualObject<TMod> AsFieldModParamDual { get; }
 }
@@ -20,6 +23,7 @@ public interface ICmptFieldModParamDualObject<TMod>
 }
 
 public interface ICmptFldFieldModParamDual
+  : Schema_field-mod-param+Dual
 {
   string AsString { get; }
   ICmptFldFieldModParamDualObject AsFldFieldModParamDual { get; }

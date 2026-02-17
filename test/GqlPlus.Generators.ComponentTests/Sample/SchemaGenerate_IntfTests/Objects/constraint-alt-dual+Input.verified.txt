@@ -5,13 +5,16 @@ dual PrntCnstAltDualInp { | String }
 input AltCnstAltDualInp { :PrntCnstAltDualInp alt: Number }
 */
 
-// Generated from Schema constraint-alt-dual+Input for Intf
+// Generated from Schema constraint-alt-dual+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-alt-dual+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_constraint_alt_dual_Input;
 
 public interface ICmptCnstAltDualInp
+  : Schema_constraint-alt-dual+Input
 {
   ICmptRefCnstAltDualInp<ICmptAltCnstAltDualInp> AsRefCnstAltDualInp { get; }
   ICmptCnstAltDualInpObject AsCnstAltDualInp { get; }
@@ -22,6 +25,7 @@ public interface ICmptCnstAltDualInpObject
 }
 
 public interface ICmptRefCnstAltDualInp<TRef>
+  : Schema_constraint-alt-dual+Input
 {
   TRef Asref { get; }
   ICmptRefCnstAltDualInpObject<TRef> AsRefCnstAltDualInp { get; }
@@ -32,6 +36,7 @@ public interface ICmptRefCnstAltDualInpObject<TRef>
 }
 
 public interface ICmptPrntCnstAltDualInp
+  : Schema_constraint-alt-dual+Input
 {
   string AsString { get; }
   ICmptPrntCnstAltDualInpObject AsPrntCnstAltDualInp { get; }

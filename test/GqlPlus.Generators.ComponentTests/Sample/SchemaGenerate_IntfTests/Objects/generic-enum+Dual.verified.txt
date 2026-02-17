@@ -4,13 +4,16 @@ dual RefGnrcEnumDual<$type:_Enum> { field: $type }
 enum EnumGnrcEnumDual { gnrcEnumDual }
 */
 
-// Generated from Schema generic-enum+Dual for Intf
+// Generated from Schema generic-enum+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-enum+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_generic_enum_Dual;
 
 public interface ICmptGnrcEnumDual
+  : Schema_generic-enum+Dual
 {
   ICmptRefGnrcEnumDual<CmptEnumGnrcEnumDual> AsEnumGnrcEnumDualgnrcEnumDual { get; }
   ICmptGnrcEnumDualObject AsGnrcEnumDual { get; }
@@ -21,6 +24,7 @@ public interface ICmptGnrcEnumDualObject
 }
 
 public interface ICmptRefGnrcEnumDual<TType>
+  : Schema_generic-enum+Dual
 {
   ICmptRefGnrcEnumDualObject<TType> AsRefGnrcEnumDual { get; }
 }

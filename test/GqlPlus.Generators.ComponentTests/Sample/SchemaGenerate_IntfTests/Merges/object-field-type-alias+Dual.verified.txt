@@ -3,13 +3,16 @@ dual ObjFieldTypeAliasDual { field: String }
 dual ObjFieldTypeAliasDual { field: String }
 */
 
-// Generated from Schema object-field-type-alias+Dual for Intf
+// Generated from Schema object-field-type-alias+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-field-type-alias+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_field_type_alias_Dual;
 
 public interface ICmptObjFieldTypeAliasDual
+  : Schema_object-field-type-alias+Dual
 {
   ICmptObjFieldTypeAliasDualObject AsObjFieldTypeAliasDual { get; }
 }

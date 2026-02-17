@@ -46,13 +46,16 @@ dual _TypeSimple {
     }
 */
 
-// Generated from Spec Common for Intf
+// Generated from Spec Common
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Common, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Spec_Common;
 
 public interface ICmpt_Type
+  : Spec_Common
 {
   ICmpt_BaseType<Cmpt_TypeKind> As_TypeKindBasic { get; }
   ICmpt_BaseType<Cmpt_TypeKind> As_TypeKindInternal { get; }
@@ -81,7 +84,7 @@ public interface ICmpt_BaseType<TKind>
 public interface ICmpt_BaseTypeObject<TKind>
   : ICmpt_AliasedObject
 {
-TKind TypeKind { get; }
+  TKind TypeKind { get; }
 }
 
 public interface ICmpt_ChildType<TKind,TParent>
@@ -93,7 +96,7 @@ public interface ICmpt_ChildType<TKind,TParent>
 public interface ICmpt_ChildTypeObject<TKind,TParent>
   : ICmpt_BaseTypeObject<TKind>
 {
-TParent Parent { get; }
+  TParent Parent { get; }
 }
 
 public interface ICmpt_ParentType<TKind,TItem,TAllItem>
@@ -105,8 +108,8 @@ public interface ICmpt_ParentType<TKind,TItem,TAllItem>
 public interface ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
   : ICmpt_ChildTypeObject<TKind, ICmpt_Named>
 {
-ICollection<TItem> Items { get; }
-ICollection<TAllItem> AllItems { get; }
+  ICollection<TItem> Items { get; }
+  ICollection<TAllItem> AllItems { get; }
 }
 
 public interface ICmpt_TypeRef<TKind>
@@ -122,6 +125,7 @@ public interface ICmpt_TypeRefObject<TKind>
 }
 
 public interface ICmpt_TypeSimple
+  : Spec_Common
 {
   ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindBasic { get; }
   ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindEnum { get; }

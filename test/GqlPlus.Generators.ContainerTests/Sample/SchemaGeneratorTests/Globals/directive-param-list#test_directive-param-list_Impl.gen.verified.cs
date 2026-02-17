@@ -1,5 +1,7 @@
 ﻿//HintName: test_directive-param-list_Impl.gen.cs
-// Generated from directive-param-list.graphql+ for Impl
+// Generated from {CurrentDirectory}directive-param-list.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

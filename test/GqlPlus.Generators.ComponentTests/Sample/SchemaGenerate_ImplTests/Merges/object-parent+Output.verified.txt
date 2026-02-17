@@ -4,7 +4,9 @@ output ObjPrntOutp { :RefObjPrntOutp }
 output RefObjPrntOutp { }
 */
 
-// Generated from Schema object-parent+Output for Impl
+// Generated from Schema object-parent+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-parent+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

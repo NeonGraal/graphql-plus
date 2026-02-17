@@ -2,7 +2,9 @@
 input RefGnrcAltModStrInp<$ref:String> { | $ref[*] }
 */
 
-// Generated from Schema generic-alt-mod-String+Input for Impl
+// Generated from Schema generic-alt-mod-String+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-mod-String+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -3,7 +3,9 @@ output AltModBoolOutp { | AltAltModBoolOutp[^] }
 output AltAltModBoolOutp { alt: Number | String }
 */
 
-// Generated from Schema alt-mod-Boolean+Output for Impl
+// Generated from Schema alt-mod-Boolean+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-mod-Boolean+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -17,5 +19,5 @@ public class CmptAltModBoolOutp
 public class CmptAltAltModBoolOutp
   : ICmptAltAltModBoolOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }

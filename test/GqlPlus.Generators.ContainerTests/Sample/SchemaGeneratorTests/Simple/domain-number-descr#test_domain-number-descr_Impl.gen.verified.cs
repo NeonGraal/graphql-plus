@@ -1,5 +1,7 @@
 ﻿//HintName: test_domain-number-descr_Impl.gen.cs
-// Generated from domain-number-descr.graphql+ for Impl
+// Generated from {CurrentDirectory}domain-number-descr.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

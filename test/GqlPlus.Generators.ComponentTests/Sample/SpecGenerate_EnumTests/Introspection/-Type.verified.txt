@@ -69,7 +69,9 @@ dual _Modifier<$kind:_ModifierKind> {
     }
 */
 
-// Generated from Spec -Type for Enum
+// Generated from Spec -Type
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_-Type, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

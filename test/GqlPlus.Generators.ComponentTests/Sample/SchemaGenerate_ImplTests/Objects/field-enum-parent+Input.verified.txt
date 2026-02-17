@@ -4,7 +4,9 @@ enum EnumFieldEnumPrntInp { :PrntFieldEnumPrntInp fieldEnumPrntInp }
 enum PrntFieldEnumPrntInp { prnt_fieldEnumPrntInp }
 */
 
-// Generated from Schema field-enum-parent+Input for Impl
+// Generated from Schema field-enum-parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-enum-parent+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

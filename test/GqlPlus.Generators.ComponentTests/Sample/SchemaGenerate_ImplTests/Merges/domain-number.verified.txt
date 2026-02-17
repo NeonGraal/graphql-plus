@@ -3,7 +3,9 @@ domain DmnNmbr { number }
 domain DmnNmbr { number }
 */
 
-// Generated from Schema domain-number for Impl
+// Generated from Schema domain-number
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

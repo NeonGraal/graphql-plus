@@ -4,7 +4,9 @@ union UnionSamePrnt { :PrntUnionSamePrnt Boolean }
 union PrntUnionSamePrnt { String }
 */
 
-// Generated from Schema union-same-parent for Impl
+// Generated from Schema union-same-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-same-parent, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -18,7 +20,8 @@ public class CmptUnionSamePrnt
 }
 
 public class CmptPrntUnionSamePrnt
-  : ICmptPrntUnionSamePrnt
+  : Schema_union-same-parent
+  , ICmptPrntUnionSamePrnt
 {
   public String AsString { get; set; }
 }

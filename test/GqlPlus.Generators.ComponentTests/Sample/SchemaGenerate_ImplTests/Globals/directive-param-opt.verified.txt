@@ -3,7 +3,9 @@ directive @DrctParamOpt(InDrctParamOpt?) { all }
 input InDrctParamOpt { }
 */
 
-// Generated from Schema directive-param-opt for Impl
+// Generated from Schema directive-param-opt
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_directive-param-opt, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

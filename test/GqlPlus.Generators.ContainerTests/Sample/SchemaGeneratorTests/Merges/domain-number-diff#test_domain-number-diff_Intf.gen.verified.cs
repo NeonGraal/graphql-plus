@@ -1,5 +1,7 @@
 ﻿//HintName: test_domain-number-diff_Intf.gen.cs
-// Generated from domain-number-diff.graphql+ for Intf
+// Generated from {CurrentDirectory}domain-number-diff.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

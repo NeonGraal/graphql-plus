@@ -4,7 +4,9 @@ dual RefGnrcFieldDualDual<$ref:_Dual> { | $ref }
 dual AltGnrcFieldDualDual { alt: Number | String }
 */
 
-// Generated from Schema generic-field-dual+Dual for Impl
+// Generated from Schema generic-field-dual+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-dual+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

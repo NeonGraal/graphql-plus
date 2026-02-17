@@ -3,13 +3,16 @@ input ObjFieldEnumAliasInp { field [field1] = Boolean.true }
 input ObjFieldEnumAliasInp { field [field2] = true }
 */
 
-// Generated from Schema object-field-enum-alias+Input for Intf
+// Generated from Schema object-field-enum-alias+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-field-enum-alias+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_field_enum_alias_Input;
 
 public interface ICmptObjFieldEnumAliasInp
+  : Schema_object-field-enum-alias+Input
 {
   ICmptObjFieldEnumAliasInpObject AsObjFieldEnumAliasInp { get; }
 }

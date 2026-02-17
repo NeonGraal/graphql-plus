@@ -91,7 +91,9 @@ output _UnionMember {
     }
 */
 
-// Generated from Spec -Simple for Enum
+// Generated from Spec -Simple
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_-Simple, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

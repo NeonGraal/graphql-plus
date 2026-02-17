@@ -2,7 +2,9 @@
 domain DmnNmbrRange { Number 1<9 21>12 }
 */
 
-// Generated from Schema domain-number-range for Impl
+// Generated from Schema domain-number-range
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number-range, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

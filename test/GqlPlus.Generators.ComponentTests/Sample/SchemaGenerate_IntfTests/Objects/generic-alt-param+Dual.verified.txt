@@ -4,13 +4,16 @@ dual RefGnrcAltParamDual<$ref:_Dual> { | $ref }
 dual AltGnrcAltParamDual { alt: Number | String }
 */
 
-// Generated from Schema generic-alt-param+Dual for Intf
+// Generated from Schema generic-alt-param+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-alt-param+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_generic_alt_param_Dual;
 
 public interface ICmptGnrcAltParamDual
+  : Schema_generic-alt-param+Dual
 {
   ICmptRefGnrcAltParamDual<ICmptAltGnrcAltParamDual> AsRefGnrcAltParamDual { get; }
   ICmptGnrcAltParamDualObject AsGnrcAltParamDual { get; }
@@ -21,6 +24,7 @@ public interface ICmptGnrcAltParamDualObject
 }
 
 public interface ICmptRefGnrcAltParamDual<TRef>
+  : Schema_generic-alt-param+Dual
 {
   TRef Asref { get; }
   ICmptRefGnrcAltParamDualObject<TRef> AsRefGnrcAltParamDual { get; }
@@ -31,6 +35,7 @@ public interface ICmptRefGnrcAltParamDualObject<TRef>
 }
 
 public interface ICmptAltGnrcAltParamDual
+  : Schema_generic-alt-param+Dual
 {
   string AsString { get; }
   ICmptAltGnrcAltParamDualObject AsAltGnrcAltParamDual { get; }

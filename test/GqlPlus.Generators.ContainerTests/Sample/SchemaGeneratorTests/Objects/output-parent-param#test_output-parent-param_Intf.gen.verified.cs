@@ -1,5 +1,7 @@
 ﻿//HintName: test_output-parent-param_Intf.gen.cs
-// Generated from output-parent-param.graphql+ for Intf
+// Generated from {CurrentDirectory}output-parent-param.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -14,20 +16,22 @@ public interface ItestOutpPrntParam
 public interface ItestOutpPrntParamObject
   : ItestPrntOutpPrntParamObject
 {
-ItestFldOutpPrntParam Field (ItestInOutpPrntParam parameter);
+  ItestFldOutpPrntParam Field (ItestInOutpPrntParam parameter);
 }
 
 public interface ItestPrntOutpPrntParam
+  : IGqlpModelImplementationBase
 {
   ItestPrntOutpPrntParamObject AsPrntOutpPrntParam { get; }
 }
 
 public interface ItestPrntOutpPrntParamObject
 {
-ItestFldOutpPrntParam Field (ItestPrntOutpPrntParamIn parameter);
+  ItestFldOutpPrntParam Field (ItestPrntOutpPrntParamIn parameter);
 }
 
 public interface ItestFldOutpPrntParam
+  : IGqlpModelImplementationBase
 {
   ItestFldOutpPrntParamObject AsFldOutpPrntParam { get; }
 }
@@ -37,6 +41,7 @@ public interface ItestFldOutpPrntParamObject
 }
 
 public interface ItestInOutpPrntParam
+  : IGqlpModelImplementationBase
 {
   string AsString { get; }
   ItestInOutpPrntParamObject AsInOutpPrntParam { get; }
@@ -48,6 +53,7 @@ public interface ItestInOutpPrntParamObject
 }
 
 public interface ItestPrntOutpPrntParamIn
+  : IGqlpModelImplementationBase
 {
   string AsString { get; }
   ItestPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; }

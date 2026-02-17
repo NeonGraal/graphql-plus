@@ -1,5 +1,7 @@
 ﻿//HintName: test_domain-bool-descr_Intf.gen.cs
-// Generated from domain-bool-descr.graphql+ for Intf
+// Generated from {CurrentDirectory}domain-bool-descr.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

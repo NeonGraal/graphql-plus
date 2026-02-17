@@ -3,13 +3,16 @@ category { CtgrOutpOptl? }
 output CtgrOutpOptl { }
 */
 
-// Generated from Schema category-output-optional for Intf
+// Generated from Schema category-output-optional
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_category-output-optional, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_category_output_optional;
 
 public interface ICmptCtgrOutpOptl
+  : Schema_category-output-optional
 {
   ICmptCtgrOutpOptlObject AsCtgrOutpOptl { get; }
 }

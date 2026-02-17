@@ -1,5 +1,7 @@
 ﻿//HintName: test_-Schema_Intf.gen.cs
-// Generated from -Schema.graphql+ for Intf
+// Generated from {CurrentDirectory}-Schema.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -14,10 +16,10 @@ public interface Itest_Schema
 public interface Itest_SchemaObject
   : Itest_NamedObject
 {
-IDictionary<Itest_Name, Itest_Categories> Categories (Itest_CategoryFilter? parameter);
-IDictionary<Itest_Name, Itest_Directives> Directives (Itest_Filter? parameter);
-IDictionary<Itest_Name, Itest_Type> Types (Itest_TypeFilter? parameter);
-IDictionary<Itest_Name, Itest_Setting> Settings (Itest_Filter? parameter);
+  IDictionary<Itest_Name, Itest_Categories> Categories (Itest_CategoryFilter? parameter);
+  IDictionary<Itest_Name, Itest_Directives> Directives (Itest_Filter? parameter);
+  IDictionary<Itest_Name, Itest_Type> Types (Itest_TypeFilter? parameter);
+  IDictionary<Itest_Name, Itest_Setting> Settings (Itest_Filter? parameter);
 }
 
 public interface Itest_Name
@@ -26,6 +28,7 @@ public interface Itest_Name
 }
 
 public interface Itest_Filter
+  : IGqlpModelImplementationBase
 {
   ICollection<Itest_NameFilter> As_NameFilter { get; }
   Itest_FilterObject As_Filter { get; }
@@ -94,6 +97,7 @@ public interface Itest_NamedObject
 }
 
 public interface Itest_Described
+  : IGqlpModelImplementationBase
 {
   Itest_DescribedObject As_Described { get; }
 }

@@ -3,7 +3,9 @@ output FieldEnumOutp { field = EnumFieldEnumOutp.fieldEnumOutp }
 enum EnumFieldEnumOutp { fieldEnumOutp }
 */
 
-// Generated from Schema field-enum+Output for Impl
+// Generated from Schema field-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-enum+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -12,5 +14,5 @@ namespace Components.Gqlp_Schema_field_enum_Output;
 public class CmptFieldEnumOutp
   : ICmptFieldEnumOutp
 {
-public CmptEnumFieldEnumOutp Field { get; set; }
+  public CmptEnumFieldEnumOutp Field { get; set; }
 }

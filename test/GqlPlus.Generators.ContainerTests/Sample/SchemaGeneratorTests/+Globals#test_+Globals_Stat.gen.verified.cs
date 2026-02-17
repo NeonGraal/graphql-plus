@@ -1,5 +1,7 @@
 ﻿//HintName: test_+Globals_Stat.gen.cs
-// Generated from +Globals.graphql+ for Stat
+// Generated from {CurrentDirectory}+Globals.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 
 Category ctgrDscrs

@@ -47,7 +47,9 @@ dual _Described {
     }
 */
 
-// Generated from Spec -Schema for Intf
+// Generated from Spec -Schema
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_-Schema, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -62,10 +64,10 @@ public interface ICmpt_Schema
 public interface ICmpt_SchemaObject
   : ICmpt_NamedObject
 {
-IDictionary<ICmpt_Name, ICmpt_Categories> Categories (ICmpt_CategoryFilter? parameter);
-IDictionary<ICmpt_Name, ICmpt_Directives> Directives (ICmpt_Filter? parameter);
-IDictionary<ICmpt_Name, ICmpt_Type> Types (ICmpt_TypeFilter? parameter);
-IDictionary<ICmpt_Name, ICmpt_Setting> Settings (ICmpt_Filter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Categories> Categories (ICmpt_CategoryFilter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Directives> Directives (ICmpt_Filter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Type> Types (ICmpt_TypeFilter? parameter);
+  IDictionary<ICmpt_Name, ICmpt_Setting> Settings (ICmpt_Filter? parameter);
 }
 
 public interface ICmpt_Name
@@ -74,6 +76,7 @@ public interface ICmpt_Name
 }
 
 public interface ICmpt_Filter
+  : Spec_-Schema
 {
   ICollection<ICmpt_NameFilter> As_NameFilter { get; }
   ICmpt_FilterObject As_Filter { get; }
@@ -142,6 +145,7 @@ public interface ICmpt_NamedObject
 }
 
 public interface ICmpt_Described
+  : Spec_-Schema
 {
   ICmpt_DescribedObject As_Described { get; }
 }

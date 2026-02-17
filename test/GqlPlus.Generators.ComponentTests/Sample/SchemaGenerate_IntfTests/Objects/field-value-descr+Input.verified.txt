@@ -3,13 +3,16 @@ input FieldValueDescrInp { field = "Test" "Descr" fieldValueDescrInp }
 enum EnumFieldValueDescrInp { fieldValueDescrInp }
 */
 
-// Generated from Schema field-value-descr+Input for Intf
+// Generated from Schema field-value-descr+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-value-descr+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_value_descr_Input;
 
 public interface ICmptFieldValueDescrInp
+  : Schema_field-value-descr+Input
 {
   ICmptFieldValueDescrInpObject AsFieldValueDescrInp { get; }
 }

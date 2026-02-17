@@ -9,7 +9,9 @@ output _UnionMember {
     }
 */
 
-// Generated from Spec Union for Impl
+// Generated from Spec Union
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Union, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -25,5 +27,5 @@ public class Cmpt_UnionMember
   : Cmpt_UnionRef
   , ICmpt_UnionMember
 {
-public ICmpt_Name Union { get; set; }
+  public ICmpt_Name Union { get; set; }
 }

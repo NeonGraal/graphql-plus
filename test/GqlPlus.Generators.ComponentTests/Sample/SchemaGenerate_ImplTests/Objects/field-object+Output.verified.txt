@@ -3,7 +3,9 @@ output FieldObjOutp { field: FldFieldObjOutp }
 output FldFieldObjOutp { field: Number | String }
 */
 
-// Generated from Schema field-object+Output for Impl
+// Generated from Schema field-object+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-object+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -12,11 +14,11 @@ namespace Components.Gqlp_Schema_field_object_Output;
 public class CmptFieldObjOutp
   : ICmptFieldObjOutp
 {
-public ICmptFldFieldObjOutp Field { get; set; }
+  public ICmptFldFieldObjOutp Field { get; set; }
 }
 
 public class CmptFldFieldObjOutp
   : ICmptFldFieldObjOutp
 {
-public decimal Field { get; set; }
+  public decimal Field { get; set; }
 }

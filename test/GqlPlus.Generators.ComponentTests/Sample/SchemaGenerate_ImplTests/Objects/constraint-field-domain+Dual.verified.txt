@@ -4,7 +4,9 @@ dual RefCnstFieldDmnDual<$ref:String> { field: $ref }
 domain DomCnstFieldDmnDual { String /\w+/ }
 */
 
-// Generated from Schema constraint-field-domain+Dual for Impl
+// Generated from Schema constraint-field-domain+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-domain+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

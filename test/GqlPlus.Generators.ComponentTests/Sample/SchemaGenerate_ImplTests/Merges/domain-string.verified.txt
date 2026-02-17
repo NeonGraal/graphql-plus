@@ -3,7 +3,9 @@ domain DmnStr { string }
 domain DmnStr { string }
 */
 
-// Generated from Schema domain-string for Impl
+// Generated from Schema domain-string
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-string, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

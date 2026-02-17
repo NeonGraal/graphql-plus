@@ -3,7 +3,9 @@ enum EnumPrntDup { :PrntEnumPrntDup enumPrntDup  }
 enum PrntEnumPrntDup { prnt_enumPrntDup[enumPrntDup] }
 */
 
-// Generated from Schema enum-parent-dup for Enum
+// Generated from Schema enum-parent-dup
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_enum-parent-dup, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

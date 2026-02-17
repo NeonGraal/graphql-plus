@@ -4,7 +4,9 @@ input InOutpParamModDmn { param: Number | String }
 domain DomOutpParamModDmn { number 1 < 10 }
 */
 
-// Generated from Schema output-param-mod-Domain for Impl
+// Generated from Schema output-param-mod-Domain
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-param-mod-Domain, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -13,7 +15,7 @@ namespace Components.Gqlp_Schema_output_param_mod_Domain;
 public class CmptOutpParamModDmn
   : ICmptOutpParamModDmn
 {
-public ICmptDomOutpParamModDmn Field (IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn>)
+  public ICmptDomOutpParamModDmn Field (IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn>)
 { }
 }
 

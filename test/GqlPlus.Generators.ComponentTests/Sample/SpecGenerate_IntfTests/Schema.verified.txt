@@ -20,13 +20,16 @@ union _Key { }
 dual _Any { }
 */
 
-// Generated from Spec Schema for Intf
+// Generated from Spec Schema
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Schema, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Spec_Schema;
 
 public interface ICmpt_Opt<TT>
+  : Spec_Schema
 {
   TT AsT { get; }
   CmptNull AsNull { get; }
@@ -38,6 +41,7 @@ public interface ICmpt_OptObject<TT>
 }
 
 public interface ICmpt_List<TT>
+  : Spec_Schema
 {
   ICollection<TT> AsT { get; }
   ICmpt_ListObject<TT> As_List { get; }
@@ -48,6 +52,7 @@ public interface ICmpt_ListObject<TT>
 }
 
 public interface ICmpt_Dict<TK,TT>
+  : Spec_Schema
 {
   IDictionary<TK, TT> AsT { get; }
   ICmpt_DictObject<TK,TT> As_Dict { get; }
@@ -58,6 +63,7 @@ public interface ICmpt_DictObject<TK,TT>
 }
 
 public interface ICmpt_Map<TT>
+  : Spec_Schema
 {
   IDictionary<string, TT> AsT { get; }
   ICmpt_MapObject<TT> As_Map { get; }
@@ -68,6 +74,7 @@ public interface ICmpt_MapObject<TT>
 }
 
 public interface ICmpt_Array<TT>
+  : Spec_Schema
 {
   IDictionary<decimal, TT> AsT { get; }
   ICmpt_ArrayObject<TT> As_Array { get; }
@@ -78,6 +85,7 @@ public interface ICmpt_ArrayObject<TT>
 }
 
 public interface ICmpt_IfElse<TT>
+  : Spec_Schema
 {
   IDictionary<bool, TT> AsT { get; }
   ICmpt_IfElseObject<TT> As_IfElse { get; }
@@ -88,6 +96,7 @@ public interface ICmpt_IfElseObject<TT>
 }
 
 public interface ICmpt_Set<TK>
+  : Spec_Schema
 {
   IDictionary<TK, GqlpUnit> AsUnit_ { get; }
   ICmpt_SetObject<TK> As_Set { get; }
@@ -98,6 +107,7 @@ public interface ICmpt_SetObject<TK>
 }
 
 public interface ICmpt_Mask<TK>
+  : Spec_Schema
 {
   IDictionary<TK, bool> AsBoolean { get; }
   ICmpt_MaskObject<TK> As_Mask { get; }
@@ -108,10 +118,12 @@ public interface ICmpt_MaskObject<TK>
 }
 
 public interface ICmpt_Key
+  : Spec_Schema
 {
 }
 
 public interface ICmpt_Any
+  : Spec_Schema
 {
   ICmpt_AnyObject As_Any { get; }
 }

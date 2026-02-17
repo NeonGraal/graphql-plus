@@ -3,18 +3,21 @@ output FieldEnumOutp { field = EnumFieldEnumOutp.fieldEnumOutp }
 enum EnumFieldEnumOutp { fieldEnumOutp }
 */
 
-// Generated from Schema field-enum+Output for Intf
+// Generated from Schema field-enum+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-enum+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_enum_Output;
 
 public interface ICmptFieldEnumOutp
+  : Schema_field-enum+Output
 {
   ICmptFieldEnumOutpObject AsFieldEnumOutp { get; }
 }
 
 public interface ICmptFieldEnumOutpObject
 {
-CmptEnumFieldEnumOutp Field { get; }
+  CmptEnumFieldEnumOutp Field { get; }
 }

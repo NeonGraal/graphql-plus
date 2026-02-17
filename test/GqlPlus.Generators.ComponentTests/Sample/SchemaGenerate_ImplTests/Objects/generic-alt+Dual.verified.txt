@@ -2,7 +2,9 @@
 dual GnrcAltDual<$type:String> { | $type }
 */
 
-// Generated from Schema generic-alt+Dual for Impl
+// Generated from Schema generic-alt+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

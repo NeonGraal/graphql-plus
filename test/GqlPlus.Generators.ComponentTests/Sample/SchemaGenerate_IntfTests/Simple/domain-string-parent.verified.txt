@@ -3,7 +3,9 @@ domain DmnStrPrnt { :PrntDmnStrPrnt String /a+/ }
 domain PrntDmnStrPrnt { String /b+/ }
 */
 
-// Generated from Schema domain-string-parent for Intf
+// Generated from Schema domain-string-parent
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-string-parent, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

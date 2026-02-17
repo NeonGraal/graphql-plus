@@ -3,7 +3,9 @@ input ObjAliasInp [Input1] { }
 input ObjAliasInp [Input2] { }
 */
 
-// Generated from Schema object-alias+Input for Impl
+// Generated from Schema object-alias+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alias+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

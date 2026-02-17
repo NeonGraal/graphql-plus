@@ -1,5 +1,7 @@
 ﻿//HintName: test_field-mod-Enum+Output_Enum.gen.cs
-// Generated from field-mod-Enum+Output.graphql+ for Enum
+// Generated from {CurrentDirectory}field-mod-Enum+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

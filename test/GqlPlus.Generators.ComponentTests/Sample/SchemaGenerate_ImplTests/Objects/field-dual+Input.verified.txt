@@ -3,7 +3,9 @@ input FieldDualInp { field: FldFieldDualInp }
 dual FldFieldDualInp { field: Number | String }
 */
 
-// Generated from Schema field-dual+Input for Impl
+// Generated from Schema field-dual+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-dual+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

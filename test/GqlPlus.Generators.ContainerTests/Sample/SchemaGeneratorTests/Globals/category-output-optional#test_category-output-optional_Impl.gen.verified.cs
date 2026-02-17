@@ -1,5 +1,7 @@
 ﻿//HintName: test_category-output-optional_Impl.gen.cs
-// Generated from category-output-optional.graphql+ for Impl
+// Generated from {CurrentDirectory}category-output-optional.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

@@ -3,7 +3,9 @@ output PrntParamDiffOutp<$a:String> { :RefPrntParamDiffOutp<$a> field: $a }
 output RefPrntParamDiffOutp<$b:String> { | $b }
 */
 
-// Generated from Schema parent-param-diff+Output for Impl
+// Generated from Schema parent-param-diff+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-diff+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -13,7 +15,7 @@ public class CmptPrntParamDiffOutp<TA>
   : CmptRefPrntParamDiffOutp<TA>
   , ICmptPrntParamDiffOutp<TA>
 {
-public TA Field { get; set; }
+  public TA Field { get; set; }
 }
 
 public class CmptRefPrntParamDiffOutp<TB>

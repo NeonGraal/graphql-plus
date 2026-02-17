@@ -47,7 +47,9 @@ dual _Described {
     }
 */
 
-// Generated from Spec -Schema for Impl
+// Generated from Spec -Schema
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_-Schema, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -57,13 +59,13 @@ public class Cmpt_Schema
   : Cmpt_Named
   , ICmpt_Schema
 {
-public IDictionary<ICmpt_Name, ICmpt_Categories> Categories (ICmpt_CategoryFilter?)
+  public IDictionary<ICmpt_Name, ICmpt_Categories> Categories (ICmpt_CategoryFilter?)
 { }
-public IDictionary<ICmpt_Name, ICmpt_Directives> Directives (ICmpt_Filter?)
+  public IDictionary<ICmpt_Name, ICmpt_Directives> Directives (ICmpt_Filter?)
 { }
-public IDictionary<ICmpt_Name, ICmpt_Type> Types (ICmpt_TypeFilter?)
+  public IDictionary<ICmpt_Name, ICmpt_Type> Types (ICmpt_TypeFilter?)
 { }
-public IDictionary<ICmpt_Name, ICmpt_Setting> Settings (ICmpt_Filter?)
+  public IDictionary<ICmpt_Name, ICmpt_Setting> Settings (ICmpt_Filter?)
 { }
 }
 

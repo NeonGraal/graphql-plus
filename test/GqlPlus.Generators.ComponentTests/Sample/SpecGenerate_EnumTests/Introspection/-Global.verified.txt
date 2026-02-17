@@ -42,7 +42,9 @@ output _Setting {
     }
 */
 
-// Generated from Spec -Global for Enum
+// Generated from Spec -Global
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_-Global, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

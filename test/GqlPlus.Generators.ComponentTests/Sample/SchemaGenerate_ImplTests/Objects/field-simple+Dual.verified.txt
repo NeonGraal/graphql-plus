@@ -2,7 +2,9 @@
 dual FieldSmplDual { field: Number }
 */
 
-// Generated from Schema field-simple+Dual for Impl
+// Generated from Schema field-simple+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-simple+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

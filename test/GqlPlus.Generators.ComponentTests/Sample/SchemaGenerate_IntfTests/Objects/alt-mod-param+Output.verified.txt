@@ -3,13 +3,16 @@ output AltModParamOutp<$mod:String> { | AltAltModParamOutp[$mod] }
 output AltAltModParamOutp { alt: Number | String }
 */
 
-// Generated from Schema alt-mod-param+Output for Intf
+// Generated from Schema alt-mod-param+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-mod-param+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_alt_mod_param_Output;
 
 public interface ICmptAltModParamOutp<TMod>
+  : Schema_alt-mod-param+Output
 {
   IDictionary<TMod, ICmptAltAltModParamOutp> AsAltAltModParamOutp { get; }
   ICmptAltModParamOutpObject<TMod> AsAltModParamOutp { get; }
@@ -20,6 +23,7 @@ public interface ICmptAltModParamOutpObject<TMod>
 }
 
 public interface ICmptAltAltModParamOutp
+  : Schema_alt-mod-param+Output
 {
   string AsString { get; }
   ICmptAltAltModParamOutpObject AsAltAltModParamOutp { get; }
@@ -27,5 +31,5 @@ public interface ICmptAltAltModParamOutp
 
 public interface ICmptAltAltModParamOutpObject
 {
-decimal Alt { get; }
+  decimal Alt { get; }
 }

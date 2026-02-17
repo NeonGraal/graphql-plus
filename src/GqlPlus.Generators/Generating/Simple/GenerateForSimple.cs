@@ -7,7 +7,7 @@ internal abstract class GenerateForSimple<TSimple>
 {
   protected override void ClassHeader(TSimple ast, GqlpGeneratorContext context)
   {
-    base.ClassHeader(ast, context);
+    context.Write("public class " + context.TypeName(ast, ""));
 
     string interfaceSep = ":";
 
@@ -17,6 +17,11 @@ internal abstract class GenerateForSimple<TSimple>
     } else if (HasDefaultParent(out string? defaultParent)) {
       context.Write("  : " + defaultParent);
       interfaceSep = ",";
+    } else if (context.GeneratorOptions.BaseType == GqlpBaseType.Class) {
+      context.Write("  : " + context.GeneratorOptions.BaseName);
+      interfaceSep = ",";
+    } else {
+      context.Write($"  // No Base because it's {context.GeneratorOptions.BaseType}");
     }
 
     context.Write("  " + interfaceSep + " " + context.TypeName(ast, "I"));
@@ -26,12 +31,15 @@ internal abstract class GenerateForSimple<TSimple>
 
   protected override void InterfaceHeader(TSimple ast, GqlpGeneratorContext context)
   {
-    base.InterfaceHeader(ast, context);
-
+    context.Write("public interface " + context.TypeName(ast, "I"));
     if (ast.Parent is not null) {
       context.Write("  : " + context.TypeName(ast.Parent, "I"));
     } else if (HasDefaultParent(out string? defaultParent)) {
       context.Write("  : I" + defaultParent);
+    } else if (context.GeneratorOptions.BaseType == GqlpBaseType.Interface) {
+      context.Write("  : " + context.GeneratorOptions.BaseName);
+    } else {
+      context.Write($"  // No Base because it's {context.GeneratorOptions.BaseType}");
     }
   }
 

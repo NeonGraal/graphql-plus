@@ -5,7 +5,9 @@ enum EnumGnrcPrntEnumDomOutp { gnrcPrntEnumDomOutpLabel gnrcPrntEnumDomOutpOther
 domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 */
 
-// Generated from Schema generic-parent-enum-dom+Output for Intf
+// Generated from Schema generic-parent-enum-dom+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-enum-dom+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -23,13 +25,14 @@ public interface ICmptGnrcPrntEnumDomOutpObject
 }
 
 public interface ICmptFieldGnrcPrntEnumDomOutp<TRef>
+  : Schema_generic-parent-enum-dom+Output
 {
   ICmptFieldGnrcPrntEnumDomOutpObject<TRef> AsFieldGnrcPrntEnumDomOutp { get; }
 }
 
 public interface ICmptFieldGnrcPrntEnumDomOutpObject<TRef>
 {
-TRef Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntEnumDomOutp

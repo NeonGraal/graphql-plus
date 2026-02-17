@@ -3,7 +3,9 @@ domain DmnNmbr { number }
 domain DmnNmbr { number }
 */
 
-// Generated from Schema domain-number for Intf
+// Generated from Schema domain-number
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-number, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

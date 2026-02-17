@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-alt-obj+Output_Impl.gen.cs
-// Generated from constraint-alt-obj+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}constraint-alt-obj+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -24,5 +26,5 @@ public class testAltCnstAltObjOutp
   : testPrntCnstAltObjOutp
   , ItestAltCnstAltObjOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }

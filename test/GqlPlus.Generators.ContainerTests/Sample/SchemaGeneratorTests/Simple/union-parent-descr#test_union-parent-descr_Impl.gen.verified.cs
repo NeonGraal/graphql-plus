@@ -1,5 +1,7 @@
 ﻿//HintName: test_union-parent-descr_Impl.gen.cs
-// Generated from union-parent-descr.graphql+ for Impl
+// Generated from {CurrentDirectory}union-parent-descr.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -13,7 +15,8 @@ public class testUnionPrntDescr
 }
 
 public class testPrntUnionPrntDescr
-  : ItestPrntUnionPrntDescr
+  : GqlpModelImplementationBase
+  , ItestPrntUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }

@@ -4,7 +4,9 @@ category ctgr { Ctgr }
 output Ctgr { }
 */
 
-// Generated from Schema category for Stat
+// Generated from Schema category
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Category ctgr

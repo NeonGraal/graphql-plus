@@ -1,5 +1,7 @@
 ﻿//HintName: test_Input_Intf.gen.cs
-// Generated from Input.graphql+ for Intf
+// Generated from {CurrentDirectory}Input.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -25,5 +27,5 @@ public interface Itest_InputFieldType
 public interface Itest_InputFieldTypeObject
   : Itest_ObjFieldTypeObject
 {
-GqlpValue? DefaultValue { get; }
+  GqlpValue? DefaultValue { get; }
 }

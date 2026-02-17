@@ -4,7 +4,9 @@ dual FldOutpParamTypeDescr { }
 input InOutpParamTypeDescr { param: Number | String }
 */
 
-// Generated from Schema output-param-type-descr for Impl
+// Generated from Schema output-param-type-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-param-type-descr, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -13,7 +15,7 @@ namespace Components.Gqlp_Schema_output_param_type_descr;
 public class CmptOutpParamTypeDescr
   : ICmptOutpParamTypeDescr
 {
-public ICmptFldOutpParamTypeDescr Field (ICmptInOutpParamTypeDescr)
+  public ICmptFldOutpParamTypeDescr Field (ICmptInOutpParamTypeDescr)
 { }
 }
 

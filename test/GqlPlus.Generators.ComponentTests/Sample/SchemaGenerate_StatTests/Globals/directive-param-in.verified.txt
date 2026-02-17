@@ -3,7 +3,9 @@ directive @DrctParamIn(InDrctParamIn) { all }
 input InDrctParamIn { }
 */
 
-// Generated from Schema directive-param-in for Stat
+// Generated from Schema directive-param-in
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_directive-param-in, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Directive DrctParamIn

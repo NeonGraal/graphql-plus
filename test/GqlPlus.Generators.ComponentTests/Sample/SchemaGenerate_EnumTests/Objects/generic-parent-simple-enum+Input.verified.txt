@@ -4,7 +4,9 @@ input FieldGnrcPrntSmplEnumInp<$ref:_Simple> { field: $ref }
 enum EnumGnrcPrntSmplEnumInp { gnrcPrntSmplEnumInp }
 */
 
-// Generated from Schema generic-parent-simple-enum+Input for Enum
+// Generated from Schema generic-parent-simple-enum+Input
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_generic-parent-simple-enum+Input, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

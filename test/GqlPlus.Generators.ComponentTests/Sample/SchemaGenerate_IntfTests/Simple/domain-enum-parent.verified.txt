@@ -4,7 +4,9 @@ domain PrntDmnEnumPrnt { Enum prnt_dmnEnumPrnt }
 enum EnumDmnEnumPrnt { enum_dmnEnumPrnt prnt_dmnEnumPrnt }
 */
 
-// Generated from Schema domain-enum-parent for Intf
+// Generated from Schema domain-enum-parent
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-parent, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

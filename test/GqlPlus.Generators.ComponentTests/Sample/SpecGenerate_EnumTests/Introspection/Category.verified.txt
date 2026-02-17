@@ -15,7 +15,9 @@ output _Category {
 enum _Resolution { Parallel Sequential Single }
 */
 
-// Generated from Spec Category for Enum
+// Generated from Spec Category
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_Category, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

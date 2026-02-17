@@ -2,18 +2,21 @@
 output FieldOutp { field: String }
 */
 
-// Generated from Schema field+Output for Intf
+// Generated from Schema field+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_Output;
 
 public interface ICmptFieldOutp
+  : Schema_field+Output
 {
   ICmptFieldOutpObject AsFieldOutp { get; }
 }
 
 public interface ICmptFieldOutpObject
 {
-string Field { get; }
+  string Field { get; }
 }

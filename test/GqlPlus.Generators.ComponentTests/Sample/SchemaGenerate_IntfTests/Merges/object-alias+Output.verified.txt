@@ -3,13 +3,16 @@ output ObjAliasOutp [Output1] { }
 output ObjAliasOutp [Output2] { }
 */
 
-// Generated from Schema object-alias+Output for Intf
+// Generated from Schema object-alias+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-alias+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_alias_Output;
 
 public interface ICmptObjAliasOutp
+  : Schema_object-alias+Output
 {
   ICmptObjAliasOutpObject AsObjAliasOutp { get; }
 }

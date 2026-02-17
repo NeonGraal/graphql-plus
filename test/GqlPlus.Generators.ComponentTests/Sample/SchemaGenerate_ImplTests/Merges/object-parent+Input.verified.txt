@@ -4,7 +4,9 @@ input ObjPrntInp { :RefObjPrntInp }
 input RefObjPrntInp { }
 */
 
-// Generated from Schema object-parent+Input for Impl
+// Generated from Schema object-parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-parent+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

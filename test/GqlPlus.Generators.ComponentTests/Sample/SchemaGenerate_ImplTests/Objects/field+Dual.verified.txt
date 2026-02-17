@@ -2,7 +2,9 @@
 dual FieldDual { field: String }
 */
 
-// Generated from Schema field+Dual for Impl
+// Generated from Schema field+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

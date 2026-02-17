@@ -6,7 +6,9 @@ category { CtgrDescr }
 output CtgrDescr { }
 */
 
-// Generated from Schema category-descr for Impl
+// Generated from Schema category-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-descr, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -2,7 +2,9 @@
 directive @DrctNoParam { all }
 */
 
-// Generated from Schema directive-no-param for Stat
+// Generated from Schema directive-no-param
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_directive-no-param, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Directive DrctNoParam

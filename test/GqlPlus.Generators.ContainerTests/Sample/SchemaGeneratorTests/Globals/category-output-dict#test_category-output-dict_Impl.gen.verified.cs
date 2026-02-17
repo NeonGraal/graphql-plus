@@ -1,5 +1,7 @@
 ﻿//HintName: test_category-output-dict_Impl.gen.cs
-// Generated from category-output-dict.graphql+ for Impl
+// Generated from {CurrentDirectory}category-output-dict.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

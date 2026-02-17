@@ -3,13 +3,16 @@ input AltInp { | AltAltInp }
 input AltAltInp { alt: Number | String }
 */
 
-// Generated from Schema alt+Input for Intf
+// Generated from Schema alt+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_alt_Input;
 
 public interface ICmptAltInp
+  : Schema_alt+Input
 {
   ICmptAltAltInp AsAltAltInp { get; }
   ICmptAltInpObject AsAltInp { get; }
@@ -20,6 +23,7 @@ public interface ICmptAltInpObject
 }
 
 public interface ICmptAltAltInp
+  : Schema_alt+Input
 {
   string AsString { get; }
   ICmptAltAltInpObject AsAltAltInp { get; }

@@ -2,18 +2,21 @@
 output FieldTypeDescrOutp { field: "Test" "Descr" Number }
 */
 
-// Generated from Schema field-type-descr+Output for Intf
+// Generated from Schema field-type-descr+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-type-descr+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_type_descr_Output;
 
 public interface ICmptFieldTypeDescrOutp
+  : Schema_field-type-descr+Output
 {
   ICmptFieldTypeDescrOutpObject AsFieldTypeDescrOutp { get; }
 }
 
 public interface ICmptFieldTypeDescrOutpObject
 {
-decimal Field { get; }
+  decimal Field { get; }
 }

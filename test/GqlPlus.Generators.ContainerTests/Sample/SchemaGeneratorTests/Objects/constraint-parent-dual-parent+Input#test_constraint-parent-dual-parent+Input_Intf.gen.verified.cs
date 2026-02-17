@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-parent-dual-parent+Input_Intf.gen.cs
-// Generated from constraint-parent-dual-parent+Input.graphql+ for Intf
+// Generated from {CurrentDirectory}constraint-parent-dual-parent+Input.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -17,6 +19,7 @@ public interface ItestCnstPrntDualPrntInpObject
 }
 
 public interface ItestRefCnstPrntDualPrntInp<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef AsParent { get; }
   ItestRefCnstPrntDualPrntInpObject<TRef> AsRefCnstPrntDualPrntInp { get; }
@@ -27,6 +30,7 @@ public interface ItestRefCnstPrntDualPrntInpObject<TRef>
 }
 
 public interface ItestPrntCnstPrntDualPrntInp
+  : IGqlpModelImplementationBase
 {
   string AsString { get; }
   ItestPrntCnstPrntDualPrntInpObject AsPrntCnstPrntDualPrntInp { get; }

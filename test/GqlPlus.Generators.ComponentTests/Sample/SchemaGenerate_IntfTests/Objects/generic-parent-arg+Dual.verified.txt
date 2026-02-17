@@ -3,7 +3,9 @@ dual GnrcPrntArgDual<$type:String> { :RefGnrcPrntArgDual<$type> }
 dual RefGnrcPrntArgDual<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-parent-arg+Dual for Intf
+// Generated from Schema generic-parent-arg+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-arg+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -21,6 +23,7 @@ public interface ICmptGnrcPrntArgDualObject<TType>
 }
 
 public interface ICmptRefGnrcPrntArgDual<TRef>
+  : Schema_generic-parent-arg+Dual
 {
   TRef Asref { get; }
   ICmptRefGnrcPrntArgDualObject<TRef> AsRefGnrcPrntArgDual { get; }

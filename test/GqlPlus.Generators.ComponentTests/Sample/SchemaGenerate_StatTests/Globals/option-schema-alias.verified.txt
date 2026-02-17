@@ -2,7 +2,9 @@
 option Schema [Alias] { }
 */
 
-// Generated from Schema option-schema-alias for Stat
+// Generated from Schema option-schema-alias
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_option-schema-alias, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Option Schema

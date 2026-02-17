@@ -5,7 +5,9 @@ output _Setting {
     }
 */
 
-// Generated from Spec Option for Intf
+// Generated from Spec Option
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Option, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -20,5 +22,5 @@ public interface ICmpt_Setting
 public interface ICmpt_SettingObject
   : ICmpt_NamedObject
 {
-GqlpValue Value { get; }
+  GqlpValue Value { get; }
 }

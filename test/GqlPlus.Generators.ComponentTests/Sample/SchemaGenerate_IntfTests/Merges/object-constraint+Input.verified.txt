@@ -3,13 +3,16 @@ input ObjCnstInp<$type:String> { field: $type }
 input ObjCnstInp<$type:String> { str: $type }
 */
 
-// Generated from Schema object-constraint+Input for Intf
+// Generated from Schema object-constraint+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-constraint+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_constraint_Input;
 
 public interface ICmptObjCnstInp<TType>
+  : Schema_object-constraint+Input
 {
   ICmptObjCnstInpObject<TType> AsObjCnstInp { get; }
 }

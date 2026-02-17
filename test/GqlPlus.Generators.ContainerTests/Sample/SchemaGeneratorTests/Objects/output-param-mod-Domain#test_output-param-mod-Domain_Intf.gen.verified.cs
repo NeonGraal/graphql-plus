@@ -1,21 +1,25 @@
 ﻿//HintName: test_output-param-mod-Domain_Intf.gen.cs
-// Generated from output-param-mod-Domain.graphql+ for Intf
+// Generated from {CurrentDirectory}output-param-mod-Domain.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_Domain;
 
 public interface ItestOutpParamModDmn
+  : IGqlpModelImplementationBase
 {
   ItestOutpParamModDmnObject AsOutpParamModDmn { get; }
 }
 
 public interface ItestOutpParamModDmnObject
 {
-ItestDomOutpParamModDmn Field (IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter);
+  ItestDomOutpParamModDmn Field (IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter);
 }
 
 public interface ItestInOutpParamModDmn
+  : IGqlpModelImplementationBase
 {
   string AsString { get; }
   ItestInOutpParamModDmnObject AsInOutpParamModDmn { get; }

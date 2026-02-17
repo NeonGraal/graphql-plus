@@ -1,5 +1,7 @@
 ﻿//HintName: test_generic-alt-param+Output_Impl.gen.cs
-// Generated from generic-alt-param+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}generic-alt-param+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -18,5 +20,5 @@ public class testRefGnrcAltParamOutp<TRef>
 public class testAltGnrcAltParamOutp
   : ItestAltGnrcAltParamOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }

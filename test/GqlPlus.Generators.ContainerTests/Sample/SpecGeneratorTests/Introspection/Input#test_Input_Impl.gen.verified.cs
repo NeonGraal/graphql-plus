@@ -1,5 +1,7 @@
 ﻿//HintName: test_Input_Impl.gen.cs
-// Generated from Input.graphql+ for Impl
+// Generated from {CurrentDirectory}Input.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -15,5 +17,5 @@ public class test_InputFieldType
   : test_ObjFieldType
   , Itest_InputFieldType
 {
-public GqlpValue? DefaultValue { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
 }

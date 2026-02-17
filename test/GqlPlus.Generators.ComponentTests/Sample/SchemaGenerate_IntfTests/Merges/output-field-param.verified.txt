@@ -6,23 +6,27 @@ input OutpFieldParam2 { }
 dual FldOutpFieldParam { }
 */
 
-// Generated from Schema output-field-param for Intf
+// Generated from Schema output-field-param
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_output-field-param, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_output_field_param;
 
 public interface ICmptOutpFieldParam
+  : Schema_output-field-param
 {
   ICmptOutpFieldParamObject AsOutpFieldParam { get; }
 }
 
 public interface ICmptOutpFieldParamObject
 {
-ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1 parameter);
+  ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1 parameter);
 }
 
 public interface ICmptOutpFieldParam1
+  : Schema_output-field-param
 {
   ICmptOutpFieldParam1Object AsOutpFieldParam1 { get; }
 }
@@ -32,6 +36,7 @@ public interface ICmptOutpFieldParam1Object
 }
 
 public interface ICmptOutpFieldParam2
+  : Schema_output-field-param
 {
   ICmptOutpFieldParam2Object AsOutpFieldParam2 { get; }
 }
@@ -41,6 +46,7 @@ public interface ICmptOutpFieldParam2Object
 }
 
 public interface ICmptFldOutpFieldParam
+  : Schema_output-field-param
 {
   ICmptFldOutpFieldParamObject AsFldOutpFieldParam { get; }
 }

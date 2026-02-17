@@ -1,5 +1,7 @@
 ﻿//HintName: test_field-enum+Dual_Enum.gen.cs
-// Generated from field-enum+Dual.graphql+ for Enum
+// Generated from {CurrentDirectory}field-enum+Dual.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

@@ -3,7 +3,9 @@ union UnionPrnt { :PrntUnionPrnt String }
 union PrntUnionPrnt { Number }
 */
 
-// Generated from Schema union-parent for Impl
+// Generated from Schema union-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-parent, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -17,7 +19,8 @@ public class CmptUnionPrnt
 }
 
 public class CmptPrntUnionPrnt
-  : ICmptPrntUnionPrnt
+  : Schema_union-parent
+  , ICmptPrntUnionPrnt
 {
   public Number AsNumber { get; set; }
 }

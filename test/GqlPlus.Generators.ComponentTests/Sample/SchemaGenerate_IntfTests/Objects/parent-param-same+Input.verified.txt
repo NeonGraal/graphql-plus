@@ -3,7 +3,9 @@ input PrntParamSameInp<$a:String> { :RefPrntParamSameInp<$a> field: $a }
 input RefPrntParamSameInp<$a:String> { | $a }
 */
 
-// Generated from Schema parent-param-same+Input for Intf
+// Generated from Schema parent-param-same+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-param-same+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,6 +24,7 @@ public interface ICmptPrntParamSameInpObject<TA>
 }
 
 public interface ICmptRefPrntParamSameInp<TA>
+  : Schema_parent-param-same+Input
 {
   TA Asa { get; }
   ICmptRefPrntParamSameInpObject<TA> AsRefPrntParamSameInp { get; }

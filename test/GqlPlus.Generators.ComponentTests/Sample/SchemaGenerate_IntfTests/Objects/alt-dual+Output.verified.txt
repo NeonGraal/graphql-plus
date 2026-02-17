@@ -3,13 +3,16 @@ output AltDualOutp { | ObjDualAltDualOutp }
 dual ObjDualAltDualOutp { alt: Number | String }
 */
 
-// Generated from Schema alt-dual+Output for Intf
+// Generated from Schema alt-dual+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-dual+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_alt_dual_Output;
 
 public interface ICmptAltDualOutp
+  : Schema_alt-dual+Output
 {
   ICmptObjDualAltDualOutp AsObjDualAltDualOutp { get; }
   ICmptAltDualOutpObject AsAltDualOutp { get; }
@@ -20,6 +23,7 @@ public interface ICmptAltDualOutpObject
 }
 
 public interface ICmptObjDualAltDualOutp
+  : Schema_alt-dual+Output
 {
   string AsString { get; }
   ICmptObjDualAltDualOutpObject AsObjDualAltDualOutp { get; }

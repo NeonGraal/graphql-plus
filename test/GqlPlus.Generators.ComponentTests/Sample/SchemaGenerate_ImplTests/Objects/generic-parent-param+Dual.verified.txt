@@ -4,7 +4,9 @@ dual RefGnrcPrntParamDual<$ref:_Dual> { | $ref }
 dual AltGnrcPrntParamDual { alt: Number | String }
 */
 
-// Generated from Schema generic-parent-param+Dual for Impl
+// Generated from Schema generic-parent-param+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-param+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

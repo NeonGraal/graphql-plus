@@ -4,7 +4,9 @@ dual ObjFieldAliasDual { field [field2]: FldObjFieldAliasDual }
 dual FldObjFieldAliasDual { }
 */
 
-// Generated from Schema object-field-alias+Dual for Impl
+// Generated from Schema object-field-alias+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-alias+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

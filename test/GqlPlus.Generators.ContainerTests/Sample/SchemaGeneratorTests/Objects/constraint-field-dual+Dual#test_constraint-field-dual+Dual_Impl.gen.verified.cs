@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-field-dual+Dual_Impl.gen.cs
-// Generated from constraint-field-dual+Dual.graphql+ for Impl
+// Generated from {CurrentDirectory}constraint-field-dual+Dual.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

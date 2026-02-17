@@ -4,13 +4,16 @@ dual RefCnstAltDmnDual<$ref:String> { | $ref }
 domain DomCnstAltDmnDual { String /\w+/ }
 */
 
-// Generated from Schema constraint-alt-domain+Dual for Intf
+// Generated from Schema constraint-alt-domain+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-alt-domain+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
 
 public interface ICmptCnstAltDmnDual
+  : Schema_constraint-alt-domain+Dual
 {
   ICmptRefCnstAltDmnDual<ICmptDomCnstAltDmnDual> AsRefCnstAltDmnDual { get; }
   ICmptCnstAltDmnDualObject AsCnstAltDmnDual { get; }
@@ -21,6 +24,7 @@ public interface ICmptCnstAltDmnDualObject
 }
 
 public interface ICmptRefCnstAltDmnDual<TRef>
+  : Schema_constraint-alt-domain+Dual
 {
   TRef Asref { get; }
   ICmptRefCnstAltDmnDualObject<TRef> AsRefCnstAltDmnDual { get; }

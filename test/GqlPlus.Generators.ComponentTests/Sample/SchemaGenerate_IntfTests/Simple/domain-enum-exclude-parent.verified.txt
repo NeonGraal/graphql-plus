@@ -4,7 +4,9 @@ enum EnumDmnEnumExclPrnt { :PrntDmnEnumExclPrnt dmnEnumExclPrnt dmnEnumExclPrntV
 enum PrntDmnEnumExclPrnt { prnt_dmnEnumExclPrnt dmnEnumExclPrntPrnt }
 */
 
-// Generated from Schema domain-enum-exclude-parent for Intf
+// Generated from Schema domain-enum-exclude-parent
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-exclude-parent, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

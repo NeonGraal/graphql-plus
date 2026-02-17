@@ -4,13 +4,16 @@ category ctgr { Ctgr }
 output Ctgr { }
 */
 
-// Generated from Schema category for Intf
+// Generated from Schema category
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_category, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_category;
 
 public interface ICmptCtgr
+  : Schema_category
 {
   ICmptCtgrObject AsCtgr { get; }
 }

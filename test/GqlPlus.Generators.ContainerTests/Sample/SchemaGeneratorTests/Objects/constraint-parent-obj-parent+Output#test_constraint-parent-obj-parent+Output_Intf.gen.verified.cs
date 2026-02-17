@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-parent-obj-parent+Output_Intf.gen.cs
-// Generated from constraint-parent-obj-parent+Output.graphql+ for Intf
+// Generated from {CurrentDirectory}constraint-parent-obj-parent+Output.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -17,6 +19,7 @@ public interface ItestCnstPrntObjPrntOutpObject
 }
 
 public interface ItestRefCnstPrntObjPrntOutp<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef AsParent { get; }
   ItestRefCnstPrntObjPrntOutpObject<TRef> AsRefCnstPrntObjPrntOutp { get; }
@@ -27,6 +30,7 @@ public interface ItestRefCnstPrntObjPrntOutpObject<TRef>
 }
 
 public interface ItestPrntCnstPrntObjPrntOutp
+  : IGqlpModelImplementationBase
 {
   string AsString { get; }
   ItestPrntCnstPrntObjPrntOutpObject AsPrntCnstPrntObjPrntOutp { get; }
@@ -45,5 +49,5 @@ public interface ItestAltCnstPrntObjPrntOutp
 public interface ItestAltCnstPrntObjPrntOutpObject
   : ItestPrntCnstPrntObjPrntOutpObject
 {
-decimal Alt { get; }
+  decimal Alt { get; }
 }

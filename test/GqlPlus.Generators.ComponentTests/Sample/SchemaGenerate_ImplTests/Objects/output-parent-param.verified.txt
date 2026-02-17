@@ -6,7 +6,9 @@ input InOutpPrntParam { param: Number | String }
 input PrntOutpPrntParamIn { parent: Number | String }
 */
 
-// Generated from Schema output-parent-param for Impl
+// Generated from Schema output-parent-param
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-parent-param, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -16,14 +18,14 @@ public class CmptOutpPrntParam
   : CmptPrntOutpPrntParam
   , ICmptOutpPrntParam
 {
-public ICmptFldOutpPrntParam Field (ICmptInOutpPrntParam)
+  public ICmptFldOutpPrntParam Field (ICmptInOutpPrntParam)
 { }
 }
 
 public class CmptPrntOutpPrntParam
   : ICmptPrntOutpPrntParam
 {
-public ICmptFldOutpPrntParam Field (ICmptPrntOutpPrntParamIn)
+  public ICmptFldOutpPrntParam Field (ICmptPrntOutpPrntParamIn)
 { }
 }
 

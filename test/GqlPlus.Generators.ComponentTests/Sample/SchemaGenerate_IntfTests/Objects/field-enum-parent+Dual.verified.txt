@@ -4,13 +4,16 @@ enum EnumFieldEnumPrntDual { :PrntFieldEnumPrntDual fieldEnumPrntDual }
 enum PrntFieldEnumPrntDual { prnt_fieldEnumPrntDual }
 */
 
-// Generated from Schema field-enum-parent+Dual for Intf
+// Generated from Schema field-enum-parent+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-enum-parent+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_enum_parent_Dual;
 
 public interface ICmptFieldEnumPrntDual
+  : Schema_field-enum-parent+Dual
 {
   ICmptFieldEnumPrntDualObject AsFieldEnumPrntDual { get; }
 }

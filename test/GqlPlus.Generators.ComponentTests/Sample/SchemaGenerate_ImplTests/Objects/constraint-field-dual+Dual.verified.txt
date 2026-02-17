@@ -5,7 +5,9 @@ dual PrntCnstFieldDualDual { | String }
 dual AltCnstFieldDualDual { :PrntCnstFieldDualDual alt: Number }
 */
 
-// Generated from Schema constraint-field-dual+Dual for Impl
+// Generated from Schema constraint-field-dual+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-dual+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

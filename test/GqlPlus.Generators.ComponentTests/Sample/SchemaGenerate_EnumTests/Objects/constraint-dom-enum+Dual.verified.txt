@@ -5,7 +5,9 @@ enum EnumCnstDomEnumDual { cnstDomEnumDual other }
 domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
 */
 
-// Generated from Schema constraint-dom-enum+Dual for Enum
+// Generated from Schema constraint-dom-enum+Dual
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_constraint-dom-enum+Dual, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

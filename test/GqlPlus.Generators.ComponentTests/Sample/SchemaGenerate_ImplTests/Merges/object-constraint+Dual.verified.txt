@@ -3,7 +3,9 @@ dual ObjCnstDual<$type:String> { field: $type }
 dual ObjCnstDual<$type:String> { str: $type }
 */
 
-// Generated from Schema object-constraint+Dual for Impl
+// Generated from Schema object-constraint+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-constraint+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

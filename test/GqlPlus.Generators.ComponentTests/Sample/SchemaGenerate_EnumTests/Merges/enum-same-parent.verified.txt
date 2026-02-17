@@ -4,7 +4,9 @@ enum EnumSamePrnt { :PrntEnumSamePrnt enumSamePrnt }
 enum PrntEnumSamePrnt { prnt_enumSamePrnt }
 */
 
-// Generated from Schema enum-same-parent for Enum
+// Generated from Schema enum-same-parent
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_enum-same-parent, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

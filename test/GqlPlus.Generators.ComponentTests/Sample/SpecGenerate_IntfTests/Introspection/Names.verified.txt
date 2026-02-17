@@ -20,7 +20,9 @@ output _AndType {
     }
 */
 
-// Generated from Spec Names for Intf
+// Generated from Spec Names
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Names, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -51,6 +53,7 @@ public interface ICmpt_NamedObject
 }
 
 public interface ICmpt_Described
+  : Spec_Names
 {
   ICmpt_DescribedObject As_Described { get; }
 }
@@ -70,5 +73,5 @@ public interface ICmpt_AndType
 public interface ICmpt_AndTypeObject
   : ICmpt_NamedObject
 {
-ICmpt_Type Type { get; }
+  ICmpt_Type Type { get; }
 }

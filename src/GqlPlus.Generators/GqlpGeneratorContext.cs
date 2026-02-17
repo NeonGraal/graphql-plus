@@ -18,7 +18,9 @@ internal sealed class GqlpGeneratorContext
     ModelOptions = modelOptions;
 
     _prefix = new();
-    _prefix.AppendLine($"// Generated from {path} for {GeneratorOptions.GeneratorType}");
+    _prefix.AppendLine($"// Generated from {path}");
+    _prefix.AppendLine($"//   with GeneratorOption: {GeneratorOptions}");
+    _prefix.AppendLine($"//   and ModelOption: {ModelOptions}");
 
     AddTypes(BuiltIn.Internal);
     AddTypes(BuiltIn.Basic);

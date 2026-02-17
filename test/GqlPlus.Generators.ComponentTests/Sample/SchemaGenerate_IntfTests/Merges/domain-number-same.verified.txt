@@ -3,7 +3,9 @@ domain DmnNmbrSame { number 1>9 }
 domain DmnNmbrSame { number 9<1 }
 */
 
-// Generated from Schema domain-number-same for Intf
+// Generated from Schema domain-number-same
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-number-same, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

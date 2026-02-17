@@ -3,7 +3,9 @@ input AltDualInp { | ObjDualAltDualInp }
 dual ObjDualAltDualInp { alt: Number | String }
 */
 
-// Generated from Schema alt-dual+Input for Impl
+// Generated from Schema alt-dual+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-dual+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

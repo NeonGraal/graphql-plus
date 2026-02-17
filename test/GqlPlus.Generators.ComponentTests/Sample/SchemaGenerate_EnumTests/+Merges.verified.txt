@@ -1,4 +1,6 @@
-﻿// Generated from Schema +Merges for Enum
+﻿// Generated from Schema +Merges
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_+Merges, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

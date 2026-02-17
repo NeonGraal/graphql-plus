@@ -1,5 +1,7 @@
 ﻿//HintName: test_alt-mod-Boolean+Output_Impl.gen.cs
-// Generated from alt-mod-Boolean+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}alt-mod-Boolean+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -13,5 +15,5 @@ public class testAltModBoolOutp
 public class testAltAltModBoolOutp
   : ItestAltAltModBoolOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }

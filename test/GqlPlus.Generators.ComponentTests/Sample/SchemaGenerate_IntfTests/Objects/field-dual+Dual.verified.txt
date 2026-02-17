@@ -3,13 +3,16 @@ dual FieldDualDual { field: FldFieldDualDual }
 dual FldFieldDualDual { field: Number | String }
 */
 
-// Generated from Schema field-dual+Dual for Intf
+// Generated from Schema field-dual+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-dual+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_dual_Dual;
 
 public interface ICmptFieldDualDual
+  : Schema_field-dual+Dual
 {
   ICmptFieldDualDualObject AsFieldDualDual { get; }
 }
@@ -20,6 +23,7 @@ public interface ICmptFieldDualDualObject
 }
 
 public interface ICmptFldFieldDualDual
+  : Schema_field-dual+Dual
 {
   string AsString { get; }
   ICmptFldFieldDualDualObject AsFldFieldDualDual { get; }

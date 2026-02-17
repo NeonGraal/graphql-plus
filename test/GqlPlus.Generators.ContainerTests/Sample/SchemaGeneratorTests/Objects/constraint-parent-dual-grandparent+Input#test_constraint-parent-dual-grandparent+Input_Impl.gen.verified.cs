@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-parent-dual-grandparent+Input_Impl.gen.cs
-// Generated from constraint-parent-dual-grandparent+Input.graphql+ for Impl
+// Generated from {CurrentDirectory}constraint-parent-dual-grandparent+Input.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

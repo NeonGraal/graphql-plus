@@ -3,7 +3,9 @@ directive @DrctAlias [DirA1] { variable }
 directive @DrctAlias [DirA2] { field }
 */
 
-// Generated from Schema directive-alias for Stat
+// Generated from Schema directive-alias
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_directive-alias, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Directive DrctAlias

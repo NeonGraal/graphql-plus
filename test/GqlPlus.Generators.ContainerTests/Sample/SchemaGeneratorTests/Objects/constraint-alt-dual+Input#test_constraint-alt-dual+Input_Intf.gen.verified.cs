@@ -1,11 +1,14 @@
 ﻿//HintName: test_constraint-alt-dual+Input_Intf.gen.cs
-// Generated from constraint-alt-dual+Input.graphql+ for Intf
+// Generated from {CurrentDirectory}constraint-alt-dual+Input.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_dual_Input;
 
 public interface ItestCnstAltDualInp
+  : IGqlpModelImplementationBase
 {
   ItestRefCnstAltDualInp<ItestAltCnstAltDualInp> AsRefCnstAltDualInp { get; }
   ItestCnstAltDualInpObject AsCnstAltDualInp { get; }
@@ -16,6 +19,7 @@ public interface ItestCnstAltDualInpObject
 }
 
 public interface ItestRefCnstAltDualInp<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef Asref { get; }
   ItestRefCnstAltDualInpObject<TRef> AsRefCnstAltDualInp { get; }
@@ -26,6 +30,7 @@ public interface ItestRefCnstAltDualInpObject<TRef>
 }
 
 public interface ItestPrntCnstAltDualInp
+  : IGqlpModelImplementationBase
 {
   string AsString { get; }
   ItestPrntCnstAltDualInpObject AsPrntCnstAltDualInp { get; }

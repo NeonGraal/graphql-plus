@@ -4,13 +4,16 @@ dual ObjAltDual { | ObjAltDualType }
 dual ObjAltDualType { }
 */
 
-// Generated from Schema object-alt+Dual for Intf
+// Generated from Schema object-alt+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-alt+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_alt_Dual;
 
 public interface ICmptObjAltDual
+  : Schema_object-alt+Dual
 {
   ICmptObjAltDualType AsObjAltDualType { get; }
   ICmptObjAltDualObject AsObjAltDual { get; }
@@ -21,6 +24,7 @@ public interface ICmptObjAltDualObject
 }
 
 public interface ICmptObjAltDualType
+  : Schema_object-alt+Dual
 {
   ICmptObjAltDualTypeObject AsObjAltDualType { get; }
 }

@@ -4,7 +4,9 @@ dual RefGnrcPrntDualPrntDual<$ref:_Dual> { :$ref }
 dual AltGnrcPrntDualPrntDual { alt: Number | String }
 */
 
-// Generated from Schema generic-parent-dual-parent+Dual for Intf
+// Generated from Schema generic-parent-dual-parent+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-dual-parent+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,6 +24,7 @@ public interface ICmptGnrcPrntDualPrntDualObject
 }
 
 public interface ICmptRefGnrcPrntDualPrntDual<TRef>
+  : Schema_generic-parent-dual-parent+Dual
 {
   TRef AsParent { get; }
   ICmptRefGnrcPrntDualPrntDualObject<TRef> AsRefGnrcPrntDualPrntDual { get; }
@@ -32,6 +35,7 @@ public interface ICmptRefGnrcPrntDualPrntDualObject<TRef>
 }
 
 public interface ICmptAltGnrcPrntDualPrntDual
+  : Schema_generic-parent-dual-parent+Dual
 {
   string AsString { get; }
   ICmptAltGnrcPrntDualPrntDualObject AsAltGnrcPrntDualPrntDual { get; }

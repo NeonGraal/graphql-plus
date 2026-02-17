@@ -1,5 +1,7 @@
 ﻿//HintName: test_directive-alias_Stat.gen.cs
-// Generated from directive-alias.graphql+ for Stat
+// Generated from {CurrentDirectory}directive-alias.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 
 Directive DrctAlias

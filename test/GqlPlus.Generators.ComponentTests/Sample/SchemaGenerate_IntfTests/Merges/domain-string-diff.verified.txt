@@ -3,7 +3,9 @@ domain DmnStrDiff { string /a+/ }
 domain DmnStrDiff { string }
 */
 
-// Generated from Schema domain-string-diff for Intf
+// Generated from Schema domain-string-diff
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-string-diff, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

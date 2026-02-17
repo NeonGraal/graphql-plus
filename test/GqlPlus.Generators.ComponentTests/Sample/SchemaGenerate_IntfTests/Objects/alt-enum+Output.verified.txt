@@ -3,13 +3,16 @@ output AltEnumOutp { ! EnumAltEnumOutp.altEnumOutp }
 enum EnumAltEnumOutp { altEnumOutp }
 */
 
-// Generated from Schema alt-enum+Output for Intf
+// Generated from Schema alt-enum+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-enum+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_alt_enum_Output;
 
 public interface ICmptAltEnumOutp
+  : Schema_alt-enum+Output
 {
   CmptEnumAltEnumOutp AsEnumAltEnumOutpaltEnumOutp { get; }
   ICmptAltEnumOutpObject AsAltEnumOutp { get; }

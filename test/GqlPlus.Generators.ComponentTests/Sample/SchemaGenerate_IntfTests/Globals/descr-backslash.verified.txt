@@ -3,13 +3,16 @@
 output DescrBcks { }
 */
 
-// Generated from Schema descr-backslash for Intf
+// Generated from Schema descr-backslash
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_descr-backslash, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_descr_backslash;
 
 public interface ICmptDescrBcks
+  : Schema_descr-backslash
 {
   ICmptDescrBcksObject AsDescrBcks { get; }
 }

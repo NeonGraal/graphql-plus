@@ -5,13 +5,16 @@ enum EnumCnstEnumPrntDual { :ParentCnstEnumPrntDual cnstEnumPrntDual }
 enum ParentCnstEnumPrntDual { parentCnstEnumPrntDual }
 */
 
-// Generated from Schema constraint-enum-parent+Dual for Intf
+// Generated from Schema constraint-enum-parent+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-enum-parent+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_constraint_enum_parent_Dual;
 
 public interface ICmptCnstEnumPrntDual
+  : Schema_constraint-enum-parent+Dual
 {
   ICmptRefCnstEnumPrntDual<CmptEnumCnstEnumPrntDual> AsEnumCnstEnumPrntDualcnstEnumPrntDual { get; }
   ICmptCnstEnumPrntDualObject AsCnstEnumPrntDual { get; }
@@ -22,6 +25,7 @@ public interface ICmptCnstEnumPrntDualObject
 }
 
 public interface ICmptRefCnstEnumPrntDual<TType>
+  : Schema_constraint-enum-parent+Dual
 {
   ICmptRefCnstEnumPrntDualObject<TType> AsRefCnstEnumPrntDual { get; }
 }

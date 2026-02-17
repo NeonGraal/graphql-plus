@@ -3,7 +3,9 @@ output PrntParamDiffOutp<$a:String> { :RefPrntParamDiffOutp<$a> field: $a }
 output RefPrntParamDiffOutp<$b:String> { | $b }
 */
 
-// Generated from Schema parent-param-diff+Output for Intf
+// Generated from Schema parent-param-diff+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-param-diff+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -18,10 +20,11 @@ public interface ICmptPrntParamDiffOutp<TA>
 public interface ICmptPrntParamDiffOutpObject<TA>
   : ICmptRefPrntParamDiffOutpObject<TA>
 {
-TA Field { get; }
+  TA Field { get; }
 }
 
 public interface ICmptRefPrntParamDiffOutp<TB>
+  : Schema_parent-param-diff+Output
 {
   TB Asb { get; }
   ICmptRefPrntParamDiffOutpObject<TB> AsRefPrntParamDiffOutp { get; }

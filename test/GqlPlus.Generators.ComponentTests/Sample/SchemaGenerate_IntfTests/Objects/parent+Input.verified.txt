@@ -3,7 +3,9 @@ input PrntInp { :RefPrntInp }
 input RefPrntInp { parent: Number | String }
 */
 
-// Generated from Schema parent+Input for Intf
+// Generated from Schema parent+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -21,6 +23,7 @@ public interface ICmptPrntInpObject
 }
 
 public interface ICmptRefPrntInp
+  : Schema_parent+Input
 {
   string AsString { get; }
   ICmptRefPrntInpObject AsRefPrntInp { get; }

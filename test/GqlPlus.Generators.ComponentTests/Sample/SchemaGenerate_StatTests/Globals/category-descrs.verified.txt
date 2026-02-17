@@ -5,7 +5,9 @@ category { CtgrDscrs }
 output CtgrDscrs { }
 */
 
-// Generated from Schema category-descrs for Stat
+// Generated from Schema category-descrs
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category-descrs, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Category ctgrDscrs

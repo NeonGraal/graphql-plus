@@ -9,7 +9,9 @@ output _OutputFieldType {
     }
 */
 
-// Generated from Spec Output for Intf
+// Generated from Spec Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -35,5 +37,5 @@ public interface ICmpt_OutputFieldType
 public interface ICmpt_OutputFieldTypeObject
   : ICmpt_ObjFieldTypeObject
 {
-ICmpt_InputFieldType? Parameter { get; }
+  ICmpt_InputFieldType? Parameter { get; }
 }

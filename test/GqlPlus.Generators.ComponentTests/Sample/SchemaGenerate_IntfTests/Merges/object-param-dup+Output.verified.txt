@@ -3,19 +3,22 @@ output ObjParamDupOutp<$test:String> { test: $test }
 output ObjParamDupOutp<$test:String> { type: $test }
 */
 
-// Generated from Schema object-param-dup+Output for Intf
+// Generated from Schema object-param-dup+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-param-dup+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_param_dup_Output;
 
 public interface ICmptObjParamDupOutp<TTest>
+  : Schema_object-param-dup+Output
 {
   ICmptObjParamDupOutpObject<TTest> AsObjParamDupOutp { get; }
 }
 
 public interface ICmptObjParamDupOutpObject<TTest>
 {
-TTest Test { get; }
-TTest Type { get; }
+  TTest Test { get; }
+  TTest Type { get; }
 }

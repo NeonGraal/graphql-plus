@@ -3,7 +3,9 @@ category { CtgrOutpList[] }
 output CtgrOutpList { }
 */
 
-// Generated from Schema category-output-list for Stat
+// Generated from Schema category-output-list
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category-output-list, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Category ctgrOutpList

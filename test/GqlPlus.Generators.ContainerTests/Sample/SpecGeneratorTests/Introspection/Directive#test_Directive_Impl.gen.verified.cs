@@ -1,5 +1,7 @@
 ﻿//HintName: test_Directive_Impl.gen.cs
-// Generated from Directive.graphql+ for Impl
+// Generated from {CurrentDirectory}Directive.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -9,14 +11,14 @@ public class test_Directives
   : test_AndType
   , Itest_Directives
 {
-public Itest_Directive Directive { get; set; }
+  public Itest_Directive Directive { get; set; }
 }
 
 public class test_Directive
   : test_Aliased
   , Itest_Directive
 {
-public Itest_InputFieldType? Parameter { get; set; }
-public bool Repeatable { get; set; }
-public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
+  public Itest_InputFieldType? Parameter { get; set; }
+  public bool Repeatable { get; set; }
+  public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
 }

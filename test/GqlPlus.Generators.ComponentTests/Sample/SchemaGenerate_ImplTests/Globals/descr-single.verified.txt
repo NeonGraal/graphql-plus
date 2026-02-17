@@ -3,7 +3,9 @@
 output DescrSngl { }
 */
 
-// Generated from Schema descr-single for Impl
+// Generated from Schema descr-single
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-single, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

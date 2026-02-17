@@ -3,7 +3,9 @@ domain DmnBoolPrnt { :PrntDmnBoolPrnt Boolean false }
 domain PrntDmnBoolPrnt { Boolean true }
 */
 
-// Generated from Schema domain-bool-parent for Intf
+// Generated from Schema domain-bool-parent
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-bool-parent, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

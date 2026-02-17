@@ -2,7 +2,9 @@
 dual GnrcPrntDual<$type:_Dual> { :$type }
 */
 
-// Generated from Schema generic-parent+Dual for Impl
+// Generated from Schema generic-parent+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

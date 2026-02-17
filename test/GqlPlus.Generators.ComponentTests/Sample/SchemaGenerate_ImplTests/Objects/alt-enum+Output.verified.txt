@@ -3,7 +3,9 @@ output AltEnumOutp { ! EnumAltEnumOutp.altEnumOutp }
 enum EnumAltEnumOutp { altEnumOutp }
 */
 
-// Generated from Schema alt-enum+Output for Impl
+// Generated from Schema alt-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-enum+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

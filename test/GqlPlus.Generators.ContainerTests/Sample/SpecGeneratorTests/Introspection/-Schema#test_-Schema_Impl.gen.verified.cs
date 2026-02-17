@@ -1,5 +1,7 @@
 ﻿//HintName: test_-Schema_Impl.gen.cs
-// Generated from -Schema.graphql+ for Impl
+// Generated from {CurrentDirectory}-Schema.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -9,13 +11,13 @@ public class test_Schema
   : test_Named
   , Itest_Schema
 {
-public IDictionary<Itest_Name, Itest_Categories> Categories (Itest_CategoryFilter?)
+  public IDictionary<Itest_Name, Itest_Categories> Categories (Itest_CategoryFilter?)
 { }
-public IDictionary<Itest_Name, Itest_Directives> Directives (Itest_Filter?)
+  public IDictionary<Itest_Name, Itest_Directives> Directives (Itest_Filter?)
 { }
-public IDictionary<Itest_Name, Itest_Type> Types (Itest_TypeFilter?)
+  public IDictionary<Itest_Name, Itest_Type> Types (Itest_TypeFilter?)
 { }
-public IDictionary<Itest_Name, Itest_Setting> Settings (Itest_Filter?)
+  public IDictionary<Itest_Name, Itest_Setting> Settings (Itest_Filter?)
 { }
 }
 

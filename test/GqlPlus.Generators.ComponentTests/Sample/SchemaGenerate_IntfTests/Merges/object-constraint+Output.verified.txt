@@ -3,19 +3,22 @@ output ObjCnstOutp<$type:String> { field: $type }
 output ObjCnstOutp<$type:String> { str: $type }
 */
 
-// Generated from Schema object-constraint+Output for Intf
+// Generated from Schema object-constraint+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-constraint+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_constraint_Output;
 
 public interface ICmptObjCnstOutp<TType>
+  : Schema_object-constraint+Output
 {
   ICmptObjCnstOutpObject<TType> AsObjCnstOutp { get; }
 }
 
 public interface ICmptObjCnstOutpObject<TType>
 {
-TType Field { get; }
-TType Str { get; }
+  TType Field { get; }
+  TType Str { get; }
 }

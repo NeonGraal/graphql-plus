@@ -4,7 +4,9 @@ input RefGnrcPrntDualInp<$ref:_Dual> { | $ref }
 dual AltGnrcPrntDualInp { alt: Number | String }
 */
 
-// Generated from Schema generic-parent-dual+Input for Impl
+// Generated from Schema generic-parent-dual+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-dual+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

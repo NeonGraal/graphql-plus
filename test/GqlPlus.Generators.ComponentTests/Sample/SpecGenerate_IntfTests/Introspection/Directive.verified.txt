@@ -15,7 +15,9 @@ output _Directive {
 enum _Location { Operation Variable Field Inline Spread Fragment }
 */
 
-// Generated from Spec Directive for Intf
+// Generated from Spec Directive
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Directive, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -31,7 +33,7 @@ public interface ICmpt_Directives
 public interface ICmpt_DirectivesObject
   : ICmpt_AndTypeObject
 {
-ICmpt_Directive Directive { get; }
+  ICmpt_Directive Directive { get; }
 }
 
 public interface ICmpt_Directive
@@ -43,7 +45,7 @@ public interface ICmpt_Directive
 public interface ICmpt_DirectiveObject
   : ICmpt_AliasedObject
 {
-ICmpt_InputFieldType? Parameter { get; }
-bool Repeatable { get; }
-IDictionary<Cmpt_Location, GqlpUnit> Locations { get; }
+  ICmpt_InputFieldType? Parameter { get; }
+  bool Repeatable { get; }
+  IDictionary<Cmpt_Location, GqlpUnit> Locations { get; }
 }

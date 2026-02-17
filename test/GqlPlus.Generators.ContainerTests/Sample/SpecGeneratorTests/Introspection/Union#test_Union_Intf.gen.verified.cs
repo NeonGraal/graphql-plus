@@ -1,5 +1,7 @@
 ﻿//HintName: test_Union_Intf.gen.cs
-// Generated from Union.graphql+ for Intf
+// Generated from {CurrentDirectory}Union.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -25,5 +27,5 @@ public interface Itest_UnionMember
 public interface Itest_UnionMemberObject
   : Itest_UnionRefObject
 {
-Itest_Name Union { get; }
+  Itest_Name Union { get; }
 }

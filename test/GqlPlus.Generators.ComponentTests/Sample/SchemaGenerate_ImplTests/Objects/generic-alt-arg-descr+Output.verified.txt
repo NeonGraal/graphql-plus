@@ -3,7 +3,9 @@ output GnrcAltArgDescrOutp<$type:String> { | RefGnrcAltArgDescrOutp<"Test" "Desc
 output RefGnrcAltArgDescrOutp<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-alt-arg-descr+Output for Impl
+// Generated from Schema generic-alt-arg-descr+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-arg-descr+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

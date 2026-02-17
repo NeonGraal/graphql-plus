@@ -3,7 +3,9 @@ dual AltDualDual { | ObjDualAltDualDual }
 dual ObjDualAltDualDual { alt: Number | String }
 */
 
-// Generated from Schema alt-dual+Dual for Impl
+// Generated from Schema alt-dual+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-dual+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

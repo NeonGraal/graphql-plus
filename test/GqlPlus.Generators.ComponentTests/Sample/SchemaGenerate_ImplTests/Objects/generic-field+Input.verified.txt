@@ -2,7 +2,9 @@
 input GnrcFieldInp<$type:String> { field: $type }
 */
 
-// Generated from Schema generic-field+Input for Impl
+// Generated from Schema generic-field+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

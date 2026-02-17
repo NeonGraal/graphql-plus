@@ -3,7 +3,9 @@ input PrntParamDiffInp<$a:String> { :RefPrntParamDiffInp<$a> field: $a }
 input RefPrntParamDiffInp<$b:String> { | $b }
 */
 
-// Generated from Schema parent-param-diff+Input for Impl
+// Generated from Schema parent-param-diff+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-diff+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

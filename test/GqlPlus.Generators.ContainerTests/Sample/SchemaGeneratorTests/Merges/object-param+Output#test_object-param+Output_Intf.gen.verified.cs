@@ -1,17 +1,20 @@
 ﻿//HintName: test_object-param+Output_Intf.gen.cs
-// Generated from object-param+Output.graphql+ for Intf
+// Generated from {CurrentDirectory}object-param+Output.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_Output;
 
 public interface ItestObjParamOutp<TTest,TType>
+  : IGqlpModelImplementationBase
 {
   ItestObjParamOutpObject<TTest,TType> AsObjParamOutp { get; }
 }
 
 public interface ItestObjParamOutpObject<TTest,TType>
 {
-TTest Test { get; }
-TType Type { get; }
+  TTest Test { get; }
+  TType Type { get; }
 }

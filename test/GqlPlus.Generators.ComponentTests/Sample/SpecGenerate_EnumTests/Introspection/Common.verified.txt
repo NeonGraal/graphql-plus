@@ -46,7 +46,9 @@ dual _TypeSimple {
     }
 */
 
-// Generated from Spec Common for Enum
+// Generated from Spec Common
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_Common, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

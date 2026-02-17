@@ -1,5 +1,7 @@
 ﻿//HintName: test_Names_Impl.gen.cs
-// Generated from Names.graphql+ for Impl
+// Generated from {CurrentDirectory}Names.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -29,5 +31,5 @@ public class test_AndType
   : test_Named
   , Itest_AndType
 {
-public Itest_Type Type { get; set; }
+  public Itest_Type Type { get; set; }
 }

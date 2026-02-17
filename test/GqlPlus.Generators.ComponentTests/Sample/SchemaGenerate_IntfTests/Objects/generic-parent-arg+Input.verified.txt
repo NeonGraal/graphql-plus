@@ -3,7 +3,9 @@ input GnrcPrntArgInp<$type:String> { :RefGnrcPrntArgInp<$type> }
 input RefGnrcPrntArgInp<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-parent-arg+Input for Intf
+// Generated from Schema generic-parent-arg+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-arg+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -21,6 +23,7 @@ public interface ICmptGnrcPrntArgInpObject<TType>
 }
 
 public interface ICmptRefGnrcPrntArgInp<TRef>
+  : Schema_generic-parent-arg+Input
 {
   TRef Asref { get; }
   ICmptRefGnrcPrntArgInpObject<TRef> AsRefGnrcPrntArgInp { get; }

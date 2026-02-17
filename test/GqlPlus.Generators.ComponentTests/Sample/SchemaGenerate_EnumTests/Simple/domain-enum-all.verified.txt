@@ -3,7 +3,9 @@ domain DmnEnumAll { enum EnumDmnEnumAll.* }
 enum EnumDmnEnumAll { dmnEnumAll enum_dmnEnumAll dmnEnumAllValue }
 */
 
-// Generated from Schema domain-enum-all for Enum
+// Generated from Schema domain-enum-all
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_domain-enum-all, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -3,7 +3,9 @@ dual FieldValueDescrDual { field = "Test" "Descr" fieldValueDescrDual }
 enum EnumFieldValueDescrDual { fieldValueDescrDual }
 */
 
-// Generated from Schema field-value-descr+Dual for Enum
+// Generated from Schema field-value-descr+Dual
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_field-value-descr+Dual, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

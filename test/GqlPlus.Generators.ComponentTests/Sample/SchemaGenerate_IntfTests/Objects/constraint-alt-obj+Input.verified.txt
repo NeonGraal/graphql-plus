@@ -5,13 +5,16 @@ input PrntCnstAltObjInp { | String }
 input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
 */
 
-// Generated from Schema constraint-alt-obj+Input for Intf
+// Generated from Schema constraint-alt-obj+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-alt-obj+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
 
 public interface ICmptCnstAltObjInp
+  : Schema_constraint-alt-obj+Input
 {
   ICmptRefCnstAltObjInp<ICmptAltCnstAltObjInp> AsRefCnstAltObjInp { get; }
   ICmptCnstAltObjInpObject AsCnstAltObjInp { get; }
@@ -22,6 +25,7 @@ public interface ICmptCnstAltObjInpObject
 }
 
 public interface ICmptRefCnstAltObjInp<TRef>
+  : Schema_constraint-alt-obj+Input
 {
   TRef Asref { get; }
   ICmptRefCnstAltObjInpObject<TRef> AsRefCnstAltObjInp { get; }
@@ -32,6 +36,7 @@ public interface ICmptRefCnstAltObjInpObject<TRef>
 }
 
 public interface ICmptPrntCnstAltObjInp
+  : Schema_constraint-alt-obj+Input
 {
   string AsString { get; }
   ICmptPrntCnstAltObjInpObject AsPrntCnstAltObjInp { get; }

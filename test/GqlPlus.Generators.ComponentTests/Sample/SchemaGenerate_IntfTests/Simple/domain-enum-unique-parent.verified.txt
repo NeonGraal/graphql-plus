@@ -5,7 +5,9 @@ enum PrntDmnEnumUnqPrnt { dmnEnumUnqPrnt prnt_dmnEnumUnqPrnt dmnEnumUnqPrntPrnt 
 enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt dmnEnumUnqPrntDup }
 */
 
-// Generated from Schema domain-enum-unique-parent for Intf
+// Generated from Schema domain-enum-unique-parent
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-unique-parent, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

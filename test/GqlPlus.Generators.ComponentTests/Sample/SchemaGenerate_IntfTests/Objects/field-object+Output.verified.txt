@@ -3,23 +3,27 @@ output FieldObjOutp { field: FldFieldObjOutp }
 output FldFieldObjOutp { field: Number | String }
 */
 
-// Generated from Schema field-object+Output for Intf
+// Generated from Schema field-object+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-object+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_object_Output;
 
 public interface ICmptFieldObjOutp
+  : Schema_field-object+Output
 {
   ICmptFieldObjOutpObject AsFieldObjOutp { get; }
 }
 
 public interface ICmptFieldObjOutpObject
 {
-ICmptFldFieldObjOutp Field { get; }
+  ICmptFldFieldObjOutp Field { get; }
 }
 
 public interface ICmptFldFieldObjOutp
+  : Schema_field-object+Output
 {
   string AsString { get; }
   ICmptFldFieldObjOutpObject AsFldFieldObjOutp { get; }
@@ -27,5 +31,5 @@ public interface ICmptFldFieldObjOutp
 
 public interface ICmptFldFieldObjOutpObject
 {
-decimal Field { get; }
+  decimal Field { get; }
 }

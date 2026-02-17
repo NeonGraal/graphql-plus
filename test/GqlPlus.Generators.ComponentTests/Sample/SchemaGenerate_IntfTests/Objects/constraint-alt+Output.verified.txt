@@ -2,13 +2,16 @@
 output CnstAltOutp<$type:Number> { | $type }
 */
 
-// Generated from Schema constraint-alt+Output for Intf
+// Generated from Schema constraint-alt+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-alt+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_constraint_alt_Output;
 
 public interface ICmptCnstAltOutp<TType>
+  : Schema_constraint-alt+Output
 {
   TType Astype { get; }
   ICmptCnstAltOutpObject<TType> AsCnstAltOutp { get; }

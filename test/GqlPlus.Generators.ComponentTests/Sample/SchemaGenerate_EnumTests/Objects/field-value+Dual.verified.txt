@@ -3,7 +3,9 @@ dual FieldValueDual { field = fieldValueDual }
 enum EnumFieldValueDual { fieldValueDual }
 */
 
-// Generated from Schema field-value+Dual for Enum
+// Generated from Schema field-value+Dual
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_field-value+Dual, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

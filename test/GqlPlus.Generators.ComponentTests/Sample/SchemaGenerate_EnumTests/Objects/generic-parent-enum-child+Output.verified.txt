@@ -5,7 +5,9 @@ enum EnumGnrcPrntEnumChildOutp { :ParentGnrcPrntEnumChildOutp gnrcPrntEnumChildO
 enum ParentGnrcPrntEnumChildOutp { gnrcPrntEnumChildOutpParent }
 */
 
-// Generated from Schema generic-parent-enum-child+Output for Enum
+// Generated from Schema generic-parent-enum-child+Output
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_generic-parent-enum-child+Output, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

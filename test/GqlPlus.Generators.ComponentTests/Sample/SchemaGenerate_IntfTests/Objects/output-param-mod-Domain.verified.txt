@@ -4,23 +4,27 @@ input InOutpParamModDmn { param: Number | String }
 domain DomOutpParamModDmn { number 1 < 10 }
 */
 
-// Generated from Schema output-param-mod-Domain for Intf
+// Generated from Schema output-param-mod-Domain
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_output-param-mod-Domain, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_output_param_mod_Domain;
 
 public interface ICmptOutpParamModDmn
+  : Schema_output-param-mod-Domain
 {
   ICmptOutpParamModDmnObject AsOutpParamModDmn { get; }
 }
 
 public interface ICmptOutpParamModDmnObject
 {
-ICmptDomOutpParamModDmn Field (IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
+  ICmptDomOutpParamModDmn Field (IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
 }
 
 public interface ICmptInOutpParamModDmn
+  : Schema_output-param-mod-Domain
 {
   string AsString { get; }
   ICmptInOutpParamModDmnObject AsInOutpParamModDmn { get; }

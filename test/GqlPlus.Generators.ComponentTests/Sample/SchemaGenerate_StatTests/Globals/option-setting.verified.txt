@@ -2,7 +2,9 @@
 option Schema { global=true }
 */
 
-// Generated from Schema option-setting for Stat
+// Generated from Schema option-setting
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_option-setting, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Option Schema

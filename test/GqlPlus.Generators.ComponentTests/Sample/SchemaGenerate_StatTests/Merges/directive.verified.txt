@@ -3,7 +3,9 @@ directive @Drct { inline }
 directive @Drct { spread }
 */
 
-// Generated from Schema directive for Stat
+// Generated from Schema directive
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_directive, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Directive Drct

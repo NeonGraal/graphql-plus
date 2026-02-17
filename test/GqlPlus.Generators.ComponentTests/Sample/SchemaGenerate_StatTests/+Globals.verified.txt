@@ -1,4 +1,6 @@
-﻿// Generated from Schema +Globals for Stat
+﻿// Generated from Schema +Globals
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_+Globals, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Category ctgrDscrs

@@ -1,5 +1,7 @@
 ﻿//HintName: test_Base_Intf.gen.cs
-// Generated from Base.graphql+ for Intf
+// Generated from {CurrentDirectory}Base.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -19,11 +21,11 @@ public interface Itest_TypeObject<TKind,TField>
 public interface Itest_TypeObjectObject<TKind,TField>
   : Itest_ChildTypeObject<TKind, Itest_ObjBase>
 {
-ICollection<Itest_ObjTypeParam> TypeParams { get; }
-ICollection<TField> Fields { get; }
-ICollection<Itest_ObjAlternate> Alternates { get; }
-ICollection<Itest_ObjectFor<TField>> AllFields { get; }
-ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; }
+  ICollection<Itest_ObjTypeParam> TypeParams { get; }
+  ICollection<TField> Fields { get; }
+  ICollection<Itest_ObjAlternate> Alternates { get; }
+  ICollection<Itest_ObjectFor<TField>> AllFields { get; }
+  ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; }
 }
 
 public interface Itest_ObjTypeParam
@@ -35,7 +37,7 @@ public interface Itest_ObjTypeParam
 public interface Itest_ObjTypeParamObject
   : Itest_NamedObject
 {
-Itest_TypeRef<Itest_TypeKind> Constraint { get; }
+  Itest_TypeRef<Itest_TypeKind> Constraint { get; }
 }
 
 public interface Itest_ObjBase
@@ -48,7 +50,7 @@ public interface Itest_ObjBase
 public interface Itest_ObjBaseObject
   : Itest_NamedObject
 {
-ICollection<Itest_ObjTypeArg> TypeArgs { get; }
+  ICollection<Itest_ObjTypeArg> TypeArgs { get; }
 }
 
 public interface Itest_ObjTypeArg
@@ -61,7 +63,7 @@ public interface Itest_ObjTypeArg
 public interface Itest_ObjTypeArgObject
   : Itest_TypeRefObject<Itest_TypeKind>
 {
-Itest_Name? Label { get; }
+  Itest_Name? Label { get; }
 }
 
 public interface Itest_TypeParam
@@ -73,10 +75,11 @@ public interface Itest_TypeParam
 public interface Itest_TypeParamObject
   : Itest_DescribedObject
 {
-Itest_Name TypeParam { get; }
+  Itest_Name TypeParam { get; }
 }
 
 public interface Itest_ObjAlternate
+  : IGqlpModelImplementationBase
 {
   Itest_ObjAlternateEnum As_ObjAlternateEnum { get; }
   Itest_ObjAlternateObject As_ObjAlternate { get; }
@@ -84,8 +87,8 @@ public interface Itest_ObjAlternate
 
 public interface Itest_ObjAlternateObject
 {
-Itest_ObjBase Type { get; }
-ICollection<Itest_Collections> Collections { get; }
+  Itest_ObjBase Type { get; }
+  ICollection<Itest_Collections> Collections { get; }
 }
 
 public interface Itest_ObjAlternateEnum
@@ -97,10 +100,11 @@ public interface Itest_ObjAlternateEnum
 public interface Itest_ObjAlternateEnumObject
   : Itest_TypeRefObject<Itest_TypeKind>
 {
-Itest_Name Label { get; }
+  Itest_Name Label { get; }
 }
 
 public interface Itest_ObjectFor<TFor>
+  : IGqlpModelImplementationBase
 {
   TFor AsParent { get; }
   Itest_ObjectForObject<TFor> As_ObjectFor { get; }
@@ -108,7 +112,7 @@ public interface Itest_ObjectFor<TFor>
 
 public interface Itest_ObjectForObject<TFor>
 {
-Itest_Name ObjectType { get; }
+  Itest_Name ObjectType { get; }
 }
 
 public interface Itest_ObjField<TType>
@@ -120,7 +124,7 @@ public interface Itest_ObjField<TType>
 public interface Itest_ObjFieldObject<TType>
   : Itest_AliasedObject
 {
-TType Type { get; }
+  TType Type { get; }
 }
 
 public interface Itest_ObjFieldType
@@ -133,7 +137,7 @@ public interface Itest_ObjFieldType
 public interface Itest_ObjFieldTypeObject
   : Itest_ObjBaseObject
 {
-ICollection<Itest_Modifiers> Modifiers { get; }
+  ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
 public interface Itest_ObjFieldEnum
@@ -145,10 +149,11 @@ public interface Itest_ObjFieldEnum
 public interface Itest_ObjFieldEnumObject
   : Itest_TypeRefObject<Itest_TypeKind>
 {
-Itest_Name Label { get; }
+  Itest_Name Label { get; }
 }
 
 public interface Itest_ForParam<TType>
+  : IGqlpModelImplementationBase
 {
   Itest_ObjAlternate As_ObjAlternate { get; }
   Itest_ObjField<TType> As_ObjField { get; }

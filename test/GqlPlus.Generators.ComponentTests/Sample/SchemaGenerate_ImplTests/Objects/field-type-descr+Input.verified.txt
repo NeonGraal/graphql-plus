@@ -2,7 +2,9 @@
 input FieldTypeDescrInp { field: "Test" "Descr" Number }
 */
 
-// Generated from Schema field-type-descr+Input for Impl
+// Generated from Schema field-type-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-type-descr+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

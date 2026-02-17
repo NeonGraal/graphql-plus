@@ -4,7 +4,9 @@ input RefCnstFieldDmnInp<$ref:String> { field: $ref }
 domain DomCnstFieldDmnInp { String /\w+/ }
 */
 
-// Generated from Schema constraint-field-domain+Input for Impl
+// Generated from Schema constraint-field-domain+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-domain+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

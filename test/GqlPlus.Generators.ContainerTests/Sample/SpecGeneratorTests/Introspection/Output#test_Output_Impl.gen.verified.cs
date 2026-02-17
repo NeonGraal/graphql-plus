@@ -1,5 +1,7 @@
 ﻿//HintName: test_Output_Impl.gen.cs
-// Generated from Output.graphql+ for Impl
+// Generated from {CurrentDirectory}Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -15,5 +17,5 @@ public class test_OutputFieldType
   : test_ObjFieldType
   , Itest_OutputFieldType
 {
-public Itest_InputFieldType? Parameter { get; set; }
+  public Itest_InputFieldType? Parameter { get; set; }
 }

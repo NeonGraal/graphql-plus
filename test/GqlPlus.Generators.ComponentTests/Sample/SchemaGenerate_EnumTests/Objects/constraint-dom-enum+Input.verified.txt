@@ -5,7 +5,9 @@ enum EnumCnstDomEnumInp { cnstDomEnumInp other }
 domain JustCnstDomEnumInp { enum EnumCnstDomEnumInp.cnstDomEnumInp }
 */
 
-// Generated from Schema constraint-dom-enum+Input for Enum
+// Generated from Schema constraint-dom-enum+Input
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_constraint-dom-enum+Input, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

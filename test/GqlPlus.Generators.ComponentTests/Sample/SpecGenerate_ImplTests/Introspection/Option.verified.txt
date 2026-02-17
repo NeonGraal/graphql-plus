@@ -5,7 +5,9 @@ output _Setting {
     }
 */
 
-// Generated from Spec Option for Impl
+// Generated from Spec Option
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Option, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -15,5 +17,5 @@ public class Cmpt_Setting
   : Cmpt_Named
   , ICmpt_Setting
 {
-public GqlpValue Value { get; set; }
+  public GqlpValue Value { get; set; }
 }

@@ -4,7 +4,9 @@ input RefGnrcPrntParamInp<$ref:_Input> { | $ref }
 input AltGnrcPrntParamInp { alt: Number | String }
 */
 
-// Generated from Schema generic-parent-param+Input for Impl
+// Generated from Schema generic-parent-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-param+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -6,7 +6,9 @@ dual PrntCnstPrntDualGrndDual { :GrndCnstPrntDualGrndDual }
 dual AltCnstPrntDualGrndDual { :PrntCnstPrntDualGrndDual alt: Number }
 */
 
-// Generated from Schema constraint-parent-dual-grandparent+Dual for Impl
+// Generated from Schema constraint-parent-dual-grandparent+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-dual-grandparent+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

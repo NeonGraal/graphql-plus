@@ -4,7 +4,9 @@ output RefGnrcPrntParamPrntOutp<$ref:_Output> { :$ref }
 output AltGnrcPrntParamPrntOutp { alt: Number | String }
 */
 
-// Generated from Schema generic-parent-param-parent+Output for Intf
+// Generated from Schema generic-parent-param-parent+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-param-parent+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,6 +24,7 @@ public interface ICmptGnrcPrntParamPrntOutpObject
 }
 
 public interface ICmptRefGnrcPrntParamPrntOutp<TRef>
+  : Schema_generic-parent-param-parent+Output
 {
   TRef AsParent { get; }
   ICmptRefGnrcPrntParamPrntOutpObject<TRef> AsRefGnrcPrntParamPrntOutp { get; }
@@ -32,6 +35,7 @@ public interface ICmptRefGnrcPrntParamPrntOutpObject<TRef>
 }
 
 public interface ICmptAltGnrcPrntParamPrntOutp
+  : Schema_generic-parent-param-parent+Output
 {
   string AsString { get; }
   ICmptAltGnrcPrntParamPrntOutpObject AsAltGnrcPrntParamPrntOutp { get; }
@@ -39,5 +43,5 @@ public interface ICmptAltGnrcPrntParamPrntOutp
 
 public interface ICmptAltGnrcPrntParamPrntOutpObject
 {
-decimal Alt { get; }
+  decimal Alt { get; }
 }

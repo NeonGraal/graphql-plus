@@ -1,7 +1,7 @@
 ﻿{
   Diagnostics: [
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Category Output. Expected type name.,
       Severity: Error,
       Descriptor: {
@@ -14,7 +14,7 @@
       }
     },
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Category. Expected output type.,
       Severity: Error,
       Descriptor: {
@@ -27,7 +27,7 @@
       }
     },
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Schema. Expected no more text.,
       Severity: Error,
       Descriptor: {
@@ -40,7 +40,7 @@
       }
     },
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Category Output. Expected type name.,
       Severity: Error,
       Descriptor: {
@@ -53,7 +53,7 @@
       }
     },
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Category. Expected output type.,
       Severity: Error,
       Descriptor: {
@@ -66,7 +66,7 @@
       }
     },
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Schema. Expected no more text.,
       Severity: Error,
       Descriptor: {
@@ -79,7 +79,7 @@
       }
     },
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Category Output. Expected type name.,
       Severity: Error,
       Descriptor: {
@@ -92,7 +92,7 @@
       }
     },
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Category. Expected output type.,
       Severity: Error,
       Descriptor: {
@@ -105,7 +105,7 @@
       }
     },
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Schema. Expected no more text.,
       Severity: Error,
       Descriptor: {
@@ -118,7 +118,7 @@
       }
     },
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Category Output. Expected type name.,
       Severity: Error,
       Descriptor: {
@@ -131,7 +131,7 @@
       }
     },
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Category. Expected output type.,
       Severity: Error,
       Descriptor: {
@@ -144,7 +144,7 @@
       }
     },
     {
-      Location: errors.graphql+: (1,17)-(1,17),
+      Location: {CurrentDirectory}errors.graphql+: (1,17)-(1,17),
       Message: Invalid Schema. Expected no more text.,
       Severity: Error,
       Descriptor: {

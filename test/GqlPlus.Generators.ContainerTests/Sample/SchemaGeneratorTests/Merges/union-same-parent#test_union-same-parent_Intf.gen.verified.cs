@@ -1,5 +1,7 @@
 ﻿//HintName: test_union-same-parent_Intf.gen.cs
-// Generated from union-same-parent.graphql+ for Intf
+// Generated from {CurrentDirectory}union-same-parent.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -12,6 +14,7 @@ public interface ItestUnionSamePrnt
 }
 
 public interface ItestPrntUnionSamePrnt
+  : IGqlpModelImplementationBase
 {
   String AsString { get; }
 }

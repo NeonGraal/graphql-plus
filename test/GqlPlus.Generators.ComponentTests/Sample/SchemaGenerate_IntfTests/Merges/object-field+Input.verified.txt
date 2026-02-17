@@ -4,13 +4,16 @@ input ObjFieldInp { field: FldObjFieldInp }
 input FldObjFieldInp { }
 */
 
-// Generated from Schema object-field+Input for Intf
+// Generated from Schema object-field+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-field+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_field_Input;
 
 public interface ICmptObjFieldInp
+  : Schema_object-field+Input
 {
   ICmptObjFieldInpObject AsObjFieldInp { get; }
 }
@@ -21,6 +24,7 @@ public interface ICmptObjFieldInpObject
 }
 
 public interface ICmptFldObjFieldInp
+  : Schema_object-field+Input
 {
   ICmptFldObjFieldInpObject AsFldObjFieldInp { get; }
 }

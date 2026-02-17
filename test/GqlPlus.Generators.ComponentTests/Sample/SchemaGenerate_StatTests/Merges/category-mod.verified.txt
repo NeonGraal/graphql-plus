@@ -4,7 +4,9 @@ category [CatM2] { CtgrMod? }
 output CtgrMod { }
 */
 
-// Generated from Schema category-mod for Stat
+// Generated from Schema category-mod
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category-mod, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Category ctgrMod

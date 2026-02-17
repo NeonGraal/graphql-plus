@@ -11,7 +11,9 @@ output Subscription { }
 output _Schema { }
 */
 
-// Generated from Schema default for Stat
+// Generated from Schema default
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_default, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Category query

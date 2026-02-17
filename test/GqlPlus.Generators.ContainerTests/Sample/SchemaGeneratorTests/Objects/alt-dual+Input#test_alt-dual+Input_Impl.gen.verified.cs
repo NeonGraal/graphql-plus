@@ -1,5 +1,7 @@
 ﻿//HintName: test_alt-dual+Input_Impl.gen.cs
-// Generated from alt-dual+Input.graphql+ for Impl
+// Generated from {CurrentDirectory}alt-dual+Input.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

@@ -3,7 +3,9 @@
 output DescrBcks { }
 */
 
-// Generated from Schema descr-backslash for Impl
+// Generated from Schema descr-backslash
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-backslash, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

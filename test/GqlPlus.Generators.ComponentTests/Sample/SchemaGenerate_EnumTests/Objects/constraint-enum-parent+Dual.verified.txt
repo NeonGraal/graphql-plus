@@ -5,7 +5,9 @@ enum EnumCnstEnumPrntDual { :ParentCnstEnumPrntDual cnstEnumPrntDual }
 enum ParentCnstEnumPrntDual { parentCnstEnumPrntDual }
 */
 
-// Generated from Schema constraint-enum-parent+Dual for Enum
+// Generated from Schema constraint-enum-parent+Dual
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_constraint-enum-parent+Dual, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

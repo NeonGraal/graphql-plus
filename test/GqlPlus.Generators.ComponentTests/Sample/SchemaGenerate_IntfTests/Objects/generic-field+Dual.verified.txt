@@ -2,13 +2,16 @@
 dual GnrcFieldDual<$type:String> { field: $type }
 */
 
-// Generated from Schema generic-field+Dual for Intf
+// Generated from Schema generic-field+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-field+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_generic_field_Dual;
 
 public interface ICmptGnrcFieldDual<TType>
+  : Schema_generic-field+Dual
 {
   ICmptGnrcFieldDualObject<TType> AsGnrcFieldDual { get; }
 }

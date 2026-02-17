@@ -3,7 +3,9 @@ dual GnrcPrntArgDual<$type:String> { :RefGnrcPrntArgDual<$type> }
 dual RefGnrcPrntArgDual<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-parent-arg+Dual for Impl
+// Generated from Schema generic-parent-arg+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-arg+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

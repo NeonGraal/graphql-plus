@@ -3,13 +3,16 @@ input ObjParamDupInp<$test:String> { test: $test }
 input ObjParamDupInp<$test:String> { type: $test }
 */
 
-// Generated from Schema object-param-dup+Input for Intf
+// Generated from Schema object-param-dup+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-param-dup+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_param_dup_Input;
 
 public interface ICmptObjParamDupInp<TTest>
+  : Schema_object-param-dup+Input
 {
   ICmptObjParamDupInpObject<TTest> AsObjParamDupInp { get; }
 }

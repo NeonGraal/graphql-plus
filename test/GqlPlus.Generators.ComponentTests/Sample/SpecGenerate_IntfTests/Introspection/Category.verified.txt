@@ -15,7 +15,9 @@ output _Category {
 enum _Resolution { Parallel Sequential Single }
 */
 
-// Generated from Spec Category for Intf
+// Generated from Spec Category
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Category, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -31,7 +33,7 @@ public interface ICmpt_Categories
 public interface ICmpt_CategoriesObject
   : ICmpt_AndTypeObject
 {
-ICmpt_Category Category { get; }
+  ICmpt_Category Category { get; }
 }
 
 public interface ICmpt_Category
@@ -43,7 +45,7 @@ public interface ICmpt_Category
 public interface ICmpt_CategoryObject
   : ICmpt_AliasedObject
 {
-Cmpt_Resolution Resolution { get; }
-ICmpt_TypeRef<ICmpt_TypeKind> Output { get; }
-ICollection<ICmpt_Modifiers> Modifiers { get; }
+  Cmpt_Resolution Resolution { get; }
+  ICmpt_TypeRef<ICmpt_TypeKind> Output { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
 }

@@ -3,7 +3,9 @@ domain DmnBoolSame { boolean true }
 domain DmnBoolSame { boolean true }
 */
 
-// Generated from Schema domain-boolean-same for Intf
+// Generated from Schema domain-boolean-same
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-boolean-same, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

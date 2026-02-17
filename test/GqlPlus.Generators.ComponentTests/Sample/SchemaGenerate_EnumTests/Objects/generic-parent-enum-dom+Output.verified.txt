@@ -5,7 +5,9 @@ enum EnumGnrcPrntEnumDomOutp { gnrcPrntEnumDomOutpLabel gnrcPrntEnumDomOutpOther
 domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 */
 
-// Generated from Schema generic-parent-enum-dom+Output for Enum
+// Generated from Schema generic-parent-enum-dom+Output
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_generic-parent-enum-dom+Output, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

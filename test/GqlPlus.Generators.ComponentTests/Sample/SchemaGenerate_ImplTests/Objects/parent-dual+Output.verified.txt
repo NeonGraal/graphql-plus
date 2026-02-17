@@ -3,7 +3,9 @@ output PrntDualOutp { :RefPrntDualOutp }
 dual RefPrntDualOutp { parent: Number | String }
 */
 
-// Generated from Schema parent-dual+Output for Impl
+// Generated from Schema parent-dual+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-dual+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

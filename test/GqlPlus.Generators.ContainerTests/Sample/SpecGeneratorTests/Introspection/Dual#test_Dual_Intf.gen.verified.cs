@@ -1,5 +1,7 @@
 ﻿//HintName: test_Dual_Intf.gen.cs
-// Generated from Dual.graphql+ for Intf
+// Generated from {CurrentDirectory}Dual.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

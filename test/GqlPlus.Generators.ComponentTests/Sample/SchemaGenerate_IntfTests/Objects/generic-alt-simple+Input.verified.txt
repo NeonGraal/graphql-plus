@@ -3,13 +3,16 @@ input GnrcAltSmplInp { | RefGnrcAltSmplInp<String> }
 input RefGnrcAltSmplInp<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-alt-simple+Input for Intf
+// Generated from Schema generic-alt-simple+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-alt-simple+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_generic_alt_simple_Input;
 
 public interface ICmptGnrcAltSmplInp
+  : Schema_generic-alt-simple+Input
 {
   ICmptRefGnrcAltSmplInp<string> AsRefGnrcAltSmplInp { get; }
   ICmptGnrcAltSmplInpObject AsGnrcAltSmplInp { get; }
@@ -20,6 +23,7 @@ public interface ICmptGnrcAltSmplInpObject
 }
 
 public interface ICmptRefGnrcAltSmplInp<TRef>
+  : Schema_generic-alt-simple+Input
 {
   TRef Asref { get; }
   ICmptRefGnrcAltSmplInpObject<TRef> AsRefGnrcAltSmplInp { get; }

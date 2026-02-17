@@ -72,7 +72,9 @@ output _DomainItemRegex {
     }
 */
 
-// Generated from Spec Domain for Intf
+// Generated from Spec Domain
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Domain, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -87,7 +89,7 @@ public interface ICmpt_DomainRef<TKind>
 public interface ICmpt_DomainRefObject<TKind>
   : ICmpt_TypeRefObject<ICmpt_TypeKind>
 {
-TKind DomainKind { get; }
+  TKind DomainKind { get; }
 }
 
 public interface ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
@@ -99,7 +101,7 @@ public interface ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
 public interface ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
   : ICmpt_ParentTypeObject<ICmpt_TypeKind, TItem, TDomainItem>
 {
-TDomain DomainKind { get; }
+  TDomain DomainKind { get; }
 }
 
 public interface ICmpt_BaseDomainItem
@@ -115,6 +117,7 @@ public interface ICmpt_BaseDomainItemObject
 }
 
 public interface ICmpt_DomainItem<TItem>
+  : Spec_Domain
 {
   TItem AsParent { get; }
   ICmpt_DomainItemObject<TItem> As_DomainItem { get; }
@@ -122,7 +125,7 @@ public interface ICmpt_DomainItem<TItem>
 
 public interface ICmpt_DomainItemObject<TItem>
 {
-ICmpt_Name Domain { get; }
+  ICmpt_Name Domain { get; }
 }
 
 public interface ICmpt_DomainValue<TKind,TValue>
@@ -135,10 +138,11 @@ public interface ICmpt_DomainValue<TKind,TValue>
 public interface ICmpt_DomainValueObject<TKind,TValue>
   : ICmpt_DomainRefObject<TKind>
 {
-TValue Value { get; }
+  TValue Value { get; }
 }
 
 public interface ICmpt_BasicValue
+  : Spec_Domain
 {
   Cmpt_DomainKind As_DomainKindBoolean { get; }
   ICmpt_EnumValue As_EnumValue { get; }
@@ -183,7 +187,7 @@ public interface ICmpt_DomainLabel
 public interface ICmpt_DomainLabelObject
   : ICmpt_BaseDomainItemObject
 {
-ICmpt_EnumValue Label { get; }
+  ICmpt_EnumValue Label { get; }
 }
 
 public interface ICmpt_DomainItemLabel

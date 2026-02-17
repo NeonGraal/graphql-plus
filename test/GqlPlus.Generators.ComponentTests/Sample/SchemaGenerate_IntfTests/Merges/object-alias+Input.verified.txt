@@ -3,13 +3,16 @@ input ObjAliasInp [Input1] { }
 input ObjAliasInp [Input2] { }
 */
 
-// Generated from Schema object-alias+Input for Intf
+// Generated from Schema object-alias+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-alias+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_alias_Input;
 
 public interface ICmptObjAliasInp
+  : Schema_object-alias+Input
 {
   ICmptObjAliasInpObject AsObjAliasInp { get; }
 }

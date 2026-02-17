@@ -3,7 +3,9 @@ option Schema { }
 option Schema { }
 */
 
-// Generated from Schema option for Stat
+// Generated from Schema option
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_option, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Option Schema

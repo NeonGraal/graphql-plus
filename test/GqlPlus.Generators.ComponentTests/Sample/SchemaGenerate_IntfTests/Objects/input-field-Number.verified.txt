@@ -2,13 +2,16 @@
 input InpFieldNmbr { field: Number = 42 }
 */
 
-// Generated from Schema input-field-Number for Intf
+// Generated from Schema input-field-Number
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_input-field-Number, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_input_field_Number;
 
 public interface ICmptInpFieldNmbr
+  : Schema_input-field-Number
 {
   ICmptInpFieldNmbrObject AsInpFieldNmbr { get; }
 }

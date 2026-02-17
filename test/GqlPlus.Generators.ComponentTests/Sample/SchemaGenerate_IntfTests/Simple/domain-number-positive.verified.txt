@@ -2,7 +2,9 @@
 domain DmnNmbrPstv { Number !<0 }
 */
 
-// Generated from Schema domain-number-positive for Intf
+// Generated from Schema domain-number-positive
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-number-positive, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

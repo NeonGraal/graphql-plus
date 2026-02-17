@@ -3,13 +3,16 @@ category { CtgrOutpDict[*] }
 output CtgrOutpDict { }
 */
 
-// Generated from Schema category-output-dict for Intf
+// Generated from Schema category-output-dict
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_category-output-dict, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_category_output_dict;
 
 public interface ICmptCtgrOutpDict
+  : Schema_category-output-dict
 {
   ICmptCtgrOutpDictObject AsCtgrOutpDict { get; }
 }

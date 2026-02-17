@@ -1,12 +1,15 @@
 ﻿//HintName: test_union-same_Impl.gen.cs
-// Generated from union-same.graphql+ for Impl
+// Generated from {CurrentDirectory}union-same.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_union_same;
 
 public class testUnionSame
-  : ItestUnionSame
+  : GqlpModelImplementationBase
+  , ItestUnionSame
 {
   public Boolean AsBoolean { get; set; }
 }

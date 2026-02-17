@@ -1,5 +1,7 @@
 ﻿//HintName: test_generic-parent-enum-dom+Output_Impl.gen.cs
-// Generated from generic-parent-enum-dom+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}generic-parent-enum-dom+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -14,7 +16,7 @@ public class testGnrcPrntEnumDomOutp
 public class testFieldGnrcPrntEnumDomOutp<TRef>
   : ItestFieldGnrcPrntEnumDomOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class testDomGnrcPrntEnumDomOutp

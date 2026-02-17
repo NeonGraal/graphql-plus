@@ -3,7 +3,9 @@ input FieldValueInp { field = fieldValueInp }
 enum EnumFieldValueInp { fieldValueInp }
 */
 
-// Generated from Schema field-value+Input for Impl
+// Generated from Schema field-value+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-value+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

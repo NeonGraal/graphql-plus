@@ -9,7 +9,9 @@ output _UnionMember {
     }
 */
 
-// Generated from Spec Union for Intf
+// Generated from Spec Union
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Union, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -35,5 +37,5 @@ public interface ICmpt_UnionMember
 public interface ICmpt_UnionMemberObject
   : ICmpt_UnionRefObject
 {
-ICmpt_Name Union { get; }
+  ICmpt_Name Union { get; }
 }

@@ -7,9 +7,9 @@ internal class OutputGenerator
   {
     string member = $"public {item.Type} {item.Name} ";
     if (string.IsNullOrEmpty(item.Param)) {
-      context.Write(member + "{ get; set; }");
+      context.Write("  " + member + "{ get; set; }");
     } else {
-      context.Write($"{member}({item.Param})");
+      context.Write($"  {member}({item.Param})");
       context.Write("{ }");
     }
   }
@@ -18,9 +18,9 @@ internal class OutputGenerator
   {
     string member = $"{item.Type} {item.Name} ";
     if (string.IsNullOrEmpty(item.Param)) {
-      context.Write(member + "{ get; }");
+      context.Write("  " + member + "{ get; }");
     } else {
-      context.Write($"{member}({item.Param} parameter);");
+      context.Write($"  {member}({item.Param} parameter);");
     }
   }
 

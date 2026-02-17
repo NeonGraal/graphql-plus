@@ -3,7 +3,9 @@ output AltOutp { | AltAltOutp }
 output AltAltOutp { alt: Number | String }
 */
 
-// Generated from Schema alt+Output for Impl
+// Generated from Schema alt+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -17,5 +19,5 @@ public class CmptAltOutp
 public class CmptAltAltOutp
   : ICmptAltAltOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }

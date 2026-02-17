@@ -5,7 +5,9 @@ enum EnumGnrcPrntEnumChildInp { :ParentGnrcPrntEnumChildInp gnrcPrntEnumChildInp
 enum ParentGnrcPrntEnumChildInp { gnrcPrntEnumChildInpParent }
 */
 
-// Generated from Schema generic-parent-enum-child+Input for Impl
+// Generated from Schema generic-parent-enum-child+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-enum-child+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

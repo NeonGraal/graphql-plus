@@ -3,7 +3,9 @@ output PrntAltOutp { :RefPrntAltOutp | Number }
 output RefPrntAltOutp {  parent: Number | String }
 */
 
-// Generated from Schema parent-alt+Output for Impl
+// Generated from Schema parent-alt+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-alt+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -18,5 +20,5 @@ public class CmptPrntAltOutp
 public class CmptRefPrntAltOutp
   : ICmptRefPrntAltOutp
 {
-public decimal Parent { get; set; }
+  public decimal Parent { get; set; }
 }

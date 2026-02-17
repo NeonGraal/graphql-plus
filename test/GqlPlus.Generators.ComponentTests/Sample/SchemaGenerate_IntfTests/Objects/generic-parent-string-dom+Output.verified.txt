@@ -4,7 +4,9 @@ output FieldGnrcPrntStrDomOutp<$ref:String> { field: $ref }
 domain DomGnrcPrntStrDomOutp { string /\w+/ }
 */
 
-// Generated from Schema generic-parent-string-dom+Output for Intf
+// Generated from Schema generic-parent-string-dom+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-string-dom+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,13 +24,14 @@ public interface ICmptGnrcPrntStrDomOutpObject
 }
 
 public interface ICmptFieldGnrcPrntStrDomOutp<TRef>
+  : Schema_generic-parent-string-dom+Output
 {
   ICmptFieldGnrcPrntStrDomOutpObject<TRef> AsFieldGnrcPrntStrDomOutp { get; }
 }
 
 public interface ICmptFieldGnrcPrntStrDomOutpObject<TRef>
 {
-TRef Field { get; }
+  TRef Field { get; }
 }
 
 public interface ICmptDomGnrcPrntStrDomOutp

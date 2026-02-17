@@ -2,7 +2,9 @@
 output FieldTypeDescrOutp { field: "Test" "Descr" Number }
 */
 
-// Generated from Schema field-type-descr+Output for Impl
+// Generated from Schema field-type-descr+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-type-descr+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -11,5 +13,5 @@ namespace Components.Gqlp_Schema_field_type_descr_Output;
 public class CmptFieldTypeDescrOutp
   : ICmptFieldTypeDescrOutp
 {
-public decimal Field { get; set; }
+  public decimal Field { get; set; }
 }

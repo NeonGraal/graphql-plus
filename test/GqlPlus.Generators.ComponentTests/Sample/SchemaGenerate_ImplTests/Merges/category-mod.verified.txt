@@ -4,7 +4,9 @@ category [CatM2] { CtgrMod? }
 output CtgrMod { }
 */
 
-// Generated from Schema category-mod for Impl
+// Generated from Schema category-mod
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-mod, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

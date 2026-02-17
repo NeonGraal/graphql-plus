@@ -3,7 +3,9 @@ output ObjAltEnumOutp { ! true }
 output ObjAltEnumOutp { ! false }
 */
 
-// Generated from Schema object-alt-enum+Output for Impl
+// Generated from Schema object-alt-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt-enum+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

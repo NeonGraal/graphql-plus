@@ -2,13 +2,16 @@
 output AltDescrOutp { | "Test" "Descr" String }
 */
 
-// Generated from Schema alt-descr+Output for Intf
+// Generated from Schema alt-descr+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-descr+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_alt_descr_Output;
 
 public interface ICmptAltDescrOutp
+  : Schema_alt-descr+Output
 {
   string AsString { get; }
   ICmptAltDescrOutpObject AsAltDescrOutp { get; }

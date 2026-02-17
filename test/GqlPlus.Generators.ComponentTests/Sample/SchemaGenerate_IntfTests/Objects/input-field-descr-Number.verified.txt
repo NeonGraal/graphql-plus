@@ -2,13 +2,16 @@
 input InpFieldDescrNmbr { "Test" "Descr" field: Number = 42 }
 */
 
-// Generated from Schema input-field-descr-Number for Intf
+// Generated from Schema input-field-descr-Number
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_input-field-descr-Number, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_input_field_descr_Number;
 
 public interface ICmptInpFieldDescrNmbr
+  : Schema_input-field-descr-Number
 {
   ICmptInpFieldDescrNmbrObject AsInpFieldDescrNmbr { get; }
 }

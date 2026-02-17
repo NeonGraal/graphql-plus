@@ -2,7 +2,9 @@
 input InpFieldNmbr { field: Number = 42 }
 */
 
-// Generated from Schema input-field-Number for Impl
+// Generated from Schema input-field-Number
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-Number, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

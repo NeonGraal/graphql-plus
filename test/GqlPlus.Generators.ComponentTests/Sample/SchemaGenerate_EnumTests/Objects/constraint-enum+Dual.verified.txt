@@ -4,7 +4,9 @@ dual RefCnstEnumDual<$type:EnumCnstEnumDual> { field: $type }
 enum EnumCnstEnumDual { cnstEnumDual }
 */
 
-// Generated from Schema constraint-enum+Dual for Enum
+// Generated from Schema constraint-enum+Dual
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_constraint-enum+Dual, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

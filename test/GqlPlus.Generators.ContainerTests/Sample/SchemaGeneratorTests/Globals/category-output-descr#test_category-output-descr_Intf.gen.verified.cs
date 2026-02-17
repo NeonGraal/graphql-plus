@@ -1,11 +1,14 @@
 ﻿//HintName: test_category-output-descr_Intf.gen.cs
-// Generated from category-output-descr.graphql+ for Intf
+// Generated from {CurrentDirectory}category-output-descr.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_output_descr;
 
 public interface ItestCtgrOutpDescr
+  : IGqlpModelImplementationBase
 {
   ItestCtgrOutpDescrObject AsCtgrOutpDescr { get; }
 }

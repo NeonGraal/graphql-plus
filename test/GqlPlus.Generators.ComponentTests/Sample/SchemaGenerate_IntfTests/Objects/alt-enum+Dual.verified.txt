@@ -3,13 +3,16 @@ dual AltEnumDual { ! EnumAltEnumDual.altEnumDual }
 enum EnumAltEnumDual { altEnumDual }
 */
 
-// Generated from Schema alt-enum+Dual for Intf
+// Generated from Schema alt-enum+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-enum+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_alt_enum_Dual;
 
 public interface ICmptAltEnumDual
+  : Schema_alt-enum+Dual
 {
   CmptEnumAltEnumDual AsEnumAltEnumDualaltEnumDual { get; }
   ICmptAltEnumDualObject AsAltEnumDual { get; }

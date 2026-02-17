@@ -4,7 +4,9 @@ dual RefGnrcPrntDualPrntDual<$ref:_Dual> { :$ref }
 dual AltGnrcPrntDualPrntDual { alt: Number | String }
 */
 
-// Generated from Schema generic-parent-dual-parent+Dual for Impl
+// Generated from Schema generic-parent-dual-parent+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-dual-parent+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

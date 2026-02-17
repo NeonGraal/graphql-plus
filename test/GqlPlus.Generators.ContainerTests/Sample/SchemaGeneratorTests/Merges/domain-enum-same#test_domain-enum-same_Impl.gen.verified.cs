@@ -1,5 +1,7 @@
 ﻿//HintName: test_domain-enum-same_Impl.gen.cs
-// Generated from domain-enum-same.graphql+ for Impl
+// Generated from {CurrentDirectory}domain-enum-same.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

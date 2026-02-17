@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-enum-parent+Dual_Enum.gen.cs
-// Generated from constraint-enum-parent+Dual.graphql+ for Enum
+// Generated from {CurrentDirectory}constraint-enum-parent+Dual.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

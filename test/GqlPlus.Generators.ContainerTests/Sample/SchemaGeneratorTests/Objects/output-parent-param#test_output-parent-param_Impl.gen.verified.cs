@@ -1,5 +1,7 @@
 ﻿//HintName: test_output-parent-param_Impl.gen.cs
-// Generated from output-parent-param.graphql+ for Impl
+// Generated from {CurrentDirectory}output-parent-param.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -9,14 +11,14 @@ public class testOutpPrntParam
   : testPrntOutpPrntParam
   , ItestOutpPrntParam
 {
-public ItestFldOutpPrntParam Field (ItestInOutpPrntParam)
+  public ItestFldOutpPrntParam Field (ItestInOutpPrntParam)
 { }
 }
 
 public class testPrntOutpPrntParam
   : ItestPrntOutpPrntParam
 {
-public ItestFldOutpPrntParam Field (ItestPrntOutpPrntParamIn)
+  public ItestFldOutpPrntParam Field (ItestPrntOutpPrntParamIn)
 { }
 }
 

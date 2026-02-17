@@ -3,7 +3,9 @@ domain DmnStrSame { string /a+/ }
 domain DmnStrSame { string /a+/ }
 */
 
-// Generated from Schema domain-string-same for Impl
+// Generated from Schema domain-string-same
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-string-same, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

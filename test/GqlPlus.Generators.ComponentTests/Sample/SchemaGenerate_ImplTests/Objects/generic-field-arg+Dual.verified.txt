@@ -3,7 +3,9 @@ dual GnrcFieldArgDual<$type:String> { field: RefGnrcFieldArgDual<$type> }
 dual RefGnrcFieldArgDual<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-field-arg+Dual for Impl
+// Generated from Schema generic-field-arg+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-arg+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

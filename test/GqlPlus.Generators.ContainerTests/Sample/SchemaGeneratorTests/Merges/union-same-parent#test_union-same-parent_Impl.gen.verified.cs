@@ -1,5 +1,7 @@
 ﻿//HintName: test_union-same-parent_Impl.gen.cs
-// Generated from union-same-parent.graphql+ for Impl
+// Generated from {CurrentDirectory}union-same-parent.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -13,7 +15,8 @@ public class testUnionSamePrnt
 }
 
 public class testPrntUnionSamePrnt
-  : ItestPrntUnionSamePrnt
+  : GqlpModelImplementationBase
+  , ItestPrntUnionSamePrnt
 {
   public String AsString { get; set; }
 }

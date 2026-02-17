@@ -23,13 +23,16 @@ dual _Modifier<$kind:_ModifierKind> {
     }
 */
 
-// Generated from Spec Built-In for Intf
+// Generated from Spec Built-In
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Built-In, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Spec_Built_In;
 
 public interface ICmpt_Collections
+  : Spec_Built-In
 {
   ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindList { get; }
   ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindDictionary { get; }
@@ -55,6 +58,7 @@ public interface ICmpt_ModifierKeyedObject<TKind>
 }
 
 public interface ICmpt_Modifiers
+  : Spec_Built-In
 {
   ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindOptional { get; }
   ICmpt_Collections As_Collections { get; }
@@ -66,6 +70,7 @@ public interface ICmpt_ModifiersObject
 }
 
 public interface ICmpt_Modifier<TKind>
+  : Spec_Built-In
 {
   ICmpt_ModifierObject<TKind> As_Modifier { get; }
 }

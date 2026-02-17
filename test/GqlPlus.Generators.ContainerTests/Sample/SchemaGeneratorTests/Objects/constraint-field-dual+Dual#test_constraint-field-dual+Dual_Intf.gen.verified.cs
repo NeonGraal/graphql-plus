@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-field-dual+Dual_Intf.gen.cs
-// Generated from constraint-field-dual+Dual.graphql+ for Intf
+// Generated from {CurrentDirectory}constraint-field-dual+Dual.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -17,6 +19,7 @@ public interface ItestCnstFieldDualDualObject
 }
 
 public interface ItestRefCnstFieldDualDual<TRef>
+  : IGqlpModelImplementationBase
 {
   ItestRefCnstFieldDualDualObject<TRef> AsRefCnstFieldDualDual { get; }
 }
@@ -27,6 +30,7 @@ public interface ItestRefCnstFieldDualDualObject<TRef>
 }
 
 public interface ItestPrntCnstFieldDualDual
+  : IGqlpModelImplementationBase
 {
   string AsString { get; }
   ItestPrntCnstFieldDualDualObject AsPrntCnstFieldDualDual { get; }

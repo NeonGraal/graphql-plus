@@ -3,7 +3,9 @@ enum EnumAlias [En1] { enumAlias }
 enum EnumAlias [En2] { enumAlias }
 */
 
-// Generated from Schema enum-alias for Enum
+// Generated from Schema enum-alias
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_enum-alias, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

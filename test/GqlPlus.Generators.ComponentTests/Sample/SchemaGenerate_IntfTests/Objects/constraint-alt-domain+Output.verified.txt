@@ -4,13 +4,16 @@ output RefCnstAltDmnOutp<$ref:String> { | $ref }
 domain DomCnstAltDmnOutp { String /\w+/ }
 */
 
-// Generated from Schema constraint-alt-domain+Output for Intf
+// Generated from Schema constraint-alt-domain+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-alt-domain+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 
 public interface ICmptCnstAltDmnOutp
+  : Schema_constraint-alt-domain+Output
 {
   ICmptRefCnstAltDmnOutp<ICmptDomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; }
   ICmptCnstAltDmnOutpObject AsCnstAltDmnOutp { get; }
@@ -21,6 +24,7 @@ public interface ICmptCnstAltDmnOutpObject
 }
 
 public interface ICmptRefCnstAltDmnOutp<TRef>
+  : Schema_constraint-alt-domain+Output
 {
   TRef Asref { get; }
   ICmptRefCnstAltDmnOutpObject<TRef> AsRefCnstAltDmnOutp { get; }

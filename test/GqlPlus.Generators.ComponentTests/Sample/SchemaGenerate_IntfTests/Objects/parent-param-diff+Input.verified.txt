@@ -3,7 +3,9 @@ input PrntParamDiffInp<$a:String> { :RefPrntParamDiffInp<$a> field: $a }
 input RefPrntParamDiffInp<$b:String> { | $b }
 */
 
-// Generated from Schema parent-param-diff+Input for Intf
+// Generated from Schema parent-param-diff+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-param-diff+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,6 +24,7 @@ public interface ICmptPrntParamDiffInpObject<TA>
 }
 
 public interface ICmptRefPrntParamDiffInp<TB>
+  : Schema_parent-param-diff+Input
 {
   TB Asb { get; }
   ICmptRefPrntParamDiffInpObject<TB> AsRefPrntParamDiffInp { get; }

@@ -26,7 +26,9 @@ output All {
     }
 */
 
-// Generated from Schema all for Impl
+// Generated from Schema all
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_all, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -39,7 +41,8 @@ public class CmptGuid
 }
 
 public class CmptMany
-  : ICmptMany
+  : Schema_all
+  , ICmptMany
 {
   public Guid AsGuid { get; set; }
   public Number AsNumber { get; set; }
@@ -61,6 +64,6 @@ public class CmptParam
 public class CmptAll
   : ICmptAll
 {
-public ICmptField Items (ICmptParam?)
+  public ICmptField Items (ICmptParam?)
 { }
 }

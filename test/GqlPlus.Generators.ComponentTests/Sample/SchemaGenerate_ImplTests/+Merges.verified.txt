@@ -1,4 +1,6 @@
-﻿// Generated from Schema +Merges for Impl
+﻿// Generated from Schema +Merges
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_+Merges, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -193,8 +195,8 @@ public class CmptObjCnstInp<TType>
 public class CmptObjCnstOutp<TType>
   : ICmptObjCnstOutp<TType>
 {
-public TType Field { get; set; }
-public TType Str { get; set; }
+  public TType Field { get; set; }
+  public TType Str { get; set; }
 }
 
 public class CmptObjFieldDual
@@ -222,7 +224,7 @@ public class CmptFldObjFieldInp
 public class CmptObjFieldOutp
   : ICmptObjFieldOutp
 {
-public ICmptFldObjFieldOutp Field { get; set; }
+  public ICmptFldObjFieldOutp Field { get; set; }
 }
 
 public class CmptFldObjFieldOutp
@@ -255,7 +257,7 @@ public class CmptFldObjFieldAliasInp
 public class CmptObjFieldAliasOutp
   : ICmptObjFieldAliasOutp
 {
-public ICmptFldObjFieldAliasOutp Field { get; set; }
+  public ICmptFldObjFieldAliasOutp Field { get; set; }
 }
 
 public class CmptFldObjFieldAliasOutp
@@ -278,7 +280,7 @@ public class CmptObjFieldEnumAliasInp
 public class CmptObjFieldEnumAliasOutp
   : ICmptObjFieldEnumAliasOutp
 {
-public bool Field { get; set; }
+  public bool Field { get; set; }
 }
 
 public class CmptObjFieldEnumValueDual
@@ -296,7 +298,7 @@ public class CmptObjFieldEnumValueInp
 public class CmptObjFieldEnumValueOutp
   : ICmptObjFieldEnumValueOutp
 {
-public bool Field { get; set; }
+  public bool Field { get; set; }
 }
 
 public class CmptObjFieldTypeAliasDual
@@ -314,7 +316,7 @@ public class CmptObjFieldTypeAliasInp
 public class CmptObjFieldTypeAliasOutp
   : ICmptObjFieldTypeAliasOutp
 {
-public string Field { get; set; }
+  public string Field { get; set; }
 }
 
 public class CmptObjParamDual<TTest,TType>
@@ -334,8 +336,8 @@ public class CmptObjParamInp<TTest,TType>
 public class CmptObjParamOutp<TTest,TType>
   : ICmptObjParamOutp<TTest,TType>
 {
-public TTest Test { get; set; }
-public TType Type { get; set; }
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
 }
 
 public class CmptObjParamDupDual<TTest>
@@ -355,8 +357,8 @@ public class CmptObjParamDupInp<TTest>
 public class CmptObjParamDupOutp<TTest>
   : ICmptObjParamDupOutp<TTest>
 {
-public TTest Test { get; set; }
-public TTest Type { get; set; }
+  public TTest Test { get; set; }
+  public TTest Type { get; set; }
 }
 
 public class CmptObjPrntDual
@@ -395,7 +397,7 @@ public class CmptRefObjPrntOutp
 public class CmptOutpFieldParam
   : ICmptOutpFieldParam
 {
-public ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1)
+  public ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1)
 { }
 }
 
@@ -415,21 +417,24 @@ public class CmptFldOutpFieldParam
 }
 
 public class CmptUnionAlias
-  : ICmptUnionAlias
+  : Schema_+Merges
+  , ICmptUnionAlias
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
 
 public class CmptUnionDiff
-  : ICmptUnionDiff
+  : Schema_+Merges
+  , ICmptUnionDiff
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
 
 public class CmptUnionSame
-  : ICmptUnionSame
+  : Schema_+Merges
+  , ICmptUnionSame
 {
   public Boolean AsBoolean { get; set; }
 }
@@ -442,7 +447,8 @@ public class CmptUnionSamePrnt
 }
 
 public class CmptPrntUnionSamePrnt
-  : ICmptPrntUnionSamePrnt
+  : Schema_+Merges
+  , ICmptPrntUnionSamePrnt
 {
   public String AsString { get; set; }
 }

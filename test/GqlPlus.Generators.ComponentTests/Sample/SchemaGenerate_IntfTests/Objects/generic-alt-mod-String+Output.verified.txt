@@ -2,13 +2,16 @@
 output RefGnrcAltModStrOutp<$ref:String> { | $ref[*] }
 */
 
-// Generated from Schema generic-alt-mod-String+Output for Intf
+// Generated from Schema generic-alt-mod-String+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-alt-mod-String+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_generic_alt_mod_String_Output;
 
 public interface ICmptRefGnrcAltModStrOutp<TRef>
+  : Schema_generic-alt-mod-String+Output
 {
   IDictionary<string, TRef> Asref { get; }
   ICmptRefGnrcAltModStrOutpObject<TRef> AsRefGnrcAltModStrOutp { get; }

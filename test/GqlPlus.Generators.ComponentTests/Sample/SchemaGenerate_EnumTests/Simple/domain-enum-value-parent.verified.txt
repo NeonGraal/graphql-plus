@@ -4,7 +4,9 @@ enum EnumDmnEnumValuePrnt { :PrntDmnEnumValuePrnt dmnEnumValuePrnt }
 enum PrntDmnEnumValuePrnt { prnt_dmnEnumValuePrnt }
 */
 
-// Generated from Schema domain-enum-value-parent for Enum
+// Generated from Schema domain-enum-value-parent
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_domain-enum-value-parent, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -1,5 +1,7 @@
 ﻿//HintName: test_object-alt+Dual_Impl.gen.cs
-// Generated from object-alt+Dual.graphql+ for Impl
+// Generated from {CurrentDirectory}object-alt+Dual.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

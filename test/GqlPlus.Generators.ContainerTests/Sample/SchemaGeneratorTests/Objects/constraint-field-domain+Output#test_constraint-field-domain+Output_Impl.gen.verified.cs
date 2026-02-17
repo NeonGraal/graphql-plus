@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-field-domain+Output_Impl.gen.cs
-// Generated from constraint-field-domain+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}constraint-field-domain+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -14,7 +16,7 @@ public class testCnstFieldDmnOutp
 public class testRefCnstFieldDmnOutp<TRef>
   : ItestRefCnstFieldDmnOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class testDomCnstFieldDmnOutp

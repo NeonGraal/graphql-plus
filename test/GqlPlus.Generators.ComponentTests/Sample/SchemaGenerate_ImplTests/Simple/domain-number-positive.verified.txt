@@ -2,7 +2,9 @@
 domain DmnNmbrPstv { Number !<0 }
 */
 
-// Generated from Schema domain-number-positive for Impl
+// Generated from Schema domain-number-positive
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number-positive, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

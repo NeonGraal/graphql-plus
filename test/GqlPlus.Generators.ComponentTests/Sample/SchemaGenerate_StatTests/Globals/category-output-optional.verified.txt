@@ -3,7 +3,9 @@ category { CtgrOutpOptl? }
 output CtgrOutpOptl { }
 */
 
-// Generated from Schema category-output-optional for Stat
+// Generated from Schema category-output-optional
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category-output-optional, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Category ctgrOutpOptl

@@ -3,7 +3,9 @@ output PrntParamSameOutp<$a:String> { :RefPrntParamSameOutp<$a> field: $a }
 output RefPrntParamSameOutp<$a:String> { | $a }
 */
 
-// Generated from Schema parent-param-same+Output for Impl
+// Generated from Schema parent-param-same+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-same+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -13,7 +15,7 @@ public class CmptPrntParamSameOutp<TA>
   : CmptRefPrntParamSameOutp<TA>
   , ICmptPrntParamSameOutp<TA>
 {
-public TA Field { get; set; }
+  public TA Field { get; set; }
 }
 
 public class CmptRefPrntParamSameOutp<TA>

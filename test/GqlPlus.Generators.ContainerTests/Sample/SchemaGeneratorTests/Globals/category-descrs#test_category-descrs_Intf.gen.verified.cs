@@ -1,11 +1,14 @@
 ﻿//HintName: test_category-descrs_Intf.gen.cs
-// Generated from category-descrs.graphql+ for Intf
+// Generated from {CurrentDirectory}category-descrs.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_category_descrs;
 
 public interface ItestCtgrDscrs
+  : IGqlpModelImplementationBase
 {
   ItestCtgrDscrsObject AsCtgrDscrs { get; }
 }

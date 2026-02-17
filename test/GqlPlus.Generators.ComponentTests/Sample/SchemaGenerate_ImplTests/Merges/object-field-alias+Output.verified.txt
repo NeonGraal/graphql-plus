@@ -4,7 +4,9 @@ output ObjFieldAliasOutp { field [field2]: FldObjFieldAliasOutp }
 output FldObjFieldAliasOutp { }
 */
 
-// Generated from Schema object-field-alias+Output for Impl
+// Generated from Schema object-field-alias+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-alias+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -13,7 +15,7 @@ namespace Components.Gqlp_Schema_object_field_alias_Output;
 public class CmptObjFieldAliasOutp
   : ICmptObjFieldAliasOutp
 {
-public ICmptFldObjFieldAliasOutp Field { get; set; }
+  public ICmptFldObjFieldAliasOutp Field { get; set; }
 }
 
 public class CmptFldObjFieldAliasOutp

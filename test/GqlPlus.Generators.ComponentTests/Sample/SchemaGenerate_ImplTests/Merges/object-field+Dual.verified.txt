@@ -4,7 +4,9 @@ dual ObjFieldDual { field: FldObjFieldDual }
 dual FldObjFieldDual { }
 */
 
-// Generated from Schema object-field+Dual for Impl
+// Generated from Schema object-field+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

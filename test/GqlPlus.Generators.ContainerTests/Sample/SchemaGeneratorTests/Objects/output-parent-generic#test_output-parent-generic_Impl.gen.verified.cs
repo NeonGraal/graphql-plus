@@ -1,5 +1,7 @@
 ﻿//HintName: test_output-parent-generic_Impl.gen.cs
-// Generated from output-parent-generic.graphql+ for Impl
+// Generated from {CurrentDirectory}output-parent-generic.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -13,5 +15,5 @@ public class testOutpPrntGnrc
 public class testRefOutpPrntGnrc<TType>
   : ItestRefOutpPrntGnrc<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }

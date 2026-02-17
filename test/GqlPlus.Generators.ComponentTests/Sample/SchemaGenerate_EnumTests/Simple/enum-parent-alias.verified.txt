@@ -3,7 +3,9 @@ enum EnumPrntAlias { :PrntEnumPrntAlias val_enumPrntAlias prnt_enumPrntAlias[enu
 enum PrntEnumPrntAlias { prnt_enumPrntAlias }
 */
 
-// Generated from Schema enum-parent-alias for Enum
+// Generated from Schema enum-parent-alias
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_enum-parent-alias, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

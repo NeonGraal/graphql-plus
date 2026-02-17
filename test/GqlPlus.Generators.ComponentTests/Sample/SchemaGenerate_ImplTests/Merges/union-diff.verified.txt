@@ -3,14 +3,17 @@ union UnionDiff { Boolean }
 union UnionDiff { Number }
 */
 
-// Generated from Schema union-diff for Impl
+// Generated from Schema union-diff
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-diff, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_union_diff;
 
 public class CmptUnionDiff
-  : ICmptUnionDiff
+  : Schema_union-diff
+  , ICmptUnionDiff
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }

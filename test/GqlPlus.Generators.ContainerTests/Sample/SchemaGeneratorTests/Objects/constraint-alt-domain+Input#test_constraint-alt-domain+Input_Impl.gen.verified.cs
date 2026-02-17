@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-alt-domain+Input_Impl.gen.cs
-// Generated from constraint-alt-domain+Input.graphql+ for Impl
+// Generated from {CurrentDirectory}constraint-alt-domain+Input.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

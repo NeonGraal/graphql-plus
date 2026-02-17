@@ -4,7 +4,9 @@ input ObjPrntInp { :RefObjPrntInp }
 input RefObjPrntInp { }
 */
 
-// Generated from Schema object-parent+Input for Intf
+// Generated from Schema object-parent+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-parent+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,6 +24,7 @@ public interface ICmptObjPrntInpObject
 }
 
 public interface ICmptRefObjPrntInp
+  : Schema_object-parent+Input
 {
   ICmptRefObjPrntInpObject AsRefObjPrntInp { get; }
 }

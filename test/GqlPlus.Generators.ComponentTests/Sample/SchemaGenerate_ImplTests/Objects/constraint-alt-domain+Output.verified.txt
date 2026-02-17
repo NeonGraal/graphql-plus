@@ -4,7 +4,9 @@ output RefCnstAltDmnOutp<$ref:String> { | $ref }
 domain DomCnstAltDmnOutp { String /\w+/ }
 */
 
-// Generated from Schema constraint-alt-domain+Output for Impl
+// Generated from Schema constraint-alt-domain+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-domain+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

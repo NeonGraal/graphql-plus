@@ -1,11 +1,14 @@
 ﻿//HintName: test_alt-enum+Input_Intf.gen.cs
-// Generated from alt-enum+Input.graphql+ for Intf
+// Generated from {CurrentDirectory}alt-enum+Input.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Input;
 
 public interface ItestAltEnumInp
+  : IGqlpModelImplementationBase
 {
   testEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; }
   ItestAltEnumInpObject AsAltEnumInp { get; }

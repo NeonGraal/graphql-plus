@@ -2,7 +2,9 @@
 domain DmnNmbrDescr { Number "DomNumber" "Descr" <2 }
 */
 
-// Generated from Schema domain-number-descr for Impl
+// Generated from Schema domain-number-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number-descr, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

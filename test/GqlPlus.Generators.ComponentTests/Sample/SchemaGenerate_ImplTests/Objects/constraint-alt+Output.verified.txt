@@ -2,7 +2,9 @@
 output CnstAltOutp<$type:Number> { | $type }
 */
 
-// Generated from Schema constraint-alt+Output for Impl
+// Generated from Schema constraint-alt+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

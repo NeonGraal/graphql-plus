@@ -3,7 +3,9 @@ input PrntAltInp { :RefPrntAltInp | Number }
 input RefPrntAltInp {  parent: Number | String }
 */
 
-// Generated from Schema parent-alt+Input for Intf
+// Generated from Schema parent-alt+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-alt+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,6 +24,7 @@ public interface ICmptPrntAltInpObject
 }
 
 public interface ICmptRefPrntAltInp
+  : Schema_parent-alt+Input
 {
   string AsString { get; }
   ICmptRefPrntAltInpObject AsRefPrntAltInp { get; }

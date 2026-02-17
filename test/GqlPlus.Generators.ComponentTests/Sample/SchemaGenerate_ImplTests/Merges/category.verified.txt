@@ -4,7 +4,9 @@ category ctgr { Ctgr }
 output Ctgr { }
 */
 
-// Generated from Schema category for Impl
+// Generated from Schema category
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -1,5 +1,7 @@
 ﻿//HintName: test_object-parent+Output_Intf.gen.cs
-// Generated from object-parent+Output.graphql+ for Intf
+// Generated from {CurrentDirectory}object-parent+Output.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -17,6 +19,7 @@ public interface ItestObjPrntOutpObject
 }
 
 public interface ItestRefObjPrntOutp
+  : IGqlpModelImplementationBase
 {
   ItestRefObjPrntOutpObject AsRefObjPrntOutp { get; }
 }

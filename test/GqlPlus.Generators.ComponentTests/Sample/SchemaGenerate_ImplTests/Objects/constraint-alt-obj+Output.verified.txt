@@ -5,7 +5,9 @@ output PrntCnstAltObjOutp { | String }
 output AltCnstAltObjOutp { :PrntCnstAltObjOutp alt: Number }
 */
 
-// Generated from Schema constraint-alt-obj+Output for Impl
+// Generated from Schema constraint-alt-obj+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-obj+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -30,5 +32,5 @@ public class CmptAltCnstAltObjOutp
   : CmptPrntCnstAltObjOutp
   , ICmptAltCnstAltObjOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }

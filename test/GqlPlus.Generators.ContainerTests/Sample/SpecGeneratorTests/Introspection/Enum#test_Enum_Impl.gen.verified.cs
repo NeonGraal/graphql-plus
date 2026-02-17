@@ -1,5 +1,7 @@
 ﻿//HintName: test_Enum_Impl.gen.cs
-// Generated from Enum.graphql+ for Impl
+// Generated from {CurrentDirectory}Enum.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -16,5 +18,5 @@ public class test_EnumValue
   : test_TypeRef<Itest_TypeKind>
   , Itest_EnumValue
 {
-public Itest_Name Label { get; set; }
+  public Itest_Name Label { get; set; }
 }

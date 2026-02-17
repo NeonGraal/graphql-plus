@@ -3,7 +3,9 @@ output AltEnumOutp { ! EnumAltEnumOutp.altEnumOutp }
 enum EnumAltEnumOutp { altEnumOutp }
 */
 
-// Generated from Schema alt-enum+Output for Enum
+// Generated from Schema alt-enum+Output
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_alt-enum+Output, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

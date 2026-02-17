@@ -1,5 +1,7 @@
 ﻿//HintName: test_parent-dual+Output_Intf.gen.cs
-// Generated from parent-dual+Output.graphql+ for Intf
+// Generated from {CurrentDirectory}parent-dual+Output.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -17,6 +19,7 @@ public interface ItestPrntDualOutpObject
 }
 
 public interface ItestRefPrntDualOutp
+  : IGqlpModelImplementationBase
 {
   string AsString { get; }
   ItestRefPrntDualOutpObject AsRefPrntDualOutp { get; }

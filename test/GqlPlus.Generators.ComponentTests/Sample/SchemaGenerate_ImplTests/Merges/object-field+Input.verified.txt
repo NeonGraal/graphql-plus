@@ -4,7 +4,9 @@ input ObjFieldInp { field: FldObjFieldInp }
 input FldObjFieldInp { }
 */
 
-// Generated from Schema object-field+Input for Impl
+// Generated from Schema object-field+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

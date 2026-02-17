@@ -4,7 +4,9 @@ output RefCnstEnumOutp<$type:EnumCnstEnumOutp> { field: $type }
 enum EnumCnstEnumOutp { cnstEnumOutp }
 */
 
-// Generated from Schema constraint-enum+Output for Enum
+// Generated from Schema constraint-enum+Output
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_constraint-enum+Output, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

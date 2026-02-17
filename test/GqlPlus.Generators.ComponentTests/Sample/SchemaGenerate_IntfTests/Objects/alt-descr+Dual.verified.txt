@@ -2,13 +2,16 @@
 dual AltDescrDual { | "Test" "Descr" String }
 */
 
-// Generated from Schema alt-descr+Dual for Intf
+// Generated from Schema alt-descr+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-descr+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_alt_descr_Dual;
 
 public interface ICmptAltDescrDual
+  : Schema_alt-descr+Dual
 {
   string AsString { get; }
   ICmptAltDescrDualObject AsAltDescrDual { get; }

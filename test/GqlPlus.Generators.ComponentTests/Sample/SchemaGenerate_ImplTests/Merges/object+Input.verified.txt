@@ -3,7 +3,9 @@ input ObjInp { }
 input ObjInp { }
 */
 
-// Generated from Schema object+Input for Impl
+// Generated from Schema object+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

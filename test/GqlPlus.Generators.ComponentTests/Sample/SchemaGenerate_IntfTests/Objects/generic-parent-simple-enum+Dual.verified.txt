@@ -4,7 +4,9 @@ dual FieldGnrcPrntSmplEnumDual<$ref:_Simple> { field: $ref }
 enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
 */
 
-// Generated from Schema generic-parent-simple-enum+Dual for Intf
+// Generated from Schema generic-parent-simple-enum+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-simple-enum+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,6 +24,7 @@ public interface ICmptGnrcPrntSmplEnumDualObject
 }
 
 public interface ICmptFieldGnrcPrntSmplEnumDual<TRef>
+  : Schema_generic-parent-simple-enum+Dual
 {
   ICmptFieldGnrcPrntSmplEnumDualObject<TRef> AsFieldGnrcPrntSmplEnumDual { get; }
 }

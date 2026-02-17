@@ -1,5 +1,7 @@
 ﻿//HintName: test_field-mod-Enum+Input_Impl.gen.cs
-// Generated from field-mod-Enum+Input.graphql+ for Impl
+// Generated from {CurrentDirectory}field-mod-Enum+Input.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

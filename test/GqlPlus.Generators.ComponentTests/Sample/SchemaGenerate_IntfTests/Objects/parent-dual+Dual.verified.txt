@@ -3,7 +3,9 @@ dual PrntDualDual { :RefPrntDualDual }
 dual RefPrntDualDual { parent: Number | String }
 */
 
-// Generated from Schema parent-dual+Dual for Intf
+// Generated from Schema parent-dual+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-dual+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -21,6 +23,7 @@ public interface ICmptPrntDualDualObject
 }
 
 public interface ICmptRefPrntDualDual
+  : Schema_parent-dual+Dual
 {
   string AsString { get; }
   ICmptRefPrntDualDualObject AsRefPrntDualDual { get; }

@@ -30,7 +30,9 @@ dual _Object [Object, obj, %] { }
 union _Simple [Simple] { _Enum _Domain _Union }
 */
 
-// Generated from Spec Definition for Enum
+// Generated from Spec Definition
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_Definition, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

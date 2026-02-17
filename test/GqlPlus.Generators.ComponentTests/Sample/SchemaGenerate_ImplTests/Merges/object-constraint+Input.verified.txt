@@ -3,7 +3,9 @@ input ObjCnstInp<$type:String> { field: $type }
 input ObjCnstInp<$type:String> { str: $type }
 */
 
-// Generated from Schema object-constraint+Input for Impl
+// Generated from Schema object-constraint+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-constraint+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

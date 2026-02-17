@@ -3,7 +3,9 @@ domain DmnBoolPrntDescr { :"Parent comment"PrntDmnBoolPrntDescr Boolean false }
 domain PrntDmnBoolPrntDescr { Boolean true }
 */
 
-// Generated from Schema domain-bool-parent-descr for Intf
+// Generated from Schema domain-bool-parent-descr
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-bool-parent-descr, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

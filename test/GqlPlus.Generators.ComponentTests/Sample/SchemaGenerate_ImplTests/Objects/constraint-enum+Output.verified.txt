@@ -4,7 +4,9 @@ output RefCnstEnumOutp<$type:EnumCnstEnumOutp> { field: $type }
 enum EnumCnstEnumOutp { cnstEnumOutp }
 */
 
-// Generated from Schema constraint-enum+Output for Impl
+// Generated from Schema constraint-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-enum+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -18,5 +20,5 @@ public class CmptCnstEnumOutp
 public class CmptRefCnstEnumOutp<TType>
   : ICmptRefCnstEnumOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }

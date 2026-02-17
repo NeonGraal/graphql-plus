@@ -5,7 +5,9 @@ enum EnumGnrcPrntEnumDomDual { gnrcPrntEnumDomDualLabel gnrcPrntEnumDomDualOther
 domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
 */
 
-// Generated from Schema generic-parent-enum-dom+Dual for Enum
+// Generated from Schema generic-parent-enum-dom+Dual
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_generic-parent-enum-dom+Dual, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

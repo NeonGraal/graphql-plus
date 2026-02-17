@@ -4,7 +4,9 @@ enum EnumFieldEnumPrntDual { :PrntFieldEnumPrntDual fieldEnumPrntDual }
 enum PrntFieldEnumPrntDual { prnt_fieldEnumPrntDual }
 */
 
-// Generated from Schema field-enum-parent+Dual for Impl
+// Generated from Schema field-enum-parent+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-enum-parent+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

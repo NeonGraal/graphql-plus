@@ -4,7 +4,9 @@ enum EnumDmnEnumUnq { enum_dmnEnumUnq dmnEnumUnq dmnEnumUnqValue }
 enum DupDmnEnumUnq { dmnEnumUnq dup_dmnEnumUnq dmnEnumUnqDup }
 */
 
-// Generated from Schema domain-enum-unique for Intf
+// Generated from Schema domain-enum-unique
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-unique, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -1,5 +1,7 @@
 ﻿//HintName: test_parent-param-diff+Output_Intf.gen.cs
-// Generated from parent-param-diff+Output.graphql+ for Intf
+// Generated from {CurrentDirectory}parent-param-diff+Output.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -14,10 +16,11 @@ public interface ItestPrntParamDiffOutp<TA>
 public interface ItestPrntParamDiffOutpObject<TA>
   : ItestRefPrntParamDiffOutpObject<TA>
 {
-TA Field { get; }
+  TA Field { get; }
 }
 
 public interface ItestRefPrntParamDiffOutp<TB>
+  : IGqlpModelImplementationBase
 {
   TB Asb { get; }
   ItestRefPrntParamDiffOutpObject<TB> AsRefPrntParamDiffOutp { get; }

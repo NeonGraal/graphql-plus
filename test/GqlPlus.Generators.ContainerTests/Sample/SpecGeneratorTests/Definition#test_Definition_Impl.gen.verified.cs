@@ -1,5 +1,7 @@
 ﻿//HintName: test_Definition_Impl.gen.cs
-// Generated from Definition.graphql+ for Impl
+// Generated from {CurrentDirectory}Definition.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -18,7 +20,8 @@ public class string
 }
 
 public class test_Basic
-  : Itest_Basic
+  : GqlpModelImplementationBase
+  , Itest_Basic
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
@@ -27,14 +30,16 @@ public class test_Basic
 }
 
 public class test_Internal
-  : Itest_Internal
+  : GqlpModelImplementationBase
+  , Itest_Internal
 {
   public Null AsNull { get; set; }
   public Void AsVoid { get; set; }
 }
 
 public class test_Key
-  : Itest_Key
+  : GqlpModelImplementationBase
+  , Itest_Key
 {
   public _Basic As_Basic { get; set; }
   public _Internal As_Internal { get; set; }
@@ -47,7 +52,8 @@ public class test_Object
 }
 
 public class test_Domain
-  : Itest_Domain
+  : GqlpModelImplementationBase
+  , Itest_Domain
 {
 }
 
@@ -57,7 +63,8 @@ public class test_Dual
 }
 
 public class test_Enum
-  : Itest_Enum
+  : GqlpModelImplementationBase
+  , Itest_Enum
 {
 }
 
@@ -72,12 +79,14 @@ public class test_Output
 }
 
 public class test_Union
-  : Itest_Union
+  : GqlpModelImplementationBase
+  , Itest_Union
 {
 }
 
 public class test_Simple
-  : Itest_Simple
+  : GqlpModelImplementationBase
+  , Itest_Simple
 {
   public _Enum As_Enum { get; set; }
   public _Domain As_Domain { get; set; }

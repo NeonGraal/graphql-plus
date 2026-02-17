@@ -20,7 +20,9 @@ output _AndType {
     }
 */
 
-// Generated from Spec Names for Impl
+// Generated from Spec Names
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Names, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -50,5 +52,5 @@ public class Cmpt_AndType
   : Cmpt_Named
   , ICmpt_AndType
 {
-public ICmpt_Type Type { get; set; }
+  public ICmpt_Type Type { get; set; }
 }

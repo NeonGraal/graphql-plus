@@ -3,7 +3,9 @@ domain DmnEnumAllDescr { enum "DomAll" "Descr" EnumDmnEnumAllDescr.* }
 enum EnumDmnEnumAllDescr { dmnEnumAllDescr enum_dmnEnumAllDescr dmnEnumAllDescrValue}
 */
 
-// Generated from Schema domain-enum-all-descr for Impl
+// Generated from Schema domain-enum-all-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-all-descr, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

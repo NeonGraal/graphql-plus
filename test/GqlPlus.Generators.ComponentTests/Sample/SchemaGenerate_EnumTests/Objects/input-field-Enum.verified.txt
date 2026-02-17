@@ -3,7 +3,9 @@ input InpFieldEnum { field: EnumInpFieldEnum = inpFieldEnum }
 enum EnumInpFieldEnum { inpFieldEnum }
 */
 
-// Generated from Schema input-field-Enum for Enum
+// Generated from Schema input-field-Enum
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_input-field-Enum, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -5,7 +5,9 @@ enum EnumOutpPrntGnrc { :PrntOutpPrntGnrc outpPrntGnrc }
 enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
 */
 
-// Generated from Schema output-parent-generic for Enum
+// Generated from Schema output-parent-generic
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_output-parent-generic, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

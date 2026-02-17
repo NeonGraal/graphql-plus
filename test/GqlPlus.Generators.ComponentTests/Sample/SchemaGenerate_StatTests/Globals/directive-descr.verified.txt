@@ -3,7 +3,9 @@
 directive @DrctDescr { all }
 */
 
-// Generated from Schema directive-descr for Stat
+// Generated from Schema directive-descr
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_directive-descr, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Directive DrctDescr

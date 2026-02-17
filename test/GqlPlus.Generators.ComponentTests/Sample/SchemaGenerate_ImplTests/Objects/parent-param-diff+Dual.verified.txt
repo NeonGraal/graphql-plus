@@ -3,7 +3,9 @@ dual PrntParamDiffDual<$a:String> { :RefPrntParamDiffDual<$a> field: $a }
 dual RefPrntParamDiffDual<$b:String> { | $b }
 */
 
-// Generated from Schema parent-param-diff+Dual for Impl
+// Generated from Schema parent-param-diff+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-diff+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

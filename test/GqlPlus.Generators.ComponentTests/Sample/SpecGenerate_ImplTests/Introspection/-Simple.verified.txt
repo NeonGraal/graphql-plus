@@ -91,7 +91,9 @@ output _UnionMember {
     }
 */
 
-// Generated from Spec -Simple for Impl
+// Generated from Spec -Simple
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_-Simple, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -101,14 +103,14 @@ public class Cmpt_DomainRef<TKind>
   : Cmpt_TypeRef<ICmpt_TypeKind>
   , ICmpt_DomainRef<TKind>
 {
-public TKind DomainKind { get; set; }
+  public TKind DomainKind { get; set; }
 }
 
 public class Cmpt_BaseDomain<TDomain,TItem,TDomainItem>
   : Cmpt_ParentType<ICmpt_TypeKind, TItem, TDomainItem>
   , ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
 {
-public TDomain DomainKind { get; set; }
+  public TDomain DomainKind { get; set; }
 }
 
 public class Cmpt_BaseDomainItem
@@ -121,14 +123,14 @@ public class Cmpt_BaseDomainItem
 public class Cmpt_DomainItem<TItem>
   : ICmpt_DomainItem<TItem>
 {
-public ICmpt_Name Domain { get; set; }
+  public ICmpt_Name Domain { get; set; }
 }
 
 public class Cmpt_DomainValue<TKind,TValue>
   : Cmpt_DomainRef<TKind>
   , ICmpt_DomainValue<TKind,TValue>
 {
-public TValue Value { get; set; }
+  public TValue Value { get; set; }
 }
 
 public class Cmpt_BasicValue
@@ -153,7 +155,7 @@ public class Cmpt_DomainLabel
   : Cmpt_BaseDomainItem
   , ICmpt_DomainLabel
 {
-public ICmpt_EnumValue Label { get; set; }
+  public ICmpt_EnumValue Label { get; set; }
 }
 
 public class Cmpt_DomainItemLabel
@@ -200,7 +202,7 @@ public class Cmpt_EnumValue
   : Cmpt_TypeRef<ICmpt_TypeKind>
   , ICmpt_EnumValue
 {
-public ICmpt_Name Label { get; set; }
+  public ICmpt_Name Label { get; set; }
 }
 
 public class Cmpt_UnionRef
@@ -213,5 +215,5 @@ public class Cmpt_UnionMember
   : Cmpt_UnionRef
   , ICmpt_UnionMember
 {
-public ICmpt_Name Union { get; set; }
+  public ICmpt_Name Union { get; set; }
 }

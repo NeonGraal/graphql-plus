@@ -4,7 +4,9 @@ dual FieldGnrcPrntSmplEnumDual<$ref:_Simple> { field: $ref }
 enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
 */
 
-// Generated from Schema generic-parent-simple-enum+Dual for Impl
+// Generated from Schema generic-parent-simple-enum+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-simple-enum+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

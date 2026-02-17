@@ -1,10 +1,13 @@
-﻿// Generated from Schema +Globals for Intf
+﻿// Generated from Schema +Globals
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_+Globals, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_Globals;
 
 public interface ICmptCtgrDscrs
+  : Schema_+Globals
 {
   ICmptCtgrDscrsObject AsCtgrDscrs { get; }
 }
@@ -14,6 +17,7 @@ public interface ICmptCtgrDscrsObject
 }
 
 public interface ICmptCtgrOutp
+  : Schema_+Globals
 {
   ICmptCtgrOutpObject AsCtgrOutp { get; }
 }
@@ -23,6 +27,7 @@ public interface ICmptCtgrOutpObject
 }
 
 public interface ICmptCtgrOutpDescr
+  : Schema_+Globals
 {
   ICmptCtgrOutpDescrObject AsCtgrOutpDescr { get; }
 }
@@ -32,6 +37,7 @@ public interface ICmptCtgrOutpDescrObject
 }
 
 public interface ICmptCtgrOutpDict
+  : Schema_+Globals
 {
   ICmptCtgrOutpDictObject AsCtgrOutpDict { get; }
 }
@@ -41,6 +47,7 @@ public interface ICmptCtgrOutpDictObject
 }
 
 public interface ICmptCtgrOutpList
+  : Schema_+Globals
 {
   ICmptCtgrOutpListObject AsCtgrOutpList { get; }
 }
@@ -50,6 +57,7 @@ public interface ICmptCtgrOutpListObject
 }
 
 public interface ICmptCtgrOutpOptl
+  : Schema_+Globals
 {
   ICmptCtgrOutpOptlObject AsCtgrOutpOptl { get; }
 }
@@ -59,6 +67,7 @@ public interface ICmptCtgrOutpOptlObject
 }
 
 public interface ICmptDescr
+  : Schema_+Globals
 {
   ICmptDescrObject AsDescr { get; }
 }
@@ -68,6 +77,7 @@ public interface ICmptDescrObject
 }
 
 public interface ICmptDescrBcks
+  : Schema_+Globals
 {
   ICmptDescrBcksObject AsDescrBcks { get; }
 }
@@ -77,6 +87,7 @@ public interface ICmptDescrBcksObject
 }
 
 public interface ICmptDescrBtwn
+  : Schema_+Globals
 {
   ICmptDescrBtwnObject AsDescrBtwn { get; }
 }
@@ -86,6 +97,7 @@ public interface ICmptDescrBtwnObject
 }
 
 public interface ICmptDescrCmpl
+  : Schema_+Globals
 {
   ICmptDescrCmplObject AsDescrCmpl { get; }
 }
@@ -95,6 +107,7 @@ public interface ICmptDescrCmplObject
 }
 
 public interface ICmptDescrDbl
+  : Schema_+Globals
 {
   ICmptDescrDblObject AsDescrDbl { get; }
 }
@@ -104,6 +117,7 @@ public interface ICmptDescrDblObject
 }
 
 public interface ICmptDescrSngl
+  : Schema_+Globals
 {
   ICmptDescrSnglObject AsDescrSngl { get; }
 }
@@ -113,6 +127,7 @@ public interface ICmptDescrSnglObject
 }
 
 public interface ICmptDscrs
+  : Schema_+Globals
 {
   ICmptDscrsObject AsDscrs { get; }
 }
@@ -122,6 +137,7 @@ public interface ICmptDscrsObject
 }
 
 public interface ICmptInDrctParamDict
+  : Schema_+Globals
 {
   ICmptInDrctParamDictObject AsInDrctParamDict { get; }
 }
@@ -131,6 +147,7 @@ public interface ICmptInDrctParamDictObject
 }
 
 public interface ICmptInDrctParamIn
+  : Schema_+Globals
 {
   ICmptInDrctParamInObject AsInDrctParamIn { get; }
 }
@@ -140,6 +157,7 @@ public interface ICmptInDrctParamInObject
 }
 
 public interface ICmptInDrctParamList
+  : Schema_+Globals
 {
   ICmptInDrctParamListObject AsInDrctParamList { get; }
 }
@@ -149,6 +167,7 @@ public interface ICmptInDrctParamListObject
 }
 
 public interface ICmptInDrctParamOpt
+  : Schema_+Globals
 {
   ICmptInDrctParamOptObject AsInDrctParamOpt { get; }
 }

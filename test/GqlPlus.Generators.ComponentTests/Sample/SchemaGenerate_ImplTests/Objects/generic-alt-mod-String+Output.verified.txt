@@ -2,7 +2,9 @@
 output RefGnrcAltModStrOutp<$ref:String> { | $ref[*] }
 */
 
-// Generated from Schema generic-alt-mod-String+Output for Impl
+// Generated from Schema generic-alt-mod-String+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-mod-String+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

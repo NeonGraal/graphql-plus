@@ -3,7 +3,9 @@ dual ObjAliasDual [Dual1] { }
 dual ObjAliasDual [Dual2] { }
 */
 
-// Generated from Schema object-alias+Dual for Impl
+// Generated from Schema object-alias+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alias+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

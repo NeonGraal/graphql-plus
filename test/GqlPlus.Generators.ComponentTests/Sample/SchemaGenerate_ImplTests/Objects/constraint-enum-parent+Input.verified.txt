@@ -5,7 +5,9 @@ enum EnumCnstEnumPrntInp { :ParentCnstEnumPrntInp cnstEnumPrntInp }
 enum ParentCnstEnumPrntInp { parentCnstEnumPrntInp }
 */
 
-// Generated from Schema constraint-enum-parent+Input for Impl
+// Generated from Schema constraint-enum-parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-enum-parent+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

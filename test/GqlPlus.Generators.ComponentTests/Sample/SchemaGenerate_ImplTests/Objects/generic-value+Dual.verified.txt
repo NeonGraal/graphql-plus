@@ -4,7 +4,9 @@ dual RefGnrcValueDual<$type:_Enum> { field: $type }
 enum EnumGnrcValueDual { gnrcValueDual }
 */
 
-// Generated from Schema generic-value+Dual for Impl
+// Generated from Schema generic-value+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-value+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

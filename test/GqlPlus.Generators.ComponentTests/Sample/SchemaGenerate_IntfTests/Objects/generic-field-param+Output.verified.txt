@@ -4,23 +4,27 @@ output RefGnrcFieldParamOutp<$ref:_Output> { | $ref }
 output AltGnrcFieldParamOutp { alt: Number | String }
 */
 
-// Generated from Schema generic-field-param+Output for Intf
+// Generated from Schema generic-field-param+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-field-param+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_generic_field_param_Output;
 
 public interface ICmptGnrcFieldParamOutp
+  : Schema_generic-field-param+Output
 {
   ICmptGnrcFieldParamOutpObject AsGnrcFieldParamOutp { get; }
 }
 
 public interface ICmptGnrcFieldParamOutpObject
 {
-ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; }
+  ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; }
 }
 
 public interface ICmptRefGnrcFieldParamOutp<TRef>
+  : Schema_generic-field-param+Output
 {
   TRef Asref { get; }
   ICmptRefGnrcFieldParamOutpObject<TRef> AsRefGnrcFieldParamOutp { get; }
@@ -31,6 +35,7 @@ public interface ICmptRefGnrcFieldParamOutpObject<TRef>
 }
 
 public interface ICmptAltGnrcFieldParamOutp
+  : Schema_generic-field-param+Output
 {
   string AsString { get; }
   ICmptAltGnrcFieldParamOutpObject AsAltGnrcFieldParamOutp { get; }
@@ -38,5 +43,5 @@ public interface ICmptAltGnrcFieldParamOutp
 
 public interface ICmptAltGnrcFieldParamOutpObject
 {
-decimal Alt { get; }
+  decimal Alt { get; }
 }

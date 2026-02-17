@@ -3,7 +3,9 @@ enum EnumPrnt { :PrntEnumPrnt enumPrnt }
 enum PrntEnumPrnt { prnt_enumPrnt }
 */
 
-// Generated from Schema enum-parent for Enum
+// Generated from Schema enum-parent
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_enum-parent, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

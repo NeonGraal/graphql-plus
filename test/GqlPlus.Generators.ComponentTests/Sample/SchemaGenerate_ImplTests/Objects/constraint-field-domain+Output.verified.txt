@@ -4,7 +4,9 @@ output RefCnstFieldDmnOutp<$ref:String> { field: $ref }
 domain DomCnstFieldDmnOutp { String /\w+/ }
 */
 
-// Generated from Schema constraint-field-domain+Output for Impl
+// Generated from Schema constraint-field-domain+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-domain+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -19,7 +21,7 @@ public class CmptCnstFieldDmnOutp
 public class CmptRefCnstFieldDmnOutp<TRef>
   : ICmptRefCnstFieldDmnOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class CmptDomCnstFieldDmnOutp

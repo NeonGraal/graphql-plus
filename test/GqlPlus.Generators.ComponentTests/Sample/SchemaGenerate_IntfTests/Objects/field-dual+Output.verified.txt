@@ -3,23 +3,27 @@ output FieldDualOutp { field: FldFieldDualOutp }
 dual FldFieldDualOutp { field: Number | String }
 */
 
-// Generated from Schema field-dual+Output for Intf
+// Generated from Schema field-dual+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-dual+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_dual_Output;
 
 public interface ICmptFieldDualOutp
+  : Schema_field-dual+Output
 {
   ICmptFieldDualOutpObject AsFieldDualOutp { get; }
 }
 
 public interface ICmptFieldDualOutpObject
 {
-ICmptFldFieldDualOutp Field { get; }
+  ICmptFldFieldDualOutp Field { get; }
 }
 
 public interface ICmptFldFieldDualOutp
+  : Schema_field-dual+Output
 {
   string AsString { get; }
   ICmptFldFieldDualOutpObject AsFldFieldDualOutp { get; }

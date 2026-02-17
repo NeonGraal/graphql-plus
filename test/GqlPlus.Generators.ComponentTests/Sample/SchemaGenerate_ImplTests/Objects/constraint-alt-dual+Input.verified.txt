@@ -5,7 +5,9 @@ dual PrntCnstAltDualInp { | String }
 input AltCnstAltDualInp { :PrntCnstAltDualInp alt: Number }
 */
 
-// Generated from Schema constraint-alt-dual+Input for Impl
+// Generated from Schema constraint-alt-dual+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-dual+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

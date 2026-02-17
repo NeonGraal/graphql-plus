@@ -3,7 +3,9 @@ dual FieldModParamDual<$mod:String> { field: FldFieldModParamDual[$mod] }
 dual FldFieldModParamDual { field: Number | String }
 */
 
-// Generated from Schema field-mod-param+Dual for Impl
+// Generated from Schema field-mod-param+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-mod-param+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

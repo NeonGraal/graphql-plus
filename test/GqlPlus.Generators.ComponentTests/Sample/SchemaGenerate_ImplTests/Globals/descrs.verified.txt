@@ -4,7 +4,9 @@
 output Dscrs { }
 */
 
-// Generated from Schema descrs for Impl
+// Generated from Schema descrs
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descrs, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -340,7 +340,9 @@ output _OutputFieldType {
     }
 */
 
-// Generated from Spec Introspection for Enum
+// Generated from Spec Introspection
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_Introspection, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

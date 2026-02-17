@@ -3,7 +3,9 @@ input ObjParamDupInp<$test:String> { test: $test }
 input ObjParamDupInp<$test:String> { type: $test }
 */
 
-// Generated from Schema object-param-dup+Input for Impl
+// Generated from Schema object-param-dup+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-param-dup+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

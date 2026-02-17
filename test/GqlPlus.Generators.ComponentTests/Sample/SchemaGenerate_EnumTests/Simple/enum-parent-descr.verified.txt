@@ -3,7 +3,9 @@ enum EnumPrntDescr { : "Parent comment" PrntEnumPrntDescr enumPrntDescr  }
 enum PrntEnumPrntDescr { prnt_enumPrntDescr }
 */
 
-// Generated from Schema enum-parent-descr for Enum
+// Generated from Schema enum-parent-descr
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_enum-parent-descr, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

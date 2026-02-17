@@ -1,5 +1,7 @@
 ﻿//HintName: test_alt-descr+Output_Impl.gen.cs
-// Generated from alt-descr+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}alt-descr+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

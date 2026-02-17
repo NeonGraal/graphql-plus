@@ -3,7 +3,9 @@ domain DmnEnumAll { enum EnumDmnEnumAll.* }
 enum EnumDmnEnumAll { dmnEnumAll enum_dmnEnumAll dmnEnumAllValue }
 */
 
-// Generated from Schema domain-enum-all for Intf
+// Generated from Schema domain-enum-all
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-all, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

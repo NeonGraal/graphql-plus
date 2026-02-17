@@ -4,7 +4,9 @@ input ObjFieldAliasInp { field [field2]: FldObjFieldAliasInp }
 input FldObjFieldAliasInp { }
 */
 
-// Generated from Schema object-field-alias+Input for Impl
+// Generated from Schema object-field-alias+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-alias+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

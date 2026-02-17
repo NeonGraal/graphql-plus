@@ -2,13 +2,16 @@
 union UnionDescr { "Union" "Descr" Number }
 */
 
-// Generated from Schema union-descr for Intf
+// Generated from Schema union-descr
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_union-descr, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_union_descr;
 
 public interface ICmptUnionDescr
+  : Schema_union-descr
 {
   Number AsNumber { get; }
 }

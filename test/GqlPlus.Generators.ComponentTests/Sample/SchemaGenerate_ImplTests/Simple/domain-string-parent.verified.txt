@@ -3,7 +3,9 @@ domain DmnStrPrnt { :PrntDmnStrPrnt String /a+/ }
 domain PrntDmnStrPrnt { String /b+/ }
 */
 
-// Generated from Schema domain-string-parent for Impl
+// Generated from Schema domain-string-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-string-parent, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -3,7 +3,9 @@ input PrntDualInp { :RefPrntDualInp }
 dual RefPrntDualInp { parent: Number | String }
 */
 
-// Generated from Schema parent-dual+Input for Intf
+// Generated from Schema parent-dual+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-dual+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -21,6 +23,7 @@ public interface ICmptPrntDualInpObject
 }
 
 public interface ICmptRefPrntDualInp
+  : Schema_parent-dual+Input
 {
   string AsString { get; }
   ICmptRefPrntDualInpObject AsRefPrntDualInp { get; }

@@ -4,23 +4,27 @@ dual FldOutpParam { }
 input InOutpParam { param: Number | String }
 */
 
-// Generated from Schema output-param for Intf
+// Generated from Schema output-param
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_output-param, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_output_param;
 
 public interface ICmptOutpParam
+  : Schema_output-param
 {
   ICmptOutpParamObject AsOutpParam { get; }
 }
 
 public interface ICmptOutpParamObject
 {
-ICmptFldOutpParam Field (ICmptInOutpParam parameter);
+  ICmptFldOutpParam Field (ICmptInOutpParam parameter);
 }
 
 public interface ICmptFldOutpParam
+  : Schema_output-param
 {
   ICmptFldOutpParamObject AsFldOutpParam { get; }
 }
@@ -30,6 +34,7 @@ public interface ICmptFldOutpParamObject
 }
 
 public interface ICmptInOutpParam
+  : Schema_output-param
 {
   string AsString { get; }
   ICmptInOutpParamObject AsInOutpParam { get; }

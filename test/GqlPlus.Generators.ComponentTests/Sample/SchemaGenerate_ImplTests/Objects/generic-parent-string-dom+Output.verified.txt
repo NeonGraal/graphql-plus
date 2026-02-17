@@ -4,7 +4,9 @@ output FieldGnrcPrntStrDomOutp<$ref:String> { field: $ref }
 domain DomGnrcPrntStrDomOutp { string /\w+/ }
 */
 
-// Generated from Schema generic-parent-string-dom+Output for Impl
+// Generated from Schema generic-parent-string-dom+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-string-dom+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -19,7 +21,7 @@ public class CmptGnrcPrntStrDomOutp
 public class CmptFieldGnrcPrntStrDomOutp<TRef>
   : ICmptFieldGnrcPrntStrDomOutp<TRef>
 {
-public TRef Field { get; set; }
+  public TRef Field { get; set; }
 }
 
 public class CmptDomGnrcPrntStrDomOutp

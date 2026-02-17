@@ -1,5 +1,7 @@
 ﻿//HintName: test_descr-double_Impl.gen.cs
-// Generated from descr-double.graphql+ for Impl
+// Generated from {CurrentDirectory}descr-double.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

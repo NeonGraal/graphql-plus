@@ -2,7 +2,9 @@
 domain DmnBoolDescr { Boolean "DomBool" "Descr" true }
 */
 
-// Generated from Schema domain-bool-descr for Impl
+// Generated from Schema domain-bool-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-bool-descr, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

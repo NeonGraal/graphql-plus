@@ -5,7 +5,9 @@ input PrntCnstPrntObjPrntInp { | String }
 input AltCnstPrntObjPrntInp { :PrntCnstPrntObjPrntInp alt: Number }
 */
 
-// Generated from Schema constraint-parent-obj-parent+Input for Intf
+// Generated from Schema constraint-parent-obj-parent+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-parent-obj-parent+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -23,6 +25,7 @@ public interface ICmptCnstPrntObjPrntInpObject
 }
 
 public interface ICmptRefCnstPrntObjPrntInp<TRef>
+  : Schema_constraint-parent-obj-parent+Input
 {
   TRef AsParent { get; }
   ICmptRefCnstPrntObjPrntInpObject<TRef> AsRefCnstPrntObjPrntInp { get; }
@@ -33,6 +36,7 @@ public interface ICmptRefCnstPrntObjPrntInpObject<TRef>
 }
 
 public interface ICmptPrntCnstPrntObjPrntInp
+  : Schema_constraint-parent-obj-parent+Input
 {
   string AsString { get; }
   ICmptPrntCnstPrntObjPrntInpObject AsPrntCnstPrntObjPrntInp { get; }

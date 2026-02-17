@@ -4,7 +4,9 @@ enum EnumDmnEnumAllPrnt { :PrntDmnEnumAllPrnt dmnEnumAllPrnt dmnEnumAllPrntValue
 enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt dmnEnumAllPrntPrnt }
 */
 
-// Generated from Schema domain-enum-all-parent for Enum
+// Generated from Schema domain-enum-all-parent
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_domain-enum-all-parent, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

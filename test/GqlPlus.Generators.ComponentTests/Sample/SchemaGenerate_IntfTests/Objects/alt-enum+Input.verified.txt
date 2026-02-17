@@ -3,13 +3,16 @@ input AltEnumInp { ! EnumAltEnumInp.altEnumInp }
 enum EnumAltEnumInp { altEnumInp }
 */
 
-// Generated from Schema alt-enum+Input for Intf
+// Generated from Schema alt-enum+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-enum+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_alt_enum_Input;
 
 public interface ICmptAltEnumInp
+  : Schema_alt-enum+Input
 {
   CmptEnumAltEnumInp AsEnumAltEnumInpaltEnumInp { get; }
   ICmptAltEnumInpObject AsAltEnumInp { get; }

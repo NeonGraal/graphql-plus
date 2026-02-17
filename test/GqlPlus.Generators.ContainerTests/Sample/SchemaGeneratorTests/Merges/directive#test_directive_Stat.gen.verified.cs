@@ -1,5 +1,7 @@
 ﻿//HintName: test_directive_Stat.gen.cs
-// Generated from directive.graphql+ for Stat
+// Generated from {CurrentDirectory}directive.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 
 Directive Drct

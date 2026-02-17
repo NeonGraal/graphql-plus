@@ -3,7 +3,9 @@ input AltEnumInp { ! EnumAltEnumInp.altEnumInp }
 enum EnumAltEnumInp { altEnumInp }
 */
 
-// Generated from Schema alt-enum+Input for Enum
+// Generated from Schema alt-enum+Input
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_alt-enum+Input, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

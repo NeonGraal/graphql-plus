@@ -2,7 +2,9 @@
 output GnrcAltOutp<$type:String> { | $type }
 */
 
-// Generated from Schema generic-alt+Output for Impl
+// Generated from Schema generic-alt+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

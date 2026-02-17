@@ -3,7 +3,9 @@ input GnrcAltArgDescrInp<$type:String> { | RefGnrcAltArgDescrInp<"Test" "Descr"$
 input RefGnrcAltArgDescrInp<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-alt-arg-descr+Input for Impl
+// Generated from Schema generic-alt-arg-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-arg-descr+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -3,7 +3,9 @@ input ObjAltEnumInp { ! true }
 input ObjAltEnumInp { ! false }
 */
 
-// Generated from Schema object-alt-enum+Input for Impl
+// Generated from Schema object-alt-enum+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt-enum+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

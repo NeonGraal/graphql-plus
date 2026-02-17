@@ -3,7 +3,9 @@
 output DescrDbl { }
 */
 
-// Generated from Schema descr-double for Impl
+// Generated from Schema descr-double
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-double, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

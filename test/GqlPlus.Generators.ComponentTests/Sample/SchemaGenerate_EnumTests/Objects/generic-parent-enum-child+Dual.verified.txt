@@ -5,7 +5,9 @@ enum EnumGnrcPrntEnumChildDual { :ParentGnrcPrntEnumChildDual gnrcPrntEnumChildD
 enum ParentGnrcPrntEnumChildDual { gnrcPrntEnumChildDualParent }
 */
 
-// Generated from Schema generic-parent-enum-child+Dual for Enum
+// Generated from Schema generic-parent-enum-child+Dual
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_generic-parent-enum-child+Dual, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

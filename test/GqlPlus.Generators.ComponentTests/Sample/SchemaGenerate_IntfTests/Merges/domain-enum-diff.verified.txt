@@ -3,7 +3,9 @@ domain DmnEnumDiff { enum true }
 domain DmnEnumDiff { enum false }
 */
 
-// Generated from Schema domain-enum-diff for Intf
+// Generated from Schema domain-enum-diff
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-diff, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

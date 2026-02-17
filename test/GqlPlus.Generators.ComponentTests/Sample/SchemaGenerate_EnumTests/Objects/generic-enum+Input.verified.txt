@@ -4,7 +4,9 @@ input RefGnrcEnumInp<$type:_Enum> { field: $type }
 enum EnumGnrcEnumInp { gnrcEnumInp }
 */
 
-// Generated from Schema generic-enum+Input for Enum
+// Generated from Schema generic-enum+Input
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_generic-enum+Input, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

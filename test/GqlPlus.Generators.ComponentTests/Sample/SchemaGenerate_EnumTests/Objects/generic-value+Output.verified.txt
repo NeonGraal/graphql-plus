@@ -4,7 +4,9 @@ output RefGnrcValueOutp<$type:_Enum> { field: $type }
 enum EnumGnrcValueOutp { gnrcValueOutp }
 */
 
-// Generated from Schema generic-value+Output for Enum
+// Generated from Schema generic-value+Output
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_generic-value+Output, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

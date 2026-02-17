@@ -3,7 +3,9 @@ dual PrntParamSameDual<$a:String> { :RefPrntParamSameDual<$a> field: $a }
 dual RefPrntParamSameDual<$a:String> { | $a }
 */
 
-// Generated from Schema parent-param-same+Dual for Impl
+// Generated from Schema parent-param-same+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-same+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

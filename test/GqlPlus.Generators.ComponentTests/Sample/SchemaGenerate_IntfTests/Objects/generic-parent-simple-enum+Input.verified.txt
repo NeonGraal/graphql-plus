@@ -4,7 +4,9 @@ input FieldGnrcPrntSmplEnumInp<$ref:_Simple> { field: $ref }
 enum EnumGnrcPrntSmplEnumInp { gnrcPrntSmplEnumInp }
 */
 
-// Generated from Schema generic-parent-simple-enum+Input for Intf
+// Generated from Schema generic-parent-simple-enum+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-simple-enum+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,6 +24,7 @@ public interface ICmptGnrcPrntSmplEnumInpObject
 }
 
 public interface ICmptFieldGnrcPrntSmplEnumInp<TRef>
+  : Schema_generic-parent-simple-enum+Input
 {
   ICmptFieldGnrcPrntSmplEnumInpObject<TRef> AsFieldGnrcPrntSmplEnumInp { get; }
 }

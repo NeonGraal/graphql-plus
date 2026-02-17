@@ -2,14 +2,17 @@
 union UnionDescr { "Union" "Descr" Number }
 */
 
-// Generated from Schema union-descr for Impl
+// Generated from Schema union-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-descr, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_union_descr;
 
 public class CmptUnionDescr
-  : ICmptUnionDescr
+  : Schema_union-descr
+  , ICmptUnionDescr
 {
   public Number AsNumber { get; set; }
 }

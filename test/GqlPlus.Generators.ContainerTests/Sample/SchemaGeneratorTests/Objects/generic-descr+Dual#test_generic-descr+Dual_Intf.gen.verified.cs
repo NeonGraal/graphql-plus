@@ -1,11 +1,14 @@
 ﻿//HintName: test_generic-descr+Dual_Intf.gen.cs
-// Generated from generic-descr+Dual.graphql+ for Intf
+// Generated from {CurrentDirectory}generic-descr+Dual.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Dual;
 
 public interface ItestGnrcDescrDual<TType>
+  : IGqlpModelImplementationBase
 {
   ItestGnrcDescrDualObject<TType> AsGnrcDescrDual { get; }
 }

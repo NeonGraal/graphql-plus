@@ -42,7 +42,9 @@ output _Setting {
     }
 */
 
-// Generated from Spec -Global for Intf
+// Generated from Spec -Global
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_-Global, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -58,7 +60,7 @@ public interface ICmpt_AndType
 public interface ICmpt_AndTypeObject
   : ICmpt_NamedObject
 {
-ICmpt_Type Type { get; }
+  ICmpt_Type Type { get; }
 }
 
 public interface ICmpt_Categories
@@ -71,7 +73,7 @@ public interface ICmpt_Categories
 public interface ICmpt_CategoriesObject
   : ICmpt_AndTypeObject
 {
-ICmpt_Category Category { get; }
+  ICmpt_Category Category { get; }
 }
 
 public interface ICmpt_Category
@@ -83,9 +85,9 @@ public interface ICmpt_Category
 public interface ICmpt_CategoryObject
   : ICmpt_AliasedObject
 {
-Cmpt_Resolution Resolution { get; }
-ICmpt_TypeRef<ICmpt_TypeKind> Output { get; }
-ICollection<ICmpt_Modifiers> Modifiers { get; }
+  Cmpt_Resolution Resolution { get; }
+  ICmpt_TypeRef<ICmpt_TypeKind> Output { get; }
+  ICollection<ICmpt_Modifiers> Modifiers { get; }
 }
 
 public interface ICmpt_Directives
@@ -98,7 +100,7 @@ public interface ICmpt_Directives
 public interface ICmpt_DirectivesObject
   : ICmpt_AndTypeObject
 {
-ICmpt_Directive Directive { get; }
+  ICmpt_Directive Directive { get; }
 }
 
 public interface ICmpt_Directive
@@ -110,9 +112,9 @@ public interface ICmpt_Directive
 public interface ICmpt_DirectiveObject
   : ICmpt_AliasedObject
 {
-ICmpt_InputFieldType? Parameter { get; }
-bool Repeatable { get; }
-IDictionary<Cmpt_Location, GqlpUnit> Locations { get; }
+  ICmpt_InputFieldType? Parameter { get; }
+  bool Repeatable { get; }
+  IDictionary<Cmpt_Location, GqlpUnit> Locations { get; }
 }
 
 public interface ICmpt_Setting
@@ -124,5 +126,5 @@ public interface ICmpt_Setting
 public interface ICmpt_SettingObject
   : ICmpt_NamedObject
 {
-GqlpValue Value { get; }
+  GqlpValue Value { get; }
 }

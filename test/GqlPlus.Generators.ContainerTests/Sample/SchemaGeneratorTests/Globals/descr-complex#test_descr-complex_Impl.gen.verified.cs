@@ -1,5 +1,7 @@
 ﻿//HintName: test_descr-complex_Impl.gen.cs
-// Generated from descr-complex.graphql+ for Impl
+// Generated from {CurrentDirectory}descr-complex.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

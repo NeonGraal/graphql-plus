@@ -3,7 +3,9 @@ dual GnrcAltSmplDual { | RefGnrcAltSmplDual<String> }
 dual RefGnrcAltSmplDual<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-alt-simple+Dual for Impl
+// Generated from Schema generic-alt-simple+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-simple+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

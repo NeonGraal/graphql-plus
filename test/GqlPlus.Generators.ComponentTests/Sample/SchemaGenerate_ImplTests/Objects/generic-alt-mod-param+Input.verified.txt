@@ -2,7 +2,9 @@
 input RefGnrcAltModParamInp<$ref:String $mod:String> { | $ref[$mod] }
 */
 
-// Generated from Schema generic-alt-mod-param+Input for Impl
+// Generated from Schema generic-alt-mod-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-mod-param+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

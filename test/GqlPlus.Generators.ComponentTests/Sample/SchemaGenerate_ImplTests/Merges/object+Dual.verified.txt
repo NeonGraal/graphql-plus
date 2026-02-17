@@ -3,7 +3,9 @@ dual ObjDual { }
 dual ObjDual { }
 */
 
-// Generated from Schema object+Dual for Impl
+// Generated from Schema object+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

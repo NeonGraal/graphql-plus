@@ -5,7 +5,9 @@ input PrntCnstFieldObjInp { | String }
 input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
 */
 
-// Generated from Schema constraint-field-obj+Input for Impl
+// Generated from Schema constraint-field-obj+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-obj+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

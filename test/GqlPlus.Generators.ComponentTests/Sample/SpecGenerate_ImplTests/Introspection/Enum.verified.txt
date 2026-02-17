@@ -10,7 +10,9 @@ output _EnumValue {
     }
 */
 
-// Generated from Spec Enum for Impl
+// Generated from Spec Enum
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Enum, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -27,5 +29,5 @@ public class Cmpt_EnumValue
   : Cmpt_TypeRef<ICmpt_TypeKind>
   , ICmpt_EnumValue
 {
-public ICmpt_Name Label { get; set; }
+  public ICmpt_Name Label { get; set; }
 }

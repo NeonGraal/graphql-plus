@@ -1,5 +1,7 @@
 ﻿//HintName: test_domain-enum-all-parent_Enum.gen.cs
-// Generated from domain-enum-all-parent.graphql+ for Enum
+// Generated from {CurrentDirectory}domain-enum-all-parent.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

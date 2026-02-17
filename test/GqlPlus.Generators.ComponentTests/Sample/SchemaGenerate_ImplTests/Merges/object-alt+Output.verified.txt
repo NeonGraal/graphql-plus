@@ -4,7 +4,9 @@ output ObjAltOutp { | ObjAltOutpType }
 output ObjAltOutpType { }
 */
 
-// Generated from Schema object-alt+Output for Impl
+// Generated from Schema object-alt+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

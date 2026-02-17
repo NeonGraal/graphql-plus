@@ -4,13 +4,16 @@ output RefCnstEnumOutp<$type:EnumCnstEnumOutp> { field: $type }
 enum EnumCnstEnumOutp { cnstEnumOutp }
 */
 
-// Generated from Schema constraint-enum+Output for Intf
+// Generated from Schema constraint-enum+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-enum+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_constraint_enum_Output;
 
 public interface ICmptCnstEnumOutp
+  : Schema_constraint-enum+Output
 {
   ICmptRefCnstEnumOutp<CmptEnumCnstEnumOutp> AsEnumCnstEnumOutpcnstEnumOutp { get; }
   ICmptCnstEnumOutpObject AsCnstEnumOutp { get; }
@@ -21,11 +24,12 @@ public interface ICmptCnstEnumOutpObject
 }
 
 public interface ICmptRefCnstEnumOutp<TType>
+  : Schema_constraint-enum+Output
 {
   ICmptRefCnstEnumOutpObject<TType> AsRefCnstEnumOutp { get; }
 }
 
 public interface ICmptRefCnstEnumOutpObject<TType>
 {
-TType Field { get; }
+  TType Field { get; }
 }

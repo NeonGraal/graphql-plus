@@ -1,5 +1,7 @@
 ﻿//HintName: test_domain-boolean-same_Intf.gen.cs
-// Generated from domain-boolean-same.graphql+ for Intf
+// Generated from {CurrentDirectory}domain-boolean-same.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

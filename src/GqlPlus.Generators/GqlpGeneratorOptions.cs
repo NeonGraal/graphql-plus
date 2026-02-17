@@ -34,4 +34,13 @@ internal class GqlpGeneratorOptions
     BaseType = GqlpBaseType.Other;
     GeneratorType = GqlpGeneratorType.None;
   }
+
+  public override string ToString()
+  {
+    if (!string.IsNullOrWhiteSpace(Warning)) {
+      return $"Warning: {Warning}";
+    }
+
+    return $"BaseType: {BaseType}, BaseName: {BaseName}, GeneratorType: {GeneratorType}";
+  }
 }

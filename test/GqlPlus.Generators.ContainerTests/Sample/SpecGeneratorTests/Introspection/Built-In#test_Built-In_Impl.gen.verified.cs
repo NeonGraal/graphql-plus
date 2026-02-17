@@ -1,5 +1,7 @@
 ﻿//HintName: test_Built-In_Impl.gen.cs
-// Generated from Built-In.graphql+ for Impl
+// Generated from {CurrentDirectory}Built-In.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

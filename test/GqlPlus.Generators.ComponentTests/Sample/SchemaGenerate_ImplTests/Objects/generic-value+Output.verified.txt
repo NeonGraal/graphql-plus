@@ -4,7 +4,9 @@ output RefGnrcValueOutp<$type:_Enum> { field: $type }
 enum EnumGnrcValueOutp { gnrcValueOutp }
 */
 
-// Generated from Schema generic-value+Output for Impl
+// Generated from Schema generic-value+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-value+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -18,5 +20,5 @@ public class CmptGnrcValueOutp
 public class CmptRefGnrcValueOutp<TType>
   : ICmptRefGnrcValueOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }

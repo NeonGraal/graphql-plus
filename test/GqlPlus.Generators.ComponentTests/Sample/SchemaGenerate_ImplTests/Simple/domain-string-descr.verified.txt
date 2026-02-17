@@ -2,7 +2,9 @@
 domain DmnStrDescr { String "DomString" "Descr" /a+/ }
 */
 
-// Generated from Schema domain-string-descr for Impl
+// Generated from Schema domain-string-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-string-descr, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

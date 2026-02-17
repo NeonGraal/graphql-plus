@@ -3,7 +3,9 @@ input FieldObjInp { field: FldFieldObjInp }
 input FldFieldObjInp { field: Number | String }
 */
 
-// Generated from Schema field-object+Input for Impl
+// Generated from Schema field-object+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-object+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

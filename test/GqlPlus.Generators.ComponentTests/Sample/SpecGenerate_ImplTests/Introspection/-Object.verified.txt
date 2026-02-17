@@ -91,7 +91,9 @@ output _OutputFieldType {
     }
 */
 
-// Generated from Spec -Object for Impl
+// Generated from Spec -Object
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_-Object, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -107,80 +109,80 @@ public class Cmpt_TypeObject<TKind,TField>
   : Cmpt_ChildType<TKind, ICmpt_ObjBase>
   , ICmpt_TypeObject<TKind,TField>
 {
-public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
-public ICollection<TField> Fields { get; set; }
-public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
-public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
-public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
+  public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
+  public ICollection<TField> Fields { get; set; }
+  public ICollection<ICmpt_ObjAlternate> Alternates { get; set; }
+  public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
+  public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
 }
 
 public class Cmpt_ObjTypeParam
   : Cmpt_Named
   , ICmpt_ObjTypeParam
 {
-public ICmpt_TypeRef<ICmpt_TypeKind> Constraint { get; set; }
+  public ICmpt_TypeRef<ICmpt_TypeKind> Constraint { get; set; }
 }
 
 public class Cmpt_ObjBase
   : Cmpt_Named
   , ICmpt_ObjBase
 {
-public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
+  public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
 }
 
 public class Cmpt_ObjTypeArg
   : Cmpt_TypeRef<ICmpt_TypeKind>
   , ICmpt_ObjTypeArg
 {
-public ICmpt_Name? Label { get; set; }
+  public ICmpt_Name? Label { get; set; }
 }
 
 public class Cmpt_TypeParam
   : Cmpt_Described
   , ICmpt_TypeParam
 {
-public ICmpt_Name TypeParam { get; set; }
+  public ICmpt_Name TypeParam { get; set; }
 }
 
 public class Cmpt_ObjAlternate
   : ICmpt_ObjAlternate
 {
-public ICmpt_ObjBase Type { get; set; }
-public ICollection<ICmpt_Collections> Collections { get; set; }
+  public ICmpt_ObjBase Type { get; set; }
+  public ICollection<ICmpt_Collections> Collections { get; set; }
 }
 
 public class Cmpt_ObjAlternateEnum
   : Cmpt_TypeRef<ICmpt_TypeKind>
   , ICmpt_ObjAlternateEnum
 {
-public ICmpt_Name Label { get; set; }
+  public ICmpt_Name Label { get; set; }
 }
 
 public class Cmpt_ObjectFor<TFor>
   : ICmpt_ObjectFor<TFor>
 {
-public ICmpt_Name ObjectType { get; set; }
+  public ICmpt_Name ObjectType { get; set; }
 }
 
 public class Cmpt_ObjField<TType>
   : Cmpt_Aliased
   , ICmpt_ObjField<TType>
 {
-public TType Type { get; set; }
+  public TType Type { get; set; }
 }
 
 public class Cmpt_ObjFieldType
   : Cmpt_ObjBase
   , ICmpt_ObjFieldType
 {
-public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
+  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 }
 
 public class Cmpt_ObjFieldEnum
   : Cmpt_TypeRef<ICmpt_TypeKind>
   , ICmpt_ObjFieldEnum
 {
-public ICmpt_Name Label { get; set; }
+  public ICmpt_Name Label { get; set; }
 }
 
 public class Cmpt_ForParam<TType>
@@ -204,7 +206,7 @@ public class Cmpt_InputFieldType
   : Cmpt_ObjFieldType
   , ICmpt_InputFieldType
 {
-public GqlpValue? DefaultValue { get; set; }
+  public GqlpValue? DefaultValue { get; set; }
 }
 
 public class Cmpt_OutputField
@@ -217,5 +219,5 @@ public class Cmpt_OutputFieldType
   : Cmpt_ObjFieldType
   , ICmpt_OutputFieldType
 {
-public ICmpt_InputFieldType? Parameter { get; set; }
+  public ICmpt_InputFieldType? Parameter { get; set; }
 }

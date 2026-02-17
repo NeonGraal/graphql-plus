@@ -1,4 +1,6 @@
-﻿// Generated from Schema +Simple for Impl
+﻿// Generated from Schema +Simple
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_+Simple, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -203,7 +205,8 @@ public class CmptPrntDmnStrPrntDescr
 }
 
 public class CmptUnionDescr
-  : ICmptUnionDescr
+  : Schema_+Simple
+  , ICmptUnionDescr
 {
   public Number AsNumber { get; set; }
 }
@@ -216,7 +219,8 @@ public class CmptUnionPrnt
 }
 
 public class CmptPrntUnionPrnt
-  : ICmptPrntUnionPrnt
+  : Schema_+Simple
+  , ICmptPrntUnionPrnt
 {
   public Number AsNumber { get; set; }
 }
@@ -229,7 +233,8 @@ public class CmptUnionPrntDescr
 }
 
 public class CmptPrntUnionPrntDescr
-  : ICmptPrntUnionPrntDescr
+  : Schema_+Simple
+  , ICmptPrntUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
@@ -242,7 +247,8 @@ public class CmptUnionPrntDup
 }
 
 public class CmptPrntUnionPrntDup
-  : ICmptPrntUnionPrntDup
+  : Schema_+Simple
+  , ICmptPrntUnionPrntDup
 {
   public Number AsNumber { get; set; }
 }

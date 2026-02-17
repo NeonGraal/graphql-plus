@@ -1,5 +1,7 @@
 ﻿//HintName: test_generic-parent-param-parent+Dual_Intf.gen.cs
-// Generated from generic-parent-param-parent+Dual.graphql+ for Intf
+// Generated from {CurrentDirectory}generic-parent-param-parent+Dual.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -17,6 +19,7 @@ public interface ItestGnrcPrntParamPrntDualObject
 }
 
 public interface ItestRefGnrcPrntParamPrntDual<TRef>
+  : IGqlpModelImplementationBase
 {
   TRef AsParent { get; }
   ItestRefGnrcPrntParamPrntDualObject<TRef> AsRefGnrcPrntParamPrntDual { get; }
@@ -27,6 +30,7 @@ public interface ItestRefGnrcPrntParamPrntDualObject<TRef>
 }
 
 public interface ItestAltGnrcPrntParamPrntDual
+  : IGqlpModelImplementationBase
 {
   string AsString { get; }
   ItestAltGnrcPrntParamPrntDualObject AsAltGnrcPrntParamPrntDual { get; }

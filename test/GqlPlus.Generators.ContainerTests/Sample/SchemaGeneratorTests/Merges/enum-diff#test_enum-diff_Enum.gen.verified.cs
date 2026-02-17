@@ -1,5 +1,7 @@
 ﻿//HintName: test_enum-diff_Enum.gen.cs
-// Generated from enum-diff.graphql+ for Enum
+// Generated from {CurrentDirectory}enum-diff.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

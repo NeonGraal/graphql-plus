@@ -4,18 +4,21 @@ enum EnumFieldEnumPrntOutp { :PrntFieldEnumPrntOutp fieldEnumPrntOutp }
 enum PrntFieldEnumPrntOutp { prnt_fieldEnumPrntOutp }
 */
 
-// Generated from Schema field-enum-parent+Output for Intf
+// Generated from Schema field-enum-parent+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-enum-parent+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_field_enum_parent_Output;
 
 public interface ICmptFieldEnumPrntOutp
+  : Schema_field-enum-parent+Output
 {
   ICmptFieldEnumPrntOutpObject AsFieldEnumPrntOutp { get; }
 }
 
 public interface ICmptFieldEnumPrntOutpObject
 {
-CmptEnumFieldEnumPrntOutp Field { get; }
+  CmptEnumFieldEnumPrntOutp Field { get; }
 }

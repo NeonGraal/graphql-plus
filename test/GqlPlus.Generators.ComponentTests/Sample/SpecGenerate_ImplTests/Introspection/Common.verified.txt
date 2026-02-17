@@ -46,7 +46,9 @@ dual _TypeSimple {
     }
 */
 
-// Generated from Spec Common for Impl
+// Generated from Spec Common
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Common, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -61,22 +63,22 @@ public class Cmpt_BaseType<TKind>
   : Cmpt_Aliased
   , ICmpt_BaseType<TKind>
 {
-public TKind TypeKind { get; set; }
+  public TKind TypeKind { get; set; }
 }
 
 public class Cmpt_ChildType<TKind,TParent>
   : Cmpt_BaseType<TKind>
   , ICmpt_ChildType<TKind,TParent>
 {
-public TParent Parent { get; set; }
+  public TParent Parent { get; set; }
 }
 
 public class Cmpt_ParentType<TKind,TItem,TAllItem>
   : Cmpt_ChildType<TKind, ICmpt_Named>
   , ICmpt_ParentType<TKind,TItem,TAllItem>
 {
-public ICollection<TItem> Items { get; set; }
-public ICollection<TAllItem> AllItems { get; set; }
+  public ICollection<TItem> Items { get; set; }
+  public ICollection<TAllItem> AllItems { get; set; }
 }
 
 public class Cmpt_TypeRef<TKind>

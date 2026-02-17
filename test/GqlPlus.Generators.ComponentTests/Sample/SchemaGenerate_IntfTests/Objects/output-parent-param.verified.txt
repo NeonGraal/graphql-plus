@@ -6,7 +6,9 @@ input InOutpPrntParam { param: Number | String }
 input PrntOutpPrntParamIn { parent: Number | String }
 */
 
-// Generated from Schema output-parent-param for Intf
+// Generated from Schema output-parent-param
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_output-parent-param, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -21,20 +23,22 @@ public interface ICmptOutpPrntParam
 public interface ICmptOutpPrntParamObject
   : ICmptPrntOutpPrntParamObject
 {
-ICmptFldOutpPrntParam Field (ICmptInOutpPrntParam parameter);
+  ICmptFldOutpPrntParam Field (ICmptInOutpPrntParam parameter);
 }
 
 public interface ICmptPrntOutpPrntParam
+  : Schema_output-parent-param
 {
   ICmptPrntOutpPrntParamObject AsPrntOutpPrntParam { get; }
 }
 
 public interface ICmptPrntOutpPrntParamObject
 {
-ICmptFldOutpPrntParam Field (ICmptPrntOutpPrntParamIn parameter);
+  ICmptFldOutpPrntParam Field (ICmptPrntOutpPrntParamIn parameter);
 }
 
 public interface ICmptFldOutpPrntParam
+  : Schema_output-parent-param
 {
   ICmptFldOutpPrntParamObject AsFldOutpPrntParam { get; }
 }
@@ -44,6 +48,7 @@ public interface ICmptFldOutpPrntParamObject
 }
 
 public interface ICmptInOutpPrntParam
+  : Schema_output-parent-param
 {
   string AsString { get; }
   ICmptInOutpPrntParamObject AsInOutpPrntParam { get; }
@@ -55,6 +60,7 @@ public interface ICmptInOutpPrntParamObject
 }
 
 public interface ICmptPrntOutpPrntParamIn
+  : Schema_output-parent-param
 {
   string AsString { get; }
   ICmptPrntOutpPrntParamInObject AsPrntOutpPrntParamIn { get; }

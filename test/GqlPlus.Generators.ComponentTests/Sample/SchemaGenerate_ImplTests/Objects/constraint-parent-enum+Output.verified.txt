@@ -5,7 +5,9 @@ enum EnumCnstPrntEnumOutp { :ParentCnstPrntEnumOutp cnstPrntEnumOutp }
 enum ParentCnstPrntEnumOutp { parentCnstPrntEnumOutp }
 */
 
-// Generated from Schema constraint-parent-enum+Output for Impl
+// Generated from Schema constraint-parent-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-enum+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -19,5 +21,5 @@ public class CmptCnstPrntEnumOutp
 public class CmptRefCnstPrntEnumOutp<TType>
   : ICmptRefCnstPrntEnumOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }

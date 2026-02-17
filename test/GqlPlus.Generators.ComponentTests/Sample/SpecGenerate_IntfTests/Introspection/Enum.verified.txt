@@ -10,7 +10,9 @@ output _EnumValue {
     }
 */
 
-// Generated from Spec Enum for Intf
+// Generated from Spec Enum
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Enum, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -37,5 +39,5 @@ public interface ICmpt_EnumValue
 public interface ICmpt_EnumValueObject
   : ICmpt_TypeRefObject<ICmpt_TypeKind>
 {
-ICmpt_Name Label { get; }
+  ICmpt_Name Label { get; }
 }

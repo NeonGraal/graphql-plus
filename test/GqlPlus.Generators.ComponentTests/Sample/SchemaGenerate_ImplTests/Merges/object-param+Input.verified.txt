@@ -3,7 +3,9 @@ input ObjParamInp<$test:String> { test: $test }
 input ObjParamInp<$type:String> { type: $type }
 */
 
-// Generated from Schema object-param+Input for Impl
+// Generated from Schema object-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-param+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

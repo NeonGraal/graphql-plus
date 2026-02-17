@@ -4,7 +4,9 @@ dual ObjAltDual { | ObjAltDualType }
 dual ObjAltDualType { }
 */
 
-// Generated from Schema object-alt+Dual for Impl
+// Generated from Schema object-alt+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

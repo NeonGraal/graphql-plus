@@ -3,7 +3,9 @@ output GnrcAltArgOutp<$type:String> { | RefGnrcAltArgOutp<$type> }
 output RefGnrcAltArgOutp<$ref:String> { | $ref }
 */
 
-// Generated from Schema generic-alt-arg+Output for Impl
+// Generated from Schema generic-alt-arg+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-arg+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

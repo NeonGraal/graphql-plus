@@ -1,5 +1,7 @@
 ﻿//HintName: test_input-field-Number-descr_Impl.gen.cs
-// Generated from input-field-Number-descr.graphql+ for Impl
+// Generated from {CurrentDirectory}input-field-Number-descr.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

@@ -69,13 +69,16 @@ dual _Modifier<$kind:_ModifierKind> {
     }
 */
 
-// Generated from Spec -Type for Intf
+// Generated from Spec -Type
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_-Type, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Spec_Type;
 
 public interface ICmpt_Type
+  : Spec_-Type
 {
   ICmpt_BaseType<Cmpt_TypeKind> As_TypeKindBasic { get; }
   ICmpt_BaseType<Cmpt_TypeKind> As_TypeKindInternal { get; }
@@ -104,7 +107,7 @@ public interface ICmpt_BaseType<TKind>
 public interface ICmpt_BaseTypeObject<TKind>
   : ICmpt_AliasedObject
 {
-TKind TypeKind { get; }
+  TKind TypeKind { get; }
 }
 
 public interface ICmpt_ChildType<TKind,TParent>
@@ -116,7 +119,7 @@ public interface ICmpt_ChildType<TKind,TParent>
 public interface ICmpt_ChildTypeObject<TKind,TParent>
   : ICmpt_BaseTypeObject<TKind>
 {
-TParent Parent { get; }
+  TParent Parent { get; }
 }
 
 public interface ICmpt_ParentType<TKind,TItem,TAllItem>
@@ -128,8 +131,8 @@ public interface ICmpt_ParentType<TKind,TItem,TAllItem>
 public interface ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
   : ICmpt_ChildTypeObject<TKind, ICmpt_Named>
 {
-ICollection<TItem> Items { get; }
-ICollection<TAllItem> AllItems { get; }
+  ICollection<TItem> Items { get; }
+  ICollection<TAllItem> AllItems { get; }
 }
 
 public interface ICmpt_TypeRef<TKind>
@@ -145,6 +148,7 @@ public interface ICmpt_TypeRefObject<TKind>
 }
 
 public interface ICmpt_TypeSimple
+  : Spec_-Type
 {
   ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindBasic { get; }
   ICmpt_TypeRef<Cmpt_TypeKind> As_TypeKindEnum { get; }
@@ -158,6 +162,7 @@ public interface ICmpt_TypeSimpleObject
 }
 
 public interface ICmpt_Collections
+  : Spec_-Type
 {
   ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindList { get; }
   ICmpt_ModifierKeyed<Cmpt_ModifierKind> As_ModifierKindDictionary { get; }
@@ -183,6 +188,7 @@ public interface ICmpt_ModifierKeyedObject<TKind>
 }
 
 public interface ICmpt_Modifiers
+  : Spec_-Type
 {
   ICmpt_Modifier<Cmpt_ModifierKind> As_ModifierKindOptional { get; }
   ICmpt_Collections As_Collections { get; }
@@ -194,6 +200,7 @@ public interface ICmpt_ModifiersObject
 }
 
 public interface ICmpt_Modifier<TKind>
+  : Spec_-Type
 {
   ICmpt_ModifierObject<TKind> As_Modifier { get; }
 }

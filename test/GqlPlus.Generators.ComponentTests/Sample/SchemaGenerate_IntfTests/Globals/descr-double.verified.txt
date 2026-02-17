@@ -3,13 +3,16 @@
 output DescrDbl { }
 */
 
-// Generated from Schema descr-double for Intf
+// Generated from Schema descr-double
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_descr-double, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_descr_double;
 
 public interface ICmptDescrDbl
+  : Schema_descr-double
 {
   ICmptDescrDblObject AsDescrDbl { get; }
 }

@@ -1,5 +1,7 @@
 ﻿//HintName: test_generic-parent-dual+Input_Impl.gen.cs
-// Generated from generic-parent-dual+Input.graphql+ for Impl
+// Generated from {CurrentDirectory}generic-parent-dual+Input.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

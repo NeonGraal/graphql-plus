@@ -15,7 +15,9 @@ output _Directive {
 enum _Location { Operation Variable Field Inline Spread Fragment }
 */
 
-// Generated from Spec Directive for Impl
+// Generated from Spec Directive
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Directive, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -25,14 +27,14 @@ public class Cmpt_Directives
   : Cmpt_AndType
   , ICmpt_Directives
 {
-public ICmpt_Directive Directive { get; set; }
+  public ICmpt_Directive Directive { get; set; }
 }
 
 public class Cmpt_Directive
   : Cmpt_Aliased
   , ICmpt_Directive
 {
-public ICmpt_InputFieldType? Parameter { get; set; }
-public bool Repeatable { get; set; }
-public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
+  public ICmpt_InputFieldType? Parameter { get; set; }
+  public bool Repeatable { get; set; }
+  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
 }

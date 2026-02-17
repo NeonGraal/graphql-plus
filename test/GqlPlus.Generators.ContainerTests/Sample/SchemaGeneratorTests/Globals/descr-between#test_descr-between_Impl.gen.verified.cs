@@ -1,5 +1,7 @@
 ﻿//HintName: test_descr-between_Impl.gen.cs
-// Generated from descr-between.graphql+ for Impl
+// Generated from {CurrentDirectory}descr-between.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

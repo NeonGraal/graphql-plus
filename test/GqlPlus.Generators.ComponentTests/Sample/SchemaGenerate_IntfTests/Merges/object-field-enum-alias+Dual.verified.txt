@@ -3,13 +3,16 @@ dual ObjFieldEnumAliasDual { field [field1] = Boolean.true }
 dual ObjFieldEnumAliasDual { field [field2] = true }
 */
 
-// Generated from Schema object-field-enum-alias+Dual for Intf
+// Generated from Schema object-field-enum-alias+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-field-enum-alias+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_object_field_enum_alias_Dual;
 
 public interface ICmptObjFieldEnumAliasDual
+  : Schema_object-field-enum-alias+Dual
 {
   ICmptObjFieldEnumAliasDualObject AsObjFieldEnumAliasDual { get; }
 }

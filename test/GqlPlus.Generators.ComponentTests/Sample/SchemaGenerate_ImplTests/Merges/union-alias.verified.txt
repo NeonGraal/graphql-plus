@@ -3,14 +3,17 @@ union UnionAlias [UnA1] { Boolean }
 union UnionAlias [UnA2] { Number }
 */
 
-// Generated from Schema union-alias for Impl
+// Generated from Schema union-alias
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-alias, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_union_alias;
 
 public class CmptUnionAlias
-  : ICmptUnionAlias
+  : Schema_union-alias
+  , ICmptUnionAlias
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }

@@ -2,7 +2,9 @@
 input AltDescrInp { | "Test" "Descr" String }
 */
 
-// Generated from Schema alt-descr+Input for Impl
+// Generated from Schema alt-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-descr+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

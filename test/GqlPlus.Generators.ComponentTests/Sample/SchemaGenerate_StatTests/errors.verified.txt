@@ -9,7 +9,9 @@ input Empty {}
 output NoParams<> {}
 */
 
-// Generated from Schema errors for Stat
+// Generated from Schema errors
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_errors, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 
 Category query

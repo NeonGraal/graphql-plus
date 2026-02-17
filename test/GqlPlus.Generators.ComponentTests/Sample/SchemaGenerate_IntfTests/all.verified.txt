@@ -26,7 +26,9 @@ output All {
     }
 */
 
-// Generated from Schema all for Intf
+// Generated from Schema all
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_all, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -38,12 +40,14 @@ public interface ICmptGuid
 }
 
 public interface ICmptMany
+  : Schema_all
 {
   Guid AsGuid { get; }
   Number AsNumber { get; }
 }
 
 public interface ICmptField
+  : Schema_all
 {
   ICmptFieldObject AsField { get; }
 }
@@ -54,6 +58,7 @@ public interface ICmptFieldObject
 }
 
 public interface ICmptParam
+  : Schema_all
 {
   string AsString { get; }
   ICmptParamObject AsParam { get; }
@@ -66,6 +71,7 @@ public interface ICmptParamObject
 }
 
 public interface ICmptAll
+  : Schema_all
 {
   string AsString { get; }
   ICmptAllObject AsAll { get; }
@@ -73,5 +79,5 @@ public interface ICmptAll
 
 public interface ICmptAllObject
 {
-ICmptField Items (ICmptParam? parameter);
+  ICmptField Items (ICmptParam? parameter);
 }

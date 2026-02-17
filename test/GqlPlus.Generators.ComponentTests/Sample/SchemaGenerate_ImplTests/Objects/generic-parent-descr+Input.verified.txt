@@ -2,7 +2,9 @@
 input GnrcPrntDescrInp<$type:_Dual> { :"Parent comment"$type }
 */
 
-// Generated from Schema generic-parent-descr+Input for Impl
+// Generated from Schema generic-parent-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-descr+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

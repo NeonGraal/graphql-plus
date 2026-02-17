@@ -91,7 +91,9 @@ output _UnionMember {
     }
 */
 
-// Generated from Spec -Simple for Intf
+// Generated from Spec -Simple
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_-Simple, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -106,7 +108,7 @@ public interface ICmpt_DomainRef<TKind>
 public interface ICmpt_DomainRefObject<TKind>
   : ICmpt_TypeRefObject<ICmpt_TypeKind>
 {
-TKind DomainKind { get; }
+  TKind DomainKind { get; }
 }
 
 public interface ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
@@ -118,7 +120,7 @@ public interface ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
 public interface ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
   : ICmpt_ParentTypeObject<ICmpt_TypeKind, TItem, TDomainItem>
 {
-TDomain DomainKind { get; }
+  TDomain DomainKind { get; }
 }
 
 public interface ICmpt_BaseDomainItem
@@ -134,6 +136,7 @@ public interface ICmpt_BaseDomainItemObject
 }
 
 public interface ICmpt_DomainItem<TItem>
+  : Spec_-Simple
 {
   TItem AsParent { get; }
   ICmpt_DomainItemObject<TItem> As_DomainItem { get; }
@@ -141,7 +144,7 @@ public interface ICmpt_DomainItem<TItem>
 
 public interface ICmpt_DomainItemObject<TItem>
 {
-ICmpt_Name Domain { get; }
+  ICmpt_Name Domain { get; }
 }
 
 public interface ICmpt_DomainValue<TKind,TValue>
@@ -154,10 +157,11 @@ public interface ICmpt_DomainValue<TKind,TValue>
 public interface ICmpt_DomainValueObject<TKind,TValue>
   : ICmpt_DomainRefObject<TKind>
 {
-TValue Value { get; }
+  TValue Value { get; }
 }
 
 public interface ICmpt_BasicValue
+  : Spec_-Simple
 {
   Cmpt_DomainKind As_DomainKindBoolean { get; }
   ICmpt_EnumValue As_EnumValue { get; }
@@ -202,7 +206,7 @@ public interface ICmpt_DomainLabel
 public interface ICmpt_DomainLabelObject
   : ICmpt_BaseDomainItemObject
 {
-ICmpt_EnumValue Label { get; }
+  ICmpt_EnumValue Label { get; }
 }
 
 public interface ICmpt_DomainItemLabel
@@ -284,7 +288,7 @@ public interface ICmpt_EnumValue
 public interface ICmpt_EnumValueObject
   : ICmpt_TypeRefObject<ICmpt_TypeKind>
 {
-ICmpt_Name Label { get; }
+  ICmpt_Name Label { get; }
 }
 
 public interface ICmpt_UnionRef
@@ -307,5 +311,5 @@ public interface ICmpt_UnionMember
 public interface ICmpt_UnionMemberObject
   : ICmpt_UnionRefObject
 {
-ICmpt_Name Union { get; }
+  ICmpt_Name Union { get; }
 }

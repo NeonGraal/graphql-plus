@@ -6,7 +6,9 @@ input OutpFieldParam2 { }
 dual FldOutpFieldParam { }
 */
 
-// Generated from Schema output-field-param for Impl
+// Generated from Schema output-field-param
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-field-param, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -15,7 +17,7 @@ namespace Components.Gqlp_Schema_output_field_param;
 public class CmptOutpFieldParam
   : ICmptOutpFieldParam
 {
-public ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1)
+  public ICmptFldOutpFieldParam Field (ICmptOutpFieldParam1)
 { }
 }
 

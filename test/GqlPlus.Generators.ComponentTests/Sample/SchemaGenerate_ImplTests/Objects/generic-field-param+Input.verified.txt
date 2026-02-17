@@ -4,7 +4,9 @@ input RefGnrcFieldParamInp<$ref:_Input> { | $ref }
 input AltGnrcFieldParamInp { alt: Number | String }
 */
 
-// Generated from Schema generic-field-param+Input for Impl
+// Generated from Schema generic-field-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-param+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

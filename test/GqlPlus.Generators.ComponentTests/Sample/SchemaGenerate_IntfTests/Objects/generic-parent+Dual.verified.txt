@@ -2,13 +2,16 @@
 dual GnrcPrntDual<$type:_Dual> { :$type }
 */
 
-// Generated from Schema generic-parent+Dual for Intf
+// Generated from Schema generic-parent+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_generic_parent_Dual;
 
 public interface ICmptGnrcPrntDual<TType>
+  : Schema_generic-parent+Dual
 {
   TType AsParent { get; }
   ICmptGnrcPrntDualObject<TType> AsGnrcPrntDual { get; }

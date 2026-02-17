@@ -3,7 +3,9 @@ output AltDualOutp { | ObjDualAltDualOutp }
 dual ObjDualAltDualOutp { alt: Number | String }
 */
 
-// Generated from Schema alt-dual+Output for Impl
+// Generated from Schema alt-dual+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-dual+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

@@ -1,11 +1,14 @@
 ﻿//HintName: test_-Type_Intf.gen.cs
-// Generated from -Type.graphql+ for Intf
+// Generated from {CurrentDirectory}-Type.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp__Type;
 
 public interface Itest_Type
+  : IGqlpModelImplementationBase
 {
   Itest_BaseType<test_TypeKind> As_TypeKindBasic { get; }
   Itest_BaseType<test_TypeKind> As_TypeKindInternal { get; }
@@ -34,7 +37,7 @@ public interface Itest_BaseType<TKind>
 public interface Itest_BaseTypeObject<TKind>
   : Itest_AliasedObject
 {
-TKind TypeKind { get; }
+  TKind TypeKind { get; }
 }
 
 public interface Itest_ChildType<TKind,TParent>
@@ -46,7 +49,7 @@ public interface Itest_ChildType<TKind,TParent>
 public interface Itest_ChildTypeObject<TKind,TParent>
   : Itest_BaseTypeObject<TKind>
 {
-TParent Parent { get; }
+  TParent Parent { get; }
 }
 
 public interface Itest_ParentType<TKind,TItem,TAllItem>
@@ -58,8 +61,8 @@ public interface Itest_ParentType<TKind,TItem,TAllItem>
 public interface Itest_ParentTypeObject<TKind,TItem,TAllItem>
   : Itest_ChildTypeObject<TKind, Itest_Named>
 {
-ICollection<TItem> Items { get; }
-ICollection<TAllItem> AllItems { get; }
+  ICollection<TItem> Items { get; }
+  ICollection<TAllItem> AllItems { get; }
 }
 
 public interface Itest_TypeRef<TKind>
@@ -75,6 +78,7 @@ public interface Itest_TypeRefObject<TKind>
 }
 
 public interface Itest_TypeSimple
+  : IGqlpModelImplementationBase
 {
   Itest_TypeRef<test_TypeKind> As_TypeKindBasic { get; }
   Itest_TypeRef<test_TypeKind> As_TypeKindEnum { get; }
@@ -88,6 +92,7 @@ public interface Itest_TypeSimpleObject
 }
 
 public interface Itest_Collections
+  : IGqlpModelImplementationBase
 {
   Itest_Modifier<test_ModifierKind> As_ModifierKindList { get; }
   Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindDictionary { get; }
@@ -113,6 +118,7 @@ public interface Itest_ModifierKeyedObject<TKind>
 }
 
 public interface Itest_Modifiers
+  : IGqlpModelImplementationBase
 {
   Itest_Modifier<test_ModifierKind> As_ModifierKindOptional { get; }
   Itest_Collections As_Collections { get; }
@@ -124,6 +130,7 @@ public interface Itest_ModifiersObject
 }
 
 public interface Itest_Modifier<TKind>
+  : IGqlpModelImplementationBase
 {
   Itest_ModifierObject<TKind> As_Modifier { get; }
 }

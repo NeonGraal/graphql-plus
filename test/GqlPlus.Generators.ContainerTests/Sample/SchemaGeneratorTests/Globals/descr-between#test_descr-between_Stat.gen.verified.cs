@@ -1,5 +1,7 @@
 ﻿//HintName: test_descr-between_Stat.gen.cs
-// Generated from descr-between.graphql+ for Stat
+// Generated from {CurrentDirectory}descr-between.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 
 Category descrBtwn

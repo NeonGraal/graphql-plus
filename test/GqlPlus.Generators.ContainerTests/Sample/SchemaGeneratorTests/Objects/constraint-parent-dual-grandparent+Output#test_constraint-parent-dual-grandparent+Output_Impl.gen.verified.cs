@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-parent-dual-grandparent+Output_Impl.gen.cs
-// Generated from constraint-parent-dual-grandparent+Output.graphql+ for Impl
+// Generated from {CurrentDirectory}constraint-parent-dual-grandparent+Output.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -31,5 +33,5 @@ public class testAltCnstPrntDualGrndOutp
   : testPrntCnstPrntDualGrndOutp
   , ItestAltCnstPrntDualGrndOutp
 {
-public decimal Alt { get; set; }
+  public decimal Alt { get; set; }
 }

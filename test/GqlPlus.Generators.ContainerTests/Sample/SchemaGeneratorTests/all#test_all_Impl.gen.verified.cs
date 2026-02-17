@@ -1,5 +1,7 @@
 ﻿//HintName: test_all_Impl.gen.cs
-// Generated from all.graphql+ for Impl
+// Generated from {CurrentDirectory}all.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -12,7 +14,8 @@ public class testGuid
 }
 
 public class testMany
-  : ItestMany
+  : GqlpModelImplementationBase
+  , ItestMany
 {
   public Guid AsGuid { get; set; }
   public Number AsNumber { get; set; }
@@ -34,6 +37,6 @@ public class testParam
 public class testAll
   : ItestAll
 {
-public ItestField Items (ItestParam?)
+  public ItestField Items (ItestParam?)
 { }
 }

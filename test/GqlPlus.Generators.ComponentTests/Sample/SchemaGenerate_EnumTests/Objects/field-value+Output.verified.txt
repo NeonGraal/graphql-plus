@@ -3,7 +3,9 @@ output FieldValueOutp { field = fieldValueOutp }
 enum EnumFieldValueOutp { fieldValueOutp }
 */
 
-// Generated from Schema field-value+Output for Enum
+// Generated from Schema field-value+Output
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_field-value+Output, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

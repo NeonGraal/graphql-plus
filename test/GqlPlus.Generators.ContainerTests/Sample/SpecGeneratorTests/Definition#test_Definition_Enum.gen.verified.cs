@@ -1,5 +1,7 @@
 ﻿//HintName: test_Definition_Enum.gen.cs
-// Generated from Definition.graphql+ for Enum
+// Generated from {CurrentDirectory}Definition.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

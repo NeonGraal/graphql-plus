@@ -5,13 +5,16 @@ dual PrntCnstAltDualOutp { | String }
 output AltCnstAltDualOutp { :PrntCnstAltDualOutp alt: Number }
 */
 
-// Generated from Schema constraint-alt-dual+Output for Intf
+// Generated from Schema constraint-alt-dual+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-alt-dual+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_constraint_alt_dual_Output;
 
 public interface ICmptCnstAltDualOutp
+  : Schema_constraint-alt-dual+Output
 {
   ICmptRefCnstAltDualOutp<ICmptAltCnstAltDualOutp> AsRefCnstAltDualOutp { get; }
   ICmptCnstAltDualOutpObject AsCnstAltDualOutp { get; }
@@ -22,6 +25,7 @@ public interface ICmptCnstAltDualOutpObject
 }
 
 public interface ICmptRefCnstAltDualOutp<TRef>
+  : Schema_constraint-alt-dual+Output
 {
   TRef Asref { get; }
   ICmptRefCnstAltDualOutpObject<TRef> AsRefCnstAltDualOutp { get; }
@@ -32,6 +36,7 @@ public interface ICmptRefCnstAltDualOutpObject<TRef>
 }
 
 public interface ICmptPrntCnstAltDualOutp
+  : Schema_constraint-alt-dual+Output
 {
   string AsString { get; }
   ICmptPrntCnstAltDualOutpObject AsPrntCnstAltDualOutp { get; }
@@ -50,5 +55,5 @@ public interface ICmptAltCnstAltDualOutp
 public interface ICmptAltCnstAltDualOutpObject
   : ICmptPrntCnstAltDualOutpObject
 {
-decimal Alt { get; }
+  decimal Alt { get; }
 }

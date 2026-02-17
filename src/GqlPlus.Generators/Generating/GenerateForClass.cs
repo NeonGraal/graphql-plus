@@ -11,12 +11,26 @@ internal abstract class GenerateForClass<TClass, TMember>
   }
 
   protected virtual void ClassHeader(TClass ast, GqlpGeneratorContext context)
-    => context.Write("public class " + context.TypeName(ast, ""));
+  {
+    context.Write("public class " + context.TypeName(ast, ""));
+    if (context.GeneratorOptions.BaseType == GqlpBaseType.Class) {
+      context.Write("  : " + context.GeneratorOptions.BaseName);
+    } else {
+      context.Write($"  // No Base because it's {context.GeneratorOptions.BaseType}");
+    }
+  }
 
   protected abstract void ClassMember(TMember item, GqlpGeneratorContext context);
 
   protected virtual void InterfaceHeader(TClass ast, GqlpGeneratorContext context)
-    => context.Write("public interface " + context.TypeName(ast, "I"));
+  {
+    context.Write("public interface " + context.TypeName(ast, "I"));
+    if (context.GeneratorOptions.BaseType == GqlpBaseType.Interface) {
+      context.Write("  : " + context.GeneratorOptions.BaseName);
+    } else {
+      context.Write($"  // No Base because it's {context.GeneratorOptions.BaseType}");
+    }
+  }
 
   protected abstract void InterfaceMember(TMember item, GqlpGeneratorContext context);
 

@@ -4,7 +4,9 @@ input RefCnstEnumInp<$type:EnumCnstEnumInp> { field: $type }
 enum EnumCnstEnumInp { cnstEnumInp }
 */
 
-// Generated from Schema constraint-enum+Input for Impl
+// Generated from Schema constraint-enum+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-enum+Input, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

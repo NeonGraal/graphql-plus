@@ -3,7 +3,9 @@ domain DmnAlias [Num1] { number }
 domain DmnAlias [Num2] { number }
 */
 
-// Generated from Schema domain-alias for Impl
+// Generated from Schema domain-alias
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-alias, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

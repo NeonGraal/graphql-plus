@@ -1,5 +1,7 @@
 ﻿//HintName: test_Union_Impl.gen.cs
-// Generated from Union.graphql+ for Impl
+// Generated from {CurrentDirectory}Union.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -15,5 +17,5 @@ public class test_UnionMember
   : test_UnionRef
   , Itest_UnionMember
 {
-public Itest_Name Union { get; set; }
+  public Itest_Name Union { get; set; }
 }

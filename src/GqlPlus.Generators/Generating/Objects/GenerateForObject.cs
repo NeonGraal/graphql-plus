@@ -63,6 +63,10 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     context.Write($"public interface {context.TypeName(ast, "I")}{TypeParamsString(ast)}");
     if (ast.Parent is not null && !ast.Parent.IsTypeParam) {
       context.Write("  : " + context.TypeName(ast.Parent, "I") + TypeArgsString(ast.Parent.Args, context));
+    } else if (context.GeneratorOptions.BaseType == GqlpBaseType.Interface) {
+      context.Write("  : " + context.GeneratorOptions.BaseName);
+    } else {
+      context.Write($"  // No Base because it's {context.GeneratorOptions.BaseType}");
     }
   }
 

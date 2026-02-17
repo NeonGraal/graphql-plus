@@ -3,7 +3,9 @@ output FieldValueDescrOutp { field = "Test" "Descr" fieldValueDescrOutp }
 enum EnumFieldValueDescrOutp { fieldValueDescrOutp }
 */
 
-// Generated from Schema field-value-descr+Output for Enum
+// Generated from Schema field-value-descr+Output
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_field-value-descr+Output, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

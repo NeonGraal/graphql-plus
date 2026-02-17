@@ -1,5 +1,7 @@
 ﻿//HintName: test_Enum_Intf.gen.cs
-// Generated from Enum.graphql+ for Intf
+// Generated from {CurrentDirectory}Enum.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -26,5 +28,5 @@ public interface Itest_EnumValue
 public interface Itest_EnumValueObject
   : Itest_TypeRefObject<Itest_TypeKind>
 {
-Itest_Name Label { get; }
+  Itest_Name Label { get; }
 }

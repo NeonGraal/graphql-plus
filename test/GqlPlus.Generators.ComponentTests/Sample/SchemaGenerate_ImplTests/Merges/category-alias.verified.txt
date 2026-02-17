@@ -4,7 +4,9 @@ category [CatA2] { CtgrAlias }
 output CtgrAlias { }
 */
 
-// Generated from Schema category-alias for Impl
+// Generated from Schema category-alias
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-alias, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

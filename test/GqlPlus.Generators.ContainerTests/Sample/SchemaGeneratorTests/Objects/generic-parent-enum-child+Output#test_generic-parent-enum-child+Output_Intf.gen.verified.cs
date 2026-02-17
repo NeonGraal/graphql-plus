@@ -1,5 +1,7 @@
 ﻿//HintName: test_generic-parent-enum-child+Output_Intf.gen.cs
-// Generated from generic-parent-enum-child+Output.graphql+ for Intf
+// Generated from {CurrentDirectory}generic-parent-enum-child+Output.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
@@ -17,11 +19,12 @@ public interface ItestGnrcPrntEnumChildOutpObject
 }
 
 public interface ItestFieldGnrcPrntEnumChildOutp<TRef>
+  : IGqlpModelImplementationBase
 {
   ItestFieldGnrcPrntEnumChildOutpObject<TRef> AsFieldGnrcPrntEnumChildOutp { get; }
 }
 
 public interface ItestFieldGnrcPrntEnumChildOutpObject<TRef>
 {
-TRef Field { get; }
+  TRef Field { get; }
 }

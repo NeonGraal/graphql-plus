@@ -20,7 +20,9 @@ union _Key { }
 dual _Any { }
 */
 
-// Generated from Spec Schema for Impl
+// Generated from Spec Schema
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Schema, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -67,7 +69,8 @@ public class Cmpt_Mask<TK>
 }
 
 public class Cmpt_Key
-  : ICmpt_Key
+  : Spec_Schema
+  , ICmpt_Key
 {
 }
 

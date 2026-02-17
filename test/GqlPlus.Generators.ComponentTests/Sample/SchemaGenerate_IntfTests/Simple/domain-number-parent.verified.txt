@@ -3,7 +3,9 @@ domain DmnNmbrPrnt { :PrntDmnNmbrPrnt Number 2>}
 domain PrntDmnNmbrPrnt { Number <2 }
 */
 
-// Generated from Schema domain-number-parent for Intf
+// Generated from Schema domain-number-parent
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-number-parent, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

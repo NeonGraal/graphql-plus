@@ -1,5 +1,7 @@
 ﻿//HintName: test_object-field-enum-alias+Dual_Impl.gen.cs
-// Generated from object-field-enum-alias+Dual.graphql+ for Impl
+// Generated from {CurrentDirectory}object-field-enum-alias+Dual.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

@@ -3,7 +3,9 @@ domain DmnNmbrDiff { number 1<9 }
 domain DmnNmbrDiff { number }
 */
 
-// Generated from Schema domain-number-diff for Impl
+// Generated from Schema domain-number-diff
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number-diff, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

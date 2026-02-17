@@ -3,7 +3,9 @@ dual PrntDualDual { :RefPrntDualDual }
 dual RefPrntDualDual { parent: Number | String }
 */
 
-// Generated from Schema parent-dual+Dual for Impl
+// Generated from Schema parent-dual+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-dual+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

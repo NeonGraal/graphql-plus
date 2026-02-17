@@ -1,5 +1,7 @@
 ﻿//HintName: test_parent-param-diff+Input_Impl.gen.cs
-// Generated from parent-param-diff+Input.graphql+ for Impl
+// Generated from {CurrentDirectory}parent-param-diff+Input.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

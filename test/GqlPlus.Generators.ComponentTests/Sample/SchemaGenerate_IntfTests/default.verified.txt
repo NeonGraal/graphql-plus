@@ -11,13 +11,16 @@ output Subscription { }
 output _Schema { }
 */
 
-// Generated from Schema default for Intf
+// Generated from Schema default
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_default, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_default;
 
 public interface ICmptQuery
+  : Schema_default
 {
   ICmptQueryObject AsQuery { get; }
 }
@@ -27,6 +30,7 @@ public interface ICmptQueryObject
 }
 
 public interface ICmptMutation
+  : Schema_default
 {
   ICmptMutationObject AsMutation { get; }
 }
@@ -36,6 +40,7 @@ public interface ICmptMutationObject
 }
 
 public interface ICmptSubscription
+  : Schema_default
 {
   ICmptSubscriptionObject AsSubscription { get; }
 }
@@ -45,6 +50,7 @@ public interface ICmptSubscriptionObject
 }
 
 public interface ICmpt_Schema
+  : Schema_default
 {
   ICmpt_SchemaObject As_Schema { get; }
 }

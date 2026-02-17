@@ -2,7 +2,9 @@
 dual GnrcFieldDual<$type:String> { field: $type }
 */
 
-// Generated from Schema generic-field+Dual for Impl
+// Generated from Schema generic-field+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field+Dual, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

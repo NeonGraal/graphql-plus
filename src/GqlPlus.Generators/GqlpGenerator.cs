@@ -134,11 +134,12 @@ public class GqlpGenerator : IIncrementalGenerator
         continue;
       }
 
+      string path = Path.GetFullPath(text.Path);
       Tokenizer tokens = new(lines);
       IGqlpSchema parsed = schemaParser.Parse(tokens, "Schema").Required();
       IGqlpSchema merged = schemaMerger.Merge([parsed]).Single();
 
-      GqlpGeneratorContext context = new(text.Path, generatorOptions, modelOptions);
+      GqlpGeneratorContext context = new(path, generatorOptions, modelOptions);
       schemaGenerator.Generate(merged, context);
       string source = context.ToString();
 
@@ -148,7 +149,7 @@ public class GqlpGenerator : IIncrementalGenerator
 
       foreach (IMessage error in merged.Errors) {
         LinePosition at = error is ITokenMessage token ? new(token.Line, token.Column) : default;
-        Location location = Location.Create(text.Path, default, new(at, at));
+        Location location = Location.Create(path, default, new(at, at));
         Diagnostic diagnostic = Diagnostic.Create(
                        new DiagnosticDescriptor(
                            "GQLP002",

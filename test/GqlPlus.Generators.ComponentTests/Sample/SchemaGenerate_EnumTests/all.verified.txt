@@ -26,7 +26,9 @@ output All {
     }
 */
 
-// Generated from Schema all for Enum
+// Generated from Schema all
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_all, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

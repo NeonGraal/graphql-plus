@@ -3,7 +3,9 @@ input FieldValueDescrInp { field = "Test" "Descr" fieldValueDescrInp }
 enum EnumFieldValueDescrInp { fieldValueDescrInp }
 */
 
-// Generated from Schema field-value-descr+Input for Enum
+// Generated from Schema field-value-descr+Input
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_field-value-descr+Input, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

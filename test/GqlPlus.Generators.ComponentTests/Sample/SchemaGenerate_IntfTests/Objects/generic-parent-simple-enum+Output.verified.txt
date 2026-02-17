@@ -4,7 +4,9 @@ output FieldGnrcPrntSmplEnumOutp<$ref:_Simple> { field: $ref }
 enum EnumGnrcPrntSmplEnumOutp { gnrcPrntSmplEnumOutp }
 */
 
-// Generated from Schema generic-parent-simple-enum+Output for Intf
+// Generated from Schema generic-parent-simple-enum+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-simple-enum+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -22,11 +24,12 @@ public interface ICmptGnrcPrntSmplEnumOutpObject
 }
 
 public interface ICmptFieldGnrcPrntSmplEnumOutp<TRef>
+  : Schema_generic-parent-simple-enum+Output
 {
   ICmptFieldGnrcPrntSmplEnumOutpObject<TRef> AsFieldGnrcPrntSmplEnumOutp { get; }
 }
 
 public interface ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>
 {
-TRef Field { get; }
+  TRef Field { get; }
 }

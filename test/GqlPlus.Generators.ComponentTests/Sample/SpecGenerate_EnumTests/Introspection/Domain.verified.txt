@@ -72,7 +72,9 @@ output _DomainItemRegex {
     }
 */
 
-// Generated from Spec Domain for Enum
+// Generated from Spec Domain
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_Domain, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

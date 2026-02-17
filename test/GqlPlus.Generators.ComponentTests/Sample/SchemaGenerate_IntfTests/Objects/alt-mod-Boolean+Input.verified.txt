@@ -3,13 +3,16 @@ input AltModBoolInp { | AltAltModBoolInp[^] }
 input AltAltModBoolInp { alt: Number | String }
 */
 
-// Generated from Schema alt-mod-Boolean+Input for Intf
+// Generated from Schema alt-mod-Boolean+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-mod-Boolean+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 
 public interface ICmptAltModBoolInp
+  : Schema_alt-mod-Boolean+Input
 {
   IDictionary<bool, ICmptAltAltModBoolInp> AsAltAltModBoolInp { get; }
   ICmptAltModBoolInpObject AsAltModBoolInp { get; }
@@ -20,6 +23,7 @@ public interface ICmptAltModBoolInpObject
 }
 
 public interface ICmptAltAltModBoolInp
+  : Schema_alt-mod-Boolean+Input
 {
   string AsString { get; }
   ICmptAltAltModBoolInpObject AsAltAltModBoolInp { get; }

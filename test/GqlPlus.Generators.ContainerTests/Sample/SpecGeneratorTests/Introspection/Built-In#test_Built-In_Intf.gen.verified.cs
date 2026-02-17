@@ -1,11 +1,14 @@
 ﻿//HintName: test_Built-In_Intf.gen.cs
-// Generated from Built-In.graphql+ for Intf
+// Generated from {CurrentDirectory}Built-In.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 
 namespace GqlPlus.GeneratorTests.Gqlp_Built_In;
 
 public interface Itest_Collections
+  : IGqlpModelImplementationBase
 {
   Itest_Modifier<test_ModifierKind> As_ModifierKindList { get; }
   Itest_ModifierKeyed<test_ModifierKind> As_ModifierKindDictionary { get; }
@@ -31,6 +34,7 @@ public interface Itest_ModifierKeyedObject<TKind>
 }
 
 public interface Itest_Modifiers
+  : IGqlpModelImplementationBase
 {
   Itest_Modifier<test_ModifierKind> As_ModifierKindOptional { get; }
   Itest_Collections As_Collections { get; }
@@ -42,6 +46,7 @@ public interface Itest_ModifiersObject
 }
 
 public interface Itest_Modifier<TKind>
+  : IGqlpModelImplementationBase
 {
   Itest_ModifierObject<TKind> As_Modifier { get; }
 }

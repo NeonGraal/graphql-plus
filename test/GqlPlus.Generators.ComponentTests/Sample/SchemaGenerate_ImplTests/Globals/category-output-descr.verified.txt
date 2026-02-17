@@ -3,7 +3,9 @@ category { "Output comment" CtgrOutpDescr }
 output CtgrOutpDescr { }
 */
 
-// Generated from Schema category-output-descr for Impl
+// Generated from Schema category-output-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-output-descr, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 

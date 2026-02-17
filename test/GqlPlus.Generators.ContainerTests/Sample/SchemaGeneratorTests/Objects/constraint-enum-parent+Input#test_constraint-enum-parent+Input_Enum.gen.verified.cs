@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-enum-parent+Input_Enum.gen.cs
-// Generated from constraint-enum-parent+Input.graphql+ for Enum
+// Generated from {CurrentDirectory}constraint-enum-parent+Input.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

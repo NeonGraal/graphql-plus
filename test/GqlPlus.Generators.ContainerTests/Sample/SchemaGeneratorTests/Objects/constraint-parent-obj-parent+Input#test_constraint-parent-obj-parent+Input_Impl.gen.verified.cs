@@ -1,5 +1,7 @@
 ﻿//HintName: test_constraint-parent-obj-parent+Input_Impl.gen.cs
-// Generated from constraint-parent-obj-parent+Input.graphql+ for Impl
+// Generated from {CurrentDirectory}constraint-parent-obj-parent+Input.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
 

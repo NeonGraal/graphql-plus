@@ -1,5 +1,7 @@
 ﻿//HintName: test_all_Stat.gen.cs
-// Generated from all.graphql+ for Stat
+// Generated from {CurrentDirectory}all.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Stat
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 
 Category all

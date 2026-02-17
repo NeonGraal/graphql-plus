@@ -5,7 +5,9 @@ enum EnumCnstDomEnumOutp { cnstDomEnumOutp other }
 domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
 */
 
-// Generated from Schema constraint-dom-enum+Output for Impl
+// Generated from Schema constraint-dom-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-dom-enum+Output, GeneratorType: Impl
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
@@ -19,7 +21,7 @@ public class CmptCnstDomEnumOutp
 public class CmptRefCnstDomEnumOutp<TType>
   : ICmptRefCnstDomEnumOutp<TType>
 {
-public TType Field { get; set; }
+  public TType Field { get; set; }
 }
 
 public class CmptJustCnstDomEnumOutp

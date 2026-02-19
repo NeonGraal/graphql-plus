@@ -28,4 +28,7 @@ public class UnionGeneratorTests
     result[0].Key.ShouldBe("As" + memberName);
     result[0].Value.ShouldBe(memberName);
   }
+
+  protected override void MakeItems(SimpleBuilder builder, params string[] items)
+    => (builder as UnionBuilder)?.WithMembers(items);
 }

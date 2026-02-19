@@ -1,5 +1,4 @@
-﻿using System.Reflection.Emit;
-using GqlPlus.Building.Schema.Simple;
+﻿using GqlPlus.Building.Schema.Simple;
 
 namespace GqlPlus.Generating.Simple;
 
@@ -158,4 +157,6 @@ public class EnumGeneratorTests
   private static Action<string> ResultEmptyUnlessEnum(GqlpGeneratorType generatorType, Action<string> check)
     => generatorType == GqlpGeneratorType.Enum ? check
       : result => result.ShouldBeEmpty();
+  protected override void MakeItems(SimpleBuilder builder, params string[] items)
+    => (builder as EnumBuilder)?.WithLabels(items);
 }

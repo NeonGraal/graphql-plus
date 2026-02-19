@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Generating.Simple;
+﻿using GqlPlus.Building.Schema.Simple;
+using OpenTelemetry.Metrics;
+
+namespace GqlPlus.Generating.Simple;
 
 public abstract class GenerateDomainTestsBase<TItem>
   : GenerateSimpleTestsBase<Abstractions.Schema.IGqlpDomain<TItem>>
@@ -42,4 +45,8 @@ public abstract class GenerateDomainTestsBase<TItem>
       GeneratedCodeName(generatorType, name),
       GeneratedCodeParent(generatorType, $"GqlpDomain{Kind}"));
   }
+
+  protected override void MakeItems(SimpleBuilder builder, params string[] items)
+    => (builder as DomainBuilder<TItem>)?.WithItems([.. items.Select(MakeDomainItem)]);
+  protected abstract TItem MakeDomainItem(string item);
 }

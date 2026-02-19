@@ -38,7 +38,7 @@ public class EnumGeneratorTests
       .AsEnum;
 
     IGqlpEnum parentType = A.Enum(parentName, [labelName]);
-    context.AddTypes([parentType]);
+    context.AddTypes(parentType);
 
     MapPair<string> expected = new(labelName, $" = {TestPrefix}{parentName}.{labelName}");
 
@@ -95,7 +95,7 @@ public class EnumGeneratorTests
       .AsEnum;
 
     IGqlpEnum parentType = A.Enum(parentName, [labelName]);
-    context.AddTypes([parentType]);
+    context.AddTypes(parentType);
 
     // Act
     TypeGenerator.GenerateType(enumType, context);
@@ -120,7 +120,7 @@ public class EnumGeneratorTests
       .WithLabels(label)
       .AsEnum;
 
-    context.AddTypes([parentType]);
+    context.AddTypes(parentType);
 
     // Act
     TypeGenerator.GenerateType(enumType, context);
@@ -157,6 +157,8 @@ public class EnumGeneratorTests
   private static Action<string> ResultEmptyUnlessEnum(GqlpGeneratorType generatorType, Action<string> check)
     => generatorType == GqlpGeneratorType.Enum ? check
       : result => result.ShouldBeEmpty();
-  protected override void MakeItems(SimpleBuilder builder, params string[] items)
-    => (builder as EnumBuilder)?.WithLabels(items);
+  protected override void MakeItems(SimpleBuilder<IGqlpEnum> builder, params string[] items)
+    => ((EnumBuilder)builder).WithLabels(items);
+  protected override SimpleBuilder<IGqlpEnum> MakeSimple(string name)
+    => new EnumBuilder(name);
 }

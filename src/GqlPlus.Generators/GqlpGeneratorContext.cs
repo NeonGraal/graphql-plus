@@ -81,7 +81,7 @@ internal sealed class GqlpGeneratorContext
   public override string ToString()
     => _builder.ToString();
 
-  internal void AddTypes(IGqlpType[] types)
+  internal void AddTypes(params IGqlpType[] types)
   {
     foreach (IGqlpType type in types) {
       _types[type.Name] = type;

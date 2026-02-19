@@ -55,14 +55,13 @@ public class ObjFieldBuilder
   public string Name => BaseBuilder._name;
 }
 
-public class ObjFieldBuilder<T>
+public abstract class ObjFieldBuilder<T>
   : ObjFieldBuilder
   where T : class, IGqlpObjField
 {
-  public ObjFieldBuilder(string name, string type)
+  protected ObjFieldBuilder(string name, string type)
     : base(name, type)
     => Add<T>();
 
-  public T AsObjField
-    => Build<T>();
+  public abstract T AsObjField { get; }
 }

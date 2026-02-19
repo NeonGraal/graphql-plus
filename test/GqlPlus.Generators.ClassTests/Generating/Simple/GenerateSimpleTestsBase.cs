@@ -12,7 +12,7 @@ public abstract class GenerateSimpleTestsBase<TSimple>
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TSimple type = A.Simple<TSimple>(name)
+    TSimple type = MakeSimple(name)
       .WithParent(parent)
       .AsSimple;
 
@@ -30,7 +30,7 @@ public abstract class GenerateSimpleTestsBase<TSimple>
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    TSimple type = A.Simple<TSimple>(name)
+    TSimple type = MakeSimple(name)
       .AsSimple;
 
     // Act
@@ -46,14 +46,14 @@ public abstract class GenerateSimpleTestsBase<TSimple>
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    SimpleBuilder<TSimple> builder = A.Simple<TSimple>(name);
+    SimpleBuilder<TSimple> builder = MakeSimple(name);
     MakeItems(builder, item);
 
     // Act
     TypeGenerator.GenerateType(builder.AsSimple, context);
 
     // Assert
-    context.CheckForRequired(GeneratedCodeName(generatorType, name), item);
+    context.CheckForRequired(GeneratedCodeName(generatorType, name));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -61,15 +61,16 @@ public abstract class GenerateSimpleTestsBase<TSimple>
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    SimpleBuilder<TSimple> builder = A.Simple<TSimple>(name);
+    SimpleBuilder<TSimple> builder = MakeSimple(name);
     MakeItems(builder, items);
 
     // Act
     TypeGenerator.GenerateType(builder.AsSimple, context);
 
     // Assert
-    context.CheckForRequired([GeneratedCodeName(generatorType, name), .. items]);
+    context.CheckForRequired(GeneratedCodeName(generatorType, name));
   }
 
-  protected abstract void MakeItems(SimpleBuilder builder, params string[] items);
+  protected abstract SimpleBuilder<TSimple> MakeSimple(string name);
+  protected abstract void MakeItems(SimpleBuilder<TSimple> builder, params string[] items);
 }

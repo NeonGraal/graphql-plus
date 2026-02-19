@@ -44,10 +44,6 @@ public static class SchemaSimpleBuilderHelpers
   public static IGqlpEnum Enum(this IMockBuilder _, string name, string[] labels)
     => _.Enum(name).WithLabels(labels).AsEnum;
 
-  public static SimpleBuilder<TSimple> Simple<TSimple>(this IMockBuilder _, string name)
-    where TSimple : class, IGqlpSimple
-    => new(name);
-
   public static DomainBuilder<TItem> Domain<TItem>(this IMockBuilder _, string name, DomainKind kind)
     where TItem : IGqlpDomainItem
     => new(name, kind);

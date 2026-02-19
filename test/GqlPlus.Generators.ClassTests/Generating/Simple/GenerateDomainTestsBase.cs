@@ -46,7 +46,9 @@ public abstract class GenerateDomainTestsBase<TItem>
       GeneratedCodeParent(generatorType, $"GqlpDomain{Kind}"));
   }
 
-  protected override void MakeItems(SimpleBuilder builder, params string[] items)
-    => (builder as DomainBuilder<TItem>)?.WithItems([.. items.Select(MakeDomainItem)]);
+  protected override SimpleBuilder<Abstractions.Schema.IGqlpDomain<TItem>> MakeSimple(string name)
+    => new DomainBuilder<TItem>(name, Kind);
+  protected override void MakeItems(SimpleBuilder<Abstractions.Schema.IGqlpDomain<TItem>> builder, params string[] items)
+    => ((DomainBuilder<TItem>)builder).WithItems([.. items.Select(MakeDomainItem)]);
   protected abstract TItem MakeDomainItem(string item);
 }

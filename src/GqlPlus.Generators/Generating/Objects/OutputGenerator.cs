@@ -10,7 +10,7 @@ internal class OutputGenerator
     if (string.IsNullOrEmpty(item.Param)) {
       context.Write("  public " + item.Type + " " + item.Name + " { get; set; }");
     } else {
-      context.Write($"  public {item.Type}? {item.Name}({item.Param} parameter)");
+      context.Write($"  public {item.Type.Trim('?')}? {item.Name}({item.Param} parameter)");
       context.Write("    => null;");
     }
   }
@@ -20,7 +20,7 @@ internal class OutputGenerator
     if (string.IsNullOrEmpty(item.Param)) {
       context.Write("  " + item.Type + " " + item.Name + " { get; }");
     } else {
-      context.Write($"  {item.Type}? {item.Name}({item.Param} parameter);");
+      context.Write($"  {item.Type.Trim('?')}? {item.Name}({item.Param} parameter);");
     }
   }
 

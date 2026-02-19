@@ -29,6 +29,8 @@ public class UnionGeneratorTests
     result[0].Value.ShouldBe(memberName);
   }
 
-  protected override void MakeItems(SimpleBuilder builder, params string[] items)
-    => (builder as UnionBuilder)?.WithMembers(items);
+  protected override void MakeItems(SimpleBuilder<IGqlpUnion> builder, params string[] items)
+    => ((UnionBuilder)builder).WithMembers(items);
+  protected override SimpleBuilder<IGqlpUnion> MakeSimple(string name)
+    => new UnionBuilder(name);
 }

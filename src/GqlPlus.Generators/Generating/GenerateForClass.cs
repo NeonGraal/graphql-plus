@@ -26,18 +26,7 @@ internal abstract class GenerateForClass<TClass, TMember>
 
   protected abstract void InterfaceMember(TMember item, GqlpGeneratorContext context);
 
-  protected virtual string TypeHeader(TClass ast, GqlpGeneratorContext context, string type, string prefix, GqlpBaseType baseType)
-  {
-    context.Write($"public {type} " + context.TypeName(ast, prefix));
-
-    if (context.GeneratorOptions.BaseType == baseType) {
-      context.Write("  : " + context.GeneratorOptions.BaseName);
-      return ",";
-    }
-
-    context.Write($"  // No Base because it's {context.GeneratorOptions.BaseType}");
-    return ":";
-  }
+  protected abstract string TypeHeader(TClass ast, GqlpGeneratorContext context, string type, string prefix, GqlpBaseType baseType);
 
   protected virtual void TypeInterface(TClass ast, GqlpGeneratorContext context, string interfaceSep)
     => context.Write("  " + interfaceSep + " " + context.TypeName(ast, "I"));

@@ -3,20 +3,20 @@
 namespace GqlPlus.Generating.Simple;
 
 public abstract class GenerateDomainTestsBase<TItem>
-  : GenerateSimpleTestsBase<Abstractions.Schema.IGqlpDomain<TItem>>
+  : GenerateSimpleTestsBase<IGqlpDomain<TItem>>
   where TItem : class, IGqlpDomainItem
 {
   internal abstract GenerateBaseDomain<TItem> Generator { get; }
   protected abstract DomainKind Kind { get; }
 
-  internal override GenerateForType<Abstractions.Schema.IGqlpDomain<TItem>> TypeGenerator => Generator;
+  internal override GenerateForType<IGqlpDomain<TItem>> TypeGenerator => Generator;
 
   [Theory, RepeatData]
   public void TypeMembers_WithDomainItems_ReturnsAsNamePairs(string domainName, string _)
   {
     // Arrange
     GqlpGeneratorContext context = Context();
-    Abstractions.Schema.IGqlpDomain<TItem> domainType = A.Named<Abstractions.Schema.IGqlpDomain<TItem>>(domainName);
+    IGqlpDomain<TItem> domainType = A.Named<IGqlpDomain<TItem>>(domainName);
     TItem item = A.Error<TItem>();
     domainType.Items.Returns([item]);
 
@@ -34,7 +34,7 @@ public abstract class GenerateDomainTestsBase<TItem>
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
-    Abstractions.Schema.IGqlpDomain<TItem> type = A.Domain<TItem>(name, Kind).AsDomain;
+    IGqlpDomain<TItem> type = A.Domain<TItem>(name, Kind).AsDomain;
 
     // Act
     TypeGenerator.GenerateType(type, context);
@@ -45,9 +45,9 @@ public abstract class GenerateDomainTestsBase<TItem>
       GeneratedCodeParent(generatorType, $"GqlpDomain{Kind}"));
   }
 
-  protected override SimpleBuilder<Abstractions.Schema.IGqlpDomain<TItem>> MakeSimple(string name)
+  protected override SimpleBuilder<IGqlpDomain<TItem>> MakeSimple(string name)
     => new DomainBuilder<TItem>(name, Kind);
-  protected override void MakeItems(SimpleBuilder<Abstractions.Schema.IGqlpDomain<TItem>> builder, params string[] items)
+  protected override void MakeItems(SimpleBuilder<IGqlpDomain<TItem>> builder, params string[] items)
     => ((DomainBuilder<TItem>)builder).WithItems([.. items.Select(MakeDomainItem)]);
   protected abstract TItem MakeDomainItem(string item);
 }

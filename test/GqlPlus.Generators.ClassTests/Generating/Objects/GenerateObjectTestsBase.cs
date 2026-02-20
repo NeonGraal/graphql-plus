@@ -83,7 +83,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     // Assert
     CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedCodeField(generatorType, fieldName, fieldType));
+      CheckGeneratedBoth(generatorType, "I" + TestPrefix + fieldType + " " + fieldName + " { get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -103,7 +103,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     // Assert
     CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedCodeModifiedField(generatorType, fieldName, fieldType));
+      CheckGeneratedBoth(generatorType, "I" + TestPrefix + fieldType + "? " + fieldName + " { get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -121,7 +121,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     // Assert
     CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedCodeAlternate(generatorType, alternateType));
+      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"I{TestPrefix}{alternateType}? As{alternateType} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -139,7 +139,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     // Assert
     CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedCodeAlternateArg(generatorType, alternateType, argName));
+      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"I{TestPrefix}{alternateType}<I{TestPrefix}{argName}>? As{alternateType} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -157,7 +157,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     // Assert
     CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedCodeAlternateEnum(generatorType, enumType, enumLabel));
+      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"{TestPrefix}{enumType}? As{enumType}{enumLabel} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -179,10 +179,11 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
+    string expectedPrefix = $"I{TestPrefix}{alternateType}<{TestPrefix}{enumType}>? As{enumType}";
     CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedCodeAlternateEnumArg(generatorType, alternateType, enumType, enumLabel1),
-      CheckGeneratedCodeAlternateEnumArg(generatorType, alternateType, enumType, enumLabel2));
+      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"{expectedPrefix}{enumLabel2} {{ get;"),
+      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"{expectedPrefix}{enumLabel1} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -201,7 +202,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     // Assert
     CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedCodeAlternateParam(generatorType, alternateParam));
+      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"T{alternateParam}? As{alternateParam} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -220,8 +221,8 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     // Assert
     CheckContext(context,
       CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedCodeField(generatorType, fieldName, fieldType),
-      CheckGeneratedCodeAlternate(generatorType, alternateType));
+      CheckGeneratedBoth(generatorType, "I" + TestPrefix + fieldType + " " + fieldName + " { get;"),
+      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"I{TestPrefix}{alternateType}? As{alternateType} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -267,27 +268,6 @@ public abstract class GenerateObjectTestsBase<TObjField>(
           break;
       }
     };
-
-  protected virtual Action<string> CheckGeneratedCodeField(GqlpGeneratorType generatorType, string fieldName, string fieldType)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, "I" + TestPrefix + fieldType + " " + fieldName + " { get;");
-
-  protected virtual Action<string> CheckGeneratedCodeModifiedField(GqlpGeneratorType generatorType, string fieldName, string fieldType)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedBoth(generatorType, "I" + TestPrefix + fieldType + "? " + fieldName + " { get;");
-
-  protected virtual Action<string> CheckGeneratedCodeAlternate(GqlpGeneratorType generatorType, string alternateType)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"I{TestPrefix}{alternateType}? As{alternateType} {{ get;");
-
-  protected virtual Action<string> CheckGeneratedCodeAlternateArg(GqlpGeneratorType generatorType, string alternateType, string argName)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"I{TestPrefix}{alternateType}<I{TestPrefix}{argName}>? As{alternateType} {{ get;");
-
-  protected virtual Action<string> CheckGeneratedCodeAlternateEnumArg(GqlpGeneratorType generatorType, string alternateType, string enumType, string enumLabel)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"I{TestPrefix}{alternateType}<{TestPrefix}{enumType}>? As{enumType}{enumLabel} {{ get;");
-
-  protected virtual Action<string> CheckGeneratedCodeAlternateEnum(GqlpGeneratorType generatorType, string enumType, string enumLabel)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"{TestPrefix}{enumType}? As{enumType}{enumLabel} {{ get;");
-
-  protected virtual Action<string> CheckGeneratedCodeAlternateParam(GqlpGeneratorType generatorType, string alternateParam)
-    => GenerateObjectTestsBase<TObjField>.CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"T{alternateParam}? As{alternateParam} {{ get;");
 
   protected abstract ObjFieldBuilder<TObjField> MakeField(string name, string type);
 }

@@ -49,10 +49,16 @@ public static class ComponentTestStartup
         File.WriteAllText(filePath, contents);
         return;
       } catch (IOException) {
-        if (attempt >= MaxAttempts) throw;
+        if (attempt >= MaxAttempts) {
+          throw;
+        }
+
         Thread.Sleep(50 * attempt);
       } catch (UnauthorizedAccessException) {
-        if (attempt >= MaxAttempts) throw;
+        if (attempt >= MaxAttempts) {
+          throw;
+        }
+
         Thread.Sleep(50 * attempt);
       }
     }
@@ -73,10 +79,16 @@ public static class ComponentTestStartup
         await File.WriteAllTextAsync(filePath, text);
         return;
       } catch (IOException) {
-        if (attempt >= MaxAttempts) throw;
+        if (attempt >= MaxAttempts) {
+          throw;
+        }
+
         await Task.Delay(50 * attempt);
       } catch (UnauthorizedAccessException) {
-        if (attempt >= MaxAttempts) throw;
+        if (attempt >= MaxAttempts) {
+          throw;
+        }
+
         await Task.Delay(50 * attempt);
       }
     }

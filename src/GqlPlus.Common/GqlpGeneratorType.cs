@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus;
+﻿namespace GqlPlus;
 
 public enum GqlpGeneratorType
 {

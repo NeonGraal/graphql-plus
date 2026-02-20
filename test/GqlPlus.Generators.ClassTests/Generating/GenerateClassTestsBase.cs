@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace GqlPlus.Generating;
+﻿namespace GqlPlus.Generating;
 
 public class GenerateClassTestsBase
   : SubstituteBase

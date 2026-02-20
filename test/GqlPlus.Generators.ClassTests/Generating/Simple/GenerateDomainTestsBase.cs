@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Building.Schema.Simple;
-using OpenTelemetry.Metrics;
 
 namespace GqlPlus.Generating.Simple;
 

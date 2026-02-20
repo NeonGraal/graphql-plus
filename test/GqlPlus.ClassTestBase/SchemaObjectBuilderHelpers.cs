@@ -1,5 +1,4 @@
-﻿using System.CodeDom;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus;

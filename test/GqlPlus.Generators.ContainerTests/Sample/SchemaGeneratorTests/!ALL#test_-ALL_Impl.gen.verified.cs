@@ -1895,7 +1895,7 @@ public class testCnstFieldDmnDualObject
   , ItestCnstFieldDmnDualObject
 {
 
-  public testCnstFieldDmnDualObject(TRef field)
+  public testCnstFieldDmnDualObject(ItestDomCnstFieldDmnDual field)
     : base(field)
   {
   }
@@ -1938,7 +1938,7 @@ public class testCnstFieldDmnInpObject
   , ItestCnstFieldDmnInpObject
 {
 
-  public testCnstFieldDmnInpObject(TRef field)
+  public testCnstFieldDmnInpObject(ItestDomCnstFieldDmnInp field)
     : base(field)
   {
   }
@@ -1981,7 +1981,7 @@ public class testCnstFieldDmnOutpObject
   , ItestCnstFieldDmnOutpObject
 {
 
-  public testCnstFieldDmnOutpObject(TRef field)
+  public testCnstFieldDmnOutpObject(ItestDomCnstFieldDmnOutp field)
     : base(field)
   {
   }
@@ -2024,7 +2024,7 @@ public class testCnstFieldDualDualObject
   , ItestCnstFieldDualDualObject
 {
 
-  public testCnstFieldDualDualObject(TRef field)
+  public testCnstFieldDualDualObject(ItestAltCnstFieldDualDual field)
     : base(field)
   {
   }
@@ -2098,7 +2098,7 @@ public class testCnstFieldDualInpObject
   , ItestCnstFieldDualInpObject
 {
 
-  public testCnstFieldDualInpObject(TRef field)
+  public testCnstFieldDualInpObject(ItestAltCnstFieldDualInp field)
     : base(field)
   {
   }
@@ -2172,7 +2172,7 @@ public class testCnstFieldDualOutpObject
   , ItestCnstFieldDualOutpObject
 {
 
-  public testCnstFieldDualOutpObject(TRef field)
+  public testCnstFieldDualOutpObject(ItestAltCnstFieldDualOutp field)
     : base(field)
   {
   }
@@ -2246,7 +2246,7 @@ public class testCnstFieldObjDualObject
   , ItestCnstFieldObjDualObject
 {
 
-  public testCnstFieldObjDualObject(TRef field)
+  public testCnstFieldObjDualObject(ItestAltCnstFieldObjDual field)
     : base(field)
   {
   }
@@ -2320,7 +2320,7 @@ public class testCnstFieldObjInpObject
   , ItestCnstFieldObjInpObject
 {
 
-  public testCnstFieldObjInpObject(TRef field)
+  public testCnstFieldObjInpObject(ItestAltCnstFieldObjInp field)
     : base(field)
   {
   }
@@ -2394,7 +2394,7 @@ public class testCnstFieldObjOutpObject
   , ItestCnstFieldObjOutpObject
 {
 
-  public testCnstFieldObjOutpObject(TRef field)
+  public testCnstFieldObjOutpObject(ItestAltCnstFieldObjOutp field)
     : base(field)
   {
   }
@@ -6185,7 +6185,7 @@ public class testGnrcPrntEnumChildDualObject
   , ItestGnrcPrntEnumChildDualObject
 {
 
-  public testGnrcPrntEnumChildDualObject(TRef field)
+  public testGnrcPrntEnumChildDualObject(testParentGnrcPrntEnumChildDual field)
     : base(field)
   {
   }
@@ -6222,7 +6222,7 @@ public class testGnrcPrntEnumChildInpObject
   , ItestGnrcPrntEnumChildInpObject
 {
 
-  public testGnrcPrntEnumChildInpObject(TRef field)
+  public testGnrcPrntEnumChildInpObject(testParentGnrcPrntEnumChildInp field)
     : base(field)
   {
   }
@@ -6259,7 +6259,7 @@ public class testGnrcPrntEnumChildOutpObject
   , ItestGnrcPrntEnumChildOutpObject
 {
 
-  public testGnrcPrntEnumChildOutpObject(TRef field)
+  public testGnrcPrntEnumChildOutpObject(testParentGnrcPrntEnumChildOutp field)
     : base(field)
   {
   }
@@ -6296,7 +6296,7 @@ public class testGnrcPrntEnumDomDualObject
   , ItestGnrcPrntEnumDomDualObject
 {
 
-  public testGnrcPrntEnumDomDualObject(TRef field)
+  public testGnrcPrntEnumDomDualObject(ItestDomGnrcPrntEnumDomDual field)
     : base(field)
   {
   }
@@ -6339,7 +6339,7 @@ public class testGnrcPrntEnumDomInpObject
   , ItestGnrcPrntEnumDomInpObject
 {
 
-  public testGnrcPrntEnumDomInpObject(TRef field)
+  public testGnrcPrntEnumDomInpObject(ItestDomGnrcPrntEnumDomInp field)
     : base(field)
   {
   }
@@ -6382,7 +6382,7 @@ public class testGnrcPrntEnumDomOutpObject
   , ItestGnrcPrntEnumDomOutpObject
 {
 
-  public testGnrcPrntEnumDomOutpObject(TRef field)
+  public testGnrcPrntEnumDomOutpObject(ItestDomGnrcPrntEnumDomOutp field)
     : base(field)
   {
   }
@@ -6425,7 +6425,7 @@ public class testGnrcPrntEnumPrntDualObject
   , ItestGnrcPrntEnumPrntDualObject
 {
 
-  public testGnrcPrntEnumPrntDualObject(TRef field)
+  public testGnrcPrntEnumPrntDualObject(testEnumGnrcPrntEnumPrntDual field)
     : base(field)
   {
   }
@@ -6462,7 +6462,7 @@ public class testGnrcPrntEnumPrntInpObject
   , ItestGnrcPrntEnumPrntInpObject
 {
 
-  public testGnrcPrntEnumPrntInpObject(TRef field)
+  public testGnrcPrntEnumPrntInpObject(testEnumGnrcPrntEnumPrntInp field)
     : base(field)
   {
   }
@@ -6499,7 +6499,7 @@ public class testGnrcPrntEnumPrntOutpObject
   , ItestGnrcPrntEnumPrntOutpObject
 {
 
-  public testGnrcPrntEnumPrntOutpObject(TRef field)
+  public testGnrcPrntEnumPrntOutpObject(testEnumGnrcPrntEnumPrntOutp field)
     : base(field)
   {
   }
@@ -6866,7 +6866,7 @@ public class testGnrcPrntSmplEnumDualObject
   , ItestGnrcPrntSmplEnumDualObject
 {
 
-  public testGnrcPrntSmplEnumDualObject(TRef field)
+  public testGnrcPrntSmplEnumDualObject(testEnumGnrcPrntSmplEnumDual field)
     : base(field)
   {
   }
@@ -6903,7 +6903,7 @@ public class testGnrcPrntSmplEnumInpObject
   , ItestGnrcPrntSmplEnumInpObject
 {
 
-  public testGnrcPrntSmplEnumInpObject(TRef field)
+  public testGnrcPrntSmplEnumInpObject(testEnumGnrcPrntSmplEnumInp field)
     : base(field)
   {
   }
@@ -6940,7 +6940,7 @@ public class testGnrcPrntSmplEnumOutpObject
   , ItestGnrcPrntSmplEnumOutpObject
 {
 
-  public testGnrcPrntSmplEnumOutpObject(TRef field)
+  public testGnrcPrntSmplEnumOutpObject(testEnumGnrcPrntSmplEnumOutp field)
     : base(field)
   {
   }
@@ -6977,7 +6977,7 @@ public class testGnrcPrntStrDomDualObject
   , ItestGnrcPrntStrDomDualObject
 {
 
-  public testGnrcPrntStrDomDualObject(TRef field)
+  public testGnrcPrntStrDomDualObject(ItestDomGnrcPrntStrDomDual field)
     : base(field)
   {
   }
@@ -7020,7 +7020,7 @@ public class testGnrcPrntStrDomInpObject
   , ItestGnrcPrntStrDomInpObject
 {
 
-  public testGnrcPrntStrDomInpObject(TRef field)
+  public testGnrcPrntStrDomInpObject(ItestDomGnrcPrntStrDomInp field)
     : base(field)
   {
   }
@@ -7063,7 +7063,7 @@ public class testGnrcPrntStrDomOutpObject
   , ItestGnrcPrntStrDomOutpObject
 {
 
-  public testGnrcPrntStrDomOutpObject(TRef field)
+  public testGnrcPrntStrDomOutpObject(ItestDomGnrcPrntStrDomOutp field)
     : base(field)
   {
   }

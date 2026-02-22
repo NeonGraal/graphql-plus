@@ -6,8 +6,8 @@ internal class GenerateForObject<TObjField>
   : GenerateForObject<TObjField, MapPair<string>>
   where TObjField : IGqlpObjField
 {
-  internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
-    => ast.Fields.Select(f => ModifiedTypeString(f.Type, f, context).ToPair(f.Name.Capitalize()));
+  internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpObject<TObjField> ast, GqlpGeneratorTypes types)
+    => ast.Fields.Select(f => ModifiedTypeString(f.Type, f, types).ToPair(f.Name.Capitalize()));
 
   protected override void ClassMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  public {item.Value} {item.Key} {{ get; set; }}");
@@ -55,21 +55,22 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     return ":";
   }
 
-  private IEnumerable<MapPair<string>> AlternateMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+  private IEnumerable<MapPair<string>> AlternateMembers(IGqlpObject<TObjField> ast, GqlpGeneratorTypes types)
   {
     IEnumerable<MapPair<string>> alternates = ast.Alternates
-        .Select(a => ModifiedTypeString(a, a, context).ToPair(AlternameName(a)));
+        .Select(a => ModifiedTypeString(a, a, types).ToPair(AlternameName(a)));
+
     if (ast.Parent?.IsTypeParam == true) {
       string parentTypeParam = "T" + ast.Parent.Name.Capitalize();
       alternates = alternates.Append(parentTypeParam.ToPair("_Parent"));
     }
 
-    string objectName = context.TypeName(ast, "I") + "Object" + TypeParamsString(ast);
+    string objectName = types.TypeName(ast, "I") + "Object" + TypeParamsString(ast);
     return alternates.Append(objectName.ToPair("_" + ast.Name));
 
     string AlternameName(IGqlpAlternate alt)
     {
-      IGqlpType? type = context.GetTypeAst<IGqlpType>(alt.Name);
+      IGqlpType? type = types.GetTypeAst<IGqlpType>(alt.Name);
       string name = (type?.Name).IfWhiteSpace(alt.Name);
 
       if (alt.EnumValue is not null) {
@@ -99,31 +100,50 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   protected void AlternateInterfaceMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  {item.Value}? As{item.Key} {{ get; }}");
 
-  protected string ModifiedTypeString(IGqlpObjType type, IGqlpModifiers modifiers, GqlpGeneratorContext context)
-    => modifiers.Modifiers.Aggregate(TypeString(type, context, "I"), (s, m) => ModifyTypeString(s, m, context));
+  protected string ModifiedTypeString(IGqlpObjType type, IGqlpModifiers modifiers, GqlpGeneratorTypes types)
+    => modifiers.Modifiers.Aggregate(TypeString(type, types, "I"), (s, m) => ModifyTypeString(s, m, types));
 
-  protected virtual string ModifyTypeString(string typeStr, IGqlpModifier modifier, GqlpGeneratorContext context)
+  protected string ModifyTypeString(string typeStr, IGqlpModifier modifier, GqlpGeneratorTypes types)
     => modifier.ModifierKind switch {
       ModifierKind.Optional => typeStr + "?",
       ModifierKind.List => $"ICollection<{typeStr}>",
-      ModifierKind.Param => $"IDictionary<T{modifier.Key.Capitalize()}, {typeStr}>",
-      ModifierKind.Dictionary => $"IDictionary<{context.TypeName(modifier.Key, "I")}, {typeStr}>",
+      ModifierKind.Param => ModifyParamString(typeStr, modifier.Key, types),
+      ModifierKind.Dictionary => $"IDictionary<{types.TypeName(modifier.Key, "I")}, {typeStr}>",
       _ => typeStr
     };
 
-  protected virtual string TypeString(IGqlpObjType type, GqlpGeneratorContext context, string prefix = "")
+  protected string ModifyParamString(string typeStr, string key, GqlpGeneratorTypes types)
   {
-    if (type.IsTypeParam) {
-      return "T" + type.Name.Capitalize();
+    IGqlpObjType? arg = types.GetArg(key);
+    if (arg is null) {
+      return $"IDictionary<T{key.Capitalize()}, {typeStr}>";
     }
 
-    return context.TypeName(type, prefix) + TypeArgsString((type as IGqlpObjBase)?.Args, context);
+    if (arg.IsTypeParam) {
+      return ModifyParamString(typeStr, arg.Name, types);
+    }
+
+    return $"IDictionary<{types.TypeName(arg.Name, "I")}, {typeStr}>";
   }
 
-  private string TypeArgsString(IEnumerable<IGqlpTypeArg>? args, GqlpGeneratorContext context)
+  protected string TypeString(IGqlpObjType type, GqlpGeneratorTypes types, string prefix = "")
+  {
+    if (type.IsTypeParam) {
+      IGqlpObjType? arg = types.GetArg(type.Name);
+      if (arg is null || arg.Name == type.Name) {
+        return "T" + type.Name.Capitalize();
+      }
+
+      return TypeString(arg, types, prefix);
+    }
+
+    return types.TypeName(type, prefix) + TypeArgsString((type as IGqlpObjBase)?.Args, types);
+  }
+
+  private string TypeArgsString(IEnumerable<IGqlpTypeArg>? args, GqlpGeneratorTypes types)
   {
     if (args?.Any() == true) {
-      return args.Surround("<", ">", a => TypeString(a!, context, "I"), ", ");
+      return args.Surround("<", ">", a => TypeString(a!, types, "I"), ", ");
     }
 
     return "";
@@ -152,20 +172,28 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
     context.Write("  }");
   }
-  internal virtual MapPair<string>[] RequiredMembers(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+  internal virtual MapPair<string>[] RequiredMembers(IGqlpObject<TObjField> ast, GqlpGeneratorTypes types)
     => [.. ast.Fields
       .Where(f => f.Modifiers.LastOrDefault()?.ModifierKind != ModifierKind.Opt)
-      .Select(f => ModifiedTypeString(f.Type, f, context).ToPair(f.Name))];
+      .Select(f => ModifiedTypeString(f.Type, f, types).ToPair(f.Name))];
 
-  internal virtual MapPair<string>[] ParentRequired(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+  internal virtual MapPair<string>[] ParentRequired(IGqlpObject<TObjField> ast, GqlpGeneratorTypes types)
   {
-    IGqlpObject? parentObject = context.GetTypeAst<IGqlpObject>(ast.Parent?.Name);
+    if (ast.Parent is null || ast.Parent.IsTypeParam) {
+      return [];
+    }
+
+    IGqlpObject? parentObject = types.GetTypeAst<IGqlpObject>(ast.Parent.Name);
     if (parentObject is not IGqlpObject<TObjField> parentAst) {
       return [];
     }
 
-    MapPair<string>[] grandRequired = ParentRequired(parentAst, context);
-    MapPair<string>[] parentRequired = RequiredMembers(parentAst, context);
+    GqlpGeneratorTypes parentTypes = new(types);
+    parentTypes.AddArgs(ast.Parent.Args
+      .Zip(parentAst.TypeParams, (a, p) => a.ToPair<IGqlpObjType>(p.Name)));
+
+    MapPair<string>[] grandRequired = ParentRequired(parentAst, parentTypes);
+    MapPair<string>[] parentRequired = RequiredMembers(parentAst, parentTypes);
 
     return [.. grandRequired, .. parentRequired];
   }

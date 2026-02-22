@@ -25,7 +25,7 @@ public class CmptGnrcPrntEnumChildOutpObject
   , ICmptGnrcPrntEnumChildOutpObject
 {
 
-  public CmptGnrcPrntEnumChildOutpObject(TRef field)
+  public CmptGnrcPrntEnumChildOutpObject(CmptParentGnrcPrntEnumChildOutp field)
     : base(field)
   {
   }

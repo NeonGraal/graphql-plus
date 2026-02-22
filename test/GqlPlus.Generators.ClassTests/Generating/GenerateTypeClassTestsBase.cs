@@ -44,37 +44,45 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
     TypeGenerator.GenerateType(type, context);
 
     // Assert
-    context.CheckForRequired(GeneratedCodeName(generatorType, name));
+    context.CheckFor(ForGeneratedCodeName(name));
   }
 }
 
 public abstract class GenerateTypeClassTestsBase
   : GenerateClassTestsBase
 {
-  protected virtual string GeneratedCodeName(GqlpGeneratorType generatorType, string name)
-    => generatorType switch {
+  internal ForType ForGeneratedImplementation(string contains)
+    => generatorType => GqlpGeneratorType.Implementation == generatorType
+      ? r => r.ShouldContain(contains)
+      : r => { };
+
+  internal ForType ForGeneratedInterface(string contains)
+    => generatorType => GqlpGeneratorType.Interface == generatorType
+      ? r => r.ShouldContain(contains)
+      : r => { };
+
+  internal ForType ForGeneratedEnum(string contains)
+    => generatorType => GqlpGeneratorType.Enum == generatorType
+      ? r => r.ShouldContain(contains)
+      : r => r.ShouldBeEmpty();
+
+  internal ForType ForGeneratedBoth(string contains)
+    => ForGeneratedEither(contains, contains);
+
+  internal ForType ForGeneratedEither(string genIntf, string genImpl)
+    => generatorType => generatorType switch {
       GqlpGeneratorType.Interface
-        => "public interface I" + TestPrefix + name,
+        => r => r.ShouldContain(genIntf),
       GqlpGeneratorType.Implementation
-        => "public class " + TestPrefix + name,
-      _ => ""
+        => r => r.ShouldContain(genImpl),
+      _ => result => { }
     };
 
-  protected virtual Action<string> CheckGeneratedCodeName(GqlpGeneratorType generatorType, string name)
-    => result => {
-      switch (generatorType) {
-        case GqlpGeneratorType.Interface: result.ShouldContain("public interface I" + TestPrefix + name); break;
-        case GqlpGeneratorType.Implementation: result.ShouldContain("public class " + TestPrefix + name); break;
-        default: result.ShouldBeEmpty(); break;
-      }
-    };
+  internal virtual ForType ForGeneratedCodeName(string name)
+    => ForGeneratedEither("public interface I" + TestPrefix + name, "public class " + TestPrefix + name);
 
-  protected virtual string GeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
-    => generatorType switch {
-      GqlpGeneratorType.Interface => ": I" + parent,
-      GqlpGeneratorType.Implementation => ": " + parent,
-      _ => "",
-    };
+  internal virtual ForType ForGeneratedCodeParent(string parent)
+    => ForGeneratedEither(": I" + parent, ": " + parent);
 }
 
 public class BaseGeneratorData

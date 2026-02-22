@@ -24,7 +24,7 @@ public class CmptCnstFieldDmnDualObject
   , ICmptCnstFieldDmnDualObject
 {
 
-  public CmptCnstFieldDmnDualObject(TRef field)
+  public CmptCnstFieldDmnDualObject(ICmptDomCnstFieldDmnDual field)
     : base(field)
   {
   }

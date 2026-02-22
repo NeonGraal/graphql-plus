@@ -9,6 +9,6 @@ internal sealed class UnionGenerator
     return false;
   }
 
-  internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpUnion ast, GqlpGeneratorContext context)
+  internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpUnion ast, GqlpGeneratorTypes types)
     => ast.Items.Select(item => new MapPair<string>("As" + item.Name, item.Name));
 }

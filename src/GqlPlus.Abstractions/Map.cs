@@ -7,6 +7,14 @@ public class Map<TMap>
   , IMap<TMap>
   , IReadOnlyMap<TMap>
 {
+  public Map()
+    : base()
+  { }
+
+  public Map(Map<TMap> map)
+    : base(map)
+  { }
+
   public TMap GetValueOrDefault(string key, TMap defaultValue)
     => TryGetValue(key, out TMap value) ? value : defaultValue;
   public bool TryAdd(string key, TMap value)

@@ -135,7 +135,7 @@ public class Cmpt_ParentTypeObject<TKind,TItem,TAllItem>
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
 
-  public Cmpt_ParentTypeObject(TKind typeKind, TParent parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
+  public Cmpt_ParentTypeObject(TKind typeKind, ICmpt_Named parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
     : base(typeKind, parent)
   {
     Items = items;

@@ -24,16 +24,16 @@ internal class OutputGenerator
     }
   }
 
-  internal override IEnumerable<OutputField> TypeMembers(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorContext context)
+  internal override IEnumerable<OutputField> TypeMembers(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorTypes types)
     => ast.ObjFields.Select(f => new OutputField(
       f.Name.Capitalize(),
-      ModifiedTypeString(f.Type, f, context),
-      f.Parameter is null ? "" : ModifiedTypeString(f.Parameter.Type, f.Parameter, context)));
+      ModifiedTypeString(f.Type, f, types),
+      f.Parameter is null ? "" : ModifiedTypeString(f.Parameter.Type, f.Parameter, types)));
 
-  internal override MapPair<string>[] RequiredMembers(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorContext context)
+  internal override MapPair<string>[] RequiredMembers(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorTypes types)
     => [.. ast.ObjFields
       .Where(f => f.Parameter is null && f.Modifiers.LastOrDefault()?.ModifierKind != ModifierKind.Opt)
-      .Select(f => ModifiedTypeString(f.Type, f, context).ToPair(f.Name))];
+      .Select(f => ModifiedTypeString(f.Type, f, types).ToPair(f.Name))];
 
 }
 

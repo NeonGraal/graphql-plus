@@ -4,17 +4,17 @@ using System.Text.RegularExpressions;
 namespace GqlPlus;
 
 internal sealed class GqlpGeneratorContext
+  : GqlpGeneratorTypes
 {
   private readonly StringBuilder _builder = new();
-  private readonly Map<IGqlpType> _types = [];
   private readonly StringBuilder _prefix;
   private bool _prefixWritten;
 
   public GqlpGeneratorContext(string path, GqlpGeneratorOptions generatorOptions, GqlpModelOptions modelOptions)
+    : base(modelOptions)
   {
     File = Path.GetFileNameWithoutExtension(path);
     GeneratorOptions = generatorOptions;
-    ModelOptions = modelOptions;
 
     _prefix = new();
     _prefix.AppendLine($"// Generated from {path}");
@@ -25,29 +25,8 @@ internal sealed class GqlpGeneratorContext
     AddTypes(BuiltIn.Basic);
   }
 
-  public static readonly Map<string> DotNetTypes = new() {
-    ["_" + BuiltIn.VoidType] = "void",
-    [BuiltIn.VoidType] = "void",
-    ["_" + BuiltIn.ValueType] = "GqlpValue",
-    [BuiltIn.ValueType] = "GqlpValue",
-    ["_" + BuiltIn.UnitType] = "GqlpUnit",
-    [BuiltIn.UnitType] = "GqlpUnit",
-    ["_" + BuiltIn.StringType] = "string",
-    [BuiltIn.StringType] = "string",
-    [BuiltIn.StringAlias] = "string",
-    ["_" + BuiltIn.ScalarType] = "GqlpScalar",
-    [BuiltIn.ScalarType] = "GqlpScalar",
-    ["_" + BuiltIn.NumberType] = "decimal",
-    [BuiltIn.NumberType] = "decimal",
-    [BuiltIn.NumberAlias] = "decimal",
-    ["_" + BuiltIn.BooleanType] = "bool",
-    [BuiltIn.BooleanType] = "bool",
-    [BuiltIn.BooleanAlias] = "bool",
-  };
-
   public string File { get; }
   public GqlpGeneratorOptions GeneratorOptions { get; }
-  public GqlpModelOptions ModelOptions { get; }
 
   public string FileName => $"{ModelOptions.TypePrefix}_{File}_{GeneratorOptions.GeneratorType}.gen.cs";
   public string SafeFile => Safe(File);
@@ -79,44 +58,4 @@ internal sealed class GqlpGeneratorContext
 
   public override string ToString()
     => _builder.ToString();
-
-  internal void AddTypes(params IGqlpType[] types)
-  {
-    foreach (IGqlpType type in types) {
-      _types[type.Name] = type;
-      foreach (string alias in type.Aliases) {
-        if (!_types.ContainsKey(alias)) {
-          _types[alias] = type;
-        }
-      }
-    }
-  }
-
-  internal TAst? GetTypeAst<TAst>(string? typeName)
-    where TAst : class, IGqlpType
-  {
-    if (!string.IsNullOrWhiteSpace(typeName)
-        && _types.TryGetValue(typeName!, out IGqlpType type)
-        && type is TAst ast) {
-      return ast;
-    }
-
-    return null;
-  }
-
-  internal string TypeName(IGqlpNamed type, string prefix)
-    => TypeName(type.Name, prefix);
-
-  internal string TypeName(string typeName, string prefix)
-  {
-    if (DotNetTypes.TryGetValue(typeName, out string dotNetType)) {
-      return dotNetType;
-    }
-
-    if (_types.TryGetValue(typeName, out IGqlpType theType)) {
-      return (theType is IGqlpEnum ? "" : prefix) + ModelOptions.TypePrefix + theType.Name;
-    } else {
-      return prefix + ModelOptions.TypePrefix + typeName;
-    }
-  }
 }

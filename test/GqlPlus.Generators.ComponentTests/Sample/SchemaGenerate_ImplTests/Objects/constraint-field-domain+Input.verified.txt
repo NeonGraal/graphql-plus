@@ -24,7 +24,7 @@ public class CmptCnstFieldDmnInpObject
   , ICmptCnstFieldDmnInpObject
 {
 
-  public CmptCnstFieldDmnInpObject(TRef field)
+  public CmptCnstFieldDmnInpObject(ICmptDomCnstFieldDmnInp field)
     : base(field)
   {
   }

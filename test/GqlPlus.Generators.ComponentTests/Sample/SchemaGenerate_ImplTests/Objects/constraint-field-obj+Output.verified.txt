@@ -25,7 +25,7 @@ public class CmptCnstFieldObjOutpObject
   , ICmptCnstFieldObjOutpObject
 {
 
-  public CmptCnstFieldObjOutpObject(TRef field)
+  public CmptCnstFieldObjOutpObject(ICmptAltCnstFieldObjOutp field)
     : base(field)
   {
   }

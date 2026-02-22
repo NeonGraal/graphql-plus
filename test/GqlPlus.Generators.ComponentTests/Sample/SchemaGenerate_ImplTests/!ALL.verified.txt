@@ -1894,7 +1894,7 @@ public class CmptCnstFieldDmnDualObject
   , ICmptCnstFieldDmnDualObject
 {
 
-  public CmptCnstFieldDmnDualObject(TRef field)
+  public CmptCnstFieldDmnDualObject(ICmptDomCnstFieldDmnDual field)
     : base(field)
   {
   }
@@ -1937,7 +1937,7 @@ public class CmptCnstFieldDmnInpObject
   , ICmptCnstFieldDmnInpObject
 {
 
-  public CmptCnstFieldDmnInpObject(TRef field)
+  public CmptCnstFieldDmnInpObject(ICmptDomCnstFieldDmnInp field)
     : base(field)
   {
   }
@@ -1980,7 +1980,7 @@ public class CmptCnstFieldDmnOutpObject
   , ICmptCnstFieldDmnOutpObject
 {
 
-  public CmptCnstFieldDmnOutpObject(TRef field)
+  public CmptCnstFieldDmnOutpObject(ICmptDomCnstFieldDmnOutp field)
     : base(field)
   {
   }
@@ -2023,7 +2023,7 @@ public class CmptCnstFieldDualDualObject
   , ICmptCnstFieldDualDualObject
 {
 
-  public CmptCnstFieldDualDualObject(TRef field)
+  public CmptCnstFieldDualDualObject(ICmptAltCnstFieldDualDual field)
     : base(field)
   {
   }
@@ -2097,7 +2097,7 @@ public class CmptCnstFieldDualInpObject
   , ICmptCnstFieldDualInpObject
 {
 
-  public CmptCnstFieldDualInpObject(TRef field)
+  public CmptCnstFieldDualInpObject(ICmptAltCnstFieldDualInp field)
     : base(field)
   {
   }
@@ -2171,7 +2171,7 @@ public class CmptCnstFieldDualOutpObject
   , ICmptCnstFieldDualOutpObject
 {
 
-  public CmptCnstFieldDualOutpObject(TRef field)
+  public CmptCnstFieldDualOutpObject(ICmptAltCnstFieldDualOutp field)
     : base(field)
   {
   }
@@ -2245,7 +2245,7 @@ public class CmptCnstFieldObjDualObject
   , ICmptCnstFieldObjDualObject
 {
 
-  public CmptCnstFieldObjDualObject(TRef field)
+  public CmptCnstFieldObjDualObject(ICmptAltCnstFieldObjDual field)
     : base(field)
   {
   }
@@ -2319,7 +2319,7 @@ public class CmptCnstFieldObjInpObject
   , ICmptCnstFieldObjInpObject
 {
 
-  public CmptCnstFieldObjInpObject(TRef field)
+  public CmptCnstFieldObjInpObject(ICmptAltCnstFieldObjInp field)
     : base(field)
   {
   }
@@ -2393,7 +2393,7 @@ public class CmptCnstFieldObjOutpObject
   , ICmptCnstFieldObjOutpObject
 {
 
-  public CmptCnstFieldObjOutpObject(TRef field)
+  public CmptCnstFieldObjOutpObject(ICmptAltCnstFieldObjOutp field)
     : base(field)
   {
   }
@@ -6184,7 +6184,7 @@ public class CmptGnrcPrntEnumChildDualObject
   , ICmptGnrcPrntEnumChildDualObject
 {
 
-  public CmptGnrcPrntEnumChildDualObject(TRef field)
+  public CmptGnrcPrntEnumChildDualObject(CmptParentGnrcPrntEnumChildDual field)
     : base(field)
   {
   }
@@ -6221,7 +6221,7 @@ public class CmptGnrcPrntEnumChildInpObject
   , ICmptGnrcPrntEnumChildInpObject
 {
 
-  public CmptGnrcPrntEnumChildInpObject(TRef field)
+  public CmptGnrcPrntEnumChildInpObject(CmptParentGnrcPrntEnumChildInp field)
     : base(field)
   {
   }
@@ -6258,7 +6258,7 @@ public class CmptGnrcPrntEnumChildOutpObject
   , ICmptGnrcPrntEnumChildOutpObject
 {
 
-  public CmptGnrcPrntEnumChildOutpObject(TRef field)
+  public CmptGnrcPrntEnumChildOutpObject(CmptParentGnrcPrntEnumChildOutp field)
     : base(field)
   {
   }
@@ -6295,7 +6295,7 @@ public class CmptGnrcPrntEnumDomDualObject
   , ICmptGnrcPrntEnumDomDualObject
 {
 
-  public CmptGnrcPrntEnumDomDualObject(TRef field)
+  public CmptGnrcPrntEnumDomDualObject(ICmptDomGnrcPrntEnumDomDual field)
     : base(field)
   {
   }
@@ -6338,7 +6338,7 @@ public class CmptGnrcPrntEnumDomInpObject
   , ICmptGnrcPrntEnumDomInpObject
 {
 
-  public CmptGnrcPrntEnumDomInpObject(TRef field)
+  public CmptGnrcPrntEnumDomInpObject(ICmptDomGnrcPrntEnumDomInp field)
     : base(field)
   {
   }
@@ -6381,7 +6381,7 @@ public class CmptGnrcPrntEnumDomOutpObject
   , ICmptGnrcPrntEnumDomOutpObject
 {
 
-  public CmptGnrcPrntEnumDomOutpObject(TRef field)
+  public CmptGnrcPrntEnumDomOutpObject(ICmptDomGnrcPrntEnumDomOutp field)
     : base(field)
   {
   }
@@ -6424,7 +6424,7 @@ public class CmptGnrcPrntEnumPrntDualObject
   , ICmptGnrcPrntEnumPrntDualObject
 {
 
-  public CmptGnrcPrntEnumPrntDualObject(TRef field)
+  public CmptGnrcPrntEnumPrntDualObject(CmptEnumGnrcPrntEnumPrntDual field)
     : base(field)
   {
   }
@@ -6461,7 +6461,7 @@ public class CmptGnrcPrntEnumPrntInpObject
   , ICmptGnrcPrntEnumPrntInpObject
 {
 
-  public CmptGnrcPrntEnumPrntInpObject(TRef field)
+  public CmptGnrcPrntEnumPrntInpObject(CmptEnumGnrcPrntEnumPrntInp field)
     : base(field)
   {
   }
@@ -6498,7 +6498,7 @@ public class CmptGnrcPrntEnumPrntOutpObject
   , ICmptGnrcPrntEnumPrntOutpObject
 {
 
-  public CmptGnrcPrntEnumPrntOutpObject(TRef field)
+  public CmptGnrcPrntEnumPrntOutpObject(CmptEnumGnrcPrntEnumPrntOutp field)
     : base(field)
   {
   }
@@ -6865,7 +6865,7 @@ public class CmptGnrcPrntSmplEnumDualObject
   , ICmptGnrcPrntSmplEnumDualObject
 {
 
-  public CmptGnrcPrntSmplEnumDualObject(TRef field)
+  public CmptGnrcPrntSmplEnumDualObject(CmptEnumGnrcPrntSmplEnumDual field)
     : base(field)
   {
   }
@@ -6902,7 +6902,7 @@ public class CmptGnrcPrntSmplEnumInpObject
   , ICmptGnrcPrntSmplEnumInpObject
 {
 
-  public CmptGnrcPrntSmplEnumInpObject(TRef field)
+  public CmptGnrcPrntSmplEnumInpObject(CmptEnumGnrcPrntSmplEnumInp field)
     : base(field)
   {
   }
@@ -6939,7 +6939,7 @@ public class CmptGnrcPrntSmplEnumOutpObject
   , ICmptGnrcPrntSmplEnumOutpObject
 {
 
-  public CmptGnrcPrntSmplEnumOutpObject(TRef field)
+  public CmptGnrcPrntSmplEnumOutpObject(CmptEnumGnrcPrntSmplEnumOutp field)
     : base(field)
   {
   }
@@ -6976,7 +6976,7 @@ public class CmptGnrcPrntStrDomDualObject
   , ICmptGnrcPrntStrDomDualObject
 {
 
-  public CmptGnrcPrntStrDomDualObject(TRef field)
+  public CmptGnrcPrntStrDomDualObject(ICmptDomGnrcPrntStrDomDual field)
     : base(field)
   {
   }
@@ -7019,7 +7019,7 @@ public class CmptGnrcPrntStrDomInpObject
   , ICmptGnrcPrntStrDomInpObject
 {
 
-  public CmptGnrcPrntStrDomInpObject(TRef field)
+  public CmptGnrcPrntStrDomInpObject(ICmptDomGnrcPrntStrDomInp field)
     : base(field)
   {
   }
@@ -7062,7 +7062,7 @@ public class CmptGnrcPrntStrDomOutpObject
   , ICmptGnrcPrntStrDomOutpObject
 {
 
-  public CmptGnrcPrntStrDomOutpObject(TRef field)
+  public CmptGnrcPrntStrDomOutpObject(ICmptDomGnrcPrntStrDomOutp field)
     : base(field)
   {
   }

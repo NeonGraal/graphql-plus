@@ -16,6 +16,6 @@ public class DirectiveGeneratorTests
     _generator.Generate(directive, context);
 
     // Assert
-    context.CheckForRequired(name);
+    context.CheckForRequired(g => name);
   }
 }

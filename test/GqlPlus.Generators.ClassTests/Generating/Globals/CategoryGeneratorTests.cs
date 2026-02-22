@@ -16,6 +16,6 @@ public class CategoryGeneratorTests
     _generator.Generate(category, context);
 
     // Assert
-    context.CheckForRequired(name);
+    context.CheckForRequired(g => name);
   }
 }

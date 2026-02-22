@@ -23,9 +23,9 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(type, context);
 
     // Assert
-    context.CheckForRequired(
-      GeneratedCodeName(generatorType, name),
-      GeneratedCodeParent(generatorType, TestPrefix + parent));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedCodeParent(TestPrefix + parent));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -41,9 +41,9 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(type, context);
 
     // Assert
-    context.CheckForRequired(
-      GeneratedCodeName(generatorType, name),
-      GeneratedCodeParent(generatorType, TestPrefix + parent));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedCodeParent(TestPrefix + parent));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -63,9 +63,58 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(type, context);
 
     // Assert
-    context.CheckForRequired(
-      GeneratedCodeName(generatorType, name),
-      GeneratedCodeParent(generatorType, TestPrefix + parent));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedCodeParent(TestPrefix + parent),
+      ForGeneratedImplementation("I" + TestPrefix + fieldType + " " + fieldName),
+      ForGeneratedImplementation(": base(" + fieldName + ")"));
+  }
+
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
+  public void GenerateType_WithParentFieldParam_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent, string fieldName, string fieldType, string parentArg)
+  {
+    this.SkipEqual3(name, parent, parentArg);
+
+    // Arrange
+    GqlpGeneratorContext context = Context(baseType, generatorType);
+    IGqlpObject<TObjField> parentType = A.Obj<TObjField>(Kind, parent)
+      .WithTypeParam(fieldType, "_All")
+      .WithObjFields(MakeField(fieldName, fieldType).IsTypeParam().AsObjField)
+      .AsObject;
+    context.AddTypes(parentType);
+
+    IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name)
+      .WithParent(parent, p => p.WithArg(parentArg))
+      .AsObject;
+
+    // Act
+    TypeGenerator.GenerateType(type, context);
+
+    // Assert
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedCodeParent(TestPrefix + parent),
+      ForGeneratedImplementation("I" + TestPrefix + parentArg + " " + fieldName),
+      ForGeneratedImplementation(": base(" + fieldName + ")"));
+  }
+
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
+  public void GenerateType_WithParentParam_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent)
+  {
+    // Arrange
+    GqlpGeneratorContext context = Context(baseType, generatorType);
+    IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name)
+      .WithTypeParam(parent, "_Any")
+      .WithParent(parent, p => p.IsTypeParam())
+      .AsObject;
+
+    // Act
+    TypeGenerator.GenerateType(type, context);
+
+    // Assert
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedImplementation("T" + parent + "? As_Parent"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -81,9 +130,9 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    CheckContext(context,
-      CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedBoth(generatorType, "I" + TestPrefix + fieldType + " " + fieldName + " { get;"));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedBoth("I" + TestPrefix + fieldType + " " + fieldName + " { get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -101,9 +150,9 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    CheckContext(context,
-      CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedBoth(generatorType, "I" + TestPrefix + fieldType + "? " + fieldName + " { get;"));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedBoth("I" + TestPrefix + fieldType + "? " + fieldName + " { get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -119,9 +168,9 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    CheckContext(context,
-      CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"I{TestPrefix}{alternateType}? As{alternateType} {{ get;"));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedInterface($"I{TestPrefix}{alternateType}? As{alternateType} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -137,9 +186,9 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    CheckContext(context,
-      CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"I{TestPrefix}{alternateType}<I{TestPrefix}{argName}>? As{alternateType} {{ get;"));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedInterface($"I{TestPrefix}{alternateType}<I{TestPrefix}{argName}>? As{alternateType} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -155,9 +204,9 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    CheckContext(context,
-      CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"{TestPrefix}{enumType}? As{enumType}{enumLabel} {{ get;"));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedInterface($"{TestPrefix}{enumType}? As{enumType}{enumLabel} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -180,10 +229,10 @@ public abstract class GenerateObjectTestsBase<TObjField>(
 
     // Assert
     string expectedPrefix = $"I{TestPrefix}{alternateType}<{TestPrefix}{enumType}>? As{enumType}";
-    CheckContext(context,
-      CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"{expectedPrefix}{enumLabel2} {{ get;"),
-      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"{expectedPrefix}{enumLabel1} {{ get;"));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedInterface($"{expectedPrefix}{enumLabel2} {{ get;"),
+      ForGeneratedInterface($"{expectedPrefix}{enumLabel1} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -200,9 +249,9 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    CheckContext(context,
-      CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"T{alternateParam}? As{alternateParam} {{ get;"));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedInterface($"T{alternateParam}? As{alternateParam} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -219,10 +268,10 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    CheckContext(context,
-      CheckGeneratedCodeName(generatorType, name),
-      CheckGeneratedBoth(generatorType, "I" + TestPrefix + fieldType + " " + fieldName + " { get;"),
-      CheckGeneratedOne(GqlpGeneratorType.Interface, generatorType, $"I{TestPrefix}{alternateType}? As{alternateType} {{ get;"));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedBoth("I" + TestPrefix + fieldType + " " + fieldName + " { get;"),
+      ForGeneratedInterface($"I{TestPrefix}{alternateType}? As{alternateType} {{ get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -238,36 +287,9 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    string result = context.ToString();
-    CheckGeneratedCodeName(generatorType, name + parameters.Surround("<", ">", s => "T" + s, ","))(result);
+    context.CheckFor(
+       ForGeneratedCodeName(name + parameters.Surround("<", ">", s => "T" + s, ",")));
   }
-
-  protected static Action<string> CheckGeneratedOne(GqlpGeneratorType forType, GqlpGeneratorType generatorType, string contains)
-    => result => {
-      if (forType == generatorType) {
-        result.ShouldContain(contains);
-      }
-    };
-
-  protected static Action<string> CheckGeneratedBoth(GqlpGeneratorType generatorType, string contains)
-    => CheckGeneratedEither(generatorType,
-      r => r.ShouldContain(contains),
-      r => r.ShouldContain(contains));
-
-  protected static Action<string> CheckGeneratedEither(GqlpGeneratorType generatorType, Action<string> checkIntf, Action<string> checkImpl)
-    => result => {
-      switch (generatorType) {
-        case GqlpGeneratorType.Interface:
-          checkIntf(result);
-          break;
-        case GqlpGeneratorType.Implementation:
-          checkImpl(result);
-          break;
-        default:
-          result.ShouldBeEmpty();
-          break;
-      }
-    };
 
   protected abstract ObjFieldBuilder<TObjField> MakeField(string name, string type);
 }

@@ -40,9 +40,9 @@ public abstract class GenerateDomainTestsBase<TItem>
     TypeGenerator.GenerateType(type, context);
 
     // Assert
-    context.CheckForRequired(
-      GeneratedCodeName(generatorType, name),
-      GeneratedCodeParent(generatorType, $"GqlpDomain{Kind}"));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedCodeParent($"GqlpDomain{Kind}"));
   }
 
   protected override SimpleBuilder<IGqlpDomain<TItem>> MakeSimple(string name)

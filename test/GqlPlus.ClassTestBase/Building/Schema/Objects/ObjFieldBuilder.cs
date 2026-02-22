@@ -65,3 +65,16 @@ public abstract class ObjFieldBuilder<T>
 
   public abstract T AsObjField { get; }
 }
+
+public static class ObjFieldBuilderHelper
+{
+  public static T WithArg<T>(this T builder, string argType, Action<TypeArgBuilder>? config = null)
+    where T : ObjFieldBuilder
+    => builder.WithArgs(builder.TypeArg(argType).FluentAction(config).AsTypeArg);
+  public static T WithArgs<T>(this T builder, params IGqlpTypeArg[] args)
+    where T : ObjFieldBuilder
+    => builder.FluentAction(b => b.BaseBuilder._args = args);
+  public static T IsTypeParam<T>(this T builder, bool isTypeParam = true)
+    where T : ObjFieldBuilder
+    => builder.FluentAction(b => b.BaseBuilder._isTypeParam = isTypeParam);
+}

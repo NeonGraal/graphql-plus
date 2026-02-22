@@ -13,6 +13,9 @@ public static class MapHelpers
     [NotNull] Func<TInput, string> key,
     [NotNull] Func<TInput, TPair> value
   ) => new(key(item), value(item));
+
+  public static IEnumerable<MapPair<TPair>> ToPairs<TPair>(this IMap<TPair>? items)
+    => items?.Select(item => (MapPair<TPair>)item) ?? [];
   public static IEnumerable<MapPair<TMap>> ToPairs<TInput, TMap>(
     this IEnumerable<TInput>? items,
     Func<TInput, string> key,
@@ -21,6 +24,9 @@ public static class MapHelpers
 
   public static Map<TMap> ToMap<TMap>(this IEnumerable<TMap>? items, Func<TMap, string> key)
     => [.. items.ToPairs(key, i => i)];
+
+  public static Map<TMap> ToMap<TMap>(this IEnumerable<MapPair<TMap>> items)
+    => [.. items];
 
   public static Map<TMap> ToMap<TInput, TMap>(
     this IEnumerable<TInput>? items,

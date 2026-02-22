@@ -360,7 +360,7 @@ public class Cmpt_DualFieldObject
   , ICmpt_DualFieldObject
 {
 
-  public Cmpt_DualFieldObject(TType type)
+  public Cmpt_DualFieldObject(ICmpt_ObjFieldType type)
     : base(type)
   {
   }
@@ -378,7 +378,7 @@ public class Cmpt_InputFieldObject
   , ICmpt_InputFieldObject
 {
 
-  public Cmpt_InputFieldObject(TType type)
+  public Cmpt_InputFieldObject(ICmpt_InputFieldType type)
     : base(type)
   {
   }
@@ -415,7 +415,7 @@ public class Cmpt_OutputFieldObject
   , ICmpt_OutputFieldObject
 {
 
-  public Cmpt_OutputFieldObject(TType type)
+  public Cmpt_OutputFieldObject(ICmpt_ObjFieldType type)
     : base(type)
   {
   }

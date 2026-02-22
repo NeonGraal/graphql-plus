@@ -19,7 +19,7 @@ public class testCnstFieldObjOutpObject
   , ItestCnstFieldObjOutpObject
 {
 
-  public testCnstFieldObjOutpObject(TRef field)
+  public testCnstFieldObjOutpObject(ItestAltCnstFieldObjOutp field)
     : base(field)
   {
   }

@@ -88,7 +88,7 @@ public class test_ParentTypeObject<TKind,TItem,TAllItem>
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
 
-  public test_ParentTypeObject(TKind typeKind, TParent parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
+  public test_ParentTypeObject(TKind typeKind, Itest_Named parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
     : base(typeKind, parent)
   {
     Items = items;

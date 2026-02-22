@@ -16,6 +16,6 @@ public class OptionGeneratorTests
     _generator.Generate(option, context);
 
     // Assert
-    context.CheckForRequired(name);
+    context.CheckForRequired(g => name);
   }
 }

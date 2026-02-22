@@ -24,7 +24,7 @@ public class CmptGnrcPrntStrDomOutpObject
   , ICmptGnrcPrntStrDomOutpObject
 {
 
-  public CmptGnrcPrntStrDomOutpObject(TRef field)
+  public CmptGnrcPrntStrDomOutpObject(ICmptDomGnrcPrntStrDomOutp field)
     : base(field)
   {
   }

@@ -19,7 +19,7 @@ public class testCnstFieldDmnInpObject
   , ItestCnstFieldDmnInpObject
 {
 
-  public testCnstFieldDmnInpObject(TRef field)
+  public testCnstFieldDmnInpObject(ItestDomCnstFieldDmnInp field)
     : base(field)
   {
   }

@@ -20,9 +20,9 @@ public abstract class GenerateSimpleTestsBase<TSimple>
     TypeGenerator.GenerateType(type, context);
 
     // Assert
-    context.CheckForRequired(
-      GeneratedCodeName(generatorType, name),
-      GeneratedCodeParent(generatorType, TestPrefix + parent));
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedCodeParent(TestPrefix + parent));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -37,8 +37,8 @@ public abstract class GenerateSimpleTestsBase<TSimple>
     TypeGenerator.GenerateType(type, context);
 
     // Assert
-    context.CheckForRequired(
-      GeneratedCodeName(generatorType, name));
+    context.CheckFor(
+      ForGeneratedCodeName(name));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -53,7 +53,7 @@ public abstract class GenerateSimpleTestsBase<TSimple>
     TypeGenerator.GenerateType(builder.AsSimple, context);
 
     // Assert
-    context.CheckForRequired(GeneratedCodeName(generatorType, name));
+    context.CheckFor(ForGeneratedCodeName(name));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -68,7 +68,7 @@ public abstract class GenerateSimpleTestsBase<TSimple>
     TypeGenerator.GenerateType(builder.AsSimple, context);
 
     // Assert
-    context.CheckForRequired(GeneratedCodeName(generatorType, name));
+    context.CheckFor(ForGeneratedCodeName(name));
   }
 
   protected abstract SimpleBuilder<TSimple> MakeSimple(string name);

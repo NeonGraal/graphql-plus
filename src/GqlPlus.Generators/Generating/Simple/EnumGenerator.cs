@@ -13,21 +13,21 @@ internal sealed class EnumGenerator
   private void EnumMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write("  " + item.Key + item.Value + ",");
 
-  private static IEnumerable<MapPair<string>> ParentItems(string? parent, GqlpGeneratorContext context)
+  private static IEnumerable<MapPair<string>> ParentItems(string? parent, GqlpGeneratorTypes types)
   {
-    IGqlpEnum? ast = context.GetTypeAst<IGqlpEnum>(parent);
+    IGqlpEnum? ast = types.GetTypeAst<IGqlpEnum>(parent);
     if (parent is null || ast is null) {
       return [];
     }
 
     IEnumerable<MapPair<string>> members = ast.Items.SelectMany(item => {
-      string suffix = " = " + context.TypeName(parent, "") + "." + item.Name;
+      string suffix = " = " + types.TypeName(parent, "") + "." + item.Name;
       return item.Aliases
         .Select(alias => new MapPair<string>(alias, suffix))
         .Prepend(new MapPair<string>(item.Name, suffix));
     });
 
-    return ParentItems(ast.Parent?.Name, context).Concat(members);
+    return ParentItems(ast.Parent?.Name, types).Concat(members);
   }
 
   internal IEnumerable<MapPair<string>> EnumMembers(IGqlpEnum ast, GqlpGeneratorContext context)

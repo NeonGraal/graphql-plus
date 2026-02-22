@@ -19,7 +19,7 @@ public class testGnrcPrntStrDomInpObject
   , ItestGnrcPrntStrDomInpObject
 {
 
-  public testGnrcPrntStrDomInpObject(TRef field)
+  public testGnrcPrntStrDomInpObject(ItestDomGnrcPrntStrDomInp field)
     : base(field)
   {
   }

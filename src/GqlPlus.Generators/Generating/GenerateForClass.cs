@@ -31,5 +31,5 @@ internal abstract class GenerateForClass<TClass, TMember>
   protected virtual void TypeInterface(TClass ast, GqlpGeneratorContext context, string interfaceSep)
     => context.Write("  " + interfaceSep + " " + context.TypeName(ast, "I"));
 
-  internal abstract IEnumerable<TMember> TypeMembers(TClass ast, GqlpGeneratorContext context);
+  internal abstract IEnumerable<TMember> TypeMembers(TClass ast, GqlpGeneratorTypes types);
 }

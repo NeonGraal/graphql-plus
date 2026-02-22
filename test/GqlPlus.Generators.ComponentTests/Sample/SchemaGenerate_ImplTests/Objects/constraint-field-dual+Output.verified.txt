@@ -25,7 +25,7 @@ public class CmptCnstFieldDualOutpObject
   , ICmptCnstFieldDualOutpObject
 {
 
-  public CmptCnstFieldDualOutpObject(TRef field)
+  public CmptCnstFieldDualOutpObject(ICmptAltCnstFieldDualOutp field)
     : base(field)
   {
   }

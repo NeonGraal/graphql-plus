@@ -19,7 +19,7 @@ public class testGnrcPrntEnumPrntOutpObject
   , ItestGnrcPrntEnumPrntOutpObject
 {
 
-  public testGnrcPrntEnumPrntOutpObject(TRef field)
+  public testGnrcPrntEnumPrntOutpObject(testEnumGnrcPrntEnumPrntOutp field)
     : base(field)
   {
   }

@@ -2,19 +2,28 @@
 
 internal static class GeneratorClassTestHelpers
 {
-  internal static void CheckForRequired(this GqlpGeneratorContext context, params string[] required)
+  internal static void CheckAll(this GqlpGeneratorContext context, params Action<string>[] checks)
   {
     string result = context.ToString();
     if (!string.IsNullOrWhiteSpace(result)) {
       TestContext.Current.AddAttachment(context.FileName, result);
     }
 
-    result.ShouldSatisfyAllConditions([.. required
+    result.ShouldSatisfyAllConditions(checks);
+  }
+
+  internal static void CheckFor(this GqlpGeneratorContext context, params ForType[] checks)
+    => context.CheckAll([.. checks.Select(r => r(context.GeneratorOptions.GeneratorType))]);
+
+  internal static void CheckForRequired(this GqlpGeneratorContext context, params Func<GqlpGeneratorType, string>[] required)
+    => context.CheckAll([.. required
+      .Select(r => r(context.GeneratorOptions.GeneratorType))
       .Where(static r => !string.IsNullOrWhiteSpace(r))
       .Select(ContainsAction)
       ]);
-  }
 
   private static Action<string> ContainsAction(string required)
     => result => result.ShouldContain(required);
 }
+
+internal delegate Action<string> ForType(GqlpGeneratorType forType);

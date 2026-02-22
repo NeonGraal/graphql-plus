@@ -19,7 +19,7 @@ public class testCnstFieldObjInpObject
   , ItestCnstFieldObjInpObject
 {
 
-  public testCnstFieldObjInpObject(TRef field)
+  public testCnstFieldObjInpObject(ItestAltCnstFieldObjInp field)
     : base(field)
   {
   }

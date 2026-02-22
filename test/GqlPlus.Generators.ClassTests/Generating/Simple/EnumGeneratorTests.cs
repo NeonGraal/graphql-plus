@@ -60,9 +60,9 @@ public class EnumGeneratorTests
     TypeGenerator.GenerateType(enumType, context);
 
     // Assert
-    context.CheckForRequired(
-      GeneratedCodeName(generatorType, enumName),
-      GeneratedCodeLabel(generatorType, labelName));
+    context.CheckFor(
+      ForGeneratedCodeName(enumName),
+      ForGeneratedEnum(labelName + ","));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -79,10 +79,10 @@ public class EnumGeneratorTests
     TypeGenerator.GenerateType(enumType, context);
 
     // Assert
-    context.CheckForRequired(
-      GeneratedCodeName(generatorType, enumName),
-      GeneratedCodeLabel(generatorType, labelName),
-      GeneratedCodeLabel(generatorType, $"{alias} = {labelName}"));
+    context.CheckFor(
+      ForGeneratedCodeName(enumName),
+      ForGeneratedEnum(labelName),
+      ForGeneratedEnum($"{alias} = {labelName}"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -101,9 +101,9 @@ public class EnumGeneratorTests
     TypeGenerator.GenerateType(enumType, context);
 
     // Assert
-    context.CheckForRequired(
-      GeneratedCodeName(generatorType, enumName),
-      GeneratedCodeParentLabel(generatorType, parentName, labelName));
+    context.CheckFor(
+      ForGeneratedCodeName(enumName),
+      ForGeneratedEnum($"{labelName} = {TestPrefix}{parentName}.{labelName},"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
@@ -126,37 +126,18 @@ public class EnumGeneratorTests
     TypeGenerator.GenerateType(enumType, context);
 
     // Assert
-    string result = context.ToString();
-    result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(generatorType, enumName),
-      CheckGeneratedCodeParentLabel(generatorType, parentName, labelName),
-      CheckGeneratedCodeLabel(generatorType, $"{alias} = {TestPrefix}{parentName}.{labelName}"));
+    context.CheckFor(
+      ForGeneratedEnum("public enum " + TestPrefix + enumName),
+      ForGeneratedEnum($"{labelName} = {TestPrefix}{parentName}.{labelName},"),
+      ForGeneratedEnum($"{alias} = {TestPrefix}{parentName}.{labelName}"));
   }
 
-  private static string GeneratedCodeLabel(GqlpGeneratorType generatorType, string label)
-    => generatorType == GqlpGeneratorType.Enum ? label + "," : "";
+  internal override ForType ForGeneratedCodeName(string name)
+    => ForGeneratedEnum("public enum " + TestPrefix + name);
 
-  private static Action<string> CheckGeneratedCodeLabel(GqlpGeneratorType generatorType, string label)
-    => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain(label + ","));
+  internal override ForType ForGeneratedCodeParent(string parent)
+    => generatorType => r => { };
 
-  private static string GeneratedCodeParentLabel(GqlpGeneratorType generatorType, string parent, string name)
-    => generatorType == GqlpGeneratorType.Enum ? $"{name} = {TestPrefix}{parent}.{name}," : "";
-
-  private static Action<string> CheckGeneratedCodeParentLabel(GqlpGeneratorType generatorType, string parent, string name)
-    => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain($"{name} = {TestPrefix}{parent}.{name},"));
-
-  protected override string GeneratedCodeName(GqlpGeneratorType generatorType, string name)
-    => generatorType == GqlpGeneratorType.Enum ? "public enum " + TestPrefix + name : "";
-
-  protected override string GeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
-    => "";
-
-  protected override Action<string> CheckGeneratedCodeName(GqlpGeneratorType generatorType, string name)
-    => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain("public enum " + TestPrefix + name));
-
-  private static Action<string> ResultEmptyUnlessEnum(GqlpGeneratorType generatorType, Action<string> check)
-    => generatorType == GqlpGeneratorType.Enum ? check
-      : result => result.ShouldBeEmpty();
   protected override void MakeItems(SimpleBuilder<IGqlpEnum> builder, params string[] items)
     => ((EnumBuilder)builder).WithLabels(items);
   protected override SimpleBuilder<IGqlpEnum> MakeSimple(string name)

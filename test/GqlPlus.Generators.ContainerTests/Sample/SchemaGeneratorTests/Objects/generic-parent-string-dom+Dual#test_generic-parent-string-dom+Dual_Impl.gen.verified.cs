@@ -19,7 +19,7 @@ public class testGnrcPrntStrDomDualObject
   , ItestGnrcPrntStrDomDualObject
 {
 
-  public testGnrcPrntStrDomDualObject(TRef field)
+  public testGnrcPrntStrDomDualObject(ItestDomGnrcPrntStrDomDual field)
     : base(field)
   {
   }

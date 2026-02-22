@@ -24,7 +24,7 @@ public class CmptGnrcPrntSmplEnumDualObject
   , ICmptGnrcPrntSmplEnumDualObject
 {
 
-  public CmptGnrcPrntSmplEnumDualObject(TRef field)
+  public CmptGnrcPrntSmplEnumDualObject(CmptEnumGnrcPrntSmplEnumDual field)
     : base(field)
   {
   }

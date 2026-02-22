@@ -268,7 +268,7 @@ public class test_DualFieldObject
   , Itest_DualFieldObject
 {
 
-  public test_DualFieldObject(TType type)
+  public test_DualFieldObject(Itest_ObjFieldType type)
     : base(type)
   {
   }
@@ -286,7 +286,7 @@ public class test_InputFieldObject
   , Itest_InputFieldObject
 {
 
-  public test_InputFieldObject(TType type)
+  public test_InputFieldObject(Itest_InputFieldType type)
     : base(type)
   {
   }
@@ -323,7 +323,7 @@ public class test_OutputFieldObject
   , Itest_OutputFieldObject
 {
 
-  public test_OutputFieldObject(TType type)
+  public test_OutputFieldObject(Itest_ObjFieldType type)
     : base(type)
   {
   }

@@ -716,7 +716,7 @@ public class Cmpt_ParentTypeObject<TKind,TItem,TAllItem>
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
 
-  public Cmpt_ParentTypeObject(TKind typeKind, TParent parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
+  public Cmpt_ParentTypeObject(TKind typeKind, ICmpt_Named parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
     : base(typeKind, parent)
   {
     Items = items;
@@ -877,7 +877,7 @@ public class Cmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
 {
   public TDomain DomainKind { get; set; }
 
-  public Cmpt_BaseDomainObject(TKind typeKind, TParent parent, ICollection<TItem> items, ICollection<TAllItem> allItems, TDomain domainKind)
+  public Cmpt_BaseDomainObject(Cmpt_TypeKind typeKind, ICmpt_Named parent, ICollection<TItem> items, ICollection<TDomainItem> allItems, TDomain domainKind)
     : base(typeKind, parent, items, allItems)
   {
     DomainKind = domainKind;
@@ -1215,7 +1215,7 @@ public class Cmpt_TypeObjectObject<TKind,TField>
   public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
 
-  public Cmpt_TypeObjectObject(TKind typeKind, TParent parent, ICollection<ICmpt_ObjTypeParam> typeParams, ICollection<TField> fields, ICollection<ICmpt_ObjAlternate> alternates, ICollection<ICmpt_ObjectFor<TField>> allFields, ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> allAlternates)
+  public Cmpt_TypeObjectObject(TKind typeKind, ICmpt_ObjBase parent, ICollection<ICmpt_ObjTypeParam> typeParams, ICollection<TField> fields, ICollection<ICmpt_ObjAlternate> alternates, ICollection<ICmpt_ObjectFor<TField>> allFields, ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> allAlternates)
     : base(typeKind, parent)
   {
     TypeParams = typeParams;
@@ -1454,7 +1454,7 @@ public class Cmpt_DualFieldObject
   , ICmpt_DualFieldObject
 {
 
-  public Cmpt_DualFieldObject(TType type)
+  public Cmpt_DualFieldObject(ICmpt_ObjFieldType type)
     : base(type)
   {
   }
@@ -1472,7 +1472,7 @@ public class Cmpt_InputFieldObject
   , ICmpt_InputFieldObject
 {
 
-  public Cmpt_InputFieldObject(TType type)
+  public Cmpt_InputFieldObject(ICmpt_InputFieldType type)
     : base(type)
   {
   }
@@ -1509,7 +1509,7 @@ public class Cmpt_OutputFieldObject
   , ICmpt_OutputFieldObject
 {
 
-  public Cmpt_OutputFieldObject(TType type)
+  public Cmpt_OutputFieldObject(ICmpt_ObjFieldType type)
     : base(type)
   {
   }

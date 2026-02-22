@@ -19,7 +19,7 @@ public class testGnrcPrntEnumChildDualObject
   , ItestGnrcPrntEnumChildDualObject
 {
 
-  public testGnrcPrntEnumChildDualObject(TRef field)
+  public testGnrcPrntEnumChildDualObject(testParentGnrcPrntEnumChildDual field)
     : base(field)
   {
   }

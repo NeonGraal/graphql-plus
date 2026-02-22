@@ -19,7 +19,7 @@ public class testCnstFieldObjDualObject
   , ItestCnstFieldObjDualObject
 {
 
-  public testCnstFieldObjDualObject(TRef field)
+  public testCnstFieldObjDualObject(ItestAltCnstFieldObjDual field)
     : base(field)
   {
   }

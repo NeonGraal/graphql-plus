@@ -375,7 +375,7 @@ public class test_ParentTypeObject<TKind,TItem,TAllItem>
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
 
-  public test_ParentTypeObject(TKind typeKind, TParent parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
+  public test_ParentTypeObject(TKind typeKind, Itest_Named parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
     : base(typeKind, parent)
   {
     Items = items;
@@ -536,7 +536,7 @@ public class test_BaseDomainObject<TDomain,TItem,TDomainItem>
 {
   public TDomain DomainKind { get; set; }
 
-  public test_BaseDomainObject(TKind typeKind, TParent parent, ICollection<TItem> items, ICollection<TAllItem> allItems, TDomain domainKind)
+  public test_BaseDomainObject(test_TypeKind typeKind, Itest_Named parent, ICollection<TItem> items, ICollection<TDomainItem> allItems, TDomain domainKind)
     : base(typeKind, parent, items, allItems)
   {
     DomainKind = domainKind;
@@ -874,7 +874,7 @@ public class test_TypeObjectObject<TKind,TField>
   public ICollection<Itest_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
 
-  public test_TypeObjectObject(TKind typeKind, TParent parent, ICollection<Itest_ObjTypeParam> typeParams, ICollection<TField> fields, ICollection<Itest_ObjAlternate> alternates, ICollection<Itest_ObjectFor<TField>> allFields, ICollection<Itest_ObjectFor<Itest_ObjAlternate>> allAlternates)
+  public test_TypeObjectObject(TKind typeKind, Itest_ObjBase parent, ICollection<Itest_ObjTypeParam> typeParams, ICollection<TField> fields, ICollection<Itest_ObjAlternate> alternates, ICollection<Itest_ObjectFor<TField>> allFields, ICollection<Itest_ObjectFor<Itest_ObjAlternate>> allAlternates)
     : base(typeKind, parent)
   {
     TypeParams = typeParams;
@@ -1113,7 +1113,7 @@ public class test_DualFieldObject
   , Itest_DualFieldObject
 {
 
-  public test_DualFieldObject(TType type)
+  public test_DualFieldObject(Itest_ObjFieldType type)
     : base(type)
   {
   }
@@ -1131,7 +1131,7 @@ public class test_InputFieldObject
   , Itest_InputFieldObject
 {
 
-  public test_InputFieldObject(TType type)
+  public test_InputFieldObject(Itest_InputFieldType type)
     : base(type)
   {
   }
@@ -1168,7 +1168,7 @@ public class test_OutputFieldObject
   , Itest_OutputFieldObject
 {
 
-  public test_OutputFieldObject(TType type)
+  public test_OutputFieldObject(Itest_ObjFieldType type)
     : base(type)
   {
   }

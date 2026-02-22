@@ -136,7 +136,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithModifiedField_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string fieldName, string fieldType)
+  public void GenerateType_WithOptField_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string fieldName, string fieldType)
   {
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
@@ -153,6 +153,66 @@ public abstract class GenerateObjectTestsBase<TObjField>(
     context.CheckFor(
       ForGeneratedCodeName(name),
       ForGeneratedBoth("I" + TestPrefix + fieldType + "? " + fieldName + " { get;"));
+  }
+
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
+  public void GenerateType_WithListField_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string fieldName, string fieldType)
+  {
+    // Arrange
+    GqlpGeneratorContext context = Context(baseType, generatorType);
+    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+      .WithObjFields(MakeField(fieldName, fieldType)
+        .WithModifier(ModifierKind.List)
+        .AsObjField)
+      .AsObject;
+
+    // Act
+    TypeGenerator.GenerateType(obj, context);
+
+    // Assert
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedBoth("ICollection<I" + TestPrefix + fieldType + "> " + fieldName + " { get;"));
+  }
+
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
+  public void GenerateType_WithDictField_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string fieldName, string fieldType, string fieldKey)
+  {
+    // Arrange
+    GqlpGeneratorContext context = Context(baseType, generatorType);
+    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+      .WithObjFields(MakeField(fieldName, fieldType)
+        .WithModifier(ModifierKind.Dict, fieldKey)
+        .AsObjField)
+      .AsObject;
+
+    // Act
+    TypeGenerator.GenerateType(obj, context);
+
+    // Assert
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedBoth("IDictionary<I" + TestPrefix + fieldKey + ", I" + TestPrefix + fieldType + "> " + fieldName + " { get;"));
+  }
+
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
+  public void GenerateType_WithParamField_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string fieldName, string fieldType, string fieldParam)
+  {
+    // Arrange
+    GqlpGeneratorContext context = Context(baseType, generatorType);
+    IGqlpObject<TObjField> obj = A.Obj<TObjField>(Kind, name)
+      .WithObjFields(MakeField(fieldName, fieldType)
+        .WithModifier(ModifierKind.Param, fieldParam)
+        .AsObjField)
+      .AsObject;
+
+    // Act
+    TypeGenerator.GenerateType(obj, context);
+
+    // Assert
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedBoth("IDictionary<T" + fieldParam + ", I" + TestPrefix + fieldType + "> " + fieldName + " { get;"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]

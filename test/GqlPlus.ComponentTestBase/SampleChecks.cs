@@ -52,7 +52,7 @@ public class SampleChecks
 
     if (expected.Count == 0) {
       if (additionalCategories.Length > 0) {
-        await WriteUnexpectedErrors(file, errors, path);
+        await WriteUnexpectedErrors(file, errors, path, additionalCategories[0]);
       }
 
       return;
@@ -75,7 +75,7 @@ public class SampleChecks
   }
 
   [ExcludeFromCodeCoverage]
-  private static async Task WriteUnexpectedErrors(string file, IMessages errors, string path)
+  private static async Task WriteUnexpectedErrors(string file, IMessages errors, string path, string category)
   {
     if (errors is null || errors.Count < 1 || !AttributeReader.TryGetProjectDirectory(out string? project)) {
       return;
@@ -86,15 +86,14 @@ public class SampleChecks
       Directory.CreateDirectory($"{project}/{path}");
     }
 
-    await File.WriteAllLinesAsync($"{project}/{path}/{file}.verify+errors", errorLines);
+    await File.WriteAllLinesAsync($"{project}/{path}/{file}.{category}+errors", errorLines);
     errorLines.ShouldBeEmpty();
   }
 
   private static async Task<List<string>> ReadExpectedErrors(string file, params string[] additionalCategories)
   {
     List<string> expected = [];
-    List<string> suffixes = [".", ".parse-"];
-    suffixes.AddRange(additionalCategories.Select(category => $".{category}-"));
+    List<string> suffixes = [".", .. additionalCategories.Select(category => $".{category}-")];
 
     if (file.Contains('+', StringComparison.Ordinal)) {
       string[] parts = file.Split('+', 2);

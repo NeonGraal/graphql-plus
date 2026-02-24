@@ -33,15 +33,3 @@ types: !_Map(_Type)
     parent: !_ObjBase
       name: _ObjFieldType
     typeKind: !_TypeKind Output
-  !_Name _InputParam: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: defaultValue
-        object: _InputFieldType
-        type: !_ObjBase
-          name: Value
-    name: _InputParam
-    parent: !_ObjBase
-      name: _InputFieldType
-    typeKind: !_TypeKind Output

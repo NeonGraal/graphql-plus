@@ -550,11 +550,11 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _Name
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: parameter
         object: _Directive
         type: !_ObjBase
-          name: _InputParam
+          name: _InputFieldType
       - !_ObjectFor(_OutputField)
         field: repeatable
         label: Boolean
@@ -569,10 +569,10 @@ types: !_Map(_Type)
         typeKind: !_SimpleKind Enum
     fields:
       - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: parameter
         type: !_ObjBase
-          name: _InputParam
+          name: _InputFieldType
       - !_OutputEnum
         field: repeatable
         label: Boolean
@@ -1324,50 +1324,6 @@ types: !_Map(_Type)
     parent: !_ObjBase
       name: _ObjFieldType
     typeKind: !_TypeKind Output
-  !_Name _InputParam: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_Alternate)
-        object: _ObjBase
-        type: !_ObjBase
-          name: _TypeParam
-      - !_ObjectFor(_Alternate)
-        object: _ObjFieldType
-        type: !_ObjBase
-          name: _ObjFieldEnum
-    allFields:
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        object: _Described
-        type: !_ObjBase
-          name: _DomainKind
-      - !_ObjectFor(_DualField)
-        name: name
-        object: _Named
-        type: !_ObjBase
-          name: _Name
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: typeArgs
-        object: _ObjBase
-        type: !_ObjBase
-          name: _ObjTypeArg
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: modifiers
-        object: _ObjFieldType
-        type: !_ObjBase
-          name: _Modifiers
-      - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
-        name: defaultValue
-        object: _InputFieldType
-        type: !_ObjBase
-          name: Value
-    name: _InputParam
-    parent: !_ObjBase
-      name: _InputFieldType
-    typeKind: !_TypeKind Output
   !_Name _Location: !_TypeEnum
     allItems:
       - !_EnumLabel
@@ -2016,17 +1972,17 @@ types: !_Map(_Type)
         type: !_ObjBase
           name: _Modifiers
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: parameter
         object: _OutputFieldType
         type: !_ObjBase
-          name: _InputParam
+          name: _InputFieldType
     fields:
       - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: parameters
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: parameter
         type: !_ObjBase
-          name: _InputParam
+          name: _InputFieldType
     name: _OutputFieldType
     parent: !_ObjBase
       name: _ObjFieldType

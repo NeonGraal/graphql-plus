@@ -8,8 +8,8 @@ public class PlainSchemaTests(
 ) : TestSchemaVerify(checks)
 {
   public override string ResultGroup => "Plain";
-  protected override Task CheckResultErrors(string[] dirs, string test, IMessages errors, params string[] additionalCategories)
-    => CheckErrors(dirs, test, errors, additionalCategories);
+  protected override Task CheckResultErrors(string[] dirs, string test, IMessages errors)
+    => CheckErrors(dirs, test, errors);
   protected override Task VerifyResult(string target, VerifySettings settings)
     => Verify(target, settings);
   public override string EncodeResult(Structured result, string section)

@@ -1330,16 +1330,16 @@
             {
               "$mapTag": "_Modifier",
               "modifierKind": {
-                "$value": "List",
+                "$value": "Opt",
                 "$valueTag": "_ModifierKind"
               }
             }
           ],
-          "name": "parameters",
+          "name": "parameter",
           "object": "_Directive",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_InputParam"
+            "name": "_InputFieldType"
           }
         },
         {
@@ -1372,15 +1372,15 @@
             {
               "$mapTag": "_Modifier",
               "modifierKind": {
-                "$value": "List",
+                "$value": "Opt",
                 "$valueTag": "_ModifierKind"
               }
             }
           ],
-          "name": "parameters",
+          "name": "parameter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_InputParam"
+            "name": "_InputFieldType"
           }
         },
         {
@@ -3164,120 +3164,6 @@
         "$valueTag": "_TypeKind"
       }
     },
-    "_InputParam": {
-      "$keyTag": "_Name",
-      "$mapTag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$mapTag": "_ObjectFor(_Alternate)",
-          "object": "_ObjBase",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_TypeParam"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_Alternate)",
-          "object": "_ObjFieldType",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_ObjFieldEnum"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$mapTag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Name"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "typeArgs",
-          "object": "_ObjBase",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_ObjTypeArg"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "List",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "modifiers",
-          "object": "_ObjFieldType",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "_Modifiers"
-          }
-        },
-        {
-          "$mapTag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$mapTag": "_Modifier",
-              "modifierKind": {
-                "$value": "Opt",
-                "$valueTag": "_ModifierKind"
-              }
-            }
-          ],
-          "name": "defaultValue",
-          "object": "_InputFieldType",
-          "type": {
-            "$mapTag": "_ObjBase",
-            "name": "Value"
-          }
-        }
-      ],
-      "name": "_InputParam",
-      "parent": {
-        "$mapTag": "_ObjBase",
-        "name": "_InputFieldType"
-      },
-      "typeKind": {
-        "$value": "Output",
-        "$valueTag": "_TypeKind"
-      }
-    },
     "_Location": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeEnum",
@@ -4757,16 +4643,16 @@
             {
               "$mapTag": "_Modifier",
               "modifierKind": {
-                "$value": "List",
+                "$value": "Opt",
                 "$valueTag": "_ModifierKind"
               }
             }
           ],
-          "name": "parameters",
+          "name": "parameter",
           "object": "_OutputFieldType",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_InputParam"
+            "name": "_InputFieldType"
           }
         }
       ],
@@ -4777,15 +4663,15 @@
             {
               "$mapTag": "_Modifier",
               "modifierKind": {
-                "$value": "List",
+                "$value": "Opt",
                 "$valueTag": "_ModifierKind"
               }
             }
           ],
-          "name": "parameters",
+          "name": "parameter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_InputParam"
+            "name": "_InputFieldType"
           }
         }
       ],

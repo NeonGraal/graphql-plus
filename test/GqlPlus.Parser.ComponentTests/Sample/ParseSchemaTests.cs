@@ -14,7 +14,7 @@ public class ParseSchemaTests(
     if (string.IsNullOrWhiteSpace(section)) {
       IGqlpSchema ast = result.Required();
 
-      await CheckErrors(dirs, test, ast.Errors);
+      await CheckErrors(dirs, test, ast.Errors, "parse");
 
       await ast.Show().AttachAndVerify("Result " + test, CustomSettings(label, "Parse", test));
     } else {
@@ -35,6 +35,6 @@ public class ParseSchemaTests(
       result.IsError(e => errors.Add(e with { Message = "Parse Error: " + e.Message }));
     }
 
-    await CheckErrors(dirs, test, errors);
+    await CheckErrors(dirs, test, errors, "parse");
   }
 }

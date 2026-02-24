@@ -52,7 +52,7 @@ internal class TypeInputResolver(
 
   protected override void ResolveParent(TypeInputModel model, IResolveContext context)
   {
-    if (model.ParentModel is null) {
+    if (model.ParentModel is null && model.Parent?.IsTypeParam == false) {
       if (context.TryGetType(model.Name, ParentName(model), out TypeDualModel? parentDual, canError: false)) {
         model.ParentModel = dualResolver.Resolve(parentDual, context);
       }

@@ -16,7 +16,7 @@ public class ParseOperationTests(
   public async Task ParseOperation(string sample)
   {
     IGqlpOperation? ast = await ParseSampleOperation("Operation", sample, "gql+");
-    await CheckErrors(["Operation"], sample, ast!.Errors);
+    await CheckErrors(["Operation"], sample, ast!.Errors, "parse");
     await VerifyOperation(ast, "Sample", sample);
   }
 

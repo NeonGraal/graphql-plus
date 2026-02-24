@@ -1,8 +1,4 @@
 ﻿!_Schema
-errors: !_Errors
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In RefGnrcPrntDualPrntInp can't get model for type 'AltGnrcPrntDualPrntInp'"
 types: !_Map(_Type)
   !_Name AltGnrcPrntDualPrntInp: !_TypeDual
     allAlternates:
@@ -28,6 +24,17 @@ types: !_Map(_Type)
     name: AltGnrcPrntDualPrntInp
     typeKind: !_TypeKind Dual
   !_Name GnrcPrntDualPrntInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: AltGnrcPrntDualPrntInp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: alt
+        object: AltGnrcPrntDualPrntInp
+        type: !_ObjBase
+          name: Number
     name: GnrcPrntDualPrntInp
     parent: !_ObjBase
       name: RefGnrcPrntDualPrntInp

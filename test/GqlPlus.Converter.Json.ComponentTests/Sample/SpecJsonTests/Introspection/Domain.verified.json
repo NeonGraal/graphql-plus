@@ -24,38 +24,6 @@
           "$value": "End",
           "$valueTag": "_TokenKind"
         },
-        "_message": "In _DomainLabel can\u0027t get model for type \u0027_BaseDomainItem\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainRange\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainRegex\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainTrueFalse\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
         "_message": "In _DomainRef can\u0027t get model for type \u0027_TypeRef\u0027"
       }
     ],
@@ -314,6 +282,15 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "label",
           "object": "_DomainLabel",
@@ -353,6 +330,51 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "lower",
+          "object": "_DomainRange",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "upper",
+          "object": "_DomainRange",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "domain",
           "object": "_DomainItem",
@@ -383,6 +405,24 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "pattern",
+          "object": "_DomainRegex",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "domain",
           "object": "_DomainItem",
@@ -412,6 +452,24 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "value",
+          "object": "_DomainTrueFalse",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "domain",
@@ -491,6 +549,15 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "label",

@@ -5,7 +5,11 @@ public class TypeInputResolverParentTests
 {
   protected override IResolver<TypeInputModel> Resolver { get; }
 
-  public TypeInputResolverParentTests() => Resolver = new TypeInputResolver();
+  public TypeInputResolverParentTests()
+  {
+    IResolver<TypeDualModel> dualResolver = RFor<TypeDualModel>();
+    Resolver = new TypeInputResolver(dualResolver);
+  }
 
   protected override ObjBaseModel MakeBase(string name, string description = "", params TypeArgModel[] args)
     => new(name, description) { Args = args };

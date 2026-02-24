@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions;
+﻿using System.Runtime.InteropServices.ComTypes;
+using GqlPlus.Abstractions;
 
 namespace GqlPlus.Generating.Objects;
 
@@ -155,47 +156,74 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   protected override void ClassTail(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     context.Write("");
-    MapPair<string>[] required = RequiredMembers(ast, context);
-    MapPair<string>[] parent = ParentRequired(ast, context);
+    MapPair<RequiredField>[] required = RequiredMembers(ast, context);
+    MapPair<RequiredField>[] parent = ParentRequired(ast, context);
 
-    string paramList = parent.Concat(required).Joined(kv => kv.Value + " " + kv.Key, ", ");
+    string paramList = parent
+      .Where(kv => string.IsNullOrEmpty(kv.Value.Label))
+      .Concat(required)
+      .Joined(kv => kv.Value.Type + " " + kv.Key, ", ");
     context.Write($"  public {context.TypeName(ast, "")}Object({paramList})");
     if (parent.Length > 0) {
-      string parentArgs = parent.Joined(kv => kv.Key, ", ");
+      string parentArgs = parent.Joined(FieldValue, ", ");
       context.Write($"    : base({parentArgs})");
     }
 
     context.Write("  {");
-    foreach (KeyValuePair<string, string> kv in required) {
-      context.Write($"    {kv.Key.Capitalize()} = {kv.Key};");
+    foreach (KeyValuePair<string, RequiredField> kv in required) {
+      context.Write($"    {kv.Key.Capitalize()} = {FieldValue(kv)};");
     }
 
     context.Write("  }");
-  }
-  internal virtual MapPair<string>[] RequiredMembers(IGqlpObject<TObjField> ast, GqlpGeneratorTypes types)
-    => [.. ast.Fields
-      .Where(f => f.Modifiers.LastOrDefault()?.ModifierKind != ModifierKind.Opt)
-      .Select(f => ModifiedTypeString(f.Type, f, types).ToPair(f.Name))];
 
-  internal virtual MapPair<string>[] ParentRequired(IGqlpObject<TObjField> ast, GqlpGeneratorTypes types)
+    static string FieldValue(MapPair<RequiredField> field)
+      => string.IsNullOrEmpty(field.Value.Label)
+      ? field.Key
+      : field.Value.Type + "." + field.Value.Label;
+  }
+
+  internal virtual MapPair<RequiredField>[] RequiredMembers(IGqlpObject ast, GqlpGeneratorTypes types)
+  {
+    return [.. ast.Fields
+      .Where(f => f.Modifiers.LastOrDefault()?.ModifierKind != ModifierKind.Opt)
+      .Select(RequiredMember(types))];
+  }
+
+  internal Func<IGqlpObjField, MapPair<RequiredField>> RequiredMember(GqlpGeneratorTypes types)
+    => f => {
+      string type = ModifiedTypeString(f.Type, f, types);
+      string label = "";
+      if (f.Type.IsTypeParam) {
+        IGqlpObjType? arg = types.GetArg(f.Type.Name);
+        if (arg is IGqlpTypeArg typeArg) {
+          label = (typeArg.EnumValue?.EnumLabel).IfWhiteSpace();
+        }
+      }
+
+      return new RequiredField(type, label).ToPair(f.Name);
+    };
+
+  internal virtual MapPair<RequiredField>[] ParentRequired(IGqlpObject ast, GqlpGeneratorTypes types)
   {
     if (ast.Parent is null || ast.Parent.IsTypeParam) {
       return [];
     }
 
     IGqlpObject? parentObject = types.GetTypeAst<IGqlpObject>(ast.Parent.Name);
-    if (parentObject is not IGqlpObject<TObjField> parentAst) {
+    if (parentObject is null) {
       return [];
     }
 
     GqlpGeneratorTypes parentTypes = new(types);
     parentTypes.AddArgs(ast.Parent.Args
-      .Zip(parentAst.TypeParams, (a, p) => a.ToPair<IGqlpObjType>(p.Name)));
+      .Zip(parentObject.TypeParams, (a, p) => a.ToPair<IGqlpObjType>(p.Name)));
 
-    MapPair<string>[] grandRequired = ParentRequired(parentAst, parentTypes);
-    MapPair<string>[] parentRequired = RequiredMembers(parentAst, parentTypes);
+    MapPair<RequiredField>[] grandRequired = ParentRequired(parentObject, parentTypes);
+    MapPair<RequiredField>[] parentRequired = RequiredMembers(parentObject, parentTypes);
 
-    return [.. grandRequired, .. parentRequired];
+    return [
+      .. grandRequired.Where(kv => string.IsNullOrEmpty(kv.Value.Label)),
+      .. parentRequired];
   }
 
   protected override string TypeHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context, string type, string prefix, GqlpBaseType baseType)
@@ -218,3 +246,5 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   protected override void TypeInterface(IGqlpObject<TObjField> ast, GqlpGeneratorContext context, string interfaceSep)
     => context.Write("  " + interfaceSep + " " + context.TypeName(ast, "I") + "Object" + TypeParamsString(ast));
 }
+
+internal record struct RequiredField(string Type, string Label);

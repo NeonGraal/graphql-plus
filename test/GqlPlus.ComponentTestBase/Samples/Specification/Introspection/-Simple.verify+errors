@@ -1,0 +1,6 @@
+!!! END : In _BaseDomain can't get model for type '_ParentType' - '' !!!
+!!! END : In _BaseDomainItem can't get model for type '_Described' - '' !!!
+!!! END : In _DomainRef can't get model for type '_TypeRef' - '' !!!
+!!! END : In _EnumLabel can't get model for type '_Aliased' - '' !!!
+!!! END : In _EnumValue can't get model for type '_TypeRef' - '' !!!
+!!! END : In _UnionRef can't get model for type '_TypeRef' - '' !!!

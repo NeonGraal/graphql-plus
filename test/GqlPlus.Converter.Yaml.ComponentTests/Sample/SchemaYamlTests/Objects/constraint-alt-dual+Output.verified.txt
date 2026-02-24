@@ -1,10 +1,11 @@
 ﻿!_Schema
-errors: !_Errors
-- !_Error
-  _kind: !_TokenKind End
-  _message: "In AltCnstAltDualOutp can't get model for type 'PrntCnstAltDualOutp'"
 types: !_Map(_Type)
   !_Name AltCnstAltDualOutp: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate)
+      object: PrntCnstAltDualOutp
+      type: !_ObjBase
+        name: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt

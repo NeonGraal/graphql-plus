@@ -5,7 +5,11 @@ public class TypeOutputResolverFieldTests
 {
   protected override IResolver<TypeOutputModel> Resolver { get; }
 
-  public TypeOutputResolverFieldTests() => Resolver = new TypeOutputResolver();
+  public TypeOutputResolverFieldTests()
+  {
+    IResolver<TypeDualModel> dualResolver = RFor<TypeDualModel>();
+    Resolver = new TypeOutputResolver(dualResolver);
+  }
 
   protected override ObjBaseModel MakeBase(string name, string description = "", params TypeArgModel[] args)
     => new(name, description) { Args = args };

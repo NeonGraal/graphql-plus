@@ -8,18 +8,6 @@ errors: !_Errors
   _message: "In _BaseDomainItem can't get model for type '_Described'"
 - !_Error
   _kind: !_TokenKind End
-  _message: "In _DomainLabel can't get model for type '_BaseDomainItem'"
-- !_Error
-  _kind: !_TokenKind End
-  _message: "In _DomainItem can't get model for type '_DomainRange'"
-- !_Error
-  _kind: !_TokenKind End
-  _message: "In _DomainItem can't get model for type '_DomainRegex'"
-- !_Error
-  _kind: !_TokenKind End
-  _message: "In _DomainItem can't get model for type '_DomainTrueFalse'"
-- !_Error
-  _kind: !_TokenKind End
   _message: "In _DomainRef can't get model for type '_TypeRef'"
 types: !_Map(_Type)
   !_Name _BaseDomain: !_TypeOutput
@@ -136,6 +124,11 @@ types: !_Map(_Type)
       name: item
   !_Name _DomainItemLabel: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_ObjBase
+        name: _DomainKind
     - !_ObjectFor(_OutputField)
       name: label
       object: _DomainLabel
@@ -155,6 +148,23 @@ types: !_Map(_Type)
     typeKind: !_TypeKind Output
   !_Name _DomainItemRange: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_ObjBase
+        name: _DomainKind
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: lower
+      object: _DomainRange
+      type: !_ObjBase
+        name: _DomainKind
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: upper
+      object: _DomainRange
+      type: !_ObjBase
+        name: _DomainKind
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
@@ -169,6 +179,16 @@ types: !_Map(_Type)
     typeKind: !_TypeKind Output
   !_Name _DomainItemRegex: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_ObjBase
+        name: _DomainKind
+    - !_ObjectFor(_DualField)
+      name: pattern
+      object: _DomainRegex
+      type: !_ObjBase
+        name: _DomainKind
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
@@ -183,6 +203,16 @@ types: !_Map(_Type)
     typeKind: !_TypeKind Output
   !_Name _DomainItemTrueFalse: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_ObjBase
+        name: _DomainKind
+    - !_ObjectFor(_DualField)
+      name: value
+      object: _DomainTrueFalse
+      type: !_ObjBase
+        name: _DomainKind
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
@@ -222,6 +252,11 @@ types: !_Map(_Type)
     typeKind: !_TypeKind Enum
   !_Name _DomainLabel: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_ObjBase
+        name: _DomainKind
     - !_ObjectFor(_OutputField)
       name: label
       object: _DomainLabel

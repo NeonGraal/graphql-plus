@@ -1,6 +1,4 @@
-﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
-[_Schema]:errors[_Errors].0[_Error]:_message="In RefGnrcPrntDualPrntInp can't get model for type 'AltGnrcPrntDualPrntInp'"
-[_Schema]:types[_Map(_Type)]:[_Name]AltGnrcPrntDualPrntInp[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltGnrcPrntDualPrntInp
+﻿[_Schema]:types[_Map(_Type)]:[_Name]AltGnrcPrntDualPrntInp[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltGnrcPrntDualPrntInp
 [_Schema]:types[_Map(_Type)]:[_Name]AltGnrcPrntDualPrntInp[_TypeDual]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
 [_Schema]:types[_Map(_Type)]:[_Name]AltGnrcPrntDualPrntInp[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:name=alt
 [_Schema]:types[_Map(_Type)]:[_Name]AltGnrcPrntDualPrntInp[_TypeDual]:allFields.0[_ObjectFor(_DualField)]:object=AltGnrcPrntDualPrntInp
@@ -10,6 +8,11 @@
 [_Schema]:types[_Map(_Type)]:[_Name]AltGnrcPrntDualPrntInp[_TypeDual]:fields.0[_DualField]:type[_ObjBase]:name=Number
 [_Schema]:types[_Map(_Type)]:[_Name]AltGnrcPrntDualPrntInp[_TypeDual]:name=AltGnrcPrntDualPrntInp
 [_Schema]:types[_Map(_Type)]:[_Name]AltGnrcPrntDualPrntInp[_TypeDual]:typeKind=[_TypeKind]Dual
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDualPrntInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=AltGnrcPrntDualPrntInp
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDualPrntInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDualPrntInp[_TypeInput]:allFields.0[_ObjectFor(_DualField)]:name=alt
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDualPrntInp[_TypeInput]:allFields.0[_ObjectFor(_DualField)]:object=AltGnrcPrntDualPrntInp
+[_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDualPrntInp[_TypeInput]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=Number
 [_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDualPrntInp[_TypeInput]:name=GnrcPrntDualPrntInp
 [_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDualPrntInp[_TypeInput]:parent[_ObjBase]:name=RefGnrcPrntDualPrntInp
 [_Schema]:types[_Map(_Type)]:[_Name]GnrcPrntDualPrntInp[_TypeInput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:name=AltGnrcPrntDualPrntInp

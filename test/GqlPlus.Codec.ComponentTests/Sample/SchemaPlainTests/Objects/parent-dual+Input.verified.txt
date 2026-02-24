@@ -1,5 +1,8 @@
-﻿[_Schema]:errors[_Errors].0[_Error]:_kind=[_TokenKind]End
-[_Schema]:errors[_Errors].0[_Error]:_message="In PrntDualInp can't get model for type 'RefPrntDualInp'"
+﻿[_Schema]:types[_Map(_Type)]:[_Name]PrntDualInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:object=RefPrntDualInp
+[_Schema]:types[_Map(_Type)]:[_Name]PrntDualInp[_TypeInput]:allAlternates.0[_ObjectFor(_Alternate)]:type[_ObjBase]:name=String
+[_Schema]:types[_Map(_Type)]:[_Name]PrntDualInp[_TypeInput]:allFields.0[_ObjectFor(_DualField)]:name=parent
+[_Schema]:types[_Map(_Type)]:[_Name]PrntDualInp[_TypeInput]:allFields.0[_ObjectFor(_DualField)]:object=RefPrntDualInp
+[_Schema]:types[_Map(_Type)]:[_Name]PrntDualInp[_TypeInput]:allFields.0[_ObjectFor(_DualField)]:type[_ObjBase]:name=Number
 [_Schema]:types[_Map(_Type)]:[_Name]PrntDualInp[_TypeInput]:name=PrntDualInp
 [_Schema]:types[_Map(_Type)]:[_Name]PrntDualInp[_TypeInput]:parent[_ObjBase]:name=RefPrntDualInp
 [_Schema]:types[_Map(_Type)]:[_Name]PrntDualInp[_TypeInput]:typeKind=[_TypeKind]Input

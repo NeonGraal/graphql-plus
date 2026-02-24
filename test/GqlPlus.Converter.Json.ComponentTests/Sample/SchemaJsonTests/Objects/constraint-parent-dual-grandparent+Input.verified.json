@@ -1,23 +1,20 @@
 ﻿{
   "$mapTag": "_Schema",
-  "errors": {
-    "$list": [
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In AltCnstPrntDualGrndInp can\u0027t get model for type \u0027PrntCnstPrntDualGrndInp\u0027"
-      }
-    ],
-    "$listTag": "_Errors"
-  },
   "types": {
     "$mapTag": "_Map(_Type)",
     "AltCnstPrntDualGrndInp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "GrndCnstPrntDualGrndInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_InputField)",
@@ -52,6 +49,16 @@
     "CnstPrntDualGrndInp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "GrndCnstPrntDualGrndInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_InputField)",

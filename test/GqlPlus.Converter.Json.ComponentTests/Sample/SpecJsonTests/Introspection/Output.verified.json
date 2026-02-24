@@ -52,16 +52,16 @@
             {
               "$mapTag": "_Modifier",
               "modifierKind": {
-                "$value": "List",
+                "$value": "Opt",
                 "$valueTag": "_ModifierKind"
               }
             }
           ],
-          "name": "parameters",
+          "name": "parameter",
           "object": "_OutputFieldType",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_InputParam"
+            "name": "_InputFieldType"
           }
         }
       ],
@@ -72,15 +72,15 @@
             {
               "$mapTag": "_Modifier",
               "modifierKind": {
-                "$value": "List",
+                "$value": "Opt",
                 "$valueTag": "_ModifierKind"
               }
             }
           ],
-          "name": "parameters",
+          "name": "parameter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_InputParam"
+            "name": "_InputFieldType"
           }
         }
       ],

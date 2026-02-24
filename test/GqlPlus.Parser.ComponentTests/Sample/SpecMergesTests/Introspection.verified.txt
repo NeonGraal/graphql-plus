@@ -282,11 +282,11 @@ Success
   _Aliased
   {
     !OF I@009/0077
-    parameters
+    parameter
     :
-    I@021/0077
-    _InputParam
-    []
+    I@020/0077
+    _InputFieldType
+    ?
     !OF I@009/0078
     repeatable
     =
@@ -1316,35 +1316,28 @@ Success
 }
 {
   !Ou I@008/0332
-  _InputParam
-  :
-  I@007/0333
-  _InputFieldType
-}
-{
-  !Ou I@008/0336
   _OutputField
   :
-  I@007/0337
+  I@007/0333
   _ObjField
   <
-    I@017/0337
+    I@017/0333
     _ObjFieldType
   >
 }
 {
-  !Ou I@008/0340
+  !Ou I@008/0336
   _OutputFieldType
   :
-  I@007/0341
+  I@007/0337
   _ObjFieldType
   {
-    !OF I@009/0342
-    parameters
+    !OF I@009/0338
+    parameter
     :
-    I@021/0342
-    _InputParam
-    []
+    I@020/0338
+    _InputFieldType
+    ?
   }
 }
 ]

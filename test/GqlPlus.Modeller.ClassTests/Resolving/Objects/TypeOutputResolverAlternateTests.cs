@@ -5,7 +5,11 @@ public class TypeOutputResolverAlternateTests
 {
   protected override IResolver<TypeOutputModel> Resolver { get; }
 
-  public TypeOutputResolverAlternateTests() => Resolver = new TypeOutputResolver();
+  public TypeOutputResolverAlternateTests()
+  {
+    IResolver<TypeDualModel> dualResolver = RFor<TypeDualModel>();
+    Resolver = new TypeOutputResolver(dualResolver);
+  }
 
   protected override AlternateModel MakeAlternate(string alternate)
     => new(new ObjBaseModel(alternate, ""));

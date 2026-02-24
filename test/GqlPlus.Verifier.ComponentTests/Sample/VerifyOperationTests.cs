@@ -42,7 +42,7 @@ public class VerifyOperationTests(
       parse.IsError(result.Add);
     }
 
-    await CheckErrors(["Operation", "Invalid"], operation, result, true);
+    await CheckErrors(["Operation", "Invalid"], operation, result, "verify");
   }
 
   private async Task<IResult<IGqlpOperation>> Parse(string category, string operation)

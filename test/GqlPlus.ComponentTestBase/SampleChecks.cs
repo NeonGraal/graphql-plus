@@ -42,14 +42,16 @@ public class SampleChecks
     => input is null ? []
     : [.. s_textInfo.ToTitleCase(input).Split('-')];
 
-  protected async Task CheckErrors(string[] dirs, string file, IMessages errors, bool includeVerify = false)
+  protected async Task CheckErrors(string[] dirs, string file, IMessages errors, params string[] additionalCategories)
   {
+    ArgumentNullException.ThrowIfNull(additionalCategories);
+
     string path = dirs.Prepend("Samples").Joined("/");
 
-    List<string> expected = await ReadExpectedErrors($"{path}/{file}", includeVerify);
+    List<string> expected = await ReadExpectedErrors($"{path}/{file}", additionalCategories);
 
     if (expected.Count == 0) {
-      if (includeVerify) {
+      if (additionalCategories.Length > 0) {
         await WriteUnexpectedErrors(file, errors, path);
       }
 
@@ -88,13 +90,11 @@ public class SampleChecks
     errorLines.ShouldBeEmpty();
   }
 
-  private static async Task<List<string>> ReadExpectedErrors(string file, bool includeVerify)
+  private static async Task<List<string>> ReadExpectedErrors(string file, params string[] additionalCategories)
   {
     List<string> expected = [];
     List<string> suffixes = [".", ".parse-"];
-    if (includeVerify) {
-      suffixes.Add(".verify-");
-    }
+    suffixes.AddRange(additionalCategories.Select(category => $".{category}-"));
 
     if (file.Contains('+', StringComparison.Ordinal)) {
       string[] parts = file.Split('+', 2);

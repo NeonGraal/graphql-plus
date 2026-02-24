@@ -26,7 +26,7 @@ public abstract class TestSchemaVerify(
     await VerifyResult(target, settings);
   }
 
-  protected virtual Task CheckResultErrors(string[] dirs, string test, IMessages errors, bool includeVerify = false)
+  protected virtual Task CheckResultErrors(string[] dirs, string test, IMessages errors, params string[] additionalCategories)
     => Task.CompletedTask;
 
   protected abstract Task VerifyResult(string target, VerifySettings settings);

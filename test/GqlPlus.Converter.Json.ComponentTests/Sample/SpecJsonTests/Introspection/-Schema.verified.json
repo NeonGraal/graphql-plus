@@ -1,18 +1,5 @@
 ﻿{
   "$mapTag": "_Schema",
-  "errors": {
-    "$list": [
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _Schema can\u0027t get model for type \u0027_Named\u0027"
-      }
-    ],
-    "$listTag": "_Errors"
-  },
   "types": {
     "$mapTag": "_Map(_Type)",
     "_Aliased": {
@@ -650,6 +637,33 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [

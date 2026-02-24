@@ -146,43 +146,6 @@ directives: !_Map(_Directives)
       modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
       name: InDrctParamOpt
     repeatable: false
-errors: !_Errors
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In AltCnstAltDualInp can't get model for type 'PrntCnstAltDualInp'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In AltCnstAltDualOutp can't get model for type 'PrntCnstAltDualOutp'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In AltCnstFieldDualInp can't get model for type 'PrntCnstFieldDualInp'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In AltCnstFieldDualOutp can't get model for type 'PrntCnstFieldDualOutp'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In AltCnstPrntDualGrndInp can't get model for type 'PrntCnstPrntDualGrndInp'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In AltCnstPrntDualGrndOutp can't get model for type 'PrntCnstPrntDualGrndOutp'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In AltCnstPrntDualPrntInp can't get model for type 'PrntCnstPrntDualPrntInp'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In AltCnstPrntDualPrntOutp can't get model for type 'PrntCnstPrntDualPrntOutp'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In RefGnrcPrntDualPrntInp can't get model for type 'AltGnrcPrntDualPrntInp'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In RefGnrcPrntDualPrntOutp can't get model for type 'AltGnrcPrntDualPrntOutp'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In PrntDualInp can't get model for type 'RefPrntDualInp'"
-  - !_Error
-    _kind: !_TokenKind End
-    _message: "In PrntDualOutp can't get model for type 'RefPrntDualOutp'"
 name: Schema
 operations: !_Map(_Operations)
   !_Name Operation: !_Operation
@@ -470,6 +433,11 @@ types: !_Map(_Type)
       name: PrntCnstAltDualDual
     typeKind: !_TypeKind Dual
   !_Name AltCnstAltDualInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstAltDualInp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
@@ -486,6 +454,11 @@ types: !_Map(_Type)
       name: PrntCnstAltDualInp
     typeKind: !_TypeKind Input
   !_Name AltCnstAltDualOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstAltDualOutp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -586,6 +559,11 @@ types: !_Map(_Type)
       name: PrntCnstFieldDualDual
     typeKind: !_TypeKind Dual
   !_Name AltCnstFieldDualInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstFieldDualInp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
@@ -602,6 +580,11 @@ types: !_Map(_Type)
       name: PrntCnstFieldDualInp
     typeKind: !_TypeKind Input
   !_Name AltCnstFieldDualOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstFieldDualOutp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -702,6 +685,11 @@ types: !_Map(_Type)
       name: PrntCnstPrntDualGrndDual
     typeKind: !_TypeKind Dual
   !_Name AltCnstPrntDualGrndInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GrndCnstPrntDualGrndInp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
@@ -718,6 +706,11 @@ types: !_Map(_Type)
       name: PrntCnstPrntDualGrndInp
     typeKind: !_TypeKind Input
   !_Name AltCnstPrntDualGrndOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GrndCnstPrntDualGrndOutp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -755,6 +748,11 @@ types: !_Map(_Type)
       name: PrntCnstPrntDualPrntDual
     typeKind: !_TypeKind Dual
   !_Name AltCnstPrntDualPrntInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstPrntDualPrntInp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
@@ -771,6 +769,11 @@ types: !_Map(_Type)
       name: PrntCnstPrntDualPrntInp
     typeKind: !_TypeKind Input
   !_Name AltCnstPrntDualPrntOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstPrntDualPrntOutp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -2326,6 +2329,11 @@ types: !_Map(_Type)
           name: AltCnstPrntDualGrndDual
     typeKind: !_TypeKind Dual
   !_Name CnstPrntDualGrndInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GrndCnstPrntDualGrndInp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
@@ -2340,6 +2348,11 @@ types: !_Map(_Type)
           name: AltCnstPrntDualGrndInp
     typeKind: !_TypeKind Input
   !_Name CnstPrntDualGrndOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: GrndCnstPrntDualGrndOutp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -2373,6 +2386,11 @@ types: !_Map(_Type)
           name: AltCnstPrntDualPrntDual
     typeKind: !_TypeKind Dual
   !_Name CnstPrntDualPrntInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstPrntDualPrntInp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
@@ -2387,6 +2405,11 @@ types: !_Map(_Type)
           name: AltCnstPrntDualPrntInp
     typeKind: !_TypeKind Input
   !_Name CnstPrntDualPrntOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: PrntCnstPrntDualPrntOutp
+        type: !_ObjBase
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -6673,6 +6696,17 @@ types: !_Map(_Type)
           name: AltGnrcPrntDualPrntDual
     typeKind: !_TypeKind Dual
   !_Name GnrcPrntDualPrntInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: AltGnrcPrntDualPrntInp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: alt
+        object: AltGnrcPrntDualPrntInp
+        type: !_ObjBase
+          name: Number
     name: GnrcPrntDualPrntInp
     parent: !_ObjBase
       name: RefGnrcPrntDualPrntInp
@@ -6681,6 +6715,17 @@ types: !_Map(_Type)
           name: AltGnrcPrntDualPrntInp
     typeKind: !_TypeKind Input
   !_Name GnrcPrntDualPrntOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: AltGnrcPrntDualPrntOutp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: alt
+        object: AltGnrcPrntDualPrntOutp
+        type: !_ObjBase
+          name: Number
     name: GnrcPrntDualPrntOutp
     parent: !_ObjBase
       name: RefGnrcPrntDualPrntOutp
@@ -9058,11 +9103,33 @@ types: !_Map(_Type)
       name: RefPrntDualDual
     typeKind: !_TypeKind Dual
   !_Name PrntDualInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefPrntDualInp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: parent
+        object: RefPrntDualInp
+        type: !_ObjBase
+          name: Number
     name: PrntDualInp
     parent: !_ObjBase
       name: RefPrntDualInp
     typeKind: !_TypeKind Input
   !_Name PrntDualOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_Alternate)
+        object: RefPrntDualOutp
+        type: !_ObjBase
+          name: String
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: parent
+        object: RefPrntDualOutp
+        type: !_ObjBase
+          name: Number
     name: PrntDualOutp
     parent: !_ObjBase
       name: RefPrntDualOutp

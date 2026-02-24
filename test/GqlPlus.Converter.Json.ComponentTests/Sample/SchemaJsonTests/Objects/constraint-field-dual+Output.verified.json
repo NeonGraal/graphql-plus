@@ -1,23 +1,20 @@
 ﻿{
   "$mapTag": "_Schema",
-  "errors": {
-    "$list": [
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In AltCnstFieldDualOutp can\u0027t get model for type \u0027PrntCnstFieldDualOutp\u0027"
-      }
-    ],
-    "$listTag": "_Errors"
-  },
   "types": {
     "$mapTag": "_Map(_Type)",
     "AltCnstFieldDualOutp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "PrntCnstFieldDualOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",

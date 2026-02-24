@@ -1,186 +1,5 @@
 ﻿{
   "$mapTag": "_Schema",
-  "errors": {
-    "$list": [
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _AndType can\u0027t get model for type \u0027_Named\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _BaseType can\u0027t get model for type \u0027_Aliased\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _Category can\u0027t get model for type \u0027_Aliased\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _Directive can\u0027t get model for type \u0027_Aliased\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _DomainLabel can\u0027t get model for type \u0027_BaseDomainItem\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainRange\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainRegex\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainTrueFalse\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _DomainRef can\u0027t get model for type \u0027_TypeRef\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _ObjField can\u0027t get model for type \u0027_Aliased\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _EnumValue can\u0027t get model for type \u0027_TypeRef\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _ObjBase can\u0027t get model for type \u0027_Named\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _ObjAlternateEnum can\u0027t get model for type \u0027_TypeRef\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _ObjFieldEnum can\u0027t get model for type \u0027_TypeRef\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _ObjTypeArg can\u0027t get model for type \u0027_TypeRef\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _ObjTypeParam can\u0027t get model for type \u0027_Named\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _OpDirectives can\u0027t get model for type \u0027_Named\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _Operation can\u0027t get model for type \u0027_Aliased\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _Schema can\u0027t get model for type \u0027_Named\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _Setting can\u0027t get model for type \u0027_Named\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _TypeParam can\u0027t get model for type \u0027_Described\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In _UnionRef can\u0027t get model for type \u0027_TypeRef\u0027"
-      }
-    ],
-    "$listTag": "_Errors"
-  },
   "types": {
     "$mapTag": "_Map(_Type)",
     "_Aliased": {
@@ -277,6 +96,33 @@
       ],
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_AndType",
@@ -319,6 +165,51 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
@@ -517,6 +408,51 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
@@ -656,6 +592,33 @@
       ],
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_AndType",
@@ -707,6 +670,51 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "resolution",
@@ -980,6 +988,51 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
@@ -1227,6 +1280,51 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
@@ -1339,6 +1437,33 @@
       ],
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_AndType",
@@ -1439,6 +1564,33 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "label",
           "object": "_DomainLabel",
@@ -1478,6 +1630,69 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "lower",
+          "object": "_DomainRange",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "Opt",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "upper",
+          "object": "_DomainRange",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "domain",
           "object": "_DomainItem",
@@ -1508,6 +1723,42 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "pattern",
+          "object": "_DomainRegex",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "domain",
           "object": "_DomainItem",
@@ -1537,6 +1788,42 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "value",
+          "object": "_DomainTrueFalse",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "domain",
@@ -1616,6 +1903,33 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "label",
@@ -1764,6 +2078,42 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "typeKind",
+          "object": "_TypeRef",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "typeParam": "kind"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "domainKind",
@@ -1956,6 +2306,42 @@
       ],
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "typeKind",
+          "object": "_TypeRef",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "typeParam": "kind"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "domainKind",
           "object": "_DomainRef",
@@ -2039,6 +2425,51 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
@@ -2148,6 +2579,42 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "typeKind",
+          "object": "_TypeRef",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "typeParam": "kind"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "label",
@@ -2494,6 +2961,51 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_ObjField",
@@ -2541,6 +3053,33 @@
         }
       ],
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -3134,6 +3673,42 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "typeKind",
+          "object": "_TypeRef",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "typeParam": "kind"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "label",
           "object": "_ObjAlternateEnum",
@@ -3188,6 +3763,33 @@
         }
       ],
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -3250,6 +3852,51 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_ObjField",
@@ -3297,6 +3944,42 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "typeKind",
+          "object": "_TypeRef",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "typeParam": "kind"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "label",
@@ -3360,6 +4043,33 @@
         }
       ],
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -3450,6 +4160,42 @@
       ],
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "typeKind",
+          "object": "_TypeRef",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "typeParam": "kind"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
@@ -3516,6 +4262,33 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "constraint",
@@ -4035,6 +4808,33 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
@@ -4086,6 +4886,33 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -4212,6 +5039,33 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -4598,6 +5452,33 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
@@ -4741,6 +5622,51 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "category",
@@ -5058,6 +5984,51 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_ObjField",
@@ -5105,6 +6076,33 @@
         }
       ],
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -5193,6 +6191,51 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
@@ -5414,6 +6457,33 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -5786,6 +6856,33 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "value",
@@ -6656,6 +7753,51 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
@@ -6925,6 +8067,24 @@
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
       "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "typeParam",
@@ -7196,6 +8356,42 @@
       "$mapTag": "_TypeOutput",
       "allFields": [
         {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "typeKind",
+          "object": "_TypeRef",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "typeParam": "kind"
+          }
+        },
+        {
           "$mapTag": "_ObjectFor(_OutputField)",
           "name": "union",
           "object": "_UnionMember",
@@ -7228,6 +8424,44 @@
     "_UnionRef": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$mapTag": "_Modifier",
+              "modifierKind": {
+                "$value": "List",
+                "$valueTag": "_ModifierKind"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_DomainKind"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_Name"
+          }
+        },
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "typeKind",
+          "object": "_TypeRef",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "typeParam": "kind"
+          }
+        }
+      ],
       "name": "_UnionRef",
       "parent": {
         "$mapTag": "_ObjBase",

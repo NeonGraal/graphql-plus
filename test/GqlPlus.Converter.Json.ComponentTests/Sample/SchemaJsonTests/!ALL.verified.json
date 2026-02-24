@@ -468,107 +468,6 @@
       "repeatable": false
     }
   },
-  "errors": {
-    "$list": [
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In AltCnstAltDualInp can\u0027t get model for type \u0027PrntCnstAltDualInp\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In AltCnstAltDualOutp can\u0027t get model for type \u0027PrntCnstAltDualOutp\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In AltCnstFieldDualInp can\u0027t get model for type \u0027PrntCnstFieldDualInp\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In AltCnstFieldDualOutp can\u0027t get model for type \u0027PrntCnstFieldDualOutp\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In AltCnstPrntDualGrndInp can\u0027t get model for type \u0027PrntCnstPrntDualGrndInp\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In AltCnstPrntDualGrndOutp can\u0027t get model for type \u0027PrntCnstPrntDualGrndOutp\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In AltCnstPrntDualPrntInp can\u0027t get model for type \u0027PrntCnstPrntDualPrntInp\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In AltCnstPrntDualPrntOutp can\u0027t get model for type \u0027PrntCnstPrntDualPrntOutp\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In RefGnrcPrntDualPrntInp can\u0027t get model for type \u0027AltGnrcPrntDualPrntInp\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In RefGnrcPrntDualPrntOutp can\u0027t get model for type \u0027AltGnrcPrntDualPrntOutp\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In PrntDualInp can\u0027t get model for type \u0027RefPrntDualInp\u0027"
-      },
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In PrntDualOutp can\u0027t get model for type \u0027RefPrntDualOutp\u0027"
-      }
-    ],
-    "$listTag": "_Errors"
-  },
   "name": "Schema",
   "operations": {
     "$mapTag": "_Map(_Operations)",
@@ -1171,6 +1070,16 @@
     "AltCnstAltDualInp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "PrntCnstAltDualInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_InputField)",
@@ -1205,6 +1114,16 @@
     "AltCnstAltDualOutp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "PrntCnstAltDualOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
@@ -1415,6 +1334,16 @@
     "AltCnstFieldDualInp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "PrntCnstFieldDualInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_InputField)",
@@ -1449,6 +1378,16 @@
     "AltCnstFieldDualOutp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "PrntCnstFieldDualOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
@@ -1659,6 +1598,16 @@
     "AltCnstPrntDualGrndInp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "GrndCnstPrntDualGrndInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_InputField)",
@@ -1693,6 +1642,16 @@
     "AltCnstPrntDualGrndOutp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "GrndCnstPrntDualGrndOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
@@ -1771,6 +1730,16 @@
     "AltCnstPrntDualPrntInp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "PrntCnstPrntDualPrntInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_InputField)",
@@ -1805,6 +1774,16 @@
     "AltCnstPrntDualPrntOutp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "PrntCnstPrntDualPrntOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
@@ -5246,6 +5225,16 @@
     "CnstPrntDualGrndInp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "GrndCnstPrntDualGrndInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_InputField)",
@@ -5276,6 +5265,16 @@
     "CnstPrntDualGrndOutp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "GrndCnstPrntDualGrndOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
@@ -5346,6 +5345,16 @@
     "CnstPrntDualPrntInp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "PrntCnstPrntDualPrntInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_InputField)",
@@ -5376,6 +5385,16 @@
     "CnstPrntDualPrntOutp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "PrntCnstPrntDualPrntOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$mapTag": "_ObjectFor(_OutputField)",
@@ -14807,6 +14826,27 @@
     "GnrcPrntDualPrntInp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "AltGnrcPrntDualPrntInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "AltGnrcPrntDualPrntInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
       "name": "GnrcPrntDualPrntInp",
       "parent": {
         "$mapTag": "_ObjBase",
@@ -14826,6 +14866,27 @@
     "GnrcPrntDualPrntOutp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "AltGnrcPrntDualPrntOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "AltGnrcPrntDualPrntOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
       "name": "GnrcPrntDualPrntOutp",
       "parent": {
         "$mapTag": "_ObjBase",
@@ -20075,6 +20136,27 @@
     "PrntDualInp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "RefPrntDualInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "parent",
+          "object": "RefPrntDualInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
       "name": "PrntDualInp",
       "parent": {
         "$mapTag": "_ObjBase",
@@ -20088,6 +20170,27 @@
     "PrntDualOutp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "RefPrntDualOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "parent",
+          "object": "RefPrntDualOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
       "name": "PrntDualOutp",
       "parent": {
         "$mapTag": "_ObjBase",

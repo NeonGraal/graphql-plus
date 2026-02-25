@@ -13,7 +13,7 @@ public enum bool
   true,
 }
 
-public enum testNull
+public enum GqlpNull
 {
   null,
 }

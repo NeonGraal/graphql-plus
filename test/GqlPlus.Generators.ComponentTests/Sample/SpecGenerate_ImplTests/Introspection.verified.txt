@@ -368,7 +368,7 @@ public class Cmpt_SchemaObject
   public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
     => null;
 
-  public Cmpt_SchemaObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name)
+  public Cmpt_SchemaObject(ICollection<string> description, ICmpt_Name name)
     : base(description, name)
   {
   }
@@ -393,10 +393,10 @@ public class Cmpt_FilterObject
   , ICmpt_FilterObject
 {
   public ICollection<ICmpt_NameFilter> Names { get; set; }
-  public Cmpt_DomainKind? MatchAliases { get; set; }
+  public bool? MatchAliases { get; set; }
   public ICollection<ICmpt_NameFilter> Aliases { get; set; }
-  public Cmpt_DomainKind? ReturnByAlias { get; set; }
-  public Cmpt_DomainKind? ReturnReferencedTypes { get; set; }
+  public bool? ReturnByAlias { get; set; }
+  public bool? ReturnReferencedTypes { get; set; }
 
   public Cmpt_FilterObject(ICollection<ICmpt_NameFilter> names, ICollection<ICmpt_NameFilter> aliases)
   {
@@ -464,7 +464,7 @@ public class Cmpt_AliasedObject
 {
   public ICollection<ICmpt_Name> Aliases { get; set; }
 
-  public Cmpt_AliasedObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases)
+  public Cmpt_AliasedObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases)
     : base(description, name)
   {
     Aliases = aliases;
@@ -484,7 +484,7 @@ public class Cmpt_NamedObject
 {
   public ICmpt_Name Name { get; set; }
 
-  public Cmpt_NamedObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name)
+  public Cmpt_NamedObject(ICollection<string> description, ICmpt_Name name)
     : base(description)
   {
     Name = name;
@@ -502,9 +502,9 @@ public class Cmpt_DescribedObject
   : Spec_Introspection
   , ICmpt_DescribedObject
 {
-  public ICollection<Cmpt_DomainKind> Description { get; set; }
+  public ICollection<string> Description { get; set; }
 
-  public Cmpt_DescribedObject(ICollection<Cmpt_DomainKind> description)
+  public Cmpt_DescribedObject(ICollection<string> description)
   {
     Description = description;
   }
@@ -524,7 +524,7 @@ public class Cmpt_AndTypeObject
 {
   public ICmpt_Type Type { get; set; }
 
-  public Cmpt_AndTypeObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICmpt_Type type)
+  public Cmpt_AndTypeObject(ICollection<string> description, ICmpt_Name name, ICmpt_Type type)
     : base(description, name)
   {
     Type = type;
@@ -545,7 +545,7 @@ public class Cmpt_CategoriesObject
 {
   public ICmpt_Category Category { get; set; }
 
-  public Cmpt_CategoriesObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICmpt_Type type, ICmpt_Category category)
+  public Cmpt_CategoriesObject(ICollection<string> description, ICmpt_Name name, ICmpt_Type type, ICmpt_Category category)
     : base(description, name, type)
   {
     Category = category;
@@ -567,7 +567,7 @@ public class Cmpt_CategoryObject
   public ICmpt_TypeRef<Cmpt_TypeKind> Output { get; set; }
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
-  public Cmpt_CategoryObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, Cmpt_Resolution resolution, ICmpt_TypeRef<Cmpt_TypeKind> output, ICollection<ICmpt_Modifiers> modifiers)
+  public Cmpt_CategoryObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, Cmpt_Resolution resolution, ICmpt_TypeRef<Cmpt_TypeKind> output, ICollection<ICmpt_Modifiers> modifiers)
     : base(description, name, aliases)
   {
     Resolution = resolution;
@@ -590,7 +590,7 @@ public class Cmpt_DirectivesObject
 {
   public ICmpt_Directive Directive { get; set; }
 
-  public Cmpt_DirectivesObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICmpt_Type type, ICmpt_Directive directive)
+  public Cmpt_DirectivesObject(ICollection<string> description, ICmpt_Name name, ICmpt_Type type, ICmpt_Directive directive)
     : base(description, name, type)
   {
     Directive = directive;
@@ -609,10 +609,10 @@ public class Cmpt_DirectiveObject
   , ICmpt_DirectiveObject
 {
   public ICmpt_InputFieldType? Parameter { get; set; }
-  public Cmpt_DomainKind Repeatable { get; set; }
+  public bool Repeatable { get; set; }
   public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
 
-  public Cmpt_DirectiveObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, Cmpt_DomainKind repeatable, IDictionary<Cmpt_Location, GqlpUnit> locations)
+  public Cmpt_DirectiveObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, bool repeatable, IDictionary<Cmpt_Location, GqlpUnit> locations)
     : base(description, name, aliases)
   {
     Repeatable = repeatable;
@@ -633,7 +633,7 @@ public class Cmpt_SettingObject
 {
   public GqlpValue Value { get; set; }
 
-  public Cmpt_SettingObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, GqlpValue value)
+  public Cmpt_SettingObject(ICollection<string> description, ICmpt_Name name, GqlpValue value)
     : base(description, name)
   {
     Value = value;
@@ -681,7 +681,7 @@ public class Cmpt_BaseTypeObject<TKind>
 {
   public TKind TypeKind { get; set; }
 
-  public Cmpt_BaseTypeObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, TKind typeKind)
+  public Cmpt_BaseTypeObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, TKind typeKind)
     : base(description, name, aliases)
   {
     TypeKind = typeKind;
@@ -701,7 +701,7 @@ public class Cmpt_ChildTypeObject<TKind,TParent>
 {
   public TParent Parent { get; set; }
 
-  public Cmpt_ChildTypeObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, TKind typeKind, TParent parent)
+  public Cmpt_ChildTypeObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, TKind typeKind, TParent parent)
     : base(description, name, aliases, typeKind)
   {
     Parent = parent;
@@ -722,7 +722,7 @@ public class Cmpt_ParentTypeObject<TKind,TItem,TAllItem>
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
 
-  public Cmpt_ParentTypeObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, TKind typeKind, ICmpt_Named parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
+  public Cmpt_ParentTypeObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, TKind typeKind, ICmpt_Named parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
     : base(description, name, aliases, typeKind, parent)
   {
     Items = items;
@@ -743,7 +743,7 @@ public class Cmpt_TypeRefObject<TKind>
 {
   public TKind TypeKind { get; set; }
 
-  public Cmpt_TypeRefObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, TKind typeKind)
+  public Cmpt_TypeRefObject(ICollection<string> description, ICmpt_Name name, TKind typeKind)
     : base(description, name)
   {
     TypeKind = typeKind;
@@ -803,9 +803,9 @@ public class Cmpt_ModifierKeyedObject<TKind>
   , ICmpt_ModifierKeyedObject<TKind>
 {
   public ICmpt_TypeSimple By { get; set; }
-  public Cmpt_DomainKind IsOptional { get; set; }
+  public bool IsOptional { get; set; }
 
-  public Cmpt_ModifierKeyedObject(TKind modifierKind, ICmpt_TypeSimple by, Cmpt_DomainKind isOptional)
+  public Cmpt_ModifierKeyedObject(TKind modifierKind, ICmpt_TypeSimple by, bool isOptional)
     : base(modifierKind)
   {
     By = by;
@@ -864,7 +864,7 @@ public class Cmpt_DomainRefObject<TKind>
 {
   public TKind DomainKind { get; set; }
 
-  public Cmpt_DomainRefObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, TKind domainKind)
+  public Cmpt_DomainRefObject(ICollection<string> description, ICmpt_Name name, TKind domainKind)
     : base(description, name, Cmpt_TypeKind.Domain)
   {
     DomainKind = domainKind;
@@ -884,7 +884,7 @@ public class Cmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
 {
   public TDomain DomainKind { get; set; }
 
-  public Cmpt_BaseDomainObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, ICmpt_Named parent, ICollection<TItem> items, ICollection<TDomainItem> allItems, TDomain domainKind)
+  public Cmpt_BaseDomainObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, ICmpt_Named parent, ICollection<TItem> items, ICollection<TDomainItem> allItems, TDomain domainKind)
     : base(description, name, aliases, parent, items, allItems)
   {
     DomainKind = domainKind;
@@ -902,9 +902,9 @@ public class Cmpt_BaseDomainItemObject
   : Cmpt_DescribedObject
   , ICmpt_BaseDomainItemObject
 {
-  public Cmpt_DomainKind Exclude { get; set; }
+  public bool Exclude { get; set; }
 
-  public Cmpt_BaseDomainItemObject(ICollection<Cmpt_DomainKind> description, Cmpt_DomainKind exclude)
+  public Cmpt_BaseDomainItemObject(ICollection<string> description, bool exclude)
     : base(description)
   {
     Exclude = exclude;
@@ -945,7 +945,7 @@ public class Cmpt_DomainValueObject<TKind,TValue>
 {
   public TValue Value { get; set; }
 
-  public Cmpt_DomainValueObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, TKind domainKind, TValue value)
+  public Cmpt_DomainValueObject(ICollection<string> description, ICmpt_Name name, TKind domainKind, TValue value)
     : base(description, name, domainKind)
   {
     Value = value;
@@ -956,10 +956,10 @@ public class Cmpt_BasicValue
   : Spec_Introspection
   , ICmpt_BasicValue
 {
-  public Cmpt_DomainKind? As_DomainKindBoolean { get; set; }
+  public bool? AsBoolean { get; set; }
   public ICmpt_EnumValue? As_EnumValue { get; set; }
-  public Cmpt_DomainKind? As_DomainKindNumber { get; set; }
-  public Cmpt_DomainKind? As_DomainKindString { get; set; }
+  public decimal? AsNumber { get; set; }
+  public string? AsString { get; set; }
   public ICmpt_BasicValueObject? As__BasicValue { get; set; }
 }
 
@@ -984,9 +984,9 @@ public class Cmpt_DomainTrueFalseObject
   : Cmpt_BaseDomainItemObject
   , ICmpt_DomainTrueFalseObject
 {
-  public Cmpt_DomainKind Value { get; set; }
+  public bool Value { get; set; }
 
-  public Cmpt_DomainTrueFalseObject(ICollection<Cmpt_DomainKind> description, Cmpt_DomainKind exclude, Cmpt_DomainKind value)
+  public Cmpt_DomainTrueFalseObject(ICollection<string> description, bool exclude, bool value)
     : base(description, exclude)
   {
     Value = value;
@@ -1024,7 +1024,7 @@ public class Cmpt_DomainLabelObject
 {
   public ICmpt_EnumValue Label { get; set; }
 
-  public Cmpt_DomainLabelObject(ICollection<Cmpt_DomainKind> description, Cmpt_DomainKind exclude, ICmpt_EnumValue label)
+  public Cmpt_DomainLabelObject(ICollection<string> description, bool exclude, ICmpt_EnumValue label)
     : base(description, exclude)
   {
     Label = label;
@@ -1060,10 +1060,10 @@ public class Cmpt_DomainRangeObject
   : Cmpt_BaseDomainItemObject
   , ICmpt_DomainRangeObject
 {
-  public Cmpt_DomainKind? Lower { get; set; }
-  public Cmpt_DomainKind? Upper { get; set; }
+  public decimal? Lower { get; set; }
+  public decimal? Upper { get; set; }
 
-  public Cmpt_DomainRangeObject(ICollection<Cmpt_DomainKind> description, Cmpt_DomainKind exclude)
+  public Cmpt_DomainRangeObject(ICollection<string> description, bool exclude)
     : base(description, exclude)
   {
   }
@@ -1098,9 +1098,9 @@ public class Cmpt_DomainRegexObject
   : Cmpt_BaseDomainItemObject
   , ICmpt_DomainRegexObject
 {
-  public Cmpt_DomainKind Pattern { get; set; }
+  public string Pattern { get; set; }
 
-  public Cmpt_DomainRegexObject(ICollection<Cmpt_DomainKind> description, Cmpt_DomainKind exclude, Cmpt_DomainKind pattern)
+  public Cmpt_DomainRegexObject(ICollection<string> description, bool exclude, string pattern)
     : base(description, exclude)
   {
     Pattern = pattern;
@@ -1138,7 +1138,7 @@ public class Cmpt_EnumLabelObject
 {
   public ICmpt_Name EnumType { get; set; }
 
-  public Cmpt_EnumLabelObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, ICmpt_Name enumType)
+  public Cmpt_EnumLabelObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, ICmpt_Name enumType)
     : base(description, name, aliases)
   {
     EnumType = enumType;
@@ -1158,7 +1158,7 @@ public class Cmpt_EnumValueObject
 {
   public ICmpt_Name Label { get; set; }
 
-  public Cmpt_EnumValueObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICmpt_Name label)
+  public Cmpt_EnumValueObject(ICollection<string> description, ICmpt_Name name, ICmpt_Name label)
     : base(description, name, Cmpt_TypeKind.Enum)
   {
     Label = label;
@@ -1177,7 +1177,7 @@ public class Cmpt_UnionRefObject
   , ICmpt_UnionRefObject
 {
 
-  public Cmpt_UnionRefObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, Cmpt_SimpleKind typeKind)
+  public Cmpt_UnionRefObject(ICollection<string> description, ICmpt_Name name, Cmpt_SimpleKind typeKind)
     : base(description, name, typeKind)
   {
   }
@@ -1196,7 +1196,7 @@ public class Cmpt_UnionMemberObject
 {
   public ICmpt_Name Union { get; set; }
 
-  public Cmpt_UnionMemberObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, Cmpt_SimpleKind typeKind, ICmpt_Name union)
+  public Cmpt_UnionMemberObject(ICollection<string> description, ICmpt_Name name, Cmpt_SimpleKind typeKind, ICmpt_Name union)
     : base(description, name, typeKind)
   {
     Union = union;
@@ -1226,7 +1226,7 @@ public class Cmpt_TypeObjectObject<TKind,TField>
   public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
 
-  public Cmpt_TypeObjectObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, TKind typeKind, ICmpt_ObjBase parent, ICollection<ICmpt_ObjTypeParam> typeParams, ICollection<TField> fields, ICollection<ICmpt_ObjAlternate> alternates, ICollection<ICmpt_ObjectFor<TField>> allFields, ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> allAlternates)
+  public Cmpt_TypeObjectObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, TKind typeKind, ICmpt_ObjBase parent, ICollection<ICmpt_ObjTypeParam> typeParams, ICollection<TField> fields, ICollection<ICmpt_ObjAlternate> alternates, ICollection<ICmpt_ObjectFor<TField>> allFields, ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> allAlternates)
     : base(description, name, aliases, typeKind, parent)
   {
     TypeParams = typeParams;
@@ -1250,7 +1250,7 @@ public class Cmpt_ObjTypeParamObject
 {
   public ICmpt_TypeRef<Cmpt_TypeKind> Constraint { get; set; }
 
-  public Cmpt_ObjTypeParamObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICmpt_TypeRef<Cmpt_TypeKind> constraint)
+  public Cmpt_ObjTypeParamObject(ICollection<string> description, ICmpt_Name name, ICmpt_TypeRef<Cmpt_TypeKind> constraint)
     : base(description, name)
   {
     Constraint = constraint;
@@ -1271,7 +1271,7 @@ public class Cmpt_ObjBaseObject
 {
   public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
 
-  public Cmpt_ObjBaseObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_ObjTypeArg> typeArgs)
+  public Cmpt_ObjBaseObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_ObjTypeArg> typeArgs)
     : base(description, name)
   {
     TypeArgs = typeArgs;
@@ -1292,7 +1292,7 @@ public class Cmpt_ObjTypeArgObject
 {
   public ICmpt_Name? Label { get; set; }
 
-  public Cmpt_ObjTypeArgObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, Cmpt_TypeKind typeKind)
+  public Cmpt_ObjTypeArgObject(ICollection<string> description, ICmpt_Name name, Cmpt_TypeKind typeKind)
     : base(description, name, typeKind)
   {
   }
@@ -1311,7 +1311,7 @@ public class Cmpt_TypeParamObject
 {
   public ICmpt_Name TypeParam { get; set; }
 
-  public Cmpt_TypeParamObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name typeParam)
+  public Cmpt_TypeParamObject(ICollection<string> description, ICmpt_Name typeParam)
     : base(description)
   {
     TypeParam = typeParam;
@@ -1353,7 +1353,7 @@ public class Cmpt_ObjAlternateEnumObject
 {
   public ICmpt_Name Label { get; set; }
 
-  public Cmpt_ObjAlternateEnumObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICmpt_Name label)
+  public Cmpt_ObjAlternateEnumObject(ICollection<string> description, ICmpt_Name name, ICmpt_Name label)
     : base(description, name, Cmpt_TypeKind.Enum)
   {
     Label = label;
@@ -1393,7 +1393,7 @@ public class Cmpt_ObjFieldObject<TType>
 {
   public TType Type { get; set; }
 
-  public Cmpt_ObjFieldObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, TType type)
+  public Cmpt_ObjFieldObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, TType type)
     : base(description, name, aliases)
   {
     Type = type;
@@ -1414,7 +1414,7 @@ public class Cmpt_ObjFieldTypeObject
 {
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
-  public Cmpt_ObjFieldTypeObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_ObjTypeArg> typeArgs, ICollection<ICmpt_Modifiers> modifiers)
+  public Cmpt_ObjFieldTypeObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_ObjTypeArg> typeArgs, ICollection<ICmpt_Modifiers> modifiers)
     : base(description, name, typeArgs)
   {
     Modifiers = modifiers;
@@ -1434,7 +1434,7 @@ public class Cmpt_ObjFieldEnumObject
 {
   public ICmpt_Name Label { get; set; }
 
-  public Cmpt_ObjFieldEnumObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICmpt_Name label)
+  public Cmpt_ObjFieldEnumObject(ICollection<string> description, ICmpt_Name name, ICmpt_Name label)
     : base(description, name, Cmpt_TypeKind.Enum)
   {
     Label = label;
@@ -1472,7 +1472,7 @@ public class Cmpt_DualFieldObject
   , ICmpt_DualFieldObject
 {
 
-  public Cmpt_DualFieldObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, ICmpt_ObjFieldType type)
+  public Cmpt_DualFieldObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, ICmpt_ObjFieldType type)
     : base(description, name, aliases, type)
   {
   }
@@ -1490,7 +1490,7 @@ public class Cmpt_InputFieldObject
   , ICmpt_InputFieldObject
 {
 
-  public Cmpt_InputFieldObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, ICmpt_InputFieldType type)
+  public Cmpt_InputFieldObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, ICmpt_InputFieldType type)
     : base(description, name, aliases, type)
   {
   }
@@ -1509,7 +1509,7 @@ public class Cmpt_InputFieldTypeObject
 {
   public GqlpValue? DefaultValue { get; set; }
 
-  public Cmpt_InputFieldTypeObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_ObjTypeArg> typeArgs, ICollection<ICmpt_Modifiers> modifiers)
+  public Cmpt_InputFieldTypeObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_ObjTypeArg> typeArgs, ICollection<ICmpt_Modifiers> modifiers)
     : base(description, name, typeArgs, modifiers)
   {
   }
@@ -1527,7 +1527,7 @@ public class Cmpt_OutputFieldObject
   , ICmpt_OutputFieldObject
 {
 
-  public Cmpt_OutputFieldObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, ICmpt_ObjFieldType type)
+  public Cmpt_OutputFieldObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases, ICmpt_ObjFieldType type)
     : base(description, name, aliases, type)
   {
   }
@@ -1546,7 +1546,7 @@ public class Cmpt_OutputFieldTypeObject
 {
   public ICmpt_InputFieldType? Parameter { get; set; }
 
-  public Cmpt_OutputFieldTypeObject(ICollection<Cmpt_DomainKind> description, ICmpt_Name name, ICollection<ICmpt_ObjTypeArg> typeArgs, ICollection<ICmpt_Modifiers> modifiers)
+  public Cmpt_OutputFieldTypeObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_ObjTypeArg> typeArgs, ICollection<ICmpt_Modifiers> modifiers)
     : base(description, name, typeArgs, modifiers)
   {
   }

@@ -11,7 +11,7 @@ public interface Itest_Opt<TT>
   : IGqlpModelImplementationBase
 {
   TT? AsT { get; }
-  testNull? AsNull { get; }
+  GqlpNull? AsNull { get; }
   Itest_OptObject<TT>? As__Opt { get; }
 }
 
@@ -83,7 +83,7 @@ public interface Itest_IfElseObject<TT>
 public interface Itest_Set<TK>
   : IGqlpModelImplementationBase
 {
-  IDictionary<TK, GqlpUnit>? AsUnit_ { get; }
+  IDictionary<TK, GqlpUnit>? AsUnit { get; }
   Itest_SetObject<TK>? As__Set { get; }
 }
 

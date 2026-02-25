@@ -40,7 +40,7 @@ public interface Itest_BaseDomainItem
 public interface Itest_BaseDomainItemObject
   : Itest_DescribedObject
 {
-  test_DomainKind Exclude { get; }
+  bool Exclude { get; }
 }
 
 public interface Itest_DomainItem<TItem>
@@ -72,10 +72,10 @@ public interface Itest_DomainValueObject<TKind,TValue>
 public interface Itest_BasicValue
   : IGqlpModelImplementationBase
 {
-  test_DomainKind? As_DomainKindBoolean { get; }
+  bool? AsBoolean { get; }
   Itest_EnumValue? As_EnumValue { get; }
-  test_DomainKind? As_DomainKindNumber { get; }
-  test_DomainKind? As_DomainKindString { get; }
+  decimal? AsNumber { get; }
+  string? AsString { get; }
   Itest_BasicValueObject? As__BasicValue { get; }
 }
 
@@ -93,7 +93,7 @@ public interface Itest_DomainTrueFalse
 public interface Itest_DomainTrueFalseObject
   : Itest_BaseDomainItemObject
 {
-  test_DomainKind Value { get; }
+  bool Value { get; }
 }
 
 public interface Itest_DomainItemTrueFalse
@@ -139,8 +139,8 @@ public interface Itest_DomainRange
 public interface Itest_DomainRangeObject
   : Itest_BaseDomainItemObject
 {
-  test_DomainKind? Lower { get; }
-  test_DomainKind? Upper { get; }
+  decimal? Lower { get; }
+  decimal? Upper { get; }
 }
 
 public interface Itest_DomainItemRange
@@ -163,7 +163,7 @@ public interface Itest_DomainRegex
 public interface Itest_DomainRegexObject
   : Itest_BaseDomainItemObject
 {
-  test_DomainKind Pattern { get; }
+  string Pattern { get; }
 }
 
 public interface Itest_DomainItemRegex

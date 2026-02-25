@@ -44,7 +44,7 @@ public enum bool
   true,
 }
 
-public enum CmptNull
+public enum GqlpNull
 {
   null,
 }

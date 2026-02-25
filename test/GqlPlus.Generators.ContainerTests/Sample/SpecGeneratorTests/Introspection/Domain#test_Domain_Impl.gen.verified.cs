@@ -56,9 +56,9 @@ public class test_BaseDomainItemObject
   : test_DescribedObject
   , Itest_BaseDomainItemObject
 {
-  public test_DomainKind Exclude { get; set; }
+  public bool Exclude { get; set; }
 
-  public test_BaseDomainItemObject(test_DomainKind exclude)
+  public test_BaseDomainItemObject(bool exclude)
   {
     Exclude = exclude;
   }
@@ -109,10 +109,10 @@ public class test_BasicValue
   : GqlpModelImplementationBase
   , Itest_BasicValue
 {
-  public test_DomainKind? As_DomainKindBoolean { get; set; }
+  public bool? AsBoolean { get; set; }
   public Itest_EnumValue? As_EnumValue { get; set; }
-  public test_DomainKind? As_DomainKindNumber { get; set; }
-  public test_DomainKind? As_DomainKindString { get; set; }
+  public decimal? AsNumber { get; set; }
+  public string? AsString { get; set; }
   public Itest_BasicValueObject? As__BasicValue { get; set; }
 }
 
@@ -137,9 +137,9 @@ public class test_DomainTrueFalseObject
   : test_BaseDomainItemObject
   , Itest_DomainTrueFalseObject
 {
-  public test_DomainKind Value { get; set; }
+  public bool Value { get; set; }
 
-  public test_DomainTrueFalseObject(test_DomainKind exclude, test_DomainKind value)
+  public test_DomainTrueFalseObject(bool exclude, bool value)
     : base(exclude)
   {
     Value = value;
@@ -177,7 +177,7 @@ public class test_DomainLabelObject
 {
   public Itest_EnumValue Label { get; set; }
 
-  public test_DomainLabelObject(test_DomainKind exclude, Itest_EnumValue label)
+  public test_DomainLabelObject(bool exclude, Itest_EnumValue label)
     : base(exclude)
   {
     Label = label;
@@ -213,10 +213,10 @@ public class test_DomainRangeObject
   : test_BaseDomainItemObject
   , Itest_DomainRangeObject
 {
-  public test_DomainKind? Lower { get; set; }
-  public test_DomainKind? Upper { get; set; }
+  public decimal? Lower { get; set; }
+  public decimal? Upper { get; set; }
 
-  public test_DomainRangeObject(test_DomainKind exclude)
+  public test_DomainRangeObject(bool exclude)
     : base(exclude)
   {
   }
@@ -251,9 +251,9 @@ public class test_DomainRegexObject
   : test_BaseDomainItemObject
   , Itest_DomainRegexObject
 {
-  public test_DomainKind Pattern { get; set; }
+  public string Pattern { get; set; }
 
-  public test_DomainRegexObject(test_DomainKind exclude, test_DomainKind pattern)
+  public test_DomainRegexObject(bool exclude, string pattern)
     : base(exclude)
   {
     Pattern = pattern;

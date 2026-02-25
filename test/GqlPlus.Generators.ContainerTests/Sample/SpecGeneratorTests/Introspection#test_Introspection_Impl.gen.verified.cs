@@ -27,7 +27,7 @@ public class test_SchemaObject
   public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
     => null;
 
-  public test_SchemaObject(ICollection<test_DomainKind> description, Itest_Name name)
+  public test_SchemaObject(ICollection<string> description, Itest_Name name)
     : base(description, name)
   {
   }
@@ -52,10 +52,10 @@ public class test_FilterObject
   , Itest_FilterObject
 {
   public ICollection<Itest_NameFilter> Names { get; set; }
-  public test_DomainKind? MatchAliases { get; set; }
+  public bool? MatchAliases { get; set; }
   public ICollection<Itest_NameFilter> Aliases { get; set; }
-  public test_DomainKind? ReturnByAlias { get; set; }
-  public test_DomainKind? ReturnReferencedTypes { get; set; }
+  public bool? ReturnByAlias { get; set; }
+  public bool? ReturnReferencedTypes { get; set; }
 
   public test_FilterObject(ICollection<Itest_NameFilter> names, ICollection<Itest_NameFilter> aliases)
   {
@@ -123,7 +123,7 @@ public class test_AliasedObject
 {
   public ICollection<Itest_Name> Aliases { get; set; }
 
-  public test_AliasedObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases)
+  public test_AliasedObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases)
     : base(description, name)
   {
     Aliases = aliases;
@@ -143,7 +143,7 @@ public class test_NamedObject
 {
   public Itest_Name Name { get; set; }
 
-  public test_NamedObject(ICollection<test_DomainKind> description, Itest_Name name)
+  public test_NamedObject(ICollection<string> description, Itest_Name name)
     : base(description)
   {
     Name = name;
@@ -161,9 +161,9 @@ public class test_DescribedObject
   : GqlpModelImplementationBase
   , Itest_DescribedObject
 {
-  public ICollection<test_DomainKind> Description { get; set; }
+  public ICollection<string> Description { get; set; }
 
-  public test_DescribedObject(ICollection<test_DomainKind> description)
+  public test_DescribedObject(ICollection<string> description)
   {
     Description = description;
   }
@@ -183,7 +183,7 @@ public class test_AndTypeObject
 {
   public Itest_Type Type { get; set; }
 
-  public test_AndTypeObject(ICollection<test_DomainKind> description, Itest_Name name, Itest_Type type)
+  public test_AndTypeObject(ICollection<string> description, Itest_Name name, Itest_Type type)
     : base(description, name)
   {
     Type = type;
@@ -204,7 +204,7 @@ public class test_CategoriesObject
 {
   public Itest_Category Category { get; set; }
 
-  public test_CategoriesObject(ICollection<test_DomainKind> description, Itest_Name name, Itest_Type type, Itest_Category category)
+  public test_CategoriesObject(ICollection<string> description, Itest_Name name, Itest_Type type, Itest_Category category)
     : base(description, name, type)
   {
     Category = category;
@@ -226,7 +226,7 @@ public class test_CategoryObject
   public Itest_TypeRef<test_TypeKind> Output { get; set; }
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
-  public test_CategoryObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, test_Resolution resolution, Itest_TypeRef<test_TypeKind> output, ICollection<Itest_Modifiers> modifiers)
+  public test_CategoryObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, test_Resolution resolution, Itest_TypeRef<test_TypeKind> output, ICollection<Itest_Modifiers> modifiers)
     : base(description, name, aliases)
   {
     Resolution = resolution;
@@ -249,7 +249,7 @@ public class test_DirectivesObject
 {
   public Itest_Directive Directive { get; set; }
 
-  public test_DirectivesObject(ICollection<test_DomainKind> description, Itest_Name name, Itest_Type type, Itest_Directive directive)
+  public test_DirectivesObject(ICollection<string> description, Itest_Name name, Itest_Type type, Itest_Directive directive)
     : base(description, name, type)
   {
     Directive = directive;
@@ -268,10 +268,10 @@ public class test_DirectiveObject
   , Itest_DirectiveObject
 {
   public Itest_InputFieldType? Parameter { get; set; }
-  public test_DomainKind Repeatable { get; set; }
+  public bool Repeatable { get; set; }
   public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
 
-  public test_DirectiveObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, test_DomainKind repeatable, IDictionary<test_Location, GqlpUnit> locations)
+  public test_DirectiveObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, bool repeatable, IDictionary<test_Location, GqlpUnit> locations)
     : base(description, name, aliases)
   {
     Repeatable = repeatable;
@@ -292,7 +292,7 @@ public class test_SettingObject
 {
   public GqlpValue Value { get; set; }
 
-  public test_SettingObject(ICollection<test_DomainKind> description, Itest_Name name, GqlpValue value)
+  public test_SettingObject(ICollection<string> description, Itest_Name name, GqlpValue value)
     : base(description, name)
   {
     Value = value;
@@ -340,7 +340,7 @@ public class test_BaseTypeObject<TKind>
 {
   public TKind TypeKind { get; set; }
 
-  public test_BaseTypeObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, TKind typeKind)
+  public test_BaseTypeObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, TKind typeKind)
     : base(description, name, aliases)
   {
     TypeKind = typeKind;
@@ -360,7 +360,7 @@ public class test_ChildTypeObject<TKind,TParent>
 {
   public TParent Parent { get; set; }
 
-  public test_ChildTypeObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, TKind typeKind, TParent parent)
+  public test_ChildTypeObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, TKind typeKind, TParent parent)
     : base(description, name, aliases, typeKind)
   {
     Parent = parent;
@@ -381,7 +381,7 @@ public class test_ParentTypeObject<TKind,TItem,TAllItem>
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
 
-  public test_ParentTypeObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, TKind typeKind, Itest_Named parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
+  public test_ParentTypeObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, TKind typeKind, Itest_Named parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
     : base(description, name, aliases, typeKind, parent)
   {
     Items = items;
@@ -402,7 +402,7 @@ public class test_TypeRefObject<TKind>
 {
   public TKind TypeKind { get; set; }
 
-  public test_TypeRefObject(ICollection<test_DomainKind> description, Itest_Name name, TKind typeKind)
+  public test_TypeRefObject(ICollection<string> description, Itest_Name name, TKind typeKind)
     : base(description, name)
   {
     TypeKind = typeKind;
@@ -462,9 +462,9 @@ public class test_ModifierKeyedObject<TKind>
   , Itest_ModifierKeyedObject<TKind>
 {
   public Itest_TypeSimple By { get; set; }
-  public test_DomainKind IsOptional { get; set; }
+  public bool IsOptional { get; set; }
 
-  public test_ModifierKeyedObject(TKind modifierKind, Itest_TypeSimple by, test_DomainKind isOptional)
+  public test_ModifierKeyedObject(TKind modifierKind, Itest_TypeSimple by, bool isOptional)
     : base(modifierKind)
   {
     By = by;
@@ -523,7 +523,7 @@ public class test_DomainRefObject<TKind>
 {
   public TKind DomainKind { get; set; }
 
-  public test_DomainRefObject(ICollection<test_DomainKind> description, Itest_Name name, TKind domainKind)
+  public test_DomainRefObject(ICollection<string> description, Itest_Name name, TKind domainKind)
     : base(description, name, test_TypeKind.Domain)
   {
     DomainKind = domainKind;
@@ -543,7 +543,7 @@ public class test_BaseDomainObject<TDomain,TItem,TDomainItem>
 {
   public TDomain DomainKind { get; set; }
 
-  public test_BaseDomainObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, Itest_Named parent, ICollection<TItem> items, ICollection<TDomainItem> allItems, TDomain domainKind)
+  public test_BaseDomainObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, Itest_Named parent, ICollection<TItem> items, ICollection<TDomainItem> allItems, TDomain domainKind)
     : base(description, name, aliases, parent, items, allItems)
   {
     DomainKind = domainKind;
@@ -561,9 +561,9 @@ public class test_BaseDomainItemObject
   : test_DescribedObject
   , Itest_BaseDomainItemObject
 {
-  public test_DomainKind Exclude { get; set; }
+  public bool Exclude { get; set; }
 
-  public test_BaseDomainItemObject(ICollection<test_DomainKind> description, test_DomainKind exclude)
+  public test_BaseDomainItemObject(ICollection<string> description, bool exclude)
     : base(description)
   {
     Exclude = exclude;
@@ -604,7 +604,7 @@ public class test_DomainValueObject<TKind,TValue>
 {
   public TValue Value { get; set; }
 
-  public test_DomainValueObject(ICollection<test_DomainKind> description, Itest_Name name, TKind domainKind, TValue value)
+  public test_DomainValueObject(ICollection<string> description, Itest_Name name, TKind domainKind, TValue value)
     : base(description, name, domainKind)
   {
     Value = value;
@@ -615,10 +615,10 @@ public class test_BasicValue
   : GqlpModelImplementationBase
   , Itest_BasicValue
 {
-  public test_DomainKind? As_DomainKindBoolean { get; set; }
+  public bool? AsBoolean { get; set; }
   public Itest_EnumValue? As_EnumValue { get; set; }
-  public test_DomainKind? As_DomainKindNumber { get; set; }
-  public test_DomainKind? As_DomainKindString { get; set; }
+  public decimal? AsNumber { get; set; }
+  public string? AsString { get; set; }
   public Itest_BasicValueObject? As__BasicValue { get; set; }
 }
 
@@ -643,9 +643,9 @@ public class test_DomainTrueFalseObject
   : test_BaseDomainItemObject
   , Itest_DomainTrueFalseObject
 {
-  public test_DomainKind Value { get; set; }
+  public bool Value { get; set; }
 
-  public test_DomainTrueFalseObject(ICollection<test_DomainKind> description, test_DomainKind exclude, test_DomainKind value)
+  public test_DomainTrueFalseObject(ICollection<string> description, bool exclude, bool value)
     : base(description, exclude)
   {
     Value = value;
@@ -683,7 +683,7 @@ public class test_DomainLabelObject
 {
   public Itest_EnumValue Label { get; set; }
 
-  public test_DomainLabelObject(ICollection<test_DomainKind> description, test_DomainKind exclude, Itest_EnumValue label)
+  public test_DomainLabelObject(ICollection<string> description, bool exclude, Itest_EnumValue label)
     : base(description, exclude)
   {
     Label = label;
@@ -719,10 +719,10 @@ public class test_DomainRangeObject
   : test_BaseDomainItemObject
   , Itest_DomainRangeObject
 {
-  public test_DomainKind? Lower { get; set; }
-  public test_DomainKind? Upper { get; set; }
+  public decimal? Lower { get; set; }
+  public decimal? Upper { get; set; }
 
-  public test_DomainRangeObject(ICollection<test_DomainKind> description, test_DomainKind exclude)
+  public test_DomainRangeObject(ICollection<string> description, bool exclude)
     : base(description, exclude)
   {
   }
@@ -757,9 +757,9 @@ public class test_DomainRegexObject
   : test_BaseDomainItemObject
   , Itest_DomainRegexObject
 {
-  public test_DomainKind Pattern { get; set; }
+  public string Pattern { get; set; }
 
-  public test_DomainRegexObject(ICollection<test_DomainKind> description, test_DomainKind exclude, test_DomainKind pattern)
+  public test_DomainRegexObject(ICollection<string> description, bool exclude, string pattern)
     : base(description, exclude)
   {
     Pattern = pattern;
@@ -797,7 +797,7 @@ public class test_EnumLabelObject
 {
   public Itest_Name EnumType { get; set; }
 
-  public test_EnumLabelObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, Itest_Name enumType)
+  public test_EnumLabelObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, Itest_Name enumType)
     : base(description, name, aliases)
   {
     EnumType = enumType;
@@ -817,7 +817,7 @@ public class test_EnumValueObject
 {
   public Itest_Name Label { get; set; }
 
-  public test_EnumValueObject(ICollection<test_DomainKind> description, Itest_Name name, Itest_Name label)
+  public test_EnumValueObject(ICollection<string> description, Itest_Name name, Itest_Name label)
     : base(description, name, test_TypeKind.Enum)
   {
     Label = label;
@@ -836,7 +836,7 @@ public class test_UnionRefObject
   , Itest_UnionRefObject
 {
 
-  public test_UnionRefObject(ICollection<test_DomainKind> description, Itest_Name name, test_SimpleKind typeKind)
+  public test_UnionRefObject(ICollection<string> description, Itest_Name name, test_SimpleKind typeKind)
     : base(description, name, typeKind)
   {
   }
@@ -855,7 +855,7 @@ public class test_UnionMemberObject
 {
   public Itest_Name Union { get; set; }
 
-  public test_UnionMemberObject(ICollection<test_DomainKind> description, Itest_Name name, test_SimpleKind typeKind, Itest_Name union)
+  public test_UnionMemberObject(ICollection<string> description, Itest_Name name, test_SimpleKind typeKind, Itest_Name union)
     : base(description, name, typeKind)
   {
     Union = union;
@@ -885,7 +885,7 @@ public class test_TypeObjectObject<TKind,TField>
   public ICollection<Itest_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
 
-  public test_TypeObjectObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, TKind typeKind, Itest_ObjBase parent, ICollection<Itest_ObjTypeParam> typeParams, ICollection<TField> fields, ICollection<Itest_ObjAlternate> alternates, ICollection<Itest_ObjectFor<TField>> allFields, ICollection<Itest_ObjectFor<Itest_ObjAlternate>> allAlternates)
+  public test_TypeObjectObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, TKind typeKind, Itest_ObjBase parent, ICollection<Itest_ObjTypeParam> typeParams, ICollection<TField> fields, ICollection<Itest_ObjAlternate> alternates, ICollection<Itest_ObjectFor<TField>> allFields, ICollection<Itest_ObjectFor<Itest_ObjAlternate>> allAlternates)
     : base(description, name, aliases, typeKind, parent)
   {
     TypeParams = typeParams;
@@ -909,7 +909,7 @@ public class test_ObjTypeParamObject
 {
   public Itest_TypeRef<test_TypeKind> Constraint { get; set; }
 
-  public test_ObjTypeParamObject(ICollection<test_DomainKind> description, Itest_Name name, Itest_TypeRef<test_TypeKind> constraint)
+  public test_ObjTypeParamObject(ICollection<string> description, Itest_Name name, Itest_TypeRef<test_TypeKind> constraint)
     : base(description, name)
   {
     Constraint = constraint;
@@ -930,7 +930,7 @@ public class test_ObjBaseObject
 {
   public ICollection<Itest_ObjTypeArg> TypeArgs { get; set; }
 
-  public test_ObjBaseObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_ObjTypeArg> typeArgs)
+  public test_ObjBaseObject(ICollection<string> description, Itest_Name name, ICollection<Itest_ObjTypeArg> typeArgs)
     : base(description, name)
   {
     TypeArgs = typeArgs;
@@ -951,7 +951,7 @@ public class test_ObjTypeArgObject
 {
   public Itest_Name? Label { get; set; }
 
-  public test_ObjTypeArgObject(ICollection<test_DomainKind> description, Itest_Name name, test_TypeKind typeKind)
+  public test_ObjTypeArgObject(ICollection<string> description, Itest_Name name, test_TypeKind typeKind)
     : base(description, name, typeKind)
   {
   }
@@ -970,7 +970,7 @@ public class test_TypeParamObject
 {
   public Itest_Name TypeParam { get; set; }
 
-  public test_TypeParamObject(ICollection<test_DomainKind> description, Itest_Name typeParam)
+  public test_TypeParamObject(ICollection<string> description, Itest_Name typeParam)
     : base(description)
   {
     TypeParam = typeParam;
@@ -1012,7 +1012,7 @@ public class test_ObjAlternateEnumObject
 {
   public Itest_Name Label { get; set; }
 
-  public test_ObjAlternateEnumObject(ICollection<test_DomainKind> description, Itest_Name name, Itest_Name label)
+  public test_ObjAlternateEnumObject(ICollection<string> description, Itest_Name name, Itest_Name label)
     : base(description, name, test_TypeKind.Enum)
   {
     Label = label;
@@ -1052,7 +1052,7 @@ public class test_ObjFieldObject<TType>
 {
   public TType Type { get; set; }
 
-  public test_ObjFieldObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, TType type)
+  public test_ObjFieldObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, TType type)
     : base(description, name, aliases)
   {
     Type = type;
@@ -1073,7 +1073,7 @@ public class test_ObjFieldTypeObject
 {
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
-  public test_ObjFieldTypeObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_ObjTypeArg> typeArgs, ICollection<Itest_Modifiers> modifiers)
+  public test_ObjFieldTypeObject(ICollection<string> description, Itest_Name name, ICollection<Itest_ObjTypeArg> typeArgs, ICollection<Itest_Modifiers> modifiers)
     : base(description, name, typeArgs)
   {
     Modifiers = modifiers;
@@ -1093,7 +1093,7 @@ public class test_ObjFieldEnumObject
 {
   public Itest_Name Label { get; set; }
 
-  public test_ObjFieldEnumObject(ICollection<test_DomainKind> description, Itest_Name name, Itest_Name label)
+  public test_ObjFieldEnumObject(ICollection<string> description, Itest_Name name, Itest_Name label)
     : base(description, name, test_TypeKind.Enum)
   {
     Label = label;
@@ -1131,7 +1131,7 @@ public class test_DualFieldObject
   , Itest_DualFieldObject
 {
 
-  public test_DualFieldObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, Itest_ObjFieldType type)
+  public test_DualFieldObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, Itest_ObjFieldType type)
     : base(description, name, aliases, type)
   {
   }
@@ -1149,7 +1149,7 @@ public class test_InputFieldObject
   , Itest_InputFieldObject
 {
 
-  public test_InputFieldObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, Itest_InputFieldType type)
+  public test_InputFieldObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, Itest_InputFieldType type)
     : base(description, name, aliases, type)
   {
   }
@@ -1168,7 +1168,7 @@ public class test_InputFieldTypeObject
 {
   public GqlpValue? DefaultValue { get; set; }
 
-  public test_InputFieldTypeObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_ObjTypeArg> typeArgs, ICollection<Itest_Modifiers> modifiers)
+  public test_InputFieldTypeObject(ICollection<string> description, Itest_Name name, ICollection<Itest_ObjTypeArg> typeArgs, ICollection<Itest_Modifiers> modifiers)
     : base(description, name, typeArgs, modifiers)
   {
   }
@@ -1186,7 +1186,7 @@ public class test_OutputFieldObject
   , Itest_OutputFieldObject
 {
 
-  public test_OutputFieldObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_Name> aliases, Itest_ObjFieldType type)
+  public test_OutputFieldObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases, Itest_ObjFieldType type)
     : base(description, name, aliases, type)
   {
   }
@@ -1205,7 +1205,7 @@ public class test_OutputFieldTypeObject
 {
   public Itest_InputFieldType? Parameter { get; set; }
 
-  public test_OutputFieldTypeObject(ICollection<test_DomainKind> description, Itest_Name name, ICollection<Itest_ObjTypeArg> typeArgs, ICollection<Itest_Modifiers> modifiers)
+  public test_OutputFieldTypeObject(ICollection<string> description, Itest_Name name, ICollection<Itest_ObjTypeArg> typeArgs, ICollection<Itest_Modifiers> modifiers)
     : base(description, name, typeArgs, modifiers)
   {
   }

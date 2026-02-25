@@ -32,7 +32,7 @@ public interface ICmpt_Opt<TT>
   : Spec_Schema
 {
   TT? AsT { get; }
-  CmptNull? AsNull { get; }
+  GqlpNull? AsNull { get; }
   ICmpt_OptObject<TT>? As__Opt { get; }
 }
 
@@ -104,7 +104,7 @@ public interface ICmpt_IfElseObject<TT>
 public interface ICmpt_Set<TK>
   : Spec_Schema
 {
-  IDictionary<TK, GqlpUnit>? AsUnit_ { get; }
+  IDictionary<TK, GqlpUnit>? AsUnit { get; }
   ICmpt_SetObject<TK>? As__Set { get; }
 }
 

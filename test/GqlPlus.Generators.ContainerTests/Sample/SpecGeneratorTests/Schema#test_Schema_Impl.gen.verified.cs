@@ -12,7 +12,7 @@ public class test_Opt<TT>
   , Itest_Opt<TT>
 {
   public TT? AsT { get; set; }
-  public testNull? AsNull { get; set; }
+  public GqlpNull? AsNull { get; set; }
   public Itest_OptObject<TT>? As__Opt { get; set; }
 }
 
@@ -120,7 +120,7 @@ public class test_Set<TK>
   : GqlpModelImplementationBase
   , Itest_Set<TK>
 {
-  public IDictionary<TK, GqlpUnit>? AsUnit_ { get; set; }
+  public IDictionary<TK, GqlpUnit>? AsUnit { get; set; }
   public Itest_SetObject<TK>? As__Set { get; set; }
 }
 

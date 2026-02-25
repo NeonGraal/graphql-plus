@@ -77,10 +77,11 @@ Success
     []
     !IF I@009/0013
     matchAliases
-    =
+    :
     I@023/0013
-    _DomainKind
-    .Boolean
+    Boolean
+    ?
+    =( !k I@034/0013 Boolean.true )
     !IF I@009/0014
     aliases
     :
@@ -89,16 +90,18 @@ Success
     []
     !IF I@009/0015
     returnByAlias
-    =
+    :
     I@024/0015
-    _DomainKind
-    .Boolean
+    Boolean
+    ?
+    =( !k I@035/0015 Boolean.false )
     !IF I@009/0016
     returnReferencedTypes
-    =
+    :
     I@032/0016
-    _DomainKind
-    .Boolean
+    Boolean
+    ?
+    =( !k I@043/0016 Boolean.false )
   }
   |
   I@007/0017
@@ -178,10 +181,10 @@ Success
   {
     !DF I@009/0045
     description
-    =
+    :
     I@022/0045
-    _DomainKind
-    .String
+    String
+    []
   }
 }
 {
@@ -289,16 +292,15 @@ Success
     ?
     !OF I@009/0078
     repeatable
-    =
+    :
     I@021/0078
-    _DomainKind
-    .Boolean
+    Boolean
     !OF I@009/0079
     locations
-    =
+    :
     I@020/0079
-    Unit
-    ._
+    _
+    [_Location]
   }
 }
 {
@@ -634,10 +636,9 @@ Success
     _TypeSimple
     !DF I@009/0145
     isOptional
-    =
+    :
     I@021/0145
-    _DomainKind
-    .Boolean
+    Boolean
   }
 }
 {
@@ -767,10 +768,9 @@ Success
   {
     !DF I@009/0173
     exclude
-    =
+    :
     I@018/0173
-    _DomainKind
-    .Boolean
+    Boolean
   }
 }
 {
@@ -826,13 +826,13 @@ Success
   _BasicValue
   |
   I@007/0188
-  _DomainKind.Boolean
+  Boolean
   I@007/0189
   _EnumValue
   I@007/0190
-  _DomainKind.Number
+  Number
   I@007/0191
-  _DomainKind.String
+  String
 }
 {
   !Du I@006/0194
@@ -843,10 +843,9 @@ Success
   {
     !DF I@009/0196
     value
-    =
+    :
     I@016/0196
-    _DomainKind
-    .Boolean
+    Boolean
   }
 }
 {
@@ -894,16 +893,16 @@ Success
   {
     !DF I@009/0214
     lower
-    =
+    :
     I@016/0214
-    _DomainKind
-    .Number
+    Number
+    ?
     !DF I@009/0215
     upper
-    =
+    :
     I@016/0215
-    _DomainKind
-    .Number
+    Number
+    ?
   }
 }
 {
@@ -926,10 +925,9 @@ Success
   {
     !DF I@009/0224
     pattern
-    =
+    :
     I@018/0224
-    _DomainKind
-    .String
+    String
   }
 }
 {

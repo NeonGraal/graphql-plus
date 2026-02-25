@@ -32,7 +32,10 @@ internal class MergeAllTypes(
   private static void FixupEnums(IEnumerable<IGqlpType> items)
   {
     IGqlpType[] types = [.. items];
-    HashSet<string> typeNames = [.. types.SelectMany(t => t.Aliases.Append(t.Name))];
+    HashSet<string> typeNames = [.. types
+      .Concat(BuiltIn.Basic)
+      .Concat(BuiltIn.Internal)
+      .SelectMany(t => t.Aliases.Append(t.Name))];
 
     Map<string> enumValues = GetEnumValues(
       BuiltIn.Basic.OfType<EnumDeclAst>()

@@ -23,7 +23,8 @@ public class CmptPrntDualInpObject
   , ICmptPrntDualInpObject
 {
 
-  public CmptPrntDualInpObject()
+  public CmptPrntDualInpObject(decimal parent)
+    : base(parent)
   {
   }
 }

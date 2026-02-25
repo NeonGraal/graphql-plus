@@ -101,7 +101,8 @@ public class Cmpt_AndTypeObject
 {
   public ICmpt_Type Type { get; set; }
 
-  public Cmpt_AndTypeObject(ICmpt_Type type)
+  public Cmpt_AndTypeObject(ICollection<string> description, ICmpt_Name name, ICmpt_Type type)
+    : base(description, name)
   {
     Type = type;
   }

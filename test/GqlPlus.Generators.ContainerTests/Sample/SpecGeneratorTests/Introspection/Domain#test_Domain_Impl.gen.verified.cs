@@ -177,7 +177,8 @@ public class test_DomainLabelObject
 {
   public Itest_EnumValue Label { get; set; }
 
-  public test_DomainLabelObject(Itest_EnumValue label)
+  public test_DomainLabelObject(test_DomainKind exclude, Itest_EnumValue label)
+    : base(exclude)
   {
     Label = label;
   }

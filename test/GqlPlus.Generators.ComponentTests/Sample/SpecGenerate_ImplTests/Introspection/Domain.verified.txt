@@ -250,7 +250,8 @@ public class Cmpt_DomainLabelObject
 {
   public ICmpt_EnumValue Label { get; set; }
 
-  public Cmpt_DomainLabelObject(ICmpt_EnumValue label)
+  public Cmpt_DomainLabelObject(Cmpt_DomainKind exclude, ICmpt_EnumValue label)
+    : base(exclude)
   {
     Label = label;
   }

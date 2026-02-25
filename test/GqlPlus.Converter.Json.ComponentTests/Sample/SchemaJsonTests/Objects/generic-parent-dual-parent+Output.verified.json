@@ -1,18 +1,5 @@
 ﻿{
   "$mapTag": "_Schema",
-  "errors": {
-    "$list": [
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In RefGnrcPrntDualPrntOutp can\u0027t get model for type \u0027AltGnrcPrntDualPrntOutp\u0027"
-      }
-    ],
-    "$listTag": "_Errors"
-  },
   "types": {
     "$mapTag": "_Map(_Type)",
     "AltGnrcPrntDualPrntOutp": {
@@ -67,6 +54,27 @@
     "GnrcPrntDualPrntOutp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "AltGnrcPrntDualPrntOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "AltGnrcPrntDualPrntOutp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
       "name": "GnrcPrntDualPrntOutp",
       "parent": {
         "$mapTag": "_ObjBase",

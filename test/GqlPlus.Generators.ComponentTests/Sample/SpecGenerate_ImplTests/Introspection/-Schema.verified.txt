@@ -75,7 +75,8 @@ public class Cmpt_SchemaObject
   public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
     => null;
 
-  public Cmpt_SchemaObject()
+  public Cmpt_SchemaObject(ICollection<string> description, ICmpt_Name name)
+    : base(description, name)
   {
   }
 }

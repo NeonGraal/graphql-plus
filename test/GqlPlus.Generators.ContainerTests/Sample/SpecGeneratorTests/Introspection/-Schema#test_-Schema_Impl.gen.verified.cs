@@ -27,7 +27,8 @@ public class test_SchemaObject
   public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
     => null;
 
-  public test_SchemaObject()
+  public test_SchemaObject(ICollection<string> description, Itest_Name name)
+    : base(description, name)
   {
   }
 }

@@ -7887,7 +7887,8 @@ public class testPrntDualInpObject
   , ItestPrntDualInpObject
 {
 
-  public testPrntDualInpObject()
+  public testPrntDualInpObject(decimal parent)
+    : base(parent)
   {
   }
 }
@@ -7924,7 +7925,8 @@ public class testPrntDualOutpObject
   , ItestPrntDualOutpObject
 {
 
-  public testPrntDualOutpObject()
+  public testPrntDualOutpObject(decimal parent)
+    : base(parent)
   {
   }
 }

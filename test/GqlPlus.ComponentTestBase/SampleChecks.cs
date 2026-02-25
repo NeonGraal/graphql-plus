@@ -42,15 +42,17 @@ public class SampleChecks
     => input is null ? []
     : [.. s_textInfo.ToTitleCase(input).Split('-')];
 
-  protected async Task CheckErrors(string[] dirs, string file, IMessages errors, bool includeVerify = false)
+  protected async Task CheckErrors(string[] dirs, string file, IMessages errors, params string[] additionalCategories)
   {
+    ArgumentNullException.ThrowIfNull(additionalCategories);
+
     string path = dirs.Prepend("Samples").Joined("/");
 
-    List<string> expected = await ReadExpectedErrors($"{path}/{file}", includeVerify);
+    List<string> expected = await ReadExpectedErrors($"{path}/{file}", additionalCategories);
 
     if (expected.Count == 0) {
-      if (includeVerify) {
-        await WriteUnexpectedErrors(file, errors, path);
+      if (additionalCategories.Length > 0) {
+        await WriteUnexpectedErrors(file, errors, path, additionalCategories[0]);
       }
 
       return;
@@ -73,7 +75,7 @@ public class SampleChecks
   }
 
   [ExcludeFromCodeCoverage]
-  private static async Task WriteUnexpectedErrors(string file, IMessages errors, string path)
+  private static async Task WriteUnexpectedErrors(string file, IMessages errors, string path, string category)
   {
     if (errors is null || errors.Count < 1 || !AttributeReader.TryGetProjectDirectory(out string? project)) {
       return;
@@ -84,17 +86,14 @@ public class SampleChecks
       Directory.CreateDirectory($"{project}/{path}");
     }
 
-    await File.WriteAllLinesAsync($"{project}/{path}/{file}.verify+errors", errorLines);
+    await File.WriteAllLinesAsync($"{project}/{path}/{file}.{category}+errors", errorLines);
     errorLines.ShouldBeEmpty();
   }
 
-  private static async Task<List<string>> ReadExpectedErrors(string file, bool includeVerify)
+  private static async Task<List<string>> ReadExpectedErrors(string file, params string[] additionalCategories)
   {
     List<string> expected = [];
-    List<string> suffixes = [".", ".parse-"];
-    if (includeVerify) {
-      suffixes.Add(".verify-");
-    }
+    List<string> suffixes = [".", .. additionalCategories.Select(category => $".{category}-")];
 
     if (file.Contains('+', StringComparison.Ordinal)) {
       string[] parts = file.Split('+', 2);

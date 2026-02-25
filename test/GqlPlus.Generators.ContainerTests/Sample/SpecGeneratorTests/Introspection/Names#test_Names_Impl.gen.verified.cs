@@ -80,7 +80,8 @@ public class test_AndTypeObject
 {
   public Itest_Type Type { get; set; }
 
-  public test_AndTypeObject(Itest_Type type)
+  public test_AndTypeObject(ICollection<string> description, Itest_Name name, Itest_Type type)
+    : base(description, name)
   {
     Type = type;
   }

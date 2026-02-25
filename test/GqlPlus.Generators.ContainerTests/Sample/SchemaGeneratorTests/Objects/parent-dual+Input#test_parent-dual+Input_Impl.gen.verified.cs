@@ -19,7 +19,8 @@ public class testPrntDualInpObject
   , ItestPrntDualInpObject
 {
 
-  public testPrntDualInpObject()
+  public testPrntDualInpObject(decimal parent)
+    : base(parent)
   {
   }
 }

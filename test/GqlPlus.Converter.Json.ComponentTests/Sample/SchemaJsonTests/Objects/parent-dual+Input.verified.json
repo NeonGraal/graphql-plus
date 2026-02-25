@@ -1,23 +1,31 @@
 ﻿{
   "$mapTag": "_Schema",
-  "errors": {
-    "$list": [
-      {
-        "$mapTag": "_Error",
-        "_kind": {
-          "$value": "End",
-          "$valueTag": "_TokenKind"
-        },
-        "_message": "In PrntDualInp can\u0027t get model for type \u0027RefPrntDualInp\u0027"
-      }
-    ],
-    "$listTag": "_Errors"
-  },
   "types": {
     "$mapTag": "_Map(_Type)",
     "PrntDualInp": {
       "$keyTag": "_Name",
       "$mapTag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$mapTag": "_ObjectFor(_Alternate)",
+          "object": "RefPrntDualInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$mapTag": "_ObjectFor(_DualField)",
+          "name": "parent",
+          "object": "RefPrntDualInp",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Number"
+          }
+        }
+      ],
       "name": "PrntDualInp",
       "parent": {
         "$mapTag": "_ObjBase",

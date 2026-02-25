@@ -8175,7 +8175,8 @@ public class CmptPrntDualInpObject
   , ICmptPrntDualInpObject
 {
 
-  public CmptPrntDualInpObject()
+  public CmptPrntDualInpObject(decimal parent)
+    : base(parent)
   {
   }
 }
@@ -8212,7 +8213,8 @@ public class CmptPrntDualOutpObject
   , ICmptPrntDualOutpObject
 {
 
-  public CmptPrntDualOutpObject()
+  public CmptPrntDualOutpObject(decimal parent)
+    : base(parent)
   {
   }
 }

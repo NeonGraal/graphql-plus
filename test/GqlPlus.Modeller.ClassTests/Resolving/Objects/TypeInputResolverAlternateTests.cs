@@ -5,7 +5,11 @@ public class TypeInputResolverAlternateTests
 {
   protected override IResolver<TypeInputModel> Resolver { get; }
 
-  public TypeInputResolverAlternateTests() => Resolver = new TypeInputResolver();
+  public TypeInputResolverAlternateTests()
+  {
+    IResolver<TypeDualModel> dualResolver = RFor<TypeDualModel>();
+    Resolver = new TypeInputResolver(dualResolver);
+  }
 
   protected override AlternateModel MakeAlternate(string alternate)
     => new(new ObjBaseModel(alternate, ""));

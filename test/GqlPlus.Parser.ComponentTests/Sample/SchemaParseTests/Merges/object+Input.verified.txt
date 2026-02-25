@@ -1,0 +1,10 @@
+﻿!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  ObjInp
+}
+{
+  !In I@007/0002
+  ObjInp
+}

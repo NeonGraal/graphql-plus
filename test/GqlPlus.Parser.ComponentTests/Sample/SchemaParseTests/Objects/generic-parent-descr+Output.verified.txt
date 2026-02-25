@@ -1,0 +1,15 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  GnrcPrntDescrOutp
+  <
+    I@027/0001
+    $type
+    :_Dual
+  >
+  :
+  'Parent comment'
+  I@059/0001
+  $type
+}

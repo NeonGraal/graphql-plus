@@ -136,6 +136,28 @@ public class MergeAllTypesTests
     arg.EnumValue.EnumType.ShouldBe(enumType);
   }
 
+  [Theory, RepeatData]
+  public void FixupType_WithFieldTypeAsBuiltIn_DoesNotOverride(string enumType, string outputType, string fieldName)
+  {
+    this.SkipIf(enumType == BuiltIn.BooleanType);
+    this.SkipEqual(outputType, enumType);
+
+    // Arrange
+    OutputFieldAst field = new(AstNulls.At, fieldName, new ObjBaseAst(AstNulls.At, BuiltIn.BooleanType, ""));
+
+    IGqlpType[] types = [
+      new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, BuiltIn.BooleanType, "")]),
+      new AstObject<IGqlpOutputField>(TypeKind.Output, AstNulls.At, outputType, "") { ObjFields = [field] },
+    ];
+
+    // Act
+
+    _merger.Merge(types);
+
+    // Assert
+    field.Type.Name.ShouldBe(BuiltIn.BooleanType);
+  }
+
   private readonly MergeAllTypes _merger;
 
   public MergeAllTypesTests(ITestOutputHelper outputHelper)

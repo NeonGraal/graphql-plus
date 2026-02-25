@@ -1,0 +1,16 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnStrSame
+  String
+  !DX R@028/0001
+  /a+/
+}
+{
+  !Do I@008/0002
+  DmnStrSame
+  String
+  !DX R@028/0002
+  /a+/
+}

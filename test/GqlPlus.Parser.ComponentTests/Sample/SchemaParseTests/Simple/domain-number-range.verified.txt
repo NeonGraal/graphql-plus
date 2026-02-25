@@ -1,0 +1,11 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnNmbrRange
+  Number
+  !DN N@030/0001
+  1<9
+  !DN N@034/0001
+  12<21
+}

@@ -1,0 +1,34 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  _EnumLabel
+  :
+  I@007/0002
+  _Aliased
+  {
+    !DF I@009/0003
+    enumType
+    :
+    I@019/0003
+    _Name
+  }
+}
+{
+  !Ou I@008/0006
+  _EnumValue
+  :
+  I@007/0007
+  _TypeRef
+  <
+    I@016/0007
+    _TypeKind.Enum
+  >
+  {
+    !OF I@009/0008
+    label
+    :
+    I@016/0008
+    _Name
+  }
+}

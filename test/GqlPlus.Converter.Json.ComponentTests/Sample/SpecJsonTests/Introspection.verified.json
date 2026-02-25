@@ -21,7 +21,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -110,7 +110,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -180,7 +180,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -370,7 +370,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -379,7 +379,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         }
       ],
@@ -389,7 +389,7 @@
           "name": "exclude",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         }
       ],
@@ -422,7 +422,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -505,7 +505,7 @@
           "object": "_BasicValue",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -521,7 +521,7 @@
           "object": "_BasicValue",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Number"
           }
         },
         {
@@ -529,7 +529,7 @@
           "object": "_BasicValue",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         }
       ],
@@ -538,7 +538,7 @@
           "$mapTag": "_Alternate",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -552,14 +552,14 @@
           "$mapTag": "_Alternate",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Number"
           }
         },
         {
           "$mapTag": "_Alternate",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         }
       ],
@@ -606,7 +606,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -685,7 +685,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -876,7 +876,7 @@
           "object": "_Filter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -913,7 +913,7 @@
           "object": "_Filter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -932,7 +932,7 @@
           "object": "_Filter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -1002,7 +1002,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -1246,7 +1246,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         }
       ],
@@ -1265,7 +1265,7 @@
           "name": "description",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         }
       ],
@@ -1294,7 +1294,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -1344,24 +1344,34 @@
         },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "field": "repeatable",
-          "label": "Boolean",
-          "name": "_DomainKind",
+          "name": "repeatable",
           "object": "_Directive",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
           }
         },
         {
           "$mapTag": "_ObjectFor(_OutputField)",
-          "field": "locations",
-          "label": "_",
-          "name": "Unit",
+          "modifiers": [
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Location",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "name": "locations",
           "object": "_Directive",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_"
           }
         }
       ],
@@ -1384,23 +1394,33 @@
           }
         },
         {
-          "$mapTag": "_OutputEnum",
-          "field": "repeatable",
-          "label": "Boolean",
-          "name": "_DomainKind",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "$mapTag": "_OutputField",
+          "name": "repeatable",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "Boolean"
           }
         },
         {
-          "$mapTag": "_OutputEnum",
-          "field": "locations",
-          "label": "_",
-          "name": "Unit",
-          "typeKind": {
-            "$value": "Enum",
-            "$valueTag": "_SimpleKind"
+          "$mapTag": "_OutputField",
+          "modifiers": [
+            {
+              "$mapTag": "_ModifierDictionary",
+              "by": "_Location",
+              "modifierKind": {
+                "$value": "Dict",
+                "$valueTag": "_ModifierKind"
+              },
+              "typeKind": {
+                "$value": "Enum",
+                "$valueTag": "_SimpleKind"
+              }
+            }
+          ],
+          "name": "locations",
+          "type": {
+            "$mapTag": "_ObjBase",
+            "name": "_"
           }
         }
       ],
@@ -1451,7 +1471,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -1578,7 +1598,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -1587,7 +1607,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -1644,7 +1664,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -1653,7 +1673,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -1671,7 +1691,7 @@
           "object": "_DomainRange",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Number"
           }
         },
         {
@@ -1689,7 +1709,7 @@
           "object": "_DomainRange",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Number"
           }
         },
         {
@@ -1737,7 +1757,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -1746,7 +1766,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -1755,7 +1775,7 @@
           "object": "_DomainRegex",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -1803,7 +1823,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -1812,7 +1832,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -1821,7 +1841,7 @@
           "object": "_DomainTrueFalse",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -1918,7 +1938,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -1927,7 +1947,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -1979,7 +1999,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -1988,7 +2008,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -2006,7 +2026,7 @@
           "object": "_DomainRange",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Number"
           }
         },
         {
@@ -2024,7 +2044,7 @@
           "object": "_DomainRange",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Number"
           }
         }
       ],
@@ -2043,7 +2063,7 @@
           "name": "lower",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Number"
           }
         },
         {
@@ -2060,7 +2080,7 @@
           "name": "upper",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Number"
           }
         }
       ],
@@ -2093,7 +2113,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -2188,7 +2208,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -2197,7 +2217,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -2206,7 +2226,7 @@
           "object": "_DomainRegex",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         }
       ],
@@ -2216,7 +2236,7 @@
           "name": "pattern",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         }
       ],
@@ -2249,7 +2269,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -2258,7 +2278,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -2267,7 +2287,7 @@
           "object": "_DomainTrueFalse",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         }
       ],
@@ -2277,7 +2297,7 @@
           "name": "value",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         }
       ],
@@ -2320,7 +2340,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -2440,7 +2460,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -2515,7 +2535,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -2594,7 +2614,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -2713,7 +2733,7 @@
           "object": "_Filter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -2750,7 +2770,7 @@
           "object": "_Filter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -2769,7 +2789,7 @@
           "object": "_Filter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         }
       ],
@@ -2824,7 +2844,7 @@
           "name": "matchAliases",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -2859,7 +2879,7 @@
           "name": "returnByAlias",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -2877,7 +2897,7 @@
           "name": "returnReferencedTypes",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         }
       ],
@@ -2975,7 +2995,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -3068,7 +3088,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -3303,7 +3323,7 @@
           "object": "_ModifierKeyed",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         }
       ],
@@ -3321,7 +3341,7 @@
           "name": "isOptional",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         }
       ],
@@ -3551,7 +3571,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -3687,7 +3707,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -3778,7 +3798,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -3866,7 +3886,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -3959,7 +3979,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -4058,7 +4078,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -4174,7 +4194,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -4277,7 +4297,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -4496,7 +4516,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -4589,7 +4609,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -4704,7 +4724,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -4942,7 +4962,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -5270,7 +5290,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -5967,7 +5987,7 @@
           "object": "_Filter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -6004,7 +6024,7 @@
           "object": "_Filter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -6023,7 +6043,7 @@
           "object": "_Filter",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "Boolean"
           }
         },
         {
@@ -6166,7 +6186,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -6481,7 +6501,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -6533,7 +6553,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -6769,7 +6789,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {
@@ -6839,7 +6859,7 @@
           "object": "_Described",
           "type": {
             "$mapTag": "_ObjBase",
-            "name": "_DomainKind"
+            "name": "String"
           }
         },
         {

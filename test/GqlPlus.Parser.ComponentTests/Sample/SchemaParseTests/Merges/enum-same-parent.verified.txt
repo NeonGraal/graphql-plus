@@ -1,0 +1,22 @@
+﻿!Sc I@001/0001
+Success
+{
+  !En I@006/0001
+  EnumSamePrnt
+  :( !Tr I@022/0001 PrntEnumSamePrnt )
+  !EL I@039/0001
+  enumSamePrnt
+}
+{
+  !En I@006/0002
+  EnumSamePrnt
+  :( !Tr I@022/0002 PrntEnumSamePrnt )
+  !EL I@039/0002
+  enumSamePrnt
+}
+{
+  !En I@006/0003
+  PrntEnumSamePrnt
+  !EL I@025/0003
+  prnt_enumSamePrnt
+}

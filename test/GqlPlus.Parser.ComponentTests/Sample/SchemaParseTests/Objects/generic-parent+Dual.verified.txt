@@ -1,0 +1,14 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  GnrcPrntDual
+  <
+    I@020/0001
+    $type
+    :_Dual
+  >
+  :
+  I@036/0001
+  $type
+}

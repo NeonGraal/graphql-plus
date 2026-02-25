@@ -1,0 +1,27 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  _UnionRef
+  :
+  I@007/0002
+  _TypeRef
+  <
+    I@016/0002
+    _SimpleKind
+  >
+}
+{
+  !Ou I@008/0005
+  _UnionMember
+  :
+  I@007/0006
+  _UnionRef
+  {
+    !OF I@009/0007
+    union
+    :
+    I@016/0007
+    _Name
+  }
+}

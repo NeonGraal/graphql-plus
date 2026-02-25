@@ -1,0 +1,20 @@
+﻿!Sc I@001/0001
+Success
+{
+  !En I@006/0001
+  EnumValueAlias
+  !EL I@023/0001
+  enumValueAlias
+  [
+    val1
+  ]
+}
+{
+  !En I@006/0002
+  EnumValueAlias
+  !EL I@023/0002
+  enumValueAlias
+  [
+    val2
+  ]
+}

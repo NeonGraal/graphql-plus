@@ -12,12 +12,14 @@ internal sealed class SchemaVerifyChecks(
 ) : SchemaParseChecks(schemaParser)
   , ISchemaVerifyChecks
 {
-  public (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IGqlpSchema> asts, bool withBuiltIns = true)
+  public (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IGqlpSchema> asts, bool withBuiltIns, bool addDescribed)
   {
     IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
     IModelsContext context = withBuiltIns ? schemaEncoder.WithBuiltIns() : schemaEncoder.Context();
-    context.TypeKinds.Add("_Described", TypeKindModel.Dual);
+    if (addDescribed) {
+      context.TypeKinds.Add("_Described", TypeKindModel.Dual);
+    }
 
     SchemaModel model = schemaEncoder.ModelAst(schema, context);
 
@@ -33,6 +35,6 @@ internal sealed class SchemaVerifyChecks(
 public interface ISchemaVerifyChecks
   : ISchemaParseChecks
 {
-  (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IGqlpSchema> asts, bool withBuiltIns = true);
+  (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IGqlpSchema> asts, bool withBuiltIns, bool addDescribed);
   Structured Encode_Model(SchemaModel model, IModelsContext context);
 }

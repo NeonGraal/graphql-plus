@@ -1,0 +1,25 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  ObjFieldEnumValueOutp
+  {
+    !OF I@032/0001
+    field
+    =
+    I@040/0001
+    Boolean
+    .true
+  }
+}
+{
+  !Ou I@008/0002
+  ObjFieldEnumValueOutp
+  {
+    !OF I@032/0002
+    field
+    =
+    I@040/0002
+    .true
+  }
+}

@@ -1,0 +1,16 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnEnumSame
+  Enum
+  !DE I@027/0001
+  true
+}
+{
+  !Do I@008/0002
+  DmnEnumSame
+  Enum
+  !DE I@027/0002
+  true
+}

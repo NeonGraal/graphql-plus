@@ -1,0 +1,28 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  _OutputField
+  :
+  I@007/0002
+  _ObjField
+  <
+    I@017/0002
+    _ObjFieldType
+  >
+}
+{
+  !Ou I@008/0005
+  _OutputFieldType
+  :
+  I@007/0006
+  _ObjFieldType
+  {
+    !OF I@009/0007
+    parameter
+    :
+    I@020/0007
+    _InputFieldType
+    ?
+  }
+}

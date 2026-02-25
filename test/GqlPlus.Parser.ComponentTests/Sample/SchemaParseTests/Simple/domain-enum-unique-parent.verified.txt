@@ -1,0 +1,45 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnEnumUnqPrnt
+  Enum
+  !DE I@030/0001
+  EnumDmnEnumUnqPrnt
+  *
+  !DE P@051/0001
+  PrntDmnEnumUnqPrnt
+  !dmnEnumUnqPrnt
+  !DE I@086/0001
+  DupDmnEnumUnqPrnt
+  dmnEnumUnqPrnt
+}
+{
+  !En I@006/0002
+  EnumDmnEnumUnqPrnt
+  :( !Tr I@028/0002 PrntDmnEnumUnqPrnt )
+  !EL I@047/0002
+  enum_dmnEnumUnqPrnt
+  !EL I@067/0002
+  dmnEnumUnqPrntValue
+}
+{
+  !En I@006/0003
+  PrntDmnEnumUnqPrnt
+  !EL I@027/0003
+  dmnEnumUnqPrnt
+  !EL I@042/0003
+  prnt_dmnEnumUnqPrnt
+  !EL I@062/0003
+  dmnEnumUnqPrntPrnt
+}
+{
+  !En I@006/0004
+  DupDmnEnumUnqPrnt
+  !EL I@026/0004
+  dmnEnumUnqPrnt
+  !EL I@041/0004
+  dup_dmnEnumUnqPrnt
+  !EL I@060/0004
+  dmnEnumUnqPrntDup
+}

@@ -1,0 +1,16 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  ObjAliasDual
+  [
+    Dual1
+  ]
+}
+{
+  !Du I@006/0002
+  ObjAliasDual
+  [
+    Dual2
+  ]
+}

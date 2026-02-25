@@ -1,0 +1,309 @@
+﻿!Sc I@001/0001
+Success
+{
+  !En I@006/0001
+  _DomainKind
+  !EL I@020/0001
+  Boolean
+  !EL I@028/0001
+  Enum
+  !EL I@033/0001
+  Number
+  !EL I@040/0001
+  String
+}
+{
+  !Ou I@008/0003
+  _DomainRef
+  <
+    I@020/0003
+    $kind
+    :_DomainKind
+  >
+  :
+  I@007/0004
+  _TypeRef
+  <
+    I@016/0004
+    _TypeKind.Domain
+  >
+  {
+    !OF I@009/0005
+    domainKind
+    :
+    I@022/0005
+    $kind
+  }
+}
+{
+  !Ou I@008/0008
+  _BaseDomain
+  <
+    I@021/0008
+    $domain
+    :_DomainKind
+    I@041/0008
+    $item
+    :_BaseDomainItem
+    I@063/0008
+    $domainItem
+    :_DomainItem
+  >
+  :
+  I@007/0009
+  _ParentType
+  <
+    I@019/0009
+    _TypeKind.Domain
+    I@037/0009
+    $item
+    I@043/0009
+    $domainItem
+  >
+  {
+    !OF I@009/0010
+    domainKind
+    :
+    I@022/0010
+    $domain
+  }
+}
+{
+  !Du I@006/0013
+  _BaseDomainItem
+  :
+  I@007/0014
+  _Described
+  {
+    !DF I@009/0015
+    exclude
+    :
+    I@018/0015
+    Boolean
+  }
+}
+{
+  !Ou I@008/0018
+  _DomainItem
+  <
+    I@021/0018
+    $item
+    :_BaseDomainItem
+  >
+  :
+  I@008/0019
+  $item
+  {
+    !OF I@009/0020
+    domain
+    :
+    I@017/0020
+    _Name
+  }
+}
+{
+  !Ou I@008/0023
+  _DomainValue
+  <
+    I@022/0023
+    $kind
+    :_DomainKind
+    I@040/0023
+    $value
+    :_BasicValue
+  >
+  :
+  I@007/0024
+  _DomainRef
+  <
+    I@019/0024
+    $kind
+  >
+  {
+    !OF I@009/0025
+    value
+    :
+    I@017/0025
+    $value
+  }
+  |
+  P@007/0026
+  $value
+}
+{
+  !Ou I@008/0029
+  _BasicValue
+  |
+  I@007/0030
+  Boolean
+  I@007/0031
+  _EnumValue
+  I@007/0032
+  Number
+  I@007/0033
+  String
+}
+{
+  !Du I@006/0036
+  _DomainTrueFalse
+  :
+  I@007/0037
+  _BaseDomainItem
+  {
+    !DF I@009/0038
+    value
+    :
+    I@016/0038
+    Boolean
+  }
+}
+{
+  !Ou I@008/0041
+  _DomainItemTrueFalse
+  :
+  I@007/0042
+  _DomainItem
+  <
+    I@019/0042
+    _DomainTrueFalse
+  >
+}
+{
+  !Ou I@008/0045
+  _DomainLabel
+  :
+  I@007/0046
+  _BaseDomainItem
+  {
+    !OF I@009/0047
+    label
+    :
+    I@016/0047
+    _EnumValue
+  }
+}
+{
+  !Ou I@008/0050
+  _DomainItemLabel
+  :
+  I@007/0051
+  _DomainItem
+  <
+    I@019/0051
+    _DomainLabel
+  >
+}
+{
+  !Du I@006/0054
+  _DomainRange
+  :
+  I@007/0055
+  _BaseDomainItem
+  {
+    !DF I@009/0056
+    lower
+    :
+    I@016/0056
+    Number
+    ?
+    !DF I@009/0057
+    upper
+    :
+    I@016/0057
+    Number
+    ?
+  }
+}
+{
+  !Ou I@008/0060
+  _DomainItemRange
+  :
+  I@007/0061
+  _DomainItem
+  <
+    I@019/0061
+    _DomainRange
+  >
+}
+{
+  !Du I@006/0064
+  _DomainRegex
+  :
+  I@007/0065
+  _BaseDomainItem
+  {
+    !DF I@009/0066
+    pattern
+    :
+    I@018/0066
+    String
+  }
+}
+{
+  !Ou I@008/0069
+  _DomainItemRegex
+  :
+  I@007/0070
+  _DomainItem
+  <
+    I@019/0070
+    _DomainRegex
+  >
+}
+{
+  !Du I@006/0073
+  _EnumLabel
+  :
+  I@007/0074
+  _Aliased
+  {
+    !DF I@009/0075
+    enumType
+    :
+    I@019/0075
+    _Name
+  }
+}
+{
+  !Ou I@008/0078
+  _EnumValue
+  :
+  I@007/0079
+  _TypeRef
+  <
+    I@016/0079
+    _TypeKind.Enum
+  >
+  {
+    !OF I@009/0080
+    label
+    :
+    I@016/0080
+    _Name
+  }
+}
+{
+  !Ou I@008/0083
+  _UnionRef
+  :
+  I@007/0084
+  _TypeRef
+  <
+    I@016/0084
+    _SimpleKind
+  >
+}
+{
+  !Ou I@008/0087
+  _UnionMember
+  :
+  I@007/0088
+  _UnionRef
+  {
+    !OF I@009/0089
+    union
+    :
+    I@016/0089
+    _Name
+  }
+}

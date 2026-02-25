@@ -1,0 +1,14 @@
+﻿!Sc I@001/0001
+Success
+{
+  !En I@006/0001
+  EnumDiff
+  !EL I@017/0001
+  one
+}
+{
+  !En I@006/0002
+  EnumDiff
+  !EL I@017/0002
+  two
+}

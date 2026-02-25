@@ -1,0 +1,36 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnEnumUnq
+  Enum
+  !DE I@026/0001
+  EnumDmnEnumUnq
+  *
+  !DE P@043/0001
+  EnumDmnEnumUnq
+  !dmnEnumUnq
+  !DE I@070/0001
+  DupDmnEnumUnq
+  dmnEnumUnq
+}
+{
+  !En I@006/0002
+  EnumDmnEnumUnq
+  !EL I@023/0002
+  enum_dmnEnumUnq
+  !EL I@039/0002
+  dmnEnumUnq
+  !EL I@050/0002
+  dmnEnumUnqValue
+}
+{
+  !En I@006/0003
+  DupDmnEnumUnq
+  !EL I@022/0003
+  dmnEnumUnq
+  !EL I@033/0003
+  dup_dmnEnumUnq
+  !EL I@048/0003
+  dmnEnumUnqDup
+}

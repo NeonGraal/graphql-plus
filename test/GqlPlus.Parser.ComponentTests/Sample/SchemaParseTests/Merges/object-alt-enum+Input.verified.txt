@@ -1,0 +1,16 @@
+﻿!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  ObjAltEnumInp
+  |
+  I@025/0001
+  Boolean.true
+}
+{
+  !In I@007/0002
+  ObjAltEnumInp
+  |
+  I@025/0002
+  Boolean.false
+}

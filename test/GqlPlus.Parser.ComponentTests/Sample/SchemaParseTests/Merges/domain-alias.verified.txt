@@ -1,0 +1,18 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnAlias
+  [
+    Num1
+  ]
+  Number
+}
+{
+  !Do I@008/0002
+  DmnAlias
+  [
+    Num2
+  ]
+  Number
+}

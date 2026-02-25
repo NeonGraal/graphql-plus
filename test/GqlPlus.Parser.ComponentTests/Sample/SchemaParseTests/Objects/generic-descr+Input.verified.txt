@@ -1,0 +1,19 @@
+﻿!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  GnrcDescrInp
+  <
+    'Test Descr'
+    I@036/0001
+    $type
+    :String
+  >
+  {
+    !IF I@051/0001
+    field
+    :
+    I@059/0001
+    $type
+  }
+}

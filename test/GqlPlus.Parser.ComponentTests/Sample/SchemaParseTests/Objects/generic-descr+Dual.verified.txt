@@ -1,0 +1,19 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  GnrcDescrDual
+  <
+    'Test Descr'
+    I@036/0001
+    $type
+    :String
+  >
+  {
+    !DF I@051/0001
+    field
+    :
+    I@059/0001
+    $type
+  }
+}

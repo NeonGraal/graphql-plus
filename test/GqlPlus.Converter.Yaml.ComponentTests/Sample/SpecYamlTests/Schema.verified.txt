@@ -208,7 +208,7 @@ types: !_Map(_Type)
         modifierKind: !_ModifierKind Param
       object: _Set
       type: !_ObjBase
-        name: Unit
+        name: _
     alternates:
     - !_Alternate
       collections:
@@ -216,7 +216,7 @@ types: !_Map(_Type)
         by: K
         modifierKind: !_ModifierKind Param
       type: !_ObjBase
-        name: Unit
+        name: _
     name: _Set
     typeKind: !_TypeKind Dual
     typeParams:

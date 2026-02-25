@@ -1,0 +1,16 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnNmbrSame
+  Number
+  !DN N@029/0001
+  9<1
+}
+{
+  !Do I@008/0002
+  DmnNmbrSame
+  Number
+  !DN N@029/0002
+  9<1
+}

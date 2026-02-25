@@ -1,0 +1,20 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Op I@008/0001
+  Schema
+  {
+    !OS I@017/0001
+    merged
+    =( !k I@024/0001 Boolean.true )
+  }
+}
+{
+  !Op I@008/0002
+  Schema
+  {
+    !OS I@017/0002
+    merged
+    =( !c P@024/0002 [ !k N@025/0002 0 ] )
+  }
+}

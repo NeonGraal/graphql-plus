@@ -1,0 +1,20 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  ObjAltDual
+  |
+  I@021/0001
+  ObjAltDualType
+}
+{
+  !Du I@006/0002
+  ObjAltDual
+  |
+  I@021/0002
+  ObjAltDualType
+}
+{
+  !Du I@006/0003
+  ObjAltDualType
+}

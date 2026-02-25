@@ -1,0 +1,22 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Un I@007/0001
+  UnionSamePrnt
+  :( !Tr I@024/0001 PrntUnionSamePrnt )
+  !UM I@042/0001
+  Boolean
+}
+{
+  !Un I@007/0002
+  UnionSamePrnt
+  :( !Tr I@024/0002 PrntUnionSamePrnt )
+  !UM I@042/0002
+  Boolean
+}
+{
+  !Un I@007/0003
+  PrntUnionSamePrnt
+  !UM I@027/0003
+  String
+}

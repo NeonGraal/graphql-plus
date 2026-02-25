@@ -11,21 +11,11 @@ public class ParseSchemaTests(
 
   protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
-    if (string.IsNullOrWhiteSpace(section)) {
-      IGqlpSchema ast = result.Required();
+    IGqlpSchema ast = result.Required();
 
-      await CheckErrors(dirs, test, ast.Errors, "parse");
+    await CheckErrors(dirs, test, ast.Errors, "parse");
 
-      await ast.Show().AttachAndVerify("Result " + test, CustomSettings(label, "Parse", test));
-    } else {
-      string testName = section + " " + test;
-
-      if (result is IResultError<SchemaAst> error) {
-        error.Message.ShouldBeNull(testName);
-      }
-
-      result.IsOk().ShouldBeTrue(testName);
-    }
+    await ast.Show().AttachAndVerify("Result " + test, CustomSettings(label, "Parse", test, section));
   }
 
   protected override async Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")

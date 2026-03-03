@@ -19,7 +19,8 @@ public class testDescrCmplObject
   , ItestDescrCmplObject
 {
 
-  public testDescrCmplObject()
+  public testDescrCmplObject
+    ()
   {
   }
 }

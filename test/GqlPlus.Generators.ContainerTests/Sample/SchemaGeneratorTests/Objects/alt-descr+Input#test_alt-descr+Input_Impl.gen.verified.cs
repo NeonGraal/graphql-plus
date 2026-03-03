@@ -20,7 +20,8 @@ public class testAltDescrInpObject
   , ItestAltDescrInpObject
 {
 
-  public testAltDescrInpObject()
+  public testAltDescrInpObject
+    ()
   {
   }
 }

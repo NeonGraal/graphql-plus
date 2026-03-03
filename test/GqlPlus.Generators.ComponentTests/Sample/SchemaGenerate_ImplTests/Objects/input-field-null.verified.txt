@@ -24,7 +24,8 @@ public class CmptInpFieldNullObject
 {
   public ICmptFldInpFieldNull? Field { get; set; }
 
-  public CmptInpFieldNullObject()
+  public CmptInpFieldNullObject
+    ()
   {
   }
 }
@@ -41,7 +42,8 @@ public class CmptFldInpFieldNullObject
   , ICmptFldInpFieldNullObject
 {
 
-  public CmptFldInpFieldNullObject()
+  public CmptFldInpFieldNullObject
+    ()
   {
   }
 }

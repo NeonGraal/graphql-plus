@@ -20,7 +20,9 @@ public class testFieldDualObject
 {
   public string Field { get; set; }
 
-  public testFieldDualObject(string field)
+  public testFieldDualObject
+    ( string field
+    )
   {
     Field = field;
   }

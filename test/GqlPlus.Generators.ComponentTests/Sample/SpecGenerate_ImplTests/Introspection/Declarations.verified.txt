@@ -61,7 +61,8 @@ public class Cmpt_SchemaObject
   public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
     => null;
 
-  public Cmpt_SchemaObject()
+  public Cmpt_SchemaObject
+    ()
   {
   }
 }
@@ -90,7 +91,10 @@ public class Cmpt_FilterObject
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
 
-  public Cmpt_FilterObject(ICollection<ICmpt_NameFilter> names, ICollection<ICmpt_NameFilter> aliases)
+  public Cmpt_FilterObject
+    ( ICollection<ICmpt_NameFilter> names
+    , ICollection<ICmpt_NameFilter> aliases
+    )
   {
     Names = names;
     Aliases = aliases;
@@ -116,8 +120,11 @@ public class Cmpt_CategoryFilterObject
 {
   public ICollection<ICmpt_Resolution> Resolutions { get; set; }
 
-  public Cmpt_CategoryFilterObject(ICollection<ICmpt_NameFilter> names, ICollection<ICmpt_NameFilter> aliases, ICollection<ICmpt_Resolution> resolutions)
-    : base(names, aliases)
+  public Cmpt_CategoryFilterObject
+    ( ICollection<ICmpt_NameFilter> names
+    , ICollection<ICmpt_NameFilter> aliases
+    , ICollection<ICmpt_Resolution> resolutions
+    ) : base(names, aliases)
   {
     Resolutions = resolutions;
   }
@@ -136,8 +143,11 @@ public class Cmpt_TypeFilterObject
 {
   public ICollection<ICmpt_TypeKind> Kinds { get; set; }
 
-  public Cmpt_TypeFilterObject(ICollection<ICmpt_NameFilter> names, ICollection<ICmpt_NameFilter> aliases, ICollection<ICmpt_TypeKind> kinds)
-    : base(names, aliases)
+  public Cmpt_TypeFilterObject
+    ( ICollection<ICmpt_NameFilter> names
+    , ICollection<ICmpt_NameFilter> aliases
+    , ICollection<ICmpt_TypeKind> kinds
+    ) : base(names, aliases)
   {
     Kinds = kinds;
   }

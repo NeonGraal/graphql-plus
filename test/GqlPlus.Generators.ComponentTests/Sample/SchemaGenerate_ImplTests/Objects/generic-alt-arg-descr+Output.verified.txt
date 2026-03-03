@@ -24,7 +24,8 @@ public class CmptGnrcAltArgDescrOutpObject<TType>
   , ICmptGnrcAltArgDescrOutpObject<TType>
 {
 
-  public CmptGnrcAltArgDescrOutpObject()
+  public CmptGnrcAltArgDescrOutpObject
+    ()
   {
   }
 }
@@ -42,7 +43,8 @@ public class CmptRefGnrcAltArgDescrOutpObject<TRef>
   , ICmptRefGnrcAltArgDescrOutpObject<TRef>
 {
 
-  public CmptRefGnrcAltArgDescrOutpObject()
+  public CmptRefGnrcAltArgDescrOutpObject
+    ()
   {
   }
 }

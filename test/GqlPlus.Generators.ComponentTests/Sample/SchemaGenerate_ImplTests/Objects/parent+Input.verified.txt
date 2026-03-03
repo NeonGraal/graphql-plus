@@ -23,8 +23,9 @@ public class CmptPrntInpObject
   , ICmptPrntInpObject
 {
 
-  public CmptPrntInpObject(decimal parent)
-    : base(parent)
+  public CmptPrntInpObject
+    ( decimal parent
+    ) : base(parent)
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptRefPrntInpObject
 {
   public decimal Parent { get; set; }
 
-  public CmptRefPrntInpObject(decimal parent)
+  public CmptRefPrntInpObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

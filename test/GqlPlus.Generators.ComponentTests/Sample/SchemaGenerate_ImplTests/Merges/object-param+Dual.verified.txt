@@ -25,7 +25,10 @@ public class CmptObjParamDualObject<TTest,TType>
   public TTest Test { get; set; }
   public TType Type { get; set; }
 
-  public CmptObjParamDualObject(TTest test, TType type)
+  public CmptObjParamDualObject
+    ( TTest test
+    , TType type
+    )
   {
     Test = test;
     Type = type;

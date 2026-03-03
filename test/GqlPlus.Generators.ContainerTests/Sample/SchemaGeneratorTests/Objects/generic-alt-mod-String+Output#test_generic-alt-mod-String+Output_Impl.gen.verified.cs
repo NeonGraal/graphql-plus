@@ -20,7 +20,8 @@ public class testRefGnrcAltModStrOutpObject<TRef>
   , ItestRefGnrcAltModStrOutpObject<TRef>
 {
 
-  public testRefGnrcAltModStrOutpObject()
+  public testRefGnrcAltModStrOutpObject
+    ()
   {
   }
 }

@@ -23,7 +23,8 @@ public class CmptGnrcAltInpObject<TType>
   , ICmptGnrcAltInpObject<TType>
 {
 
-  public CmptGnrcAltInpObject()
+  public CmptGnrcAltInpObject
+    ()
   {
   }
 }

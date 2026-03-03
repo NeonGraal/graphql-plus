@@ -20,7 +20,9 @@ public class testFieldTypeDescrOutpObject
 {
   public decimal Field { get; set; }
 
-  public testFieldTypeDescrOutpObject(decimal field)
+  public testFieldTypeDescrOutpObject
+    ( decimal field
+    )
   {
     Field = field;
   }

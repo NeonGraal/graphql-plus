@@ -1,15 +1,19 @@
-﻿namespace GqlPlus;
+﻿using System.Diagnostics;
+using GqlPlus.Ast.Schema.Objects;
+
+namespace GqlPlus;
 
 internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
 {
   private readonly Map<IGqlpType> _types = [];
   private readonly Map<IGqlpObjType> _args = [];
 
-  internal GqlpGeneratorTypes(GqlpGeneratorTypes parent)
+  internal GqlpGeneratorTypes(GqlpGeneratorTypes parent, IEnumerable<IGqlpTypeArg>? typeArgs = null, IEnumerable<IGqlpTypeParam>? typeParams = null)
     : this(parent.ModelOptions)
   {
-    _types = new(parent._types);
-    _args = new(parent._args);
+    _types = [.. parent._types];
+    _args = [];
+    AddArgs(typeArgs ?? [], typeParams ?? []);
   }
 
   public GqlpModelOptions ModelOptions { get; } = modelOptions;
@@ -38,8 +42,12 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
     [BuiltIn.BooleanAlias] = "bool",
   };
 
-  internal void AddArgs(IEnumerable<MapPair<IGqlpObjType>> args)
+  internal void AddArgs(IEnumerable<IGqlpTypeArg> typeArgs, IEnumerable<IGqlpTypeParam> typeParams)
   {
+    IEnumerable<MapPair<IGqlpObjType>> args = typeArgs
+      ?.Zip(typeParams, (a, p) => a.ToPair<IGqlpObjType>(p.Name))
+      ?? [];
+
     foreach ((string key, IGqlpObjType value) in args) {
       if (_args.TryGetValue(key, out IGqlpObjType arg)) {
         if (arg.Name != value.Name && value.Name != key) {
@@ -51,11 +59,9 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
     }
   }
 
-  internal IGqlpObjType? GetArg(string? argName)
-  {
-    return _args.TryGetValue(argName!, out IGqlpObjType arg)
-     ? arg : null;
-  }
+  /// <summary> Both params will be not null if result true but can't use NotNullWhen </summary>
+  internal bool GetArg(string? argName, out IGqlpObjType arg)
+    => _args.TryGetValue(argName.IfWhiteSpace(), out arg);
 
   internal void AddTypes(params IGqlpType[] types)
   {
@@ -69,16 +75,19 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
     }
   }
 
-  internal TAst? GetTypeAst<TAst>(string? typeName)
+  /// <summary> Both params will be not null if result true but can't use NotNullWhen </summary>
+  internal bool GetTypeAst<TAst>(string? typeName, out TAst ast)
     where TAst : class, IGqlpType
   {
     if (!string.IsNullOrWhiteSpace(typeName)
-        && _types.TryGetValue(typeName!, out IGqlpType type)
-        && type is TAst ast) {
-      return ast;
+        && _types.TryGetValue(typeName.IfWhiteSpace(), out IGqlpType type)
+        && type is TAst astType) {
+      ast = astType;
+      return true;
     }
 
-    return null;
+    ast = default!;
+    return false;
   }
 
   internal string TypeName(IGqlpNamed type, string prefix)

@@ -23,7 +23,8 @@ public class CmptRefGnrcAltModStrInpObject<TRef>
   , ICmptRefGnrcAltModStrInpObject<TRef>
 {
 
-  public CmptRefGnrcAltModStrInpObject()
+  public CmptRefGnrcAltModStrInpObject
+    ()
   {
   }
 }

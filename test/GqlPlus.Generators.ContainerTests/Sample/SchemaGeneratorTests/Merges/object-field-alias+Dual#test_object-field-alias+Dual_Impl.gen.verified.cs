@@ -20,7 +20,9 @@ public class testObjFieldAliasDualObject
 {
   public ItestFldObjFieldAliasDual Field { get; set; }
 
-  public testObjFieldAliasDualObject(ItestFldObjFieldAliasDual field)
+  public testObjFieldAliasDualObject
+    ( ItestFldObjFieldAliasDual field
+    )
   {
     Field = field;
   }
@@ -38,7 +40,8 @@ public class testFldObjFieldAliasDualObject
   , ItestFldObjFieldAliasDualObject
 {
 
-  public testFldObjFieldAliasDualObject()
+  public testFldObjFieldAliasDualObject
+    ()
   {
   }
 }

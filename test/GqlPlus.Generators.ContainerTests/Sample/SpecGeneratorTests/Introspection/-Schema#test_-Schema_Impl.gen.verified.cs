@@ -27,8 +27,10 @@ public class test_SchemaObject
   public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
     => null;
 
-  public test_SchemaObject(ICollection<string> description, Itest_Name name)
-    : base(description, name)
+  public test_SchemaObject
+    ( ICollection<string> description
+    , Itest_Name name
+    ) : base(description, name)
   {
   }
 }
@@ -57,7 +59,10 @@ public class test_FilterObject
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
 
-  public test_FilterObject(ICollection<Itest_NameFilter> names, ICollection<Itest_NameFilter> aliases)
+  public test_FilterObject
+    ( ICollection<Itest_NameFilter> names
+    , ICollection<Itest_NameFilter> aliases
+    )
   {
     Names = names;
     Aliases = aliases;
@@ -83,8 +88,11 @@ public class test_CategoryFilterObject
 {
   public ICollection<Itest_Resolution> Resolutions { get; set; }
 
-  public test_CategoryFilterObject(ICollection<Itest_NameFilter> names, ICollection<Itest_NameFilter> aliases, ICollection<Itest_Resolution> resolutions)
-    : base(names, aliases)
+  public test_CategoryFilterObject
+    ( ICollection<Itest_NameFilter> names
+    , ICollection<Itest_NameFilter> aliases
+    , ICollection<Itest_Resolution> resolutions
+    ) : base(names, aliases)
   {
     Resolutions = resolutions;
   }
@@ -103,8 +111,11 @@ public class test_TypeFilterObject
 {
   public ICollection<Itest_TypeKind> Kinds { get; set; }
 
-  public test_TypeFilterObject(ICollection<Itest_NameFilter> names, ICollection<Itest_NameFilter> aliases, ICollection<Itest_TypeKind> kinds)
-    : base(names, aliases)
+  public test_TypeFilterObject
+    ( ICollection<Itest_NameFilter> names
+    , ICollection<Itest_NameFilter> aliases
+    , ICollection<Itest_TypeKind> kinds
+    ) : base(names, aliases)
   {
     Kinds = kinds;
   }
@@ -123,8 +134,11 @@ public class test_AliasedObject
 {
   public ICollection<Itest_Name> Aliases { get; set; }
 
-  public test_AliasedObject(ICollection<string> description, Itest_Name name, ICollection<Itest_Name> aliases)
-    : base(description, name)
+  public test_AliasedObject
+    ( ICollection<string> description
+    , Itest_Name name
+    , ICollection<Itest_Name> aliases
+    ) : base(description, name)
   {
     Aliases = aliases;
   }
@@ -143,8 +157,10 @@ public class test_NamedObject
 {
   public Itest_Name Name { get; set; }
 
-  public test_NamedObject(ICollection<string> description, Itest_Name name)
-    : base(description)
+  public test_NamedObject
+    ( ICollection<string> description
+    , Itest_Name name
+    ) : base(description)
   {
     Name = name;
   }
@@ -163,7 +179,9 @@ public class test_DescribedObject
 {
   public ICollection<string> Description { get; set; }
 
-  public test_DescribedObject(ICollection<string> description)
+  public test_DescribedObject
+    ( ICollection<string> description
+    )
   {
     Description = description;
   }

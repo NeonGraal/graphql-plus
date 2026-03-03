@@ -25,7 +25,8 @@ public class CmptObjAltOutpObject
   , ICmptObjAltOutpObject
 {
 
-  public CmptObjAltOutpObject()
+  public CmptObjAltOutpObject
+    ()
   {
   }
 }
@@ -42,7 +43,8 @@ public class CmptObjAltOutpTypeObject
   , ICmptObjAltOutpTypeObject
 {
 
-  public CmptObjAltOutpTypeObject()
+  public CmptObjAltOutpTypeObject
+    ()
   {
   }
 }

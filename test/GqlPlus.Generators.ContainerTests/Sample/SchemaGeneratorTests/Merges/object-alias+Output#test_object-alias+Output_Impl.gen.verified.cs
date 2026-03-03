@@ -19,7 +19,8 @@ public class testObjAliasOutpObject
   , ItestObjAliasOutpObject
 {
 
-  public testObjAliasOutpObject()
+  public testObjAliasOutpObject
+    ()
   {
   }
 }

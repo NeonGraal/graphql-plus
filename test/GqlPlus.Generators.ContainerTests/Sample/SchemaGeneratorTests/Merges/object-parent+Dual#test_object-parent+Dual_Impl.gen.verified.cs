@@ -19,7 +19,8 @@ public class testObjPrntDualObject
   , ItestObjPrntDualObject
 {
 
-  public testObjPrntDualObject()
+  public testObjPrntDualObject
+    ()
   {
   }
 }
@@ -36,7 +37,8 @@ public class testRefObjPrntDualObject
   , ItestRefObjPrntDualObject
 {
 
-  public testRefObjPrntDualObject()
+  public testRefObjPrntDualObject
+    ()
   {
   }
 }

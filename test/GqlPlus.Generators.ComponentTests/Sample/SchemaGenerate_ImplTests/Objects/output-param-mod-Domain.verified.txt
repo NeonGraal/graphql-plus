@@ -26,7 +26,8 @@ public class CmptOutpParamModDmnObject
   public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
     => null;
 
-  public CmptOutpParamModDmnObject()
+  public CmptOutpParamModDmnObject
+    ()
   {
   }
 }
@@ -45,7 +46,9 @@ public class CmptInOutpParamModDmnObject
 {
   public decimal Param { get; set; }
 
-  public CmptInOutpParamModDmnObject(decimal param)
+  public CmptInOutpParamModDmnObject
+    ( decimal param
+    )
   {
     Param = param;
   }

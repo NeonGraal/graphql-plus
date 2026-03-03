@@ -20,7 +20,8 @@ public class testObjAltDualObject
   , ItestObjAltDualObject
 {
 
-  public testObjAltDualObject()
+  public testObjAltDualObject
+    ()
   {
   }
 }
@@ -37,7 +38,8 @@ public class testObjAltDualTypeObject
   , ItestObjAltDualTypeObject
 {
 
-  public testObjAltDualTypeObject()
+  public testObjAltDualTypeObject
+    ()
   {
   }
 }

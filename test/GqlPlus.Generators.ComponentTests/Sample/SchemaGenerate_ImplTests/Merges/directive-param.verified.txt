@@ -24,7 +24,8 @@ public class CmptInDrctParamObject
   , ICmptInDrctParamObject
 {
 
-  public CmptInDrctParamObject()
+  public CmptInDrctParamObject
+    ()
   {
   }
 }

@@ -25,8 +25,9 @@ public class CmptCnstFieldObjInpObject
   , ICmptCnstFieldObjInpObject
 {
 
-  public CmptCnstFieldObjInpObject(ICmptAltCnstFieldObjInp field)
-    : base(field)
+  public CmptCnstFieldObjInpObject
+    ( ICmptAltCnstFieldObjInp field
+    ) : base(field)
   {
   }
 }
@@ -44,7 +45,9 @@ public class CmptRefCnstFieldObjInpObject<TRef>
 {
   public TRef Field { get; set; }
 
-  public CmptRefCnstFieldObjInpObject(TRef field)
+  public CmptRefCnstFieldObjInpObject
+    ( TRef field
+    )
   {
     Field = field;
   }
@@ -63,7 +66,8 @@ public class CmptPrntCnstFieldObjInpObject
   , ICmptPrntCnstFieldObjInpObject
 {
 
-  public CmptPrntCnstFieldObjInpObject()
+  public CmptPrntCnstFieldObjInpObject
+    ()
   {
   }
 }
@@ -81,7 +85,9 @@ public class CmptAltCnstFieldObjInpObject
 {
   public decimal Alt { get; set; }
 
-  public CmptAltCnstFieldObjInpObject(decimal alt)
+  public CmptAltCnstFieldObjInpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

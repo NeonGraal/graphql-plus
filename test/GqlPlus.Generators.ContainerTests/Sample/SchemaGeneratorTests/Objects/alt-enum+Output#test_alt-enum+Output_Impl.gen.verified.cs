@@ -20,7 +20,8 @@ public class testAltEnumOutpObject
   , ItestAltEnumOutpObject
 {
 
-  public testAltEnumOutpObject()
+  public testAltEnumOutpObject
+    ()
   {
   }
 }

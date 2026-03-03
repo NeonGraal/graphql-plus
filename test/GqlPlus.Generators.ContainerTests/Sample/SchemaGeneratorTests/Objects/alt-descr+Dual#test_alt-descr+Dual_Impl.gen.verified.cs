@@ -20,7 +20,8 @@ public class testAltDescrDualObject
   , ItestAltDescrDualObject
 {
 
-  public testAltDescrDualObject()
+  public testAltDescrDualObject
+    ()
   {
   }
 }

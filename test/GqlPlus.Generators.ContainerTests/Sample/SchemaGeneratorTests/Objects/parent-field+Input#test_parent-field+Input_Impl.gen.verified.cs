@@ -20,8 +20,10 @@ public class testPrntFieldInpObject
 {
   public decimal Field { get; set; }
 
-  public testPrntFieldInpObject(decimal parent, decimal field)
-    : base(parent)
+  public testPrntFieldInpObject
+    ( decimal parent
+    , decimal field
+    ) : base(parent)
   {
     Field = field;
   }
@@ -41,7 +43,9 @@ public class testRefPrntFieldInpObject
 {
   public decimal Parent { get; set; }
 
-  public testRefPrntFieldInpObject(decimal parent)
+  public testRefPrntFieldInpObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

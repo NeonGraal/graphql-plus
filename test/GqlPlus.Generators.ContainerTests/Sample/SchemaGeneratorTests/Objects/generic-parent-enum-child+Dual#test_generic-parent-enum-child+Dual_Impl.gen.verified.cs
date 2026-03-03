@@ -19,8 +19,9 @@ public class testGnrcPrntEnumChildDualObject
   , ItestGnrcPrntEnumChildDualObject
 {
 
-  public testGnrcPrntEnumChildDualObject(testParentGnrcPrntEnumChildDual field)
-    : base(field)
+  public testGnrcPrntEnumChildDualObject
+    ( testParentGnrcPrntEnumChildDual field
+    ) : base(field)
   {
   }
 }
@@ -38,7 +39,9 @@ public class testFieldGnrcPrntEnumChildDualObject<TRef>
 {
   public TRef Field { get; set; }
 
-  public testFieldGnrcPrntEnumChildDualObject(TRef field)
+  public testFieldGnrcPrntEnumChildDualObject
+    ( TRef field
+    )
   {
     Field = field;
   }

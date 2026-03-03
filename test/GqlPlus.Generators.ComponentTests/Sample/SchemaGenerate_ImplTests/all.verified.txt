@@ -61,7 +61,9 @@ public class CmptFieldObject
 {
   public ICollection<string> Strings { get; set; }
 
-  public CmptFieldObject(ICollection<string> strings)
+  public CmptFieldObject
+    ( ICollection<string> strings
+    )
   {
     Strings = strings;
   }
@@ -82,7 +84,9 @@ public class CmptParamObject
   public ICmptMany? AfterId { get; set; }
   public ICmptMany BeforeId { get; set; }
 
-  public CmptParamObject(ICmptMany beforeId)
+  public CmptParamObject
+    ( ICmptMany beforeId
+    )
   {
     BeforeId = beforeId;
   }
@@ -103,7 +107,8 @@ public class CmptAllObject
   public ICmptField? Items(ICmptParam? parameter)
     => null;
 
-  public CmptAllObject()
+  public CmptAllObject
+    ()
   {
   }
 }

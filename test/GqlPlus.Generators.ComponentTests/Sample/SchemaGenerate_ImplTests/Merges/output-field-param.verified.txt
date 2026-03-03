@@ -28,7 +28,8 @@ public class CmptOutpFieldParamObject
   public ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter)
     => null;
 
-  public CmptOutpFieldParamObject()
+  public CmptOutpFieldParamObject
+    ()
   {
   }
 }
@@ -45,7 +46,8 @@ public class CmptOutpFieldParam1Object
   , ICmptOutpFieldParam1Object
 {
 
-  public CmptOutpFieldParam1Object()
+  public CmptOutpFieldParam1Object
+    ()
   {
   }
 }
@@ -62,7 +64,8 @@ public class CmptOutpFieldParam2Object
   , ICmptOutpFieldParam2Object
 {
 
-  public CmptOutpFieldParam2Object()
+  public CmptOutpFieldParam2Object
+    ()
   {
   }
 }
@@ -79,7 +82,8 @@ public class CmptFldOutpFieldParamObject
   , ICmptFldOutpFieldParamObject
 {
 
-  public CmptFldOutpFieldParamObject()
+  public CmptFldOutpFieldParamObject
+    ()
   {
   }
 }

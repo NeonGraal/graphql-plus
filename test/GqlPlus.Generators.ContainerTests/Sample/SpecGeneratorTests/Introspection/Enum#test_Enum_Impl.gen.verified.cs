@@ -20,7 +20,9 @@ public class test_EnumLabelObject
 {
   public Itest_Name EnumType { get; set; }
 
-  public test_EnumLabelObject(Itest_Name enumType)
+  public test_EnumLabelObject
+    ( Itest_Name enumType
+    )
   {
     EnumType = enumType;
   }
@@ -39,7 +41,9 @@ public class test_EnumValueObject
 {
   public Itest_Name Label { get; set; }
 
-  public test_EnumValueObject(Itest_Name label)
+  public test_EnumValueObject
+    ( Itest_Name label
+    )
   {
     Label = label;
   }

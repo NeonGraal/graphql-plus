@@ -20,7 +20,8 @@ public class testObjAltOutpObject
   , ItestObjAltOutpObject
 {
 
-  public testObjAltOutpObject()
+  public testObjAltOutpObject
+    ()
   {
   }
 }
@@ -37,7 +38,8 @@ public class testObjAltOutpTypeObject
   , ItestObjAltOutpTypeObject
 {
 
-  public testObjAltOutpTypeObject()
+  public testObjAltOutpTypeObject
+    ()
   {
   }
 }

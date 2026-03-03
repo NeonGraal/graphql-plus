@@ -77,7 +77,8 @@ public class Cmpt_TypeObject
   , ICmpt_TypeObject
 {
 
-  public Cmpt_TypeObject()
+  public Cmpt_TypeObject
+    ()
   {
   }
 }
@@ -95,7 +96,9 @@ public class Cmpt_BaseTypeObject<TKind>
 {
   public TKind TypeKind { get; set; }
 
-  public Cmpt_BaseTypeObject(TKind typeKind)
+  public Cmpt_BaseTypeObject
+    ( TKind typeKind
+    )
   {
     TypeKind = typeKind;
   }
@@ -114,8 +117,10 @@ public class Cmpt_ChildTypeObject<TKind,TParent>
 {
   public TParent Parent { get; set; }
 
-  public Cmpt_ChildTypeObject(TKind typeKind, TParent parent)
-    : base(typeKind)
+  public Cmpt_ChildTypeObject
+    ( TKind typeKind
+    , TParent parent
+    ) : base(typeKind)
   {
     Parent = parent;
   }
@@ -135,8 +140,12 @@ public class Cmpt_ParentTypeObject<TKind,TItem,TAllItem>
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
 
-  public Cmpt_ParentTypeObject(TKind typeKind, ICmpt_Named parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
-    : base(typeKind, parent)
+  public Cmpt_ParentTypeObject
+    ( TKind typeKind
+    , ICmpt_Named parent
+    , ICollection<TItem> items
+    , ICollection<TAllItem> allItems
+    ) : base(typeKind, parent)
   {
     Items = items;
     AllItems = allItems;
@@ -156,7 +165,9 @@ public class Cmpt_TypeRefObject<TKind>
 {
   public TKind TypeKind { get; set; }
 
-  public Cmpt_TypeRefObject(TKind typeKind)
+  public Cmpt_TypeRefObject
+    ( TKind typeKind
+    )
   {
     TypeKind = typeKind;
   }
@@ -178,7 +189,8 @@ public class Cmpt_TypeSimpleObject
   , ICmpt_TypeSimpleObject
 {
 
-  public Cmpt_TypeSimpleObject()
+  public Cmpt_TypeSimpleObject
+    ()
   {
   }
 }

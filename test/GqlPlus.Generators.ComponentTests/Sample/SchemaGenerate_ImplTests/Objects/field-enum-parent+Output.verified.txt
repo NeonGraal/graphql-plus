@@ -25,7 +25,9 @@ public class CmptFieldEnumPrntOutpObject
 {
   public CmptEnumFieldEnumPrntOutp Field { get; set; }
 
-  public CmptFieldEnumPrntOutpObject(CmptEnumFieldEnumPrntOutp field)
+  public CmptFieldEnumPrntOutpObject
+    ( CmptEnumFieldEnumPrntOutp field
+    )
   {
     Field = field;
   }

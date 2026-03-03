@@ -26,7 +26,8 @@ public class CmptCnstDomEnumDualObject
   , ICmptCnstDomEnumDualObject
 {
 
-  public CmptCnstDomEnumDualObject()
+  public CmptCnstDomEnumDualObject
+    ()
   {
   }
 }
@@ -44,7 +45,9 @@ public class CmptRefCnstDomEnumDualObject<TType>
 {
   public TType Field { get; set; }
 
-  public CmptRefCnstDomEnumDualObject(TType field)
+  public CmptRefCnstDomEnumDualObject
+    ( TType field
+    )
   {
     Field = field;
   }

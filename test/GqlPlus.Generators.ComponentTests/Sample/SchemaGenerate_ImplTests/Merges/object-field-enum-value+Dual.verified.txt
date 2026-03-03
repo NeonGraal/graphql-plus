@@ -24,7 +24,9 @@ public class CmptObjFieldEnumValueDualObject
 {
   public bool Field { get; set; }
 
-  public CmptObjFieldEnumValueDualObject(bool field)
+  public CmptObjFieldEnumValueDualObject
+    ( bool field
+    )
   {
     Field = field;
   }

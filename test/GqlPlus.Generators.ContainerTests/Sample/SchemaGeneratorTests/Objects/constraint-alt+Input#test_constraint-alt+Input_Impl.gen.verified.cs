@@ -20,7 +20,8 @@ public class testCnstAltInpObject<TType>
   , ItestCnstAltInpObject<TType>
 {
 
-  public testCnstAltInpObject()
+  public testCnstAltInpObject
+    ()
   {
   }
 }

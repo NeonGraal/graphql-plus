@@ -19,7 +19,8 @@ public class test_DualFieldObject
   , Itest_DualFieldObject
 {
 
-  public test_DualFieldObject()
+  public test_DualFieldObject
+    ()
   {
   }
 }

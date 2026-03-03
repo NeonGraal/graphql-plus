@@ -20,7 +20,9 @@ public class testFieldValueInpObject
 {
   public testEnumFieldValueInp Field { get; set; }
 
-  public testFieldValueInpObject(testEnumFieldValueInp field)
+  public testFieldValueInpObject
+    ( testEnumFieldValueInp field
+    )
   {
     Field = field;
   }

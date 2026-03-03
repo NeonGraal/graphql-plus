@@ -288,14 +288,14 @@ public interface Itest_CollectionsObject
 {
 }
 
-public interface Itest_ModifierKeyed<TKind>
-  : Itest_Modifier<TKind>
+public interface Itest_ModifierKeyed<TModifier>
+  : Itest_Modifier<TModifier>
 {
-  Itest_ModifierKeyedObject<TKind>? As__ModifierKeyed { get; }
+  Itest_ModifierKeyedObject<TModifier>? As__ModifierKeyed { get; }
 }
 
-public interface Itest_ModifierKeyedObject<TKind>
-  : Itest_ModifierObject<TKind>
+public interface Itest_ModifierKeyedObject<TModifier>
+  : Itest_ModifierObject<TModifier>
 {
   Itest_TypeSimple By { get; }
   bool IsOptional { get; }
@@ -314,28 +314,28 @@ public interface Itest_ModifiersObject
 {
 }
 
-public interface Itest_Modifier<TKind>
+public interface Itest_Modifier<TModifier>
   : IGqlpModelImplementationBase
 {
-  Itest_ModifierObject<TKind>? As__Modifier { get; }
+  Itest_ModifierObject<TModifier>? As__Modifier { get; }
 }
 
-public interface Itest_ModifierObject<TKind>
+public interface Itest_ModifierObject<TModifier>
   : IGqlpModelImplementationBase
 {
-  TKind ModifierKind { get; }
+  TModifier ModifierKind { get; }
 }
 
-public interface Itest_DomainRef<TKind>
+public interface Itest_DomainRef<TDomain>
   : Itest_TypeRef<test_TypeKind>
 {
-  Itest_DomainRefObject<TKind>? As__DomainRef { get; }
+  Itest_DomainRefObject<TDomain>? As__DomainRef { get; }
 }
 
-public interface Itest_DomainRefObject<TKind>
+public interface Itest_DomainRefObject<TDomain>
   : Itest_TypeRefObject<test_TypeKind>
 {
-  TKind DomainKind { get; }
+  TDomain DomainKind { get; }
 }
 
 public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
@@ -375,15 +375,15 @@ public interface Itest_DomainItemObject<TItem>
   Itest_Name Domain { get; }
 }
 
-public interface Itest_DomainValue<TKind,TValue>
-  : Itest_DomainRef<TKind>
+public interface Itest_DomainValue<TDomain,TValue>
+  : Itest_DomainRef<TDomain>
 {
   TValue? Asvalue { get; }
-  Itest_DomainValueObject<TKind,TValue>? As__DomainValue { get; }
+  Itest_DomainValueObject<TDomain,TValue>? As__DomainValue { get; }
 }
 
-public interface Itest_DomainValueObject<TKind,TValue>
-  : Itest_DomainRefObject<TKind>
+public interface Itest_DomainValueObject<TDomain,TValue>
+  : Itest_DomainRefObject<TDomain>
 {
   TValue Value { get; }
 }
@@ -548,14 +548,14 @@ public interface Itest_ObjectKind
 {
 }
 
-public interface Itest_TypeObject<TKind,TField>
-  : Itest_ChildType<TKind, Itest_ObjBase>
+public interface Itest_TypeObject<TObject,TField>
+  : Itest_ChildType<TObject, Itest_ObjBase>
 {
-  Itest_TypeObjectObject<TKind,TField>? As__TypeObject { get; }
+  Itest_TypeObjectObject<TObject,TField>? As__TypeObject { get; }
 }
 
-public interface Itest_TypeObjectObject<TKind,TField>
-  : Itest_ChildTypeObject<TKind, Itest_ObjBase>
+public interface Itest_TypeObjectObject<TObject,TField>
+  : Itest_ChildTypeObject<TObject, Itest_ObjBase>
 {
   ICollection<Itest_ObjTypeParam> TypeParams { get; }
   ICollection<TField> Fields { get; }

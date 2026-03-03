@@ -23,7 +23,8 @@ public class CmptCnstAltDualObject<TType>
   , ICmptCnstAltDualObject<TType>
 {
 
-  public CmptCnstAltDualObject()
+  public CmptCnstAltDualObject
+    ()
   {
   }
 }

@@ -12,14 +12,14 @@ public interface Itest_ObjectKind
 {
 }
 
-public interface Itest_TypeObject<TKind,TField>
-  : Itest_ChildType<TKind, Itest_ObjBase>
+public interface Itest_TypeObject<TObject,TField>
+  : Itest_ChildType<TObject, Itest_ObjBase>
 {
-  Itest_TypeObjectObject<TKind,TField>? As__TypeObject { get; }
+  Itest_TypeObjectObject<TObject,TField>? As__TypeObject { get; }
 }
 
-public interface Itest_TypeObjectObject<TKind,TField>
-  : Itest_ChildTypeObject<TKind, Itest_ObjBase>
+public interface Itest_TypeObjectObject<TObject,TField>
+  : Itest_ChildTypeObject<TObject, Itest_ObjBase>
 {
   ICollection<Itest_ObjTypeParam> TypeParams { get; }
   ICollection<TField> Fields { get; }

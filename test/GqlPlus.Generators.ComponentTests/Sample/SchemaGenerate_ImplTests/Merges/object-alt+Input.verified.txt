@@ -25,7 +25,8 @@ public class CmptObjAltInpObject
   , ICmptObjAltInpObject
 {
 
-  public CmptObjAltInpObject()
+  public CmptObjAltInpObject
+    ()
   {
   }
 }
@@ -42,7 +43,8 @@ public class CmptObjAltInpTypeObject
   , ICmptObjAltInpTypeObject
 {
 
-  public CmptObjAltInpTypeObject()
+  public CmptObjAltInpTypeObject
+    ()
   {
   }
 }

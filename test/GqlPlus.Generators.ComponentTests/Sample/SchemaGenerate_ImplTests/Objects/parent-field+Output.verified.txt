@@ -24,8 +24,10 @@ public class CmptPrntFieldOutpObject
 {
   public decimal Field { get; set; }
 
-  public CmptPrntFieldOutpObject(decimal parent, decimal field)
-    : base(parent)
+  public CmptPrntFieldOutpObject
+    ( decimal parent
+    , decimal field
+    ) : base(parent)
   {
     Field = field;
   }
@@ -45,7 +47,9 @@ public class CmptRefPrntFieldOutpObject
 {
   public decimal Parent { get; set; }
 
-  public CmptRefPrntFieldOutpObject(decimal parent)
+  public CmptRefPrntFieldOutpObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

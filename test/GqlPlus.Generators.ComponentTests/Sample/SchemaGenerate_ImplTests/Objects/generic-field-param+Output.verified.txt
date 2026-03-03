@@ -25,7 +25,9 @@ public class CmptGnrcFieldParamOutpObject
 {
   public ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; set; }
 
-  public CmptGnrcFieldParamOutpObject(ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> field)
+  public CmptGnrcFieldParamOutpObject
+    ( ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> field
+    )
   {
     Field = field;
   }
@@ -44,7 +46,8 @@ public class CmptRefGnrcFieldParamOutpObject<TRef>
   , ICmptRefGnrcFieldParamOutpObject<TRef>
 {
 
-  public CmptRefGnrcFieldParamOutpObject()
+  public CmptRefGnrcFieldParamOutpObject
+    ()
   {
   }
 }
@@ -63,7 +66,9 @@ public class CmptAltGnrcFieldParamOutpObject
 {
   public decimal Alt { get; set; }
 
-  public CmptAltGnrcFieldParamOutpObject(decimal alt)
+  public CmptAltGnrcFieldParamOutpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

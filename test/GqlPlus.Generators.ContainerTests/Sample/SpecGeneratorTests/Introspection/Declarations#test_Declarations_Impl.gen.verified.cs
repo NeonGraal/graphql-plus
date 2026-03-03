@@ -27,7 +27,8 @@ public class test_SchemaObject
   public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
     => null;
 
-  public test_SchemaObject()
+  public test_SchemaObject
+    ()
   {
   }
 }
@@ -56,7 +57,10 @@ public class test_FilterObject
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
 
-  public test_FilterObject(ICollection<Itest_NameFilter> names, ICollection<Itest_NameFilter> aliases)
+  public test_FilterObject
+    ( ICollection<Itest_NameFilter> names
+    , ICollection<Itest_NameFilter> aliases
+    )
   {
     Names = names;
     Aliases = aliases;
@@ -82,8 +86,11 @@ public class test_CategoryFilterObject
 {
   public ICollection<Itest_Resolution> Resolutions { get; set; }
 
-  public test_CategoryFilterObject(ICollection<Itest_NameFilter> names, ICollection<Itest_NameFilter> aliases, ICollection<Itest_Resolution> resolutions)
-    : base(names, aliases)
+  public test_CategoryFilterObject
+    ( ICollection<Itest_NameFilter> names
+    , ICollection<Itest_NameFilter> aliases
+    , ICollection<Itest_Resolution> resolutions
+    ) : base(names, aliases)
   {
     Resolutions = resolutions;
   }
@@ -102,8 +109,11 @@ public class test_TypeFilterObject
 {
   public ICollection<Itest_TypeKind> Kinds { get; set; }
 
-  public test_TypeFilterObject(ICollection<Itest_NameFilter> names, ICollection<Itest_NameFilter> aliases, ICollection<Itest_TypeKind> kinds)
-    : base(names, aliases)
+  public test_TypeFilterObject
+    ( ICollection<Itest_NameFilter> names
+    , ICollection<Itest_NameFilter> aliases
+    , ICollection<Itest_TypeKind> kinds
+    ) : base(names, aliases)
   {
     Kinds = kinds;
   }

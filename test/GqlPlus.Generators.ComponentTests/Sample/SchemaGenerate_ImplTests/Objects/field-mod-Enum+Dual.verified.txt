@@ -24,7 +24,9 @@ public class CmptFieldModEnumDualObject
 {
   public IDictionary<CmptEnumFieldModEnumDual, string> Field { get; set; }
 
-  public CmptFieldModEnumDualObject(IDictionary<CmptEnumFieldModEnumDual, string> field)
+  public CmptFieldModEnumDualObject
+    ( IDictionary<CmptEnumFieldModEnumDual, string> field
+    )
   {
     Field = field;
   }

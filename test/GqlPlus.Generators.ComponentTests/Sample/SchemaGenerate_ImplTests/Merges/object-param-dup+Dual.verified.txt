@@ -25,7 +25,10 @@ public class CmptObjParamDupDualObject<TTest>
   public TTest Test { get; set; }
   public TTest Type { get; set; }
 
-  public CmptObjParamDupDualObject(TTest test, TTest type)
+  public CmptObjParamDupDualObject
+    ( TTest test
+    , TTest type
+    )
   {
     Test = test;
     Type = type;

@@ -19,7 +19,8 @@ public class testGnrcPrntParamPrntOutpObject
   , ItestGnrcPrntParamPrntOutpObject
 {
 
-  public testGnrcPrntParamPrntOutpObject()
+  public testGnrcPrntParamPrntOutpObject
+    ()
   {
   }
 }
@@ -37,7 +38,8 @@ public class testRefGnrcPrntParamPrntOutpObject<TRef>
   , ItestRefGnrcPrntParamPrntOutpObject<TRef>
 {
 
-  public testRefGnrcPrntParamPrntOutpObject()
+  public testRefGnrcPrntParamPrntOutpObject
+    ()
   {
   }
 }
@@ -56,7 +58,9 @@ public class testAltGnrcPrntParamPrntOutpObject
 {
   public decimal Alt { get; set; }
 
-  public testAltGnrcPrntParamPrntOutpObject(decimal alt)
+  public testAltGnrcPrntParamPrntOutpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

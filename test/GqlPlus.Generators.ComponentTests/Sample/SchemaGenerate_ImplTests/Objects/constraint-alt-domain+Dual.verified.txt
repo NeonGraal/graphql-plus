@@ -25,7 +25,8 @@ public class CmptCnstAltDmnDualObject
   , ICmptCnstAltDmnDualObject
 {
 
-  public CmptCnstAltDmnDualObject()
+  public CmptCnstAltDmnDualObject
+    ()
   {
   }
 }
@@ -43,7 +44,8 @@ public class CmptRefCnstAltDmnDualObject<TRef>
   , ICmptRefCnstAltDmnDualObject<TRef>
 {
 
-  public CmptRefCnstAltDmnDualObject()
+  public CmptRefCnstAltDmnDualObject
+    ()
   {
   }
 }

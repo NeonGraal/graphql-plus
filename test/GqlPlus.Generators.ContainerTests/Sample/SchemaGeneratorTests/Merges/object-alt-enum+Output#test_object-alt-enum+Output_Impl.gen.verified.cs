@@ -21,7 +21,8 @@ public class testObjAltEnumOutpObject
   , ItestObjAltEnumOutpObject
 {
 
-  public testObjAltEnumOutpObject()
+  public testObjAltEnumOutpObject
+    ()
   {
   }
 }

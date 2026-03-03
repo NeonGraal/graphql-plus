@@ -24,7 +24,8 @@ public class CmptAltEnumOutpObject
   , ICmptAltEnumOutpObject
 {
 
-  public CmptAltEnumOutpObject()
+  public CmptAltEnumOutpObject
+    ()
   {
   }
 }

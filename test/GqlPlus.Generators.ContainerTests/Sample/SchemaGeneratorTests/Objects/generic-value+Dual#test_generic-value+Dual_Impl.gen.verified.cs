@@ -20,7 +20,8 @@ public class testGnrcValueDualObject
   , ItestGnrcValueDualObject
 {
 
-  public testGnrcValueDualObject()
+  public testGnrcValueDualObject
+    ()
   {
   }
 }
@@ -38,7 +39,9 @@ public class testRefGnrcValueDualObject<TType>
 {
   public TType Field { get; set; }
 
-  public testRefGnrcValueDualObject(TType field)
+  public testRefGnrcValueDualObject
+    ( TType field
+    )
   {
     Field = field;
   }

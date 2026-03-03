@@ -20,7 +20,9 @@ public class testFieldValueDescrOutpObject
 {
   public testEnumFieldValueDescrOutp Field { get; set; }
 
-  public testFieldValueDescrOutpObject(testEnumFieldValueDescrOutp field)
+  public testFieldValueDescrOutpObject
+    ( testEnumFieldValueDescrOutp field
+    )
   {
     Field = field;
   }

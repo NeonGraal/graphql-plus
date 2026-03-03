@@ -24,7 +24,8 @@ public class CmptCtgrAliasObject
   , ICmptCtgrAliasObject
 {
 
-  public CmptCtgrAliasObject()
+  public CmptCtgrAliasObject
+    ()
   {
   }
 }

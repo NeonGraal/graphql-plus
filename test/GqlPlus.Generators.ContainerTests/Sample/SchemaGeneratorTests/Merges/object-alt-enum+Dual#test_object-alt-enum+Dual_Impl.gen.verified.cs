@@ -21,7 +21,8 @@ public class testObjAltEnumDualObject
   , ItestObjAltEnumDualObject
 {
 
-  public testObjAltEnumDualObject()
+  public testObjAltEnumDualObject
+    ()
   {
   }
 }

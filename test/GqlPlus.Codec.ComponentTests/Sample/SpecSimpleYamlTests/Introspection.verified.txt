@@ -893,12 +893,12 @@ types: !_Map(_Type)
         name: domainKind
         object: _DomainRef
         type: !_ObjBase
-          typeParam: kind
+          typeParam: domain
     fields:
       - !_OutputField
         name: domainKind
         type: !_ObjBase
-          typeParam: kind
+          typeParam: domain
     name: _DomainRef
     parent: !_ObjBase
       name: _TypeRef
@@ -913,7 +913,7 @@ types: !_Map(_Type)
         constraint: !_TypeRef(_TypeKind)
           name: _DomainKind
           typeKind: !_TypeKind Enum
-        name: kind
+        name: domain
   !_Name _DomainRegex: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
@@ -995,7 +995,7 @@ types: !_Map(_Type)
         name: domainKind
         object: _DomainRef
         type: !_ObjBase
-          typeParam: kind
+          typeParam: domain
       - !_ObjectFor(_OutputField)
         name: value
         object: _DomainValue
@@ -1015,14 +1015,14 @@ types: !_Map(_Type)
       name: _DomainRef
       typeArgs:
         - !_TypeArg
-          typeParam: kind
+          typeParam: domain
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           name: _DomainKind
           typeKind: !_TypeKind Enum
-        name: kind
+        name: domain
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           name: _BasicValue
@@ -1363,12 +1363,12 @@ types: !_Map(_Type)
         name: modifierKind
         object: _Modifier
         type: !_ObjBase
-          typeParam: kind
+          typeParam: modifier
     fields:
       - !_DualField
         name: modifierKind
         type: !_ObjBase
-          typeParam: kind
+          typeParam: modifier
     name: _Modifier
     typeKind: !_TypeKind Dual
     typeParams:
@@ -1376,14 +1376,14 @@ types: !_Map(_Type)
         constraint: !_TypeRef(_TypeKind)
           name: _ModifierKind
           typeKind: !_TypeKind Enum
-        name: kind
+        name: modifier
   !_Name _ModifierKeyed: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: modifierKind
         object: _Modifier
         type: !_ObjBase
-          typeParam: kind
+          typeParam: modifier
       - !_ObjectFor(_DualField)
         name: by
         object: _ModifierKeyed
@@ -1408,14 +1408,14 @@ types: !_Map(_Type)
       name: _Modifier
       typeArgs:
         - !_TypeArg
-          typeParam: kind
+          typeParam: modifier
     typeKind: !_TypeKind Dual
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           name: _ModifierKind
           typeKind: !_TypeKind Enum
-        name: kind
+        name: modifier
   !_Name _ModifierKind: !_TypeEnum
     allItems:
       - !_EnumLabel
@@ -2676,7 +2676,7 @@ types: !_Map(_Type)
       name: _ChildType
       typeArgs:
         - !_TypeArg
-          typeParam: kind
+          typeParam: object
         - !_TypeArg
           name: _ObjBase
     typeKind: !_TypeKind Output
@@ -2685,7 +2685,7 @@ types: !_Map(_Type)
         constraint: !_TypeRef(_TypeKind)
           name: _ObjectKind
           typeKind: !_TypeKind Domain
-        name: kind
+        name: object
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           name: _ObjField

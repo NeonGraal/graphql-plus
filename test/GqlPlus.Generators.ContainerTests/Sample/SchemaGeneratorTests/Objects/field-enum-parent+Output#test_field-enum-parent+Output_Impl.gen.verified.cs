@@ -20,7 +20,9 @@ public class testFieldEnumPrntOutpObject
 {
   public testEnumFieldEnumPrntOutp Field { get; set; }
 
-  public testFieldEnumPrntOutpObject(testEnumFieldEnumPrntOutp field)
+  public testFieldEnumPrntOutpObject
+    ( testEnumFieldEnumPrntOutp field
+    )
   {
     Field = field;
   }

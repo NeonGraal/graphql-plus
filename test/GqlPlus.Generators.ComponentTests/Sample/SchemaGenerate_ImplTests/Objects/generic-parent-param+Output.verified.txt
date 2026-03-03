@@ -24,7 +24,8 @@ public class CmptGnrcPrntParamOutpObject
   , ICmptGnrcPrntParamOutpObject
 {
 
-  public CmptGnrcPrntParamOutpObject()
+  public CmptGnrcPrntParamOutpObject
+    ()
   {
   }
 }
@@ -42,7 +43,8 @@ public class CmptRefGnrcPrntParamOutpObject<TRef>
   , ICmptRefGnrcPrntParamOutpObject<TRef>
 {
 
-  public CmptRefGnrcPrntParamOutpObject()
+  public CmptRefGnrcPrntParamOutpObject
+    ()
   {
   }
 }
@@ -61,7 +63,9 @@ public class CmptAltGnrcPrntParamOutpObject
 {
   public decimal Alt { get; set; }
 
-  public CmptAltGnrcPrntParamOutpObject(decimal alt)
+  public CmptAltGnrcPrntParamOutpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

@@ -23,7 +23,9 @@ public class CmptFieldTypeDescrInpObject
 {
   public decimal Field { get; set; }
 
-  public CmptFieldTypeDescrInpObject(decimal field)
+  public CmptFieldTypeDescrInpObject
+    ( decimal field
+    )
   {
     Field = field;
   }

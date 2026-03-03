@@ -25,7 +25,10 @@ public class CmptObjParamDupInpObject<TTest>
   public TTest Test { get; set; }
   public TTest Type { get; set; }
 
-  public CmptObjParamDupInpObject(TTest test, TTest type)
+  public CmptObjParamDupInpObject
+    ( TTest test
+    , TTest type
+    )
   {
     Test = test;
     Type = type;

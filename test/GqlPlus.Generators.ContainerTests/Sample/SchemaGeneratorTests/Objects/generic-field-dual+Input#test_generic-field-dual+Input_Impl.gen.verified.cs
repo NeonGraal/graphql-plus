@@ -20,7 +20,9 @@ public class testGnrcFieldDualInpObject
 {
   public ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> Field { get; set; }
 
-  public testGnrcFieldDualInpObject(ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> field)
+  public testGnrcFieldDualInpObject
+    ( ItestRefGnrcFieldDualInp<ItestAltGnrcFieldDualInp> field
+    )
   {
     Field = field;
   }
@@ -39,7 +41,8 @@ public class testRefGnrcFieldDualInpObject<TRef>
   , ItestRefGnrcFieldDualInpObject<TRef>
 {
 
-  public testRefGnrcFieldDualInpObject()
+  public testRefGnrcFieldDualInpObject
+    ()
   {
   }
 }
@@ -58,7 +61,9 @@ public class testAltGnrcFieldDualInpObject
 {
   public decimal Alt { get; set; }
 
-  public testAltGnrcFieldDualInpObject(decimal alt)
+  public testAltGnrcFieldDualInpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

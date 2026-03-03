@@ -20,7 +20,8 @@ public class testRefGnrcAltModParamInpObject<TRef,TMod>
   , ItestRefGnrcAltModParamInpObject<TRef,TMod>
 {
 
-  public testRefGnrcAltModParamInpObject()
+  public testRefGnrcAltModParamInpObject
+    ()
   {
   }
 }

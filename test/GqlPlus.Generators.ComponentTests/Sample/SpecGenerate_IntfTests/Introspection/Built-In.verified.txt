@@ -5,8 +5,8 @@ dual _Collections {
     | _ModifierKeyed<_ModifierKind.TypeParam>
     }
 
-dual _ModifierKeyed<$kind:_ModifierKind> {
-    : _Modifier<$kind>
+dual _ModifierKeyed<$modifier:_ModifierKind> {
+    : _Modifier<$modifier>
         by: _TypeSimple
         isOptional: Boolean
     }
@@ -18,8 +18,8 @@ dual _Modifiers {
 
 enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
-dual _Modifier<$kind:_ModifierKind> {
-        modifierKind: $kind
+dual _Modifier<$modifier:_ModifierKind> {
+        modifierKind: $modifier
     }
 */
 
@@ -45,14 +45,14 @@ public interface ICmpt_CollectionsObject
 {
 }
 
-public interface ICmpt_ModifierKeyed<TKind>
-  : ICmpt_Modifier<TKind>
+public interface ICmpt_ModifierKeyed<TModifier>
+  : ICmpt_Modifier<TModifier>
 {
-  ICmpt_ModifierKeyedObject<TKind>? As__ModifierKeyed { get; }
+  ICmpt_ModifierKeyedObject<TModifier>? As__ModifierKeyed { get; }
 }
 
-public interface ICmpt_ModifierKeyedObject<TKind>
-  : ICmpt_ModifierObject<TKind>
+public interface ICmpt_ModifierKeyedObject<TModifier>
+  : ICmpt_ModifierObject<TModifier>
 {
   ICmpt_TypeSimple By { get; }
   bool IsOptional { get; }
@@ -71,14 +71,14 @@ public interface ICmpt_ModifiersObject
 {
 }
 
-public interface ICmpt_Modifier<TKind>
+public interface ICmpt_Modifier<TModifier>
   : Spec_Built-In
 {
-  ICmpt_ModifierObject<TKind>? As__Modifier { get; }
+  ICmpt_ModifierObject<TModifier>? As__Modifier { get; }
 }
 
-public interface ICmpt_ModifierObject<TKind>
+public interface ICmpt_ModifierObject<TModifier>
   : Spec_Built-In
 {
-  TKind ModifierKind { get; }
+  TModifier ModifierKind { get; }
 }

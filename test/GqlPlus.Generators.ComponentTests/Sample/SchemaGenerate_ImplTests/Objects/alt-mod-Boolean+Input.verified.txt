@@ -24,7 +24,8 @@ public class CmptAltModBoolInpObject
   , ICmptAltModBoolInpObject
 {
 
-  public CmptAltModBoolInpObject()
+  public CmptAltModBoolInpObject
+    ()
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptAltAltModBoolInpObject
 {
   public decimal Alt { get; set; }
 
-  public CmptAltAltModBoolInpObject(decimal alt)
+  public CmptAltAltModBoolInpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

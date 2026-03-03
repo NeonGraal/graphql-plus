@@ -20,7 +20,8 @@ public class testGnrcAltInpObject<TType>
   , ItestGnrcAltInpObject<TType>
 {
 
-  public testGnrcAltInpObject()
+  public testGnrcAltInpObject
+    ()
   {
   }
 }

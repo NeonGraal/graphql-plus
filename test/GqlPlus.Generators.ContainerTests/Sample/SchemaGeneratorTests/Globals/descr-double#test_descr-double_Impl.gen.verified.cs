@@ -19,7 +19,8 @@ public class testDescrDblObject
   , ItestDescrDblObject
 {
 
-  public testDescrDblObject()
+  public testDescrDblObject
+    ()
   {
   }
 }

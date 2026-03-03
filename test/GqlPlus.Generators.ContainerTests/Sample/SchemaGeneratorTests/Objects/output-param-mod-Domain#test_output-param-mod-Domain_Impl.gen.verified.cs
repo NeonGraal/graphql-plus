@@ -21,7 +21,8 @@ public class testOutpParamModDmnObject
   public ItestDomOutpParamModDmn? Field(IDictionary<ItestDomOutpParamModDmn, ItestInOutpParamModDmn> parameter)
     => null;
 
-  public testOutpParamModDmnObject()
+  public testOutpParamModDmnObject
+    ()
   {
   }
 }
@@ -40,7 +41,9 @@ public class testInOutpParamModDmnObject
 {
   public decimal Param { get; set; }
 
-  public testInOutpParamModDmnObject(decimal param)
+  public testInOutpParamModDmnObject
+    ( decimal param
+    )
   {
     Param = param;
   }

@@ -23,7 +23,8 @@ public class CmptAltSmplInpObject
   , ICmptAltSmplInpObject
 {
 
-  public CmptAltSmplInpObject()
+  public CmptAltSmplInpObject
+    ()
   {
   }
 }

@@ -24,7 +24,8 @@ public class CmptGnrcAltSmplInpObject
   , ICmptGnrcAltSmplInpObject
 {
 
-  public CmptGnrcAltSmplInpObject()
+  public CmptGnrcAltSmplInpObject
+    ()
   {
   }
 }
@@ -42,7 +43,8 @@ public class CmptRefGnrcAltSmplInpObject<TRef>
   , ICmptRefGnrcAltSmplInpObject<TRef>
 {
 
-  public CmptRefGnrcAltSmplInpObject()
+  public CmptRefGnrcAltSmplInpObject
+    ()
   {
   }
 }

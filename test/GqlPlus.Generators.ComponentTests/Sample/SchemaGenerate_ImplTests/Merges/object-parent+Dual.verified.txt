@@ -24,7 +24,8 @@ public class CmptObjPrntDualObject
   , ICmptObjPrntDualObject
 {
 
-  public CmptObjPrntDualObject()
+  public CmptObjPrntDualObject
+    ()
   {
   }
 }
@@ -41,7 +42,8 @@ public class CmptRefObjPrntDualObject
   , ICmptRefObjPrntDualObject
 {
 
-  public CmptRefObjPrntDualObject()
+  public CmptRefObjPrntDualObject
+    ()
   {
   }
 }

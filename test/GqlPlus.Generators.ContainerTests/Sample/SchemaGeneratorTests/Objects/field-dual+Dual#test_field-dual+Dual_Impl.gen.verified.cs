@@ -20,7 +20,9 @@ public class testFieldDualDualObject
 {
   public ItestFldFieldDualDual Field { get; set; }
 
-  public testFieldDualDualObject(ItestFldFieldDualDual field)
+  public testFieldDualDualObject
+    ( ItestFldFieldDualDual field
+    )
   {
     Field = field;
   }
@@ -40,7 +42,9 @@ public class testFldFieldDualDualObject
 {
   public decimal Field { get; set; }
 
-  public testFldFieldDualDualObject(decimal field)
+  public testFldFieldDualDualObject
+    ( decimal field
+    )
   {
     Field = field;
   }

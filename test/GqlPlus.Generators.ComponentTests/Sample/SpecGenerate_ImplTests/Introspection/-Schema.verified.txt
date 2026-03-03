@@ -75,8 +75,10 @@ public class Cmpt_SchemaObject
   public IDictionary<ICmpt_Name, ICmpt_Setting>? Settings(ICmpt_Filter? parameter)
     => null;
 
-  public Cmpt_SchemaObject(ICollection<string> description, ICmpt_Name name)
-    : base(description, name)
+  public Cmpt_SchemaObject
+    ( ICollection<string> description
+    , ICmpt_Name name
+    ) : base(description, name)
   {
   }
 }
@@ -105,7 +107,10 @@ public class Cmpt_FilterObject
   public bool? ReturnByAlias { get; set; }
   public bool? ReturnReferencedTypes { get; set; }
 
-  public Cmpt_FilterObject(ICollection<ICmpt_NameFilter> names, ICollection<ICmpt_NameFilter> aliases)
+  public Cmpt_FilterObject
+    ( ICollection<ICmpt_NameFilter> names
+    , ICollection<ICmpt_NameFilter> aliases
+    )
   {
     Names = names;
     Aliases = aliases;
@@ -131,8 +136,11 @@ public class Cmpt_CategoryFilterObject
 {
   public ICollection<ICmpt_Resolution> Resolutions { get; set; }
 
-  public Cmpt_CategoryFilterObject(ICollection<ICmpt_NameFilter> names, ICollection<ICmpt_NameFilter> aliases, ICollection<ICmpt_Resolution> resolutions)
-    : base(names, aliases)
+  public Cmpt_CategoryFilterObject
+    ( ICollection<ICmpt_NameFilter> names
+    , ICollection<ICmpt_NameFilter> aliases
+    , ICollection<ICmpt_Resolution> resolutions
+    ) : base(names, aliases)
   {
     Resolutions = resolutions;
   }
@@ -151,8 +159,11 @@ public class Cmpt_TypeFilterObject
 {
   public ICollection<ICmpt_TypeKind> Kinds { get; set; }
 
-  public Cmpt_TypeFilterObject(ICollection<ICmpt_NameFilter> names, ICollection<ICmpt_NameFilter> aliases, ICollection<ICmpt_TypeKind> kinds)
-    : base(names, aliases)
+  public Cmpt_TypeFilterObject
+    ( ICollection<ICmpt_NameFilter> names
+    , ICollection<ICmpt_NameFilter> aliases
+    , ICollection<ICmpt_TypeKind> kinds
+    ) : base(names, aliases)
   {
     Kinds = kinds;
   }
@@ -171,8 +182,11 @@ public class Cmpt_AliasedObject
 {
   public ICollection<ICmpt_Name> Aliases { get; set; }
 
-  public Cmpt_AliasedObject(ICollection<string> description, ICmpt_Name name, ICollection<ICmpt_Name> aliases)
-    : base(description, name)
+  public Cmpt_AliasedObject
+    ( ICollection<string> description
+    , ICmpt_Name name
+    , ICollection<ICmpt_Name> aliases
+    ) : base(description, name)
   {
     Aliases = aliases;
   }
@@ -191,8 +205,10 @@ public class Cmpt_NamedObject
 {
   public ICmpt_Name Name { get; set; }
 
-  public Cmpt_NamedObject(ICollection<string> description, ICmpt_Name name)
-    : base(description)
+  public Cmpt_NamedObject
+    ( ICollection<string> description
+    , ICmpt_Name name
+    ) : base(description)
   {
     Name = name;
   }
@@ -211,7 +227,9 @@ public class Cmpt_DescribedObject
 {
   public ICollection<string> Description { get; set; }
 
-  public Cmpt_DescribedObject(ICollection<string> description)
+  public Cmpt_DescribedObject
+    ( ICollection<string> description
+    )
   {
     Description = description;
   }

@@ -24,7 +24,8 @@ public class CmptAltInpObject
   , ICmptAltInpObject
 {
 
-  public CmptAltInpObject()
+  public CmptAltInpObject
+    ()
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptAltAltInpObject
 {
   public decimal Alt { get; set; }
 
-  public CmptAltAltInpObject(decimal alt)
+  public CmptAltAltInpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

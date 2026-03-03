@@ -20,7 +20,9 @@ public class testObjFieldEnumAliasOutpObject
 {
   public bool Field { get; set; }
 
-  public testObjFieldEnumAliasOutpObject(bool field)
+  public testObjFieldEnumAliasOutpObject
+    ( bool field
+    )
   {
     Field = field;
   }

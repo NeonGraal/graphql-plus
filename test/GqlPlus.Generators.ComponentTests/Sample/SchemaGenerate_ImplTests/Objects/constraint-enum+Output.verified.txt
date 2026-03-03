@@ -25,7 +25,8 @@ public class CmptCnstEnumOutpObject
   , ICmptCnstEnumOutpObject
 {
 
-  public CmptCnstEnumOutpObject()
+  public CmptCnstEnumOutpObject
+    ()
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptRefCnstEnumOutpObject<TType>
 {
   public TType Field { get; set; }
 
-  public CmptRefCnstEnumOutpObject(TType field)
+  public CmptRefCnstEnumOutpObject
+    ( TType field
+    )
   {
     Field = field;
   }

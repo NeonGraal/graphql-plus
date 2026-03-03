@@ -19,7 +19,8 @@ public class testInDrctParamInObject
   , ItestInDrctParamInObject
 {
 
-  public testInDrctParamInObject()
+  public testInDrctParamInObject
+    ()
   {
   }
 }

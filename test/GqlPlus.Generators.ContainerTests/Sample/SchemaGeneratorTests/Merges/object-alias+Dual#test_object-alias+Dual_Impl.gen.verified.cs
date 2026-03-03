@@ -19,7 +19,8 @@ public class testObjAliasDualObject
   , ItestObjAliasDualObject
 {
 
-  public testObjAliasDualObject()
+  public testObjAliasDualObject
+    ()
   {
   }
 }

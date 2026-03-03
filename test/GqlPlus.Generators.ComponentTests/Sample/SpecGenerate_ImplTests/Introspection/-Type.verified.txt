@@ -51,8 +51,8 @@ dual _Collections {
     | _ModifierKeyed<_ModifierKind.TypeParam>
     }
 
-dual _ModifierKeyed<$kind:_ModifierKind> {
-    : _Modifier<$kind>
+dual _ModifierKeyed<$modifier:_ModifierKind> {
+    : _Modifier<$modifier>
         by: _TypeSimple
         isOptional: Boolean
     }
@@ -64,8 +64,8 @@ dual _Modifiers {
 
 enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
-dual _Modifier<$kind:_ModifierKind> {
-        modifierKind: $kind
+dual _Modifier<$modifier:_ModifierKind> {
+        modifierKind: $modifier
     }
 */
 
@@ -100,7 +100,8 @@ public class Cmpt_TypeObject
   , ICmpt_TypeObject
 {
 
-  public Cmpt_TypeObject()
+  public Cmpt_TypeObject
+    ()
   {
   }
 }
@@ -118,7 +119,9 @@ public class Cmpt_BaseTypeObject<TKind>
 {
   public TKind TypeKind { get; set; }
 
-  public Cmpt_BaseTypeObject(TKind typeKind)
+  public Cmpt_BaseTypeObject
+    ( TKind typeKind
+    )
   {
     TypeKind = typeKind;
   }
@@ -137,8 +140,10 @@ public class Cmpt_ChildTypeObject<TKind,TParent>
 {
   public TParent Parent { get; set; }
 
-  public Cmpt_ChildTypeObject(TKind typeKind, TParent parent)
-    : base(typeKind)
+  public Cmpt_ChildTypeObject
+    ( TKind typeKind
+    , TParent parent
+    ) : base(typeKind)
   {
     Parent = parent;
   }
@@ -158,8 +163,12 @@ public class Cmpt_ParentTypeObject<TKind,TItem,TAllItem>
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
 
-  public Cmpt_ParentTypeObject(TKind typeKind, ICmpt_Named parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
-    : base(typeKind, parent)
+  public Cmpt_ParentTypeObject
+    ( TKind typeKind
+    , ICmpt_Named parent
+    , ICollection<TItem> items
+    , ICollection<TAllItem> allItems
+    ) : base(typeKind, parent)
   {
     Items = items;
     AllItems = allItems;
@@ -179,7 +188,9 @@ public class Cmpt_TypeRefObject<TKind>
 {
   public TKind TypeKind { get; set; }
 
-  public Cmpt_TypeRefObject(TKind typeKind)
+  public Cmpt_TypeRefObject
+    ( TKind typeKind
+    )
   {
     TypeKind = typeKind;
   }
@@ -201,7 +212,8 @@ public class Cmpt_TypeSimpleObject
   , ICmpt_TypeSimpleObject
 {
 
-  public Cmpt_TypeSimpleObject()
+  public Cmpt_TypeSimpleObject
+    ()
   {
   }
 }
@@ -221,27 +233,31 @@ public class Cmpt_CollectionsObject
   , ICmpt_CollectionsObject
 {
 
-  public Cmpt_CollectionsObject()
+  public Cmpt_CollectionsObject
+    ()
   {
   }
 }
 
-public class Cmpt_ModifierKeyed<TKind>
-  : Cmpt_Modifier<TKind>
-  , ICmpt_ModifierKeyed<TKind>
+public class Cmpt_ModifierKeyed<TModifier>
+  : Cmpt_Modifier<TModifier>
+  , ICmpt_ModifierKeyed<TModifier>
 {
-  public ICmpt_ModifierKeyedObject<TKind>? As__ModifierKeyed { get; set; }
+  public ICmpt_ModifierKeyedObject<TModifier>? As__ModifierKeyed { get; set; }
 }
 
-public class Cmpt_ModifierKeyedObject<TKind>
-  : Cmpt_ModifierObject<TKind>
-  , ICmpt_ModifierKeyedObject<TKind>
+public class Cmpt_ModifierKeyedObject<TModifier>
+  : Cmpt_ModifierObject<TModifier>
+  , ICmpt_ModifierKeyedObject<TModifier>
 {
   public ICmpt_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
 
-  public Cmpt_ModifierKeyedObject(TKind modifierKind, ICmpt_TypeSimple by, bool isOptional)
-    : base(modifierKind)
+  public Cmpt_ModifierKeyedObject
+    ( TModifier modifierKind
+    , ICmpt_TypeSimple by
+    , bool isOptional
+    ) : base(modifierKind)
   {
     By = by;
     IsOptional = isOptional;
@@ -262,25 +278,28 @@ public class Cmpt_ModifiersObject
   , ICmpt_ModifiersObject
 {
 
-  public Cmpt_ModifiersObject()
+  public Cmpt_ModifiersObject
+    ()
   {
   }
 }
 
-public class Cmpt_Modifier<TKind>
+public class Cmpt_Modifier<TModifier>
   : Spec_-Type
-  , ICmpt_Modifier<TKind>
+  , ICmpt_Modifier<TModifier>
 {
-  public ICmpt_ModifierObject<TKind>? As__Modifier { get; set; }
+  public ICmpt_ModifierObject<TModifier>? As__Modifier { get; set; }
 }
 
-public class Cmpt_ModifierObject<TKind>
+public class Cmpt_ModifierObject<TModifier>
   : Spec_-Type
-  , ICmpt_ModifierObject<TKind>
+  , ICmpt_ModifierObject<TModifier>
 {
-  public TKind ModifierKind { get; set; }
+  public TModifier ModifierKind { get; set; }
 
-  public Cmpt_ModifierObject(TKind modifierKind)
+  public Cmpt_ModifierObject
+    ( TModifier modifierKind
+    )
   {
     ModifierKind = modifierKind;
   }

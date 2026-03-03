@@ -19,7 +19,8 @@ public class testCtgrOutpDictObject
   , ItestCtgrOutpDictObject
 {
 
-  public testCtgrOutpDictObject()
+  public testCtgrOutpDictObject
+    ()
   {
   }
 }

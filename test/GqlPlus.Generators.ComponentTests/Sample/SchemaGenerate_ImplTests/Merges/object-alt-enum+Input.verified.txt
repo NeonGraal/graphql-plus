@@ -25,7 +25,8 @@ public class CmptObjAltEnumInpObject
   , ICmptObjAltEnumInpObject
 {
 
-  public CmptObjAltEnumInpObject()
+  public CmptObjAltEnumInpObject
+    ()
   {
   }
 }

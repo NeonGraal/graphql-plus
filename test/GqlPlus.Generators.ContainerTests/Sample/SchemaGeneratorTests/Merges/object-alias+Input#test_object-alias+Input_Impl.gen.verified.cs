@@ -19,7 +19,8 @@ public class testObjAliasInpObject
   , ItestObjAliasInpObject
 {
 
-  public testObjAliasInpObject()
+  public testObjAliasInpObject
+    ()
   {
   }
 }

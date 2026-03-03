@@ -23,7 +23,8 @@ public class CmptCtgrOutpDictObject
   , ICmptCtgrOutpDictObject
 {
 
-  public CmptCtgrOutpDictObject()
+  public CmptCtgrOutpDictObject
+    ()
   {
   }
 }

@@ -19,7 +19,8 @@ public class testObjPrntOutpObject
   , ItestObjPrntOutpObject
 {
 
-  public testObjPrntOutpObject()
+  public testObjPrntOutpObject
+    ()
   {
   }
 }
@@ -36,7 +37,8 @@ public class testRefObjPrntOutpObject
   , ItestRefObjPrntOutpObject
 {
 
-  public testRefObjPrntOutpObject()
+  public testRefObjPrntOutpObject
+    ()
   {
   }
 }

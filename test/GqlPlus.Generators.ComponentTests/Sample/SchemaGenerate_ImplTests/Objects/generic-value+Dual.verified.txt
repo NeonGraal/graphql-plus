@@ -25,7 +25,8 @@ public class CmptGnrcValueDualObject
   , ICmptGnrcValueDualObject
 {
 
-  public CmptGnrcValueDualObject()
+  public CmptGnrcValueDualObject
+    ()
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptRefGnrcValueDualObject<TType>
 {
   public TType Field { get; set; }
 
-  public CmptRefGnrcValueDualObject(TType field)
+  public CmptRefGnrcValueDualObject
+    ( TType field
+    )
   {
     Field = field;
   }

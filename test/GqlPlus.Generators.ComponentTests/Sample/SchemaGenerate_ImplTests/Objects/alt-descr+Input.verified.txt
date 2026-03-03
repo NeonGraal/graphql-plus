@@ -23,7 +23,8 @@ public class CmptAltDescrInpObject
   , ICmptAltDescrInpObject
 {
 
-  public CmptAltDescrInpObject()
+  public CmptAltDescrInpObject
+    ()
   {
   }
 }

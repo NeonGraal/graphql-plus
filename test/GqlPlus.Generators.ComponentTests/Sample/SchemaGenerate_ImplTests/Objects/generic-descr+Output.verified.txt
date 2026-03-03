@@ -23,7 +23,9 @@ public class CmptGnrcDescrOutpObject<TType>
 {
   public TType Field { get; set; }
 
-  public CmptGnrcDescrOutpObject(TType field)
+  public CmptGnrcDescrOutpObject
+    ( TType field
+    )
   {
     Field = field;
   }

@@ -286,7 +286,7 @@ Success
   _ModifierKeyed
   <
     I@022/0053
-    $kind
+    $modifier
     :_ModifierKind
   >
   :
@@ -294,7 +294,7 @@ Success
   _Modifier
   <
     I@018/0054
-    $kind
+    $modifier
   >
   {
     !DF I@009/0055
@@ -348,7 +348,7 @@ Success
   _Modifier
   <
     I@017/0066
-    $kind
+    $modifier
     :_ModifierKind
   >
   {
@@ -356,7 +356,7 @@ Success
     modifierKind
     :
     I@024/0067
-    $kind
+    $modifier
   }
 }
 ]

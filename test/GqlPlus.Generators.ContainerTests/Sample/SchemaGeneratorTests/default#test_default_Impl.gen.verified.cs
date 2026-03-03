@@ -19,7 +19,8 @@ public class testQueryObject
   , ItestQueryObject
 {
 
-  public testQueryObject()
+  public testQueryObject
+    ()
   {
   }
 }
@@ -36,7 +37,8 @@ public class testMutationObject
   , ItestMutationObject
 {
 
-  public testMutationObject()
+  public testMutationObject
+    ()
   {
   }
 }
@@ -53,7 +55,8 @@ public class testSubscriptionObject
   , ItestSubscriptionObject
 {
 
-  public testSubscriptionObject()
+  public testSubscriptionObject
+    ()
   {
   }
 }
@@ -70,7 +73,8 @@ public class test_SchemaObject
   , Itest_SchemaObject
 {
 
-  public test_SchemaObject()
+  public test_SchemaObject
+    ()
   {
   }
 }

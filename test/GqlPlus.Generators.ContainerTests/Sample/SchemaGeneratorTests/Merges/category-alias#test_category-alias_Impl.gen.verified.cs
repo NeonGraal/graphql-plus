@@ -19,7 +19,8 @@ public class testCtgrAliasObject
   , ItestCtgrAliasObject
 {
 
-  public testCtgrAliasObject()
+  public testCtgrAliasObject
+    ()
   {
   }
 }

@@ -23,7 +23,8 @@ public class CmptAltSmplDualObject
   , ICmptAltSmplDualObject
 {
 
-  public CmptAltSmplDualObject()
+  public CmptAltSmplDualObject
+    ()
   {
   }
 }

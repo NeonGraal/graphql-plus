@@ -25,7 +25,9 @@ public class CmptGnrcFieldParamDualObject
 {
   public ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> Field { get; set; }
 
-  public CmptGnrcFieldParamDualObject(ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> field)
+  public CmptGnrcFieldParamDualObject
+    ( ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> field
+    )
   {
     Field = field;
   }
@@ -44,7 +46,8 @@ public class CmptRefGnrcFieldParamDualObject<TRef>
   , ICmptRefGnrcFieldParamDualObject<TRef>
 {
 
-  public CmptRefGnrcFieldParamDualObject()
+  public CmptRefGnrcFieldParamDualObject
+    ()
   {
   }
 }
@@ -63,7 +66,9 @@ public class CmptAltGnrcFieldParamDualObject
 {
   public decimal Alt { get; set; }
 
-  public CmptAltGnrcFieldParamDualObject(decimal alt)
+  public CmptAltGnrcFieldParamDualObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

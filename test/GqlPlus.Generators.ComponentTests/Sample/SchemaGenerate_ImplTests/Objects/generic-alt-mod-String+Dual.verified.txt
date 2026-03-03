@@ -23,7 +23,8 @@ public class CmptRefGnrcAltModStrDualObject<TRef>
   , ICmptRefGnrcAltModStrDualObject<TRef>
 {
 
-  public CmptRefGnrcAltModStrDualObject()
+  public CmptRefGnrcAltModStrDualObject
+    ()
   {
   }
 }

@@ -18,7 +18,8 @@ public class CmptCtgrDscrsObject
   , ICmptCtgrDscrsObject
 {
 
-  public CmptCtgrDscrsObject()
+  public CmptCtgrDscrsObject
+    ()
   {
   }
 }
@@ -35,7 +36,8 @@ public class CmptCtgrOutpObject
   , ICmptCtgrOutpObject
 {
 
-  public CmptCtgrOutpObject()
+  public CmptCtgrOutpObject
+    ()
   {
   }
 }
@@ -52,7 +54,8 @@ public class CmptCtgrOutpDescrObject
   , ICmptCtgrOutpDescrObject
 {
 
-  public CmptCtgrOutpDescrObject()
+  public CmptCtgrOutpDescrObject
+    ()
   {
   }
 }
@@ -69,7 +72,8 @@ public class CmptCtgrOutpDictObject
   , ICmptCtgrOutpDictObject
 {
 
-  public CmptCtgrOutpDictObject()
+  public CmptCtgrOutpDictObject
+    ()
   {
   }
 }
@@ -86,7 +90,8 @@ public class CmptCtgrOutpListObject
   , ICmptCtgrOutpListObject
 {
 
-  public CmptCtgrOutpListObject()
+  public CmptCtgrOutpListObject
+    ()
   {
   }
 }
@@ -103,7 +108,8 @@ public class CmptCtgrOutpOptlObject
   , ICmptCtgrOutpOptlObject
 {
 
-  public CmptCtgrOutpOptlObject()
+  public CmptCtgrOutpOptlObject
+    ()
   {
   }
 }
@@ -120,7 +126,8 @@ public class CmptDescrObject
   , ICmptDescrObject
 {
 
-  public CmptDescrObject()
+  public CmptDescrObject
+    ()
   {
   }
 }
@@ -137,7 +144,8 @@ public class CmptDescrBcksObject
   , ICmptDescrBcksObject
 {
 
-  public CmptDescrBcksObject()
+  public CmptDescrBcksObject
+    ()
   {
   }
 }
@@ -154,7 +162,8 @@ public class CmptDescrBtwnObject
   , ICmptDescrBtwnObject
 {
 
-  public CmptDescrBtwnObject()
+  public CmptDescrBtwnObject
+    ()
   {
   }
 }
@@ -171,7 +180,8 @@ public class CmptDescrCmplObject
   , ICmptDescrCmplObject
 {
 
-  public CmptDescrCmplObject()
+  public CmptDescrCmplObject
+    ()
   {
   }
 }
@@ -188,7 +198,8 @@ public class CmptDescrDblObject
   , ICmptDescrDblObject
 {
 
-  public CmptDescrDblObject()
+  public CmptDescrDblObject
+    ()
   {
   }
 }
@@ -205,7 +216,8 @@ public class CmptDescrSnglObject
   , ICmptDescrSnglObject
 {
 
-  public CmptDescrSnglObject()
+  public CmptDescrSnglObject
+    ()
   {
   }
 }
@@ -222,7 +234,8 @@ public class CmptDscrsObject
   , ICmptDscrsObject
 {
 
-  public CmptDscrsObject()
+  public CmptDscrsObject
+    ()
   {
   }
 }
@@ -239,7 +252,8 @@ public class CmptInDrctParamDictObject
   , ICmptInDrctParamDictObject
 {
 
-  public CmptInDrctParamDictObject()
+  public CmptInDrctParamDictObject
+    ()
   {
   }
 }
@@ -256,7 +270,8 @@ public class CmptInDrctParamInObject
   , ICmptInDrctParamInObject
 {
 
-  public CmptInDrctParamInObject()
+  public CmptInDrctParamInObject
+    ()
   {
   }
 }
@@ -273,7 +288,8 @@ public class CmptInDrctParamListObject
   , ICmptInDrctParamListObject
 {
 
-  public CmptInDrctParamListObject()
+  public CmptInDrctParamListObject
+    ()
   {
   }
 }
@@ -290,7 +306,8 @@ public class CmptInDrctParamOptObject
   , ICmptInDrctParamOptObject
 {
 
-  public CmptInDrctParamOptObject()
+  public CmptInDrctParamOptObject
+    ()
   {
   }
 }

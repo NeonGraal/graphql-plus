@@ -23,7 +23,8 @@ public class CmptObjOutpObject
   , ICmptObjOutpObject
 {
 
-  public CmptObjOutpObject()
+  public CmptObjOutpObject
+    ()
   {
   }
 }

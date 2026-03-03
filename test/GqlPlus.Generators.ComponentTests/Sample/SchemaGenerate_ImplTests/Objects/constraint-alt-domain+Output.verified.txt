@@ -25,7 +25,8 @@ public class CmptCnstAltDmnOutpObject
   , ICmptCnstAltDmnOutpObject
 {
 
-  public CmptCnstAltDmnOutpObject()
+  public CmptCnstAltDmnOutpObject
+    ()
   {
   }
 }
@@ -43,7 +44,8 @@ public class CmptRefCnstAltDmnOutpObject<TRef>
   , ICmptRefCnstAltDmnOutpObject<TRef>
 {
 
-  public CmptRefCnstAltDmnOutpObject()
+  public CmptRefCnstAltDmnOutpObject
+    ()
   {
   }
 }

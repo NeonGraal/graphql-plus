@@ -19,7 +19,8 @@ public class testCtgrDescrObject
   , ItestCtgrDescrObject
 {
 
-  public testCtgrDescrObject()
+  public testCtgrDescrObject
+    ()
   {
   }
 }

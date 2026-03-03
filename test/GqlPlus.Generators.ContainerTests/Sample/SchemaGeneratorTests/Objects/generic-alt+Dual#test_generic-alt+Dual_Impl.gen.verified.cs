@@ -20,7 +20,8 @@ public class testGnrcAltDualObject<TType>
   , ItestGnrcAltDualObject<TType>
 {
 
-  public testGnrcAltDualObject()
+  public testGnrcAltDualObject
+    ()
   {
   }
 }

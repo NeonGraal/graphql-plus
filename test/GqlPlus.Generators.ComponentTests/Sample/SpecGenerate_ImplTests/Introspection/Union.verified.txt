@@ -29,7 +29,8 @@ public class Cmpt_UnionRefObject
   , ICmpt_UnionRefObject
 {
 
-  public Cmpt_UnionRefObject()
+  public Cmpt_UnionRefObject
+    ()
   {
   }
 }
@@ -47,7 +48,9 @@ public class Cmpt_UnionMemberObject
 {
   public ICmpt_Name Union { get; set; }
 
-  public Cmpt_UnionMemberObject(ICmpt_Name union)
+  public Cmpt_UnionMemberObject
+    ( ICmpt_Name union
+    )
   {
     Union = union;
   }

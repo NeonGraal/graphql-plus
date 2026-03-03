@@ -1,1 +1,1 @@
-7b15175  (HEAD -> main, origin/main, origin/HEAD) 2026-02-25 Merge pull request #48 from graphql-plus/fixup-names
+253031d  (HEAD -> generators) 2026-02-27 Rationalize type param names

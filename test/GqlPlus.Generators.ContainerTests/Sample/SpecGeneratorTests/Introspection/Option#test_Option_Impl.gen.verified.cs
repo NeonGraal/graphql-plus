@@ -20,7 +20,9 @@ public class test_SettingObject
 {
   public GqlpValue Value { get; set; }
 
-  public test_SettingObject(GqlpValue value)
+  public test_SettingObject
+    ( GqlpValue value
+    )
   {
     Value = value;
   }

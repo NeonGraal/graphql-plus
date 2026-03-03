@@ -25,7 +25,10 @@ public class CmptObjCnstOutpObject<TType>
   public TType Field { get; set; }
   public TType Str { get; set; }
 
-  public CmptObjCnstOutpObject(TType field, TType str)
+  public CmptObjCnstOutpObject
+    ( TType field
+    , TType str
+    )
   {
     Field = field;
     Str = str;

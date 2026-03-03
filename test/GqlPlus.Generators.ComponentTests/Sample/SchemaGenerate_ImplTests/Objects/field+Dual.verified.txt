@@ -23,7 +23,9 @@ public class CmptFieldDualObject
 {
   public string Field { get; set; }
 
-  public CmptFieldDualObject(string field)
+  public CmptFieldDualObject
+    ( string field
+    )
   {
     Field = field;
   }

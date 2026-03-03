@@ -1,9 +1,9 @@
 ﻿/* Domain
 enum _DomainKind { Boolean Enum Number String }
 
-output _DomainRef<$kind:_DomainKind> {
+output _DomainRef<$domain:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
-        domainKind: $kind
+        domainKind: $domain
     }
 
 output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
@@ -21,8 +21,8 @@ output _DomainItem<$item:_BaseDomainItem> {
         domain: _Name
     }
 
-output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
-    : _DomainRef<$kind>
+output _DomainValue<$domain:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$domain>
         value: $value
     | $value
     }
@@ -80,20 +80,22 @@ output _DomainItemRegex {
 
 namespace Components.Gqlp_Spec_Domain;
 
-public class Cmpt_DomainRef<TKind>
+public class Cmpt_DomainRef<TDomain>
   : Cmpt_TypeRef<ICmpt_TypeKind>
-  , ICmpt_DomainRef<TKind>
+  , ICmpt_DomainRef<TDomain>
 {
-  public ICmpt_DomainRefObject<TKind>? As__DomainRef { get; set; }
+  public ICmpt_DomainRefObject<TDomain>? As__DomainRef { get; set; }
 }
 
-public class Cmpt_DomainRefObject<TKind>
+public class Cmpt_DomainRefObject<TDomain>
   : Cmpt_TypeRefObject<ICmpt_TypeKind>
-  , ICmpt_DomainRefObject<TKind>
+  , ICmpt_DomainRefObject<TDomain>
 {
-  public TKind DomainKind { get; set; }
+  public TDomain DomainKind { get; set; }
 
-  public Cmpt_DomainRefObject(TKind domainKind)
+  public Cmpt_DomainRefObject
+    ( TDomain domainKind
+    )
   {
     DomainKind = domainKind;
   }
@@ -112,7 +114,9 @@ public class Cmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
 {
   public TDomain DomainKind { get; set; }
 
-  public Cmpt_BaseDomainObject(TDomain domainKind)
+  public Cmpt_BaseDomainObject
+    ( TDomain domainKind
+    )
   {
     DomainKind = domainKind;
   }
@@ -131,7 +135,9 @@ public class Cmpt_BaseDomainItemObject
 {
   public bool Exclude { get; set; }
 
-  public Cmpt_BaseDomainItemObject(bool exclude)
+  public Cmpt_BaseDomainItemObject
+    ( bool exclude
+    )
   {
     Exclude = exclude;
   }
@@ -151,28 +157,32 @@ public class Cmpt_DomainItemObject<TItem>
 {
   public ICmpt_Name Domain { get; set; }
 
-  public Cmpt_DomainItemObject(ICmpt_Name domain)
+  public Cmpt_DomainItemObject
+    ( ICmpt_Name domain
+    )
   {
     Domain = domain;
   }
 }
 
-public class Cmpt_DomainValue<TKind,TValue>
-  : Cmpt_DomainRef<TKind>
-  , ICmpt_DomainValue<TKind,TValue>
+public class Cmpt_DomainValue<TDomain,TValue>
+  : Cmpt_DomainRef<TDomain>
+  , ICmpt_DomainValue<TDomain,TValue>
 {
   public TValue? Asvalue { get; set; }
-  public ICmpt_DomainValueObject<TKind,TValue>? As__DomainValue { get; set; }
+  public ICmpt_DomainValueObject<TDomain,TValue>? As__DomainValue { get; set; }
 }
 
-public class Cmpt_DomainValueObject<TKind,TValue>
-  : Cmpt_DomainRefObject<TKind>
-  , ICmpt_DomainValueObject<TKind,TValue>
+public class Cmpt_DomainValueObject<TDomain,TValue>
+  : Cmpt_DomainRefObject<TDomain>
+  , ICmpt_DomainValueObject<TDomain,TValue>
 {
   public TValue Value { get; set; }
 
-  public Cmpt_DomainValueObject(TKind domainKind, TValue value)
-    : base(domainKind)
+  public Cmpt_DomainValueObject
+    ( TDomain domainKind
+    , TValue value
+    ) : base(domainKind)
   {
     Value = value;
   }
@@ -194,7 +204,8 @@ public class Cmpt_BasicValueObject
   , ICmpt_BasicValueObject
 {
 
-  public Cmpt_BasicValueObject()
+  public Cmpt_BasicValueObject
+    ()
   {
   }
 }
@@ -212,8 +223,10 @@ public class Cmpt_DomainTrueFalseObject
 {
   public bool Value { get; set; }
 
-  public Cmpt_DomainTrueFalseObject(bool exclude, bool value)
-    : base(exclude)
+  public Cmpt_DomainTrueFalseObject
+    ( bool exclude
+    , bool value
+    ) : base(exclude)
   {
     Value = value;
   }
@@ -231,8 +244,9 @@ public class Cmpt_DomainItemTrueFalseObject
   , ICmpt_DomainItemTrueFalseObject
 {
 
-  public Cmpt_DomainItemTrueFalseObject(ICmpt_Name domain)
-    : base(domain)
+  public Cmpt_DomainItemTrueFalseObject
+    ( ICmpt_Name domain
+    ) : base(domain)
   {
   }
 }
@@ -250,8 +264,10 @@ public class Cmpt_DomainLabelObject
 {
   public ICmpt_EnumValue Label { get; set; }
 
-  public Cmpt_DomainLabelObject(bool exclude, ICmpt_EnumValue label)
-    : base(exclude)
+  public Cmpt_DomainLabelObject
+    ( bool exclude
+    , ICmpt_EnumValue label
+    ) : base(exclude)
   {
     Label = label;
   }
@@ -269,8 +285,9 @@ public class Cmpt_DomainItemLabelObject
   , ICmpt_DomainItemLabelObject
 {
 
-  public Cmpt_DomainItemLabelObject(ICmpt_Name domain)
-    : base(domain)
+  public Cmpt_DomainItemLabelObject
+    ( ICmpt_Name domain
+    ) : base(domain)
   {
   }
 }
@@ -289,8 +306,9 @@ public class Cmpt_DomainRangeObject
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }
 
-  public Cmpt_DomainRangeObject(bool exclude)
-    : base(exclude)
+  public Cmpt_DomainRangeObject
+    ( bool exclude
+    ) : base(exclude)
   {
   }
 }
@@ -307,8 +325,9 @@ public class Cmpt_DomainItemRangeObject
   , ICmpt_DomainItemRangeObject
 {
 
-  public Cmpt_DomainItemRangeObject(ICmpt_Name domain)
-    : base(domain)
+  public Cmpt_DomainItemRangeObject
+    ( ICmpt_Name domain
+    ) : base(domain)
   {
   }
 }
@@ -326,8 +345,10 @@ public class Cmpt_DomainRegexObject
 {
   public string Pattern { get; set; }
 
-  public Cmpt_DomainRegexObject(bool exclude, string pattern)
-    : base(exclude)
+  public Cmpt_DomainRegexObject
+    ( bool exclude
+    , string pattern
+    ) : base(exclude)
   {
     Pattern = pattern;
   }
@@ -345,8 +366,9 @@ public class Cmpt_DomainItemRegexObject
   , ICmpt_DomainItemRegexObject
 {
 
-  public Cmpt_DomainItemRegexObject(ICmpt_Name domain)
-    : base(domain)
+  public Cmpt_DomainItemRegexObject
+    ( ICmpt_Name domain
+    ) : base(domain)
   {
   }
 }

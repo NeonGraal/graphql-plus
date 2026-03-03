@@ -23,7 +23,8 @@ public class CmptGnrcPrntOutpObject<TType>
   , ICmptGnrcPrntOutpObject<TType>
 {
 
-  public CmptGnrcPrntOutpObject()
+  public CmptGnrcPrntOutpObject
+    ()
   {
   }
 }

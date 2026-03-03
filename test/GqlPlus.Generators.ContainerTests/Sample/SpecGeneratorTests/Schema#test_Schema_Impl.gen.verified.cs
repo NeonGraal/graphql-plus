@@ -21,7 +21,8 @@ public class test_OptObject<TT>
   , Itest_OptObject<TT>
 {
 
-  public test_OptObject()
+  public test_OptObject
+    ()
   {
   }
 }
@@ -39,7 +40,8 @@ public class test_ListObject<TT>
   , Itest_ListObject<TT>
 {
 
-  public test_ListObject()
+  public test_ListObject
+    ()
   {
   }
 }
@@ -57,7 +59,8 @@ public class test_DictObject<TK,TT>
   , Itest_DictObject<TK,TT>
 {
 
-  public test_DictObject()
+  public test_DictObject
+    ()
   {
   }
 }
@@ -75,7 +78,8 @@ public class test_MapObject<TT>
   , Itest_MapObject<TT>
 {
 
-  public test_MapObject()
+  public test_MapObject
+    ()
   {
   }
 }
@@ -93,7 +97,8 @@ public class test_ArrayObject<TT>
   , Itest_ArrayObject<TT>
 {
 
-  public test_ArrayObject()
+  public test_ArrayObject
+    ()
   {
   }
 }
@@ -111,7 +116,8 @@ public class test_IfElseObject<TT>
   , Itest_IfElseObject<TT>
 {
 
-  public test_IfElseObject()
+  public test_IfElseObject
+    ()
   {
   }
 }
@@ -129,7 +135,8 @@ public class test_SetObject<TK>
   , Itest_SetObject<TK>
 {
 
-  public test_SetObject()
+  public test_SetObject
+    ()
   {
   }
 }
@@ -147,7 +154,8 @@ public class test_MaskObject<TK>
   , Itest_MaskObject<TK>
 {
 
-  public test_MaskObject()
+  public test_MaskObject
+    ()
   {
   }
 }
@@ -170,7 +178,8 @@ public class test_AnyObject
   , Itest_AnyObject
 {
 
-  public test_AnyObject()
+  public test_AnyObject
+    ()
   {
   }
 }

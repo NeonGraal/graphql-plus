@@ -20,7 +20,9 @@ public class testObjFieldOutpObject
 {
   public ItestFldObjFieldOutp Field { get; set; }
 
-  public testObjFieldOutpObject(ItestFldObjFieldOutp field)
+  public testObjFieldOutpObject
+    ( ItestFldObjFieldOutp field
+    )
   {
     Field = field;
   }
@@ -38,7 +40,8 @@ public class testFldObjFieldOutpObject
   , ItestFldObjFieldOutpObject
 {
 
-  public testFldObjFieldOutpObject()
+  public testFldObjFieldOutpObject
+    ()
   {
   }
 }

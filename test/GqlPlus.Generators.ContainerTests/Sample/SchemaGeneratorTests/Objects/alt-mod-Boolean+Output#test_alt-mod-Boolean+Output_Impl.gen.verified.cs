@@ -20,7 +20,8 @@ public class testAltModBoolOutpObject
   , ItestAltModBoolOutpObject
 {
 
-  public testAltModBoolOutpObject()
+  public testAltModBoolOutpObject
+    ()
   {
   }
 }
@@ -39,7 +40,9 @@ public class testAltAltModBoolOutpObject
 {
   public decimal Alt { get; set; }
 
-  public testAltAltModBoolOutpObject(decimal alt)
+  public testAltAltModBoolOutpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

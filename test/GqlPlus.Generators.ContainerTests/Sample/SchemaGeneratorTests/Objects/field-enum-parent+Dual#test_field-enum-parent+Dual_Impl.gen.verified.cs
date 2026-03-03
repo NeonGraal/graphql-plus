@@ -20,7 +20,9 @@ public class testFieldEnumPrntDualObject
 {
   public testEnumFieldEnumPrntDual Field { get; set; }
 
-  public testFieldEnumPrntDualObject(testEnumFieldEnumPrntDual field)
+  public testFieldEnumPrntDualObject
+    ( testEnumFieldEnumPrntDual field
+    )
   {
     Field = field;
   }

@@ -24,7 +24,8 @@ public class CmptObjPrntInpObject
   , ICmptObjPrntInpObject
 {
 
-  public CmptObjPrntInpObject()
+  public CmptObjPrntInpObject
+    ()
   {
   }
 }
@@ -41,7 +42,8 @@ public class CmptRefObjPrntInpObject
   , ICmptRefObjPrntInpObject
 {
 
-  public CmptRefObjPrntInpObject()
+  public CmptRefObjPrntInpObject
+    ()
   {
   }
 }

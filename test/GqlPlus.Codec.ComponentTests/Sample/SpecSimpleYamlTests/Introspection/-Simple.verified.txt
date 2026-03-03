@@ -320,12 +320,12 @@ types: !_Map(_Type)
         name: domainKind
         object: _DomainRef
         type: !_ObjBase
-          typeParam: kind
+          typeParam: domain
     fields:
       - !_OutputField
         name: domainKind
         type: !_ObjBase
-          typeParam: kind
+          typeParam: domain
     name: _DomainRef
     parent: !_ObjBase
       name: _TypeRef
@@ -340,7 +340,7 @@ types: !_Map(_Type)
         constraint: !_TypeRef(_TypeKind)
           name: _DomainKind
           typeKind: !_TypeKind Enum
-        name: kind
+        name: domain
   !_Name _DomainRegex: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
@@ -394,7 +394,7 @@ types: !_Map(_Type)
         name: domainKind
         object: _DomainRef
         type: !_ObjBase
-          typeParam: kind
+          typeParam: domain
       - !_ObjectFor(_OutputField)
         name: value
         object: _DomainValue
@@ -414,14 +414,14 @@ types: !_Map(_Type)
       name: _DomainRef
       typeArgs:
         - !_TypeArg
-          typeParam: kind
+          typeParam: domain
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           name: _DomainKind
           typeKind: !_TypeKind Enum
-        name: kind
+        name: domain
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           name: _BasicValue

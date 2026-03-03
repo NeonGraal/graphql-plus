@@ -21,7 +21,10 @@ public class testObjCnstInpObject<TType>
   public TType Field { get; set; }
   public TType Str { get; set; }
 
-  public testObjCnstInpObject(TType field, TType str)
+  public testObjCnstInpObject
+    ( TType field
+    , TType str
+    )
   {
     Field = field;
     Str = str;

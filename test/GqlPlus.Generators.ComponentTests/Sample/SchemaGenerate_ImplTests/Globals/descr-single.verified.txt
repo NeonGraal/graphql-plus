@@ -23,7 +23,8 @@ public class CmptDescrSnglObject
   , ICmptDescrSnglObject
 {
 
-  public CmptDescrSnglObject()
+  public CmptDescrSnglObject
+    ()
   {
   }
 }

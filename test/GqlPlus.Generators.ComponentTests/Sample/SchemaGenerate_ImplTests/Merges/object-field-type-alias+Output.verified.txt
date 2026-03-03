@@ -24,7 +24,9 @@ public class CmptObjFieldTypeAliasOutpObject
 {
   public string Field { get; set; }
 
-  public CmptObjFieldTypeAliasOutpObject(string field)
+  public CmptObjFieldTypeAliasOutpObject
+    ( string field
+    )
   {
     Field = field;
   }

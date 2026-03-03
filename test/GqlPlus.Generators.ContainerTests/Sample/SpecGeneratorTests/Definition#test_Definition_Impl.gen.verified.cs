@@ -58,7 +58,8 @@ public class test_ObjectObject
   , Itest_ObjectObject
 {
 
-  public test_ObjectObject()
+  public test_ObjectObject
+    ()
   {
   }
 }
@@ -81,7 +82,8 @@ public class test_DualObject
   , Itest_DualObject
 {
 
-  public test_DualObject()
+  public test_DualObject
+    ()
   {
   }
 }
@@ -104,7 +106,8 @@ public class test_InputObject
   , Itest_InputObject
 {
 
-  public test_InputObject()
+  public test_InputObject
+    ()
   {
   }
 }
@@ -121,7 +124,8 @@ public class test_OutputObject
   , Itest_OutputObject
 {
 
-  public test_OutputObject()
+  public test_OutputObject
+    ()
   {
   }
 }

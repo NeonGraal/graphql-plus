@@ -20,7 +20,8 @@ public class testAltSmplInpObject
   , ItestAltSmplInpObject
 {
 
-  public testAltSmplInpObject()
+  public testAltSmplInpObject
+    ()
   {
   }
 }

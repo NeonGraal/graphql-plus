@@ -26,7 +26,8 @@ public class CmptCnstAltObjDualObject
   , ICmptCnstAltObjDualObject
 {
 
-  public CmptCnstAltObjDualObject()
+  public CmptCnstAltObjDualObject
+    ()
   {
   }
 }
@@ -44,7 +45,8 @@ public class CmptRefCnstAltObjDualObject<TRef>
   , ICmptRefCnstAltObjDualObject<TRef>
 {
 
-  public CmptRefCnstAltObjDualObject()
+  public CmptRefCnstAltObjDualObject
+    ()
   {
   }
 }
@@ -62,7 +64,8 @@ public class CmptPrntCnstAltObjDualObject
   , ICmptPrntCnstAltObjDualObject
 {
 
-  public CmptPrntCnstAltObjDualObject()
+  public CmptPrntCnstAltObjDualObject
+    ()
   {
   }
 }
@@ -80,7 +83,9 @@ public class CmptAltCnstAltObjDualObject
 {
   public decimal Alt { get; set; }
 
-  public CmptAltCnstAltObjDualObject(decimal alt)
+  public CmptAltCnstAltObjDualObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

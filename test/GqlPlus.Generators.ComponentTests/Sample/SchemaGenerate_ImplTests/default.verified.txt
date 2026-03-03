@@ -31,7 +31,8 @@ public class CmptQueryObject
   , ICmptQueryObject
 {
 
-  public CmptQueryObject()
+  public CmptQueryObject
+    ()
   {
   }
 }
@@ -48,7 +49,8 @@ public class CmptMutationObject
   , ICmptMutationObject
 {
 
-  public CmptMutationObject()
+  public CmptMutationObject
+    ()
   {
   }
 }
@@ -65,7 +67,8 @@ public class CmptSubscriptionObject
   , ICmptSubscriptionObject
 {
 
-  public CmptSubscriptionObject()
+  public CmptSubscriptionObject
+    ()
   {
   }
 }
@@ -82,7 +85,8 @@ public class Cmpt_SchemaObject
   , ICmpt_SchemaObject
 {
 
-  public Cmpt_SchemaObject()
+  public Cmpt_SchemaObject
+    ()
   {
   }
 }

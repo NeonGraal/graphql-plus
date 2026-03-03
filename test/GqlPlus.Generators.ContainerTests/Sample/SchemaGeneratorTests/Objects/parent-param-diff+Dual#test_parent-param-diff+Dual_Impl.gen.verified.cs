@@ -20,7 +20,9 @@ public class testPrntParamDiffDualObject<TA>
 {
   public TA Field { get; set; }
 
-  public testPrntParamDiffDualObject(TA field)
+  public testPrntParamDiffDualObject
+    ( TA field
+    )
   {
     Field = field;
   }
@@ -39,7 +41,8 @@ public class testRefPrntParamDiffDualObject<TB>
   , ItestRefPrntParamDiffDualObject<TB>
 {
 
-  public testRefPrntParamDiffDualObject()
+  public testRefPrntParamDiffDualObject
+    ()
   {
   }
 }

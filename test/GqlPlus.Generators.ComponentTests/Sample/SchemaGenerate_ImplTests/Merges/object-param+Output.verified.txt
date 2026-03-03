@@ -25,7 +25,10 @@ public class CmptObjParamOutpObject<TTest,TType>
   public TTest Test { get; set; }
   public TType Type { get; set; }
 
-  public CmptObjParamOutpObject(TTest test, TType type)
+  public CmptObjParamOutpObject
+    ( TTest test
+    , TType type
+    )
   {
     Test = test;
     Type = type;

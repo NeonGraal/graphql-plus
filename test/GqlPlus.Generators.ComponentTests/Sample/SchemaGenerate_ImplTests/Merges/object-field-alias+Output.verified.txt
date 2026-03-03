@@ -25,7 +25,9 @@ public class CmptObjFieldAliasOutpObject
 {
   public ICmptFldObjFieldAliasOutp Field { get; set; }
 
-  public CmptObjFieldAliasOutpObject(ICmptFldObjFieldAliasOutp field)
+  public CmptObjFieldAliasOutpObject
+    ( ICmptFldObjFieldAliasOutp field
+    )
   {
     Field = field;
   }
@@ -43,7 +45,8 @@ public class CmptFldObjFieldAliasOutpObject
   , ICmptFldObjFieldAliasOutpObject
 {
 
-  public CmptFldObjFieldAliasOutpObject()
+  public CmptFldObjFieldAliasOutpObject
+    ()
   {
   }
 }

@@ -23,7 +23,9 @@ public class CmptInpFieldStrObject
 {
   public string Field { get; set; }
 
-  public CmptInpFieldStrObject(string field)
+  public CmptInpFieldStrObject
+    ( string field
+    )
   {
     Field = field;
   }

@@ -19,7 +19,8 @@ public class testCtgrModObject
   , ItestCtgrModObject
 {
 
-  public testCtgrModObject()
+  public testCtgrModObject
+    ()
   {
   }
 }

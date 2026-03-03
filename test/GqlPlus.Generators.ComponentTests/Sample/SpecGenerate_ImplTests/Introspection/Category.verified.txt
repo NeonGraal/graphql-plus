@@ -37,7 +37,9 @@ public class Cmpt_CategoriesObject
 {
   public ICmpt_Category Category { get; set; }
 
-  public Cmpt_CategoriesObject(ICmpt_Category category)
+  public Cmpt_CategoriesObject
+    ( ICmpt_Category category
+    )
   {
     Category = category;
   }
@@ -58,7 +60,11 @@ public class Cmpt_CategoryObject
   public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
-  public Cmpt_CategoryObject(Cmpt_Resolution resolution, ICmpt_TypeRef<ICmpt_TypeKind> output, ICollection<ICmpt_Modifiers> modifiers)
+  public Cmpt_CategoryObject
+    ( Cmpt_Resolution resolution
+    , ICmpt_TypeRef<ICmpt_TypeKind> output
+    , ICollection<ICmpt_Modifiers> modifiers
+    )
   {
     Resolution = resolution;
     Output = output;

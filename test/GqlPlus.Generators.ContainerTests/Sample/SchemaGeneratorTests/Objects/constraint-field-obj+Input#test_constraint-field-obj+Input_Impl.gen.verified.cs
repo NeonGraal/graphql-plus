@@ -19,8 +19,9 @@ public class testCnstFieldObjInpObject
   , ItestCnstFieldObjInpObject
 {
 
-  public testCnstFieldObjInpObject(ItestAltCnstFieldObjInp field)
-    : base(field)
+  public testCnstFieldObjInpObject
+    ( ItestAltCnstFieldObjInp field
+    ) : base(field)
   {
   }
 }
@@ -38,7 +39,9 @@ public class testRefCnstFieldObjInpObject<TRef>
 {
   public TRef Field { get; set; }
 
-  public testRefCnstFieldObjInpObject(TRef field)
+  public testRefCnstFieldObjInpObject
+    ( TRef field
+    )
   {
     Field = field;
   }
@@ -57,7 +60,8 @@ public class testPrntCnstFieldObjInpObject
   , ItestPrntCnstFieldObjInpObject
 {
 
-  public testPrntCnstFieldObjInpObject()
+  public testPrntCnstFieldObjInpObject
+    ()
   {
   }
 }
@@ -75,7 +79,9 @@ public class testAltCnstFieldObjInpObject
 {
   public decimal Alt { get; set; }
 
-  public testAltCnstFieldObjInpObject(decimal alt)
+  public testAltCnstFieldObjInpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

@@ -1,9 +1,9 @@
 ﻿/* -Simple
 enum _DomainKind { Boolean Enum Number String }
 
-output _DomainRef<$kind:_DomainKind> {
+output _DomainRef<$domain:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
-        domainKind: $kind
+        domainKind: $domain
     }
 
 output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
@@ -21,8 +21,8 @@ output _DomainItem<$item:_BaseDomainItem> {
         domain: _Name
     }
 
-output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
-    : _DomainRef<$kind>
+output _DomainValue<$domain:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$domain>
         value: $value
     | $value
     }
@@ -99,16 +99,16 @@ output _UnionMember {
 
 namespace Components.Gqlp_Spec_Simple;
 
-public interface ICmpt_DomainRef<TKind>
+public interface ICmpt_DomainRef<TDomain>
   : ICmpt_TypeRef<ICmpt_TypeKind>
 {
-  ICmpt_DomainRefObject<TKind>? As__DomainRef { get; }
+  ICmpt_DomainRefObject<TDomain>? As__DomainRef { get; }
 }
 
-public interface ICmpt_DomainRefObject<TKind>
+public interface ICmpt_DomainRefObject<TDomain>
   : ICmpt_TypeRefObject<ICmpt_TypeKind>
 {
-  TKind DomainKind { get; }
+  TDomain DomainKind { get; }
 }
 
 public interface ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
@@ -148,15 +148,15 @@ public interface ICmpt_DomainItemObject<TItem>
   ICmpt_Name Domain { get; }
 }
 
-public interface ICmpt_DomainValue<TKind,TValue>
-  : ICmpt_DomainRef<TKind>
+public interface ICmpt_DomainValue<TDomain,TValue>
+  : ICmpt_DomainRef<TDomain>
 {
   TValue? Asvalue { get; }
-  ICmpt_DomainValueObject<TKind,TValue>? As__DomainValue { get; }
+  ICmpt_DomainValueObject<TDomain,TValue>? As__DomainValue { get; }
 }
 
-public interface ICmpt_DomainValueObject<TKind,TValue>
-  : ICmpt_DomainRefObject<TKind>
+public interface ICmpt_DomainValueObject<TDomain,TValue>
+  : ICmpt_DomainRefObject<TDomain>
 {
   TValue Value { get; }
 }

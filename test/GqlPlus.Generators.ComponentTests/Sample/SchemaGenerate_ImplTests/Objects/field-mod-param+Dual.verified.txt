@@ -24,7 +24,9 @@ public class CmptFieldModParamDualObject<TMod>
 {
   public IDictionary<TMod, ICmptFldFieldModParamDual> Field { get; set; }
 
-  public CmptFieldModParamDualObject(IDictionary<TMod, ICmptFldFieldModParamDual> field)
+  public CmptFieldModParamDualObject
+    ( IDictionary<TMod, ICmptFldFieldModParamDual> field
+    )
   {
     Field = field;
   }
@@ -44,7 +46,9 @@ public class CmptFldFieldModParamDualObject
 {
   public decimal Field { get; set; }
 
-  public CmptFldFieldModParamDualObject(decimal field)
+  public CmptFldFieldModParamDualObject
+    ( decimal field
+    )
   {
     Field = field;
   }

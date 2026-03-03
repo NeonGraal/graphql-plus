@@ -20,7 +20,9 @@ public class testObjFieldTypeAliasInpObject
 {
   public string Field { get; set; }
 
-  public testObjFieldTypeAliasInpObject(string field)
+  public testObjFieldTypeAliasInpObject
+    ( string field
+    )
   {
     Field = field;
   }

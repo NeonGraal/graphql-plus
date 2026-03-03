@@ -21,7 +21,9 @@ public class test_AndTypeObject
 {
   public Itest_Type Type { get; set; }
 
-  public test_AndTypeObject(Itest_Type type)
+  public test_AndTypeObject
+    ( Itest_Type type
+    )
   {
     Type = type;
   }
@@ -41,8 +43,10 @@ public class test_CategoriesObject
 {
   public Itest_Category Category { get; set; }
 
-  public test_CategoriesObject(Itest_Type type, Itest_Category category)
-    : base(type)
+  public test_CategoriesObject
+    ( Itest_Type type
+    , Itest_Category category
+    ) : base(type)
   {
     Category = category;
   }
@@ -63,7 +67,11 @@ public class test_CategoryObject
   public Itest_TypeRef<Itest_TypeKind> Output { get; set; }
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
-  public test_CategoryObject(test_Resolution resolution, Itest_TypeRef<Itest_TypeKind> output, ICollection<Itest_Modifiers> modifiers)
+  public test_CategoryObject
+    ( test_Resolution resolution
+    , Itest_TypeRef<Itest_TypeKind> output
+    , ICollection<Itest_Modifiers> modifiers
+    )
   {
     Resolution = resolution;
     Output = output;
@@ -85,8 +93,10 @@ public class test_DirectivesObject
 {
   public Itest_Directive Directive { get; set; }
 
-  public test_DirectivesObject(Itest_Type type, Itest_Directive directive)
-    : base(type)
+  public test_DirectivesObject
+    ( Itest_Type type
+    , Itest_Directive directive
+    ) : base(type)
   {
     Directive = directive;
   }
@@ -107,7 +117,10 @@ public class test_DirectiveObject
   public bool Repeatable { get; set; }
   public IDictionary<test_Location, GqlpUnit> Locations { get; set; }
 
-  public test_DirectiveObject(bool repeatable, IDictionary<test_Location, GqlpUnit> locations)
+  public test_DirectiveObject
+    ( bool repeatable
+    , IDictionary<test_Location, GqlpUnit> locations
+    )
   {
     Repeatable = repeatable;
     Locations = locations;
@@ -127,7 +140,9 @@ public class test_SettingObject
 {
   public GqlpValue Value { get; set; }
 
-  public test_SettingObject(GqlpValue value)
+  public test_SettingObject
+    ( GqlpValue value
+    )
   {
     Value = value;
   }

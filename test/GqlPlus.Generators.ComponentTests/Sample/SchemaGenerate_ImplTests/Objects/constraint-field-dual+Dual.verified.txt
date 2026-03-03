@@ -25,8 +25,9 @@ public class CmptCnstFieldDualDualObject
   , ICmptCnstFieldDualDualObject
 {
 
-  public CmptCnstFieldDualDualObject(ICmptAltCnstFieldDualDual field)
-    : base(field)
+  public CmptCnstFieldDualDualObject
+    ( ICmptAltCnstFieldDualDual field
+    ) : base(field)
   {
   }
 }
@@ -44,7 +45,9 @@ public class CmptRefCnstFieldDualDualObject<TRef>
 {
   public TRef Field { get; set; }
 
-  public CmptRefCnstFieldDualDualObject(TRef field)
+  public CmptRefCnstFieldDualDualObject
+    ( TRef field
+    )
   {
     Field = field;
   }
@@ -63,7 +66,8 @@ public class CmptPrntCnstFieldDualDualObject
   , ICmptPrntCnstFieldDualDualObject
 {
 
-  public CmptPrntCnstFieldDualDualObject()
+  public CmptPrntCnstFieldDualDualObject
+    ()
   {
   }
 }
@@ -81,7 +85,9 @@ public class CmptAltCnstFieldDualDualObject
 {
   public decimal Alt { get; set; }
 
-  public CmptAltCnstFieldDualDualObject(decimal alt)
+  public CmptAltCnstFieldDualDualObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

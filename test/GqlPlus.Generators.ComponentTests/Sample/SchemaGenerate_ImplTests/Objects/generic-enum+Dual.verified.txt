@@ -25,7 +25,8 @@ public class CmptGnrcEnumDualObject
   , ICmptGnrcEnumDualObject
 {
 
-  public CmptGnrcEnumDualObject()
+  public CmptGnrcEnumDualObject
+    ()
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptRefGnrcEnumDualObject<TType>
 {
   public TType Field { get; set; }
 
-  public CmptRefGnrcEnumDualObject(TType field)
+  public CmptRefGnrcEnumDualObject
+    ( TType field
+    )
   {
     Field = field;
   }

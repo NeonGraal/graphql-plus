@@ -24,7 +24,8 @@ public class CmptAltModParamInpObject<TMod>
   , ICmptAltModParamInpObject<TMod>
 {
 
-  public CmptAltModParamInpObject()
+  public CmptAltModParamInpObject
+    ()
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptAltAltModParamInpObject
 {
   public decimal Alt { get; set; }
 
-  public CmptAltAltModParamInpObject(decimal alt)
+  public CmptAltAltModParamInpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

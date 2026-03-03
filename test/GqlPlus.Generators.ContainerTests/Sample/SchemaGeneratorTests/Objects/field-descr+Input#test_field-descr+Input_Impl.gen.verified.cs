@@ -20,7 +20,9 @@ public class testFieldDescrInpObject
 {
   public string Field { get; set; }
 
-  public testFieldDescrInpObject(string field)
+  public testFieldDescrInpObject
+    ( string field
+    )
   {
     Field = field;
   }

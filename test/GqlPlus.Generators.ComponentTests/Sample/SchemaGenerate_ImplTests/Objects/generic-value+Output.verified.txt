@@ -25,7 +25,8 @@ public class CmptGnrcValueOutpObject
   , ICmptGnrcValueOutpObject
 {
 
-  public CmptGnrcValueOutpObject()
+  public CmptGnrcValueOutpObject
+    ()
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptRefGnrcValueOutpObject<TType>
 {
   public TType Field { get; set; }
 
-  public CmptRefGnrcValueOutpObject(TType field)
+  public CmptRefGnrcValueOutpObject
+    ( TType field
+    )
   {
     Field = field;
   }

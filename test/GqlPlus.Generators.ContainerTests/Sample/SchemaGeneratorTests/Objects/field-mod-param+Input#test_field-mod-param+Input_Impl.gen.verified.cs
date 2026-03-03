@@ -20,7 +20,9 @@ public class testFieldModParamInpObject<TMod>
 {
   public IDictionary<TMod, ItestFldFieldModParamInp> Field { get; set; }
 
-  public testFieldModParamInpObject(IDictionary<TMod, ItestFldFieldModParamInp> field)
+  public testFieldModParamInpObject
+    ( IDictionary<TMod, ItestFldFieldModParamInp> field
+    )
   {
     Field = field;
   }
@@ -40,7 +42,9 @@ public class testFldFieldModParamInpObject
 {
   public decimal Field { get; set; }
 
-  public testFldFieldModParamInpObject(decimal field)
+  public testFldFieldModParamInpObject
+    ( decimal field
+    )
   {
     Field = field;
   }

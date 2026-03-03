@@ -7,20 +7,22 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Domain;
 
-public class test_DomainRef<TKind>
+public class test_DomainRef<TDomain>
   : test_TypeRef<Itest_TypeKind>
-  , Itest_DomainRef<TKind>
+  , Itest_DomainRef<TDomain>
 {
-  public Itest_DomainRefObject<TKind>? As__DomainRef { get; set; }
+  public Itest_DomainRefObject<TDomain>? As__DomainRef { get; set; }
 }
 
-public class test_DomainRefObject<TKind>
+public class test_DomainRefObject<TDomain>
   : test_TypeRefObject<Itest_TypeKind>
-  , Itest_DomainRefObject<TKind>
+  , Itest_DomainRefObject<TDomain>
 {
-  public TKind DomainKind { get; set; }
+  public TDomain DomainKind { get; set; }
 
-  public test_DomainRefObject(TKind domainKind)
+  public test_DomainRefObject
+    ( TDomain domainKind
+    )
   {
     DomainKind = domainKind;
   }
@@ -39,7 +41,9 @@ public class test_BaseDomainObject<TDomain,TItem,TDomainItem>
 {
   public TDomain DomainKind { get; set; }
 
-  public test_BaseDomainObject(TDomain domainKind)
+  public test_BaseDomainObject
+    ( TDomain domainKind
+    )
   {
     DomainKind = domainKind;
   }
@@ -58,7 +62,9 @@ public class test_BaseDomainItemObject
 {
   public bool Exclude { get; set; }
 
-  public test_BaseDomainItemObject(bool exclude)
+  public test_BaseDomainItemObject
+    ( bool exclude
+    )
   {
     Exclude = exclude;
   }
@@ -78,28 +84,32 @@ public class test_DomainItemObject<TItem>
 {
   public Itest_Name Domain { get; set; }
 
-  public test_DomainItemObject(Itest_Name domain)
+  public test_DomainItemObject
+    ( Itest_Name domain
+    )
   {
     Domain = domain;
   }
 }
 
-public class test_DomainValue<TKind,TValue>
-  : test_DomainRef<TKind>
-  , Itest_DomainValue<TKind,TValue>
+public class test_DomainValue<TDomain,TValue>
+  : test_DomainRef<TDomain>
+  , Itest_DomainValue<TDomain,TValue>
 {
   public TValue? Asvalue { get; set; }
-  public Itest_DomainValueObject<TKind,TValue>? As__DomainValue { get; set; }
+  public Itest_DomainValueObject<TDomain,TValue>? As__DomainValue { get; set; }
 }
 
-public class test_DomainValueObject<TKind,TValue>
-  : test_DomainRefObject<TKind>
-  , Itest_DomainValueObject<TKind,TValue>
+public class test_DomainValueObject<TDomain,TValue>
+  : test_DomainRefObject<TDomain>
+  , Itest_DomainValueObject<TDomain,TValue>
 {
   public TValue Value { get; set; }
 
-  public test_DomainValueObject(TKind domainKind, TValue value)
-    : base(domainKind)
+  public test_DomainValueObject
+    ( TDomain domainKind
+    , TValue value
+    ) : base(domainKind)
   {
     Value = value;
   }
@@ -121,7 +131,8 @@ public class test_BasicValueObject
   , Itest_BasicValueObject
 {
 
-  public test_BasicValueObject()
+  public test_BasicValueObject
+    ()
   {
   }
 }
@@ -139,8 +150,10 @@ public class test_DomainTrueFalseObject
 {
   public bool Value { get; set; }
 
-  public test_DomainTrueFalseObject(bool exclude, bool value)
-    : base(exclude)
+  public test_DomainTrueFalseObject
+    ( bool exclude
+    , bool value
+    ) : base(exclude)
   {
     Value = value;
   }
@@ -158,8 +171,9 @@ public class test_DomainItemTrueFalseObject
   , Itest_DomainItemTrueFalseObject
 {
 
-  public test_DomainItemTrueFalseObject(Itest_Name domain)
-    : base(domain)
+  public test_DomainItemTrueFalseObject
+    ( Itest_Name domain
+    ) : base(domain)
   {
   }
 }
@@ -177,8 +191,10 @@ public class test_DomainLabelObject
 {
   public Itest_EnumValue Label { get; set; }
 
-  public test_DomainLabelObject(bool exclude, Itest_EnumValue label)
-    : base(exclude)
+  public test_DomainLabelObject
+    ( bool exclude
+    , Itest_EnumValue label
+    ) : base(exclude)
   {
     Label = label;
   }
@@ -196,8 +212,9 @@ public class test_DomainItemLabelObject
   , Itest_DomainItemLabelObject
 {
 
-  public test_DomainItemLabelObject(Itest_Name domain)
-    : base(domain)
+  public test_DomainItemLabelObject
+    ( Itest_Name domain
+    ) : base(domain)
   {
   }
 }
@@ -216,8 +233,9 @@ public class test_DomainRangeObject
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }
 
-  public test_DomainRangeObject(bool exclude)
-    : base(exclude)
+  public test_DomainRangeObject
+    ( bool exclude
+    ) : base(exclude)
   {
   }
 }
@@ -234,8 +252,9 @@ public class test_DomainItemRangeObject
   , Itest_DomainItemRangeObject
 {
 
-  public test_DomainItemRangeObject(Itest_Name domain)
-    : base(domain)
+  public test_DomainItemRangeObject
+    ( Itest_Name domain
+    ) : base(domain)
   {
   }
 }
@@ -253,8 +272,10 @@ public class test_DomainRegexObject
 {
   public string Pattern { get; set; }
 
-  public test_DomainRegexObject(bool exclude, string pattern)
-    : base(exclude)
+  public test_DomainRegexObject
+    ( bool exclude
+    , string pattern
+    ) : base(exclude)
   {
     Pattern = pattern;
   }
@@ -272,8 +293,9 @@ public class test_DomainItemRegexObject
   , Itest_DomainItemRegexObject
 {
 
-  public test_DomainItemRegexObject(Itest_Name domain)
-    : base(domain)
+  public test_DomainItemRegexObject
+    ( Itest_Name domain
+    ) : base(domain)
   {
   }
 }

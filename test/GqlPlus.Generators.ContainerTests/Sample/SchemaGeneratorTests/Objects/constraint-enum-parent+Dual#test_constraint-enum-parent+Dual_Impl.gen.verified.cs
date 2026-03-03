@@ -20,7 +20,8 @@ public class testCnstEnumPrntDualObject
   , ItestCnstEnumPrntDualObject
 {
 
-  public testCnstEnumPrntDualObject()
+  public testCnstEnumPrntDualObject
+    ()
   {
   }
 }
@@ -38,7 +39,9 @@ public class testRefCnstEnumPrntDualObject<TType>
 {
   public TType Field { get; set; }
 
-  public testRefCnstEnumPrntDualObject(TType field)
+  public testRefCnstEnumPrntDualObject
+    ( TType field
+    )
   {
     Field = field;
   }

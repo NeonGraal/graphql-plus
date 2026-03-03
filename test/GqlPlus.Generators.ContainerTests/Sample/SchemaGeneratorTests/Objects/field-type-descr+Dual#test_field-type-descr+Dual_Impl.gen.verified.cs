@@ -20,7 +20,9 @@ public class testFieldTypeDescrDualObject
 {
   public decimal Field { get; set; }
 
-  public testFieldTypeDescrDualObject(decimal field)
+  public testFieldTypeDescrDualObject
+    ( decimal field
+    )
   {
     Field = field;
   }

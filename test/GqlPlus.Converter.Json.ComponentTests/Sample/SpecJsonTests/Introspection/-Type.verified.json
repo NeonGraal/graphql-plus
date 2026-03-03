@@ -280,7 +280,7 @@
           "object": "_Modifier",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "modifier"
           }
         }
       ],
@@ -290,7 +290,7 @@
           "name": "modifierKind",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "modifier"
           }
         }
       ],
@@ -310,7 +310,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "modifier"
         }
       ]
     },
@@ -324,7 +324,7 @@
           "object": "_Modifier",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "modifier"
           }
         },
         {
@@ -371,7 +371,7 @@
         "typeArgs": [
           {
             "$mapTag": "_TypeArg",
-            "typeParam": "kind"
+            "typeParam": "modifier"
           }
         ]
       },
@@ -390,7 +390,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "modifier"
         }
       ]
     },

@@ -20,7 +20,8 @@ public class testAltDescrOutpObject
   , ItestAltDescrOutpObject
 {
 
-  public testAltDescrOutpObject()
+  public testAltDescrOutpObject
+    ()
   {
   }
 }

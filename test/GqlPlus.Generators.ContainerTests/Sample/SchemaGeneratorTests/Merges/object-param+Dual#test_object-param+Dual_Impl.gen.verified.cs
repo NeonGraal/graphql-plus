@@ -21,7 +21,10 @@ public class testObjParamDualObject<TTest,TType>
   public TTest Test { get; set; }
   public TType Type { get; set; }
 
-  public testObjParamDualObject(TTest test, TType type)
+  public testObjParamDualObject
+    ( TTest test
+    , TType type
+    )
   {
     Test = test;
     Type = type;

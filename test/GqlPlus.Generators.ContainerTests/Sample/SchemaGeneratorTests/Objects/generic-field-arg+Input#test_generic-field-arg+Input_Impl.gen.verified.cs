@@ -20,7 +20,9 @@ public class testGnrcFieldArgInpObject<TType>
 {
   public ItestRefGnrcFieldArgInp<TType> Field { get; set; }
 
-  public testGnrcFieldArgInpObject(ItestRefGnrcFieldArgInp<TType> field)
+  public testGnrcFieldArgInpObject
+    ( ItestRefGnrcFieldArgInp<TType> field
+    )
   {
     Field = field;
   }
@@ -39,7 +41,8 @@ public class testRefGnrcFieldArgInpObject<TRef>
   , ItestRefGnrcFieldArgInpObject<TRef>
 {
 
-  public testRefGnrcFieldArgInpObject()
+  public testRefGnrcFieldArgInpObject
+    ()
   {
   }
 }

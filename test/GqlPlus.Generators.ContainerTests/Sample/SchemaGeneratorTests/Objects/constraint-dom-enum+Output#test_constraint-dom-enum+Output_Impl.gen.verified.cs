@@ -20,7 +20,8 @@ public class testCnstDomEnumOutpObject
   , ItestCnstDomEnumOutpObject
 {
 
-  public testCnstDomEnumOutpObject()
+  public testCnstDomEnumOutpObject
+    ()
   {
   }
 }
@@ -38,7 +39,9 @@ public class testRefCnstDomEnumOutpObject<TType>
 {
   public TType Field { get; set; }
 
-  public testRefCnstDomEnumOutpObject(TType field)
+  public testRefCnstDomEnumOutpObject
+    ( TType field
+    )
   {
     Field = field;
   }

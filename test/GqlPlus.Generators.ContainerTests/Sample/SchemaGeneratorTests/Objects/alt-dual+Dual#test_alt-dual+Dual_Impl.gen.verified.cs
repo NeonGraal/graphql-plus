@@ -20,7 +20,8 @@ public class testAltDualDualObject
   , ItestAltDualDualObject
 {
 
-  public testAltDualDualObject()
+  public testAltDualDualObject
+    ()
   {
   }
 }
@@ -39,7 +40,9 @@ public class testObjDualAltDualDualObject
 {
   public decimal Alt { get; set; }
 
-  public testObjDualAltDualDualObject(decimal alt)
+  public testObjDualAltDualDualObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

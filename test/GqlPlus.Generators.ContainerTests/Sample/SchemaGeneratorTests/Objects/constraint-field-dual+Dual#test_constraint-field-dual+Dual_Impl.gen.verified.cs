@@ -19,8 +19,9 @@ public class testCnstFieldDualDualObject
   , ItestCnstFieldDualDualObject
 {
 
-  public testCnstFieldDualDualObject(ItestAltCnstFieldDualDual field)
-    : base(field)
+  public testCnstFieldDualDualObject
+    ( ItestAltCnstFieldDualDual field
+    ) : base(field)
   {
   }
 }
@@ -38,7 +39,9 @@ public class testRefCnstFieldDualDualObject<TRef>
 {
   public TRef Field { get; set; }
 
-  public testRefCnstFieldDualDualObject(TRef field)
+  public testRefCnstFieldDualDualObject
+    ( TRef field
+    )
   {
     Field = field;
   }
@@ -57,7 +60,8 @@ public class testPrntCnstFieldDualDualObject
   , ItestPrntCnstFieldDualDualObject
 {
 
-  public testPrntCnstFieldDualDualObject()
+  public testPrntCnstFieldDualDualObject
+    ()
   {
   }
 }
@@ -75,7 +79,9 @@ public class testAltCnstFieldDualDualObject
 {
   public decimal Alt { get; set; }
 
-  public testAltCnstFieldDualDualObject(decimal alt)
+  public testAltCnstFieldDualDualObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

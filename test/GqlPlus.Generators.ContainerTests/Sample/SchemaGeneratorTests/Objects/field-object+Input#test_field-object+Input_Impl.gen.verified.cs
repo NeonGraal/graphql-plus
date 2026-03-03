@@ -20,7 +20,9 @@ public class testFieldObjInpObject
 {
   public ItestFldFieldObjInp Field { get; set; }
 
-  public testFieldObjInpObject(ItestFldFieldObjInp field)
+  public testFieldObjInpObject
+    ( ItestFldFieldObjInp field
+    )
   {
     Field = field;
   }
@@ -40,7 +42,9 @@ public class testFldFieldObjInpObject
 {
   public decimal Field { get; set; }
 
-  public testFldFieldObjInpObject(decimal field)
+  public testFldFieldObjInpObject
+    ( decimal field
+    )
   {
     Field = field;
   }

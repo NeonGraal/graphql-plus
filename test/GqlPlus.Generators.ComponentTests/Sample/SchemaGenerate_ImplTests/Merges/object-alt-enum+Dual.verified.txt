@@ -25,7 +25,8 @@ public class CmptObjAltEnumDualObject
   , ICmptObjAltEnumDualObject
 {
 
-  public CmptObjAltEnumDualObject()
+  public CmptObjAltEnumDualObject
+    ()
   {
   }
 }

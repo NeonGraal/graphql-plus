@@ -20,8 +20,9 @@ public class testPrntAltInpObject
   , ItestPrntAltInpObject
 {
 
-  public testPrntAltInpObject(decimal parent)
-    : base(parent)
+  public testPrntAltInpObject
+    ( decimal parent
+    ) : base(parent)
   {
   }
 }
@@ -40,7 +41,9 @@ public class testRefPrntAltInpObject
 {
   public decimal Parent { get; set; }
 
-  public testRefPrntAltInpObject(decimal parent)
+  public testRefPrntAltInpObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

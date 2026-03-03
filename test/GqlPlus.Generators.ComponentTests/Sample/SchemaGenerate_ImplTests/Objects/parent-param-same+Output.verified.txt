@@ -24,7 +24,9 @@ public class CmptPrntParamSameOutpObject<TA>
 {
   public TA Field { get; set; }
 
-  public CmptPrntParamSameOutpObject(TA field)
+  public CmptPrntParamSameOutpObject
+    ( TA field
+    )
   {
     Field = field;
   }
@@ -43,7 +45,8 @@ public class CmptRefPrntParamSameOutpObject<TA>
   , ICmptRefPrntParamSameOutpObject<TA>
 {
 
-  public CmptRefPrntParamSameOutpObject()
+  public CmptRefPrntParamSameOutpObject
+    ()
   {
   }
 }

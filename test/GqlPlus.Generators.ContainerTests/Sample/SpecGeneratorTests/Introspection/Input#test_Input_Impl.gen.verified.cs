@@ -19,7 +19,8 @@ public class test_InputFieldObject
   , Itest_InputFieldObject
 {
 
-  public test_InputFieldObject()
+  public test_InputFieldObject
+    ()
   {
   }
 }
@@ -37,7 +38,8 @@ public class test_InputFieldTypeObject
 {
   public GqlpValue? DefaultValue { get; set; }
 
-  public test_InputFieldTypeObject()
+  public test_InputFieldTypeObject
+    ()
   {
   }
 }

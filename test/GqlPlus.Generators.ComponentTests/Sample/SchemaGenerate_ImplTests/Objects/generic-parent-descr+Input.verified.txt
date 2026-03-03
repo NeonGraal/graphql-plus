@@ -23,7 +23,8 @@ public class CmptGnrcPrntDescrInpObject<TType>
   , ICmptGnrcPrntDescrInpObject<TType>
 {
 
-  public CmptGnrcPrntDescrInpObject()
+  public CmptGnrcPrntDescrInpObject
+    ()
   {
   }
 }

@@ -19,8 +19,9 @@ public class testGnrcPrntSmplEnumInpObject
   , ItestGnrcPrntSmplEnumInpObject
 {
 
-  public testGnrcPrntSmplEnumInpObject(testEnumGnrcPrntSmplEnumInp field)
-    : base(field)
+  public testGnrcPrntSmplEnumInpObject
+    ( testEnumGnrcPrntSmplEnumInp field
+    ) : base(field)
   {
   }
 }
@@ -38,7 +39,9 @@ public class testFieldGnrcPrntSmplEnumInpObject<TRef>
 {
   public TRef Field { get; set; }
 
-  public testFieldGnrcPrntSmplEnumInpObject(TRef field)
+  public testFieldGnrcPrntSmplEnumInpObject
+    ( TRef field
+    )
   {
     Field = field;
   }

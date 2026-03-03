@@ -20,7 +20,8 @@ public class testAltInpObject
   , ItestAltInpObject
 {
 
-  public testAltInpObject()
+  public testAltInpObject
+    ()
   {
   }
 }
@@ -39,7 +40,9 @@ public class testAltAltInpObject
 {
   public decimal Alt { get; set; }
 
-  public testAltAltInpObject(decimal alt)
+  public testAltAltInpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

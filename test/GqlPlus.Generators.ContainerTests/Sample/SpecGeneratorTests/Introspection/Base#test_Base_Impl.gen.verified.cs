@@ -13,16 +13,16 @@ public class test_ObjectKind
 {
 }
 
-public class test_TypeObject<TKind,TField>
-  : test_ChildType<TKind, Itest_ObjBase>
-  , Itest_TypeObject<TKind,TField>
+public class test_TypeObject<TObject,TField>
+  : test_ChildType<TObject, Itest_ObjBase>
+  , Itest_TypeObject<TObject,TField>
 {
-  public Itest_TypeObjectObject<TKind,TField>? As__TypeObject { get; set; }
+  public Itest_TypeObjectObject<TObject,TField>? As__TypeObject { get; set; }
 }
 
-public class test_TypeObjectObject<TKind,TField>
-  : test_ChildTypeObject<TKind, Itest_ObjBase>
-  , Itest_TypeObjectObject<TKind,TField>
+public class test_TypeObjectObject<TObject,TField>
+  : test_ChildTypeObject<TObject, Itest_ObjBase>
+  , Itest_TypeObjectObject<TObject,TField>
 {
   public ICollection<Itest_ObjTypeParam> TypeParams { get; set; }
   public ICollection<TField> Fields { get; set; }
@@ -30,7 +30,13 @@ public class test_TypeObjectObject<TKind,TField>
   public ICollection<Itest_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; set; }
 
-  public test_TypeObjectObject(ICollection<Itest_ObjTypeParam> typeParams, ICollection<TField> fields, ICollection<Itest_ObjAlternate> alternates, ICollection<Itest_ObjectFor<TField>> allFields, ICollection<Itest_ObjectFor<Itest_ObjAlternate>> allAlternates)
+  public test_TypeObjectObject
+    ( ICollection<Itest_ObjTypeParam> typeParams
+    , ICollection<TField> fields
+    , ICollection<Itest_ObjAlternate> alternates
+    , ICollection<Itest_ObjectFor<TField>> allFields
+    , ICollection<Itest_ObjectFor<Itest_ObjAlternate>> allAlternates
+    )
   {
     TypeParams = typeParams;
     Fields = fields;
@@ -53,7 +59,9 @@ public class test_ObjTypeParamObject
 {
   public Itest_TypeRef<Itest_TypeKind> Constraint { get; set; }
 
-  public test_ObjTypeParamObject(Itest_TypeRef<Itest_TypeKind> constraint)
+  public test_ObjTypeParamObject
+    ( Itest_TypeRef<Itest_TypeKind> constraint
+    )
   {
     Constraint = constraint;
   }
@@ -73,7 +81,9 @@ public class test_ObjBaseObject
 {
   public ICollection<Itest_ObjTypeArg> TypeArgs { get; set; }
 
-  public test_ObjBaseObject(ICollection<Itest_ObjTypeArg> typeArgs)
+  public test_ObjBaseObject
+    ( ICollection<Itest_ObjTypeArg> typeArgs
+    )
   {
     TypeArgs = typeArgs;
   }
@@ -93,7 +103,8 @@ public class test_ObjTypeArgObject
 {
   public Itest_Name? Label { get; set; }
 
-  public test_ObjTypeArgObject()
+  public test_ObjTypeArgObject
+    ()
   {
   }
 }
@@ -111,7 +122,9 @@ public class test_TypeParamObject
 {
   public Itest_Name TypeParam { get; set; }
 
-  public test_TypeParamObject(Itest_Name typeParam)
+  public test_TypeParamObject
+    ( Itest_Name typeParam
+    )
   {
     TypeParam = typeParam;
   }
@@ -132,7 +145,10 @@ public class test_ObjAlternateObject
   public Itest_ObjBase Type { get; set; }
   public ICollection<Itest_Collections> Collections { get; set; }
 
-  public test_ObjAlternateObject(Itest_ObjBase type, ICollection<Itest_Collections> collections)
+  public test_ObjAlternateObject
+    ( Itest_ObjBase type
+    , ICollection<Itest_Collections> collections
+    )
   {
     Type = type;
     Collections = collections;
@@ -152,7 +168,9 @@ public class test_ObjAlternateEnumObject
 {
   public Itest_Name Label { get; set; }
 
-  public test_ObjAlternateEnumObject(Itest_Name label)
+  public test_ObjAlternateEnumObject
+    ( Itest_Name label
+    )
   {
     Label = label;
   }
@@ -172,7 +190,9 @@ public class test_ObjectForObject<TFor>
 {
   public Itest_Name ObjectType { get; set; }
 
-  public test_ObjectForObject(Itest_Name objectType)
+  public test_ObjectForObject
+    ( Itest_Name objectType
+    )
   {
     ObjectType = objectType;
   }
@@ -191,7 +211,9 @@ public class test_ObjFieldObject<TType>
 {
   public TType Type { get; set; }
 
-  public test_ObjFieldObject(TType type)
+  public test_ObjFieldObject
+    ( TType type
+    )
   {
     Type = type;
   }
@@ -211,8 +233,10 @@ public class test_ObjFieldTypeObject
 {
   public ICollection<Itest_Modifiers> Modifiers { get; set; }
 
-  public test_ObjFieldTypeObject(ICollection<Itest_ObjTypeArg> typeArgs, ICollection<Itest_Modifiers> modifiers)
-    : base(typeArgs)
+  public test_ObjFieldTypeObject
+    ( ICollection<Itest_ObjTypeArg> typeArgs
+    , ICollection<Itest_Modifiers> modifiers
+    ) : base(typeArgs)
   {
     Modifiers = modifiers;
   }
@@ -231,7 +255,9 @@ public class test_ObjFieldEnumObject
 {
   public Itest_Name Label { get; set; }
 
-  public test_ObjFieldEnumObject(Itest_Name label)
+  public test_ObjFieldEnumObject
+    ( Itest_Name label
+    )
   {
     Label = label;
   }
@@ -251,7 +277,8 @@ public class test_ForParamObject<TType>
   , Itest_ForParamObject<TType>
 {
 
-  public test_ForParamObject()
+  public test_ForParamObject
+    ()
   {
   }
 }

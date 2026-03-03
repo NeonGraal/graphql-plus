@@ -20,7 +20,9 @@ public class testFieldSmplOutpObject
 {
   public decimal Field { get; set; }
 
-  public testFieldSmplOutpObject(decimal field)
+  public testFieldSmplOutpObject
+    ( decimal field
+    )
   {
     Field = field;
   }

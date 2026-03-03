@@ -23,7 +23,8 @@ public class CmptCnstAltInpObject<TType>
   , ICmptCnstAltInpObject<TType>
 {
 
-  public CmptCnstAltInpObject()
+  public CmptCnstAltInpObject
+    ()
   {
   }
 }

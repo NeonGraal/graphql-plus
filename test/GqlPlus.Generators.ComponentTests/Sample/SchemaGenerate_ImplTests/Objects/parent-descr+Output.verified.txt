@@ -23,8 +23,9 @@ public class CmptPrntDescrOutpObject
   , ICmptPrntDescrOutpObject
 {
 
-  public CmptPrntDescrOutpObject(decimal parent)
-    : base(parent)
+  public CmptPrntDescrOutpObject
+    ( decimal parent
+    ) : base(parent)
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptRefPrntDescrOutpObject
 {
   public decimal Parent { get; set; }
 
-  public CmptRefPrntDescrOutpObject(decimal parent)
+  public CmptRefPrntDescrOutpObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

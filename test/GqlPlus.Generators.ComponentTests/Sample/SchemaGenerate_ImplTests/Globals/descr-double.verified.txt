@@ -23,7 +23,8 @@ public class CmptDescrDblObject
   , ICmptDescrDblObject
 {
 
-  public CmptDescrDblObject()
+  public CmptDescrDblObject
+    ()
   {
   }
 }

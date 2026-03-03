@@ -618,7 +618,7 @@ Success
   _ModifierKeyed
   <
     I@022/0142
-    $kind
+    $modifier
     :_ModifierKind
   >
   :
@@ -626,7 +626,7 @@ Success
   _Modifier
   <
     I@018/0143
-    $kind
+    $modifier
   >
   {
     !DF I@009/0144
@@ -680,7 +680,7 @@ Success
   _Modifier
   <
     I@017/0155
-    $kind
+    $modifier
     :_ModifierKind
   >
   {
@@ -688,7 +688,7 @@ Success
     modifierKind
     :
     I@024/0156
-    $kind
+    $modifier
   }
 }
 {
@@ -708,7 +708,7 @@ Success
   _DomainRef
   <
     I@020/0161
-    $kind
+    $domain
     :_DomainKind
   >
   :
@@ -723,7 +723,7 @@ Success
     domainKind
     :
     I@022/0163
-    $kind
+    $domain
   }
 }
 {
@@ -797,9 +797,9 @@ Success
   _DomainValue
   <
     I@022/0181
-    $kind
+    $domain
     :_DomainKind
-    I@040/0181
+    I@042/0181
     $value
     :_BasicValue
   >
@@ -808,7 +808,7 @@ Success
   _DomainRef
   <
     I@019/0182
-    $kind
+    $domain
   >
   {
     !OF I@009/0183
@@ -1017,9 +1017,9 @@ Success
   _TypeObject
   <
     I@021/0252
-    $kind
+    $object
     :_ObjectKind
-    I@039/0252
+    I@041/0252
     $field
     :_ObjField
   >
@@ -1028,8 +1028,8 @@ Success
   _ChildType
   <
     I@019/0253
-    $kind
-    I@024/0253
+    $object
+    I@026/0253
     _ObjBase
   >
   {

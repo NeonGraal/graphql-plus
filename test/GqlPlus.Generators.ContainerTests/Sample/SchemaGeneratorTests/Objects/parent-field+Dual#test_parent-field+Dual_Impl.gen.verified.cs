@@ -20,8 +20,10 @@ public class testPrntFieldDualObject
 {
   public decimal Field { get; set; }
 
-  public testPrntFieldDualObject(decimal parent, decimal field)
-    : base(parent)
+  public testPrntFieldDualObject
+    ( decimal parent
+    , decimal field
+    ) : base(parent)
   {
     Field = field;
   }
@@ -41,7 +43,9 @@ public class testRefPrntFieldDualObject
 {
   public decimal Parent { get; set; }
 
-  public testRefPrntFieldDualObject(decimal parent)
+  public testRefPrntFieldDualObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

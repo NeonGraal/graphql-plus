@@ -20,8 +20,9 @@ public class testPrntAltDualObject
   , ItestPrntAltDualObject
 {
 
-  public testPrntAltDualObject(decimal parent)
-    : base(parent)
+  public testPrntAltDualObject
+    ( decimal parent
+    ) : base(parent)
   {
   }
 }
@@ -40,7 +41,9 @@ public class testRefPrntAltDualObject
 {
   public decimal Parent { get; set; }
 
-  public testRefPrntAltDualObject(decimal parent)
+  public testRefPrntAltDualObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

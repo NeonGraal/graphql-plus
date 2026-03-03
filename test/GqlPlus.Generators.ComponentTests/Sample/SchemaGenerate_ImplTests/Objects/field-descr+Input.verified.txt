@@ -23,7 +23,9 @@ public class CmptFieldDescrInpObject
 {
   public string Field { get; set; }
 
-  public CmptFieldDescrInpObject(string field)
+  public CmptFieldDescrInpObject
+    ( string field
+    )
   {
     Field = field;
   }

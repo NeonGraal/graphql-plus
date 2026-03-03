@@ -31,7 +31,9 @@ public class Cmpt_EnumLabelObject
 {
   public ICmpt_Name EnumType { get; set; }
 
-  public Cmpt_EnumLabelObject(ICmpt_Name enumType)
+  public Cmpt_EnumLabelObject
+    ( ICmpt_Name enumType
+    )
   {
     EnumType = enumType;
   }
@@ -50,7 +52,9 @@ public class Cmpt_EnumValueObject
 {
   public ICmpt_Name Label { get; set; }
 
-  public Cmpt_EnumValueObject(ICmpt_Name label)
+  public Cmpt_EnumValueObject
+    ( ICmpt_Name label
+    )
   {
     Label = label;
   }

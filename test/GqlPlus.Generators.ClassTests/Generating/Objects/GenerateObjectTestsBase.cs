@@ -95,7 +95,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
       ForGeneratedCodeName(name),
       ForGeneratedCodeParent(TestPrefix + parent),
       ForGeneratedImplementation("I" + TestPrefix + fieldType + " " + fieldName),
-      ForGeneratedImplementation(": base(" + fieldName + ")"));
+      ForGeneratedImplementation(") : base(" + fieldName + ")"));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]

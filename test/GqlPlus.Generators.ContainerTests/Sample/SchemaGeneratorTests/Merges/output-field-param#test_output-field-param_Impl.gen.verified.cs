@@ -21,7 +21,8 @@ public class testOutpFieldParamObject
   public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)
     => null;
 
-  public testOutpFieldParamObject()
+  public testOutpFieldParamObject
+    ()
   {
   }
 }
@@ -38,7 +39,8 @@ public class testOutpFieldParam1Object
   , ItestOutpFieldParam1Object
 {
 
-  public testOutpFieldParam1Object()
+  public testOutpFieldParam1Object
+    ()
   {
   }
 }
@@ -55,7 +57,8 @@ public class testOutpFieldParam2Object
   , ItestOutpFieldParam2Object
 {
 
-  public testOutpFieldParam2Object()
+  public testOutpFieldParam2Object
+    ()
   {
   }
 }
@@ -72,7 +75,8 @@ public class testFldOutpFieldParamObject
   , ItestFldOutpFieldParamObject
 {
 
-  public testFldOutpFieldParamObject()
+  public testFldOutpFieldParamObject
+    ()
   {
   }
 }

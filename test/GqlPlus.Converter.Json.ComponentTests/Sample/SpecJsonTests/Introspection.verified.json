@@ -2140,7 +2140,7 @@
           "object": "_DomainRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "domain"
           }
         }
       ],
@@ -2150,7 +2150,7 @@
           "name": "domainKind",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "domain"
           }
         }
       ],
@@ -2185,7 +2185,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "domain"
         }
       ]
     },
@@ -2367,7 +2367,7 @@
           "object": "_DomainRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "domain"
           }
         },
         {
@@ -2406,7 +2406,7 @@
         "typeArgs": [
           {
             "$mapTag": "_TypeArg",
-            "typeParam": "kind"
+            "typeParam": "domain"
           }
         ]
       },
@@ -2425,7 +2425,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "domain"
         },
         {
           "$mapTag": "_TypeParam",
@@ -3261,7 +3261,7 @@
           "object": "_Modifier",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "modifier"
           }
         }
       ],
@@ -3271,7 +3271,7 @@
           "name": "modifierKind",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "modifier"
           }
         }
       ],
@@ -3291,7 +3291,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "modifier"
         }
       ]
     },
@@ -3305,7 +3305,7 @@
           "object": "_Modifier",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "modifier"
           }
         },
         {
@@ -3352,7 +3352,7 @@
         "typeArgs": [
           {
             "$mapTag": "_TypeArg",
-            "typeParam": "kind"
+            "typeParam": "modifier"
           }
         ]
       },
@@ -3371,7 +3371,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "modifier"
         }
       ]
     },
@@ -6443,7 +6443,7 @@
         "typeArgs": [
           {
             "$mapTag": "_TypeArg",
-            "typeParam": "kind"
+            "typeParam": "object"
           },
           {
             "$mapTag": "_TypeArg",
@@ -6466,7 +6466,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "object"
         },
         {
           "$mapTag": "_TypeParam",

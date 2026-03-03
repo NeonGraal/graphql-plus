@@ -23,7 +23,8 @@ public class CmptObjAliasInpObject
   , ICmptObjAliasInpObject
 {
 
-  public CmptObjAliasInpObject()
+  public CmptObjAliasInpObject
+    ()
   {
   }
 }

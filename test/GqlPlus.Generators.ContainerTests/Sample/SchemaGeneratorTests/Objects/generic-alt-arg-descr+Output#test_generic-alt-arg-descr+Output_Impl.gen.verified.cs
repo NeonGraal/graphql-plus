@@ -20,7 +20,8 @@ public class testGnrcAltArgDescrOutpObject<TType>
   , ItestGnrcAltArgDescrOutpObject<TType>
 {
 
-  public testGnrcAltArgDescrOutpObject()
+  public testGnrcAltArgDescrOutpObject
+    ()
   {
   }
 }
@@ -38,7 +39,8 @@ public class testRefGnrcAltArgDescrOutpObject<TRef>
   , ItestRefGnrcAltArgDescrOutpObject<TRef>
 {
 
-  public testRefGnrcAltArgDescrOutpObject()
+  public testRefGnrcAltArgDescrOutpObject
+    ()
   {
   }
 }

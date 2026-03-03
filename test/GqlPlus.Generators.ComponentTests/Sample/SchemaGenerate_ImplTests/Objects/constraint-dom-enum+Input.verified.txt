@@ -26,7 +26,8 @@ public class CmptCnstDomEnumInpObject
   , ICmptCnstDomEnumInpObject
 {
 
-  public CmptCnstDomEnumInpObject()
+  public CmptCnstDomEnumInpObject
+    ()
   {
   }
 }
@@ -44,7 +45,9 @@ public class CmptRefCnstDomEnumInpObject<TType>
 {
   public TType Field { get; set; }
 
-  public CmptRefCnstDomEnumInpObject(TType field)
+  public CmptRefCnstDomEnumInpObject
+    ( TType field
+    )
   {
     Field = field;
   }

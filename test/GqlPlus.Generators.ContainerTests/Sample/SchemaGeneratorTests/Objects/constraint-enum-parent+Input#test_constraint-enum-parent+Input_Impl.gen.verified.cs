@@ -20,7 +20,8 @@ public class testCnstEnumPrntInpObject
   , ItestCnstEnumPrntInpObject
 {
 
-  public testCnstEnumPrntInpObject()
+  public testCnstEnumPrntInpObject
+    ()
   {
   }
 }
@@ -38,7 +39,9 @@ public class testRefCnstEnumPrntInpObject<TType>
 {
   public TType Field { get; set; }
 
-  public testRefCnstEnumPrntInpObject(TType field)
+  public testRefCnstEnumPrntInpObject
+    ( TType field
+    )
   {
     Field = field;
   }

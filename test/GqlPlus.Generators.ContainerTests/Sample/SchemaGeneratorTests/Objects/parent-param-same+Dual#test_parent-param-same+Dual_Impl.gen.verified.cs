@@ -20,7 +20,9 @@ public class testPrntParamSameDualObject<TA>
 {
   public TA Field { get; set; }
 
-  public testPrntParamSameDualObject(TA field)
+  public testPrntParamSameDualObject
+    ( TA field
+    )
   {
     Field = field;
   }
@@ -39,7 +41,8 @@ public class testRefPrntParamSameDualObject<TA>
   , ItestRefPrntParamSameDualObject<TA>
 {
 
-  public testRefPrntParamSameDualObject()
+  public testRefPrntParamSameDualObject
+    ()
   {
   }
 }

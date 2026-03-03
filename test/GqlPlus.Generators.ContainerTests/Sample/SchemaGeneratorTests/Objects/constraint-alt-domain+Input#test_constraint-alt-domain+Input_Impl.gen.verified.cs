@@ -20,7 +20,8 @@ public class testCnstAltDmnInpObject
   , ItestCnstAltDmnInpObject
 {
 
-  public testCnstAltDmnInpObject()
+  public testCnstAltDmnInpObject
+    ()
   {
   }
 }
@@ -38,7 +39,8 @@ public class testRefCnstAltDmnInpObject<TRef>
   , ItestRefCnstAltDmnInpObject<TRef>
 {
 
-  public testRefCnstAltDmnInpObject()
+  public testRefCnstAltDmnInpObject
+    ()
   {
   }
 }

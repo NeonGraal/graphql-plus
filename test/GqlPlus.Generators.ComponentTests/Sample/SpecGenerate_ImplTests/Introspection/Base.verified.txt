@@ -1,8 +1,8 @@
 ﻿/* Base
 domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
 
-output _TypeObject<$kind:_ObjectKind $field:_ObjField> {
-    : _ChildType<$kind _ObjBase>
+output _TypeObject<$object:_ObjectKind $field:_ObjField> {
+    : _ChildType<$object _ObjBase>
         typeParams: _ObjTypeParam[]
         fields: $field[]
         alternates: _ObjAlternate[]
@@ -83,16 +83,16 @@ public class Cmpt_ObjectKind
 {
 }
 
-public class Cmpt_TypeObject<TKind,TField>
-  : Cmpt_ChildType<TKind, ICmpt_ObjBase>
-  , ICmpt_TypeObject<TKind,TField>
+public class Cmpt_TypeObject<TObject,TField>
+  : Cmpt_ChildType<TObject, ICmpt_ObjBase>
+  , ICmpt_TypeObject<TObject,TField>
 {
-  public ICmpt_TypeObjectObject<TKind,TField>? As__TypeObject { get; set; }
+  public ICmpt_TypeObjectObject<TObject,TField>? As__TypeObject { get; set; }
 }
 
-public class Cmpt_TypeObjectObject<TKind,TField>
-  : Cmpt_ChildTypeObject<TKind, ICmpt_ObjBase>
-  , ICmpt_TypeObjectObject<TKind,TField>
+public class Cmpt_TypeObjectObject<TObject,TField>
+  : Cmpt_ChildTypeObject<TObject, ICmpt_ObjBase>
+  , ICmpt_TypeObjectObject<TObject,TField>
 {
   public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
   public ICollection<TField> Fields { get; set; }
@@ -100,7 +100,13 @@ public class Cmpt_TypeObjectObject<TKind,TField>
   public ICollection<ICmpt_ObjectFor<TField>> AllFields { get; set; }
   public ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> AllAlternates { get; set; }
 
-  public Cmpt_TypeObjectObject(ICollection<ICmpt_ObjTypeParam> typeParams, ICollection<TField> fields, ICollection<ICmpt_ObjAlternate> alternates, ICollection<ICmpt_ObjectFor<TField>> allFields, ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> allAlternates)
+  public Cmpt_TypeObjectObject
+    ( ICollection<ICmpt_ObjTypeParam> typeParams
+    , ICollection<TField> fields
+    , ICollection<ICmpt_ObjAlternate> alternates
+    , ICollection<ICmpt_ObjectFor<TField>> allFields
+    , ICollection<ICmpt_ObjectFor<ICmpt_ObjAlternate>> allAlternates
+    )
   {
     TypeParams = typeParams;
     Fields = fields;
@@ -123,7 +129,9 @@ public class Cmpt_ObjTypeParamObject
 {
   public ICmpt_TypeRef<ICmpt_TypeKind> Constraint { get; set; }
 
-  public Cmpt_ObjTypeParamObject(ICmpt_TypeRef<ICmpt_TypeKind> constraint)
+  public Cmpt_ObjTypeParamObject
+    ( ICmpt_TypeRef<ICmpt_TypeKind> constraint
+    )
   {
     Constraint = constraint;
   }
@@ -143,7 +151,9 @@ public class Cmpt_ObjBaseObject
 {
   public ICollection<ICmpt_ObjTypeArg> TypeArgs { get; set; }
 
-  public Cmpt_ObjBaseObject(ICollection<ICmpt_ObjTypeArg> typeArgs)
+  public Cmpt_ObjBaseObject
+    ( ICollection<ICmpt_ObjTypeArg> typeArgs
+    )
   {
     TypeArgs = typeArgs;
   }
@@ -163,7 +173,8 @@ public class Cmpt_ObjTypeArgObject
 {
   public ICmpt_Name? Label { get; set; }
 
-  public Cmpt_ObjTypeArgObject()
+  public Cmpt_ObjTypeArgObject
+    ()
   {
   }
 }
@@ -181,7 +192,9 @@ public class Cmpt_TypeParamObject
 {
   public ICmpt_Name TypeParam { get; set; }
 
-  public Cmpt_TypeParamObject(ICmpt_Name typeParam)
+  public Cmpt_TypeParamObject
+    ( ICmpt_Name typeParam
+    )
   {
     TypeParam = typeParam;
   }
@@ -202,7 +215,10 @@ public class Cmpt_ObjAlternateObject
   public ICmpt_ObjBase Type { get; set; }
   public ICollection<ICmpt_Collections> Collections { get; set; }
 
-  public Cmpt_ObjAlternateObject(ICmpt_ObjBase type, ICollection<ICmpt_Collections> collections)
+  public Cmpt_ObjAlternateObject
+    ( ICmpt_ObjBase type
+    , ICollection<ICmpt_Collections> collections
+    )
   {
     Type = type;
     Collections = collections;
@@ -222,7 +238,9 @@ public class Cmpt_ObjAlternateEnumObject
 {
   public ICmpt_Name Label { get; set; }
 
-  public Cmpt_ObjAlternateEnumObject(ICmpt_Name label)
+  public Cmpt_ObjAlternateEnumObject
+    ( ICmpt_Name label
+    )
   {
     Label = label;
   }
@@ -242,7 +260,9 @@ public class Cmpt_ObjectForObject<TFor>
 {
   public ICmpt_Name ObjectType { get; set; }
 
-  public Cmpt_ObjectForObject(ICmpt_Name objectType)
+  public Cmpt_ObjectForObject
+    ( ICmpt_Name objectType
+    )
   {
     ObjectType = objectType;
   }
@@ -261,7 +281,9 @@ public class Cmpt_ObjFieldObject<TType>
 {
   public TType Type { get; set; }
 
-  public Cmpt_ObjFieldObject(TType type)
+  public Cmpt_ObjFieldObject
+    ( TType type
+    )
   {
     Type = type;
   }
@@ -281,8 +303,10 @@ public class Cmpt_ObjFieldTypeObject
 {
   public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
 
-  public Cmpt_ObjFieldTypeObject(ICollection<ICmpt_ObjTypeArg> typeArgs, ICollection<ICmpt_Modifiers> modifiers)
-    : base(typeArgs)
+  public Cmpt_ObjFieldTypeObject
+    ( ICollection<ICmpt_ObjTypeArg> typeArgs
+    , ICollection<ICmpt_Modifiers> modifiers
+    ) : base(typeArgs)
   {
     Modifiers = modifiers;
   }
@@ -301,7 +325,9 @@ public class Cmpt_ObjFieldEnumObject
 {
   public ICmpt_Name Label { get; set; }
 
-  public Cmpt_ObjFieldEnumObject(ICmpt_Name label)
+  public Cmpt_ObjFieldEnumObject
+    ( ICmpt_Name label
+    )
   {
     Label = label;
   }
@@ -321,7 +347,8 @@ public class Cmpt_ForParamObject<TType>
   , ICmpt_ForParamObject<TType>
 {
 
-  public Cmpt_ForParamObject()
+  public Cmpt_ForParamObject
+    ()
   {
   }
 }

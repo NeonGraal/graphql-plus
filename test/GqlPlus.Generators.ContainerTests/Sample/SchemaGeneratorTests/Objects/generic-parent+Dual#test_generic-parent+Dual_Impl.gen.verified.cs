@@ -20,7 +20,8 @@ public class testGnrcPrntDualObject<TType>
   , ItestGnrcPrntDualObject<TType>
 {
 
-  public testGnrcPrntDualObject()
+  public testGnrcPrntDualObject
+    ()
   {
   }
 }

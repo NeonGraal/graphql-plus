@@ -23,7 +23,8 @@ public class CmptGnrcPrntDualObject<TType>
   , ICmptGnrcPrntDualObject<TType>
 {
 
-  public CmptGnrcPrntDualObject()
+  public CmptGnrcPrntDualObject
+    ()
   {
   }
 }

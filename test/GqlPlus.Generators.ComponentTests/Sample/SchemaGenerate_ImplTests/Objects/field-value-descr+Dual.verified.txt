@@ -24,7 +24,9 @@ public class CmptFieldValueDescrDualObject
 {
   public CmptEnumFieldValueDescrDual Field { get; set; }
 
-  public CmptFieldValueDescrDualObject(CmptEnumFieldValueDescrDual field)
+  public CmptFieldValueDescrDualObject
+    ( CmptEnumFieldValueDescrDual field
+    )
   {
     Field = field;
   }

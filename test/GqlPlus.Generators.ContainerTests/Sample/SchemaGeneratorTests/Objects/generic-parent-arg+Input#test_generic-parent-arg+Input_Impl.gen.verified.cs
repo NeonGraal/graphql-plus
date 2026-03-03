@@ -19,7 +19,8 @@ public class testGnrcPrntArgInpObject<TType>
   , ItestGnrcPrntArgInpObject<TType>
 {
 
-  public testGnrcPrntArgInpObject()
+  public testGnrcPrntArgInpObject
+    ()
   {
   }
 }
@@ -37,7 +38,8 @@ public class testRefGnrcPrntArgInpObject<TRef>
   , ItestRefGnrcPrntArgInpObject<TRef>
 {
 
-  public testRefGnrcPrntArgInpObject()
+  public testRefGnrcPrntArgInpObject
+    ()
   {
   }
 }

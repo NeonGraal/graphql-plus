@@ -15,13 +15,12 @@ internal sealed class EnumGenerator
 
   private static IEnumerable<MapPair<string>> ParentItems(string? parent, GqlpGeneratorTypes types)
   {
-    IGqlpEnum? ast = types.GetTypeAst<IGqlpEnum>(parent);
-    if (parent is null || ast is null) {
+    if (!types.GetTypeAst(parent, out IGqlpEnum ast)) {
       return [];
     }
 
-    IEnumerable<MapPair<string>> members = ast.Items.SelectMany(item => {
-      string suffix = " = " + types.TypeName(parent, "") + "." + item.Name;
+    IEnumerable<MapPair<string>> members = ast!.Items.SelectMany(item => {
+      string suffix = " = " + types.TypeName(parent!, "") + "." + item.Name;
       return item.Aliases
         .Select(alias => new MapPair<string>(alias, suffix))
         .Prepend(new MapPair<string>(item.Name, suffix));

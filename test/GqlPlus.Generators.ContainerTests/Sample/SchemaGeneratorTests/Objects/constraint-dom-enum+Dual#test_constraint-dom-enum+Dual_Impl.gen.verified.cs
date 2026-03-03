@@ -20,7 +20,8 @@ public class testCnstDomEnumDualObject
   , ItestCnstDomEnumDualObject
 {
 
-  public testCnstDomEnumDualObject()
+  public testCnstDomEnumDualObject
+    ()
   {
   }
 }
@@ -38,7 +39,9 @@ public class testRefCnstDomEnumDualObject<TType>
 {
   public TType Field { get; set; }
 
-  public testRefCnstDomEnumDualObject(TType field)
+  public testRefCnstDomEnumDualObject
+    ( TType field
+    )
   {
     Field = field;
   }

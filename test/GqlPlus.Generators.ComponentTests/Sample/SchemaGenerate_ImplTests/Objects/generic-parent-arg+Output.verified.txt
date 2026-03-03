@@ -23,7 +23,8 @@ public class CmptGnrcPrntArgOutpObject<TType>
   , ICmptGnrcPrntArgOutpObject<TType>
 {
 
-  public CmptGnrcPrntArgOutpObject()
+  public CmptGnrcPrntArgOutpObject
+    ()
   {
   }
 }
@@ -41,7 +42,8 @@ public class CmptRefGnrcPrntArgOutpObject<TRef>
   , ICmptRefGnrcPrntArgOutpObject<TRef>
 {
 
-  public CmptRefGnrcPrntArgOutpObject()
+  public CmptRefGnrcPrntArgOutpObject
+    ()
   {
   }
 }

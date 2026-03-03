@@ -19,7 +19,8 @@ public class testCtgrOutpObject
   , ItestCtgrOutpObject
 {
 
-  public testCtgrOutpObject()
+  public testCtgrOutpObject
+    ()
   {
   }
 }

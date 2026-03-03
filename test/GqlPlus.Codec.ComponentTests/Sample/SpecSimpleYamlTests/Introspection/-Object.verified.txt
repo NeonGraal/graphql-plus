@@ -532,7 +532,7 @@ types: !_Map(_Type)
       name: _ChildType
       typeArgs:
         - !_TypeArg
-          typeParam: kind
+          typeParam: object
         - !_TypeArg
           name: _ObjBase
     typeKind: !_TypeKind Output
@@ -541,7 +541,7 @@ types: !_Map(_Type)
         constraint: !_TypeRef(_TypeKind)
           name: _ObjectKind
           typeKind: !_TypeKind Domain
-        name: kind
+        name: object
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           name: _ObjField

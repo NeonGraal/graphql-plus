@@ -19,7 +19,8 @@ public class testCnstPrntDualGrndOutpObject
   , ItestCnstPrntDualGrndOutpObject
 {
 
-  public testCnstPrntDualGrndOutpObject()
+  public testCnstPrntDualGrndOutpObject
+    ()
   {
   }
 }
@@ -37,7 +38,8 @@ public class testRefCnstPrntDualGrndOutpObject<TRef>
   , ItestRefCnstPrntDualGrndOutpObject<TRef>
 {
 
-  public testRefCnstPrntDualGrndOutpObject()
+  public testRefCnstPrntDualGrndOutpObject
+    ()
   {
   }
 }
@@ -55,7 +57,8 @@ public class testGrndCnstPrntDualGrndOutpObject
   , ItestGrndCnstPrntDualGrndOutpObject
 {
 
-  public testGrndCnstPrntDualGrndOutpObject()
+  public testGrndCnstPrntDualGrndOutpObject
+    ()
   {
   }
 }
@@ -72,7 +75,8 @@ public class testPrntCnstPrntDualGrndOutpObject
   , ItestPrntCnstPrntDualGrndOutpObject
 {
 
-  public testPrntCnstPrntDualGrndOutpObject()
+  public testPrntCnstPrntDualGrndOutpObject
+    ()
   {
   }
 }
@@ -90,7 +94,9 @@ public class testAltCnstPrntDualGrndOutpObject
 {
   public decimal Alt { get; set; }
 
-  public testAltCnstPrntDualGrndOutpObject(decimal alt)
+  public testAltCnstPrntDualGrndOutpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

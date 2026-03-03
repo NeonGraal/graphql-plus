@@ -19,7 +19,8 @@ public class testGnrcPrntArgDualObject<TType>
   , ItestGnrcPrntArgDualObject<TType>
 {
 
-  public testGnrcPrntArgDualObject()
+  public testGnrcPrntArgDualObject
+    ()
   {
   }
 }
@@ -37,7 +38,8 @@ public class testRefGnrcPrntArgDualObject<TRef>
   , ItestRefGnrcPrntArgDualObject<TRef>
 {
 
-  public testRefGnrcPrntArgDualObject()
+  public testRefGnrcPrntArgDualObject
+    ()
   {
   }
 }

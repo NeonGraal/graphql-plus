@@ -25,8 +25,9 @@ public class CmptGnrcPrntEnumDomInpObject
   , ICmptGnrcPrntEnumDomInpObject
 {
 
-  public CmptGnrcPrntEnumDomInpObject(ICmptDomGnrcPrntEnumDomInp field)
-    : base(field)
+  public CmptGnrcPrntEnumDomInpObject
+    ( ICmptDomGnrcPrntEnumDomInp field
+    ) : base(field)
   {
   }
 }
@@ -44,7 +45,9 @@ public class CmptFieldGnrcPrntEnumDomInpObject<TRef>
 {
   public TRef Field { get; set; }
 
-  public CmptFieldGnrcPrntEnumDomInpObject(TRef field)
+  public CmptFieldGnrcPrntEnumDomInpObject
+    ( TRef field
+    )
   {
     Field = field;
   }

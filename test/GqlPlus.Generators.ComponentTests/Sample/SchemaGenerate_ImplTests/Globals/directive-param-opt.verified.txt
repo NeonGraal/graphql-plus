@@ -23,7 +23,8 @@ public class CmptInDrctParamOptObject
   , ICmptInDrctParamOptObject
 {
 
-  public CmptInDrctParamOptObject()
+  public CmptInDrctParamOptObject
+    ()
   {
   }
 }

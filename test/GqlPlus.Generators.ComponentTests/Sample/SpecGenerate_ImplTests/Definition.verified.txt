@@ -89,7 +89,8 @@ public class Cmpt_ObjectObject
   , ICmpt_ObjectObject
 {
 
-  public Cmpt_ObjectObject()
+  public Cmpt_ObjectObject
+    ()
   {
   }
 }
@@ -112,7 +113,8 @@ public class Cmpt_DualObject
   , ICmpt_DualObject
 {
 
-  public Cmpt_DualObject()
+  public Cmpt_DualObject
+    ()
   {
   }
 }
@@ -135,7 +137,8 @@ public class Cmpt_InputObject
   , ICmpt_InputObject
 {
 
-  public Cmpt_InputObject()
+  public Cmpt_InputObject
+    ()
   {
   }
 }
@@ -152,7 +155,8 @@ public class Cmpt_OutputObject
   , ICmpt_OutputObject
 {
 
-  public Cmpt_OutputObject()
+  public Cmpt_OutputObject
+    ()
   {
   }
 }

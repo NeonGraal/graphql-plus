@@ -22,27 +22,31 @@ public class test_CollectionsObject
   , Itest_CollectionsObject
 {
 
-  public test_CollectionsObject()
+  public test_CollectionsObject
+    ()
   {
   }
 }
 
-public class test_ModifierKeyed<TKind>
-  : test_Modifier<TKind>
-  , Itest_ModifierKeyed<TKind>
+public class test_ModifierKeyed<TModifier>
+  : test_Modifier<TModifier>
+  , Itest_ModifierKeyed<TModifier>
 {
-  public Itest_ModifierKeyedObject<TKind>? As__ModifierKeyed { get; set; }
+  public Itest_ModifierKeyedObject<TModifier>? As__ModifierKeyed { get; set; }
 }
 
-public class test_ModifierKeyedObject<TKind>
-  : test_ModifierObject<TKind>
-  , Itest_ModifierKeyedObject<TKind>
+public class test_ModifierKeyedObject<TModifier>
+  : test_ModifierObject<TModifier>
+  , Itest_ModifierKeyedObject<TModifier>
 {
   public Itest_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
 
-  public test_ModifierKeyedObject(TKind modifierKind, Itest_TypeSimple by, bool isOptional)
-    : base(modifierKind)
+  public test_ModifierKeyedObject
+    ( TModifier modifierKind
+    , Itest_TypeSimple by
+    , bool isOptional
+    ) : base(modifierKind)
   {
     By = by;
     IsOptional = isOptional;
@@ -63,25 +67,28 @@ public class test_ModifiersObject
   , Itest_ModifiersObject
 {
 
-  public test_ModifiersObject()
+  public test_ModifiersObject
+    ()
   {
   }
 }
 
-public class test_Modifier<TKind>
+public class test_Modifier<TModifier>
   : GqlpModelImplementationBase
-  , Itest_Modifier<TKind>
+  , Itest_Modifier<TModifier>
 {
-  public Itest_ModifierObject<TKind>? As__Modifier { get; set; }
+  public Itest_ModifierObject<TModifier>? As__Modifier { get; set; }
 }
 
-public class test_ModifierObject<TKind>
+public class test_ModifierObject<TModifier>
   : GqlpModelImplementationBase
-  , Itest_ModifierObject<TKind>
+  , Itest_ModifierObject<TModifier>
 {
-  public TKind ModifierKind { get; set; }
+  public TModifier ModifierKind { get; set; }
 
-  public test_ModifierObject(TKind modifierKind)
+  public test_ModifierObject
+    ( TModifier modifierKind
+    )
   {
     ModifierKind = modifierKind;
   }

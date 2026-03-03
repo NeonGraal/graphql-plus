@@ -19,7 +19,8 @@ public class testObjDualObject
   , ItestObjDualObject
 {
 
-  public testObjDualObject()
+  public testObjDualObject
+    ()
   {
   }
 }

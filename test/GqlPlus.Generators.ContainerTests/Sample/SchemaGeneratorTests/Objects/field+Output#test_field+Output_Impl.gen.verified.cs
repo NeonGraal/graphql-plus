@@ -20,7 +20,9 @@ public class testFieldOutpObject
 {
   public string Field { get; set; }
 
-  public testFieldOutpObject(string field)
+  public testFieldOutpObject
+    ( string field
+    )
   {
     Field = field;
   }

@@ -20,7 +20,9 @@ public class testObjFieldInpObject
 {
   public ItestFldObjFieldInp Field { get; set; }
 
-  public testObjFieldInpObject(ItestFldObjFieldInp field)
+  public testObjFieldInpObject
+    ( ItestFldObjFieldInp field
+    )
   {
     Field = field;
   }
@@ -38,7 +40,8 @@ public class testFldObjFieldInpObject
   , ItestFldObjFieldInpObject
 {
 
-  public testFldObjFieldInpObject()
+  public testFldObjFieldInpObject
+    ()
   {
   }
 }

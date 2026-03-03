@@ -30,7 +30,8 @@ public class test_TypeObject
   , Itest_TypeObject
 {
 
-  public test_TypeObject()
+  public test_TypeObject
+    ()
   {
   }
 }
@@ -48,7 +49,9 @@ public class test_BaseTypeObject<TKind>
 {
   public TKind TypeKind { get; set; }
 
-  public test_BaseTypeObject(TKind typeKind)
+  public test_BaseTypeObject
+    ( TKind typeKind
+    )
   {
     TypeKind = typeKind;
   }
@@ -67,8 +70,10 @@ public class test_ChildTypeObject<TKind,TParent>
 {
   public TParent Parent { get; set; }
 
-  public test_ChildTypeObject(TKind typeKind, TParent parent)
-    : base(typeKind)
+  public test_ChildTypeObject
+    ( TKind typeKind
+    , TParent parent
+    ) : base(typeKind)
   {
     Parent = parent;
   }
@@ -88,8 +93,12 @@ public class test_ParentTypeObject<TKind,TItem,TAllItem>
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
 
-  public test_ParentTypeObject(TKind typeKind, Itest_Named parent, ICollection<TItem> items, ICollection<TAllItem> allItems)
-    : base(typeKind, parent)
+  public test_ParentTypeObject
+    ( TKind typeKind
+    , Itest_Named parent
+    , ICollection<TItem> items
+    , ICollection<TAllItem> allItems
+    ) : base(typeKind, parent)
   {
     Items = items;
     AllItems = allItems;
@@ -109,7 +118,9 @@ public class test_TypeRefObject<TKind>
 {
   public TKind TypeKind { get; set; }
 
-  public test_TypeRefObject(TKind typeKind)
+  public test_TypeRefObject
+    ( TKind typeKind
+    )
   {
     TypeKind = typeKind;
   }
@@ -131,7 +142,8 @@ public class test_TypeSimpleObject
   , Itest_TypeSimpleObject
 {
 
-  public test_TypeSimpleObject()
+  public test_TypeSimpleObject
+    ()
   {
   }
 }

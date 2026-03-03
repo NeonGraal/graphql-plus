@@ -20,7 +20,8 @@ public class testGnrcEnumOutpObject
   , ItestGnrcEnumOutpObject
 {
 
-  public testGnrcEnumOutpObject()
+  public testGnrcEnumOutpObject
+    ()
   {
   }
 }
@@ -38,7 +39,9 @@ public class testRefGnrcEnumOutpObject<TType>
 {
   public TType Field { get; set; }
 
-  public testRefGnrcEnumOutpObject(TType field)
+  public testRefGnrcEnumOutpObject
+    ( TType field
+    )
   {
     Field = field;
   }

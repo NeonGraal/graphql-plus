@@ -20,7 +20,8 @@ public class testGnrcPrntDescrOutpObject<TType>
   , ItestGnrcPrntDescrOutpObject<TType>
 {
 
-  public testGnrcPrntDescrOutpObject()
+  public testGnrcPrntDescrOutpObject
+    ()
   {
   }
 }

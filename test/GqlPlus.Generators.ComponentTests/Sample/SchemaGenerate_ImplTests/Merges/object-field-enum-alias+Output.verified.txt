@@ -24,7 +24,9 @@ public class CmptObjFieldEnumAliasOutpObject
 {
   public bool Field { get; set; }
 
-  public CmptObjFieldEnumAliasOutpObject(bool field)
+  public CmptObjFieldEnumAliasOutpObject
+    ( bool field
+    )
   {
     Field = field;
   }

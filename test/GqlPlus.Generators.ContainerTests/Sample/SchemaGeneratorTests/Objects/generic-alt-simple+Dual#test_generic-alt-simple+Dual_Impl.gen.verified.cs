@@ -20,7 +20,8 @@ public class testGnrcAltSmplDualObject
   , ItestGnrcAltSmplDualObject
 {
 
-  public testGnrcAltSmplDualObject()
+  public testGnrcAltSmplDualObject
+    ()
   {
   }
 }
@@ -38,7 +39,8 @@ public class testRefGnrcAltSmplDualObject<TRef>
   , ItestRefGnrcAltSmplDualObject<TRef>
 {
 
-  public testRefGnrcAltSmplDualObject()
+  public testRefGnrcAltSmplDualObject
+    ()
   {
   }
 }

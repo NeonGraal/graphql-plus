@@ -718,7 +718,7 @@
           "object": "_DomainRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "domain"
           }
         }
       ],
@@ -728,7 +728,7 @@
           "name": "domainKind",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "domain"
           }
         }
       ],
@@ -763,7 +763,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "domain"
         }
       ]
     },
@@ -873,7 +873,7 @@
           "object": "_DomainRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "domain"
           }
         },
         {
@@ -912,7 +912,7 @@
         "typeArgs": [
           {
             "$mapTag": "_TypeArg",
-            "typeParam": "kind"
+            "typeParam": "domain"
           }
         ]
       },
@@ -931,7 +931,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "domain"
         },
         {
           "$mapTag": "_TypeParam",

@@ -20,7 +20,9 @@ public class testGnrcFieldParamOutpObject
 {
   public ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> Field { get; set; }
 
-  public testGnrcFieldParamOutpObject(ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> field)
+  public testGnrcFieldParamOutpObject
+    ( ItestRefGnrcFieldParamOutp<ItestAltGnrcFieldParamOutp> field
+    )
   {
     Field = field;
   }
@@ -39,7 +41,8 @@ public class testRefGnrcFieldParamOutpObject<TRef>
   , ItestRefGnrcFieldParamOutpObject<TRef>
 {
 
-  public testRefGnrcFieldParamOutpObject()
+  public testRefGnrcFieldParamOutpObject
+    ()
   {
   }
 }
@@ -58,7 +61,9 @@ public class testAltGnrcFieldParamOutpObject
 {
   public decimal Alt { get; set; }
 
-  public testAltGnrcFieldParamOutpObject(decimal alt)
+  public testAltGnrcFieldParamOutpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

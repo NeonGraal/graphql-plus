@@ -23,7 +23,8 @@ public class CmptRefGnrcAltModParamDualObject<TRef,TMod>
   , ICmptRefGnrcAltModParamDualObject<TRef,TMod>
 {
 
-  public CmptRefGnrcAltModParamDualObject()
+  public CmptRefGnrcAltModParamDualObject
+    ()
   {
   }
 }

@@ -20,7 +20,8 @@ public class testAltModParamOutpObject<TMod>
   , ItestAltModParamOutpObject<TMod>
 {
 
-  public testAltModParamOutpObject()
+  public testAltModParamOutpObject
+    ()
   {
   }
 }
@@ -39,7 +40,9 @@ public class testAltAltModParamOutpObject
 {
   public decimal Alt { get; set; }
 
-  public testAltAltModParamOutpObject(decimal alt)
+  public testAltAltModParamOutpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

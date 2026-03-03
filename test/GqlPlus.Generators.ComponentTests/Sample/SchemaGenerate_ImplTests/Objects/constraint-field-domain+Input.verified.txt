@@ -24,8 +24,9 @@ public class CmptCnstFieldDmnInpObject
   , ICmptCnstFieldDmnInpObject
 {
 
-  public CmptCnstFieldDmnInpObject(ICmptDomCnstFieldDmnInp field)
-    : base(field)
+  public CmptCnstFieldDmnInpObject
+    ( ICmptDomCnstFieldDmnInp field
+    ) : base(field)
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptRefCnstFieldDmnInpObject<TRef>
 {
   public TRef Field { get; set; }
 
-  public CmptRefCnstFieldDmnInpObject(TRef field)
+  public CmptRefCnstFieldDmnInpObject
+    ( TRef field
+    )
   {
     Field = field;
   }

@@ -21,7 +21,10 @@ public class testObjCnstOutpObject<TType>
   public TType Field { get; set; }
   public TType Str { get; set; }
 
-  public testObjCnstOutpObject(TType field, TType str)
+  public testObjCnstOutpObject
+    ( TType field
+    , TType str
+    )
   {
     Field = field;
     Str = str;

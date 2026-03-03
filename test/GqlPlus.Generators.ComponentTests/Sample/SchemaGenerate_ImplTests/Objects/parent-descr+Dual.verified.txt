@@ -23,8 +23,9 @@ public class CmptPrntDescrDualObject
   , ICmptPrntDescrDualObject
 {
 
-  public CmptPrntDescrDualObject(decimal parent)
-    : base(parent)
+  public CmptPrntDescrDualObject
+    ( decimal parent
+    ) : base(parent)
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptRefPrntDescrDualObject
 {
   public decimal Parent { get; set; }
 
-  public CmptRefPrntDescrDualObject(decimal parent)
+  public CmptRefPrntDescrDualObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

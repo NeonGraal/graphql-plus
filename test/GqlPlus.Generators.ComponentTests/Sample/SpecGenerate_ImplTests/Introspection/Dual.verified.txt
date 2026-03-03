@@ -24,7 +24,8 @@ public class Cmpt_DualFieldObject
   , ICmpt_DualFieldObject
 {
 
-  public Cmpt_DualFieldObject()
+  public Cmpt_DualFieldObject
+    ()
   {
   }
 }

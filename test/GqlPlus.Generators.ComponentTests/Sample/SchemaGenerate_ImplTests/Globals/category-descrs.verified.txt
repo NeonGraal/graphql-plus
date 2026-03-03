@@ -25,7 +25,8 @@ public class CmptCtgrDscrsObject
   , ICmptCtgrDscrsObject
 {
 
-  public CmptCtgrDscrsObject()
+  public CmptCtgrDscrsObject
+    ()
   {
   }
 }

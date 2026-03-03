@@ -26,7 +26,8 @@ public class CmptCnstEnumPrntInpObject
   , ICmptCnstEnumPrntInpObject
 {
 
-  public CmptCnstEnumPrntInpObject()
+  public CmptCnstEnumPrntInpObject
+    ()
   {
   }
 }
@@ -44,7 +45,9 @@ public class CmptRefCnstEnumPrntInpObject<TType>
 {
   public TType Field { get; set; }
 
-  public CmptRefCnstEnumPrntInpObject(TType field)
+  public CmptRefCnstEnumPrntInpObject
+    ( TType field
+    )
   {
     Field = field;
   }

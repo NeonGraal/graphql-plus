@@ -24,7 +24,8 @@ public class CmptCtgrModObject
   , ICmptCtgrModObject
 {
 
-  public CmptCtgrModObject()
+  public CmptCtgrModObject
+    ()
   {
   }
 }

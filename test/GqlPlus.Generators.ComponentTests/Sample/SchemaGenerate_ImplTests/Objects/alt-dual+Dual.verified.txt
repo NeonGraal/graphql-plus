@@ -24,7 +24,8 @@ public class CmptAltDualDualObject
   , ICmptAltDualDualObject
 {
 
-  public CmptAltDualDualObject()
+  public CmptAltDualDualObject
+    ()
   {
   }
 }
@@ -43,7 +44,9 @@ public class CmptObjDualAltDualDualObject
 {
   public decimal Alt { get; set; }
 
-  public CmptObjDualAltDualDualObject(decimal alt)
+  public CmptObjDualAltDualDualObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

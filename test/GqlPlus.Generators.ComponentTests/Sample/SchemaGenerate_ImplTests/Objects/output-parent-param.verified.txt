@@ -28,7 +28,8 @@ public class CmptOutpPrntParamObject
   public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
     => null;
 
-  public CmptOutpPrntParamObject()
+  public CmptOutpPrntParamObject
+    ()
   {
   }
 }
@@ -47,7 +48,8 @@ public class CmptPrntOutpPrntParamObject
   public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
     => null;
 
-  public CmptPrntOutpPrntParamObject()
+  public CmptPrntOutpPrntParamObject
+    ()
   {
   }
 }
@@ -64,7 +66,8 @@ public class CmptFldOutpPrntParamObject
   , ICmptFldOutpPrntParamObject
 {
 
-  public CmptFldOutpPrntParamObject()
+  public CmptFldOutpPrntParamObject
+    ()
   {
   }
 }
@@ -83,7 +86,9 @@ public class CmptInOutpPrntParamObject
 {
   public decimal Param { get; set; }
 
-  public CmptInOutpPrntParamObject(decimal param)
+  public CmptInOutpPrntParamObject
+    ( decimal param
+    )
   {
     Param = param;
   }
@@ -103,7 +108,9 @@ public class CmptPrntOutpPrntParamInObject
 {
   public decimal Parent { get; set; }
 
-  public CmptPrntOutpPrntParamInObject(decimal parent)
+  public CmptPrntOutpPrntParamInObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

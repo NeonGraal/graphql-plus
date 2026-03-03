@@ -29,7 +29,8 @@ public class Cmpt_OutputFieldObject
   , ICmpt_OutputFieldObject
 {
 
-  public Cmpt_OutputFieldObject()
+  public Cmpt_OutputFieldObject
+    ()
   {
   }
 }
@@ -47,7 +48,8 @@ public class Cmpt_OutputFieldTypeObject
 {
   public ICmpt_InputFieldType? Parameter { get; set; }
 
-  public Cmpt_OutputFieldTypeObject()
+  public Cmpt_OutputFieldTypeObject
+    ()
   {
   }
 }

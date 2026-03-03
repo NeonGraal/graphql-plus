@@ -19,7 +19,8 @@ public class testDescrSnglObject
   , ItestDescrSnglObject
 {
 
-  public testDescrSnglObject()
+  public testDescrSnglObject
+    ()
   {
   }
 }

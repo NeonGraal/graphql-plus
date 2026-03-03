@@ -21,7 +21,8 @@ public class testOutpPrntParamObject
   public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
     => null;
 
-  public testOutpPrntParamObject()
+  public testOutpPrntParamObject
+    ()
   {
   }
 }
@@ -40,7 +41,8 @@ public class testPrntOutpPrntParamObject
   public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
     => null;
 
-  public testPrntOutpPrntParamObject()
+  public testPrntOutpPrntParamObject
+    ()
   {
   }
 }
@@ -57,7 +59,8 @@ public class testFldOutpPrntParamObject
   , ItestFldOutpPrntParamObject
 {
 
-  public testFldOutpPrntParamObject()
+  public testFldOutpPrntParamObject
+    ()
   {
   }
 }
@@ -76,7 +79,9 @@ public class testInOutpPrntParamObject
 {
   public decimal Param { get; set; }
 
-  public testInOutpPrntParamObject(decimal param)
+  public testInOutpPrntParamObject
+    ( decimal param
+    )
   {
     Param = param;
   }
@@ -96,7 +101,9 @@ public class testPrntOutpPrntParamInObject
 {
   public decimal Parent { get; set; }
 
-  public testPrntOutpPrntParamInObject(decimal parent)
+  public testPrntOutpPrntParamInObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

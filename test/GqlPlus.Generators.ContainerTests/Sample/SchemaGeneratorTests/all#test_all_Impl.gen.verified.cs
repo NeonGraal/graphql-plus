@@ -34,7 +34,9 @@ public class testFieldObject
 {
   public ICollection<string> Strings { get; set; }
 
-  public testFieldObject(ICollection<string> strings)
+  public testFieldObject
+    ( ICollection<string> strings
+    )
   {
     Strings = strings;
   }
@@ -55,7 +57,9 @@ public class testParamObject
   public ItestMany? AfterId { get; set; }
   public ItestMany BeforeId { get; set; }
 
-  public testParamObject(ItestMany beforeId)
+  public testParamObject
+    ( ItestMany beforeId
+    )
   {
     BeforeId = beforeId;
   }
@@ -76,7 +80,8 @@ public class testAllObject
   public ItestField? Items(ItestParam? parameter)
     => null;
 
-  public testAllObject()
+  public testAllObject
+    ()
   {
   }
 }

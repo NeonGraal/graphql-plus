@@ -19,7 +19,8 @@ public class testDscrsObject
   , ItestDscrsObject
 {
 
-  public testDscrsObject()
+  public testDscrsObject
+    ()
   {
   }
 }

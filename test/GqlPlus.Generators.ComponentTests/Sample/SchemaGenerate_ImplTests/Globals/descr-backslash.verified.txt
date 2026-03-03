@@ -23,7 +23,8 @@ public class CmptDescrBcksObject
   , ICmptDescrBcksObject
 {
 
-  public CmptDescrBcksObject()
+  public CmptDescrBcksObject
+    ()
   {
   }
 }

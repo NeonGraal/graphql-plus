@@ -20,7 +20,8 @@ public class testGnrcAltSmplInpObject
   , ItestGnrcAltSmplInpObject
 {
 
-  public testGnrcAltSmplInpObject()
+  public testGnrcAltSmplInpObject
+    ()
   {
   }
 }
@@ -38,7 +39,8 @@ public class testRefGnrcAltSmplInpObject<TRef>
   , ItestRefGnrcAltSmplInpObject<TRef>
 {
 
-  public testRefGnrcAltSmplInpObject()
+  public testRefGnrcAltSmplInpObject
+    ()
   {
   }
 }

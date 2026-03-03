@@ -19,7 +19,8 @@ public class testInDrctParamOptObject
   , ItestInDrctParamOptObject
 {
 
-  public testInDrctParamOptObject()
+  public testInDrctParamOptObject
+    ()
   {
   }
 }

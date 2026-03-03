@@ -25,7 +25,8 @@ public class CmptCnstPrntDualPrntOutpObject
   , ICmptCnstPrntDualPrntOutpObject
 {
 
-  public CmptCnstPrntDualPrntOutpObject()
+  public CmptCnstPrntDualPrntOutpObject
+    ()
   {
   }
 }
@@ -43,7 +44,8 @@ public class CmptRefCnstPrntDualPrntOutpObject<TRef>
   , ICmptRefCnstPrntDualPrntOutpObject<TRef>
 {
 
-  public CmptRefCnstPrntDualPrntOutpObject()
+  public CmptRefCnstPrntDualPrntOutpObject
+    ()
   {
   }
 }
@@ -61,7 +63,8 @@ public class CmptPrntCnstPrntDualPrntOutpObject
   , ICmptPrntCnstPrntDualPrntOutpObject
 {
 
-  public CmptPrntCnstPrntDualPrntOutpObject()
+  public CmptPrntCnstPrntDualPrntOutpObject
+    ()
   {
   }
 }
@@ -79,7 +82,9 @@ public class CmptAltCnstPrntDualPrntOutpObject
 {
   public decimal Alt { get; set; }
 
-  public CmptAltCnstPrntDualPrntOutpObject(decimal alt)
+  public CmptAltCnstPrntDualPrntOutpObject
+    ( decimal alt
+    )
   {
     Alt = alt;
   }

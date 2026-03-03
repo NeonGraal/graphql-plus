@@ -19,8 +19,9 @@ public class testPrntOutpObject
   , ItestPrntOutpObject
 {
 
-  public testPrntOutpObject(decimal parent)
-    : base(parent)
+  public testPrntOutpObject
+    ( decimal parent
+    ) : base(parent)
   {
   }
 }
@@ -39,7 +40,9 @@ public class testRefPrntOutpObject
 {
   public decimal Parent { get; set; }
 
-  public testRefPrntOutpObject(decimal parent)
+  public testRefPrntOutpObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

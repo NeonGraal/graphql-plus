@@ -42,7 +42,8 @@ public class Cmpt_OptObject<TT>
   , ICmpt_OptObject<TT>
 {
 
-  public Cmpt_OptObject()
+  public Cmpt_OptObject
+    ()
   {
   }
 }
@@ -60,7 +61,8 @@ public class Cmpt_ListObject<TT>
   , ICmpt_ListObject<TT>
 {
 
-  public Cmpt_ListObject()
+  public Cmpt_ListObject
+    ()
   {
   }
 }
@@ -78,7 +80,8 @@ public class Cmpt_DictObject<TK,TT>
   , ICmpt_DictObject<TK,TT>
 {
 
-  public Cmpt_DictObject()
+  public Cmpt_DictObject
+    ()
   {
   }
 }
@@ -96,7 +99,8 @@ public class Cmpt_MapObject<TT>
   , ICmpt_MapObject<TT>
 {
 
-  public Cmpt_MapObject()
+  public Cmpt_MapObject
+    ()
   {
   }
 }
@@ -114,7 +118,8 @@ public class Cmpt_ArrayObject<TT>
   , ICmpt_ArrayObject<TT>
 {
 
-  public Cmpt_ArrayObject()
+  public Cmpt_ArrayObject
+    ()
   {
   }
 }
@@ -132,7 +137,8 @@ public class Cmpt_IfElseObject<TT>
   , ICmpt_IfElseObject<TT>
 {
 
-  public Cmpt_IfElseObject()
+  public Cmpt_IfElseObject
+    ()
   {
   }
 }
@@ -150,7 +156,8 @@ public class Cmpt_SetObject<TK>
   , ICmpt_SetObject<TK>
 {
 
-  public Cmpt_SetObject()
+  public Cmpt_SetObject
+    ()
   {
   }
 }
@@ -168,7 +175,8 @@ public class Cmpt_MaskObject<TK>
   , ICmpt_MaskObject<TK>
 {
 
-  public Cmpt_MaskObject()
+  public Cmpt_MaskObject
+    ()
   {
   }
 }
@@ -191,7 +199,8 @@ public class Cmpt_AnyObject
   , ICmpt_AnyObject
 {
 
-  public Cmpt_AnyObject()
+  public Cmpt_AnyObject
+    ()
   {
   }
 }

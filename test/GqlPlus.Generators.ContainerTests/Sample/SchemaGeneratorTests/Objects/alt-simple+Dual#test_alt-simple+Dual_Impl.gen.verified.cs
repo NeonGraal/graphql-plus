@@ -20,7 +20,8 @@ public class testAltSmplDualObject
   , ItestAltSmplDualObject
 {
 
-  public testAltSmplDualObject()
+  public testAltSmplDualObject
+    ()
   {
   }
 }

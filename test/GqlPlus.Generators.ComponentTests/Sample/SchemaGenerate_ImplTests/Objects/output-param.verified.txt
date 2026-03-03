@@ -26,7 +26,8 @@ public class CmptOutpParamObject
   public ICmptFldOutpParam? Field(ICmptInOutpParam parameter)
     => null;
 
-  public CmptOutpParamObject()
+  public CmptOutpParamObject
+    ()
   {
   }
 }
@@ -43,7 +44,8 @@ public class CmptFldOutpParamObject
   , ICmptFldOutpParamObject
 {
 
-  public CmptFldOutpParamObject()
+  public CmptFldOutpParamObject
+    ()
   {
   }
 }
@@ -62,7 +64,9 @@ public class CmptInOutpParamObject
 {
   public decimal Param { get; set; }
 
-  public CmptInOutpParamObject(decimal param)
+  public CmptInOutpParamObject
+    ( decimal param
+    )
   {
     Param = param;
   }

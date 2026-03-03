@@ -23,7 +23,8 @@ public class CmptObjAliasDualObject
   , ICmptObjAliasDualObject
 {
 
-  public CmptObjAliasDualObject()
+  public CmptObjAliasDualObject
+    ()
   {
   }
 }

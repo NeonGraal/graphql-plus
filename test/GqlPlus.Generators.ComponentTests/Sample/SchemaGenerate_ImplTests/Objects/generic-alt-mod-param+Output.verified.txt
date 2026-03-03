@@ -23,7 +23,8 @@ public class CmptRefGnrcAltModParamOutpObject<TRef,TMod>
   , ICmptRefGnrcAltModParamOutpObject<TRef,TMod>
 {
 
-  public CmptRefGnrcAltModParamOutpObject()
+  public CmptRefGnrcAltModParamOutpObject
+    ()
   {
   }
 }

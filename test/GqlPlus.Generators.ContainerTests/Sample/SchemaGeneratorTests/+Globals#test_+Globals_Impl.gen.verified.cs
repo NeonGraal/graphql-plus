@@ -19,7 +19,8 @@ public class testCtgrDscrsObject
   , ItestCtgrDscrsObject
 {
 
-  public testCtgrDscrsObject()
+  public testCtgrDscrsObject
+    ()
   {
   }
 }
@@ -36,7 +37,8 @@ public class testCtgrOutpObject
   , ItestCtgrOutpObject
 {
 
-  public testCtgrOutpObject()
+  public testCtgrOutpObject
+    ()
   {
   }
 }
@@ -53,7 +55,8 @@ public class testCtgrOutpDescrObject
   , ItestCtgrOutpDescrObject
 {
 
-  public testCtgrOutpDescrObject()
+  public testCtgrOutpDescrObject
+    ()
   {
   }
 }
@@ -70,7 +73,8 @@ public class testCtgrOutpDictObject
   , ItestCtgrOutpDictObject
 {
 
-  public testCtgrOutpDictObject()
+  public testCtgrOutpDictObject
+    ()
   {
   }
 }
@@ -87,7 +91,8 @@ public class testCtgrOutpListObject
   , ItestCtgrOutpListObject
 {
 
-  public testCtgrOutpListObject()
+  public testCtgrOutpListObject
+    ()
   {
   }
 }
@@ -104,7 +109,8 @@ public class testCtgrOutpOptlObject
   , ItestCtgrOutpOptlObject
 {
 
-  public testCtgrOutpOptlObject()
+  public testCtgrOutpOptlObject
+    ()
   {
   }
 }
@@ -121,7 +127,8 @@ public class testDescrObject
   , ItestDescrObject
 {
 
-  public testDescrObject()
+  public testDescrObject
+    ()
   {
   }
 }
@@ -138,7 +145,8 @@ public class testDescrBcksObject
   , ItestDescrBcksObject
 {
 
-  public testDescrBcksObject()
+  public testDescrBcksObject
+    ()
   {
   }
 }
@@ -155,7 +163,8 @@ public class testDescrBtwnObject
   , ItestDescrBtwnObject
 {
 
-  public testDescrBtwnObject()
+  public testDescrBtwnObject
+    ()
   {
   }
 }
@@ -172,7 +181,8 @@ public class testDescrCmplObject
   , ItestDescrCmplObject
 {
 
-  public testDescrCmplObject()
+  public testDescrCmplObject
+    ()
   {
   }
 }
@@ -189,7 +199,8 @@ public class testDescrDblObject
   , ItestDescrDblObject
 {
 
-  public testDescrDblObject()
+  public testDescrDblObject
+    ()
   {
   }
 }
@@ -206,7 +217,8 @@ public class testDescrSnglObject
   , ItestDescrSnglObject
 {
 
-  public testDescrSnglObject()
+  public testDescrSnglObject
+    ()
   {
   }
 }
@@ -223,7 +235,8 @@ public class testDscrsObject
   , ItestDscrsObject
 {
 
-  public testDscrsObject()
+  public testDscrsObject
+    ()
   {
   }
 }
@@ -240,7 +253,8 @@ public class testInDrctParamDictObject
   , ItestInDrctParamDictObject
 {
 
-  public testInDrctParamDictObject()
+  public testInDrctParamDictObject
+    ()
   {
   }
 }
@@ -257,7 +271,8 @@ public class testInDrctParamInObject
   , ItestInDrctParamInObject
 {
 
-  public testInDrctParamInObject()
+  public testInDrctParamInObject
+    ()
   {
   }
 }
@@ -274,7 +289,8 @@ public class testInDrctParamListObject
   , ItestInDrctParamListObject
 {
 
-  public testInDrctParamListObject()
+  public testInDrctParamListObject
+    ()
   {
   }
 }
@@ -291,7 +307,8 @@ public class testInDrctParamOptObject
   , ItestInDrctParamOptObject
 {
 
-  public testInDrctParamOptObject()
+  public testInDrctParamOptObject
+    ()
   {
   }
 }

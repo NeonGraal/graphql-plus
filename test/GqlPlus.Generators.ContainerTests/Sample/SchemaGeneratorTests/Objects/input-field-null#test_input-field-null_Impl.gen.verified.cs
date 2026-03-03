@@ -20,7 +20,8 @@ public class testInpFieldNullObject
 {
   public ItestFldInpFieldNull? Field { get; set; }
 
-  public testInpFieldNullObject()
+  public testInpFieldNullObject
+    ()
   {
   }
 }
@@ -37,7 +38,8 @@ public class testFldInpFieldNullObject
   , ItestFldInpFieldNullObject
 {
 
-  public testFldInpFieldNullObject()
+  public testFldInpFieldNullObject
+    ()
   {
   }
 }

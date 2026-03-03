@@ -20,7 +20,9 @@ public class testGnrcDescrInpObject<TType>
 {
   public TType Field { get; set; }
 
-  public testGnrcDescrInpObject(TType field)
+  public testGnrcDescrInpObject
+    ( TType field
+    )
   {
     Field = field;
   }

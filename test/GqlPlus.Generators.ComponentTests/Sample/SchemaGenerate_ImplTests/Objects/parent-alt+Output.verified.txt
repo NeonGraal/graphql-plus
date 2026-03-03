@@ -24,8 +24,9 @@ public class CmptPrntAltOutpObject
   , ICmptPrntAltOutpObject
 {
 
-  public CmptPrntAltOutpObject(decimal parent)
-    : base(parent)
+  public CmptPrntAltOutpObject
+    ( decimal parent
+    ) : base(parent)
   {
   }
 }
@@ -44,7 +45,9 @@ public class CmptRefPrntAltOutpObject
 {
   public decimal Parent { get; set; }
 
-  public CmptRefPrntAltOutpObject(decimal parent)
+  public CmptRefPrntAltOutpObject
+    ( decimal parent
+    )
   {
     Parent = parent;
   }

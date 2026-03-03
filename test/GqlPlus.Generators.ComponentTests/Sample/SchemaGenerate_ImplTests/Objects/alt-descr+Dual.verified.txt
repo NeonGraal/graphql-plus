@@ -23,7 +23,8 @@ public class CmptAltDescrDualObject
   , ICmptAltDescrDualObject
 {
 
-  public CmptAltDescrDualObject()
+  public CmptAltDescrDualObject
+    ()
   {
   }
 }

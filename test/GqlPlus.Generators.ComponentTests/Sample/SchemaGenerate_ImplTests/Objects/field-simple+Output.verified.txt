@@ -23,7 +23,9 @@ public class CmptFieldSmplOutpObject
 {
   public decimal Field { get; set; }
 
-  public CmptFieldSmplOutpObject(decimal field)
+  public CmptFieldSmplOutpObject
+    ( decimal field
+    )
   {
     Field = field;
   }

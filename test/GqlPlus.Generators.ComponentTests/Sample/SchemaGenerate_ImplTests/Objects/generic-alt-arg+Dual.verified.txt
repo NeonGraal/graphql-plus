@@ -24,7 +24,8 @@ public class CmptGnrcAltArgDualObject<TType>
   , ICmptGnrcAltArgDualObject<TType>
 {
 
-  public CmptGnrcAltArgDualObject()
+  public CmptGnrcAltArgDualObject
+    ()
   {
   }
 }
@@ -42,7 +43,8 @@ public class CmptRefGnrcAltArgDualObject<TRef>
   , ICmptRefGnrcAltArgDualObject<TRef>
 {
 
-  public CmptRefGnrcAltArgDualObject()
+  public CmptRefGnrcAltArgDualObject
+    ()
   {
   }
 }

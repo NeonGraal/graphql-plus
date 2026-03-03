@@ -24,7 +24,9 @@ public class CmptFieldObjInpObject
 {
   public ICmptFldFieldObjInp Field { get; set; }
 
-  public CmptFieldObjInpObject(ICmptFldFieldObjInp field)
+  public CmptFieldObjInpObject
+    ( ICmptFldFieldObjInp field
+    )
   {
     Field = field;
   }
@@ -44,7 +46,9 @@ public class CmptFldFieldObjInpObject
 {
   public decimal Field { get; set; }
 
-  public CmptFldFieldObjInpObject(decimal field)
+  public CmptFldFieldObjInpObject
+    ( decimal field
+    )
   {
     Field = field;
   }

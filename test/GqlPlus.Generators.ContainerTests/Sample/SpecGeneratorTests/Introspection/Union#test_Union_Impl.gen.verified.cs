@@ -19,7 +19,8 @@ public class test_UnionRefObject
   , Itest_UnionRefObject
 {
 
-  public test_UnionRefObject()
+  public test_UnionRefObject
+    ()
   {
   }
 }
@@ -37,7 +38,9 @@ public class test_UnionMemberObject
 {
   public Itest_Name Union { get; set; }
 
-  public test_UnionMemberObject(Itest_Name union)
+  public test_UnionMemberObject
+    ( Itest_Name union
+    )
   {
     Union = union;
   }

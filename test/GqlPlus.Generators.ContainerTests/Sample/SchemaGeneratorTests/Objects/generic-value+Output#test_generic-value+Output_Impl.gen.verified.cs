@@ -20,7 +20,8 @@ public class testGnrcValueOutpObject
   , ItestGnrcValueOutpObject
 {
 
-  public testGnrcValueOutpObject()
+  public testGnrcValueOutpObject
+    ()
   {
   }
 }
@@ -38,7 +39,9 @@ public class testRefGnrcValueOutpObject<TType>
 {
   public TType Field { get; set; }
 
-  public testRefGnrcValueOutpObject(TType field)
+  public testRefGnrcValueOutpObject
+    ( TType field
+    )
   {
     Field = field;
   }

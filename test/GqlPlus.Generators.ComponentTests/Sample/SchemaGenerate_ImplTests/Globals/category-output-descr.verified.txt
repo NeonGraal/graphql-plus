@@ -23,7 +23,8 @@ public class CmptCtgrOutpDescrObject
   , ICmptCtgrOutpDescrObject
 {
 
-  public CmptCtgrOutpDescrObject()
+  public CmptCtgrOutpDescrObject
+    ()
   {
   }
 }

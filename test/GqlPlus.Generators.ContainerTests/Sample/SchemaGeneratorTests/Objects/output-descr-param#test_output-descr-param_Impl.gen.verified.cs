@@ -21,7 +21,8 @@ public class testOutpDescrParamObject
   public ItestFldOutpDescrParam? Field(ItestInOutpDescrParam parameter)
     => null;
 
-  public testOutpDescrParamObject()
+  public testOutpDescrParamObject
+    ()
   {
   }
 }
@@ -38,7 +39,8 @@ public class testFldOutpDescrParamObject
   , ItestFldOutpDescrParamObject
 {
 
-  public testFldOutpDescrParamObject()
+  public testFldOutpDescrParamObject
+    ()
   {
   }
 }
@@ -57,7 +59,9 @@ public class testInOutpDescrParamObject
 {
   public decimal Param { get; set; }
 
-  public testInOutpDescrParamObject(decimal param)
+  public testInOutpDescrParamObject
+    ( decimal param
+    )
   {
     Param = param;
   }

@@ -24,7 +24,9 @@ public class CmptFieldValueInpObject
 {
   public CmptEnumFieldValueInp Field { get; set; }
 
-  public CmptFieldValueInpObject(CmptEnumFieldValueInp field)
+  public CmptFieldValueInpObject
+    ( CmptEnumFieldValueInp field
+    )
   {
     Field = field;
   }

@@ -24,7 +24,9 @@ public class CmptGnrcFieldArgInpObject<TType>
 {
   public ICmptRefGnrcFieldArgInp<TType> Field { get; set; }
 
-  public CmptGnrcFieldArgInpObject(ICmptRefGnrcFieldArgInp<TType> field)
+  public CmptGnrcFieldArgInpObject
+    ( ICmptRefGnrcFieldArgInp<TType> field
+    )
   {
     Field = field;
   }
@@ -43,7 +45,8 @@ public class CmptRefGnrcFieldArgInpObject<TRef>
   , ICmptRefGnrcFieldArgInpObject<TRef>
 {
 
-  public CmptRefGnrcFieldArgInpObject()
+  public CmptRefGnrcFieldArgInpObject
+    ()
   {
   }
 }

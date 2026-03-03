@@ -19,7 +19,8 @@ public class testDescrBtwnObject
   , ItestDescrBtwnObject
 {
 
-  public testDescrBtwnObject()
+  public testDescrBtwnObject
+    ()
   {
   }
 }

@@ -24,7 +24,9 @@ public class CmptPrntParamDiffInpObject<TA>
 {
   public TA Field { get; set; }
 
-  public CmptPrntParamDiffInpObject(TA field)
+  public CmptPrntParamDiffInpObject
+    ( TA field
+    )
   {
     Field = field;
   }
@@ -43,7 +45,8 @@ public class CmptRefPrntParamDiffInpObject<TB>
   , ICmptRefPrntParamDiffInpObject<TB>
 {
 
-  public CmptRefPrntParamDiffInpObject()
+  public CmptRefPrntParamDiffInpObject
+    ()
   {
   }
 }

@@ -24,7 +24,8 @@ public class CmptGnrcAltSmplDualObject
   , ICmptGnrcAltSmplDualObject
 {
 
-  public CmptGnrcAltSmplDualObject()
+  public CmptGnrcAltSmplDualObject
+    ()
   {
   }
 }
@@ -42,7 +43,8 @@ public class CmptRefGnrcAltSmplDualObject<TRef>
   , ICmptRefGnrcAltSmplDualObject<TRef>
 {
 
-  public CmptRefGnrcAltSmplDualObject()
+  public CmptRefGnrcAltSmplDualObject
+    ()
   {
   }
 }

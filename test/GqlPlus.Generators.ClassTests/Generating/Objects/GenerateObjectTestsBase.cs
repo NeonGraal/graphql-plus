@@ -73,7 +73,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithParentFieldParam_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent, string parentArg, string fieldName, string fieldType)
   {
-    this.SkipEqual3(name, parent, parentArg, fieldType);
+    this.SkipEqual4(name, parent, parentArg, fieldType);
 
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
@@ -130,7 +130,7 @@ public abstract class GenerateObjectTestsBase<TObjField>(
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithGrandParentFieldParamEnum_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string grandParent, string parent, string grandParentArg, string fieldName, string enumName, string enumLabel)
   {
-    this.SkipEqual3(name, parent, grandParentArg, enumName);
+    this.SkipEqual4(name, parent, grandParentArg, enumName);
 
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);

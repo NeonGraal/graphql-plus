@@ -155,9 +155,10 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   {
     context.Write("");
     MapPair<RequiredField>[] required = RequiredMembers(ast, context);
-    (MapPair<RequiredField>[] parent, MapPair<RequiredField>[] grandParent) = DetermineParentAndGrandParent(ast, context);
+    (MapPair<RequiredField>[] parent, MapPair<RequiredField>[] deep, MapPair<RequiredField>[] shallow) = DetermineParentAndGrandParent(ast, context);
 
-    IEnumerable<MapPair<RequiredField>> paramList = grandParent
+    IEnumerable<MapPair<RequiredField>> paramList = deep
+      .Concat(shallow)
       .Concat(parent)
       .Where(kv => string.IsNullOrEmpty(kv.Value.Label))
       .Concat(required);
@@ -170,8 +171,14 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
     prefix = prefix == "(" ? "()" : ")";
 
-    if (parent.Length > 0) {
-      string parentArgs = grandParent.Concat(parent).Joined(FieldValue, ", ");
+    bool hasBase = parent.Length > 0
+      || deep.Length > 0
+      || shallow.Any(kv => string.IsNullOrEmpty(kv.Value.Label));
+    if (hasBase) {
+      string parentArgs = deep
+        .Concat(shallow.Where(kv => string.IsNullOrEmpty(kv.Value.Label)))
+        .Concat(parent)
+        .Joined(FieldValue, ", ");
       context.Write($"    {prefix} : base({parentArgs})");
     } else {
       context.Write("    " + prefix);
@@ -185,14 +192,33 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     context.Write("  }");
   }
 
-  private (MapPair<RequiredField>[], MapPair<RequiredField>[]) DetermineParentAndGrandParent(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+  private (MapPair<RequiredField>[], MapPair<RequiredField>[], MapPair<RequiredField>[]) DetermineParentAndGrandParent(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     if (context.GetTypeAst(ast.Parent?.Name, out IGqlpObject parentObject) && ast.Parent?.IsTypeParam == false) {
       GqlpGeneratorTypes parentTypes = new(context, ast.Parent.Args, parentObject!.TypeParams);
-      return (RequiredMembers(parentObject!, parentTypes), ParentRequired(parentObject!, parentTypes));
+      (MapPair<RequiredField>[] deep, MapPair<RequiredField>[] shallow) = ParentRequiredSplit(parentObject!, parentTypes);
+      return (RequiredMembers(parentObject!, parentTypes), deep, shallow);
     }
 
-    return ([], []);
+    return ([], [], []);
+  }
+
+  private (MapPair<RequiredField>[], MapPair<RequiredField>[]) ParentRequiredSplit(IGqlpObject ast, GqlpGeneratorTypes types)
+  {
+    if (ast.Parent is null || ast.Parent.IsTypeParam) {
+      return ([], []);
+    }
+
+    if (!types.GetTypeAst(ast.Parent.Name, out IGqlpObject parentObject)) {
+      return ([], []);
+    }
+
+    GqlpGeneratorTypes parentTypes = new(types, ast.Parent.Args, parentObject!.TypeParams);
+
+    MapPair<RequiredField>[] deep = ParentRequired(parentObject!, parentTypes);
+    MapPair<RequiredField>[] shallow = RequiredMembers(parentObject!, parentTypes);
+
+    return (deep, shallow);
   }
 
   private static string FieldValue(MapPair<RequiredField> field)

@@ -12,7 +12,7 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
     : this(parent.ModelOptions)
   {
     _types = [.. parent._types];
-    _args = [];
+    _args = [.. parent._args];
     AddArgs(typeArgs ?? [], typeParams ?? []);
   }
 

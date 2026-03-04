@@ -155,6 +155,46 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
+  public void GenerateType_WithDeepParentFieldParamEnum_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string deepParent, string grandParent, string parent, string kindParam, string fieldName, string enumName, string enumLabel)
+  {
+    this.SkipEqual4(name, deepParent, grandParent, enumName);
+    this.SkipEqual4(parent, kindParam, enumName, enumLabel);
+
+    // Arrange
+    GqlpGeneratorContext context = Context(baseType, generatorType);
+    IGqlpEnum enumType = A.Enum(enumName, [enumLabel]);
+    // deepParent<$kindParam> with required field kindField: $kindParam
+    IGqlpObject<TObjField> deepParentType = A.Obj<TObjField>(Kind, deepParent)
+      .WithTypeParam(kindParam, "_Enum")
+      .WithObjFields(MakeField(fieldName, kindParam).IsTypeParam().AsObjField)
+      .AsObject;
+    // grandParent<$kindParam> passes $kindParam through to deepParent
+    IGqlpObject<TObjField> grandParentType = A.Obj<TObjField>(Kind, grandParent)
+      .WithTypeParam(kindParam, "_Enum")
+      .WithParent(deepParent, p => p.WithArg(kindParam, a => a.IsTypeParam()))
+      .AsObject;
+    // parent : grandParent<enumName.enumLabel> (concrete enum value arg)
+    IGqlpObject<TObjField> parentType = A.Obj<TObjField>(Kind, parent)
+      .WithParent(grandParent, p => p.WithArg(enumName, a => a.WithObjEnum(enumLabel)))
+      .AsObject;
+    context.AddTypes(enumType, deepParentType, grandParentType, parentType);
+
+    IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name)
+      .WithParent(parent)
+      .AsObject;
+
+    // Act
+    TypeGenerator.GenerateType(type, context);
+
+    // Assert
+    context.CheckFor(
+      ForGeneratedCodeName(name),
+      ForGeneratedCodeParent(TestPrefix + parent),
+      ForGeneratedImplementation("()"),
+      ForGeneratedImplementation(": base(" + TestPrefix + enumName + "." + enumLabel + ")"));
+  }
+
+  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithParentParam_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent)
   {
     // Arrange

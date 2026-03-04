@@ -962,12 +962,11 @@ public class Cmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
     ( ICollection<string> description
     , ICmpt_Name name
     , ICollection<ICmpt_Name> aliases
-    , TKind typeKind
     , ICmpt_Named parent
     , ICollection<TItem> items
     , ICollection<TDomainItem> allItems
     , TDomain domainKind
-    ) : base(description, name, aliases, typeKind, parent, items, allItems)
+    ) : base(description, name, aliases, Cmpt_TypeKind.Domain, parent, items, allItems)
   {
     DomainKind = domainKind;
   }
@@ -1036,7 +1035,7 @@ public class Cmpt_DomainValueObject<TDomain,TValue>
     , ICmpt_Name name
     , TDomain domainKind
     , TValue value
-    ) : base(description, name, Cmpt_TypeKind.Domain, domainKind)
+    ) : base(description, name, domainKind)
   {
     Value = value;
   }
@@ -1317,7 +1316,7 @@ public class Cmpt_UnionMemberObject
     , ICmpt_Name name
     , Cmpt_SimpleKind typeKind
     , ICmpt_Name union
-    )
+    ) : base(description, name, typeKind)
   {
     Union = union;
   }
@@ -1350,7 +1349,7 @@ public class Cmpt_TypeObjectObject<TObject,TField>
     ( ICollection<string> description
     , ICmpt_Name name
     , ICollection<ICmpt_Name> aliases
-    , TKind typeKind
+    , TObject typeKind
     , ICmpt_ObjBase parent
     , ICollection<ICmpt_ObjTypeParam> typeParams
     , ICollection<TField> fields

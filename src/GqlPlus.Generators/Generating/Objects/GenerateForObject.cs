@@ -155,13 +155,9 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   {
     context.Write("");
     MapPair<RequiredField>[] required = RequiredMembers(ast, context);
-    (MapPair<RequiredField>[] parent, MapPair<RequiredField>[] deep, MapPair<RequiredField>[] shallow) = DetermineParentAndGrandParent(ast, context);
+    RequiredParents parents = DetermineParentAndGrandParent(ast, context);
 
-    IEnumerable<MapPair<RequiredField>> paramList = deep
-      .Concat(shallow)
-      .Concat(parent)
-      .Where(kv => string.IsNullOrEmpty(kv.Value.Label))
-      .Concat(required);
+    IEnumerable<MapPair<RequiredField>> paramList = parents.ParamList(required);
     context.Write($"  public {context.TypeName(ast, "")}Object");
     string prefix = "(";
     foreach ((string key, RequiredField value) in paramList) {
@@ -171,15 +167,8 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
     prefix = prefix == "(" ? "()" : ")";
 
-    bool hasBase = parent.Length > 0
-      || deep.Length > 0
-      || shallow.Any(kv => string.IsNullOrEmpty(kv.Value.Label));
-    if (hasBase) {
-      string parentArgs = deep
-        .Concat(shallow.Where(kv => string.IsNullOrEmpty(kv.Value.Label)))
-        .Concat(parent)
-        .Joined(FieldValue, ", ");
-      context.Write($"    {prefix} : base({parentArgs})");
+    if (parents.HasBase) {
+      context.Write($"    {prefix} : base({parents.ParentArgs(FieldValue)})");
     } else {
       context.Write("    " + prefix);
     }
@@ -192,25 +181,25 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     context.Write("  }");
   }
 
-  private (MapPair<RequiredField>[], MapPair<RequiredField>[], MapPair<RequiredField>[]) DetermineParentAndGrandParent(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+  private RequiredParents DetermineParentAndGrandParent(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     if (context.GetTypeAst(ast.Parent?.Name, out IGqlpObject parentObject) && ast.Parent?.IsTypeParam == false) {
       GqlpGeneratorTypes parentTypes = new(context, ast.Parent.Args, parentObject!.TypeParams);
-      (MapPair<RequiredField>[] deep, MapPair<RequiredField>[] shallow) = ParentRequiredSplit(parentObject!, parentTypes);
-      return (RequiredMembers(parentObject!, parentTypes), deep, shallow);
+      RequiredSplit split = ParentRequiredSplit(parentObject!, parentTypes);
+      return new(RequiredMembers(parentObject!, parentTypes), split);
     }
 
-    return ([], [], []);
+    return new([], new());
   }
 
-  private (MapPair<RequiredField>[], MapPair<RequiredField>[]) ParentRequiredSplit(IGqlpObject ast, GqlpGeneratorTypes types)
+  private RequiredSplit ParentRequiredSplit(IGqlpObject ast, GqlpGeneratorTypes types)
   {
     if (ast.Parent is null || ast.Parent.IsTypeParam) {
-      return ([], []);
+      return new();
     }
 
     if (!types.GetTypeAst(ast.Parent.Name, out IGqlpObject parentObject)) {
-      return ([], []);
+      return new();
     }
 
     GqlpGeneratorTypes parentTypes = new(types, ast.Parent.Args, parentObject!.TypeParams);
@@ -218,7 +207,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     MapPair<RequiredField>[] deep = ParentRequired(parentObject!, parentTypes);
     MapPair<RequiredField>[] shallow = RequiredMembers(parentObject!, parentTypes);
 
-    return (deep, shallow);
+    return new(deep, shallow);
   }
 
   private static string FieldValue(MapPair<RequiredField> field)
@@ -286,3 +275,31 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 }
 
 internal record struct RequiredField(string Type, string Label);
+
+internal record struct RequiredSplit(MapPair<RequiredField>[] Deep, MapPair<RequiredField>[] Shallow)
+{
+  public RequiredSplit()
+    : this([], [])
+  { }
+}
+
+internal record struct RequiredParents(MapPair<RequiredField>[] Parent, RequiredSplit Split)
+{
+  internal readonly IEnumerable<MapPair<RequiredField>> ParamList(MapPair<RequiredField>[] required)
+    => Split.Deep
+      .Concat(Split.Shallow)
+      .Concat(Parent)
+      .Where(kv => string.IsNullOrEmpty(kv.Value.Label))
+      .Concat(required);
+
+  internal readonly bool HasBase
+    => Parent.Length > 0
+      || Split.Deep.Length > 0
+      || Split.Shallow.Any(kv => string.IsNullOrEmpty(kv.Value.Label));
+
+  internal readonly string ParentArgs(Func<MapPair<RequiredField>, string> fieldValue)
+    => Split.Deep
+        .Concat(Split.Shallow.Where(kv => string.IsNullOrEmpty(kv.Value.Label)))
+        .Concat(Parent)
+        .Joined(fieldValue, ", ");
+}

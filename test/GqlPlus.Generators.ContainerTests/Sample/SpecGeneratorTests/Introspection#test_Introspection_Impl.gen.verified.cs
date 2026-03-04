@@ -621,12 +621,11 @@ public class test_BaseDomainObject<TDomain,TItem,TDomainItem>
     ( ICollection<string> description
     , Itest_Name name
     , ICollection<Itest_Name> aliases
-    , TKind typeKind
     , Itest_Named parent
     , ICollection<TItem> items
     , ICollection<TDomainItem> allItems
     , TDomain domainKind
-    ) : base(description, name, aliases, typeKind, parent, items, allItems)
+    ) : base(description, name, aliases, test_TypeKind.Domain, parent, items, allItems)
   {
     DomainKind = domainKind;
   }
@@ -695,7 +694,7 @@ public class test_DomainValueObject<TDomain,TValue>
     , Itest_Name name
     , TDomain domainKind
     , TValue value
-    ) : base(description, name, test_TypeKind.Domain, domainKind)
+    ) : base(description, name, domainKind)
   {
     Value = value;
   }
@@ -976,7 +975,7 @@ public class test_UnionMemberObject
     , Itest_Name name
     , test_SimpleKind typeKind
     , Itest_Name union
-    )
+    ) : base(description, name, typeKind)
   {
     Union = union;
   }
@@ -1009,7 +1008,7 @@ public class test_TypeObjectObject<TObject,TField>
     ( ICollection<string> description
     , Itest_Name name
     , ICollection<Itest_Name> aliases
-    , TKind typeKind
+    , TObject typeKind
     , Itest_ObjBase parent
     , ICollection<Itest_ObjTypeParam> typeParams
     , ICollection<TField> fields

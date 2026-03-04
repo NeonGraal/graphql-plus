@@ -49,13 +49,22 @@ internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
       ?? [];
 
     foreach ((string key, IGqlpObjType value) in args) {
-      if (_args.TryGetValue(key, out IGqlpObjType arg)) {
-        if (arg.Name != value.Name && value.Name != key) {
-          _args[key] = value;
-        }
-      } else if (value.Name != key) {
+      AddArg(key, value);
+    }
+  }
+
+  private void AddArg(string key, IGqlpObjType value)
+  {
+    if (_args.TryGetValue(key, out IGqlpObjType arg)) {
+      if (arg.Name != value.Name && value.Name != key) {
         _args[key] = value;
       }
+
+      return;
+    }
+
+    if (value.Name != key) {
+      _args[key] = value;
     }
   }
 

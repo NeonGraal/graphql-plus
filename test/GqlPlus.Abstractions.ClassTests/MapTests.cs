@@ -71,6 +71,19 @@ public class MapTests
   }
 
   [Theory, RepeatData]
+  public void Constructor_WihtMap_AddsMapPairs(string[] keys)
+  {
+    // Arrange
+    Map<int> map = [.. keys.Select(k => 1.ToPair(k))];
+
+    // Act
+    Map<int> result = new(map);
+
+    // Assert
+    result.Keys.Order().ShouldBe(keys.Distinct().Order());
+  }
+
+  [Theory, RepeatData]
   public void AddRange_AddsMapPairs(string[] keys)
   {
     // Arrange

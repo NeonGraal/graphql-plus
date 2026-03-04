@@ -1,11 +1,11 @@
-﻿using GqlPlus.Building.Schema.Objects;
+using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus.Generating.Objects;
 
-public class InputGeneratorTests
-  : GenerateObjectTestsBase<IGqlpInputField>
+public class InputGeneratorParentTests
+  : GenerateObjectParentTestsBase<IGqlpInputField>
 {
-  public InputGeneratorTests()
+  public InputGeneratorParentTests()
     : base(TypeKind.Input)
   { }
 

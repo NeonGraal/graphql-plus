@@ -23,6 +23,7 @@ public class VerifierTestsBase
 
   protected void LoggerCalled(LogLevel level, string message, int times = 1)
   {
+#pragma warning disable CA1873 // Avoid potentially expensive logging
     _logger.Received(times).Log(
       level,
       Arg.Any<EventId>(),
@@ -30,6 +31,7 @@ public class VerifierTestsBase
       Arg.Any<Exception>(),
       Arg.Any<Func<object, Exception?, string>>()
     );
+#pragma warning restore CA1873 // Avoid potentially expensive logging
   }
 }
 

@@ -1,0 +1,53 @@
+﻿/* parent+Input
+input PrntInp { :RefPrntInp }
+input RefPrntInp { parent: Number | String }
+*/
+
+// Generated from Schema parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_Input;
+
+public class CmptPrntInp
+  : CmptRefPrntInp
+  , ICmptPrntInp
+{
+  public ICmptPrntInpObject? As_PrntInp { get; set; }
+}
+
+public class CmptPrntInpObject
+  : CmptRefPrntInpObject
+  , ICmptPrntInpObject
+{
+
+  public CmptPrntInpObject
+    ( decimal parent
+    ) : base(parent)
+  {
+  }
+}
+
+public class CmptRefPrntInp
+  : Schema_parent+Input
+  , ICmptRefPrntInp
+{
+  public string? AsString { get; set; }
+  public ICmptRefPrntInpObject? As_RefPrntInp { get; set; }
+}
+
+public class CmptRefPrntInpObject
+  : Schema_parent+Input
+  , ICmptRefPrntInpObject
+{
+  public decimal Parent { get; set; }
+
+  public CmptRefPrntInpObject
+    ( decimal parent
+    )
+  {
+    Parent = parent;
+  }
+}

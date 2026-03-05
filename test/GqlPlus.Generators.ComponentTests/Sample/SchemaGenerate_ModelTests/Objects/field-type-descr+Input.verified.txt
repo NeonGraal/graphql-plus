@@ -1,0 +1,32 @@
+﻿/* field-type-descr+Input
+input FieldTypeDescrInp { field: "Test" "Descr" Number }
+*/
+
+// Generated from Schema field-type-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-type-descr+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_type_descr_Input;
+
+public class CmptFieldTypeDescrInp
+  : Schema_field-type-descr+Input
+  , ICmptFieldTypeDescrInp
+{
+  public ICmptFieldTypeDescrInpObject? As_FieldTypeDescrInp { get; set; }
+}
+
+public class CmptFieldTypeDescrInpObject
+  : Schema_field-type-descr+Input
+  , ICmptFieldTypeDescrInpObject
+{
+  public decimal Field { get; set; }
+
+  public CmptFieldTypeDescrInpObject
+    ( decimal field
+    )
+  {
+    Field = field;
+  }
+}

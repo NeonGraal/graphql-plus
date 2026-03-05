@@ -1,1 +1,1 @@
-501c74c  (HEAD -> fixup-names) 2026-02-25 Rename model-errors to encode-errors
+41c2e2d  (HEAD -> generators) 2026-03-06 Improve naming of various *Kind type params

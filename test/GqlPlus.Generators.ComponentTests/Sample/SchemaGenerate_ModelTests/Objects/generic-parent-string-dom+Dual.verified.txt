@@ -1,0 +1,59 @@
+﻿/* generic-parent-string-dom+Dual
+dual GnrcPrntStrDomDual { :FieldGnrcPrntStrDomDual<DomGnrcPrntStrDomDual> }
+dual FieldGnrcPrntStrDomDual<$ref:String> { field: $ref }
+domain DomGnrcPrntStrDomDual { string /\w+/ }
+*/
+
+// Generated from Schema generic-parent-string-dom+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-string-dom+Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
+
+public class CmptGnrcPrntStrDomDual
+  : CmptFieldGnrcPrntStrDomDual<ICmptDomGnrcPrntStrDomDual>
+  , ICmptGnrcPrntStrDomDual
+{
+  public ICmptGnrcPrntStrDomDualObject? As_GnrcPrntStrDomDual { get; set; }
+}
+
+public class CmptGnrcPrntStrDomDualObject
+  : CmptFieldGnrcPrntStrDomDualObject<ICmptDomGnrcPrntStrDomDual>
+  , ICmptGnrcPrntStrDomDualObject
+{
+
+  public CmptGnrcPrntStrDomDualObject
+    ( ICmptDomGnrcPrntStrDomDual field
+    ) : base(field)
+  {
+  }
+}
+
+public class CmptFieldGnrcPrntStrDomDual<TRef>
+  : Schema_generic-parent-string-dom+Dual
+  , ICmptFieldGnrcPrntStrDomDual<TRef>
+{
+  public ICmptFieldGnrcPrntStrDomDualObject<TRef>? As_FieldGnrcPrntStrDomDual { get; set; }
+}
+
+public class CmptFieldGnrcPrntStrDomDualObject<TRef>
+  : Schema_generic-parent-string-dom+Dual
+  , ICmptFieldGnrcPrntStrDomDualObject<TRef>
+{
+  public TRef Field { get; set; }
+
+  public CmptFieldGnrcPrntStrDomDualObject
+    ( TRef field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptDomGnrcPrntStrDomDual
+  : GqlpDomainString
+  , ICmptDomGnrcPrntStrDomDual
+{
+}

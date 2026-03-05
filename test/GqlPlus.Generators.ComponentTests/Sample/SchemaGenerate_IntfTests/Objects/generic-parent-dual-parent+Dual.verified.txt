@@ -1,0 +1,49 @@
+﻿/* generic-parent-dual-parent+Dual
+dual GnrcPrntDualPrntDual { :RefGnrcPrntDualPrntDual<AltGnrcPrntDualPrntDual> }
+dual RefGnrcPrntDualPrntDual<$ref:_Dual> { :$ref }
+dual AltGnrcPrntDualPrntDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-dual-parent+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-dual-parent+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_dual_parent_Dual;
+
+public interface ICmptGnrcPrntDualPrntDual
+  : ICmptRefGnrcPrntDualPrntDual<ICmptAltGnrcPrntDualPrntDual>
+{
+  ICmptGnrcPrntDualPrntDualObject? As_GnrcPrntDualPrntDual { get; }
+}
+
+public interface ICmptGnrcPrntDualPrntDualObject
+  : ICmptRefGnrcPrntDualPrntDualObject<ICmptAltGnrcPrntDualPrntDual>
+{
+}
+
+public interface ICmptRefGnrcPrntDualPrntDual<TRef>
+  : Schema_generic-parent-dual-parent+Dual
+{
+  TRef? As_Parent { get; }
+  ICmptRefGnrcPrntDualPrntDualObject<TRef>? As_RefGnrcPrntDualPrntDual { get; }
+}
+
+public interface ICmptRefGnrcPrntDualPrntDualObject<TRef>
+  : Schema_generic-parent-dual-parent+Dual
+{
+}
+
+public interface ICmptAltGnrcPrntDualPrntDual
+  : Schema_generic-parent-dual-parent+Dual
+{
+  string? AsString { get; }
+  ICmptAltGnrcPrntDualPrntDualObject? As_AltGnrcPrntDualPrntDual { get; }
+}
+
+public interface ICmptAltGnrcPrntDualPrntDualObject
+  : Schema_generic-parent-dual-parent+Dual
+{
+  decimal Alt { get; }
+}

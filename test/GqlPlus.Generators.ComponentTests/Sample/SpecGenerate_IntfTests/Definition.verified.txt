@@ -1,0 +1,140 @@
+﻿/* Definition
+enum Boolean [bool, ^] { false true }
+
+enum Null [null] { null }
+
+enum Unit [_] { _ }
+
+"No valid value"enum Void { }
+
+domain Number [int, 0] { Number }
+
+domain String [str, *] { String }
+
+union _Basic [Basic] { Boolean Number String Unit }
+
+union _Internal [Internal] { Null Void }
+
+union _Key [Key] { _Basic _Internal _Simple }
+
+"%"
+dual _Object [Object, obj, %] { }
+
+"All user defined Domain types" union _Domain [Domain] { }
+"All user defined Dual types" dual _Dual [Dual] { }
+"All user defined Enum types" union _Enum [Enum] { }
+"All user defined Input types" input _Input [Input] { }
+"All user defined Output types" output _Output [Output] { }
+"All user defined Union types" union _Union [Union] { }
+
+union _Simple [Simple] { _Enum _Domain _Union }
+*/
+
+// Generated from Spec Definition
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Definition, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Definition;
+
+public interface decimal
+  : IGqlpDomainNumber
+{
+}
+
+public interface string
+  : IGqlpDomainString
+{
+}
+
+public interface ICmpt_Basic
+  : Spec_Definition
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+  String AsString { get; }
+  Unit AsUnit { get; }
+}
+
+public interface ICmpt_Internal
+  : Spec_Definition
+{
+  Null AsNull { get; }
+  Void AsVoid { get; }
+}
+
+public interface ICmpt_Key
+  : Spec_Definition
+{
+  _Basic As_Basic { get; }
+  _Internal As_Internal { get; }
+  _Simple As_Simple { get; }
+}
+
+public interface ICmpt_Object
+  : Spec_Definition
+{
+  ICmpt_ObjectObject? As__Object { get; }
+}
+
+public interface ICmpt_ObjectObject
+  : Spec_Definition
+{
+}
+
+public interface ICmpt_Domain
+  : Spec_Definition
+{
+}
+
+public interface ICmpt_Dual
+  : Spec_Definition
+{
+  ICmpt_DualObject? As__Dual { get; }
+}
+
+public interface ICmpt_DualObject
+  : Spec_Definition
+{
+}
+
+public interface ICmpt_Enum
+  : Spec_Definition
+{
+}
+
+public interface ICmpt_Input
+  : Spec_Definition
+{
+  ICmpt_InputObject? As__Input { get; }
+}
+
+public interface ICmpt_InputObject
+  : Spec_Definition
+{
+}
+
+public interface ICmpt_Output
+  : Spec_Definition
+{
+  ICmpt_OutputObject? As__Output { get; }
+}
+
+public interface ICmpt_OutputObject
+  : Spec_Definition
+{
+}
+
+public interface ICmpt_Union
+  : Spec_Definition
+{
+}
+
+public interface ICmpt_Simple
+  : Spec_Definition
+{
+  _Enum As_Enum { get; }
+  _Domain As_Domain { get; }
+  _Union As_Union { get; }
+}

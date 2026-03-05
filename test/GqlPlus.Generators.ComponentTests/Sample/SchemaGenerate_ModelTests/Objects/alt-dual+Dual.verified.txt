@@ -1,0 +1,53 @@
+﻿/* alt-dual+Dual
+dual AltDualDual { | ObjDualAltDualDual }
+dual ObjDualAltDualDual { alt: Number | String }
+*/
+
+// Generated from Schema alt-dual+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-dual+Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_dual_Dual;
+
+public class CmptAltDualDual
+  : Schema_alt-dual+Dual
+  , ICmptAltDualDual
+{
+  public ICmptObjDualAltDualDual? AsObjDualAltDualDual { get; set; }
+  public ICmptAltDualDualObject? As_AltDualDual { get; set; }
+}
+
+public class CmptAltDualDualObject
+  : Schema_alt-dual+Dual
+  , ICmptAltDualDualObject
+{
+
+  public CmptAltDualDualObject
+    ()
+  {
+  }
+}
+
+public class CmptObjDualAltDualDual
+  : Schema_alt-dual+Dual
+  , ICmptObjDualAltDualDual
+{
+  public string? AsString { get; set; }
+  public ICmptObjDualAltDualDualObject? As_ObjDualAltDualDual { get; set; }
+}
+
+public class CmptObjDualAltDualDualObject
+  : Schema_alt-dual+Dual
+  , ICmptObjDualAltDualDualObject
+{
+  public decimal Alt { get; set; }
+
+  public CmptObjDualAltDualDualObject
+    ( decimal alt
+    )
+  {
+    Alt = alt;
+  }
+}

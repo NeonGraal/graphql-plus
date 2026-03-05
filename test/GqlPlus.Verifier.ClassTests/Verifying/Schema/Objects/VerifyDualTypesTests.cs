@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifying.Schema.Objects;
+﻿using GqlPlus.Building.Schema.Objects;
+
+namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyDualTypesTests
@@ -31,4 +33,7 @@ public class VerifyDualFieldsTests
   public VerifyDualFieldsTests()
     : base(TypeKind.Dual)
     => Verifier = new VerifyDualTypes(Verifiers);
+
+  protected override ObjFieldBuilder<IGqlpDualField> MakeField(string fieldName, string fieldType)
+    => new DualFieldBuilder(fieldName, fieldType);
 }

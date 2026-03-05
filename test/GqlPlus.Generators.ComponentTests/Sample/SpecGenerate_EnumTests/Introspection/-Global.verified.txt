@@ -1,0 +1,68 @@
+﻿/* -Global
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
+
+output _Categories {
+    : _AndType
+        category: _Category
+    | _Category
+    }
+
+output _Category {
+    : _Aliased
+        resolution: _Resolution
+        output: _TypeRef<_TypeKind.Output>
+        modifiers: _Modifiers[]
+    }
+
+enum _Resolution { Parallel Sequential Single }
+
+output _Directives {
+    : _AndType
+        directive: _Directive
+    | _Directive
+    }
+
+output _Directive {
+    : _Aliased
+        parameter: _InputFieldType?
+        repeatable: Boolean
+        locations: _[_Location]
+    }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
+
+
+output _Setting {
+    : _Named
+        value: Value
+    }
+*/
+
+// Generated from Spec -Global
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_-Global, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Global;
+
+public enum Cmpt_Resolution
+{
+  Parallel,
+  Sequential,
+  Single,
+}
+
+public enum Cmpt_Location
+{
+  Operation,
+  Variable,
+  Field,
+  Inline,
+  Spread,
+  Fragment,
+}

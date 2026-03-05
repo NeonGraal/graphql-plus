@@ -1,0 +1,142 @@
+﻿/* Schema
+"$T?"
+dual _Opt<$T:_Any> [Opt] { | $T | Null }
+
+dual _List<$T:_Any> [List] { | $T[] }
+
+dual _Dict<$K:_Key $T:_Any> [Dict] { | $T[$K] }
+
+dual _Map<$T:_Any> [Map] { | $T[*] }
+
+dual _Array<$T:_Any> [Array] { | $T[0] }
+
+dual _IfElse<$T:_Any> [IfElse] { | $T[^] }
+
+dual _Set<$K:_Key> [Set] { | _[$K] }
+
+dual _Mask<$K:_Key> [Mask] { | ^[$K] }
+
+union _Key { }
+dual _Any { }
+*/
+
+// Generated from Spec Schema
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Schema, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Schema;
+
+public interface ICmpt_Opt<TT>
+  : Spec_Schema
+{
+  TT? AsT { get; }
+  GqlpNull? AsNull { get; }
+  ICmpt_OptObject<TT>? As__Opt { get; }
+}
+
+public interface ICmpt_OptObject<TT>
+  : Spec_Schema
+{
+}
+
+public interface ICmpt_List<TT>
+  : Spec_Schema
+{
+  ICollection<TT>? AsT { get; }
+  ICmpt_ListObject<TT>? As__List { get; }
+}
+
+public interface ICmpt_ListObject<TT>
+  : Spec_Schema
+{
+}
+
+public interface ICmpt_Dict<TK,TT>
+  : Spec_Schema
+{
+  IDictionary<TK, TT>? AsT { get; }
+  ICmpt_DictObject<TK,TT>? As__Dict { get; }
+}
+
+public interface ICmpt_DictObject<TK,TT>
+  : Spec_Schema
+{
+}
+
+public interface ICmpt_Map<TT>
+  : Spec_Schema
+{
+  IDictionary<string, TT>? AsT { get; }
+  ICmpt_MapObject<TT>? As__Map { get; }
+}
+
+public interface ICmpt_MapObject<TT>
+  : Spec_Schema
+{
+}
+
+public interface ICmpt_Array<TT>
+  : Spec_Schema
+{
+  IDictionary<decimal, TT>? AsT { get; }
+  ICmpt_ArrayObject<TT>? As__Array { get; }
+}
+
+public interface ICmpt_ArrayObject<TT>
+  : Spec_Schema
+{
+}
+
+public interface ICmpt_IfElse<TT>
+  : Spec_Schema
+{
+  IDictionary<bool, TT>? AsT { get; }
+  ICmpt_IfElseObject<TT>? As__IfElse { get; }
+}
+
+public interface ICmpt_IfElseObject<TT>
+  : Spec_Schema
+{
+}
+
+public interface ICmpt_Set<TK>
+  : Spec_Schema
+{
+  IDictionary<TK, GqlpUnit>? AsUnit { get; }
+  ICmpt_SetObject<TK>? As__Set { get; }
+}
+
+public interface ICmpt_SetObject<TK>
+  : Spec_Schema
+{
+}
+
+public interface ICmpt_Mask<TK>
+  : Spec_Schema
+{
+  IDictionary<TK, bool>? AsBoolean { get; }
+  ICmpt_MaskObject<TK>? As__Mask { get; }
+}
+
+public interface ICmpt_MaskObject<TK>
+  : Spec_Schema
+{
+}
+
+public interface ICmpt_Key
+  : Spec_Schema
+{
+}
+
+public interface ICmpt_Any
+  : Spec_Schema
+{
+  ICmpt_AnyObject? As__Any { get; }
+}
+
+public interface ICmpt_AnyObject
+  : Spec_Schema
+{
+}

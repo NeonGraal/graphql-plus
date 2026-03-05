@@ -13,7 +13,7 @@ public abstract class SimpleParentMatcherTests<TSimple>
   [Theory, RepeatData]
   public void Simple_Matches_SameName_ReturnsTrue(string constraint)
   {
-    TSimple type = A.Named<TSimple>(constraint);
+    TSimple type = MakeSimple(constraint).AsSimple;
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -25,7 +25,7 @@ public abstract class SimpleParentMatcherTests<TSimple>
   {
     this.SkipEqual(name, constraint);
 
-    TSimple type = A.Simple<TSimple>(name).WithParent(constraint).AsSimple;
+    TSimple type = MakeSimple(name).WithParent(constraint).AsSimple;
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -37,25 +37,36 @@ public abstract class SimpleParentMatcherTests<TSimple>
   {
     this.SkipEqual(name, constraint);
 
-    TSimple type = A.Simple<TSimple>(name).WithParent(parent).AsSimple;
+    TSimple type = MakeSimple(name).WithParent(parent).AsSimple;
 
-    TSimple parentType = A.Simple<TSimple>(parent).WithParent(constraint).AsSimple;
+    TSimple parentType = MakeSimple(parent).WithParent(constraint).AsSimple;
     Types[parent] = parentType;
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
     result.ShouldBeTrue();
   }
+
+  protected abstract SimpleBuilder<TSimple> MakeSimple(string name);
 }
 
 public class DomainParentMatcherTests
-  : SimpleParentMatcherTests<IGqlpDomain>
-{ }
+  : SimpleParentMatcherTests<IGqlpDomain<IGqlpDomainLabel>>
+{
+  protected override SimpleBuilder<IGqlpDomain<IGqlpDomainLabel>> MakeSimple(string name)
+    => new DomainBuilder<IGqlpDomainLabel>(name, DomainKind.Enum);
+}
 
 public class EnumParentMatcherTests
   : SimpleParentMatcherTests<IGqlpEnum>
-{ }
+{
+  protected override SimpleBuilder<IGqlpEnum> MakeSimple(string name)
+    => new EnumBuilder(name);
+}
 
 public class UnionParentMatcherTests
   : SimpleParentMatcherTests<IGqlpUnion>
-{ }
+{
+  protected override SimpleBuilder<IGqlpUnion> MakeSimple(string name)
+    => new UnionBuilder(name);
+}

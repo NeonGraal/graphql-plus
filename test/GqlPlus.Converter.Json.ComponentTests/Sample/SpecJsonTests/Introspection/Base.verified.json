@@ -1012,7 +1012,7 @@
         "typeArgs": [
           {
             "$mapTag": "_TypeArg",
-            "typeParam": "kind"
+            "typeParam": "objectKind"
           },
           {
             "$mapTag": "_TypeArg",
@@ -1035,7 +1035,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "objectKind"
         },
         {
           "$mapTag": "_TypeParam",

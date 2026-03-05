@@ -14,7 +14,7 @@ public static class TypeHelpers
       .Replace("IGqlp", "")
       .Replace("Model", "");
 
-  public static string ExpandTypeName(this Type type)
+  public static string ExpandTypeName(this Type? type)
   {
     type.ThrowIfNull();
 
@@ -26,7 +26,7 @@ public static class TypeHelpers
       string baseType = NestedTypeName(type.GetGenericTypeDefinition());
       Type[] args = type.GetGenericArguments();
       string placeholder = $"`{args.Length}";
-      string arguments = "<" + string.Join(",", args.Select(ExpandTypeName)) + ">";
+      string arguments = "<" + args.Joined(ExpandTypeName, ",") + ">";
 
       return baseType.Replace(placeholder, arguments);
     }

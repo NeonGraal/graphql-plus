@@ -1,0 +1,17 @@
+﻿/* field-mod-Enum+Dual
+dual FieldModEnumDual { field: String[EnumFieldModEnumDual] }
+enum EnumFieldModEnumDual { value }
+*/
+
+// Generated from Schema field-mod-Enum+Dual
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_field-mod-Enum+Dual, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_mod_Enum_Dual;
+
+public enum CmptEnumFieldModEnumDual
+{
+  value,
+}

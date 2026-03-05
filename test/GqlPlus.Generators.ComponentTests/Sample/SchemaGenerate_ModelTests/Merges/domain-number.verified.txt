@@ -1,0 +1,18 @@
+﻿/* domain-number
+domain DmnNmbr { number }
+domain DmnNmbr { number }
+*/
+
+// Generated from Schema domain-number
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_number;
+
+public class CmptDmnNmbr
+  : GqlpDomainNumber
+  , ICmptDmnNmbr
+{
+}

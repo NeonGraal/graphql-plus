@@ -13,12 +13,12 @@ types: !_Map(_Type)
       name: typeKind
       object: _BaseType
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     fields:
     - !_OutputField
       name: typeKind
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     name: _BaseType
     parent: !_ObjBase
       name: _Aliased
@@ -28,14 +28,14 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _TypeKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: typeKind
   !_Name _ChildType: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: typeKind
       object: _BaseType
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
@@ -51,14 +51,14 @@ types: !_Map(_Type)
       name: _BaseType
       typeArgs:
       - !_TypeArg
-        typeParam: kind
+        typeParam: typeKind
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _TypeKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: typeKind
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _Described
@@ -126,12 +126,12 @@ types: !_Map(_Type)
       name: modifierKind
       object: _Modifier
       type: !_ObjBase
-        typeParam: kind
+        typeParam: modifierKind
     fields:
     - !_DualField
       name: modifierKind
       type: !_ObjBase
-        typeParam: kind
+        typeParam: modifierKind
     name: _Modifier
     typeKind: !_TypeKind Dual
     typeParams:
@@ -139,14 +139,14 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _ModifierKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: modifierKind
   !_Name _ModifierKeyed: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: modifierKind
       object: _Modifier
       type: !_ObjBase
-        typeParam: kind
+        typeParam: modifierKind
     - !_ObjectFor(_DualField)
       name: by
       object: _ModifierKeyed
@@ -171,14 +171,14 @@ types: !_Map(_Type)
       name: _Modifier
       typeArgs:
       - !_TypeArg
-        typeParam: kind
+        typeParam: modifierKind
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _ModifierKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: modifierKind
   !_Name _ModifierKind: !_TypeEnum
     allItems:
     - !_EnumLabel
@@ -245,7 +245,7 @@ types: !_Map(_Type)
       name: typeKind
       object: _BaseType
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
@@ -279,7 +279,7 @@ types: !_Map(_Type)
       name: _ChildType
       typeArgs:
       - !_TypeArg
-        typeParam: kind
+        typeParam: typeKind
       - !_TypeArg
         name: _Named
     typeKind: !_TypeKind Output
@@ -288,7 +288,7 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _TypeKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: typeKind
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _Described
@@ -625,12 +625,12 @@ types: !_Map(_Type)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     fields:
     - !_DualField
       name: typeKind
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     name: _TypeRef
     parent: !_ObjBase
       name: _Named
@@ -640,7 +640,7 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _TypeKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: typeKind
   !_Name _TypeSimple: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)

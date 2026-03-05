@@ -1,0 +1,13 @@
+﻿/* option-setting
+option Schema { global=true }
+*/
+
+// Generated from Schema option-setting
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_option-setting, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Option Schema
+*/
+
+namespace Components.Gqlp_Schema_option_setting;

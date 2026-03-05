@@ -270,7 +270,7 @@
           "object": "_BaseDomain",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "domain"
+            "typeParam": "domainKind"
           }
         }
       ],
@@ -280,7 +280,7 @@
           "name": "domainKind",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "domain"
+            "typeParam": "domainKind"
           }
         }
       ],
@@ -323,7 +323,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "domain"
+          "name": "domainKind"
         },
         {
           "$mapTag": "_TypeParam",
@@ -458,7 +458,7 @@
           "object": "_BaseType",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         }
       ],
@@ -468,7 +468,7 @@
           "name": "typeKind",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         }
       ],
@@ -492,7 +492,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "typeKind"
         }
       ]
     },
@@ -1038,7 +1038,7 @@
           "object": "_BaseType",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         },
         {
@@ -1068,7 +1068,7 @@
         "typeArgs": [
           {
             "$mapTag": "_TypeArg",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         ]
       },
@@ -1087,7 +1087,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "typeKind"
         },
         {
           "$mapTag": "_TypeParam",
@@ -2131,7 +2131,7 @@
           "object": "_TypeRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         },
         {
@@ -2140,7 +2140,7 @@
           "object": "_DomainRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "domainKind"
           }
         }
       ],
@@ -2150,7 +2150,7 @@
           "name": "domainKind",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "domainKind"
           }
         }
       ],
@@ -2185,7 +2185,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "domainKind"
         }
       ]
     },
@@ -2358,7 +2358,7 @@
           "object": "_TypeRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         },
         {
@@ -2367,7 +2367,7 @@
           "object": "_DomainRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "domainKind"
           }
         },
         {
@@ -2406,7 +2406,7 @@
         "typeArgs": [
           {
             "$mapTag": "_TypeArg",
-            "typeParam": "kind"
+            "typeParam": "domainKind"
           }
         ]
       },
@@ -2425,7 +2425,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "domainKind"
         },
         {
           "$mapTag": "_TypeParam",
@@ -2632,7 +2632,7 @@
           "object": "_TypeRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         },
         {
@@ -3261,7 +3261,7 @@
           "object": "_Modifier",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "modifierKind"
           }
         }
       ],
@@ -3271,7 +3271,7 @@
           "name": "modifierKind",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "modifierKind"
           }
         }
       ],
@@ -3291,7 +3291,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "modifierKind"
         }
       ]
     },
@@ -3305,7 +3305,7 @@
           "object": "_Modifier",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "modifierKind"
           }
         },
         {
@@ -3352,7 +3352,7 @@
         "typeArgs": [
           {
             "$mapTag": "_TypeArg",
-            "typeParam": "kind"
+            "typeParam": "modifierKind"
           }
         ]
       },
@@ -3371,7 +3371,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "modifierKind"
         }
       ]
     },
@@ -3725,7 +3725,7 @@
           "object": "_TypeRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         },
         {
@@ -3997,7 +3997,7 @@
           "object": "_TypeRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         },
         {
@@ -4212,7 +4212,7 @@
           "object": "_TypeRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         },
         {
@@ -4760,7 +4760,7 @@
           "object": "_BaseType",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         },
         {
@@ -4852,7 +4852,7 @@
         "typeArgs": [
           {
             "$mapTag": "_TypeArg",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           },
           {
             "$mapTag": "_TypeArg",
@@ -4875,7 +4875,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "typeKind"
         },
         {
           "$mapTag": "_TypeParam",
@@ -6222,7 +6222,7 @@
           "object": "_BaseType",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         },
         {
@@ -6443,7 +6443,7 @@
         "typeArgs": [
           {
             "$mapTag": "_TypeArg",
-            "typeParam": "kind"
+            "typeParam": "objectKind"
           },
           {
             "$mapTag": "_TypeArg",
@@ -6466,7 +6466,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "objectKind"
         },
         {
           "$mapTag": "_TypeParam",
@@ -6571,7 +6571,7 @@
           "object": "_TypeRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         }
       ],
@@ -6581,7 +6581,7 @@
           "name": "typeKind",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         }
       ],
@@ -6605,7 +6605,7 @@
               "$valueTag": "_TypeKind"
             }
           },
-          "name": "kind"
+          "name": "typeKind"
         }
       ]
     },
@@ -6807,7 +6807,7 @@
           "object": "_TypeRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         },
         {
@@ -6877,7 +6877,7 @@
           "object": "_TypeRef",
           "type": {
             "$mapTag": "_ObjBase",
-            "typeParam": "kind"
+            "typeParam": "typeKind"
           }
         }
       ],

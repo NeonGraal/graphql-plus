@@ -439,7 +439,7 @@ Success
   _BaseType
   <
     I@019/0104
-    $kind
+    $typeKind
     :_TypeKind
   >
   :
@@ -450,7 +450,7 @@ Success
     typeKind
     :
     I@020/0106
-    $kind
+    $typeKind
   }
 }
 {
@@ -458,9 +458,9 @@ Success
   _ChildType
   <
     I@020/0109
-    $kind
+    $typeKind
     :_TypeKind
-    I@036/0109
+    I@040/0109
     $parent
     :_Described
   >
@@ -469,7 +469,7 @@ Success
   _BaseType
   <
     I@018/0110
-    $kind
+    $typeKind
   >
   {
     !OF I@009/0111
@@ -484,12 +484,12 @@ Success
   _ParentType
   <
     I@021/0114
-    $kind
+    $typeKind
     :_TypeKind
-    I@037/0114
+    I@041/0114
     $item
     :_Described
-    I@054/0114
+    I@058/0114
     $allItem
     :_Described
   >
@@ -498,8 +498,8 @@ Success
   _ChildType
   <
     I@019/0115
-    $kind
-    I@024/0115
+    $typeKind
+    I@028/0115
     _Named
   >
   {
@@ -547,7 +547,7 @@ Success
   _TypeRef
   <
     I@016/0124
-    $kind
+    $typeKind
     :_TypeKind
   >
   :
@@ -558,7 +558,7 @@ Success
     typeKind
     :
     I@020/0126
-    $kind
+    $typeKind
   }
 }
 {
@@ -618,7 +618,7 @@ Success
   _ModifierKeyed
   <
     I@022/0142
-    $kind
+    $modifierKind
     :_ModifierKind
   >
   :
@@ -626,7 +626,7 @@ Success
   _Modifier
   <
     I@018/0143
-    $kind
+    $modifierKind
   >
   {
     !DF I@009/0144
@@ -680,7 +680,7 @@ Success
   _Modifier
   <
     I@017/0155
-    $kind
+    $modifierKind
     :_ModifierKind
   >
   {
@@ -688,7 +688,7 @@ Success
     modifierKind
     :
     I@024/0156
-    $kind
+    $modifierKind
   }
 }
 {
@@ -708,7 +708,7 @@ Success
   _DomainRef
   <
     I@020/0161
-    $kind
+    $domainKind
     :_DomainKind
   >
   :
@@ -723,7 +723,7 @@ Success
     domainKind
     :
     I@022/0163
-    $kind
+    $domainKind
   }
 }
 {
@@ -731,12 +731,12 @@ Success
   _BaseDomain
   <
     I@021/0166
-    $domain
+    $domainKind
     :_DomainKind
-    I@041/0166
+    I@045/0166
     $item
     :_BaseDomainItem
-    I@063/0166
+    I@067/0166
     $domainItem
     :_DomainItem
   >
@@ -756,7 +756,7 @@ Success
     domainKind
     :
     I@022/0168
-    $domain
+    $domainKind
   }
 }
 {
@@ -797,9 +797,9 @@ Success
   _DomainValue
   <
     I@022/0181
-    $kind
+    $domainKind
     :_DomainKind
-    I@040/0181
+    I@046/0181
     $value
     :_BasicValue
   >
@@ -808,7 +808,7 @@ Success
   _DomainRef
   <
     I@019/0182
-    $kind
+    $domainKind
   >
   {
     !OF I@009/0183
@@ -1017,9 +1017,9 @@ Success
   _TypeObject
   <
     I@021/0252
-    $kind
+    $objectKind
     :_ObjectKind
-    I@039/0252
+    I@045/0252
     $field
     :_ObjField
   >
@@ -1028,8 +1028,8 @@ Success
   _ChildType
   <
     I@019/0253
-    $kind
-    I@024/0253
+    $objectKind
+    I@030/0253
     _ObjBase
   >
   {

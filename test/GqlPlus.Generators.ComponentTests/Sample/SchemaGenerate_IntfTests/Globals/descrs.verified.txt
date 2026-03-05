@@ -1,0 +1,24 @@
+﻿/* descrs
+"A simple description"
+"With extra"
+output Dscrs { }
+*/
+
+// Generated from Schema descrs
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_descrs, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_descrs;
+
+public interface ICmptDscrs
+  : Schema_descrs
+{
+  ICmptDscrsObject? As_Dscrs { get; }
+}
+
+public interface ICmptDscrsObject
+  : Schema_descrs
+{
+}

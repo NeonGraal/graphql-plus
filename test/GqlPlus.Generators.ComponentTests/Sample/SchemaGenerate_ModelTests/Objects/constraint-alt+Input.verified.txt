@@ -1,0 +1,30 @@
+﻿/* constraint-alt+Input
+input CnstAltInp<$type:Number> { | $type }
+*/
+
+// Generated from Schema constraint-alt+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_Input;
+
+public class CmptCnstAltInp<TType>
+  : Schema_constraint-alt+Input
+  , ICmptCnstAltInp<TType>
+{
+  public TType? Astype { get; set; }
+  public ICmptCnstAltInpObject<TType>? As_CnstAltInp { get; set; }
+}
+
+public class CmptCnstAltInpObject<TType>
+  : Schema_constraint-alt+Input
+  , ICmptCnstAltInpObject<TType>
+{
+
+  public CmptCnstAltInpObject
+    ()
+  {
+  }
+}

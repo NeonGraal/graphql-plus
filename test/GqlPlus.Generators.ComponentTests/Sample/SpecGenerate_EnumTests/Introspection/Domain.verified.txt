@@ -1,0 +1,89 @@
+﻿/* Domain
+enum _DomainKind { Boolean Enum Number String }
+
+output _DomainRef<$domainKind:_DomainKind> {
+    : _TypeRef<_TypeKind.Domain>
+        domainKind: $domainKind
+    }
+
+output _BaseDomain<$domainKind:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
+    : _ParentType<_TypeKind.Domain $item $domainItem>
+        domainKind: $domainKind
+    }
+
+dual _BaseDomainItem {
+    : _Described
+        exclude: Boolean
+    }
+
+output _DomainItem<$item:_BaseDomainItem> {
+    : $item
+        domain: _Name
+    }
+
+output _DomainValue<$domainKind:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$domainKind>
+        value: $value
+    | $value
+    }
+
+output _BasicValue {
+    | Boolean
+    | _EnumValue
+    | Number
+    | String
+    }
+
+dual _DomainTrueFalse {
+    : _BaseDomainItem
+        value: Boolean
+    }
+
+output _DomainItemTrueFalse {
+    : _DomainItem<_DomainTrueFalse>
+    }
+
+output _DomainLabel {
+    : _BaseDomainItem
+        label: _EnumValue
+    }
+
+output _DomainItemLabel {
+    : _DomainItem<_DomainLabel>
+    }
+
+dual _DomainRange {
+    : _BaseDomainItem
+        lower: Number?
+        upper: Number?
+    }
+
+output _DomainItemRange {
+    : _DomainItem<_DomainRange>
+    }
+
+dual _DomainRegex {
+    : _BaseDomainItem
+        pattern: String
+    }
+
+output _DomainItemRegex {
+    : _DomainItem<_DomainRegex>
+    }
+*/
+
+// Generated from Spec Domain
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_Domain, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Domain;
+
+public enum Cmpt_DomainKind
+{
+  Boolean,
+  Enum,
+  Number,
+  String,
+}

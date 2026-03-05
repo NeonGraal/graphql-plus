@@ -1,0 +1,50 @@
+﻿/* generic-field-param+Input
+input GnrcFieldParamInp { field: RefGnrcFieldParamInp<AltGnrcFieldParamInp> }
+input RefGnrcFieldParamInp<$ref:_Input> { | $ref }
+input AltGnrcFieldParamInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-param+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-field-param+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_param_Input;
+
+public interface ICmptGnrcFieldParamInp
+  : Schema_generic-field-param+Input
+{
+  ICmptGnrcFieldParamInpObject? As_GnrcFieldParamInp { get; }
+}
+
+public interface ICmptGnrcFieldParamInpObject
+  : Schema_generic-field-param+Input
+{
+  ICmptRefGnrcFieldParamInp<ICmptAltGnrcFieldParamInp> Field { get; }
+}
+
+public interface ICmptRefGnrcFieldParamInp<TRef>
+  : Schema_generic-field-param+Input
+{
+  TRef? Asref { get; }
+  ICmptRefGnrcFieldParamInpObject<TRef>? As_RefGnrcFieldParamInp { get; }
+}
+
+public interface ICmptRefGnrcFieldParamInpObject<TRef>
+  : Schema_generic-field-param+Input
+{
+}
+
+public interface ICmptAltGnrcFieldParamInp
+  : Schema_generic-field-param+Input
+{
+  string? AsString { get; }
+  ICmptAltGnrcFieldParamInpObject? As_AltGnrcFieldParamInp { get; }
+}
+
+public interface ICmptAltGnrcFieldParamInpObject
+  : Schema_generic-field-param+Input
+{
+  decimal Alt { get; }
+}

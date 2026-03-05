@@ -1,0 +1,15 @@
+﻿/* category
+category { Ctgr }
+category ctgr { Ctgr }
+output Ctgr { }
+*/
+
+// Generated from Schema category
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category ctgr
+*/
+
+namespace Components.Gqlp_Schema_category;

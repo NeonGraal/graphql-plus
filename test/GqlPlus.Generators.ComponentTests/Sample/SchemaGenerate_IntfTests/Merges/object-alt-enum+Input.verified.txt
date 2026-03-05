@@ -1,0 +1,25 @@
+﻿/* object-alt-enum+Input
+input ObjAltEnumInp { ! true }
+input ObjAltEnumInp { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-alt-enum+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_enum_Input;
+
+public interface ICmptObjAltEnumInp
+  : Schema_object-alt-enum+Input
+{
+  bool? AsBooleantrue { get; }
+  bool? AsBooleanfalse { get; }
+  ICmptObjAltEnumInpObject? As_ObjAltEnumInp { get; }
+}
+
+public interface ICmptObjAltEnumInpObject
+  : Schema_object-alt-enum+Input
+{
+}

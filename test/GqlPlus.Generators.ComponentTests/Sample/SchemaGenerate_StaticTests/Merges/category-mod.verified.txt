@@ -1,0 +1,15 @@
+﻿/* category-mod
+category [CatM1] { CtgrMod? }
+category [CatM2] { CtgrMod? }
+output CtgrMod { }
+*/
+
+// Generated from Schema category-mod
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category-mod, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category ctgrMod
+*/
+
+namespace Components.Gqlp_Schema_category_mod;

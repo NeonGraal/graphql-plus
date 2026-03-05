@@ -1,0 +1,37 @@
+﻿/* field-mod-param+Output
+output FieldModParamOutp<$mod:String> { field: FldFieldModParamOutp[$mod] }
+output FldFieldModParamOutp { field: Number | String }
+*/
+
+// Generated from Schema field-mod-param+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-mod-param+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_mod_param_Output;
+
+public interface ICmptFieldModParamOutp<TMod>
+  : Schema_field-mod-param+Output
+{
+  ICmptFieldModParamOutpObject<TMod>? As_FieldModParamOutp { get; }
+}
+
+public interface ICmptFieldModParamOutpObject<TMod>
+  : Schema_field-mod-param+Output
+{
+  IDictionary<TMod, ICmptFldFieldModParamOutp> Field { get; }
+}
+
+public interface ICmptFldFieldModParamOutp
+  : Schema_field-mod-param+Output
+{
+  string? AsString { get; }
+  ICmptFldFieldModParamOutpObject? As_FldFieldModParamOutp { get; }
+}
+
+public interface ICmptFldFieldModParamOutpObject
+  : Schema_field-mod-param+Output
+{
+  decimal Field { get; }
+}

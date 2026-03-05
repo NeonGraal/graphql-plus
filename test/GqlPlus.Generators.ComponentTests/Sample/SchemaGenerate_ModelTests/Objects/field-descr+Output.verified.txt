@@ -1,0 +1,32 @@
+﻿/* field-descr+Output
+output FieldDescrOutp { "Test" "Descr" field: String }
+*/
+
+// Generated from Schema field-descr+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-descr+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_descr_Output;
+
+public class CmptFieldDescrOutp
+  : Schema_field-descr+Output
+  , ICmptFieldDescrOutp
+{
+  public ICmptFieldDescrOutpObject? As_FieldDescrOutp { get; set; }
+}
+
+public class CmptFieldDescrOutpObject
+  : Schema_field-descr+Output
+  , ICmptFieldDescrOutpObject
+{
+  public string Field { get; set; }
+
+  public CmptFieldDescrOutpObject
+    ( string field
+    )
+  {
+    Field = field;
+  }
+}

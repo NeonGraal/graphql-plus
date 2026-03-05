@@ -1,0 +1,25 @@
+﻿/* object-constraint+Input
+input ObjCnstInp<$type:String> { field: $type }
+input ObjCnstInp<$type:String> { str: $type }
+*/
+
+// Generated from Schema object-constraint+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-constraint+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_constraint_Input;
+
+public interface ICmptObjCnstInp<TType>
+  : Schema_object-constraint+Input
+{
+  ICmptObjCnstInpObject<TType>? As_ObjCnstInp { get; }
+}
+
+public interface ICmptObjCnstInpObject<TType>
+  : Schema_object-constraint+Input
+{
+  TType Field { get; }
+  TType Str { get; }
+}

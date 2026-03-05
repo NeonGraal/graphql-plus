@@ -1,0 +1,31 @@
+﻿/* Dual
+output _DualField {
+    : _ObjField<_ObjFieldType>
+    }
+*/
+
+// Generated from Spec Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Dual;
+
+public class Cmpt_DualField
+  : Cmpt_ObjField<ICmpt_ObjFieldType>
+  , ICmpt_DualField
+{
+  public ICmpt_DualFieldObject? As__DualField { get; set; }
+}
+
+public class Cmpt_DualFieldObject
+  : Cmpt_ObjFieldObject<ICmpt_ObjFieldType>
+  , ICmpt_DualFieldObject
+{
+
+  public Cmpt_DualFieldObject
+    ()
+  {
+  }
+}

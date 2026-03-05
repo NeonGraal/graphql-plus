@@ -1,0 +1,17 @@
+﻿/* alt-enum+Dual
+dual AltEnumDual { ! EnumAltEnumDual.altEnumDual }
+enum EnumAltEnumDual { altEnumDual }
+*/
+
+// Generated from Schema alt-enum+Dual
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_alt-enum+Dual, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_enum_Dual;
+
+public enum CmptEnumAltEnumDual
+{
+  altEnumDual,
+}

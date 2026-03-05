@@ -1,0 +1,117 @@
+﻿/* output-parent-param
+output OutpPrntParam { :PrntOutpPrntParam field(InOutpPrntParam): FldOutpPrntParam }
+output PrntOutpPrntParam { field(PrntOutpPrntParamIn): FldOutpPrntParam }
+dual FldOutpPrntParam { }
+input InOutpPrntParam { param: Number | String }
+input PrntOutpPrntParamIn { parent: Number | String }
+*/
+
+// Generated from Schema output-parent-param
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-parent-param, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_parent_param;
+
+public class CmptOutpPrntParam
+  : CmptPrntOutpPrntParam
+  , ICmptOutpPrntParam
+{
+  public ICmptOutpPrntParamObject? As_OutpPrntParam { get; set; }
+}
+
+public class CmptOutpPrntParamObject
+  : CmptPrntOutpPrntParamObject
+  , ICmptOutpPrntParamObject
+{
+  public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
+    => null;
+
+  public CmptOutpPrntParamObject
+    ()
+  {
+  }
+}
+
+public class CmptPrntOutpPrntParam
+  : Schema_output-parent-param
+  , ICmptPrntOutpPrntParam
+{
+  public ICmptPrntOutpPrntParamObject? As_PrntOutpPrntParam { get; set; }
+}
+
+public class CmptPrntOutpPrntParamObject
+  : Schema_output-parent-param
+  , ICmptPrntOutpPrntParamObject
+{
+  public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
+    => null;
+
+  public CmptPrntOutpPrntParamObject
+    ()
+  {
+  }
+}
+
+public class CmptFldOutpPrntParam
+  : Schema_output-parent-param
+  , ICmptFldOutpPrntParam
+{
+  public ICmptFldOutpPrntParamObject? As_FldOutpPrntParam { get; set; }
+}
+
+public class CmptFldOutpPrntParamObject
+  : Schema_output-parent-param
+  , ICmptFldOutpPrntParamObject
+{
+
+  public CmptFldOutpPrntParamObject
+    ()
+  {
+  }
+}
+
+public class CmptInOutpPrntParam
+  : Schema_output-parent-param
+  , ICmptInOutpPrntParam
+{
+  public string? AsString { get; set; }
+  public ICmptInOutpPrntParamObject? As_InOutpPrntParam { get; set; }
+}
+
+public class CmptInOutpPrntParamObject
+  : Schema_output-parent-param
+  , ICmptInOutpPrntParamObject
+{
+  public decimal Param { get; set; }
+
+  public CmptInOutpPrntParamObject
+    ( decimal param
+    )
+  {
+    Param = param;
+  }
+}
+
+public class CmptPrntOutpPrntParamIn
+  : Schema_output-parent-param
+  , ICmptPrntOutpPrntParamIn
+{
+  public string? AsString { get; set; }
+  public ICmptPrntOutpPrntParamInObject? As_PrntOutpPrntParamIn { get; set; }
+}
+
+public class CmptPrntOutpPrntParamInObject
+  : Schema_output-parent-param
+  , ICmptPrntOutpPrntParamInObject
+{
+  public decimal Parent { get; set; }
+
+  public CmptPrntOutpPrntParamInObject
+    ( decimal parent
+    )
+  {
+    Parent = parent;
+  }
+}

@@ -1,13 +1,13 @@
 enum _DomainKind { Boolean Enum Number String }
 
-output _DomainRef<$kind:_DomainKind> {
+output _DomainRef<$domainKind:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
-        domainKind: $kind
+        domainKind: $domainKind
     }
 
-output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
+output _BaseDomain<$domainKind:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
     : _ParentType<_TypeKind.Domain $item $domainItem>
-        domainKind: $domain
+        domainKind: $domainKind
     }
 
 dual _BaseDomainItem {
@@ -20,8 +20,8 @@ output _DomainItem<$item:_BaseDomainItem> {
         domain: _Name
     }
 
-output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
-    : _DomainRef<$kind>
+output _DomainValue<$domainKind:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$domainKind>
         value: $value
     | $value
     }

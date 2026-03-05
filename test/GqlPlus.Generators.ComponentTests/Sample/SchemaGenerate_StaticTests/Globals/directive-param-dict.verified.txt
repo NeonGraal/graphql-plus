@@ -1,0 +1,14 @@
+﻿/* directive-param-dict
+directive @DrctParamDict(InDrctParamDict[String]) { all }
+input InDrctParamDict { }
+*/
+
+// Generated from Schema directive-param-dict
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_directive-param-dict, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Directive DrctParamDict
+*/
+
+namespace Components.Gqlp_Schema_directive_param_dict;

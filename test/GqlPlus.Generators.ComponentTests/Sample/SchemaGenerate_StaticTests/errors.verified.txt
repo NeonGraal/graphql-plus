@@ -1,0 +1,20 @@
+﻿/* errors
+category query {}
+directive @ {}
+domain Other { Enum }
+enum None [] {}
+union Missing {}
+dual Nothing [] {}
+input Empty {}
+output NoParams<> {}
+*/
+
+// Generated from Schema errors
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_errors, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category query
+*/
+
+namespace Components.Gqlp_Schema_errors;

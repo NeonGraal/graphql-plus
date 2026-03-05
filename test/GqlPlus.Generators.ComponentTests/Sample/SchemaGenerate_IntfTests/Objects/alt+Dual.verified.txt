@@ -1,0 +1,37 @@
+﻿/* alt+Dual
+dual AltDual { | AltAltDual }
+dual AltAltDual { alt: Number | String }
+*/
+
+// Generated from Schema alt+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_Dual;
+
+public interface ICmptAltDual
+  : Schema_alt+Dual
+{
+  ICmptAltAltDual? AsAltAltDual { get; }
+  ICmptAltDualObject? As_AltDual { get; }
+}
+
+public interface ICmptAltDualObject
+  : Schema_alt+Dual
+{
+}
+
+public interface ICmptAltAltDual
+  : Schema_alt+Dual
+{
+  string? AsString { get; }
+  ICmptAltAltDualObject? As_AltAltDual { get; }
+}
+
+public interface ICmptAltAltDualObject
+  : Schema_alt+Dual
+{
+  decimal Alt { get; }
+}

@@ -13,18 +13,18 @@ output _Type {
     | _TypeObject<_TypeKind.Output _OutputField>
     }
 
-output _BaseType<$kind:_TypeKind> {
+output _BaseType<$typeKind:_TypeKind> {
     : _Aliased
-        typeKind: $kind
+        typeKind: $typeKind
     }
 
-output _ChildType<$kind:_TypeKind $parent:_Described> {
-    : _BaseType<$kind>
+output _ChildType<$typeKind:_TypeKind $parent:_Described> {
+    : _BaseType<$typeKind>
         parent: $parent
     }
 
-output _ParentType<$kind:_TypeKind $item:_Described $allItem:_Described> {
-    : _ChildType<$kind _Named>
+output _ParentType<$typeKind:_TypeKind $item:_Described $allItem:_Described> {
+    : _ChildType<$typeKind _Named>
         items: $item[]
         allItems: $allItem[]
     }
@@ -33,9 +33,9 @@ enum _SimpleKind { Basic Enum Internal Domain Union }
 
 enum _TypeKind { :_SimpleKind Dual Input Output }
 
-dual _TypeRef<$kind:_TypeKind> {
+dual _TypeRef<$typeKind:_TypeKind> {
     : _Named
-        typeKind: $kind
+        typeKind: $typeKind
 }
 
 dual _TypeSimple {
@@ -76,53 +76,53 @@ public interface ICmpt_TypeObject
 {
 }
 
-public interface ICmpt_BaseType<TKind>
+public interface ICmpt_BaseType<TTypeKind>
   : ICmpt_Aliased
 {
-  ICmpt_BaseTypeObject<TKind>? As__BaseType { get; }
+  ICmpt_BaseTypeObject<TTypeKind>? As__BaseType { get; }
 }
 
-public interface ICmpt_BaseTypeObject<TKind>
+public interface ICmpt_BaseTypeObject<TTypeKind>
   : ICmpt_AliasedObject
 {
-  TKind TypeKind { get; }
+  TTypeKind TypeKind { get; }
 }
 
-public interface ICmpt_ChildType<TKind,TParent>
-  : ICmpt_BaseType<TKind>
+public interface ICmpt_ChildType<TTypeKind,TParent>
+  : ICmpt_BaseType<TTypeKind>
 {
-  ICmpt_ChildTypeObject<TKind,TParent>? As__ChildType { get; }
+  ICmpt_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; }
 }
 
-public interface ICmpt_ChildTypeObject<TKind,TParent>
-  : ICmpt_BaseTypeObject<TKind>
+public interface ICmpt_ChildTypeObject<TTypeKind,TParent>
+  : ICmpt_BaseTypeObject<TTypeKind>
 {
   TParent Parent { get; }
 }
 
-public interface ICmpt_ParentType<TKind,TItem,TAllItem>
-  : ICmpt_ChildType<TKind, ICmpt_Named>
+public interface ICmpt_ParentType<TTypeKind,TItem,TAllItem>
+  : ICmpt_ChildType<TTypeKind, ICmpt_Named>
 {
-  ICmpt_ParentTypeObject<TKind,TItem,TAllItem>? As__ParentType { get; }
+  ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; }
 }
 
-public interface ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
-  : ICmpt_ChildTypeObject<TKind, ICmpt_Named>
+public interface ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
+  : ICmpt_ChildTypeObject<TTypeKind, ICmpt_Named>
 {
   ICollection<TItem> Items { get; }
   ICollection<TAllItem> AllItems { get; }
 }
 
-public interface ICmpt_TypeRef<TKind>
+public interface ICmpt_TypeRef<TTypeKind>
   : ICmpt_Named
 {
-  ICmpt_TypeRefObject<TKind>? As__TypeRef { get; }
+  ICmpt_TypeRefObject<TTypeKind>? As__TypeRef { get; }
 }
 
-public interface ICmpt_TypeRefObject<TKind>
+public interface ICmpt_TypeRefObject<TTypeKind>
   : ICmpt_NamedObject
 {
-  TKind TypeKind { get; }
+  TTypeKind TypeKind { get; }
 }
 
 public interface ICmpt_TypeSimple

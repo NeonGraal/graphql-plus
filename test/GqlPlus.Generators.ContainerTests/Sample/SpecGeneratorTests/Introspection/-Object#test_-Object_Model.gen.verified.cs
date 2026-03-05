@@ -13,16 +13,16 @@ public class test_ObjectKind
 {
 }
 
-public class test_TypeObject<TObject,TField>
-  : test_ChildType<TObject, Itest_ObjBase>
-  , Itest_TypeObject<TObject,TField>
+public class test_TypeObject<TObjectKind,TField>
+  : test_ChildType<TObjectKind, Itest_ObjBase>
+  , Itest_TypeObject<TObjectKind,TField>
 {
-  public Itest_TypeObjectObject<TObject,TField>? As__TypeObject { get; set; }
+  public Itest_TypeObjectObject<TObjectKind,TField>? As__TypeObject { get; set; }
 }
 
-public class test_TypeObjectObject<TObject,TField>
-  : test_ChildTypeObject<TObject, Itest_ObjBase>
-  , Itest_TypeObjectObject<TObject,TField>
+public class test_TypeObjectObject<TObjectKind,TField>
+  : test_ChildTypeObject<TObjectKind, Itest_ObjBase>
+  , Itest_TypeObjectObject<TObjectKind,TField>
 {
   public ICollection<Itest_ObjTypeParam> TypeParams { get; set; }
   public ICollection<TField> Fields { get; set; }

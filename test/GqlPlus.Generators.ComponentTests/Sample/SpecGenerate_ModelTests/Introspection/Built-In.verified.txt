@@ -5,8 +5,8 @@ dual _Collections {
     | _ModifierKeyed<_ModifierKind.TypeParam>
     }
 
-dual _ModifierKeyed<$modifier:_ModifierKind> {
-    : _Modifier<$modifier>
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
         by: _TypeSimple
         isOptional: Boolean
     }
@@ -18,8 +18,8 @@ dual _Modifiers {
 
 enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
-dual _Modifier<$modifier:_ModifierKind> {
-        modifierKind: $modifier
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
     }
 */
 
@@ -52,22 +52,22 @@ public class Cmpt_CollectionsObject
   }
 }
 
-public class Cmpt_ModifierKeyed<TModifier>
-  : Cmpt_Modifier<TModifier>
-  , ICmpt_ModifierKeyed<TModifier>
+public class Cmpt_ModifierKeyed<TModifierKind>
+  : Cmpt_Modifier<TModifierKind>
+  , ICmpt_ModifierKeyed<TModifierKind>
 {
-  public ICmpt_ModifierKeyedObject<TModifier>? As__ModifierKeyed { get; set; }
+  public ICmpt_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; set; }
 }
 
-public class Cmpt_ModifierKeyedObject<TModifier>
-  : Cmpt_ModifierObject<TModifier>
-  , ICmpt_ModifierKeyedObject<TModifier>
+public class Cmpt_ModifierKeyedObject<TModifierKind>
+  : Cmpt_ModifierObject<TModifierKind>
+  , ICmpt_ModifierKeyedObject<TModifierKind>
 {
   public ICmpt_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
 
   public Cmpt_ModifierKeyedObject
-    ( TModifier modifierKind
+    ( TModifierKind modifierKind
     , ICmpt_TypeSimple by
     , bool isOptional
     ) : base(modifierKind)
@@ -97,21 +97,21 @@ public class Cmpt_ModifiersObject
   }
 }
 
-public class Cmpt_Modifier<TModifier>
+public class Cmpt_Modifier<TModifierKind>
   : Spec_Built-In
-  , ICmpt_Modifier<TModifier>
+  , ICmpt_Modifier<TModifierKind>
 {
-  public ICmpt_ModifierObject<TModifier>? As__Modifier { get; set; }
+  public ICmpt_ModifierObject<TModifierKind>? As__Modifier { get; set; }
 }
 
-public class Cmpt_ModifierObject<TModifier>
+public class Cmpt_ModifierObject<TModifierKind>
   : Spec_Built-In
-  , ICmpt_ModifierObject<TModifier>
+  , ICmpt_ModifierObject<TModifierKind>
 {
-  public TModifier ModifierKind { get; set; }
+  public TModifierKind ModifierKind { get; set; }
 
   public Cmpt_ModifierObject
-    ( TModifier modifierKind
+    ( TModifierKind modifierKind
     )
   {
     ModifierKind = modifierKind;

@@ -36,42 +36,42 @@ public class test_TypeObject
   }
 }
 
-public class test_BaseType<TKind>
+public class test_BaseType<TTypeKind>
   : test_Aliased
-  , Itest_BaseType<TKind>
+  , Itest_BaseType<TTypeKind>
 {
-  public Itest_BaseTypeObject<TKind>? As__BaseType { get; set; }
+  public Itest_BaseTypeObject<TTypeKind>? As__BaseType { get; set; }
 }
 
-public class test_BaseTypeObject<TKind>
+public class test_BaseTypeObject<TTypeKind>
   : test_AliasedObject
-  , Itest_BaseTypeObject<TKind>
+  , Itest_BaseTypeObject<TTypeKind>
 {
-  public TKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; }
 
   public test_BaseTypeObject
-    ( TKind typeKind
+    ( TTypeKind typeKind
     )
   {
     TypeKind = typeKind;
   }
 }
 
-public class test_ChildType<TKind,TParent>
-  : test_BaseType<TKind>
-  , Itest_ChildType<TKind,TParent>
+public class test_ChildType<TTypeKind,TParent>
+  : test_BaseType<TTypeKind>
+  , Itest_ChildType<TTypeKind,TParent>
 {
-  public Itest_ChildTypeObject<TKind,TParent>? As__ChildType { get; set; }
+  public Itest_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; set; }
 }
 
-public class test_ChildTypeObject<TKind,TParent>
-  : test_BaseTypeObject<TKind>
-  , Itest_ChildTypeObject<TKind,TParent>
+public class test_ChildTypeObject<TTypeKind,TParent>
+  : test_BaseTypeObject<TTypeKind>
+  , Itest_ChildTypeObject<TTypeKind,TParent>
 {
   public TParent Parent { get; set; }
 
   public test_ChildTypeObject
-    ( TKind typeKind
+    ( TTypeKind typeKind
     , TParent parent
     ) : base(typeKind)
   {
@@ -79,22 +79,22 @@ public class test_ChildTypeObject<TKind,TParent>
   }
 }
 
-public class test_ParentType<TKind,TItem,TAllItem>
-  : test_ChildType<TKind, Itest_Named>
-  , Itest_ParentType<TKind,TItem,TAllItem>
+public class test_ParentType<TTypeKind,TItem,TAllItem>
+  : test_ChildType<TTypeKind, Itest_Named>
+  , Itest_ParentType<TTypeKind,TItem,TAllItem>
 {
-  public Itest_ParentTypeObject<TKind,TItem,TAllItem>? As__ParentType { get; set; }
+  public Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; set; }
 }
 
-public class test_ParentTypeObject<TKind,TItem,TAllItem>
-  : test_ChildTypeObject<TKind, Itest_Named>
-  , Itest_ParentTypeObject<TKind,TItem,TAllItem>
+public class test_ParentTypeObject<TTypeKind,TItem,TAllItem>
+  : test_ChildTypeObject<TTypeKind, Itest_Named>
+  , Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>
 {
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
 
   public test_ParentTypeObject
-    ( TKind typeKind
+    ( TTypeKind typeKind
     , Itest_Named parent
     , ICollection<TItem> items
     , ICollection<TAllItem> allItems
@@ -105,21 +105,21 @@ public class test_ParentTypeObject<TKind,TItem,TAllItem>
   }
 }
 
-public class test_TypeRef<TKind>
+public class test_TypeRef<TTypeKind>
   : test_Named
-  , Itest_TypeRef<TKind>
+  , Itest_TypeRef<TTypeKind>
 {
-  public Itest_TypeRefObject<TKind>? As__TypeRef { get; set; }
+  public Itest_TypeRefObject<TTypeKind>? As__TypeRef { get; set; }
 }
 
-public class test_TypeRefObject<TKind>
+public class test_TypeRefObject<TTypeKind>
   : test_NamedObject
-  , Itest_TypeRefObject<TKind>
+  , Itest_TypeRefObject<TTypeKind>
 {
-  public TKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; }
 
   public test_TypeRefObject
-    ( TKind typeKind
+    ( TTypeKind typeKind
     )
   {
     TypeKind = typeKind;
@@ -169,22 +169,22 @@ public class test_CollectionsObject
   }
 }
 
-public class test_ModifierKeyed<TModifier>
-  : test_Modifier<TModifier>
-  , Itest_ModifierKeyed<TModifier>
+public class test_ModifierKeyed<TModifierKind>
+  : test_Modifier<TModifierKind>
+  , Itest_ModifierKeyed<TModifierKind>
 {
-  public Itest_ModifierKeyedObject<TModifier>? As__ModifierKeyed { get; set; }
+  public Itest_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; set; }
 }
 
-public class test_ModifierKeyedObject<TModifier>
-  : test_ModifierObject<TModifier>
-  , Itest_ModifierKeyedObject<TModifier>
+public class test_ModifierKeyedObject<TModifierKind>
+  : test_ModifierObject<TModifierKind>
+  , Itest_ModifierKeyedObject<TModifierKind>
 {
   public Itest_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
 
   public test_ModifierKeyedObject
-    ( TModifier modifierKind
+    ( TModifierKind modifierKind
     , Itest_TypeSimple by
     , bool isOptional
     ) : base(modifierKind)
@@ -214,21 +214,21 @@ public class test_ModifiersObject
   }
 }
 
-public class test_Modifier<TModifier>
+public class test_Modifier<TModifierKind>
   : GqlpModelImplementationBase
-  , Itest_Modifier<TModifier>
+  , Itest_Modifier<TModifierKind>
 {
-  public Itest_ModifierObject<TModifier>? As__Modifier { get; set; }
+  public Itest_ModifierObject<TModifierKind>? As__Modifier { get; set; }
 }
 
-public class test_ModifierObject<TModifier>
+public class test_ModifierObject<TModifierKind>
   : GqlpModelImplementationBase
-  , Itest_ModifierObject<TModifier>
+  , Itest_ModifierObject<TModifierKind>
 {
-  public TModifier ModifierKind { get; set; }
+  public TModifierKind ModifierKind { get; set; }
 
   public test_ModifierObject
-    ( TModifier modifierKind
+    ( TModifierKind modifierKind
     )
   {
     ModifierKind = modifierKind;

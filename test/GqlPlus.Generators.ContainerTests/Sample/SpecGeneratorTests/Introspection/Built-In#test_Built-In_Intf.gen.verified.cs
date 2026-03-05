@@ -21,14 +21,14 @@ public interface Itest_CollectionsObject
 {
 }
 
-public interface Itest_ModifierKeyed<TModifier>
-  : Itest_Modifier<TModifier>
+public interface Itest_ModifierKeyed<TModifierKind>
+  : Itest_Modifier<TModifierKind>
 {
-  Itest_ModifierKeyedObject<TModifier>? As__ModifierKeyed { get; }
+  Itest_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; }
 }
 
-public interface Itest_ModifierKeyedObject<TModifier>
-  : Itest_ModifierObject<TModifier>
+public interface Itest_ModifierKeyedObject<TModifierKind>
+  : Itest_ModifierObject<TModifierKind>
 {
   Itest_TypeSimple By { get; }
   bool IsOptional { get; }
@@ -47,14 +47,14 @@ public interface Itest_ModifiersObject
 {
 }
 
-public interface Itest_Modifier<TModifier>
+public interface Itest_Modifier<TModifierKind>
   : IGqlpModelImplementationBase
 {
-  Itest_ModifierObject<TModifier>? As__Modifier { get; }
+  Itest_ModifierObject<TModifierKind>? As__Modifier { get; }
 }
 
-public interface Itest_ModifierObject<TModifier>
+public interface Itest_ModifierObject<TModifierKind>
   : IGqlpModelImplementationBase
 {
-  TModifier ModifierKind { get; }
+  TModifierKind ModifierKind { get; }
 }

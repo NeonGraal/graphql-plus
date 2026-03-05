@@ -29,53 +29,53 @@ public interface Itest_TypeObject
 {
 }
 
-public interface Itest_BaseType<TKind>
+public interface Itest_BaseType<TTypeKind>
   : Itest_Aliased
 {
-  Itest_BaseTypeObject<TKind>? As__BaseType { get; }
+  Itest_BaseTypeObject<TTypeKind>? As__BaseType { get; }
 }
 
-public interface Itest_BaseTypeObject<TKind>
+public interface Itest_BaseTypeObject<TTypeKind>
   : Itest_AliasedObject
 {
-  TKind TypeKind { get; }
+  TTypeKind TypeKind { get; }
 }
 
-public interface Itest_ChildType<TKind,TParent>
-  : Itest_BaseType<TKind>
+public interface Itest_ChildType<TTypeKind,TParent>
+  : Itest_BaseType<TTypeKind>
 {
-  Itest_ChildTypeObject<TKind,TParent>? As__ChildType { get; }
+  Itest_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; }
 }
 
-public interface Itest_ChildTypeObject<TKind,TParent>
-  : Itest_BaseTypeObject<TKind>
+public interface Itest_ChildTypeObject<TTypeKind,TParent>
+  : Itest_BaseTypeObject<TTypeKind>
 {
   TParent Parent { get; }
 }
 
-public interface Itest_ParentType<TKind,TItem,TAllItem>
-  : Itest_ChildType<TKind, Itest_Named>
+public interface Itest_ParentType<TTypeKind,TItem,TAllItem>
+  : Itest_ChildType<TTypeKind, Itest_Named>
 {
-  Itest_ParentTypeObject<TKind,TItem,TAllItem>? As__ParentType { get; }
+  Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; }
 }
 
-public interface Itest_ParentTypeObject<TKind,TItem,TAllItem>
-  : Itest_ChildTypeObject<TKind, Itest_Named>
+public interface Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>
+  : Itest_ChildTypeObject<TTypeKind, Itest_Named>
 {
   ICollection<TItem> Items { get; }
   ICollection<TAllItem> AllItems { get; }
 }
 
-public interface Itest_TypeRef<TKind>
+public interface Itest_TypeRef<TTypeKind>
   : Itest_Named
 {
-  Itest_TypeRefObject<TKind>? As__TypeRef { get; }
+  Itest_TypeRefObject<TTypeKind>? As__TypeRef { get; }
 }
 
-public interface Itest_TypeRefObject<TKind>
+public interface Itest_TypeRefObject<TTypeKind>
   : Itest_NamedObject
 {
-  TKind TypeKind { get; }
+  TTypeKind TypeKind { get; }
 }
 
 public interface Itest_TypeSimple

@@ -13,18 +13,18 @@ output _Type {
     | _TypeObject<_TypeKind.Output _OutputField>
     }
 
-output _BaseType<$kind:_TypeKind> {
+output _BaseType<$typeKind:_TypeKind> {
     : _Aliased
-        typeKind: $kind
+        typeKind: $typeKind
     }
 
-output _ChildType<$kind:_TypeKind $parent:_Described> {
-    : _BaseType<$kind>
+output _ChildType<$typeKind:_TypeKind $parent:_Described> {
+    : _BaseType<$typeKind>
         parent: $parent
     }
 
-output _ParentType<$kind:_TypeKind $item:_Described $allItem:_Described> {
-    : _ChildType<$kind _Named>
+output _ParentType<$typeKind:_TypeKind $item:_Described $allItem:_Described> {
+    : _ChildType<$typeKind _Named>
         items: $item[]
         allItems: $allItem[]
     }
@@ -33,9 +33,9 @@ enum _SimpleKind { Basic Enum Internal Domain Union }
 
 enum _TypeKind { :_SimpleKind Dual Input Output }
 
-dual _TypeRef<$kind:_TypeKind> {
+dual _TypeRef<$typeKind:_TypeKind> {
     : _Named
-        typeKind: $kind
+        typeKind: $typeKind
 }
 
 dual _TypeSimple {
@@ -83,42 +83,42 @@ public class Cmpt_TypeObject
   }
 }
 
-public class Cmpt_BaseType<TKind>
+public class Cmpt_BaseType<TTypeKind>
   : Cmpt_Aliased
-  , ICmpt_BaseType<TKind>
+  , ICmpt_BaseType<TTypeKind>
 {
-  public ICmpt_BaseTypeObject<TKind>? As__BaseType { get; set; }
+  public ICmpt_BaseTypeObject<TTypeKind>? As__BaseType { get; set; }
 }
 
-public class Cmpt_BaseTypeObject<TKind>
+public class Cmpt_BaseTypeObject<TTypeKind>
   : Cmpt_AliasedObject
-  , ICmpt_BaseTypeObject<TKind>
+  , ICmpt_BaseTypeObject<TTypeKind>
 {
-  public TKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; }
 
   public Cmpt_BaseTypeObject
-    ( TKind typeKind
+    ( TTypeKind typeKind
     )
   {
     TypeKind = typeKind;
   }
 }
 
-public class Cmpt_ChildType<TKind,TParent>
-  : Cmpt_BaseType<TKind>
-  , ICmpt_ChildType<TKind,TParent>
+public class Cmpt_ChildType<TTypeKind,TParent>
+  : Cmpt_BaseType<TTypeKind>
+  , ICmpt_ChildType<TTypeKind,TParent>
 {
-  public ICmpt_ChildTypeObject<TKind,TParent>? As__ChildType { get; set; }
+  public ICmpt_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; set; }
 }
 
-public class Cmpt_ChildTypeObject<TKind,TParent>
-  : Cmpt_BaseTypeObject<TKind>
-  , ICmpt_ChildTypeObject<TKind,TParent>
+public class Cmpt_ChildTypeObject<TTypeKind,TParent>
+  : Cmpt_BaseTypeObject<TTypeKind>
+  , ICmpt_ChildTypeObject<TTypeKind,TParent>
 {
   public TParent Parent { get; set; }
 
   public Cmpt_ChildTypeObject
-    ( TKind typeKind
+    ( TTypeKind typeKind
     , TParent parent
     ) : base(typeKind)
   {
@@ -126,22 +126,22 @@ public class Cmpt_ChildTypeObject<TKind,TParent>
   }
 }
 
-public class Cmpt_ParentType<TKind,TItem,TAllItem>
-  : Cmpt_ChildType<TKind, ICmpt_Named>
-  , ICmpt_ParentType<TKind,TItem,TAllItem>
+public class Cmpt_ParentType<TTypeKind,TItem,TAllItem>
+  : Cmpt_ChildType<TTypeKind, ICmpt_Named>
+  , ICmpt_ParentType<TTypeKind,TItem,TAllItem>
 {
-  public ICmpt_ParentTypeObject<TKind,TItem,TAllItem>? As__ParentType { get; set; }
+  public ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; set; }
 }
 
-public class Cmpt_ParentTypeObject<TKind,TItem,TAllItem>
-  : Cmpt_ChildTypeObject<TKind, ICmpt_Named>
-  , ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
+public class Cmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
+  : Cmpt_ChildTypeObject<TTypeKind, ICmpt_Named>
+  , ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
 {
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
 
   public Cmpt_ParentTypeObject
-    ( TKind typeKind
+    ( TTypeKind typeKind
     , ICmpt_Named parent
     , ICollection<TItem> items
     , ICollection<TAllItem> allItems
@@ -152,21 +152,21 @@ public class Cmpt_ParentTypeObject<TKind,TItem,TAllItem>
   }
 }
 
-public class Cmpt_TypeRef<TKind>
+public class Cmpt_TypeRef<TTypeKind>
   : Cmpt_Named
-  , ICmpt_TypeRef<TKind>
+  , ICmpt_TypeRef<TTypeKind>
 {
-  public ICmpt_TypeRefObject<TKind>? As__TypeRef { get; set; }
+  public ICmpt_TypeRefObject<TTypeKind>? As__TypeRef { get; set; }
 }
 
-public class Cmpt_TypeRefObject<TKind>
+public class Cmpt_TypeRefObject<TTypeKind>
   : Cmpt_NamedObject
-  , ICmpt_TypeRefObject<TKind>
+  , ICmpt_TypeRefObject<TTypeKind>
 {
-  public TKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; }
 
   public Cmpt_TypeRefObject
-    ( TKind typeKind
+    ( TTypeKind typeKind
     )
   {
     TypeKind = typeKind;

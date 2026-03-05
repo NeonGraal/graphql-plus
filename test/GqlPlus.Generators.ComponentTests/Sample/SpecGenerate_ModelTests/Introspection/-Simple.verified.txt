@@ -1,14 +1,14 @@
 ﻿/* -Simple
 enum _DomainKind { Boolean Enum Number String }
 
-output _DomainRef<$domain:_DomainKind> {
+output _DomainRef<$domainKind:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
-        domainKind: $domain
+        domainKind: $domainKind
     }
 
-output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
+output _BaseDomain<$domainKind:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
     : _ParentType<_TypeKind.Domain $item $domainItem>
-        domainKind: $domain
+        domainKind: $domainKind
     }
 
 dual _BaseDomainItem {
@@ -21,8 +21,8 @@ output _DomainItem<$item:_BaseDomainItem> {
         domain: _Name
     }
 
-output _DomainValue<$domain:_DomainKind $value:_BasicValue> {
-    : _DomainRef<$domain>
+output _DomainValue<$domainKind:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$domainKind>
         value: $value
     | $value
     }
@@ -99,42 +99,42 @@ output _UnionMember {
 
 namespace Components.Gqlp_Spec_Simple;
 
-public class Cmpt_DomainRef<TDomain>
+public class Cmpt_DomainRef<TDomainKind>
   : Cmpt_TypeRef<ICmpt_TypeKind>
-  , ICmpt_DomainRef<TDomain>
+  , ICmpt_DomainRef<TDomainKind>
 {
-  public ICmpt_DomainRefObject<TDomain>? As__DomainRef { get; set; }
+  public ICmpt_DomainRefObject<TDomainKind>? As__DomainRef { get; set; }
 }
 
-public class Cmpt_DomainRefObject<TDomain>
+public class Cmpt_DomainRefObject<TDomainKind>
   : Cmpt_TypeRefObject<ICmpt_TypeKind>
-  , ICmpt_DomainRefObject<TDomain>
+  , ICmpt_DomainRefObject<TDomainKind>
 {
-  public TDomain DomainKind { get; set; }
+  public TDomainKind DomainKind { get; set; }
 
   public Cmpt_DomainRefObject
-    ( TDomain domainKind
+    ( TDomainKind domainKind
     )
   {
     DomainKind = domainKind;
   }
 }
 
-public class Cmpt_BaseDomain<TDomain,TItem,TDomainItem>
+public class Cmpt_BaseDomain<TDomainKind,TItem,TDomainItem>
   : Cmpt_ParentType<ICmpt_TypeKind, TItem, TDomainItem>
-  , ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
+  , ICmpt_BaseDomain<TDomainKind,TItem,TDomainItem>
 {
-  public ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>? As__BaseDomain { get; set; }
+  public ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; set; }
 }
 
-public class Cmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
+public class Cmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>
   : Cmpt_ParentTypeObject<ICmpt_TypeKind, TItem, TDomainItem>
-  , ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
+  , ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>
 {
-  public TDomain DomainKind { get; set; }
+  public TDomainKind DomainKind { get; set; }
 
   public Cmpt_BaseDomainObject
-    ( TDomain domainKind
+    ( TDomainKind domainKind
     )
   {
     DomainKind = domainKind;
@@ -184,22 +184,22 @@ public class Cmpt_DomainItemObject<TItem>
   }
 }
 
-public class Cmpt_DomainValue<TDomain,TValue>
-  : Cmpt_DomainRef<TDomain>
-  , ICmpt_DomainValue<TDomain,TValue>
+public class Cmpt_DomainValue<TDomainKind,TValue>
+  : Cmpt_DomainRef<TDomainKind>
+  , ICmpt_DomainValue<TDomainKind,TValue>
 {
   public TValue? Asvalue { get; set; }
-  public ICmpt_DomainValueObject<TDomain,TValue>? As__DomainValue { get; set; }
+  public ICmpt_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; set; }
 }
 
-public class Cmpt_DomainValueObject<TDomain,TValue>
-  : Cmpt_DomainRefObject<TDomain>
-  , ICmpt_DomainValueObject<TDomain,TValue>
+public class Cmpt_DomainValueObject<TDomainKind,TValue>
+  : Cmpt_DomainRefObject<TDomainKind>
+  , ICmpt_DomainValueObject<TDomainKind,TValue>
 {
   public TValue Value { get; set; }
 
   public Cmpt_DomainValueObject
-    ( TDomain domainKind
+    ( TDomainKind domainKind
     , TValue value
     ) : base(domainKind)
   {

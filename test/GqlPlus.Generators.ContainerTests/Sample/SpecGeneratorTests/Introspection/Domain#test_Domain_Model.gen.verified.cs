@@ -7,42 +7,42 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Domain;
 
-public class test_DomainRef<TDomain>
+public class test_DomainRef<TDomainKind>
   : test_TypeRef<Itest_TypeKind>
-  , Itest_DomainRef<TDomain>
+  , Itest_DomainRef<TDomainKind>
 {
-  public Itest_DomainRefObject<TDomain>? As__DomainRef { get; set; }
+  public Itest_DomainRefObject<TDomainKind>? As__DomainRef { get; set; }
 }
 
-public class test_DomainRefObject<TDomain>
+public class test_DomainRefObject<TDomainKind>
   : test_TypeRefObject<Itest_TypeKind>
-  , Itest_DomainRefObject<TDomain>
+  , Itest_DomainRefObject<TDomainKind>
 {
-  public TDomain DomainKind { get; set; }
+  public TDomainKind DomainKind { get; set; }
 
   public test_DomainRefObject
-    ( TDomain domainKind
+    ( TDomainKind domainKind
     )
   {
     DomainKind = domainKind;
   }
 }
 
-public class test_BaseDomain<TDomain,TItem,TDomainItem>
+public class test_BaseDomain<TDomainKind,TItem,TDomainItem>
   : test_ParentType<Itest_TypeKind, TItem, TDomainItem>
-  , Itest_BaseDomain<TDomain,TItem,TDomainItem>
+  , Itest_BaseDomain<TDomainKind,TItem,TDomainItem>
 {
-  public Itest_BaseDomainObject<TDomain,TItem,TDomainItem>? As__BaseDomain { get; set; }
+  public Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; set; }
 }
 
-public class test_BaseDomainObject<TDomain,TItem,TDomainItem>
+public class test_BaseDomainObject<TDomainKind,TItem,TDomainItem>
   : test_ParentTypeObject<Itest_TypeKind, TItem, TDomainItem>
-  , Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
+  , Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>
 {
-  public TDomain DomainKind { get; set; }
+  public TDomainKind DomainKind { get; set; }
 
   public test_BaseDomainObject
-    ( TDomain domainKind
+    ( TDomainKind domainKind
     )
   {
     DomainKind = domainKind;
@@ -92,22 +92,22 @@ public class test_DomainItemObject<TItem>
   }
 }
 
-public class test_DomainValue<TDomain,TValue>
-  : test_DomainRef<TDomain>
-  , Itest_DomainValue<TDomain,TValue>
+public class test_DomainValue<TDomainKind,TValue>
+  : test_DomainRef<TDomainKind>
+  , Itest_DomainValue<TDomainKind,TValue>
 {
   public TValue? Asvalue { get; set; }
-  public Itest_DomainValueObject<TDomain,TValue>? As__DomainValue { get; set; }
+  public Itest_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; set; }
 }
 
-public class test_DomainValueObject<TDomain,TValue>
-  : test_DomainRefObject<TDomain>
-  , Itest_DomainValueObject<TDomain,TValue>
+public class test_DomainValueObject<TDomainKind,TValue>
+  : test_DomainRefObject<TDomainKind>
+  , Itest_DomainValueObject<TDomainKind,TValue>
 {
   public TValue Value { get; set; }
 
   public test_DomainValueObject
-    ( TDomain domainKind
+    ( TDomainKind domainKind
     , TValue value
     ) : base(domainKind)
   {

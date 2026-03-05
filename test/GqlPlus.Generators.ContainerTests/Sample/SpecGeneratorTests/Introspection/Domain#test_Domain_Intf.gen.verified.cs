@@ -7,28 +7,28 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Domain;
 
-public interface Itest_DomainRef<TDomain>
+public interface Itest_DomainRef<TDomainKind>
   : Itest_TypeRef<Itest_TypeKind>
 {
-  Itest_DomainRefObject<TDomain>? As__DomainRef { get; }
+  Itest_DomainRefObject<TDomainKind>? As__DomainRef { get; }
 }
 
-public interface Itest_DomainRefObject<TDomain>
+public interface Itest_DomainRefObject<TDomainKind>
   : Itest_TypeRefObject<Itest_TypeKind>
 {
-  TDomain DomainKind { get; }
+  TDomainKind DomainKind { get; }
 }
 
-public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
+public interface Itest_BaseDomain<TDomainKind,TItem,TDomainItem>
   : Itest_ParentType<Itest_TypeKind, TItem, TDomainItem>
 {
-  Itest_BaseDomainObject<TDomain,TItem,TDomainItem>? As__BaseDomain { get; }
+  Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; }
 }
 
-public interface Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
+public interface Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>
   : Itest_ParentTypeObject<Itest_TypeKind, TItem, TDomainItem>
 {
-  TDomain DomainKind { get; }
+  TDomainKind DomainKind { get; }
 }
 
 public interface Itest_BaseDomainItem
@@ -56,15 +56,15 @@ public interface Itest_DomainItemObject<TItem>
   Itest_Name Domain { get; }
 }
 
-public interface Itest_DomainValue<TDomain,TValue>
-  : Itest_DomainRef<TDomain>
+public interface Itest_DomainValue<TDomainKind,TValue>
+  : Itest_DomainRef<TDomainKind>
 {
   TValue? Asvalue { get; }
-  Itest_DomainValueObject<TDomain,TValue>? As__DomainValue { get; }
+  Itest_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; }
 }
 
-public interface Itest_DomainValueObject<TDomain,TValue>
-  : Itest_DomainRefObject<TDomain>
+public interface Itest_DomainValueObject<TDomainKind,TValue>
+  : Itest_DomainRefObject<TDomainKind>
 {
   TValue Value { get; }
 }

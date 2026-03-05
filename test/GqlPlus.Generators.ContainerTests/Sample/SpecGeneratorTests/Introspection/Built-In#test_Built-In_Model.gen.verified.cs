@@ -28,22 +28,22 @@ public class test_CollectionsObject
   }
 }
 
-public class test_ModifierKeyed<TModifier>
-  : test_Modifier<TModifier>
-  , Itest_ModifierKeyed<TModifier>
+public class test_ModifierKeyed<TModifierKind>
+  : test_Modifier<TModifierKind>
+  , Itest_ModifierKeyed<TModifierKind>
 {
-  public Itest_ModifierKeyedObject<TModifier>? As__ModifierKeyed { get; set; }
+  public Itest_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; set; }
 }
 
-public class test_ModifierKeyedObject<TModifier>
-  : test_ModifierObject<TModifier>
-  , Itest_ModifierKeyedObject<TModifier>
+public class test_ModifierKeyedObject<TModifierKind>
+  : test_ModifierObject<TModifierKind>
+  , Itest_ModifierKeyedObject<TModifierKind>
 {
   public Itest_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
 
   public test_ModifierKeyedObject
-    ( TModifier modifierKind
+    ( TModifierKind modifierKind
     , Itest_TypeSimple by
     , bool isOptional
     ) : base(modifierKind)
@@ -73,21 +73,21 @@ public class test_ModifiersObject
   }
 }
 
-public class test_Modifier<TModifier>
+public class test_Modifier<TModifierKind>
   : GqlpModelImplementationBase
-  , Itest_Modifier<TModifier>
+  , Itest_Modifier<TModifierKind>
 {
-  public Itest_ModifierObject<TModifier>? As__Modifier { get; set; }
+  public Itest_ModifierObject<TModifierKind>? As__Modifier { get; set; }
 }
 
-public class test_ModifierObject<TModifier>
+public class test_ModifierObject<TModifierKind>
   : GqlpModelImplementationBase
-  , Itest_ModifierObject<TModifier>
+  , Itest_ModifierObject<TModifierKind>
 {
-  public TModifier ModifierKind { get; set; }
+  public TModifierKind ModifierKind { get; set; }
 
   public test_ModifierObject
-    ( TModifier modifierKind
+    ( TModifierKind modifierKind
     )
   {
     ModifierKind = modifierKind;

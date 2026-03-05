@@ -1,14 +1,14 @@
 ﻿/* Domain
 enum _DomainKind { Boolean Enum Number String }
 
-output _DomainRef<$domain:_DomainKind> {
+output _DomainRef<$domainKind:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
-        domainKind: $domain
+        domainKind: $domainKind
     }
 
-output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
+output _BaseDomain<$domainKind:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
     : _ParentType<_TypeKind.Domain $item $domainItem>
-        domainKind: $domain
+        domainKind: $domainKind
     }
 
 dual _BaseDomainItem {
@@ -21,8 +21,8 @@ output _DomainItem<$item:_BaseDomainItem> {
         domain: _Name
     }
 
-output _DomainValue<$domain:_DomainKind $value:_BasicValue> {
-    : _DomainRef<$domain>
+output _DomainValue<$domainKind:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$domainKind>
         value: $value
     | $value
     }
@@ -80,28 +80,28 @@ output _DomainItemRegex {
 
 namespace Components.Gqlp_Spec_Domain;
 
-public interface ICmpt_DomainRef<TDomain>
+public interface ICmpt_DomainRef<TDomainKind>
   : ICmpt_TypeRef<ICmpt_TypeKind>
 {
-  ICmpt_DomainRefObject<TDomain>? As__DomainRef { get; }
+  ICmpt_DomainRefObject<TDomainKind>? As__DomainRef { get; }
 }
 
-public interface ICmpt_DomainRefObject<TDomain>
+public interface ICmpt_DomainRefObject<TDomainKind>
   : ICmpt_TypeRefObject<ICmpt_TypeKind>
 {
-  TDomain DomainKind { get; }
+  TDomainKind DomainKind { get; }
 }
 
-public interface ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
+public interface ICmpt_BaseDomain<TDomainKind,TItem,TDomainItem>
   : ICmpt_ParentType<ICmpt_TypeKind, TItem, TDomainItem>
 {
-  ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>? As__BaseDomain { get; }
+  ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; }
 }
 
-public interface ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
+public interface ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>
   : ICmpt_ParentTypeObject<ICmpt_TypeKind, TItem, TDomainItem>
 {
-  TDomain DomainKind { get; }
+  TDomainKind DomainKind { get; }
 }
 
 public interface ICmpt_BaseDomainItem
@@ -129,15 +129,15 @@ public interface ICmpt_DomainItemObject<TItem>
   ICmpt_Name Domain { get; }
 }
 
-public interface ICmpt_DomainValue<TDomain,TValue>
-  : ICmpt_DomainRef<TDomain>
+public interface ICmpt_DomainValue<TDomainKind,TValue>
+  : ICmpt_DomainRef<TDomainKind>
 {
   TValue? Asvalue { get; }
-  ICmpt_DomainValueObject<TDomain,TValue>? As__DomainValue { get; }
+  ICmpt_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; }
 }
 
-public interface ICmpt_DomainValueObject<TDomain,TValue>
-  : ICmpt_DomainRefObject<TDomain>
+public interface ICmpt_DomainValueObject<TDomainKind,TValue>
+  : ICmpt_DomainRefObject<TDomainKind>
 {
   TValue Value { get; }
 }

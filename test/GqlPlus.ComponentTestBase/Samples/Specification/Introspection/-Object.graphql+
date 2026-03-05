@@ -1,7 +1,7 @@
 domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
 
-output _TypeObject<$object:_ObjectKind $field:_ObjField> {
-    : _ChildType<$object _ObjBase>
+output _TypeObject<$objectKind:_ObjectKind $field:_ObjField> {
+    : _ChildType<$objectKind _ObjBase>
         typeParams: _ObjTypeParam[]
         fields: $field[]
         alternates: _ObjAlternate[]

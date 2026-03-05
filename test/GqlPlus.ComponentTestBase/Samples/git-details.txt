@@ -1,1 +1,1 @@
-253031d  (HEAD -> generators) 2026-02-27 Rationalize type param names
+41c2e2d  (HEAD -> generators) 2026-03-06 Improve naming of various *Kind type params

@@ -1,8 +1,8 @@
 ﻿/* Base
 domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
 
-output _TypeObject<$object:_ObjectKind $field:_ObjField> {
-    : _ChildType<$object _ObjBase>
+output _TypeObject<$objectKind:_ObjectKind $field:_ObjField> {
+    : _ChildType<$objectKind _ObjBase>
         typeParams: _ObjTypeParam[]
         fields: $field[]
         alternates: _ObjAlternate[]
@@ -83,16 +83,16 @@ public class Cmpt_ObjectKind
 {
 }
 
-public class Cmpt_TypeObject<TObject,TField>
-  : Cmpt_ChildType<TObject, ICmpt_ObjBase>
-  , ICmpt_TypeObject<TObject,TField>
+public class Cmpt_TypeObject<TObjectKind,TField>
+  : Cmpt_ChildType<TObjectKind, ICmpt_ObjBase>
+  , ICmpt_TypeObject<TObjectKind,TField>
 {
-  public ICmpt_TypeObjectObject<TObject,TField>? As__TypeObject { get; set; }
+  public ICmpt_TypeObjectObject<TObjectKind,TField>? As__TypeObject { get; set; }
 }
 
-public class Cmpt_TypeObjectObject<TObject,TField>
-  : Cmpt_ChildTypeObject<TObject, ICmpt_ObjBase>
-  , ICmpt_TypeObjectObject<TObject,TField>
+public class Cmpt_TypeObjectObject<TObjectKind,TField>
+  : Cmpt_ChildTypeObject<TObjectKind, ICmpt_ObjBase>
+  , ICmpt_TypeObjectObject<TObjectKind,TField>
 {
   public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
   public ICollection<TField> Fields { get; set; }

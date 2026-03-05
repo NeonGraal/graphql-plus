@@ -371,40 +371,40 @@ public class test_TypeObject
   }
 }
 
-public class test_BaseType<TKind>
+public class test_BaseType<TTypeKind>
   : test_Aliased
-  , Itest_BaseType<TKind>
+  , Itest_BaseType<TTypeKind>
 {
-  public Itest_BaseTypeObject<TKind>? As__BaseType { get; set; }
+  public Itest_BaseTypeObject<TTypeKind>? As__BaseType { get; set; }
 }
 
-public class test_BaseTypeObject<TKind>
+public class test_BaseTypeObject<TTypeKind>
   : test_AliasedObject
-  , Itest_BaseTypeObject<TKind>
+  , Itest_BaseTypeObject<TTypeKind>
 {
-  public TKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; }
 
   public test_BaseTypeObject
     ( ICollection<string> description
     , Itest_Name name
     , ICollection<Itest_Name> aliases
-    , TKind typeKind
+    , TTypeKind typeKind
     ) : base(description, name, aliases)
   {
     TypeKind = typeKind;
   }
 }
 
-public class test_ChildType<TKind,TParent>
-  : test_BaseType<TKind>
-  , Itest_ChildType<TKind,TParent>
+public class test_ChildType<TTypeKind,TParent>
+  : test_BaseType<TTypeKind>
+  , Itest_ChildType<TTypeKind,TParent>
 {
-  public Itest_ChildTypeObject<TKind,TParent>? As__ChildType { get; set; }
+  public Itest_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; set; }
 }
 
-public class test_ChildTypeObject<TKind,TParent>
-  : test_BaseTypeObject<TKind>
-  , Itest_ChildTypeObject<TKind,TParent>
+public class test_ChildTypeObject<TTypeKind,TParent>
+  : test_BaseTypeObject<TTypeKind>
+  , Itest_ChildTypeObject<TTypeKind,TParent>
 {
   public TParent Parent { get; set; }
 
@@ -412,7 +412,7 @@ public class test_ChildTypeObject<TKind,TParent>
     ( ICollection<string> description
     , Itest_Name name
     , ICollection<Itest_Name> aliases
-    , TKind typeKind
+    , TTypeKind typeKind
     , TParent parent
     ) : base(description, name, aliases, typeKind)
   {
@@ -420,16 +420,16 @@ public class test_ChildTypeObject<TKind,TParent>
   }
 }
 
-public class test_ParentType<TKind,TItem,TAllItem>
-  : test_ChildType<TKind, Itest_Named>
-  , Itest_ParentType<TKind,TItem,TAllItem>
+public class test_ParentType<TTypeKind,TItem,TAllItem>
+  : test_ChildType<TTypeKind, Itest_Named>
+  , Itest_ParentType<TTypeKind,TItem,TAllItem>
 {
-  public Itest_ParentTypeObject<TKind,TItem,TAllItem>? As__ParentType { get; set; }
+  public Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; set; }
 }
 
-public class test_ParentTypeObject<TKind,TItem,TAllItem>
-  : test_ChildTypeObject<TKind, Itest_Named>
-  , Itest_ParentTypeObject<TKind,TItem,TAllItem>
+public class test_ParentTypeObject<TTypeKind,TItem,TAllItem>
+  : test_ChildTypeObject<TTypeKind, Itest_Named>
+  , Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>
 {
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
@@ -438,7 +438,7 @@ public class test_ParentTypeObject<TKind,TItem,TAllItem>
     ( ICollection<string> description
     , Itest_Name name
     , ICollection<Itest_Name> aliases
-    , TKind typeKind
+    , TTypeKind typeKind
     , Itest_Named parent
     , ICollection<TItem> items
     , ICollection<TAllItem> allItems
@@ -449,23 +449,23 @@ public class test_ParentTypeObject<TKind,TItem,TAllItem>
   }
 }
 
-public class test_TypeRef<TKind>
+public class test_TypeRef<TTypeKind>
   : test_Named
-  , Itest_TypeRef<TKind>
+  , Itest_TypeRef<TTypeKind>
 {
-  public Itest_TypeRefObject<TKind>? As__TypeRef { get; set; }
+  public Itest_TypeRefObject<TTypeKind>? As__TypeRef { get; set; }
 }
 
-public class test_TypeRefObject<TKind>
+public class test_TypeRefObject<TTypeKind>
   : test_NamedObject
-  , Itest_TypeRefObject<TKind>
+  , Itest_TypeRefObject<TTypeKind>
 {
-  public TKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; }
 
   public test_TypeRefObject
     ( ICollection<string> description
     , Itest_Name name
-    , TKind typeKind
+    , TTypeKind typeKind
     ) : base(description, name)
   {
     TypeKind = typeKind;
@@ -515,22 +515,22 @@ public class test_CollectionsObject
   }
 }
 
-public class test_ModifierKeyed<TModifier>
-  : test_Modifier<TModifier>
-  , Itest_ModifierKeyed<TModifier>
+public class test_ModifierKeyed<TModifierKind>
+  : test_Modifier<TModifierKind>
+  , Itest_ModifierKeyed<TModifierKind>
 {
-  public Itest_ModifierKeyedObject<TModifier>? As__ModifierKeyed { get; set; }
+  public Itest_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; set; }
 }
 
-public class test_ModifierKeyedObject<TModifier>
-  : test_ModifierObject<TModifier>
-  , Itest_ModifierKeyedObject<TModifier>
+public class test_ModifierKeyedObject<TModifierKind>
+  : test_ModifierObject<TModifierKind>
+  , Itest_ModifierKeyedObject<TModifierKind>
 {
   public Itest_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
 
   public test_ModifierKeyedObject
-    ( TModifier modifierKind
+    ( TModifierKind modifierKind
     , Itest_TypeSimple by
     , bool isOptional
     ) : base(modifierKind)
@@ -560,62 +560,62 @@ public class test_ModifiersObject
   }
 }
 
-public class test_Modifier<TModifier>
+public class test_Modifier<TModifierKind>
   : GqlpModelImplementationBase
-  , Itest_Modifier<TModifier>
+  , Itest_Modifier<TModifierKind>
 {
-  public Itest_ModifierObject<TModifier>? As__Modifier { get; set; }
+  public Itest_ModifierObject<TModifierKind>? As__Modifier { get; set; }
 }
 
-public class test_ModifierObject<TModifier>
+public class test_ModifierObject<TModifierKind>
   : GqlpModelImplementationBase
-  , Itest_ModifierObject<TModifier>
+  , Itest_ModifierObject<TModifierKind>
 {
-  public TModifier ModifierKind { get; set; }
+  public TModifierKind ModifierKind { get; set; }
 
   public test_ModifierObject
-    ( TModifier modifierKind
+    ( TModifierKind modifierKind
     )
   {
     ModifierKind = modifierKind;
   }
 }
 
-public class test_DomainRef<TDomain>
+public class test_DomainRef<TDomainKind>
   : test_TypeRef<test_TypeKind>
-  , Itest_DomainRef<TDomain>
+  , Itest_DomainRef<TDomainKind>
 {
-  public Itest_DomainRefObject<TDomain>? As__DomainRef { get; set; }
+  public Itest_DomainRefObject<TDomainKind>? As__DomainRef { get; set; }
 }
 
-public class test_DomainRefObject<TDomain>
+public class test_DomainRefObject<TDomainKind>
   : test_TypeRefObject<test_TypeKind>
-  , Itest_DomainRefObject<TDomain>
+  , Itest_DomainRefObject<TDomainKind>
 {
-  public TDomain DomainKind { get; set; }
+  public TDomainKind DomainKind { get; set; }
 
   public test_DomainRefObject
     ( ICollection<string> description
     , Itest_Name name
-    , TDomain domainKind
+    , TDomainKind domainKind
     ) : base(description, name, test_TypeKind.Domain)
   {
     DomainKind = domainKind;
   }
 }
 
-public class test_BaseDomain<TDomain,TItem,TDomainItem>
+public class test_BaseDomain<TDomainKind,TItem,TDomainItem>
   : test_ParentType<test_TypeKind, TItem, TDomainItem>
-  , Itest_BaseDomain<TDomain,TItem,TDomainItem>
+  , Itest_BaseDomain<TDomainKind,TItem,TDomainItem>
 {
-  public Itest_BaseDomainObject<TDomain,TItem,TDomainItem>? As__BaseDomain { get; set; }
+  public Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; set; }
 }
 
-public class test_BaseDomainObject<TDomain,TItem,TDomainItem>
+public class test_BaseDomainObject<TDomainKind,TItem,TDomainItem>
   : test_ParentTypeObject<test_TypeKind, TItem, TDomainItem>
-  , Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
+  , Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>
 {
-  public TDomain DomainKind { get; set; }
+  public TDomainKind DomainKind { get; set; }
 
   public test_BaseDomainObject
     ( ICollection<string> description
@@ -624,7 +624,7 @@ public class test_BaseDomainObject<TDomain,TItem,TDomainItem>
     , Itest_Named parent
     , ICollection<TItem> items
     , ICollection<TDomainItem> allItems
-    , TDomain domainKind
+    , TDomainKind domainKind
     ) : base(description, name, aliases, test_TypeKind.Domain, parent, items, allItems)
   {
     DomainKind = domainKind;
@@ -675,24 +675,24 @@ public class test_DomainItemObject<TItem>
   }
 }
 
-public class test_DomainValue<TDomain,TValue>
-  : test_DomainRef<TDomain>
-  , Itest_DomainValue<TDomain,TValue>
+public class test_DomainValue<TDomainKind,TValue>
+  : test_DomainRef<TDomainKind>
+  , Itest_DomainValue<TDomainKind,TValue>
 {
   public TValue? Asvalue { get; set; }
-  public Itest_DomainValueObject<TDomain,TValue>? As__DomainValue { get; set; }
+  public Itest_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; set; }
 }
 
-public class test_DomainValueObject<TDomain,TValue>
-  : test_DomainRefObject<TDomain>
-  , Itest_DomainValueObject<TDomain,TValue>
+public class test_DomainValueObject<TDomainKind,TValue>
+  : test_DomainRefObject<TDomainKind>
+  , Itest_DomainValueObject<TDomainKind,TValue>
 {
   public TValue Value { get; set; }
 
   public test_DomainValueObject
     ( ICollection<string> description
     , Itest_Name name
-    , TDomain domainKind
+    , TDomainKind domainKind
     , TValue value
     ) : base(description, name, domainKind)
   {
@@ -987,16 +987,16 @@ public class test_ObjectKind
 {
 }
 
-public class test_TypeObject<TObject,TField>
-  : test_ChildType<TObject, Itest_ObjBase>
-  , Itest_TypeObject<TObject,TField>
+public class test_TypeObject<TObjectKind,TField>
+  : test_ChildType<TObjectKind, Itest_ObjBase>
+  , Itest_TypeObject<TObjectKind,TField>
 {
-  public Itest_TypeObjectObject<TObject,TField>? As__TypeObject { get; set; }
+  public Itest_TypeObjectObject<TObjectKind,TField>? As__TypeObject { get; set; }
 }
 
-public class test_TypeObjectObject<TObject,TField>
-  : test_ChildTypeObject<TObject, Itest_ObjBase>
-  , Itest_TypeObjectObject<TObject,TField>
+public class test_TypeObjectObject<TObjectKind,TField>
+  : test_ChildTypeObject<TObjectKind, Itest_ObjBase>
+  , Itest_TypeObjectObject<TObjectKind,TField>
 {
   public ICollection<Itest_ObjTypeParam> TypeParams { get; set; }
   public ICollection<TField> Fields { get; set; }
@@ -1008,7 +1008,7 @@ public class test_TypeObjectObject<TObject,TField>
     ( ICollection<string> description
     , Itest_Name name
     , ICollection<Itest_Name> aliases
-    , TObject typeKind
+    , TObjectKind typeKind
     , Itest_ObjBase parent
     , ICollection<Itest_ObjTypeParam> typeParams
     , ICollection<TField> fields

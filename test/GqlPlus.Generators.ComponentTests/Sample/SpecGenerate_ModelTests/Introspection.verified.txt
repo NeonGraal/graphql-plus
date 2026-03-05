@@ -102,18 +102,18 @@ output _Type {
     | _TypeObject<_TypeKind.Output _OutputField>
     }
 
-output _BaseType<$kind:_TypeKind> {
+output _BaseType<$typeKind:_TypeKind> {
     : _Aliased
-        typeKind: $kind
+        typeKind: $typeKind
     }
 
-output _ChildType<$kind:_TypeKind $parent:_Described> {
-    : _BaseType<$kind>
+output _ChildType<$typeKind:_TypeKind $parent:_Described> {
+    : _BaseType<$typeKind>
         parent: $parent
     }
 
-output _ParentType<$kind:_TypeKind $item:_Described $allItem:_Described> {
-    : _ChildType<$kind _Named>
+output _ParentType<$typeKind:_TypeKind $item:_Described $allItem:_Described> {
+    : _ChildType<$typeKind _Named>
         items: $item[]
         allItems: $allItem[]
     }
@@ -122,9 +122,9 @@ enum _SimpleKind { Basic Enum Internal Domain Union }
 
 enum _TypeKind { :_SimpleKind Dual Input Output }
 
-dual _TypeRef<$kind:_TypeKind> {
+dual _TypeRef<$typeKind:_TypeKind> {
     : _Named
-        typeKind: $kind
+        typeKind: $typeKind
 }
 
 dual _TypeSimple {
@@ -140,8 +140,8 @@ dual _Collections {
     | _ModifierKeyed<_ModifierKind.TypeParam>
     }
 
-dual _ModifierKeyed<$modifier:_ModifierKind> {
-    : _Modifier<$modifier>
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
         by: _TypeSimple
         isOptional: Boolean
     }
@@ -153,20 +153,20 @@ dual _Modifiers {
 
 enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
-dual _Modifier<$modifier:_ModifierKind> {
-        modifierKind: $modifier
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
     }
 
 enum _DomainKind { Boolean Enum Number String }
 
-output _DomainRef<$domain:_DomainKind> {
+output _DomainRef<$domainKind:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
-        domainKind: $domain
+        domainKind: $domainKind
     }
 
-output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
+output _BaseDomain<$domainKind:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
     : _ParentType<_TypeKind.Domain $item $domainItem>
-        domainKind: $domain
+        domainKind: $domainKind
     }
 
 dual _BaseDomainItem {
@@ -179,8 +179,8 @@ output _DomainItem<$item:_BaseDomainItem> {
         domain: _Name
     }
 
-output _DomainValue<$domain:_DomainKind $value:_BasicValue> {
-    : _DomainRef<$domain>
+output _DomainValue<$domainKind:_DomainKind $value:_BasicValue> {
+    : _DomainRef<$domainKind>
         value: $value
     | $value
     }
@@ -250,8 +250,8 @@ output _UnionMember {
 
 domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
 
-output _TypeObject<$object:_ObjectKind $field:_ObjField> {
-    : _ChildType<$object _ObjBase>
+output _TypeObject<$objectKind:_ObjectKind $field:_ObjField> {
+    : _ChildType<$objectKind _ObjBase>
         typeParams: _ObjTypeParam[]
         fields: $field[]
         alternates: _ObjAlternate[]
@@ -712,40 +712,40 @@ public class Cmpt_TypeObject
   }
 }
 
-public class Cmpt_BaseType<TKind>
+public class Cmpt_BaseType<TTypeKind>
   : Cmpt_Aliased
-  , ICmpt_BaseType<TKind>
+  , ICmpt_BaseType<TTypeKind>
 {
-  public ICmpt_BaseTypeObject<TKind>? As__BaseType { get; set; }
+  public ICmpt_BaseTypeObject<TTypeKind>? As__BaseType { get; set; }
 }
 
-public class Cmpt_BaseTypeObject<TKind>
+public class Cmpt_BaseTypeObject<TTypeKind>
   : Cmpt_AliasedObject
-  , ICmpt_BaseTypeObject<TKind>
+  , ICmpt_BaseTypeObject<TTypeKind>
 {
-  public TKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; }
 
   public Cmpt_BaseTypeObject
     ( ICollection<string> description
     , ICmpt_Name name
     , ICollection<ICmpt_Name> aliases
-    , TKind typeKind
+    , TTypeKind typeKind
     ) : base(description, name, aliases)
   {
     TypeKind = typeKind;
   }
 }
 
-public class Cmpt_ChildType<TKind,TParent>
-  : Cmpt_BaseType<TKind>
-  , ICmpt_ChildType<TKind,TParent>
+public class Cmpt_ChildType<TTypeKind,TParent>
+  : Cmpt_BaseType<TTypeKind>
+  , ICmpt_ChildType<TTypeKind,TParent>
 {
-  public ICmpt_ChildTypeObject<TKind,TParent>? As__ChildType { get; set; }
+  public ICmpt_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; set; }
 }
 
-public class Cmpt_ChildTypeObject<TKind,TParent>
-  : Cmpt_BaseTypeObject<TKind>
-  , ICmpt_ChildTypeObject<TKind,TParent>
+public class Cmpt_ChildTypeObject<TTypeKind,TParent>
+  : Cmpt_BaseTypeObject<TTypeKind>
+  , ICmpt_ChildTypeObject<TTypeKind,TParent>
 {
   public TParent Parent { get; set; }
 
@@ -753,7 +753,7 @@ public class Cmpt_ChildTypeObject<TKind,TParent>
     ( ICollection<string> description
     , ICmpt_Name name
     , ICollection<ICmpt_Name> aliases
-    , TKind typeKind
+    , TTypeKind typeKind
     , TParent parent
     ) : base(description, name, aliases, typeKind)
   {
@@ -761,16 +761,16 @@ public class Cmpt_ChildTypeObject<TKind,TParent>
   }
 }
 
-public class Cmpt_ParentType<TKind,TItem,TAllItem>
-  : Cmpt_ChildType<TKind, ICmpt_Named>
-  , ICmpt_ParentType<TKind,TItem,TAllItem>
+public class Cmpt_ParentType<TTypeKind,TItem,TAllItem>
+  : Cmpt_ChildType<TTypeKind, ICmpt_Named>
+  , ICmpt_ParentType<TTypeKind,TItem,TAllItem>
 {
-  public ICmpt_ParentTypeObject<TKind,TItem,TAllItem>? As__ParentType { get; set; }
+  public ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; set; }
 }
 
-public class Cmpt_ParentTypeObject<TKind,TItem,TAllItem>
-  : Cmpt_ChildTypeObject<TKind, ICmpt_Named>
-  , ICmpt_ParentTypeObject<TKind,TItem,TAllItem>
+public class Cmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
+  : Cmpt_ChildTypeObject<TTypeKind, ICmpt_Named>
+  , ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
 {
   public ICollection<TItem> Items { get; set; }
   public ICollection<TAllItem> AllItems { get; set; }
@@ -779,7 +779,7 @@ public class Cmpt_ParentTypeObject<TKind,TItem,TAllItem>
     ( ICollection<string> description
     , ICmpt_Name name
     , ICollection<ICmpt_Name> aliases
-    , TKind typeKind
+    , TTypeKind typeKind
     , ICmpt_Named parent
     , ICollection<TItem> items
     , ICollection<TAllItem> allItems
@@ -790,23 +790,23 @@ public class Cmpt_ParentTypeObject<TKind,TItem,TAllItem>
   }
 }
 
-public class Cmpt_TypeRef<TKind>
+public class Cmpt_TypeRef<TTypeKind>
   : Cmpt_Named
-  , ICmpt_TypeRef<TKind>
+  , ICmpt_TypeRef<TTypeKind>
 {
-  public ICmpt_TypeRefObject<TKind>? As__TypeRef { get; set; }
+  public ICmpt_TypeRefObject<TTypeKind>? As__TypeRef { get; set; }
 }
 
-public class Cmpt_TypeRefObject<TKind>
+public class Cmpt_TypeRefObject<TTypeKind>
   : Cmpt_NamedObject
-  , ICmpt_TypeRefObject<TKind>
+  , ICmpt_TypeRefObject<TTypeKind>
 {
-  public TKind TypeKind { get; set; }
+  public TTypeKind TypeKind { get; set; }
 
   public Cmpt_TypeRefObject
     ( ICollection<string> description
     , ICmpt_Name name
-    , TKind typeKind
+    , TTypeKind typeKind
     ) : base(description, name)
   {
     TypeKind = typeKind;
@@ -856,22 +856,22 @@ public class Cmpt_CollectionsObject
   }
 }
 
-public class Cmpt_ModifierKeyed<TModifier>
-  : Cmpt_Modifier<TModifier>
-  , ICmpt_ModifierKeyed<TModifier>
+public class Cmpt_ModifierKeyed<TModifierKind>
+  : Cmpt_Modifier<TModifierKind>
+  , ICmpt_ModifierKeyed<TModifierKind>
 {
-  public ICmpt_ModifierKeyedObject<TModifier>? As__ModifierKeyed { get; set; }
+  public ICmpt_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; set; }
 }
 
-public class Cmpt_ModifierKeyedObject<TModifier>
-  : Cmpt_ModifierObject<TModifier>
-  , ICmpt_ModifierKeyedObject<TModifier>
+public class Cmpt_ModifierKeyedObject<TModifierKind>
+  : Cmpt_ModifierObject<TModifierKind>
+  , ICmpt_ModifierKeyedObject<TModifierKind>
 {
   public ICmpt_TypeSimple By { get; set; }
   public bool IsOptional { get; set; }
 
   public Cmpt_ModifierKeyedObject
-    ( TModifier modifierKind
+    ( TModifierKind modifierKind
     , ICmpt_TypeSimple by
     , bool isOptional
     ) : base(modifierKind)
@@ -901,62 +901,62 @@ public class Cmpt_ModifiersObject
   }
 }
 
-public class Cmpt_Modifier<TModifier>
+public class Cmpt_Modifier<TModifierKind>
   : Spec_Introspection
-  , ICmpt_Modifier<TModifier>
+  , ICmpt_Modifier<TModifierKind>
 {
-  public ICmpt_ModifierObject<TModifier>? As__Modifier { get; set; }
+  public ICmpt_ModifierObject<TModifierKind>? As__Modifier { get; set; }
 }
 
-public class Cmpt_ModifierObject<TModifier>
+public class Cmpt_ModifierObject<TModifierKind>
   : Spec_Introspection
-  , ICmpt_ModifierObject<TModifier>
+  , ICmpt_ModifierObject<TModifierKind>
 {
-  public TModifier ModifierKind { get; set; }
+  public TModifierKind ModifierKind { get; set; }
 
   public Cmpt_ModifierObject
-    ( TModifier modifierKind
+    ( TModifierKind modifierKind
     )
   {
     ModifierKind = modifierKind;
   }
 }
 
-public class Cmpt_DomainRef<TDomain>
+public class Cmpt_DomainRef<TDomainKind>
   : Cmpt_TypeRef<Cmpt_TypeKind>
-  , ICmpt_DomainRef<TDomain>
+  , ICmpt_DomainRef<TDomainKind>
 {
-  public ICmpt_DomainRefObject<TDomain>? As__DomainRef { get; set; }
+  public ICmpt_DomainRefObject<TDomainKind>? As__DomainRef { get; set; }
 }
 
-public class Cmpt_DomainRefObject<TDomain>
+public class Cmpt_DomainRefObject<TDomainKind>
   : Cmpt_TypeRefObject<Cmpt_TypeKind>
-  , ICmpt_DomainRefObject<TDomain>
+  , ICmpt_DomainRefObject<TDomainKind>
 {
-  public TDomain DomainKind { get; set; }
+  public TDomainKind DomainKind { get; set; }
 
   public Cmpt_DomainRefObject
     ( ICollection<string> description
     , ICmpt_Name name
-    , TDomain domainKind
+    , TDomainKind domainKind
     ) : base(description, name, Cmpt_TypeKind.Domain)
   {
     DomainKind = domainKind;
   }
 }
 
-public class Cmpt_BaseDomain<TDomain,TItem,TDomainItem>
+public class Cmpt_BaseDomain<TDomainKind,TItem,TDomainItem>
   : Cmpt_ParentType<Cmpt_TypeKind, TItem, TDomainItem>
-  , ICmpt_BaseDomain<TDomain,TItem,TDomainItem>
+  , ICmpt_BaseDomain<TDomainKind,TItem,TDomainItem>
 {
-  public ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>? As__BaseDomain { get; set; }
+  public ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; set; }
 }
 
-public class Cmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
+public class Cmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>
   : Cmpt_ParentTypeObject<Cmpt_TypeKind, TItem, TDomainItem>
-  , ICmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
+  , ICmpt_BaseDomainObject<TDomainKind,TItem,TDomainItem>
 {
-  public TDomain DomainKind { get; set; }
+  public TDomainKind DomainKind { get; set; }
 
   public Cmpt_BaseDomainObject
     ( ICollection<string> description
@@ -965,7 +965,7 @@ public class Cmpt_BaseDomainObject<TDomain,TItem,TDomainItem>
     , ICmpt_Named parent
     , ICollection<TItem> items
     , ICollection<TDomainItem> allItems
-    , TDomain domainKind
+    , TDomainKind domainKind
     ) : base(description, name, aliases, Cmpt_TypeKind.Domain, parent, items, allItems)
   {
     DomainKind = domainKind;
@@ -1016,24 +1016,24 @@ public class Cmpt_DomainItemObject<TItem>
   }
 }
 
-public class Cmpt_DomainValue<TDomain,TValue>
-  : Cmpt_DomainRef<TDomain>
-  , ICmpt_DomainValue<TDomain,TValue>
+public class Cmpt_DomainValue<TDomainKind,TValue>
+  : Cmpt_DomainRef<TDomainKind>
+  , ICmpt_DomainValue<TDomainKind,TValue>
 {
   public TValue? Asvalue { get; set; }
-  public ICmpt_DomainValueObject<TDomain,TValue>? As__DomainValue { get; set; }
+  public ICmpt_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; set; }
 }
 
-public class Cmpt_DomainValueObject<TDomain,TValue>
-  : Cmpt_DomainRefObject<TDomain>
-  , ICmpt_DomainValueObject<TDomain,TValue>
+public class Cmpt_DomainValueObject<TDomainKind,TValue>
+  : Cmpt_DomainRefObject<TDomainKind>
+  , ICmpt_DomainValueObject<TDomainKind,TValue>
 {
   public TValue Value { get; set; }
 
   public Cmpt_DomainValueObject
     ( ICollection<string> description
     , ICmpt_Name name
-    , TDomain domainKind
+    , TDomainKind domainKind
     , TValue value
     ) : base(description, name, domainKind)
   {
@@ -1328,16 +1328,16 @@ public class Cmpt_ObjectKind
 {
 }
 
-public class Cmpt_TypeObject<TObject,TField>
-  : Cmpt_ChildType<TObject, ICmpt_ObjBase>
-  , ICmpt_TypeObject<TObject,TField>
+public class Cmpt_TypeObject<TObjectKind,TField>
+  : Cmpt_ChildType<TObjectKind, ICmpt_ObjBase>
+  , ICmpt_TypeObject<TObjectKind,TField>
 {
-  public ICmpt_TypeObjectObject<TObject,TField>? As__TypeObject { get; set; }
+  public ICmpt_TypeObjectObject<TObjectKind,TField>? As__TypeObject { get; set; }
 }
 
-public class Cmpt_TypeObjectObject<TObject,TField>
-  : Cmpt_ChildTypeObject<TObject, ICmpt_ObjBase>
-  , ICmpt_TypeObjectObject<TObject,TField>
+public class Cmpt_TypeObjectObject<TObjectKind,TField>
+  : Cmpt_ChildTypeObject<TObjectKind, ICmpt_ObjBase>
+  , ICmpt_TypeObjectObject<TObjectKind,TField>
 {
   public ICollection<ICmpt_ObjTypeParam> TypeParams { get; set; }
   public ICollection<TField> Fields { get; set; }
@@ -1349,7 +1349,7 @@ public class Cmpt_TypeObjectObject<TObject,TField>
     ( ICollection<string> description
     , ICmpt_Name name
     , ICollection<ICmpt_Name> aliases
-    , TObject typeKind
+    , TObjectKind typeKind
     , ICmpt_ObjBase parent
     , ICollection<ICmpt_ObjTypeParam> typeParams
     , ICollection<TField> fields

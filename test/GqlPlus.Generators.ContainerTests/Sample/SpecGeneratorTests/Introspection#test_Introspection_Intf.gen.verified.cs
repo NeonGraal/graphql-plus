@@ -210,53 +210,53 @@ public interface Itest_TypeObject
 {
 }
 
-public interface Itest_BaseType<TKind>
+public interface Itest_BaseType<TTypeKind>
   : Itest_Aliased
 {
-  Itest_BaseTypeObject<TKind>? As__BaseType { get; }
+  Itest_BaseTypeObject<TTypeKind>? As__BaseType { get; }
 }
 
-public interface Itest_BaseTypeObject<TKind>
+public interface Itest_BaseTypeObject<TTypeKind>
   : Itest_AliasedObject
 {
-  TKind TypeKind { get; }
+  TTypeKind TypeKind { get; }
 }
 
-public interface Itest_ChildType<TKind,TParent>
-  : Itest_BaseType<TKind>
+public interface Itest_ChildType<TTypeKind,TParent>
+  : Itest_BaseType<TTypeKind>
 {
-  Itest_ChildTypeObject<TKind,TParent>? As__ChildType { get; }
+  Itest_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; }
 }
 
-public interface Itest_ChildTypeObject<TKind,TParent>
-  : Itest_BaseTypeObject<TKind>
+public interface Itest_ChildTypeObject<TTypeKind,TParent>
+  : Itest_BaseTypeObject<TTypeKind>
 {
   TParent Parent { get; }
 }
 
-public interface Itest_ParentType<TKind,TItem,TAllItem>
-  : Itest_ChildType<TKind, Itest_Named>
+public interface Itest_ParentType<TTypeKind,TItem,TAllItem>
+  : Itest_ChildType<TTypeKind, Itest_Named>
 {
-  Itest_ParentTypeObject<TKind,TItem,TAllItem>? As__ParentType { get; }
+  Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; }
 }
 
-public interface Itest_ParentTypeObject<TKind,TItem,TAllItem>
-  : Itest_ChildTypeObject<TKind, Itest_Named>
+public interface Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>
+  : Itest_ChildTypeObject<TTypeKind, Itest_Named>
 {
   ICollection<TItem> Items { get; }
   ICollection<TAllItem> AllItems { get; }
 }
 
-public interface Itest_TypeRef<TKind>
+public interface Itest_TypeRef<TTypeKind>
   : Itest_Named
 {
-  Itest_TypeRefObject<TKind>? As__TypeRef { get; }
+  Itest_TypeRefObject<TTypeKind>? As__TypeRef { get; }
 }
 
-public interface Itest_TypeRefObject<TKind>
+public interface Itest_TypeRefObject<TTypeKind>
   : Itest_NamedObject
 {
-  TKind TypeKind { get; }
+  TTypeKind TypeKind { get; }
 }
 
 public interface Itest_TypeSimple
@@ -288,14 +288,14 @@ public interface Itest_CollectionsObject
 {
 }
 
-public interface Itest_ModifierKeyed<TModifier>
-  : Itest_Modifier<TModifier>
+public interface Itest_ModifierKeyed<TModifierKind>
+  : Itest_Modifier<TModifierKind>
 {
-  Itest_ModifierKeyedObject<TModifier>? As__ModifierKeyed { get; }
+  Itest_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; }
 }
 
-public interface Itest_ModifierKeyedObject<TModifier>
-  : Itest_ModifierObject<TModifier>
+public interface Itest_ModifierKeyedObject<TModifierKind>
+  : Itest_ModifierObject<TModifierKind>
 {
   Itest_TypeSimple By { get; }
   bool IsOptional { get; }
@@ -314,40 +314,40 @@ public interface Itest_ModifiersObject
 {
 }
 
-public interface Itest_Modifier<TModifier>
+public interface Itest_Modifier<TModifierKind>
   : IGqlpModelImplementationBase
 {
-  Itest_ModifierObject<TModifier>? As__Modifier { get; }
+  Itest_ModifierObject<TModifierKind>? As__Modifier { get; }
 }
 
-public interface Itest_ModifierObject<TModifier>
+public interface Itest_ModifierObject<TModifierKind>
   : IGqlpModelImplementationBase
 {
-  TModifier ModifierKind { get; }
+  TModifierKind ModifierKind { get; }
 }
 
-public interface Itest_DomainRef<TDomain>
+public interface Itest_DomainRef<TDomainKind>
   : Itest_TypeRef<test_TypeKind>
 {
-  Itest_DomainRefObject<TDomain>? As__DomainRef { get; }
+  Itest_DomainRefObject<TDomainKind>? As__DomainRef { get; }
 }
 
-public interface Itest_DomainRefObject<TDomain>
+public interface Itest_DomainRefObject<TDomainKind>
   : Itest_TypeRefObject<test_TypeKind>
 {
-  TDomain DomainKind { get; }
+  TDomainKind DomainKind { get; }
 }
 
-public interface Itest_BaseDomain<TDomain,TItem,TDomainItem>
+public interface Itest_BaseDomain<TDomainKind,TItem,TDomainItem>
   : Itest_ParentType<test_TypeKind, TItem, TDomainItem>
 {
-  Itest_BaseDomainObject<TDomain,TItem,TDomainItem>? As__BaseDomain { get; }
+  Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>? As__BaseDomain { get; }
 }
 
-public interface Itest_BaseDomainObject<TDomain,TItem,TDomainItem>
+public interface Itest_BaseDomainObject<TDomainKind,TItem,TDomainItem>
   : Itest_ParentTypeObject<test_TypeKind, TItem, TDomainItem>
 {
-  TDomain DomainKind { get; }
+  TDomainKind DomainKind { get; }
 }
 
 public interface Itest_BaseDomainItem
@@ -375,15 +375,15 @@ public interface Itest_DomainItemObject<TItem>
   Itest_Name Domain { get; }
 }
 
-public interface Itest_DomainValue<TDomain,TValue>
-  : Itest_DomainRef<TDomain>
+public interface Itest_DomainValue<TDomainKind,TValue>
+  : Itest_DomainRef<TDomainKind>
 {
   TValue? Asvalue { get; }
-  Itest_DomainValueObject<TDomain,TValue>? As__DomainValue { get; }
+  Itest_DomainValueObject<TDomainKind,TValue>? As__DomainValue { get; }
 }
 
-public interface Itest_DomainValueObject<TDomain,TValue>
-  : Itest_DomainRefObject<TDomain>
+public interface Itest_DomainValueObject<TDomainKind,TValue>
+  : Itest_DomainRefObject<TDomainKind>
 {
   TValue Value { get; }
 }
@@ -548,14 +548,14 @@ public interface Itest_ObjectKind
 {
 }
 
-public interface Itest_TypeObject<TObject,TField>
-  : Itest_ChildType<TObject, Itest_ObjBase>
+public interface Itest_TypeObject<TObjectKind,TField>
+  : Itest_ChildType<TObjectKind, Itest_ObjBase>
 {
-  Itest_TypeObjectObject<TObject,TField>? As__TypeObject { get; }
+  Itest_TypeObjectObject<TObjectKind,TField>? As__TypeObject { get; }
 }
 
-public interface Itest_TypeObjectObject<TObject,TField>
-  : Itest_ChildTypeObject<TObject, Itest_ObjBase>
+public interface Itest_TypeObjectObject<TObjectKind,TField>
+  : Itest_ChildTypeObject<TObjectKind, Itest_ObjBase>
 {
   ICollection<Itest_ObjTypeParam> TypeParams { get; }
   ICollection<TField> Fields { get; }

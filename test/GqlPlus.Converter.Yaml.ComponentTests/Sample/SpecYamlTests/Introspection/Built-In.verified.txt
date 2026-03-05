@@ -62,12 +62,12 @@ types: !_Map(_Type)
       name: modifierKind
       object: _Modifier
       type: !_ObjBase
-        typeParam: modifier
+        typeParam: modifierKind
     fields:
     - !_DualField
       name: modifierKind
       type: !_ObjBase
-        typeParam: modifier
+        typeParam: modifierKind
     name: _Modifier
     typeKind: !_TypeKind Dual
     typeParams:
@@ -75,14 +75,14 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _ModifierKind
         typeKind: !_TypeKind Enum
-      name: modifier
+      name: modifierKind
   !_Name _ModifierKeyed: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: modifierKind
       object: _Modifier
       type: !_ObjBase
-        typeParam: modifier
+        typeParam: modifierKind
     - !_ObjectFor(_DualField)
       name: by
       object: _ModifierKeyed
@@ -107,14 +107,14 @@ types: !_Map(_Type)
       name: _Modifier
       typeArgs:
       - !_TypeArg
-        typeParam: modifier
+        typeParam: modifierKind
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _ModifierKind
         typeKind: !_TypeKind Enum
-      name: modifier
+      name: modifierKind
   !_Name _ModifierKind: !_TypeEnum
     allItems:
     - !_EnumLabel

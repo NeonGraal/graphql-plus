@@ -6,13 +6,17 @@ public interface IGqlpDomainBase<T>
   void SetValue(T? value);
 }
 
-public interface IGqlpDomainBoolean : IGqlpDomainBase<bool>;
+public interface IGqlpDomainBoolean : IGqlpDomainBase<bool>
+{ }
 
-public interface IGqlpDomainEnum : IGqlpDomainBase<uint>;
+public interface IGqlpDomainEnum : IGqlpDomainBase<uint>
+{ }
 
-public interface IGqlpDomainNumber : IGqlpDomainBase<decimal>;
+public interface IGqlpDomainNumber : IGqlpDomainBase<decimal>
+{ }
 
-public interface IGqlpDomainString : IGqlpDomainBase<string>;
+public interface IGqlpDomainString : IGqlpDomainBase<string>
+{ }
 
 public class GqlpDomainBase<T>
 {
@@ -20,10 +24,14 @@ public class GqlpDomainBase<T>
   public void SetValue(T? value) => Value = value;
 }
 
-public class GqlpDomainBoolean : GqlpDomainBase<bool>, IGqlpDomainBase<bool>;
+public class GqlpDomainBoolean : GqlpDomainBase<bool>, IGqlpDomainBase<bool>
+{ }
 
-public class GqlpDomainEnum : GqlpDomainBase<uint>, IGqlpDomainBase<uint>;
+public class GqlpDomainEnum : GqlpDomainBase<uint>, IGqlpDomainBase<uint>
+{ }
 
-public class GqlpDomainNumber : GqlpDomainBase<decimal>, IGqlpDomainBase<decimal>;
+public class GqlpDomainNumber : GqlpDomainBase<decimal>, IGqlpDomainBase<decimal>
+{ }
 
-public class GqlpDomainString : GqlpDomainBase<string>, IGqlpDomainBase<string>;
+public class GqlpDomainString : GqlpDomainBase<string>, IGqlpDomainBase<string>
+{ }

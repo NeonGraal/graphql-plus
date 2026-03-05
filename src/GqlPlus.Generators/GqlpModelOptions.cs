@@ -7,11 +7,12 @@ public sealed class GqlpModelOptions(string baseNamespace, string typePrefix)
   public string BaseNamespace { get; } = baseNamespace;
   public string TypePrefix { get; } = typePrefix;
 
-  public bool Equals(GqlpModelOptions other)
-    => BaseNamespace.Equals(other?.BaseNamespace, StringComparison.Ordinal)
-    && TypePrefix.Equals(other?.TypePrefix, StringComparison.Ordinal);
+  public bool Equals(GqlpModelOptions? other)
+    => other is not null
+    && BaseNamespace.Equals(other.BaseNamespace, StringComparison.Ordinal)
+    && TypePrefix.Equals(other.TypePrefix, StringComparison.Ordinal);
 
-  public override bool Equals(object obj)
+  public override bool Equals(object? obj)
     => obj is GqlpModelOptions options
     ? Equals(options)
     : base.Equals(obj);

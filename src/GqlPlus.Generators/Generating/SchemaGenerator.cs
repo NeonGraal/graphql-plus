@@ -22,7 +22,7 @@ internal sealed class SchemaGenerator(
     context.WritePrefixLine($"namespace {nameSpace}.Gqlp_" + context.SafeFile + ";");
 
     foreach (IGqlpType type in types) {
-      ITypeGenerator generator = typeGenerators.Where(g => g.ForType(type)).FirstOrDefault();
+      ITypeGenerator? generator = typeGenerators.FirstOrDefault(g => g.ForType(type));
       if (generator is null) {
         throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
       } else {

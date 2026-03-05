@@ -1,6 +1,8 @@
 ﻿namespace GqlPlus;
 
 public class GqlpValue
-  : IGqlpValue;
+  : IGqlpValue
+{ }
 
-public interface IGqlpValue;
+public interface IGqlpValue
+{ }

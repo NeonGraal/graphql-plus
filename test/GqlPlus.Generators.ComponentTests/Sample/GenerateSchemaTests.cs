@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Sample;
 
-public class GenerateSchemaStatTests(
+public class GenerateSchemaStaticTests(
   ISchemaGeneratorChecks checks
 ) : GenerateSchemaTestBase(checks)
 {
@@ -22,7 +22,7 @@ public class GenerateSchemaEnumTests(
   public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Enum;
 }
 
-public class GenerateSchemaImplTests(
+public class GenerateSchemaModelTests(
   ISchemaGeneratorChecks checks
 ) : GenerateSchemaTestBase(checks)
 {

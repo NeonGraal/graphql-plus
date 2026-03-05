@@ -71,7 +71,7 @@ public class MapTests
   }
 
   [Theory, RepeatData]
-  public void Constructor_WihtMap_AddsMapPairs(string[] keys)
+  public void Constructor_WithMap_AddsMapPairs(string[] keys)
   {
     // Arrange
     Map<int> map = [.. keys.Select(k => 1.ToPair(k))];

@@ -1,0 +1,24 @@
+﻿/* field-mod-Enum+Dual
+dual FieldModEnumDual { field: String[EnumFieldModEnumDual] }
+enum EnumFieldModEnumDual { value }
+*/
+
+// Generated from Schema field-mod-Enum+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-mod-Enum+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_mod_Enum_Dual;
+
+public interface ICmptFieldModEnumDual
+  : Schema_field-mod-Enum+Dual
+{
+  ICmptFieldModEnumDualObject? As_FieldModEnumDual { get; }
+}
+
+public interface ICmptFieldModEnumDualObject
+  : Schema_field-mod-Enum+Dual
+{
+  IDictionary<CmptEnumFieldModEnumDual, string> Field { get; }
+}

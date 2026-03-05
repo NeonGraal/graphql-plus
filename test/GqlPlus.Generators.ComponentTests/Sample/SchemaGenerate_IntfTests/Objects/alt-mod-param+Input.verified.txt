@@ -1,0 +1,37 @@
+﻿/* alt-mod-param+Input
+input AltModParamInp<$mod:String> { | AltAltModParamInp[$mod] }
+input AltAltModParamInp { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-param+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt-mod-param+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_param_Input;
+
+public interface ICmptAltModParamInp<TMod>
+  : Schema_alt-mod-param+Input
+{
+  IDictionary<TMod, ICmptAltAltModParamInp>? AsAltAltModParamInp { get; }
+  ICmptAltModParamInpObject<TMod>? As_AltModParamInp { get; }
+}
+
+public interface ICmptAltModParamInpObject<TMod>
+  : Schema_alt-mod-param+Input
+{
+}
+
+public interface ICmptAltAltModParamInp
+  : Schema_alt-mod-param+Input
+{
+  string? AsString { get; }
+  ICmptAltAltModParamInpObject? As_AltAltModParamInp { get; }
+}
+
+public interface ICmptAltAltModParamInpObject
+  : Schema_alt-mod-param+Input
+{
+  decimal Alt { get; }
+}

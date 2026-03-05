@@ -1,0 +1,53 @@
+﻿/* parent-descr+Output
+output PrntDescrOutp { : "Test" "Descr" RefPrntDescrOutp }
+output RefPrntDescrOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent-descr+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-descr+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_descr_Output;
+
+public class CmptPrntDescrOutp
+  : CmptRefPrntDescrOutp
+  , ICmptPrntDescrOutp
+{
+  public ICmptPrntDescrOutpObject? As_PrntDescrOutp { get; set; }
+}
+
+public class CmptPrntDescrOutpObject
+  : CmptRefPrntDescrOutpObject
+  , ICmptPrntDescrOutpObject
+{
+
+  public CmptPrntDescrOutpObject
+    ( decimal parent
+    ) : base(parent)
+  {
+  }
+}
+
+public class CmptRefPrntDescrOutp
+  : Schema_parent-descr+Output
+  , ICmptRefPrntDescrOutp
+{
+  public string? AsString { get; set; }
+  public ICmptRefPrntDescrOutpObject? As_RefPrntDescrOutp { get; set; }
+}
+
+public class CmptRefPrntDescrOutpObject
+  : Schema_parent-descr+Output
+  , ICmptRefPrntDescrOutpObject
+{
+  public decimal Parent { get; set; }
+
+  public CmptRefPrntDescrOutpObject
+    ( decimal parent
+    )
+  {
+    Parent = parent;
+  }
+}

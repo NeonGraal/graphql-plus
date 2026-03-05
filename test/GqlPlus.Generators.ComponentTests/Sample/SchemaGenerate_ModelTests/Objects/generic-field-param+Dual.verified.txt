@@ -1,0 +1,75 @@
+﻿/* generic-field-param+Dual
+dual GnrcFieldParamDual { field: RefGnrcFieldParamDual<AltGnrcFieldParamDual> }
+dual RefGnrcFieldParamDual<$ref:_Dual> { | $ref }
+dual AltGnrcFieldParamDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-param+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-param+Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_param_Dual;
+
+public class CmptGnrcFieldParamDual
+  : Schema_generic-field-param+Dual
+  , ICmptGnrcFieldParamDual
+{
+  public ICmptGnrcFieldParamDualObject? As_GnrcFieldParamDual { get; set; }
+}
+
+public class CmptGnrcFieldParamDualObject
+  : Schema_generic-field-param+Dual
+  , ICmptGnrcFieldParamDualObject
+{
+  public ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> Field { get; set; }
+
+  public CmptGnrcFieldParamDualObject
+    ( ICmptRefGnrcFieldParamDual<ICmptAltGnrcFieldParamDual> field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptRefGnrcFieldParamDual<TRef>
+  : Schema_generic-field-param+Dual
+  , ICmptRefGnrcFieldParamDual<TRef>
+{
+  public TRef? Asref { get; set; }
+  public ICmptRefGnrcFieldParamDualObject<TRef>? As_RefGnrcFieldParamDual { get; set; }
+}
+
+public class CmptRefGnrcFieldParamDualObject<TRef>
+  : Schema_generic-field-param+Dual
+  , ICmptRefGnrcFieldParamDualObject<TRef>
+{
+
+  public CmptRefGnrcFieldParamDualObject
+    ()
+  {
+  }
+}
+
+public class CmptAltGnrcFieldParamDual
+  : Schema_generic-field-param+Dual
+  , ICmptAltGnrcFieldParamDual
+{
+  public string? AsString { get; set; }
+  public ICmptAltGnrcFieldParamDualObject? As_AltGnrcFieldParamDual { get; set; }
+}
+
+public class CmptAltGnrcFieldParamDualObject
+  : Schema_generic-field-param+Dual
+  , ICmptAltGnrcFieldParamDualObject
+{
+  public decimal Alt { get; set; }
+
+  public CmptAltGnrcFieldParamDualObject
+    ( decimal alt
+    )
+  {
+    Alt = alt;
+  }
+}

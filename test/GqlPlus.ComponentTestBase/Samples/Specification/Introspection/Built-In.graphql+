@@ -4,8 +4,8 @@ dual _Collections {
     | _ModifierKeyed<_ModifierKind.TypeParam>
     }
 
-dual _ModifierKeyed<$kind:_ModifierKind> {
-    : _Modifier<$kind>
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
         by: _TypeSimple
         isOptional: Boolean
     }
@@ -17,7 +17,7 @@ dual _Modifiers {
 
 enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
-dual _Modifier<$kind:_ModifierKind> {
-        modifierKind: $kind
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
     }
 

@@ -1,0 +1,84 @@
+﻿/* Built-In
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
+        by: _TypeSimple
+        isOptional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
+    }
+*/
+
+// Generated from Spec Built-In
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_Built-In, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Built_In;
+
+public interface ICmpt_Collections
+  : Spec_Built-In
+{
+  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; }
+  ICmpt_CollectionsObject? As__Collections { get; }
+}
+
+public interface ICmpt_CollectionsObject
+  : Spec_Built-In
+{
+}
+
+public interface ICmpt_ModifierKeyed<TModifierKind>
+  : ICmpt_Modifier<TModifierKind>
+{
+  ICmpt_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; }
+}
+
+public interface ICmpt_ModifierKeyedObject<TModifierKind>
+  : ICmpt_ModifierObject<TModifierKind>
+{
+  ICmpt_TypeSimple By { get; }
+  bool IsOptional { get; }
+}
+
+public interface ICmpt_Modifiers
+  : Spec_Built-In
+{
+  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; }
+  ICmpt_Collections? As_Collections { get; }
+  ICmpt_ModifiersObject? As__Modifiers { get; }
+}
+
+public interface ICmpt_ModifiersObject
+  : Spec_Built-In
+{
+}
+
+public interface ICmpt_Modifier<TModifierKind>
+  : Spec_Built-In
+{
+  ICmpt_ModifierObject<TModifierKind>? As__Modifier { get; }
+}
+
+public interface ICmpt_ModifierObject<TModifierKind>
+  : Spec_Built-In
+{
+  TModifierKind ModifierKind { get; }
+}

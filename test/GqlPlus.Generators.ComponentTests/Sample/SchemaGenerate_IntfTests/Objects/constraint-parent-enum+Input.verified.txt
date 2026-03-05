@@ -1,0 +1,38 @@
+﻿/* constraint-parent-enum+Input
+input CnstPrntEnumInp { | RefCnstPrntEnumInp<parentCnstPrntEnumInp> }
+input RefCnstPrntEnumInp<$type:EnumCnstPrntEnumInp> { field: $type }
+enum EnumCnstPrntEnumInp { :ParentCnstPrntEnumInp cnstPrntEnumInp }
+enum ParentCnstPrntEnumInp { parentCnstPrntEnumInp }
+*/
+
+// Generated from Schema constraint-parent-enum+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-parent-enum+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_enum_Input;
+
+public interface ICmptCnstPrntEnumInp
+  : Schema_constraint-parent-enum+Input
+{
+  ICmptRefCnstPrntEnumInp<CmptParentCnstPrntEnumInp>? AsParentCnstPrntEnumInpparentCnstPrntEnumInp { get; }
+  ICmptCnstPrntEnumInpObject? As_CnstPrntEnumInp { get; }
+}
+
+public interface ICmptCnstPrntEnumInpObject
+  : Schema_constraint-parent-enum+Input
+{
+}
+
+public interface ICmptRefCnstPrntEnumInp<TType>
+  : Schema_constraint-parent-enum+Input
+{
+  ICmptRefCnstPrntEnumInpObject<TType>? As_RefCnstPrntEnumInp { get; }
+}
+
+public interface ICmptRefCnstPrntEnumInpObject<TType>
+  : Schema_constraint-parent-enum+Input
+{
+  TType Field { get; }
+}

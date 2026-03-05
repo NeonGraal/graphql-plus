@@ -307,7 +307,9 @@ public abstract class ObjectVerifierFieldsTestsBase<TObjField>(
   }
 
   protected void ObjectField(ObjectBuilder<TObjField> builder, string fieldName, string fieldType, Action<ObjFieldBuilder<TObjField>>? config = null)
-    => builder.WithObjFields(A.ObjField<TObjField>(fieldName, fieldType).FluentAction(config).AsObjField);
+    => builder.WithObjFields(MakeField(fieldName, fieldType).FluentAction(config).AsObjField);
+
+  protected abstract ObjFieldBuilder<TObjField> MakeField(string fieldName, string fieldType);
 }
 
 public class ModifersTestData

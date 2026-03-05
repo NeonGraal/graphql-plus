@@ -1,0 +1,30 @@
+﻿/* alt-simple+Dual
+dual AltSmplDual { | String }
+*/
+
+// Generated from Schema alt-simple+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-simple+Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_simple_Dual;
+
+public class CmptAltSmplDual
+  : Schema_alt-simple+Dual
+  , ICmptAltSmplDual
+{
+  public string? AsString { get; set; }
+  public ICmptAltSmplDualObject? As_AltSmplDual { get; set; }
+}
+
+public class CmptAltSmplDualObject
+  : Schema_alt-simple+Dual
+  , ICmptAltSmplDualObject
+{
+
+  public CmptAltSmplDualObject
+    ()
+  {
+  }
+}

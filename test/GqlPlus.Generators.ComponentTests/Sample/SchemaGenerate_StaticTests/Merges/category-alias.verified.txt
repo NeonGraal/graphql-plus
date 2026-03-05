@@ -1,0 +1,15 @@
+﻿/* category-alias
+category [CatA1] { CtgrAlias }
+category [CatA2] { CtgrAlias }
+output CtgrAlias { }
+*/
+
+// Generated from Schema category-alias
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category-alias, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category ctgrAlias
+*/
+
+namespace Components.Gqlp_Schema_category_alias;

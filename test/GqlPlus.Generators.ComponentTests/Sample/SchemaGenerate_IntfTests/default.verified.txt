@@ -1,0 +1,64 @@
+﻿/* default
+category { Query }
+output Query { }
+
+category { (sequential) Mutation }
+output Mutation { }
+
+category { (single) Subscription }
+output Subscription { }
+
+output _Schema { }
+*/
+
+// Generated from Schema default
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_default, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_default;
+
+public interface ICmptQuery
+  : Schema_default
+{
+  ICmptQueryObject? As_Query { get; }
+}
+
+public interface ICmptQueryObject
+  : Schema_default
+{
+}
+
+public interface ICmptMutation
+  : Schema_default
+{
+  ICmptMutationObject? As_Mutation { get; }
+}
+
+public interface ICmptMutationObject
+  : Schema_default
+{
+}
+
+public interface ICmptSubscription
+  : Schema_default
+{
+  ICmptSubscriptionObject? As_Subscription { get; }
+}
+
+public interface ICmptSubscriptionObject
+  : Schema_default
+{
+}
+
+public interface ICmpt_Schema
+  : Schema_default
+{
+  ICmpt_SchemaObject? As__Schema { get; }
+}
+
+public interface ICmpt_SchemaObject
+  : Schema_default
+{
+}

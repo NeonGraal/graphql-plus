@@ -3,7 +3,7 @@
 namespace GqlPlus.Building.Schema.Simple;
 
 public class DomainBuilder<TItem>
-  : SimpleBuilder
+  : SimpleBuilder<IGqlpDomain<TItem>>
   where TItem : IGqlpDomainItem
 {
   internal TItem[] _items = [];
@@ -30,6 +30,8 @@ public class DomainBuilder<TItem>
 
   public IGqlpDomain<TItem> AsDomain
     => Build<IGqlpDomain<TItem>>();
+
+  public override IGqlpDomain<TItem> AsSimple => AsDomain;
 }
 
 public static class DomainBuilderHelper

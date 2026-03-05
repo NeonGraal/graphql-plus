@@ -18,7 +18,7 @@ Success
   _DomainRef
   <
     I@020/0003
-    $kind
+    $domainKind
     :_DomainKind
   >
   :
@@ -33,7 +33,7 @@ Success
     domainKind
     :
     I@022/0005
-    $kind
+    $domainKind
   }
 }
 {
@@ -41,12 +41,12 @@ Success
   _BaseDomain
   <
     I@021/0008
-    $domain
+    $domainKind
     :_DomainKind
-    I@041/0008
+    I@045/0008
     $item
     :_BaseDomainItem
-    I@063/0008
+    I@067/0008
     $domainItem
     :_DomainItem
   >
@@ -66,7 +66,7 @@ Success
     domainKind
     :
     I@022/0010
-    $domain
+    $domainKind
   }
 }
 {
@@ -107,9 +107,9 @@ Success
   _DomainValue
   <
     I@022/0023
-    $kind
+    $domainKind
     :_DomainKind
-    I@040/0023
+    I@046/0023
     $value
     :_BasicValue
   >
@@ -118,7 +118,7 @@ Success
   _DomainRef
   <
     I@019/0024
-    $kind
+    $domainKind
   >
   {
     !OF I@009/0025

@@ -1,0 +1,25 @@
+﻿/* object-alt-enum+Dual
+dual ObjAltEnumDual { ! true }
+dual ObjAltEnumDual { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-alt-enum+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_enum_Dual;
+
+public interface ICmptObjAltEnumDual
+  : Schema_object-alt-enum+Dual
+{
+  bool? AsBooleantrue { get; }
+  bool? AsBooleanfalse { get; }
+  ICmptObjAltEnumDualObject? As_ObjAltEnumDual { get; }
+}
+
+public interface ICmptObjAltEnumDualObject
+  : Schema_object-alt-enum+Dual
+{
+}

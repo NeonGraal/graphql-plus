@@ -1,0 +1,286 @@
+﻿/* Operation
+input _Operation {
+        variables: _OpVariable[]
+        directives: _OpDirective[]
+        fragments: _OpFragment[]
+        result: _OpResult
+    | "Parsed into above fields, plus Request category and operation" String
+    }
+
+input _OpVariable {
+        name: _Identifier
+        type: _Identifier? = null
+        modifiers: _Modifier[]
+        default: Value?
+        directives: _OpDirective[]
+    }
+
+dual _OpDirective {
+        name: _Identifier
+        argument: _OpArgument?
+    }
+
+input _OpFragment {
+        name: _Identifier
+        type: _Identifier? = null
+        directives: _OpDirective[]
+        body: _OpObject[]
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+input _Modifier {
+        modifierKind: _ModifierKind
+        by: _Identifier?
+        optional: Boolean?
+    }
+
+dual _OpArgument {
+    |   _OpArgValue
+    |   _OpArgList
+    |   _OpArgMap
+    }
+
+dual _OpArgValue {
+        variable: _Identifier
+    |   Value
+    }
+
+dual _OpArgList {
+    | _OpArgValue[]
+    }
+
+dual _OpArgMap {
+        value: _OpArgValue
+        byVariable: _Identifier
+    | _OpArgValue[Scalar]
+    }
+*/
+
+// Generated from Spec Operation
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Operation, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Operation;
+
+public class Cmpt_Operation
+  : Spec_Operation
+  , ICmpt_Operation
+{
+  public string? AsString { get; set; }
+  public ICmpt_OperationObject? As__Operation { get; set; }
+}
+
+public class Cmpt_OperationObject
+  : Spec_Operation
+  , ICmpt_OperationObject
+{
+  public ICollection<ICmpt_OpVariable> Variables { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  public ICollection<ICmpt_OpFragment> Fragments { get; set; }
+  public ICmpt_OpResult Result { get; set; }
+
+  public Cmpt_OperationObject
+    ( ICollection<ICmpt_OpVariable> variables
+    , ICollection<ICmpt_OpDirective> directives
+    , ICollection<ICmpt_OpFragment> fragments
+    , ICmpt_OpResult result
+    )
+  {
+    Variables = variables;
+    Directives = directives;
+    Fragments = fragments;
+    Result = result;
+  }
+}
+
+public class Cmpt_OpVariable
+  : Spec_Operation
+  , ICmpt_OpVariable
+{
+  public ICmpt_OpVariableObject? As__OpVariable { get; set; }
+}
+
+public class Cmpt_OpVariableObject
+  : Spec_Operation
+  , ICmpt_OpVariableObject
+{
+  public ICmpt_Identifier Name { get; set; }
+  public ICmpt_Identifier? Type { get; set; }
+  public ICollection<ICmpt_Modifier> Modifiers { get; set; }
+  public GqlpValue? Default { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+
+  public Cmpt_OpVariableObject
+    ( ICmpt_Identifier name
+    , ICollection<ICmpt_Modifier> modifiers
+    , ICollection<ICmpt_OpDirective> directives
+    )
+  {
+    Name = name;
+    Modifiers = modifiers;
+    Directives = directives;
+  }
+}
+
+public class Cmpt_OpDirective
+  : Spec_Operation
+  , ICmpt_OpDirective
+{
+  public ICmpt_OpDirectiveObject? As__OpDirective { get; set; }
+}
+
+public class Cmpt_OpDirectiveObject
+  : Spec_Operation
+  , ICmpt_OpDirectiveObject
+{
+  public ICmpt_Identifier Name { get; set; }
+  public ICmpt_OpArgument? Argument { get; set; }
+
+  public Cmpt_OpDirectiveObject
+    ( ICmpt_Identifier name
+    )
+  {
+    Name = name;
+  }
+}
+
+public class Cmpt_OpFragment
+  : Spec_Operation
+  , ICmpt_OpFragment
+{
+  public ICmpt_OpFragmentObject? As__OpFragment { get; set; }
+}
+
+public class Cmpt_OpFragmentObject
+  : Spec_Operation
+  , ICmpt_OpFragmentObject
+{
+  public ICmpt_Identifier Name { get; set; }
+  public ICmpt_Identifier? Type { get; set; }
+  public ICollection<ICmpt_OpDirective> Directives { get; set; }
+  public ICollection<ICmpt_OpObject> Body { get; set; }
+
+  public Cmpt_OpFragmentObject
+    ( ICmpt_Identifier name
+    , ICollection<ICmpt_OpDirective> directives
+    , ICollection<ICmpt_OpObject> body
+    )
+  {
+    Name = name;
+    Directives = directives;
+    Body = body;
+  }
+}
+
+public class Cmpt_Modifier
+  : Spec_Operation
+  , ICmpt_Modifier
+{
+  public ICmpt_ModifierObject? As__Modifier { get; set; }
+}
+
+public class Cmpt_ModifierObject
+  : Spec_Operation
+  , ICmpt_ModifierObject
+{
+  public Cmpt_ModifierKind ModifierKind { get; set; }
+  public ICmpt_Identifier? By { get; set; }
+  public bool? Optional { get; set; }
+
+  public Cmpt_ModifierObject
+    ( Cmpt_ModifierKind modifierKind
+    )
+  {
+    ModifierKind = modifierKind;
+  }
+}
+
+public class Cmpt_OpArgument
+  : Spec_Operation
+  , ICmpt_OpArgument
+{
+  public ICmpt_OpArgValue? As_OpArgValue { get; set; }
+  public ICmpt_OpArgList? As_OpArgList { get; set; }
+  public ICmpt_OpArgMap? As_OpArgMap { get; set; }
+  public ICmpt_OpArgumentObject? As__OpArgument { get; set; }
+}
+
+public class Cmpt_OpArgumentObject
+  : Spec_Operation
+  , ICmpt_OpArgumentObject
+{
+
+  public Cmpt_OpArgumentObject
+    ()
+  {
+  }
+}
+
+public class Cmpt_OpArgValue
+  : Spec_Operation
+  , ICmpt_OpArgValue
+{
+  public GqlpValue? AsValue { get; set; }
+  public ICmpt_OpArgValueObject? As__OpArgValue { get; set; }
+}
+
+public class Cmpt_OpArgValueObject
+  : Spec_Operation
+  , ICmpt_OpArgValueObject
+{
+  public ICmpt_Identifier Variable { get; set; }
+
+  public Cmpt_OpArgValueObject
+    ( ICmpt_Identifier variable
+    )
+  {
+    Variable = variable;
+  }
+}
+
+public class Cmpt_OpArgList
+  : Spec_Operation
+  , ICmpt_OpArgList
+{
+  public ICollection<ICmpt_OpArgValue>? As_OpArgValue { get; set; }
+  public ICmpt_OpArgListObject? As__OpArgList { get; set; }
+}
+
+public class Cmpt_OpArgListObject
+  : Spec_Operation
+  , ICmpt_OpArgListObject
+{
+
+  public Cmpt_OpArgListObject
+    ()
+  {
+  }
+}
+
+public class Cmpt_OpArgMap
+  : Spec_Operation
+  , ICmpt_OpArgMap
+{
+  public IDictionary<GqlpScalar, ICmpt_OpArgValue>? As_OpArgValue { get; set; }
+  public ICmpt_OpArgMapObject? As__OpArgMap { get; set; }
+}
+
+public class Cmpt_OpArgMapObject
+  : Spec_Operation
+  , ICmpt_OpArgMapObject
+{
+  public ICmpt_OpArgValue Value { get; set; }
+  public ICmpt_Identifier ByVariable { get; set; }
+
+  public Cmpt_OpArgMapObject
+    ( ICmpt_OpArgValue value
+    , ICmpt_Identifier byVariable
+    )
+  {
+    Value = value;
+    ByVariable = byVariable;
+  }
+}

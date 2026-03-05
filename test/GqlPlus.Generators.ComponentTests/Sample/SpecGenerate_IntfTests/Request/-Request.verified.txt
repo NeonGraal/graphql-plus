@@ -1,0 +1,330 @@
+﻿/* -Request
+input _Request {
+        category: _Identifier? = null
+        operation: _Identifier? = null
+        definition: _Operation
+        parameters: Any? = null
+    |   "Parsed into definition" String
+    }
+
+domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
+
+input _Operation {
+        variables: _OpVariable[]
+        directives: _OpDirective[]
+        fragments: _OpFragment[]
+        result: _OpResult
+    | "Parsed into above fields, plus Request category and operation" String
+    }
+
+input _OpVariable {
+        name: _Identifier
+        type: _Identifier? = null
+        modifiers: _Modifier[]
+        default: Value?
+        directives: _OpDirective[]
+    }
+
+dual _OpDirective {
+        name: _Identifier
+        argument: _OpArgument?
+    }
+
+input _OpFragment {
+        name: _Identifier
+        type: _Identifier? = null
+        directives: _OpDirective[]
+        body: _OpObject[]
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+input _Modifier {
+        modifierKind: _ModifierKind
+        by: _Identifier?
+        optional: Boolean?
+    }
+
+dual _OpArgument {
+    |   _OpArgValue
+    |   _OpArgList
+    |   _OpArgMap
+    }
+
+dual _OpArgValue {
+        variable: _Identifier
+    |   Value
+    }
+
+dual _OpArgList {
+    | _OpArgValue[]
+    }
+
+dual _OpArgMap {
+        value: _OpArgValue
+        byVariable: _Identifier
+    | _OpArgValue[Scalar]
+    }
+
+input _OpResult {
+        domain: _Identifier? = null
+        argument: _OpArgument?
+        body: _OpObject[]
+    }
+
+input _OpObject {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+    }
+
+input _OpField {
+        alias: _Identifier? = null
+        field: _Identifier
+        argument: _OpArgument?
+        modifiers: _Modifier[]
+        directives: _OpDirective[]
+        "The body as a string as we can't have nested objects."
+        body: String
+    }
+
+input _OpInline {
+        type: _Identifier? = null
+        directives: _OpDirective[]
+        "The body as a string as we can't have nested objects."
+        body: String
+    }
+
+dual _OpSpread {
+        fragment: _Identifier
+        directives: _OpDirective[]
+    }
+*/
+
+// Generated from Spec -Request
+//   with GeneratorOption: BaseType: Interface, BaseName: Spec_-Request, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Request;
+
+public interface ICmpt_Request
+  : Spec_-Request
+{
+  string? AsString { get; }
+  ICmpt_RequestObject? As__Request { get; }
+}
+
+public interface ICmpt_RequestObject
+  : Spec_-Request
+{
+  ICmpt_Identifier? Category { get; }
+  ICmpt_Identifier? Operation { get; }
+  ICmpt_Operation Definition { get; }
+  ICmpt_Any? Parameters { get; }
+}
+
+public interface ICmpt_Identifier
+  : IGqlpDomainString
+{
+}
+
+public interface ICmpt_Operation
+  : Spec_-Request
+{
+  string? AsString { get; }
+  ICmpt_OperationObject? As__Operation { get; }
+}
+
+public interface ICmpt_OperationObject
+  : Spec_-Request
+{
+  ICollection<ICmpt_OpVariable> Variables { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
+  ICollection<ICmpt_OpFragment> Fragments { get; }
+  ICmpt_OpResult Result { get; }
+}
+
+public interface ICmpt_OpVariable
+  : Spec_-Request
+{
+  ICmpt_OpVariableObject? As__OpVariable { get; }
+}
+
+public interface ICmpt_OpVariableObject
+  : Spec_-Request
+{
+  ICmpt_Identifier Name { get; }
+  ICmpt_Identifier? Type { get; }
+  ICollection<ICmpt_Modifier> Modifiers { get; }
+  GqlpValue? Default { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
+}
+
+public interface ICmpt_OpDirective
+  : Spec_-Request
+{
+  ICmpt_OpDirectiveObject? As__OpDirective { get; }
+}
+
+public interface ICmpt_OpDirectiveObject
+  : Spec_-Request
+{
+  ICmpt_Identifier Name { get; }
+  ICmpt_OpArgument? Argument { get; }
+}
+
+public interface ICmpt_OpFragment
+  : Spec_-Request
+{
+  ICmpt_OpFragmentObject? As__OpFragment { get; }
+}
+
+public interface ICmpt_OpFragmentObject
+  : Spec_-Request
+{
+  ICmpt_Identifier Name { get; }
+  ICmpt_Identifier? Type { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
+  ICollection<ICmpt_OpObject> Body { get; }
+}
+
+public interface ICmpt_Modifier
+  : Spec_-Request
+{
+  ICmpt_ModifierObject? As__Modifier { get; }
+}
+
+public interface ICmpt_ModifierObject
+  : Spec_-Request
+{
+  Cmpt_ModifierKind ModifierKind { get; }
+  ICmpt_Identifier? By { get; }
+  bool? Optional { get; }
+}
+
+public interface ICmpt_OpArgument
+  : Spec_-Request
+{
+  ICmpt_OpArgValue? As_OpArgValue { get; }
+  ICmpt_OpArgList? As_OpArgList { get; }
+  ICmpt_OpArgMap? As_OpArgMap { get; }
+  ICmpt_OpArgumentObject? As__OpArgument { get; }
+}
+
+public interface ICmpt_OpArgumentObject
+  : Spec_-Request
+{
+}
+
+public interface ICmpt_OpArgValue
+  : Spec_-Request
+{
+  GqlpValue? AsValue { get; }
+  ICmpt_OpArgValueObject? As__OpArgValue { get; }
+}
+
+public interface ICmpt_OpArgValueObject
+  : Spec_-Request
+{
+  ICmpt_Identifier Variable { get; }
+}
+
+public interface ICmpt_OpArgList
+  : Spec_-Request
+{
+  ICollection<ICmpt_OpArgValue>? As_OpArgValue { get; }
+  ICmpt_OpArgListObject? As__OpArgList { get; }
+}
+
+public interface ICmpt_OpArgListObject
+  : Spec_-Request
+{
+}
+
+public interface ICmpt_OpArgMap
+  : Spec_-Request
+{
+  IDictionary<GqlpScalar, ICmpt_OpArgValue>? As_OpArgValue { get; }
+  ICmpt_OpArgMapObject? As__OpArgMap { get; }
+}
+
+public interface ICmpt_OpArgMapObject
+  : Spec_-Request
+{
+  ICmpt_OpArgValue Value { get; }
+  ICmpt_Identifier ByVariable { get; }
+}
+
+public interface ICmpt_OpResult
+  : Spec_-Request
+{
+  ICmpt_OpResultObject? As__OpResult { get; }
+}
+
+public interface ICmpt_OpResultObject
+  : Spec_-Request
+{
+  ICmpt_Identifier? Domain { get; }
+  ICmpt_OpArgument? Argument { get; }
+  ICollection<ICmpt_OpObject> Body { get; }
+}
+
+public interface ICmpt_OpObject
+  : Spec_-Request
+{
+  ICmpt_OpField? As_OpField { get; }
+  ICmpt_OpSpread? As_OpSpread { get; }
+  ICmpt_OpInline? As_OpInline { get; }
+  ICmpt_OpObjectObject? As__OpObject { get; }
+}
+
+public interface ICmpt_OpObjectObject
+  : Spec_-Request
+{
+}
+
+public interface ICmpt_OpField
+  : Spec_-Request
+{
+  ICmpt_OpFieldObject? As__OpField { get; }
+}
+
+public interface ICmpt_OpFieldObject
+  : Spec_-Request
+{
+  ICmpt_Identifier? Alias { get; }
+  ICmpt_Identifier Field { get; }
+  ICmpt_OpArgument? Argument { get; }
+  ICollection<ICmpt_Modifier> Modifiers { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
+  string Body { get; }
+}
+
+public interface ICmpt_OpInline
+  : Spec_-Request
+{
+  ICmpt_OpInlineObject? As__OpInline { get; }
+}
+
+public interface ICmpt_OpInlineObject
+  : Spec_-Request
+{
+  ICmpt_Identifier? Type { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
+  string Body { get; }
+}
+
+public interface ICmpt_OpSpread
+  : Spec_-Request
+{
+  ICmpt_OpSpreadObject? As__OpSpread { get; }
+}
+
+public interface ICmpt_OpSpreadObject
+  : Spec_-Request
+{
+  ICmpt_Identifier Fragment { get; }
+  ICollection<ICmpt_OpDirective> Directives { get; }
+}

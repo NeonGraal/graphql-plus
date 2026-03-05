@@ -1,0 +1,35 @@
+﻿/* object-parent+Output
+output ObjPrntOutp { :RefObjPrntOutp }
+output ObjPrntOutp { :RefObjPrntOutp }
+output RefObjPrntOutp { }
+*/
+
+// Generated from Schema object-parent+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-parent+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_parent_Output;
+
+public interface ICmptObjPrntOutp
+  : ICmptRefObjPrntOutp
+{
+  ICmptObjPrntOutpObject? As_ObjPrntOutp { get; }
+}
+
+public interface ICmptObjPrntOutpObject
+  : ICmptRefObjPrntOutpObject
+{
+}
+
+public interface ICmptRefObjPrntOutp
+  : Schema_object-parent+Output
+{
+  ICmptRefObjPrntOutpObject? As_RefObjPrntOutp { get; }
+}
+
+public interface ICmptRefObjPrntOutpObject
+  : Schema_object-parent+Output
+{
+}

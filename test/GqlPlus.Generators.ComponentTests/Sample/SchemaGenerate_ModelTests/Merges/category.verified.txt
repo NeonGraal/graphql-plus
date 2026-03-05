@@ -1,0 +1,31 @@
+﻿/* category
+category { Ctgr }
+category ctgr { Ctgr }
+output Ctgr { }
+*/
+
+// Generated from Schema category
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_category;
+
+public class CmptCtgr
+  : Schema_category
+  , ICmptCtgr
+{
+  public ICmptCtgrObject? As_Ctgr { get; set; }
+}
+
+public class CmptCtgrObject
+  : Schema_category
+  , ICmptCtgrObject
+{
+
+  public CmptCtgrObject
+    ()
+  {
+  }
+}

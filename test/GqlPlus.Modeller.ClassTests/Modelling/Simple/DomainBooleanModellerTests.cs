@@ -23,7 +23,7 @@ public class DomainBooleanModellerTests
     ArgumentNullException.ThrowIfNull(excludeValues);
     this.SkipIf(boolValues.Length != excludeValues.Length);
 
-    IGqlpDomainTrueFalse[] items = [.. boolValues.Zip(excludeValues, A.DomainTrueFalse)];
+    IGqlpDomainTrueFalse[] items = [.. boolValues.Zip(excludeValues, A.ItemTrueFalse)];
 
     IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>(name, Kind)
       .WithItems(items).WithParent(parent).AsDomain;
@@ -79,9 +79,9 @@ public class DomainBooleanModellerTests
   public void ToModel_WithMixedTrueFalseValues_ReturnsCorrectModels()
   {
     // Arrange
-    IGqlpDomainTrueFalse trueItem = A.DomainTrueFalse(true, false);
-    IGqlpDomainTrueFalse falseItem = A.DomainTrueFalse(false, true);
-    IGqlpDomainTrueFalse excludedTrueItem = A.DomainTrueFalse(true, true);
+    IGqlpDomainTrueFalse trueItem = A.ItemTrueFalse(true, false);
+    IGqlpDomainTrueFalse falseItem = A.ItemTrueFalse(false, true);
+    IGqlpDomainTrueFalse excludedTrueItem = A.ItemTrueFalse(true, true);
 
     IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>("TestDomain", Kind)
       .WithItems(trueItem, falseItem, excludedTrueItem)

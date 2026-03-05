@@ -1,0 +1,23 @@
+﻿/* field+Input
+input FieldInp { field: String }
+*/
+
+// Generated from Schema field+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_Input;
+
+public interface ICmptFieldInp
+  : Schema_field+Input
+{
+  ICmptFieldInpObject? As_FieldInp { get; }
+}
+
+public interface ICmptFieldInpObject
+  : Schema_field+Input
+{
+  string Field { get; }
+}

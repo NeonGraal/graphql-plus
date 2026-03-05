@@ -1,0 +1,121 @@
+﻿/* -Request
+input _Request {
+        category: _Identifier? = null
+        operation: _Identifier? = null
+        definition: _Operation
+        parameters: Any? = null
+    |   "Parsed into definition" String
+    }
+
+domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
+
+input _Operation {
+        variables: _OpVariable[]
+        directives: _OpDirective[]
+        fragments: _OpFragment[]
+        result: _OpResult
+    | "Parsed into above fields, plus Request category and operation" String
+    }
+
+input _OpVariable {
+        name: _Identifier
+        type: _Identifier? = null
+        modifiers: _Modifier[]
+        default: Value?
+        directives: _OpDirective[]
+    }
+
+dual _OpDirective {
+        name: _Identifier
+        argument: _OpArgument?
+    }
+
+input _OpFragment {
+        name: _Identifier
+        type: _Identifier? = null
+        directives: _OpDirective[]
+        body: _OpObject[]
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+input _Modifier {
+        modifierKind: _ModifierKind
+        by: _Identifier?
+        optional: Boolean?
+    }
+
+dual _OpArgument {
+    |   _OpArgValue
+    |   _OpArgList
+    |   _OpArgMap
+    }
+
+dual _OpArgValue {
+        variable: _Identifier
+    |   Value
+    }
+
+dual _OpArgList {
+    | _OpArgValue[]
+    }
+
+dual _OpArgMap {
+        value: _OpArgValue
+        byVariable: _Identifier
+    | _OpArgValue[Scalar]
+    }
+
+input _OpResult {
+        domain: _Identifier? = null
+        argument: _OpArgument?
+        body: _OpObject[]
+    }
+
+input _OpObject {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+    }
+
+input _OpField {
+        alias: _Identifier? = null
+        field: _Identifier
+        argument: _OpArgument?
+        modifiers: _Modifier[]
+        directives: _OpDirective[]
+        "The body as a string as we can't have nested objects."
+        body: String
+    }
+
+input _OpInline {
+        type: _Identifier? = null
+        directives: _OpDirective[]
+        "The body as a string as we can't have nested objects."
+        body: String
+    }
+
+dual _OpSpread {
+        fragment: _Identifier
+        directives: _OpDirective[]
+    }
+*/
+
+// Generated from Spec -Request
+//   with GeneratorOption: BaseType: Other, BaseName: Spec_-Request, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Request;
+
+public enum Cmpt_ModifierKind
+{
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}

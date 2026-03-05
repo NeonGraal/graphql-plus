@@ -1,0 +1,42 @@
+﻿/* generic-parent-enum-dom+Dual
+dual GnrcPrntEnumDomDual { :FieldGnrcPrntEnumDomDual<DomGnrcPrntEnumDomDual> }
+dual FieldGnrcPrntEnumDomDual<$ref:EnumGnrcPrntEnumDomDual> { field: $ref }
+enum EnumGnrcPrntEnumDomDual { gnrcPrntEnumDomDualLabel gnrcPrntEnumDomDualOther }
+domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
+*/
+
+// Generated from Schema generic-parent-enum-dom+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-enum-dom+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_enum_dom_Dual;
+
+public interface ICmptGnrcPrntEnumDomDual
+  : ICmptFieldGnrcPrntEnumDomDual<ICmptDomGnrcPrntEnumDomDual>
+{
+  ICmptGnrcPrntEnumDomDualObject? As_GnrcPrntEnumDomDual { get; }
+}
+
+public interface ICmptGnrcPrntEnumDomDualObject
+  : ICmptFieldGnrcPrntEnumDomDualObject<ICmptDomGnrcPrntEnumDomDual>
+{
+}
+
+public interface ICmptFieldGnrcPrntEnumDomDual<TRef>
+  : Schema_generic-parent-enum-dom+Dual
+{
+  ICmptFieldGnrcPrntEnumDomDualObject<TRef>? As_FieldGnrcPrntEnumDomDual { get; }
+}
+
+public interface ICmptFieldGnrcPrntEnumDomDualObject<TRef>
+  : Schema_generic-parent-enum-dom+Dual
+{
+  TRef Field { get; }
+}
+
+public interface ICmptDomGnrcPrntEnumDomDual
+  : IGqlpDomainEnum
+{
+}

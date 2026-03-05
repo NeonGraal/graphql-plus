@@ -84,7 +84,10 @@ public static class ObjectBuilderHelper
 
   public static T WithAlternate<T>(this T builder, string typeName, Action<AlternateBuilder>? config = null)
     where T : ObjectBuilder
-    => builder.WithAlternates(builder.Alternate(typeName).FluentAction(config).AsAlternate);
+    => builder.WithAlternates(builder.Alternate(typeName).FluentAction(config));
+  public static T WithAlternates<T>(this T builder, params AlternateBuilder[] alternates)
+    where T : ObjectBuilder
+    => builder.WithAlternates([.. alternates.Select(a => a.AsAlternate)]);
   public static T WithAlternates<T>(this T builder, params IGqlpAlternate[] alternates)
     where T : ObjectBuilder
     => builder.FluentAction(b => b._alternates = alternates);

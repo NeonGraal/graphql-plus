@@ -20,16 +20,15 @@ public class SimpleBuilder
   }
 }
 
-public class SimpleBuilder<T>
+public abstract class SimpleBuilder<T>
   : SimpleBuilder
     where T : class, IGqlpSimple
 {
-  public SimpleBuilder(string name)
+  protected SimpleBuilder(string name)
     : base(name)
     => Add<T>();
 
-  public T AsSimple
-    => Build<T>();
+  public abstract T AsSimple { get; }
 }
 
 public static class SimpleBuilderHelper

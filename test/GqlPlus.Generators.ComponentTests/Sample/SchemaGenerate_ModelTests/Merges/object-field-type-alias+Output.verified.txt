@@ -1,0 +1,33 @@
+﻿/* object-field-type-alias+Output
+output ObjFieldTypeAliasOutp { field: String }
+output ObjFieldTypeAliasOutp { field: String }
+*/
+
+// Generated from Schema object-field-type-alias+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-type-alias+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_type_alias_Output;
+
+public class CmptObjFieldTypeAliasOutp
+  : Schema_object-field-type-alias+Output
+  , ICmptObjFieldTypeAliasOutp
+{
+  public ICmptObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; set; }
+}
+
+public class CmptObjFieldTypeAliasOutpObject
+  : Schema_object-field-type-alias+Output
+  , ICmptObjFieldTypeAliasOutpObject
+{
+  public string Field { get; set; }
+
+  public CmptObjFieldTypeAliasOutpObject
+    ( string field
+    )
+  {
+    Field = field;
+  }
+}

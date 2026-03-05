@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\GqlPlus.Common\GqlPlus.Common.csproj" />
+    <ProjectReference Include="..\..\src\GqlPlus.Generators\GqlPlus.Generators.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\GqlPlus.ClassTestBase\GqlPlus.ClassTestBase.csproj" />
+  </ItemGroup>
+
+</Project>

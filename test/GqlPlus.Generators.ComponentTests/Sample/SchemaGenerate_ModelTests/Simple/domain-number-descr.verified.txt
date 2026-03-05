@@ -1,0 +1,17 @@
+﻿/* domain-number-descr
+domain DmnNmbrDescr { Number "DomNumber" "Descr" <2 }
+*/
+
+// Generated from Schema domain-number-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-number-descr, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_number_descr;
+
+public class CmptDmnNmbrDescr
+  : GqlpDomainNumber
+  , ICmptDmnNmbrDescr
+{
+}

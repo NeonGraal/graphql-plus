@@ -1,0 +1,75 @@
+﻿/* generic-field-param+Output
+output GnrcFieldParamOutp { field: RefGnrcFieldParamOutp<AltGnrcFieldParamOutp> }
+output RefGnrcFieldParamOutp<$ref:_Output> { | $ref }
+output AltGnrcFieldParamOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-param+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-param+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_param_Output;
+
+public class CmptGnrcFieldParamOutp
+  : Schema_generic-field-param+Output
+  , ICmptGnrcFieldParamOutp
+{
+  public ICmptGnrcFieldParamOutpObject? As_GnrcFieldParamOutp { get; set; }
+}
+
+public class CmptGnrcFieldParamOutpObject
+  : Schema_generic-field-param+Output
+  , ICmptGnrcFieldParamOutpObject
+{
+  public ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> Field { get; set; }
+
+  public CmptGnrcFieldParamOutpObject
+    ( ICmptRefGnrcFieldParamOutp<ICmptAltGnrcFieldParamOutp> field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptRefGnrcFieldParamOutp<TRef>
+  : Schema_generic-field-param+Output
+  , ICmptRefGnrcFieldParamOutp<TRef>
+{
+  public TRef? Asref { get; set; }
+  public ICmptRefGnrcFieldParamOutpObject<TRef>? As_RefGnrcFieldParamOutp { get; set; }
+}
+
+public class CmptRefGnrcFieldParamOutpObject<TRef>
+  : Schema_generic-field-param+Output
+  , ICmptRefGnrcFieldParamOutpObject<TRef>
+{
+
+  public CmptRefGnrcFieldParamOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptAltGnrcFieldParamOutp
+  : Schema_generic-field-param+Output
+  , ICmptAltGnrcFieldParamOutp
+{
+  public string? AsString { get; set; }
+  public ICmptAltGnrcFieldParamOutpObject? As_AltGnrcFieldParamOutp { get; set; }
+}
+
+public class CmptAltGnrcFieldParamOutpObject
+  : Schema_generic-field-param+Output
+  , ICmptAltGnrcFieldParamOutpObject
+{
+  public decimal Alt { get; set; }
+
+  public CmptAltGnrcFieldParamOutpObject
+    ( decimal alt
+    )
+  {
+    Alt = alt;
+  }
+}

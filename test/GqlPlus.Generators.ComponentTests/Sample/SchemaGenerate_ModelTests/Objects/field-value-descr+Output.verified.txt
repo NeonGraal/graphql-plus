@@ -1,0 +1,33 @@
+﻿/* field-value-descr+Output
+output FieldValueDescrOutp { field = "Test" "Descr" fieldValueDescrOutp }
+enum EnumFieldValueDescrOutp { fieldValueDescrOutp }
+*/
+
+// Generated from Schema field-value-descr+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-value-descr+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_value_descr_Output;
+
+public class CmptFieldValueDescrOutp
+  : Schema_field-value-descr+Output
+  , ICmptFieldValueDescrOutp
+{
+  public ICmptFieldValueDescrOutpObject? As_FieldValueDescrOutp { get; set; }
+}
+
+public class CmptFieldValueDescrOutpObject
+  : Schema_field-value-descr+Output
+  , ICmptFieldValueDescrOutpObject
+{
+  public CmptEnumFieldValueDescrOutp Field { get; set; }
+
+  public CmptFieldValueDescrOutpObject
+    ( CmptEnumFieldValueDescrOutp field
+    )
+  {
+    Field = field;
+  }
+}

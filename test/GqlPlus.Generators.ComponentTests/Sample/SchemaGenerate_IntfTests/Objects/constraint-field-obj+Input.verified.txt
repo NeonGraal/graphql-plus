@@ -1,0 +1,61 @@
+﻿/* constraint-field-obj+Input
+input CnstFieldObjInp { :RefCnstFieldObjInp<AltCnstFieldObjInp> }
+input RefCnstFieldObjInp<$ref:PrntCnstFieldObjInp> { field: $ref }
+input PrntCnstFieldObjInp { | String }
+input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-field-obj+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_obj_Input;
+
+public interface ICmptCnstFieldObjInp
+  : ICmptRefCnstFieldObjInp<ICmptAltCnstFieldObjInp>
+{
+  ICmptCnstFieldObjInpObject? As_CnstFieldObjInp { get; }
+}
+
+public interface ICmptCnstFieldObjInpObject
+  : ICmptRefCnstFieldObjInpObject<ICmptAltCnstFieldObjInp>
+{
+}
+
+public interface ICmptRefCnstFieldObjInp<TRef>
+  : Schema_constraint-field-obj+Input
+{
+  ICmptRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; }
+}
+
+public interface ICmptRefCnstFieldObjInpObject<TRef>
+  : Schema_constraint-field-obj+Input
+{
+  TRef Field { get; }
+}
+
+public interface ICmptPrntCnstFieldObjInp
+  : Schema_constraint-field-obj+Input
+{
+  string? AsString { get; }
+  ICmptPrntCnstFieldObjInpObject? As_PrntCnstFieldObjInp { get; }
+}
+
+public interface ICmptPrntCnstFieldObjInpObject
+  : Schema_constraint-field-obj+Input
+{
+}
+
+public interface ICmptAltCnstFieldObjInp
+  : ICmptPrntCnstFieldObjInp
+{
+  ICmptAltCnstFieldObjInpObject? As_AltCnstFieldObjInp { get; }
+}
+
+public interface ICmptAltCnstFieldObjInpObject
+  : ICmptPrntCnstFieldObjInpObject
+{
+  decimal Alt { get; }
+}

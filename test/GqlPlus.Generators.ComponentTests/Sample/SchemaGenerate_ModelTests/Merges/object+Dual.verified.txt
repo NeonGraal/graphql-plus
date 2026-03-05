@@ -1,0 +1,30 @@
+﻿/* object+Dual
+dual ObjDual { }
+dual ObjDual { }
+*/
+
+// Generated from Schema object+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object+Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_Dual;
+
+public class CmptObjDual
+  : Schema_object+Dual
+  , ICmptObjDual
+{
+  public ICmptObjDualObject? As_ObjDual { get; set; }
+}
+
+public class CmptObjDualObject
+  : Schema_object+Dual
+  , ICmptObjDualObject
+{
+
+  public CmptObjDualObject
+    ()
+  {
+  }
+}

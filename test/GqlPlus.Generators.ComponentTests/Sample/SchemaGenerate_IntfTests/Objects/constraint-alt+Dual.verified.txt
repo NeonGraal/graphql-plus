@@ -1,0 +1,23 @@
+﻿/* constraint-alt+Dual
+dual CnstAltDual<$type:Number> { | $type }
+*/
+
+// Generated from Schema constraint-alt+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-alt+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_Dual;
+
+public interface ICmptCnstAltDual<TType>
+  : Schema_constraint-alt+Dual
+{
+  TType? Astype { get; }
+  ICmptCnstAltDualObject<TType>? As_CnstAltDual { get; }
+}
+
+public interface ICmptCnstAltDualObject<TType>
+  : Schema_constraint-alt+Dual
+{
+}

@@ -1,0 +1,50 @@
+﻿/* Full
+input _Request {
+        category: _Identifier? = null
+        operation: _Identifier? = null
+        definition: _Operation
+        parameters: Any? = null
+    |   "Parsed into definition" String
+    }
+
+domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
+*/
+
+// Generated from Spec Full
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Full, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Full;
+
+public class Cmpt_Request
+  : Spec_Full
+  , ICmpt_Request
+{
+  public string? AsString { get; set; }
+  public ICmpt_RequestObject? As__Request { get; set; }
+}
+
+public class Cmpt_RequestObject
+  : Spec_Full
+  , ICmpt_RequestObject
+{
+  public ICmpt_Identifier? Category { get; set; }
+  public ICmpt_Identifier? Operation { get; set; }
+  public ICmpt_Operation Definition { get; set; }
+  public ICmpt_Any? Parameters { get; set; }
+
+  public Cmpt_RequestObject
+    ( ICmpt_Operation definition
+    )
+  {
+    Definition = definition;
+  }
+}
+
+public class Cmpt_Identifier
+  : GqlpDomainString
+  , ICmpt_Identifier
+{
+}

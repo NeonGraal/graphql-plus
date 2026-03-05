@@ -1,0 +1,29 @@
+﻿// Generated from Schema !ALL
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_!ALL, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category ctgrDscrs
+Category ctgrOutp
+Category ctgrOutpDescr
+Category ctgrOutpDict
+Category ctgrOutpList
+Category ctgrOutpOptl
+Category descrBtwn
+Category ctgr
+Category ctgrAlias
+Category ctgrDescr
+Category ctgrMod
+Directive DrctDescr
+Directive DrctNoParam
+Directive DrctParamDict
+Directive DrctParamIn
+Directive DrctParamList
+Directive DrctParamOpt
+Directive Drct
+Directive DrctAlias
+Directive DrctParam
+Option Schema
+*/
+
+namespace Components.Gqlp_Schema_ALL;

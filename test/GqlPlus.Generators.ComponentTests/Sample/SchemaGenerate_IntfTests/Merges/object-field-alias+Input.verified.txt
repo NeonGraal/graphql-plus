@@ -1,0 +1,36 @@
+﻿/* object-field-alias+Input
+input ObjFieldAliasInp { field [field1]: FldObjFieldAliasInp }
+input ObjFieldAliasInp { field [field2]: FldObjFieldAliasInp }
+input FldObjFieldAliasInp { }
+*/
+
+// Generated from Schema object-field-alias+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-field-alias+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_alias_Input;
+
+public interface ICmptObjFieldAliasInp
+  : Schema_object-field-alias+Input
+{
+  ICmptObjFieldAliasInpObject? As_ObjFieldAliasInp { get; }
+}
+
+public interface ICmptObjFieldAliasInpObject
+  : Schema_object-field-alias+Input
+{
+  ICmptFldObjFieldAliasInp Field { get; }
+}
+
+public interface ICmptFldObjFieldAliasInp
+  : Schema_object-field-alias+Input
+{
+  ICmptFldObjFieldAliasInpObject? As_FldObjFieldAliasInp { get; }
+}
+
+public interface ICmptFldObjFieldAliasInpObject
+  : Schema_object-field-alias+Input
+{
+}

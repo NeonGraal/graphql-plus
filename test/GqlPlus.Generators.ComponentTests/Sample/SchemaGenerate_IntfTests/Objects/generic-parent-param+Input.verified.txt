@@ -1,0 +1,49 @@
+﻿/* generic-parent-param+Input
+input GnrcPrntParamInp { :RefGnrcPrntParamInp<AltGnrcPrntParamInp> }
+input RefGnrcPrntParamInp<$ref:_Input> { | $ref }
+input AltGnrcPrntParamInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-param+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-param+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_param_Input;
+
+public interface ICmptGnrcPrntParamInp
+  : ICmptRefGnrcPrntParamInp<ICmptAltGnrcPrntParamInp>
+{
+  ICmptGnrcPrntParamInpObject? As_GnrcPrntParamInp { get; }
+}
+
+public interface ICmptGnrcPrntParamInpObject
+  : ICmptRefGnrcPrntParamInpObject<ICmptAltGnrcPrntParamInp>
+{
+}
+
+public interface ICmptRefGnrcPrntParamInp<TRef>
+  : Schema_generic-parent-param+Input
+{
+  TRef? Asref { get; }
+  ICmptRefGnrcPrntParamInpObject<TRef>? As_RefGnrcPrntParamInp { get; }
+}
+
+public interface ICmptRefGnrcPrntParamInpObject<TRef>
+  : Schema_generic-parent-param+Input
+{
+}
+
+public interface ICmptAltGnrcPrntParamInp
+  : Schema_generic-parent-param+Input
+{
+  string? AsString { get; }
+  ICmptAltGnrcPrntParamInpObject? As_AltGnrcPrntParamInp { get; }
+}
+
+public interface ICmptAltGnrcPrntParamInpObject
+  : Schema_generic-parent-param+Input
+{
+  decimal Alt { get; }
+}

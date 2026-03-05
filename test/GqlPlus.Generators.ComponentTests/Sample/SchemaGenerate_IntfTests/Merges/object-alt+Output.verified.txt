@@ -1,0 +1,36 @@
+﻿/* object-alt+Output
+output ObjAltOutp { | ObjAltOutpType }
+output ObjAltOutp { | ObjAltOutpType }
+output ObjAltOutpType { }
+*/
+
+// Generated from Schema object-alt+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-alt+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_Output;
+
+public interface ICmptObjAltOutp
+  : Schema_object-alt+Output
+{
+  ICmptObjAltOutpType? AsObjAltOutpType { get; }
+  ICmptObjAltOutpObject? As_ObjAltOutp { get; }
+}
+
+public interface ICmptObjAltOutpObject
+  : Schema_object-alt+Output
+{
+}
+
+public interface ICmptObjAltOutpType
+  : Schema_object-alt+Output
+{
+  ICmptObjAltOutpTypeObject? As_ObjAltOutpType { get; }
+}
+
+public interface ICmptObjAltOutpTypeObject
+  : Schema_object-alt+Output
+{
+}

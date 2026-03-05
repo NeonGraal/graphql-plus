@@ -1,0 +1,73 @@
+﻿/* generic-alt-param+Input
+input GnrcAltParamInp { | RefGnrcAltParamInp<AltGnrcAltParamInp> }
+input RefGnrcAltParamInp<$ref:_Input> { | $ref }
+input AltGnrcAltParamInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-param+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_param_Input;
+
+public class CmptGnrcAltParamInp
+  : Schema_generic-alt-param+Input
+  , ICmptGnrcAltParamInp
+{
+  public ICmptRefGnrcAltParamInp<ICmptAltGnrcAltParamInp>? AsRefGnrcAltParamInp { get; set; }
+  public ICmptGnrcAltParamInpObject? As_GnrcAltParamInp { get; set; }
+}
+
+public class CmptGnrcAltParamInpObject
+  : Schema_generic-alt-param+Input
+  , ICmptGnrcAltParamInpObject
+{
+
+  public CmptGnrcAltParamInpObject
+    ()
+  {
+  }
+}
+
+public class CmptRefGnrcAltParamInp<TRef>
+  : Schema_generic-alt-param+Input
+  , ICmptRefGnrcAltParamInp<TRef>
+{
+  public TRef? Asref { get; set; }
+  public ICmptRefGnrcAltParamInpObject<TRef>? As_RefGnrcAltParamInp { get; set; }
+}
+
+public class CmptRefGnrcAltParamInpObject<TRef>
+  : Schema_generic-alt-param+Input
+  , ICmptRefGnrcAltParamInpObject<TRef>
+{
+
+  public CmptRefGnrcAltParamInpObject
+    ()
+  {
+  }
+}
+
+public class CmptAltGnrcAltParamInp
+  : Schema_generic-alt-param+Input
+  , ICmptAltGnrcAltParamInp
+{
+  public string? AsString { get; set; }
+  public ICmptAltGnrcAltParamInpObject? As_AltGnrcAltParamInp { get; set; }
+}
+
+public class CmptAltGnrcAltParamInpObject
+  : Schema_generic-alt-param+Input
+  , ICmptAltGnrcAltParamInpObject
+{
+  public decimal Alt { get; set; }
+
+  public CmptAltGnrcAltParamInpObject
+    ( decimal alt
+    )
+  {
+    Alt = alt;
+  }
+}

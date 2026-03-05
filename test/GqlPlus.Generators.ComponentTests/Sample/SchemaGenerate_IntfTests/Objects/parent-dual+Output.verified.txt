@@ -1,0 +1,36 @@
+﻿/* parent-dual+Output
+output PrntDualOutp { :RefPrntDualOutp }
+dual RefPrntDualOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent-dual+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-dual+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_dual_Output;
+
+public interface ICmptPrntDualOutp
+  : ICmptRefPrntDualOutp
+{
+  ICmptPrntDualOutpObject? As_PrntDualOutp { get; }
+}
+
+public interface ICmptPrntDualOutpObject
+  : ICmptRefPrntDualOutpObject
+{
+}
+
+public interface ICmptRefPrntDualOutp
+  : Schema_parent-dual+Output
+{
+  string? AsString { get; }
+  ICmptRefPrntDualOutpObject? As_RefPrntDualOutp { get; }
+}
+
+public interface ICmptRefPrntDualOutpObject
+  : Schema_parent-dual+Output
+{
+  decimal Parent { get; }
+}

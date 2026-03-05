@@ -1,0 +1,37 @@
+﻿/* generic-value+Dual
+dual GnrcValueDual { | RefGnrcValueDual<gnrcValueDual> }
+dual RefGnrcValueDual<$type:_Enum> { field: $type }
+enum EnumGnrcValueDual { gnrcValueDual }
+*/
+
+// Generated from Schema generic-value+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-value+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_value_Dual;
+
+public interface ICmptGnrcValueDual
+  : Schema_generic-value+Dual
+{
+  ICmptRefGnrcValueDual<CmptEnumGnrcValueDual>? AsEnumGnrcValueDualgnrcValueDual { get; }
+  ICmptGnrcValueDualObject? As_GnrcValueDual { get; }
+}
+
+public interface ICmptGnrcValueDualObject
+  : Schema_generic-value+Dual
+{
+}
+
+public interface ICmptRefGnrcValueDual<TType>
+  : Schema_generic-value+Dual
+{
+  ICmptRefGnrcValueDualObject<TType>? As_RefGnrcValueDual { get; }
+}
+
+public interface ICmptRefGnrcValueDualObject<TType>
+  : Schema_generic-value+Dual
+{
+  TType Field { get; }
+}

@@ -1,0 +1,19 @@
+﻿/* union-diff
+union UnionDiff { Boolean }
+union UnionDiff { Number }
+*/
+
+// Generated from Schema union-diff
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_union-diff, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_diff;
+
+public interface ICmptUnionDiff
+  : Schema_union-diff
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+}

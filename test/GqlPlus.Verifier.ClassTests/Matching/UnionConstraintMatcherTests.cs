@@ -31,7 +31,7 @@ public class UnionConstraintMatcherTests
     IGqlpUnion union = A.Union(constraint).WithMembers([name]).AsUnion;
     Types[constraint] = union;
 
-    IGqlpSimple simple = A.Simple<IGqlpSimple>(name).WithParent(parent).AsSimple;
+    IGqlpSimple simple = A.Union(name).WithParent(parent).AsSimple;
     Types[name] = simple;
 
     IGqlpType type = A.Named<IGqlpType>(parent);

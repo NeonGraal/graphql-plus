@@ -1,0 +1,33 @@
+﻿/* field-enum+Output
+output FieldEnumOutp { field = EnumFieldEnumOutp.fieldEnumOutp }
+enum EnumFieldEnumOutp { fieldEnumOutp }
+*/
+
+// Generated from Schema field-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-enum+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_enum_Output;
+
+public class CmptFieldEnumOutp
+  : Schema_field-enum+Output
+  , ICmptFieldEnumOutp
+{
+  public ICmptFieldEnumOutpObject? As_FieldEnumOutp { get; set; }
+}
+
+public class CmptFieldEnumOutpObject
+  : Schema_field-enum+Output
+  , ICmptFieldEnumOutpObject
+{
+  public CmptEnumFieldEnumOutp Field { get; set; }
+
+  public CmptFieldEnumOutpObject
+    ( CmptEnumFieldEnumOutp field
+    )
+  {
+    Field = field;
+  }
+}

@@ -3,7 +3,7 @@
 namespace GqlPlus.Building.Schema.Objects;
 
 public class OutputFieldBuilder
-  : ObjFieldBuilder
+  : ObjFieldBuilder<IGqlpOutputField>
 {
   internal IGqlpInputParam? _inputParam;
 
@@ -23,6 +23,8 @@ public class OutputFieldBuilder
 
   public IGqlpOutputField AsOutputField
     => Build<IGqlpOutputField>();
+
+  public override IGqlpOutputField AsObjField => AsOutputField;
 }
 
 public static class OutputFieldBuilderHelper

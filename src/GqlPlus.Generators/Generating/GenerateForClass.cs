@@ -7,7 +7,7 @@ internal abstract class GenerateForClass<TClass, TMember>
   protected GenerateForClass()
   {
     AddGenerator(GqlpGeneratorType.Interface, InterfaceHeader, TypeMembers, InterfaceMember);
-    AddGenerator(GqlpGeneratorType.Implementation, ClassHeader, TypeMembers, ClassMember, ClassTail);
+    AddGenerator(GqlpGeneratorType.Model, ClassHeader, TypeMembers, ClassMember, ClassTail);
   }
 
   protected virtual void ClassHeader(TClass ast, GqlpGeneratorContext context)

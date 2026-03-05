@@ -1,0 +1,30 @@
+﻿/* alt-descr+Input
+input AltDescrInp { | "Test" "Descr" String }
+*/
+
+// Generated from Schema alt-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-descr+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_descr_Input;
+
+public class CmptAltDescrInp
+  : Schema_alt-descr+Input
+  , ICmptAltDescrInp
+{
+  public string? AsString { get; set; }
+  public ICmptAltDescrInpObject? As_AltDescrInp { get; set; }
+}
+
+public class CmptAltDescrInpObject
+  : Schema_alt-descr+Input
+  , ICmptAltDescrInpObject
+{
+
+  public CmptAltDescrInpObject
+    ()
+  {
+  }
+}

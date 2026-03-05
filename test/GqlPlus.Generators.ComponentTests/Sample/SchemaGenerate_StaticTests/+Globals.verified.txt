@@ -1,0 +1,22 @@
+﻿// Generated from Schema +Globals
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_+Globals, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category ctgrDscrs
+Category ctgrOutp
+Category ctgrOutpDescr
+Category ctgrOutpDict
+Category ctgrOutpList
+Category ctgrOutpOptl
+Category descrBtwn
+Directive DrctDescr
+Directive DrctNoParam
+Directive DrctParamDict
+Directive DrctParamIn
+Directive DrctParamList
+Directive DrctParamOpt
+Option Schema
+*/
+
+namespace Components.Gqlp_Schema_Globals;

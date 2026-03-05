@@ -1,0 +1,14 @@
+﻿/* directive-descr
+"A directive described"
+directive @DrctDescr { all }
+*/
+
+// Generated from Schema directive-descr
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_directive-descr, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Directive DrctDescr
+*/
+
+namespace Components.Gqlp_Schema_directive_descr;

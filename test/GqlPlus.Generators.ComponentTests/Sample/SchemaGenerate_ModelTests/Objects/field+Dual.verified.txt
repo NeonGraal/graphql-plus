@@ -1,0 +1,32 @@
+﻿/* field+Dual
+dual FieldDual { field: String }
+*/
+
+// Generated from Schema field+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field+Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_Dual;
+
+public class CmptFieldDual
+  : Schema_field+Dual
+  , ICmptFieldDual
+{
+  public ICmptFieldDualObject? As_FieldDual { get; set; }
+}
+
+public class CmptFieldDualObject
+  : Schema_field+Dual
+  , ICmptFieldDualObject
+{
+  public string Field { get; set; }
+
+  public CmptFieldDualObject
+    ( string field
+    )
+  {
+    Field = field;
+  }
+}

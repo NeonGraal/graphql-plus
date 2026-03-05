@@ -1,0 +1,52 @@
+﻿/* generic-field-arg+Input
+input GnrcFieldArgInp<$type:String> { field: RefGnrcFieldArgInp<$type> }
+input RefGnrcFieldArgInp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-field-arg+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field-arg+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_arg_Input;
+
+public class CmptGnrcFieldArgInp<TType>
+  : Schema_generic-field-arg+Input
+  , ICmptGnrcFieldArgInp<TType>
+{
+  public ICmptGnrcFieldArgInpObject<TType>? As_GnrcFieldArgInp { get; set; }
+}
+
+public class CmptGnrcFieldArgInpObject<TType>
+  : Schema_generic-field-arg+Input
+  , ICmptGnrcFieldArgInpObject<TType>
+{
+  public ICmptRefGnrcFieldArgInp<TType> Field { get; set; }
+
+  public CmptGnrcFieldArgInpObject
+    ( ICmptRefGnrcFieldArgInp<TType> field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptRefGnrcFieldArgInp<TRef>
+  : Schema_generic-field-arg+Input
+  , ICmptRefGnrcFieldArgInp<TRef>
+{
+  public TRef? Asref { get; set; }
+  public ICmptRefGnrcFieldArgInpObject<TRef>? As_RefGnrcFieldArgInp { get; set; }
+}
+
+public class CmptRefGnrcFieldArgInpObject<TRef>
+  : Schema_generic-field-arg+Input
+  , ICmptRefGnrcFieldArgInpObject<TRef>
+{
+
+  public CmptRefGnrcFieldArgInpObject
+    ()
+  {
+  }
+}

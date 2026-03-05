@@ -3,13 +3,11 @@
 public enum GqlpGeneratorType
 {
   None,
-  Stat,
+  Static,
   Intf,
   Enum,
-  Impl,
+  Model,
   Test,
 
   Interface = Intf,
-  Implementation = Impl,
-  Static = Stat,
 }

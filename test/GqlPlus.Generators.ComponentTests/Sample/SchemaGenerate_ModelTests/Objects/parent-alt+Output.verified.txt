@@ -1,0 +1,54 @@
+﻿/* parent-alt+Output
+output PrntAltOutp { :RefPrntAltOutp | Number }
+output RefPrntAltOutp {  parent: Number | String }
+*/
+
+// Generated from Schema parent-alt+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-alt+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_alt_Output;
+
+public class CmptPrntAltOutp
+  : CmptRefPrntAltOutp
+  , ICmptPrntAltOutp
+{
+  public decimal? AsNumber { get; set; }
+  public ICmptPrntAltOutpObject? As_PrntAltOutp { get; set; }
+}
+
+public class CmptPrntAltOutpObject
+  : CmptRefPrntAltOutpObject
+  , ICmptPrntAltOutpObject
+{
+
+  public CmptPrntAltOutpObject
+    ( decimal parent
+    ) : base(parent)
+  {
+  }
+}
+
+public class CmptRefPrntAltOutp
+  : Schema_parent-alt+Output
+  , ICmptRefPrntAltOutp
+{
+  public string? AsString { get; set; }
+  public ICmptRefPrntAltOutpObject? As_RefPrntAltOutp { get; set; }
+}
+
+public class CmptRefPrntAltOutpObject
+  : Schema_parent-alt+Output
+  , ICmptRefPrntAltOutpObject
+{
+  public decimal Parent { get; set; }
+
+  public CmptRefPrntAltOutpObject
+    ( decimal parent
+    )
+  {
+    Parent = parent;
+  }
+}

@@ -52,7 +52,7 @@ public abstract class GenerateTypeClassTestsBase
   : GenerateClassTestsBase
 {
   internal ForType ForGeneratedImplementation(string contains)
-    => generatorType => GqlpGeneratorType.Implementation == generatorType
+    => generatorType => GqlpGeneratorType.Model == generatorType
       ? r => r.ShouldContain(contains)
       : r => { };
 
@@ -73,7 +73,7 @@ public abstract class GenerateTypeClassTestsBase
     => generatorType => generatorType switch {
       GqlpGeneratorType.Interface
         => r => r.ShouldContain(genIntf),
-      GqlpGeneratorType.Implementation
+      GqlpGeneratorType.Model
         => r => r.ShouldContain(genImpl),
       _ => result => { }
     };
@@ -91,7 +91,7 @@ public class BaseGeneratorData
   public BaseGeneratorData()
   {
     Add(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
-    Add(GqlpBaseType.Class, GqlpGeneratorType.Implementation);
+    Add(GqlpBaseType.Class, GqlpGeneratorType.Model);
     Add(GqlpBaseType.Other, GqlpGeneratorType.Enum);
     Add(GqlpBaseType.Other, GqlpGeneratorType.Static);
     Add(GqlpBaseType.Other, GqlpGeneratorType.Enum);

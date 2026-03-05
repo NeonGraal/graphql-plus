@@ -27,7 +27,7 @@ public class GenerateSchemaImplTests(
 ) : GenerateSchemaTestBase(checks)
 {
   public override GqlpBaseType BaseType => GqlpBaseType.Class;
-  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Implementation;
+  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Model;
 }
 
 public class GenerateSchemaTestTests(

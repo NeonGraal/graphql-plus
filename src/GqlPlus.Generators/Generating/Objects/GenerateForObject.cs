@@ -24,7 +24,7 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   public GenerateForObject()
   {
     _generators[GqlpGeneratorType.Interface] = GenerateObjectInterfaces;
-    _generators[GqlpGeneratorType.Implementation] = GenerateObjectClasses;
+    _generators[GqlpGeneratorType.Model] = GenerateObjectClasses;
   }
 
   private void GenerateObjectClasses(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)

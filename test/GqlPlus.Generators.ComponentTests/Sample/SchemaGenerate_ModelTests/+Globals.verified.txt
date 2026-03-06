@@ -311,3 +311,75 @@ public class CmptInDrctParamOptObject
   {
   }
 }
+
+public class CmptCatOprCtgr
+  : Schema_+Globals
+  , ICmptCatOprCtgr
+{
+  public ICmptCatOprCtgrObject? As_CatOprCtgr { get; set; }
+}
+
+public class CmptCatOprCtgrObject
+  : Schema_+Globals
+  , ICmptCatOprCtgrObject
+{
+
+  public CmptCatOprCtgrObject
+    ()
+  {
+  }
+}
+
+public class CmptCatOprType
+  : Schema_+Globals
+  , ICmptCatOprType
+{
+  public ICmptCatOprTypeObject? As_CatOprType { get; set; }
+}
+
+public class CmptCatOprTypeObject
+  : Schema_+Globals
+  , ICmptCatOprTypeObject
+{
+  public string First { get; set; }
+  public string Last { get; set; }
+  public ICmptAddrOprType Address { get; set; }
+
+  public CmptCatOprTypeObject
+    ( string first
+    , string last
+    , ICmptAddrOprType address
+    )
+  {
+    First = first;
+    Last = last;
+    Address = address;
+  }
+}
+
+public class CmptAddrOprType
+  : Schema_+Globals
+  , ICmptAddrOprType
+{
+  public ICmptAddrOprTypeObject? As_AddrOprType { get; set; }
+}
+
+public class CmptAddrOprTypeObject
+  : Schema_+Globals
+  , ICmptAddrOprTypeObject
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string Country { get; set; }
+
+  public CmptAddrOprTypeObject
+    ( string street
+    , string city
+    , string country
+    )
+  {
+    Street = street;
+    City = city;
+    Country = country;
+  }
+}

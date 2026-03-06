@@ -104,9 +104,9 @@ Success
     _Modifiers
     []
     !OF I@009/0027
-    default
+    defaultValue
     :
-    I@018/0027
+    I@023/0027
     Value
     ?
   }
@@ -242,9 +242,9 @@ Success
   _OpDirectives
   {
     !OF I@009/0076
-    alias
+    fieldAlias
     :
-    I@016/0076
+    I@021/0076
     String
     ?
     !OF I@009/0077

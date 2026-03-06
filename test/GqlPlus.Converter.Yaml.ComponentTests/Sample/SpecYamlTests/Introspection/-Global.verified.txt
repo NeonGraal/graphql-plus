@@ -389,7 +389,7 @@ types: !_Map(_Type)
         name: _OpDirective
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: alias
+      name: fieldAlias
       object: _OpField
       type: !_ObjBase
         name: String
@@ -408,7 +408,7 @@ types: !_Map(_Type)
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: alias
+      name: fieldAlias
       type: !_ObjBase
         name: String
     - !_OutputField
@@ -602,7 +602,7 @@ types: !_Map(_Type)
         name: _Modifiers
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: default
+      name: defaultValue
       object: _OpVariable
       type: !_ObjBase
         name: Value
@@ -623,7 +623,7 @@ types: !_Map(_Type)
         name: _Modifiers
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: default
+      name: defaultValue
       type: !_ObjBase
         name: Value
     name: _OpVariable

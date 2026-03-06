@@ -1,40 +1,4 @@
-﻿/* -Global
-output _AndType {
-    : _Named
-        type: _Type
-    | _Type
-    }
-
-output _Categories {
-    : _AndType
-        category: _Category
-    | _Category
-    }
-
-output _Category {
-    : _Aliased
-        resolution: _Resolution
-        output: _TypeRef<_TypeKind.Output>
-        modifiers: _Modifiers[]
-    }
-
-enum _Resolution { Parallel Sequential Single }
-
-output _Directives {
-    : _AndType
-        directive: _Directive
-    | _Directive
-    }
-
-output _Directive {
-    : _Aliased
-        parameter: _InputFieldType?
-        repeatable: Boolean
-        locations: _[_Location]
-    }
-
-enum _Location { Operation Variable Field Inline Spread Fragment }
-
+﻿/* Operation
 output _Operations {
         operation: _Operation
         type: _Type
@@ -124,143 +88,18 @@ output _OpSpread {
         fragment: String
         directives: _OpDirective[]
 }
-
-output _Setting {
-    : _Named
-        value: Value
-    }
 */
 
-// Generated from Spec -Global
-//   with GeneratorOption: BaseType: Class, BaseName: Spec_-Global, GeneratorType: Model
+// Generated from Spec Operation
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Operation, GeneratorType: Model
 //   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
 /*
 */
 
-namespace Components.Gqlp_Spec_Global;
-
-public class Cmpt_AndType
-  : Cmpt_Named
-  , ICmpt_AndType
-{
-  public ICmpt_Type? As_Type { get; set; }
-  public ICmpt_AndTypeObject? As__AndType { get; set; }
-}
-
-public class Cmpt_AndTypeObject
-  : Cmpt_NamedObject
-  , ICmpt_AndTypeObject
-{
-  public ICmpt_Type Type { get; set; }
-
-  public Cmpt_AndTypeObject
-    ( ICmpt_Type type
-    )
-  {
-    Type = type;
-  }
-}
-
-public class Cmpt_Categories
-  : Cmpt_AndType
-  , ICmpt_Categories
-{
-  public ICmpt_Category? As_Category { get; set; }
-  public ICmpt_CategoriesObject? As__Categories { get; set; }
-}
-
-public class Cmpt_CategoriesObject
-  : Cmpt_AndTypeObject
-  , ICmpt_CategoriesObject
-{
-  public ICmpt_Category Category { get; set; }
-
-  public Cmpt_CategoriesObject
-    ( ICmpt_Type type
-    , ICmpt_Category category
-    ) : base(type)
-  {
-    Category = category;
-  }
-}
-
-public class Cmpt_Category
-  : Cmpt_Aliased
-  , ICmpt_Category
-{
-  public ICmpt_CategoryObject? As__Category { get; set; }
-}
-
-public class Cmpt_CategoryObject
-  : Cmpt_AliasedObject
-  , ICmpt_CategoryObject
-{
-  public Cmpt_Resolution Resolution { get; set; }
-  public ICmpt_TypeRef<ICmpt_TypeKind> Output { get; set; }
-  public ICollection<ICmpt_Modifiers> Modifiers { get; set; }
-
-  public Cmpt_CategoryObject
-    ( Cmpt_Resolution resolution
-    , ICmpt_TypeRef<ICmpt_TypeKind> output
-    , ICollection<ICmpt_Modifiers> modifiers
-    )
-  {
-    Resolution = resolution;
-    Output = output;
-    Modifiers = modifiers;
-  }
-}
-
-public class Cmpt_Directives
-  : Cmpt_AndType
-  , ICmpt_Directives
-{
-  public ICmpt_Directive? As_Directive { get; set; }
-  public ICmpt_DirectivesObject? As__Directives { get; set; }
-}
-
-public class Cmpt_DirectivesObject
-  : Cmpt_AndTypeObject
-  , ICmpt_DirectivesObject
-{
-  public ICmpt_Directive Directive { get; set; }
-
-  public Cmpt_DirectivesObject
-    ( ICmpt_Type type
-    , ICmpt_Directive directive
-    ) : base(type)
-  {
-    Directive = directive;
-  }
-}
-
-public class Cmpt_Directive
-  : Cmpt_Aliased
-  , ICmpt_Directive
-{
-  public ICmpt_DirectiveObject? As__Directive { get; set; }
-}
-
-public class Cmpt_DirectiveObject
-  : Cmpt_AliasedObject
-  , ICmpt_DirectiveObject
-{
-  public ICmpt_InputFieldType? Parameter { get; set; }
-  public bool Repeatable { get; set; }
-  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
-
-  public Cmpt_DirectiveObject
-    ( bool repeatable
-    , IDictionary<Cmpt_Location, GqlpUnit> locations
-    )
-  {
-    Repeatable = repeatable;
-    Locations = locations;
-  }
-}
+namespace Components.Gqlp_Spec_Operation;
 
 public class Cmpt_Operations
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_Operations
 {
   public ICmpt_Operation? As_Operation { get; set; }
@@ -269,7 +108,7 @@ public class Cmpt_Operations
 }
 
 public class Cmpt_OperationsObject
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OperationsObject
 {
   public ICmpt_Operation Operation { get; set; }
@@ -410,7 +249,7 @@ public class Cmpt_OpFragmentObject
 }
 
 public class Cmpt_OpArgument
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpArgument
 {
   public ICmpt_OpArgValue? As_OpArgValue { get; set; }
@@ -420,7 +259,7 @@ public class Cmpt_OpArgument
 }
 
 public class Cmpt_OpArgumentObject
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpArgumentObject
 {
 
@@ -431,7 +270,7 @@ public class Cmpt_OpArgumentObject
 }
 
 public class Cmpt_OpArgValue
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpArgValue
 {
   public GqlpValue? AsValue { get; set; }
@@ -439,7 +278,7 @@ public class Cmpt_OpArgValue
 }
 
 public class Cmpt_OpArgValueObject
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpArgValueObject
 {
   public ICmpt_Name Variable { get; set; }
@@ -453,7 +292,7 @@ public class Cmpt_OpArgValueObject
 }
 
 public class Cmpt_OpArgList
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpArgList
 {
   public ICollection<ICmpt_OpArgValue>? As_OpArgValue { get; set; }
@@ -461,7 +300,7 @@ public class Cmpt_OpArgList
 }
 
 public class Cmpt_OpArgListObject
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpArgListObject
 {
 
@@ -472,7 +311,7 @@ public class Cmpt_OpArgListObject
 }
 
 public class Cmpt_OpArgMap
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpArgMap
 {
   public IDictionary<GqlpScalar, ICmpt_OpArgValue>? As_OpArgValue { get; set; }
@@ -480,7 +319,7 @@ public class Cmpt_OpArgMap
 }
 
 public class Cmpt_OpArgMapObject
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpArgMapObject
 {
   public ICmpt_OpArgValue Value { get; set; }
@@ -497,7 +336,7 @@ public class Cmpt_OpArgMapObject
 }
 
 public class Cmpt_OpResult
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpResult
 {
   public ICmpt_TypeRef<ICmpt_SimpleKind>? As_TypeRef { get; set; }
@@ -505,7 +344,7 @@ public class Cmpt_OpResult
 }
 
 public class Cmpt_OpResultObject
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpResultObject
 {
   public ICmpt_OpArgument? Argument { get; set; }
@@ -523,7 +362,7 @@ public class Cmpt_Path
 }
 
 public class Cmpt_OpSelection
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpSelection
 {
   public ICmpt_OpField? As_OpField { get; set; }
@@ -533,7 +372,7 @@ public class Cmpt_OpSelection
 }
 
 public class Cmpt_OpSelectionObject
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpSelectionObject
 {
 
@@ -568,14 +407,14 @@ public class Cmpt_OpFieldObject
 }
 
 public class Cmpt_OpInline
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpInline
 {
   public ICmpt_OpInlineObject? As__OpInline { get; set; }
 }
 
 public class Cmpt_OpInlineObject
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpInlineObject
 {
   public ICmpt_TypeRef<ICmpt_TypeKind>? Type { get; set; }
@@ -590,14 +429,14 @@ public class Cmpt_OpInlineObject
 }
 
 public class Cmpt_OpSpread
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpSpread
 {
   public ICmpt_OpSpreadObject? As__OpSpread { get; set; }
 }
 
 public class Cmpt_OpSpreadObject
-  : Spec_-Global
+  : Spec_Operation
   , ICmpt_OpSpreadObject
 {
   public string Fragment { get; set; }
@@ -610,26 +449,5 @@ public class Cmpt_OpSpreadObject
   {
     Fragment = fragment;
     Directives = directives;
-  }
-}
-
-public class Cmpt_Setting
-  : Cmpt_Named
-  , ICmpt_Setting
-{
-  public ICmpt_SettingObject? As__Setting { get; set; }
-}
-
-public class Cmpt_SettingObject
-  : Cmpt_NamedObject
-  , ICmpt_SettingObject
-{
-  public GqlpValue Value { get; set; }
-
-  public Cmpt_SettingObject
-    ( GqlpValue value
-    )
-  {
-    Value = value;
   }
 }

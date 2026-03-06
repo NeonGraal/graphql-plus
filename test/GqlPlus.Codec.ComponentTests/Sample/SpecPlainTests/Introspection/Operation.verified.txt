@@ -78,7 +78,7 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:object=_OpDirectives
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:allFields.0[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_OpDirective
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
-[_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:name=alias
+[_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:name=fieldAlias
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:object=_OpField
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:allFields.1[_ObjectFor(_OutputField)]:type[_ObjBase]:name=String
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
@@ -90,7 +90,7 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:object=_OpField
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:fields.0[_OutputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
-[_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:fields.0[_OutputField]:name=alias
+[_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:fields.0[_OutputField]:name=fieldAlias
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:fields.0[_OutputField]:type[_ObjBase]:name=String
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:fields.1[_OutputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
 [_Schema]:types[_Map(_Type)]:[_Name]_OpField[_TypeOutput]:fields.1[_OutputField]:name=argument
@@ -195,7 +195,7 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:object=_OpVariable
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:allFields.2[_ObjectFor(_OutputField)]:type[_ObjBase]:name=_Modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
-[_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:name=default
+[_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:name=defaultValue
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:object=_OpVariable
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:allFields.3[_ObjectFor(_OutputField)]:type[_ObjBase]:name=Value
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:fields.0[_OutputField]:name=type
@@ -207,7 +207,7 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:fields.1[_OutputField]:name=modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:fields.1[_OutputField]:type[_ObjBase]:name=_Modifiers
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:fields.2[_OutputField]:modifiers.0[_Modifier]:modifierKind=[_ModifierKind]Opt
-[_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:fields.2[_OutputField]:name=default
+[_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:fields.2[_OutputField]:name=defaultValue
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:fields.2[_OutputField]:type[_ObjBase]:name=Value
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:name=_OpVariable
 [_Schema]:types[_Map(_Type)]:[_Name]_OpVariable[_TypeOutput]:parent[_ObjBase]:name=_OpDirectives

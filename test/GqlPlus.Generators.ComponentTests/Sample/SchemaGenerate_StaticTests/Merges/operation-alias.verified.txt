@@ -1,0 +1,16 @@
+﻿/* operation-alias
+operation Operation[Op1] { op :String }
+operation Operation[Op2] { op :String }
+category { Op }
+output Op { }
+*/
+
+// Generated from Schema operation-alias
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_operation-alias, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category op
+*/
+
+namespace Components.Gqlp_Schema_operation_alias;

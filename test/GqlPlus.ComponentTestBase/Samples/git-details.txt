@@ -1,1 +1,1 @@
-e756b42  (HEAD -> operation) 2026-03-06 Merge branch 'main' into operation
+c7cdd96  (HEAD -> operation) 2026-03-06 Rename fields to avoid .Net reserved words

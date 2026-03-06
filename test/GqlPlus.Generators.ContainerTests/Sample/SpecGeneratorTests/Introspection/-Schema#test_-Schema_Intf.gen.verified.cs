@@ -18,6 +18,7 @@ public interface Itest_SchemaObject
 {
   IDictionary<Itest_Name, Itest_Categories>? Categories(Itest_CategoryFilter? parameter);
   IDictionary<Itest_Name, Itest_Directives>? Directives(Itest_Filter? parameter);
+  IDictionary<Itest_Name, Itest_Operations>? Operations(Itest_Filter? parameter);
   IDictionary<Itest_Name, Itest_Type>? Types(Itest_TypeFilter? parameter);
   IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter);
 }

@@ -1,0 +1,50 @@
+﻿/* operation-type
+operation OprType { catOprType { first last address { street city country } } }
+category { CatOprType }
+output CatOprType { 
+    first: String
+    last: String
+    address: AddrOprType
+}
+output AddrOprType {
+    street: String
+    city: String
+    country: String
+}
+*/
+
+// Generated from Schema operation-type
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_operation-type, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_type;
+
+public interface ICmptCatOprType
+  : Schema_operation-type
+{
+  ICmptCatOprTypeObject? As_CatOprType { get; }
+}
+
+public interface ICmptCatOprTypeObject
+  : Schema_operation-type
+{
+  string First { get; }
+  string Last { get; }
+  ICmptAddrOprType Address { get; }
+}
+
+public interface ICmptAddrOprType
+  : Schema_operation-type
+{
+  ICmptAddrOprTypeObject? As_AddrOprType { get; }
+}
+
+public interface ICmptAddrOprTypeObject
+  : Schema_operation-type
+{
+  string Street { get; }
+  string City { get; }
+  string Country { get; }
+}

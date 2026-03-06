@@ -724,6 +724,17 @@ public interface ICmptRefObjPrntOutpObject
 {
 }
 
+public interface ICmptOp
+  : Schema_+Merges
+{
+  ICmptOpObject? As_Op { get; }
+}
+
+public interface ICmptOpObject
+  : Schema_+Merges
+{
+}
+
 public interface ICmptOutpFieldParam
   : Schema_+Merges
 {

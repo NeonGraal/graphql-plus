@@ -1,0 +1,16 @@
+﻿/* operation
+operation Operation { op :String }
+operation Operation { op :String }
+category { Op }
+output Op { }
+*/
+
+// Generated from Schema operation
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_operation, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category op
+*/
+
+namespace Components.Gqlp_Schema_operation;

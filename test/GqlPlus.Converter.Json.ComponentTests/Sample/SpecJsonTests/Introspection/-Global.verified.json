@@ -929,7 +929,7 @@
               }
             }
           ],
-          "name": "alias",
+          "name": "fieldAlias",
           "object": "_OpField",
           "type": {
             "$mapTag": "_ObjBase",
@@ -985,7 +985,7 @@
               }
             }
           ],
-          "name": "alias",
+          "name": "fieldAlias",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "String"
@@ -1488,7 +1488,7 @@
               }
             }
           ],
-          "name": "default",
+          "name": "defaultValue",
           "object": "_OpVariable",
           "type": {
             "$mapTag": "_ObjBase",
@@ -1544,7 +1544,7 @@
               }
             }
           ],
-          "name": "default",
+          "name": "defaultValue",
           "type": {
             "$mapTag": "_ObjBase",
             "name": "Value"

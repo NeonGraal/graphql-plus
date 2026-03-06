@@ -1,0 +1,25 @@
+﻿/* operation
+operation Operation { op :String }
+operation Operation { op :String }
+category { Op }
+output Op { }
+*/
+
+// Generated from Schema operation
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_operation, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation;
+
+public interface ICmptOp
+  : Schema_operation
+{
+  ICmptOpObject? As_Op { get; }
+}
+
+public interface ICmptOpObject
+  : Schema_operation
+{
+}

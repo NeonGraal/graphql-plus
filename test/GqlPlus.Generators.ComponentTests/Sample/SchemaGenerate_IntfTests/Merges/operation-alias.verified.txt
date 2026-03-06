@@ -1,0 +1,25 @@
+﻿/* operation-alias
+operation Operation[Op1] { op :String }
+operation Operation[Op2] { op :String }
+category { Op }
+output Op { }
+*/
+
+// Generated from Schema operation-alias
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_operation-alias, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_operation_alias;
+
+public interface ICmptOp
+  : Schema_operation-alias
+{
+  ICmptOpObject? As_Op { get; }
+}
+
+public interface ICmptOpObject
+  : Schema_operation-alias
+{
+}

@@ -18,9 +18,6 @@ public static class SchemaObjectBuilderHelpers
   public static TypeArgBuilder TypeArg(this IMockBuilder _, string typeName)
     => new(typeName);
 
-  public static ObjFieldBuilder<TField> ObjField<TField>(this IMockBuilder _, string fieldName, string typeName)
-    where TField : class, IGqlpObjField
-    => new(fieldName, typeName);
   public static DualFieldBuilder DualField(this IMockBuilder _, string fieldName, string typeName)
     => new(fieldName, typeName);
   public static InputFieldBuilder InputField(this IMockBuilder _, string fieldName, string typeName)

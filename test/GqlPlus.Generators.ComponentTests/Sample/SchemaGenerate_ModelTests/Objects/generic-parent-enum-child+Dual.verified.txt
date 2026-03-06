@@ -1,0 +1,54 @@
+﻿/* generic-parent-enum-child+Dual
+dual GnrcPrntEnumChildDual { :FieldGnrcPrntEnumChildDual<ParentGnrcPrntEnumChildDual> }
+dual FieldGnrcPrntEnumChildDual<$ref:EnumGnrcPrntEnumChildDual> { field: $ref }
+enum EnumGnrcPrntEnumChildDual { :ParentGnrcPrntEnumChildDual gnrcPrntEnumChildDualLabel }
+enum ParentGnrcPrntEnumChildDual { gnrcPrntEnumChildDualParent }
+*/
+
+// Generated from Schema generic-parent-enum-child+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-enum-child+Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_enum_child_Dual;
+
+public class CmptGnrcPrntEnumChildDual
+  : CmptFieldGnrcPrntEnumChildDual<CmptParentGnrcPrntEnumChildDual>
+  , ICmptGnrcPrntEnumChildDual
+{
+  public ICmptGnrcPrntEnumChildDualObject? As_GnrcPrntEnumChildDual { get; set; }
+}
+
+public class CmptGnrcPrntEnumChildDualObject
+  : CmptFieldGnrcPrntEnumChildDualObject<CmptParentGnrcPrntEnumChildDual>
+  , ICmptGnrcPrntEnumChildDualObject
+{
+
+  public CmptGnrcPrntEnumChildDualObject
+    ( CmptParentGnrcPrntEnumChildDual field
+    ) : base(field)
+  {
+  }
+}
+
+public class CmptFieldGnrcPrntEnumChildDual<TRef>
+  : Schema_generic-parent-enum-child+Dual
+  , ICmptFieldGnrcPrntEnumChildDual<TRef>
+{
+  public ICmptFieldGnrcPrntEnumChildDualObject<TRef>? As_FieldGnrcPrntEnumChildDual { get; set; }
+}
+
+public class CmptFieldGnrcPrntEnumChildDualObject<TRef>
+  : Schema_generic-parent-enum-child+Dual
+  , ICmptFieldGnrcPrntEnumChildDualObject<TRef>
+{
+  public TRef Field { get; set; }
+
+  public CmptFieldGnrcPrntEnumChildDualObject
+    ( TRef field
+    )
+  {
+    Field = field;
+  }
+}

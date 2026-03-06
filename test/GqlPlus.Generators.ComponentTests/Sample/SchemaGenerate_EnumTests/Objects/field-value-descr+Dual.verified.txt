@@ -1,0 +1,17 @@
+﻿/* field-value-descr+Dual
+dual FieldValueDescrDual { field = "Test" "Descr" fieldValueDescrDual }
+enum EnumFieldValueDescrDual { fieldValueDescrDual }
+*/
+
+// Generated from Schema field-value-descr+Dual
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_field-value-descr+Dual, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_value_descr_Dual;
+
+public enum CmptEnumFieldValueDescrDual
+{
+  fieldValueDescrDual,
+}

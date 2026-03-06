@@ -71,4 +71,7 @@ public class VerifyOutputFieldsTests
 
     Errors.ShouldBeEmpty();
   }
+
+  protected override ObjFieldBuilder<IGqlpOutputField> MakeField(string fieldName, string fieldType)
+    => new OutputFieldBuilder(fieldName, fieldType);
 }

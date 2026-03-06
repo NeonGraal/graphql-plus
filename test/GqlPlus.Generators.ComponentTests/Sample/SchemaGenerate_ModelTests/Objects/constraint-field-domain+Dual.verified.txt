@@ -1,0 +1,59 @@
+﻿/* constraint-field-domain+Dual
+dual CnstFieldDmnDual { :RefCnstFieldDmnDual<DomCnstFieldDmnDual> }
+dual RefCnstFieldDmnDual<$ref:String> { field: $ref }
+domain DomCnstFieldDmnDual { String /\w+/ }
+*/
+
+// Generated from Schema constraint-field-domain+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-domain+Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_domain_Dual;
+
+public class CmptCnstFieldDmnDual
+  : CmptRefCnstFieldDmnDual<ICmptDomCnstFieldDmnDual>
+  , ICmptCnstFieldDmnDual
+{
+  public ICmptCnstFieldDmnDualObject? As_CnstFieldDmnDual { get; set; }
+}
+
+public class CmptCnstFieldDmnDualObject
+  : CmptRefCnstFieldDmnDualObject<ICmptDomCnstFieldDmnDual>
+  , ICmptCnstFieldDmnDualObject
+{
+
+  public CmptCnstFieldDmnDualObject
+    ( ICmptDomCnstFieldDmnDual field
+    ) : base(field)
+  {
+  }
+}
+
+public class CmptRefCnstFieldDmnDual<TRef>
+  : Schema_constraint-field-domain+Dual
+  , ICmptRefCnstFieldDmnDual<TRef>
+{
+  public ICmptRefCnstFieldDmnDualObject<TRef>? As_RefCnstFieldDmnDual { get; set; }
+}
+
+public class CmptRefCnstFieldDmnDualObject<TRef>
+  : Schema_constraint-field-domain+Dual
+  , ICmptRefCnstFieldDmnDualObject<TRef>
+{
+  public TRef Field { get; set; }
+
+  public CmptRefCnstFieldDmnDualObject
+    ( TRef field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptDomCnstFieldDmnDual
+  : GqlpDomainString
+  , ICmptDomCnstFieldDmnDual
+{
+}

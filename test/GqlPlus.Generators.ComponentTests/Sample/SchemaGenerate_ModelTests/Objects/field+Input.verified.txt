@@ -1,0 +1,32 @@
+﻿/* field+Input
+input FieldInp { field: String }
+*/
+
+// Generated from Schema field+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_Input;
+
+public class CmptFieldInp
+  : Schema_field+Input
+  , ICmptFieldInp
+{
+  public ICmptFieldInpObject? As_FieldInp { get; set; }
+}
+
+public class CmptFieldInpObject
+  : Schema_field+Input
+  , ICmptFieldInpObject
+{
+  public string Field { get; set; }
+
+  public CmptFieldInpObject
+    ( string field
+    )
+  {
+    Field = field;
+  }
+}

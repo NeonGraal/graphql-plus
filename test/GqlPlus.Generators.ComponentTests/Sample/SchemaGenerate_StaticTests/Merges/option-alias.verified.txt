@@ -1,0 +1,14 @@
+﻿/* option-alias
+option Schema [Opt1] { }
+option Schema [Opt2] { }
+*/
+
+// Generated from Schema option-alias
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_option-alias, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Option Schema
+*/
+
+namespace Components.Gqlp_Schema_option_alias;

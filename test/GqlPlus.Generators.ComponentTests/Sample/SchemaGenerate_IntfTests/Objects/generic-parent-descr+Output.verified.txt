@@ -1,0 +1,23 @@
+﻿/* generic-parent-descr+Output
+output GnrcPrntDescrOutp<$type:_Dual> { :"Parent comment"$type }
+*/
+
+// Generated from Schema generic-parent-descr+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-descr+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_descr_Output;
+
+public interface ICmptGnrcPrntDescrOutp<TType>
+  : Schema_generic-parent-descr+Output
+{
+  TType? As_Parent { get; }
+  ICmptGnrcPrntDescrOutpObject<TType>? As_GnrcPrntDescrOutp { get; }
+}
+
+public interface ICmptGnrcPrntDescrOutpObject<TType>
+  : Schema_generic-parent-descr+Output
+{
+}

@@ -1,0 +1,23 @@
+﻿/* field-simple+Input
+input FieldSmplInp { field: Number }
+*/
+
+// Generated from Schema field-simple+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-simple+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_simple_Input;
+
+public interface ICmptFieldSmplInp
+  : Schema_field-simple+Input
+{
+  ICmptFieldSmplInpObject? As_FieldSmplInp { get; }
+}
+
+public interface ICmptFieldSmplInpObject
+  : Schema_field-simple+Input
+{
+  decimal Field { get; }
+}

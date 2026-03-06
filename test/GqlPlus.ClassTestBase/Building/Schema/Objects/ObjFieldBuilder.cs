@@ -55,14 +55,26 @@ public class ObjFieldBuilder
   public string Name => BaseBuilder._name;
 }
 
-public class ObjFieldBuilder<T>
+public abstract class ObjFieldBuilder<T>
   : ObjFieldBuilder
   where T : class, IGqlpObjField
 {
-  public ObjFieldBuilder(string name, string type)
+  protected ObjFieldBuilder(string name, string type)
     : base(name, type)
     => Add<T>();
 
-  public T AsObjField
-    => Build<T>();
+  public abstract T AsObjField { get; }
+}
+
+public static class ObjFieldBuilderHelper
+{
+  public static T WithArg<T>(this T builder, string argType, Action<TypeArgBuilder>? config = null)
+    where T : ObjFieldBuilder
+    => builder.WithArgs(builder.TypeArg(argType).FluentAction(config).AsTypeArg);
+  public static T WithArgs<T>(this T builder, params IGqlpTypeArg[] args)
+    where T : ObjFieldBuilder
+    => builder.FluentAction(b => b.BaseBuilder._args = args);
+  public static T IsTypeParam<T>(this T builder, bool isTypeParam = true)
+    where T : ObjFieldBuilder
+    => builder.FluentAction(b => b.BaseBuilder._isTypeParam = isTypeParam);
 }

@@ -1,0 +1,110 @@
+﻿/* constraint-parent-dual-grandparent+Output
+output CnstPrntDualGrndOutp { :RefCnstPrntDualGrndOutp<AltCnstPrntDualGrndOutp> }
+output RefCnstPrntDualGrndOutp<$ref:GrndCnstPrntDualGrndOutp> { :$ref }
+dual GrndCnstPrntDualGrndOutp { | String }
+dual PrntCnstPrntDualGrndOutp { :GrndCnstPrntDualGrndOutp }
+output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-dual-grandparent+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-dual-grandparent+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
+
+public class CmptCnstPrntDualGrndOutp
+  : CmptRefCnstPrntDualGrndOutp<ICmptAltCnstPrntDualGrndOutp>
+  , ICmptCnstPrntDualGrndOutp
+{
+  public ICmptCnstPrntDualGrndOutpObject? As_CnstPrntDualGrndOutp { get; set; }
+}
+
+public class CmptCnstPrntDualGrndOutpObject
+  : CmptRefCnstPrntDualGrndOutpObject<ICmptAltCnstPrntDualGrndOutp>
+  , ICmptCnstPrntDualGrndOutpObject
+{
+
+  public CmptCnstPrntDualGrndOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptRefCnstPrntDualGrndOutp<TRef>
+  : Schema_constraint-parent-dual-grandparent+Output
+  , ICmptRefCnstPrntDualGrndOutp<TRef>
+{
+  public TRef? As_Parent { get; set; }
+  public ICmptRefCnstPrntDualGrndOutpObject<TRef>? As_RefCnstPrntDualGrndOutp { get; set; }
+}
+
+public class CmptRefCnstPrntDualGrndOutpObject<TRef>
+  : Schema_constraint-parent-dual-grandparent+Output
+  , ICmptRefCnstPrntDualGrndOutpObject<TRef>
+{
+
+  public CmptRefCnstPrntDualGrndOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptGrndCnstPrntDualGrndOutp
+  : Schema_constraint-parent-dual-grandparent+Output
+  , ICmptGrndCnstPrntDualGrndOutp
+{
+  public string? AsString { get; set; }
+  public ICmptGrndCnstPrntDualGrndOutpObject? As_GrndCnstPrntDualGrndOutp { get; set; }
+}
+
+public class CmptGrndCnstPrntDualGrndOutpObject
+  : Schema_constraint-parent-dual-grandparent+Output
+  , ICmptGrndCnstPrntDualGrndOutpObject
+{
+
+  public CmptGrndCnstPrntDualGrndOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptPrntCnstPrntDualGrndOutp
+  : CmptGrndCnstPrntDualGrndOutp
+  , ICmptPrntCnstPrntDualGrndOutp
+{
+  public ICmptPrntCnstPrntDualGrndOutpObject? As_PrntCnstPrntDualGrndOutp { get; set; }
+}
+
+public class CmptPrntCnstPrntDualGrndOutpObject
+  : CmptGrndCnstPrntDualGrndOutpObject
+  , ICmptPrntCnstPrntDualGrndOutpObject
+{
+
+  public CmptPrntCnstPrntDualGrndOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptAltCnstPrntDualGrndOutp
+  : CmptPrntCnstPrntDualGrndOutp
+  , ICmptAltCnstPrntDualGrndOutp
+{
+  public ICmptAltCnstPrntDualGrndOutpObject? As_AltCnstPrntDualGrndOutp { get; set; }
+}
+
+public class CmptAltCnstPrntDualGrndOutpObject
+  : CmptPrntCnstPrntDualGrndOutpObject
+  , ICmptAltCnstPrntDualGrndOutpObject
+{
+  public decimal Alt { get; set; }
+
+  public CmptAltCnstPrntDualGrndOutpObject
+    ( decimal alt
+    )
+  {
+    Alt = alt;
+  }
+}

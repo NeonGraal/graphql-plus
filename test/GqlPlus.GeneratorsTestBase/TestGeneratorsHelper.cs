@@ -1,8 +1,11 @@
 ﻿using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using Basic.Reference.Assemblies;
 using DiffEngine;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Text;
 using Shouldly;
 
@@ -14,14 +17,28 @@ public static class TestGeneratorsHelper
     => DiffRunner.MaxInstancesToLaunch(20);
 
   public static GeneratorDriver Generate(this IIncrementalGenerator generator, string source, params Type[] types)
-    => generator.Generate(source, [], types, true);
+    => generator.Generate(source, [], types, addNet20: true);
 
-  public static GeneratorDriver Generate(this IIncrementalGenerator generator, string source, ImmutableArray<AdditionalText> additionalPaths)
-    => generator.Generate(source, additionalPaths, [typeof(object)], false);
+  public static GeneratorDriver Generate(
+    this IIncrementalGenerator generator,
+    string source,
+    ImmutableArray<AdditionalText> additionalPaths,
+    AnalyzerConfigOptionsProvider? configOptions = null)
+    => generator.Generate(source, additionalPaths, [typeof(object)], configOptions);
 
-  public static GeneratorDriver Generate(this IIncrementalGenerator generator, string source, ImmutableArray<AdditionalText> additionalPaths, IEnumerable<Type> types, bool addNet20)
+  public static GeneratorDriver Generate(
+    this IIncrementalGenerator generator,
+    string source,
+    ImmutableArray<AdditionalText> additionalPaths,
+    IEnumerable<Type> types,
+    AnalyzerConfigOptionsProvider? configOptions = null,
+    bool addNet20 = false)
   {
     SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(source, path: "{testString}");
+
+    if (!addNet20) {
+      types = types.Append(typeof(object));
+    }
 
     IEnumerable<PortableExecutableReference> references = types.Select(type => MetadataReference.CreateFromFile(type.Assembly.Location));
 
@@ -44,10 +61,17 @@ public static class TestGeneratorsHelper
     GeneratorDriver driver = CSharpGeneratorDriver.Create(generator)
       .AddAdditionalTexts(additionalPaths);
 
+    if (configOptions is not null) {
+      driver = driver.WithUpdatedAnalyzerConfigOptions(configOptions);
+    }
+
     return driver.RunGenerators(compilation);
   }
 
   private static readonly HashSet<string> s_ignoreErrors = ["CS0535", "CS5001", "CS0246"];
+
+  public static ImmutableArray<AdditionalText> AdditionalString(this string path, string text)
+    => [new StringAdditionalText(path, text)];
 
   public static ImmutableArray<AdditionalText> AdditionalPaths(this IEnumerable<string> paths, string contents)
     => [.. paths.Select(path => new StringAdditionalText(path, contents))];
@@ -60,4 +84,26 @@ public static class TestGeneratorsHelper
     public override SourceText? GetText(CancellationToken cancellationToken = default)
       => SourceText.From(contents + Environment.NewLine);
   }
+
+  private static readonly VerifySettings s_settings = new VerifySettings().CheckAutoVerify();
+
+  public static Task AttachAndVerify(
+    [NotNull] this GeneratorDriver driver,
+    VerifySettings? settings = null,
+    [CallerFilePath] string sourceFile = "")
+  {
+    GeneratorDriverRunResult runResult = driver.GetRunResult();
+
+    IEnumerable<GeneratedText> results = runResult.Results
+      .SelectMany(r => r.GeneratedSources
+        .Select(t => new GeneratedText(t.HintName, t.SourceText)));
+
+    foreach (GeneratedText result in results) {
+      TestContext.Current.AddAttachment(result.Name, result.Text.ToString());
+    }
+
+    return Verify(driver, settings ?? s_settings, sourceFile);
+  }
+
+  private record struct GeneratedText(string Name, SourceText Text);
 }

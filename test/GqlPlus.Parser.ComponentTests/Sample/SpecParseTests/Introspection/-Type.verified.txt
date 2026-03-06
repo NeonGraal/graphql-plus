@@ -106,7 +106,7 @@ Success
   _BaseType
   <
     I@019/0015
-    $kind
+    $typeKind
     :_TypeKind
   >
   :
@@ -117,7 +117,7 @@ Success
     typeKind
     :
     I@020/0017
-    $kind
+    $typeKind
   }
 }
 {
@@ -125,9 +125,9 @@ Success
   _ChildType
   <
     I@020/0020
-    $kind
+    $typeKind
     :_TypeKind
-    I@036/0020
+    I@040/0020
     $parent
     :_Described
   >
@@ -136,7 +136,7 @@ Success
   _BaseType
   <
     I@018/0021
-    $kind
+    $typeKind
   >
   {
     !OF I@009/0022
@@ -151,12 +151,12 @@ Success
   _ParentType
   <
     I@021/0025
-    $kind
+    $typeKind
     :_TypeKind
-    I@037/0025
+    I@041/0025
     $item
     :_Described
-    I@054/0025
+    I@058/0025
     $allItem
     :_Described
   >
@@ -165,8 +165,8 @@ Success
   _ChildType
   <
     I@019/0026
-    $kind
-    I@024/0026
+    $typeKind
+    I@028/0026
     _Named
   >
   {
@@ -214,7 +214,7 @@ Success
   _TypeRef
   <
     I@016/0035
-    $kind
+    $typeKind
     :_TypeKind
   >
   :
@@ -225,7 +225,7 @@ Success
     typeKind
     :
     I@020/0037
-    $kind
+    $typeKind
   }
 }
 {
@@ -285,7 +285,7 @@ Success
   _ModifierKeyed
   <
     I@022/0053
-    $kind
+    $modifierKind
     :_ModifierKind
   >
   :
@@ -293,7 +293,7 @@ Success
   _Modifier
   <
     I@018/0054
-    $kind
+    $modifierKind
   >
   {
     !DF I@009/0055
@@ -347,7 +347,7 @@ Success
   _Modifier
   <
     I@017/0066
-    $kind
+    $modifierKind
     :_ModifierKind
   >
   {
@@ -355,6 +355,6 @@ Success
     modifierKind
     :
     I@024/0067
-    $kind
+    $modifierKind
   }
 }

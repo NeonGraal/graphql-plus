@@ -1,0 +1,36 @@
+﻿/* object-param+Input
+input ObjParamInp<$test:String> { test: $test }
+input ObjParamInp<$type:String> { type: $type }
+*/
+
+// Generated from Schema object-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-param+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_param_Input;
+
+public class CmptObjParamInp<TTest,TType>
+  : Schema_object-param+Input
+  , ICmptObjParamInp<TTest,TType>
+{
+  public ICmptObjParamInpObject<TTest,TType>? As_ObjParamInp { get; set; }
+}
+
+public class CmptObjParamInpObject<TTest,TType>
+  : Schema_object-param+Input
+  , ICmptObjParamInpObject<TTest,TType>
+{
+  public TTest Test { get; set; }
+  public TType Type { get; set; }
+
+  public CmptObjParamInpObject
+    ( TTest test
+    , TType type
+    )
+  {
+    Test = test;
+    Type = type;
+  }
+}

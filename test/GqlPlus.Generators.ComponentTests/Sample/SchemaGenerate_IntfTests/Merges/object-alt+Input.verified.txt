@@ -1,0 +1,36 @@
+﻿/* object-alt+Input
+input ObjAltInp { | ObjAltInpType }
+input ObjAltInp { | ObjAltInpType }
+input ObjAltInpType { }
+*/
+
+// Generated from Schema object-alt+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-alt+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_Input;
+
+public interface ICmptObjAltInp
+  : Schema_object-alt+Input
+{
+  ICmptObjAltInpType? AsObjAltInpType { get; }
+  ICmptObjAltInpObject? As_ObjAltInp { get; }
+}
+
+public interface ICmptObjAltInpObject
+  : Schema_object-alt+Input
+{
+}
+
+public interface ICmptObjAltInpType
+  : Schema_object-alt+Input
+{
+  ICmptObjAltInpTypeObject? As_ObjAltInpType { get; }
+}
+
+public interface ICmptObjAltInpTypeObject
+  : Schema_object-alt+Input
+{
+}

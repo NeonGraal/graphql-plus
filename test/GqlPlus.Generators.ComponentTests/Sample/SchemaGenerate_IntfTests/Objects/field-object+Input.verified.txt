@@ -1,0 +1,37 @@
+﻿/* field-object+Input
+input FieldObjInp { field: FldFieldObjInp }
+input FldFieldObjInp { field: Number | String }
+*/
+
+// Generated from Schema field-object+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-object+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_object_Input;
+
+public interface ICmptFieldObjInp
+  : Schema_field-object+Input
+{
+  ICmptFieldObjInpObject? As_FieldObjInp { get; }
+}
+
+public interface ICmptFieldObjInpObject
+  : Schema_field-object+Input
+{
+  ICmptFldFieldObjInp Field { get; }
+}
+
+public interface ICmptFldFieldObjInp
+  : Schema_field-object+Input
+{
+  string? AsString { get; }
+  ICmptFldFieldObjInpObject? As_FldFieldObjInp { get; }
+}
+
+public interface ICmptFldFieldObjInpObject
+  : Schema_field-object+Input
+{
+  decimal Field { get; }
+}

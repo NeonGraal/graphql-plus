@@ -1,0 +1,23 @@
+﻿/* field-type-descr+Dual
+dual FieldTypeDescrDual { field: "Test" "Descr" Number }
+*/
+
+// Generated from Schema field-type-descr+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-type-descr+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_type_descr_Dual;
+
+public interface ICmptFieldTypeDescrDual
+  : Schema_field-type-descr+Dual
+{
+  ICmptFieldTypeDescrDualObject? As_FieldTypeDescrDual { get; }
+}
+
+public interface ICmptFieldTypeDescrDualObject
+  : Schema_field-type-descr+Dual
+{
+  decimal Field { get; }
+}

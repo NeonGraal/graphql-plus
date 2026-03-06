@@ -21,6 +21,10 @@ public static class VerifyHelpers
     VerifySettings settings,
     [CallerFilePath] string sourceFile = "")
   {
+    if (string.IsNullOrWhiteSpace(result)) {
+      return Task.CompletedTask;
+    }
+
     TestContext.Current.AddAttachment(name, result);
 
     return Verify(result, settings, sourceFile);
@@ -32,6 +36,10 @@ public static class VerifyHelpers
       VerifySettings settings,
       [CallerFilePath] string sourceFile = "")
   {
+    if (!result.Any()) {
+      return Task.CompletedTask;
+    }
+
     TestContext.Current.AddAttachment(name, string.Join(Environment.NewLine, result));
 
     return Verify(result, settings, sourceFile);

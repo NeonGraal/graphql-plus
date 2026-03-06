@@ -1,0 +1,94 @@
+﻿/* constraint-field-dual+Dual
+dual CnstFieldDualDual { :RefCnstFieldDualDual<AltCnstFieldDualDual> }
+dual RefCnstFieldDualDual<$ref:PrntCnstFieldDualDual> { field: $ref }
+dual PrntCnstFieldDualDual { | String }
+dual AltCnstFieldDualDual { :PrntCnstFieldDualDual alt: Number }
+*/
+
+// Generated from Schema constraint-field-dual+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-dual+Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_dual_Dual;
+
+public class CmptCnstFieldDualDual
+  : CmptRefCnstFieldDualDual<ICmptAltCnstFieldDualDual>
+  , ICmptCnstFieldDualDual
+{
+  public ICmptCnstFieldDualDualObject? As_CnstFieldDualDual { get; set; }
+}
+
+public class CmptCnstFieldDualDualObject
+  : CmptRefCnstFieldDualDualObject<ICmptAltCnstFieldDualDual>
+  , ICmptCnstFieldDualDualObject
+{
+
+  public CmptCnstFieldDualDualObject
+    ( ICmptAltCnstFieldDualDual field
+    ) : base(field)
+  {
+  }
+}
+
+public class CmptRefCnstFieldDualDual<TRef>
+  : Schema_constraint-field-dual+Dual
+  , ICmptRefCnstFieldDualDual<TRef>
+{
+  public ICmptRefCnstFieldDualDualObject<TRef>? As_RefCnstFieldDualDual { get; set; }
+}
+
+public class CmptRefCnstFieldDualDualObject<TRef>
+  : Schema_constraint-field-dual+Dual
+  , ICmptRefCnstFieldDualDualObject<TRef>
+{
+  public TRef Field { get; set; }
+
+  public CmptRefCnstFieldDualDualObject
+    ( TRef field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptPrntCnstFieldDualDual
+  : Schema_constraint-field-dual+Dual
+  , ICmptPrntCnstFieldDualDual
+{
+  public string? AsString { get; set; }
+  public ICmptPrntCnstFieldDualDualObject? As_PrntCnstFieldDualDual { get; set; }
+}
+
+public class CmptPrntCnstFieldDualDualObject
+  : Schema_constraint-field-dual+Dual
+  , ICmptPrntCnstFieldDualDualObject
+{
+
+  public CmptPrntCnstFieldDualDualObject
+    ()
+  {
+  }
+}
+
+public class CmptAltCnstFieldDualDual
+  : CmptPrntCnstFieldDualDual
+  , ICmptAltCnstFieldDualDual
+{
+  public ICmptAltCnstFieldDualDualObject? As_AltCnstFieldDualDual { get; set; }
+}
+
+public class CmptAltCnstFieldDualDualObject
+  : CmptPrntCnstFieldDualDualObject
+  , ICmptAltCnstFieldDualDualObject
+{
+  public decimal Alt { get; set; }
+
+  public CmptAltCnstFieldDualDualObject
+    ( decimal alt
+    )
+  {
+    Alt = alt;
+  }
+}

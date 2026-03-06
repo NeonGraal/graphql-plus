@@ -1,0 +1,14 @@
+﻿/* directive
+directive @Drct { inline }
+directive @Drct { spread }
+*/
+
+// Generated from Schema directive
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_directive, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Directive Drct
+*/
+
+namespace Components.Gqlp_Schema_directive;

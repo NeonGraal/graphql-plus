@@ -25,8 +25,7 @@ public class SchemaAbstractionTests
 
   private static IEnumerable<string> NamesAndAliases(TestAliased[] aliased)
     => aliased
-      .Select(a => a.Name)
-      .Concat(aliased.SelectMany(a => a.Aliases))
+      .SelectMany(a => a.NameAndAliases())
       .Distinct();
 }
 

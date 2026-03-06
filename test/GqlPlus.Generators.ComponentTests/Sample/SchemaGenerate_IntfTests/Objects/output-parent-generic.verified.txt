@@ -1,0 +1,38 @@
+﻿/* output-parent-generic
+output OutpPrntGnrc { | RefOutpPrntGnrc<EnumOutpPrntGnrc.prnt_outpPrntGnrc> }
+output RefOutpPrntGnrc<$type:PrntOutpPrntGnrc> { field: $type }
+enum EnumOutpPrntGnrc { :PrntOutpPrntGnrc outpPrntGnrc }
+enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
+*/
+
+// Generated from Schema output-parent-generic
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_output-parent-generic, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_parent_generic;
+
+public interface ICmptOutpPrntGnrc
+  : Schema_output-parent-generic
+{
+  ICmptRefOutpPrntGnrc<CmptEnumOutpPrntGnrc>? AsEnumOutpPrntGnrcprnt_outpPrntGnrc { get; }
+  ICmptOutpPrntGnrcObject? As_OutpPrntGnrc { get; }
+}
+
+public interface ICmptOutpPrntGnrcObject
+  : Schema_output-parent-generic
+{
+}
+
+public interface ICmptRefOutpPrntGnrc<TType>
+  : Schema_output-parent-generic
+{
+  ICmptRefOutpPrntGnrcObject<TType>? As_RefOutpPrntGnrc { get; }
+}
+
+public interface ICmptRefOutpPrntGnrcObject<TType>
+  : Schema_output-parent-generic
+{
+  TType Field { get; }
+}

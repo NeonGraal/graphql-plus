@@ -1,0 +1,30 @@
+﻿/* descr-complex
+"A \"more\" 'Complicated' \\ description"
+output DescrCmpl { }
+*/
+
+// Generated from Schema descr-complex
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-complex, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr_complex;
+
+public class CmptDescrCmpl
+  : Schema_descr-complex
+  , ICmptDescrCmpl
+{
+  public ICmptDescrCmplObject? As_DescrCmpl { get; set; }
+}
+
+public class CmptDescrCmplObject
+  : Schema_descr-complex
+  , ICmptDescrCmplObject
+{
+
+  public CmptDescrCmplObject
+    ()
+  {
+  }
+}

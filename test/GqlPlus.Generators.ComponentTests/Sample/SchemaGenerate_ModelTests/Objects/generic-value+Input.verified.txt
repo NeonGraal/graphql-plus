@@ -1,0 +1,53 @@
+﻿/* generic-value+Input
+input GnrcValueInp { | RefGnrcValueInp<gnrcValueInp> }
+input RefGnrcValueInp<$type:_Enum> { field: $type }
+enum EnumGnrcValueInp { gnrcValueInp }
+*/
+
+// Generated from Schema generic-value+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-value+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_value_Input;
+
+public class CmptGnrcValueInp
+  : Schema_generic-value+Input
+  , ICmptGnrcValueInp
+{
+  public ICmptRefGnrcValueInp<CmptEnumGnrcValueInp>? AsEnumGnrcValueInpgnrcValueInp { get; set; }
+  public ICmptGnrcValueInpObject? As_GnrcValueInp { get; set; }
+}
+
+public class CmptGnrcValueInpObject
+  : Schema_generic-value+Input
+  , ICmptGnrcValueInpObject
+{
+
+  public CmptGnrcValueInpObject
+    ()
+  {
+  }
+}
+
+public class CmptRefGnrcValueInp<TType>
+  : Schema_generic-value+Input
+  , ICmptRefGnrcValueInp<TType>
+{
+  public ICmptRefGnrcValueInpObject<TType>? As_RefGnrcValueInp { get; set; }
+}
+
+public class CmptRefGnrcValueInpObject<TType>
+  : Schema_generic-value+Input
+  , ICmptRefGnrcValueInpObject<TType>
+{
+  public TType Field { get; set; }
+
+  public CmptRefGnrcValueInpObject
+    ( TType field
+    )
+  {
+    Field = field;
+  }
+}

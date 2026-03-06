@@ -1,0 +1,94 @@
+﻿/* constraint-field-obj+Input
+input CnstFieldObjInp { :RefCnstFieldObjInp<AltCnstFieldObjInp> }
+input RefCnstFieldObjInp<$ref:PrntCnstFieldObjInp> { field: $ref }
+input PrntCnstFieldObjInp { | String }
+input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-obj+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_obj_Input;
+
+public class CmptCnstFieldObjInp
+  : CmptRefCnstFieldObjInp<ICmptAltCnstFieldObjInp>
+  , ICmptCnstFieldObjInp
+{
+  public ICmptCnstFieldObjInpObject? As_CnstFieldObjInp { get; set; }
+}
+
+public class CmptCnstFieldObjInpObject
+  : CmptRefCnstFieldObjInpObject<ICmptAltCnstFieldObjInp>
+  , ICmptCnstFieldObjInpObject
+{
+
+  public CmptCnstFieldObjInpObject
+    ( ICmptAltCnstFieldObjInp field
+    ) : base(field)
+  {
+  }
+}
+
+public class CmptRefCnstFieldObjInp<TRef>
+  : Schema_constraint-field-obj+Input
+  , ICmptRefCnstFieldObjInp<TRef>
+{
+  public ICmptRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; set; }
+}
+
+public class CmptRefCnstFieldObjInpObject<TRef>
+  : Schema_constraint-field-obj+Input
+  , ICmptRefCnstFieldObjInpObject<TRef>
+{
+  public TRef Field { get; set; }
+
+  public CmptRefCnstFieldObjInpObject
+    ( TRef field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptPrntCnstFieldObjInp
+  : Schema_constraint-field-obj+Input
+  , ICmptPrntCnstFieldObjInp
+{
+  public string? AsString { get; set; }
+  public ICmptPrntCnstFieldObjInpObject? As_PrntCnstFieldObjInp { get; set; }
+}
+
+public class CmptPrntCnstFieldObjInpObject
+  : Schema_constraint-field-obj+Input
+  , ICmptPrntCnstFieldObjInpObject
+{
+
+  public CmptPrntCnstFieldObjInpObject
+    ()
+  {
+  }
+}
+
+public class CmptAltCnstFieldObjInp
+  : CmptPrntCnstFieldObjInp
+  , ICmptAltCnstFieldObjInp
+{
+  public ICmptAltCnstFieldObjInpObject? As_AltCnstFieldObjInp { get; set; }
+}
+
+public class CmptAltCnstFieldObjInpObject
+  : CmptPrntCnstFieldObjInpObject
+  , ICmptAltCnstFieldObjInpObject
+{
+  public decimal Alt { get; set; }
+
+  public CmptAltCnstFieldObjInpObject
+    ( decimal alt
+    )
+  {
+    Alt = alt;
+  }
+}

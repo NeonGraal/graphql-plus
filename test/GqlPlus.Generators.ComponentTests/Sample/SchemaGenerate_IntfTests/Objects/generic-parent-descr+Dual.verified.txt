@@ -1,0 +1,23 @@
+﻿/* generic-parent-descr+Dual
+dual GnrcPrntDescrDual<$type:_Dual> { :"Parent comment"$type }
+*/
+
+// Generated from Schema generic-parent-descr+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-descr+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_descr_Dual;
+
+public interface ICmptGnrcPrntDescrDual<TType>
+  : Schema_generic-parent-descr+Dual
+{
+  TType? As_Parent { get; }
+  ICmptGnrcPrntDescrDualObject<TType>? As_GnrcPrntDescrDual { get; }
+}
+
+public interface ICmptGnrcPrntDescrDualObject<TType>
+  : Schema_generic-parent-descr+Dual
+{
+}

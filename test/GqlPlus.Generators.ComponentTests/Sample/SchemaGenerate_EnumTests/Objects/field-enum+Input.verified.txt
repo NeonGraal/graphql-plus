@@ -1,0 +1,17 @@
+﻿/* field-enum+Input
+input FieldEnumInp { field = EnumFieldEnumInp.fieldEnumInp }
+enum EnumFieldEnumInp { fieldEnumInp }
+*/
+
+// Generated from Schema field-enum+Input
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_field-enum+Input, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_enum_Input;
+
+public enum CmptEnumFieldEnumInp
+{
+  fieldEnumInp,
+}

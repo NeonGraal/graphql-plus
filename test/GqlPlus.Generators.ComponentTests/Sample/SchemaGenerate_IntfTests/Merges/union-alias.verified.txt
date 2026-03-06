@@ -1,0 +1,19 @@
+﻿/* union-alias
+union UnionAlias [UnA1] { Boolean }
+union UnionAlias [UnA2] { Number }
+*/
+
+// Generated from Schema union-alias
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_union-alias, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_alias;
+
+public interface ICmptUnionAlias
+  : Schema_union-alias
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+}

@@ -1,0 +1,23 @@
+﻿/* object+Input
+input ObjInp { }
+input ObjInp { }
+*/
+
+// Generated from Schema object+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_Input;
+
+public interface ICmptObjInp
+  : Schema_object+Input
+{
+  ICmptObjInpObject? As_ObjInp { get; }
+}
+
+public interface ICmptObjInpObject
+  : Schema_object+Input
+{
+}

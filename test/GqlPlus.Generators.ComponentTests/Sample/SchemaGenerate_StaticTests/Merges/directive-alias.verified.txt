@@ -1,0 +1,14 @@
+﻿/* directive-alias
+directive @DrctAlias [DirA1] { variable }
+directive @DrctAlias [DirA2] { field }
+*/
+
+// Generated from Schema directive-alias
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_directive-alias, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Directive DrctAlias
+*/
+
+namespace Components.Gqlp_Schema_directive_alias;

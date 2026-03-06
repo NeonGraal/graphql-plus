@@ -1,0 +1,14 @@
+﻿/* category-output-optional
+category { CtgrOutpOptl? }
+output CtgrOutpOptl { }
+*/
+
+// Generated from Schema category-output-optional
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category-output-optional, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category ctgrOutpOptl
+*/
+
+namespace Components.Gqlp_Schema_category_output_optional;

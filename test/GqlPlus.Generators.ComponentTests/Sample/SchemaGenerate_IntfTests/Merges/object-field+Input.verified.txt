@@ -1,0 +1,36 @@
+﻿/* object-field+Input
+input ObjFieldInp { field: FldObjFieldInp }
+input ObjFieldInp { field: FldObjFieldInp }
+input FldObjFieldInp { }
+*/
+
+// Generated from Schema object-field+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-field+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_Input;
+
+public interface ICmptObjFieldInp
+  : Schema_object-field+Input
+{
+  ICmptObjFieldInpObject? As_ObjFieldInp { get; }
+}
+
+public interface ICmptObjFieldInpObject
+  : Schema_object-field+Input
+{
+  ICmptFldObjFieldInp Field { get; }
+}
+
+public interface ICmptFldObjFieldInp
+  : Schema_object-field+Input
+{
+  ICmptFldObjFieldInpObject? As_FldObjFieldInp { get; }
+}
+
+public interface ICmptFldObjFieldInpObject
+  : Schema_object-field+Input
+{
+}

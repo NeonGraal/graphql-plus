@@ -3,7 +3,7 @@
 namespace GqlPlus.Building.Schema.Objects;
 
 public class InputFieldBuilder
-  : ObjFieldBuilder
+  : ObjFieldBuilder<IGqlpInputField>
   , IInputTypeBuilder
 {
   private IGqlpConstant? _defaultValue;
@@ -24,6 +24,9 @@ public class InputFieldBuilder
 
   public IGqlpInputField AsInputField
     => Build<IGqlpInputField>();
+
+  public override IGqlpInputField AsObjField
+    => AsInputField;
 
   public void SetDefaultValue(IGqlpConstant? defaultValue)
     => _defaultValue = defaultValue;

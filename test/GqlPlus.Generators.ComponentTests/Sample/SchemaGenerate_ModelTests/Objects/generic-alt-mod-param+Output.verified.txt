@@ -1,0 +1,30 @@
+﻿/* generic-alt-mod-param+Output
+output RefGnrcAltModParamOutp<$ref:String $mod:String> { | $ref[$mod] }
+*/
+
+// Generated from Schema generic-alt-mod-param+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-mod-param+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_mod_param_Output;
+
+public class CmptRefGnrcAltModParamOutp<TRef,TMod>
+  : Schema_generic-alt-mod-param+Output
+  , ICmptRefGnrcAltModParamOutp<TRef,TMod>
+{
+  public IDictionary<TMod, TRef>? Asref { get; set; }
+  public ICmptRefGnrcAltModParamOutpObject<TRef,TMod>? As_RefGnrcAltModParamOutp { get; set; }
+}
+
+public class CmptRefGnrcAltModParamOutpObject<TRef,TMod>
+  : Schema_generic-alt-mod-param+Output
+  , ICmptRefGnrcAltModParamOutpObject<TRef,TMod>
+{
+
+  public CmptRefGnrcAltModParamOutpObject
+    ()
+  {
+  }
+}

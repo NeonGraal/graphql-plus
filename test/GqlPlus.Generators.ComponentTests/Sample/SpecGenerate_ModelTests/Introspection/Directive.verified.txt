@@ -1,0 +1,71 @@
+﻿/* Directive
+output _Directives {
+    : _AndType
+        directive: _Directive
+    | _Directive
+    }
+
+output _Directive {
+    : _Aliased
+        parameter: _InputFieldType?
+        repeatable: Boolean
+        locations: _[_Location]
+    }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
+*/
+
+// Generated from Spec Directive
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Directive, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Directive;
+
+public class Cmpt_Directives
+  : Cmpt_AndType
+  , ICmpt_Directives
+{
+  public ICmpt_Directive? As_Directive { get; set; }
+  public ICmpt_DirectivesObject? As__Directives { get; set; }
+}
+
+public class Cmpt_DirectivesObject
+  : Cmpt_AndTypeObject
+  , ICmpt_DirectivesObject
+{
+  public ICmpt_Directive Directive { get; set; }
+
+  public Cmpt_DirectivesObject
+    ( ICmpt_Directive directive
+    )
+  {
+    Directive = directive;
+  }
+}
+
+public class Cmpt_Directive
+  : Cmpt_Aliased
+  , ICmpt_Directive
+{
+  public ICmpt_DirectiveObject? As__Directive { get; set; }
+}
+
+public class Cmpt_DirectiveObject
+  : Cmpt_AliasedObject
+  , ICmpt_DirectiveObject
+{
+  public ICmpt_InputFieldType? Parameter { get; set; }
+  public bool Repeatable { get; set; }
+  public IDictionary<Cmpt_Location, GqlpUnit> Locations { get; set; }
+
+  public Cmpt_DirectiveObject
+    ( bool repeatable
+    , IDictionary<Cmpt_Location, GqlpUnit> locations
+    )
+  {
+    Repeatable = repeatable;
+    Locations = locations;
+  }
+}

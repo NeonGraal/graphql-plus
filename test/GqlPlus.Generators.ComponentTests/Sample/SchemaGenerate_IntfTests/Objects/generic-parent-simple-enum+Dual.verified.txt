@@ -1,0 +1,36 @@
+﻿/* generic-parent-simple-enum+Dual
+dual GnrcPrntSmplEnumDual { :FieldGnrcPrntSmplEnumDual<EnumGnrcPrntSmplEnumDual> }
+dual FieldGnrcPrntSmplEnumDual<$ref:_Simple> { field: $ref }
+enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
+*/
+
+// Generated from Schema generic-parent-simple-enum+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-simple-enum+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_simple_enum_Dual;
+
+public interface ICmptGnrcPrntSmplEnumDual
+  : ICmptFieldGnrcPrntSmplEnumDual<CmptEnumGnrcPrntSmplEnumDual>
+{
+  ICmptGnrcPrntSmplEnumDualObject? As_GnrcPrntSmplEnumDual { get; }
+}
+
+public interface ICmptGnrcPrntSmplEnumDualObject
+  : ICmptFieldGnrcPrntSmplEnumDualObject<CmptEnumGnrcPrntSmplEnumDual>
+{
+}
+
+public interface ICmptFieldGnrcPrntSmplEnumDual<TRef>
+  : Schema_generic-parent-simple-enum+Dual
+{
+  ICmptFieldGnrcPrntSmplEnumDualObject<TRef>? As_FieldGnrcPrntSmplEnumDual { get; }
+}
+
+public interface ICmptFieldGnrcPrntSmplEnumDualObject<TRef>
+  : Schema_generic-parent-simple-enum+Dual
+{
+  TRef Field { get; }
+}

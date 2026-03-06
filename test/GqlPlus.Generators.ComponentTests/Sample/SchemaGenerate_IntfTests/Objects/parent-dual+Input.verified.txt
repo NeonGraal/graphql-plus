@@ -1,0 +1,36 @@
+﻿/* parent-dual+Input
+input PrntDualInp { :RefPrntDualInp }
+dual RefPrntDualInp { parent: Number | String }
+*/
+
+// Generated from Schema parent-dual+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_parent-dual+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_dual_Input;
+
+public interface ICmptPrntDualInp
+  : ICmptRefPrntDualInp
+{
+  ICmptPrntDualInpObject? As_PrntDualInp { get; }
+}
+
+public interface ICmptPrntDualInpObject
+  : ICmptRefPrntDualInpObject
+{
+}
+
+public interface ICmptRefPrntDualInp
+  : Schema_parent-dual+Input
+{
+  string? AsString { get; }
+  ICmptRefPrntDualInpObject? As_RefPrntDualInp { get; }
+}
+
+public interface ICmptRefPrntDualInpObject
+  : Schema_parent-dual+Input
+{
+  decimal Parent { get; }
+}

@@ -1,0 +1,18 @@
+﻿/* constraint-enum+Input
+input CnstEnumInp { | RefCnstEnumInp<cnstEnumInp> }
+input RefCnstEnumInp<$type:EnumCnstEnumInp> { field: $type }
+enum EnumCnstEnumInp { cnstEnumInp }
+*/
+
+// Generated from Schema constraint-enum+Input
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_constraint-enum+Input, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_enum_Input;
+
+public enum CmptEnumCnstEnumInp
+{
+  cnstEnumInp,
+}

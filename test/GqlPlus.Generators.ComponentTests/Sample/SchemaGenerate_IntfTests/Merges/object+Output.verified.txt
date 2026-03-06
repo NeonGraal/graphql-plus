@@ -1,0 +1,23 @@
+﻿/* object+Output
+output ObjOutp { }
+output ObjOutp { }
+*/
+
+// Generated from Schema object+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_Output;
+
+public interface ICmptObjOutp
+  : Schema_object+Output
+{
+  ICmptObjOutpObject? As_ObjOutp { get; }
+}
+
+public interface ICmptObjOutpObject
+  : Schema_object+Output
+{
+}

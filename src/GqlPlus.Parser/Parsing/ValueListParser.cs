@@ -4,10 +4,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 public sealed class ValueListParser<TValue>(
-  Parser<TValue>.D value
+  IParserRepository parsers
 ) : Parser<TValue>.IA
 {
-  private readonly Parser<TValue>.L _value = value;
+  private readonly Parser<TValue>.L _value = parsers.Get<TValue>();
 
   public IResultArray<TValue> Parse(ITokenizer tokens, string label)
 

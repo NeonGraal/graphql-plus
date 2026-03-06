@@ -4,13 +4,12 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 public class ValueKeyValueParser<TValue>(
-  Parser<IGqlpFieldKey>.D key,
-  Parser<TValue>.D value
+  IParserRepository parsers
 ) : Parser<KeyValue<TValue>>.I
   where TValue : IGqlpValue<TValue>
 {
-  private readonly Parser<IGqlpFieldKey>.L _key = key;
-  private readonly Parser<TValue>.L _value = value;
+  private readonly Parser<IGqlpFieldKey>.L _key = parsers.Get<IGqlpFieldKey>();
+  private readonly Parser<TValue>.L _value = parsers.Get<TValue>();
 
   public IResult<KeyValue<TValue>> Parse(ITokenizer tokens, string label)
 

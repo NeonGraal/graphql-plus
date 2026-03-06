@@ -10,16 +10,20 @@ internal class ParserRepository(
 {
   private readonly Dictionary<Type, Type> _singles = registrations
     .Where(r => r.Kind == ParserRegistrationKind.Single)
-    .ToDictionary(r => r.For, r => r.Service);
+    .GroupBy(r => r.For)
+    .ToDictionary(g => g.Key, g => g.Last().Service);
   private readonly Dictionary<Type, Type> _arrays = registrations
     .Where(r => r.Kind == ParserRegistrationKind.Array)
-    .ToDictionary(r => r.For, r => r.Service);
+    .GroupBy(r => r.For)
+    .ToDictionary(g => g.Key, g => g.Last().Service);
   private readonly Dictionary<Type, Type> _interfaceSingles = registrations
     .Where(r => r.Kind == ParserRegistrationKind.SingleInterface)
-    .ToDictionary(r => r.For, r => r.Service);
+    .GroupBy(r => r.For)
+    .ToDictionary(g => g.Key, g => g.Last().Service);
   private readonly Dictionary<Type, Type> _interfaceArrays = registrations
     .Where(r => r.Kind == ParserRegistrationKind.ArrayInterface)
-    .ToDictionary(r => r.For, r => r.Service);
+    .GroupBy(r => r.For)
+    .ToDictionary(g => g.Key, g => g.Last().Service);
 
   private readonly ConcurrentDictionary<Type, object> _cache = new();
 

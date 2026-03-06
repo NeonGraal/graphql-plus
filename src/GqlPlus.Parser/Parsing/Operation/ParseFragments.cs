@@ -6,8 +6,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal abstract class ParseFragments(
-  Parser<IGqlpDirective>.DA directives,
-  Parser<IGqlpSelection>.DA objectParser
+  Parser<IGqlpDirective>.LA directives,
+  Parser<IGqlpSelection>.LA objectParser
 ) : Parser<IGqlpFragment>.IA
 {
   private readonly Parser<IGqlpDirective>.LA _directives = directives;
@@ -58,9 +58,8 @@ internal abstract class ParseFragments(
 }
 
 internal class ParseStartFragments(
-  Parser<IGqlpDirective>.DA directives,
-  Parser<IGqlpSelection>.DA objectParser
-) : ParseFragments(directives, objectParser), IParserStartFragments
+  IParserRepository parsers
+) : ParseFragments(parsers.GetArray<IGqlpDirective>(), parsers.GetArray<IGqlpSelection>()), IParserStartFragments
 {
   protected override bool FragmentPrefix(ref ITokenizer tokens)
     => tokens.Take('&');
@@ -69,9 +68,8 @@ internal class ParseStartFragments(
 }
 
 internal class ParseEndFragments(
-  Parser<IGqlpDirective>.DA directives,
-  Parser<IGqlpSelection>.DA objectParser
-) : ParseFragments(directives, objectParser), IParserEndFragments
+  IParserRepository parsers
+) : ParseFragments(parsers.GetArray<IGqlpDirective>(), parsers.GetArray<IGqlpSelection>()), IParserEndFragments
 {
   protected override bool FragmentPrefix(ref ITokenizer tokens)
     => tokens.Take("fragment") || tokens.Take('&');

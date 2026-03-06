@@ -6,8 +6,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseDomainRegex(
-  Parser<IGqlpDomainRegex>.DA items
-) : ParseDomainItem<IGqlpDomainRegex>(items)
+  IParserRepository parsers
+) : ParseDomainItem<IGqlpDomainRegex>(parsers.GetArray<IGqlpDomainRegex>())
 {
   public override DomainKind Kind => DomainKind.String;
 

@@ -8,11 +8,13 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseOption(
   ISimpleName name,
-  Parser<NullAst>.DA param,
-  Parser<string>.DA aliases,
-  Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<OptionDefinition>.D definition
-) : DeclarationParser<OptionDefinition, IGqlpSchemaOption>(name, param, aliases, option, definition)
+  IParserRepository parsers
+) : DeclarationParser<OptionDefinition, IGqlpSchemaOption>(
+    name,
+    parsers.GetArray<NullAst>(),
+    parsers.GetArray<string>(),
+    parsers.GetInterface<IOptionParser<NullOption>, NullOption>(),
+    parsers.Get<OptionDefinition>())
 {
   protected override IGqlpSchemaOption MakeResult(AstPartial<NullAst, NullOption> partial, OptionDefinition value)
         => new OptionDeclAst(partial.At, partial.Name, partial.Description) {
@@ -32,10 +34,10 @@ internal class OptionDefinition
 }
 
 internal class ParseOptionDefinition(
-  Parser<IGqlpSchemaSetting>.D setting
+  IParserRepository parsers
 ) : Parser<OptionDefinition>.I
 {
-  private readonly Parser<IGqlpSchemaSetting>.L _setting = setting;
+  private readonly Parser<IGqlpSchemaSetting>.L _setting = parsers.Get<IGqlpSchemaSetting>();
 
   public IResult<OptionDefinition> Parse(ITokenizer tokens, string label)
 

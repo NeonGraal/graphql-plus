@@ -5,7 +5,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal abstract class ParseDomainItem<TItem>(
-    Parser<TItem>.DA items
+    Parser<TItem>.LA items
 ) : Parser<TItem>.I, IParseDomain
 {
   private readonly Parser<TItem>.LA _items = items;

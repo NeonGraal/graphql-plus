@@ -5,12 +5,14 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ObjectParser<TObjField>(
   ISimpleName name,
-  Parser<IGqlpTypeParam>.DA param,
-  Parser<string>.DA aliases,
-  Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<ObjectDefinition<TObjField>>.D definition,
+  IParserRepository parsers,
   IGqlpFieldKind<TObjField> fieldKind
-) : DeclarationParser<IGqlpTypeParam, ObjectDefinition<TObjField>, IGqlpObject<TObjField>>(name, param, aliases, option, definition)
+) : DeclarationParser<IGqlpTypeParam, ObjectDefinition<TObjField>, IGqlpObject<TObjField>>(
+    name,
+    parsers.GetArray<IGqlpTypeParam>(),
+    parsers.GetArray<string>(),
+    parsers.GetInterface<IOptionParser<NullOption>, NullOption>(),
+    parsers.Get<ObjectDefinition<TObjField>>())
   , Parser<IGqlpObject<TObjField>>.I
   where TObjField : IGqlpObjField
 

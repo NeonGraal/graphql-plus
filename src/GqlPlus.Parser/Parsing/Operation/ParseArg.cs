@@ -7,12 +7,11 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseArg(
-  Parser<IGqlpFieldKey>.D fieldKey,
-  Parser<IValueParser<IGqlpArg>, IGqlpArg>.D argument
+  IParserRepository parsers
 ) : IParserArg
 {
-  private readonly Parser<IGqlpFieldKey>.L _fieldKey = fieldKey;
-  private readonly Parser<IValueParser<IGqlpArg>, IGqlpArg>.L _argument = argument;
+  private readonly Parser<IGqlpFieldKey>.L _fieldKey = parsers.Get<IGqlpFieldKey>();
+  private readonly Parser<IValueParser<IGqlpArg>, IGqlpArg>.L _argument = parsers.GetInterface<IValueParser<IGqlpArg>, IGqlpArg>();
 
   public IResult<IGqlpArg> Parse(ITokenizer tokens, string label)
 

@@ -5,10 +5,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseVariables(
-  Parser<IGqlpVariable>.D variable
+  IParserRepository parsers
 ) : Parser<IGqlpVariable>.IA
 {
-  private readonly Parser<IGqlpVariable>.L _variable = variable;
+  private readonly Parser<IGqlpVariable>.L _variable = parsers.Get<IGqlpVariable>();
 
   public IResultArray<IGqlpVariable> Parse(ITokenizer tokens, string label)
 

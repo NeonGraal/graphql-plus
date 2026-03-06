@@ -6,13 +6,13 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseInputField(
-  Parser<string>.DA aliases,
-  Parser<IGqlpModifier>.DA modifiers,
-  Parser<IGqlpObjBase>.D parseBase,
-  Parser<IParserDefault, IGqlpConstant>.D defaultParser
-) : ObjectFieldParser<IGqlpInputField, InputFieldAst>(aliases, modifiers, parseBase)
+  IParserRepository parsers
+) : ObjectFieldParser<IGqlpInputField, InputFieldAst>(
+    parsers.GetArray<string>(),
+    parsers.GetArray<IGqlpModifier>(),
+    parsers.Get<IGqlpObjBase>())
 {
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
+  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.GetInterface<IParserDefault, IGqlpConstant>();
 
   [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParams(InputFieldAst field, IGqlpInputParam[] parameters)

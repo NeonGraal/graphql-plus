@@ -5,11 +5,11 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema;
 
 internal class OptionParser<TOption>(
-  Parser<IEnumParser<TOption>, TOption>.D parser
+  IParserRepository parsers
 ) : IOptionParser<TOption>
   where TOption : struct
 {
-  private readonly Parser<IEnumParser<TOption>, TOption>.L _parser = parser;
+  private readonly Parser<IEnumParser<TOption>, TOption>.L _parser = parsers.GetInterface<IEnumParser<TOption>, TOption>();
 
   public IResult<TOption> Parse(ITokenizer tokens, string label)
 

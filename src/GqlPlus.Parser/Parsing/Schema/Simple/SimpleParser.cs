@@ -7,10 +7,10 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 internal abstract class SimpleParser<TDefinition, TResult>(
   ISimpleName name,
-  Parser<NullAst>.DA param,
-  Parser<string>.DA aliases,
-  Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<TDefinition>.D definition
+  Parser<NullAst>.LA param,
+  Parser<string>.LA aliases,
+  Parser<IOptionParser<NullOption>, NullOption>.L option,
+  Parser<TDefinition>.L definition
 ) : DeclarationParser<TDefinition, TResult>(name, param, aliases, option, definition)
   where TDefinition : SimpleDefinition
   where TResult : IGqlpSimple
@@ -22,7 +22,7 @@ internal class SimpleDefinition
 }
 
 internal abstract class SimpleDefinitionParser<TDefinition>(
-      Parser<IGqlpTypeRef>.D typeRef
+      Parser<IGqlpTypeRef>.L typeRef
 ) : Parser<TDefinition>.I
   where TDefinition : SimpleDefinition
 {

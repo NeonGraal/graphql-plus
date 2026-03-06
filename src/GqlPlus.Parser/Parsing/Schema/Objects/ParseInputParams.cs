@@ -7,14 +7,12 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseInputParams(
-  Parser<IGqlpObjBase>.D input,
-  Parser<IGqlpModifier>.DA modifiers,
-  Parser<IParserDefault, IGqlpConstant>.D defaultParser
+  IParserRepository parsers
 ) : Parser<IGqlpInputParam>.IA
 {
-  private readonly Parser<IGqlpObjBase>.L _input = input;
-  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
+  private readonly Parser<IGqlpObjBase>.L _input = parsers.Get<IGqlpObjBase>();
+  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.GetArray<IGqlpModifier>();
+  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.GetInterface<IParserDefault, IGqlpConstant>();
 
   public IResultArray<IGqlpInputParam> Parse(ITokenizer tokens, string label)
 

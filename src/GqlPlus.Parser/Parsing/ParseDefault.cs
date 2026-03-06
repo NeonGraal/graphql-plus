@@ -4,10 +4,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 internal class ParseDefault(
-  Parser<IGqlpConstant>.D constant
+  IParserRepository parsers
 ) : IParserDefault
 {
-  private readonly Parser<IGqlpConstant>.L _constant = constant;
+  private readonly Parser<IGqlpConstant>.L _constant = parsers.Get<IGqlpConstant>();
 
   public IResult<IGqlpConstant> Parse(ITokenizer tokens, string label)
 

@@ -7,10 +7,10 @@ namespace GqlPlus.Parsing.Schema;
 
 internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, TResult>(
   TName name,
-  Parser<TParam>.DA param,
-  Parser<string>.DA aliases,
-  Parser<IOptionParser<TOption>, TOption>.D option,
-  Parser<TDefinition>.D definition
+  Parser<TParam>.LA param,
+  Parser<string>.LA aliases,
+  Parser<IOptionParser<TOption>, TOption>.L option,
+  Parser<TDefinition>.L definition
 ) : Parser<TResult>.I
   where TName : INameParser
   where TOption : struct
@@ -79,19 +79,19 @@ internal interface INameParser
 
 internal abstract class DeclarationParser<TParam, TDefinition, TResult>(
   ISimpleName name,
-  Parser<TParam>.DA param,
-  Parser<string>.DA aliases,
-  Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<TDefinition>.D definition
+  Parser<TParam>.LA param,
+  Parser<string>.LA aliases,
+  Parser<IOptionParser<NullOption>, NullOption>.L option,
+  Parser<TDefinition>.L definition
 ) : DeclarationParser<ISimpleName, TParam, NullOption, TDefinition, TResult>(name, param, aliases, option, definition)
 { }
 
 internal abstract class DeclarationParser<TDefinition, TResult>(
   ISimpleName name,
-  Parser<NullAst>.DA param,
-  Parser<string>.DA aliases,
-  Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<TDefinition>.D definition
+  Parser<NullAst>.LA param,
+  Parser<string>.LA aliases,
+  Parser<IOptionParser<NullOption>, NullOption>.L option,
+  Parser<TDefinition>.L definition
 ) : DeclarationParser<NullAst, TDefinition, TResult>(name, param, aliases, option, definition)
 { }
 

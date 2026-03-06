@@ -6,10 +6,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseDirectives(
-  Parser<IParserArg, IGqlpArg>.D argument
+  IParserRepository parsers
 ) : Parser<IGqlpDirective>.IA
 {
-  private readonly Parser<IParserArg, IGqlpArg>.L _argument = argument;
+  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.GetInterface<IParserArg, IGqlpArg>();
 
   public IResultArray<IGqlpDirective> Parse(ITokenizer tokens, string label)
 

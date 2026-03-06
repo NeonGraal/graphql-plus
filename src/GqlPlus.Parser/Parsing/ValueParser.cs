@@ -5,10 +5,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 public abstract class ValueParser<TValue>(
-  Parser<IGqlpFieldKey>.D fieldKey,
-  Parser<KeyValue<TValue>>.D keyValueParser,
-  Parser<TValue>.DA listParser,
-  Parser<IGqlpFields<TValue>>.D objectParser
+  Parser<IGqlpFieldKey>.L fieldKey,
+  Parser<KeyValue<TValue>>.L keyValueParser,
+  Parser<TValue>.LA listParser,
+  Parser<IGqlpFields<TValue>>.L objectParser
 ) : IValueParser<TValue>
   , Parser<TValue>.I
   where TValue : IGqlpValue<TValue>

@@ -5,10 +5,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 internal class ParseModifiers(
-    ParserArray<IParserCollections, IGqlpModifier>.DA collections
+    IParserRepository parsers
 ) : Parser<IGqlpModifier>.IA
 {
-  private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = collections;
+  private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = parsers.GetArrayInterface<IParserCollections, IGqlpModifier>();
 
   public IResultArray<IGqlpModifier> Parse(ITokenizer tokens, string label)
 

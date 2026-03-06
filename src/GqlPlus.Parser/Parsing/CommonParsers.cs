@@ -48,8 +48,7 @@ public static class CommonParsers
     where TService : class, Parser<TValue>.I
     => services
       .AddParser<TValue, TService>()
-      .AddSingleton<ArrayParser<TValue>>()
-      .AddSingleton(new ParserRegistration(typeof(TValue), typeof(ArrayParser<TValue>), ParserRegistrationKind.Array));
+      .AddParserArray<TValue, ArrayParser<TValue>>();
 
   internal static IServiceCollection AddParserArray<TInterface, TValue, TService>(this IServiceCollection services)
     where TService : class, TInterface

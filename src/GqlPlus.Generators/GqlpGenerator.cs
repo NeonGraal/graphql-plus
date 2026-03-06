@@ -4,6 +4,7 @@ using GqlPlus.Abstractions;
 using GqlPlus.Generating;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
+using GqlPlus.Parsing.Operation;
 using GqlPlus.Parsing.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -120,6 +121,7 @@ public class GqlpGenerator : IIncrementalGenerator
       .AddFieldObjectKinds()
       .AddCommonParsers()
       .AddSchemaParsers()
+      .AddOperationParsers()
       .AddMergers()
       .AddGenerators()
       .BuildServiceProvider();

@@ -78,7 +78,7 @@ internal class ParseOperationDefinition(
     if (resultType is not null) {
       result.ResultType = resultType;
       IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");
-      if (!argument.Optional(value => result.Argument = (ArgAst?)value)) {
+      if (!argument.Optional(value => result.Argument = value)) {
         return argument.AsPartial(result);
       }
     } else if (!_object.Parse(tokens, label).Required(selections => result.ResultObject = [.. selections])) {

@@ -193,3 +193,42 @@ public interface ItestInDrctParamOptObject
   : IGqlpModelImplementationBase
 {
 }
+
+public interface ItestCatOprCtgr
+  : IGqlpModelImplementationBase
+{
+  ItestCatOprCtgrObject? As_CatOprCtgr { get; }
+}
+
+public interface ItestCatOprCtgrObject
+  : IGqlpModelImplementationBase
+{
+}
+
+public interface ItestCatOprType
+  : IGqlpModelImplementationBase
+{
+  ItestCatOprTypeObject? As_CatOprType { get; }
+}
+
+public interface ItestCatOprTypeObject
+  : IGqlpModelImplementationBase
+{
+  string First { get; }
+  string Last { get; }
+  ItestAddrOprType Address { get; }
+}
+
+public interface ItestAddrOprType
+  : IGqlpModelImplementationBase
+{
+  ItestAddrOprTypeObject? As_AddrOprType { get; }
+}
+
+public interface ItestAddrOprTypeObject
+  : IGqlpModelImplementationBase
+{
+  string Street { get; }
+  string City { get; }
+  string Country { get; }
+}

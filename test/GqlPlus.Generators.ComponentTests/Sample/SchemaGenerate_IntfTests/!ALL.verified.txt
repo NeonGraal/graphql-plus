@@ -193,6 +193,45 @@ public interface ICmptInDrctParamOptObject
 {
 }
 
+public interface ICmptCatOprCtgr
+  : Schema_!ALL
+{
+  ICmptCatOprCtgrObject? As_CatOprCtgr { get; }
+}
+
+public interface ICmptCatOprCtgrObject
+  : Schema_!ALL
+{
+}
+
+public interface ICmptCatOprType
+  : Schema_!ALL
+{
+  ICmptCatOprTypeObject? As_CatOprType { get; }
+}
+
+public interface ICmptCatOprTypeObject
+  : Schema_!ALL
+{
+  string First { get; }
+  string Last { get; }
+  ICmptAddrOprType Address { get; }
+}
+
+public interface ICmptAddrOprType
+  : Schema_!ALL
+{
+  ICmptAddrOprTypeObject? As_AddrOprType { get; }
+}
+
+public interface ICmptAddrOprTypeObject
+  : Schema_!ALL
+{
+  string Street { get; }
+  string City { get; }
+  string Country { get; }
+}
+
 public interface ICmptAltDual
   : Schema_!ALL
 {
@@ -6286,6 +6325,17 @@ public interface ICmptRefObjPrntOutp
 }
 
 public interface ICmptRefObjPrntOutpObject
+  : Schema_!ALL
+{
+}
+
+public interface ICmptOp
+  : Schema_!ALL
+{
+  ICmptOpObject? As_Op { get; }
+}
+
+public interface ICmptOpObject
   : Schema_!ALL
 {
 }

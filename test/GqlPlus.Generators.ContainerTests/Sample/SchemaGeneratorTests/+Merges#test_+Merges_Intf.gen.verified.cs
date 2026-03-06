@@ -725,6 +725,17 @@ public interface ItestRefObjPrntOutpObject
 {
 }
 
+public interface ItestOp
+  : IGqlpModelImplementationBase
+{
+  ItestOpObject? As_Op { get; }
+}
+
+public interface ItestOpObject
+  : IGqlpModelImplementationBase
+{
+}
+
 public interface ItestOutpFieldParam
   : IGqlpModelImplementationBase
 {

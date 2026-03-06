@@ -1195,6 +1195,24 @@ public class testRefObjPrntOutpObject
   }
 }
 
+public class testOp
+  : GqlpModelImplementationBase
+  , ItestOp
+{
+  public ItestOpObject? As_Op { get; set; }
+}
+
+public class testOpObject
+  : GqlpModelImplementationBase
+  , ItestOpObject
+{
+
+  public testOpObject
+    ()
+  {
+  }
+}
+
 public class testOutpFieldParam
   : GqlpModelImplementationBase
   , ItestOutpFieldParam

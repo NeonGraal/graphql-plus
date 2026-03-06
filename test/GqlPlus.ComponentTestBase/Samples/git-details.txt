@@ -1,1 +1,1 @@
-41c2e2d  (HEAD -> generators) 2026-03-06 Improve naming of various *Kind type params
+c7cdd96  (HEAD -> operation) 2026-03-06 Rename fields to avoid .Net reserved words

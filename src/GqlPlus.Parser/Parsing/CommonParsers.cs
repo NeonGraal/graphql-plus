@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Parsing.Schema;
-
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing;
@@ -13,7 +12,8 @@ public static class CommonParsers
       .AddParserArray<IGqlpModifier, ParseModifiers>()
       .AddParserArray<IParserCollections, IGqlpModifier, ParseCollections>()
       .AddParser<IParserDefault, IGqlpConstant, ParseDefault>()
-      .AddValueParsers<IGqlpConstant, ParseConstant>();
+      .AddValueParsers<IGqlpConstant, ParseConstant>()
+      .AddSingleton<IParserRepository, ParserRepository>();
 
   internal static IServiceCollection AddValueParsers<TValue, TParser>(this IServiceCollection services)
     where TValue : IGqlpValue<TValue>
@@ -24,54 +24,37 @@ public static class CommonParsers
       .AddParserArray<TValue, ValueListParser<TValue>>()
       .AddParser<IGqlpFields<TValue>, ValueObjectParser<TValue>>();
 
-  private static Parser<TValue>.D GetParser<TService, TValue>(IServiceProvider provider)
-    where TService : class, Parser<TValue>.I
-    => provider.GetRequiredService<TService>;
-
   internal static IServiceCollection AddParser<TValue, TService>(this IServiceCollection services)
     where TService : class, Parser<TValue>.I
     => services
       .AddSingleton<TService>()
-      .AddSingleton(GetParser<TService, TValue>);
-
-  private static Parser<TInterface, TValue>.D GetInterfaceParser<TService, TInterface, TValue>(IServiceProvider provider)
-    where TService : class, TInterface
-    where TInterface : class, Parser<TValue>.I
-    => provider.GetRequiredService<TService>;
+      .AddSingleton(new ParserRegistration(typeof(TValue), typeof(TService), ParserRegistrationKind.Single));
 
   internal static IServiceCollection AddParser<TInterface, TValue, TService>(this IServiceCollection services)
     where TService : class, TInterface
     where TInterface : class, Parser<TValue>.I
     => services
       .AddSingleton<TService>()
-      .AddSingleton(GetParser<TService, TValue>)
-      .AddSingleton(GetInterfaceParser<TService, TInterface, TValue>);
-
-  private static Parser<TValue>.DA GetParserArray<TService, TValue>(IServiceProvider provider)
-    where TService : class, Parser<TValue>.IA
-    => provider.GetRequiredService<TService>;
+      .AddSingleton(new ParserRegistration(typeof(TValue), typeof(TService), ParserRegistrationKind.Single))
+      .AddSingleton(new ParserRegistration(typeof(TInterface), typeof(TService), ParserRegistrationKind.SingleInterface));
 
   internal static IServiceCollection AddParserArray<TValue, TService>(this IServiceCollection services)
     where TService : class, Parser<TValue>.IA
     => services
       .AddSingleton<TService>()
-      .AddSingleton(GetParserArray<TService, TValue>);
+      .AddSingleton(new ParserRegistration(typeof(TValue), typeof(TService), ParserRegistrationKind.Array));
 
   internal static IServiceCollection AddArrayParser<TValue, TService>(this IServiceCollection services)
     where TService : class, Parser<TValue>.I
     => services
       .AddParser<TValue, TService>()
-      .AddParserArray<TValue, ArrayParser<TValue>>();
-
-  private static ParserArray<TInterface, TValue>.DA GetInterfaceParserArray<TService, TInterface, TValue>(IServiceProvider provider)
-    where TService : class, TInterface
-    where TInterface : class, Parser<TValue>.IA
-    => provider.GetRequiredService<TService>;
+      .AddSingleton<ArrayParser<TValue>>()
+      .AddSingleton(new ParserRegistration(typeof(TValue), typeof(ArrayParser<TValue>), ParserRegistrationKind.Array));
 
   internal static IServiceCollection AddParserArray<TInterface, TValue, TService>(this IServiceCollection services)
     where TService : class, TInterface
     where TInterface : class, Parser<TValue>.IA
     => services
       .AddSingleton<TService>()
-      .AddSingleton(GetInterfaceParserArray<TService, TInterface, TValue>);
+      .AddSingleton(new ParserRegistration(typeof(TInterface), typeof(TService), ParserRegistrationKind.ArrayInterface));
 }

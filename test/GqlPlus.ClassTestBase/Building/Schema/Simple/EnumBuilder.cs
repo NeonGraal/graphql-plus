@@ -3,7 +3,7 @@
 namespace GqlPlus.Building.Schema.Simple;
 
 public class EnumBuilder
-  : SimpleBuilder
+  : SimpleBuilder<IGqlpEnum>
 {
   internal IGqlpEnumLabel[] _labels = [];
 
@@ -28,6 +28,8 @@ public class EnumBuilder
 
   public IGqlpEnum AsEnum
     => Build<IGqlpEnum>();
+
+  public override IGqlpEnum AsSimple => AsEnum;
 }
 
 public static class EnumBuilderHelper

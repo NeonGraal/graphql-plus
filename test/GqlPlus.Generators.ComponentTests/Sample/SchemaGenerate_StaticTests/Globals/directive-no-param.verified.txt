@@ -1,0 +1,13 @@
+﻿/* directive-no-param
+directive @DrctNoParam { all }
+*/
+
+// Generated from Schema directive-no-param
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_directive-no-param, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Directive DrctNoParam
+*/
+
+namespace Components.Gqlp_Schema_directive_no_param;

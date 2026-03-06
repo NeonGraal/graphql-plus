@@ -1,0 +1,33 @@
+﻿/* object-field-enum-alias+Input
+input ObjFieldEnumAliasInp { field [field1] = Boolean.true }
+input ObjFieldEnumAliasInp { field [field2] = true }
+*/
+
+// Generated from Schema object-field-enum-alias+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-enum-alias+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_enum_alias_Input;
+
+public class CmptObjFieldEnumAliasInp
+  : Schema_object-field-enum-alias+Input
+  , ICmptObjFieldEnumAliasInp
+{
+  public ICmptObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; set; }
+}
+
+public class CmptObjFieldEnumAliasInpObject
+  : Schema_object-field-enum-alias+Input
+  , ICmptObjFieldEnumAliasInpObject
+{
+  public bool Field { get; set; }
+
+  public CmptObjFieldEnumAliasInpObject
+    ( bool field
+    )
+  {
+    Field = field;
+  }
+}

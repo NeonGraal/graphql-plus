@@ -1,0 +1,225 @@
+﻿//HintName: test_-Object_Intf.gen.cs
+// Generated from {CurrentDirectory}-Object.graphql+
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+/*
+*/
+
+namespace GqlPlus.GeneratorTests.Gqlp__Object;
+
+public interface Itest_ObjectKind
+  : IGqlpDomainEnum
+{
+}
+
+public interface Itest_TypeObject<TObjectKind,TField>
+  : Itest_ChildType<TObjectKind, Itest_ObjBase>
+{
+  Itest_TypeObjectObject<TObjectKind,TField>? As__TypeObject { get; }
+}
+
+public interface Itest_TypeObjectObject<TObjectKind,TField>
+  : Itest_ChildTypeObject<TObjectKind, Itest_ObjBase>
+{
+  ICollection<Itest_ObjTypeParam> TypeParams { get; }
+  ICollection<TField> Fields { get; }
+  ICollection<Itest_ObjAlternate> Alternates { get; }
+  ICollection<Itest_ObjectFor<TField>> AllFields { get; }
+  ICollection<Itest_ObjectFor<Itest_ObjAlternate>> AllAlternates { get; }
+}
+
+public interface Itest_ObjTypeParam
+  : Itest_Named
+{
+  Itest_ObjTypeParamObject? As__ObjTypeParam { get; }
+}
+
+public interface Itest_ObjTypeParamObject
+  : Itest_NamedObject
+{
+  Itest_TypeRef<Itest_TypeKind> Constraint { get; }
+}
+
+public interface Itest_ObjBase
+  : Itest_Named
+{
+  Itest_TypeParam? As_TypeParam { get; }
+  Itest_ObjBaseObject? As__ObjBase { get; }
+}
+
+public interface Itest_ObjBaseObject
+  : Itest_NamedObject
+{
+  ICollection<Itest_ObjTypeArg> TypeArgs { get; }
+}
+
+public interface Itest_ObjTypeArg
+  : Itest_TypeRef<Itest_TypeKind>
+{
+  Itest_TypeParam? As_TypeParam { get; }
+  Itest_ObjTypeArgObject? As__ObjTypeArg { get; }
+}
+
+public interface Itest_ObjTypeArgObject
+  : Itest_TypeRefObject<Itest_TypeKind>
+{
+  Itest_Name? Label { get; }
+}
+
+public interface Itest_TypeParam
+  : Itest_Described
+{
+  Itest_TypeParamObject? As__TypeParam { get; }
+}
+
+public interface Itest_TypeParamObject
+  : Itest_DescribedObject
+{
+  Itest_Name TypeParam { get; }
+}
+
+public interface Itest_ObjAlternate
+  : IGqlpModelImplementationBase
+{
+  Itest_ObjAlternateEnum? As_ObjAlternateEnum { get; }
+  Itest_ObjAlternateObject? As__ObjAlternate { get; }
+}
+
+public interface Itest_ObjAlternateObject
+  : IGqlpModelImplementationBase
+{
+  Itest_ObjBase Type { get; }
+  ICollection<Itest_Collections> Collections { get; }
+}
+
+public interface Itest_ObjAlternateEnum
+  : Itest_TypeRef<Itest_TypeKind>
+{
+  Itest_ObjAlternateEnumObject? As__ObjAlternateEnum { get; }
+}
+
+public interface Itest_ObjAlternateEnumObject
+  : Itest_TypeRefObject<Itest_TypeKind>
+{
+  Itest_Name Label { get; }
+}
+
+public interface Itest_ObjectFor<TFor>
+  : IGqlpModelImplementationBase
+{
+  TFor? As_Parent { get; }
+  Itest_ObjectForObject<TFor>? As__ObjectFor { get; }
+}
+
+public interface Itest_ObjectForObject<TFor>
+  : IGqlpModelImplementationBase
+{
+  Itest_Name ObjectType { get; }
+}
+
+public interface Itest_ObjField<TType>
+  : Itest_Aliased
+{
+  Itest_ObjFieldObject<TType>? As__ObjField { get; }
+}
+
+public interface Itest_ObjFieldObject<TType>
+  : Itest_AliasedObject
+{
+  TType Type { get; }
+}
+
+public interface Itest_ObjFieldType
+  : Itest_ObjBase
+{
+  Itest_ObjFieldEnum? As_ObjFieldEnum { get; }
+  Itest_ObjFieldTypeObject? As__ObjFieldType { get; }
+}
+
+public interface Itest_ObjFieldTypeObject
+  : Itest_ObjBaseObject
+{
+  ICollection<Itest_Modifiers> Modifiers { get; }
+}
+
+public interface Itest_ObjFieldEnum
+  : Itest_TypeRef<Itest_TypeKind>
+{
+  Itest_ObjFieldEnumObject? As__ObjFieldEnum { get; }
+}
+
+public interface Itest_ObjFieldEnumObject
+  : Itest_TypeRefObject<Itest_TypeKind>
+{
+  Itest_Name Label { get; }
+}
+
+public interface Itest_ForParam<TType>
+  : IGqlpModelImplementationBase
+{
+  Itest_ObjAlternate? As_ObjAlternate { get; }
+  Itest_ObjField<TType>? As_ObjField { get; }
+  Itest_ForParamObject<TType>? As__ForParam { get; }
+}
+
+public interface Itest_ForParamObject<TType>
+  : IGqlpModelImplementationBase
+{
+}
+
+public interface Itest_DualField
+  : Itest_ObjField<Itest_ObjFieldType>
+{
+  Itest_DualFieldObject? As__DualField { get; }
+}
+
+public interface Itest_DualFieldObject
+  : Itest_ObjFieldObject<Itest_ObjFieldType>
+{
+}
+
+public interface Itest_InputField
+  : Itest_ObjField<Itest_InputFieldType>
+{
+  Itest_InputFieldObject? As__InputField { get; }
+}
+
+public interface Itest_InputFieldObject
+  : Itest_ObjFieldObject<Itest_InputFieldType>
+{
+}
+
+public interface Itest_InputFieldType
+  : Itest_ObjFieldType
+{
+  Itest_InputFieldTypeObject? As__InputFieldType { get; }
+}
+
+public interface Itest_InputFieldTypeObject
+  : Itest_ObjFieldTypeObject
+{
+  GqlpValue? DefaultValue { get; }
+}
+
+public interface Itest_OutputField
+  : Itest_ObjField<Itest_ObjFieldType>
+{
+  Itest_OutputFieldObject? As__OutputField { get; }
+}
+
+public interface Itest_OutputFieldObject
+  : Itest_ObjFieldObject<Itest_ObjFieldType>
+{
+}
+
+public interface Itest_OutputFieldType
+  : Itest_ObjFieldType
+{
+  Itest_OutputFieldTypeObject? As__OutputFieldType { get; }
+}
+
+public interface Itest_OutputFieldTypeObject
+  : Itest_ObjFieldTypeObject
+{
+  Itest_InputFieldType? Parameter { get; }
+}

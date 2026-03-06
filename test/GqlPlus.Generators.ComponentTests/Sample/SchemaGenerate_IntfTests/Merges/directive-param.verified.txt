@@ -1,0 +1,24 @@
+﻿/* directive-param
+directive @DrctParam(InDrctParam) { operation }
+directive @DrctParam { fragment }
+input InDrctParam { }
+*/
+
+// Generated from Schema directive-param
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_directive-param, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param;
+
+public interface ICmptInDrctParam
+  : Schema_directive-param
+{
+  ICmptInDrctParamObject? As_InDrctParam { get; }
+}
+
+public interface ICmptInDrctParamObject
+  : Schema_directive-param
+{
+}

@@ -67,4 +67,7 @@ public class VerifyInputFieldsTests
 
     Verify_NoErrors();
   }
+
+  protected override ObjFieldBuilder<IGqlpInputField> MakeField(string fieldName, string fieldType)
+    => new InputFieldBuilder(fieldName, fieldType);
 }

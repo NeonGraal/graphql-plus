@@ -1,0 +1,30 @@
+﻿/* directive-param-list
+directive @DrctParamList(InDrctParamList[]) { all }
+input InDrctParamList { }
+*/
+
+// Generated from Schema directive-param-list
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_directive-param-list, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param_list;
+
+public class CmptInDrctParamList
+  : Schema_directive-param-list
+  , ICmptInDrctParamList
+{
+  public ICmptInDrctParamListObject? As_InDrctParamList { get; set; }
+}
+
+public class CmptInDrctParamListObject
+  : Schema_directive-param-list
+  , ICmptInDrctParamListObject
+{
+
+  public CmptInDrctParamListObject
+    ()
+  {
+  }
+}

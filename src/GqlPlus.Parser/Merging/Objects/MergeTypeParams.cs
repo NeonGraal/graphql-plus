@@ -21,7 +21,7 @@ internal class MergeTypeParams
       .Distinct()];
 
     if (constraint.Length > 1) {
-      throw new InvalidOperationException($"Type parameter '{ast.Name}' has multiple constraints: {string.Join(", ", constraint)}");
+      throw new InvalidOperationException($"Type parameter '{ast.Name}' has multiple constraints: {constraint.Joined(", ")}");
     } else if (constraint.Length == 1) {
       ast = ast with { Constraint = constraint[0] };
     }

@@ -19,9 +19,9 @@ Success
   _TypeObject
   <
     I@021/0003
-    $kind
+    $objectKind
     :_ObjectKind
-    I@039/0003
+    I@045/0003
     $field
     :_ObjField
   >
@@ -30,8 +30,8 @@ Success
   _ChildType
   <
     I@019/0004
-    $kind
-    I@024/0004
+    $objectKind
+    I@030/0004
     _ObjBase
   >
   {

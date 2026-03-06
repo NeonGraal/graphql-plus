@@ -1,0 +1,24 @@
+﻿/* object-field-enum-alias+Dual
+dual ObjFieldEnumAliasDual { field [field1] = Boolean.true }
+dual ObjFieldEnumAliasDual { field [field2] = true }
+*/
+
+// Generated from Schema object-field-enum-alias+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-field-enum-alias+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_enum_alias_Dual;
+
+public interface ICmptObjFieldEnumAliasDual
+  : Schema_object-field-enum-alias+Dual
+{
+  ICmptObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; }
+}
+
+public interface ICmptObjFieldEnumAliasDualObject
+  : Schema_object-field-enum-alias+Dual
+{
+  bool Field { get; }
+}

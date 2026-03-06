@@ -13,6 +13,7 @@ public static class MapHelpers
     [NotNull] Func<TInput, string> key,
     [NotNull] Func<TInput, TPair> value
   ) => new(key(item), value(item));
+
   public static IEnumerable<MapPair<TMap>> ToPairs<TInput, TMap>(
     this IEnumerable<TInput>? items,
     Func<TInput, string> key,

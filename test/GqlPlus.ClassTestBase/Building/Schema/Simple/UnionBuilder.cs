@@ -3,7 +3,7 @@
 namespace GqlPlus.Building.Schema.Simple;
 
 public class UnionBuilder
-  : SimpleBuilder
+  : SimpleBuilder<IGqlpUnion>
 {
   internal IGqlpUnionMember[] _members = [];
 
@@ -24,6 +24,8 @@ public class UnionBuilder
 
   public IGqlpUnion AsUnion
     => Build<IGqlpUnion>();
+
+  public override IGqlpUnion AsSimple => AsUnion;
 }
 
 public static class UnionBuilderHelper

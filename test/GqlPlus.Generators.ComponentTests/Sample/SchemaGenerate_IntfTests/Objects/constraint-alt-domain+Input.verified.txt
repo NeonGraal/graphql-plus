@@ -1,0 +1,42 @@
+﻿/* constraint-alt-domain+Input
+input CnstAltDmnInp { | RefCnstAltDmnInp<DomCnstAltDmnInp> }
+input RefCnstAltDmnInp<$ref:String> { | $ref }
+domain DomCnstAltDmnInp { String /\w+/ }
+*/
+
+// Generated from Schema constraint-alt-domain+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-alt-domain+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
+
+public interface ICmptCnstAltDmnInp
+  : Schema_constraint-alt-domain+Input
+{
+  ICmptRefCnstAltDmnInp<ICmptDomCnstAltDmnInp>? AsRefCnstAltDmnInp { get; }
+  ICmptCnstAltDmnInpObject? As_CnstAltDmnInp { get; }
+}
+
+public interface ICmptCnstAltDmnInpObject
+  : Schema_constraint-alt-domain+Input
+{
+}
+
+public interface ICmptRefCnstAltDmnInp<TRef>
+  : Schema_constraint-alt-domain+Input
+{
+  TRef? Asref { get; }
+  ICmptRefCnstAltDmnInpObject<TRef>? As_RefCnstAltDmnInp { get; }
+}
+
+public interface ICmptRefCnstAltDmnInpObject<TRef>
+  : Schema_constraint-alt-domain+Input
+{
+}
+
+public interface ICmptDomCnstAltDmnInp
+  : IGqlpDomainString
+{
+}

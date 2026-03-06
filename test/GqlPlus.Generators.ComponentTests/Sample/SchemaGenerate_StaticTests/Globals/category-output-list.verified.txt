@@ -1,0 +1,14 @@
+﻿/* category-output-list
+category { CtgrOutpList[] }
+output CtgrOutpList { }
+*/
+
+// Generated from Schema category-output-list
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category-output-list, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category ctgrOutpList
+*/
+
+namespace Components.Gqlp_Schema_category_output_list;

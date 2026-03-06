@@ -1,0 +1,36 @@
+﻿/* generic-field-arg+Dual
+dual GnrcFieldArgDual<$type:String> { field: RefGnrcFieldArgDual<$type> }
+dual RefGnrcFieldArgDual<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-field-arg+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-field-arg+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_arg_Dual;
+
+public interface ICmptGnrcFieldArgDual<TType>
+  : Schema_generic-field-arg+Dual
+{
+  ICmptGnrcFieldArgDualObject<TType>? As_GnrcFieldArgDual { get; }
+}
+
+public interface ICmptGnrcFieldArgDualObject<TType>
+  : Schema_generic-field-arg+Dual
+{
+  ICmptRefGnrcFieldArgDual<TType> Field { get; }
+}
+
+public interface ICmptRefGnrcFieldArgDual<TRef>
+  : Schema_generic-field-arg+Dual
+{
+  TRef? Asref { get; }
+  ICmptRefGnrcFieldArgDualObject<TRef>? As_RefGnrcFieldArgDual { get; }
+}
+
+public interface ICmptRefGnrcFieldArgDualObject<TRef>
+  : Schema_generic-field-arg+Dual
+{
+}

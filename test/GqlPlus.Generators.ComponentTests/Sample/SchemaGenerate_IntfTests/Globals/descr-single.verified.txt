@@ -1,0 +1,23 @@
+﻿/* descr-single
+'A "single-quoted" description'
+output DescrSngl { }
+*/
+
+// Generated from Schema descr-single
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_descr-single, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr_single;
+
+public interface ICmptDescrSngl
+  : Schema_descr-single
+{
+  ICmptDescrSnglObject? As_DescrSngl { get; }
+}
+
+public interface ICmptDescrSnglObject
+  : Schema_descr-single
+{
+}

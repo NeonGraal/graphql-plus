@@ -1,0 +1,41 @@
+﻿/* constraint-field-domain+Input
+input CnstFieldDmnInp { :RefCnstFieldDmnInp<DomCnstFieldDmnInp> }
+input RefCnstFieldDmnInp<$ref:String> { field: $ref }
+domain DomCnstFieldDmnInp { String /\w+/ }
+*/
+
+// Generated from Schema constraint-field-domain+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-field-domain+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_domain_Input;
+
+public interface ICmptCnstFieldDmnInp
+  : ICmptRefCnstFieldDmnInp<ICmptDomCnstFieldDmnInp>
+{
+  ICmptCnstFieldDmnInpObject? As_CnstFieldDmnInp { get; }
+}
+
+public interface ICmptCnstFieldDmnInpObject
+  : ICmptRefCnstFieldDmnInpObject<ICmptDomCnstFieldDmnInp>
+{
+}
+
+public interface ICmptRefCnstFieldDmnInp<TRef>
+  : Schema_constraint-field-domain+Input
+{
+  ICmptRefCnstFieldDmnInpObject<TRef>? As_RefCnstFieldDmnInp { get; }
+}
+
+public interface ICmptRefCnstFieldDmnInpObject<TRef>
+  : Schema_constraint-field-domain+Input
+{
+  TRef Field { get; }
+}
+
+public interface ICmptDomCnstFieldDmnInp
+  : IGqlpDomainString
+{
+}

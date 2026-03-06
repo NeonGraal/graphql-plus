@@ -1,0 +1,17 @@
+﻿/* domain-string-diff
+domain DmnStrDiff { string /a+/ }
+domain DmnStrDiff { string }
+*/
+
+// Generated from Schema domain-string-diff
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-string-diff, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_string_diff;
+
+public interface ICmptDmnStrDiff
+  : IGqlpDomainString
+{
+}

@@ -1,0 +1,60 @@
+﻿/* constraint-dom-enum+Output
+output CnstDomEnumOutp { | RefCnstDomEnumOutp<cnstDomEnumOutp> }
+output RefCnstDomEnumOutp<$type:JustCnstDomEnumOutp> { field: $type }
+enum EnumCnstDomEnumOutp { cnstDomEnumOutp other }
+domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
+*/
+
+// Generated from Schema constraint-dom-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-dom-enum+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_dom_enum_Output;
+
+public class CmptCnstDomEnumOutp
+  : Schema_constraint-dom-enum+Output
+  , ICmptCnstDomEnumOutp
+{
+  public ICmptRefCnstDomEnumOutp<CmptEnumCnstDomEnumOutp>? AsEnumCnstDomEnumOutpcnstDomEnumOutp { get; set; }
+  public ICmptCnstDomEnumOutpObject? As_CnstDomEnumOutp { get; set; }
+}
+
+public class CmptCnstDomEnumOutpObject
+  : Schema_constraint-dom-enum+Output
+  , ICmptCnstDomEnumOutpObject
+{
+
+  public CmptCnstDomEnumOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptRefCnstDomEnumOutp<TType>
+  : Schema_constraint-dom-enum+Output
+  , ICmptRefCnstDomEnumOutp<TType>
+{
+  public ICmptRefCnstDomEnumOutpObject<TType>? As_RefCnstDomEnumOutp { get; set; }
+}
+
+public class CmptRefCnstDomEnumOutpObject<TType>
+  : Schema_constraint-dom-enum+Output
+  , ICmptRefCnstDomEnumOutpObject<TType>
+{
+  public TType Field { get; set; }
+
+  public CmptRefCnstDomEnumOutpObject
+    ( TType field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptJustCnstDomEnumOutp
+  : GqlpDomainEnum
+  , ICmptJustCnstDomEnumOutp
+{
+}

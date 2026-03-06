@@ -1,0 +1,72 @@
+﻿/* generic-parent-param-parent+Dual
+dual GnrcPrntParamPrntDual { :RefGnrcPrntParamPrntDual<AltGnrcPrntParamPrntDual> }
+dual RefGnrcPrntParamPrntDual<$ref:_Dual> { :$ref }
+dual AltGnrcPrntParamPrntDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-param-parent+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-param-parent+Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_param_parent_Dual;
+
+public class CmptGnrcPrntParamPrntDual
+  : CmptRefGnrcPrntParamPrntDual<ICmptAltGnrcPrntParamPrntDual>
+  , ICmptGnrcPrntParamPrntDual
+{
+  public ICmptGnrcPrntParamPrntDualObject? As_GnrcPrntParamPrntDual { get; set; }
+}
+
+public class CmptGnrcPrntParamPrntDualObject
+  : CmptRefGnrcPrntParamPrntDualObject<ICmptAltGnrcPrntParamPrntDual>
+  , ICmptGnrcPrntParamPrntDualObject
+{
+
+  public CmptGnrcPrntParamPrntDualObject
+    ()
+  {
+  }
+}
+
+public class CmptRefGnrcPrntParamPrntDual<TRef>
+  : Schema_generic-parent-param-parent+Dual
+  , ICmptRefGnrcPrntParamPrntDual<TRef>
+{
+  public TRef? As_Parent { get; set; }
+  public ICmptRefGnrcPrntParamPrntDualObject<TRef>? As_RefGnrcPrntParamPrntDual { get; set; }
+}
+
+public class CmptRefGnrcPrntParamPrntDualObject<TRef>
+  : Schema_generic-parent-param-parent+Dual
+  , ICmptRefGnrcPrntParamPrntDualObject<TRef>
+{
+
+  public CmptRefGnrcPrntParamPrntDualObject
+    ()
+  {
+  }
+}
+
+public class CmptAltGnrcPrntParamPrntDual
+  : Schema_generic-parent-param-parent+Dual
+  , ICmptAltGnrcPrntParamPrntDual
+{
+  public string? AsString { get; set; }
+  public ICmptAltGnrcPrntParamPrntDualObject? As_AltGnrcPrntParamPrntDual { get; set; }
+}
+
+public class CmptAltGnrcPrntParamPrntDualObject
+  : Schema_generic-parent-param-parent+Dual
+  , ICmptAltGnrcPrntParamPrntDualObject
+{
+  public decimal Alt { get; set; }
+
+  public CmptAltGnrcPrntParamPrntDualObject
+    ( decimal alt
+    )
+  {
+    Alt = alt;
+  }
+}

@@ -1,0 +1,18 @@
+﻿/* domain-enum-all-parent
+domain DmnEnumAllPrnt { enum EnumDmnEnumAllPrnt.* }
+enum EnumDmnEnumAllPrnt { :PrntDmnEnumAllPrnt dmnEnumAllPrnt dmnEnumAllPrntValue }
+enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt dmnEnumAllPrntPrnt }
+*/
+
+// Generated from Schema domain-enum-all-parent
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_domain-enum-all-parent, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_all_parent;
+
+public interface ICmptDmnEnumAllPrnt
+  : IGqlpDomainEnum
+{
+}

@@ -1,0 +1,30 @@
+﻿/* object-alias+Output
+output ObjAliasOutp [Output1] { }
+output ObjAliasOutp [Output2] { }
+*/
+
+// Generated from Schema object-alias+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alias+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alias_Output;
+
+public class CmptObjAliasOutp
+  : Schema_object-alias+Output
+  , ICmptObjAliasOutp
+{
+  public ICmptObjAliasOutpObject? As_ObjAliasOutp { get; set; }
+}
+
+public class CmptObjAliasOutpObject
+  : Schema_object-alias+Output
+  , ICmptObjAliasOutpObject
+{
+
+  public CmptObjAliasOutpObject
+    ()
+  {
+  }
+}

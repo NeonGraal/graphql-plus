@@ -1,0 +1,35 @@
+﻿/* object-parent+Dual
+dual ObjPrntDual { :RefObjPrntDual }
+dual ObjPrntDual { :RefObjPrntDual }
+dual RefObjPrntDual { }
+*/
+
+// Generated from Schema object-parent+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_object-parent+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_parent_Dual;
+
+public interface ICmptObjPrntDual
+  : ICmptRefObjPrntDual
+{
+  ICmptObjPrntDualObject? As_ObjPrntDual { get; }
+}
+
+public interface ICmptObjPrntDualObject
+  : ICmptRefObjPrntDualObject
+{
+}
+
+public interface ICmptRefObjPrntDual
+  : Schema_object-parent+Dual
+{
+  ICmptRefObjPrntDualObject? As_RefObjPrntDual { get; }
+}
+
+public interface ICmptRefObjPrntDualObject
+  : Schema_object-parent+Dual
+{
+}

@@ -1,0 +1,33 @@
+﻿/* input-field-Enum
+input InpFieldEnum { field: EnumInpFieldEnum = inpFieldEnum }
+enum EnumInpFieldEnum { inpFieldEnum }
+*/
+
+// Generated from Schema input-field-Enum
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-Enum, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_Enum;
+
+public class CmptInpFieldEnum
+  : Schema_input-field-Enum
+  , ICmptInpFieldEnum
+{
+  public ICmptInpFieldEnumObject? As_InpFieldEnum { get; set; }
+}
+
+public class CmptInpFieldEnumObject
+  : Schema_input-field-Enum
+  , ICmptInpFieldEnumObject
+{
+  public CmptEnumInpFieldEnum Field { get; set; }
+
+  public CmptInpFieldEnumObject
+    ( CmptEnumInpFieldEnum field
+    )
+  {
+    Field = field;
+  }
+}

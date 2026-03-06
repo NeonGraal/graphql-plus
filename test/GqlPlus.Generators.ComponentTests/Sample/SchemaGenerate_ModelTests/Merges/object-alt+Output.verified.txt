@@ -1,0 +1,50 @@
+﻿/* object-alt+Output
+output ObjAltOutp { | ObjAltOutpType }
+output ObjAltOutp { | ObjAltOutpType }
+output ObjAltOutpType { }
+*/
+
+// Generated from Schema object-alt+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_Output;
+
+public class CmptObjAltOutp
+  : Schema_object-alt+Output
+  , ICmptObjAltOutp
+{
+  public ICmptObjAltOutpType? AsObjAltOutpType { get; set; }
+  public ICmptObjAltOutpObject? As_ObjAltOutp { get; set; }
+}
+
+public class CmptObjAltOutpObject
+  : Schema_object-alt+Output
+  , ICmptObjAltOutpObject
+{
+
+  public CmptObjAltOutpObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAltOutpType
+  : Schema_object-alt+Output
+  , ICmptObjAltOutpType
+{
+  public ICmptObjAltOutpTypeObject? As_ObjAltOutpType { get; set; }
+}
+
+public class CmptObjAltOutpTypeObject
+  : Schema_object-alt+Output
+  , ICmptObjAltOutpTypeObject
+{
+
+  public CmptObjAltOutpTypeObject
+    ()
+  {
+  }
+}

@@ -1,0 +1,30 @@
+﻿/* category-output-optional
+category { CtgrOutpOptl? }
+output CtgrOutpOptl { }
+*/
+
+// Generated from Schema category-output-optional
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-output-optional, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_output_optional;
+
+public class CmptCtgrOutpOptl
+  : Schema_category-output-optional
+  , ICmptCtgrOutpOptl
+{
+  public ICmptCtgrOutpOptlObject? As_CtgrOutpOptl { get; set; }
+}
+
+public class CmptCtgrOutpOptlObject
+  : Schema_category-output-optional
+  , ICmptCtgrOutpOptlObject
+{
+
+  public CmptCtgrOutpOptlObject
+    ()
+  {
+  }
+}

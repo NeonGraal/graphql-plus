@@ -1,0 +1,61 @@
+﻿/* constraint-parent-obj-parent+Output
+output CnstPrntObjPrntOutp { :RefCnstPrntObjPrntOutp<AltCnstPrntObjPrntOutp> }
+output RefCnstPrntObjPrntOutp<$ref:PrntCnstPrntObjPrntOutp> { :$ref }
+output PrntCnstPrntObjPrntOutp { | String }
+output AltCnstPrntObjPrntOutp { :PrntCnstPrntObjPrntOutp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-obj-parent+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_constraint-parent-obj-parent+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Output;
+
+public interface ICmptCnstPrntObjPrntOutp
+  : ICmptRefCnstPrntObjPrntOutp<ICmptAltCnstPrntObjPrntOutp>
+{
+  ICmptCnstPrntObjPrntOutpObject? As_CnstPrntObjPrntOutp { get; }
+}
+
+public interface ICmptCnstPrntObjPrntOutpObject
+  : ICmptRefCnstPrntObjPrntOutpObject<ICmptAltCnstPrntObjPrntOutp>
+{
+}
+
+public interface ICmptRefCnstPrntObjPrntOutp<TRef>
+  : Schema_constraint-parent-obj-parent+Output
+{
+  TRef? As_Parent { get; }
+  ICmptRefCnstPrntObjPrntOutpObject<TRef>? As_RefCnstPrntObjPrntOutp { get; }
+}
+
+public interface ICmptRefCnstPrntObjPrntOutpObject<TRef>
+  : Schema_constraint-parent-obj-parent+Output
+{
+}
+
+public interface ICmptPrntCnstPrntObjPrntOutp
+  : Schema_constraint-parent-obj-parent+Output
+{
+  string? AsString { get; }
+  ICmptPrntCnstPrntObjPrntOutpObject? As_PrntCnstPrntObjPrntOutp { get; }
+}
+
+public interface ICmptPrntCnstPrntObjPrntOutpObject
+  : Schema_constraint-parent-obj-parent+Output
+{
+}
+
+public interface ICmptAltCnstPrntObjPrntOutp
+  : ICmptPrntCnstPrntObjPrntOutp
+{
+  ICmptAltCnstPrntObjPrntOutpObject? As_AltCnstPrntObjPrntOutp { get; }
+}
+
+public interface ICmptAltCnstPrntObjPrntOutpObject
+  : ICmptPrntCnstPrntObjPrntOutpObject
+{
+  decimal Alt { get; }
+}

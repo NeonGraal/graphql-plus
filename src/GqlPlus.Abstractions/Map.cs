@@ -7,6 +7,14 @@ public class Map<TMap>
   , IMap<TMap>
   , IReadOnlyMap<TMap>
 {
+  public Map()
+    : base()
+  { }
+
+  public Map(Map<TMap> map)
+    : base(map)
+  { }
+
   public TMap GetValueOrDefault(string key, TMap defaultValue)
     => TryGetValue(key, out TMap value) ? value : defaultValue;
   public bool TryAdd(string key, TMap value)
@@ -21,6 +29,13 @@ public class Map<TMap>
 
   public void Add(MapPair<TMap> item)
     => Add(item.Key, item.Value);
+
+  public void AddRange(IEnumerable<MapPair<TMap>> items)
+  {
+    foreach (MapPair<TMap> item in items.ThrowIfNull()) {
+      Add(item);
+    }
+  }
 }
 
 public record struct MapPair<TMap>(string Key, TMap Value)
@@ -33,7 +48,7 @@ public record struct MapPair<TMap>(string Key, TMap Value)
   public override readonly string ToString()
     => $"[{Key}] = " + Value switch {
       string text => text,
-      IEnumerable list => "[" + string.Join(", ", list.Cast<object>().Select(v => v.ToString())) + "]",
+      IEnumerable list => "[" + list.Cast<object>().Joined(v => $"{v}", ", ") + "]",
       _ => $"{Value}"
     };
 }

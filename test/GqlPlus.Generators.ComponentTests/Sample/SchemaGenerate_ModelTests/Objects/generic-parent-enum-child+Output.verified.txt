@@ -1,0 +1,54 @@
+﻿/* generic-parent-enum-child+Output
+output GnrcPrntEnumChildOutp { :FieldGnrcPrntEnumChildOutp<ParentGnrcPrntEnumChildOutp> }
+output FieldGnrcPrntEnumChildOutp<$ref:EnumGnrcPrntEnumChildOutp> { field: $ref }
+enum EnumGnrcPrntEnumChildOutp { :ParentGnrcPrntEnumChildOutp gnrcPrntEnumChildOutpLabel }
+enum ParentGnrcPrntEnumChildOutp { gnrcPrntEnumChildOutpParent }
+*/
+
+// Generated from Schema generic-parent-enum-child+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-enum-child+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_enum_child_Output;
+
+public class CmptGnrcPrntEnumChildOutp
+  : CmptFieldGnrcPrntEnumChildOutp<CmptParentGnrcPrntEnumChildOutp>
+  , ICmptGnrcPrntEnumChildOutp
+{
+  public ICmptGnrcPrntEnumChildOutpObject? As_GnrcPrntEnumChildOutp { get; set; }
+}
+
+public class CmptGnrcPrntEnumChildOutpObject
+  : CmptFieldGnrcPrntEnumChildOutpObject<CmptParentGnrcPrntEnumChildOutp>
+  , ICmptGnrcPrntEnumChildOutpObject
+{
+
+  public CmptGnrcPrntEnumChildOutpObject
+    ( CmptParentGnrcPrntEnumChildOutp field
+    ) : base(field)
+  {
+  }
+}
+
+public class CmptFieldGnrcPrntEnumChildOutp<TRef>
+  : Schema_generic-parent-enum-child+Output
+  , ICmptFieldGnrcPrntEnumChildOutp<TRef>
+{
+  public ICmptFieldGnrcPrntEnumChildOutpObject<TRef>? As_FieldGnrcPrntEnumChildOutp { get; set; }
+}
+
+public class CmptFieldGnrcPrntEnumChildOutpObject<TRef>
+  : Schema_generic-parent-enum-child+Output
+  , ICmptFieldGnrcPrntEnumChildOutpObject<TRef>
+{
+  public TRef Field { get; set; }
+
+  public CmptFieldGnrcPrntEnumChildOutpObject
+    ( TRef field
+    )
+  {
+    Field = field;
+  }
+}

@@ -1,0 +1,17 @@
+﻿/* category-descr
+"First category"
+category { CtgrDescr }
+"Second category"
+category { CtgrDescr }
+output CtgrDescr { }
+*/
+
+// Generated from Schema category-descr
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_category-descr, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category ctgrDescr
+*/
+
+namespace Components.Gqlp_Schema_category_descr;

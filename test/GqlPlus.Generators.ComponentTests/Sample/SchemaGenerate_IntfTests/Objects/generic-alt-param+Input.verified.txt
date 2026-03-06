@@ -1,0 +1,50 @@
+﻿/* generic-alt-param+Input
+input GnrcAltParamInp { | RefGnrcAltParamInp<AltGnrcAltParamInp> }
+input RefGnrcAltParamInp<$ref:_Input> { | $ref }
+input AltGnrcAltParamInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-alt-param+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_param_Input;
+
+public interface ICmptGnrcAltParamInp
+  : Schema_generic-alt-param+Input
+{
+  ICmptRefGnrcAltParamInp<ICmptAltGnrcAltParamInp>? AsRefGnrcAltParamInp { get; }
+  ICmptGnrcAltParamInpObject? As_GnrcAltParamInp { get; }
+}
+
+public interface ICmptGnrcAltParamInpObject
+  : Schema_generic-alt-param+Input
+{
+}
+
+public interface ICmptRefGnrcAltParamInp<TRef>
+  : Schema_generic-alt-param+Input
+{
+  TRef? Asref { get; }
+  ICmptRefGnrcAltParamInpObject<TRef>? As_RefGnrcAltParamInp { get; }
+}
+
+public interface ICmptRefGnrcAltParamInpObject<TRef>
+  : Schema_generic-alt-param+Input
+{
+}
+
+public interface ICmptAltGnrcAltParamInp
+  : Schema_generic-alt-param+Input
+{
+  string? AsString { get; }
+  ICmptAltGnrcAltParamInpObject? As_AltGnrcAltParamInp { get; }
+}
+
+public interface ICmptAltGnrcAltParamInpObject
+  : Schema_generic-alt-param+Input
+{
+  decimal Alt { get; }
+}

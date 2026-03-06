@@ -1,0 +1,35 @@
+﻿/* generic-parent-arg+Dual
+dual GnrcPrntArgDual<$type:String> { :RefGnrcPrntArgDual<$type> }
+dual RefGnrcPrntArgDual<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-parent-arg+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-arg+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_arg_Dual;
+
+public interface ICmptGnrcPrntArgDual<TType>
+  : ICmptRefGnrcPrntArgDual<TType>
+{
+  ICmptGnrcPrntArgDualObject<TType>? As_GnrcPrntArgDual { get; }
+}
+
+public interface ICmptGnrcPrntArgDualObject<TType>
+  : ICmptRefGnrcPrntArgDualObject<TType>
+{
+}
+
+public interface ICmptRefGnrcPrntArgDual<TRef>
+  : Schema_generic-parent-arg+Dual
+{
+  TRef? Asref { get; }
+  ICmptRefGnrcPrntArgDualObject<TRef>? As_RefGnrcPrntArgDual { get; }
+}
+
+public interface ICmptRefGnrcPrntArgDualObject<TRef>
+  : Schema_generic-parent-arg+Dual
+{
+}

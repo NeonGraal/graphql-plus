@@ -1,0 +1,50 @@
+﻿/* generic-field-dual+Dual
+dual GnrcFieldDualDual { field: RefGnrcFieldDualDual<AltGnrcFieldDualDual> }
+dual RefGnrcFieldDualDual<$ref:_Dual> { | $ref }
+dual AltGnrcFieldDualDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-dual+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-field-dual+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_dual_Dual;
+
+public interface ICmptGnrcFieldDualDual
+  : Schema_generic-field-dual+Dual
+{
+  ICmptGnrcFieldDualDualObject? As_GnrcFieldDualDual { get; }
+}
+
+public interface ICmptGnrcFieldDualDualObject
+  : Schema_generic-field-dual+Dual
+{
+  ICmptRefGnrcFieldDualDual<ICmptAltGnrcFieldDualDual> Field { get; }
+}
+
+public interface ICmptRefGnrcFieldDualDual<TRef>
+  : Schema_generic-field-dual+Dual
+{
+  TRef? Asref { get; }
+  ICmptRefGnrcFieldDualDualObject<TRef>? As_RefGnrcFieldDualDual { get; }
+}
+
+public interface ICmptRefGnrcFieldDualDualObject<TRef>
+  : Schema_generic-field-dual+Dual
+{
+}
+
+public interface ICmptAltGnrcFieldDualDual
+  : Schema_generic-field-dual+Dual
+{
+  string? AsString { get; }
+  ICmptAltGnrcFieldDualDualObject? As_AltGnrcFieldDualDual { get; }
+}
+
+public interface ICmptAltGnrcFieldDualDualObject
+  : Schema_generic-field-dual+Dual
+{
+  decimal Alt { get; }
+}

@@ -1,0 +1,42 @@
+﻿/* generic-parent-enum-dom+Input
+input GnrcPrntEnumDomInp { :FieldGnrcPrntEnumDomInp<DomGnrcPrntEnumDomInp> }
+input FieldGnrcPrntEnumDomInp<$ref:EnumGnrcPrntEnumDomInp> { field: $ref }
+enum EnumGnrcPrntEnumDomInp { gnrcPrntEnumDomInpLabel gnrcPrntEnumDomInpOther }
+domain DomGnrcPrntEnumDomInp { enum gnrcPrntEnumDomInpLabel }
+*/
+
+// Generated from Schema generic-parent-enum-dom+Input
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_generic-parent-enum-dom+Input, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_enum_dom_Input;
+
+public interface ICmptGnrcPrntEnumDomInp
+  : ICmptFieldGnrcPrntEnumDomInp<ICmptDomGnrcPrntEnumDomInp>
+{
+  ICmptGnrcPrntEnumDomInpObject? As_GnrcPrntEnumDomInp { get; }
+}
+
+public interface ICmptGnrcPrntEnumDomInpObject
+  : ICmptFieldGnrcPrntEnumDomInpObject<ICmptDomGnrcPrntEnumDomInp>
+{
+}
+
+public interface ICmptFieldGnrcPrntEnumDomInp<TRef>
+  : Schema_generic-parent-enum-dom+Input
+{
+  ICmptFieldGnrcPrntEnumDomInpObject<TRef>? As_FieldGnrcPrntEnumDomInp { get; }
+}
+
+public interface ICmptFieldGnrcPrntEnumDomInpObject<TRef>
+  : Schema_generic-parent-enum-dom+Input
+{
+  TRef Field { get; }
+}
+
+public interface ICmptDomGnrcPrntEnumDomInp
+  : IGqlpDomainEnum
+{
+}

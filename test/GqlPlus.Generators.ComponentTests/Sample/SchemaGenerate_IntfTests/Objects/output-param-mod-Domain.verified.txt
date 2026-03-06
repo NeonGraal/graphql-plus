@@ -1,0 +1,43 @@
+﻿/* output-param-mod-Domain
+output OutpParamModDmn { field(InOutpParamModDmn[DomOutpParamModDmn]): DomOutpParamModDmn }
+input InOutpParamModDmn { param: Number | String }
+domain DomOutpParamModDmn { number 1 < 10 }
+*/
+
+// Generated from Schema output-param-mod-Domain
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_output-param-mod-Domain, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param_mod_Domain;
+
+public interface ICmptOutpParamModDmn
+  : Schema_output-param-mod-Domain
+{
+  ICmptOutpParamModDmnObject? As_OutpParamModDmn { get; }
+}
+
+public interface ICmptOutpParamModDmnObject
+  : Schema_output-param-mod-Domain
+{
+  ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter);
+}
+
+public interface ICmptInOutpParamModDmn
+  : Schema_output-param-mod-Domain
+{
+  string? AsString { get; }
+  ICmptInOutpParamModDmnObject? As_InOutpParamModDmn { get; }
+}
+
+public interface ICmptInOutpParamModDmnObject
+  : Schema_output-param-mod-Domain
+{
+  decimal Param { get; }
+}
+
+public interface ICmptDomOutpParamModDmn
+  : IGqlpDomainNumber
+{
+}

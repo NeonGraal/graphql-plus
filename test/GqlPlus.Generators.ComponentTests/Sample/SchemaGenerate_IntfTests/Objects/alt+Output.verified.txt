@@ -1,0 +1,37 @@
+﻿/* alt+Output
+output AltOutp { | AltAltOutp }
+output AltAltOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt+Output
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_alt+Output, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_Output;
+
+public interface ICmptAltOutp
+  : Schema_alt+Output
+{
+  ICmptAltAltOutp? AsAltAltOutp { get; }
+  ICmptAltOutpObject? As_AltOutp { get; }
+}
+
+public interface ICmptAltOutpObject
+  : Schema_alt+Output
+{
+}
+
+public interface ICmptAltAltOutp
+  : Schema_alt+Output
+{
+  string? AsString { get; }
+  ICmptAltAltOutpObject? As_AltAltOutp { get; }
+}
+
+public interface ICmptAltAltOutpObject
+  : Schema_alt+Output
+{
+  decimal Alt { get; }
+}

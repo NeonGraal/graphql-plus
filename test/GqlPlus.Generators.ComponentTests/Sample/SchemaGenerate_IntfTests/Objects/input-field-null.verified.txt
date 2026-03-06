@@ -1,0 +1,35 @@
+﻿/* input-field-null
+input InpFieldNull { field: FldInpFieldNull? = null }
+dual FldInpFieldNull { }
+*/
+
+// Generated from Schema input-field-null
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_input-field-null, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_null;
+
+public interface ICmptInpFieldNull
+  : Schema_input-field-null
+{
+  ICmptInpFieldNullObject? As_InpFieldNull { get; }
+}
+
+public interface ICmptInpFieldNullObject
+  : Schema_input-field-null
+{
+  ICmptFldInpFieldNull? Field { get; }
+}
+
+public interface ICmptFldInpFieldNull
+  : Schema_input-field-null
+{
+  ICmptFldInpFieldNullObject? As_FldInpFieldNull { get; }
+}
+
+public interface ICmptFldInpFieldNullObject
+  : Schema_input-field-null
+{
+}

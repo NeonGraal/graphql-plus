@@ -22,15 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="*.gen.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>$([System.String]::Copy('%(Filename)').Replace('.gen','.tt'))</DependentUpon>
-    </Compile>
-    <None Update="*.tt">
-      <LastGenOutput>%(Filename).gen.cs</LastGenOutput>
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
     <AdditionalFiles Include="Samples\**" CopyToOutputDirectory="Always" />
   </ItemGroup>
 

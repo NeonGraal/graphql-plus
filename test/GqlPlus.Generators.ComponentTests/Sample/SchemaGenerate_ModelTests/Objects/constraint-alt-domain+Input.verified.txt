@@ -1,0 +1,57 @@
+﻿/* constraint-alt-domain+Input
+input CnstAltDmnInp { | RefCnstAltDmnInp<DomCnstAltDmnInp> }
+input RefCnstAltDmnInp<$ref:String> { | $ref }
+domain DomCnstAltDmnInp { String /\w+/ }
+*/
+
+// Generated from Schema constraint-alt-domain+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-domain+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
+
+public class CmptCnstAltDmnInp
+  : Schema_constraint-alt-domain+Input
+  , ICmptCnstAltDmnInp
+{
+  public ICmptRefCnstAltDmnInp<ICmptDomCnstAltDmnInp>? AsRefCnstAltDmnInp { get; set; }
+  public ICmptCnstAltDmnInpObject? As_CnstAltDmnInp { get; set; }
+}
+
+public class CmptCnstAltDmnInpObject
+  : Schema_constraint-alt-domain+Input
+  , ICmptCnstAltDmnInpObject
+{
+
+  public CmptCnstAltDmnInpObject
+    ()
+  {
+  }
+}
+
+public class CmptRefCnstAltDmnInp<TRef>
+  : Schema_constraint-alt-domain+Input
+  , ICmptRefCnstAltDmnInp<TRef>
+{
+  public TRef? Asref { get; set; }
+  public ICmptRefCnstAltDmnInpObject<TRef>? As_RefCnstAltDmnInp { get; set; }
+}
+
+public class CmptRefCnstAltDmnInpObject<TRef>
+  : Schema_constraint-alt-domain+Input
+  , ICmptRefCnstAltDmnInpObject<TRef>
+{
+
+  public CmptRefCnstAltDmnInpObject
+    ()
+  {
+  }
+}
+
+public class CmptDomCnstAltDmnInp
+  : GqlpDomainString
+  , ICmptDomCnstAltDmnInp
+{
+}

@@ -1,0 +1,59 @@
+﻿/* generic-parent-string-dom+Output
+output GnrcPrntStrDomOutp { :FieldGnrcPrntStrDomOutp<DomGnrcPrntStrDomOutp> }
+output FieldGnrcPrntStrDomOutp<$ref:String> { field: $ref }
+domain DomGnrcPrntStrDomOutp { string /\w+/ }
+*/
+
+// Generated from Schema generic-parent-string-dom+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-string-dom+Output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_string_dom_Output;
+
+public class CmptGnrcPrntStrDomOutp
+  : CmptFieldGnrcPrntStrDomOutp<ICmptDomGnrcPrntStrDomOutp>
+  , ICmptGnrcPrntStrDomOutp
+{
+  public ICmptGnrcPrntStrDomOutpObject? As_GnrcPrntStrDomOutp { get; set; }
+}
+
+public class CmptGnrcPrntStrDomOutpObject
+  : CmptFieldGnrcPrntStrDomOutpObject<ICmptDomGnrcPrntStrDomOutp>
+  , ICmptGnrcPrntStrDomOutpObject
+{
+
+  public CmptGnrcPrntStrDomOutpObject
+    ( ICmptDomGnrcPrntStrDomOutp field
+    ) : base(field)
+  {
+  }
+}
+
+public class CmptFieldGnrcPrntStrDomOutp<TRef>
+  : Schema_generic-parent-string-dom+Output
+  , ICmptFieldGnrcPrntStrDomOutp<TRef>
+{
+  public ICmptFieldGnrcPrntStrDomOutpObject<TRef>? As_FieldGnrcPrntStrDomOutp { get; set; }
+}
+
+public class CmptFieldGnrcPrntStrDomOutpObject<TRef>
+  : Schema_generic-parent-string-dom+Output
+  , ICmptFieldGnrcPrntStrDomOutpObject<TRef>
+{
+  public TRef Field { get; set; }
+
+  public CmptFieldGnrcPrntStrDomOutpObject
+    ( TRef field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptDomGnrcPrntStrDomOutp
+  : GqlpDomainString
+  , ICmptDomGnrcPrntStrDomOutp
+{
+}

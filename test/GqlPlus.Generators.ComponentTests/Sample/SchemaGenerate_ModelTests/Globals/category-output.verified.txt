@@ -1,0 +1,30 @@
+﻿/* category-output
+category { CtgrOutp }
+output CtgrOutp { }
+*/
+
+// Generated from Schema category-output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-output, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_output;
+
+public class CmptCtgrOutp
+  : Schema_category-output
+  , ICmptCtgrOutp
+{
+  public ICmptCtgrOutpObject? As_CtgrOutp { get; set; }
+}
+
+public class CmptCtgrOutpObject
+  : Schema_category-output
+  , ICmptCtgrOutpObject
+{
+
+  public CmptCtgrOutpObject
+    ()
+  {
+  }
+}

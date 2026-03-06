@@ -1,0 +1,41 @@
+﻿// Generated from Schema +Merges
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_+Merges, GeneratorType: Enum
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_Merges;
+
+public enum CmptEnumAlias
+{
+  enumAlias,
+}
+
+public enum CmptEnumDiff
+{
+  one,
+  two,
+}
+
+public enum CmptEnumSame
+{
+  enumSame,
+}
+
+public enum CmptEnumSamePrnt
+{
+  prnt_enumSamePrnt = CmptPrntEnumSamePrnt.prnt_enumSamePrnt,
+  enumSamePrnt,
+}
+
+public enum CmptPrntEnumSamePrnt
+{
+  prnt_enumSamePrnt,
+}
+
+public enum CmptEnumValueAlias
+{
+  enumValueAlias,
+  val1 = enumValueAlias,
+  val2 = enumValueAlias,
+}

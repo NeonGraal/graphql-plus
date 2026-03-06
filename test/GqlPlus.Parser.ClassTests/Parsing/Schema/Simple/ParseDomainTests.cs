@@ -26,7 +26,7 @@ public class ParseDomainTests
   {
     // Arrange
     NameReturns(domainName);
-    IGqlpDomainLabel domainLabel = A.DomainLabel(enumType, enumLabel);
+    IGqlpDomainLabel domainLabel = A.ItemLabel(enumType, enumLabel);
     DomainDefinition definition = new() { Kind = domainKind, Labels = [domainLabel] };
     ParseOk(_definition, definition);
 

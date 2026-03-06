@@ -1,0 +1,24 @@
+﻿/* default
+category { Query }
+output Query { }
+
+category { (sequential) Mutation }
+output Mutation { }
+
+category { (single) Subscription }
+output Subscription { }
+
+output _Schema { }
+*/
+
+// Generated from Schema default
+//   with GeneratorOption: BaseType: Other, BaseName: Schema_default, GeneratorType: Static
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+
+Category query
+Category mutation
+Category subscription
+*/
+
+namespace Components.Gqlp_Schema_default;

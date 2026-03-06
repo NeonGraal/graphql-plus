@@ -110,12 +110,12 @@ types: !_Map(_Type)
       name: domainKind
       object: _BaseDomain
       type: !_ObjBase
-        typeParam: domain
+        typeParam: domainKind
     fields:
     - !_OutputField
       name: domainKind
       type: !_ObjBase
-        typeParam: domain
+        typeParam: domainKind
     name: _BaseDomain
     parent: !_ObjBase
       name: _ParentType
@@ -134,7 +134,7 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _DomainKind
         typeKind: !_TypeKind Enum
-      name: domain
+      name: domainKind
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _BaseDomainItem
@@ -190,12 +190,12 @@ types: !_Map(_Type)
       name: typeKind
       object: _BaseType
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     fields:
     - !_OutputField
       name: typeKind
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     name: _BaseType
     parent: !_ObjBase
       name: _Aliased
@@ -205,7 +205,7 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _TypeKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: typeKind
   !_Name _BasicValue: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate)
@@ -429,7 +429,7 @@ types: !_Map(_Type)
       name: typeKind
       object: _BaseType
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
@@ -445,14 +445,14 @@ types: !_Map(_Type)
       name: _BaseType
       typeArgs:
       - !_TypeArg
-        typeParam: kind
+        typeParam: typeKind
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _TypeKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: typeKind
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _Described
@@ -890,17 +890,17 @@ types: !_Map(_Type)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       name: domainKind
       object: _DomainRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: domainKind
     fields:
     - !_OutputField
       name: domainKind
       type: !_ObjBase
-        typeParam: kind
+        typeParam: domainKind
     name: _DomainRef
     parent: !_ObjBase
       name: _TypeRef
@@ -915,7 +915,7 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _DomainKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: domainKind
   !_Name _DomainRegex: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -992,12 +992,12 @@ types: !_Map(_Type)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       name: domainKind
       object: _DomainRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: domainKind
     - !_ObjectFor(_OutputField)
       name: value
       object: _DomainValue
@@ -1017,14 +1017,14 @@ types: !_Map(_Type)
       name: _DomainRef
       typeArgs:
       - !_TypeArg
-        typeParam: kind
+        typeParam: domainKind
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _DomainKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: domainKind
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _BasicValue
@@ -1111,7 +1111,7 @@ types: !_Map(_Type)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       name: label
       object: _EnumValue
@@ -1365,12 +1365,12 @@ types: !_Map(_Type)
       name: modifierKind
       object: _Modifier
       type: !_ObjBase
-        typeParam: kind
+        typeParam: modifierKind
     fields:
     - !_DualField
       name: modifierKind
       type: !_ObjBase
-        typeParam: kind
+        typeParam: modifierKind
     name: _Modifier
     typeKind: !_TypeKind Dual
     typeParams:
@@ -1378,14 +1378,14 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _ModifierKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: modifierKind
   !_Name _ModifierKeyed: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: modifierKind
       object: _Modifier
       type: !_ObjBase
-        typeParam: kind
+        typeParam: modifierKind
     - !_ObjectFor(_DualField)
       name: by
       object: _ModifierKeyed
@@ -1410,14 +1410,14 @@ types: !_Map(_Type)
       name: _Modifier
       typeArgs:
       - !_TypeArg
-        typeParam: kind
+        typeParam: modifierKind
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _ModifierKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: modifierKind
   !_Name _ModifierKind: !_TypeEnum
     allItems:
     - !_EnumLabel
@@ -1581,7 +1581,7 @@ types: !_Map(_Type)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       name: label
       object: _ObjAlternateEnum
@@ -1695,7 +1695,7 @@ types: !_Map(_Type)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       name: label
       object: _ObjFieldEnum
@@ -1785,7 +1785,7 @@ types: !_Map(_Type)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: label
@@ -2597,7 +2597,7 @@ types: !_Map(_Type)
       name: typeKind
       object: _BaseType
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
@@ -2631,7 +2631,7 @@ types: !_Map(_Type)
       name: _ChildType
       typeArgs:
       - !_TypeArg
-        typeParam: kind
+        typeParam: typeKind
       - !_TypeArg
         name: _Named
     typeKind: !_TypeKind Output
@@ -2640,7 +2640,7 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _TypeKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: typeKind
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _Described
@@ -3228,7 +3228,7 @@ types: !_Map(_Type)
       name: typeKind
       object: _BaseType
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
@@ -3307,7 +3307,7 @@ types: !_Map(_Type)
       name: _ChildType
       typeArgs:
       - !_TypeArg
-        typeParam: kind
+        typeParam: objectKind
       - !_TypeArg
         name: _ObjBase
     typeKind: !_TypeKind Output
@@ -3316,7 +3316,7 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _ObjectKind
         typeKind: !_TypeKind Domain
-      name: kind
+      name: objectKind
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _ObjField
@@ -3361,12 +3361,12 @@ types: !_Map(_Type)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     fields:
     - !_DualField
       name: typeKind
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     name: _TypeRef
     parent: !_ObjBase
       name: _Named
@@ -3376,7 +3376,7 @@ types: !_Map(_Type)
       constraint: !_TypeRef(_TypeKind)
         name: _TypeKind
         typeKind: !_TypeKind Enum
-      name: kind
+      name: typeKind
   !_Name _TypeSimple: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate)
@@ -3467,7 +3467,7 @@ types: !_Map(_Type)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     - !_ObjectFor(_OutputField)
       name: union
       object: _UnionMember
@@ -3499,7 +3499,7 @@ types: !_Map(_Type)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
-        typeParam: kind
+        typeParam: typeKind
     name: _UnionRef
     parent: !_ObjBase
       name: _TypeRef

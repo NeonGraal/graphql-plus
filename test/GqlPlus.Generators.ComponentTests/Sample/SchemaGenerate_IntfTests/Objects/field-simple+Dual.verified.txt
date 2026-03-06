@@ -1,0 +1,23 @@
+﻿/* field-simple+Dual
+dual FieldSmplDual { field: Number }
+*/
+
+// Generated from Schema field-simple+Dual
+//   with GeneratorOption: BaseType: Interface, BaseName: Schema_field-simple+Dual, GeneratorType: Intf
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_simple_Dual;
+
+public interface ICmptFieldSmplDual
+  : Schema_field-simple+Dual
+{
+  ICmptFieldSmplDualObject? As_FieldSmplDual { get; }
+}
+
+public interface ICmptFieldSmplDualObject
+  : Schema_field-simple+Dual
+{
+  decimal Field { get; }
+}

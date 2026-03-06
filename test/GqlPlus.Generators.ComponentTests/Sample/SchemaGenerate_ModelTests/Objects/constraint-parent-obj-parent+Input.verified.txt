@@ -1,0 +1,91 @@
+﻿/* constraint-parent-obj-parent+Input
+input CnstPrntObjPrntInp { :RefCnstPrntObjPrntInp<AltCnstPrntObjPrntInp> }
+input RefCnstPrntObjPrntInp<$ref:PrntCnstPrntObjPrntInp> { :$ref }
+input PrntCnstPrntObjPrntInp { | String }
+input AltCnstPrntObjPrntInp { :PrntCnstPrntObjPrntInp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-obj-parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-obj-parent+Input, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_obj_parent_Input;
+
+public class CmptCnstPrntObjPrntInp
+  : CmptRefCnstPrntObjPrntInp<ICmptAltCnstPrntObjPrntInp>
+  , ICmptCnstPrntObjPrntInp
+{
+  public ICmptCnstPrntObjPrntInpObject? As_CnstPrntObjPrntInp { get; set; }
+}
+
+public class CmptCnstPrntObjPrntInpObject
+  : CmptRefCnstPrntObjPrntInpObject<ICmptAltCnstPrntObjPrntInp>
+  , ICmptCnstPrntObjPrntInpObject
+{
+
+  public CmptCnstPrntObjPrntInpObject
+    ()
+  {
+  }
+}
+
+public class CmptRefCnstPrntObjPrntInp<TRef>
+  : Schema_constraint-parent-obj-parent+Input
+  , ICmptRefCnstPrntObjPrntInp<TRef>
+{
+  public TRef? As_Parent { get; set; }
+  public ICmptRefCnstPrntObjPrntInpObject<TRef>? As_RefCnstPrntObjPrntInp { get; set; }
+}
+
+public class CmptRefCnstPrntObjPrntInpObject<TRef>
+  : Schema_constraint-parent-obj-parent+Input
+  , ICmptRefCnstPrntObjPrntInpObject<TRef>
+{
+
+  public CmptRefCnstPrntObjPrntInpObject
+    ()
+  {
+  }
+}
+
+public class CmptPrntCnstPrntObjPrntInp
+  : Schema_constraint-parent-obj-parent+Input
+  , ICmptPrntCnstPrntObjPrntInp
+{
+  public string? AsString { get; set; }
+  public ICmptPrntCnstPrntObjPrntInpObject? As_PrntCnstPrntObjPrntInp { get; set; }
+}
+
+public class CmptPrntCnstPrntObjPrntInpObject
+  : Schema_constraint-parent-obj-parent+Input
+  , ICmptPrntCnstPrntObjPrntInpObject
+{
+
+  public CmptPrntCnstPrntObjPrntInpObject
+    ()
+  {
+  }
+}
+
+public class CmptAltCnstPrntObjPrntInp
+  : CmptPrntCnstPrntObjPrntInp
+  , ICmptAltCnstPrntObjPrntInp
+{
+  public ICmptAltCnstPrntObjPrntInpObject? As_AltCnstPrntObjPrntInp { get; set; }
+}
+
+public class CmptAltCnstPrntObjPrntInpObject
+  : CmptPrntCnstPrntObjPrntInpObject
+  , ICmptAltCnstPrntObjPrntInpObject
+{
+  public decimal Alt { get; set; }
+
+  public CmptAltCnstPrntObjPrntInpObject
+    ( decimal alt
+    )
+  {
+    Alt = alt;
+  }
+}

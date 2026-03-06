@@ -280,12 +280,12 @@
 [_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:fields.4[_OutputField]:type[_ObjBase]:typeArgs.0[_TypeArg]:name=_ObjAlternate
 [_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:name=_TypeObject
 [_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:parent[_ObjBase]:name=_ChildType
-[_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:typeParam=kind
+[_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:parent[_ObjBase]:typeArgs.0[_TypeArg]:typeParam=objectKind
 [_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:parent[_ObjBase]:typeArgs.1[_TypeArg]:name=_ObjBase
 [_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_ObjectKind
 [_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:typeParams.0[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Domain
-[_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:typeParams.0[_TypeParam]:name=kind
+[_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:typeParams.0[_TypeParam]:name=objectKind
 [_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:typeParams.1[_TypeParam]:constraint[_TypeRef(_TypeKind)]:name=_ObjField
 [_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:typeParams.1[_TypeParam]:constraint[_TypeRef(_TypeKind)]:typeKind=[_TypeKind]Output
 [_Schema]:types[_Map(_Type)]:[_Name]_TypeObject[_TypeOutput]:typeParams.1[_TypeParam]:name=field

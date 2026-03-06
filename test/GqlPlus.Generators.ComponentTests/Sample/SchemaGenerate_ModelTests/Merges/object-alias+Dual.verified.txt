@@ -1,0 +1,30 @@
+﻿/* object-alias+Dual
+dual ObjAliasDual [Dual1] { }
+dual ObjAliasDual [Dual2] { }
+*/
+
+// Generated from Schema object-alias+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alias+Dual, GeneratorType: Model
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alias_Dual;
+
+public class CmptObjAliasDual
+  : Schema_object-alias+Dual
+  , ICmptObjAliasDual
+{
+  public ICmptObjAliasDualObject? As_ObjAliasDual { get; set; }
+}
+
+public class CmptObjAliasDualObject
+  : Schema_object-alias+Dual
+  , ICmptObjAliasDualObject
+{
+
+  public CmptObjAliasDualObject
+    ()
+  {
+  }
+}

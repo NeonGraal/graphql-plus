@@ -91,6 +91,7 @@ public static class SchemaParsers
   private static IServiceCollection AddDomainParser<TDomain, TParser>(this IServiceCollection services)
     where TParser : class, Parser<TDomain>.I, IParseDomain
     => services
+      .AddSingleton<TParser>()
       .AddArrayParser<TDomain, TParser>()
       .AddProvider<TParser, IParseDomain>();
 

@@ -27,7 +27,6 @@ public static class CommonParsers
   internal static IServiceCollection AddParser<TValue, TService>(this IServiceCollection services)
     where TService : class, Parser<TValue>.I
   {
-    services.AddSingleton<TService>();
     services.GetOrAddParserRepositoryBuilder().AddSingle(typeof(TValue), typeof(TService));
     return services;
   }
@@ -36,8 +35,7 @@ public static class CommonParsers
     where TService : class, TInterface
     where TInterface : class, Parser<TValue>.I
   {
-    services.AddSingleton<TService>();
-    var builder = services.GetOrAddParserRepositoryBuilder();
+    ParserRepositoryBuilder builder = services.GetOrAddParserRepositoryBuilder();
     builder.AddSingle(typeof(TValue), typeof(TService));
     builder.AddInterfaceSingle(typeof(TInterface), typeof(TService));
     return services;
@@ -46,7 +44,6 @@ public static class CommonParsers
   internal static IServiceCollection AddParserArray<TValue, TService>(this IServiceCollection services)
     where TService : class, Parser<TValue>.IA
   {
-    services.AddSingleton<TService>();
     services.GetOrAddParserRepositoryBuilder().AddArray(typeof(TValue), typeof(TService));
     return services;
   }
@@ -61,7 +58,6 @@ public static class CommonParsers
     where TService : class, TInterface
     where TInterface : class, Parser<TValue>.IA
   {
-    services.AddSingleton<TService>();
     services.GetOrAddParserRepositoryBuilder().AddInterfaceArray(typeof(TInterface), typeof(TService));
     return services;
   }

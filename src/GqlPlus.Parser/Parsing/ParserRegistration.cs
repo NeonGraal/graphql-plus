@@ -6,6 +6,7 @@ internal class ParserRepositoryBuilder
   internal readonly Dictionary<Type, Type> Arrays = [];
   internal readonly Dictionary<Type, Type> InterfaceSingles = [];
   internal readonly Dictionary<Type, Type> InterfaceArrays = [];
+  internal readonly List<Type> Domains = [];
 
   internal void AddSingle(Type forType, Type serviceType)
     => Singles[forType] = serviceType;
@@ -18,5 +19,8 @@ internal class ParserRepositoryBuilder
 
   internal void AddInterfaceArray(Type interfaceType, Type serviceType)
     => InterfaceArrays[interfaceType] = serviceType;
+
+  internal void AddDomain(Type parserType)
+    => Domains.Add(parserType);
 }
 

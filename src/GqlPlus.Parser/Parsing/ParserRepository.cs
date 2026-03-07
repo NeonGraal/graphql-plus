@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using GqlPlus.Parsing.Schema.Simple;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing;
@@ -6,7 +7,7 @@ namespace GqlPlus.Parsing;
 internal class ParserRepository(
   IServiceProvider services,
   ParserRepositoryBuilder builder
-) : IParserRepository
+) : IParserRepository, IDomainParserRepository
 {
   private readonly ConcurrentDictionary<Type, object> _parserInstances = new();
   private readonly ConcurrentDictionary<Type, object> _cache = new();
@@ -14,6 +15,9 @@ internal class ParserRepository(
   private TService CreateInstance<TService>(Type serviceType)
     where TService : class
     => (TService)_parserInstances.GetOrAdd(serviceType, t => ActivatorUtilities.GetServiceOrCreateInstance(services, t));
+
+  public IEnumerable<IParseDomain> GetDomains()
+    => builder.Domains.Select(t => CreateInstance<IParseDomain>(t));
 
   public Parser<T>.L Get<T>()
     => (Parser<T>.L)_cache.GetOrAdd(

@@ -1,4 +1,5 @@
 using GqlPlus.Parsing.Schema;
+using GqlPlus.Parsing.Schema.Simple;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing;
@@ -13,7 +14,9 @@ public static class CommonParsers
       .AddParserArray<IParserCollections, IGqlpModifier, ParseCollections>()
       .AddParser<IParserDefault, IGqlpConstant, ParseDefault>()
       .AddValueParsers<IGqlpConstant, ParseConstant>()
-      .AddSingleton<IParserRepository, ParserRepository>();
+      .AddSingleton<ParserRepository>()
+      .AddSingleton<IParserRepository>(ServiceHelpers.GetProvider<ParserRepository, IParserRepository>)
+      .AddSingleton<IDomainParserRepository>(ServiceHelpers.GetProvider<ParserRepository, IDomainParserRepository>);
 
   internal static IServiceCollection AddValueParsers<TValue, TParser>(this IServiceCollection services)
     where TValue : IGqlpValue<TValue>
@@ -59,6 +62,13 @@ public static class CommonParsers
     where TInterface : class, Parser<TValue>.IA
   {
     services.GetOrAddParserRepositoryBuilder().AddInterfaceArray(typeof(TInterface), typeof(TService));
+    return services;
+  }
+
+  internal static IServiceCollection AddDomainParser<TParser>(this IServiceCollection services)
+    where TParser : class, IParseDomain
+  {
+    services.GetOrAddParserRepositoryBuilder().AddDomain(typeof(TParser));
     return services;
   }
 

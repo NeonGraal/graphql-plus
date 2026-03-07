@@ -90,12 +90,12 @@ internal class ParseDomainDefinition
 
   public ParseDomainDefinition(
       IParserRepository parsers,
-      IEnumerable<IParseDomain> domains)
+      IDomainParserRepository domainParsers)
     : base(parsers.Get<IGqlpTypeRef>())
   {
     _kind = parsers.GetInterface<IEnumParser<DomainKind>, DomainKind>();
 
-    foreach (IParseDomain item in domains) {
+    foreach (IParseDomain item in domainParsers.GetDomains()) {
       _kindParsers[item.Kind] = item.Parser;
     }
   }

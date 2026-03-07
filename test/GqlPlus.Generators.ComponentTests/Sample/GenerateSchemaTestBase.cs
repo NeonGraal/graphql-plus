@@ -21,10 +21,10 @@ public abstract class GenerateSchemaTestBase(
 }
 
 internal sealed class SchemaGeneratorChecks(
-    Parser<IGqlpSchema>.D schemaParser,
+    IParserRepository parsers,
     IMerge<IGqlpSchema> schemaMerger,
     IGenerator<IGqlpSchema> schemaGenerator
-) : SchemaParseChecks(schemaParser)
+) : SchemaParseChecks(parsers)
   , ISchemaGeneratorChecks
 {
   public string Generate_ForAsts(GqlpBaseType baseType, GqlpGeneratorType type, IEnumerable<IGqlpSchema> asts, string test, string label, string input = "")

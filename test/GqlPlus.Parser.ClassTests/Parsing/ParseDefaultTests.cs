@@ -9,8 +9,9 @@ public class ParseDefaultTests
 
   public ParseDefaultTests()
   {
-    Parser<IGqlpConstant>.D constantParser = ParserFor(out _constantParser);
-    _parser = new ParseDefault(constantParser);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    parsers.Get<IGqlpConstant>().Returns(LazyFor(out _constantParser));
+    _parser = new ParseDefault(parsers);
   }
 
   [Fact]

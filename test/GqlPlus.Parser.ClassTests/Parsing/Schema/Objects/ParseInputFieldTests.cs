@@ -11,9 +11,8 @@ public class ParseInputFieldTests
 
   public ParseInputFieldTests()
   {
-    Parser<IParserDefault, IGqlpConstant>.D parseDefault = ParserFor<IParserDefault, IGqlpConstant>(out _parseDefault);
-    Parser = new ParseInputField(Aliases, Modifiers, ParseBase, parseDefault);
-
+    Parsers.GetInterface<IParserDefault, IGqlpConstant>().Returns(LazyFor<IParserDefault, IGqlpConstant>(out _parseDefault));
+    Parser = new ParseInputField(Parsers);
     ParseEmpty(_parseDefault);
   }
 

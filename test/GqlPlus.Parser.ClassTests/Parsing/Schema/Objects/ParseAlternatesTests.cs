@@ -11,9 +11,9 @@ public class ParseAlternatesTests
 
   public ParseAlternatesTests()
   {
-    Parser<IGqlpObjBase>.D parseBase = ParserFor(out _parseBase);
-    Parser<IGqlpEnumValue>.D parseEnum = ParserFor(out _parseEnum);
-    _parser = new ParseAlternates(Collections, parseBase, parseEnum);
+    Parsers.Get<IGqlpObjBase>().Returns(LazyFor(out _parseBase));
+    Parsers.Get<IGqlpEnumValue>().Returns(LazyFor(out _parseEnum));
+    _parser = new ParseAlternates(Parsers);
   }
 
   [Fact]

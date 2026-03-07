@@ -9,9 +9,9 @@ public class ValueObjectParserTests
 
   public ValueObjectParserTests()
   {
-    Parser<KeyValue<IGqlpConstant>>.D fieldParser = ParserFor(out _fieldParser);
-    _parser = new ValueObjectParser<IGqlpConstant>(fieldParser);
-
+    IParserRepository parsers = A.Of<IParserRepository>();
+    parsers.Get<KeyValue<IGqlpConstant>>().Returns(LazyFor(out _fieldParser));
+    _parser = new ValueObjectParser<IGqlpConstant>(parsers);
     SetupError<IGqlpFields<IGqlpConstant>>();
   }
 

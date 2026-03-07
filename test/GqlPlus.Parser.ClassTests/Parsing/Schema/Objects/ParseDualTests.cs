@@ -12,10 +12,10 @@ public class ParseDualTests
 
   public ParseDualTests()
   {
-    Parser<IGqlpTypeParam>.DA param = ParserAFor(out _param);
-    Parser<ObjectDefinition<IGqlpDualField>>.D definition = ParserFor(out _definition);
+    Parsers.GetArray<IGqlpTypeParam>().Returns(LazyAFor(out _param));
+    Parsers.Get<ObjectDefinition<IGqlpDualField>>().Returns(LazyFor(out _definition));
     IGqlpFieldKind<IGqlpDualField> fieldKind = new FieldObjectKind<IGqlpDualField>(TypeKind.Dual);
-    _parser = new ObjectParser<IGqlpDualField>(SimpleName, param, Aliases, OptionNull, definition, fieldKind);
+    _parser = new ObjectParser<IGqlpDualField>(SimpleName, Parsers, fieldKind);
   }
 
   [Theory, RepeatData]

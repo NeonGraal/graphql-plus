@@ -12,9 +12,8 @@ public class ParseOutputFieldTests
 
   public ParseOutputFieldTests()
   {
-    Parser<IGqlpInputParam>.DA parameter = ParserAFor(out _parameter);
-    Parser = new ParseOutputField(Aliases, Modifiers, ParseBase, parameter);
-
+    Parsers.GetArray<IGqlpInputParam>().Returns(LazyAFor(out _parameter));
+    Parser = new ParseOutputField(Parsers);
     ParseEmptyA(_parameter);
   }
 

@@ -204,6 +204,44 @@ public class ParserClassTestBase
     return result;
   }
 
+  protected static Parser<T>.L LazyFor<T>(out Parser<T>.I parser)
+  {
+    Parser<T>.I p = A.Of<Parser<T>.I>();
+    p.Parse(default!, default!)
+      .ReturnsForAnyArgs(default(T).Empty());
+    parser = p;
+    return new Parser<T>.L(() => p);
+  }
+
+  protected static Parser<T>.LA LazyAFor<T>(out Parser<T>.IA parser)
+  {
+    Parser<T>.IA p = A.Of<Parser<T>.IA>();
+    p.Parse(default!, default!)
+      .ReturnsForAnyArgs(0.EmptyArray<T>());
+    parser = p;
+    return new Parser<T>.LA(() => p);
+  }
+
+  protected static Parser<TInterface, T>.L LazyFor<TInterface, T>(out TInterface parser)
+    where TInterface : class, Parser<T>.I
+  {
+    TInterface p = Substitute.For<TInterface, Parser<T>.I>();
+    p.Parse(default!, default!)
+      .ReturnsForAnyArgs(default(T).Empty());
+    parser = p;
+    return new Parser<TInterface, T>.L(() => p);
+  }
+
+  protected static ParserArray<TInterface, T>.LA LazyAFor<TInterface, T>(out TInterface parser)
+    where TInterface : class, Parser<T>.IA
+  {
+    TInterface p = A.Of<TInterface>();
+    p.Parse(default!, default!)
+      .ReturnsForAnyArgs(0.EmptyArray<T>());
+    parser = p;
+    return new ParserArray<TInterface, T>.LA(() => p);
+  }
+
   protected static Parser<T>.D ParserFor<T>(out Parser<T>.I parser)
   {
     parser = A.Of<Parser<T>.I>();

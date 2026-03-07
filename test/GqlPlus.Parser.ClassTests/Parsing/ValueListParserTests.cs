@@ -9,9 +9,9 @@ public class ValueListParserTests
 
   public ValueListParserTests()
   {
-    Parser<IGqlpConstant>.D valueParser = ParserFor(out _valueParser);
-    _parser = new ValueListParser<IGqlpConstant>(valueParser);
-
+    IParserRepository parsers = A.Of<IParserRepository>();
+    parsers.Get<IGqlpConstant>().Returns(LazyFor(out _valueParser));
+    _parser = new ValueListParser<IGqlpConstant>(parsers);
     SetupError<IGqlpConstant>();
   }
 

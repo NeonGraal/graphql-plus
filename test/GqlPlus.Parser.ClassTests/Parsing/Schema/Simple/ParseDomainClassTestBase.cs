@@ -76,18 +76,27 @@ public abstract class ParseDomainClassTestBase<TItem>
   protected Parser<TItem>.IA ItemsParser { get; }
   private readonly Lazy<ParseDomainItem<TItem>> _parser;
   private readonly DomainKind _kind;
+  private readonly IParserRepository _parsers;
 
   internal ParseDomainItem<TItem> Parser => _parser.Value;
 
   protected ParseDomainClassTestBase(DomainKind kind)
   {
     _kind = kind;
-    Parser<TItem>.DA itemsFactory = ParserAFor(out Parser<TItem>.IA itemsParser);
+    _parsers = A.Of<IParserRepository>();
+
+    Parser<TItem>.IA itemsParser = A.Of<Parser<TItem>.IA>();
+    itemsParser.Parse(default!, default!)
+      .ReturnsForAnyArgs(0.EmptyArray<TItem>());
     ItemsParser = itemsParser;
-    _parser = new(() => MakeParser(itemsFactory));
+
+    Parser<TItem>.LA itemsLazy = new(() => itemsParser);
+    _parsers.GetArray<TItem>().Returns(itemsLazy);
+
+    _parser = new(() => MakeParser(_parsers));
   }
 
-  internal abstract ParseDomainItem<TItem> MakeParser(Parser<TItem>.DA itemsParser);
+  internal abstract ParseDomainItem<TItem> MakeParser(IParserRepository parsers);
   protected abstract TItem NewItem();
   protected abstract void ArrangeValidItem();
 }

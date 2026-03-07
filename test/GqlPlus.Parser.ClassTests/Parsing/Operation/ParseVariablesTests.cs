@@ -11,9 +11,9 @@ public class ParseVariablesTests
 
   public ParseVariablesTests()
   {
-    Parser<IGqlpVariable>.D variable = ParserFor(out _variableParser);
-
-    _parseVariables = new ParseVariables(variable);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    parsers.Get<IGqlpVariable>().Returns(LazyFor(out _variableParser));
+    _parseVariables = new ParseVariables(parsers);
 
     SetupError<IGqlpVariable>();
     SetupPartial<IGqlpVariable>();

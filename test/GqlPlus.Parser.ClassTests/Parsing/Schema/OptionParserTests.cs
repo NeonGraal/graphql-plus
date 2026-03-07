@@ -12,8 +12,9 @@ public class OptionParserTests
 
   public OptionParserTests()
   {
-    Parser<IEnumParser<DomainKind>, DomainKind>.D domainParser = EnumParserFor<DomainKind>(out _domainParser);
-    _parser = new OptionParser<DomainKind>(domainParser);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    parsers.GetInterface<IEnumParser<DomainKind>, DomainKind>().Returns(LazyFor<IEnumParser<DomainKind>, DomainKind>(out _domainParser));
+    _parser = new OptionParser<DomainKind>(parsers);
     SetupPartial(DomainKind.Number);
   }
 

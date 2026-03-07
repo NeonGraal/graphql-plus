@@ -12,10 +12,10 @@ public class ParseOutputTests
 
   public ParseOutputTests()
   {
-    Parser<IGqlpTypeParam>.DA param = ParserAFor(out _param);
-    Parser<ObjectDefinition<IGqlpOutputField>>.D definition = ParserFor(out _definition);
+    Parsers.GetArray<IGqlpTypeParam>().Returns(LazyAFor(out _param));
+    Parsers.Get<ObjectDefinition<IGqlpOutputField>>().Returns(LazyFor(out _definition));
     IGqlpFieldKind<IGqlpOutputField> fieldKind = new FieldObjectKind<IGqlpOutputField>(TypeKind.Output);
-    _parser = new ObjectParser<IGqlpOutputField>(SimpleName, param, Aliases, OptionNull, definition, fieldKind);
+    _parser = new ObjectParser<IGqlpOutputField>(SimpleName, Parsers, fieldKind);
   }
 
   [Theory, RepeatData]

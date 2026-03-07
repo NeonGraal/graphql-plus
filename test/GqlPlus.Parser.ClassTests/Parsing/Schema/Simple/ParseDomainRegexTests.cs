@@ -16,6 +16,6 @@ public class ParseDomainRegexTests
   protected override IGqlpDomainRegex NewItem()
     => new DomainRegexAst(AstNulls.At, string.Empty, false, "*");
 
-  internal override ParseDomainItem<IGqlpDomainRegex> MakeParser(Parser<IGqlpDomainRegex>.DA itemsParser)
-    => new ParseDomainRegex(itemsParser);
+  internal override ParseDomainItem<IGqlpDomainRegex> MakeParser(IParserRepository parsers)
+    => new ParseDomainRegex(parsers);
 }

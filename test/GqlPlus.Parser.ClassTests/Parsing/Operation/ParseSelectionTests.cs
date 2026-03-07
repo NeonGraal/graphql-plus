@@ -13,10 +13,10 @@ public class ParseSelectionTests
   public ParseSelectionTests()
     : base(A.Of<ITokenizer, IOperationContext>())
   {
-    Parser<IGqlpDirective>.DA directives = ParserAFor(out _directivesParser);
-    Parser<IGqlpSelection>.DA objectParser = ParserAFor(out _objectParser);
-
-    _parseSelection = new ParseSelection(directives, objectParser);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    parsers.GetArray<IGqlpDirective>().Returns(LazyAFor(out _directivesParser));
+    parsers.GetArray<IGqlpSelection>().Returns(LazyAFor(out _objectParser));
+    _parseSelection = new ParseSelection(parsers);
 
     SetupError<IGqlpSelection>();
   }

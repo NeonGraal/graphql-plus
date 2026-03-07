@@ -12,10 +12,10 @@ public class ParseObjectTests
 
   public ParseObjectTests()
   {
-    Parser<IGqlpField>.D field = ParserFor(out _fieldParser);
-    Parser<IGqlpSelection>.D selection = ParserFor(out _selectionParser);
-
-    _parseObject = new ParseObject(field, selection);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    parsers.Get<IGqlpField>().Returns(LazyFor(out _fieldParser));
+    parsers.Get<IGqlpSelection>().Returns(LazyFor(out _selectionParser));
+    _parseObject = new ParseObject(parsers);
 
     SetupPartial<IGqlpSelection>();
   }

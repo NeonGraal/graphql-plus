@@ -10,11 +10,10 @@ public class ValueKeyValueParserTests
 
   public ValueKeyValueParserTests()
   {
-    Parser<IGqlpFieldKey>.D keyParser = ParserFor(out _keyParser);
-    Parser<IGqlpConstant>.D valueParser = ParserFor(out _valueParser);
-
-    _parser = new ValueKeyValueParser<IGqlpConstant>(keyParser, valueParser);
-
+    IParserRepository parsers = A.Of<IParserRepository>();
+    parsers.Get<IGqlpFieldKey>().Returns(LazyFor(out _keyParser));
+    parsers.Get<IGqlpConstant>().Returns(LazyFor(out _valueParser));
+    _parser = new ValueKeyValueParser<IGqlpConstant>(parsers);
     SetupError<KeyValue<IGqlpConstant>>();
   }
 

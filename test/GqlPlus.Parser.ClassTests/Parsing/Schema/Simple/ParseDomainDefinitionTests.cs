@@ -13,8 +13,8 @@ public class ParseDomainDefinitionTests
   public ParseDomainDefinitionTests()
   {
     _domainParser.Kind.Returns(DomainKind.Enum);
-    Parser<IEnumParser<DomainKind>, DomainKind>.D kindParser = EnumParserFor(out _kindParser);
-    _parser = new ParseDomainDefinition(TypeRef, kindParser, [_domainParser]);
+    Parsers.GetInterface<IEnumParser<DomainKind>, DomainKind>().Returns(LazyFor<IEnumParser<DomainKind>, DomainKind>(out _kindParser));
+    _parser = new ParseDomainDefinition(Parsers, [_domainParser]);
   }
 
   [Theory, RepeatData]

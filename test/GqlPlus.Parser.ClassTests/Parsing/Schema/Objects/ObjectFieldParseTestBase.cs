@@ -8,11 +8,16 @@ public abstract class ObjectFieldParseTestBase<TField>
 {
 
   private readonly Parser<IGqlpObjBase>.I _parseBase;
-  protected Parser<IGqlpObjBase>.D ParseBase { get; }
   protected abstract Parser<TField>.I Parser { get; }
 
   protected ObjectFieldParseTestBase()
-    => ParseBase = ParserFor(out _parseBase);
+  {
+    _parseBase = A.Of<Parser<IGqlpObjBase>.I>();
+    _parseBase.Parse(default!, default!)
+      .ReturnsForAnyArgs(default(IGqlpObjBase).Empty());
+    Parser<IGqlpObjBase>.L parseBaseLazy = new(() => _parseBase);
+    Parsers.Get<IGqlpObjBase>().Returns(parseBaseLazy);
+  }
 
   [Theory, RepeatData]
   public void Parse_ShouldReturnField_WhenValid(string fieldName)

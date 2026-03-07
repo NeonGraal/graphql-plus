@@ -11,9 +11,8 @@ public class ParseDomainTests
 
   public ParseDomainTests()
   {
-
-    Parser<DomainDefinition>.D definition = ParserFor(out _definition);
-    _parser = new ParseDomain(SimpleName, ParamNull, Aliases, OptionNull, definition);
+    Parsers.Get<DomainDefinition>().Returns(LazyFor(out _definition));
+    _parser = new ParseDomain(SimpleName, Parsers);
   }
 
   [Theory]

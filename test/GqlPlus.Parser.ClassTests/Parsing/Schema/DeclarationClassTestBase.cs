@@ -11,16 +11,22 @@ public class DeclarationClassTestBase
   internal INameParser NameParser { get; set; }
   internal ISimpleName SimpleName { get; }
 
-  internal Parser<NullAst>.DA ParamNull { get; }
-  internal Parser<IOptionParser<NullOption>, NullOption>.D OptionNull { get; }
-
   public DeclarationClassTestBase()
   {
     SimpleName = A.Of<ISimpleName>();
     NameParser = SimpleName;
 
-    ParamNull = ParserAFor(out _nullParam);
-    OptionNull = OptionParserFor(out _option);
+    _nullParam = A.Of<Parser<NullAst>.IA>();
+    _nullParam.Parse(default!, default!)
+      .ReturnsForAnyArgs(0.EmptyArray<NullAst>());
+    Parser<NullAst>.LA nullParamLazy = new(() => _nullParam);
+    Parsers.GetArray<NullAst>().Returns(nullParamLazy);
+
+    _option = A.Of<IOptionParser<NullOption>>();
+    _option.Parse(default!, default!)
+      .ReturnsForAnyArgs(default(NullOption).Empty());
+    Parser<IOptionParser<NullOption>, NullOption>.L optionLazy = new(() => _option);
+    Parsers.GetInterface<IOptionParser<NullOption>, NullOption>().Returns(optionLazy);
 
     TakeReturns('{', true);
   }

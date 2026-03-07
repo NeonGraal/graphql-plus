@@ -7,7 +7,7 @@ public class ParseModifiersTests
   private readonly ParseModifiers _parseModifiers;
 
   public ParseModifiersTests()
-    => _parseModifiers = new ParseModifiers(Collections);
+    => _parseModifiers = new ParseModifiers(Parsers);
 
   [Fact]
   public void Parse_ShouldReturnModifiersArray_WhenCollectionsParserSucceeds()

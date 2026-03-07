@@ -11,9 +11,9 @@ public class ParseInputParamsTests
 
   public ParseInputParamsTests()
   {
-    Parser<IGqlpObjBase>.D input = ParserFor(out _input);
-    Parser<IParserDefault, IGqlpConstant>.D defaultParser = ParserFor<IParserDefault, IGqlpConstant>(out _defaultParser);
-    _parser = new ParseInputParams(input, Modifiers, defaultParser);
+    Parsers.Get<IGqlpObjBase>().Returns(LazyFor(out _input));
+    Parsers.GetInterface<IParserDefault, IGqlpConstant>().Returns(LazyFor<IParserDefault, IGqlpConstant>(out _defaultParser));
+    _parser = new ParseInputParams(Parsers);
   }
 
   [Fact]

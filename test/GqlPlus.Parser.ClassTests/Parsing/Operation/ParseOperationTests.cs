@@ -22,14 +22,13 @@ public class ParseOperationTests
       operation.Spreads.Returns([]);
     }
 
-    Parser<IParserArg, IGqlpArg>.D argument = ParserFor<IParserArg, IGqlpArg>(out _argumentParser);
-    Parser<IGqlpDirective>.DA directives = ParserAFor(out _directivesParser);
-    ParserArray<IParserStartFragments, IGqlpFragment>.DA startFragments = ParserAFor<IParserStartFragments, IGqlpFragment>(out _startFragmentsParser);
-    ParserArray<IParserEndFragments, IGqlpFragment>.DA endFragments = ParserAFor<IParserEndFragments, IGqlpFragment>(out _endFragmentsParser);
-    Parser<IGqlpSelection>.DA objectParser = ParserAFor(out _objectParser);
-    Parser<IGqlpVariable>.DA variables = ParserAFor(out _variablesParser);
-
-    _parseOperation = new ParseOperation(argument, directives, startFragments, endFragments, Modifiers, objectParser, variables);
+    Parsers.GetInterface<IParserArg, IGqlpArg>().Returns(LazyFor<IParserArg, IGqlpArg>(out _argumentParser));
+    Parsers.GetArray<IGqlpDirective>().Returns(LazyAFor(out _directivesParser));
+    Parsers.GetArrayInterface<IParserStartFragments, IGqlpFragment>().Returns(LazyAFor<IParserStartFragments, IGqlpFragment>(out _startFragmentsParser));
+    Parsers.GetArrayInterface<IParserEndFragments, IGqlpFragment>().Returns(LazyAFor<IParserEndFragments, IGqlpFragment>(out _endFragmentsParser));
+    Parsers.GetArray<IGqlpSelection>().Returns(LazyAFor(out _objectParser));
+    Parsers.GetArray<IGqlpVariable>().Returns(LazyAFor(out _variablesParser));
+    _parseOperation = new ParseOperation(Parsers);
 
     SetupError<IGqlpOperation>();
     SetupPartial<IGqlpOperation>();

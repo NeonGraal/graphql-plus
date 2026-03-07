@@ -11,8 +11,8 @@ public class ParseEnumTests
 
   public ParseEnumTests()
   {
-    Parser<EnumDefinition>.D definition = ParserFor(out _definition);
-    _parser = new ParseEnum(SimpleName, ParamNull, Aliases, OptionNull, definition);
+    Parsers.Get<EnumDefinition>().Returns(LazyFor(out _definition));
+    _parser = new ParseEnum(SimpleName, Parsers);
   }
 
   [Theory, RepeatData]

@@ -13,11 +13,10 @@ public class ParseFieldTests
 
   public ParseFieldTests()
   {
-    Parser<IGqlpDirective>.DA directives = ParserAFor(out _directivesParser);
-    Parser<IParserArg, IGqlpArg>.D argument = ParserFor<IParserArg, IGqlpArg>(out _argumentParser);
-    Parser<IGqlpSelection>.DA objectParser = ParserAFor(out _objectParser);
-
-    _parseField = new ParseField(Modifiers, directives, argument, objectParser);
+    Parsers.GetArray<IGqlpDirective>().Returns(LazyAFor(out _directivesParser));
+    Parsers.GetInterface<IParserArg, IGqlpArg>().Returns(LazyFor<IParserArg, IGqlpArg>(out _argumentParser));
+    Parsers.GetArray<IGqlpSelection>().Returns(LazyAFor(out _objectParser));
+    _parseField = new ParseField(Parsers);
 
     SetupError<IGqlpField>();
     SetupPartial<IGqlpField>();

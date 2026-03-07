@@ -13,11 +13,10 @@ public class ParseVariableTests
 
   public ParseVariableTests()
   {
-    Parser<IGqlpDirective>.DA directives = ParserAFor(out _directivesParser);
-    Parser<IParserDefault, IGqlpConstant>.D defaultParser = ParserFor<IParserDefault, IGqlpConstant>(out _defaultParser);
-    Parser<IParserVarType, string>.D varTypeParser = ParserFor<IParserVarType, string>(out _varTypeParser);
-
-    _parseVariable = new ParseVariable(Modifiers, directives, defaultParser, varTypeParser);
+    Parsers.GetArray<IGqlpDirective>().Returns(LazyAFor(out _directivesParser));
+    Parsers.GetInterface<IParserDefault, IGqlpConstant>().Returns(LazyFor<IParserDefault, IGqlpConstant>(out _defaultParser));
+    Parsers.GetInterface<IParserVarType, string>().Returns(LazyFor<IParserVarType, string>(out _varTypeParser));
+    _parseVariable = new ParseVariable(Parsers);
 
     SetupError<IGqlpVariable>();
     SetupPartial<IGqlpVariable>();

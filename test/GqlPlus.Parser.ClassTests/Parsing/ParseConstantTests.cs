@@ -13,12 +13,12 @@ public class ParseConstantTests
 
   public ParseConstantTests()
   {
-    Parser<IGqlpFieldKey>.D fieldKeyParser = ParserFor(out _fieldKeyParser);
-    Parser<KeyValue<IGqlpConstant>>.D keyValueParser = ParserFor(out _keyValueParser);
-    Parser<IGqlpConstant>.DA listParser = ParserAFor(out _listParser);
-    Parser<IGqlpFields<IGqlpConstant>>.D objectParser = ParserFor(out _objectParser);
-
-    _parseConstant = new ParseConstant(fieldKeyParser, keyValueParser, listParser, objectParser);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    parsers.Get<IGqlpFieldKey>().Returns(LazyFor(out _fieldKeyParser));
+    parsers.Get<KeyValue<IGqlpConstant>>().Returns(LazyFor(out _keyValueParser));
+    parsers.GetArray<IGqlpConstant>().Returns(LazyAFor(out _listParser));
+    parsers.Get<IGqlpFields<IGqlpConstant>>().Returns(LazyFor(out _objectParser));
+    _parseConstant = new ParseConstant(parsers);
   }
 
   [Fact]

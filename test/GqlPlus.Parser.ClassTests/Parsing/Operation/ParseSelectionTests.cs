@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -14,8 +14,8 @@ public class ParseSelectionTests
     : base(A.Of<ITokenizer, IOperationContext>())
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.GetArray<IGqlpDirective>().Returns(LazyAFor(out _directivesParser));
-    parsers.GetArray<IGqlpSelection>().Returns(LazyAFor(out _objectParser));
+    ConfigureRepoArray<IGqlpDirective>(parsers, out _directivesParser);
+    ConfigureRepoArray<IGqlpSelection>(parsers, out _objectParser);
     _parseSelection = new ParseSelection(parsers);
 
     SetupError<IGqlpSelection>();

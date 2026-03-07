@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -11,7 +11,7 @@ public class ParseUnionTests
 
   public ParseUnionTests()
   {
-    Parsers.Get<UnionDefinition>().Returns(LazyFor(out _definition));
+    ConfigureRepo<UnionDefinition>(Parsers, out _definition);
     _parser = new ParseUnion(SimpleName, Parsers);
   }
 

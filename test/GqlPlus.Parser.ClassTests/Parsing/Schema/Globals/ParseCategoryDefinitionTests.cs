@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -11,7 +11,7 @@ public class ParseCategoryDefinitionTests
 
   public ParseCategoryDefinitionTests()
   {
-    Parsers.Get<IGqlpTypeRef>().Returns(LazyFor(out _typeRefParser));
+    ConfigureRepo<IGqlpTypeRef>(Parsers, out _typeRefParser);
     _parser = new ParseCategoryDefinition(Parsers);
     SetupError<CategoryOutput>();
     SetupPartial<CategoryOutput>(new(default!));

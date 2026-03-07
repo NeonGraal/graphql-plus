@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -11,7 +11,7 @@ public class ParseEnumDefinitionTests
 
   public ParseEnumDefinitionTests()
   {
-    Parsers.Get<IGqlpEnumLabel>().Returns(LazyFor(out _enumLabelParser));
+    ConfigureRepo<IGqlpEnumLabel>(Parsers, out _enumLabelParser);
     _parser = new ParseEnumDefinition(Parsers);
   }
 

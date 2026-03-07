@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Parsing;
+namespace GqlPlus.Parsing;
 
 public class ParseDefaultTests
   : ParserClassTestBase
@@ -10,7 +10,7 @@ public class ParseDefaultTests
   public ParseDefaultTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.Get<IGqlpConstant>().Returns(LazyFor(out _constantParser));
+    ConfigureRepo<IGqlpConstant>(parsers, out _constantParser);
     _parser = new ParseDefault(parsers);
   }
 

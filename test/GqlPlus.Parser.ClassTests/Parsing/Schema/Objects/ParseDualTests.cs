@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -12,8 +12,8 @@ public class ParseDualTests
 
   public ParseDualTests()
   {
-    Parsers.GetArray<IGqlpTypeParam>().Returns(LazyAFor(out _param));
-    Parsers.Get<ObjectDefinition<IGqlpDualField>>().Returns(LazyFor(out _definition));
+    ConfigureRepoArray<IGqlpTypeParam>(Parsers, out _param);
+    ConfigureRepo<ObjectDefinition<IGqlpDualField>>(Parsers, out _definition);
     IGqlpFieldKind<IGqlpDualField> fieldKind = new FieldObjectKind<IGqlpDualField>(TypeKind.Dual);
     _parser = new ObjectParser<IGqlpDualField>(SimpleName, Parsers, fieldKind);
   }

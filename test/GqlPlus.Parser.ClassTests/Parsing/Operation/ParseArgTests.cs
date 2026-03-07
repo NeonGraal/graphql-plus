@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -16,8 +16,8 @@ public class ParseArgTests
   public ParseArgTests(string fieldKey = "fieldKey", string arg = "arg")
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.Get<IGqlpFieldKey>().Returns(LazyFor(out _fieldKeyParser));
-    parsers.GetInterface<IValueParser<IGqlpArg>, IGqlpArg>().Returns(LazyFor<IValueParser<IGqlpArg>, IGqlpArg>(out _argumentParser));
+    ConfigureRepo<IGqlpFieldKey>(parsers, out _fieldKeyParser);
+    ConfigureRepoInterface<IValueParser<IGqlpArg>, IGqlpArg>(parsers, out _argumentParser);
     _parseArg = new ParseArg(parsers);
     _fieldKey.Text.Returns(fieldKey);
     _arg.Variable.Returns(arg);

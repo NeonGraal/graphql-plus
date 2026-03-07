@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Parsing;
+namespace GqlPlus.Parsing;
 
 public class ValueObjectParserTests
   : ParserClassTestBase
@@ -10,7 +10,7 @@ public class ValueObjectParserTests
   public ValueObjectParserTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.Get<KeyValue<IGqlpConstant>>().Returns(LazyFor(out _fieldParser));
+    ConfigureRepo<KeyValue<IGqlpConstant>>(parsers, out _fieldParser);
     _parser = new ValueObjectParser<IGqlpConstant>(parsers);
     SetupError<IGqlpFields<IGqlpConstant>>();
   }

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Parsing.Schema.Simple;
 
 namespace GqlPlus.Parsing.Schema.Globals;
@@ -12,7 +12,7 @@ public class ParseDirectiveDefinitionTests : ParserClassTestBase
   public ParseDirectiveDefinitionTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.GetInterface<IEnumParser<DirectiveLocation>, DirectiveLocation>().Returns(LazyFor<IEnumParser<DirectiveLocation>, DirectiveLocation>(out _locationParser));
+    ConfigureRepoInterface<IEnumParser<DirectiveLocation>, DirectiveLocation>(parsers, out _locationParser);
     _parser = new ParseDirectiveDefinition(parsers);
     SetupPartial(DirectiveLocation.None);
     TakeReturns('}', false, true);

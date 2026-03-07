@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -13,8 +13,8 @@ public class ParseObjectTests
   public ParseObjectTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.Get<IGqlpField>().Returns(LazyFor(out _fieldParser));
-    parsers.Get<IGqlpSelection>().Returns(LazyFor(out _selectionParser));
+    ConfigureRepo<IGqlpField>(parsers, out _fieldParser);
+    ConfigureRepo<IGqlpSelection>(parsers, out _selectionParser);
     _parseObject = new ParseObject(parsers);
 
     SetupPartial<IGqlpSelection>();

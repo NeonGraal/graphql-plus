@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -22,12 +22,12 @@ public class ParseOperationTests
       operation.Spreads.Returns([]);
     }
 
-    Parsers.GetInterface<IParserArg, IGqlpArg>().Returns(LazyFor<IParserArg, IGqlpArg>(out _argumentParser));
-    Parsers.GetArray<IGqlpDirective>().Returns(LazyAFor(out _directivesParser));
-    Parsers.GetArrayInterface<IParserStartFragments, IGqlpFragment>().Returns(LazyAFor<IParserStartFragments, IGqlpFragment>(out _startFragmentsParser));
-    Parsers.GetArrayInterface<IParserEndFragments, IGqlpFragment>().Returns(LazyAFor<IParserEndFragments, IGqlpFragment>(out _endFragmentsParser));
-    Parsers.GetArray<IGqlpSelection>().Returns(LazyAFor(out _objectParser));
-    Parsers.GetArray<IGqlpVariable>().Returns(LazyAFor(out _variablesParser));
+    ConfigureRepoInterface<IParserArg, IGqlpArg>(Parsers, out _argumentParser);
+    ConfigureRepoArray<IGqlpDirective>(Parsers, out _directivesParser);
+    ConfigureRepoArrayInterface<IParserStartFragments, IGqlpFragment>(Parsers, out _startFragmentsParser);
+    ConfigureRepoArrayInterface<IParserEndFragments, IGqlpFragment>(Parsers, out _endFragmentsParser);
+    ConfigureRepoArray<IGqlpSelection>(Parsers, out _objectParser);
+    ConfigureRepoArray<IGqlpVariable>(Parsers, out _variablesParser);
     _parseOperation = new ParseOperation(Parsers);
 
     SetupError<IGqlpOperation>();

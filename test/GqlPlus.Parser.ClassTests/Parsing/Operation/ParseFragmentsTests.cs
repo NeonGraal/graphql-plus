@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -8,8 +8,8 @@ public class ParseEndFragmentsTests
   public ParseEndFragmentsTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.GetArray<IGqlpDirective>().Returns(LazyAFor(out Parser<IGqlpDirective>.IA directivesParser));
-    parsers.GetArray<IGqlpSelection>().Returns(LazyAFor(out Parser<IGqlpSelection>.IA objectParser));
+    ConfigureRepoArray<IGqlpDirective>(parsers, out Parser<IGqlpDirective>.IA directivesParser);
+    ConfigureRepoArray<IGqlpSelection>(parsers, out Parser<IGqlpSelection>.IA objectParser);
     DirectivesParser = directivesParser;
     ObjectParser = objectParser;
     Parser = new ParseEndFragments(parsers);
@@ -32,8 +32,8 @@ public class ParseStartFragmentsTests
   public ParseStartFragmentsTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.GetArray<IGqlpDirective>().Returns(LazyAFor(out Parser<IGqlpDirective>.IA directivesParser));
-    parsers.GetArray<IGqlpSelection>().Returns(LazyAFor(out Parser<IGqlpSelection>.IA objectParser));
+    ConfigureRepoArray<IGqlpDirective>(parsers, out Parser<IGqlpDirective>.IA directivesParser);
+    ConfigureRepoArray<IGqlpSelection>(parsers, out Parser<IGqlpSelection>.IA objectParser);
     DirectivesParser = directivesParser;
     ObjectParser = objectParser;
     Parser = new ParseStartFragments(parsers);

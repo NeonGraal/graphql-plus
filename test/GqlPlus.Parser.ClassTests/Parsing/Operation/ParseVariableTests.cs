@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -13,9 +13,9 @@ public class ParseVariableTests
 
   public ParseVariableTests()
   {
-    Parsers.GetArray<IGqlpDirective>().Returns(LazyAFor(out _directivesParser));
-    Parsers.GetInterface<IParserDefault, IGqlpConstant>().Returns(LazyFor<IParserDefault, IGqlpConstant>(out _defaultParser));
-    Parsers.GetInterface<IParserVarType, string>().Returns(LazyFor<IParserVarType, string>(out _varTypeParser));
+    ConfigureRepoArray<IGqlpDirective>(Parsers, out _directivesParser);
+    ConfigureRepoInterface<IParserDefault, IGqlpConstant>(Parsers, out _defaultParser);
+    ConfigureRepoInterface<IParserVarType, string>(Parsers, out _varTypeParser);
     _parseVariable = new ParseVariable(Parsers);
 
     SetupError<IGqlpVariable>();

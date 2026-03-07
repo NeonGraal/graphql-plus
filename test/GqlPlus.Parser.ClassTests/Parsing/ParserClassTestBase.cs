@@ -242,6 +242,48 @@ public class ParserClassTestBase
     return new ParserArray<TInterface, T>.LA(() => p);
   }
 
+  protected static void ConfigureRepo<T>([NotNull] IParserRepository repo, out Parser<T>.I parser)
+  {
+    Parser<T>.I p = A.Of<Parser<T>.I>();
+    p.Parse(default!, default!)
+      .ReturnsForAnyArgs(default(T).Empty());
+    Parser<T>.L lazy = new(() => p);
+    parser = p;
+    repo.Get<T>().Returns(lazy);
+  }
+
+  protected static void ConfigureRepoArray<T>([NotNull] IParserRepository repo, out Parser<T>.IA parser)
+  {
+    Parser<T>.IA p = A.Of<Parser<T>.IA>();
+    p.Parse(default!, default!)
+      .ReturnsForAnyArgs(0.EmptyArray<T>());
+    Parser<T>.LA lazy = new(() => p);
+    parser = p;
+    repo.GetArray<T>().Returns(lazy);
+  }
+
+  protected static void ConfigureRepoInterface<TInterface, T>([NotNull] IParserRepository repo, out TInterface parser)
+    where TInterface : class, Parser<T>.I
+  {
+    TInterface p = Substitute.For<TInterface, Parser<T>.I>();
+    p.Parse(default!, default!)
+      .ReturnsForAnyArgs(default(T).Empty());
+    Parser<TInterface, T>.L lazy = new(() => p);
+    parser = p;
+    repo.GetInterface<TInterface, T>().Returns(lazy);
+  }
+
+  protected static void ConfigureRepoArrayInterface<TInterface, T>([NotNull] IParserRepository repo, out TInterface parser)
+    where TInterface : class, Parser<T>.IA
+  {
+    TInterface p = A.Of<TInterface>();
+    p.Parse(default!, default!)
+      .ReturnsForAnyArgs(0.EmptyArray<T>());
+    ParserArray<TInterface, T>.LA lazy = new(() => p);
+    parser = p;
+    repo.GetArrayInterface<TInterface, T>().Returns(lazy);
+  }
+
   protected static Parser<T>.D ParserFor<T>(out Parser<T>.I parser)
   {
     parser = A.Of<Parser<T>.I>();
@@ -253,9 +295,6 @@ public class ParserClassTestBase
 
     return result;
   }
-
-  protected static Parser<T>.DA ParserAFor<T>()
-    => ParserAFor(out Parser<T>.IA _);
 
   protected static Parser<T>.DA ParserAFor<T>(out Parser<T>.IA parser)
   {

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -14,9 +14,9 @@ public class ParseObjectDefinitionTests
   public ParseObjectDefinitionTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.GetArray<IGqlpAlternate>().Returns(LazyAFor(out _alternates));
-    parsers.Get<IGqlpObjField>().Returns(LazyFor(out _parseField));
-    parsers.Get<IGqlpObjBase>().Returns(LazyFor(out _parseBase));
+    ConfigureRepoArray<IGqlpAlternate>(parsers, out _alternates);
+    ConfigureRepo<IGqlpObjField>(parsers, out _parseField);
+    ConfigureRepo<IGqlpObjBase>(parsers, out _parseBase);
     _parser = new ParseObjectDefinition<IGqlpObjField>(parsers);
   }
 

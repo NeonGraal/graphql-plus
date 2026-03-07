@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -13,9 +13,9 @@ public class ParseFieldTests
 
   public ParseFieldTests()
   {
-    Parsers.GetArray<IGqlpDirective>().Returns(LazyAFor(out _directivesParser));
-    Parsers.GetInterface<IParserArg, IGqlpArg>().Returns(LazyFor<IParserArg, IGqlpArg>(out _argumentParser));
-    Parsers.GetArray<IGqlpSelection>().Returns(LazyAFor(out _objectParser));
+    ConfigureRepoArray<IGqlpDirective>(Parsers, out _directivesParser);
+    ConfigureRepoInterface<IParserArg, IGqlpArg>(Parsers, out _argumentParser);
+    ConfigureRepoArray<IGqlpSelection>(Parsers, out _objectParser);
     _parseField = new ParseField(Parsers);
 
     SetupError<IGqlpField>();

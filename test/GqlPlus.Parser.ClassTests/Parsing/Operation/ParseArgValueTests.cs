@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -17,11 +17,11 @@ public class ParseArgValueTests
     : base(A.Of<ITokenizer, IOperationContext>())
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.Get<IGqlpFieldKey>().Returns(LazyFor(out _fieldKeyParser));
-    parsers.Get<KeyValue<IGqlpArg>>().Returns(LazyFor(out _keyValueParser));
-    parsers.GetArray<IGqlpArg>().Returns(LazyAFor(out _listParser));
-    parsers.Get<IGqlpFields<IGqlpArg>>().Returns(LazyFor(out _objectParser));
-    parsers.Get<IGqlpConstant>().Returns(LazyFor(out _constantParser));
+    ConfigureRepo<IGqlpFieldKey>(parsers, out _fieldKeyParser);
+    ConfigureRepo<KeyValue<IGqlpArg>>(parsers, out _keyValueParser);
+    ConfigureRepoArray<IGqlpArg>(parsers, out _listParser);
+    ConfigureRepo<IGqlpFields<IGqlpArg>>(parsers, out _objectParser);
+    ConfigureRepo<IGqlpConstant>(parsers, out _constantParser);
     _parseArgValue = new ParseArgValue(parsers);
 
     PrefixReturns('$', OutPass);

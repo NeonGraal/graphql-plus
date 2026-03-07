@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -12,7 +12,7 @@ public class ParseOutputFieldTests
 
   public ParseOutputFieldTests()
   {
-    Parsers.GetArray<IGqlpInputParam>().Returns(LazyAFor(out _parameter));
+    ConfigureRepoArray<IGqlpInputParam>(Parsers, out _parameter);
     Parser = new ParseOutputField(Parsers);
     ParseEmptyA(_parameter);
   }

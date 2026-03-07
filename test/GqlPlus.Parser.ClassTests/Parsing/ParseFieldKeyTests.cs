@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Parsing;
+namespace GqlPlus.Parsing;
 
 public class ParseFieldKeyTests
   : ParserClassTestBase
@@ -11,7 +11,7 @@ public class ParseFieldKeyTests
   public ParseFieldKeyTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.Get<IGqlpEnumValue>().Returns(LazyFor(out _parseEnumValue));
+    ConfigureRepo<IGqlpEnumValue>(parsers, out _parseEnumValue);
     _parseFieldKey = new ParseFieldKey(parsers);
     SetupError<IGqlpFieldKey>();
   }

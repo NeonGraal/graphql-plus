@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Parsing.Schema;
+namespace GqlPlus.Parsing.Schema;
 
 public class ArrayParserTests
   : ParserClassTestBase
@@ -10,7 +10,7 @@ public class ArrayParserTests
   public ArrayParserTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.Get<string>().Returns(LazyFor(out _itemParser));
+    ConfigureRepo<string>(parsers, out _itemParser);
     _parser = new ArrayParser<string>(parsers);
   }
 

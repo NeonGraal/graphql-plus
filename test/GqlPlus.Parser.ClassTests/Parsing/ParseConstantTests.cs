@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Parsing;
+namespace GqlPlus.Parsing;
 
 public class ParseConstantTests
   : ParserClassTestBase
@@ -14,10 +14,10 @@ public class ParseConstantTests
   public ParseConstantTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.Get<IGqlpFieldKey>().Returns(LazyFor(out _fieldKeyParser));
-    parsers.Get<KeyValue<IGqlpConstant>>().Returns(LazyFor(out _keyValueParser));
-    parsers.GetArray<IGqlpConstant>().Returns(LazyAFor(out _listParser));
-    parsers.Get<IGqlpFields<IGqlpConstant>>().Returns(LazyFor(out _objectParser));
+    ConfigureRepo<IGqlpFieldKey>(parsers, out _fieldKeyParser);
+    ConfigureRepo<KeyValue<IGqlpConstant>>(parsers, out _keyValueParser);
+    ConfigureRepoArray<IGqlpConstant>(parsers, out _listParser);
+    ConfigureRepo<IGqlpFields<IGqlpConstant>>(parsers, out _objectParser);
     _parseConstant = new ParseConstant(parsers);
   }
 

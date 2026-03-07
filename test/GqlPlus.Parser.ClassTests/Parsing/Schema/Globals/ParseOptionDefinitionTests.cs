@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -12,7 +12,7 @@ public class ParseOptionDefinitionTests
   public ParseOptionDefinitionTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.Get<IGqlpSchemaSetting>().Returns(LazyFor(out _settingParser));
+    ConfigureRepo<IGqlpSchemaSetting>(parsers, out _settingParser);
     _parser = new ParseOptionDefinition(parsers);
     SetupError<OptionDefinition>();
     TakeReturns('}', false, true);

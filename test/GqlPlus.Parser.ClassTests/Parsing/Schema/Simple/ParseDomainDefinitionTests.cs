@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -13,7 +13,7 @@ public class ParseDomainDefinitionTests
   public ParseDomainDefinitionTests()
   {
     _domainParser.Kind.Returns(DomainKind.Enum);
-    Parsers.GetInterface<IEnumParser<DomainKind>, DomainKind>().Returns(LazyFor<IEnumParser<DomainKind>, DomainKind>(out _kindParser));
+    ConfigureRepoInterface<IEnumParser<DomainKind>, DomainKind>(Parsers, out _kindParser);
     _parser = new ParseDomainDefinition(Parsers, [_domainParser]);
   }
 

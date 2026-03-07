@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -11,7 +11,7 @@ public class ParseDomainTests
 
   public ParseDomainTests()
   {
-    Parsers.Get<DomainDefinition>().Returns(LazyFor(out _definition));
+    ConfigureRepo<DomainDefinition>(Parsers, out _definition);
     _parser = new ParseDomain(SimpleName, Parsers);
   }
 

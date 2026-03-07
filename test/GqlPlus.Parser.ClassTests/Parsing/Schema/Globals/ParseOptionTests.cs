@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -11,7 +11,7 @@ public class ParseOptionTests
 
   public ParseOptionTests()
   {
-    Parsers.Get<OptionDefinition>().Returns(LazyFor(out _definition));
+    ConfigureRepo<OptionDefinition>(Parsers, out _definition);
     _parser = new ParseOption(SimpleName, Parsers);
   }
 

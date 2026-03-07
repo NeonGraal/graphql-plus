@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -11,8 +11,8 @@ public class ParseAlternatesTests
 
   public ParseAlternatesTests()
   {
-    Parsers.Get<IGqlpObjBase>().Returns(LazyFor(out _parseBase));
-    Parsers.Get<IGqlpEnumValue>().Returns(LazyFor(out _parseEnum));
+    ConfigureRepo<IGqlpObjBase>(Parsers, out _parseBase);
+    ConfigureRepo<IGqlpEnumValue>(Parsers, out _parseEnum);
     _parser = new ParseAlternates(Parsers);
   }
 

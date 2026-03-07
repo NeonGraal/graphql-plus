@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema;
 
@@ -14,7 +14,7 @@ public class ParseDeclarationTests
   public ParseDeclarationTests()
   {
     _parsers = A.Of<IParserRepository>();
-    _parsers.Get<IGqlpDeclaration>().Returns(LazyFor(out _declaration));
+    ConfigureRepo<IGqlpDeclaration>(_parsers, out _declaration);
     _parser = new ParseDeclaration<IGqlpDeclaration>(_selector, _parsers);
   }
 

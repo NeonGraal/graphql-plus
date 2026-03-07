@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -12,7 +12,7 @@ public class ParseDirectivesTests
   public ParseDirectivesTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.GetInterface<IParserArg, IGqlpArg>().Returns(LazyFor<IParserArg, IGqlpArg>(out _argumentParser));
+    ConfigureRepoInterface<IParserArg, IGqlpArg>(parsers, out _argumentParser);
     _parseDirectives = new ParseDirectives(parsers);
 
     SetupError<IGqlpDirective>();

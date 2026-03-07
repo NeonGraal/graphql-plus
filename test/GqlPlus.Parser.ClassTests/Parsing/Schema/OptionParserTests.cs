@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Parsing.Schema.Simple;
 
 namespace GqlPlus.Parsing.Schema;
@@ -13,7 +13,7 @@ public class OptionParserTests
   public OptionParserTests()
   {
     IParserRepository parsers = A.Of<IParserRepository>();
-    parsers.GetInterface<IEnumParser<DomainKind>, DomainKind>().Returns(LazyFor<IEnumParser<DomainKind>, DomainKind>(out _domainParser));
+    ConfigureRepoInterface<IEnumParser<DomainKind>, DomainKind>(parsers, out _domainParser);
     _parser = new OptionParser<DomainKind>(parsers);
     SetupPartial(DomainKind.Number);
   }

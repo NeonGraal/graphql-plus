@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parser.Schema.Objects;
@@ -37,8 +37,8 @@ public class ParseObjBaseTests(
 }
 
 internal sealed class ParseObjBaseChecks(
-  Parser<IGqlpObjBase>.D parser
-) : OneChecksParser<IGqlpObjBase>(parser)
+  IParserRepository parsers
+) : OneChecksParser<IGqlpObjBase>(parsers)
   , IParseObjBaseChecks
 {
   public void WithMinimum(string name)

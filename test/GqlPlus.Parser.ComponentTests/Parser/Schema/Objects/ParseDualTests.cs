@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Parsing.Schema.Objects;
 
@@ -10,6 +10,6 @@ public class ParseDualTests(
 { }
 
 internal sealed class ParseDualChecks(
-  Parser<IGqlpObject<IGqlpDualField>>.D parser
-) : CheckObject<IGqlpDualField, DualFieldAst>(new DualFactories(), parser)
+  IParserRepository parsers
+) : CheckObject<IGqlpDualField, DualFieldAst>(new DualFactories(), parsers)
 { }

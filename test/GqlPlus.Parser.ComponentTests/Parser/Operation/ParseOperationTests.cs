@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
@@ -6,7 +6,7 @@ using GqlPlus.Result;
 namespace GqlPlus.Parser.Operation;
 
 public class ParseOperationTests(
-  Parser<IGqlpOperation>.D operationParser
+  IParserRepository parsers
 )
 {
   [Theory]
@@ -74,5 +74,5 @@ public class ParseOperationTests(
       a => a.ThrowIfNull().Errors.ShouldNotBeEmpty());
   }
 
-  private readonly Parser<IGqlpOperation>.L _parser = operationParser;
+  private readonly Parser<IGqlpOperation>.L _parser = parsers.Get<IGqlpOperation>();
 }

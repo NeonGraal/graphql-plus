@@ -18,8 +18,8 @@ public abstract class BaseSimpleTests<TInput, TSimple>(
 }
 
 internal abstract class BaseSimpleChecks<TInput, TSimpleAst, TSimple>(
-  Parser<TSimple>.D parser
-) : BaseAliasedChecks<TInput, TSimpleAst, TSimple>(parser)
+  IParserRepository parsers
+) : BaseAliasedChecks<TInput, TSimpleAst, TSimple>(parsers)
   , IBaseSimpleChecks<TInput, TSimple>
   where TSimpleAst : AstSimple, TSimple
   where TSimple : IGqlpSimple

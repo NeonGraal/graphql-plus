@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 
@@ -28,8 +28,8 @@ public sealed class ParseOptionTests(
 }
 
 internal sealed class ParseOptionChecks(
-  Parser<IGqlpSchemaOption>.D parser
-) : BaseAliasedChecks<string, OptionDeclAst, IGqlpSchemaOption>(parser)
+  IParserRepository parsers
+) : BaseAliasedChecks<string, OptionDeclAst, IGqlpSchemaOption>(parsers)
 {
   internal static readonly string[] Settings = ["setting"];
 

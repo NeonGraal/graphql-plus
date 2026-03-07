@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Parsing.Schema.Objects;
 
@@ -10,6 +10,6 @@ public class ParseOutputTests(
 { }
 
 internal sealed class ParseOutputChecks(
-  Parser<IGqlpObject<IGqlpOutputField>>.D parser
-) : CheckObject<IGqlpOutputField, OutputFieldAst>(new OutputFactories(), parser)
+  IParserRepository parsers
+) : CheckObject<IGqlpOutputField, OutputFieldAst>(new OutputFactories(), parsers)
 { }

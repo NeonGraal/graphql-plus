@@ -1,11 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing.Schema;
 
 public class SchemaParsersTests
 {
   [Fact]
-  public void SchemaParsers_DefinesParser_FieldKey()
+  public void SchemaParsers_Repository_ProvidesLazy_FieldKey()
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
@@ -14,7 +14,8 @@ public class SchemaParsersTests
       .AddSchemaParsers()
       .BuildServiceProvider();
 
-    services.GetService<Parser<IGqlpFieldKey>.D>()
+    services.GetRequiredService<IParserRepository>()
+      .Get<IGqlpFieldKey>()
       .ShouldNotBeNull();
   }
 }

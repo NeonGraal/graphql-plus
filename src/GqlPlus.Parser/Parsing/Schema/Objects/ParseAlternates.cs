@@ -10,9 +10,9 @@ internal class ParseAlternates(
   IParserRepository parsers
 ) : Parser<IGqlpAlternate>.IA
 {
-  private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = parsers.GetArrayInterface<IParserCollections, IGqlpModifier>();
-  private readonly Parser<IGqlpObjBase>.L _parseBase = parsers.Get<IGqlpObjBase>();
-  private readonly Parser<IGqlpEnumValue>.L _parseEnum = parsers.Get<IGqlpEnumValue>();
+  private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = parsers.ArrayFor<IParserCollections, IGqlpModifier>();
+  private readonly Parser<IGqlpObjBase>.L _parseBase = parsers.ParserFor<IGqlpObjBase>();
+  private readonly Parser<IGqlpEnumValue>.L _parseEnum = parsers.ParserFor<IGqlpEnumValue>();
 
   public IResultArray<IGqlpAlternate> Parse(ITokenizer tokens, string label)
   {

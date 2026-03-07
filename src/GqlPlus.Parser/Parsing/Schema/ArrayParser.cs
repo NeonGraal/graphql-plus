@@ -7,7 +7,7 @@ internal class ArrayParser<TItem>(
   IParserRepository parsers
 ) : Parser<TItem>.IA
 {
-  private readonly Parser<TItem>.L _itemParser = parsers.Get<TItem>();
+  private readonly Parser<TItem>.L _itemParser = parsers.ParserFor<TItem>();
 
   public IResultArray<TItem> Parse(ITokenizer tokens, string label)
 

@@ -7,7 +7,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseDomainTrueFalse(
   IParserRepository parsers
-) : ParseDomainItem<IGqlpDomainTrueFalse>(parsers.GetArray<IGqlpDomainTrueFalse>())
+) : ParseDomainItem<IGqlpDomainTrueFalse>(parsers)
 {
   public override DomainKind Kind => DomainKind.Boolean;
 

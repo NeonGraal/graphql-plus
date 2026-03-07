@@ -9,7 +9,7 @@ internal class ParseEnumLabel(
   IParserRepository parsers
 ) : Parser<IGqlpEnumLabel>.I
 {
-  private readonly Parser<string>.LA _aliases = parsers.GetArray<string>();
+  private readonly Parser<string>.LA _aliases = parsers.ArrayFor<string>();
 
   public IResult<IGqlpEnumLabel> Parse(ITokenizer tokens, string label)
 

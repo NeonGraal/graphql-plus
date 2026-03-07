@@ -8,7 +8,7 @@ internal class ParseFieldKey(
   IParserRepository parsers
 ) : Parser<IGqlpFieldKey>.I
 {
-  private readonly Parser<IGqlpEnumValue>.L _parseEnumValue = parsers.Get<IGqlpEnumValue>();
+  private readonly Parser<IGqlpEnumValue>.L _parseEnumValue = parsers.ParserFor<IGqlpEnumValue>();
 
   public IResult<IGqlpFieldKey> Parse(ITokenizer tokens, string label)
   {

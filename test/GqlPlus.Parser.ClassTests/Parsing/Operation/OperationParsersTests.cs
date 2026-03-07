@@ -14,7 +14,7 @@ public class OperationParsersTests
       .BuildServiceProvider();
 
     services.GetRequiredService<IParserRepository>()
-      .Get<IGqlpFieldKey>()
+      .ParserFor<IGqlpFieldKey>()
       .ShouldNotBeNull();
   }
 }

@@ -7,7 +7,7 @@ internal class ParseDefault(
   IParserRepository parsers
 ) : IParserDefault
 {
-  private readonly Parser<IGqlpConstant>.L _constant = parsers.Get<IGqlpConstant>();
+  private readonly Parser<IGqlpConstant>.L _constant = parsers.ParserFor<IGqlpConstant>();
 
   public IResult<IGqlpConstant> Parse(ITokenizer tokens, string label)
 

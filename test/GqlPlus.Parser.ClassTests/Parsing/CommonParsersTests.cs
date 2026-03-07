@@ -22,27 +22,27 @@ public class CommonParsersTests
   public void CommonParsers_Repository_ProvidesLazy_Constant()
     => _services
     .GetRequiredService<IParserRepository>()
-    .Get<IGqlpConstant>()
+    .ParserFor<IGqlpConstant>()
     .ShouldNotBeNull();
 
   [Fact]
   public void CommonParsers_Repository_ProvidesLazy_Modifier()
     => _services
     .GetRequiredService<IParserRepository>()
-    .GetArray<IGqlpModifier>()
+    .ArrayFor<IGqlpModifier>()
     .ShouldNotBeNull();
 
   [Fact]
   public void CommonParsers_Repository_ProvidesLazy_Default()
     => _services
     .GetRequiredService<IParserRepository>()
-    .GetInterface<IParserDefault, IGqlpConstant>()
+    .ParserFor<IParserDefault, IGqlpConstant>()
     .ShouldNotBeNull();
 
   [Fact]
   public void CommonParsers_Repository_ProvidesLazy_Collections()
     => _services
     .GetRequiredService<IParserRepository>()
-    .GetArrayInterface<IParserCollections, IGqlpModifier>()
+    .ArrayFor<IParserCollections, IGqlpModifier>()
     .ShouldNotBeNull();
 }

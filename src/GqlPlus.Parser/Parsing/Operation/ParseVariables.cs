@@ -8,7 +8,7 @@ internal class ParseVariables(
   IParserRepository parsers
 ) : Parser<IGqlpVariable>.IA
 {
-  private readonly Parser<IGqlpVariable>.L _variable = parsers.Get<IGqlpVariable>();
+  private readonly Parser<IGqlpVariable>.L _variable = parsers.ParserFor<IGqlpVariable>();
 
   public IResultArray<IGqlpVariable> Parse(ITokenizer tokens, string label)
 

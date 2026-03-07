@@ -7,12 +7,9 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseOutputField(
   IParserRepository parsers
-) : ObjectFieldParser<IGqlpOutputField, OutputFieldAst>(
-    parsers.GetArray<string>(),
-    parsers.GetArray<IGqlpModifier>(),
-    parsers.Get<IGqlpObjBase>())
+) : ObjectFieldParser<IGqlpOutputField, OutputFieldAst>(parsers)
 {
-  private readonly Parser<IGqlpInputParam>.LA _parameter = parsers.GetArray<IGqlpInputParam>();
+  private readonly Parser<IGqlpInputParam>.LA _parameter = parsers.ArrayFor<IGqlpInputParam>();
 
   protected override void ApplyFieldParams(OutputFieldAst field, IGqlpInputParam[] parameters)
     => field.Parameter = parameters.FirstOrDefault();

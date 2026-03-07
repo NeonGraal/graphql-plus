@@ -7,12 +7,7 @@ internal class ObjectParser<TObjField>(
   ISimpleName name,
   IParserRepository parsers,
   IGqlpFieldKind<TObjField> fieldKind
-) : DeclarationParser<IGqlpTypeParam, ObjectDefinition<TObjField>, IGqlpObject<TObjField>>(
-    name,
-    parsers.GetArray<IGqlpTypeParam>(),
-    parsers.GetArray<string>(),
-    parsers.GetInterface<IOptionParser<NullOption>, NullOption>(),
-    parsers.Get<ObjectDefinition<TObjField>>())
+) : DeclarationParser<IGqlpTypeParam, ObjectDefinition<TObjField>, IGqlpObject<TObjField>>(name, parsers)
   , Parser<IGqlpObject<TObjField>>.I
   where TObjField : IGqlpObjField
 

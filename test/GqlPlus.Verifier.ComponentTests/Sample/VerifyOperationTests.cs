@@ -11,7 +11,7 @@ public class VerifyOperationTests(
     IVerify<IGqlpOperation> operationVerifier
 ) : SampleChecks
 {
-  private readonly Parser<IGqlpOperation>.L _parser = parsers.Get<IGqlpOperation>();
+  private readonly Parser<IGqlpOperation>.L _parser = parsers.ParserFor<IGqlpOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]

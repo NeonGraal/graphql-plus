@@ -5,19 +5,16 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 public abstract class ValueParser<TValue>(
-  Parser<IGqlpFieldKey>.L fieldKey,
-  Parser<KeyValue<TValue>>.L keyValueParser,
-  Parser<TValue>.LA listParser,
-  Parser<IGqlpFields<TValue>>.L objectParser
+  IParserRepository parsers
 ) : IValueParser<TValue>
   , Parser<TValue>.I
   where TValue : IGqlpValue<TValue>
 {
-  protected Parser<IGqlpFieldKey>.L FieldKey { get; } = fieldKey;
-  protected Parser<TValue>.LA ListParser { get; } = listParser;
-  protected Parser<IGqlpFields<TValue>>.L ObjectParser { get; } = objectParser;
+  protected Parser<IGqlpFieldKey>.L FieldKey { get; } = parsers.ParserFor<IGqlpFieldKey>();
+  protected Parser<TValue>.LA ListParser { get; } = parsers.ArrayFor<TValue>();
+  protected Parser<IGqlpFields<TValue>>.L ObjectParser { get; } = parsers.ParserFor<IGqlpFields<TValue>>();
 
-  public Parser<KeyValue<TValue>>.L KeyValueParser { get; } = keyValueParser;
+  public Parser<KeyValue<TValue>>.L KeyValueParser { get; } = parsers.ParserFor<KeyValue<TValue>>();
 
   public virtual IResult<TValue> Parse([NotNull] ITokenizer tokens, string label)
   {

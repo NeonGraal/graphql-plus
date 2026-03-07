@@ -19,7 +19,7 @@ internal class ParserRepository(
   public IEnumerable<IParseDomain> GetDomains()
     => builder.Domains.Select(t => CreateInstance<IParseDomain>(t));
 
-  public Parser<T>.L Get<T>()
+  public Parser<T>.L ParserFor<T>()
     => (Parser<T>.L)_cache.GetOrAdd(
       typeof(Parser<T>.I),
       _ => {
@@ -29,7 +29,7 @@ internal class ParserRepository(
         return new Parser<T>.L(() => CreateInstance<Parser<T>.I>(service));
       });
 
-  public Parser<T>.LA GetArray<T>()
+  public Parser<T>.LA ArrayFor<T>()
     => (Parser<T>.LA)_cache.GetOrAdd(
       typeof(Parser<T>.IA),
       _ => {
@@ -39,25 +39,25 @@ internal class ParserRepository(
         return new Parser<T>.LA(() => CreateInstance<Parser<T>.IA>(service));
       });
 
-  public Parser<TInterface, T>.L GetInterface<TInterface, T>()
-    where TInterface : class, Parser<T>.I
-    => (Parser<TInterface, T>.L)_cache.GetOrAdd(
-      typeof(Parser<TInterface, T>.L),
+  public Parser<TInterface, TFor>.L ParserFor<TInterface, TFor>()
+    where TInterface : class, Parser<TFor>.I
+    => (Parser<TInterface, TFor>.L)_cache.GetOrAdd(
+      typeof(Parser<TInterface, TFor>.L),
       _ => {
         if (!builder.InterfaceSingles.TryGetValue(typeof(TInterface), out Type? service)) {
           throw new InvalidOperationException($"No interface parser registration found for type '{typeof(TInterface).FullName}'.");
         }
-        return new Parser<TInterface, T>.L(() => CreateInstance<TInterface>(service));
+        return new Parser<TInterface, TFor>.L(() => CreateInstance<TInterface>(service));
       });
 
-  public ParserArray<TInterface, T>.LA GetArrayInterface<TInterface, T>()
-    where TInterface : class, Parser<T>.IA
-    => (ParserArray<TInterface, T>.LA)_cache.GetOrAdd(
-      typeof(ParserArray<TInterface, T>.LA),
+  public ParserArray<TInterface, TFor>.LA ArrayFor<TInterface, TFor>()
+    where TInterface : class, Parser<TFor>.IA
+    => (ParserArray<TInterface, TFor>.LA)_cache.GetOrAdd(
+      typeof(ParserArray<TInterface, TFor>.LA),
       _ => {
         if (!builder.InterfaceArrays.TryGetValue(typeof(TInterface), out Type? service)) {
           throw new InvalidOperationException($"No interface array parser registration found for type '{typeof(TInterface).FullName}'.");
         }
-        return new ParserArray<TInterface, T>.LA(() => CreateInstance<TInterface>(service));
+        return new ParserArray<TInterface, TFor>.LA(() => CreateInstance<TInterface>(service));
       });
 }

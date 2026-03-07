@@ -9,7 +9,7 @@ internal class ParseOptionSetting(
   IParserRepository parsers
 ) : Parser<IGqlpSchemaSetting>.I
 {
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.GetInterface<IParserDefault, IGqlpConstant>();
+  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.ParserFor<IParserDefault, IGqlpConstant>();
 
   public IResult<IGqlpSchemaSetting> Parse(ITokenizer tokens, string label)
   {

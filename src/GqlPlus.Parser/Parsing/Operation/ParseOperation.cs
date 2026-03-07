@@ -9,13 +9,13 @@ internal class ParseOperation(
   IParserRepository parsers
 ) : Parser<IGqlpOperation>.I
 {
-  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.GetInterface<IParserArg, IGqlpArg>();
-  private readonly Parser<IGqlpDirective>.LA _directives = parsers.GetArray<IGqlpDirective>();
-  private readonly ParserArray<IParserStartFragments, IGqlpFragment>.LA _startFragments = parsers.GetArrayInterface<IParserStartFragments, IGqlpFragment>();
-  private readonly ParserArray<IParserEndFragments, IGqlpFragment>.LA _endFragments = parsers.GetArrayInterface<IParserEndFragments, IGqlpFragment>();
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.GetArray<IGqlpModifier>();
-  private readonly Parser<IGqlpSelection>.LA _object = parsers.GetArray<IGqlpSelection>();
-  private readonly Parser<IGqlpVariable>.LA _variables = parsers.GetArray<IGqlpVariable>();
+  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
+  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
+  private readonly ParserArray<IParserStartFragments, IGqlpFragment>.LA _startFragments = parsers.ArrayFor<IParserStartFragments, IGqlpFragment>();
+  private readonly ParserArray<IParserEndFragments, IGqlpFragment>.LA _endFragments = parsers.ArrayFor<IParserEndFragments, IGqlpFragment>();
+  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
+  private readonly Parser<IGqlpVariable>.LA _variables = parsers.ArrayFor<IGqlpVariable>();
 
   public IResult<IGqlpOperation> Parse(ITokenizer tokens, string label)
   {

@@ -20,13 +20,13 @@ public class DeclarationClassTestBase
     _nullParam.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<NullAst>());
     Parser<NullAst>.LA nullParamLazy = new(() => _nullParam);
-    Parsers.GetArray<NullAst>().Returns(nullParamLazy);
+    Parsers.ArrayFor<NullAst>().Returns(nullParamLazy);
 
     _option = A.Of<IOptionParser<NullOption>>();
     _option.Parse(default!, default!)
       .ReturnsForAnyArgs(default(NullOption).Empty());
     Parser<IOptionParser<NullOption>, NullOption>.L optionLazy = new(() => _option);
-    Parsers.GetInterface<IOptionParser<NullOption>, NullOption>().Returns(optionLazy);
+    Parsers.ParserFor<IOptionParser<NullOption>, NullOption>().Returns(optionLazy);
 
     TakeReturns('{', true);
   }

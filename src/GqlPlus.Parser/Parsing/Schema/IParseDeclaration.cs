@@ -21,7 +21,7 @@ internal class ParseDeclaration<TObject>(
   public IResult<IGqlpDeclaration> Parser(ITokenizer tokens, string label)
     => _declaration.Parse(tokens, label).AsResult<IGqlpDeclaration>();
 
-  private readonly Parser<TObject>.L _declaration = parsers.Get<TObject>();
+  private readonly Parser<TObject>.L _declaration = parsers.ParserFor<TObject>();
 }
 
 internal interface IDeclarationSelector<TObject>

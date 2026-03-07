@@ -6,7 +6,7 @@ internal class ManyChecksParser<TResult>(
   IParserRepository parsers
 ) : IManyChecksParser<TResult>
 {
-  private readonly Parser<TResult>.LA _parser = parsers.GetArray<TResult>();
+  private readonly Parser<TResult>.LA _parser = parsers.ArrayFor<TResult>();
   private readonly string _type = typeof(TResult).ToString();
 
   public void TrueExpected(string input, params TResult[] expected)
@@ -40,7 +40,7 @@ internal sealed class ManyChecksParser<TInterface, TResult>(
 ) : IManyChecksParser<TInterface, TResult>
   where TInterface : class, Parser<TResult>.IA
 {
-  private readonly ParserArray<TInterface, TResult>.LA _parser = parsers.GetArrayInterface<TInterface, TResult>();
+  private readonly ParserArray<TInterface, TResult>.LA _parser = parsers.ArrayFor<TInterface, TResult>();
   private readonly string _type = typeof(TInterface).ToString();
 
   public void TrueExpected(string input, params TResult[] expected)

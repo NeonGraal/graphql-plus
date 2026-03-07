@@ -9,12 +9,7 @@ namespace GqlPlus.Parsing.Schema.Globals;
 internal class ParseDirective(
   IDirectiveName name,
   IParserRepository parsers
-) : DeclarationParser<IDirectiveName, IGqlpInputParam, DirectiveOption, DirectiveLocation, IGqlpSchemaDirective>(
-    name,
-    parsers.GetArray<IGqlpInputParam>(),
-    parsers.GetArray<string>(),
-    parsers.GetInterface<IOptionParser<DirectiveOption>, DirectiveOption>(),
-    parsers.Get<DirectiveLocation>())
+) : DeclarationParser<IDirectiveName, IGqlpInputParam, DirectiveOption, DirectiveLocation, IGqlpSchemaDirective>(name, parsers)
 {
   protected override IGqlpSchemaDirective MakeResult(AstPartial<IGqlpInputParam, DirectiveOption> partial, DirectiveLocation value)
     => new DirectiveDeclAst(partial.At, partial.Name, partial.Description) {
@@ -47,7 +42,7 @@ internal class ParseDirectiveDefinition(
   IParserRepository parsers
 ) : Parser<DirectiveLocation>.I
 {
-  private readonly Parser<IEnumParser<DirectiveLocation>, DirectiveLocation>.L _location = parsers.GetInterface<IEnumParser<DirectiveLocation>, DirectiveLocation>();
+  private readonly Parser<IEnumParser<DirectiveLocation>, DirectiveLocation>.L _location = parsers.ParserFor<IEnumParser<DirectiveLocation>, DirectiveLocation>();
 
   public IResult<DirectiveLocation> Parse(ITokenizer tokens, string label)
 

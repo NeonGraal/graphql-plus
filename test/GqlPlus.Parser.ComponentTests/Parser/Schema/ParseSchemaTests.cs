@@ -9,7 +9,7 @@ public class ParseSchemaTests(
   IParserRepository parsers
 )
 {
-  private readonly Parser<IGqlpSchema>.L _parser = parsers.Get<IGqlpSchema>();
+  private readonly Parser<IGqlpSchema>.L _parser = parsers.ParserFor<IGqlpSchema>();
 
   [Theory]
   [InlineData("category { Query }")]

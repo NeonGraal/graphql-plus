@@ -9,12 +9,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 internal class ParseEnum(
   ISimpleName name,
   IParserRepository parsers
-) : SimpleParser<EnumDefinition, IGqlpEnum>(
-    name,
-    parsers.GetArray<NullAst>(),
-    parsers.GetArray<string>(),
-    parsers.GetInterface<IOptionParser<NullOption>, NullOption>(),
-    parsers.Get<EnumDefinition>())
+) : SimpleParser<EnumDefinition, IGqlpEnum>(name, parsers)
 {
   protected override IGqlpEnum MakeResult(AstPartial<NullAst, NullOption> partial, EnumDefinition value)
     => new EnumDeclAst(partial.At, partial.Name, partial.Description, value.Values) {
@@ -36,9 +31,9 @@ internal class EnumDefinition
 
 internal class ParseEnumDefinition(
   IParserRepository parsers
-) : SimpleDefinitionParser<EnumDefinition>(parsers.Get<IGqlpTypeRef>())
+) : SimpleDefinitionParser<EnumDefinition>(parsers)
 {
-  private readonly Parser<IGqlpEnumLabel>.L _enumLabel = parsers.Get<IGqlpEnumLabel>();
+  private readonly Parser<IGqlpEnumLabel>.L _enumLabel = parsers.ParserFor<IGqlpEnumLabel>();
 
   public override IResult<EnumDefinition> Parse(ITokenizer tokens, string label)
   {

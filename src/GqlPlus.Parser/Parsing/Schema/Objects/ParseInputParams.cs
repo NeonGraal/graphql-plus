@@ -10,9 +10,9 @@ internal class ParseInputParams(
   IParserRepository parsers
 ) : Parser<IGqlpInputParam>.IA
 {
-  private readonly Parser<IGqlpObjBase>.L _input = parsers.Get<IGqlpObjBase>();
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.GetArray<IGqlpModifier>();
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.GetInterface<IParserDefault, IGqlpConstant>();
+  private readonly Parser<IGqlpObjBase>.L _input = parsers.ParserFor<IGqlpObjBase>();
+  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.ParserFor<IParserDefault, IGqlpConstant>();
 
   public IResultArray<IGqlpInputParam> Parse(ITokenizer tokens, string label)
 

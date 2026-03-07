@@ -7,16 +7,14 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
-  Parser<string>.LA aliases,
-  Parser<IGqlpModifier>.LA modifiers,
-  Parser<IGqlpObjBase>.L parseBase
+  IParserRepository parsers
 ) : Parser<TObjField>.I
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField, TObjField
 {
-  private readonly Parser<string>.LA _aliases = aliases;
-  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
-  private readonly Parser<IGqlpObjBase>.L _parseBase = parseBase;
+  private readonly Parser<string>.LA _aliases = parsers.ArrayFor<string>();
+  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IGqlpObjBase>.L _parseBase = parsers.ParserFor<IGqlpObjBase>();
 
   public IResult<TObjField> Parse(ITokenizer tokens, string label)
 

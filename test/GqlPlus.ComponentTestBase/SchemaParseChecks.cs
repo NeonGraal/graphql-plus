@@ -10,7 +10,7 @@ public class SchemaParseChecks(
 ) : SampleChecks
   , ISchemaParseChecks
 {
-  private readonly Parser<IGqlpSchema>.L _schemaParser = parsers.Get<IGqlpSchema>();
+  private readonly Parser<IGqlpSchema>.L _schemaParser = parsers.ParserFor<IGqlpSchema>();
 
   public IResult<IGqlpSchema> Parse(string schema, string label)
     => _schemaParser.Parse(new Tokenizer(schema), label);

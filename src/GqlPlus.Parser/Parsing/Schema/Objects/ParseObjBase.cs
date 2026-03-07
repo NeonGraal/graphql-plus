@@ -9,7 +9,7 @@ internal class ParseObjBase(
   IParserRepository parsers
 ) : Parser<IGqlpObjBase>.I
 {
-  private readonly Parser<IGqlpTypeArg>.LA _parseArgs = parsers.GetArray<IGqlpTypeArg>();
+  private readonly Parser<IGqlpTypeArg>.LA _parseArgs = parsers.ArrayFor<IGqlpTypeArg>();
 
   public IResult<IGqlpObjBase> Parse(ITokenizer tokens, string label)
   {

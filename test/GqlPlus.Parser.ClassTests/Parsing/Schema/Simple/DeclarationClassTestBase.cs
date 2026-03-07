@@ -13,7 +13,7 @@ public class SimpleParserClassTestBase
     _typeRef.Parse(default!, default!)
       .ReturnsForAnyArgs(default(IGqlpTypeRef).Empty());
     Parser<IGqlpTypeRef>.L typeRefLazy = new(() => _typeRef);
-    Parsers.Get<IGqlpTypeRef>().Returns(typeRefLazy);
+    Parsers.ParserFor<IGqlpTypeRef>().Returns(typeRefLazy);
   }
 
   internal void ParseTypeRefOk(string input)

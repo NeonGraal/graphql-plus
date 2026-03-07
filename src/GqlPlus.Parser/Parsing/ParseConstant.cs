@@ -6,11 +6,7 @@ namespace GqlPlus.Parsing;
 
 public class ParseConstant(
   IParserRepository parsers
-) : ValueParser<IGqlpConstant>(
-    parsers.Get<IGqlpFieldKey>(),
-    parsers.Get<KeyValue<IGqlpConstant>>(),
-    parsers.GetArray<IGqlpConstant>(),
-    parsers.Get<IGqlpFields<IGqlpConstant>>())
+) : ValueParser<IGqlpConstant>(parsers)
 {
   public override IResult<IGqlpConstant> Parse([NotNull] ITokenizer tokens, string label)
   {

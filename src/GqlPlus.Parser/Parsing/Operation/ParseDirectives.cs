@@ -9,7 +9,7 @@ internal class ParseDirectives(
   IParserRepository parsers
 ) : Parser<IGqlpDirective>.IA
 {
-  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.GetInterface<IParserArg, IGqlpArg>();
+  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
 
   public IResultArray<IGqlpDirective> Parse(ITokenizer tokens, string label)
 

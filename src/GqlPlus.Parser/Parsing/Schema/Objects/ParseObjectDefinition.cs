@@ -9,9 +9,9 @@ public class ParseObjectDefinition<TObjField>(
 ) : Parser<ObjectDefinition<TObjField>>.I
   where TObjField : IGqlpObjField
 {
-  private readonly Parser<IGqlpAlternate>.LA _alternates = parsers.GetArray<IGqlpAlternate>();
-  private readonly Parser<TObjField>.L _parseField = parsers.Get<TObjField>();
-  private readonly Parser<IGqlpObjBase>.L _parseBase = parsers.Get<IGqlpObjBase>();
+  private readonly Parser<IGqlpAlternate>.LA _alternates = parsers.ArrayFor<IGqlpAlternate>();
+  private readonly Parser<TObjField>.L _parseField = parsers.ParserFor<TObjField>();
+  private readonly Parser<IGqlpObjBase>.L _parseBase = parsers.ParserFor<IGqlpObjBase>();
 
   public IResult<ObjectDefinition<TObjField>> Parse(ITokenizer tokens, string label)
 

@@ -9,7 +9,7 @@ public class ValueObjectParser<TValue>(
 ) : Parser<IGqlpFields<TValue>>.I
   where TValue : IGqlpValue<TValue>
 {
-  private readonly Parser<KeyValue<TValue>>.L _field = parsers.Get<KeyValue<TValue>>();
+  private readonly Parser<KeyValue<TValue>>.L _field = parsers.ParserFor<KeyValue<TValue>>();
 
   public IResult<IGqlpFields<TValue>> Parse(ITokenizer tokens, string label)
 

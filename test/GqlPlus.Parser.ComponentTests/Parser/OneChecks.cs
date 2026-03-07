@@ -7,7 +7,7 @@ internal class OneChecksParser<TResult>(
   IParserRepository parsers
 ) : IOneChecksParser<TResult>
 {
-  private readonly Parser<TResult>.L _parser = parsers.Get<TResult>();
+  private readonly Parser<TResult>.L _parser = parsers.ParserFor<TResult>();
   private readonly string _type = typeof(TResult).ToString();
 
   public void TrueExpected(string input, TResult expected)
@@ -68,7 +68,7 @@ internal sealed class OneChecksParser<TInterface, TResult>(
 ) : IOneChecksParser<TInterface, TResult>
   where TInterface : class, Parser<TResult>.I
 {
-  private readonly Parser<TInterface, TResult>.L _parser = parsers.GetInterface<TInterface, TResult>();
+  private readonly Parser<TInterface, TResult>.L _parser = parsers.ParserFor<TInterface, TResult>();
   private readonly string _type = typeof(TInterface).ToString();
 
   public void TrueExpected(string input, TResult expected)

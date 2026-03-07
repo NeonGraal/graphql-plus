@@ -7,13 +7,9 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseArgValue(
   IParserRepository parsers
-) : ValueParser<IGqlpArg>(
-    parsers.Get<IGqlpFieldKey>(),
-    parsers.Get<KeyValue<IGqlpArg>>(),
-    parsers.GetArray<IGqlpArg>(),
-    parsers.Get<IGqlpFields<IGqlpArg>>())
+) : ValueParser<IGqlpArg>(parsers)
 {
-  private readonly Parser<IGqlpConstant>.L _constant = parsers.Get<IGqlpConstant>();
+  private readonly Parser<IGqlpConstant>.L _constant = parsers.ParserFor<IGqlpConstant>();
 
   public override IResult<IGqlpArg> Parse([NotNull] ITokenizer tokens, string label)
   {

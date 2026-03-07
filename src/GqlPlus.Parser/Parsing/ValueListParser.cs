@@ -7,7 +7,7 @@ public sealed class ValueListParser<TValue>(
   IParserRepository parsers
 ) : Parser<TValue>.IA
 {
-  private readonly Parser<TValue>.L _value = parsers.Get<TValue>();
+  private readonly Parser<TValue>.L _value = parsers.ParserFor<TValue>();
 
   public IResultArray<TValue> Parse(ITokenizer tokens, string label)
 

@@ -9,10 +9,10 @@ internal class ParseVariable(
   IParserRepository parsers
 ) : Parser<IGqlpVariable>.I
 {
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.GetArray<IGqlpModifier>();
-  private readonly Parser<IGqlpDirective>.LA _directives = parsers.GetArray<IGqlpDirective>();
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.GetInterface<IParserDefault, IGqlpConstant>();
-  private readonly Parser<IParserVarType, string>.L _varTypeParser = parsers.GetInterface<IParserVarType, string>();
+  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
+  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.ParserFor<IParserDefault, IGqlpConstant>();
+  private readonly Parser<IParserVarType, string>.L _varTypeParser = parsers.ParserFor<IParserVarType, string>();
 
   public IResult<IGqlpVariable> Parse(ITokenizer tokens, string label)
 

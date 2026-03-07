@@ -9,7 +9,7 @@ internal class OptionParser<TOption>(
 ) : IOptionParser<TOption>
   where TOption : struct
 {
-  private readonly Parser<IEnumParser<TOption>, TOption>.L _parser = parsers.GetInterface<IEnumParser<TOption>, TOption>();
+  private readonly Parser<IEnumParser<TOption>, TOption>.L _parser = parsers.ParserFor<IEnumParser<TOption>, TOption>();
 
   public IResult<TOption> Parse(ITokenizer tokens, string label)
 

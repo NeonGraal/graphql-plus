@@ -7,7 +7,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseDomainRegex(
   IParserRepository parsers
-) : ParseDomainItem<IGqlpDomainRegex>(parsers.GetArray<IGqlpDomainRegex>())
+) : ParseDomainItem<IGqlpDomainRegex>(parsers)
 {
   public override DomainKind Kind => DomainKind.String;
 

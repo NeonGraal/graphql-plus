@@ -7,12 +7,9 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseInputField(
   IParserRepository parsers
-) : ObjectFieldParser<IGqlpInputField, InputFieldAst>(
-    parsers.GetArray<string>(),
-    parsers.GetArray<IGqlpModifier>(),
-    parsers.Get<IGqlpObjBase>())
+) : ObjectFieldParser<IGqlpInputField, InputFieldAst>(parsers)
 {
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.GetInterface<IParserDefault, IGqlpConstant>();
+  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.ParserFor<IParserDefault, IGqlpConstant>();
 
   [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParams(InputFieldAst field, IGqlpInputParam[] parameters)

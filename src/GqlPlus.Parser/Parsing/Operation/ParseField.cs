@@ -9,10 +9,10 @@ internal class ParseField(
   IParserRepository parsers
 ) : Parser<IGqlpField>.I
 {
-  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.GetArray<IGqlpModifier>();
-  private readonly Parser<IGqlpDirective>.LA _directives = parsers.GetArray<IGqlpDirective>();
-  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.GetInterface<IParserArg, IGqlpArg>();
-  private readonly Parser<IGqlpSelection>.LA _object = parsers.GetArray<IGqlpSelection>();
+  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
+  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
+  private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
 
   public IResult<IGqlpField> Parse(ITokenizer tokens, string label)
 

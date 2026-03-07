@@ -74,5 +74,5 @@ public class ParseOperationTests(
       a => a.ThrowIfNull().Errors.ShouldNotBeEmpty());
   }
 
-  private readonly Parser<IGqlpOperation>.L _parser = parsers.Get<IGqlpOperation>();
+  private readonly Parser<IGqlpOperation>.L _parser = parsers.ParserFor<IGqlpOperation>();
 }

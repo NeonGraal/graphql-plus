@@ -15,7 +15,7 @@ public class SchemaParsersTests
       .BuildServiceProvider();
 
     services.GetRequiredService<IParserRepository>()
-      .Get<IGqlpFieldKey>()
+      .ParserFor<IGqlpFieldKey>()
       .ShouldNotBeNull();
   }
 }

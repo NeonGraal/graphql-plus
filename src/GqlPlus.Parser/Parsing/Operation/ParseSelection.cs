@@ -9,8 +9,8 @@ internal class ParseSelection(
   IParserRepository parsers
 ) : Parser<IGqlpSelection>.I
 {
-  private readonly Parser<IGqlpDirective>.LA _directives = parsers.GetArray<IGqlpDirective>();
-  private readonly Parser<IGqlpSelection>.LA _object = parsers.GetArray<IGqlpSelection>();
+  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
+  private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
 
   public IResult<IGqlpSelection> Parse(ITokenizer tokens, string label)
 

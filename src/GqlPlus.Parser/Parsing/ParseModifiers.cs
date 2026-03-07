@@ -8,7 +8,7 @@ internal class ParseModifiers(
     IParserRepository parsers
 ) : Parser<IGqlpModifier>.IA
 {
-  private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = parsers.GetArrayInterface<IParserCollections, IGqlpModifier>();
+  private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = parsers.ArrayFor<IParserCollections, IGqlpModifier>();
 
   public IResultArray<IGqlpModifier> Parse(ITokenizer tokens, string label)
 

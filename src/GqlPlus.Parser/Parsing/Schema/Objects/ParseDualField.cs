@@ -7,10 +7,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseDualField(
   IParserRepository parsers
-) : ObjectFieldParser<IGqlpDualField, DualFieldAst>(
-    parsers.GetArray<string>(),
-    parsers.GetArray<IGqlpModifier>(),
-    parsers.Get<IGqlpObjBase>())
+) : ObjectFieldParser<IGqlpDualField, DualFieldAst>(parsers)
 {
   [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParams(DualFieldAst field, IGqlpInputParam[] parameters)

@@ -8,8 +8,8 @@ internal class ParseObject(
   IParserRepository parsers
 ) : Parser<IGqlpSelection>.IA
 {
-  private readonly Parser<IGqlpField>.L _field = parsers.Get<IGqlpField>();
-  private readonly Parser<IGqlpSelection>.L _selection = parsers.Get<IGqlpSelection>();
+  private readonly Parser<IGqlpField>.L _field = parsers.ParserFor<IGqlpField>();
+  private readonly Parser<IGqlpSelection>.L _selection = parsers.ParserFor<IGqlpSelection>();
 
   public IResultArray<IGqlpSelection> Parse(ITokenizer tokens, string label)
 

@@ -21,10 +21,10 @@ public class ModifiersClassTestBase
       .ReturnsForAnyArgs(0.EmptyArray<IGqlpModifier>());
 
     Parser<IGqlpModifier>.LA modifiersLazy = new(() => _modifiers);
-    Parsers.GetArray<IGqlpModifier>().Returns(modifiersLazy);
+    Parsers.ArrayFor<IGqlpModifier>().Returns(modifiersLazy);
 
     ParserArray<IParserCollections, IGqlpModifier>.LA collectionsLazy = new(() => (IParserCollections)_modifiers);
-    Parsers.GetArrayInterface<IParserCollections, IGqlpModifier>().Returns(collectionsLazy);
+    Parsers.ArrayFor<IParserCollections, IGqlpModifier>().Returns(collectionsLazy);
   }
 
   internal IGqlpModifier[] ParseAModifier()

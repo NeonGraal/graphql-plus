@@ -1,4 +1,4 @@
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -14,8 +14,7 @@ public class ParseOutputTests
   {
     ConfigureRepoArray<IGqlpTypeParam>(Parsers, out _param);
     ConfigureRepo<ObjectDefinition<IGqlpOutputField>>(Parsers, out _definition);
-    IGqlpFieldKind<IGqlpOutputField> fieldKind = new FieldObjectKind<IGqlpOutputField>(TypeKind.Output);
-    _parser = new ObjectParser<IGqlpOutputField>(SimpleName, Parsers, fieldKind);
+    _parser = new ObjectParser<IGqlpOutputField>(TypeKind.Output, Parsers);
   }
 
   [Theory, RepeatData]

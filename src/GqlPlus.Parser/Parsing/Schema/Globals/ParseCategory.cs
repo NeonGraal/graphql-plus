@@ -8,9 +8,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseCategory(
-  ICategoryName name,
   IParserRepository parsers
-) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, IGqlpSchemaCategory>(name, parsers)
+) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, IGqlpSchemaCategory>(parsers)
 {
   protected override IGqlpSchemaCategory MakeResult(AstPartial<NullAst, CategoryOption> partial, CategoryOutput value)
   {

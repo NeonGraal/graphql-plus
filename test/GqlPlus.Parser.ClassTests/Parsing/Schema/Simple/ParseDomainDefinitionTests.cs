@@ -1,4 +1,4 @@
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -8,15 +8,14 @@ public class ParseDomainDefinitionTests
 
   private readonly IEnumParser<DomainKind> _kindParser;
   private readonly IParseDomain _domainParser = Substitute.For<IParseDomain>();
-  private readonly IDomainParserRepository _domainParsers = Substitute.For<IDomainParserRepository>();
   private readonly ParseDomainDefinition _parser;
 
   public ParseDomainDefinitionTests()
   {
     _domainParser.Kind.Returns(DomainKind.Enum);
-    _domainParsers.GetDomains().Returns([_domainParser]);
+    Parsers.GetDomains().Returns([_domainParser]);
     ConfigureRepoInterface<IEnumParser<DomainKind>, DomainKind>(Parsers, out _kindParser);
-    _parser = new ParseDomainDefinition(Parsers, _domainParsers);
+    _parser = new ParseDomainDefinition(Parsers);
   }
 
   [Theory, RepeatData]

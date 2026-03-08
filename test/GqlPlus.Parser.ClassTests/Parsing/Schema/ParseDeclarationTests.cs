@@ -1,4 +1,4 @@
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema;
 
@@ -6,7 +6,7 @@ public class ParseDeclarationTests
   : ParserClassTestBase
 {
 
-  private readonly DeclarationSelector<IGqlpDeclaration> _selector = new("category");
+  private readonly string _selector = "category";
   private readonly Parser<IGqlpDeclaration>.I _declaration;
   private readonly ParseDeclaration<IGqlpDeclaration> _parser;
   private readonly IParserRepository _parsers;
@@ -49,8 +49,7 @@ public class ParseDeclarationTests
   public void Selector_ShouldReturnCorrectValue(string token)
   {
     // Arrange
-    DeclarationSelector<IGqlpDeclaration> selector = new(token);
-    ParseDeclaration<IGqlpDeclaration> parser = new(selector, _parsers);
+    ParseDeclaration<IGqlpDeclaration> parser = new(token, _parsers);
 
     // Act
     string result = parser.Selector;
@@ -59,4 +58,3 @@ public class ParseDeclarationTests
     result.ShouldBe(token);
   }
 }
-

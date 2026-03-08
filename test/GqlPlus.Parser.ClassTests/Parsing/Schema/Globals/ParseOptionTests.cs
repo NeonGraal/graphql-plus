@@ -1,4 +1,4 @@
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -12,7 +12,7 @@ public class ParseOptionTests
   public ParseOptionTests()
   {
     ConfigureRepo<OptionDefinition>(Parsers, out _definition);
-    _parser = new ParseOption(SimpleName, Parsers);
+    _parser = new ParseOption(Parsers);
   }
 
   [Theory, RepeatData]

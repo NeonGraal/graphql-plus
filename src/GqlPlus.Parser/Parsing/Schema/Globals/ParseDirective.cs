@@ -7,9 +7,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseDirective(
-  IDirectiveName name,
   IParserRepository parsers
-) : DeclarationParser<IDirectiveName, IGqlpInputParam, DirectiveOption, DirectiveLocation, IGqlpSchemaDirective>(name, parsers)
+) : DeclarationParser<IDirectiveName, IGqlpInputParam, DirectiveOption, DirectiveLocation, IGqlpSchemaDirective>(parsers)
 {
   protected override IGqlpSchemaDirective MakeResult(AstPartial<IGqlpInputParam, DirectiveOption> partial, DirectiveLocation value)
     => new DirectiveDeclAst(partial.At, partial.Name, partial.Description) {

@@ -15,6 +15,7 @@ public class DeclarationClassTestBase
   {
     SimpleName = A.Of<ISimpleName>();
     NameParser = SimpleName;
+    Parsers.GetName<ISimpleName>().Returns(SimpleName);
 
     _nullParam = A.Of<Parser<NullAst>.IA>();
     _nullParam.Parse(default!, default!)

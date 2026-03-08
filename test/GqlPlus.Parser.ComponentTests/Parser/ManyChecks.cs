@@ -1,4 +1,4 @@
-using GqlPlus.Result;
+﻿using GqlPlus.Result;
 
 namespace GqlPlus.Parser;
 

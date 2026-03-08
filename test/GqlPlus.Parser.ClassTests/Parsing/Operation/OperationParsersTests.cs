@@ -1,4 +1,4 @@
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -9,8 +9,10 @@ public class OperationParsersTests
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddCommonParsers()
-      .AddOperationParsers()
+      .AddParserBase()
+      .AddParsers(b => b
+        .AddCommonParsers()
+        .AddOperationParsers())
       .BuildServiceProvider();
 
     services.GetRequiredService<IParserRepository>()

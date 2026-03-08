@@ -7,9 +7,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseUnion(
-  ISimpleName name,
   IParserRepository parsers
-) : SimpleParser<UnionDefinition, IGqlpUnion>(name, parsers)
+) : SimpleParser<UnionDefinition, IGqlpUnion>(parsers)
 {
   protected override IGqlpUnion MakeResult(AstPartial<NullAst, NullOption> partial, UnionDefinition value)
     => new UnionDeclAst(partial.At, partial.Name, partial.Description, value.Values) {

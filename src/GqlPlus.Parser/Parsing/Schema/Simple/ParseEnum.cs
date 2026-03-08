@@ -7,9 +7,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseEnum(
-  ISimpleName name,
   IParserRepository parsers
-) : SimpleParser<EnumDefinition, IGqlpEnum>(name, parsers)
+) : SimpleParser<EnumDefinition, IGqlpEnum>(parsers)
 {
   protected override IGqlpEnum MakeResult(AstPartial<NullAst, NullOption> partial, EnumDefinition value)
     => new EnumDeclAst(partial.At, partial.Name, partial.Description, value.Values) {

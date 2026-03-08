@@ -1,4 +1,4 @@
-namespace GqlPlus.Parsing.Schema;
+﻿namespace GqlPlus.Parsing.Schema;
 
 public class ArrayParserTests
   : ParserClassTestBase

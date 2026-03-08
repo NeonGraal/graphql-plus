@@ -1,4 +1,4 @@
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing.Schema;
 
@@ -10,8 +10,10 @@ public class SchemaParsersTests
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
       .AddFieldObjectKinds()
-      .AddCommonParsers()
-      .AddSchemaParsers()
+      .AddParserBase()
+      .AddParsers(b => b
+        .AddCommonParsers()
+        .AddSchemaParsers())
       .BuildServiceProvider();
 
     services.GetRequiredService<IParserRepository>()

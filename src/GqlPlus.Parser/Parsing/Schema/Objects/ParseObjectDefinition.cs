@@ -4,7 +4,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public class ParseObjectDefinition<TObjField>(
+internal class ParseObjectDefinition<TObjField>(
   IParserRepository parsers
 ) : Parser<ObjectDefinition<TObjField>>.I
   where TObjField : IGqlpObjField

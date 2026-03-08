@@ -6,13 +6,12 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema;
 
 internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, TResult>(
-  TName name,
   IParserRepository parsers
 ) : Parser<TResult>.I
   where TName : INameParser
   where TOption : struct
 {
-  private readonly TName _name = name.ThrowIfNull();
+  private readonly TName _name = parsers.GetName<TName>();
   private readonly Parser<TParam>.LA _param = parsers.ArrayFor<TParam>();
   private readonly Parser<IOptionParser<TOption>, TOption>.L _option = parsers.ParserFor<IOptionParser<TOption>, TOption>();
   private readonly Parser<TDefinition>.L _definition = parsers.ParserFor<TDefinition>();
@@ -69,21 +68,19 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   protected abstract TResult ToResult(AstPartial<TParam, TOption> partial);
 }
 
-internal interface INameParser
+public interface INameParser
 {
   bool ParseName(ITokenizer tokens, [NotNullWhen(true)] out string? name, out TokenAt at);
 }
 
 internal abstract class DeclarationParser<TParam, TDefinition, TResult>(
-  ISimpleName name,
   IParserRepository parsers
-) : DeclarationParser<ISimpleName, TParam, NullOption, TDefinition, TResult>(name, parsers)
+) : DeclarationParser<ISimpleName, TParam, NullOption, TDefinition, TResult>(parsers)
 { }
 
 internal abstract class DeclarationParser<TDefinition, TResult>(
-  ISimpleName name,
   IParserRepository parsers
-) : DeclarationParser<NullAst, TDefinition, TResult>(name, parsers)
+) : DeclarationParser<NullAst, TDefinition, TResult>(parsers)
 { }
 
 internal record class AstPartial<TParam, TOption>(

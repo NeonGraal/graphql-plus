@@ -4,7 +4,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-public class ParseConstant(
+internal class ParseConstant(
   IParserRepository parsers
 ) : ValueParser<IGqlpConstant>(parsers)
 {

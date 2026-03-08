@@ -1,4 +1,4 @@
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -15,10 +15,11 @@ public class ParseDirectiveTests
   {
     IDirectiveName name = A.Of<IDirectiveName>();
     NameParser = name;
+    Parsers.GetName<IDirectiveName>().Returns(name);
     ConfigureRepoArray<IGqlpInputParam>(Parsers, out _param);
     ConfigureRepoInterface<IOptionParser<DirectiveOption>, DirectiveOption>(Parsers, out _option);
     ConfigureRepo<DirectiveLocation>(Parsers, out _definition);
-    _parser = new ParseDirective(name, Parsers);
+    _parser = new ParseDirective(Parsers);
   }
 
   [Theory, RepeatData]

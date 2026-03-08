@@ -1,4 +1,4 @@
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -12,7 +12,7 @@ public class ParseDomainTests
   public ParseDomainTests()
   {
     ConfigureRepo<DomainDefinition>(Parsers, out _definition);
-    _parser = new ParseDomain(SimpleName, Parsers);
+    _parser = new ParseDomain(Parsers);
   }
 
   [Theory]

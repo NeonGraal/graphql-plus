@@ -1,19 +1,17 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal abstract class SimpleParser<TDefinition, TResult>(
-  ISimpleName name,
   IParserRepository parsers
-) : DeclarationParser<TDefinition, TResult>(name, parsers)
+) : DeclarationParser<TDefinition, TResult>(parsers)
   where TDefinition : SimpleDefinition
   where TResult : IGqlpSimple
 { }
 
-internal class SimpleDefinition
+public class SimpleDefinition
 {
   internal IGqlpTypeRef? Parent { get; set; }
 }

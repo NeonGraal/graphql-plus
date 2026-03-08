@@ -4,15 +4,10 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
-internal interface IParseDomain
+public interface IParseDomain
 {
   DomainKind Kind { get; }
   ParseItems Parser { get; }
 }
 
-internal delegate IResult<DomainDefinition> ParseItems(ITokenizer tokens, string label, DomainDefinition result);
-
-internal interface IDomainParserRepository
-{
-  IEnumerable<IParseDomain> GetDomains();
-}
+public delegate IResult<DomainDefinition> ParseItems(ITokenizer tokens, string label, DomainDefinition result);

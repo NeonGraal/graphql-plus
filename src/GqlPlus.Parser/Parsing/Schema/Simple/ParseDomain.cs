@@ -7,9 +7,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseDomain(
-  ISimpleName name,
   IParserRepository parsers
-) : SimpleParser<DomainDefinition, IGqlpDomain>(name, parsers)
+) : SimpleParser<DomainDefinition, IGqlpDomain>(parsers)
 {
   protected override IResult<IGqlpDomain> AsResult(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
     => value.Kind == DomainKind.Enum ? MakeEnum(partial, value) : base.AsResult(partial, value);
@@ -67,7 +66,7 @@ internal class ParseDomain(
     };
 }
 
-internal class DomainDefinition
+public class DomainDefinition
   : SimpleDefinition
 {
   public DomainKind Kind { get; set; } = DomainKind.Number;
@@ -84,13 +83,12 @@ internal class ParseDomainDefinition
   private readonly Dictionary<DomainKind, ParseItems> _kindParsers = [];
 
   public ParseDomainDefinition(
-      IParserRepository parsers,
-      IDomainParserRepository domainParsers)
+      IParserRepository parsers)
     : base(parsers)
   {
     _kind = parsers.ParserFor<IEnumParser<DomainKind>, DomainKind>();
 
-    foreach (IParseDomain item in domainParsers.GetDomains()) {
+    foreach (IParseDomain item in parsers.GetDomains()) {
       _kindParsers[item.Kind] = item.Parser;
     }
   }

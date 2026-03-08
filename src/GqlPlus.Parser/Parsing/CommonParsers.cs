@@ -1,85 +1,42 @@
-using GqlPlus.Parsing.Schema;
-using GqlPlus.Parsing.Schema.Simple;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing;
 
 public static class CommonParsers
 {
-  public static IServiceCollection AddCommonParsers(this IServiceCollection services)
+  public static IServiceCollection AddParserBase(this IServiceCollection services)
     => services
-      .AddParser<IGqlpEnumValue, ParseEnumValue>()
-      .AddParser<IGqlpFieldKey, ParseFieldKey>()
-      .AddParserArray<IGqlpModifier, ParseModifiers>()
-      .AddParserArray<IParserCollections, IGqlpModifier, ParseCollections>()
-      .AddParser<IParserDefault, IGqlpConstant, ParseDefault>()
-      .AddValueParsers<IGqlpConstant, ParseConstant>()
       .AddSingleton<ParserRepository>()
-      .AddSingleton<IParserRepository>(ServiceHelpers.GetProvider<ParserRepository, IParserRepository>)
-      .AddSingleton<IDomainParserRepository>(ServiceHelpers.GetProvider<ParserRepository, IDomainParserRepository>);
+      .AddProvider<ParserRepository, IParserRepository>();
 
-  internal static IServiceCollection AddValueParsers<TValue, TParser>(this IServiceCollection services)
-    where TValue : IGqlpValue<TValue>
-    where TParser : class, Parser<TValue>.I, IValueParser<TValue>
-    => services
-      .AddParser<IValueParser<TValue>, TValue, TParser>()
-      .AddParser<KeyValue<TValue>, ValueKeyValueParser<TValue>>()
-      .AddParserArray<TValue, ValueListParser<TValue>>()
-      .AddParser<IGqlpFields<TValue>, ValueObjectParser<TValue>>();
+  public static IParserRepositoryBuilder AddCommonParsers(this IParserRepositoryBuilder builder)
+    => builder.ThrowIfNull()
+        .AddSingle(_ => new ParseEnumValue())
+        .AddSingle(p => new ParseFieldKey(p))
+        .AddArray(p => new ParseModifiers(p))
+        .AddInterfaceArray<IParserCollections>(_ => new ParseCollections())
+        .AddInterfaceSingle<IParserDefault>(p => new ParseDefault(p))
+        .AddValueParsers(p => new ParseConstant(p));
 
-  internal static IServiceCollection AddParser<TValue, TService>(this IServiceCollection services)
-    where TService : class, Parser<TValue>.I
-  {
-    services.GetOrAddParserRepositoryBuilder().AddSingle(typeof(TValue), typeof(TService));
-    return services;
-  }
-
-  internal static IServiceCollection AddParser<TInterface, TValue, TService>(this IServiceCollection services)
-    where TService : class, TInterface
-    where TInterface : class, Parser<TValue>.I
-  {
-    ParserRepositoryBuilder builder = services.GetOrAddParserRepositoryBuilder();
-    builder.AddSingle(typeof(TValue), typeof(TService));
-    builder.AddInterfaceSingle(typeof(TInterface), typeof(TService));
-    return services;
-  }
-
-  internal static IServiceCollection AddParserArray<TValue, TService>(this IServiceCollection services)
-    where TService : class, Parser<TValue>.IA
-  {
-    services.GetOrAddParserRepositoryBuilder().AddArray(typeof(TValue), typeof(TService));
-    return services;
-  }
-
-  internal static IServiceCollection AddArrayParser<TValue, TService>(this IServiceCollection services)
-    where TService : class, Parser<TValue>.I
-    => services
-      .AddParser<TValue, TService>()
-      .AddParserArray<TValue, ArrayParser<TValue>>();
-
-  internal static IServiceCollection AddParserArray<TInterface, TValue, TService>(this IServiceCollection services)
-    where TService : class, TInterface
-    where TInterface : class, Parser<TValue>.IA
-  {
-    services.GetOrAddParserRepositoryBuilder().AddInterfaceArray(typeof(TInterface), typeof(TService));
-    return services;
-  }
-
-  internal static IServiceCollection AddDomainParser<TParser>(this IServiceCollection services)
-    where TParser : class, IParseDomain
-  {
-    services.GetOrAddParserRepositoryBuilder().AddDomain(typeof(TParser));
-    return services;
-  }
-
-  private static ParserRepositoryBuilder GetOrAddParserRepositoryBuilder(this IServiceCollection services)
+  public static IServiceCollection AddParsers(this IServiceCollection services, Action<IParserRepositoryBuilder> config)
   {
     ServiceDescriptor? descriptor = services.FirstOrDefault(d => d.ServiceType == typeof(ParserRepositoryBuilder));
-    if (descriptor?.ImplementationInstance is ParserRepositoryBuilder existing) {
-      return existing;
+    if (descriptor?.ImplementationInstance is not ParserRepositoryBuilder builder) {
+      builder = new();
+      services.AddSingleton(builder);
+      services.AddProvider<ParserRepositoryBuilder, IParserRepositoryBuilder>();
     }
-    ParserRepositoryBuilder newBuilder = new();
-    services.AddSingleton(newBuilder);
-    return newBuilder;
+
+    config?.Invoke(builder);
+    return services;
   }
+
+  internal static IParserRepositoryBuilder AddValueParsers<TValue>(this IParserRepositoryBuilder builder, ParserFactory<ValueParser<TValue>> factory)
+    where TValue : IGqlpValue<TValue>
+    => builder.ThrowIfNull()
+      .AddSingle(factory)
+      .AddInterfaceSingle<IValueParser<TValue>>(factory)
+      .AddSingle(p => new ValueKeyValueParser<TValue>(p))
+      .AddArray(p => new ValueListParser<TValue>(p))
+      .AddSingle(p => new ValueObjectParser<TValue>(p));
 }

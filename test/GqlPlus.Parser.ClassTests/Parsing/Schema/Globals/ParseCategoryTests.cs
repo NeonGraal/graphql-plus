@@ -1,4 +1,4 @@
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -14,9 +14,10 @@ public class ParseCategoryTests
   {
     ICategoryName name = Substitute.For<ICategoryName>();
     NameParser = name;
+    Parsers.GetName<ICategoryName>().Returns(name);
     ConfigureRepoInterface<IOptionParser<CategoryOption>, CategoryOption>(Parsers, out _option);
     ConfigureRepo<CategoryOutput>(Parsers, out _definition);
-    _parser = new ParseCategory(name, Parsers);
+    _parser = new ParseCategory(Parsers);
     NameReturns(null);
   }
 

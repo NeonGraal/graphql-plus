@@ -1,63 +1,49 @@
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
+using GqlPlus.Parsing.Schema;
 using GqlPlus.Parsing.Schema.Simple;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing;
 
 internal class ParserRepository(
-  IServiceProvider services,
   ParserRepositoryBuilder builder
-) : IParserRepository, IDomainParserRepository
+) : IParserRepository
 {
-  private readonly ConcurrentDictionary<Type, object> _parserInstances = new();
   private readonly ConcurrentDictionary<Type, object> _cache = new();
 
-  private TService CreateInstance<TService>(Type serviceType)
-    where TService : class
-    => (TService)_parserInstances.GetOrAdd(serviceType, t => ActivatorUtilities.GetServiceOrCreateInstance(services, t));
+  private object Cached(FactoryDict factories, Type factoryKey, Type cacheKey, string label)
+    => _cache.GetOrAdd(
+      cacheKey,
+      _ => {
+        if (factories.TryGetValue(factoryKey, out ParserFactory<object>? factory)) {
+          return factory.Invoke(this);
+        }
 
-  public IEnumerable<IParseDomain> GetDomains()
-    => builder.Domains.Select(t => CreateInstance<IParseDomain>(t));
+        throw new InvalidOperationException($"No {label} parser registration found for type '{factoryKey.TidyTypeName()}'.");
+      });
+
+  private TCache Cached<TKey, TCache>(FactoryDict factories, string label)
+    => (TCache)Cached(factories, typeof(TKey), typeof(TCache), label);
 
   public Parser<T>.L ParserFor<T>()
-    => (Parser<T>.L)_cache.GetOrAdd(
-      typeof(Parser<T>.I),
-      _ => {
-        if (!builder.Singles.TryGetValue(typeof(T), out Type? service)) {
-          throw new InvalidOperationException($"No parser registration found for type '{typeof(T).FullName}'.");
-        }
-        return new Parser<T>.L(() => CreateInstance<Parser<T>.I>(service));
-      });
+    => new(() => Cached<T, Parser<T>.I>(builder.Singles, "single"));
 
   public Parser<T>.LA ArrayFor<T>()
-    => (Parser<T>.LA)_cache.GetOrAdd(
-      typeof(Parser<T>.IA),
-      _ => {
-        if (!builder.Arrays.TryGetValue(typeof(T), out Type? service)) {
-          throw new InvalidOperationException($"No array parser registration found for type '{typeof(T).FullName}'.");
-        }
-        return new Parser<T>.LA(() => CreateInstance<Parser<T>.IA>(service));
-      });
+    => new(() => Cached<T, Parser<T>.IA>(builder.Arrays, "array"));
 
   public Parser<TInterface, TFor>.L ParserFor<TInterface, TFor>()
     where TInterface : class, Parser<TFor>.I
-    => (Parser<TInterface, TFor>.L)_cache.GetOrAdd(
-      typeof(Parser<TInterface, TFor>.L),
-      _ => {
-        if (!builder.InterfaceSingles.TryGetValue(typeof(TInterface), out Type? service)) {
-          throw new InvalidOperationException($"No interface parser registration found for type '{typeof(TInterface).FullName}'.");
-        }
-        return new Parser<TInterface, TFor>.L(() => CreateInstance<TInterface>(service));
-      });
+    => new(() => Cached<TInterface, TInterface>(builder.InterfaceSingles, "interface"));
 
   public ParserArray<TInterface, TFor>.LA ArrayFor<TInterface, TFor>()
     where TInterface : class, Parser<TFor>.IA
-    => (ParserArray<TInterface, TFor>.LA)_cache.GetOrAdd(
-      typeof(ParserArray<TInterface, TFor>.LA),
-      _ => {
-        if (!builder.InterfaceArrays.TryGetValue(typeof(TInterface), out Type? service)) {
-          throw new InvalidOperationException($"No interface array parser registration found for type '{typeof(TInterface).FullName}'.");
-        }
-        return new ParserArray<TInterface, TFor>.LA(() => CreateInstance<TInterface>(service));
-      });
+    => new(() => Cached<TInterface, TInterface>(builder.InterfaceArrays, "interface array"));
+
+  public IEnumerable<IParseDeclaration> GetDeclarations()
+    => builder.Declarations.Select(f => (IParseDeclaration)_cache.GetOrAdd(f.Key, _ => f.Value.Invoke(this)));
+
+  public IEnumerable<IParseDomain> GetDomains()
+    => builder.Domains.Select(t => (IParseDomain)Cached(builder.Singles, t.Key, t.Value, "domain"));
+  public T GetName<T>()
+    where T : INameParser
+    => Cached<T, T>(builder.InterfaceSingles, "name");
 }

@@ -21,5 +21,5 @@ public static class Startup
       .AddOneChecks<IParserVarType, string>()
 
       .AddComponentTest()
-      .AddOperationParsers();
+      .AddParsers(b => b.AddOperationParsers());
 }

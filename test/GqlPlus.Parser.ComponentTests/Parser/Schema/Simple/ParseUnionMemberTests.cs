@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parser.Schema.Simple;
@@ -9,8 +9,8 @@ public sealed class ParseUnionMemberTests(
 { }
 
 internal sealed class ParseUnionMemberChecks(
-  Parser<IGqlpUnionMember>.D parser
-) : BaseNamedChecks<string, UnionMemberAst, IGqlpUnionMember>(parser)
+  IParserRepository parsers
+) : BaseNamedChecks<string, UnionMemberAst, IGqlpUnionMember>(parsers)
 {
   protected internal override UnionMemberAst NamedFactory(string input)
     => new(AstNulls.At, input, "");

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -6,10 +6,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parser.Schema;
 
 public class ParseSchemaTests(
-  Parser<IGqlpSchema>.D parser
+  IParserRepository parsers
 )
 {
-  private readonly Parser<IGqlpSchema>.L _parser = parser;
+  private readonly Parser<IGqlpSchema>.L _parser = parsers.ParserFor<IGqlpSchema>();
 
   [Theory]
   [InlineData("category { Query }")]

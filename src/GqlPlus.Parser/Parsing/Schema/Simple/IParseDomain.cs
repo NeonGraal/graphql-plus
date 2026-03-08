@@ -11,3 +11,8 @@ internal interface IParseDomain
 }
 
 internal delegate IResult<DomainDefinition> ParseItems(ITokenizer tokens, string label, DomainDefinition result);
+
+internal interface IDomainParserRepository
+{
+  IEnumerable<IParseDomain> GetDomains();
+}

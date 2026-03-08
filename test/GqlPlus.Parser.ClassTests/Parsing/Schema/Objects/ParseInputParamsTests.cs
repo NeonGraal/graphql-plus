@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -11,9 +11,9 @@ public class ParseInputParamsTests
 
   public ParseInputParamsTests()
   {
-    Parser<IGqlpObjBase>.D input = ParserFor(out _input);
-    Parser<IParserDefault, IGqlpConstant>.D defaultParser = ParserFor<IParserDefault, IGqlpConstant>(out _defaultParser);
-    _parser = new ParseInputParams(input, Modifiers, defaultParser);
+    ConfigureRepo<IGqlpObjBase>(Parsers, out _input);
+    ConfigureRepoInterface<IParserDefault, IGqlpConstant>(Parsers, out _defaultParser);
+    _parser = new ParseInputParams(Parsers);
   }
 
   [Fact]

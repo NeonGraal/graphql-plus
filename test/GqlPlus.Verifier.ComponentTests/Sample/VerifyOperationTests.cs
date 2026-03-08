@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
@@ -7,11 +7,11 @@ using GqlPlus.Verifying;
 namespace GqlPlus.Sample;
 
 public class VerifyOperationTests(
-    Parser<IGqlpOperation>.D operationParser,
+    IParserRepository parsers,
     IVerify<IGqlpOperation> operationVerifier
 ) : SampleChecks
 {
-  private readonly Parser<IGqlpOperation>.L _parser = operationParser;
+  private readonly Parser<IGqlpOperation>.L _parser = parsers.ParserFor<IGqlpOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]

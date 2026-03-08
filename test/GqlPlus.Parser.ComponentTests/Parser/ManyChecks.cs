@@ -1,12 +1,12 @@
-﻿using GqlPlus.Result;
+using GqlPlus.Result;
 
 namespace GqlPlus.Parser;
 
 internal class ManyChecksParser<TResult>(
-  Parser<TResult>.DA parser
+  IParserRepository parsers
 ) : IManyChecksParser<TResult>
 {
-  private readonly Parser<TResult>.LA _parser = parser;
+  private readonly Parser<TResult>.LA _parser = parsers.ArrayFor<TResult>();
   private readonly string _type = typeof(TResult).ToString();
 
   public void TrueExpected(string input, params TResult[] expected)
@@ -36,11 +36,11 @@ internal class ManyChecksParser<TResult>(
 }
 
 internal sealed class ManyChecksParser<TInterface, TResult>(
-  ParserArray<TInterface, TResult>.DA parser
+  IParserRepository parsers
 ) : IManyChecksParser<TInterface, TResult>
-  where TInterface : Parser<TResult>.IA
+  where TInterface : class, Parser<TResult>.IA
 {
-  private readonly ParserArray<TInterface, TResult>.LA _parser = parser;
+  private readonly ParserArray<TInterface, TResult>.LA _parser = parsers.ArrayFor<TInterface, TResult>();
   private readonly string _type = typeof(TInterface).ToString();
 
   public void TrueExpected(string input, params TResult[] expected)
@@ -78,5 +78,5 @@ public interface IManyChecksParser<T>
 
 public interface IManyChecksParser<TInterface, TResult>
   : IManyChecksParser<TResult>
-  where TInterface : Parser<TResult>.IA
+  where TInterface : class, Parser<TResult>.IA
 { }

@@ -1,13 +1,13 @@
-﻿using GqlPlus.Result;
+using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parser;
 
 internal class OneChecksParser<TResult>(
-  Parser<TResult>.D parser
+  IParserRepository parsers
 ) : IOneChecksParser<TResult>
 {
-  private readonly Parser<TResult>.L _parser = parser;
+  private readonly Parser<TResult>.L _parser = parsers.ParserFor<TResult>();
   private readonly string _type = typeof(TResult).ToString();
 
   public void TrueExpected(string input, TResult expected)
@@ -64,11 +64,11 @@ internal class OneChecksParser<TResult>(
 }
 
 internal sealed class OneChecksParser<TInterface, TResult>(
-  Parser<TInterface, TResult>.D parser
+  IParserRepository parsers
 ) : IOneChecksParser<TInterface, TResult>
-  where TInterface : Parser<TResult>.I
+  where TInterface : class, Parser<TResult>.I
 {
-  private readonly Parser<TInterface, TResult>.L _parser = parser;
+  private readonly Parser<TInterface, TResult>.L _parser = parsers.ParserFor<TInterface, TResult>();
   private readonly string _type = typeof(TInterface).ToString();
 
   public void TrueExpected(string input, TResult expected)
@@ -113,7 +113,7 @@ public interface IOneChecksParser<TResult>
 }
 
 public interface IOneChecksParser<TInterface, TResult>
-  where TInterface : Parser<TResult>.I
+  where TInterface : class, Parser<TResult>.I
 {
   void TrueExpected(string input, TResult expected);
   void FalseExpected(string input, Action<TResult?>? check = null);

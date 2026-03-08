@@ -92,7 +92,7 @@ public static class SchemaParsers
     where TParser : class, Parser<TDomain>.I, IParseDomain
     => services
       .AddArrayParser<TDomain, TParser>()
-      .AddProvider<TParser, IParseDomain>();
+      .AddDomainParser<TParser>();
 
   private static IServiceCollection AddNullParsers(this IServiceCollection services)
     => services

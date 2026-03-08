@@ -1,11 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing.Operation;
 
 public class OperationParsersTests
 {
   [Fact]
-  public void OperationParsers_DefinesParser_FieldKey()
+  public void OperationParsers_Repository_ProvidesLazy_FieldKey()
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
@@ -13,7 +13,8 @@ public class OperationParsersTests
       .AddOperationParsers()
       .BuildServiceProvider();
 
-    services.GetService<Parser<IGqlpFieldKey>.D>()
+    services.GetRequiredService<IParserRepository>()
+      .ParserFor<IGqlpFieldKey>()
       .ShouldNotBeNull();
   }
 }

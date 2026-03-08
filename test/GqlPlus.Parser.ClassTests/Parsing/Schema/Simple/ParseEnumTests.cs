@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -11,8 +11,8 @@ public class ParseEnumTests
 
   public ParseEnumTests()
   {
-    Parser<EnumDefinition>.D definition = ParserFor(out _definition);
-    _parser = new ParseEnum(SimpleName, ParamNull, Aliases, OptionNull, definition);
+    ConfigureRepo<EnumDefinition>(Parsers, out _definition);
+    _parser = new ParseEnum(SimpleName, Parsers);
   }
 
   [Theory, RepeatData]

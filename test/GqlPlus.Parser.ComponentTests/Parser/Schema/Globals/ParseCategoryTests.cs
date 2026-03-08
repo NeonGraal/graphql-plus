@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 
@@ -58,8 +58,8 @@ public sealed class ParseCategoryTests(
 }
 
 internal sealed class ParseCategoryChecks(
-  Parser<IGqlpSchemaCategory>.D parser
-) : BaseAliasedChecks<string, CategoryDeclAst, IGqlpSchemaCategory>(parser)
+  IParserRepository parsers
+) : BaseAliasedChecks<string, CategoryDeclAst, IGqlpSchemaCategory>(parsers)
 {
   protected internal override CategoryDeclAst NamedFactory(string input)
     => new(AstNulls.At, new TypeRefAst(AstNulls.At, input));

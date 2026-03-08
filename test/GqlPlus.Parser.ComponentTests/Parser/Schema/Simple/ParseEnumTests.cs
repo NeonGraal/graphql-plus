@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
@@ -37,8 +37,8 @@ public sealed class ParseEnumTests(
 }
 
 internal sealed class ParseEnumChecks(
-  Parser<IGqlpEnum>.D parser
-) : BaseSimpleChecks<EnumInput, EnumDeclAst, IGqlpEnum>(parser)
+  IParserRepository parsers
+) : BaseSimpleChecks<EnumInput, EnumDeclAst, IGqlpEnum>(parsers)
 {
   protected internal override EnumDeclAst NamedFactory(EnumInput input)
     => new(AstNulls.At, input.Type, new[] { input.Label }.EnumLabels());

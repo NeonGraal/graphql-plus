@@ -8,11 +8,8 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseDomain(
   ISimpleName name,
-  Parser<NullAst>.DA param,
-  Parser<string>.DA aliases,
-  Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<DomainDefinition>.D definition
-) : SimpleParser<DomainDefinition, IGqlpDomain>(name, param, aliases, option, definition)
+  IParserRepository parsers
+) : SimpleParser<DomainDefinition, IGqlpDomain>(name, parsers)
 {
   protected override IResult<IGqlpDomain> AsResult(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
     => value.Kind == DomainKind.Enum ? MakeEnum(partial, value) : base.AsResult(partial, value);
@@ -87,14 +84,13 @@ internal class ParseDomainDefinition
   private readonly Dictionary<DomainKind, ParseItems> _kindParsers = [];
 
   public ParseDomainDefinition(
-      Parser<IGqlpTypeRef>.D typeRef,
-      Parser<IEnumParser<DomainKind>, DomainKind>.D kind,
-      IEnumerable<IParseDomain> domains)
-    : base(typeRef)
+      IParserRepository parsers,
+      IDomainParserRepository domainParsers)
+    : base(parsers)
   {
-    _kind = kind;
+    _kind = parsers.ParserFor<IEnumParser<DomainKind>, DomainKind>();
 
-    foreach (IParseDomain item in domains) {
+    foreach (IParseDomain item in domainParsers.GetDomains()) {
       _kindParsers[item.Kind] = item.Parser;
     }
   }

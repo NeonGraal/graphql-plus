@@ -9,11 +9,8 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseCategory(
   ICategoryName name,
-  Parser<NullAst>.DA param,
-  Parser<string>.DA aliases,
-  Parser<IOptionParser<CategoryOption>, CategoryOption>.D option,
-  Parser<CategoryOutput>.D definition
-) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, IGqlpSchemaCategory>(name, param, aliases, option, definition)
+  IParserRepository parsers
+) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, IGqlpSchemaCategory>(name, parsers)
 {
   protected override IGqlpSchemaCategory MakeResult(AstPartial<NullAst, CategoryOption> partial, CategoryOutput value)
   {
@@ -56,12 +53,11 @@ internal class CategoryName
 internal interface ICategoryName : INameParser;
 
 internal class ParseCategoryDefinition(
-  Parser<IGqlpTypeRef>.D typeRef,
-  Parser<IGqlpModifier>.DA modifiers
+  IParserRepository parsers
 ) : Parser<CategoryOutput>.I
 {
-  private readonly Parser<IGqlpTypeRef>.L _typeRef = typeRef;
-  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
+  private readonly Parser<IGqlpTypeRef>.L _typeRef = parsers.ParserFor<IGqlpTypeRef>();
+  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
 
   public IResult<CategoryOutput> Parse(ITokenizer tokens, string label)
   {

@@ -6,10 +6,10 @@ using GqlPlus.Resolving;
 namespace GqlPlus;
 
 internal sealed class SchemaVerifyChecks(
-    Parser<IGqlpSchema>.D schemaParser,
+    IParserRepository parsers,
     IMerge<IGqlpSchema> schemaMerger,
     IModelAndEncode schemaEncoder
-) : SchemaParseChecks(schemaParser)
+) : SchemaParseChecks(parsers)
   , ISchemaVerifyChecks
 {
   public (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IGqlpSchema> asts, bool withBuiltIns, bool addDescribed)

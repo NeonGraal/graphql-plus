@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -12,10 +12,10 @@ public class ParseInputTests
 
   public ParseInputTests()
   {
-    Parser<IGqlpTypeParam>.DA param = ParserAFor(out _param);
-    Parser<ObjectDefinition<IGqlpInputField>>.D definition = ParserFor(out _definition);
+    ConfigureRepoArray<IGqlpTypeParam>(Parsers, out _param);
+    ConfigureRepo<ObjectDefinition<IGqlpInputField>>(Parsers, out _definition);
     IGqlpFieldKind<IGqlpInputField> fieldKind = new FieldObjectKind<IGqlpInputField>(TypeKind.Input);
-    _parser = new ObjectParser<IGqlpInputField>(SimpleName, param, Aliases, OptionNull, definition, fieldKind);
+    _parser = new ObjectParser<IGqlpInputField>(SimpleName, Parsers, fieldKind);
   }
 
   [Theory, RepeatData]

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -13,11 +13,10 @@ public class ParseFieldTests
 
   public ParseFieldTests()
   {
-    Parser<IGqlpDirective>.DA directives = ParserAFor(out _directivesParser);
-    Parser<IParserArg, IGqlpArg>.D argument = ParserFor<IParserArg, IGqlpArg>(out _argumentParser);
-    Parser<IGqlpSelection>.DA objectParser = ParserAFor(out _objectParser);
-
-    _parseField = new ParseField(Modifiers, directives, argument, objectParser);
+    ConfigureRepoArray<IGqlpDirective>(Parsers, out _directivesParser);
+    ConfigureRepoInterface<IParserArg, IGqlpArg>(Parsers, out _argumentParser);
+    ConfigureRepoArray<IGqlpSelection>(Parsers, out _objectParser);
+    _parseField = new ParseField(Parsers);
 
     SetupError<IGqlpField>();
     SetupPartial<IGqlpField>();

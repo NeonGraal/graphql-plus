@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -11,8 +11,8 @@ public class ParseUnionTests
 
   public ParseUnionTests()
   {
-    Parser<UnionDefinition>.D definition = ParserFor(out _definition);
-    _parser = new ParseUnion(SimpleName, ParamNull, Aliases, OptionNull, definition);
+    ConfigureRepo<UnionDefinition>(Parsers, out _definition);
+    _parser = new ParseUnion(SimpleName, Parsers);
   }
 
   [Theory, RepeatData]

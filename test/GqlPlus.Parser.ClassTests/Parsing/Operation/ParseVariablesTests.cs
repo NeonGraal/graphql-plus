@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -11,9 +11,9 @@ public class ParseVariablesTests
 
   public ParseVariablesTests()
   {
-    Parser<IGqlpVariable>.D variable = ParserFor(out _variableParser);
-
-    _parseVariables = new ParseVariables(variable);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    ConfigureRepo<IGqlpVariable>(parsers, out _variableParser);
+    _parseVariables = new ParseVariables(parsers);
 
     SetupError<IGqlpVariable>();
     SetupPartial<IGqlpVariable>();

@@ -11,9 +11,8 @@ public class ParseOptionTests
 
   public ParseOptionTests()
   {
-    Parser<OptionDefinition>.D definition = ParserFor(out _definition);
-
-    _parser = new ParseOption(SimpleName, ParamNull, Aliases, OptionNull, definition);
+    ConfigureRepo<OptionDefinition>(Parsers, out _definition);
+    _parser = new ParseOption(Parsers);
   }
 
   [Theory, RepeatData]

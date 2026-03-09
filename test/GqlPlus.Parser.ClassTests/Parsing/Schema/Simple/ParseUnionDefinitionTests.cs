@@ -11,8 +11,8 @@ public class ParseUnionDefinitionTests
 
   public ParseUnionDefinitionTests()
   {
-    Parser<IGqlpUnionMember>.D unionMemberParser = ParserFor(out _unionMemberParser);
-    _parser = new ParseUnionDefinition(TypeRef, unionMemberParser);
+    ConfigureRepo<IGqlpUnionMember>(Parsers, out _unionMemberParser);
+    _parser = new ParseUnionDefinition(Parsers);
   }
 
   [Theory, RepeatData]

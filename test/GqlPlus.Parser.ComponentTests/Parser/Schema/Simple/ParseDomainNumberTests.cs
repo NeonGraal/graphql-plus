@@ -51,8 +51,8 @@ public sealed class ParseDomainNumberTests(
 }
 
 internal sealed class ParseDomainNumberChecks(
-  Parser<IGqlpDomain>.D parser
-) : BaseDomainChecks<string, AstDomain<DomainRangeAst, IGqlpDomainRange>, IGqlpDomain<IGqlpDomainRange>>(parser, DomainKind.Number)
+  IParserRepository parsers
+) : BaseDomainChecks<string, AstDomain<DomainRangeAst, IGqlpDomainRange>, IGqlpDomain<IGqlpDomainRange>>(parsers, DomainKind.Number)
 {
   protected internal override AstDomain<DomainRangeAst, IGqlpDomainRange> NamedFactory(string input)
     => new(AstNulls.At, input, DomainKind.Number, []);

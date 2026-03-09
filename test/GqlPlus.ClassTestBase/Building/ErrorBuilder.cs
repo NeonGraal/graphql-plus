@@ -21,13 +21,3 @@ public class ErrorBuilder
     return result;
   }
 }
-
-public static class ErrorBuilderHelper
-{
-  public static T FluentAction<T>(this T? target, Action<T>? action)
-  {
-    target.ThrowIfNull();
-    action?.Invoke(target);
-    return target;
-  }
-}

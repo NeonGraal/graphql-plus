@@ -1,4 +1,5 @@
-﻿using GqlPlus.Building.Schema.Objects;
+﻿using AutoFixture.Xunit3;
+using GqlPlus.Building.Schema.Objects;
 
 namespace GqlPlus.Generating.Objects;
 
@@ -46,6 +47,8 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithParentField_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent, string fieldName, string fieldType)
   {
+    SkipBuiltInTypes(name, parent, fieldType);
+
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
     IGqlpObject<TObjField> parentType = A.Obj<TObjField>(Kind, parent)

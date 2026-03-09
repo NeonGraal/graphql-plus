@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Result;
 
-public readonly struct ResultEmpty<TValue>
+internal readonly struct ResultEmpty<TValue>
   : IResultEmpty<TValue>
 {
   public IResult<TResult> AsPartial<TResult>(

@@ -8,13 +8,11 @@ public class ParseObjBaseTest
   private readonly Parser<IGqlpTypeArg>.IA _parseArgs;
   protected Parser<IGqlpObjBase>.I BaseParser { get; }
 
-  protected Parser<IGqlpTypeArg>.DA ParseArgs { get; }
-
   public ParseObjBaseTest()
   {
-    ParseArgs = ParserAFor(out _parseArgs);
-    BaseParser = new ParseObjBase(ParseArgs);
-
+    IParserRepository parsers = A.Of<IParserRepository>();
+    ConfigureRepoArray<IGqlpTypeArg>(parsers, out _parseArgs);
+    BaseParser = new ParseObjBase(parsers);
     PrefixReturns('$', OutPass);
   }
 

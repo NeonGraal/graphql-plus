@@ -30,8 +30,8 @@ internal class CheckObjectField<TObjField, TObjFieldAst>
 {
   private readonly IObjectFieldFactories<TObjFieldAst> _factories;
 
-  internal CheckObjectField(IObjectFieldFactories<TObjFieldAst> factories, Parser<TObjField>.D parser)
-    : base(parser)
+  internal CheckObjectField(IObjectFieldFactories<TObjFieldAst> factories, IParserRepository parsers)
+    : base(parsers)
     => _factories = factories;
 
   public void WithMinimum(string name, string fieldType)

@@ -4,10 +4,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema;
 
 internal class ArrayParser<TItem>(
-  Parser<TItem>.D itemParser
+  IParserRepository parsers
 ) : Parser<TItem>.IA
 {
-  private readonly Parser<TItem>.L _itemParser = itemParser;
+  private readonly Parser<TItem>.L _itemParser = parsers.ParserFor<TItem>();
 
   public IResultArray<TItem> Parse(ITokenizer tokens, string label)
 

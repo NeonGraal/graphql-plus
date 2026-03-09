@@ -11,9 +11,8 @@ public class ParseDomainTests
 
   public ParseDomainTests()
   {
-
-    Parser<DomainDefinition>.D definition = ParserFor(out _definition);
-    _parser = new ParseDomain(SimpleName, ParamNull, Aliases, OptionNull, definition);
+    ConfigureRepo<DomainDefinition>(Parsers, out _definition);
+    _parser = new ParseDomain(Parsers);
   }
 
   [Theory]

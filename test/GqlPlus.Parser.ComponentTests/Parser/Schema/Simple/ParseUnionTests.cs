@@ -32,8 +32,8 @@ public sealed class ParseUnionTests(
 }
 
 internal sealed class ParseUnionChecks(
-  Parser<IGqlpUnion>.D parser
-) : BaseSimpleChecks<UnionInput, UnionDeclAst, IGqlpUnion>(parser)
+  IParserRepository parsers
+) : BaseSimpleChecks<UnionInput, UnionDeclAst, IGqlpUnion>(parsers)
 {
   protected internal override UnionDeclAst NamedFactory(UnionInput input)
     => new(AstNulls.At, input.Type, new[] { input.Member }.UnionMembers());

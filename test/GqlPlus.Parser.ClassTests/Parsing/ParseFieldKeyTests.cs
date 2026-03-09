@@ -10,8 +10,9 @@ public class ParseFieldKeyTests
 
   public ParseFieldKeyTests()
   {
-    Parser<IGqlpEnumValue>.D parseEnumValue = ParserFor(out _parseEnumValue);
-    _parseFieldKey = new ParseFieldKey(parseEnumValue);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    ConfigureRepo<IGqlpEnumValue>(parsers, out _parseEnumValue);
+    _parseFieldKey = new ParseFieldKey(parsers);
     SetupError<IGqlpFieldKey>();
   }
 

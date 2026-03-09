@@ -59,8 +59,8 @@ public sealed class ParseDirectiveTests(
 }
 
 internal sealed class ParseDirectiveChecks(
-  Parser<IGqlpSchemaDirective>.D parser
-) : BaseAliasedChecks<string, DirectiveDeclAst, IGqlpSchemaDirective>(parser)
+  IParserRepository parsers
+) : BaseAliasedChecks<string, DirectiveDeclAst, IGqlpSchemaDirective>(parsers)
 {
   protected internal override DirectiveDeclAst NamedFactory(string input)
     => new(AstNulls.At, input) { Locations = DirectiveLocation.Operation };

@@ -10,9 +10,9 @@ public class ParseOptionSettingTests : ParserClassTestBase
 
   public ParseOptionSettingTests()
   {
-    Parser<IParserDefault, IGqlpConstant>.D defaultParser = ParserFor<IParserDefault, IGqlpConstant>(out _defaultParser);
-
-    _parser = new ParseOptionSetting(defaultParser);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    ConfigureRepoInterface<IParserDefault, IGqlpConstant>(parsers, out _defaultParser);
+    _parser = new ParseOptionSetting(parsers);
   }
 
   [Theory, RepeatData]

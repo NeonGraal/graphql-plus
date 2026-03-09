@@ -26,8 +26,8 @@ public sealed class ParseDomainStringTests(
 }
 
 internal sealed class ParseDomainStringChecks(
-  Parser<IGqlpDomain>.D parser
-) : BaseDomainChecks<DomainStringInput, AstDomain<DomainRegexAst, IGqlpDomainRegex>, IGqlpDomain<IGqlpDomainRegex>>(parser, DomainKind.String)
+  IParserRepository parsers
+) : BaseDomainChecks<DomainStringInput, AstDomain<DomainRegexAst, IGqlpDomainRegex>, IGqlpDomain<IGqlpDomainRegex>>(parsers, DomainKind.String)
 {
   protected internal override AstDomain<DomainRegexAst, IGqlpDomainRegex> NamedFactory(DomainStringInput input)
     => new(AstNulls.At, input.Name, DomainKind.String, new[] { input.Regex }.DomainRegexes());

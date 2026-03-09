@@ -4,36 +4,22 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema;
 
-internal interface IParseDeclaration
+public interface IParseDeclaration
 {
   string Selector { get; }
   IResult<IGqlpDeclaration> Parser(ITokenizer tokens, string label);
 }
 
 internal class ParseDeclaration<TObject>(
-  IDeclarationSelector<TObject> selector,
-  Parser<TObject>.D declaration
+  string selector,
+  IParserRepository parsers
 ) : IParseDeclaration
   where TObject : IGqlpDeclaration
 {
-  public string Selector => selector.Selector;
+  public string Selector => selector;
 
   public IResult<IGqlpDeclaration> Parser(ITokenizer tokens, string label)
     => _declaration.Parse(tokens, label).AsResult<IGqlpDeclaration>();
 
-  private readonly Parser<TObject>.L _declaration = declaration;
-}
-
-internal interface IDeclarationSelector<TObject>
-  where TObject : IGqlpDeclaration
-{
-  string Selector { get; }
-}
-
-internal class DeclarationSelector<TObject>(
-  string selector
-) : IDeclarationSelector<TObject>
-  where TObject : IGqlpDeclaration
-{
-  string IDeclarationSelector<TObject>.Selector => selector;
+  private readonly Parser<TObject>.L _declaration = parsers.ParserFor<TObject>();
 }

@@ -5,16 +5,18 @@ namespace GqlPlus.Parsing.Schema;
 public class SchemaParsersTests
 {
   [Fact]
-  public void SchemaParsers_DefinesParser_FieldKey()
+  public void SchemaParsers_Repository_ProvidesLazy_FieldKey()
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
       .AddFieldObjectKinds()
-      .AddCommonParsers()
-      .AddSchemaParsers()
+      .AddParsers(b => b
+        .AddCommonParsers()
+        .AddSchemaParsers())
       .BuildServiceProvider();
 
-    services.GetService<Parser<IGqlpFieldKey>.D>()
+    services.GetRequiredService<IParserRepository>()
+      .ParserFor<IGqlpFieldKey>()
       .ShouldNotBeNull();
   }
 }

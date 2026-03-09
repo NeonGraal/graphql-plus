@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class TypeArgAst(
+internal sealed record class TypeArgAst(
   ITokenAt At,
   string Name,
   string Description

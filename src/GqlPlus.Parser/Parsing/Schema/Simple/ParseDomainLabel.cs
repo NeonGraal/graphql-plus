@@ -6,8 +6,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseDomainLabel(
-  Parser<IGqlpDomainLabel>.DA items
-) : ParseDomainItem<IGqlpDomainLabel>(items)
+  IParserRepository parsers
+) : ParseDomainItem<IGqlpDomainLabel>(parsers)
 {
   public override DomainKind Kind => DomainKind.Enum;
 

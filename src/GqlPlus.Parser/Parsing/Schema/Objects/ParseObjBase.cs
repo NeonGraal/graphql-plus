@@ -6,10 +6,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseObjBase(
-  Parser<IGqlpTypeArg>.DA parseArgs
+  IParserRepository parsers
 ) : Parser<IGqlpObjBase>.I
 {
-  private readonly Parser<IGqlpTypeArg>.LA _parseArgs = parseArgs;
+  private readonly Parser<IGqlpTypeArg>.LA _parseArgs = parsers.ArrayFor<IGqlpTypeArg>();
 
   public IResult<IGqlpObjBase> Parse(ITokenizer tokens, string label)
   {

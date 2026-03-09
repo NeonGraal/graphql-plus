@@ -23,14 +23,14 @@ public static class ComponentTestStartup
         }
       })
       .AddFieldObjectKinds()
-      .AddCommonParsers()
+      .AddParsers(b => b.AddCommonParsers())
       .AddSingleton(_ => services);
 
   public static IServiceCollection AddComponentParsers(this IServiceCollection services, bool checkEnv = true)
     => services
       .AddComponentTest(checkEnv)
       .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
-      .AddSchemaParsers()
+      .AddParsers(b => b.AddSchemaParsers())
       .AddMergers();
 
   private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();

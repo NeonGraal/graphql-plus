@@ -11,10 +11,8 @@ public class ParseCategoryDefinitionTests
 
   public ParseCategoryDefinitionTests()
   {
-    Parser<IGqlpTypeRef>.D typeRefParser = ParserFor(out _typeRefParser);
-
-    _parser = new ParseCategoryDefinition(typeRefParser, Modifiers);
-
+    ConfigureRepo<IGqlpTypeRef>(Parsers, out _typeRefParser);
+    _parser = new ParseCategoryDefinition(Parsers);
     SetupError<CategoryOutput>();
     SetupPartial<CategoryOutput>(new(default!));
   }

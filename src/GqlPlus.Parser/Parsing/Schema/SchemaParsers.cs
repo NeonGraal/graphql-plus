@@ -1,102 +1,96 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Parsing.Schema.Globals;
 using GqlPlus.Parsing.Schema.Objects;
 using GqlPlus.Parsing.Schema.Simple;
-
-using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing.Schema;
 
 public static class SchemaParsers
 {
-  public static IServiceCollection AddSchemaParsers(this IServiceCollection services)
-    => services
+  public static IParserRepositoryBuilder AddSchemaParsers(this IParserRepositoryBuilder builder)
+    => builder
       .AddNullParsers()
-      .AddParserArray<string, ParseAliases>()
+      .AddArray(_ => new ParseAliases())
       // Category
-      .AddSingleton<ICategoryName, CategoryName>()
+      .AddInterfaceSingle<ICategoryName>(_ => new CategoryName())
       .AddOption<CategoryOption>()
-      .AddParser<CategoryOutput, ParseCategoryDefinition>()
-      .AddDeclarationParser<IGqlpSchemaCategory, ParseCategory>("category")
+      .AddSingle(p => new ParseCategoryDefinition(p))
+      .AddDeclarationParser("category", p => new ParseCategory(p))
       // Directive
-      .AddSingleton<IDirectiveName, DirectiveName>()
+      .AddInterfaceSingle<IDirectiveName>(_ => new DirectiveName())
       .AddOption<DirectiveOption>()
       .AddEnum<DirectiveLocation>()
-      .AddParser<DirectiveLocation, ParseDirectiveDefinition>()
-      .AddDeclarationParser<IGqlpSchemaDirective, ParseDirective>("directive")
+      .AddSingle(p => new ParseDirectiveDefinition(p))
+      .AddDeclarationParser("directive", p => new ParseDirective(p))
       // Option
-      .AddParser<OptionDefinition, ParseOptionDefinition>()
-      .AddParser<IGqlpSchemaSetting, ParseOptionSetting>()
-      .AddDeclarationParser<IGqlpSchemaOption, ParseOption>("option")
+      .AddSingle(p => new ParseOptionDefinition(p))
+      .AddSingle(p => new ParseOptionSetting(p))
+      .AddDeclarationParser("option", p => new ParseOption(p))
       // Types
-      .AddParser<IGqlpTypeRef, ParseTypeRef>()
-      .AddSingleton<ISimpleName, SimpleName>()
+      .AddSingle(_ => new ParseTypeRef())
+      .AddInterfaceSingle<ISimpleName>(_ => new SimpleName())
       // Enum
-      .AddParser<EnumDefinition, ParseEnumDefinition>()
-      .AddParser<IGqlpEnumLabel, ParseEnumLabel>()
-      .AddDeclarationParser<IGqlpEnum, ParseEnum>("enum")
+      .AddSingle(p => new ParseEnumDefinition(p))
+      .AddSingle(p => new ParseEnumLabel(p))
+      .AddDeclarationParser("enum", p => new ParseEnum(p))
       // Domain
-      .AddParser<DomainDefinition, ParseDomainDefinition>()
+      .AddSingle(p => new ParseDomainDefinition(p))
       .AddEnum<DomainKind>()
-      .AddDomainParser<IGqlpDomainTrueFalse, ParseDomainTrueFalse>()
-      .AddDomainParser<IGqlpDomainLabel, ParseDomainLabel>()
-      .AddDomainParser<IGqlpDomainRange, ParseDomainRange>()
-      .AddDomainParser<IGqlpDomainRegex, ParseDomainRegex>()
-      .AddDeclarationParser<IGqlpDomain, ParseDomain>("domain")
+      .AddDomainParser(p => new ParseDomainTrueFalse(p))
+      .AddDomainParser(p => new ParseDomainLabel(p))
+      .AddDomainParser(p => new ParseDomainRange(p))
+      .AddDomainParser(p => new ParseDomainRegex(p))
+      .AddDeclarationParser("domain", p => new ParseDomain(p))
       // Union
-      .AddParser<UnionDefinition, ParseUnionDefinition>()
-      .AddParser<IGqlpUnionMember, ParseUnionMember>()
-      .AddDeclarationParser<IGqlpUnion, ParseUnion>("union")
+      .AddSingle(p => new ParseUnionDefinition(p))
+      .AddSingle(_ => new ParseUnionMember())
+      .AddDeclarationParser("union", p => new ParseUnion(p))
       // Objects
-      .AddParserArray<IGqlpTypeParam, ParseTypeParams>()
-      .AddParserArray<IGqlpAlternate, ParseAlternates>()
-      .AddParser<IGqlpObjBase, ParseObjBase>()
-      .AddParserArray<IGqlpTypeArg, ParseTypeArgs>()
-      .AddObjectParser<IGqlpDualField, ParseDualField>(TypeKind.Dual)
-      .AddObjectParser<IGqlpInputField, ParseInputField>(TypeKind.Input)
-      .AddParserArray<IGqlpInputParam, ParseInputParams>()
-      .AddObjectParser<IGqlpOutputField, ParseOutputField>(TypeKind.Output)
+      .AddArray(_ => new ParseTypeParams())
+      .AddArray(p => new ParseAlternates(p))
+      .AddSingle(p => new ParseObjBase(p))
+      .AddArray(_ => new ParseTypeArgs())
+      .AddObjectParser(TypeKind.Dual, p => new ParseDualField(p))
+      .AddObjectParser(TypeKind.Input, p => new ParseInputField(p))
+      .AddArray(p => new ParseInputParams(p))
+      .AddObjectParser(TypeKind.Output, p => new ParseOutputField(p))
       // Schema
-      .AddParser<IGqlpSchema, ParseSchema>()
+      .AddSingle(p => new ParseSchema(p))
       ;
 
-  private static IServiceCollection AddEnum<TEnum>(this IServiceCollection services)
+  private static IParserRepositoryBuilder AddEnum<TEnum>(this IParserRepositoryBuilder builder)
     where TEnum : struct
-    => services.AddParser<IEnumParser<TEnum>, TEnum, EnumParser<TEnum>>();
+    => builder.AddInterfaceSingle<IEnumParser<TEnum>>(_ => new EnumParser<TEnum>());
 
-  private static IServiceCollection AddOption<TOption>(this IServiceCollection services)
+  private static IParserRepositoryBuilder AddOption<TOption>(this IParserRepositoryBuilder builder)
     where TOption : struct
-    => services
-      .AddParser<IOptionParser<TOption>, TOption, OptionParser<TOption>>()
-      .AddParser<IEnumParser<TOption>, TOption, EnumParser<TOption>>();
+    => builder
+      .AddInterfaceSingle<IOptionParser<TOption>>(p => new OptionParser<TOption>(p))
+      .AddEnum<TOption>();
 
   [SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
-  private static IServiceCollection AddObjectParser<TObjField, TParser>(this IServiceCollection services, TypeKind kind)
+  private static IParserRepositoryBuilder AddObjectParser<TObjField>(this IParserRepositoryBuilder builder, TypeKind fieldKind, ParserFactory<Parser<TObjField>.I> factory)
     where TObjField : IGqlpObjField
-    where TParser : class, Parser<TObjField>.I
-    => services
-      .AddParser<TObjField, TParser>()
-      .AddDeclarationParser<IGqlpObject<TObjField>, ObjectParser<TObjField>>(kind.ToString().ToLowerInvariant())
-      .AddParser<ObjectDefinition<TObjField>, ParseObjectDefinition<TObjField>>();
+    => builder
+      .AddSingle(factory)
+      .AddSingle(p => new ParseObjectDefinition<TObjField>(p))
+      .AddDeclarationParser(fieldKind.ToString().ToLowerInvariant(), p => new ObjectParser<TObjField>(fieldKind, p));
 
-  private static IServiceCollection AddDeclarationParser<TObject, TParser>(this IServiceCollection services, string selector)
+  private static IParserRepositoryBuilder AddDeclarationParser<TObject>(this IParserRepositoryBuilder builder, string selector, ParserFactory<Parser<TObject>.I> factory)
     where TObject : IGqlpDeclaration
-    where TParser : class, Parser<TObject>.I
-    => services
-      .AddParser<TObject, TParser>()
-      .AddSingleton<IDeclarationSelector<TObject>>(new DeclarationSelector<TObject>(selector))
-      .AddSingleton<IParseDeclaration, ParseDeclaration<TObject>>();
+    => builder
+      .AddSingle(factory)
+      .AddDeclaration<TObject>(p => new ParseDeclaration<TObject>(selector, p));
 
-  private static IServiceCollection AddDomainParser<TDomain, TParser>(this IServiceCollection services)
-    where TParser : class, Parser<TDomain>.I, IParseDomain
-    => services
-      .AddArrayParser<TDomain, TParser>()
-      .AddProvider<TParser, IParseDomain>();
+  private static IParserRepositoryBuilder AddDomainParser<TDomain>(this IParserRepositoryBuilder builder, ParserFactory<Parser<TDomain>.I> factory)
+    => builder
+      .AddSingle(factory)
+      .AddArray(p => new ArrayParser<TDomain>(p))
+      .AddDomain<TDomain>();
 
-  private static IServiceCollection AddNullParsers(this IServiceCollection services)
-    => services
-      .AddParserArray<NullAst, ParseNulls>()
-      .AddParser<IOptionParser<NullOption>, NullOption, ParseNullOption>()
-      .AddParser<IEnumParser<NullOption>, NullOption, ParseNullOption>();
+  private static IParserRepositoryBuilder AddNullParsers(this IParserRepositoryBuilder builder)
+    => builder.ThrowIfNull()
+      .AddArray(_ => new ParseNulls())
+      .AddInterfaceSingle<IOptionParser<NullOption>>(_ => new ParseNullOption())
+      .AddInterfaceSingle<IEnumParser<NullOption>>(_ => new ParseNullOption());
 }

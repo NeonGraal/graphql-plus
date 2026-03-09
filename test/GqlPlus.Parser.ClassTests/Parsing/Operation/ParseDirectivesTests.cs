@@ -11,9 +11,9 @@ public class ParseDirectivesTests
 
   public ParseDirectivesTests()
   {
-    Parser<IParserArg, IGqlpArg>.D argumentParser = ParserFor<IParserArg, IGqlpArg>(out _argumentParser);
-
-    _parseDirectives = new ParseDirectives(argumentParser);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    ConfigureRepoInterface<IParserArg, IGqlpArg>(parsers, out _argumentParser);
+    _parseDirectives = new ParseDirectives(parsers);
 
     SetupError<IGqlpDirective>();
     SetupPartial<IGqlpDirective>();

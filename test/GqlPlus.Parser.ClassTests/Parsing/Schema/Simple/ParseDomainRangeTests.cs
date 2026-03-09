@@ -237,8 +237,8 @@ public class ParseDomainRangeTests
     : base(DomainKind.Number)
   { }
 
-  internal override ParseDomainItem<IGqlpDomainRange> MakeParser(Parser<IGqlpDomainRange>.DA itemsParser)
-    => new ParseDomainRange(itemsParser);
+  internal override ParseDomainItem<IGqlpDomainRange> MakeParser(IParserRepository parsers)
+    => new ParseDomainRange(parsers);
 
   protected override IGqlpDomainRange NewItem()
     => new DomainRangeAst(AstNulls.At, string.Empty, false);

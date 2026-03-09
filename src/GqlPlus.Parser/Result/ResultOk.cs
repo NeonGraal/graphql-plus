@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Result;
 
-public readonly struct ResultOk<TValue>
+internal readonly struct ResultOk<TValue>
   : IResultOk<TValue>
 {
   public TValue Result { get; }

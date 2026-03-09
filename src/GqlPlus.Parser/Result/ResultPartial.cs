@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Result;
 
-public readonly struct ResultPartial<TValue>
+internal readonly struct ResultPartial<TValue>
   : IResultPartial<TValue>
 {
   public TValue Result { get; }

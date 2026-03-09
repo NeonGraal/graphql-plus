@@ -4,7 +4,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-public abstract class ValueParser<TValue>(
+internal abstract class ValueParser<TValue>(
   IParserRepository parsers
 ) : IValueParser<TValue>
   , Parser<TValue>.I
@@ -67,7 +67,7 @@ public abstract class ValueParser<TValue>(
   }
 }
 
-public interface IValueParser<TValue>
+internal interface IValueParser<TValue>
   : Parser<TValue>.I
   where TValue : IGqlpValue<TValue>
 {

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Result;
 
-public readonly struct ResultArrayError<TValue>(
+internal readonly struct ResultArrayError<TValue>(
   TokenMessage message
 ) : IResultArrayError<TValue>
 {

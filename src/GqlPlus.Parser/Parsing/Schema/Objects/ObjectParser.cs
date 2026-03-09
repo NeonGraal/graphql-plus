@@ -27,7 +27,7 @@ internal class ObjectParser<TObjField>(
     };
 }
 
-public class ObjectDefinition<TObjField>
+internal class ObjectDefinition<TObjField>
   where TObjField : IGqlpObjField
 {
   public IGqlpObjBase? Parent { get; set; }

@@ -4,7 +4,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-public class ValueObjectParser<TValue>(
+internal class ValueObjectParser<TValue>(
   IParserRepository parsers
 ) : Parser<IGqlpFields<TValue>>.I
   where TValue : IGqlpValue<TValue>

@@ -9,7 +9,7 @@ public interface IMerge<TItem>
   IEnumerable<TItem> Merge(IEnumerable<TItem> items);
 }
 
-public interface IMergeAll<TItem>
+internal interface IMergeAll<TItem>
   : IMerge<TItem>
   where TItem : IGqlpType
 { }

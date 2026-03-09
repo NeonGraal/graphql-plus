@@ -7,7 +7,7 @@ using GqlPlus.Result;
 namespace GqlPlus.Merging;
 
 #pragma warning disable CA1508 // Avoid dead conditional code
-public static class MergeExtensions
+internal static class MergeExtensions
 {
   public static IMessages CanMergeStruct<TItem, TObjField>(
       this IEnumerable<TItem> items,

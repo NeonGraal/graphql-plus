@@ -6,7 +6,7 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeInputParams(
   IMergerRepository mergers
-) : DistinctMerger<IGqlpInputParam>(mergers.LoggerFactory)
+) : DistinctMerger<IGqlpInputParam>(mergers)
 {
   protected override string ItemGroupKey(IGqlpInputParam item)
     => item.Type.FullType;

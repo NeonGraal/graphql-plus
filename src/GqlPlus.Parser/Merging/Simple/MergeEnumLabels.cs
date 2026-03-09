@@ -4,7 +4,7 @@ namespace GqlPlus.Merging.Simple;
 
 internal class MergeEnumLabels(
   IMergerRepository mergers
-) : AstAliasedMerger<IGqlpEnumLabel>(mergers.LoggerFactory)
+) : AstAliasedMerger<IGqlpEnumLabel>(mergers)
 {
   protected override string ItemMatchName => "Name";
   protected override string ItemMatchKey(IGqlpEnumLabel item)

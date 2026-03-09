@@ -5,7 +5,7 @@ namespace GqlPlus.Merging.Simple;
 
 internal class MergeDomainRanges(
   IMergerRepository mergers
-) : AstDomainItemMerger<IGqlpDomainRange>(mergers.LoggerFactory)
+) : AstDomainItemMerger<IGqlpDomainRange>(mergers)
 {
   protected override string ItemGroupKey(IGqlpDomainRange item)
     => ((DomainRangeAst)item).AsString;

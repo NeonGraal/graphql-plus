@@ -5,7 +5,7 @@ namespace GqlPlus.Merging.Globals;
 
 internal class MergeOptions(
   IMergerRepository mergers
-) : AstAliasedMerger<IGqlpSchemaOption>(mergers.LoggerFactory)
+) : AstAliasedMerger<IGqlpSchemaOption>(mergers)
 {
   protected override string ItemGroupKey(IGqlpSchemaOption item) => "Option";
 

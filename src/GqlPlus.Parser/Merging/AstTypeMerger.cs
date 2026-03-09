@@ -3,26 +3,27 @@
 namespace GqlPlus.Merging;
 
 internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
-  ILoggerFactory logger,
-  IMerge<TItem> mergeItems
-) : AstAliasedMerger<TType>(logger)
+  IMergerRepository mergers
+) : AstAliasedMerger<TType>(mergers)
   , IMergeAll<TAst>
   where TAst : IGqlpType
   where TType : IGqlpType<TParent>, TAst
   where TParent : IGqlpDescribed, IEquatable<TParent>
   where TItem : IGqlpError
 {
+  private readonly IMerge<TItem> _mergeItems = mergers.MergerFor<TItem>();
+
   internal abstract IEnumerable<TItem> GetItems(TType type);
 
   protected override IMessages CanMergeGroup(IGrouping<string, TType> group)
     => base.CanMergeGroup(group)
-    .Add(group.ManyCanMerge(GetItems, mergeItems));
+    .Add(group.ManyCanMerge(GetItems, _mergeItems));
 
   internal abstract TType SetItems(TType input, IEnumerable<TItem> items);
 
   protected override TType MergeGroup(IEnumerable<TType> group)
   {
-    IEnumerable<TItem> items = group.ManyMerge(GetItems, mergeItems);
+    IEnumerable<TItem> items = group.ManyMerge(GetItems, _mergeItems);
 
     return SetItems(base.MergeGroup(group), items);
   }

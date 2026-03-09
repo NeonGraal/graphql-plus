@@ -4,7 +4,7 @@ namespace GqlPlus.Merging.Globals;
 
 internal class MergeCategories(
   IMergerRepository mergers
-) : AstAliasedMerger<IGqlpSchemaCategory>(mergers.LoggerFactory)
+) : AstAliasedMerger<IGqlpSchemaCategory>(mergers)
 {
   protected override IMessages CanMergeGroup(IGrouping<string, IGqlpSchemaCategory> group)
     => base.CanMergeGroup(group)

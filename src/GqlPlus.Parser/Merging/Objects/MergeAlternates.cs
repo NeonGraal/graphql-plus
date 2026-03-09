@@ -5,7 +5,7 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeAlternates(
   IMergerRepository mergers
-) : AstDescribedMerger<IGqlpAlternate>(mergers.LoggerFactory)
+) : AstDescribedMerger<IGqlpAlternate>(mergers)
 {
   protected override IGqlpAlternate MergeGroup(IEnumerable<IGqlpAlternate> group)
   {

@@ -4,5 +4,5 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeDualFields(
   IMergerRepository mergers
-) : AstObjectFieldsMerger<IGqlpDualField>(mergers.LoggerFactory)
+) : AstObjectFieldsMerger<IGqlpDualField>(mergers)
 { }

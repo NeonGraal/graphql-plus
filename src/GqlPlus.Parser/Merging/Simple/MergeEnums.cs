@@ -5,7 +5,7 @@ namespace GqlPlus.Merging.Simple;
 
 internal class MergeEnums(
   IMergerRepository mergers
-) : AstSimpleMerger<IGqlpType, IGqlpEnum, IGqlpEnumLabel>(mergers.LoggerFactory, mergers.MergerFor<IGqlpEnumLabel>())
+) : AstSimpleMerger<IGqlpType, IGqlpEnum, IGqlpEnumLabel>(mergers)
 {
   internal override IGqlpEnum SetItems(IGqlpEnum input, IEnumerable<IGqlpEnumLabel> items)
   {

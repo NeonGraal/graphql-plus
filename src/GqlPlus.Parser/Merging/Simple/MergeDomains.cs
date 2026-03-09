@@ -6,7 +6,7 @@ namespace GqlPlus.Merging.Simple;
 
 internal class MergeDomains<TItemAst, TItem>(
   IMergerRepository mergers
-) : AstSimpleMerger<IGqlpDomain, IGqlpDomain<TItem>, TItem>(mergers.LoggerFactory, mergers.MergerFor<TItem>())
+) : AstSimpleMerger<IGqlpDomain, IGqlpDomain<TItem>, TItem>(mergers)
   , IDomainMerger<TItem>
   where TItemAst : AstAbbreviated, TItem
   where TItem : class, IGqlpDomainItem

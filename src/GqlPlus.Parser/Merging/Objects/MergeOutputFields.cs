@@ -5,7 +5,7 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeOutputFields(
   IMergerRepository mergers
-) : AstObjectFieldsMerger<IGqlpOutputField>(mergers.LoggerFactory)
+) : AstObjectFieldsMerger<IGqlpOutputField>(mergers)
 {
   protected override IMessages CanMergeGroup(IGrouping<string, IGqlpOutputField> group)
     => base.CanMergeGroup(group)

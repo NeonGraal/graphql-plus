@@ -5,7 +5,7 @@ namespace GqlPlus.Merging.Globals;
 
 internal class MergeDirectives(
   IMergerRepository mergers
-) : AstAliasedMerger<IGqlpSchemaDirective>(mergers.LoggerFactory)
+) : AstAliasedMerger<IGqlpSchemaDirective>(mergers)
 {
   protected override string ItemMatchName => "Option";
   protected override string ItemMatchKey(IGqlpSchemaDirective item)

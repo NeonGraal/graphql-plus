@@ -5,7 +5,7 @@ namespace GqlPlus.Merging;
 
 internal class MergeAllTypes(
   IMergerRepository mergers
-) : AllMerger<IGqlpType>(mergers.LoggerFactory, mergers.AllMergersFor<IGqlpType>())
+) : AllMerger<IGqlpType>(mergers)
 {
   protected override string ItemMatchName => "Type";
   protected override string ItemMatchKey(IGqlpType item) => item.Label;

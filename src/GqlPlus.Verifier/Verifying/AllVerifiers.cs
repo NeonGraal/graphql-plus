@@ -1,7 +1,5 @@
 using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Matching;
-using GqlPlus.Merging;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Globals;
@@ -55,15 +53,9 @@ public static class AllVerifiers
 
   public static IServiceCollection AddVerifiers(this IServiceCollection services, Action<IVerifierRepositoryBuilder> config)
   {
-    services.AddSingleton<VerifierRepositoryState>(sp => {
-      VerifierRepositoryBuilder builder = new();
-      config?.Invoke(builder);
-      return builder.Build(
-        sp.GetRequiredService<ILoggerFactory>(),
-        sp.GetRequiredService<IMatcherRepository>(),
-        t => sp.GetRequiredService(typeof(IMerge<>).MakeGenericType(t)),
-        t => sp.GetRequiredService(typeof(IGqlpFieldKind<>).MakeGenericType(t)));
-    });
+    VerifierRepositoryBuilder builder = new();
+    config?.Invoke(builder);
+    services.AddSingleton(builder.Build());
     services.TryAddSingleton<IVerifierRepository, VerifierRepository>();
     return services;
   }

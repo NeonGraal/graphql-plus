@@ -2,15 +2,15 @@
 
 namespace GqlPlus.Verifying.Schema;
 
-internal class VerifyAllTypes(
-  IVerifyUsage<IGqlpObject<IGqlpDualField>> dualAllTypes,
-  IVerifyUsage<IGqlpEnum> enumAllTypes,
-  IVerifyUsage<IGqlpObject<IGqlpInputField>> inputAllTypes,
-  IVerifyUsage<IGqlpObject<IGqlpOutputField>> outputAllTypes,
-  IVerifyUsage<IGqlpDomain> domainAllTypes,
-  IVerifyUsage<IGqlpUnion> unionAllTypes
-) : IVerify<IGqlpType[]>
+internal class VerifyAllTypes(IVerifierRepository verifiers) : IVerify<IGqlpType[]>
 {
+  private readonly IVerifyUsage<IGqlpObject<IGqlpDualField>> _dualAllTypes = verifiers.UsageFor<IGqlpObject<IGqlpDualField>>();
+  private readonly IVerifyUsage<IGqlpEnum> _enumAllTypes = verifiers.UsageFor<IGqlpEnum>();
+  private readonly IVerifyUsage<IGqlpObject<IGqlpInputField>> _inputAllTypes = verifiers.UsageFor<IGqlpObject<IGqlpInputField>>();
+  private readonly IVerifyUsage<IGqlpObject<IGqlpOutputField>> _outputAllTypes = verifiers.UsageFor<IGqlpObject<IGqlpOutputField>>();
+  private readonly IVerifyUsage<IGqlpDomain> _domainAllTypes = verifiers.UsageFor<IGqlpDomain>();
+  private readonly IVerifyUsage<IGqlpUnion> _unionAllTypes = verifiers.UsageFor<IGqlpUnion>();
+
   public void Verify(IGqlpType[] item, IMessages errors)
   {
     IGqlpType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
@@ -22,11 +22,11 @@ internal class VerifyAllTypes(
     IGqlpDomain[] domainTypes = item.ArrayOf<IGqlpDomain>();
     IGqlpUnion[] unionTypes = item.ArrayOf<IGqlpUnion>();
 
-    dualAllTypes.Verify(new(dualTypes, allTypes), errors);
-    enumAllTypes.Verify(new(enumTypes, allTypes), errors);
-    inputAllTypes.Verify(new(inputTypes, allTypes), errors);
-    outputAllTypes.Verify(new(outputTypes, allTypes), errors);
-    domainAllTypes.Verify(new(domainTypes, allTypes), errors);
-    unionAllTypes.Verify(new(unionTypes, allTypes), errors);
+    _dualAllTypes.Verify(new(dualTypes, allTypes), errors);
+    _enumAllTypes.Verify(new(enumTypes, allTypes), errors);
+    _inputAllTypes.Verify(new(inputTypes, allTypes), errors);
+    _outputAllTypes.Verify(new(outputTypes, allTypes), errors);
+    _domainAllTypes.Verify(new(domainTypes, allTypes), errors);
+    _unionAllTypes.Verify(new(unionTypes, allTypes), errors);
   }
 }

@@ -12,6 +12,8 @@ public class VerifierTestsBase
   protected ILoggerFactory LoggerFactory { get; } = A.Of<ILoggerFactory>();
   private readonly ILogger _logger = A.Of<ILogger>();
 
+  protected IVerifierRepository VerifierRepo { get; }
+
   public VerifierTestsBase()
   {
     _logger.IsEnabled(Arg.Any<LogLevel>())
@@ -19,6 +21,9 @@ public class VerifierTestsBase
 
     LoggerFactory.CreateLogger(Arg.Any<string>())
       .ReturnsForAnyArgs(_logger);
+
+    VerifierRepo = Substitute.For<IVerifierRepository>();
+    VerifierRepo.LoggerFactory.Returns(LoggerFactory);
   }
 
   protected void LoggerCalled(LogLevel level, string message, int times = 1)

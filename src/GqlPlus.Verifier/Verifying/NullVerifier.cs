@@ -6,8 +6,8 @@ internal class NullVerifierError<TGqlp>
 {
   private readonly ILogger _logger;
 
-  public NullVerifierError(ILoggerFactory logger)
-    => _logger = logger.CreateTypedLogger(this);
+  public NullVerifierError(IVerifierRepository verifiers)
+    => _logger = verifiers.LoggerFactory.CreateTypedLogger(this);
 
   public void Verify(TGqlp item, IMessages errors)
     => _logger.NullVerification(item);

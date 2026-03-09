@@ -2,14 +2,14 @@
 
 namespace GqlPlus.Verifying.Schema;
 
-internal class VerifySchema(
-  IVerifyUsage<IGqlpSchemaCategory> categoryOutputs,
-  IVerifyUsage<IGqlpSchemaDirective> directiveInputs,
-  IVerifyAliased<IGqlpSchemaOption> optionsAliased,
-  IVerifyAliased<IGqlpType> typesAliased,
-  IVerify<IGqlpType[]> types
-) : IVerify<IGqlpSchema>
+internal class VerifySchema(IVerifierRepository verifiers) : IVerify<IGqlpSchema>
 {
+  private readonly IVerifyUsage<IGqlpSchemaCategory> _categoryOutputs = verifiers.UsageFor<IGqlpSchemaCategory>();
+  private readonly IVerifyUsage<IGqlpSchemaDirective> _directiveInputs = verifiers.UsageFor<IGqlpSchemaDirective>();
+  private readonly IVerifyAliased<IGqlpSchemaOption> _optionsAliased = verifiers.AliasedFor<IGqlpSchemaOption>();
+  private readonly IVerifyAliased<IGqlpType> _typesAliased = verifiers.AliasedFor<IGqlpType>();
+  private readonly IVerify<IGqlpType[]> _types = verifiers.VerifierFor<IGqlpType[]>();
+
   public void Verify(IGqlpSchema item, IMessages errors)
   {
     IGqlpSchemaCategory[] categories = item.Declarations.ArrayOf<IGqlpSchemaCategory>();
@@ -20,12 +20,12 @@ internal class VerifySchema(
     IGqlpType[] outputTypes = [.. astTypes.Where(TypeIs<IGqlpObject<IGqlpOutputField>>), .. BuiltIn.Basic, .. BuiltIn.Internal];
     IGqlpType[] inputTypes = [.. astTypes.Where(TypeIs<IGqlpObject<IGqlpInputField>>), .. BuiltIn.Basic, .. BuiltIn.Internal];
 
-    categoryOutputs.Verify(new(categories, outputTypes), errors);
-    directiveInputs.Verify(new(directives, inputTypes), errors);
-    optionsAliased.Verify(options, errors);
+    _categoryOutputs.Verify(new(categories, outputTypes), errors);
+    _directiveInputs.Verify(new(directives, inputTypes), errors);
+    _optionsAliased.Verify(options, errors);
 
-    types.Verify(astTypes, errors);
-    typesAliased.Verify(astTypes, errors);
+    _types.Verify(astTypes, errors);
+    _typesAliased.Verify(astTypes, errors);
 
     errors.Add(item.Errors);
 

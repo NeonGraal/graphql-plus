@@ -6,21 +6,18 @@ using GqlPlus.Merging;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Simple;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Verifying;
 
 internal class VerifierRepository : IVerifierRepository
 {
   private readonly VerifierRepositoryState _state;
-  private readonly IServiceProvider _services;
   private readonly ConcurrentDictionary<Type, object> _cache = new();
   private readonly Lazy<IEnumerable<IVerifyDomain>> _domains;
 
-  public VerifierRepository(VerifierRepositoryState state, IServiceProvider services)
+  public VerifierRepository(VerifierRepositoryState state)
   {
     _state = state;
-    _services = services;
     _domains = new(() => [.. state.Domains.Select(f => (IVerifyDomain)f.Invoke(this))]);
   }
 
@@ -59,16 +56,16 @@ internal class VerifierRepository : IVerifierRepository
     => _domains.Value;
 
   public ILoggerFactory LoggerFactory
-    => _services.GetRequiredService<ILoggerFactory>();
+    => _state.LoggerFactory;
 
   public IMerge<T> MergeFor<T>()
     where T : IGqlpError
-    => _services.GetRequiredService<IMerge<T>>();
+    => (IMerge<T>)_state.MergerFor(typeof(T));
 
   public IMatcherRepository Matchers
-    => _services.GetRequiredService<IMatcherRepository>();
+    => _state.Matchers;
 
   public IGqlpFieldKind<T> FieldKindFor<T>()
     where T : IGqlpObjField
-    => _services.GetRequiredService<IGqlpFieldKind<T>>();
+    => (IGqlpFieldKind<T>)_state.FieldKindFor(typeof(T));
 }

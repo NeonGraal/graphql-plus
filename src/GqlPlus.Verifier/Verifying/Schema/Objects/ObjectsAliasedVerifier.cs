@@ -1,15 +1,9 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
-internal class ObjectsAliasedVerifier<TField>(
-  IVerify<IGqlpObject<TField>> definition,
-  IMerge<IGqlpObject<TField>> merger,
-  ILoggerFactory logger,
-  IGqlpFieldKind<TField> fieldKind
-) : AliasedVerifier<IGqlpObject<TField>>(definition, merger, logger)
+internal class ObjectsAliasedVerifier<TField>(IVerifierRepository verifiers) : AliasedVerifier<IGqlpObject<TField>>(verifiers)
   where TField : IGqlpObjField
 {
-  public override string Label { get; } = fieldKind.FieldKind.ToString() + "s";
+  public override string Label { get; } = verifiers.FieldKindFor<TField>().FieldKind.ToString() + "s";
 }

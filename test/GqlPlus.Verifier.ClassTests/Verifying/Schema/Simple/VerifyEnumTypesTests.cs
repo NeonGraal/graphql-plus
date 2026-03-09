@@ -17,7 +17,8 @@ public class VerifyEnumTypesTests
 
   public VerifyEnumTypesTests()
   {
-    _verifier = new(Aliased.Intf, _mergeLabels.Intf);
+    VerifierRepo.MergeFor<IGqlpEnumLabel>().Returns(_mergeLabels.Intf);
+    _verifier = new(VerifierRepo);
 
     _enum = A.Enum("Enum");
   }

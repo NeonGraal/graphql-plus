@@ -9,10 +9,10 @@ internal abstract class GroupedVerifier<TAliased> : IVerifyAliased<TAliased>
   private readonly ILogger _logger;
   private readonly IMerge<TAliased> _merger;
 
-  public GroupedVerifier(IMerge<TAliased> merger, ILoggerFactory logger)
+  protected GroupedVerifier(IVerifierRepository verifiers)
   {
-    _merger = merger;
-    _logger = logger.CreateTypedLogger(this);
+    _merger = verifiers.MergeFor<TAliased>();
+    _logger = verifiers.LoggerFactory.CreateTypedLogger(this);
   }
 
   public abstract string Label { get; }

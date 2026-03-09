@@ -7,11 +7,13 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
 internal class AstObjectVerifier<TObjField>(
-  ObjectVerifierParams<TObjField> verifiers
-) : AstParentItemVerifier<IGqlpObject<TObjField>, IGqlpObjBase, ObjectContext, TObjField>(verifiers.Aliased, verifiers.MergeFields)
+  IVerifierRepository verifiers
+) : AstParentItemVerifier<IGqlpObject<TObjField>, IGqlpObjBase, ObjectContext, TObjField>(verifiers)
   where TObjField : IGqlpObjField
 {
-  private readonly Matcher<IGqlpTypeArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
+  private readonly Matcher<IGqlpTypeArg>.L _constraintMatcher = verifiers.Matchers.MatcherFor<IGqlpTypeArg>();
+  private readonly IMerge<IGqlpAlternate> _mergeAlternates = verifiers.MergeFor<IGqlpAlternate>();
+  private readonly IGqlpFieldKind<TObjField> _fieldKind = verifiers.FieldKindFor<TObjField>();
 
   protected override void UsageValue(IGqlpObject<TObjField> usage, ObjectContext context)
   {
@@ -323,7 +325,7 @@ internal class AstObjectVerifier<TObjField>(
 
     IGqlpAlternate[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.Alternates)];
     if (alternates.Length > 0) {
-      IMessages failures = verifiers.MergeAlternates.CanMerge(alternates);
+      IMessages failures = _mergeAlternates.CanMerge(alternates);
       if (failures.Any()) {
         context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Current} alternates");
         context.Add(failures);
@@ -338,15 +340,6 @@ internal class AstObjectVerifier<TObjField>(
       .Concat(usage.TypeParams.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 
-    return new(validTypes, errors, aliased.MakeEnumValues(), verifiers.FieldKind.FieldKind);
+    return new(validTypes, errors, aliased.MakeEnumValues(), _fieldKind.FieldKind);
   }
 }
-
-internal record class ObjectVerifierParams<TObjField>(
-  IVerifyAliased<IGqlpObject<TObjField>> Aliased,
-  IMerge<TObjField> MergeFields,
-  IMerge<IGqlpAlternate> MergeAlternates,
-  Matcher<IGqlpTypeArg>.D ConstraintMatcher,
-  IGqlpFieldKind<TObjField> FieldKind
-)
-  where TObjField : IGqlpObjField;

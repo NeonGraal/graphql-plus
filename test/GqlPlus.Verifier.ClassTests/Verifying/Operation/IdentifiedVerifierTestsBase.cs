@@ -13,6 +13,12 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   protected IVerify<TUsage> Usage => _usage.Intf;
   protected IVerify<TIdentified> Definition => _definition.Intf;
 
+  protected IdentifiedVerifierTestsBase()
+  {
+    VerifierRepo.VerifierFor<TUsage>().Returns(Usage);
+    VerifierRepo.VerifierFor<TIdentified>().Returns(Definition);
+  }
+
   [Fact]
   public void Verify_WithNone()
   {

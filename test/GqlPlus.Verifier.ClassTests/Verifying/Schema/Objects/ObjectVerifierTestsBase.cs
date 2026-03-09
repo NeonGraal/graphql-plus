@@ -10,7 +10,6 @@ public abstract class ObjectVerifierTestsBase<TObjField>
   internal readonly ForM<TObjField> MergeFields = new();
   internal readonly ForM<IGqlpAlternate> MergeAlternates = new();
   protected TypeKind Kind { get; }
-  internal ObjectVerifierParams<TObjField> Verifiers { get; }
 
   protected ObjectVerifierTestsBase(TypeKind kind)
   {
@@ -21,12 +20,13 @@ public abstract class ObjectVerifierTestsBase<TObjField>
     ArgDelegate = A.Of<Matcher<IGqlpTypeArg>.D>();
     ArgDelegate().Returns(ArgMatcher);
 
-    Verifiers = new(
-      Aliased.Intf,
-      MergeFields.Intf,
-      MergeAlternates.Intf,
-      ArgDelegate,
-      new FieldObjectKind<TObjField>(kind));
+    IMatcherRepository matcherRepo = Substitute.For<IMatcherRepository>();
+    VerifierRepo.Matchers.Returns(matcherRepo);
+    matcherRepo.MatcherFor<IGqlpTypeArg>().Returns(ArgDelegate);
+
+    VerifierRepo.MergeFor<TObjField>().Returns(MergeFields.Intf);
+    VerifierRepo.MergeFor<IGqlpAlternate>().Returns(MergeAlternates.Intf);
+    VerifierRepo.FieldKindFor<TObjField>().Returns(new FieldObjectKind<TObjField>(kind));
 
     TheBuilder = new(kind.ToString(), kind);
   }

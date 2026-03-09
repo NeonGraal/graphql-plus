@@ -1,5 +1,7 @@
 using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Matching;
+using GqlPlus.Merging;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Globals;
@@ -15,76 +17,56 @@ public static class AllVerifiers
   public static IServiceCollection AddVerifiers(this IServiceCollection services)
     => services.AddVerifiers(b => b
       // Operation
-      .AddVerify<IGqlpOperation>(v => new VerifyOperation(
-        v.IdentifiedFor<IGqlpArg, IGqlpVariable>(),
-        v.IdentifiedFor<IGqlpSpread, IGqlpFragment>()))
+      .AddVerify<IGqlpOperation>(v => new VerifyOperation(v))
       .AddVerify<IGqlpVariable>(_ => new VerifyVariable())
-      .AddVerifyUsageIdentified<IGqlpArg, IGqlpVariable>(
-        v => new VerifyVariableUsage(v.VerifierFor<IGqlpArg>(), v.VerifierFor<IGqlpVariable>()))
-      .AddVerifyUsageIdentified<IGqlpSpread, IGqlpFragment>(
-        v => new VerifyFragmentUsage(v.VerifierFor<IGqlpSpread>(), v.VerifierFor<IGqlpFragment>()))
+      .AddVerifyUsageIdentified<IGqlpArg, IGqlpVariable>(v => new VerifyVariableUsage(v))
+      .AddVerifyUsageIdentified<IGqlpSpread, IGqlpFragment>(v => new VerifyFragmentUsage(v))
       // Schema
-      .AddVerify<IGqlpSchema>(v => new VerifySchema(
-        v.UsageFor<IGqlpSchemaCategory>(),
-        v.UsageFor<IGqlpSchemaDirective>(),
-        v.AliasedFor<IGqlpSchemaOption>(),
-        v.AliasedFor<IGqlpType>(),
-        v.VerifierFor<IGqlpType[]>()))
+      .AddVerify<IGqlpSchema>(v => new VerifySchema(v))
       .AddVerifyUsageAliased<IGqlpSchemaCategory>(
-        v => new VerifyCategoryAliased(v.VerifierFor<IGqlpSchemaCategory>(), v.MergeFor<IGqlpSchemaCategory>(), v.LoggerFactory),
-        v => new VerifyCategoryOutput(v.AliasedFor<IGqlpSchemaCategory>()))
+        v => new VerifyCategoryAliased(v),
+        v => new VerifyCategoryOutput(v))
       .AddVerifyUsageAliased<IGqlpSchemaDirective>(
-        v => new VerifyDirectiveAliased(v.VerifierFor<IGqlpSchemaDirective>(), v.MergeFor<IGqlpSchemaDirective>(), v.LoggerFactory),
-        v => new VerifyDirectiveInput(v.AliasedFor<IGqlpSchemaDirective>()))
-      .AddVerifyAliased<IGqlpSchemaOption>(
-        v => new VerifyOptionAliased(v.VerifierFor<IGqlpSchemaOption>(), v.MergeFor<IGqlpSchemaOption>(), v.LoggerFactory))
+        v => new VerifyDirectiveAliased(v),
+        v => new VerifyDirectiveInput(v))
+      .AddVerifyAliased<IGqlpSchemaOption>(v => new VerifyOptionAliased(v))
       // Schema Types
-      .AddVerify<IGqlpType[]>(v => new VerifyAllTypes(
-        v.UsageFor<IGqlpObject<IGqlpDualField>>(),
-        v.UsageFor<IGqlpEnum>(),
-        v.UsageFor<IGqlpObject<IGqlpInputField>>(),
-        v.UsageFor<IGqlpObject<IGqlpOutputField>>(),
-        v.UsageFor<IGqlpDomain>(),
-        v.UsageFor<IGqlpUnion>()))
-      .AddVerifyAliased<IGqlpType>(
-        v => new VerifyAllTypesAliased(v.MergeFor<IGqlpType>(), v.LoggerFactory))
+      .AddVerify<IGqlpType[]>(v => new VerifyAllTypes(v))
+      .AddVerifyAliased<IGqlpType>(v => new VerifyAllTypesAliased(v))
       // Simple Types
       .AddVerifyUsageAliased<IGqlpDomain>(
-        v => new VerifyDomainsAliased(v.VerifierFor<IGqlpDomain>(), v.MergeFor<IGqlpDomain>(), v.LoggerFactory),
-        v => new VerifyDomainTypes(v.AliasedFor<IGqlpDomain>(), v.GetDomains()))
-      .AddDomain(v => new AstDomainVerifier<IGqlpDomainRange>(v.MergeFor<IGqlpDomainRange>()))
-      .AddDomain(v => new AstDomainVerifier<IGqlpDomainRegex>(v.MergeFor<IGqlpDomainRegex>()))
-      .AddDomain(v => new AstDomainVerifier<IGqlpDomainTrueFalse>(v.MergeFor<IGqlpDomainTrueFalse>()))
-      .AddDomain(v => new VerifyDomainEnum(v.MergeFor<IGqlpDomainLabel>()))
+        v => new VerifyDomainsAliased(v),
+        v => new VerifyDomainTypes(v))
+      .AddDomain(v => new AstDomainVerifier<IGqlpDomainRange>(v))
+      .AddDomain(v => new AstDomainVerifier<IGqlpDomainRegex>(v))
+      .AddDomain(v => new AstDomainVerifier<IGqlpDomainTrueFalse>(v))
+      .AddDomain(v => new VerifyDomainEnum(v))
       .AddVerifyUsageAliased<IGqlpEnum>(
-        v => new VerifyEnumsAliased(v.VerifierFor<IGqlpEnum>(), v.MergeFor<IGqlpEnum>(), v.LoggerFactory),
-        v => new VerifyEnumTypes(v.AliasedFor<IGqlpEnum>(), v.MergeFor<IGqlpEnumLabel>()))
+        v => new VerifyEnumsAliased(v),
+        v => new VerifyEnumTypes(v))
       .AddVerifyUsageAliased<IGqlpUnion>(
-        v => new VerifyUnionsAliased(v.VerifierFor<IGqlpUnion>(), v.MergeFor<IGqlpUnion>(), v.LoggerFactory),
-        v => new VerifyUnionTypes(v.AliasedFor<IGqlpUnion>(), v.MergeFor<IGqlpUnionMember>()))
+        v => new VerifyUnionsAliased(v),
+        v => new VerifyUnionTypes(v))
       // Object Types
-      .AddVerifyObject<IGqlpDualField>(v => new VerifyDualTypes(MakeObjectParams<IGqlpDualField>(v)))
-      .AddVerifyObject<IGqlpInputField>(v => new VerifyInputTypes(MakeObjectParams<IGqlpInputField>(v)))
-      .AddVerifyObject<IGqlpOutputField>(v => new VerifyOutputTypes(MakeObjectParams<IGqlpOutputField>(v)))
+      .AddVerifyObject<IGqlpDualField>(v => new VerifyDualTypes(v))
+      .AddVerifyObject<IGqlpInputField>(v => new VerifyInputTypes(v))
+      .AddVerifyObject<IGqlpOutputField>(v => new VerifyOutputTypes(v))
     );
 
   public static IServiceCollection AddVerifiers(this IServiceCollection services, Action<IVerifierRepositoryBuilder> config)
   {
-    VerifierRepositoryBuilder builder = new();
-    config?.Invoke(builder);
-    services.AddSingleton(builder.Build());
+    services.AddSingleton<VerifierRepositoryState>(sp => {
+      VerifierRepositoryBuilder builder = new();
+      config?.Invoke(builder);
+      return builder.Build(
+        sp.GetRequiredService<ILoggerFactory>(),
+        sp.GetRequiredService<IMatcherRepository>(),
+        t => sp.GetRequiredService(typeof(IMerge<>).MakeGenericType(t)),
+        t => sp.GetRequiredService(typeof(IGqlpFieldKind<>).MakeGenericType(t)));
+    });
     services.TryAddSingleton<IVerifierRepository, VerifierRepository>();
     return services;
   }
-
-  private static ObjectVerifierParams<TField> MakeObjectParams<TField>(IVerifierRepository v)
-    where TField : IGqlpObjField
-    => new(
-      v.AliasedFor<IGqlpObject<TField>>(),
-      v.MergeFor<TField>(),
-      v.MergeFor<IGqlpAlternate>(),
-      v.Matchers.MatcherFor<IGqlpTypeArg>(),
-      v.FieldKindFor<TField>());
 
   private static IVerifierRepositoryBuilder AddVerifyUsageIdentified<TUsage, TIdentified>(
     this IVerifierRepositoryBuilder builder,
@@ -93,8 +75,8 @@ public static class AllVerifiers
     where TIdentified : IGqlpIdentified
     => builder
       .AddIdentified(identifiedFactory)
-      .TryAddVerify<TUsage>(v => new NullVerifierError<TUsage>(v.LoggerFactory))
-      .TryAddVerify<TIdentified>(v => new NullVerifierError<TIdentified>(v.LoggerFactory));
+      .TryAddVerify<TUsage>(v => new NullVerifierError<TUsage>(v))
+      .TryAddVerify<TIdentified>(v => new NullVerifierError<TIdentified>(v));
 
   private static IVerifierRepositoryBuilder AddVerifyAliased<TAliased>(
     this IVerifierRepositoryBuilder builder,
@@ -102,7 +84,7 @@ public static class AllVerifiers
     where TAliased : IGqlpAliased
     => builder
       .AddAliased(aliasedFactory)
-      .TryAddVerify<TAliased>(v => new NullVerifierError<TAliased>(v.LoggerFactory));
+      .TryAddVerify<TAliased>(v => new NullVerifierError<TAliased>(v));
 
   private static IVerifierRepositoryBuilder AddVerifyUsageAliased<TUsage>(
     this IVerifierRepositoryBuilder builder,
@@ -112,18 +94,14 @@ public static class AllVerifiers
     => builder
       .AddAliased(aliasedFactory)
       .AddUsage(usageFactory)
-      .TryAddVerify<TUsage>(v => new NullVerifierError<TUsage>(v.LoggerFactory));
+      .TryAddVerify<TUsage>(v => new NullVerifierError<TUsage>(v));
 
   private static IVerifierRepositoryBuilder AddVerifyObject<TField>(
     this IVerifierRepositoryBuilder builder,
     VerifierFactory<IVerifyUsage<IGqlpObject<TField>>> usageFactory)
     where TField : IGqlpObjField
     => builder
-      .AddAliased<IGqlpObject<TField>>(v => new ObjectsAliasedVerifier<TField>(
-        v.VerifierFor<IGqlpObject<TField>>(),
-        v.MergeFor<IGqlpObject<TField>>(),
-        v.LoggerFactory,
-        v.FieldKindFor<TField>()))
+      .AddAliased<IGqlpObject<TField>>(v => new ObjectsAliasedVerifier<TField>(v))
       .AddUsage(usageFactory)
-      .TryAddVerify<IGqlpObject<TField>>(v => new NullVerifierError<IGqlpObject<TField>>(v.LoggerFactory));
+      .TryAddVerify<IGqlpObject<TField>>(v => new NullVerifierError<IGqlpObject<TField>>(v));
 }

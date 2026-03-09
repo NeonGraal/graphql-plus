@@ -13,7 +13,7 @@ public class VerifyDomainEnumTests
   public VerifyDomainEnumTests()
     : base(DomainKind.Enum)
   {
-    _verifier = new VerifyDomainEnum(ItemsMerger.Intf);
+    _verifier = new VerifyDomainEnum(VerifierRepo);
 
     _context = new(Types, Errors, EnumValues);
 

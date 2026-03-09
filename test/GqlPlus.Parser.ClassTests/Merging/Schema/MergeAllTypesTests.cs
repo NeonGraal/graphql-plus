@@ -166,7 +166,9 @@ public class MergeAllTypesTests
     result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
     result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IGqlpType>>());
 
-    _merger = new(outputHelper.ToLoggerFactory(), [result]);
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.AllMergersFor<IGqlpType>().Returns([result]);
+    _merger = new(mergers);
   }
 
   protected override IMerge<IGqlpType> MergerBase => _merger;

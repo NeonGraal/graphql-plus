@@ -3,9 +3,8 @@
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeAllDomains(
-  ILoggerFactory logger,
-  IEnumerable<IMergeAll<IGqlpDomain>> mergeDomains
-) : AllMerger<IGqlpDomain>(logger, mergeDomains)
+  IMergerRepository mergers
+) : AllMerger<IGqlpDomain>(mergers.LoggerFactory, mergers.AllMergersFor<IGqlpDomain>())
   , IMergeAll<IGqlpType>
 {
   protected override string ItemMatchName => "Domain";

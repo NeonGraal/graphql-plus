@@ -49,47 +49,43 @@ public static class AllMergers
     => builder.ThrowIfNull()
       .AddMerge<IGqlpConstant>(_ => new MergeConstants())
       // Schema
-      .AddMerge<IGqlpSchema>(m => new MergeSchemas(
-        m.MergerFor<IGqlpSchemaCategory>(),
-        m.MergerFor<IGqlpSchemaDirective>(),
-        m.MergerFor<IGqlpSchemaOption>(),
-        m.MergerFor<IGqlpType>()))
-      .AddMerge<IGqlpSchemaCategory>(m => new MergeCategories(m.LoggerFactory))
-      .AddMerge<IGqlpSchemaDirective>(m => new MergeDirectives(m.LoggerFactory, m.MergerFor<IGqlpInputParam>()))
-      .AddMerge<IGqlpSchemaOption>(m => new MergeOptions(m.LoggerFactory, m.MergerFor<IGqlpSchemaSetting>()))
-      .AddMerge<IGqlpSchemaSetting>(m => new MergeOptionSettings(m.MergerFor<IGqlpConstant>()))
+      .AddMerge<IGqlpSchema>(m => new MergeSchemas(m))
+      .AddMerge<IGqlpSchemaCategory>(m => new MergeCategories(m))
+      .AddMerge<IGqlpSchemaDirective>(m => new MergeDirectives(m))
+      .AddMerge<IGqlpSchemaOption>(m => new MergeOptions(m))
+      .AddMerge<IGqlpSchemaSetting>(m => new MergeOptionSettings(m))
       // Types
-      .AddMerge<IGqlpType>(m => new MergeAllTypes(m.LoggerFactory, m.AllMergersFor<IGqlpType>()))
+      .AddMerge<IGqlpType>(m => new MergeAllTypes(m))
       // Simple
-      .AddMergeAll<IGqlpDomain, IGqlpType, MergeAllDomains>(m => new MergeAllDomains(m.LoggerFactory, m.AllMergersFor<IGqlpDomain>()))
-      .AddMerge<IGqlpDomainLabel>(m => new MergeDomainLabels(m.LoggerFactory))
+      .AddMergeAll<IGqlpDomain, IGqlpType, MergeAllDomains>(m => new MergeAllDomains(m))
+      .AddMerge<IGqlpDomainLabel>(m => new MergeDomainLabels(m))
       .AddMergeAll<IGqlpDomain<IGqlpDomainLabel>, IGqlpDomain, MergeDomains<DomainLabelAst, IGqlpDomainLabel>>(
-        m => new MergeDomains<DomainLabelAst, IGqlpDomainLabel>(m.LoggerFactory, m.MergerFor<IGqlpDomainLabel>()))
-      .AddMerge<IGqlpDomainRange>(m => new MergeDomainRanges(m.LoggerFactory))
+        m => new MergeDomains<DomainLabelAst, IGqlpDomainLabel>(m))
+      .AddMerge<IGqlpDomainRange>(m => new MergeDomainRanges(m))
       .AddMergeAll<IGqlpDomain<IGqlpDomainRange>, IGqlpDomain, MergeDomains<DomainRangeAst, IGqlpDomainRange>>(
-        m => new MergeDomains<DomainRangeAst, IGqlpDomainRange>(m.LoggerFactory, m.MergerFor<IGqlpDomainRange>()))
-      .AddMerge<IGqlpDomainRegex>(m => new MergeDomainRegexes(m.LoggerFactory))
+        m => new MergeDomains<DomainRangeAst, IGqlpDomainRange>(m))
+      .AddMerge<IGqlpDomainRegex>(m => new MergeDomainRegexes(m))
       .AddMergeAll<IGqlpDomain<IGqlpDomainRegex>, IGqlpDomain, MergeDomains<DomainRegexAst, IGqlpDomainRegex>>(
-        m => new MergeDomains<DomainRegexAst, IGqlpDomainRegex>(m.LoggerFactory, m.MergerFor<IGqlpDomainRegex>()))
-      .AddMerge<IGqlpDomainTrueFalse>(m => new MergeDomainTrueFalse(m.LoggerFactory))
+        m => new MergeDomains<DomainRegexAst, IGqlpDomainRegex>(m))
+      .AddMerge<IGqlpDomainTrueFalse>(m => new MergeDomainTrueFalse(m))
       .AddMergeAll<IGqlpDomain<IGqlpDomainTrueFalse>, IGqlpDomain, MergeDomains<DomainTrueFalseAst, IGqlpDomainTrueFalse>>(
-        m => new MergeDomains<DomainTrueFalseAst, IGqlpDomainTrueFalse>(m.LoggerFactory, m.MergerFor<IGqlpDomainTrueFalse>()))
-      .AddMergeAll<IGqlpEnum, IGqlpType, MergeEnums>(m => new MergeEnums(m.LoggerFactory, m.MergerFor<IGqlpEnumLabel>()))
-      .AddMerge<IGqlpEnumLabel>(m => new MergeEnumLabels(m.LoggerFactory))
-      .AddMergeAll<IGqlpUnion, IGqlpType, MergeUnions>(m => new MergeUnions(m.LoggerFactory, m.MergerFor<IGqlpUnionMember>()))
+        m => new MergeDomains<DomainTrueFalseAst, IGqlpDomainTrueFalse>(m))
+      .AddMergeAll<IGqlpEnum, IGqlpType, MergeEnums>(m => new MergeEnums(m))
+      .AddMerge<IGqlpEnumLabel>(m => new MergeEnumLabels(m))
+      .AddMergeAll<IGqlpUnion, IGqlpType, MergeUnions>(m => new MergeUnions(m))
       .AddMerge<IGqlpUnionMember>(_ => new MergeUnionMembers())
       // Object types
       .AddMerge<IGqlpTypeParam>(_ => new MergeTypeParams())
-      .AddMerge<IGqlpAlternate>(m => new MergeAlternates(m.LoggerFactory))
+      .AddMerge<IGqlpAlternate>(m => new MergeAlternates(m))
       .AddMergeAll<IGqlpObject<IGqlpDualField>, IGqlpType, AstObjectsMerger<IGqlpDualField>>(
-        m => new AstObjectsMerger<IGqlpDualField>(m.LoggerFactory, m.MergerFor<IGqlpDualField>(), m.MergerFor<IGqlpTypeParam>(), m.MergerFor<IGqlpAlternate>()))
-      .AddMerge<IGqlpDualField>(m => new MergeDualFields(m.LoggerFactory))
+        m => new AstObjectsMerger<IGqlpDualField>(m))
+      .AddMerge<IGqlpDualField>(m => new MergeDualFields(m))
       .AddMergeAll<IGqlpObject<IGqlpInputField>, IGqlpType, AstObjectsMerger<IGqlpInputField>>(
-        m => new AstObjectsMerger<IGqlpInputField>(m.LoggerFactory, m.MergerFor<IGqlpInputField>(), m.MergerFor<IGqlpTypeParam>(), m.MergerFor<IGqlpAlternate>()))
-      .AddMerge<IGqlpInputField>(m => new MergeInputFields(m.LoggerFactory, m.MergerFor<IGqlpConstant>()))
-      .AddMerge<IGqlpInputParam>(m => new MergeInputParams(m.LoggerFactory, m.MergerFor<IGqlpConstant>()))
+        m => new AstObjectsMerger<IGqlpInputField>(m))
+      .AddMerge<IGqlpInputField>(m => new MergeInputFields(m))
+      .AddMerge<IGqlpInputParam>(m => new MergeInputParams(m))
       .AddMergeAll<IGqlpObject<IGqlpOutputField>, IGqlpType, AstObjectsMerger<IGqlpOutputField>>(
-        m => new AstObjectsMerger<IGqlpOutputField>(m.LoggerFactory, m.MergerFor<IGqlpOutputField>(), m.MergerFor<IGqlpTypeParam>(), m.MergerFor<IGqlpAlternate>()))
-      .AddMerge<IGqlpOutputField>(m => new MergeOutputFields(m.LoggerFactory, m.MergerFor<IGqlpInputParam>()))
+        m => new AstObjectsMerger<IGqlpOutputField>(m))
+      .AddMerge<IGqlpOutputField>(m => new MergeOutputFields(m))
     ;
 }

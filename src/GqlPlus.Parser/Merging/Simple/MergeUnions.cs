@@ -4,9 +4,8 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeUnions(
-  ILoggerFactory logger,
-  IMerge<IGqlpUnionMember> unionMembers
-) : AstSimpleMerger<IGqlpType, IGqlpUnion, IGqlpUnionMember>(logger, unionMembers)
+  IMergerRepository mergers
+) : AstSimpleMerger<IGqlpType, IGqlpUnion, IGqlpUnionMember>(mergers.LoggerFactory, mergers.MergerFor<IGqlpUnionMember>())
 {
   internal override IGqlpUnion SetItems(IGqlpUnion input, IEnumerable<IGqlpUnionMember> items)
   {

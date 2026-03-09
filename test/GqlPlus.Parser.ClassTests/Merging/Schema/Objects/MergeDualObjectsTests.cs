@@ -8,7 +8,13 @@ public class MergeDualObjectsTests
 {
   public MergeDualObjectsTests(ITestOutputHelper outputHelper)
     : base(TypeKind.Dual)
-    => MergerObject = new(outputHelper.ToLoggerFactory(), Fields, TypeParams, Alternates);
+  {
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpDualField>().Returns(Fields);
+    mergers.MergerFor<IGqlpTypeParam>().Returns(TypeParams);
+    mergers.MergerFor<IGqlpAlternate>().Returns(Alternates);
+    MergerObject = new(mergers);
+  }
 
   internal override AstObjectsMerger<IGqlpDualField> MergerObject { get; }
 

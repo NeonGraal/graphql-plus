@@ -4,8 +4,8 @@ using GqlPlus.Ast.Schema;
 namespace GqlPlus.Merging.Objects;
 
 internal class MergeAlternates(
-  ILoggerFactory logger
-) : AstDescribedMerger<IGqlpAlternate>(logger)
+  IMergerRepository mergers
+) : AstDescribedMerger<IGqlpAlternate>(mergers.LoggerFactory)
 {
   protected override IGqlpAlternate MergeGroup(IEnumerable<IGqlpAlternate> group)
   {

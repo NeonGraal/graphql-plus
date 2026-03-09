@@ -4,9 +4,8 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeEnums(
-  ILoggerFactory logger,
-  IMerge<IGqlpEnumLabel> enumLabels
-) : AstSimpleMerger<IGqlpType, IGqlpEnum, IGqlpEnumLabel>(logger, enumLabels)
+  IMergerRepository mergers
+) : AstSimpleMerger<IGqlpType, IGqlpEnum, IGqlpEnumLabel>(mergers.LoggerFactory, mergers.MergerFor<IGqlpEnumLabel>())
 {
   internal override IGqlpEnum SetItems(IGqlpEnum input, IEnumerable<IGqlpEnumLabel> items)
   {

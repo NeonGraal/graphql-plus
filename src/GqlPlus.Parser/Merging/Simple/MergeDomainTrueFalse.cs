@@ -3,8 +3,8 @@
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeDomainTrueFalse(
-  ILoggerFactory logger
-) : AstDomainItemMerger<IGqlpDomainTrueFalse>(logger)
+  IMergerRepository mergers
+) : AstDomainItemMerger<IGqlpDomainTrueFalse>(mergers.LoggerFactory)
 {
   protected override string ItemGroupKey(IGqlpDomainTrueFalse item)
     => $"{item.IsTrue}";

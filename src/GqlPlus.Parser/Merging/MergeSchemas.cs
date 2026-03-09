@@ -4,10 +4,7 @@ using GqlPlus.Ast.Schema;
 namespace GqlPlus.Merging;
 
 internal class MergeSchemas(
-  IMerge<IGqlpSchemaCategory> categoryMerger,
-  IMerge<IGqlpSchemaDirective> directiveMerger,
-  IMerge<IGqlpSchemaOption> optionMerger,
-  IMerge<IGqlpType> astTypeMerger
+  IMergerRepository mergers
 ) : GroupsMerger<IGqlpSchema>
 {
   protected override string ItemGroupKey(IGqlpSchema item)
@@ -20,10 +17,10 @@ internal class MergeSchemas(
     IGqlpSchemaOption[] options = Just<IGqlpSchemaOption>(group);
     IGqlpType[] astTypes = Just<IGqlpType>(group);
 
-    IMessages categoriesCanMerge = categories.Length > 0 ? categoryMerger.CanMerge(categories) : Messages.New;
-    IMessages directivesCanMerge = directives.Length > 0 ? directiveMerger.CanMerge(directives) : Messages.New;
-    IMessages optionsCanMerge = options.Length > 0 ? optionMerger.CanMerge(options) : Messages.New;
-    IMessages astTypesCanMerge = astTypes.Length > 0 ? astTypeMerger.CanMerge(astTypes) : Messages.New;
+    IMessages categoriesCanMerge = categories.Length > 0 ? mergers.MergerFor<IGqlpSchemaCategory>().CanMerge(categories) : Messages.New;
+    IMessages directivesCanMerge = directives.Length > 0 ? mergers.MergerFor<IGqlpSchemaDirective>().CanMerge(directives) : Messages.New;
+    IMessages optionsCanMerge = options.Length > 0 ? mergers.MergerFor<IGqlpSchemaOption>().CanMerge(options) : Messages.New;
+    IMessages astTypesCanMerge = astTypes.Length > 0 ? mergers.MergerFor<IGqlpType>().CanMerge(astTypes) : Messages.New;
 
     return categoriesCanMerge
       .Add(directivesCanMerge)
@@ -41,11 +38,11 @@ internal class MergeSchemas(
     IGqlpSchemaOption[] options = Just<IGqlpSchemaOption>(group);
     IGqlpType[] astTypes = Just<IGqlpType>(group);
 
-    IEnumerable<AstDeclaration> declarations = categoryMerger
+    IEnumerable<AstDeclaration> declarations = mergers.MergerFor<IGqlpSchemaCategory>()
       .Merge(categories).Cast<IGqlpDeclaration>()
-      .Concat(directiveMerger.Merge(directives))
-      .Concat(optionMerger.Merge(options))
-      .Concat(astTypeMerger.Merge(astTypes))
+      .Concat(mergers.MergerFor<IGqlpSchemaDirective>().Merge(directives))
+      .Concat(mergers.MergerFor<IGqlpSchemaOption>().Merge(options))
+      .Concat(mergers.MergerFor<IGqlpType>().Merge(astTypes))
       .Cast<AstDeclaration>();
 
     SchemaAst ast = (SchemaAst)group.First();

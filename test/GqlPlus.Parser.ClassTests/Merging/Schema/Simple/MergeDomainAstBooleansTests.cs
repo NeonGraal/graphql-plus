@@ -12,7 +12,9 @@ public class MergeDomainAstBooleansTests
 
   public MergeDomainAstBooleansTests(ITestOutputHelper outputHelper)
   {
-    MergeDomains<DomainTrueFalseAst, IGqlpDomainTrueFalse> merger = new(outputHelper.ToLoggerFactory(), MergeItems);
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpDomainTrueFalse>().Returns(MergeItems);
+    MergeDomains<DomainTrueFalseAst, IGqlpDomainTrueFalse> merger = new(mergers);
     Merger = merger;
     MergerSimple = merger;
   }

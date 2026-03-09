@@ -4,9 +4,8 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Merging;
 
 internal class MergeAllTypes(
-  ILoggerFactory logger,
-  IEnumerable<IMergeAll<IGqlpType>> types
-) : AllMerger<IGqlpType>(logger, types)
+  IMergerRepository mergers
+) : AllMerger<IGqlpType>(mergers.LoggerFactory, mergers.AllMergersFor<IGqlpType>())
 {
   protected override string ItemMatchName => "Type";
   protected override string ItemMatchKey(IGqlpType item) => item.Label;

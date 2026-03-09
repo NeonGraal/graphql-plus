@@ -21,12 +21,12 @@ internal class MergerRepository(
   public IEnumerable<IMergeAll<T>> AllMergersFor<T>()
     where T : IGqlpType
   {
-    if (!builder.AllMergerTypes.TryGetValue(typeof(T), out List<Type>? serviceTypes)) {
-      return [];
+    if (builder.AllMergerTypes.TryGetValue(typeof(T), out List<Type>? serviceTypes)) {
+      return serviceTypes.Select(serviceType =>
+        (IMergeAll<T>)_cache.GetOrAdd(serviceType, st => CreateInstance(st)));
     }
 
-    return serviceTypes.Select(serviceType =>
-      (IMergeAll<T>)_cache.GetOrAdd(serviceType, st => CreateInstance(st)));
+    return [];
   }
 
   private Type GetServiceType<T>()

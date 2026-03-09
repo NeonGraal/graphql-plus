@@ -4,13 +4,12 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 internal class DomainMatcher(
-  ILoggerFactory logger,
-  Matcher<IGqlpEnum>.D enumMatcher
-) : MatchTypeBase<IGqlpDomain>(logger)
+  IMatcherRepository matchers
+) : MatchTypeBase<IGqlpDomain>(matchers)
   , Matcher<IGqlpDomain>.I
   , ITypeMatcher
 {
-  private readonly Matcher<IGqlpEnum>.L _enumMatcher = enumMatcher;
+  private readonly Matcher<IGqlpEnum>.L _enumMatcher = matchers.MatcherFor<IGqlpEnum>();
 
   public override bool Matches(IGqlpDomain type, string constraint, EnumContext context)
   {

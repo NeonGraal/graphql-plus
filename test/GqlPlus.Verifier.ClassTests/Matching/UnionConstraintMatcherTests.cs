@@ -8,7 +8,7 @@ public class UnionConstraintMatcherTests
   private readonly UnionConstraintMatcher _sut;
 
   public UnionConstraintMatcherTests()
-    => _sut = new(LoggerFactory, AnyTypeMatcher);
+    => _sut = new(MatcherRepo);
 
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingUnionMember(string name, string constraint)

@@ -28,7 +28,7 @@ public class InputParentMatcherTests
 {
   public InputParentMatcherTests()
     : base(TypeKind.Input)
-    => DualSut = new(LoggerFactory);
+    => DualSut = new(MatcherRepo);
 
   internal override MatchObjectParentDualBase<IGqlpInputField> DualSut { get; }
 }
@@ -38,7 +38,7 @@ public class OutputParentMatcherTests
 {
   public OutputParentMatcherTests()
     : base(TypeKind.Output)
-    => DualSut = new(LoggerFactory);
+    => DualSut = new(MatcherRepo);
 
   internal override MatchObjectParentDualBase<IGqlpOutputField> DualSut { get; }
 }

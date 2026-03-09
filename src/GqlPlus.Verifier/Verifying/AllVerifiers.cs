@@ -1,5 +1,7 @@
-﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Matching;
+using GqlPlus.Merging;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Globals;
@@ -13,79 +15,117 @@ namespace GqlPlus.Verifying;
 public static class AllVerifiers
 {
   public static IServiceCollection AddVerifiers(this IServiceCollection services)
-    => services
+    => services.AddVerifiers(b => b
       // Operation
-      .AddVerify<IGqlpOperation, VerifyOperation>()
-      .AddVerify<IGqlpVariable, VerifyVariable>()
-      .AddVerifyUsageIdentified<IGqlpArg, IGqlpVariable, VerifyVariableUsage>()
-      .AddVerifyUsageIdentified<IGqlpSpread, IGqlpFragment, VerifyFragmentUsage>()
+      .AddVerify<IGqlpOperation>((v, _) => new VerifyOperation(
+        v.IdentifiedFor<IGqlpArg, IGqlpVariable>(),
+        v.IdentifiedFor<IGqlpSpread, IGqlpFragment>()))
+      .AddVerify<IGqlpVariable>((_, _) => new VerifyVariable())
+      .AddVerifyUsageIdentified<IGqlpArg, IGqlpVariable>(
+        (v, _) => new VerifyVariableUsage(v.VerifierFor<IGqlpArg>(), v.VerifierFor<IGqlpVariable>()))
+      .AddVerifyUsageIdentified<IGqlpSpread, IGqlpFragment>(
+        (v, _) => new VerifyFragmentUsage(v.VerifierFor<IGqlpSpread>(), v.VerifierFor<IGqlpFragment>()))
       // Schema
-      .AddVerify<IGqlpSchema, VerifySchema>()
-      .AddVerifyUsageAliased<IGqlpSchemaCategory, VerifyCategoryAliased, VerifyCategoryOutput>()
-      .AddVerifyUsageAliased<IGqlpSchemaDirective, VerifyDirectiveAliased, VerifyDirectiveInput>()
-      .AddVerifyAliased<IGqlpSchemaOption, VerifyOptionAliased>()
+      .AddVerify<IGqlpSchema>((v, _) => new VerifySchema(
+        v.UsageFor<IGqlpSchemaCategory>(),
+        v.UsageFor<IGqlpSchemaDirective>(),
+        v.AliasedFor<IGqlpSchemaOption>(),
+        v.AliasedFor<IGqlpType>(),
+        v.VerifierFor<IGqlpType[]>()))
+      .AddVerifyUsageAliased<IGqlpSchemaCategory>(
+        (v, s) => new VerifyCategoryAliased(v.VerifierFor<IGqlpSchemaCategory>(), s.GetRequiredService<IMerge<IGqlpSchemaCategory>>(), s.GetRequiredService<ILoggerFactory>()),
+        (v, _) => new VerifyCategoryOutput(v.AliasedFor<IGqlpSchemaCategory>()))
+      .AddVerifyUsageAliased<IGqlpSchemaDirective>(
+        (v, s) => new VerifyDirectiveAliased(v.VerifierFor<IGqlpSchemaDirective>(), s.GetRequiredService<IMerge<IGqlpSchemaDirective>>(), s.GetRequiredService<ILoggerFactory>()),
+        (v, _) => new VerifyDirectiveInput(v.AliasedFor<IGqlpSchemaDirective>()))
+      .AddVerifyAliased<IGqlpSchemaOption>(
+        (v, s) => new VerifyOptionAliased(v.VerifierFor<IGqlpSchemaOption>(), s.GetRequiredService<IMerge<IGqlpSchemaOption>>(), s.GetRequiredService<ILoggerFactory>()))
       // Schema Types
-      .AddVerify<IGqlpType[], VerifyAllTypes>()
-
-      .AddVerifyAliased<IGqlpType, VerifyAllTypesAliased>()
+      .AddVerify<IGqlpType[]>((v, _) => new VerifyAllTypes(
+        v.UsageFor<IGqlpObject<IGqlpDualField>>(),
+        v.UsageFor<IGqlpEnum>(),
+        v.UsageFor<IGqlpObject<IGqlpInputField>>(),
+        v.UsageFor<IGqlpObject<IGqlpOutputField>>(),
+        v.UsageFor<IGqlpDomain>(),
+        v.UsageFor<IGqlpUnion>()))
+      .AddVerifyAliased<IGqlpType>(
+        (_, s) => new VerifyAllTypesAliased(s.GetRequiredService<IMerge<IGqlpType>>(), s.GetRequiredService<ILoggerFactory>()))
       // Simple Types
-      .AddVerifyUsageAliased<IGqlpDomain, VerifyDomainsAliased, VerifyDomainTypes>()
-      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRange>>()
-      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRegex>>()
-      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainTrueFalse>>()
-      .AddVerifyDomainContext<VerifyDomainEnum>()
-      .AddVerifyUsageAliased<IGqlpEnum, VerifyEnumsAliased, VerifyEnumTypes>()
-      .AddVerifyUsageAliased<IGqlpUnion, VerifyUnionsAliased, VerifyUnionTypes>()
+      .AddVerifyUsageAliased<IGqlpDomain>(
+        (v, s) => new VerifyDomainsAliased(v.VerifierFor<IGqlpDomain>(), s.GetRequiredService<IMerge<IGqlpDomain>>(), s.GetRequiredService<ILoggerFactory>()),
+        (v, _) => new VerifyDomainTypes(v.AliasedFor<IGqlpDomain>(), v.GetDomains()))
+      .AddDomain((_, s) => new AstDomainVerifier<IGqlpDomainRange>(s.GetRequiredService<IMerge<IGqlpDomainRange>>()))
+      .AddDomain((_, s) => new AstDomainVerifier<IGqlpDomainRegex>(s.GetRequiredService<IMerge<IGqlpDomainRegex>>()))
+      .AddDomain((_, s) => new AstDomainVerifier<IGqlpDomainTrueFalse>(s.GetRequiredService<IMerge<IGqlpDomainTrueFalse>>()))
+      .AddDomain((_, s) => new VerifyDomainEnum(s.GetRequiredService<IMerge<IGqlpDomainLabel>>()))
+      .AddVerifyUsageAliased<IGqlpEnum>(
+        (v, s) => new VerifyEnumsAliased(v.VerifierFor<IGqlpEnum>(), s.GetRequiredService<IMerge<IGqlpEnum>>(), s.GetRequiredService<ILoggerFactory>()),
+        (v, s) => new VerifyEnumTypes(v.AliasedFor<IGqlpEnum>(), s.GetRequiredService<IMerge<IGqlpEnumLabel>>()))
+      .AddVerifyUsageAliased<IGqlpUnion>(
+        (v, s) => new VerifyUnionsAliased(v.VerifierFor<IGqlpUnion>(), s.GetRequiredService<IMerge<IGqlpUnion>>(), s.GetRequiredService<ILoggerFactory>()),
+        (v, s) => new VerifyUnionTypes(v.AliasedFor<IGqlpUnion>(), s.GetRequiredService<IMerge<IGqlpUnionMember>>()))
       // Object Types
-      .AddVerifyObject<IGqlpDualField, VerifyDualTypes>()
-      .AddVerifyObject<IGqlpInputField, VerifyInputTypes>()
-      .AddVerifyObject<IGqlpOutputField, VerifyOutputTypes>()
-    ;
+      .AddVerifyObject<IGqlpDualField>((v, s) => new VerifyDualTypes(MakeObjectParams<IGqlpDualField>(v, s)))
+      .AddVerifyObject<IGqlpInputField>((v, s) => new VerifyInputTypes(MakeObjectParams<IGqlpInputField>(v, s)))
+      .AddVerifyObject<IGqlpOutputField>((v, s) => new VerifyOutputTypes(MakeObjectParams<IGqlpOutputField>(v, s)))
+    );
 
-  private static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)
-    where TService : class, IVerify<TValue>
-    => services.AddSingleton<IVerify<TValue>, TService>();
-
-  private static IServiceCollection TryAddVerify<TValue, TService>(this IServiceCollection services)
-    where TService : class, IVerify<TValue>
+  public static IServiceCollection AddVerifiers(this IServiceCollection services, Action<IVerifierRepositoryBuilder> config)
   {
-    services.TryAddSingleton<IVerify<TValue>, TService>();
+    VerifierRepositoryBuilder builder = new();
+    config?.Invoke(builder);
+    services.AddSingleton(builder.Build());
+    services.TryAddSingleton<IVerifierRepository, VerifierRepository>();
     return services;
   }
 
-  private static IServiceCollection AddVerifyUsageIdentified<TUsage, TIdentified, TService>(this IServiceCollection services)
-    where TService : class, IVerifyIdentified<TUsage, TIdentified>
+  private static ObjectVerifierParams<TField> MakeObjectParams<TField>(IVerifierRepository v, IServiceProvider s)
+    where TField : IGqlpObjField
+    => new(
+      v.AliasedFor<IGqlpObject<TField>>(),
+      s.GetRequiredService<IMerge<TField>>(),
+      s.GetRequiredService<IMerge<IGqlpAlternate>>(),
+      s.GetRequiredService<Matcher<IGqlpTypeArg>.D>(),
+      s.GetRequiredService<IGqlpFieldKind<TField>>());
+
+  private static IVerifierRepositoryBuilder AddVerifyUsageIdentified<TUsage, TIdentified>(
+    this IVerifierRepositoryBuilder builder,
+    VerifierFactory<IVerifyIdentified<TUsage, TIdentified>> identifiedFactory)
     where TUsage : IGqlpError
     where TIdentified : IGqlpIdentified
-  => services
-      .AddSingleton<IVerifyIdentified<TUsage, TIdentified>, TService>()
-      .TryAddVerify<TUsage, NullVerifierError<TUsage>>()
-      .TryAddVerify<TIdentified, NullVerifierError<TIdentified>>();
+    => builder
+      .AddIdentified(identifiedFactory)
+      .TryAddVerify<TUsage>((_, s) => new NullVerifierError<TUsage>(s.GetRequiredService<ILoggerFactory>()))
+      .TryAddVerify<TIdentified>((_, s) => new NullVerifierError<TIdentified>(s.GetRequiredService<ILoggerFactory>()));
 
-  private static IServiceCollection AddVerifyAliased<TAliased, TAliasedService>(this IServiceCollection services)
-    where TAliasedService : class, IVerifyAliased<TAliased>
+  private static IVerifierRepositoryBuilder AddVerifyAliased<TAliased>(
+    this IVerifierRepositoryBuilder builder,
+    VerifierFactory<IVerifyAliased<TAliased>> aliasedFactory)
     where TAliased : IGqlpAliased
-    => services
-      .AddSingleton<IVerifyAliased<TAliased>, TAliasedService>()
-      .TryAddVerify<TAliased, NullVerifierError<TAliased>>();
+    => builder
+      .AddAliased(aliasedFactory)
+      .TryAddVerify<TAliased>((_, s) => new NullVerifierError<TAliased>(s.GetRequiredService<ILoggerFactory>()));
 
-  private static IServiceCollection AddVerifyUsageAliased<TUsage, TAliasedService, TUsageService>(this IServiceCollection services)
-    where TAliasedService : class, IVerifyAliased<TUsage>
-    where TUsageService : class, IVerifyUsage<TUsage>
+  private static IVerifierRepositoryBuilder AddVerifyUsageAliased<TUsage>(
+    this IVerifierRepositoryBuilder builder,
+    VerifierFactory<IVerifyAliased<TUsage>> aliasedFactory,
+    VerifierFactory<IVerifyUsage<TUsage>> usageFactory)
     where TUsage : IGqlpAliased
-    => services
-      .AddSingleton<IVerifyAliased<TUsage>, TAliasedService>()
-      .AddSingleton<IVerifyUsage<TUsage>, TUsageService>()
-      .TryAddVerify<TUsage, NullVerifierError<TUsage>>();
+    => builder
+      .AddAliased(aliasedFactory)
+      .AddUsage(usageFactory)
+      .TryAddVerify<TUsage>((_, s) => new NullVerifierError<TUsage>(s.GetRequiredService<ILoggerFactory>()));
 
-  private static IServiceCollection AddVerifyDomainContext<TService>(this IServiceCollection services)
-    where TService : class, IVerifyDomain
-    => services.AddSingleton<IVerifyDomain, TService>();
-
-  private static IServiceCollection AddVerifyObject<TField, TService>(this IServiceCollection services)
+  private static IVerifierRepositoryBuilder AddVerifyObject<TField>(
+    this IVerifierRepositoryBuilder builder,
+    VerifierFactory<IVerifyUsage<IGqlpObject<TField>>> usageFactory)
     where TField : IGqlpObjField
-    where TService : AstObjectVerifier<TField>
-    => services
-      .AddSingleton<ObjectVerifierParams<TField>>()
-      .AddVerifyUsageAliased<IGqlpObject<TField>, ObjectsAliasedVerifier<TField>, TService>();
+    => builder
+      .AddAliased<IGqlpObject<TField>>((v, s) => new ObjectsAliasedVerifier<TField>(
+        v.VerifierFor<IGqlpObject<TField>>(),
+        s.GetRequiredService<IMerge<IGqlpObject<TField>>>(),
+        s.GetRequiredService<ILoggerFactory>(),
+        s.GetRequiredService<IGqlpFieldKind<TField>>()))
+      .AddUsage(usageFactory)
+      .TryAddVerify<IGqlpObject<TField>>((_, s) => new NullVerifierError<IGqlpObject<TField>>(s.GetRequiredService<ILoggerFactory>()));
 }

@@ -8,10 +8,11 @@ namespace GqlPlus.Sample;
 
 public class VerifyOperationTests(
     IParserRepository parsers,
-    IVerify<IGqlpOperation> operationVerifier
+    IVerifierRepository verifierRepository
 ) : SampleChecks
 {
   private readonly Parser<IGqlpOperation>.L _parser = parsers.ParserFor<IGqlpOperation>();
+  private readonly IVerify<IGqlpOperation> _operationVerifier = verifierRepository.VerifierFor<IGqlpOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]
@@ -24,7 +25,7 @@ public class VerifyOperationTests(
 
     Messages result = [];
 
-    operationVerifier.Verify(parse.Required(), result);
+    _operationVerifier.Verify(parse.Required(), result);
 
     result.ShouldBeEmpty();
   }
@@ -37,7 +38,7 @@ public class VerifyOperationTests(
 
     Messages result = [];
     if (parse.IsOk()) {
-      operationVerifier.Verify(parse.Required(), result);
+      _operationVerifier.Verify(parse.Required(), result);
     } else {
       parse.IsError(result.Add);
     }

@@ -1,6 +1,4 @@
 using GqlPlus.Abstractions.Schema;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Merging;
 
@@ -16,17 +14,11 @@ internal class MergeRepositoryBuilder
   // Maps AST type T (in IMergeAll<T>) -> list of service types
   internal readonly Dictionary<Type, List<Type>> AllMergerTypes = [];
 
-  // DI registration actions for backward-compat IMerge<T> registrations
-  internal readonly List<Action<IServiceCollection>> DiRegistrations = [];
-
   public IMergeRepositoryBuilder AddMerge<T>(MergerFactory<IMerge<T>> factory)
     where T : IGqlpError
   {
     MergerTypes[typeof(T)] = typeof(T);
     Factories[typeof(T)] = m => factory(m);
-    DiRegistrations.Add(s => s
-      .RemoveAll<IMerge<T>>()
-      .AddSingleton<IMerge<T>>(sp => sp.GetRequiredService<IMergerRepository>().MergerFor<T>()));
     return this;
   }
 
@@ -46,16 +38,6 @@ internal class MergeRepositoryBuilder
       list.Add(typeof(TService));
     }
 
-    DiRegistrations.Add(s => s
-      .RemoveAll<IMerge<TAst>>()
-      .AddSingleton<IMerge<TAst>>(sp => sp.GetRequiredService<IMergerRepository>().MergerFor<TAst>()));
     return this;
-  }
-
-  internal void RegisterDiServices(IServiceCollection services)
-  {
-    foreach (Action<IServiceCollection> registration in DiRegistrations) {
-      registration(services);
-    }
   }
 }

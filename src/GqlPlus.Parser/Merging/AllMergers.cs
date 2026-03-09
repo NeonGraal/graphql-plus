@@ -1,3 +1,4 @@
+using System.Reflection;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
@@ -12,6 +13,10 @@ namespace GqlPlus.Merging;
 
 public static class AllMergers
 {
+  private static readonly MethodInfo s_registerMerge =
+    typeof(AllMergers).GetMethod(nameof(RegisterMerge), BindingFlags.NonPublic | BindingFlags.Static)
+    ?? throw new InvalidOperationException($"Method '{nameof(RegisterMerge)}' not found on '{nameof(AllMergers)}'.");
+
   public static IServiceCollection AddMergers(this IServiceCollection services)
     => services.AddMergers(b => b.AddSchemaMergers());
 
@@ -26,9 +31,19 @@ public static class AllMergers
     }
 
     config?.Invoke(builder);
-    builder.RegisterDiServices(services);
+
+    foreach (Type valueType in builder.MergerTypes.Keys) {
+      s_registerMerge.MakeGenericMethod(valueType).Invoke(null, [services]);
+    }
+
     return services;
   }
+
+  private static void RegisterMerge<T>(IServiceCollection services)
+    where T : IGqlpError
+    => services
+      .RemoveAll<IMerge<T>>()
+      .AddSingleton<IMerge<T>>(sp => sp.GetRequiredService<IMergerRepository>().MergerFor<T>());
 
   public static IMergeRepositoryBuilder AddSchemaMergers(this IMergeRepositoryBuilder builder)
     => builder.ThrowIfNull()

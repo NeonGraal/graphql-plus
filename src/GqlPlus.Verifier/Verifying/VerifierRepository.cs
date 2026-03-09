@@ -1,9 +1,12 @@
 using System.Collections.Concurrent;
 using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Matching;
+using GqlPlus.Merging;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Simple;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Verifying;
 
@@ -18,7 +21,7 @@ internal class VerifierRepository : IVerifierRepository
   {
     _state = state;
     _services = services;
-    _domains = new(() => [.. state.Domains.Select(f => (IVerifyDomain)f.Invoke(this, services))]);
+    _domains = new(() => [.. state.Domains.Select(f => (IVerifyDomain)f.Invoke(this))]);
   }
 
   private TResult Cached<TKey, TResult>(Dictionary<TKey, VerifierFactory<object>> factories, TKey key, string label)
@@ -27,7 +30,7 @@ internal class VerifierRepository : IVerifierRepository
       typeof(TResult),
       _ => {
         if (factories.TryGetValue(key, out VerifierFactory<object>? factory)) {
-          return factory.Invoke(this, _services);
+          return factory.Invoke(this);
         }
 
         throw new InvalidOperationException($"No {label} verifier registration found for type '{key}'.");
@@ -54,4 +57,18 @@ internal class VerifierRepository : IVerifierRepository
 
   public IEnumerable<IVerifyDomain> GetDomains()
     => _domains.Value;
+
+  public ILoggerFactory LoggerFactory
+    => _services.GetRequiredService<ILoggerFactory>();
+
+  public IMerge<T> MergeFor<T>()
+    where T : IGqlpError
+    => _services.GetRequiredService<IMerge<T>>();
+
+  public Matcher<T>.D MatcherFor<T>()
+    => _services.GetRequiredService<Matcher<T>.D>();
+
+  public IGqlpFieldKind<T> FieldKindFor<T>()
+    where T : IGqlpObjField
+    => _services.GetRequiredService<IGqlpFieldKind<T>>();
 }

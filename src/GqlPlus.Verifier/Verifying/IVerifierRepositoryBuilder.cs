@@ -25,5 +25,5 @@ public interface IVerifierRepositoryBuilder
   IVerifierRepositoryBuilder AddDomain(VerifierFactory<IVerifyDomain> factory);
 }
 
-public delegate T VerifierFactory<out T>(IVerifierRepository verifiers, IServiceProvider services)
+public delegate T VerifierFactory<out T>(IVerifierRepository verifiers)
   where T : class;

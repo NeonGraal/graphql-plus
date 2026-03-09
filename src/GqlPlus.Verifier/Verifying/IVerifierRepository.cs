@@ -1,5 +1,7 @@
 using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Matching;
+using GqlPlus.Merging;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Simple;
@@ -21,4 +23,14 @@ public interface IVerifierRepository
     where TIdentified : IGqlpIdentified;
 
   IEnumerable<IVerifyDomain> GetDomains();
+
+  ILoggerFactory LoggerFactory { get; }
+
+  IMerge<T> MergeFor<T>()
+    where T : IGqlpError;
+
+  Matcher<T>.D MatcherFor<T>();
+
+  IGqlpFieldKind<T> FieldKindFor<T>()
+    where T : IGqlpObjField;
 }

@@ -29,15 +29,15 @@ internal class MergeRepositoryBuilder
   {
     MergerTypes[typeof(TAst)] = typeof(TService);
     Factories[typeof(TService)] = m => factory(m);
-    if (!AllMergerTypes.TryGetValue(typeof(TType), out List<Type>? list)) {
-      list = [];
-      AllMergerTypes[typeof(TType)] = list;
+    AllMergerTypes.TryGetValue(typeof(TType), out List<Type>? list);
+    list ??= [];
+    AllMergerTypes[typeof(TType)] = list;
+
+    if (list.Contains(typeof(TService))) {
+      return this;
     }
 
-    if (!list.Contains(typeof(TService))) {
-      list.Add(typeof(TService));
-    }
-
+    list.Add(typeof(TService));
     return this;
   }
 }

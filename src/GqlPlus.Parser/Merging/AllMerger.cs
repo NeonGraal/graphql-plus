@@ -12,11 +12,12 @@ internal abstract class AllMerger<TItem>(
   protected override IMessages CanMergeGroup(IGrouping<string, TItem> group)
   {
     IMessages result = base.CanMergeGroup(group);
-    if (!result.Any()) {
-      List<(IMergeAll<TItem> domain, IMessages)> each = [.. _all.Select(domain => (domain, domain.CanMerge(group)))];
-      result.Add(each.SelectMany(item => item.Item2));
+    if (result.Any()) {
+      return result;
     }
 
+    List<(IMergeAll<TItem> domain, IMessages)> each = [.. _all.Select(domain => (domain, domain.CanMerge(group)))];
+    result.Add(each.SelectMany(item => item.Item2));
     return result;
   }
 

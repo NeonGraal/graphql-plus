@@ -100,8 +100,10 @@ internal class MergeAllTypes(
       }
     }
 
-    if (!string.IsNullOrWhiteSpace(enumType)) {
-      type.SetEnumType(enumType!);
+    if (string.IsNullOrWhiteSpace(enumType)) {
+      return;
     }
+
+    type.SetEnumType(enumType!);
   }
 }

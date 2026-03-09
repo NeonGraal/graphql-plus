@@ -32,19 +32,19 @@ internal class MergerRepository(
   private Type GetServiceType<T>()
     where T : IGqlpError
   {
-    if (!builder.MergerTypes.TryGetValue(typeof(T), out Type? serviceType)) {
-      throw new InvalidOperationException($"No merger registered for type '{typeof(T).TidyTypeName()}'.");
+    if (builder.MergerTypes.TryGetValue(typeof(T), out Type? serviceType)) {
+      return serviceType;
     }
 
-    return serviceType;
+    throw new InvalidOperationException($"No merger registered for type '{typeof(T).TidyTypeName()}'.");
   }
 
   private object CreateInstance(Type serviceType)
   {
-    if (!builder.Factories.TryGetValue(serviceType, out MergerFactory<object>? factory)) {
-      throw new InvalidOperationException($"No factory registered for merger service type '{serviceType.TidyTypeName()}'.");
+    if (builder.Factories.TryGetValue(serviceType, out MergerFactory<object>? factory)) {
+      return factory(this);
     }
 
-    return factory(this);
+    throw new InvalidOperationException($"No factory registered for merger service type '{serviceType.TidyTypeName()}'.");
   }
 }

@@ -25,6 +25,7 @@ public static class AllMatchers
       .AddObjectMatcher<IGqlpDualField, ObjectParentMatcher<IGqlpDualField>>()
       .AddObjectDualMatcher<IGqlpInputField>()
       .AddObjectDualMatcher<IGqlpOutputField>()
+      .AddSingleton<IMatcherRepository, MatcherRepository>()
     ;
 
   private static IServiceCollection AddMatcher<TType, TMatcher>(this IServiceCollection services)

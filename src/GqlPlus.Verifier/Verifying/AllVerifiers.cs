@@ -83,7 +83,7 @@ public static class AllVerifiers
       v.AliasedFor<IGqlpObject<TField>>(),
       v.MergeFor<TField>(),
       v.MergeFor<IGqlpAlternate>(),
-      v.MatcherFor<IGqlpTypeArg>(),
+      v.Matchers.MatcherFor<IGqlpTypeArg>(),
       v.FieldKindFor<TField>());
 
   private static IVerifierRepositoryBuilder AddVerifyUsageIdentified<TUsage, TIdentified>(

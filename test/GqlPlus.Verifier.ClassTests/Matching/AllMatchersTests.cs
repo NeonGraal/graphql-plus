@@ -17,4 +17,17 @@ public class AllMatchersTests
     services.GetService<Matcher<IGqlpType>.D>()
       .ShouldNotBeNull();
   }
+
+  [Fact]
+  public void AllMatchers_Repository_IsRegistered()
+  {
+    IServiceProvider services = new ServiceCollection()
+      .AddLogging()
+      .AddMergers()
+      .AddMatchers()
+      .BuildServiceProvider();
+
+    services.GetService<IMatcherRepository>()
+      .ShouldNotBeNull();
+  }
 }

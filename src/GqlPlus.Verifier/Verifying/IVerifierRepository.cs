@@ -29,7 +29,7 @@ public interface IVerifierRepository
   IMerge<T> MergeFor<T>()
     where T : IGqlpError;
 
-  Matcher<T>.D MatcherFor<T>();
+  IMatcherRepository Matchers { get; }
 
   IGqlpFieldKind<T> FieldKindFor<T>()
     where T : IGqlpObjField;

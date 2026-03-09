@@ -65,8 +65,8 @@ internal class VerifierRepository : IVerifierRepository
     where T : IGqlpError
     => _services.GetRequiredService<IMerge<T>>();
 
-  public Matcher<T>.D MatcherFor<T>()
-    => _services.GetRequiredService<Matcher<T>.D>();
+  public IMatcherRepository Matchers
+    => _services.GetRequiredService<IMatcherRepository>();
 
   public IGqlpFieldKind<T> FieldKindFor<T>()
     where T : IGqlpObjField

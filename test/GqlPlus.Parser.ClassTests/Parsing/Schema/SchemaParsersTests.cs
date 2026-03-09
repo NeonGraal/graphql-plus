@@ -10,7 +10,6 @@ public class SchemaParsersTests
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
       .AddFieldObjectKinds()
-      .AddParserBase()
       .AddParsers(b => b
         .AddCommonParsers()
         .AddSchemaParsers())

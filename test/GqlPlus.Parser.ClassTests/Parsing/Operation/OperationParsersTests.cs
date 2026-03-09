@@ -9,7 +9,6 @@ public class OperationParsersTests
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddParserBase()
       .AddParsers(b => b
         .AddCommonParsers()
         .AddOperationParsers())

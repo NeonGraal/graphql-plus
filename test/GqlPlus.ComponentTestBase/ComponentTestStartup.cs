@@ -23,7 +23,6 @@ public static class ComponentTestStartup
         }
       })
       .AddFieldObjectKinds()
-      .AddParserBase()
       .AddParsers(b => b.AddCommonParsers())
       .AddSingleton(_ => services);
 

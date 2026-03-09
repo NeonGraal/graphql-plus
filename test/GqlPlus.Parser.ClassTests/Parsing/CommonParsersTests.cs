@@ -9,7 +9,6 @@ public class CommonParsersTests
   public CommonParsersTests()
     => _services = new ServiceCollection()
       .AddLogging()
-      .AddParserBase()
       .AddParsers(b => b.AddCommonParsers())
       .BuildServiceProvider();
 

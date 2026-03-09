@@ -1,14 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Parsing;
 
 public static class CommonParsers
 {
-  public static IServiceCollection AddParserBase(this IServiceCollection services)
-    => services
-      .AddSingleton<ParserRepository>()
-      .AddProvider<ParserRepository, IParserRepository>();
-
   public static IParserRepositoryBuilder AddCommonParsers(this IParserRepositoryBuilder builder)
     => builder.ThrowIfNull()
         .AddSingle(_ => new ParseEnumValue())
@@ -20,6 +16,7 @@ public static class CommonParsers
 
   public static IServiceCollection AddParsers(this IServiceCollection services, Action<IParserRepositoryBuilder> config)
   {
+    services.TryAddSingleton<IParserRepository, ParserRepository>();
     ServiceDescriptor? descriptor = services.FirstOrDefault(d => d.ServiceType == typeof(ParserRepositoryBuilder));
     if (descriptor?.ImplementationInstance is not ParserRepositoryBuilder builder) {
       builder = new();
@@ -33,7 +30,7 @@ public static class CommonParsers
 
   internal static IParserRepositoryBuilder AddValueParsers<TValue>(this IParserRepositoryBuilder builder, ParserFactory<ValueParser<TValue>> factory)
     where TValue : IGqlpValue<TValue>
-    => builder.ThrowIfNull()
+    => builder
       .AddSingle(factory)
       .AddInterfaceSingle<IValueParser<TValue>>(factory)
       .AddSingle(p => new ValueKeyValueParser<TValue>(p))

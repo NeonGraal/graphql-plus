@@ -1,4 +1,4 @@
-using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
@@ -8,22 +8,19 @@ namespace GqlPlus.Verifying;
 
 public interface IVerifierRepositoryBuilder
 {
-  IVerifierRepositoryBuilder AddVerify<T>(VerifierFactory<IVerify<T>> factory);
+  IVerifierRepositoryBuilder AddVerify<T>(Factory<IVerify<T>, IVerifierRepository> factory);
 
-  IVerifierRepositoryBuilder TryAddVerify<T>(VerifierFactory<IVerify<T>> factory);
+  IVerifierRepositoryBuilder TryAddVerify<T>(Factory<IVerify<T>, IVerifierRepository> factory);
 
-  IVerifierRepositoryBuilder AddAliased<T>(VerifierFactory<IVerifyAliased<T>> factory)
+  IVerifierRepositoryBuilder AddAliased<T>(Factory<IVerifyAliased<T>, IVerifierRepository> factory)
     where T : IGqlpAliased;
 
-  IVerifierRepositoryBuilder AddUsage<T>(VerifierFactory<IVerifyUsage<T>> factory)
+  IVerifierRepositoryBuilder AddUsage<T>(Factory<IVerifyUsage<T>, IVerifierRepository> factory)
     where T : IGqlpAliased;
 
-  IVerifierRepositoryBuilder AddIdentified<TUsage, TIdentified>(VerifierFactory<IVerifyIdentified<TUsage, TIdentified>> factory)
+  IVerifierRepositoryBuilder AddIdentified<TUsage, TIdentified>(Factory<IVerifyIdentified<TUsage, TIdentified>, IVerifierRepository> factory)
     where TUsage : IGqlpError
     where TIdentified : IGqlpIdentified;
 
-  IVerifierRepositoryBuilder AddDomain(VerifierFactory<IVerifyDomain> factory);
+  IVerifierRepositoryBuilder AddDomain(Factory<IVerifyDomain, IVerifierRepository> factory);
 }
-
-public delegate T VerifierFactory<out T>(IVerifierRepository verifiers)
-  where T : class;

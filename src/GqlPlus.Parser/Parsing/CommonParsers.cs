@@ -28,7 +28,7 @@ public static class CommonParsers
     return services;
   }
 
-  internal static IParserRepositoryBuilder AddValueParsers<TValue>(this IParserRepositoryBuilder builder, ParserFactory<ValueParser<TValue>> factory)
+  internal static IParserRepositoryBuilder AddValueParsers<TValue>(this IParserRepositoryBuilder builder, Factory<ValueParser<TValue>, IParserRepository> factory)
     where TValue : IGqlpValue<TValue>
     => builder
       .AddSingle(factory)

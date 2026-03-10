@@ -1,12 +1,10 @@
-using System.Collections.Concurrent;
-using Microsoft.Extensions.DependencyInjection;
+﻿namespace GqlPlus.Matching;
 
-namespace GqlPlus.Matching;
-
-internal class MatcherRepository : IMatcherRepository
+internal class MatcherRepository
+  : BaseRepository<IMatcherRepository>
+  , IMatcherRepository
 {
   private readonly MatcherRepositoryState _state;
-  private readonly ConcurrentDictionary<Type, object> _cache = new();
   private readonly Lazy<IEnumerable<ITypeMatcher>> _typeMatchers;
 
   public ILoggerFactory LoggerFactory { get; }
@@ -21,8 +19,5 @@ internal class MatcherRepository : IMatcherRepository
   public IEnumerable<ITypeMatcher> TypeMatchers => _typeMatchers.Value;
 
   public Matcher<T>.D MatcherFor<T>()
-  {
-    Matcher<T>.I matcher = (Matcher<T>.I)_cache.GetOrAdd(typeof(T), _ => _state.Matchers[typeof(T)](this));
-    return () => matcher;
-  }
+    => () => Cached<T, Matcher<T>.I>(_state.Matchers, "matcher", this);
 }

@@ -8,9 +8,9 @@ public static class AllMatchers
 {
   public static IServiceCollection AddMatchers(this IServiceCollection services)
     => services.AddMatchers(b => b
-      .AddMatcher<IGqlpType>(m => new AnyTypeMatcher(m))
+      .AddMatcher(m => new AnyTypeMatcher(m))
 
-      .AddMatcher<IGqlpTypeArg>(m => new TypeArgMatcher(m))
+      .AddMatcher(m => new TypeArgMatcher(m))
 
       .AddConstraintMatcher(m => new AlternateConstraintMatcher(m))
       .AddConstraintMatcher(m => new EnumConstraintMatcher(m))
@@ -41,7 +41,7 @@ public static class AllMatchers
     where TType : IGqlpSimple
     => builder.AddTypeMatcher<TType, SimpleParentMatcher<TType>>(m => new SimpleParentMatcher<TType>(m));
 
-  private static IMatcherRepositoryBuilder AddObjectMatcher<TField, TMatcher>(this IMatcherRepositoryBuilder builder, MatcherFactory<TMatcher> factory)
+  private static IMatcherRepositoryBuilder AddObjectMatcher<TField, TMatcher>(this IMatcherRepositoryBuilder builder, Factory<TMatcher, IMatcherRepository> factory)
     where TField : IGqlpObjField
     where TMatcher : class, Matcher<IGqlpObject<TField>>.I, ITypeMatcher
     => builder.AddTypeMatcher<IGqlpObject<TField>, TMatcher>(factory);

@@ -1,17 +1,17 @@
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Matching;
 
 internal class MatcherRepositoryBuilder
-  : IMatcherRepositoryBuilder
+  : BaseFactory<IMatcherRepository>, IMatcherRepositoryBuilder
 {
-  internal readonly MatcherFactoryDict Matchers = [];
-  internal readonly List<MatcherFactory<ITypeMatcher>> TypeMatcherFactories = [];
+  internal readonly FactoryDict Matchers = [];
+  internal readonly List<Factory<ITypeMatcher, IMatcherRepository>> TypeMatcherFactories = [];
 
-  public IMatcherRepositoryBuilder AddMatcher<T>(MatcherFactory<Matcher<T>.I> factory)
+  public IMatcherRepositoryBuilder AddMatcher<T>(Factory<Matcher<T>.I, IMatcherRepository> factory)
     => this.FluentAction(b => b.Matchers[typeof(T)] = factory);
 
-  public IMatcherRepositoryBuilder AddTypeMatcher<T, TMatcher>(MatcherFactory<TMatcher> factory)
+  public IMatcherRepositoryBuilder AddTypeMatcher<T, TMatcher>(Factory<TMatcher, IMatcherRepository> factory)
     where T : IGqlpType
     where TMatcher : class, Matcher<T>.I, ITypeMatcher
     => this.FluentAction(b => {
@@ -19,19 +19,24 @@ internal class MatcherRepositoryBuilder
       b.TypeMatcherFactories.Add(factory);
     });
 
-  public IMatcherRepositoryBuilder AddConstraintMatcher(MatcherFactory<ITypeMatcher> factory)
+  public IMatcherRepositoryBuilder AddConstraintMatcher(Factory<ITypeMatcher, IMatcherRepository> factory)
     => this.FluentAction(b => b.TypeMatcherFactories.Add(factory));
 
   internal MatcherRepositoryState Build()
     => new(Matchers, [.. TypeMatcherFactories]);
 }
 
-internal sealed class MatcherRepositoryState(
-  MatcherFactoryDict matchers,
-  List<MatcherFactory<ITypeMatcher>> typeMatcherFactories)
+internal sealed class MatcherRepositoryState
+  : BaseFactory<IMatcherRepository>
 {
-  internal MatcherFactoryDict Matchers { get; } = matchers;
-  internal List<MatcherFactory<ITypeMatcher>> TypeMatcherFactories { get; } = typeMatcherFactories;
-}
+  internal FactoryDict Matchers { get; }
+  internal List<Factory<ITypeMatcher, IMatcherRepository>> TypeMatcherFactories { get; }
 
-internal class MatcherFactoryDict : Dictionary<Type, MatcherFactory<object>>;
+  public MatcherRepositoryState(
+    FactoryDict matchers,
+    List<Factory<ITypeMatcher, IMatcherRepository>> typeMatcherFactories)
+  {
+    Matchers = matchers;
+    TypeMatcherFactories = typeMatcherFactories;
+  }
+}

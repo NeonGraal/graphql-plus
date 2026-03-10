@@ -5,10 +5,9 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class ObjectsAliasedVerifier<TField>(
   IVerify<IGqlpObject<TField>> definition,
-  IMerge<IGqlpObject<TField>> merger,
-  ILoggerFactory logger,
+  IMergerRepository mergers,
   IGqlpFieldKind<TField> fieldKind
-) : AliasedVerifier<IGqlpObject<TField>>(definition, merger, logger)
+) : AliasedVerifier<IGqlpObject<TField>>(definition, mergers)
   where TField : IGqlpObjField
 {
   public override string Label { get; } = fieldKind.FieldKind.ToString() + "s";

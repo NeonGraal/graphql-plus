@@ -5,9 +5,8 @@ namespace GqlPlus.Verifying.Schema.Globals;
 
 internal class VerifyDirectiveAliased(
   IVerify<IGqlpSchemaDirective> definition,
-  IMerge<IGqlpSchemaDirective> merger,
-  ILoggerFactory logger
-) : AliasedVerifier<IGqlpSchemaDirective>(definition, merger, logger)
+  IMergerRepository mergers
+) : AliasedVerifier<IGqlpSchemaDirective>(definition, mergers)
 {
   public override string Label => "Directives";
 }

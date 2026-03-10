@@ -43,7 +43,7 @@ public static class AllMergers
     where T : IGqlpError
     => services
       .RemoveAll<IMerge<T>>()
-      .AddSingleton<IMerge<T>>(sp => sp.GetRequiredService<IMergerRepository>().MergerFor<T>());
+      .AddSingleton<IMerge<T>, MergeProxy<T>>();
 
   public static IMergeRepositoryBuilder AddSchemaMergers(this IMergeRepositoryBuilder builder)
     => builder.ThrowIfNull()

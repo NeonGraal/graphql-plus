@@ -344,9 +344,12 @@ internal class AstObjectVerifier<TObjField>(
 
 internal record class ObjectVerifierParams<TObjField>(
   IVerifyAliased<IGqlpObject<TObjField>> Aliased,
-  IMerge<TObjField> MergeFields,
-  IMerge<IGqlpAlternate> MergeAlternates,
+  IMergerRepository Mergers,
   Matcher<IGqlpTypeArg>.D ConstraintMatcher,
   IGqlpFieldKind<TObjField> FieldKind
 )
-  where TObjField : IGqlpObjField;
+  where TObjField : IGqlpObjField
+{
+  internal IMerge<TObjField> MergeFields => Mergers.MergerFor<TObjField>();
+  internal IMerge<IGqlpAlternate> MergeAlternates => Mergers.MergerFor<IGqlpAlternate>();
+}

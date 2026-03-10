@@ -5,9 +5,8 @@ namespace GqlPlus.Verifying.Schema.Simple;
 
 internal class VerifyDomainsAliased(
   IVerify<IGqlpDomain> definition,
-  IMerge<IGqlpDomain> merger,
-  ILoggerFactory logger
-) : AliasedVerifier<IGqlpDomain>(definition, merger, logger)
+  IMergerRepository mergers
+) : AliasedVerifier<IGqlpDomain>(definition, mergers)
 {
   public override string Label => "Domains";
 }

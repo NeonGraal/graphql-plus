@@ -1,4 +1,4 @@
-namespace GqlPlus.Matching;
+﻿namespace GqlPlus.Matching;
 
 public interface IMatcherRepository
 {

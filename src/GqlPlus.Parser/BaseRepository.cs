@@ -1,7 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using GqlPlus.Parsing;
-using GqlPlus.Parsing.Schema;
-using GqlPlus.Parsing.Schema.Simple;
 
 namespace GqlPlus;
 

@@ -1,6 +1,4 @@
-using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Merging;
+﻿namespace GqlPlus.Merging;
 
 internal sealed class MergeProxy<T>(IMergerRepository mergers) : IMerge<T>
   where T : IGqlpError

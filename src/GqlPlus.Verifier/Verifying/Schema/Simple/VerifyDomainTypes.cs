@@ -5,8 +5,9 @@ namespace GqlPlus.Verifying.Schema.Simple;
 internal class VerifyDomainTypes(IVerifierRepository verifiers) : AstParentVerifier<IGqlpDomain, IGqlpTypeRef, EnumContext>(verifiers)
 {
   private readonly IEnumerable<IVerifyDomain> _domains = verifiers.GetDomains();
+
   protected sealed override string GetParent(IGqlpType<IGqlpTypeRef> usage)
-    => (usage.Parent?.Name).IfWhiteSpace();
+   => (usage.Parent?.Name).IfWhiteSpace();
 
   protected override EnumContext MakeContext(IGqlpDomain usage, IGqlpType[] aliased, IMessages errors)
   {

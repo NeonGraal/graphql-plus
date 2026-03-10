@@ -6,8 +6,8 @@ internal abstract class DistinctMerger<TItem>
 {
   private readonly ILogger _logger;
 
-  public DistinctMerger(ILoggerFactory logger)
-    => _logger = logger.CreateTypedLogger(this);
+  public DistinctMerger(IMergerRepository mergers)
+    => _logger = mergers.LoggerFactory.CreateTypedLogger(this);
 
   protected override IMessages CanMergeGroup(IGrouping<string, TItem> group)
   {

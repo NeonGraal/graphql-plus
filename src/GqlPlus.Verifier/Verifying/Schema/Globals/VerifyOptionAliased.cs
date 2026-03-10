@@ -5,9 +5,8 @@ namespace GqlPlus.Verifying.Schema.Globals;
 
 internal class VerifyOptionAliased(
   IVerify<IGqlpSchemaOption> definition,
-  IMerge<IGqlpSchemaOption> merger,
-  ILoggerFactory logger
-) : AliasedVerifier<IGqlpSchemaOption>(definition, merger, logger)
+  IMergerRepository mergers
+) : AliasedVerifier<IGqlpSchemaOption>(definition, mergers)
 {
   public override string Label => "Options";
 

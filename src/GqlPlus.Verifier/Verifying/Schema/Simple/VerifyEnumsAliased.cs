@@ -5,9 +5,8 @@ namespace GqlPlus.Verifying.Schema.Simple;
 
 internal class VerifyEnumsAliased(
   IVerify<IGqlpEnum> definition,
-  IMerge<IGqlpEnum> merger,
-  ILoggerFactory logger
-) : AliasedVerifier<IGqlpEnum>(definition, merger, logger)
+  IMergerRepository mergers
+) : AliasedVerifier<IGqlpEnum>(definition, mergers)
 {
   public override string Label => "Enums";
 }

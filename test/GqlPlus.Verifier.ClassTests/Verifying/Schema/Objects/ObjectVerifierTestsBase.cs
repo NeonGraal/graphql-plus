@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Building.Schema.Objects;
 using GqlPlus.Matching;
+using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -21,10 +22,13 @@ public abstract class ObjectVerifierTestsBase<TObjField>
     ArgDelegate = A.Of<Matcher<IGqlpTypeArg>.D>();
     ArgDelegate().Returns(ArgMatcher);
 
+    IMergerRepository mergers = Substitute.For<IMergerRepository>();
+    mergers.MergerFor<TObjField>().Returns(MergeFields.Intf);
+    mergers.MergerFor<IGqlpAlternate>().Returns(MergeAlternates.Intf);
+
     Verifiers = new(
       Aliased.Intf,
-      MergeFields.Intf,
-      MergeAlternates.Intf,
+      mergers,
       ArgDelegate,
       new FieldObjectKind<TObjField>(kind));
 

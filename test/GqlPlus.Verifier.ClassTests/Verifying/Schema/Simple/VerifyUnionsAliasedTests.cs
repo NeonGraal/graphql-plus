@@ -5,5 +5,5 @@ public class VerifyUnionsAliasedTests
   : AliasedVerifierTestsBase<IGqlpUnion>
 {
   internal override GroupedVerifier<IGqlpUnion> NewGroupedVerifier()
-    => new VerifyUnionsAliased(Definition, Merger, LoggerFactory);
+    => new VerifyUnionsAliased(Definition, MergerRepo());
 }

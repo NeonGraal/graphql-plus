@@ -43,7 +43,9 @@ public class MergeOptionsTests
   {
     _settings = Merger<IGqlpSchemaSetting>();
 
-    _merger = new(outputHelper.ToLoggerFactory(), _settings);
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpSchemaSetting>().Returns(_settings);
+    _merger = new(mergers);
   }
 
   protected override bool SkipDifferentInput => true;

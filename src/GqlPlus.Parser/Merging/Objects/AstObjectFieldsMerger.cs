@@ -4,8 +4,8 @@ using GqlPlus.Ast.Schema;
 namespace GqlPlus.Merging.Objects;
 
 internal class AstObjectFieldsMerger<TObjField>(
-  ILoggerFactory logger
-) : AstAliasedMerger<TObjField>(logger)
+  IMergerRepository mergers
+) : AstAliasedMerger<TObjField>(mergers)
   where TObjField : IGqlpObjField
 {
   protected override string ItemMatchName => "ModifiedType_Label";

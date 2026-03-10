@@ -4,13 +4,13 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Merging.Objects;
 
 internal class AstObjectsMerger<TObjField>(
-  ILoggerFactory logger,
-  IMerge<TObjField> fields,
-  IMerge<IGqlpTypeParam> typeParams,
-  IMerge<IGqlpAlternate> alternates
-) : AstTypeMerger<IGqlpType, IGqlpObject<TObjField>, IGqlpObjBase, TObjField>(logger, fields)
+  IMergerRepository mergers
+) : AstTypeMerger<IGqlpType, IGqlpObject<TObjField>, IGqlpObjBase, TObjField>(mergers)
   where TObjField : IGqlpObjField
 {
+  private readonly IMerge<IGqlpTypeParam> _typeParams = mergers.MergerFor<IGqlpTypeParam>();
+  private readonly IMerge<IGqlpAlternate> _alternates = mergers.MergerFor<IGqlpAlternate>();
+
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(IGqlpObject<TObjField> item)
     => (item.Parent?.FullType).IfWhiteSpace();
@@ -18,16 +18,16 @@ internal class AstObjectsMerger<TObjField>(
   protected override IMessages CanMergeGroup(IGrouping<string, IGqlpObject<TObjField>> group)
   {
     IMessages baseCanMerge = base.CanMergeGroup(group);
-    IMessages typeParamsCanMerge = group.ManyCanMerge(item => item.TypeParams, typeParams);
-    IMessages alternatesCanMerge = group.ManyGroupCanMerge(item => item.Alternates, a => a.FullType, alternates);
+    IMessages typeParamsCanMerge = group.ManyCanMerge(item => item.TypeParams, _typeParams);
+    IMessages alternatesCanMerge = group.ManyGroupCanMerge(item => item.Alternates, a => a.FullType, _alternates);
 
     return baseCanMerge.Add(typeParamsCanMerge).Add(alternatesCanMerge);
   }
 
   protected override IGqlpObject<TObjField> MergeGroup(IEnumerable<IGqlpObject<TObjField>> group)
   {
-    IEnumerable<IGqlpTypeParam> typeParamsAsts = group.ManyMerge(item => item.TypeParams, typeParams);
-    IEnumerable<IGqlpAlternate> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
+    IEnumerable<IGqlpTypeParam> typeParamsAsts = group.ManyMerge(item => item.TypeParams, _typeParams);
+    IEnumerable<IGqlpAlternate> alternateAsts = group.ManyMerge(item => item.Alternates, _alternates);
 
     return SetAlternates(base.MergeGroup(group), typeParamsAsts, alternateAsts);
   }

@@ -6,7 +6,7 @@ public abstract class VerifyObjectsAliasedTests<TObjField>(
   where TObjField : IGqlpObjField
 {
   internal override GroupedVerifier<IGqlpObject<TObjField>> NewGroupedVerifier()
-    => new ObjectsAliasedVerifier<TObjField>(Definition, Merger, LoggerFactory, new FieldObjectKind<TObjField>(kind));
+    => new ObjectsAliasedVerifier<TObjField>(Definition, MergerRepo(), new FieldObjectKind<TObjField>(kind));
 }
 
 [TracePerTest]

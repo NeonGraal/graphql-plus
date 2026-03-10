@@ -4,15 +4,14 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Merging.Objects;
 
 internal class MergeOutputFields(
-  ILoggerFactory logger,
-  IMerge<IGqlpInputParam> parameters
-) : AstObjectFieldsMerger<IGqlpOutputField>(logger)
+  IMergerRepository mergers
+) : AstObjectFieldsMerger<IGqlpOutputField>(mergers)
 {
   protected override IMessages CanMergeGroup(IGrouping<string, IGqlpOutputField> group)
     => base.CanMergeGroup(group)
-      .Add(group.CanMerge(item => item.Parameter, parameters));
+      .Add(group.CanMerge(item => item.Parameter, mergers.MergerFor<IGqlpInputParam>()));
   protected override IGqlpOutputField MergeGroup(IEnumerable<IGqlpOutputField> group)
     => (OutputFieldAst)base.MergeGroup(group) with {
-      Parameter = group.Merge(item => item.Parameter, parameters).FirstOrDefault(),
+      Parameter = group.Merge(item => item.Parameter, mergers.MergerFor<IGqlpInputParam>()).FirstOrDefault(),
     };
 }

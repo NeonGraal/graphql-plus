@@ -51,7 +51,9 @@ public class MergeDirectivesTests
   {
     _parameters = Merger<IGqlpInputParam>();
 
-    _merger = new(outputHelper.ToLoggerFactory(), _parameters);
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpInputParam>().Returns(_parameters);
+    _merger = new(mergers);
   }
 
   internal override GroupsMerger<IGqlpSchemaDirective> MergerGroups => _merger;

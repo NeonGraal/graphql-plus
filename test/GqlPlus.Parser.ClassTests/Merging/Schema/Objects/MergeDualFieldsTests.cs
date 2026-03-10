@@ -4,11 +4,13 @@ using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
-public class MergeDualFieldsTests(
-  ITestOutputHelper outputHelper
-) : TestObjectFieldMerger<IGqlpDualField>
+public class MergeDualFieldsTests
+  : TestObjectFieldMerger<IGqlpDualField>
 {
-  private readonly MergeDualFields _merger = new(outputHelper.ToLoggerFactory());
+  private readonly MergeDualFields _merger;
+
+  public MergeDualFieldsTests(ITestOutputHelper outputHelper)
+    => _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
 
   internal override AstObjectFieldsMerger<IGqlpDualField> MergerField => _merger;
 

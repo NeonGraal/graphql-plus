@@ -29,7 +29,10 @@ public class MergeOutputFieldsTests
   public MergeOutputFieldsTests(ITestOutputHelper outputHelper)
   {
     _parameters = Merger<IGqlpInputParam>();
-    _merger = new(outputHelper.ToLoggerFactory(), _parameters);
+
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpInputParam>().Returns(_parameters);
+    _merger = new(mergers);
   }
 
   internal override AstObjectFieldsMerger<IGqlpOutputField> MergerField => _merger;

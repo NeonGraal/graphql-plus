@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Merging.Schema;
+﻿using Microsoft.Extensions.Logging;
+
+namespace GqlPlus.Merging.Schema;
 
 public abstract class TestAbbreviatedMerger<TAst>
   : TestAbbreviatedMerger<TAst, string>
@@ -67,6 +69,13 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
       .ShouldBe(expected, ignoreOrder: true);
 
     return this;
+  }
+
+  protected static IMergerRepository MergeRepo(ILoggerFactory loggerFactory)
+  {
+    IMergerRepository repo = Substitute.For<IMergerRepository>();
+    repo.LoggerFactory.Returns(loggerFactory);
+    return repo;
   }
 
   protected static IMessages EmptyMessages => Messages.New;

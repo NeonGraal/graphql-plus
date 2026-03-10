@@ -11,7 +11,11 @@ public class MergeUnionsTests
   private readonly MergeUnions _merger;
 
   public MergeUnionsTests(ITestOutputHelper outputHelper)
-    => _merger = new(outputHelper.ToLoggerFactory(), MergeItems);
+  {
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpUnionMember>().Returns(MergeItems);
+    _merger = new(mergers);
+  }
 
   internal override AstSimpleMerger<IGqlpType, IGqlpUnion, IGqlpUnionMember> MergerSimple => _merger;
 

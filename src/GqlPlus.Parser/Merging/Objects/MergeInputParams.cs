@@ -5,9 +5,8 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Merging.Objects;
 
 internal class MergeInputParams(
-  ILoggerFactory logger,
-  IMerge<IGqlpConstant> constant
-) : DistinctMerger<IGqlpInputParam>(logger)
+  IMergerRepository mergers
+) : DistinctMerger<IGqlpInputParam>(mergers)
 {
   protected override string ItemGroupKey(IGqlpInputParam item)
     => item.Type.FullType;
@@ -18,7 +17,7 @@ internal class MergeInputParams(
 
   protected override IMessages CanMergeGroup(IGrouping<string, IGqlpInputParam> group)
     => base.CanMergeGroup(group)
-      .Add(group.CanMerge(item => item.DefaultValue, constant));
+      .Add(group.CanMerge(item => item.DefaultValue, mergers.MergerFor<IGqlpConstant>()));
 
   protected override IGqlpInputParam MergeGroup(IEnumerable<IGqlpInputParam> group)
   {
@@ -28,7 +27,7 @@ internal class MergeInputParams(
     }
 
     return first with {
-      DefaultValue = group.Merge(item => item.DefaultValue, constant).FirstOrDefault(),
+      DefaultValue = group.Merge(item => item.DefaultValue, mergers.MergerFor<IGqlpConstant>()).FirstOrDefault(),
     };
   }
 }

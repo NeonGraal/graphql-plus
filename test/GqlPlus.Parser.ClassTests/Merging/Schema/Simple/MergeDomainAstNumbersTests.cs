@@ -12,7 +12,9 @@ public class MergeDomainAstNumbersTests
 
   public MergeDomainAstNumbersTests(ITestOutputHelper outputHelper)
   {
-    MergeDomains<DomainRangeAst, IGqlpDomainRange> merger = new(outputHelper.ToLoggerFactory(), MergeItems);
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpDomainRange>().Returns(MergeItems);
+    MergeDomains<DomainRangeAst, IGqlpDomainRange> merger = new(mergers);
     MergerSimple = merger;
     Merger = merger;
   }

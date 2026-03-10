@@ -4,9 +4,8 @@ using GqlPlus.Ast.Schema.Globals;
 namespace GqlPlus.Merging.Globals;
 
 internal class MergeOptions(
-  ILoggerFactory logger,
-  IMerge<IGqlpSchemaSetting> settings
-) : AstAliasedMerger<IGqlpSchemaOption>(logger)
+  IMergerRepository mergers
+) : AstAliasedMerger<IGqlpSchemaOption>(mergers)
 {
   protected override string ItemGroupKey(IGqlpSchemaOption item) => "Option";
 
@@ -15,13 +14,13 @@ internal class MergeOptions(
 
   protected override IMessages CanMergeGroup(IGrouping<string, IGqlpSchemaOption> group)
     => base.CanMergeGroup(group)
-      .Add(group.ManyGroupCanMerge(d => d.Settings, s => s.Name, settings));
+      .Add(group.ManyGroupCanMerge(d => d.Settings, s => s.Name, mergers.MergerFor<IGqlpSchemaSetting>()));
 
   protected override IGqlpSchemaOption MergeGroup(IEnumerable<IGqlpSchemaOption> group)
   {
     OptionDeclAst ast = (OptionDeclAst)base.MergeGroup(group);
     return ast with {
-      Settings = group.ManyGroupMerger(d => d.Settings, s => s.Name, settings).ArrayOf<OptionSettingAst>(),
+      Settings = group.ManyGroupMerger(d => d.Settings, s => s.Name, mergers.MergerFor<IGqlpSchemaSetting>()).ArrayOf<OptionSettingAst>(),
     };
   }
 }

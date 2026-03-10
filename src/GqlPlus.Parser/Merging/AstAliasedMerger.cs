@@ -10,9 +10,9 @@ internal abstract class AstAliasedMerger<TItem>
 {
   private readonly ILogger _logger;
 
-  public AstAliasedMerger(ILoggerFactory logger)
-    : base(logger)
-    => _logger = logger.CreateTypedLogger(this);
+  public AstAliasedMerger(IMergerRepository mergers)
+    : base(mergers)
+    => _logger = mergers.LoggerFactory.CreateTypedLogger(this);
 
   protected override string ItemGroupKey(TItem item) => item.Name;
 

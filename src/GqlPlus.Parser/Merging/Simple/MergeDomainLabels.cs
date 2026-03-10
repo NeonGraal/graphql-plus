@@ -3,8 +3,8 @@
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeDomainLabels(
-  ILoggerFactory logger
-) : AstDomainItemMerger<IGqlpDomainLabel>(logger)
+  IMergerRepository mergers
+) : AstDomainItemMerger<IGqlpDomainLabel>(mergers)
 {
   protected override string ItemGroupKey(IGqlpDomainLabel item)
     => $"{item.EnumType}~{item.EnumItem}";

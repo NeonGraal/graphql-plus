@@ -31,7 +31,11 @@ public class MergeEnumsTests
   private readonly MergeEnums _merger;
 
   public MergeEnumsTests(ITestOutputHelper outputHelper)
-    => _merger = new(outputHelper.ToLoggerFactory(), MergeItems);
+  {
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpEnumLabel>().Returns(MergeItems);
+    _merger = new(mergers);
+  }
 
   internal override AstSimpleMerger<IGqlpType, IGqlpEnum, IGqlpEnumLabel> MergerSimple => _merger;
 

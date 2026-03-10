@@ -3,7 +3,7 @@
 namespace GqlPlus.Merging;
 
 internal abstract class AstDescribedMerger<TItem>(
-  ILoggerFactory logger
-) : DistinctMerger<TItem>(logger)
+  IMergerRepository mergers
+) : DistinctMerger<TItem>(mergers)
   where TItem : IGqlpError, IGqlpDescribed
 { }

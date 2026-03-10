@@ -3,9 +3,8 @@
 namespace GqlPlus.Merging.Simple;
 
 internal abstract class AstSimpleMerger<TAst, TType, TItem>(
-  ILoggerFactory logger,
-  IMerge<TItem> items
-) : AstTypeMerger<TAst, TType, IGqlpTypeRef, TItem>(logger, items)
+  IMergerRepository mergers
+) : AstTypeMerger<TAst, TType, IGqlpTypeRef, TItem>(mergers)
   where TAst : IGqlpType
   where TType : IGqlpSimple<TItem>, TAst
   where TItem : IGqlpError

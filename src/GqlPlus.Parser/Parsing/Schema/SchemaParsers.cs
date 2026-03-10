@@ -69,20 +69,20 @@ public static class SchemaParsers
       .AddEnum<TOption>();
 
   [SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
-  private static IParserRepositoryBuilder AddObjectParser<TObjField>(this IParserRepositoryBuilder builder, TypeKind fieldKind, ParserFactory<Parser<TObjField>.I> factory)
+  private static IParserRepositoryBuilder AddObjectParser<TObjField>(this IParserRepositoryBuilder builder, TypeKind fieldKind, Factory<Parser<TObjField>.I, IParserRepository> factory)
     where TObjField : IGqlpObjField
     => builder
       .AddSingle(factory)
       .AddSingle(p => new ParseObjectDefinition<TObjField>(p))
       .AddDeclarationParser(fieldKind.ToString().ToLowerInvariant(), p => new ObjectParser<TObjField>(fieldKind, p));
 
-  private static IParserRepositoryBuilder AddDeclarationParser<TObject>(this IParserRepositoryBuilder builder, string selector, ParserFactory<Parser<TObject>.I> factory)
+  private static IParserRepositoryBuilder AddDeclarationParser<TObject>(this IParserRepositoryBuilder builder, string selector, Factory<Parser<TObject>.I, IParserRepository> factory)
     where TObject : IGqlpDeclaration
     => builder
       .AddSingle(factory)
       .AddDeclaration<TObject>(p => new ParseDeclaration<TObject>(selector, p));
 
-  private static IParserRepositoryBuilder AddDomainParser<TDomain>(this IParserRepositoryBuilder builder, ParserFactory<Parser<TDomain>.I> factory)
+  private static IParserRepositoryBuilder AddDomainParser<TDomain>(this IParserRepositoryBuilder builder, Factory<Parser<TDomain>.I, IParserRepository> factory)
     => builder
       .AddSingle(factory)
       .AddArray(p => new ArrayParser<TDomain>(p))

@@ -1,12 +1,8 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
-internal class VerifyDomainsAliased(
-  IVerify<IGqlpDomain> definition,
-  IMergerRepository mergers
-) : AliasedVerifier<IGqlpDomain>(definition, mergers)
+internal class VerifyDomainsAliased(IVerifierRepository verifiers) : AliasedVerifier<IGqlpDomain>(verifiers)
 {
   public override string Label => "Domains";
 }

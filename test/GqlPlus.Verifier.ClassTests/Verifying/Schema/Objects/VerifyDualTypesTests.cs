@@ -10,7 +10,7 @@ public class VerifyDualTypesTests
 
   public VerifyDualTypesTests()
     : base(TypeKind.Dual)
-    => Verifier = new VerifyDualTypes(Verifiers);
+    => Verifier = new VerifyDualTypes(VerifierRepo);
 }
 
 [TracePerTest]
@@ -21,7 +21,7 @@ public class VerifyDualAlternatesTests
 
   public VerifyDualAlternatesTests()
     : base(TypeKind.Dual)
-    => Verifier = new VerifyDualTypes(Verifiers);
+    => Verifier = new VerifyDualTypes(VerifierRepo);
 }
 
 [TracePerTest]
@@ -32,7 +32,7 @@ public class VerifyDualFieldsTests
 
   public VerifyDualFieldsTests()
     : base(TypeKind.Dual)
-    => Verifier = new VerifyDualTypes(Verifiers);
+    => Verifier = new VerifyDualTypes(VerifierRepo);
 
   protected override ObjFieldBuilder<IGqlpDualField> MakeField(string fieldName, string fieldType)
     => new DualFieldBuilder(fieldName, fieldType);

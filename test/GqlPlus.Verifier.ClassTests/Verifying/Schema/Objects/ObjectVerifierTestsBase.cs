@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Building.Schema.Objects;
 using GqlPlus.Matching;
-using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -11,7 +10,6 @@ public abstract class ObjectVerifierTestsBase<TObjField>
   internal readonly ForM<TObjField> MergeFields = new();
   internal readonly ForM<IGqlpAlternate> MergeAlternates = new();
   protected TypeKind Kind { get; }
-  internal ObjectVerifierParams<TObjField> Verifiers { get; }
 
   protected ObjectVerifierTestsBase(TypeKind kind)
   {
@@ -22,15 +20,13 @@ public abstract class ObjectVerifierTestsBase<TObjField>
     ArgDelegate = A.Of<Matcher<IGqlpTypeArg>.D>();
     ArgDelegate().Returns(ArgMatcher);
 
-    IMergerRepository mergers = Substitute.For<IMergerRepository>();
-    mergers.MergerFor<TObjField>().Returns(MergeFields.Intf);
-    mergers.MergerFor<IGqlpAlternate>().Returns(MergeAlternates.Intf);
+    IMatcherRepository matcherRepo = Substitute.For<IMatcherRepository>();
+    VerifierRepo.Matchers.Returns(matcherRepo);
+    matcherRepo.MatcherFor<IGqlpTypeArg>().Returns(ArgDelegate);
 
-    Verifiers = new(
-      Aliased.Intf,
-      mergers,
-      ArgDelegate,
-      new FieldObjectKind<TObjField>(kind));
+    VerifierRepo.MergeFor<TObjField>().Returns(MergeFields.Intf);
+    VerifierRepo.MergeFor<IGqlpAlternate>().Returns(MergeAlternates.Intf);
+    VerifierRepo.FieldKindFor<TObjField>().Returns(new FieldObjectKind<TObjField>(kind));
 
     TheBuilder = new(kind.ToString(), kind);
   }

@@ -4,10 +4,12 @@ using GqlPlus.Merging;
 namespace GqlPlus.Verifying.Schema.Simple;
 
 internal class AstDomainVerifier<TItem>(
-  IMerge<TItem> items
+  IVerifierRepository verifiers
 ) : IVerifyDomain
   where TItem : IGqlpDomainItem
 {
+  private readonly IMerge<TItem> _items = verifiers.MergeFor<TItem>();
+
   public IMessages CanMergeItems(IGqlpDomain usage, EnumContext context)
   {
     return usage is not IGqlpDomain<TItem> domain
@@ -27,7 +29,7 @@ internal class AstDomainVerifier<TItem>(
   { }
 
   protected virtual IMessages CanMergeDomain(IGqlpDomain<TItem> domain, IGqlpDomain<TItem> domainParent, EnumContext context)
-    => items.CanMerge(domainParent.Items.Concat(domain.Items));
+    => _items.CanMerge(domainParent.Items.Concat(domain.Items));
 }
 
 public interface IVerifyDomain

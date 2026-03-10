@@ -4,8 +4,8 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 internal class MatchObjectParentDualBase<TField>(
-  ILoggerFactory logger
-) : ObjectParentMatcher<TField>(logger)
+  IMatcherRepository matchers
+) : ObjectParentMatcher<TField>(matchers)
   where TField : class, IGqlpObjField
 {
   protected override bool MatchParent(IGqlpObjBase parent, string constraint, UsageContext context)

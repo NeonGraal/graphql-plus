@@ -7,7 +7,7 @@ namespace GqlPlus.Verifying;
 public class AllVerifiersTests
 {
   [Fact]
-  public void AllVerifiers_DefinesVerifySchema()
+  public void AllVerifiers_Repository_IsRegistered()
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
@@ -17,7 +17,23 @@ public class AllVerifiersTests
       .AddVerifiers()
       .BuildServiceProvider();
 
-    services.GetService<IVerify<IGqlpSchema>>()
+    services.GetService<IVerifierRepository>()
+      .ShouldNotBeNull();
+  }
+
+  [Fact]
+  public void AllVerifiers_Repository_ProvidesVerifySchema()
+  {
+    IServiceProvider services = new ServiceCollection()
+      .AddLogging()
+      .AddFieldObjectKinds()
+      .AddMergers()
+      .AddMatchers()
+      .AddVerifiers()
+      .BuildServiceProvider();
+
+    services.GetRequiredService<IVerifierRepository>()
+      .VerifierFor<IGqlpSchema>()
       .ShouldNotBeNull();
   }
 }

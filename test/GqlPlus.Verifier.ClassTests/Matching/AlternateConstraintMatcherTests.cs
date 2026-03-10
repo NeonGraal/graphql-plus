@@ -8,7 +8,7 @@ public class AlternateConstraintMatcherTests
   private readonly AlternateConstraintMatcher _sut;
 
   public AlternateConstraintMatcherTests()
-    => _sut = new(LoggerFactory, AnyTypeMatcher);
+    => _sut = new(MatcherRepo);
 
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingAlternateMember(string name, string constraint)

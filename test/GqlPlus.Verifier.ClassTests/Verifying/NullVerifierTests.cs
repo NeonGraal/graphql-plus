@@ -9,7 +9,7 @@ public class NullVerifierTests
   public void Verify_ShouldLogNullVerification()
   {
     // Arrange
-    NullVerifierError<IGqlpError> verifier = new(LoggerFactory);
+    NullVerifierError<IGqlpError> verifier = new(VerifierRepo);
     IGqlpError mockItem = A.Of<IGqlpError>();
     IMessages mockErrors = A.Of<IMessages>();
 

@@ -8,7 +8,10 @@ public class AnyTypeMatcherTests
 
   private readonly ITypeMatcher _matcher = A.Of<ITypeMatcher>();
   public AnyTypeMatcherTests()
-    => _sut = new AnyTypeMatcher(LoggerFactory, _matchers);
+  {
+    MatcherRepo.TypeMatchers.Returns(_matchers);
+    _sut = new AnyTypeMatcher(MatcherRepo);
+  }
 
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingConstraint(string constraint)

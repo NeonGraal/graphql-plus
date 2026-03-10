@@ -3,17 +3,16 @@ using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema;
 
-internal abstract class GroupedVerifier<TAliased>
-  : IVerifyAliased<TAliased>
+internal abstract class GroupedVerifier<TAliased> : IVerifyAliased<TAliased>
  where TAliased : IGqlpAliased
 {
   private readonly ILogger _logger;
   private readonly IMerge<TAliased> _merger;
 
-  public GroupedVerifier(IMergerRepository mergers)
+  protected GroupedVerifier(IVerifierRepository verifiers)
   {
-    _merger = mergers.MergerFor<TAliased>();
-    _logger = mergers.LoggerFactory.CreateTypedLogger(this);
+    _merger = verifiers.MergeFor<TAliased>();
+    _logger = verifiers.LoggerFactory.CreateTypedLogger(this);
   }
 
   public abstract string Label { get; }

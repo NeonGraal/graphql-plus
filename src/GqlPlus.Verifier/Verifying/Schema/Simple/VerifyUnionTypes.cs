@@ -1,12 +1,8 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
-internal class VerifyUnionTypes(
-  IVerifyAliased<IGqlpUnion> aliased,
-  IMerge<IGqlpUnionMember> mergeMembers
-) : AstSimpleVerifier<IGqlpUnion, UsageContext, IGqlpUnionMember>(aliased, mergeMembers)
+internal class VerifyUnionTypes(IVerifierRepository verifiers) : AstSimpleVerifier<IGqlpUnion, UsageContext, IGqlpUnionMember>(verifiers)
 {
   protected override IEnumerable<IGqlpUnionMember> GetItems(IGqlpUnion usage)
     => usage.Items;

@@ -8,7 +8,10 @@ public class MatchAnyTypesTestsBase
   private readonly Matcher<IGqlpType>.I _anyTypeMatcher;
 
   protected MatchAnyTypesTestsBase()
-    => AnyTypeMatcher = MatcherFor(out _anyTypeMatcher);
+  {
+    AnyTypeMatcher = MatcherFor(out _anyTypeMatcher);
+    MatcherRepo.MatcherFor<IGqlpType>().Returns(AnyTypeMatcher);
+  }
 
   protected void AnyTypeMatches(bool result)
     => _anyTypeMatcher.Matches(default!, "", default!)

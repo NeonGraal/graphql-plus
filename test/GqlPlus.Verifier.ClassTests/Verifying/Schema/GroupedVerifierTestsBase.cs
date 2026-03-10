@@ -9,13 +9,8 @@ public abstract class GroupedVerifierTestsBase<TAliased>
   private readonly ForM<TAliased> _merger = new();
   internal IMerge<TAliased> Merger => _merger.Intf;
 
-  protected IMergerRepository MergerRepo()
-  {
-    IMergerRepository mergers = Substitute.For<IMergerRepository>();
-    mergers.MergerFor<TAliased>().Returns(Merger);
-    mergers.LoggerFactory.Returns(LoggerFactory);
-    return mergers;
-  }
+  protected GroupedVerifierTestsBase()
+    => VerifierRepo.MergeFor<TAliased>().Returns(Merger);
 
   [Fact]
   public void Verify_CallsVerifierAndMergerWithoutErrors()

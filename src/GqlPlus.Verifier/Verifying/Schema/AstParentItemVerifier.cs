@@ -4,20 +4,21 @@ using GqlPlus.Merging;
 namespace GqlPlus.Verifying.Schema;
 
 internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
-  IVerifyAliased<TAst> aliased,
-  IMerge<TItem> mergeItems
-) : AstParentVerifier<TAst, TParent, TContext>(aliased)
+  IVerifierRepository verifiers
+) : AstParentVerifier<TAst, TParent, TContext>(verifiers)
   where TAst : IGqlpType<TParent>
   where TParent : IGqlpDescribed, IEquatable<TParent>
   where TContext : UsageContext
   where TItem : IGqlpError
 {
+  private readonly IMerge<TItem> _mergeItems = verifiers.MergeFor<TItem>();
+
   protected override void CheckMergeParent(SelfUsage<TAst> input, TContext context)
   {
     TItem[] items = [.. GetParentItems(input, input.Usage, context, GetItems)];
 
     if (items.Length > 0) {
-      IMessages failures = mergeItems.CanMerge(items);
+      IMessages failures = _mergeItems.CanMerge(items);
       if (failures.Any()) {
         context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} into Parent {input.Current}");
         context.Add(failures);

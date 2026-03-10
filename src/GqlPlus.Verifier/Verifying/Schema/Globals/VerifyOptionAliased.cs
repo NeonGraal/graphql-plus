@@ -1,12 +1,8 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Globals;
 
-internal class VerifyOptionAliased(
-  IVerify<IGqlpSchemaOption> definition,
-  IMergerRepository mergers
-) : AliasedVerifier<IGqlpSchemaOption>(definition, mergers)
+internal class VerifyOptionAliased(IVerifierRepository verifiers) : AliasedVerifier<IGqlpSchemaOption>(verifiers)
 {
   public override string Label => "Options";
 

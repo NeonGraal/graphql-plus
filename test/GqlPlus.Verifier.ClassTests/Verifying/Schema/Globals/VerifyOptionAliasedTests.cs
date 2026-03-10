@@ -18,5 +18,5 @@ public class VerifyOptionAliasedTests
   }
 
   internal override GroupedVerifier<IGqlpSchemaOption> NewGroupedVerifier()
-    => new VerifyOptionAliased(Definition, MergerRepo());
+    => new VerifyOptionAliased(VerifierRepo);
 }

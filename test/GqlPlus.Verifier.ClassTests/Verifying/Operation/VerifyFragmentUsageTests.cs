@@ -22,5 +22,5 @@ public class VerifyFragmentUsageTests
   }
 
   internal override IdentifiedVerifier<IGqlpSpread, IGqlpFragment> NewVerifier()
-    => new VerifyFragmentUsage(Usage, Definition);
+    => new VerifyFragmentUsage(VerifierRepo);
 }

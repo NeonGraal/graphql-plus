@@ -1,11 +1,8 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema;
 
-internal class VerifyAllTypesAliased(
-  IMergerRepository mergers
-) : GroupedVerifier<IGqlpType>(mergers)
+internal class VerifyAllTypesAliased(IVerifierRepository verifiers) : GroupedVerifier<IGqlpType>(verifiers)
 {
   public override string Label => "Types";
 }

@@ -6,9 +6,10 @@ using GqlPlus.Verifying;
 namespace GqlPlus;
 
 public class BuiltInTests(
-  IVerify<IGqlpSchema> verifier
+  IVerifierRepository verifierRepository
 )
 {
+  private readonly IVerify<IGqlpSchema> _verifier = verifierRepository.VerifierFor<IGqlpSchema>();
   private readonly VerifySettings _settings = new VerifySettings().CheckAutoVerify();
 
   [Fact]
@@ -38,7 +39,7 @@ public class BuiltInTests(
     Messages result = [];
     TestSchema schema = new(type);
 
-    verifier.Verify(schema, result);
+    _verifier.Verify(schema, result);
 
     result.ShouldBeEmpty(type?.Label);
   }

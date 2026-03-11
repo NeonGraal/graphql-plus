@@ -1,9 +1,10 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Parsing.Schema;
 using GqlPlus.Parsing.Schema.Globals;
 using GqlPlus.Parsing.Schema.Objects;
 using GqlPlus.Parsing.Schema.Simple;
 
-namespace GqlPlus.Parsing.Schema;
+namespace GqlPlus.Parsing;
 
 public static class SchemaParsers
 {

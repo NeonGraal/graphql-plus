@@ -20,13 +20,10 @@ public abstract class ObjectVerifierTestsBase<TObjField>
     ArgDelegate = A.Of<Matcher<IGqlpTypeArg>.D>();
     ArgDelegate().Returns(ArgMatcher);
 
-    IMatcherRepository matcherRepo = Substitute.For<IMatcherRepository>();
-    VerifierRepo.Matchers.Returns(matcherRepo);
-    matcherRepo.MatcherFor<IGqlpTypeArg>().Returns(ArgDelegate);
+    VerifierRepo.MatcherFor<IGqlpTypeArg>().Returns(ArgDelegate);
 
-    VerifierRepo.MergeFor<TObjField>().Returns(MergeFields.Intf);
-    VerifierRepo.MergeFor<IGqlpAlternate>().Returns(MergeAlternates.Intf);
-    VerifierRepo.FieldKindFor<TObjField>().Returns(new FieldObjectKind<TObjField>(kind));
+    VerifierRepo.MergerFor<TObjField>().Returns(MergeFields.Intf);
+    VerifierRepo.MergerFor<IGqlpAlternate>().Returns(MergeAlternates.Intf);
 
     TheBuilder = new(kind.ToString(), kind);
   }

@@ -24,7 +24,7 @@ public class VerifySchemaTests(
 
     IEnumerable<IGqlpSchema> merged = schemaMerger.Merge([result.Required()]);
 
-    Messages errors = [];
+    IMessages errors = Messages.New;
 
     _schemaVerifier.Verify(merged.First(), errors);
 
@@ -33,7 +33,7 @@ public class VerifySchemaTests(
 
   protected override async Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
-    Messages errors = [];
+    IMessages errors = Messages.New;
     if (result.IsOk()) {
       _schemaVerifier.Verify(result.Required(), errors);
     } else {

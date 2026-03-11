@@ -8,8 +8,6 @@ internal class ParserRepository(
   ParserRepositoryBuilder builder
 ) : BaseRepository<IParserRepository>, IParserRepository
 {
-  private readonly ConcurrentDictionary<Type, object> _cache = new();
-
   public Parser<T>.L ParserFor<T>()
     => new(() => Cached<T, Parser<T>.I>(builder.Singles, "single parser", this));
 
@@ -25,7 +23,7 @@ internal class ParserRepository(
     => new(() => Cached<TInterface, TInterface>(builder.InterfaceArrays, "interface array parser", this));
 
   public IEnumerable<IParseDeclaration> GetDeclarations()
-    => builder.Declarations.Select(f => (IParseDeclaration)_cache.GetOrAdd(f.Key, _ => f.Value.Invoke(this)));
+    => builder.Declarations.Keys.Select(f => (IParseDeclaration)Cached(builder.Declarations, f, f, "declaration parser", this));
 
   public IEnumerable<IParseDomain> GetDomains()
     => builder.Domains.Select(t => (IParseDomain)Cached(builder.Singles, t.Key, t.Value, "domain parser", this));

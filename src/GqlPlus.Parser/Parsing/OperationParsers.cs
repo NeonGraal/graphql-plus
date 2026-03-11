@@ -1,6 +1,8 @@
-﻿namespace GqlPlus.Parsing.Operation;
+﻿using GqlPlus.Parsing.Operation;
 
-internal static class OperationParsers
+namespace GqlPlus.Parsing;
+
+public static class OperationParsers
 {
   public static IParserRepositoryBuilder AddOperationParsers([NotNull] this IParserRepositoryBuilder builder)
     => builder

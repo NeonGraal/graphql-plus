@@ -16,12 +16,6 @@ public interface IGqlpObject<TField>
   IEnumerable<TField> ObjFields { get; }
 }
 
-public interface IGqlpFieldKind<TField>
-  where TField : IGqlpObjField
-{
-  TypeKind FieldKind { get; }
-}
-
 public interface IGqlpObjType
   : IGqlpNamed
   , IEquatable<IGqlpObjType>

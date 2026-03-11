@@ -7,49 +7,51 @@ using GqlPlus.Verifying.Schema.Objects;
 using GqlPlus.Verifying.Schema.Simple;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using System.Diagnostics.CodeAnalysis;
 
 namespace GqlPlus.Verifying;
 
 public static class AllVerifiers
 {
-  public static IServiceCollection AddVerifiers(this IServiceCollection services)
-    => services.AddVerifiers(b => b
-      // Operation
+  public static IVerifierRepositoryBuilder AddSchemaVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
+    => builder
+        // Schema
+        .AddVerify(v => new VerifySchema(v))
+        .AddVerifyUsageAliased(
+          v => new VerifyCategoryAliased(v),
+          v => new VerifyCategoryOutput(v))
+        .AddVerifyUsageAliased(
+          v => new VerifyDirectiveAliased(v),
+          v => new VerifyDirectiveInput(v))
+        .AddVerifyAliased(v => new VerifyOptionAliased(v))
+        // Schema Types
+        .AddVerify(v => new VerifyAllTypes(v))
+        .AddVerifyAliased(v => new VerifyAllTypesAliased(v))
+        // Simple Types
+        .AddVerifyUsageAliased(
+          v => new VerifyDomainsAliased(v),
+          v => new VerifyDomainTypes(v))
+        .AddDomain(v => new AstDomainVerifier<IGqlpDomainRange>(v))
+        .AddDomain(v => new AstDomainVerifier<IGqlpDomainRegex>(v))
+        .AddDomain(v => new AstDomainVerifier<IGqlpDomainTrueFalse>(v))
+        .AddDomain(v => new VerifyDomainEnum(v))
+        .AddVerifyUsageAliased(
+          v => new VerifyEnumsAliased(v),
+          v => new VerifyEnumTypes(v))
+        .AddVerifyUsageAliased(
+          v => new VerifyUnionsAliased(v),
+          v => new VerifyUnionTypes(v))
+        // Object Types
+        .AddVerifyObject(TypeKind.Dual, v => new VerifyDualTypes(v))
+        .AddVerifyObject(TypeKind.Input, v => new VerifyInputTypes(v))
+        .AddVerifyObject(TypeKind.Output, v => new VerifyOutputTypes(v));
+
+  public static IVerifierRepositoryBuilder AddOperationVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
+    => builder
       .AddVerify(v => new VerifyOperation(v))
       .AddVerify(_ => new VerifyVariable())
       .AddVerifyUsageIdentified(v => new VerifyVariableUsage(v))
-      .AddVerifyUsageIdentified(v => new VerifyFragmentUsage(v))
-      // Schema
-      .AddVerify(v => new VerifySchema(v))
-      .AddVerifyUsageAliased(
-        v => new VerifyCategoryAliased(v),
-        v => new VerifyCategoryOutput(v))
-      .AddVerifyUsageAliased(
-        v => new VerifyDirectiveAliased(v),
-        v => new VerifyDirectiveInput(v))
-      .AddVerifyAliased(v => new VerifyOptionAliased(v))
-      // Schema Types
-      .AddVerify(v => new VerifyAllTypes(v))
-      .AddVerifyAliased(v => new VerifyAllTypesAliased(v))
-      // Simple Types
-      .AddVerifyUsageAliased(
-        v => new VerifyDomainsAliased(v),
-        v => new VerifyDomainTypes(v))
-      .AddDomain(v => new AstDomainVerifier<IGqlpDomainRange>(v))
-      .AddDomain(v => new AstDomainVerifier<IGqlpDomainRegex>(v))
-      .AddDomain(v => new AstDomainVerifier<IGqlpDomainTrueFalse>(v))
-      .AddDomain(v => new VerifyDomainEnum(v))
-      .AddVerifyUsageAliased(
-        v => new VerifyEnumsAliased(v),
-        v => new VerifyEnumTypes(v))
-      .AddVerifyUsageAliased(
-        v => new VerifyUnionsAliased(v),
-        v => new VerifyUnionTypes(v))
-      // Object Types
-      .AddVerifyObject(v => new VerifyDualTypes(v))
-      .AddVerifyObject(v => new VerifyInputTypes(v))
-      .AddVerifyObject(v => new VerifyOutputTypes(v))
-    );
+      .AddVerifyUsageIdentified(v => new VerifyFragmentUsage(v));
 
   public static IServiceCollection AddVerifiers(this IServiceCollection services, Action<IVerifierRepositoryBuilder> config)
   {
@@ -90,10 +92,11 @@ public static class AllVerifiers
 
   private static IVerifierRepositoryBuilder AddVerifyObject<TField>(
     this IVerifierRepositoryBuilder builder,
+    TypeKind fieldKind,
     Factory<IVerifyUsage<IGqlpObject<TField>>, IVerifierRepository> usageFactory)
     where TField : IGqlpObjField
     => builder
-      .AddAliased(v => new ObjectsAliasedVerifier<TField>(v))
+      .AddAliased(v => new ObjectsAliasedVerifier<TField>(v, fieldKind))
       .AddUsage(usageFactory)
       .TryAddVerify(v => new NullVerifierError<IGqlpObject<TField>>(v));
 }

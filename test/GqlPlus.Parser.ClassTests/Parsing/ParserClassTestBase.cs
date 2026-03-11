@@ -21,7 +21,7 @@ public class ParserClassTestBase
   }
 
   protected ITokenizer Tokenizer { get; }
-  private readonly Messages _errors = [];
+  private readonly IMessages _errors = Messages.New;
 
   protected void IdentifierReturns(Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
     => Tokenizer.Identifier(out Arg.Any<string?>()).Returns(first, [.. rest, OutFail]);

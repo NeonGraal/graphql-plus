@@ -11,7 +11,7 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   where TContext : UsageContext
   where TItem : IGqlpError
 {
-  private readonly IMerge<TItem> _mergeItems = verifiers.MergeFor<TItem>();
+  private readonly IMerge<TItem> _mergeItems = verifiers.MergerFor<TItem>();
 
   protected override void CheckMergeParent(SelfUsage<TAst> input, TContext context)
   {

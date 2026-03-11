@@ -117,11 +117,10 @@ public class GqlpGenerator : IIncrementalGenerator
 
     IServiceProvider services = new ServiceCollection()
       .AddSingleton<ILoggerFactory, NullLoggerFactory>()
-      .AddFieldObjectKinds()
       .AddParsers(p => p
         .AddCommonParsers()
         .AddSchemaParsers())
-      .AddMergers()
+      .AddMergers(b => b.AddSchemaMergers())
       .AddGenerators()
       .BuildServiceProvider();
 

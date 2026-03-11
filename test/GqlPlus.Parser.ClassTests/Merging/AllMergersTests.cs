@@ -10,7 +10,7 @@ public class AllMergersTests
   public AllMergersTests()
     => _services = new ServiceCollection()
       .AddLogging()
-      .AddMergers()
+      .AddMergers(b => b.AddSchemaMergers())
       .BuildServiceProvider();
 
   [Fact]

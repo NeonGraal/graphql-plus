@@ -23,7 +23,7 @@ public class VerifyOperationTests(
       error.Message.ShouldBeNull();
     }
 
-    Messages result = [];
+    IMessages result = Messages.New;
 
     _operationVerifier.Verify(parse.Required(), result);
 
@@ -36,7 +36,7 @@ public class VerifyOperationTests(
   {
     IResult<IGqlpOperation> parse = await Parse("Invalid", operation);
 
-    Messages result = [];
+    Messages result = new();
     if (parse.IsOk()) {
       _operationVerifier.Verify(parse.Required(), result);
     } else {

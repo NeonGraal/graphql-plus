@@ -7,7 +7,7 @@ namespace GqlPlus;
 public class VerifierTestsBase
   : SubstituteBase
 {
-  protected Messages Errors { get; } = [];
+  protected Messages Errors { get; } = Messages.Empty;
 
   protected ILoggerFactory LoggerFactory { get; } = A.Of<ILoggerFactory>();
   private readonly ILogger _logger = A.Of<ILogger>();

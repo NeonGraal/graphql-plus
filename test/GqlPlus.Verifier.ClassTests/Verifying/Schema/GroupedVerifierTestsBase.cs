@@ -10,7 +10,7 @@ public abstract class GroupedVerifierTestsBase<TAliased>
   internal IMerge<TAliased> Merger => _merger.Intf;
 
   protected GroupedVerifierTestsBase()
-    => VerifierRepo.MergeFor<TAliased>().Returns(Merger);
+    => VerifierRepo.MergerFor<TAliased>().Returns(Merger);
 
   [Fact]
   public void Verify_CallsVerifierAndMergerWithoutErrors()

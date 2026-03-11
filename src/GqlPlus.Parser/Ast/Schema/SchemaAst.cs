@@ -9,7 +9,7 @@ internal sealed record class SchemaAst(
   , IGqlpSchema
 {
   public ParseResultKind Result { get; set; }
-  internal Messages Errors { get; set; } = [];
+  internal IMessages Errors { get; set; } = Messages.New;
 
   public IGqlpDeclaration[] Declarations { get; set; } = [];
 

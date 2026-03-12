@@ -10,17 +10,17 @@
   </ItemGroup>
   <!-- Source project packages -->
   <ItemGroup>
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.4" />
-    <PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="10.0.4" />
-    <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.4" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.5" />
+    <PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="10.0.5" />
+    <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.5" />
     <PackageVersion Include="Microsoft.Bcl.HashCode" Version="6.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.4" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.4" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.4" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.4" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.5" />
     <PackageVersion Include="PolySharp" Version="1.15.0" />
-    <PackageVersion Include="System.Collections.Immutable" Version="10.0.4" />
-    <PackageVersion Include="System.Text.Json" Version="10.0.4" />
+    <PackageVersion Include="System.Collections.Immutable" Version="10.0.5" />
+    <PackageVersion Include="System.Text.Json" Version="10.0.5" />
     <PackageVersion Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
   <!-- Test framework packages defined in test/Directory.Build.targets -->

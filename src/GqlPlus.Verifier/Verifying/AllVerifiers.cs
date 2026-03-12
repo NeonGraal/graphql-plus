@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
@@ -7,7 +8,6 @@ using GqlPlus.Verifying.Schema.Objects;
 using GqlPlus.Verifying.Schema.Simple;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using System.Diagnostics.CodeAnalysis;
 
 namespace GqlPlus.Verifying;
 

@@ -10,9 +10,11 @@ public static class Startup
   public static void ConfigureServices(IServiceCollection services)
     => services
       .AddComponentParsers(false)
-      .AddOperationParsers()
-
-      .AddFieldObjectKinds()
-      .AddMatchers()
-      .AddVerifiers();
+      .AddParsers(b => b
+        .AddOperationParsers())
+      .AddMatchers(b => b
+        .ConstraintMatchers())
+      .AddVerifiers(b => b
+        .AddSchemaVerifiers()
+        .AddOperationVerifiers());
 }

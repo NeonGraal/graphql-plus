@@ -12,7 +12,7 @@ public abstract class AstDomainVerifierTestsBase<TItem>
   protected AstDomainVerifierTestsBase(DomainKind kind)
   {
     _kind = kind;
-    VerifierRepo.MergeFor<TItem>().Returns(ItemsMerger.Intf);
+    VerifierRepo.MergerFor<TItem>().Returns(ItemsMerger.Intf);
   }
 
   [Fact]

@@ -1,65 +1,50 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace GqlPlus.Merging;
 
 public class AllMergersTests
 {
-  private readonly IServiceProvider _services;
+  private readonly MergerRepository _merger;
 
   public AllMergersTests()
-    => _services = new ServiceCollection()
-      .AddLogging()
-      .AddMergers()
-      .BuildServiceProvider();
-
-  [Fact]
-  public void AllMergers_Repository_IsRegistered()
-    => _services
-      .GetService<IMergerRepository>()
-      .ShouldNotBeNull();
+  {
+    MergerRepositoryBuilder builder = new();
+    builder.AddSchemaMergers();
+    _merger = new MergerRepository(builder.Build(), NullLoggerFactory.Instance);
+  }
 
   [Fact]
   public void AllMergers_Repository_ProvidesConstant()
-    => _services
-      .GetRequiredService<IMergerRepository>()
+    => _merger
       .MergerFor<IGqlpConstant>()
       .ShouldNotBeNull();
 
   [Fact]
   public void AllMergers_Repository_ProvidesSchema()
-    => _services
-      .GetRequiredService<IMergerRepository>()
+    => _merger
       .MergerFor<IGqlpSchema>()
       .ShouldNotBeNull();
 
   [Fact]
   public void AllMergers_Repository_ProvidesType()
-    => _services
-      .GetRequiredService<IMergerRepository>()
+    => _merger
       .MergerFor<IGqlpType>()
       .ShouldNotBeNull();
 
   [Fact]
   public void AllMergers_Repository_ProvidesAllTypes()
-    => _services
-      .GetRequiredService<IMergerRepository>()
+    => _merger
       .AllMergersFor<IGqlpType>()
       .ShouldNotBeEmpty();
 
   [Fact]
   public void AllMergers_Repository_UnregisteredType_ThrowsInvalidOperation()
     => Should.Throw<InvalidOperationException>(
-      () => _services.GetRequiredService<IMergerRepository>().MergerFor<UnregisteredError>());
+      () => _merger.MergerFor<UnregisteredError>());
 
   private sealed class UnregisteredError : IGqlpError
   {
     public IMessages MakeError(string message) => Messages.New;
   }
-
-  [Fact]
-  public void AllMergers_Service_IsRegistered()
-    => _services
-      .GetService<IMerge<IGqlpSchema>>()
-      .ShouldNotBeNull();
 }

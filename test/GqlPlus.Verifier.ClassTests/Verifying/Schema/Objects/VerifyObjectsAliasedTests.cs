@@ -1,14 +1,12 @@
 ﻿namespace GqlPlus.Verifying.Schema.Objects;
 
-public abstract class VerifyObjectsAliasedTests<TObjField>
-  : AliasedVerifierTestsBase<IGqlpObject<TObjField>>
+public abstract class VerifyObjectsAliasedTests<TObjField>(
+  TypeKind fieldKind
+) : AliasedVerifierTestsBase<IGqlpObject<TObjField>>
   where TObjField : IGqlpObjField
 {
-  protected VerifyObjectsAliasedTests(TypeKind kind)
-    => VerifierRepo.FieldKindFor<TObjField>().Returns(new FieldObjectKind<TObjField>(kind));
-
   internal override GroupedVerifier<IGqlpObject<TObjField>> NewGroupedVerifier()
-    => new ObjectsAliasedVerifier<TObjField>(VerifierRepo);
+    => new ObjectsAliasedVerifier<TObjField>(VerifierRepo, fieldKind);
 }
 
 [TracePerTest]

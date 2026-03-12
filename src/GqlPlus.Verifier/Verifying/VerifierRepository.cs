@@ -10,21 +10,25 @@ using Microsoft.Extensions.DependencyInjection;
 namespace GqlPlus.Verifying;
 
 internal class VerifierRepository
-  : BaseRepository<IVerifierRepository>, IVerifierRepository
+  : BaseRepository<IVerifierRepository>
+  , IVerifierRepository
 {
   private readonly VerifierRepositoryState _state;
-  private readonly IServiceProvider _services;
+  private readonly IMatcherRepository _matchers;
+  private readonly IMergerRepository _mergers;
   private readonly Lazy<IEnumerable<IVerifyDomain>> _domains;
 
-  public ILoggerFactory LoggerFactory { get; }
-  public IMatcherRepository Matchers { get; }
 
-  public VerifierRepository(VerifierRepositoryState state, ILoggerFactory loggerFactory, IMatcherRepository matchers, IServiceProvider services)
+  public VerifierRepository(
+    VerifierRepositoryState state,
+    ILoggerFactory loggerFactory,
+    IMatcherRepository matchers,
+    IMergerRepository mergers)
+    : base(loggerFactory)
   {
     _state = state;
-    _services = services;
-    LoggerFactory = loggerFactory;
-    Matchers = matchers;
+    _matchers = matchers;
+    _mergers = mergers;
     _domains = new(() => [.. state.Domains.Select(f => (IVerifyDomain)f.Invoke(this))]);
   }
 
@@ -49,11 +53,10 @@ internal class VerifierRepository
   public IEnumerable<IVerifyDomain> GetDomains()
     => _domains.Value;
 
-  public IMerge<T> MergeFor<T>()
-    where T : IGqlpError
-    => _services.GetRequiredService<IMerge<T>>();
+  public Matcher<T>.D MatcherFor<T>()
+    => _matchers.MatcherFor<T>();
 
-  public IGqlpFieldKind<T> FieldKindFor<T>()
-    where T : IGqlpObjField
-    => _services.GetRequiredService<IGqlpFieldKind<T>>();
+  public IMerge<T> MergerFor<T>()
+    where T : IGqlpError
+    => _mergers.MergerFor<T>();
 }

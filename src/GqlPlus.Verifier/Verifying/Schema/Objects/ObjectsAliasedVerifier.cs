@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
-internal class ObjectsAliasedVerifier<TField>(IVerifierRepository verifiers) : AliasedVerifier<IGqlpObject<TField>>(verifiers)
+internal class ObjectsAliasedVerifier<TField>(IVerifierRepository verifiers, TypeKind fieldKind)
+  : AliasedVerifier<IGqlpObject<TField>>(verifiers)
   where TField : IGqlpObjField
 {
-  public override string Label { get; } = verifiers.FieldKindFor<TField>().FieldKind.ToString() + "s";
+  public override string Label { get; } = fieldKind.ToString() + "s";
 }

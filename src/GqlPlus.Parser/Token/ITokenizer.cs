@@ -7,7 +7,7 @@ public interface ITokenizer
 {
   bool IgnoreSeparators { get; set; }
   TokenAt At { get; }
-  Messages Errors { get; }
+  IMessages Errors { get; }
 
   bool AtStart { get; }
   bool AtEnd { get; }

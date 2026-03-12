@@ -7,13 +7,13 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
 internal class AstObjectVerifier<TObjField>(
-  IVerifierRepository verifiers
+  IVerifierRepository verifiers,
+  TypeKind fieldKind
 ) : AstParentItemVerifier<IGqlpObject<TObjField>, IGqlpObjBase, ObjectContext, TObjField>(verifiers)
   where TObjField : IGqlpObjField
 {
-  private readonly Matcher<IGqlpTypeArg>.L _constraintMatcher = verifiers.Matchers.MatcherFor<IGqlpTypeArg>();
-  private readonly IMerge<IGqlpAlternate> _mergeAlternates = verifiers.MergeFor<IGqlpAlternate>();
-  private readonly IGqlpFieldKind<TObjField> _fieldKind = verifiers.FieldKindFor<TObjField>();
+  private readonly Matcher<IGqlpTypeArg>.L _constraintMatcher = verifiers.MatcherFor<IGqlpTypeArg>();
+  private readonly IMerge<IGqlpAlternate> _mergeAlternates = verifiers.MergerFor<IGqlpAlternate>();
 
   protected override void UsageValue(IGqlpObject<TObjField> usage, ObjectContext context)
   {
@@ -340,6 +340,6 @@ internal class AstObjectVerifier<TObjField>(
       .Concat(usage.TypeParams.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 
-    return new(validTypes, errors, aliased.MakeEnumValues(), _fieldKind.FieldKind);
+    return new(validTypes, errors, aliased.MakeEnumValues(), fieldKind);
   }
 }

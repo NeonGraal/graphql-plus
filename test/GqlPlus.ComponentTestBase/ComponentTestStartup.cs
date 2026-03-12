@@ -22,7 +22,6 @@ public static class ComponentTestStartup
           lb.AddFilter(l => l == LogLevel.Critical);
         }
       })
-      .AddFieldObjectKinds()
       .AddParsers(b => b.AddCommonParsers())
       .AddSingleton(_ => services);
 
@@ -31,7 +30,7 @@ public static class ComponentTestStartup
       .AddComponentTest(checkEnv)
       .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
       .AddParsers(b => b.AddSchemaParsers())
-      .AddMergers();
+      .AddMergers(b => b.AddSchemaMergers());
 
   private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();
 

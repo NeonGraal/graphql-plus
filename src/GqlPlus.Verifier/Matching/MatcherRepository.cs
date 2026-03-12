@@ -7,12 +7,10 @@ internal class MatcherRepository
   private readonly MatcherRepositoryState _state;
   private readonly Lazy<IEnumerable<ITypeMatcher>> _typeMatchers;
 
-  public ILoggerFactory LoggerFactory { get; }
-
   public MatcherRepository(MatcherRepositoryState state, ILoggerFactory loggerFactory)
+    : base(loggerFactory)
   {
     _state = state;
-    LoggerFactory = loggerFactory;
     _typeMatchers = new(() => [.. state.TypeMatcherFactories.Select(f => f(this))]);
   }
 

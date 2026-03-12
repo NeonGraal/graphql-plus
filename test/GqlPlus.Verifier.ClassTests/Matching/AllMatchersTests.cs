@@ -9,7 +9,7 @@ public class AllMatchersTests
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddMatchers()
+      .AddMatchers(b => b.ConstraintMatchers())
       .BuildServiceProvider();
 
     services.GetService<IMatcherRepository>()
@@ -21,7 +21,7 @@ public class AllMatchersTests
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddMatchers()
+      .AddMatchers(b => b.ConstraintMatchers())
       .BuildServiceProvider();
 
     services.GetRequiredService<IMatcherRepository>()

@@ -2,7 +2,8 @@
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
-internal class VerifyOutputTypes(IVerifierRepository verifiers) : AstObjectVerifier<IGqlpOutputField>(verifiers)
+internal class VerifyOutputTypes(IVerifierRepository verifiers)
+  : AstObjectVerifier<IGqlpOutputField>(verifiers, TypeKind.Output)
 {
   protected override void UsageField(IGqlpOutputField field, IGqlpObject<IGqlpOutputField> usage, ObjectContext context)
   {

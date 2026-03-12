@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -6,27 +7,25 @@ namespace GqlPlus.Matching;
 
 public static class AllMatchers
 {
-  public static IServiceCollection AddMatchers(this IServiceCollection services)
-    => services.AddMatchers(b => b
-      .AddMatcher(m => new AnyTypeMatcher(m))
+  public static IMatcherRepositoryBuilder ConstraintMatchers([NotNull] this IMatcherRepositoryBuilder builder)
+    => builder
+          .AddMatcher(m => new AnyTypeMatcher(m))
+          .AddMatcher(m => new TypeArgMatcher(m))
 
-      .AddMatcher(m => new TypeArgMatcher(m))
+          .AddConstraintMatcher(m => new AlternateConstraintMatcher(m))
+          .AddConstraintMatcher(m => new EnumConstraintMatcher(m))
+          .AddConstraintMatcher(m => new SpecialConstraintMatcher(m))
+          .AddConstraintMatcher(m => new UnionConstraintMatcher(m))
 
-      .AddConstraintMatcher(m => new AlternateConstraintMatcher(m))
-      .AddConstraintMatcher(m => new EnumConstraintMatcher(m))
-      .AddConstraintMatcher(m => new SpecialConstraintMatcher(m))
-      .AddConstraintMatcher(m => new UnionConstraintMatcher(m))
+          .AddTypeMatcher<IGqlpDomain, DomainMatcher>(m => new DomainMatcher(m))
+          .AddSimpleMatcher<IGqlpDomain>()
+          .AddSimpleMatcher<IGqlpEnum>()
+          .AddSimpleMatcher<IGqlpTypeSpecial>()
+          .AddSimpleMatcher<IGqlpUnion>()
 
-      .AddTypeMatcher<IGqlpDomain, DomainMatcher>(m => new DomainMatcher(m))
-      .AddSimpleMatcher<IGqlpDomain>()
-      .AddSimpleMatcher<IGqlpEnum>()
-      .AddSimpleMatcher<IGqlpTypeSpecial>()
-      .AddSimpleMatcher<IGqlpUnion>()
-
-      .AddObjectMatcher<IGqlpDualField, ObjectParentMatcher<IGqlpDualField>>(m => new ObjectParentMatcher<IGqlpDualField>(m))
-      .AddObjectDualMatcher<IGqlpInputField>()
-      .AddObjectDualMatcher<IGqlpOutputField>()
-    );
+          .AddObjectMatcher<IGqlpDualField, ObjectParentMatcher<IGqlpDualField>>(m => new ObjectParentMatcher<IGqlpDualField>(m))
+          .AddObjectDualMatcher<IGqlpInputField>()
+          .AddObjectDualMatcher<IGqlpOutputField>();
 
   public static IServiceCollection AddMatchers(this IServiceCollection services, Action<IMatcherRepositoryBuilder> config)
   {

@@ -11,10 +11,9 @@ public class AllVerifiersTests
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddFieldObjectKinds()
-      .AddMergers()
-      .AddMatchers()
-      .AddVerifiers()
+      .AddMergers(b => b.AddSchemaMergers())
+      .AddMatchers(b => b.ConstraintMatchers())
+      .AddVerifiers(b => b.AddSchemaVerifiers())
       .BuildServiceProvider();
 
     services.GetService<IVerifierRepository>()
@@ -26,10 +25,9 @@ public class AllVerifiersTests
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddFieldObjectKinds()
-      .AddMergers()
-      .AddMatchers()
-      .AddVerifiers()
+      .AddMergers(b => b.AddSchemaMergers())
+      .AddMatchers(b => b.ConstraintMatchers())
+      .AddVerifiers(b => b.AddSchemaVerifiers())
       .BuildServiceProvider();
 
     services.GetRequiredService<IVerifierRepository>()

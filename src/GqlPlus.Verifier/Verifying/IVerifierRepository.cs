@@ -26,11 +26,8 @@ public interface IVerifierRepository
 
   ILoggerFactory LoggerFactory { get; }
 
-  IMerge<T> MergeFor<T>()
+  Matcher<T>.D MatcherFor<T>();
+
+  IMerge<T> MergerFor<T>()
     where T : IGqlpError;
-
-  IMatcherRepository Matchers { get; }
-
-  IGqlpFieldKind<T> FieldKindFor<T>()
-    where T : IGqlpObjField;
 }

@@ -8,7 +8,7 @@ internal class AstDomainVerifier<TItem>(
 ) : IVerifyDomain
   where TItem : IGqlpDomainItem
 {
-  private readonly IMerge<TItem> _items = verifiers.MergeFor<TItem>();
+  private readonly IMerge<TItem> _items = verifiers.MergerFor<TItem>();
 
   public IMessages CanMergeItems(IGqlpDomain usage, EnumContext context)
   {

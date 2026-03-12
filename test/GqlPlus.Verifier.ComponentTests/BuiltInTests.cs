@@ -36,7 +36,7 @@ public class BuiltInTests(
   {
     Assert.SkipWhen(type is null, "type is null");
 
-    Messages result = [];
+    IMessages result = Messages.New;
     TestSchema schema = new(type);
 
     _verifier.Verify(schema, result);

@@ -6,7 +6,7 @@ public class SpecialConstraintMatcherTests
   private readonly SpecialConstraintMatcher _sut;
 
   public SpecialConstraintMatcherTests()
-    => _sut = new(LoggerFactory);
+    => _sut = new(MatcherRepo);
 
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingSpecialMember(string name, string constraint)

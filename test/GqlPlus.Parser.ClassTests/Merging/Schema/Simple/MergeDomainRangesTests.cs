@@ -4,9 +4,8 @@ using GqlPlus.Merging.Simple;
 
 namespace GqlPlus.Merging.Schema.Simple;
 
-public class MergeDomainRangesTests(
-  ITestOutputHelper outputHelper
-) : TestDomainItemMerger<IGqlpDomainRange, DomainRangeInput>
+public class MergeDomainRangesTests
+  : TestDomainItemMerger<IGqlpDomainRange, DomainRangeInput>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameExcludes_ReturnsGood(DomainRangeInput input)
@@ -16,7 +15,10 @@ public class MergeDomainRangesTests(
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(DomainRangeInput input)
     => CanMerge_Errors([MakeItem(input, true), MakeAst(input)]);
 
-  private readonly MergeDomainRanges _merger = new(outputHelper.ToLoggerFactory());
+  private readonly MergeDomainRanges _merger;
+
+  public MergeDomainRangesTests(ITestOutputHelper outputHelper)
+    => _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
 
   internal override GroupsMerger<IGqlpDomainRange> MergerGroups => _merger;
 

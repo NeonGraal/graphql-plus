@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-using GqlPlus.Abstractions;
+﻿using GqlPlus.Abstractions;
 
 namespace GqlPlus.Generating.Objects;
 

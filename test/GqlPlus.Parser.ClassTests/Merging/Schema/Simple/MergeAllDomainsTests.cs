@@ -20,7 +20,9 @@ public class MergeAllDomainsTests
     result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
     result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IGqlpDomain>>());
 
-    _merger = new(outputHelper.ToLoggerFactory(), [result]);
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.AllMergersFor<IGqlpDomain>().Returns([result]);
+    _merger = new(mergers);
   }
 
   internal override GroupsMerger<IGqlpDomain> MergerGroups => _merger;

@@ -6,10 +6,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseEnumLabel(
-  Parser<string>.DA aliases
+  IParserRepository parsers
 ) : Parser<IGqlpEnumLabel>.I
 {
-  private readonly Parser<string>.LA _aliases = aliases;
+  private readonly Parser<string>.LA _aliases = parsers.ArrayFor<string>();
 
   public IResult<IGqlpEnumLabel> Parse(ITokenizer tokens, string label)
 

@@ -1,14 +1,12 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
 internal abstract class AstSimpleVerifier<TAst, TContext, TItem>(
-  IVerifyAliased<TAst> aliased,
-  IMerge<TItem> mergeMembers
-) : AstParentItemVerifier<TAst, IGqlpTypeRef, TContext, TItem>(aliased, mergeMembers)
+  IVerifierRepository verifiers
+) : AstParentItemVerifier<TAst, IGqlpTypeRef, TContext, TItem>(verifiers)
   where TAst : IGqlpSimple
   where TContext : UsageContext
   where TItem : IGqlpError

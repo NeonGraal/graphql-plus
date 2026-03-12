@@ -6,7 +6,7 @@ public class ParseDualFieldTests
   : ObjectFieldParseTestBase<IGqlpDualField>
 {
   public ParseDualFieldTests()
-    => Parser = new ParseDualField(Aliases, Modifiers, ParseBase);
+    => Parser = new ParseDualField(Parsers);
 
   protected override Parser<IGqlpDualField>.I Parser { get; }
 }

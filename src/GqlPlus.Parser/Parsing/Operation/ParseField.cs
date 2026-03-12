@@ -6,16 +6,13 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseField(
-  Parser<IGqlpModifier>.DA modifiers,
-  Parser<IGqlpDirective>.DA directives,
-  Parser<IParserArg, IGqlpArg>.D argument,
-  Parser<IGqlpSelection>.DA objectParser
+  IParserRepository parsers
 ) : Parser<IGqlpField>.I
 {
-  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
-  private readonly Parser<IGqlpDirective>.LA _directives = directives;
-  private readonly Parser<IParserArg, IGqlpArg>.L _argument = argument;
-  private readonly Parser<IGqlpSelection>.LA _object = objectParser;
+  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
+  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
+  private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
 
   public IResult<IGqlpField> Parse(ITokenizer tokens, string label)
 

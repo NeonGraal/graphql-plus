@@ -9,7 +9,7 @@ public static class ParsingChecks
       .AddTransient<IOneChecksParser<TResult>, OneChecksParser<TResult>>();
 
   public static IServiceCollection AddOneChecks<TInterface, TResult>(this IServiceCollection services)
-    where TInterface : Parser<TResult>.I
+    where TInterface : class, Parser<TResult>.I
     => services
       .AddTransient<IOneChecksParser<TInterface, TResult>, OneChecksParser<TInterface, TResult>>();
 
@@ -18,7 +18,7 @@ public static class ParsingChecks
       .AddTransient<IManyChecksParser<TResult>, ManyChecksParser<TResult>>();
 
   public static IServiceCollection AddManyChecks<TInterface, TResult>(this IServiceCollection services)
-    where TInterface : Parser<TResult>.IA
+    where TInterface : class, Parser<TResult>.IA
     => services
       .AddTransient<IManyChecksParser<TInterface, TResult>, ManyChecksParser<TInterface, TResult>>();
 }

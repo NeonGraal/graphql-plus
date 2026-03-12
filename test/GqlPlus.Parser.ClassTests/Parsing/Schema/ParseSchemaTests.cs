@@ -7,13 +7,15 @@ public class ParseSchemaTests
 {
 
   private readonly IParseDeclaration _declarationParser = A.Of<IParseDeclaration>();
+  private readonly IParserRepository _repo = A.Of<IParserRepository>();
   private readonly ParseSchema _parser;
 
   public ParseSchemaTests()
   {
     _declarationParser.Selector.Returns("category");
+    _repo.GetDeclarations().Returns([_declarationParser]);
 
-    _parser = new([_declarationParser]);
+    _parser = new ParseSchema(_repo);
 
     Tokenizer.AtStart.Returns(true);
     Tokenizer.Read().Returns(true);

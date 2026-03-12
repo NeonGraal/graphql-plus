@@ -3,11 +3,13 @@
 namespace GqlPlus.Verifying.Schema;
 
 internal abstract class UsageVerifier<TUsage, TContext>(
-  IVerifyAliased<TUsage> aliased
+  IVerifierRepository verifiers
 ) : IVerifyUsage<TUsage>
   where TUsage : IGqlpAliased
   where TContext : UsageContext
 {
+  private readonly IVerifyAliased<TUsage> _aliased = verifiers.AliasedFor<TUsage>();
+
   protected abstract void UsageValue(TUsage usage, TContext context);
   protected abstract TContext MakeContext(TUsage usage, IGqlpType[] aliased, IMessages errors);
 
@@ -18,7 +20,7 @@ internal abstract class UsageVerifier<TUsage, TContext>(
       UsageValue(usage, context);
     }
 
-    aliased.Verify(item.Usages, errors);
+    _aliased.Verify(item.Usages, errors);
   }
 
   protected static UsageContext MakeUsageContext(IGqlpType[] aliased, IMessages errors)

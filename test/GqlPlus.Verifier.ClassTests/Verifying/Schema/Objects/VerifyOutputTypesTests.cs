@@ -11,7 +11,7 @@ public class VerifyOutputTypesTests
 
   public VerifyOutputTypesTests()
     : base(TypeKind.Output)
-    => Verifier = new VerifyOutputTypes(Verifiers);
+    => Verifier = new VerifyOutputTypes(VerifierRepo);
 }
 
 [TracePerTest]
@@ -22,7 +22,7 @@ public class VerifyOutputAlternatesTests
 
   public VerifyOutputAlternatesTests()
     : base(TypeKind.Output)
-    => Verifier = new VerifyOutputTypes(Verifiers);
+    => Verifier = new VerifyOutputTypes(VerifierRepo);
 }
 
 [TracePerTest]
@@ -33,7 +33,7 @@ public class VerifyOutputFieldsTests
 
   public VerifyOutputFieldsTests()
     : base(TypeKind.Output)
-    => Verifier = new VerifyOutputTypes(Verifiers);
+    => Verifier = new VerifyOutputTypes(VerifierRepo);
 
   [Fact]
   public void Verify_Output_WithFieldParams_ReturnsNoErrors()

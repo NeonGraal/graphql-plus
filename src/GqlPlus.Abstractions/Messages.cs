@@ -30,6 +30,11 @@ public class Messages(
   public static IMessages New
     => new Messages();
 
+  public static Messages Empty
+#pragma warning disable IDE0028 // Simplify collection initialization
+    => new();
+#pragma warning restore IDE0028 // Simplify collection initialization
+
   public void Convert()
   {
     for (int i = 0; i < Count; i++) {

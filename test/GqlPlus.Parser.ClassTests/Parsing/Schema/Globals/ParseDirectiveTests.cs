@@ -15,12 +15,11 @@ public class ParseDirectiveTests
   {
     IDirectiveName name = A.Of<IDirectiveName>();
     NameParser = name;
-
-    Parser<IGqlpInputParam>.DA param = ParserAFor(out _param);
-    Parser<IOptionParser<DirectiveOption>, DirectiveOption>.D option = OptionParserFor(out _option);
-    Parser<DirectiveLocation>.D definition = ParserFor(out _definition);
-
-    _parser = new ParseDirective(name, param, Aliases, option, definition);
+    Parsers.GetName<IDirectiveName>().Returns(name);
+    ConfigureRepoArray<IGqlpInputParam>(Parsers, out _param);
+    ConfigureRepoInterface<IOptionParser<DirectiveOption>, DirectiveOption>(Parsers, out _option);
+    ConfigureRepo<DirectiveLocation>(Parsers, out _definition);
+    _parser = new ParseDirective(Parsers);
   }
 
   [Theory, RepeatData]

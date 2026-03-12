@@ -15,7 +15,15 @@ public class VerifyAllTypesTests
   private readonly VerifyAllTypes _verifier;
 
   public VerifyAllTypesTests()
-    => _verifier = new(_dualAllTypes.Intf, _enumAllTypes.Intf, _inputAllTypes.Intf, _outputAllTypes.Intf, _domainAllTypes.Intf, _unionAllTypes.Intf);
+  {
+    VerifierRepo.UsageFor<IGqlpObject<IGqlpDualField>>().Returns(_dualAllTypes.Intf);
+    VerifierRepo.UsageFor<IGqlpEnum>().Returns(_enumAllTypes.Intf);
+    VerifierRepo.UsageFor<IGqlpObject<IGqlpInputField>>().Returns(_inputAllTypes.Intf);
+    VerifierRepo.UsageFor<IGqlpObject<IGqlpOutputField>>().Returns(_outputAllTypes.Intf);
+    VerifierRepo.UsageFor<IGqlpDomain>().Returns(_domainAllTypes.Intf);
+    VerifierRepo.UsageFor<IGqlpUnion>().Returns(_unionAllTypes.Intf);
+    _verifier = new(VerifierRepo);
+  }
 
   [Fact]
   public void Verify_CallsVerifierAndMergerWithoutErrors()

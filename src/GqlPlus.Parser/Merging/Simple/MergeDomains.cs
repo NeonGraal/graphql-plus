@@ -5,9 +5,8 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeDomains<TItemAst, TItem>(
-  ILoggerFactory logger,
-  IMerge<TItem> items
-) : AstSimpleMerger<IGqlpDomain, IGqlpDomain<TItem>, TItem>(logger, items)
+  IMergerRepository mergers
+) : AstSimpleMerger<IGqlpDomain, IGqlpDomain<TItem>, TItem>(mergers)
   , IDomainMerger<TItem>
   where TItemAst : AstAbbreviated, TItem
   where TItem : class, IGqlpDomainItem

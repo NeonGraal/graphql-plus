@@ -1,21 +1,20 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema;
 
 internal abstract class AliasedVerifier<TAliased>(
-   IVerify<TAliased> verifier,
-   IMerge<TAliased> merger,
-   ILoggerFactory logger
-) : GroupedVerifier<TAliased>(merger, logger)
+  IVerifierRepository verifiers
+) : GroupedVerifier<TAliased>(verifiers)
  where TAliased : IGqlpAliased
 {
+  private readonly IVerify<TAliased> _verifier = verifiers.VerifierFor<TAliased>();
+
   public override void Verify(TAliased[] item, IMessages errors)
   {
     base.Verify(item, errors);
 
     foreach (TAliased each in item) {
-      verifier.Verify(each, errors);
+      _verifier.Verify(each, errors);
     }
   }
 }

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Verifying.Operation;
 using GqlPlus.Verifying.Schema;
@@ -12,80 +13,90 @@ namespace GqlPlus.Verifying;
 
 public static class AllVerifiers
 {
-  public static IServiceCollection AddVerifiers(this IServiceCollection services)
-    => services
-      // Operation
-      .AddVerify<IGqlpOperation, VerifyOperation>()
-      .AddVerify<IGqlpVariable, VerifyVariable>()
-      .AddVerifyUsageIdentified<IGqlpArg, IGqlpVariable, VerifyVariableUsage>()
-      .AddVerifyUsageIdentified<IGqlpSpread, IGqlpFragment, VerifyFragmentUsage>()
-      // Schema
-      .AddVerify<IGqlpSchema, VerifySchema>()
-      .AddVerifyUsageAliased<IGqlpSchemaCategory, VerifyCategoryAliased, VerifyCategoryOutput>()
-      .AddVerifyUsageAliased<IGqlpSchemaDirective, VerifyDirectiveAliased, VerifyDirectiveInput>()
-      .AddVerifyAliased<IGqlpSchemaOption, VerifyOptionAliased>()
-      // Schema Types
-      .AddVerify<IGqlpType[], VerifyAllTypes>()
+  public static IVerifierRepositoryBuilder AddSchemaVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
+    => builder
+        // Schema
+        .AddVerify(v => new VerifySchema(v))
+        .AddVerifyUsageAliased(
+          v => new VerifyCategoryAliased(v),
+          v => new VerifyCategoryOutput(v))
+        .AddVerifyUsageAliased(
+          v => new VerifyDirectiveAliased(v),
+          v => new VerifyDirectiveInput(v))
+        .AddVerifyAliased(v => new VerifyOptionAliased(v))
+        // Schema Types
+        .AddVerify(v => new VerifyAllTypes(v))
+        .AddVerifyAliased(v => new VerifyAllTypesAliased(v))
+        // Simple Types
+        .AddVerifyUsageAliased(
+          v => new VerifyDomainsAliased(v),
+          v => new VerifyDomainTypes(v))
+        .AddDomain(v => new AstDomainVerifier<IGqlpDomainRange>(v))
+        .AddDomain(v => new AstDomainVerifier<IGqlpDomainRegex>(v))
+        .AddDomain(v => new AstDomainVerifier<IGqlpDomainTrueFalse>(v))
+        .AddDomain(v => new VerifyDomainEnum(v))
+        .AddVerifyUsageAliased(
+          v => new VerifyEnumsAliased(v),
+          v => new VerifyEnumTypes(v))
+        .AddVerifyUsageAliased(
+          v => new VerifyUnionsAliased(v),
+          v => new VerifyUnionTypes(v))
+        // Object Types
+        .AddVerifyObject(TypeKind.Dual, v => new VerifyDualTypes(v))
+        .AddVerifyObject(TypeKind.Input, v => new VerifyInputTypes(v))
+        .AddVerifyObject(TypeKind.Output, v => new VerifyOutputTypes(v));
 
-      .AddVerifyAliased<IGqlpType, VerifyAllTypesAliased>()
-      // Simple Types
-      .AddVerifyUsageAliased<IGqlpDomain, VerifyDomainsAliased, VerifyDomainTypes>()
-      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRange>>()
-      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRegex>>()
-      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainTrueFalse>>()
-      .AddVerifyDomainContext<VerifyDomainEnum>()
-      .AddVerifyUsageAliased<IGqlpEnum, VerifyEnumsAliased, VerifyEnumTypes>()
-      .AddVerifyUsageAliased<IGqlpUnion, VerifyUnionsAliased, VerifyUnionTypes>()
-      // Object Types
-      .AddVerifyObject<IGqlpDualField, VerifyDualTypes>()
-      .AddVerifyObject<IGqlpInputField, VerifyInputTypes>()
-      .AddVerifyObject<IGqlpOutputField, VerifyOutputTypes>()
-    ;
+  public static IVerifierRepositoryBuilder AddOperationVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
+    => builder
+      .AddVerify(v => new VerifyOperation(v))
+      .AddVerify(_ => new VerifyVariable())
+      .AddVerifyUsageIdentified(v => new VerifyVariableUsage(v))
+      .AddVerifyUsageIdentified(v => new VerifyFragmentUsage(v));
 
-  private static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)
-    where TService : class, IVerify<TValue>
-    => services.AddSingleton<IVerify<TValue>, TService>();
-
-  private static IServiceCollection TryAddVerify<TValue, TService>(this IServiceCollection services)
-    where TService : class, IVerify<TValue>
+  public static IServiceCollection AddVerifiers(this IServiceCollection services, Action<IVerifierRepositoryBuilder> config)
   {
-    services.TryAddSingleton<IVerify<TValue>, TService>();
+    VerifierRepositoryBuilder builder = new();
+    config?.Invoke(builder);
+    services.AddSingleton(builder.Build());
+    services.TryAddSingleton<IVerifierRepository, VerifierRepository>();
     return services;
   }
 
-  private static IServiceCollection AddVerifyUsageIdentified<TUsage, TIdentified, TService>(this IServiceCollection services)
-    where TService : class, IVerifyIdentified<TUsage, TIdentified>
+  private static IVerifierRepositoryBuilder AddVerifyUsageIdentified<TUsage, TIdentified>(
+    this IVerifierRepositoryBuilder builder,
+    Factory<IVerifyIdentified<TUsage, TIdentified>, IVerifierRepository> identifiedFactory)
     where TUsage : IGqlpError
     where TIdentified : IGqlpIdentified
-  => services
-      .AddSingleton<IVerifyIdentified<TUsage, TIdentified>, TService>()
-      .TryAddVerify<TUsage, NullVerifierError<TUsage>>()
-      .TryAddVerify<TIdentified, NullVerifierError<TIdentified>>();
+    => builder
+      .AddIdentified(identifiedFactory)
+      .TryAddVerify(v => new NullVerifierError<TUsage>(v))
+      .TryAddVerify(v => new NullVerifierError<TIdentified>(v));
 
-  private static IServiceCollection AddVerifyAliased<TAliased, TAliasedService>(this IServiceCollection services)
-    where TAliasedService : class, IVerifyAliased<TAliased>
+  private static IVerifierRepositoryBuilder AddVerifyAliased<TAliased>(
+    this IVerifierRepositoryBuilder builder,
+    Factory<IVerifyAliased<TAliased>, IVerifierRepository> aliasedFactory)
     where TAliased : IGqlpAliased
-    => services
-      .AddSingleton<IVerifyAliased<TAliased>, TAliasedService>()
-      .TryAddVerify<TAliased, NullVerifierError<TAliased>>();
+    => builder
+      .AddAliased(aliasedFactory)
+      .TryAddVerify(v => new NullVerifierError<TAliased>(v));
 
-  private static IServiceCollection AddVerifyUsageAliased<TUsage, TAliasedService, TUsageService>(this IServiceCollection services)
-    where TAliasedService : class, IVerifyAliased<TUsage>
-    where TUsageService : class, IVerifyUsage<TUsage>
+  private static IVerifierRepositoryBuilder AddVerifyUsageAliased<TUsage>(
+    this IVerifierRepositoryBuilder builder,
+    Factory<IVerifyAliased<TUsage>, IVerifierRepository> aliasedFactory,
+    Factory<IVerifyUsage<TUsage>, IVerifierRepository> usageFactory)
     where TUsage : IGqlpAliased
-    => services
-      .AddSingleton<IVerifyAliased<TUsage>, TAliasedService>()
-      .AddSingleton<IVerifyUsage<TUsage>, TUsageService>()
-      .TryAddVerify<TUsage, NullVerifierError<TUsage>>();
+    => builder
+      .AddAliased(aliasedFactory)
+      .AddUsage(usageFactory)
+      .TryAddVerify(v => new NullVerifierError<TUsage>(v));
 
-  private static IServiceCollection AddVerifyDomainContext<TService>(this IServiceCollection services)
-    where TService : class, IVerifyDomain
-    => services.AddSingleton<IVerifyDomain, TService>();
-
-  private static IServiceCollection AddVerifyObject<TField, TService>(this IServiceCollection services)
+  private static IVerifierRepositoryBuilder AddVerifyObject<TField>(
+    this IVerifierRepositoryBuilder builder,
+    TypeKind fieldKind,
+    Factory<IVerifyUsage<IGqlpObject<TField>>, IVerifierRepository> usageFactory)
     where TField : IGqlpObjField
-    where TService : AstObjectVerifier<TField>
-    => services
-      .AddSingleton<ObjectVerifierParams<TField>>()
-      .AddVerifyUsageAliased<IGqlpObject<TField>, ObjectsAliasedVerifier<TField>, TService>();
+    => builder
+      .AddAliased(v => new ObjectsAliasedVerifier<TField>(v, fieldKind))
+      .AddUsage(usageFactory)
+      .TryAddVerify(v => new NullVerifierError<IGqlpObject<TField>>(v));
 }

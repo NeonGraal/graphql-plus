@@ -21,5 +21,5 @@ public class VerifyVariableUsageTests
   }
 
   internal override IdentifiedVerifier<IGqlpArg, IGqlpVariable> NewVerifier()
-    => new VerifyVariableUsage(Usage, Definition);
+    => new VerifyVariableUsage(VerifierRepo);
 }

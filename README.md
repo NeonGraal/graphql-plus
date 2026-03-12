@@ -30,6 +30,8 @@ Various scripts presume these dotnet tools are installed globally:
 
 ## Development
 
+For repository-wide coding style, see [Style-Guide.md](Style-Guide.md).
+
 For development conventions including testing standards, see [Conventions.md](Conventions.md).
 
 ### Other references

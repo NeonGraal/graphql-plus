@@ -9,8 +9,8 @@ public class DomainMatcherTests
   public DomainMatcherTests()
   {
     Matcher<IGqlpEnum>.D enumMatcher = MatcherFor(out _enumMatcher);
-
-    _sut = new DomainMatcher(LoggerFactory, enumMatcher);
+    MatcherRepo.MatcherFor<IGqlpEnum>().Returns(enumMatcher);
+    _sut = new DomainMatcher(MatcherRepo);
   }
 
   [Fact]

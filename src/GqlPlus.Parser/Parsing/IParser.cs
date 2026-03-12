@@ -3,12 +3,12 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-public interface IParser<TResult>
+internal interface IParser<TResult>
 {
   IResult<TResult> Parse([NotNull] ITokenizer tokens);
 }
 
-public interface IParserArray<TResult>
+internal interface IParserArray<TResult>
 {
   IResultArray<TResult> Parse([NotNull] ITokenizer tokens, string label);
 }

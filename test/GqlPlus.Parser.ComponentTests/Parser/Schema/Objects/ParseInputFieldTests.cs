@@ -18,6 +18,6 @@ public class ParseInputFieldTests(
 }
 
 internal sealed class ParseInputFieldChecks(
-  Parser<IGqlpInputField>.D parser
-) : CheckObjectField<IGqlpInputField, InputFieldAst>(new InputFactories(), parser)
+  IParserRepository parsers
+) : CheckObjectField<IGqlpInputField, InputFieldAst>(new InputFactories(), parsers)
 { }

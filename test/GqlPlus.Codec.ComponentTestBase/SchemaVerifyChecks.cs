@@ -6,15 +6,17 @@ using GqlPlus.Resolving;
 namespace GqlPlus;
 
 internal sealed class SchemaVerifyChecks(
-    Parser<IGqlpSchema>.D schemaParser,
-    IMerge<IGqlpSchema> schemaMerger,
+    IParserRepository parsers,
+    IMergerRepository mergers,
     IModelAndEncode schemaEncoder
-) : SchemaParseChecks(schemaParser)
+) : SchemaParseChecks(parsers)
   , ISchemaVerifyChecks
 {
+  private readonly IMerge<IGqlpSchema> _schemaMerger = mergers.MergerFor<IGqlpSchema>();
+
   public (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IGqlpSchema> asts, bool withBuiltIns, bool addDescribed)
   {
-    IGqlpSchema schema = schemaMerger.Merge(asts).First();
+    IGqlpSchema schema = _schemaMerger.Merge(asts).First();
 
     IModelsContext context = withBuiltIns ? schemaEncoder.WithBuiltIns() : schemaEncoder.Context();
     if (addDescribed) {

@@ -1,59 +1,51 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Matching;
 
 public static class AllMatchers
 {
-  public static IServiceCollection AddMatchers(this IServiceCollection services)
-    => services
-      .AddMatcher<IGqlpType, AnyTypeMatcher>()
+  public static IMatcherRepositoryBuilder ConstraintMatchers([NotNull] this IMatcherRepositoryBuilder builder)
+    => builder
+          .AddMatcher(m => new AnyTypeMatcher(m))
+          .AddMatcher(m => new TypeArgMatcher(m))
 
-      .AddMatcher<IGqlpTypeArg, TypeArgMatcher>()
+          .AddConstraintMatcher(m => new AlternateConstraintMatcher(m))
+          .AddConstraintMatcher(m => new EnumConstraintMatcher(m))
+          .AddConstraintMatcher(m => new SpecialConstraintMatcher(m))
+          .AddConstraintMatcher(m => new UnionConstraintMatcher(m))
 
-      .AddSingleton<ITypeMatcher, AlternateConstraintMatcher>()
-      .AddSingleton<ITypeMatcher, EnumConstraintMatcher>()
-      .AddSingleton<ITypeMatcher, SpecialConstraintMatcher>()
-      .AddSingleton<ITypeMatcher, UnionConstraintMatcher>()
+          .AddTypeMatcher<IGqlpDomain, DomainMatcher>(m => new DomainMatcher(m))
+          .AddSimpleMatcher<IGqlpDomain>()
+          .AddSimpleMatcher<IGqlpEnum>()
+          .AddSimpleMatcher<IGqlpTypeSpecial>()
+          .AddSimpleMatcher<IGqlpUnion>()
 
-      .AddTypeMatcher<IGqlpDomain, DomainMatcher>()
-      .AddSimpleMatcher<IGqlpDomain>()
-      .AddSimpleMatcher<IGqlpEnum>()
-      .AddSimpleMatcher<IGqlpTypeSpecial>()
-      .AddSimpleMatcher<IGqlpUnion>()
+          .AddObjectMatcher<IGqlpDualField, ObjectParentMatcher<IGqlpDualField>>(m => new ObjectParentMatcher<IGqlpDualField>(m))
+          .AddObjectDualMatcher<IGqlpInputField>()
+          .AddObjectDualMatcher<IGqlpOutputField>();
 
-      .AddObjectMatcher<IGqlpDualField, ObjectParentMatcher<IGqlpDualField>>()
-      .AddObjectDualMatcher<IGqlpInputField>()
-      .AddObjectDualMatcher<IGqlpOutputField>()
-    ;
+  public static IServiceCollection AddMatchers(this IServiceCollection services, Action<IMatcherRepositoryBuilder> config)
+  {
+    MatcherRepositoryBuilder builder = new();
+    config?.Invoke(builder);
+    services.AddSingleton(builder.Build());
+    services.TryAddSingleton<IMatcherRepository, MatcherRepository>();
+    return services;
+  }
 
-  private static IServiceCollection AddMatcher<TType, TMatcher>(this IServiceCollection services)
-    where TMatcher : class, Matcher<TType>.I
-    => services
-      .AddSingleton<TMatcher>()
-      .AddSingleton(GetMatcher<TMatcher, TType>);
-
-  private static IServiceCollection AddTypeMatcher<TType, TMatcher>(this IServiceCollection services)
-    where TType : IGqlpType
-    where TMatcher : class, Matcher<TType>.I, ITypeMatcher
-    => services
-      .AddMatcher<TType, TMatcher>()
-      .AddProvider<TMatcher, ITypeMatcher>();
-
-  private static IServiceCollection AddSimpleMatcher<TType>(this IServiceCollection services)
+  private static IMatcherRepositoryBuilder AddSimpleMatcher<TType>(this IMatcherRepositoryBuilder builder)
     where TType : IGqlpSimple
-    => services.AddTypeMatcher<TType, SimpleParentMatcher<TType>>();
+    => builder.AddTypeMatcher<TType, SimpleParentMatcher<TType>>(m => new SimpleParentMatcher<TType>(m));
 
-  private static IServiceCollection AddObjectMatcher<TField, TMatcher>(this IServiceCollection services)
+  private static IMatcherRepositoryBuilder AddObjectMatcher<TField, TMatcher>(this IMatcherRepositoryBuilder builder, Factory<TMatcher, IMatcherRepository> factory)
     where TField : IGqlpObjField
     where TMatcher : class, Matcher<IGqlpObject<TField>>.I, ITypeMatcher
-    => services.AddTypeMatcher<IGqlpObject<TField>, TMatcher>();
+    => builder.AddTypeMatcher<IGqlpObject<TField>, TMatcher>(factory);
 
-  private static IServiceCollection AddObjectDualMatcher<TField>(this IServiceCollection services)
+  private static IMatcherRepositoryBuilder AddObjectDualMatcher<TField>(this IMatcherRepositoryBuilder builder)
     where TField : class, IGqlpObjField
-    => services.AddObjectMatcher<TField, MatchObjectParentDualBase<TField>>();
-
-  private static Matcher<TValue>.D GetMatcher<TService, TValue>(IServiceProvider provider)
-    where TService : class, Matcher<TValue>.I
-    => provider.GetRequiredService<TService>;
+    => builder.AddObjectMatcher<TField, MatchObjectParentDualBase<TField>>(m => new MatchObjectParentDualBase<TField>(m));
 }

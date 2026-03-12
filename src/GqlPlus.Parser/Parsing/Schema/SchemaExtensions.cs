@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema;
 
-public static class SchemaExtensions
+internal static class SchemaExtensions
 {
   public static IResult<T> End<T>(this ITokenizer tokens, string label, Func<T> result)
   {

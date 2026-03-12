@@ -43,7 +43,9 @@ public class MergeInputParamsTests
   {
     _constant = Merger<IGqlpConstant>();
 
-    _merger = new(outputHelper.ToLoggerFactory(), _constant);
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpConstant>().Returns(_constant);
+    _merger = new(mergers);
   }
 
   internal override GroupsMerger<IGqlpInputParam> MergerGroups => _merger;

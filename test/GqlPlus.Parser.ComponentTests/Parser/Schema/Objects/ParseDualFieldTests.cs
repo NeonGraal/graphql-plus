@@ -10,6 +10,6 @@ public class ParseDualFieldTests(
 { }
 
 internal sealed class ParseDualFieldChecks(
-  Parser<IGqlpDualField>.D parser
-) : CheckObjectField<IGqlpDualField, DualFieldAst>(new DualFactories(), parser)
+  IParserRepository parsers
+) : CheckObjectField<IGqlpDualField, DualFieldAst>(new DualFactories(), parsers)
 { }

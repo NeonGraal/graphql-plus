@@ -83,8 +83,8 @@ public class ParseDomainLabelTests
     : base(DomainKind.Enum)
   { }
 
-  internal override ParseDomainItem<IGqlpDomainLabel> MakeParser(Parser<IGqlpDomainLabel>.DA itemsParser)
-    => new ParseDomainLabel(itemsParser);
+  internal override ParseDomainItem<IGqlpDomainLabel> MakeParser(IParserRepository parsers)
+    => new ParseDomainLabel(parsers);
 
   protected override IGqlpDomainLabel NewItem()
     => new DomainLabelAst(AstNulls.At, string.Empty, false, _itemLabel);

@@ -6,14 +6,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseArgValue(
-  Parser<IGqlpFieldKey>.D fieldKey,
-  Parser<KeyValue<IGqlpArg>>.D keyValueParser,
-  Parser<IGqlpArg>.DA listParser,
-  Parser<IGqlpFields<IGqlpArg>>.D objectParser,
-  Parser<IGqlpConstant>.D constant
-) : ValueParser<IGqlpArg>(fieldKey, keyValueParser, listParser, objectParser)
+  IParserRepository parsers
+) : ValueParser<IGqlpArg>(parsers)
 {
-  private readonly Parser<IGqlpConstant>.L _constant = constant;
+  private readonly Parser<IGqlpConstant>.L _constant = parsers.ParserFor<IGqlpConstant>();
 
   public override IResult<IGqlpArg> Parse([NotNull] ITokenizer tokens, string label)
   {

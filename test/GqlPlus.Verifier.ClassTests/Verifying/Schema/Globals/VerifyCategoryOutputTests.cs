@@ -12,7 +12,7 @@ public class VerifyCategoryOutputTests
 
   public VerifyCategoryOutputTests()
   {
-    _verifier = new(Aliased.Intf);
+    _verifier = new(VerifierRepo);
 
     IGqlpTypeRef output = A.Named<IGqlpTypeRef>("Type");
 

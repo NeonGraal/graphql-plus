@@ -2,13 +2,12 @@
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
-internal class VerifyDomainTypes(
-  IVerifyAliased<IGqlpDomain> aliased,
-  IEnumerable<IVerifyDomain> domains
-) : AstParentVerifier<IGqlpDomain, IGqlpTypeRef, EnumContext>(aliased)
+internal class VerifyDomainTypes(IVerifierRepository verifiers) : AstParentVerifier<IGqlpDomain, IGqlpTypeRef, EnumContext>(verifiers)
 {
+  private readonly IEnumerable<IVerifyDomain> _domains = verifiers.GetDomains();
+
   protected sealed override string GetParent(IGqlpType<IGqlpTypeRef> usage)
-    => (usage.Parent?.Name).IfWhiteSpace();
+   => (usage.Parent?.Name).IfWhiteSpace();
 
   protected override EnumContext MakeContext(IGqlpDomain usage, IGqlpType[] aliased, IMessages errors)
   {
@@ -21,7 +20,7 @@ internal class VerifyDomainTypes(
   {
     base.UsageValue(usage, context);
 
-    foreach (IVerifyDomain domain in domains) {
+    foreach (IVerifyDomain domain in _domains) {
       domain.Verify(usage, context);
     }
   }
@@ -41,7 +40,7 @@ internal class VerifyDomainTypes(
 
   protected override void CheckMergeParent(SelfUsage<IGqlpDomain> input, EnumContext context)
   {
-    IEnumerable<IMessage> failures = domains.SelectMany(domain => domain.CanMergeItems(input.Usage, context));
+    IEnumerable<IMessage> failures = _domains.SelectMany(domain => domain.CanMergeItems(input.Usage, context));
     if (failures.Any()) {
       context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} items into Parent {input.Current} items");
       context.Add(failures);

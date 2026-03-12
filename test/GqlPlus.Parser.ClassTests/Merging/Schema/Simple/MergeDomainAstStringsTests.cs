@@ -12,7 +12,9 @@ public class MergeDomainAstStringsTests
 
   public MergeDomainAstStringsTests(ITestOutputHelper outputHelper)
   {
-    MergeDomains<DomainRegexAst, IGqlpDomainRegex> merger = new(outputHelper.ToLoggerFactory(), MergeItems);
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpDomainRegex>().Returns(MergeItems);
+    MergeDomains<DomainRegexAst, IGqlpDomainRegex> merger = new(mergers);
     MergerSimple = merger;
     Merger = merger;
   }

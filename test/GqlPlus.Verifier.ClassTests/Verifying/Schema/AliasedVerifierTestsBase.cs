@@ -7,6 +7,9 @@ public abstract class AliasedVerifierTestsBase<TAliased>
   private readonly ForV<TAliased> _definition = new();
   protected IVerify<TAliased> Definition => _definition.Intf;
 
+  protected AliasedVerifierTestsBase()
+    => VerifierRepo.VerifierFor<TAliased>().Returns(Definition);
+
   protected override void CheckSimpleVerify()
   {
     _definition.Called();

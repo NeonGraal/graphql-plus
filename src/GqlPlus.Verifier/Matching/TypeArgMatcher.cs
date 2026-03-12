@@ -5,12 +5,11 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 internal class TypeArgMatcher(
-  ILoggerFactory logger,
-  Matcher<IGqlpType>.D anyTypeMatcher
-) : MatchLogger(logger)
+  IMatcherRepository matchers
+) : MatchLogger(matchers)
   , Matcher<IGqlpTypeArg>.I
 {
-  private readonly Matcher<IGqlpType>.L _anyTypeMatcher = anyTypeMatcher;
+  private readonly Matcher<IGqlpType>.L _anyTypeMatcher = matchers.MatcherFor<IGqlpType>();
 
   public bool Matches(IGqlpTypeArg arg, string constraint, EnumContext context)
   {

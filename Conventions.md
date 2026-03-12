@@ -1,6 +1,8 @@
 # GraphQL+ Development Conventions
 
-This document outlines the conventions and standards used in the GraphQL+ project.
+This document outlines the test and development conventions used in the GraphQL+ project.
+
+For repository-wide coding style, read `Style-Guide.md` first. This document focuses on testing expectations and related project conventions.
 
 ## Testing Conventions
 

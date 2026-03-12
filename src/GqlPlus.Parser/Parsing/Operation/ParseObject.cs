@@ -5,12 +5,11 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseObject(
-  Parser<IGqlpField>.D field,
-  Parser<IGqlpSelection>.D selection
+  IParserRepository parsers
 ) : Parser<IGqlpSelection>.IA
 {
-  private readonly Parser<IGqlpField>.L _field = field;
-  private readonly Parser<IGqlpSelection>.L _selection = selection;
+  private readonly Parser<IGqlpField>.L _field = parsers.ParserFor<IGqlpField>();
+  private readonly Parser<IGqlpSelection>.L _selection = parsers.ParserFor<IGqlpSelection>();
 
   public IResultArray<IGqlpSelection> Parse(ITokenizer tokens, string label)
 

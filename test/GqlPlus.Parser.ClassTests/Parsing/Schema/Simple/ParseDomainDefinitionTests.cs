@@ -13,8 +13,9 @@ public class ParseDomainDefinitionTests
   public ParseDomainDefinitionTests()
   {
     _domainParser.Kind.Returns(DomainKind.Enum);
-    Parser<IEnumParser<DomainKind>, DomainKind>.D kindParser = EnumParserFor(out _kindParser);
-    _parser = new ParseDomainDefinition(TypeRef, kindParser, [_domainParser]);
+    Parsers.GetDomains().Returns([_domainParser]);
+    ConfigureRepoInterface<IEnumParser<DomainKind>, DomainKind>(Parsers, out _kindParser);
+    _parser = new ParseDomainDefinition(Parsers);
   }
 
   [Theory, RepeatData]

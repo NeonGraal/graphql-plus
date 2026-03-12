@@ -24,7 +24,9 @@ public class MergeOptionSettingsTests
   public MergeOptionSettingsTests()
   {
     _values = Merger<IGqlpConstant>();
-    _merger = new(_values);
+    IMergerRepository mergers = Substitute.For<IMergerRepository>();
+    mergers.MergerFor<IGqlpConstant>().Returns(_values);
+    _merger = new(mergers);
   }
 
   internal override GroupsMerger<IGqlpSchemaSetting> MergerGroups => _merger;

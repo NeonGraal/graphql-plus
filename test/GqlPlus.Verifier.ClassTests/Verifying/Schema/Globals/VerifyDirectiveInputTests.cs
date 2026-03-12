@@ -12,7 +12,7 @@ public class VerifyDirectiveInputTests
 
   public VerifyDirectiveInputTests()
   {
-    _verifier = new(Aliased.Intf);
+    _verifier = new(VerifierRepo);
 
     IGqlpInputParam input = A.InputParam("Type").AsInputParam;
 

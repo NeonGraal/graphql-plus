@@ -18,16 +18,15 @@ internal class VerifierRepository
   private readonly IMergerRepository _mergers;
   private readonly Lazy<IEnumerable<IVerifyDomain>> _domains;
 
-  public ILoggerFactory LoggerFactory { get; }
 
   public VerifierRepository(
     VerifierRepositoryState state,
     ILoggerFactory loggerFactory,
     IMatcherRepository matchers,
     IMergerRepository mergers)
+    : base(loggerFactory)
   {
     _state = state;
-    LoggerFactory = loggerFactory;
     _matchers = matchers;
     _mergers = mergers;
     _domains = new(() => [.. state.Domains.Select(f => (IVerifyDomain)f.Invoke(this))]);

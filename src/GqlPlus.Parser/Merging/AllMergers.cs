@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging.Globals;
 using GqlPlus.Merging.Objects;
@@ -12,36 +11,16 @@ namespace GqlPlus.Merging;
 
 public static class AllMergers
 {
-  private static readonly MethodInfo s_registerMerge =
-    typeof(AllMergers).GetMethod(nameof(RegisterMerge), BindingFlags.NonPublic | BindingFlags.Static)
-    ?? throw new InvalidOperationException($"Method '{nameof(RegisterMerge)}' not found on '{nameof(AllMergers)}'.");
-
-  public static IServiceCollection AddMergers(this IServiceCollection services, Action<IMergeRepositoryBuilder> config)
+  public static IServiceCollection AddMergers(this IServiceCollection services, Action<IMergerRepositoryBuilder> config)
   {
-    services.TryAddSingleton<IMergerRepository, MergerRepository>();
-    ServiceDescriptor? descriptor = services.FirstOrDefault(d => d.ServiceType == typeof(MergeRepositoryBuilder));
-    if (descriptor?.ImplementationInstance is not MergeRepositoryBuilder builder) {
-      builder = new();
-      services.AddSingleton(builder);
-      services.AddProvider<MergeRepositoryBuilder, IMergeRepositoryBuilder>();
-    }
-
+    MergerRepositoryBuilder builder = new();
     config?.Invoke(builder);
-
-    foreach (Type valueType in builder.MergerTypes.Keys) {
-      s_registerMerge.MakeGenericMethod(valueType).Invoke(null, [services]);
-    }
-
+    services.AddSingleton(builder.Build());
+    services.TryAddSingleton<IMergerRepository, MergerRepository>();
     return services;
   }
 
-  private static void RegisterMerge<T>(IServiceCollection services)
-    where T : IGqlpError
-    => services
-      .RemoveAll<IMerge<T>>()
-      .AddSingleton<IMerge<T>, MergeProxy<T>>();
-
-  public static IMergeRepositoryBuilder AddSchemaMergers(this IMergeRepositoryBuilder builder)
+  public static IMergerRepositoryBuilder AddSchemaMergers(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
       .AddMerge(_ => new MergeConstants())
       // Schema

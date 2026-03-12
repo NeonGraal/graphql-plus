@@ -2,9 +2,12 @@
 
 namespace GqlPlus;
 
-public class BaseRepository<TRepo>
-  : BaseFactory<TRepo>
+public class BaseRepository<TRepo>(
+  ILoggerFactory loggerFactory
+) : BaseFactory<TRepo>
 {
+  public ILoggerFactory LoggerFactory { get; } = loggerFactory;
+
   private readonly ConcurrentDictionary<Type, object> _cache = new();
 
   protected object Cached(FactoryDict factories, Type factoryKey, Type cacheKey, string label, TRepo repo)

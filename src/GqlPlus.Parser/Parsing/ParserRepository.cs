@@ -5,8 +5,10 @@ using GqlPlus.Parsing.Schema.Simple;
 namespace GqlPlus.Parsing;
 
 internal class ParserRepository(
-  ParserRepositoryBuilder builder
-) : BaseRepository<IParserRepository>, IParserRepository
+  ParserRepositoryBuilder builder,
+  ILoggerFactory loggerFactory
+) : BaseRepository<IParserRepository>(loggerFactory)
+  , IParserRepository
 {
   public Parser<T>.L ParserFor<T>()
     => new(() => Cached<T, Parser<T>.I>(builder.Singles, "single parser", this));

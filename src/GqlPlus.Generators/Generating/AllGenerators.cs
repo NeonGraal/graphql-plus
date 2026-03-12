@@ -1,39 +1,39 @@
-﻿using GqlPlus.Abstractions;
-using GqlPlus.Generating.Globals;
+﻿using GqlPlus.Generating.Globals;
 using GqlPlus.Generating.Objects;
 using GqlPlus.Generating.Simple;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Generating;
 
 public static class AllGenerators
 {
   public static IServiceCollection AddGenerators(this IServiceCollection services)
-    => services
-      .AddGenerator<IGqlpSchema, SchemaGenerator>()
+  {
+    GeneratorRepositoryBuilder builder = new();
+    builder.AddSchemaGenerators();
+    services.AddSingleton(builder.Build());
+    services.TryAddSingleton<IGeneratorRepository, GeneratorRepository>();
+    return services;
+  }
+
+  internal static IGeneratorRepositoryBuilder AddSchemaGenerators(this IGeneratorRepositoryBuilder builder)
+    => builder.ThrowIfNull()
+      .AddGenerator<IGqlpSchema>(g => new SchemaGenerator(g))
       // Globals
-      .AddGenerator<IGqlpSchemaCategory, CategoryGenerator>()
-      .AddGenerator<IGqlpSchemaDirective, DirectiveGenerator>()
-      .AddGenerator<IGqlpSchemaOption, OptionGenerator>()
-      //Simple
-      .AddTypeGenerator<EnumGenerator>()
-      .AddTypeGenerator<DomainBooleanGenerator>()
-      .AddTypeGenerator<DomainEnumGenerator>()
-      .AddTypeGenerator<DomainNumberGenerator>()
-      .AddTypeGenerator<DomainStringGenerator>()
-      .AddTypeGenerator<UnionGenerator>()
+      .AddGenerator<IGqlpSchemaCategory>(_ => new CategoryGenerator())
+      .AddGenerator<IGqlpSchemaDirective>(_ => new DirectiveGenerator())
+      .AddGenerator<IGqlpSchemaOption>(_ => new OptionGenerator())
+      // Simple
+      .AddTypeGenerator(_ => new EnumGenerator())
+      .AddTypeGenerator(_ => new DomainBooleanGenerator())
+      .AddTypeGenerator(_ => new DomainEnumGenerator())
+      .AddTypeGenerator(_ => new DomainNumberGenerator())
+      .AddTypeGenerator(_ => new DomainStringGenerator())
+      .AddTypeGenerator(_ => new UnionGenerator())
       // Objects
-      .AddTypeGenerator<DualGenerator>()
-      .AddTypeGenerator<InputGenerator>()
-      .AddTypeGenerator<OutputGenerator>()
+      .AddTypeGenerator(_ => new DualGenerator())
+      .AddTypeGenerator(_ => new InputGenerator())
+      .AddTypeGenerator(_ => new OutputGenerator())
     ;
-
-  private static IServiceCollection AddGenerator<TAst, TGenerator>(this IServiceCollection services)
-    where TAst : IGqlpError
-    where TGenerator : class, IGenerator<TAst>
-    => services.AddSingleton<IGenerator<TAst>, TGenerator>();
-
-  private static IServiceCollection AddTypeGenerator<TGenerator>(this IServiceCollection services)
-    where TGenerator : class, ITypeGenerator
-    => services.AddSingleton<ITypeGenerator, TGenerator>();
 }

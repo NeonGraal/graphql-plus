@@ -33,6 +33,9 @@ This guide captures the coding style already used across the GraphQL+ solution. 
 - Use `s_camelCase` for private static fields.
 - Use camelCase for locals and parameters.
 - Use PascalCase for extracted local functions.
+- Prefer the shortest name that is still clear in the current scope.
+- Drop redundant context, type, and implementation-detail words when the surrounding type, member signature, or namespace already provides them.
+- Prefer domain terms over mechanical suffixes such as `Value`, `Data`, `Info`, `Item`, `Object`, or `String` unless they add real meaning.
 - Keep test method names in the `MethodUnderTest_StateUnderTest_ExpectedResult` form.
 
 ## Formatting and layout
@@ -94,7 +97,8 @@ This guide captures the coding style already used across the GraphQL+ solution. 
 | Indentation, braces, blank lines, namespace shape, using placement                                                        | `.editorconfig` + `dotnet format whitespace`                |
 | Explicit types, simple `using`, target-typed `new()`, collection expressions, switch expressions, null-handling refactors | `.editorconfig` + `dotnet format style --severity info`     |
 | Analyzer-backed simplifications and code-quality fixes                                                                    | `.editorconfig` + `dotnet format analyzers --severity info` |
-| Naming semantics, record-vs-class choice, comment necessity, positive-condition preference                                | Human review and local file patterns                        |
+| Redundant type words in identifiers                                                                                       | `.editorconfig` naming analyzers (for example `CA1720`)     |
+| Naming clarity, record-vs-class choice, comment necessity, positive-condition preference                                  | Human review and local file patterns                        |
 
 ## Agent checklist
 

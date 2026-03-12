@@ -287,6 +287,9 @@ dotnet_diagnostic.CA1812.severity = none
 # CA1852: Type can be sealed
 dotnet_diagnostic.CA1852.severity = warning
 
+# CA1720: Identifiers should not contain type names
+dotnet_diagnostic.CA1720.severity = suggestion
+
 dotnet_diagnostic.CS9107.severity = none
 
 # IDE0060: Remove unused parameter

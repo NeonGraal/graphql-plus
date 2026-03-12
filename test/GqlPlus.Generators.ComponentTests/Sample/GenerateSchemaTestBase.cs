@@ -23,11 +23,12 @@ public abstract class GenerateSchemaTestBase(
 internal sealed class SchemaGeneratorChecks(
     IParserRepository parsers,
     IMergerRepository mergers,
-    IGenerator<IGqlpSchema> schemaGenerator
+    IGeneratorRepository generators
 ) : SchemaParseChecks(parsers)
   , ISchemaGeneratorChecks
 {
   private readonly IMerge<IGqlpSchema> _schemaMerger = mergers.MergerFor<IGqlpSchema>();
+  private readonly IGenerator<IGqlpSchema> _schemaGenerator = generators.GeneratorFor<IGqlpSchema>();
 
   public string Generate_ForAsts(GqlpBaseType baseType, GqlpGeneratorType type, IEnumerable<IGqlpSchema> asts, string test, string label, string input = "")
   {
@@ -35,7 +36,7 @@ internal sealed class SchemaGeneratorChecks(
 
     GqlpGeneratorContext context = new(label + " " + test, new($"Components.{label}_{test}", baseType, type), new GqlpModelOptions("ComponentTests", "Cmpt"));
 
-    schemaGenerator.Generate(schema, context);
+    _schemaGenerator.Generate(schema, context);
 
     string result = context.ToString();
     if (!string.IsNullOrWhiteSpace(result) && !string.IsNullOrWhiteSpace(input)) {

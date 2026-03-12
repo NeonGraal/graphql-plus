@@ -19,11 +19,11 @@ public static class AllGenerators
 
   internal static IGeneratorRepositoryBuilder AddSchemaGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddGenerator<IGqlpSchema>(g => new SchemaGenerator(g))
+      .AddGenerator(g => new SchemaGenerator(g))
       // Globals
-      .AddGenerator<IGqlpSchemaCategory>(_ => new CategoryGenerator())
-      .AddGenerator<IGqlpSchemaDirective>(_ => new DirectiveGenerator())
-      .AddGenerator<IGqlpSchemaOption>(_ => new OptionGenerator())
+      .AddGenerator(_ => new CategoryGenerator())
+      .AddGenerator(_ => new DirectiveGenerator())
+      .AddGenerator(_ => new OptionGenerator())
       // Simple
       .AddTypeGenerator(_ => new EnumGenerator())
       .AddTypeGenerator(_ => new DomainBooleanGenerator())

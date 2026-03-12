@@ -7,12 +7,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseUnion(
-  ISimpleName name,
-  Parser<NullAst>.DA param,
-  Parser<string>.DA aliases,
-  Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<UnionDefinition>.D definition
-) : SimpleParser<UnionDefinition, IGqlpUnion>(name, param, aliases, option, definition)
+  IParserRepository parsers
+) : SimpleParser<UnionDefinition, IGqlpUnion>(parsers)
 {
   protected override IGqlpUnion MakeResult(AstPartial<NullAst, NullOption> partial, UnionDefinition value)
     => new UnionDeclAst(partial.At, partial.Name, partial.Description, value.Values) {
@@ -33,11 +29,10 @@ internal class UnionDefinition
 }
 
 internal class ParseUnionDefinition(
-  Parser<IGqlpTypeRef>.D typeRef,
-  Parser<IGqlpUnionMember>.D unionMember
-) : SimpleDefinitionParser<UnionDefinition>(typeRef)
+  IParserRepository parsers
+) : SimpleDefinitionParser<UnionDefinition>(parsers)
 {
-  private readonly Parser<IGqlpUnionMember>.L _unionMember = unionMember;
+  private readonly Parser<IGqlpUnionMember>.L _unionMember = parsers.ParserFor<IGqlpUnionMember>();
 
   public override IResult<UnionDefinition> Parse(ITokenizer tokens, string label)
   {

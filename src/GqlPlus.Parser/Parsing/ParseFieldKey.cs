@@ -5,10 +5,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 internal class ParseFieldKey(
-  Parser<IGqlpEnumValue>.D parseEnumValue
+  IParserRepository parsers
 ) : Parser<IGqlpFieldKey>.I
 {
-  private readonly Parser<IGqlpEnumValue>.L _parseEnumValue = parseEnumValue;
+  private readonly Parser<IGqlpEnumValue>.L _parseEnumValue = parsers.ParserFor<IGqlpEnumValue>();
 
   public IResult<IGqlpFieldKey> Parse(ITokenizer tokens, string label)
   {

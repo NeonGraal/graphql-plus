@@ -8,7 +8,13 @@ public class MergeInputObjectsTests
 {
   public MergeInputObjectsTests(ITestOutputHelper outputHelper)
     : base(TypeKind.Input)
-    => MergerObject = new(outputHelper.ToLoggerFactory(), Fields, TypeParams, Alternates);
+  {
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpInputField>().Returns(Fields);
+    mergers.MergerFor<IGqlpTypeParam>().Returns(TypeParams);
+    mergers.MergerFor<IGqlpAlternate>().Returns(Alternates);
+    MergerObject = new(mergers);
+  }
 
   internal override AstObjectsMerger<IGqlpInputField> MergerObject { get; }
 

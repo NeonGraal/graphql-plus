@@ -22,9 +22,9 @@ public abstract class BaseDomainTests<TInput, TDomain>(
 }
 
 internal abstract class BaseDomainChecks<TInput, TDomainAst, TDomain>(
-  Parser<IGqlpDomain>.D parser,
+  IParserRepository parsers,
   DomainKind kind
-) : BaseAliasedChecks<TInput, TDomainAst, IGqlpDomain>(parser)
+) : BaseAliasedChecks<TInput, TDomainAst, IGqlpDomain>(parsers)
   , IBaseDomainChecks<TInput, TDomain>
   where TDomain : IGqlpDomain
   where TDomainAst : AstDomain, TDomain

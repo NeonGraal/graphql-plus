@@ -5,15 +5,17 @@ namespace GqlPlus.Parsing.Operation;
 public class OperationParsersTests
 {
   [Fact]
-  public void OperationParsers_DefinesParser_FieldKey()
+  public void OperationParsers_Repository_ProvidesLazy_FieldKey()
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddCommonParsers()
-      .AddOperationParsers()
+      .AddParsers(b => b
+        .AddCommonParsers()
+        .AddOperationParsers())
       .BuildServiceProvider();
 
-    services.GetService<Parser<IGqlpFieldKey>.D>()
+    services.GetRequiredService<IParserRepository>()
+      .ParserFor<IGqlpFieldKey>()
       .ShouldNotBeNull();
   }
 }

@@ -1,3 +1,3 @@
 ﻿namespace GqlPlus.Result;
 
-public interface IResultPartial<T> : IResultValue<T>, IResultMessage;
+internal interface IResultPartial<T> : IResultValue<T>, IResultMessage;

@@ -7,13 +7,12 @@ public class ParseEndFragmentsTests
 {
   public ParseEndFragmentsTests()
   {
-    Parser<IGqlpDirective>.DA directives = ParserAFor(out Parser<IGqlpDirective>.IA directivesParser);
-    Parser<IGqlpSelection>.DA objectDelegate = ParserAFor(out Parser<IGqlpSelection>.IA objectParser);
-
+    IParserRepository parsers = A.Of<IParserRepository>();
+    ConfigureRepoArray<IGqlpDirective>(parsers, out Parser<IGqlpDirective>.IA directivesParser);
+    ConfigureRepoArray<IGqlpSelection>(parsers, out Parser<IGqlpSelection>.IA objectParser);
     DirectivesParser = directivesParser;
     ObjectParser = objectParser;
-
-    Parser = new ParseEndFragments(directives, objectDelegate);
+    Parser = new ParseEndFragments(parsers);
   }
 
   protected override Parser<IGqlpFragment>.IA Parser { get; }
@@ -32,13 +31,12 @@ public class ParseStartFragmentsTests
 {
   public ParseStartFragmentsTests()
   {
-    Parser<IGqlpDirective>.DA directives = ParserAFor(out Parser<IGqlpDirective>.IA directivesParser);
-    Parser<IGqlpSelection>.DA objectDelegate = ParserAFor(out Parser<IGqlpSelection>.IA objectParser);
-
+    IParserRepository parsers = A.Of<IParserRepository>();
+    ConfigureRepoArray<IGqlpDirective>(parsers, out Parser<IGqlpDirective>.IA directivesParser);
+    ConfigureRepoArray<IGqlpSelection>(parsers, out Parser<IGqlpSelection>.IA objectParser);
     DirectivesParser = directivesParser;
     ObjectParser = objectParser;
-
-    Parser = new ParseStartFragments(directives, objectDelegate);
+    Parser = new ParseStartFragments(parsers);
   }
 
   protected override Parser<IGqlpFragment>.IA Parser { get; }

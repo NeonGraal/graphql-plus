@@ -10,6 +10,6 @@ public class ParseInputTests(
 { }
 
 internal sealed class ParseInputChecks(
-  Parser<IGqlpObject<IGqlpInputField>>.D parser
-) : CheckObject<IGqlpInputField, InputFieldAst>(new InputFactories(), parser)
+  IParserRepository parsers
+) : CheckObject<IGqlpInputField, InputFieldAst>(new InputFactories(), parsers)
 { }

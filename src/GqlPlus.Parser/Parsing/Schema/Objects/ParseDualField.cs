@@ -6,10 +6,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseDualField(
-  Parser<string>.DA aliases,
-  Parser<IGqlpModifier>.DA modifiers,
-  Parser<IGqlpObjBase>.D parseBase
-) : ObjectFieldParser<IGqlpDualField, DualFieldAst>(aliases, modifiers, parseBase)
+  IParserRepository parsers
+) : ObjectFieldParser<IGqlpDualField, DualFieldAst>(parsers)
 {
   [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParams(DualFieldAst field, IGqlpInputParam[] parameters)

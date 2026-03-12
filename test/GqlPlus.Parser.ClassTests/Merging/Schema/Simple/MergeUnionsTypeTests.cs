@@ -16,7 +16,9 @@ public class MergeUnionsTypeTests
     result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
     result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<IGqlpUnionMember>>());
 
-    _merger = new(outputHelper.ToLoggerFactory(), result);
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpUnionMember>().Returns(result);
+    _merger = new(mergers);
   }
 
   protected override IMerge<IGqlpType> MergerBase => _merger;

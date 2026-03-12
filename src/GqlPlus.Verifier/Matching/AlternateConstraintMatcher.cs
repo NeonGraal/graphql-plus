@@ -4,11 +4,10 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 internal class AlternateConstraintMatcher(
-  ILoggerFactory logger,
-  Matcher<IGqlpType>.D anyTypeMatcher
-) : MatchConstraintBase<IGqlpObject>(logger)
+  IMatcherRepository matchers
+) : MatchConstraintBase<IGqlpObject>(matchers)
 {
-  private readonly Matcher<IGqlpType>.L _anyTypeMatcher = anyTypeMatcher;
+  private readonly Matcher<IGqlpType>.L _anyTypeMatcher = matchers.MatcherFor<IGqlpType>();
 
   public override bool MatchesConstraint(IGqlpType type, IGqlpObject constraint, EnumContext context)
     => base.MatchesConstraint(type, constraint, context)

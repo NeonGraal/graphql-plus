@@ -14,8 +14,8 @@ public class TypeArgMatcherTests
   {
     Matcher<IGqlpType>.D anyDelegate = MatcherFor(out Matcher<IGqlpType>.I anyInterface);
     AnyType = anyInterface;
-
-    Matcher = new(LoggerFactory, anyDelegate);
+    MatcherRepo.MatcherFor<IGqlpType>().Returns(anyDelegate);
+    Matcher = new(MatcherRepo);
   }
 
   [Theory, RepeatData]

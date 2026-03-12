@@ -5,10 +5,15 @@ public class AliasesClassTestBase
 {
   private readonly Parser<string>.IA _aliases;
 
-  internal Parser<string>.DA Aliases { get; }
-
   public AliasesClassTestBase()
-    => Aliases = ParserAFor(out _aliases);
+  {
+    _aliases = A.Of<Parser<string>.IA>();
+    _aliases.Parse(default!, default!)
+      .ReturnsForAnyArgs(0.EmptyArray<string>());
+
+    Parser<string>.LA aliasesLazy = new(() => _aliases);
+    Parsers.ArrayFor<string>().Returns(aliasesLazy);
+  }
 
   internal void ParseAliasesOk(string[] aliases)
     => ParseOkA(_aliases, aliases);

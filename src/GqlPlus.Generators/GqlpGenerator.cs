@@ -117,16 +117,16 @@ public class GqlpGenerator : IIncrementalGenerator
 
     IServiceProvider services = new ServiceCollection()
       .AddSingleton<ILoggerFactory, NullLoggerFactory>()
-      .AddFieldObjectKinds()
-      .AddCommonParsers()
-      .AddSchemaParsers()
-      .AddMergers()
+      .AddParsers(p => p
+        .AddCommonParsers()
+        .AddSchemaParsers())
+      .AddMergers(b => b.AddSchemaMergers())
       .AddGenerators()
       .BuildServiceProvider();
 
-    Parser<IGqlpSchema>.L schemaParser = services.GetRequiredService<Parser<IGqlpSchema>.D>();
-    IMerge<IGqlpSchema> schemaMerger = services.GetRequiredService<IMerge<IGqlpSchema>>();
-    IGenerator<IGqlpSchema> schemaGenerator = services.GetRequiredService<IGenerator<IGqlpSchema>>();
+    Parser<IGqlpSchema>.L schemaParser = services.GetRequiredService<IParserRepository>().ParserFor<IGqlpSchema>();
+    IMerge<IGqlpSchema> schemaMerger = services.GetRequiredService<IMergerRepository>().MergerFor<IGqlpSchema>();
+    IGenerator<IGqlpSchema> schemaGenerator = services.GetRequiredService<IGeneratorRepository>().GeneratorFor<IGqlpSchema>();
 
     foreach (AdditionalText text in array) {
       string? lines = text.GetText()?.ToString();

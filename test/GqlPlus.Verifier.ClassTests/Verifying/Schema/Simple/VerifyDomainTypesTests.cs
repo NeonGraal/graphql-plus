@@ -15,7 +15,8 @@ public class VerifyDomainTypesTests
 
   public VerifyDomainTypesTests()
   {
-    _verifier = new(Aliased.Intf, [_domainVerify]);
+    VerifierRepo.GetDomains().Returns([_domainVerify]);
+    _verifier = new(VerifierRepo);
 
     _domain = A.Domain("Domain", DomainKind.String, _domainRegex);
   }

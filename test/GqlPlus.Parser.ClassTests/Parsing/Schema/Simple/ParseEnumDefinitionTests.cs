@@ -11,8 +11,8 @@ public class ParseEnumDefinitionTests
 
   public ParseEnumDefinitionTests()
   {
-    Parser<IGqlpEnumLabel>.D enumLabelParser = ParserFor(out _enumLabelParser);
-    _parser = new ParseEnumDefinition(TypeRef, enumLabelParser);
+    ConfigureRepo<IGqlpEnumLabel>(Parsers, out _enumLabelParser);
+    _parser = new ParseEnumDefinition(Parsers);
   }
 
   [Theory, RepeatData]

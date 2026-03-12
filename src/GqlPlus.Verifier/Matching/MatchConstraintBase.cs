@@ -4,8 +4,8 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 internal abstract class MatchConstraintBase<TType>(
-  ILoggerFactory logger
-) : MatchLogger(logger)
+  IMatcherRepository matchers
+) : MatchLogger(matchers)
   , IConstraintMatcher<TType>
   where TType : IGqlpType
 {

@@ -3,6 +3,7 @@
 public class SchemaGeneratorTests
   : GenerateClassTestsBase
 {
+  private readonly IGeneratorRepository _generators = A.Of<IGeneratorRepository>();
   private readonly IGenerator<IGqlpSchemaCategory> _categoryGenerator = GFor<IGqlpSchemaCategory>();
   private readonly IGenerator<IGqlpSchemaDirective> _directiveGenerator = GFor<IGqlpSchemaDirective>();
   private readonly IGenerator<IGqlpSchemaOption> _optionGenerator = GFor<IGqlpSchemaOption>();
@@ -11,12 +12,13 @@ public class SchemaGeneratorTests
   private readonly SchemaGenerator _generator;
 
   public SchemaGeneratorTests()
-    => _generator = new SchemaGenerator(
-        _categoryGenerator,
-        _directiveGenerator,
-        _optionGenerator,
-        _typeGenerators
-      );
+  {
+    _generators.GeneratorFor<IGqlpSchemaCategory>().Returns(_categoryGenerator);
+    _generators.GeneratorFor<IGqlpSchemaDirective>().Returns(_directiveGenerator);
+    _generators.GeneratorFor<IGqlpSchemaOption>().Returns(_optionGenerator);
+    _generators.TypeGenerators.Returns(_typeGenerators);
+    _generator = new SchemaGenerator(_generators);
+  }
 
   [Theory, RepeatData]
   public void Generate_WithValidSchema_CallsGeneratorsInOrder(string typeName)

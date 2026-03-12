@@ -12,7 +12,7 @@ public class VerifyInputTypesTests
 
   public VerifyInputTypesTests()
     : base(TypeKind.Input)
-    => Verifier = new VerifyInputTypes(Verifiers);
+    => Verifier = new VerifyInputTypes(VerifierRepo);
 }
 
 [TracePerTest]
@@ -23,7 +23,7 @@ public class VerifyInputAlternatesTests
 
   public VerifyInputAlternatesTests()
     : base(TypeKind.Input)
-    => Verifier = new VerifyInputTypes(Verifiers);
+    => Verifier = new VerifyInputTypes(VerifierRepo);
 }
 
 [TracePerTest]
@@ -34,7 +34,7 @@ public class VerifyInputFieldsTests
 
   public VerifyInputFieldsTests()
     : base(TypeKind.Input)
-    => Verifier = new VerifyInputTypes(Verifiers);
+    => Verifier = new VerifyInputTypes(VerifierRepo);
 
   [Theory, RepeatData]
   public void Verify_Input_WithFieldNullDefault_ReturnsError(string fieldName, string fieldType)

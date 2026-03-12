@@ -11,7 +11,9 @@ public class VerifyOperationTests
   {
     IVerifyIdentified<IGqlpArg, IGqlpVariable> usages = A.Of<IVerifyIdentified<IGqlpArg, IGqlpVariable>>();
     IVerifyIdentified<IGqlpSpread, IGqlpFragment> spreads = A.Of<IVerifyIdentified<IGqlpSpread, IGqlpFragment>>();
-    VerifyOperation verifier = new(usages, spreads);
+    VerifierRepo.IdentifiedFor<IGqlpArg, IGqlpVariable>().Returns(usages);
+    VerifierRepo.IdentifiedFor<IGqlpSpread, IGqlpFragment>().Returns(spreads);
+    VerifyOperation verifier = new(VerifierRepo);
 
     IGqlpOperation item = A.Of<IGqlpOperation>();
     item.Errors.Returns("item".MakeMessages());

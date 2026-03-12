@@ -1,5 +1,5 @@
 ﻿namespace GqlPlus.Result;
 
-public interface IResultArrayPartial<T>
+internal interface IResultArrayPartial<T>
   : IResultArray<T>, IResultPartial<IEnumerable<T>>
 { }

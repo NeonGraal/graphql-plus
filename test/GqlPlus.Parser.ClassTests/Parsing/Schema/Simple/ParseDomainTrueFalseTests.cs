@@ -55,8 +55,8 @@ public class ParseDomainTrueFalseTests
     : base(DomainKind.Boolean)
   { }
 
-  internal override ParseDomainItem<IGqlpDomainTrueFalse> MakeParser(Parser<IGqlpDomainTrueFalse>.DA itemsParser)
-    => new ParseDomainTrueFalse(itemsParser);
+  internal override ParseDomainItem<IGqlpDomainTrueFalse> MakeParser(IParserRepository parsers)
+    => new ParseDomainTrueFalse(parsers);
   protected override IGqlpDomainTrueFalse NewItem()
     => new DomainTrueFalseAst(AstNulls.At, string.Empty, false, false);
 

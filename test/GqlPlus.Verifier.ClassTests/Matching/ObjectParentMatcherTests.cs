@@ -81,7 +81,7 @@ public class DualObjectParentMatcherTests
 {
   public DualObjectParentMatcherTests()
     : base(TypeKind.Dual)
-    => Sut = new(LoggerFactory);
+    => Sut = new(MatcherRepo);
 
   internal override ObjectParentMatcher<IGqlpDualField> Sut { get; }
 }

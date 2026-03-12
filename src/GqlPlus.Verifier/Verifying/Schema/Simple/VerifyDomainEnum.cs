@@ -1,11 +1,8 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
-internal class VerifyDomainEnum(
-  IMerge<IGqlpDomainLabel> items
-) : AstDomainVerifier<IGqlpDomainLabel>(items)
+internal class VerifyDomainEnum(IVerifierRepository verifiers) : AstDomainVerifier<IGqlpDomainLabel>(verifiers)
 {
   protected override void VerifyDomain(IGqlpDomain<IGqlpDomainLabel> domain, EnumContext context)
   {

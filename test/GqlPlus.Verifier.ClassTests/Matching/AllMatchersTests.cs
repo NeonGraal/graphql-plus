@@ -1,20 +1,31 @@
-﻿using GqlPlus.Merging;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Matching;
 
 public class AllMatchersTests
 {
   [Fact]
-  public void AllMatchers_DefinesMatcherSchema()
+  public void AllMatchers_Repository_IsRegistered()
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
-      .AddMergers()
-      .AddMatchers()
+      .AddMatchers(b => b.ConstraintMatchers())
       .BuildServiceProvider();
 
-    services.GetService<Matcher<IGqlpType>.D>()
+    services.GetService<IMatcherRepository>()
+      .ShouldNotBeNull();
+  }
+
+  [Fact]
+  public void AllMatchers_Repository_ProvidesMatcherForSchema()
+  {
+    IServiceProvider services = new ServiceCollection()
+      .AddLogging()
+      .AddMatchers(b => b.ConstraintMatchers())
+      .BuildServiceProvider();
+
+    services.GetRequiredService<IMatcherRepository>()
+      .MatcherFor<IGqlpType>()
       .ShouldNotBeNull();
   }
 }

@@ -3,12 +3,14 @@
 namespace GqlPlus.Verifying.Operation;
 
 internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
-    IVerify<TUsage> usage,
-    IVerify<TIdentified> definition
+    IVerifierRepository verifiers
 ) : IVerifyIdentified<TUsage, TIdentified>
   where TUsage : IGqlpError
   where TIdentified : IGqlpIdentified
 {
+  private readonly IVerify<TUsage> _usage = verifiers.VerifierFor<TUsage>();
+  private readonly IVerify<TIdentified> _definition = verifiers.VerifierFor<TIdentified>();
+
   public abstract string Label { get; }
   public abstract string UsageKey(TUsage item);
 
@@ -32,14 +34,14 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
   private void CheckDefinition(IMessages errors, Map<TUsage[]> used, MapPair<TIdentified> def)
   {
     CheckContained(used, def.Key, def.Value, errors, "definition", "used");
-    definition?.Verify(def.Value, errors);
+    _definition?.Verify(def.Value, errors);
   }
 
   private void CheckUse(IMessages errors, Map<TIdentified> defined, MapPair<TUsage[]> use)
   {
     CheckContained(defined, use.Key, use.Value[0], errors, "usage", "defined");
     foreach (TUsage value in use.Value) {
-      usage?.Verify(value, errors);
+      _usage?.Verify(value, errors);
     }
   }
 

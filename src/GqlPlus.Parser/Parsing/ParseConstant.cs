@@ -4,12 +4,9 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-public class ParseConstant(
-  Parser<IGqlpFieldKey>.D fieldKey,
-  Parser<KeyValue<IGqlpConstant>>.D keyValueParser,
-  Parser<IGqlpConstant>.DA listParser,
-  Parser<IGqlpFields<IGqlpConstant>>.D objectParser
-) : ValueParser<IGqlpConstant>(fieldKey, keyValueParser, listParser, objectParser)
+internal class ParseConstant(
+  IParserRepository parsers
+) : ValueParser<IGqlpConstant>(parsers)
 {
   public override IResult<IGqlpConstant> Parse([NotNull] ITokenizer tokens, string label)
   {

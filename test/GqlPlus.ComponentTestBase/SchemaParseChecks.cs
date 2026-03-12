@@ -6,11 +6,11 @@ using GqlPlus.Token;
 namespace GqlPlus;
 
 public class SchemaParseChecks(
-  Parser<IGqlpSchema>.D schemaParser
+  IParserRepository parsers
 ) : SampleChecks
   , ISchemaParseChecks
 {
-  private readonly Parser<IGqlpSchema>.L _schemaParser = schemaParser;
+  private readonly Parser<IGqlpSchema>.L _schemaParser = parsers.ParserFor<IGqlpSchema>();
 
   public IResult<IGqlpSchema> Parse(string schema, string label)
     => _schemaParser.Parse(new Tokenizer(schema), label);

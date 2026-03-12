@@ -3,8 +3,8 @@
 namespace GqlPlus.Merging.Simple;
 
 internal abstract class AstDomainItemMerger<TItem>(
-  ILoggerFactory logger
-) : DistinctMerger<TItem>(logger)
+  IMergerRepository mergers
+) : DistinctMerger<TItem>(mergers)
   where TItem : IGqlpDomainItem
 {
   protected override string ItemMatchName => "Excludes";

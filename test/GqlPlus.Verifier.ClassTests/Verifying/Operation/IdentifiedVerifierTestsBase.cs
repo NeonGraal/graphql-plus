@@ -16,7 +16,12 @@ public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
   private readonly Lazy<IdentifiedVerifier<TUsage, TIdentified>> _verifier;
 
   protected IdentifiedVerifierTestsBase()
-    => _verifier = new(NewVerifier);
+  {
+    VerifierRepo.VerifierFor<TUsage>().Returns(Usage);
+    VerifierRepo.VerifierFor<TIdentified>().Returns(Definition);
+
+    _verifier = new(NewVerifier);
+  }
 
   [Fact]
   public void Verify_WithNone()

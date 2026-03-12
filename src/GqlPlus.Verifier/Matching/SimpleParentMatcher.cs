@@ -4,8 +4,8 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 internal class SimpleParentMatcher<TType>(
-  ILoggerFactory logger
-) : MatchParentBase<IGqlpTypeRef, TType>(logger)
+  IMatcherRepository matchers
+) : MatchParentBase<IGqlpTypeRef, TType>(matchers)
   where TType : IGqlpSimple
 {
   protected override bool MatchParent(IGqlpTypeRef parent, string constraint, UsageContext context)

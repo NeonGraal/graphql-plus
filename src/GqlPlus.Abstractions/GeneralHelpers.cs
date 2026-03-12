@@ -32,6 +32,12 @@ public static class GeneralHelpers
 
     return [.. result];
   }
+  public static T FluentAction<T>(this T? target, Action<T>? action)
+  {
+    target.ThrowIfNull();
+    action?.Invoke(target);
+    return target;
+  }
 
   public static int NullHashCode<T>(this T? value)
     => value?.GetHashCode() ?? 0;

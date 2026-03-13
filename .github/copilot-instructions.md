@@ -89,7 +89,7 @@ This runs:
 
 ## Coding Standards and Conventions
 
-**Follow the development conventions documented in [Conventions.md](../Conventions.md).**
+**Read `Style-Guide.md` for repository-wide coding style and `Conventions.md` for test-specific conventions before making changes.**
 
 ### Code Style
 
@@ -97,9 +97,9 @@ This runs:
 - Maximum line length: 150 characters
 - Indent with 2 spaces (not tabs)
 - Use `using` directives outside namespace
-- Prefer expression-bodied members when on a single line
-- Prefer primary constructors
-- Prefer explicit variable types and using target-typed 'new' (compact constructor) in generated code
+- Prefer expression-bodied members only when they stay simple and readable
+- Prefer primary constructors where they match the type shape
+- Prefer explicit variable types while still using target-typed `new()` where the declaration already makes the type obvious
 - TreatWarningsAsErrors is enabled
 
 ### Testing Standards

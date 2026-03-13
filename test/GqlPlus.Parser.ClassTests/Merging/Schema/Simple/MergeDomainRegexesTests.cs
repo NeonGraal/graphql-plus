@@ -4,15 +4,17 @@ using GqlPlus.Merging.Simple;
 
 namespace GqlPlus.Merging.Schema.Simple;
 
-public class MergeDomainRegexesTests(
-  ITestOutputHelper outputHelper
-) : TestDomainItemMerger<IGqlpDomainRegex, string>
+public class MergeDomainRegexesTests
+  : TestDomainItemMerger<IGqlpDomainRegex, string>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(string name)
     => CanMerge_Errors([MakeItem(name, true), MakeAst(name)]);
 
-  private readonly MergeDomainRegexes _merger = new(outputHelper.ToLoggerFactory());
+  private readonly MergeDomainRegexes _merger;
+
+  public MergeDomainRegexesTests(ITestOutputHelper outputHelper)
+    => _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
 
   internal override GroupsMerger<IGqlpDomainRegex> MergerGroups => _merger;
 

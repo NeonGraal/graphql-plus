@@ -12,10 +12,9 @@ public class ParseInputTests
 
   public ParseInputTests()
   {
-    Parser<IGqlpTypeParam>.DA param = ParserAFor(out _param);
-    Parser<ObjectDefinition<IGqlpInputField>>.D definition = ParserFor(out _definition);
-    IGqlpFieldKind<IGqlpInputField> fieldKind = new FieldObjectKind<IGqlpInputField>(TypeKind.Input);
-    _parser = new ObjectParser<IGqlpInputField>(SimpleName, param, Aliases, OptionNull, definition, fieldKind);
+    ConfigureRepoArray<IGqlpTypeParam>(Parsers, out _param);
+    ConfigureRepo<ObjectDefinition<IGqlpInputField>>(Parsers, out _definition);
+    _parser = new ObjectParser<IGqlpInputField>(TypeKind.Input, Parsers);
   }
 
   [Theory, RepeatData]

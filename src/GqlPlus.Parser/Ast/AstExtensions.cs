@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast;
 
-public static class AstExtensions
+internal static class AstExtensions
 {
   public static IGqlpFields<TValue> ToObject<TItem, TValue>(
     this IEnumerable<TItem> items,

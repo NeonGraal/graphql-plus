@@ -11,9 +11,8 @@ public class ParseOperationDeclTests
 
   public ParseOperationDeclTests()
   {
-    Parser<OperationDefinition>.D definition = ParserFor(out _definition);
-
-    _parser = new ParseOperationDecl(SimpleName, ParamNull, Aliases, OptionNull, definition);
+    ConfigureRepo(Parsers, out _definition);
+    _parser = new ParseOperationDecl(Parsers);
   }
 
   [Theory, RepeatData]

@@ -42,8 +42,8 @@ public sealed class ParseDomainEnumTests(
 }
 
 internal sealed class ParseDomainEnumChecks(
-  Parser<IGqlpDomain>.D parser
-) : BaseDomainChecks<DomainEnumInput, AstDomain<DomainLabelAst, IGqlpDomainLabel>, IGqlpDomain<IGqlpDomainLabel>>(parser, DomainKind.Enum)
+  IParserRepository parsers
+) : BaseDomainChecks<DomainEnumInput, AstDomain<DomainLabelAst, IGqlpDomainLabel>, IGqlpDomain<IGqlpDomainLabel>>(parsers, DomainKind.Enum)
 {
   protected internal override AstDomain<DomainLabelAst, IGqlpDomainLabel> NamedFactory(DomainEnumInput input)
     => new(AstNulls.At, input.Name, DomainKind.Enum, input.DomainLabels());

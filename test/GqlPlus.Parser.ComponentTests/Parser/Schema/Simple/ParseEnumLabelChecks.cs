@@ -4,8 +4,8 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parser.Schema.Simple;
 
 internal sealed class ParseEnumLabelChecks(
-  Parser<IGqlpEnumLabel>.D parser
-) : BaseAliasedChecks<string, EnumLabelAst, IGqlpEnumLabel>(parser)
+  IParserRepository parsers
+) : BaseAliasedChecks<string, EnumLabelAst, IGqlpEnumLabel>(parsers)
 {
   protected internal override EnumLabelAst NamedFactory(string input)
     => new(AstNulls.At, input);

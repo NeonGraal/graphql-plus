@@ -89,8 +89,8 @@ internal class CheckObject<TObjField, TObjFieldAst>
 {
   private readonly IObjectFactories<TObjField, TObjFieldAst> _factories;
 
-  internal CheckObject(IObjectFactories<TObjField, TObjFieldAst> factories, Parser<IGqlpObject<TObjField>>.D parser)
-    : base(parser)
+  internal CheckObject(IObjectFactories<TObjField, TObjFieldAst> factories, IParserRepository parsers)
+    : base(parsers)
     => _factories = factories;
 
   public void WithNameBad(decimal id, string[] others)

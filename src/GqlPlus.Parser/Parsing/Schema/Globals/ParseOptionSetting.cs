@@ -6,10 +6,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseOptionSetting(
-  Parser<IParserDefault, IGqlpConstant>.D defaultParser
+  IParserRepository parsers
 ) : Parser<IGqlpSchemaSetting>.I
 {
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
+  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.ParserFor<IParserDefault, IGqlpConstant>();
 
   public IResult<IGqlpSchemaSetting> Parse(ITokenizer tokens, string label)
   {

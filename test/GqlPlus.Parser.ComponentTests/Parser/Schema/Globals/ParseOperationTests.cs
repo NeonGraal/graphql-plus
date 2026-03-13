@@ -9,8 +9,8 @@ public sealed class ParseOperationTests(
 { }
 
 internal sealed class ParseOperationChecks(
-  Parser<IGqlpSchemaOperation>.D parser
-) : BaseAliasedChecks<OperationInput, OperationDeclAst, IGqlpSchemaOperation>(parser)
+  IParserRepository parsers
+) : BaseAliasedChecks<OperationInput, OperationDeclAst, IGqlpSchemaOperation>(parsers)
 {
   protected internal override OperationDeclAst NamedFactory(OperationInput input)
     => new(AstNulls.At, input.Name, input.Category);

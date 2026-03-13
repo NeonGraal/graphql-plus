@@ -4,9 +4,8 @@ using GqlPlus.Merging.Globals;
 
 namespace GqlPlus.Merging.Schema.Globals;
 
-public class MergeOperationsTests(
-  ITestOutputHelper outputHelper
-) : TestAliasedMerger<IGqlpSchemaOperation, OperationInput>
+public class MergeOperationsTests
+  : TestAliasedMerger<IGqlpSchemaOperation, OperationInput>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameCategory_ReturnsGood(OperationInput input)
@@ -22,7 +21,13 @@ public class MergeOperationsTests(
       new OperationDeclAst(AstNulls.At, input.Name, input.Category),
       new OperationDeclAst(AstNulls.At, input.Name, category2)]);
 
-  private readonly MergeOperations _merger = new(outputHelper.ToLoggerFactory());
+  private readonly MergeOperations _merger;
+
+  public MergeOperationsTests()
+  {
+    IMergerRepository mergers = Substitute.For<IMergerRepository>();
+    _merger = new(mergers);
+  }
 
   internal override GroupsMerger<IGqlpSchemaOperation> MergerGroups => _merger;
 

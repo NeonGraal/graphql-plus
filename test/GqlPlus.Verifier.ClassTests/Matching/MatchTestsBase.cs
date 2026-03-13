@@ -7,8 +7,14 @@ public class MatchTestsBase
   protected Map<string> EnumValues { get; } = [];
   protected EnumContext Context { get; }
 
+  protected IMatcherRepository MatcherRepo { get; }
+
   public MatchTestsBase()
-    => Context = new(Types, Errors, EnumValues);
+  {
+    Context = new(Types, Errors, EnumValues);
+    MatcherRepo = Substitute.For<IMatcherRepository>();
+    MatcherRepo.LoggerFactory.Returns(LoggerFactory);
+  }
 
   protected static Matcher<T>.D MatcherFor<T>(out Matcher<T>.I matcher)
   {

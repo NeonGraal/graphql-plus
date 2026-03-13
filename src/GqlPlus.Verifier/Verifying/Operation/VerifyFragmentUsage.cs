@@ -2,10 +2,7 @@
 
 namespace GqlPlus.Verifying.Operation;
 
-internal class VerifyFragmentUsage(
-    IVerify<IGqlpSpread> usage,
-    IVerify<IGqlpFragment> definition
-) : IdentifiedVerifier<IGqlpSpread, IGqlpFragment>(usage, definition)
+internal class VerifyFragmentUsage(IVerifierRepository verifiers) : IdentifiedVerifier<IGqlpSpread, IGqlpFragment>(verifiers)
 {
   public override string Label => "Spread";
 

@@ -1,5 +1,5 @@
 ﻿using GqlPlus.Matching;
-using GqlPlus.Parsing.Operation;
+using GqlPlus.Parsing;
 using GqlPlus.Verifying;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,8 +10,11 @@ public static class Startup
   public static void ConfigureServices(IServiceCollection services)
     => services
       .AddComponentParsers(false)
-
-      .AddFieldObjectKinds()
-      .AddMatchers()
-      .AddVerifiers();
+      .AddParsers(b => b
+        .AddOperationParsers())
+      .AddMatchers(b => b
+        .ConstraintMatchers())
+      .AddVerifiers(b => b
+        .AddSchemaVerifiers()
+        .AddOperationVerifiers());
 }

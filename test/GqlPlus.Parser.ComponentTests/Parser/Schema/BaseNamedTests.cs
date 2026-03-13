@@ -17,14 +17,14 @@ public abstract class BaseNamedTests<TInput, TParsed>(
 }
 
 internal abstract class BaseNamedChecks<TInput, TNamed>(
-  Parser<TNamed>.D parser
-) : BaseNamedChecks<TInput, TNamed, TNamed>(parser)
+  IParserRepository parsers
+) : BaseNamedChecks<TInput, TNamed, TNamed>(parsers)
   where TNamed : AstNamed
 { }
 
 internal abstract class BaseNamedChecks<TInput, TNamed, TParsed>(
-  Parser<TParsed>.D parser
-) : OneChecksParser<TParsed>(parser)
+  IParserRepository parsers
+) : OneChecksParser<TParsed>(parsers)
   , IBaseNamedChecks<TInput, TParsed>
   where TNamed : AstNamed, TParsed
   where TParsed : IGqlpNamed

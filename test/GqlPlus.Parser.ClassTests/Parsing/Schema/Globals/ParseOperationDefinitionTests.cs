@@ -16,13 +16,12 @@ public class ParseOperationDefinitionTests
 
   public ParseOperationDefinitionTests()
   {
-    Parser<IParserArg, IGqlpArg>.D argument = ParserFor<IParserArg, IGqlpArg>(out _argumentParser);
-    Parser<IGqlpDirective>.DA directives = ParserAFor(out _directivesParser);
-    ParserArray<IParserStartFragments, IGqlpFragment>.DA fragments = ParserAFor<IParserStartFragments, IGqlpFragment>(out _fragmentsParser);
-    Parser<IGqlpSelection>.DA objectParser = ParserAFor(out _objectParser);
-    Parser<IGqlpVariable>.DA variables = ParserAFor(out _variablesParser);
-
-    _parser = new ParseOperationDefinition(argument, directives, fragments, Modifiers, objectParser, variables);
+    ConfigureRepoInterface<IParserArg, IGqlpArg>(Parsers, out _argumentParser);
+    ConfigureRepoArray(Parsers, out _directivesParser);
+    ConfigureRepoArrayInterface<IParserStartFragments, IGqlpFragment>(Parsers, out _fragmentsParser);
+    ConfigureRepoArray(Parsers, out _objectParser);
+    ConfigureRepoArray(Parsers, out _variablesParser);
+    _parser = new ParseOperationDefinition(Parsers);
 
     SetupError<OperationDefinition>();
     SetupPartial(new OperationDefinition(""));

@@ -10,12 +10,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseOperationDecl(
-  ISimpleName name,
-  Parser<NullAst>.DA param,
-  Parser<string>.DA aliases,
-  Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<OperationDefinition>.D definition
-) : DeclarationParser<OperationDefinition, IGqlpSchemaOperation>(name, param, aliases, option, definition)
+  IParserRepository parsers
+) : DeclarationParser<OperationDefinition, IGqlpSchemaOperation>(parsers)
 {
   protected override IGqlpSchemaOperation MakeResult(AstPartial<NullAst, NullOption> partial, OperationDefinition value)
         => new OperationDeclAst(partial.At, partial.Name, partial.Description, value.Category) {
@@ -40,20 +36,15 @@ internal record OperationDefinition(string Category)
 }
 
 internal class ParseOperationDefinition(
-  Parser<IParserArg, IGqlpArg>.D argument,
-  Parser<IGqlpDirective>.DA directives,
-  ParserArray<IParserStartFragments, IGqlpFragment>.DA fragments,
-  Parser<IGqlpModifier>.DA modifiers,
-  Parser<IGqlpSelection>.DA objectParser,
-  Parser<IGqlpVariable>.DA variables
+  IParserRepository parsers
 ) : Parser<OperationDefinition>.I
 {
-  private readonly Parser<IParserArg, IGqlpArg>.L _argument = argument;
-  private readonly Parser<IGqlpDirective>.LA _directives = directives;
-  private readonly ParserArray<IParserStartFragments, IGqlpFragment>.LA _fragments = fragments;
-  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
-  private readonly Parser<IGqlpSelection>.LA _object = objectParser;
-  private readonly Parser<IGqlpVariable>.LA _variables = variables;
+  private readonly Parser<IParserArg, IGqlpArg>.L _argument = parsers.ParserFor<IParserArg, IGqlpArg>();
+  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
+  private readonly ParserArray<IParserStartFragments, IGqlpFragment>.LA _fragments = parsers.ArrayFor<IParserStartFragments, IGqlpFragment>();
+  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IGqlpSelection>.LA _object = parsers.ArrayFor<IGqlpSelection>();
+  private readonly Parser<IGqlpVariable>.LA _variables = parsers.ArrayFor<IGqlpVariable>();
 
   public IResult<OperationDefinition> Parse(ITokenizer tokens, string label)
   {

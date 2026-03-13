@@ -17,7 +17,8 @@ public class VerifyUnionTypesTests
 
   public VerifyUnionTypesTests()
   {
-    _verifier = new(Aliased.Intf, _mergeMembers.Intf);
+    VerifierRepo.MergerFor<IGqlpUnionMember>().Returns(_mergeMembers.Intf);
+    _verifier = new(VerifierRepo);
 
     _union = new("Union");
   }

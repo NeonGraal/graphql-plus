@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using GqlPlus.Ast.Schema.Objects;
-
-namespace GqlPlus;
+﻿namespace GqlPlus;
 
 internal class GqlpGeneratorTypes(GqlpModelOptions modelOptions)
 {

@@ -14,12 +14,10 @@ public class ParseCategoryTests
   {
     ICategoryName name = Substitute.For<ICategoryName>();
     NameParser = name;
-
-    Parser<IOptionParser<CategoryOption>, CategoryOption>.D option = OptionParserFor(out _option);
-    Parser<CategoryOutput>.D definition = ParserFor(out _definition);
-
-    _parser = new ParseCategory(name, ParamNull, Aliases, option, definition);
-
+    Parsers.GetName<ICategoryName>().Returns(name);
+    ConfigureRepoInterface<IOptionParser<CategoryOption>, CategoryOption>(Parsers, out _option);
+    ConfigureRepo<CategoryOutput>(Parsers, out _definition);
+    _parser = new ParseCategory(Parsers);
     NameReturns(null);
   }
 

@@ -8,7 +8,7 @@ public abstract class SimpleParentMatcherTests<TSimple>
 {
   private readonly SimpleParentMatcher<TSimple> _sut;
 
-  protected SimpleParentMatcherTests() => _sut = new(LoggerFactory);
+  protected SimpleParentMatcherTests() => _sut = new(MatcherRepo);
 
   [Theory, RepeatData]
   public void Simple_Matches_SameName_ReturnsTrue(string constraint)

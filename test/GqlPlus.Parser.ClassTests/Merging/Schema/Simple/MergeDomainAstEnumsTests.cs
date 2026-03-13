@@ -12,7 +12,9 @@ public class MergeDomainAstEnumsTests
 
   public MergeDomainAstEnumsTests(ITestOutputHelper outputHelper)
   {
-    MergeDomains<DomainLabelAst, IGqlpDomainLabel> merger = new(outputHelper.ToLoggerFactory(), MergeItems);
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpDomainLabel>().Returns(MergeItems);
+    MergeDomains<DomainLabelAst, IGqlpDomainLabel> merger = new(mergers);
     MergerSimple = merger;
     Merger = merger;
   }

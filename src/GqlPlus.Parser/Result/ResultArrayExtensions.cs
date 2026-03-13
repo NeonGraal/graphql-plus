@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Result;
 
-public static class ResultArrayExtensions
+internal static class ResultArrayExtensions
 {
   public static bool Optional<T>(this IResultArray<T> result, [NotNullWhen(true)] Action<IEnumerable<T>> action)
   {

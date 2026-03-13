@@ -11,7 +11,7 @@ internal sealed record class OperationAst(
   , IGqlpOperation
 {
   public ParseResultKind Result { get; set; }
-  internal Messages Errors { get; set; } = [];
+  internal IMessages Errors { get; set; } = Messages.New;
 
   public string Category { get; set; } = "query";
 

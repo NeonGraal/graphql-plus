@@ -7,10 +7,14 @@ public class SimpleParserClassTestBase
 {
   private readonly Parser<IGqlpTypeRef>.I _typeRef;
 
-  internal Parser<IGqlpTypeRef>.D TypeRef { get; }
-
   public SimpleParserClassTestBase()
-    => TypeRef = ParserFor(out _typeRef);
+  {
+    _typeRef = A.Of<Parser<IGqlpTypeRef>.I>();
+    _typeRef.Parse(default!, default!)
+      .ReturnsForAnyArgs(default(IGqlpTypeRef).Empty());
+    Parser<IGqlpTypeRef>.L typeRefLazy = new(() => _typeRef);
+    Parsers.ParserFor<IGqlpTypeRef>().Returns(typeRefLazy);
+  }
 
   internal void ParseTypeRefOk(string input)
   {
@@ -21,5 +25,4 @@ public class SimpleParserClassTestBase
 
   internal void ParseTypeRefError()
     => ParseError(_typeRef);
-
 }

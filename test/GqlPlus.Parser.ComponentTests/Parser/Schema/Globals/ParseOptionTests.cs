@@ -28,8 +28,8 @@ public sealed class ParseOptionTests(
 }
 
 internal sealed class ParseOptionChecks(
-  Parser<IGqlpSchemaOption>.D parser
-) : BaseAliasedChecks<string, OptionDeclAst, IGqlpSchemaOption>(parser)
+  IParserRepository parsers
+) : BaseAliasedChecks<string, OptionDeclAst, IGqlpSchemaOption>(parsers)
 {
   internal static readonly string[] Settings = ["setting"];
 

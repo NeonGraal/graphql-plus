@@ -6,9 +6,10 @@ namespace GqlPlus.Sample;
 
 public class MergeSchemaTests(
   ISchemaParseChecks checks,
-  IMerge<IGqlpSchema> schemaMerger
+  IMergerRepository mergers
 ) : TestSchemaResult(checks)
 {
+  private readonly IMerge<IGqlpSchema> _schemaMerger = mergers.MergerFor<IGqlpSchema>();
 
   protected override Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
     => Check_Merges([result.Required()], test, label, section);
@@ -22,7 +23,7 @@ public class MergeSchemaTests(
 
   private async Task Check_Merges(IGqlpSchema[] schemas, string test, string label, string section)
   {
-    IEnumerable<IGqlpSchema> result = schemaMerger.SkipIf(test == SchemaValidData.SpecDefinition).Merge(schemas);
+    IEnumerable<IGqlpSchema> result = _schemaMerger.SkipIf(test == SchemaValidData.SpecDefinition).Merge(schemas);
 
     await result.Select(s => s.Show()).AttachAndVerify("Output " + test, CustomSettings(label, "Merges", test, section));
   }

@@ -6,16 +6,13 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseVariable(
-  Parser<IGqlpModifier>.DA modifiers,
-  Parser<IGqlpDirective>.DA directives,
-  Parser<IParserDefault, IGqlpConstant>.D defaultParser,
-  Parser<IParserVarType, string>.D varTypeParser
+  IParserRepository parsers
 ) : Parser<IGqlpVariable>.I
 {
-  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
-  private readonly Parser<IGqlpDirective>.LA _directives = directives;
-  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
-  private readonly Parser<IParserVarType, string>.L _varTypeParser = varTypeParser;
+  private readonly Parser<IGqlpModifier>.LA _modifiers = parsers.ArrayFor<IGqlpModifier>();
+  private readonly Parser<IGqlpDirective>.LA _directives = parsers.ArrayFor<IGqlpDirective>();
+  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = parsers.ParserFor<IParserDefault, IGqlpConstant>();
+  private readonly Parser<IParserVarType, string>.L _varTypeParser = parsers.ParserFor<IParserVarType, string>();
 
   public IResult<IGqlpVariable> Parse(ITokenizer tokens, string label)
 

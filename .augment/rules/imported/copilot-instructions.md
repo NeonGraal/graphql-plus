@@ -2,6 +2,8 @@
 type: "manual"
 ---
 
+Read `Style-Guide.md` for repository-wide coding style and `Conventions.md` for test-specific conventions before making changes.
+
 When writing tests use Xunit and AutoData.
 
 Class tests use NSubstitute and Shouldly and should use fields or properties for the instance being tested.

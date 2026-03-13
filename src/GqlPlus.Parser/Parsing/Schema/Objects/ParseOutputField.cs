@@ -6,13 +6,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseOutputField(
-  Parser<string>.DA aliases,
-  Parser<IGqlpModifier>.DA modifiers,
-  Parser<IGqlpObjBase>.D parseBase,
-  Parser<IGqlpInputParam>.DA parameter
-) : ObjectFieldParser<IGqlpOutputField, OutputFieldAst>(aliases, modifiers, parseBase)
+  IParserRepository parsers
+) : ObjectFieldParser<IGqlpOutputField, OutputFieldAst>(parsers)
 {
-  private readonly Parser<IGqlpInputParam>.LA _parameter = parameter;
+  private readonly Parser<IGqlpInputParam>.LA _parameter = parsers.ArrayFor<IGqlpInputParam>();
 
   protected override void ApplyFieldParams(OutputFieldAst field, IGqlpInputParam[] parameters)
     => field.Parameter = parameters.FirstOrDefault();

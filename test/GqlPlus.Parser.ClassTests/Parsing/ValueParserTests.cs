@@ -12,12 +12,13 @@ public class ValueParserTests
 
   public ValueParserTests()
   {
-    Parser<IGqlpFieldKey>.D fieldKeyParser = ParserFor(out _fieldKeyParser);
-    Parser<KeyValue<IGqlpConstant>>.D keyValueParser = ParserFor(out _keyValueParser);
-    Parser<IGqlpConstant>.DA listParser = ParserAFor(out _listParser);
-    Parser<IGqlpFields<IGqlpConstant>>.D objectParser = ParserFor(out _objectParser);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    ConfigureRepo<IGqlpFieldKey>(parsers, out _fieldKeyParser);
+    ConfigureRepo<KeyValue<IGqlpConstant>>(parsers, out _keyValueParser);
+    ConfigureRepoArray<IGqlpConstant>(parsers, out _listParser);
+    ConfigureRepo<IGqlpFields<IGqlpConstant>>(parsers, out _objectParser);
 
-    _valueParser = new TestValueParser(fieldKeyParser, keyValueParser, listParser, objectParser);
+    _valueParser = new TestValueParser(parsers);
 
     SetupError<IGqlpConstant>();
     SetupError<IGqlpFields<IGqlpConstant>>();
@@ -79,11 +80,8 @@ public class ValueParserTests
   }
 
   private sealed class TestValueParser(
-    Parser<IGqlpFieldKey>.D fieldKey,
-    Parser<KeyValue<IGqlpConstant>>.D keyValueParser,
-    Parser<IGqlpConstant>.DA listParser,
-    Parser<IGqlpFields<IGqlpConstant>>.D objectParser
-  ) : ValueParser<IGqlpConstant>(fieldKey, keyValueParser, listParser, objectParser)
+    IParserRepository parsers
+  ) : ValueParser<IGqlpConstant>(parsers)
   {
     protected override Func<IGqlpFields<IGqlpConstant>, IGqlpConstant> NewFields(ITokenAt at)
       => fields => new ConstantAst(at, fields);

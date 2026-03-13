@@ -7,11 +7,12 @@ using GqlPlus.Verifying;
 namespace GqlPlus.Sample;
 
 public class VerifyOperationTests(
-    Parser<IGqlpOperation>.D operationParser,
-    IVerify<IGqlpOperation> operationVerifier
+    IParserRepository parsers,
+    IVerifierRepository verifierRepository
 ) : SampleChecks
 {
-  private readonly Parser<IGqlpOperation>.L _parser = operationParser;
+  private readonly Parser<IGqlpOperation>.L _parser = parsers.ParserFor<IGqlpOperation>();
+  private readonly IVerify<IGqlpOperation> _operationVerifier = verifierRepository.VerifierFor<IGqlpOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]
@@ -22,9 +23,9 @@ public class VerifyOperationTests(
       error.Message.ShouldBeNull();
     }
 
-    Messages result = [];
+    IMessages result = Messages.New;
 
-    operationVerifier.Verify(parse.Required(), result);
+    _operationVerifier.Verify(parse.Required(), result);
 
     result.ShouldBeEmpty();
   }
@@ -35,9 +36,9 @@ public class VerifyOperationTests(
   {
     IResult<IGqlpOperation> parse = await Parse("Invalid", operation);
 
-    Messages result = [];
+    Messages result = new();
     if (parse.IsOk()) {
-      operationVerifier.Verify(parse.Required(), result);
+      _operationVerifier.Verify(parse.Required(), result);
     } else {
       parse.IsError(result.Add);
     }

@@ -12,7 +12,8 @@ public class AllGeneratorsTests
       .AddGenerators()
       .BuildServiceProvider();
 
-    services.GetService<IGenerator<IGqlpSchema>>()
+    services.GetService<IGeneratorRepository>()!
+      .GeneratorFor<IGqlpSchema>()
       .ShouldNotBeNull();
   }
 }

@@ -5,8 +5,8 @@ using GqlPlus.Abstractions.Schema;
 namespace GqlPlus.Verifying.Schema;
 
 internal abstract class AstParentVerifier<TAst, TParent, TContext>(
-  IVerifyAliased<TAst> aliased
-) : UsageVerifier<TAst, TContext>(aliased)
+  IVerifierRepository verifiers
+) : UsageVerifier<TAst, TContext>(verifiers)
   where TAst : IGqlpType<TParent>
   where TParent : IGqlpDescribed, IEquatable<TParent>
   where TContext : UsageContext

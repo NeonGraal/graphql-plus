@@ -7,8 +7,8 @@ internal abstract class MatchLogger
 {
   private readonly ILogger _logger;
 
-  protected MatchLogger(ILoggerFactory logger)
-    => _logger = logger.CreateTypedLogger(this);
+  protected MatchLogger(IMatcherRepository matchers)
+    => _logger = matchers.LoggerFactory.CreateTypedLogger(this);
 
   internal void TryingMatch(object type, string constraint)
     => _logger.TryingMatch(type, constraint);

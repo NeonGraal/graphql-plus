@@ -9,30 +9,40 @@ public class CommonParsersTests
   public CommonParsersTests()
     => _services = new ServiceCollection()
       .AddLogging()
-      .AddCommonParsers()
+      .AddParsers(b => b.AddCommonParsers())
       .BuildServiceProvider();
 
   [Fact]
-  public void CommonParsers_DefinesParser_Constant()
+  public void CommonParsers_Repository_IsRegistered()
     => _services
-    .GetService<Parser<IGqlpConstant>.D>()
+    .GetService<IParserRepository>()
     .ShouldNotBeNull();
 
   [Fact]
-  public void CommonParsers_DefinesParserArray_Modifier()
+  public void CommonParsers_Repository_ProvidesLazy_Constant()
     => _services
-    .GetService<Parser<IGqlpModifier>.DA>()
+    .GetRequiredService<IParserRepository>()
+    .ParserFor<IGqlpConstant>()
     .ShouldNotBeNull();
 
   [Fact]
-  public void CommonParsers_DefinesParser_Default()
+  public void CommonParsers_Repository_ProvidesLazy_Modifier()
     => _services
-    .GetService<Parser<IParserDefault, IGqlpConstant>.D>()
+    .GetRequiredService<IParserRepository>()
+    .ArrayFor<IGqlpModifier>()
     .ShouldNotBeNull();
 
   [Fact]
-  public void CommonParsers_DefinesParserArray_Collections()
+  public void CommonParsers_Repository_ProvidesLazy_Default()
     => _services
-    .GetService<ParserArray<IParserCollections, IGqlpModifier>.DA>()
+    .GetRequiredService<IParserRepository>()
+    .ParserFor<IParserDefault, IGqlpConstant>()
+    .ShouldNotBeNull();
+
+  [Fact]
+  public void CommonParsers_Repository_ProvidesLazy_Collections()
+    => _services
+    .GetRequiredService<IParserRepository>()
+    .ArrayFor<IParserCollections, IGqlpModifier>()
     .ShouldNotBeNull();
 }

@@ -9,8 +9,8 @@ public class EnumConstraintMatcherTests
   public EnumConstraintMatcherTests()
   {
     Matcher<IGqlpEnum>.D enumMatcher = MatcherFor(out _enumMatcher);
-
-    _sut = new(LoggerFactory, enumMatcher);
+    MatcherRepo.MatcherFor<IGqlpEnum>().Returns(enumMatcher);
+    _sut = new(MatcherRepo);
   }
 
   [Theory, RepeatData]

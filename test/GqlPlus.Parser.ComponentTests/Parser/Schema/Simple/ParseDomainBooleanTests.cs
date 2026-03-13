@@ -9,8 +9,8 @@ public sealed class ParseDomainBooleanTests(
 { }
 
 internal sealed class ParseDomainBooleanChecks(
-  Parser<IGqlpDomain>.D parser
-) : BaseDomainChecks<string, AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>, IGqlpDomain<IGqlpDomainTrueFalse>>(parser, DomainKind.Boolean)
+  IParserRepository parsers
+) : BaseDomainChecks<string, AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>, IGqlpDomain<IGqlpDomainTrueFalse>>(parsers, DomainKind.Boolean)
 {
   protected internal override AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse> NamedFactory(string input)
     => new(AstNulls.At, input, DomainKind.Boolean, [new DomainTrueFalseAst(AstNulls.At, "", false, false), new DomainTrueFalseAst(AstNulls.At, "", false, true)]);

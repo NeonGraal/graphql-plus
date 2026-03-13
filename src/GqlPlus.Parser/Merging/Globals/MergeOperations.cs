@@ -3,8 +3,8 @@
 namespace GqlPlus.Merging.Globals;
 
 internal class MergeOperations(
-  ILoggerFactory logger
-) : AstAliasedMerger<IGqlpSchemaOperation>(logger)
+  IMergerRepository mergers
+) : AstAliasedMerger<IGqlpSchemaOperation>(mergers)
 {
   protected override string ItemMatchName => "Category";
   protected override string ItemMatchKey(IGqlpSchemaOperation item)

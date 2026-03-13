@@ -15,7 +15,12 @@ public class VerifySchemaTests
 
   public VerifySchemaTests()
   {
-    _verifier = new(_categoryOutputs.Intf, _directiveInputs.Intf, _optionsAliased.Intf, _typesAliased.Intf, _types.Intf);
+    VerifierRepo.UsageFor<IGqlpSchemaCategory>().Returns(_categoryOutputs.Intf);
+    VerifierRepo.UsageFor<IGqlpSchemaDirective>().Returns(_directiveInputs.Intf);
+    VerifierRepo.AliasedFor<IGqlpSchemaOption>().Returns(_optionsAliased.Intf);
+    VerifierRepo.AliasedFor<IGqlpType>().Returns(_typesAliased.Intf);
+    VerifierRepo.VerifierFor<IGqlpType[]>().Returns(_types.Intf);
+    _verifier = new(VerifierRepo);
 
     _schema = A.Error<IGqlpSchema>();
   }

@@ -16,13 +16,13 @@ public class ParseArgValueTests
   public ParseArgValueTests()
     : base(A.Of<ITokenizer, IOperationContext>())
   {
-    Parser<IGqlpFieldKey>.D fieldKeyParser = ParserFor(out _fieldKeyParser);
-    Parser<KeyValue<IGqlpArg>>.D keyValueParser = ParserFor(out _keyValueParser);
-    Parser<IGqlpArg>.DA listParser = ParserAFor(out _listParser);
-    Parser<IGqlpFields<IGqlpArg>>.D objectParser = ParserFor(out _objectParser);
-    Parser<IGqlpConstant>.D constantParser = ParserFor(out _constantParser);
-
-    _parseArgValue = new ParseArgValue(fieldKeyParser, keyValueParser, listParser, objectParser, constantParser);
+    IParserRepository parsers = A.Of<IParserRepository>();
+    ConfigureRepo<IGqlpFieldKey>(parsers, out _fieldKeyParser);
+    ConfigureRepo<KeyValue<IGqlpArg>>(parsers, out _keyValueParser);
+    ConfigureRepoArray<IGqlpArg>(parsers, out _listParser);
+    ConfigureRepo<IGqlpFields<IGqlpArg>>(parsers, out _objectParser);
+    ConfigureRepo<IGqlpConstant>(parsers, out _constantParser);
+    _parseArgValue = new ParseArgValue(parsers);
 
     PrefixReturns('$', OutPass);
     SetupError<IGqlpArg>();

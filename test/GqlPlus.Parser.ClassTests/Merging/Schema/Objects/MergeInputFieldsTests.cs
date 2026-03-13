@@ -38,7 +38,9 @@ public class MergeInputFieldsTests
   {
     _constant = Merger<IGqlpConstant>();
 
-    _merger = new(outputHelper.ToLoggerFactory(), _constant);
+    IMergerRepository mergers = MergeRepo(outputHelper.ToLoggerFactory());
+    mergers.MergerFor<IGqlpConstant>().Returns(_constant);
+    _merger = new(mergers);
   }
 
   internal override AstObjectFieldsMerger<IGqlpInputField> MergerField => _merger;

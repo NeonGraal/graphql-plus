@@ -42,5 +42,6 @@ public static class Startup
 
       .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
 
-      .AddComponentParsers();
+      .AddComponentParsers()
+      .AddParsers(b => b.AddOperationParsers());
 }

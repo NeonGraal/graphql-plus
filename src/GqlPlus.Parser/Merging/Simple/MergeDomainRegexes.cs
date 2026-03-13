@@ -3,8 +3,8 @@
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeDomainRegexes(
-  ILoggerFactory logger
-) : AstDomainItemMerger<IGqlpDomainRegex>(logger)
+  IMergerRepository mergers
+) : AstDomainItemMerger<IGqlpDomainRegex>(mergers)
 {
   protected override string ItemGroupKey(IGqlpDomainRegex item)
     => item.Pattern;

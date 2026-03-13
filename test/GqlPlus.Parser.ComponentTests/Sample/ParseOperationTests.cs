@@ -5,11 +5,11 @@ using GqlPlus.Result;
 namespace GqlPlus.Sample;
 
 public class ParseOperationTests(
-    Parser<IGqlpOperation>.D operationParser
+    IParserRepository parsers
 ) : SampleChecks
 {
 
-  private readonly Parser<IGqlpOperation>.L _operation = operationParser;
+  private readonly Parser<IGqlpOperation>.L _operation = parsers.ParserFor<IGqlpOperation>();
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]

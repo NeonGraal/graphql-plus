@@ -11,9 +11,9 @@ internal class ParseSchema
   private delegate IResult<IGqlpDeclaration> Parser(ITokenizer tokens, string label);
   private readonly Dictionary<string, Parser> _parsers = [];
 
-  public ParseSchema(IEnumerable<IParseDeclaration> declarations)
+  public ParseSchema(IParserRepository parsers)
   {
-    foreach (IParseDeclaration declaration in declarations) {
+    foreach (IParseDeclaration declaration in parsers.GetDeclarations()) {
       _parsers.Add(declaration.Selector, declaration.Parser);
     }
   }

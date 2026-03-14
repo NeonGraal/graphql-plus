@@ -8,56 +8,76 @@ namespace GqlPlus.Parsing;
 
 public static class SchemaParsers
 {
-  public static IParserRepositoryBuilder AddSchemaParsers(this IParserRepositoryBuilder builder)
+  public static IParserRepositoryBuilder AddSchemaParsers([NotNull] this IParserRepositoryBuilder builder)
     => builder
       .AddNullParsers()
       .AddArray(_ => new ParseAliases())
-      // Category
+      .AddSingle(_ => new ParseTypeRef())
+      .AddInterfaceSingle<ISimpleName>(_ => new SimpleName())
+      .AddSchemaCategoryParsers()
+      .AddSchemaDirectiveParsers()
+      .AddSchemaOptionParsers()
+      .AddSchemaSimpleParsers()
+      .AddSchemaObjectParsers()
+      .AddSingle(p => new ParseSchema(p));
+
+  public static IParserRepositoryBuilder AddSchemaCategoryParsers([NotNull] this IParserRepositoryBuilder builder)
+    => builder
       .AddInterfaceSingle<ICategoryName>(_ => new CategoryName())
       .AddOption<CategoryOption>()
       .AddSingle(p => new ParseCategoryDefinition(p))
-      .AddDeclarationParser("category", p => new ParseCategory(p))
-      // Directive
+      .AddDeclarationParser("category", p => new ParseCategory(p));
+
+  public static IParserRepositoryBuilder AddSchemaDirectiveParsers([NotNull] this IParserRepositoryBuilder builder)
+    => builder
       .AddInterfaceSingle<IDirectiveName>(_ => new DirectiveName())
       .AddOption<DirectiveOption>()
       .AddEnum<DirectiveLocation>()
       .AddSingle(p => new ParseDirectiveDefinition(p))
-      .AddDeclarationParser("directive", p => new ParseDirective(p))
-      // Option
+      .AddDeclarationParser("directive", p => new ParseDirective(p));
+
+  public static IParserRepositoryBuilder AddSchemaOptionParsers([NotNull] this IParserRepositoryBuilder builder)
+    => builder
       .AddSingle(p => new ParseOptionDefinition(p))
       .AddSingle(p => new ParseOptionSetting(p))
-      .AddDeclarationParser("option", p => new ParseOption(p))
-      // Types
-      .AddSingle(_ => new ParseTypeRef())
-      .AddInterfaceSingle<ISimpleName>(_ => new SimpleName())
+      .AddDeclarationParser("option", p => new ParseOption(p));
+
+  public static IParserRepositoryBuilder AddSchemaSimpleParsers([NotNull] this IParserRepositoryBuilder builder)
+    => builder
+      .AddSchemaDomainParsers()
       // Enum
       .AddSingle(p => new ParseEnumDefinition(p))
       .AddSingle(p => new ParseEnumLabel(p))
       .AddDeclarationParser("enum", p => new ParseEnum(p))
-      // Domain
+      // Union
+      .AddSingle(p => new ParseUnionDefinition(p))
+      .AddSingle(_ => new ParseUnionMember())
+      .AddDeclarationParser("union", p => new ParseUnion(p));
+
+  public static IParserRepositoryBuilder AddSchemaDomainParsers([NotNull] this IParserRepositoryBuilder builder)
+    => builder
       .AddSingle(p => new ParseDomainDefinition(p))
       .AddEnum<DomainKind>()
       .AddDomainParser(p => new ParseDomainTrueFalse(p))
       .AddDomainParser(p => new ParseDomainLabel(p))
       .AddDomainParser(p => new ParseDomainRange(p))
       .AddDomainParser(p => new ParseDomainRegex(p))
-      .AddDeclarationParser("domain", p => new ParseDomain(p))
-      // Union
-      .AddSingle(p => new ParseUnionDefinition(p))
-      .AddSingle(_ => new ParseUnionMember())
-      .AddDeclarationParser("union", p => new ParseUnion(p))
-      // Objects
+      .AddDeclarationParser("domain", p => new ParseDomain(p));
+
+  public static IParserRepositoryBuilder AddSchemaObjectParsers([NotNull] this IParserRepositoryBuilder builder)
+    => builder
       .AddArray(_ => new ParseTypeParams())
       .AddArray(p => new ParseAlternates(p))
       .AddSingle(p => new ParseObjBase(p))
       .AddArray(_ => new ParseTypeArgs())
+      .AddArray(p => new ParseInputParams(p))
+      .AddSchemaObjectTypeParsers();
+
+  public static IParserRepositoryBuilder AddSchemaObjectTypeParsers([NotNull] this IParserRepositoryBuilder builder)
+    => builder
       .AddObjectParser(TypeKind.Dual, p => new ParseDualField(p))
       .AddObjectParser(TypeKind.Input, p => new ParseInputField(p))
-      .AddArray(p => new ParseInputParams(p))
-      .AddObjectParser(TypeKind.Output, p => new ParseOutputField(p))
-      // Schema
-      .AddSingle(p => new ParseSchema(p))
-      ;
+      .AddObjectParser(TypeKind.Output, p => new ParseOutputField(p));
 
   private static IParserRepositoryBuilder AddEnum<TEnum>(this IParserRepositoryBuilder builder)
     where TEnum : struct

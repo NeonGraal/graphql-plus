@@ -20,20 +20,28 @@ public static class AllGenerators
   internal static IGeneratorRepositoryBuilder AddSchemaGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
       .AddGenerator(g => new SchemaGenerator(g))
-      // Globals
+      .AddSchemaGlobalGenerators()
+      .AddSchemaSimpleGenerators()
+      .AddSchemaObjectGenerators();
+
+  internal static IGeneratorRepositoryBuilder AddSchemaGlobalGenerators(this IGeneratorRepositoryBuilder builder)
+    => builder.ThrowIfNull()
       .AddGenerator(_ => new CategoryGenerator())
       .AddGenerator(_ => new DirectiveGenerator())
-      .AddGenerator(_ => new OptionGenerator())
-      // Simple
+      .AddGenerator(_ => new OptionGenerator());
+
+  internal static IGeneratorRepositoryBuilder AddSchemaSimpleGenerators(this IGeneratorRepositoryBuilder builder)
+    => builder.ThrowIfNull()
       .AddTypeGenerator(_ => new EnumGenerator())
       .AddTypeGenerator(_ => new DomainBooleanGenerator())
       .AddTypeGenerator(_ => new DomainEnumGenerator())
       .AddTypeGenerator(_ => new DomainNumberGenerator())
       .AddTypeGenerator(_ => new DomainStringGenerator())
-      .AddTypeGenerator(_ => new UnionGenerator())
-      // Objects
+      .AddTypeGenerator(_ => new UnionGenerator());
+
+  internal static IGeneratorRepositoryBuilder AddSchemaObjectGenerators(this IGeneratorRepositoryBuilder builder)
+    => builder.ThrowIfNull()
       .AddTypeGenerator(_ => new DualGenerator())
       .AddTypeGenerator(_ => new InputGenerator())
-      .AddTypeGenerator(_ => new OutputGenerator())
-    ;
+      .AddTypeGenerator(_ => new OutputGenerator());
 }

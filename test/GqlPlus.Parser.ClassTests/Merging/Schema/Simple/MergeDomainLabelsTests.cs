@@ -4,8 +4,8 @@ using GqlPlus.Merging.Simple;
 
 namespace GqlPlus.Merging.Schema.Simple;
 
-public class MergeDomainLabelsTests
-  : TestDomainItemMerger<IGqlpDomainLabel, string>
+public class MergeDomainLabelsTests(ITestOutputHelper outputHelper)
+    : TestDomainItemMerger<IGqlpDomainLabel, string>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(string name)
@@ -25,10 +25,7 @@ public class MergeDomainLabelsTests
         [MakeLabel(name, type1), MakeLabel(name, type2)],
         MakeLabel(name, type1), MakeLabel(name, type2));
 
-  private readonly MergeDomainLabels _merger;
-
-  public MergeDomainLabelsTests(ITestOutputHelper outputHelper)
-    => _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
+  private readonly MergeDomainLabels _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
 
   internal override GroupsMerger<IGqlpDomainLabel> MergerGroups => _merger;
 

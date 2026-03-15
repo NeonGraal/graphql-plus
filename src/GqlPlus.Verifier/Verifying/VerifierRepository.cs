@@ -18,7 +18,6 @@ internal class VerifierRepository
   private readonly IMergerRepository _mergers;
   private readonly Lazy<IEnumerable<IVerifyDomain>> _domains;
 
-
   public VerifierRepository(
     VerifierRepositoryBuilder state,
     ILoggerFactory loggerFactory,

@@ -12,7 +12,7 @@ public static class AllGenerators
   {
     GeneratorRepositoryBuilder builder = new();
     builder.AddSchemaGenerators();
-    services.AddSingleton(builder.Build());
+    services.AddSingleton(builder);
     services.TryAddSingleton<IGeneratorRepository, GeneratorRepository>();
     return services;
   }

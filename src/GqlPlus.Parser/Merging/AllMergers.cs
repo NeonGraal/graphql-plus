@@ -15,7 +15,7 @@ public static class AllMergers
   {
     MergerRepositoryBuilder builder = new();
     config?.Invoke(builder);
-    services.AddSingleton(builder.Build());
+    services.AddSingleton(builder);
     services.TryAddSingleton<IMergerRepository, MergerRepository>();
     return services;
   }
@@ -27,9 +27,7 @@ public static class AllMergers
       .AddSchemaGlobalMergers()
       .AddMerge(m => new MergeAllTypes(m))
       .AddSchemaSimpleMergers()
-      .AddSchemaSimpleMergeAlls()
-      .AddSchemaObjectMergers()
-      .AddSchemaObjectMergeAlls();
+      .AddSchemaObjectMergers();
 
   public static IMergerRepositoryBuilder AddSchemaGlobalMergers(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
@@ -41,15 +39,10 @@ public static class AllMergers
   public static IMergerRepositoryBuilder AddSchemaSimpleMergers(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()
       .AddSchemaDomainMergers()
-      .AddMergeAll<IGqlpEnum, IGqlpType, MergeEnums>(m => new MergeEnums(m))
-      .AddMerge(m => new MergeEnumLabels(m))
-      .AddMergeAll<IGqlpUnion, IGqlpType, MergeUnions>(m => new MergeUnions(m))
-      .AddMerge(_ => new MergeUnionMembers());
-
-  public static IMergerRepositoryBuilder AddSchemaSimpleMergeAlls(this IMergerRepositoryBuilder builder)
-    => builder.ThrowIfNull()
       .AddSchemaDomainMergeAlls()
+      .AddMerge(m => new MergeEnumLabels(m))
       .AddMergeAll<IGqlpEnum, IGqlpType, MergeEnums>(m => new MergeEnums(m))
+      .AddMerge(_ => new MergeUnionMembers())
       .AddMergeAll<IGqlpUnion, IGqlpType, MergeUnions>(m => new MergeUnions(m));
 
   public static IMergerRepositoryBuilder AddSchemaDomainMergers(this IMergerRepositoryBuilder builder)
@@ -78,7 +71,8 @@ public static class AllMergers
       .AddMerge(m => new MergeDualFields(m))
       .AddMerge(m => new MergeInputFields(m))
       .AddMerge(m => new MergeInputParams(m))
-      .AddMerge(m => new MergeOutputFields(m));
+      .AddMerge(m => new MergeOutputFields(m))
+      .AddSchemaObjectMergeAlls();
 
   public static IMergerRepositoryBuilder AddSchemaObjectMergeAlls(this IMergerRepositoryBuilder builder)
     => builder.ThrowIfNull()

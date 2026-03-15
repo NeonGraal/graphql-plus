@@ -70,7 +70,7 @@ public static class AllVerifiers
   {
     VerifierRepositoryBuilder builder = new();
     config?.Invoke(builder);
-    services.AddSingleton(builder.Build());
+    services.AddSingleton(builder);
     services.TryAddSingleton<IVerifierRepository, VerifierRepository>();
     return services;
   }

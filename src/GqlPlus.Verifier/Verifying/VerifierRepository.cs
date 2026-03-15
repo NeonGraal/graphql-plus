@@ -13,14 +13,14 @@ internal class VerifierRepository
   : BaseRepository<IVerifierRepository>
   , IVerifierRepository
 {
-  private readonly VerifierRepositoryState _state;
+  private readonly VerifierRepositoryBuilder _state;
   private readonly IMatcherRepository _matchers;
   private readonly IMergerRepository _mergers;
   private readonly Lazy<IEnumerable<IVerifyDomain>> _domains;
 
 
   public VerifierRepository(
-    VerifierRepositoryState state,
+    VerifierRepositoryBuilder state,
     ILoggerFactory loggerFactory,
     IMatcherRepository matchers,
     IMergerRepository mergers)
@@ -29,7 +29,9 @@ internal class VerifierRepository
     _state = state;
     _matchers = matchers;
     _mergers = mergers;
-    _domains = new(() => [.. state.Domains.Select(f => (IVerifyDomain)f.Invoke(this))]);
+    _domains = new(()
+      => [.. state.Domains.Select(f
+        => (IVerifyDomain)f.Invoke(this))]);
   }
 
   public IVerify<T> VerifierFor<T>()

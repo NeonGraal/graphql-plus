@@ -35,7 +35,7 @@ public static class AllMatchers
   {
     MatcherRepositoryBuilder builder = new();
     config?.Invoke(builder);
-    services.AddSingleton(builder.Build());
+    services.AddSingleton(builder);
     services.TryAddSingleton<IMatcherRepository, MatcherRepository>();
     return services;
   }

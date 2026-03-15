@@ -21,7 +21,6 @@ public static class CommonParsers
     if (descriptor?.ImplementationInstance is not ParserRepositoryBuilder builder) {
       builder = new();
       services.AddSingleton(builder);
-      services.AddProvider<ParserRepositoryBuilder, IParserRepositoryBuilder>();
     }
 
     config?.Invoke(builder);

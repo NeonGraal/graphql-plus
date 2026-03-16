@@ -16,7 +16,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   private readonly Parser<IOptionParser<TOption>, TOption>.L _option = parsers.ParserFor<IOptionParser<TOption>, TOption>();
   private readonly Parser<TDefinition>.L _definition = parsers.ParserFor<TDefinition>();
 
-  private readonly Parser<string>.LA Aliases = parsers.ArrayFor<string>();
+  private readonly Parser<string>.LA _aliases = parsers.ArrayFor<string>();
 
   public IResult<TResult> Parse(ITokenizer tokens, string label)
 
@@ -34,7 +34,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
       return parameters.AsPartial(ToResult(partial));
     }
 
-    IResultArray<string> aliases = Aliases.Parse(tokens, label);
+    IResultArray<string> aliases = _aliases.Parse(tokens, label);
     if (!aliases.Optional(value => partial.Aliases = [.. value])) {
       return aliases.AsPartial(ToResult(partial));
     }

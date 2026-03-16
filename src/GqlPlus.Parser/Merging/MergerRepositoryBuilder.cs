@@ -27,7 +27,4 @@ internal class MergerRepositoryBuilder
         list.Add(typeof(TService));
       }
     });
-
-  internal MergerRepositoryState Build()
-    => new(Mergers, AllMergers, AllMergerTypes);
 }

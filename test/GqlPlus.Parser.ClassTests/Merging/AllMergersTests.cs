@@ -1,50 +1,45 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Merging;
 
 public class AllMergersTests
 {
-  private readonly MergerRepository _merger;
-
-  public AllMergersTests()
-  {
-    MergerRepositoryBuilder builder = new();
-    builder.AddSchemaMergers();
-    _merger = new MergerRepository(builder.Build(), NullLoggerFactory.Instance);
-  }
-
   [Fact]
-  public void AllMergers_Repository_ProvidesConstant()
-    => _merger
-      .MergerFor<IGqlpConstant>()
+  public void AllMergers_Repository_IsRegistered()
+    => _services.GetService<IMergerRepository>()
       .ShouldNotBeNull();
 
   [Fact]
-  public void AllMergers_Repository_ProvidesSchema()
-    => _merger
+  public void AllMergers_MergerForSchema_IsRegistered()
+    => _services.GetRequiredService<IMergerRepository>()
       .MergerFor<IGqlpSchema>()
       .ShouldNotBeNull();
 
   [Fact]
-  public void AllMergers_Repository_ProvidesType()
-    => _merger
-      .MergerFor<IGqlpType>()
-      .ShouldNotBeNull();
-
-  [Fact]
-  public void AllMergers_Repository_ProvidesAllTypes()
-    => _merger
-      .AllMergersFor<IGqlpType>()
-      .ShouldNotBeEmpty();
-
-  [Fact]
-  public void AllMergers_Repository_UnregisteredType_ThrowsInvalidOperation()
-    => Should.Throw<InvalidOperationException>(
-      () => _merger.MergerFor<UnregisteredError>());
-
-  private sealed class UnregisteredError : IGqlpError
+  public void AllMergers_MergerFactories_ReturnNotNull()
   {
-    public IMessages MakeError(string message) => Messages.New;
+    IMergerRepository repo = _services.GetRequiredService<IMergerRepository>();
+    MergerRepositoryBuilder builder = _services.GetRequiredService<MergerRepositoryBuilder>();
+
+    repo.ShouldSatisfyAllConditions([.. builder.Mergers.Values.Select(CheckMerger)]);
   }
+
+  [Fact]
+  public void AllMergers_AllMergerFactories_ReturnNotNull()
+  {
+    IMergerRepository repo = _services.GetRequiredService<IMergerRepository>();
+    MergerRepositoryBuilder builder = _services.GetRequiredService<MergerRepositoryBuilder>();
+
+    repo.ShouldSatisfyAllConditions([.. builder.AllMergers.Values.Select(CheckMerger)]);
+  }
+
+  private static Action<IMergerRepository> CheckMerger(Factory<object, IMergerRepository> factory)
+    => r => factory(r)
+        .ShouldNotBeNull($"Merger for {factory.GetType().ExpandTypeName()} should not be null");
+
+  private readonly IServiceProvider _services = new ServiceCollection()
+    .AddLogging()
+    .AddMergers(b => b.AddSchemaMergers())
+    .BuildServiceProvider();
 }

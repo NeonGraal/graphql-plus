@@ -24,7 +24,7 @@ internal sealed record class CategoryDeclAst(
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
   public CategoryDeclAst(TokenAt at, IGqlpTypeRef output)
-    : this(at, output.Name.Camelize()!, "", output) { }
+    : this(at, output.Name.Camelize(), "", output) { }
 
   public CategoryDeclAst(TokenAt at, string name, IGqlpTypeRef output)
     : this(at, name, "", output) { }

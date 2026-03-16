@@ -13,7 +13,7 @@ internal class VerifierRepositoryBuilder
   internal readonly FactoryDict Aliased = [];
   internal readonly FactoryDict Usages = [];
   internal readonly FactoryDict Identified = [];
-  internal readonly List<Factory<object, IVerifierRepository>> Domains = [];
+  internal readonly FactoryList Domains = [];
 
   public IVerifierRepositoryBuilder AddVerify<T>(Factory<IVerify<T>, IVerifierRepository> factory)
     => this.FluentAction(b => b.Verifiers[typeof(T)] = factory);
@@ -40,31 +40,4 @@ internal class VerifierRepositoryBuilder
 
   public IVerifierRepositoryBuilder AddDomain(Factory<IVerifyDomain, IVerifierRepository> factory)
     => this.FluentAction(b => b.Domains.Add(factory));
-
-  internal VerifierRepositoryState Build()
-    => new(Verifiers, Aliased, Usages, Identified, Domains);
-}
-
-internal sealed class VerifierRepositoryState
-  : BaseFactory<IVerifierRepository>
-{
-  internal FactoryDict Verifiers { get; }
-  internal FactoryDict Aliased { get; }
-  internal FactoryDict Usages { get; }
-  internal FactoryDict Identified { get; }
-  internal List<Factory<object, IVerifierRepository>> Domains { get; }
-
-  public VerifierRepositoryState(
-    FactoryDict verifiers,
-    FactoryDict aliased,
-    FactoryDict usages,
-    FactoryDict identified,
-    List<Factory<object, IVerifierRepository>> domains)
-  {
-    Verifiers = verifiers;
-    Aliased = aliased;
-    Usages = usages;
-    Identified = identified;
-    Domains = domains;
-  }
 }

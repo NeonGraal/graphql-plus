@@ -4,13 +4,10 @@ using GqlPlus.Merging.Simple;
 
 namespace GqlPlus.Merging.Schema.Simple;
 
-public class MergeEnumLabelsTests
-  : TestAliasedMerger<IGqlpEnumLabel>
+public class MergeEnumLabelsTests(ITestOutputHelper outputHelper)
+    : TestAliasedMerger<IGqlpEnumLabel>
 {
-  private readonly MergeEnumLabels _merger;
-
-  public MergeEnumLabelsTests(ITestOutputHelper outputHelper)
-    => _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
+  private readonly MergeEnumLabels _merger = new(MergeRepo(outputHelper.ToLoggerFactory()));
 
   internal override GroupsMerger<IGqlpEnumLabel> MergerGroups => _merger;
 

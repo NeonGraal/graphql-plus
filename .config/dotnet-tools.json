@@ -8,8 +8,8 @@
       "rollForward": false
     },
     "dotnet-reportgenerator-globaltool": {
+      "version": "5.5.4",
       "commands": ["reportgenerator"],
-      "version": "5.5.3",
       "rollForward": false
     }
   }

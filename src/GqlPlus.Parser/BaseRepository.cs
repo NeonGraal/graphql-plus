@@ -31,6 +31,7 @@ public class BaseFactory<TRepo>
 {
 #pragma warning disable CA1034 // Nested types should not be visible
   public class FactoryDict : Dictionary<Type, Factory<object, TRepo>>;
+  public class FactoryList : List<Factory<object, TRepo>>;
 #pragma warning restore CA1034 // Nested types should not be visible
 }
 

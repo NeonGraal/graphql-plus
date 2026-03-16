@@ -17,31 +17,44 @@ public static class AllVerifiers
     => builder
         // Schema
         .AddVerify(v => new VerifySchema(v))
+        .AddSchemaGlobalVerifiers()
+        .AddVerify(v => new VerifyAllTypes(v))
+        .AddVerifyAliased(v => new VerifyAllTypesAliased(v))
+        .AddSchemaSimpleVerifiers()
+        .AddSchemaObjectVerifiers();
+
+  public static IVerifierRepositoryBuilder AddSchemaGlobalVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
+    => builder
         .AddVerifyUsageAliased(
           v => new VerifyCategoryAliased(v),
           v => new VerifyCategoryOutput(v))
         .AddVerifyUsageAliased(
           v => new VerifyDirectiveAliased(v),
           v => new VerifyDirectiveInput(v))
-        .AddVerifyAliased(v => new VerifyOptionAliased(v))
-        // Schema Types
-        .AddVerify(v => new VerifyAllTypes(v))
-        .AddVerifyAliased(v => new VerifyAllTypesAliased(v))
-        // Simple Types
+        .AddVerifyAliased(v => new VerifyOptionAliased(v));
+
+  public static IVerifierRepositoryBuilder AddSchemaSimpleVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
+    => builder
+        .AddSchemaDomainVerifiers()
+        .AddVerifyUsageAliased(
+          v => new VerifyEnumsAliased(v),
+          v => new VerifyEnumTypes(v))
+        .AddVerifyUsageAliased(
+          v => new VerifyUnionsAliased(v),
+          v => new VerifyUnionTypes(v));
+
+  public static IVerifierRepositoryBuilder AddSchemaDomainVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
+    => builder
         .AddVerifyUsageAliased(
           v => new VerifyDomainsAliased(v),
           v => new VerifyDomainTypes(v))
         .AddDomain(v => new AstDomainVerifier<IGqlpDomainRange>(v))
         .AddDomain(v => new AstDomainVerifier<IGqlpDomainRegex>(v))
         .AddDomain(v => new AstDomainVerifier<IGqlpDomainTrueFalse>(v))
-        .AddDomain(v => new VerifyDomainEnum(v))
-        .AddVerifyUsageAliased(
-          v => new VerifyEnumsAliased(v),
-          v => new VerifyEnumTypes(v))
-        .AddVerifyUsageAliased(
-          v => new VerifyUnionsAliased(v),
-          v => new VerifyUnionTypes(v))
-        // Object Types
+        .AddDomain(v => new VerifyDomainEnum(v));
+
+  public static IVerifierRepositoryBuilder AddSchemaObjectVerifiers([NotNull] this IVerifierRepositoryBuilder builder)
+    => builder
         .AddVerifyObject(TypeKind.Dual, v => new VerifyDualTypes(v))
         .AddVerifyObject(TypeKind.Input, v => new VerifyInputTypes(v))
         .AddVerifyObject(TypeKind.Output, v => new VerifyOutputTypes(v));
@@ -57,7 +70,7 @@ public static class AllVerifiers
   {
     VerifierRepositoryBuilder builder = new();
     config?.Invoke(builder);
-    services.AddSingleton(builder.Build());
+    services.AddSingleton(builder);
     services.TryAddSingleton<IVerifierRepository, VerifierRepository>();
     return services;
   }

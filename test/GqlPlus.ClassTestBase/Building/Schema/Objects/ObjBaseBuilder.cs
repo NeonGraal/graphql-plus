@@ -37,6 +37,9 @@ public static class ObjBaseBuilderHelper
   public static T WithArg<T>(this T builder, string argType, Action<TypeArgBuilder>? config = null)
     where T : ObjBaseBuilder
     => builder.WithArgs(builder.TypeArg(argType).FluentAction(config).AsTypeArg);
+  public static T WithArgs<T>(this T builder, params TypeArgBuilder[] args)
+    where T : ObjBaseBuilder
+    => builder.WithArgs([.. args.Select(a => a.AsTypeArg)]);
   public static T WithArgs<T>(this T builder, params IGqlpTypeArg[] args)
     where T : ObjBaseBuilder
     => builder.FluentAction(b => b._args = args);

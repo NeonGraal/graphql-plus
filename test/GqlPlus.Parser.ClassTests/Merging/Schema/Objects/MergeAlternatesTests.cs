@@ -4,8 +4,8 @@ using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
-public class MergeAlternatesTests
-  : TestDescriptionsMerger<IGqlpAlternate>
+public class MergeAlternatesTests(ITestOutputHelper outputHelper)
+    : TestDescriptionsMerger<IGqlpAlternate>
 {
 
   [Theory, RepeatData]
@@ -61,11 +61,8 @@ public class MergeAlternatesTests
       CheckAlternates.MakeAltEnum(type, label1), CheckAlternates.MakeAltEnum(type, label2));
 
   internal CheckAlternatesMerger CheckAlternates { get; } = new();
-  internal MergeAlternates MergerAlternate { get; }
+  internal MergeAlternates MergerAlternate { get; } = new(MergeRepo(outputHelper.ToLoggerFactory()));
   internal override GroupsMerger<IGqlpAlternate> MergerGroups => MergerAlternate;
-
-  public MergeAlternatesTests(ITestOutputHelper outputHelper)
-    => MergerAlternate = new(MergeRepo(outputHelper.ToLoggerFactory()));
 
   protected override IGqlpAlternate MakeDescribed(string name, string description = "")
     => CheckAlternates.MakeAlternate(name, false, description);

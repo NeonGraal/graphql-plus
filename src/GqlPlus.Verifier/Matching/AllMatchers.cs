@@ -7,15 +7,12 @@ namespace GqlPlus.Matching;
 
 public static class AllMatchers
 {
-  public static IMatcherRepositoryBuilder ConstraintMatchers([NotNull] this IMatcherRepositoryBuilder builder)
+  public static IMatcherRepositoryBuilder AddConstraintTypeMatchers([NotNull] this IMatcherRepositoryBuilder builder)
     => builder
           .AddMatcher(m => new AnyTypeMatcher(m))
           .AddMatcher(m => new TypeArgMatcher(m))
 
-          .AddConstraintMatcher(m => new AlternateConstraintMatcher(m))
-          .AddConstraintMatcher(m => new EnumConstraintMatcher(m))
-          .AddConstraintMatcher(m => new SpecialConstraintMatcher(m))
-          .AddConstraintMatcher(m => new UnionConstraintMatcher(m))
+          .AddConstraintMatchers()
 
           .AddTypeMatcher<IGqlpDomain, DomainMatcher>(m => new DomainMatcher(m))
           .AddSimpleMatcher<IGqlpDomain>()
@@ -27,11 +24,18 @@ public static class AllMatchers
           .AddObjectDualMatcher<IGqlpInputField>()
           .AddObjectDualMatcher<IGqlpOutputField>();
 
+  public static IMatcherRepositoryBuilder AddConstraintMatchers([NotNull] this IMatcherRepositoryBuilder builder)
+    => builder
+          .AddConstraintMatcher(m => new AlternateConstraintMatcher(m))
+          .AddConstraintMatcher(m => new EnumConstraintMatcher(m))
+          .AddConstraintMatcher(m => new SpecialConstraintMatcher(m))
+          .AddConstraintMatcher(m => new UnionConstraintMatcher(m));
+
   public static IServiceCollection AddMatchers(this IServiceCollection services, Action<IMatcherRepositoryBuilder> config)
   {
     MatcherRepositoryBuilder builder = new();
     config?.Invoke(builder);
-    services.AddSingleton(builder.Build());
+    services.AddSingleton(builder);
     services.TryAddSingleton<IMatcherRepository, MatcherRepository>();
     return services;
   }

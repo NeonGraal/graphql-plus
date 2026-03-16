@@ -157,32 +157,44 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithDeepParentFieldParamEnum_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string deepParent, string grandParent, string parent, string kindParam, string fieldName, string enumName, string enumLabel)
+  public void GenerateType_WithDeepParentFieldParamEnum_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType,
+      string name, string kindParam,
+      string deepParent, string deepField, string deepParam,
+      string grandParent, string grandField, string grandParam,
+      string parent, string parentField, string parentParam,
+      string fieldName, string enumName, string enumLabel)
   {
     this.SkipEqual4(name, deepParent, grandParent, enumName);
     this.SkipEqual4(parent, kindParam, enumName, enumLabel);
+    this.SkipEqual4(kindParam, deepParam, grandParam, parentParam);
+    this.SkipEqual4(fieldName, deepField, grandField, parentField);
 
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
     IGqlpEnum enumType = A.Enum(enumName, [enumLabel]);
     // deepParent<$kindParam> with required field kindField: $kindParam
     IGqlpObject<TObjField> deepParentType = A.Obj<TObjField>(Kind, deepParent)
-      .WithTypeParam(kindParam, "_Enum")
-      .WithObjFields(MakeField(fieldName, kindParam).IsTypeParam().AsObjField)
+      .WithTypeParams(A.TypeParam(kindParam, "_Enum"), A.TypeParam(deepParam, "_Any"))
+      .WithObjFields(
+        MakeField(fieldName, kindParam).IsTypeParam().AsObjField,
+        MakeField(deepField, deepParam).IsTypeParam().AsObjField)
       .AsObject;
     // grandParent<$kindParam> passes $kindParam through to deepParent
     IGqlpObject<TObjField> grandParentType = A.Obj<TObjField>(Kind, grandParent)
-      .WithTypeParam(kindParam, "_Enum")
-      .WithParent(deepParent, p => p.WithArg(kindParam, a => a.IsTypeParam()))
+      .WithTypeParams(A.TypeParam(kindParam, "_Enum"), A.TypeParam(grandParam, "_Any"))
+      .WithParent(deepParent, p => p.WithArgs(A.TypeArg(kindParam).IsTypeParam(), A.TypeArg("String")))
+      .WithObjFields(MakeField(grandField, grandParam).IsTypeParam().AsObjField)
       .AsObject;
     // parent : grandParent<enumName.enumLabel> (concrete enum value arg)
     IGqlpObject<TObjField> parentType = A.Obj<TObjField>(Kind, parent)
-      .WithParent(grandParent, p => p.WithArg(enumName, a => a.WithObjEnum(enumLabel)))
+      .WithTypeParam(parentParam, "_Any")
+      .WithParent(grandParent, p => p.WithArgs(A.TypeArg(enumName).WithObjEnum(enumLabel), A.TypeArg("String")))
+      .WithObjFields(MakeField(parentField, parentParam).IsTypeParam().AsObjField)
       .AsObject;
     context.AddTypes(enumType, deepParentType, grandParentType, parentType);
 
     IGqlpObject<TObjField> type = A.Obj<TObjField>(Kind, name)
-      .WithParent(parent)
+      .WithParent(parent, p => p.WithArg("String"))
       .AsObject;
 
     // Act
@@ -192,8 +204,7 @@ public abstract class GenerateObjectParentTestsBase<TObjField>(
     context.CheckFor(
       ForGeneratedCodeName(name),
       ForGeneratedCodeParent(TestPrefix + parent),
-      ForGeneratedImplementation("()"),
-      ForGeneratedImplementation(": base(" + TestPrefix + enumName + "." + enumLabel + ")"));
+      ForGeneratedImplementation(": base(" + TestPrefix + enumName + "." + enumLabel + ","));
   }
 
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]

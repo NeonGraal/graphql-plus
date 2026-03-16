@@ -71,6 +71,9 @@ public static class ObjFieldBuilderHelper
   public static T WithArg<T>(this T builder, string argType, Action<TypeArgBuilder>? config = null)
     where T : ObjFieldBuilder
     => builder.WithArgs(builder.TypeArg(argType).FluentAction(config).AsTypeArg);
+  public static T WithArgs<T>(this T builder, params TypeArgBuilder[] args)
+    where T : ObjFieldBuilder
+    => builder.WithArgs([.. args.Select(a => a.AsTypeArg)]);
   public static T WithArgs<T>(this T builder, params IGqlpTypeArg[] args)
     where T : ObjFieldBuilder
     => builder.FluentAction(b => b.BaseBuilder._args = args);

@@ -36,7 +36,7 @@ public class VerifyOperationTests(
   {
     IResult<IGqlpOperation> parse = await Parse("Invalid", operation);
 
-    Messages result = [];
+    Messages result = Messages.Empty;
     if (parse.IsOk()) {
       _operationVerifier.Verify(parse.Required(), result);
     } else {

@@ -6,12 +6,12 @@ public class AllGeneratorsTests
 {
   [Fact]
   public void AllGenerators_Repository_IsRegistered()
-    => _services.GetService<IGeneratorRepository>()!
+    => _services.GetService<IGeneratorRepository>()
       .ShouldNotBeNull();
 
   [Fact]
   public void AllGenerators_GeneratorForSchema_IsRegistered()
-    => _services.GetRequiredService<IGeneratorRepository>()!
+    => _services.GetRequiredService<IGeneratorRepository>()
       .GeneratorFor<IGqlpSchema>()
       .ShouldNotBeNull();
 

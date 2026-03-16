@@ -14,7 +14,7 @@ public class AllVerifiersTests
 
   [Fact]
   public void AllVerifiers_VerifierForSchema_IsRegistered()
-    => _services.GetRequiredService<IVerifierRepository>()!
+    => _services.GetRequiredService<IVerifierRepository>()
       .VerifierFor<IGqlpSchema>()
       .ShouldNotBeNull();
 

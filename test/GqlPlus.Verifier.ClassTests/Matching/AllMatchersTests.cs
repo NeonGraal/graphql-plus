@@ -10,9 +10,9 @@ public class AllMatchersTests
       .ShouldNotBeNull();
 
   [Fact]
-  public void AllMatchers_MatcherForSchema_IsRegistered()
+  public void AllMatchers_MatcherForType_IsRegistered()
     => _services.GetRequiredService<IMatcherRepository>()
-      .MatcherFor<IGqlpSchema>()
+      .MatcherFor<IGqlpType>()
       .ShouldNotBeNull();
 
   [Fact]

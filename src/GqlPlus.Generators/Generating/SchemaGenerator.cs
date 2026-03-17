@@ -16,7 +16,11 @@ internal sealed class SchemaGenerator(
     context.WritePrefixLine("*/");
     context.WritePrefixLine("");
     string nameSpace = context.GeneratorOptions.NameSpace.IfWhiteSpace(context.ModelOptions.BaseNamespace);
-    context.WritePrefixLine($"namespace {nameSpace}.Gqlp_" + context.SafeFile + ";");
+    if (context.ModelOptions.NamespaceIncludesBaseName) {
+      nameSpace += ".Gqlp_" + context.SafeFile;
+    }
+
+    context.WritePrefixLine($"namespace {nameSpace};");
 
     foreach (IGqlpType type in types) {
       ITypeGenerator? generator = generators.TypeGenerators.FirstOrDefault(g => g.ForType(type));

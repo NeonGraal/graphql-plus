@@ -1,7 +1,9 @@
-﻿namespace GqlPlus.Schema;
+﻿namespace GqlPlus.Models;
 
 [GqlpGenerator(GqlpGeneratorType.Interface)]
 [GqlpGenerator(GqlpGeneratorType.Enum)]
 
-public interface IGqlp_Base
-{ }
+public class IGqlp_Base
+{
+
+}

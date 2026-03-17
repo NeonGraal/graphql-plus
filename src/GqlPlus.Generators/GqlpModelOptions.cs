@@ -1,11 +1,13 @@
 ﻿
 namespace GqlPlus;
 
-public sealed class GqlpModelOptions(string baseNamespace, string typePrefix)
+public sealed class GqlpModelOptions(string baseNamespace, string typePrefix, bool namespaceIncludesBaseName)
   : IEquatable<GqlpModelOptions>
 {
   public string BaseNamespace { get; } = baseNamespace;
   public string TypePrefix { get; } = typePrefix;
+
+  public bool NamespaceIncludesBaseName { get; } = namespaceIncludesBaseName;
 
   public bool Equals(GqlpModelOptions? other)
     => other is not null

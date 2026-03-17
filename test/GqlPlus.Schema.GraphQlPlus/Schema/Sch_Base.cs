@@ -2,5 +2,5 @@
 
 [GqlpGenerator(GqlpGeneratorType.Static)]
 [GqlpGenerator(GqlpGeneratorType.Model)]
-public class Gqlp_Base
+public class Sch_Base
 { }

@@ -152,10 +152,14 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
 
   protected override void ClassTail(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
-    context.Write("");
     MapPair<RequiredField>[] required = RequiredMembers(ast, context);
     RequiredParents parents = DetermineParentAndGrandParent(ast, context);
 
+    if (required.Length == 0 && parents.Empty) {
+      return;
+    }
+
+    context.Write("");
     IEnumerable<MapPair<RequiredField>> paramList = parents.ParamList(required);
     context.Write($"  public {context.TypeName(ast, "")}Object");
     string prefix = "(";
@@ -277,6 +281,8 @@ internal record struct RequiredField(string Type, string Label);
 
 internal record struct RequiredSplit(MapPair<RequiredField>[] Deep, MapPair<RequiredField>[] Shallow)
 {
+  public readonly bool Empty => Deep.Length == 0 && Shallow.Length == 0;
+
   public RequiredSplit()
     : this([], [])
   { }
@@ -284,6 +290,8 @@ internal record struct RequiredSplit(MapPair<RequiredField>[] Deep, MapPair<Requ
 
 internal record struct RequiredParents(MapPair<RequiredField>[] Parent, RequiredSplit Split)
 {
+  public readonly bool Empty => Parent.Length == 0 && Split.Empty;
+
   internal readonly IEnumerable<MapPair<RequiredField>> ParamList(MapPair<RequiredField>[] required)
     => Split.Deep
       .Concat(Split.Shallow)

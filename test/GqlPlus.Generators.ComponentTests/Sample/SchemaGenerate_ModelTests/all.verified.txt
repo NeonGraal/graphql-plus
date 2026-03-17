@@ -106,9 +106,4 @@ public class CmptAllObject
 {
   public ICmptField? Items(ICmptParam? parameter)
     => null;
-
-  public CmptAllObject
-    ()
-  {
-  }
 }

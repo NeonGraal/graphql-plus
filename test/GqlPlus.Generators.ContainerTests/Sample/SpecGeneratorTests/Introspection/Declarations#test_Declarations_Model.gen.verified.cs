@@ -26,11 +26,6 @@ public class test_SchemaObject
     => null;
   public IDictionary<Itest_Name, Itest_Setting>? Settings(Itest_Filter? parameter)
     => null;
-
-  public test_SchemaObject
-    ()
-  {
-  }
 }
 
 public class test_Name

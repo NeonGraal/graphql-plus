@@ -22,9 +22,4 @@ public class CmptCnstAltInpObject<TType>
   : Schema_constraint-alt+Input
   , ICmptCnstAltInpObject<TType>
 {
-
-  public CmptCnstAltInpObject
-    ()
-  {
-  }
 }

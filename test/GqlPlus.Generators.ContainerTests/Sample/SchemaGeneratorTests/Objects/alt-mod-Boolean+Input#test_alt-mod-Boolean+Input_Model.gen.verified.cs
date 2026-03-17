@@ -19,11 +19,6 @@ public class testAltModBoolInpObject
   : GqlpModelImplementationBase
   , ItestAltModBoolInpObject
 {
-
-  public testAltModBoolInpObject
-    ()
-  {
-  }
 }
 
 public class testAltAltModBoolInp

@@ -18,9 +18,4 @@ public class testObjInpObject
   : GqlpModelImplementationBase
   , ItestObjInpObject
 {
-
-  public testObjInpObject
-    ()
-  {
-  }
 }

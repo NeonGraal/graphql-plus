@@ -23,9 +23,4 @@ public class Cmpt_DualFieldObject
   : Cmpt_ObjFieldObject<ICmpt_ObjFieldType>
   , ICmpt_DualFieldObject
 {
-
-  public Cmpt_DualFieldObject
-    ()
-  {
-  }
 }

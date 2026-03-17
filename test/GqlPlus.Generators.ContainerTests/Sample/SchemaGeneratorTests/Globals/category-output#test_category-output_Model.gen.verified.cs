@@ -18,9 +18,4 @@ public class testCtgrOutpObject
   : GqlpModelImplementationBase
   , ItestCtgrOutpObject
 {
-
-  public testCtgrOutpObject
-    ()
-  {
-  }
 }

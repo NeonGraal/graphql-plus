@@ -23,11 +23,6 @@ public class CmptInpFieldNullObject
   , ICmptInpFieldNullObject
 {
   public ICmptFldInpFieldNull? Field { get; set; }
-
-  public CmptInpFieldNullObject
-    ()
-  {
-  }
 }
 
 public class CmptFldInpFieldNull
@@ -41,9 +36,4 @@ public class CmptFldInpFieldNullObject
   : Schema_input-field-null
   , ICmptFldInpFieldNullObject
 {
-
-  public CmptFldInpFieldNullObject
-    ()
-  {
-  }
 }

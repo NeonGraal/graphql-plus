@@ -28,11 +28,6 @@ public class Cmpt_UnionRefObject
   : Cmpt_TypeRefObject<ICmpt_SimpleKind>
   , ICmpt_UnionRefObject
 {
-
-  public Cmpt_UnionRefObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_UnionMember

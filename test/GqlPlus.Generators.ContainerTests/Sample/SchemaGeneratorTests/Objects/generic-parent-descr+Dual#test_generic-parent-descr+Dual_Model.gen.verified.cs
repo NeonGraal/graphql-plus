@@ -19,9 +19,4 @@ public class testGnrcPrntDescrDualObject<TType>
   : GqlpModelImplementationBase
   , ItestGnrcPrntDescrDualObject<TType>
 {
-
-  public testGnrcPrntDescrDualObject
-    ()
-  {
-  }
 }

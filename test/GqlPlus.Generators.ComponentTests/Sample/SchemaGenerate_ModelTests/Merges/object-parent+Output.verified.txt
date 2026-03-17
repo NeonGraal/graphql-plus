@@ -23,11 +23,6 @@ public class CmptObjPrntOutpObject
   : CmptRefObjPrntOutpObject
   , ICmptObjPrntOutpObject
 {
-
-  public CmptObjPrntOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefObjPrntOutp
@@ -41,9 +36,4 @@ public class CmptRefObjPrntOutpObject
   : Schema_object-parent+Output
   , ICmptRefObjPrntOutpObject
 {
-
-  public CmptRefObjPrntOutpObject
-    ()
-  {
-  }
 }

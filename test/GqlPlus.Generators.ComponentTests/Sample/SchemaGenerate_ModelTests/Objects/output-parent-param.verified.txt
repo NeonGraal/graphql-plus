@@ -27,11 +27,6 @@ public class CmptOutpPrntParamObject
 {
   public ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter)
     => null;
-
-  public CmptOutpPrntParamObject
-    ()
-  {
-  }
 }
 
 public class CmptPrntOutpPrntParam
@@ -47,11 +42,6 @@ public class CmptPrntOutpPrntParamObject
 {
   public ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter)
     => null;
-
-  public CmptPrntOutpPrntParamObject
-    ()
-  {
-  }
 }
 
 public class CmptFldOutpPrntParam
@@ -65,11 +55,6 @@ public class CmptFldOutpPrntParamObject
   : Schema_output-parent-param
   , ICmptFldOutpPrntParamObject
 {
-
-  public CmptFldOutpPrntParamObject
-    ()
-  {
-  }
 }
 
 public class CmptInOutpPrntParam

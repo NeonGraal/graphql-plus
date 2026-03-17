@@ -45,11 +45,6 @@ public class CmptRefGnrcFieldParamInpObject<TRef>
   : Schema_generic-field-param+Input
   , ICmptRefGnrcFieldParamInpObject<TRef>
 {
-
-  public CmptRefGnrcFieldParamInpObject
-    ()
-  {
-  }
 }
 
 public class CmptAltGnrcFieldParamInp

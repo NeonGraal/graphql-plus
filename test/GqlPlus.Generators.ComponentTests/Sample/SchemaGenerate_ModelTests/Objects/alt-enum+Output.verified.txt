@@ -23,9 +23,4 @@ public class CmptAltEnumOutpObject
   : Schema_alt-enum+Output
   , ICmptAltEnumOutpObject
 {
-
-  public CmptAltEnumOutpObject
-    ()
-  {
-  }
 }

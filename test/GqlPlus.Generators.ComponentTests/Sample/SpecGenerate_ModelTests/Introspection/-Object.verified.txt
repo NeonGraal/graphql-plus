@@ -194,11 +194,6 @@ public class Cmpt_ObjTypeArgObject
   , ICmpt_ObjTypeArgObject
 {
   public ICmpt_Name? Label { get; set; }
-
-  public Cmpt_ObjTypeArgObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_TypeParam
@@ -368,11 +363,6 @@ public class Cmpt_ForParamObject<TType>
   : Spec_-Object
   , ICmpt_ForParamObject<TType>
 {
-
-  public Cmpt_ForParamObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_DualField

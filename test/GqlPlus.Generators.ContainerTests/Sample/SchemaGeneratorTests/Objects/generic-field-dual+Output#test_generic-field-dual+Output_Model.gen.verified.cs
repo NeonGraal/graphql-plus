@@ -40,11 +40,6 @@ public class testRefGnrcFieldDualOutpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcFieldDualOutpObject<TRef>
 {
-
-  public testRefGnrcFieldDualOutpObject
-    ()
-  {
-  }
 }
 
 public class testAltGnrcFieldDualOutp

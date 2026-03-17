@@ -18,9 +18,4 @@ public class test_DualFieldObject
   : test_ObjFieldObject<Itest_ObjFieldType>
   , Itest_DualFieldObject
 {
-
-  public test_DualFieldObject
-    ()
-  {
-  }
 }

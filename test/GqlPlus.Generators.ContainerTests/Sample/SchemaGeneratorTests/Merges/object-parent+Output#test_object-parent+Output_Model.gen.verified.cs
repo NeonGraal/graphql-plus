@@ -18,11 +18,6 @@ public class testObjPrntOutpObject
   : testRefObjPrntOutpObject
   , ItestObjPrntOutpObject
 {
-
-  public testObjPrntOutpObject
-    ()
-  {
-  }
 }
 
 public class testRefObjPrntOutp
@@ -36,9 +31,4 @@ public class testRefObjPrntOutpObject
   : GqlpModelImplementationBase
   , ItestRefObjPrntOutpObject
 {
-
-  public testRefObjPrntOutpObject
-    ()
-  {
-  }
 }

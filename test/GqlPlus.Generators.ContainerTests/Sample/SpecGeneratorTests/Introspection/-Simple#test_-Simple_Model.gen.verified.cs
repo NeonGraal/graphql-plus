@@ -130,11 +130,6 @@ public class test_BasicValueObject
   : GqlpModelImplementationBase
   , Itest_BasicValueObject
 {
-
-  public test_BasicValueObject
-    ()
-  {
-  }
 }
 
 public class test_DomainTrueFalse
@@ -353,11 +348,6 @@ public class test_UnionRefObject
   : test_TypeRefObject<Itest_SimpleKind>
   , Itest_UnionRefObject
 {
-
-  public test_UnionRefObject
-    ()
-  {
-  }
 }
 
 public class test_UnionMember

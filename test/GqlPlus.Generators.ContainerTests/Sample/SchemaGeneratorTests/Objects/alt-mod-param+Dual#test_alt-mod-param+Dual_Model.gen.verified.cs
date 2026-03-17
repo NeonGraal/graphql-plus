@@ -19,11 +19,6 @@ public class testAltModParamDualObject<TMod>
   : GqlpModelImplementationBase
   , ItestAltModParamDualObject<TMod>
 {
-
-  public testAltModParamDualObject
-    ()
-  {
-  }
 }
 
 public class testAltAltModParamDual

@@ -23,11 +23,6 @@ public class CmptGnrcPrntParamPrntInpObject
   : CmptRefGnrcPrntParamPrntInpObject<ICmptAltGnrcPrntParamPrntInp>
   , ICmptGnrcPrntParamPrntInpObject
 {
-
-  public CmptGnrcPrntParamPrntInpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefGnrcPrntParamPrntInp<TRef>
@@ -42,11 +37,6 @@ public class CmptRefGnrcPrntParamPrntInpObject<TRef>
   : Schema_generic-parent-param-parent+Input
   , ICmptRefGnrcPrntParamPrntInpObject<TRef>
 {
-
-  public CmptRefGnrcPrntParamPrntInpObject
-    ()
-  {
-  }
 }
 
 public class CmptAltGnrcPrntParamPrntInp

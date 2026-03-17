@@ -22,9 +22,4 @@ public class CmptCtgrOutpObject
   : Schema_category-output
   , ICmptCtgrOutpObject
 {
-
-  public CmptCtgrOutpObject
-    ()
-  {
-  }
 }

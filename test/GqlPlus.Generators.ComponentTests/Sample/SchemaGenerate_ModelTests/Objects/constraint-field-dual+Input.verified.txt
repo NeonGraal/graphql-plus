@@ -65,11 +65,6 @@ public class CmptPrntCnstFieldDualInpObject
   : Schema_constraint-field-dual+Input
   , ICmptPrntCnstFieldDualInpObject
 {
-
-  public CmptPrntCnstFieldDualInpObject
-    ()
-  {
-  }
 }
 
 public class CmptAltCnstFieldDualInp

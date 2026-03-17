@@ -19,9 +19,4 @@ public class testCnstAltDualObject<TType>
   : GqlpModelImplementationBase
   , ItestCnstAltDualObject<TType>
 {
-
-  public testCnstAltDualObject
-    ()
-  {
-  }
 }

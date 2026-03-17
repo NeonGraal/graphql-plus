@@ -19,11 +19,6 @@ public class testObjAltDualObject
   : GqlpModelImplementationBase
   , ItestObjAltDualObject
 {
-
-  public testObjAltDualObject
-    ()
-  {
-  }
 }
 
 public class testObjAltDualType
@@ -37,9 +32,4 @@ public class testObjAltDualTypeObject
   : GqlpModelImplementationBase
   , ItestObjAltDualTypeObject
 {
-
-  public testObjAltDualTypeObject
-    ()
-  {
-  }
 }

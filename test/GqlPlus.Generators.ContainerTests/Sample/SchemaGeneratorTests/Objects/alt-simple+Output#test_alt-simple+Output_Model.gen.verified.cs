@@ -19,9 +19,4 @@ public class testAltSmplOutpObject
   : GqlpModelImplementationBase
   , ItestAltSmplOutpObject
 {
-
-  public testAltSmplOutpObject
-    ()
-  {
-  }
 }

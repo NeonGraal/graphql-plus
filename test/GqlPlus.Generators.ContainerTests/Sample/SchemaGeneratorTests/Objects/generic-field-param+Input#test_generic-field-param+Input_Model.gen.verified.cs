@@ -40,11 +40,6 @@ public class testRefGnrcFieldParamInpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcFieldParamInpObject<TRef>
 {
-
-  public testRefGnrcFieldParamInpObject
-    ()
-  {
-  }
 }
 
 public class testAltGnrcFieldParamInp

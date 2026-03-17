@@ -18,9 +18,4 @@ public class testObjAliasDualObject
   : GqlpModelImplementationBase
   , ItestObjAliasDualObject
 {
-
-  public testObjAliasDualObject
-    ()
-  {
-  }
 }

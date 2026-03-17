@@ -18,11 +18,6 @@ public class testCnstPrntObjPrntInpObject
   : testRefCnstPrntObjPrntInpObject<ItestAltCnstPrntObjPrntInp>
   , ItestCnstPrntObjPrntInpObject
 {
-
-  public testCnstPrntObjPrntInpObject
-    ()
-  {
-  }
 }
 
 public class testRefCnstPrntObjPrntInp<TRef>
@@ -37,11 +32,6 @@ public class testRefCnstPrntObjPrntInpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefCnstPrntObjPrntInpObject<TRef>
 {
-
-  public testRefCnstPrntObjPrntInpObject
-    ()
-  {
-  }
 }
 
 public class testPrntCnstPrntObjPrntInp
@@ -56,11 +46,6 @@ public class testPrntCnstPrntObjPrntInpObject
   : GqlpModelImplementationBase
   , ItestPrntCnstPrntObjPrntInpObject
 {
-
-  public testPrntCnstPrntObjPrntInpObject
-    ()
-  {
-  }
 }
 
 public class testAltCnstPrntObjPrntInp

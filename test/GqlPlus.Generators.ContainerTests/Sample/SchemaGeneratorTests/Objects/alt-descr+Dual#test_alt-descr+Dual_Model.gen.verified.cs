@@ -19,9 +19,4 @@ public class testAltDescrDualObject
   : GqlpModelImplementationBase
   , ItestAltDescrDualObject
 {
-
-  public testAltDescrDualObject
-    ()
-  {
-  }
 }

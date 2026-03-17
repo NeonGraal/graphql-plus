@@ -23,11 +23,6 @@ public class CmptAltModParamOutpObject<TMod>
   : Schema_alt-mod-param+Output
   , ICmptAltModParamOutpObject<TMod>
 {
-
-  public CmptAltModParamOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptAltAltModParamOutp

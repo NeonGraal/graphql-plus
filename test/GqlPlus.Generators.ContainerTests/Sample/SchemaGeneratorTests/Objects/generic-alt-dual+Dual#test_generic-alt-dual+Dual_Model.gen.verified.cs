@@ -19,11 +19,6 @@ public class testGnrcAltDualDualObject
   : GqlpModelImplementationBase
   , ItestGnrcAltDualDualObject
 {
-
-  public testGnrcAltDualDualObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcAltDualDual<TRef>
@@ -38,11 +33,6 @@ public class testRefGnrcAltDualDualObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcAltDualDualObject<TRef>
 {
-
-  public testRefGnrcAltDualDualObject
-    ()
-  {
-  }
 }
 
 public class testAltGnrcAltDualDual

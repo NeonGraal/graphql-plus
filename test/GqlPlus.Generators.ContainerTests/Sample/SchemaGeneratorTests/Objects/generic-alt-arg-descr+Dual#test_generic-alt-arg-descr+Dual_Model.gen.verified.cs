@@ -19,11 +19,6 @@ public class testGnrcAltArgDescrDualObject<TType>
   : GqlpModelImplementationBase
   , ItestGnrcAltArgDescrDualObject<TType>
 {
-
-  public testGnrcAltArgDescrDualObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcAltArgDescrDual<TRef>
@@ -38,9 +33,4 @@ public class testRefGnrcAltArgDescrDualObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcAltArgDescrDualObject<TRef>
 {
-
-  public testRefGnrcAltArgDescrDualObject
-    ()
-  {
-  }
 }

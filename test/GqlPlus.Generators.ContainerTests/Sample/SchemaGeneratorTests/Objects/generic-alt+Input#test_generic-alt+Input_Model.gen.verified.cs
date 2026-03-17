@@ -19,9 +19,4 @@ public class testGnrcAltInpObject<TType>
   : GqlpModelImplementationBase
   , ItestGnrcAltInpObject<TType>
 {
-
-  public testGnrcAltInpObject
-    ()
-  {
-  }
 }

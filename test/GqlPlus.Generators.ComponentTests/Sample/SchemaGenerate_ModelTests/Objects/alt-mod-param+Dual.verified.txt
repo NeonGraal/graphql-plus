@@ -23,11 +23,6 @@ public class CmptAltModParamDualObject<TMod>
   : Schema_alt-mod-param+Dual
   , ICmptAltModParamDualObject<TMod>
 {
-
-  public CmptAltModParamDualObject
-    ()
-  {
-  }
 }
 
 public class CmptAltAltModParamDual

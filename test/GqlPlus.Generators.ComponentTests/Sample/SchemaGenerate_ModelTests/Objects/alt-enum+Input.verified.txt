@@ -23,9 +23,4 @@ public class CmptAltEnumInpObject
   : Schema_alt-enum+Input
   , ICmptAltEnumInpObject
 {
-
-  public CmptAltEnumInpObject
-    ()
-  {
-  }
 }

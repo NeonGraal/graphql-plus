@@ -39,9 +39,4 @@ public class testFldObjFieldInpObject
   : GqlpModelImplementationBase
   , ItestFldObjFieldInpObject
 {
-
-  public testFldObjFieldInpObject
-    ()
-  {
-  }
 }

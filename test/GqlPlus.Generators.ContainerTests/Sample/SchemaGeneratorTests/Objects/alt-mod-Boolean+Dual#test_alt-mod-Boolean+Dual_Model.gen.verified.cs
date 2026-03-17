@@ -19,11 +19,6 @@ public class testAltModBoolDualObject
   : GqlpModelImplementationBase
   , ItestAltModBoolDualObject
 {
-
-  public testAltModBoolDualObject
-    ()
-  {
-  }
 }
 
 public class testAltAltModBoolDual

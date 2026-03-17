@@ -19,11 +19,6 @@ public class testCnstEnumPrntInpObject
   : GqlpModelImplementationBase
   , ItestCnstEnumPrntInpObject
 {
-
-  public testCnstEnumPrntInpObject
-    ()
-  {
-  }
 }
 
 public class testRefCnstEnumPrntInp<TType>

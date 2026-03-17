@@ -19,9 +19,4 @@ public class testRefGnrcAltModStrOutpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcAltModStrOutpObject<TRef>
 {
-
-  public testRefGnrcAltModStrOutpObject
-    ()
-  {
-  }
 }

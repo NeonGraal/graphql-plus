@@ -39,9 +39,4 @@ public class testFldObjFieldAliasOutpObject
   : GqlpModelImplementationBase
   , ItestFldObjFieldAliasOutpObject
 {
-
-  public testFldObjFieldAliasOutpObject
-    ()
-  {
-  }
 }

@@ -44,9 +44,4 @@ public class CmptRefPrntParamSameOutpObject<TA>
   : Schema_parent-param-same+Output
   , ICmptRefPrntParamSameOutpObject<TA>
 {
-
-  public CmptRefPrntParamSameOutpObject
-    ()
-  {
-  }
 }

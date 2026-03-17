@@ -23,9 +23,4 @@ public class CmptDescrBtwnObject
   : Schema_descr-between
   , ICmptDescrBtwnObject
 {
-
-  public CmptDescrBtwnObject
-    ()
-  {
-  }
 }

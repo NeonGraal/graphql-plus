@@ -18,11 +18,6 @@ public class testGnrcPrntArgDualObject<TType>
   : testRefGnrcPrntArgDualObject<TType>
   , ItestGnrcPrntArgDualObject<TType>
 {
-
-  public testGnrcPrntArgDualObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcPrntArgDual<TRef>
@@ -37,9 +32,4 @@ public class testRefGnrcPrntArgDualObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcPrntArgDualObject<TRef>
 {
-
-  public testRefGnrcPrntArgDualObject
-    ()
-  {
-  }
 }

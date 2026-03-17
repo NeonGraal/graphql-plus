@@ -29,11 +29,6 @@ public class test_TypeObject
   : GqlpModelImplementationBase
   , Itest_TypeObject
 {
-
-  public test_TypeObject
-    ()
-  {
-  }
 }
 
 public class test_BaseType<TTypeKind>
@@ -141,11 +136,6 @@ public class test_TypeSimpleObject
   : GqlpModelImplementationBase
   , Itest_TypeSimpleObject
 {
-
-  public test_TypeSimpleObject
-    ()
-  {
-  }
 }
 
 public class test_Collections
@@ -162,11 +152,6 @@ public class test_CollectionsObject
   : GqlpModelImplementationBase
   , Itest_CollectionsObject
 {
-
-  public test_CollectionsObject
-    ()
-  {
-  }
 }
 
 public class test_ModifierKeyed<TModifierKind>
@@ -207,11 +192,6 @@ public class test_ModifiersObject
   : GqlpModelImplementationBase
   , Itest_ModifiersObject
 {
-
-  public test_ModifiersObject
-    ()
-  {
-  }
 }
 
 public class test_Modifier<TModifierKind>

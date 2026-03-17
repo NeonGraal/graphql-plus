@@ -19,11 +19,6 @@ public class testCnstDomEnumDualObject
   : GqlpModelImplementationBase
   , ItestCnstDomEnumDualObject
 {
-
-  public testCnstDomEnumDualObject
-    ()
-  {
-  }
 }
 
 public class testRefCnstDomEnumDual<TType>

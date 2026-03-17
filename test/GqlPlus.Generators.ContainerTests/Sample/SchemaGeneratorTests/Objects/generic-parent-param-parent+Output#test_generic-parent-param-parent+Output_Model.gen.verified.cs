@@ -18,11 +18,6 @@ public class testGnrcPrntParamPrntOutpObject
   : testRefGnrcPrntParamPrntOutpObject<ItestAltGnrcPrntParamPrntOutp>
   , ItestGnrcPrntParamPrntOutpObject
 {
-
-  public testGnrcPrntParamPrntOutpObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcPrntParamPrntOutp<TRef>
@@ -37,11 +32,6 @@ public class testRefGnrcPrntParamPrntOutpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcPrntParamPrntOutpObject<TRef>
 {
-
-  public testRefGnrcPrntParamPrntOutpObject
-    ()
-  {
-  }
 }
 
 public class testAltGnrcPrntParamPrntOutp

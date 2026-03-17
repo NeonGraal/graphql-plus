@@ -19,11 +19,6 @@ public class testCnstAltObjOutpObject
   : GqlpModelImplementationBase
   , ItestCnstAltObjOutpObject
 {
-
-  public testCnstAltObjOutpObject
-    ()
-  {
-  }
 }
 
 public class testRefCnstAltObjOutp<TRef>
@@ -38,11 +33,6 @@ public class testRefCnstAltObjOutpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefCnstAltObjOutpObject<TRef>
 {
-
-  public testRefCnstAltObjOutpObject
-    ()
-  {
-  }
 }
 
 public class testPrntCnstAltObjOutp
@@ -57,11 +47,6 @@ public class testPrntCnstAltObjOutpObject
   : GqlpModelImplementationBase
   , ItestPrntCnstAltObjOutpObject
 {
-
-  public testPrntCnstAltObjOutpObject
-    ()
-  {
-  }
 }
 
 public class testAltCnstAltObjOutp

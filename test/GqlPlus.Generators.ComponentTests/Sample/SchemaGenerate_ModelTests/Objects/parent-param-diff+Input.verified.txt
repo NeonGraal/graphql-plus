@@ -44,9 +44,4 @@ public class CmptRefPrntParamDiffInpObject<TB>
   : Schema_parent-param-diff+Input
   , ICmptRefPrntParamDiffInpObject<TB>
 {
-
-  public CmptRefPrntParamDiffInpObject
-    ()
-  {
-  }
 }

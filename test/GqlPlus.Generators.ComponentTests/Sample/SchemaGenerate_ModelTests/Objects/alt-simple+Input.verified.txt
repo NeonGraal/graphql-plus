@@ -22,9 +22,4 @@ public class CmptAltSmplInpObject
   : Schema_alt-simple+Input
   , ICmptAltSmplInpObject
 {
-
-  public CmptAltSmplInpObject
-    ()
-  {
-  }
 }

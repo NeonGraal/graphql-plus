@@ -23,11 +23,6 @@ public class CmptAltModBoolOutpObject
   : Schema_alt-mod-Boolean+Output
   , ICmptAltModBoolOutpObject
 {
-
-  public CmptAltModBoolOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptAltAltModBoolOutp

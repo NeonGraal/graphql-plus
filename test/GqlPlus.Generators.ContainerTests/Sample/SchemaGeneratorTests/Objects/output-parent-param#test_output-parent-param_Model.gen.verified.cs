@@ -20,11 +20,6 @@ public class testOutpPrntParamObject
 {
   public ItestFldOutpPrntParam? Field(ItestInOutpPrntParam parameter)
     => null;
-
-  public testOutpPrntParamObject
-    ()
-  {
-  }
 }
 
 public class testPrntOutpPrntParam
@@ -40,11 +35,6 @@ public class testPrntOutpPrntParamObject
 {
   public ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter)
     => null;
-
-  public testPrntOutpPrntParamObject
-    ()
-  {
-  }
 }
 
 public class testFldOutpPrntParam
@@ -58,11 +48,6 @@ public class testFldOutpPrntParamObject
   : GqlpModelImplementationBase
   , ItestFldOutpPrntParamObject
 {
-
-  public testFldOutpPrntParamObject
-    ()
-  {
-  }
 }
 
 public class testInOutpPrntParam

@@ -18,11 +18,6 @@ public class test_OutputFieldObject
   : test_ObjFieldObject<Itest_ObjFieldType>
   , Itest_OutputFieldObject
 {
-
-  public test_OutputFieldObject
-    ()
-  {
-  }
 }
 
 public class test_OutputFieldType
@@ -37,9 +32,4 @@ public class test_OutputFieldTypeObject
   , Itest_OutputFieldTypeObject
 {
   public Itest_InputFieldType? Parameter { get; set; }
-
-  public test_OutputFieldTypeObject
-    ()
-  {
-  }
 }

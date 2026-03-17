@@ -24,11 +24,6 @@ public class CmptCnstAltDmnDualObject
   : Schema_constraint-alt-domain+Dual
   , ICmptCnstAltDmnDualObject
 {
-
-  public CmptCnstAltDmnDualObject
-    ()
-  {
-  }
 }
 
 public class CmptRefCnstAltDmnDual<TRef>
@@ -43,11 +38,6 @@ public class CmptRefCnstAltDmnDualObject<TRef>
   : Schema_constraint-alt-domain+Dual
   , ICmptRefCnstAltDmnDualObject<TRef>
 {
-
-  public CmptRefCnstAltDmnDualObject
-    ()
-  {
-  }
 }
 
 public class CmptDomCnstAltDmnDual

@@ -19,11 +19,6 @@ public class testCnstPrntEnumDualObject
   : GqlpModelImplementationBase
   , ItestCnstPrntEnumDualObject
 {
-
-  public testCnstPrntEnumDualObject
-    ()
-  {
-  }
 }
 
 public class testRefCnstPrntEnumDual<TType>

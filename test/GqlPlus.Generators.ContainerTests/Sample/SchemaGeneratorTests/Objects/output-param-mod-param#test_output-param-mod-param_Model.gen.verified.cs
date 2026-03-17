@@ -20,11 +20,6 @@ public class testOutpParamModParamObject<TMod>
 {
   public ItestDomOutpParamModParam? Field(IDictionary<TMod, ItestInOutpParamModParam> parameter)
     => null;
-
-  public testOutpParamModParamObject
-    ()
-  {
-  }
 }
 
 public class testInOutpParamModParam

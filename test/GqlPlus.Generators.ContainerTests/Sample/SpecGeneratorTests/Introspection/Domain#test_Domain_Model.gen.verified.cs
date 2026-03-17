@@ -130,11 +130,6 @@ public class test_BasicValueObject
   : GqlpModelImplementationBase
   , Itest_BasicValueObject
 {
-
-  public test_BasicValueObject
-    ()
-  {
-  }
 }
 
 public class test_DomainTrueFalse

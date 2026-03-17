@@ -19,11 +19,6 @@ public class testObjAltOutpObject
   : GqlpModelImplementationBase
   , ItestObjAltOutpObject
 {
-
-  public testObjAltOutpObject
-    ()
-  {
-  }
 }
 
 public class testObjAltOutpType
@@ -37,9 +32,4 @@ public class testObjAltOutpTypeObject
   : GqlpModelImplementationBase
   , ItestObjAltOutpTypeObject
 {
-
-  public testObjAltOutpTypeObject
-    ()
-  {
-  }
 }

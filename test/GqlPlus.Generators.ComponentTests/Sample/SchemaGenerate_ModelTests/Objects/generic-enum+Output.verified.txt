@@ -24,11 +24,6 @@ public class CmptGnrcEnumOutpObject
   : Schema_generic-enum+Output
   , ICmptGnrcEnumOutpObject
 {
-
-  public CmptGnrcEnumOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefGnrcEnumOutp<TType>

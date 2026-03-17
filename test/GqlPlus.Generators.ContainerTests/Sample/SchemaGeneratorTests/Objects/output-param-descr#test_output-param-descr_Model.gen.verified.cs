@@ -20,11 +20,6 @@ public class testOutpParamDescrObject
 {
   public ItestFldOutpParamDescr? Field(ItestInOutpParamDescr parameter)
     => null;
-
-  public testOutpParamDescrObject
-    ()
-  {
-  }
 }
 
 public class testFldOutpParamDescr
@@ -38,11 +33,6 @@ public class testFldOutpParamDescrObject
   : GqlpModelImplementationBase
   , ItestFldOutpParamDescrObject
 {
-
-  public testFldOutpParamDescrObject
-    ()
-  {
-  }
 }
 
 public class testInOutpParamDescr

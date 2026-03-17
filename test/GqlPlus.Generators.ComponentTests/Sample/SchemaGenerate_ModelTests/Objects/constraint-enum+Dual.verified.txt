@@ -24,11 +24,6 @@ public class CmptCnstEnumDualObject
   : Schema_constraint-enum+Dual
   , ICmptCnstEnumDualObject
 {
-
-  public CmptCnstEnumDualObject
-    ()
-  {
-  }
 }
 
 public class CmptRefCnstEnumDual<TType>

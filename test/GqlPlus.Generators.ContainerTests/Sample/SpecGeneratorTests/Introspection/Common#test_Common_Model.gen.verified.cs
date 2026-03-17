@@ -29,11 +29,6 @@ public class test_TypeObject
   : GqlpModelImplementationBase
   , Itest_TypeObject
 {
-
-  public test_TypeObject
-    ()
-  {
-  }
 }
 
 public class test_BaseType<TTypeKind>
@@ -141,9 +136,4 @@ public class test_TypeSimpleObject
   : GqlpModelImplementationBase
   , Itest_TypeSimpleObject
 {
-
-  public test_TypeSimpleObject
-    ()
-  {
-  }
 }

@@ -22,9 +22,4 @@ public class CmptAltDescrInpObject
   : Schema_alt-descr+Input
   , ICmptAltDescrInpObject
 {
-
-  public CmptAltDescrInpObject
-    ()
-  {
-  }
 }

@@ -23,11 +23,6 @@ public class CmptGnrcAltSmplOutpObject
   : Schema_generic-alt-simple+Output
   , ICmptGnrcAltSmplOutpObject
 {
-
-  public CmptGnrcAltSmplOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefGnrcAltSmplOutp<TRef>
@@ -42,9 +37,4 @@ public class CmptRefGnrcAltSmplOutpObject<TRef>
   : Schema_generic-alt-simple+Output
   , ICmptRefGnrcAltSmplOutpObject<TRef>
 {
-
-  public CmptRefGnrcAltSmplOutpObject
-    ()
-  {
-  }
 }

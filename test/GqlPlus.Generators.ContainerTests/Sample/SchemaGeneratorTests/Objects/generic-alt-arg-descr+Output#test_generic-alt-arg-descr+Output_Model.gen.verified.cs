@@ -19,11 +19,6 @@ public class testGnrcAltArgDescrOutpObject<TType>
   : GqlpModelImplementationBase
   , ItestGnrcAltArgDescrOutpObject<TType>
 {
-
-  public testGnrcAltArgDescrOutpObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcAltArgDescrOutp<TRef>
@@ -38,9 +33,4 @@ public class testRefGnrcAltArgDescrOutpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcAltArgDescrOutpObject<TRef>
 {
-
-  public testRefGnrcAltArgDescrOutpObject
-    ()
-  {
-  }
 }

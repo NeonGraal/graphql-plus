@@ -25,11 +25,6 @@ public class CmptCnstEnumPrntOutpObject
   : Schema_constraint-enum-parent+Output
   , ICmptCnstEnumPrntOutpObject
 {
-
-  public CmptCnstEnumPrntOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefCnstEnumPrntOutp<TType>

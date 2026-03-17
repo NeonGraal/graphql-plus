@@ -18,9 +18,4 @@ public class testInDrctParamInObject
   : GqlpModelImplementationBase
   , ItestInDrctParamInObject
 {
-
-  public testInDrctParamInObject
-    ()
-  {
-  }
 }

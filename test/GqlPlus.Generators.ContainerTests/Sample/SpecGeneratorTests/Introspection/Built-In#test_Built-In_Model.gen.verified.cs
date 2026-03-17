@@ -21,11 +21,6 @@ public class test_CollectionsObject
   : GqlpModelImplementationBase
   , Itest_CollectionsObject
 {
-
-  public test_CollectionsObject
-    ()
-  {
-  }
 }
 
 public class test_ModifierKeyed<TModifierKind>
@@ -66,11 +61,6 @@ public class test_ModifiersObject
   : GqlpModelImplementationBase
   , Itest_ModifiersObject
 {
-
-  public test_ModifiersObject
-    ()
-  {
-  }
 }
 
 public class test_Modifier<TModifierKind>

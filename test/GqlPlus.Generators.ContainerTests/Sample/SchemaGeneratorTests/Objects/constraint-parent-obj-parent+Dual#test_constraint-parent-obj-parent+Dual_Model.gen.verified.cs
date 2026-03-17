@@ -18,11 +18,6 @@ public class testCnstPrntObjPrntDualObject
   : testRefCnstPrntObjPrntDualObject<ItestAltCnstPrntObjPrntDual>
   , ItestCnstPrntObjPrntDualObject
 {
-
-  public testCnstPrntObjPrntDualObject
-    ()
-  {
-  }
 }
 
 public class testRefCnstPrntObjPrntDual<TRef>
@@ -37,11 +32,6 @@ public class testRefCnstPrntObjPrntDualObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefCnstPrntObjPrntDualObject<TRef>
 {
-
-  public testRefCnstPrntObjPrntDualObject
-    ()
-  {
-  }
 }
 
 public class testPrntCnstPrntObjPrntDual
@@ -56,11 +46,6 @@ public class testPrntCnstPrntObjPrntDualObject
   : GqlpModelImplementationBase
   , ItestPrntCnstPrntObjPrntDualObject
 {
-
-  public testPrntCnstPrntObjPrntDualObject
-    ()
-  {
-  }
 }
 
 public class testAltCnstPrntObjPrntDual

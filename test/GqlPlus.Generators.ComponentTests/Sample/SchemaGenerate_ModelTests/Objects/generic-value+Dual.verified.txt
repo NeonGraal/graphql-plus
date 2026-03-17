@@ -24,11 +24,6 @@ public class CmptGnrcValueDualObject
   : Schema_generic-value+Dual
   , ICmptGnrcValueDualObject
 {
-
-  public CmptGnrcValueDualObject
-    ()
-  {
-  }
 }
 
 public class CmptRefGnrcValueDual<TType>

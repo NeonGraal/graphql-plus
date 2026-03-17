@@ -19,9 +19,4 @@ public class testGnrcAltDualObject<TType>
   : GqlpModelImplementationBase
   , ItestGnrcAltDualObject<TType>
 {
-
-  public testGnrcAltDualObject
-    ()
-  {
-  }
 }

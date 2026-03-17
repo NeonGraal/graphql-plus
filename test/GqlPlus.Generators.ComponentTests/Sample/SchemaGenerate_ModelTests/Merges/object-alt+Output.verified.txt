@@ -24,11 +24,6 @@ public class CmptObjAltOutpObject
   : Schema_object-alt+Output
   , ICmptObjAltOutpObject
 {
-
-  public CmptObjAltOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptObjAltOutpType
@@ -42,9 +37,4 @@ public class CmptObjAltOutpTypeObject
   : Schema_object-alt+Output
   , ICmptObjAltOutpTypeObject
 {
-
-  public CmptObjAltOutpTypeObject
-    ()
-  {
-  }
 }

@@ -18,11 +18,6 @@ public class testQueryObject
   : GqlpModelImplementationBase
   , ItestQueryObject
 {
-
-  public testQueryObject
-    ()
-  {
-  }
 }
 
 public class testMutation
@@ -36,11 +31,6 @@ public class testMutationObject
   : GqlpModelImplementationBase
   , ItestMutationObject
 {
-
-  public testMutationObject
-    ()
-  {
-  }
 }
 
 public class testSubscription
@@ -54,11 +44,6 @@ public class testSubscriptionObject
   : GqlpModelImplementationBase
   , ItestSubscriptionObject
 {
-
-  public testSubscriptionObject
-    ()
-  {
-  }
 }
 
 public class test_Schema
@@ -72,9 +57,4 @@ public class test_SchemaObject
   : GqlpModelImplementationBase
   , Itest_SchemaObject
 {
-
-  public test_SchemaObject
-    ()
-  {
-  }
 }

@@ -22,9 +22,4 @@ public class CmptInDrctParamInObject
   : Schema_directive-param-in
   , ICmptInDrctParamInObject
 {
-
-  public CmptInDrctParamInObject
-    ()
-  {
-  }
 }

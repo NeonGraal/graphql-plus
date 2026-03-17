@@ -19,11 +19,6 @@ public class testCnstAltDmnInpObject
   : GqlpModelImplementationBase
   , ItestCnstAltDmnInpObject
 {
-
-  public testCnstAltDmnInpObject
-    ()
-  {
-  }
 }
 
 public class testRefCnstAltDmnInp<TRef>
@@ -38,11 +33,6 @@ public class testRefCnstAltDmnInpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefCnstAltDmnInpObject<TRef>
 {
-
-  public testRefCnstAltDmnInpObject
-    ()
-  {
-  }
 }
 
 public class testDomCnstAltDmnInp

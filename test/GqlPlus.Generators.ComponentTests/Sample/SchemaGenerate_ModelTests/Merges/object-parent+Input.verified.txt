@@ -23,11 +23,6 @@ public class CmptObjPrntInpObject
   : CmptRefObjPrntInpObject
   , ICmptObjPrntInpObject
 {
-
-  public CmptObjPrntInpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefObjPrntInp
@@ -41,9 +36,4 @@ public class CmptRefObjPrntInpObject
   : Schema_object-parent+Input
   , ICmptRefObjPrntInpObject
 {
-
-  public CmptRefObjPrntInpObject
-    ()
-  {
-  }
 }

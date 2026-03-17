@@ -25,9 +25,4 @@ public class CmptCtgrDescrObject
   : Schema_category-descr
   , ICmptCtgrDescrObject
 {
-
-  public CmptCtgrDescrObject
-    ()
-  {
-  }
 }

@@ -19,11 +19,6 @@ public class testCnstAltDmnDualObject
   : GqlpModelImplementationBase
   , ItestCnstAltDmnDualObject
 {
-
-  public testCnstAltDmnDualObject
-    ()
-  {
-  }
 }
 
 public class testRefCnstAltDmnDual<TRef>
@@ -38,11 +33,6 @@ public class testRefCnstAltDmnDualObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefCnstAltDmnDualObject<TRef>
 {
-
-  public testRefCnstAltDmnDualObject
-    ()
-  {
-  }
 }
 
 public class testDomCnstAltDmnDual

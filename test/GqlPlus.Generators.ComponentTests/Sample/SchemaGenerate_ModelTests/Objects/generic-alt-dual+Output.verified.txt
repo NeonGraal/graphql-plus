@@ -24,11 +24,6 @@ public class CmptGnrcAltDualOutpObject
   : Schema_generic-alt-dual+Output
   , ICmptGnrcAltDualOutpObject
 {
-
-  public CmptGnrcAltDualOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefGnrcAltDualOutp<TRef>
@@ -43,11 +38,6 @@ public class CmptRefGnrcAltDualOutpObject<TRef>
   : Schema_generic-alt-dual+Output
   , ICmptRefGnrcAltDualOutpObject<TRef>
 {
-
-  public CmptRefGnrcAltDualOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptAltGnrcAltDualOutp

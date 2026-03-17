@@ -24,9 +24,4 @@ public class CmptCtgrDscrsObject
   : Schema_category-descrs
   , ICmptCtgrDscrsObject
 {
-
-  public CmptCtgrDscrsObject
-    ()
-  {
-  }
 }

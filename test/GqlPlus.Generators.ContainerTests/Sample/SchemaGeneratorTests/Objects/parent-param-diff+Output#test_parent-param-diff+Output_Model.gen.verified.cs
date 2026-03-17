@@ -40,9 +40,4 @@ public class testRefPrntParamDiffOutpObject<TB>
   : GqlpModelImplementationBase
   , ItestRefPrntParamDiffOutpObject<TB>
 {
-
-  public testRefPrntParamDiffOutpObject
-    ()
-  {
-  }
 }

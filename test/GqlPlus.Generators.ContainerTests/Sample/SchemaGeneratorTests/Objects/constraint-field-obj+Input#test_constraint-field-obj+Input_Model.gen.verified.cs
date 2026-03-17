@@ -59,11 +59,6 @@ public class testPrntCnstFieldObjInpObject
   : GqlpModelImplementationBase
   , ItestPrntCnstFieldObjInpObject
 {
-
-  public testPrntCnstFieldObjInpObject
-    ()
-  {
-  }
 }
 
 public class testAltCnstFieldObjInp

@@ -24,11 +24,6 @@ public class CmptGnrcValueInpObject
   : Schema_generic-value+Input
   , ICmptGnrcValueInpObject
 {
-
-  public CmptGnrcValueInpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefGnrcValueInp<TType>

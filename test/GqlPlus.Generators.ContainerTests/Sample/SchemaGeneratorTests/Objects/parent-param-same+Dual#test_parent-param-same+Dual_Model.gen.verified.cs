@@ -40,9 +40,4 @@ public class testRefPrntParamSameDualObject<TA>
   : GqlpModelImplementationBase
   , ItestRefPrntParamSameDualObject<TA>
 {
-
-  public testRefPrntParamSameDualObject
-    ()
-  {
-  }
 }

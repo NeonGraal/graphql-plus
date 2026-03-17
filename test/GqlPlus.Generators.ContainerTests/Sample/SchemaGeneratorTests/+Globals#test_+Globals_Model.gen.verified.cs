@@ -18,11 +18,6 @@ public class testCtgrDscrsObject
   : GqlpModelImplementationBase
   , ItestCtgrDscrsObject
 {
-
-  public testCtgrDscrsObject
-    ()
-  {
-  }
 }
 
 public class testCtgrOutp
@@ -36,11 +31,6 @@ public class testCtgrOutpObject
   : GqlpModelImplementationBase
   , ItestCtgrOutpObject
 {
-
-  public testCtgrOutpObject
-    ()
-  {
-  }
 }
 
 public class testCtgrOutpDescr
@@ -54,11 +44,6 @@ public class testCtgrOutpDescrObject
   : GqlpModelImplementationBase
   , ItestCtgrOutpDescrObject
 {
-
-  public testCtgrOutpDescrObject
-    ()
-  {
-  }
 }
 
 public class testCtgrOutpDict
@@ -72,11 +57,6 @@ public class testCtgrOutpDictObject
   : GqlpModelImplementationBase
   , ItestCtgrOutpDictObject
 {
-
-  public testCtgrOutpDictObject
-    ()
-  {
-  }
 }
 
 public class testCtgrOutpList
@@ -90,11 +70,6 @@ public class testCtgrOutpListObject
   : GqlpModelImplementationBase
   , ItestCtgrOutpListObject
 {
-
-  public testCtgrOutpListObject
-    ()
-  {
-  }
 }
 
 public class testCtgrOutpOptl
@@ -108,11 +83,6 @@ public class testCtgrOutpOptlObject
   : GqlpModelImplementationBase
   , ItestCtgrOutpOptlObject
 {
-
-  public testCtgrOutpOptlObject
-    ()
-  {
-  }
 }
 
 public class testDescr
@@ -126,11 +96,6 @@ public class testDescrObject
   : GqlpModelImplementationBase
   , ItestDescrObject
 {
-
-  public testDescrObject
-    ()
-  {
-  }
 }
 
 public class testDescrBcks
@@ -144,11 +109,6 @@ public class testDescrBcksObject
   : GqlpModelImplementationBase
   , ItestDescrBcksObject
 {
-
-  public testDescrBcksObject
-    ()
-  {
-  }
 }
 
 public class testDescrBtwn
@@ -162,11 +122,6 @@ public class testDescrBtwnObject
   : GqlpModelImplementationBase
   , ItestDescrBtwnObject
 {
-
-  public testDescrBtwnObject
-    ()
-  {
-  }
 }
 
 public class testDescrCmpl
@@ -180,11 +135,6 @@ public class testDescrCmplObject
   : GqlpModelImplementationBase
   , ItestDescrCmplObject
 {
-
-  public testDescrCmplObject
-    ()
-  {
-  }
 }
 
 public class testDescrDbl
@@ -198,11 +148,6 @@ public class testDescrDblObject
   : GqlpModelImplementationBase
   , ItestDescrDblObject
 {
-
-  public testDescrDblObject
-    ()
-  {
-  }
 }
 
 public class testDescrSngl
@@ -216,11 +161,6 @@ public class testDescrSnglObject
   : GqlpModelImplementationBase
   , ItestDescrSnglObject
 {
-
-  public testDescrSnglObject
-    ()
-  {
-  }
 }
 
 public class testDscrs
@@ -234,11 +174,6 @@ public class testDscrsObject
   : GqlpModelImplementationBase
   , ItestDscrsObject
 {
-
-  public testDscrsObject
-    ()
-  {
-  }
 }
 
 public class testInDrctParamDict
@@ -252,11 +187,6 @@ public class testInDrctParamDictObject
   : GqlpModelImplementationBase
   , ItestInDrctParamDictObject
 {
-
-  public testInDrctParamDictObject
-    ()
-  {
-  }
 }
 
 public class testInDrctParamIn
@@ -270,11 +200,6 @@ public class testInDrctParamInObject
   : GqlpModelImplementationBase
   , ItestInDrctParamInObject
 {
-
-  public testInDrctParamInObject
-    ()
-  {
-  }
 }
 
 public class testInDrctParamList
@@ -288,11 +213,6 @@ public class testInDrctParamListObject
   : GqlpModelImplementationBase
   , ItestInDrctParamListObject
 {
-
-  public testInDrctParamListObject
-    ()
-  {
-  }
 }
 
 public class testInDrctParamOpt
@@ -306,9 +226,4 @@ public class testInDrctParamOptObject
   : GqlpModelImplementationBase
   , ItestInDrctParamOptObject
 {
-
-  public testInDrctParamOptObject
-    ()
-  {
-  }
 }

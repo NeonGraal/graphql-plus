@@ -19,9 +19,4 @@ public class testGnrcPrntInpObject<TType>
   : GqlpModelImplementationBase
   , ItestGnrcPrntInpObject<TType>
 {
-
-  public testGnrcPrntInpObject
-    ()
-  {
-  }
 }

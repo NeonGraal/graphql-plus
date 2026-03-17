@@ -22,9 +22,4 @@ public class CmptGnrcAltDualObject<TType>
   : Schema_generic-alt+Dual
   , ICmptGnrcAltDualObject<TType>
 {
-
-  public CmptGnrcAltDualObject
-    ()
-  {
-  }
 }

@@ -44,9 +44,4 @@ public class CmptFldObjFieldAliasInpObject
   : Schema_object-field-alias+Input
   , ICmptFldObjFieldAliasInpObject
 {
-
-  public CmptFldObjFieldAliasInpObject
-    ()
-  {
-  }
 }

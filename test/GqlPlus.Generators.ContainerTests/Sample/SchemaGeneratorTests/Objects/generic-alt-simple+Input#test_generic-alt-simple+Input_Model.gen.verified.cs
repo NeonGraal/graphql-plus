@@ -19,11 +19,6 @@ public class testGnrcAltSmplInpObject
   : GqlpModelImplementationBase
   , ItestGnrcAltSmplInpObject
 {
-
-  public testGnrcAltSmplInpObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcAltSmplInp<TRef>
@@ -38,9 +33,4 @@ public class testRefGnrcAltSmplInpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcAltSmplInpObject<TRef>
 {
-
-  public testRefGnrcAltSmplInpObject
-    ()
-  {
-  }
 }

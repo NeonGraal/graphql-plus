@@ -102,11 +102,6 @@ public class test_ObjTypeArgObject
   , Itest_ObjTypeArgObject
 {
   public Itest_Name? Label { get; set; }
-
-  public test_ObjTypeArgObject
-    ()
-  {
-  }
 }
 
 public class test_TypeParam
@@ -276,11 +271,6 @@ public class test_ForParamObject<TType>
   : GqlpModelImplementationBase
   , Itest_ForParamObject<TType>
 {
-
-  public test_ForParamObject
-    ()
-  {
-  }
 }
 
 public class test_DualField

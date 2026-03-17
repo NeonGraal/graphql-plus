@@ -22,9 +22,4 @@ public class CmptGnrcPrntDescrOutpObject<TType>
   : Schema_generic-parent-descr+Output
   , ICmptGnrcPrntDescrOutpObject<TType>
 {
-
-  public CmptGnrcPrntDescrOutpObject
-    ()
-  {
-  }
 }

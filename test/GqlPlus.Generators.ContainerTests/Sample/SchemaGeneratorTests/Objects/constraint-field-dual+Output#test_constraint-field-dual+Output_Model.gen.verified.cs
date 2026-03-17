@@ -59,11 +59,6 @@ public class testPrntCnstFieldDualOutpObject
   : GqlpModelImplementationBase
   , ItestPrntCnstFieldDualOutpObject
 {
-
-  public testPrntCnstFieldDualOutpObject
-    ()
-  {
-  }
 }
 
 public class testAltCnstFieldDualOutp

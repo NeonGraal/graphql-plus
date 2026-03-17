@@ -24,11 +24,6 @@ public class CmptCnstPrntDualPrntInpObject
   : CmptRefCnstPrntDualPrntInpObject<ICmptAltCnstPrntDualPrntInp>
   , ICmptCnstPrntDualPrntInpObject
 {
-
-  public CmptCnstPrntDualPrntInpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefCnstPrntDualPrntInp<TRef>
@@ -43,11 +38,6 @@ public class CmptRefCnstPrntDualPrntInpObject<TRef>
   : Schema_constraint-parent-dual-parent+Input
   , ICmptRefCnstPrntDualPrntInpObject<TRef>
 {
-
-  public CmptRefCnstPrntDualPrntInpObject
-    ()
-  {
-  }
 }
 
 public class CmptPrntCnstPrntDualPrntInp
@@ -62,11 +52,6 @@ public class CmptPrntCnstPrntDualPrntInpObject
   : Schema_constraint-parent-dual-parent+Input
   , ICmptPrntCnstPrntDualPrntInpObject
 {
-
-  public CmptPrntCnstPrntDualPrntInpObject
-    ()
-  {
-  }
 }
 
 public class CmptAltCnstPrntDualPrntInp

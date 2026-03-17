@@ -23,11 +23,6 @@ public class CmptAltOutpObject
   : Schema_alt+Output
   , ICmptAltOutpObject
 {
-
-  public CmptAltOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptAltAltOutp

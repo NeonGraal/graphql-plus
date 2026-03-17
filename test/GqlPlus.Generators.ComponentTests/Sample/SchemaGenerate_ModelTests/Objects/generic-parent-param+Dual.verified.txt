@@ -23,11 +23,6 @@ public class CmptGnrcPrntParamDualObject
   : CmptRefGnrcPrntParamDualObject<ICmptAltGnrcPrntParamDual>
   , ICmptGnrcPrntParamDualObject
 {
-
-  public CmptGnrcPrntParamDualObject
-    ()
-  {
-  }
 }
 
 public class CmptRefGnrcPrntParamDual<TRef>
@@ -42,11 +37,6 @@ public class CmptRefGnrcPrntParamDualObject<TRef>
   : Schema_generic-parent-param+Dual
   , ICmptRefGnrcPrntParamDualObject<TRef>
 {
-
-  public CmptRefGnrcPrntParamDualObject
-    ()
-  {
-  }
 }
 
 public class CmptAltGnrcPrntParamDual

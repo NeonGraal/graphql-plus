@@ -23,11 +23,6 @@ public class CmptGnrcAltArgDescrInpObject<TType>
   : Schema_generic-alt-arg-descr+Input
   , ICmptGnrcAltArgDescrInpObject<TType>
 {
-
-  public CmptGnrcAltArgDescrInpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefGnrcAltArgDescrInp<TRef>
@@ -42,9 +37,4 @@ public class CmptRefGnrcAltArgDescrInpObject<TRef>
   : Schema_generic-alt-arg-descr+Input
   , ICmptRefGnrcAltArgDescrInpObject<TRef>
 {
-
-  public CmptRefGnrcAltArgDescrInpObject
-    ()
-  {
-  }
 }

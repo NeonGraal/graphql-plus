@@ -22,9 +22,4 @@ public class CmptDescrBcksObject
   : Schema_descr-backslash
   , ICmptDescrBcksObject
 {
-
-  public CmptDescrBcksObject
-    ()
-  {
-  }
 }

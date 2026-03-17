@@ -18,9 +18,4 @@ public class testCtgrAliasObject
   : GqlpModelImplementationBase
   , ItestCtgrAliasObject
 {
-
-  public testCtgrAliasObject
-    ()
-  {
-  }
 }

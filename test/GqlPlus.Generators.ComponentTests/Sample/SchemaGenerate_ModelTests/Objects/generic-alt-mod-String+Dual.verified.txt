@@ -22,9 +22,4 @@ public class CmptRefGnrcAltModStrDualObject<TRef>
   : Schema_generic-alt-mod-String+Dual
   , ICmptRefGnrcAltModStrDualObject<TRef>
 {
-
-  public CmptRefGnrcAltModStrDualObject
-    ()
-  {
-  }
 }

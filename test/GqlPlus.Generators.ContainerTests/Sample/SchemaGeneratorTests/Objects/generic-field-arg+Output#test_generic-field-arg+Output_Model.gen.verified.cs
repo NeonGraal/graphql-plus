@@ -40,9 +40,4 @@ public class testRefGnrcFieldArgOutpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcFieldArgOutpObject<TRef>
 {
-
-  public testRefGnrcFieldArgOutpObject
-    ()
-  {
-  }
 }

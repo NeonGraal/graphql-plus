@@ -40,9 +40,4 @@ public class testRefGnrcFieldArgDualObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcFieldArgDualObject<TRef>
 {
-
-  public testRefGnrcFieldArgDualObject
-    ()
-  {
-  }
 }

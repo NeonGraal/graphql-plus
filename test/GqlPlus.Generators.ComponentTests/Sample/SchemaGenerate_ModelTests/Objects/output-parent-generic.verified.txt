@@ -25,11 +25,6 @@ public class CmptOutpPrntGnrcObject
   : Schema_output-parent-generic
   , ICmptOutpPrntGnrcObject
 {
-
-  public CmptOutpPrntGnrcObject
-    ()
-  {
-  }
 }
 
 public class CmptRefOutpPrntGnrc<TType>

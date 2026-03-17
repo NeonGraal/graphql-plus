@@ -23,9 +23,4 @@ public class CmptAltEnumDualObject
   : Schema_alt-enum+Dual
   , ICmptAltEnumDualObject
 {
-
-  public CmptAltEnumDualObject
-    ()
-  {
-  }
 }

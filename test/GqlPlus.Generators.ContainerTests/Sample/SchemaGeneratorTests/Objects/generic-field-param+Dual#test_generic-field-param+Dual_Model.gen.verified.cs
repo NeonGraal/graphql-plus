@@ -40,11 +40,6 @@ public class testRefGnrcFieldParamDualObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcFieldParamDualObject<TRef>
 {
-
-  public testRefGnrcFieldParamDualObject
-    ()
-  {
-  }
 }
 
 public class testAltGnrcFieldParamDual

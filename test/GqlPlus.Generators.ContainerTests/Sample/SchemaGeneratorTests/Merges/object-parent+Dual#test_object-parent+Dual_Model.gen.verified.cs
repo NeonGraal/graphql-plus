@@ -18,11 +18,6 @@ public class testObjPrntDualObject
   : testRefObjPrntDualObject
   , ItestObjPrntDualObject
 {
-
-  public testObjPrntDualObject
-    ()
-  {
-  }
 }
 
 public class testRefObjPrntDual
@@ -36,9 +31,4 @@ public class testRefObjPrntDualObject
   : GqlpModelImplementationBase
   , ItestRefObjPrntDualObject
 {
-
-  public testRefObjPrntDualObject
-    ()
-  {
-  }
 }

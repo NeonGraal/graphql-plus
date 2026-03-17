@@ -19,11 +19,6 @@ public class testGnrcValueInpObject
   : GqlpModelImplementationBase
   , ItestGnrcValueInpObject
 {
-
-  public testGnrcValueInpObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcValueInp<TType>

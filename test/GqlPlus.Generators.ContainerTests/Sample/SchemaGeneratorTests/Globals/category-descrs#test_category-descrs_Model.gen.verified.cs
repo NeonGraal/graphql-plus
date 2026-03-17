@@ -18,9 +18,4 @@ public class testCtgrDscrsObject
   : GqlpModelImplementationBase
   , ItestCtgrDscrsObject
 {
-
-  public testCtgrDscrsObject
-    ()
-  {
-  }
 }

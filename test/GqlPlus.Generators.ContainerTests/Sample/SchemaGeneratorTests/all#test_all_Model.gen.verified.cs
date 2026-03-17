@@ -79,9 +79,4 @@ public class testAllObject
 {
   public ItestField? Items(ItestParam? parameter)
     => null;
-
-  public testAllObject
-    ()
-  {
-  }
 }

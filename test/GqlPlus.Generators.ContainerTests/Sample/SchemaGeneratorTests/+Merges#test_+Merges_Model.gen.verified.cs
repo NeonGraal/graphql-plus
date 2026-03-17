@@ -18,11 +18,6 @@ public class testCtgrObject
   : GqlpModelImplementationBase
   , ItestCtgrObject
 {
-
-  public testCtgrObject
-    ()
-  {
-  }
 }
 
 public class testCtgrAlias
@@ -36,11 +31,6 @@ public class testCtgrAliasObject
   : GqlpModelImplementationBase
   , ItestCtgrAliasObject
 {
-
-  public testCtgrAliasObject
-    ()
-  {
-  }
 }
 
 public class testCtgrDescr
@@ -54,11 +44,6 @@ public class testCtgrDescrObject
   : GqlpModelImplementationBase
   , ItestCtgrDescrObject
 {
-
-  public testCtgrDescrObject
-    ()
-  {
-  }
 }
 
 public class testCtgrMod
@@ -72,11 +57,6 @@ public class testCtgrModObject
   : GqlpModelImplementationBase
   , ItestCtgrModObject
 {
-
-  public testCtgrModObject
-    ()
-  {
-  }
 }
 
 public class testInDrctParam
@@ -90,11 +70,6 @@ public class testInDrctParamObject
   : GqlpModelImplementationBase
   , ItestInDrctParamObject
 {
-
-  public testInDrctParamObject
-    ()
-  {
-  }
 }
 
 public class testDmnAlias
@@ -180,11 +155,6 @@ public class testObjDualObject
   : GqlpModelImplementationBase
   , ItestObjDualObject
 {
-
-  public testObjDualObject
-    ()
-  {
-  }
 }
 
 public class testObjInp
@@ -198,11 +168,6 @@ public class testObjInpObject
   : GqlpModelImplementationBase
   , ItestObjInpObject
 {
-
-  public testObjInpObject
-    ()
-  {
-  }
 }
 
 public class testObjOutp
@@ -216,11 +181,6 @@ public class testObjOutpObject
   : GqlpModelImplementationBase
   , ItestObjOutpObject
 {
-
-  public testObjOutpObject
-    ()
-  {
-  }
 }
 
 public class testObjAliasDual
@@ -234,11 +194,6 @@ public class testObjAliasDualObject
   : GqlpModelImplementationBase
   , ItestObjAliasDualObject
 {
-
-  public testObjAliasDualObject
-    ()
-  {
-  }
 }
 
 public class testObjAliasInp
@@ -252,11 +207,6 @@ public class testObjAliasInpObject
   : GqlpModelImplementationBase
   , ItestObjAliasInpObject
 {
-
-  public testObjAliasInpObject
-    ()
-  {
-  }
 }
 
 public class testObjAliasOutp
@@ -270,11 +220,6 @@ public class testObjAliasOutpObject
   : GqlpModelImplementationBase
   , ItestObjAliasOutpObject
 {
-
-  public testObjAliasOutpObject
-    ()
-  {
-  }
 }
 
 public class testObjAltDual
@@ -289,11 +234,6 @@ public class testObjAltDualObject
   : GqlpModelImplementationBase
   , ItestObjAltDualObject
 {
-
-  public testObjAltDualObject
-    ()
-  {
-  }
 }
 
 public class testObjAltDualType
@@ -307,11 +247,6 @@ public class testObjAltDualTypeObject
   : GqlpModelImplementationBase
   , ItestObjAltDualTypeObject
 {
-
-  public testObjAltDualTypeObject
-    ()
-  {
-  }
 }
 
 public class testObjAltInp
@@ -326,11 +261,6 @@ public class testObjAltInpObject
   : GqlpModelImplementationBase
   , ItestObjAltInpObject
 {
-
-  public testObjAltInpObject
-    ()
-  {
-  }
 }
 
 public class testObjAltInpType
@@ -344,11 +274,6 @@ public class testObjAltInpTypeObject
   : GqlpModelImplementationBase
   , ItestObjAltInpTypeObject
 {
-
-  public testObjAltInpTypeObject
-    ()
-  {
-  }
 }
 
 public class testObjAltOutp
@@ -363,11 +288,6 @@ public class testObjAltOutpObject
   : GqlpModelImplementationBase
   , ItestObjAltOutpObject
 {
-
-  public testObjAltOutpObject
-    ()
-  {
-  }
 }
 
 public class testObjAltOutpType
@@ -381,11 +301,6 @@ public class testObjAltOutpTypeObject
   : GqlpModelImplementationBase
   , ItestObjAltOutpTypeObject
 {
-
-  public testObjAltOutpTypeObject
-    ()
-  {
-  }
 }
 
 public class testObjAltEnumDual
@@ -401,11 +316,6 @@ public class testObjAltEnumDualObject
   : GqlpModelImplementationBase
   , ItestObjAltEnumDualObject
 {
-
-  public testObjAltEnumDualObject
-    ()
-  {
-  }
 }
 
 public class testObjAltEnumInp
@@ -421,11 +331,6 @@ public class testObjAltEnumInpObject
   : GqlpModelImplementationBase
   , ItestObjAltEnumInpObject
 {
-
-  public testObjAltEnumInpObject
-    ()
-  {
-  }
 }
 
 public class testObjAltEnumOutp
@@ -441,11 +346,6 @@ public class testObjAltEnumOutpObject
   : GqlpModelImplementationBase
   , ItestObjAltEnumOutpObject
 {
-
-  public testObjAltEnumOutpObject
-    ()
-  {
-  }
 }
 
 public class testObjCnstDual<TType>
@@ -552,11 +452,6 @@ public class testFldObjFieldDualObject
   : GqlpModelImplementationBase
   , ItestFldObjFieldDualObject
 {
-
-  public testFldObjFieldDualObject
-    ()
-  {
-  }
 }
 
 public class testObjFieldInp
@@ -591,11 +486,6 @@ public class testFldObjFieldInpObject
   : GqlpModelImplementationBase
   , ItestFldObjFieldInpObject
 {
-
-  public testFldObjFieldInpObject
-    ()
-  {
-  }
 }
 
 public class testObjFieldOutp
@@ -630,11 +520,6 @@ public class testFldObjFieldOutpObject
   : GqlpModelImplementationBase
   , ItestFldObjFieldOutpObject
 {
-
-  public testFldObjFieldOutpObject
-    ()
-  {
-  }
 }
 
 public class testObjFieldAliasDual
@@ -669,11 +554,6 @@ public class testFldObjFieldAliasDualObject
   : GqlpModelImplementationBase
   , ItestFldObjFieldAliasDualObject
 {
-
-  public testFldObjFieldAliasDualObject
-    ()
-  {
-  }
 }
 
 public class testObjFieldAliasInp
@@ -708,11 +588,6 @@ public class testFldObjFieldAliasInpObject
   : GqlpModelImplementationBase
   , ItestFldObjFieldAliasInpObject
 {
-
-  public testFldObjFieldAliasInpObject
-    ()
-  {
-  }
 }
 
 public class testObjFieldAliasOutp
@@ -747,11 +622,6 @@ public class testFldObjFieldAliasOutpObject
   : GqlpModelImplementationBase
   , ItestFldObjFieldAliasOutpObject
 {
-
-  public testFldObjFieldAliasOutpObject
-    ()
-  {
-  }
 }
 
 public class testObjFieldEnumAliasDual
@@ -1098,11 +968,6 @@ public class testObjPrntDualObject
   : testRefObjPrntDualObject
   , ItestObjPrntDualObject
 {
-
-  public testObjPrntDualObject
-    ()
-  {
-  }
 }
 
 public class testRefObjPrntDual
@@ -1116,11 +981,6 @@ public class testRefObjPrntDualObject
   : GqlpModelImplementationBase
   , ItestRefObjPrntDualObject
 {
-
-  public testRefObjPrntDualObject
-    ()
-  {
-  }
 }
 
 public class testObjPrntInp
@@ -1134,11 +994,6 @@ public class testObjPrntInpObject
   : testRefObjPrntInpObject
   , ItestObjPrntInpObject
 {
-
-  public testObjPrntInpObject
-    ()
-  {
-  }
 }
 
 public class testRefObjPrntInp
@@ -1152,11 +1007,6 @@ public class testRefObjPrntInpObject
   : GqlpModelImplementationBase
   , ItestRefObjPrntInpObject
 {
-
-  public testRefObjPrntInpObject
-    ()
-  {
-  }
 }
 
 public class testObjPrntOutp
@@ -1170,11 +1020,6 @@ public class testObjPrntOutpObject
   : testRefObjPrntOutpObject
   , ItestObjPrntOutpObject
 {
-
-  public testObjPrntOutpObject
-    ()
-  {
-  }
 }
 
 public class testRefObjPrntOutp
@@ -1188,11 +1033,6 @@ public class testRefObjPrntOutpObject
   : GqlpModelImplementationBase
   , ItestRefObjPrntOutpObject
 {
-
-  public testRefObjPrntOutpObject
-    ()
-  {
-  }
 }
 
 public class testOutpFieldParam
@@ -1208,11 +1048,6 @@ public class testOutpFieldParamObject
 {
   public ItestFldOutpFieldParam? Field(ItestOutpFieldParam1 parameter)
     => null;
-
-  public testOutpFieldParamObject
-    ()
-  {
-  }
 }
 
 public class testOutpFieldParam1
@@ -1226,11 +1061,6 @@ public class testOutpFieldParam1Object
   : GqlpModelImplementationBase
   , ItestOutpFieldParam1Object
 {
-
-  public testOutpFieldParam1Object
-    ()
-  {
-  }
 }
 
 public class testOutpFieldParam2
@@ -1244,11 +1074,6 @@ public class testOutpFieldParam2Object
   : GqlpModelImplementationBase
   , ItestOutpFieldParam2Object
 {
-
-  public testOutpFieldParam2Object
-    ()
-  {
-  }
 }
 
 public class testFldOutpFieldParam
@@ -1262,11 +1087,6 @@ public class testFldOutpFieldParamObject
   : GqlpModelImplementationBase
   , ItestFldOutpFieldParamObject
 {
-
-  public testFldOutpFieldParamObject
-    ()
-  {
-  }
 }
 
 public class testUnionAlias

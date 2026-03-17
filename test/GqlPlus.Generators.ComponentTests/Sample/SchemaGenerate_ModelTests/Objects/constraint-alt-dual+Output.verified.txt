@@ -25,11 +25,6 @@ public class CmptCnstAltDualOutpObject
   : Schema_constraint-alt-dual+Output
   , ICmptCnstAltDualOutpObject
 {
-
-  public CmptCnstAltDualOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefCnstAltDualOutp<TRef>
@@ -44,11 +39,6 @@ public class CmptRefCnstAltDualOutpObject<TRef>
   : Schema_constraint-alt-dual+Output
   , ICmptRefCnstAltDualOutpObject<TRef>
 {
-
-  public CmptRefCnstAltDualOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptPrntCnstAltDualOutp
@@ -63,11 +53,6 @@ public class CmptPrntCnstAltDualOutpObject
   : Schema_constraint-alt-dual+Output
   , ICmptPrntCnstAltDualOutpObject
 {
-
-  public CmptPrntCnstAltDualOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptAltCnstAltDualOutp

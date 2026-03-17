@@ -19,11 +19,6 @@ public class testGnrcAltArgInpObject<TType>
   : GqlpModelImplementationBase
   , ItestGnrcAltArgInpObject<TType>
 {
-
-  public testGnrcAltArgInpObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcAltArgInp<TRef>
@@ -38,9 +33,4 @@ public class testRefGnrcAltArgInpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcAltArgInpObject<TRef>
 {
-
-  public testRefGnrcAltArgInpObject
-    ()
-  {
-  }
 }

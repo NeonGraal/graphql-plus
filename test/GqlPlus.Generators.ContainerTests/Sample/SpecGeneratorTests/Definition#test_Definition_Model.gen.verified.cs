@@ -57,11 +57,6 @@ public class test_ObjectObject
   : GqlpModelImplementationBase
   , Itest_ObjectObject
 {
-
-  public test_ObjectObject
-    ()
-  {
-  }
 }
 
 public class test_Domain
@@ -81,11 +76,6 @@ public class test_DualObject
   : GqlpModelImplementationBase
   , Itest_DualObject
 {
-
-  public test_DualObject
-    ()
-  {
-  }
 }
 
 public class test_Enum
@@ -105,11 +95,6 @@ public class test_InputObject
   : GqlpModelImplementationBase
   , Itest_InputObject
 {
-
-  public test_InputObject
-    ()
-  {
-  }
 }
 
 public class test_Output
@@ -123,11 +108,6 @@ public class test_OutputObject
   : GqlpModelImplementationBase
   , Itest_OutputObject
 {
-
-  public test_OutputObject
-    ()
-  {
-  }
 }
 
 public class test_Union

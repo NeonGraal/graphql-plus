@@ -28,11 +28,6 @@ public class Cmpt_InputFieldObject
   : Cmpt_ObjFieldObject<ICmpt_InputFieldType>
   , ICmpt_InputFieldObject
 {
-
-  public Cmpt_InputFieldObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_InputFieldType
@@ -47,9 +42,4 @@ public class Cmpt_InputFieldTypeObject
   , ICmpt_InputFieldTypeObject
 {
   public GqlpValue? DefaultValue { get; set; }
-
-  public Cmpt_InputFieldTypeObject
-    ()
-  {
-  }
 }

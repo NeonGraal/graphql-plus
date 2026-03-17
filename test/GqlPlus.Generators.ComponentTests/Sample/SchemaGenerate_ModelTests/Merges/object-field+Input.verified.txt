@@ -44,9 +44,4 @@ public class CmptFldObjFieldInpObject
   : Schema_object-field+Input
   , ICmptFldObjFieldInpObject
 {
-
-  public CmptFldObjFieldInpObject
-    ()
-  {
-  }
 }

@@ -76,11 +76,6 @@ public class Cmpt_TypeObject
   : Spec_Common
   , ICmpt_TypeObject
 {
-
-  public Cmpt_TypeObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_BaseType<TTypeKind>
@@ -188,9 +183,4 @@ public class Cmpt_TypeSimpleObject
   : Spec_Common
   , ICmpt_TypeSimpleObject
 {
-
-  public Cmpt_TypeSimpleObject
-    ()
-  {
-  }
 }

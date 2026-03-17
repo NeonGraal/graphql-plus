@@ -18,11 +18,6 @@ public class test_UnionRefObject
   : test_TypeRefObject<Itest_SimpleKind>
   , Itest_UnionRefObject
 {
-
-  public test_UnionRefObject
-    ()
-  {
-  }
 }
 
 public class test_UnionMember

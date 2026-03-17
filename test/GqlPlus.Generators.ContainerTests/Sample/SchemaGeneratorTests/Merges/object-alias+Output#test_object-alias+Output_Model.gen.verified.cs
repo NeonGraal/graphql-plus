@@ -18,9 +18,4 @@ public class testObjAliasOutpObject
   : GqlpModelImplementationBase
   , ItestObjAliasOutpObject
 {
-
-  public testObjAliasOutpObject
-    ()
-  {
-  }
 }

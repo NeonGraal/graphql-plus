@@ -41,11 +41,6 @@ public class Cmpt_OptObject<TT>
   : Spec_Schema
   , ICmpt_OptObject<TT>
 {
-
-  public Cmpt_OptObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_List<TT>
@@ -60,11 +55,6 @@ public class Cmpt_ListObject<TT>
   : Spec_Schema
   , ICmpt_ListObject<TT>
 {
-
-  public Cmpt_ListObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_Dict<TK,TT>
@@ -79,11 +69,6 @@ public class Cmpt_DictObject<TK,TT>
   : Spec_Schema
   , ICmpt_DictObject<TK,TT>
 {
-
-  public Cmpt_DictObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_Map<TT>
@@ -98,11 +83,6 @@ public class Cmpt_MapObject<TT>
   : Spec_Schema
   , ICmpt_MapObject<TT>
 {
-
-  public Cmpt_MapObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_Array<TT>
@@ -117,11 +97,6 @@ public class Cmpt_ArrayObject<TT>
   : Spec_Schema
   , ICmpt_ArrayObject<TT>
 {
-
-  public Cmpt_ArrayObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_IfElse<TT>
@@ -136,11 +111,6 @@ public class Cmpt_IfElseObject<TT>
   : Spec_Schema
   , ICmpt_IfElseObject<TT>
 {
-
-  public Cmpt_IfElseObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_Set<TK>
@@ -155,11 +125,6 @@ public class Cmpt_SetObject<TK>
   : Spec_Schema
   , ICmpt_SetObject<TK>
 {
-
-  public Cmpt_SetObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_Mask<TK>
@@ -174,11 +139,6 @@ public class Cmpt_MaskObject<TK>
   : Spec_Schema
   , ICmpt_MaskObject<TK>
 {
-
-  public Cmpt_MaskObject
-    ()
-  {
-  }
 }
 
 public class Cmpt_Key
@@ -198,9 +158,4 @@ public class Cmpt_AnyObject
   : Spec_Schema
   , ICmpt_AnyObject
 {
-
-  public Cmpt_AnyObject
-    ()
-  {
-  }
 }

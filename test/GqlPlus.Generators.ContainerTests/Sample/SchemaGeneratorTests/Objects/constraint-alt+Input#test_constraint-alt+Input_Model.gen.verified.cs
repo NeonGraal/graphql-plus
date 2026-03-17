@@ -19,9 +19,4 @@ public class testCnstAltInpObject<TType>
   : GqlpModelImplementationBase
   , ItestCnstAltInpObject<TType>
 {
-
-  public testCnstAltInpObject
-    ()
-  {
-  }
 }

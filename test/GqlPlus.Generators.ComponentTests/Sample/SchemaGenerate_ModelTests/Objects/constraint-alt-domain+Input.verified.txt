@@ -24,11 +24,6 @@ public class CmptCnstAltDmnInpObject
   : Schema_constraint-alt-domain+Input
   , ICmptCnstAltDmnInpObject
 {
-
-  public CmptCnstAltDmnInpObject
-    ()
-  {
-  }
 }
 
 public class CmptRefCnstAltDmnInp<TRef>
@@ -43,11 +38,6 @@ public class CmptRefCnstAltDmnInpObject<TRef>
   : Schema_constraint-alt-domain+Input
   , ICmptRefCnstAltDmnInpObject<TRef>
 {
-
-  public CmptRefCnstAltDmnInpObject
-    ()
-  {
-  }
 }
 
 public class CmptDomCnstAltDmnInp

@@ -17,11 +17,6 @@ public class CmptCtgrDscrsObject
   : Schema_+Globals
   , ICmptCtgrDscrsObject
 {
-
-  public CmptCtgrDscrsObject
-    ()
-  {
-  }
 }
 
 public class CmptCtgrOutp
@@ -35,11 +30,6 @@ public class CmptCtgrOutpObject
   : Schema_+Globals
   , ICmptCtgrOutpObject
 {
-
-  public CmptCtgrOutpObject
-    ()
-  {
-  }
 }
 
 public class CmptCtgrOutpDescr
@@ -53,11 +43,6 @@ public class CmptCtgrOutpDescrObject
   : Schema_+Globals
   , ICmptCtgrOutpDescrObject
 {
-
-  public CmptCtgrOutpDescrObject
-    ()
-  {
-  }
 }
 
 public class CmptCtgrOutpDict
@@ -71,11 +56,6 @@ public class CmptCtgrOutpDictObject
   : Schema_+Globals
   , ICmptCtgrOutpDictObject
 {
-
-  public CmptCtgrOutpDictObject
-    ()
-  {
-  }
 }
 
 public class CmptCtgrOutpList
@@ -89,11 +69,6 @@ public class CmptCtgrOutpListObject
   : Schema_+Globals
   , ICmptCtgrOutpListObject
 {
-
-  public CmptCtgrOutpListObject
-    ()
-  {
-  }
 }
 
 public class CmptCtgrOutpOptl
@@ -107,11 +82,6 @@ public class CmptCtgrOutpOptlObject
   : Schema_+Globals
   , ICmptCtgrOutpOptlObject
 {
-
-  public CmptCtgrOutpOptlObject
-    ()
-  {
-  }
 }
 
 public class CmptDescr
@@ -125,11 +95,6 @@ public class CmptDescrObject
   : Schema_+Globals
   , ICmptDescrObject
 {
-
-  public CmptDescrObject
-    ()
-  {
-  }
 }
 
 public class CmptDescrBcks
@@ -143,11 +108,6 @@ public class CmptDescrBcksObject
   : Schema_+Globals
   , ICmptDescrBcksObject
 {
-
-  public CmptDescrBcksObject
-    ()
-  {
-  }
 }
 
 public class CmptDescrBtwn
@@ -161,11 +121,6 @@ public class CmptDescrBtwnObject
   : Schema_+Globals
   , ICmptDescrBtwnObject
 {
-
-  public CmptDescrBtwnObject
-    ()
-  {
-  }
 }
 
 public class CmptDescrCmpl
@@ -179,11 +134,6 @@ public class CmptDescrCmplObject
   : Schema_+Globals
   , ICmptDescrCmplObject
 {
-
-  public CmptDescrCmplObject
-    ()
-  {
-  }
 }
 
 public class CmptDescrDbl
@@ -197,11 +147,6 @@ public class CmptDescrDblObject
   : Schema_+Globals
   , ICmptDescrDblObject
 {
-
-  public CmptDescrDblObject
-    ()
-  {
-  }
 }
 
 public class CmptDescrSngl
@@ -215,11 +160,6 @@ public class CmptDescrSnglObject
   : Schema_+Globals
   , ICmptDescrSnglObject
 {
-
-  public CmptDescrSnglObject
-    ()
-  {
-  }
 }
 
 public class CmptDscrs
@@ -233,11 +173,6 @@ public class CmptDscrsObject
   : Schema_+Globals
   , ICmptDscrsObject
 {
-
-  public CmptDscrsObject
-    ()
-  {
-  }
 }
 
 public class CmptInDrctParamDict
@@ -251,11 +186,6 @@ public class CmptInDrctParamDictObject
   : Schema_+Globals
   , ICmptInDrctParamDictObject
 {
-
-  public CmptInDrctParamDictObject
-    ()
-  {
-  }
 }
 
 public class CmptInDrctParamIn
@@ -269,11 +199,6 @@ public class CmptInDrctParamInObject
   : Schema_+Globals
   , ICmptInDrctParamInObject
 {
-
-  public CmptInDrctParamInObject
-    ()
-  {
-  }
 }
 
 public class CmptInDrctParamList
@@ -287,11 +212,6 @@ public class CmptInDrctParamListObject
   : Schema_+Globals
   , ICmptInDrctParamListObject
 {
-
-  public CmptInDrctParamListObject
-    ()
-  {
-  }
 }
 
 public class CmptInDrctParamOpt
@@ -305,9 +225,4 @@ public class CmptInDrctParamOptObject
   : Schema_+Globals
   , ICmptInDrctParamOptObject
 {
-
-  public CmptInDrctParamOptObject
-    ()
-  {
-  }
 }

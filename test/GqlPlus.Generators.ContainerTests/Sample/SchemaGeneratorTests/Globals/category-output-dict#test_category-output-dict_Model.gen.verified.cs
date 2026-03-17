@@ -18,9 +18,4 @@ public class testCtgrOutpDictObject
   : GqlpModelImplementationBase
   , ItestCtgrOutpDictObject
 {
-
-  public testCtgrOutpDictObject
-    ()
-  {
-  }
 }

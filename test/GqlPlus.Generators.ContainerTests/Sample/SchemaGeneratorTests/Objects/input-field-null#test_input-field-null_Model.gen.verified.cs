@@ -19,11 +19,6 @@ public class testInpFieldNullObject
   , ItestInpFieldNullObject
 {
   public ItestFldInpFieldNull? Field { get; set; }
-
-  public testInpFieldNullObject
-    ()
-  {
-  }
 }
 
 public class testFldInpFieldNull
@@ -37,9 +32,4 @@ public class testFldInpFieldNullObject
   : GqlpModelImplementationBase
   , ItestFldInpFieldNullObject
 {
-
-  public testFldInpFieldNullObject
-    ()
-  {
-  }
 }

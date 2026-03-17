@@ -18,11 +18,6 @@ public class testGnrcPrntArgInpObject<TType>
   : testRefGnrcPrntArgInpObject<TType>
   , ItestGnrcPrntArgInpObject<TType>
 {
-
-  public testGnrcPrntArgInpObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcPrntArgInp<TRef>
@@ -37,9 +32,4 @@ public class testRefGnrcPrntArgInpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcPrntArgInpObject<TRef>
 {
-
-  public testRefGnrcPrntArgInpObject
-    ()
-  {
-  }
 }

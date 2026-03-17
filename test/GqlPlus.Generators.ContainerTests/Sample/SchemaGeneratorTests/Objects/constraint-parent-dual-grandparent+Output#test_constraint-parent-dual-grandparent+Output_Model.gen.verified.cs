@@ -18,11 +18,6 @@ public class testCnstPrntDualGrndOutpObject
   : testRefCnstPrntDualGrndOutpObject<ItestAltCnstPrntDualGrndOutp>
   , ItestCnstPrntDualGrndOutpObject
 {
-
-  public testCnstPrntDualGrndOutpObject
-    ()
-  {
-  }
 }
 
 public class testRefCnstPrntDualGrndOutp<TRef>
@@ -37,11 +32,6 @@ public class testRefCnstPrntDualGrndOutpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefCnstPrntDualGrndOutpObject<TRef>
 {
-
-  public testRefCnstPrntDualGrndOutpObject
-    ()
-  {
-  }
 }
 
 public class testGrndCnstPrntDualGrndOutp
@@ -56,11 +46,6 @@ public class testGrndCnstPrntDualGrndOutpObject
   : GqlpModelImplementationBase
   , ItestGrndCnstPrntDualGrndOutpObject
 {
-
-  public testGrndCnstPrntDualGrndOutpObject
-    ()
-  {
-  }
 }
 
 public class testPrntCnstPrntDualGrndOutp
@@ -74,11 +59,6 @@ public class testPrntCnstPrntDualGrndOutpObject
   : testGrndCnstPrntDualGrndOutpObject
   , ItestPrntCnstPrntDualGrndOutpObject
 {
-
-  public testPrntCnstPrntDualGrndOutpObject
-    ()
-  {
-  }
 }
 
 public class testAltCnstPrntDualGrndOutp

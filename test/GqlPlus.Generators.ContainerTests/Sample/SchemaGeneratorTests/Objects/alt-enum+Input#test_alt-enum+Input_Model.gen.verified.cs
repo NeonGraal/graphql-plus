@@ -19,9 +19,4 @@ public class testAltEnumInpObject
   : GqlpModelImplementationBase
   , ItestAltEnumInpObject
 {
-
-  public testAltEnumInpObject
-    ()
-  {
-  }
 }

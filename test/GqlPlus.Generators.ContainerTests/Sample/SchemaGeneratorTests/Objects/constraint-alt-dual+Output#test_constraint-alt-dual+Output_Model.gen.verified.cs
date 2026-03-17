@@ -19,11 +19,6 @@ public class testCnstAltDualOutpObject
   : GqlpModelImplementationBase
   , ItestCnstAltDualOutpObject
 {
-
-  public testCnstAltDualOutpObject
-    ()
-  {
-  }
 }
 
 public class testRefCnstAltDualOutp<TRef>
@@ -38,11 +33,6 @@ public class testRefCnstAltDualOutpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefCnstAltDualOutpObject<TRef>
 {
-
-  public testRefCnstAltDualOutpObject
-    ()
-  {
-  }
 }
 
 public class testPrntCnstAltDualOutp
@@ -57,11 +47,6 @@ public class testPrntCnstAltDualOutpObject
   : GqlpModelImplementationBase
   , ItestPrntCnstAltDualOutpObject
 {
-
-  public testPrntCnstAltDualOutpObject
-    ()
-  {
-  }
 }
 
 public class testAltCnstAltDualOutp

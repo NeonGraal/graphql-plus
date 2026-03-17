@@ -19,9 +19,4 @@ public class testAltSmplDualObject
   : GqlpModelImplementationBase
   , ItestAltSmplDualObject
 {
-
-  public testAltSmplDualObject
-    ()
-  {
-  }
 }

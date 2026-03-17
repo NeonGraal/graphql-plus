@@ -23,11 +23,6 @@ public class CmptAltDualObject
   : Schema_alt+Dual
   , ICmptAltDualObject
 {
-
-  public CmptAltDualObject
-    ()
-  {
-  }
 }
 
 public class CmptAltAltDual

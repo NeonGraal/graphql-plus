@@ -22,9 +22,4 @@ public class CmptGnrcPrntDualObject<TType>
   : Schema_generic-parent+Dual
   , ICmptGnrcPrntDualObject<TType>
 {
-
-  public CmptGnrcPrntDualObject
-    ()
-  {
-  }
 }

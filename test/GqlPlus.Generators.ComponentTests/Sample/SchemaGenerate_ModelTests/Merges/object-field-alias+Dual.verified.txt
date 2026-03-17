@@ -44,9 +44,4 @@ public class CmptFldObjFieldAliasDualObject
   : Schema_object-field-alias+Dual
   , ICmptFldObjFieldAliasDualObject
 {
-
-  public CmptFldObjFieldAliasDualObject
-    ()
-  {
-  }
 }

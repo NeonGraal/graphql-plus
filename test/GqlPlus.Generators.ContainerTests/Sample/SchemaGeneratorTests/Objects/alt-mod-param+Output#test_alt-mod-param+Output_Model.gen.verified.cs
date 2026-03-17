@@ -19,11 +19,6 @@ public class testAltModParamOutpObject<TMod>
   : GqlpModelImplementationBase
   , ItestAltModParamOutpObject<TMod>
 {
-
-  public testAltModParamOutpObject
-    ()
-  {
-  }
 }
 
 public class testAltAltModParamOutp

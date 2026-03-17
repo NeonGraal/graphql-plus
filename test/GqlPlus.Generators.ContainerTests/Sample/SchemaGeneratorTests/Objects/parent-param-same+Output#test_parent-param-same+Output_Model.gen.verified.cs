@@ -40,9 +40,4 @@ public class testRefPrntParamSameOutpObject<TA>
   : GqlpModelImplementationBase
   , ItestRefPrntParamSameOutpObject<TA>
 {
-
-  public testRefPrntParamSameOutpObject
-    ()
-  {
-  }
 }

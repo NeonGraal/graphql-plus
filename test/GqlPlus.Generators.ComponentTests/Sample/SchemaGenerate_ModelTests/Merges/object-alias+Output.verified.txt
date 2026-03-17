@@ -22,9 +22,4 @@ public class CmptObjAliasOutpObject
   : Schema_object-alias+Output
   , ICmptObjAliasOutpObject
 {
-
-  public CmptObjAliasOutpObject
-    ()
-  {
-  }
 }

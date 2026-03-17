@@ -39,9 +39,4 @@ public class testFldObjFieldDualObject
   : GqlpModelImplementationBase
   , ItestFldObjFieldDualObject
 {
-
-  public testFldObjFieldDualObject
-    ()
-  {
-  }
 }

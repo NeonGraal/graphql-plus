@@ -18,9 +18,4 @@ public class testCtgrModObject
   : GqlpModelImplementationBase
   , ItestCtgrModObject
 {
-
-  public testCtgrModObject
-    ()
-  {
-  }
 }

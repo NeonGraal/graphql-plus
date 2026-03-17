@@ -44,9 +44,4 @@ public class CmptRefGnrcFieldArgOutpObject<TRef>
   : Schema_generic-field-arg+Output
   , ICmptRefGnrcFieldArgOutpObject<TRef>
 {
-
-  public CmptRefGnrcFieldArgOutpObject
-    ()
-  {
-  }
 }

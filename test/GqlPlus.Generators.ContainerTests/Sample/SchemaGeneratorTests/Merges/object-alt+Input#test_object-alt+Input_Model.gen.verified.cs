@@ -19,11 +19,6 @@ public class testObjAltInpObject
   : GqlpModelImplementationBase
   , ItestObjAltInpObject
 {
-
-  public testObjAltInpObject
-    ()
-  {
-  }
 }
 
 public class testObjAltInpType
@@ -37,9 +32,4 @@ public class testObjAltInpTypeObject
   : GqlpModelImplementationBase
   , ItestObjAltInpTypeObject
 {
-
-  public testObjAltInpTypeObject
-    ()
-  {
-  }
 }

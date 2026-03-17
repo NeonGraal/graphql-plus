@@ -18,11 +18,6 @@ public class testGnrcPrntDualInpObject
   : testRefGnrcPrntDualInpObject<ItestAltGnrcPrntDualInp>
   , ItestGnrcPrntDualInpObject
 {
-
-  public testGnrcPrntDualInpObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcPrntDualInp<TRef>
@@ -37,11 +32,6 @@ public class testRefGnrcPrntDualInpObject<TRef>
   : GqlpModelImplementationBase
   , ItestRefGnrcPrntDualInpObject<TRef>
 {
-
-  public testRefGnrcPrntDualInpObject
-    ()
-  {
-  }
 }
 
 public class testAltGnrcPrntDualInp

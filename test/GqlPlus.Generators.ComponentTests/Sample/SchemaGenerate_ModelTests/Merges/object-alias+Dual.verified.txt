@@ -22,9 +22,4 @@ public class CmptObjAliasDualObject
   : Schema_object-alias+Dual
   , ICmptObjAliasDualObject
 {
-
-  public CmptObjAliasDualObject
-    ()
-  {
-  }
 }

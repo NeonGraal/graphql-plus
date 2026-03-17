@@ -24,11 +24,6 @@ public class CmptGnrcEnumDualObject
   : Schema_generic-enum+Dual
   , ICmptGnrcEnumDualObject
 {
-
-  public CmptGnrcEnumDualObject
-    ()
-  {
-  }
 }
 
 public class CmptRefGnrcEnumDual<TType>

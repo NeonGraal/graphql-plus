@@ -19,11 +19,6 @@ public class testAltInpObject
   : GqlpModelImplementationBase
   , ItestAltInpObject
 {
-
-  public testAltInpObject
-    ()
-  {
-  }
 }
 
 public class testAltAltInp

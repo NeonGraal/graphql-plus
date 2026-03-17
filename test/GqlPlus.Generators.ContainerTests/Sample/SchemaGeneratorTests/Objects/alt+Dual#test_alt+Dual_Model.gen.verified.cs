@@ -19,11 +19,6 @@ public class testAltDualObject
   : GqlpModelImplementationBase
   , ItestAltDualObject
 {
-
-  public testAltDualObject
-    ()
-  {
-  }
 }
 
 public class testAltAltDual

@@ -19,11 +19,6 @@ public class testCnstDomEnumInpObject
   : GqlpModelImplementationBase
   , ItestCnstDomEnumInpObject
 {
-
-  public testCnstDomEnumInpObject
-    ()
-  {
-  }
 }
 
 public class testRefCnstDomEnumInp<TType>

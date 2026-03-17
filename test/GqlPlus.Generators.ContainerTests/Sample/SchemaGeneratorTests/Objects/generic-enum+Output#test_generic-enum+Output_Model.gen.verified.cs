@@ -19,11 +19,6 @@ public class testGnrcEnumOutpObject
   : GqlpModelImplementationBase
   , ItestGnrcEnumOutpObject
 {
-
-  public testGnrcEnumOutpObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcEnumOutp<TType>

@@ -18,9 +18,4 @@ public class testDescrSnglObject
   : GqlpModelImplementationBase
   , ItestDescrSnglObject
 {
-
-  public testDescrSnglObject
-    ()
-  {
-  }
 }

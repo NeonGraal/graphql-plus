@@ -18,9 +18,4 @@ public class testDescrBcksObject
   : GqlpModelImplementationBase
   , ItestDescrBcksObject
 {
-
-  public testDescrBcksObject
-    ()
-  {
-  }
 }

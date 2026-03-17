@@ -19,11 +19,6 @@ public class testGnrcValueDualObject
   : GqlpModelImplementationBase
   , ItestGnrcValueDualObject
 {
-
-  public testGnrcValueDualObject
-    ()
-  {
-  }
 }
 
 public class testRefGnrcValueDual<TType>

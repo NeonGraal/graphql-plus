@@ -852,6 +852,7 @@ public interface ICmptRefCnstDomEnumDualObject<TType>
 public interface ICmptJustCnstDomEnumDual
   : IGqlpDomainEnum
 {
+  new CmptEnumCnstDomEnumDual? Value { get; }
 }
 
 public interface ICmptCnstDomEnumInp
@@ -881,6 +882,7 @@ public interface ICmptRefCnstDomEnumInpObject<TType>
 public interface ICmptJustCnstDomEnumInp
   : IGqlpDomainEnum
 {
+  new CmptEnumCnstDomEnumInp? Value { get; }
 }
 
 public interface ICmptCnstDomEnumOutp
@@ -910,6 +912,7 @@ public interface ICmptRefCnstDomEnumOutpObject<TType>
 public interface ICmptJustCnstDomEnumOutp
   : IGqlpDomainEnum
 {
+  new CmptEnumCnstDomEnumOutp? Value { get; }
 }
 
 public interface ICmptCnstEnumDual
@@ -3935,6 +3938,7 @@ public interface ICmptFieldGnrcPrntEnumDomDualObject<TRef>
 public interface ICmptDomGnrcPrntEnumDomDual
   : IGqlpDomainEnum
 {
+  new CmptEnumGnrcPrntEnumDomDual? Value { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomInp
@@ -3963,6 +3967,7 @@ public interface ICmptFieldGnrcPrntEnumDomInpObject<TRef>
 public interface ICmptDomGnrcPrntEnumDomInp
   : IGqlpDomainEnum
 {
+  new CmptEnumGnrcPrntEnumDomInp? Value { get; }
 }
 
 public interface ICmptGnrcPrntEnumDomOutp
@@ -3991,6 +3996,7 @@ public interface ICmptFieldGnrcPrntEnumDomOutpObject<TRef>
 public interface ICmptDomGnrcPrntEnumDomOutp
   : IGqlpDomainEnum
 {
+  new CmptEnumGnrcPrntEnumDomOutp? Value { get; }
 }
 
 public interface ICmptGnrcPrntEnumPrntDual

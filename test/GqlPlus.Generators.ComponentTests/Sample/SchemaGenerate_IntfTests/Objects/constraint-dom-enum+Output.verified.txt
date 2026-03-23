@@ -40,4 +40,5 @@ public interface ICmptRefCnstDomEnumOutpObject<TType>
 public interface ICmptJustCnstDomEnumOutp
   : IGqlpDomainEnum
 {
+  new CmptEnumCnstDomEnumOutp? Value { get; }
 }

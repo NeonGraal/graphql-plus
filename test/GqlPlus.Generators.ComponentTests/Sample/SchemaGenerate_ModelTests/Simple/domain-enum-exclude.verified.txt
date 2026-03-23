@@ -15,4 +15,5 @@ public class CmptDmnEnumExcl
   : GqlpDomainEnum
   , ICmptDmnEnumExcl
 {
+  public new CmptEnumDmnEnumExcl? Value { get; set; }
 }

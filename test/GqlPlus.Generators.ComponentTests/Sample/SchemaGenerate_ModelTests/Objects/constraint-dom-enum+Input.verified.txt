@@ -57,4 +57,5 @@ public class CmptJustCnstDomEnumInp
   : GqlpDomainEnum
   , ICmptJustCnstDomEnumInp
 {
+  public new CmptEnumCnstDomEnumInp? Value { get; set; }
 }

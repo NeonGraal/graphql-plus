@@ -51,4 +51,5 @@ public class testJustCnstDomEnumOutp
   : GqlpDomainEnum
   , ItestJustCnstDomEnumOutp
 {
+  public new testEnumCnstDomEnumOutp? Value { get; set; }
 }

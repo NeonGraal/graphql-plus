@@ -33,4 +33,5 @@ public interface ItestFieldGnrcPrntEnumDomInpObject<TRef>
 public interface ItestDomGnrcPrntEnumDomInp
   : IGqlpDomainEnum
 {
+  new testEnumGnrcPrntEnumDomInp? Value { get; }
 }

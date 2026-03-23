@@ -11,4 +11,5 @@ public class testDmnEnumSame
   : GqlpDomainEnum
   , ItestDmnEnumSame
 {
+  public new bool? Value { get; set; }
 }

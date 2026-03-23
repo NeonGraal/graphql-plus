@@ -1326,6 +1326,7 @@ public class Cmpt_ObjectKind
   : GqlpDomainEnum
   , ICmpt_ObjectKind
 {
+  public new Cmpt_TypeKind? Value { get; set; }
 }
 
 public class Cmpt_TypeObject<TObjectKind,TField>

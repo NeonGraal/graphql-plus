@@ -14,4 +14,5 @@ namespace Components.Gqlp_Schema_domain_enum_all_descr;
 public interface ICmptDmnEnumAllDescr
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumAllDescr? Value { get; }
 }

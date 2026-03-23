@@ -35,26 +35,31 @@ public interface ItestPrntDmnBoolPrntDescr
 public interface ItestDmnEnumAll
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumAll? Value { get; }
 }
 
 public interface ItestDmnEnumAllDescr
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumAllDescr? Value { get; }
 }
 
 public interface ItestDmnEnumAllPrnt
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumAllPrnt? Value { get; }
 }
 
 public interface ItestDmnEnumDescr
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumDescr? Value { get; }
 }
 
 public interface ItestDmnEnumExcl
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumExcl? Value { get; }
 }
 
 public interface ItestDmnEnumExclPrnt
@@ -65,26 +70,31 @@ public interface ItestDmnEnumExclPrnt
 public interface ItestDmnEnumLabel
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumLabel? Value { get; }
 }
 
 public interface ItestDmnEnumPrnt
   : ItestPrntDmnEnumPrnt
 {
+  new testEnumDmnEnumPrnt? Value { get; }
 }
 
 public interface ItestPrntDmnEnumPrnt
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumPrnt? Value { get; }
 }
 
 public interface ItestDmnEnumPrntDescr
   : ItestPrntDmnEnumPrntDescr
 {
+  new testEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public interface ItestPrntDmnEnumPrntDescr
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public interface ItestDmnEnumUnq
@@ -100,11 +110,13 @@ public interface ItestDmnEnumUnqPrnt
 public interface ItestDmnEnumValue
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumValue? Value { get; }
 }
 
 public interface ItestDmnEnumValuePrnt
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumValuePrnt? Value { get; }
 }
 
 public interface ItestDmnNmbrDescr

@@ -39,4 +39,5 @@ public interface ICmptFieldGnrcPrntEnumDomDualObject<TRef>
 public interface ICmptDomGnrcPrntEnumDomDual
   : IGqlpDomainEnum
 {
+  new CmptEnumGnrcPrntEnumDomDual? Value { get; }
 }

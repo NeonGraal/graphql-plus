@@ -853,6 +853,7 @@ public interface ItestRefCnstDomEnumDualObject<TType>
 public interface ItestJustCnstDomEnumDual
   : IGqlpDomainEnum
 {
+  new testEnumCnstDomEnumDual? Value { get; }
 }
 
 public interface ItestCnstDomEnumInp
@@ -882,6 +883,7 @@ public interface ItestRefCnstDomEnumInpObject<TType>
 public interface ItestJustCnstDomEnumInp
   : IGqlpDomainEnum
 {
+  new testEnumCnstDomEnumInp? Value { get; }
 }
 
 public interface ItestCnstDomEnumOutp
@@ -911,6 +913,7 @@ public interface ItestRefCnstDomEnumOutpObject<TType>
 public interface ItestJustCnstDomEnumOutp
   : IGqlpDomainEnum
 {
+  new testEnumCnstDomEnumOutp? Value { get; }
 }
 
 public interface ItestCnstEnumDual
@@ -3936,6 +3939,7 @@ public interface ItestFieldGnrcPrntEnumDomDualObject<TRef>
 public interface ItestDomGnrcPrntEnumDomDual
   : IGqlpDomainEnum
 {
+  new testEnumGnrcPrntEnumDomDual? Value { get; }
 }
 
 public interface ItestGnrcPrntEnumDomInp
@@ -3964,6 +3968,7 @@ public interface ItestFieldGnrcPrntEnumDomInpObject<TRef>
 public interface ItestDomGnrcPrntEnumDomInp
   : IGqlpDomainEnum
 {
+  new testEnumGnrcPrntEnumDomInp? Value { get; }
 }
 
 public interface ItestGnrcPrntEnumDomOutp
@@ -3992,6 +3997,7 @@ public interface ItestFieldGnrcPrntEnumDomOutpObject<TRef>
 public interface ItestDomGnrcPrntEnumDomOutp
   : IGqlpDomainEnum
 {
+  new testEnumGnrcPrntEnumDomOutp? Value { get; }
 }
 
 public interface ItestGnrcPrntEnumPrntDual

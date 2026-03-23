@@ -24,14 +24,14 @@ public class GqlpDomainBase<T>
   public void SetValue(T? value) => Value = value;
 }
 
-public class GqlpDomainBoolean : GqlpDomainBase<bool>, IGqlpDomainBase<bool>
+public class GqlpDomainBoolean : GqlpDomainBase<bool>, IGqlpDomainBoolean
 { }
 
 public class GqlpDomainEnum : GqlpDomainBase<uint>, IGqlpDomainBase<uint>
 { }
 
-public class GqlpDomainNumber : GqlpDomainBase<decimal>, IGqlpDomainBase<decimal>
+public class GqlpDomainNumber : GqlpDomainBase<decimal>, IGqlpDomainNumber
 { }
 
-public class GqlpDomainString : GqlpDomainBase<string>, IGqlpDomainBase<string>
+public class GqlpDomainString : GqlpDomainBase<string>, IGqlpDomainString
 { }

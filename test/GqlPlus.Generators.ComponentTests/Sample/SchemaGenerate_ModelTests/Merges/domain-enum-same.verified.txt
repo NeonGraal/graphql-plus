@@ -15,4 +15,5 @@ public class CmptDmnEnumSame
   : GqlpDomainEnum
   , ICmptDmnEnumSame
 {
+  public new bool? Value { get; set; }
 }

@@ -10,4 +10,5 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_label;
 public interface ItestDmnEnumLabel
   : IGqlpDomainEnum
 {
+  new testEnumDmnEnumLabel? Value { get; }
 }

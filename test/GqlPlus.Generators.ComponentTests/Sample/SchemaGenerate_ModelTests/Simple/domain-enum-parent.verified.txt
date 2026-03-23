@@ -16,10 +16,12 @@ public class CmptDmnEnumPrnt
   : CmptPrntDmnEnumPrnt
   , ICmptDmnEnumPrnt
 {
+  public new CmptEnumDmnEnumPrnt? Value { get; set; }
 }
 
 public class CmptPrntDmnEnumPrnt
   : GqlpDomainEnum
   , ICmptPrntDmnEnumPrnt
 {
+  public new CmptEnumDmnEnumPrnt? Value { get; set; }
 }

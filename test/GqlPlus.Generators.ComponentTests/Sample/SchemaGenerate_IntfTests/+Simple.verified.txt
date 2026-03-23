@@ -34,26 +34,31 @@ public interface ICmptPrntDmnBoolPrntDescr
 public interface ICmptDmnEnumAll
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumAll? Value { get; }
 }
 
 public interface ICmptDmnEnumAllDescr
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumAllDescr? Value { get; }
 }
 
 public interface ICmptDmnEnumAllPrnt
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumAllPrnt? Value { get; }
 }
 
 public interface ICmptDmnEnumDescr
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumDescr? Value { get; }
 }
 
 public interface ICmptDmnEnumExcl
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumExcl? Value { get; }
 }
 
 public interface ICmptDmnEnumExclPrnt
@@ -64,26 +69,31 @@ public interface ICmptDmnEnumExclPrnt
 public interface ICmptDmnEnumLabel
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumLabel? Value { get; }
 }
 
 public interface ICmptDmnEnumPrnt
   : ICmptPrntDmnEnumPrnt
 {
+  new CmptEnumDmnEnumPrnt? Value { get; }
 }
 
 public interface ICmptPrntDmnEnumPrnt
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumPrnt? Value { get; }
 }
 
 public interface ICmptDmnEnumPrntDescr
   : ICmptPrntDmnEnumPrntDescr
 {
+  new CmptEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public interface ICmptPrntDmnEnumPrntDescr
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumPrntDescr? Value { get; }
 }
 
 public interface ICmptDmnEnumUnq
@@ -99,11 +109,13 @@ public interface ICmptDmnEnumUnqPrnt
 public interface ICmptDmnEnumValue
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumValue? Value { get; }
 }
 
 public interface ICmptDmnEnumValuePrnt
   : IGqlpDomainEnum
 {
+  new CmptEnumDmnEnumValuePrnt? Value { get; }
 }
 
 public interface ICmptDmnNmbrDescr

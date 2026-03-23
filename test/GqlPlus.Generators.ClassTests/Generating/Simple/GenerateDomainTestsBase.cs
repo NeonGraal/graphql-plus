@@ -11,24 +11,6 @@ public abstract class GenerateDomainTestsBase<TItem>
 
   internal override GenerateForType<IGqlpDomain<TItem>> TypeGenerator => Generator;
 
-  [Theory, RepeatData]
-  public void TypeMembers_WithDomainItems_ReturnsAsNamePairs(string domainName, string _)
-  {
-    // Arrange
-    GqlpGeneratorContext context = Context();
-    IGqlpDomain<TItem> domainType = A.Named<IGqlpDomain<TItem>>(domainName);
-    TItem item = A.Error<TItem>();
-    domainType.Items.Returns([item]);
-
-    // Act
-    MapPair<string>[] result = [.. Generator.TypeMembers(domainType, context)];
-
-    // Assert
-    result.Length.ShouldBe(0);
-    //result[0].Key.ShouldBe("As" + memberName);
-    //result[0].Value.ShouldBe(memberName);
-  }
-
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithoutParent_GeneratesDefaultParent(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
   {

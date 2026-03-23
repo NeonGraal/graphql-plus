@@ -546,6 +546,7 @@ public interface Itest_UnionMemberObject
 public interface Itest_ObjectKind
   : IGqlpDomainEnum
 {
+  new test_TypeKind? Value { get; }
 }
 
 public interface Itest_TypeObject<TObjectKind,TField>

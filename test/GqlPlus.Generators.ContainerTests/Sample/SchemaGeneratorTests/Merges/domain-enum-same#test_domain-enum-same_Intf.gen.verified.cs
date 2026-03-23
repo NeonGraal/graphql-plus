@@ -10,4 +10,5 @@ namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_same;
 public interface ItestDmnEnumSame
   : IGqlpDomainEnum
 {
+  new bool? Value { get; }
 }

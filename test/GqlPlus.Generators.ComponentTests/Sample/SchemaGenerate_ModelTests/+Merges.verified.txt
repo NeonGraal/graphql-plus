@@ -124,12 +124,14 @@ public class CmptDmnEnumDiff
   : GqlpDomainEnum
   , ICmptDmnEnumDiff
 {
+  public new bool? Value { get; set; }
 }
 
 public class CmptDmnEnumSame
   : GqlpDomainEnum
   , ICmptDmnEnumSame
 {
+  public new bool? Value { get; set; }
 }
 
 public class CmptDmnNmbr

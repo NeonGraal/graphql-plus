@@ -57,4 +57,5 @@ public class CmptDomGnrcPrntEnumDomOutp
   : GqlpDomainEnum
   , ICmptDomGnrcPrntEnumDomOutp
 {
+  public new CmptEnumGnrcPrntEnumDomOutp? Value { get; set; }
 }

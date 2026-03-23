@@ -10,6 +10,7 @@ namespace GqlPlus.GeneratorTests.Gqlp_Base;
 public interface Itest_ObjectKind
   : IGqlpDomainEnum
 {
+  new test_TypeKind? Value { get; }
 }
 
 public interface Itest_TypeObject<TObjectKind,TField>

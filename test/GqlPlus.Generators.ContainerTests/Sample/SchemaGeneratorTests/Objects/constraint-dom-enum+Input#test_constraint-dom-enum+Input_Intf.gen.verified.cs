@@ -34,4 +34,5 @@ public interface ItestRefCnstDomEnumInpObject<TType>
 public interface ItestJustCnstDomEnumInp
   : IGqlpDomainEnum
 {
+  new testEnumCnstDomEnumInp? Value { get; }
 }

@@ -51,4 +51,5 @@ public class testDomGnrcPrntEnumDomOutp
   : GqlpDomainEnum
   , ItestDomGnrcPrntEnumDomOutp
 {
+  public new testEnumGnrcPrntEnumDomOutp? Value { get; set; }
 }

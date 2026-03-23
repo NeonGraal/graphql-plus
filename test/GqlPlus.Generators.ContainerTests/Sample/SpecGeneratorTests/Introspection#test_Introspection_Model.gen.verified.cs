@@ -985,6 +985,7 @@ public class test_ObjectKind
   : GqlpDomainEnum
   , Itest_ObjectKind
 {
+  public new test_TypeKind? Value { get; set; }
 }
 
 public class test_TypeObject<TObjectKind,TField>

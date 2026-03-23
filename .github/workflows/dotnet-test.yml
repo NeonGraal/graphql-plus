@@ -74,7 +74,7 @@ jobs:
         if: always()
         run: pwsh make-summary.ps1 -Framework ${{ matrix.version }}
       - name: Tests Report
-        uses: dorny/test-reporter@v2
+        uses: dorny/test-reporter@v3
         if: always()
         with:
           name: DotNET Tests (${{ matrix.version }} ${{ env.testType }})

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <GqlPlus_TypePrefix>Gqlp</GqlPlus_TypePrefix>
+    <GqlPlus_TypePrefix>GqlpM</GqlPlus_TypePrefix>
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
     <GqlPlus_NamespaceIncludesBaseName>false</GqlPlus_NamespaceIncludesBaseName>
   </PropertyGroup>

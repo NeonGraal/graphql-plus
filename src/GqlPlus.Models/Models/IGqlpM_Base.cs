@@ -3,7 +3,7 @@
 [GqlpGenerator(GqlpGeneratorType.Interface)]
 [GqlpGenerator(GqlpGeneratorType.Enum)]
 
-public class IGqlp_Base
+public class IGqlpM_Base
 {
 
 }

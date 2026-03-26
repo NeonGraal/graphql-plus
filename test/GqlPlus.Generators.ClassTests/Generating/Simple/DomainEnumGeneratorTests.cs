@@ -8,7 +8,7 @@ public class DomainEnumGeneratorTests
     = new DomainEnumGenerator();
 
   [Theory, RepeatData]
-  public void TypeMembers_WithNoEnumType_ReturnsUintPair(string domainName)
+  public void TypeMembers_WithNoEnumType_ReturnsNoPair(string domainName)
   {
     // Arrange
     GqlpGeneratorContext context = Context();
@@ -20,9 +20,7 @@ public class DomainEnumGeneratorTests
     MapPair<string>[] result = [.. Generator.TypeMembers(domainType, context)];
 
     // Assert
-    result.Length.ShouldBe(1);
-    result[0].Key.ShouldBe("Value");
-    result[0].Value.ShouldBe("uint?");
+    result.Length.ShouldBe(0);
   }
 
   [Theory, RepeatData]

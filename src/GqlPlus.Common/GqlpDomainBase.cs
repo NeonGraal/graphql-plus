@@ -1,9 +1,10 @@
 ﻿namespace GqlPlus;
 
-public interface IGqlpDomainBase<T>
+public interface IGqlpDomainBase<TDomain>
 {
-  T? Value { get; }
-  void SetValue(T? value);
+  TDomain? Value { get; }
+  T? ValueAs<T>();
+  void SetValue(TDomain? value);
 }
 
 public interface IGqlpDomainBoolean : IGqlpDomainBase<bool>
@@ -18,10 +19,11 @@ public interface IGqlpDomainNumber : IGqlpDomainBase<decimal>
 public interface IGqlpDomainString : IGqlpDomainBase<string>
 { }
 
-public class GqlpDomainBase<T>
+public class GqlpDomainBase<TDomain>
 {
-  public T? Value { get; private set; }
-  public void SetValue(T? value) => Value = value;
+  public TDomain? Value { get; private set; }
+  public virtual T? ValueAs<T>() => Value is T value ? value : default;
+  public void SetValue(TDomain? value) => Value = value;
 }
 
 public class GqlpDomainBoolean : GqlpDomainBase<bool>, IGqlpDomainBoolean

@@ -5,12 +5,24 @@ namespace GqlPlus.Generating.Simple;
 public class UnionGeneratorTests
   : GenerateSimpleTestsBase<IGqlpUnion>
 {
-  private readonly UnionGenerator _generator;
+  private readonly UnionInterfaceGenerator _generator;
 
   public UnionGeneratorTests()
-    => _generator = new UnionGenerator();
+    => _generator = new UnionInterfaceGenerator();
 
   internal override GenerateForType<IGqlpUnion> TypeGenerator => _generator;
+
+  internal override ForType ForGeneratedCodeName(string name)
+    => ForGeneratedInterface("public interface I" + TestPrefix + name);
+
+  internal override ForType ForGeneratedCodeParent(string parent)
+    => ForGeneratedInterface(": I" + parent);
+
+  internal override ForType ForGeneratedBoth(string contains)
+    => ForGeneratedInterface(contains);
+
+  internal override ForType ForGeneratedImplementation(string contains)
+    => _ => result => { };
 
   [Theory, RepeatData]
   public void TypeMembers_WithUnionItems_ReturnsAsNamePairs(string unionName, string memberName)

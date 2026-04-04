@@ -14,7 +14,7 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
     TType type = A.Error<TType>();
 
     // Act
-    bool result = TypeGenerator.ForType(type);
+    bool result = TypeGenerator.ForType(type, TypeGenerator.GeneratorType);
 
     // Assert
     result.ShouldBeTrue();
@@ -27,7 +27,7 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
     IGqlpTypeSpecial type = A.Error<IGqlpTypeSpecial>();
 
     // Act
-    bool result = TypeGenerator.ForType(type);
+    bool result = TypeGenerator.ForType(type, TypeGenerator.GeneratorType);
 
     // Assert
     result.ShouldBeFalse();
@@ -51,12 +51,12 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
 public abstract class GenerateTypeClassTestsBase
   : GenerateClassTestsBase
 {
-  internal ForType ForGeneratedImplementation(string contains)
+  internal virtual ForType ForGeneratedImplementation(string contains)
     => generatorType => GqlpGeneratorType.Model == generatorType
       ? r => r.ShouldContain(contains)
       : r => { };
 
-  internal ForType ForGeneratedInterface(string contains)
+  internal virtual ForType ForGeneratedInterface(string contains)
     => generatorType => GqlpGeneratorType.Interface == generatorType
       ? r => r.ShouldContain(contains)
       : r => { };
@@ -66,7 +66,7 @@ public abstract class GenerateTypeClassTestsBase
       ? r => r.ShouldContain(contains)
       : r => r.ShouldBeEmpty();
 
-  internal ForType ForGeneratedBoth(string contains)
+  internal virtual ForType ForGeneratedBoth(string contains)
     => ForGeneratedEither(contains, contains);
 
   internal ForType ForGeneratedEither(string genIntf, string genImpl)

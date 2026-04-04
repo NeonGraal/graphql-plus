@@ -30,7 +30,7 @@ public class SchemaGeneratorTests
     schema.Declarations.Returns([type]);
 
     ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
-    typeGenerator.ForType(type).Returns(true);
+    typeGenerator.ForType(type, Arg.Any<GqlpGeneratorType>()).Returns(true);
 
     _typeGenerators.Add(typeGenerator);
 
@@ -42,7 +42,7 @@ public class SchemaGeneratorTests
   }
 
   [Theory, RepeatData]
-  public void Generate_WithNoMatchingGenerator_ThrowsInvalidOperationException(string typeName)
+  public void Generate_WithNoMatchingGenerator_DoesNotThrow(string typeName)
   {
     // Arrange
     GqlpGeneratorContext context = Context();
@@ -51,8 +51,6 @@ public class SchemaGeneratorTests
     schema.Declarations.Returns([type]);
 
     // Act & Assert
-    Should.Throw<InvalidOperationException>(() =>
-        _generator.Generate(schema, context))
-        .Message.ShouldContain("No Generator for");
+    Should.NotThrow(() => _generator.Generate(schema, context));
   }
 }

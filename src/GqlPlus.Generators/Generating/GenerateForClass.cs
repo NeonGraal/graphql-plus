@@ -4,12 +4,6 @@ internal abstract class GenerateForClass<TClass, TMember>
   : GenerateForType<TClass>
   where TClass : IGqlpType
 {
-  protected GenerateForClass()
-  {
-    AddGenerator(GqlpGeneratorType.Interface, InterfaceHeader, TypeMembers, InterfaceMember);
-    AddGenerator(GqlpGeneratorType.Model, ClassHeader, TypeMembers, ClassMember, ClassTail);
-  }
-
   protected virtual void ClassHeader(TClass ast, GqlpGeneratorContext context)
   {
     string interfaceSep = TypeHeader(ast, context, "class", "", GqlpBaseType.Class);

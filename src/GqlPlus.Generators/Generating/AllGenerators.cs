@@ -33,15 +33,23 @@ public static class AllGenerators
   internal static IGeneratorRepositoryBuilder AddSchemaSimpleGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
       .AddTypeGenerator(_ => new EnumGenerator())
-      .AddTypeGenerator(_ => new DomainBooleanGenerator())
-      .AddTypeGenerator(_ => new DomainEnumGenerator())
-      .AddTypeGenerator(_ => new DomainNumberGenerator())
-      .AddTypeGenerator(_ => new DomainStringGenerator())
-      .AddTypeGenerator(_ => new UnionGenerator());
+      .AddTypeGenerator(_ => new DomainBooleanInterfaceGenerator())
+      .AddTypeGenerator(_ => new DomainBooleanModelGenerator())
+      .AddTypeGenerator(_ => new DomainEnumInterfaceGenerator())
+      .AddTypeGenerator(_ => new DomainEnumModelGenerator())
+      .AddTypeGenerator(_ => new DomainNumberInterfaceGenerator())
+      .AddTypeGenerator(_ => new DomainNumberModelGenerator())
+      .AddTypeGenerator(_ => new DomainStringInterfaceGenerator())
+      .AddTypeGenerator(_ => new DomainStringModelGenerator())
+      .AddTypeGenerator(_ => new UnionInterfaceGenerator())
+      .AddTypeGenerator(_ => new UnionModelGenerator());
 
   internal static IGeneratorRepositoryBuilder AddSchemaObjectGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddTypeGenerator(_ => new DualGenerator())
-      .AddTypeGenerator(_ => new InputGenerator())
-      .AddTypeGenerator(_ => new OutputGenerator());
+      .AddTypeGenerator(_ => new DualInterfaceGenerator())
+      .AddTypeGenerator(_ => new DualModelGenerator())
+      .AddTypeGenerator(_ => new InputInterfaceGenerator())
+      .AddTypeGenerator(_ => new InputModelGenerator())
+      .AddTypeGenerator(_ => new OutputInterfaceGenerator())
+      .AddTypeGenerator(_ => new OutputModelGenerator());
 }

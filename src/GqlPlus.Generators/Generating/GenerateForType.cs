@@ -5,32 +5,23 @@ internal abstract class GenerateForType<TType>
   : ITypeGenerator
   where TType : IGqlpType
 {
-  public bool ForType(IGqlpType ast)
-  => ast is TType;
+  internal abstract GqlpGeneratorType GeneratorType { get; }
+
+  public bool ForType(IGqlpType ast, GqlpGeneratorType generatorType)
+    => ast is TType && generatorType == GeneratorType;
 
   public void GenerateType(IGqlpType ast, GqlpGeneratorContext context)
-    => Generate((TType)ast, context);
+  {
+    if (ast is TType type && context.GeneratorOptions.GeneratorType == GeneratorType) {
+      Generate(type, context);
+    }
+  }
+
+  protected abstract void Generate(TType ast, GqlpGeneratorContext context);
 
   protected delegate void GenerateDelegate(TType ast, GqlpGeneratorContext context);
   protected delegate IEnumerable<TItem> GenerateMembers<TItem>(TType ast, GqlpGeneratorContext context);
   protected delegate void GenerateMember<TItem>(TItem item, GqlpGeneratorContext context);
-
-  protected Dictionary<GqlpGeneratorType, GenerateDelegate> _generators = [];
-
-  private void Generate(TType ast, GqlpGeneratorContext context)
-  {
-    if (_generators.TryGetValue(context.GeneratorOptions.GeneratorType, out GenerateDelegate? generator)) {
-      generator(ast, context);
-    }
-  }
-
-  protected void AddGenerator<TItem>(
-    GqlpGeneratorType type,
-    GenerateDelegate head,
-    GenerateMembers<TItem> members,
-    GenerateMember<TItem> member,
-    GenerateDelegate? tail = null)
-    => _generators[type] = (ast, context) => GenerateBlock(ast, context, head, members, member, tail);
 
   protected static void GenerateBlock<TItem>(
     TType ast,

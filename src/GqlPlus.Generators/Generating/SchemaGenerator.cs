@@ -19,9 +19,10 @@ internal sealed class SchemaGenerator(
     context.WritePrefixLine($"namespace {nameSpace}.Gqlp_" + context.SafeFile + ";");
 
     GqlpGeneratorType generatorType = context.GeneratorOptions.GeneratorType;
-    foreach (IGqlpType type in types) {
-      ITypeGenerator? generator = generators.TypeGenerators.FirstOrDefault(g => g.ForType(type, generatorType));
-      generator?.GenerateType(type, context);
+    if (generators.TypeGenerators.TryGetValue(generatorType, out IEnumerable<ITypeGenerator>? typeGenerators)) {
+      foreach (IGqlpType type in types) {
+        typeGenerators.FirstOrDefault(g => g.ForType(type, generatorType))?.GenerateType(type, context);
+      }
     }
   }
 

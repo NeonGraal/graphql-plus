@@ -4,7 +4,7 @@ namespace GqlPlus.Generating.Simple;
 internal sealed class EnumGenerator
   : GenerateForType<IGqlpEnum>
 {
-  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Enum;
+  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Enum;
 
   protected override void Generate(IGqlpEnum ast, GqlpGeneratorContext context)
     => GenerateBlock(ast, context, EnumHeader, EnumMembers, EnumMember);

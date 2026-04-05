@@ -7,5 +7,5 @@ internal interface IGeneratorRepository
   IGenerator<TAst> GeneratorFor<TAst>()
     where TAst : IGqlpError;
 
-  IEnumerable<ITypeGenerator> TypeGenerators { get; }
+  IDictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> TypeGenerators { get; }
 }

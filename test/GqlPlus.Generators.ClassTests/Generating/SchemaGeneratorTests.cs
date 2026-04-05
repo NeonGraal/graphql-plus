@@ -7,7 +7,7 @@ public class SchemaGeneratorTests
   private readonly IGenerator<IGqlpSchemaCategory> _categoryGenerator = GFor<IGqlpSchemaCategory>();
   private readonly IGenerator<IGqlpSchemaDirective> _directiveGenerator = GFor<IGqlpSchemaDirective>();
   private readonly IGenerator<IGqlpSchemaOption> _optionGenerator = GFor<IGqlpSchemaOption>();
-  private readonly List<ITypeGenerator> _typeGenerators = [];
+  private readonly Dictionary<GqlpGeneratorType, IEnumerable<ITypeGenerator>> _typeGenerators = [];
 
   private readonly SchemaGenerator _generator;
 
@@ -32,7 +32,7 @@ public class SchemaGeneratorTests
     ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
     typeGenerator.ForType(type, Arg.Any<GqlpGeneratorType>()).Returns(true);
 
-    _typeGenerators.Add(typeGenerator);
+    _typeGenerators[GqlpGeneratorType.Model] = [typeGenerator];
 
     // Act
     _generator.Generate(schema, context);

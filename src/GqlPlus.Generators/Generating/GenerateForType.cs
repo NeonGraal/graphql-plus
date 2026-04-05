@@ -5,7 +5,7 @@ internal abstract class GenerateForType<TType>
   : ITypeGenerator
   where TType : IGqlpType
 {
-  internal abstract GqlpGeneratorType GeneratorType { get; }
+  public abstract GqlpGeneratorType GeneratorType { get; }
 
   public bool ForType(IGqlpType ast, GqlpGeneratorType generatorType)
     => ast is TType && generatorType == GeneratorType;

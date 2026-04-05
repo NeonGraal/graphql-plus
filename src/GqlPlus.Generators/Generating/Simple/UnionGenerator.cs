@@ -16,7 +16,7 @@ internal abstract class UnionGeneratorBase
 internal sealed class UnionInterfaceGenerator
   : UnionGeneratorBase
 {
-  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
+  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 
   protected override void Generate(IGqlpUnion ast, GqlpGeneratorContext context)
     => GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
@@ -25,7 +25,7 @@ internal sealed class UnionInterfaceGenerator
 internal sealed class UnionModelGenerator
   : UnionGeneratorBase
 {
-  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Model;
+  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Model;
 
   protected override void Generate(IGqlpUnion ast, GqlpGeneratorContext context)
     => GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);

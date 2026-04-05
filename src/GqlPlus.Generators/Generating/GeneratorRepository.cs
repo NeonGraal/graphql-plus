@@ -15,9 +15,7 @@ internal class GeneratorRepository
   {
     _builder = builder;
     _typeGenerators = new(() => builder.TypeGenerators
-      .Select(f => (ITypeGenerator)f(this))
-      .GroupBy(g => g.GeneratorType)
-      .ToDictionary(g => g.Key, g => (IEnumerable<ITypeGenerator>)g.ToList()));
+      .ToDictionary(kv => kv.Key, kv => (IEnumerable<ITypeGenerator>)kv.Value));
   }
 
   public IGenerator<TAst> GeneratorFor<TAst>()

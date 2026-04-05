@@ -32,10 +32,11 @@ public class AllGeneratorsTests
   [Fact]
   public void AllGenerators_TypeGeneratorFactories_ReturnNotNull()
   {
-    IGeneratorRepository repo = _services.GetRequiredService<IGeneratorRepository>();
     GeneratorRepositoryBuilder builder = _services.GetRequiredService<GeneratorRepositoryBuilder>();
 
-    repo.ShouldSatisfyAllConditions([.. builder.TypeGenerators.Select(CheckGenerator)]);
+    builder.TypeGenerators.Values
+      .SelectMany(gs => gs)
+      .ShouldNotContain((ITypeGenerator?)null);
   }
 
   private static Action<IGeneratorRepository> CheckGenerator(Factory<object, IGeneratorRepository> factory)

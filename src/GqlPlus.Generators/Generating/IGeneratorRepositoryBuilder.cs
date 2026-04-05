@@ -7,5 +7,5 @@ internal interface IGeneratorRepositoryBuilder
   IGeneratorRepositoryBuilder AddGenerator<TAst>(Factory<IGenerator<TAst>, IGeneratorRepository> factory)
     where TAst : IGqlpError;
 
-  IGeneratorRepositoryBuilder AddTypeGenerator(GqlpGeneratorType generatorType, ITypeGenerator generator);
+  IGeneratorRepositoryBuilder AddTypeGenerator(GqlpGeneratorType generatorType, Factory<ITypeGenerator, IGeneratorRepository> factory);
 }

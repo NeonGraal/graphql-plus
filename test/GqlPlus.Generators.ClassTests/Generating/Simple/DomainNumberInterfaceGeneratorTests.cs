@@ -1,16 +1,11 @@
-﻿using GqlPlus.Building.Schema.Objects;
+﻿namespace GqlPlus.Generating.Simple;
 
-namespace GqlPlus.Generating.Objects;
-
-public class OutputGeneratorParentTests
-  : GenerateObjectParentTestsBase<IGqlpOutputField>
+public class DomainNumberInterfaceGeneratorTests
+  : GenerateDomainTestsBase<IGqlpDomainRange>
 {
-  public OutputGeneratorParentTests()
-    : base(TypeKind.Output)
-  { }
-
-  internal override GenerateForType<IGqlpObject<IGqlpOutputField>> TypeGenerator { get; }
-    = new OutputInterfaceGenerator();
+  protected override DomainKind Kind => DomainKind.Number;
+  internal override GenerateBaseDomain<IGqlpDomainRange> Generator { get; }
+    = new DomainNumberInterfaceGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 
   internal override ForType ForGeneratedCodeName(string name)
@@ -25,6 +20,6 @@ public class OutputGeneratorParentTests
   internal override ForType ForGeneratedImplementation(string contains)
     => _ => result => { };
 
-  protected override ObjFieldBuilder<IGqlpOutputField> MakeField(string name, string type)
-    => new OutputFieldBuilder(name, type);
+  protected override IGqlpDomainRange MakeDomainItem(string item)
+    => A.ItemRange(item?.Length ?? 0);
 }

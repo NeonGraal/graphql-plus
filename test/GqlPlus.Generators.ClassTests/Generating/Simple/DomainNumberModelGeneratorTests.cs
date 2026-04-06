@@ -1,24 +1,21 @@
-﻿namespace GqlPlus.Generating.Simple;
+namespace GqlPlus.Generating.Simple;
 
-public class DomainNumberGeneratorTests
+public class DomainNumberModelGeneratorTests
   : GenerateDomainTestsBase<IGqlpDomainRange>
 {
   protected override DomainKind Kind => DomainKind.Number;
   internal override GenerateBaseDomain<IGqlpDomainRange> Generator { get; }
-    = new DomainNumberInterfaceGenerator();
-  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
+    = new DomainNumberModelGenerator();
+  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Model;
 
   internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedInterface("public interface I" + TestPrefix + name);
+    => ForGeneratedImplementation("public class " + TestPrefix + name);
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => ForGeneratedInterface(": I" + parent);
+    => ForGeneratedImplementation(": " + parent);
 
   internal override ForType ForGeneratedBoth(string contains)
-    => ForGeneratedInterface(contains);
-
-  internal override ForType ForGeneratedImplementation(string contains)
-    => _ => result => { };
+    => ForGeneratedImplementation(contains);
 
   protected override IGqlpDomainRange MakeDomainItem(string item)
     => A.ItemRange(item?.Length ?? 0);

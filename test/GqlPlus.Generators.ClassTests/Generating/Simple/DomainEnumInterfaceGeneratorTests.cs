@@ -1,16 +1,11 @@
-﻿using GqlPlus.Building.Schema.Objects;
+﻿namespace GqlPlus.Generating.Simple;
 
-namespace GqlPlus.Generating.Objects;
-
-public class InputGeneratorParentTests
-  : GenerateObjectParentTestsBase<IGqlpInputField>
+public class DomainEnumInterfaceGeneratorTests
+  : GenerateDomainTestsBase<IGqlpDomainLabel>
 {
-  public InputGeneratorParentTests()
-    : base(TypeKind.Input)
-  { }
-
-  internal override GenerateForType<IGqlpObject<IGqlpInputField>> TypeGenerator { get; }
-    = new InputInterfaceGenerator();
+  protected override DomainKind Kind => DomainKind.Enum;
+  internal override GenerateBaseDomain<IGqlpDomainLabel> Generator { get; }
+    = new DomainEnumInterfaceGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 
   internal override ForType ForGeneratedCodeName(string name)
@@ -25,6 +20,6 @@ public class InputGeneratorParentTests
   internal override ForType ForGeneratedImplementation(string contains)
     => _ => result => { };
 
-  protected override ObjFieldBuilder<IGqlpInputField> MakeField(string name, string type)
-    => new InputFieldBuilder(name, type);
+  protected override IGqlpDomainLabel MakeDomainItem(string item)
+    => A.ItemLabel("", item);
 }

@@ -2,12 +2,12 @@
 
 namespace GqlPlus.Generating.Simple;
 
-public class UnionGeneratorTests
+public class UnionInterfaceGeneratorTests
   : GenerateSimpleTestsBase<IGqlpUnion>
 {
   private readonly UnionInterfaceGenerator _generator;
 
-  public UnionGeneratorTests()
+  public UnionInterfaceGeneratorTests()
     => _generator = new UnionInterfaceGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 

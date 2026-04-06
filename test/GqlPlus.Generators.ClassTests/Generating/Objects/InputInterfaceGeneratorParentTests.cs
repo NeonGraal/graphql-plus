@@ -1,11 +1,16 @@
-﻿namespace GqlPlus.Generating.Simple;
+﻿using GqlPlus.Building.Schema.Objects;
 
-public class DomainBooleanGeneratorTests
-  : GenerateDomainTestsBase<IGqlpDomainTrueFalse>
+namespace GqlPlus.Generating.Objects;
+
+public class InputInterfaceGeneratorParentTests
+  : GenerateObjectParentTestsBase<IGqlpInputField>
 {
-  protected override DomainKind Kind => DomainKind.Boolean;
-  internal override GenerateBaseDomain<IGqlpDomainTrueFalse> Generator { get; }
-    = new DomainBooleanInterfaceGenerator();
+  public InputInterfaceGeneratorParentTests()
+    : base(TypeKind.Input)
+  { }
+
+  internal override GenerateForType<IGqlpObject<IGqlpInputField>> TypeGenerator { get; }
+    = new InputInterfaceGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 
   internal override ForType ForGeneratedCodeName(string name)
@@ -20,6 +25,6 @@ public class DomainBooleanGeneratorTests
   internal override ForType ForGeneratedImplementation(string contains)
     => _ => result => { };
 
-  protected override IGqlpDomainTrueFalse MakeDomainItem(string item)
-    => A.ItemTrueFalse(item?.Length % 2 == 1);
+  protected override ObjFieldBuilder<IGqlpInputField> MakeField(string name, string type)
+    => new InputFieldBuilder(name, type);
 }

@@ -8,6 +8,10 @@ internal class GeneratorRepositoryBuilder
   internal readonly FactoryDict Generators = [];
   internal readonly Dictionary<GqlpGeneratorType, List<Factory<ITypeGenerator, IGeneratorRepository>>> TypeGenerators = [];
 
+  public IGeneratorRepositoryBuilder AddBothTypeGenerators(Factory<ITypeGenerator, IGeneratorRepository> interfaceFactory, Factory<ITypeGenerator, IGeneratorRepository> modelFactory)
+    => AddTypeGenerator(GqlpGeneratorType.Interface, interfaceFactory)
+      .AddTypeGenerator(GqlpGeneratorType.Model, modelFactory);
+
   public IGeneratorRepositoryBuilder AddGenerator<TAst>(Factory<IGenerator<TAst>, IGeneratorRepository> factory)
     where TAst : IGqlpError
     => this.FluentAction(b => b.Generators[typeof(TAst)] = factory);

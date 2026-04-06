@@ -33,23 +33,15 @@ public static class AllGenerators
   internal static IGeneratorRepositoryBuilder AddSchemaSimpleGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
       .AddTypeGenerator(GqlpGeneratorType.Enum, _ => new EnumGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Interface, _ => new DomainBooleanInterfaceGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Model, _ => new DomainBooleanModelGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Interface, _ => new DomainEnumInterfaceGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Model, _ => new DomainEnumModelGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Interface, _ => new DomainNumberInterfaceGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Model, _ => new DomainNumberModelGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Interface, _ => new DomainStringInterfaceGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Model, _ => new DomainStringModelGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Interface, _ => new UnionInterfaceGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Model, _ => new UnionModelGenerator());
+      .AddBothTypeGenerators(_ => new DomainBooleanInterfaceGenerator(), _ => new DomainBooleanModelGenerator())
+      .AddBothTypeGenerators(_ => new DomainEnumInterfaceGenerator(), _ => new DomainEnumModelGenerator())
+      .AddBothTypeGenerators(_ => new DomainNumberInterfaceGenerator(), _ => new DomainNumberModelGenerator())
+      .AddBothTypeGenerators(_ => new DomainStringInterfaceGenerator(), _ => new DomainStringModelGenerator())
+      .AddBothTypeGenerators(_ => new UnionInterfaceGenerator(), _ => new UnionModelGenerator());
 
   internal static IGeneratorRepositoryBuilder AddSchemaObjectGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddTypeGenerator(GqlpGeneratorType.Interface, _ => new DualInterfaceGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Model, _ => new DualModelGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Interface, _ => new InputInterfaceGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Model, _ => new InputModelGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Interface, _ => new OutputInterfaceGenerator())
-      .AddTypeGenerator(GqlpGeneratorType.Model, _ => new OutputModelGenerator());
+      .AddBothTypeGenerators(_ => new DualInterfaceGenerator(), _ => new DualModelGenerator())
+      .AddBothTypeGenerators(_ => new InputInterfaceGenerator(), _ => new InputModelGenerator())
+      .AddBothTypeGenerators(_ => new OutputInterfaceGenerator(), _ => new OutputModelGenerator());
 }

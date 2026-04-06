@@ -64,7 +64,7 @@ public class EnumGeneratorTests
     // Assert
     context.CheckFor(
       ForGeneratedCodeName(enumName),
-      ForGeneratedEnum(labelName + ","));
+      ForGeneratedInterface(labelName + ","));
   }
 
   [Theory, RepeatData]
@@ -83,8 +83,8 @@ public class EnumGeneratorTests
     // Assert
     context.CheckFor(
       ForGeneratedCodeName(enumName),
-      ForGeneratedEnum(labelName),
-      ForGeneratedEnum($"{alias} = {labelName}"));
+      ForGeneratedInterface(labelName),
+      ForGeneratedInterface($"{alias} = {labelName}"));
   }
 
   [Theory, RepeatData]
@@ -105,7 +105,7 @@ public class EnumGeneratorTests
     // Assert
     context.CheckFor(
       ForGeneratedCodeName(enumName),
-      ForGeneratedEnum($"{labelName} = {TestPrefix}{parentName}.{labelName},"));
+      ForGeneratedInterface($"{labelName} = {TestPrefix}{parentName}.{labelName},"));
   }
 
   [Theory, RepeatData]
@@ -129,13 +129,13 @@ public class EnumGeneratorTests
 
     // Assert
     context.CheckFor(
-      ForGeneratedEnum("public enum " + TestPrefix + enumName),
-      ForGeneratedEnum($"{labelName} = {TestPrefix}{parentName}.{labelName},"),
-      ForGeneratedEnum($"{alias} = {TestPrefix}{parentName}.{labelName}"));
+      ForGeneratedInterface("public enum " + TestPrefix + enumName),
+      ForGeneratedInterface($"{labelName} = {TestPrefix}{parentName}.{labelName},"),
+      ForGeneratedInterface($"{alias} = {TestPrefix}{parentName}.{labelName}"));
   }
 
   internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedEnum("public enum " + TestPrefix + name);
+    => ForGeneratedInterface("public enum " + TestPrefix + name);
 
   internal override ForType ForGeneratedCodeParent(string parent)
     => generatorType => r => { };

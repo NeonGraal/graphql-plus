@@ -64,11 +64,6 @@ public abstract class GenerateTypeClassTestsBase
       ? r => r.ShouldContain(contains)
       : r => { };
 
-  internal ForType ForGeneratedEnum(string contains)
-    => generatorType => GqlpGeneratorType.Interface == generatorType
-      ? r => r.ShouldContain(contains)
-      : r => r.ShouldBeEmpty();
-
   internal virtual ForType ForGeneratedBoth(string contains)
     => ForGeneratedEither(contains, contains);
 

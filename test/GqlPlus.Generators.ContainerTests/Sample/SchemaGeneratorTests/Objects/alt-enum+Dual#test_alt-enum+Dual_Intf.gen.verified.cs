@@ -18,3 +18,8 @@ public interface ItestAltEnumDualObject
   : IGqlpModelImplementationBase
 {
 }
+
+public enum testEnumAltEnumDual
+{
+  altEnumDual,
+}

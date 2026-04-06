@@ -30,3 +30,14 @@ public interface ItestRefCnstPrntEnumDualObject<TType>
 {
   TType Field { get; }
 }
+
+public enum testEnumCnstPrntEnumDual
+{
+  parentCnstPrntEnumDual = testParentCnstPrntEnumDual.parentCnstPrntEnumDual,
+  cnstPrntEnumDual,
+}
+
+public enum testParentCnstPrntEnumDual
+{
+  parentCnstPrntEnumDual,
+}

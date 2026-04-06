@@ -30,3 +30,8 @@ public interface ItestRefGnrcValueInpObject<TType>
 {
   TType Field { get; }
 }
+
+public enum testEnumGnrcValueInp
+{
+  gnrcValueInp,
+}

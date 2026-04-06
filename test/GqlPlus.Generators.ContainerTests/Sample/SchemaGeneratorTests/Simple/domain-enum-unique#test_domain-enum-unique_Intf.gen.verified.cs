@@ -11,3 +11,17 @@ public interface ItestDmnEnumUnq
   : IGqlpDomainEnum
 {
 }
+
+public enum testEnumDmnEnumUnq
+{
+  enum_dmnEnumUnq,
+  dmnEnumUnq,
+  dmnEnumUnqValue,
+}
+
+public enum testDupDmnEnumUnq
+{
+  dmnEnumUnq,
+  dup_dmnEnumUnq,
+  dmnEnumUnqDup,
+}

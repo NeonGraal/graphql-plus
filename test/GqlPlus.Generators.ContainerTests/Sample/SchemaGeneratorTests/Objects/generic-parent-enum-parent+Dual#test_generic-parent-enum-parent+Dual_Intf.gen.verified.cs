@@ -29,3 +29,14 @@ public interface ItestFieldGnrcPrntEnumPrntDualObject<TRef>
 {
   TRef Field { get; }
 }
+
+public enum testEnumGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent = testParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
+  gnrcPrntEnumPrntDualLabel,
+}
+
+public enum testParentGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent,
+}

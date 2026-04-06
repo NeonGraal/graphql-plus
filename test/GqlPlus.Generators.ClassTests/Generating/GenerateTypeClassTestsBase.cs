@@ -65,7 +65,7 @@ public abstract class GenerateTypeClassTestsBase
       : r => { };
 
   internal ForType ForGeneratedEnum(string contains)
-    => generatorType => GqlpGeneratorType.Enum == generatorType
+    => generatorType => GqlpGeneratorType.Interface == generatorType
       ? r => r.ShouldContain(contains)
       : r => r.ShouldBeEmpty();
 
@@ -95,7 +95,6 @@ public class BaseGeneratorData
   {
     Add(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     Add(GqlpBaseType.Class, GqlpGeneratorType.Model);
-    Add(GqlpBaseType.Other, GqlpGeneratorType.Enum);
     Add(GqlpBaseType.Other, GqlpGeneratorType.Static);
     Add(GqlpBaseType.Class, GqlpGeneratorType.Test);
   }

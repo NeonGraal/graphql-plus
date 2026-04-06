@@ -205,6 +205,11 @@ public interface ItestAltEnumDualObject
 {
 }
 
+public enum testEnumAltEnumDual
+{
+  altEnumDual,
+}
+
 public interface ItestAltEnumInp
   : IGqlpModelImplementationBase
 {
@@ -217,6 +222,11 @@ public interface ItestAltEnumInpObject
 {
 }
 
+public enum testEnumAltEnumInp
+{
+  altEnumInp,
+}
+
 public interface ItestAltEnumOutp
   : IGqlpModelImplementationBase
 {
@@ -227,6 +237,11 @@ public interface ItestAltEnumOutp
 public interface ItestAltEnumOutpObject
   : IGqlpModelImplementationBase
 {
+}
+
+public enum testEnumAltEnumOutp
+{
+  altEnumOutp,
 }
 
 public interface ItestAltModBoolDual
@@ -850,6 +865,12 @@ public interface ItestRefCnstDomEnumDualObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumCnstDomEnumDual
+{
+  cnstDomEnumDual,
+  other,
+}
+
 public interface ItestJustCnstDomEnumDual
   : IGqlpDomainEnum
 {
@@ -877,6 +898,12 @@ public interface ItestRefCnstDomEnumInpObject<TType>
   : IGqlpModelImplementationBase
 {
   TType Field { get; }
+}
+
+public enum testEnumCnstDomEnumInp
+{
+  cnstDomEnumInp,
+  other,
 }
 
 public interface ItestJustCnstDomEnumInp
@@ -908,6 +935,12 @@ public interface ItestRefCnstDomEnumOutpObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumCnstDomEnumOutp
+{
+  cnstDomEnumOutp,
+  other,
+}
+
 public interface ItestJustCnstDomEnumOutp
   : IGqlpDomainEnum
 {
@@ -937,6 +970,11 @@ public interface ItestRefCnstEnumDualObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumCnstEnumDual
+{
+  cnstEnumDual,
+}
+
 public interface ItestCnstEnumInp
   : IGqlpModelImplementationBase
 {
@@ -959,6 +997,11 @@ public interface ItestRefCnstEnumInpObject<TType>
   : IGqlpModelImplementationBase
 {
   TType Field { get; }
+}
+
+public enum testEnumCnstEnumInp
+{
+  cnstEnumInp,
 }
 
 public interface ItestCnstEnumOutp
@@ -985,6 +1028,11 @@ public interface ItestRefCnstEnumOutpObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumCnstEnumOutp
+{
+  cnstEnumOutp,
+}
+
 public interface ItestCnstEnumPrntDual
   : IGqlpModelImplementationBase
 {
@@ -1007,6 +1055,17 @@ public interface ItestRefCnstEnumPrntDualObject<TType>
   : IGqlpModelImplementationBase
 {
   TType Field { get; }
+}
+
+public enum testEnumCnstEnumPrntDual
+{
+  parentCnstEnumPrntDual = testParentCnstEnumPrntDual.parentCnstEnumPrntDual,
+  cnstEnumPrntDual,
+}
+
+public enum testParentCnstEnumPrntDual
+{
+  parentCnstEnumPrntDual,
 }
 
 public interface ItestCnstEnumPrntInp
@@ -1033,6 +1092,17 @@ public interface ItestRefCnstEnumPrntInpObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumCnstEnumPrntInp
+{
+  parentCnstEnumPrntInp = testParentCnstEnumPrntInp.parentCnstEnumPrntInp,
+  cnstEnumPrntInp,
+}
+
+public enum testParentCnstEnumPrntInp
+{
+  parentCnstEnumPrntInp,
+}
+
 public interface ItestCnstEnumPrntOutp
   : IGqlpModelImplementationBase
 {
@@ -1055,6 +1125,17 @@ public interface ItestRefCnstEnumPrntOutpObject<TType>
   : IGqlpModelImplementationBase
 {
   TType Field { get; }
+}
+
+public enum testEnumCnstEnumPrntOutp
+{
+  parentCnstEnumPrntOutp = testParentCnstEnumPrntOutp.parentCnstEnumPrntOutp,
+  cnstEnumPrntOutp,
+}
+
+public enum testParentCnstEnumPrntOutp
+{
+  parentCnstEnumPrntOutp,
 }
 
 public interface ItestCnstFieldDmnDual
@@ -1762,6 +1843,17 @@ public interface ItestRefCnstPrntEnumDualObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumCnstPrntEnumDual
+{
+  parentCnstPrntEnumDual = testParentCnstPrntEnumDual.parentCnstPrntEnumDual,
+  cnstPrntEnumDual,
+}
+
+public enum testParentCnstPrntEnumDual
+{
+  parentCnstPrntEnumDual,
+}
+
 public interface ItestCnstPrntEnumInp
   : IGqlpModelImplementationBase
 {
@@ -1786,6 +1878,17 @@ public interface ItestRefCnstPrntEnumInpObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumCnstPrntEnumInp
+{
+  parentCnstPrntEnumInp = testParentCnstPrntEnumInp.parentCnstPrntEnumInp,
+  cnstPrntEnumInp,
+}
+
+public enum testParentCnstPrntEnumInp
+{
+  parentCnstPrntEnumInp,
+}
+
 public interface ItestCnstPrntEnumOutp
   : IGqlpModelImplementationBase
 {
@@ -1808,6 +1911,17 @@ public interface ItestRefCnstPrntEnumOutpObject<TType>
   : IGqlpModelImplementationBase
 {
   TType Field { get; }
+}
+
+public enum testEnumCnstPrntEnumOutp
+{
+  parentCnstPrntEnumOutp = testParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
+  cnstPrntEnumOutp,
+}
+
+public enum testParentCnstPrntEnumOutp
+{
+  parentCnstPrntEnumOutp,
 }
 
 public interface ItestCnstPrntObjPrntDual
@@ -2110,6 +2224,11 @@ public interface ItestFieldEnumDualObject
   testEnumFieldEnumDual Field { get; }
 }
 
+public enum testEnumFieldEnumDual
+{
+  fieldEnumDual,
+}
+
 public interface ItestFieldEnumInp
   : IGqlpModelImplementationBase
 {
@@ -2120,6 +2239,11 @@ public interface ItestFieldEnumInpObject
   : IGqlpModelImplementationBase
 {
   testEnumFieldEnumInp Field { get; }
+}
+
+public enum testEnumFieldEnumInp
+{
+  fieldEnumInp,
 }
 
 public interface ItestFieldEnumOutp
@@ -2134,6 +2258,11 @@ public interface ItestFieldEnumOutpObject
   testEnumFieldEnumOutp Field { get; }
 }
 
+public enum testEnumFieldEnumOutp
+{
+  fieldEnumOutp,
+}
+
 public interface ItestFieldEnumPrntDual
   : IGqlpModelImplementationBase
 {
@@ -2144,6 +2273,17 @@ public interface ItestFieldEnumPrntDualObject
   : IGqlpModelImplementationBase
 {
   testEnumFieldEnumPrntDual Field { get; }
+}
+
+public enum testEnumFieldEnumPrntDual
+{
+  prnt_fieldEnumPrntDual = testPrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
+  fieldEnumPrntDual,
+}
+
+public enum testPrntFieldEnumPrntDual
+{
+  prnt_fieldEnumPrntDual,
 }
 
 public interface ItestFieldEnumPrntInp
@@ -2158,6 +2298,17 @@ public interface ItestFieldEnumPrntInpObject
   testEnumFieldEnumPrntInp Field { get; }
 }
 
+public enum testEnumFieldEnumPrntInp
+{
+  prnt_fieldEnumPrntInp = testPrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
+  fieldEnumPrntInp,
+}
+
+public enum testPrntFieldEnumPrntInp
+{
+  prnt_fieldEnumPrntInp,
+}
+
 public interface ItestFieldEnumPrntOutp
   : IGqlpModelImplementationBase
 {
@@ -2168,6 +2319,17 @@ public interface ItestFieldEnumPrntOutpObject
   : IGqlpModelImplementationBase
 {
   testEnumFieldEnumPrntOutp Field { get; }
+}
+
+public enum testEnumFieldEnumPrntOutp
+{
+  prnt_fieldEnumPrntOutp = testPrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
+  fieldEnumPrntOutp,
+}
+
+public enum testPrntFieldEnumPrntOutp
+{
+  prnt_fieldEnumPrntOutp,
 }
 
 public interface ItestFieldModEnumDual
@@ -2182,6 +2344,11 @@ public interface ItestFieldModEnumDualObject
   IDictionary<testEnumFieldModEnumDual, string> Field { get; }
 }
 
+public enum testEnumFieldModEnumDual
+{
+  value,
+}
+
 public interface ItestFieldModEnumInp
   : IGqlpModelImplementationBase
 {
@@ -2194,6 +2361,11 @@ public interface ItestFieldModEnumInpObject
   IDictionary<testEnumFieldModEnumInp, string> Field { get; }
 }
 
+public enum testEnumFieldModEnumInp
+{
+  value,
+}
+
 public interface ItestFieldModEnumOutp
   : IGqlpModelImplementationBase
 {
@@ -2204,6 +2376,11 @@ public interface ItestFieldModEnumOutpObject
   : IGqlpModelImplementationBase
 {
   IDictionary<testEnumFieldModEnumOutp, string> Field { get; }
+}
+
+public enum testEnumFieldModEnumOutp
+{
+  value,
 }
 
 public interface ItestFieldModParamDual<TMod>
@@ -2440,6 +2617,11 @@ public interface ItestFieldValueDualObject
   testEnumFieldValueDual Field { get; }
 }
 
+public enum testEnumFieldValueDual
+{
+  fieldValueDual,
+}
+
 public interface ItestFieldValueInp
   : IGqlpModelImplementationBase
 {
@@ -2450,6 +2632,11 @@ public interface ItestFieldValueInpObject
   : IGqlpModelImplementationBase
 {
   testEnumFieldValueInp Field { get; }
+}
+
+public enum testEnumFieldValueInp
+{
+  fieldValueInp,
 }
 
 public interface ItestFieldValueOutp
@@ -2464,6 +2651,11 @@ public interface ItestFieldValueOutpObject
   testEnumFieldValueOutp Field { get; }
 }
 
+public enum testEnumFieldValueOutp
+{
+  fieldValueOutp,
+}
+
 public interface ItestFieldValueDescrDual
   : IGqlpModelImplementationBase
 {
@@ -2474,6 +2666,11 @@ public interface ItestFieldValueDescrDualObject
   : IGqlpModelImplementationBase
 {
   testEnumFieldValueDescrDual Field { get; }
+}
+
+public enum testEnumFieldValueDescrDual
+{
+  fieldValueDescrDual,
 }
 
 public interface ItestFieldValueDescrInp
@@ -2488,6 +2685,11 @@ public interface ItestFieldValueDescrInpObject
   testEnumFieldValueDescrInp Field { get; }
 }
 
+public enum testEnumFieldValueDescrInp
+{
+  fieldValueDescrInp,
+}
+
 public interface ItestFieldValueDescrOutp
   : IGqlpModelImplementationBase
 {
@@ -2498,6 +2700,11 @@ public interface ItestFieldValueDescrOutpObject
   : IGqlpModelImplementationBase
 {
   testEnumFieldValueDescrOutp Field { get; }
+}
+
+public enum testEnumFieldValueDescrOutp
+{
+  fieldValueDescrOutp,
 }
 
 public interface ItestGnrcAltDual<TType>
@@ -3106,6 +3313,11 @@ public interface ItestRefGnrcEnumDualObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumGnrcEnumDual
+{
+  gnrcEnumDual,
+}
+
 public interface ItestGnrcEnumInp
   : IGqlpModelImplementationBase
 {
@@ -3130,6 +3342,11 @@ public interface ItestRefGnrcEnumInpObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumGnrcEnumInp
+{
+  gnrcEnumInp,
+}
+
 public interface ItestGnrcEnumOutp
   : IGqlpModelImplementationBase
 {
@@ -3152,6 +3369,11 @@ public interface ItestRefGnrcEnumOutpObject<TType>
   : IGqlpModelImplementationBase
 {
   TType Field { get; }
+}
+
+public enum testEnumGnrcEnumOutp
+{
+  gnrcEnumOutp,
 }
 
 public interface ItestGnrcFieldDual<TType>
@@ -3864,6 +4086,17 @@ public interface ItestFieldGnrcPrntEnumChildDualObject<TRef>
   TRef Field { get; }
 }
 
+public enum testEnumGnrcPrntEnumChildDual
+{
+  gnrcPrntEnumChildDualParent = testParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
+  gnrcPrntEnumChildDualLabel,
+}
+
+public enum testParentGnrcPrntEnumChildDual
+{
+  gnrcPrntEnumChildDualParent,
+}
+
 public interface ItestGnrcPrntEnumChildInp
   : ItestFieldGnrcPrntEnumChildInp<testParentGnrcPrntEnumChildInp>
 {
@@ -3885,6 +4118,17 @@ public interface ItestFieldGnrcPrntEnumChildInpObject<TRef>
   : IGqlpModelImplementationBase
 {
   TRef Field { get; }
+}
+
+public enum testEnumGnrcPrntEnumChildInp
+{
+  gnrcPrntEnumChildInpParent = testParentGnrcPrntEnumChildInp.gnrcPrntEnumChildInpParent,
+  gnrcPrntEnumChildInpLabel,
+}
+
+public enum testParentGnrcPrntEnumChildInp
+{
+  gnrcPrntEnumChildInpParent,
 }
 
 public interface ItestGnrcPrntEnumChildOutp
@@ -3910,6 +4154,17 @@ public interface ItestFieldGnrcPrntEnumChildOutpObject<TRef>
   TRef Field { get; }
 }
 
+public enum testEnumGnrcPrntEnumChildOutp
+{
+  gnrcPrntEnumChildOutpParent = testParentGnrcPrntEnumChildOutp.gnrcPrntEnumChildOutpParent,
+  gnrcPrntEnumChildOutpLabel,
+}
+
+public enum testParentGnrcPrntEnumChildOutp
+{
+  gnrcPrntEnumChildOutpParent,
+}
+
 public interface ItestGnrcPrntEnumDomDual
   : ItestFieldGnrcPrntEnumDomDual<ItestDomGnrcPrntEnumDomDual>
 {
@@ -3931,6 +4186,12 @@ public interface ItestFieldGnrcPrntEnumDomDualObject<TRef>
   : IGqlpModelImplementationBase
 {
   TRef Field { get; }
+}
+
+public enum testEnumGnrcPrntEnumDomDual
+{
+  gnrcPrntEnumDomDualLabel,
+  gnrcPrntEnumDomDualOther,
 }
 
 public interface ItestDomGnrcPrntEnumDomDual
@@ -3961,6 +4222,12 @@ public interface ItestFieldGnrcPrntEnumDomInpObject<TRef>
   TRef Field { get; }
 }
 
+public enum testEnumGnrcPrntEnumDomInp
+{
+  gnrcPrntEnumDomInpLabel,
+  gnrcPrntEnumDomInpOther,
+}
+
 public interface ItestDomGnrcPrntEnumDomInp
   : IGqlpDomainEnum
 {
@@ -3987,6 +4254,12 @@ public interface ItestFieldGnrcPrntEnumDomOutpObject<TRef>
   : IGqlpModelImplementationBase
 {
   TRef Field { get; }
+}
+
+public enum testEnumGnrcPrntEnumDomOutp
+{
+  gnrcPrntEnumDomOutpLabel,
+  gnrcPrntEnumDomOutpOther,
 }
 
 public interface ItestDomGnrcPrntEnumDomOutp
@@ -4017,6 +4290,17 @@ public interface ItestFieldGnrcPrntEnumPrntDualObject<TRef>
   TRef Field { get; }
 }
 
+public enum testEnumGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent = testParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
+  gnrcPrntEnumPrntDualLabel,
+}
+
+public enum testParentGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent,
+}
+
 public interface ItestGnrcPrntEnumPrntInp
   : ItestFieldGnrcPrntEnumPrntInp<testEnumGnrcPrntEnumPrntInp>
 {
@@ -4040,6 +4324,17 @@ public interface ItestFieldGnrcPrntEnumPrntInpObject<TRef>
   TRef Field { get; }
 }
 
+public enum testEnumGnrcPrntEnumPrntInp
+{
+  gnrcPrntEnumPrntInpParent = testParentGnrcPrntEnumPrntInp.gnrcPrntEnumPrntInpParent,
+  gnrcPrntEnumPrntInpLabel,
+}
+
+public enum testParentGnrcPrntEnumPrntInp
+{
+  gnrcPrntEnumPrntInpParent,
+}
+
 public interface ItestGnrcPrntEnumPrntOutp
   : ItestFieldGnrcPrntEnumPrntOutp<testEnumGnrcPrntEnumPrntOutp>
 {
@@ -4061,6 +4356,17 @@ public interface ItestFieldGnrcPrntEnumPrntOutpObject<TRef>
   : IGqlpModelImplementationBase
 {
   TRef Field { get; }
+}
+
+public enum testEnumGnrcPrntEnumPrntOutp
+{
+  gnrcPrntEnumPrntOutpParent = testParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
+  gnrcPrntEnumPrntOutpLabel,
+}
+
+public enum testParentGnrcPrntEnumPrntOutp
+{
+  gnrcPrntEnumPrntOutpParent,
 }
 
 public interface ItestGnrcPrntParamDual
@@ -4302,6 +4608,11 @@ public interface ItestFieldGnrcPrntSmplEnumDualObject<TRef>
   TRef Field { get; }
 }
 
+public enum testEnumGnrcPrntSmplEnumDual
+{
+  gnrcPrntSmplEnumDual,
+}
+
 public interface ItestGnrcPrntSmplEnumInp
   : ItestFieldGnrcPrntSmplEnumInp<testEnumGnrcPrntSmplEnumInp>
 {
@@ -4325,6 +4636,11 @@ public interface ItestFieldGnrcPrntSmplEnumInpObject<TRef>
   TRef Field { get; }
 }
 
+public enum testEnumGnrcPrntSmplEnumInp
+{
+  gnrcPrntSmplEnumInp,
+}
+
 public interface ItestGnrcPrntSmplEnumOutp
   : ItestFieldGnrcPrntSmplEnumOutp<testEnumGnrcPrntSmplEnumOutp>
 {
@@ -4346,6 +4662,11 @@ public interface ItestFieldGnrcPrntSmplEnumOutpObject<TRef>
   : IGqlpModelImplementationBase
 {
   TRef Field { get; }
+}
+
+public enum testEnumGnrcPrntSmplEnumOutp
+{
+  gnrcPrntSmplEnumOutp,
 }
 
 public interface ItestGnrcPrntStrDomDual
@@ -4456,6 +4777,11 @@ public interface ItestRefGnrcValueDualObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumGnrcValueDual
+{
+  gnrcValueDual,
+}
+
 public interface ItestGnrcValueInp
   : IGqlpModelImplementationBase
 {
@@ -4478,6 +4804,11 @@ public interface ItestRefGnrcValueInpObject<TType>
   : IGqlpModelImplementationBase
 {
   TType Field { get; }
+}
+
+public enum testEnumGnrcValueInp
+{
+  gnrcValueInp,
 }
 
 public interface ItestGnrcValueOutp
@@ -4504,6 +4835,11 @@ public interface ItestRefGnrcValueOutpObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumGnrcValueOutp
+{
+  gnrcValueOutp,
+}
+
 public interface ItestInpFieldDescrNmbr
   : IGqlpModelImplementationBase
 {
@@ -4526,6 +4862,11 @@ public interface ItestInpFieldEnumObject
   : IGqlpModelImplementationBase
 {
   testEnumInpFieldEnum Field { get; }
+}
+
+public enum testEnumInpFieldEnum
+{
+  inpFieldEnum,
 }
 
 public interface ItestInpFieldNull
@@ -4813,6 +5154,17 @@ public interface ItestRefOutpPrntGnrcObject<TType>
   : IGqlpModelImplementationBase
 {
   TType Field { get; }
+}
+
+public enum testEnumOutpPrntGnrc
+{
+  prnt_outpPrntGnrc = testPrntOutpPrntGnrc.prnt_outpPrntGnrc,
+  outpPrntGnrc,
+}
+
+public enum testPrntOutpPrntGnrc
+{
+  prnt_outpPrntGnrc,
 }
 
 public interface ItestOutpPrntParam

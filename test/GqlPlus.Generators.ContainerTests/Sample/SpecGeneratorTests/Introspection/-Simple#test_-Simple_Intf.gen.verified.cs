@@ -7,6 +7,14 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
+public enum test_DomainKind
+{
+  Boolean,
+  Enum,
+  Number,
+  String,
+}
+
 public interface Itest_DomainRef<TDomainKind>
   : Itest_TypeRef<Itest_TypeKind>
 {

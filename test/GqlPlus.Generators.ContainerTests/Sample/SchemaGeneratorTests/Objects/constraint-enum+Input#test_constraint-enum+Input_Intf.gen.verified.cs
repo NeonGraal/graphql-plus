@@ -30,3 +30,8 @@ public interface ItestRefCnstEnumInpObject<TType>
 {
   TType Field { get; }
 }
+
+public enum testEnumCnstEnumInp
+{
+  cnstEnumInp,
+}

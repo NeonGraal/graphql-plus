@@ -122,6 +122,40 @@ public interface ItestDmnStrSame
 {
 }
 
+public enum testEnumAlias
+{
+  enumAlias,
+}
+
+public enum testEnumDiff
+{
+  one,
+  two,
+}
+
+public enum testEnumSame
+{
+  enumSame,
+}
+
+public enum testEnumSamePrnt
+{
+  prnt_enumSamePrnt = testPrntEnumSamePrnt.prnt_enumSamePrnt,
+  enumSamePrnt,
+}
+
+public enum testPrntEnumSamePrnt
+{
+  prnt_enumSamePrnt,
+}
+
+public enum testEnumValueAlias
+{
+  enumValueAlias,
+  val1 = enumValueAlias,
+  val2 = enumValueAlias,
+}
+
 public interface ItestObjDual
   : IGqlpModelImplementationBase
 {

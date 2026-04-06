@@ -149,6 +149,13 @@ public interface Itest_CategoryObject
   ICollection<Itest_Modifiers> Modifiers { get; }
 }
 
+public enum test_Resolution
+{
+  Parallel,
+  Sequential,
+  Single,
+}
+
 public interface Itest_Directives
   : Itest_AndType
 {
@@ -174,6 +181,16 @@ public interface Itest_DirectiveObject
   Itest_InputFieldType? Parameter { get; }
   bool Repeatable { get; }
   IDictionary<test_Location, GqlpUnit> Locations { get; }
+}
+
+public enum test_Location
+{
+  Operation,
+  Variable,
+  Field,
+  Inline,
+  Spread,
+  Fragment,
 }
 
 public interface Itest_Setting
@@ -247,6 +264,27 @@ public interface Itest_ParentTypeObject<TTypeKind,TItem,TAllItem>
   ICollection<TAllItem> AllItems { get; }
 }
 
+public enum test_SimpleKind
+{
+  Basic,
+  Enum,
+  Internal,
+  Domain,
+  Union,
+}
+
+public enum test_TypeKind
+{
+  Basic = test_SimpleKind.Basic,
+  Enum = test_SimpleKind.Enum,
+  Internal = test_SimpleKind.Internal,
+  Domain = test_SimpleKind.Domain,
+  Union = test_SimpleKind.Union,
+  Dual,
+  Input,
+  Output,
+}
+
 public interface Itest_TypeRef<TTypeKind>
   : Itest_Named
 {
@@ -314,6 +352,17 @@ public interface Itest_ModifiersObject
 {
 }
 
+public enum test_ModifierKind
+{
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}
+
 public interface Itest_Modifier<TModifierKind>
   : IGqlpModelImplementationBase
 {
@@ -324,6 +373,14 @@ public interface Itest_ModifierObject<TModifierKind>
   : IGqlpModelImplementationBase
 {
   TModifierKind ModifierKind { get; }
+}
+
+public enum test_DomainKind
+{
+  Boolean,
+  Enum,
+  Number,
+  String,
 }
 
 public interface Itest_DomainRef<TDomainKind>

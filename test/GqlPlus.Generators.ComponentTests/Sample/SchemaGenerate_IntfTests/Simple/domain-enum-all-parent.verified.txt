@@ -16,3 +16,17 @@ public interface ICmptDmnEnumAllPrnt
   : IGqlpDomainEnum
 {
 }
+
+public enum CmptEnumDmnEnumAllPrnt
+{
+  prnt_dmnEnumAllPrnt = CmptPrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt = CmptPrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
+  dmnEnumAllPrnt,
+  dmnEnumAllPrntValue,
+}
+
+public enum CmptPrntDmnEnumAllPrnt
+{
+  prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt,
+}

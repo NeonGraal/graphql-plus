@@ -18,3 +18,8 @@ public interface ItestFieldValueDualObject
 {
   testEnumFieldValueDual Field { get; }
 }
+
+public enum testEnumFieldValueDual
+{
+  fieldValueDual,
+}

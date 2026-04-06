@@ -18,3 +18,14 @@ public interface ItestFieldEnumPrntInpObject
 {
   testEnumFieldEnumPrntInp Field { get; }
 }
+
+public enum testEnumFieldEnumPrntInp
+{
+  prnt_fieldEnumPrntInp = testPrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
+  fieldEnumPrntInp,
+}
+
+public enum testPrntFieldEnumPrntInp
+{
+  prnt_fieldEnumPrntInp,
+}

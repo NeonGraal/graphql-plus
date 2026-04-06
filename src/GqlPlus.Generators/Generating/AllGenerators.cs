@@ -32,7 +32,7 @@ public static class AllGenerators
 
   internal static IGeneratorRepositoryBuilder AddSchemaSimpleGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddTypeGenerator(GqlpGeneratorType.Enum, _ => new EnumGenerator())
+      .AddTypeGenerator(GqlpGeneratorType.Interface, _ => new EnumGenerator())
       .AddBothTypeGenerators(_ => new DomainBooleanInterfaceGenerator(), _ => new DomainBooleanModelGenerator())
       .AddBothTypeGenerators(_ => new DomainEnumInterfaceGenerator(), _ => new DomainEnumModelGenerator())
       .AddBothTypeGenerators(_ => new DomainNumberInterfaceGenerator(), _ => new DomainNumberModelGenerator())

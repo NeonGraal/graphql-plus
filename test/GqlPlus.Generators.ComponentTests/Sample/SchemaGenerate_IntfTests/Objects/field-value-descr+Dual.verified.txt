@@ -22,3 +22,8 @@ public interface ICmptFieldValueDescrDualObject
 {
   CmptEnumFieldValueDescrDual Field { get; }
 }
+
+public enum CmptEnumFieldValueDescrDual
+{
+  fieldValueDescrDual,
+}

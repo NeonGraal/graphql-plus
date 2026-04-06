@@ -30,3 +30,14 @@ public interface ItestRefOutpPrntGnrcObject<TType>
 {
   TType Field { get; }
 }
+
+public enum testEnumOutpPrntGnrc
+{
+  prnt_outpPrntGnrc = testPrntOutpPrntGnrc.prnt_outpPrntGnrc,
+  outpPrntGnrc,
+}
+
+public enum testPrntOutpPrntGnrc
+{
+  prnt_outpPrntGnrc,
+}

@@ -16,3 +16,9 @@ public interface ItestPrntDmnEnumPrntDescr
   : IGqlpDomainEnum
 {
 }
+
+public enum testEnumDmnEnumPrntDescr
+{
+  enum_dmnEnumPrntDescr,
+  prnt_dmnEnumPrntDescr,
+}

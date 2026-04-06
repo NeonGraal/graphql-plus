@@ -12,7 +12,7 @@ public class EnumGeneratorTests
 
   internal override GenerateForType<IGqlpEnum> TypeGenerator => _generator;
 
-  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Enum;
+  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 
   [Theory, RepeatData]
   public void TypeMembers_WithEnumItems_ReturnsAsNamePairs(string enumName, string labelName)
@@ -55,7 +55,7 @@ public class EnumGeneratorTests
   public void GenerateType_WithEnumItems_GeneratesCorrectCode(string enumName, string labelName)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Enum);
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     IGqlpEnum enumType = A.Enum(enumName, [labelName]);
 
     // Act
@@ -71,7 +71,7 @@ public class EnumGeneratorTests
   public void GenerateType_WithEnumAlias_GeneratesCorrectCode(string enumName, string labelName, string alias)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Enum);
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, [alias]);
     IGqlpEnum enumType = A.Enum(enumName)
       .WithLabels(label)
@@ -91,7 +91,7 @@ public class EnumGeneratorTests
   public void GenerateType_WithParentItems_GeneratesCorrectCode(string enumName, string parentName, string labelName)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Enum);
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     IGqlpEnum enumType = A.Enum(enumName)
       .WithParent(parentName)
       .AsEnum;
@@ -112,7 +112,7 @@ public class EnumGeneratorTests
   public void GenerateType_WithParentAlias_GeneratesCorrectCode(string enumName, string parentName, string labelName, string alias)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Enum);
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     IGqlpEnum enumType = A.Enum(enumName)
       .WithParent(parentName)
       .AsEnum;

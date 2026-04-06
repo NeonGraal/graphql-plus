@@ -33,7 +33,6 @@ public class GeneratorSchemaTests
     [GqlpGenerator(GqlpGeneratorType.Static)] 
     [GqlpGenerator(GqlpGeneratorType.Interface)] 
     public interface IGqlpModelImplementationBase {}
-    [GqlpGenerator(GqlpGeneratorType.Enum)] 
     [GqlpGenerator(GqlpGeneratorType.Model)] 
     public class GqlpModelImplementationBase {}
 ";

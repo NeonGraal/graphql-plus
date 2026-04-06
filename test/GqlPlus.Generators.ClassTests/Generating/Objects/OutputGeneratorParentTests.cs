@@ -11,6 +11,7 @@ public class OutputGeneratorParentTests
 
   internal override GenerateForType<IGqlpObject<IGqlpOutputField>> TypeGenerator { get; }
     = new OutputInterfaceGenerator();
+  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 
   internal override ForType ForGeneratedCodeName(string name)
     => ForGeneratedInterface("public interface I" + TestPrefix + name);

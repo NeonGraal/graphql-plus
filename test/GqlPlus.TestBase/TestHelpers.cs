@@ -138,7 +138,7 @@ public static class TestHelpers
     return check;
   }
 
-  public static TCheck SkipUnless<TCheck>(this TCheck check, [NotNull] string[]? array, [CallerArgumentExpression(nameof(array))] string? arrayExpression = null)
+  public static TCheck SkipShortArray<TCheck>(this TCheck check, [NotNull] string[]? array, [CallerArgumentExpression(nameof(array))] string? arrayExpression = null)
   {
     Assert.SkipWhen(array is null, arrayExpression + " is null");
     Assert.SkipWhen(array.Length < 2, arrayExpression + ".Length < 2");

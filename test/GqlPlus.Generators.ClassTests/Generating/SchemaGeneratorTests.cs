@@ -30,7 +30,7 @@ public class SchemaGeneratorTests
     schema.Declarations.Returns([type]);
 
     ITypeGenerator typeGenerator = A.Of<ITypeGenerator>();
-    typeGenerator.ForType(type, Arg.Any<GqlpGeneratorType>()).Returns(true);
+    typeGenerator.ForType(type).Returns(true);
 
     _typeGenerators[GqlpGeneratorType.Model] = [typeGenerator];
 

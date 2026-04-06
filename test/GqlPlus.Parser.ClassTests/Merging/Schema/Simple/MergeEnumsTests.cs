@@ -11,7 +11,7 @@ public class MergeEnumsTests
   [Theory, RepeatData]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name, string[] values)
     => this
-      .SkipUnless(values)
+      .SkipShortArray(values)
       .CanMergeReturnsError(MergeItems)
       .CanMerge_Errors(
         new EnumDeclAst(AstNulls.At, name, values.EnumLabels()),

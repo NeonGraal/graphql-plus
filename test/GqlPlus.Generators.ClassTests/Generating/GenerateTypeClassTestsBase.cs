@@ -6,6 +6,7 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
   where TParent : class, IGqlpNamed
 {
   internal abstract GenerateForType<TType> TypeGenerator { get; }
+  internal abstract GqlpGeneratorType GeneratorType { get; }
 
   [Fact]
   public void ForType_WithType_ReturnsTrue()
@@ -14,7 +15,7 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
     TType type = A.Error<TType>();
 
     // Act
-    bool result = TypeGenerator.ForType(type, TypeGenerator.GeneratorType);
+    bool result = TypeGenerator.ForType(type);
 
     // Assert
     result.ShouldBeTrue();
@@ -27,7 +28,7 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
     IGqlpTypeSpecial type = A.Error<IGqlpTypeSpecial>();
 
     // Act
-    bool result = TypeGenerator.ForType(type, TypeGenerator.GeneratorType);
+    bool result = TypeGenerator.ForType(type);
 
     // Assert
     result.ShouldBeFalse();
@@ -36,6 +37,8 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithName_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
   {
+    this.SkipIf(generatorType != GeneratorType);
+
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
     TType type = A.Named<TType>(name);
@@ -94,7 +97,6 @@ public class BaseGeneratorData
     Add(GqlpBaseType.Class, GqlpGeneratorType.Model);
     Add(GqlpBaseType.Other, GqlpGeneratorType.Enum);
     Add(GqlpBaseType.Other, GqlpGeneratorType.Static);
-    Add(GqlpBaseType.Other, GqlpGeneratorType.Enum);
     Add(GqlpBaseType.Class, GqlpGeneratorType.Test);
   }
 }

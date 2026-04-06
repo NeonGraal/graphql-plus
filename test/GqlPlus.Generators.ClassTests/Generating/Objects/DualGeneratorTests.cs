@@ -12,6 +12,7 @@ public class DualGeneratorTests
 
   internal override GenerateForType<IGqlpObject<IGqlpDualField>> TypeGenerator { get; }
     = new DualInterfaceGenerator();
+  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 
   internal override ForType ForGeneratedCodeName(string name)
     => ForGeneratedInterface("public interface I" + TestPrefix + name);

@@ -2,7 +2,6 @@
 
 internal interface ITypeGenerator
 {
-  GqlpGeneratorType GeneratorType { get; }
-  bool ForType(IGqlpType ast, GqlpGeneratorType generatorType);
+  bool ForType(IGqlpType ast);
   void GenerateType(IGqlpType ast, GqlpGeneratorContext context);
 }

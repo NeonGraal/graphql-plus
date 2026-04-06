@@ -9,6 +9,7 @@ public class UnionGeneratorTests
 
   public UnionGeneratorTests()
     => _generator = new UnionInterfaceGenerator();
+  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 
   internal override GenerateForType<IGqlpUnion> TypeGenerator => _generator;
 

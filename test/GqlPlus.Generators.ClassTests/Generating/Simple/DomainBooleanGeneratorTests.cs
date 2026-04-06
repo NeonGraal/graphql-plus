@@ -6,6 +6,7 @@ public class DomainBooleanGeneratorTests
   protected override DomainKind Kind => DomainKind.Boolean;
   internal override GenerateBaseDomain<IGqlpDomainTrueFalse> Generator { get; }
     = new DomainBooleanInterfaceGenerator();
+  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 
   internal override ForType ForGeneratedCodeName(string name)
     => ForGeneratedInterface("public interface I" + TestPrefix + name);

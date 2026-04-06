@@ -6,6 +6,7 @@ public class DomainStringGeneratorTests
   protected override DomainKind Kind => DomainKind.String;
   internal override GenerateBaseDomain<IGqlpDomainRegex> Generator { get; }
     = new DomainStringInterfaceGenerator();
+  internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 
   internal override ForType ForGeneratedCodeName(string name)
     => ForGeneratedInterface("public interface I" + TestPrefix + name);

@@ -5,14 +5,12 @@ internal abstract class GenerateForType<TType>
   : ITypeGenerator
   where TType : IGqlpType
 {
-  public abstract GqlpGeneratorType GeneratorType { get; }
-
-  public bool ForType(IGqlpType ast, GqlpGeneratorType generatorType)
-    => ast is TType && generatorType == GeneratorType;
+  public bool ForType(IGqlpType ast)
+    => ast is TType;
 
   public void GenerateType(IGqlpType ast, GqlpGeneratorContext context)
   {
-    if (ast is TType type && context.GeneratorOptions.GeneratorType == GeneratorType) {
+    if (ast is TType type) {
       Generate(type, context);
     }
   }

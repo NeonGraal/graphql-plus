@@ -10,6 +10,8 @@ public abstract class GenerateSimpleTestsBase<TSimple>
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithParent_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent)
   {
+    this.SkipIf(generatorType != GeneratorType);
+
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
     TSimple type = MakeSimple(name)
@@ -28,6 +30,8 @@ public abstract class GenerateSimpleTestsBase<TSimple>
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithoutParent_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
   {
+    this.SkipIf(generatorType != GeneratorType);
+
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
     TSimple type = MakeSimple(name)
@@ -44,6 +48,8 @@ public abstract class GenerateSimpleTestsBase<TSimple>
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithItem_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string item)
   {
+    this.SkipIf(generatorType != GeneratorType);
+
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
     SimpleBuilder<TSimple> builder = MakeSimple(name);
@@ -59,6 +65,8 @@ public abstract class GenerateSimpleTestsBase<TSimple>
   [Theory, RepeatClassData(typeof(BaseGeneratorData))]
   public void GenerateType_WithItems_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string[] items)
   {
+    this.SkipIf(generatorType != GeneratorType);
+
     // Arrange
     GqlpGeneratorContext context = Context(baseType, generatorType);
     SimpleBuilder<TSimple> builder = MakeSimple(name);

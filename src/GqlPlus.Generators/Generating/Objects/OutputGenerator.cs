@@ -40,8 +40,6 @@ internal abstract class OutputGeneratorBase
 internal sealed class OutputInterfaceGenerator
   : OutputGeneratorBase
 {
-  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
-
   protected override void Generate(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorContext context)
     => GenerateObjectInterfaces(ast, context);
 }
@@ -49,8 +47,6 @@ internal sealed class OutputInterfaceGenerator
 internal sealed class OutputModelGenerator
   : OutputGeneratorBase
 {
-  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Model;
-
   protected override void Generate(IGqlpObject<IGqlpOutputField> ast, GqlpGeneratorContext context)
     => GenerateObjectClasses(ast, context);
 }

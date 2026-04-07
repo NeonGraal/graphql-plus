@@ -13,6 +13,7 @@ public class EnumGeneratorTests
   internal override GenerateForType<IGqlpEnum> TypeGenerator => _generator;
 
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
+  internal override GqlpBaseType BaseType => GqlpBaseType.Interface;
 
   [Theory, RepeatData]
   public void TypeMembers_WithEnumItems_ReturnsAsNamePairs(string enumName, string labelName)

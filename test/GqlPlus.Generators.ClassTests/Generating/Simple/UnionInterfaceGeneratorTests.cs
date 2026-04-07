@@ -10,6 +10,7 @@ public class UnionInterfaceGeneratorTests
   public UnionInterfaceGeneratorTests()
     => _generator = new UnionInterfaceGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
+  internal override GqlpBaseType BaseType => GqlpBaseType.Interface;
 
   internal override GenerateForType<IGqlpUnion> TypeGenerator => _generator;
 
@@ -22,7 +23,7 @@ public class UnionInterfaceGeneratorTests
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedInterface(contains);
 
-  internal override ForType ForGeneratedImplementation(string contains)
+  internal override ForType ForGeneratedModel(string contains)
     => _ => result => { };
 
   [Theory, RepeatData]

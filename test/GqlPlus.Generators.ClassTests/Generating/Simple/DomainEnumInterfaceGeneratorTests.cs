@@ -7,6 +7,7 @@ public class DomainEnumInterfaceGeneratorTests
   internal override GenerateBaseDomain<IGqlpDomainLabel> Generator { get; }
     = new DomainEnumInterfaceGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
+  internal override GqlpBaseType BaseType => GqlpBaseType.Interface;
 
   internal override ForType ForGeneratedCodeName(string name)
     => ForGeneratedInterface("public interface I" + TestPrefix + name);
@@ -17,7 +18,7 @@ public class DomainEnumInterfaceGeneratorTests
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedInterface(contains);
 
-  internal override ForType ForGeneratedImplementation(string contains)
+  internal override ForType ForGeneratedModel(string contains)
     => _ => result => { };
 
   protected override IGqlpDomainLabel MakeDomainItem(string item)

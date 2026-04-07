@@ -7,6 +7,7 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
 {
   internal abstract GenerateForType<TType> TypeGenerator { get; }
   internal abstract GqlpGeneratorType GeneratorType { get; }
+  internal abstract GqlpBaseType BaseType { get; }
 
   [Fact]
   public void ForType_WithType_ReturnsTrue()
@@ -34,13 +35,11 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
     result.ShouldBeFalse();
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithName_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
+  [Theory, RepeatData]
+  public void GenerateType_WithName_GeneratesCorrectCode(string name)
   {
-    this.SkipIf(generatorType != GeneratorType);
-
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     TType type = A.Named<TType>(name);
 
     // Act
@@ -54,7 +53,7 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
 public abstract class GenerateTypeClassTestsBase
   : GenerateClassTestsBase
 {
-  internal virtual ForType ForGeneratedImplementation(string contains)
+  internal virtual ForType ForGeneratedModel(string contains)
     => generatorType => GqlpGeneratorType.Model == generatorType
       ? r => r.ShouldContain(contains)
       : r => { };
@@ -81,16 +80,4 @@ public abstract class GenerateTypeClassTestsBase
 
   internal virtual ForType ForGeneratedCodeParent(string parent)
     => ForGeneratedEither(": I" + parent, ": " + parent);
-}
-
-public class BaseGeneratorData
-  : TheoryData<GqlpBaseType, GqlpGeneratorType>
-{
-  public BaseGeneratorData()
-  {
-    Add(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
-    Add(GqlpBaseType.Class, GqlpGeneratorType.Model);
-    Add(GqlpBaseType.Other, GqlpGeneratorType.Static);
-    Add(GqlpBaseType.Class, GqlpGeneratorType.Test);
-  }
 }

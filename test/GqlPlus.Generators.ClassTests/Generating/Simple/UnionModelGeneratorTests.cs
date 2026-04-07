@@ -10,20 +10,21 @@ public class UnionModelGeneratorTests
   public UnionModelGeneratorTests()
     => _generator = new UnionModelGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Model;
+  internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
   internal override GenerateForType<IGqlpUnion> TypeGenerator => _generator;
 
   internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedImplementation("public class " + TestPrefix + name);
+    => ForGeneratedModel("public class " + TestPrefix + name);
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => ForGeneratedImplementation(": " + parent);
+    => ForGeneratedModel(": " + parent);
 
   internal override ForType ForGeneratedBoth(string contains)
-    => ForGeneratedImplementation(contains);
+    => ForGeneratedModel(contains);
 
   internal override ForType ForGeneratedInterface(string contains)
-    => ForGeneratedImplementation(contains);
+    => ForGeneratedModel(contains);
 
   [Theory, RepeatData]
   public void TypeMembers_WithUnionItems_ReturnsAsNamePairs(string unionName, string memberName)

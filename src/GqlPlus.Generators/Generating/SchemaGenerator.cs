@@ -21,16 +21,19 @@ internal sealed class SchemaGenerator(
     GqlpGeneratorType generatorType = context.GeneratorOptions.GeneratorType;
     if (generators.TypeGenerators.TryGetValue(generatorType, out IEnumerable<ITypeGenerator>? typeGenerators)) {
       foreach (IGqlpType type in types) {
-        ITypeGenerator? typeGenerator = typeGenerators.FirstOrDefault(g => g.ForType(type));
+        ITypeGenerator? typeGenerator = typeGenerators.FirstOrDefault(IsForType);
         if (typeGenerator is null) {
           if (generators.TypeGenerators.TryGetValue(GqlpGeneratorType.Interface, out IEnumerable<ITypeGenerator>? interfaceGenerators)) {
-            if (!interfaceGenerators.Any(g => g.ForType(type))) {
+            if (!interfaceGenerators.Any(IsForType)) {
               throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
             }
           }
         } else {
           typeGenerator!.GenerateType(type, context);
         }
+
+        bool IsForType(ITypeGenerator typeGenerator)
+          => typeGenerator.ForType(type);
       }
     }
   }

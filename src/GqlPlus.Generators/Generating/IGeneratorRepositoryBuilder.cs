@@ -6,7 +6,13 @@ internal interface IGeneratorRepositoryBuilder
 {
   IGeneratorRepositoryBuilder AddGenerator<TAst>(Factory<IGenerator<TAst>, IGeneratorRepository> factory)
     where TAst : IGqlpError;
+  IGeneratorRepositoryBuilder AddGenerator<TAst, TGenerator>()
+    where TAst : IGqlpError
+    where TGenerator : IGenerator<TAst>, new();
 
-  IGeneratorRepositoryBuilder AddTypeGenerator(GqlpGeneratorType generatorType, Factory<ITypeGenerator, IGeneratorRepository> factory);
-  IGeneratorRepositoryBuilder AddBothTypeGenerators(Factory<ITypeGenerator, IGeneratorRepository> interfaceFactory, Factory<ITypeGenerator, IGeneratorRepository> modelFactory);
+  IGeneratorRepositoryBuilder AddTypeGenerator<TGenerator>(GqlpGeneratorType generatorType)
+    where TGenerator : ITypeGenerator, new();
+
+  IGeneratorRepositoryBuilder AddBothTypeGenerators<TInterface, TModel>()
+    where TInterface : ITypeGenerator, new() where TModel : ITypeGenerator, new();
 }

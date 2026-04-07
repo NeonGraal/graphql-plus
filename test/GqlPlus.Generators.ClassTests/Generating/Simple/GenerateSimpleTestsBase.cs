@@ -7,11 +7,11 @@ public abstract class GenerateSimpleTestsBase<TSimple>
   : GenerateTypeClassTestsBase<TSimple, IGqlpTypeRef, MapPair<string>>
   where TSimple : class, IGqlpSimple
 {
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithParent_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent)
+  [Theory, RepeatData]
+  public void GenerateType_WithParent_GeneratesCorrectCode(string name, string parent)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     TSimple type = MakeSimple(name)
       .WithParent(parent)
       .AsSimple;
@@ -25,11 +25,11 @@ public abstract class GenerateSimpleTestsBase<TSimple>
       ForGeneratedCodeParent(TestPrefix + parent));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithoutParent_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
+  [Theory, RepeatData]
+  public void GenerateType_WithoutParent_GeneratesCorrectCode(string name)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     TSimple type = MakeSimple(name)
       .AsSimple;
 
@@ -41,11 +41,11 @@ public abstract class GenerateSimpleTestsBase<TSimple>
       ForGeneratedCodeName(name));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithItem_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string item)
+  [Theory, RepeatData]
+  public void GenerateType_WithItem_GeneratesCorrectCode(string name, string item)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     SimpleBuilder<TSimple> builder = MakeSimple(name);
     MakeItems(builder, item);
 
@@ -56,11 +56,11 @@ public abstract class GenerateSimpleTestsBase<TSimple>
     context.CheckFor(ForGeneratedCodeName(name));
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithItems_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string[] items)
+  [Theory, RepeatData]
+  public void GenerateType_WithItems_GeneratesCorrectCode(string name, string[] items)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     SimpleBuilder<TSimple> builder = MakeSimple(name);
     MakeItems(builder, items);
 

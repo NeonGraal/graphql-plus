@@ -29,3 +29,8 @@ public interface ItestFieldGnrcPrntSmplEnumInpObject<TRef>
 {
   TRef Field { get; }
 }
+
+public enum testEnumGnrcPrntSmplEnumInp
+{
+  gnrcPrntSmplEnumInp,
+}

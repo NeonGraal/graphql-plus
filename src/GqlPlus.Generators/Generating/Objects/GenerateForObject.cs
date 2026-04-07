@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Generating.Objects;
 
-internal class GenerateForObject<TObjField>
+internal abstract class GenerateForObject<TObjField>
   : GenerateForObject<TObjField, MapPair<string>>
   where TObjField : IGqlpObjField
 {
@@ -20,19 +20,13 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
   : GenerateForClass<IGqlpObject<TObjField>, TFieldItem>
   where TObjField : IGqlpObjField
 {
-  public GenerateForObject()
-  {
-    _generators[GqlpGeneratorType.Interface] = GenerateObjectInterfaces;
-    _generators[GqlpGeneratorType.Model] = GenerateObjectClasses;
-  }
-
-  private void GenerateObjectClasses(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+  protected void GenerateObjectClasses(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     GenerateBlock(ast, context, AlternateClassHeader, AlternateMembers, AlternateClassMember);
     GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);
   }
 
-  private void GenerateObjectInterfaces(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+  protected void GenerateObjectInterfaces(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
   {
     GenerateBlock(ast, context, AlternateInterfaceHeader, AlternateMembers, AlternateInterfaceMember);
     GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);

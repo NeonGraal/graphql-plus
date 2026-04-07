@@ -12,6 +12,12 @@ public interface ItestGuid
 {
 }
 
+public enum testOne
+{
+  Two,
+  Three,
+}
+
 public interface ItestMany
   : IGqlpModelImplementationBase
 {

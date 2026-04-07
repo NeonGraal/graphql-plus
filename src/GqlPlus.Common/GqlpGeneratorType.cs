@@ -5,7 +5,6 @@ public enum GqlpGeneratorType
   None,
   Static,
   Intf,
-  Enum,
   Model,
   Test,
 

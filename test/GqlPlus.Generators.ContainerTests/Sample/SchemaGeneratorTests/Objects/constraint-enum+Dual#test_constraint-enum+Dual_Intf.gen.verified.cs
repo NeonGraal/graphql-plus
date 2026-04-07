@@ -30,3 +30,8 @@ public interface ItestRefCnstEnumDualObject<TType>
 {
   TType Field { get; }
 }
+
+public enum testEnumCnstEnumDual
+{
+  cnstEnumDual,
+}

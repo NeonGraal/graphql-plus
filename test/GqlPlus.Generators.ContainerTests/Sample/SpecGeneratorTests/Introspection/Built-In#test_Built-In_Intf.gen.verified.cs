@@ -47,6 +47,17 @@ public interface Itest_ModifiersObject
 {
 }
 
+public enum test_ModifierKind
+{
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}
+
 public interface Itest_Modifier<TModifierKind>
   : IGqlpModelImplementationBase
 {

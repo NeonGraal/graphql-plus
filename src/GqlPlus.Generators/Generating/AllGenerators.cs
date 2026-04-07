@@ -26,22 +26,22 @@ public static class AllGenerators
 
   internal static IGeneratorRepositoryBuilder AddSchemaGlobalGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddGenerator(_ => new CategoryGenerator())
-      .AddGenerator(_ => new DirectiveGenerator())
-      .AddGenerator(_ => new OptionGenerator());
+      .AddGenerator<IGqlpSchemaCategory, CategoryGenerator>()
+      .AddGenerator<IGqlpSchemaDirective, DirectiveGenerator>()
+      .AddGenerator<IGqlpSchemaOption, OptionGenerator>();
 
   internal static IGeneratorRepositoryBuilder AddSchemaSimpleGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddTypeGenerator(_ => new EnumGenerator())
-      .AddTypeGenerator(_ => new DomainBooleanGenerator())
-      .AddTypeGenerator(_ => new DomainEnumGenerator())
-      .AddTypeGenerator(_ => new DomainNumberGenerator())
-      .AddTypeGenerator(_ => new DomainStringGenerator())
-      .AddTypeGenerator(_ => new UnionGenerator());
+      .AddBothTypeGenerators<DomainBooleanInterfaceGenerator, DomainBooleanModelGenerator>()
+      .AddBothTypeGenerators<DomainEnumInterfaceGenerator, DomainEnumModelGenerator>()
+      .AddBothTypeGenerators<DomainNumberInterfaceGenerator, DomainNumberModelGenerator>()
+      .AddBothTypeGenerators<DomainStringInterfaceGenerator, DomainStringModelGenerator>()
+      .AddTypeGenerator<EnumGenerator>(GqlpGeneratorType.Interface)
+      .AddBothTypeGenerators<UnionInterfaceGenerator, UnionModelGenerator>();
 
   internal static IGeneratorRepositoryBuilder AddSchemaObjectGenerators(this IGeneratorRepositoryBuilder builder)
     => builder.ThrowIfNull()
-      .AddTypeGenerator(_ => new DualGenerator())
-      .AddTypeGenerator(_ => new InputGenerator())
-      .AddTypeGenerator(_ => new OutputGenerator());
+      .AddBothTypeGenerators<DualInterfaceGenerator, DualModelGenerator>()
+      .AddBothTypeGenerators<InputInterfaceGenerator, InputModelGenerator>()
+      .AddBothTypeGenerators<OutputInterfaceGenerator, OutputModelGenerator>();
 }

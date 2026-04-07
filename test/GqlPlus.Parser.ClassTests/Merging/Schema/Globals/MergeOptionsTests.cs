@@ -11,7 +11,7 @@ public class MergeOptionsTests
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSettingsCantMerge_ReturnsErrors(string name, string[] settings)
     => this
-      .SkipUnless(settings)
+      .SkipShortArray(settings)
       .CanMergeReturnsError(_settings)
       .CanMerge_Errors(
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings.OptionSettings() },

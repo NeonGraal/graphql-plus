@@ -22,3 +22,8 @@ public interface ICmptAltEnumDualObject
   : Schema_alt-enum+Dual
 {
 }
+
+public enum CmptEnumAltEnumDual
+{
+  altEnumDual,
+}

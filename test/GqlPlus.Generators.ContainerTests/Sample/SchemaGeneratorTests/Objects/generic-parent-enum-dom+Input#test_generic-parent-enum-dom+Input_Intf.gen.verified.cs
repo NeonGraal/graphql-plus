@@ -30,6 +30,12 @@ public interface ItestFieldGnrcPrntEnumDomInpObject<TRef>
   TRef Field { get; }
 }
 
+public enum testEnumGnrcPrntEnumDomInp
+{
+  gnrcPrntEnumDomInpLabel,
+  gnrcPrntEnumDomInpOther,
+}
+
 public interface ItestDomGnrcPrntEnumDomInp
   : IGqlpDomainEnum
 {

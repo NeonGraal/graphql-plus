@@ -36,3 +36,14 @@ public interface ICmptRefOutpPrntGnrcObject<TType>
 {
   TType Field { get; }
 }
+
+public enum CmptEnumOutpPrntGnrc
+{
+  prnt_outpPrntGnrc = CmptPrntOutpPrntGnrc.prnt_outpPrntGnrc,
+  outpPrntGnrc,
+}
+
+public enum CmptPrntOutpPrntGnrc
+{
+  prnt_outpPrntGnrc,
+}

@@ -11,3 +11,10 @@ public interface ItestDmnEnumAll
   : IGqlpDomainEnum
 {
 }
+
+public enum testEnumDmnEnumAll
+{
+  dmnEnumAll,
+  enum_dmnEnumAll,
+  dmnEnumAllValue,
+}

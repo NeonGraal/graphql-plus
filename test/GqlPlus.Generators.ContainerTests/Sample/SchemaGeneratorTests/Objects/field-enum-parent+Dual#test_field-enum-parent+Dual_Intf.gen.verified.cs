@@ -18,3 +18,14 @@ public interface ItestFieldEnumPrntDualObject
 {
   testEnumFieldEnumPrntDual Field { get; }
 }
+
+public enum testEnumFieldEnumPrntDual
+{
+  prnt_fieldEnumPrntDual = testPrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
+  fieldEnumPrntDual,
+}
+
+public enum testPrntFieldEnumPrntDual
+{
+  prnt_fieldEnumPrntDual,
+}

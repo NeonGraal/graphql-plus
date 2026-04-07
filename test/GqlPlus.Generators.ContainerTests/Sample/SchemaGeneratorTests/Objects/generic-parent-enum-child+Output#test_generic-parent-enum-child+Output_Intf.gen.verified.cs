@@ -29,3 +29,14 @@ public interface ItestFieldGnrcPrntEnumChildOutpObject<TRef>
 {
   TRef Field { get; }
 }
+
+public enum testEnumGnrcPrntEnumChildOutp
+{
+  gnrcPrntEnumChildOutpParent = testParentGnrcPrntEnumChildOutp.gnrcPrntEnumChildOutpParent,
+  gnrcPrntEnumChildOutpLabel,
+}
+
+public enum testParentGnrcPrntEnumChildOutp
+{
+  gnrcPrntEnumChildOutpParent,
+}

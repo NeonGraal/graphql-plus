@@ -7,6 +7,26 @@
 
 namespace GqlPlus.GeneratorTests.Gqlp_Definition;
 
+public enum bool
+{
+  false,
+  true,
+}
+
+public enum GqlpNull
+{
+  null,
+}
+
+public enum GqlpUnit
+{
+  _,
+}
+
+public enum void
+{
+}
+
 public interface decimal
   : IGqlpDomainNumber
 {

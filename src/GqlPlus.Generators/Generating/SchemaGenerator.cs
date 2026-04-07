@@ -18,12 +18,22 @@ internal sealed class SchemaGenerator(
     string nameSpace = context.GeneratorOptions.NameSpace.IfWhiteSpace(context.ModelOptions.BaseNamespace);
     context.WritePrefixLine($"namespace {nameSpace}.Gqlp_" + context.SafeFile + ";");
 
-    foreach (IGqlpType type in types) {
-      ITypeGenerator? generator = generators.TypeGenerators.FirstOrDefault(g => g.ForType(type));
-      if (generator is null) {
-        throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
-      } else {
-        generator.GenerateType(type, context);
+    GqlpGeneratorType generatorType = context.GeneratorOptions.GeneratorType;
+    if (generators.TypeGenerators.TryGetValue(generatorType, out IEnumerable<ITypeGenerator>? typeGenerators)) {
+      foreach (IGqlpType type in types) {
+        ITypeGenerator? typeGenerator = typeGenerators.FirstOrDefault(IsForType);
+        if (typeGenerator is null) {
+          if (generators.TypeGenerators.TryGetValue(GqlpGeneratorType.Interface, out IEnumerable<ITypeGenerator>? interfaceGenerators)) {
+            if (!interfaceGenerators.Any(IsForType)) {
+              throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
+            }
+          }
+        } else {
+          typeGenerator!.GenerateType(type, context);
+        }
+
+        bool IsForType(ITypeGenerator typeGenerator)
+          => typeGenerator.ForType(type);
       }
     }
   }

@@ -6,6 +6,8 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
   where TParent : class, IGqlpNamed
 {
   internal abstract GenerateForType<TType> TypeGenerator { get; }
+  internal abstract GqlpGeneratorType GeneratorType { get; }
+  internal abstract GqlpBaseType BaseType { get; }
 
   [Fact]
   public void ForType_WithType_ReturnsTrue()
@@ -33,11 +35,11 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
     result.ShouldBeFalse();
   }
 
-  [Theory, RepeatClassData(typeof(BaseGeneratorData))]
-  public void GenerateType_WithName_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
+  [Theory, RepeatData]
+  public void GenerateType_WithName_GeneratesCorrectCode(string name)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(baseType, generatorType);
+    GqlpGeneratorContext context = Context(BaseType, GeneratorType);
     TType type = A.Named<TType>(name);
 
     // Act
@@ -51,22 +53,17 @@ public abstract class GenerateTypeClassTestsBase<TType, TParent, TMember>
 public abstract class GenerateTypeClassTestsBase
   : GenerateClassTestsBase
 {
-  internal ForType ForGeneratedImplementation(string contains)
+  internal virtual ForType ForGeneratedModel(string contains)
     => generatorType => GqlpGeneratorType.Model == generatorType
       ? r => r.ShouldContain(contains)
       : r => { };
 
-  internal ForType ForGeneratedInterface(string contains)
+  internal virtual ForType ForGeneratedInterface(string contains)
     => generatorType => GqlpGeneratorType.Interface == generatorType
       ? r => r.ShouldContain(contains)
       : r => { };
 
-  internal ForType ForGeneratedEnum(string contains)
-    => generatorType => GqlpGeneratorType.Enum == generatorType
-      ? r => r.ShouldContain(contains)
-      : r => r.ShouldBeEmpty();
-
-  internal ForType ForGeneratedBoth(string contains)
+  internal virtual ForType ForGeneratedBoth(string contains)
     => ForGeneratedEither(contains, contains);
 
   internal ForType ForGeneratedEither(string genIntf, string genImpl)
@@ -83,18 +80,4 @@ public abstract class GenerateTypeClassTestsBase
 
   internal virtual ForType ForGeneratedCodeParent(string parent)
     => ForGeneratedEither(": I" + parent, ": " + parent);
-}
-
-public class BaseGeneratorData
-  : TheoryData<GqlpBaseType, GqlpGeneratorType>
-{
-  public BaseGeneratorData()
-  {
-    Add(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
-    Add(GqlpBaseType.Class, GqlpGeneratorType.Model);
-    Add(GqlpBaseType.Other, GqlpGeneratorType.Enum);
-    Add(GqlpBaseType.Other, GqlpGeneratorType.Static);
-    Add(GqlpBaseType.Other, GqlpGeneratorType.Enum);
-    Add(GqlpBaseType.Class, GqlpGeneratorType.Test);
-  }
 }

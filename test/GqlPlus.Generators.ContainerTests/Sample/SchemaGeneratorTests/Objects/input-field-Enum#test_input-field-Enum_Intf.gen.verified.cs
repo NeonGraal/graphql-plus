@@ -18,3 +18,8 @@ public interface ItestInpFieldEnumObject
 {
   testEnumInpFieldEnum Field { get; }
 }
+
+public enum testEnumInpFieldEnum
+{
+  inpFieldEnum,
+}

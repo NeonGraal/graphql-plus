@@ -11,7 +11,7 @@ public abstract class TestObjectMerger<TObjField>
   [Theory, RepeatData]
   public void CanMerge_TwoAstsTypeParamsCantMerge_ReturnsErrors(string name, string[] typeParams)
     => this
-      .SkipUnless(typeParams)
+      .SkipShortArray(typeParams)
       .CanMergeReturnsError(TypeParams)
       .CanMerge_Errors(
         MakeObject(name, typeParams: typeParams),

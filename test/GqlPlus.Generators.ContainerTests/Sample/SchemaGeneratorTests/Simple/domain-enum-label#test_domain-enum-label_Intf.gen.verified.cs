@@ -11,3 +11,8 @@ public interface ItestDmnEnumLabel
   : IGqlpDomainEnum
 {
 }
+
+public enum testEnumDmnEnumLabel
+{
+  dmnEnumLabel,
+}

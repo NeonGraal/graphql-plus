@@ -18,3 +18,8 @@ public interface ItestFieldValueDescrOutpObject
 {
   testEnumFieldValueDescrOutp Field { get; }
 }
+
+public enum testEnumFieldValueDescrOutp
+{
+  fieldValueDescrOutp,
+}

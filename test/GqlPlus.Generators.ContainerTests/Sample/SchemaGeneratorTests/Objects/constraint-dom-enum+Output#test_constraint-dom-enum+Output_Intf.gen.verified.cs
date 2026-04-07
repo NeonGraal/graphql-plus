@@ -31,6 +31,12 @@ public interface ItestRefCnstDomEnumOutpObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumCnstDomEnumOutp
+{
+  cnstDomEnumOutp,
+  other,
+}
+
 public interface ItestJustCnstDomEnumOutp
   : IGqlpDomainEnum
 {

@@ -11,3 +11,26 @@ public interface ItestDmnEnumUnqPrnt
   : IGqlpDomainEnum
 {
 }
+
+public enum testEnumDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt = testPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt = testPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt = testPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
+  enum_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntValue,
+}
+
+public enum testPrntDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt,
+}
+
+public enum testDupDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt,
+  dup_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntDup,
+}

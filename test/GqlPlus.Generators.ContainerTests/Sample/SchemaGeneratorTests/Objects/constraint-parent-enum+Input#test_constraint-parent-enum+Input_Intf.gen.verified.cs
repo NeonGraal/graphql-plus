@@ -30,3 +30,14 @@ public interface ItestRefCnstPrntEnumInpObject<TType>
 {
   TType Field { get; }
 }
+
+public enum testEnumCnstPrntEnumInp
+{
+  parentCnstPrntEnumInp = testParentCnstPrntEnumInp.parentCnstPrntEnumInp,
+  cnstPrntEnumInp,
+}
+
+public enum testParentCnstPrntEnumInp
+{
+  parentCnstPrntEnumInp,
+}

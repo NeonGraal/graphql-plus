@@ -31,6 +31,12 @@ public interface ItestRefCnstDomEnumDualObject<TType>
   TType Field { get; }
 }
 
+public enum testEnumCnstDomEnumDual
+{
+  cnstDomEnumDual,
+  other,
+}
+
 public interface ItestJustCnstDomEnumDual
   : IGqlpDomainEnum
 {

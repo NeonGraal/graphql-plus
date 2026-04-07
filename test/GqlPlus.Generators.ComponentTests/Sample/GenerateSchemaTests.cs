@@ -15,13 +15,6 @@ public class GenerateSchemaIntfTests(
   public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 }
 
-public class GenerateSchemaEnumTests(
-  ISchemaGeneratorChecks checks
-) : GenerateSchemaTestBase(checks)
-{
-  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Enum;
-}
-
 public class GenerateSchemaModelTests(
   ISchemaGeneratorChecks checks
 ) : GenerateSchemaTestBase(checks)

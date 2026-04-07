@@ -33,3 +33,13 @@ public interface Itest_DirectiveObject
   bool Repeatable { get; }
   IDictionary<test_Location, GqlpUnit> Locations { get; }
 }
+
+public enum test_Location
+{
+  Operation,
+  Variable,
+  Field,
+  Inline,
+  Spread,
+  Fragment,
+}

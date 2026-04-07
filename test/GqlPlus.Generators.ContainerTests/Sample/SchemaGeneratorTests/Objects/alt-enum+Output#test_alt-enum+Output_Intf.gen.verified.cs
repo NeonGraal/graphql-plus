@@ -18,3 +18,8 @@ public interface ItestAltEnumOutpObject
   : IGqlpModelImplementationBase
 {
 }
+
+public enum testEnumAltEnumOutp
+{
+  altEnumOutp,
+}

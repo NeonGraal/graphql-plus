@@ -33,3 +33,10 @@ public interface Itest_CategoryObject
   Itest_TypeRef<Itest_TypeKind> Output { get; }
   ICollection<Itest_Modifiers> Modifiers { get; }
 }
+
+public enum test_Resolution
+{
+  Parallel,
+  Sequential,
+  Single,
+}

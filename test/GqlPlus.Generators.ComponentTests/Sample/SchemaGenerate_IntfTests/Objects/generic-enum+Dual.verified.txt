@@ -35,3 +35,8 @@ public interface ICmptRefGnrcEnumDualObject<TType>
 {
   TType Field { get; }
 }
+
+public enum CmptEnumGnrcEnumDual
+{
+  gnrcEnumDual,
+}

@@ -18,3 +18,8 @@ public interface ItestFieldModEnumInpObject
 {
   IDictionary<testEnumFieldModEnumInp, string> Field { get; }
 }
+
+public enum testEnumFieldModEnumInp
+{
+  value,
+}

@@ -23,10 +23,14 @@ internal sealed class SchemaGenerator(
       foreach (IGqlpType type in types) {
         ITypeGenerator? typeGenerator = typeGenerators.FirstOrDefault(g => g.ForType(type));
         if (typeGenerator is null) {
-          throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
+          if (generators.TypeGenerators.TryGetValue(GqlpGeneratorType.Interface, out IEnumerable<ITypeGenerator>? interfaceGenerators)) {
+            if (!interfaceGenerators.Any(g => g.ForType(type))) {
+              throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
+            }
+          }
+        } else {
+          typeGenerator!.GenerateType(type, context);
         }
-
-        typeGenerator.GenerateType(type, context);
       }
     }
   }

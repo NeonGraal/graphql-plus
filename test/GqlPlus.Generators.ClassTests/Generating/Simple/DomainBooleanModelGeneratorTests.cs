@@ -1,4 +1,4 @@
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
 public class DomainBooleanModelGeneratorTests
   : GenerateDomainTestsBase<IGqlpDomainTrueFalse>

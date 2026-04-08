@@ -15,16 +15,20 @@ public class InputEncoderGeneratorTests
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
   internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedEncoder("public class " + TestPrefix + name);
+  {
+    int bracketIdx = name.IndexOf('<', StringComparison.Ordinal);
+    string baseName = bracketIdx >= 0 ? name[..bracketIdx] : name;
+    return ForGeneratedEncoder("internal class " + TestPrefix + baseName + "Encoder");
+  }
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => ForGeneratedEncoder(": " + parent);
+    => _ => _ => { };
 
   internal override ForType ForGeneratedBoth(string contains)
-    => ForGeneratedEncoder(contains);
+    => _ => _ => { };
 
   internal override ForType ForGeneratedInterface(string contains)
-    => ForGeneratedEncoder(contains);
+    => _ => _ => { };
 
   protected override ObjFieldBuilder<IGqlpInputField> MakeField(string name, string type)
     => new InputFieldBuilder(name, type);

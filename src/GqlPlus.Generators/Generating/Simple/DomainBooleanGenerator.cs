@@ -18,12 +18,12 @@ internal sealed class DomainBooleanDecoderGenerator()
   : GenerateBaseDomain<IGqlpDomainTrueFalse>(DomainKind.Boolean)
 {
   protected override void Generate(IGqlpDomain<IGqlpDomainTrueFalse> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, InterfaceHeader, TypeMembers, InterfaceMember);
+    => GenerateBlock(ast, context, DecoderHeader, TypeMembers, ClassMember);
 }
 
 internal sealed class DomainBooleanEncoderGenerator()
   : GenerateBaseDomain<IGqlpDomainTrueFalse>(DomainKind.Boolean)
 {
   protected override void Generate(IGqlpDomain<IGqlpDomainTrueFalse> ast, GqlpGeneratorContext context)
-    => GenerateBlock(ast, context, ClassHeader, TypeMembers, ClassMember, ClassTail);
+    => GenerateBlock(ast, context, EncoderHeader, TypeMembers, ClassMember);
 }

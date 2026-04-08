@@ -13,10 +13,10 @@ public class EnumDecoderGeneratorTests
   internal override GenerateForType<IGqlpEnum> TypeGenerator => _generator;
 
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Dec;
-  internal override GqlpBaseType BaseType => GqlpBaseType.Interface;
+  internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
   internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedDecoder("public enum " + TestPrefix + name);
+    => ForGeneratedDecoder("internal class " + TestPrefix + name + "Decoder");
 
   internal override ForType ForGeneratedCodeParent(string parent)
     => _ => _ => { };

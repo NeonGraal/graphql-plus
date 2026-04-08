@@ -7,13 +7,13 @@ public class DomainBooleanDecoderGeneratorTests
   internal override GenerateBaseDomain<IGqlpDomainTrueFalse> Generator { get; }
     = new DomainBooleanDecoderGenerator();
   internal override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Dec;
-  internal override GqlpBaseType BaseType => GqlpBaseType.Interface;
+  internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
   internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedDecoder("public interface I" + TestPrefix + name);
+    => ForGeneratedDecoder("internal class " + TestPrefix + name + "Decoder");
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => ForGeneratedDecoder(": I" + parent);
+    => _ => _ => { };
 
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedDecoder(contains);

@@ -1,0 +1,49 @@
+﻿/* output-param
+output OutpParam { field(InOutpParam): FldOutpParam }
+dual FldOutpParam { }
+input InOutpParam { param: Number | String }
+*/
+
+// Generated from Schema output-param
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-param, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param;
+
+public interface ICmptOutpParam
+  // No Base because it's Class
+{
+  ICmptOutpParamObject? As_OutpParam { get; }
+}
+
+public interface ICmptOutpParamObject
+  // No Base because it's Class
+{
+  ICmptFldOutpParam? Field(ICmptInOutpParam parameter);
+}
+
+public interface ICmptFldOutpParam
+  // No Base because it's Class
+{
+  ICmptFldOutpParamObject? As_FldOutpParam { get; }
+}
+
+public interface ICmptFldOutpParamObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptInOutpParam
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptInOutpParamObject? As_InOutpParam { get; }
+}
+
+public interface ICmptInOutpParamObject
+  // No Base because it's Class
+{
+  decimal Param { get; }
+}

@@ -1,0 +1,23 @@
+﻿/* input-field-descr-Number
+input InpFieldDescrNmbr { "Test" "Descr" field: Number = 42 }
+*/
+
+// Generated from Schema input-field-descr-Number
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-descr-Number, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_descr_Number;
+
+public interface ICmptInpFieldDescrNmbr
+  // No Base because it's Class
+{
+  ICmptInpFieldDescrNmbrObject? As_InpFieldDescrNmbr { get; }
+}
+
+public interface ICmptInpFieldDescrNmbrObject
+  // No Base because it's Class
+{
+  decimal Field { get; }
+}

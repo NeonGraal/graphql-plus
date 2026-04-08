@@ -1,0 +1,50 @@
+﻿/* object-alt+Dual
+dual ObjAltDual { | ObjAltDualType }
+dual ObjAltDual { | ObjAltDualType }
+dual ObjAltDualType { }
+*/
+
+// Generated from Schema object-alt+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_Dual;
+
+public class CmptObjAltDual
+  : Schema_object-alt+Dual
+  , ICmptObjAltDual
+{
+  public ICmptObjAltDualType? AsObjAltDualType { get; set; }
+  public ICmptObjAltDualObject? As_ObjAltDual { get; set; }
+}
+
+public class CmptObjAltDualObject
+  : Schema_object-alt+Dual
+  , ICmptObjAltDualObject
+{
+
+  public CmptObjAltDualObject
+    ()
+  {
+  }
+}
+
+public class CmptObjAltDualType
+  : Schema_object-alt+Dual
+  , ICmptObjAltDualType
+{
+  public ICmptObjAltDualTypeObject? As_ObjAltDualType { get; set; }
+}
+
+public class CmptObjAltDualTypeObject
+  : Schema_object-alt+Dual
+  , ICmptObjAltDualTypeObject
+{
+
+  public CmptObjAltDualTypeObject
+    ()
+  {
+  }
+}

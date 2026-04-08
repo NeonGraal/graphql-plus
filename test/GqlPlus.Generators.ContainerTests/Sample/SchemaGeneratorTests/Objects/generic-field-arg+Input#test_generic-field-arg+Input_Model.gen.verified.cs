@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-field-arg+Input_Model.gen.cs
 // Generated from {CurrentDirectory}generic-field-arg+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,14 +8,14 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Input;
 
 public class testGnrcFieldArgInp<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldArgInp<TType>
 {
   public ItestGnrcFieldArgInpObject<TType>? As_GnrcFieldArgInp { get; set; }
 }
 
 public class testGnrcFieldArgInpObject<TType>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestGnrcFieldArgInpObject<TType>
 {
   public ItestRefGnrcFieldArgInp<TType> Field { get; set; }
@@ -29,7 +29,7 @@ public class testGnrcFieldArgInpObject<TType>
 }
 
 public class testRefGnrcFieldArgInp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldArgInp<TRef>
 {
   public TRef? Asref { get; set; }
@@ -37,7 +37,7 @@ public class testRefGnrcFieldArgInp<TRef>
 }
 
 public class testRefGnrcFieldArgInpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefGnrcFieldArgInpObject<TRef>
 {
 

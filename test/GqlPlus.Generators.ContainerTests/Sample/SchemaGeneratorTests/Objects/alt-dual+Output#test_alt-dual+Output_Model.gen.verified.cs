@@ -1,6 +1,6 @@
 ﻿//HintName: test_alt-dual+Output_Model.gen.cs
 // Generated from {CurrentDirectory}alt-dual+Output.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,7 +8,7 @@
 namespace GqlPlus.GeneratorTests.Gqlp_alt_dual_Output;
 
 public class testAltDualOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltDualOutp
 {
   public ItestObjDualAltDualOutp? AsObjDualAltDualOutp { get; set; }
@@ -16,7 +16,7 @@ public class testAltDualOutp
 }
 
 public class testAltDualOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestAltDualOutpObject
 {
 
@@ -27,7 +27,7 @@ public class testAltDualOutpObject
 }
 
 public class testObjDualAltDualOutp
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjDualAltDualOutp
 {
   public string? AsString { get; set; }
@@ -35,7 +35,7 @@ public class testObjDualAltDualOutp
 }
 
 public class testObjDualAltDualOutpObject
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestObjDualAltDualOutpObject
 {
   public decimal Alt { get; set; }

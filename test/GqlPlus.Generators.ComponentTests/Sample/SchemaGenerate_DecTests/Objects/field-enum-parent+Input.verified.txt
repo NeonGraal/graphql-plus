@@ -1,0 +1,36 @@
+﻿/* field-enum-parent+Input
+input FieldEnumPrntInp { field = EnumFieldEnumPrntInp.prnt_fieldEnumPrntInp }
+enum EnumFieldEnumPrntInp { :PrntFieldEnumPrntInp fieldEnumPrntInp }
+enum PrntFieldEnumPrntInp { prnt_fieldEnumPrntInp }
+*/
+
+// Generated from Schema field-enum-parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-enum-parent+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_enum_parent_Input;
+
+public interface ICmptFieldEnumPrntInp
+  // No Base because it's Class
+{
+  ICmptFieldEnumPrntInpObject? As_FieldEnumPrntInp { get; }
+}
+
+public interface ICmptFieldEnumPrntInpObject
+  // No Base because it's Class
+{
+  CmptEnumFieldEnumPrntInp Field { get; }
+}
+
+public enum CmptEnumFieldEnumPrntInp
+{
+  prnt_fieldEnumPrntInp = CmptPrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
+  fieldEnumPrntInp,
+}
+
+public enum CmptPrntFieldEnumPrntInp
+{
+  prnt_fieldEnumPrntInp,
+}

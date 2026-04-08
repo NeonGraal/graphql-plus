@@ -1,0 +1,42 @@
+﻿/* constraint-alt-domain+Output
+output CnstAltDmnOutp { | RefCnstAltDmnOutp<DomCnstAltDmnOutp> }
+output RefCnstAltDmnOutp<$ref:String> { | $ref }
+domain DomCnstAltDmnOutp { String /\w+/ }
+*/
+
+// Generated from Schema constraint-alt-domain+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-domain+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
+
+public interface ICmptCnstAltDmnOutp
+  // No Base because it's Class
+{
+  ICmptRefCnstAltDmnOutp<ICmptDomCnstAltDmnOutp>? AsRefCnstAltDmnOutp { get; }
+  ICmptCnstAltDmnOutpObject? As_CnstAltDmnOutp { get; }
+}
+
+public interface ICmptCnstAltDmnOutpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptRefCnstAltDmnOutp<TRef>
+  // No Base because it's Class
+{
+  TRef? Asref { get; }
+  ICmptRefCnstAltDmnOutpObject<TRef>? As_RefCnstAltDmnOutp { get; }
+}
+
+public interface ICmptRefCnstAltDmnOutpObject<TRef>
+  // No Base because it's Class
+{
+}
+
+public interface ICmptDomCnstAltDmnOutp
+  : IGqlpDomainString
+{
+}

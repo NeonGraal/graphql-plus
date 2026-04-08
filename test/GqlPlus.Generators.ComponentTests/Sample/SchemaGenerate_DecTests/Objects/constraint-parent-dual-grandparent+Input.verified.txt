@@ -1,0 +1,73 @@
+﻿/* constraint-parent-dual-grandparent+Input
+input CnstPrntDualGrndInp { :RefCnstPrntDualGrndInp<AltCnstPrntDualGrndInp> }
+input RefCnstPrntDualGrndInp<$ref:GrndCnstPrntDualGrndInp> { :$ref }
+dual GrndCnstPrntDualGrndInp { | String }
+dual PrntCnstPrntDualGrndInp { :GrndCnstPrntDualGrndInp }
+input AltCnstPrntDualGrndInp { :PrntCnstPrntDualGrndInp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-dual-grandparent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-dual-grandparent+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Input;
+
+public interface ICmptCnstPrntDualGrndInp
+  : ICmptRefCnstPrntDualGrndInp<ICmptAltCnstPrntDualGrndInp>
+{
+  ICmptCnstPrntDualGrndInpObject? As_CnstPrntDualGrndInp { get; }
+}
+
+public interface ICmptCnstPrntDualGrndInpObject
+  : ICmptRefCnstPrntDualGrndInpObject<ICmptAltCnstPrntDualGrndInp>
+{
+}
+
+public interface ICmptRefCnstPrntDualGrndInp<TRef>
+  // No Base because it's Class
+{
+  TRef? As_Parent { get; }
+  ICmptRefCnstPrntDualGrndInpObject<TRef>? As_RefCnstPrntDualGrndInp { get; }
+}
+
+public interface ICmptRefCnstPrntDualGrndInpObject<TRef>
+  // No Base because it's Class
+{
+}
+
+public interface ICmptGrndCnstPrntDualGrndInp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptGrndCnstPrntDualGrndInpObject? As_GrndCnstPrntDualGrndInp { get; }
+}
+
+public interface ICmptGrndCnstPrntDualGrndInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptPrntCnstPrntDualGrndInp
+  : ICmptGrndCnstPrntDualGrndInp
+{
+  ICmptPrntCnstPrntDualGrndInpObject? As_PrntCnstPrntDualGrndInp { get; }
+}
+
+public interface ICmptPrntCnstPrntDualGrndInpObject
+  : ICmptGrndCnstPrntDualGrndInpObject
+{
+}
+
+public interface ICmptAltCnstPrntDualGrndInp
+  : ICmptPrntCnstPrntDualGrndInp
+{
+  ICmptAltCnstPrntDualGrndInpObject? As_AltCnstPrntDualGrndInp { get; }
+}
+
+public interface ICmptAltCnstPrntDualGrndInpObject
+  : ICmptPrntCnstPrntDualGrndInpObject
+{
+  decimal Alt { get; }
+}

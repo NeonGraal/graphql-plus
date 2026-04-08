@@ -1,0 +1,36 @@
+﻿/* object-alt+Dual
+dual ObjAltDual { | ObjAltDualType }
+dual ObjAltDual { | ObjAltDualType }
+dual ObjAltDualType { }
+*/
+
+// Generated from Schema object-alt+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_Dual;
+
+public interface ICmptObjAltDual
+  // No Base because it's Class
+{
+  ICmptObjAltDualType? AsObjAltDualType { get; }
+  ICmptObjAltDualObject? As_ObjAltDual { get; }
+}
+
+public interface ICmptObjAltDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAltDualType
+  // No Base because it's Class
+{
+  ICmptObjAltDualTypeObject? As_ObjAltDualType { get; }
+}
+
+public interface ICmptObjAltDualTypeObject
+  // No Base because it's Class
+{
+}

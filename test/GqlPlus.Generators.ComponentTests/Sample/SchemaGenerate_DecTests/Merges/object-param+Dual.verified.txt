@@ -1,0 +1,25 @@
+﻿/* object-param+Dual
+dual ObjParamDual<$test:String> { test: $test }
+dual ObjParamDual<$type:String> { type: $type }
+*/
+
+// Generated from Schema object-param+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-param+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_param_Dual;
+
+public interface ICmptObjParamDual<TTest,TType>
+  // No Base because it's Class
+{
+  ICmptObjParamDualObject<TTest,TType>? As_ObjParamDual { get; }
+}
+
+public interface ICmptObjParamDualObject<TTest,TType>
+  // No Base because it's Class
+{
+  TTest Test { get; }
+  TType Type { get; }
+}

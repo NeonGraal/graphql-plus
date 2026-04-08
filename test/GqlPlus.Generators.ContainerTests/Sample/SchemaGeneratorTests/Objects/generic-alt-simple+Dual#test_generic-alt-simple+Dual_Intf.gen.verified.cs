@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-alt-simple+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}generic-alt-simple+Dual.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,25 +8,25 @@
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_simple_Dual;
 
 public interface ItestGnrcAltSmplDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefGnrcAltSmplDual<string>? AsRefGnrcAltSmplDual { get; }
   ItestGnrcAltSmplDualObject? As_GnrcAltSmplDual { get; }
 }
 
 public interface ItestGnrcAltSmplDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestRefGnrcAltSmplDual<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TRef? Asref { get; }
   ItestRefGnrcAltSmplDualObject<TRef>? As_RefGnrcAltSmplDual { get; }
 }
 
 public interface ItestRefGnrcAltSmplDualObject<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

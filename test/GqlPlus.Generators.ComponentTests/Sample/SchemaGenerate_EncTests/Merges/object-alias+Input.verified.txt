@@ -1,0 +1,30 @@
+﻿/* object-alias+Input
+input ObjAliasInp [Input1] { }
+input ObjAliasInp [Input2] { }
+*/
+
+// Generated from Schema object-alias+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alias+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alias_Input;
+
+public class CmptObjAliasInp
+  : Schema_object-alias+Input
+  , ICmptObjAliasInp
+{
+  public ICmptObjAliasInpObject? As_ObjAliasInp { get; set; }
+}
+
+public class CmptObjAliasInpObject
+  : Schema_object-alias+Input
+  , ICmptObjAliasInpObject
+{
+
+  public CmptObjAliasInpObject
+    ()
+  {
+  }
+}

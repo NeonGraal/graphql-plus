@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent-alt+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}parent-alt+Dual.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -20,14 +20,14 @@ public interface ItestPrntAltDualObject
 }
 
 public interface ItestRefPrntAltDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestRefPrntAltDualObject? As_RefPrntAltDual { get; }
 }
 
 public interface ItestRefPrntAltDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Parent { get; }
 }

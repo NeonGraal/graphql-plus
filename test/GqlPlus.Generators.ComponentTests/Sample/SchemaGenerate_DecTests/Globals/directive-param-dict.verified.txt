@@ -1,0 +1,23 @@
+﻿/* directive-param-dict
+directive @DrctParamDict(InDrctParamDict[String]) { all }
+input InDrctParamDict { }
+*/
+
+// Generated from Schema directive-param-dict
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_directive-param-dict, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param_dict;
+
+public interface ICmptInDrctParamDict
+  // No Base because it's Class
+{
+  ICmptInDrctParamDictObject? As_InDrctParamDict { get; }
+}
+
+public interface ICmptInDrctParamDictObject
+  // No Base because it's Class
+{
+}

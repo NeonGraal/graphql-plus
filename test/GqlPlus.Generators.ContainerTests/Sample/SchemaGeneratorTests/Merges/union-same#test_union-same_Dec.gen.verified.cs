@@ -1,0 +1,14 @@
+﻿//HintName: test_union-same_Dec.gen.cs
+// Generated from {CurrentDirectory}union-same.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+/*
+*/
+
+namespace GqlPlus.GeneratorTests.Gqlp_union_same;
+
+public interface ItestUnionSame
+  // No Base because it's Class
+{
+  Boolean AsBoolean { get; }
+}

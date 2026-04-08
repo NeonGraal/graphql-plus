@@ -1,0 +1,29 @@
+﻿/* field-value+Input
+input FieldValueInp { field = fieldValueInp }
+enum EnumFieldValueInp { fieldValueInp }
+*/
+
+// Generated from Schema field-value+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-value+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_value_Input;
+
+public interface ICmptFieldValueInp
+  // No Base because it's Class
+{
+  ICmptFieldValueInpObject? As_FieldValueInp { get; }
+}
+
+public interface ICmptFieldValueInpObject
+  // No Base because it's Class
+{
+  CmptEnumFieldValueInp Field { get; }
+}
+
+public enum CmptEnumFieldValueInp
+{
+  fieldValueInp,
+}

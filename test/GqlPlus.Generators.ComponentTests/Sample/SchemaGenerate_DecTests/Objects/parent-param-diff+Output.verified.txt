@@ -1,0 +1,36 @@
+﻿/* parent-param-diff+Output
+output PrntParamDiffOutp<$a:String> { :RefPrntParamDiffOutp<$a> field: $a }
+output RefPrntParamDiffOutp<$b:String> { | $b }
+*/
+
+// Generated from Schema parent-param-diff+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-diff+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_param_diff_Output;
+
+public interface ICmptPrntParamDiffOutp<TA>
+  : ICmptRefPrntParamDiffOutp<TA>
+{
+  ICmptPrntParamDiffOutpObject<TA>? As_PrntParamDiffOutp { get; }
+}
+
+public interface ICmptPrntParamDiffOutpObject<TA>
+  : ICmptRefPrntParamDiffOutpObject<TA>
+{
+  TA Field { get; }
+}
+
+public interface ICmptRefPrntParamDiffOutp<TB>
+  // No Base because it's Class
+{
+  TB? Asb { get; }
+  ICmptRefPrntParamDiffOutpObject<TB>? As_RefPrntParamDiffOutp { get; }
+}
+
+public interface ICmptRefPrntParamDiffOutpObject<TB>
+  // No Base because it's Class
+{
+}

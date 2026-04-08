@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-simple-enum+Input_Intf.gen.cs
 // Generated from {CurrentDirectory}generic-parent-simple-enum+Input.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -19,13 +19,13 @@ public interface ItestGnrcPrntSmplEnumInpObject
 }
 
 public interface ItestFieldGnrcPrntSmplEnumInp<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFieldGnrcPrntSmplEnumInpObject<TRef>? As_FieldGnrcPrntSmplEnumInp { get; }
 }
 
 public interface ItestFieldGnrcPrntSmplEnumInpObject<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TRef Field { get; }
 }

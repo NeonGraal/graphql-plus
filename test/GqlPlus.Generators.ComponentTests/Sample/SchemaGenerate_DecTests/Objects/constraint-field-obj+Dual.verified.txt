@@ -1,0 +1,61 @@
+﻿/* constraint-field-obj+Dual
+dual CnstFieldObjDual { :RefCnstFieldObjDual<AltCnstFieldObjDual> }
+dual RefCnstFieldObjDual<$ref:PrntCnstFieldObjDual> { field: $ref }
+dual PrntCnstFieldObjDual { | String }
+dual AltCnstFieldObjDual { :PrntCnstFieldObjDual alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-obj+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_obj_Dual;
+
+public interface ICmptCnstFieldObjDual
+  : ICmptRefCnstFieldObjDual<ICmptAltCnstFieldObjDual>
+{
+  ICmptCnstFieldObjDualObject? As_CnstFieldObjDual { get; }
+}
+
+public interface ICmptCnstFieldObjDualObject
+  : ICmptRefCnstFieldObjDualObject<ICmptAltCnstFieldObjDual>
+{
+}
+
+public interface ICmptRefCnstFieldObjDual<TRef>
+  // No Base because it's Class
+{
+  ICmptRefCnstFieldObjDualObject<TRef>? As_RefCnstFieldObjDual { get; }
+}
+
+public interface ICmptRefCnstFieldObjDualObject<TRef>
+  // No Base because it's Class
+{
+  TRef Field { get; }
+}
+
+public interface ICmptPrntCnstFieldObjDual
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptPrntCnstFieldObjDualObject? As_PrntCnstFieldObjDual { get; }
+}
+
+public interface ICmptPrntCnstFieldObjDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptAltCnstFieldObjDual
+  : ICmptPrntCnstFieldObjDual
+{
+  ICmptAltCnstFieldObjDualObject? As_AltCnstFieldObjDual { get; }
+}
+
+public interface ICmptAltCnstFieldObjDualObject
+  : ICmptPrntCnstFieldObjDualObject
+{
+  decimal Alt { get; }
+}

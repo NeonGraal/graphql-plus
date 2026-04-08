@@ -1,0 +1,32 @@
+﻿/* generic-descr+Output
+output GnrcDescrOutp<"Test" "Descr" $type:String> { field: $type }
+*/
+
+// Generated from Schema generic-descr+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-descr+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_descr_Output;
+
+public class CmptGnrcDescrOutp<TType>
+  : Schema_generic-descr+Output
+  , ICmptGnrcDescrOutp<TType>
+{
+  public ICmptGnrcDescrOutpObject<TType>? As_GnrcDescrOutp { get; set; }
+}
+
+public class CmptGnrcDescrOutpObject<TType>
+  : Schema_generic-descr+Output
+  , ICmptGnrcDescrOutpObject<TType>
+{
+  public TType Field { get; set; }
+
+  public CmptGnrcDescrOutpObject
+    ( TType field
+    )
+  {
+    Field = field;
+  }
+}

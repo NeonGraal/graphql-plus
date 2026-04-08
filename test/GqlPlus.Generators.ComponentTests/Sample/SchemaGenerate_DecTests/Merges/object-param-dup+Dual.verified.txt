@@ -1,0 +1,25 @@
+﻿/* object-param-dup+Dual
+dual ObjParamDupDual<$test:String> { test: $test }
+dual ObjParamDupDual<$test:String> { type: $test }
+*/
+
+// Generated from Schema object-param-dup+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-param-dup+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_param_dup_Dual;
+
+public interface ICmptObjParamDupDual<TTest>
+  // No Base because it's Class
+{
+  ICmptObjParamDupDualObject<TTest>? As_ObjParamDupDual { get; }
+}
+
+public interface ICmptObjParamDupDualObject<TTest>
+  // No Base because it's Class
+{
+  TTest Test { get; }
+  TTest Type { get; }
+}

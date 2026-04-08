@@ -1,0 +1,25 @@
+﻿/* object-alt-enum+Input
+input ObjAltEnumInp { ! true }
+input ObjAltEnumInp { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt-enum+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_enum_Input;
+
+public interface ICmptObjAltEnumInp
+  // No Base because it's Class
+{
+  bool? AsBooleantrue { get; }
+  bool? AsBooleanfalse { get; }
+  ICmptObjAltEnumInpObject? As_ObjAltEnumInp { get; }
+}
+
+public interface ICmptObjAltEnumInpObject
+  // No Base because it's Class
+{
+}

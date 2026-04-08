@@ -1,0 +1,26 @@
+﻿/* category-descr
+"First category"
+category { CtgrDescr }
+"Second category"
+category { CtgrDescr }
+output CtgrDescr { }
+*/
+
+// Generated from Schema category-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-descr, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_descr;
+
+public interface ICmptCtgrDescr
+  // No Base because it's Class
+{
+  ICmptCtgrDescrObject? As_CtgrDescr { get; }
+}
+
+public interface ICmptCtgrDescrObject
+  // No Base because it's Class
+{
+}

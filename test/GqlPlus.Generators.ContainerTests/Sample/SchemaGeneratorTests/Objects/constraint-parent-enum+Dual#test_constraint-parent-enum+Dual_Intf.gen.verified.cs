@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-parent-enum+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}constraint-parent-enum+Dual.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -8,25 +8,25 @@
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_enum_Dual;
 
 public interface ItestCnstPrntEnumDual
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefCnstPrntEnumDual<testParentCnstPrntEnumDual>? AsParentCnstPrntEnumDualparentCnstPrntEnumDual { get; }
   ItestCnstPrntEnumDualObject? As_CnstPrntEnumDual { get; }
 }
 
 public interface ItestCnstPrntEnumDualObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestRefCnstPrntEnumDual<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestRefCnstPrntEnumDualObject<TType>? As_RefCnstPrntEnumDual { get; }
 }
 
 public interface ItestRefCnstPrntEnumDualObject<TType>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TType Field { get; }
 }

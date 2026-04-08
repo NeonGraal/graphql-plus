@@ -1,0 +1,76 @@
+﻿/* output-parent-param
+output OutpPrntParam { :PrntOutpPrntParam field(InOutpPrntParam): FldOutpPrntParam }
+output PrntOutpPrntParam { field(PrntOutpPrntParamIn): FldOutpPrntParam }
+dual FldOutpPrntParam { }
+input InOutpPrntParam { param: Number | String }
+input PrntOutpPrntParamIn { parent: Number | String }
+*/
+
+// Generated from Schema output-parent-param
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-parent-param, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_parent_param;
+
+public interface ICmptOutpPrntParam
+  : ICmptPrntOutpPrntParam
+{
+  ICmptOutpPrntParamObject? As_OutpPrntParam { get; }
+}
+
+public interface ICmptOutpPrntParamObject
+  : ICmptPrntOutpPrntParamObject
+{
+  ICmptFldOutpPrntParam? Field(ICmptInOutpPrntParam parameter);
+}
+
+public interface ICmptPrntOutpPrntParam
+  // No Base because it's Class
+{
+  ICmptPrntOutpPrntParamObject? As_PrntOutpPrntParam { get; }
+}
+
+public interface ICmptPrntOutpPrntParamObject
+  // No Base because it's Class
+{
+  ICmptFldOutpPrntParam? Field(ICmptPrntOutpPrntParamIn parameter);
+}
+
+public interface ICmptFldOutpPrntParam
+  // No Base because it's Class
+{
+  ICmptFldOutpPrntParamObject? As_FldOutpPrntParam { get; }
+}
+
+public interface ICmptFldOutpPrntParamObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptInOutpPrntParam
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptInOutpPrntParamObject? As_InOutpPrntParam { get; }
+}
+
+public interface ICmptInOutpPrntParamObject
+  // No Base because it's Class
+{
+  decimal Param { get; }
+}
+
+public interface ICmptPrntOutpPrntParamIn
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptPrntOutpPrntParamInObject? As_PrntOutpPrntParamIn { get; }
+}
+
+public interface ICmptPrntOutpPrntParamInObject
+  // No Base because it's Class
+{
+  decimal Parent { get; }
+}

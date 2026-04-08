@@ -1,0 +1,56 @@
+﻿/* parent-field+Dual
+dual PrntFieldDual { :RefPrntFieldDual field: Number }
+dual RefPrntFieldDual { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-field+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_field_Dual;
+
+public class CmptPrntFieldDual
+  : CmptRefPrntFieldDual
+  , ICmptPrntFieldDual
+{
+  public ICmptPrntFieldDualObject? As_PrntFieldDual { get; set; }
+}
+
+public class CmptPrntFieldDualObject
+  : CmptRefPrntFieldDualObject
+  , ICmptPrntFieldDualObject
+{
+  public decimal Field { get; set; }
+
+  public CmptPrntFieldDualObject
+    ( decimal parent
+    , decimal field
+    ) : base(parent)
+  {
+    Field = field;
+  }
+}
+
+public class CmptRefPrntFieldDual
+  : Schema_parent-field+Dual
+  , ICmptRefPrntFieldDual
+{
+  public string? AsString { get; set; }
+  public ICmptRefPrntFieldDualObject? As_RefPrntFieldDual { get; set; }
+}
+
+public class CmptRefPrntFieldDualObject
+  : Schema_parent-field+Dual
+  , ICmptRefPrntFieldDualObject
+{
+  public decimal Parent { get; set; }
+
+  public CmptRefPrntFieldDualObject
+    ( decimal parent
+    )
+  {
+    Parent = parent;
+  }
+}

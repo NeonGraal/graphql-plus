@@ -1,0 +1,38 @@
+﻿/* field-mod-Enum+Input
+input FieldModEnumInp { field: String[EnumFieldModEnumInp] }
+enum EnumFieldModEnumInp { value }
+*/
+
+// Generated from Schema field-mod-Enum+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-mod-Enum+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_mod_Enum_Input;
+
+public class CmptFieldModEnumInp
+  : Schema_field-mod-Enum+Input
+  , ICmptFieldModEnumInp
+{
+  public ICmptFieldModEnumInpObject? As_FieldModEnumInp { get; set; }
+}
+
+public class CmptFieldModEnumInpObject
+  : Schema_field-mod-Enum+Input
+  , ICmptFieldModEnumInpObject
+{
+  public IDictionary<CmptEnumFieldModEnumInp, string> Field { get; set; }
+
+  public CmptFieldModEnumInpObject
+    ( IDictionary<CmptEnumFieldModEnumInp, string> field
+    )
+  {
+    Field = field;
+  }
+}
+
+public enum CmptEnumFieldModEnumInp
+{
+  value,
+}

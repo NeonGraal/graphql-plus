@@ -1,0 +1,49 @@
+﻿/* constraint-parent-enum+Output
+output CnstPrntEnumOutp { | RefCnstPrntEnumOutp<parentCnstPrntEnumOutp> }
+output RefCnstPrntEnumOutp<$type:EnumCnstPrntEnumOutp> { field: $type }
+enum EnumCnstPrntEnumOutp { :ParentCnstPrntEnumOutp cnstPrntEnumOutp }
+enum ParentCnstPrntEnumOutp { parentCnstPrntEnumOutp }
+*/
+
+// Generated from Schema constraint-parent-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-enum+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_enum_Output;
+
+public interface ICmptCnstPrntEnumOutp
+  // No Base because it's Class
+{
+  ICmptRefCnstPrntEnumOutp<CmptParentCnstPrntEnumOutp>? AsParentCnstPrntEnumOutpparentCnstPrntEnumOutp { get; }
+  ICmptCnstPrntEnumOutpObject? As_CnstPrntEnumOutp { get; }
+}
+
+public interface ICmptCnstPrntEnumOutpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptRefCnstPrntEnumOutp<TType>
+  // No Base because it's Class
+{
+  ICmptRefCnstPrntEnumOutpObject<TType>? As_RefCnstPrntEnumOutp { get; }
+}
+
+public interface ICmptRefCnstPrntEnumOutpObject<TType>
+  // No Base because it's Class
+{
+  TType Field { get; }
+}
+
+public enum CmptEnumCnstPrntEnumOutp
+{
+  parentCnstPrntEnumOutp = CmptParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
+  cnstPrntEnumOutp,
+}
+
+public enum CmptParentCnstPrntEnumOutp
+{
+  parentCnstPrntEnumOutp,
+}

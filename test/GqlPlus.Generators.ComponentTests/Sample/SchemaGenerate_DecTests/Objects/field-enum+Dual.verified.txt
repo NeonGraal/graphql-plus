@@ -1,0 +1,29 @@
+﻿/* field-enum+Dual
+dual FieldEnumDual { field = EnumFieldEnumDual.fieldEnumDual }
+enum EnumFieldEnumDual { fieldEnumDual }
+*/
+
+// Generated from Schema field-enum+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-enum+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_enum_Dual;
+
+public interface ICmptFieldEnumDual
+  // No Base because it's Class
+{
+  ICmptFieldEnumDualObject? As_FieldEnumDual { get; }
+}
+
+public interface ICmptFieldEnumDualObject
+  // No Base because it's Class
+{
+  CmptEnumFieldEnumDual Field { get; }
+}
+
+public enum CmptEnumFieldEnumDual
+{
+  fieldEnumDual,
+}

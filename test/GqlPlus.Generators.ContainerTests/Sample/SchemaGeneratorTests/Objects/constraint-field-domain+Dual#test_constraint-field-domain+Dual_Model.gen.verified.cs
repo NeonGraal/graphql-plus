@@ -1,6 +1,6 @@
 ﻿//HintName: test_constraint-field-domain+Dual_Model.gen.cs
 // Generated from {CurrentDirectory}constraint-field-domain+Dual.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -27,14 +27,14 @@ public class testCnstFieldDmnDualObject
 }
 
 public class testRefCnstFieldDmnDual<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstFieldDmnDual<TRef>
 {
   public ItestRefCnstFieldDmnDualObject<TRef>? As_RefCnstFieldDmnDual { get; set; }
 }
 
 public class testRefCnstFieldDmnDualObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestRefCnstFieldDmnDualObject<TRef>
 {
   public TRef Field { get; set; }

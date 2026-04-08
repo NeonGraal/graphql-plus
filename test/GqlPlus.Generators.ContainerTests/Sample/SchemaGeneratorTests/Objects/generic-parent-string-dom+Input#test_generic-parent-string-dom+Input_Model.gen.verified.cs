@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-string-dom+Input_Model.gen.cs
 // Generated from {CurrentDirectory}generic-parent-string-dom+Input.graphql+
-//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelImplementationBase, GeneratorType: Model
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpModelBase, GeneratorType: Model
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -27,14 +27,14 @@ public class testGnrcPrntStrDomInpObject
 }
 
 public class testFieldGnrcPrntStrDomInp<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldGnrcPrntStrDomInp<TRef>
 {
   public ItestFieldGnrcPrntStrDomInpObject<TRef>? As_FieldGnrcPrntStrDomInp { get; set; }
 }
 
 public class testFieldGnrcPrntStrDomInpObject<TRef>
-  : GqlpModelImplementationBase
+  : GqlpModelBase
   , ItestFieldGnrcPrntStrDomInpObject<TRef>
 {
   public TRef Field { get; set; }

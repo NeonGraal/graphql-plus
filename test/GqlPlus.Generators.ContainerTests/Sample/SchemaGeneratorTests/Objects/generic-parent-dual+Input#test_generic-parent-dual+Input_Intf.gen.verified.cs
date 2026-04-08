@@ -1,6 +1,6 @@
 ﻿//HintName: test_generic-parent-dual+Input_Intf.gen.cs
 // Generated from {CurrentDirectory}generic-parent-dual+Input.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -19,26 +19,26 @@ public interface ItestGnrcPrntDualInpObject
 }
 
 public interface ItestRefGnrcPrntDualInp<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TRef? Asref { get; }
   ItestRefGnrcPrntDualInpObject<TRef>? As_RefGnrcPrntDualInp { get; }
 }
 
 public interface ItestRefGnrcPrntDualInpObject<TRef>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestAltGnrcPrntDualInp
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestAltGnrcPrntDualInpObject? As_AltGnrcPrntDualInp { get; }
 }
 
 public interface ItestAltGnrcPrntDualInpObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Alt { get; }
 }

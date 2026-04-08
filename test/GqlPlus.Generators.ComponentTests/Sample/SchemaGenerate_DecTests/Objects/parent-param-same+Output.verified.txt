@@ -1,0 +1,36 @@
+﻿/* parent-param-same+Output
+output PrntParamSameOutp<$a:String> { :RefPrntParamSameOutp<$a> field: $a }
+output RefPrntParamSameOutp<$a:String> { | $a }
+*/
+
+// Generated from Schema parent-param-same+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-param-same+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_param_same_Output;
+
+public interface ICmptPrntParamSameOutp<TA>
+  : ICmptRefPrntParamSameOutp<TA>
+{
+  ICmptPrntParamSameOutpObject<TA>? As_PrntParamSameOutp { get; }
+}
+
+public interface ICmptPrntParamSameOutpObject<TA>
+  : ICmptRefPrntParamSameOutpObject<TA>
+{
+  TA Field { get; }
+}
+
+public interface ICmptRefPrntParamSameOutp<TA>
+  // No Base because it's Class
+{
+  TA? Asa { get; }
+  ICmptRefPrntParamSameOutpObject<TA>? As_RefPrntParamSameOutp { get; }
+}
+
+public interface ICmptRefPrntParamSameOutpObject<TA>
+  // No Base because it's Class
+{
+}

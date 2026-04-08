@@ -1,0 +1,31 @@
+﻿/* category-mod
+category [CatM1] { CtgrMod? }
+category [CatM2] { CtgrMod? }
+output CtgrMod { }
+*/
+
+// Generated from Schema category-mod
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-mod, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_mod;
+
+public class CmptCtgrMod
+  : Schema_category-mod
+  , ICmptCtgrMod
+{
+  public ICmptCtgrModObject? As_CtgrMod { get; set; }
+}
+
+public class CmptCtgrModObject
+  : Schema_category-mod
+  , ICmptCtgrModObject
+{
+
+  public CmptCtgrModObject
+    ()
+  {
+  }
+}

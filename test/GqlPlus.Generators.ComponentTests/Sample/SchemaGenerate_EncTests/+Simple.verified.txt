@@ -1,0 +1,431 @@
+﻿// Generated from Schema +Simple
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_+Simple, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_Simple;
+
+public class CmptDmnBoolDescr
+  : GqlpDomainBoolean
+  , ICmptDmnBoolDescr
+{
+}
+
+public class CmptDmnBoolPrnt
+  : CmptPrntDmnBoolPrnt
+  , ICmptDmnBoolPrnt
+{
+}
+
+public class CmptPrntDmnBoolPrnt
+  : GqlpDomainBoolean
+  , ICmptPrntDmnBoolPrnt
+{
+}
+
+public class CmptDmnBoolPrntDescr
+  : CmptPrntDmnBoolPrntDescr
+  , ICmptDmnBoolPrntDescr
+{
+}
+
+public class CmptPrntDmnBoolPrntDescr
+  : GqlpDomainBoolean
+  , ICmptPrntDmnBoolPrntDescr
+{
+}
+
+public class CmptDmnEnumAll
+  : GqlpDomainEnum
+  , ICmptDmnEnumAll
+{
+}
+
+public enum CmptEnumDmnEnumAll
+{
+  dmnEnumAll,
+  enum_dmnEnumAll,
+  dmnEnumAllValue,
+}
+
+public class CmptDmnEnumAllDescr
+  : GqlpDomainEnum
+  , ICmptDmnEnumAllDescr
+{
+}
+
+public enum CmptEnumDmnEnumAllDescr
+{
+  dmnEnumAllDescr,
+  enum_dmnEnumAllDescr,
+  dmnEnumAllDescrValue,
+}
+
+public class CmptDmnEnumAllPrnt
+  : GqlpDomainEnum
+  , ICmptDmnEnumAllPrnt
+{
+}
+
+public enum CmptEnumDmnEnumAllPrnt
+{
+  prnt_dmnEnumAllPrnt = CmptPrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt = CmptPrntDmnEnumAllPrnt.dmnEnumAllPrntPrnt,
+  dmnEnumAllPrnt,
+  dmnEnumAllPrntValue,
+}
+
+public enum CmptPrntDmnEnumAllPrnt
+{
+  prnt_dmnEnumAllPrnt,
+  dmnEnumAllPrntPrnt,
+}
+
+public class CmptDmnEnumDescr
+  : GqlpDomainEnum
+  , ICmptDmnEnumDescr
+{
+}
+
+public enum CmptEnumDmnEnumDescr
+{
+  dmnEnumDescr,
+}
+
+public class CmptDmnEnumExcl
+  : GqlpDomainEnum
+  , ICmptDmnEnumExcl
+{
+}
+
+public enum CmptEnumDmnEnumExcl
+{
+  dmnEnumExcl,
+  enum_dmnEnumExcl,
+  dmnEnumExclValue,
+}
+
+public class CmptDmnEnumExclPrnt
+  : GqlpDomainEnum
+  , ICmptDmnEnumExclPrnt
+{
+}
+
+public enum CmptEnumDmnEnumExclPrnt
+{
+  prnt_dmnEnumExclPrnt = CmptPrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
+  dmnEnumExclPrntPrnt = CmptPrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
+  dmnEnumExclPrnt,
+  dmnEnumExclPrntValue,
+}
+
+public enum CmptPrntDmnEnumExclPrnt
+{
+  prnt_dmnEnumExclPrnt,
+  dmnEnumExclPrntPrnt,
+}
+
+public class CmptDmnEnumLabel
+  : GqlpDomainEnum
+  , ICmptDmnEnumLabel
+{
+}
+
+public enum CmptEnumDmnEnumLabel
+{
+  dmnEnumLabel,
+}
+
+public class CmptDmnEnumPrnt
+  : CmptPrntDmnEnumPrnt
+  , ICmptDmnEnumPrnt
+{
+}
+
+public class CmptPrntDmnEnumPrnt
+  : GqlpDomainEnum
+  , ICmptPrntDmnEnumPrnt
+{
+}
+
+public enum CmptEnumDmnEnumPrnt
+{
+  enum_dmnEnumPrnt,
+  prnt_dmnEnumPrnt,
+}
+
+public class CmptDmnEnumPrntDescr
+  : CmptPrntDmnEnumPrntDescr
+  , ICmptDmnEnumPrntDescr
+{
+}
+
+public class CmptPrntDmnEnumPrntDescr
+  : GqlpDomainEnum
+  , ICmptPrntDmnEnumPrntDescr
+{
+}
+
+public enum CmptEnumDmnEnumPrntDescr
+{
+  enum_dmnEnumPrntDescr,
+  prnt_dmnEnumPrntDescr,
+}
+
+public class CmptDmnEnumUnq
+  : GqlpDomainEnum
+  , ICmptDmnEnumUnq
+{
+}
+
+public enum CmptEnumDmnEnumUnq
+{
+  enum_dmnEnumUnq,
+  dmnEnumUnq,
+  dmnEnumUnqValue,
+}
+
+public enum CmptDupDmnEnumUnq
+{
+  dmnEnumUnq,
+  dup_dmnEnumUnq,
+  dmnEnumUnqDup,
+}
+
+public class CmptDmnEnumUnqPrnt
+  : GqlpDomainEnum
+  , ICmptDmnEnumUnqPrnt
+{
+}
+
+public enum CmptEnumDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt = CmptPrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt = CmptPrntDmnEnumUnqPrnt.dmnEnumUnqPrntPrnt,
+  enum_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntValue,
+}
+
+public enum CmptPrntDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntPrnt,
+}
+
+public enum CmptDupDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt,
+  dup_dmnEnumUnqPrnt,
+  dmnEnumUnqPrntDup,
+}
+
+public class CmptDmnEnumValue
+  : GqlpDomainEnum
+  , ICmptDmnEnumValue
+{
+}
+
+public enum CmptEnumDmnEnumValue
+{
+  dmnEnumValue,
+}
+
+public class CmptDmnEnumValuePrnt
+  : GqlpDomainEnum
+  , ICmptDmnEnumValuePrnt
+{
+}
+
+public enum CmptEnumDmnEnumValuePrnt
+{
+  prnt_dmnEnumValuePrnt = CmptPrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
+  dmnEnumValuePrnt,
+}
+
+public enum CmptPrntDmnEnumValuePrnt
+{
+  prnt_dmnEnumValuePrnt,
+}
+
+public class CmptDmnNmbrDescr
+  : GqlpDomainNumber
+  , ICmptDmnNmbrDescr
+{
+}
+
+public class CmptDmnNmbrPrnt
+  : CmptPrntDmnNmbrPrnt
+  , ICmptDmnNmbrPrnt
+{
+}
+
+public class CmptPrntDmnNmbrPrnt
+  : GqlpDomainNumber
+  , ICmptPrntDmnNmbrPrnt
+{
+}
+
+public class CmptDmnNmbrPrntDescr
+  : CmptPrntDmnNmbrPrntDescr
+  , ICmptDmnNmbrPrntDescr
+{
+}
+
+public class CmptPrntDmnNmbrPrntDescr
+  : GqlpDomainNumber
+  , ICmptPrntDmnNmbrPrntDescr
+{
+}
+
+public class CmptDmnNmbrPstv
+  : GqlpDomainNumber
+  , ICmptDmnNmbrPstv
+{
+}
+
+public class CmptDmnNmbrRange
+  : GqlpDomainNumber
+  , ICmptDmnNmbrRange
+{
+}
+
+public class CmptDmnStrDescr
+  : GqlpDomainString
+  , ICmptDmnStrDescr
+{
+}
+
+public class CmptDmnStrNonEmpty
+  : GqlpDomainString
+  , ICmptDmnStrNonEmpty
+{
+}
+
+public class CmptDmnStrPrnt
+  : CmptPrntDmnStrPrnt
+  , ICmptDmnStrPrnt
+{
+}
+
+public class CmptPrntDmnStrPrnt
+  : GqlpDomainString
+  , ICmptPrntDmnStrPrnt
+{
+}
+
+public class CmptDmnStrPrntDescr
+  : CmptPrntDmnStrPrntDescr
+  , ICmptDmnStrPrntDescr
+{
+}
+
+public class CmptPrntDmnStrPrntDescr
+  : GqlpDomainString
+  , ICmptPrntDmnStrPrntDescr
+{
+}
+
+public enum CmptEnumDescr
+{
+  enumDescr,
+}
+
+public enum CmptEnumPrnt
+{
+  prnt_enumPrnt = CmptPrntEnumPrnt.prnt_enumPrnt,
+  enumPrnt,
+}
+
+public enum CmptPrntEnumPrnt
+{
+  prnt_enumPrnt,
+}
+
+public enum CmptEnumPrntAlias
+{
+  prnt_enumPrntAlias = CmptPrntEnumPrntAlias.prnt_enumPrntAlias,
+  val_enumPrntAlias,
+  prnt_enumPrntAlias,
+  enumPrntAlias = prnt_enumPrntAlias,
+}
+
+public enum CmptPrntEnumPrntAlias
+{
+  prnt_enumPrntAlias,
+}
+
+public enum CmptEnumPrntDescr
+{
+  prnt_enumPrntDescr = CmptPrntEnumPrntDescr.prnt_enumPrntDescr,
+  enumPrntDescr,
+}
+
+public enum CmptPrntEnumPrntDescr
+{
+  prnt_enumPrntDescr,
+}
+
+public enum CmptEnumPrntDup
+{
+  prnt_enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup,
+}
+
+public enum CmptPrntEnumPrntDup
+{
+  prnt_enumPrntDup,
+  enumPrntDup = prnt_enumPrntDup,
+}
+
+public class CmptUnionDescr
+  : Schema_+Simple
+  , ICmptUnionDescr
+{
+  public Number AsNumber { get; set; }
+}
+
+public class CmptUnionPrnt
+  : CmptPrntUnionPrnt
+  , ICmptUnionPrnt
+{
+  public String AsString { get; set; }
+}
+
+public class CmptPrntUnionPrnt
+  : Schema_+Simple
+  , ICmptPrntUnionPrnt
+{
+  public Number AsNumber { get; set; }
+}
+
+public class CmptUnionPrntDescr
+  : CmptPrntUnionPrntDescr
+  , ICmptUnionPrntDescr
+{
+  public Number AsNumber { get; set; }
+}
+
+public class CmptPrntUnionPrntDescr
+  : Schema_+Simple
+  , ICmptPrntUnionPrntDescr
+{
+  public Number AsNumber { get; set; }
+}
+
+public class CmptUnionPrntDup
+  : CmptPrntUnionPrntDup
+  , ICmptUnionPrntDup
+{
+  public Number AsNumber { get; set; }
+}
+
+public class CmptPrntUnionPrntDup
+  : Schema_+Simple
+  , ICmptPrntUnionPrntDup
+{
+  public Number AsNumber { get; set; }
+}

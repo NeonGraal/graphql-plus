@@ -1,0 +1,24 @@
+﻿/* enum-same-parent
+enum EnumSamePrnt { :PrntEnumSamePrnt enumSamePrnt }
+enum EnumSamePrnt { :PrntEnumSamePrnt enumSamePrnt }
+enum PrntEnumSamePrnt { prnt_enumSamePrnt }
+*/
+
+// Generated from Schema enum-same-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-same-parent, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_enum_same_parent;
+
+public enum CmptEnumSamePrnt
+{
+  prnt_enumSamePrnt = CmptPrntEnumSamePrnt.prnt_enumSamePrnt,
+  enumSamePrnt,
+}
+
+public enum CmptPrntEnumSamePrnt
+{
+  prnt_enumSamePrnt,
+}

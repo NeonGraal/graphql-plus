@@ -1,0 +1,50 @@
+﻿/* generic-alt-dual+Dual
+dual GnrcAltDualDual { | RefGnrcAltDualDual<AltGnrcAltDualDual> }
+dual RefGnrcAltDualDual<$ref:_Dual> { | $ref }
+dual AltGnrcAltDualDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-dual+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-dual+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_dual_Dual;
+
+public interface ICmptGnrcAltDualDual
+  // No Base because it's Class
+{
+  ICmptRefGnrcAltDualDual<ICmptAltGnrcAltDualDual>? AsRefGnrcAltDualDual { get; }
+  ICmptGnrcAltDualDualObject? As_GnrcAltDualDual { get; }
+}
+
+public interface ICmptGnrcAltDualDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptRefGnrcAltDualDual<TRef>
+  // No Base because it's Class
+{
+  TRef? Asref { get; }
+  ICmptRefGnrcAltDualDualObject<TRef>? As_RefGnrcAltDualDual { get; }
+}
+
+public interface ICmptRefGnrcAltDualDualObject<TRef>
+  // No Base because it's Class
+{
+}
+
+public interface ICmptAltGnrcAltDualDual
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptAltGnrcAltDualDualObject? As_AltGnrcAltDualDual { get; }
+}
+
+public interface ICmptAltGnrcAltDualDualObject
+  // No Base because it's Class
+{
+  decimal Alt { get; }
+}

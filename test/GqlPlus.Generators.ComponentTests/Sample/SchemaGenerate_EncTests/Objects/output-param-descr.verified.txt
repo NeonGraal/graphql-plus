@@ -1,0 +1,73 @@
+﻿/* output-param-descr
+output OutpParamDescr { field("Test" "Descr" InOutpParamDescr): FldOutpParamDescr }
+dual FldOutpParamDescr { }
+input InOutpParamDescr { param: Number | String }
+*/
+
+// Generated from Schema output-param-descr
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-param-descr, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param_descr;
+
+public class CmptOutpParamDescr
+  : Schema_output-param-descr
+  , ICmptOutpParamDescr
+{
+  public ICmptOutpParamDescrObject? As_OutpParamDescr { get; set; }
+}
+
+public class CmptOutpParamDescrObject
+  : Schema_output-param-descr
+  , ICmptOutpParamDescrObject
+{
+  public ICmptFldOutpParamDescr? Field(ICmptInOutpParamDescr parameter)
+    => null;
+
+  public CmptOutpParamDescrObject
+    ()
+  {
+  }
+}
+
+public class CmptFldOutpParamDescr
+  : Schema_output-param-descr
+  , ICmptFldOutpParamDescr
+{
+  public ICmptFldOutpParamDescrObject? As_FldOutpParamDescr { get; set; }
+}
+
+public class CmptFldOutpParamDescrObject
+  : Schema_output-param-descr
+  , ICmptFldOutpParamDescrObject
+{
+
+  public CmptFldOutpParamDescrObject
+    ()
+  {
+  }
+}
+
+public class CmptInOutpParamDescr
+  : Schema_output-param-descr
+  , ICmptInOutpParamDescr
+{
+  public string? AsString { get; set; }
+  public ICmptInOutpParamDescrObject? As_InOutpParamDescr { get; set; }
+}
+
+public class CmptInOutpParamDescrObject
+  : Schema_output-param-descr
+  , ICmptInOutpParamDescrObject
+{
+  public decimal Param { get; set; }
+
+  public CmptInOutpParamDescrObject
+    ( decimal param
+    )
+  {
+    Param = param;
+  }
+}

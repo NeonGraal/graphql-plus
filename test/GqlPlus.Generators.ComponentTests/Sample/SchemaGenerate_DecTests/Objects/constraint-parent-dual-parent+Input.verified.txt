@@ -1,0 +1,61 @@
+﻿/* constraint-parent-dual-parent+Input
+input CnstPrntDualPrntInp { :RefCnstPrntDualPrntInp<AltCnstPrntDualPrntInp> }
+input RefCnstPrntDualPrntInp<$ref:PrntCnstPrntDualPrntInp> { :$ref }
+dual PrntCnstPrntDualPrntInp { | String }
+input AltCnstPrntDualPrntInp { :PrntCnstPrntDualPrntInp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-dual-parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-parent-dual-parent+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Input;
+
+public interface ICmptCnstPrntDualPrntInp
+  : ICmptRefCnstPrntDualPrntInp<ICmptAltCnstPrntDualPrntInp>
+{
+  ICmptCnstPrntDualPrntInpObject? As_CnstPrntDualPrntInp { get; }
+}
+
+public interface ICmptCnstPrntDualPrntInpObject
+  : ICmptRefCnstPrntDualPrntInpObject<ICmptAltCnstPrntDualPrntInp>
+{
+}
+
+public interface ICmptRefCnstPrntDualPrntInp<TRef>
+  // No Base because it's Class
+{
+  TRef? As_Parent { get; }
+  ICmptRefCnstPrntDualPrntInpObject<TRef>? As_RefCnstPrntDualPrntInp { get; }
+}
+
+public interface ICmptRefCnstPrntDualPrntInpObject<TRef>
+  // No Base because it's Class
+{
+}
+
+public interface ICmptPrntCnstPrntDualPrntInp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptPrntCnstPrntDualPrntInpObject? As_PrntCnstPrntDualPrntInp { get; }
+}
+
+public interface ICmptPrntCnstPrntDualPrntInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptAltCnstPrntDualPrntInp
+  : ICmptPrntCnstPrntDualPrntInp
+{
+  ICmptAltCnstPrntDualPrntInpObject? As_AltCnstPrntDualPrntInp { get; }
+}
+
+public interface ICmptAltCnstPrntDualPrntInpObject
+  : ICmptPrntCnstPrntDualPrntInpObject
+{
+  decimal Alt { get; }
+}

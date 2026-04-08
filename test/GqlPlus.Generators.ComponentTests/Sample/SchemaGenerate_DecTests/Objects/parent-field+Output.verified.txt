@@ -1,0 +1,37 @@
+﻿/* parent-field+Output
+output PrntFieldOutp { :RefPrntFieldOutp field: Number }
+output RefPrntFieldOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-field+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_field_Output;
+
+public interface ICmptPrntFieldOutp
+  : ICmptRefPrntFieldOutp
+{
+  ICmptPrntFieldOutpObject? As_PrntFieldOutp { get; }
+}
+
+public interface ICmptPrntFieldOutpObject
+  : ICmptRefPrntFieldOutpObject
+{
+  decimal Field { get; }
+}
+
+public interface ICmptRefPrntFieldOutp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptRefPrntFieldOutpObject? As_RefPrntFieldOutp { get; }
+}
+
+public interface ICmptRefPrntFieldOutpObject
+  // No Base because it's Class
+{
+  decimal Parent { get; }
+}

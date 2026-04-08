@@ -1,0 +1,24 @@
+﻿/* directive-param
+directive @DrctParam(InDrctParam) { operation }
+directive @DrctParam { fragment }
+input InDrctParam { }
+*/
+
+// Generated from Schema directive-param
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_directive-param, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_directive_param;
+
+public interface ICmptInDrctParam
+  // No Base because it's Class
+{
+  ICmptInDrctParamObject? As_InDrctParam { get; }
+}
+
+public interface ICmptInDrctParamObject
+  // No Base because it's Class
+{
+}

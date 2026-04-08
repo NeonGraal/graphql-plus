@@ -1,0 +1,55 @@
+﻿/* field-dual+Input
+input FieldDualInp { field: FldFieldDualInp }
+dual FldFieldDualInp { field: Number | String }
+*/
+
+// Generated from Schema field-dual+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-dual+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_dual_Input;
+
+public class CmptFieldDualInp
+  : Schema_field-dual+Input
+  , ICmptFieldDualInp
+{
+  public ICmptFieldDualInpObject? As_FieldDualInp { get; set; }
+}
+
+public class CmptFieldDualInpObject
+  : Schema_field-dual+Input
+  , ICmptFieldDualInpObject
+{
+  public ICmptFldFieldDualInp Field { get; set; }
+
+  public CmptFieldDualInpObject
+    ( ICmptFldFieldDualInp field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptFldFieldDualInp
+  : Schema_field-dual+Input
+  , ICmptFldFieldDualInp
+{
+  public string? AsString { get; set; }
+  public ICmptFldFieldDualInpObject? As_FldFieldDualInp { get; set; }
+}
+
+public class CmptFldFieldDualInpObject
+  : Schema_field-dual+Input
+  , ICmptFldFieldDualInpObject
+{
+  public decimal Field { get; set; }
+
+  public CmptFldFieldDualInpObject
+    ( decimal field
+    )
+  {
+    Field = field;
+  }
+}

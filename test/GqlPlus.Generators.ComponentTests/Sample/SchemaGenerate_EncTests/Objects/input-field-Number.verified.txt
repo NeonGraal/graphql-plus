@@ -1,0 +1,32 @@
+﻿/* input-field-Number
+input InpFieldNmbr { field: Number = 42 }
+*/
+
+// Generated from Schema input-field-Number
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_input-field-Number, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_input_field_Number;
+
+public class CmptInpFieldNmbr
+  : Schema_input-field-Number
+  , ICmptInpFieldNmbr
+{
+  public ICmptInpFieldNmbrObject? As_InpFieldNmbr { get; set; }
+}
+
+public class CmptInpFieldNmbrObject
+  : Schema_input-field-Number
+  , ICmptInpFieldNmbrObject
+{
+  public decimal Field { get; set; }
+
+  public CmptInpFieldNmbrObject
+    ( decimal field
+    )
+  {
+    Field = field;
+  }
+}

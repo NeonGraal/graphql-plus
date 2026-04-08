@@ -1,0 +1,119 @@
+﻿/* Names
+dual _Aliased {
+    : _Named
+        aliases: _Name[]
+    }
+
+dual _Named {
+    : _Described
+        name: _Name
+    }
+
+dual _Described {
+        description: String[]
+    }
+
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
+*/
+
+// Generated from Spec Names
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Names, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Names;
+
+public class Cmpt_Aliased
+  : Cmpt_Named
+  , ICmpt_Aliased
+{
+  public ICmpt_AliasedObject? As__Aliased { get; set; }
+}
+
+public class Cmpt_AliasedObject
+  : Cmpt_NamedObject
+  , ICmpt_AliasedObject
+{
+  public ICollection<ICmpt_Name> Aliases { get; set; }
+
+  public Cmpt_AliasedObject
+    ( ICollection<string> description
+    , ICmpt_Name name
+    , ICollection<ICmpt_Name> aliases
+    ) : base(description, name)
+  {
+    Aliases = aliases;
+  }
+}
+
+public class Cmpt_Named
+  : Cmpt_Described
+  , ICmpt_Named
+{
+  public ICmpt_NamedObject? As__Named { get; set; }
+}
+
+public class Cmpt_NamedObject
+  : Cmpt_DescribedObject
+  , ICmpt_NamedObject
+{
+  public ICmpt_Name Name { get; set; }
+
+  public Cmpt_NamedObject
+    ( ICollection<string> description
+    , ICmpt_Name name
+    ) : base(description)
+  {
+    Name = name;
+  }
+}
+
+public class Cmpt_Described
+  : Spec_Names
+  , ICmpt_Described
+{
+  public ICmpt_DescribedObject? As__Described { get; set; }
+}
+
+public class Cmpt_DescribedObject
+  : Spec_Names
+  , ICmpt_DescribedObject
+{
+  public ICollection<string> Description { get; set; }
+
+  public Cmpt_DescribedObject
+    ( ICollection<string> description
+    )
+  {
+    Description = description;
+  }
+}
+
+public class Cmpt_AndType
+  : Cmpt_Named
+  , ICmpt_AndType
+{
+  public ICmpt_Type? As_Type { get; set; }
+  public ICmpt_AndTypeObject? As__AndType { get; set; }
+}
+
+public class Cmpt_AndTypeObject
+  : Cmpt_NamedObject
+  , ICmpt_AndTypeObject
+{
+  public ICmpt_Type Type { get; set; }
+
+  public Cmpt_AndTypeObject
+    ( ICollection<string> description
+    , ICmpt_Name name
+    , ICmpt_Type type
+    ) : base(description, name)
+  {
+    Type = type;
+  }
+}

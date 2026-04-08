@@ -1,0 +1,58 @@
+﻿/* generic-enum+Dual
+dual GnrcEnumDual { | RefGnrcEnumDual<EnumGnrcEnumDual.gnrcEnumDual> }
+dual RefGnrcEnumDual<$type:_Enum> { field: $type }
+enum EnumGnrcEnumDual { gnrcEnumDual }
+*/
+
+// Generated from Schema generic-enum+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-enum+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_enum_Dual;
+
+public class CmptGnrcEnumDual
+  : Schema_generic-enum+Dual
+  , ICmptGnrcEnumDual
+{
+  public ICmptRefGnrcEnumDual<CmptEnumGnrcEnumDual>? AsEnumGnrcEnumDualgnrcEnumDual { get; set; }
+  public ICmptGnrcEnumDualObject? As_GnrcEnumDual { get; set; }
+}
+
+public class CmptGnrcEnumDualObject
+  : Schema_generic-enum+Dual
+  , ICmptGnrcEnumDualObject
+{
+
+  public CmptGnrcEnumDualObject
+    ()
+  {
+  }
+}
+
+public class CmptRefGnrcEnumDual<TType>
+  : Schema_generic-enum+Dual
+  , ICmptRefGnrcEnumDual<TType>
+{
+  public ICmptRefGnrcEnumDualObject<TType>? As_RefGnrcEnumDual { get; set; }
+}
+
+public class CmptRefGnrcEnumDualObject<TType>
+  : Schema_generic-enum+Dual
+  , ICmptRefGnrcEnumDualObject<TType>
+{
+  public TType Field { get; set; }
+
+  public CmptRefGnrcEnumDualObject
+    ( TType field
+    )
+  {
+    Field = field;
+  }
+}
+
+public enum CmptEnumGnrcEnumDual
+{
+  gnrcEnumDual,
+}

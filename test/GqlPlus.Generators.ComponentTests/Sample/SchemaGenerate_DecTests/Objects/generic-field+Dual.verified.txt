@@ -1,0 +1,23 @@
+﻿/* generic-field+Dual
+dual GnrcFieldDual<$type:String> { field: $type }
+*/
+
+// Generated from Schema generic-field+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-field+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_field_Dual;
+
+public interface ICmptGnrcFieldDual<TType>
+  // No Base because it's Class
+{
+  ICmptGnrcFieldDualObject<TType>? As_GnrcFieldDual { get; }
+}
+
+public interface ICmptGnrcFieldDualObject<TType>
+  // No Base because it's Class
+{
+  TType Field { get; }
+}

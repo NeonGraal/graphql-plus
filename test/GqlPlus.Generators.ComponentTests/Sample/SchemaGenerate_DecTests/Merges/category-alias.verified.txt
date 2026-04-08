@@ -1,0 +1,24 @@
+﻿/* category-alias
+category [CatA1] { CtgrAlias }
+category [CatA2] { CtgrAlias }
+output CtgrAlias { }
+*/
+
+// Generated from Schema category-alias
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-alias, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_alias;
+
+public interface ICmptCtgrAlias
+  // No Base because it's Class
+{
+  ICmptCtgrAliasObject? As_CtgrAlias { get; }
+}
+
+public interface ICmptCtgrAliasObject
+  // No Base because it's Class
+{
+}

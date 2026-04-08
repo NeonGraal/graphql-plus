@@ -1,0 +1,37 @@
+﻿/* alt-dual+Output
+output AltDualOutp { | ObjDualAltDualOutp }
+dual ObjDualAltDualOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt-dual+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-dual+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_dual_Output;
+
+public interface ICmptAltDualOutp
+  // No Base because it's Class
+{
+  ICmptObjDualAltDualOutp? AsObjDualAltDualOutp { get; }
+  ICmptAltDualOutpObject? As_AltDualOutp { get; }
+}
+
+public interface ICmptAltDualOutpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjDualAltDualOutp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptObjDualAltDualOutpObject? As_ObjDualAltDualOutp { get; }
+}
+
+public interface ICmptObjDualAltDualOutpObject
+  // No Base because it's Class
+{
+  decimal Alt { get; }
+}

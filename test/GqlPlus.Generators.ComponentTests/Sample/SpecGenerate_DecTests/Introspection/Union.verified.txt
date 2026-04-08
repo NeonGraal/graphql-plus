@@ -1,0 +1,41 @@
+﻿/* Union
+output _UnionRef {
+    : _TypeRef<_SimpleKind>
+    }
+
+output _UnionMember {
+    : _UnionRef
+        union: _Name
+    }
+*/
+
+// Generated from Spec Union
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Union, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Union;
+
+public interface ICmpt_UnionRef
+  : ICmpt_TypeRef<ICmpt_SimpleKind>
+{
+  ICmpt_UnionRefObject? As__UnionRef { get; }
+}
+
+public interface ICmpt_UnionRefObject
+  : ICmpt_TypeRefObject<ICmpt_SimpleKind>
+{
+}
+
+public interface ICmpt_UnionMember
+  : ICmpt_UnionRef
+{
+  ICmpt_UnionMemberObject? As__UnionMember { get; }
+}
+
+public interface ICmpt_UnionMemberObject
+  : ICmpt_UnionRefObject
+{
+  ICmpt_Name Union { get; }
+}

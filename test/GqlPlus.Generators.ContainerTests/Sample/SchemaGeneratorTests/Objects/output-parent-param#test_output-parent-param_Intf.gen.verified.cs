@@ -1,6 +1,6 @@
 ﻿//HintName: test_output-parent-param_Intf.gen.cs
 // Generated from {CurrentDirectory}output-parent-param.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -20,50 +20,50 @@ public interface ItestOutpPrntParamObject
 }
 
 public interface ItestPrntOutpPrntParam
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestPrntOutpPrntParamObject? As_PrntOutpPrntParam { get; }
 }
 
 public interface ItestPrntOutpPrntParamObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldOutpPrntParam? Field(ItestPrntOutpPrntParamIn parameter);
 }
 
 public interface ItestFldOutpPrntParam
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   ItestFldOutpPrntParamObject? As_FldOutpPrntParam { get; }
 }
 
 public interface ItestFldOutpPrntParamObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }
 
 public interface ItestInOutpPrntParam
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestInOutpPrntParamObject? As_InOutpPrntParam { get; }
 }
 
 public interface ItestInOutpPrntParamObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Param { get; }
 }
 
 public interface ItestPrntOutpPrntParamIn
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   string? AsString { get; }
   ItestPrntOutpPrntParamInObject? As_PrntOutpPrntParamIn { get; }
 }
 
 public interface ItestPrntOutpPrntParamInObject
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   decimal Parent { get; }
 }

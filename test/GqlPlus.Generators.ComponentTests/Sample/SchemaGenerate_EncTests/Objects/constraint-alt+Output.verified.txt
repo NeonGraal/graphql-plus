@@ -1,0 +1,30 @@
+﻿/* constraint-alt+Output
+output CnstAltOutp<$type:Number> { | $type }
+*/
+
+// Generated from Schema constraint-alt+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_Output;
+
+public class CmptCnstAltOutp<TType>
+  : Schema_constraint-alt+Output
+  , ICmptCnstAltOutp<TType>
+{
+  public TType? Astype { get; set; }
+  public ICmptCnstAltOutpObject<TType>? As_CnstAltOutp { get; set; }
+}
+
+public class CmptCnstAltOutpObject<TType>
+  : Schema_constraint-alt+Output
+  , ICmptCnstAltOutpObject<TType>
+{
+
+  public CmptCnstAltOutpObject
+    ()
+  {
+  }
+}

@@ -1,0 +1,130 @@
+﻿/* Built-In
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
+        by: _TypeSimple
+        isOptional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
+    }
+*/
+
+// Generated from Spec Built-In
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Built-In, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Built_In;
+
+public class Cmpt_Collections
+  : Spec_Built-In
+  , ICmpt_Collections
+{
+  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; set; }
+  public ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; set; }
+  public ICmpt_CollectionsObject? As__Collections { get; set; }
+}
+
+public class Cmpt_CollectionsObject
+  : Spec_Built-In
+  , ICmpt_CollectionsObject
+{
+
+  public Cmpt_CollectionsObject
+    ()
+  {
+  }
+}
+
+public class Cmpt_ModifierKeyed<TModifierKind>
+  : Cmpt_Modifier<TModifierKind>
+  , ICmpt_ModifierKeyed<TModifierKind>
+{
+  public ICmpt_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; set; }
+}
+
+public class Cmpt_ModifierKeyedObject<TModifierKind>
+  : Cmpt_ModifierObject<TModifierKind>
+  , ICmpt_ModifierKeyedObject<TModifierKind>
+{
+  public ICmpt_TypeSimple By { get; set; }
+  public bool IsOptional { get; set; }
+
+  public Cmpt_ModifierKeyedObject
+    ( TModifierKind modifierKind
+    , ICmpt_TypeSimple by
+    , bool isOptional
+    ) : base(modifierKind)
+  {
+    By = by;
+    IsOptional = isOptional;
+  }
+}
+
+public class Cmpt_Modifiers
+  : Spec_Built-In
+  , ICmpt_Modifiers
+{
+  public ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; set; }
+  public ICmpt_Collections? As_Collections { get; set; }
+  public ICmpt_ModifiersObject? As__Modifiers { get; set; }
+}
+
+public class Cmpt_ModifiersObject
+  : Spec_Built-In
+  , ICmpt_ModifiersObject
+{
+
+  public Cmpt_ModifiersObject
+    ()
+  {
+  }
+}
+
+public enum Cmpt_ModifierKind
+{
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}
+
+public class Cmpt_Modifier<TModifierKind>
+  : Spec_Built-In
+  , ICmpt_Modifier<TModifierKind>
+{
+  public ICmpt_ModifierObject<TModifierKind>? As__Modifier { get; set; }
+}
+
+public class Cmpt_ModifierObject<TModifierKind>
+  : Spec_Built-In
+  , ICmpt_ModifierObject<TModifierKind>
+{
+  public TModifierKind ModifierKind { get; set; }
+
+  public Cmpt_ModifierObject
+    ( TModifierKind modifierKind
+    )
+  {
+    ModifierKind = modifierKind;
+  }
+}

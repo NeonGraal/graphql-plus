@@ -1,0 +1,23 @@
+﻿/* category-output-list
+category { CtgrOutpList[] }
+output CtgrOutpList { }
+*/
+
+// Generated from Schema category-output-list
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-output-list, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_output_list;
+
+public interface ICmptCtgrOutpList
+  // No Base because it's Class
+{
+  ICmptCtgrOutpListObject? As_CtgrOutpList { get; }
+}
+
+public interface ICmptCtgrOutpListObject
+  // No Base because it's Class
+{
+}

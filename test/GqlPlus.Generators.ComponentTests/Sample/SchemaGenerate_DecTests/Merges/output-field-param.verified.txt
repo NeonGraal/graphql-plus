@@ -1,0 +1,60 @@
+﻿/* output-field-param
+output OutpFieldParam { field(OutpFieldParam1): FldOutpFieldParam }
+output OutpFieldParam { field(OutpFieldParam2): FldOutpFieldParam }
+input OutpFieldParam1 { }
+input OutpFieldParam2 { }
+dual FldOutpFieldParam { }
+*/
+
+// Generated from Schema output-field-param
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-field-param, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_field_param;
+
+public interface ICmptOutpFieldParam
+  // No Base because it's Class
+{
+  ICmptOutpFieldParamObject? As_OutpFieldParam { get; }
+}
+
+public interface ICmptOutpFieldParamObject
+  // No Base because it's Class
+{
+  ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter);
+}
+
+public interface ICmptOutpFieldParam1
+  // No Base because it's Class
+{
+  ICmptOutpFieldParam1Object? As_OutpFieldParam1 { get; }
+}
+
+public interface ICmptOutpFieldParam1Object
+  // No Base because it's Class
+{
+}
+
+public interface ICmptOutpFieldParam2
+  // No Base because it's Class
+{
+  ICmptOutpFieldParam2Object? As_OutpFieldParam2 { get; }
+}
+
+public interface ICmptOutpFieldParam2Object
+  // No Base because it's Class
+{
+}
+
+public interface ICmptFldOutpFieldParam
+  // No Base because it's Class
+{
+  ICmptFldOutpFieldParamObject? As_FldOutpFieldParam { get; }
+}
+
+public interface ICmptFldOutpFieldParamObject
+  // No Base because it's Class
+{
+}

@@ -1,0 +1,32 @@
+﻿/* field-simple+Output
+output FieldSmplOutp { field: Number }
+*/
+
+// Generated from Schema field-simple+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-simple+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_simple_Output;
+
+public class CmptFieldSmplOutp
+  : Schema_field-simple+Output
+  , ICmptFieldSmplOutp
+{
+  public ICmptFieldSmplOutpObject? As_FieldSmplOutp { get; set; }
+}
+
+public class CmptFieldSmplOutpObject
+  : Schema_field-simple+Output
+  , ICmptFieldSmplOutpObject
+{
+  public decimal Field { get; set; }
+
+  public CmptFieldSmplOutpObject
+    ( decimal field
+    )
+  {
+    Field = field;
+  }
+}

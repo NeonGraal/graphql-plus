@@ -1,0 +1,52 @@
+﻿/* object-field-alias+Dual
+dual ObjFieldAliasDual { field [field1]: FldObjFieldAliasDual }
+dual ObjFieldAliasDual { field [field2]: FldObjFieldAliasDual }
+dual FldObjFieldAliasDual { }
+*/
+
+// Generated from Schema object-field-alias+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-alias+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_alias_Dual;
+
+public class CmptObjFieldAliasDual
+  : Schema_object-field-alias+Dual
+  , ICmptObjFieldAliasDual
+{
+  public ICmptObjFieldAliasDualObject? As_ObjFieldAliasDual { get; set; }
+}
+
+public class CmptObjFieldAliasDualObject
+  : Schema_object-field-alias+Dual
+  , ICmptObjFieldAliasDualObject
+{
+  public ICmptFldObjFieldAliasDual Field { get; set; }
+
+  public CmptObjFieldAliasDualObject
+    ( ICmptFldObjFieldAliasDual field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptFldObjFieldAliasDual
+  : Schema_object-field-alias+Dual
+  , ICmptFldObjFieldAliasDual
+{
+  public ICmptFldObjFieldAliasDualObject? As_FldObjFieldAliasDual { get; set; }
+}
+
+public class CmptFldObjFieldAliasDualObject
+  : Schema_object-field-alias+Dual
+  , ICmptFldObjFieldAliasDualObject
+{
+
+  public CmptFldObjFieldAliasDualObject
+    ()
+  {
+  }
+}

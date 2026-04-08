@@ -1,0 +1,37 @@
+﻿/* field-mod-param+Input
+input FieldModParamInp<$mod:String> { field: FldFieldModParamInp[$mod] }
+input FldFieldModParamInp { field: Number | String }
+*/
+
+// Generated from Schema field-mod-param+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-mod-param+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_mod_param_Input;
+
+public interface ICmptFieldModParamInp<TMod>
+  // No Base because it's Class
+{
+  ICmptFieldModParamInpObject<TMod>? As_FieldModParamInp { get; }
+}
+
+public interface ICmptFieldModParamInpObject<TMod>
+  // No Base because it's Class
+{
+  IDictionary<TMod, ICmptFldFieldModParamInp> Field { get; }
+}
+
+public interface ICmptFldFieldModParamInp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptFldFieldModParamInpObject? As_FldFieldModParamInp { get; }
+}
+
+public interface ICmptFldFieldModParamInpObject
+  // No Base because it's Class
+{
+  decimal Field { get; }
+}

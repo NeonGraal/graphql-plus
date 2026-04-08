@@ -1,0 +1,32 @@
+﻿/* domain-enum-exclude-parent
+domain DmnEnumExclPrnt { enum EnumDmnEnumExclPrnt.* !PrntDmnEnumExclPrnt.* }
+enum EnumDmnEnumExclPrnt { :PrntDmnEnumExclPrnt dmnEnumExclPrnt dmnEnumExclPrntValue }
+enum PrntDmnEnumExclPrnt { prnt_dmnEnumExclPrnt dmnEnumExclPrntPrnt }
+*/
+
+// Generated from Schema domain-enum-exclude-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-exclude-parent, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_exclude_parent;
+
+public interface ICmptDmnEnumExclPrnt
+  : IGqlpDomainEnum
+{
+}
+
+public enum CmptEnumDmnEnumExclPrnt
+{
+  prnt_dmnEnumExclPrnt = CmptPrntDmnEnumExclPrnt.prnt_dmnEnumExclPrnt,
+  dmnEnumExclPrntPrnt = CmptPrntDmnEnumExclPrnt.dmnEnumExclPrntPrnt,
+  dmnEnumExclPrnt,
+  dmnEnumExclPrntValue,
+}
+
+public enum CmptPrntDmnEnumExclPrnt
+{
+  prnt_dmnEnumExclPrnt,
+  dmnEnumExclPrntPrnt,
+}

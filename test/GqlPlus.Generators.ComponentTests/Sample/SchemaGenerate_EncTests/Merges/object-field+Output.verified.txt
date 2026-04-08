@@ -1,0 +1,52 @@
+﻿/* object-field+Output
+output ObjFieldOutp { field: FldObjFieldOutp }
+output ObjFieldOutp { field: FldObjFieldOutp }
+output FldObjFieldOutp { }
+*/
+
+// Generated from Schema object-field+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_Output;
+
+public class CmptObjFieldOutp
+  : Schema_object-field+Output
+  , ICmptObjFieldOutp
+{
+  public ICmptObjFieldOutpObject? As_ObjFieldOutp { get; set; }
+}
+
+public class CmptObjFieldOutpObject
+  : Schema_object-field+Output
+  , ICmptObjFieldOutpObject
+{
+  public ICmptFldObjFieldOutp Field { get; set; }
+
+  public CmptObjFieldOutpObject
+    ( ICmptFldObjFieldOutp field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptFldObjFieldOutp
+  : Schema_object-field+Output
+  , ICmptFldObjFieldOutp
+{
+  public ICmptFldObjFieldOutpObject? As_FldObjFieldOutp { get; set; }
+}
+
+public class CmptFldObjFieldOutpObject
+  : Schema_object-field+Output
+  , ICmptFldObjFieldOutpObject
+{
+
+  public CmptFldObjFieldOutpObject
+    ()
+  {
+  }
+}

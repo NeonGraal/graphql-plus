@@ -1,0 +1,41 @@
+﻿/* generic-parent-simple-enum+Output
+output GnrcPrntSmplEnumOutp { :FieldGnrcPrntSmplEnumOutp<EnumGnrcPrntSmplEnumOutp> }
+output FieldGnrcPrntSmplEnumOutp<$ref:_Simple> { field: $ref }
+enum EnumGnrcPrntSmplEnumOutp { gnrcPrntSmplEnumOutp }
+*/
+
+// Generated from Schema generic-parent-simple-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-simple-enum+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_simple_enum_Output;
+
+public interface ICmptGnrcPrntSmplEnumOutp
+  : ICmptFieldGnrcPrntSmplEnumOutp<CmptEnumGnrcPrntSmplEnumOutp>
+{
+  ICmptGnrcPrntSmplEnumOutpObject? As_GnrcPrntSmplEnumOutp { get; }
+}
+
+public interface ICmptGnrcPrntSmplEnumOutpObject
+  : ICmptFieldGnrcPrntSmplEnumOutpObject<CmptEnumGnrcPrntSmplEnumOutp>
+{
+}
+
+public interface ICmptFieldGnrcPrntSmplEnumOutp<TRef>
+  // No Base because it's Class
+{
+  ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>? As_FieldGnrcPrntSmplEnumOutp { get; }
+}
+
+public interface ICmptFieldGnrcPrntSmplEnumOutpObject<TRef>
+  // No Base because it's Class
+{
+  TRef Field { get; }
+}
+
+public enum CmptEnumGnrcPrntSmplEnumOutp
+{
+  gnrcPrntSmplEnumOutp,
+}

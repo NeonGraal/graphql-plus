@@ -1,0 +1,33 @@
+﻿/* object-field-type-alias+Dual
+dual ObjFieldTypeAliasDual { field: String }
+dual ObjFieldTypeAliasDual { field: String }
+*/
+
+// Generated from Schema object-field-type-alias+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-type-alias+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_type_alias_Dual;
+
+public class CmptObjFieldTypeAliasDual
+  : Schema_object-field-type-alias+Dual
+  , ICmptObjFieldTypeAliasDual
+{
+  public ICmptObjFieldTypeAliasDualObject? As_ObjFieldTypeAliasDual { get; set; }
+}
+
+public class CmptObjFieldTypeAliasDualObject
+  : Schema_object-field-type-alias+Dual
+  , ICmptObjFieldTypeAliasDualObject
+{
+  public string Field { get; set; }
+
+  public CmptObjFieldTypeAliasDualObject
+    ( string field
+    )
+  {
+    Field = field;
+  }
+}

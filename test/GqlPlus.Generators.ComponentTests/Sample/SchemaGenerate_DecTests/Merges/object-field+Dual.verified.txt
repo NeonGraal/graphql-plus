@@ -1,0 +1,36 @@
+﻿/* object-field+Dual
+dual ObjFieldDual { field: FldObjFieldDual }
+dual ObjFieldDual { field: FldObjFieldDual }
+dual FldObjFieldDual { }
+*/
+
+// Generated from Schema object-field+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_Dual;
+
+public interface ICmptObjFieldDual
+  // No Base because it's Class
+{
+  ICmptObjFieldDualObject? As_ObjFieldDual { get; }
+}
+
+public interface ICmptObjFieldDualObject
+  // No Base because it's Class
+{
+  ICmptFldObjFieldDual Field { get; }
+}
+
+public interface ICmptFldObjFieldDual
+  // No Base because it's Class
+{
+  ICmptFldObjFieldDualObject? As_FldObjFieldDual { get; }
+}
+
+public interface ICmptFldObjFieldDualObject
+  // No Base because it's Class
+{
+}

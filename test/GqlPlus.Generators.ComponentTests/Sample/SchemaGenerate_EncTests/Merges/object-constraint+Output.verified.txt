@@ -1,0 +1,36 @@
+﻿/* object-constraint+Output
+output ObjCnstOutp<$type:String> { field: $type }
+output ObjCnstOutp<$type:String> { str: $type }
+*/
+
+// Generated from Schema object-constraint+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-constraint+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_constraint_Output;
+
+public class CmptObjCnstOutp<TType>
+  : Schema_object-constraint+Output
+  , ICmptObjCnstOutp<TType>
+{
+  public ICmptObjCnstOutpObject<TType>? As_ObjCnstOutp { get; set; }
+}
+
+public class CmptObjCnstOutpObject<TType>
+  : Schema_object-constraint+Output
+  , ICmptObjCnstOutpObject<TType>
+{
+  public TType Field { get; set; }
+  public TType Str { get; set; }
+
+  public CmptObjCnstOutpObject
+    ( TType field
+    , TType str
+    )
+  {
+    Field = field;
+    Str = str;
+  }
+}

@@ -1,0 +1,57 @@
+﻿/* constraint-alt-domain+Dual
+dual CnstAltDmnDual { | RefCnstAltDmnDual<DomCnstAltDmnDual> }
+dual RefCnstAltDmnDual<$ref:String> { | $ref }
+domain DomCnstAltDmnDual { String /\w+/ }
+*/
+
+// Generated from Schema constraint-alt-domain+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-domain+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
+
+public class CmptCnstAltDmnDual
+  : Schema_constraint-alt-domain+Dual
+  , ICmptCnstAltDmnDual
+{
+  public ICmptRefCnstAltDmnDual<ICmptDomCnstAltDmnDual>? AsRefCnstAltDmnDual { get; set; }
+  public ICmptCnstAltDmnDualObject? As_CnstAltDmnDual { get; set; }
+}
+
+public class CmptCnstAltDmnDualObject
+  : Schema_constraint-alt-domain+Dual
+  , ICmptCnstAltDmnDualObject
+{
+
+  public CmptCnstAltDmnDualObject
+    ()
+  {
+  }
+}
+
+public class CmptRefCnstAltDmnDual<TRef>
+  : Schema_constraint-alt-domain+Dual
+  , ICmptRefCnstAltDmnDual<TRef>
+{
+  public TRef? Asref { get; set; }
+  public ICmptRefCnstAltDmnDualObject<TRef>? As_RefCnstAltDmnDual { get; set; }
+}
+
+public class CmptRefCnstAltDmnDualObject<TRef>
+  : Schema_constraint-alt-domain+Dual
+  , ICmptRefCnstAltDmnDualObject<TRef>
+{
+
+  public CmptRefCnstAltDmnDualObject
+    ()
+  {
+  }
+}
+
+public class CmptDomCnstAltDmnDual
+  : GqlpDomainString
+  , ICmptDomCnstAltDmnDual
+{
+}

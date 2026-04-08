@@ -1,0 +1,49 @@
+﻿/* constraint-dom-enum+Input
+input CnstDomEnumInp { | RefCnstDomEnumInp<cnstDomEnumInp> }
+input RefCnstDomEnumInp<$type:JustCnstDomEnumInp> { field: $type }
+enum EnumCnstDomEnumInp { cnstDomEnumInp other }
+domain JustCnstDomEnumInp { enum EnumCnstDomEnumInp.cnstDomEnumInp }
+*/
+
+// Generated from Schema constraint-dom-enum+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-dom-enum+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
+
+public interface ICmptCnstDomEnumInp
+  // No Base because it's Class
+{
+  ICmptRefCnstDomEnumInp<CmptEnumCnstDomEnumInp>? AsEnumCnstDomEnumInpcnstDomEnumInp { get; }
+  ICmptCnstDomEnumInpObject? As_CnstDomEnumInp { get; }
+}
+
+public interface ICmptCnstDomEnumInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptRefCnstDomEnumInp<TType>
+  // No Base because it's Class
+{
+  ICmptRefCnstDomEnumInpObject<TType>? As_RefCnstDomEnumInp { get; }
+}
+
+public interface ICmptRefCnstDomEnumInpObject<TType>
+  // No Base because it's Class
+{
+  TType Field { get; }
+}
+
+public enum CmptEnumCnstDomEnumInp
+{
+  cnstDomEnumInp,
+  other,
+}
+
+public interface ICmptJustCnstDomEnumInp
+  : IGqlpDomainEnum
+{
+}

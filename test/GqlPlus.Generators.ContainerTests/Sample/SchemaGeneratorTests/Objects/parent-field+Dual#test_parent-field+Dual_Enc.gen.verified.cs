@@ -1,0 +1,52 @@
+﻿//HintName: test_parent-field+Dual_Enc.gen.cs
+// Generated from {CurrentDirectory}parent-field+Dual.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+/*
+*/
+
+namespace GqlPlus.GeneratorTests.Gqlp_parent_field_Dual;
+
+public class testPrntFieldDual
+  : testRefPrntFieldDual
+  , ItestPrntFieldDual
+{
+  public ItestPrntFieldDualObject? As_PrntFieldDual { get; set; }
+}
+
+public class testPrntFieldDualObject
+  : testRefPrntFieldDualObject
+  , ItestPrntFieldDualObject
+{
+  public decimal Field { get; set; }
+
+  public testPrntFieldDualObject
+    ( decimal parent
+    , decimal field
+    ) : base(parent)
+  {
+    Field = field;
+  }
+}
+
+public class testRefPrntFieldDual
+  : GqlpEncoderBase
+  , ItestRefPrntFieldDual
+{
+  public string? AsString { get; set; }
+  public ItestRefPrntFieldDualObject? As_RefPrntFieldDual { get; set; }
+}
+
+public class testRefPrntFieldDualObject
+  : GqlpEncoderBase
+  , ItestRefPrntFieldDualObject
+{
+  public decimal Parent { get; set; }
+
+  public testRefPrntFieldDualObject
+    ( decimal parent
+    )
+  {
+    Parent = parent;
+  }
+}

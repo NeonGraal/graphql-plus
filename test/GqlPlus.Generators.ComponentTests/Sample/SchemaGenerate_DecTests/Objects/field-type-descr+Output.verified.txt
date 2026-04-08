@@ -1,0 +1,23 @@
+﻿/* field-type-descr+Output
+output FieldTypeDescrOutp { field: "Test" "Descr" Number }
+*/
+
+// Generated from Schema field-type-descr+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-type-descr+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_type_descr_Output;
+
+public interface ICmptFieldTypeDescrOutp
+  // No Base because it's Class
+{
+  ICmptFieldTypeDescrOutpObject? As_FieldTypeDescrOutp { get; }
+}
+
+public interface ICmptFieldTypeDescrOutpObject
+  // No Base because it's Class
+{
+  decimal Field { get; }
+}

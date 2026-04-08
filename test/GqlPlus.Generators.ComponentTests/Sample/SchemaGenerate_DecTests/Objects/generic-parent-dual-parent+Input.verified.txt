@@ -1,0 +1,49 @@
+﻿/* generic-parent-dual-parent+Input
+input GnrcPrntDualPrntInp { :RefGnrcPrntDualPrntInp<AltGnrcPrntDualPrntInp> }
+input RefGnrcPrntDualPrntInp<$ref:_Dual> { :$ref }
+dual AltGnrcPrntDualPrntInp { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-dual-parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-parent-dual-parent+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_parent_dual_parent_Input;
+
+public interface ICmptGnrcPrntDualPrntInp
+  : ICmptRefGnrcPrntDualPrntInp<ICmptAltGnrcPrntDualPrntInp>
+{
+  ICmptGnrcPrntDualPrntInpObject? As_GnrcPrntDualPrntInp { get; }
+}
+
+public interface ICmptGnrcPrntDualPrntInpObject
+  : ICmptRefGnrcPrntDualPrntInpObject<ICmptAltGnrcPrntDualPrntInp>
+{
+}
+
+public interface ICmptRefGnrcPrntDualPrntInp<TRef>
+  // No Base because it's Class
+{
+  TRef? As_Parent { get; }
+  ICmptRefGnrcPrntDualPrntInpObject<TRef>? As_RefGnrcPrntDualPrntInp { get; }
+}
+
+public interface ICmptRefGnrcPrntDualPrntInpObject<TRef>
+  // No Base because it's Class
+{
+}
+
+public interface ICmptAltGnrcPrntDualPrntInp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptAltGnrcPrntDualPrntInpObject? As_AltGnrcPrntDualPrntInp { get; }
+}
+
+public interface ICmptAltGnrcPrntDualPrntInpObject
+  // No Base because it's Class
+{
+  decimal Alt { get; }
+}

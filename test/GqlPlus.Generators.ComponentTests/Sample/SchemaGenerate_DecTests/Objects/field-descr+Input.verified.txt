@@ -1,0 +1,23 @@
+﻿/* field-descr+Input
+input FieldDescrInp { "Test" "Descr" field: String }
+*/
+
+// Generated from Schema field-descr+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-descr+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_descr_Input;
+
+public interface ICmptFieldDescrInp
+  // No Base because it's Class
+{
+  ICmptFieldDescrInpObject? As_FieldDescrInp { get; }
+}
+
+public interface ICmptFieldDescrInpObject
+  // No Base because it's Class
+{
+  string Field { get; }
+}

@@ -1,0 +1,36 @@
+﻿/* parent-dual+Dual
+dual PrntDualDual { :RefPrntDualDual }
+dual RefPrntDualDual { parent: Number | String }
+*/
+
+// Generated from Schema parent-dual+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent-dual+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_dual_Dual;
+
+public interface ICmptPrntDualDual
+  : ICmptRefPrntDualDual
+{
+  ICmptPrntDualDualObject? As_PrntDualDual { get; }
+}
+
+public interface ICmptPrntDualDualObject
+  : ICmptRefPrntDualDualObject
+{
+}
+
+public interface ICmptRefPrntDualDual
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptRefPrntDualDualObject? As_RefPrntDualDual { get; }
+}
+
+public interface ICmptRefPrntDualDualObject
+  // No Base because it's Class
+{
+  decimal Parent { get; }
+}

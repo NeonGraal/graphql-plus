@@ -1,0 +1,23 @@
+﻿/* descr-double
+"A 'double-quoted' description"
+output DescrDbl { }
+*/
+
+// Generated from Schema descr-double
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-double, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr_double;
+
+public interface ICmptDescrDbl
+  // No Base because it's Class
+{
+  ICmptDescrDblObject? As_DescrDbl { get; }
+}
+
+public interface ICmptDescrDblObject
+  // No Base because it's Class
+{
+}

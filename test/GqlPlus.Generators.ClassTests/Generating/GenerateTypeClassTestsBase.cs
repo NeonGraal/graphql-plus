@@ -74,20 +74,38 @@ public abstract class GenerateTypeClassTestsBase
       : r => { };
 
   internal virtual ForType ForGeneratedBoth(string contains)
-    => ForGeneratedEither(contains, contains);
-
-  internal ForType ForGeneratedEither(string genIntf, string genImpl)
     => generatorType => generatorType switch {
-      GqlpGeneratorType.Interface or GqlpGeneratorType.Dec
+      GqlpGeneratorType.Interface
+        => r => r.ShouldContain(contains),
+      GqlpGeneratorType.Model
+        => r => r.ShouldContain(contains),
+      _ => result => { }
+    };
+
+  internal ForType ForGeneratedAll(string genIntf, string genImpl, string genDec, string genEnc)
+    => generatorType => generatorType switch {
+      GqlpGeneratorType.Interface
         => r => r.ShouldContain(genIntf),
-      GqlpGeneratorType.Model or GqlpGeneratorType.Enc
+      GqlpGeneratorType.Model
         => r => r.ShouldContain(genImpl),
+      GqlpGeneratorType.Dec
+        => r => r.ShouldContain(genDec),
+      GqlpGeneratorType.Enc
+        => r => r.ShouldContain(genEnc),
       _ => result => { }
     };
 
   internal virtual ForType ForGeneratedCodeName(string name)
-    => ForGeneratedEither("public interface I" + TestPrefix + name, "public class " + TestPrefix + name);
+    => ForGeneratedAll(
+      "public interface I" + TestPrefix + name,
+      "public class " + TestPrefix + name,
+      "internal class " + TestPrefix + name + "Decoder",
+      "internal class " + TestPrefix + name + "Encoder");
 
   internal virtual ForType ForGeneratedCodeParent(string parent)
-    => ForGeneratedEither(": I" + parent, ": " + parent);
+    => ForGeneratedAll(
+      ": I" + parent,
+      ": " + parent,
+      ": " + parent + "Decoder",
+      ": " + parent + "Encoder");
 }

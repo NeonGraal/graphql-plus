@@ -1,6 +1,6 @@
 ﻿//HintName: test_parent-param-diff+Dual_Intf.gen.cs
 // Generated from {CurrentDirectory}parent-param-diff+Dual.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */
@@ -20,13 +20,13 @@ public interface ItestPrntParamDiffDualObject<TA>
 }
 
 public interface ItestRefPrntParamDiffDual<TB>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
   TB? Asb { get; }
   ItestRefPrntParamDiffDualObject<TB>? As_RefPrntParamDiffDual { get; }
 }
 
 public interface ItestRefPrntParamDiffDualObject<TB>
-  : IGqlpModelImplementationBase
+  : IGqlpInterfaceBase
 {
 }

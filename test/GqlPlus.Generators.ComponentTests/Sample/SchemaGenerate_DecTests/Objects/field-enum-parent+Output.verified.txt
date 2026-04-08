@@ -1,0 +1,36 @@
+﻿/* field-enum-parent+Output
+output FieldEnumPrntOutp { field = EnumFieldEnumPrntOutp.prnt_fieldEnumPrntOutp }
+enum EnumFieldEnumPrntOutp { :PrntFieldEnumPrntOutp fieldEnumPrntOutp }
+enum PrntFieldEnumPrntOutp { prnt_fieldEnumPrntOutp }
+*/
+
+// Generated from Schema field-enum-parent+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-enum-parent+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_enum_parent_Output;
+
+public interface ICmptFieldEnumPrntOutp
+  // No Base because it's Class
+{
+  ICmptFieldEnumPrntOutpObject? As_FieldEnumPrntOutp { get; }
+}
+
+public interface ICmptFieldEnumPrntOutpObject
+  // No Base because it's Class
+{
+  CmptEnumFieldEnumPrntOutp Field { get; }
+}
+
+public enum CmptEnumFieldEnumPrntOutp
+{
+  prnt_fieldEnumPrntOutp = CmptPrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
+  fieldEnumPrntOutp,
+}
+
+public enum CmptPrntFieldEnumPrntOutp
+{
+  prnt_fieldEnumPrntOutp,
+}

@@ -1,0 +1,62 @@
+﻿/* constraint-alt-obj+Dual
+dual CnstAltObjDual { | RefCnstAltObjDual<AltCnstAltObjDual> }
+dual RefCnstAltObjDual<$ref:PrntCnstAltObjDual> { | $ref }
+dual PrntCnstAltObjDual { | String }
+dual AltCnstAltObjDual { :PrntCnstAltObjDual alt: Number }
+*/
+
+// Generated from Schema constraint-alt-obj+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-alt-obj+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_alt_obj_Dual;
+
+public interface ICmptCnstAltObjDual
+  // No Base because it's Class
+{
+  ICmptRefCnstAltObjDual<ICmptAltCnstAltObjDual>? AsRefCnstAltObjDual { get; }
+  ICmptCnstAltObjDualObject? As_CnstAltObjDual { get; }
+}
+
+public interface ICmptCnstAltObjDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptRefCnstAltObjDual<TRef>
+  // No Base because it's Class
+{
+  TRef? Asref { get; }
+  ICmptRefCnstAltObjDualObject<TRef>? As_RefCnstAltObjDual { get; }
+}
+
+public interface ICmptRefCnstAltObjDualObject<TRef>
+  // No Base because it's Class
+{
+}
+
+public interface ICmptPrntCnstAltObjDual
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptPrntCnstAltObjDualObject? As_PrntCnstAltObjDual { get; }
+}
+
+public interface ICmptPrntCnstAltObjDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptAltCnstAltObjDual
+  : ICmptPrntCnstAltObjDual
+{
+  ICmptAltCnstAltObjDualObject? As_AltCnstAltObjDual { get; }
+}
+
+public interface ICmptAltCnstAltObjDualObject
+  : ICmptPrntCnstAltObjDualObject
+{
+  decimal Alt { get; }
+}

@@ -1,0 +1,58 @@
+﻿/* constraint-enum+Dual
+dual CnstEnumDual { | RefCnstEnumDual<cnstEnumDual> }
+dual RefCnstEnumDual<$type:EnumCnstEnumDual> { field: $type }
+enum EnumCnstEnumDual { cnstEnumDual }
+*/
+
+// Generated from Schema constraint-enum+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-enum+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_enum_Dual;
+
+public class CmptCnstEnumDual
+  : Schema_constraint-enum+Dual
+  , ICmptCnstEnumDual
+{
+  public ICmptRefCnstEnumDual<CmptEnumCnstEnumDual>? AsEnumCnstEnumDualcnstEnumDual { get; set; }
+  public ICmptCnstEnumDualObject? As_CnstEnumDual { get; set; }
+}
+
+public class CmptCnstEnumDualObject
+  : Schema_constraint-enum+Dual
+  , ICmptCnstEnumDualObject
+{
+
+  public CmptCnstEnumDualObject
+    ()
+  {
+  }
+}
+
+public class CmptRefCnstEnumDual<TType>
+  : Schema_constraint-enum+Dual
+  , ICmptRefCnstEnumDual<TType>
+{
+  public ICmptRefCnstEnumDualObject<TType>? As_RefCnstEnumDual { get; set; }
+}
+
+public class CmptRefCnstEnumDualObject<TType>
+  : Schema_constraint-enum+Dual
+  , ICmptRefCnstEnumDualObject<TType>
+{
+  public TType Field { get; set; }
+
+  public CmptRefCnstEnumDualObject
+    ( TType field
+    )
+  {
+    Field = field;
+  }
+}
+
+public enum CmptEnumCnstEnumDual
+{
+  cnstEnumDual,
+}

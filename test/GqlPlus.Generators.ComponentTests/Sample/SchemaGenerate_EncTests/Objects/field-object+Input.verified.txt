@@ -1,0 +1,55 @@
+﻿/* field-object+Input
+input FieldObjInp { field: FldFieldObjInp }
+input FldFieldObjInp { field: Number | String }
+*/
+
+// Generated from Schema field-object+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_field-object+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_field_object_Input;
+
+public class CmptFieldObjInp
+  : Schema_field-object+Input
+  , ICmptFieldObjInp
+{
+  public ICmptFieldObjInpObject? As_FieldObjInp { get; set; }
+}
+
+public class CmptFieldObjInpObject
+  : Schema_field-object+Input
+  , ICmptFieldObjInpObject
+{
+  public ICmptFldFieldObjInp Field { get; set; }
+
+  public CmptFieldObjInpObject
+    ( ICmptFldFieldObjInp field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptFldFieldObjInp
+  : Schema_field-object+Input
+  , ICmptFldFieldObjInp
+{
+  public string? AsString { get; set; }
+  public ICmptFldFieldObjInpObject? As_FldFieldObjInp { get; set; }
+}
+
+public class CmptFldFieldObjInpObject
+  : Schema_field-object+Input
+  , ICmptFldFieldObjInpObject
+{
+  public decimal Field { get; set; }
+
+  public CmptFldFieldObjInpObject
+    ( decimal field
+    )
+  {
+    Field = field;
+  }
+}

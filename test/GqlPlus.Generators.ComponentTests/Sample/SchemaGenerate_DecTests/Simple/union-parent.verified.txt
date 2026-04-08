@@ -1,0 +1,24 @@
+﻿/* union-parent
+union UnionPrnt { :PrntUnionPrnt String }
+union PrntUnionPrnt { Number }
+*/
+
+// Generated from Schema union-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-parent, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_parent;
+
+public interface ICmptUnionPrnt
+  : ICmptPrntUnionPrnt
+{
+  String AsString { get; }
+}
+
+public interface ICmptPrntUnionPrnt
+  // No Base because it's Class
+{
+  Number AsNumber { get; }
+}

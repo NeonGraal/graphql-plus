@@ -1,0 +1,52 @@
+﻿/* object-field-alias+Output
+output ObjFieldAliasOutp { field [field1]: FldObjFieldAliasOutp }
+output ObjFieldAliasOutp { field [field2]: FldObjFieldAliasOutp }
+output FldObjFieldAliasOutp { }
+*/
+
+// Generated from Schema object-field-alias+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-field-alias+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_field_alias_Output;
+
+public class CmptObjFieldAliasOutp
+  : Schema_object-field-alias+Output
+  , ICmptObjFieldAliasOutp
+{
+  public ICmptObjFieldAliasOutpObject? As_ObjFieldAliasOutp { get; set; }
+}
+
+public class CmptObjFieldAliasOutpObject
+  : Schema_object-field-alias+Output
+  , ICmptObjFieldAliasOutpObject
+{
+  public ICmptFldObjFieldAliasOutp Field { get; set; }
+
+  public CmptObjFieldAliasOutpObject
+    ( ICmptFldObjFieldAliasOutp field
+    )
+  {
+    Field = field;
+  }
+}
+
+public class CmptFldObjFieldAliasOutp
+  : Schema_object-field-alias+Output
+  , ICmptFldObjFieldAliasOutp
+{
+  public ICmptFldObjFieldAliasOutpObject? As_FldObjFieldAliasOutp { get; set; }
+}
+
+public class CmptFldObjFieldAliasOutpObject
+  : Schema_object-field-alias+Output
+  , ICmptFldObjFieldAliasOutpObject
+{
+
+  public CmptFldObjFieldAliasOutpObject
+    ()
+  {
+  }
+}

@@ -1,0 +1,61 @@
+﻿/* constraint-field-obj+Input
+input CnstFieldObjInp { :RefCnstFieldObjInp<AltCnstFieldObjInp> }
+input RefCnstFieldObjInp<$ref:PrntCnstFieldObjInp> { field: $ref }
+input PrntCnstFieldObjInp { | String }
+input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-obj+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_obj_Input;
+
+public interface ICmptCnstFieldObjInp
+  : ICmptRefCnstFieldObjInp<ICmptAltCnstFieldObjInp>
+{
+  ICmptCnstFieldObjInpObject? As_CnstFieldObjInp { get; }
+}
+
+public interface ICmptCnstFieldObjInpObject
+  : ICmptRefCnstFieldObjInpObject<ICmptAltCnstFieldObjInp>
+{
+}
+
+public interface ICmptRefCnstFieldObjInp<TRef>
+  // No Base because it's Class
+{
+  ICmptRefCnstFieldObjInpObject<TRef>? As_RefCnstFieldObjInp { get; }
+}
+
+public interface ICmptRefCnstFieldObjInpObject<TRef>
+  // No Base because it's Class
+{
+  TRef Field { get; }
+}
+
+public interface ICmptPrntCnstFieldObjInp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptPrntCnstFieldObjInpObject? As_PrntCnstFieldObjInp { get; }
+}
+
+public interface ICmptPrntCnstFieldObjInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptAltCnstFieldObjInp
+  : ICmptPrntCnstFieldObjInp
+{
+  ICmptAltCnstFieldObjInpObject? As_AltCnstFieldObjInp { get; }
+}
+
+public interface ICmptAltCnstFieldObjInpObject
+  : ICmptPrntCnstFieldObjInpObject
+{
+  decimal Alt { get; }
+}

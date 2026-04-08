@@ -1,0 +1,30 @@
+﻿/* descr-single
+'A "single-quoted" description'
+output DescrSngl { }
+*/
+
+// Generated from Schema descr-single
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-single, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr_single;
+
+public class CmptDescrSngl
+  : Schema_descr-single
+  , ICmptDescrSngl
+{
+  public ICmptDescrSnglObject? As_DescrSngl { get; set; }
+}
+
+public class CmptDescrSnglObject
+  : Schema_descr-single
+  , ICmptDescrSnglObject
+{
+
+  public CmptDescrSnglObject
+    ()
+  {
+  }
+}

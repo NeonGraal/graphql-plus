@@ -1,0 +1,160 @@
+﻿/* Definition
+enum Boolean [bool, ^] { false true }
+
+enum Null [null] { null }
+
+enum Unit [_] { _ }
+
+"No valid value"enum Void { }
+
+domain Number [int, 0] { Number }
+
+domain String [str, *] { String }
+
+union _Basic [Basic] { Boolean Number String Unit }
+
+union _Internal [Internal] { Null Void }
+
+union _Key [Key] { _Basic _Internal _Simple }
+
+"%"
+dual _Object [Object, obj, %] { }
+
+"All user defined Domain types" union _Domain [Domain] { }
+"All user defined Dual types" dual _Dual [Dual] { }
+"All user defined Enum types" union _Enum [Enum] { }
+"All user defined Input types" input _Input [Input] { }
+"All user defined Output types" output _Output [Output] { }
+"All user defined Union types" union _Union [Union] { }
+
+union _Simple [Simple] { _Enum _Domain _Union }
+*/
+
+// Generated from Spec Definition
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Definition, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Definition;
+
+public enum bool
+{
+  false,
+  true,
+}
+
+public enum GqlpNull
+{
+  null,
+}
+
+public enum GqlpUnit
+{
+  _,
+}
+
+public enum void
+{
+}
+
+public interface decimal
+  : IGqlpDomainNumber
+{
+}
+
+public interface string
+  : IGqlpDomainString
+{
+}
+
+public interface ICmpt_Basic
+  // No Base because it's Class
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+  String AsString { get; }
+  Unit AsUnit { get; }
+}
+
+public interface ICmpt_Internal
+  // No Base because it's Class
+{
+  Null AsNull { get; }
+  Void AsVoid { get; }
+}
+
+public interface ICmpt_Key
+  // No Base because it's Class
+{
+  _Basic As_Basic { get; }
+  _Internal As_Internal { get; }
+  _Simple As_Simple { get; }
+}
+
+public interface ICmpt_Object
+  // No Base because it's Class
+{
+  ICmpt_ObjectObject? As__Object { get; }
+}
+
+public interface ICmpt_ObjectObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmpt_Domain
+  // No Base because it's Class
+{
+}
+
+public interface ICmpt_Dual
+  // No Base because it's Class
+{
+  ICmpt_DualObject? As__Dual { get; }
+}
+
+public interface ICmpt_DualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmpt_Enum
+  // No Base because it's Class
+{
+}
+
+public interface ICmpt_Input
+  // No Base because it's Class
+{
+  ICmpt_InputObject? As__Input { get; }
+}
+
+public interface ICmpt_InputObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmpt_Output
+  // No Base because it's Class
+{
+  ICmpt_OutputObject? As__Output { get; }
+}
+
+public interface ICmpt_OutputObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmpt_Union
+  // No Base because it's Class
+{
+}
+
+public interface ICmpt_Simple
+  // No Base because it's Class
+{
+  _Enum As_Enum { get; }
+  _Domain As_Domain { get; }
+  _Union As_Union { get; }
+}

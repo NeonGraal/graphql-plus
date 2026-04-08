@@ -1,0 +1,25 @@
+﻿/* enum-parent-dup
+enum EnumPrntDup { :PrntEnumPrntDup enumPrntDup  }
+enum PrntEnumPrntDup { prnt_enumPrntDup[enumPrntDup] }
+*/
+
+// Generated from Schema enum-parent-dup
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_enum-parent-dup, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_enum_parent_dup;
+
+public enum CmptEnumPrntDup
+{
+  prnt_enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup = CmptPrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup,
+}
+
+public enum CmptPrntEnumPrntDup
+{
+  prnt_enumPrntDup,
+  enumPrntDup = prnt_enumPrntDup,
+}

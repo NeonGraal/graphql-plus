@@ -1,0 +1,36 @@
+﻿/* parent+Output
+output PrntOutp { :RefPrntOutp }
+output RefPrntOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_parent+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_parent_Output;
+
+public interface ICmptPrntOutp
+  : ICmptRefPrntOutp
+{
+  ICmptPrntOutpObject? As_PrntOutp { get; }
+}
+
+public interface ICmptPrntOutpObject
+  : ICmptRefPrntOutpObject
+{
+}
+
+public interface ICmptRefPrntOutp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptRefPrntOutpObject? As_RefPrntOutp { get; }
+}
+
+public interface ICmptRefPrntOutpObject
+  // No Base because it's Class
+{
+  decimal Parent { get; }
+}

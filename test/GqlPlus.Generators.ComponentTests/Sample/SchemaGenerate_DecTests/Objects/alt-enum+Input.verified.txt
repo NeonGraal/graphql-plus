@@ -1,0 +1,29 @@
+﻿/* alt-enum+Input
+input AltEnumInp { ! EnumAltEnumInp.altEnumInp }
+enum EnumAltEnumInp { altEnumInp }
+*/
+
+// Generated from Schema alt-enum+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-enum+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_enum_Input;
+
+public interface ICmptAltEnumInp
+  // No Base because it's Class
+{
+  CmptEnumAltEnumInp? AsEnumAltEnumInpaltEnumInp { get; }
+  ICmptAltEnumInpObject? As_AltEnumInp { get; }
+}
+
+public interface ICmptAltEnumInpObject
+  // No Base because it's Class
+{
+}
+
+public enum CmptEnumAltEnumInp
+{
+  altEnumInp,
+}

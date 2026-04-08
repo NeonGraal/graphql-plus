@@ -1,0 +1,29 @@
+﻿/* domain-enum-value-parent
+domain DmnEnumValuePrnt { Enum EnumDmnEnumValuePrnt.prnt_dmnEnumValuePrnt }
+enum EnumDmnEnumValuePrnt { :PrntDmnEnumValuePrnt dmnEnumValuePrnt } 
+enum PrntDmnEnumValuePrnt { prnt_dmnEnumValuePrnt }
+*/
+
+// Generated from Schema domain-enum-value-parent
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-enum-value-parent, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_enum_value_parent;
+
+public interface ICmptDmnEnumValuePrnt
+  : IGqlpDomainEnum
+{
+}
+
+public enum CmptEnumDmnEnumValuePrnt
+{
+  prnt_dmnEnumValuePrnt = CmptPrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
+  dmnEnumValuePrnt,
+}
+
+public enum CmptPrntDmnEnumValuePrnt
+{
+  prnt_dmnEnumValuePrnt,
+}

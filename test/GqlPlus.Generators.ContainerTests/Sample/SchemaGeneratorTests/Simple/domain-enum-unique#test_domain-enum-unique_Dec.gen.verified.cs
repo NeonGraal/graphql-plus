@@ -1,0 +1,27 @@
+﻿//HintName: test_domain-enum-unique_Dec.gen.cs
+// Generated from {CurrentDirectory}domain-enum-unique.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpDecoderBase, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+/*
+*/
+
+namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_unique;
+
+public interface ItestDmnEnumUnq
+  : IGqlpDomainEnum
+{
+}
+
+public enum testEnumDmnEnumUnq
+{
+  enum_dmnEnumUnq,
+  dmnEnumUnq,
+  dmnEnumUnqValue,
+}
+
+public enum testDupDmnEnumUnq
+{
+  dmnEnumUnq,
+  dup_dmnEnumUnq,
+  dmnEnumUnqDup,
+}

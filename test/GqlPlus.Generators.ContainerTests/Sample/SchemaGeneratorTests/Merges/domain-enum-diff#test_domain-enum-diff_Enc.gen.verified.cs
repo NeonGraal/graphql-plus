@@ -1,0 +1,14 @@
+﻿//HintName: test_domain-enum-diff_Enc.gen.cs
+// Generated from {CurrentDirectory}domain-enum-diff.graphql+
+//   with GeneratorOption: BaseType: Class, BaseName: GqlpEncoderBase, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: Testing, TypePrefix: test
+/*
+*/
+
+namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_diff;
+
+public class testDmnEnumDiff
+  : GqlpDomainEnum
+  , ItestDmnEnumDiff
+{
+}

@@ -1,0 +1,23 @@
+﻿/* category-output-optional
+category { CtgrOutpOptl? }
+output CtgrOutpOptl { }
+*/
+
+// Generated from Schema category-output-optional
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_category-output-optional, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_category_output_optional;
+
+public interface ICmptCtgrOutpOptl
+  // No Base because it's Class
+{
+  ICmptCtgrOutpOptlObject? As_CtgrOutpOptl { get; }
+}
+
+public interface ICmptCtgrOutpOptlObject
+  // No Base because it's Class
+{
+}

@@ -1,0 +1,37 @@
+﻿/* alt+Input
+input AltInp { | AltAltInp }
+input AltAltInp { alt: Number | String }
+*/
+
+// Generated from Schema alt+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_Input;
+
+public interface ICmptAltInp
+  // No Base because it's Class
+{
+  ICmptAltAltInp? AsAltAltInp { get; }
+  ICmptAltInpObject? As_AltInp { get; }
+}
+
+public interface ICmptAltInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptAltAltInp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptAltAltInpObject? As_AltAltInp { get; }
+}
+
+public interface ICmptAltAltInpObject
+  // No Base because it's Class
+{
+  decimal Alt { get; }
+}

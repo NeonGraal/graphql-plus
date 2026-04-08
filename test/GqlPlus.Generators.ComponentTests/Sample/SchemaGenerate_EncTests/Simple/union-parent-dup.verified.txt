@@ -1,0 +1,26 @@
+﻿/* union-parent-dup
+union UnionPrntDup { :PrntUnionPrntDup Number }
+union PrntUnionPrntDup { Number }
+*/
+
+// Generated from Schema union-parent-dup
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_union-parent-dup, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_union_parent_dup;
+
+public class CmptUnionPrntDup
+  : CmptPrntUnionPrntDup
+  , ICmptUnionPrntDup
+{
+  public Number AsNumber { get; set; }
+}
+
+public class CmptPrntUnionPrntDup
+  : Schema_union-parent-dup
+  , ICmptPrntUnionPrntDup
+{
+  public Number AsNumber { get; set; }
+}

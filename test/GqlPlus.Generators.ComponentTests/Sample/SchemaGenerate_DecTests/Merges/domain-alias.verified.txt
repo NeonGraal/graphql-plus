@@ -1,0 +1,17 @@
+﻿/* domain-alias
+domain DmnAlias [Num1] { number }
+domain DmnAlias [Num2] { number }
+*/
+
+// Generated from Schema domain-alias
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_domain-alias, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_domain_alias;
+
+public interface ICmptDmnAlias
+  : IGqlpDomainNumber
+{
+}

@@ -1,0 +1,23 @@
+﻿/* descr-backslash
+'A backslash ("\\") description'
+output DescrBcks { }
+*/
+
+// Generated from Schema descr-backslash
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_descr-backslash, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_descr_backslash;
+
+public interface ICmptDescrBcks
+  // No Base because it's Class
+{
+  ICmptDescrBcksObject? As_DescrBcks { get; }
+}
+
+public interface ICmptDescrBcksObject
+  // No Base because it's Class
+{
+}

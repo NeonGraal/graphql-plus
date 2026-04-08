@@ -1,0 +1,248 @@
+﻿/* -Type
+output _Type {
+    | _BaseType<_TypeKind.Basic>
+    | _BaseType<_TypeKind.Internal>
+    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
+    | _BaseDomain<_DomainKind.Enum _DomainLabel _DomainItemLabel>
+    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
+    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
+    | _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
+    | _ParentType<_TypeKind.Union _UnionRef _UnionMember>
+    | _TypeObject<_TypeKind.Dual _DualField>
+    | _TypeObject<_TypeKind.Input _InputField>
+    | _TypeObject<_TypeKind.Output _OutputField>
+    }
+
+output _BaseType<$typeKind:_TypeKind> {
+    : _Aliased
+        typeKind: $typeKind
+    }
+
+output _ChildType<$typeKind:_TypeKind $parent:_Described> {
+    : _BaseType<$typeKind>
+        parent: $parent
+    }
+
+output _ParentType<$typeKind:_TypeKind $item:_Described $allItem:_Described> {
+    : _ChildType<$typeKind _Named>
+        items: $item[]
+        allItems: $allItem[]
+    }
+
+enum _SimpleKind { Basic Enum Internal Domain Union }
+
+enum _TypeKind { :_SimpleKind Dual Input Output }
+
+dual _TypeRef<$typeKind:_TypeKind> {
+    : _Named
+        typeKind: $typeKind
+}
+
+dual _TypeSimple {
+    | _TypeRef<_TypeKind.Basic>
+    | _TypeRef<_TypeKind.Enum>
+    | _TypeRef<_TypeKind.Domain>
+    | _TypeRef<_TypeKind.Union>
+    }
+
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$modifierKind:_ModifierKind> {
+    : _Modifier<$modifierKind>
+        by: _TypeSimple
+        isOptional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$modifierKind:_ModifierKind> {
+        modifierKind: $modifierKind
+    }
+*/
+
+// Generated from Spec -Type
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_-Type, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Type;
+
+public interface ICmpt_Type
+  // No Base because it's Class
+{
+  ICmpt_BaseType<Cmpt_TypeKind>? As_TypeKindBasic { get; }
+  ICmpt_BaseType<Cmpt_TypeKind>? As_TypeKindInternal { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainTrueFalse, ICmpt_DomainItemTrueFalse>? As_DomainKindBoolean { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainLabel, ICmpt_DomainItemLabel>? As_DomainKindEnum { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRange, ICmpt_DomainItemRange>? As_DomainKindNumber { get; }
+  ICmpt_BaseDomain<ICmpt_DomainKind, ICmpt_DomainRegex, ICmpt_DomainItemRegex>? As_DomainKindString { get; }
+  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_Aliased, ICmpt_EnumLabel>? As_TypeKindEnum { get; }
+  ICmpt_ParentType<Cmpt_TypeKind, ICmpt_UnionRef, ICmpt_UnionMember>? As_TypeKindUnion { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_DualField>? As_TypeKindDual { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_InputField>? As_TypeKindInput { get; }
+  ICmpt_TypeObject<Cmpt_TypeKind, ICmpt_OutputField>? As_TypeKindOutput { get; }
+  ICmpt_TypeObject? As__Type { get; }
+}
+
+public interface ICmpt_TypeObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmpt_BaseType<TTypeKind>
+  : ICmpt_Aliased
+{
+  ICmpt_BaseTypeObject<TTypeKind>? As__BaseType { get; }
+}
+
+public interface ICmpt_BaseTypeObject<TTypeKind>
+  : ICmpt_AliasedObject
+{
+  TTypeKind TypeKind { get; }
+}
+
+public interface ICmpt_ChildType<TTypeKind,TParent>
+  : ICmpt_BaseType<TTypeKind>
+{
+  ICmpt_ChildTypeObject<TTypeKind,TParent>? As__ChildType { get; }
+}
+
+public interface ICmpt_ChildTypeObject<TTypeKind,TParent>
+  : ICmpt_BaseTypeObject<TTypeKind>
+{
+  TParent Parent { get; }
+}
+
+public interface ICmpt_ParentType<TTypeKind,TItem,TAllItem>
+  : ICmpt_ChildType<TTypeKind, ICmpt_Named>
+{
+  ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>? As__ParentType { get; }
+}
+
+public interface ICmpt_ParentTypeObject<TTypeKind,TItem,TAllItem>
+  : ICmpt_ChildTypeObject<TTypeKind, ICmpt_Named>
+{
+  ICollection<TItem> Items { get; }
+  ICollection<TAllItem> AllItems { get; }
+}
+
+public enum Cmpt_SimpleKind
+{
+  Basic,
+  Enum,
+  Internal,
+  Domain,
+  Union,
+}
+
+public enum Cmpt_TypeKind
+{
+  Basic = Cmpt_SimpleKind.Basic,
+  Enum = Cmpt_SimpleKind.Enum,
+  Internal = Cmpt_SimpleKind.Internal,
+  Domain = Cmpt_SimpleKind.Domain,
+  Union = Cmpt_SimpleKind.Union,
+  Dual,
+  Input,
+  Output,
+}
+
+public interface ICmpt_TypeRef<TTypeKind>
+  : ICmpt_Named
+{
+  ICmpt_TypeRefObject<TTypeKind>? As__TypeRef { get; }
+}
+
+public interface ICmpt_TypeRefObject<TTypeKind>
+  : ICmpt_NamedObject
+{
+  TTypeKind TypeKind { get; }
+}
+
+public interface ICmpt_TypeSimple
+  // No Base because it's Class
+{
+  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindBasic { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindEnum { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindDomain { get; }
+  ICmpt_TypeRef<Cmpt_TypeKind>? As_TypeKindUnion { get; }
+  ICmpt_TypeSimpleObject? As__TypeSimple { get; }
+}
+
+public interface ICmpt_TypeSimpleObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmpt_Collections
+  // No Base because it's Class
+{
+  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindList { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindDictionary { get; }
+  ICmpt_ModifierKeyed<Cmpt_ModifierKind>? As_ModifierKindTypeParam { get; }
+  ICmpt_CollectionsObject? As__Collections { get; }
+}
+
+public interface ICmpt_CollectionsObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmpt_ModifierKeyed<TModifierKind>
+  : ICmpt_Modifier<TModifierKind>
+{
+  ICmpt_ModifierKeyedObject<TModifierKind>? As__ModifierKeyed { get; }
+}
+
+public interface ICmpt_ModifierKeyedObject<TModifierKind>
+  : ICmpt_ModifierObject<TModifierKind>
+{
+  ICmpt_TypeSimple By { get; }
+  bool IsOptional { get; }
+}
+
+public interface ICmpt_Modifiers
+  // No Base because it's Class
+{
+  ICmpt_Modifier<Cmpt_ModifierKind>? As_ModifierKindOptional { get; }
+  ICmpt_Collections? As_Collections { get; }
+  ICmpt_ModifiersObject? As__Modifiers { get; }
+}
+
+public interface ICmpt_ModifiersObject
+  // No Base because it's Class
+{
+}
+
+public enum Cmpt_ModifierKind
+{
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}
+
+public interface ICmpt_Modifier<TModifierKind>
+  // No Base because it's Class
+{
+  ICmpt_ModifierObject<TModifierKind>? As__Modifier { get; }
+}
+
+public interface ICmpt_ModifierObject<TModifierKind>
+  // No Base because it's Class
+{
+  TModifierKind ModifierKind { get; }
+}

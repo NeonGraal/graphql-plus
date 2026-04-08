@@ -1,0 +1,50 @@
+﻿/* generic-alt-param+Output
+output GnrcAltParamOutp { | RefGnrcAltParamOutp<AltGnrcAltParamOutp> }
+output RefGnrcAltParamOutp<$ref:_Output> { | $ref }
+output AltGnrcAltParamOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-alt-param+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_alt_param_Output;
+
+public interface ICmptGnrcAltParamOutp
+  // No Base because it's Class
+{
+  ICmptRefGnrcAltParamOutp<ICmptAltGnrcAltParamOutp>? AsRefGnrcAltParamOutp { get; }
+  ICmptGnrcAltParamOutpObject? As_GnrcAltParamOutp { get; }
+}
+
+public interface ICmptGnrcAltParamOutpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptRefGnrcAltParamOutp<TRef>
+  // No Base because it's Class
+{
+  TRef? Asref { get; }
+  ICmptRefGnrcAltParamOutpObject<TRef>? As_RefGnrcAltParamOutp { get; }
+}
+
+public interface ICmptRefGnrcAltParamOutpObject<TRef>
+  // No Base because it's Class
+{
+}
+
+public interface ICmptAltGnrcAltParamOutp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptAltGnrcAltParamOutpObject? As_AltGnrcAltParamOutp { get; }
+}
+
+public interface ICmptAltGnrcAltParamOutpObject
+  // No Base because it's Class
+{
+  decimal Alt { get; }
+}

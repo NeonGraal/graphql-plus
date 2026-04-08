@@ -1,0 +1,49 @@
+﻿/* object-parent+Input
+input ObjPrntInp { :RefObjPrntInp }
+input ObjPrntInp { :RefObjPrntInp }
+input RefObjPrntInp { }
+*/
+
+// Generated from Schema object-parent+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-parent+Input, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_parent_Input;
+
+public class CmptObjPrntInp
+  : CmptRefObjPrntInp
+  , ICmptObjPrntInp
+{
+  public ICmptObjPrntInpObject? As_ObjPrntInp { get; set; }
+}
+
+public class CmptObjPrntInpObject
+  : CmptRefObjPrntInpObject
+  , ICmptObjPrntInpObject
+{
+
+  public CmptObjPrntInpObject
+    ()
+  {
+  }
+}
+
+public class CmptRefObjPrntInp
+  : Schema_object-parent+Input
+  , ICmptRefObjPrntInp
+{
+  public ICmptRefObjPrntInpObject? As_RefObjPrntInp { get; set; }
+}
+
+public class CmptRefObjPrntInpObject
+  : Schema_object-parent+Input
+  , ICmptRefObjPrntInpObject
+{
+
+  public CmptRefObjPrntInpObject
+    ()
+  {
+  }
+}

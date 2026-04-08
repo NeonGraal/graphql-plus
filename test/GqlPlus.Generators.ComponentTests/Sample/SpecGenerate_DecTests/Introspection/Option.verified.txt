@@ -1,0 +1,26 @@
+﻿/* Option
+output _Setting {
+    : _Named
+        value: Value
+    }
+*/
+
+// Generated from Spec Option
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Option, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Option;
+
+public interface ICmpt_Setting
+  : ICmpt_Named
+{
+  ICmpt_SettingObject? As__Setting { get; }
+}
+
+public interface ICmpt_SettingObject
+  : ICmpt_NamedObject
+{
+  GqlpValue Value { get; }
+}

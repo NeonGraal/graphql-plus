@@ -1,0 +1,42 @@
+﻿/* generic-enum+Input
+input GnrcEnumInp { | RefGnrcEnumInp<EnumGnrcEnumInp.gnrcEnumInp> }
+input RefGnrcEnumInp<$type:_Enum> { field: $type }
+enum EnumGnrcEnumInp { gnrcEnumInp }
+*/
+
+// Generated from Schema generic-enum+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_generic-enum+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_generic_enum_Input;
+
+public interface ICmptGnrcEnumInp
+  // No Base because it's Class
+{
+  ICmptRefGnrcEnumInp<CmptEnumGnrcEnumInp>? AsEnumGnrcEnumInpgnrcEnumInp { get; }
+  ICmptGnrcEnumInpObject? As_GnrcEnumInp { get; }
+}
+
+public interface ICmptGnrcEnumInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptRefGnrcEnumInp<TType>
+  // No Base because it's Class
+{
+  ICmptRefGnrcEnumInpObject<TType>? As_RefGnrcEnumInp { get; }
+}
+
+public interface ICmptRefGnrcEnumInpObject<TType>
+  // No Base because it's Class
+{
+  TType Field { get; }
+}
+
+public enum CmptEnumGnrcEnumInp
+{
+  gnrcEnumInp,
+}

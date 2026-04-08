@@ -1,0 +1,32 @@
+﻿/* object-alt-enum+Output
+output ObjAltEnumOutp { ! true }
+output ObjAltEnumOutp { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_object-alt-enum+Output, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_object_alt_enum_Output;
+
+public class CmptObjAltEnumOutp
+  : Schema_object-alt-enum+Output
+  , ICmptObjAltEnumOutp
+{
+  public bool? AsBooleantrue { get; set; }
+  public bool? AsBooleanfalse { get; set; }
+  public ICmptObjAltEnumOutpObject? As_ObjAltEnumOutp { get; set; }
+}
+
+public class CmptObjAltEnumOutpObject
+  : Schema_object-alt-enum+Output
+  , ICmptObjAltEnumOutpObject
+{
+
+  public CmptObjAltEnumOutpObject
+    ()
+  {
+  }
+}

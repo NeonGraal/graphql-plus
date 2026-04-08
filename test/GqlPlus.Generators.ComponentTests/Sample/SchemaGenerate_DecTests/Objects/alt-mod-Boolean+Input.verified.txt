@@ -1,0 +1,37 @@
+﻿/* alt-mod-Boolean+Input
+input AltModBoolInp { | AltAltModBoolInp[^] }
+input AltAltModBoolInp { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-Boolean+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-mod-Boolean+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
+
+public interface ICmptAltModBoolInp
+  // No Base because it's Class
+{
+  IDictionary<bool, ICmptAltAltModBoolInp>? AsAltAltModBoolInp { get; }
+  ICmptAltModBoolInpObject? As_AltModBoolInp { get; }
+}
+
+public interface ICmptAltModBoolInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptAltAltModBoolInp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptAltAltModBoolInpObject? As_AltAltModBoolInp { get; }
+}
+
+public interface ICmptAltAltModBoolInpObject
+  // No Base because it's Class
+{
+  decimal Alt { get; }
+}

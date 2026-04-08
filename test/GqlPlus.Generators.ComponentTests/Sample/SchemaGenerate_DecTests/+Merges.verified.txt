@@ -1,0 +1,836 @@
+﻿// Generated from Schema +Merges
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_+Merges, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_Merges;
+
+public interface ICmptCtgr
+  // No Base because it's Class
+{
+  ICmptCtgrObject? As_Ctgr { get; }
+}
+
+public interface ICmptCtgrObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptCtgrAlias
+  // No Base because it's Class
+{
+  ICmptCtgrAliasObject? As_CtgrAlias { get; }
+}
+
+public interface ICmptCtgrAliasObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptCtgrDescr
+  // No Base because it's Class
+{
+  ICmptCtgrDescrObject? As_CtgrDescr { get; }
+}
+
+public interface ICmptCtgrDescrObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptCtgrMod
+  // No Base because it's Class
+{
+  ICmptCtgrModObject? As_CtgrMod { get; }
+}
+
+public interface ICmptCtgrModObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptInDrctParam
+  // No Base because it's Class
+{
+  ICmptInDrctParamObject? As_InDrctParam { get; }
+}
+
+public interface ICmptInDrctParamObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptDmnAlias
+  : IGqlpDomainNumber
+{
+}
+
+public interface ICmptDmnBool
+  : IGqlpDomainBoolean
+{
+}
+
+public interface ICmptDmnBoolDiff
+  : IGqlpDomainBoolean
+{
+}
+
+public interface ICmptDmnBoolSame
+  : IGqlpDomainBoolean
+{
+}
+
+public interface ICmptDmnEnumDiff
+  : IGqlpDomainEnum
+{
+}
+
+public interface ICmptDmnEnumSame
+  : IGqlpDomainEnum
+{
+}
+
+public interface ICmptDmnNmbr
+  : IGqlpDomainNumber
+{
+}
+
+public interface ICmptDmnNmbrDiff
+  : IGqlpDomainNumber
+{
+}
+
+public interface ICmptDmnNmbrSame
+  : IGqlpDomainNumber
+{
+}
+
+public interface ICmptDmnStr
+  : IGqlpDomainString
+{
+}
+
+public interface ICmptDmnStrDiff
+  : IGqlpDomainString
+{
+}
+
+public interface ICmptDmnStrSame
+  : IGqlpDomainString
+{
+}
+
+public enum CmptEnumAlias
+{
+  enumAlias,
+}
+
+public enum CmptEnumDiff
+{
+  one,
+  two,
+}
+
+public enum CmptEnumSame
+{
+  enumSame,
+}
+
+public enum CmptEnumSamePrnt
+{
+  prnt_enumSamePrnt = CmptPrntEnumSamePrnt.prnt_enumSamePrnt,
+  enumSamePrnt,
+}
+
+public enum CmptPrntEnumSamePrnt
+{
+  prnt_enumSamePrnt,
+}
+
+public enum CmptEnumValueAlias
+{
+  enumValueAlias,
+  val1 = enumValueAlias,
+  val2 = enumValueAlias,
+}
+
+public interface ICmptObjDual
+  // No Base because it's Class
+{
+  ICmptObjDualObject? As_ObjDual { get; }
+}
+
+public interface ICmptObjDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjInp
+  // No Base because it's Class
+{
+  ICmptObjInpObject? As_ObjInp { get; }
+}
+
+public interface ICmptObjInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjOutp
+  // No Base because it's Class
+{
+  ICmptObjOutpObject? As_ObjOutp { get; }
+}
+
+public interface ICmptObjOutpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAliasDual
+  // No Base because it's Class
+{
+  ICmptObjAliasDualObject? As_ObjAliasDual { get; }
+}
+
+public interface ICmptObjAliasDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAliasInp
+  // No Base because it's Class
+{
+  ICmptObjAliasInpObject? As_ObjAliasInp { get; }
+}
+
+public interface ICmptObjAliasInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAliasOutp
+  // No Base because it's Class
+{
+  ICmptObjAliasOutpObject? As_ObjAliasOutp { get; }
+}
+
+public interface ICmptObjAliasOutpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAltDual
+  // No Base because it's Class
+{
+  ICmptObjAltDualType? AsObjAltDualType { get; }
+  ICmptObjAltDualObject? As_ObjAltDual { get; }
+}
+
+public interface ICmptObjAltDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAltDualType
+  // No Base because it's Class
+{
+  ICmptObjAltDualTypeObject? As_ObjAltDualType { get; }
+}
+
+public interface ICmptObjAltDualTypeObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAltInp
+  // No Base because it's Class
+{
+  ICmptObjAltInpType? AsObjAltInpType { get; }
+  ICmptObjAltInpObject? As_ObjAltInp { get; }
+}
+
+public interface ICmptObjAltInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAltInpType
+  // No Base because it's Class
+{
+  ICmptObjAltInpTypeObject? As_ObjAltInpType { get; }
+}
+
+public interface ICmptObjAltInpTypeObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAltOutp
+  // No Base because it's Class
+{
+  ICmptObjAltOutpType? AsObjAltOutpType { get; }
+  ICmptObjAltOutpObject? As_ObjAltOutp { get; }
+}
+
+public interface ICmptObjAltOutpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAltOutpType
+  // No Base because it's Class
+{
+  ICmptObjAltOutpTypeObject? As_ObjAltOutpType { get; }
+}
+
+public interface ICmptObjAltOutpTypeObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAltEnumDual
+  // No Base because it's Class
+{
+  bool? AsBooleantrue { get; }
+  bool? AsBooleanfalse { get; }
+  ICmptObjAltEnumDualObject? As_ObjAltEnumDual { get; }
+}
+
+public interface ICmptObjAltEnumDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAltEnumInp
+  // No Base because it's Class
+{
+  bool? AsBooleantrue { get; }
+  bool? AsBooleanfalse { get; }
+  ICmptObjAltEnumInpObject? As_ObjAltEnumInp { get; }
+}
+
+public interface ICmptObjAltEnumInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjAltEnumOutp
+  // No Base because it's Class
+{
+  bool? AsBooleantrue { get; }
+  bool? AsBooleanfalse { get; }
+  ICmptObjAltEnumOutpObject? As_ObjAltEnumOutp { get; }
+}
+
+public interface ICmptObjAltEnumOutpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjCnstDual<TType>
+  // No Base because it's Class
+{
+  ICmptObjCnstDualObject<TType>? As_ObjCnstDual { get; }
+}
+
+public interface ICmptObjCnstDualObject<TType>
+  // No Base because it's Class
+{
+  TType Field { get; }
+  TType Str { get; }
+}
+
+public interface ICmptObjCnstInp<TType>
+  // No Base because it's Class
+{
+  ICmptObjCnstInpObject<TType>? As_ObjCnstInp { get; }
+}
+
+public interface ICmptObjCnstInpObject<TType>
+  // No Base because it's Class
+{
+  TType Field { get; }
+  TType Str { get; }
+}
+
+public interface ICmptObjCnstOutp<TType>
+  // No Base because it's Class
+{
+  ICmptObjCnstOutpObject<TType>? As_ObjCnstOutp { get; }
+}
+
+public interface ICmptObjCnstOutpObject<TType>
+  // No Base because it's Class
+{
+  TType Field { get; }
+  TType Str { get; }
+}
+
+public interface ICmptObjFieldDual
+  // No Base because it's Class
+{
+  ICmptObjFieldDualObject? As_ObjFieldDual { get; }
+}
+
+public interface ICmptObjFieldDualObject
+  // No Base because it's Class
+{
+  ICmptFldObjFieldDual Field { get; }
+}
+
+public interface ICmptFldObjFieldDual
+  // No Base because it's Class
+{
+  ICmptFldObjFieldDualObject? As_FldObjFieldDual { get; }
+}
+
+public interface ICmptFldObjFieldDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjFieldInp
+  // No Base because it's Class
+{
+  ICmptObjFieldInpObject? As_ObjFieldInp { get; }
+}
+
+public interface ICmptObjFieldInpObject
+  // No Base because it's Class
+{
+  ICmptFldObjFieldInp Field { get; }
+}
+
+public interface ICmptFldObjFieldInp
+  // No Base because it's Class
+{
+  ICmptFldObjFieldInpObject? As_FldObjFieldInp { get; }
+}
+
+public interface ICmptFldObjFieldInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjFieldOutp
+  // No Base because it's Class
+{
+  ICmptObjFieldOutpObject? As_ObjFieldOutp { get; }
+}
+
+public interface ICmptObjFieldOutpObject
+  // No Base because it's Class
+{
+  ICmptFldObjFieldOutp Field { get; }
+}
+
+public interface ICmptFldObjFieldOutp
+  // No Base because it's Class
+{
+  ICmptFldObjFieldOutpObject? As_FldObjFieldOutp { get; }
+}
+
+public interface ICmptFldObjFieldOutpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjFieldAliasDual
+  // No Base because it's Class
+{
+  ICmptObjFieldAliasDualObject? As_ObjFieldAliasDual { get; }
+}
+
+public interface ICmptObjFieldAliasDualObject
+  // No Base because it's Class
+{
+  ICmptFldObjFieldAliasDual Field { get; }
+}
+
+public interface ICmptFldObjFieldAliasDual
+  // No Base because it's Class
+{
+  ICmptFldObjFieldAliasDualObject? As_FldObjFieldAliasDual { get; }
+}
+
+public interface ICmptFldObjFieldAliasDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjFieldAliasInp
+  // No Base because it's Class
+{
+  ICmptObjFieldAliasInpObject? As_ObjFieldAliasInp { get; }
+}
+
+public interface ICmptObjFieldAliasInpObject
+  // No Base because it's Class
+{
+  ICmptFldObjFieldAliasInp Field { get; }
+}
+
+public interface ICmptFldObjFieldAliasInp
+  // No Base because it's Class
+{
+  ICmptFldObjFieldAliasInpObject? As_FldObjFieldAliasInp { get; }
+}
+
+public interface ICmptFldObjFieldAliasInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjFieldAliasOutp
+  // No Base because it's Class
+{
+  ICmptObjFieldAliasOutpObject? As_ObjFieldAliasOutp { get; }
+}
+
+public interface ICmptObjFieldAliasOutpObject
+  // No Base because it's Class
+{
+  ICmptFldObjFieldAliasOutp Field { get; }
+}
+
+public interface ICmptFldObjFieldAliasOutp
+  // No Base because it's Class
+{
+  ICmptFldObjFieldAliasOutpObject? As_FldObjFieldAliasOutp { get; }
+}
+
+public interface ICmptFldObjFieldAliasOutpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjFieldEnumAliasDual
+  // No Base because it's Class
+{
+  ICmptObjFieldEnumAliasDualObject? As_ObjFieldEnumAliasDual { get; }
+}
+
+public interface ICmptObjFieldEnumAliasDualObject
+  // No Base because it's Class
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldEnumAliasInp
+  // No Base because it's Class
+{
+  ICmptObjFieldEnumAliasInpObject? As_ObjFieldEnumAliasInp { get; }
+}
+
+public interface ICmptObjFieldEnumAliasInpObject
+  // No Base because it's Class
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldEnumAliasOutp
+  // No Base because it's Class
+{
+  ICmptObjFieldEnumAliasOutpObject? As_ObjFieldEnumAliasOutp { get; }
+}
+
+public interface ICmptObjFieldEnumAliasOutpObject
+  // No Base because it's Class
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldEnumValueDual
+  // No Base because it's Class
+{
+  ICmptObjFieldEnumValueDualObject? As_ObjFieldEnumValueDual { get; }
+}
+
+public interface ICmptObjFieldEnumValueDualObject
+  // No Base because it's Class
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldEnumValueInp
+  // No Base because it's Class
+{
+  ICmptObjFieldEnumValueInpObject? As_ObjFieldEnumValueInp { get; }
+}
+
+public interface ICmptObjFieldEnumValueInpObject
+  // No Base because it's Class
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldEnumValueOutp
+  // No Base because it's Class
+{
+  ICmptObjFieldEnumValueOutpObject? As_ObjFieldEnumValueOutp { get; }
+}
+
+public interface ICmptObjFieldEnumValueOutpObject
+  // No Base because it's Class
+{
+  bool Field { get; }
+}
+
+public interface ICmptObjFieldTypeAliasDual
+  // No Base because it's Class
+{
+  ICmptObjFieldTypeAliasDualObject? As_ObjFieldTypeAliasDual { get; }
+}
+
+public interface ICmptObjFieldTypeAliasDualObject
+  // No Base because it's Class
+{
+  string Field { get; }
+}
+
+public interface ICmptObjFieldTypeAliasInp
+  // No Base because it's Class
+{
+  ICmptObjFieldTypeAliasInpObject? As_ObjFieldTypeAliasInp { get; }
+}
+
+public interface ICmptObjFieldTypeAliasInpObject
+  // No Base because it's Class
+{
+  string Field { get; }
+}
+
+public interface ICmptObjFieldTypeAliasOutp
+  // No Base because it's Class
+{
+  ICmptObjFieldTypeAliasOutpObject? As_ObjFieldTypeAliasOutp { get; }
+}
+
+public interface ICmptObjFieldTypeAliasOutpObject
+  // No Base because it's Class
+{
+  string Field { get; }
+}
+
+public interface ICmptObjParamDual<TTest,TType>
+  // No Base because it's Class
+{
+  ICmptObjParamDualObject<TTest,TType>? As_ObjParamDual { get; }
+}
+
+public interface ICmptObjParamDualObject<TTest,TType>
+  // No Base because it's Class
+{
+  TTest Test { get; }
+  TType Type { get; }
+}
+
+public interface ICmptObjParamInp<TTest,TType>
+  // No Base because it's Class
+{
+  ICmptObjParamInpObject<TTest,TType>? As_ObjParamInp { get; }
+}
+
+public interface ICmptObjParamInpObject<TTest,TType>
+  // No Base because it's Class
+{
+  TTest Test { get; }
+  TType Type { get; }
+}
+
+public interface ICmptObjParamOutp<TTest,TType>
+  // No Base because it's Class
+{
+  ICmptObjParamOutpObject<TTest,TType>? As_ObjParamOutp { get; }
+}
+
+public interface ICmptObjParamOutpObject<TTest,TType>
+  // No Base because it's Class
+{
+  TTest Test { get; }
+  TType Type { get; }
+}
+
+public interface ICmptObjParamDupDual<TTest>
+  // No Base because it's Class
+{
+  ICmptObjParamDupDualObject<TTest>? As_ObjParamDupDual { get; }
+}
+
+public interface ICmptObjParamDupDualObject<TTest>
+  // No Base because it's Class
+{
+  TTest Test { get; }
+  TTest Type { get; }
+}
+
+public interface ICmptObjParamDupInp<TTest>
+  // No Base because it's Class
+{
+  ICmptObjParamDupInpObject<TTest>? As_ObjParamDupInp { get; }
+}
+
+public interface ICmptObjParamDupInpObject<TTest>
+  // No Base because it's Class
+{
+  TTest Test { get; }
+  TTest Type { get; }
+}
+
+public interface ICmptObjParamDupOutp<TTest>
+  // No Base because it's Class
+{
+  ICmptObjParamDupOutpObject<TTest>? As_ObjParamDupOutp { get; }
+}
+
+public interface ICmptObjParamDupOutpObject<TTest>
+  // No Base because it's Class
+{
+  TTest Test { get; }
+  TTest Type { get; }
+}
+
+public interface ICmptObjPrntDual
+  : ICmptRefObjPrntDual
+{
+  ICmptObjPrntDualObject? As_ObjPrntDual { get; }
+}
+
+public interface ICmptObjPrntDualObject
+  : ICmptRefObjPrntDualObject
+{
+}
+
+public interface ICmptRefObjPrntDual
+  // No Base because it's Class
+{
+  ICmptRefObjPrntDualObject? As_RefObjPrntDual { get; }
+}
+
+public interface ICmptRefObjPrntDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjPrntInp
+  : ICmptRefObjPrntInp
+{
+  ICmptObjPrntInpObject? As_ObjPrntInp { get; }
+}
+
+public interface ICmptObjPrntInpObject
+  : ICmptRefObjPrntInpObject
+{
+}
+
+public interface ICmptRefObjPrntInp
+  // No Base because it's Class
+{
+  ICmptRefObjPrntInpObject? As_RefObjPrntInp { get; }
+}
+
+public interface ICmptRefObjPrntInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptObjPrntOutp
+  : ICmptRefObjPrntOutp
+{
+  ICmptObjPrntOutpObject? As_ObjPrntOutp { get; }
+}
+
+public interface ICmptObjPrntOutpObject
+  : ICmptRefObjPrntOutpObject
+{
+}
+
+public interface ICmptRefObjPrntOutp
+  // No Base because it's Class
+{
+  ICmptRefObjPrntOutpObject? As_RefObjPrntOutp { get; }
+}
+
+public interface ICmptRefObjPrntOutpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptOutpFieldParam
+  // No Base because it's Class
+{
+  ICmptOutpFieldParamObject? As_OutpFieldParam { get; }
+}
+
+public interface ICmptOutpFieldParamObject
+  // No Base because it's Class
+{
+  ICmptFldOutpFieldParam? Field(ICmptOutpFieldParam1 parameter);
+}
+
+public interface ICmptOutpFieldParam1
+  // No Base because it's Class
+{
+  ICmptOutpFieldParam1Object? As_OutpFieldParam1 { get; }
+}
+
+public interface ICmptOutpFieldParam1Object
+  // No Base because it's Class
+{
+}
+
+public interface ICmptOutpFieldParam2
+  // No Base because it's Class
+{
+  ICmptOutpFieldParam2Object? As_OutpFieldParam2 { get; }
+}
+
+public interface ICmptOutpFieldParam2Object
+  // No Base because it's Class
+{
+}
+
+public interface ICmptFldOutpFieldParam
+  // No Base because it's Class
+{
+  ICmptFldOutpFieldParamObject? As_FldOutpFieldParam { get; }
+}
+
+public interface ICmptFldOutpFieldParamObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptUnionAlias
+  // No Base because it's Class
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+}
+
+public interface ICmptUnionDiff
+  // No Base because it's Class
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+}
+
+public interface ICmptUnionSame
+  // No Base because it's Class
+{
+  Boolean AsBoolean { get; }
+}
+
+public interface ICmptUnionSamePrnt
+  : ICmptPrntUnionSamePrnt
+{
+  Boolean AsBoolean { get; }
+}
+
+public interface ICmptPrntUnionSamePrnt
+  // No Base because it's Class
+{
+  String AsString { get; }
+}

@@ -1,0 +1,61 @@
+﻿/* output-param-mod-Domain
+output OutpParamModDmn { field(InOutpParamModDmn[DomOutpParamModDmn]): DomOutpParamModDmn }
+input InOutpParamModDmn { param: Number | String }
+domain DomOutpParamModDmn { number 1 < 10 }
+*/
+
+// Generated from Schema output-param-mod-Domain
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_output-param-mod-Domain, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_output_param_mod_Domain;
+
+public class CmptOutpParamModDmn
+  : Schema_output-param-mod-Domain
+  , ICmptOutpParamModDmn
+{
+  public ICmptOutpParamModDmnObject? As_OutpParamModDmn { get; set; }
+}
+
+public class CmptOutpParamModDmnObject
+  : Schema_output-param-mod-Domain
+  , ICmptOutpParamModDmnObject
+{
+  public ICmptDomOutpParamModDmn? Field(IDictionary<ICmptDomOutpParamModDmn, ICmptInOutpParamModDmn> parameter)
+    => null;
+
+  public CmptOutpParamModDmnObject
+    ()
+  {
+  }
+}
+
+public class CmptInOutpParamModDmn
+  : Schema_output-param-mod-Domain
+  , ICmptInOutpParamModDmn
+{
+  public string? AsString { get; set; }
+  public ICmptInOutpParamModDmnObject? As_InOutpParamModDmn { get; set; }
+}
+
+public class CmptInOutpParamModDmnObject
+  : Schema_output-param-mod-Domain
+  , ICmptInOutpParamModDmnObject
+{
+  public decimal Param { get; set; }
+
+  public CmptInOutpParamModDmnObject
+    ( decimal param
+    )
+  {
+    Param = param;
+  }
+}
+
+public class CmptDomOutpParamModDmn
+  : GqlpDomainNumber
+  , ICmptDomOutpParamModDmn
+{
+}

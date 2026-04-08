@@ -1,6 +1,6 @@
 ﻿//HintName: test_enum-same-parent_Intf.gen.cs
 // Generated from {CurrentDirectory}enum-same-parent.graphql+
-//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpModelImplementationBase, GeneratorType: Intf
+//   with GeneratorOption: BaseType: Interface, BaseName: IGqlpInterfaceBase, GeneratorType: Intf
 //   and ModelOption: BaseNamespace: Testing, TypePrefix: test
 /*
 */

@@ -1,0 +1,53 @@
+﻿/* alt-mod-Boolean+Dual
+dual AltModBoolDual { | AltAltModBoolDual[^] }
+dual AltAltModBoolDual { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-Boolean+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-mod-Boolean+Dual, GeneratorType: Enc
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
+
+public class CmptAltModBoolDual
+  : Schema_alt-mod-Boolean+Dual
+  , ICmptAltModBoolDual
+{
+  public IDictionary<bool, ICmptAltAltModBoolDual>? AsAltAltModBoolDual { get; set; }
+  public ICmptAltModBoolDualObject? As_AltModBoolDual { get; set; }
+}
+
+public class CmptAltModBoolDualObject
+  : Schema_alt-mod-Boolean+Dual
+  , ICmptAltModBoolDualObject
+{
+
+  public CmptAltModBoolDualObject
+    ()
+  {
+  }
+}
+
+public class CmptAltAltModBoolDual
+  : Schema_alt-mod-Boolean+Dual
+  , ICmptAltAltModBoolDual
+{
+  public string? AsString { get; set; }
+  public ICmptAltAltModBoolDualObject? As_AltAltModBoolDual { get; set; }
+}
+
+public class CmptAltAltModBoolDualObject
+  : Schema_alt-mod-Boolean+Dual
+  , ICmptAltAltModBoolDualObject
+{
+  public decimal Alt { get; set; }
+
+  public CmptAltAltModBoolDualObject
+    ( decimal alt
+    )
+  {
+    Alt = alt;
+  }
+}

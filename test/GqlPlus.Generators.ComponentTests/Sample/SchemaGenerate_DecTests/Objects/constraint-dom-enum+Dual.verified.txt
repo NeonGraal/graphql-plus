@@ -1,0 +1,49 @@
+﻿/* constraint-dom-enum+Dual
+dual CnstDomEnumDual { | RefCnstDomEnumDual<cnstDomEnumDual> }
+dual RefCnstDomEnumDual<$type:JustCnstDomEnumDual> { field: $type }
+enum EnumCnstDomEnumDual { cnstDomEnumDual other }
+domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
+*/
+
+// Generated from Schema constraint-dom-enum+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-dom-enum+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
+
+public interface ICmptCnstDomEnumDual
+  // No Base because it's Class
+{
+  ICmptRefCnstDomEnumDual<CmptEnumCnstDomEnumDual>? AsEnumCnstDomEnumDualcnstDomEnumDual { get; }
+  ICmptCnstDomEnumDualObject? As_CnstDomEnumDual { get; }
+}
+
+public interface ICmptCnstDomEnumDualObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptRefCnstDomEnumDual<TType>
+  // No Base because it's Class
+{
+  ICmptRefCnstDomEnumDualObject<TType>? As_RefCnstDomEnumDual { get; }
+}
+
+public interface ICmptRefCnstDomEnumDualObject<TType>
+  // No Base because it's Class
+{
+  TType Field { get; }
+}
+
+public enum CmptEnumCnstDomEnumDual
+{
+  cnstDomEnumDual,
+  other,
+}
+
+public interface ICmptJustCnstDomEnumDual
+  : IGqlpDomainEnum
+{
+}

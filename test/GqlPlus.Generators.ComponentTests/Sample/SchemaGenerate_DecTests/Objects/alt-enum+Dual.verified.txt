@@ -1,0 +1,29 @@
+﻿/* alt-enum+Dual
+dual AltEnumDual { ! EnumAltEnumDual.altEnumDual }
+enum EnumAltEnumDual { altEnumDual }
+*/
+
+// Generated from Schema alt-enum+Dual
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-enum+Dual, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_enum_Dual;
+
+public interface ICmptAltEnumDual
+  // No Base because it's Class
+{
+  CmptEnumAltEnumDual? AsEnumAltEnumDualaltEnumDual { get; }
+  ICmptAltEnumDualObject? As_AltEnumDual { get; }
+}
+
+public interface ICmptAltEnumDualObject
+  // No Base because it's Class
+{
+}
+
+public enum CmptEnumAltEnumDual
+{
+  altEnumDual,
+}

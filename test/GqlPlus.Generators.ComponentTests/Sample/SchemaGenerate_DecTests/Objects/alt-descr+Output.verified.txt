@@ -1,0 +1,23 @@
+﻿/* alt-descr+Output
+output AltDescrOutp { | "Test" "Descr" String }
+*/
+
+// Generated from Schema alt-descr+Output
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_alt-descr+Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_alt_descr_Output;
+
+public interface ICmptAltDescrOutp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptAltDescrOutpObject? As_AltDescrOutp { get; }
+}
+
+public interface ICmptAltDescrOutpObject
+  // No Base because it's Class
+{
+}

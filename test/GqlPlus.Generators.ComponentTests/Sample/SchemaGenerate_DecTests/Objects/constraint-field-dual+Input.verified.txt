@@ -1,0 +1,61 @@
+﻿/* constraint-field-dual+Input
+input CnstFieldDualInp { :RefCnstFieldDualInp<AltCnstFieldDualInp> }
+input RefCnstFieldDualInp<$ref:PrntCnstFieldDualInp> { field: $ref }
+dual PrntCnstFieldDualInp { | String }
+input AltCnstFieldDualInp { :PrntCnstFieldDualInp alt: Number }
+*/
+
+// Generated from Schema constraint-field-dual+Input
+//   with GeneratorOption: BaseType: Class, BaseName: Schema_constraint-field-dual+Input, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Schema_constraint_field_dual_Input;
+
+public interface ICmptCnstFieldDualInp
+  : ICmptRefCnstFieldDualInp<ICmptAltCnstFieldDualInp>
+{
+  ICmptCnstFieldDualInpObject? As_CnstFieldDualInp { get; }
+}
+
+public interface ICmptCnstFieldDualInpObject
+  : ICmptRefCnstFieldDualInpObject<ICmptAltCnstFieldDualInp>
+{
+}
+
+public interface ICmptRefCnstFieldDualInp<TRef>
+  // No Base because it's Class
+{
+  ICmptRefCnstFieldDualInpObject<TRef>? As_RefCnstFieldDualInp { get; }
+}
+
+public interface ICmptRefCnstFieldDualInpObject<TRef>
+  // No Base because it's Class
+{
+  TRef Field { get; }
+}
+
+public interface ICmptPrntCnstFieldDualInp
+  // No Base because it's Class
+{
+  string? AsString { get; }
+  ICmptPrntCnstFieldDualInpObject? As_PrntCnstFieldDualInp { get; }
+}
+
+public interface ICmptPrntCnstFieldDualInpObject
+  // No Base because it's Class
+{
+}
+
+public interface ICmptAltCnstFieldDualInp
+  : ICmptPrntCnstFieldDualInp
+{
+  ICmptAltCnstFieldDualInpObject? As_AltCnstFieldDualInp { get; }
+}
+
+public interface ICmptAltCnstFieldDualInpObject
+  : ICmptPrntCnstFieldDualInpObject
+{
+  decimal Alt { get; }
+}

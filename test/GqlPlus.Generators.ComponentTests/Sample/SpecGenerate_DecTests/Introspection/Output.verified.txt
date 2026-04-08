@@ -1,0 +1,41 @@
+﻿/* Output
+output _OutputField {
+    : _ObjField<_ObjFieldType>
+    }
+
+output _OutputFieldType {
+    : _ObjFieldType
+        parameter: _InputFieldType?
+    }
+*/
+
+// Generated from Spec Output
+//   with GeneratorOption: BaseType: Class, BaseName: Spec_Output, GeneratorType: Dec
+//   and ModelOption: BaseNamespace: ComponentTests, TypePrefix: Cmpt
+/*
+*/
+
+namespace Components.Gqlp_Spec_Output;
+
+public interface ICmpt_OutputField
+  : ICmpt_ObjField<ICmpt_ObjFieldType>
+{
+  ICmpt_OutputFieldObject? As__OutputField { get; }
+}
+
+public interface ICmpt_OutputFieldObject
+  : ICmpt_ObjFieldObject<ICmpt_ObjFieldType>
+{
+}
+
+public interface ICmpt_OutputFieldType
+  : ICmpt_ObjFieldType
+{
+  ICmpt_OutputFieldTypeObject? As__OutputFieldType { get; }
+}
+
+public interface ICmpt_OutputFieldTypeObject
+  : ICmpt_ObjFieldTypeObject
+{
+  ICmpt_InputFieldType? Parameter { get; }
+}

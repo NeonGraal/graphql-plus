@@ -15,16 +15,16 @@ public class UnionEncoderGeneratorTests
   internal override GenerateForType<IGqlpUnion> TypeGenerator => _generator;
 
   internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedEncoder("public class " + TestPrefix + name);
+    => ForGeneratedEncoder("internal class " + TestPrefix + name + "Encoder");
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => ForGeneratedEncoder(": " + parent);
+    => _ => _ => { };
 
   internal override ForType ForGeneratedBoth(string contains)
-    => ForGeneratedEncoder(contains);
+    => _ => _ => { };
 
   internal override ForType ForGeneratedInterface(string contains)
-    => ForGeneratedEncoder(contains);
+    => _ => _ => { };
 
   protected override void MakeItems(SimpleBuilder<IGqlpUnion> builder, params string[] items)
     => ((UnionBuilder)builder).WithMembers(items);

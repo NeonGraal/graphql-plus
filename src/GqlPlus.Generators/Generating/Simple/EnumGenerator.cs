@@ -14,6 +14,9 @@ internal class EnumGenerator
   private void EnumMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write("  " + item.Key + item.Value + ",");
 
+  internal static void EnumClassMember(MapPair<string> item, GqlpGeneratorContext context)
+    => context.Write($"  public string {item.Key} {{ get; set; }}");
+
   private static IEnumerable<MapPair<string>> ParentItems(string? parent, GqlpGeneratorTypes types)
   {
     if (!types.GetTypeAst(parent, out IGqlpEnum ast)) {
@@ -43,8 +46,14 @@ internal class EnumGenerator
 
 internal sealed class EnumDecoderGenerator
   : EnumGenerator
-{ }
+{
+  protected override void Generate(IGqlpEnum ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, DecoderHeader, EnumMembers, EnumClassMember);
+}
 
 internal sealed class EnumEncoderGenerator
   : EnumGenerator
-{ }
+{
+  protected override void Generate(IGqlpEnum ast, GqlpGeneratorContext context)
+    => GenerateBlock(ast, context, EncoderHeader, EnumMembers, EnumClassMember);
+}

@@ -10,10 +10,10 @@ public class DomainBooleanEncoderGeneratorTests
   internal override GqlpBaseType BaseType => GqlpBaseType.Class;
 
   internal override ForType ForGeneratedCodeName(string name)
-    => ForGeneratedEncoder("public class " + TestPrefix + name);
+    => ForGeneratedEncoder("internal class " + TestPrefix + name + "Encoder");
 
   internal override ForType ForGeneratedCodeParent(string parent)
-    => ForGeneratedEncoder(": " + parent);
+    => _ => _ => { };
 
   internal override ForType ForGeneratedBoth(string contains)
     => ForGeneratedEncoder(contains);

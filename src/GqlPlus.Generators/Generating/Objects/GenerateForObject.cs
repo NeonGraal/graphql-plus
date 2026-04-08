@@ -85,6 +85,12 @@ internal abstract class GenerateForObject<TObjField, TFieldItem>
     context.Write("  " + interfaceSep + " " + context.TypeName(ast, "I") + TypeParamsString(ast));
   }
 
+  protected override void DecoderHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+    => context.Write("internal class " + context.TypeName(ast, "") + "Decoder" + TypeParamsString(ast));
+
+  protected override void EncoderHeader(IGqlpObject<TObjField> ast, GqlpGeneratorContext context)
+    => context.Write("internal class " + context.TypeName(ast, "") + "Encoder" + TypeParamsString(ast));
+
   protected void AlternateClassMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  public {item.Value}? As{item.Key} {{ get; set; }}");
 
